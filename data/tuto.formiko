@@ -1,0 +1,86 @@
+removePz
+setPa 20
+print tuto.0
+print tuto.1
+print tuto.2
+print tuto.3 true
+//setPa 0
+attendre Creature 1 getPoint 1,1
+setAction 1 1
+setPa 20
+print tuto.4
+print tuto.5 true
+setPa 1
+attendre Creature 2 estMort
+setPa 20
+print tuto.6
+print tuto.7
+print tuto.8 true
+setPa 1
+attendre GInsecte length 0
+setPa 20
+print tuto.9
+print tuto.10
+print tuto.11 true
+//setPa 0
+attendre Creature 1 getPoint 0,1
+print tuto.12 true
+setPa 2
+attendre Fourmiliere 1 length 2
+setPa 20
+print tuto.13
+print tuto.14
+print tuto.15 true
+setPa 9
+attendre finDuTour
+evoluer 3
+setPa 20
+print tuto.16
+print tuto.17
+print tuto.18 true
+setPa 4
+setProprete 1 100
+setProprete 3 40
+attendre Creature 3 getProprete > 50
+setProprete 3 100
+print tuto.19 true
+setPa 9
+attendre finDuTour
+evoluer 3
+setNourriture 3 1
+setPa 20
+print tuto.20
+print tuto.21
+print tuto.22 true
+setPa 3
+attendre Creature 3 getNourriture > 1
+setNourriture 3 100
+print tuto.23 true
+setPa 9
+attendre finDuTour
+evoluer 3
+new Insecte 2 2 5
+setPa 20
+print tuto.24
+print tuto.25 true
+setPa 7
+attendre Creature 1 getAction < 0
+setPa 20
+new Graine 2 1
+print tuto.26
+print tuto.27
+print tuto.28
+print tuto.29
+print tuto.30
+print tuto.31 true
+setPa -1
+attendre finDuTour
+setPa 20
+print tuto.32
+print tuto.33
+print tuto.34
+print tuto.35 true
+finirPartie
+print tuto.36
+print tuto.37
+quit
