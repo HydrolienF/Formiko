@@ -5,7 +5,7 @@
 *Support: / Support : / Subteno:* https://discord.gg/9uHXJ9K
 
 ###EN
-`Formiko is a game where you play as a queen ant who develops her anthill.`
+`Formiko is a game where you play as a ant queen who develops its anthill.`
 
 ###FR
 `Formiko est un jeu ou vous incarnez une reine fourmi qui dévelloppe sa fourmilière.`
