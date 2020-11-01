@@ -1,0 +1,81 @@
+package fr.formiko.usuel;
+import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
+//def par défaut des fichiers depuis 0.79.5
+
+/**
+*{@summary Get a translation class.<br>}
+*@author Hydrolien
+*@version 1.5
+*/
+public class g {
+
+  // Fonctions propre -----------------------------------------------------------
+  public static String get(String f, int x,String s){
+    return get(f+"."+x,s);
+  }
+  /**
+  *{@summary main get methode.<br>}
+  *Null values are supported.<br>
+  *@param key Map key.
+  *@param s String return if key is not found.
+  *@return value that corresponds to key or s if there is no value fo key.
+  *@version 1.5
+  */
+  public static String get(String key, String s){
+    if(key==null){if(s==null){s="";}return s;}
+    try {
+      String sr = Main.getMap(key);
+      if(sr.length()>6 && sr.substring(sr.length()-6).equals("[auto]")){sr=sr.substring(0,sr.length()-6);}//on retir [auto] a la fin de la String si besoin
+      else if(sr.length()>2 && sr.substring(sr.length()-2).equals("[]")){sr=sr.substring(0,sr.length()-2);}//on retire les simple crochet aussi.
+      if(sr.equals("ø")){return "";}
+      if(sr!=null && sr.length()>0){ return sr;}
+      return s;
+    }catch (Exception e){if(s==null){s="";}return s;}
+  }
+  /**
+  *{@summary main get methode.<br>}
+  *the String return if key is not found will be key.
+  *@param key Map key.
+  *@return value that corresponds to key or s if there is no value fo key.
+  *@version 1.5
+  */
+  public static String get(String key){
+    if(key.equals("n")){return get(key,"");} // le fait qu'un mots subisse l'action n'as d'impacte qu'en eo.
+    return get(key,key);
+  }
+  /**
+  *{@summary main get methode.<br>}
+  *return String will have a 1a char in uppercase.
+  *@param key Map key.
+  *@return value that corresponds to key or s if there is no value fo key.
+  *@version 1.5
+  */
+  public static String getM(String key){
+    String s = get(key);
+    if(s.length()>1){
+      return s.substring(0,1).toUpperCase()+s.substring(1); // 1a char en majuscule.
+    }else{
+      return s;
+    }
+  }
+  /**
+  *{@summary main get methode.}
+  *@param key Map key1.
+  *@param key2 Map key2.
+  *@return value that corresponds to key and key2 or value1/value2 if that's not the same.
+  *@version 1.5
+  */
+  public static String getOu(String key, String key2){
+    String value1 = get(key,"ø");
+    String value2 = get(key2,"ø");
+    //si aucune clé n'as été trouvé.
+    if(value1.equals("ø") && value2.equals("ø")){ return key+"/"+key2;}
+    //si une des clé n'as pas été trouvée
+    if(value1.equals("ø")){value1 = value2;}
+    if(value2.equals("ø")){value2 = value1;}
+    //si les 2 valeurs sont égales :
+    if(value1.equals(value2)){return value1;}
+    //si les 2 valeurs sont différentes :
+    return value1+"/"+value2;
+  }
+}
