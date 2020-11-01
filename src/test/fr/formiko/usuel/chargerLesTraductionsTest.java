@@ -56,6 +56,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertEquals(-1,chargerLesTraductions.getLangue("zauvfbiano"));
   }
   //iniTLangue
+  @Test
   public void testIniTLangue(){
     //fonctionnement normale.
     assertTrue(chargerLesTraductions.iniTLangue());
@@ -70,6 +71,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
   }
 
   //créerLesFichiers
+  @Test
   public void testCréerLesFichiers(){
     //fonctionnement normale.
     assertTrue(chargerLesTraductions.iniTLangue());
@@ -107,6 +109,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
   }
 
   //estLigneDeTrad
+  @Test
   public void testEstLigneDeTrad(){
     assertTrue(chargerLesTraductions.estLigneDeTrad("a:"));
     assertTrue(chargerLesTraductions.estLigneDeTrad("a:a"));
@@ -128,6 +131,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
   }
 
   //getTableauDesTrad
+  @Test
   public void testGetTableauDesTrad(){
     File f = new File("testDir10/");
     f.mkdir();
@@ -142,16 +146,33 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertEquals(0,t.length);
     //TODO testé également un tableau avec un fichier non vide.
 
-    /*String t2 [] = chargerLesTraductions.getTableauDesTrad(1);
+    String t2 [] = chargerLesTraductions.getTableauDesTrad(1);
     assertEquals(0,t2.length);
     String t3 [] = chargerLesTraductions.getTableauDesTrad(2);
-    assertEquals(0,t3.length);*/
+    assertEquals(0,t3.length);
 
     assertTrue(image.deleteDirectory(f));
     chargerLesTraductions.setRep();
   }
 
   //getTableauDesCmd
+  @Test
+  public void testGetTableauDesCmd(){
+    String t [] = chargerLesTraductions.getTableauDesCmd();
+    assertTrue(t.length>1);//Le fichier contient des lignes (et donc a bien été lu).
+
+    File f = new File("testDir11/");
+    f.mkdir();
+    File ft = new File("testDir11/te.txt");
+    try {
+      assertTrue(ft.createNewFile());assertTrue(ft.exists());
+    }catch (Exception e) {assertTrue(false);}
+    chargerLesTraductions.setRep("testDir11/");
+    String t2 [] = chargerLesTraductions.getTableauDesCmd();
+    assertEquals(0,t2.length);
+    assertTrue(image.deleteDirectory(f));
+    chargerLesTraductions.setRep();
+  }
 
   //chargerLesTraductions
 
