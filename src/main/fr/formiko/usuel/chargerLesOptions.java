@@ -59,7 +59,7 @@ public class chargerLesOptions {
     try {
       File dossier = new File(image.REP2);
       //si les éléments sont tourné mais qu'il n'y a pas beaucoup d'image, il en manque.
-      if(op.getElementSurCarteOrientéAprèsDéplacement() && dossier.listFiles().length<50){op.setGarderLesGraphismesTourné(false);erreur.alerte("Les graphismes déjà présent semble bien trop peu nombreux pour être complet","chargerLesOptions","Les graphismes seront rechargé pendant le lancement du jeu");}
+      if(op.getElementSurCarteOrientéAprèsDéplacement() && dossier.listFiles().length<30){op.setGarderLesGraphismesTourné(false);erreur.alerte("Les graphismes déjà présent semble bien trop peu nombreux pour être complet","chargerLesOptions","Les graphismes seront rechargé pendant le lancement du jeu");}
     }catch (Exception e) {
       erreur.erreur("le dossier REP2 n'existe pas.");
     }

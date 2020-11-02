@@ -118,11 +118,8 @@ public class test {
       cmd[2]=">>";
       cmd[3]="test.txt";
       // create runtime to execute external command
-      System.out.println("1");//@a
       Runtime rt = Runtime.getRuntime();
-      System.out.println("2");//@a
       Process pr = rt.exec(cmd);
-      System.out.println("3");//@a
       // retrieve output from command
       BufferedReader bfr = new BufferedReader(new InputStreamReader(pr.getInputStream()));
       s2 = bfr.readLine();

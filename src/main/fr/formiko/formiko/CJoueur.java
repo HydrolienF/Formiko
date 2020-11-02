@@ -164,4 +164,11 @@ public class CJoueur implements Serializable{
       cj = cj.getSuivant();
     }
   }
+  public void setAction0(){
+    CJoueur cj = this;
+    while(cj!=null){
+      cj.getContenu().setAction0();
+      cj = cj.getSuivant();
+    }
+  }
 }

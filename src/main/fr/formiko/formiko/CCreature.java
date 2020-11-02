@@ -260,4 +260,7 @@ public class CCreature implements Serializable{
     if(getSuivant()==null){return true;}//si c'était la dernière de la liste et que tt le monde a fini.
     return getSuivant().aFiniDeJouer();//si il reste d'autre Creature après.
   }
+  public void setAction0(){
+    contenu.setAction(0);
+  }
 }

@@ -305,4 +305,8 @@ public class GCreature implements Serializable{
     if (début==null){ return true;}
     return début.aFiniDeJouer();
   }
+  public void setAction0(){
+    if (début==null){ return;}
+    début.setAction0();
+  }
 }

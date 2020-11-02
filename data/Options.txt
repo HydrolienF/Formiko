@@ -20,7 +20,7 @@ chargement pendant les menu:1
 garder les fichier tourné:1
 attendre après le chargement de la carte:0
 afficher les étapes de résolution (débogage):0
-afficher les performances(débogage):0
+afficher les performances(débogage):1
 afficher les étape graphiques(débogage):0
 dimention des lignes de la carte:2
 positionCase:2

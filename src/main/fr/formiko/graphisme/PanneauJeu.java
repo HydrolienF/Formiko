@@ -192,7 +192,9 @@ public class PanneauJeu extends Panneau {
     }else if(ac==-12){
 
     }else if(ac==-13){
-
+      Main.setRetournerAuMenu(true);//ne prend effet dans la void main que lorsque le tour est fini.
+      Main.getGj().setAction0();//empèche une autre fourmi de jouer
+      setActionF(9);//empèche la fourmi actuel de jouer.
     }else if(ac==-14){
       Main.getF().quitter();
     }else if(ac==-15){
