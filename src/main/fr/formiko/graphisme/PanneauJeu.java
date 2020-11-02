@@ -17,6 +17,9 @@ import javax.swing.JOptionPane;
 import fr.formiko.formiko.*;
 import fr.formiko.usuel.image.image;
 import fr.formiko.usuel.math.math;
+import fr.formiko.usuel.sauvegarderUnePartie;
+import fr.formiko.usuel.Temps;
+import javax.swing.ImageIcon;
 
 public class PanneauJeu extends Panneau {
   private PanneauCarte pc;
@@ -186,21 +189,26 @@ public class PanneauJeu extends Panneau {
     }else if(ac==-9){
       Main.getScript().setCmdSuivante(true);
     }else if(ac==-10){
-
+      String s = getSaveName();
+      sauvegarderUnePartie.sauvegarder(Main.getPartie(),s+".save");
+      pe.setVisible(false);
     }else if(ac==-11){
 
     }else if(ac==-12){
 
     }else if(ac==-13){
-      Main.setRetournerAuMenu(true);//ne prend effet dans la void main que lorsque le tour est fini.
-      Main.getGj().setAction0();//empèche une autre fourmi de jouer
-      setActionF(9);//empèche la fourmi actuel de jouer.
+      retournerAuMenu();
     }else if(ac==-14){
       Main.getF().quitter();
     }else if(ac==-15){
       pe.setVisible(false);
     }
   }public void doAction(int ac){ doAction((byte) ac);}
+  public void retournerAuMenu(){
+    Main.setRetournerAuMenu(true);//ne prend effet dans la void main que lorsque le tour est fini.
+    Main.getGj().setAction0();//empèche une autre fourmi de jouer
+    setActionF(9);//empèche la fourmi actuel de jouer.
+  }
   public void centrerLaCarte(){
     GCase gc = Main.getGc();
     pc.setPosX(math.max(gc.getNbrX()/2 - nbrDeCaseAffichableX(),0));
@@ -264,5 +272,20 @@ public class PanneauJeu extends Panneau {
     jop1.showMessageDialog(null, s, s2, JOptionPane.INFORMATION_MESSAGE);
   }
   public void alerte(String s){ alerte(s,g.getM("information"));}
-
+  public String getSaveName(){
+    String s = "null";
+    JOptionPane d = new JOptionPane(g.get("sauvegarder"));
+    d.setMessageType(JOptionPane.QUESTION_MESSAGE);
+    //d.setInitialSelectionValue(Temps.getDatePourSauvegarde());
+    Object[] options = {g.get("ok")};
+    //d.title = g.get("sauvegarder");
+    s = d.showInputDialog(Main.getF(),g.get("save.message"),Temps.getDatePourSauvegarde());
+    //s = d.showInputDialog(Main.getF(),g.get("save.message"),g.get("sauvegarder"),JOptionPane.QUESTION_MESSAGE);
+    Object o = g.get("save.message");
+    Object oNull = null;
+    //TODO s'arranger pour conserver ce qu'on a mais avoir 1 seul bouton g.get("ok") & on veut le titre et la valeur préremplie.
+    //javadoc showInputDialog(Component parentComponent, Object message, String title, int messageType, Icon icon, Object[] selectionValues, Object initialSelectionValue)
+    //s = d.showInputDialog(Main.getF(),o,g.get("sauvegarder"),JOptionPane.QUESTION_MESSAGE,new ImageIcon(),options,oNull);
+    return s;
+  }
 }

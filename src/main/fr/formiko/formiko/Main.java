@@ -54,7 +54,7 @@ public class Main {
   private static Partie pa;
   private static byte niveauDeDétailDeLAffichage=3;
   /**
-   *Contain the String in the chosen language.
+   *Contain the Strings in the chosen language.
    *@version 1.1
    */
   private static Map<String, String> map; // map.get(clé) permet d'obtenir le texte associé.

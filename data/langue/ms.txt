@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:ujianFr[auto]
+test:testMs
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:dimensi huruf dalam Y[auto]
 erreurCarteVide:mustahil untuk memulakan permainan tanpa pemain dan tanpa ai.[auto]
 maxFourmiIa:bilangan semut maksimum untuk ai[auto]
 nomDuFichier:nama fail[auto]
-getNomDuFcihier:Masukkan nama set simpanan yang ingin anda muatkan: (Atau kembali untuk kembali)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Pusingan terakhir kini telah berlalu.[auto]
 victoireInconue:kemenangan yang tidak diketahui[auto]
 élimination:penghapusan[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Buka menu pilihan dalam permainan[auto]
 
 pti.desc.1:Nyatakan id semut yang akan menerima makanan.[auto]
 pti.desc.2:Nyatakan jumlah makanan yang ditawarkan.[auto]
-pti.desc.3:
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Nyatakan arah yang harus diikuti.[auto]
 pti.desc.5:Nyatakan id semut yang hendak dibersihkan. Semut yang paling kotor adalah semut di kedudukan 1.[auto]
 
 triche.aide.1:selamat datang ke antara muka cheat Formiko. Di sinilah anda boleh menaip perintah cheat.[auto]
-triche.aide.2:perintah dalam bentuk nama: (argumen) keterangan[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:tahap id makhluk[auto]
 cmd.args.15:id makhluk, fesyen[auto]
 cmd.args.16:id makhluk, id anthill[auto]
 cmd.args.17:spesies id makhluk[auto]
-cmd.args:18: makhluk id, kebersihan[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:id makhluk, kuantiti diangkut[auto]
 cmd.args.20:id biji, kekerasanMaks[auto]
 cmd.args.21:makanan id serangga disediakan[auto]
@@ -375,7 +375,7 @@ cmd.args.22:id serangga, makanan[auto]
 cmd.args.23:id pemain, nama pengguna[auto]
 cmd.args.24:id pemain, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Semut atau Serangga atau Benih, Jika serangga: x, y, ketik Jika semut: id Bukit Ant Jika Benih: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:id makhluk[auto]
 cmd.args.29:Kekunci rentetan[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Kolam menguruskan semut anda? Gunakan 2 mod automatik yang boleh anda 
 conseil.4:Ingin sedikit mengubah gaya permainan? pilih spesies yang belum pernah anda mainkan.[auto]
 conseil.5:Sebilangan spesies semut bersifat polimorfik. Maksudnya mereka mempunyai pekerja dengan ukuran yang berbeza-beza untuk dapat melakukan tugas yang sangat berbeza.[auto]
 conseil.6:Jangan bertelur terlalu banyak sekaligus. Jika tidak, anda tidak akan dapat menjaga mereka sehingga mereka menjadi khayalan.[auto]
-conseil.7:Semut melalui 4 peringkat perkembangan: telur, lava, nimfa dan imago (semut dewasa).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Pilihan yang harus anda buat ditunjukkan di kiri atas skrin anda.[auto]
 conseil.9:Semut tidak mempunyai kelopak mata untuk membasahi mata mereka. Mereka mesti sentiasa mengekalkan gaya hidup sihat agar dapat berkomunikasi dengan antena mereka dan melihat dengan mata mereka.[auto]
 conseil.10:Telur, lava dan nimfa tidak dapat membersihkannya sendiri. Mereka semestinya memerlukan pertolongan seorang imago, jika tidak, ia berisiko dijangkiti bakteria jahat. pastikan anak anda sentiasa bersih melebihi 50%.[auto]
@@ -452,7 +452,7 @@ tuto.30:Pekerja lebih cekap dalam tugas-tugas tertentu (mereka memerlukan lebih 
 tuto.31:Mari beri tugas kepada pekerja kita untuk menyelesaikan sehingga pusingan berakhir. (klik pada salah satu butang di bahagian bawah skrin anda, beberapa kali jika perlu.)[auto]
 tuto.32:Ini adalah pusingan terakhir tutorial ini, jika anda mempunyai keraguan, anda boleh membuat semula tutorial ini.[auto]
 tuto.33:Jika tidak, keterangan butang dipaparkan semasa anda mengarahkan kursor ke atasnya, ditto untuk kotak di peta. Maklumat mengenai semut yang dipilih ada di sebelah kanan skrin anda.[auto]
-tuto.34:Sekiranya anda tidak menemui apa yang anda perlukan, anda boleh mendapatkan nasihat mengenai pelayan perselisihan rasmi permainan: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Untuk memenangi permainan tepat pada masanya, anda mesti mempunyai skor yang lebih tinggi daripada AI dan pemain lain.[auto]
 tuto.36:Skor anda bergantung pada jumlah semut anda, (semut dewasa memberikan skor yang lebih baik), serta kesukaran permainan dan kepantasan permainan.[auto]
 tuto.37:Untuk memulakan semula permainan, anda harus berhenti dari permainan dan memulakannya semula, saya akan mengurus berhenti dari permainan, terserah kepada anda untuk memulakannya semula.[auto]

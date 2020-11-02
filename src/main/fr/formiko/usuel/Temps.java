@@ -89,13 +89,6 @@ public class Temps {
       tempsEnJeux = 0;
     }
   }
-  public static void initialiserFichierTemps(){
-    GString gs = new GString();
-    gs.add(""+System.currentTimeMillis());
-    gs.add(""+System.currentTimeMillis());
-    gs.add("0");
-    ecrireUnFichier.ecrireUnFichier(gs,"data/Temps.txt");
-  }
   public void sauvegarder(){
     GString gs = new GString();
     gs.add(""+date1);
@@ -106,6 +99,18 @@ public class Temps {
   //static ---------------------------------------------------------------------------
   //TODO ajouter une méthode qui return un STring de date le plus adapté possible avec un nombre défini d'unité allant de jours a ms.
   //par défaut on a 2 unité. ex : x jours y heures  ex2 : x min y s
+  public static String getDatePourSauvegarde(){
+    String df2 = "dd-MM-yyyy HH-mm-ss";
+    SimpleDateFormat sdf = new SimpleDateFormat(df2);
+    return sdf.format(System.currentTimeMillis());
+  }
+  public static void initialiserFichierTemps(){
+    GString gs = new GString();
+    gs.add(""+System.currentTimeMillis());
+    gs.add(""+System.currentTimeMillis());
+    gs.add("0");
+    ecrireUnFichier.ecrireUnFichier(gs,"data/Temps.txt");
+  }
   public static void pause(int millis){
     if(millis<1){erreur.erreurPause(millis);}
     try {

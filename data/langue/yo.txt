@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:igbeyewoFr[auto]
+test:testYo
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:iwọn lẹta ni Y[auto]
 erreurCarteVide:ko ṣee ṣe lati bẹrẹ ere laisi eyikeyi oṣere ati laisi eyikeyi ai.[auto]
 maxFourmiIa:o pọju nọmba ti awọn kokoro fun ai[auto]
 nomDuFichier:orukọ faili[auto]
-getNomDuFcihier:Tẹ orukọ ti ṣeto fifipamọ ti o fẹ fifuye: (Tabi pada lati lọ sẹhin)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Iyika ti o kẹhin ti kọja bayi.[auto]
 victoireInconue:isegun aimọ[auto]
 élimination:imukuro[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Ṣii akojọ aṣayan awọn ere inu ere[auto]
 
 pti.desc.1:Ṣe afihan id ti kokoro ti yoo gba ounjẹ naa.[auto]
 pti.desc.2:Ṣe afihan iye ti ounjẹ ti a nṣe.[auto]
-pti.desc.3:
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Ṣe afihan itọsọna lati tẹle.[auto]
 pti.desc.5:Ṣe afihan id ti kokoro ti yoo mọ. Kokoro ẹlẹgbin julọ ni kokoro ni ipo 1.[auto]
 
 triche.aide.1:ku si ọna wiwo cheat Formiko. Eyi ni ibiti o le tẹ awọn ofin iyanjẹ.[auto]
-triche.aide.2:awọn aṣẹ ni orukọ fọọmu: (awọn ariyanjiyan) apejuwe[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:ipele id id[auto]
 cmd.args.15:id ẹda, aṣa[auto]
 cmd.args.16:id ẹda, idoti anthill[auto]
 cmd.args.17:ẹda id eya[auto]
-cmd.args:18: id ẹda, imototo[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:id ẹda, opoiye gbigbe[auto]
 cmd.args.20:irugbin id, líleMax[auto]
 cmd.args.21:kokoro id ounje ti a pese[auto]
@@ -375,7 +375,7 @@ cmd.args.22:kokoro id, ounjẹ[auto]
 cmd.args.23:player id, orukọ olumulo[auto]
 cmd.args.24:player id, Bolianu estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Kokoro tabi Kokoro tabi irugbin, Ti kokoro: x, y, tẹ Ti kokoro: id Ant Hill Ti irugbin: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:id ẹda[auto]
 cmd.args.29:Bọtini okun[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Omi ikudu ti micromanaging awọn kokoro rẹ? Lo awọn ipo aifọw�
 conseil.4:Ṣe o fẹ ṣe iyatọ ara ti ere diẹ? yan eya ti o ko tii ba ṣiṣẹ pẹlu sibẹsibẹ.[auto]
 conseil.5:Diẹ ninu awọn eran kokoro jẹ polymorphic. Iyẹn ni lati sọ pe wọn ni awọn oṣiṣẹ ti iwọn iyipada lati le ṣe awọn iṣẹ oriṣiriṣi oriṣiriṣi.[auto]
 conseil.6:Maṣe fi awọn eyin pupọ pọ lẹẹkan. Bibẹkọ ti iwọ kii yoo ni anfani lati tọju wọn titi wọn o fi di awọn ero inu.[auto]
-conseil.7:Awọn kokoro lọ nipasẹ awọn ipele 4 ti idagbasoke: ẹyin, lava, nymph ati imago (kokoro nla).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Awọn yiyan ti o ni lati ṣe ni itọkasi ni apa osi oke iboju rẹ.[auto]
 conseil.9:Kokoro ko ni ipenpeju lati tutu oju wọn. Wọn gbọdọ ṣetọju igbesi aye igbesi aye nigbagbogbo lati ni anfani lati ṣe ibaraẹnisọrọ pẹlu awọn eriali wọn ati lati rii pẹlu awọn oju wọn.[auto]
 conseil.10:Awọn ẹyin, lava ati nymphs ko ni anfani lati sọ eyi di mimọ funrarawọn. Wọn nilo dandan iranlọwọ imago bibẹkọ ti o le ni akoran nipasẹ kokoro-arun buburu kan. rii daju pe ọmọ rẹ duro loke 50% imototo.[auto]
@@ -452,7 +452,7 @@ tuto.30:Awọn oṣiṣẹ paapaa ni ilọsiwaju diẹ sii lori awọn iṣẹ-�
 tuto.31:Jẹ ki a fun oṣiṣẹ wa iṣẹ kan lati pari ki iyipo naa pari. (tẹ lori ọkan ninu awọn bọtini ti o wa ni isalẹ iboju rẹ, awọn igba pupọ ti o ba jẹ dandan.)[auto]
 tuto.32:O jẹ iyipo ikẹhin ti ẹkọ yii, ti o ba ni iyemeji eyikeyi o le tunṣe ẹkọ yii.[auto]
 tuto.33:Bibẹẹkọ awọn apejuwe bọtini yoo han nigbati o ba kọlu lori wọn, ditto fun awọn apoti lori maapu naa. Alaye nipa kokoro ti o yan wa ni apa ọtun iboju rẹ.[auto]
-tuto.34:Ti o ba jẹ pe eyi ko rii ohun ti o nilo, o le wa imọran lori olupin iwakọ osise ti ere: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Lati ṣẹgun ere ni akoko o gbọdọ ni ikun ti o ga julọ ju AI ati awọn ẹrọ orin miiran lọ.[auto]
 tuto.36:Dimegilio rẹ da lori nọmba awọn kokoro rẹ, (awọn kokoro agbalagba fun ikun ti o dara julọ), bakanna pẹlu iṣoro ti ere ati iyara ere.[auto]
 tuto.37:Lati tun bẹrẹ ere kan, o ni lati da ere naa duro ki o tun bẹrẹ, Emi yoo ṣe abojuto pipaduro ere naa, o jẹ tirẹ lati tun bẹrẹ.[auto]

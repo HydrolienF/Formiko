@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testTl
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:sukat ng titik sa Y[auto]
 erreurCarteVide:imposibleng magsimula ng isang laro nang walang anumang manlalaro at walang ai.[auto]
 maxFourmiIa:maximum na bilang ng mga ants para sa ai[auto]
 nomDuFichier:pangalan ng file[auto]
-getNomDuFcihier:Ipasok ang pangalan ng set ng pag-save na nais mong i-load: (O bumalik upang bumalik)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Lumipas na ang huling pag-ikot.[auto]
 victoireInconue:hindi kilalang tagumpay[auto]
 élimination:pag-aalis[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Buksan ang menu ng mga pagpipilian sa laro[auto]
 
 pti.desc.1:Ipahiwatig ang id ng langgam na tatanggap ng pagkain.[auto]
 pti.desc.2:Ipahiwatig ang dami ng inalok na pagkain.[auto]
-pti.desc.3:
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Ipahiwatig ang tagubiling susundan.[auto]
 pti.desc.5:Ipahiwatig ang id ng langgam na malinis. Ang pinakamadumi na langgam ay ang langgam sa posisyon 1.[auto]
 
 triche.aide.1:maligayang pagdating sa Formiko cheat interface. Dito mo mai-type ang mga utos na pandaraya.[auto]
-triche.aide.2:utos sa pangalan ng form: (mga argumento) na paglalarawan[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:nilalang id yugto[auto]
 cmd.args.15:nilalang id, fashion[auto]
 cmd.args.16:nilalang id, anthill id[auto]
 cmd.args.17:species ng nilalang id[auto]
-cmd.args:18: id nilalang, kalinisan[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:nilalang id, dami ng na-transport[auto]
 cmd.args.20:seed id, tigasMax[auto]
 cmd.args.21:ibinigay ang pagkain ng insekto id[auto]
@@ -375,7 +375,7 @@ cmd.args.22:insekto id, pagkain[auto]
 cmd.args.23:player id, username[auto]
 cmd.args.24:player id, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Ant o Insekto o Binhi, Kung insekto: x, y, i-type Kung ant: id Ant Hill Kung binhi: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:nilalang id[auto]
 cmd.args.29:String key[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Pool ng micromanaging iyong mga ants? Gamitin ang 2 awtomatikong mga m
 conseil.4:Nais bang iba-iba ng kaunti ang istilo ng paglalaro? pumili ng isang species na hindi mo pa nakakalaro.[auto]
 conseil.5:Ang ilang mga species ng langgam ay polymorphic. Iyon ay upang sabihin na mayroon silang mga manggagawa na may iba't ibang laki upang maisagawa ang iba't ibang mga gawain.[auto]
 conseil.6:Huwag maglagay ng masyadong maraming itlog nang sabay-sabay. Kung hindi man ay hindi mo mapangalagaan ang mga ito hanggang sa maging mga imahe nila.[auto]
-conseil.7:Ang mga langgam ay dumaan sa 4 na yugto ng pag-unlad: itlog, lava, nymph at imago (pang-adulto na langgam).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Ang mga pagpipilian na kailangan mong gawin ay ipinahiwatig sa kaliwang tuktok ng iyong screen.[auto]
 conseil.9:Ang mga langgam ay walang takipmata upang magbasa-basa ang kanilang mga mata. Dapat silang patuloy na mapanatili ang isang malusog na pamumuhay upang makapag-usap sa kanilang mga antena at makita sa kanilang mga mata.[auto]
 conseil.10:Ang mga itlog, lava at nymph ay hindi magagawang linisin ito nang mag-isa. Kinakailangan na kailangan nila ang tulong ng isang imago kung hindi man maaari itong mahawahan ng isang masamang bakterya. tiyaking mananatili ang iyong brood sa itaas ng 50% kalinisan.[auto]
@@ -452,7 +452,7 @@ tuto.30:Ang mga manggagawa ay mas mahusay sa ilang mga gawain (nagkakahalaga ang
 tuto.31:Bigyan natin ang ating trabahador ng isang gawain upang makumpleto upang matapos ang pag-ikot. (mag-click sa isa sa mga pindutan sa ilalim ng iyong screen, maraming beses kung kinakailangan.)[auto]
 tuto.32:Ito ang huling pag-ikot ng tutorial na ito, kung mayroon kang anumang mga pagdududa maaari mong gawing muli ang tutorial na ito.[auto]
 tuto.33:Kung hindi man ang mga paglalarawan ng pindutan ay ipinapakita kapag nag-hover ka sa kanila, ditto para sa mga kahon sa mapa. Ang impormasyon tungkol sa napiling langgam ay nasa kanan ng iyong screen.[auto]
-tuto.34:Kung sa kabila nito hindi mo nahanap kung ano ang kailangan mo maaari kang humingi ng payo sa opisyal na discord server ng laro: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Upang manalo ng isang laro sa tamang oras dapat kang magkaroon ng isang mas mataas na marka kaysa sa AI at iba pang mga manlalaro.[auto]
 tuto.36:Ang iyong iskor ay nakasalalay sa iyong bilang ng mga ants, (ang mga may sapat na gulang na ants ay nagbibigay ng isang mas mahusay na iskor), pati na rin ang kahirapan ng laro at ang bilis ng laro.[auto]
 tuto.37:Upang muling simulan ang isang laro, kailangan mong umalis sa laro at i-restart ito, aalagaan kong umalis sa laro, nasa sa iyo na itong muling simulan.[auto]

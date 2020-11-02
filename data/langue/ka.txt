@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:ტესტი FR[auto]
+test:testKa
 
 s:ს[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:ასო განზომილება Y- ში[auto]
 erreurCarteVide:შეუძლებელია თამაშის დაწყება ნებისმიერი მოთამაშის გარეშე და ყოველგვარი AI– ს გარეშე.[auto]
 maxFourmiIa:ჭიანჭველების მაქსიმალური რაოდენობა ai- სთვის[auto]
 nomDuFichier:ფაილის სახელი[auto]
-getNomDuFcihier:შეიყვანეთ შენახვის ნაკრების სახელი, რომლის ჩატვირთვაც გსურთ: (ან უკან დაბრუნება)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:ბოლო რაუნდი ახლა გავიდა.[auto]
 victoireInconue:უცნობი გამარჯვება[auto]
 élimination:აღმოფხვრა[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:გახსენით თამაშში პარამე
 
 pti.desc.1:მიუთითეთ ჭიანჭველის პირადობა, რომელიც მიიღებს საკვებს.[auto]
 pti.desc.2:მიუთითეთ შეთავაზებული საკვების რაოდენობა.[auto]
-pti.desc.3:მიუთითეთ კვერცხუჯრედის ტიპი: 0 = დედოფალი, 1 = კაცი, 2 = მცირე, 3 = საშუალო, 4 = ძირითადი, 5 + = სხვა.[auto]
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:მიუთითეთ მითითებული მიმართულება.[auto]
 pti.desc.5:მიუთითეთ ჭიანჭველის პირადობის მოწმობა. ყველაზე ბინძური ჭიანჭველა არის ჭიანჭველა 1 პოზიციაში.[auto]
 
 triche.aide.1:კეთილი იყოს თქვენი მობრძანება Formiko cheat ინტერფეისში. აქ შეგიძლიათ აკრიფოთ თაღლითობის ბრძანებები.[auto]
-triche.aide.2:ბრძანებები ფორმის სახელით: (არგუმენტები) აღწერა[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:ქმნილების id ეტაპი[auto]
 cmd.args.15:ქმნილების პირადობა, მოდა[auto]
 cmd.args.16:ქმნილების id, anthill id[auto]
 cmd.args.17:ქმნილების პირადობის სახეობები[auto]
-cmd.args:18: პიროვნული არსება, სისუფთავე[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:არსების ID, ტრანსპორტირებული რაოდენობა[auto]
 cmd.args.20:თესლის id, სიმტკიცე Max[auto]
 cmd.args.21:გათვალისწინებულია მწერების პირადობის საკვები[auto]
@@ -375,7 +375,7 @@ cmd.args.22:მწერების პირადობა, საკვე�
 cmd.args.23:მოთამაშის ID, მომხმარებლის სახელი[auto]
 cmd.args.24:მოთამაშის id, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:ჭიანჭველა ან მწერი ან თესლი, თუ მწერი: x, y, ტიპი თუ ჭიანჭველა: id Ant Hill თუ თესლი: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:ქმნილების ID[auto]
 cmd.args.29:სიმების გასაღები[auto]
 
@@ -390,7 +390,7 @@ conseil.3:თქვენი ჭიანჭველების მიკრ�
 conseil.4:გსურთ ოდნავ შეცვალოთ თამაშის სტილი? აირჩიეთ ისეთი სახეობა, რომელთანაც ჯერ არ გითამაშიათ.[auto]
 conseil.5:ზოგიერთი ჭიანჭველის სახეობა მრავალმხრივია. ანუ, მათ ჰყავთ ცვალებადი ზომის მუშაკები, რათა მათ საკმაოდ განსხვავებული დავალებების შესრულება შეძლონ.[auto]
 conseil.6:არ დადოთ ერთდროულად ძალიან ბევრი კვერცხი. წინააღმდეგ შემთხვევაში თქვენ ვერ შეძლებთ მათზე ზრუნვას, სანამ ისინი წარმოდგენები გახდებიან.[auto]
-conseil.7:ჭიანჭველები გადიან განვითარების 4 ეტაპს: კვერცხი, ლავა, ნიმფა და წარმოსახვა (მოზრდილი ჭიანჭველა).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:თქვენი არჩევანის გაკეთება მითითებულია თქვენი ეკრანის მარცხენა ზედა ნაწილში.[auto]
 conseil.9:ჭიანჭველებს ქუთუთო არ აქვთ თვალების დასატენიანებლად. მათ მუდმივად უნდა შეინარჩუნონ ცხოვრების ჯანსაღი წესი, რომ შეძლონ ანტენის საშუალებით კომუნიკაცია და თვალით ნახონ.[auto]
 conseil.10:კვერცხს, ლავას და ნიმფებს არ შეუძლიათ ამის გაწმენდა საკუთარ თავზე. მათ აუცილებლად სჭირდებათ წარმოსახვის დახმარება, თორემ შეიძლება ცუდი ბაქტერიით ინფიცირება გამოიწვიოს. დარწმუნდით, რომ თქვენი ნაყოფი 50% -ზე მაღალი სუფთაა.[auto]
@@ -452,7 +452,7 @@ tuto.30:მშრომელები კიდევ უფრო ეფექ
 tuto.31:მოდით მივცეთ ჩვენს მუშას დავალების შესრულება, რომ დასრულდეს რაუნდი. (დააჭირეთ ერთ-ერთ ღილაკს თქვენი ეკრანის ქვედა ნაწილში, საჭიროების შემთხვევაში რამდენჯერმე.)[auto]
 tuto.32:ეს იყო ამ სახელმძღვანელოს ბოლო რაუნდი, თუ ეჭვი გეპარებათ, შეგიძლიათ ხელახლა გაატაროთ ეს სახელმძღვანელო.[auto]
 tuto.33:წინააღმდეგ შემთხვევაში, ღილაკზე აღწერილობა გამოჩნდება, როდესაც ისინი გადაფარეთ მათზე, ditto რუკაზე. ინფორმაცია არჩეული ჭიანჭველის შესახებ თქვენს ეკრანზე მდებარეობს.[auto]
-tuto.34:თუ ამის მიუხედავად ვერ იპოვნეთ ის რაც გჭირდებათ, შეგიძლიათ რჩევა მოძებნოთ თამაშის ოფიციალურ უთანხმოების სერვერზე: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:დროულად თამაშის მოსაგებად უნდა გქონდეთ უფრო მაღალი ქულა ვიდრე AI და სხვა მოთამაშეები.[auto]
 tuto.36:თქვენი ქულა დამოკიდებულია ჭიანჭველების რაოდენობაზე, (ზრდასრული ჭიანჭველები უკეთეს ქულას აძლევენ), ასევე თამაშის სირთულეზე და თამაშის სიჩქარეზე.[auto]
 tuto.37:თამაშის დასაწყებად, თქვენ უნდა დატოვოთ თამაში და გადატვირთოთ იგი, მე ვზრუნავ თამაშის შეწყვეტაზე, თქვენ გადავტვირთავთ მის განახლებას.[auto]

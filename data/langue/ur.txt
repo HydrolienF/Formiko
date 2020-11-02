@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testUr
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:Y میں حرفی طول و عرض[auto]
 erreurCarteVide:کسی کھلاڑی کے بغیر اور بغیر کسی عی کے کھیل شروع کرنا ناممکن ہے۔[auto]
 maxFourmiIa:عی کے لئے چیونٹوں کی زیادہ سے زیادہ تعداد[auto]
 nomDuFichier:فائل کا نام[auto]
-getNomDuFcihier:آپ جس سیف سیٹ کو لوڈ کرنا چاہتے ہیں اس کا نام درج کریں: (یا واپس جانے کے لئے واپس جائیں)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:اب آخری دور گزر چکا ہے۔[auto]
 victoireInconue:نامعلوم فتح[auto]
 élimination:خاتمہ[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:کھیل میں اختیارات کا مینو کھولیں[auto]
 
 pti.desc.1:چیونٹی کی شناخت کریں جس سے کھانا ملے گا۔[auto]
 pti.desc.2:پیش کردہ کھانے کی مقدار کی نشاندہی کریں۔[auto]
-pti.desc.3:
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:پیروی کرنے کی سمت کا اشارہ کریں۔[auto]
 pti.desc.5:صاف ہونے کے ل of چیونٹی کی شناخت ظاہر کریں۔ سب سے گہری چیونٹی پوزیشن 1 میں چیونٹی ہے۔[auto]
 
 triche.aide.1:فارمیکو چیٹ انٹرفیس میں خوش آمدید۔ یہ وہ جگہ ہے جہاں آپ دھوکہ دہی کے احکامات ٹائپ کرسکتے ہیں۔[auto]
-triche.aide.2:فارم نام میں کمانڈ: (دلائل) تفصیل[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:مخلوق ID مرحلے[auto]
 cmd.args.15:مخلوق کی شناخت ، فیشن[auto]
 cmd.args.16:مخلوق آئی ڈی ، اینتھل آئی ڈی[auto]
 cmd.args.17:مخلوق کی ID پرجاتیوں[auto]
-cmd.args:18: ID مخلوق ، صفائی[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:مخلوق ID ، مقدار میں منتقل[auto]
 cmd.args.20:بیج کی شناخت ، سختی میکس[auto]
 cmd.args.21:کیڑے سے متعلق ID کا کھانا مہیا کیا گیا[auto]
@@ -375,7 +375,7 @@ cmd.args.22:کیڑے کی شناخت ، کھانا[auto]
 cmd.args.23:پلیئر آئی ڈی ، صارف نام[auto]
 cmd.args.24:پلیئر آئی ڈی ، بولین ایسٹیا[auto]
 cmd.args.25:انٹ ایکس ، انٹ یٹ[auto]
-cmd.args.27:چیونٹی یا کیڑے یا بیج ، کیڑے ہیں تو: x ، y ، قسم اگر چیونٹی: id چیونٹی ہل اگر بیج: x ، y۔[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:مخلوق ID[auto]
 cmd.args.29:سٹرنگ کی[auto]
 
@@ -390,7 +390,7 @@ conseil.3:اپنے چیونٹیوں کو مائکرو مینجمنٹ کرنے ک
 conseil.4:کھیل کے انداز میں تھوڑا سا مختلف ہونا چاہتے ہیں؟ ایسی نوع کا انتخاب کریں جس کے ساتھ آپ ابھی تک نہیں کھیلے ہیں۔[auto]
 conseil.5:کچھ چیونٹی کی ذاتیں کثیر المزاج ہیں اس کا مطلب یہ ہے کہ ان کے پاس متغیر سائز کے کارکن موجود ہیں تاکہ کافی مختلف کام انجام دے سکیں۔[auto]
 conseil.6:ایک ساتھ بہت سارے انڈے نہ دیں۔ بصورت دیگر آپ اس وقت تک ان کی دیکھ بھال نہیں کرسکیں گے جب تک کہ وہ امیجاز نہ ہوجائیں۔[auto]
-conseil.7:چیونٹیاں ترقی کے 4 مراحل سے گزرتی ہیں: انڈا ، لاوا ، اپسرا اور اماگو (بالغ چیونٹی)۔[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:آپ کے منتخب کردہ انتخاب آپ کی سکرین کے اوپری بائیں طرف اشارہ کرتے ہیں۔[auto]
 conseil.9:چیونٹیوں کی آنکھیں نم کرنے کیلئے پپوٹا نہیں ہوتا ہے۔ انہیں اینٹینا کے ساتھ بات چیت کرنے اور ان کی آنکھوں سے دیکھنے کے ل able مستقل طور پر صحت مند طرز زندگی کو برقرار رکھنا چاہئے۔[auto]
 conseil.10:انڈے ، لاوا اور اپسرا خود سے اس کو صاف نہیں کرسکتے ہیں۔ انہیں ضروری طور پر اماگو کی مدد کی ضرورت ہے بصورت دیگر یہ خراب بیکٹیریا سے متاثر ہوسکتا ہے۔ اس بات کو یقینی بنائیں کہ آپ کا بچ 50ہ صاف صفائی سے 50 50 فیصد سے اوپر رہے۔[auto]
@@ -452,7 +452,7 @@ tuto.30:مزدور کچھ خاص کاموں پر اور زیادہ کارگر ہ
 tuto.31:آئیے اپنے کارکن کو کام کرنے کا ایک ٹاسک دیں تاکہ دور ختم ہوجائے۔ (اگر ضروری ہو تو کئی بار اپنی اسکرین کے نیچے والے بٹنوں پر کلک کریں۔)[auto]
 tuto.32:یہ اس سبق کا آخری مرحلہ تھا ، اگر آپ کو کوئی شبہ ہے تو آپ اس سبق کو دوبارہ کر سکتے ہیں۔[auto]
 tuto.33:بصورت دیگر جب آپ ان پر ہوور کرتے ہیں تو بٹن کی تفصیل ظاہر ہوتی ہے ، نقشے پر موجود خانوں کے لئے۔ منتخب کردہ چیونٹی کے بارے میں معلومات آپ کی سکرین کے دائیں طرف ہے۔[auto]
-tuto.34:اگر اس کے باوجود بھی آپ کو اپنی ضرورت کی چیز نہیں مل پاتی ہے تو آپ کھیل کے آفیشل ڈسپوڈر سرور سے مشورہ لے سکتے ہیں: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:کسی کھیل کو وقت پر جیتنے کے ل you آپ کے پاس AI اور دوسرے کھلاڑیوں سے زیادہ اسکور ہونا ضروری ہے۔[auto]
 tuto.36:آپ کا اسکور انحصار کرتا ہے کہ آپ کی چیونٹیوں کی تعداد ، (بالغ چیونٹی بہتر اسکور دیتی ہیں) ، اسی طرح کھیل کی دشواری اور کھیل کی رفتار۔[auto]
 tuto.37:کسی گیم کو دوبارہ اسٹارٹ کرنے کے ل you ، آپ کو گیم چھوڑنا پڑتا ہے اور اسے دوبارہ اسٹارٹ کرنا ہوگا ، میں اس گیم کو چھوڑنے کا خیال رکھنا چاہتا ہوں ، یہ آپ پر منحصر ہے کہ اسے دوبارہ اسٹارٹ کریں۔[auto]

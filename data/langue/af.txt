@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:toetsVr[auto]
+test:testAf
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:letterafmeting in Y[auto]
 erreurCarteVide:onmoontlik om &#39;n spel sonder enige speler en sonder ai te begin.[auto]
 maxFourmiIa:maksimum aantal miere vir ai[auto]
 nomDuFichier:lêernaam[auto]
-getNomDuFcihier:Voer die naam in van die stoorstel wat u wil laai: (Of terug om terug te gaan)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Die laaste ronde is nou verby.[auto]
 victoireInconue:onbekende oorwinning[auto]
 élimination:uitskakeling[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Maak die kieslys in die spel oop[auto]
 
 pti.desc.1:Dui die id aan van die mier wat die kos sal ontvang.[auto]
 pti.desc.2:Dui die hoeveelheid kos wat aangebied word aan.[auto]
-pti.desc.3:Dui die tipe eier aan wat gelê moet word: 0 = Koningin, 1 = Mannetjie, 2 = Klein, 3 = Medium, 4 = Majeur, 5 + = Ander.[auto]
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Dui die rigting aan wat gevolg moet word.[auto]
 pti.desc.5:Dui die ID aan van die mier wat skoongemaak moet word. Die vuilste mier is die mier in posisie 1.[auto]
 
 triche.aide.1:welkom by die Formiko cheat-koppelvlak. Dit is hier waar u bedrogopdragte kan tik.[auto]
-triche.aide.2:opdragte in die vormnaam: (argumente) beskrywing[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:wese id stadium[auto]
 cmd.args.15:kreatuur-id, mode[auto]
 cmd.args.16:kreatuur id, miernes id[auto]
 cmd.args.17:skepsel id spesie[auto]
-cmd.args:18: id-skepsel, netheid[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:kreatuur-id, hoeveelheid vervoer[auto]
 cmd.args.20:saad-id, hardheid Max[auto]
 cmd.args.21:insek-id kos voorsien[auto]
@@ -375,7 +375,7 @@ cmd.args.22:insek-id, kos[auto]
 cmd.args.23:speler-ID, gebruikersnaam[auto]
 cmd.args.24:speler-id, booleaanse estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Mier of insek of saad, as insek: x, y, tik As mier: id Mierheuwel As saad: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:wese id[auto]
 cmd.args.29:Rygsleutel[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Damm van die bestuur van u miere? Gebruik die 2 outomatiese modusse to
 conseil.4:Wil u die speelstyl &#39;n bietjie verander? kies &#39;n spesie waarmee jy nog nie gespeel het nie.[auto]
 conseil.5:Sommige miersoorte is polimorfies. Dit wil sê dat hulle werkers van verskillende grootte het om heeltemal verskillende take te kan verrig.[auto]
 conseil.6:Moenie te veel eiers gelyktydig lê nie. Andersins kan u nie na hulle omsien voordat hulle &#39;n beeld word nie.[auto]
-conseil.7:Miere gaan deur vier stadiums van ontwikkeling: eier, lawa, nimf en imago (volwasse mier).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Die keuses wat u moet maak, word links bo op u skerm aangedui.[auto]
 conseil.9:Miere het nie &#39;n ooglid om hul oë vogtig te maak nie. Hulle moet voortdurend &#39;n gesonde leefstyl handhaaf om met hul antennas te kan kommunikeer en met hul oë te kan sien.[auto]
 conseil.10:Eiers, lawa en nimfe kan dit nie op hul eie skoonmaak nie. Hulle het noodwendig die hulp van &#39;n imago nodig, anders kan dit deur slegte bakterieë besmet word. sorg dat u kroos bo 50% netheid bly.[auto]
@@ -452,7 +452,7 @@ tuto.30:Werkers is selfs doeltreffender met sekere take (dit kos hulle minder ak
 tuto.31:Kom ons gee ons werker die taak om te voltooi sodat die rondte eindig. (klik op een van die knoppies onderaan u skerm, indien nodig 'n paar keer.)[auto]
 tuto.32:Dit was die laaste ronde van hierdie tutoriaal. As u twyfel, kan u hierdie tutoriaal oor doen.[auto]
 tuto.33:Andersins word die beskrywings van die knoppies vertoon as u daaroor beweeg, dito vir die blokkies op die kaart. Inligting oor die geselekteerde mier is aan die regterkant van u skerm.[auto]
-tuto.34:As u nogtans nie vind wat u benodig nie, kan u advies inwin oor die amptelike diskordbediener van die spel: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Om 'n wedstryd betyds te wen, moet u 'n hoër telling hê as AI en ander spelers.[auto]
 tuto.36:U telling hang af van u aantal miere (volwasse miere gee 'n beter telling), sowel as die moeilikheid van die spel en die spoed van die spel.[auto]
 tuto.37:Om 'n speletjie weer te begin, moet u die spel ophou en dit weer begin, ek sal sorg dat u die spel ophou, dit hang van u af om dit weer te begin.[auto]

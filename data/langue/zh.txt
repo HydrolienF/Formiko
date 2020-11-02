@@ -2,22 +2,22 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testZh
 
 s:s[auto]
 n:
-.:。[auto]
-,:，[auto]
+.:。
+,:,
 ?:？[auto]
 !:！[auto]
 
-la:的[auto]
-le:的[auto]
-l':的[auto]
+la:的
+le:的
+l':的
 notre:我们的[auto]
 votre:你的[auto]
-oui:是[auto]
-non:不[auto]
+oui:是
+non:不
 et:和[auto]
 retour:返回[auto]
 choix:选择[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:Y中的字母尺寸[auto]
 erreurCarteVide:没有任何玩家和任何AI，就不可能开始游戏。[auto]
 maxFourmiIa:蚂蚁的最大数量[auto]
 nomDuFichier:文档名称[auto]
-getNomDuFcihier:输入要加载的存储集的名称：（或返回以返回）[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:上一轮已经过去了。[auto]
 victoireInconue:未知的胜利[auto]
 élimination:淘汰[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:打开游戏中的选项菜单[auto]
 
 pti.desc.1:指明将接收食物的蚂蚁的ID。[auto]
 pti.desc.2:指明提供的食物数量。[auto]
-pti.desc.3:
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:指明要遵循的方向。[auto]
 pti.desc.5:指出要清理的蚂蚁的ID。最脏的蚂蚁是位置1的蚂蚁。[auto]
 
 triche.aide.1:欢迎来到Formiko作弊界面。您可以在此处输入作弊命令。[auto]
-triche.aide.2:格式名称中的命令：（参数）说明[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:生物id阶段[auto]
 cmd.args.15:生物ID，时尚[auto]
 cmd.args.16:生物ID，蚁丘ID[auto]
 cmd.args.17:生物种[auto]
-cmd.args:18：身份证生物，清洁[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:生物编号，运输数量[auto]
 cmd.args.20:种子编号，硬度Max[auto]
 cmd.args.21:提供昆虫证食品[auto]
@@ -375,7 +375,7 @@ cmd.args.22:昆虫id，食物[auto]
 cmd.args.23:玩家编号，用户名[auto]
 cmd.args.24:玩家ID，布尔值estIa[auto]
 cmd.args.25:整数x，整数y[auto]
-cmd.args.27:蚂蚁或昆虫或种子，如果是昆虫：x，y，则键入如果蚂蚁：id蚁丘如果是种子：x，y。[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:生物ID[auto]
 cmd.args.29:字符串键[auto]
 
@@ -390,7 +390,7 @@ conseil.3:对蚂蚁进行微管理的池塘？使用两种自动模式供您使�
 conseil.4:是否想改变游戏风格？选择一个尚未玩过的物种。[auto]
 conseil.5:一些蚂蚁种类是多态的。就是说，他们有不同规模的工人，以便能够执行完全不同的任务。[auto]
 conseil.6:不要一次下太多卵。否则，您将无法照顾它们，直到它们变成意象。[auto]
-conseil.7:蚂蚁经历了四个发育阶段：卵，熔岩，若虫和成虫（成年蚂蚁）。[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:您必须进行的选择显示在屏幕的左上方。[auto]
 conseil.9:蚂蚁没有眼皮可以润湿眼睛。他们必须不断保持健康的生活方式，以便能够与自己的触角进行交流并用眼睛看到。[auto]
 conseil.10:鸡蛋，熔岩和若虫无法自行清洁。他们一定需要一个意象的帮助，否则它可能被坏细菌感染。确保您的育雏箱的清洁度保持在50％以上。[auto]
@@ -452,7 +452,7 @@ tuto.30:工作者在某些任务上的效率更高（执行这些任务所需的
 tuto.31:让我们给我们的工作人员完成一项任务，以使回合结束。 （如果需要，请单击屏幕底部的按钮之一，多次。）[auto]
 tuto.32:这是本教程的最后一轮，如果您有任何疑问，可以重做本教程。[auto]
 tuto.33:否则，当您将鼠标悬停在按钮上时，将显示按钮描述，这与地图上的框相同。屏幕上将显示有关选定蚂蚁的信息。[auto]
-tuto.34:如果您仍然找不到所需的内容，则可以在游戏的官方不和谐服务器上寻求建议：http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:要按时赢得比赛，您必须拥有比AI和其他玩家更高的分数。[auto]
 tuto.36:您的分数取决于您的蚂蚁数量（成年蚂蚁得分更高），游戏难度和游戏速度。[auto]
 tuto.37:要重新启动游戏，您必须退出游戏并重新启动它，我将退出游戏，这取决于您是否重新启动游戏。[auto]

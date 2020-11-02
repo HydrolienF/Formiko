@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testLb
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:Buschtawendimensioun am Y[auto]
 erreurCarteVide:onméiglech e Spill ouni Spiller an ouni ai ze starten.[auto]
 maxFourmiIa:maximal Unzuel vun Seechomessen fir ai[auto]
 nomDuFichier:fichiersnumm[auto]
-getNomDuFcihier:Gitt den Numm vum Späicherset an deen Dir luede wëllt: (Oder zréck fir zréckzekommen)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Déi lescht Ronn ass elo passéiert.[auto]
 victoireInconue:onbekannt Victoire[auto]
 élimination:Eliminatioun[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Öffnen den Optiounsmenü am Spill[auto]
 
 pti.desc.1:Uginn d'Id vun der Ant déi d'Iessen kritt.[auto]
 pti.desc.2:Uginn de Montant vun ugebueden Iessen.[auto]
-pti.desc.3:Uginn der Zort Ee ze leeën: 0 = Queen, 1 = Männlech, 2 = Mannerjäreger, 3 = Medium, 4 = Major, 5 + = Aner.[auto]
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Uginn d'Richtung ze verfollegen.[auto]
 pti.desc.5:Uginn d'Id vun der Ant ze botzen. Den dreckegste Seechomess ass den Ant an der Positioun 1.[auto]
 
 triche.aide.1:wëllkomm op der Formiko Cheat Interface. Dëst ass wou Dir Cheat Kommandë kënnt aginn.[auto]
-triche.aide.2:Kommandoen am Formnumm: (Argumenter) Beschreiwung[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:Kreatur Id Bühn[auto]
 cmd.args.15:Kreatur Id, Moud[auto]
 cmd.args.16:Kreatur Id, Seechomess Id[auto]
 cmd.args.17:Kreatur Id Spezies[auto]
-cmd.args:18: id Kreatur, Propretéit[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:Kreatur Id, Quantitéit transportéiert[auto]
 cmd.args.20:Som ID, Hardness Max[auto]
 cmd.args.21:Insekt Id Liewensmëttel virgesinn[auto]
@@ -375,7 +375,7 @@ cmd.args.22:Insekt ID, Iessen[auto]
 cmd.args.23:Spiller ID, Benotzernumm[auto]
 cmd.args.24:Spiller ID, Boolschen estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Seechomesse oder Insekt oder Som, Wann Insekt: x, y, Typ Wann Ant: Id Ant Hill Wann Som: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:Kreatur Id[auto]
 cmd.args.29:String Schlëssel[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Weier fir Är Seechomessen ze micromanéieren? Benotzt déi 2 automate
 conseil.4:Wëllt Dir de Spillstil e bësse variéieren? wielt eng Aart mat där Dir nach net gespillt hutt.[auto]
 conseil.5:E puer Seechomessenaarten si polymorf. Dat heescht datt se Aarbechter vu variéierender Gréisst hunn fir ganz verschidden Aufgaben auszeféieren.[auto]
 conseil.6:Loosst net ze vill Eeër gläichzäiteg. Soss kënnt Dir se net këmmeren bis se zu Imagoe ginn.[auto]
-conseil.7:Seechomessen ginn duerch 4 Stadien vun der Entwécklung: Ee, Lava, Nymph an Imago (erwuesse Mier).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Déi Entscheedungen déi Dir maache musst sinn uewe lénks op Ärem Écran uginn.[auto]
 conseil.9:Seechomessen hunn keen Aeelid fir d'Aen ze befeuchten. Si musse stänneg e gesonde Liewensstil oprechterhalen fir kënne mat hiren Antenne kommunizéieren a mat hiren Ae gesinn.[auto]
 conseil.10:Eeër, Lava a Nymphen kënnen dëst net eleng botzen. Si brauchen onbedéngt d'Hëllef vun engem Imago soss kéint et vun enger schlechter Bakterie infizéiert ginn. gitt sécher datt Äre Brudder iwwer 50% Propretéit bleift.[auto]
@@ -452,7 +452,7 @@ tuto.30:D'Aarbechter sinn nach méi effizient op verschidden Aufgaben (et kascht
 tuto.31:Loosst eis eisen Aarbechter eng Aufgab ginn fir ze kompletéieren sou datt d'Ronn endet. (klickt op ee vun de Knäppercher ënnen op Ärem Écran, e puer Mol wann néideg.)[auto]
 tuto.32:Et war déi lescht Ronn vun dësem Tutorial, wann Dir Zweifel hutt, kënnt Dir dësen Tutorial nei maachen.[auto]
 tuto.33:Soss ginn d'Knäppbeschreiwunge ugewisen wann Dir driwwer schwieft, ditto fir d'Boxen op der Kaart. Informatioun iwwer den ausgewielten Ant ass riets vun Ärem Écran.[auto]
-tuto.34:Wann Dir trotzdem net fënns wat Dir braucht, kënnt Dir Berodung op den offiziellen Discordserver vum Spill sichen: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Fir e Spill op Zäit ze gewannen, musst Dir e méi héije Score hunn wéi AI an aner Spiller.[auto]
 tuto.36:Äre Score hänkt vun Ärer Unzuel vun Ameen of, (erwuesse Seechomessen ginn e bessere Score), souwéi d'Schwieregkeet vum Spill an d'Geschwindegkeet vum Spill.[auto]
 tuto.37:Fir e Spill neu ze starten, musst Dir d'Spill ophalen an et neu starten, ech këmmere mech fir d'Spill opzehalen, et ass u Iech fir et neu ze starten.[auto]

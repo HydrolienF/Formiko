@@ -110,7 +110,7 @@ dimentionCarteY:ubukhulu bezinhlamvu ku-Y[auto]
 erreurCarteVide:akunakwenzeka ukuqala umdlalo ngaphandle kwanoma yimuphi umdlali futhi ngaphandle kwe-ai.[auto]
 maxFourmiIa:inombolo enkulu yezintuthwane ze-ai[auto]
 nomDuFichier:igama lefayela[auto]
-getNomDuFcihier:Faka igama lokusetha ofuna ukulilayisha: (Noma buyela emuva emuva)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Umzuliswano wokugcina usudlulile manje.[auto]
 victoireInconue:ukunqoba okungaziwa[auto]
 élimination:ukuqedwa[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Vula imenyu yezinketho zomdlalo[auto]
 
 pti.desc.1:Khombisa ubunikazi bezintuthwane ezizokwamukela ukudla.[auto]
 pti.desc.2:Khombisa inani lokudla okunikezwayo.[auto]
-pti.desc.3:
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Khombisa indlela okumele uyilandele.[auto]
 pti.desc.5:Khombisa ubunikazi bezintuthwane okufanele zihlanzwe. Idlozi elingcole kakhulu iyintuthwane esesikhundleni 1.[auto]
 
 triche.aide.1:wamukelekile kusixhumi esibonakalayo seFormiko. Yilapho ungathayipha khona imiyalo yokukopela.[auto]
-triche.aide.2:imiyalo egameni lefomu: (arguments) incazelo[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:isidalwa id isigaba[auto]
 cmd.args.15:i-id yesidalwa, imfashini[auto]
 cmd.args.16:i-id yesidalwa, i-id yesidleke[auto]
 cmd.args.17:izinhlobo ze-id zezidalwa[auto]
-cmd.args:18: isidalwa se-id, inhlanzeko[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:i-id yesidalwa, ubuningi obuhanjisiwe[auto]
 cmd.args.20:imbewu id, ubulukhuniMax[auto]
 cmd.args.21:ukudla okuyizinambuzane okunikeziwe[auto]
@@ -375,7 +375,7 @@ cmd.args.22:i-id yezinambuzane, ukudla[auto]
 cmd.args.23:i-id yomdlali, igama lomsebenzisi[auto]
 cmd.args.24:i-id yomdlali, i-boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Intuthwane noma Insect noma iMbewu, Uma isinambuzane: x, y, thayipha Uma intuthwane: id Intaba Yentuthwane Uma imbewu: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:i-id yesidalwa[auto]
 cmd.args.29:Ukhiye wentambo[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Pond of micromanaging izintuthwane zakho? Sebenzisa izindlela ezi-2 ez
 conseil.4:Ufuna ukushintsha isitayela sokudlala kancane? khetha uhlobo ongakaze udlale ngalo okwamanje.[auto]
 conseil.5:Ezinye izinhlobo zezintuthwane ziyi-polymorphic. Lokho kusho ukuthi banabasebenzi abahlukene ngosayizi ukuze bakwazi ukwenza imisebenzi ehluke kakhulu.[auto]
 conseil.6:Ungazaleli amaqanda amaningi ngasikhathi sinye. Ngaphandle kwalokho ngeke ukwazi ukubanakekela kuze kube yilapho sebengama-imagos.[auto]
-conseil.7:Izintuthwane zidlula ezigabeni ezi-4 zokukhula: iqanda, udaka, inymph ne-imago (idlozi elidala).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Izinketho okufanele uzenze ziboniswe phezulu ngakwesokunxele kwesikrini sakho.[auto]
 conseil.9:Izintuthwane azinayo ijwabu leso lokuthambisa amehlo azo. Kumele bahlale bephila ngendlela enempilo ukuze bakwazi ukuxhumana nezimpondo zabo futhi babone ngamehlo.[auto]
 conseil.10:Amaqanda, ama-lava nama-nymphs abakwazi ukukuhlanza lokhu ngokwabo. Badinga usizo lwe-imago kungenjalo kungangenwa igciwane elibi. qiniseka ukuthi umhlwenga wakho uhlala ngaphezu kwenhlanzeko engu-50%.[auto]
@@ -452,7 +452,7 @@ tuto.30:Abasebenzi basebenza kangcono emisebenzini ethile (kubabiza ngezenzo ezi
 tuto.31:Masinike umsebenzi wethu umsebenzi okumele awuqede ukuze umzuliswano uphele. (chofoza kwenye yezinkinobho ezansi kwesikrini sakho, kaningi uma kunesidingo.)[auto]
 tuto.32:Bekungumjikelezo wokugcina walesi sifundo, uma unokungabaza ungaphinda wenze lesi sifundo.[auto]
 tuto.33:Ngaphandle kwalokho izincazelo zenkinobho ziyaboniswa lapho uzulazula phezu kwazo, ditto ngamabhokisi emephini. Imininingwane emayelana nentuthwane ekhethiwe ingakwesokudla kwesikrini sakho.[auto]
-tuto.34:Uma ngaphandle kwalokhu ungakutholi okudingayo, ungafuna izeluleko kuseva yomdlalo esemthethweni yokungezwani: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Ukuze unqobe umdlalo ngesikhathi kufanele ube namanqaku aphezulu kune-AI nabanye abadlali.[auto]
 tuto.36:Isikolo sakho sincike kwinani lezintuthwane zakho, (izintuthwane ezindala zinikeza amaphuzu angcono), kanye nobunzima bomdlalo nejubane lomdlalo.[auto]
 tuto.37:Ukuqala kabusha umdlalo, kufanele uwuyeke umdlalo bese uqala kabusha, ngizokunakekela ukuwuyeka umdlalo, kukuwe ukuthi uwuqale phansi.[auto]
