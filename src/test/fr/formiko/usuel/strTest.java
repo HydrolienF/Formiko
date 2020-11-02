@@ -39,6 +39,15 @@ public class strTest extends TestCaseMuet{
 
     assertTrue(str.contient("une grande chaine de char","une grande chaine de char",3));
     assertTrue(!str.contient("une grande chaine de char","une grande chaine de chart",3));
+
+    //des trucs simple d'erreur :
+    assertTrue(!str.contient("ch","chaine"));
+    assertTrue(str.contient("ch",""));
+    assertTrue(!str.contient(null,"chaine"));
+    assertTrue(!str.contient("ch",null));
+    assertTrue(!str.contient("chaine x","chaine",-1));
+    assertTrue(!str.contient("chaine x","chaine",5));
+    assertTrue(!str.contient("chaine x","chaine",-2));
   }
   @Test
   public void testSToI(){
@@ -50,6 +59,8 @@ public class strTest extends TestCaseMuet{
     assertEquals(2678,str.sToI("2 678"));
     assertEquals(2678,str.sToI("    2 678"));
 
+    String s = null;
+    assertEquals(-1,str.sToI(s));
     assertEquals(-1,str.sToI(""));
     assertEquals(-1,str.sToI("8tte"));
     assertEquals(-1,str.sToI("8 e"));
@@ -69,8 +80,10 @@ public class strTest extends TestCaseMuet{
   }
   @Test
   public void testFiltreCharInterdit(){
-    String s = "wexrtcyuié&'-\\^é&('-è')'*$\"";
+    String s = null;
     char t [] = {'é'};
+    assertEquals(null,str.filtreCharInterdit(s,t));
+    s = "wexrtcyuié&'-\\^é&('-è')'*$\"";
     assertEquals("wexrtcyui&'-\\^&('-è')'*$\"",str.filtreCharInterdit(s,t));
     char t2 [] = {'\"'};
     assertEquals("wexrtcyuié&'-\\^é&('-è')'*$",str.filtreCharInterdit(s,t2));
@@ -113,8 +126,10 @@ public class strTest extends TestCaseMuet{
   }
 
   @Test
-  public static void testSToDirectoryName(){
-    String s = "unNomDeFichier";
+  public void testSToDirectoryName(){
+    String s = null;
+    assertEquals(null,str.sToDirectoryName(s));
+    s = "unNomDeFichier";
     assertEquals("unNomDeFichier/",str.sToDirectoryName(s));
     s = "unNomDeFichier/";
     assertEquals("unNomDeFichier/",str.sToDirectoryName(s));
@@ -126,5 +141,12 @@ public class strTest extends TestCaseMuet{
     assertEquals("unNomD/eFichier/",str.sToDirectoryName(s));
     s = "un!!??NomD/eFichier";
     assertEquals("un!!NomD/eFichier/",str.sToDirectoryName(s));
+  }
+
+  @Test
+  public void testSToSMaj(){
+    String s = null;
+    assertEquals(null,str.sToSMaj(s));
+
   }
 }

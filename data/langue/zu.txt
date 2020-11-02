@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testZu
 
 s:s[auto]
 n:[auto]

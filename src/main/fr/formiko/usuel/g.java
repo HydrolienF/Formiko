@@ -1,6 +1,7 @@
 package fr.formiko.usuel;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
 //def par défaut des fichiers depuis 0.79.5
+import fr.formiko.usuel.conversiondetype.str;
 
 /**
 *{@summary Get a translation class.<br>}
@@ -52,11 +53,7 @@ public class g {
   */
   public static String getM(String key){
     String s = get(key);
-    if(s.length()>1){
-      return s.substring(0,1).toUpperCase()+s.substring(1); // 1a char en majuscule.
-    }else{
-      return s;
-    }
+    return str.sToSMaj(s);
   }
   /**
   *{@summary main get methode.}

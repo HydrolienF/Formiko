@@ -40,7 +40,8 @@ public class trad {
     GString gs = new GString();
     for (String s : t) {
       if(chargerLesTraductions.estLigneDeTrad(s) && !str.contient(s,"[]",2)){//si c'est une ligne de trad qui ne correspond pas a un nom propre.
-        gs.ajouter(ligneTradBase(s,map));//modifié
+        if(str.contient(s,"test:",0)){gs.ajouter("test:test"+str.sToSMaj(se));}
+        else{gs.ajouter(ligneTradBase(s,map));}//modifié
       }else{
         gs.ajouter(s);//pas modifié.
       }

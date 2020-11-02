@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:TestEo
+test:testEo
 
 s:s
 n:n
@@ -98,7 +98,7 @@ continuerJeu:daŭrigu la ludon
 supprimerFourmi.1:forigu la formikon
 supprimerFourmi.2:ĉu vi vere volas forigi la formikon
 
-affTest:sukcesa testo
+afftest:sukcesa testo
 
 toutLesJoueurHumainsEliminés:ĉiuj homaj ludantoj estis forigitaj[auto]
 

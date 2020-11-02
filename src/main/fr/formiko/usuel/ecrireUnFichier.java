@@ -12,11 +12,12 @@ import fr.formiko.usuel.liste.GString;
 import fr.formiko.usuel.liste.CString;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
-
+import fr.formiko.usuel.conversiondetype.str;
 
 public class ecrireUnFichier {
 
-  public static void ecrireUnFichier(GString tableauDeLigne, String nomDuFichier) {
+  public static boolean ecrireUnFichier(GString tableauDeLigne, String nomDuFichier) {
+    nomDuFichier = str.sToDirectoryName(nomDuFichier);
     try {
       BufferedWriter ecriteurAvecBuffer = null;
       String ligne;
@@ -25,8 +26,9 @@ public class ecrireUnFichier {
         ecriteurAvecBuffer = new BufferedWriter(new FileWriter(nomDuFichier));
       } catch(FileNotFoundException e) {
         erreur.erreur("Le fichier n'as pas pu être créer. Le problème peut venir d'un caractère incorecte","ecrireUnFichier.ecrireUnFichier");
-        ecriteurAvecBuffer = new BufferedWriter(new FileWriter("sauvegarde/sauvegardeEnCasDErreur.txt"));
-  	     e.printStackTrace();
+        return false;
+        //ecriteurAvecBuffer = new BufferedWriter(new FileWriter("sauvegarde/sauvegardeEnCasDErreur.txt"));
+  	    //e.printStackTrace();
       }
       String contenu = tableauDeLigne.concatène();
       ecriteurAvecBuffer.write(contenu);
@@ -35,8 +37,10 @@ public class ecrireUnFichier {
       }*/
       ecriteurAvecBuffer.close();
     }catch (IOException e) {
-      e.printStackTrace();
+      return false;
+      //e.printStackTrace();
     }
+    return true;
   }
   public static void ecrireUnFichier(GString tableauDeLigne){
     String pseudo = "X";// + Main.getGj().getJoueurNonIa().getPseudo(); // le pseudo du 1a joueur non Ia.

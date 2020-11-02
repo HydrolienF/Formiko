@@ -18,9 +18,10 @@ public class test {
   public static String REPTEST = "build/test/";
   //private static Class<?> testClass = new Class<?>();
   private static GString gs;
+  private static int idCpt=0;
 
   // GET SET --------------------------------------------------------------------
-
+  public static int getId(){return idCpt++;}
   // Fonctions propre -----------------------------------------------------------
   /**
    *{@summary Test all test file in REPTEST directory and all his content.<br/>}
