@@ -64,7 +64,9 @@ public class Partie implements Serializable{
   }
   // GET SET --------------------------------------------------------------------
   public GInsecte getGi(){ return gi;}
+  public void setGi(GInsecte g){gi=g;}
   public GJoueur getGj(){ return gj;}
+  public void setGj(GJoueur g){gj=g;}
   public GCase getGc(){return mapo.getGc();}
   public static GEspece getGe(){return ge;}
   public int getTour(){ return tour;}

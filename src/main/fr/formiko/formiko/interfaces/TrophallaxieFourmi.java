@@ -26,10 +26,10 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
    */
   public void trophallaxie(Creature c, Creature c2, int nourritureDonnée){
     if (c==null || c2 == null){ erreur.alerte("Une des créatures impliqués dans la Trophalaxie n'as pas pue être trouvé");return;}
-    if (nourritureDonnée < 1){ erreur.alerte("Impossible de trophalaxer une quantité négtive ou nul de nourriture"); return;}
+    if (nourritureDonnée < 1){ erreur.alerte("Impossible de trophallaxer une quantité négtive ou nul de nourriture"); return;}
     debug.débogage("Trophallaxie de "+nourritureDonnée+ " souhaité, de "+c.getId()+" vers "+c2.getId());
     debug.débogage("Lancement de la trophallaxie de la créature "+c.getId()+" vers la créature "+c2.getId() +" transfère de "+nourritureDonnée +" voulu");
-    if(!(c instanceof Fourmi)){erreur.alerte("Impossible de trophalaxer depuis une créature qui n'est pas une Fourmi");return;}
+    if(!(c instanceof Fourmi)){erreur.alerte("Impossible de trophallaxer depuis une créature qui n'est pas une Fourmi");return;}
     Fourmi f1 = (Fourmi) c;
     if (f1.getNourriture() < nourritureDonnée){ // si f1 donne trop
       erreur.erreur("Une fourmi a voulu donnée plus de nourriture que ce qu'elle a","TrophallaxieFourmi","Elle ne donnera que la moitié de sa nourriture par mesure de précaution");
@@ -56,12 +56,11 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
    *@version 1.3
    */
   public void trophallaxie(Creature c, int id, int nourritureDonnée){
-    debug.débogage("Recherche de la créature "+id+" sur la case");
-    c.getCCase().getContenu().afficheToi();
+    debug.débogage("Recherche de la créature "+id+" sur la case "+c.getCCase().getContenu().toString());
     trophallaxie(c,c.getCCase().getContenu().getGc().getCreatureParId(id), nourritureDonnée);
   }
   /**
-   *{@summary player trophallaxis<br/>}
+   *{@summary player trophallaxis<br>}
    *1a find the target ant that can be chose &#38; make the player chose 1.<br>
    *2a ask the amount of food transferred by the player.<br>
    *3a do the trophallaxis.<br>
@@ -69,21 +68,23 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
    *@version 1.3
    */
   public void trophallaxer(Creature c){
+    if(!(c instanceof Fourmi)){erreur.alerte("Impossible de trophallaxer depuis une créature qui n'est pas une Fourmi");return;}
     Fourmi f = (Fourmi)c;
-    GCreature gc = f.getCCase().getContenu().getGc();
+    GCreature gc = f.getCCase().getContenu().getGc().filtreAlliés(f); //ne prend que les allié.
     int lengc = gc.length();
     if(lengc < 2){
       erreur.erreurGXVide("GFourmi");
     }else{
       //id de la foumi cible.
-      int t [] = f.getIdFourmiDifférenteSurLaCase();
-      t = getFourmiQuiOnFaim(t,c);
+      int t [] = f.getAlliéSurLaCaseSansThis().toTId(); //ne prend que les alliées.
+      t = getCreatureQuiOnFaim(t,c);
       int lent = t.length;
       String s[] = new String[lent];
       for (int i=0;i<lent ;i++ ) {
         Creature cTemp = gc.getCreatureParId(t[i]);
         String sTemp = "";
         if(cTemp instanceof Fourmi){sTemp = " ("+((Fourmi)(cTemp)).getStringStade()+")";}
+        else {sTemp = " ("+cTemp.getNom()+")";}
         s[i]=t[i]+" : "+cTemp.getNourriture()+"/"+cTemp.getNourritureMax()+" "+g.get("nourriture")+sTemp;
       }
       int id2;
@@ -110,24 +111,26 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
    *{@summary find hungry ant.<br/>}
    *@param t The id list of the ant.
    *@param net The creature who whant to give food.
-   *@version 1.3
+   *@version 1.7
    */
-  private int [] getFourmiQuiOnFaim(int t[],Creature net){
-    GCreature gc = net.getCCase().getContenu().getGc();
+  public int [] getCreatureQuiOnFaim(int t[],Creature net){
+    if(!(net instanceof Fourmi)){erreur.alerte("Impossible de trophallaxer depuis une créature qui n'est pas une Fourmi");return new int[0];}
+    Fourmi f = (Fourmi)net;
+    GCreature gc = f.getAlliéSurLaCaseSansThis();
     int lent = t.length;
     int lentr = 0;
     //on compte le nombre de fourmi a nourrir.
     for (int i=0;i<lent ;i++ ) {
-      Fourmi f = gc.getFourmiParId(t[i]);
-      if(f!=null && f.getNourriture()!=f.getNourritureMax()){
+      Creature c = gc.getCreatureParId(t[i]);
+      if(c!=null && c.getNourriture()!=c.getNourritureMax()){
         lentr++;
       }
     }
     //on ajoute seuelement les fourmis qui on faim.
     int tr[] = new int[lentr];int k=0;
     for (int i=0;i<lent ;i++ ) {
-      Fourmi f = gc.getFourmiParId(t[i]);
-      if(f!=null && f.getNourriture()!=f.getNourritureMax()){
+      Creature c = gc.getCreatureParId(t[i]);
+      if(c!=null && c.getNourriture()!=c.getNourritureMax()){
         tr[k] = t[i];k++;
       }
     }

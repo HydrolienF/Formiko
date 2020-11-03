@@ -193,10 +193,7 @@ public class Main {
     avancementChargement=-1;
     //on initialise ici si ça n'as pas déja été fait par une options.
     if(getOp()==null){initialisation();}
-    IEspece.ini();
-    Joueur.ini();
-    Fourmiliere.ini();
-    ObjetAId.ini();
+    iniCpt();
     avancementChargement=0;
     ecouteClavier=true;
 
@@ -517,6 +514,17 @@ public class Main {
     }
     finCh("initialisationDeREPTEXTUREPACK");
     //System.out.println("Os reconnu : "+os);
+    iniCpt();
+  }
+  /**
+   *{@summary initializes counter cpt of IEspece, Joueur, Fourmiliere ,ObjetAId.}
+   *@version 1.7
+   */
+  public static void iniCpt(){
+    IEspece.ini();
+    Joueur.ini();
+    Fourmiliere.ini();
+    ObjetAId.ini();
   }
   /**
    * Load graphics during menu time.

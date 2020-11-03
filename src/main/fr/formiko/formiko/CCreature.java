@@ -28,7 +28,7 @@ public class CCreature implements Serializable{
     if (suivant == null){
       return contenu.toString()+"";
     }else{
-      return contenu.toString()+ ", "+suivant.gcToString();
+      return contenu.toString()+ "\n"+suivant.gcToString();
     }
   }public String gcToString(){return toString();}
   public int length(){
@@ -262,5 +262,15 @@ public class CCreature implements Serializable{
   }
   public void setAction0(){
     contenu.setAction(0);
+  }
+  public int [] toTId(){
+    int tr []= new int[this.length()];
+    CCreature cc = this;
+    int k=0;
+    while(cc!= null){
+      tr[k]=cc.getContenu().getId();k++;
+      cc = cc.getSuivant();
+    }
+    return tr;
   }
 }

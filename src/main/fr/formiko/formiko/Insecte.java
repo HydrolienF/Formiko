@@ -46,6 +46,8 @@ public class Insecte extends Creature implements Serializable{
   @Override
   public boolean getVole(){if(getStade()!=0){return false;}return e.getVole();}//si c'est un imago ca dépend de l'espece.
   public static void setGie(){ gie=new GIEspece();}//initialise le fichier/
+  @Override
+  public String getNom(){return g.get("I"+getType());}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
     String m = "";
@@ -54,8 +56,8 @@ public class Insecte extends Creature implements Serializable{
     }else {
       m = " ("+(ageMax-age)+" tour avant Mort)";
     }
-    String sr = g.getOu("le","la")+" "+g.get("I"+getType());
-    sr+= " "+id+ m +" "+g.get("de")+" "+g.get("type")+" "+type+p.desc()+" "+g.get("nourritureFournie")+" : " + getNourritureFournie() +" "+g.get("nourriture")+" "+nourriture+"/"+nourritureMax;
+    String sr = g.getOu("le","la")+" "+getNom();
+    sr+= " "+id+ m +" "+g.get("de")+" "+g.get("type")+" "+type+" "+p.desc()+" "+g.get("nourritureFournie")+" : " + getNourritureFournie() +" "+g.get("nourriture")+" "+nourriture+"/"+nourritureMax;
     return sr;
   }
   public void afficheToi(){

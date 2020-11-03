@@ -68,6 +68,7 @@ public class Espece implements Serializable{
   public Individu getIndividuParType(int x){ return giu.getIndividuParType(x);}
   public String getNom(){ return nom;}
   public boolean getPolycalique(){return polycalique;}
+  public void setPolycalique(boolean b){polycalique=b;}
   public boolean getVole(){return vole;}//seule les imagos chez les insectes et spécifiquement les individu de type 0 ou 1 chez les fourmi vole.
   public int getNourritureFournie(byte stade){if(stade<-3 || stade > 0){erreur.erreur("nourritureFournie demande un stade entre -3 et 0 hors le stade est de "+stade,"Espece.getNourritureFournie"); return -1;}
     return allea.fluctuer(tNourritureFournie[stade+3]);}//-3 = case 0. 0 = case 3.
