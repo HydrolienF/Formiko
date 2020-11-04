@@ -139,6 +139,8 @@ Hydrolien
 *graphic designer: / graphiste : / grafikisto:*
 Hydrolien
 eureur7
+Miss Loup
+Foresty
 
 *beta tester: / bêta testeur : / beta-testilo:*
 Hydrolien
