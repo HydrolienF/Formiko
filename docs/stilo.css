@@ -1,0 +1,11 @@
+h1{
+  margin:0px 0px;
+  padding:2vw 1vh;
+  font-size: 7vh;
+  color: #00ff00;
+	text-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+}
+iframe{
+  width: 80vw;
+  height: 80vh;
+}
