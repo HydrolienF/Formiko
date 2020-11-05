@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testFy
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:letterdimensje yn Y[auto]
 erreurCarteVide:ûnmooglik om in spultsje te begjinnen sûnder ienige spiler en sûnder ienige ai.[auto]
 maxFourmiIa:maksimum oantal mieren foar ai[auto]
 nomDuFichier:Bestânsnamme[auto]
-getNomDuFcihier:Fier de namme yn fan 'e bewaringset dy't jo wolle lade: (Of werom om werom te gean)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:De lêste omloop is no foarby.[auto]
 victoireInconue:ûnbekende oerwinning[auto]
 élimination:eliminaasje[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Iepenje it menu foar opsjes yn it spultsje[auto]
 
 pti.desc.1:Jou de id oan fan 'e mier dy't it iten sil ûntfange.[auto]
 pti.desc.2:Jou de hoemannichte iten oan.[auto]
-pti.desc.3:Jou it type aai oan te lizzen: 0 = Keninginne, 1 = Man, 2 = Minor, 3 = Medium, 4 = Majoar, 5 + = Oar.[auto]
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Jou de rjochting oan om te folgjen.[auto]
 pti.desc.5:Jou de id oan fan de te skjinmeitsjen mier. De smoarchste mier is de mier yn posysje 1.[auto]
 
 triche.aide.1:wolkom by de Formiko cheat-ynterface. Dit is wêr't jo cheat-kommando's kinne typen.[auto]
-triche.aide.2:kommando's yn 'e formuliernamme: (arguminten) beskriuwing[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:skepsel id poadium[auto]
 cmd.args.15:skepsel id, moade[auto]
 cmd.args.16:skepsel-id, miershoop-id[auto]
 cmd.args.17:skepsel id soarten[auto]
-cmd.args:18: id skepsel, netheid[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:skepsel id, kwantiteit ferfierd[auto]
 cmd.args.20:sied id, hurdens Max[auto]
 cmd.args.21:insect id iten levere[auto]
@@ -375,7 +375,7 @@ cmd.args.22:insect id, iten[auto]
 cmd.args.23:spiler-id, brûkersnamme[auto]
 cmd.args.24:spiler-id, booleaanske estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Mier as ynsekt as sied, As ynsekt: x, y, typ As ant: id Ant Hill As sied: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:skepsel id[auto]
 cmd.args.29:String-kaai[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Fiver fan micromanaging fan jo mieren? Brûk de 2 automatyske modi ta 
 conseil.4:Wolle jo de styl fan spielje in bytsje fariearje? kies in soarte wêrmei jo noch net spile hawwe.[auto]
 conseil.5:Guon miersoarten binne polymorf. Dat wol sizze dat se arbeiders hawwe fan ferskate grutte om heul ferskillende taken út te fieren.[auto]
 conseil.6:Lei net te folle aaien tagelyk. Oars kinne jo se net fersoargje oant se imagos wurde.[auto]
-conseil.7:Mieren geane troch 4 stadia fan ûntwikkeling: aai, lava, nimf en imago (folwoeksen mier).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:De karren dy't jo moatte meitsje wurde oanjûn boppe-oan op jo skerm.[auto]
 conseil.9:Mieren hawwe gjin eachlid om har eagen te befochtigjen. Se moatte konstant in sûne libbensstyl hâlde om te kommunisearjen mei har antennes en mei har eagen te sjen.[auto]
 conseil.10:Aaien, lava en nimfen kinne dit net op harsels skjinmeitsje. Se hawwe needsaaklik de help fan in imago nedich oars koe it wurde ynfekteare troch in minne baktearje. soargje derfoar dat jo kroech boppe 50% suverens bliuwt.[auto]
@@ -452,7 +452,7 @@ tuto.30:Arbeiders binne noch effisjinter op bepaalde taken (it kostet har minder
 tuto.31:Litte wy ús arbeider in taak jaan om te foltôgjen, sadat de ronde einiget. (klikje op ien fan 'e knoppen ûnderoan jo skerm, ferskate kearen as it nedich is.)[auto]
 tuto.32:It wie de lêste ronde fan dit tutorial, as jo twivelje, kinne jo dizze tutorial opnij dwaan.[auto]
 tuto.33:Oars wurde de knopbeskriuwingen werjûn as jo der oer hinne sweverje, dito foar de fakjes op 'e kaart. Ynformaasje oer de selekteare mier is rjochts fan jo skerm.[auto]
-tuto.34:As jo nettsjinsteande dit net fine wat jo nedich binne, kinne jo advys freegje oer de offisjele diskordtsjinner fan it spultsje: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Om in spultsje op 'e tiid te winnen moatte jo in hegere skoare hawwe dan AI en oare spilers.[auto]
 tuto.36:Jo skoare hinget ôf fan jo oantal mieren, (folwoeksen mieren jouwe in bettere skoare), lykas de swierrichheid fan it spultsje en de snelheid fan it spultsje.[auto]
 tuto.37:Om in spultsje opnij te begjinnen, moatte jo it spultsje stopje en it opnij starte, ik sil soargje foar it stopjen fan it spultsje, it is oan jo om it opnij te begjinnen.[auto]

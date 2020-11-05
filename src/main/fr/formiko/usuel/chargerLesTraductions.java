@@ -17,13 +17,15 @@ import java.io.File;
 public class chargerLesTraductions {
   private static Map<String, String> map;
   private static String rep="data/langue/";
-  private static String tLangue[];
+  private static String tLangue[]=null;
   // get set -------------------------------------------------------------------
   public static String [] getTLangue(){return tLangue;}
   public static void setTLangue(String t []){tLangue=t;}
   public static String getRep(){return rep;}
   public static void setRep(String s){rep = str.sToDirectoryName(s);}
   public static void setRep(){setRep("data/langue/");}
+  public static Map<String, String> getMap(){return map;}
+  public static void iniMap(){map = new HashMap<>();}
   // Fonctions propre -----------------------------------------------------------
   /**
   *{@summary get the int that corresponds to the language String.<br>}
@@ -111,7 +113,11 @@ public class chargerLesTraductions {
 
 
 
-
+  /**
+  *{@summary get an array of translation for a given language.<br>}
+  *@param langue id if the language
+  *@version 1.7
+  */
   public static String [] getTableauDesTrad(int langue){
     //String tDéfaut [] = lireUnFichier.lireUnFichier(rep+"fr.txt");
     String t [] = new String[0];
@@ -124,6 +130,10 @@ public class chargerLesTraductions {
     }
     return t;
   }
+  /**
+  *{@summary get an array of command.<br>}
+  *@version 1.7
+  */
   public static String [] getTableauDesCmd(){
     String t [] = new String[0];
     try{
@@ -134,6 +144,12 @@ public class chargerLesTraductions {
     }
     return t;
   }
+  /**
+  *{@summary Load translation for a given language.<br>}
+  *It included command.
+  *@param langue id if the language
+  *@version 1.7
+  */
   public static Map<String, String> chargerLesTraductions(int langue){
     debug.débogage("Chargement des textes");//on lit le fichier de langue
     map = chargerLesTraductionsSansCommande(langue);
@@ -143,15 +159,26 @@ public class chargerLesTraductions {
     }
     return map;
   }
+  /**
+  *{@summary Load translation for a given language.<br>}
+  *It don't included command.
+  *@param langue id if the language
+  *@version 1.7
+  */
   public static Map<String, String> chargerLesTraductionsSansCommande(int langue){
-    map = new HashMap<>();
+    iniMap();
     String t[] = getTableauDesTrad(langue);
     for (String s : t) {//on ajoute toutes les lignes qu'on peu ajouter.
       ajouterObjetMap(s);
     }
     return map;
   }
-  private static void ajouterObjetMap(String s){
+  /**
+  *{@summary Add a translated line on the actual map.<br>}
+  *@param s Translated line.
+  *@version 1.7
+  */
+  public static void ajouterObjetMap(String s){
     if(!estLigneDeTrad(s)){return;}
     //getPosDu1a ":"
     //coupe en 2.
@@ -173,27 +200,25 @@ public class chargerLesTraductions {
     debug.débogage("Ajout du couple clé valeur  "+s1+" : "+s2);
     map.put(s1,s2);
   }
+  /**
+  *{@summary Add auto translation for every languages.<br>}
+  *Please refert to ThTrad to have more informations
+  *@version 1.7
+  */
   public static void ajouterTradAuto(){
+    if(tLangue==null){iniTLangue();}
     int lentl=getTLangue().length;
     new ThTrad(0);
     for (int i=2;i<lentl ;i++ ) {
       new ThTrad(i);
     }
   }
-  private static char maj(char c){
-    if(c < 123 && c > 96){ return (char) (c-32);}
-    if(c=='é'){ return 'É';}
-    if(c=='è'){ return 'È';}
-    if(c=='ë'){ return 'Ë';}
-    if(c=='ê'){ return 'Ê';}
-    if(c=='ĉ'){ return 'Ĉ';}
-    if(c=='ç'){ return 'Ç';}
-    if(c=='ĵ'){ return 'Ĵ';}
-    if(c=='â'){ return 'Â';}
-    if(c=='ĝ'){ return 'Ĝ';}
-
-    return c;
-  }
+  /**
+  *{@summary Count the %age translated.<br>}
+  *It don't included command (that are not translate).
+  *@param langue id if the language
+  *@version 1.7
+  */
   public static int getPourcentageTraduit(int langue){
     int x = 0;
     String [] t= new String [0];
@@ -206,8 +231,15 @@ public class chargerLesTraductions {
         }
       }
     int xFr = chargerLesTraductionsSansCommande(1).size();
+    if (xFr==0){return -1;}
     return (x*100)/xFr;
   }
+  /**
+  *{@summary Count the %age translated automatically.<br>}
+  *It don't included command (that are not translate).
+  *@param langue id if the language
+  *@version 1.7
+  */
   public static int getPourcentageTraduitAutomatiquement(int langue){
     int x = 0;
     String [] t= new String [0];
@@ -222,7 +254,12 @@ public class chargerLesTraductions {
     int xFr = chargerLesTraductionsSansCommande(1).size();
     return (x*100)/xFr;
   }
+  /**
+  *{@summary Print getPourcentageTraduitAutomatiquement and getPourcentageTraduit data for every languages.<br>}
+  *@version 1.7
+  */
   public static void affPourcentageTraduit(){
+    if(tLangue==null){iniTLangue();}
     int lentl=getTLangue().length;
     for (int i=0;i<lentl ;i++) {
       String s = "";int x=getPourcentageTraduitAutomatiquement(i); if(x>0){s=" ("+x+"% traduit automatiquement)";}
@@ -232,10 +269,5 @@ public class chargerLesTraductions {
       }
     }
   }
-  public static boolean fini(String s){
-    int lens = s.length();
-    for (int i=0;i<lens-1;i++ ) {
-      if (s.charAt(i)==':'){ return true;} // si il y a au moins 1 char après les :
-    }return false; // sinon
-  }
+  public static boolean fini(String s){return !str.contient(s,":",2);}
 }

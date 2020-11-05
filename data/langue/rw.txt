@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testRw
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:urugero rw'inyuguti muri Y.[auto]
 erreurCarteVide:ntibishoboka gutangira umukino udafite umukinnyi kandi nta ai.[auto]
 maxFourmiIa:umubare ntarengwa wibimonyo kuri ai[auto]
 nomDuFichier:izina rya dosiye[auto]
-getNomDuFcihier:Injiza izina rya save set ushaka kwikorera: (Cyangwa gusubira inyuma)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Icyiciro cya nyuma cyararangiye.[auto]
 victoireInconue:intsinzi itazwi[auto]
 élimination:kurandura[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Fungura in-umukino wamahitamo menu[auto]
 
 pti.desc.1:Erekana id yikimonyo kizakira ibiryo.[auto]
 pti.desc.2:Erekana ingano y'ibiryo bitangwa.[auto]
-pti.desc.3:
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Erekana icyerekezo ugomba gukurikiza.[auto]
 pti.desc.5:Erekana id yikimonyo kugirango gisukure. Ikimonyo cyanduye cyane ni ikimonyo mumwanya wa 1.[auto]
 
 triche.aide.1:ikaze kuri interineti ya foromo. Aha niho ushobora kwandika amategeko yibeshya.[auto]
-triche.aide.2:amategeko muburyo bwizina: (impaka) ibisobanuro[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:ikiremwa id icyiciro[auto]
 cmd.args.15:ibiremwa id, imyambarire[auto]
 cmd.args.16:ikiremwa id, anthill id[auto]
 cmd.args.17:ibiremwa id[auto]
-cmd.args:18: ikiremwa id, isuku[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:ikiremwa id, ingano yatwarwe[auto]
 cmd.args.20:imbuto id, gukomeraMax[auto]
 cmd.args.21:udukoko id ibiryo byatanzwe[auto]
@@ -375,7 +375,7 @@ cmd.args.22:udukoko id, ibiryo[auto]
 cmd.args.23:umukinnyi id, izina ryumukoresha[auto]
 cmd.args.24:umukinnyi id, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Ikimonyo cyangwa Udukoko cyangwa Imbuto, Niba udukoko: x, y, andika Niba ikimonyo: id Umusozi wikimonyo Niba imbuto: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:ibiremwa id[auto]
 cmd.args.29:Urufunguzo rw'umugozi[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Icyuzi cya micromanaging ibimonyo byawe? Koresha uburyo 2 bwikora mubu
 conseil.4:Urashaka guhindura uburyo bwo gukina gato? hitamo ubwoko utarakinnye.[auto]
 conseil.5:Ubwoko bumwebumwe bwibimonyo ni polymorphic. Nukuvuga ko bafite abakozi bafite ubunini butandukanye kugirango babashe gukora imirimo itandukanye.[auto]
 conseil.6:Ntutere amagi menshi icyarimwe. Bitabaye ibyo, ntuzashobora kubitaho kugeza bihindutse amashusho.[auto]
-conseil.7:Ibimonyo binyura mubyiciro 4 byiterambere: amagi, lava, nymph na imago (ikimonyo gikuze).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Guhitamo ugomba gukora byerekanwe hejuru ibumoso bwa ecran yawe.[auto]
 conseil.9:Ibimonyo ntibigira ijisho ryo guhumura amaso. Bagomba guhora bakomeza ubuzima buzira umuze kugirango babashe kuvugana na antenne zabo kandi babone n'amaso yabo.[auto]
 conseil.10:Amagi, lava na pupae ntibishobora kweza bonyine. Bakeneye byanze bikunze ubufasha bwa imago bitabaye ibyo birashobora kwanduzwa na bagiteri mbi. menya neza ko ibyara byawe bigumye hejuru ya 50%.[auto]
@@ -452,7 +452,7 @@ tuto.30:Abakozi barushijeho gukora neza kubikorwa bimwe (bisaba ibikorwa bike ku
 tuto.31:Reka duhe umukozi wacu umurimo wo kurangiza kugirango uruziga rurangire. (kanda kuri imwe muri buto hepfo ya ecran yawe, inshuro nyinshi nibiba ngombwa.)[auto]
 tuto.32:Byari icyiciro cya nyuma cyiyi nyigisho, niba ufite ugushidikanya ushobora gusubiramo iyi nyigisho.[auto]
 tuto.33:Ubundi ibisobanuro bya buto byerekanwe mugihe uzengurutse hejuru, ditto kubisanduku kurikarita. Amakuru yerekeye ikimonyo cyatoranijwe kiri iburyo bwa ecran yawe.[auto]
-tuto.34:Niba nubwo bimeze bityo utabonye icyo ukeneye urashobora gushaka inama kuri seriveri yemewe yimikino: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Kugira ngo utsinde umukino ku gihe ugomba kuba ufite amanota menshi kurenza AI hamwe nabandi bakinnyi.[auto]
 tuto.36:Amanota yawe aterwa numubare wibimonyo, (ibimonyo bikuze bitanga amanota meza), kimwe nikibazo cyumukino n'umuvuduko wumukino.[auto]
 tuto.37:Kugirango utangire umukino, ugomba kureka umukino ukongera ukitangira, nzita ku kureka umukino, ni wowe ugomba kongera gutangira.[auto]

@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testHt
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:dimansyon lèt nan Y[auto]
 erreurCarteVide:enposib pou kòmanse yon jwèt san okenn jwè e san okenn ai.[auto]
 maxFourmiIa:kantite maksimòm foumi pou ai[auto]
 nomDuFichier:Non dosye[auto]
-getNomDuFcihier:Mete non an nan seri a sove ou vle chaje: (Oswa tounen nan tounen)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Wonn nan dènye gen kounye a pase.[auto]
 victoireInconue:viktwa enkoni[auto]
 élimination:eliminasyon[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Louvri meni an opsyon nan-jwèt[auto]
 
 pti.desc.1:Endike id foumi ki pral resevwa manje a.[auto]
 pti.desc.2:Endike kantite manje yo ofri.[auto]
-pti.desc.3:Endike ki kalite ze ou pral mete: 0 = Rèn, 1 = Gason, 2 = Minè, 3 = Mwayen, 4 = Gwo, 5 + = Lòt.[auto]
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Endike direksyon pou swiv.[auto]
 pti.desc.5:Endike id foumi a pou netwaye. Foumi ki pi sal se foumi ki nan pozisyon 1 an.[auto]
 
 triche.aide.1:Byenveni nan koòdone nan tronpe Formiko. Sa a se kote ou ka tape kòmandman tronpe.[auto]
-triche.aide.2:kòmandman nan non fòm lan: (agiman) deskripsyon[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:etap id kreyati[auto]
 cmd.args.15:id bèt, mòd[auto]
 cmd.args.16:id bèt, foumi id[auto]
 cmd.args.17:espès id kreyati[auto]
-cmd.args:18: id bèt, pwòpte[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:id bèt, kantite transpòte[auto]
 cmd.args.20:id grenn, dite Max[auto]
 cmd.args.21:ensèk manje id bay yo[auto]
@@ -375,7 +375,7 @@ cmd.args.22:ensèk id, manje[auto]
 cmd.args.23:id jwè, non itilizatè[auto]
 cmd.args.24:id jwè, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Foumi oswa Ensèk oswa Grenn, Si ensèk: x, y, tape Si foumi: id Foumi Hill Si pitit pitit: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:id kreyati[auto]
 cmd.args.29:Kle fisèl[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Pond nan mikro jere foumi ou a? Sèvi ak 2 mòd otomatik yo a jete ou.
 conseil.4:Vle varye style la nan jwe yon ti jan? chwazi yon espès ou poko jwe avèk li.[auto]
 conseil.5:Gen kèk espès foumi ki polimorf. Sa vle di ke yo gen travayè nan diferan gwosè yo nan lòd pou kapab fè travay byen diferan.[auto]
 conseil.6:Pa mete twòp ze an menm tan. Sinon ou pa yo pral kapab pran swen yo jiskaske yo vin imaj.[auto]
-conseil.7:Foumi ale nan 4 etap nan devlopman: ze, lav, nenf ak imago (foumi granmoun).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Chwa ou dwe fè yo endike sou tèt gòch ekran ou an.[auto]
 conseil.9:Foumi yo pa gen palpebral pou yo mwatir je yo. Yo dwe toujou kenbe yon vi ki an sante pou yo ka kominike avèk antèn yo epi wè ak je yo.[auto]
 conseil.10:Ze, lav ak nenf yo pa kapab netwaye sa pou kont yo. Yo nesesèman bezwen èd nan yon imago otreman li ta ka enfekte pa yon bakteri move. asire ke ti pitit ou rete pi wo pase 50% pwòpte.[auto]
@@ -452,7 +452,7 @@ tuto.30:Travayè yo menm pi efikas nan sèten travay (li koute yo mwens aksyon p
 tuto.31:Ann bay travayè nou an yon travay pou konplete wonn lan. (klike sou youn nan bouton ki anba ekran an, plizyè fwa si sa nesesè.)[auto]
 tuto.32:Se te dènye wonn nan leson patikilye sa a, si ou gen nenpòt dout ou ka refè leson patikilye sa a.[auto]
 tuto.33:Sinon deskripsyon yo bouton yo ap parèt lè ou hover sou yo, menm pou bwat yo sou kat la. Enfòmasyon sou foumi yo chwazi a se sou bò dwat la nan ekran ou.[auto]
-tuto.34:Si malgre sa ou pa jwenn sa ou bezwen ou ka chèche konsèy sou sèvè ofisyèl dezakò jwèt la: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Pou genyen yon jwèt sou tan ou dwe gen yon nòt ki pi wo pase lavil Ayi ak lòt jwè yo.[auto]
 tuto.36:Pwen ou depann sou kantite foumi ou, (foumi granmoun bay yon pi bon nòt), osi byen ke difikilte pou nan jwèt la ak vitès la nan jwèt la.[auto]
 tuto.37:Pou rekòmanse yon jwèt, ou dwe kite jwèt la epi rekòmanse li, mwen pral pran swen pou kite jwèt la, se ou ki pou rekòmanse li.[auto]

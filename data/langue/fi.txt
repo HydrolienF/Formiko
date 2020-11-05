@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testFi
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:kirjainmitta Y: ssä[auto]
 erreurCarteVide:mahdotonta aloittaa peliä ilman pelaajaa ja mitään ai: ta.[auto]
 maxFourmiIa:enimmäismäärä muurahaisia ai: lle[auto]
 nomDuFichier:Tiedoston nimi[auto]
-getNomDuFcihier:Kirjoita ladattavan tallennussarjan nimi: (Tai palaa takaisin palataksesi)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Viimeinen kierros on nyt ohi.[auto]
 victoireInconue:tuntematon voitto[auto]
 élimination:eliminointi[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Avaa pelin sisäiset asetukset -valikko[auto]
 
 pti.desc.1:Ilmoita ruoan vastaanottavan muurahaisen tunnus.[auto]
 pti.desc.2:Ilmoita tarjottavan ruoan määrä.[auto]
-pti.desc.3:Ilmoita munittavan munan tyyppi: 0 = kuningatar, 1 = uros, 2 = alaikäinen, 3 = keskikokoinen, 4 = majuri, 5 + = muu.[auto]
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Ilmoita noudatettava suunta.[auto]
 pti.desc.5:Ilmoita puhdistettavan muurahaisen tunnus. Likaisin muurahainen on muurahainen asennossa 1.[auto]
 
 triche.aide.1:tervetuloa Formiko-huijausliittymään. Tähän voit kirjoittaa huijauskomentoja.[auto]
-triche.aide.2:komennot lomakkeen nimessä: (argumentit) kuvaus[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:olentunnus[auto]
 cmd.args.15:olentunnus, muoti[auto]
 cmd.args.16:olentunnus, muurahaiskutunnus[auto]
 cmd.args.17:olentunnuslaji[auto]
-cmd.args:18: idolento, puhtaus[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:olentunnus, kuljetettu määrä[auto]
 cmd.args.20:siemenetunnus, kovuus[auto]
 cmd.args.21:hyönteisten id ruokaa[auto]
@@ -375,7 +375,7 @@ cmd.args.22:hyönteisten tunnus, ruoka[auto]
 cmd.args.23:pelaajan tunnus, käyttäjänimi[auto]
 cmd.args.24:pelaajan tunnus, looginen estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Muurahainen tai hyönteinen tai siemen, jos hyönteinen: x, y, kirjoita If muurahainen: id Ant Hill Jos siemen: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:olentunnus[auto]
 cmd.args.29:Jousisoitin[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Lampi, jossa muurahaisia hoidetaan mikrometallilla Käytä kahta käyt
 conseil.4:Haluatko muuttaa pelityyliä hieman? valitse laji, jota et ole vielä pelannut.[auto]
 conseil.5:Jotkut muurahaislajit ovat polymorfisia. Toisin sanoen heillä on erikokoisia työntekijöitä voidakseen suorittaa melko erilaisia tehtäviä.[auto]
 conseil.6:Älä anna liian monta munaa kerralla. Muuten et voi huolehtia niistä ennen kuin niistä tulee imagoja.[auto]
-conseil.7:Muurahaiset käyvät läpi 4 kehitysvaihetta: muna, laava, nymfi ja imago (aikuinen muurahainen).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Sinun on tehtävä valintasi näytön vasemmassa yläkulmassa.[auto]
 conseil.9:Muurahaisilla ei ole silmäluomia silmien kostuttamiseen. Heidän on jatkuvasti ylläpidettävä terveellisiä elämäntapoja voidakseen kommunikoida antenniensa kanssa ja nähdä silmillään.[auto]
 conseil.10:Munat, laava ja nymfit eivät pysty puhdistamaan tätä itse. He tarvitsevat välttämättä imagon apua, muuten se voi tarttua pahoihin bakteereihin. varmista, että hautesi pysyy yli 50% puhtaana.[auto]
@@ -452,7 +452,7 @@ tuto.30:Työntekijät ovat vieläkin tehokkaampia tietyissä tehtävissä (niide
 tuto.31:Annetaan työntekijällemme tehtävä, jotta kierros päättyy. (napsauta yhtä näytön alareunassa olevista painikkeista tarvittaessa useita kertoja.)[auto]
 tuto.32:Se oli tämän opetusohjelman viimeinen kierros, jos sinulla on epäilyksiä, voit tehdä sen uudelleen.[auto]
 tuto.33:Muussa tapauksessa painikkeiden kuvaukset näkyvät, kun viet hiiren osoittimen niiden päälle, samalla tavalla kuin kartan ruudut. Tiedot valitusta muurahaisesta ovat ruudun oikealla puolella.[auto]
-tuto.34:Jos et siitä huolimatta löydä tarvitsemasi, voit kysyä neuvoja pelin virallisesta riitapalvelimesta: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Voit voittaa pelin ajoissa sinulla on oltava korkeammat pisteet kuin tekoälyllä ja muilla pelaajilla.[auto]
 tuto.36:Pisteet riippuvat muurahaismäärästäsi (aikuiset muurahaiset antavat paremman pistemäärän), sekä pelin vaikeudesta ja nopeudesta.[auto]
 tuto.37:Pelin käynnistämiseksi sinun on lopetettava peli ja käynnistettävä se uudelleen, minä hoidan pelin lopettamisen, sinun on aloitettava se uudelleen.[auto]

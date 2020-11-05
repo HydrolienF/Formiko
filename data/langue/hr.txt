@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testHr
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:dimenzija slova u Y[auto]
 erreurCarteVide:nemoguće započeti igru bez ijednog igrača i bez ikakvog ai.[auto]
 maxFourmiIa:maksimalan broj mrava za ai[auto]
 nomDuFichier:naziv datoteke[auto]
-getNomDuFcihier:Unesite naziv skupa spremanja koji želite učitati: (ili natrag za povratak)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Sada je prošlo posljednje kolo.[auto]
 victoireInconue:nepoznata pobjeda[auto]
 élimination:eliminacija[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Otvorite izbornik opcija u igri[auto]
 
 pti.desc.1:Navedite id mrava koji će dobiti hranu.[auto]
 pti.desc.2:Navedite količinu ponuđene hrane.[auto]
-pti.desc.3:Navedite vrstu jaja koje treba položiti: 0 = matica, 1 = muško, 2 = maloljetno, 3 = srednje, 4 = glavno, 5 + = ostalo.[auto]
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Navedite smjer koji treba slijediti.[auto]
 pti.desc.5:Navedite id mrava kojeg treba očistiti. Najprljaviji mrav je mrav u položaju 1.[auto]
 
 triche.aide.1:dobrodošli na Formiko sučelje za varanje. Ovdje možete upisati naredbe za varanje.[auto]
-triche.aide.2:naredbe u nazivu obrasca: (argumenti) opis[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:faza id stvorenja[auto]
 cmd.args.15:id stvorenja, moda[auto]
 cmd.args.16:id stvorenja, id mravinjaka[auto]
 cmd.args.17:vrsta bića[auto]
-cmd.args:18: id stvorenje, čistoća[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:id stvorenja, prevezena količina[auto]
 cmd.args.20:id sjemena, tvrdoćaMax[auto]
 cmd.args.21:osigurana hrana za insekte[auto]
@@ -375,7 +375,7 @@ cmd.args.22:ID insekata, hrana[auto]
 cmd.args.23:ID igrača, korisničko ime[auto]
 cmd.args.24:ID igrača, logička estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Mrav ili kukac ili sjeme, ako je kukac: x, y, unesite If mrav: id Mravlje brdo Ako je sjeme: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:id stvorenja[auto]
 cmd.args.29:String tipka[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Jezero mikro upravljanja vašim mravima? Koristite dva automatska nač
 conseil.4:Želite li malo varirati stil igre? odaberite vrstu s kojom se još niste igrali.[auto]
 conseil.5:Neke su vrste mrava polimorfne. To će reći da imaju radnike različite veličine kako bi mogli obavljati sasvim različite zadatke.[auto]
 conseil.6:Ne odlažite previše jaja odjednom. Inače se nećete moći brinuti o njima dok ne postanu imagovi.[auto]
-conseil.7:Mravi prolaze kroz 4 faze razvoja: jaje, lava, nimfa i imago (odrasli mrav).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Izbori koje morate donijeti naznačeni su u gornjem lijevom dijelu zaslona.[auto]
 conseil.9:Mravi nemaju kapak za vlaženje očiju. Moraju neprestano održavati zdrav način života kako bi mogli komunicirati sa svojim antenama i vidjeti očima.[auto]
 conseil.10:Jaja, lava i nimfe nisu u mogućnosti to sami očistiti. Nužno im je potrebna pomoć imaga, jer bi u suprotnom riskirao da bude zaražen lošom bakterijom. pobrinite se da vaše leglo ostane iznad 50% čistoće.[auto]
@@ -452,7 +452,7 @@ tuto.30:Radnici su još učinkovitiji u određenim zadacima (njihovo ih izvršav
 tuto.31:Dajmo svom radniku zadatak da ga završi tako da krug završi. (kliknite jedan od gumba na dnu zaslona, nekoliko puta ako je potrebno.)[auto]
 tuto.32:Bio je zadnji krug ovog tutorijala, ako sumnjate, možete ga ponoviti.[auto]
 tuto.33:Inače se opisi gumba prikazuju kad zadržite pokazivač iznad njih, jednako kao i za okvire na karti. Informacije o odabranom mravu nalaze se s desne strane vašeg zaslona.[auto]
-tuto.34:Ako unatoč tome ne pronađete ono što vam treba, savjet možete potražiti na službenom poslužitelju za razdor u igri: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Da biste na vrijeme pobijedili u igri, morate imati viši rezultat od AI i ostalih igrača.[auto]
 tuto.36:Vaš rezultat ovisi o vašem broju mrava (odrasli mravi daju bolji rezultat), kao i o težini igre i brzini igre.[auto]
 tuto.37:Da biste ponovno pokrenuli igru, morate napustiti igru i ponovno je pokrenuti, ja ću se pobrinuti za napuštanje igre, na vama je da je ponovno pokrenete.[auto]

@@ -14,4 +14,5 @@ public interface Trophallaxie extends Serializable{
   void trophallaxie(Creature c1, Creature c2, int nourritureDonnée);
   void trophallaxie(Creature c, int id, int nourritureDonnée);
   void trophallaxer(Creature c);
+  int [] getCreatureQuiOnFaim(int t[],Creature c);
 }

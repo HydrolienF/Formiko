@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:prófFr[auto]
+test:testIs
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:stafvídd í Y[auto]
 erreurCarteVide:ómögulegt að hefja leik án nokkurs leikmanns og án nokkurs ai.[auto]
 maxFourmiIa:hámarksfjöldi maura fyrir ai[auto]
 nomDuFichier:Skráarnafn[auto]
-getNomDuFcihier:Sláðu inn nafnið á vistunarsettinu sem þú vilt hlaða: (Eða aftur til að fara til baka)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Síðasta umferðin er nú liðin.[auto]
 victoireInconue:óþekktur sigur[auto]
 élimination:brotthvarf[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Opnaðu valmyndina í leiknum[auto]
 
 pti.desc.1:Tilgreindu auðkenni maursins sem fær matinn.[auto]
 pti.desc.2:Tilgreindu magn matar sem boðið er upp á.[auto]
-pti.desc.3:Tilgreindu tegund eggsins sem á að verpa: 0 = drottning, 1 = karlkyns, 2 = minniháttar, 3 = miðlungs, 4 = meiriháttar, 5 + = annað.[auto]
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Tilgreindu stefnuna sem á að fylgja.[auto]
 pti.desc.5:Tilgreindu auðkenni maursins sem á að hreinsa. Skítugasti maurinn er maurinn í stöðu 1.[auto]
 
 triche.aide.1:velkomin í Formiko svindlviðmótið. Þetta er þar sem þú getur slegið svindlskipanir.[auto]
-triche.aide.2:skipanir í forminu heiti: (rök) lýsing[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:veru auðkenni stigi[auto]
 cmd.args.15:skepna auðkenni, tíska[auto]
 cmd.args.16:skepna auðkenni, anthill id[auto]
 cmd.args.17:skepna auðkenni[auto]
-cmd.args:18: persóna, hreinleiki[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:skepna auðkenni, magn flutt[auto]
 cmd.args.20:fræ auðkenni, hörkuMax[auto]
 cmd.args.21:skordýr id mat veitt[auto]
@@ -375,7 +375,7 @@ cmd.args.22:skordýr id, matur[auto]
 cmd.args.23:leikmannauðkenni, notendanafn[auto]
 cmd.args.24:leikmannauðkenni, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Maur eða skordýr eða fræ, Ef skordýr: x, y, tegund Ef maur: id Maur Hill Ef fræ: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:skepna auðkenni[auto]
 cmd.args.29:Strengjatakki[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Tjörn að stýra maurum þínum? Notaðu 2 sjálfvirku stillingarnar 
 conseil.4:Viltu breyta leikstílnum aðeins? veldu tegund sem þú hefur ekki spilað með ennþá.[auto]
 conseil.5:Sumar maurategundir eru fjölmyndaðar. Það er að segja að þeir hafa starfsmenn af mismunandi stærð til að geta sinnt mjög mismunandi verkefnum.[auto]
 conseil.6:Ekki verpa of mörgum eggjum í einu. Annars munt þú ekki sjá um þau fyrr en þau verða að ímyndum.[auto]
-conseil.7:Maurar fara í gegnum 4 þroskastig: egg, hraun, nymph og imago (fullorðinn maur).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Valið sem þú þarft að taka er tilgreint efst til vinstri á skjánum.[auto]
 conseil.9:Maur hefur ekki augnlok til að væta augun. Þeir verða stöðugt að viðhalda heilbrigðum lífsstíl til að geta haft samskipti við loftnet sín og séð með augunum.[auto]
 conseil.10:Egg, hraun og nymfer geta ekki hreinsað þetta á eigin spýtur. Þeir þurfa endilega hjálp imago annars gæti það smitast af slæmum bakteríum. vertu viss um að unginn þinn haldist yfir 50% hreinleika.[auto]
@@ -452,7 +452,7 @@ tuto.30:Starfsmenn eru enn skilvirkari í ákveðnum verkefnum (það kostar þ�
 tuto.31:Gefum starfsmanni okkar verkefni að ljúka svo umferðinni ljúki. (smelltu á einn hnappana neðst á skjánum, nokkrum sinnum ef þörf krefur.)[auto]
 tuto.32:Þetta var síðasta umferðin í þessari kennslu, ef þú hefur einhverjar efasemdir geturðu gert þessa kennslu upp á nýtt.[auto]
 tuto.33:Annars birtast hnappalýsingarnar þegar þú sveima yfir þeim, það er fyrir kassana á kortinu. Upplýsingar um valinn maur eru til hægri á skjánum þínum.[auto]
-tuto.34:Ef þú finnur ekki það sem þú þarft þrátt fyrir þetta, þá geturðu leitað ráðgjafar á opinberum ósamþjóni leiksins: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Til að vinna leik á réttum tíma verður þú að hafa hærri einkunn en AI og aðrir leikmenn.[auto]
 tuto.36:Stig þitt fer eftir fjölda maura, (fullorðnir maurar skora betra), sem og erfiðleika leiksins og hraða leiksins.[auto]
 tuto.37:Til að endurræsa leik þarftu að hætta í leiknum og endurræsa hann, ég mun sjá um að hætta í leiknum, það er þitt að endurræsa hann.[auto]

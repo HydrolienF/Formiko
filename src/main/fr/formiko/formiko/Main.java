@@ -54,8 +54,8 @@ public class Main {
   private static Partie pa;
   private static byte niveauDeDétailDeLAffichage=3;
   /**
-   * Contain the String in the chosen language.
-   * @version 1.1
+   *Contain the Strings in the chosen language.
+   *@version 1.1
    */
   private static Map<String, String> map; // map.get(clé) permet d'obtenir le texte associé.
   private static Pixel pi;
@@ -81,7 +81,7 @@ public class Main {
    * op save the Options.txt file<br>
    * Others args are not fuly usable for now.<br>
    * @param args[] It can contain -d, trad, son, op, test, supprimer
-   * @version 1.1
+   * @version 1.7
    */
   public static void main (String [] args){
     //trad.copieTrads();quitter();
@@ -169,55 +169,78 @@ public class Main {
         erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue");
       }
       quitter();
-    }else{
-      launch();
+    }else{ // si il n'y a pas d'options ou que des options a "-".
+      // LE JEU -------------------------------------------------------------------
+      boolean continuerJeu=true;
+      while(continuerJeu){
+        continuerJeu = launch();//on attend ici tant que le joueur veux jouer.
+        debug.débogage("ReLancement du jeu");
+        f.dispose();
+        retournerAuMenu=false;
+        //op=null;//force la réinitialisation de tout.
+        image.clearPartielTemporaire();
+      }
     }
+    quitter();//en théorie on arrive pas là.
   }
   /**
-   * {@summary Launch in the void main if there is not other args than -something (ex : -d).<br>}
-   * @version 1.1
+   * {@summary pre launch.<br>}
+   * @version 1.7
    */
-  public static void launch(){
+  public static void iniLaunch(){
     //premierePartie=true;
     if(premierePartie){tuto=true;}
     avancementChargement=-1;
     //on initialise ici si ça n'as pas déja été fait par une options.
     if(getOp()==null){initialisation();}
+    iniCpt();
     avancementChargement=0;
     ecouteClavier=true;
 
     débutCh();
     pa = new Partie(0,0,new Carte(new GCase(1,1)),1.0); //nouvelle partie vide.
-    finCh("chargementPartieEtCarteBlanche");débutCh();
-    f = new Fenetre(); //f.requestFocus(); doit permettre a la fenetre d'écouter les touches.
+    finCh("chargementPartieEtCarteBlanche");
+  }
+  /**
+   * {@summary Launch in the void main if there is not other args than -something (ex : -d).<br>}
+   * @version 1.7
+   */
+  public static boolean launch(){
+    iniLaunch();
+    //===
+    débutCh();
+    f = new Fenetre();
     finCh("chargementFenetre");débutCh();
     ini.initialiserToutLesPaneauxVide();
     finCh("chargementPanneauVide");débutCh();
+    //===
     if(getChargementPendantLesMenu()){chargementDesGraphismesAutonomes();}
     else{ini.initialiserPanneauJeuEtDépendance();ini.initialiserAutreELémentTournés();}
     finCh("chargementDesGraphismesAutonomes");
-    attenteDeLancementDePartie();
-    if(retournerAuMenu){
-      retourAuMenu();
-    }
-  }
-  /**
-   * {@summary Wait until player launch a new game, the tutorial or Load a game.<br>}
-   * @version 1.1
-   */
-  public static void attenteDeLancementDePartie(){
     //menu
     débutCh();
     getPm().construitPanneauMenu(3);
     finCh("chargementPanneauMenu");
+    //===
+    pa = attenteDeLancementDePartie();
+    lancementNouvellePartie(pa);
+    Boolean b = pa.jeu(); //lance le jeux.
+    //===
+    if(b){return true;}
+    return false;
+  }
+  /**
+   * {@summary Wait until player launch a new game, the tutorial or Load a game.<br>}
+   * @version 1.7
+   */
+  public static Partie attenteDeLancementDePartie(){
     //attente
     debug.débogage("attente de lancement de la partie");
     Main.repaint();
     boolean b=false;
     while(!b && !premierePartie){Temps.pause(10);b=getPm().getLancer();}
-    pa = getPm().getPartie();
-    debug.débogage("lancementNouvellePartie");
-    lancementNouvellePartie(pa);
+    return getPm().getPartie();
+    //debug.débogage("lancementNouvellePartie");
   }
   /**
    * {@summary Launch a new game.<br>}
@@ -229,8 +252,7 @@ public class Main {
     getPp().removePm();//on retire le menu
     getPj().addPch();//on met le panneau de chargement au 1a plan.
     finCh("chargementPanneauChargementEtSuppressionMenu");//débutCh();
-    if(premierePartie){tuto=true;}
-    if(tuto){pa=getPartieTuto();}
+    if(premierePartie){tuto=true;} if(tuto){pa=getPartieTuto();}
     else if(p==null){pa=getPartieParDéfaut();}
     if(Main.getDimY()!=1080 || getPartie().getGc().getNbrY()!=9){
       getPj().dézoomer((byte)2);//on met la carte a la taille la plus grande possible pour qu'on voit tout.
@@ -251,6 +273,7 @@ public class Main {
     //affichageDeLaPageDeChargement
     boolean b=!op.getAttendreAprèsLeChargementDeLaCarte();
     if(premierePartie){b=true;}
+    //attente de valisation du panneau de chargement.
     while(!b){Temps.pause(10);b=getPch().getLancer();}
     getPj().removePch();
     getPs().construire();
@@ -258,12 +281,10 @@ public class Main {
     if(premierePartie){tuto=true;}
     if(tuto){iniParamètreCarteTuto();}
     else{//si ce n'est pas le tuto on change la musique.
-      //thm.stop();
       thm.stopThm();
       thm = new ThMusique();
       thm.start();
     }
-    pa.jeu(); //lance le jeux.
   }
   /**
    * Load the default Partie.
@@ -493,6 +514,17 @@ public class Main {
     }
     finCh("initialisationDeREPTEXTUREPACK");
     //System.out.println("Os reconnu : "+os);
+    iniCpt();
+  }
+  /**
+   *{@summary initializes counter cpt of IEspece, Joueur, Fourmiliere ,ObjetAId.}
+   *@version 1.7
+   */
+  public static void iniCpt(){
+    IEspece.ini();
+    Joueur.ini();
+    Fourmiliere.ini();
+    ObjetAId.ini();
   }
   /**
    * Load graphics during menu time.

@@ -64,7 +64,9 @@ public class Partie implements Serializable{
   }
   // GET SET --------------------------------------------------------------------
   public GInsecte getGi(){ return gi;}
+  public void setGi(GInsecte g){gi=g;}
   public GJoueur getGj(){ return gj;}
+  public void setGj(GJoueur g){gj=g;}
   public GCase getGc(){return mapo.getGc();}
   public static GEspece getGe(){return ge;}
   public int getTour(){ return tour;}
@@ -164,7 +166,7 @@ public class Partie implements Serializable{
   public void iniJoueurEtIa(Carte mapo){
     gj = gej.getGJoueur(mapo);
   }
-  public void jeu(){
+  public boolean jeu(){
     //lancement du jeux
     setContinuerLeJeu(true);
     if(Main.getGj().length()==1){setPartieFinie(true);}
@@ -175,10 +177,11 @@ public class Partie implements Serializable{
       //La joue toutes les ia et les joueurs
       Main.tour();
       testFinDePartie();
-      if(Main.getRetournerAuMenu()){return;}
+      if(Main.getRetournerAuMenu()){return true;}
     }
     System.out.println(g.get("dernierTourPassé"));
     finDePartie(1);
+    return false;
   }
   public void testFinDePartie(){
     if(partieFinie){ return;}//on ne fait pas le test si on est déja après la fin et que le joueur veux continuer a jouer.
@@ -221,7 +224,7 @@ public class Partie implements Serializable{
   }
   public void initialiserGraphismePartie(){
     initialiserFX(gj.length());
-    Main.initialiserElémentTournés(); //une partie des graphismes tourner est probablement déja faite.
+    Main.initialiserElémentTournés(); //une partie des graphismes tourné est probablement déja faite.
   }
 
   public void initialiserFX(int nbrDeJoueur){

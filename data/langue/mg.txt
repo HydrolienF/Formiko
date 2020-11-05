@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testMg
 
 s:S[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:refy litera amin'ny Y[auto]
 erreurCarteVide:tsy afaka manomboka lalao raha tsy misy mpilalao ary tsy misy ai.[auto]
 maxFourmiIa:vitsika ambony indrindra ho an'ny ai[auto]
 nomDuFichier:anaran'ny fisie[auto]
-getNomDuFcihier:Ampidiro ny anaran'ny tsanganana mitahiry tianao hapetraka: (Na miverina miverina)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Nandalo izao ny fihodinana farany.[auto]
 victoireInconue:fandresena tsy fantatra[auto]
 élimination:fanafoanana[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Sokafy ny menio safidy amin'ny lalao[auto]
 
 pti.desc.1:Lazao ny id an'ny vitsika izay handray ny sakafo.[auto]
 pti.desc.2:Lazao ny habetsaky ny sakafo natolotra.[auto]
-pti.desc.3:Lazao ny karazana atody apetraka: 0 = Mpanjakavavy, 1 = Lehilahy, 2 = Minor, 3 = Medium, 4 = Major, 5 + = Hafa.[auto]
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Lazao ny lalana arahinao.[auto]
 pti.desc.5:Lazao ny id ny vitsika ho diovina. Ny vitsika maloto indrindra dia ny vitsika amin'ny toerana 1.[auto]
 
 triche.aide.1:tongasoa eto amin'ny interface interface cheat Formiko. Eto no ahafahanao manoratra kaody hosoka.[auto]
-triche.aide.2:baiko amin'ny anaran'ny endrika: (tohan-kevitra) famaritana[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:sehatra id zavaboary[auto]
 cmd.args.15:zavaboary id, lamaody[auto]
 cmd.args.16:id zavaboary, id anthill[auto]
 cmd.args.17:karazana id zavaboary[auto]
-cmd.args:18: zavaboary id, fahadiovana[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:id zavaboary, habetsahan'ny entana[auto]
 cmd.args.20:voa id, henjanaMax[auto]
 cmd.args.21:sakafo omena bibikely omena[auto]
@@ -375,7 +375,7 @@ cmd.args.22:bibikely id, sakafo[auto]
 cmd.args.23:mpilalao id, solonanarana[auto]
 cmd.args.24:mpilalao id, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Ant na bibikely na voa, raha bibikely: x, y, karazana Raha ant: id Ant Hill raha masomboly: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:id zavaboary[auto]
 cmd.args.29:Fanalahidy[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Pond of micromanaging ny antsonao? Ampiasao ny maody 2 mandeha ho azy 
 conseil.4:Te hiovaova kely ny fomba filalaovana? mifidiana karazana mbola tsy nilalao.[auto]
 conseil.5:Ny karazana vitsika sasany dia polymorphic. Midika izany fa manana mpiasa manana habe samihafa izy ireo mba hahafahany manao asa samihafa.[auto]
 conseil.6:Aza atody be loatra indray miaraka. Raha tsy izany dia tsy ho afaka hikarakara azy ireo ianao mandra-pahatonga azy ireo ho sary an-tsaina.[auto]
-conseil.7:Mandalo dingana 4 amin'ny famolavolana ny vitsika: atody, lava, nymph ary imago (olitra lehibe).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Ny safidy tsy maintsy ataonao dia aseho eo amin'ny ankavia havia amin'ny efijery anao.[auto]
 conseil.9:Tsy manana hodi-masony handomando ny masony ny vitsika. Tsy maintsy mitazona fomba fiaina salama tsy tapaka izy ireo mba hahafahany mifandray amin'ny antennae ary mahita amin'ny masony.[auto]
 conseil.10:Ny atody, lava ary nymph dia tsy afaka manadio irery izany. Tsy maintsy mila ny fanampian'ny imago izy ireo raha tsy izany dia mety ho voan'ny bakteria ratsy. alao antoka fa mijanona ho 50% ny fahadiovan'ny zanakao.[auto]
@@ -452,7 +452,7 @@ tuto.30:Ny mpiasa aza mahomby kokoa amin'ny lahasa sasany (tsy dia mihetsika loa
 tuto.31:Andao omentsika ny mpiasa ny asany mba hamaranana ny fihodinana. (tsindrio ny bokotra iray eo ambanin'ny efijery misy anao, im-betsaka raha ilaina izany.)[auto]
 tuto.32:Io no fihodinana farany tamin'ity fampianarana ity, raha misy fisalasalana azonao atao ny mamerina ity tutorial ity.[auto]
 tuto.33:Raha tsy izany dia aseho ny famaritana ny bokotra rehefa manidina eo amboniny ianao, ampidiro ireo boaty ao amin'ny sari-tany. Ny vaovao momba ilay vitsika voafantina dia eo ankavanan'ny efijeryo.[auto]
-tuto.34:Raha na eo aza izany dia tsy hitanao izay ilainao dia azonao atao ny mangataka torohevitra amin'ny mpizara fifanolanana ofisialin'ny lalao: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Mba handresena lalao ara-potoana dia tsy maintsy manana isa ambony noho AI ianao sy mpilalao hafa.[auto]
 tuto.36:Miankina amin'ny isa ny isa anao, (ny ants ny olon-dehibe manome isa tsara kokoa), ary koa ny fahasahiranan'ny lalao sy ny hafainganan'ny lalao.[auto]
 tuto.37:Mba hamerenana lalao iray dia mila miala amin'ny lalao ianao ary mamerina azy, hikarakara ny fialana amin'ny lalao aho, anjaranao ny mamerina azy io.[auto]

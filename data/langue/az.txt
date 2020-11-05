@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testAz
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:hərf ölçüsü Y[auto]
 erreurCarteVide:heç bir oyunçu olmadan və heç bir ai olmadan oyuna başlamaq qeyri-mümkündür.[auto]
 maxFourmiIa:ai üçün maksimum qarışqa sayı[auto]
 nomDuFichier:fayl adı[auto]
-getNomDuFcihier:Yükləmək istədiyiniz saxlama dəstinin adını daxil edin: (Və ya geri qayıtmaq üçün geri)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Son tur artıq keçdi.[auto]
 victoireInconue:naməlum qələbə[auto]
 élimination:aradan qaldırılması[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Oyun içi seçimlər menyusunu açın[auto]
 
 pti.desc.1:Yeməyi alacaq qarışqanın kimliyini göstərin.[auto]
 pti.desc.2:Təklif olunan yemək miqdarını göstərin.[auto]
-pti.desc.3:Yumurta qoyulacaq növü göstərin: 0 = Kraliça, 1 = Kişi, 2 = Kiçik, 3 = Orta, 4 = Böyük, 5 + = Digər.[auto]
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:İzləyəcəyiniz istiqaməti göstərin.[auto]
 pti.desc.5:Təmizlənəcək qarışqanın kimliyini göstərin. Ən çirkli qarışqa 1-ci mövqedəki qarışqadır.[auto]
 
 triche.aide.1:Formiko cheat interfeysinə xoş gəlmisiniz. Buradan istifadə etmək əmrlərini yaza bilərsiniz.[auto]
-triche.aide.2:forma adındakı əmrlər: (dəlillər) təsviri[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:məxluq id mərhələsi[auto]
 cmd.args.15:məxluq id, moda[auto]
 cmd.args.16:məxluq id, qarışqa yuvası id[auto]
 cmd.args.17:məxluq id növləri[auto]
-cmd.args:18: id məxluq, təmizlik[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:məxluq id, daşınan miqdar[auto]
 cmd.args.20:toxum id, sərtlik Maks[auto]
 cmd.args.21:həşərat id yemək verilir[auto]
@@ -375,7 +375,7 @@ cmd.args.22:böcək id, qida[auto]
 cmd.args.23:oyunçu id, istifadəçi adı[auto]
 cmd.args.24:oyunçu id, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Qarışqa və ya böcək və ya toxum, böcək varsa: x, y, yazın Əgər qarışqa: id Qarışqa Təpəsi Əgər toxumdursa: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:məxluq id[auto]
 cmd.args.29:Simli açar[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Qarışqalarınızı mikro idarə etmək hovuzu? Sərəncamınızdakı
 conseil.4:Oyun tərzini bir az dəyişmək istəyirsiniz? hələ oynamadığınız bir növ seçin.[auto]
 conseil.5:Bəzi qarışqa növləri polimorfdur. Yəni olduqca fərqli tapşırıqları yerinə yetirə bilmək üçün müxtəlif ölçülü işçilər var.[auto]
 conseil.6:Bir dəfəyə çox yumurta qoymayın. Əks təqdirdə, xəyallara çevrilənə qədər onlara baxa bilməyəcəksiniz.[auto]
-conseil.7:Qarışqalar inkişafın 4 mərhələsini keçir: yumurta, lava, nimfa və imago (yetkin qarışqa).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Etməli olduğunuz seçimlər ekranınızın sol üst hissəsində göstərilir.[auto]
 conseil.9:Qarışqaların gözlərini nəmləndirəcək bir qapağı yoxdur. Antenaları ilə ünsiyyət qurmağı və gözləri ilə görməyi bacarmaq üçün daim sağlam bir həyat tərzi sürməlidirlər.[auto]
 conseil.10:Yumurta, lava və nimfalar bunu təkbaşına təmizləyə bilmirlər. Mütləq bir imajın köməyinə ehtiyacları var, əks halda pis bir bakteriya yoluxa bilər. övladınızın% 50 təmizliyin üstündə qalmasına əmin olun.[auto]
@@ -452,7 +452,7 @@ tuto.30:İşçilər müəyyən işlərdə daha da səmərəlidirlər (onları ye
 tuto.31:Gəlin işçimizə tapşırıq verək ki, dəyirmi bitsin. (lazım olduqda bir neçə dəfə ekranınızın altındakı düymələrdən birini vurun.)[auto]
 tuto.32:Bu təlimatın son turu idi, şübhə edirsinizsə bu təlimatı təkrarlaya bilərsiniz.[auto]
 tuto.33:Əks təqdirdə, düymələrin təsvirləri üzərində gəzdiyiniz zaman göstərilir, xəritədəki qutular üçün ditto. Seçilmiş qarışqa haqqında məlumat ekranınızın sağındadır.[auto]
-tuto.34:Buna baxmayaraq ehtiyacınız olanı tapmasanız, oyunun rəsmi ixtilaf serverində məsləhət ala bilərsiniz: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Bir oyunu vaxtında qazanmaq üçün süni zəka və digər oyunçulardan daha yüksək bal qazanmalısan.[auto]
 tuto.36:Hesabınız qarışqa sayınıza, (yetkin qarışqalar daha yaxşı hesab verir), eləcə də oyunun çətinliyinə və oyunun sürətinə bağlıdır.[auto]
 tuto.37:Bir oyunu yenidən başlatmaq üçün oyundan çıxmalı və yenidən başlamalısan, oyundan çıxmağın qayğısına qalacağam, yenidən başlamağına bax.[auto]

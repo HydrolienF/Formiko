@@ -18,9 +18,10 @@ public class test {
   public static String REPTEST = "build/test/";
   //private static Class<?> testClass = new Class<?>();
   private static GString gs;
+  private static int idCpt=0;
 
   // GET SET --------------------------------------------------------------------
-
+  public static int getId(){return idCpt++;}
   // Fonctions propre -----------------------------------------------------------
   /**
    *{@summary Test all test file in REPTEST directory and all his content.<br/>}
@@ -117,11 +118,8 @@ public class test {
       cmd[2]=">>";
       cmd[3]="test.txt";
       // create runtime to execute external command
-      System.out.println("1");//@a
       Runtime rt = Runtime.getRuntime();
-      System.out.println("2");//@a
       Process pr = rt.exec(cmd);
-      System.out.println("3");//@a
       // retrieve output from command
       BufferedReader bfr = new BufferedReader(new InputStreamReader(pr.getInputStream()));
       s2 = bfr.readLine();

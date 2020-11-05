@@ -6,8 +6,19 @@ import fr.formiko.usuel.test.TestCaseMuet;
 import org.junit.Test;
 import java.io.File;
 import fr.formiko.usuel.image.image;
+import java.util.Map;
+import java.util.HashMap;
+import fr.formiko.usuel.liste.GString;
+import fr.formiko.usuel.test.test;
 
 public class chargerLesTraductionsTest extends TestCaseMuet{
+
+  // get set -------------------------------------------------------------------
+  public void testIniMap(){
+    chargerLesTraductions.iniMap();
+    assertTrue(chargerLesTraductions.getMap()!=null);
+    assertEquals(0,chargerLesTraductions.getMap().size());
+  }
 
   // Fonctions propre -----------------------------------------------------------
   @Test
@@ -77,9 +88,10 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertTrue(chargerLesTraductions.iniTLangue());
     assertTrue(chargerLesTraductions.créerLesFichiers());
     //test dans un autre environement
-    File f = new File("testDir/");
+    int x = test.getId();
+    File f = new File("testDir"+x);
     f.mkdir();
-    chargerLesTraductions.setRep("testDir/");
+    chargerLesTraductions.setRep("testDir"+x);
     assertTrue(chargerLesTraductions.créerLesFichiers());
     String tf [] = f.list();
     assertEquals(105,tf.length);
@@ -92,11 +104,12 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertTrue(!tableau.contient(tf,"eo"));
     assertTrue(image.deleteDirectory(f));
     //test avec un autre tableau de langue.
-    f = new File("testDir9/");
+    int y = test.getId();
+    f = new File("testDir"+y);
     f.mkdir();
     String tf2 [] = {"atta.txt","n","ocotô.md"};
     chargerLesTraductions.setTLangue(tf2);
-    chargerLesTraductions.setRep("testDir9/");
+    chargerLesTraductions.setRep("testDir"+y);
     assertTrue(chargerLesTraductions.créerLesFichiers());
     String tf3 [] = f.list();
     assertTrue(tableau.contient(tf3,"n.txt"));
@@ -133,23 +146,34 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
   //getTableauDesTrad
   @Test
   public void testGetTableauDesTrad(){
-    File f = new File("testDir10/");
+    int x = test.getId();
+    File f = new File("testDir"+x);
     f.mkdir();
-    File ft = new File("testDir10/te.txt");
+    File ft = new File("testDir"+x+"/te.txt");
     try {
       assertTrue(ft.createNewFile());assertTrue(ft.exists());
     }catch (Exception e) {assertTrue(false);}
     String tLangue [] = {"te","ts"};
     chargerLesTraductions.setTLangue(tLangue);
-    chargerLesTraductions.setRep("testDir10/");
+    chargerLesTraductions.setRep("testDir"+x);
     String t [] = chargerLesTraductions.getTableauDesTrad(0);
     assertEquals(0,t.length);
-    //TODO testé également un tableau avec un fichier non vide.
 
     String t2 [] = chargerLesTraductions.getTableauDesTrad(1);
     assertEquals(0,t2.length);
     String t3 [] = chargerLesTraductions.getTableauDesTrad(2);
     assertEquals(0,t3.length);
+
+    //test d' 'un tableau avec un fichier non vide.
+    GString gs = new GString();
+    gs.add("//com");
+    gs.add("ex:test");
+    gs.add("ex2:dfgh");
+    gs.add("ex3:qzg");
+    String tLangue2 [] = {"te","ts","test"};
+    chargerLesTraductions.setTLangue(tLangue2);
+    assertTrue(ecrireUnFichier.ecrireUnFichier(gs,"testDir"+x+"/test.txt"));
+    assertEquals(4,chargerLesTraductions.getTableauDesTrad(2).length);
 
     assertTrue(image.deleteDirectory(f));
     chargerLesTraductions.setRep();
@@ -160,14 +184,15 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
   public void testGetTableauDesCmd(){
     String t [] = chargerLesTraductions.getTableauDesCmd();
     assertTrue(t.length>1);//Le fichier contient des lignes (et donc a bien été lu).
+    int x = test.getId();
 
-    File f = new File("testDir11/");
+    File f = new File("testDir"+x);
     f.mkdir();
-    File ft = new File("testDir11/te.txt");
+    File ft = new File("testDir"+x+"/te.txt");
     try {
       assertTrue(ft.createNewFile());assertTrue(ft.exists());
     }catch (Exception e) {assertTrue(false);}
-    chargerLesTraductions.setRep("testDir11/");
+    chargerLesTraductions.setRep("testDir"+x);
     String t2 [] = chargerLesTraductions.getTableauDesCmd();
     assertEquals(0,t2.length);
     assertTrue(image.deleteDirectory(f));
@@ -175,18 +200,168 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
   }
 
   //chargerLesTraductions
+  @Test
+  public void testChargerLesTraductions(){
+    chargerLesTraductions.setRep();
+    assertTrue(chargerLesTraductions.iniTLangue());
+    Map<String, String> fr = chargerLesTraductions.chargerLesTraductions(1);
+    assertEquals("testFr",fr.get("test"));
+    Map<String, String> eo = chargerLesTraductions.chargerLesTraductions(0);
+    assertEquals("testEo",eo.get("test"));
+    Map<String, String> zu = chargerLesTraductions.chargerLesTraductions(chargerLesTraductions.getLangue("zu"));
+    assertEquals("testZu",zu.get("test"));
+    //si c'est pas une langue existante.
+    Map<String, String> zz = chargerLesTraductions.chargerLesTraductions(chargerLesTraductions.getLangue("zz"));
+    assertEquals("testEn",zz.get("test"));
+    assertTrue(!zz.get("test").equals("testZz"));
+
+
+    assertEquals("test",fr.get("cmd.1"));
+    assertEquals("test",eo.get("cmd.1"));
+    assertEquals("test",zu.get("cmd.1"));
+  }
 
   //chargerLesTraductionsSansCommande
+  @Test
+  public void testChargerLesTraductionsSansCommande(){
+    chargerLesTraductions.setRep();
+    assertTrue(chargerLesTraductions.iniTLangue());
+    Map<String, String> zu = chargerLesTraductions.chargerLesTraductions(chargerLesTraductions.getLangue("zu"));
+    assertEquals("testZu",zu.get("test"));
+    //si c'est pas une langue existante.
+    Map<String, String> zz = chargerLesTraductions.chargerLesTraductions(chargerLesTraductions.getLangue("zz"));
+    assertEquals("testEn",zz.get("test"));//si la langue n'existe pas on passe a l'anglais.
+    assertTrue(!zz.get("test").equals("testZz"));
+  }
 
   //ajouterObjetMap
+  @Test
+  public void testAjouterObjetMap(){
+    chargerLesTraductions.iniMap();//remet a 0.
+    assertEquals(0,chargerLesTraductions.getMap().size());
+    chargerLesTraductions.ajouterObjetMap("ezgubo.zegh");//ne fait rien si ce n'est pas une ligne de trad.
+    assertEquals(0,chargerLesTraductions.getMap().size());
+    chargerLesTraductions.ajouterObjetMap("uneCle:une valeur X");//ne fait rien si ce n'est pas une ligne de trad.
+    assertEquals(1,chargerLesTraductions.getMap().size());
+    assertEquals("une valeur X",chargerLesTraductions.getMap().get("uneCle"));
+    //la meme chose :
+    chargerLesTraductions.ajouterObjetMap("uneCle:une valeur X");//ne fait rien si ce n'est pas une ligne de trad.
+    assertEquals(1,chargerLesTraductions.getMap().size());
+    assertEquals("une valeur X",chargerLesTraductions.getMap().get("uneCle"));
+    //une valeur différente.
+    chargerLesTraductions.ajouterObjetMap("uneCle:une valeur Y");//ne fait rien si ce n'est pas une ligne de trad.
+    assertEquals(1,chargerLesTraductions.getMap().size());
+    assertEquals("une valeur Y",chargerLesTraductions.getMap().get("uneCle"));
+    //une autre clé
+    chargerLesTraductions.ajouterObjetMap("a:une valeur Z");//ne fait rien si ce n'est pas une ligne de trad.
+    assertEquals(2,chargerLesTraductions.getMap().size());
+    assertEquals("une valeur Z",chargerLesTraductions.getMap().get("a"));
+    assertEquals("une valeur Y",chargerLesTraductions.getMap().get("uneCle"));
+
+  }
 
   //ajouterTradAuto
-
-  //TODO maj déplacer dans un usuel/char.java
+  //testé dans ThTrad.
 
   //getPourcentageTraduit
+  @Test
+  public void testGetPourcentageTraduit(){
+    GString gs = new GString();
+    gs.add("//com");
+    gs.add("ex:test");
+    gs.add("ex2:");
+    gs.add("ex3:");
+    int x=test.getId();
+    File f = new File("testDir"+x);
+    f.mkdir();
+    assertTrue(ecrireUnFichier.ecrireUnFichier(gs,"testDir"+x+"/test.txt"));
+    chargerLesTraductions.setRep("testDir"+x);
+    String tl []= {"test"};
+    chargerLesTraductions.setTLangue(tl);
+    assertEquals(-1,chargerLesTraductions.getPourcentageTraduit(0));
+
+    //autre
+    gs = new GString();
+    gs.add("//com");
+    gs.add("ex:test");
+    gs.add("ex2:dfgh");
+    gs.add("ex3:qzg");
+    assertTrue(ecrireUnFichier.ecrireUnFichier(gs,"testDir"+x+"/test.txt"));
+    assertEquals(-1,chargerLesTraductions.getPourcentageTraduit(0));
+
+    image.deleteDirectory(f);
+    chargerLesTraductions.setRep();
+  }
+  @Test
+  public void testGetPourcentageTraduit2(){
+    int x = test.getId();
+    File f = new File("testDir"+x);
+    f.mkdir();
+    GString gsFr = new GString();
+    gsFr.add("//com");
+    gsFr.add("ex:test");
+    gsFr.add("ex2:trad");
+    gsFr.add("ex3:tradghj");
+    assertTrue(ecrireUnFichier.ecrireUnFichier(gsFr,"testDir"+x+"/fr.txt"));
+    GString gs = new GString();
+    gs.add("//com");
+    gs.add("ex:test");
+    gs.add("ex2:");
+    gs.add("ex3:");
+    assertTrue(ecrireUnFichier.ecrireUnFichier(gs,"testDir"+x+"/test.txt"));
+    chargerLesTraductions.setRep("testDir"+x);
+    String tl []= {"test","fr"};
+    chargerLesTraductions.setTLangue(tl);
+    assertEquals(33,chargerLesTraductions.getPourcentageTraduit(0));
+
+    //autre
+    gs = new GString();
+    gs.add("//com");
+    gs.add("ex:test");
+    gs.add("ex2:dfgh");
+    gs.add("ex3:qzg");
+    assertTrue(ecrireUnFichier.ecrireUnFichier(gs,"testDir"+x+"/test.txt"));
+    assertEquals(100,chargerLesTraductions.getPourcentageTraduit(0));
+
+    image.deleteDirectory(f);
+    chargerLesTraductions.setRep();
+  }
 
   //getPourcentageTraduitAutomatiquement
+  @Test
+  public void testGetPourcentageTraduitAutomatiquement(){
+    int x = test.getId();
+    File f = new File("testDir"+x);
+    f.mkdir();
+    GString gsFr = new GString();
+    gsFr.add("//com");
+    gsFr.add("ex:test");
+    gsFr.add("ex2:trad");
+    gsFr.add("//com2");
+    gsFr.add("ex3:tradghj");
+    assertTrue(ecrireUnFichier.ecrireUnFichier(gsFr,"testDir"+x+"/fr.txt"));
+    GString gs = new GString();
+    gs.add("//com");
+    gs.add("ex:test[auto]");
+    gsFr.add("//comAllea");
+    gs.add("ex2:zta[otto]");
+    gs.add("ex3:");
+    assertTrue(ecrireUnFichier.ecrireUnFichier(gs,"testDir"+x+"/test.txt"));
+    chargerLesTraductions.setRep("testDir"+x);
+    String tl []= {"test","fr"};
+    chargerLesTraductions.setTLangue(tl);
+    assertEquals(33,chargerLesTraductions.getPourcentageTraduitAutomatiquement(0));
 
-  //fini
+    //autre
+    gs = new GString();
+    gs.add("//com");
+    gs.add("ex:test[auto]");
+    gs.add("ex2:dfgh[auto]");
+    gs.add("ex3:qzg[auto]");
+    assertTrue(ecrireUnFichier.ecrireUnFichier(gs,"testDir"+x+"/test.txt"));
+    assertEquals(100,chargerLesTraductions.getPourcentageTraduitAutomatiquement(0));
+
+    image.deleteDirectory(f);
+    chargerLesTraductions.setRep();
+  }
 }

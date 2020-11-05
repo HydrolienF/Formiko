@@ -14,7 +14,7 @@ import fr.formiko.usuel.math.math;
 import java.io.Serializable;
 
 public class Joueur implements Serializable{
-  private static int i=1; // le i augmente a chaque fois qu'on créer un joueur.
+  private static int i; // le i augmente a chaque fois qu'on créer un joueur.
   private final int id;
   private Fourmiliere fere;
   private String pseudo;
@@ -61,6 +61,7 @@ public class Joueur implements Serializable{
   public void setCaseNuageuse(int x, int y, boolean b){ caseNuageuse[x][y]=b;}
   public void setPheromone(Pheromone ph){fere.getGc().setPheromone(ph);}
   public int getScore(){return fere.getScore();}
+  public static void ini(){i=1;}
 // Fonctions propre -----------------------------------------------------------
   public String toString(){
     String s = (ia) ? g.get("laIA") : g.get("laJoueurHumain");
@@ -140,5 +141,8 @@ public class Joueur implements Serializable{
   }
   public String scoreToString(){
     return getPseudo()+" : "+getScore();
+  }
+  public void setAction0(){
+    fere.getGc().setAction0();
   }
 }

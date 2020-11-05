@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:тест[auto]
+test:testMk
 
 s:с[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:димензија на буквата во Y[auto]
 erreurCarteVide:невозможно е да се започне игра без ниту еден играч и без никаков аи.[auto]
 maxFourmiIa:максимален број мравки за ai[auto]
 nomDuFichier:име на датотека[auto]
-getNomDuFcihier:Внесете го името на сетот за зачувување што сакате да го вчитате: (Или назад за да се вратите назад)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Последниот круг сега помина.[auto]
 victoireInconue:непозната победа[auto]
 élimination:елиминација[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Отворете го менито за опции во игра[
 
 pti.desc.1:Наведете го ID на мравката што ќе ја прими храната.[auto]
 pti.desc.2:Наведете ја количината на понудена храна.[auto]
-pti.desc.3:
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Наведете ја насоката што треба да се следи.[auto]
 pti.desc.5:Наведете го ID на мравката што треба да се исчисти. Највалканата мравка е мравката во позиција 1.[auto]
 
 triche.aide.1:добредојдовте на интерфејсот за измами Формико. Ова е местото каде што можете да напишете команди за измами.[auto]
-triche.aide.2:команди во името на формата: (аргументи) опис[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:суштество id фаза[auto]
 cmd.args.15:суштество ид, мода[auto]
 cmd.args.16:ID на суштество, ID на мравјалник[auto]
 cmd.args.17:видови на суштество[auto]
-cmd.args:18: ид суштество, чистота[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:суштество ID, количина пренесена[auto]
 cmd.args.20:семе на идентификација, цврстина Макс[auto]
 cmd.args.21:обезбедена храна за храна со инсекти[auto]
@@ -375,7 +375,7 @@ cmd.args.22:инсект, храна[auto]
 cmd.args.23:ID на играч, корисничко име[auto]
 cmd.args.24:ИД на играч, Булова естиа[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Мравка или инсект или семе, ако инсект: x, y, тип Ако мравка: id Мравка рид Ако семе: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:суштество ид[auto]
 cmd.args.29:Стринг клуч[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Езерце за микро-управување со вашите м
 conseil.4:Дали сакате малку да го промените стилот на игра? изберете вид со кој сè уште не сте играле.[auto]
 conseil.5:Некои видови мравки се полиморфни. Тоа е да се каже дека тие имаат работници со различна големина за да можат да извршуваат доста различни задачи.[auto]
 conseil.6:Не ставајте премногу јајца одеднаш. Во спротивно нема да можете да се грижите за нив додека не станат имаго.[auto]
-conseil.7:Мравките минуваат низ 4 фази на развој: јајце, лава, нимфа и имаго (возрасна мравка).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Изборите што треба да ги направите се означени горе лево од вашиот екран.[auto]
 conseil.9:Мравките немаат очен капак за да ги навлажнат очите. Тие мора постојано да одржуваат здрав начин на живот за да можат да комуницираат со своите антени и да гледаат со нивните очи.[auto]
 conseil.10:Јајцата, лавата и нимфите не можат сами да го исчистат ова. Тие нужно имаат потреба од помош на имаго во спротивно може да бидат заразени од лоши бактерии. проверете дали вашето потомство останува над 50% чистота.[auto]
@@ -452,7 +452,7 @@ tuto.30:Работниците се дури и поефикасни во одр
 tuto.31:Да му дадеме на нашиот работник задача да ја заврши, така што рундата ќе заврши. (кликнете на едно од копчињата на дното на вашиот екран, неколку пати доколку е потребно.)[auto]
 tuto.32:Тоа беше последната рунда од ова упатство, доколку имате сомнежи, можете да го направите ова упатство.[auto]
 tuto.33:Во спротивно, описите на копчињата се прикажуваат кога лебдите над нив, дито за кутиите на картата. Информациите за избраната мравка се наоѓаат десно од вашиот екран.[auto]
-tuto.34:Ако и покрај ова не го пронајдете она што ви треба, можете да побарате совет за официјалниот сервер за раздор во играта: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:За да добиете натпревар на време, мора да имате повисок резултат од АИ и другите играчи.[auto]
 tuto.36:Вашата оценка зависи од бројот на мравки, (возрасните мравки даваат подобар резултат), како и тежината на играта и брзината на играта.[auto]
 tuto.37:За да ја рестартирате играта, мора да ја напуштите играта и да ја рестартирате, јас ќе се погрижам да ја напуштам играта, останува на вас да ја рестартирате.[auto]

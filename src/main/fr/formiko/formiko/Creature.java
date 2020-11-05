@@ -113,6 +113,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public Espece getEspece(){ return e;}
   public void setEspece(Espece e){ this.e = e;}
   public void setEspece(int e){ setEspece(Main.getEspeceParId(e));}
+  public String getNom(){return g.get("creature");}
 
   //raccourci des action d'interface
   public void ceDeplacer(boolean bIa){déplacement.unMouvement(this,bIa);}
@@ -160,6 +161,24 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     //if(this.getGiProie().contient(c.getType())){ return true;}
     if(!this.getPheromone().equals(c.getPheromone(),math.min(127,c.getTolerencePheromone()*6))){ return true;} // c est une fourmi non alliés, et nous n'avons pas de lien de parenté.
     return false; //sinon a priori on est neutre.
+  }
+  /**
+   *{@summary find all allied Creature on the same Case.<br>}
+   *@version 1.7
+   */
+  public GCreature getAlliéSurLaCase(){
+    //if(!e.getPolycalique()){return new GCreature(this);} //pris en compte par la diff phéromonale tolléré
+    return getCCase().getContenu().getGc().filtreAlliés(this);
+  }
+  /**
+   *{@summary find all allied Creature on the same Case and remove this form the GCreature.<br>}
+   *@version 1.7
+   */
+  public GCreature getAlliéSurLaCaseSansThis(){
+    //if(!e.getPolycalique()){return new GCreature();}//pris en compte par la diff phéromonale tolléré
+    GCreature gc = getAlliéSurLaCase();
+    gc.retirer(this);
+    return gc;
   }
   /**
   *{@summary check if this should died of reason x. <br>}

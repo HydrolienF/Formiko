@@ -4,7 +4,7 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 import java.io.Serializable;
 
 public class ObjetAId implements Serializable{
-  protected static int ic=1;
+  protected static int ic;
   protected final int id;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
@@ -16,6 +16,7 @@ public class ObjetAId implements Serializable{
   public int getId(){return id;}
   public static int getIc(){return ic;}
   public static int getI(){return getIc();}
+  public static void ini(){ic=1;}
   // Fonctions propre -----------------------------------------------------------
   public boolean equals(ObjetAId o){
     if(id == o.id){ return true;}

@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 public class Fourmiliere implements Serializable{
   //Les données communes a chaque Fourmiliere :
-  private static int idCpt=1; private final int id;
+  private static int idCpt; private final int id;
   private CCase cc;
   private Joueur joueur;
   private GCreature gc; private GGraine gg;
@@ -83,6 +83,7 @@ public class Fourmiliere implements Serializable{
   public void setNbrFourmisMorte(int x){nbrFourmisMorte=x;}
   public void nbrFourmisMortePlus1(){setNbrFourmisMorte(getNbrFourmisMorte()+1);}
   public Espece getEspece(){return gc.getEspece();}
+  public static void ini(){idCpt=1;}
   // Fonctions propre -----------------------------------------------------------
   public String toString(boolean b){
     int leng = length();

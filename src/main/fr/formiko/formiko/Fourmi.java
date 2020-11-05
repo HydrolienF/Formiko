@@ -96,14 +96,16 @@ public class Fourmi extends Creature implements Serializable{
   public static void setUneSeuleAction(int x){uneSeuleAction=(byte)x;}public static void setUneSeuleAction(){setUneSeuleAction(-1);}
   public static void setBUneSeuleAction(boolean b){bUneSeuleAction=b;}
   public static void setBActualiserTaille(boolean b){bActualiserTaille=b;}
+  @Override
+  public String getNom(){return g.get("fourmi");}
   //racourci
   public Fourmi getReine(){ return this.getFere().getGc().getReine();}
   // Fonctions propre -----------------------------------------------------------
-  public String toString(){return description();}
+  public String toString(){return tableau.tableauToString(descriptionTableau());}
   public void afficheToi (){System.out.println(description());}
   public boolean estReine(){return getTypeF()==0;}
   public String description(){
-    return "id : "+getId()+" "+tableau.tableauToString(descriptionTableau());
+    return toString();
   }
   public String getStringStade(){
     if (stade==0){ return g.get("imago");}
@@ -151,21 +153,7 @@ public class Fourmi extends Creature implements Serializable{
     if (this.getCCase().equals(this.getFourmiliere().getCCase())){ return true;}
     return false;
   }
-  public int [] getIdFourmiDifférenteSurLaCase(){
-    int lengc = this.getCCase().getContenu().getGc().length();
-    int ti [] = new int [lengc -1];
-    CCreature cc = this.getCCase().getContenu().getGc().getDébut();
-    int k=0;
-    for (int i=0;i<lengc;i++) {
-      debug.débogage("test de la créature "+cc.getContenu().getId());
-      int idTemp = cc.getContenu().getId();
-      cc=cc.getSuivant();
-      if(idTemp != this.getId()){
-        ti[k]= idTemp;k++;
-      }
-    }
-    return ti;
-  }
+
   public byte getModeReine(){
     if(fere.getGc().getNbrOuvrière() > 0){ return 3;}
     debug.débogage("Choix spéciale");
@@ -240,7 +228,7 @@ public class Fourmi extends Creature implements Serializable{
     if(in.getCoutDéplacement() == -1){ t=tableau.retirerX(t,0);}
     if(in.getCoutChasse() == -1 || gcCase.getGi().length()==0){ t=tableau.retirerX(t,1);}
     if(in.getCoutPondre() == -1 || !peutPondre()){ t=tableau.retirerX(t,2);}
-    if(in.getCoutTrophallaxie() == -1 || gcCase.length() < 2){ t=tableau.retirerX(t,3);}
+    if(in.getCoutTrophallaxie() == -1 || gcCase.filtreAlliés(this).length() < 2){ t=tableau.retirerX(t,3);}
     if(in.getCoutNétoyer() == -1 ||(netoyer.getNombreDeCreatureANetoyer(this))==0){ t=tableau.retirerX(t,4);}
     if(!e.getGranivore()){
       t=tableau.retirerX(t,5);
@@ -252,9 +240,10 @@ public class Fourmi extends Creature implements Serializable{
     return t;
   }
   public String [] descriptionTableau(){
-    String tr [] = new String [12];
+    String tr [] = new String [13];
     String idTrans = "Rien"; if(transporté != null){ idTrans = ""+transporté.getId();}
     int k=0;
+    tr[k]=g.get("la")+" "+getNom()+" "+getId();k++;
     tr[k]=g.get("coordonnées")+" : "+p.desc();k++;
     tr[k]=g.get("type")+" : "+in.getStringType();k++;
     tr[k]=g.get("stade")+" : "+getStringStade();k++;
@@ -451,11 +440,11 @@ public class Fourmi extends Creature implements Serializable{
     }return false;
   }
   public boolean pondreOuPas(){
-    if (this.getFere().getGc().getCouvainSale()!=null && this.getCCase().getContenu().getGc().filtreAlliés(this).getNbrOuvrière()==0){ return false;}//si personne n'aide et que le couvain et sale.
+    if (this.getFere().getGc().getCouvainSale()!=null && getAlliéSurLaCase().getNbrOuvrière()==0){ return false;}//si personne n'aide et que le couvain et sale.
     if (fere.getGc().getNbrOuvrière()==0 && this.getFere().getGc().getCouvain().length()>=1){ return false;} // pas plus d'un oeuf au début.
     if (nourriture > 50 + this.getFere().getGc().length()*5 || nourriture*2 > nourritureMax){ // soit la reine a au mois la moitié de sa nourriture max soit on cherche a avoir au moins 50 de nourriture plus 5 par fourmi déja présente. Une fourmilière déja bien établie n'as pas besoin de prendre de risque.
-      if (this.getCCase().getContenu().getGc().filtreAlliés(this).getCouvain() != null){
-        int pourcentageDeCouvain = (100*this.getCCase().getContenu().getGc().filtreAlliés(this).getCouvain().length()) / this.getFere().length();
+      if (getAlliéSurLaCase().getCouvain() != null){
+        int pourcentageDeCouvain = (100*getAlliéSurLaCase().getCouvain().length()) / this.getFere().length();
         if (pourcentageDeCouvain > 75 && nourriture > nourritureMax/2){ return false;} // si le nombre d'élément du couvain est vraiment important il faut évité de pondre plus sinon il y aura des morts pendant le dévelloppement du couvain.
       }
       this.pondre(); return true;
@@ -493,10 +482,10 @@ public class Fourmi extends Creature implements Serializable{
     if (f3 != null && (!f3.equals(this))){ // si la Reine existe, n'est pas la créatures qui joue ou que la reine a déja plus de nourriture qu'il ne lui en faut.
       return f3;
     }else{//soit la reine donne au nécéciteux, plus la fourmi est proche du stade imago plus elle est prioritaire.
-      //f = this.getCCase().getContenu().getGc().filtreAlliés(this).getGcStade(0).getPlusAffamée(); // Les adultes sont prioritaire pour recevoir de la nourriture.
+      //f = getAlliéSurLaCase().getGcStade(0).getPlusAffamée(); // Les adultes sont prioritaire pour recevoir de la nourriture.
       int i = -1;
       while(((f==null || f.getNourriture() > 5*f.getIndividu().getNourritureConso())) && i>-4){ //si la créature tien plus de 5 tour seule on en cherche une autre.
-        f = this.getCCase().getContenu().getGc().filtreAlliés(this).getGcStade(i).getPlusAffamée();
+        f = getAlliéSurLaCase().getGcStade(i).getPlusAffamée();
         i--;
       }
     }

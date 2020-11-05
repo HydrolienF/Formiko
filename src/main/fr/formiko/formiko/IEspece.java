@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 public class IEspece implements Serializable{
   private int ct[];
-  protected final int id; protected static int cptid=0;
+  protected final int id; protected static int cptid;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public IEspece(int ct []){
     this.id = cptid; cptid++;
@@ -25,6 +25,7 @@ public class IEspece implements Serializable{
     return ct[i];}
   public int [] getCt(){return ct;}
   public int getId(){ return id;}
+  public static void ini(){cptid=0;}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
     return "IEspece "+getId()+tableau.tableauToString(ct);

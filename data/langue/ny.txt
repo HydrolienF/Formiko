@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:mayesoFr[auto]
+test:testNy
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:kukula kwa kalata mu Y[auto]
 erreurCarteVide:zosatheka kuyamba masewera osasewera aliyense komanso opanda ai.[auto]
 maxFourmiIa:kuchuluka kwa nyerere za ai[auto]
 nomDuFichier:dzina lafayilo[auto]
-getNomDuFcihier:Lowetsani dzina la zosungira zomwe mukufuna kutsegula: (Kapena kubwerera kuti mubwerere)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Kuzungulira komaliza tsopano kwadutsa.[auto]
 victoireInconue:chigonjetso chosadziwika[auto]
 élimination:kuchotsa[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Tsegulani zosankha zamasewera[auto]
 
 pti.desc.1:Sonyezani id ya nyerere yomwe ilandire chakudyacho.[auto]
 pti.desc.2:Sonyezani kuchuluka kwa chakudya chomwe mungapereke.[auto]
-pti.desc.3:
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Sonyezani njira yoyenera kutsatira.[auto]
 pti.desc.5:Sonyezani id ya nyerere kuti ichapidwe. Nyerere yoyera kwambiri ndi nyerere pamalo 1.[auto]
 
 triche.aide.1:Takulandirani ku mawonekedwe achinyengo a Formiko. Apa ndipomwe mungathe kulemba malamulo achinyengo.[auto]
-triche.aide.2:amalamula mu dzina la mawonekedwe: (zifukwa) kufotokozera[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:siteji id[auto]
 cmd.args.15:cholengedwa cholengedwa, mafashoni[auto]
 cmd.args.16:id ya chilengedwe, id ya nyerere[auto]
 cmd.args.17:mitundu ya id[auto]
-cmd.args:18: cholengedwa cha id, ukhondo[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:cholengedwa chadongosolo, kuchuluka kotumizidwa[auto]
 cmd.args.20:ID ya mbewu, kuumaMax[auto]
 cmd.args.21:tizilombo id chakudya choperekedwa[auto]
@@ -375,7 +375,7 @@ cmd.args.22:tizilombo id, chakudya[auto]
 cmd.args.23:id player, lolowera[auto]
 cmd.args.24:id player, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Nyerere kapena Tizilombo kapena Mbewu, Ngati tizilombo: x, y, lembani Ngati nyerere: id Phiri la Nyerere Ngati mbeu: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:cholengedwa chad[auto]
 cmd.args.29:Chingwe chachingwe[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Pond of micromanaging nyerere zanu? Gwiritsani ntchito mitundu iwiri y
 conseil.4:Mukufuna kusiyanitsa mawonekedwe amasewera pang'ono? sankhani mitundu yomwe simunasewere nayo.[auto]
 conseil.5:Mitundu ina ya nyerere ndi polymorphic. Izi zikutanthauza kuti ali ndi antchito amitundu yosiyanasiyana kuti athe kuchita ntchito zosiyanasiyana.[auto]
 conseil.6:Osayika mazira ambiri nthawi imodzi. Kupanda kutero simutha kuwasamalira mpaka atakhala malingaliro.[auto]
-conseil.7:Nyerere zimadutsa magawo anayi amakulidwe: dzira, chiphalaphala, nymph ndi imago (nyerere wamkulu).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Zosankha zomwe muyenera kupanga zikuwonetsedwa kumanzere kumanzere kwazenera lanu.[auto]
 conseil.9:Nyerere zilibe chikope chofewetsera maso awo. Ayenera kukhala ndi moyo wathanzi nthawi zonse kuti athe kulumikizana ndi tinyanga tawo ndikuwona ndi maso.[auto]
 conseil.10:Mazira, chiphalaphala ndi ntchentche sizingathe kuyeretsa izi zokha. Amafunikira thandizo la imago apo ayi atha kutenga kachilombo koyipa. onetsetsani kuti ana anu amakhala pamwamba pa 50% ukhondo.[auto]
@@ -452,7 +452,7 @@ tuto.30:Ogwira ntchito ndiwothandiza kwambiri pantchito zina (zimawatengera zint
 tuto.31:Tiyeni timupatse ntchito wantchito wathu kuti amalize kuti zozungulira zizitha. (dinani pa batani limodzi pansi pazenera lanu, kangapo ngati kuli kofunikira.)[auto]
 tuto.32:Anali gawo lomaliza la phunziroli, ngati mukukayika, mutha kuyambiranso phunziroli.[auto]
 tuto.33:Kupanda kutero mafotokozedwe amtunduwo amawonetsedwa mukamayandama pamwamba pake, lembani mabokosi pamapu. Zambiri zokhudza nyerere zomwe mwasankha zili kumanja kwazenera lanu.[auto]
-tuto.34:Ngati ngakhale simukupeza zomwe mukufuna, mutha kufunsa upangiri pa seva yomwe ili pamasewerawa: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Kuti mupambane masewerawa munthawi yoyenera muyenera kukhala ndi zigoli zambiri kuposa AI ndi osewera ena.[auto]
 tuto.36:Zolemba zanu zimatengera kuchuluka kwa nyerere, (nyerere zazikulu zimapereka mphambu yabwinoko), komanso zovuta zamasewera komanso kuthamanga kwa masewerawo.[auto]
 tuto.37:Kuti muyambitse masewerawa, muyenera kusiya masewerawa ndikuyambiranso, ndikusamala kuti ndisiye masewerawo, zili ndi inu kuti muyambe kuyambitsa.[auto]

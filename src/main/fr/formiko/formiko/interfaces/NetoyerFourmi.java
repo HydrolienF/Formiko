@@ -89,9 +89,9 @@ public class NetoyerFourmi implements Serializable, Netoyer {
       int lent = t.length;
       String s[] = new String[lent];
       for (int i=0;i<lent ;i++ ) {
-        Fourmi f = gc.getFourmiParId(t[i]);
+        Creature c = gc.getCreatureParId(t[i]);
         //a ce stade toutes les fourmis de la liste devrais être sales.
-        s[i]=t[i]+" : "+f.getProprete()+"/"+"100"+" "+g.get("propreté");
+        s[i]=t[i]+" : "+c.getProprete()+"/"+"100"+" "+g.get("propreté");
       }
       if(s.length==0){
         return false;
@@ -112,7 +112,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
     return true;
   }
   /*public boolean netoyerTtLeMonde(){
-    Fourmi fSale = null;//(Fourmi) this.getCCase().getContenu().getGc().filtreAlliés(this).getCouvainSaleMêmeTrèsPeu();
+    Fourmi fSale = null;//(Fourmi) this.getAlliéSurLaCase().getCouvainSaleMêmeTrèsPeu();
     if (fSale == null){ return false;}
     netoyer(fSale);
     return true;
@@ -142,21 +142,21 @@ public class NetoyerFourmi implements Serializable, Netoyer {
    *@version 1.3
    */
   private int [] getFourmiPasPropre(){
-    GCreature gc = net.getCCase().getContenu().getGc();
+    GCreature gc = net.getAlliéSurLaCase();
     int t[] = getFourmiParOrdreDeSaletéSurLaCase();int lent = t.length;
     int lentr = 0;
     //on compte le nombre de case.
     for (int i=0;i<lent ;i++ ) {
-      Fourmi f = gc.getFourmiParId(t[i]);
-      if(f.getProprete()!=100){
+      Creature c = gc.getCreatureParId(t[i]);
+      if(c.getProprete()!=100){
         lentr++;
       }
     }
     //on ajoute seuelement les fourmis qui sont sale.
     int tr[] = new int[lentr];int k=0;
     for (int i=0;i<lent ;i++ ) {
-      Fourmi f = gc.getFourmiParId(t[i]);
-      if(f.getProprete()!=100){
+      Creature c = gc.getCreatureParId(t[i]);
+      if(c.getProprete()!=100){
         tr[k] = t[i];k++;
       }
     }

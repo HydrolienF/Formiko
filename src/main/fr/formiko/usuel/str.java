@@ -5,10 +5,10 @@ import fr.formiko.usuel.ascii;
 import fr.formiko.usuel.tableau;
 
 /**
- * {@summary Types conversions from String<br/>}
- * @author Hydrolien
- * @version 1.1
- */
+*{@summary Types conversions from String<br/>}
+*@author Hydrolien
+*@version 1.1
+*/
 public class str{
   // Fonctions propre -----------------------------------------------------------
   /**
@@ -34,6 +34,10 @@ public class str{
    *@version 1.2
    */
   public static boolean contient(String s,String subS, byte x){
+    //les cas d'erreur.
+    if(s==null){return false;}
+    if(subS==null){return false;}
+    if(subS.equals("")){return true;}
     if(x<0 || x>4){return false;}
     if(s.length()<subS.length()){return false;}
 
@@ -84,6 +88,7 @@ public class str{
   *@version 1.3
   */
   public static String filtreCharInterdit(String s){
+    if(s==null){return null;}
     char w [] = {'<', '>', ':', '\"', '/', '\\', '|', '?', '*'};
     char ml [] = {':','/','\\'};
     if(Main.getOs()==null || Main.getOs().isWindows()){ return filtreCharInterdit(s,w);}
@@ -96,10 +101,27 @@ public class str{
   *@version 1.3
   */
   public static String sToDirectoryName(String s){
+    if(s==null){return null;}
     char w [] = {'<', '>', ':', '\"', '\\', '|', '?', '*'};
     s = filtreCharInterdit(s,w);
     s = ajouterALaFinSiNecessaire(s,"/");
     return s;
+  }
+  /**
+  *{@summary Transform the first char of a String to the toUpperCase char.<br>}
+  *if s is "" or null nothing will be done.
+  *@param s the String to transform.
+  *@version 1.7
+  */
+  public static String sToSMaj(String s){
+    if(s==null){return null;}
+    if(s.length()>1){
+      return s.substring(0,1).toUpperCase()+s.substring(1); // 1a char en majuscule.
+    }else if(s.length()==1){
+      return s.substring(0,1).toUpperCase();
+    }else{
+      return s;
+    }
   }
 
 	//nouvelle partie :

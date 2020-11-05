@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testHu
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:betűméret Y-ben[auto]
 erreurCarteVide:lehetetlen játékot indítani bármely játékos és ai nélkül.[auto]
 maxFourmiIa:a hangyák maximális száma az ai esetében[auto]
 nomDuFichier:fájl név[auto]
-getNomDuFcihier:Írja be a betölteni kívánt mentési készlet nevét: (Vagy vissza, ha vissza akar térni)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Az utolsó forduló most letelt.[auto]
 victoireInconue:ismeretlen győzelem[auto]
 élimination:megszüntetése[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Nyissa meg a játékon belüli opciók menüt[auto]
 
 pti.desc.1:Jelölje meg az élelmet fogadó hangya azonosítóját.[auto]
 pti.desc.2:Adja meg a felkínált étel mennyiségét.[auto]
-pti.desc.3:Adja meg a tojandó tojás típusát: 0 = királynő, 1 = férfi, 2 = kiskorú, 3 = közepes, 4 = fő, 5 + = egyéb.[auto]
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Jelölje a követendő irányt.[auto]
 pti.desc.5:Adja meg a megtisztítandó hangya azonosítóját. A legmocskosabb hangya az 1. helyzetben lévő hangya.[auto]
 
 triche.aide.1:Üdvözöljük a Formiko cheat felületen. Itt írhat be csalási parancsokat.[auto]
-triche.aide.2:parancsok az űrlapnévben: (érvek) leírás[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:lény id szakasz[auto]
 cmd.args.15:lény id, divat[auto]
 cmd.args.16:lény azonosítója, hangyaboly id[auto]
 cmd.args.17:lény id fajok[auto]
-cmd.args:18: id lény, tisztaság[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:lény azonosítója, szállított mennyiség[auto]
 cmd.args.20:magazonosító, keménységMax[auto]
 cmd.args.21:rovar id táplálékot biztosított[auto]
@@ -375,7 +375,7 @@ cmd.args.22:rovar azonosító, étel[auto]
 cmd.args.23:játékos azonosító, felhasználónév[auto]
 cmd.args.24:játékos azonosító, logikai észIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Hangya vagy rovar vagy mag, ha rovar: x, y, írja be az If hangya: id Hangya domb Ha mag: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:lény id[auto]
 cmd.args.29:Karakterlánc[auto]
 
@@ -390,7 +390,7 @@ conseil.3:A hangyák mikroszintű kezelése? Használja a rendelkezésére áll�
 conseil.4:Szeretne kicsit változtatni a játékstíluson? válasszon olyan fajt, amellyel még nem játszott.[auto]
 conseil.5:Néhány hangyafaj polimorf. Vagyis különböző méretű munkavállalókkal rendelkeznek, hogy egészen különböző feladatokat tudjanak ellátni.[auto]
 conseil.6:Ne rakjon túl sok tojást egyszerre. Ellenkező esetben nem tudsz vigyázni rájuk, amíg imágókká nem válnak.[auto]
-conseil.7:A hangyák 4 fejlődési szakaszon mennek keresztül: tojás, láva, nimfa és imago (felnőtt hangya).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:A választás, amelyet meg kell tennie, a képernyő bal felső sarkában található.[auto]
 conseil.9:A hangyáknak nincs szemhéjuk, hogy megnedvesítsék a szemüket. Folyamatosan meg kell őrizniük az egészséges életmódot annak érdekében, hogy kommunikálni tudjanak antennáikkal és láthassák a szemüket.[auto]
 conseil.10:A tojás, a láva és a nimfa nem képes ezt önmagában megtisztítani. Szükségük van egy imago segítségére, különben rossz baktériumok fertőzhetik meg őket. győződjön meg arról, hogy a fiókája 50% -os tisztaság felett marad.[auto]
@@ -452,7 +452,7 @@ tuto.30:A munkavállalók még hatékonyabban teljesítenek bizonyos feladatokat
 tuto.31:Adjunk a munkánknak egy feladatot, amelyet el kell végeznie, hogy a kör véget érjen. (kattintson a képernyő alján található gombok egyikére, szükség esetén többször is.)[auto]
 tuto.32:Ez volt az oktatóprogram utolsó fordulója. Ha kétségei merülnek fel, akkor újra elvégezheti az oktatóanyagot.[auto]
 tuto.33:Ellenkező esetben a gombok leírása akkor jelenik meg, amikor az egérrel az egérrel fölé viszi az egeret, ugyanúgy, mint a térkép mezői. A kiválasztott hangyával kapcsolatos információk a képernyő jobb oldalán találhatók.[auto]
-tuto.34:Ha ennek ellenére sem találja meg azt, amire szüksége van, tanácsot kérhet a játék hivatalos diszkord szerverén: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Ahhoz, hogy időben megnyerj egy játékot, magasabb pontszámmal kell rendelkezned, mint az AI és a többi játékos.[auto]
 tuto.36:A pontszám függ a hangyák számától (a felnőtt hangyák adnak jobb pontszámot), valamint a játék nehézségétől és a játék sebességétől.[auto]
 tuto.37:A játék újraindításához le kell állítania a játékot és újra kell indítania, én gondoskodom a játékról való kilépésről, rajtad múlik az újraindítás.[auto]

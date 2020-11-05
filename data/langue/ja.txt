@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testJa
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:Yの文字寸法[auto]
 erreurCarteVide:プレイヤーやAIなしでゲームを開始することは不可能です。[auto]
 maxFourmiIa:aiのアリの最大数[auto]
 nomDuFichier:ファイル名[auto]
-getNomDuFcihier:ロードするセーブセットの名前を入力してください：（または戻って戻る）[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:最終回を通過しました。[auto]
 victoireInconue:未知の勝利[auto]
 élimination:排除[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:ゲーム内オプションメニューを開く[auto]
 
 pti.desc.1:餌を受け取るアリのIDを示します。[auto]
 pti.desc.2:提供される食品の量を示します。[auto]
-pti.desc.3:産卵する卵の種類を示します：0 =女王、1 =男性、2 =マイナー、3 =中、4 =メジャー、5 + =その他。[auto]
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:従う方向を示します。[auto]
 pti.desc.5:掃除するアリのIDを指定します。最も汚れたアリは、ポジション1のアリです。[auto]
 
 triche.aide.1:Formikoチートインターフェースへようこそ。ここにチートコマンドを入力できます。[auto]
-triche.aide.2:フォーム名のコマンド:(引数）説明[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:クリーチャーIDステージ[auto]
 cmd.args.15:クリーチャーID、ファッション[auto]
 cmd.args.16:クリーチャーID、蟻塚ID[auto]
 cmd.args.17:生き物id種[auto]
-cmd.args:18：idクリーチャー、清潔[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:クリーチャーID、輸送された数量[auto]
 cmd.args.20:シードID、硬度[auto]
 cmd.args.21:昆虫id食品を提供[auto]
@@ -375,7 +375,7 @@ cmd.args.22:昆虫ID、食品[auto]
 cmd.args.23:プレーヤーID、ユーザー名[auto]
 cmd.args.24:プレーヤーID、ブール値estIa[auto]
 cmd.args.25:int x、int y[auto]
-cmd.args.27:AntまたはInsectまたはSeed、昆虫の場合：x、y、タイプantの場合：id Ant Hillシードの場合：x、y。[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:クリーチャーID[auto]
 cmd.args.29:文字列キー[auto]
 
@@ -390,7 +390,7 @@ conseil.3:あなたのアリをマイクロマネージメントする池？ 2�
 conseil.4:プレイのスタイルを少し変えたいですか？まだ遊んだことがない種を選んでください。[auto]
 conseil.5:一部のアリ種は多形性です。つまり、まったく異なるタスクを実行できるように、さまざまなサイズのワーカーがいます。[auto]
 conseil.6:一度に多くの卵を産まないでください。そうでなければ、それらが成虫になるまで、それらの面倒を見ることができません。[auto]
-conseil.7:アリは、卵、溶岩、ニンフ、成虫（成虫）の4つの発達段階を経ます。[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:あなたがしなければならない選択は、画面の左上に示されています。[auto]
 conseil.9:アリには目を潤すまぶたがありません。彼らは、アンテナと通信して目で見ることができるように、常に健康的なライフスタイルを維持する必要があります。[auto]
 conseil.10:卵、溶岩、ニンフはこれを自分で掃除することはできません。彼らは必然的に成虫の助けを必要とします。そうでなければ、それは悪い細菌に感染する可能性があります。あなたのひなが50％以上の清潔さを保つことを確認してください。[auto]
@@ -452,7 +452,7 @@ tuto.30:ワーカーは特定のタスクでさらに効率的です（それら
 tuto.31:ラウンドが終了するように、ワーカーに完了するタスクを与えましょう。 （画面の下部にあるボタンの1つをクリックし、必要に応じて数回クリックします。）[auto]
 tuto.32:これがこのチュートリアルの最後のターンでした。疑問がある場合は、このチュートリアルをやり直すことができます。[auto]
 tuto.33:それ以外の場合は、ボタンにカーソルを合わせるとボタンの説明が表示されます。地図上のボックスも同様です。選択したアリに関する情報が画面の右側に表示されます。[auto]
-tuto.34:それにもかかわらず、必要なものが見つからない場合は、ゲームの公式不和サーバーでアドバイスを求めることができます：http：//discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:時間通りにゲームに勝つには、AIや他のプレイヤーよりも高いスコアを持っている必要があります。[auto]
 tuto.36:あなたのスコアはあなたのアリの数（大人のアリはより良いスコアを与える）、そしてゲームの難易度とゲームのスピードに依存します。[auto]
 tuto.37:ゲームを再開するには、ゲームを終了して再起動する必要があります。ゲームの終了は私が担当します。再起動するのはあなた次第です。[auto]

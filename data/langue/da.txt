@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testDa
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:bogstavdimension i Y[auto]
 erreurCarteVide:umuligt at starte et spil uden nogen spiller og uden nogen ai.[auto]
 maxFourmiIa:maksimalt antal myrer til ai[auto]
 nomDuFichier:filnavn[auto]
-getNomDuFcihier:Indtast navnet på det gemmesæt, du vil indlæse: (Eller tilbage for at gå tilbage)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Den sidste runde er nu gået.[auto]
 victoireInconue:ukendt sejr[auto]
 élimination:eliminering[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Åbn menuen med valgmuligheder i spillet[auto]
 
 pti.desc.1:Angiv id for myren, der modtager maden.[auto]
 pti.desc.2:Angiv mængden af tilbudt mad.[auto]
-pti.desc.3:Angiv typen af æg, der skal lægges: 0 = Dronning, 1 = Mand, 2 = Mindre, 3 = Medium, 4 = Major, 5 + = Andet.[auto]
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Angiv retningen, der skal følges.[auto]
 pti.desc.5:Angiv id for myren, der skal rengøres. Den beskidte myre er myren i position 1.[auto]
 
 triche.aide.1:velkommen til Formiko snydefladen. Det er her, du kan skrive snydekommandoer.[auto]
-triche.aide.2:kommandoer i formularnavnet: (argumenter) beskrivelse[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:væsen id fase[auto]
 cmd.args.15:væsen id, mode[auto]
 cmd.args.16:creature id, anthill id[auto]
 cmd.args.17:væsen id arter[auto]
-cmd.args:18: id skabning, renlighed[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:væsen id, transporteret mængde[auto]
 cmd.args.20:frø-id, hårdhedMaks[auto]
 cmd.args.21:insekt-id-mad leveret[auto]
@@ -375,7 +375,7 @@ cmd.args.22:insekt-id, mad[auto]
 cmd.args.23:spiller-id, brugernavn[auto]
 cmd.args.24:spiller-id, boolsk estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Ant eller insekt eller frø, hvis insekt: x, y, skriv Hvis ant: id Ant Hill Hvis frø: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:væsen id[auto]
 cmd.args.29:Strengnøgle[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Dam til at styre dine myrer? Brug de 2 automatiske tilstande til din r
 conseil.4:Vil du variere spillestilen lidt? vælg en art, du ikke har spillet med endnu.[auto]
 conseil.5:Nogle myrearter er polymorfe. Det vil sige, at de har arbejdere af forskellig størrelse for at kunne udføre helt forskellige opgaver.[auto]
 conseil.6:Læg ikke for mange æg på én gang. Ellers vil du ikke være i stand til at tage sig af dem, før de bliver imagos.[auto]
-conseil.7:Myrer gennemgår 4 udviklingsstadier: æg, lava, nymfe og imago (voksenmyr).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:De valg, du skal træffe, er angivet øverst til venstre på skærmen.[auto]
 conseil.9:Myrer har ikke et øjenlåg til at fugte deres øjne. De skal konstant opretholde en sund livsstil for at kunne kommunikere med deres antenner og se med øjnene.[auto]
 conseil.10:Æg, lava og nymfer er ikke i stand til at rense dette alene. De har nødvendigvis brug for hjælp fra en imago, ellers kunne den blive inficeret af dårlige bakterier. Sørg for, at din yngel forbliver over 50% renlighed.[auto]
@@ -452,7 +452,7 @@ tuto.30:Arbejdstagere er endnu mere effektive på bestemte opgaver (det koster d
 tuto.31:Lad os give vores arbejdstager en opgave at udføre, så runden slutter. (klik på en af knapperne nederst på skærmen, flere gange om nødvendigt.)[auto]
 tuto.32:Det var den sidste tur i denne vejledning. Hvis du er i tvivl, kan du gentage denne vejledning.[auto]
 tuto.33:Ellers vises knappebeskrivelserne, når du holder markøren over dem, dito for felterne på kortet. Oplysninger om den valgte myre er til højre på din skærm.[auto]
-tuto.34:Hvis du trods dette ikke finder det, du har brug for, kan du søge råd på spillets officielle diskordsserver: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:For at vinde et spil til tiden skal du have en højere score end AI og andre spillere.[auto]
 tuto.36:Din score afhænger af dit antal myrer (voksne myrer giver en bedre score), såvel som sværhedsgraden ved spillet og hastigheden i spillet.[auto]
 tuto.37:For at genstarte et spil skal du afslutte spillet og genstarte det, jeg sørger for at afslutte spillet, det er op til dig at genstarte det.[auto]

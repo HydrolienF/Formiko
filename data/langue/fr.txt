@@ -294,6 +294,8 @@ bouton.nom.-13:retour au menu principal
 bouton.nom.-14:quitter Formiko
 bouton.nom.-15:retour au jeu
 
+save.message:entrez le nom a donner a votre sauvegarde.
+
 bouton.desc.0:Rétrécir la carte
 bouton.desc.1:Déplacer la carte vers le haut
 bouton.desc.2:Agrandir la carte

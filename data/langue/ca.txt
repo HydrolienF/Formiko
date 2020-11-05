@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testCa
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:dimensió de la carte en I[auto]
 erreurCarteVide:impossible començar un joc sense cap jugador i sense cap ai.[auto]
 maxFourmiIa:nombre màxim de formigues per ai[auto]
 nomDuFichier:nom de l'arxiu[auto]
-getNomDuFcihier:Introduïu el nom del conjunt de desades que voleu carregar: (O enrere per tornar enrere)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:L’última ronda ja ha passat.[auto]
 victoireInconue:victòria desconeguda[auto]
 élimination:eliminació[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Obriu el menú d'opcions del joc[auto]
 
 pti.desc.1:Indiqueu la identificació de la formiga que rebrà el menjar.[auto]
 pti.desc.2:Indiqueu la quantitat de menjar que s’ofereix.[auto]
-pti.desc.3:Indiqueu el tipus d’ou que es vol posar: 0 = Reina, 1 = Masculí, 2 = Menor, 3 = Mitjà, 4 = Major, 5 + = Altres.[auto]
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Indiqueu la direcció a seguir.[auto]
 pti.desc.5:Indiqueu la identificació de la formiga a netejar. La formiga més bruta és la formiga de la posició 1.[auto]
 
 triche.aide.1:Benvingut a la interfície de trucs de Formiko. Aquí és on podeu escriure ordres de trampes.[auto]
-triche.aide.2:ordres en el nom del formulari: (arguments) descripció[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:etapa d'identificació de criatura[auto]
 cmd.args.15:identificació de criatura, moda[auto]
 cmd.args.16:identificador de criatura, identificador de formiguer[auto]
 cmd.args.17:espècies de criatures[auto]
-cmd.args:18: criatura id, neteja[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:identificador de la criatura, quantitat transportada[auto]
 cmd.args.20:identificador de llavor, duresa màx[auto]
 cmd.args.21:menjar identificador d'insectes proporcionat[auto]
@@ -375,7 +375,7 @@ cmd.args.22:identificador d'insectes, menjar[auto]
 cmd.args.23:identificador de jugador, nom d'usuari[auto]
 cmd.args.24:identificador del jugador, estIa booleana[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Formiga o insecte o llavor, si insecte: x, y, escriviu If ant: id Ant Hill If Seed: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:identificador de criatura[auto]
 cmd.args.29:Tecla de cadena[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Estany de microgestionar les vostres formigues? Utilitzeu els 2 modes 
 conseil.4:Voleu variar una mica l’estil de joc? tria una espècie amb la que encara no has jugat.[auto]
 conseil.5:Algunes espècies de formigues són polimòrfiques. És a dir, que tenen treballadors de mida variable per poder realitzar tasques molt diferents.[auto]
 conseil.6:No poseu massa ous alhora. En cas contrari, no els podreu cuidar fins que es converteixin en imatges.[auto]
-conseil.7:Les formigues passen per 4 etapes de desenvolupament: ou, lava, nimfa i imago (formiga adulta).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Les opcions que heu de fer s’indiquen a la part superior esquerra de la pantalla.[auto]
 conseil.9:Les formigues no tenen parpella per humitejar-se els ulls. Han de mantenir constantment un estil de vida saludable per poder comunicar-se amb les antenes i veure amb els ulls.[auto]
 conseil.10:Els ous, la lava i les nimfes no poden netejar-les soles. Necessàriament necessiten l'ajut d'un imago, en cas contrari, podria estar infectat per un bacteri dolent. assegureu-vos que la vostra cria es mantingui per sobre del 50% de neteja.[auto]
@@ -452,7 +452,7 @@ tuto.30:Els treballadors són encara més eficients en determinades tasques (els
 tuto.31:Donem al nostre treballador una tasca per completar perquè finalitzi la ronda. (feu clic en un dels botons de la part inferior de la pantalla, diverses vegades si cal.)[auto]
 tuto.32:Va ser l'última ronda d'aquest tutorial, si teniu dubtes, podeu refer-lo.[auto]
 tuto.33:En cas contrari, les descripcions de botons es mostren quan passeu el cursor per sobre d'ells, idem per a les caselles del mapa. La informació sobre la formiga seleccionada es troba a la dreta de la pantalla.[auto]
-tuto.34:Si tot i això no trobeu el que necessiteu, podeu demanar consell al servidor oficial de discòrdies del joc: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Per guanyar una partida a temps cal que obtingueu una puntuació més alta que la IA i la resta de jugadors.[auto]
 tuto.36:La vostra puntuació depèn del vostre nombre de formigues (les formigues adultes donen una millor puntuació), així com de la dificultat del joc i la velocitat del joc.[auto]
 tuto.37:Per reiniciar un joc, heu d'abandonar el joc i reiniciar-lo, m'encarregaré de deixar el joc, és a vosaltres de reiniciar-lo.[auto]

@@ -2,7 +2,7 @@
 // "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
 // la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
 //ŭ.
-test:testFr[auto]
+test:testSu
 
 s:s[auto]
 n:[auto]
@@ -110,7 +110,7 @@ dimentionCarteY:diménsi hurup dina Y[auto]
 erreurCarteVide:mustahil pikeun ngamimitian kaulinan tanpa pamuter nanaon sareng tanpa ai.[auto]
 maxFourmiIa:jumlah sireum maksimum pikeun ai[auto]
 nomDuFichier:nami file[auto]
-getNomDuFcihier:Lebetkeun nami set simpen anu anjeun badé muatkeun: (Atanapi balik deui)[auto]
+getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Babak pamungkas ayeuna parantos kalangkung.[auto]
 victoireInconue:kameunangan kanyahoan[auto]
 élimination:ngaleungitkeun[auto]
@@ -332,12 +332,12 @@ bouton.desc.31:Buka menu pilihan di buruan[auto]
 
 pti.desc.1:Nunjukkeun id sireum anu bakal nampi tuangeun.[auto]
 pti.desc.2:Nunjukkeun jumlah dahareun anu ditawarkeun.[auto]
-pti.desc.3:
+pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Nunjukkeun arah nuturkeun.[auto]
 pti.desc.5:Nunjukkeun id sireum pikeun diberesihan. Sireum anu paling kotor nyaéta sireum dina posisi 1.[auto]
 
 triche.aide.1:wilujeng sumping di panganteur curang Formiko. Ieu dimana anjeun tiasa ngetik paréntah curang.[auto]
-triche.aide.2:paréntah dina nami formulir: (argumen) katerangan[auto]
+triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +367,7 @@ cmd.args.14:panggung id mahluk[auto]
 cmd.args.15:id mahluk, pantun[auto]
 cmd.args.16:id mahluk, id anthill[auto]
 cmd.args.17:spésiés id mahluk[auto]
-cmd.args:18: mahluk id, kabersihan[auto]
+cmd.args:18:id créature, propreté
 cmd.args.19:id mahluk, jumlah diangkut[auto]
 cmd.args.20:id cikal, karasaMax[auto]
 cmd.args.21:serangga id dahareun disayogikeun[auto]
@@ -375,7 +375,7 @@ cmd.args.22:serangga id, tuangeun[auto]
 cmd.args.23:id pamuter, ngaran pamaké[auto]
 cmd.args.24:pamuter id, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Sireum atanapi Serangga atanapi Kelor, Upami serangga: x, y, ngetik Upami sireum: id Bukit Sireum Upami Siki: x, y.[auto]
+cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:id mahluk[auto]
 cmd.args.29:Konci senar[auto]
 
@@ -390,7 +390,7 @@ conseil.3:Balong micromanaging sireum anjeun? Anggo 2 modeu otomatis ku anjeun.[
 conseil.4:Hoyong ngarobih gaya maén sakedik? milih spésiés anu anjeun henteu acan kantos ulin.[auto]
 conseil.5:Sababaraha spésiés sireum mangrupikeun polimorfik. Maksudna yén aranjeunna gaduh padamel anu bénten-bénten ukuranana supados tiasa ngalaksanakeun padamelan anu rada béda.[auto]
 conseil.6:Entong seueur teuing endog sakaligus. Upami teu kitu anjeun moal tiasa ngurus aranjeunna dugi ka janten imajinasi.[auto]
-conseil.7:Sireum ngalangkungan 4 tahapan pamekaran: endog, lava, nymph sareng imago (sireum déwasa).[auto]
+conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Pilihan anu anjeun kedah pilih dituduhkeun di kénca luhur layar anjeun.[auto]
 conseil.9:Sireum teu gaduh soca soca pikeun beueus panonna. Aranjeunna kedah teras-terasan ngajaga gaya hirup anu séhat supados tiasa komunikasi sareng anteneu sareng ningali ku panon.[auto]
 conseil.10:Endog, lava sareng nymphs henteu sanggup ngabersihkeun ieu nyalira. Aranjeunna meryogikeun peryogi bantosan imago upami teu tiasa katépaan baktéri anu goréng. pastikeun anak anjeun tetep di luhur kabersihan 50%.[auto]
@@ -452,7 +452,7 @@ tuto.30:Pagawe bahkan langkung épisién dina tugas-tugas anu tangtu (hargana ki
 tuto.31:Hayu urang masihan pagawé urang tugas pikeun ngarengsekeun supados buleudna réngsé. (pencét kana salah sahiji tombol di handapeun layar anjeun, sababaraha kali upami diperyogikeun.)[auto]
 tuto.32:Ieu mangrupikeun babak terakhir tina tutorial ieu, upami anjeun gaduh mamang anjeun tiasa ngulang tutorial ieu.[auto]
 tuto.33:Upami teu kitu, pedaran tombol ditampilkeun nalika anjeun ngantosan di luhur, ditto kanggo kotak dina peta. Inpormasi ngeunaan sireum anu dipilih aya di beulah katuhu layar anjeun.[auto]
-tuto.34:Upami sanaos ieu anjeun henteu mendakan naon anu anjeun peryogikeun, anjeun tiasa milari naséhat ngeunaan pangladén sengketa resmi kaulinan: http://discord.gg/vqvfGzf[auto]
+tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Pikeun meunang pertandingan dina waktosna anjeun kedah ngagaduhan skor anu langkung luhur tibatan AI sareng pamaén sanés.[auto]
 tuto.36:Skor anjeun gumantung kana jumlah sireum anjeun, (sireum déwasa masihan skor anu langkung saé), ogé kana kasusah kaulinan sareng gancangna gim.[auto]
 tuto.37:Pikeun ngabalikan deui hiji pertandingan, anjeun kedah kaluar ti buruan sareng ngabalikan deui, kuring bakal ngaraoskeun mundur tina permainan, terserah anjeun ngabalikan deui.[auto]
