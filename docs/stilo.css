@@ -6,6 +6,12 @@ h1{
 	text-shadow: 3px 3px 0px rgba(0,0,0,0.15);
 }
 iframe{
-  width: 80vw;
-  height: 80vh;
+  width: 70vw;
+  height: 70vh;
+}
+input{
+  font-size: 4vh;
+  background-color:#e1ffe1;
+  font-weight:bold;
+  color:#00ff00;
 }
