@@ -108,6 +108,7 @@ public class PanneauJeu extends Panneau {
     ps.actualiserTaille();
     revalidate();
     Main.repaint();
+    Main.setJeuEnCours(true);
   }
   public void addPs(){
     ps=new PanneauSup();

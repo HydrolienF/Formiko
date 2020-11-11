@@ -15,6 +15,7 @@ public class Touches implements KeyListener, Serializable{
     int x = c+0;
     debug.débogage("la touche \""+c+"\" a été pressée. Clé = "+x);
     if (c == Main.getKey("échap")){ //touche échap
+      if(Main.getJeuEnCours()){return;}
       if(Main.getPe().getAff()){
         Main.getPe().setVisible(false);
       }else{

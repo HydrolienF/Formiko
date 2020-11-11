@@ -72,6 +72,7 @@ public class Main {
   private static ThScript ths;
   private static ThMusique thm;
   private static boolean premierePartie=false;
+  private static boolean jeuEnCours;
 
   /**
    * {@summary Lauch the game.<br>}
@@ -192,6 +193,7 @@ public class Main {
     if(premierePartie){tuto=true;}
     avancementChargement=-1;
     //on initialise ici si ça n'as pas déja été fait par une options.
+    setJeuEnCours(false);
     if(getOp()==null){initialisation();}
     iniCpt();
     avancementChargement=0;
@@ -384,6 +386,8 @@ public class Main {
   public static void setTuto(boolean b){tuto=b;}
   public static boolean getPremierePartie(){return premierePartie;}
   public static void setPremierePartie(boolean b){premierePartie=b;}
+  public static boolean getJeuEnCours(){return jeuEnCours;}
+  public static void setJeuEnCours(boolean b){jeuEnCours=b;}
   //racourci
   public static boolean estWindows(){return os.getId()==1;}
   public static String get(String clé){ return g.get(clé);}
