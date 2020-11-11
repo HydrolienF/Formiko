@@ -5,12 +5,12 @@ javac -d build/main/ -cp ~/Formiko/junit-4.13.1.jar:. $(find src/main -name *.ja
 #jar cfm Formiko.jar manifest.txt build/main/fr/formiko/*
 cd build/main/.;jar cfm Formiko.jar ../../manifest.txt fr/formiko/*;mv Formiko.jar ../../.;cd ../..
 #jarsigner -keystore monStore -signedjar FormikoTemp.jar Formiko.jar signature
-mv Formiko.jar ../Formiko/.
-cp -r data/ ../Formiko/.
-cp README.md ../Formiko/.
+mv Formiko.jar ../../Formiko/.
+cp -r data/ ../../Formiko/.
+cp README.md ../../Formiko/.
 #nom = name + version
 nom=$(./v2.sh)
-cd ../
+cd ../../
 cd Formiko/
 rm -fr data/Options.txt
 rm -f data/score*
