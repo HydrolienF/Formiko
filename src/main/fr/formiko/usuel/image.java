@@ -81,7 +81,7 @@ public class image{
    */
   public static Image getImage(String nom, String repTemp){
     Image imgr = null;
-    // si le .png ou .jpg etc n'as pas été précisé, on ajoute .png a la fin.
+    // si le .png ou .jpg etc n'as pas été précisé, on teste les 2 terminaison (.png d'habord).
     if(str.contient(nom,".png",2) || str.contient(nom,".png",2)){//si on a déja un .png ou un .jpd a la fin du nom.
       imgr = readImage(new File(repTemp+nom));
     }else{//sinon il nous faut ajouter l'un ou l'autre.

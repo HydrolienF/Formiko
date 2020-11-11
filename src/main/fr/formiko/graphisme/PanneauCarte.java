@@ -404,8 +404,8 @@ public class PanneauCarte extends Panneau implements MouseListener{
     tI1Ini[0]=image.getImage("terre").getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
     tI1Ini[1]=image.getImage("sable").getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
     tI2Ini = new Image [2]; tI2 = new Image [2];
-    tI2Ini[0]=image.getImage("herbe.png").getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
-    tI2Ini[1]=image.getImage("mousse.png").getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
+    tI2Ini[0]=image.getImage("herbe").getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
+    tI2Ini[1]=image.getImage("mousse").getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
   }
   public void chargerTIF(int nbrDeJoueur){
     //if (!initialisationFX){initialisationFX=initialiserFX(nbrDeJoueur);}
