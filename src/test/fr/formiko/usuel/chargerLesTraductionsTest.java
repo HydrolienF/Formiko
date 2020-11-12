@@ -129,11 +129,11 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertTrue(chargerLesTraductions.estLigneDeTrad("veiuogz:tehtkph"));
     assertTrue(chargerLesTraductions.estLigneDeTrad("tcuva.t.345.ty:zety"));
     assertTrue(chargerLesTraductions.estLigneDeTrad("efoaeègzn-|`gz:"));
+    assertTrue(chargerLesTraductions.estLigneDeTrad("a:etey.:R"));
     //false
     assertTrue(!chargerLesTraductions.estLigneDeTrad("ezgriyld/·vbioneg"));
     assertTrue(!chargerLesTraductions.estLigneDeTrad(":"));
     assertTrue(!chargerLesTraductions.estLigneDeTrad(":zeeut"));
-    assertTrue(!chargerLesTraductions.estLigneDeTrad("a:etey.:R"));
     //commentaire
     assertTrue(!chargerLesTraductions.estLigneDeTrad("//"));
     assertTrue(!chargerLesTraductions.estLigneDeTrad("//eztt"));
