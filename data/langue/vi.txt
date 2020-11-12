@@ -110,7 +110,7 @@ dimentionCarteY:kích thước chữ cái trong Y[auto]
 erreurCarteVide:Không thể bắt đầu trò chơi mà không có bất kỳ người chơi nào và không có bất kỳ ai.[auto]
 maxFourmiIa:số lượng kiến tối đa cho ai[auto]
 nomDuFichier:tên tập tin[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Nhập tên của bộ lưu bạn muốn tải: (Hoặc quay lại để quay lại)[auto]
 dernierTourPassé:Vòng cuối cùng đã trôi qua.[auto]
 victoireInconue:chiến thắng chưa biết[auto]
 élimination:loại bỏ[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:trở lại menu chính[auto]
 bouton.nom.-14:kiến quitter[auto]
 bouton.nom.-15:trở lại chơi[auto]
 
+save.message:nhập tên để cung cấp cho bản sao lưu của bạn.[auto]
+
 bouton.desc.0:Thu nhỏ bản đồ[auto]
 bouton.desc.1:Di chuyển bản đồ lên[auto]
 bouton.desc.2:Phóng to bản đồ[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Mở menu tùy chọn trong trò chơi[auto]
 
 pti.desc.1:Cho biết id của kiến sẽ nhận thức ăn.[auto]
 pti.desc.2:Cho biết lượng thức ăn được cung cấp.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Cho biết loại trứng sẽ đẻ: 0 = Nữ hoàng, 1 = Đực, 2 = Con cái, 3 = Trung bình, 4 = Con chính, 5 + = Khác.[auto]
 pti.desc.4:Chỉ ra hướng đi theo.[auto]
 pti.desc.5:Cho biết id của kiến được làm sạch. Con kiến bẩn nhất là con kiến ở vị trí số 1.[auto]
 
 triche.aide.1:chào mừng bạn đến với giao diện gian lận Formiko. Đây là nơi bạn có thể gõ lệnh ăn gian.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:lệnh ở dạng "tên: (đối số) mô tả"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:giai đoạn id sinh vật[auto]
 cmd.args.15:id sinh vật, thời trang[auto]
 cmd.args.16:id sinh vật, id kiến trúc[auto]
 cmd.args.17:id loài sinh vật[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:id sinh vật, sạch sẽ[auto]
 cmd.args.19:id sinh vật, số lượng vận chuyển[auto]
 cmd.args.20:id hạt, độ cứng[auto]
 cmd.args.21:thực phẩm id côn trùng cung cấp[auto]
@@ -375,7 +377,7 @@ cmd.args.22:id côn trùng, thức ăn[auto]
 cmd.args.23:id người chơi, tên người dùng[auto]
 cmd.args.24:id người chơi, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Kiến hoặc Côn trùng hoặc Hạt giống, Nếu côn trùng: x, y, nhập Nếu kiến: id Kiến Hill Nếu hạt giống: x, y.[auto]
 cmd.args.28:id sinh vật[auto]
 cmd.args.29:Khóa chuỗi[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Nhóm kiến của bạn quản lý vi mô? Sử dụng 2 chế độ 
 conseil.4:Bạn muốn thay đổi phong cách chơi một chút? chọn một loài mà bạn chưa chơi cùng.[auto]
 conseil.5:Một số loài kiến là loài đa hình. Điều đó có nghĩa là họ có những công nhân có quy mô thay đổi để có thể thực hiện các nhiệm vụ khác nhau.[auto]
 conseil.6:Đừng đẻ quá nhiều trứng cùng một lúc. Nếu không, bạn sẽ không thể chăm sóc chúng cho đến khi chúng trở thành tưởng tượng.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Kiến trải qua 4 giai đoạn phát triển: trứng, nham thạch, nhộng và tưởng tượng (kiến trưởng thành).[auto]
 conseil.8:Các lựa chọn bạn phải thực hiện được biểu thị ở trên cùng bên trái của màn hình.[auto]
 conseil.9:Kiến không có mí mắt để làm ẩm mắt. Họ phải liên tục duy trì một lối sống lành mạnh để có thể giao tiếp bằng râu và nhìn bằng mắt.[auto]
 conseil.10:Trứng, dung nham và nhộng không thể tự làm sạch điều này. Họ nhất thiết phải cần đến sự trợ giúp của hình ảnh nếu không nó có thể bị nhiễm vi khuẩn xấu. đảm bảo cá bố mẹ của bạn luôn sạch trên 50%.[auto]
@@ -452,7 +454,7 @@ tuto.30:Người lao động thậm chí còn hiệu quả hơn trong một số
 tuto.31:Hãy giao cho nhân viên của chúng ta một nhiệm vụ phải hoàn thành để vòng chơi kết thúc. (nhấp vào một trong các nút ở cuối màn hình của bạn, nhiều lần nếu cần).[auto]
 tuto.32:Đây là vòng cuối cùng của hướng dẫn này, nếu bạn có bất kỳ nghi ngờ nào, bạn có thể thực hiện lại hướng dẫn này.[auto]
 tuto.33:Nếu không, các mô tả nút sẽ được hiển thị khi bạn di chuột qua chúng, hãy chuyển sang các ô trên bản đồ. Thông tin về kiến đã chọn nằm ở bên phải màn hình của bạn.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Nếu mặc dù vậy, bạn không tìm thấy thứ mình cần, bạn có thể tìm lời khuyên trên máy chủ bất hòa chính thức của trò chơi: http://discord.gg/vqvfGzf[auto]
 tuto.35:Để thắng một trò chơi đúng thời gian, bạn phải có số điểm cao hơn AI và những người chơi khác.[auto]
 tuto.36:Điểm của bạn phụ thuộc vào số lượng kiến của bạn, (kiến trưởng thành cho điểm cao hơn), cũng như độ khó của trò chơi và tốc độ của trò chơi.[auto]
 tuto.37:Để khởi động lại trò chơi, bạn phải thoát trò chơi và khởi động lại nó, tôi sẽ lo việc thoát trò chơi, bạn có thể khởi động lại nó hay không.[auto]

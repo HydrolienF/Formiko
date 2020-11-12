@@ -110,7 +110,7 @@ dimentionCarteY:ahu reta i te Y[auto]
 erreurCarteVide:kaore e taea te tiimata i tetahi keemu me te kore he kaitakaro me te kore ai.[auto]
 maxFourmiIa:maha o nga popokorua mo te ai[auto]
 nomDuFichier:ingoa kōnae[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Whakauruhia te ingoa o te huinga penapena e hiahia ana koe ki te uta: (Ka hoki ranei ki te hoki)[auto]
 dernierTourPassé:Kua hipa te rauna whakamutunga[auto]
 victoireInconue:wikitoria unknown[auto]
 élimination:whakakorenga[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:hoki ki te tahua matua[auto]
 bouton.nom.-14:quitter Ant[auto]
 bouton.nom.-15:hoki ki te purei[auto]
 
+save.message:whakauruhia te ingoa hei hoatu ki to taapiri.[auto]
+
 bouton.desc.0:Whakawhakahu mahere[auto]
 bouton.desc.1:Nekehia te mahere ki runga[auto]
 bouton.desc.2:Whakarahia te mapi[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Whakatuwherahia te rarangi whiringa-a-whiringa[auto]
 
 pti.desc.1:Tuhia te id o te popokorua ka whiwhi i nga kai.[auto]
 pti.desc.2:Whakaatuhia te nui o nga kai kua tohaina.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Whakaatuhia te momo homa ki te whakatakoto: 0 = Kuini, 1 = Tane, 2 = Iti, 3 = Waenga, 4 = Meiha, 5 + = Tetahi.[auto]
 pti.desc.4:Tohua te ahunga hei whai.[auto]
 pti.desc.5:Tohua te id o te popokorua kia horoia. Ko te popokorua tino paru ko te popokorua i te tuunga 1.[auto]
 
 triche.aide.1:nau mai ki te atanga tinihanga Formiko. Ma konei ka taea e koe te paato i nga whakahau tinihanga.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:tono i roto i te puka "ingoa: (tohenga) whakaahuatanga"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:atamira id hanga[auto]
 cmd.args.15:id id, ahua[auto]
 cmd.args.16:mea hanga id, anthill id[auto]
 cmd.args.17:momo id mea hanga[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:id hanga, ma[auto]
 cmd.args.19:id id, rahinga kawenga[auto]
 cmd.args.20:purapura id, pakekeMax[auto]
 cmd.args.21:ngarara id kai i tohaina[auto]
@@ -375,7 +377,7 @@ cmd.args.22:pepeke id, kai[auto]
 cmd.args.23:id kaitakaro, ingoa kaiwhakamahi[auto]
 cmd.args.24:kaitakaro id, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:He Pihi, he Pepeke ranei, he Kakano ranei, Mena he pepeke: x, y, momo Mena popokorua: id Ant Ant Ki te purapura: x, y[auto]
 cmd.args.28:id mea hanga[auto]
 cmd.args.29:Kī aho[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Pond of micromanaging o popokorua? Whakamahia nga momo 2 aunoa ka taea
 conseil.4:Kei te hiahia koe kia whakarereke i te ahua o te taakaro? kowhiria tetahi momo kaore ano koe kia takaro.[auto]
 conseil.5:Ko etahi momo popokorua he polymorphic. Ko te kii he kaimahi ta ratau mahi rerekee kia taea ai e ratau nga mahi rerekee.[auto]
 conseil.6:Kaua e maha rawa nga hua e whakatakoto i te wa kotahi. Ki te kore, kaore e taea e koe te tiaki i a raatau kia waiho ra hei whakaaro pohewa.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:E wha nga waahanga whakawhanaketanga ka haere a te Ants: ko te hua manu, te rango, te waipiro me te imago (popokorua)[auto]
 conseil.8:Ko nga kowhiri me whakatau e koe i te taha maui o runga o to mata.[auto]
 conseil.9:Kaore he kamo o nga kamo ki te whakamakuku i o ratou kanohi. Me mau tonu e ratou te ahua o te ora kia pai ai te korero ki o raatau antena kia kite hoki o raatau kanohi.[auto]
 conseil.10:Kaore e taea e nga hua, te lava me nga nimama te horoi noa i a raatau. Ko te tikanga me matea tetahi awhina o te imago ki te kore ka pangia e te huakita kino. kia mahara kia noho to uri ki runga ake i te 50% te ma.[auto]
@@ -452,7 +454,7 @@ tuto.30:He kaha ake te mahi a nga kaimahi ki etahi mahi (he iti ake te utu mo a 
 tuto.31:Me hoatu e maatau ki ta maatau kaimahi tetahi mahi hei whakaoti, kia mutu ai te rauna. (paatohia tetahi o nga paatene i raro o to mata, kia maha nga wa ka hiahiatia.)[auto]
 tuto.32:Koinei te waahanga whakamutunga o tenei akoranga, mena ka ruarua koe ka taea e koe te mahi ano i tenei kaupapa ako.[auto]
 tuto.33:Ki te kore ka whakaatuhia nga whakaahuatanga paatene ka huri ana koe ki runga ake, mauria ki nga pouaka i te mapi. Ko nga korero mo te popokorua kua tohua kei te taha matau o to mata.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Mena ahakoa kaore koe e kite i nga mea e hiahiatia ana e koe, ka taea e koe te rapu tohutohu mo te kaituku taupatupatu mana o te kemu: http://discord.gg/vqvfGzf[auto]
 tuto.35:Kia wini i tetahi kemu i te wa tika me teitei ake te kaute i a AI me etahi atu kaitakaro.[auto]
 tuto.36:Ko to kaute kei i to maha o nga popokorua, (he pai ake te kaute o nga popokorua pakeke), me te uaua o te keemu me te tere o te keemu.[auto]
 tuto.37:Hei tiimata ano i tetahi keemu, me whakamutu te keemu ka tiimata ano, maaku e tiaki te whakamutu i te keemu, maau ano e timata.[auto]

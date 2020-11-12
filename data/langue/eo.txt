@@ -110,7 +110,7 @@ dimentionCarteY:Dimensio de la mapo en "Y"
 erreurCarteVide:Neeble de impulsi la ludo kun 0 homa (aŭ malhoma) ludanto.
 maxFourmiIa:Nombro maksimuma de formiko por la malhoma ludanto
 nomDuFichier:Nomo de la dosiero
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Enigu la nomon de la konservota aro, kiun vi volas ŝargi: (Aŭ reen por reiri)[auto]
 dernierTourPassé:La lasta vico estas fini.
 victoireInconue:Venko nekonato.
 élimination:elimino
@@ -294,6 +294,8 @@ bouton.nom.-13:reiri al ĉefa menuo
 bouton.nom.-14:deiri Formiko
 bouton.nom.-15:reiri a la ludo
 
+save.message:enigu la nomon por doni al via rezervo.[auto]
+
 bouton.desc.0:malvastifi la mapo
 bouton.desc.1:movi la mapo alte
 bouton.desc.2:vastifi la mapo
@@ -332,12 +334,12 @@ bouton.desc.31:Malfermi la opcian menuon
 
 pti.desc.1:Indiki la kodo de la formiko ke ricevos la manĝaĵon.
 pti.desc.2:Indiki la kvanto de dona manĝaĵo.
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Indiku la ovodemetotan ovon: 0 = Reĝino, 1 = Maskla, 2 = Malgranda, 3 = Meza, 4 = Plej granda, 5 + = Alia.[auto]
 pti.desc.4:Indiki la direkto a sekvi.
 pti.desc.5:Indiki la kodo de la formiko a puri.
 
 triche.aide.1:bonvenon al la trompanta interfaco de Formiko. Ĉi tie vi povas tajpi trompajn komandojn.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:komandoj en la formo "nomo: (argumentoj) priskribo"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:estaĵo id-stadio[auto]
 cmd.args.15:ido de ido, modo[auto]
 cmd.args.16:estaĵo id, formikeja identigilo[auto]
 cmd.args.17:estaĵo id specio[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:ido de ido, pureco[auto]
 cmd.args.19:ido de estaĵo, transportita kvanto[auto]
 cmd.args.20:semidentigilo, malmoleco Max[auto]
 cmd.args.21:insekto id manĝaĵo provizita[auto]
@@ -375,7 +377,7 @@ cmd.args.22:insekto id, manĝaĵo[auto]
 cmd.args.23:ludantidentigilo, uzantnomo[auto]
 cmd.args.24:ludanto id, bulea estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Formiko aŭ Insekto aŭ Semo, Se insekto: x, y, tajpu If ant: id Ant Hill Se semo: x, y.[auto]
 cmd.args.28:ido de estaĵo[auto]
 cmd.args.29:Ŝnura ŝlosilo[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Ne envio de mikroadministri viajn formikojn ? Uzi la 2 havebla aŭtoma
 conseil.4:Envio de variigi la luda stilo ? elekti 1 specio ke vi ne ankoraŭ ludi.
 conseil.5:Iuj specioj de formiko estas polimorfaj. Tio estas, ke ili havas laboristojn de ŝanĝiĝema grandeco por povi plenumi tute malsamajn taskojn.
 conseil.6:Ne kuŝu tro da ovoj samtempe. Alie vi ne plu povos prizorgi ĝin ĝis ĝi imago.
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Formikoj travivas 4 stadiojn de disvolviĝo: ovo, lafo, nimfo kaj imago (plenkreska formiko).[auto]
 conseil.8:La elektoj, kiujn vi devas fari, estas indikitaj ĉe la supra maldekstro de via ekrano.
 conseil.9:Formikoj ne havas palpebron por malsekigi siajn okulojn. Ili devas konstante konservi sanan vivstilon por komuniki kun siaj antenoj kaj vidi per siaj okuloj.
 conseil.10:La ovoj, lafo kaj nimfo ne kapablas purigi sola. Ili nepre bezonas helpon de imago aŭ li povus esti infektita per malbona bakterio. certigu, ke via bredado restas super 50% pureco.
@@ -452,7 +454,7 @@ tuto.30:Laboristoj estas eĉ pli efikaj pri iuj taskoj (kostas al ili malpli da 
 tuto.31:Ni donu al nia laboristo taskon kompletigotan por ke la rondo finiĝu. (alklaku unu el la butonoj ĉe la fino de via ekrano, plurfoje se necese.)[auto]
 tuto.32:Ĝi estis la lasta raŭndo de ĉi tiu lernilo, se vi havas dubon, vi povas refari ĉi tiun lernilon.[auto]
 tuto.33:Alie la butonaj priskriboj montriĝas kiam vi ŝvebas super ilin, same por la kestoj sur la mapo. Informoj pri la elektita formiko estas dekstre de via ekrano.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Se malgraŭ tio vi ne trovas tion, kion vi bezonas, vi povas peti konsilon ĉe la oficiala malkonkorda servilo de la ludo: http://discord.gg/vqvfGzf[auto]
 tuto.35:Por gajni ludon ĝustatempe, vi devas havi pli altan poentaron ol AI kaj aliaj ludantoj.[auto]
 tuto.36:Via poentaro dependas de via nombro da formikoj, (plenkreskaj formikoj donas pli bonan poentaron), same kiel la malfacilecon de la ludo kaj la rapidecon de la ludo.[auto]
 tuto.37:Por rekomenci ludon, vi devas forlasi la ludon kaj rekomenci ĝin, mi zorgos ĉesi la ludon, dependas de vi rekomenci ĝin.[auto]

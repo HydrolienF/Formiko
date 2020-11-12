@@ -110,7 +110,7 @@ dimentionCarteY:dimensiunea literei în Y[auto]
 erreurCarteVide:imposibil să începi un joc fără niciun jucător și fără niciun ai.[auto]
 maxFourmiIa:numar maxim de furnici pentru ai[auto]
 nomDuFichier:nume de fișier[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Introduceți numele setului de salvare pe care doriți să îl încărcați: (Sau înapoi pentru a reveni)[auto]
 dernierTourPassé:Ultima rundă a trecut acum.[auto]
 victoireInconue:victorie necunoscută[auto]
 élimination:eliminare[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:înapoi la meniul principal[auto]
 bouton.nom.-14:quitter Ant[auto]
 bouton.nom.-15:înapoi pentru a juca[auto]
 
+save.message:introduceți numele pe care să-l dați copiei de rezervă.[auto]
+
 bouton.desc.0:Reduceți harta[auto]
 bouton.desc.1:Mutați harta în sus[auto]
 bouton.desc.2:Măriți harta[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Deschideți meniul de opțiuni din joc[auto]
 
 pti.desc.1:Indicați id-ul furnicii care va primi mâncarea.[auto]
 pti.desc.2:Indicați cantitatea de mâncare oferită.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Indicați tipul de ou care trebuie depus: 0 = Regină, 1 = Mascul, 2 = Minor, 3 = Mediu, 4 = Major, 5 + = Altele.[auto]
 pti.desc.4:Indicați direcția de urmat.[auto]
 pti.desc.5:Indicați id-ul furnicii de curățat. Cea mai murdară furnică este furnica din poziția 1.[auto]
 
 triche.aide.1:bun venit la interfața de înșelătorie Formiko. Aici puteți introduce comenzi de cheat.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:comenzi sub forma "nume: (argumente) descriere"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:etapa idului creaturii[auto]
 cmd.args.15:id creatură, modă[auto]
 cmd.args.16:id creatură, id furnicar[auto]
 cmd.args.17:specie id creatură[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:id creatură, curățenie[auto]
 cmd.args.19:id creatură, cantitate transportată[auto]
 cmd.args.20:id semințe, duritate Max[auto]
 cmd.args.21:alimente furnizate pentru identificarea insectelor[auto]
@@ -375,7 +377,7 @@ cmd.args.22:id de insectă, mâncare[auto]
 cmd.args.23:ID jucător, nume de utilizator[auto]
 cmd.args.24:player id, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Furnică sau insectă sau semințe, dacă insectă: x, y, tastați If furnică: id Ant Hill Dacă semințe: x, y.[auto]
 cmd.args.28:id creatura[auto]
 cmd.args.29:Tasta șir[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Rezerva de furnici de micromanagement? Folosește cele 2 moduri automa
 conseil.4:Doriți să modificați puțin stilul de joc? alege o specie cu care nu te-ai jucat încă.[auto]
 conseil.5:Unele specii de furnici sunt polimorfe. Adică au muncitori de dimensiuni variabile pentru a putea îndeplini sarcini destul de diferite.[auto]
 conseil.6:Nu depuneți prea multe ouă deodată. Altfel nu veți putea avea grijă de ei până nu vor deveni imagini.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Furnicile trec prin 4 etape de dezvoltare: ou, lavă, nimfă și imago (furnică adultă).[auto]
 conseil.8:Alegerile pe care trebuie să le faceți sunt indicate în partea din stânga sus a ecranului.[auto]
 conseil.9:Furnicile nu au pleoapa pentru a-și umezi ochii. Ei trebuie să mențină în mod constant un stil de viață sănătos pentru a putea comunica cu antenele și a vedea cu ochii.[auto]
 conseil.10:Ouăle, lava și nimfele nu pot curăța acest lucru de unul singur. În mod necesar, au nevoie de ajutorul unui imago, altfel ar risca să fie infectat cu o bacterie proastă. asigurați-vă că puii dvs. rămân peste 50% curățenie.[auto]
@@ -452,7 +454,7 @@ tuto.30:Lucrătorii sunt și mai eficienți în anumite sarcini (le costă mai p
 tuto.31:Să îi oferim lucrătorului nostru o sarcină de finalizat, astfel încât runda să se termine. (faceți clic pe unul dintre butoanele din partea de jos a ecranului, de mai multe ori dacă este necesar.)[auto]
 tuto.32:A fost ultima rundă a acestui tutorial, dacă aveți îndoieli, puteți reface acest tutorial.[auto]
 tuto.33:În caz contrar, descrierile butoanelor sunt afișate când treceți cu mouse-ul peste ele, la fel pentru casetele de pe hartă. Informațiile despre furnica selectată sunt în partea dreaptă a ecranului.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Dacă în ciuda acestui fapt nu găsiți ceea ce aveți nevoie, puteți solicita sfaturi pe serverul oficial de discordie al jocului: http://discord.gg/vqvfGzf[auto]
 tuto.35:Pentru a câștiga un joc la timp trebuie să ai un scor mai mare decât AI și ceilalți jucători.[auto]
 tuto.36:Scorul dvs. depinde de numărul dvs. de furnici (furnicile adulte dau un scor mai bun), precum și de dificultatea jocului și de viteza jocului.[auto]
 tuto.37:Pentru a reporni un joc, trebuie să renunțați la joc și să-l reporniți, eu mă voi ocupa de renunțarea la joc, depinde de dvs. să îl reporniți.[auto]

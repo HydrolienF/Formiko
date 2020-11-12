@@ -110,7 +110,7 @@ dimentionCarteY:boholo ba lengolo ho Y[auto]
 erreurCarteVide:ho sa khonehe ho qala papali ntle le sebapali leha e le sefe mme ntle le ai.[auto]
 maxFourmiIa:palo e phahameng ea likokoanyana bakeng sa ai[auto]
 nomDuFichier:lebitso la faele[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Kenya lebitso la sete ea ho boloka eo u batlang ho e kenya: (Kapa u khutlele morao)[auto]
 dernierTourPassé:Potoloho ea ho qetela e se e fetile.[auto]
 victoireInconue:tlhōlo e sa tsejoeng[auto]
 élimination:phediso[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:khutlela ho menu e kholo[auto]
 bouton.nom.-14:tlohela Kokonyana[auto]
 bouton.nom.-15:khutlela ho bapala[auto]
 
+save.message:kenya lebitso ho fa bekapo hao.[auto]
+
 bouton.desc.0:Fokotsa 'mapa[auto]
 bouton.desc.1:Tsamaisetsa 'mapa hodimo[auto]
 bouton.desc.2:Hodisa mmapa[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Bula lenane la likhetho tsa papali[auto]
 
 pti.desc.1:Bontša id ea bohloa bo tla amohela lijo.[auto]
 pti.desc.2:Bontša palo ea lijo tse fanoang.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Bontsha mofuta wa lehe le lokelang ho behelwa: 0 = Mofumahali, 1 = Monna, 2 = Nyane, 3 = Mahareng, 4 = E kholo, 5 + = E 'ngoe.[auto]
 pti.desc.4:Bontša tsela eo u lokelang ho e latela.[auto]
 pti.desc.5:Bontša ID ea bohloa ho hloekisoa. Bohloa bo litšila ka ho fetesisa ke bohloa bo maemong a 1.[auto]
 
 triche.aide.1:rea u amohela ho sebopeho sa cheko sa Formiko. Mona ke moo o ka thaepa litaelo tsa ho qhekella.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:litaelo ka sebopeho "name: (arguments) tlhaloso"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:sethala sa id[auto]
 cmd.args.15:id ea sebōpuoa, feshene[auto]
 cmd.args.16:id ea sebōpuoa, id ea bohloa[auto]
 cmd.args.17:mefuta ea li-id[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:id ya dibupuwa, bohlweki[auto]
 cmd.args.19:id ea sebopuoa, bongata bo isitsoeng[auto]
 cmd.args.20:id ea peo, thatafalaMax[auto]
 cmd.args.21:likokoanyana id lijo tse fanoeng[auto]
@@ -375,7 +377,7 @@ cmd.args.22:kokoanyana ea likokoanyana, lijo[auto]
 cmd.args.23:id player, lebitso la username[auto]
 cmd.args.24:id ea sebapali, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Bohloa kapa Likokoanyana kapa Peo, Haeba likokoanyana: x, y, thaepa Haeba bohloa: id Thaba ea Bohloa Haeba peo: x, y.[auto]
 cmd.args.28:id ya dibupuwa[auto]
 cmd.args.29:Senotlolo sa khoele[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Letamo la ho laola bohloa ba hau? Sebelisa mekhoa e 2 ea boiketsetso e
 conseil.4:U batla ho fapana setaele sa papali hanyane? khetha mofuta oo u so kang u bapala le ona.[auto]
 conseil.5:Mefuta e meng ea likokoanyana ke polymorphic. Ke ho re ba na le basebetsi ba boholo bo fapaneng molemong oa ho etsa mesebetsi e fapaneng haholo.[auto]
 conseil.6:Se ke oa behela mahe a mangata haholo hang. Ho seng joalo u ke ke ua khona ho ba hlokomela ho fihlela ba fetoha li-imagos.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Bohloa bo feta methating e mene ea kholo: lehe, lava, nymph le imago (bohloa bo baholo).[auto]
 conseil.8:Likhetho tseo u lokelang ho li etsa li bontšoa kaholimo ho le letšehali la skrineng sa hau.[auto]
 conseil.9:Bohloa ha bo na lesela la ho nolofatsa mahlo. Ba tlameha ho lula ba phela bophelo bo botle e le hore ba tsebe ho buisana le manakana a bona le ho bona ka mahlo.[auto]
 conseil.10:Mahe, lava le li-nymphs ha li khone ho li hloekisa ka botsona. Ba hloka thuso ea imago ho seng joalo e ka beha kotsing ea ho tšoaetsoa ke baktheria e mpe. etsa bonnete ba hore bana ba hau ba lula ka holim'a 50% bohloeki.[auto]
@@ -452,7 +454,7 @@ tuto.30:Basebetsi ba sebetsa hantle le ho feta mesebetsing e itseng (ho ba jella
 tuto.31:Ha re fe mosebeletsi oa rona mosebetsi oa ho o phethela hore potoloho e fele. (tobetsa ho e 'ngoe ea likonopo tse ka tlase skrineng sa hau, makhetlo a' maloa ha ho hlokahala.)[auto]
 tuto.32:E ne e le potoloho ea ho qetela ea thupelo ena, haeba u na le lipelaelo u ka etsa thuto ena bocha.[auto]
 tuto.33:Ho seng joalo litlhaloso tsa konopo li bonts'oa ha o itsamaisa ka holim'a tsona, le bakeng sa mabokose a 'mapeng. Tlhahisoleseding e mabapi le bohloa bo khethiloeng e ka letsohong le letona la skrine sa hau.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Haeba ntle le sena o sa fumane seo o se hlokang o ka batla boeletsi ho seva sa semmuso sa likhohlano sa papali: http://discord.gg/vqvfGzf[auto]
 tuto.35:Ho hapa papali ka nako o tlameha ho ba le lintlha tse phahameng ho feta AI le libapali tse ling.[auto]
 tuto.36:Lintlha tsa hau li ipapisitse le palo ea bohloa, (bohloa bo baholo bo fana ka lintlha tse betere), hammoho le bothata ba papali le lebelo la papali.[auto]
 tuto.37:Ho qala papali hape, o tlameha ho tlohela papali eo ebe oe qala hape, ke tla hlokomela ho tlohela papali, ho ho uena ho e qala bocha.[auto]

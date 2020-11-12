@@ -110,7 +110,7 @@ dimentionCarteY:raidžių matmuo Y[auto]
 erreurCarteVide:neįmanoma pradėti žaidimo be jokio žaidėjo ir be jokių ai.[auto]
 maxFourmiIa:didžiausias skruzdžių skaičius ai[auto]
 nomDuFichier:failo pavadinimas[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Įveskite išsaugojimo rinkinio, kurį norite įkelti, pavadinimą: (Arba grįžkite atgal)[auto]
 dernierTourPassé:Paskutinis turas jau praėjo.[auto]
 victoireInconue:nežinoma pergalė[auto]
 élimination:pašalinimas[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:grįžti į pagrindinį meniu[auto]
 bouton.nom.-14:mesti ranka[auto]
 bouton.nom.-15:atgal žaisti[auto]
 
+save.message:įveskite vardą, kurį suteiksite savo atsarginei kopijai.[auto]
+
 bouton.desc.0:Sumažinkite žemėlapį[auto]
 bouton.desc.1:Perkelkite žemėlapį aukštyn[auto]
 bouton.desc.2:Padidinti žemėlapį[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Atidarykite žaidimo parinkčių meniu[auto]
 
 pti.desc.1:Nurodykite skruzdėlės, kuri gaus maistą, ID.[auto]
 pti.desc.2:Nurodykite siūlomo maisto kiekį.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Nurodykite dedamo kiaušinio tipą: 0 = karalienė, 1 = vyras, 2 = nepilnametis, 3 = vidutinis, 4 = pagrindinis, 5 + = kitas.[auto]
 pti.desc.4:Nurodykite kryptį, kurios reikia laikytis.[auto]
 pti.desc.5:Nurodykite valomos skruzdėlės ID. Purviniausia skruzdėlė yra skruzdėlė 1 padėtyje.[auto]
 
 triche.aide.1:Sveiki atvykę į „Formiko“ apgaulės sąsają. Čia galite įvesti apgaulės komandas.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:komandos forma „pavadinimas: (argumentai) aprašymas“[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:padaro id stadija[auto]
 cmd.args.15:būtybės ID, mada[auto]
 cmd.args.16:būtybės ID, skruzdėlyno ID[auto]
 cmd.args.17:būtybės ID rūšys[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:būtybės ID, švara[auto]
 cmd.args.19:būtybės ID, gabenamas kiekis[auto]
 cmd.args.20:sėklos ID, kietumasMax[auto]
 cmd.args.21:tiekiamas vabzdžių ID maistas[auto]
@@ -375,7 +377,7 @@ cmd.args.22:vabzdžių ID, maistas[auto]
 cmd.args.23:žaidėjo ID, vartotojo vardas[auto]
 cmd.args.24:žaidėjo ID, loginis estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Skruzdė arba vabzdys arba sėkla, jei vabzdys: x, y, įveskite If skruzdė: id Skruzdžių kalva Jei sėkla: x, y.[auto]
 cmd.args.28:būtybės ID[auto]
 cmd.args.29:Styginis raktas[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Jūsų skruzdžių mikrovaldymo tvenkinys? Naudokite 2 savo žinioje e
 conseil.4:Norite šiek tiek pakeisti žaidimo stilių? pasirinkite rūšį, su kuria dar nesu žaidęs.[auto]
 conseil.5:Kai kurios skruzdžių rūšys yra polimorfiškos. Tai reiškia, kad jie turi įvairaus dydžio darbuotojų, kad galėtų atlikti gana skirtingas užduotis.[auto]
 conseil.6:Nedėkite per daug kiaušinių vienu metu. Priešingu atveju negalėsite jais pasirūpinti, kol jie netaps imagais.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Skruzdėlės išgyvena 4 vystymosi stadijas: kiaušinį, lavą, nimfą ir imago (suaugusią skruzdėlę).[auto]
 conseil.8:Pasirinkimai, kuriuos turite padaryti, yra nurodyti viršutiniame kairiajame ekrano kampe.[auto]
 conseil.9:Skruzdėlės neturi akių vokų, kad drėkintų akis. Jie turi nuolat palaikyti sveiką gyvenimo būdą, kad galėtų bendrauti su savo antenomis ir matyti akimis.[auto]
 conseil.10:Kiaušiniai, lavos ir nimfos nesugeba to išvalyti patys. Jiems būtinai reikia imago pagalbos, kitaip jis gali būti užkrėstas blogosiomis bakterijomis. įsitikinkite, kad jūsų peras išlieka didesnis nei 50% švarumo.[auto]
@@ -452,7 +454,7 @@ tuto.30:Darbuotojai dar efektyviau atlieka tam tikras užduotis (jiems atlikti r
 tuto.31:Duokime savo darbininkui užduotį įvykdyti, kad raundas baigtųsi. (jei reikia, kelis kartus spustelėkite vieną iš mygtukų ekrano apačioje.)[auto]
 tuto.32:Tai buvo paskutinis šios mokymo programos ratas. Jei turite kokių nors abejonių, galite pakartoti šią mokymo programą.[auto]
 tuto.33:Kitu atveju mygtukų aprašymai rodomi užvedus pelės žymeklį ant jų, taip pat ir žemėlapio laukeliuose. Informacija apie pasirinktą skruzdėlę yra ekrano dešinėje.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Jei nepaisant to nerandate to, ko jums reikia, galite kreiptis patarimo į oficialų žaidimo nesantaikos serverį: http://discord.gg/vqvfGzf[auto]
 tuto.35:Norėdami laimėti žaidimą laiku, turite turėti aukštesnį rezultatą nei dirbtinis intelektas ir kiti žaidėjai.[auto]
 tuto.36:Jūsų rezultatas priklauso nuo jūsų skruzdžių skaičiaus (suaugusios skruzdėlės duoda geresnį rezultatą), taip pat nuo žaidimo sunkumo ir žaidimo greičio.[auto]
 tuto.37:Norėdami paleisti žaidimą iš naujo, turite išeiti iš žaidimo ir jį paleisti iš naujo, aš pasirūpinsiu žaidimo nutraukimu, tik jūs turite jį paleisti iš naujo.[auto]

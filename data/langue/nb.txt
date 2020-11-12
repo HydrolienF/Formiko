@@ -110,7 +110,7 @@ dimentionCarteY:bokstavdimensjon i Y[auto]
 erreurCarteVide:umulig å starte et spill uten noen spiller og uten noe ai.[auto]
 maxFourmiIa:maksimalt antall maur for ai[auto]
 nomDuFichier:filnavn[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Skriv inn navnet på lagringssettet du vil laste inn: (Eller tilbake for å gå tilbake)[auto]
 dernierTourPassé:Den siste runden har nå gått.[auto]
 victoireInconue:ukjent seier[auto]
 élimination:eliminering[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:tilbake til hovedmenyen[auto]
 bouton.nom.-14:kvitter Ant[auto]
 bouton.nom.-15:tilbake for å spille[auto]
 
+save.message:skriv inn navnet du vil gi til sikkerhetskopien din.[auto]
+
 bouton.desc.0:Krymp kartet[auto]
 bouton.desc.1:Flytt kartet opp[auto]
 bouton.desc.2:Forstør kartet[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Åpne alternativmenyen i spillet[auto]
 
 pti.desc.1:Angi identiteten til mauren som skal motta maten.[auto]
 pti.desc.2:Angi mengden mat som tilbys.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Angi hvilken type egg som skal legges: 0 = Dronning, 1 = Hann, 2 = Mindre, 3 = Middels, 4 = Major, 5 + = Annet.[auto]
 pti.desc.4:Angi retningen du skal følge.[auto]
 pti.desc.5:Angi identiteten til mauren som skal rengjøres. Den mest skitne mauren er mauren i posisjon 1.[auto]
 
 triche.aide.1:velkommen til Formiko cheat-grensesnittet. Det er her du kan skrive juksekommandoer.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:kommandoer i skjemaet "navn: (argumenter) beskrivelse"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:skapning id scenen[auto]
 cmd.args.15:skapning id, mote[auto]
 cmd.args.16:skapning id, maurtue id[auto]
 cmd.args.17:skapning id arter[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:skapning id, renslighet[auto]
 cmd.args.19:skapning id, mengde transportert[auto]
 cmd.args.20:frø-ID, hardhetMaks[auto]
 cmd.args.21:insekt-id mat gitt[auto]
@@ -375,7 +377,7 @@ cmd.args.22:insekt-id, mat[auto]
 cmd.args.23:spiller-ID, brukernavn[auto]
 cmd.args.24:spiller-ID, boolsk estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Maur eller insekt eller frø, hvis insekt: x, y, skriv inn hvis maur: id Ant Hill Hvis frø: x, y.[auto]
 cmd.args.28:skapning id[auto]
 cmd.args.29:Strengnøkkel[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Vann for å styre maurene dine? Bruk de to automatiske modusene til di
 conseil.4:Vil du variere spillestilen litt? velg en art du ikke har lekt med ennå.[auto]
 conseil.5:Noen maurearter er polymorfe. Det vil si at de har arbeidstakere av ulik størrelse for å kunne utføre ganske forskjellige oppgaver.[auto]
 conseil.6:Ikke legg for mange egg på en gang. Ellers vil du ikke kunne ta vare på dem før de blir bilder.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Maur går gjennom 4 utviklingsstadier: egg, lava, nymfe og imago (voksen maur).[auto]
 conseil.8:Valgene du må ta er angitt øverst til venstre på skjermen.[auto]
 conseil.9:Maur har ikke øyelokk for å fukte øynene. De må hele tiden opprettholde en sunn livsstil for å kunne kommunisere med antennene og se med øynene.[auto]
 conseil.10:Egg, lava og nymfer klarer ikke å rense dette på egenhånd. De trenger nødvendigvis hjelp fra en imago, ellers kan den bli smittet av dårlige bakterier. sørg for at brødet ditt holder seg over 50% renslighet.[auto]
@@ -452,7 +454,7 @@ tuto.30:Arbeidere er enda mer effektive på visse oppgaver (det koster dem mindr
 tuto.31:La oss gi arbeideren vår en oppgave å fullføre, slik at runden slutter. (klikk på en av knappene nederst på skjermen, flere ganger om nødvendig.)[auto]
 tuto.32:Det var den siste runden av denne opplæringen. Hvis du er i tvil, kan du gjøre om denne opplæringen.[auto]
 tuto.33:Ellers vises knappebeskrivelsene når du holder markøren over dem, ditto for boksene på kartet. Informasjon om den valgte mauren er til høyre på skjermen.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Hvis du til tross for dette ikke finner det du trenger, kan du søke råd på spillets offisielle diskordserver: http://discord.gg/vqvfGzf[auto]
 tuto.35:For å vinne et spill i tide må du ha en høyere poengsum enn AI og andre spillere.[auto]
 tuto.36:Poengsummen din avhenger av antall maur, (voksne maur gir bedre score), samt vanskeligheten med spillet og hastigheten på spillet.[auto]
 tuto.37:For å starte et spill på nytt, må du slutte spillet og starte det på nytt, jeg tar meg av å slutte spillet, det er opp til deg å starte det på nytt.[auto]

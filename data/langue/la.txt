@@ -110,7 +110,7 @@ dimentionCarteY:Ego litteram ratio,[auto]
 erreurCarteVide:impossibile est satus de ludum ludio ludius sine ulla sine ullo media.[auto]
 maxFourmiIa:Ai formicarum maximus[auto]
 nomDuFichier:file nomen[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Da nomen ad onus nisi vos volo paro (aut retro ire retro)[auto]
 dernierTourPassé:Et tandem per has iam obduco.[auto]
 victoireInconue:ignotum victoria[auto]
 élimination:eliminanda[auto]
@@ -215,7 +215,7 @@ jardin:hortus[auto]
 miniMonde:mini mundum[auto]
 potDeFleurs:flowerpot[auto]
 vide:Effundensque[auto]
-carteRéparée:
+carteRéparée:card: instauravitque[auto]
 mini:mini[auto]
 tiers:tertium[auto]
 
@@ -227,7 +227,7 @@ read.4:moribus filum[auto]
 read.5:non est numerus[auto]
 read.6:videtur conveniens valor datus. Hoc interim spatio includi debet[auto]
 read.7:Ita aut nihil?[auto]
-read.8:
+read.8:in forma scribere responsum: "O" (ut sic) vel "n" (nullo)[auto]
 read.9:usoris initus fuit cognita.[auto]
 
 tableau.1:De situ[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:in pelagus menu[auto]
 bouton.nom.-14:V. quitter[auto]
 bouton.nom.-15:in fabula[auto]
 
+save.message:nomine tuo ingrediuntur ad tergum.[auto]
+
 bouton.desc.0:Subtraxerim utilium a map[auto]
 bouton.desc.1:Movere autem ad map[auto]
 bouton.desc.2:Dilata map[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Aperi in-ludum elencho[auto]
 
 pti.desc.1:ID indicare victus formica suscipit.[auto]
 pti.desc.2:Oblationibus tantum indicare.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Et posuit rationem cum ovum, ut indicant: Regina = 0, = Male I, II = Minor: Pro Medium = III, IV = minor V + = Aliae.[auto]
 pti.desc.4:Sequeretur indicant.[auto]
 pti.desc.5:Formica ad id quod indicant ad purgandum est. Et dirtiest formica est, in formica I loco.[auto]
 
 triche.aide.1:grata Formiko decipiat in interface. Hic est qua vos can typus fraus subest imperium.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:Imperat forma "nomen (rationes) Description"[auto]
 
 //commande :
 
@@ -358,7 +360,7 @@ cmd.args.5:id animal cibum[auto]
 cmd.args.6:id creatura, foodMax[auto]
 cmd.args.7:creatura id, aetate[auto]
 cmd.args.8:id creatura ageMax[auto]
-cmd.args.9:
+cmd.args.9:id creatura: Mortuus est Boolean[auto]
 cmd.args.10:id creatura, actio[auto]
 cmd.args.11:id creatura, actionMax[auto]
 cmd.args.12:id creatura, Insecta rubrum, viridis Insecta, hyacintho Insecta[auto]
@@ -367,7 +369,7 @@ cmd.args.14:id scaena viventem[auto]
 cmd.args.15:id creatura, fashion[auto]
 cmd.args.16:id creatura, id anthill[auto]
 cmd.args.17:id speciei viventem[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:id creatura ex inluuie[auto]
 cmd.args.19:animal id vim traici[auto]
 cmd.args.20:id semen, hardnessMax[auto]
 cmd.args.21:id animal cibum[auto]
@@ -375,7 +377,7 @@ cmd.args.22:id animal cibum[auto]
 cmd.args.23:id ludio ludius, nomen usoris[auto]
 cmd.args.24:id ludio ludius, Boolean estia[auto]
 cmd.args.25:int x, y int[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Animal seu formica vel femine, nisi animal, x, y, si formica type: id si formica semen Hill, x, y.[auto]
 cmd.args.28:id viventem[auto]
 cmd.args.29:key filum[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Micromanaging vestri piscinam de alta formicae petunt? II utuntur modi
 conseil.4:Vis variat picturam modus ludere a frenum? sed cum vos have non psallebat speciebus eligere.[auto]
 conseil.5:Quidam autem species formica polymorphic. Hoc est dicere, quod habeat magnitudinem variabilis est ut opifices portare poterit de diversis satis fecerimus.[auto]
 conseil.6:Pluribus simul ova ponere noli. Alioquin non possit curam facti sunt illis ad imagos.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Formicae ibit per priora ad posteriora IV: ovum, lava, nymphaque creatum imago (adulta formica).[auto]
 conseil.8:Qui indicavit tibi, ut electiones de summo in sinistra tua screen.[auto]
 conseil.9:Non oculis euanuit formicae madefacere. Oportet ut semper possit esse sanum vivendi et antennis videant oculis suis communicare.[auto]
 conseil.10:Ova, lava et Nympharum habitu non potuit emundare hoc in sua. Illi necessario indigere auxilio esse non possit infici a imago secus nocens bacteria. fac avis nidum manus tua super L% munditiam.[auto]
@@ -441,10 +443,10 @@ tuto.19:Larva nostra sanetur. Sit exspectamus admoverent gradum transeundo tuam 
 tuto.20:Quod est uterus evolved, non modo ignobilem nympham. Iunctaeque Nymphis Gratiae sicut larvae, opus est ad purgandum et arbores.[auto]
 tuto.21:Ad pascere fetus (ova, larvae et aureliae), cibus formicarum regurgitate ex «socialis ventrem". Et hoc dicitur trophallaxis.[auto]
 tuto.22:pascere larva cum "Trophallaxis" puga pyga procul solum of vestri screen.[auto]
-tuto.23:
+tuto.23:Se quoque nympha tuis plenus sit? Sit scriptor paulo diutius expectare et germinare eam. (Click in "pretium Omit sequentibus:" puga pyga procul solum of screen tuo.)[auto]
 tuto.24:Et tandem pervenit in adulta gradu formica habet (imago)! Et iam praestare potest, ut actiones regina.[auto]
 tuto.25:Alia animalia subinde patebit. Sit scriptor regina misit ad occidere I strepitando in in "Auto-venari 'deprimendo.[auto]
-tuto.26:
+tuto.26:Lorem venandi concedit ut iussionem patris tua: formicas malo nocet.[auto]
 tuto.27:Est etiam modus CUNARIUS latae sententiae. Operatur per modum excederent anthill commendatum regina cum ova et larvae in anthill nymphae.[auto]
 tuto.28:Non est species granivorous nostri (non manducare semen). Verum semina propinquam anthills poterat manducare.[auto]
 tuto.29:Operarius mercede nos spawned potest praestare quod ipse actus regina nisi pro strato utentibus.[auto]
@@ -452,7 +454,7 @@ tuto.30:Sunt etiam quaedam exercere operarios in pluribus agentibus (nulla est i
 tuto.31:Sit ut nostrum circa finem perfectum opus operatur. (Click de buttons imo tui screen saepius necesse est.)[auto]
 tuto.32:Hoc erat ultimum per hoc consequat, te potest dubitari redo si hoc doceo.[auto]
 tuto.33:Quod ipsum si versetur exhibentur descriptiones eorum ditto adipiscing enim in charta. Lego vestri notitia formicam dextra elit.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Quod si hoc non obstante invenies quod tibi necessarium est, non potest quaerere in ad consilium scriptor officialis discordiae ludum server, http://discord.gg/vqvfGzf[auto]
 tuto.35:Quanto tempore habent vincere ludum histriones ustulo Ahi.[auto]
 tuto.36:Score pendeat tuum in numero formicae farris (formicae in adulta reddere meliorem score), tum difficultas celeritatem ad ludum et ludo.[auto]
 tuto.37:Et ad sileo ludum, vos have ut sileo quieti ludum et eam curam Et relictis ludum, suus 'usque vos sileo eam.[auto]

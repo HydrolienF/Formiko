@@ -110,7 +110,7 @@ dimentionCarteY:Harafin harafi a cikin Y[auto]
 erreurCarteVide:ba zai yiwu a fara wasa ba tare da kowane ɗan wasa ba kuma ba tare da wani ai ba.[auto]
 maxFourmiIa:iyakar tururuwa don ai[auto]
 nomDuFichier:sunan fayil[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Shigar da sunan saitin da kake son lodawa: (Ko kuma ka koma baya)[auto]
 dernierTourPassé:Zagaye na karshe yanzu ya wuce.[auto]
 victoireInconue:rashin sani nasara[auto]
 élimination:kawar[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:koma zuwa menu na ainihi[auto]
 bouton.nom.-14:kwatancin Ant[auto]
 bouton.nom.-15:koma wasa[auto]
 
+save.message:shigar da sunan don ba wa madadinku.[auto]
+
 bouton.desc.0:Rage taswirar[auto]
 bouton.desc.1:Matsar da taswira sama[auto]
 bouton.desc.2:Fadada taswira[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Bude menu a cikin wasan[auto]
 
 pti.desc.1:Nuna id na tururuwa da zata karɓi abincin.[auto]
 pti.desc.2:Nuna yawan abincin da aka bayar.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Nuna nau'in ƙwan da za a saka: 0 = Sarauniya, 1 = Namiji, 2 = Minananan, 3 = Matsakaici, 4 = Babba, 5 + = Sauran.[auto]
 pti.desc.4:Nuna shugabanci don bi.[auto]
 pti.desc.5:Nuna id na tururuwa da za a tsabtace. Mafi datti tururuwa ita ce tururuwa a cikin matsayi na 1.[auto]
 
 triche.aide.1:barka da zuwa ga formiko cheat interface. Anan ne zaka iya rubuta umarnin yaudara.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:yayi umarni a sigar "suna: (muhawara) kwatancen"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:halittar id mataki[auto]
 cmd.args.15:id id, fashion[auto]
 cmd.args.16:id id, anthill id[auto]
 cmd.args.17:halittar id jinsin[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:id id, tsafta[auto]
 cmd.args.19:id id, yawa safarar[auto]
 cmd.args.20:nau'in id, taurin hankali Max[auto]
 cmd.args.21:abincin kwari id[auto]
@@ -375,7 +377,7 @@ cmd.args.22:kwari id, abinci[auto]
 cmd.args.23:mai kunnawa id, sunan mai amfani[auto]
 cmd.args.24:id player, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Tururuwa ko Kwari ko Zuriya, Idan kwaro: x, y, buga Idan tururuwa: id Ant Hill Idan iri: x, y.[auto]
 cmd.args.28:id id[auto]
 cmd.args.29:Maballin kirtani[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Pond na micromanaging maganin tururuwa? Yi amfani da halaye na atomati
 conseil.4:Kuna son bambanta salon wasan kaɗan? zaɓi nau'in da ba ku yi wasa da shi ba tukuna.[auto]
 conseil.5:Wasu nau'in tururuwa suna polymorphic. Wato suna da ma'aikata masu girman girma domin su iya aiwatar da ayyuka daban-daban.[auto]
 conseil.6:Kada a sanya ƙwai da yawa a lokaci ɗaya. In ba haka ba ba za ku iya kula da su ba har sai sun zama kwatanci.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Tururuwa ta wuce matakai 4 na ci gaba: kwai, lava, nymph da imago (ƙwararriyar tururuwa).[auto]
 conseil.8:Zaɓuɓɓukan da za ku yi suna nuna su a saman hagu na allon ku.[auto]
 conseil.9:Tururuwa ba ta da fatar ido don jika idanunta. Dole ne su ci gaba da rayuwa mai kyau koyaushe don iya sadarwa tare da eriya da gani da idanunsu.[auto]
 conseil.10:Qwai, lava da nymphs ba sa iya tsabtace wannan da kansu. Lallai suna buƙatar taimakon imago idan ba haka ba zai iya kamuwa da mummunar cuta. Tabbatar cewa tsintsinka ya zauna sama da kashi 50% na tsafta.[auto]
@@ -452,7 +454,7 @@ tuto.30:Ma'aikata sun fi dacewa kan wasu ayyuka (yana rage musu ƙananan ayyuka 
 tuto.31:Bari mu bawa ma'aikacin mu aiki don kammalawa domin zagaye ya kare. (danna ɗaya maɓallin a ƙasan allo, sau da yawa idan ya cancanta.)[auto]
 tuto.32:Ya kasance zagayen ƙarshe na wannan koyarwar, idan kuna da wata shakka kuna iya sake wannan koyarwar.[auto]
 tuto.33:In ba haka ba ana nuna bayanan maɓallin lokacin da kake shawagi a kansu, ditto don akwatunan da ke kan taswirar. Bayani game da zaɓin tururuwa yana kan hannun dama na allo.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Idan duk da wannan ba ku sami abin da kuke buƙata ba, kuna iya neman shawara game da sabar fitinar aikin wasan: http://discord.gg/vqvfGzf[auto]
 tuto.35:Don cin wasa akan lokaci dole ne ku sami maki mafi girma fiye da AI da sauran 'yan wasan.[auto]
 tuto.36:Sakamakonku ya dogara da yawan tururuwa, (tsofaffin tururuwa suna ba da mafi kyawu), da kuma wahalar wasan da saurin wasan.[auto]
 tuto.37:Don sake kunna wasa, dole ne ku bar wasan ku sake kunna shi, Zan kula da barin wasan, ya rage naku sake kunnawa.[auto]

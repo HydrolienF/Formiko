@@ -110,7 +110,7 @@ dimentionCarteY:letra-dimentsioa Y-n[auto]
 erreurCarteVide:ezinezkoa da partidarik hastea inongo jokalaririk gabe eta inolako ai gabe.[auto]
 maxFourmiIa:ai inurri gehienezko kopurua[auto]
 nomDuFichier:fitxategi izena[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Idatzi kargatu nahi duzun gorde multzoaren izena: (Edo atzera atzera egiteko)[auto]
 dernierTourPassé:Azken txanda pasa da.[auto]
 victoireInconue:garaipen ezezaguna[auto]
 élimination:kanporaketa[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:menu nagusira itzuli[auto]
 bouton.nom.-14:quitter Ant[auto]
 bouton.nom.-15:atzera jolastera[auto]
 
+save.message:idatzi izena zure segurtasun kopiari emateko.[auto]
+
 bouton.desc.0:Txikitu mapa[auto]
 bouton.desc.1:Mugitu mapa gora[auto]
 bouton.desc.2:Handitu mapa[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Ireki jokoaren aukeren menua[auto]
 
 pti.desc.1:Adierazi janaria jasoko duen inurriaren id.[auto]
 pti.desc.2:Adierazi zenbat janari eskaini.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Adierazi zer arrautza mota bota: 0 = Erregina, 1 = Arra, 2 = Txikia, 3 = Ertaina, 4 = Nagusia, 5 + = Bestelakoak.[auto]
 pti.desc.4:Adierazi jarraitu beharreko norabidea.[auto]
 pti.desc.5:Adierazi garbitu beharreko inurriaren id. Inurri zikinena 1. postuan dagoen inurria da.[auto]
 
 triche.aide.1:Ongi etorri Formiko tranpa interfazera. Hemen tranpa komandoak idatz ditzakezu.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:"izena: (argudioak) deskribapena" formako aginduak[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:izaki id etapa[auto]
 cmd.args.15:izaki id, moda[auto]
 cmd.args.16:izaki id, inurritegi id[auto]
 cmd.args.17:izaki id espezie[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:izaki id, garbitasuna[auto]
 cmd.args.19:izakiaren id, garraiatutako kantitatea[auto]
 cmd.args.20:haziaren id, gogortasuna Max[auto]
 cmd.args.21:intsektuen id janaria[auto]
@@ -375,7 +377,7 @@ cmd.args.22:intsektuen id, janaria[auto]
 cmd.args.23:jokalari IDa, erabiltzaile izena[auto]
 cmd.args.24:jokalari id, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Inurria edo intsektuak edo haziak, intsektuak badira: x, y, idatzi If ant: id Ant Hill hazia bada: x, y.[auto]
 cmd.args.28:izaki id[auto]
 cmd.args.29:Katearen tekla[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Zure inurriak mikrokudeatzeko urmaela? Erabili eskura dituzun 2 modu a
 conseil.4:Jokatzeko estiloa pixka bat aldatu nahi duzu? aukeratu oraindik jolastu ez duzun espezie bat.[auto]
 conseil.5:Inurri espezie batzuk polimorfikoak dira. Esan nahi da tamaina desberdineko langileak dituztela zeregin nahiko desberdinak burutu ahal izateko.[auto]
 conseil.6:Ez jarri arrautza gehiegi aldi berean. Bestela, ezin izango dituzu artatu irudiak bihurtu arte.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Inurriek 4 garapen fase zeharkatzen dituzte: arrautza, laba, ninfa eta imago (inurri heldua).[auto]
 conseil.8:Egin behar dituzun aukerak pantailaren goiko ezkerraldean daude adierazita.[auto]
 conseil.9:Inurriek ez dute betazalik begiak hezetzeko. Bizimodu osasuntsua mantendu behar dute etengabe antenekin komunikatu eta begiekin ikusi ahal izateko.[auto]
 conseil.10:Arrautzak, laba eta ninfak ez dira gai beren kabuz garbitzeko. Imago baten laguntza behar dute nahitaez bestela bakterio txar batek kutsa dezake. ziurtatu zure kumea% 50eko garbitasunetik gora mantentzen dela.[auto]
@@ -452,7 +454,7 @@ tuto.30:Langileak are eraginkorragoak dira zenbait zereginetan (ekintza gutxiago
 tuto.31:Eman diezaiogun gure langileari burutzeko zeregina txanda amaitu dadin. (egin klik pantailaren behealdeko botoietako batean, beharrezkoa bada hainbat aldiz.)[auto]
 tuto.32:Tutorial honen azken txanda izan zen. Zalantzarik baduzu tutorial hau berriro egin dezakezu.[auto]
 tuto.33:Bestela, botoien deskribapenak bistaratzen dira haien gainetik pasatzean, mapako koadroetarako ere. Aukeratutako inurriari buruzko informazioa zure pantailaren eskuinean dago.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Hala ere, behar duzuna aurkitzen ez baduzu, jokoaren desadostasun zerbitzari ofizialean aholkularitza bila dezakezu: http://discord.gg/vqvfGzf[auto]
 tuto.35:Partida garaiz irabazteko AIk eta beste jokalariek baino puntuazio altuagoa izan behar duzu.[auto]
 tuto.36:Zure puntuazioa zure inurri kopuruaren araberakoa da (inurri helduek puntuazio hobea ematen dute), baita jokoaren zailtasuna eta jokoaren abiadura ere.[auto]
 tuto.37:Partida bat berrabiarazteko, partida utzi eta berrabiarazi egin behar duzu, ni jokua uzteaz arduratuko naiz, berrabiaraztea zure esku dago.[auto]

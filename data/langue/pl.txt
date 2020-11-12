@@ -110,7 +110,6 @@ dimentionCarteY:wymiar litery w Y[auto]
 erreurCarteVide:niemożliwe jest rozpoczęcie gry bez żadnego gracza i bez ai.[auto]
 maxFourmiIa:maksymalna liczba mrówek na ai[auto]
 nomDuFichier:Nazwa pliku[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Minęła ostatnia runda.[auto]
 victoireInconue:nieznane zwycięstwo[auto]
 élimination:eliminacja[auto]
@@ -294,6 +293,8 @@ bouton.nom.-13:powrót do menu głównego[auto]
 bouton.nom.-14:Quitter Ant[auto]
 bouton.nom.-15:z powrotem do gry[auto]
 
+save.message:wprowadź nazwę, którą chcesz nadać kopii zapasowej.[auto]
+
 bouton.desc.0:Zmniejsz mapę[auto]
 bouton.desc.1:Przesuń mapę w górę[auto]
 bouton.desc.2:Powiększ mapę[auto]
@@ -332,12 +333,10 @@ bouton.desc.31:Otwórz menu opcji w grze[auto]
 
 pti.desc.1:Wskaż identyfikator mrówki, która otrzyma pożywienie.[auto]
 pti.desc.2:Wskaż ilość oferowanego jedzenia.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Wskaż kierunek, w którym należy podążać.[auto]
 pti.desc.5:Wskaż identyfikator mrówki do wyczyszczenia. Najbrudniejszą mrówką jest mrówka na pozycji 1.[auto]
 
 triche.aide.1:witamy w interfejsie cheatów Formiko. Tutaj możesz wpisywać polecenia do oszukiwania.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
 //commande :
 
@@ -367,7 +366,6 @@ cmd.args.14:etap id stworzenia[auto]
 cmd.args.15:identyfikator stworzenia, moda[auto]
 cmd.args.16:id stworzenia, id mrowiska[auto]
 cmd.args.17:gatunki id stworzeń[auto]
-cmd.args:18:id créature, propreté
 cmd.args.19:identyfikator stworzenia, transportowana ilość[auto]
 cmd.args.20:identyfikator nasion, twardość Max[auto]
 cmd.args.21:zapewniona żywność dla owadów[auto]
@@ -375,7 +373,6 @@ cmd.args.22:identyfikator owada, żywność[auto]
 cmd.args.23:identyfikator gracza, nazwa użytkownika[auto]
 cmd.args.24:id gracza, wartość logiczna[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:identyfikator stworzenia[auto]
 cmd.args.29:Klucz ciąg[auto]
 
@@ -390,7 +387,6 @@ conseil.3:Staw mikrozarządzania mrówkami? Skorzystaj z 2 dostępnych trybów a
 conseil.4:Chcesz nieco zmienić styl gry? wybierz gatunek, z którym jeszcze nie grałeś.[auto]
 conseil.5:Niektóre gatunki mrówek są polimorficzne. Oznacza to, że mają pracowników różnej wielkości, aby móc wykonywać całkiem różne zadania.[auto]
 conseil.6:Nie składaj zbyt wielu jaj na raz. W przeciwnym razie nie będziesz w stanie się nimi zająć, dopóki nie staną się wyobrażeniami.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Wybory, których musisz dokonać, są wskazane w lewym górnym rogu ekranu.[auto]
 conseil.9:Mrówki nie mają powieki, która mogłaby nawilżać oczy. Muszą stale utrzymywać zdrowy tryb życia, aby móc komunikować się z czułkami i widzieć oczami.[auto]
 conseil.10:Jajka, lawa i nimfy nie są w stanie same tego wyczyścić. Koniecznie potrzebują pomocy imago, w przeciwnym razie groziłoby to zakażeniem złą bakterią. upewnij się, że Twój lęg pozostaje powyżej 50% czystości.[auto]
@@ -452,7 +448,7 @@ tuto.30:Pracownicy są jeszcze wydajniejsi w niektórych zadaniach (ich wykonani
 tuto.31:Dajmy naszemu pracownikowi zadanie do wykonania, aby runda się zakończyła. (kliknij jeden z przycisków u dołu ekranu, w razie potrzeby kilka razy).[auto]
 tuto.32:To była ostatnia runda tego samouczka, jeśli masz jakiekolwiek wątpliwości, możesz powtórzyć ten samouczek.[auto]
 tuto.33:W przeciwnym razie opisy przycisków są wyświetlane po najechaniu na nie kursorem, tak samo jak w przypadku pól na mapie. Informacje o wybranej mrówce znajdują się po prawej stronie ekranu.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Jeśli mimo to nie znajdziesz tego, czego potrzebujesz, możesz poszukać porady na oficjalnym serwerze discord gry: http://discord.gg/vqvfGzf[auto]
 tuto.35:Aby wygrać grę na czas, musisz mieć wyższy wynik niż AI i inni gracze.[auto]
 tuto.36:Twój wynik zależy od liczby mrówek (dorosłe mrówki dają lepszy wynik), a także od trudności i szybkości gry.[auto]
 tuto.37:Aby zrestartować grę, musisz wyjść z gry i ponownie ją uruchomić. Zajmę się zamknięciem gry, ponowne uruchomienie zależy od Ciebie.[auto]

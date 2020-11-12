@@ -369,7 +369,7 @@ cmd.args.14:id créature, stade
 cmd.args.15:id créature, mode
 cmd.args.16:id créature, id fourmilière
 cmd.args.17:id créature, espèce
-cmd.args:18:id créature, propreté
+cmd.args.18:id créature, propreté
 cmd.args.19:id créature, quantité transporté
 cmd.args.20:id graine, duretéMax
 cmd.args.21:id insecte, nourritureFournie

@@ -110,7 +110,7 @@ dimentionCarteY:rozmer písmena v Y[auto]
 erreurCarteVide:nie je možné zahájiť hru bez hráča a bez ai.[auto]
 maxFourmiIa:maximálny počet mravcov pre ai[auto]
 nomDuFichier:názov súboru[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Zadajte názov ukladacej sady, ktorú chcete načítať: (alebo späť pre návrat)[auto]
 dernierTourPassé:Posledné kolo teraz uplynulo.[auto]
 victoireInconue:neznáme víťazstvo[auto]
 élimination:eliminácia[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:späť do hlavnej ponuky[auto]
 bouton.nom.-14:tlmočník Ant[auto]
 bouton.nom.-15:späť hrať[auto]
 
+save.message:zadajte názov, ktorý chcete dať svojej zálohe.[auto]
+
 bouton.desc.0:Zmenšiť mapu[auto]
 bouton.desc.1:Posunúť mapu nahor[auto]
 bouton.desc.2:Zväčšiť mapu[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Otvorte ponuku možností v hre[auto]
 
 pti.desc.1:Uveďte id mravca, ktorý prijme jedlo.[auto]
 pti.desc.2:Uveďte množstvo ponúkaného jedla.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Uveďte typ vajec, ktoré sa má položiť: 0 = kráľovná, 1 = muž, 2 = malé, 3 = stredné, 4 = veľké, 5 + = iné.[auto]
 pti.desc.4:Uveďte smer, ktorým sa máte riadiť.[auto]
 pti.desc.5:Uveďte id mravca, ktorý sa má vyčistiť. Najšpinavším mravcom je mravec v polohe 1.[auto]
 
 triche.aide.1:vitajte v rozhraní cheatu Formiko. Tu môžete zadávať cheat príkazy.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:príkazy v tvare "názov: (argumenty) popis"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:štádium id tvora[auto]
 cmd.args.15:stvorenie id, móda[auto]
 cmd.args.16:stvorenie id, mravenisko id[auto]
 cmd.args.17:stvorenie id druhov[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:stvorene id, cistota[auto]
 cmd.args.19:ID tvora, prepravované množstvo[auto]
 cmd.args.20:id semena, tvrdosť Max[auto]
 cmd.args.21:hmyzu id jedlo poskytnuté[auto]
@@ -375,7 +377,7 @@ cmd.args.22:id hmyzu, jedlo[auto]
 cmd.args.23:ID hráča, užívateľské meno[auto]
 cmd.args.24:id hráča, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Mravenec alebo hmyz alebo semeno, ak je hmyz: x, y, napíšte If mravce: id Ant Hill, ak je semeno: x, y.[auto]
 cmd.args.28:stvorenie id[auto]
 cmd.args.29:Reťazcový kľúč[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Kalkulačka mikromanažmentu vašich mravcov? Použite 2 automatické 
 conseil.4:Chcete trochu pozmeniť štýl hry? vyberte si druh, s ktorým ste sa ešte nehrali.[auto]
 conseil.5:Niektoré druhy mravcov sú polymorfné. To znamená, že majú pracovníkov rôznej veľkosti, aby boli schopní vykonávať úplne odlišné úlohy.[auto]
 conseil.6:Nedávajte príliš veľa vajíčok naraz. Inak sa o ne nebudete vedieť postarať, kým sa nestanú imagom.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Mravce prechádzajú 4 štádiami vývoja: vajíčko, láva, nymfa a imago (dospelý mravec).[auto]
 conseil.8:Možnosti, ktoré musíte urobiť, sú uvedené v ľavej hornej časti obrazovky.[auto]
 conseil.9:Mravce nemajú očné viečko na zvlhčenie očí. Musia neustále udržiavať zdravý životný štýl, aby mohli komunikovať so svojimi anténami a vidieť očami.[auto]
 conseil.10:Vajcia, láva a víly nie sú schopné to samy vyčistiť. Potrebujú nevyhnutne imago, inak by hrozilo, že budú infikovaní škodlivými baktériami. uistite sa, že váš plod zostáva nad 50% čistý.[auto]
@@ -452,7 +454,7 @@ tuto.30:Pracovníci sú pri určitých úlohách ešte efektívnejší (ich vyko
 tuto.31:Dajme nášmu pracovníkovi úlohu, ktorú má dokončiť, aby sa kolo skončilo. (kliknite na jedno z tlačidiel v dolnej časti obrazovky, v prípade potreby niekoľkokrát.)[auto]
 tuto.32:Bolo to posledné kolo tohto tutoriálu. Ak máte pochybnosti, môžete tento tutoriál zopakovať.[auto]
 tuto.33:V opačnom prípade sa popisy tlačidiel zobrazia, keď na ne umiestnite kurzor myši, rovnako ako pri poliach na mape. Informácie o vybranom mravcovi sú na pravej strane obrazovky.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Ak napriek tomu nenájdete, čo potrebujete, môžete požiadať o radu na oficiálnom serveri hry svár: http://discord.gg/vqvfGzf[auto]
 tuto.35:Ak chcete vyhrať hru včas, musíte mať vyššie skóre ako AI a ostatní hráči.[auto]
 tuto.36:Vaše skóre závisí od vášho počtu mravcov (dospelí mravce dávajú lepšie skóre), ako aj od náročnosti hry a rýchlosti hry.[auto]
 tuto.37:Ak chcete reštartovať hru, musíte hru ukončiť a reštartovať. O ukončenie hry sa postarám, je len na vás, či ju reštartujete.[auto]

@@ -110,7 +110,7 @@ dimentionCarteY:dimension de la carte en Y[auto]
 erreurCarteVide:imposible comenzar un juego sin ningún jugador y sin ningún ai.[auto]
 maxFourmiIa:número máximo de hormigas para ia[auto]
 nomDuFichier:nombre del archivo[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Ingrese el nombre del conjunto guardado que desea cargar: (O retroceda para retroceder)[auto]
 dernierTourPassé:Ya pasó la última ronda.[auto]
 victoireInconue:victoria desconocida[auto]
 élimination:eliminación[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:volver al menú principal[auto]
 bouton.nom.-14:hormiga abandonada[auto]
 bouton.nom.-15:volver a jugar[auto]
 
+save.message:ingrese el nombre para darle a su respaldo.[auto]
+
 bouton.desc.0:Reducir el mapa[auto]
 bouton.desc.1:Mover el mapa hacia arriba[auto]
 bouton.desc.2:Agrandar el mapa[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Abre el menú de opciones del juego.[auto]
 
 pti.desc.1:Indique la identificación de la hormiga que recibirá la comida.[auto]
 pti.desc.2:Indique la cantidad de comida ofrecida.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Indique el tipo de huevo a poner: 0 = Reina, 1 = Macho, 2 = Menor, 3 = Mediano, 4 = Mayor, 5 + = Otro.[auto]
 pti.desc.4:Indique la dirección a seguir.[auto]
 pti.desc.5:Indique la identificación de la hormiga a limpiar. La hormiga más sucia es la hormiga en la posición 1.[auto]
 
 triche.aide.1:bienvenido a la interfaz de trucos de Formiko. Aquí es donde puede escribir comandos de trampa.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:comandos en la forma "nombre: (argumentos) descripción"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:etapa de identificación de criatura[auto]
 cmd.args.15:identificación de criatura, moda[auto]
 cmd.args.16:identificación de criatura, identificación de hormiguero[auto]
 cmd.args.17:especie de identificación de criatura[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:identificación de criatura, limpieza[auto]
 cmd.args.19:identificación de criatura, cantidad transportada[auto]
 cmd.args.20:ID de semilla, durezaMax[auto]
 cmd.args.21:comida de identificación de insectos proporcionada[auto]
@@ -375,7 +377,7 @@ cmd.args.22:identificación de insecto, comida[auto]
 cmd.args.23:ID de jugador, nombre de usuario[auto]
 cmd.args.24:ID de jugador, estIa booleana[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Hormiga o Insecto o Semilla, Si es insecto: x, y, escriba Si es hormiga: id Ant Hill Si es semilla: x, y.[auto]
 cmd.args.28:identificación de criatura[auto]
 cmd.args.29:Clave de cadena[auto]
 
@@ -390,7 +392,7 @@ conseil.3:¿Estanque de microgestión de sus hormigas? Utilice los 2 modos autom
 conseil.4:¿Quieres variar un poco el estilo de juego? elige una especie con la que aún no hayas jugado.[auto]
 conseil.5:Algunas especies de hormigas son polimórficas. Es decir, cuentan con trabajadores de distinto tamaño para poder realizar tareas bastante diferentes.[auto]
 conseil.6:No ponga demasiados huevos a la vez. De lo contrario, no podrás cuidarlos hasta que se conviertan en imagos.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Las hormigas pasan por 4 etapas de desarrollo: huevo, lava, ninfa e imago (hormiga adulta).[auto]
 conseil.8:Las elecciones que debe realizar se indican en la parte superior izquierda de la pantalla.[auto]
 conseil.9:Las hormigas no tienen párpados para humedecer los ojos. Deben mantener constantemente un estilo de vida saludable para poder comunicarse con sus antenas y ver con sus ojos.[auto]
 conseil.10:Los huevos, la lava y las ninfas no pueden limpiar esto por sí mismos. Necesitan necesariamente la ayuda de un imago, de lo contrario podría infectarse con una bacteria mala. asegúrese de que su cría se mantenga por encima del 50% de limpieza.[auto]
@@ -452,7 +454,7 @@ tuto.30:Los trabajadores son aún más eficientes en ciertas tareas (les cuesta 
 tuto.31:Démosle a nuestro trabajador una tarea para completar para que termine la ronda. (haga clic en uno de los botones en la parte inferior de su pantalla, varias veces si es necesario).[auto]
 tuto.32:Fue la última ronda de este tutorial, si tienes alguna duda puedes rehacer este tutorial.[auto]
 tuto.33:De lo contrario, las descripciones de los botones se muestran cuando pasa el mouse sobre ellos, lo mismo ocurre con las casillas del mapa. La información sobre la hormiga seleccionada se encuentra a la derecha de su pantalla.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Si a pesar de esto no encuentra lo que necesita, puede buscar consejo en el servidor de discordia oficial del juego: http://discord.gg/vqvfGzf[auto]
 tuto.35:Para ganar un juego a tiempo, debes tener una puntuación más alta que la IA y otros jugadores.[auto]
 tuto.36:Su puntuación depende de su número de hormigas (las hormigas adultas dan una mejor puntuación), así como de la dificultad del juego y la velocidad del juego.[auto]
 tuto.37:Para reiniciar un juego, debes salir del juego y reiniciarlo, yo me encargaré de salir del juego, depende de ti reiniciarlo.[auto]

@@ -110,7 +110,7 @@ dimentionCarteY:dimensione della lettera in Y[auto]
 erreurCarteVide:impossibile iniziare un gioco senza alcun giocatore e senza alcuna intelligenza artificiale.[auto]
 maxFourmiIa:numero massimo di formiche per ai[auto]
 nomDuFichier:nome del file[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Immettere il nome del set di salvataggio che si desidera caricare: (o tornare indietro per tornare indietro)[auto]
 dernierTourPassé:L'ultimo round è ora passato.[auto]
 victoireInconue:vittoria sconosciuta[auto]
 élimination:eliminazione[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:Indietro al menù principale[auto]
 bouton.nom.-14:quitter Ant[auto]
 bouton.nom.-15:torna a giocare[auto]
 
+save.message:inserisci il nome da dare al tuo backup.[auto]
+
 bouton.desc.0:Riduci la mappa[auto]
 bouton.desc.1:Sposta la mappa in alto[auto]
 bouton.desc.2:Ingrandisci la mappa[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Apri il menu delle opzioni di gioco[auto]
 
 pti.desc.1:Indica l'id della formica che riceverà il cibo.[auto]
 pti.desc.2:Indicare la quantità di cibo offerto.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Indicare il tipo di uovo da deporre: 0 = Regina, 1 = Maschio, 2 = Minore, 3 = Medio, 4 = Maggiore, 5 + = Altro.[auto]
 pti.desc.4:Indicare la direzione da seguire.[auto]
 pti.desc.5:Indica l'id della formica da pulire. La formica più sporca è la formica in posizione 1.[auto]
 
 triche.aide.1:benvenuto nell'interfaccia cheat di Formiko. Qui è dove puoi digitare i comandi cheat.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:comandi nella forma "nome: (argomenti) descrizione"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:fase di identificazione della creatura[auto]
 cmd.args.15:id creatura, moda[auto]
 cmd.args.16:id creatura, id formicaio[auto]
 cmd.args.17:specie id creatura[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:id creatura, pulizia[auto]
 cmd.args.19:ID creatura, quantità trasportata[auto]
 cmd.args.20:ID seme, durezza Max[auto]
 cmd.args.21:cibo id insetto fornito[auto]
@@ -375,7 +377,7 @@ cmd.args.22:id insetto, cibo[auto]
 cmd.args.23:ID giocatore, nome utente[auto]
 cmd.args.24:ID giocatore, estIa booleana[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Formica o Insetto o Seme, Se insetto: x, y, digita Se formica: id Formicaio Se Seme: x, y.[auto]
 cmd.args.28:id creatura[auto]
 cmd.args.29:Chiave stringa[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Stagno di microgestione delle formiche? Utilizza le 2 modalità automa
 conseil.4:Vuoi variare un po 'lo stile di gioco? scegli una specie con cui non hai ancora giocato.[auto]
 conseil.5:Alcune specie di formiche sono polimorfiche. Vale a dire che hanno lavoratori di dimensione variabile per poter svolgere compiti abbastanza diversi.[auto]
 conseil.6:Non deporre troppe uova contemporaneamente. Altrimenti non sarai in grado di prenderti cura di loro finché non diventeranno immaginari.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Le formiche attraversano 4 fasi di sviluppo: uovo, lava, ninfa e imago (formica adulta).[auto]
 conseil.8:Le scelte che devi fare sono indicate in alto a sinistra dello schermo.[auto]
 conseil.9:Le formiche non hanno una palpebra per inumidire gli occhi. Devono mantenere costantemente uno stile di vita sano per poter comunicare con le loro antenne e vedere con i loro occhi.[auto]
 conseil.10:Le uova, la lava e le ninfe non sono in grado di pulirlo da sole. Hanno necessariamente bisogno dell'aiuto di un imago altrimenti potrebbero essere infettati da un batterio cattivo. assicurati che la tua covata rimanga oltre il 50% di pulizia.[auto]
@@ -452,7 +454,7 @@ tuto.30:I lavoratori sono ancora più efficienti su determinati compiti (costa l
 tuto.31:Diamo al nostro lavoratore un compito da completare in modo che il round finisca. (fare clic su uno dei pulsanti nella parte inferiore dello schermo, più volte se necessario.)[auto]
 tuto.32:Era l'ultimo round di questo tutorial, se hai dei dubbi puoi rifarlo.[auto]
 tuto.33:Altrimenti le descrizioni dei pulsanti vengono visualizzate quando ci passi sopra con il mouse, idem per le caselle sulla mappa. Le informazioni sulla formica selezionata si trovano sulla destra dello schermo.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Se nonostante questo non trovi quello che ti serve, puoi chiedere consiglio al server discord ufficiale del gioco: http://discord.gg/vqvfGzf[auto]
 tuto.35:Per vincere una partita in tempo devi avere un punteggio più alto dell'IA e degli altri giocatori.[auto]
 tuto.36:Il tuo punteggio dipende dal tuo numero di formiche, (le formiche adulte danno un punteggio migliore), così come dalla difficoltà del gioco e dalla velocità del gioco.[auto]
 tuto.37:Per riavviare un gioco, devi uscire dal gioco e riavviarlo, ci penserò io a chiudere il gioco, sta a te riavviarlo.[auto]

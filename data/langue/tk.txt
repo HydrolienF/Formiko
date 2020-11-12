@@ -110,7 +110,7 @@ dimentionCarteY:harp ölçegi Y[auto]
 erreurCarteVide:oýun oýnamazdan we hiç hili ai bolmasa başlamak mümkin däl.[auto]
 maxFourmiIa:ai üçin garynjalaryň iň köp sany[auto]
 nomDuFichier:faýlyň ady[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Loadüklemek isleýän saklaýyş toplumyňyzyň adyny giriziň: (backa-da yzyna dolanmak üçin)[auto]
 dernierTourPassé:Soňky tapgyr indi geçdi.[auto]
 victoireInconue:näbelli ýeňiş[auto]
 élimination:ýok etmek[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:esasy menýu[auto]
 bouton.nom.-14:garynja[auto]
 bouton.nom.-15:oýnamak üçin[auto]
 
+save.message:ätiýaçlyk nusgasyna bermek üçin adyny giriziň.[auto]
+
 bouton.desc.0:Kartany gysgaltmak[auto]
 bouton.desc.1:Kartany ýokaryk galdyryň[auto]
 bouton.desc.2:Kartany ulaldyň[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Oýun içindäki opsiýalar menýusyny açyň[auto]
 
 pti.desc.1:Iýmit aljak garynjanyň idini görkeziň.[auto]
 pti.desc.2:Teklip edilýän iýmitiň mukdaryny görkeziň.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Edilmeli ýumurtganyň görnüşini görkeziň: 0 = Şa aýal, 1 = Erkek, 2 = kiçi, 3 = orta, 4 = maýor, 5 + = başgalar.[auto]
 pti.desc.4:Indiki ugry görkeziň.[auto]
 pti.desc.5:Arassalanmaly garynjanyň idini görkeziň. Iň hapa garynja 1-nji ýerdäki garynja.[auto]
 
 triche.aide.1:Formiko aldaw interfeýsine hoş geldiňiz. Bu ýerde aldaw buýruklaryny ýazyp bilersiňiz.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:"ady: (argumentler) düşündiriş" görnüşindäki buýruklar[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:jandar id tapgyry[auto]
 cmd.args.15:jandar id, moda[auto]
 cmd.args.16:jandar id, garynja id[auto]
 cmd.args.17:jandar id görnüşleri[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:jandar ID, arassalyk[auto]
 cmd.args.19:jandar ID, daşalýan mukdar[auto]
 cmd.args.20:tohum ID, gatylykMax[auto]
 cmd.args.21:mör-möjek id iýmitleri bilen üpjün edilýär[auto]
@@ -375,7 +377,7 @@ cmd.args.22:mör-möjek ID, iýmit[auto]
 cmd.args.23:pleýer id, ulanyjy ady[auto]
 cmd.args.24:pleýer id, bulean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Garynja ýa-da mör-möjek ýa-da tohum, mör-möjek bolsa: x, y, ýazyň Eger garynja: id garynja depesi Eger tohum: x, y.[auto]
 cmd.args.28:jandar id[auto]
 cmd.args.29:Setir açary[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Garynjalaryňyzy mikro-dolandyrmak howzy? Siziň ygtyýaryňyzda 2 awt
 conseil.4:Oýun stilini biraz üýtgetmek isleýärsiňizmi? entek oýnamadyk görnüşiňizi saýlaň.[auto]
 conseil.5:Käbir garynja görnüşleri polimorfdyr. Differentagny, düýbünden başga meseleleri ýerine ýetirmek üçin dürli ululykdaky işçiler bar.[auto]
 conseil.6:Birbada gaty köp ýumurtga goýmaň. Otherwiseogsam, olar hyýal bolýança olara ideg edip bilmersiňiz.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Garynjalar ösüşiň 4 basgançagyny başdan geçirýärler: ýumurtga, lava, nymf we imago (uly garynja).[auto]
 conseil.8:Etmeli saýlawlaryňyz, ekranyň ýokarky çep tarapynda görkezilýär.[auto]
 conseil.9:Garynjalaryň gözüni nemlendirmek üçin gaby ýok. Antenleri bilen aragatnaşyk gurmak we gözleri bilen görmek üçin hemişe sagdyn durmuş ýörelgesini saklamalydyrlar.[auto]
 conseil.10:Gsumurtga, lava we gurjak muny özbaşdak arassalap bilmeýär. Imago kömegine mätäç, ýogsam erbet bakteriýalardan ýokaşyp biler. tohumyňyzyň 50% arassa bolmagyna göz ýetiriň.[auto]
@@ -452,7 +454,7 @@ tuto.30:Işçiler käbir meselelerde has täsirli bolýarlar (olary ýerine ýet
 tuto.31:Işçimize tegelek gutarmak üçin bir iş bereliň. (zerur bolsa birnäçe gezek ekranyňyzyň aşagyndaky düwmeleriň birine basyň.)[auto]
 tuto.32:Bu gollanmanyň iň soňky tapgyrydy, şübhelenýän bolsaňyz, bu sapagy täzeden ulanyp bilersiňiz.[auto]
 tuto.33:Otherwiseogsam, düwmäniň düşündirişleri kartanyň üstündäki gutulara ýazyň. Saýlanan garynja hakda maglumatlar ekranyňyzyň sag tarapynda.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Muňa garamazdan, zerur zatlary tapmasaňyz, oýnuň resmi nägilelik serwerinden maslahat alyp bilersiňiz: http://discord.gg/vqvfGzf[auto]
 tuto.35:Bir oýunda wagtynda ýeňiş gazanmak üçin AI we beýleki oýunçylardan has ýokary bal bolmaly.[auto]
 tuto.36:Siziň balyňyz garynjalaryň sanyna, (uly garynjalar has gowy bal berýär), oýnuň kynlygyna we oýnuň tizligine baglydyr.[auto]
 tuto.37:Bir oýny täzeden başlamak üçin oýundan ýüz öwürmeli we täzeden başlamaly, men oýundan çykmak barada alada ederin, ony täzeden başlamak saňa bagly.[auto]
