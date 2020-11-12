@@ -360,37 +360,38 @@ public class Img {
   */
   public Img tourner(byte x){ // on tourne de 90° a chaque fois.
     x=(byte)(x+4); // pour pouvoir utiliser des angles négatifs.
-    if(width!=height){ return null;}
-    int taille = width; int ta= taille-1;
-    byte [][] rougeT = new byte[taille][taille];
-    byte [][] vertT = new byte[taille][taille];
-    byte [][] bleuT = new byte[taille][taille];
-    byte [][] alphaT = new byte[taille][taille];
+    //if(width!=height){ return null;}
+    int ta= width-1;
+    byte [][] rougeT = new byte[width][height];
+    byte [][] vertT = new byte[width][height];
+    byte [][] bleuT = new byte[width][height];
+    byte [][] alphaT = new byte[width][height];
+    //TODO remplacer les width par des height si nésséssaire. (Puis écrire une fonction test associée.)
     if (x%4==1){
-      for (int i=0;i<taille;i++) {
-        for (int j=0;j<taille;j++) {
-          rougeT[i][j]=rouge[j][ta-i];
-          vertT[i][j]=vert[j][ta-i];
-          bleuT[i][j]=bleu[j][ta-i];
-          alphaT[i][j]=alpha[j][ta-i];
+      for (int i=0;i<width;i++) {
+        for (int j=0;j<height;j++) {
+          rougeT[i][j]=rouge[j][width-1-i];
+          vertT[i][j]=vert[j][width-1-i];
+          bleuT[i][j]=bleu[j][width-1-i];
+          alphaT[i][j]=alpha[j][width-1-i];
         }
       }
     }else if(x%4==2){
-      for (int i=0;i<taille;i++) {
-        for (int j=0;j<taille;j++) {
-          rougeT[i][j]=rouge[ta-i][ta-j];
-          vertT[i][j]=vert[ta-i][ta-j];
-          bleuT[i][j]=bleu[ta-i][ta-j];
-          alphaT[i][j]=alpha[ta-i][ta-j];
+      for (int i=0;i<width;i++) {
+        for (int j=0;j<height;j++) {
+          rougeT[i][j]=rouge[width-1-i][width-1-j];
+          vertT[i][j]=vert[width-1-i][width-1-j];
+          bleuT[i][j]=bleu[width-1-i][width-1-j];
+          alphaT[i][j]=alpha[width-1-i][width-1-j];
         }
       }
     }else if(x%4==3){ // -1 ou 3.
-      for (int i=0;i<taille;i++) {
-        for (int j=0;j<taille;j++) {
-          rougeT[i][j]=rouge[ta-j][i];
-          vertT[i][j]=vert[ta-j][i];
-          bleuT[i][j]=bleu[ta-j][i];
-          alphaT[i][j]=alpha[ta-j][i];
+      for (int i=0;i<width;i++) {
+        for (int j=0;j<height;j++) {
+          rougeT[i][j]=rouge[width-1-j][i];
+          vertT[i][j]=vert[width-1-j][i];
+          bleuT[i][j]=bleu[width-1-j][i];
+          alphaT[i][j]=alpha[width-1-j][i];
         }
       }
     }else{
