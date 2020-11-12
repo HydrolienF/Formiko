@@ -245,6 +245,7 @@ public class image{
     return (int)db;
   }
   public static boolean isImage(File f){//2 possibilité, le fichier ce termine par .pnj ou par .jpg.
+    if(f==null){return false;}
     if(str.contient(f.getName(),".png",2)){return true;}
     if(str.contient(f.getName(),".jpg",2)){return true;}
     return false;
@@ -264,4 +265,23 @@ public class image{
     //on traite le fichier.
     return directoryToBeDeleted.delete();
   }public static boolean deleteDirectory(String s){try {return deleteDirectory(new File(str.sToDirectoryName(s)));}catch (Exception e){return false;}}
+
+  public Image rognerImage(Image i){
+    Img img = new Img(i);
+    img.rognerBordTransparent();
+    img.actualiserImage();
+    img.sauvegarder("tempFromImage");
+    try {
+      File f = new File(REP+"tempFromImage.png");
+      if(isImage(f)){
+        Image i2 = getImage("tempFromImage");
+        return i2;
+      }else{
+        erreur.erreur("impossible de charger l'image correctement","image.rognerImage");
+      }
+    }catch (Exception e) {
+      erreur.erreur("impossible de charger l'image correctement","image.rognerImage");
+    }
+    return i;
+  }
 }

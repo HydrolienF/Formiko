@@ -321,6 +321,12 @@ public class tableau <T>{
   public static void afficher (byte t[]){
     afficher(t," ");
   }
+  public static void afficher (byte t[][]){
+    if (t.length==0) { erreurVide();}
+    for (byte t2 [] : t) {
+      afficher(t2," ");
+    }
+  }
   //afficher Boolean
   public static void afficher(boolean t[], String séparateur){
     int lent =t.length;
@@ -374,6 +380,9 @@ public class tableau <T>{
       else{sr+=s;}
     }return sr;
   }public static String tableauToString(boolean t []){ return tableauToString(t," ");}
+  /**
+  *{@summary check if t contain x.<br>}
+  */
   public static boolean contient(int t [], int x){
     int lent = t.length;
     for (int i=0;i<lent ;i++ ) {
@@ -381,6 +390,19 @@ public class tableau <T>{
     }
     return false;
   }
+  /**
+  *{@summary check if t contain x.<br>}
+  */
+  public static boolean contient(byte t [], byte x){
+    int lent = t.length;
+    for (int i=0;i<lent ;i++ ) {
+      if(t[i]==x){return true;}
+    }
+    return false;
+  }
+  /**
+  *{@summary check if t contain x.<br>}
+  */
   public static boolean contient(char t [], char x){
     int lent = t.length;
     for (int i=0;i<lent ;i++ ) {
@@ -388,11 +410,142 @@ public class tableau <T>{
     }
     return false;
   }
+  /**
+  *{@summary check if t contain x.<br>}
+  */
   public static boolean contient(String t [], String x){
     int lent = t.length;
     for (int i=0;i<lent ;i++ ) {
       if(t[i].equals(x)){return true;}
     }
     return false;
+  }
+  //contient [][]
+  /**
+  *{@summary check if t contain x.<br>}
+  */
+  public static boolean contient(int t [][], int x){
+    int lent = t.length;
+    for (int i=0;i<lent ;i++ ) {
+      if(contient(t[i],x)){return true;}
+    }
+    return false;
+  }
+  /**
+  *{@summary check if t contain x.<br>}
+  */
+  public static boolean contient(byte t [][], byte x){
+    int lent = t.length;
+    for (int i=0;i<lent ;i++ ) {
+      if(contient(t[i],x)){return true;}
+    }
+    return false;
+  }
+  /**
+  *{@summary check if t contain x.<br>}
+  */
+  public static boolean contientLesElementDeX(byte t [][], byte x[]){
+    int lent = t.length; int lenx = x.length;
+    for (int j=0;j<lenx ;j++ ) {
+      byte xx = x[j];
+      //si le double tableau ne contient pas l'élément qu'on test.
+      if(!contient(t,xx)){
+        return false;}//si 1 des éléments n'y est pas.
+    }
+    return true;
+  }
+  /**
+  *{@summary check if t contain only x.<br>}
+  */
+  public static boolean contientUniquement(byte t[], byte x){
+    int lent = t.length;
+    for (int i=0;i<lent ;i++ ) {
+      if(t[i]!=x){return false;}
+    }
+    return true;
+  }
+  /**
+  *{@summary trim the array.<br>}
+  *@param t the array
+  *@param a How much do we need to trim in pixel before width
+  *@param b How much do we need to trim in pixel before height
+  *@param c How much do we need to trim in pixel after width
+  *@param d How much do we need to trim in pixel after height
+  *@return a new array trim
+  */
+  public static byte [][] rogner(byte t[][],int a, int b, int c, int d){
+    try {
+      int x = t[0].length-b-d; //la verticale = y.
+      int y = t.length-a-c; //l'horizontale = x = width
+      int len = t[0].length;
+      if(x<=0 || y<=0){return new byte[0][0];}
+      byte r [][]= new byte[y][x];
+      int j=0;
+      for (byte[] t2 : t ) {
+        if(j>=a && j<t.length-c){//si on est dans la bonne section.
+          int k=0;
+          for (int i=0;i<len-d ;i++ ) {//jusqu'a la fin - ce qu'on enlève.
+            if(i-b>=0){ //si on a passer le début
+              r[j-a][k] = t2[i];k++;
+            }
+          }
+        }
+        j++;
+      }
+      return r;
+    }catch (Exception e) {
+      erreur.erreur("Impossible de rogner le tableau pour une raison inconu.");
+      return t;
+    }
+  }
+  //equals
+  public static boolean equals(byte t[], byte t2[]){
+    if(t==null || t2==null){return false;}
+    int len = t.length;
+    if(len!=t2.length){return false;}
+    for (int i=0;i<len ;i++ ) {
+      if(t[i]!=t2[i]){return false;}
+    }
+    return true;
+  }
+  public static boolean equals(byte t[][], byte t2[][]){
+    if(t==null || t2==null){return false;}
+    int len = t.length;
+    if(len!=t2.length){return false;}
+    for (int i=0;i<len ;i++ ) {
+      if(!equals(t[i],t2[i])){return false;}
+    }
+    return true;
+  }
+  public static boolean equals(int t[], int t2[]){
+    if(t==null || t2==null){return false;}
+    int len = t.length;
+    if(len!=t2.length){return false;}
+    for (int i=0;i<len ;i++ ) {
+      if(t[i]!=t2[i]){return false;}
+    }
+    return true;
+  }
+  /**
+  *{@summary copy an array.<br>}
+  */
+  public static byte [] copier(byte t[]){
+    int len = t.length;
+    byte r [] = new byte[len];
+    for(int i=0;i<len;i++){
+      r[i]=t[i];
+    }
+    return r;
+  }
+  /**
+  *{@summary copy an array [][].<br>}
+  */
+  public static byte [][] copier(byte t[][]){
+    int len = t.length;
+    byte r [][] = new byte[len][];
+    for(int i=0;i<len;i++){
+      r[i]=copier(t[i]);
+    }
+    return r;
   }
 }
