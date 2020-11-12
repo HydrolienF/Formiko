@@ -110,7 +110,7 @@ dimentionCarteY:Y harf boyutu[auto]
 erreurCarteVide:Herhangi bir oyuncu olmadan ve herhangi bir yapay zeka olmadan bir oyuna başlamak imkansızdır.[auto]
 maxFourmiIa:ai için maksimum karınca sayısı[auto]
 nomDuFichier:dosya adı[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Yüklemek istediğiniz kaydetme kümesinin adını girin: (Veya geri gitmek için geri dönün)[auto]
 dernierTourPassé:Son tur şimdi geçti.[auto]
 victoireInconue:bilinmeyen zafer[auto]
 élimination:eliminasyon[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:ana menüye dön[auto]
 bouton.nom.-14:pes eden Karınca[auto]
 bouton.nom.-15:oyuna geri dön[auto]
 
+save.message:yedeklemenize vereceğiniz adı girin.[auto]
+
 bouton.desc.0:Haritayı küçült[auto]
 bouton.desc.1:Haritayı yukarı taşıyın[auto]
 bouton.desc.2:Haritayı büyütün[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Oyun içi seçenekler menüsünü açın[auto]
 
 pti.desc.1:Yiyecekleri alacak karıncanın kimliğini belirtin.[auto]
 pti.desc.2:Sunulan yiyecek miktarını belirtin.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Döşenecek yumurtanın türünü belirtiniz: 0 = Kraliçe, 1 = Erkek, 2 = Küçük, 3 = Orta, 4 = Büyük, 5 + = Diğer.[auto]
 pti.desc.4:İzlenecek yönü belirtin.[auto]
 pti.desc.5:Temizlenecek karıncanın kimliğini belirtin. En kirli karınca, 1. pozisyondaki karıncadır.[auto]
 
 triche.aide.1:Formiko hile arayüzüne hoş geldiniz. Hile komutları yazabileceğiniz yer burasıdır.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:"isim: (argümanlar) açıklama" biçimindeki komutlar[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:yaratık kimliği aşaması[auto]
 cmd.args.15:yaratık kimliği, moda[auto]
 cmd.args.16:yaratık kimliği, karınca yuvası kimliği[auto]
 cmd.args.17:yaratık kimliği türleri[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:yaratık kimliği, temizlik[auto]
 cmd.args.19:yaratık kimliği, taşınan miktar[auto]
 cmd.args.20:tohum kimliği, hardnessMax[auto]
 cmd.args.21:sağlanan böcek kimliği yiyecek[auto]
@@ -375,7 +377,7 @@ cmd.args.22:böcek kimliği, yiyecek[auto]
 cmd.args.23:oyuncu kimliği, kullanıcı adı[auto]
 cmd.args.24:oyuncu kimliği, boole estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Karınca veya Böcek veya Tohum, Eğer böcek: x, y, yazın Eğer karınca: id Karınca Tepe Tohum ise: x, y.[auto]
 cmd.args.28:yaratık kimliği[auto]
 cmd.args.29:Dize anahtarı[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Karıncalarınızı mikro yönetme havuzu mu? Emrinizde olan 2 otomati
 conseil.4:Oyun tarzını biraz değiştirmek ister misiniz? Henüz oynamadığınız bir türü seçin.[auto]
 conseil.5:Bazı karınca türleri polimorfiktir. Yani, oldukça farklı görevleri yerine getirebilmek için farklı büyüklükte çalışanlara sahip oldukları anlamına gelir.[auto]
 conseil.6:Aynı anda çok fazla yumurta bırakmayın. Aksi takdirde, imge haline gelene kadar onlara bakamazsınız.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Karıncalar 4 gelişim aşamasından geçer: yumurta, lav, su perisi ve imago (yetişkin karınca).[auto]
 conseil.8:Yapmanız gereken seçimler, ekranınızın sol üst köşesinde belirtilmiştir.[auto]
 conseil.9:Karıncaların gözlerini nemlendirmek için göz kapakları yoktur. Antenleriyle iletişim kurabilmek ve gözleriyle görebilmek için sürekli sağlıklı bir yaşam tarzı sürdürmeleri gerekir.[auto]
 conseil.10:Yumurtalar, lavlar ve nimfler bunu kendi başlarına temizleyemezler. Mutlaka bir imago'nun yardımına ihtiyaçları vardır, aksi takdirde kötü bir bakteri tarafından enfekte olabilir. yavrularınızın% 50 temizliğin üzerinde kalmasını sağlayın.[auto]
@@ -452,7 +454,7 @@ tuto.30:Çalışanlar belirli görevlerde daha da verimlidir (bunları gerçekle
 tuto.31:İşçimize, turun bitmesi için tamamlaması gereken bir görev verelim. (Gerekirse ekranınızın altındaki düğmelerden birine birkaç kez tıklayın.)[auto]
 tuto.32:Bu eğitimin son turuydu, herhangi bir şüpheniz varsa, bu öğreticiyi yeniden yapabilirsiniz.[auto]
 tuto.33:Aksi takdirde, imleci üzerlerine getirdiğinizde düğme açıklamaları, haritadaki kutular için de aynı şekilde görüntülenir. Seçili karınca ile ilgili bilgiler ekranınızın sağındadır.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Buna rağmen ihtiyacınız olanı bulamazsanız, oyunun resmi discord sunucusundan tavsiye alabilirsiniz: http://discord.gg/vqvfGzf[auto]
 tuto.35:Bir oyunu zamanında kazanmak için AI ve diğer oyunculardan daha yüksek bir puana sahip olmalısınız.[auto]
 tuto.36:Puanınız, karınca sayınıza (yetişkin karıncalar daha iyi bir puan verir), ayrıca oyunun zorluğuna ve oyunun hızına bağlıdır.[auto]
 tuto.37:Bir oyunu yeniden başlatmak için, oyundan çıkmanız ve yeniden başlatmanız gerekir, oyundan çıkmakla ben ilgileneceğim, yeniden başlatmak size kalmış.[auto]

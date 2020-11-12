@@ -110,7 +110,7 @@ dimentionCarteY:meud litir ann an Y.[auto]
 erreurCarteVide:do-dhèanta geama a thòiseachadh às aonais cluicheadair sam bith agus às aonais ai.[auto]
 maxFourmiIa:an àireamh as motha de sheangain airson ai[auto]
 nomDuFichier:ainm faidhle[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Cuir a-steach ainm an t-seata sàbhalaidh a tha thu airson a luchdachadh: (No air ais gus a dhol air ais)[auto]
 dernierTourPassé:Tha a ’chuairt mu dheireadh a-nis seachad.[auto]
 victoireInconue:buaidh neo-aithnichte[auto]
 élimination:cuir às[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:air ais chun phrìomh chlàr[auto]
 bouton.nom.-14:quitter Ant[auto]
 bouton.nom.-15:air ais a chluich[auto]
 
+save.message:cuir a-steach an t-ainm airson a thoirt don chùl-taic agad.[auto]
+
 bouton.desc.0:Lùghdaich am mapa[auto]
 bouton.desc.1:Gluais am mapa suas[auto]
 bouton.desc.2:Meudaich am mapa[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Fosgail clàr nan roghainnean in-gheama[auto]
 
 pti.desc.1:Comharraich id an t-seangan a gheibh am biadh.[auto]
 pti.desc.2:Comharraich na tha de bhiadh air a thabhann.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Comharraich an seòrsa ugh a tha ri breith: 0 = Banrigh, 1 = Fireann, 2 = Mion, 3 = Meadhanach, 4 = Mòr, 5 + = Eile.[auto]
 pti.desc.4:Comharraich an stiùireadh airson a leantainn.[auto]
 pti.desc.5:Comharraich id an t-seangan ri ghlanadh. Is e an seangan as salach an seangan ann an suidheachadh 1.[auto]
 
 triche.aide.1:fàilte gu eadar-aghaidh meallta Formiko. Seo far an urrainn dhut òrdughan meallta a thaipeadh.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:òrdughan ann an cruth "ainm: (argamaidean) tuairisgeul"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:ìre id creutair[auto]
 cmd.args.15:creutair id, fasan[auto]
 cmd.args.16:creutair id, anthill id[auto]
 cmd.args.17:gnè id creutair[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:creutair id, glainead[auto]
 cmd.args.19:id creutair, meud air a ghiùlan[auto]
 cmd.args.20:id sìol, cruasMax[auto]
 cmd.args.21:biadh id bhiastagan air a thoirt seachad[auto]
@@ -375,7 +377,7 @@ cmd.args.22:id bhiastag, biadh[auto]
 cmd.args.23:id cluicheadair, ainm-cleachdaidh[auto]
 cmd.args.24:id cluicheadair, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Seang no biastag no sìol, Ma tha e na bhiastag: x, y, seòrsa Ma tha ant: id Ant Hill Ma tha sìol: x, y.[auto]
 cmd.args.28:creutair id[auto]
 cmd.args.29:Iuchair teudach[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Pond de mhicromanaging do sheangain? Cleachd na 2 mhodhan fèin-ghluas
 conseil.4:A bheil thu airson an stoidhle cluich atharrachadh beagan? tagh gnè nach do chluich thu leis fhathast.[auto]
 conseil.5:Tha cuid de ghnèithean seangan polymorphic. Is e sin ri ràdh gu bheil luchd-obrach aca de mheud caochlaideach gus an urrainn dhaibh gnìomhan gu math eadar-dhealaichte a choileanadh.[auto]
 conseil.6:Na bi a ’breith cus uighean aig an aon àm. Mura dèan thu sin, cha bhith e comasach dhut aire a thoirt dhaibh gus am bi iad nan ìomhaighean.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Bidh seangan a ’dol tro 4 ìrean leasachaidh: ugh, làbha, nymph agus imago (seangan inbheach).[auto]
 conseil.8:Tha na roghainnean a dh ’fheumas tu a dhèanamh air an comharrachadh aig mullach clì do sgrion.[auto]
 conseil.9:Chan eil òrdag air seangan airson an sùilean a mhùchadh. Feumaidh iad dòigh-beatha fhallain a chumail suas gus am bi e comasach dhaibh conaltradh leis na h-antennae aca agus faicinn le an sùilean.[auto]
 conseil.10:Chan urrainn dha uighean, làbha agus nymphs seo a ghlanadh leotha fhèin. Feumaidh iad cuideachadh bho mhac-meanmna air dhòigh eile dh ’fhaodadh droch bhitheagan a bhith ann. dèan cinnteach gu fuirich an àl os cionn glainead 50%.[auto]
@@ -452,7 +454,7 @@ tuto.30:Tha luchd-obrach eadhon nas èifeachdaiche air cuid de ghnìomhan (tha e
 tuto.31:Bheir sinn gnìomh don neach-obrach againn gus a chrìochnachadh. (cliog air aon de na putanan aig bonn na sgrìn agad, grunn thursan ma tha sin riatanach.)[auto]
 tuto.32:B ’e seo a’ chuairt mu dheireadh den oideachadh seo, ma tha teagamh sam bith agad faodaidh tu an oideachadh seo ath-dhèanamh.[auto]
 tuto.33:Air neo bidh na tuairisgeulan putan air an taisbeanadh nuair a thèid thu thairis orra, ditto airson na bogsaichean air a ’mhapa. Tha fiosrachadh mun t-seang taghte air taobh deas do sgrion.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Mura h-eil thu a ’lorg na tha a dhìth ort faodaidh tu comhairle a shireadh air frithealaiche discord oifigeil a’ gheama: http://discord.gg/vqvfGzf[auto]
 tuto.35:Gus geama a bhuannachadh ann an àm feumaidh sgòr nas àirde a bhith agad na AI agus cluicheadairean eile.[auto]
 tuto.36:Tha an sgòr agad an urra ris an àireamh de sheangain agad (tha seangan inbheach a ’toirt sgòr nas fheàrr), a bharrachd air cho duilich sa tha an geama agus astar a’ gheama.[auto]
 tuto.37:Gus geama ath-thòiseachadh, feumaidh tu an geama a leigeil seachad agus ath-thòiseachadh, bheir mi aire dhut an geama a leigeil seachad, tha e an urra riut ath-thòiseachadh.[auto]

@@ -110,7 +110,7 @@ dimentionCarteY:mwelekeo wa barua katika Y[auto]
 erreurCarteVide:haiwezekani kuanza mchezo bila mchezaji yoyote na bila ai yoyote.[auto]
 maxFourmiIa:idadi kubwa ya mchwa kwa ai[auto]
 nomDuFichier:jina la faili[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Ingiza jina la seti ya kuhifadhi unayotaka kupakia: (Au kurudi nyuma)[auto]
 dernierTourPassé:Duru ya mwisho sasa imepita.[auto]
 victoireInconue:ushindi usiojulikana[auto]
 élimination:kuondoa[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:kurudi kwenye menyu kuu[auto]
 bouton.nom.-14:achana na Mchwa[auto]
 bouton.nom.-15:kurudi kucheza[auto]
 
+save.message:ingiza jina upe chelezo yako.[auto]
+
 bouton.desc.0:Punguza ramani[auto]
 bouton.desc.1:Sogeza ramani juu[auto]
 bouton.desc.2:Panua ramani[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Fungua menyu ya chaguzi za mchezo[auto]
 
 pti.desc.1:Onyesha kitambulisho cha chungu ambaye atapokea chakula.[auto]
 pti.desc.2:Onyesha kiwango cha chakula kinachotolewa.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Onyesha aina ya yai inayotakiwa kuwekwa: 0 = Malkia, 1 = Mwanaume, 2 = Kidogo, 3 = Kati, 4 = Kubwa, 5 + = Nyingine.[auto]
 pti.desc.4:Onyesha mwelekeo wa kufuata.[auto]
 pti.desc.5:Onyesha kitambulisho cha chungu kusafishwa. Mchwa mchafu zaidi ni chungu katika nafasi ya 1.[auto]
 
 triche.aide.1:karibu kwenye muundo wa kudanganya wa Formiko. Hapa ndipo unaweza kuchapa amri za kudanganya.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:amri katika fomu "jina: (hoja) maelezo"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:hatua ya id ya kiumbe[auto]
 cmd.args.15:kiumbe id, mtindo[auto]
 cmd.args.16:kitambulisho cha kiumbe, kitambulisho cha kichuguu[auto]
 cmd.args.17:spishi za kitambulisho cha kiumbe[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:id ya viumbe, usafi[auto]
 cmd.args.19:kitambulisho cha kiumbe, wingi uliosafirishwa[auto]
 cmd.args.20:kitambulisho cha mbegu, ugumuMax[auto]
 cmd.args.21:chakula kitambulisho cha wadudu kilichotolewa[auto]
@@ -375,7 +377,7 @@ cmd.args.22:id ya wadudu, chakula[auto]
 cmd.args.23:kitambulisho cha mchezaji, jina la mtumiaji[auto]
 cmd.args.24:kitambulisho cha mchezaji, estole ya boolean[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Mchwa au Mdudu au Mbegu, Ikiwa ni mdudu: x, y, andika Ikiwa mchwa: id Kilima Kilima Ikiwa Mbegu: x, y.[auto]
 cmd.args.28:kiumbe id[auto]
 cmd.args.29:Kitufe cha kamba[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Bwawa la kudhibiti mchwa wako? Tumia njia 2 za moja kwa moja ulizonazo
 conseil.4:Unataka kutofautisha mtindo wa uchezaji kidogo? chagua spishi ambayo haujacheza nayo bado.[auto]
 conseil.5:Aina zingine za mchwa ni polymorphic. Hiyo ni kusema kuwa wana wafanyikazi wa saizi tofauti ili kuweza kufanya kazi tofauti kabisa.[auto]
 conseil.6:Usiweke mayai mengi mara moja. Vinginevyo hautaweza kuwatunza mpaka watakapokuwa imagos.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Mchwa hupitia hatua 4 za ukuaji: yai, lava, nymph na imago (chungu wazima).[auto]
 conseil.8:Chaguo unazopaswa kufanya zinaonyeshwa upande wa juu kushoto wa skrini yako.[auto]
 conseil.9:Mchwa hawana kope la kulainisha macho yao. Lazima kila wakati wadumishe mtindo mzuri wa maisha ili kuweza kuwasiliana na antena zao na kuona kwa macho.[auto]
 conseil.10:Maziwa, lava na nymphs hawawezi kusafisha hii peke yao. Wanahitaji msaada wa imago vinginevyo inaweza kuambukizwa na bakteria mbaya. hakikisha kizazi chako kinakaa juu ya usafi wa 50%.[auto]
@@ -452,7 +454,7 @@ tuto.30:Wafanyakazi wana ufanisi zaidi katika kazi fulani (inawagharimu vitendo 
 tuto.31:Wacha tumpe mfanyakazi wetu kazi ya kumaliza ili raundi iishe. (bonyeza kitufe kimoja chini ya skrini yako, mara kadhaa ikiwa ni lazima.)[auto]
 tuto.32:Ilikuwa zamu ya mwisho ya mafunzo haya, ikiwa una mashaka yoyote unaweza kufanya tena mafunzo haya.[auto]
 tuto.33:Vinginevyo maelezo ya kitufe yanaonyeshwa unapoteleza juu yao, andika masanduku kwenye ramani. Habari kuhusu chungu iliyochaguliwa iko upande wa kulia wa skrini yako.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Ikiwa licha ya hii hautapata unachohitaji, unaweza kutafuta ushauri juu ya seva rasmi ya ugomvi wa mchezo: http://discord.gg/vqvfGzf[auto]
 tuto.35:Ili kushinda mchezo kwa wakati lazima uwe na alama ya juu kuliko AI na wachezaji wengine.[auto]
 tuto.36:Alama yako inategemea idadi ya mchwa, (mchwa wazima hutoa alama bora), na vile vile ugumu wa mchezo na kasi ya mchezo.[auto]
 tuto.37:Ili kuanza tena mchezo, lazima uache mchezo na uuanze upya, nitajali kuacha mchezo, ni juu yako kuanza upya.[auto]

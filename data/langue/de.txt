@@ -103,14 +103,14 @@ affTest:erfolgreicher Test[auto]
 toutLesJoueurHumainsEliminés:Alle menschlichen Spieler wurden eliminiert[auto]
 
 nbrDeJoueur:Anzahl der menschlichen Spieler[auto]
-nbrDIa:Name d&#39;Ia[auto]
+nbrDIa:Name d'Ia[auto]
 nbrDeTour:Anzahl der Züge[auto]
 dimentionCarteX:Abmessung der Karte in X.[auto]
 dimentionCarteY:Buchstabenmaß in Y.[auto]
 erreurCarteVide:Es ist unmöglich, ein Spiel ohne Spieler und ohne Ai zu starten.[auto]
 maxFourmiIa:maximale Anzahl Ameisen für ai[auto]
 nomDuFichier:Dateiname[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Geben Sie den Namen des Speichersatzes ein, den Sie laden möchten: (Oder zurück, um zurückzukehren)[auto]
 dernierTourPassé:Die letzte Runde ist nun vorbei.[auto]
 victoireInconue:unbekannter Sieg[auto]
 élimination:Beseitigung[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:zurück zum Hauptmenü[auto]
 bouton.nom.-14:Quitter Ant[auto]
 bouton.nom.-15:zurück zum spielen[auto]
 
+save.message:Geben Sie den Namen ein, den Sie Ihrem Backup geben möchten.[auto]
+
 bouton.desc.0:Verkleinern Sie die Karte[auto]
 bouton.desc.1:Bewegen Sie die Karte nach oben[auto]
 bouton.desc.2:Vergrößern Sie die Karte[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Öffne das Optionsmenü im Spiel[auto]
 
 pti.desc.1:Geben Sie die ID der Ameise an, die das Futter erhalten soll.[auto]
 pti.desc.2:Geben Sie die Menge der angebotenen Lebensmittel an.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Geben Sie die Art des zu legenden Eies an: 0 = Königin, 1 = Männchen, 2 = Klein, 3 = Mittel, 4 = Haupt, 5 + = Andere.[auto]
 pti.desc.4:Geben Sie die Richtung an, der Sie folgen möchten.[auto]
 pti.desc.5:Geben Sie die ID der zu reinigenden Ameise an. Die schmutzigste Ameise ist die Ameise in Position 1.[auto]
 
 triche.aide.1:Willkommen auf der Formiko Cheat-Oberfläche. Hier können Sie Cheat-Befehle eingeben.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:Befehle in der Form "Name: (Argumente) Beschreibung"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:Kreaturen-ID-Stadium[auto]
 cmd.args.15:Kreaturen-ID, Mode[auto]
 cmd.args.16:Kreaturen-ID, Ameisenhaufen-ID[auto]
 cmd.args.17:Kreaturen-ID-Spezies[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:Kreaturen-ID, Sauberkeit[auto]
 cmd.args.19:Kreaturen-ID, transportierte Menge[auto]
 cmd.args.20:Samen-ID, HärteMax[auto]
 cmd.args.21:Insekten-ID-Nahrung zur Verfügung gestellt[auto]
@@ -375,7 +377,7 @@ cmd.args.22:Insektenausweis, Essen[auto]
 cmd.args.23:Spieler-ID, Benutzername[auto]
 cmd.args.24:Spieler-ID, boolesche Schätzung[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Ameise oder Insekt oder Samen, Wenn Insekt: x, y, Typ Wenn Ameise: id Ameisenhügel Wenn Samen: x, y.[auto]
 cmd.args.28:Kreaturen-ID[auto]
 cmd.args.29:String-Schlüssel[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Teich der Mikromanagement Ihrer Ameisen? Verwenden Sie die 2 automatis
 conseil.4:Möchten Sie den Spielstil etwas variieren? Wähle eine Art, mit der du noch nicht gespielt hast.[auto]
 conseil.5:Einige Ameisenarten sind polymorph. Das heißt, sie haben Arbeiter unterschiedlicher Größe, um ganz unterschiedliche Aufgaben ausführen zu können.[auto]
 conseil.6:Lege nicht zu viele Eier gleichzeitig. Andernfalls können Sie sich nicht um sie kümmern, bis sie zu Imagos werden.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Ameisen durchlaufen 4 Entwicklungsstadien: Ei, Lava, Nymphe und Imago (erwachsene Ameise).[auto]
 conseil.8:Die Entscheidungen, die Sie treffen müssen, werden oben links auf Ihrem Bildschirm angezeigt.[auto]
 conseil.9:Ameisen haben kein Augenlid, um ihre Augen zu befeuchten. Sie müssen ständig einen gesunden Lebensstil pflegen, um mit ihren Antennen kommunizieren und mit ihren Augen sehen zu können.[auto]
 conseil.10:Eier, Lava und Nymphen können dies nicht alleine reinigen. Sie brauchen unbedingt die Hilfe eines Imago, sonst könnte er von einem schlechten Bakterium infiziert werden. Stellen Sie sicher, dass Ihre Brut über 50% Sauberkeit bleibt.[auto]
@@ -452,7 +454,7 @@ tuto.30:Die Mitarbeiter sind bei bestimmten Aufgaben noch effizienter (die Ausf�
 tuto.31:Geben wir unserem Arbeiter eine Aufgabe, damit die Runde endet. (Klicken Sie bei Bedarf mehrmals auf eine der Schaltflächen am unteren Bildschirmrand.)[auto]
 tuto.32:Es war die letzte Runde dieses Tutorials. Wenn Sie Zweifel haben, können Sie dieses Tutorial wiederholen.[auto]
 tuto.33:Andernfalls werden die Schaltflächenbeschreibungen angezeigt, wenn Sie mit der Maus darüber fahren, ebenso für die Felder auf der Karte. Informationen zur ausgewählten Ameise finden Sie rechts auf Ihrem Bildschirm.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Wenn Sie trotzdem nicht das finden, was Sie brauchen, können Sie sich auf dem offiziellen Discord-Server des Spiels beraten lassen: http://discord.gg/vqvfGzf[auto]
 tuto.35:Um ein Spiel rechtzeitig zu gewinnen, müssen Sie eine höhere Punktzahl als AI und andere Spieler haben.[auto]
 tuto.36:Ihre Punktzahl hängt von Ihrer Anzahl der Ameisen ab (erwachsene Ameisen geben eine bessere Punktzahl) sowie von der Schwierigkeit des Spiels und der Geschwindigkeit des Spiels.[auto]
 tuto.37:Um ein Spiel neu zu starten, müssen Sie das Spiel beenden und neu starten. Ich kümmere mich darum, das Spiel zu beenden. Es liegt an Ihnen, es neu zu starten.[auto]

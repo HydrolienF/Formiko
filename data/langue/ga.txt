@@ -110,7 +110,7 @@ dimentionCarteY:gné litreach in Y.[auto]
 erreurCarteVide:dodhéanta cluiche a thosú gan aon imreoir agus gan aon ai.[auto]
 maxFourmiIa:líon uasta seangán le haghaidh ai[auto]
 nomDuFichier:ainm comhaid[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Iontráil ainm an tacar sábhála is mian leat a luchtú: (Nó ar ais le dul ar ais)[auto]
 dernierTourPassé:Tá an babhta deireanach caite anois.[auto]
 victoireInconue:bua anaithnid[auto]
 élimination:díothú[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:ar ais go dtí an príomh-roghchlár[auto]
 bouton.nom.-14:quitter Seangán[auto]
 bouton.nom.-15:ar ais ag imirt[auto]
 
+save.message:cuir isteach an t-ainm le tabhairt ar do chúltaca.[auto]
+
 bouton.desc.0:Laghdaigh an léarscáil[auto]
 bouton.desc.1:Bog an léarscáil suas[auto]
 bouton.desc.2:Méadaigh an léarscáil[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Oscail an roghchlár roghanna in-chluiche[auto]
 
 pti.desc.1:Cuir in iúl id an seangáin a gheobhaidh an bia.[auto]
 pti.desc.2:Cuir in iúl an méid bia a thairgtear.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Cuir in iúl an cineál uibhe atá le leagan: 0 = Banríon, 1 = Fireann, 2 = Mion, 3 = Meánach, 4 = Mór, 5 + = Eile.[auto]
 pti.desc.4:Cuir in iúl an treo atá le leanúint.[auto]
 pti.desc.5:Cuir in iúl id an seangáin atá le glanadh. Is é an seangán is salach an seangán i suíomh 1.[auto]
 
 triche.aide.1:fáilte roimh chomhéadan meallta Formiko. Seo áit ar féidir leat orduithe meallta a chlóscríobh.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:orduithe san fhoirm "ainm: (argóintí) tuairisc"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:céim id créatúir[auto]
 cmd.args.15:id chréatúr, faisean[auto]
 cmd.args.16:id chréatúr, anthill id[auto]
 cmd.args.17:créatúr id speiceas[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:id chréatúir, glaineacht[auto]
 cmd.args.19:id chréatúr, cainníocht a iompraítear[auto]
 cmd.args.20:id síol, cruasMax[auto]
 cmd.args.21:bia id feithidí curtha ar fáil[auto]
@@ -375,7 +377,7 @@ cmd.args.22:id feithidí, bia[auto]
 cmd.args.23:id imreoir, ainm úsáideora[auto]
 cmd.args.24:id imreoir, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Seangán nó Feithidí nó Síl, Más feithidí é: x, y, cineál Más seangán: id Ant Hill Más síol: x, y.[auto]
 cmd.args.28:créatúr id[auto]
 cmd.args.29:Eochair teaghrán[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Lochán micrea-bhainistíochta do sheangáin? Úsáid an 2 mhodh uatho
 conseil.4:Ag iarraidh stíl an tsúgartha a athrú beagán? roghnaigh speiceas nár imir tú leis go fóill.[auto]
 conseil.5:Tá roinnt speiceas seangán polymorphic. Is é sin le rá go bhfuil oibrithe acu de mhéid éagsúil d’fhonn a bheith in ann tascanna an-difriúla a dhéanamh.[auto]
 conseil.6:Ná leag an iomarca uibheacha ag an am céanna. Seachas sin ní bheidh tú in ann aire a thabhairt dóibh go dtí go mbeidh siad ina samhlaíochta.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Téann seangáin trí 4 chéim den fhorbairt: ubh, laibhe, nimfeach agus imago (seangán fásta).[auto]
 conseil.8:Taispeántar na roghanna a chaithfidh tú a dhéanamh ag barr na láimhe clé de do scáileán.[auto]
 conseil.9:Níl eidhneán ag seangáin chun a gcuid súl a mhúchadh. Caithfidh siad stíl mhaireachtála shláintiúil a choinneáil i gcónaí d’fhonn a bheith in ann cumarsáid a dhéanamh lena n-aeróga agus a fheiceáil lena súile.[auto]
 conseil.10:Níl uibheacha, laibhe agus nimfeach in ann é seo a ghlanadh leo féin. Is gá go dteastaíonn cabhair ó shamhlaíocht uathu nó d’fhéadfadh droch-bhaictéar a bheith ionfhabhtaithe. déan cinnte go bhfanann do ál os cionn glaineachta 50%.[auto]
@@ -452,7 +454,7 @@ tuto.30:Bíonn oibrithe níos éifeachtaí fós ar thascanna áirithe (cosnaíon
 tuto.31:Tugaimis tasc dár n-oibrí a chur i gcrích ionas go mbeidh deireadh leis an mbabhta. (cliceáil ar cheann de na cnaipí ag bun do scáileáin, arís agus arís eile más gá.)[auto]
 tuto.32:Ba é an babhta deireanach den rang teagaisc seo é, má tá aon amhras ort is féidir leat an rang teagaisc seo a athdhéanamh.[auto]
 tuto.33:Seachas sin taispeántar na tuairiscí cnaipe nuair a théann tú os a gcionn, ditto do na boscaí ar an léarscáil. Tá faisnéis faoin seangán roghnaithe ar thaobh dheis do scáileáin.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Ina ainneoin sin mura bhfaigheann tú a bhfuil uait is féidir leat comhairle a lorg ar fhreastalaí neamhord oifigiúil an chluiche: http://discord.gg/vqvfGzf[auto]
 tuto.35:Chun cluiche a bhuachan in am caithfidh scór níos airde a bheith agat ná AI agus imreoirí eile.[auto]
 tuto.36:Braitheann do scór ar líon na seangán, (tugann seangáin do dhaoine fásta scór níos fearr), chomh maith le deacracht an chluiche agus luas an chluiche.[auto]
 tuto.37:Chun cluiche a atosú, caithfidh tú an cluiche a scor agus é a atosú, tabharfaidh mé aire duit an cluiche a scor, is fútsa atá sé é a atosú.[auto]

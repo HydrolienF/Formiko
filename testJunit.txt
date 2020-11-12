@@ -4,3 +4,5 @@ fr.formiko.usuel.math.mathTest
 fr.formiko.usuel.math.alleaTest
 fr.formiko.usuel.chargerLesTraductionsTest
 fr.formiko.formiko.interfaces.TrophallaxieFourmiTest
+fr.formiko.usuel.tableauTest
+fr.formiko.usuel.image.ImgTest

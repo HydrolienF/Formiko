@@ -110,7 +110,7 @@ dimentionCarteY:dimensionen av bokstaven i Y[auto]
 erreurCarteVide:omöjligt att starta ett spel utan någon spelare och utan ai.[auto]
 maxFourmiIa:maximalt antal myror för ai[auto]
 nomDuFichier:filnamn[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Ange namnet på den sparade uppsättning som du vill ladda: (Eller tillbaka för att gå tillbaka)[auto]
 dernierTourPassé:Den sista omgången har nu passerat.[auto]
 victoireInconue:okänd seger[auto]
 élimination:eliminering[auto]
@@ -200,7 +200,7 @@ minute:minut[auto]
 seconde:andra[auto]
 miliseconde:milisekonde[auto]
 
-date1:
+date1:1: a anslutningsdatum[auto]
 date2:senaste anslutningsdatum[auto]
 tempsEnJeux:total speltid[auto]
 
@@ -294,6 +294,8 @@ bouton.nom.-13:tillbaka till huvudmenyn[auto]
 bouton.nom.-14:quitter Ant[auto]
 bouton.nom.-15:tillbaka för att spela[auto]
 
+save.message:ange namnet som ska ges till din säkerhetskopia.[auto]
+
 bouton.desc.0:Krymp karta[auto]
 bouton.desc.1:Flytta kartan uppåt[auto]
 bouton.desc.2:Förstora kartan[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Öppna alternativmenyn i spelet[auto]
 
 pti.desc.1:Ange identiteten på myran som kommer att ta emot maten.[auto]
 pti.desc.2:Ange mängden mat som erbjuds.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Ange vilken typ av ägg som ska läggas: 0 = drottning, 1 = hane, 2 = mindre, 3 = medium, 4 = major, 5 + = annat.[auto]
 pti.desc.4:Ange riktningen som ska följas.[auto]
 pti.desc.5:Ange id för myran som ska rengöras. Den smutsigaste myran är myran i position 1.[auto]
 
 triche.aide.1:välkommen till Formiko-fuskgränssnittet. Det är här du kan skriva cheat-kommandon.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:kommandon i formuläret "namn: (argument) beskrivning"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:varelse id scen[auto]
 cmd.args.15:varelse id, mode[auto]
 cmd.args.16:varelse id, myrstack id[auto]
 cmd.args.17:varelse-id-art[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:varelse id, renlighet[auto]
 cmd.args.19:varelse-id, transporterad kvantitet[auto]
 cmd.args.20:frö-id, hårdhet Max[auto]
 cmd.args.21:insekt id mat tillhandahålls[auto]
@@ -375,7 +377,7 @@ cmd.args.22:insekts-id, mat[auto]
 cmd.args.23:spelar-id, användarnamn[auto]
 cmd.args.24:spelar-id, boolesk estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Myr eller insekt eller utsäde, Om insekt: x, y, skriv Om myra: id Ant Hill Om utsäde: x, y.[auto]
 cmd.args.28:varelse id[auto]
 cmd.args.29:Strängnyckel[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Damm för att hantera dina myror? Använd de två automatiska lägena 
 conseil.4:Vill du variera spelstilen lite? välj en art du inte har lekt med ännu.[auto]
 conseil.5:Vissa myrarter är polymorfa. Det vill säga att de har arbetare av olika storlek för att kunna utföra helt olika uppgifter.[auto]
 conseil.6:Lägg inte för många ägg samtidigt. Annars kommer du inte att kunna ta hand om dem förrän de blir bilder.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Myror går igenom fyra utvecklingsstadier: ägg, lava, nymf och imago (vuxen myra).[auto]
 conseil.8:De val du måste göra anges längst upp till vänster på skärmen.[auto]
 conseil.9:Myror har inte ett ögonlock för att fukta ögonen. De måste ständigt upprätthålla en hälsosam livsstil för att kunna kommunicera med sina antenner och se med ögonen.[auto]
 conseil.10:Ägg, lava och nymfer kan inte rengöra detta på egen hand. De behöver nödvändigtvis hjälp av en imago, annars kan den smittas av dåliga bakterier. se till att din avel förblir över 50% renhet.[auto]
@@ -452,7 +454,7 @@ tuto.30:Arbetstagarna är ännu effektivare på vissa uppgifter (det kostar mind
 tuto.31:Låt oss ge vår arbetare en uppgift att slutföra så att rundan slutar. (klicka på en av knapparna längst ned på skärmen, flera gånger om det behövs.)[auto]
 tuto.32:Det var den sista omgången i denna handledning, om du är osäker kan du göra om den här självstudien.[auto]
 tuto.33:Annars visas knappbeskrivningarna när du svävar över dem, detta för rutorna på kartan. Information om den valda myran finns till höger på din skärm.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Om du trots detta inte hittar vad du behöver kan du söka råd på spelets officiella splittringsserver: http://discord.gg/vqvfGzf[auto]
 tuto.35:För att vinna ett spel i tid måste du ha en högre poäng än AI och andra spelare.[auto]
 tuto.36:Din poäng beror på ditt antal myror (vuxna myror ger ett bättre poäng), liksom spelets svårighet och spelets hastighet.[auto]
 tuto.37:För att starta om ett spel måste du avsluta spelet och starta om det, jag tar hand om att avsluta spelet, det är upp till dig att starta om det.[auto]

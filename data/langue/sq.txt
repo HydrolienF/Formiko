@@ -110,7 +110,7 @@ dimentionCarteY:dimensioni i shkronjës në Y[auto]
 erreurCarteVide:e pamundur për të filluar një lojë pa ndonjë lojtar dhe pa ndonjë ai.[auto]
 maxFourmiIa:numri maksimal i milingonave për ai[auto]
 nomDuFichier:emrin e skedarit[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Vendosni emrin e grupit të ruajtjes që dëshironi të ngarkoni: (Ose përsëri për t'u kthyer)[auto]
 dernierTourPassé:Raundi i fundit ka kaluar tani.[auto]
 victoireInconue:fitore e panjohur[auto]
 élimination:eleminimin[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:përsëri në menunë kryesore[auto]
 bouton.nom.-14:lëkundës Ant[auto]
 bouton.nom.-15:përsëri për të luajtur[auto]
 
+save.message:shkruani emrin për t'i dhënë rezervimit tuaj.[auto]
+
 bouton.desc.0:Tkurr hartën[auto]
 bouton.desc.1:Zhvendos hartën lart[auto]
 bouton.desc.2:Zmadhoni hartën[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Hapni menunë e opsioneve në lojë[auto]
 
 pti.desc.1:Shënoni id-në e milingonës që do të marrë ushqimin.[auto]
 pti.desc.2:Tregoni sasinë e ushqimit të ofruar.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Tregoni llojin e vezës që do të lëshohet: 0 = Mbretëreshë, 1 = Mashkull, 2 = Minor, 3 = Mesatar, 4 = Major, 5 + = Tjetër.[auto]
 pti.desc.4:Tregoni drejtimin që duhet ndjekur.[auto]
 pti.desc.5:Shënoni id-në e milingonës që duhet pastruar. Milingona më e ndyrë është milingona në pozicionin 1.[auto]
 
 triche.aide.1:mirëpritur në ndërfaqen e Formiko mashtrojnë. Kjo është ajo ku ju mund të shtypni komandat e mashtrimit.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:komandat në formën "emri: (argumentet) përshkrimi"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:krijesë id fazë[auto]
 cmd.args.15:id e krijesës, modë[auto]
 cmd.args.16:id e krijesës, id e milingonës[auto]
 cmd.args.17:speciet e krijesës id[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:id e krijesës, pastërtia[auto]
 cmd.args.19:id e krijesës, sasia e transportuar[auto]
 cmd.args.20:id i farës, fortësia Maks[auto]
 cmd.args.21:ushqimi id i insekteve i siguruar[auto]
@@ -375,7 +377,7 @@ cmd.args.22:id i insekteve, ushqim[auto]
 cmd.args.23:ID e lojtarit, emri i përdoruesit[auto]
 cmd.args.24:lojtari id, estea boolean[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Milingonë ose Insekt ose farë, nëse insekt: x, y, lloji Nëse milingonë: id Kodra e milingonës Nëse farë: x, y.[auto]
 cmd.args.28:id e krijesës[auto]
 cmd.args.29:Çelësi i vargut[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Grupi i mikromenaxhimit të milingonave tuaja? Përdorni 2 mënyrat au
 conseil.4:Dëshironi të ndryshoni pak stilin e lojës? zgjidhni një specie me të cilën nuk keni luajtur ende.[auto]
 conseil.5:Disa specie milingonash janë polimorfe. Kjo do të thotë që ata kanë punëtorë me madhësi të ndryshueshme në mënyrë që të jenë në gjendje të kryejnë detyra krejt të ndryshme.[auto]
 conseil.6:Mos lësh shumë vezë në të njëjtën kohë. Përndryshe nuk do të jeni në gjendje të kujdeseni për ta derisa të bëhen imagjinatë.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Milingonat kalojnë nëpër 4 faza të zhvillimit: veza, lava, nimfa dhe imago (milingona e rritur).[auto]
 conseil.8:Zgjedhjet që duhet të bëni tregohen në pjesën e sipërme të majtë të ekranit tuaj.[auto]
 conseil.9:Milingonat nuk kanë qepallë për të lagur sytë. Ata duhet të mbajnë vazhdimisht një mënyrë jetese të shëndetshme në mënyrë që të jenë në gjendje të komunikojnë me antenat e tyre dhe të shohin me sytë e tyre.[auto]
 conseil.10:Vezët, lava dhe nimfat nuk janë në gjendje ta pastrojnë këtë vetë. Ata domosdoshmërisht kanë nevojë për ndihmën e një imago përndryshe mund të infektohet nga një bakter i keq. sigurohuni që pasardhësi juaj të mbetet mbi pastërtinë 50%.[auto]
@@ -452,7 +454,7 @@ tuto.30:Punëtorët janë edhe më efikasë në detyra të caktuara (u kushton m
 tuto.31:Le t'i japim punëtorit tonë një detyrë për të përfunduar në mënyrë që raundi të përfundojë. (klikoni në një nga butonat në fund të ekranit tuaj, disa herë nëse është e nevojshme.)[auto]
 tuto.32:Ishte raundi i fundit i këtij tutoriali, nëse keni ndonjë dyshim mund ta ribëni këtë manual.[auto]
 tuto.33:Përndryshe përshkrimet e butonit shfaqen kur ju rrini pezull mbi to, vend për kutitë në hartë. Informacioni në lidhje me milingonën e zgjedhur është në të djathtë të ekranit tuaj.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Nëse pavarësisht kësaj nuk i gjeni ato që ju nevojiten, mund të kërkoni këshilla në serverin zyrtar të mosmarrëveshjes së lojës: http://discord.gg/vqvfGzf[auto]
 tuto.35:Për të fituar një lojë në kohë duhet të keni një rezultat më të lartë se AI dhe lojtarët e tjerë.[auto]
 tuto.36:Rezultati juaj varet nga numri juaj i milingonave, (milingonat e rritura japin një rezultat më të mirë), si dhe nga vështirësia e lojës dhe shpejtësia e lojës.[auto]
 tuto.37:Për të rifilluar një lojë, ju duhet ta lini lojën dhe ta rifilloni atë, unë do të kujdesem për lënien e lojës, varet nga ju që ta rifilloni atë.[auto]

@@ -198,23 +198,33 @@ public class Img {
     sauvegarder(image.REP2,nom);
   }public void sauvegarde(String s){ sauvegarder(s);}
   /**
-  *{@summary save an Image with a correct name.<br>}
+  *{@summary save the Img as a .png image with a correct name.<br>}
   *If Main.getOx() value is defined some char will be tolerate or not depending of the OS.
   *@param rep the directory were to save the image.
-  *@param nom the name of the Image file. (without .png).
+  *@param filename the name of the Image file. (without .png).
   */
-  public void sauvegarder(String rep, String nom){
-    if(str.contient(nom,"temporaire/",0)){
-      nom = nom.substring(11,nom.length());
+  public void sauvegarder(String rep, String filename){
+    if(str.contient(filename,"temporaire/",0)){
+      filename = filename.substring(11,filename.length());
     }
-    nom = str.filtreCharInterdit(nom);
-    debug.débogage("save de "+nom+" dans "+rep);
+    filename = str.filtreCharInterdit(filename);
+    debug.débogage("save de "+filename+" dans "+rep);
     try {
-      ImageIO.write(img,"png",new File(rep+nom));
+      save(rep+filename);
     }catch (Exception e) {
-      erreur.erreur("Echec de la sauvegarde d'image pour : "+rep+nom,"img.sauvegarde");
+      erreur.erreur("Echec de la sauvegarde d'image pour : "+rep+filename,"img.sauvegarde");
     }
   }
+  /**
+  *{@summary try to save the Img.<br>}
+  */
+  public void save(String filename) throws IOException {
+    File file = new File(filename);
+    ImageIO.write(img, "png", file);
+  }
+  /**
+  *{@summary draw the Img.<br>}
+  */
   public void draw() {
     ImageIcon icon = new ImageIcon(img);
     //Image icon = (Image)(img);
@@ -234,10 +244,6 @@ public class Img {
   }public void dessiner(){ draw();}
   public void afficher(){ draw();}
 
-  public void save(String filename) throws IOException {
-    File file = new File(filename);
-    ImageIO.write(img, "png", file);
-  }
 
   public int [] compterNiveauDeRouge(){
     int xr [] = new int [256];
@@ -330,6 +336,9 @@ public class Img {
     if(y==0 && x > 0){s=">";}
     actualiserImage();
   }
+  /**
+  *{@summary use to refresh the BufferedImage before draw it or save it.<br>}
+  */
   public void actualiserImage(){
     Color rose = new Color(255,150,255,100);
     int pixelActualisé = 0;
@@ -344,6 +353,11 @@ public class Img {
     }
     debug.débogage(pixelActualisé+" pixels ont été actualisé.");
   }
+  /**
+  *{@summary rotate the Img.<br>}
+  *@param x How much do we need to rotate : 1=90° 2=180° -1 or 3 = -90°
+  *@return a new Img rotated.
+  */
   public Img tourner(byte x){ // on tourne de 90° a chaque fois.
     x=(byte)(x+4); // pour pouvoir utiliser des angles négatifs.
     if(width!=height){ return null;}
@@ -379,6 +393,8 @@ public class Img {
           alphaT[i][j]=alpha[ta-j][i];
         }
       }
+    }else{
+      return this;
     }
     Img ir = new Img(width,height);
     ir.setRouge(rougeT);
@@ -434,6 +450,51 @@ public class Img {
         }
       }
     }
-    actualiserImage();
   }public void ombrer(Pixel a){ ombrer(a,10);}
+  /**
+  *{@summary trim the Img.<br>}
+  *@param a How much do we need to trim in pixel before width
+  *@param b How much do we need to trim in pixel before height
+  *@param c How much do we need to trim in pixel after width
+  *@param d How much do we need to trim in pixel after height
+  */
+  public void rogner(int a, int b, int c, int d){
+    rouge = tableau.rogner(rouge,a,b,c,d);
+    vert = tableau.rogner(vert,a,b,c,d);
+    bleu = tableau.rogner(bleu,a,b,c,d);
+    alpha = tableau.rogner(alpha,a,b,c,d);
+  }
+  /**
+  *{@summary trim the Img to cut transparent border.<br>}
+  */
+  public void rognerBordTransparent(){
+    int t[] = compterBordTransparent();
+    rogner(t[0],t[1],t[2],t[3]);
+  }
+  /**
+  *{@summary get how much line are composed of transparents pixels.<br>}
+  */
+  public int [] compterBordTransparent(){
+    int t[]=new int[4];
+    int a = 0;
+    while(a<width && tableau.contientUniquement(alpha[a],(byte)-128)){//tant qu'il n'y a que des pixels transparent.
+      a++;
+    }
+    int c=0;
+    while(c<width && tableau.contientUniquement(alpha[width-c-1],(byte)-128)){//tant qu'il n'y a que des pixels transparent.
+      c++;
+    }
+
+    Img imgTemp = tourner();
+    int d = 0;
+    while(d<width && tableau.contientUniquement(imgTemp.getAlpha()[d],(byte)-128)){//tant qu'il n'y a que des pixels transparent.
+      d++;
+    }
+    int b=0;
+    while(b<width && tableau.contientUniquement(imgTemp.getAlpha()[width-b-1],(byte)-128)){//tant qu'il n'y a que des pixels transparent.
+      b++;
+    }
+    t[0]=a;t[1]=b;t[2]=c;t[3]=d;
+    return t;
+  }
 }

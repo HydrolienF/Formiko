@@ -110,7 +110,7 @@ dimentionCarteY:cabbirka xarfaha ee Y[auto]
 erreurCarteVide:aan macquul aheyn in la bilaabo ciyaar la’aan ciyaaryahan la’aan iyo ayada oo aan laheyn.[auto]
 maxFourmiIa:tirada ugu badan ee qudhaanjada ee ai[auto]
 nomDuFichier:Magaca faylka[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Gali magaca keydinta aad rabto inaad rarto: (Ama gadaal u noqo)[auto]
 dernierTourPassé:Wareegii ugu dambeeyay ayaa hada la gudbay.[auto]
 victoireInconue:guul aan la garaneyn[auto]
 élimination:baabi'inta[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:dib ugu noqo liiska[auto]
 bouton.nom.-14:quudin Ant[auto]
 bouton.nom.-15:dib u ciyaar[auto]
 
+save.message:qor magaca si aad u siiso keydkaaga.[auto]
+
 bouton.desc.0:Khariidada yaree[auto]
 bouton.desc.1:Khariidada kor u qaad[auto]
 bouton.desc.2:Kordhi khariidada[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Fur liiska xulashada ciyaarta[auto]
 
 pti.desc.1:Muuji id ee qudhaanjada heli doonta cuntada.[auto]
 pti.desc.2:Sheeg qadarka cuntada la bixiyay.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Muuji nooca ukunta la dhigayo: 0 = Boqoradda, 1 = Lab, 2 = Yar, 3 = Dhexdhexaad, 4 = Weyn, 5 + = Kale.[auto]
 pti.desc.4:Muuji jihada loo socdo.[auto]
 pti.desc.5:Muuji id ee qudhaanjada la nadiifinayo. Qudhaanjada ugu wasakhda badan ayaa ah qudhaanjada ku jirta booska 1.[auto]
 
 triche.aide.1:ku soo dhawow interface khiyaameeya Formiko. Tani waa meesha aad ku qori karto amarrada khiyaamada.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:amarrada qaabka "magaca: (doodaha) sharaxaadda"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:masraxa id id[auto]
 cmd.args.15:id id, mood[auto]
 cmd.args.16:id id, anthill id[auto]
 cmd.args.17:noolaha id id[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:id id, nadaafad[auto]
 cmd.args.19:id id, tiro la raray[auto]
 cmd.args.20:abuur abuur, adkaantaMax[auto]
 cmd.args.21:cuntada id cayayaanka la siiyo[auto]
@@ -375,7 +377,7 @@ cmd.args.22:id cayayaanka, cuntada[auto]
 cmd.args.23:ciyaaryahanka id, username[auto]
 cmd.args.24:ciyaaryahan id, boolian estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Qudhaanjada ama Cayayaanka ama Abuurka, Haddii cayayaan: x, y, ku qor Haddii qudhaanjo: id Ant Hill Haddii abuur: x, y.[auto]
 cmd.args.28:id id[auto]
 cmd.args.29:Furaha xariga[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Balli yar oo micromanaging quraanjadaada? Adeegso 2 qaab ee otomaatigg
 conseil.4:Marabtaa inaad waxyar ka bedesho qaabka ciyaarta? dooro nooc aanad wali ku ciyaarin.[auto]
 conseil.5:Qaar ka mid ah noocyada qudhaanjada waa polymorphic. Taasi waxay la micno tahay inay leeyihiin shaqaale leh cabir kaladuwan si ay u awoodaan inay qabtaan hawlo aad u kala duwan.[auto]
 conseil.6:Beed aad u badan ha isku mar dhigin. Haddii kale ma awoodi doontid inaad daryeesho iyaga illaa ay ka noqdaan mala-awaal.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Qudhaanjadu waxay marto 4 marxaladood oo koritaan ah: ukun, lava, qanjirro iyo imago (qudhaanjo weyn)[auto]
 conseil.8:Doorashooyinka ay tahay inaad sameyso waxaa lagu muujiyey bidixda kore ee shaashaddaada.[auto]
 conseil.9:Qudhaanjadu ma laha indha-sarcaad ay indhaha ku qoyso. Waa inay si joogto ah u ilaashadaan qaab nololeed caafimaad leh si ay awood ugu yeeshaan inay kula xiriiraan anteenadooda ayna wax ku arkaan indhahooda.[auto]
 conseil.10:Ukunta, lafta iyo qanjidhada awood uma leh inay iskood wax u nadiifiyaan. Waxay daruuri u baahan yihiin caawinta imago haddii kale waxaa ku dhici kara bakteeriya xun. hubi in ilmahaagu sii joogo wax ka sarreeya nadaafadda 50%.[auto]
@@ -452,7 +454,7 @@ tuto.30:Shaqaaluhu xitaa way ka waxtar badan yihiin hawlaha qaarkood (waxay ku k
 tuto.31:Aan u dhiibno shaqaalaheena hawl ay ku dhameystiraan si ay wareega u dhammaado. (dhagsii mid ka mid ah badhannada hoosta shaashaddaada, dhowr jeer haddii loo baahdo.)[auto]
 tuto.32:Waxay ahayd wareegii ugu dambeeyay ee casharkaan, haddii aad wax shaki ah ka qabtid waxaad dib u dhigi kartaa casharkaan.[auto]
 tuto.33:Haddii kale sharraxaadda badhanka ayaa la soo bandhigayaa markii aad duljoogto ditto sanduuqyada khariidada. Macluumaadka ku saabsan qudhaanjada la doortay waxay ku taal midigta shaashaddaada.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Haddii ay taasi jirto oo aadan helin waxaad u baahan tahay waxaad talo ka raadin kartaa server-ka khilaafka rasmiga ah ee ciyaarta: http://discord.gg/vqvfGzf[auto]
 tuto.35:Si aad ugu guuleysato ciyaar waqtiga loogu talagalay waa inaad leedahay dhibco ka sarreeya AI iyo ciyaartoy kale.[auto]
 tuto.36:Dhibcahaadu waxay kuxirantahay tiradaada qudhaanjada, (quraanjada qaangaarka ah waxay siisaa dhibco fiican), iyo sidoo kale dhibaatada ciyaarta iyo xawaaraha ciyaarta.[auto]
 tuto.37:Si aad dib ugu bilowdo ciyaar, waa inaad ciyaarta ka tagtaa oo aad dib u bilowdaa, waxaan daryeelayaa joojinta ciyaarta, adiga ayay kugu xidhan tahay inaad dib u bilowdo.[auto]

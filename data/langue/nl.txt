@@ -110,7 +110,7 @@ dimentionCarteY:letter dimensie in Y[auto]
 erreurCarteVide:onmogelijk om een spel te starten zonder enige speler en zonder ai.[auto]
 maxFourmiIa:maximum aantal mieren voor ai[auto]
 nomDuFichier:bestandsnaam[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Voer de naam in van de opslagset die u wilt laden: (of terug om terug te gaan)[auto]
 dernierTourPassé:De laatste ronde is inmiddels voorbij.[auto]
 victoireInconue:onbekende overwinning[auto]
 élimination:eliminatie[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:terug naar het hoofdmenu[auto]
 bouton.nom.-14:quitter Ant[auto]
 bouton.nom.-15:terug om te spelen[auto]
 
+save.message:voer de naam in die u aan uw back-up wilt geven.[auto]
+
 bouton.desc.0:Kaart verkleinen[auto]
 bouton.desc.1:Verplaats de kaart omhoog[auto]
 bouton.desc.2:Vergroot de kaart[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Open het in-game optiemenu[auto]
 
 pti.desc.1:Geef het ID aan van de mier die het voedsel zal ontvangen.[auto]
 pti.desc.2:Geef de hoeveelheid aangeboden voedsel aan.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Geef het type ei aan dat moet worden gelegd: 0 = Koningin, 1 = Mannetje, 2 = Klein, 3 = Middelgroot, 4 = Groot, 5 + = Overig.[auto]
 pti.desc.4:Geef de te volgen richting aan.[auto]
 pti.desc.5:Geef het ID aan van de mier die moet worden schoongemaakt. De smerigste mier is de mier in positie 1.[auto]
 
 triche.aide.1:welkom bij de Formiko cheat-interface. Dit is waar je cheat-commando's kunt typen.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:commando's in de vorm "naam: (argumenten) beschrijving"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:schepsel-id-stadium[auto]
 cmd.args.15:schepsel-id, mode[auto]
 cmd.args.16:wezen-id, mierenhoop-id[auto]
 cmd.args.17:schepsel id soort[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:schepsel-id, netheid[auto]
 cmd.args.19:wezen-ID, getransporteerde hoeveelheid[auto]
 cmd.args.20:zaad-id, hardheidMax[auto]
 cmd.args.21:insecten-id-voedsel verstrekt[auto]
@@ -375,7 +377,7 @@ cmd.args.22:insecten-id, eten[auto]
 cmd.args.23:speler-ID, gebruikersnaam[auto]
 cmd.args.24:speler-ID, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Mier of Insect of Zaad, Indien insect: x, y, typ If mier: id Ant Hill If zaad: x, y.[auto]
 cmd.args.28:wezen-ID[auto]
 cmd.args.29:String sleutel[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Pool van micromanaging van je mieren? Maak gebruik van de 2 automatisc
 conseil.4:Wil je de speelstijl een beetje variëren? kies een soort waarmee je nog niet hebt gespeeld.[auto]
 conseil.5:Sommige miersoorten zijn polymorf. Dat wil zeggen dat ze werknemers van verschillende grootte hebben om heel verschillende taken te kunnen uitvoeren.[auto]
 conseil.6:Leg niet te veel eieren tegelijk. Anders kun je pas voor ze zorgen als ze imago's worden.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Mieren doorlopen 4 ontwikkelingsstadia: ei, lava, nimf en imago (volwassen mier).[auto]
 conseil.8:De keuzes die u moet maken, staan linksboven in uw scherm aangegeven.[auto]
 conseil.9:Mieren hebben geen ooglid om hun ogen te bevochtigen. Ze moeten constant een gezonde levensstijl aanhouden om met hun antennes te kunnen communiceren en met hun ogen te kunnen zien.[auto]
 conseil.10:Eieren, lava en nimfen kunnen dit niet alleen schoonmaken. Ze hebben noodzakelijkerwijs de hulp van een imago nodig, anders lopen ze het risico besmet te raken met een slechte bacterie. zorg ervoor dat uw kroost boven de 50% reinheid blijft.[auto]
@@ -452,7 +454,7 @@ tuto.30:Werknemers zijn zelfs nog efficiënter bij bepaalde taken (het kost hun 
 tuto.31:Laten we onze werker een taak geven om te voltooien zodat de ronde eindigt. (klik op een van de knoppen onderaan uw scherm, eventueel meerdere keren.)[auto]
 tuto.32:Het was de laatste ronde van deze tutorial, als je twijfelt, kun je deze tutorial opnieuw doen.[auto]
 tuto.33:Anders worden de knopbeschrijvingen weergegeven wanneer u erover zweeft, idem voor de vakjes op de kaart. Informatie over de geselecteerde mier staat aan de rechterkant van je scherm.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Als je desondanks niet vindt wat je zoekt, kun je advies inwinnen op de officiële onenigheidsserver van het spel: http://discord.gg/vqvfGzf[auto]
 tuto.35:Om een spel op tijd te winnen, moet je een hogere score hebben dan AI en andere spelers.[auto]
 tuto.36:Uw score is afhankelijk van uw aantal mieren (volwassen mieren geven een betere score), evenals de moeilijkheidsgraad van het spel en de snelheid van het spel.[auto]
 tuto.37:Om een spel opnieuw te starten, moet je het spel afsluiten en opnieuw starten, ik zorg ervoor dat het spel wordt afgesloten, het is aan jou om het opnieuw te starten.[auto]

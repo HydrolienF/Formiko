@@ -110,7 +110,7 @@ dimentionCarteY:ממד אותיות ב- Y[auto]
 erreurCarteVide:בלתי אפשרי להתחיל משחק בלי שום שחקן ובלי שום איי.[auto]
 maxFourmiIa:מספר הנמלים המרבי עבור ai[auto]
 nomDuFichier:שם קובץ[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:הזן את שם ערכת השמירה שברצונך לטעון: (או חזרה כדי לחזור)[auto]
 dernierTourPassé:הסיבוב האחרון עבר עכשיו.[auto]
 victoireInconue:ניצחון לא ידוע[auto]
 élimination:חיסול[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:בחזרה לתפריט הראשי[auto]
 bouton.nom.-14:נמלה[auto]
 bouton.nom.-15:חזרה לשחק[auto]
 
+save.message:הזן את השם שייתן לגיבוי שלך.[auto]
+
 bouton.desc.0:כווץ את המפה[auto]
 bouton.desc.1:הזז את המפה למעלה[auto]
 bouton.desc.2:הגדל את המפה[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:פתח את תפריט אפשרויות המשחק[auto]
 
 pti.desc.1:ציין את זהות הנמלה שתקבל את האוכל.[auto]
 pti.desc.2:ציין את כמות האוכל המוצעת.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:ציין את סוג הביצה שתוטל: 0 = מלכה, 1 = זכר, 2 = קטין, 3 = בינוני, 4 = מייג'ור, 5 + = אחר.[auto]
 pti.desc.4:ציין את הכיוון לעקוב.[auto]
 pti.desc.5:ציין את מזהה הנמלה שיש לנקות. הנמלה הכי מלוכלכת היא הנמלה במצב 1.[auto]
 
 triche.aide.1:ברוכים הבאים לממשק הצ'אט של פורמיקו. כאן תוכלו להקליד פקודות צ'יט.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:פקודות בצורה "שם: (ארגומנטים) תיאור"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:שלב מזהה יצור[auto]
 cmd.args.15:מזהה יצור, אופנה[auto]
 cmd.args.16:מזהה יצור, מזהה נמלים[auto]
 cmd.args.17:מינים מזהים של יצור[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:מזהה יצור, ניקיון[auto]
 cmd.args.19:מזהה יצור, כמות מועברת[auto]
 cmd.args.20:מזהה זרע, קשיות מקס[auto]
 cmd.args.21:מזון מזוהה עם חרקים[auto]
@@ -375,7 +377,7 @@ cmd.args.22:מזהה חרקים, אוכל[auto]
 cmd.args.23:מזהה שחקן, שם משתמש[auto]
 cmd.args.24:מזהה שחקן, אסטיה בוליאנית[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:נמלה או חרק או זרע, אם חרק: x, y, הקלד אם נמלה: id Ant Hill אם זרע: x, y.[auto]
 cmd.args.28:מזהה יצור[auto]
 cmd.args.29:מפתח מחרוזת[auto]
 
@@ -390,7 +392,7 @@ conseil.3:בריכה של ניהול מיקרו של הנמלים שלך? השת
 conseil.4:רוצים לשנות מעט את סגנון המשחק? בחר מין שעדיין לא שיחקת איתו.[auto]
 conseil.5:כמה מיני נמלים הם פולימורפיים. זאת אומרת שיש להם עובדים בגודל שונה על מנת שיוכלו לבצע משימות שונות לגמרי.[auto]
 conseil.6:אל תטיל יותר מדי ביצים בבת אחת. אחרת לא תוכל לטפל בהם עד שהם יהפכו לדמיונות.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:נמלים עוברות 4 שלבי התפתחות: ביצה, לבה, נימפה ואימגו (נמלה בוגרת).[auto]
 conseil.8:הבחירות שעליך לעשות מסומנות בפינה השמאלית העליונה של המסך.[auto]
 conseil.9:לנמלים אין עפעף כדי להרטיב את העיניים. עליהם לשמור כל הזמן על אורח חיים בריא על מנת שיוכלו לתקשר עם האנטנות שלהם ולראות בעיניים.[auto]
 conseil.10:ביצים, לבה ונימפות אינן מסוגלות לנקות זאת לבד. הם זקוקים בהכרח לעזרת אימגו אחרת הוא עלול להידבק בחיידק רע. וודא שהגזע שלך נשאר מעל 50% ניקיון.[auto]
@@ -452,7 +454,7 @@ tuto.30:עובדים יעילים עוד יותר במשימות מסוימות 
 tuto.31:בואו נותנים לעובד שלנו משימה להשלים כדי שהסבב יסתיים. (לחץ על אחד הלחצנים בתחתית המסך, כמה פעמים במידת הצורך).[auto]
 tuto.32:זה היה הסיבוב האחרון של הדרכה זו, אם יש לך ספקות אתה יכול לעשות מחדש את ההדרכה הזו.[auto]
 tuto.33:אחרת תיאורי הלחצנים מוצגים כאשר אתה מעביר את העכבר מעל להם, דבר זה עבור התיבות במפה. מידע על הנמלה שנבחרה נמצא בצד ימין של המסך שלך.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:אם למרות זאת לא תמצא את מה שאתה צריך, תוכל לפנות לייעוץ בשרת הדיסקורדים הרשמי של המשחק: http://discord.gg/vqvfGzf[auto]
 tuto.35:כדי לנצח משחק בזמן אתה חייב להיות בעל ציון גבוה יותר מ- AI ומשחקנים אחרים.[auto]
 tuto.36:הציון שלך תלוי במספר הנמלים שלך, (נמלים בוגרות נותנות ציון טוב יותר), כמו גם בקושי המשחק ומהירות המשחק.[auto]
 tuto.37:כדי להפעיל מחדש את המשחק, אתה צריך לצאת מהמשחק ולהפעיל אותו מחדש, אני אדאג להפסיק את המשחק, זה תלוי בך להפעיל אותו מחדש.[auto]

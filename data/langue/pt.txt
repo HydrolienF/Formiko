@@ -110,7 +110,7 @@ dimentionCarteY:dimensão da letra em Y[auto]
 erreurCarteVide:impossível começar um jogo sem nenhum jogador e sem nenhum ai.[auto]
 maxFourmiIa:número máximo de formigas para ai[auto]
 nomDuFichier:nome do arquivo[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Digite o nome do conjunto salvo que deseja carregar: (ou volte para voltar)[auto]
 dernierTourPassé:A última rodada já passou.[auto]
 victoireInconue:vitória desconhecida[auto]
 élimination:eliminação[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:voltar ao menu principal[auto]
 bouton.nom.-14:Quitter Ant[auto]
 bouton.nom.-15:voltar a jogar[auto]
 
+save.message:digite o nome a ser dado ao seu backup.[auto]
+
 bouton.desc.0:Reduzir mapa[auto]
 bouton.desc.1:Mova o mapa para cima[auto]
 bouton.desc.2:Amplie o mapa[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Abra o menu de opções do jogo[auto]
 
 pti.desc.1:Indique o id da formiga que receberá o alimento.[auto]
 pti.desc.2:Indique a quantidade de comida oferecida.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Indique o tipo de ovo a colocar: 0 = Rainha, 1 = Macho, 2 = Menor, 3 = Médio, 4 = Maior, 5 + = Outro.[auto]
 pti.desc.4:Indique a direção a seguir.[auto]
 pti.desc.5:Indique o id da formiga a ser limpa. A formiga mais suja é a da posição 1.[auto]
 
 triche.aide.1:bem-vindo à interface de cheat do Formiko. É aqui que você pode digitar comandos de trapaça.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:comandos no formato "nome: (argumentos) descrição"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:estágio de id da criatura[auto]
 cmd.args.15:id da criatura, moda[auto]
 cmd.args.16:id da criatura, id do formigueiro[auto]
 cmd.args.17:espécie id de criatura[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:id da criatura, limpeza[auto]
 cmd.args.19:id da criatura, quantidade transportada[auto]
 cmd.args.20:id da semente, hardnessMax[auto]
 cmd.args.21:alimento de identificação de inseto fornecido[auto]
@@ -375,7 +377,7 @@ cmd.args.22:id de inseto, comida[auto]
 cmd.args.23:id do jogador, nome de usuário[auto]
 cmd.args.24:id do jogador, estIa booleana[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Formiga ou inseto ou semente, Se inseto: x, y, digite Se formiga: id Formiga Hill Se semente: x, y.[auto]
 cmd.args.28:id da criatura[auto]
 cmd.args.29:Chave de string[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Lagoa de microgerenciamento de suas formigas? Use os 2 modos automáti
 conseil.4:Quer variar um pouco o estilo de jogo? escolha uma espécie com a qual você ainda não jogou.[auto]
 conseil.5:Algumas espécies de formigas são polimórficas. Isso quer dizer que eles têm operários de tamanhos variados para poder realizar tarefas bem diferentes.[auto]
 conseil.6:Não coloque muitos ovos de uma vez. Caso contrário, você não será capaz de cuidar deles até que se tornem imagos.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:As formigas passam por 4 estágios de desenvolvimento: ovo, lava, ninfa e imago (formiga adulta).[auto]
 conseil.8:As escolhas que você deve fazer são indicadas no canto superior esquerdo da tela.[auto]
 conseil.9:As formigas não têm pálpebra para umedecer os olhos. Devem manter constantemente um estilo de vida saudável para poder se comunicar com suas antenas e ver com seus olhos.[auto]
 conseil.10:Ovos, lava e ninfas não conseguem limpar por conta própria. Eles necessariamente precisam da ajuda de um imago, caso contrário, ele pode ser infectado por uma bactéria maligna. certifique-se de que sua ninhada fique acima de 50% de limpeza.[auto]
@@ -452,7 +454,7 @@ tuto.30:Os trabalhadores são ainda mais eficientes em certas tarefas (custa men
 tuto.31:Vamos dar ao nosso trabalhador uma tarefa para completar para que a rodada termine. (clique em um dos botões na parte inferior da tela, várias vezes, se necessário).[auto]
 tuto.32:Foi a última rodada deste tutorial, se você tiver alguma dúvida pode refazer este tutorial.[auto]
 tuto.33:Caso contrário, as descrições dos botões são exibidas quando você passa o mouse sobre eles, idem para as caixas no mapa. As informações sobre a formiga selecionada estão à direita da tela.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Se, apesar disso, você não encontrar o que precisa, pode procurar aconselhamento no servidor oficial de discórdia do jogo: http://discord.gg/vqvfGzf[auto]
 tuto.35:Para ganhar um jogo a tempo, você deve ter uma pontuação mais alta do que a IA e outros jogadores.[auto]
 tuto.36:A sua pontuação depende do seu número de formigas (formigas adultas dão uma pontuação melhor), bem como da dificuldade do jogo e da velocidade do jogo.[auto]
 tuto.37:Para reiniciar um jogo, você tem que sair do jogo e reiniciá-lo, eu tratarei de encerrar o jogo, cabe a você reiniciá-lo.[auto]

@@ -110,7 +110,7 @@ dimentionCarteY:Y ning harfning o'lchami[auto]
 erreurCarteVide:hech qanday o'yinchisiz va hech qanday ai holda o'yinni boshlash imkonsiz.[auto]
 maxFourmiIa:ai uchun chumolilarning maksimal soni[auto]
 nomDuFichier:Fayl nomi[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Yuklamoqchi bo'lgan saqlash to'plamining nomini kiriting: (Yoki orqaga qaytish uchun orqaga)[auto]
 dernierTourPassé:Endi so'nggi tur o'tdi.[auto]
 victoireInconue:noma'lum g'alaba[auto]
 élimination:yo'q qilish[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:asosiy menyuga qaytish[auto]
 bouton.nom.-14:chumoli chumoli[auto]
 bouton.nom.-15:o'ynash uchun qaytib[auto]
 
+save.message:zaxirangizga berish uchun nomni kiriting.[auto]
+
 bouton.desc.0:Xaritani kichraytiring[auto]
 bouton.desc.1:Xaritani yuqoriga ko'taring[auto]
 bouton.desc.2:Xaritani kattalashtiring[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:O'yin ichidagi variantlar menyusini oching[auto]
 
 pti.desc.1:Ovqatni qabul qiladigan chumolining idini ko'rsating.[auto]
 pti.desc.2:Taklif qilingan ovqat miqdorini ko'rsating.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Tuxum qo'yiladigan tuxum turini ko'rsating: 0 = Malika, 1 = Erkak, 2 = Kichik, 3 = O'rta, 4 = Major, 5 + = Boshqalar.[auto]
 pti.desc.4:Amalga oshiriladigan yo'nalishni ko'rsating.[auto]
 pti.desc.5:Tozalanadigan chumolining idini ko'rsating. Eng iflos chumoli 1-pozitsiyadagi chumolidir.[auto]
 
 triche.aide.1:Formiko cheat interfeysiga xush kelibsiz. Bu erda siz cheat buyruqlarini yozishingiz mumkin.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:"ism: (argumentlar) tavsif" shaklidagi buyruqlar[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:jonzotning id bosqichi[auto]
 cmd.args.15:jonzot id, moda[auto]
 cmd.args.16:jonzot identifikatori, chumolilar uyasi id[auto]
 cmd.args.17:maxluqlarning id turlari[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:jonzot id, poklik[auto]
 cmd.args.19:jonzot identifikatori, tashilgan miqdor[auto]
 cmd.args.20:urug 'id, qattiqlikMax[auto]
 cmd.args.21:hasharotlar id oziq-ovqat bilan ta'minlangan[auto]
@@ -375,7 +377,7 @@ cmd.args.22:hasharotlar id, oziq-ovqat[auto]
 cmd.args.23:pleyer identifikatori, foydalanuvchi nomi[auto]
 cmd.args.24:pleyer identifikatori, mantiqiy estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Chumoli yoki hasharot yoki urug ', agar hasharot: x, y bo'lsa, agar chumoli: id chumoli tepalik Agar urug' bo'lsa: x, y.[auto]
 cmd.args.28:maxluq identifikatori[auto]
 cmd.args.29:String kaliti[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Chumolilaringizni mikromanage hovuzi? Sizning ixtiyoringizda bo'lgan 2
 conseil.4:O'yin uslubini biroz o'zgartirmoqchimisiz? hali o'ynamagan turingizni tanlang.[auto]
 conseil.5:Ba'zi chumolilar turlari polimorfdir. Ya'ni, ular turli xil vazifalarni bajarish uchun o'zgaruvchan hajmdagi ishchilarga ega.[auto]
 conseil.6:Bir vaqtning o'zida juda ko'p tuxum qo'ymang. Aks holda, ular tasavvurga aylanmaguncha, siz ularga g'amxo'rlik qila olmaysiz.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Chumolilar rivojlanishning 4 bosqichidan o'tadi: tuxum, lava, nymph va imago (kattalar chumoli).[auto]
 conseil.8:Siz qilishingiz kerak bo'lgan tanlovlar ekranning yuqori chap qismida ko'rsatilgan.[auto]
 conseil.9:Chumolilarning ko'zlarini namlash uchun qovog'i yo'q. Antennalari bilan aloqa qilish va ko'zlari bilan ko'rish uchun ular doimo sog'lom turmush tarzini saqlashlari kerak.[auto]
 conseil.10:Tuxum, lava va nimfalar buni o'z-o'zidan tozalashga qodir emas. Ularga imzo yordami kerak, aks holda u yomon bakteriyalar bilan yuqishi mumkin. farzandingiz 50% tozaligidan yuqori bo'lishiga ishonch hosil qiling.[auto]
@@ -452,7 +454,7 @@ tuto.30:Ishchilar ma'lum vazifalarni bajarishda yanada samaraliroq (ularni bajar
 tuto.31:Keling, ishchimizga davra tugashi uchun bajarish uchun topshiriq beraylik. (agar kerak bo'lsa, ekranning pastki qismidagi tugmachalardan birini bir necha marta bosing.)[auto]
 tuto.32:Bu ushbu o'quv qo'llanmaning so'nggi bosqichi edi, agar sizda biron bir shubha bo'lsa, ushbu qo'llanmani takrorlashingiz mumkin.[auto]
 tuto.33:Aks holda tugma tavsiflari ustiga siljiganingizda ko'rsatiladi, xaritadagi katakchalarga o'ting. Tanlangan chumoli haqida ma'lumot ekranning o'ng tomonida joylashgan.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Agar bunga qaramay, kerakli narsani topa olmasangiz, o'yinning rasmiy kelishmovchiliklar serveridan maslahat olishingiz mumkin: http://discord.gg/vqvfGzf[auto]
 tuto.35:O'yinni o'z vaqtida yutish uchun siz sun'iy intellekt va boshqa o'yinchilarga qaraganda yuqori ball to'plashingiz kerak.[auto]
 tuto.36:Sizning hisobingiz chumolilar soniga, (kattalar chumolilar yaxshiroq ball beradi), shuningdek, o'yinning qiyinligi va o'yin tezligiga bog'liq.[auto]
 tuto.37:O'yinni qayta boshlash uchun siz o'yinni tugatishingiz va uni qayta boshlashingiz kerak, men o'yinni tugatish bilan shug'ullanaman, uni qayta boshlash sizning ixtiyoringizda.[auto]

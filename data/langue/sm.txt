@@ -110,7 +110,7 @@ dimentionCarteY:itu mataitusi i le Y[auto]
 erreurCarteVide:le mafai ona amata se taʻaloga e aunoa ma se tagata taʻalo ma aunoa ma se ai.[auto]
 maxFourmiIa:numera tele o loi mo ai[auto]
 nomDuFichier:faila faila[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Ulufale i le igoa o le seti seti e te manaʻo e utaina: (Pe toe foi e alu i tua)[auto]
 dernierTourPassé:O lea ua tea nei le taamilosaga mulimuli.[auto]
 victoireInconue:manumalo le mailoa[auto]
 élimination:aveʻesea[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:toe foi i le autu lisi[auto]
 bouton.nom.-14:lūlū loi[auto]
 bouton.nom.-15:toe foi e taalo[auto]
 
+save.message:ulufale i le igoa e ave i lau backup.[auto]
+
 bouton.desc.0:Faʻapipiʻi le faʻafanua[auto]
 bouton.desc.1:Siʻi i luga le faʻafanua[auto]
 bouton.desc.2:Faalautele le faʻafanua[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Tatala le lisi o filifiliga i totonu o le taʻaloga[auto]
 
 pti.desc.1:Faʻailoa le id o le loi o le a mauaina meaai.[auto]
 pti.desc.2:Faʻailoa le aofaʻi o meaʻai na ofoina atu.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Faʻailoa le ituaiga o fuamoa e taoto: 0 = Masiofo, 1 = Tamaloa, 2 = Minor, 3 = Feololo, 4 = Sili, 5 + = Isi.[auto]
 pti.desc.4:Faʻasino le faʻatonuga e mulimuli ai.[auto]
 pti.desc.5:Faʻailoa le id o le loi e faʻamamaina. O le loi sili ona eleelea o le loi i le tulaga 1.[auto]
 
 triche.aide.1:faʻafeiloaʻi i le Formiko cheat interface. Lenei e mafai ona e taina faʻasese tulafono.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:faʻatonuga ile fomu "igoa: (finauga) faʻamatalaga"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:foafoaga id tulaga[auto]
 cmd.args.15:foafoaga id, faiga[auto]
 cmd.args.16:foafoaga id, anthill id[auto]
 cmd.args.17:foafoaga id ituaiga[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:foafoaga id, mama[auto]
 cmd.args.19:foafoaga id, aofaʻi aveina[auto]
 cmd.args.20:fatu id, maaʻaMax[auto]
 cmd.args.21:iniseti id meaai saunia[auto]
@@ -375,7 +377,7 @@ cmd.args.22:iniseti id, meaai[auto]
 cmd.args.23:tagata taalo id, username[auto]
 cmd.args.24:tagata taalo id, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:O loi po o iniseti po o fatu, Afai o iniseti: x, y, ituaiga Afai loi: id Ant Hill Afai fatu: x, y.[auto]
 cmd.args.28:foafoaga id[auto]
 cmd.args.29:Ki manoa[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Vaitaele o micromanaging ou loi? Faʻaaoga le 2 otometi auala i lou fa
 conseil.4:E te manaʻo e fesuiaʻi le faiga o taʻalo teisi? filifili se ituaiga e te leʻi taʻalo ai.[auto]
 conseil.5:Nisi loi ituaiga o polymorphic. O lona uiga o loʻo iai a latou tagata faigaluega e eseʻese le tele ina ia mafai ai ona faʻatino ni galuega eseʻese.[auto]
 conseil.6:Aua le soʻona tele fuamoa i le taimi e tasi. A leai o le a le mafai ona e vaʻaia i latou seʻi vagana ua avea o ni ata.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:O loʻo ui atu le Ants i vaega e 4 o le atinaʻeina: fuamoa, lava, nymph ma imago (loi matutua).[auto]
 conseil.8:O filifiliga e tatau ona e faia o loʻo faʻailoa mai i le agavale taumatau o lau lau.[auto]
 conseil.9:E leai se laumata mata i mata e faʻasusu ai o latou mata. E tatau ona latou tausisi pea i se olaga soifua maloloina ina ia mafai ai ona fesoʻotaʻi ma a latou antennae ma vaʻai ma o latou mata.[auto]
 conseil.10:E le mafai e fuamoa, lava ma nymphs ona faʻamamaina lenei mea na o latou. Latou te manaʻomia le fesoasoani ole imago a leai e ono aʻafia e se siama leaga. ia mautinoa ia tumau lau tama i luga atu o le 50% le tumama.[auto]
@@ -452,7 +454,7 @@ tuto.30:Tagata faigaluega e sili atu ona lelei i luga o nisi galuega (e taugofie
 tuto.31:Tatou tuʻuina atu i le tatou tagata faigaluega se galuega e faʻamaeʻaina ina ia maeʻa le taʻamilosaga. (kiliki i luga o se tasi o faʻamau i le pito i lalo o lau lau, i le tele o taimi pe a talafeagai ai.)[auto]
 tuto.32:O le taʻamilosaga mulimuli lea o lenei aʻoaʻoga, pe a i ai ni ou masalosaloga e mafai ona e toe faia lenei aʻoaʻoga.[auto]
 tuto.33:A leai, e faʻaalia le faʻamatalaina o faʻamau pe a e faʻapipiʻi luga ia i latou, togi mo atigipusa i luga o le faʻafanua. O faʻamatalaga e uiga i le loi filifilia o loʻo i le itu taumatau o lau pupuni.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Afai e ui i lenei e te le mauaina le mea e te manaʻomia mafai ona e sailia fautuaga i luga o le taʻaloga aloaia feeseeseaiga tautua: http://discord.gg/vqvfGzf[auto]
 tuto.35:Ina ia manumalo i se taʻaloga i le taimi tatau e tatau ona i ai se togi maualuga atu nai lo AI ma isi tagata taʻalo.[auto]
 tuto.36:O lou togi faʻamoemoeina i lau numera o loi, (loi matutua avatua se sili togi), faʻapea foi ma le faigata o le taʻaloga ma le saoasaoa o le taʻaloga.[auto]
 tuto.37:Ina ia toe amataina se taʻaloga, e tatau ona e tuʻua le taʻaloga ma toe amataina, o le a ou vaʻaia le faʻamutaina o le taʻaloga, e pule lava oe i le toe amataina.[auto]

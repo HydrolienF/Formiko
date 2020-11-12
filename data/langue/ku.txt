@@ -110,7 +110,7 @@ dimentionCarteY:dimension nameya li Y[auto]
 erreurCarteVide:ne gengaz e ku bêyî lîstikvanek û bêyî ti ai lîstikek dest pê bike.[auto]
 maxFourmiIa:ji bo ai herî zêde hejmar[auto]
 nomDuFichier:navê pelê[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Navê tomara tomarkirinê ya ku hûn dixwazin barkirin bikişînin: (An vegerin ku vegerin)[auto]
 dernierTourPassé:Dorha dawî niha derbas bû.[auto]
 victoireInconue:serfiraziya nenas[auto]
 élimination:tasfiye kirin[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:vegere menuya sereke[auto]
 bouton.nom.-14:quitter Ant[auto]
 bouton.nom.-15:vegerin ser lîstinê[auto]
 
+save.message:navê bikevin da ku bidin paşila xwe.[auto]
+
 bouton.desc.0:Nexşeyê biçûk bikin[auto]
 bouton.desc.1:Nexşeyê hilînin jor[auto]
 bouton.desc.2:Nexşeyê mezin bikin[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Pêşeka vebijarkên lîstikê vekin[auto]
 
 pti.desc.1:Id-a antê ku dê xwarinê bistîne nîşan bikin.[auto]
 pti.desc.2:Hejmara xwarina pêşkêşkirî diyar bikin.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Cûreyek hêka ku tê danîn nîşan bikin: 0 = Queenahbanû, 1 = Nêr, 2 = Biçûk, 3 = Navîn, 4 = Mezin, 5 + = Yê din.[auto]
 pti.desc.4:Riya ku bişopînin nîşan bikin.[auto]
 pti.desc.5:Nasnameya ant ya ku were paqijkirin nîşan bikin. Mîna herî qirêj di poz 1 de mirin e.[auto]
 
 triche.aide.1:bi xêr hatî ser xefika Formiko. Li vir e ku hûn dikarin fermanên xapandinê binivîsin.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:bi forma "nav: (nîqaş) salixdan" ferman dike[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:afirîdê id qonax[auto]
 cmd.args.15:afirîdê id, moda[auto]
 cmd.args.16:id afirîdê, nasnameya dijmin[auto]
 cmd.args.17:celebên id afirîdê[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:afirîdê id, paqijî[auto]
 cmd.args.19:id afirîdê, hejmar veguhastin[auto]
 cmd.args.20:id tov, hişkbûnMax[auto]
 cmd.args.21:xwarina id kêzikê peyda kirin[auto]
@@ -375,7 +377,7 @@ cmd.args.22:id kêzikê, xwarin[auto]
 cmd.args.23:navê player, navê bikarhêner[auto]
 cmd.args.24:id player, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Mîr an Kêzik an Tov, Ger kêzik: x, y, tîpa Heke mêjî: id Mîl Ant Ger Seed: x, y.[auto]
 cmd.args.28:id afirîdê[auto]
 cmd.args.29:Bişkoka têlê[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Pondê mîkrobatên xwe mîkromankirin? Di destê xwe de 2 modên otom
 conseil.4:Dixwazin şêwaza lîstikê hinekî biguherînin? celebek ku hûn hê pê re ne lîstine hilbijêrin.[auto]
 conseil.5:Hin cûreyên mêşan pirzimanî ne. Ango dibêjin ku karkerên wan bi mezinahiya cûda hene da ku karibin erkên pir cûda pêk bînin.[auto]
 conseil.6:Bi carekê de pir hêk nekin. Wekî din hûn ê nekarin bal wan bikişînin heya ku ew bibin xeyal.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Miling di 4 merheleyên geşedanê re derbas dibin: hêk, lava, nîmf û imago (dînika mezin).[auto]
 conseil.8:Vebijarkên ku divê hûn bikin, li jorê çepê dîmendera we têne nîşankirin.[auto]
 conseil.9:Mîrkutê çavê wan tune ku çavên xwe şil bike. Ji bo ku ew bikaribin bi antênên xwe re têkilî daynin û bi çavên xwe bibînin, divê ew domdar jiyanek tendurist bidomînin.[auto]
 conseil.10:Hêk, lava û nimf nekarin bi serê xwe viya paqij bikin. Ew bi hewceyî arîkariya xeyalek hewce ne ku nebe ew dikare ji hêla bakteriyek xirab ve were vegirtin. pê ewle bine ku brood we di ser 50% paqijiyê re bimîne.[auto]
@@ -452,7 +454,7 @@ tuto.30:Karker di hin karan de hêj jêhatîtir in (pêkanîna wan ji wan re kir
 tuto.31:Bila wezîfeyek bidin xebatkarê xwe ku biqedîne da ku dor biqede. (li ser yek ji bişkojên li binê dîmendera we, heke hewce be çend caran bikirtînin.)[auto]
 tuto.32:Ew dora dawîn a vê tutoriyê bû, heke gumanên we hebin hûn dikarin vê tutorialê ji nû ve bikin.[auto]
 tuto.33:Wekî din dema ku hûn li ser wan digerin, ji bo qutiyên li ser nexşeyê dîwankirin bişkojk têne danasîn. Agahdariya der barê ant-ê ya hilbijartî de li rastê dîmendera we ye.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Ger digel vê yekê hûn çi hewce nebînin hûn dikarin li ser servera nakokiya lîstikê şîretan bigerin: http://discord.gg/vqvfGzf[auto]
 tuto.35:Ji bo ku demek lîstikek bi dest bixin divê hûn ji AI û lîstikvanên din puanek mezintir hebin.[auto]
 tuto.36:Pûana we bi jimara weya maran ve girêdayî ye, (kewên mezin puanek baştir didin), û her weha dijwariya lîstikê û leza lîstikê.[auto]
 tuto.37:Ji bo ku lîstikek ji nû ve dest pê bike, hûn neçar in ku dev ji lîstikê berdin û wê ji nû ve bidin destpêkirin, ez ê dev ji lîstikê berdim, ji we re ye ku wê ji nû ve bidin destpêkirin.[auto]

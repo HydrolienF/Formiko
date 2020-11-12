@@ -106,7 +106,7 @@ public class chargerLesTraductions {
     //if(s.charAt(0)=='/' && s.charAt(1)=='/'){return false;}
     if(str.contient(s,"//",0)){return false;}
     if(str.contient(s,":",0)){return false;}
-    if(str.nbrDeX(s,':')!=1){return false;}//si il y a un nombre différent de fois ":" que 1 fois.
+    if(str.nbrDeX(s,':')==0){return false;}//si il y a un nombre différent de fois ":" que 1 fois.
     //return s.length()>2 && (s.charAt(0)!='\\' || s.charAt(1)!='\\');// si la ligne n'est pas vide ou pas un commentaire.
     return true;
   }

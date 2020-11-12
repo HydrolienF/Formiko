@@ -110,7 +110,7 @@ dimentionCarteY:dimensione di lettera in Y[auto]
 erreurCarteVide:impussibile di principià una partita senza alcunu ghjucadore è senza alcunu ai.[auto]
 maxFourmiIa:numaru massimu di furmicule per ai[auto]
 nomDuFichier:nome di u schedariu[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Inserite u nome di u salvamentu chì vulete caricare: (O torna per tornà indietro)[auto]
 dernierTourPassé:L'ultimu giru hè passatu avà.[auto]
 victoireInconue:vittoria scunnisciuta[auto]
 élimination:eliminazione[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:torna à u menu principale[auto]
 bouton.nom.-14:quitter Ant[auto]
 bouton.nom.-15:torna à ghjucà[auto]
 
+save.message:entre u nome da dà à a vostra copia di salvezza.[auto]
+
 bouton.desc.0:Cullà a carta[auto]
 bouton.desc.1:Spustà a carta in altu[auto]
 bouton.desc.2:Ingrandà a carta[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Apri u menu di opzioni in u ghjocu[auto]
 
 pti.desc.1:Indicate l'identità di a furmica chì riceverà l'alimentu.[auto]
 pti.desc.2:Indicate a quantità di manghjà offerta.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Indicate u tippu d'ovu da mette: 0 = Regina, 1 = Maschile, 2 = Minore, 3 = Mediu, 4 = Maghju, 5 + = Altru.[auto]
 pti.desc.4:Indicate a direzzione da seguità.[auto]
 pti.desc.5:Indicate l'identità di a furmica da pulì. A furmica a più brutta hè a furmica in pusizione 1.[auto]
 
 triche.aide.1:benvenutu à l'interfaccia di furmatu Formiko. Questu hè induve pudete scrive cumandamenti di truffe.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:cumandamenti in forma "nome: (argumenti) descrizzione"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:tappa id criatura[auto]
 cmd.args.15:criatura id, moda[auto]
 cmd.args.16:id di criatura, id di furmiculu[auto]
 cmd.args.17:spezie d'identità di criatura[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:id di criatura, pulizia[auto]
 cmd.args.19:criatura id, quantità trasportata[auto]
 cmd.args.20:id di sumente, durezza Max[auto]
 cmd.args.21:cibu d'identità d'insetti furnitu[auto]
@@ -375,7 +377,7 @@ cmd.args.22:insettu id, cibu[auto]
 cmd.args.23:ID di ghjucatore, nome d'utilizatore[auto]
 cmd.args.24:ID di ghjucatore, estIa booleana[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Formica o Insettu o Semente, Sì insettu: x, y, tippu If ant: id Ant Hill Se seme: x, y.[auto]
 cmd.args.28:criatura id[auto]
 cmd.args.29:Chjave di stringa[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Stagnu di microgestione di e vostre furmiche? Aduprate i 2 modi automa
 conseil.4:Vulete cambià un pocu u stilu di ghjocu? sceglite una spezia cù a quale ùn avete ancu ghjucatu.[auto]
 conseil.5:Alcune spezie di formiche sò polimorfe. Vale à dì chì anu travagliadori di dimensioni variabili per pudè svolge compiti piuttostu diversi.[auto]
 conseil.6:Ùn depone micca troppu ova à tempu. Altrimenti ùn puderete micca curalli finu ch'elli diventinu imagos.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:E furmicule attraversanu 4 tappe di sviluppu: ovu, lava, ninfa è imago (furmicula adulta).[auto]
 conseil.8:E scelte chì duvete fà sò indicate in cima à sinistra di u vostru schermu.[auto]
 conseil.9:E furmicule ùn anu micca una palpebra per umidificà l'ochji. Devenu tene costantemente un stile di vita sanu per pudè cumunicà cù e so antenne è vede cù l'ochji.[auto]
 conseil.10:Uova, lava è ninfe ùn sò micca capaci di pulisce questu da soli. Hanu necessariamente bisognu di l'aiutu di un imago altrimenti puderia esse infettatu da una cattiva batteria. assicuratevi chì a vostra cria stà sopra u 50% di pulizia.[auto]
@@ -452,7 +454,7 @@ tuto.30:I travagliadori sò ancu più efficienti per certe attività (li costa m
 tuto.31:Demu à u nostru travagliadore un compitu da compie per chì u giru finisca. (cliccate nantu à unu di i buttoni in u fondu di u vostru schermu, parechje volte se necessariu.)[auto]
 tuto.32:Era l'ultimu giru di stu tutoriale, sè avete qualchì dubbitu pudete rifà stu tutoriale.[auto]
 tuto.33:Altrimenti e descrizzioni di i buttoni sò affissate quandu passate nantu à elli, idem per e scatule nantu à a carta. L'infurmazione nantu à a furmica scelta hè à a diritta di u vostru schermu.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Se malgradu questu ùn truvate micca ciò chì avete bisognu pudete cercà cunsiglii nantu à u servitore ufficiale di discordia di u ghjocu: http://discord.gg/vqvfGzf[auto]
 tuto.35:Per vince una partita à tempu duvete avè un puntuu più altu ch'è AI è altri ghjucatori.[auto]
 tuto.36:U vostru puntuu dipende da u vostru numeru di furmicule, (e furmicule adulte danu un puntuu megliu), è ancu da a difficultà di u ghjocu è a velocità di u ghjocu.[auto]
 tuto.37:Per riavviare un ghjocu, duvete abbandunà u ghjocu è riavvià lu, aghju a cura di lascià u ghjocu, tocca à voi di riavviallu.[auto]

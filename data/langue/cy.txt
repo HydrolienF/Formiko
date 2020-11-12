@@ -110,7 +110,7 @@ dimentionCarteY:dimensiwn llythyren yn Y.[auto]
 erreurCarteVide:amhosib cychwyn gêm heb unrhyw chwaraewr a heb unrhyw ai.[auto]
 maxFourmiIa:uchafswm nifer y morgrug ar gyfer ai[auto]
 nomDuFichier:enw ffeil[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Rhowch enw'r set arbed rydych chi am ei llwytho: (Neu yn ôl i fynd yn ôl)[auto]
 dernierTourPassé:Mae'r rownd ddiwethaf bellach wedi mynd heibio.[auto]
 victoireInconue:buddugoliaeth anhysbys[auto]
 élimination:dileu[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:yn ôl i'r brif ddewislen[auto]
 bouton.nom.-14:quitter Ant[auto]
 bouton.nom.-15:yn ôl i chwarae[auto]
 
+save.message:nodwch yr enw i'w roi i'ch copi wrth gefn.[auto]
+
 bouton.desc.0:Crebachwch y map[auto]
 bouton.desc.1:Symudwch y map i fyny[auto]
 bouton.desc.2:Ehangu'r map[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Agorwch y ddewislen opsiynau yn y gêm[auto]
 
 pti.desc.1:Nodwch id y morgrugyn a fydd yn derbyn y bwyd.[auto]
 pti.desc.2:Nodwch faint o fwyd sy'n cael ei gynnig.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Nodwch y math o wy i'w ddodwy: 0 = Brenhines, 1 = Gwryw, 2 = Mân, 3 = Canolig, 4 = Mawr, 5 + = Arall.[auto]
 pti.desc.4:Nodwch y cyfeiriad i'w ddilyn.[auto]
 pti.desc.5:Nodwch id y morgrugyn i'w lanhau. Y morgrugyn budr yw'r morgrugyn yn safle 1.[auto]
 
 triche.aide.1:croeso i ryngwyneb twyllo Formiko. Dyma lle gallwch chi deipio gorchmynion twyllo.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:gorchmynion ar ffurf "enw: (dadleuon) disgrifiad"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:cam id creadur[auto]
 cmd.args.15:id creadur, ffasiwn[auto]
 cmd.args.16:id creadur, anthill id[auto]
 cmd.args.17:rhywogaeth id creadur[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:id creadur, glendid[auto]
 cmd.args.19:id creadur, maint wedi'i gludo[auto]
 cmd.args.20:id had, caledwchMax[auto]
 cmd.args.21:bwyd id pryfed a ddarperir[auto]
@@ -375,7 +377,7 @@ cmd.args.22:id pryfed, bwyd[auto]
 cmd.args.23:id chwaraewr, enw defnyddiwr[auto]
 cmd.args.24:id chwaraewr, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Morgrugyn neu Bryfed neu Hadau, Os pryfyn: x, y, teipiwch Os morgrugyn: id Ant Hill Os Hadau: x, y.[auto]
 cmd.args.28:creadur id[auto]
 cmd.args.29:Allwedd llinynnol[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Pwll o ficroreoli'ch morgrug? Defnyddiwch y 2 fodd awtomatig sydd ar g
 conseil.4:Am amrywio arddull chwarae ychydig? dewiswch rywogaeth nad ydych wedi chwarae â hi eto.[auto]
 conseil.5:Mae rhai rhywogaethau morgrug yn polymorffig. Hynny yw, mae ganddyn nhw weithwyr o wahanol faint er mwyn gallu cyflawni tasgau hollol wahanol.[auto]
 conseil.6:Peidiwch â dodwy gormod o wyau ar unwaith. Fel arall, ni fyddwch yn gallu gofalu amdanynt nes iddynt ddod yn ddychmygion.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Mae morgrug yn mynd trwy 4 cam datblygu: wy, lafa, nymff a dychmyg (morgrugyn oedolion).[auto]
 conseil.8:Nodir y dewisiadau y mae'n rhaid i chi eu gwneud ar ben chwith eich sgrin.[auto]
 conseil.9:Nid oes gan forgrug amrant i wlychu eu llygaid. Rhaid iddynt gynnal ffordd iach o fyw yn gyson er mwyn gallu cyfathrebu â'u hantennae a gweld â'u llygaid.[auto]
 conseil.10:Nid yw wyau, lafa a nymffau yn gallu glanhau hyn ar eu pennau eu hunain. Mae angen help dychmyg arnynt o reidrwydd neu gallai bacteria drwg ei heintio. gwnewch yn siŵr bod eich nythaid yn aros uwchlaw glendid 50%.[auto]
@@ -452,7 +454,7 @@ tuto.30:Mae gweithwyr hyd yn oed yn fwy effeithlon ar rai tasgau (mae'n costio l
 tuto.31:Gadewch i ni roi tasg i'n gweithiwr ei chwblhau fel bod y rownd yn dod i ben. (cliciwch ar un o'r botymau ar waelod eich sgrin, sawl gwaith os oes angen.)[auto]
 tuto.32:Hon oedd rownd olaf y tiwtorial hwn, os oes gennych unrhyw amheuon gallwch ail-wneud y tiwtorial hwn.[auto]
 tuto.33:Fel arall mae'r disgrifiadau botwm yn cael eu harddangos pan fyddwch chi'n hofran drostyn nhw, ditto ar gyfer y blychau ar y map. Mae gwybodaeth am y morgrugyn a ddewiswyd ar ochr dde eich sgrin.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Er gwaethaf hyn, ni fyddwch yn dod o hyd i'r hyn sydd ei angen arnoch gallwch ofyn am gyngor ar weinydd anghytgord swyddogol y gêm: http://discord.gg/vqvfGzf[auto]
 tuto.35:Er mwyn ennill gêm mewn pryd mae'n rhaid bod gennych sgôr uwch nag AI a chwaraewyr eraill.[auto]
 tuto.36:Mae eich sgôr yn dibynnu ar nifer eich morgrug, (mae morgrug oedolion yn rhoi sgôr well), yn ogystal ag anhawster y gêm a chyflymder y gêm.[auto]
 tuto.37:I ailgychwyn gêm, mae'n rhaid i chi roi'r gorau i'r gêm a'i hailgychwyn, byddaf yn gofalu am roi'r gorau i'r gêm, eich dewis chi yw ei hailgychwyn.[auto]

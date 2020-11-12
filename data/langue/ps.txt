@@ -110,7 +110,7 @@ dimentionCarteY:په Y کې د لیک اندازه[auto]
 erreurCarteVide:پرته له کوم لوبغاړي او پرته له الف څخه لوبه پیل کول ناممکن دي.[auto]
 maxFourmiIa:د Ai لپاره د میږیانو اعظمي شمیر[auto]
 nomDuFichier:د دوتنې نوم[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:د خوندي کولو سیټ نوم دننه کړئ چې تاسو یې پورته کول غواړئ: (یا بیرته بیرته تلل)[auto]
 dernierTourPassé:وروستی پړاو اوس تېر شوی.[auto]
 victoireInconue:نامعلومه بریا[auto]
 élimination:له منځه وړل[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:بېرته اصلي مینو ته[auto]
 bouton.nom.-14:کویت[auto]
 bouton.nom.-15:بېرته لوبې ته[auto]
 
+save.message:خپل شاتړ ته د نوم ورکولو لپاره نوم دننه کړه.[auto]
+
 bouton.desc.0:نقشه لنډوی[auto]
 bouton.desc.1:نقشه پورته خوځوی[auto]
 bouton.desc.2:نقشه پراخه کړئ[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:د لوبو انتخابونو مینو کې پرانيزئ[auto]
 
 pti.desc.1:د میږې شناخت په ګوته کړئ چې خواړه به ترلاسه کړي.[auto]
 pti.desc.2:د وړاندیز شوي خواړو مقدار په ګوته کړئ.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:د هګۍ ډول د ایښودو څرنګوالی په ګوته کړئ: 0 = ملکه ، 1 = نر ، 2 = کوچنی ، 3 = منځني ، 4 = لوی ، 5 + = نور.[auto]
 pti.desc.4:لارښوونې تعقیب کړئ.[auto]
 pti.desc.5:د میږې شناخت پاک کړئ. ترټولو ستره وږمه یې په یوه ځای کې د وږی په حیث ده.[auto]
 
 triche.aide.1:د فارمیکو چیټ انٹرفیس ته ښه راغلاست. دا هغه ځای دی چیرې چې تاسو کولی شئ د چیټ کمانډونه ټایپ کړئ.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:په فورمه کې حکمونه "نوم: (دلیلونه) توضیحات"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:د پیدایښت ID مرحله[auto]
 cmd.args.15:د مخلوق ID ، فیشن[auto]
 cmd.args.16:د مخلوق ID، د انتھیل ID[auto]
 cmd.args.17:د ژويو پېژند نوع[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:د مخلوق تشخص ، پاکوالی[auto]
 cmd.args.19:د مخلوق پېژند ، مقدار لېږدول[auto]
 cmd.args.20:د تخم id ، هارډینګ میکس[auto]
 cmd.args.21:د حشراتو شناختي خواړه چمتو شوي[auto]
@@ -375,7 +377,7 @@ cmd.args.22:د حشراتو ID ، خواړه[auto]
 cmd.args.23:غږوونی نوم، کارن نوم[auto]
 cmd.args.24:د پلیر ID ، بولین ایسټیا[auto]
 cmd.args.25:انټ ایکس ، انټ وای[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:چینګه یا حشرات یا تخم ، که حشرات: x ، y ، نو که ټیټ: id اینټ هیل که تخم وي: x ، y.[auto]
 cmd.args.28:ځواني پېژند[auto]
 cmd.args.29:ستن کیلي[auto]
 
@@ -390,7 +392,7 @@ conseil.3:ستاسو د میږیانو د مایکرو مدیریت حوض؟ س�
 conseil.4:غواړئ د لوبې ډول یو څه توپیر کړئ؟ یو ډول غوره کړئ چې تاسو تراوسه نه دی لوبولی.[auto]
 conseil.5:ځیني چینجي یا ډولونه پولی پولیفیک دي. دا پدې مانا ده چې دوی د متغیره اندازې کارګران لري ترڅو د مختلف مختلف دندو ترسره کولو لپاره وړ وي.[auto]
 conseil.6:په یوځل کې ډیری هګۍ مه ورکوئ. که نه نو تاسو به ونه توانئ چې دوی ته پاملرنه وکړئ تر هغه چې دوی امام شو.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:میږی د پرمختګ څلور مرحلو څخه تیریږی: هګۍ ، لوا ، نیمف او اماګو (د بالغانو ژوی).[auto]
 conseil.8:هغه انتخابونه چې تاسو یې باید ترسره کړئ ستاسو د سکرین په پورتنۍ بائیں کې ښودل شوي.[auto]
 conseil.9:میږې سترګې نلري چې سترګې یې پخه کړي. دوی باید په دوامداره توګه صحي ژوند غوره کړي ترڅو د دوی انتن سره اړیکه ونیسي او د دوی د سترګو سره وګوري.[auto]
 conseil.10:هګۍ ، لوا او اپفس نشي کولی دا پخپله پاک کړي. دوی اړین د اماګو مرستې ته اړتیا لري که نه نو دا کولی شي د خراب باکتریا لخوا اخته شي. ډاډ ترلاسه کړئ چې ستاسو غوړ د 50 above پاکوالي څخه پورته وي.[auto]
@@ -452,7 +454,7 @@ tuto.30:کارګران په ځانګړو کارونو حتی خورا اغیزم
 tuto.31:راځئ چې خپل کارګر ته دنده ورکړئ چې بشپړ شي ترڅو پړاو پای ته ورسي. (د خپلې پردې په پورتنۍ برخه کې یوې تonsۍ باندې کلیک وکړئ ، څو ځله اړین که.)[auto]
 tuto.32:دا د دې لارښود وروستی پړاو و ، که تاسو کوم شک لرئ نو کولی شئ دا ټیټوریل بیرته کړئ.[auto]
 tuto.33:که نه نو د ت buttonۍ توضیحات ښودل کیږي کله چې تاسو له هغې څخه ځورول کیږئ ، په نقشه کې د بکسونو لپاره. د ټاکل شوي چینۍ په اړه معلومات ستاسو د سکرین په ښي خوا کې دي.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:که چیرې د دې سره سره تاسو هغه څه ونه مومئ چې اړتیا ورته لرئ ، تاسو کولی شئ د لوبې رسمي ډیسکور سرور باندې مشوره وغواړئ: http://discord.gg/vqvfGzf[auto]
 tuto.35:په وخت د لوبې ګټلو لپاره تاسو باید د AI او نورو لوبغاړو څخه لوړه نمره ولرئ.[auto]
 tuto.36:ستاسو نمره ستاسو د میږیانو په شمیر پورې اړه لري ، (د ځوانۍ میږې غوره نمره ورکوي) ، او همدارنګه د لوبې مشکل او د لوبې سرعت.[auto]
 tuto.37:د لوبو بیا پیل کولو لپاره ، تاسو باید لوبه پریږدئ او دا له سره پیل کړئ ، زه د لوبې پریښودلو ته پاملرنه کوم ، دا تاسو پورې اړه لري چې دا له سره چالان کړئ.[auto]

@@ -110,7 +110,7 @@ dimentionCarteY:tsamba kukura muY[auto]
 erreurCarteVide:zvisingaite kutanga mutambo pasina chero mutambi uye pasina chero ai.[auto]
 maxFourmiIa:huwandu hwemasvosve eai[auto]
 nomDuFichier:zita refaira[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Isa zita resaiti yekuisa iwe yaunoda kurodha: (Kana kudzoka kuti udzokere)[auto]
 dernierTourPassé:Raundi yekupedzisira zvino yapfuura.[auto]
 victoireInconue:kukunda kusingazivikanwe[auto]
 élimination:kubviswa[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:dzokera kumenu huru[auto]
 bouton.nom.-14:kurega Svosve[auto]
 bouton.nom.-15:dzokera kunotamba[auto]
 
+save.message:isa zita rekupa kune yako backup.[auto]
+
 bouton.desc.0:Shinyira mepu[auto]
 bouton.desc.1:Fambisa mepu kumusoro[auto]
 bouton.desc.2:Kurisa mepu[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Vhura iyo yemutambo-mutambo menyu[auto]
 
 pti.desc.1:Ratidza id yejuru iyo ichagamuchira chikafu.[auto]
 pti.desc.2:Ratidza huwandu hwechikafu chinopihwa.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Ratidza rudzi rwezai kukandira: 0 = Mambokadzi, 1 = Murume, 2 = Mudiki, 3 = Pakati, 4 = Huru, 5 + = Zvimwe.[auto]
 pti.desc.4:Ratidza gwara raunofanira kutevera.[auto]
 pti.desc.5:Ratidza id yemasvosve kuti icheneswe. Svosve rakasviba kwazvo svosve riri panzvimbo yekutanga[auto]
 
 triche.aide.1:tinogamuchirwa kuFormiko cheat interface. Apa ndipo paunogona kutaipa kubiridzira mirairo.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:rairo muchimiro "zita: (nharo) tsananguro"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:chisikwa id danho[auto]
 cmd.args.15:chisikwa id, fashoni[auto]
 cmd.args.16:chisikwa id, chigamba[auto]
 cmd.args.17:zvisikwa id zvisikwa[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:chisikwa id, utsanana[auto]
 cmd.args.19:chisikwa id, huwandu hwakatakurwa[auto]
 cmd.args.20:mbeu id, kuomaMax[auto]
 cmd.args.21:zvipembenene id chikafu chakapihwa[auto]
@@ -375,7 +377,7 @@ cmd.args.22:chipembenene id, chikafu[auto]
 cmd.args.23:player id, username[auto]
 cmd.args.24:mutambi id, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Svosve kana Tupukanana kana Mbeu, Kana zvipembenene: x, y, nyora Kana svosve: id Svosve Chikomo Kana Mbeu: x, y.[auto]
 cmd.args.28:chisikwa id[auto]
 cmd.args.29:Tambo kiyi[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Padzi rekutsvaira masvosve ako? Shandisa iyo 2 otomatiki modes dzauina
 conseil.4:Unoda kusiyanisa maitiro ekutamba zvishoma? sarudza mhando yausati watamba nayo parizvino.[auto]
 conseil.5:Mamwe masvosve marudzi ane polymorphic. Ndokureva kuti vane vashandi vehukuru hwakasiyana kuti vakwanise kuita akasiyana mabasa.[auto]
 conseil.6:Usaisa mazai akawandisa panguva imwe chete. Zvikasadaro iwe haugone kuvachengeta kusvikira vaita imagos.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Masvosve anodarika nematanho mana ebudiriro: zai, rava, nymph uye imago (svosve vakuru).[auto]
 conseil.8:Sarudzo dzaunofanirwa kuita dzinoratidzwa kumusoro kwekuruboshwe kwescreen yako.[auto]
 conseil.9:Masvosve haana eyelid yekunyorovesa maziso avo. Vanofanira kugara vachirarama hupenyu hune hutano kuitira kuti vakwanise kutaura neiyo kanyanga uye nekuona nemaziso avo.[auto]
 conseil.10:Mazai, lava uye nymphs havakwanise kuzvichenesa izvi vega. Ivo vanodikanwa rubatsiro rwe imago zvikasadaro inogona kutapukirwa nehutachiona hwakaipa. ita shuwa kuti vana vako vanoramba vari pamusoro pe50% yakachena.[auto]
@@ -452,7 +454,7 @@ tuto.30:Vashandi vanotonyanya kushanda pane mamwe mabasa (zvinovatorera zviito z
 tuto.31:Ngatipei mushandi wedu basa rekupedzisa kuitira kuti denderedzwa ripere (tinya pane rimwe bhatani riri pazasi kwescreen yako, kakawanda kana zvichidikanwa.)[auto]
 tuto.32:Yakanga iri yekupedzisira denderedzwa redzidziso iyi, kana iwe uine chero kusahadzika unogona kuitazve iyi dzidziso.[auto]
 tuto.33:Zvikasadaro bhatani rondedzero dzinoratidzwa kana iwe uchifamba pamusoro pazvo, ditto yemabhokisi ari pamepu. Ruzivo nezve svosve rakasarudzwa riri kurudyi kwescreen yako.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Kana zvisinei neizvi usingawani zvaunoda, unogona kutsvaga mazano pane mutambo wepamutemo kusawirirana server: http://discord.gg/vqvfGzf[auto]
 tuto.35:Kuti ukunde mutambo nenguva unofanirwa kunge uine mamaki akakwirira kupfuura AI nevamwe vatambi.[auto]
 tuto.36:Chibodzwa chako chinoenderana nenhamba yako yemasvosve, (vakuru masvosve anopa mamaki ari nani), pamwe nekuoma kwemutambo uye kumhanya kwemutambo.[auto]
 tuto.37:Kuti utangezve mutambo, iwe unofanirwa kusiya mutambo uye kuutangazve, ini ndichatarisira zvekusiya mutambo, zviri kwauri kuti utangezve.[auto]

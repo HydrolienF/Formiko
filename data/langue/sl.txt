@@ -110,7 +110,7 @@ dimentionCarteY:dimenzija črk v Y[auto]
 erreurCarteVide:nemogoče začeti igro brez igralca in brez ai.[auto]
 maxFourmiIa:največje število mravelj za ai[auto]
 nomDuFichier:Ime datoteke[auto]
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getNomDuFcihier:Vnesite ime shrambe, ki jo želite naložiti: (ali nazaj, če se želite vrniti)[auto]
 dernierTourPassé:Zdaj je zadnji krog minil.[auto]
 victoireInconue:neznana zmaga[auto]
 élimination:izločanje[auto]
@@ -294,6 +294,8 @@ bouton.nom.-13:nazaj v glavni meni[auto]
 bouton.nom.-14:zapustil Ant[auto]
 bouton.nom.-15:nazaj k igri[auto]
 
+save.message:vnesite ime za varnostno kopijo.[auto]
+
 bouton.desc.0:Skrči zemljevid[auto]
 bouton.desc.1:Premakni zemljevid navzgor[auto]
 bouton.desc.2:Povečajte zemljevid[auto]
@@ -332,12 +334,12 @@ bouton.desc.31:Odprite meni z možnostmi v igri[auto]
 
 pti.desc.1:Navedite id mravlje, ki bo prejela hrano.[auto]
 pti.desc.2:Navedite količino ponujene hrane.[auto]
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.3:Navedite vrsto jajca, ki naj se odloži: 0 = kraljica, 1 = moški, 2 = manjše, 3 = srednje, 4 = glavno, 5 + = drugo.[auto]
 pti.desc.4:Navedite smer.[auto]
 pti.desc.5:Navedite id mravlje, ki jo je treba očistiti. Najbolj umazana mravlja je mravlja v položaju 1.[auto]
 
 triche.aide.1:dobrodošli v vmesniku za goljufanje Formiko. Tu lahko vtipkate ukaze za goljufanje.[auto]
-triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
+triche.aide.2:ukazi v obliki "ime: (argumenti) opis"[auto]
 
 //commande :
 
@@ -367,7 +369,7 @@ cmd.args.14:bitje id faza[auto]
 cmd.args.15:bitje id, moda[auto]
 cmd.args.16:bitje id, mravljišče id[auto]
 cmd.args.17:vrsta bitja[auto]
-cmd.args:18:id créature, propreté
+cmd.args.18:bitje, čistoča[auto]
 cmd.args.19:ID bitja, prepeljana količina[auto]
 cmd.args.20:ID semena, trdota Max[auto]
 cmd.args.21:zagotovljena hrana za žuželke[auto]
@@ -375,7 +377,7 @@ cmd.args.22:id žuželk, hrana[auto]
 cmd.args.23:ID igralca, uporabniško ime[auto]
 cmd.args.24:ID igralca, logična estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:Mravlja ali žuželka ali seme, če je žuželka: x, y, vnesite If ant: id Ant Hill Če je seme: x, y.[auto]
 cmd.args.28:bitje id[auto]
 cmd.args.29:Tipka niza[auto]
 
@@ -390,7 +392,7 @@ conseil.3:Ribnik za mikro upravljanje mravlje? Na voljo sta vam dva samodejna na
 conseil.4:Želite nekoliko spremeniti slog igre? izberite vrsto, s katero se še niste igrali.[auto]
 conseil.5:Nekatere vrste mravelj so polimorfne. Se pravi, da imajo delavce različnih velikosti, da lahko opravljajo precej različne naloge.[auto]
 conseil.6:Ne odlagajte preveč jajc hkrati. V nasprotnem primeru zanje ne boste mogli skrbeti, dokler ne postanejo slike.[auto]
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.7:Mravlje gredo skozi 4 stopnje razvoja: jajčece, lava, nimfa in imago (odrasla mravlja).[auto]
 conseil.8:Odločitve, ki jih morate sprejeti, so označene v zgornjem levem kotu zaslona.[auto]
 conseil.9:Mravlje nimajo veke, da bi si navlažile oči. Neprestano morajo vzdrževati zdrav življenjski slog, da lahko komunicirajo s svojimi antenami in vidijo z očmi.[auto]
 conseil.10:Jajca, lava in nimfe tega ne morejo očistiti sami. Nujno potrebujejo pomoč imaga, sicer bi ga lahko okužila slaba bakterija. poskrbite, da bo vaša zalega ostala nad 50% čistoče.[auto]
@@ -452,7 +454,7 @@ tuto.30:Delavci so pri nekaterih nalogah še bolj učinkoviti (njihovo izvajanje
 tuto.31:Dajmo našemu delavcu nalogo, ki jo mora opraviti, da se krog konča. (po potrebi večkrat kliknite enega od gumbov na dnu zaslona.)[auto]
 tuto.32:Bil je zadnji krog te vadnice, če dvomite, jo lahko ponovite.[auto]
 tuto.33:V nasprotnem primeru se opisi gumbov prikažejo, ko premaknete miškin kazalec nad njimi, prav tako za polja na zemljevidu. Informacije o izbrani mravljici so na desni strani zaslona.[auto]
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.34:Če kljub temu ne najdete tistega, kar potrebujete, poiščite nasvet na uradnem strežniku za neskladja v igri: http://discord.gg/vqvfGzf[auto]
 tuto.35:Če želite pravočasno zmagati v igri, morate imeti višji rezultat kot AI in drugi igralci.[auto]
 tuto.36:Vaš rezultat je odvisen od vašega števila mravelj (odrasli mravi dajo boljši rezultat), pa tudi od težavnosti igre in hitrosti igre.[auto]
 tuto.37:Če želite znova zagnati igro, morate zapreti igro in jo znova zagnati, jaz bom poskrbel za izhod iz igre, na vas je, da jo znova zaženete.[auto]
