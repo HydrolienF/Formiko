@@ -132,6 +132,7 @@ Hydrolien
 
 *developer: / développeur : / ellaboranto:*
 Hydrolien
+Bidulman
 
 *translator: / traducteur : / tradukisto:*
 Hydrolien
@@ -144,7 +145,8 @@ Foresty
 
 *beta tester: / bêta testeur : / beta-testilo:*
 Hydrolien
-whispered#1234
+whispered
+Lygaen
 
 ###EN
 `license: all rights reserved. Contact hydrolien.lili502@gmail.com`
