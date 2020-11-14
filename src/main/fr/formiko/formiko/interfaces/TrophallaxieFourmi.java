@@ -103,7 +103,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
         t[i]=i+1;
       }
       BoiteListeDefilante bld = new BoiteListeDefilante();
-      int n = bld.getChoixId(t,"pti.desc.2");
+      int n = bld.getChoixId(t,g.get("pti.desc.2"));
       trophallaxie(c,c2,n);
     }
   }

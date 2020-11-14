@@ -78,7 +78,7 @@ public class chargerLesOptions {
     }else if(x>=1920*0.8){ // entre 0.8 et 1.3
       t[0]=0;t[1]=1;//t[2]=-1;
     }else if(x>=1920*0.5){ // entre 0.5 et 0.7
-      t[0]=0;t[1]=0;t[2]=-2;
+      t[0]=0;t[1]=0;//t[2]=-2;
     }else{ // moins de 0.5
       t[0]=-1;t[1]=-1;//t[2]=-2;
     }
@@ -125,6 +125,7 @@ public class chargerLesOptions {
     Locale currentLocale = Locale.getDefault();
     debug.débogage("Langue locale = "+currentLocale.getLanguage());
     String lang = currentLocale.getLanguage();
+    chargerLesTraductions.iniTLangue();
     chargerLesOptionsDe0(chargerLesTraductions.getLangue(lang));
   }
 }

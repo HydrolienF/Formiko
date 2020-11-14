@@ -9,6 +9,27 @@ import fr.formiko.usuel.tableau;
 public class ImgTest extends TestCaseMuet{
 
   // Fonctions propre -----------------------------------------------------------
+  //equals() work if tableau.equals(t,t2) work.
+  @Test
+  public void testClone(){
+    Img img = new Img(3,3);
+    byte t [][] = new byte[3][3];
+    int j=0;
+    for (byte t2[] : t) {
+      for (int i=0;i<t2.length ;i++ ) {
+        t2[i]=(byte)(i+j);
+      } j+=3;
+    }
+    img.setAlpha(t);//on rempli alpha rouge, vert, bleu avec 4 tableau.
+    img.setRouge(tableau.copier(t));
+    img.setVert(tableau.copier(t));
+    img.setBleu(tableau.copier(t));
+    assertTrue(img.iniWH());
+    Img img2 = img.clone();
+    assertTrue(img.equals(img2));
+    img2.setAlpha(2,2,(byte)-5);
+    assertTrue(!img.equals(img2));
+  }
   @Test
   public void testTourner(){
     Img img = new Img(3,3);
@@ -29,20 +50,24 @@ public class ImgTest extends TestCaseMuet{
     img.setVert(tableau.copier(t));
     img.setBleu(tableau.copier(t));
     //tourner pour de faut.
-    Img img2 = img.tourner(0);
+    Img img2 = img.clone();
+    img2.tourner(0);
     assertTrue(tableau.equals(img.getAlpha(),img2.getAlpha()));
-    img2 = img.tourner(4);
+    img2 = img.clone();
+    img2.tourner(4);
     assertTrue(tableau.equals(img.getAlpha(),img2.getAlpha()));
     //tourner de 90°
-    Img img3 = img.tourner(1);
+    Img img3 = img.clone();
+    img3.tourner(1);
     byte t3 [][] = new byte[3][3];
     t3[0][0]=2;t3[0][1]=5;t3[0][2]=8;
     t3[1][0]=1;t3[1][1]=4;t3[1][2]=7;
     t3[2][0]=0;t3[2][1]=3;t3[2][2]=6;
     assertTrue(tableau.equals(t3,img3.getAlpha()));
     //tourner de 180°
-    Img img4 = img.tourner(2);
-    img3 = img3.tourner(1);
+    Img img4 = img.clone();
+    img4.tourner(2);
+    img3.tourner(1);
     byte t4 [][] = new byte[3][3];
     t4[0][0]=8;t4[0][1]=7;t4[0][2]=6;
     t4[1][0]=5;t4[1][1]=4;t4[1][2]=3;
@@ -50,13 +75,67 @@ public class ImgTest extends TestCaseMuet{
     assertTrue(tableau.equals(t4,img4.getAlpha()));
     assertTrue(tableau.equals(t4,img3.getAlpha()));
     //tourner de -90°
-    Img img5 = img.tourner(3);
-    img3 = img3.tourner(1);
+    Img img5 = img.clone();
+    img5.tourner(3);
+    img3.tourner(1);
     t[0][0]=6;t[0][1]=3;t[0][2]=0;
     t[1][0]=7;t[1][1]=4;t[1][2]=1;
     t[2][0]=8;t[2][1]=5;t[2][2]=2;
     assertTrue(tableau.equals(t,img5.getAlpha()));
     assertTrue(tableau.equals(t,img3.getAlpha()));
+  }
+  @Test
+  public void testTourner2(){
+    Img img = new Img(2,3);
+    byte t [][] = new byte[2][3];
+    int j=0;
+    for (byte t2[] : t) {
+      for (int i=0;i<t2.length ;i++ ) {
+        t2[i]=(byte)(i+j);
+      } j+=3;
+    }
+    /*
+    0 1 2
+    3 4 5
+    */
+    img.setAlpha(t);//on rempli alpha rouge, vert, bleu avec 4 tableau.
+    img.setRouge(tableau.copier(t));
+    img.setVert(tableau.copier(t));
+    img.setBleu(tableau.copier(t));
+    //tourner pour de faut.
+    Img img2 = img.clone();
+    img2.tourner(0);
+    assertTrue(tableau.equals(img.getAlpha(),img2.getAlpha()));
+    img2 = img.clone();
+    img2.tourner(4);
+    assertTrue(tableau.equals(img.getAlpha(),img2.getAlpha()));
+    //tourner de 90°
+    Img img3 = img.clone();
+    img3.tourner(1);
+    byte t3 [][] = new byte[3][2];
+    t3[0][0]=2;t3[0][1]=5;
+    t3[1][0]=1;t3[1][1]=4;
+    t3[2][0]=0;t3[2][1]=3;
+    assertTrue(tableau.equals(t3,img3.getAlpha()));
+    //tourner de 180°
+    Img img4 = img.clone();
+    img4.tourner(2);
+    img3.tourner(1);
+    byte t4 [][] = new byte[2][3];
+    t4[0][0]=5;t4[0][1]=4;t4[0][2]=3;
+    t4[1][0]=2;t4[1][1]=1;t4[1][2]=0;
+    assertTrue(tableau.equals(t4,img4.getAlpha()));
+    assertTrue(tableau.equals(t4,img3.getAlpha()));
+    //tourner de -90°
+    Img img5 = img.clone();
+    img5.tourner(3);
+    img3.tourner(1);
+    byte t5 [][] = new byte[3][2];
+    t5[0][0]=3;t5[0][1]=0;
+    t5[1][0]=4;t5[1][1]=1;
+    t5[2][0]=5;t5[2][1]=2;
+    assertTrue(tableau.equals(t5,img5.getAlpha()));
+    assertTrue(tableau.equals(t5,img3.getAlpha()));
   }
   @Test
   public void testCompterBordTransparent(){

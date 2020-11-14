@@ -239,7 +239,7 @@ public class CCreature implements Serializable{
         Joueur j = f.getJoueur();
         GCase gc = f.getCCase().getGca(1); //ensemble des case vue par la créature.
         CCase cca = gc.getDébut();
-        while(cc!=null){
+        while(cca!=null){
           int x = cca.getContenu().getX(); int y = cca.getContenu().getY();
           j.setCaseSombre(x,y,false);
           j.setCaseNuageuse(x,y,false);
