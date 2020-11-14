@@ -1,19 +1,19 @@
 **Formiko**
 
-###EN / FR / EO
+### EN / FR / EO
 *Update: / Mise à jour : / Ĝisdatigu:* https://formikoludo.wordpress.com/telechargement/
 *Support: / Support : / Subteno:* https://discord.gg/9uHXJ9K
 
-###EN
+### EN
 `Formiko is a game where you play as a ant queen who develops its anthill.`
 
-###FR
+### FR
 `Formiko est un jeu ou vous incarnez une reine fourmi qui dévelloppe sa fourmilière.`
 
-###EO
+### EO
 `Formiko estas ludo, kie vi ludas kiel reĝinformiko, kiu disvolvas ŝian formikejon.`
 
-###EN
+### EN
 *How to play*
 
 + Windows
@@ -29,7 +29,7 @@ To start the game, you just need to double click on the formiko.bat file.
 
 `
 
-###FR
+### FR
 *Comment jouer*
 
 + Windows
@@ -45,7 +45,7 @@ Pour lancer le jeu il vous suffit de double cliquer sur le fichier formiko.bat.
 
 `
 
-###EO
+### EO
 *Kiel ludi*
 
 + Vindozo
@@ -62,19 +62,19 @@ Por komenci la ludon, vi nur bezonas duoble alklaki la dosieron formiko.bat.
 `
 
 
-###EN
+### EN
 *how can i help in the development of the game*
 `We need graphic designers, translators, coders and above all beta testers. Contact us via the discord link to find out more.`
 
-###FR
+### FR
 *comment puis-je aider au développement du jeu*
 `Nous avons besoin de graphistes, de traducteurs, de codeurs et surtout de beta testeurs. Contactez nous via le lien discord pour en savoir plus.`
 
-###EO
+### EO
 *kiel mi povas helpi en la disvolviĝo de la ludo*
 `Ni bezonas grafikistojn, tradukistojn, kodilojn kaj precipe beta-testilojn. Kontaktu nin per la malkonkorda ligilo por ekscii pli.`
 
-###EN
+### EN
 *how to solve errors*
 
 `If the window closes unexpectedly, a fatal error may be detected. This usually has an associated error message (maybe in French.)
@@ -91,7 +91,7 @@ If the console is open a Ctrl-c or Ctrl-Shift-c in the console should force the 
 If that doesn't change anything, start the task manager and force the java shutdown.
 If none of the above solutions have effected shut down your computer, restarting the game will no longer cause you any problems.`
 
-###FR
+### FR
 *comment résoudre les erreurs*
 
 `Si la fenêtre se ferme de manière inopinée, une erreur fatale a pue être détectée. Celle ci a généralement un message d'erreur associé(peut-être en français.)
@@ -108,7 +108,7 @@ Si la console est ouverte un Ctrl-c ou Ctrl-Maj-c dans la console devrais forcer
 Si cela ne change rien lancer le gestionaire des taches et forcez la fermeture de java.
 Si aucune des solutions si dessus n'as eux d'effect éteingnez votre ordinateur, au redémarage le jeu ne vous causera plus de soucis.`
 
-###EO
+### EO
 *kiel solvi erarojn*
 
 `Se la fenestro fermiĝas neatendite, eble estos malkovrita fatala eraro. Ĉi tio kutime havas asociitan erarmesaĝon (eble en la franca.)
@@ -126,7 +126,7 @@ Se tio nenion ŝanĝas, rulu la taskadministrilon kaj devigu la ĉesigon de Java
 Se neniu el la supraj solvoj efektive malŝaltis vian komputilon, rekomenci la ludon ne plu kaŭzos al vi problemojn.`
 
 
-###EN / FR / EO
+### EN / FR / EO
 *creator: / créateur : / kreinto:*
 Hydrolien
 
@@ -148,11 +148,11 @@ Hydrolien
 whispered
 Lygaen
 
-###EN
+### EN
 `license: all rights reserved. Contact hydrolien.lili502@gmail.com`
 
-###FR
+### FR
 `licence : tout droit réservé. Contactez hydrolien.lili502@gmail.com`
 
-###¢O
+### ¢O
 `licenco: ĉiuj rajtoj rezervitaj. Kontaktu hydrolien.lili502@gmail.com`
