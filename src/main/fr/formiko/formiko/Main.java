@@ -561,8 +561,11 @@ public class Main {
    * @version 1.1
    */
   public static void chargementDesGraphismesAutonomes(){
-    Th thTemp = new Th(1);
-    thTemp.start();
+    if(premierePartie){ini.initialiserPanneauJeuEtDépendance();}
+    else{
+      Th thTemp = new Th(1);
+      thTemp.start();
+    }
     Th thTemp2 = new Th(2);
     thTemp2.start();
   }
