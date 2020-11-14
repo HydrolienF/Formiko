@@ -131,11 +131,14 @@ public class PanneauZoom extends Panneau {
   public void tournerLesFleches(String nom){
     initialisationFX=true;
     Img f = new Img(nom);
-    Img f1 = f.tourner(1);
-    Img f2 = f.tourner(3);
-    Img f3 = f.tourner(2);
-    f1.sauvegarder("fleche1.png");
+    Img f1 = f.clone();
+    f1.tourner(1);
+    Img f2 = f.clone();
+    f2.tourner(3);
+    Img f3 = f.clone();
+    f3.tourner(2);
     f2.sauvegarder("fleche2.png");
+    f1.sauvegarder("fleche1.png");
     f3.sauvegarder("fleche3.png");
   }public void tournerLesFleches(){ tournerLesFleches("fleche");}
   public void doAction(byte ac){

@@ -93,6 +93,10 @@ public class Main {
     while(args.length > 0 && args[0].substring(0,1).equals("-")){//si il y a des options a "-"
       if(args[0].equals("-d")){
         debug.setAffLesEtapesDeRésolution(true);
+      }else if(args[0].equals("-p")){
+        debug.setAffLesPerformances(true);
+      }else if(args[0].equals("-g")){
+        debug.setAffG(true);
       }else if(args[0].equals("-reload--graphics") || args[0].equals("-rg")){
         initialisation();
         getOp().setGarderLesGraphismesTourné(false);
@@ -166,6 +170,24 @@ public class Main {
         Map<String, String> mapEo = chargerLesTraductions.chargerLesTraductions(0);//chargement des langues.
         trad.copieTradBase("eo",mapEo);
         //chargerLesTraductions.ajouterTradAuto();
+      }else if (args[0].equals("rbt") || args[0].equals("rognerBordTransparent")){
+        String nom = "";
+        nom = args[1];int k=2;
+        while(nom!=null){
+          debug.débogage("=============================Chargement de l'image "+nom);
+          //Image i = image.getImage(nom,image.getREP());
+          Img img = new Img(image.getImage(nom,image.getREP()));
+          debug.débogage("=============================Ronage de l'image "+nom);
+          img.rognerBordTransparent();
+          img.actualiserImage();
+          debug.débogage("=============================Sauvegarde de l'image "+nom);
+          img.sauvegarder(image.getREP(),nom+".png");
+          try {
+            nom=args[k++];
+          }catch (Exception e) {
+            nom=null;
+          }
+        }
       }else{
         erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue");
       }
@@ -489,8 +511,12 @@ public class Main {
     if(!debug.getAffLesEtapesDeRésolution()){//si elle n'ont pas été activé par "-d"
       debug.setAffLesEtapesDeRésolution(op.getAffLesEtapesDeRésolution());
     }
-    debug.setAffLesPerformances(op.getAffLesPerformances());
-    debug.setAffG(op.getAffG());
+    if(!debug.getAffLesPerformances()){//si elle n'ont pas été activé par "-p"
+      debug.setAffLesPerformances(op.getAffLesPerformances());
+    }
+    if(!debug.getAffG()){//si elle n'ont pas été activé par "-g"
+      debug.setAffG(op.getAffG());
+    }
     finCh("chargementDesOptions");
     setMessageChargement("chargementDesTouches");débutCh();
     key = chargerLesTouches.chargerLesTouches();

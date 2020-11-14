@@ -23,11 +23,15 @@ import fr.formiko.usuel.image.image;
 import fr.formiko.usuel.math.math;
 import fr.formiko.usuel.conversiondetype.str;
 
-
-public class Img {
+/**
+*{@summary Img is a BufferedImage where you can edit pixel value, then save it on a local file or draw it.<br>}
+*@author Hydrolien
+*@version 1.11
+*/
+public class Img implements Cloneable{
   private Random rand = new Random();
-  private final BufferedImage img;
-  private final int width, height;
+  private BufferedImage bi;
+  private int width, height;
   private byte [][] rouge;
   private byte [][] vert;
   private byte [][] bleu;
@@ -35,9 +39,9 @@ public class Img {
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Img(Image i){
     if (i==null){ erreur.erreur("impossible de créer une Img a partir d'une Image null","Img.Img",true);}
-    img = (BufferedImage) i;
-    width = img.getWidth();
-    height = img.getHeight();
+    bi = (BufferedImage) i;
+    width = bi.getWidth();
+    height = bi.getHeight();
     debug.débogage("Initialisation des 4 tableaux.");
     setRouge(); setVert(); setBleu(); setAlpha();
   }
@@ -63,7 +67,7 @@ public class Img {
   public Img(int width,int height){
     if(width < 0 || height < 0){erreur.erreur("Impossible d'initialiser une image avec des dimentions négative : "+width+","+height,"Img.Img","taille set a 0"); width=0; height=0;}
     this.width=width; this.height=height;
-    img = new BufferedImage(width,height,java.awt.image.BufferedImage.TYPE_INT_ARGB);
+    bi = new BufferedImage(width,height,java.awt.image.BufferedImage.TYPE_INT_ARGB);
     alpha = new byte[width][height];
     rouge = new byte[width][height];
     vert = new byte[width][height];
@@ -79,7 +83,7 @@ public class Img {
     }*/
   }
   // GET SET --------------------------------------------------------------------
-  public BufferedImage getImg(){ return img;}
+  public BufferedImage getBi(){ return bi;}
   public byte[][] getAlpha() { // transparence.
     if (alpha != null){ return alpha;}
     else { setAlpha(); return alpha;}
@@ -89,7 +93,7 @@ public class Img {
     alpha = new byte[width][height];
     for (int i = 0 ; i < width; i++)
       for (int j = 0; j < height; j++)
-        alpha[i][j] = (byte)(((img.getRGB(i,j)>>24)&255) -128);
+        alpha[i][j] = (byte)(((bi.getRGB(i,j)>>24)&255) -128);
   }public void setAlpha(int i,int j, byte x){ alpha[i][j]=x;}
   public void setA(int i,int j, byte x){setAlpha(i,i,x);}
 
@@ -102,7 +106,7 @@ public class Img {
     rouge = new byte[width][height];
     for (int i = 0 ; i < width; i++)
       for (int j = 0; j < height; j++)
-        rouge[i][j] = (byte)(((img.getRGB(i,j)>>16)&255) -128);
+        rouge[i][j] = (byte)(((bi.getRGB(i,j)>>16)&255) -128);
   }public void setRouge(int i,int j, byte x){ rouge[i][j]=x;}
   public void setR(int i,int j, byte x){setRouge(i,i,x);}
 
@@ -116,7 +120,7 @@ public class Img {
     vert = new byte[width][height];
     for (int i = 0 ; i < width; i++)
       for (int j = 0; j < height; j++)
-        vert[i][j] = (byte)(((img.getRGB(i,j)>>8)&255) -128);
+        vert[i][j] = (byte)(((bi.getRGB(i,j)>>8)&255) -128);
   }public void setVert(int i,int j, byte x){ vert[i][j]=x;}
   public void setV(int i,int j, byte x){setVert(i,i,x);}
 
@@ -129,7 +133,7 @@ public class Img {
     bleu = new byte[width][height];
     for (int i = 0 ; i < width; i++)
       for (int j = 0; j < height; j++)
-        bleu[i][j] = (byte)((img.getRGB(i,j)&255) -128);
+        bleu[i][j] = (byte)((bi.getRGB(i,j)&255) -128);
   }public void setBleu(int i,int j, byte x){ bleu[i][j]=x;}
   public void setB(int i,int j, byte x){setBleu(i,i,x);}
 
@@ -137,7 +141,7 @@ public class Img {
     byte [][] gray = new byte[width][height];
     for (int i = 0 ; i < width; i++)
       for (int j = 0; j < height; j++)
-        gray[i][j] = (byte)(((img.getRGB(i,j)&255)  + ((img.getRGB(i,j)>>8)&255)*10  + ((img.getRGB(i,j)>>16)&255)*3 ) / 14);
+        gray[i][j] = (byte)(((bi.getRGB(i,j)&255)  + ((bi.getRGB(i,j)>>8)&255)*10  + ((bi.getRGB(i,j)>>16)&255)*3 ) / 14);
     return gray;
   }
   /*public Image getImage(){
@@ -148,8 +152,8 @@ public class Img {
   public void setVert(byte [][] x){vert=x;}
   public void setBleu(byte [][] x){bleu=x;}
   public void setAlpha(byte [][] x){alpha=x;}
-  public int getWidth(){return img.getWidth();}
-  public int getHeight(){return img.getHeight();}
+  public int getWidth(){return width;}
+  public int getHeight(){return height;}
   public void setARVB(int i, int j, int x){setARVB(i,j,(byte)x);}
   public void setARVB(int i, int j, byte x){setA(i,j,x);setR(i,j,x);setV(i,j,x);setB(i,j,x);}
   public Pixel getPixel(int i, int j){ return new Pixel(getR(i,j),getV(i,j),getB(i,j),getA(i,j));}
@@ -159,6 +163,33 @@ public class Img {
     return r;
   }public int getNbrDePixel(Pixel a){ return getNbrDePixel(a,10);}
   // Fonctions propre -----------------------------------------------------------
+  public boolean equals(Img img2){
+    if(getWidth()!=img2.getWidth()){return false;}
+    if(getHeight()!=img2.getHeight()){return false;}
+    if(!tableau.equals(getRouge(),img2.getRouge())){return false;}
+    if(!tableau.equals(getVert(),img2.getVert())){return false;}
+    if(!tableau.equals(getBleu(),img2.getBleu())){return false;}
+    if(!tableau.equals(getAlpha(),img2.getAlpha())){return false;}
+    return true;
+  }
+  @Override
+  public Img clone(){
+    actualiserImage(); //on s'assure que la BufferedImage repésente bien l'image actuelle
+    Img imgr = new Img(this.getBi());//puis on ce sert de celle la pour recréer une img.
+    return imgr;
+  }
+  public boolean iniWH(){
+    try {
+      width = rouge.length;
+      height = rouge[0].length;
+      return true;
+    }catch (Exception e) {
+      return false;
+    }
+  }
+  /**
+  *{@summary Print the RGBA level.<br>}
+  */
   public void afficherLesTableaux(){
     System.out.println("transparence :");
     tableau.afficher(this.compterNiveauDeAlpha());
@@ -169,6 +200,10 @@ public class Img {
     System.out.println("bleu");
     tableau.afficher(this.compterNiveauDeBleu());
   }
+  /**
+  *{@summary Add an Img on this.<br>}
+  *It can be used to make a map image.
+  */
   public void add(int x, int y, Img ie){
     //on rajoute les niveau de couleurs
     int xTemp = ie.getWidth();
@@ -220,14 +255,14 @@ public class Img {
   */
   public void save(String filename) throws IOException {
     File file = new File(filename);
-    ImageIO.write(img, "png", file);
+    ImageIO.write(bi, "png", file);
   }
   /**
   *{@summary draw the Img.<br>}
   */
   public void draw() {
-    ImageIcon icon = new ImageIcon(img);
-    //Image icon = (Image)(img);
+    ImageIcon icon = new ImageIcon(bi);
+    //Image icon = (Image)(bi);
     JLabel d = new JLabel(icon);
     JFrame frame = new JFrame();
     frame.getContentPane().add(new JPanel());
@@ -244,7 +279,9 @@ public class Img {
   }public void dessiner(){ draw();}
   public void afficher(){ draw();}
 
-
+  /**
+  *{@summary Make an array with all red value for all pixel of the Img.<br>}
+  */
   public int [] compterNiveauDeRouge(){
     int xr [] = new int [256];
     for (int i = 0 ; i < width; i++){
@@ -254,6 +291,9 @@ public class Img {
       }
     }return xr;
   }
+  /**
+  *{@summary Make an array with all green value for all pixel of the Img.<br>}
+  */
   public int [] compterNiveauDeVert(){
     int xr [] = new int [256];
     for (int i = 0 ; i < width; i++){
@@ -263,6 +303,9 @@ public class Img {
       }
     }return xr;
   }
+  /**
+  *{@summary Make an array with all blue value for all pixel of the Img.<br>}
+  */
   public int [] compterNiveauDeBleu(){
     int xr [] = new int [256];
     for (int i = 0 ; i < width; i++){
@@ -272,6 +315,9 @@ public class Img {
       }
     }return xr;
   }
+  /**
+  *{@summary Make an array with all alpha value for all pixel of the Img.<br>}
+  */
   public int [] compterNiveauDeAlpha(){
     int xr [] = new int [256];
     for (int i = 0 ; i < width; i++){
@@ -281,6 +327,9 @@ public class Img {
       }
     }return xr;
   }
+  /**
+  *{@summary Count how much a pixel there is on the image.<br>}
+  */
   public int compterPixel(Pixel a){
     int x=0;
     for (int i = 0 ; i < width; i++){
@@ -292,6 +341,10 @@ public class Img {
     }
     return x;
   }
+  /**
+  *{@summary Replace pixel a by pixel b.<br>}
+  *On Formiko it is used to create random color for ant and modify the image.
+  */
   public void changerPixel(Pixel a, Pixel b){
     //debug.débogage("changement des pixels voulus");
     //debug.débogage(compterPixel(a)+" pixel devrais être modifié.");
@@ -315,6 +368,9 @@ public class Img {
     actualiserImage();
     //debug.débogage("actualisation de l'image conculante.");
   }
+  /**
+  *{@summary Replace max alpha pixel by an other color.<br>}
+  */
   public void changerPixelTransparent(Pixel b){
     //debug.débogage("changement des pixels voulus");
     //debug.débogage(compterPixel(a)+" pixel devrais être modifié.");
@@ -337,15 +393,18 @@ public class Img {
     actualiserImage();
   }
   /**
-  *{@summary use to refresh the BufferedImage before draw it or save it.<br>}
+  *{@summary Use to refresh the BufferedImage before draw it or save it.<br>}
   */
   public void actualiserImage(){
-    Color rose = new Color(255,150,255,100);
+    iniWH();
+    //néssésaire si l'image n'as plus les mêmes dimentions.
+    bi = new BufferedImage(width,height,java.awt.image.BufferedImage.TYPE_INT_ARGB);
+    //Color rose = new Color(255,150,255,100);
     int pixelActualisé = 0;
     for (int i = 0 ; i < width; i++){
       for (int j = 0; j < height; j++){
         Color cl = new Color(rouge[i][j]+128,vert[i][j]+128,bleu[i][j]+128,alpha[i][j]+128);
-        img.setRGB(i,j,cl.getRGB());
+        bi.setRGB(i,j,cl.getRGB());
         int x = ((rouge[i][j]<<16)|(vert[i][j]<<8)|(bleu[i][j]));
         //if(x!=0){System.out.println(x+ " "+rouge[i][j]+" "+vert[i][j]+" "+bleu[i][j]); }
         pixelActualisé++;
@@ -358,53 +417,67 @@ public class Img {
   *@param x How much do we need to rotate : 1=90° 2=180° -1 or 3 = -90°
   *@return a new Img rotated.
   */
-  public Img tourner(byte x){ // on tourne de 90° a chaque fois.
+  public void tourner(byte x){ // on tourne de 90° a chaque fois.
     x=(byte)(x+4); // pour pouvoir utiliser des angles négatifs.
-    if(width!=height){ return null;}
-    int taille = width; int ta= taille-1;
-    byte [][] rougeT = new byte[taille][taille];
-    byte [][] vertT = new byte[taille][taille];
-    byte [][] bleuT = new byte[taille][taille];
-    byte [][] alphaT = new byte[taille][taille];
+    //if(width!=height){ return null;}
+    Img ir = new Img(width,height);
+    if (x%2==1){ //si la largeur et la hauteur sont échangée.
+      int wTemp = width;
+      width = height;
+      height = wTemp;
+    }
+    byte [][] rougeT = new byte[width][height];
+    byte [][] vertT = new byte[width][height];
+    byte [][] bleuT = new byte[width][height];
+    byte [][] alphaT = new byte[width][height];
+    //TODO remplacer les width par des height si nésséssaire. (Puis écrire une fonction test associée.)
     if (x%4==1){
-      for (int i=0;i<taille;i++) {
-        for (int j=0;j<taille;j++) {
-          rougeT[i][j]=rouge[j][ta-i];
-          vertT[i][j]=vert[j][ta-i];
-          bleuT[i][j]=bleu[j][ta-i];
-          alphaT[i][j]=alpha[j][ta-i];
+      for (int i=0;i<width;i++) {
+        for (int j=0;j<height;j++) {
+          rougeT[i][j]=rouge[j][width-1-i];
+          vertT[i][j]=vert[j][width-1-i];
+          bleuT[i][j]=bleu[j][width-1-i];
+          alphaT[i][j]=alpha[j][width-1-i];
         }
       }
     }else if(x%4==2){
-      for (int i=0;i<taille;i++) {
-        for (int j=0;j<taille;j++) {
-          rougeT[i][j]=rouge[ta-i][ta-j];
-          vertT[i][j]=vert[ta-i][ta-j];
-          bleuT[i][j]=bleu[ta-i][ta-j];
-          alphaT[i][j]=alpha[ta-i][ta-j];
+      for (int i=0;i<width;i++) {
+        for (int j=0;j<height;j++) {
+          rougeT[i][j]=rouge[width-1-i][height-1-j];
+          vertT[i][j]=vert[width-1-i][height-1-j];
+          bleuT[i][j]=bleu[width-1-i][height-1-j];
+          alphaT[i][j]=alpha[width-1-i][height-1-j];
         }
       }
     }else if(x%4==3){ // -1 ou 3.
-      for (int i=0;i<taille;i++) {
-        for (int j=0;j<taille;j++) {
-          rougeT[i][j]=rouge[ta-j][i];
-          vertT[i][j]=vert[ta-j][i];
-          bleuT[i][j]=bleu[ta-j][i];
-          alphaT[i][j]=alpha[ta-j][i];
+      for (int i=0;i<width;i++) {
+        for (int j=0;j<height;j++) {
+          rougeT[i][j]=rouge[height-1-j][i];
+          vertT[i][j]=vert[height-1-j][i];
+          bleuT[i][j]=bleu[height-1-j][i];
+          alphaT[i][j]=alpha[height-1-j][i];
         }
       }
-    }else{
-      return this;
-    }
-    Img ir = new Img(width,height);
-    ir.setRouge(rougeT);
-    ir.setVert(vertT);
-    ir.setBleu(bleuT);
-    ir.setAlpha(alphaT);
-    ir.actualiserImage();
-    return ir;
-  }public Img tourner(int x){ return tourner((byte) x);}
-  public Img tourner(){ return tourner(1);}
+    }else{//si sa me change pas.
+      setRouge(tableau.copier(rouge));
+      setVert(tableau.copier(vert));
+      setBleu(tableau.copier(bleu));
+      setAlpha(tableau.copier(alpha));
+      actualiserImage();
+      return;
+    }//si sa a changé.
+    setRouge(rougeT);
+    setVert(vertT);
+    setBleu(bleuT);
+    setAlpha(alphaT);
+    actualiserImage();
+    //return ir;
+  }public void tourner(int x){ tourner((byte) x);}
+  public void tourner(){ tourner(1);}
+  /**
+  *{@summary Add x in alpha (non-transparency) to the all image.<br>}
+  *You can remove some alpha with an x<0.
+  */
   public void changerAlpha(int x){
     int taille = width;
     for (int i=0;i<taille;i++) {
@@ -417,6 +490,10 @@ public class Img {
     }
     actualiserImage();
   }
+  /**
+  *{@summary Replace all non 100% or 0% transparent pixel by a 100% or a 0% transparent pixel.<br>}
+  *On some image it can have some 99% transparent pixel, we may need to transforme them to 0% transparent pixel. (100 transparent pixel can be recolored more easyly.)
+  */
   public void supprimerLaTransparencePartielle(int x){ //x est le niveau de transparence de 0 a 255.
     x = x-128; // pour qu'il soit callé sur le pixel.
     if(x<-128 || x>127){ return;}
@@ -435,6 +512,10 @@ public class Img {
     }
     actualiserImage();
   }public void supprimerLaTransparencePartielle(){ supprimerLaTransparencePartielle(127);}
+  /**
+  *{@summary draw a shadow on the border of a colored zone as ant alitrunk.<br>}
+  */
+  //TODO test & use it.
   public void ombrer(Pixel a, int x){
     for (int i = 0 ; i < width; i++){
       for (int j = 0; j < height; j++){
@@ -485,7 +566,8 @@ public class Img {
       c++;
     }
 
-    Img imgTemp = tourner();
+    Img imgTemp = clone();
+    imgTemp.tourner();
     int d = 0;
     while(d<width && tableau.contientUniquement(imgTemp.getAlpha()[d],(byte)-128)){//tant qu'il n'y a que des pixels transparent.
       d++;

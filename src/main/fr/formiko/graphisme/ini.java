@@ -75,11 +75,11 @@ public class ini {
     //String s = rep+nom+is;
     imgTemp.sauvegarder(image.REP2,nom+is+"h"+".png");
     if (Main.getElementSurCarteOrientéAprèsDéplacement()){
-      imgTemp = imgTemp.tourner();
+      imgTemp.tourner();
       imgTemp.sauvegarder(image.REP2,nom+is+"d"+".png");
-      imgTemp = imgTemp.tourner();
+      imgTemp.tourner();
       imgTemp.sauvegarder(image.REP2,nom+is+"b"+".png");
-      imgTemp = imgTemp.tourner();
+      imgTemp.tourner();
       imgTemp.sauvegarder(image.REP2,nom+is+"g"+".png");
     }
   }

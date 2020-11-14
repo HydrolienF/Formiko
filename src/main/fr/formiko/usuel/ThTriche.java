@@ -14,7 +14,7 @@ public class ThTriche extends Thread{
   public void run(){
     triche.ini();
     Scanner sc = new Scanner(System.in);
-    while(true){
+    while(sc.hasNext()){
       String s = sc.nextLine();//le reste du programme tourne pendant l'attente d'une commande.
       debug.débogage("Commande : "+s);
       triche.commande(s);
