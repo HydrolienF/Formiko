@@ -140,6 +140,10 @@ public class GCreature implements Serializable{
     return début.filtreAlliés(c,différenceTolléré);
   }
   public GCreature filtreAlliés(Creature c){ return filtreAlliés(c,5);} // en théorie 4 suffisent.
+  public GCreature filtreFaimMax(){
+    if (début==null){ return null;}
+    return début.filtreFaimMax();
+  }
   public void setLienFere(Fourmiliere fere){
     if(début==null){ return;}
     début.setLienFere(fere);
