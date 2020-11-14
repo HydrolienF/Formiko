@@ -127,12 +127,20 @@ public class CCreature implements Serializable{
   public GCreature filtreAlliés(Creature c,int différenceTolléré){
     GCreature gcr = new GCreature();
     CCreature ccTest = this;
-    if (c.getPheromone().equals(ccTest.getContenu().getPheromone(),différenceTolléré)){
-      gcr.ajouterFin(ccTest.getContenu());
-    }
-    ccTest = ccTest.getSuivant();
     while(ccTest != null){
       if (c.getPheromone().equals(ccTest.getContenu().getPheromone(),différenceTolléré)){
+        gcr.ajouterFin(ccTest.getContenu());
+      }
+      ccTest = ccTest.getSuivant();
+    }
+    return gcr;
+  }
+  public GCreature filtreFaimMax(){
+    GCreature gcr = new GCreature();
+    CCreature ccTest = this;
+    ccTest = ccTest.getSuivant();
+    while(ccTest != null){
+      if (ccTest.getContenu().getNourriture()<ccTest.getContenu().getNourritureMax()){
         gcr.ajouterFin(ccTest.getContenu());
       }
       ccTest = ccTest.getSuivant();

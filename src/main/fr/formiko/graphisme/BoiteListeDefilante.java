@@ -28,9 +28,10 @@ public class BoiteListeDefilante {
     while (x==-1){
       JOptionPane.showMessageDialog(Main.getF(), jcb, message, JOptionPane.PLAIN_MESSAGE);//,new ImageIcon("montre.gif"));
       Object o = jcb.getSelectedItem();
+      if(o==null){erreur.erreur("L'élément sélectioné est null","BoiteListeDefilante"); return x;}
       String s = o.toString();
       try {
-        //on ne prend en compte que le premier mot qui dervait être l'id de la Fourmi.
+        //on ne prend en compte que le premier mot qui dervait être l'id de la Créature.
         String tsSplit [] = s.split(" ");
         if(tsSplit.length > 1){
           s = tsSplit[0];

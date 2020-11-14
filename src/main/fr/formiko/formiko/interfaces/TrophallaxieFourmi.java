@@ -93,6 +93,10 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
       }else{
         BoiteListeDefilante bld = new BoiteListeDefilante();
         id2 = bld.getChoixId(s,g.get("pti.desc.1"));
+        if(id2==-1){
+          erreur.erreur("Impossible de trophallaxer","TrophallaxieFourmi");
+          return;
+        }
       }
       //quantité de nourriture échangé.
       Creature c2 = f.getCCase().getContenu().getGc().getCreatureParId(id2);
