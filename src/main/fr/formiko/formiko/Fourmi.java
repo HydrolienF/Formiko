@@ -228,7 +228,7 @@ public class Fourmi extends Creature implements Serializable{
     if(in.getCoutDéplacement() == -1){ t=tableau.retirerX(t,0);}
     if(in.getCoutChasse() == -1 || gcCase.getGi().length()==0){ t=tableau.retirerX(t,1);}
     if(in.getCoutPondre() == -1 || !peutPondre()){ t=tableau.retirerX(t,2);}
-    if(in.getCoutTrophallaxie() == -1 || gcCase.filtreAlliés(this).filtreFaimMax().length() < 2){ t=tableau.retirerX(t,3);}
+    if(in.getCoutTrophallaxie() == -1 || gcCase.filtreAlliés(this).filtreFaimMax().length() < 2 || this.getNourriture()<1){ t=tableau.retirerX(t,3);}
     if(in.getCoutNétoyer() == -1 ||(netoyer.getNombreDeCreatureANetoyer(this))==0){ t=tableau.retirerX(t,4);}
     if(!e.getGranivore()){
       t=tableau.retirerX(t,5);
