@@ -188,6 +188,8 @@ public class Main {
             nom=null;
           }
         }
+      }else if(args[0].equals("stats")){
+        stats.statsJavadoc();
       }else{
         erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue");
       }

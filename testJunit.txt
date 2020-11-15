@@ -6,3 +6,7 @@ fr.formiko.usuel.chargerLesTraductionsTest
 fr.formiko.formiko.interfaces.TrophallaxieFourmiTest
 fr.formiko.usuel.tableauTest
 fr.formiko.usuel.image.ImgTest
+fr.formiko.usuel.liste.GIntTest
+fr.formiko.usuel.liste.GGIntTest
+fr.formiko.usuel.fichierTest
+fr.formiko.usuel.liste.GStringTest

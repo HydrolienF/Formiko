@@ -22,6 +22,12 @@ public class GString implements Serializable{
     if(début==null){ return 0;}
     return début.length();
   }
+  public boolean equals(GString gs){
+    if(gs==null){return false;}
+    if(début==null && gs.getDébut()==null){return true;}
+    if(début==null || gs.getDébut()==null){return false;}
+    return début.equals(gs.getDébut());
+  }
   public JComboBox<String> getComboBox(int x){
     if (début==null){ return new JComboBox<String>();}
     return début.getComboBox(x);
@@ -48,12 +54,12 @@ public class GString implements Serializable{
   }
   public void ajouter(GString gs){
     if(gs==null){ return;}
-    if(this.getDébut()==null){début = gs.getDébut();return;}
+    if(getDébut()==null){début = gs.getDébut(); actualiserFin();return;}
     //on lie l'anciène fin au début de gs.
-    this.fin.setSuivant(gs.getDébut());
-    this.fin.getSuivant().setPrécédent(fin);
+    fin.setSuivant(gs.getDébut());
+    fin.getSuivant().setPrécédent(fin);
     // on change la fin actuelle.
-    this.fin = gs.getFin();
+    actualiserFin();
   }
   public void add(String s){ ajouter(s);}
   public void add(GString s){ ajouter(s);}
@@ -154,9 +160,23 @@ public class GString implements Serializable{
     return b;
   }*/
   public void actualiserFin(){ //remet fin a ce place.
+    if(début==null){fin=null; return;}
     fin = début;
     while(fin.getSuivant()!=null){//tant que ce n'est pas le dernier éléments de la chaine.
       fin = fin.getSuivant();
     }
+  }
+  public GInt compterFct(){
+    if (début==null){ GInt gi = new GInt(); gi.add(0);gi.add(0); return gi;}
+    return début.compterFct();
+  }
+  public int compterComJavadoc(){
+    if (début==null){ return 0;}
+    return début.compterComJavadoc();
+  }
+  public GInt compterFctEtComJavadoc(){
+    GInt gi = compterFct();
+    gi.add(compterComJavadoc());
+    return gi;
   }
 }

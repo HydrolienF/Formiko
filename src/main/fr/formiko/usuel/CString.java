@@ -3,6 +3,7 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 //def par défaut des fichiers depuis 0.79.5
 import javax.swing.JComboBox;
 import java.io.Serializable;
+import fr.formiko.usuel.conversiondetype.str;
 
 public class CString implements Serializable{
   private CString suivant, précédent;
@@ -25,6 +26,12 @@ public class CString implements Serializable{
   public int length(){
     if(suivant==null){ return 1;}
     return 1+suivant.length();
+  }
+  public boolean equals(CString cs){
+    if(!cs.getContenu().equals(getContenu())){return false;}
+    if(cs.getSuivant()==null && getSuivant()==null){return true;}
+    if(cs.getSuivant()==null || getSuivant()==null){return false;}
+    return getSuivant().equals(cs.getSuivant());
   }
   public JComboBox<String> getComboBox(int x){
     JComboBox<String> cb = new JComboBox<String>();
@@ -161,5 +168,39 @@ public class CString implements Serializable{
       return true;
     }
     return suivant.supprimer(s);
+  }
+  /**
+  *{@summary count how much fonction and class (short or long) a GString have.}
+  *@version 1.13
+  */
+  public GInt compterFct(){
+    int c=0; int l=0;
+    CString csTemp = this;
+    while(csTemp != null){
+      String ligne = csTemp.getContenu();
+      if(str.contient(ligne,"{") && (str.contient(ligne, "class") || str.contient(ligne,"public") || str.contient(ligne,"private") || str.contient(ligne,"protected"))){
+        if(str.contient(ligne,"}")){
+          c++;
+        }else{
+          l++;
+        }
+      }
+      csTemp = csTemp.getSuivant();
+    }
+    GInt r = new GInt();
+    r.add(c);r.add(l);
+    return r;
+  }
+  public int compterComJavadoc(){
+    int c=0;
+    CString csTemp = this;
+    while(csTemp != null){
+      String ligne = csTemp.getContenu();
+      if(str.contient(ligne,"/**")){
+        c++;
+      }
+      csTemp = csTemp.getSuivant();
+    }
+    return c;
   }
 }

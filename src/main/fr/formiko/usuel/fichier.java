@@ -8,6 +8,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import fr.formiko.usuel.liste.GString;
+import fr.formiko.usuel.conversiondetype.str;
 
 public class fichier{
 
@@ -16,6 +18,45 @@ public class fichier{
   // GET SET -----------------------------------------------------------------------
 
   // Fonctions propre -----------------------------------------------------------
+  /**
+  *make a liste of all .java file in the directory f.
+  *@param rep The directory were to search java file.
+  *@version 1.13
+  */
+  public static GString listerLesFichiersDuRep(File f){
+    GString gs = new GString();
+    //parcourir les dossiers puis les sous dossiers etc jusqu'a ce que tout les fichiers soit traité,
+    //cad sous la forme rep+sousdossier1+sousdossier2+nomDu.java
+    if (f.isDirectory()){
+      File allF [] = f.listFiles();
+      if (allF != null) {
+          for (File file : allF) {
+              gs.add(listerLesFichiersDuRep(file));
+          }
+      }
+    }else if(f.isFile()){
+      gs.add(f.getPath());
+    }
+    return gs;
+  }public static GString listerLesFichiersDuRep(String rep){return listerLesFichiersDuRep(new File(rep));}
+
+
+  /**
+   *{@summary Delete a directory and all his content.<br/>}
+   *@version 1.13
+   */
+  public static boolean deleteDirectory(File directoryToBeDeleted) {
+    File allF [] = directoryToBeDeleted.listFiles();
+    //on demande a tout les sous répertoires de ce surppimer.
+    if (allF != null) {
+        for (File file : allF) {
+            deleteDirectory(file);
+        }
+    }
+    //on traite le fichier.
+    return directoryToBeDeleted.delete();
+  }public static boolean deleteDirectory(String s){try {return deleteDirectory(new File(str.sToDirectoryName(s)));}catch (Exception e){return false;}}
+
   public static void affichageDesLecteurALaRacine (File f){
     System.out.println("Affichage des lecteurs à la racine du PC : ");
     for(File file : f.listRoots()){

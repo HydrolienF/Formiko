@@ -68,10 +68,17 @@ public class GInt implements Serializable{
     }
   }
   public String toString(){
-    if(début==null){
-      return "";
-    }else{
+    if(début==null){return "";}
+    else{
       return début.toString()+"\n";
     }
+  }
+  /**
+  *return the ca element of the GInt. (or 0 if not found.)
+  */
+  public int getCase(int ca){
+    if(ca<0){return -1;}
+    if(début==null){return 0;}
+    else{return début.getCase(ca);}
   }
 }

@@ -37,4 +37,8 @@ public class CCInt implements Serializable{
       return s;
     }
   }
+  public int sommeCase(int ca){
+    if(suivant==null){ return contenu.getCase(ca);}
+    return contenu.getCase(ca)+suivant.getContenu().getCase(ca);
+  }
 }
