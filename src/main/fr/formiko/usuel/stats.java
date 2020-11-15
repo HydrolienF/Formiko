@@ -8,11 +8,17 @@ import fr.formiko.usuel.liste.GString;
 import fr.formiko.usuel.liste.CString;
 import fr.formiko.usuel.fichier;
 
+/**
+*{@summary A tool class about statistic. <br>}
+*@author Hydrolien
+*@version 1.13
+*/
 public class stats {
 
   // Fonctions propre -----------------------------------------------------------
   /**
   *Write the stats of javadoc comments in stats.txt.
+  *@version 1.13
   */
   public static void statsJavadoc(){
     Main.débutCh();
@@ -51,9 +57,11 @@ public class stats {
     Main.finCh("sauvegarde finale");
   }
 
-  public static String toStatJd(CCInt cci){
-    return toStatJd(cci.getContenu());
-  }
+  public static String toStatJd(CCInt cci){return toStatJd(cci.getContenu());}
+  /**
+  *{@summary calculate the %age of commented fonction in a file.}
+  *@version 1.13
+  */
   public static String toStatJd(GInt gi){
     int sommeDesCom = gi.getCase(2);
     int sommeDesFctL = gi.getCase(1);
