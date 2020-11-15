@@ -14,7 +14,8 @@ import fr.formiko.usuel.fichier;
 *@version 1.13
 */
 public class stats {
-
+  public static int sommeDesComG;
+  public static int sommeDesFctLG;
   // Fonctions propre -----------------------------------------------------------
   /**
   *Write the stats of javadoc comments in stats.txt.
@@ -37,21 +38,24 @@ public class stats {
     Main.finCh("récupération des data");Main.débutCh();
 
     //GGInt = la liste de toutes les données.
-    int sommeDesCom = ggi.sommeCase(2);
-    int sommeDesFctL = ggi.sommeCase(1);
-    String total = "total : ";
-    if(sommeDesFctL>0){total+=((sommeDesCom*100)/sommeDesFctL)+"%";}
+    sommeDesComG=0;sommeDesFctLG=0;
+    //int sommeDesCom = ggi.sommeCase(2);
+    //int sommeDesFctL = ggi.sommeCase(1);
+    //String total = "total : ";
+    //if(sommeDesFctL>0){total+=((sommeDesCom*100)/sommeDesFctL)+"% ("+sommeDesCom+"/"+sommeDesFctL+")";}
     GString gsr = new GString();
-    gsr.add(total);
+    //gsr.add(total);
     Main.finCh("calcul puis ajout du total");Main.débutCh();
     //ajouter tt les autres.
     CCInt cci = ggi.getDébut();
     cs = gs.getDébut();
     while(cci!=null){
-      gsr.add(toStatJd(cci)+"  "+cs.getContenu());
+      gsr.add(toStatJd(cci)+cs.getContenu());
       cci=cci.getSuivant();
       cs=cs.getSuivant();
     }
+    GInt gi = new GInt(); gi.add(0); gi.add(sommeDesFctLG); gi.add(sommeDesComG);
+    gsr.add(toStatJd(gi));
     Main.finCh("traitement du GString");Main.débutCh();
     ecrireUnFichier.ecrireUnFichier(gsr,"stats.txt");
     Main.finCh("sauvegarde finale");
@@ -65,8 +69,13 @@ public class stats {
   public static String toStatJd(GInt gi){
     int sommeDesCom = gi.getCase(2);
     int sommeDesFctL = gi.getCase(1);
-    if(sommeDesFctL==0){return "x%";}
-    return ((sommeDesCom*100)/sommeDesFctL)+"%";
+    sommeDesComG+=sommeDesCom;sommeDesFctLG+=sommeDesFctL;
+    if(sommeDesFctL==0){return "null%";}
+    String r = ((sommeDesCom*100)/sommeDesFctL)+"%";
+    while(r.length()<5){r+=" ";}
+    r=r+"("+sommeDesCom+"/"+sommeDesFctL+")";
+    while(r.length()<5+8){r+=" ";}
+    return r;
   }
 
 }
