@@ -154,5 +154,5 @@ Lygaen
 ### FR
 `licence : tout droit réservé. Contactez hydrolien.lili502@gmail.com`
 
-### ¢O
+### EO
 `licenco: ĉiuj rajtoj rezervitaj. Kontaktu hydrolien.lili502@gmail.com`
