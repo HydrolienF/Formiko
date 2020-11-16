@@ -20,7 +20,7 @@ public class fichier{
   // Fonctions propre -----------------------------------------------------------
   /**
   *make a liste of all .java file in the directory f.
-  *@param rep The directory were to search java file.
+  *@param f The directory were to search java file.
   *@version 1.13
   */
   public static GString listerLesFichiersDuRep(File f){

@@ -166,17 +166,37 @@ public class GString implements Serializable{
       fin = fin.getSuivant();
     }
   }
+  /**
+  *{@summary count how much fonction and class (short or long) a GString have.}
+  *@version 1.13
+  */
   public GInt compterFct(){
     if (début==null){ GInt gi = new GInt(); gi.add(0);gi.add(0); return gi;}
     return début.compterFct();
   }
+  /**
+  *{@summary count how much javadoc commentary a GString have.}
+  *@version 1.13
+  */
   public int compterComJavadoc(){
     if (début==null){ return 0;}
     return début.compterComJavadoc();
   }
+  /**
+  *{@summary count how much javadoc commentary and fonction and class (short or long) a GString have.}
+  *@version 1.13
+  */
   public GInt compterFctEtComJavadoc(){
     GInt gi = compterFct();
     gi.add(compterComJavadoc());
     return gi;
+  }
+  /**
+  *{@summary count how much class and long fonction (public, ø, protected, private) a GString have.}
+  *@version 1.13
+  */
+  public GInt compterFctEnDetail(){
+    if (début==null){ GInt gi = new GInt(); gi.add(0);gi.add(0);gi.add(0);gi.add(0);gi.add(0); return gi;}
+    return début.compterFctEnDetail();
   }
 }

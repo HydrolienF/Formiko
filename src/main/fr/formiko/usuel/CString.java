@@ -178,7 +178,7 @@ public class CString implements Serializable{
     CString csTemp = this;
     while(csTemp != null){
       String ligne = csTemp.getContenu();
-      if(str.contient(ligne,"{") && (str.contient(ligne, "class") || str.contient(ligne,"public") || str.contient(ligne,"private") || str.contient(ligne,"protected"))){
+      if(str.contient(ligne,"{") && (str.contient(ligne, "class") || str.contient(ligne, "interface") || str.contient(ligne,"public") || str.contient(ligne,"private") || str.contient(ligne,"protected"))){
         if(str.contient(ligne,"}")){
           c++;
         }else{
@@ -191,16 +191,49 @@ public class CString implements Serializable{
     r.add(c);r.add(l);
     return r;
   }
+  /**
+  *{@summary count how much javadoc commentary a GString have.}
+  *@version 1.13
+  */
   public int compterComJavadoc(){
     int c=0;
     CString csTemp = this;
     while(csTemp != null){
       String ligne = csTemp.getContenu();
-      if(str.contient(ligne,"/**")){
+      if(str.contient(ligne,"/**") && !str.contient(ligne,"/***")){
         c++;
       }
       csTemp = csTemp.getSuivant();
     }
     return c;
+  }
+  /**
+  *{@summary count how much class and long fonction (public, ø, protected, private) a GString have.}
+  *@version 1.13
+  */
+  public GInt compterFctEnDetail(){
+    int c=0; int pu=0; int po=0; int pr=0;
+    CString csTemp = this;
+    while(csTemp != null){
+      String ligne = csTemp.getContenu();
+      if(!str.contient(ligne,"}") && str.contient(ligne,"{")) {
+        //if(!str.contient(ligne,"if(") && !str.contient(ligne,"if (") && !str.contient(ligne,"while") && !str.contient(ligne,"for(") && !str.contient(ligne,"for (") && !str.contient(ligne,"switch")){
+        if(str.contient(ligne, "class") || str.contient(ligne, "interface")){
+          c++;
+        }else if (str.contient(ligne, "(") && str.contient(ligne, ")")){
+          if(str.contient(ligne, "public")){
+            pu++;
+          }else if(str.contient(ligne, "protected")){
+            po++;
+          }else if(str.contient(ligne, "private")){
+            pr++;
+          }
+        }
+      }
+      csTemp = csTemp.getSuivant();
+    }
+    GInt gi = new GInt();
+    gi.add(c);gi.add(pu);gi.add(po);gi.add(pr);
+    return gi;
   }
 }
