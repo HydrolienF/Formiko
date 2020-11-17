@@ -10,3 +10,4 @@ fr.formiko.usuel.liste.GIntTest
 fr.formiko.usuel.liste.GGIntTest
 fr.formiko.usuel.fichierTest
 fr.formiko.usuel.liste.GStringTest
+fr.formiko.usuel.liste.CStringTest

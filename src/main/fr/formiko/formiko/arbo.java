@@ -8,16 +8,23 @@ import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.chargerLesOptions;
 import fr.formiko.usuel.image.image;
 
+/**
+*{@summary Check that every needed folder and every file is in data/.<br>}
+*It can repair folder if some file have been deleted. (Some file are not repearable.)
+*@author Hydrolien
+*@version 1.13
+*/
 public class arbo {
   private static int nbrDImage=49;
   private static int nbrDeCarte=1;
-  private static int nbrDeLangue=3;
-
-  // CONSTRUCTEUR ---------------------------------------------------------------
-
-  // GET SET --------------------------------------------------------------------
+  private static int nbrDeLangue=110;
 
   // Fonctions propre -----------------------------------------------------------
+  /**
+  *{@summary Check that every needed folder and every file is in data/.<br>}
+  *@author Hydrolien
+  *@version 1.13
+  */
   public static boolean arborécenceIntacte(){
     //la condition pour concidérer qu'on lance le jeu pour la 1a fois.
     File f = new File("data/Options.txt");
@@ -50,7 +57,7 @@ public class arbo {
     if(listc.length<nbrDeCarte){return false;}
     String listi [] = imag.list();
     if(listi.length<nbrDImage){return false;}
-    String listl [] = imag.list();
+    String listl [] = langue.list();
     if(listl.length<nbrDeLangue){return false;}
     //image.REP/temporaire.
     File temporaire = new File(image.REP2);
@@ -59,6 +66,11 @@ public class arbo {
     if(!temporaire.exists() || !temporaire.isDirectory()){ return false;}
     return true;
   }
+  /**
+  *{@summary Fix data/. id it's need.<br>}
+  *@author Hydrolien
+  *@version 1.13
+  */
   public static void réparationArboréscence(){
     if(!Main.getPremierePartie()){System.out.println("tentative de réparation de l'arborécence des fichier enclanchée.");}
     //data
@@ -144,7 +156,11 @@ public class arbo {
       System.out.println("Si vous avez créé de nouvelle cartes non présente dans le jeu de base vous pouvez également les déplacer dans le nouveau répertoire des cartes. (idem pour les textures)");
     }
   }
-  public static void créerCarteRéparée(){
+  /**
+  *Create a void map if any map have been found.
+  *@version 1.13
+  */
+  private static void créerCarteRéparée(){
     GString gs = new GString();
     gs.add("1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1");gs.add("1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1");gs.add("1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1");gs.add("1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1");gs.add("1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1");gs.add("1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1");gs.add("1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1");gs.add("1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1");gs.add("1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1");
     ecrireUnFichier.ecrireUnFichier(gs,"data/carte/carteRéparée");

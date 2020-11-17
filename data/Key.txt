@@ -1,5 +1,6 @@
 version compatible:100
-échap:27
+echap:27
+space:32
 
 //action fourmi
 20:d

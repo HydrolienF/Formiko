@@ -188,7 +188,7 @@ public class CCreature implements Serializable{
     if(suivant!=null){ x++;}
     if(précédente!=null){ x++;}
     System.out.print(g.get("celluleA")+" "+ x+" "+g.get("lien")+" : ");
-    contenu.afficheToi();
+    System.out.println(contenu);
   }
   public void afficheToiRéduit(){
     int x = 0;

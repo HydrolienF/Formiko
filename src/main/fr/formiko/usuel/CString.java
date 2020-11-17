@@ -4,6 +4,7 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 import javax.swing.JComboBox;
 import java.io.Serializable;
 import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.math.math;
 
 public class CString implements Serializable{
   private CString suivant, précédent;
@@ -178,7 +179,7 @@ public class CString implements Serializable{
     CString csTemp = this;
     while(csTemp != null){
       String ligne = csTemp.getContenu();
-      if(str.contient(ligne,"{") && (str.contient(ligne, "class") || str.contient(ligne, "interface") || str.contient(ligne,"public") || str.contient(ligne,"private") || str.contient(ligne,"protected"))){
+      if(str.contient(ligne,"{") && !csTemp.estCom() && (str.contient(ligne, "class") || str.contient(ligne, "interface") || str.contient(ligne,"public") || str.contient(ligne,"private") || str.contient(ligne,"protected"))){
         if(str.contient(ligne,"}")){
           c++;
         }else{
@@ -216,7 +217,7 @@ public class CString implements Serializable{
     CString csTemp = this;
     while(csTemp != null){
       String ligne = csTemp.getContenu();
-      if(!str.contient(ligne,"}") && str.contient(ligne,"{")) {
+      if(!str.contient(ligne,"}") && str.contient(ligne,"{") && !csTemp.estCom()) {
         //if(!str.contient(ligne,"if(") && !str.contient(ligne,"if (") && !str.contient(ligne,"while") && !str.contient(ligne,"for(") && !str.contient(ligne,"for (") && !str.contient(ligne,"switch")){
         if(str.contient(ligne, "class") || str.contient(ligne, "interface")){
           c++;
@@ -235,5 +236,15 @@ public class CString implements Serializable{
     GInt gi = new GInt();
     gi.add(c);gi.add(pu);gi.add(po);gi.add(pr);
     return gi;
+  }
+  /**
+  *{@summary Return true if the line is a commentary.}
+  *@version 1.13
+  */
+  public boolean estCom(){
+    String ligne = getContenu();
+    if(str.contient(ligne.substring(0,math.min(ligne.length()/2,20)),"/*")){return true;}
+    if(str.contient(ligne.substring(0,math.min(ligne.length()/2,20)),"//")){return true;}
+    return false;
   }
 }
