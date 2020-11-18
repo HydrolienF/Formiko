@@ -415,7 +415,6 @@ public class Img implements Cloneable{
   /**
   *{@summary rotate the Img.<br>}
   *@param x How much do we need to rotate : 1=90° 2=180° -1 or 3 = -90°
-  *@return a new Img rotated.
   */
   public void tourner(byte x){ // on tourne de 90° a chaque fois.
     x=(byte)(x+4); // pour pouvoir utiliser des angles négatifs.
@@ -476,7 +475,7 @@ public class Img implements Cloneable{
   public void tourner(){ tourner(1);}
   /**
   *{@summary Add x in alpha (non-transparency) to the all image.<br>}
-  *You can remove some alpha with an x<0.
+  *You can remove some alpha with an x&#60;0.
   */
   public void changerAlpha(int x){
     int taille = width;

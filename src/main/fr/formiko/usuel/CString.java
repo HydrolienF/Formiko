@@ -3,6 +3,8 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 //def par défaut des fichiers depuis 0.79.5
 import javax.swing.JComboBox;
 import java.io.Serializable;
+import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.math.math;
 
 public class CString implements Serializable{
   private CString suivant, précédent;
@@ -25,6 +27,12 @@ public class CString implements Serializable{
   public int length(){
     if(suivant==null){ return 1;}
     return 1+suivant.length();
+  }
+  public boolean equals(CString cs){
+    if(!cs.getContenu().equals(getContenu())){return false;}
+    if(cs.getSuivant()==null && getSuivant()==null){return true;}
+    if(cs.getSuivant()==null || getSuivant()==null){return false;}
+    return getSuivant().equals(cs.getSuivant());
   }
   public JComboBox<String> getComboBox(int x){
     JComboBox<String> cb = new JComboBox<String>();
@@ -161,5 +169,82 @@ public class CString implements Serializable{
       return true;
     }
     return suivant.supprimer(s);
+  }
+  /**
+  *{@summary count how much fonction and class (short or long) a GString have.}
+  *@version 1.13
+  */
+  public GInt compterFct(){
+    int c=0; int l=0;
+    CString csTemp = this;
+    while(csTemp != null){
+      String ligne = csTemp.getContenu();
+      if(str.contient(ligne,"{") && !csTemp.estCom() && (str.contient(ligne, "class") || str.contient(ligne, "interface") || str.contient(ligne,"public") || str.contient(ligne,"private") || str.contient(ligne,"protected"))){
+        if(str.contient(ligne,"}")){
+          c++;
+        }else{
+          l++;
+        }
+      }
+      csTemp = csTemp.getSuivant();
+    }
+    GInt r = new GInt();
+    r.add(c);r.add(l);
+    return r;
+  }
+  /**
+  *{@summary count how much javadoc commentary a GString have.}
+  *@version 1.13
+  */
+  public int compterComJavadoc(){
+    int c=0;
+    CString csTemp = this;
+    while(csTemp != null){
+      String ligne = csTemp.getContenu();
+      if(str.contient(ligne,"/**") && !str.contient(ligne,"/***")){
+        c++;
+      }
+      csTemp = csTemp.getSuivant();
+    }
+    return c;
+  }
+  /**
+  *{@summary count how much class and long fonction (public, ø, protected, private) a GString have.}
+  *@version 1.13
+  */
+  public GInt compterFctEnDetail(){
+    int c=0; int pu=0; int po=0; int pr=0;
+    CString csTemp = this;
+    while(csTemp != null){
+      String ligne = csTemp.getContenu();
+      if(!str.contient(ligne,"}") && str.contient(ligne,"{") && !csTemp.estCom()) {
+        //if(!str.contient(ligne,"if(") && !str.contient(ligne,"if (") && !str.contient(ligne,"while") && !str.contient(ligne,"for(") && !str.contient(ligne,"for (") && !str.contient(ligne,"switch")){
+        if(str.contient(ligne, "class") || str.contient(ligne, "interface")){
+          c++;
+        }else if (str.contient(ligne, "(") && str.contient(ligne, ")")){
+          if(str.contient(ligne, "public")){
+            pu++;
+          }else if(str.contient(ligne, "protected")){
+            po++;
+          }else if(str.contient(ligne, "private")){
+            pr++;
+          }
+        }
+      }
+      csTemp = csTemp.getSuivant();
+    }
+    GInt gi = new GInt();
+    gi.add(c);gi.add(pu);gi.add(po);gi.add(pr);
+    return gi;
+  }
+  /**
+  *{@summary Return true if the line is a commentary.}
+  *@version 1.13
+  */
+  public boolean estCom(){
+    String ligne = getContenu();
+    if(str.contient(ligne.substring(0,math.min(ligne.length()/2,20)),"/*")){return true;}
+    if(str.contient(ligne.substring(0,math.min(ligne.length()/2,20)),"//")){return true;}
+    return false;
   }
 }

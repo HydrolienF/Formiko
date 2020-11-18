@@ -12,7 +12,9 @@ import java.io.Serializable;
  * @version 1.1
  */
 public class EvoluerNull implements Serializable, Evoluer {
-
+  /**
+  *If lauch print an error.
+  */
   public void evoluer(Creature c){
     erreur.erreur(g.get("EvoluerNull")+" " + c.getId());
   }

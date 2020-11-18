@@ -36,12 +36,12 @@ Mettre param puis version a la fin.
 */
 
 public class Main {
-  /**
+  /***
   *{@summary The compatible version for the options file, keys and backups.}
   *@version 1.1
   */
   private static int versionActuelle = 100;
-  /**
+  /***
    * Main windows
    * @version 1.1
    */
@@ -53,7 +53,7 @@ public class Main {
   private static long tempsDeDébutDeJeu;
   private static Partie pa;
   private static byte niveauDeDétailDeLAffichage=3;
-  /**
+  /***
    *Contain the Strings in the chosen language.
    *@version 1.1
    */
@@ -188,6 +188,8 @@ public class Main {
             nom=null;
           }
         }
+      }else if(args[0].equals("stats")){
+        stats.statsJavadoc();
       }else{
         erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue");
       }

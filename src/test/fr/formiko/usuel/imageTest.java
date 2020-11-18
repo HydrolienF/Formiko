@@ -9,6 +9,7 @@ import fr.formiko.usuel.image.Img;
 import fr.formiko.usuel.math.allea;
 import java.awt.Image;
 import java.io.File;
+import fr.formiko.usuel.fichier;
 
 public class imageTest extends TestCaseMuet{
 
@@ -96,7 +97,7 @@ public class imageTest extends TestCaseMuet{
     //assertEquals(3,image.getImages("testDir/","testImage").length);
     //assertEquals(3,image.getImages("testDir","testImage").length);
     //assertEquals(0,image.getImages("dirX","testImage").length);
-    image.deleteDirectory(f);
+    fichier.deleteDirectory(f);
   }
 
   //getImagess
@@ -151,7 +152,7 @@ public class imageTest extends TestCaseMuet{
     }
     assertEquals(3,k);
     image.setREPTEXTUREPACK(null);
-    image.deleteDirectory(f);
+    fichier.deleteDirectory(f);
   }
 
   //getNbrImages
@@ -190,7 +191,7 @@ public class imageTest extends TestCaseMuet{
     assertEquals(0,image.getNbrImages("padix",rep,(byte) 10));
     //après les test on supprime le répertoire.
     f = new File(rep);
-    assertTrue(image.deleteDirectory(f));
+    assertTrue(fichier.deleteDirectory(f));
   }
   @Test
   public void testGetNbrImagesREP3(){
@@ -212,7 +213,7 @@ public class imageTest extends TestCaseMuet{
     }catch (Exception e) {assertTrue(false);}
     assertEquals(5,image.getNbrImages("fourmi"));
     f = new File(image.REPTEXTUREPACK);
-    assertTrue(image.deleteDirectory(f));
+    assertTrue(fichier.deleteDirectory(f));
   }
 
   //clearTemporaire - clearPartielTemporaire
@@ -372,29 +373,5 @@ public class imageTest extends TestCaseMuet{
     f = new File("gerh.pnj.ĉu ne");
     assertTrue(!image.isImage(f));
 
-  }
-
-  //deleteDirectory
-  @After
-  @Test
-  public void testDeletedDirectory(){
-    File f = new File("testDir3");
-    File f2 = new File("testDir3/testSubDir");
-    File f3 = new File("testDir3/testSubDir/test.txt");
-    f.mkdir();f2.mkdir();
-    try {
-      f3.createNewFile();
-    }catch (Exception e) {}
-    assertTrue(image.deleteDirectory(f));
-  }
-  @Test
-  public void testDeletedDirectoryS(){
-    File f = new File("testDir4");
-    File f3 = new File("testDir4/tetest.txt");
-    f.mkdir();
-    try {
-      f3.createNewFile();
-    }catch (Exception e) {}
-    assertTrue(image.deleteDirectory("testDir4"));
   }
 }

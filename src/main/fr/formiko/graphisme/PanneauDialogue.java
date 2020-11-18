@@ -43,7 +43,7 @@ public class PanneauDialogue extends Panneau {
   public void paintComponent(Graphics g){
 
   }
-  public boolean clicEn(int x, int y){
+  public synchronized boolean clicEn(int x, int y){
     //on écoute toute la fenetre si un panneau de dialogue est afficher et qu'on peu le passer.
     //if(x<Main.getPdi().getWidth() && y<Main.getPdi().getHeight()){
       if (Main.getScript().getEcouteClic()) {//si on écoute la fenetre.

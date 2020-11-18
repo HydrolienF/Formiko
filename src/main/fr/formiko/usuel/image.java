@@ -7,6 +7,7 @@ import javax.imageio.ImageIO;
 import java.awt.Image;
 import fr.formiko.usuel.conversiondetype.str;
 import fr.formiko.usuel.math.math;
+import fr.formiko.usuel.fichier;
 
 /**
  *{@summary image class that contain a lot of tools to use images. <br/>}
@@ -250,21 +251,7 @@ public class image{
     if(str.contient(f.getName(),".jpg",2)){return true;}
     return false;
   }
-  /**
-   *{@summary Delete a directory and all his content.<br/>}
-   *@version 1.3
-   */
-  public static boolean deleteDirectory(File directoryToBeDeleted) {
-    File allF [] = directoryToBeDeleted.listFiles();
-    //on demande a tout les sous répertoires de ce surppimer.
-    if (allF != null) {
-        for (File file : allF) {
-            deleteDirectory(file);
-        }
-    }
-    //on traite le fichier.
-    return directoryToBeDeleted.delete();
-  }public static boolean deleteDirectory(String s){try {return deleteDirectory(new File(str.sToDirectoryName(s)));}catch (Exception e){return false;}}
+  public static boolean deleteDirectory(File f){ return fichier.deleteDirectory(f);}
 
   public Image rognerImage(Image i){
     Img img = new Img(i);

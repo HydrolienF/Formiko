@@ -38,8 +38,11 @@ public class GGInt implements Serializable{
   }
   public String toString(){
     if(début==null){return "";}
-    else{
-      return début.toString();
-    }
+    else{return début.toString();}
+  }
+  public int sommeCase(int ca){
+    if(ca<0){return -1;}
+    if(début==null){return 0;}
+    else{return début.sommeCase(ca);}
   }
 }
