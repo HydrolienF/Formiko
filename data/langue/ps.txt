@@ -28,6 +28,7 @@ raccourci:لنډلار[auto]
 commande:امر شوی[auto]
 bientôt:ژر[auto]
 suivant:لاندې[auto]
+avant:مخکې[auto]
 
 laIA:L'IA[auto]
 laJoueurHumain:انساني لوبغاړی[auto]
@@ -97,6 +98,7 @@ quitterToMp:اصلي مینو ته راستون شئ[auto]
 continuerJeu:لوبې ته دوام ورکړئ[auto]
 supprimerFourmi.1:میږی لرې کړئ[auto]
 supprimerFourmi.2:ایا تاسو واقعیا غواړئ چیونۍ لرې کړئ؟[auto]
+choisirPartie:یوه برخه غوره کړه[auto]
 
 affTest:بریالی ازموینه[auto]
 

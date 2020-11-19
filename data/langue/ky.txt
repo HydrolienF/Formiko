@@ -28,6 +28,7 @@ raccourci:жарлык[auto]
 commande:буйрук берди[auto]
 bientôt:жакында[auto]
 suivant:кийинки[auto]
+avant:чейин[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:адам оюнчусу[auto]
@@ -97,6 +98,7 @@ quitterToMp:негизги менюга кайтуу[auto]
 continuerJeu:оюнду уланта бер[auto]
 supprimerFourmi.1:кумурсканы алып салуу[auto]
 supprimerFourmi.2:чын эле кумурсканы алып салгың келеби?[auto]
+choisirPartie:бөлүгүн танда[auto]
 
 affTest:ийгиликтүү сыноо[auto]
 

@@ -28,6 +28,7 @@ raccourci:ihinanzira[auto]
 commande:yategetse[auto]
 bientôt:vuba[auto]
 suivant:ibikurikira[auto]
+avant:mbere[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:umukinnyi wumuntu[auto]
@@ -97,6 +98,7 @@ quitterToMp:Garuka kuri menu nkuru[auto]
 continuerJeu:komeza umukino[auto]
 supprimerFourmi.1:kura ikimonyo[auto]
 supprimerFourmi.2:urashaka rwose gukuraho ikimonyo[auto]
+choisirPartie:hitamo igice[auto]
 
 affTest:ikizamini cyatsinze[auto]
 

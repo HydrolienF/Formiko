@@ -28,6 +28,7 @@ raccourci:toobiye[auto]
 commande:amar ku bixiyay[auto]
 bientôt:ugu dhakhsaha badan[auto]
 suivant:soo socda[auto]
+avant:ka hor[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:ciyaaryahanka aadanaha[auto]
@@ -97,6 +98,7 @@ quitterToMp:ku noqo liiska ugu muhiimsan[auto]
 continuerJeu:ciyaarta sii wad[auto]
 supprimerFourmi.1:ka qaad qudhaanjada[auto]
 supprimerFourmi.2:runti ma waxaad rabtaa inaad ka saarto qudhaanjada[auto]
+choisirPartie:dooro qayb[auto]
 
 affTest:imtixaanka guuleysta[auto]
 

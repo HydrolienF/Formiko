@@ -28,6 +28,7 @@ raccourci:ਸ਼ਾਰਟਕੱਟ[auto]
 commande:ਦਾ ਆਦੇਸ਼ ਦਿੱਤਾ[auto]
 bientôt:ਜਲਦੀ[auto]
 suivant:ਹੇਠ ਦਿੱਤੇ[auto]
+avant:ਅੱਗੇ[auto]
 
 laIA:ਲ ਆਈ ਆਈ[auto]
 laJoueurHumain:ਮਨੁੱਖੀ ਖਿਡਾਰੀ[auto]
@@ -97,6 +98,7 @@ quitterToMp:ਮੁੱਖ ਮੇਨੂ ਤੇ ਵਾਪਸ ਜਾਓ[auto]
 continuerJeu:ਖੇਡ ਨੂੰ ਜਾਰੀ ਰੱਖੋ[auto]
 supprimerFourmi.1:ਕੀੜੀ ਨੂੰ ਕੱੋ[auto]
 supprimerFourmi.2:ਕੀ ਤੁਸੀਂ ਸੱਚਮੁੱਚ ਕੀੜੀ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ[auto]
+choisirPartie:ਇੱਕ ਹਿੱਸਾ ਚੁਣੋ[auto]
 
 affTest:ਸਫਲ ਪ੍ਰੀਖਿਆ[auto]
 

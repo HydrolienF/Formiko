@@ -28,6 +28,7 @@ raccourci:छोटा रास्ता[auto]
 commande:आदेश दिया[auto]
 bientôt:जल्द ही[auto]
 suivant:निम्नलिखित[auto]
+avant:इससे पहले[auto]
 
 laIA:ल आइए[auto]
 laJoueurHumain:मानव खिलाड़ी[auto]
@@ -97,6 +98,7 @@ quitterToMp:मुख्य मेनू पर लौटें[auto]
 continuerJeu:खेल जारी रखें[auto]
 supprimerFourmi.1:चींटी को हटा दें[auto]
 supprimerFourmi.2:क्या आप वास्तव में चींटी को हटाना चाहते हैं[auto]
+choisirPartie:एक हिस्सा चुनें[auto]
 
 affTest:सफल परीक्षण[auto]
 

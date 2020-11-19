@@ -26,7 +26,8 @@ public class tableau <T>{
     if (i<0 || i>t.length) {
       erreurPosition(i);
     }
-    T tr [] = new Object [lentr];
+    T tr [] = new Object [lentr];//ne marche pas
+    Array<?> tr = new Array(T,lentr); // pourrai marché.
     for (int j=0;j<i; j++){
       tr[j]=t[j];
     }

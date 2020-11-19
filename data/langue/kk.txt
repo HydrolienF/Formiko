@@ -28,6 +28,7 @@ raccourci:төте жол[auto]
 commande:тапсырыс берді[auto]
 bientôt:көп ұзамай[auto]
 suivant:келесі[auto]
+avant:бұрын[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:адам ойыншысы[auto]
@@ -97,6 +98,7 @@ quitterToMp:негізгі мәзірге оралу[auto]
 continuerJeu:ойынды жалғастырыңыз[auto]
 supprimerFourmi.1:құмырсқаны алып тастаңыз[auto]
 supprimerFourmi.2:сіз шынымен құмырсқаны алып тастағыңыз келе ме?[auto]
+choisirPartie:бөлігін таңдаңыз[auto]
 
 affTest:сәтті тест[auto]
 

@@ -28,6 +28,7 @@ raccourci:genväg[auto]
 commande:beordrade[auto]
 bientôt:snart[auto]
 suivant:följande[auto]
+avant:innan[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:den mänskliga spelaren[auto]
@@ -97,6 +98,7 @@ quitterToMp:återgå till huvudmenyn[auto]
 continuerJeu:fortsätt spelet[auto]
 supprimerFourmi.1:ta bort myran[auto]
 supprimerFourmi.2:vill du verkligen ta bort myran[auto]
+choisirPartie:välj en del[auto]
 
 affTest:framgångsrikt test[auto]
 

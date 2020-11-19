@@ -28,6 +28,7 @@ raccourci:lasterbidea[auto]
 commande:agindu[auto]
 bientôt:laster[auto]
 suivant:jarraituz[auto]
+avant:aurretik[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:giza jokalaria[auto]
@@ -97,6 +98,7 @@ quitterToMp:menu nagusira itzuli[auto]
 continuerJeu:jarraitu jokoarekin[auto]
 supprimerFourmi.1:inurria kendu[auto]
 supprimerFourmi.2:benetan inurria kendu nahi al duzu?[auto]
+choisirPartie:zati bat aukeratu[auto]
 
 affTest:proba arrakastatsua[auto]
 

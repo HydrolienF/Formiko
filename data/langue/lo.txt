@@ -28,6 +28,7 @@ raccourci:ທາງລັດ[auto]
 commande:ສັ່ງ[auto]
 bientôt:ໃນໄວໆນີ້[auto]
 suivant:ຕໍ່ໄປນີ້[auto]
+avant:ກ່ອນ[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:ຜູ້ນມະນຸດ[auto]
@@ -97,6 +98,7 @@ quitterToMp:ກັບໄປທີ່ເມນູຫລັກ[auto]
 continuerJeu:ສືບຕໍ່ເກມ[auto]
 supprimerFourmi.1:ເອົາມົດໄດ້[auto]
 supprimerFourmi.2:ທ່ານຕ້ອງການທີ່ຈະເອົາມົດອອກມາແທ້ໆ[auto]
+choisirPartie:ເລືອກສ່ວນ[auto]
 
 affTest:ການທົດສອບສົບຜົນສໍາເລັດ[auto]
 

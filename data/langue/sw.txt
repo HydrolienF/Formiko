@@ -28,6 +28,7 @@ raccourci:njia ya mkato[auto]
 commande:kuamuru[auto]
 bientôt:hivi karibuni[auto]
 suivant:zifuatazo[auto]
+avant:kabla[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:mchezaji wa kibinadamu[auto]
@@ -97,6 +98,7 @@ quitterToMp:kurudi kwenye menyu kuu[auto]
 continuerJeu:endelea na mchezo[auto]
 supprimerFourmi.1:ondoa mchwa[auto]
 supprimerFourmi.2:unataka kweli kuondoa chungu[auto]
+choisirPartie:chagua sehemu[auto]
 
 affTest:mtihani wa mafanikio[auto]
 

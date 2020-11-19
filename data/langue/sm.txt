@@ -28,6 +28,7 @@ raccourci:auala 'alo[auto]
 commande:okaina[auto]
 bientôt:vave[auto]
 suivant:mulimuli atu[auto]
+avant:muamua[auto]
 
 laIA:lʻIA[auto]
 laJoueurHumain:le tagata taalo[auto]
@@ -97,6 +98,7 @@ quitterToMp:toe foʻi i le lisi autu[auto]
 continuerJeu:faʻaauau le taʻaloga[auto]
 supprimerFourmi.1:aveese le loi[auto]
 supprimerFourmi.2:e te manaʻo moni e aveʻese le loi[auto]
+choisirPartie:filifili se vaega[auto]
 
 affTest:manuia le suʻega[auto]
 

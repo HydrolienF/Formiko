@@ -28,6 +28,7 @@ raccourci:brevis[auto]
 commande:iussit[auto]
 bientôt:mox[auto]
 suivant:haec[auto]
+avant:ante[auto]
 
 laIA:l IA Omnium[auto]
 laJoueurHumain:ad humana ludio[auto]
@@ -97,6 +98,7 @@ quitterToMp:ad Char[auto]
 continuerJeu:permanere ludum[auto]
 supprimerFourmi.1:removes formica[auto]
 supprimerFourmi.2:vos vere volo ad removendum formica[auto]
+choisirPartie:pars eligere[auto]
 
 affTest:felix test[auto]
 

@@ -328,6 +328,16 @@ public class Main {
     return par;
   }
   /**
+   * Load the default Partie.
+   * @version 1.14
+   */
+  public static Partie getPartieSave(String nom){
+    débutCh();
+    Partie par = sauvegarderUnePartie.charger(nom);
+    finCh("chargementPartie");
+    return par;
+  }
+  /**
    * {@summary create a new Partie to launch Tuto.<br>}
    * @version 1.1.
    */
@@ -662,7 +672,7 @@ public class Main {
       debug.performances("temps pour "+ s + " : "+lonTotal+" ms");
       long tempsDeFinDeJeu=System.currentTimeMillis();
       long tempsJeuEcoulé = tempsDeFinDeJeu-tempsDeDébutDeJeu;
-      System.out.println(g.getM("tempsJeuEcoulé")+" : "+ch.timeToHMS((tempsJeuEcoulé)/1000)+".");
+      System.out.println(g.getM("tempsJeuEcoulé")+" : "+ch.timeToHMS(tempsJeuEcoulé)+".");
       //System.out.println("\ud83d\ude00");//System.out.println("😀");
       tem.addTempsEnJeux(tempsJeuEcoulé);tem.actualiserDate2();tem.sauvegarder();
       System.out.println(g.getM("messageQuitter"));

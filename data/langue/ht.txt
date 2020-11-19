@@ -28,6 +28,7 @@ raccourci:chemen kout[auto]
 commande:te bay lòd[auto]
 bientôt:byento[auto]
 suivant:swivan[auto]
+avant:anvan[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:jwè imen an[auto]
@@ -97,6 +98,7 @@ quitterToMp:retounen nan meni prensipal la[auto]
 continuerJeu:kontinye jwèt la[auto]
 supprimerFourmi.1:retire foumi an[auto]
 supprimerFourmi.2:ou vle reyèlman retire foumi an[auto]
+choisirPartie:chwazi yon pati[auto]
 
 affTest:tès siksè[auto]
 

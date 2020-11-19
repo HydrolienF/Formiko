@@ -28,6 +28,7 @@ raccourci:atajo[auto]
 commande:ordenado[auto]
 bientôt:pronto[auto]
 suivant:Próximo[auto]
+avant:antes de[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:el jugador humano[auto]
@@ -97,6 +98,7 @@ quitterToMp:vuelve al menú principal[auto]
 continuerJeu:continuar el juego[auto]
 supprimerFourmi.1:quitar la hormiga[auto]
 supprimerFourmi.2:¿De verdad quieres quitar la hormiga?[auto]
+choisirPartie:elige una parte[auto]
 
 affTest:prueba exitosa[auto]
 

@@ -28,6 +28,7 @@ raccourci:llwybr byr[auto]
 commande:archebu[auto]
 bientôt:yn fuan[auto]
 suivant:yn dilyn[auto]
+avant:o'r blaen[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:y chwaraewr dynol[auto]
@@ -97,6 +98,7 @@ quitterToMp:dychwelwch i'r brif ddewislen[auto]
 continuerJeu:parhau â'r gêm[auto]
 supprimerFourmi.1:tynnwch y morgrugyn[auto]
 supprimerFourmi.2:ydych chi wir eisiau tynnu'r morgrugyn[auto]
+choisirPartie:dewis rhan[auto]
 
 affTest:prawf llwyddiannus[auto]
 

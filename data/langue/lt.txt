@@ -28,6 +28,7 @@ raccourci:trumpesnis kelias[auto]
 commande:įsakė[auto]
 bientôt:netrukus[auto]
 suivant:sekant[auto]
+avant:prieš tai[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:žmogaus žaidėjas[auto]
@@ -97,6 +98,7 @@ quitterToMp:grįžti į pagrindinį meniu[auto]
 continuerJeu:tęsti žaidimą[auto]
 supprimerFourmi.1:nuimkite skruzdėlę[auto]
 supprimerFourmi.2:ar tikrai norite pašalinti skruzdėlę[auto]
+choisirPartie:išsirinkite dalį[auto]
 
 affTest:sėkmingas testas[auto]
 

@@ -28,6 +28,7 @@ raccourci:indlela emfutshane[auto]
 commande:iyalelwe[auto]
 bientôt:kungekudala[auto]
 suivant:elandelayo[auto]
+avant:ngaphambili[auto]
 
 laIA:LIA[auto]
 laJoueurHumain:umdlali womntu[auto]
@@ -97,6 +98,7 @@ quitterToMp:buyela kwimenyu ephambili[auto]
 continuerJeu:qhubeka nomdlalo[auto]
 supprimerFourmi.1:susa imbovane[auto]
 supprimerFourmi.2:Ngaba uyafuna ngokwenene ukususa imbovane[auto]
+choisirPartie:khetha inxenye[auto]
 
 affTest:uvavanyo ngempumelelo[auto]
 

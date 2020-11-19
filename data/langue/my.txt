@@ -28,6 +28,7 @@ raccourci:ဖြတ်လမ်း[auto]
 commande:အမိန့်ပေး[auto]
 bientôt:မကြာမီ[auto]
 suivant:အောက်ပါ[auto]
+avant:မတိုင်မီ[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:လူ့ကစားသမား[auto]
@@ -97,6 +98,7 @@ quitterToMp:အဓိက menu ကိုပြန်သွားပါ[auto]
 continuerJeu:ဂိမ်းကိုဆက်ပါ[auto]
 supprimerFourmi.1:ပုရွက်ဆိတ်ကိုဖယ်ရှားလိုက်ပါ[auto]
 supprimerFourmi.2:ပုရွက်ဆိတ်ကိုတကယ်ဖယ်ချင်သလား[auto]
+choisirPartie:အပိုင်းရွေးပါ[auto]
 
 affTest:အောင်မြင်သောစမ်းသပ်မှု[auto]
 

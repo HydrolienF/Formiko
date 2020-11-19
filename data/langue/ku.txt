@@ -28,6 +28,7 @@ raccourci:kurterê[auto]
 commande:ferman kir[auto]
 bientôt:nêzda[auto]
 suivant:pêketînî[auto]
+avant:berî[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:lîstikvanê mirovî[auto]
@@ -97,6 +98,7 @@ quitterToMp:vegerin ser menuya sereke[auto]
 continuerJeu:lîstikê bidomînin[auto]
 supprimerFourmi.1:mirinê rakin[auto]
 supprimerFourmi.2:tu bi rastî dixwazî antî rakî[auto]
+choisirPartie:beşek hilbijêrin[auto]
 
 affTest:test serkeftî[auto]
 

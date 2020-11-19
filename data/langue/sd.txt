@@ -28,6 +28,7 @@ raccourci:شارٽ ڪٽ[auto]
 commande:حڪم ڏنو[auto]
 bientôt:جلدي[auto]
 suivant:هيٺين[auto]
+avant:اڳ[auto]
 
 laIA:ايليا[auto]
 laJoueurHumain:انساني پليئر[auto]
@@ -97,6 +98,7 @@ quitterToMp:مکيه مينيو ڏانھن واپس وڃو[auto]
 continuerJeu:راند جاري رکو[auto]
 supprimerFourmi.1:ڪوڙي ختم ڪريو[auto]
 supprimerFourmi.2:ڇا توهان واقعي انٽ کي هٽائڻ چاهيو ٿا[auto]
+choisirPartie:حصو چونڊيو[auto]
 
 affTest:ڪامياب امتحان[auto]
 

@@ -28,6 +28,7 @@ raccourci:الاختصار[auto]
 commande:أمر[auto]
 bientôt:هكذا[auto]
 suivant:التالية[auto]
+avant:قبل[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:اللاعب البشري[auto]
@@ -97,6 +98,7 @@ quitterToMp:العودة إلى القائمة الرئيسية[auto]
 continuerJeu:أكمل اللعبة[auto]
 supprimerFourmi.1:إزالة النملة[auto]
 supprimerFourmi.2:هل تريد حقًا إزالة النملة[auto]
+choisirPartie:اختر جزء[auto]
 
 affTest:اختبار ناجح[auto]
 

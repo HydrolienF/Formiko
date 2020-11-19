@@ -28,6 +28,7 @@ raccourci:parancsikon[auto]
 commande:parancsolt[auto]
 bientôt:hamar[auto]
 suivant:következő[auto]
+avant:előtt[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:az emberi játékos[auto]
@@ -97,6 +98,7 @@ quitterToMp:visszatér a főmenübe[auto]
 continuerJeu:folytassa a játékot[auto]
 supprimerFourmi.1:távolítsa el a hangyát[auto]
 supprimerFourmi.2:valóban el akarja távolítani a hangyát?[auto]
+choisirPartie:válasszon egy részt[auto]
 
 affTest:sikeres teszt[auto]
 
