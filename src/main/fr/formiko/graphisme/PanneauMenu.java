@@ -77,6 +77,10 @@ public class PanneauMenu extends Panneau {
       //Carte mapo = pnp.getCarte();
       pa=pnp.getPartie();
       lancer=true;
+    }else if(ac==101){
+      //Carte mapo = pnp.getCarte();
+      pa=pcp.getPartie();
+      lancer=true;
     }
   }
   public void construitPanneauMenu(int nbrDeBouton){

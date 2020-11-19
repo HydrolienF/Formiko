@@ -20,6 +20,7 @@ import fr.formiko.usuel.math.math;
 import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.Temps;
 import javax.swing.ImageIcon;
+import fr.formiko.usuel.conversiondetype.str;
 
 public class PanneauJeu extends Panneau {
   private PanneauCarte pc;
@@ -284,7 +285,16 @@ public class PanneauJeu extends Panneau {
     //d.setInitialSelectionValue(Temps.getDatePourSauvegarde());
     Object[] options = {g.get("ok")};
     //d.title = g.get("sauvegarder");
-    s = d.showInputDialog(Main.getF(),g.get("save.message"),Temps.getDatePourSauvegarde());
+    String saveName = g.getM("sauvegarde")+" "+Main.getSave().getIdS();//donne un identifiant unique au fichier.
+    try {
+      //saveName+="  "+Main.getGj().getDébut().getContenu().getPseudo();
+      saveName+="  "+Temps.getDatePourSauvegarde();
+    }catch (Exception e) {
+      erreur.alerte("Un nom de sauvegarde n'a pas pu être choisi.");
+    }
+    saveName = str.sToFileName(saveName);//le pseudo pourrai contenir des char interdits sur des fichiers.
+    s = d.showInputDialog(Main.getF(),g.get("save.message"),saveName);
+    s = str.sToFileName(s);
     //s = d.showInputDialog(Main.getF(),g.get("save.message"),g.get("sauvegarder"),JOptionPane.QUESTION_MESSAGE);
     Object o = g.get("save.message");
     Object oNull = null;
