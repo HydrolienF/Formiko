@@ -28,6 +28,7 @@ raccourci:snarvei[auto]
 commande:bestilt[auto]
 bientôt:snart[auto]
 suivant:følgende[auto]
+avant:før[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:den menneskelige spilleren[auto]
@@ -97,6 +98,7 @@ quitterToMp:gå tilbake til hovedmenyen[auto]
 continuerJeu:fortsett spillet[auto]
 supprimerFourmi.1:fjern mauren[auto]
 supprimerFourmi.2:vil du virkelig fjerne mauren[auto]
+choisirPartie:velg en del[auto]
 
 affTest:vellykket test[auto]
 

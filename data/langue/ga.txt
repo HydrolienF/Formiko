@@ -28,6 +28,7 @@ raccourci:aicearra[auto]
 commande:ordaíodh[auto]
 bientôt:go luath[auto]
 suivant:leanas[auto]
+avant:roimh[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:an t-imreoir daonna[auto]
@@ -97,6 +98,7 @@ quitterToMp:filleadh ar an bpríomh-roghchlár[auto]
 continuerJeu:lean ar aghaidh leis an gcluiche[auto]
 supprimerFourmi.1:bain an seangÚn[auto]
 supprimerFourmi.2:an bhfuil tú i ndáiríre ag iarraidh an seangÚn a bhaint[auto]
+choisirPartie:roghnaigh cuid[auto]
 
 affTest:tástáil rathúil[auto]
 

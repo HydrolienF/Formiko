@@ -28,6 +28,7 @@ raccourci:flýtileið[auto]
 commande:pantaði[auto]
 bientôt:brátt[auto]
 suivant:eftirfarandi[auto]
+avant:áður[auto]
 
 laIA:ég er[auto]
 laJoueurHumain:mannlegi leikmaðurinn[auto]
@@ -97,6 +98,7 @@ quitterToMp:fara aftur í aðalvalmyndina[auto]
 continuerJeu:halda áfram leiknum[auto]
 supprimerFourmi.1:fjarlægðu maurinn[auto]
 supprimerFourmi.2:viltu virkilega fjarlægja maurinn[auto]
+choisirPartie:veldu hluta[auto]
 
 affTest:vel heppnað próf[auto]
 

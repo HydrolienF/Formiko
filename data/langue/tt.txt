@@ -28,6 +28,7 @@ raccourci:кыска юл[auto]
 commande:заказ бирде[auto]
 bientôt:тиздән[auto]
 suivant:түбәндәге[auto]
+avant:элек[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:кеше уенчысы[auto]
@@ -97,6 +98,7 @@ quitterToMp:төп менюга кайту[auto]
 continuerJeu:уенны дәвам итегез[auto]
 supprimerFourmi.1:кырмысканы чыгар[auto]
 supprimerFourmi.2:кырмысканы чыгарырга телисезме?[auto]
+choisirPartie:өлешен сайлагыз[auto]
 
 affTest:уңышлы тест[auto]
 

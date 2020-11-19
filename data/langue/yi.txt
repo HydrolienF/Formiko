@@ -28,6 +28,7 @@ raccourci:דורכוועג[auto]
 commande:באפוילן[auto]
 bientôt:באַלד[auto]
 suivant:ווייַטערדיק[auto]
+avant:איידער[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:דער מענטש שפּילער[auto]
@@ -97,6 +98,7 @@ quitterToMp:צוריקקומען צו די הויפּט מעניו[auto]
 continuerJeu:פאָרזעצן די שפּיל[auto]
 supprimerFourmi.1:אַראָפּנעמען די מוראַשקע[auto]
 supprimerFourmi.2:צי איר טאַקע ווילן צו באַזייַטיקן די מוראַשקע[auto]
+choisirPartie:קלייַבן אַ טייל[auto]
 
 affTest:מצליח פּרובירן[auto]
 

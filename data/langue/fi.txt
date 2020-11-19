@@ -28,6 +28,7 @@ raccourci:pikakuvake[auto]
 commande:tilattu[auto]
 bientôt:pian[auto]
 suivant:seurata[auto]
+avant:ennen[auto]
 
 laIA:minä[auto]
 laJoueurHumain:ihmispelaaja[auto]
@@ -97,6 +98,7 @@ quitterToMp:palaa päävalikkoon[auto]
 continuerJeu:jatka peliä[auto]
 supprimerFourmi.1:poista muurahainen[auto]
 supprimerFourmi.2:haluatko todella poistaa muurahaisen[auto]
+choisirPartie:valitse osa[auto]
 
 affTest:onnistunut testi[auto]
 

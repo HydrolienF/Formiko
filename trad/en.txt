@@ -1,6 +1,4 @@
 ```md
-#Version 1.11.10 14/11/2020
-With the command "Main rbt name1 [name2] [name3] [etc]" game's images can be easily cropped (Remove transparent edges).
-This should make the game even smoother (no need to display pixels transparent borders when drawing the image).
-In addition, the sizes of the insects can be chosen independently of the size of the insect in the image.
+#Version 1.14.6 19/11/2020
+Saving and loading a saved game works!
 ```

@@ -28,6 +28,7 @@ raccourci:кратенка[auto]
 commande:порачано[auto]
 bientôt:наскоро[auto]
 suivant:следниве[auto]
+avant:порано[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:човечкиот играч[auto]
@@ -97,6 +98,7 @@ quitterToMp:вратете се на главното мени[auto]
 continuerJeu:продолжи играта[auto]
 supprimerFourmi.1:отстранете ја мравката[auto]
 supprimerFourmi.2:дали навистина сакате да ја отстраните мравката[auto]
+choisirPartie:изберете дел[auto]
 
 affTest:успешен тест[auto]
 

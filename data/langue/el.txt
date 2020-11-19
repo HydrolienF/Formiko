@@ -28,6 +28,7 @@ raccourci:συντομότερος τρόπος[auto]
 commande:διέταξε[auto]
 bientôt:σύντομα[auto]
 suivant:ΕΠΟΜΕΝΟ[auto]
+avant:πριν[auto]
 
 laIA:ΛΙΑ[auto]
 laJoueurHumain:ο ανθρώπινος παίκτης[auto]
@@ -97,6 +98,7 @@ quitterToMp:επιστρέψτε στο κύριο μενού[auto]
 continuerJeu:συνεχίστε το παιχνίδι[auto]
 supprimerFourmi.1:αφαιρέστε το μυρμήγκι[auto]
 supprimerFourmi.2:θέλετε πραγματικά να αφαιρέσετε το μυρμήγκι[auto]
+choisirPartie:επιλέξτε ένα μέρος[auto]
 
 affTest:επιτυχημένη δοκιμή[auto]
 

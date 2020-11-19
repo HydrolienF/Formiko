@@ -28,6 +28,7 @@ raccourci:קיצור[auto]
 commande:הורה[auto]
 bientôt:בקרוב[auto]
 suivant:הבא[auto]
+avant:לפני[auto]
 
 laIA:אני[auto]
 laJoueurHumain:השחקן האנושי[auto]
@@ -97,6 +98,7 @@ quitterToMp:חזור לתפריט הראשי[auto]
 continuerJeu:להמשיך את המשחק[auto]
 supprimerFourmi.1:הסר את הנמלה[auto]
 supprimerFourmi.2:האם אתה באמת רוצה להסיר את הנמלה[auto]
+choisirPartie:בחר חלק[auto]
 
 affTest:מבחן מוצלח[auto]
 

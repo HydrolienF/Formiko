@@ -28,6 +28,7 @@ raccourci:zọ mkpirisi[auto]
 commande:nyere iwu[auto]
 bientôt:ngwa ngwa[auto]
 suivant:na-eso[auto]
+avant:tupu[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:mmadụ ọkpụkpọ[auto]
@@ -97,6 +98,7 @@ quitterToMp:laghachi na isi menu[auto]
 continuerJeu:gaa n'ihu egwuregwu ahụ[auto]
 supprimerFourmi.1:wepụ ant[auto]
 supprimerFourmi.2:ị chọrọ n’ezie iwepu ndanda[auto]
+choisirPartie:họrọ otu akụkụ[auto]
 
 affTest:ule na-aga nke ọma[auto]
 

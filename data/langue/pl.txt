@@ -28,6 +28,7 @@ raccourci:skrót[auto]
 commande:zamówione[auto]
 bientôt:wkrótce[auto]
 suivant:następujący[auto]
+avant:przed[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:gracz-człowiek[auto]
@@ -97,6 +98,7 @@ quitterToMp:wróć do menu głównego[auto]
 continuerJeu:kontynuować grę[auto]
 supprimerFourmi.1:usuń mrówkę[auto]
 supprimerFourmi.2:czy naprawdę chcesz usunąć mrówkę[auto]
+choisirPartie:wybierz część[auto]
 
 affTest:pomyślny test[auto]
 

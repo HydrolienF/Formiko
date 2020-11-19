@@ -28,6 +28,7 @@ raccourci:Abkürzung[auto]
 commande:bestellt[auto]
 bientôt:demnächst[auto]
 suivant:folgenden[auto]
+avant:Vor[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:der menschliche Spieler[auto]
@@ -97,6 +98,7 @@ quitterToMp:kehren Sie zum Hauptmenü zurück[auto]
 continuerJeu:setze das Spiel fort[auto]
 supprimerFourmi.1:entferne die Ameise[auto]
 supprimerFourmi.2:Willst du wirklich die Ameise entfernen?[auto]
+choisirPartie:Wähle ein Teil[auto]
 
 affTest:erfolgreicher Test[auto]
 

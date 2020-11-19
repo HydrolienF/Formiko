@@ -28,6 +28,7 @@ raccourci:குறுக்குவழி[auto]
 commande:உத்தரவிட்டது[auto]
 bientôt:விரைவில்[auto]
 suivant:பின்வருமாறு[auto]
+avant:முன்[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:மனித வீரர்[auto]
@@ -97,6 +98,7 @@ quitterToMp:பிரதான மெனுவுக்குத் திரு
 continuerJeu:விளையாட்டைத் தொடரவும்[auto]
 supprimerFourmi.1:எறும்பை அகற்றவும்[auto]
 supprimerFourmi.2:நீங்கள் உண்மையில் எறும்பை அகற்ற விரும்புகிறீர்களா?[auto]
+choisirPartie:ஒரு பகுதியைத் தேர்ந்தெடுக்கவும்[auto]
 
 affTest:வெற்றிகரமான சோதனை[auto]
 

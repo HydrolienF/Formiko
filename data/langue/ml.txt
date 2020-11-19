@@ -28,6 +28,7 @@ raccourci:കുറുക്കുവഴി[auto]
 commande:ഉത്തരവിട്ടു[auto]
 bientôt:ഉടൻ[auto]
 suivant:പിന്തുടരുന്നു[auto]
+avant:മുമ്പ്[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:ഹ്യൂമൻ പ്ലെയർ[auto]
@@ -97,6 +98,7 @@ quitterToMp:പ്രധാന മെനുവിലേക്ക് മടങ്
 continuerJeu:ഗെയിം തുടരുക[auto]
 supprimerFourmi.1:ഉറുമ്പ് നീക്കം ചെയ്യുക[auto]
 supprimerFourmi.2:ഉറുമ്പ് നീക്കംചെയ്യാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടോ?[auto]
+choisirPartie:ഒരു ഭാഗം തിരഞ്ഞെടുക്കുക[auto]
 
 affTest:വിജയകരമായ പരിശോധന[auto]
 

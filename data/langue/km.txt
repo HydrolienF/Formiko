@@ -28,6 +28,7 @@ raccourci:ផ្លូវកាត់[auto]
 commande:បានបញ្ជាទិញ[auto]
 bientôt:ឆាប់[auto]
 suivant:បន្ទាប់[auto]
+avant:មុន[auto]
 
 laIA:លីអា[auto]
 laJoueurHumain:អ្នកលេងមនុស្ស[auto]
@@ -97,6 +98,7 @@ quitterToMp:ត្រឡប់ទៅម៉ឺនុយមេវិញ[auto]
 continuerJeu:បន្តល្បែង[auto]
 supprimerFourmi.1:យកស្រមោចចេញ[auto]
 supprimerFourmi.2:តើអ្នកពិតជាចង់យកស្រមោចចេញទេ?[auto]
+choisirPartie:ជ្រើសរើសផ្នែកមួយ[auto]
 
 affTest:ការធ្វើតេស្តដោយជោគជ័យ[auto]
 
