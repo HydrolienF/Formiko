@@ -89,6 +89,7 @@ Hydrolien
 *developer: / développeur : / ellaboranto:*
 Hydrolien
 Bidulman
+Jerryh
 
 *translator: / traducteur : / tradukisto:*
 Hydrolien
