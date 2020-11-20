@@ -1,5 +1,7 @@
 **Formiko**
 
+information about runing project can be found in .bash_aliases file. (To build and then launch game in linux just do `./javacf.sh;./main.sh`
+
 ### EN / FR / EO
 *Update: / Mise à jour : / Ĝisdatigu:* https://formiko.fr
 
