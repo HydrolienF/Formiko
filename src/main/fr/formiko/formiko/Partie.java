@@ -35,6 +35,7 @@ public class Partie implements Serializable{
   private boolean continerLeJeu;
   private boolean appartionInsecte;
   private boolean appartionGraine;
+  private boolean dejaIni=false;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   // nombre de joueur, nombre d'ia, abondance des insectes, niveau de difficulté des ia, les especes autorisé, le nombre de tour.
@@ -116,30 +117,34 @@ public class Partie implements Serializable{
     return r;
   }
   public void initialisationElément(int nbrDeJoueur, int nbrDIa, int nbrDeFourmi){
-    Main.débutCh();
-    Main.setMessageChargement(g.getM("initialisationDesJoueurs"));
-    boolean b = false;
-    nbrDeJoueurDansLaPartie=nbrDIa + nbrDeJoueur;
-    if(gej!=null){nbrDeJoueurDansLaPartie=gej.length()-1;}//on a une case vide dans gej.
-    if(nbrDeJoueurDansLaPartie>this.getCarte().length()){erreur.erreur("la carte est trop petite pour abriter "+nbrDeJoueur+" joueurs ; taille : "+getGc().length(),"Fourmiliere.Fourmiliere",true);}
-    if(gej==null){
-      gj = new GJoueur();
-      iniJoueur(nbrDeJoueur,nbrDeFourmi,mapo);
-      iniIa(nbrDIa,nbrDeFourmi,mapo);
-    }else{
-      iniJoueurEtIa(mapo); gej=null;
+    if(!dejaIni){
+      dejaIni=true;
+      Main.débutCh();
+      Main.setMessageChargement(g.getM("initialisationDesJoueurs"));
+      boolean b = false;
+      nbrDeJoueurDansLaPartie=nbrDIa + nbrDeJoueur;
+      if(gej!=null){nbrDeJoueurDansLaPartie=gej.length()-1;}//on a une case vide dans gej.
+      if(nbrDeJoueurDansLaPartie>this.getCarte().length()){erreur.erreur("la carte est trop petite pour abriter "+nbrDeJoueur+" joueurs ; taille : "+getGc().length(),"Fourmiliere.Fourmiliere",true);}
+      if(gej==null){
+        gj = new GJoueur();
+        iniJoueur(nbrDeJoueur,nbrDeFourmi,mapo);
+        iniIa(nbrDIa,nbrDeFourmi,mapo);
+      }else{
+        iniJoueurEtIa(mapo); gej=null;
+      }
+      if(nbrDeJoueur==0){partieFinie=true;}//on ne déclanche pas de condition de victoire.
+      if (nbrDeJoueurDansLaPartie==1){partieFinie=true;}//on ne déclanche pas les condition de victoire si il y a un seul joueur.
+      debug.débogage("Création de 10 insectes programmé.");
+      Main.setMessageChargement(g.getM("initialisationDesInsectes"));
+      if(appartionInsecte){
+        gi = new GInsecte(mapo.getNbrDInsecteAuDébut());
+      }else{
+        gi = new GInsecte();
+      }
+      Main.finCh("chargementElementsDeLaCarte");
+      Main.setMessageChargement(g.getM("chargementDesGraphismes"));
     }
-    if(nbrDeJoueur==0){partieFinie=true;}//on ne déclanche pas de condition de victoire.
-    if (nbrDeJoueurDansLaPartie==1){partieFinie=true;}//on ne déclanche pas les condition de victoire si il y a un seul joueur.
-    debug.débogage("Création de 10 insectes programmé.");
-    Main.setMessageChargement(g.getM("initialisationDesInsectes"));
-    if(appartionInsecte){
-      gi = new GInsecte(mapo.getNbrDInsecteAuDébut());
-    }else{
-      gi = new GInsecte();
-    }
-    Main.finCh("chargementElementsDeLaCarte");
-    Main.setMessageChargement(g.getM("chargementDesGraphismes"));
+    //ce qui arrive même si c'était déja initialisé.
     Main.débutCh();
     initialiserGraphismePartie();
     Main.finCh("chargementGraphismes");

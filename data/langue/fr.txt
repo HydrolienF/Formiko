@@ -98,6 +98,7 @@ quitterToMp:revenir au menu principal
 continuerJeu:continuer le jeu
 supprimerFourmi.1:supprimer la fourmi
 supprimerFourmi.2:voulez vous vraiment supprimer la fourmi
+choisirPartie:choisissez une partie
 
 affTest:test effectué avec succès
 

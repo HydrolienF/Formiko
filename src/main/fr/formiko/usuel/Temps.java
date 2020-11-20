@@ -97,7 +97,7 @@ public class Temps {
     ecrireUnFichier.ecrireUnFichier(gs,"data/Temps.txt");
   }
   //static ---------------------------------------------------------------------------
-  //TODO ajouter une méthode qui return un STring de date le plus adapté possible avec un nombre défini d'unité allant de jours a ms.
+  //TODO ajouter une méthode qui return un String de date le plus adapté possible avec un nombre défini d'unité allant de jours a ms.
   //par défaut on a 2 unité. ex : x jours y heures  ex2 : x min y s
   public static String getDatePourSauvegarde(){
     String df2 = "dd-MM-yyyy HH-mm-ss";

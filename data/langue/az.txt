@@ -28,6 +28,7 @@ raccourci:qısa[auto]
 commande:sifariş verdi[auto]
 bientôt:tezliklə[auto]
 suivant:aşağıdakı[auto]
+avant:əvvəl[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:insan oyunçu[auto]
@@ -97,6 +98,7 @@ quitterToMp:əsas menyuya qayıdın[auto]
 continuerJeu:oyuna davam et[auto]
 supprimerFourmi.1:qarışqa çıxar[auto]
 supprimerFourmi.2:həqiqətən qarışqanı çıxarmaq istəyirsənmi?[auto]
+choisirPartie:bir hissə seçin[auto]
 
 affTest:uğurlu test[auto]
 

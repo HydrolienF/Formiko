@@ -1,4 +1,4 @@
 ```md
-#Version 1.11.10 14/11/2020
-Danke al la komando "Ĉefa rbt nomo1 [nomo2] [nomo3] [etc]" La bildoj en la ludo povas esti facile eltranĉeblaj (Forigu travideblajn randojn).
+#Version 1.14.6 19/11/2020
+Konservi kaj poste ŝargi konservitan ludon funkcias!
 ```

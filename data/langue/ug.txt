@@ -28,6 +28,7 @@ raccourci:تېزلەتمە[auto]
 commande:زاكاز قىلدى[auto]
 bientôt:soon[auto]
 suivant:تۆۋەندىكى[auto]
+avant:ئىلگىرى[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:the human player[auto]
@@ -97,6 +98,7 @@ quitterToMp:ئاساسىي تىزىملىككە قايتىڭ[auto]
 continuerJeu:ئويۇننى داۋاملاشتۇرۇڭ[auto]
 supprimerFourmi.1:چۈمۈلىنى ئېلىڭ[auto]
 supprimerFourmi.2:چۈمۈلىنى ئېلىۋەتمەكچىمۇ؟[auto]
+choisirPartie:بىر قىسمىنى تاللاڭ[auto]
 
 affTest:مۇۋەپپەقىيەتلىك سىناق[auto]
 

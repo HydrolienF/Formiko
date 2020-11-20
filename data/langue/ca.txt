@@ -28,6 +28,7 @@ raccourci:drecera[auto]
 commande:ordenat[auto]
 bientôt:aviat[auto]
 suivant:seguint[auto]
+avant:abans[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:el jugador humà[auto]
@@ -97,6 +98,7 @@ quitterToMp:torneu al menú principal[auto]
 continuerJeu:continuar el joc[auto]
 supprimerFourmi.1:traieu la formiga[auto]
 supprimerFourmi.2:de debò voleu treure la formiga[auto]
+choisirPartie:tria una peça[auto]
 
 affTest:prova reeixida[auto]
 

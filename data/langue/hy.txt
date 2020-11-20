@@ -28,6 +28,7 @@ raccourci:դյուրանցում[auto]
 commande:պատվիրված[auto]
 bientôt:շուտով[auto]
 suivant:հետևում է[auto]
+avant:նախքան[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:մարդկային խաղացողը[auto]
@@ -97,6 +98,7 @@ quitterToMp:վերադառնալ հիմնական ընտրացանկ[auto]
 continuerJeu:շարունակել խաղը[auto]
 supprimerFourmi.1:հեռացնել մրջյունը[auto]
 supprimerFourmi.2:իսկապե՞ս ուզում եք հեռացնել մրջյունը[auto]
+choisirPartie:ընտրեք մաս[auto]
 
 affTest:հաջող թեստ[auto]
 

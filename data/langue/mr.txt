@@ -28,6 +28,7 @@ raccourci:शॉर्टकट[auto]
 commande:आज्ञा केली[auto]
 bientôt:लवकरच[auto]
 suivant:खालील[auto]
+avant:आधी[auto]
 
 laIA:एल आयआयए[auto]
 laJoueurHumain:मानवी खेळाडू[auto]
@@ -97,6 +98,7 @@ quitterToMp:मुख्य मेनूवर परत या[auto]
 continuerJeu:खेळ सुरू ठेवा[auto]
 supprimerFourmi.1:मुंगी काढा[auto]
 supprimerFourmi.2:तुला मुंगी खरोखर काढायची आहे का?[auto]
+choisirPartie:एक भाग निवडा[auto]
 
 affTest:यशस्वी चाचणी[auto]
 

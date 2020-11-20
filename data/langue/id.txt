@@ -28,6 +28,7 @@ raccourci:jalan pintas[auto]
 commande:dipesan[auto]
 bientôt:segera[auto]
 suivant:berikut[auto]
+avant:sebelum[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:pemain manusia[auto]
@@ -97,6 +98,7 @@ quitterToMp:kembali ke menu utama[auto]
 continuerJeu:lanjutkan permainannya[auto]
 supprimerFourmi.1:singkirkan semut[auto]
 supprimerFourmi.2:apakah kamu benar-benar ingin menyingkirkan semut[auto]
+choisirPartie:pilih bagian[auto]
 
 affTest:tes sukses[auto]
 

@@ -28,6 +28,7 @@ raccourci:цэтлік[auto]
 commande:загадаў[auto]
 bientôt:хутка[auto]
 suivant:наступныя[auto]
+avant:раней[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:чалавечы гулец[auto]
@@ -97,6 +98,7 @@ quitterToMp:вярнуцца ў галоўнае меню[auto]
 continuerJeu:працягваць гульню[auto]
 supprimerFourmi.1:выдаліць мурашку[auto]
 supprimerFourmi.2:вы сапраўды хочаце выдаліць мурашку[auto]
+choisirPartie:выбраць дэталь[auto]
 
 affTest:паспяховы тэст[auto]
 

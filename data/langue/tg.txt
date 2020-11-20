@@ -28,6 +28,7 @@ raccourci:миёнабур[auto]
 commande:фармон дод[auto]
 bientôt:ба зудӣ[auto]
 suivant:пайравӣ[auto]
+avant:пеш[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:плеери инсон[auto]
@@ -97,6 +98,7 @@ quitterToMp:ба менюи асосӣ баргардед[auto]
 continuerJeu:бозиро идома диҳед[auto]
 supprimerFourmi.1:мӯрчагаро нест кунед[auto]
 supprimerFourmi.2:оё шумо дар ҳақиқат мехоҳед мӯрчаро нест кунед[auto]
+choisirPartie:як қисми интихоб кунед[auto]
 
 affTest:озмоиши муваффақ[auto]
 

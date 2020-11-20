@@ -28,6 +28,7 @@ raccourci:kortpad[auto]
 commande:bestel[auto]
 bientôt:binnekort[auto]
 suivant:volgende[auto]
+avant:voorheen[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:die menslike speler[auto]
@@ -97,6 +98,7 @@ quitterToMp:keer terug na die hoofkieslys[auto]
 continuerJeu:gaan voort met die spel[auto]
 supprimerFourmi.1:verwyder die mier[auto]
 supprimerFourmi.2:wil u regtig die mier verwyder[auto]
+choisirPartie:kies 'n deel[auto]
 
 affTest:suksesvolle toets[auto]
 

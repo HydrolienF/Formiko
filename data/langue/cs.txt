@@ -28,6 +28,7 @@ raccourci:zkratka[auto]
 commande:objednal[auto]
 bientôt:již brzy[auto]
 suivant:Následující[auto]
+avant:před[auto]
 
 laIA:já'I[auto]
 laJoueurHumain:lidský hráč[auto]
@@ -97,6 +98,7 @@ quitterToMp:návrat do hlavního menu[auto]
 continuerJeu:pokračovat ve hře[auto]
 supprimerFourmi.1:odstranit mravence[auto]
 supprimerFourmi.2:opravdu chcete odstranit mravence[auto]
+choisirPartie:vyberte součást[auto]
 
 affTest:úspěšný test[auto]
 

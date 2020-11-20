@@ -28,6 +28,7 @@ raccourci:scorciatoia[auto]
 commande:ordinato[auto]
 bientôt:presto[auto]
 suivant:seguente[auto]
+avant:prima[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:il giocatore umano[auto]
@@ -97,6 +98,7 @@ quitterToMp:tornare al menu principale[auto]
 continuerJeu:continuare il gioco[auto]
 supprimerFourmi.1:rimuovere la formica[auto]
 supprimerFourmi.2:vuoi davvero rimuovere la formica[auto]
+choisirPartie:scegli una parte[auto]
 
 affTest:test riuscito[auto]
 

@@ -28,6 +28,7 @@ raccourci:ярлык[auto]
 commande:приказал[auto]
 bientôt:скоро[auto]
 suivant:следующий[auto]
+avant:перед[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:человек-игрок[auto]
@@ -97,6 +98,7 @@ quitterToMp:вернуться в главное меню[auto]
 continuerJeu:продолжить игру[auto]
 supprimerFourmi.1:удалить муравья[auto]
 supprimerFourmi.2:ты действительно хочешь убрать муравья?[auto]
+choisirPartie:выбрать часть[auto]
 
 affTest:успешный тест[auto]
 

@@ -28,6 +28,7 @@ raccourci:пречица[auto]
 commande:наредио[auto]
 bientôt:ускоро[auto]
 suivant:следећи[auto]
+avant:пре него што[auto]
 
 laIA:л'иа[auto]
 laJoueurHumain:људски играч[auto]
@@ -97,6 +98,7 @@ quitterToMp:повратак у главни мени[auto]
 continuerJeu:настави игру[auto]
 supprimerFourmi.1:уклони мрава[auto]
 supprimerFourmi.2:да ли стварно желиш да уклониш мрава[auto]
+choisirPartie:изаберите део[auto]
 
 affTest:успешан тест[auto]
 

@@ -28,6 +28,7 @@ raccourci:fluchtoets[auto]
 commande:oardere[auto]
 bientôt:gau[auto]
 suivant:folgjend[auto]
+avant:foar[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:de minsklike spiler[auto]
@@ -97,6 +98,7 @@ quitterToMp:gean werom nei it haadmenu[auto]
 continuerJeu:trochgean it spultsje[auto]
 supprimerFourmi.1:ferwiderje de mier[auto]
 supprimerFourmi.2:wolle jo de mier wirklik fuortsmite[auto]
+choisirPartie:kies in diel[auto]
 
 affTest:slagge test[auto]
 

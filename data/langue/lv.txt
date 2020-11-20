@@ -28,6 +28,7 @@ raccourci:saīsne[auto]
 commande:pasūtīts[auto]
 bientôt:drīz[auto]
 suivant:sekojošs[auto]
+avant:pirms[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:cilvēka spēlētājs[auto]
@@ -97,6 +98,7 @@ quitterToMp:atgriezieties galvenajā izvēlnē[auto]
 continuerJeu:turpināt spēli[auto]
 supprimerFourmi.1:noņem skudru[auto]
 supprimerFourmi.2:vai tiešām vēlaties noņemt skudru[auto]
+choisirPartie:izvēlies daļu[auto]
 
 affTest:veiksmīgs tests[auto]
 
