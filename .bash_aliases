@@ -1,24 +1,16 @@
-# alias use most for Formiko project.
-alias rm='rm -i'
-alias cp='cp -r'
-alias javaj='java -cp ~/Formiko/junit-4.13.1.jar:.:build/main:build/test junit.textui.TestRunner '
-alias javac='javac -d . '
-alias javacn='javac'
-alias chrome='google-chrome --new-window'
-alias icloud='google-chrome https://www.icloud.com/notes/ > /dev/null &'
-alias Main='java -cp build/main/:. fr.formiko.formiko.Main'
-alias main='Main'
-#alias javacF='javac -cp ~/Formiko/junit-4.13.1.jar:. $(find src/main -path ./src/main/fr/formiko/usuel/outils -prune -false -o -name *.java)'
-alias javacF='javacn -d build/main/ -cp ~/Formiko/junit-4.13.1.jar:. $(find src/main -name *.java)'
-alias javacf='javacF'
-alias javacFt='javacn -d build/test/ -cp ~/Formiko/junit-4.13.1.jar:.:build/main $(find src/test -name *.java)'
-alias javacft='javacFt'
-alias javadocF='javadoc -author -private -d javadoc/ -cp ~/Formiko/junit-4.13.1.jar:. $(find src/main -name *.java)'
-alias javadocf='javadocF'
-#alias Main='java --module-path $PATH_TO_FX --add-modules javafx.controls formiko.Main'
-#alias javacF='javac --module-path $PATH_TO_FX --add-modules javafx.controls *.java fenetre/* package/*'
-alias taille='du -sh *'
-alias score='libreoffice data/score.csv &'
-alias exe="./exe.sh"
-alias trad="cd trad/; ./traductionEtJdM.sh; cd .."
-alias cdF="cd $(~/Formiko/v.sh)"
+###Alias use in Formiko project since 1.15.2 (sould be used at the root of the projet)
+#You can use this shortcut by adding this lines to your ~/.bashrc file.
+
+#build
+alias javacf='./javacf.sh'
+#launch
+alias main='./main.sh'
+
+
+#build test part
+alias javacft='./javacft.sh'
+#launch test part
+alias javaj='./javaj.sh'
+#build javadoc part
+alias javadocf='./javadocf.sh'
+###
