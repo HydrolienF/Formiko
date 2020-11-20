@@ -14,4 +14,5 @@ alias javacft='./javacft.sh'
 alias javaj='./javaj.sh'
 #build javadoc part
 alias javadocf='./javadocf.sh'
-###
+
+###If you are using windows you can use run.bat & javacf.bat to do the same thing than .sh file. (bat file do not alow args, use the java commande to specify args)
