@@ -1,7 +1,7 @@
 **Formiko**
 
 ### EN / FR / EO
-*Update: / Mise à jour : / Ĝisdatigu:* https://formikoludo.wordpress.com/telechargement/
+*Update: / Mise à jour : / Ĝisdatigu:* https://formiko.fr
 *Support: / Support : / Subteno:* https://discord.gg/9uHXJ9K
 
 ### EN
@@ -147,6 +147,8 @@ Foresty
 Hydrolien
 whispered
 Lygaen
+Bidulman
+Jerryh
 
 ### EN
 `license: all rights reserved. Contact hydrolien.lili502@gmail.com`
