@@ -28,6 +28,7 @@ raccourci:yorliq[auto]
 commande:buyurdi[auto]
 bientôt:tez orada[auto]
 suivant:quyidagi[auto]
+avant:oldin[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:inson o'yinchisi[auto]
@@ -97,6 +98,7 @@ quitterToMp:asosiy menyuga qayting[auto]
 continuerJeu:o'yinni davom eting[auto]
 supprimerFourmi.1:chumolini olib tashlang[auto]
 supprimerFourmi.2:chindan ham chumolini olib tashlamoqchimisiz?[auto]
+choisirPartie:qismni tanlang[auto]
 
 affTest:muvaffaqiyatli sinov[auto]
 

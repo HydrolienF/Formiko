@@ -28,6 +28,7 @@ raccourci:bližnjica[auto]
 commande:naročeno[auto]
 bientôt:kmalu[auto]
 suivant:naslednje[auto]
+avant:prej[auto]
 
 laIA:l'ia[auto]
 laJoueurHumain:človeški igralec[auto]
@@ -97,6 +98,7 @@ quitterToMp:vrnitev v glavni meni[auto]
 continuerJeu:nadaljujte igro[auto]
 supprimerFourmi.1:odstranite mravlja[auto]
 supprimerFourmi.2:res želite odstraniti mravljico[auto]
+choisirPartie:izberite del[auto]
 
 affTest:uspešen test[auto]
 

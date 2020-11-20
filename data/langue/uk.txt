@@ -28,6 +28,7 @@ raccourci:ярлик[auto]
 commande:замовляв[auto]
 bientôt:найближчим часом[auto]
 suivant:наступні[auto]
+avant:раніше[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:людський гравець[auto]
@@ -97,6 +98,7 @@ quitterToMp:повернутися до головного меню[auto]
 continuerJeu:продовжити гру[auto]
 supprimerFourmi.1:видалити мурашку[auto]
 supprimerFourmi.2:ти дійсно хочеш видалити мураху[auto]
+choisirPartie:вибрати деталь[auto]
 
 affTest:успішний тест[auto]
 

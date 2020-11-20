@@ -8,16 +8,17 @@ public class tableau <T>{
 // déclaration des Objet
 // mylist.add(objet1) etc.
   private static String f = "tableau";
-  public static void erreurPosition(int i){
+  private static void erreurPosition(int i){
     erreur.erreur(g.get(f,1,"La position")+" " + i + " "+g.get(f,2,"n'existe pas dans le tableau")+".", "tableau.retir");
   }
-  public static void erreurPositionCorrige(int i){
+
+  private static void erreurPositionCorrige(int i){
     erreur.erreur(g.get(f,1,"La position")+" " + i + " "+g.get(f,2,"n'existe pas dans le tableau")+".", "tableau.retir",g.get(f,3,"On ajoute x en position finale."));
   }
-  public static void erreurVide(){
+  private static void erreurVide(){
     erreur.alerte(g.get(f,5,"Le tableau est vide !"),"tableau.");
   }
-  public static void erreurElementManquant(String x){
+  private static void erreurElementManquant(String x){
     erreur.alerte("\""+x + "\" "+g.get(f,4,"n'est pas présent dans le tableau")+".", "tableau.retirX");
   }
 //Objet
@@ -26,7 +27,8 @@ public class tableau <T>{
     if (i<0 || i>t.length) {
       erreurPosition(i);
     }
-    T tr [] = new Object [lentr];
+    T tr [] = new Object [lentr];//ne marche pas
+    Array<?> tr = new Array(T,lentr); // pourrai marché.
     for (int j=0;j<i; j++){
       tr[j]=t[j];
     }
@@ -291,6 +293,24 @@ public class tableau <T>{
     }
   }
 
+  // affiche T
+  public static <T> void afficher (T t[], String separateur){
+    int lent =t.length;
+    if (lent==0) { erreurVide();}
+    for(int i=0;i<lent;i++){
+      System.out.print(t[i] + separateur);
+    }
+    System.out.println();
+  }
+  public static <T> void afficher (T t[]){
+    afficher(t," ");
+  }
+  public static <T> void afficher (T t[][]){
+    for ( T t2 [] : t) {
+      afficher(t2," ");
+    }
+  }
+
   // afficher int
   public static void afficher (int t[], String separateur){
     int lent =t.length;
@@ -414,6 +434,16 @@ public class tableau <T>{
   *{@summary check if t contain x.<br>}
   */
   public static boolean contient(String t [], String x){
+    int lent = t.length;
+    for (int i=0;i<lent ;i++ ) {
+      if(t[i].equals(x)){return true;}
+    }
+    return false;
+  }
+  /**
+  *{@summary check if t contain x.<br>}
+  */
+  public static <T> boolean contient(T t [], T x){
     int lent = t.length;
     for (int i=0;i<lent ;i++ ) {
       if(t[i].equals(x)){return true;}

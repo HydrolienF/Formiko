@@ -28,6 +28,7 @@ raccourci:snelkoppeling[auto]
 commande:bestelling[auto]
 bientôt:weldra[auto]
 suivant:in aansluiting op[auto]
+avant:voordat[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:de menselijke speler[auto]
@@ -97,6 +98,7 @@ quitterToMp:terug naar het hoofdmenu[auto]
 continuerJeu:ga door met het spel[auto]
 supprimerFourmi.1:verwijder de mier[auto]
 supprimerFourmi.2:wil je de mier echt verwijderen[auto]
+choisirPartie:kies een onderdeel[auto]
 
 affTest:succesvolle test[auto]
 

@@ -28,6 +28,7 @@ raccourci:đường tắt[auto]
 commande:ra lệnh[auto]
 bientôt:Sớm[auto]
 suivant:tiếp theo[auto]
+avant:trước[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:người chơi con người[auto]
@@ -97,6 +98,7 @@ quitterToMp:trở lại menu chính[auto]
 continuerJeu:tiếp tục trò chơi[auto]
 supprimerFourmi.1:loại bỏ kiến[auto]
 supprimerFourmi.2:bạn có thực sự muốn loại bỏ con kiến[auto]
+choisirPartie:chọn một phần[auto]
 
 affTest:kiểm tra thành công[auto]
 

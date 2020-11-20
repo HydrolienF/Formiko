@@ -28,6 +28,7 @@ raccourci:isinqamuleli[auto]
 commande:wayala[auto]
 bientôt:kungekudala[auto]
 suivant:okulandelayo[auto]
+avant:ngaphambi[auto]
 
 laIA:L'IA[auto]
 laJoueurHumain:umdlali womuntu[auto]
@@ -97,6 +98,7 @@ quitterToMp:buyela kumenyu enkulu[auto]
 continuerJeu:qhubeka umdlalo[auto]
 supprimerFourmi.1:khipha intuthwane[auto]
 supprimerFourmi.2:uyafuna ngempela ukususa intuthwane[auto]
+choisirPartie:khetha ingxenye[auto]
 
 affTest:ukuhlolwa okuphumelelayo[auto]
 

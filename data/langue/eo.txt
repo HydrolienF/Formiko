@@ -28,6 +28,7 @@ raccourci:ŝparvojo[auto]
 commande:ordono
 bientôt:baldaŭ
 suivant:sekvante[auto]
+avant:antaŭe[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:la homa ludanto
@@ -97,6 +98,7 @@ quitterToMp:revenu al la ĉefa menuo
 continuerJeu:daŭrigu la ludon
 supprimerFourmi.1:forigu la formikon
 supprimerFourmi.2:ĉu vi vere volas forigi la formikon
+choisirPartie:elekti parton[auto]
 
 affTest:sukcesa testo[auto]
 

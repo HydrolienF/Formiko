@@ -5,6 +5,7 @@ import javax.swing.JComboBox;
 import fr.formiko.usuel.liste.GString;
 import fr.formiko.formiko.Main;
 import java.awt.Graphics;
+import java.awt.Font;
 
 public class EtiquetteChoix extends Panneau{
   private JComboBox<String> choixX;
@@ -22,6 +23,10 @@ public class EtiquetteChoix extends Panneau{
     choixX = gs.getComboBox(x);
     choixX.setFont(Main.getFont1(0.9));
     add(choixX);add(choixXDesc);
+    int wi2 = Main.getTailleElementGraphiqueX(960);
+    int taille = Desc.getDimY();
+    choixXDesc.setBounds(0,taille*k,wi2/2,Desc.getDimY());
+    choixX.setBounds(wi2/2,taille*k,wi2/3,Desc.getDimY());
   }
   public EtiquetteChoix(String clé, GString gs){ this(0,clé,gs);}
   // GET SET --------------------------------------------------------------------
@@ -30,16 +35,18 @@ public class EtiquetteChoix extends Panneau{
   public Desc getChoixXDesc(){ return choixXDesc;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
-    debug.débogage("Lancement de eDif.paintComponent");
-    int wi = Main.getF().getWidth();
-    int he = Main.getF().getHeight();
-    int wi2 = wi/2;
-    int taille = Main.getPnp().getTaille();
-    choixXDesc.setBounds(0,taille*k,wi2/2,Desc.getDimY());
-    choixX.setBounds(wi2/2,taille*k,wi2/3,Desc.getDimY());
+    //debug.débogage("Lancement de eDif.paintComponent");
   }
   public void setPos(int k){
     this.k = k;
-    repaint();
+    //repaint();
+  }
+  public void setTaille(int x, int y){
+    choixX.setSize(x/2,y);
+    choixXDesc.setSize(x/2,y);
+  }
+  public void setPolice(Font font){
+    choixX.setFont(font);
+    choixXDesc.setFont(font);
   }
 }

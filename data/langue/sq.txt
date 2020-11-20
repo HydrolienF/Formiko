@@ -28,6 +28,7 @@ raccourci:shkurtore[auto]
 commande:urdhëroi[auto]
 bientôt:së shpejti[auto]
 suivant:në vijim[auto]
+avant:para[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:lojtari njerëzor[auto]
@@ -97,6 +98,7 @@ quitterToMp:kthehu në menunë kryesore[auto]
 continuerJeu:vazhdoni lojën[auto]
 supprimerFourmi.1:hiqni milingonën[auto]
 supprimerFourmi.2:vërtet dëshiron ta heqësh milingonën[auto]
+choisirPartie:zgjidhni një pjesë[auto]
 
 affTest:provë e suksesshme[auto]
 

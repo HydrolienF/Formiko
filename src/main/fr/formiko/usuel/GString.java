@@ -9,6 +9,14 @@ public class GString implements Serializable{
   private CString début, fin;
   // CONSTRUCTEUR -----------------------------------------------------------------
   public GString(){}
+  public GString(String t[]){
+    if(t==null || t.length==0){return;}
+    début = new CString(t[0]);
+    for (String s : t ) {
+      add(s);
+    }
+    actualiserFin();
+  }
 
   // GET SET -----------------------------------------------------------------------
   public CString getDébut(){ return début;}

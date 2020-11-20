@@ -28,6 +28,7 @@ raccourci:捷径[auto]
 commande:下令[auto]
 bientôt:不久[auto]
 suivant:以下[auto]
+avant:之前[auto]
 
 laIA:IA[auto]
 laJoueurHumain:人类玩家[auto]
@@ -97,6 +98,7 @@ quitterToMp:返回主菜单[auto]
 continuerJeu:继续比赛[auto]
 supprimerFourmi.1:去除蚂蚁[auto]
 supprimerFourmi.2:你真的要删除蚂蚁[auto]
+choisirPartie:选择一个部分[auto]
 
 affTest:测试成功[auto]
 

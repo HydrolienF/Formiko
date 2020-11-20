@@ -18,19 +18,19 @@ import fr.formiko.usuel.conversiondetype.str;
 public class sauvegarderUnePartie {
   private static ObjectOutputStream oos = null;
   private static ObjectInputStream ois = null;
-  private static final String rep = "data/sauvegarde/";
+  private static final String REP = "data/sauvegarde/";
   private static String s="null";
 
   // GET SET -----------------------------------------------------------------------
   public static void setS(String s2){s=s2;}
-  public static String getRep(){return rep;}
-  public static String getNomDuFichierComplet(){return str.ajouterALaFinSiNecessaire(rep+s,".save");}
+  public static String getRep(){return REP;}
+  public static String getNomDuFichierComplet(){return str.ajouterALaFinSiNecessaire(REP+s,".save");}
   // Fonctions propre -----------------------------------------------------------
   /**
    *{@summary Save a Partie <br/>}
    *It use the java tools to save in byte code a Serializable Object.
    *@param p The Partie to save
-   *@param nomDuFichier The name of the output File (It will be place in rep/nomDuFichier.save)
+   *@param nomDuFichier The name of the output File (It will be place in REP/nomDuFichier.save)
    *@version 1.2
    */
   public static void sauvegarder(Partie p, String nomDuFichier){
@@ -42,16 +42,18 @@ public class sauvegarderUnePartie {
     }catch (Exception e) {
       erreur.erreur("Impossible de sauvegarder la partie pour une raison inconnue","sauvegarderUnePartie.sauvegarder");
     }
+    Main.getSave().addSave();
   }
   /**
    *{@summary Load a Partie <br/>}
    *It use the java tools to load in byte code a Serializable Object.
-   *@param nomDuFichier The name of the input File (File will be rep/nomDuFichier.save)
+   *@param nomDuFichier The name of the input File (File will be REP/nomDuFichier.save)
    *@version 1.2
    */
   public static Partie charger(String nomDuFichier){
     s=nomDuFichier;
     Partie pa = null;
+    debug.débogage("Chargement de la sauvegarde "+s);
     try {
       ois = new ObjectInputStream(new FileInputStream(getNomDuFichierComplet()));
       pa = (Partie) ois.readObject();

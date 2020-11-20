@@ -28,6 +28,7 @@ raccourci:товчлол[auto]
 commande:захиалсан[auto]
 bientôt:удахгүй[auto]
 suivant:дараах[auto]
+avant:өмнө нь[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:хүний тоглогч[auto]
@@ -97,6 +98,7 @@ quitterToMp:үндсэн цэс рүү буцах[auto]
 continuerJeu:тоглоомыг үргэлжлүүлээрэй[auto]
 supprimerFourmi.1:шоргоолжийг зайлуул[auto]
 supprimerFourmi.2:чи шоргоолжийг зайлуулахыг үнэхээр хүсч байна уу?[auto]
+choisirPartie:хэсэг сонгох[auto]
 
 affTest:амжилттай туршилт[auto]
 

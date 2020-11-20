@@ -28,6 +28,7 @@ raccourci:kısayol[auto]
 commande:sipariş[auto]
 bientôt:yakında[auto]
 suivant:takip etme[auto]
+avant:önce[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:insan oyuncu[auto]
@@ -97,6 +98,7 @@ quitterToMp:ana menüye dön[auto]
 continuerJeu:oyuna devam et[auto]
 supprimerFourmi.1:karınca çıkarmak[auto]
 supprimerFourmi.2:gerçekten karıncayı çıkarmak istiyor musun[auto]
+choisirPartie:bir parça seç[auto]
 
 affTest:başarılı test[auto]
 

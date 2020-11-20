@@ -1,10 +1,8 @@
 package fr.formiko.graphisme;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
+import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;import fr.formiko.formiko.Main;
 //def par défaut des fichiers depuis 0.41.2
-import fr.formiko.graphisme.Desc;
-import fr.formiko.graphisme.EtiquetteJoueur;
-import java.awt.Graphics;
-import fr.formiko.formiko.Main;
+//import fr.formiko.graphisme.Desc;
+//import fr.formiko.graphisme.EtiquetteJoueur;
 import java.awt.Font;
 import javax.swing.JFormattedTextField;
 import java.text.NumberFormat;
@@ -19,8 +17,9 @@ import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.Partie;
 import fr.formiko.usuel.chargerCarte;
 import java.awt.Color;
+import java.awt.Graphics;
 
-public class PanneauNouvellePartie extends Panneau {
+public class PanneauNouvellePartie extends PanneauLanceurPartie {
   private Desc jl; private Desc jl2;
   private GEtiquetteJoueur gej;
   private PanneauGEtiquetteJoueur pgej;
@@ -28,7 +27,6 @@ public class PanneauNouvellePartie extends Panneau {
   private Desc jtfDesc;
   private JComboBox<String> choixCarte;
   private Desc choixCarteDesc;
-  private BoutonLong lancerPartie;
   private JCheckBox casesNuageuses;
   private JCheckBox casesSombres;
   private int taille;
@@ -37,9 +35,10 @@ public class PanneauNouvellePartie extends Panneau {
   private EtiquetteChoix eVitesseDeJeu;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauNouvellePartie(){
+    super(100);
     Main.débutCh();
     this.setLayout(null);
-    setOpaque(false);
+    //setOpaque(false);
     //les entêtes.
     jl = new Desc(); jl2 = new Desc();
     jl.setTexte(g.getM("paramètreCarte"));
@@ -81,8 +80,6 @@ public class PanneauNouvellePartie extends Panneau {
     jtf.setText("100");
     jtf.setFont(Main.getFont1(0.9));
     add(jtf);
-    lancerPartie = new BoutonLong(g.getM("lancerPartie"),Main.getPm(),100);
-    add(lancerPartie);
     casesNuageuses = new JCheckBox();
     casesSombres = new JCheckBox();
     casesNuageuses.setFont(Main.getFont1());
@@ -108,8 +105,8 @@ public class PanneauNouvellePartie extends Panneau {
   public PanneauGEtiquetteJoueur getPGej(){ return pgej;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
-    int wi = Main.getF().getWidth();
-    int he = Main.getF().getHeight();
+    int wi = Main.getDimX();
+    int he = Main.getDimY();
     int wi2 = wi/2;
     //gauche
     jl.setBounds(0,0,wi2);
@@ -127,9 +124,6 @@ public class PanneauNouvellePartie extends Panneau {
     jl2.setBounds(wi2,yDep,wi2); yDep=yDep+jl2.getHeight()*2;
     int tailleMaxY = this.getHeight() - yDep;
     pgej.setBounds(wi2,yDep,wi2,math.max(Desc.getDimY()*3*gej.length(),tailleMaxY));
-    //bas
-    lancerPartie.setBounds(wi2/2,this.getHeight()-lancerPartie.getYBL(),wi2,lancerPartie.getYBL());
-    //lancerPartie.setBounds(0,this.getHeight()-lancerPartie.getYBL(),wi2,lancerPartie.getYBL());
   }
   public Partie getPartie(){
     String nomTraduitDeLaCarte = choixCarte.getSelectedItem()+"";

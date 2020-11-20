@@ -28,6 +28,7 @@ raccourci:shortcut
 commande:command
 bientôt:soon
 suivant:following[auto]
+avant:before[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:the human player[auto]
@@ -97,6 +98,7 @@ quitterToMp:return to the main menu[auto]
 continuerJeu:continue the game[auto]
 supprimerFourmi.1:remove the ant[auto]
 supprimerFourmi.2:do you really want to remove the ant[auto]
+choisirPartie:choose a part[auto]
 
 affTest:successful test
 

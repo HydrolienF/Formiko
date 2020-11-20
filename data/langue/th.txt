@@ -28,6 +28,7 @@ raccourci:ทางลัด[auto]
 commande:สั่ง[auto]
 bientôt:เร็ว ๆ นี้[auto]
 suivant:กำลังติดตาม[auto]
+avant:ก่อน[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:ผู้เล่นที่เป็นมนุษย์[auto]
@@ -97,6 +98,7 @@ quitterToMp:กลับไปที่เมนูหลัก[auto]
 continuerJeu:เล่นเกมต่อ[auto]
 supprimerFourmi.1:กำจัดมด[auto]
 supprimerFourmi.2:คุณต้องการกำจัดมดจริงๆหรือไม่[auto]
+choisirPartie:เลือกส่วนหนึ่ง[auto]
 
 affTest:การทดสอบที่ประสบความสำเร็จ[auto]
 

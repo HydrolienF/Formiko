@@ -28,6 +28,7 @@ raccourci:hitsin-dàlana fanasongadinana[auto]
 commande:baiko[auto]
 bientôt:tsy ho ela[auto]
 suivant:manaraka[auto]
+avant:alohan'ny[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:ny mpilalao olombelona[auto]
@@ -97,6 +98,7 @@ quitterToMp:miverina amin'ny menio lehibe[auto]
 continuerJeu:tohizo ny lalao[auto]
 supprimerFourmi.1:esory ny vitsika[auto]
 supprimerFourmi.2:tena te-hanala ilay vitsika ve ianao[auto]
+choisirPartie:mifidy ampahany[auto]
 
 affTest:fitsapana mahomby[auto]
 

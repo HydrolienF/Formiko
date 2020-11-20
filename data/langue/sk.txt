@@ -28,6 +28,7 @@ raccourci:skratka[auto]
 commande:nariadil[auto]
 bientôt:čoskoro[auto]
 suivant:nasledujúce[auto]
+avant:predtým[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:ľudský hráč[auto]
@@ -97,6 +98,7 @@ quitterToMp:návrat do hlavnej ponuky[auto]
 continuerJeu:pokračovať v hre[auto]
 supprimerFourmi.1:odstráňte mravca[auto]
 supprimerFourmi.2:naozaj chceš odstrániť mravca[auto]
+choisirPartie:vyberte si diel[auto]
 
 affTest:úspešný test[auto]
 

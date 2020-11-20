@@ -28,6 +28,7 @@ raccourci:pokatata[auto]
 commande:whakahaua[auto]
 bientôt:inamata[auto]
 suivant:e whai ake nei[auto]
+avant:Tuhinga o mua[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:te kaitakaro tangata[auto]
@@ -97,6 +98,7 @@ quitterToMp:hoki ki te rarangi matua[auto]
 continuerJeu:haere tonu te kēmu[auto]
 supprimerFourmi.1:tangohia te popokorua[auto]
 supprimerFourmi.2:e tino hiahia ana koe ki te tango i te popokorua[auto]
+choisirPartie:kowhiria tetahi waahanga[auto]
 
 affTest:whakamātautau angitu[auto]
 

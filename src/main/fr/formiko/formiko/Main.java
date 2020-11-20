@@ -73,6 +73,7 @@ public class Main {
   private static ThMusique thm;
   private static boolean premierePartie=false;
   private static boolean jeuEnCours;
+  private static Save save;
 
   /**
    * {@summary Lauch the game.<br>}
@@ -108,7 +109,6 @@ public class Main {
     if(args.length>0){
       initialisation();
       if(args[0].equals("trad")){
-        debug.setAffLesPerformances(true);
         débutCh();
         chargerLesTraductions.iniTLangue();
         chargerLesTraductions.créerLesFichiers();
@@ -249,7 +249,7 @@ public class Main {
     finCh("chargementPanneauMenu");
     //===
     pa = attenteDeLancementDePartie();
-    lancementNouvellePartie(pa);
+    lancementNouvellePartie();
     Boolean b = pa.jeu(); //lance le jeux.
     //===
     if(b){return true;}
@@ -270,22 +270,22 @@ public class Main {
   }
   /**
    * {@summary Launch a new game.<br>}
-   * @param p A Partie that contain all the game value.
-   * @version 1.1
+   * @version 1.14
    */
-  public static void lancementNouvellePartie(Partie p){ //Nouveau système de lancement de partie :
+  public static void lancementNouvellePartie(){ //Nouveau système de lancement de partie :
     débutCh();
     getPp().removePm();//on retire le menu
     getPj().addPch();//on met le panneau de chargement au 1a plan.
     finCh("chargementPanneauChargementEtSuppressionMenu");//débutCh();
     if(premierePartie){tuto=true;} if(tuto){pa=getPartieTuto();}
-    else if(p==null){pa=getPartieParDéfaut();}
+    else if(pa==null){pa=getPartieParDéfaut();}
     if(Main.getDimY()!=1080 || getPartie().getGc().getNbrY()!=9){
       getPj().dézoomer((byte)2);//on met la carte a la taille la plus grande possible pour qu'on voit tout.
     }
     //finCh("chargementDézoom");
     pa.setEnCours(true); //lance l'affichage de la Partie.
     //débutCh();
+    //la ligne qui suis n'as d'effet que si elle n'as pas déjà été appliqué a la partie.
     pa.initialisationElément(); // pour l'instant ce bout de code ne marche pas ayeur qu'ici.
     débutCh();
     Main.getPb().addPz();
@@ -325,6 +325,16 @@ public class Main {
     par.setElément(1,5,1);
     par.setVitesseDeJeu(0.2);
     finCh("chargementParamètrePartieParDéfaut");
+    return par;
+  }
+  /**
+   * Load the default Partie.
+   * @version 1.14
+   */
+  public static Partie getPartieSave(String nom){
+    débutCh();
+    Partie par = sauvegarderUnePartie.charger(nom);
+    finCh("chargementPartie");
     return par;
   }
   /**
@@ -412,6 +422,7 @@ public class Main {
   public static void setPremierePartie(boolean b){premierePartie=b;}
   public static boolean getJeuEnCours(){return jeuEnCours;}
   public static void setJeuEnCours(boolean b){jeuEnCours=b;}
+  public static Save getSave(){return save;}
   //racourci
   public static boolean estWindows(){return os.getId()==1;}
   public static String get(String clé){ return g.get(clé);}
@@ -510,6 +521,7 @@ public class Main {
     setMessageChargement("chargementDesOptions");débutCh();
     chargerLesTraductions.iniTLangue();
     iniOp();
+    save = Save.getSave();
     if(!debug.getAffLesEtapesDeRésolution()){//si elle n'ont pas été activé par "-d"
       debug.setAffLesEtapesDeRésolution(op.getAffLesEtapesDeRésolution());
     }
@@ -588,9 +600,9 @@ public class Main {
     finCh("chargementDesLangues");
   }
   /**
-   * {@summary Print on the window a message about game loading.}
-   * If you tried to use it before the creating of a new PanneauChargement, mail will not appear on the window.
-   * @version 1.1
+   * {@summary Print on the window a message about game loading.<br>}
+   * If you tried to use it before the creating of a new PanneauChargement, message will not appear on the window.
+   * @version 1.14
    */
   public static void setMessageChargement(String s){
     //s c'est un truc du genre "chargementDesLangues"
@@ -662,9 +674,10 @@ public class Main {
       debug.performances("temps pour "+ s + " : "+lonTotal+" ms");
       long tempsDeFinDeJeu=System.currentTimeMillis();
       long tempsJeuEcoulé = tempsDeFinDeJeu-tempsDeDébutDeJeu;
-      System.out.println(g.getM("tempsJeuEcoulé")+" : "+ch.timeToHMS((tempsJeuEcoulé)/1000)+".");
+      System.out.println(g.getM("tempsJeuEcoulé")+" : "+ch.timeToHMS(tempsJeuEcoulé)+".");
       //System.out.println("\ud83d\ude00");//System.out.println("😀");
       tem.addTempsEnJeux(tempsJeuEcoulé);tem.actualiserDate2();tem.sauvegarder();
+      save.save();//sauvegarde de l'idS (id de sauvegarde) + de futur valeur importante.
       System.out.println(g.getM("messageQuitter"));
       System.exit(0);
     }catch (Exception e) {

@@ -28,6 +28,7 @@ raccourci:শর্টকাট[auto]
 commande:অর্ডার[auto]
 bientôt:শীঘ্রই[auto]
 suivant:নিম্নলিখিত[auto]
+avant:আগে[auto]
 
 laIA:এল'আইএ[auto]
 laJoueurHumain:মানব খেলোয়াড়[auto]
@@ -97,6 +98,7 @@ quitterToMp:প্রধান মেনু ফিরে[auto]
 continuerJeu:খেলা চালিয়ে যান[auto]
 supprimerFourmi.1:পিপীলিকা সরিয়ে দাও[auto]
 supprimerFourmi.2:আপনি কি সত্যিই পিপড়াটি সরাতে চান[auto]
+choisirPartie:একটি অংশ চয়ন করুন[auto]
 
 affTest:সফল পরীক্ষা[auto]
 

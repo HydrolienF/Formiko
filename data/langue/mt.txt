@@ -28,6 +28,7 @@ raccourci:shortcut[auto]
 commande:ordnat[auto]
 bientôt:dalwaqt[auto]
 suivant:wara[auto]
+avant:qabel[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:il-plejer uman[auto]
@@ -97,6 +98,7 @@ quitterToMp:ritorn għall-menu prinċipali[auto]
 continuerJeu:kompli l-logħba[auto]
 supprimerFourmi.1:neħħi n-nemla[auto]
 supprimerFourmi.2:tassew trid tneħħi n-nemla[auto]
+choisirPartie:agħżel parti[auto]
 
 affTest:test b'suċċess[auto]
 

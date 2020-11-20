@@ -28,6 +28,7 @@ raccourci:pintas[auto]
 commande:inorder[auto]
 bientôt:malapit na[auto]
 suivant:sumusunod[auto]
+avant:dati pa[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:ang manlalaro[auto]
@@ -97,6 +98,7 @@ quitterToMp:bumalik sa pangunahing menu[auto]
 continuerJeu:ipagpatuloy ang laro[auto]
 supprimerFourmi.1:tanggalin ang langgam[auto]
 supprimerFourmi.2:gusto mo ba talagang tanggalin ang langgam[auto]
+choisirPartie:pumili ng isang bahagi[auto]
 
 affTest:matagumpay na pagsubok[auto]
 
