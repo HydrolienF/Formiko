@@ -5,13 +5,24 @@ import fr.formiko.usuel.math.allea;
 import fr.formiko.usuel.math.math;
 import fr.formiko.formiko.interfaces.*;
 import java.io.Serializable;
-
+/**
+*{@summary Insecte class<br>}
+*This class is used to have all the insecte on the map. Insecte are usualy eated by ant but some will eat ant.<br>
+*Specials insectes extends this class.<br>
+*Almost all the var can be found in Creature.java<br>
+*@author Hydrolien
+*@version 1.13
+*/
 public class Insecte extends Creature implements Serializable{
   protected byte nourritureMangeable;
   protected byte type;
   protected static GIEspece gie;
   // CONSTRUCTEUR -----------------------------------------------------------------
-  // Principal
+  /**
+  *{@summary Main constructor for Insecte.<br>}
+  *All args are Insecte var.
+  *@version 1.13
+  */
   public Insecte (CCase p, int age, int ageMax, int actionMax){
     // Soit l'insecte est terrestre et vien de naitre, soit il est volant et il est mort.
     super(p,age,ageMax, actionMax);
@@ -27,13 +38,21 @@ public class Insecte extends Creature implements Serializable{
     setNourritureFournie(e.getNourritureFournie(getStade()));
     debug.débogage("L'insecte "+ this.id + " a été  créée");
   }
-  //Auxiliaire
+  /**
+  *{@summary constructor for Insecte.<br>}
+  *Here we only know the location of the insecte, random value will be add for ageMax and actionMax.
+  *@version 1.13
+  */
   public Insecte (CCase p){
     this(p, 0,10 + allea.getAlléa(101), allea.getAlléa(21));//action entre 0 et 20.
   }
+  /**
+  *{@summary constructor for Insecte.<br>}
+  *Here know nothing, the location of the insecte will be shoose randomly on the actual GCase of Main. Random value will be add for ageMax and actionMax.
+  *@version 1.13
+  */
   public Insecte (){ //on place l'insecte alléatoirement. //  en théorie soit il nait et il a la case de ca mere, soit il vient d'autre par et dans ce cas il apparait sur une case en bordure de carte.
     this(Main.getGc().getCCaseAlléa());
-    int cptBoucle=0;
   }
 
   // GET SET -----------------------------------------------------------------------
@@ -49,20 +68,27 @@ public class Insecte extends Creature implements Serializable{
   @Override
   public String getNom(){return g.get("I"+getType());}
   // Fonctions propre -----------------------------------------------------------
+  /**
+  *{@summary Print all information about the Insecte.<br>}
+  *@version 1.13
+  */
+  @Override
   public String toString(){
     String m = "";
     if (estMort){
-      m = " (Mort"+(ageMax-age)+") ";
+      //m = " ("+g.getM("mort")+""+(ageMax-age)+") ";
+      m = " (☠︎) ";
     }else {
-      m = " ("+(ageMax-age)+" tour avant Mort)";
+      m = " ("+(ageMax-age)+" "+g.get("avant")+" ☠︎)";
     }
     String sr = g.getOu("le","la")+" "+getNom();
     sr+= " "+id+ m +" "+g.get("de")+" "+g.get("type")+" "+type+" "+p.desc()+" "+g.get("nourritureFournie")+" : " + getNourritureFournie() +" "+g.get("nourriture")+" "+nourriture+"/"+nourritureMax;
     return sr;
   }
-  public void afficheToi(){
-    System.out.println(this);
-  }
+  /**
+  *{@summary Play a turn as an Insecte.<br>}
+  *@version 1.13
+  */
   public void tourInsecte(){
     if(!estMort){
       int i=0;
@@ -78,7 +104,11 @@ public class Insecte extends Creature implements Serializable{
       this.setNourritureMoins1();
     }this.setAgePlus1(); //une fois morte une créature a un délai avant disparition total dans la variable age
   }
-  public void manger(){
+  /**
+  *{@summary Eat as a grass eater.<br>}
+  *@version 1.13
+  */
+  public void manger(){ //TODO #6
     byte nourritureSurCase = this.getCCase().getContenu().getNourritureInsecte();
     if (nourritureSurCase > 0){
       byte nourritureMangé = (byte) math.min(nourritureSurCase,nourritureMangeable);

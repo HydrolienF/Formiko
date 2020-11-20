@@ -28,6 +28,7 @@ raccourci:jalan pintas[auto]
 commande:dipesen[auto]
 bientôt:geuwat[auto]
 suivant:nuturkeun[auto]
+avant:sateuacanna[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:pamuter manusa[auto]
@@ -97,6 +98,7 @@ quitterToMp:balik deui ka ménu utami[auto]
 continuerJeu:neraskeun buruan[auto]
 supprimerFourmi.1:miceun sireum[auto]
 supprimerFourmi.2:naha anjeun leres-leres hoyong miceun sireum[auto]
+choisirPartie:milih bagian[auto]
 
 affTest:tés suksés[auto]
 

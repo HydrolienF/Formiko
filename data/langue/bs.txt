@@ -28,6 +28,7 @@ raccourci:prečica[auto]
 commande:naređeno[auto]
 bientôt:uskoro[auto]
 suivant:slijedeći[auto]
+avant:prije[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:ljudski igrač[auto]
@@ -97,6 +98,7 @@ quitterToMp:povratak u glavni meni[auto]
 continuerJeu:nastavi igru[auto]
 supprimerFourmi.1:ukloni mrava[auto]
 supprimerFourmi.2:da li stvarno želiš ukloniti mrava[auto]
+choisirPartie:odaberite dio[auto]
 
 affTest:uspješan test[auto]
 

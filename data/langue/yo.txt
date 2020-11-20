@@ -28,6 +28,7 @@ raccourci:ọna abuja[auto]
 commande:paṣẹ[auto]
 bientôt:laipe[auto]
 suivant:atẹle[auto]
+avant:ṣaaju[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:eniyan player[auto]
@@ -97,6 +98,7 @@ quitterToMp:pada si akojọ aṣayan akọkọ[auto]
 continuerJeu:tesiwaju ere[auto]
 supprimerFourmi.1:yọ kokoro naa kuro[auto]
 supprimerFourmi.2:ṣe o fẹ gaan lati yọ kokoro naa[auto]
+choisirPartie:yan apa kan[auto]
 
 affTest:idanwo idanwo[auto]
 

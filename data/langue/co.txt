@@ -28,6 +28,7 @@ raccourci:scurciatoia[auto]
 commande:urdinatu[auto]
 bientôt:prestu[auto]
 suivant:seguenti[auto]
+avant:prima[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:u ghjucatore umanu[auto]
@@ -97,6 +98,7 @@ quitterToMp:vultà à u menu principale[auto]
 continuerJeu:cuntinuà u ghjocu[auto]
 supprimerFourmi.1:caccià a furmica[auto]
 supprimerFourmi.2:vulete veramente caccià a furmica[auto]
+choisirPartie:sceglite una parte[auto]
 
 affTest:prova riesciuta[auto]
 

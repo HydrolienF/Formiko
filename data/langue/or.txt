@@ -28,6 +28,7 @@ raccourci:ସର୍ଟକଟ୍[auto]
 commande:ନିର୍ଦ୍ଦେଶିତ |[auto]
 bientôt:ଶୀଘ୍ର[auto]
 suivant:ନିମ୍ନଲିଖିତ[auto]
+avant:ପୂର୍ବରୁ[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:ମାନବ ଖେଳାଳୀ |[auto]
@@ -97,6 +98,7 @@ quitterToMp:ମୁଖ୍ୟ ମେନୁକୁ ଫେରନ୍ତୁ |[auto]
 continuerJeu:ଖେଳ ଜାରି ରଖ |[auto]
 supprimerFourmi.1:ପିମ୍ପୁଡ଼ିକୁ ବାହାର କର |[auto]
 supprimerFourmi.2:ତୁମେ ପ୍ରକୃତରେ ପିମ୍ପୁଡ଼ିକୁ ବାହାର କରିବାକୁ ଚାହୁଁଛ କି?[auto]
+choisirPartie:ଏକ ଅଂଶ ବାଛନ୍ତୁ |[auto]
 
 affTest:ସଫଳ ପରୀକ୍ଷା[auto]
 

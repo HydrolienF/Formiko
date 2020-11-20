@@ -17,14 +17,20 @@ import java.io.Serializable;
  */
 public class PondreReine implements Serializable, Pondre{
   private Fourmi f;
-
+  /**
+  *Lay an egg with Creature c
+  *@version 1.13
+  */
   public void unePonte( Creature c){
     debug.débogage("la créature "+c.getId()+" tente de pondre");
     f = (Fourmi) c;
     pondre();
     debug.débogage("fin de la ponte");
   }
-
+  /**
+  *Lay an egg.
+  *@version 1.13
+  */
   protected void pondre(){
     // Ne s'execute que si la reine a suffisement de nourriture et qu'elle est a sa fourmilière
     // diminue la nourriture de la reine.
@@ -44,6 +50,11 @@ public class PondreReine implements Serializable, Pondre{
       f.setAilesCoupees(true);//une reine qui pond n'as plus d'ailes.
     }
   }
+  //TODO #131
+  /**
+  *Choose a typeF for the egg.
+  *@version 1.13
+  */
   protected byte choixType(){
     if (!f.getFere().getJoueur().getIa()){
       int ti[] = f.getEspece().getTypeDIndividu();
@@ -57,11 +68,12 @@ public class PondreReine implements Serializable, Pondre{
       erreur.erreur("Le type spécifié par le joueur n'est pas défini pour cette Espece.","PondreReine.choixType","3 est le type choisi a la place.",false);
       return 3;
     }
-    if (f.getFere().getGc().length() < f.getEspece().getNbrDIndividuMax()/10){ // si la fourmilière n'est pas encore a 10% de son develloppement max pas de fourmi de type 0 ou 1.
+    if (f.getFere().getGc().length() < f.getEspece().getNbrDIndividuMax()/10){ // si la fourmilière n'est pas encore a 10% de son dévelloppement max pas de fourmi de type 0 ou 1.
       return 3; // si il y a un type 4 ou 2 il faudrait pouvoir en faire naitre de temps en temps.
     }else{
-      if(allea.getAlléa(5) == 0){ return 0;} // Reine.
-      if(allea.getAlléa(5) == 0){ return 1;} // Male.
+      int x = allea.getAlléa(5);
+      if(x == 0){ return 0;} // Reine.
+      if(x == 1){ return 1;} // Male.
       return 3; // ouvrière.
     }
   }

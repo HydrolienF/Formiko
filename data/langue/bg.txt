@@ -28,6 +28,7 @@ raccourci:пряк път[auto]
 commande:наредени[auto]
 bientôt:скоро[auto]
 suivant:следващи[auto]
+avant:преди[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:човешкият играч[auto]
@@ -97,6 +98,7 @@ quitterToMp:върнете се в главното меню[auto]
 continuerJeu:продължете играта[auto]
 supprimerFourmi.1:премахнете мравката[auto]
 supprimerFourmi.2:наистина ли искате да премахнете мравката[auto]
+choisirPartie:изберете част[auto]
 
 affTest:успешен тест[auto]
 

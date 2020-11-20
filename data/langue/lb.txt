@@ -28,6 +28,7 @@ raccourci:Ofkiirzung[auto]
 commande:bestallt[auto]
 bientôt:geschwënn[auto]
 suivant:folgenden[auto]
+avant:virun[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:de mënschleche Spiller[auto]
@@ -97,6 +98,7 @@ quitterToMp:zréck an den Haaptmenu[auto]
 continuerJeu:weider d'Spill[auto]
 supprimerFourmi.1:den Ame ewechhuelen[auto]
 supprimerFourmi.2:wells de wierklech den Seechomëssen entfernen[auto]
+choisirPartie:wielt en Deel[auto]
 
 affTest:erfollegräichen Test[auto]
 

@@ -28,6 +28,7 @@ raccourci:ath-ghoirid[auto]
 commande:òrdachadh[auto]
 bientôt:a dh'aithghearr[auto]
 suivant:a ’leantainn[auto]
+avant:roimhe seo[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:cluicheadair an duine[auto]
@@ -97,6 +98,7 @@ quitterToMp:till don phrìomh chlàr[auto]
 continuerJeu:lean air adhart leis a ’gheama[auto]
 supprimerFourmi.1:thoir air falbh an seangan[auto]
 supprimerFourmi.2:a bheil thu dha-rìribh ag iarraidh an seang a thoirt air falbh[auto]
+choisirPartie:tagh pàirt[auto]
 
 affTest:deuchainn soirbheachail[auto]
 

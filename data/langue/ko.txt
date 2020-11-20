@@ -28,6 +28,7 @@ raccourci:지름길[auto]
 commande:주문[auto]
 bientôt:곧[auto]
 suivant:수행원[auto]
+avant:전에[auto]
 
 laIA:l' IA[auto]
 laJoueurHumain:인간 플레이어[auto]
@@ -97,6 +98,7 @@ quitterToMp:메인 메뉴로 돌아 가기[auto]
 continuerJeu:게임 계속[auto]
 supprimerFourmi.1:개미를 제거하다[auto]
 supprimerFourmi.2:정말 개미를 제거 하시겠습니까?[auto]
+choisirPartie:부분을 선택[auto]
 
 affTest:성공적인 테스트[auto]
 

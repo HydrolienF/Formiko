@@ -28,6 +28,7 @@ raccourci:raccourci
 commande:commande
 bientôt:bientôt
 suivant:suivant
+avant:avant
 
 laIA:l'IA
 laJoueurHumain:le joueur humain
@@ -97,6 +98,7 @@ quitterToMp:revenir au menu principal
 continuerJeu:continuer le jeu
 supprimerFourmi.1:supprimer la fourmi
 supprimerFourmi.2:voulez vous vraiment supprimer la fourmi
+choisirPartie:choisissez une partie
 
 affTest:test effectué avec succès
 
@@ -399,7 +401,7 @@ conseil.10:Les œuf, lave et nymphe ne sont pas capable de ce nettoyer tout seul
 conseil.11:La Reine ne peut pondre que lorsqu'elle est dans la fourmilière.
 conseil.12:Les fourmis granivore ce nourrisse exclusivement de graine. Pour stocker leur nourriture elles conservent les graines dans des pièces sèche de la fourmilière.
 conseil.13:Les fourmis granivore ne sont pas capable de trophallaxer. Pour nourrir le couvain elles doivent nécessairement avoir des graines ouverte en stock dans la fourmilière.
-conseil.14:Les vitesse sont exprimée par des insectes. Plus l'insecte est rapide plus le déroulement de la partie sera rapide. La vitesse Fourmi correspond a la vitesse standard.
+conseil.14:Les vitesses sont exprimées par des insectes. Plus l'insecte est rapide plus le déroulement de la partie sera rapide. La vitesse Fourmi correspond a la vitesse standard.
 conseil.15:Le jeu vous semble trop compliqué ? Choisissez la difficulté facile ou très facile.
 conseil.16:Le jeu vous semble trop facile ? Essayez donc de remporter une partie en ultra difficile.
 conseil.17:Si vous préférez explorer la carte par vous même cochez l'option cases nuageuse.

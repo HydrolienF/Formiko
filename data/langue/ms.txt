@@ -28,6 +28,7 @@ raccourci:jalan pintas[auto]
 commande:mengarahkan[auto]
 bientôt:tidak lama lagi[auto]
 suivant:mengikuti[auto]
+avant:sebelum ini[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:pemain manusia[auto]
@@ -97,6 +98,7 @@ quitterToMp:kembali ke menu utama[auto]
 continuerJeu:teruskan permainan[auto]
 supprimerFourmi.1:buang semut[auto]
 supprimerFourmi.2:adakah anda benar-benar mahu membuang semut[auto]
+choisirPartie:pilih bahagian[auto]
 
 affTest:ujian yang berjaya[auto]
 

@@ -28,6 +28,7 @@ raccourci:otsetee[auto]
 commande:tellitud[auto]
 bientôt:varsti[auto]
 suivant:järgnev[auto]
+avant:enne[auto]
 
 laIA:ma[auto]
 laJoueurHumain:inimmängija[auto]
@@ -97,6 +98,7 @@ quitterToMp:naasmine peamenüüsse[auto]
 continuerJeu:jätkake mängu[auto]
 supprimerFourmi.1:eemalda sipelgas[auto]
 supprimerFourmi.2:kas tõesti soovite sipelga eemaldada?[auto]
+choisirPartie:vali osa[auto]
 
 affTest:edukas test[auto]
 

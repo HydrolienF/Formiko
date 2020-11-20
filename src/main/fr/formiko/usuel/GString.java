@@ -9,6 +9,14 @@ public class GString implements Serializable{
   private CString début, fin;
   // CONSTRUCTEUR -----------------------------------------------------------------
   public GString(){}
+  public GString(String t[]){
+    if(t==null || t.length==0){return;}
+    début = new CString(t[0]);
+    for (String s : t ) {
+      add(s);
+    }
+    actualiserFin();
+  }
 
   // GET SET -----------------------------------------------------------------------
   public CString getDébut(){ return début;}
@@ -21,6 +29,12 @@ public class GString implements Serializable{
   public int length(){
     if(début==null){ return 0;}
     return début.length();
+  }
+  public boolean equals(GString gs){
+    if(gs==null){return false;}
+    if(début==null && gs.getDébut()==null){return true;}
+    if(début==null || gs.getDébut()==null){return false;}
+    return début.equals(gs.getDébut());
   }
   public JComboBox<String> getComboBox(int x){
     if (début==null){ return new JComboBox<String>();}
@@ -48,12 +62,12 @@ public class GString implements Serializable{
   }
   public void ajouter(GString gs){
     if(gs==null){ return;}
-    if(this.getDébut()==null){début = gs.getDébut();return;}
+    if(getDébut()==null){début = gs.getDébut(); actualiserFin();return;}
     //on lie l'anciène fin au début de gs.
-    this.fin.setSuivant(gs.getDébut());
-    this.fin.getSuivant().setPrécédent(fin);
+    fin.setSuivant(gs.getDébut());
+    fin.getSuivant().setPrécédent(fin);
     // on change la fin actuelle.
-    this.fin = gs.getFin();
+    actualiserFin();
   }
   public void add(String s){ ajouter(s);}
   public void add(GString s){ ajouter(s);}
@@ -154,9 +168,43 @@ public class GString implements Serializable{
     return b;
   }*/
   public void actualiserFin(){ //remet fin a ce place.
+    if(début==null){fin=null; return;}
     fin = début;
     while(fin.getSuivant()!=null){//tant que ce n'est pas le dernier éléments de la chaine.
       fin = fin.getSuivant();
     }
+  }
+  /**
+  *{@summary count how much fonction and class (short or long) a GString have.}
+  *@version 1.13
+  */
+  public GInt compterFct(){
+    if (début==null){ GInt gi = new GInt(); gi.add(0);gi.add(0); return gi;}
+    return début.compterFct();
+  }
+  /**
+  *{@summary count how much javadoc commentary a GString have.}
+  *@version 1.13
+  */
+  public int compterComJavadoc(){
+    if (début==null){ return 0;}
+    return début.compterComJavadoc();
+  }
+  /**
+  *{@summary count how much javadoc commentary and fonction and class (short or long) a GString have.}
+  *@version 1.13
+  */
+  public GInt compterFctEtComJavadoc(){
+    GInt gi = compterFct();
+    gi.add(compterComJavadoc());
+    return gi;
+  }
+  /**
+  *{@summary count how much class and long fonction (public, ø, protected, private) a GString have.}
+  *@version 1.13
+  */
+  public GInt compterFctEnDetail(){
+    if (début==null){ GInt gi = new GInt(); gi.add(0);gi.add(0);gi.add(0);gi.add(0);gi.add(0); return gi;}
+    return début.compterFctEnDetail();
   }
 }

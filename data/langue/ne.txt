@@ -28,6 +28,7 @@ raccourci:सर्टकट[auto]
 commande:आदेश[auto]
 bientôt:चाँडै[auto]
 suivant:निम्न[auto]
+avant:पहिले[auto]
 
 laIA:l'ia[auto]
 laJoueurHumain:मानव खेलाडी[auto]
@@ -97,6 +98,7 @@ quitterToMp:मुख्य मेनूमा फर्कनुहोस्[au
 continuerJeu:खेल जारी राख्नुहोस्[auto]
 supprimerFourmi.1:कमिलालाई हटाउ[auto]
 supprimerFourmi.2:के तपाई साँच्चिकै कमिलालाई हटाउन चाहानुहुन्छ?[auto]
+choisirPartie:भाग छनौट गर्नुहोस्[auto]
 
 affTest:सफल परीक्षण[auto]
 

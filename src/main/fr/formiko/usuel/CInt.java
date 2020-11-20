@@ -48,4 +48,9 @@ public class CInt implements Serializable{
     if(suivant==null){return contenu+"";}
     else{return contenu+","+suivant.toString();}
   }
+  public int getCase(int ca){
+    if(ca==0){return contenu;}
+    if(suivant==null){return 0;}
+    else{return suivant.getCase(ca-1);}
+  }
 }

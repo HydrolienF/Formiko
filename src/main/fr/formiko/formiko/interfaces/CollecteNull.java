@@ -12,10 +12,15 @@ import java.io.Serializable;
  * @version 1.1
  */
 public class CollecteNull implements Serializable, Collecte {
-
+  /**
+  *If lauch print an error.
+  */
   public void collecte(Fourmi c){
     erreur.erreur(g.get("CollecteNull")+" " + c.getId());
   }
+  /**
+  *If lauch print an error.
+  */
   public void collecter(Fourmi c, byte directionSiPasDeProie){
     collecte(c);
   }

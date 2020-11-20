@@ -12,10 +12,15 @@ import java.io.Serializable;
  * @version 1.1
  */
 public class ChasseNull implements Serializable, Chasse {
-
+  /**
+  *If lauch print an error.
+  */
   public void chasse(Creature c){
     erreur.erreur(g.get("ChasseNull")+" " + c.getId());
   }
+  /**
+  *If lauch print an error.
+  */
   public void chasser(Creature c, int directionSiPasDeProie){
     chasse(c);
   }

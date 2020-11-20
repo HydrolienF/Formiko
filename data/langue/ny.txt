@@ -28,6 +28,7 @@ raccourci:njira yachidule[auto]
 commande:analamula[auto]
 bientôt:posachedwa[auto]
 suivant:kutsatira[auto]
+avant:kale[auto]
 
 laIA:L'IA[auto]
 laJoueurHumain:wosewera munthu[auto]
@@ -97,6 +98,7 @@ quitterToMp:bwererani ku menyu yoyamba[auto]
 continuerJeu:pitilizani masewerawa[auto]
 supprimerFourmi.1:chotsa nyerere[auto]
 supprimerFourmi.2:mukufunadi kuchotsa nyerere[auto]
+choisirPartie:sankhani gawo[auto]
 
 affTest:mayeso opambana[auto]
 

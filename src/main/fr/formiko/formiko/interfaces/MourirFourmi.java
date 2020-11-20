@@ -12,6 +12,12 @@ import java.io.Serializable;
  * @version 1.1
  */
 public class MourirFourmi implements Serializable, Mourir {
+  /**
+   *{@summary Kill an ant an print a message.<br/>}
+   *@param c Insecte who is dieing
+   *@param r Reason of death
+   *@version 1.13
+   */
   public void mourir(Creature c, int r){
     c.setEstMort(true);
     if(c instanceof Fourmi){
@@ -26,10 +32,22 @@ public class MourirFourmi implements Serializable, Mourir {
       erreur.erreurType("Fourmi","MourirFourmi.Mourir");
     }
   }
+  /**
+   *{@summary Delete the ant from the map.<br/>}
+   *@version 1.13
+   */
   public void supprimerDeLaCarte(Creature c){
-    Fourmi f = (Fourmi)c;
-    supprimerDeLaCarte(f);
+    if(c instanceof Fourmi){
+      Fourmi f = (Fourmi)c;
+      supprimerDeLaCarte(f);
+    }else{
+      erreur.erreurType("Fourmi","MourirFourmi.Mourir");
+    }
   }
+  /**
+   *{@summary Delete the ant from the map.<br/>}
+   *@version 1.13
+   */
   private void supprimerDeLaCarte(Fourmi f){
     f.getFere().nbrFourmisMortePlus1();
     f.getCCase().getContenu().getGc().retirer(f);

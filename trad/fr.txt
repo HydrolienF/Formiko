@@ -1,6 +1,4 @@
 ```md
-#Version 1.11.10 14/11/2020
-Grace a la commande "Main rbt name1 [name2] [name3] [etc]", les images du jeu peuvent être facilement rogner (Suppression des bord transparent). 
-Cela devrait rendre le jeu encore plus fluide (pas besoin d'afficher les pixels transparent des bordures lors du dessin de l'image).
-De plus les tailles des insectes pourront être choisies indépendament de la taille de l'insecte sur l'image.
+#Version 1.14.6 19/11/2020
+ La sauvegarde puis le chargement d'une partie sauvegarder fonctionne !
 ```

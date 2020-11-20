@@ -28,6 +28,7 @@ raccourci:scurtătură[auto]
 commande:ordonat[auto]
 bientôt:curând[auto]
 suivant:ca urmare a[auto]
+avant:inainte de[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:jucătorul uman[auto]
@@ -97,6 +98,7 @@ quitterToMp:reveniți la meniul principal[auto]
 continuerJeu:continua jocul[auto]
 supprimerFourmi.1:scoate furnica[auto]
 supprimerFourmi.2:chiar vrei să scoți furnica[auto]
+choisirPartie:alege o parte[auto]
 
 affTest:test de succes[auto]
 

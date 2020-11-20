@@ -28,6 +28,7 @@ raccourci:شارٹ کٹ[auto]
 commande:حکم دیا[auto]
 bientôt:اسی طرح[auto]
 suivant:درج ذیل[auto]
+avant:پہلے[auto]
 
 laIA:ایل آئی اے[auto]
 laJoueurHumain:انسانی کھلاڑی[auto]
@@ -97,6 +98,7 @@ quitterToMp:مین مینو پر واپس جائیں[auto]
 continuerJeu:کھیل جاری رکھیں[auto]
 supprimerFourmi.1:چیونٹی نکال دو[auto]
 supprimerFourmi.2:کیا آپ واقعی چیونٹی کو ختم کرنا چاہتے ہیں؟[auto]
+choisirPartie:ایک حصہ منتخب کریں[auto]
 
 affTest:کامیاب ٹیسٹ[auto]
 

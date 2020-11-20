@@ -28,6 +28,7 @@ raccourci:میانبر[auto]
 commande:سفارش داده شده[auto]
 bientôt:به زودی[auto]
 suivant:ذیل[auto]
+avant:قبل از[auto]
 
 laIA:ایا[auto]
 laJoueurHumain:بازیکن انسانی[auto]
@@ -97,6 +98,7 @@ quitterToMp:به منوی اصلی برگردید[auto]
 continuerJeu:بازی را ادامه دهید[auto]
 supprimerFourmi.1:مورچه را بردارید[auto]
 supprimerFourmi.2:آیا واقعاً می خواهید مورچه را بردارید؟[auto]
+choisirPartie:بخشی را انتخاب کنید[auto]
 
 affTest:آزمون موفقیت آمیز[auto]
 

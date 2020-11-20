@@ -28,6 +28,7 @@ raccourci:አቋራጭ[auto]
 commande:ታዘዘ[auto]
 bientôt:በቅርቡ[auto]
 suivant:በመከተል ላይ[auto]
+avant:ከዚህ በፊት[auto]
 
 laIA:አ.አ.[auto]
 laJoueurHumain:የሰው ተጫዋች[auto]
@@ -97,6 +98,7 @@ quitterToMp:ወደ ዋናው ምናሌ ተመለስ[auto]
 continuerJeu:ጨዋታውን ቀጥል[auto]
 supprimerFourmi.1:ጉንዳን ያስወግዱ[auto]
 supprimerFourmi.2:ጉንዳን ለማስወገድ በጣም ይፈልጋሉ?[auto]
+choisirPartie:አንድ ክፍል ይምረጡ[auto]
 
 affTest:የተሳካ ሙከራ[auto]
 

@@ -6,7 +6,12 @@ import fr.formiko.formiko.interfaces.*;
 import fr.formiko.usuel.math.allea;
 import fr.formiko.usuel.math.math;
 import fr.formiko.usuel.conversiondetype.str;
-
+/** {@summary The class that extends every living thing on the game.<br>}
+*Most of the common var between Fourmi and Insecte can be found here.<br>
+*Creature have a lot of interfaces. They can be used to do every action that a creature can do. If a creature can not do an action as lay (pondre) and try to do it, an error message will appear. This actions can all be call by a short cut here (to be able to do creature.action() and not ActionFourmi.action(creature)).<br>
+*@author Hydrolien
+*@version 1.13
+*/
 public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   // action
   public Deplacement déplacement;
@@ -33,11 +38,17 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   protected byte stade; // -2 = oeuf, -1 = larve, 0 =  imago L'utilisation de la variable stade permet de faire manger les larves et pas les oeux. Les diférent stade on également des image distinctes.
   protected int nourritureFournie;
   protected Espece e;
+  //TODO #73
+  //protected int typeEated [];
   //private int pv; //Point de vie
   //private int pa; //Point de dégats
   // point de force.
   // CONSTRUCTEUR -----------------------------------------------------------------
-  //Principal
+  /**
+  *{@summary Main constructor for Creature.<br>}
+  *All args are Creature var.
+  *@version 1.13
+  */
   public Creature (CCase p, int age, int ageMax, byte actionMax, Pheromone ph, int nourriture, int nourritureMax){
     super(p);
     this.age = age; this.ageMax= ageMax; this.estMort = false;
@@ -49,10 +60,19 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     nourritureFournie=1;
     this.déplacement = new DeplacementNull(); this.chasse = new ChasseNull(); this.pondre = new PondreNull(); this.trophallaxie = new TrophallaxieNull(); this.collecte = new CollecteNull();this.evoluer=new EvoluerNull();this.mourir=new MourirNull();this.netoyer=new NetoyerNull();
   }
-  //Auxiliaire
+  /**
+  *{@summary constructor for Creature.<br>}
+  *Here we only know some var, but the main constructor will take care of them.
+  *@version 1.13
+  */
   public Creature (CCase p,int age, int ageMax, byte actionMax){ // Les fourmis utilise ce contructeur.
     this(p,age,ageMax, actionMax, new Pheromone(-128,-128,-128), 10, 100);
   } public Creature(CCase p, int age, int ageMax, int actionMax){ this(p,age,ageMax,(byte) actionMax);}
+  /**
+  *{@summary constructor for Creature.<br>}
+  *Here we only know some var, but the main constructor will take care of them.
+  *@version 1.13
+  */
   public Creature (CCase p,int age, int ageMax){
     this(p,age,ageMax,(byte) 50); // 50 action par défaut.
   }
@@ -83,13 +103,14 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void setActionMoins(int x){setAction(getAction() - x);}
   public byte getActionMax(){return actionMax;}
   public void setActionMax(byte x){actionMax =x;}
+  /**
+  *move the Creature from a case to an other (used by Deplacement interfaces).
+  *@version 1.13
+  */
   public void setCCase(CCase p){
-    //debug.débogage("Un déplacement de la créature "+ id +" a lieux de la case "+this.getCCase().getContenu().description()+ " a la case "+p.getContenu().description());
-    //if (debug.getAffLesEtapesDeRésolution()==true) Main.getGc().afficheCarte();
     this.p.getContenu().getGc().retirer(this);
     this.p = p;
     p.getContenu().getGc().ajouter(this);
-    //if (debug.getAffLesEtapesDeRésolution()==true) Main.getGc().afficheCarte();
   }
   public Pheromone getPheromone(){ return ph;}
   public Pheromone getPh(){ return getPheromone();}
@@ -139,7 +160,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   // Fonctions propre -----------------------------------------------------------
   @Override
   public abstract String toString();//on réclame une méthode toString().
-  public abstract void afficheToi();
+  //public abstract void afficheToi();
   //public boolean equals(Creature c){return getId()==c.getId();} // c'est ObjetAId qui compare l'id.
 
   /**

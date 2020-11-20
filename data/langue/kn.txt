@@ -28,6 +28,7 @@ raccourci:ಶಾರ್ಟ್ಕಟ್[auto]
 commande:ಆದೇಶಿಸಲಾಗಿದೆ[auto]
 bientôt:ಶೀಘ್ರದಲ್ಲೇ[auto]
 suivant:ಕೆಳಗಿನವು[auto]
+avant:ಮೊದಲು[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:ಮಾನವ ಆಟಗಾರ[auto]
@@ -97,6 +98,7 @@ quitterToMp:ಮುಖ್ಯ ಮೆನುಗೆ ಹಿಂತಿರುಗಿ[auto]
 continuerJeu:ಆಟವನ್ನು ಮುಂದುವರಿಸಿ[auto]
 supprimerFourmi.1:ಇರುವೆ ತೆಗೆದುಹಾಕಿ[auto]
 supprimerFourmi.2:ನೀವು ನಿಜವಾಗಿಯೂ ಇರುವೆ ತೆಗೆದುಹಾಕಲು ಬಯಸುವಿರಾ[auto]
+choisirPartie:ಒಂದು ಭಾಗವನ್ನು ಆರಿಸಿ[auto]
 
 affTest:ಯಶಸ್ವಿ ಪರೀಕ್ಷೆ[auto]
 

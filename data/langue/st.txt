@@ -28,6 +28,7 @@ raccourci:kgaoletso[auto]
 commande:laela[auto]
 bientôt:haufinyane[auto]
 suivant:ho latela[auto]
+avant:pele ho[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:sebapali sa motho[auto]
@@ -97,6 +98,7 @@ quitterToMp:khutlela ho menu e kholo[auto]
 continuerJeu:ntšetsa pele papali[auto]
 supprimerFourmi.1:tlosa bohloa[auto]
 supprimerFourmi.2:u hlile u batla ho tlosa bohloa[auto]
+choisirPartie:khetha karolo[auto]
 
 affTest:teko e atlehileng[auto]
 

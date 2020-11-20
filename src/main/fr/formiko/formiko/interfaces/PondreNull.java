@@ -12,7 +12,9 @@ import java.io.Serializable;
  * @version 1.1
  */
 public class PondreNull implements Serializable, Pondre {
-
+  /**
+  *If lauch print an error.
+  */
   public void unePonte(Creature c){
     erreur.erreur("Impossible de pondre avec la créature " + c.getId());
   }

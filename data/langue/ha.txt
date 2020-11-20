@@ -28,6 +28,7 @@ raccourci:gajerar hanya[auto]
 commande:umurta[auto]
 bientôt:anjima[auto]
 suivant:mai biyowa[auto]
+avant:kafin[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:dan wasan mutum[auto]
@@ -97,6 +98,7 @@ quitterToMp:komawa zuwa menu na ainihi[auto]
 continuerJeu:ci gaba da wasan[auto]
 supprimerFourmi.1:cire tururuwa[auto]
 supprimerFourmi.2:da gaske kana son cire tururuwa[auto]
+choisirPartie:zabi wani bangare[auto]
 
 affTest:nasara gwajin[auto]
 

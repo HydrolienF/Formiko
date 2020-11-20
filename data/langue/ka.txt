@@ -28,6 +28,7 @@ raccourci:მალსახმობი[auto]
 commande:უბრძანა[auto]
 bientôt:მალე[auto]
 suivant:შემდეგს[auto]
+avant:მანამდე[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:ადამიანის მოთამაშე[auto]
@@ -97,6 +98,7 @@ quitterToMp:მთავარ მენიუში დაბრუნება
 continuerJeu:გააგრძელე თამაში[auto]
 supprimerFourmi.1:ამოიღეთ ჭიანჭველა[auto]
 supprimerFourmi.2:მართლა გინდა ჭიანჭველის ამოღება?[auto]
+choisirPartie:აირჩიე ნაწილი[auto]
 
 affTest:წარმატებული ტესტი[auto]
 

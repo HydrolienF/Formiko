@@ -28,6 +28,7 @@ raccourci:genvej[auto]
 commande:beordrede[auto]
 bientôt:snart[auto]
 suivant:følge[auto]
+avant:Før[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:den menneskelige spiller[auto]
@@ -97,6 +98,7 @@ quitterToMp:vende tilbage til hovedmenuen[auto]
 continuerJeu:fortsæt spillet[auto]
 supprimerFourmi.1:fjern myren[auto]
 supprimerFourmi.2:vil du virkelig fjerne myren[auto]
+choisirPartie:vælg en del[auto]
 
 affTest:vellykket test[auto]
 

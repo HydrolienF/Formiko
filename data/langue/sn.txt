@@ -28,6 +28,7 @@ raccourci:nzira pfupi[auto]
 commande:akarayira[auto]
 bientôt:munguva pfupi[auto]
 suivant:zvinotevera[auto]
+avant:pamberi[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:mutambi wemunhu[auto]
@@ -97,6 +98,7 @@ quitterToMp:dzokera kumenu huru[auto]
 continuerJeu:enderera mutambo[auto]
 supprimerFourmi.1:bvisa svosve[auto]
 supprimerFourmi.2:unoda here kubvisa svosve[auto]
+choisirPartie:sarudza chikamu[auto]
 
 affTest:bvunzo bvunzo[auto]
 

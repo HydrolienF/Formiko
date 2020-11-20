@@ -28,6 +28,7 @@ raccourci:salgylanma[auto]
 commande:sargyt etdi[auto]
 bientôt:basym[auto]
 suivant:aşakda[auto]
+avant:öň[auto]
 
 laIA:l'IA[auto]
 laJoueurHumain:adam oýunçysy[auto]
@@ -97,6 +98,7 @@ quitterToMp:esasy menýuda dolan[auto]
 continuerJeu:oýny dowam etdiriň[auto]
 supprimerFourmi.1:garynjany aýyryň[auto]
 supprimerFourmi.2:garynjany hakykatdanam aýyrmak isleýärsiňmi?[auto]
+choisirPartie:bölek saýlaň[auto]
 
 affTest:üstünlikli synag[auto]
 

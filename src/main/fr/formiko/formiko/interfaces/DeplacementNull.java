@@ -12,16 +12,27 @@ import java.io.Serializable;
  * @version 1.1
  */
 public class DeplacementNull implements Serializable, Deplacement {
-
+  /**
+  *If lauch print an error.
+  */
   public void unMouvement(Creature c, boolean bIa){
     erreur.erreur("Impossible de déplacer avec la créature " + c.getId());
   }
+  /**
+  *If lauch print an error.
+  */
   public void unMouvement(Creature c, CCase p){
     erreur.erreur("Impossible de déplacer avec la créature " + c.getId());
   }
+  /**
+  *If lauch print an error.
+  */
   public void unMouvement(Creature c, int direction){
     erreur.erreur("Impossible de déplacer avec la créature " + c.getId());
   }
+  /**
+  *If lauch print an error.
+  */
   public void plusieurMouvement(Creature c, CCase cc){
     erreur.erreur("Impossible de déplacer avec la créature " + c.getId());
   }
