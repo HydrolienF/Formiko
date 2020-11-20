@@ -13,53 +13,9 @@
 ### EO
 `Formiko estas ludo, kie vi ludas kiel reĝinformiko, kiu disvolvas ŝian formikejon.`
 
-### EN
-*How to play*
+*How to play* / *Comment jouer* / *Kiel ludi*
 
-+ Windows
-`The files formiko.bat, Formiko.jar and the data directory must be in the same directory.
-To start the game, you just need to double click on the formiko.bat file.
-`
-+ Linux
-`soon
-
-`
-+ Mac
-`soon
-
-`
-
-### FR
-*Comment jouer*
-
-+ Windows
-`Les fichiers formiko.bat, Formiko.jar et le répertoire data doivent être dans le même répertoire.
-Pour lancer le jeu il vous suffit de double cliquer sur le fichier formiko.bat.
-`
-+ Linux
-`bientôt
-
-`
-+ Mac
-`bientôt
-
-`
-
-### EO
-*Kiel ludi*
-
-+ Vindozo
-`La dosieroj formiko.bat, Formiko.jar kaj la datuma dosierujo devas esti en la sama dosierujo.
-Por komenci la ludon, vi nur bezonas duoble alklaki la dosieron formiko.bat.
-`
-+ Linukso
-`baldaŭ
-
-`
-+ Mako
-`baldaŭ
-
-`
+cf: https://formiko.fr
 
 
 ### EN
