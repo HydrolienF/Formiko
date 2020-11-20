@@ -270,8 +270,7 @@ public class Main {
   }
   /**
    * {@summary Launch a new game.<br>}
-   * @param p A Partie that contain all the game value.
-   * @version 1.1
+   * @version 1.14
    */
   public static void lancementNouvellePartie(){ //Nouveau système de lancement de partie :
     débutCh();
@@ -601,9 +600,9 @@ public class Main {
     finCh("chargementDesLangues");
   }
   /**
-   * {@summary Print on the window a message about game loading.}
-   * If you tried to use it before the creating of a new PanneauChargement, mail will not appear on the window.
-   * @version 1.1
+   * {@summary Print on the window a message about game loading.<br>}
+   * If you tried to use it before the creating of a new PanneauChargement, message will not appear on the window.
+   * @version 1.14
    */
   public static void setMessageChargement(String s){
     //s c'est un truc du genre "chargementDesLangues"
