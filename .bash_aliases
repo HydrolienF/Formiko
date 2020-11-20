@@ -4,7 +4,8 @@
 #build
 alias javacf='./javacf.sh'
 #launch
-alias main='./main.sh'
+alias run='./run.sh'
+alias main='run'
 
 
 #build test part
