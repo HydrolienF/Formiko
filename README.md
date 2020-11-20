@@ -2,7 +2,10 @@
 
 ### EN / FR / EO
 *Update: / Mise à jour : / Ĝisdatigu:* https://formiko.fr
+
 *Support: / Support : / Subteno:* https://discord.gg/9uHXJ9K
+
+*How to play:* / *Comment jouer :* / *Kiel ludi:* https://formiko.fr
 
 ### EN
 `Formiko is a game where you play as a ant queen who develops its anthill.`
@@ -13,9 +16,6 @@
 ### EO
 `Formiko estas ludo, kie vi ludas kiel reĝinformiko, kiu disvolvas ŝian formikejon.`
 
-*How to play* / *Comment jouer* / *Kiel ludi*
-
-cf: https://formiko.fr
 
 
 ### EN
