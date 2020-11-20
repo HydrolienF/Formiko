@@ -21,7 +21,7 @@ public class tableau <T>{
     erreur.alerte("\""+x + "\" "+g.get(f,4,"n'est pas présent dans le tableau")+".", "tableau.retirX");
   }
 //Objet
-  public static <T> T[] retire (T t[], T i){
+  /*public static <T> T[] retire (T t[], T i){
     int lentr = t.length-1;
     if (i<0 || i>t.length) {
       erreurPosition(i);
@@ -34,7 +34,7 @@ public class tableau <T>{
       tr[j-1]=t[j];
     }
     return tr;
-  }
+  }*/
 //String
   //Retire
   public static String [] retirer (String t[], int i){
