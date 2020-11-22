@@ -38,25 +38,27 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
     ini();
     assertTrue(f.exists());//il existe.
     assertTrue(f.isFile());//c'est un fichier pas un dossier.
-    System.out.println(f==null);
+    assertTrue(f.delete());
   }
   @Test
   @Before
   public void testCharger(){
-    ini();
     Main.setPartie(new Partie()); //nouvelle partie vide.
+    debug.setDPG(false);
     Main.initialisation();
     Main.setPartie(Main.getPartieParDéfaut());
     sauvegarderUnePartie.sauvegarder(Main.getPartie(), "testVraisPartie");
     Partie p = sauvegarderUnePartie.charger("testVraisPartie");
-    //TODO overide la méthode equals de partie pour que ca marche.
-    //assertTrue(new Partie(), new Partie());
-    assertTrue(Main.getPartie().equals(p));//@a pour l'instant les Parties ne sont pas égale.
+    assertTrue(Main.getPartie().toString().equals(p.toString()));//@a pour l'instant les Parties ne sont pas égale.
+    assertTrue(sauvegarderUnePartie.supprimer("testVraisPartie"));
+    assertTrue(!sauvegarderUnePartie.supprimer("testVraisPartie"));//le fichier n'existe déja plus.
   }
   @Test
-  @After
+  @Before
   public void testSupprimer(){
     ini();
+    assertTrue(f.exists());//il existe.
+    assertTrue(f.isFile());//c'est un fichier pas un dossier.
     assertTrue(f.delete());//le fichier ce supprime bien.
   }
 

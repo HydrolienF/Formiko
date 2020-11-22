@@ -423,6 +423,7 @@ public class Main {
   public static boolean getJeuEnCours(){return jeuEnCours;}
   public static void setJeuEnCours(boolean b){jeuEnCours=b;}
   public static Save getSave(){return save;}
+  public static void setSave(Save sa){save=sa;}
   //racourci
   public static boolean estWindows(){return os.getId()==1;}
   public static String get(String clé){ return g.get(clé);}

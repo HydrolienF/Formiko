@@ -50,7 +50,9 @@ public class Partie implements Serializable{
     tableauDesEspecesAutorisée = new int [2];
     tableauDesEspecesAutorisée[0]=0;
     tableauDesEspecesAutorisée[1]=3;
-    //a ce stade, il manque encore gi et gj.
+    //a ce stade, il manque encore gi et gj. On les initialise null par précaution.
+    gj = new GJoueur();
+    gi = new GInsecte();
     appartionInsecte=true;
     appartionGraine=true;
   }

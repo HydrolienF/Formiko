@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import fr.formiko.usuel.conversiondetype.str;
+import java.io.File;
 
 /**
  *{@summary Save a game <br/>}
@@ -34,6 +35,7 @@ public class sauvegarderUnePartie {
    *@version 1.2
    */
   public static void sauvegarder(Partie p, String nomDuFichier){
+    Main.setSave(Save.getSave());
     s=nomDuFichier;
     try {
       oos = new ObjectOutputStream(new FileOutputStream(getNomDuFichierComplet()));
@@ -61,5 +63,14 @@ public class sauvegarderUnePartie {
       erreur.erreur("Impossible de charger la partie pour une raison inconnue","sauvegarderUnePartie.sauvegarder");
     }
     return pa;
+  }
+  /**
+  *{@summary Delete a save.}
+  *@param nomDuFichier The name of the file to delete
+  */
+  public static boolean supprimer(String numDuFichier){
+    String s = sauvegarderUnePartie.getNomDuFichierComplet();
+    File f = new File(s);
+    return f.delete();
   }
 }

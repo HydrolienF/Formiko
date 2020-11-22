@@ -17,6 +17,7 @@ public class debug{
   public static void setAffLesPerformances(boolean b){affLesPerformances=b;}
   public static boolean getAffG(){ return affG;}
   public static void setAffG(boolean b){ affG=b;}
+  public static void setDPG(boolean b){setAffG(b); setAffLesEtapesDeRésolution(b);setAffLesPerformances(b);}
   //fonction propre ----------------------------------------------------------------
   public static void débogage(String s){
     if (affLesEtapesDeRésolution) { System.out.println(s); }

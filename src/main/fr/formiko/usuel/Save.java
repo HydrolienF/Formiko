@@ -30,13 +30,11 @@ public class Save implements Serializable{
       try {
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f.getPath()+""));
         r = (Save) ois.readObject();
-        System.out.println(r.idS);//@a
       }catch (Exception e) {
         r = new Save();
         r.idS=1;
       }
     }else{
-      System.out.println("n'existe pas");//@a
       r = new Save();
       r.idS=1;
     }
@@ -53,7 +51,6 @@ public class Save implements Serializable{
       erreur.erreur("le fichier n'as pas été créer","Save.save");
     }
     try {
-      System.out.println("save du fichier");//@a
       ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f.getPath()+""));
       oos.writeObject(this);
     }catch (Exception e) {

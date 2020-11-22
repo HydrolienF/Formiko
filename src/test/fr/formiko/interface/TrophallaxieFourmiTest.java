@@ -21,6 +21,7 @@ public class TrophallaxieFourmiTest extends TestCaseMuet{
   //getCreatureQuiOnFaim
   @Test
   public void testGetCreatureQuiOnFaim(){//on suppose que getAlliéSurLaCase & getAlliéSurLaCaseSansThis sont correcte (meme si on les test un peu).
+    debug.setDPG(false);
     Main.initialisation();
     Carte mapo = new Carte(new GCase(1,1));
     Main.setPartie(new Partie(1,1,mapo,1.0));
