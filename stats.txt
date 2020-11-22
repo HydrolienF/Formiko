@@ -1,163 +1,166 @@
-comment %    cl-pu-po-pr-sh  name of the file
-100% (5/5)   1  4  0  0  0   formiko/interfaces/DeplacementNull.java
-100% (4/4)   1  1  2  0  0   formiko/interfaces/PondreReine.java
-100% (6/6)   1  2  0  3  0   formiko/interfaces/ChasseFourmi.java
-100% (5/5)   1  4  0  0  0   formiko/interfaces/TrophallaxieNull.java
-100% (1/1)   1  0  0  0  0   formiko/interfaces/Pondre.java
-100% (2/2)   1  1  0  0  0   formiko/interfaces/PondreNull.java
-100% (9/9)   1  4  0  4  0   formiko/interfaces/NetoyerFourmi.java
-100% (1/1)   1  0  0  0  0   formiko/interfaces/Collecte.java
-100% (1/1)   1  0  0  0  0   formiko/interfaces/Deplacement.java
-100% (11/11) 1  4  0  6  0   formiko/interfaces/DeplacementFourmi.java
-100% (2/2)   1  1  0  0  0   formiko/interfaces/EvoluerNull.java
-100% (4/4)   1  2  0  1  0   formiko/interfaces/MourirFourmi.java
-100% (1/1)   1  0  0  0  0   formiko/interfaces/Netoyer.java
-100% (1/1)   1  0  0  0  0   formiko/interfaces/Trophallaxie.java
-100% (3/3)   1  2  0  0  0   formiko/interfaces/CollecteNull.java
-100% (2/2)   1  1  0  0  0   formiko/interfaces/EvoluerFourmi.java
-100% (1/1)   1  0  0  0  0   formiko/interfaces/Mourir.java
-100% (6/6)   1  4  0  1  0   formiko/interfaces/NetoyerNull.java
-100% (1/1)   1  0  0  0  0   formiko/interfaces/Chasse.java
-100% (3/3)   1  2  0  0  0   formiko/interfaces/ChasseNull.java
-100% (4/4)   1  3  0  0  0   formiko/interfaces/MourirInsecte.java
-100% (3/3)   1  2  0  0  0   formiko/interfaces/CollecteFourmi.java
-100% (5/5)   1  4  0  0  0   formiko/interfaces/TrophallaxieFourmi.java
-100% (1/1)   1  0  0  0  0   formiko/interfaces/Evoluer.java
-100% (3/3)   1  2  0  0  0   formiko/interfaces/MourirNull.java
-100% (7/7)   1  6  0  0  9   formiko/Insecte.java
-100% (4/4)   1  2  0  1  0   formiko/arbo.java
-0%   (0/13)  1  12 0  0  4   formiko/CInsecte.java
-20%  (1/5)   1  4  0  0  3   formiko/IEspece.java
-0%   (0/16)  1  15 0  0  18  formiko/Joueur.java
-100% (10/10) 1  9  0  0  65  formiko/Creature.java
-6%   (1/15)  1  14 0  0  33  formiko/Partie.java
-0%   (0/17)  1  16 0  0  6   formiko/GCase.java
-0%   (0/9)   1  8  0  0  10  formiko/Graine.java
-0%   (0/13)  1  12 0  0  0   formiko/triche.java
-0%   (0/6)   1  5  0  0  4   formiko/CIndividu.java
-0%   (0/3)   1  1  0  1  66  formiko/Options.java
-0%   (0/8)   1  7  0  0  4   formiko/GIndividu.java
-0%   (0/4)   1  3  0  0  3   formiko/ObjetSurCarteAId.java
-0%   (0/25)  1  24 0  0  5   formiko/GJoueur.java
-0%   (0/3)   1  2  0  0  4   formiko/ObjetAId.java
-0%   (0/4)   1  3  0  0  4   formiko/CEspece.java
-100% (2/2)   1  1  0  0  2   formiko/Touches.java
-0%   (0/17)  1  16 0  0  10  formiko/Pheromone.java
-0%   (0/13)  1  12 0  0  7   formiko/GGraine.java
-0%   (0/12)  1  11 0  0  25  formiko/Case.java
-0%   (0/21)  1  20 0  0  3   formiko/GInsecte.java
-0%   (0/11)  1  10 0  0  4   formiko/CGraine.java
-0%   (0/1)   1  0  0  0  0   formiko/Personalite.java
-0%   (0/28)  1  27 0  0  13  formiko/CCase.java
-100% (21/21) 1  20 0  0  111 formiko/Main.java
-0%   (0/49)  2  43 0  4  9   formiko/GCreature.java
-0%   (0/31)  2  29 0  0  7   formiko/CCreature.java
-0%   (0/13)  1  12 0  0  27  formiko/Fourmiliere.java
-0%   (0/2)   1  1  0  0  0   formiko/lireUneSauvegarde.java
-0%   (0/31)  1  30 0  0  32  formiko/Fourmi.java
-0%   (0/3)   1  2  0  0  0   formiko/KeyThread.java
-0%   (0/3)   1  2  0  0  1   formiko/ThScript.java
-0%   (0/9)   1  8  0  0  2   formiko/GEspece.java
-0%   (0/11)  1  10 0  0  2   formiko/GIEspece.java
-0%   (0/7)   1  6  0  0  4   formiko/CIEspece.java
-0%   (0/5)   1  2  0  2  4   formiko/Script.java
-0%   (0/5)   1  4  0  0  11  formiko/Carte.java
-0%   (0/22)  1  21 0  0  4   formiko/CJoueur.java
-0%   (0/4)   1  3  0  0  14  formiko/Individu.java
-0%   (0/5)   1  4  0  0  18  formiko/Espece.java
-0%   (0/7)   1  6  0  0  6   formiko/Point.java
-0%   (0/6)   1  5  0  0  6   graphisme/CEtiquetteJoueur.java
-0%   (0/8)   1  7  0  0  4   graphisme/GEtiquetteJoueur.java
-0%   (0/7)   1  6  0  0  5   graphisme/Fenetre.java
-0%   (0/7)   1  6  0  0  3   graphisme/PanneauPrincipal.java
-0%   (0/9)   1  8  0  0  9   graphisme/Bouton.java
-0%   (0/18)  1  17 0  0  23  graphisme/PanneauBouton.java
-0%   (0/3)   1  2  0  0  0   graphisme/PanneauGEtiquetteJoueur.java
-0%   (0/4)   1  3  0  0  0   graphisme/PanneauActionInf.java
-0%   (0/3)   1  2  0  0  2   graphisme/PanneauTX.java
-0%   (0/3)   1  2  0  0  2   graphisme/PanneauTInt.java
-0%   (0/8)   1  7  0  0  0   graphisme/PanneauFinPartie.java
-0%   (0/2)   1  1  0  0  1   graphisme/ComboBox.java
-0%   (0/28)  1  27 0  0  18  graphisme/PanneauJeu.java
-0%   (0/8)   1  7  0  0  6   graphisme/PanneauMenu.java
-0%   (0/3)   1  2  0  0  0   graphisme/readG.java
-0%   (0/7)   1  6  0  0  2   graphisme/PanneauEchap.java
-0%   (0/6)   1  5  0  0  4   graphisme/PanneauInfo.java
-0%   (0/2)   1  1  0  0  1   graphisme/Question.java
-0%   (0/3)   1  2  0  0  0   graphisme/PanneauTBoolean.java
-0%   (0/3)   1  2  0  0  2   graphisme/BoiteListeDefilante.java
-0%   (0/6)   2  4  0  0  1   graphisme/Panneau.java
-0%   (0/4)   1  3  0  0  4   graphisme/EtiquetteChoix.java
-0%   (0/8)   1  7  0  0  0   graphisme/ini.java
-0%   (0/29)  1  28 0  0  19  graphisme/PanneauCarte.java
-0%   (0/5)   2  3  0  0  7   graphisme/PanneauChamp.java
-0%   (0/4)   1  3  0  0  0   graphisme/PanneauActionSup.java
-0%   (0/2)   1  1  0  0  4   graphisme/BoutonLong.java
-0%   (0/11)  1  10 0  0  3   graphisme/PanneauSup.java
-0%   (0/8)   1  7  0  0  4   graphisme/PanneauZoom.java
-0%   (0/5)   1  4  0  0  0   graphisme/PanneauDialogue.java
-0%   (0/6)   1  5  0  0  4   graphisme/PanneauChargement.java
-0%   (0/8)   1  7  0  0  3   graphisme/PanneauNouvellePartie.java
-0%   (0/9)   1  8  0  0  6   graphisme/PanneauAction.java
-0%   (0/3)   1  2  0  0  9   graphisme/Desc.java
-0%   (0/7)   1  6  0  0  0   graphisme/PanneauDialogueInf.java
-0%   (0/2)   1  1  0  0  6   graphisme/Champ.java
-0%   (0/14)  3  11 0  0  12  graphisme/EtiquetteJoueur.java
-28%  (2/7)   1  6  0  0  2   usuel/fichier.java
-0%   (0/4)   1  3  0  0  0   usuel/Th.java
-0%   (0/8)   1  7  0  0  4   usuel/Chrono.java
-0%   (0/2)   1  1  0  0  2   usuel/ListeVideException.java
-11%  (1/9)   1  8  0  0  5   usuel/GInt.java
-0%   (0/8)   1  7  0  0  8   usuel/Pixel.java
-0%   (0/2)   1  1  0  0  1   usuel/ThTriche.java
-0%   (0/3)   1  2  0  0  1   usuel/menu.java
-100% (7/7)   2  4  0  1  2   usuel/test.java
-0%   (0/6)   1  2  0  3  6   usuel/Os.java
-16%  (4/25)  2  23 0  0  10  usuel/GString.java
-0%   (0/4)   1  3  0  0  0   usuel/chargerCarte.java
-95%  (19/20) 1  19 0  0  0   usuel/math.java
-0%   (0/14)  1  13 0  0  0   usuel/decoderUnFichier.java
-0%   (0/13)  1  12 0  0  1   usuel/Message.java
-0%   (0/3)   1  2  0  0  0   usuel/ThImage.java
-0%   (0/7)   1  6  0  0  0   usuel/print.java
-0%   (0/7)   1  6  0  0  7   usuel/CMessage.java
-0%   (0/4)   1  3  0  0  1   usuel/chargerLesOptions.java
-0%   (0/8)   1  7  0  0  6   usuel/CInt.java
-100% (3/3)   1  2  0  0  3   usuel/sauvegarderUnePartie.java
-0%   (0/5)   1  4  0  0  9   usuel/debug.java
-0%   (0/2)   1  1  0  0  0   usuel/TestCaseMuet.java
-0%   (0/5)   1  4  0  0  0   usuel/outils/trad.java
-53%  (21/39) 1  38 0  0  35  usuel/Img.java
-6%   (1/15)  1  14 0  0  1   usuel/allea.java
-0%   (0/4)   1  3  0  0  0   usuel/ascii.java
-0%   (0/2)   1  1  0  0  1   usuel/ThGraphisme.java
-0%   (0/7)   1  6  0  0  5   usuel/GMessage.java
-83%  (5/6)   1  5  0  0  1   usuel/g.java
-16%  (1/6)   1  5  0  0  0   usuel/Sound.java
-0%   (0/2)   1  1  0  0  0   usuel/diff.java
-100% (16/16) 1  15 0  0  12  usuel/image.java
-0%   (0/7)   1  6  0  0  6   usuel/CCInt.java
-100% (1/1)   1  0  0  0  0   usuel/car.java
-0%   (0/8)   1  7  0  0  1   usuel/ent.java
-50%  (5/10)  1  9  0  0  13  usuel/Temps.java
-0%   (0/2)   1  1  0  0  1   usuel/ElementListeIntrouvableException.java
-100% (5/5)   1  4  0  0  3   usuel/stats.java
-0%   (0/5)   1  4  0  0  4   usuel/ThMusique.java
-0%   (0/4)   1  2  0  1  0   usuel/chargerLesTouches.java
-0%   (0/3)   1  2  0  0  0   usuel/lireUnFichier.java
-21%  (11/52) 1  51 0  0  6   usuel/tableau.java
-0%   (0/5)   1  3  0  1  0   usuel/ThTrad.java
-0%   (0/8)   1  7  0  0  0   usuel/Musique.java
-16%  (4/25)  3  22 0  0  10  usuel/CString.java
-0%   (0/3)   1  2  0  0  0   usuel/FichierDejaPresentException.java
-0%   (0/18)  1  16 0  1  5   usuel/erreur.java
-0%   (0/12)  1  10 0  1  0   usuel/read.java
-100% (15/15) 1  14 0  0  9   usuel/chargerLesTraductions.java
-0%   (0/5)   1  3  0  1  0   usuel/modificationDeFichier.java
-76%  (19/25) 1  24 0  0  3   usuel/str.java
-0%   (0/6)   1  5  0  0  4   usuel/GGInt.java
-0%   (0/6)   1  4  0  1  0   usuel/opperationSurString.java
-0%   (0/3)   1  2  0  0  0   usuel/ecrireUnFichier.java
-0%   (0/2)   1  1  0  0  2   usuel/clear.java
-0%   (0/4)   2  2  0  0  0   usuel/ListeFontes.java
-19%  (271/1356) 172 1149 2 33 914  global
+comment %    cl-pu-po-pr-sh-ln   name of the file
+100% (5/5)   1  4  0  0  0  40   formiko/interfaces/DeplacementNull.java
+100% (4/4)   1  1  2  0  0  80   formiko/interfaces/PondreReine.java
+100% (6/6)   1  2  0  3  0  123  formiko/interfaces/ChasseFourmi.java
+100% (5/5)   1  4  0  0  0  44   formiko/interfaces/TrophallaxieNull.java
+100% (1/1)   1  0  0  0  0  14   formiko/interfaces/Pondre.java
+100% (2/2)   1  1  0  0  0  21   formiko/interfaces/PondreNull.java
+100% (9/9)   1  4  0  4  0  165  formiko/interfaces/NetoyerFourmi.java
+100% (1/1)   1  0  0  0  0  16   formiko/interfaces/Collecte.java
+100% (1/1)   1  0  0  0  0  20   formiko/interfaces/Deplacement.java
+100% (11/11) 1  4  0  6  0  200  formiko/interfaces/DeplacementFourmi.java
+100% (2/2)   1  1  0  0  0  22   formiko/interfaces/EvoluerNull.java
+100% (4/4)   1  2  0  1  0  56   formiko/interfaces/MourirFourmi.java
+100% (1/1)   1  0  0  0  0  18   formiko/interfaces/Netoyer.java
+100% (1/1)   1  0  0  0  0  18   formiko/interfaces/Trophallaxie.java
+100% (3/3)   1  2  0  0  0  27   formiko/interfaces/CollecteNull.java
+100% (2/2)   1  1  0  0  0  56   formiko/interfaces/EvoluerFourmi.java
+100% (1/1)   1  0  0  0  0  27   formiko/interfaces/Mourir.java
+100% (6/6)   1  4  0  1  0  47   formiko/interfaces/NetoyerNull.java
+100% (1/1)   1  0  0  0  0  16   formiko/interfaces/Chasse.java
+100% (3/3)   1  2  0  0  0  27   formiko/interfaces/ChasseNull.java
+100% (4/4)   1  3  0  0  0  57   formiko/interfaces/MourirInsecte.java
+100% (3/3)   1  2  0  0  0  68   formiko/interfaces/CollecteFourmi.java
+100% (5/5)   1  4  0  0  0  143  formiko/interfaces/TrophallaxieFourmi.java
+100% (1/1)   1  0  0  0  0  15   formiko/interfaces/Evoluer.java
+100% (3/3)   1  2  0  0  0  27   formiko/interfaces/MourirNull.java
+100% (7/7)   1  6  0  0  9  120  formiko/Insecte.java
+100% (4/4)   1  2  0  1  0  168  formiko/arbo.java
+0%   (0/13)  1  12 0  0  4  104  formiko/CInsecte.java
+20%  (1/5)   1  4  0  0  3  36   formiko/IEspece.java
+0%   (0/16)  1  15 0  0  18 148  formiko/Joueur.java
+100% (10/10) 1  9  0  0  65 212  formiko/Creature.java
+6%   (1/15)  1  14 0  0  33 262  formiko/Partie.java
+0%   (0/17)  1  16 0  0  6  142  formiko/GCase.java
+0%   (0/9)   1  8  0  0  10 65   formiko/Graine.java
+0%   (0/13)  1  12 0  0  0  375  formiko/triche.java
+0%   (0/6)   1  5  0  0  4  45   formiko/CIndividu.java
+0%   (0/3)   1  1  0  1  66 165  formiko/Options.java
+0%   (0/8)   1  7  0  0  4  73   formiko/GIndividu.java
+0%   (0/4)   1  3  0  0  3  34   formiko/ObjetSurCarteAId.java
+0%   (0/25)  1  24 0  0  5  165  formiko/GJoueur.java
+0%   (0/3)   1  2  0  0  4  25   formiko/ObjetAId.java
+0%   (0/4)   1  3  0  0  4  31   formiko/CEspece.java
+100% (2/2)   1  1  0  0  2  55   formiko/Touches.java
+0%   (0/17)  1  16 0  0  10 104  formiko/Pheromone.java
+0%   (0/13)  1  12 0  0  7  116  formiko/GGraine.java
+0%   (0/12)  1  11 0  0  25 111  formiko/Case.java
+0%   (0/21)  1  20 0  0  3  175  formiko/GInsecte.java
+0%   (0/11)  1  10 0  0  4  109  formiko/CGraine.java
+0%   (0/1)   1  0  0  0  0  21   formiko/Personalite.java
+0%   (0/28)  1  27 0  0  13 342  formiko/CCase.java
+100% (22/22) 1  21 0  0  113 708  formiko/Main.java
+0%   (0/49)  2  43 0  4  9  320  formiko/GCreature.java
+0%   (0/31)  2  29 0  0  7  284  formiko/CCreature.java
+0%   (0/13)  1  12 0  0  27 126  formiko/Fourmiliere.java
+0%   (0/2)   1  1  0  0  0  87   formiko/lireUneSauvegarde.java
+0%   (0/31)  1  30 0  0  32 516  formiko/Fourmi.java
+0%   (0/3)   1  2  0  0  0  21   formiko/KeyThread.java
+0%   (0/3)   1  2  0  0  1  18   formiko/ThScript.java
+0%   (0/9)   1  8  0  0  2  80   formiko/GEspece.java
+0%   (0/11)  1  10 0  0  2  91   formiko/GIEspece.java
+0%   (0/7)   1  6  0  0  4  48   formiko/CIEspece.java
+0%   (0/5)   1  2  0  2  4  49   formiko/Script.java
+0%   (0/5)   1  4  0  0  11 46   formiko/Carte.java
+0%   (0/22)  1  21 0  0  4  174  formiko/CJoueur.java
+0%   (0/4)   1  3  0  0  14 86   formiko/Individu.java
+0%   (0/5)   1  4  0  0  18 116  formiko/Espece.java
+0%   (0/7)   1  6  0  0  6  59   formiko/Point.java
+0%   (0/6)   1  5  0  0  6  61   graphisme/CEtiquetteJoueur.java
+0%   (0/8)   1  7  0  0  4  65   graphisme/GEtiquetteJoueur.java
+0%   (0/2)   1  1  0  0  0  23   graphisme/PanneauLanceurPartie.java
+0%   (0/7)   1  6  0  0  5  98   graphisme/Fenetre.java
+0%   (0/7)   1  6  0  0  3  62   graphisme/PanneauPrincipal.java
+0%   (0/9)   1  8  0  0  9  138  graphisme/Bouton.java
+0%   (0/18)  1  17 0  0  23 232  graphisme/PanneauBouton.java
+0%   (0/3)   1  2  0  0  0  35   graphisme/PanneauGEtiquetteJoueur.java
+0%   (0/4)   1  3  0  0  0  28   graphisme/PanneauActionInf.java
+0%   (0/3)   1  2  0  0  2  29   graphisme/PanneauTX.java
+0%   (0/3)   1  2  0  0  2  74   graphisme/PanneauTInt.java
+0%   (0/8)   1  7  0  0  0  62   graphisme/PanneauFinPartie.java
+0%   (0/2)   1  1  0  0  1  16   graphisme/ComboBox.java
+0%   (0/28)  1  27 0  0  18 308  graphisme/PanneauJeu.java
+11%  (1/9)   2  7  0  0  8  132  graphisme/PanneauMenu.java
+0%   (0/3)   1  2  0  0  0  33   graphisme/readG.java
+0%   (0/7)   1  6  0  0  2  83   graphisme/PanneauEchap.java
+0%   (0/6)   1  5  0  0  4  57   graphisme/PanneauInfo.java
+0%   (0/2)   1  1  0  0  1  17   graphisme/Question.java
+0%   (0/3)   1  2  0  0  0  61   graphisme/PanneauTBoolean.java
+0%   (0/3)   1  2  0  0  2  45   graphisme/BoiteListeDefilante.java
+0%   (0/6)   2  4  0  0  1  61   graphisme/Panneau.java
+0%   (0/5)   1  3  0  1  0  52   graphisme/PanneauChoixPartie.java
+0%   (0/6)   1  5  0  0  4  52   graphisme/EtiquetteChoix.java
+0%   (0/8)   1  7  0  0  0  111  graphisme/ini.java
+0%   (0/29)  1  28 0  0  19 481  graphisme/PanneauCarte.java
+0%   (0/5)   2  3  0  0  7  61   graphisme/PanneauChamp.java
+0%   (0/4)   1  3  0  0  0  30   graphisme/PanneauActionSup.java
+0%   (0/2)   1  1  0  0  4  32   graphisme/BoutonLong.java
+0%   (0/11)  1  10 0  0  3  106  graphisme/PanneauSup.java
+0%   (0/8)   1  7  0  0  4  147  graphisme/PanneauZoom.java
+0%   (0/5)   1  4  0  0  0  57   graphisme/PanneauDialogue.java
+0%   (0/6)   1  5  0  0  4  80   graphisme/PanneauChargement.java
+0%   (0/8)   1  7  0  0  3  193  graphisme/PanneauNouvellePartie.java
+0%   (0/9)   1  8  0  0  6  116  graphisme/PanneauAction.java
+0%   (0/3)   1  2  0  0  10 50   graphisme/Desc.java
+0%   (0/7)   1  6  0  0  0  49   graphisme/PanneauDialogueInf.java
+0%   (0/2)   1  1  0  0  6  27   graphisme/Champ.java
+0%   (0/14)  3  11 0  0  12 163  graphisme/EtiquetteJoueur.java
+28%  (2/7)   1  6  0  0  2  163  usuel/fichier.java
+0%   (0/4)   1  3  0  0  0  34   usuel/Th.java
+0%   (0/8)   1  7  0  0  4  65   usuel/Chrono.java
+0%   (0/2)   1  1  0  0  2  12   usuel/ListeVideException.java
+11%  (1/9)   1  8  0  0  5  84   usuel/GInt.java
+0%   (0/8)   1  7  0  0  8  48   usuel/Pixel.java
+0%   (0/2)   1  1  0  0  1  24   usuel/ThTriche.java
+0%   (0/3)   1  2  0  0  1  31   usuel/menu.java
+100% (7/7)   2  4  0  1  2  140  usuel/test.java
+0%   (0/6)   1  2  0  3  6  40   usuel/Os.java
+15%  (4/26)  2  24 0  0  10 210  usuel/GString.java
+0%   (0/4)   1  3  0  0  0  41   usuel/chargerCarte.java
+95%  (19/20) 1  19 0  0  0  326  usuel/math.java
+0%   (0/14)  1  13 0  0  0  157  usuel/decoderUnFichier.java
+0%   (0/13)  1  12 0  0  1  144  usuel/Message.java
+0%   (0/3)   1  2  0  0  0  28   usuel/ThImage.java
+0%   (0/7)   1  6  0  0  0  28   usuel/print.java
+0%   (0/7)   1  6  0  0  7  59   usuel/CMessage.java
+0%   (0/4)   1  3  0  0  1  131  usuel/chargerLesOptions.java
+0%   (0/8)   1  7  0  0  6  56   usuel/CInt.java
+100% (4/4)   1  3  0  0  3  76   usuel/sauvegarderUnePartie.java
+0%   (0/5)   1  4  0  0  10 35   usuel/debug.java
+0%   (0/2)   1  1  0  0  0  12   usuel/TestCaseMuet.java
+0%   (0/5)   1  4  0  0  0  79   usuel/outils/trad.java
+53%  (21/39) 1  38 0  0  35 581  usuel/Img.java
+6%   (1/15)  1  14 0  0  1  102  usuel/allea.java
+0%   (0/4)   1  3  0  0  0  42   usuel/ascii.java
+0%   (0/2)   1  1  0  0  1  24   usuel/ThGraphisme.java
+0%   (0/7)   1  6  0  0  5  56   usuel/GMessage.java
+83%  (5/6)   1  5  0  0  1  78   usuel/g.java
+16%  (1/6)   1  5  0  0  0  84   usuel/Sound.java
+0%   (0/2)   1  1  0  0  0  26   usuel/diff.java
+100% (16/16) 1  15 0  0  12 274  usuel/image.java
+0%   (0/7)   1  6  0  0  6  44   usuel/CCInt.java
+100% (1/1)   1  0  0  0  0  30   usuel/car.java
+0%   (0/8)   1  7  0  0  1  49   usuel/ent.java
+50%  (5/10)  1  9  0  0  13 147  usuel/Temps.java
+0%   (0/2)   1  1  0  0  1  11   usuel/ElementListeIntrouvableException.java
+33%  (1/3)   1  2  0  0  2  60   usuel/Save.java
+100% (6/6)   1  5  0  0  3  155  usuel/stats.java
+0%   (0/5)   1  4  0  0  4  37   usuel/ThMusique.java
+0%   (0/4)   1  2  0  1  0  55   usuel/chargerLesTouches.java
+0%   (0/3)   1  2  0  0  0  65   usuel/lireUnFichier.java
+21%  (12/56) 1  51 0  4  6  581  usuel/tableau.java
+0%   (0/5)   1  3  0  1  0  61   usuel/ThTrad.java
+0%   (0/8)   1  7  0  0  0  53   usuel/Musique.java
+16%  (4/25)  3  22 0  0  10 250  usuel/CString.java
+0%   (0/3)   1  2  0  0  0  16   usuel/FichierDejaPresentException.java
+0%   (0/18)  1  16 0  1  5  93   usuel/erreur.java
+0%   (0/12)  1  10 0  1  0  116  usuel/read.java
+100% (15/15) 1  14 0  0  9  273  usuel/chargerLesTraductions.java
+0%   (0/5)   1  3  0  1  0  59   usuel/modificationDeFichier.java
+76%  (19/25) 1  24 0  0  3  279  usuel/str.java
+0%   (0/6)   1  5  0  0  4  48   usuel/GGInt.java
+0%   (0/6)   1  4  0  1  0  46   usuel/opperationSurString.java
+0%   (0/3)   1  2  0  0  0  76   usuel/ecrireUnFichier.java
+0%   (0/2)   1  1  0  0  2  14   usuel/clear.java
+0%   (0/4)   2  2  0  0  0  40   usuel/ListeFontes.java
+20%  (277/1377) 176 1161 2 38 922  16854 global
