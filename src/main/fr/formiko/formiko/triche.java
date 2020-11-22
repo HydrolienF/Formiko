@@ -262,6 +262,9 @@ public class triche {
             }
           }
           break;
+        case 37:
+          Main.getPj().retournerAuMenu();
+          break;
         default:
           erreur.erreur("La commande n'as pas été reconnue.","triche.commande");
       }

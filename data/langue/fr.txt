@@ -355,6 +355,7 @@ cmd.desc.26:affiche la liste des joueurs
 cmd.desc.27:ajout d'une créature ou d'une graine
 cmd.desc.28:faire évoluer une fourmi ou une créature qui peut évoluer.
 cmd.desc.29:affiche le texte correspondant a la clé donné en entrée.
+cmd.desc.36:retourner au menu principal.
 
 cmd.args.2:id créature
 cmd.args.3:id joueur

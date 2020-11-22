@@ -44,6 +44,7 @@ cmd.34.2:actualiserTailleMax
 cmd.34.3:actualiserTailleMin
 cmd.35:affDate
 cmd.36:setLangue
+cmd.37:backToMainMenu
 
 cmd.type.1:Creature
 cmd.type.2:Insecte

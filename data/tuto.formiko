@@ -83,4 +83,4 @@ print tuto.35 true
 finirPartie
 print tuto.36
 print tuto.37
-quit
+backToMainMenu

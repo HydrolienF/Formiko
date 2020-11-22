@@ -212,8 +212,10 @@ public class PanneauJeu extends Panneau {
   }public void doAction(int ac){ doAction((byte) ac);}
   public void retournerAuMenu(){
     Main.setRetournerAuMenu(true);//ne prend effet dans la void main que lorsque le tour est fini.
-    Main.getGj().setAction0();//empèche une autre fourmi de jouer
-    setActionF(9);//empèche la fourmi actuel de jouer.
+    try {
+      Main.getGj().setAction0();//empèche une autre fourmi de jouer
+      setActionF(9);//empèche la fourmi actuel de jouer.
+    }catch (Exception e) {}
   }
   public void centrerLaCarte(){
     GCase gc = Main.getGc();
