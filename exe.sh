@@ -49,9 +49,11 @@ mkdir out/$nomL/java/
 mkdir out/$nomM/java/
 
 echo "cp jlink & launcher"
+unzip -qq jlink.zip
 cp -r jlink/jWindows/* out/$nomW/java/
 cp -r jlink/jLinux/* out/$nomL/java/
 cp -r jlink/jMac/* out/$nomM/java/
+rm -fr jlink/
 cp launcher/formiko.bat out/$nomW/.
 cp launcher/formiko.sh out/$nomL/.
 cp launcher/formiko.sh out/$nomM/.
