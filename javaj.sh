@@ -3,5 +3,5 @@
 for param in "$@"
 do
   echo ==$param==
-  java -cp ~/Formiko/junit-4.13.1.jar:.:build/main:build/test junit.textui.TestRunner $param
+  java -cp junit-4.13.1.jar:.:build/main:build/test junit.textui.TestRunner $param
 done
