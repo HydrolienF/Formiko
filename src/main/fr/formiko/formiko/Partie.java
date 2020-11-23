@@ -173,23 +173,29 @@ public class Partie implements Serializable{
   public void iniJoueurEtIa(Carte mapo){
     gj = gej.getGJoueur(mapo);
   }
-  public boolean jeu(){
-    //lancement du jeux
-    setContinuerLeJeu(true);
+  /**
+  *initialize if we need to check the victory condition or not.
+  *@version 1.17
+  */
+  public void iniPartieFinie(){
     if(Main.getGj().length()==1){setPartieFinie(true);}
     else{setPartieFinie(false);}
+  }
+  /*public boolean jeu(){
+    //lancement du jeux
+    setContinuerLeJeu(true);
     for(tour=1; tour<=nbrDeTour; tour++){
       new Message("\n"+g.get("tour")+ tour +" :");
       Main.repaint();
       //La joue toutes les ia et les joueurs
       Main.tour();
       testFinDePartie();
-      if(Main.getRetournerAuMenu()){return true;}
+      //if(Main.getRetournerAuMenu()){return true;}
     }
     System.out.println(g.get("dernierTourPassé"));
     finDePartie(1);
     return false;
-  }
+  }*/
   public void testFinDePartie(){
     if(partieFinie){ return;}//on ne fait pas le test si on est déja après la fin et que le joueur veux continuer a jouer.
     if(getGj().plusQu1Joueur()){

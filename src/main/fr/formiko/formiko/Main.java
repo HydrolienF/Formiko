@@ -75,6 +75,9 @@ public class Main {
   private static boolean jeuEnCours;
   private static Save save;
 
+  //var qui déclanche des actions.
+  private static boolean tourSuivant;
+
   /**
    * {@summary Lauch the game.<br>}
    * It can have some args to do special thing.<br>
@@ -198,16 +201,83 @@ public class Main {
       // LE JEU -------------------------------------------------------------------
       boolean continuerJeu=true;
       while(continuerJeu){
-        continuerJeu = launch();//on attend ici tant que le joueur veux jouer.
-        debug.débogage("ReLancement du jeu");
-        f.dispose();
-        retournerAuMenu=false;
-        //op=null;//force la réinitialisation de tout.
-        image.clearPartielTemporaire();
+        continuerJeu = Main();//on attend ici tant que le joueur veux jouer.
+        if(continuerJeu){relancer();}
       }
     }
     quitter();//en théorie on arrive pas là.
   }
+  /**
+  *{@summary Main fonction}
+  *Make humain player play.<br>
+  *@version 1.17
+  */
+  public static boolean Main(){
+    launch();
+    //===
+    pa = attenteDeLancementDePartie();
+    lancementNouvellePartie();
+    getPartie().setContinuerLeJeu(true);
+    tourSuivant=false;
+    //Boolean b = pa.jeu(); //lance le jeux.
+    while(getPartie().getTour()<=getPartie().getNbrDeTour()){
+      Temps.pause(10);
+      if(tourSuivant){
+        tour();
+      }
+      //La joue tous les joueurs
+      getGj().getJoueurNonIa().jouer();
+      tourSuivant=true;
+
+
+
+    }
+    if(getPartie().getTour()>getPartie().getNbrDeTour()){
+      System.out.println(g.get("dernierTourPassé"));
+      getPartie().finDePartie(1);
+    }
+    return true;
+  }
+
+  /**
+   * {@summary Play a turn.<br>}
+   * 1a updating Case resources.<br>
+   * 2a Make AI play.<br>
+   * 3a Make Insecte play.<br>
+   * 4a Add new Insectes.<br>
+   * @version 1.17
+   */
+  public static void tour(){
+    getPartie().setTour(getPartie().getTour()+1);
+    new Message("\n"+g.get("tour")+ getPartie().getTour() +" :");
+    repaint();
+    getPartie().testFinDePartie();
+    //faire jouer les cases les insectes & les ia.
+    getGj().getJoueurIa().jouer();
+    getGc().tourCases(); //actualisation des ressources sur les cases.
+    getGi().tourInsecte();
+    ajouterInsecte();
+    tourSuivant=false;
+  }
+  public static void ajouterInsecte(){
+    if(Main.getPartie().getAppartionInsecte()){
+      int nbrDInsecteRestant = math.max( getGc().getNbrDeCase()/5 -  getGi().getGiVivant().length(),0);
+      int x2 = math.min( getGc().getNbrDeCase()/20, nbrDInsecteRestant);
+      new Message("Ajout de "+x2+" insectes");
+      getGi().ajouterInsecte((x2*9)/10); //les insectes vivants n'apparaissent pas sur des cases déja occupé.
+      getGi().ajouterInsecte(x2/10);
+    }
+  }
+
+
+  public static void relancer(){
+    debug.débogage("ReLancement du jeu");
+    f.dispose();
+    retournerAuMenu=false;
+    //op=null;//force la réinitialisation de tout.
+    image.clearPartielTemporaire();
+  }
+
   /**
    * {@summary pre launch.<br>}
    * @version 1.7
@@ -231,7 +301,7 @@ public class Main {
    * {@summary Launch in the void main if there is not other args than -something (ex : -d).<br>}
    * @version 1.7
    */
-  public static boolean launch(){
+  public static void launch(){
     iniLaunch();
     //===
     débutCh();
@@ -247,13 +317,6 @@ public class Main {
     débutCh();
     getPm().construitPanneauMenu(3);
     finCh("chargementPanneauMenu");
-    //===
-    pa = attenteDeLancementDePartie();
-    lancementNouvellePartie();
-    Boolean b = pa.jeu(); //lance le jeux.
-    //===
-    if(b){return true;}
-    return false;
   }
   /**
    * {@summary Wait until player launch a new game, the tutorial or Load a game.<br>}
@@ -683,26 +746,6 @@ public class Main {
       System.exit(0);
     }catch (Exception e) {
       System.exit(1); //une erreur a la fermeture.
-    }
-  }
-  /**
-   * {@summary Play a turn.<br>}
-   * 1a updating Case resources.<br>
-   * 2a Make humain player and AI play.<br>
-   * 3a Make Insecte play.<br>
-   * 4a Add new Insectes.<br>
-   * @version 1.1
-   */
-  public static void tour(){
-    getGc().tourCases(); //actualisation des ressources sur les cases.
-    getGj().jouer();
-    getGi().tourInsecte();
-    if(Main.getPartie().getAppartionInsecte()){
-      int nbrDInsecteRestant = math.max( getGc().getNbrDeCase()/5 -  getGi().getGiVivant().length(),0);
-      int x2 = math.min( getGc().getNbrDeCase()/20, nbrDInsecteRestant);
-      new Message("Ajout de "+x2+" insectes");
-      getGi().ajouterInsecte((x2*9)/10); //les insectes vivants n'apparaissent pas sur des cases déja occupé.
-      getGi().ajouterInsecte(x2/10);
     }
   }
 }

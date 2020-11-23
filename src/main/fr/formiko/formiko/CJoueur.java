@@ -18,6 +18,15 @@ public class CJoueur implements Serializable{
   public CJoueur getSuivant(){return suivant;}
   public Joueur getJoueur(){return getContenu();}
   public Joueur getContenu(){return contenu;}
+  // Fonctions propre -----------------------------------------------------------
+  public String toString(){
+    if(suivant==null){return contenu.toString();}
+    return contenu.toString() +"\n"+ suivant.toString();
+  }
+  public int length(int x){
+    if (suivant != null) { x++; return suivant.length(x);}
+    return x;
+  }
   public GCreature getGc(){
     CJoueur act = this;
     GCreature gcr = new GCreature();
@@ -34,23 +43,18 @@ public class CJoueur implements Serializable{
     if(this.getSuivant()==null){return null;}
     return suivant.getJoueurParId(id);
   }
-  public GJoueur getJoueurHumain(){
+  public GJoueur getJoueurIa(boolean b){
     GJoueur gjr = new GJoueur();
     CJoueur cj = this;
     while(cj!= null){
-      if(!cj.getContenu().getIa()){ gjr.ajouter(cj.getContenu());}
+      if(b){
+        if(cj.getContenu().getIa()){ gjr.ajouter(cj.getContenu());}
+      }else{
+        if(!cj.getContenu().getIa()){ gjr.ajouter(cj.getContenu());}
+      }
       cj = cj.getSuivant();
     }
     return gjr;
-  }
-  // Fonctions propre -----------------------------------------------------------
-  public String toString(){
-    if(suivant==null){return contenu.toString();}
-    return contenu.toString() +"\n"+ suivant.toString();
-  }
-  public int length(int x){
-    if (suivant != null) { x++; return suivant.length(x);}
-    return x;
   }
   public Joueur getJoueurNonIa(){
     if(getSuivant() == null){ return null;} // On a rien trouvé

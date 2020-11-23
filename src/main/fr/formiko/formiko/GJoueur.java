@@ -12,18 +12,6 @@ public class GJoueur implements Serializable{
   // GET SET -----------------------------------------------------------------------
   public CJoueur getDébut(){return début;}
   public CJoueur getFin(){return fin;}
-  public GCreature getGc(){ // renvoie toutes les créatures de tout les joueurs.
-    if (début == null){ return new GCreature();}
-    return début.getGc();
-  }
-  public Joueur getJoueurParId(int id){
-    if(début==null){ return null;}
-    return début.getJoueurParId(id);
-  }
-  public GJoueur getJoueurHumain(){
-    if(début==null){ return new GJoueur();}
-    return début.getJoueurHumain();
-  }
   public int getNbrDeJoueurHumain(){ return getJoueurHumain().length();}
   public int getNbrDIa(){ return length() - getJoueurHumain().length();}
   // Fonctions propre -----------------------------------------------------------
@@ -36,12 +24,28 @@ public class GJoueur implements Serializable{
     if (début == null){ return 0;}
     return début.length(1);
   }
-  public Joueur getJoueurNonIa(){
+  public GCreature getGc(){ // renvoie toutes les créatures de tout les joueurs.
+    if (début == null){ return new GCreature();}
+    return début.getGc();
+  }
+  public Joueur getJoueurParId(int id){
+    if(début==null){ return null;}
+    return début.getJoueurParId(id);
+  }
+  public GJoueur getJoueurHumain(){
+    if(début==null){ return new GJoueur();}
+    return début.getJoueurIa(false);
+  }public GJoueur getJoueurNonIa(){return getJoueurHumain();}
+  public GJoueur getJoueurIa(){
+    if(début==null){ return new GJoueur();}
+    return début.getJoueurIa(true);
+  }
+  /*public Joueur getJoueurNonIa(){
     // renvoie le 1a joueur non humain ou null si il n'y a que des ia.
     if(début == null){ return null;}
     if(début.getJoueur().getIa() == false){ return début.getJoueur();}
     return début.getJoueurNonIa();
-  }
+  }*/
   public boolean getPlusDeFourmi(){
     if(début==null){return true;}
     return début.getPlusDeFourmi();
