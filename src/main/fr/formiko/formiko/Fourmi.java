@@ -273,6 +273,8 @@ public class Fourmi extends Creature implements Serializable{
     gs.add(g.get("espèce")+" : "+e.getNom());
     return gs;
   }
+
+  
   public void tourFourmi(){
     int idf = Main.getPs().getIdFourmiAjoué();
     if(idf!=-1 && getId()!=idf){mode=-1;Main.getPb().setVisiblePa(false);Main.getPb().removePi();return;}//si 1 fourmi spéciale est sencé joué et que ce n'est pas celle la.
@@ -296,39 +298,58 @@ public class Fourmi extends Creature implements Serializable{
           Main.getPj().setFActuelle(this);
           Main.getPb().addPI();
           Main.getPb().addPIJ();
+          //ICI on a une action d'attente.
           choix = (byte)(getChoixJoueur()-1);
-          if(choix==-2){
-            //Main.getPb().removePi();
-            return;
-          }
-          m = faire(choix);
+          doPlayerAction(choix);
         } else if (estIa){ // si c'est une ia
           if(propreté < 70){ ceNetoyer();}
-          debug.débogage("choix mode");
-        }
-        // Les modes auto
-        if (mode == 0){
-          m = "chasser / ce déplacer pour chasser (Ou Récolter des graines)";
-          collecterOuChasser(direction, estIa);
-        }else if(mode == 1){
-          if (!estALaFere()) {rentrer();}
-          else {setAction(0);}
-          m = "défendre la fourmilière.";
-        }else if(mode == 3){
-          nourrirEtNétoyer(); m = "Nourrir et Nétoyer";
+          //debug.débogage("choix mode");
+          m=faireActionAuto(mode,m);
         }
         k++;
         //new Message("La fourmi " +this.getId() +" a choisi de " + m + "."+" mode : "+mode);
-        if(!Main.getMouvementRapide() && estIa){Main.repaint();} // ici on pause le jeu si les mouvement rapide sont désactivé et que la fourmi est une ia.
-        else{Main.getPb().removePi(); Main.getPb().removePij();}
+        //if(!Main.getMouvementRapide() && estIa){Main.repaint();} // ici on pause le jeu si les mouvement rapide sont désactivé et que la fourmi est une ia.
       }
     }else{ // les fourmis non adulte.
       if (age>=ageMax){ evoluer();}
     }
-    if(!estIa && action<=0){
-      Main.getPs().setIdFourmiAjoué(-1);
-    }
+    if(!estIa && action<=0){Main.getPs().setIdFourmiAjoué(-1);}
   }
+  /**
+  *make an action chose by the player.
+  *@version 1.17
+  */
+  public void doPlayerAction(int choix){
+    if(choix==-2){return;}
+    faire(choix);
+    faireActionAuto(mode,"");//si l'action est une action de mode auto.
+    Main.getPb().removePi(); Main.getPb().removePij();
+  }
+
+
+
+  /**
+  *launch an action for this.
+  *@version 1.17
+  */
+  public String faireActionAuto(int mode, String m){
+    // Les modes auto
+    if (mode == 0){
+      m = "chasser / ce déplacer pour chasser (Ou Récolter des graines)";
+      collecterOuChasser(direction, fere.getJoueur().getIa());
+    }else if(mode == 1){
+      if (!estALaFere()) {rentrer();}
+      else {setAction(0);}
+      m = "défendre la fourmilière.";
+    }else if(mode == 3){
+      nourrirEtNétoyer(); m = "Nourrir et Nétoyer";
+    }
+    return m;
+  }
+
+
+
+
   public void finTour(){
     debug.débogage("Fin du tour de la Fourmi");
     // Un tour ça coute en age et en nourriture;

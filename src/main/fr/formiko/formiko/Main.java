@@ -221,7 +221,8 @@ public class Main {
     tourSuivant=false;
     //Boolean b = pa.jeu(); //lance le jeux.
     while(getPartie().getTour()<=getPartie().getNbrDeTour()){
-      Temps.pause(10);
+      System.out.println("1 tour de boucle");//@a
+      Temps.pause(40);
       if(tourSuivant){
         tour();
       }

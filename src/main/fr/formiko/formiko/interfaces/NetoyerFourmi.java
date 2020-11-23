@@ -65,6 +65,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
   public int getNombreDeCreatureANetoyer(Creature c){
     if(c instanceof Fourmi){
       net = (Fourmi)c;
+      System.out.println(getFourmiPasPropre().length);//@a
       return getFourmiPasPropre().length;
     }else{
       return 0;
@@ -148,7 +149,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
     //on compte le nombre de case.
     for (int i=0;i<lent ;i++ ) {
       Creature c = gc.getCreatureParId(t[i]);
-      if(c.getProprete()!=100){
+      if(c.getProprete()<100){
         lentr++;
       }
     }
@@ -156,7 +157,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
     int tr[] = new int[lentr];int k=0;
     for (int i=0;i<lent ;i++ ) {
       Creature c = gc.getCreatureParId(t[i]);
-      if(c.getProprete()!=100){
+      if(c.getProprete()<100){
         tr[k] = t[i];k++;
       }
     }
