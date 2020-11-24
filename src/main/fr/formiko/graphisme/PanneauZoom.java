@@ -21,22 +21,21 @@ import fr.formiko.usuel.image.Pixel;
 import fr.formiko.formiko.Main;
 
 public class PanneauZoom extends Panneau {
-  private int tailleBouton;
   private Bouton bPlus; private Bouton bMoins; private Bouton bc;//bouton de zoom.
   private Bouton bh; private Bouton bb; private Bouton bd; private Bouton bg; //bouton de déplacements
   private Bouton bd1; private Bouton bd2;
-  private boolean initialisationFX;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauZoom(){
-    tailleBouton=Main.getTailleBoutonZoom();
+    int tailleBouton=Main.getTailleBoutonZoom();
     setSize(tailleBouton*3,tailleBouton*3);
   }
   public void construire(){
-    initialisationFX=false;
+    int tailleBouton=Main.getTailleBoutonZoom();
     this.setLayout(new GridBagLayout());
     Image tIB []; tailleBouton=Main.getTailleBoutonZoom();
-    if(Main.getPiFond()==null){tIB = chargerTIB();}
-    else{tIB = chargerTIB2(Main.getPiFond());}
+    //if(Main.getPiFond()==null){tIB = chargerTIB();}
+    //else{tIB = chargerTIB2(Main.getPiFond());}
+    tIB = Main.getData().chargerTIBZoom();
     Dimension dim = new Dimension(tailleBouton, tailleBouton);
     bMoins = new Bouton("-",(Panneau)this,0,tIB[0]);
     bh = new Bouton("haut",(Panneau)this,1,tIB[1]);
@@ -73,8 +72,8 @@ public class PanneauZoom extends Panneau {
     add(bd2,gbc);
   }
   // GET SET --------------------------------------------------------------------
-  public int getTailleBouton(){ return tailleBouton;}
-  public void setTailleBouton(int x){ tailleBouton=x;}
+  public int getTailleBouton(){ return Main.getTailleBoutonZoom();}
+  //public void setTailleBouton(int x){ tailleBouton=x;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     try {
@@ -82,65 +81,10 @@ public class PanneauZoom extends Panneau {
     }catch (Exception e) {
       return;
     }
+    int tailleBouton=Main.getTailleBoutonZoom();
     debug.débogage("taille du panneau de zoom : x="+tailleBouton*3+", y="+tailleBouton*3);
     this.setSize(tailleBouton*3,tailleBouton*3);
   }
-  public Image [] chargerTIB(){
-    Image [] tIB = new Image[9];
-    if(!initialisationFX && !Main.getGarderLesGraphismesTourné()){tournerLesFleches();}
-    tIB[0] = image.getImage("moins").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    tIB[1] = image.getImage("fleche").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    tIB[2] = image.getImage("plus").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    tIB[3] = image.getImage("fleche1").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    //tourner +90°
-    tIB[4] = image.getImage("centrer").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    tIB[5] = image.getImage("fleche2").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    //tourner -90°
-    tIB[6] = image.getImage("fleche3").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    //tourner +180°
-    tIB[7] = image.getImage("centrer").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    tIB[8] = image.getImage("centrer").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    return tIB;
-  }
-  public Image [] chargerTIB2(Pixel pi){
-    Image [] tIB = new Image[9];
-    if(!initialisationFX){
-      String ts [] = {"moins.png","fleche.png","plus.png","centrer.png"};
-      for (String nom : ts ) {
-        Img img = new Img(nom);
-        img.changerPixelTransparent(pi);
-        img.sauvegarder(nom);
-      }
-      if(!Main.getGarderLesGraphismesTourné()){tournerLesFleches("fleche");}
-      initialisationFX=true;
-    }
-    tIB[0] = image.getImage("moins").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    tIB[1] = image.getImage("fleche").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    tIB[2] = image.getImage("plus").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    tIB[3] = image.getImage("fleche1").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    //tourner +90°
-    tIB[4] = image.getImage("centrer").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    tIB[5] = image.getImage("fleche2").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    //tourner -90°
-    tIB[6] = image.getImage("fleche3").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    //tourner +180°
-    tIB[7] = image.getImage("centrer").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    tIB[8] = image.getImage("centrer").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    return tIB;
-  }
-  public void tournerLesFleches(String nom){
-    initialisationFX=true;
-    Img f = new Img(nom);
-    Img f1 = f.clone();
-    f1.tourner(1);
-    Img f2 = f.clone();
-    f2.tourner(3);
-    Img f3 = f.clone();
-    f3.tourner(2);
-    f2.sauvegarder("fleche2.png");
-    f1.sauvegarder("fleche1.png");
-    f3.sauvegarder("fleche3.png");
-  }public void tournerLesFleches(){ tournerLesFleches("fleche");}
   public void doAction(byte ac){
     Main.getPj().doAction(ac);
   }public void doAction(int ac){ doAction((byte)ac);}

@@ -65,7 +65,8 @@ public class PanneauJeu extends Panneau {
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     try {
-      pc.setBounds(0,0,this.getWidth(),this.getHeight());
+      pc.actualiserSize();
+      //pc.setBounds(0,0,this.getWidth(),this.getHeight());
     }catch (Exception e) {}
     try {
       pb.setBounds(0,0,this.getWidth(),this.getHeight());
@@ -253,9 +254,9 @@ public class PanneauJeu extends Panneau {
   }
   public void actionZoom(byte ac){
     if (ac==2) { // zoom
-      pc.setTailleDUneCase(math.min((pc.getTailleDUneCase()*4)/3,500));pc.chargerImages();
+      pc.setTailleDUneCase(math.min((pc.getTailleDUneCase()*4)/3,500));
     }else if(ac==0){ // dézoom
-      pc.setTailleDUneCase(math.max((pc.getTailleDUneCase()*3)/4,10));pc.chargerImages();
+      pc.setTailleDUneCase(math.max((pc.getTailleDUneCase()*3)/4,10));
     }else if(ac==1){
       pc.setPosY(math.max(pc.getPosY()-1,0));
     }else if(ac==7){

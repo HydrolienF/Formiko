@@ -48,13 +48,10 @@ public class PanneauCarte extends Panneau implements MouseListener{
     GCase gc = Main.getGc();
     xCase = gc.getNbrX();
     yCase = gc.getNbrY();
-    int xT = Main.getData().getTailleDUneCase()*xCase;
-    int yT = Main.getData().getTailleDUneCase()*yCase;
-    this.setSize(xT,yT);
   }
   // GET SET --------------------------------------------------------------------
   public int getTailleDUneCase(){return Main.getData().getTailleDUneCase();}
-  public void setTailleDUneCase(int x){Main.getData().setTailleDUneCase(x);}
+  public void setTailleDUneCase(int x){if(x!=getTailleDUneCase()){Main.getData().setTailleDUneCase(x);actualiserCarte();}}
   public int getXCase(){ return xCase;}
   public void setXCase(int x){xCase = x;}
   public int getYCase(){ return yCase;}
@@ -67,6 +64,21 @@ public class PanneauCarte extends Panneau implements MouseListener{
     BasicStroke ligne = new BasicStroke(Main.getDimLigne());
     g.setStroke(ligne);
     g.setColor(Color.BLACK);
+  }
+  /**
+  *setSize sould never be used. Use actualiserSize insted.
+  */
+  @Override
+  public void setSize(int x, int y){
+    //actualiserSize();
+  }
+  /**
+  *Do the 3 steps that are need to set PanneauCarte to a new size.
+  */
+  public void actualiserCarte(){
+    actualiserSize();//actualise la taille du PanneauCarte a la bonne dimention.
+    chargerImages();
+    Main.getData().iniMap(); //demande au donnée d'image de rechargé l'image qui représente l'arrière plan de la carte.
   }
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g2){
@@ -88,6 +100,12 @@ public class PanneauCarte extends Panneau implements MouseListener{
       debug.débogage("Dimention du PanneauCarte en case : x="+xCase+" y="+yCase);
       debug.débogage("taille réèle du panneau de la carte : x="+this.getWidth()+", y="+this.getHeight());
       //dessin des cases :
+      try {
+        if(Main.getData().getMap()==null){Main.getData().iniMap();}
+        g.drawImage(Main.getData().getMap(),0,0,this);
+      }catch (Exception e) {
+        erreur.erreur("impossible d'afficher l'arrière plan de la carte.");
+      }
       for (int i=0;i<xCase ;i++ ) {
         for (int j=0;j<yCase ;j++ ) {
           peintImagePourCase(gc,i,j,g);
@@ -100,7 +118,7 @@ public class PanneauCarte extends Panneau implements MouseListener{
         g.drawImage(Main.getData().getSelectionnee(),(c.getX()-posX)*Main.getData().getTailleDUneCase(),(c.getY()-posY)*Main.getData().getTailleDUneCase(),this);
       }
     }catch (Exception e) {
-      erreur.erreur("Quelque chose d'imprévue est arrivé lors de l'affichage de PanneauCarte");
+      erreur.erreur("Quelque chose d'imprévu est arrivé lors de l'affichage de PanneauCarte");
     }
     Main.finCh("repaintDeLaCarte");
   }
@@ -167,9 +185,8 @@ public class PanneauCarte extends Panneau implements MouseListener{
     CGraine ccg = c.getGg().getDébut();
     int lenTIF = Main.getData().getTIF()[0].length+1;
     try {
-      //le fond
-      Image iTemp;
-      if (ty==1) {
+      //--- TODO remplacer par un affichage 1 fois dans paintComponent.
+      /*if (ty==1) {
         g.drawImage(Main.getData().getTI2()[0],xT,yT,this);
       }else if (ty==2){
         g.drawImage(Main.getData().getTI2()[1],xT,yT,this);
@@ -177,7 +194,7 @@ public class PanneauCarte extends Panneau implements MouseListener{
         g.drawImage(Main.getData().getTI1()[1],xT,yT,this);
       }else{
         g.drawImage(Main.getData().getImgNull(),xT,yT,this);
-      }
+      }*/
       int tC10 = Main.getData().getTailleDUneCase()/10;int tC4 = Main.getData().getTailleDUneCase()/4;int tC2 = Main.getData().getTailleDUneCase()/2;
       // la fourmilière
       if (c.getFere()!=null){
@@ -302,6 +319,11 @@ public class PanneauCarte extends Panneau implements MouseListener{
   }
 
   public void chargerImages(){Main.getData().chargerImages();}
+  public void actualiserSize(){
+    int xTemp = Main.getData().getTailleDUneCase()*xCase;
+    int yTemp = Main.getData().getTailleDUneCase()*yCase;
+    super.setSize(xTemp,yTemp);
+  }
 
 
   //sourie

@@ -39,7 +39,12 @@ public class Img implements Cloneable{
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Img(Image i){
     if (i==null){ erreur.erreur("impossible de créer une Img a partir d'une Image null","Img.Img",true);}
-    bi = (BufferedImage) i;
+    if(i instanceof BufferedImage){
+      bi = (BufferedImage) i;
+    }else{
+      erreur.erreur("impossible de créer une image non issus d'une BufferedImage","Img.Img",true);
+      //bi = new BufferedImage(i);
+    }
     width = bi.getWidth();
     height = bi.getHeight();
     debug.débogage("Initialisation des 4 tableaux.");

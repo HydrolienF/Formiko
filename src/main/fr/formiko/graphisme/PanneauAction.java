@@ -19,7 +19,6 @@ import java.awt.Color;
 public class PanneauAction extends Panneau {
   private int tailleBouton;
   private int nbrDeBouton;
-  private Image tImage [];
   private static final int nbrDeBoutonMax=10;
   private int tBoutonActif[];
   private static int bordure=10;
@@ -39,9 +38,9 @@ public class PanneauAction extends Panneau {
     Dimension dim = new Dimension(tailleBouton, tailleBouton);
     this.setLayout(new GridBagLayout());
     Bouton tB [] = new Bouton [nbrDeBouton]; // pour l'instant le bouton 10 n'as pas d'images.
-    chargerTI();//ne ce lance que si néssésaire.
+    Main.getData().chargerTIPanneauAction();//ne ce lance que si néssésaire.
     for (int i=0;i<nbrDeBouton ;i++ ) { // seul les bouton mentionné dans t sont créé.
-      tB[i] = new Bouton(g.get("bouton.nom."+(20+tBoutonActif[i])),(Panneau)this,20+tBoutonActif[i],tImage[tBoutonActif[i]]);
+      tB[i] = new Bouton(g.get("bouton.nom."+(20+tBoutonActif[i])),(Panneau)this,20+tBoutonActif[i],Main.getData().getTImage()[tBoutonActif[i]]);
       tB[i].setBordure(false);
     }
     for (Bouton b :tB){b.setPreferredSize(dim);}
@@ -79,38 +78,4 @@ public class PanneauAction extends Panneau {
       tr[i]=i;
     }return tr;
   }
-  public synchronized void chargerTI(){
-    if (tImage==null){
-      if(Main.getPiFond()!=null){
-        chargerTImageAvecFond(Main.getPiFond());
-      }else{
-        chargerTImage();
-      }
-      PanneauActionInf.chargerFond();
-      PanneauActionSup.chargerFond();
-    }
-  }
-  public void chargerTImage(){
-    tImage = image.getImages("desc");
-    for (int i=0;i<10 ;i++ ) {
-      tImage[i] = tImage[i].getScaledInstance(tailleBouton, tailleBouton,Image.SCALE_SMOOTH);
-    }
-  }
-  public void chargerTImageAvecFond(Pixel pi){
-    for (int k=0;k<10 ;k++ ) {
-      Img img = new Img("desc"+k);
-      img.changerPixelTransparent(pi);
-      img.sauvegarder("temporaire/desc"+k+".png");
-    }
-    tImage = image.getImages("temporaire/desc");
-    for (int i=0;i<10 ;i++ ) {
-      tImage[i] = tImage[i].getScaledInstance(tailleBouton, tailleBouton,Image.SCALE_SMOOTH);
-    }
-  }
-  /*
-  public Image [] chargerTIB(){
-    Image [] tIB = new Image[7];
-    tIB[0] = image.getImage("moins").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    return tIB;
-  }*/
 }
