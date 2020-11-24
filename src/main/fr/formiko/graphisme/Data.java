@@ -11,7 +11,7 @@ import fr.formiko.usuel.image.image;
 */
 public class Data {
   private int tailleDUneCase; // entre 10 et 500.
-  private final int tailleDUneCaseBase = 500;
+  //private final int tailleDUneCaseBase = 500;
   private int scale = Image.SCALE_SMOOTH;
   private boolean imageIni;
   //image
@@ -25,6 +25,7 @@ public class Data {
   private Image tII[][];
   private Image tG[][];
   private Image tF[][];
+  private Image map;
   //ini (this var sould not be modify in an other place than here.)
   private Image imgNullIni;
   private Image selectionneeIni; private Image fereIni;
@@ -59,6 +60,11 @@ public class Data {
 
   //public class Controleur{
     //iniImage etc
+    /**
+    *{@summary Load image in map resolution.<br>}
+    *If the original image have'nt been load, it will call chargerImagesIni.<br>
+    *The images defined here have the rigth dimention for being used on the map.<br>
+    */
     public void chargerImages(){
       debug.débogage("chargement des images a la bonne taille.");
       if(!imageIni){
@@ -81,23 +87,27 @@ public class Data {
       b=getScaledInstance(bIni,tailleDUneCase/2);
       Main.finCh("chargerImages");
     }
+    /**
+    *{@summary Load image in full resolution.<br>}
+    *Image need to be load in full resolution 1 time only. If it have alredy be done the function will do nothing.
+    */
     public void chargerImagesIni(){
       if(!imageIni){
         Main.débutCh();
-        imgNullIni = image.getImage("null").getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
-        selectionneeIni = image.getImage("selectionnee").getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
+        imgNullIni = image.getImage("null");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
+        selectionneeIni = image.getImage("selectionnee");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         chargerTI();
-        chargerTIF(Main.getNbrDeJoueur());
-        chargerTII();
-        chargerTF();
-        chargerTG();
-        fereIni = image.getImage("fourmiliere").getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
-        cNuageuseIni = image.getImage("cNuageuse").getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
-        cSombreIni = image.getImage("cSombre").getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
+        tIFIni = chargerTX("F",Main.getNbrDeJoueur(),(byte)0,1);
+        tIIIni = chargerTX("I");
+        tFIni = chargerTX("fourmi",3);
+        tGIni = chargerTX("graine");
+        fereIni = image.getImage("fourmiliere");//.getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
+        cNuageuseIni = image.getImage("cNuageuse");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
+        cSombreIni = image.getImage("cSombre");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         bIni = image.getImages("b"); int lenb = bIni.length;
-        for (int i=0;i<lenb ;i++ ) {
+        /*for (int i=0;i<lenb ;i++ ) {
           bIni[i]=bIni[i].getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
-        }
+        }*/
         Main.finCh("chargerImagesIni");
       }
       imageIni=true;
@@ -105,16 +115,15 @@ public class Data {
 
     public void chargerTI(){
       tI1Ini = new Image [2]; tI1 = new Image [2];
-      tI1Ini[0]=image.getImage("terre").getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
-      tI1Ini[1]=image.getImage("sable").getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
+      tI1Ini[0]=image.getImage("terre");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
+      tI1Ini[1]=image.getImage("sable");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
       tI2Ini = new Image [2]; tI2 = new Image [2];
-      tI2Ini[0]=image.getImage("herbe").getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
-      tI2Ini[1]=image.getImage("mousse").getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
+      tI2Ini[0]=image.getImage("herbe");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
+      tI2Ini[1]=image.getImage("mousse");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
     }
-    public void chargerTIF(int nbrDeJoueur){
-      //if (!initialisationFX){initialisationFX=initialiserFX(nbrDeJoueur);}
+    /*public void chargerTIF(int nbrDeJoueur){
       tIFIni = chargerTX("F",nbrDeJoueur,(byte)0,1);
-    }public void chargerTIF(){ chargerTIF(12);}
+    }//public void chargerTIF(){ chargerTIF(12);}
     public void chargerTII(){
       tIIIni = chargerTX("I");
     }
@@ -123,17 +132,22 @@ public class Data {
     }
     public void chargerTF(){
       tFIni = chargerTX("fourmi",3);
-    }
+    }*/
+    /**
+    *{@summary Load a group of Image that starts with a similar name.<br>}
+    *see image.getImagess() for more informations.
+    @param nom Name of de group. Every image will start by this name.
+    */
     public Image [][] chargerTX(String nom, int x, byte y, int début){
       Image tTemp [][] = image.getImagess(nom,x,(byte)début);
-      //mise a l'échelle.
-      int tailleFourmi = (tailleDUneCaseBase*4)/5;
-      int len1 = 4; int len2 = tTemp[0].length;
-      for (int j=0;j<len1 && tTemp[j]!=null; j++) {
+      //plus de mise a l'échelle.
+      //int tailleFourmi = (tailleDUneCaseBase*4)/5;
+      //int len1 = 4; int len2 = tTemp[0].length;
+      /*for (int j=0;j<len1 && tTemp[j]!=null; j++) {
         for (int i=y;i<len2 ;i++ ) {
           tTemp[j][i] = tTemp[j][i].getScaledInstance(tailleFourmi, tailleFourmi,scale);
         }
-      }
+      }*/
       return tTemp;
     }
     public Image [][] chargerTX(String nom, int x, byte y){ return chargerTX(nom,x,y,0);}
@@ -141,6 +155,8 @@ public class Data {
     public Image [][] chargerTX(String sn){return chargerTX(sn,image.getNbrImages(sn));}
 
 
+
+    //getScaledInstance.
     public Image [] getScaledInstance(Image ti[],int dim, int b){
       int lenr = ti.length;
       Image r [] = new Image[lenr];

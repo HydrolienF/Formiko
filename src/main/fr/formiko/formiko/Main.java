@@ -646,13 +646,15 @@ public class Main {
   /**
    * {@summary Stop Chrono and print a message about Chrono duration.<br>}
    * The message will be print in console only if debug.setAffLesPerformances is true.<br>
-   * @version 1.1
+   *Message will be print only if the do more than 20ms.
+   * @version 1.18
    */
   public static void finCh(String s,Chrono chTemp){ // fin du Chrono.
     if(!debug.getAffLesPerformances()){ return;}
     String s2 = g.getM(s);
     if (s2.length()!=0){ s=s2;}
     chTemp.stop();lon = chTemp.getDuree(); lonTotal=lonTotal+lon;
+    if(!debug.getAffLesEtapesDeRésolution() && lon<20){return;}
     String s3 = ""; if(!chTemp.equals(ch)){s3 = " ("+g.get("actionSecondaire")+" "+ch.getId()+")";}
     debug.performances("temps pour "+ s + " : "+lon+" ms"+s3); //affichage du chrono.
   }
