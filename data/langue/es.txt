@@ -355,6 +355,7 @@ cmd.desc.26:mostrar la lista de jugadores[auto]
 cmd.desc.27:agregando una criatura o una semilla[auto]
 cmd.desc.28:evolucionar una hormiga o una criatura que pueda evolucionar.[auto]
 cmd.desc.29:muestra el texto correspondiente a la clave dada como entrada.[auto]
+cmd.desc.36:vuelve al menú principal.[auto]
 
 cmd.args.2:identificación de criatura[auto]
 cmd.args.3:identificación del jugador[auto]

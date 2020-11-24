@@ -355,6 +355,7 @@ cmd.desc.26:menampilkan daftar pemain[auto]
 cmd.desc.27:menambahkan makhluk atau benih[auto]
 cmd.desc.28:berevolusi semut atau makhluk yang dapat berevolusi.[auto]
 cmd.desc.29:menampilkan teks yang sesuai dengan tombol yang diberikan sebagai input.[auto]
+cmd.desc.36:kembali ke menu utama.[auto]
 
 cmd.args.2:makhluk id[auto]
 cmd.args.3:id pemain[auto]

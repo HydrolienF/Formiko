@@ -355,6 +355,7 @@ cmd.desc.26:oýunçylaryň sanawyny görkeziň[auto]
 cmd.desc.27:jandar ýa-da tohum goşmak[auto]
 cmd.desc.28:garynja ýa-da ösüp bilýän jandar.[auto]
 cmd.desc.29:giriş hökmünde berlen açara laýyk teksti görkezýär.[auto]
+cmd.desc.36:esasy menýuda dolan.[auto]
 
 cmd.args.2:jandar id[auto]
 cmd.args.3:pleýer id[auto]

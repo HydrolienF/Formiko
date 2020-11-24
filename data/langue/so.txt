@@ -355,6 +355,7 @@ cmd.desc.26:soo bandhig liiska ciyaartoyda[auto]
 cmd.desc.27:abuur ama abuur ku darid[auto]
 cmd.desc.28:kobciya qudhaanjo ama nafley horumarin karta.[auto]
 cmd.desc.29:wuxuu soo bandhigayaa qoraalka u dhigma furaha la siiyay sida wax la gelinayo.[auto]
+cmd.desc.36:ku noqo liiska ugu muhiimsan.[auto]
 
 cmd.args.2:id id[auto]
 cmd.args.3:ciyaaryahanka id[auto]

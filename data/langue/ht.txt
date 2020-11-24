@@ -355,6 +355,7 @@ cmd.desc.26:montre lis la nan jwè yo[auto]
 cmd.desc.27:ajoute yon bèt oswa yon grenn[auto]
 cmd.desc.28:evolye yon foumi oswa yon bèt ki ka evolye.[auto]
 cmd.desc.29:montre tèks la ki koresponn ak kle yo bay la kòm opinyon.[auto]
+cmd.desc.36:retounen nan meni prensipal la.[auto]
 
 cmd.args.2:id bèt[auto]
 cmd.args.3:id jwè[auto]

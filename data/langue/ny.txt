@@ -355,6 +355,7 @@ cmd.desc.26:onetsani mndandanda wa osewera[auto]
 cmd.desc.27:kuwonjezera cholengedwa kapena mbewu[auto]
 cmd.desc.28:kusintha nyerere kapena cholengedwa chomwe chingasinthe.[auto]
 cmd.desc.29:iwonetsera mawu olingana ndi kiyi woperekedwa monga cholowetsera.[auto]
+cmd.desc.36:bwererani ku menyu yoyamba.[auto]
 
 cmd.args.2:cholengedwa chad[auto]
 cmd.args.3:id id[auto]

@@ -355,6 +355,7 @@ cmd.desc.26:bonisa uluhlu lwabadlali[auto]
 cmd.desc.27:ukongeza isidalwa okanye imbewu[auto]
 cmd.desc.28:iguqula imbovane okanye isidalwa esinokuvela.[auto]
 cmd.desc.29:ibonisa isicatshulwa esihambelana neqhosha elinikwe njengegalelo[auto]
+cmd.desc.36:buyela kwimenyu ephambili.[auto]
 
 cmd.args.2:i-id yesidalwa[auto]
 cmd.args.3:id yomdlali[auto]

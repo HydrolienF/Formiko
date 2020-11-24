@@ -355,6 +355,7 @@ cmd.desc.26:rodyti žaidėjų sąrašą[auto]
 cmd.desc.27:pridėjus padarą ar sėklą[auto]
 cmd.desc.28:išsivysto skruzdėlė ar padaras, kuris gali vystytis.[auto]
 cmd.desc.29:rodomas tekstas, atitinkantis raktą, pateiktą kaip įvestis.[auto]
+cmd.desc.36:grįžti į pagrindinį meniu.[auto]
 
 cmd.args.2:būtybės ID[auto]
 cmd.args.3:žaidėjo ID[auto]

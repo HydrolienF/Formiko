@@ -355,6 +355,7 @@ cmd.desc.26:display the list of players[auto]
 cmd.desc.27:adding a creature or a seed[auto]
 cmd.desc.28:evolve an ant or a creature that can evolve.[auto]
 cmd.desc.29:displays the text corresponding to the key given as input.[auto]
+cmd.desc.36:return to the main menu.[auto]
 
 cmd.args.2:creature id
 cmd.args.3:player id

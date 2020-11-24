@@ -355,6 +355,7 @@ cmd.desc.26:bistaratu jokalarien zerrenda[auto]
 cmd.desc.27:izaki edo hazi bat gehituz[auto]
 cmd.desc.28:eboluzionatu eboluzionatu dezakeen inurri bat edo izaki bat.[auto]
 cmd.desc.29:sarrera gisa emandako gakoari dagokion testua bistaratzen du.[auto]
+cmd.desc.36:menu nagusira itzuli.[auto]
 
 cmd.args.2:izaki id[auto]
 cmd.args.3:jokalari id[auto]

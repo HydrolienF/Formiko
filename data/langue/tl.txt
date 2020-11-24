@@ -355,6 +355,7 @@ cmd.desc.26:ipakita ang listahan ng mga manlalaro[auto]
 cmd.desc.27:pagdaragdag ng isang nilalang o isang binhi[auto]
 cmd.desc.28:nagbabago ng isang langgam o isang nilalang na maaaring umunlad.[auto]
 cmd.desc.29:ipinapakita ang teksto na naaayon sa key na ibinigay bilang input.[auto]
+cmd.desc.36:bumalik sa pangunahing menu.[auto]
 
 cmd.args.2:nilalang id[auto]
 cmd.args.3:id ng manlalaro[auto]

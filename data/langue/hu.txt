@@ -355,6 +355,7 @@ cmd.desc.26:megjeleníti a játékosok listáját[auto]
 cmd.desc.27:lény vagy mag hozzáadása[auto]
 cmd.desc.28:fejlődik egy hangya vagy egy lény, amely fejlődhet.[auto]
 cmd.desc.29:a bemenetként megadott kulcsnak megfelelő szöveget jeleníti meg.[auto]
+cmd.desc.36:visszatér a főmenübe.[auto]
 
 cmd.args.2:lény id[auto]
 cmd.args.3:játékos azonosító[auto]

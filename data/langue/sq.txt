@@ -355,6 +355,7 @@ cmd.desc.26:shfaq listën e lojtarëve[auto]
 cmd.desc.27:duke shtuar një krijesë ose një farë[auto]
 cmd.desc.28:evoluojnë një milingonë ose një krijesë që mund të evoluojë.[auto]
 cmd.desc.29:shfaq tekstin që korrespondon me tastin e dhënë si hyrje.[auto]
+cmd.desc.36:kthehu në menunë kryesore.[auto]
 
 cmd.args.2:id e krijesës[auto]
 cmd.args.3:ID e lojtarit[auto]

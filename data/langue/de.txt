@@ -355,6 +355,7 @@ cmd.desc.26:Zeigen Sie die Liste der Spieler an[auto]
 cmd.desc.27:Hinzufügen einer Kreatur oder eines Samens[auto]
 cmd.desc.28:Entwickle eine Ameise oder eine Kreatur, die sich entwickeln kann.[auto]
 cmd.desc.29:Zeigt den Text an, der dem als Eingabe angegebenen Schlüssel entspricht.[auto]
+cmd.desc.36:kehren Sie zum Hauptmenü zurück.[auto]
 
 cmd.args.2:Kreaturen-ID[auto]
 cmd.args.3:Spieler-ID[auto]

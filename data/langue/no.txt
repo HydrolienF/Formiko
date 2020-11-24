@@ -355,6 +355,7 @@ cmd.desc.26:vise listen over spillere[auto]
 cmd.desc.27:legge til en skapning eller et frø[auto]
 cmd.desc.28:utvikle en maur eller en skapning som kan utvikle seg.[auto]
 cmd.desc.29:viser teksten som tilsvarer tasten gitt som inndata.[auto]
+cmd.desc.36:gå tilbake til hovedmenyen.[auto]
 
 cmd.args.2:skapning id[auto]
 cmd.args.3:spiller-id[auto]

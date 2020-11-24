@@ -355,6 +355,7 @@ cmd.desc.26:khombisa uhlu lwabadlali[auto]
 cmd.desc.27:ukwengeza isidalwa noma imbewu[auto]
 cmd.desc.28:shintsha idlozi noma isidalwa esingavela.[auto]
 cmd.desc.29:ibonisa umbhalo ohambelana nokhiye onikezwe njengokufaka.[auto]
+cmd.desc.36:buyela kumenyu enkulu.[auto]
 
 cmd.args.2:i-id yesidalwa[auto]
 cmd.args.3:i-id yomdlali[auto]

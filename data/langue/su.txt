@@ -355,6 +355,7 @@ cmd.desc.26:nembongkeun daptar pamaén[auto]
 cmd.desc.27:nambahan mahluk atanapi siki[auto]
 cmd.desc.28:mekar sireum atawa mahluk anu bisa mekar.[auto]
 cmd.desc.29:nembongkeun téks anu saluyu sareng konci anu dipasihkeun salaku input.[auto]
+cmd.desc.36:balik deui ka ménu utami.[auto]
 
 cmd.args.2:id mahluk[auto]
 cmd.args.3:id pamuter[auto]

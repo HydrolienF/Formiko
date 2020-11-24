@@ -355,6 +355,7 @@ cmd.desc.26:visualizzare l'elenco dei giocatori[auto]
 cmd.desc.27:aggiungendo una creatura o un seme[auto]
 cmd.desc.28:evolvere una formica o una creatura in grado di evolversi.[auto]
 cmd.desc.29:visualizza il testo corrispondente alla chiave data come input.[auto]
+cmd.desc.36:tornare al menu principale.[auto]
 
 cmd.args.2:id creatura[auto]
 cmd.args.3:ID giocatore[auto]

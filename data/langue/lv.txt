@@ -355,6 +355,7 @@ cmd.desc.26:parādīt spēlētāju sarakstu[auto]
 cmd.desc.27:pievienojot radījumu vai sēklu[auto]
 cmd.desc.28:attīstās skudra vai radījums, kas var attīstīties.[auto]
 cmd.desc.29:parāda tekstu, kas atbilst atslēgai, kas norādīta kā ievade.[auto]
+cmd.desc.36:atgriezieties galvenajā izvēlnē.[auto]
 
 cmd.args.2:radības id[auto]
 cmd.args.3:spēlētāja ID[auto]

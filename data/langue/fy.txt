@@ -355,6 +355,7 @@ cmd.desc.26:de list mei spilers werjaan[auto]
 cmd.desc.27:in skepsel of in sied tafoegje[auto]
 cmd.desc.28:evoluearje in mier as in skepsel dat kin evoluearje.[auto]
 cmd.desc.29:toant de tekst dy't oerienkomt mei de kaai as ynfier.[auto]
+cmd.desc.36:gean werom nei it haadmenu.[auto]
 
 cmd.args.2:skepsel id[auto]
 cmd.args.3:spiler id[auto]

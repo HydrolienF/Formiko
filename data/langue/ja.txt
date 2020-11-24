@@ -355,6 +355,7 @@ cmd.desc.26:プレイヤーのリストを表示する[auto]
 cmd.desc.27:クリーチャーまたはシードを追加する[auto]
 cmd.desc.28:進化することができる蟻または生き物を進化させます。[auto]
 cmd.desc.29:入力として指定されたキーに対応するテキストを表示します。[auto]
+cmd.desc.36:メインメニューに戻ります。[auto]
 
 cmd.args.2:クリーチャーID[auto]
 cmd.args.3:プレイヤーID[auto]

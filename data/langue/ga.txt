@@ -355,6 +355,7 @@ cmd.desc.26:liosta na n-imreoirí a thaispeáint[auto]
 cmd.desc.27:ag cur créatúr nó síol leis[auto]
 cmd.desc.28:éabhlóid seangán nó créatúr atá in ann teacht chun cinn.[auto]
 cmd.desc.29:taispeántar an téacs a fhreagraíonn don eochair a thugtar mar ionchur.[auto]
+cmd.desc.36:filleadh ar an bpríomh-roghchlár.[auto]
 
 cmd.args.2:créatúr id[auto]
 cmd.args.3:id imreoir[auto]

@@ -355,6 +355,7 @@ cmd.desc.26:gosipụta ndepụta ndị egwuregwu[auto]
 cmd.desc.27:na-agbakwunye ihe e kere eke ma ọ bụ mkpụrụ[auto]
 cmd.desc.28:gbanwee ma ọ bụ ndanda nwere ike ịgbanwe.[auto]
 cmd.desc.29:egosiputa ederede kwekọrọ na igodo enyere dị ka ntinye.[auto]
+cmd.desc.36:laghachi na isi menu.[auto]
 
 cmd.args.2:ihe e kere eke id[auto]
 cmd.args.3:ọkpụkpọ id[auto]

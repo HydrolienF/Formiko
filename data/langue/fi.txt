@@ -355,6 +355,7 @@ cmd.desc.26:näyttää luettelon pelaajista[auto]
 cmd.desc.27:lisäämällä olento tai siemen[auto]
 cmd.desc.28:kehittää muurahainen tai olento, joka voi kehittyä.[auto]
 cmd.desc.29:näyttää syötteeksi annettua avainta vastaavan tekstin.[auto]
+cmd.desc.36:palaa päävalikkoon.[auto]
 
 cmd.args.2:olentunnus[auto]
 cmd.args.3:soittimen tunnus[auto]

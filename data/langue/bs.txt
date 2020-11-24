@@ -355,6 +355,7 @@ cmd.desc.26:prikazati listu igrača[auto]
 cmd.desc.27:dodavanje bića ili semena[auto]
 cmd.desc.28:razviti mrava ili stvorenje koje može evoluirati.[auto]
 cmd.desc.29:prikazuje tekst koji odgovara tipki danoj kao ulaz.[auto]
+cmd.desc.36:povratak u glavni meni.[auto]
 
 cmd.args.2:ID stvorenja[auto]
 cmd.args.3:id igrača[auto]

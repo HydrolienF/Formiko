@@ -355,6 +355,7 @@ cmd.desc.26:kuvada mängijate nimekiri[auto]
 cmd.desc.27:olendi või seemne lisamine[auto]
 cmd.desc.28:arenema sipelgas või olend, kes võib areneda.[auto]
 cmd.desc.29:kuvab sisendina antud võtmele vastava teksti.[auto]
+cmd.desc.36:naasmine peamenüüsse.[auto]
 
 cmd.args.2:olendi ID[auto]
 cmd.args.3:mängija ID[auto]

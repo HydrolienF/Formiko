@@ -355,6 +355,7 @@ cmd.desc.26:futbolchilar ro'yxatini ko'rsatish[auto]
 cmd.desc.27:jonzot yoki urug 'qo'shish[auto]
 cmd.desc.28:chumoli yoki rivojlanishi mumkin bo'lgan jonzotni rivojlantirish.[auto]
 cmd.desc.29:kirish sifatida berilgan kalitga mos keladigan matnni aks ettiradi.[auto]
+cmd.desc.36:asosiy menyuga qayting.[auto]
 
 cmd.args.2:maxluq identifikatori[auto]
 cmd.args.3:pleyer identifikatori[auto]

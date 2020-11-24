@@ -355,6 +355,7 @@ cmd.desc.26:afișează lista jucătorilor[auto]
 cmd.desc.27:adăugând o creatură sau o sămânță[auto]
 cmd.desc.28:evoluează o furnică sau o creatură care poate evolua.[auto]
 cmd.desc.29:afișează textul corespunzător tastei date ca intrare.[auto]
+cmd.desc.36:reveniți la meniul principal.[auto]
 
 cmd.args.2:id creatura[auto]
 cmd.args.3:cod jucător[auto]

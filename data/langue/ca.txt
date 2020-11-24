@@ -355,6 +355,7 @@ cmd.desc.26:mostra la llista de jugadors[auto]
 cmd.desc.27:afegir una criatura o una llavor[auto]
 cmd.desc.28:evolucionar una formiga o una criatura que pugui evolucionar.[auto]
 cmd.desc.29:mostra el text corresponent a la clau donada com a entrada.[auto]
+cmd.desc.36:torneu al menú principal.[auto]
 
 cmd.args.2:identificador de criatura[auto]
 cmd.args.3:identificador de jugador[auto]

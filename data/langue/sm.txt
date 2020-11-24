@@ -355,6 +355,7 @@ cmd.desc.26:faʻaali le lisi o tagata taʻalo[auto]
 cmd.desc.27:faʻaopoopoina o se meaola poʻo se fatu[auto]
 cmd.desc.28:evolve se loi poʻo se meaola e mafai ona tupu.[auto]
 cmd.desc.29:faʻaali le tusitusiga faʻatatau i le ki ua tuʻuina atu i totonu.[auto]
+cmd.desc.36:toe foʻi i le lisi autu.[auto]
 
 cmd.args.2:foafoaga id[auto]
 cmd.args.3:tagata taalo id[auto]

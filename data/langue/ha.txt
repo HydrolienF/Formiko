@@ -355,6 +355,7 @@ cmd.desc.26:nuna jerin yan wasa[auto]
 cmd.desc.27:ƙara halitta ko iri[auto]
 cmd.desc.28:halittar tururuwa ko halittar da zata iya canzawa.[auto]
 cmd.desc.29:nuna rubutu daidai da maɓallin da aka bayar azaman shigarwa.[auto]
+cmd.desc.36:komawa zuwa menu na ainihi.[auto]
 
 cmd.args.2:id id[auto]
 cmd.args.3:mai kunnawa id[auto]

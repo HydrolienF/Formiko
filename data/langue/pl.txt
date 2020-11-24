@@ -355,6 +355,7 @@ cmd.desc.26:wyświetlić listę graczy[auto]
 cmd.desc.27:dodanie stworzenia lub nasionka[auto]
 cmd.desc.28:wyewoluować mrówkę lub stworzenie, które może ewoluować.[auto]
 cmd.desc.29:wyświetla tekst odpowiadający klawiszowi podanemu jako wejście.[auto]
+cmd.desc.36:wróć do menu głównego.[auto]
 
 cmd.args.2:identyfikator stworzenia[auto]
 cmd.args.3:identyfikator gracza[auto]

@@ -355,6 +355,7 @@ cmd.desc.26:vertoon die lys van spelers[auto]
 cmd.desc.27:voeg 'n wese of 'n saad by[auto]
 cmd.desc.28:ontwikkel 'n mier of 'n wese wat kan ontwikkel.[auto]
 cmd.desc.29:vertoon die teks wat ooreenstem met die sleutel wat as invoer gegee word.[auto]
+cmd.desc.36:keer terug na die hoofkieslys.[auto]
 
 cmd.args.2:wese id[auto]
 cmd.args.3:speler-ID[auto]

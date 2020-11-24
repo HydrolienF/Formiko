@@ -355,6 +355,7 @@ cmd.desc.26:visa spelarlistan[auto]
 cmd.desc.27:lägga till en varelse eller ett frö[auto]
 cmd.desc.28:utveckla en myra eller en varelse som kan utvecklas.[auto]
 cmd.desc.29:visar texten som motsvarar den tangent som anges som inmatning.[auto]
+cmd.desc.36:återgå till huvudmenyn.[auto]
 
 cmd.args.2:varelse id[auto]
 cmd.args.3:spelar-id[auto]

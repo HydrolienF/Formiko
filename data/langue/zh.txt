@@ -355,6 +355,7 @@ cmd.desc.26:显示球员名单[auto]
 cmd.desc.27:添加生物或种子[auto]
 cmd.desc.28:进化出可以进化的蚂蚁或生物。[auto]
 cmd.desc.29:显示与作为输入的键对应的文本。[auto]
+cmd.desc.36:返回主菜单。[auto]
 
 cmd.args.2:生物ID[auto]
 cmd.args.3:玩家编号[auto]

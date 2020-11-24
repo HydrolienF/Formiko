@@ -355,6 +355,7 @@ cmd.desc.26:display histriones in album de[auto]
 cmd.desc.27:addendo vel in creatura semen[auto]
 cmd.desc.28:evolve in formica non enim creatura potest evolve.[auto]
 cmd.desc.29:ostensionibus data est clavis super textum correspondentes input.[auto]
+cmd.desc.36:ad pelagus menu.[auto]
 
 cmd.args.2:id viventem[auto]
 cmd.args.3:id ludio[auto]

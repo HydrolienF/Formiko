@@ -355,6 +355,7 @@ cmd.desc.26:sýna listann yfir leikmenn[auto]
 cmd.desc.27:bæta við skepnu eða fræi[auto]
 cmd.desc.28:þróa maur eða veru sem getur þróast.[auto]
 cmd.desc.29:birtir textann sem samsvarar lyklinum sem gefinn var sem innsláttur.[auto]
+cmd.desc.36:fara aftur í aðalvalmyndina.[auto]
 
 cmd.args.2:skepna auðkenni[auto]
 cmd.args.3:leikmannauðkenni[auto]

@@ -355,6 +355,7 @@ cmd.desc.26:zobrazí zoznam hráčov[auto]
 cmd.desc.27:pridanie stvorenia alebo semena[auto]
 cmd.desc.28:vyvinúť mravca alebo tvora, ktorý sa môže vyvinúť.[auto]
 cmd.desc.29:zobrazí text zodpovedajúci klávesu zadanému ako vstup.[auto]
+cmd.desc.36:návrat do hlavnej ponuky.[auto]
 
 cmd.args.2:stvorenie id[auto]
 cmd.args.3:ID hráča[auto]

@@ -355,6 +355,7 @@ cmd.desc.26:플레이어 목록 표시[auto]
 cmd.desc.27:생물 또는 씨앗 추가[auto]
 cmd.desc.28:개미 나 진화 할 수있는 생물을 진화시킵니다.[auto]
 cmd.desc.29:입력으로 주어진 키에 해당하는 텍스트를 표시합니다.[auto]
+cmd.desc.36:메인 메뉴로 돌아갑니다.[auto]
 
 cmd.args.2:생물 ID[auto]
 cmd.args.3:플레이어 ID[auto]

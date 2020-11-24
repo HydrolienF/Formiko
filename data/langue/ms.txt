@@ -355,6 +355,7 @@ cmd.desc.26:paparkan senarai pemain[auto]
 cmd.desc.27:menambah makhluk atau biji[auto]
 cmd.desc.28:berkembang semut atau makhluk yang boleh berkembang.[auto]
 cmd.desc.29:memaparkan teks yang sesuai dengan kunci yang diberikan sebagai input.[auto]
+cmd.desc.36:kembali ke menu utama.[auto]
 
 cmd.args.2:id makhluk[auto]
 cmd.args.3:id pemain[auto]
