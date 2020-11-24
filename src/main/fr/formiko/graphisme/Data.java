@@ -12,7 +12,7 @@ import fr.formiko.formiko.Case;
 /**
 *{@summary Have all data (images) that will be used by the graphic interface.}
 *@author Hydrolien
-*@version 1.13
+*@version 1.18
 */
 public class Data {
   private int tailleDUneCase; // entre 10 et 500.
@@ -49,6 +49,10 @@ public class Data {
   private boolean initialisationFX;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
+  /**
+  *Main constructor.
+  *@version 1.18
+  */
   public void Data(){
     initialisationFX=false;
   }
@@ -78,6 +82,7 @@ public class Data {
     *{@summary Load image in map resolution.<br>}
     *If the original image have'nt been load, it will call chargerImagesIni.<br>
     *The images defined here have the rigth dimention for being used on the map.<br>
+    *@version 1.18
     */
     public void chargerImages(){
       debug.débogage("chargement des images a la bonne taille.");
@@ -103,6 +108,7 @@ public class Data {
     /**
     *{@summary Load image in full resolution.<br>}
     *Image need to be load in full resolution 1 time only. If it have alredy be done the function will do nothing.
+    *@version 1.18
     */
     public void chargerImagesIni(){
       if(!imageIni){
@@ -125,29 +131,21 @@ public class Data {
       }
       imageIni=true;
     }
-
+    /**
+    *Load Case image
+    *@version 1.18
+    */
     public void chargerTI(){
       tICarteIni = new BufferedImage [3];
       tICarteIni[0]=image.getImage("herbe");
       tICarteIni[1]=image.getImage("mousse");
       tICarteIni[2]=image.getImage("sable");
     }
-    /*public void chargerTIF(int nbrDeJoueur){
-      tIFIni = chargerTX("F",nbrDeJoueur,(byte)0,1);
-    }//public void chargerTIF(){ chargerTIF(12);}
-    public void chargerTII(){
-      tIIIni = chargerTX("I");
-    }
-    public void chargerTG(){
-      tGIni = chargerTX("graine");
-    }
-    public void chargerTF(){
-      tFIni = chargerTX("fourmi",3);
-    }*/
     /**
     *{@summary Load a group of BufferedImage that starts with a similar name.<br>}
     *see image.getImagess() for more informations.
     @param nom Name of de group. Every image will start by this name.
+    *@version 1.18
     */
     public BufferedImage [][] chargerTX(String nom, int x, byte y, int début){
       return image.getImagess(nom,x,(byte)début);
@@ -158,6 +156,7 @@ public class Data {
 
     /**
     *Create a background image from tI1 and tI2 images.
+    *@version 1.18
     */
     public void iniMap(){
       Main.getPc().actualiserSize();
@@ -193,6 +192,10 @@ public class Data {
     }
 
     //getScaledInstance.
+    /**
+    *Return a scaled BufferedImage []
+    *@version 1.18
+    */
     public BufferedImage [] getScaledInstance(BufferedImage ti[],int dim, int b){
       int lenr = ti.length;
       BufferedImage r [] = new BufferedImage[lenr];
@@ -211,6 +214,10 @@ public class Data {
       }
       return r;
     }public BufferedImage [] getScaledInstance(BufferedImage ti[],int dim){return getScaledInstance(ti,dim,0);}
+    /**
+    *Return a scaled BufferedImage [][]
+    *@version 1.18
+    */
     public BufferedImage [][] getScaledInstance(BufferedImage ti[][],int dim, int b){
       int lenr = ti.length;
       BufferedImage r [][] = new BufferedImage[lenr][];
@@ -222,6 +229,10 @@ public class Data {
 
   //}
   //PanneauAction
+  /**
+  *Load graphics for PanneauAction
+  *@version 1.18
+  */
   public synchronized void chargerTIPanneauAction(){
     if (tImage==null){
       if(Main.getPiFond()!=null){
@@ -233,6 +244,10 @@ public class Data {
       PanneauActionSup.chargerFond();
     }
   }
+  /**
+  *Load images for PanneauAction without background
+  *@version 1.18
+  */
   public void chargerTImage(){
     int tailleBouton = Main.getPa().getTailleBouton();
     tImage = image.getImages("desc");
@@ -240,6 +255,10 @@ public class Data {
       tImage[i] = image.resize(tImage[i],tailleBouton);
     }
   }
+  /**
+  *Load images for PanneauAction with background
+  *@version 1.18
+  */
   public void chargerTImageAvecFond(Pixel pi){
     int tailleBouton = Main.getPa().getTailleBouton();
     for (int k=0;k<10 ;k++) {
@@ -253,6 +272,10 @@ public class Data {
     }
   }
   //PanneauZoom
+  /**
+  *Load images for PanneauZoom
+  *@version 1.18
+  */
   public Image [] chargerTIBZoom(){
     tIBZoom = new Image[9];
     if(!initialisationFX && !Main.getGarderLesGraphismesTourné()){tournerLesFleches();}
@@ -271,6 +294,10 @@ public class Data {
     tIBZoom[8] = image.getImage("centrer").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
     return tIBZoom;
   }
+  /**
+  *Turn the arrow for PanneauZoom
+  *@version 1.18
+  */
   public void tournerLesFleches(String nom){
     initialisationFX=true;
     Img f = new Img(nom);
