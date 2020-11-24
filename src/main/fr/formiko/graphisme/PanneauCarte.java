@@ -1,5 +1,6 @@
 package fr.formiko.graphisme;
-import fr.formiko.graphisme.*;
+import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
+//def par défaut des fichiers depuis 0.79.5
 import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Font;
@@ -9,7 +10,17 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.Image;
-import fr.formiko.formiko.*;
+import fr.formiko.formiko.Insecte;
+import fr.formiko.formiko.Graine;
+import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.ObjetSurCarteAId;
+import fr.formiko.formiko.Joueur;
+import fr.formiko.formiko.Case;
+import fr.formiko.formiko.Creature;
+import fr.formiko.formiko.CCreature;
+import fr.formiko.formiko.Fourmiliere;
+import fr.formiko.formiko.GCase;
+import fr.formiko.formiko.CGraine;
 import fr.formiko.usuel.image.image;
 import fr.formiko.usuel.math.math;
 import fr.formiko.usuel.math.allea;
@@ -18,14 +29,11 @@ import fr.formiko.usuel.image.Img;
 import fr.formiko.usuel.image.Pixel;
 import fr.formiko.usuel.debug;
 import java.awt.BasicStroke;
-//yen a un peu trop la desous
-import java.awt.image.*;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class PanneauCarte extends Panneau implements MouseListener{
-  //private int espaceRéservéBas = 1; // permet de réservé un nombre de case défini d'espace.
   private int xCase; // nombre de case en X
   private int yCase; // nombre de case en Y
   private int posX; // position de la 1a case.
@@ -62,7 +70,7 @@ public class PanneauCarte extends Panneau implements MouseListener{
   }
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g2){
-    //Main.débutCh();
+    Main.débutCh();
     Graphics2D g = (Graphics2D)g2;
     setLigne(g);
     try {
@@ -94,7 +102,7 @@ public class PanneauCarte extends Panneau implements MouseListener{
     }catch (Exception e) {
       erreur.erreur("Quelque chose d'imprévue est arrivé lors de l'affichage de PanneauCarte");
     }
-    //Main.finCh("repaintDeLaCarte");
+    Main.finCh("repaintDeLaCarte");
   }
   public void dessinerGrille(Graphics g){
     if(Main.getDessinerGrille()){
@@ -108,9 +116,9 @@ public class PanneauCarte extends Panneau implements MouseListener{
       }
     }
   }
-  public void repaintParciel(Case c){
+  /*public void repaintParciel(Case c){
     peintImagePourCase(c,(Graphics2D) this.getGraphics());
-  }
+  }*/
   public void peintImagePourCase(Case c,Graphics2D g){
     int x = c.getX(); int y = c.getY();
     peintImagePourCase(c,x,y,g);

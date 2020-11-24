@@ -438,7 +438,7 @@ public class Main {
   //graphique
   public static PanneauPrincipal getPp(){ return f.getPp();}
   public static synchronized void repaint(){f.repaint();}
-  public static synchronized void repaintParciel(Case c){getPc().repaintParciel(c);}
+  //public static synchronized void repaintParciel(Case c){getPc().repaintParciel(c);}
   public static PanneauJeu getPj(){ return getPp().getPj();}
   public static PanneauMenu getPm(){ return getPp().getPm();}
   public static PanneauNouvellePartie getPnp(){ return getPm().getPnp();}
