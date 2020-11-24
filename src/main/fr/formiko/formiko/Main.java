@@ -74,6 +74,7 @@ public class Main {
   private static boolean premierePartie=false;
   private static boolean jeuEnCours;
   private static Save save;
+  private static Data data;
 
   /**
    * {@summary Lauch the game.<br>}
@@ -424,6 +425,7 @@ public class Main {
   public static void setJeuEnCours(boolean b){jeuEnCours=b;}
   public static Save getSave(){return save;}
   public static void setSave(Save sa){save=sa;}
+  public static Data getData(){return data;}
   //racourci
   public static boolean estWindows(){return os.getId()==1;}
   public static String get(String clé){ return g.get(clé);}
@@ -559,6 +561,7 @@ public class Main {
     }
     finCh("initialisationDeREPTEXTUREPACK");
     //System.out.println("Os reconnu : "+os);
+    data = new Data();
     iniCpt();
   }
   /**
