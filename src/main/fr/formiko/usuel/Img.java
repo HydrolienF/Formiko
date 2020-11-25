@@ -38,7 +38,7 @@ public class Img implements Cloneable{
   private byte [][] alpha;
   // CONSTRUCTEUR ---------------------------------------------------------------
   /**
-  *Create a new Img with a BufferedImage
+  *Constructs a new Img with a BufferedImage.
   */
   public Img(BufferedImage i){
     if (i==null){ erreur.erreur("impossible de créer une Img a partir d'une Image null","Img.Img",true);}
@@ -54,7 +54,7 @@ public class Img implements Cloneable{
     setRouge(); setVert(); setBleu(); setAlpha();
   }
   /**
-  *Create a new Img with a fileName.
+  *Constructs a new Img with a fileName.
   */
   public Img(String nom){
     this(image.getImage(nom));
@@ -76,7 +76,7 @@ public class Img implements Cloneable{
         img.setRGB(i,j,(gray[i][j]<<16)|(gray[i][j]<<8)|(gray[i][j]));
   }*/
   /**
-  *Create a new grey Img 50% alpha Img with specify dimentions.
+  *Constructs a new grey 50% alpha Img whose width and height are specified by the arguments of the same name.
   */
   public Img(int width,int height){
     if(width < 0 || height < 0){erreur.erreur("Impossible d'initialiser une image avec des dimentions négative : "+width+","+height,"Img.Img","taille set a 0"); width=0; height=0;}
@@ -86,15 +86,6 @@ public class Img implements Cloneable{
     rouge = new byte[width][height];
     vert = new byte[width][height];
     bleu = new byte[width][height];
-    /*for (int i=0;i<width ;i++) {
-      for(int j=0;j<height;j++){
-        try {
-          setARVB(i,j,128);//tt mettre a blanc
-        }catch (Exception e) {
-          erreur.erreur("l'indice "+i+" "+j+"n'est pas correcte");
-        }
-      }
-    }*/
   }
   // GET SET --------------------------------------------------------------------
   public BufferedImage getBi(){ return bi;}
@@ -208,7 +199,7 @@ public class Img implements Cloneable{
     }
   }
   /**
-  *{@summary Print the RGBA level.<br>}
+  *{@summary Print the ARGB level.<br>}
   */
   public void afficherLesTableaux(){
     System.out.println("transparence :");
@@ -417,21 +408,23 @@ public class Img implements Cloneable{
   *{@summary Use to refresh the BufferedImage before draw it or save it.<br>}
   */
   public void actualiserImage(){
+    Main.débutCh();
     iniWH();
     //néssésaire si l'image n'as plus les mêmes dimentions.
     bi = new BufferedImage(width,height,java.awt.image.BufferedImage.TYPE_INT_ARGB);
-    //Color rose = new Color(255,150,255,100);
-    int pixelActualisé = 0;
+    //int pixelActualisé = 0;
     for (int i = 0 ; i < width; i++){
       for (int j = 0; j < height; j++){
-        Color cl = new Color(rouge[i][j]+128,vert[i][j]+128,bleu[i][j]+128,alpha[i][j]+128);
-        bi.setRGB(i,j,cl.getRGB());
-        int x = ((rouge[i][j]<<16)|(vert[i][j]<<8)|(bleu[i][j]));
+        //Color cl = new Color(rouge[i][j]+128,vert[i][j]+128,bleu[i][j]+128,alpha[i][j]+128);
+        int x = ((alpha[i][j]+128<<24)|(rouge[i][j]+128<<16)|(vert[i][j]+128<<8)|(bleu[i][j]+128)); //on transforme les donnée des tableaux en 1 int qui représente les niveaux de couleur. (Exactement comme color ferait sauf que ca demande probablement un peu moins de temps de ne pas avoir a passer par le constructeur.)
+        //bi.setRGB(i,j,cl.getRGB());
+        bi.setRGB(i,j,x);
         //if(x!=0){System.out.println(x+ " "+rouge[i][j]+" "+vert[i][j]+" "+bleu[i][j]); }
-        pixelActualisé++;
+        //pixelActualisé++;
       }
     }
-    debug.débogage(pixelActualisé+" pixels ont été actualisé.");
+    Main.finCh("actualiserImage");
+    //debug.débogage(pixelActualisé+" pixels ont été actualisé.");
   }
   /**
   *{@summary rotate the Img.<br>}
@@ -479,11 +472,11 @@ public class Img implements Cloneable{
         }
       }
     }else{//si sa me change pas.
-      setRouge(tableau.copier(rouge));
+      /*setRouge(tableau.copier(rouge));
       setVert(tableau.copier(vert));
       setBleu(tableau.copier(bleu));
-      setAlpha(tableau.copier(alpha));
-      actualiserImage();
+      setAlpha(tableau.copier(alpha));*/
+      //actualiserImage();
       return;
     }//si sa a changé.
     setRouge(rougeT);
@@ -513,6 +506,7 @@ public class Img implements Cloneable{
   /**
   *{@summary Replace all non 100% or 0% transparent pixel by a 100% or a 0% transparent pixel.<br>}
   *On some image it can have some 99% transparent pixel, we may need to transforme them to 0% transparent pixel. (100 transparent pixel can be recolored more easyly.)
+  *@param x alpha limit level between 0 and 255. If pixel alpha value is higer than x pixel will be at 255 alpha. Other wise it will be at 0 alpha.
   */
   public void supprimerLaTransparencePartielle(int x){ //x est le niveau de transparence de 0 a 255.
     x = x-128; // pour qu'il soit callé sur le pixel.
