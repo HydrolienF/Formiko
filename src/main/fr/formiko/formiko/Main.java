@@ -108,8 +108,8 @@ public class Main {
       args = tableau.retirer(args, 0);
     }
     if(args.length>0){
-      initialisation();
       if(args[0].equals("trad")){
+        initialisation();
         débutCh();
         chargerLesTraductions.iniTLangue();
         chargerLesTraductions.créerLesFichiers();
@@ -127,10 +127,12 @@ public class Main {
       }else if(args[0].equals("son")){
         System.out.println(Musique.getMusiqueAlleatoire());
       }else if(args[0].equals("op")){
+        initialisation();
         chargerLesTraductions.iniTLangue();
         op = chargerLesOptions.chargerLesOptions();
         op.sauvegarder();
       }else if(args[0].equals("supprimer")){
+        initialisation();
         //diff.nbrDeLigneDiff("usuel/GString.java","../Formiko108/usuel/GString.java");
         if(args.length == 4){
           String s = args[1];
@@ -145,6 +147,7 @@ public class Main {
           erreur.alerte("arguments de supprimer incorecte");
         }
       }else if(args[0].equals("save")){
+        initialisation();
         pa = new Partie(0,0,new Carte(new GCase(1,1)),1.0); //nouvelle partie vide.
 
         pa = getPartieParDéfaut();
@@ -165,6 +168,7 @@ public class Main {
       }else if(args[0].equals("test")){
         test.testAll();
       }else if(args[0].equals("trad2")){
+        initialisation();
         chargerLesTraductions.iniTLangue();
         chargerLesTraductions.créerLesFichiers();
         map = chargerLesTraductions.chargerLesTraductions(1);//chargement des langues.
@@ -172,6 +176,7 @@ public class Main {
         trad.copieTradBase("eo",mapEo);
         //chargerLesTraductions.ajouterTradAuto();
       }else if (args[0].equals("rbt") || args[0].equals("rognerBordTransparent")){
+        initialisation();
         String nom = "";
         nom = args[1];int k=2;
         while(nom!=null){
@@ -190,7 +195,11 @@ public class Main {
           }
         }
       }else if(args[0].equals("stats")){
-        stats.statsJavadoc();
+        if(args.length>1){
+          stats.statsJavadoc(args[1]);
+        }else{
+          stats.statsJavadoc("src/main/");
+        }
       }else{
         erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue");
       }
