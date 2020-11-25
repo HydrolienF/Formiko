@@ -14,8 +14,8 @@ public class PanneauTInt extends PanneauTX{
   private int ti [];
   private int choix;
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public PanneauTInt(int ti [],String desc){super();
-    addKeyListener(new Touches());
+  public PanneauTInt(int ti [],String desc){
+    super();
     tailleBouton = Main.getTailleBoutonTX();
     this.descTI = desc;
     debug.débogage("Création d'un PanneauTInt");

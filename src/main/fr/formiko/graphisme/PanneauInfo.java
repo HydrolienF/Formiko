@@ -18,6 +18,7 @@ public class PanneauInfo extends Panneau {
   private int xPi; private int yPi;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauInfo(GString gs, int xD){
+    super();
     debug.débogage("création d'un panneauInfo avec "+gs.length()+" éléments.");
     this.setLayout(new GridBagLayout());
     GridBagConstraints gbc = new GridBagConstraints();

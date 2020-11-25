@@ -69,7 +69,7 @@ public class Bouton extends JButton implements MouseListener{
   }
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
-    super.paintComponent(g);
+    //super.paintComponent(g);
     Graphics2D g2d = (Graphics2D)g;
     /*GradientPaint gp = new GradientPaint(0, 0, Color.blue, 0, 20, Color.cyan, true);
     g2d.setPaint(gp);

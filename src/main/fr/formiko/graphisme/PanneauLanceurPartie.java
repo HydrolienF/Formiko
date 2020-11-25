@@ -8,6 +8,7 @@ public abstract class PanneauLanceurPartie extends Panneau{
   private BoutonLong lancerPartie;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauLanceurPartie(int ac){
+    super();
     this.setLayout(null);
     lancerPartie = new BoutonLong(g.getM("lancerPartie"),Main.getPm(),ac);
     add(lancerPartie);

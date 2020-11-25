@@ -34,6 +34,7 @@ public class PanneauJeu extends Panneau {
   private PanneauDialogueInf pdi;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauJeu(){
+    super();
     this.setLayout(null);
   }
   // GET SET -------------------------------------------------------------------

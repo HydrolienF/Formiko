@@ -9,6 +9,7 @@ public class PanneauDialogue extends Panneau {
   private PanneauInfo pi;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauDialogue(){
+    super();
     this.setLayout(null);
     pi = new PanneauInfo(new GString(),0);
     pi.setBounds(0,0,0,0);

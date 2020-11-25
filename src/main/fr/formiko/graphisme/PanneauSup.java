@@ -16,7 +16,7 @@ public class PanneauSup extends Panneau{
   private CCase cc2=null;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public PanneauSup(){}
+  public PanneauSup(){super();}
   public void construire(){
     addMouseListener(new MouseAdapter() {
       @Override

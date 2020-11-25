@@ -11,6 +11,7 @@ public class PanneauDialogueInf extends Panneau {
   private Desc b;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauDialogueInf(){
+    super();
     this.setLayout(null);
   }
   public void initialiser(){

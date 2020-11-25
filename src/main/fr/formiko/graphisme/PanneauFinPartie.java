@@ -14,6 +14,7 @@ public class PanneauFinPartie extends Panneau {
   private Bouton c;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauFinPartie(String s, GJoueur gj){
+    super();
     addMessage(s);
     addPanneauInfo(gj);
     addBoutonMenuPrincipal();

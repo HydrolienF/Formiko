@@ -24,7 +24,8 @@ public class PanneauAction extends Panneau {
   private static int bordure=10;
   private static int tailBouton=160;
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public PanneauAction(int t[]){super();
+  public PanneauAction(int t[]){
+    super();
     tailleBouton=Main.getTailleElementGraphique(tailBouton);
     tBoutonActif=t;
     nbrDeBouton=math.min(t.length,nbrDeBoutonMax-1);
@@ -62,8 +63,8 @@ public class PanneauAction extends Panneau {
   // Fonctions propre -----------------------------------------------------------
 
   public void paintComponent(Graphics g){
-    if(!Main.getPartie().getEnCours()){return;}
     super.paintComponent(g);
+    if(!Main.getPartie().getEnCours()){return;}
     debug.g("PanneauAction",this.getWidth(),this.getHeight());
     //this.setSize(tailleBouton*nbrDeBouton,tailleBouton);
     Color c = new Color(55,255,0);

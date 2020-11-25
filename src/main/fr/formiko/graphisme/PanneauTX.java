@@ -16,7 +16,7 @@ public abstract class PanneauTX extends Panneau{
   protected String descTI;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauTX(){
-    addKeyListener(new Touches());
+    super();
   }
   // GET SET --------------------------------------------------------------------
   public int getXPi(){ return tailleBouton*x;}

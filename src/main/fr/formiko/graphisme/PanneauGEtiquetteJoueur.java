@@ -8,6 +8,7 @@ public class PanneauGEtiquetteJoueur extends Panneau{
   private GEtiquetteJoueur gej;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauGEtiquetteJoueur(GEtiquetteJoueur gej){
+    super();
     this.gej=gej;
     this.setLayout(null);
     //int nbrDeJoueur = gej.length();

@@ -21,6 +21,7 @@ public class PanneauChargement extends Panneau {
   private static int a=-1;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauChargement(){
+    super();
     this.setLayout(null);
     try {
       BufferedImage img2 [] = image.getImages("chargement",image.getNbrImages("chargement"));

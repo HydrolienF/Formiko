@@ -39,7 +39,7 @@ public class PanneauBouton extends Panneau {
   private PanneauInfo pi;
   private PanneauInfo pij;
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public PanneauBouton(){}
+  public PanneauBouton(){super();}
   public void construire(){
     this.setLayout(null);
     this.descS=""; desc = new Desc();

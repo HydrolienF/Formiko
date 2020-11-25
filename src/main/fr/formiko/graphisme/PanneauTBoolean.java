@@ -13,9 +13,9 @@ import fr.formiko.formiko.Touches;
 public class PanneauTBoolean extends PanneauTX{
   private int choix;
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public PanneauTBoolean(String desc){super();
+  public PanneauTBoolean(String desc){
+    super();
     if(desc==null){ return;}
-    addKeyListener(new Touches());
     tailleBouton = Main.getTailleBoutonTX();
     this.descTI = desc;
     debug.débogage("Création d'un PanneauTBoolean");

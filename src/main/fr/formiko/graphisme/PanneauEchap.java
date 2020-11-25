@@ -13,8 +13,8 @@ public class PanneauEchap extends Panneau{
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public void PanneauEchap(){
+    //super();
     this.setLayout(null);
-    //this.setOpaque(false);
     tb = new Bouton[0];
     setOpaque(true);
   }

@@ -16,6 +16,7 @@ public class PanneauChamp extends Panneau {
   private boolean validé=false;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauChamp(String défaut){
+    super();
     this.setLayout(new GridBagLayout());
     GridBagConstraints gbc = new GridBagConstraints();
     Dimension dimC = new Dimension(500,tailleBouton);

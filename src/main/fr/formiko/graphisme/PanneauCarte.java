@@ -41,7 +41,7 @@ public class PanneauCarte extends Panneau implements MouseListener{
   private int xTemp,yTemp;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public PanneauCarte(){}
+  public PanneauCarte(){super();}
   public void construire(){
     Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(100));
     posX = 0; posY = 0;

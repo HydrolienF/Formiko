@@ -20,7 +20,9 @@ public class Panneau extends JPanel {//implements ActionListener{
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Panneau(){
-
+    super();
+    super.setOpaque(false);
+    addKeyListener(new Touches());
   }
   // GET SET --------------------------------------------------------------------
   //public int getTailleDUneCase(){return tailleDUneCase;}
@@ -37,6 +39,7 @@ public class Panneau extends JPanel {//implements ActionListener{
     super.paintComponent(g);
   }
   public void doAction(int action){
+    System.out.println("doAction");//@a
     try {
       ((PanneauMenu)this).doAction(action);
     }catch (Exception e2) {

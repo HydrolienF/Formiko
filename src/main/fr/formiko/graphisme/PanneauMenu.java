@@ -23,7 +23,7 @@ public class PanneauMenu extends Panneau {
   private PanneauNouvellePartie pnp;
   private PanneauChoixPartie pcp;
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public PanneauMenu(){}
+  public PanneauMenu(){super();}
   public void construire(){
     this.setLayout(null);
     setMenu(0);

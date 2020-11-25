@@ -20,7 +20,7 @@ public class PanneauPrincipal extends Panneau {
   private PanneauMenu pm;
   private Image img;
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public PanneauPrincipal(){}
+  public PanneauPrincipal(){super();this.setOpaque(true);}
   public void construire(){
     this.setLayout(null);
     img = image.getImage("arrierePlan.png");

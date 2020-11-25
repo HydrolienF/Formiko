@@ -26,6 +26,7 @@ public class PanneauZoom extends Panneau {
   private Bouton bd1; private Bouton bd2;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauZoom(){
+    super();
     int tailleBouton=Main.getTailleBoutonZoom();
     setSize(tailleBouton*3,tailleBouton*3);
   }
@@ -76,7 +77,7 @@ public class PanneauZoom extends Panneau {
   //public void setTailleBouton(int x){ tailleBouton=x;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
-    super.paintComponent(g);
+    //super.paintComponent(g);
     try {
       if(!Main.getPartie().getEnCours()){return;}
     }catch (Exception e) {
