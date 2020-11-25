@@ -190,7 +190,11 @@ public class Main {
           }
         }
       }else if(args[0].equals("stats")){
-        stats.statsJavadoc();
+        if(args.length>1){
+          stats.statsJavadoc(args[1]);
+        }else{
+          stats.statsJavadoc("src/main/",true);
+        }
       }else{
         erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue");
       }

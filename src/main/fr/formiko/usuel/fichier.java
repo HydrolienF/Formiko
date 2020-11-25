@@ -29,9 +29,11 @@ public class fichier{
     //cad sous la forme rep+sousdossier1+sousdossier2+nomDu.java
     if (f.isDirectory()){
       File allF [] = f.listFiles();
-      if (allF != null) {
+      if (allF != null && allF.length>0) {
           for (File file : allF) {
+            try {
               gs.add(listerLesFichiersDuRep(file));
+            }catch (Exception e) {}
           }
       }
     }else if(f.isFile()){

@@ -8,6 +8,7 @@ import fr.formiko.usuel.liste.CInt;
 import fr.formiko.usuel.liste.GString;
 import fr.formiko.usuel.liste.CString;
 import fr.formiko.usuel.fichier;
+import fr.formiko.usuel.conversiondetype.str;
 
 /**
 *{@summary A tool class about statistic. <br>}
@@ -28,22 +29,24 @@ public class stats {
   *Write the stats of javadoc comments in stats.txt.
   *@version 1.13
   */
-  public static void statsJavadoc(){
+  public static void statsJavadoc(String chemin, boolean raccourcir){
     Main.débutCh();
-    //GString gs = fichier.listerLesFichiersDuRep("src/main/fr/formiko/usuel/outils");
-    GString gs = fichier.listerLesFichiersDuRep("src/main/");
+    GString gs = fichier.listerLesFichiersDuRep(chemin);
     Main.finCh("listage des fichiers");Main.débutCh();
     //gs = la liste des fichiers.
 
     GGInt ggi = new GGInt();
     GGInt ggi2 = new GGInt();
-    CString cs = gs.getDébut();
+    CString cs = null;
+    if(gs.length()>0){cs = gs.getDébut();}
     GInt nbrDeLigne = new GInt();
     while(cs!=null){//pour chaque fichier on récupère le comtenu et on compte les Commentaire et les fonction longue et courte.
-      GString contenuDuFichier = lireUnFichier.lireUnFichierGs(cs.getContenu());
-      ggi.add(contenuDuFichier.compterFctEtComJavadoc());
-      ggi2.add(contenuDuFichier.compterFctEnDetail());
-      nbrDeLigne.add(contenuDuFichier.length());
+      if(str.contient(cs.getContenu(),".java",2)){ //on lit tt les .java
+        GString contenuDuFichier = lireUnFichier.lireUnFichierGs(cs.getContenu());
+        ggi.add(contenuDuFichier.compterFctEtComJavadoc());
+        ggi2.add(contenuDuFichier.compterFctEnDetail());
+        nbrDeLigne.add(contenuDuFichier.length());
+      }
       cs = cs.getSuivant();
     }
     Main.finCh("récupération des data");Main.débutCh();
@@ -66,7 +69,10 @@ public class stats {
     CInt ci = nbrDeLigne.getDébut();
     cs = gs.getDébut();
     while(cci!=null){
-      String s = cs.getContenu().substring(20);
+      String s = cs.getContenu();
+      if(raccourcir){
+        s = s.substring(20);
+      }
       gsr.add(toStatJd(cci)+toStatInfo(cci2.getContenu(),cci.getContenu())+numberOfLines(ci)+s);
       cci=cci.getSuivant();
       cci2=cci2.getSuivant();
@@ -80,7 +86,7 @@ public class stats {
     Main.finCh("traitement du GString");Main.débutCh();
     ecrireUnFichier.ecrireUnFichier(gsr,"stats.txt");
     Main.finCh("sauvegarde finale");
-  }
+  }public static void statsJavadoc(String chemin){statsJavadoc(chemin,false);}
 
   public static String toStatJd(CCInt cci){return toStatJd(cci.getContenu());}
   /**
