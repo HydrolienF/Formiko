@@ -52,12 +52,12 @@ public class image{
     if(!isImage(f)){erreur.erreur("L'Image sencé être dans le fichier suivant n'as pas été reconnue en temps qu'image. "+f.toString());return null;}
     try {
       return ImageIO.read(f);
-    }catch (Exception e) {
+    }catch (IOException e) {
       //on n'affiche plus systématiquement l'erreur car on a parfois besoin d'essayer d'ouvrir une image et de ressevoir null pour réésayer dans un autre répertoire.
       //erreur.erreur("L'Image sencé être dans le fichier suivant n'as pas été correctement trouvé et chargée. "+f.toString());
       return null;
     }
-  }
+  }public static BufferedImage readImage(String s){return readImage(new File(s));}
   /**
    *{@summary get an Image in 1 of the 3 usuals images directories.<br/>}
    *It will 1a search on REPTEXTUREPACK, then in REP and finaly in REP2.
