@@ -61,7 +61,7 @@ Si un élément texuel s'affiche sous une forme semblable a "buttonPannel.desc.3
 
 Si une action ne s'effectue pas correctement un message d'erreur s'affichera dans la console.
 
-Si la fenetre du jeu ne ce ferme pas essayer la commande alt f4.
+Si la fenêtre du jeu ne ce ferme pas essayer la commande alt f4.
 Si la console est ouverte un Ctrl-c ou Ctrl-Maj-c dans la console devrais forcer la fermeture du jeu.
 Si cela ne change rien lancer le gestionaire des taches et forcez la fermeture de java.
 Si aucune des solutions si dessus n'as eux d'effect éteingnez votre ordinateur, au redémarage le jeu ne vous causera plus de soucis.`
