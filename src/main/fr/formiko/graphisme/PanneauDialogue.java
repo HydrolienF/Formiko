@@ -41,7 +41,7 @@ public class PanneauDialogue extends Panneau {
 
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
-
+    super.paintComponent(g);
   }
   public synchronized boolean clicEn(int x, int y){
     //on écoute toute la fenetre si un panneau de dialogue est afficher et qu'on peu le passer.

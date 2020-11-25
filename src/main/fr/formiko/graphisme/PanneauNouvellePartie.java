@@ -105,6 +105,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
   public PanneauGEtiquetteJoueur getPGej(){ return pgej;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
+    super.paintComponent(g);
     int wi = Main.getDimX();
     int he = Main.getDimY();
     int wi2 = wi/2;

@@ -35,6 +35,7 @@ public class EtiquetteChoix extends Panneau{
   public Desc getChoixXDesc(){ return choixXDesc;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
+    super.paintComponent(g);
     //debug.débogage("Lancement de eDif.paintComponent");
   }
   public void setPos(int k){

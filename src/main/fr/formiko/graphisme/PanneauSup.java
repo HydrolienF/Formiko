@@ -9,6 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.Color;
 import fr.formiko.formiko.*;
 import fr.formiko.usuel.Temps;
+import java.awt.Graphics;
 
 public class PanneauSup extends Panneau{
   private int idFourmiAjoué=-1;
@@ -75,8 +76,8 @@ public class PanneauSup extends Panneau{
   public int getIdFourmiAjoué(){return idFourmiAjoué;}
   public void setIdFourmiAjoué(int x){idFourmiAjoué=x;}
   // Fonctions propre -----------------------------------------------------------
-  public void paintComponent(){
-
+  public void paintComponent(Graphics g){
+    super.paintComponent(g);
   }
   public CCase getCCase(MouseEvent e){
     int tc = Main.getPc().getTailleDUneCase();

@@ -50,6 +50,7 @@ public class PanneauEchap extends Panneau{
   public void setAff(boolean b){aff=b;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
+    super.paintComponent(g);
     Graphics2D g2d = (Graphics2D)g;
     try {
       int lentb = tb.length;

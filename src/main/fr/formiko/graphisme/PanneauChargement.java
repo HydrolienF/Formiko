@@ -45,6 +45,7 @@ public class PanneauChargement extends Panneau {
   public static void setA(int x){a=x;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
+    super.paintComponent(g);
     try {
       if(!Main.getPartie().getEnCours()){return;}
     }catch (Exception e) {}

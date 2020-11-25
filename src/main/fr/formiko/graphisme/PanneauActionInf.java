@@ -17,6 +17,7 @@ public class PanneauActionInf extends Panneau{
 
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
+    super.paintComponent(g);
     //int len = Main.getPa().getNbrBouton();
     //int dim = Main.getPa().getHeight();
     g.drawImage(fond,0,0,this);

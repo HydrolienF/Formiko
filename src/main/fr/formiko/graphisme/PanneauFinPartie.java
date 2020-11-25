@@ -27,6 +27,7 @@ public class PanneauFinPartie extends Panneau {
   // GET SET --------------------------------------------------------------------
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
+    super.paintComponent(g);
     try {
       message.setBounds(0,0,this.getWidth(),Main.getTaillePolice2()*2);
       pi.setBounds(0,message.getHeight(),pi.getWidth(),pi.getHeight());

@@ -64,6 +64,7 @@ public class PanneauJeu extends Panneau {
   public PanneauTInt getPti(){return pb.getPti(); }
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
+    super.paintComponent(g);
     try {
       pc.actualiserSize();
       //pc.setBounds(0,0,this.getWidth(),this.getHeight());

@@ -82,6 +82,7 @@ public class PanneauCarte extends Panneau implements MouseListener{
   }
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g2){
+    super.paintComponent(g2);
     Main.débutCh();
     Graphics2D g = (Graphics2D)g2;
     setLigne(g);

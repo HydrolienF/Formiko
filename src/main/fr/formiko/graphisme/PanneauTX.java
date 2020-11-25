@@ -23,6 +23,7 @@ public abstract class PanneauTX extends Panneau{
   public int getYPi(){ return tailleBouton*y;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
+    super.paintComponent(g);
     this.setSize(tailleBouton*x,tailleBouton*y);
     debug.débogage("actualisation du PanneauTX avec pour taille : "+tailleBouton*x+" "+tailleBouton*y);
   }

@@ -408,7 +408,6 @@ public class Img implements Cloneable{
   *{@summary Use to refresh the BufferedImage before draw it or save it.<br>}
   */
   public void actualiserImage(){
-    Main.débutCh();
     iniWH();
     //néssésaire si l'image n'as plus les mêmes dimentions.
     bi = new BufferedImage(width,height,java.awt.image.BufferedImage.TYPE_INT_ARGB);
@@ -423,7 +422,6 @@ public class Img implements Cloneable{
         //pixelActualisé++;
       }
     }
-    Main.finCh("actualiserImage");
     //debug.débogage(pixelActualisé+" pixels ont été actualisé.");
   }
   /**

@@ -33,6 +33,7 @@ public class PanneauChoixPartie extends PanneauLanceurPartie{
 
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
+    super.paintComponent(g);
     ePartie.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,getHeight()*3/5);
     ePartie.setTaille(getWidth()*3/5,(int)(Main.getTaillePolice2()*1.2));
     //ePartie.setPolice(Main.getFont2());

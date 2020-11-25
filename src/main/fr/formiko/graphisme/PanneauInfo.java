@@ -52,6 +52,7 @@ public class PanneauInfo extends Panneau {
   public int getYPi(){ return yPi;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
+    super.paintComponent(g);
     debug.débogage("actualisation du PanneauInfo avec pour taille : "+this.getWidth()+" "+this.getHeight());
   }
 }

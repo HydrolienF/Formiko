@@ -76,6 +76,7 @@ public class EtiquetteJoueur extends Panneau{
     return id==ej.getId();
   }
   public void paintComponent(Graphics g){
+    super.paintComponent(g);
     Graphics2D g2d = (Graphics2D)g;
     int taille = Main.getF().getWidth()/2;
     int arrondi = Desc.getDimY();

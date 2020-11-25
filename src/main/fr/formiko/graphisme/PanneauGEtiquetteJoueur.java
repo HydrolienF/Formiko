@@ -24,6 +24,7 @@ public class PanneauGEtiquetteJoueur extends Panneau{
 
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
+    super.paintComponent(g);
     /*int wi2 = Main.getF().getWidth()/2;
     CEtiquetteJoueur cej = gej.getDébut();
     int k=0;

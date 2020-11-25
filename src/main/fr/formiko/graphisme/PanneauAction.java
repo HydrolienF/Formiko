@@ -63,6 +63,7 @@ public class PanneauAction extends Panneau {
 
   public void paintComponent(Graphics g){
     if(!Main.getPartie().getEnCours()){return;}
+    super.paintComponent(g);
     debug.g("PanneauAction",this.getWidth(),this.getHeight());
     //this.setSize(tailleBouton*nbrDeBouton,tailleBouton);
     Color c = new Color(55,255,0);

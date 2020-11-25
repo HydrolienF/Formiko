@@ -34,7 +34,7 @@ public class Panneau extends JPanel {//implements ActionListener{
   //repaint() permet de réactualisé paintComponent()
   // L'instruction Thread.sleep(x miliseconde) permet d'effectuer une pause dans le programme.
   public void paintComponent(Graphics g){
-
+    super.paintComponent(g);
   }
   public void doAction(int action){
     try {

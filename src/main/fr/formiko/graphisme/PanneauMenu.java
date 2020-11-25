@@ -37,7 +37,8 @@ public class PanneauMenu extends Panneau {
   public void setPartie(Partie p){pa=p;}
   public PanneauNouvellePartie getPnp(){return pnp;}
   // Fonctions propre -----------------------------------------------------------
-  public void paintComponent(Graphics gra){
+  public void paintComponent(Graphics g){
+    super.paintComponent(g);
     //this.setSize(Main.getPp().getWidth(),Main.getPp().getHeight());
     //debug.débogage("La taille du PanneauMenu est : x="+this.getWidth()+", y="+this.getHeight());
   }
