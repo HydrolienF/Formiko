@@ -110,20 +110,7 @@ public class Main {
     if(args.length>0){
       if(args[0].equals("trad")){
         initialisation();
-        débutCh();
-        chargerLesTraductions.iniTLangue();
-        chargerLesTraductions.créerLesFichiers();
-        finCh("créerLesFichiers");débutCh();
-        map = chargerLesTraductions.chargerLesTraductions(1);//chargement des langues.
-        finCh("chargerLesTraductions");débutCh();
-        trad.copieTrads();
-        finCh("copieTrads");débutCh();
-        chargerLesTraductions.affPourcentageTraduit();
-        finCh("affPourcentageTraduit");débutCh();
-        chargerLesTraductions.ajouterTradAuto();
-        finCh("ajouterTradAuto");débutCh();
-        chargerLesTraductions.affPourcentageTraduit();
-        finCh("affPourcentageTraduit");
+        tradCmd();
       }else if(args[0].equals("son")){
         System.out.println(Musique.getMusiqueAlleatoire());
       }else if(args[0].equals("op")){
@@ -147,16 +134,11 @@ public class Main {
           erreur.alerte("arguments de supprimer incorecte");
         }
       }else if(args[0].equals("save")){
-        initialisation();
+        /*initialisation();
         pa = new Partie(0,0,new Carte(new GCase(1,1)),1.0); //nouvelle partie vide.
 
         pa = getPartieParDéfaut();
         pa.initialisationElément();
-        //p.getGj().add(new Joueur())
-        //Insecte f = new Insecte();
-        //Creature f = pa.getGj().getDébut().getContenu().getFourmiliere().getGc().getDébut().getContenu();
-        //ObjetAId oai = new Fourmi(new Fourmiliere(), new Espece(),(byte)0);
-        //sauvegarderUnePartie.sauvegarder(f);
         sauvegarderUnePartie.sauvegarder(pa,"testSave");
         Partie p = sauvegarderUnePartie.charger("testSave");
         if(p!=null){
@@ -164,7 +146,7 @@ public class Main {
           sauvegarderUnePartie.sauvegarder(p,"testSave2");
         }else{
           System.out.println("partie nulle");
-        }
+        }*/
       }else if(args[0].equals("test")){
         test.testAll();
       }else if(args[0].equals("trad2")){
@@ -177,22 +159,10 @@ public class Main {
         //chargerLesTraductions.ajouterTradAuto();
       }else if (args[0].equals("rbt") || args[0].equals("rognerBordTransparent")){
         initialisation();
-        String nom = "";
-        nom = args[1];int k=2;
-        while(nom!=null){
-          debug.débogage("=============================Chargement de l'image "+nom);
-          //Image i = image.getImage(nom,image.getREP());
-          Img img = new Img(image.getImage(nom,image.getREP()));
-          debug.débogage("=============================Ronage de l'image "+nom);
-          img.rognerBordTransparent();
-          img.actualiserImage();
-          debug.débogage("=============================Sauvegarde de l'image "+nom);
-          img.sauvegarder(image.getREP(),nom+".png");
-          try {
-            nom=args[k++];
-          }catch (Exception e) {
-            nom=null;
-          }
+        try {
+          rbtCmd(args);
+        }catch (Exception e) {
+          erreur.erreur("echec de rognage de l'image","Main.main");
         }
       }else if(args[0].equals("stats")){
         if(args.length>1){
@@ -717,6 +687,49 @@ public class Main {
       new Message("Ajout de "+x2+" insectes");
       getGi().ajouterInsecte((x2*9)/10); //les insectes vivants n'apparaissent pas sur des cases déja occupé.
       getGi().ajouterInsecte(x2/10);
+    }
+  }
+  /**
+  *{@summary Update translation}
+  *@version 1.21
+  */
+  public static void tradCmd(){
+    débutCh();
+    chargerLesTraductions.iniTLangue();
+    chargerLesTraductions.créerLesFichiers();
+    finCh("créerLesFichiers");débutCh();
+    map = chargerLesTraductions.chargerLesTraductions(1);//chargement des langues.
+    finCh("chargerLesTraductions");débutCh();
+    trad.copieTrads();
+    finCh("copieTrads");débutCh();
+    chargerLesTraductions.affPourcentageTraduit();
+    finCh("affPourcentageTraduit");débutCh();
+    chargerLesTraductions.ajouterTradAuto();
+    finCh("ajouterTradAuto");débutCh();
+    chargerLesTraductions.affPourcentageTraduit();
+    finCh("affPourcentageTraduit");
+  }
+  /**
+  *{@summary trim the image from args.}
+  *@version 1.21
+  */
+  public static void rbtCmd(String args[]){
+    String name = "";
+    name = args[1];int k=2;
+    while(nom!=null){
+      debug.débogage("=============================Chargement de l'image "+name);
+      //Image i = image.getImage(nom,image.getREP());
+      Img img = new Img(image.getImage(nom,image.getREP()));
+      debug.débogage("=============================Ronage de l'image "+name);
+      img.rognerBordTransparent();
+      img.actualiserImage();
+      debug.débogage("=============================Sauvegarde de l'image "+name);
+      img.sauvegarder(image.getREP(),name+".png");
+      try {
+        name=args[k++];
+      }catch (Exception e) {
+        name=null;
+      }
     }
   }
 }
