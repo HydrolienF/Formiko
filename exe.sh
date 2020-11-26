@@ -1,8 +1,13 @@
 #File used to make 4 new realise (witout java or with java in Windows, Linux & mac)
 echo "javac"
-javac -d build/main/ -cp ~/Formiko/junit-4.13.1.jar:. $(find src/main -name *.java)
+./javac.sh
+echo "test"
+./javact.sh
+./testJunit.sh
+echo "javadoc"
+./javadoc.sh
 echo "to .jar"
-cd build/main/.;jar cfm Formiko.jar ../../manifest.txt fr/formiko/*;mv Formiko.jar ../../.;cd ../..
+./jar.sh Formiko
 #jarsigner -keystore monStore -signedjar FormikoTemp.jar Formiko.jar signature
 #nom = name + version
 echo "choose name"
