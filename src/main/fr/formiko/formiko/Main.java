@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.Map;
 import java.awt.Font;
 import java.io.File;
-import fr.formiko.usuel.test.test;
+//import fr.formiko.usuel.test.test;
 // ArrayList<?> list; permet de déclarrer une liste de tout type. Sinon mettre l'objet ou Integer a la place. on peu aussi mettre Object pour spécifier que ce sera une liste d'objet.
 // diff fichier1 fichier2 permet de comparer de façon très complète, les différences entre des fichiers. On peu comparer tout le contenu de formiko avec /diff -r Formiko14 Formiko15
 
@@ -147,8 +147,8 @@ public class Main {
         }else{
           System.out.println("partie nulle");
         }*/
-      }else if(args[0].equals("test")){
-        test.testAll();
+      /*}else if(args[0].equals("test")){
+        test.testAll();*/
       }else if(args[0].equals("trad2")){
         initialisation();
         chargerLesTraductions.iniTLangue();
@@ -716,10 +716,10 @@ public class Main {
   public static void rbtCmd(String args[]){
     String name = "";
     name = args[1];int k=2;
-    while(nom!=null){
+    while(name!=null){
       debug.débogage("=============================Chargement de l'image "+name);
       //Image i = image.getImage(nom,image.getREP());
-      Img img = new Img(image.getImage(nom,image.getREP()));
+      Img img = new Img(image.getImage(name,image.getREP()));
       debug.débogage("=============================Ronage de l'image "+name);
       img.rognerBordTransparent();
       img.actualiserImage();
