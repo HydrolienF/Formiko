@@ -10,7 +10,7 @@ import fr.formiko.usuel.image.Pixel;
 import fr.formiko.formiko.Case;
 
 /**
-*{@summary Have all data (images) that will be used by the graphic interface.}
+*{@summary Contain all data (images) that will be used by the graphic interface.}
 *@author Hydrolien
 *@version 1.18
 */

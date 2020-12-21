@@ -20,6 +20,9 @@ public class PanneauEchap extends Panneau{
   }
   public void construire(){
     if(estContruit()){return;}
+    Main.getPz().setEnabled(false);
+    Main.getPc().setEnabled(false);
+    Main.getPa().setEnabled(false);
     //this.setBackground(new Color(50,50,50,100));
     Main.getPs().setSize(0,0);
     setSize(Main.getDimX(),Main.getDimY());
@@ -48,6 +51,7 @@ public class PanneauEchap extends Panneau{
   // GET SET --------------------------------------------------------------------
   public boolean getAff(){return aff;}
   public void setAff(boolean b){aff=b;}
+  public void setTb(Bouton tbTemp[]){tb=tbTemp;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     Graphics2D g2d = (Graphics2D)g;

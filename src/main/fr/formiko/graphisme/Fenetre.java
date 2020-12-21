@@ -34,12 +34,12 @@ public class Fenetre extends JFrame {
         gd.setFullScreenWindow(this);
       }
     }
-    this.setTitle(titre);
-    this.setSize(xMax,yMax);// (x,y) en pixel
-    this.setLocationRelativeTo(null); // fenetre centrée
+    setTitle(titre);
+    setSize(xMax,yMax);// (x,y) en pixel
+    setLocationRelativeTo(null); // fenetre centrée
     //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // bouton fermer par défaut.
     //notre bouton fermé si dessous.
-    this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     Runnable r = new Runnable() {
       @Override // indique au compilateur qu'on écrit sur la méthode run.
       public void run() {
@@ -67,14 +67,14 @@ public class Fenetre extends JFrame {
   // Fonctions propre -----------------------------------------------------------
   public void setBoutonFermer(){
     this.addWindowListener(new WindowAdapter() {
-        @Override // indique au compilateur qu'on écrit sur la méthode windowClosing déjà défini et il est senc" vérifier qu'on a pas fait de bêtise d'écriture.
+        @Override // indique au compilateur qu'on écrit sur la méthode windowClosing déjà défini et il est sencé vérifier qu'on a pas fait de bêtise d'écriture.
         public void windowClosing(WindowEvent e) {
           //si la fermeture de la fenetre ne doit pas etre immédiate.
-          quitter();
+          quit();
         }
     });
   }
-  public void quitter(){
+  public void quit(){
     try {
       boolean choix=true;
       if (!Main.getForcerQuitter()){

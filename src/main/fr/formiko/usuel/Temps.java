@@ -111,12 +111,12 @@ public class Temps {
     gs.add("0");
     ecrireUnFichier.ecrireUnFichier(gs,"data/Temps.txt");
   }
-  public static void pause(int millis){
-    if(millis<1){erreur.erreurPause(millis);}
+  public static void pause(int ms){
+    if(ms<1){erreur.erreurPause(ms);}
     try {
-        Thread.sleep(millis);
+        Thread.sleep(ms);
     } catch (InterruptedException ie) {
-        erreur.erreurPause(millis);
+        erreur.erreurPause(ms);
     }
   }
   public static String msToS(int x){return msToS((long)x);}

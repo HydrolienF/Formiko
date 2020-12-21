@@ -20,7 +20,7 @@ public class Panneau extends JPanel {//implements ActionListener{
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Panneau(){
-
+    setOpaque(false);
   }
   // GET SET --------------------------------------------------------------------
   //public int getTailleDUneCase(){return tailleDUneCase;}

@@ -23,6 +23,7 @@ public class PanneauAction extends Panneau {
   private int tBoutonActif[];
   private static int bordure=10;
   private static int tailBouton=160;
+  private Bouton tB [];
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauAction(int t[]){super();
     tailleBouton=Main.getTailleElementGraphique(tailBouton);
@@ -37,7 +38,7 @@ public class PanneauAction extends Panneau {
     if(nbrDeBouton > nbrDeBoutonMax){ erreur.erreur("impossible d'afficher tant de boutons","PanneauAction.this()");}
     Dimension dim = new Dimension(tailleBouton, tailleBouton);
     this.setLayout(new GridBagLayout());
-    Bouton tB [] = new Bouton [nbrDeBouton]; // pour l'instant le bouton 10 n'as pas d'images.
+    tB = new Bouton [nbrDeBouton]; // pour l'instant le bouton 10 n'as pas d'images.
     Main.getData().chargerTIPanneauAction();//ne ce lance que si néssésaire.
     for (int i=0;i<nbrDeBouton ;i++ ) { // seul les bouton mentionné dans t sont créé.
       tB[i] = new Bouton(g.get("bouton.nom."+(20+tBoutonActif[i])),(Panneau)this,20+tBoutonActif[i],Main.getData().getTImage()[tBoutonActif[i]]);
@@ -59,6 +60,11 @@ public class PanneauAction extends Panneau {
   public int getNbrBouton(){ return nbrDeBouton;}
   public boolean getEstBoutonActif(int x){return tableau.estDansT(tBoutonActif,x);}
   public int getBordureBouton(){ return Main.getTailleElementGraphique(bordure);}
+  public void setEnabled(boolean boo){
+    for (Bouton b : tB ) {
+      b.setEnabled(boo);
+    }
+  }
   // Fonctions propre -----------------------------------------------------------
 
   public void paintComponent(Graphics g){
