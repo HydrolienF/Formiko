@@ -75,3 +75,8 @@ rm -fr $nom
 rm -fr $nomW
 rm -fr $nomL
 rm -fr $nomM
+
+echo "setVersion for the web site"
+cd ~/Formiko/HydrolienF.github.io/docs
+./authentification.sh
+./setVersion.sh \"$nom\"
