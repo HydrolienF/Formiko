@@ -10,7 +10,7 @@ public class TempsTest extends TestCaseMuet{
 
   // Fonctions propre -----------------------------------------------------------
   @Test
-  public void testmsToTimeLongArray(){
+  public void testMsToTimeLongArray(){
     //0
     assertEquals("0 0 0 0 0",tableau.tableauToString(Temps.msToTimeLongArray(0,true)));
     //error
@@ -28,6 +28,8 @@ public class TempsTest extends TestCaseMuet{
     assertEquals("0 5 2 10 120",tableau.tableauToString(Temps.msToTimeLongArray((60000*60*5)+(60000*2)+10120,true)));
     //d
     assertEquals("1 5 2 10 120",tableau.tableauToString(Temps.msToTimeLongArray((60000*60*(5+24))+(60000*2)+10120,true)));
+    //d but we only want h.
+    assertEquals("0 30 2 10 120",tableau.tableauToString(Temps.msToTimeLongArray((60000*60*(30))+(60000*2)+10120,false)));
   }
 
 }
