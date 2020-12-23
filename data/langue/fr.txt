@@ -196,6 +196,7 @@ t.h:h
 t.min:min
 t.s:s
 t.ms:ms
+t.,:,
 jour:jour
 heure:heure
 minute:minute

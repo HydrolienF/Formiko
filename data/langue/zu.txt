@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:ubuncane[auto]
 t.s:s[auto]
 t.ms:ms[auto]
+t.,:
 jour:usuku[auto]
 heure:ihora[auto]
 minute:umzuzu[auto]

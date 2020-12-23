@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:מין[auto]
 t.s:ס[auto]
 t.ms:מיס[auto]
+t.,:
 jour:טאָג[auto]
 heure:שעה[auto]
 minute:מינוט[auto]

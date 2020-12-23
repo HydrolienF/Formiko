@@ -196,6 +196,7 @@ t.h:თ[auto]
 t.min:წთ[auto]
 t.s:ს[auto]
 t.ms:ქალბატონი[auto]
+t.,:
 jour:დღის[auto]
 heure:საათი[auto]
 minute:წუთი[auto]

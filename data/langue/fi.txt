@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:min[auto]
 t.s:s[auto]
 t.ms:neiti[auto]
+t.,:
 jour:päivä[auto]
 heure:tunnin[auto]
 minute:minuutti[auto]

@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:min[auto]
 t.s:s[auto]
 t.ms:slečna[auto]
+t.,:
 jour:den[auto]
 heure:hodina[auto]
 minute:minuta[auto]

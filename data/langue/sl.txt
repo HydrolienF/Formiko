@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:min[auto]
 t.s:s[auto]
 t.ms:gospa[auto]
+t.,:
 jour:dan[auto]
 heure:uro[auto]
 minute:minuta[auto]

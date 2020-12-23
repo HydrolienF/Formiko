@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:ನಿಮಿಷ[auto]
 t.s:ರು[auto]
 t.ms:ಎಂ.ಎಸ್[auto]
+t.,:
 jour:ದಿನ[auto]
 heure:ಗಂಟೆ[auto]
 minute:ನಿಮಿಷ[auto]

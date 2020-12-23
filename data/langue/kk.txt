@@ -196,6 +196,7 @@ t.h:сағ[auto]
 t.min:мин[auto]
 t.s:с[auto]
 t.ms:Ханым[auto]
+t.,:
 jour:күн[auto]
 heure:сағат[auto]
 minute:минут[auto]

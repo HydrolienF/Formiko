@@ -196,6 +196,7 @@ t.h:х[auto]
 t.min:мин[auto]
 t.s:с[auto]
 t.ms:Госпођа[auto]
+t.,:
 jour:дан[auto]
 heure:сат[auto]
 minute:минуту[auto]

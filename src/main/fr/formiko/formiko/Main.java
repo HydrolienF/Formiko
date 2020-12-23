@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.Map;
 import java.awt.Font;
 import java.io.File;
-import fr.formiko.usuel.test.test;
+//import fr.formiko.usuel.test.test;
 // ArrayList<?> list; permet de déclarrer une liste de tout type. Sinon mettre l'objet ou Integer a la place. on peu aussi mettre Object pour spécifier que ce sera une liste d'objet.
 // diff fichier1 fichier2 permet de comparer de façon très complète, les différences entre des fichiers. On peu comparer tout le contenu de formiko avec /diff -r Formiko14 Formiko15
 
@@ -147,8 +147,8 @@ public class Main {
         }else{
           System.out.println("partie nulle");
         }*/
-      }else if(args[0].equals("test")){
-        test.testAll();
+      /*}else if(args[0].equals("test")){
+        test.testAll();*/
       }else if(args[0].equals("trad2")){
         initialisation();
         chargerLesTraductions.iniTLangue();
@@ -168,7 +168,7 @@ public class Main {
         if(args.length>1){
           stats.statsJavadoc(args[1]);
         }else{
-          stats.statsJavadoc("src/main/");
+          stats.statsJavadoc("src/main/",true);
         }
       }else{
         erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue");
@@ -494,7 +494,6 @@ public class Main {
    * @version 1.1
    */
   public static void initialisation(){
-    ch = new Chrono();
     tempsDeDébutDeJeu=System.currentTimeMillis();
     os = new Os();
     setMessageChargement("vérificationsDeLArborécence");débutCh();
@@ -544,7 +543,14 @@ public class Main {
     iniCpt();
   }
   /**
-   *{@summary initializes counter cpt of IEspece, Joueur, Fourmiliere ,ObjetAId.}
+   *{@summary Initializes Chrono ch.}
+   *@version 1.23
+   */
+  public static void iniCh(){
+    ch = new Chrono();
+  }
+  /**
+   *{@summary Initializes counter cpt of IEspece, Joueur, Fourmiliere ,ObjetAId.}
    *@version 1.7
    */
   public static void iniCpt(){
@@ -611,7 +617,10 @@ public class Main {
     finCh("sauvegardeLeLImage");
     //debug.setAffLesEtapesDeRésolution(false);
   }
-  public static void débutCh(){débutCh(ch);}
+  public static void débutCh(){
+    if(ch==null){iniCh();}
+    débutCh(ch);
+  }
   public static void finCh(String s){finCh(s,ch);}
   /**
    * Start Chrono
@@ -659,10 +668,11 @@ public class Main {
       debug.performances("temps pour "+ s + " : "+lonTotal+" ms");
       long tempsDeFinDeJeu=System.currentTimeMillis();
       long tempsJeuEcoulé = tempsDeFinDeJeu-tempsDeDébutDeJeu;
-      System.out.println(g.getM("tempsJeuEcoulé")+" : "+ch.timeToHMS(tempsJeuEcoulé)+".");
+      //System.out.println(g.getM("tempsJeuEcoulé")+" : "+ch.timeToHMS(tempsJeuEcoulé)+".");
       //System.out.println("\ud83d\ude00");//System.out.println("😀");
       tem.addTempsEnJeux(tempsJeuEcoulé);tem.actualiserDate2();tem.sauvegarder();
       save.save();//sauvegarde de l'idS (id de sauvegarde) + de futur valeur importante.
+      System.out.println(g.getM("tempsJeuEcoulé")+" : "+Temps.msToTime(tempsJeuEcoulé,2,false));
       System.out.println(g.getM("messageQuitter"));
       System.exit(0);
     }catch (Exception e) {
@@ -704,10 +714,10 @@ public class Main {
     finCh("copieTrads");débutCh();
     chargerLesTraductions.affPourcentageTraduit();
     finCh("affPourcentageTraduit");débutCh();
-    chargerLesTraductions.ajouterTradAuto();
+    /*chargerLesTraductions.ajouterTradAuto();
     finCh("ajouterTradAuto");débutCh();
     chargerLesTraductions.affPourcentageTraduit();
-    finCh("affPourcentageTraduit");
+    finCh("affPourcentageTraduit");*/
   }
   /**
   *{@summary trim the image from args.}
@@ -716,10 +726,10 @@ public class Main {
   public static void rbtCmd(String args[]){
     String name = "";
     name = args[1];int k=2;
-    while(nom!=null){
+    while(name!=null){
       debug.débogage("=============================Chargement de l'image "+name);
       //Image i = image.getImage(nom,image.getREP());
-      Img img = new Img(image.getImage(nom,image.getREP()));
+      Img img = new Img(image.getImage(name,image.getREP()));
       debug.débogage("=============================Ronage de l'image "+name);
       img.rognerBordTransparent();
       img.actualiserImage();

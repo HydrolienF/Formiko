@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:min[auto]
 t.s:s[auto]
 t.ms:gospođa[auto]
+t.,:
 jour:dan[auto]
 heure:sat[auto]
 minute:minutu[auto]

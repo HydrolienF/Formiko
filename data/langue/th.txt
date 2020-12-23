@@ -196,6 +196,7 @@ t.h:ซ[auto]
 t.min:นาที[auto]
 t.s:s[auto]
 t.ms:นางสาว[auto]
+t.,:
 jour:วัน[auto]
 heure:ชั่วโมง[auto]
 minute:นาที[auto]

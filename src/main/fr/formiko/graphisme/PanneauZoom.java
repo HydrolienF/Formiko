@@ -74,6 +74,16 @@ public class PanneauZoom extends Panneau {
   // GET SET --------------------------------------------------------------------
   public int getTailleBouton(){ return Main.getTailleBoutonZoom();}
   //public void setTailleBouton(int x){ tailleBouton=x;}
+  public void setEnabled(boolean boo){
+    bPlus.setEnabled(boo);
+    bMoins.setEnabled(boo);
+    bh.setEnabled(boo);
+    bb.setEnabled(boo);
+    bd.setEnabled(boo);
+    bg.setEnabled(boo);
+    bc.setEnabled(boo);
+    bd1.setEnabled(boo);bd2.setEnabled(boo);
+  }
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     try {

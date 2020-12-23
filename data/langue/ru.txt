@@ -196,6 +196,7 @@ t.h:час[auto]
 t.min:мин[auto]
 t.s:s[auto]
 t.ms:РС[auto]
+t.,:
 jour:день[auto]
 heure:час[auto]
 minute:минута[auto]

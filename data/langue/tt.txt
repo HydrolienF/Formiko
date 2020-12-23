@@ -196,6 +196,7 @@ t.h:з[auto]
 t.min:мин[auto]
 t.s:с[auto]
 t.ms:туташ[auto]
+t.,:
 jour:көн[auto]
 heure:сәгать[auto]
 minute:минут[auto]

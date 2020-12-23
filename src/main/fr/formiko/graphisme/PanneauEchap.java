@@ -7,20 +7,29 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.BasicStroke;
 
+/**
+*{@summary Escap pannel <br>}
+*Used to pause game.
+*@author Hydrolien
+*@version 1.23
+*/
 public class PanneauEchap extends Panneau{
   private Bouton tb[];
   private boolean aff;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public void PanneauEchap(){
-    this.setLayout(null);
-    //this.setOpaque(false);
+    setLayout(null);
+    //setOpaque(false);
     tb = new Bouton[0];
     setOpaque(true);
   }
   public void construire(){
     if(estContruit()){return;}
-    //this.setBackground(new Color(50,50,50,100));
+    Main.getPz().setEnabled(false);
+    Main.getPc().setEnabled(false);
+    Main.getPa().setEnabled(false);
+    //setBackground(new Color(50,50,50,100));
     Main.getPs().setSize(0,0);
     setSize(Main.getDimX(),Main.getDimY());
     int lentb = 6;
@@ -38,16 +47,10 @@ public class PanneauEchap extends Panneau{
     revalidate();
     repaint();
   }
-  @Override
-  public void setVisible(boolean b){
-    if(b){construire();Main.getPs().setSize(0,0);}
-    else{Main.getPs().actualiserTaille();}
-    setAff(b);
-    super.setVisible(b);
-  }
   // GET SET --------------------------------------------------------------------
   public boolean getAff(){return aff;}
   public void setAff(boolean b){aff=b;}
+  public void setTb(Bouton tbTemp[]){tb=tbTemp;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     Graphics2D g2d = (Graphics2D)g;
@@ -68,9 +71,26 @@ public class PanneauEchap extends Panneau{
       }
     }catch (Exception e) {}
   }
+  /**
+  *{@summary set PanneauEchap visible}
+  */
+  @Override
+  public void setVisible(boolean b){
+    if(b){construire();Main.getPs().setSize(0,0);}
+    else{Main.getPs().actualiserTaille();}
+    setAff(b);
+    super.setVisible(b);
+  }
+  /**
+  *{@summary return true if only PanneauEchap button sould be enable.}
+  *@version 1.23
+  */
   public boolean estContruit(){
     if(tb==null){return false;}
-    return !(tb.length==0);}//il est contruit si le tableau n'est pas vide.
+    return isVisible();
+    //return !(tb.length==0);}//il est contruit si le tableau n'est pas vide.
+  }
+  /*
   public void miseALaMemeTaille(int lentb){
     int xMax = 0;
     for (int i=0;i<lentb ;i++ ) {
@@ -79,5 +99,5 @@ public class PanneauEchap extends Panneau{
     for (int i=0;i<lentb ;i++ ) {
       tb[i].setSize(xMax,getHeight());
     }
-  }
+  }*/
 }

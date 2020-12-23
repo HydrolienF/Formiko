@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:Mindest[auto]
 t.s:s[auto]
 t.ms:Frau[auto]
+t.,:,
 jour:Tag[auto]
 heure:Stunde[auto]
 minute:Minute[auto]

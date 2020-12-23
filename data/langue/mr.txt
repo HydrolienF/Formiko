@@ -196,6 +196,7 @@ t.h:एच[auto]
 t.min:मि[auto]
 t.s:s[auto]
 t.ms:एमएस[auto]
+t.,:
 jour:दिवस[auto]
 heure:तास[auto]
 minute:मिनिट[auto]

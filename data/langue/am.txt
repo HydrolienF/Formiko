@@ -196,6 +196,7 @@ t.h:ሸ[auto]
 t.min:ደቂቃ[auto]
 t.s:እ.ኤ.አ.[auto]
 t.ms:ወይዘሪት[auto]
+t.,:
 jour:ቀን[auto]
 heure:ሰአት[auto]
 minute:ደቂቃ[auto]

@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:Nkeji[auto]
 t.s:s[auto]
 t.ms:ms[auto]
+t.,:
 jour:ụbọchị[auto]
 heure:aka elekere[auto]
 minute:Nkeji[auto]

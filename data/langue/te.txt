@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:నిమి[auto]
 t.s:s[auto]
 t.ms:కుమారి[auto]
+t.,:
 jour:రోజు[auto]
 heure:గంట[auto]
 minute:నిమిషం[auto]

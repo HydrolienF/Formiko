@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:මිනි[auto]
 t.s:s[auto]
 t.ms:මෙනෙවිය[auto]
+t.,:
 jour:දිනය[auto]
 heure:පැය[auto]
 minute:විනාඩිය[auto]

@@ -196,6 +196,7 @@ t.h:ح[auto]
 t.min:دقيقة[auto]
 t.s:س[auto]
 t.ms:السيدة[auto]
+t.,:
 jour:يوم[auto]
 heure:ساعة[auto]
 minute:دقيقة[auto]

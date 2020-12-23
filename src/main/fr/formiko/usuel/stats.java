@@ -29,7 +29,7 @@ public class stats {
   *Write the stats of javadoc comments in stats.txt.
   *@version 1.13
   */
-  public static void statsJavadoc(String chemin){
+  public static void statsJavadoc(String chemin, boolean raccourcir){
     Main.débutCh();
     GString gs = fichier.listerLesFichiersDuRep(chemin);
     Main.finCh("listage des fichiers");Main.débutCh();
@@ -69,7 +69,10 @@ public class stats {
     CInt ci = nbrDeLigne.getDébut();
     cs = gs.getDébut();
     while(cci!=null){
-      String s = cs.getContenu().substring(20);
+      String s = cs.getContenu();
+      if(raccourcir){
+        s = s.substring(20);
+      }
       gsr.add(toStatJd(cci)+toStatInfo(cci2.getContenu(),cci.getContenu())+numberOfLines(ci)+s);
       cci=cci.getSuivant();
       cci2=cci2.getSuivant();
@@ -83,7 +86,7 @@ public class stats {
     Main.finCh("traitement du GString");Main.débutCh();
     ecrireUnFichier.ecrireUnFichier(gsr,"stats.txt");
     Main.finCh("sauvegarde finale");
-  }
+  }public static void statsJavadoc(String chemin){statsJavadoc(chemin,false);}
 
   public static String toStatJd(CCInt cci){return toStatJd(cci.getContenu());}
   /**

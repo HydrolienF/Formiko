@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:min[auto]
 t.s:S[auto]
 t.ms:bệnh đa xơ cứng[auto]
+t.,:
 jour:ngày[auto]
 heure:giờ[auto]
 minute:phút[auto]

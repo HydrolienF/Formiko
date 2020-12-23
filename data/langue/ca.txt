@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:mín[auto]
 t.s:s[auto]
 t.ms:Senyora[auto]
+t.,:
 jour:dia[auto]
 heure:hores[auto]
 minute:minut[auto]

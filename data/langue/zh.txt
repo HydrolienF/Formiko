@@ -196,6 +196,7 @@ t.h:H[auto]
 t.min:分[auto]
 t.s:s[auto]
 t.ms:多发性硬化症[auto]
+t.,:
 jour:天[auto]
 heure:小时[auto]
 minute:分钟[auto]
