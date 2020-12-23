@@ -104,14 +104,49 @@ public class Temps {
   //par défaut on a 2 unité. ex : x jours y heures  ex2 : x min y s
   /**
   *{@summary return time with as specify number of unit.}
+  *@param ms times in ms.
+  *@param nbrOfUnit number of units to include in the return string.
+  *@param dayOn enable or disable day as a unit.
   *@version 1.23
   */
   public static String msToTime(long ms, int nbrOfUnit, boolean dayOn){
-    return "";
-    //return d+" "+g.get("jours")+" "+h+ " "+g.get("h")+" "+m+ " "+g.get("min")+" "+s+","+ms+" "+g.get("s");
+    if(nbrOfUnit<1){return "";}
+    String ts [] = {"t.j","t.h","t.min","t.s","t.ms"};
+    long tl [] = msToTimeLongArray(ms,dayOn);
+    int k=0; int i=0;
+    String r = "";
+    while(k<nbrOfUnit && i<5){
+      if(tl[i]>0){
+        if(!r.equals("")){r+=" ";}
+        if(i==3 && k+1 < nbrOfUnit && tl[i+1]>0){ //si on doit traiter les s et les ms ensembles.
+          String s = ""+tl[i+1];
+          while(s.length()<3){
+            s="0"+s;
+          }
+          while(s.length() > 1 && s.charAt(s.length()-1)=='0'){
+            s=s.substring(0,s.length()-1);
+          }
+          r+= tl[i]+g.get("t.,")+s+g.get(ts[i]);
+          k++;i++;
+        }else{
+          r+= tl[i]+g.get(ts[i]);
+        }
+        k++;
+      }
+      i++;//pour ne pas sortir du tableau.
+    }
+    if(r.equals("")){
+      r = tl[4]+g.get(ts[4]);
+    }
+    return r;
   }
   public static String msToTime(long ms){return msToTime(ms,2,true);}
-
+  /**
+  *{@summary return time on a long [].}
+  *@param ms times in ms.
+  *@param dayOn enable or disable day as a unit.
+  *@version 1.23
+  */
   public static long [] msToTimeLongArray(long ms, boolean dayOn){
     long tr [] = new long[5];
     if(ms<0){

@@ -668,10 +668,11 @@ public class Main {
       debug.performances("temps pour "+ s + " : "+lonTotal+" ms");
       long tempsDeFinDeJeu=System.currentTimeMillis();
       long tempsJeuEcoulé = tempsDeFinDeJeu-tempsDeDébutDeJeu;
-      System.out.println(g.getM("tempsJeuEcoulé")+" : "+ch.timeToHMS(tempsJeuEcoulé)+".");
+      //System.out.println(g.getM("tempsJeuEcoulé")+" : "+ch.timeToHMS(tempsJeuEcoulé)+".");
       //System.out.println("\ud83d\ude00");//System.out.println("😀");
       tem.addTempsEnJeux(tempsJeuEcoulé);tem.actualiserDate2();tem.sauvegarder();
       save.save();//sauvegarde de l'idS (id de sauvegarde) + de futur valeur importante.
+      System.out.println(g.getM("tempsJeuEcoulé")+" : "+Temps.msToTime(tempsJeuEcoulé,2,false));
       System.out.println(g.getM("messageQuitter"));
       System.exit(0);
     }catch (Exception e) {
@@ -713,10 +714,10 @@ public class Main {
     finCh("copieTrads");débutCh();
     chargerLesTraductions.affPourcentageTraduit();
     finCh("affPourcentageTraduit");débutCh();
-    chargerLesTraductions.ajouterTradAuto();
+    /*chargerLesTraductions.ajouterTradAuto();
     finCh("ajouterTradAuto");débutCh();
     chargerLesTraductions.affPourcentageTraduit();
-    finCh("affPourcentageTraduit");
+    finCh("affPourcentageTraduit");*/
   }
   /**
   *{@summary trim the image from args.}
