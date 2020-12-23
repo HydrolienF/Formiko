@@ -103,6 +103,37 @@ public class Temps {
   //TODO ajouter une méthode qui return un String de date le plus adapté possible avec un nombre défini d'unité allant de jours a ms.
   //par défaut on a 2 unité. ex : x jours y heures  ex2 : x min y s
   /**
+  *{@summary return time with as specify number of unit.}
+  *@version 1.23
+  */
+  public static String msToTime(long ms, int nbrOfUnit, boolean dayOn){
+    return "";
+    //return d+" "+g.get("jours")+" "+h+ " "+g.get("h")+" "+m+ " "+g.get("min")+" "+s+","+ms+" "+g.get("s");
+  }
+  public static String msToTime(long ms){return msToTime(ms,2,true);}
+
+  public static long [] msToTimeLongArray(long ms, boolean dayOn){
+    long tr [] = new long[5];
+    if(ms<0){
+      tr[4]=-1;
+      return tr;
+    }
+    int nbrMsD = 86400000; int nbrMsH = 3600000; int nbrMsM = 60000; int nbrMsS = 1000;
+    long d,h,m,s;
+    if(dayOn){
+      d = ms / nbrMsD;
+      h = (ms % nbrMsD) / nbrMsH;
+    }else{
+      d=0;
+      h = ms / nbrMsH;
+    }
+    m = (ms % nbrMsH) / nbrMsM;
+    s = (ms % nbrMsM) / nbrMsS;
+    ms = ms % nbrMsS;
+    tr[0]=d;tr[1]=h;tr[2]=m;tr[3]=s;tr[4]=ms;
+    return tr;
+  }
+  /**
   *{@summary return current date + current hours.}
   *@version 1.23
   */

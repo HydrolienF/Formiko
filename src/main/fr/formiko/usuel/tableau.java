@@ -393,6 +393,13 @@ public class tableau <T>{
       else{sr+=s;}
     }return sr;
   }public static String tableauToString(byte t []){ return tableauToString(t," ");}
+  public static String tableauToString(long t [],String sep){
+    String sr = "";
+    for (long s :t ) {
+      if(sr.length()!=0){sr=sr+sep+s;}
+      else{sr+=s;}
+    }return sr;
+  }public static String tableauToString(long t []){ return tableauToString(t," ");}
   public static String tableauToString(boolean t [],String sep){
     String sr = "";
     for (boolean s :t ) {
