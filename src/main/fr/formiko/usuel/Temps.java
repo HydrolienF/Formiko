@@ -61,7 +61,7 @@ public class Temps {
     Date date2b = new Date(date2);
     r+=sdf.format(date2b);r+="\n";
     r+=g.getM("tempsEnJeux") + " : ";
-    r+=msToHMS(tempsEnJeux);r+="\n";
+    r+=msToTime(tempsEnJeux);r+="\n";
     /*En français ca donne :
     Date de 1ère connection : 02/09/2020 19:41
     Date de dernière connection : 02/09/2020 20:19
