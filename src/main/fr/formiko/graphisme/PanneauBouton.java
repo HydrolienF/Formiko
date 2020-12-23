@@ -17,11 +17,6 @@ import java.awt.geom.AffineTransform;
 import javax.swing.JScrollPane;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.liste.*;
-//yen a un peu trop la desous
-import java.awt.image.*;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
 
 public class PanneauBouton extends Panneau {
   private PanneauZoom pz;
