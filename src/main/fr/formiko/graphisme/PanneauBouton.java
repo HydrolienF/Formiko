@@ -65,7 +65,12 @@ public class PanneauBouton extends Panneau {
   }
   // GET SET -------------------------------------------------------------------
   public String getDesc(){return descS;}
-  public void setDesc(String s){descS=s;actualiserDesc();}
+  public void setDesc(String s){
+    if(Main.getPe() == null || !Main.getPe().estContruit()){
+      descS=s;
+      actualiserDesc();
+    }
+  }
   public int getActionF(){ return actionF;}
   public void setActionF(int x){ actionF=x;}
   //public void setActionF(int x){ if(Main.getPac().getEstBoutonActif(x)){actionF=x;}else{erreur.alerte("L'action "+x+" n'est pas dans les actions faisable.","PanneauBouton.setActionF","l'action n'est pas prise en compte.");}}

@@ -29,6 +29,7 @@ public class Touches implements KeyListener, Serializable{
       if(Main.getPe().getAff()){
         Main.getPe().setVisible(false);
       }else{
+        Main.getPj().setDesc("");
         Main.getPe().setVisible(true);
       }
     }else if(Main.getFActuelle()!=null){

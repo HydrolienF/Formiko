@@ -173,7 +173,6 @@ public class PanneauJeu extends Panneau {
     debug.débogage("action pj : "+ac);
     try {
       if(Main.getPe() == null || !Main.getPe().estContruit()){
-        System.out.println("PanneauEchap pas construit");//@a
         if (ac < 9 && ac > -1){
           actionZoom(ac);
         }else if(ac>=20 && ac<=31){
