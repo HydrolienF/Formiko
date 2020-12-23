@@ -74,7 +74,9 @@ public class PanneauEchap extends Panneau{
   }
   public boolean estContruit(){
     if(tb==null){return false;}
-    return !(tb.length==0);}//il est contruit si le tableau n'est pas vide.
+    return isVisible();
+    //return !(tb.length==0);}//il est contruit si le tableau n'est pas vide.
+  }
   public void miseALaMemeTaille(int lentb){
     int xMax = 0;
     for (int i=0;i<lentb ;i++ ) {
