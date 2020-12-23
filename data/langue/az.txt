@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:dəq[auto]
 t.s:s[auto]
 t.ms:Xanım[auto]
+t.,:
 jour:gün[auto]
 heure:saat[auto]
 minute:dəqiqə[auto]

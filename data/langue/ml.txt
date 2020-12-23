@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:മിനിറ്റ്[auto]
 t.s:s[auto]
 t.ms:മിസ്[auto]
+t.,:
 jour:ദിവസം[auto]
 heure:മണിക്കൂർ[auto]
 minute:മിനിറ്റ്[auto]

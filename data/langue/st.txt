@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:mets[auto]
 t.s:s[auto]
 t.ms:Mof[auto]
+t.,:
 jour:letsatsi[auto]
 heure:hora[auto]
 minute:motsotso[auto]

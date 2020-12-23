@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:min[auto]
 t.s:s[auto]
 t.ms:Znj[auto]
+t.,:
 jour:ditë[auto]
 heure:orë[auto]
 minute:minutë[auto]

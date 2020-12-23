@@ -196,6 +196,7 @@ t.h:ايڇ[auto]
 t.min:منٽ[auto]
 t.s:ايس[auto]
 t.ms:محترمه[auto]
+t.,:
 jour:ڏينهن[auto]
 heure:ڪلاڪ[auto]
 minute:منٽ[auto]

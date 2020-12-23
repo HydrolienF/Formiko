@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:min[auto]
 t.s:s[auto]
 t.ms:ms[auto]
+t.,:
 jour:lá[auto]
 heure:uair an chloig[auto]
 minute:nóiméad[auto]

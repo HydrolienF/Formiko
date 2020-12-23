@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:min[auto]
 t.s:s[auto]
 t.ms:pani[auto]
+t.,:
 jour:deň[auto]
 heure:hodinu[auto]
 minute:minútu[auto]

@@ -196,6 +196,7 @@ t.h:ساعت[auto]
 t.min:حداقل[auto]
 t.s:s[auto]
 t.ms:اماس[auto]
+t.,:
 jour:روز[auto]
 heure:ساعت[auto]
 minute:دقیقه[auto]

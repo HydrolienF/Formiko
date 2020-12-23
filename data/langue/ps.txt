@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:منټ[auto]
 t.s:د[auto]
 t.ms:اغلی[auto]
+t.,:
 jour:ورځ[auto]
 heure:ساعت[auto]
 minute:دقیقه[auto]

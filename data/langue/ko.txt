@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:분[auto]
 t.s:에스[auto]
 t.ms:ms[auto]
+t.,:
 jour:일[auto]
 heure:시[auto]
 minute:분[auto]

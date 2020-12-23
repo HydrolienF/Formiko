@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:நிமிடம்[auto]
 t.s:கள்[auto]
 t.ms:செல்வி[auto]
+t.,:
 jour:நாள்[auto]
 heure:மணி[auto]
 minute:நிமிடம்[auto]

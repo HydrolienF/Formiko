@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:min[auto]
 t.s:s[auto]
 t.ms:jaunkundze[auto]
+t.,:
 jour:diena[auto]
 heure:stunda[auto]
 minute:minūti[auto]

@@ -196,6 +196,7 @@ t.h:ժ[auto]
 t.min:րոպե[auto]
 t.s:ս[auto]
 t.ms:ms[auto]
+t.,:
 jour:օր[auto]
 heure:ժամ[auto]
 minute:րոպե[auto]

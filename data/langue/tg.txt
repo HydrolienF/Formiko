@@ -196,6 +196,7 @@ t.h:ч[auto]
 t.min:дақ[auto]
 t.s:с[auto]
 t.ms:Бону[auto]
+t.,:
 jour:рӯз[auto]
 heure:соат[auto]
 minute:дақиқа[auto]

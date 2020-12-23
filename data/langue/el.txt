@@ -196,6 +196,7 @@ t.h:η[auto]
 t.min:ελάχ[auto]
 t.s:μικρό[auto]
 t.ms:Κυρία[auto]
+t.,:
 jour:ημέρα[auto]
 heure:ώρα[auto]
 minute:λεπτό[auto]

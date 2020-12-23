@@ -196,6 +196,7 @@ t.h:এইচ[auto]
 t.min:মিনিট[auto]
 t.s:s[auto]
 t.ms:মাইক্রোসফট[auto]
+t.,:
 jour:দিন[auto]
 heure:ঘন্টা[auto]
 minute:মিনিট[auto]

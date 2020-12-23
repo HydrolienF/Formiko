@@ -196,6 +196,7 @@ t.h:ଘ[auto]
 t.min:ମିନିଟ୍[auto]
 t.s:s[auto]
 t.ms:କୁମାରୀ[auto]
+t.,:
 jour:ଦିନ[auto]
 heure:ଘଣ୍ଟା[auto]
 minute:ମିନିଟ୍[auto]

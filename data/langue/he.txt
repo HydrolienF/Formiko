@@ -196,6 +196,7 @@ t.h:ח[auto]
 t.min:דקה[auto]
 t.s:ס[auto]
 t.ms:גברת[auto]
+t.,:
 jour:יְוֹם[auto]
 heure:שָׁעָה[auto]
 minute:דַקָה[auto]

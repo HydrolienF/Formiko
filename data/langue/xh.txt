@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:imiz[auto]
 t.s:s[auto]
 t.ms:Nksk[auto]
+t.,:
 jour:usuku[auto]
 heure:yure[auto]
 minute:mzuzu[auto]

@@ -196,6 +196,7 @@ t.h:l[auto]
 t.min:min[auto]
 t.s:s[auto]
 t.ms:ms[auto]
+t.,:
 jour:aso[auto]
 heure:itula[auto]
 minute:minute[auto]

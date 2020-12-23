@@ -196,6 +196,7 @@ t.h:ဇ[auto]
 t.min:၅ မိနစ်[auto]
 t.s:s[auto]
 t.ms:ဒေါ်[auto]
+t.,:
 jour:နေ့[auto]
 heure:နာရီ[auto]
 minute:မိနစ်[auto]

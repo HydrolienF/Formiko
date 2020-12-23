@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:min[auto]
 t.s:s[auto]
 t.ms:Xonim[auto]
+t.,:
 jour:kun[auto]
 heure:soat[auto]
 minute:daqiqa[auto]

@@ -196,6 +196,7 @@ t.h:h[auto]
 t.min:min[auto]
 t.s:s[auto]
 t.ms:Sinjorina[auto]
+t.,:
 jour:jum[auto]
 heure:siegħa[auto]
 minute:minuta[auto]
