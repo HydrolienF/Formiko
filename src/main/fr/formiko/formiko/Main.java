@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.Map;
 import java.awt.Font;
 import java.io.File;
-import fr.formiko.usuel.test.test;
+//import fr.formiko.usuel.test.test;
 // ArrayList<?> list; permet de déclarrer une liste de tout type. Sinon mettre l'objet ou Integer a la place. on peu aussi mettre Object pour spécifier que ce sera une liste d'objet.
 // diff fichier1 fichier2 permet de comparer de façon très complète, les différences entre des fichiers. On peu comparer tout le contenu de formiko avec /diff -r Formiko14 Formiko15
 
@@ -74,6 +74,7 @@ public class Main {
   private static boolean premierePartie=false;
   private static boolean jeuEnCours;
   private static Save save;
+  private static Data data;
 
   /**
    * {@summary Lauch the game.<br>}
@@ -107,29 +108,18 @@ public class Main {
       args = tableau.retirer(args, 0);
     }
     if(args.length>0){
-      initialisation();
       if(args[0].equals("trad")){
-        débutCh();
-        chargerLesTraductions.iniTLangue();
-        chargerLesTraductions.créerLesFichiers();
-        finCh("créerLesFichiers");débutCh();
-        map = chargerLesTraductions.chargerLesTraductions(1);//chargement des langues.
-        finCh("chargerLesTraductions");débutCh();
-        trad.copieTrads();
-        finCh("copieTrads");débutCh();
-        chargerLesTraductions.affPourcentageTraduit();
-        finCh("affPourcentageTraduit");débutCh();
-        chargerLesTraductions.ajouterTradAuto();
-        finCh("ajouterTradAuto");débutCh();
-        chargerLesTraductions.affPourcentageTraduit();
-        finCh("affPourcentageTraduit");
+        initialisation();
+        tradCmd();
       }else if(args[0].equals("son")){
         System.out.println(Musique.getMusiqueAlleatoire());
       }else if(args[0].equals("op")){
+        initialisation();
         chargerLesTraductions.iniTLangue();
         op = chargerLesOptions.chargerLesOptions();
         op.sauvegarder();
       }else if(args[0].equals("supprimer")){
+        initialisation();
         //diff.nbrDeLigneDiff("usuel/GString.java","../Formiko108/usuel/GString.java");
         if(args.length == 4){
           String s = args[1];
@@ -144,15 +134,11 @@ public class Main {
           erreur.alerte("arguments de supprimer incorecte");
         }
       }else if(args[0].equals("save")){
+        /*initialisation();
         pa = new Partie(0,0,new Carte(new GCase(1,1)),1.0); //nouvelle partie vide.
 
         pa = getPartieParDéfaut();
         pa.initialisationElément();
-        //p.getGj().add(new Joueur())
-        //Insecte f = new Insecte();
-        //Creature f = pa.getGj().getDébut().getContenu().getFourmiliere().getGc().getDébut().getContenu();
-        //ObjetAId oai = new Fourmi(new Fourmiliere(), new Espece(),(byte)0);
-        //sauvegarderUnePartie.sauvegarder(f);
         sauvegarderUnePartie.sauvegarder(pa,"testSave");
         Partie p = sauvegarderUnePartie.charger("testSave");
         if(p!=null){
@@ -160,10 +146,11 @@ public class Main {
           sauvegarderUnePartie.sauvegarder(p,"testSave2");
         }else{
           System.out.println("partie nulle");
-        }
-      }else if(args[0].equals("test")){
-        test.testAll();
+        }*/
+      /*}else if(args[0].equals("test")){
+        test.testAll();*/
       }else if(args[0].equals("trad2")){
+        initialisation();
         chargerLesTraductions.iniTLangue();
         chargerLesTraductions.créerLesFichiers();
         map = chargerLesTraductions.chargerLesTraductions(1);//chargement des langues.
@@ -171,25 +158,18 @@ public class Main {
         trad.copieTradBase("eo",mapEo);
         //chargerLesTraductions.ajouterTradAuto();
       }else if (args[0].equals("rbt") || args[0].equals("rognerBordTransparent")){
-        String nom = "";
-        nom = args[1];int k=2;
-        while(nom!=null){
-          debug.débogage("=============================Chargement de l'image "+nom);
-          //Image i = image.getImage(nom,image.getREP());
-          Img img = new Img(image.getImage(nom,image.getREP()));
-          debug.débogage("=============================Ronage de l'image "+nom);
-          img.rognerBordTransparent();
-          img.actualiserImage();
-          debug.débogage("=============================Sauvegarde de l'image "+nom);
-          img.sauvegarder(image.getREP(),nom+".png");
-          try {
-            nom=args[k++];
-          }catch (Exception e) {
-            nom=null;
-          }
+        initialisation();
+        try {
+          rbtCmd(args);
+        }catch (Exception e) {
+          erreur.erreur("echec de rognage de l'image","Main.main");
         }
       }else if(args[0].equals("stats")){
-        stats.statsJavadoc();
+        if(args.length>1){
+          stats.statsJavadoc(args[1]);
+        }else{
+          stats.statsJavadoc("src/main/",true);
+        }
       }else{
         erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue");
       }
@@ -424,6 +404,7 @@ public class Main {
   public static void setJeuEnCours(boolean b){jeuEnCours=b;}
   public static Save getSave(){return save;}
   public static void setSave(Save sa){save=sa;}
+  public static Data getData(){return data;}
   //racourci
   public static boolean estWindows(){return os.getId()==1;}
   public static String get(String clé){ return g.get(clé);}
@@ -436,7 +417,7 @@ public class Main {
   //graphique
   public static PanneauPrincipal getPp(){ return f.getPp();}
   public static synchronized void repaint(){f.repaint();}
-  public static synchronized void repaintParciel(Case c){getPc().repaintParciel(c);}
+  //public static synchronized void repaintParciel(Case c){getPc().repaintParciel(c);}
   public static PanneauJeu getPj(){ return getPp().getPj();}
   public static PanneauMenu getPm(){ return getPp().getPm();}
   public static PanneauNouvellePartie getPnp(){ return getPm().getPnp();}
@@ -513,7 +494,6 @@ public class Main {
    * @version 1.1
    */
   public static void initialisation(){
-    ch = new Chrono();
     tempsDeDébutDeJeu=System.currentTimeMillis();
     os = new Os();
     setMessageChargement("vérificationsDeLArborécence");débutCh();
@@ -559,10 +539,18 @@ public class Main {
     }
     finCh("initialisationDeREPTEXTUREPACK");
     //System.out.println("Os reconnu : "+os);
+    data = new Data();
     iniCpt();
   }
   /**
-   *{@summary initializes counter cpt of IEspece, Joueur, Fourmiliere ,ObjetAId.}
+   *{@summary Initializes Chrono ch.}
+   *@version 1.23
+   */
+  public static void iniCh(){
+    ch = new Chrono();
+  }
+  /**
+   *{@summary Initializes counter cpt of IEspece, Joueur, Fourmiliere ,ObjetAId.}
    *@version 1.7
    */
   public static void iniCpt(){
@@ -629,7 +617,10 @@ public class Main {
     finCh("sauvegardeLeLImage");
     //debug.setAffLesEtapesDeRésolution(false);
   }
-  public static void débutCh(){débutCh(ch);}
+  public static void débutCh(){
+    if(ch==null){iniCh();}
+    débutCh(ch);
+  }
   public static void finCh(String s){finCh(s,ch);}
   /**
    * Start Chrono
@@ -643,13 +634,15 @@ public class Main {
   /**
    * {@summary Stop Chrono and print a message about Chrono duration.<br>}
    * The message will be print in console only if debug.setAffLesPerformances is true.<br>
-   * @version 1.1
+   *Message will be print only if the do more than 20ms.
+   * @version 1.18
    */
   public static void finCh(String s,Chrono chTemp){ // fin du Chrono.
     if(!debug.getAffLesPerformances()){ return;}
     String s2 = g.getM(s);
     if (s2.length()!=0){ s=s2;}
     chTemp.stop();lon = chTemp.getDuree(); lonTotal=lonTotal+lon;
+    if(!debug.getAffLesEtapesDeRésolution() && lon<20){return;}
     String s3 = ""; if(!chTemp.equals(ch)){s3 = " ("+g.get("actionSecondaire")+" "+ch.getId()+")";}
     debug.performances("temps pour "+ s + " : "+lon+" ms"+s3); //affichage du chrono.
   }
@@ -675,10 +668,11 @@ public class Main {
       debug.performances("temps pour "+ s + " : "+lonTotal+" ms");
       long tempsDeFinDeJeu=System.currentTimeMillis();
       long tempsJeuEcoulé = tempsDeFinDeJeu-tempsDeDébutDeJeu;
-      System.out.println(g.getM("tempsJeuEcoulé")+" : "+ch.timeToHMS(tempsJeuEcoulé)+".");
+      //System.out.println(g.getM("tempsJeuEcoulé")+" : "+ch.timeToHMS(tempsJeuEcoulé)+".");
       //System.out.println("\ud83d\ude00");//System.out.println("😀");
       tem.addTempsEnJeux(tempsJeuEcoulé);tem.actualiserDate2();tem.sauvegarder();
       save.save();//sauvegarde de l'idS (id de sauvegarde) + de futur valeur importante.
+      System.out.println(g.getM("tempsJeuEcoulé")+" : "+Temps.msToTime(tempsJeuEcoulé,2,false));
       System.out.println(g.getM("messageQuitter"));
       System.exit(0);
     }catch (Exception e) {
@@ -703,6 +697,49 @@ public class Main {
       new Message("Ajout de "+x2+" insectes");
       getGi().ajouterInsecte((x2*9)/10); //les insectes vivants n'apparaissent pas sur des cases déja occupé.
       getGi().ajouterInsecte(x2/10);
+    }
+  }
+  /**
+  *{@summary Update translation}
+  *@version 1.21
+  */
+  public static void tradCmd(){
+    débutCh();
+    chargerLesTraductions.iniTLangue();
+    chargerLesTraductions.créerLesFichiers();
+    finCh("créerLesFichiers");débutCh();
+    map = chargerLesTraductions.chargerLesTraductions(1);//chargement des langues.
+    finCh("chargerLesTraductions");débutCh();
+    trad.copieTrads();
+    finCh("copieTrads");débutCh();
+    chargerLesTraductions.affPourcentageTraduit();
+    finCh("affPourcentageTraduit");débutCh();
+    /*chargerLesTraductions.ajouterTradAuto();
+    finCh("ajouterTradAuto");débutCh();
+    chargerLesTraductions.affPourcentageTraduit();
+    finCh("affPourcentageTraduit");*/
+  }
+  /**
+  *{@summary trim the image from args.}
+  *@version 1.21
+  */
+  public static void rbtCmd(String args[]){
+    String name = "";
+    name = args[1];int k=2;
+    while(name!=null){
+      debug.débogage("=============================Chargement de l'image "+name);
+      //Image i = image.getImage(nom,image.getREP());
+      Img img = new Img(image.getImage(name,image.getREP()));
+      debug.débogage("=============================Ronage de l'image "+name);
+      img.rognerBordTransparent();
+      img.actualiserImage();
+      debug.débogage("=============================Sauvegarde de l'image "+name);
+      img.sauvegarder(image.getREP(),name+".png");
+      try {
+        name=args[k++];
+      }catch (Exception e) {
+        name=null;
+      }
     }
   }
 }

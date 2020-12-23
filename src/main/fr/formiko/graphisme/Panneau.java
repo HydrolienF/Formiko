@@ -20,7 +20,7 @@ public class Panneau extends JPanel {//implements ActionListener{
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Panneau(){
-
+    //setOpaque(false); //cause issues about Bouton.
   }
   // GET SET --------------------------------------------------------------------
   //public int getTailleDUneCase(){return tailleDUneCase;}
@@ -55,7 +55,7 @@ public class Panneau extends JPanel {//implements ActionListener{
     //Redéfinition de la méthode actionPerformed()
     public void actionPerformed(ActionEvent arg0) {
       //Lorsque l'on clique sur le bouton, on met à jour le JLabel
-      this.compteur++;
+      compteur++;
     }
   }
 }

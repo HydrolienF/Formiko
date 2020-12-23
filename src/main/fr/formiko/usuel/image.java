@@ -8,6 +8,8 @@ import java.awt.Image;
 import fr.formiko.usuel.conversiondetype.str;
 import fr.formiko.usuel.math.math;
 import fr.formiko.usuel.fichier;
+import java.awt.image.BufferedImage;
+import java.awt.Graphics2D;
 
 /**
  *{@summary image class that contain a lot of tools to use images. <br/>}
@@ -46,16 +48,16 @@ public class image{
    *@return Image on the file or null if something went wrong.
    *@version 1.3
    */
-  public static Image readImage(File f){
+  public static BufferedImage readImage(File f){
     if(!isImage(f)){erreur.erreur("L'Image sencé être dans le fichier suivant n'as pas été reconnue en temps qu'image. "+f.toString());return null;}
     try {
       return ImageIO.read(f);
-    }catch (Exception e) {
+    }catch (IOException e) {
       //on n'affiche plus systématiquement l'erreur car on a parfois besoin d'essayer d'ouvrir une image et de ressevoir null pour réésayer dans un autre répertoire.
       //erreur.erreur("L'Image sencé être dans le fichier suivant n'as pas été correctement trouvé et chargée. "+f.toString());
       return null;
     }
-  }
+  }public static BufferedImage readImage(String s){return readImage(new File(s));}
   /**
    *{@summary get an Image in 1 of the 3 usuals images directories.<br/>}
    *It will 1a search on REPTEXTUREPACK, then in REP and finaly in REP2.
@@ -64,8 +66,8 @@ public class image{
    *@param nom Name of the file without REP part.
    *@version 1.3
    */
-  public static Image getImage(String nom){
-    Image imgr = null;
+  public static BufferedImage getImage(String nom){
+    BufferedImage imgr = null;
     if(REPTEXTUREPACK!=null){imgr = getImage(nom,REPTEXTUREPACK);}
     if(imgr==null){imgr = getImage(nom,REP);}
     if(imgr==null){imgr = getImage(nom,REP2);}//si on ne l'as pas trouvé dans le 1a répertoire on vas chercher dans le 2a.
@@ -80,10 +82,11 @@ public class image{
    *@param repTemp directory were to search.
    *@version 1.3
    */
-  public static Image getImage(String nom, String repTemp){
-    Image imgr = null;
+  public static BufferedImage getImage(String nom, String repTemp){
+    BufferedImage imgr = null;
+    repTemp = str.sToDirectoryName(repTemp);
     // si le .png ou .jpg etc n'as pas été précisé, on teste les 2 terminaison (.png d'habord).
-    if(str.contient(nom,".png",2) || str.contient(nom,".png",2)){//si on a déja un .png ou un .jpd a la fin du nom.
+    if(str.contient(nom,".png",2) || str.contient(nom,".jpg",2)){//si on a déja un .png ou un .jpd a la fin du nom.
       imgr = readImage(new File(repTemp+nom));
     }else{//sinon il nous faut ajouter l'un ou l'autre.
       String nomTemp = nom + ".png";
@@ -111,8 +114,8 @@ public class image{
    *@param x Needed only if x!=0. x is the 1a number of the numbering.
    *@version 1.3
    */
-  public static Image [] getImages(String nom,char lettre, int nbr, byte x){
-    Image tr [] = new Image [nbr];int k=x;
+  public static BufferedImage [] getImages(String nom,char lettre, int nbr, byte x){
+    BufferedImage tr [] = new BufferedImage [nbr];int k=x;
     for (int i=0;i<nbr ;i++ ) {
       String s = nom+k+lettre;
       if(lettre==' ' || lettre=='ø'){ s = nom+k;}
@@ -120,8 +123,8 @@ public class image{
     }
     return tr;
   }
-  public static Image [] getImages(String nom, int nbr, byte x){ return getImages(nom,' ',nbr,x);}
-  public static Image[] getImages(String nom, byte x){return getImages(nom, getNbrImages(nom, x));}
+  public static BufferedImage [] getImages(String nom, int nbr, byte x){ return getImages(nom,' ',nbr,x);}
+  public static BufferedImage[] getImages(String nom, byte x){return getImages(nom, getNbrImages(nom, x));}
   /**
    *{@summary Fined the last existing number of image from x.<br/>}
    *Image are File who end with ".png" or ".jpg"
@@ -158,8 +161,8 @@ public class image{
     if(nbr==x-1){return 0;}//si on est jamais entré dans la boucle.
     return math.max(nbr,0);
   }public static int getNbrImages(String n, String rep){return getNbrImages(n,rep,(byte)0);}
-  public static Image[] getImages(String nom, int nbr){ return getImages(nom,nbr,(byte)0);}
-  public static Image[] getImages(String nom){ return getImages(nom,(byte)0);}
+  public static BufferedImage[] getImages(String nom, int nbr){ return getImages(nom,nbr,(byte)0);}
+  public static BufferedImage[] getImages(String nom){ return getImages(nom,(byte)0);}
   /**
    *{@summary get an array [][] of Image.<br/>}
    *Image are File who end with ".png" or ".jpg"<br>
@@ -169,8 +172,8 @@ public class image{
    *@param x Needed only if x!=0. x is the 1a number of the numbering.
    *@version 1.3
    */
-  public static Image[][] getImagess(String nom, int nbr, byte x){
-    Image tr [][]= new Image[4][];
+  public static BufferedImage[][] getImagess(String nom, int nbr, byte x){
+    BufferedImage tr [][]= new BufferedImage[4][];
     //nom = "temporaire/"+nom;
     tr[0] = getImages(nom,'h',nbr,x);
     if(Main.getElementSurCarteOrientéAprèsDéplacement()){
@@ -181,9 +184,9 @@ public class image{
     return tr; // tr[1] et plus est null si l'orrientation n'est pas prise en compte.
   }
 
-  public static Image[][] getImagess(String nom, int nbr){ return getImagess(nom,nbr,(byte)0);}
-  public static Image[][] getImagess(String nom){ return getImagess(nom,(byte)0);}
-  public static Image[][] getImagess(String nom, byte x){ return getImagess(nom,getNbrImages(nom),x);}
+  public static BufferedImage[][] getImagess(String nom, int nbr){ return getImagess(nom,nbr,(byte)0);}
+  public static BufferedImage[][] getImagess(String nom){ return getImagess(nom,(byte)0);}
+  public static BufferedImage[][] getImagess(String nom, byte x){ return getImagess(nom,getNbrImages(nom),x);}
   /**
    *{@summary transforme to Scaled instance a Image []<br/>}
    *@param width the width to which to scale the image.
@@ -191,7 +194,7 @@ public class image{
    *@param hints flags to indicate the type of algorithm to use for image resampling.
    *@version 1.3
    */
-  public static Image [] getScaledInstance(Image img [],int width, int heigth, int hints){
+  public static BufferedImage [] getScaledInstance(BufferedImage img [],int width, int heigth, int hints){
     int len = img.length;
     for (int i=0;i<len ;i++ ) {
       img[i].getScaledInstance(width,heigth,hints);
@@ -253,7 +256,7 @@ public class image{
   }
   public static boolean deleteDirectory(File f){ return fichier.deleteDirectory(f);}
 
-  public Image rognerImage(Image i){
+  public BufferedImage rognerImage(BufferedImage i){
     Img img = new Img(i);
     img.rognerBordTransparent();
     img.actualiserImage();
@@ -261,7 +264,7 @@ public class image{
     try {
       File f = new File(REP+"tempFromImage.png");
       if(isImage(f)){
-        Image i2 = getImage("tempFromImage");
+        BufferedImage i2 = getImage("tempFromImage");
         return i2;
       }else{
         erreur.erreur("impossible de charger l'image correctement","image.rognerImage");
@@ -271,4 +274,18 @@ public class image{
     }
     return i;
   }
+  /**
+  *{@sumary a better fonction to getScaledInstance and return a BufferedImage.}
+  *cf https://stackoverflow.com/questions/9417356/bufferedimage-resize/9417836#9417836
+  */
+  public static BufferedImage resize(BufferedImage bi, int newW, int newH) {
+    Image tmp = bi.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+    BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+
+    Graphics2D g2d = dimg.createGraphics();
+    g2d.drawImage(tmp, 0, 0, null);
+    g2d.dispose();
+
+    return dimg;
+  }public static BufferedImage resize(BufferedImage bi, int newHW){ return resize(bi,newHW,newHW);}
 }

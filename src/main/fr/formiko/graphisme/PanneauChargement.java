@@ -8,9 +8,10 @@ import fr.formiko.usuel.image.image;
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.math.allea;
 import fr.formiko.usuel.liste.GString;
+import java.awt.image.BufferedImage;
 
 public class PanneauChargement extends Panneau {
-  private Image img [];
+  private BufferedImage img [];
   private Bouton b;
   private int tempsTotalDeChargement;
   private Desc message;
@@ -22,13 +23,13 @@ public class PanneauChargement extends Panneau {
   public PanneauChargement(){
     this.setLayout(null);
     try {
-      Image img2 [] = image.getImages("chargement",image.getNbrImages("chargement"));
+      BufferedImage img2 [] = image.getImages("chargement",image.getNbrImages("chargement"));
       img = image.getScaledInstance(img2,Main.getDimX(), Main.getDimY(),Image.SCALE_SMOOTH);
     }catch (Exception e) {
       erreur.erreur("Impossible de charger l'image de la page de chargement","PanneauChargement.PanneauChargement");
-      img = new Image[1];
+      img = new BufferedImage[1];
       img[0]=image.getImage("null");
-      img[0]=img[0].getScaledInstance(Main.getDimX(), Main.getDimY(),Image.SCALE_SMOOTH);
+      img[0]=(BufferedImage) img[0].getScaledInstance(Main.getDimX(), Main.getDimY(),Image.SCALE_SMOOTH);
     }
     addMessage();
     addConseil();

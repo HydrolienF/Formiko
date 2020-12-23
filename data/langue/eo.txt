@@ -196,6 +196,7 @@ t.h:h
 t.min:min
 t.s:s
 t.ms:ms
+t.,:,
 jour:tago
 heure:horo
 minute:minuto
@@ -355,6 +356,7 @@ cmd.desc.26:montri la liston de ludantoj[auto]
 cmd.desc.27:aldonante estaĵon aŭ semon[auto]
 cmd.desc.28:evoluigi formikon aŭ estaĵon, kiu povas evolui.[auto]
 cmd.desc.29:montras la tekston respondan al la klavo donita kiel enigo.[auto]
+cmd.desc.36:revenu al la ĉefa menuo.[auto]
 
 cmd.args.2:ido de estaĵo[auto]
 cmd.args.3:ludantidentigilo[auto]

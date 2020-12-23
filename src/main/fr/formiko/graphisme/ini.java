@@ -103,7 +103,7 @@ public class ini {
           //créerDBG(ts[i],-1); // -1 = sans numérotation.
         }
         //les flèches
-        Main.getPz().tournerLesFleches();
+        Main.getData().tournerLesFleches();
       }
       Main.setAvancementChargement(1);
     }

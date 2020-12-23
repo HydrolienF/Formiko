@@ -19,7 +19,7 @@ public class PanneauSup extends Panneau{
   public void construire(){
     addMouseListener(new MouseAdapter() {
       @Override
-      public void mouseClicked(MouseEvent e) {
+      public void mouseReleased(MouseEvent e) {
         if(e.getButton()== MouseEvent.BUTTON1){
           if(vérifierPanneauDialogue(e)){return;}
           GCreature gc = new GCreature();

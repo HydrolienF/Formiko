@@ -4,6 +4,7 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 import fr.formiko.usuel.test.TestCaseMuet;
 import org.junit.Test;
 import org.junit.After;
+import org.junit.Before;
 import fr.formiko.usuel.image.image;
 import fr.formiko.usuel.image.Img;
 import fr.formiko.usuel.math.allea;

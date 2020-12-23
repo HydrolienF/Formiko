@@ -196,6 +196,7 @@ t.h:h
 t.min:min
 t.s:s
 t.ms:ms
+t.,:,
 jour:jour
 heure:heure
 minute:minute
@@ -398,7 +399,7 @@ conseil.6:Ne pondez pas trop d’œuf a la fois. Sinon vous ne serez plus capabl
 conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Les choix que vous avez à faire sont indiqué en haut a gauche de votre écran.
 conseil.9:Les fourmi ne possèdent pas de paupière pour humidifier leur yeux. Elles doivent constamment conserver une bonne hygiène de vie afin de pouvoir communiquer avec leur antennes et voir avec leur yeux.
-conseil.10:Les œuf, lave et nymphe ne sont pas capable de ce nettoyer tout seuls. Il leur faut nécessairement l'aide d'un imago sinon il risquerait d'être infecter par une mauvaise bactérie. veillez a ce que votre couvain reste au dessus de 50% de propreté.
+conseil.10:Les œux, lave et nymphe ne sont pas capable de ce nettoyer tout seuls. Il leur faut nécessairement l'aide d'un imago sinon il risquerait d'être infecter par une mauvaise bactérie. veillez a ce que votre couvain reste au dessus de 50% de propreté.
 conseil.11:La Reine ne peut pondre que lorsqu'elle est dans la fourmilière.
 conseil.12:Les fourmis granivore ce nourrisse exclusivement de graine. Pour stocker leur nourriture elles conservent les graines dans des pièces sèche de la fourmilière.
 conseil.13:Les fourmis granivore ne sont pas capable de trophallaxer. Pour nourrir le couvain elles doivent nécessairement avoir des graines ouverte en stock dans la fourmilière.
@@ -407,7 +408,7 @@ conseil.15:Le jeu vous semble trop compliqué ? Choisissez la difficulté facile
 conseil.16:Le jeu vous semble trop facile ? Essayez donc de remporter une partie en ultra difficile.
 conseil.17:Si vous préférez explorer la carte par vous même cochez l'option cases nuageuse.
 conseil.18:Avez vous déjà essayé de lancer une partie personnalisée avec seulement des ia ?
-conseil.19:Si vous observez attentivement la texture de l'herbe vous remarquerez peut-être qu'elle ne contient que 3 brin d'herbes différents.
+conseil.19:Vous pouvez charger une partie sauvegarder depuis le menu principal.
 conseil.20:Si il n'y a qu'une seule fourmi a nétoyer ou a nourrir sur la case où est votre fourmi, celle ci sera automatiquement selectioné pour être nétoyé ou nourrie.
 conseil.21:La langue du jeu est automatiquement celle de votre ordinateur, mais vous pouvez la modifier dans les Options.
 conseil.22:Certaines espèces de fourmis sont polycalique. C'est a dire qu'une reine issus d'une fourmilière A, pondra de nouvelle fourmi dans sa fourmilière B & les fourmis A et B continurons a s'entraider comme si elle ne formait qu'une grande fourmilière. Sur une grande carte il est utile de pondre des oeuf de reine et de male qui pourront fonder de nouvelle fourmilière allié a l'autre bout de la carte.

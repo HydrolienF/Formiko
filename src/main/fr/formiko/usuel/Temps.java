@@ -15,22 +15,22 @@ import java.util.Date;
  *@version 1.4
  */
 public class Temps {
-  /**
+  /***
    *{@summary Date of 1a lauch.<br/>}
    *@version 1.4
    */
   private long date1;
-  /**
+  /***
    *{@summary Date of last lauch.<br/>}
    *@version 1.4
    */
   private long date2;
-  /**
+  /***
    *{@summary Time played.<br/>}
    *@version 1.4
    */
   private long tempsEnJeux;
-  /**
+  /***
    *{@summary DateFormat.<br/>}
    *@version 1.4
    */
@@ -61,7 +61,7 @@ public class Temps {
     Date date2b = new Date(date2);
     r+=sdf.format(date2b);r+="\n";
     r+=g.getM("tempsEnJeux") + " : ";
-    r+=msToHMS(tempsEnJeux);r+="\n";
+    r+=msToTime(tempsEnJeux);r+="\n";
     /*En français ca donne :
     Date de 1ère connection : 02/09/2020 19:41
     Date de dernière connection : 02/09/2020 20:19
@@ -69,7 +69,10 @@ public class Temps {
     */
     return r;
   }
-  public void afficheToi(){System.out.println(this);}
+  /**
+  *{@summary Load all time informations save in data/Temps.txt.}
+  *@version 1.23
+  */
   public void chargerTemps(){
     //lecture du fichier data/Temps.txt
     String t [] = lireUnFichier.lireUnFichier("data/Temps.txt");
@@ -99,11 +102,85 @@ public class Temps {
   //static ---------------------------------------------------------------------------
   //TODO ajouter une méthode qui return un String de date le plus adapté possible avec un nombre défini d'unité allant de jours a ms.
   //par défaut on a 2 unité. ex : x jours y heures  ex2 : x min y s
+  /**
+  *{@summary return time with as specify number of unit.}
+  *@param ms times in ms.
+  *@param nbrOfUnit number of units to include in the return string.
+  *@param dayOn enable or disable day as a unit.
+  *@version 1.23
+  */
+  public static String msToTime(long ms, int nbrOfUnit, boolean dayOn){
+    if(nbrOfUnit<1){return "";}
+    String ts [] = {"t.j","t.h","t.min","t.s","t.ms"};
+    long tl [] = msToTimeLongArray(ms,dayOn);
+    int k=0; int i=0;
+    String r = "";
+    while(k<nbrOfUnit && i<5){
+      if(tl[i]>0){
+        if(!r.equals("")){r+=" ";}
+        if(i==3 && k+1 < nbrOfUnit && tl[i+1]>0){ //si on doit traiter les s et les ms ensembles.
+          String s = ""+tl[i+1];
+          while(s.length()<3){
+            s="0"+s;
+          }
+          while(s.length() > 1 && s.charAt(s.length()-1)=='0'){
+            s=s.substring(0,s.length()-1);
+          }
+          r+= tl[i]+g.get("t.,")+s+g.get(ts[i]);
+          k++;i++;
+        }else{
+          r+= tl[i]+g.get(ts[i]);
+        }
+        k++;
+      }
+      i++;//pour ne pas sortir du tableau.
+    }
+    if(r.equals("")){
+      r = tl[4]+g.get(ts[4]);
+    }
+    return r;
+  }
+  public static String msToTime(long ms){return msToTime(ms,2,true);}
+  /**
+  *{@summary return time on a long [].}
+  *@param ms times in ms.
+  *@param dayOn enable or disable day as a unit.
+  *@version 1.23
+  */
+  public static long [] msToTimeLongArray(long ms, boolean dayOn){
+    long tr [] = new long[5];
+    if(ms<0){
+      tr[4]=-1;
+      return tr;
+    }
+    int nbrMsD = 86400000; int nbrMsH = 3600000; int nbrMsM = 60000; int nbrMsS = 1000;
+    long d,h,m,s;
+    if(dayOn){
+      d = ms / nbrMsD;
+      h = (ms % nbrMsD) / nbrMsH;
+    }else{
+      d=0;
+      h = ms / nbrMsH;
+    }
+    m = (ms % nbrMsH) / nbrMsM;
+    s = (ms % nbrMsM) / nbrMsS;
+    ms = ms % nbrMsS;
+    tr[0]=d;tr[1]=h;tr[2]=m;tr[3]=s;tr[4]=ms;
+    return tr;
+  }
+  /**
+  *{@summary return current date + current hours.}
+  *@version 1.23
+  */
   public static String getDatePourSauvegarde(){
     String df2 = "dd-MM-yyyy HH-mm-ss";
     SimpleDateFormat sdf = new SimpleDateFormat(df2);
     return sdf.format(System.currentTimeMillis());
   }
+  /**
+  *{@summary Initialize time file.}
+  *@version 1.23
+  */
   public static void initialiserFichierTemps(){
     GString gs = new GString();
     gs.add(""+System.currentTimeMillis());
@@ -111,15 +188,24 @@ public class Temps {
     gs.add("0");
     ecrireUnFichier.ecrireUnFichier(gs,"data/Temps.txt");
   }
-  public static void pause(int millis){
-    if(millis<1){erreur.erreurPause(millis);}
+  /**
+  *{@summary Try to stop execution of the programme during some ms.}
+  *@args ms number of ms to wait before continue.
+  *@version 1.23
+  */
+  public static void pause(int ms){
+    if(ms<1){erreur.erreurPause(ms);}
     try {
-        Thread.sleep(millis);
+        Thread.sleep(ms);
     } catch (InterruptedException ie) {
-        erreur.erreurPause(millis);
+        erreur.erreurPause(ms);
     }
   }
   public static String msToS(int x){return msToS((long)x);}
+  /**
+  *{@summary Transform ms to s.}
+  *@version 1.23
+  */
   public static String msToS(long x){
     String sr = x/1000+g.get(",")+x%1000+"s";
     return sr;
@@ -139,9 +225,14 @@ public class Temps {
     if(h<=0 && m<=0 && s<=0) {r="0 "+g.get("t.s");}
     return r;
   }
-  public static void affDateDuJour(){
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+  /**
+  *{@summary Print current date.}
+  *@version 1.23
+  */
+  public static void affDateDuJour(String format){
+    SimpleDateFormat sdf = new SimpleDateFormat(format);
     Date date2b = new Date(System.currentTimeMillis());
     System.out.println(sdf.format(date2b));
   }
+  public static void affDateDuJour(){affDateDuJour("dd/MM/yyyy");}
 }

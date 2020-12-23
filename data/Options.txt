@@ -8,7 +8,7 @@ déplacementInstantané:1
 fourmiOrientéAprèsDéplacement:1
 nbrMessageAfficher:10
 dessinerGrille:1
-forcerQuitter:0
+forcerQuitter:1
 bordureBouton:2
 dessinerIcone:1
 taillePolice1:30
