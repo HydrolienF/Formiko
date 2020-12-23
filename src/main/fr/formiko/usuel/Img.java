@@ -187,7 +187,7 @@ public class Img implements Cloneable{
     return imgr;
   }
   /**
-  *Initialize width & height.
+  *Initialize width &#38; height.
   */
   public boolean iniWH(){
     try {
