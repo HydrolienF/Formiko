@@ -41,8 +41,8 @@ public class PanneauBouton extends Panneau {
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauBouton(){}
   public void construire(){
-    this.setLayout(null);
-    this.descS=""; desc = new Desc();
+    setLayout(null);
+    descS=""; desc = new Desc();
     actionF = -1; choixId = -1;
     int t [] = {0,1,2,3,4,5};
     ptb = new PanneauTBoolean(null);
@@ -59,9 +59,9 @@ public class PanneauBouton extends Panneau {
     setDesc("");
     descTI.setBounds(0,0,800);
     // on ajoute les éléments non visible. Les éléments visible sont ajouter 1 a 1 quand le besoin ce fait sentir.
-    this.add(descTI);
-    this.add(desc);
-    this.add(pz);
+    add(descTI);
+    add(desc);
+    add(pz);
   }
   // GET SET -------------------------------------------------------------------
   public String getDesc(){return descS;}
@@ -92,7 +92,7 @@ public class PanneauBouton extends Panneau {
     pz = new PanneauZoom();
     pz.construire();
     int x = pz.getTailleBouton()*3;
-    pz.setBounds(this.getWidth()-x,0,x,x);
+    pz.setBounds(getWidth()-x,0,x,x);
     pz.setOpaque(false);
     add(pz);
   }
@@ -128,12 +128,12 @@ public class PanneauBouton extends Panneau {
     pa = new PanneauAction(t);
     pa.construire();
     int xxx = pa.getTailleBouton();
-    pa.setBounds(0,this.getHeight()-pa.getHeight(),pa.getWidth(),pa.getHeight());
+    pa.setBounds(0,getHeight()-pa.getHeight(),pa.getWidth(),pa.getHeight());
     pas = new PanneauActionSup();
-    pas.setBounds(0,this.getHeight()-pas.getHeight(),pas.getWidth(),pas.getHeight());
+    pas.setBounds(0,getHeight()-pas.getHeight(),pas.getWidth(),pas.getHeight());
     //PanneauActionInf paiPrécédent = pai;
     pai = new PanneauActionInf();
-    pai.setBounds(0,this.getHeight()-pai.getHeight(),pai.getWidth(),pai.getHeight());
+    pai.setBounds(0,getHeight()-pai.getHeight(),pai.getWidth(),pai.getHeight());
     Main.getPs().actualiserTaille();
     add(pas);
     add(pa);
@@ -168,8 +168,8 @@ public class PanneauBouton extends Panneau {
     setDescTI(message);
     pchamp = new PanneauChamp(défaut);
     pchamp.setBounds(0,Desc.getDimY(),540,Desc.getDimY());
-    this.add(pchamp);
-    this.validate();
+    add(pchamp);
+    validate();
   }
   public void removePChamp(){ remove(pchamp);setDescTI("");}
   public void addPI(){
@@ -179,8 +179,8 @@ public class PanneauBouton extends Panneau {
     debug.débogage("addPI()");
     pi = new PanneauInfo(Main.getPj().getFActuelle(),Main.getTailleElementGraphiqueX(320));
     int xx2 = pz.getTailleBouton()*3;
-    debug.débogage("initialisation du PanneauInfo en "+(this.getWidth()-Main.getTailleElementGraphiqueX(320))+" "+Main.getTailleElementGraphiqueX(320));
-    pi.setBounds(this.getWidth()-Main.getTailleElementGraphiqueX(320),xx2,Main.getTailleElementGraphiqueX(320),pi.getYPi());
+    debug.débogage("initialisation du PanneauInfo en "+(getWidth()-Main.getTailleElementGraphiqueX(320))+" "+Main.getTailleElementGraphiqueX(320));
+    pi.setBounds(getWidth()-Main.getTailleElementGraphiqueX(320),xx2,Main.getTailleElementGraphiqueX(320),pi.getYPi());
     add(pi);
   }
   public void removePi(){ remove(pi);}
@@ -194,9 +194,9 @@ public class PanneauBouton extends Panneau {
     pij = new PanneauInfo(gs);
     add(pij);
     int xx = pz.getTailleBouton()*5;
-    debug.débogage("initialisation du PanneauInfoJoueur en "+(this.getWidth()-xx)+" "+(this.getHeight()-pij.getYPi()));
-    //pij.setBounds(this.getWidth()-xx,xx+pi.getY()*(pi.length()+1),pij.getX(),pij.getY()*pij.length());
-    pij.setBounds(this.getWidth()-xx,this.getHeight()-pij.getY(),pij.getWidth(),pij.getHeight());
+    debug.débogage("initialisation du PanneauInfoJoueur en "+(getWidth()-xx)+" "+(getHeight()-pij.getYPi()));
+    //pij.setBounds(getWidth()-xx,xx+pi.getY()*(pi.length()+1),pij.getX(),pij.getY()*pij.length());
+    pij.setBounds(getWidth()-xx,getHeight()-pij.getY(),pij.getWidth(),pij.getHeight());
   }
   public void removePij(){ remove(pij);}
   //repaint() permet de réactualisé paintComponent()
@@ -206,7 +206,7 @@ public class PanneauBouton extends Panneau {
       if(!Main.getPartie().getEnCours()){return;}
     }catch (Exception e) {}
     try {
-      //debug.g("PanneauBouton",this.getWidth(),this.getHeight());
+      //debug.g("PanneauBouton",getWidth(),getHeight());
       int xxx=0;
       try {
         xxx = pa.getHeight();
@@ -221,7 +221,7 @@ public class PanneauBouton extends Panneau {
   public void actualiserDesc(){
     debug.débogage("actualisation de la description");
     //int xxx = pa.getTailleBouton();
-    //desc.setBounds(0,this.getHeight()-xxx-Desc.getDimY(),(int)(desc.getText().length()*Main.getTaillePolice1()*0.6),Desc.getDimY());
+    //desc.setBounds(0,getHeight()-xxx-Desc.getDimY(),(int)(desc.getText().length()*Main.getTaillePolice1()*0.6),Desc.getDimY());
     desc.setTexte(descS);
     try {
       Main.repaint();

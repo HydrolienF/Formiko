@@ -19,8 +19,8 @@ public class PanneauEchap extends Panneau{
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public void PanneauEchap(){
-    this.setLayout(null);
-    //this.setOpaque(false);
+    setLayout(null);
+    //setOpaque(false);
     tb = new Bouton[0];
     setOpaque(true);
   }
@@ -29,7 +29,7 @@ public class PanneauEchap extends Panneau{
     Main.getPz().setEnabled(false);
     Main.getPc().setEnabled(false);
     Main.getPa().setEnabled(false);
-    //this.setBackground(new Color(50,50,50,100));
+    //setBackground(new Color(50,50,50,100));
     Main.getPs().setSize(0,0);
     setSize(Main.getDimX(),Main.getDimY());
     int lentb = 6;

@@ -34,7 +34,7 @@ public class PanneauJeu extends Panneau {
   private PanneauDialogueInf pdi;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauJeu(){
-    this.setLayout(null);
+    setLayout(null);
   }
   // GET SET -------------------------------------------------------------------
   public Fourmi getFActuelle(){ return fActuelle;}
@@ -66,16 +66,16 @@ public class PanneauJeu extends Panneau {
   public void paintComponent(Graphics g){
     try {
       pc.actualiserSize();
-      //pc.setBounds(0,0,this.getWidth(),this.getHeight());
+      //pc.setBounds(0,0,getWidth(),getHeight());
     }catch (Exception e) {}
     try {
-      pb.setBounds(0,0,this.getWidth(),this.getHeight());
+      pb.setBounds(0,0,getWidth(),getHeight());
     }catch (Exception e) {}
     try {
-      ps.setBounds(0,0,this.getWidth(),this.getHeight());
+      ps.setBounds(0,0,getWidth(),getHeight());
     }catch (Exception e) {}
     try {
-      pe.setBounds(0,0,this.getWidth(),this.getHeight());
+      pe.setBounds(0,0,getWidth(),getHeight());
     }catch (Exception e) {}
     try {
       pd.setBounds(0,0,pd.getWidth(),pd.getHeight());
@@ -135,7 +135,7 @@ public class PanneauJeu extends Panneau {
   }
   public void addPch(){
     pch = new PanneauChargement();
-    pch.setBounds(0,0,this.getWidth(),this.getHeight());
+    pch.setBounds(0,0,getWidth(),getHeight());
     add(pch);
     pc.setVisible(false);
     pb.setVisible(false);
@@ -152,7 +152,7 @@ public class PanneauJeu extends Panneau {
   }
   public void addPfp(String mess, GJoueur gj){
     pfp = new PanneauFinPartie(mess,gj);
-    pfp.setBounds(this.getWidth()/4,this.getHeight()/8,this.getWidth()/2,(this.getHeight()*3)/4);
+    pfp.setBounds(getWidth()/4,getHeight()/8,getWidth()/2,(getHeight()*3)/4);
     add(pfp);
     pb.setVisible(false);
     ps.setSize(0,0);
@@ -180,9 +180,9 @@ public class PanneauJeu extends Panneau {
             erreur.erreur("aucune fourmi n'est selectionné pour réaliser l'action voulue.");
           }else{
             debug.débogage("clic qui lance "+(ac-20));
-            this.getPb().setActionF(ac-20);
+            getPb().setActionF(ac-20);
           }
-          this.repaint();
+          repaint();
         }else if(ac==111){
           Main.getPch().setLancer(true);
         }else if(ac==112){//retour au menu
@@ -193,10 +193,10 @@ public class PanneauJeu extends Panneau {
           Main.getPartie().setContinuerLeJeu(true);
           Main.repaint();
         }else if(ac>=40){
-          pb.setChoixId(this.getPb().getPti().getBoutonX(ac-40));
+          pb.setChoixId(getPb().getPti().getBoutonX(ac-40));
           getPb().remove(getPb().getPti());
           pb.setPti(new PanneauTInt(null,pb));
-          this.repaint();
+          repaint();
         }
       }else { // si seule les actions du PanneauEchap doivent etre prise en compte.
         if(ac==-9){
@@ -234,10 +234,10 @@ public class PanneauJeu extends Panneau {
     pc.setPosY(math.max(gc.getNbrY()/2 - nbrDeCaseAffichableY(),0));
   }
   public int nbrDeCaseAffichableX(){
-    return (this.getWidth()/pc.getTailleDUneCase())+1;
+    return (getWidth()/pc.getTailleDUneCase())+1;
   }
   public int nbrDeCaseAffichableY(){
-    return (this.getHeight()/pc.getTailleDUneCase())+1;
+    return (getHeight()/pc.getTailleDUneCase())+1;
   }
   public void dézoomer(byte x){
     int y1 = Main.getDimX()/Main.getGc().getNbrX();
@@ -284,7 +284,7 @@ public class PanneauJeu extends Panneau {
     }else if(ac==8){
       dézoomer((byte)2);
     }
-    this.repaint();
+    repaint();
   }
   public void alerte(String s, String s2){
     JOptionPane jop1 = new JOptionPane();

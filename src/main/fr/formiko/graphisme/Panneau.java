@@ -55,7 +55,7 @@ public class Panneau extends JPanel {//implements ActionListener{
     //Redéfinition de la méthode actionPerformed()
     public void actionPerformed(ActionEvent arg0) {
       //Lorsque l'on clique sur le bouton, on met à jour le JLabel
-      this.compteur++;
+      compteur++;
     }
   }
 }
