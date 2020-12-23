@@ -494,7 +494,6 @@ public class Main {
    * @version 1.1
    */
   public static void initialisation(){
-    iniCh();
     tempsDeDébutDeJeu=System.currentTimeMillis();
     os = new Os();
     setMessageChargement("vérificationsDeLArborécence");débutCh();
