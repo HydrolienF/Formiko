@@ -9,7 +9,7 @@ public class Chrono { //https://fr.jeffprod.com/blog/2015/un-chronometre-en-java
   private long pauseDepart=0;
   private long pauseFin=0;
   private long duree=0;
-  private final int id; private static int idCpt;
+  private final int id; private static int idCpt=0;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Chrono(){

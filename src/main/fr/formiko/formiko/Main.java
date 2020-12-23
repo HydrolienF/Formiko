@@ -494,7 +494,7 @@ public class Main {
    * @version 1.1
    */
   public static void initialisation(){
-    ch = new Chrono();
+    iniCh();
     tempsDeDébutDeJeu=System.currentTimeMillis();
     os = new Os();
     setMessageChargement("vérificationsDeLArborécence");débutCh();
@@ -544,7 +544,14 @@ public class Main {
     iniCpt();
   }
   /**
-   *{@summary initializes counter cpt of IEspece, Joueur, Fourmiliere ,ObjetAId.}
+   *{@summary Initializes Chrono ch.}
+   *@version 1.23
+   */
+  public static void iniCh(){
+    ch = new Chrono();
+  }
+  /**
+   *{@summary Initializes counter cpt of IEspece, Joueur, Fourmiliere ,ObjetAId.}
    *@version 1.7
    */
   public static void iniCpt(){
@@ -611,7 +618,10 @@ public class Main {
     finCh("sauvegardeLeLImage");
     //debug.setAffLesEtapesDeRésolution(false);
   }
-  public static void débutCh(){débutCh(ch);}
+  public static void débutCh(){
+    if(ch==null){iniCh();}
+    débutCh(ch);
+  }
   public static void finCh(String s){finCh(s,ch);}
   /**
    * Start Chrono
