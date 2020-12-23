@@ -15,22 +15,22 @@ import java.util.Date;
  *@version 1.4
  */
 public class Temps {
-  /**
+  /***
    *{@summary Date of 1a lauch.<br/>}
    *@version 1.4
    */
   private long date1;
-  /**
+  /***
    *{@summary Date of last lauch.<br/>}
    *@version 1.4
    */
   private long date2;
-  /**
+  /***
    *{@summary Time played.<br/>}
    *@version 1.4
    */
   private long tempsEnJeux;
-  /**
+  /***
    *{@summary DateFormat.<br/>}
    *@version 1.4
    */
@@ -69,7 +69,10 @@ public class Temps {
     */
     return r;
   }
-  public void afficheToi(){System.out.println(this);}
+  /**
+  *{@summary Load all time informations save in data/Temps.txt.}
+  *@version 1.23
+  */
   public void chargerTemps(){
     //lecture du fichier data/Temps.txt
     String t [] = lireUnFichier.lireUnFichier("data/Temps.txt");
@@ -99,11 +102,19 @@ public class Temps {
   //static ---------------------------------------------------------------------------
   //TODO ajouter une méthode qui return un String de date le plus adapté possible avec un nombre défini d'unité allant de jours a ms.
   //par défaut on a 2 unité. ex : x jours y heures  ex2 : x min y s
+  /**
+  *{@summary return current date + current hours.}
+  *@version 1.23
+  */
   public static String getDatePourSauvegarde(){
     String df2 = "dd-MM-yyyy HH-mm-ss";
     SimpleDateFormat sdf = new SimpleDateFormat(df2);
     return sdf.format(System.currentTimeMillis());
   }
+  /**
+  *{@summary Initialize time file.}
+  *@version 1.23
+  */
   public static void initialiserFichierTemps(){
     GString gs = new GString();
     gs.add(""+System.currentTimeMillis());
@@ -111,6 +122,11 @@ public class Temps {
     gs.add("0");
     ecrireUnFichier.ecrireUnFichier(gs,"data/Temps.txt");
   }
+  /**
+  *{@summary Try to stop execution of the programme during some ms.}
+  *@args ms number of ms to wait before continue.
+  *@version 1.23
+  */
   public static void pause(int ms){
     if(ms<1){erreur.erreurPause(ms);}
     try {
@@ -120,6 +136,10 @@ public class Temps {
     }
   }
   public static String msToS(int x){return msToS((long)x);}
+  /**
+  *{@summary Transform ms to s.}
+  *@version 1.23
+  */
   public static String msToS(long x){
     String sr = x/1000+g.get(",")+x%1000+"s";
     return sr;
@@ -139,9 +159,14 @@ public class Temps {
     if(h<=0 && m<=0 && s<=0) {r="0 "+g.get("t.s");}
     return r;
   }
-  public static void affDateDuJour(){
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+  /**
+  *{@summary Print current date.}
+  *@version 1.23
+  */
+  public static void affDateDuJour(String format){
+    SimpleDateFormat sdf = new SimpleDateFormat(format);
     Date date2b = new Date(System.currentTimeMillis());
     System.out.println(sdf.format(date2b));
   }
+  public static void affDateDuJour(){affDateDuJour("dd/MM/yyyy");}
 }
