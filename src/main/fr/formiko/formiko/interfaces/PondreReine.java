@@ -23,9 +23,13 @@ public class PondreReine implements Serializable, Pondre{
   */
   public void unePonte( Creature c){
     debug.débogage("la créature "+c.getId()+" tente de pondre");
-    f = (Fourmi) c;
-    pondre();
-    debug.débogage("fin de la ponte");
+    if(c instanceof Fourmi){
+      f = (Fourmi) c;
+      pondre();
+      debug.débogage("fin de la ponte");
+    }else{
+      erreur.erreur("Une Creature non fourmi essaie de pondre comme une reine.","PondreReine,unePonte");
+    }
   }
   /**
   *Lay an egg.
