@@ -28,7 +28,7 @@ public class PondreReine implements Serializable, Pondre{
       pondre();
       debug.débogage("fin de la ponte");
     }else{
-      erreur.erreur("Une Creature non fourmi essaie de pondre comme une reine.","PondreReine,unePonte");
+      erreur.erreurType("Fourmi","PondreReine");
     }
   }
   /**
