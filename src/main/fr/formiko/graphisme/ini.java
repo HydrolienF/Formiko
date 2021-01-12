@@ -4,7 +4,7 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 //def par défaut des fichiers depuis 0.41.2
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.conversiondetype.str;
-import fr.formiko.usuel.Message;
+import fr.formiko.formiko.Message;
 import fr.formiko.usuel.image.*;
 import java.awt.Image;
 import fr.formiko.formiko.Touches;

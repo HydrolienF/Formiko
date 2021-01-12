@@ -60,7 +60,7 @@ public class Main {
   private static boolean affGraine=true;//tant que les espece granivore ne sont pas pleinement opérationelle.
   private static Temps tem;
   private static ThTriche trich; //écoute de commande triche dans le terminal.
-  private static ThGraphisme tg;//actualise la fenetre tt avec 20 seconde de pause entre chaque actualisation.
+  //private static ThGraphisme tg;//actualise la fenetre tt avec 20 seconde de pause entre chaque actualisation.
   private static boolean retournerAuMenu;
   private static Os os;
   private static boolean tuto=false;
@@ -68,7 +68,6 @@ public class Main {
   //private static ThMusique thm;
   private static boolean premierePartie=false;
   private static boolean jeuEnCours;
-  private static Save save;
   private static Data data;
 
   /**
@@ -111,7 +110,7 @@ public class Main {
       }else if(args[0].equals("op")){
         initialisation();
         chargerLesTraductions.iniTLangue();
-        op = chargerLesOptions.chargerLesOptions();
+        op = chargerLesOptions.chargerLesOptions(getVersionActuelle());
         op.sauvegarder();
       }else if(args[0].equals("supprimer")){
         initialisation();
@@ -377,7 +376,6 @@ public class Main {
   public static Fenetre getF(){ return f;}
   public static Options getOp(){return op;}
   public static Chrono getCh(){ return ch;}
-  public static String getMap(String clé){ return g.get(clé);}
   public static int getKey(String clé){ int r = key.get(clé);if(r==-1){return -1;}return r; }
   public static Partie getPartie(){ return pa;}
   public static void setPartie(Partie p){pa=p;}
@@ -397,8 +395,6 @@ public class Main {
   public static void setPremierePartie(boolean b){premierePartie=b;}
   public static boolean getJeuEnCours(){return jeuEnCours;}
   public static void setJeuEnCours(boolean b){jeuEnCours=b;}
-  public static Save getSave(){return save;}
-  public static void setSave(Save sa){save=sa;}
   public static Data getData(){return data;}
   //racourci
   public static boolean estWindows(){return os.getId()==1;}
@@ -497,7 +493,7 @@ public class Main {
     setMessageChargement("chargementDesOptions");débutCh();
     chargerLesTraductions.iniTLangue();
     iniOp();
-    save = Save.getSave();
+    sauvegarderUnePartie.setSave(Save.getSave());
     if(!debug.getAffLesEtapesDeRésolution()){//si elle n'ont pas été activé par "-d"
       debug.setAffLesEtapesDeRésolution(op.getAffLesEtapesDeRésolution());
     }
@@ -509,7 +505,7 @@ public class Main {
     }
     finCh("chargementDesOptions");
     setMessageChargement("chargementDesTouches");débutCh();
-    key = chargerLesTouches.chargerLesTouches();
+    key = chargerLesTouches.chargerLesTouches(getVersionActuelle());
     finCh("chargementDesTouches");
     setMessageChargement("chargementDesLangues");
     iniLangue();
@@ -565,7 +561,7 @@ public class Main {
    * @version 1.1
    */
   public static void iniOp(){
-    op = chargerLesOptions.chargerLesOptions();
+    op = chargerLesOptions.chargerLesOptions(getVersionActuelle());
   }
   /**
    * Load language.
@@ -638,7 +634,7 @@ public class Main {
       //System.out.println(g.getM("tempsJeuEcoulé")+" : "+ch.timeToHMS(tempsJeuEcoulé)+".");
       //System.out.println("\ud83d\ude00");//System.out.println("😀");
       tem.addTempsEnJeux(tempsJeuEcoulé);tem.actualiserDate2();tem.sauvegarder();
-      save.save();//sauvegarde de l'idS (id de sauvegarde) + de futur valeur importante.
+      sauvegarderUnePartie.getSave().save();//sauvegarde de l'idS (id de sauvegarde) + de futur valeur importante.
       System.out.println(g.getM("tempsJeuEcoulé")+" : "+Temps.msToTime(tempsJeuEcoulé,2,false));
       System.out.println(g.getM("messageQuitter"));
       System.exit(0);

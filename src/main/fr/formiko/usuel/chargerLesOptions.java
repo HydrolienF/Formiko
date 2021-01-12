@@ -1,5 +1,5 @@
 package fr.formiko.usuel;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.formiko.Options;
@@ -14,16 +14,16 @@ import fr.formiko.usuel.image.image;
 
 public class chargerLesOptions {
   // Fonctions propre -----------------------------------------------------------
-  public static Options chargerLesOptions(){
+  public static Options chargerLesOptions(int versionActuelle){
     //pas de vérifications de la 1a partie du texte qui nous intéresse pas tant que le fichier est dans l'ordre.
     File f = new File("data/Options.txt");
     if (!f.exists()){ // si le fichier d'options n'existe pas.
-      chargerLesOptionsDe0();
+      chargerLesOptionsDe0(versionActuelle);
     }
     String t [] = lireUnFichier.lireUnFichier("data/Options.txt");
     Options op = new Options();
     int k=0;
-    if(decoderUnFichier.getIntDeLaLigne(t[k]) != Main.getVersionActuelle()){ return op;}k++;
+    if(decoderUnFichier.getIntDeLaLigne(t[k]) != versionActuelle){ return op;}k++;
     op.setLangue( decoderUnFichier.getByteDeLaLigne(t[k]));k++;
     op.setTailleBoutonZoom( decoderUnFichier.getByteDeLaLigne(t[k]));k++;
     op.setTailleBoutonAction( decoderUnFichier.getByteDeLaLigne(t[k]));k++;
@@ -65,10 +65,10 @@ public class chargerLesOptions {
     }
     return op;
   }
-  public static void chargerLesOptionsDe0(int langue, String pseudo){
+  public static void chargerLesOptionsDe0(int langue, String pseudo, int versionActuelle){
     //TODO passer par la méthode sauvegarder de Option pour tout sauvegarder.
     GString gs = new GString();
-    gs.ajouter("version compatible:"+Main.getVersionActuelle());
+    gs.ajouter("version compatible:"+versionActuelle);
     gs.ajouter("langue:"+langue);
     int x = Toolkit.getDefaultToolkit().getScreenSize().width; int t[]=new int[2];
     if(x>=1920*2){ //plus de 2*
@@ -120,12 +120,12 @@ public class chargerLesOptions {
     //TODO la musique est temporairement désactivé. La réactivé quand elle marchera.
     ecrireUnFichier.ecrireUnFichier(gs,"data/Options.txt");
   }
-  public static void chargerLesOptionsDe0(int l){chargerLesOptionsDe0(l,"");}
-  public static void chargerLesOptionsDe0(){
+  //public static void chargerLesOptionsDe0(int l){chargerLesOptionsDe0(l,"");}
+  public static void chargerLesOptionsDe0(int versionActuelle){
     Locale currentLocale = Locale.getDefault();
     debug.débogage("Langue locale = "+currentLocale.getLanguage());
     String lang = currentLocale.getLanguage();
     chargerLesTraductions.iniTLangue();
-    chargerLesOptionsDe0(chargerLesTraductions.getLangue(lang));
+    chargerLesOptionsDe0(chargerLesTraductions.getLangue(lang),"",versionActuelle);
   }
 }
