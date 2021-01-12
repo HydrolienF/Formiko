@@ -3,6 +3,7 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.conversiondetype.str;
 import java.util.Map;
+import java.util.HashMap;
 
 /**
 *{@summary Get a translation class.<br>}
@@ -14,7 +15,7 @@ public class g {
    *Contain the Strings in the chosen language.
    *@version 1.1
    */
-  private static Map<String, String> map; // map.get(clé) permet d'obtenir le texte associé.
+  private static Map<String, String> map = new HashMap<String, String>(); // g.get(clé) permet d'obtenir le texte associé.
   public static void setMap(Map m){map=m;}
   // Fonctions propre -----------------------------------------------------------
   public static String get(String f, int x,String s){

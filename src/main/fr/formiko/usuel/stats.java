@@ -1,5 +1,5 @@
 package fr.formiko.usuel;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;// import fr.formiko.formiko.Main;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.liste.GGInt;
 import fr.formiko.usuel.liste.CCInt;
@@ -30,9 +30,9 @@ public class stats {
   *@version 1.13
   */
   public static void statsJavadoc(String chemin, boolean raccourcir){
-    Main.débutCh();
+    //Main.débutCh();
     GString gs = fichier.listerLesFichiersDuRep(chemin);
-    Main.finCh("listage des fichiers");Main.débutCh();
+    //Main.finCh("listage des fichiers");Main.débutCh();
     //gs = la liste des fichiers.
 
     GGInt ggi = new GGInt();
@@ -49,7 +49,7 @@ public class stats {
       }
       cs = cs.getSuivant();
     }
-    Main.finCh("récupération des data");Main.débutCh();
+    //Main.finCh("récupération des data");Main.débutCh();
 
     //GGInt = la liste de toutes les données.
     sommeDesComG=0;sommeDesFctLG=0;
@@ -62,7 +62,7 @@ public class stats {
     GString gsr = new GString();
     gsr.add("comment %    cl-pu-po-pr-sh-ln   name of the file");
     //gsr.add(total);
-    Main.finCh("calcul des valeur et du total");Main.débutCh();
+    //Main.finCh("calcul des valeur et du total");Main.débutCh();
     //ajouter tt les autres.
     CCInt cci = ggi.getDébut();
     CCInt cci2 = ggi2.getDébut();
@@ -83,9 +83,9 @@ public class stats {
     GInt gi2 = new GInt(); gi2.add(sommeDesClassG);gi2.add(sommeDesFctLPuG);gi2.add(sommeDesFctLPoG);gi2.add(sommeDesFctLPrG);
     String s="global";
     gsr.add(toStatJd(gi)+" "+toStatInfo(gi2,gi)+" "+sommeNbrDeLigneG+" "+s);
-    Main.finCh("traitement du GString");Main.débutCh();
+    //Main.finCh("traitement du GString");Main.débutCh();
     ecrireUnFichier.ecrireUnFichier(gsr,"stats.txt");
-    Main.finCh("sauvegarde finale");
+    //Main.finCh("sauvegarde finale");
   }public static void statsJavadoc(String chemin){statsJavadoc(chemin,false);}
 
   public static String toStatJd(CCInt cci){return toStatJd(cci.getContenu());}

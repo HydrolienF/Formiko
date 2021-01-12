@@ -1,5 +1,5 @@
 package fr.formiko.usuel;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.tableau;
 import java.io.File;
@@ -43,7 +43,7 @@ public class ecrireUnFichier {
     return true;
   }
   public static void ecrireUnFichier(GString tableauDeLigne){
-    String pseudo = "X";// + Main.getGj().getJoueurNonIa().getPseudo(); // le pseudo du 1a joueur non Ia.
+    String pseudo = "X";
     LocalDateTime date = LocalDateTime.now();
     String dateFr = date.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH;mm;ss"));
     String nomDuFichier = read.getString("nomDuFichier"," ");

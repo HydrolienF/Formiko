@@ -1,5 +1,5 @@
 package fr.formiko.usuel.image;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur;
@@ -22,6 +22,7 @@ import java.awt.Color;
 import fr.formiko.usuel.image.image;
 import fr.formiko.usuel.math.math;
 import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.Chrono;
 
 /**
 *{@summary Img is a BufferedImage where you can edit pixel value, then save it on a local file or draw it.<br>}
@@ -245,7 +246,6 @@ public class Img implements Cloneable{
   }*/
   /**
   *{@summary save the Img as a .png image with a correct name.<br>}
-  *If Main.getOx() value is defined some char will be tolerate or not depending of the OS.
   *@param rep the directory were to save the image.
   *@param filename the name of the Image file. (without .png).
   */
@@ -408,7 +408,7 @@ public class Img implements Cloneable{
   *{@summary Use to refresh the BufferedImage before draw it or save it.<br>}
   */
   public void actualiserImage(){
-    Main.débutCh();
+    Chrono.debutCh();
     iniWH();
     //néssésaire si l'image n'as plus les mêmes dimentions.
     bi = new BufferedImage(width,height,java.awt.image.BufferedImage.TYPE_INT_ARGB);
@@ -423,7 +423,7 @@ public class Img implements Cloneable{
         //pixelActualisé++;
       }
     }
-    Main.finCh("actualiserImage");
+    Chrono.finCh("actualiserImage");
     //debug.débogage(pixelActualisé+" pixels ont été actualisé.");
   }
   /**
