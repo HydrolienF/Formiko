@@ -52,8 +52,9 @@ public class Img implements Cloneable{
     }*/
     width = bi.getWidth();
     height = bi.getHeight();
-    debug.débogage("Initialisation des 4 tableaux.");
+    debug.débogage("Initialisation des 4 tableaux.");Chrono.debutCh();
     setRouge(); setVert(); setBleu(); setAlpha();
+    Chrono.finCh("4 tableaux de pixel initialiser");
   }
   /**
   *Constructs a new Img with a fileName.
@@ -358,6 +359,7 @@ public class Img implements Cloneable{
   *{@summary Count how much of eatch pixel there is on the image.<br>}
   */
   public HashMap<Pixel, Integer> compterChaquePixel(){
+    Chrono.debutCh();
     //faire une liste de tt les pixels différents
     //compter le nombre de pixel identique pour chaque pixel dans la liste.
     HashMap<Pixel, Integer> hm = new HashMap<Pixel, Integer>();
@@ -380,6 +382,7 @@ public class Img implements Cloneable{
         }
       }
     }
+    Chrono.finCh("compterChaquePixel");
     return hm;
   }
   /**
@@ -388,6 +391,7 @@ public class Img implements Cloneable{
   public void compterChaquePixelToHtml(){
     HashMap hm = compterChaquePixel();
     String sr = "";
+    Chrono.debutCh();
     //for (var item : hm.entrySet()) {
     Object to[] = hm.keySet().toArray();
     Pixel tp[] = new Pixel[to.length];
@@ -397,7 +401,7 @@ public class Img implements Cloneable{
     for (int i=0;i<tp.length ; i++) {
       sr+="{label:'"+tp[i].toString()+"', y:"+hm.get(tp[i])+"},\n";
     }
-
+    Chrono.finCh("compterChaquePixelToHtml");
     System.out.println(getResultAsHtmlDiv(sr));
   }
   /**
