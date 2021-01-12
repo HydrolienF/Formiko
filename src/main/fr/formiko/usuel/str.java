@@ -1,5 +1,5 @@
 package fr.formiko.usuel.conversiondetype;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.ascii;
 import fr.formiko.usuel.tableau;
@@ -90,9 +90,11 @@ public class str{
   public static String filtreCharInterdit(String s){
     if(s==null){return null;}
     char w [] = {'<', '>', ':', '\"', '/', '\\', '|', '?', '*'};
-    char ml [] = {':','/','\\'};
-    if(Main.getOs()==null || Main.getOs().isWindows()){ return filtreCharInterdit(s,w);}
-    return filtreCharInterdit(s,ml);
+    //char ml [] = {':','/','\\'};
+    //if(Main.getOs()==null || Main.getOs().isWindows()){
+      return filtreCharInterdit(s,w);
+    //}
+    //return filtreCharInterdit(s,ml);
   }public static String sToFileName(String s){ return filtreCharInterdit(s);}
   /**
   *{@summary Transform a String to a directory name aviable on every os.<br>}

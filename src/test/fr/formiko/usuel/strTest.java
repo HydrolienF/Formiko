@@ -106,8 +106,9 @@ public class strTest extends TestCaseMuet{
     assertEquals("unNomDeFichier",str.filtreCharInterdit(s));
 
     s = "unNomDeFichier?";
-    Main.getOs().setId((byte)0);
-    assertEquals("unNomDeFichier?",str.filtreCharInterdit(s));
+    //os don't have an impact anymore.
+    //Main.getOs().setId((byte)0);
+    //assertEquals("unNomDeFichier?",str.filtreCharInterdit(s));
     Main.getOs().setId((byte)1);
     assertEquals("unNomDeFichier",str.filtreCharInterdit(s));
 
@@ -118,8 +119,8 @@ public class strTest extends TestCaseMuet{
     assertEquals("unNomDeFichier",str.filtreCharInterdit(s));
 
     s = "unNomDe/F*^ich|er";
-    Main.getOs().setId((byte)0);
-    assertEquals("unNomDeF*^ich|er",str.filtreCharInterdit(s));
+    //Main.getOs().setId((byte)0);
+    //assertEquals("unNomDeF*^ich|er",str.filtreCharInterdit(s));
     Main.getOs().setId((byte)1);
     assertEquals("unNomDeF^icher",str.filtreCharInterdit(s));
 

@@ -1,5 +1,5 @@
 package fr.formiko.usuel;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 
 public class Chrono { //https://fr.jeffprod.com/blog/2015/un-chronometre-en-java/
@@ -10,6 +10,7 @@ public class Chrono { //https://fr.jeffprod.com/blog/2015/un-chronometre-en-java
   private long pauseFin=0;
   private long duree=0;
   private final int id; private static int idCpt=0;
+  private static Chrono ch;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Chrono(){
@@ -57,9 +58,46 @@ public class Chrono { //https://fr.jeffprod.com/blog/2015/un-chronometre-en-java
     pauseFin=0;
   }
 
+  //static
   public static String timeToHMS(long tempsS){
     // IN : (long) temps en secondes
     // OUT : (String) temps au format texte : "1 h 26 min 3 s"
     return Temps.msToHMS(tempsS);
+  }
+  /**
+   *{@summary Initializes Chrono ch.}
+   *@version 1.23
+   */
+  public static void iniCh(){
+    ch = new Chrono();
+  }
+  public static void debutCh(){
+    if(ch==null){iniCh();}
+    debutCh(ch);
+  }
+  public static void finCh(String s){finCh(s,ch);}
+  /**
+   * Start Chrono
+   * @version 1.1
+   */
+  public static void debutCh(Chrono chTemp){ //début du Chrono.
+    //if(chTemp == null){chTemp = new Chrono();}
+    if(!debug.getAffLesPerformances()){ return;}
+    chTemp.start();
+  }
+  /**
+   * {@summary Stop Chrono and print a message about Chrono duration.<br>}
+   * The message will be print in console only if debug.setAffLesPerformances is true.<br>
+   *Message will be print only if the do more than 20ms.
+   * @version 1.18
+   */
+  public static void finCh(String s,Chrono chTemp){ // fin du Chrono.
+    if(!debug.getAffLesPerformances()){ return;}
+    String s2 = g.getM(s);
+    if (s2.length()!=0){ s=s2;}
+    chTemp.stop();long lon = chTemp.getDuree();
+    if(!debug.getAffLesEtapesDeRésolution() && lon<20){return;}
+    String s3 = ""; if(!chTemp.equals(ch)){s3 = " ("+g.get("actionSecondaire")+" "+ch.getId()+")";}
+    debug.performances("temps pour "+ s + " : "+lon+" ms"+s3); //affichage du chrono.
   }
 }

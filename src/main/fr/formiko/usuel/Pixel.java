@@ -1,5 +1,5 @@
 package fr.formiko.usuel.image;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.formiko.Pheromone;
 import java.awt.Color;
@@ -39,8 +39,10 @@ public class Pixel {
     if(this.getA()!=p.getA()){ return false;}
     return true;
   }
-  public void afficheToi(){
-    System.out.println(r+" "+g+" "+b+" "+a);
+  public String toString(){
+    String s = (r+128)+" "+(g+128)+" "+(b+128);
+    if(a>127)s+=" "+(a+128);
+    return s;
   }
   public Color piToColor(){
     return new Color(r,g,b,a);

@@ -1,5 +1,5 @@
 package fr.formiko.usuel;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.usuel.conversiondetype.str;
@@ -190,7 +190,7 @@ public class Temps {
   }
   /**
   *{@summary Try to stop execution of the programme during some ms.}
-  *@args ms number of ms to wait before continue.
+  *@param ms number of ms to wait before continue.
   *@version 1.23
   */
   public static void pause(int ms){

@@ -53,5 +53,6 @@ public class MourirInsecte implements Serializable, Mourir {
   public void devenirUnCadavre(Insecte i){
     i.setAge(0);//temps de putréfaction.
     i.setAgeMax(i.getAgeMax()/5);
+    i.tour = new TourCreatureMorte();
   }
 }

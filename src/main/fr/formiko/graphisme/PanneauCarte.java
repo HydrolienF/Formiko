@@ -122,6 +122,9 @@ public class PanneauCarte extends Panneau implements MouseListener{
     }
     Main.finCh("repaintDeLaCarte");
   }
+  /**
+  *Draw grid.
+  */
   public void dessinerGrille(Graphics g){
     if(Main.getDessinerGrille()){
       for (int i=0;i<xCase+1 ;i++ ) {

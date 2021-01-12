@@ -5,6 +5,8 @@ import fr.formiko.usuel.image.Img;
 import fr.formiko.usuel.test.TestCaseMuet;
 import org.junit.Test;
 import fr.formiko.usuel.tableau;
+import fr.formiko.usuel.image.Pixel;
+import java.util.HashMap;
 
 public class ImgTest extends TestCaseMuet{
 
@@ -196,5 +198,52 @@ public class ImgTest extends TestCaseMuet{
     //TODO s'arranger pour pouvoir tourner une image devrais changer ca.
     //tTest = img.compterBordTransparent();
     //assertTrue(tableau.equals(rs,tTest));
+  }
+  public void testCompterPixel(){
+    Img img = new Img(2,2);
+    Pixel p=new Pixel(128,128,128,128);
+    assertEquals(4,img.compterPixel(p));
+    p=new Pixel(128,128,128,127);
+    assertEquals(0,img.compterPixel(p));
+    p=new Pixel(0,128,128,128);
+    assertEquals(0,img.compterPixel(p));
+    byte tb [][] = new byte[2][2];
+    tb[0][0]=(byte)1;tb[0][1]=(byte)1;tb[1][0]=(byte)1;tb[1][1]=(byte)2;
+    img.setRouge(tb);
+    p=new Pixel(129,128,128,128);
+    assertEquals(3,img.compterPixel(p));
+    p=new Pixel(130,128,128,128);
+    assertEquals(1,img.compterPixel(p));
+  }
+  public void testCompterChaquePixel(){
+    Img img = new Img(2,2);
+    Pixel p=new Pixel(128,128,128,128);
+    HashMap hm = img.compterChaquePixel();
+    Object to[] = hm.keySet().toArray();
+    Pixel tp[] = new Pixel[to.length];
+    for (int i=0;i<to.length ;i++ ) {
+      tp[i] = (Pixel)to[i];
+    }
+    assertEquals(1,tp.length);
+    assertEquals(4,hm.get(tp[0]));
+    byte tb [][] = new byte[2][2];
+    tb[0][0]=(byte)1;tb[0][1]=(byte)1;tb[1][0]=(byte)1;tb[1][1]=(byte)2;
+    img.setRouge(tb);
+    hm = img.compterChaquePixel();
+    to = hm.keySet().toArray();
+    tp = new Pixel[to.length];
+    for (int i=0;i<to.length ;i++ ) {
+      tp[i] = (Pixel)to[i];
+    }
+    assertEquals(2,tp.length);
+    if(tp[0].equals(new Pixel(130,128,128,128))){
+      assertEquals(1,hm.get(tp[0]));
+      assertEquals(3,hm.get(tp[1]));
+    }else if (tp[1].equals(new Pixel(129,128,128,128))){
+      assertEquals(3,hm.get(tp[0]));
+      assertEquals(1,hm.get(tp[1]));
+    }else{
+      assertTrue(false);
+    }
   }
 }

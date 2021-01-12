@@ -1,5 +1,5 @@
 package fr.formiko.usuel;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.ObjetAId;
@@ -21,11 +21,14 @@ public class sauvegarderUnePartie {
   private static ObjectInputStream ois = null;
   private static final String REP = "data/sauvegarde/";
   private static String s="null";
+  private static Save save;
 
   // GET SET -----------------------------------------------------------------------
   public static void setS(String s2){s=s2;}
   public static String getRep(){return REP;}
   public static String getNomDuFichierComplet(){return str.ajouterALaFinSiNecessaire(REP+s,".save");}
+  public static Save getSave(){return save;}
+  public static void setSave(Save sa){save=sa;}
   // Fonctions propre -----------------------------------------------------------
   /**
    *{@summary Save a Partie <br/>}
@@ -35,7 +38,7 @@ public class sauvegarderUnePartie {
    *@version 1.2
    */
   public static void sauvegarder(Partie p, String nomDuFichier){
-    Main.setSave(Save.getSave());
+    setSave(Save.getSave());
     s=nomDuFichier;
     try {
       oos = new ObjectOutputStream(new FileOutputStream(getNomDuFichierComplet()));
@@ -44,7 +47,7 @@ public class sauvegarderUnePartie {
     }catch (Exception e) {
       erreur.erreur("Impossible de sauvegarder la partie pour une raison inconnue","sauvegarderUnePartie.sauvegarder");
     }
-    Main.getSave().addSave();
+    getSave().addSave();
   }
   /**
    *{@summary Load a Partie <br/>}
@@ -68,7 +71,8 @@ public class sauvegarderUnePartie {
   *{@summary Delete a save.}
   *@param nomDuFichier The name of the file to delete
   */
-  public static boolean supprimer(String numDuFichier){
+  public static boolean supprimer(String nomDuFichier){
+    s=nomDuFichier;
     String s = sauvegarderUnePartie.getNomDuFichierComplet();
     File f = new File(s);
     return f.delete();

@@ -2,7 +2,7 @@ package fr.formiko.formiko.interfaces;
 import fr.formiko.formiko.*;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
 //def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.Message;
+import fr.formiko.formiko.Message;
 import java.io.Serializable;
 
 /**
@@ -22,6 +22,7 @@ public class MourirFourmi implements Serializable, Mourir {
     c.setEstMort(true);
     if(c instanceof Fourmi){
       Fourmi f = (Fourmi)c;
+      System.out.println("fourmi "+f.getId()+" est morte de "+r);//@a
       Message.messageMort(f,r);
       supprimerDeLaCarte(f);
       if (f.getStade() != 0){

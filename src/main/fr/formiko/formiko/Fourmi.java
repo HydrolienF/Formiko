@@ -8,7 +8,7 @@ import fr.formiko.usuel.read;
 import fr.formiko.usuel.conversiondetype.str;
 import fr.formiko.usuel.menu;
 import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.Message;
+import fr.formiko.formiko.Message;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.liste.GString;
 import fr.formiko.formiko.interfaces.*;
@@ -273,20 +273,20 @@ public class Fourmi extends Creature implements Serializable{
     gs.add(g.get("espèce")+" : "+e.getNom());
     return gs;
   }
-  public void tourFourmi(){
+  public void tourF(){
     int idf = Main.getPs().getIdFourmiAjoué();
     if(idf!=-1 && getId()!=idf){mode=-1;Main.getPb().setVisiblePa(false);Main.getPb().removePi();return;}//si 1 fourmi spéciale est sencé joué et que ce n'est pas celle la.
     boolean estIa = fere.getJoueur().getIa();
     // débloquage des modes auto :
-    if (!estIa){ mode = -1;}
+    if(!estIa){ mode = -1;}
     else if(estReine()){mode = getModeReine();}
     else if(getTropDeNourriture()){mode=3;}
     else{mode = fere.getModeDéfaut();if(nourriture<5*in.getNourritureConso()){ mode=0;}}//choixMode();}
-    if (stade == 0){ // les fourmis qui ne sont pas encore née ne font rien
+    if(stade == 0){ // les fourmis qui ne sont pas encore née ne font rien
       // Un tour de jeu d'une Fourmi
       int direction=getDirAllea();
       byte choix=0; int j=0; int k=0;
-      while ( this.getAction() > 0 && k<actionMax+2) { // tant que la fourmie a encore des actions :
+      while(this.getAction() > 0 && k<actionMax+2) { // tant que la fourmie a encore des actions :
         if(k==actionMax+1){
           erreur.erreur("La fourmi "+ getId()+ " est en train de boucler dans ses actions","Fourmi.tourFourmi");
         }
@@ -336,7 +336,7 @@ public class Fourmi extends Creature implements Serializable{
     this.setAgePlus1(); this.salir();
     if (stade == 0 || stade == -1 || stade == -2) {this.setNourritureMoinsConsomNourriture();}
     // if contition de température appartient a l'intervale idéale (et que stade = -1, -2 ou -3) : re setAgePlus1();
-    if (!fere.getJoueur().getIa()) {
+    if (!fere.getJoueur().getIa()) { //pour un joueur humain.
       Main.getPj().setFActuelle(null);
       Main.getPb().setVisiblePa(false);
     }

@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.HashMap;
 import fr.formiko.usuel.conversiondetype.str;
-import fr.formiko.usuel.Message;
+import fr.formiko.formiko.Message;
 import fr.formiko.usuel.image.*;
 import java.awt.Image;
 import fr.formiko.graphisme.GEtiquetteJoueur;

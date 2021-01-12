@@ -41,7 +41,7 @@ public class CInsecte implements Serializable{
     return suivant.getInsecteParId(id);
   }
   public void tourInsecte(){
-    contenu.tourInsecte();
+    contenu.tour();
     if (suivant != null){
       suivant.tourInsecte();
     }else {

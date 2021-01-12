@@ -1,5 +1,5 @@
 package fr.formiko.usuel.image;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur;
@@ -22,6 +22,9 @@ import java.awt.Color;
 import fr.formiko.usuel.image.image;
 import fr.formiko.usuel.math.math;
 import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.Chrono;
+import fr.formiko.usuel.chargerLesTraductions;
+import java.util.HashMap;
 
 /**
 *{@summary Img is a BufferedImage where you can edit pixel value, then save it on a local file or draw it.<br>}
@@ -50,8 +53,9 @@ public class Img implements Cloneable{
     }*/
     width = bi.getWidth();
     height = bi.getHeight();
-    debug.débogage("Initialisation des 4 tableaux.");
+    debug.débogage("Initialisation des 4 tableaux.");Chrono.debutCh();
     setRouge(); setVert(); setBleu(); setAlpha();
+    Chrono.finCh("4 tableaux de pixel initialiser");
   }
   /**
   *Constructs a new Img with a fileName.
@@ -187,7 +191,7 @@ public class Img implements Cloneable{
     return imgr;
   }
   /**
-  *Initialize width & height.
+  *Initialize width &#38; height.
   */
   public boolean iniWH(){
     try {
@@ -245,7 +249,6 @@ public class Img implements Cloneable{
   }*/
   /**
   *{@summary save the Img as a .png image with a correct name.<br>}
-  *If Main.getOx() value is defined some char will be tolerate or not depending of the OS.
   *@param rep the directory were to save the image.
   *@param filename the name of the Image file. (without .png).
   */
@@ -340,7 +343,7 @@ public class Img implements Cloneable{
     }return xr;
   }
   /**
-  *{@summary Count how much a pixel there is on the image.<br>}
+  *{@summary Count how much pixel there is on the image.<br>}
   */
   public int compterPixel(Pixel a){
     int x=0;
@@ -352,6 +355,56 @@ public class Img implements Cloneable{
       }
     }
     return x;
+  }
+  /**
+  *{@summary Count how much of eatch pixel there is on the image.<br>}
+  */
+  public HashMap<Pixel, Integer> compterChaquePixel(){
+    Chrono.debutCh();
+    //faire une liste de tt les pixels différents
+    //compter le nombre de pixel identique pour chaque pixel dans la liste.
+    HashMap<Pixel, Integer> hm = new HashMap<Pixel, Integer>();
+    //ou Parcourir chaque pixel de l'image, si il est dans la liste on compte +1, sinon on l'ajoute dans la liste.
+    for (int i = 0 ; i < width; i++){
+      for (int j = 0; j < height; j++){
+        boolean estDansLaListe=false;
+        Pixel p2 = new Pixel(rouge[i][j],vert[i][j],bleu[i][j],alpha[i][j]);
+        if(alpha[i][j]!=-128){
+          for (Pixel p : hm.keySet()) {
+            if(p.equals(p2)){
+              hm.replace(p,hm.get(p)+1);
+              estDansLaListe=true;
+              break;
+            }
+          }
+          if(!estDansLaListe){
+            hm.put(p2,1);
+          }
+        }
+      }
+    }
+    Chrono.finCh("compterChaquePixel");
+    return hm;
+  }
+  /**
+  *{@summary Count how much of eatch pixel there is on the image & create a .html page to store the data.<br>}
+  */
+  public void compterChaquePixelToHtml(){
+    HashMap hm = compterChaquePixel();
+    g.setMap(chargerLesTraductions.chargerLesNationsName());
+    String sr = "";
+    Chrono.debutCh();
+    //for (var item : hm.entrySet()) {
+    Object to[] = hm.keySet().toArray();
+    Pixel tp[] = new Pixel[to.length];
+    for (int i=0;i<to.length ;i++ ) {
+      tp[i] = (Pixel)to[i];
+    }
+    for (int i=0;i<tp.length ; i++) {
+      sr+="{label:'"+g.get(tp[i].toString())+"', y:"+hm.get(tp[i])+"},\n";
+    }
+    Chrono.finCh("compterChaquePixelToHtml");
+    System.out.println(getResultAsHtmlDiv(sr));
   }
   /**
   *{@summary Replace pixel a by pixel b.<br>}
@@ -408,7 +461,7 @@ public class Img implements Cloneable{
   *{@summary Use to refresh the BufferedImage before draw it or save it.<br>}
   */
   public void actualiserImage(){
-    Main.débutCh();
+    Chrono.debutCh();
     iniWH();
     //néssésaire si l'image n'as plus les mêmes dimentions.
     bi = new BufferedImage(width,height,java.awt.image.BufferedImage.TYPE_INT_ARGB);
@@ -423,7 +476,7 @@ public class Img implements Cloneable{
         //pixelActualisé++;
       }
     }
-    Main.finCh("actualiserImage");
+    Chrono.finCh("actualiserImage");
     //debug.débogage(pixelActualisé+" pixels ont été actualisé.");
   }
   /**
@@ -592,5 +645,43 @@ public class Img implements Cloneable{
     }
     t[0]=a;t[1]=b;t[2]=c;t[3]=d;
     return t;
+  }
+
+  public String getResultAsHtmlDiv(String sr) {
+    String a =
+            "<!DOCTYPE HTML>\n" +
+                    "<html>\n" +
+                    "<head>\n" +
+                    "<meta charset=\"utf-8\">" +
+                  	"<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\">" +
+                    "<script src=\"https://canvasjs.com/assets/script/canvasjs.min.js\"></script>\n" +
+                    "<script type=\"text/javascript\">\n" +
+                    "\n" +
+                    "window.onload = function () {\n" +
+                    "\tvar chart = new CanvasJS.Chart(\"chartContainer\", {\n" +
+                    "\t\ttitle:{\n" +
+                    "\t\t\ttext: \""+"%age of claim"+"\"              \n" +
+                    "\t\t},\n" +
+                    "\t\tdata: [              \n" +
+                    "\t\t{\n" +
+                    "\t\t\t// Change type to \"doughnut\", \"line\", \"splineArea\", etc.\n" +
+                    "\t\t\ttype: \"pie\",\n" +
+                    "\t\t\tdataPoints: [\n" ;
+
+    String c =
+            "\t\t\t]\n" +
+                    "\t\t}\n" +
+                    "\t\t]\n" +
+                    "\t});\n" +
+                    "\tchart.render();\n" +
+                    "}\n" +
+                    "</script>\n" +
+                    "</head>\n" +
+                    "<body>\n" +
+                    "<img src=\"images/worldMapByHydrolien.jpg\" width=\"100%\" height=\"70%\">" +
+                    "<div id=\"chartContainer\" style=\"height: 30%; width: 300;\"></div>\n" +
+                    "</body>\n" +
+                    "</html>";
+    return a+sr+c;
   }
 }
