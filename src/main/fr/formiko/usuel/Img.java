@@ -23,6 +23,7 @@ import fr.formiko.usuel.image.image;
 import fr.formiko.usuel.math.math;
 import fr.formiko.usuel.conversiondetype.str;
 import fr.formiko.usuel.Chrono;
+import fr.formiko.usuel.chargerLesTraductions;
 import java.util.HashMap;
 
 /**
@@ -390,6 +391,7 @@ public class Img implements Cloneable{
   */
   public void compterChaquePixelToHtml(){
     HashMap hm = compterChaquePixel();
+    g.setMap(chargerLesTraductions.chargerLesNationsName());
     String sr = "";
     Chrono.debutCh();
     //for (var item : hm.entrySet()) {
@@ -399,7 +401,7 @@ public class Img implements Cloneable{
       tp[i] = (Pixel)to[i];
     }
     for (int i=0;i<tp.length ; i++) {
-      sr+="{label:'"+tp[i].toString()+"', y:"+hm.get(tp[i])+"},\n";
+      sr+="{label:'"+g.get(tp[i].toString())+"', y:"+hm.get(tp[i])+"},\n";
     }
     Chrono.finCh("compterChaquePixelToHtml");
     System.out.println(getResultAsHtmlDiv(sr));
@@ -650,6 +652,8 @@ public class Img implements Cloneable{
             "<!DOCTYPE HTML>\n" +
                     "<html>\n" +
                     "<head>\n" +
+                    "<meta charset=\"utf-8\">" +
+                  	"<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\">" +
                     "<script src=\"https://canvasjs.com/assets/script/canvasjs.min.js\"></script>\n" +
                     "<script type=\"text/javascript\">\n" +
                     "\n" +
@@ -674,7 +678,8 @@ public class Img implements Cloneable{
                     "</script>\n" +
                     "</head>\n" +
                     "<body>\n" +
-                    "<div id=\"chartContainer\" style=\"height: 300px; width: 100%;\"></div>\n" +
+                    "<img src=\"images/worldMapByHydrolien.jpg\" width=\"100%\" height=\"70%\">" +
+                    "<div id=\"chartContainer\" style=\"height: 30%; width: 300;\"></div>\n" +
                     "</body>\n" +
                     "</html>";
     return a+sr+c;

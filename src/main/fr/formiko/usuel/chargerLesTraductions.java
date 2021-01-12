@@ -130,6 +130,15 @@ public class chargerLesTraductions {
     }
     return t;
   }
+  public static String []getTableauDesNationsName(){
+    String t [] = new String[0];
+    try{
+      t=lireUnFichier.lireUnFichier("docs/cc/"+"nationsName"+".csv");
+    }catch (Exception e) {
+      erreur.erreur("Echec du chargement de nationsName");
+    }
+    return t;
+  }
   /**
   *{@summary get an array of command.<br>}
   *@version 1.7
@@ -168,6 +177,18 @@ public class chargerLesTraductions {
   public static Map<String, String> chargerLesTraductionsSansCommande(int langue){
     iniMap();
     String t[] = getTableauDesTrad(langue);
+    for (String s : t) {//on ajoute toutes les lignes qu'on peu ajouter.
+      ajouterObjetMap(s);
+    }
+    return map;
+  }
+  /**
+  *{@summary Load translation for nation name.<br>}
+  *@version 1.26
+  */
+  public static Map<String, String> chargerLesNationsName(){
+    iniMap();
+    String t[] = getTableauDesNationsName();
     for (String s : t) {//on ajoute toutes les lignes qu'on peu ajouter.
       ajouterObjetMap(s);
     }

@@ -1,0 +1,12 @@
+#discover{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+#map{
+  height: 80%;
+  width: 80%;
+}
+#chartContainer{
+  height: 40vh;
+}

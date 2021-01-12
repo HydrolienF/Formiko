@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<script type="text/javascript">
+
+	window.onload = function () {
+		var chart = new CanvasJS.Chart("chartContainer", {
+			title:{
+				text: "%age of claim"
+			},
+			data: [
+			{
+				// Change type to "doughnut", "line", "splineArea", etc.
+				type: "pie",
+				dataPoints: [
+	{label:'Britain', y:302},
+	{label:'Norway', y:454},
+	{label:'Finland', y:4274},
+	{label:'Spain', y:1494},
+	{label:'SR Erasia', y:5706},
+	{label:'Pakistan', y:1615},
+	{label:'Califate', y:3880},
+	{label:'United Arab Emirates', y:699},
+	{label:'Han', y:9178},
+	{label:'Corsica', y:28},
+	{label:'Islamic Bosnia', y:201},
+	{label:'seaTerrica', y:581},
+	{label:'Yue', y:4487},
+	{label:'Turkey', y:4207},
+	{label:'Denmark', y:399},
+	{label:'Russia', y:240},
+	{label:'Greece', y:397},
+	{label:'Prussia', y:2139},
+	{label:'Cartage', y:815},
+	{label:'No nation', y:68},
+	{label:'Italy', y:1146},
+	{label:'Netherlands', y:311},
+	{label:'Ireland', y:900},
+	{label:'Portugal', y:275},
+	{label:'Switzerland', y:165},
+	{label:'Libertaria', y:517},
+				]
+			}
+			]
+		});
+		chart.render();
+	}
+	</script>
+</head>
+<body syle="height: 100%">
+	<div id="discover">
+		<div id="map">
+			<h3>Map</h3>
+			<img class="map" src="images/worldMapByHydrolien.jpg" width="100%" height="100%" alt="" title="worldMapByHydrolien" />
+		</div>
+		<div id="chartContainer"></div>
+	</div>
+</body>
+</html>

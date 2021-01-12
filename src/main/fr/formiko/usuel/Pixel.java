@@ -40,7 +40,9 @@ public class Pixel {
     return true;
   }
   public String toString(){
-    return r+" "+g+" "+b+" "+a;
+    String s = (r+128)+" "+(g+128)+" "+(b+128);
+    if(a>127)s+=" "+(a+128);
+    return s;
   }
   public Color piToColor(){
     return new Color(r,g,b,a);

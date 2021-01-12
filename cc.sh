@@ -1,2 +1,2 @@
 #Actualize the stats of the Crusadecraft map.
-./run.sh cptPixels map >> docs/cc/text.html
+./run.sh cptPixels map > docs/cc/stats.html

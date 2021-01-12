@@ -16,6 +16,8 @@ public class g {
    *@version 1.1
    */
   private static Map<String, String> map = new HashMap<String, String>(); // g.get(clé) permet d'obtenir le texte associé.
+  // GET SET ----------------------------------------------------------
+  public static Map<String, String> getMap(){return map;}
   public static void setMap(Map m){map=m;}
   public static String getElementMap(String clé){ return map.get(clé);}
   // Fonctions propre -----------------------------------------------------------
