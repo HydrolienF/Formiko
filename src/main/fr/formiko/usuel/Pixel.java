@@ -39,8 +39,8 @@ public class Pixel {
     if(this.getA()!=p.getA()){ return false;}
     return true;
   }
-  public void afficheToi(){
-    System.out.println(r+" "+g+" "+b+" "+a);
+  public String toString(){
+    return r+" "+g+" "+b+" "+a;
   }
   public Color piToColor(){
     return new Color(r,g,b,a);

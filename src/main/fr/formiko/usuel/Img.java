@@ -23,6 +23,7 @@ import fr.formiko.usuel.image.image;
 import fr.formiko.usuel.math.math;
 import fr.formiko.usuel.conversiondetype.str;
 import fr.formiko.usuel.Chrono;
+import java.util.HashMap;
 
 /**
 *{@summary Img is a BufferedImage where you can edit pixel value, then save it on a local file or draw it.<br>}
@@ -340,7 +341,7 @@ public class Img implements Cloneable{
     }return xr;
   }
   /**
-  *{@summary Count how much a pixel there is on the image.<br>}
+  *{@summary Count how much pixel there is on the image.<br>}
   */
   public int compterPixel(Pixel a){
     int x=0;
@@ -352,6 +353,31 @@ public class Img implements Cloneable{
       }
     }
     return x;
+  }
+  /**
+  *{@summary Count how much of eatch pixel there is on the image.<br>}
+  */
+  public HashMap<Pixel, Integer> compterChaquePixel(){
+    //faire une liste de tt les pixels différents
+    //compter le nombre de pixel identique pour chaque pixel dans la liste.
+    HashMap<Pixel, Integer> hm = new HashMap<Pixel, Integer>();
+    //ou Parcourir chaque pixel de l'image, si il est dans la liste on compte +1, sinon on l'ajoute dans la liste.
+    for (int i = 0 ; i < width; i++){
+      for (int j = 0; j < height; j++){
+        boolean estDansLaListe=false;
+        Pixel p2 = new Pixel(rouge[i][j],vert[i][j],bleu[i][j],alpha[i][j]);
+        for (Pixel p : hm.keySet()) {
+          if(p.equals(p2)){
+            hm.replace(p,hm.get(p)+1);
+            estDansLaListe=true;
+          }
+        }
+        if(!estDansLaListe){
+          hm.put(p2,1);
+        }
+      }
+    }
+    return hm;
   }
   /**
   *{@summary Replace pixel a by pixel b.<br>}
