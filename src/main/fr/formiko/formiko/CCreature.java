@@ -222,7 +222,7 @@ public class CCreature implements Serializable{
     }else{
       erreur.erreur("Impossible de faire jouer comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.","CCreature.jouer");
     }
-    if(fActuel!=null){fActuel.tourFourmi();}
+    if(fActuel!=null){fActuel.tour();}
     if(suivant != null){
       suivant.jouer();
     }

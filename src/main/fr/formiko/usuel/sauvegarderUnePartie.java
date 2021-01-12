@@ -68,7 +68,8 @@ public class sauvegarderUnePartie {
   *{@summary Delete a save.}
   *@param nomDuFichier The name of the file to delete
   */
-  public static boolean supprimer(String numDuFichier){
+  public static boolean supprimer(String nomDuFichier){
+    s=nomDuFichier;
     String s = sauvegarderUnePartie.getNomDuFichierComplet();
     File f = new File(s);
     return f.delete();

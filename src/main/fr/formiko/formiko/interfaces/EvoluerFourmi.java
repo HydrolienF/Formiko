@@ -26,7 +26,7 @@ public class EvoluerFourmi implements Serializable, Evoluer{
     if(c instanceof Fourmi){
       f = (Fourmi)c;
     }else{
-      erreur.erreur("Impossible de faire EvoluerFourmi une créature qui n'est pas une Fourmi.");
+      erreur.erreurType("Fourmi","EvoluerFourmi");
       return;
     }
     if(f.getStade()==0){return;}
@@ -46,6 +46,7 @@ public class EvoluerFourmi implements Serializable, Evoluer{
       if (in.getCoutTrophallaxie() != -1) { f.trophallaxie = new TrophallaxieFourmi();}
       if (f.getEspece().getGranivore()){ f.collecte = new CollecteFourmi();}
       f.netoyer =  new NetoyerFourmi();
+      f.tour = new TourFourmi();
       // caractéristiques de l'espèce :
       f.setNourritureMax(in.getNourritureMax());
       f.setAction(in.getActionMax()); f.setActionMax(in.getActionMax());

@@ -190,7 +190,7 @@ public class Temps {
   }
   /**
   *{@summary Try to stop execution of the programme during some ms.}
-  *@args ms number of ms to wait before continue.
+  *@param ms number of ms to wait before continue.
   *@version 1.23
   */
   public static void pause(int ms){

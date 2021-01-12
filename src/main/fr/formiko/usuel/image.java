@@ -275,7 +275,7 @@ public class image{
     return i;
   }
   /**
-  *{@sumary a better fonction to getScaledInstance and return a BufferedImage.}
+  *{@summary a better fonction to getScaledInstance and return a BufferedImage.}
   *cf https://stackoverflow.com/questions/9417356/bufferedimage-resize/9417836#9417836
   */
   public static BufferedImage resize(BufferedImage bi, int newW, int newH) {

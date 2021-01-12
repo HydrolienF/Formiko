@@ -26,7 +26,13 @@ public class Insecte extends Creature implements Serializable{
   public Insecte (CCase p, int age, int ageMax, int actionMax){
     // Soit l'insecte est terrestre et vien de naitre, soit il est volant et il est mort.
     super(p,age,ageMax, actionMax);
-    if (action == 0){ estMort = true; age = ageMax; }
+    if (action == 0){
+      estMort = true;
+      age = ageMax;
+      tour = new TourCreatureMorte();
+    }else{
+      tour = new TourInsecte();
+    }
     this.nourritureMangeable =(byte) (allea.getAlléa(3)+1);// de 1 a 4.
     this.déplacement = new DeplacementFourmi();
     p.getContenu().getGc().ajouter(this);
@@ -84,25 +90,6 @@ public class Insecte extends Creature implements Serializable{
     String sr = g.getOu("le","la")+" "+getNom();
     sr+= " "+id+ m +" "+g.get("de")+" "+g.get("type")+" "+type+" "+p.desc()+" "+g.get("nourritureFournie")+" : " + getNourritureFournie() +" "+g.get("nourriture")+" "+nourriture+"/"+nourritureMax;
     return sr;
-  }
-  /**
-  *{@summary Play a turn as an Insecte.<br>}
-  *@version 1.13
-  */
-  public void tourInsecte(){
-    if(!estMort){
-      int i=0;
-      while( this.getAction()>i){
-        if (this.getNourriture()<this.getNourritureMax()/2 && this.getCCase().getContenu().getNourritureInsecte() > nourritureMangeable){
-          manger();
-        }else{
-          this.ceDeplacer(true); // ce déplacer de façon alléatoire.
-        }
-        i++;
-      }
-      // Un tour ça coute en age et en nourriture.
-      this.setNourritureMoins1();
-    }this.setAgePlus1(); //une fois morte une créature a un délai avant disparition total dans la variable age
   }
   /**
   *{@summary Eat as a grass eater.<br>}
