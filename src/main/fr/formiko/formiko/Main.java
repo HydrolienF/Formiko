@@ -105,8 +105,6 @@ public class Main {
       if(args[0].equals("trad")){
         initialisation();
         tradCmd();
-      }else if(args[0].equals("son")){
-        //System.out.println(Musique.getMusiqueAlleatoire());
       }else if(args[0].equals("op")){
         initialisation();
         chargerLesTraductions.iniTLangue();
@@ -127,22 +125,8 @@ public class Main {
         }else{
           erreur.alerte("arguments de supprimer incorecte");
         }
-      }else if(args[0].equals("save")){
-        /*initialisation();
-        pa = new Partie(0,0,new Carte(new GCase(1,1)),1.0); //nouvelle partie vide.
-
-        pa = getPartieParDéfaut();
-        pa.initialisationElément();
-        sauvegarderUnePartie.sauvegarder(pa,"testSave");
-        Partie p = sauvegarderUnePartie.charger("testSave");
-        if(p!=null){
-          System.out.println(p);
-          sauvegarderUnePartie.sauvegarder(p,"testSave2");
-        }else{
-          System.out.println("partie nulle");
-        }*/
-      /*}else if(args[0].equals("test")){
-        test.testAll();*/
+      }else if(args[0].equals("test")){
+        System.out.println(3);
       }else if(args[0].equals("trad2")){
         initialisation();
         chargerLesTraductions.iniTLangue();
@@ -164,6 +148,11 @@ public class Main {
         }else{
           stats.statsJavadoc("src/main/",true);
         }
+      }else if(args[0].equals("cptPixel")){
+        if(args.length>1){
+          Img img = new Img(args[1]);
+          Map map = img.compterChaquePixel();
+          System.out.println(map);
       }else{
         erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue");
       }
