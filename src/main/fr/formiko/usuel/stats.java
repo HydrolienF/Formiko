@@ -1,5 +1,5 @@
 package fr.formiko.usuel;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.liste.GGInt;
 import fr.formiko.usuel.liste.CCInt;
@@ -9,6 +9,7 @@ import fr.formiko.usuel.liste.GString;
 import fr.formiko.usuel.liste.CString;
 import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.Chrono;
 
 /**
 *{@summary A tool class about statistic. <br>}
@@ -30,9 +31,9 @@ public class stats {
   *@version 1.13
   */
   public static void statsJavadoc(String chemin, boolean raccourcir){
-    Main.débutCh();
+    Chrono.debutCh();
     GString gs = fichier.listerLesFichiersDuRep(chemin);
-    Main.finCh("listage des fichiers");Main.débutCh();
+    Chrono.finCh("listage des fichiers");Chrono.debutCh();
     //gs = la liste des fichiers.
 
     GGInt ggi = new GGInt();
@@ -49,7 +50,7 @@ public class stats {
       }
       cs = cs.getSuivant();
     }
-    Main.finCh("récupération des data");Main.débutCh();
+    Chrono.finCh("récupération des data");Chrono.debutCh();
 
     //GGInt = la liste de toutes les données.
     sommeDesComG=0;sommeDesFctLG=0;
@@ -62,7 +63,7 @@ public class stats {
     GString gsr = new GString();
     gsr.add("comment %    cl-pu-po-pr-sh-ln   name of the file");
     //gsr.add(total);
-    Main.finCh("calcul des valeur et du total");Main.débutCh();
+    Chrono.finCh("calcul des valeur et du total");Chrono.debutCh();
     //ajouter tt les autres.
     CCInt cci = ggi.getDébut();
     CCInt cci2 = ggi2.getDébut();
@@ -83,9 +84,9 @@ public class stats {
     GInt gi2 = new GInt(); gi2.add(sommeDesClassG);gi2.add(sommeDesFctLPuG);gi2.add(sommeDesFctLPoG);gi2.add(sommeDesFctLPrG);
     String s="global";
     gsr.add(toStatJd(gi)+" "+toStatInfo(gi2,gi)+" "+sommeNbrDeLigneG+" "+s);
-    Main.finCh("traitement du GString");Main.débutCh();
+    Chrono.finCh("traitement du GString");Chrono.debutCh();
     ecrireUnFichier.ecrireUnFichier(gsr,"stats.txt");
-    Main.finCh("sauvegarde finale");
+    Chrono.finCh("sauvegarde finale");
   }public static void statsJavadoc(String chemin){statsJavadoc(chemin,false);}
 
   public static String toStatJd(CCInt cci){return toStatJd(cci.getContenu());}

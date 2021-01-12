@@ -298,7 +298,7 @@ public class PanneauJeu extends Panneau {
     //d.setInitialSelectionValue(Temps.getDatePourSauvegarde());
     Object[] options = {g.get("ok")};
     //d.title = g.get("sauvegarder");
-    String saveName = g.getM("sauvegarde")+" "+Main.getSave().getIdS();//donne un identifiant unique au fichier.
+    String saveName = g.getM("sauvegarde")+" "+sauvegarderUnePartie.getSave().getIdS();//donne un identifiant unique au fichier.
     try {
       //saveName+="  "+Main.getGj().getDébut().getContenu().getPseudo();
       saveName+="  "+Temps.getDatePourSauvegarde();

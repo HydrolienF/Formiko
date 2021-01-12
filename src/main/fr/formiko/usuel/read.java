@@ -1,5 +1,5 @@
 package fr.formiko.usuel;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 import java.util.Scanner;
 import fr.formiko.usuel.conversiondetype.str;
@@ -86,31 +86,4 @@ public class read {
     return getBooolean(nomDeLaVariable, laVariable);
   }
 
-  // Tentative qui complique trop la méthode et ne marche plus comme il faut :
-  /*public static int getInt(int min,int max,String nomDeLaVariable, int laVariable, String message) throws StrToIntException {
-    int x = min-1;
-    while (x==min-1){ // tant que le nombre qu'on veut est mauvais
-      String s = getString(nomDeLaVariable, str.str(laVariable), message);
-      try {
-        x = Integer.parseInt(s);  //on essaye d'en faire un nombre
-      } catch(Exception e){
-        x = min-1; // si on y arrive pas on lui met la mauvaise valeur.
-      }
-      if (x>max){
-        throw new StrToIntException();
-      }
-        //System.out.println("la chaine de charcatère \"" + s + "\" n'est pas un nombre");
-      if (x<min | x>max){ //si x n'est pas dans l'intervale [min;max]
-        System.out.println("Il semblerai que le nombre n'ai pas une valeur acceptable, rentrer un nombre dans l'intervale ["+min+","+max+"]");
-        x = min-1;
-      } // sinon il garde sa valeur et on ne rentrera plus dans la boucle tant que.
-    }
-    return x;
-  }*/
-  /*public static String get(int x,String s){
-    try {
-      String sr = Main.get("read."+x);
-      if(sr!=null){ return sr;} return s;
-    }catch (Exception e) {return s;}
-  }*/
 }

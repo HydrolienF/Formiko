@@ -114,7 +114,7 @@ public class arbo {
     }
     f = new File("data/Options.txt");
     if(!f.exists() || f.isDirectory()){
-      chargerLesOptions.chargerLesOptionsDe0();
+      chargerLesOptions.chargerLesOptionsDe0(Main.getVersionActuelle());
     }
     //le contenu de chaque dossier
     String listc [] = carte.list();

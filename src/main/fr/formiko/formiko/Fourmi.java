@@ -8,7 +8,7 @@ import fr.formiko.usuel.read;
 import fr.formiko.usuel.conversiondetype.str;
 import fr.formiko.usuel.menu;
 import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.Message;
+import fr.formiko.formiko.Message;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.liste.GString;
 import fr.formiko.formiko.interfaces.*;
