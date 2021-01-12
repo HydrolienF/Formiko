@@ -52,8 +52,9 @@ public class Img implements Cloneable{
     }*/
     width = bi.getWidth();
     height = bi.getHeight();
-    debug.débogage("Initialisation des 4 tableaux.");
+    debug.débogage("Initialisation des 4 tableaux.");Chrono.debutCh();
     setRouge(); setVert(); setBleu(); setAlpha();
+    Chrono.finCh("4 tableaux de pixel initialiser");
   }
   /**
   *Constructs a new Img with a fileName.
@@ -358,6 +359,7 @@ public class Img implements Cloneable{
   *{@summary Count how much of eatch pixel there is on the image.<br>}
   */
   public HashMap<Pixel, Integer> compterChaquePixel(){
+    Chrono.debutCh();
     //faire une liste de tt les pixels différents
     //compter le nombre de pixel identique pour chaque pixel dans la liste.
     HashMap<Pixel, Integer> hm = new HashMap<Pixel, Integer>();
@@ -366,18 +368,41 @@ public class Img implements Cloneable{
       for (int j = 0; j < height; j++){
         boolean estDansLaListe=false;
         Pixel p2 = new Pixel(rouge[i][j],vert[i][j],bleu[i][j],alpha[i][j]);
-        for (Pixel p : hm.keySet()) {
-          if(p.equals(p2)){
-            hm.replace(p,hm.get(p)+1);
-            estDansLaListe=true;
+        if(alpha[i][j]!=-128){
+          for (Pixel p : hm.keySet()) {
+            if(p.equals(p2)){
+              hm.replace(p,hm.get(p)+1);
+              estDansLaListe=true;
+              break;
+            }
           }
-        }
-        if(!estDansLaListe){
-          hm.put(p2,1);
+          if(!estDansLaListe){
+            hm.put(p2,1);
+          }
         }
       }
     }
+    Chrono.finCh("compterChaquePixel");
     return hm;
+  }
+  /**
+  *{@summary Count how much of eatch pixel there is on the image & create a .html page to store the data.<br>}
+  */
+  public void compterChaquePixelToHtml(){
+    HashMap hm = compterChaquePixel();
+    String sr = "";
+    Chrono.debutCh();
+    //for (var item : hm.entrySet()) {
+    Object to[] = hm.keySet().toArray();
+    Pixel tp[] = new Pixel[to.length];
+    for (int i=0;i<to.length ;i++ ) {
+      tp[i] = (Pixel)to[i];
+    }
+    for (int i=0;i<tp.length ; i++) {
+      sr+="{label:'"+tp[i].toString()+"', y:"+hm.get(tp[i])+"},\n";
+    }
+    Chrono.finCh("compterChaquePixelToHtml");
+    System.out.println(getResultAsHtmlDiv(sr));
   }
   /**
   *{@summary Replace pixel a by pixel b.<br>}
@@ -618,5 +643,40 @@ public class Img implements Cloneable{
     }
     t[0]=a;t[1]=b;t[2]=c;t[3]=d;
     return t;
+  }
+
+  public String getResultAsHtmlDiv(String sr) {
+    String a =
+            "<!DOCTYPE HTML>\n" +
+                    "<html>\n" +
+                    "<head>\n" +
+                    "<script src=\"https://canvasjs.com/assets/script/canvasjs.min.js\"></script>\n" +
+                    "<script type=\"text/javascript\">\n" +
+                    "\n" +
+                    "window.onload = function () {\n" +
+                    "\tvar chart = new CanvasJS.Chart(\"chartContainer\", {\n" +
+                    "\t\ttitle:{\n" +
+                    "\t\t\ttext: \""+"%age of claim"+"\"              \n" +
+                    "\t\t},\n" +
+                    "\t\tdata: [              \n" +
+                    "\t\t{\n" +
+                    "\t\t\t// Change type to \"doughnut\", \"line\", \"splineArea\", etc.\n" +
+                    "\t\t\ttype: \"pie\",\n" +
+                    "\t\t\tdataPoints: [\n" ;
+
+    String c =
+            "\t\t\t]\n" +
+                    "\t\t}\n" +
+                    "\t\t]\n" +
+                    "\t});\n" +
+                    "\tchart.render();\n" +
+                    "}\n" +
+                    "</script>\n" +
+                    "</head>\n" +
+                    "<body>\n" +
+                    "<div id=\"chartContainer\" style=\"height: 300px; width: 100%;\"></div>\n" +
+                    "</body>\n" +
+                    "</html>";
+    return a+sr+c;
   }
 }

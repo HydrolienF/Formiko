@@ -152,8 +152,11 @@ public class Main {
         }
       }else if(args[0].equals("cptPixels")){
         if(args.length>1){
-          Img img = new Img(args[0]);
-          //img.compterChaquePixelToHtml();
+          //image.setREPTEXTUREPACK("docs/cc/images");
+          debug.débogage("chargement de l'image");
+          Img img = new Img(image.getImage(args[1],"docs/cc/images/"));
+          debug.débogage("Image chargée");
+          img.compterChaquePixelToHtml();
         }else{
           erreur.alerte("arguments de cptPixels incorecte");
         }
