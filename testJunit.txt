@@ -1,4 +1,5 @@
 fr.formiko.formiko.interfaces.TrophallaxieFourmiTest
+fr.formiko.formiko.interfaces.TourCreatureSansActionTest
 fr.formiko.formiko.PartieTest
 fr.formiko.usuel.liste.GIntTest
 fr.formiko.usuel.liste.GGIntTest

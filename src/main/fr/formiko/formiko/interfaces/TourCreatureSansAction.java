@@ -11,28 +11,29 @@ import java.io.Serializable;
  * @version 1.24
  */
 public class TourCreatureSansAction implements Serializable, Tour{
-  private Creature c;
   /**
   *PLay 1 turn with Creature c.
   *@version 1.24
   */
   public void unTour(Creature c){
     debug.débogage("la créature "+c.getId()+" tente de jouer un tour");
-    this.c = c;
-    tour();
+    tour(c);
     debug.débogage("fin du tour de la fourmi.");
   }
 
-  public void tour(){
+  public void tour(Creature c){
     // Un tour ça coute en age et en nourriture.
-    c.setAgePlus1();
     if(c instanceof Fourmi){
       Fourmi f = (Fourmi) c;
       f.salir();
+      if (f.getAge()>=f.getAgeMax()){ f.evoluer();
+        System.out.println("évolution de "+f.getId());//@a
+      }
       if (f.getStade() == 0 || f.getStade() == -1 || f.getStade() == -2) {f.setNourritureMoinsConsomNourriture();}
     }else{
       c.setNourritureMoins1();
     }
+    c.setAgePlus1();
   }
 
 }

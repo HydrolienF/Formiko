@@ -27,6 +27,6 @@ public class TourFourmi implements Serializable, Tour{
     }
   }
   public void tour(){
-
+    f.tourF();
   }
 }

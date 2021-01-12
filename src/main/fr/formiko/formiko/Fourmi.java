@@ -273,7 +273,7 @@ public class Fourmi extends Creature implements Serializable{
     gs.add(g.get("espèce")+" : "+e.getNom());
     return gs;
   }
-  public void tourFourmi(){
+  public void tourF(){
     int idf = Main.getPs().getIdFourmiAjoué();
     if(idf!=-1 && getId()!=idf){mode=-1;Main.getPb().setVisiblePa(false);Main.getPb().removePi();return;}//si 1 fourmi spéciale est sencé joué et que ce n'est pas celle la.
     boolean estIa = fere.getJoueur().getIa();
