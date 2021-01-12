@@ -236,9 +236,14 @@ public class ImgTest extends TestCaseMuet{
       tp[i] = (Pixel)to[i];
     }
     assertEquals(2,tp.length);
-    assertEquals(3,hm.get(tp[0]));
-    assertEquals(1,hm.get(tp[1]));
-    assertTrue(tp[0].equals(new Pixel(129,128,128,128)));
-    assertTrue(tp[1].equals(new Pixel(130,128,128,128)));
+    if(tp[0].equals(new Pixel(130,128,128,128))){
+      assertEquals(1,hm.get(tp[0]));
+      assertEquals(3,hm.get(tp[1]));
+    }else if (tp[1].equals(new Pixel(129,128,128,128))){
+      assertEquals(3,hm.get(tp[0]));
+      assertEquals(1,hm.get(tp[1]));
+    }else{
+      assertTrue(false);
+    }
   }
 }

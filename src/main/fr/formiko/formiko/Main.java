@@ -127,22 +127,8 @@ public class Main {
         }else{
           erreur.alerte("arguments de supprimer incorecte");
         }
-      }else if(args[0].equals("save")){
-        /*initialisation();
-        pa = new Partie(0,0,new Carte(new GCase(1,1)),1.0); //nouvelle partie vide.
-
-        pa = getPartieParDéfaut();
-        pa.initialisationElément();
-        sauvegarderUnePartie.sauvegarder(pa,"testSave");
-        Partie p = sauvegarderUnePartie.charger("testSave");
-        if(p!=null){
-          System.out.println(p);
-          sauvegarderUnePartie.sauvegarder(p,"testSave2");
-        }else{
-          System.out.println("partie nulle");
-        }*/
-      /*}else if(args[0].equals("test")){
-        test.testAll();*/
+      }else if(args[0].equals("test")){
+        System.out.println("test");
       }else if(args[0].equals("trad2")){
         initialisation();
         chargerLesTraductions.iniTLangue();
@@ -163,6 +149,13 @@ public class Main {
           stats.statsJavadoc(args[1]);
         }else{
           stats.statsJavadoc("src/main/",true);
+        }
+      }else if(args[0].equals("cptPixels")){
+        if(args.length>1){
+          Img img = new Img(args[0]);
+          //img.compterChaquePixelToHtml();
+        }else{
+          erreur.alerte("arguments de cptPixels incorecte");
         }
       }else{
         erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue");
