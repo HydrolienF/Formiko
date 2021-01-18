@@ -249,9 +249,6 @@ public class Main {
     finCh("chargementPanneauChargementEtSuppressionMenu");//débutCh();
     if(premierePartie){tuto=true;} if(tuto){pa=getPartieTuto();}
     else if(pa==null){pa=getPartieParDéfaut();}
-    if(Main.getDimY()!=1080 || getPartie().getGc().getNbrY()!=9){
-      getPj().dézoomer((byte)2);//on met la carte a la taille la plus grande possible pour qu'on voit tout.
-    }
     //finCh("chargementDézoom");
     pa.setEnCours(true); //lance l'affichage de la Partie.
     //débutCh();
@@ -260,7 +257,10 @@ public class Main {
     débutCh();
     Main.getPb().addPz();
     finCh("ajoutPanneauZoom");débutCh();
-    getPc().chargerImages(); //on a besoin du bon zoom pour effectuer cette action.
+    getData().chargerImages(); //on a besoin du bon zoom pour effectuer cette action.
+    if(Main.getDimY()!=1080 || getPartie().getGc().getNbrY()!=9){
+      getPj().dézoomer((byte)2);//on met la carte a la taille la plus grande possible pour qu'on voit tout.
+    }
     finCh("chargementImagesDelaCarte");
     String s = g.get("chargementFini");
     if (debug.getAffLesPerformances()==true){s=s +" "+ "("+Temps.msToS(lonTotal)+")";}

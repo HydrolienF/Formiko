@@ -93,11 +93,12 @@ public class PanneauCarte extends Panneau implements MouseListener{
     }
     try {
       GCase gc = Main.getGc();
-      int x = Main.getPp().getWidth();
-      int y = Main.getPp().getHeight();
-      this.setSize(x,y);
-      xCase = math.min((x/Main.getData().getTailleDUneCase())+1,gc.getNbrX()-posX);
-      yCase = math.min((y/Main.getData().getTailleDUneCase())+1,gc.getNbrY()-posY);
+      actualiserSize();
+      //int x = Main.getPp().getWidth();
+      //int y = Main.getPp().getHeight();
+      //this.setSize(x,y);
+      //xCase = math.min((x/Main.getData().getTailleDUneCase())+1,gc.getNbrX()-posX);
+      //yCase = math.min((y/Main.getData().getTailleDUneCase())+1,gc.getNbrY()-posY);
       debug.débogage("Dimention du PanneauCarte en case : x="+xCase+" y="+yCase);
       debug.débogage("taille réèle du panneau de la carte : x="+this.getWidth()+", y="+this.getHeight());
       //dessin des cases :
@@ -323,6 +324,9 @@ public class PanneauCarte extends Panneau implements MouseListener{
   }
 
   public void actualiserSize(){
+    GCase gc = Main.getGc();
+    xCase = gc.getNbrX();
+    yCase = gc.getNbrY();
     int xTemp = Main.getData().getTailleDUneCase()*xCase;
     int yTemp = Main.getData().getTailleDUneCase()*yCase;
     super.setSize(xTemp,yTemp);

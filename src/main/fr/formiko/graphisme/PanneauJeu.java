@@ -248,10 +248,14 @@ public class PanneauJeu extends Panneau {
     if(x==1){ y=math.max(y1,y2);}
     else if(x==2){ y=math.min(y1,y2);}
     pc.setTailleDUneCase(y);
-    if (Main.getPartie().getEnCours()){pc.chargerImages();}
+    actionAFaireSiTailleD1CaseChange();
   }
-  public void envoyer(int x){
-    debug.débogage("choix :"+x);
+  public void actionAFaireSiTailleD1CaseChange(){
+    if (Main.getPartie().getEnCours()){
+      Main.getPc().actualiserSize();
+      Main.getData().chargerImages();
+      Main.getData().iniMap();
+    }
   }
   public void centrerSurLaFourmi(){
     if (fActuelle==null){erreur.alerte("Impossible de centrer sur une fourmi si aucune fourmi n'est selectionné."); return;}
@@ -265,8 +269,10 @@ public class PanneauJeu extends Panneau {
   public void actionZoom(byte ac){
     if (ac==2) { // zoom
       pc.setTailleDUneCase(math.min((pc.getTailleDUneCase()*4)/3,500));
+      actionAFaireSiTailleD1CaseChange();
     }else if(ac==0){ // dézoom
       pc.setTailleDUneCase(math.max((pc.getTailleDUneCase()*3)/4,10));
+      actionAFaireSiTailleD1CaseChange();
     }else if(ac==1){
       pc.setPosY(math.max(pc.getPosY()-1,0));
     }else if(ac==7){
