@@ -45,9 +45,10 @@ public class PanneauCarte extends Panneau implements MouseListener{
   public void construire(){
     Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(100));
     posX = 0; posY = 0;
-    GCase gc = Main.getGc();
+    GCase gc = new GCase(1,1);
     xCase = gc.getNbrX();
     yCase = gc.getNbrY();
+    //xCase = yCase = 1.
   }
   // GET SET --------------------------------------------------------------------
   public int getTailleDUneCase(){return Main.getData().getTailleDUneCase();}
@@ -77,7 +78,7 @@ public class PanneauCarte extends Panneau implements MouseListener{
   */
   public void actualiserCarte(){
     actualiserSize();//actualise la taille du PanneauCarte a la bonne dimention.
-    chargerImages();
+    //chargerImages();
     Main.getData().iniMap(); //demande au donnée d'image de rechargé l'image qui représente l'arrière plan de la carte.
   }
   // Fonctions propre -----------------------------------------------------------
@@ -321,7 +322,6 @@ public class PanneauCarte extends Panneau implements MouseListener{
     return 3;
   }
 
-  public void chargerImages(){Main.getData().chargerImages();}
   public void actualiserSize(){
     int xTemp = Main.getData().getTailleDUneCase()*xCase;
     int yTemp = Main.getData().getTailleDUneCase()*yCase;
