@@ -3,27 +3,39 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 //def par défaut des fichiers depuis 0.79.5
 import java.util.Random;
 import fr.formiko.usuel.conversiondetype.str;
-
+/**
+*{@summary Random Class.<br>}
+*@author Hydrolien
+*@version 1.0
+*/
 public class allea {
   private static Random rand = new Random();
-
+  /**
+  *{@summary get a random int in [0;x[.<br>}
+  *@return a random boolean.
+  *@version 1.0
+  */
   public static int getAllea(int x){
     if (x <= 0) { erreur.erreur("On ne peu tirer un nombre alléatoire qu'entre 2 borne positive, "+x+" ne convient pas","allea.getAlléa","On revoie -1"); return -1;}
     int xr = rand.nextInt(x);
     debug.débogage(x + " a été tiré alléatoirement");
     return xr;
   }public static int getAlléa(int x){return getAllea(x);}
-  public static double getRand(){
-    return Math.random();
-  }
+  public static double getRand(){return Math.random();}
   /**
-  * {@summary get a random boolean.}
-  * @return random boolean.
+  *{@summary get a random boolean.<br>}
+  *@return a random boolean.
+  *@version 1.20
   */
   public static boolean getBAllea(){
     if(getAllea(2)==0){return false;}//1 chance sur 2.
     return true;
   }
+  /**
+  *{@summary get a random int in [].<br>}
+  *@return a random int.
+  *@version 1.0
+  */
   public static int getAlléaDansTableau(int t []){
 		return t[getAllea(t.length)];
 	}

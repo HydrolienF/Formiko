@@ -24,7 +24,7 @@ public class TourCreatureSansAction implements Serializable, Tour{
   /**
   *Do turn actions :<br>
   *manger, grandir (age).<br>
-  *if Evoluer != null & age >=ageMax<br>
+  *if Evoluer != null and age >=ageMax<br>
   *if fourmi : salir<br>
   */
   public void tour(Creature c){

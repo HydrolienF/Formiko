@@ -7,7 +7,12 @@ import fr.formiko.usuel.liste.GString;
 import fr.formiko.usuel.ecrireUnFichier;
 import java.io.Serializable;
 import fr.formiko.usuel.conversiondetype.str;
-
+/**
+*{@summary Options class.<br>}
+*It contain all globals options and can save it.<br>
+*@author Hydrolien
+*@version 1.20
+*/
 public class Options implements Serializable{
   private byte langue=0; // 0=eo; 1=fr; 2=en;
   private byte tailleBoutonZoom=0;
@@ -110,6 +115,10 @@ public class Options implements Serializable{
   public byte getTailleRealiste(){return tailleRealiste;}
   public void setTailleRealiste(byte x){tailleRealiste=x;}public void setTailleRealiste(int x){tailleRealiste=str.iToBy(x);}
   // Fonctions propre -----------------------------------------------------------
+  /**
+  *{@summary tranform a byte into a button size.<br>}
+  *@version 1.20
+  */
   private int tailleBouton(byte x){
     if(x>2 && x%20==0){return x;}
     if(x==0){ return 80;}
@@ -120,6 +129,10 @@ public class Options implements Serializable{
     erreur.erreur("La taille des boutons spécifiée n'est pas correcte.","La taille moyenne a été choisie par défaut");
     return 80;
   }
+  /**
+  *{@summary Save the Options in data/Options.txt.<br>}
+  *@version 1.20
+  */
   public void sauvegarder(){
     //on s'assure que le fichier n'existe plus pour éviter d'avoir a l'écraser plus tard.
     File f = new File("data/Options.txt");
