@@ -33,7 +33,9 @@ public class TourFourmi implements Serializable, Tour{
   public void preTour(Creature c){
     c.setAction(c.getActionMax());
   }
-
+  /**
+  *Do turn actions
+  */
   public void tour(){//TODO have all the turn here.
     f.tourF();
   }

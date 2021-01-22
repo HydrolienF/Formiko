@@ -21,15 +21,18 @@ public class TourCreatureSansAction implements Serializable, Tour{
     debug.débogage("fin du tour de la fourmi.");
   }
   public void preTour(Creature c){}
-
+  /**
+  *Do turn actions :<br>
+  *manger, grandir (age).<br>
+  *if Evoluer != null & age >=ageMax<br>
+  *if fourmi : salir<br>
+  */
   public void tour(Creature c){
     // Un tour ça coute en age et en nourriture.
+    if (c.getAge()>=c.getAgeMax() && !(c.evoluer instanceof EvoluerNull)){ c.evoluer();}
     if(c instanceof Fourmi){
       Fourmi f = (Fourmi) c;
       f.salir();
-      if (f.getAge()>=f.getAgeMax()){ f.evoluer();
-        System.out.println("évolution de "+f.getId());//@a
-      }
       if (f.getStade() == 0 || f.getStade() == -1 || f.getStade() == -2) {f.setNourritureMoinsConsomNourriture();}
     }else{
       c.setNourritureMoins1();
