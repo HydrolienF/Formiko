@@ -387,7 +387,7 @@ public class Img implements Cloneable{
     return hm;
   }
   /**
-  *{@summary Count how much of eatch pixel there is on the image & create a .html page to store the data.<br>}
+  *{@summary Count how much of eatch pixel there is on the image and create a .html page to store the data.<br>}
   */
   public void compterChaquePixelToHtml(){
     HashMap hm = compterChaquePixel();
