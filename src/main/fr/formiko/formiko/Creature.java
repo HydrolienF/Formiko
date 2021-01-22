@@ -212,4 +212,18 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     if(x==2 && age>ageMax){mourir(x);return;}
     if(x==3 && nourriture < 0){mourir(x);return;}
   }
+  /**
+  *{@summary check if this is hungry.<br>}
+  *@param percentageOfHungryness 0=are you starving to death, 40=are you hungry, 90=can you eat something more.<br>
+  *return true if actual %age of food is 	&#60; than percentageOfHungryness.<br>
+  *@version 1.28
+  */
+  public boolean isHungry(int percentageOfHungryness){
+    if(percentageOfHungryness>100){percentageOfHungryness=100;}
+    else if(percentageOfHungryness<0){percentageOfHungryness=0;}
+    if((getNourriture()*100)/getNourritureMax()<percentageOfHungryness){
+      return true;
+    }
+    return false;
+  }
 }

@@ -4,6 +4,7 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 import fr.formiko.usuel.conversiondetype.str;
 import fr.formiko.usuel.test.TestCaseMuet;
 import org.junit.Test;
+//other import
 import fr.formiko.usuel.Os;
 
 public class strTest extends TestCaseMuet{

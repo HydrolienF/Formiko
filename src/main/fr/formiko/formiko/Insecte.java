@@ -91,17 +91,5 @@ public class Insecte extends Creature implements Serializable{
     sr+= " "+id+ m +" "+g.get("de")+" "+g.get("type")+" "+type+" "+p.desc()+" "+g.get("nourritureFournie")+" : " + getNourritureFournie() +" "+g.get("nourriture")+" "+nourriture+"/"+nourritureMax;
     return sr;
   }
-  /**
-  *{@summary Eat as a grass eater.<br>}
-  *@version 1.13
-  */
-  public void manger(){ //TODO #6
-    byte nourritureSurCase = this.getCCase().getContenu().getNourritureInsecte();
-    if (nourritureSurCase > 0){
-      byte nourritureMangé = (byte) math.min(nourritureSurCase,nourritureMangeable);
-      this.getCCase().getContenu().setNourritureInsecte((byte)(nourritureSurCase-nourritureMangé));
-      this.setNourriture(this.getNourriture() + nourritureMangé);
-    }
-  }
 
 }
