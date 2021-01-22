@@ -12,14 +12,14 @@ echo "to .jar"
 #nom = name + version
 echo "choose name"
 nom=$(./v2.sh)
-nomL=$(./v2.sh)Linux
-nomM=$(./v2.sh)Mac
-nomW=$(./v2.sh)Windows
+nomL=$nom"Linux"
+nomM=$nom"Mac"
+nomW=$nom"Windows"
 if [[ -e out/ ]]; then
-  cd .
-else
-  mkdir out/
+  echo "clear out"
+  rm out/ -fr
 fi
+mkdir out/
 rm -fr out/$nom
 rm -fr out/$nomW
 rm -fr out/$nomL
