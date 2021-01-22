@@ -8,5 +8,7 @@ public class TestCaseMuet extends TestCase{
     super();
     erreur.setMuet(true);
     debug.setAffLesEtapesDeRésolution(false);
+    debug.setAffLesPerformances(false);
+    debug.setAffG(false);
   }
 }
