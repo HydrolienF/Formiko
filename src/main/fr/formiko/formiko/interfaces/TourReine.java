@@ -26,6 +26,13 @@ public class TourReine implements Serializable, Tour{
       erreur.erreurType("Reine","tourReine");
     }
   }
+  /**
+  *Actualise Creature c before the turn.
+  *@version 1.28
+  */
+  public void preTour(Creature c){
+    c.setAction(c.getActionMax());
+  }
 
   public void tour(){
 

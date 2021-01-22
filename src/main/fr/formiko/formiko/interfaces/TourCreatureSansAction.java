@@ -20,6 +20,7 @@ public class TourCreatureSansAction implements Serializable, Tour{
     tour(c);
     debug.débogage("fin du tour de la fourmi.");
   }
+  public void preTour(Creature c){}
 
   public void tour(Creature c){
     // Un tour ça coute en age et en nourriture.

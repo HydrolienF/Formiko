@@ -60,7 +60,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     tolerencePheromone=0;
     nourritureFournie=1;
     this.déplacement = new DeplacementNull(); this.chasse = new ChasseNull(); this.pondre = new PondreNull(); this.trophallaxie = new TrophallaxieNull(); this.collecte = new CollecteNull();this.evoluer=new EvoluerNull();this.mourir=new MourirNull();this.netoyer=new NetoyerNull();
-    tour = new TourCreatureSansAction();
+    this.tour = new TourCreatureSansAction();
   }
   /**
   *{@summary constructor for Creature.<br>}
@@ -159,6 +159,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void ceNetoyer(){netoyer.netoyer(this,this);}
   public boolean netoyerIa(){return netoyer.netoyerIa(this);}
   public void tour(){tour.unTour(this);}
+  public void preTour(){tour.preTour(this);}
   //public void manger (graine pour certaine fourmi, champnons pour d'autre et herbe pour les insectes.)
   // Fonctions propre -----------------------------------------------------------
   @Override

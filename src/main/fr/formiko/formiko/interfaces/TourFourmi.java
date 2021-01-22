@@ -16,7 +16,7 @@ public class TourFourmi implements Serializable, Tour{
   *PLay 1 turn with Creature c.
   *@version 1.24
   */
-  public void unTour( Creature c){
+  public void unTour(Creature c){
     debug.débogage("la créature "+c.getId()+" tente de jouer un tour");
     if(c instanceof Fourmi){
       f = (Fourmi) c;
@@ -26,7 +26,15 @@ public class TourFourmi implements Serializable, Tour{
       erreur.erreurType("Fourmi","TourFourmi");
     }
   }
-  public void tour(){
+  /**
+  *Actualise Creature c before the turn.
+  *@version 1.28
+  */
+  public void preTour(Creature c){
+    c.setAction(c.getActionMax());
+  }
+
+  public void tour(){//TODO have all the turn here.
     f.tourF();
   }
 }

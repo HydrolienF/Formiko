@@ -20,4 +20,5 @@ public class TourCreatureMorte implements Serializable, Tour{
     c.setAgePlus1(); //une fois morte une créature a un délai avant disparition total dans la variable age
     debug.débogage("fin du tour de la fourmi.");
   }
+  public void preTour(Creature c){}
 }

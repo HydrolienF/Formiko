@@ -41,7 +41,11 @@ public class MourirInsecte implements Serializable, Mourir {
       Insecte i = (Insecte)c;
       id = i.getId();
       i.getCCase().getContenu().getGc().retirer(i);
-      Main.getGi().retirer(i);
+      try {
+        Main.getGi().retirer(i);
+      }catch (Exception e) {
+        erreur.erreur("L'insecte "+id+" n'as pas pu être retiré de Main.Gi.","MourirInsecte");
+      }
     }else{
       erreur.erreur("L'insecte "+id+" n'as pas pu être retiré.","MourirInsecte");
     }

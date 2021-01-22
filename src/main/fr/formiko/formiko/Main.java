@@ -648,6 +648,7 @@ public class Main {
    */
   public static void tour(){
     getGc().tourCases(); //actualisation des ressources sur les cases.
+    getGi().preTour(); //actualisation des actions des insectes
     getGj().jouer();
     getGi().tourInsecte();
     if(Main.getPartie().getAppartionInsecte()){

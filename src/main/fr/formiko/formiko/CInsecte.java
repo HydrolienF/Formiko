@@ -48,6 +48,14 @@ public class CInsecte implements Serializable{
       debug.débogage("tous les insectes ont joué");
     }
   }
+  public void preTour(){
+    contenu.preTour();
+    if (suivant != null){
+      suivant.tourInsecte();
+    }else {
+      debug.débogage("preTour insectes fini");
+    }
+  }
   public Insecte getInsecteSurLaCase(Point pTest){
     if(contenu.getCCase().getContenu().getPoint().equals(pTest)){
       return contenu;

@@ -18,5 +18,8 @@ public class TourNull implements Serializable, Tour {
   public void unTour(Creature c){
     erreur.erreur("Impossible de jouer un tour avec la créature " + c.getId());
   }
+  public void preTour(Creature c){
+    erreur.erreur("Impossible de jouer un tour avec la créature " + c.getId());
+  }
 
 }

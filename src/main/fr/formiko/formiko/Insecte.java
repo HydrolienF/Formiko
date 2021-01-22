@@ -33,7 +33,7 @@ public class Insecte extends Creature implements Serializable{
     }else{
       tour = new TourInsecte();
     }
-    this.nourritureMangeable =(byte) (allea.getAlléa(3)+1);// de 1 a 4.
+    this.nourritureMangeable =(byte) (allea.getAllea(3)+2);// de 2 a 5.
     this.déplacement = new DeplacementFourmi();
     this.chasse = new ChasseHerbivore();
     p.getContenu().getGc().ajouter(this);

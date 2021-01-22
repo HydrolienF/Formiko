@@ -17,7 +17,7 @@ public class TourInsecte implements Serializable, Tour{
   *PLay 1 turn with Creature c.
   *@version 1.24
   */
-  public void unTour( Creature c){
+  public void unTour(Creature c){
     debug.débogage("la créature "+c.getId()+" tente de jouer un tour");
     if(c instanceof Insecte){
       this.c = (Insecte) c;
@@ -27,10 +27,17 @@ public class TourInsecte implements Serializable, Tour{
       erreur.erreurType("Insecte","TourInsecte");
     }
   }
+  /**
+  *Actualise Creature c before the turn.
+  *@version 1.28
+  */
+  public void preTour(Creature c){
+    c.setAction(c.getActionMax());
+  }
 
   /**
   *{@summary Play a turn as an Insecte.<br>}
-  *Turn work like this :
+  *Turn work like this :<br>
   *<ul>
   *<li>Eat if the creature is starving.
   *<li>Run away from predator.
@@ -47,7 +54,13 @@ public class TourInsecte implements Serializable, Tour{
     if (c.getAction()>0) {eat(50);}
     if (c.getAction()>0) {reproduce();}
     if (c.getAction()>0) {eat(100);}
-
+    finTour();
+  }
+  /**
+  *{@summary End a turn as an Insecte.<br>}
+  *@version 1.28
+  */
+  public void finTour(){
     if(c.getAction()>0){c.setAction(0);}//end the turn normaly
     // Un tour ça coute en age et en nourriture.
     c.setNourritureMoins1();

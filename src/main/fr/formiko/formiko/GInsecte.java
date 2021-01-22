@@ -102,6 +102,11 @@ public class GInsecte implements Serializable{
       début.tourInsecte();
     }
   }
+  public void preTour(){
+    if (début != null){
+      début.preTour();
+    }
+  }
   public GInsecte getInsecteSurLaCase(Point pTest){
     GInsecte gir = new GInsecte();
     if (début == null){ return null;}

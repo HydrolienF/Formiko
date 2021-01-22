@@ -286,7 +286,7 @@ public class Fourmi extends Creature implements Serializable{
       // Un tour de jeu d'une Fourmi
       int direction=getDirAllea();
       byte choix=0; int j=0; int k=0;
-      while(this.getAction() > 0 && k<actionMax+2) { // tant que la fourmie a encore des actions :
+      while(this.getAction() > 0 && k<actionMax+2) { // tant que la fourmi a encore des actions :
         if(k==actionMax+1){
           erreur.erreur("La fourmi "+ getId()+ " est en train de boucler dans ses actions","Fourmi.tourFourmi");
         }
