@@ -44,7 +44,7 @@ public class TourInsecte implements Serializable, Tour{
   *<li>Eat if the creature is hungry.
   *<li>Try to fined an other creature to reproduce.
   *<li>Eat if the creature is not full.
-  *<li>Wait untill next turn.
+  *<li>End turn.
   *</ul>
   *@version 1.28
   */
