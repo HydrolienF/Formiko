@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * {@summary Insect implementation.<br>}
  * Allow an insect to play a turn.<br>
- * All insect can extends this class to modify runAway(), eat() or reproduce()<br>
+ * All insects can extends this class to modify runAway(), eat() or reproduce()<br>
  * @author Hydrolien
  * @version 1.28
  */

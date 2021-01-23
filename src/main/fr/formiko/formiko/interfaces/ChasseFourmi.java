@@ -126,7 +126,10 @@ public class ChasseFourmi implements Serializable, Chasse {
     }
     return true;
   }
-
+  /**
+   * {@summary check if can hunt.<br/>}
+   * @version 1.28
+   */
   private boolean canHuntAnymore(){
     return c.getNourriture()>=c.getNourritureMax();
   }
