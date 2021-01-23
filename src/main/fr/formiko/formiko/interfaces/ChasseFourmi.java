@@ -21,9 +21,10 @@ public class ChasseFourmi implements Serializable, Chasse {
    * {@summary try to hunt or moove.<br/>}
    * @param c The hunting Creature.
    * @param direction The direction were the Creature will go if any Prey is visible.
-   * @version 1.1
+   * return true if c can hunt more.
+   * @version 1.28
    */
-  public void chasser(Creature c, int direction){
+  public boolean chasser(Creature c, int direction){
     this.c = c;
     GInsecte proieVisible = getProie();
     if (c.getCCase().getContenu().getGi().getDébut() != null){ // Si il y a un insecte sur la même case
@@ -38,15 +39,18 @@ public class ChasseFourmi implements Serializable, Chasse {
     }else { // Si il n'y a pas d'insecte
       c.ceDeplacer(direction);
     }
+    if(canHuntAnymore()){debug.debug("La creature "+c.getId()+" ne chasse plus car elle a déjà l'inventaire plein.");return false;}
+    return canHuntAnymore();
   }
   /**
    * {@summary actions during hunt.<br/>}
    * An Ant kill an Insect in the same Case<br/>
    * It can choose the first 1 or the better 1 depending on the difficulty.<br/>
    * @param c The hunting Creature.
+   * return true if c can hunt more.
    * @version 1.1
    */
-  public void chasse(Creature c){
+  public boolean chasse(Creature c){
   this.c = c;
     //chasse
     Case pointActuel = c.getCCase().getContenu();
@@ -60,9 +64,11 @@ public class ChasseFourmi implements Serializable, Chasse {
         insecteTue = gi.getDébut().getContenu();
       }
       tuer(insecteTue);
-      if (c.getAction()<0){ return;}
+      if (c.getAction()<0){ return canHuntAnymore();}
       depecer(insecteTue);
     }
+    if(canHuntAnymore()){debug.debug("La creature "+c.getId()+" ne chasse plus car elle a déjà l'inventaire plein.");return false;}
+    return canHuntAnymore();
   }
 
   //COMMENT FONCTIONNE LA CHASSE
@@ -119,5 +125,9 @@ public class ChasseFourmi implements Serializable, Chasse {
       c.setActionMoins(10);
     }
     return true;
+  }
+
+  private boolean canHuntAnymore(){
+    return c.getNourriture()>=c.getNourritureMax();
   }
 }

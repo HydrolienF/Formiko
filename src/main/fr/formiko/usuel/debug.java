@@ -23,6 +23,7 @@ public class debug{
     if (affLesEtapesDeRésolution) { System.out.println(s); }
   }
   public static void débogage(int s){ débogage(s+"");}
+  public static void debug(String s){débogage(s);}
   public static void performances(String s){
     if (affLesPerformances){ System.out.println(s);}
   }

@@ -81,15 +81,8 @@ public class Insecte extends Creature implements Serializable{
   */
   @Override
   public String toString(){
-    String m = "";
-    if (estMort){
-      //m = " ("+g.getM("mort")+""+(ageMax-age)+") ";
-      m = " (☠︎) ";
-    }else {
-      m = " ("+(ageMax-age)+" "+g.get("avant")+" ☠︎)";
-    }
-    String sr = g.getOu("le","la")+" "+getNom();
-    sr+= " "+id+ m +" "+g.get("de")+" "+g.get("type")+" "+type+" "+p.desc()+" "+g.get("nourritureFournie")+" : " + getNourritureFournie() +" "+g.get("nourriture")+" "+nourriture+"/"+nourritureMax;
+    String sr = super.toString();sr+=", ";
+    sr+= " "+g.get("nourritureMangeable")+" "+nourritureMangeable;
     return sr;
   }
 

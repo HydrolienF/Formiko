@@ -66,7 +66,10 @@ public class Espece implements Serializable{
   public void setGIndividu(GIndividu giu){ this.giu = giu;}
   public int [] getTypeDIndividu(){ return giu.getTypeDIndividu();}
   public Individu getIndividuParType(int x){ return giu.getIndividuParType(x);}
-  public String getNom(){ return nom;}
+  public String getNom(){
+    if(nom.equals("x")){return ""+getId();}
+    return nom;
+  }
   public boolean getPolycalique(){return polycalique;}
   public void setPolycalique(boolean b){polycalique=b;}
   public boolean getVole(){return vole;}//seule les imagos chez les insectes et spécifiquement les individu de type 0 ou 1 chez les fourmi vole.

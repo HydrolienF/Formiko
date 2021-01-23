@@ -15,13 +15,14 @@ public class ChasseNull implements Serializable, Chasse {
   /**
   *If lauch print an error.
   */
-  public void chasse(Creature c){
+  public boolean chasse(Creature c){
     erreur.erreur(g.get("ChasseNull")+" " + c.getId());
+    return false;
   }
   /**
   *If lauch print an error.
   */
-  public void chasser(Creature c, int directionSiPasDeProie){
-    chasse(c);
+  public boolean chasser(Creature c, int directionSiPasDeProie){
+    return chasse(c);
   }
 }

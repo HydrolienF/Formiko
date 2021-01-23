@@ -35,6 +35,7 @@ public class TourInsecteTest extends TestCaseMuet{
     p.getGc().getCCase(0,0).getContenu().setNourritureInsecteParTour((byte)1);
     p.getGc().getCCase(0,1).getContenu().setNourritureInsecteMax((byte)50);
     p.getGc().getCCase(0,1).getContenu().setNourritureInsecte((byte)4);
+    p.getGc().getCCase(0,1).getContenu().setNourritureInsecteParTour((byte)1);
     //everything is ok in initialisation :
     int x=10;
     assertEquals(x,p.getGc().getCCase(0,0).getContenu().getNourritureInsecte());
@@ -87,6 +88,26 @@ public class TourInsecteTest extends TestCaseMuet{
     i.preTour();i.tour();
     assertEquals(x,p.getGc().getCCase(0,0).getContenu().getNourritureInsecte());
   }
+  @Test
+  public void testUnTour2(){ //to check that an Insect will eat if he is safe and alone.
+    Main.initialisation();
+    Partie p = new Partie(0,100,new Carte(new GCase(1,2),0,0,1,false,false),1);
+    p.setAppartionInsecte(false);
+    p.setAppartionGraine(false);
+    //with a alive insect 4 actions/turn
+    Insecte i = new Insecte(p.getGc().getCCase(0,0),0,100,4);
+    i.setNourriture(10);
+    i.setNourritureMax(100);
+    i.setNourritureMangeable(2);
+    p.getGc().getCCase(0,0).getContenu().setNourritureInsecteMax((byte)50);
+    p.getGc().getCCase(0,0).getContenu().setNourritureInsecte((byte)50);
+    p.getGc().getCCase(0,0).getContenu().setNourritureInsecteParTour((byte)1);
+    int x=50;
+    assertEquals(x,p.getGc().getCCase(0,0).getContenu().getNourritureInsecte());
+    i.preTour();i.tour();
+    x-=8;
+    assertEquals(x,p.getGc().getCCase(0,0).getContenu().getNourritureInsecte());
 
+  }
   //TODO test that if i.getNourriture() * 2 > i.getNourritureMax() insecte try to fined a partner. so that i.getFemelle()!=partner.getFemelle();
 }

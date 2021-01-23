@@ -144,8 +144,8 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void ceDeplacer(int direction){déplacement.unMouvement(this,direction);}
   public void ceDeplacerPlusieurCase(CCase cc){déplacement.plusieurMouvement(this,cc);}
   public void pondre(){pondre.unePonte(this);}
-  public void chasse(){chasse.chasse(this);}
-  public void chasser(int direction){chasse.chasser(this, direction);}
+  public boolean chasse(){return chasse.chasse(this);}
+  public boolean chasser(int direction){return chasse.chasser(this, direction);}
   public void trophallaxie(int id, int nourritureDonnée){trophallaxie.trophallaxie(this, id, nourritureDonnée);}
   public void trophallaxie(Creature c, int nourritureDonnée){trophallaxie.trophallaxie(this,c, nourritureDonnée);}
   public void trophallaxer(){trophallaxie.trophallaxer(this);}
@@ -163,7 +163,34 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   //public void manger (graine pour certaine fourmi, champnons pour d'autre et herbe pour les insectes.)
   // Fonctions propre -----------------------------------------------------------
   @Override
-  public abstract String toString();//on réclame une méthode toString().
+  public String toString(){
+    String r = "";
+    r+= g.getOu("le","la")+" "+getNom();
+    r+=" ";
+    r+=getId();r+=" ";
+    if (femelle){r+= "♀";}
+    else {r+= "♂";}r+=" ";
+    if (estMort){r+= "(☠︎)";}
+    else {r+= "("+(ageMax-age)+" "+g.get("avant")+" ☠︎)";}r+=" ";
+    r+=p.desc();r+=", ";
+    r+=g.get("stade")+" "+getStringStade()+", ";
+    r+=g.get("nourriture")+" "+nourriture+"/"+nourritureMax+" (nf:"+nourritureFournie+")"+", ";
+    r+=g.get("age")+" "+age+"/"+ageMax+", ";
+    r+=g.get("action")+" "+action+"/"+actionMax+", ";
+    r+=g.get("propreté")+" "+propreté+"/"+"100"+", ";
+    r+=g.get("phéromone")+" "+ph.toString()+", ";
+    r+=g.get("tolerencePheromone")+" "+tolerencePheromone+", ";
+    r+=g.get("espèce")+" "+e.getNom();
+    return r;
+  }
+
+  public String getStringStade(){
+    if (stade==0){ return g.get("imago");}
+    if (stade==-3){ return g.get("oeuf");}
+    if (stade==-2){ return g.get("larve");}
+    if (stade==-1){ return g.get("nymphe");}
+    return g.get("stade")+" "+g.get("inconnu")+" ("+stade+")";
+  }
   //public abstract void afficheToi();
   //public boolean equals(Creature c){return getId()==c.getId();} // c'est ObjetAId qui compare l'id.
 

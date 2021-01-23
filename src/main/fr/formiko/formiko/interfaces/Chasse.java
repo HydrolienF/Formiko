@@ -11,6 +11,6 @@ import java.io.Serializable;
  * @version 1.1
  */
 public interface Chasse extends Serializable{
-  void chasse(Creature c);//ni public ni private indique que c'est dispo seulement dans le package fr.formiko.formiko.
-  void chasser(Creature c, int directionSiPasDeProie);
+  boolean chasse(Creature c);//ni public ni private indique que c'est dispo seulement dans le package fr.formiko.formiko.
+  boolean chasser(Creature c, int directionSiPasDeProie);
 }

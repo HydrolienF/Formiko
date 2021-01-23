@@ -49,11 +49,11 @@ public class TourInsecte implements Serializable, Tour{
   *@version 1.28
   */
   public void tour(){
-    if (c.getAction()>0) {eat(5);}
-    if (c.getAction()>0) {runAway();}
-    if (c.getAction()>0) {eat(50);}
-    if (c.getAction()>0) {reproduce();}
-    if (c.getAction()>0) {eat(100);}
+    eat(5);
+    runAway();
+    eat(50);
+    reproduce();
+    eat(100);
     finTour();
   }
   /**
@@ -72,22 +72,24 @@ public class TourInsecte implements Serializable, Tour{
   *@version 1.28
   */
   private void runAway(){ //TODO
+    //while(c.getAction()>0  && c.fuire()){
     return;
   }
   /**
   *{@summary Eat with the interface Chasse.<br>}
+  *It will stop eating only if action &#60;&#61; 0 or is not hungry or chasse have returned false (insecte haven't eat the last time he try).<br>
+  *return true if the Insecte have eat.
   *@version 1.28
   */
   private void eat(int percentageOfHungryness){
-    if(c.isHungry(percentageOfHungryness)){
-      c.chasse();
-    }
+    while(c.getAction()>0 && c.isHungry(percentageOfHungryness) && c.chasse()){}
   }
   /**
   *{@summary reproduce.<br>}
   *@version 1.28
   */
   private void reproduce(){ //TODO
+    //while(c.getAction()>0  && c.ceReproduire()){
     return;
   }
 

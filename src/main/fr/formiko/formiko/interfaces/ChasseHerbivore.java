@@ -14,30 +14,33 @@ import fr.formiko.usuel.math.math;
  */
 public class ChasseHerbivore implements Serializable, Chasse {
   Creature c;
-  public void chasser(Creature c, int directionSiPasDeProie){chasse(c);}
+  public boolean chasser(Creature c, int directionSiPasDeProie){return chasse(c);}
   /**
   *{@summary Hunt as an herbivore.<br>}
+  *return true if Insecte have eat or moove.
   *@version 1.28
   */
-  public void chasse(Creature c){
+  public boolean chasse(Creature c){
     this.c=c;
     int nourritureMangeable = 1;
     if(c instanceof Insecte){nourritureMangeable=((Insecte)(c)).getNourritureMangeable();}
     if(c.getCCase().getContenu().getNourritureInsecte() >= nourritureMangeable){
-      manger();
+      return manger();
     }else{
       //TODO
       //l'insecte doit choisir la case la plus interessante pour lui cad :
       //scoreDeLaCase = herbe/(1+nombre d'insecte déja la)
       c.ceDeplacer(true); // ce déplacer de façon alléatoire.
+      return true;
     }
   }
 
   /**
   *{@summary Eat as an herbivore.<br>}
+  *return true if Insecte have eat.
   *@version 1.28
   */
-  public void manger(){
+  public boolean manger(){
     byte nourritureSurCase = c.getCCase().getContenu().getNourritureInsecte();
     int nourritureMangeable = 1;
     if(c instanceof Insecte){nourritureMangeable=((Insecte)(c)).getNourritureMangeable();}
@@ -50,7 +53,9 @@ public class ChasseHerbivore implements Serializable, Chasse {
       }else{
         c.setActionMoins(1);
       }
+      return true;
     }
+    return false;
   }
 
 }

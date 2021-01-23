@@ -99,20 +99,13 @@ public class Fourmi extends Creature implements Serializable{
   @Override
   public String getNom(){return g.get("fourmi");}
   //racourci
-  public Fourmi getReine(){ return this.getFere().getGc().getReine();}
+  public Fourmi getReine(){ return getFere().getGc().getReine();}
   // Fonctions propre -----------------------------------------------------------
-  public String toString(){return tableau.tableauToString(descriptionTableau());}
+  public String toString(){return super.toString() +" "+ tableau.tableauToString(descriptionTableau());}
   public void afficheToi (){System.out.println(description());}
   public boolean estReine(){return getTypeF()==0;}
   public String description(){
     return toString();
-  }
-  public String getStringStade(){
-    if (stade==0){ return g.get("imago");}
-    if (stade==-3){ return g.get("oeuf");}
-    if (stade==-2){ return g.get("larve");}
-    if (stade==-1){ return g.get("nymphe");}
-    return "stade inconnu ("+stade+")";
   }
   public int getAgeMaxIndividu(int a, int b){ // b vas de -3 oeuf a 0 imago
     Individu in2;
@@ -240,22 +233,22 @@ public class Fourmi extends Creature implements Serializable{
     return t;
   }
   public String [] descriptionTableau(){
-    String tr [] = new String [13];
+    String tr [] = new String [4];
     String idTrans = "Rien"; if(transporté != null){ idTrans = ""+transporté.getId();}
     int k=0;
-    tr[k]=g.get("la")+" "+getNom()+" "+getId();k++;
-    tr[k]=g.get("coordonnées")+" : "+p.desc();k++;
+    //tr[k]=g.get("la")+" "+getNom()+" "+getId();k++;
+    //tr[k]=g.get("coordonnées")+" : "+p.desc();k++;
     tr[k]=g.get("type")+" : "+in.getStringType();k++;
-    tr[k]=g.get("stade")+" : "+getStringStade();k++;
-    tr[k]=g.get("age")+" : " + age+ "/"+ageMax;k++;
-    tr[k]=g.get("nourriture")+" : " + nourriture+ "/"+nourritureMax;k++;
-    tr[k]=g.get("action")+" : "+action+"/"+actionMax;k++;
-    tr[k]=g.get("propreté")+" : "+propreté+"/100";k++;
+    //tr[k]=g.get("stade")+" : "+getStringStade();k++;
+    //tr[k]=g.get("age")+" : " + age+ "/"+ageMax;k++;
+    //tr[k]=g.get("nourriture")+" : " + nourriture+ "/"+nourritureMax;k++;
+    //tr[k]=g.get("action")+" : "+action+"/"+actionMax;k++;
+    //tr[k]=g.get("propreté")+" : "+propreté+"/100";k++;
     tr[k]=g.get("fourmilière")+" : "+fere.getId();k++;
     tr[k]=g.get("mode")+" : "+mode;k++;
-    tr[k]=g.get("Pheromone")+" : "+ this.getPheromone().toString();k++;
+    //tr[k]=g.get("Pheromone")+" : "+ this.getPheromone().toString();k++;
     tr[k]=g.get("transporté")+" : "+idTrans;k++;
-    tr[k]=g.get("espèce")+" : "+this.getEspece().getNom();k++;
+    //tr[k]=g.get("espèce")+" : "+this.getEspece().getNom();k++;
     return tr;
   }
   public GString descriptionGString(){
