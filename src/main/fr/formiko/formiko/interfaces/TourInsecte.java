@@ -27,13 +27,6 @@ public class TourInsecte implements Serializable, Tour{
       erreur.erreurType("Insecte","TourInsecte");
     }
   }
-  /**
-  *Actualise Creature c before the turn.
-  *@version 1.28
-  */
-  public void preTour(Creature c){
-    c.setAction(c.getActionMax());
-  }
 
   /**
   *{@summary Play a turn as an Insecte.<br>}
@@ -49,11 +42,11 @@ public class TourInsecte implements Serializable, Tour{
   *@version 1.28
   */
   public void tour(){
-    eat(5);
-    runAway();
-    eat(50);
+    c.eat(5);
+    c.runAway();
+    c.eat(50);
     reproduce();
-    eat(100);
+    c.eat(100);
     finTour();
   }
   /**
@@ -67,23 +60,6 @@ public class TourInsecte implements Serializable, Tour{
     c.setAgePlus1();
   }
 
-  /**
-  *{@summary Run away if a predator is next to you.<br>}
-  *@version 1.28
-  */
-  private void runAway(){ //TODO
-    //while(c.getAction()>0  && c.fuire()){
-    return;
-  }
-  /**
-  *{@summary Eat with the interface Chasse.<br>}
-  *It will stop eating only if action &#60;&#61; 0 or is not hungry or chasse have returned false (insecte haven't eat the last time he try).<br>
-  *return true if the Insecte have eat.
-  *@version 1.28
-  */
-  private void eat(int percentageOfHungryness){
-    while(c.getAction()>0 && c.isHungry(percentageOfHungryness) && c.chasse()){}
-  }
   /**
   *{@summary reproduce.<br>}
   *@version 1.28

@@ -115,7 +115,7 @@ public class Fourmi extends Creature implements Serializable{
   public int getAgeMaxIndividu(int especeTempId, int stadeTemp){ // b vas de -3 oeuf a 0 imago
     Individu in2;
     if(especeTempId!=100){
-      in2 = e.getIndividuParType(a);
+      in2 = e.getIndividuParType(especeTempId);
     }else{
       in2 = in;
     }

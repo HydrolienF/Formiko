@@ -159,7 +159,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void ceNetoyer(){netoyer.netoyer(this,this);}
   public boolean netoyerIa(){return netoyer.netoyerIa(this);}
   public void tour(){tour.unTour(this);}
-  public void preTour(){tour.preTour(this);}
+  //public void preTour(){tour.preTour(this);}
   //public void manger (graine pour certaine fourmi, champnons pour d'autre et herbe pour les insectes.)
   // Fonctions propre -----------------------------------------------------------
   @Override
@@ -253,5 +253,34 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
       return true;
     }
     return false;
+  }
+
+  //function shared by all Creature. -------------------------------------------
+  /**
+  *{@summary Eat with the interface Chasse.<br>}
+  *It will stop eating only if action &#60;&#61; 0 or is not hungry or chasse have returned false (creature haven't eat the last time he try).<br>
+  *return true if the Creature have eat.
+  *@version 1.28
+  */
+  public void eat(int percentageOfHungryness){
+    while(getAction()>0 && isHungry(percentageOfHungryness) && chasse()){}
+  }
+
+  /**
+  *{@summary Run away if a predator is next to you.<br>}
+  *@version 1.28
+  */
+  public void runAway(){ //TODO
+    //while(c.getAction()>0  && c.fuire()){
+    return;
+  }
+
+  /**
+  *Actualise Creature c before the turn.
+  *@version 1.28
+  */
+  public void preTour(){
+    setAction(math.min(getAction(),0) + getActionMax());//If we have used more action that what we had, we have less this turn.
+    if((evoluer instanceof EvoluerNull) && (getStade()!=0 && getAge()>=getAgeMax())){ evoluer();}
   }
 }

@@ -13,7 +13,7 @@ import java.io.Serializable;
  * @author Hydrolien
  * @version 1.1
  */
-public class ChasseFourmi implements Serializable, Chasse {
+public class ChasseInsectivore implements Serializable, Chasse {
   private Creature c;
 
   // Fonctions propre -----------------------------------------------------------
@@ -34,7 +34,7 @@ public class ChasseFourmi implements Serializable, Chasse {
       if (Main.getDifficulté() >= 1 || ((c instanceof Fourmi) && ((Fourmi)c).getFere().getJoueur().getIa()==false)){ // En difficile les ia chasse les insectes les plus intéressants qu'elle voie.
         pointDeLaProie = proieVisible.getDébut().getInsectePlusDeNourritureFournie().getCCase();
       }
-      debug.débogage(g.getM("laFourmi")+" " + c.getId()+ " "+g.get("ChasseFourmi.1")+" " + pointDeLaProie.getPoint());
+      debug.débogage(g.getM("laFourmi")+" " + c.getId()+ " "+g.get("ChasseInsectivore.1")+" " + pointDeLaProie.getPoint());
       c.ceDeplacer(pointDeLaProie);
     }else { // Si il n'y a pas d'insecte
       c.ceDeplacer(direction);
@@ -88,7 +88,7 @@ public class ChasseFourmi implements Serializable, Chasse {
    */
   private boolean tuer(Insecte insecteTue){
     if (!insecteTue.getEstMort()){
-      Message m = new Message(g.getM("laFourmi")+" "+ c.getId()+" "+g.get("ChasseFourmi.2")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
+      Message m = new Message(g.getM("laCréature")+" "+ c.getId()+" "+g.get("ChasseInsectivore.2")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
       insecteTue.setEstMort(true);
       if(c instanceof Fourmi){
         c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuParType(((Fourmi) c).getTypeF()).getCoutChasse()/2);

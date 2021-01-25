@@ -10,5 +10,5 @@ import java.io.Serializable;
  */
 public interface Tour extends Serializable{
   void unTour(Creature c);
-  void preTour(Creature c);
+  //void preTour(Creature c);
 }
