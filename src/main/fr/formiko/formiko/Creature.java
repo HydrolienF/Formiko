@@ -133,6 +133,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public byte getTolerencePheromone(){return tolerencePheromone;}
   public void setTolerencePheromone(byte x){tolerencePheromone=x;}
   public abstract boolean getVole();
+  public abstract boolean wantFood();
   public Espece getEspece(){ return e;}
   public void setEspece(Espece e){ this.e = e;}
   public void setEspece(int e){ setEspece(Main.getEspeceParId(e));}

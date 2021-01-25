@@ -31,7 +31,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     }
   }
   /**
-   *{@summary make a moove to a defined Case.<br/>}
+   *{@summary make a move to a defined Case.<br/>}
    *c will move 1 Case closer to p but maybe p is more than 1 Case longer to c.getCCase()<br>
    *c will move by the unMouvement(c,direction) methode.
    *@param c the moving Creature.
@@ -126,15 +126,6 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     } while (!b);
     setActionMoinsDéplacement();
   }*/
-  /*private void unMouvementVolontaire(CCase p){
-    if (unPas(p)){ // si on a bien bougé
-      debug.débogage("La Fourmie " + c.getId() +" a fait un mouvement volontaire vers "+ p.getPoint());
-    } else { // Sinon
-      //erreur.alerte("La Fourmie " + id +" n'as pas réussi a faire un unMouvementVolontaire vers" + p.getPoint(),"Fourmi.unMouvementVolontaire");
-      unMouvementAlléa();
-    }
-    setActionMoinsDéplacement();
-  }*/
   /**
   *{@summary make a willing moove.<br>}
   *@param direction the direction to move. (It's a number place as on the keyboard 1= North West, 2 = North, etc)
@@ -186,7 +177,6 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     }
     return false; // le nombre n'était pas correcte
   }
-  // tout les pas mène vers unPas(Casse p) nomallement en passant par unPas(int d).
   /**
    *{@summary Move to a next Case.<br/>}
    *All moving thing use this methode to move.

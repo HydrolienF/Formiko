@@ -66,6 +66,7 @@ public class TourInsecteTest extends TestCaseMuet{
     assertTrue(p.getGc().getCCase(0,1).equals(i.getCCase()));
     assertEquals(4,p.getGc().getCCase(0,1).getContenu().getNourritureInsecte());
     p.getGc().getCCase(0,0).getContenu().actualisationNourritureInsecte();//+1 case 0,0
+    i.setAction(0);
     i.preTour();i.tour();
     assertEquals(2,p.getGc().getCCase(0,1).getContenu().getNourritureInsecte());
     p.getGc().getCCase(0,0).getContenu().actualisationNourritureInsecte();//+1 case 0,0

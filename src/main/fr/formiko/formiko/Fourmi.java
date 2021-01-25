@@ -316,7 +316,7 @@ public class Fourmi extends Creature implements Serializable{
           else {setAction(0);}
           m = "défendre la fourmilière.";
         }else if(mode == 3){
-          nourrirEtNétoyer(); m = "Nourrir et Nétoyer";
+          //nourrirEtNétoyer(); m = "Nourrir et Nétoyer";
         }
         k++;
         //new Message("La fourmi " +this.getId() +" a choisi de " + m + "."+" mode : "+mode);
@@ -408,13 +408,13 @@ public class Fourmi extends Creature implements Serializable{
       }
     }
   }
-  public void nourrirEtNétoyer(){
+  /*public void nourrirEtNétoyer(){
     if (!estALaFere()){ rentrer(); return;}
     boolean aJoué = false;
     if (getTypeF()==4 || (fere.getGc().length() < 50 && this.getEspece().getGranivore())){aJoué = casserGraine();}
     if (!aJoué && this.getEspece().getGranivore()){ aJoué = mangerGraine();}
     if ((estReine() && fere.getJoueur().getIa()) && !aJoué){ aJoué = pondreOuPas();}
-    if (!aJoué){ aJoué = nourrir();}
+    //if (!aJoué){ aJoué = nourrir();}
     if (!aJoué){ aJoué = netoyerIa();}
     if (!aJoué && fere.getJoueur().getIa()){
       new Message("La fourmi "+id+" n'as plus d'action nourrirEtNétoyer a faire",this.getFere().getJoueur().getId());
@@ -431,7 +431,7 @@ public class Fourmi extends Creature implements Serializable{
     }else if(!aJoué){//si c'est un joueur.
       setAction(0);
     }
-  }
+  }*/
   public boolean mangerGraine(){
     //if(fere.getGGraine().getDébut()==null){return false;}
     Graine g = fere.getGGraine().getGraineOuverte();
@@ -451,17 +451,6 @@ public class Fourmi extends Creature implements Serializable{
       this.pondre(); return true;
     } return false;
   }
-  public boolean nourrir(){
-    if (this.getNourriture()<30){ return false;}
-    Fourmi f = aNourrir();
-    if (f!=null && (f.equals(getReine()) || f.getNourriture() < 5*math.max(f.getIndividu().getNourritureConso(),1) )){//|| f.equals(getReine()))) {
-      int nourritureDonnée = this.getNourriture()-5*in.getNourritureConso();
-      trophallaxie((Creature) f,nourritureDonnée);
-      return true;
-    }
-    return false;
-
-  }
   public boolean casserGraine(){
     debug.débogage("tentative de cassage de graine");
     try {
@@ -475,22 +464,6 @@ public class Fourmi extends Creature implements Serializable{
       return false;
     }
 
-  }
-  public Fourmi aNourrir(){
-    Fourmi f3 = getReine();
-    Fourmi f=null;
-    //soit on donne a la reine.
-    if (f3 != null && (!f3.equals(this))){ // si la Reine existe, n'est pas la créatures qui joue ou que la reine a déja plus de nourriture qu'il ne lui en faut.
-      return f3;
-    }else{//soit la reine donne au nécéciteux, plus la fourmi est proche du stade imago plus elle est prioritaire.
-      //f = getAlliéSurLaCase().getGcStade(0).getPlusAffamée(); // Les adultes sont prioritaire pour recevoir de la nourriture.
-      int i = -1;
-      while(((f==null || f.getNourriture() > 5*f.getIndividu().getNourritureConso())) && i>-4){ //si la créature tien plus de 5 tour seule on en cherche une autre.
-        f = getAlliéSurLaCase().getGcStade(i).getPlusAffamée();
-        i--;
-      }
-    }
-    return f;
   }
   public byte choixMode(){
     if (estReine() && nourriture > 30){
@@ -513,5 +486,13 @@ public class Fourmi extends Creature implements Serializable{
     double chanceDeMort = allea.getRand()*getSeuilDeRisqueDInfection(); // on tire le nombre min pour survivre a ce tour.
     if (getPropreté()<allea.getRand()*50){mourir(1);}
     setPropreté(getPropreté() - e.getPropretéPerdu(stade));
+  }
+  /**
+  *{@summary return true if this whant some food.}
+  *This ask for food if it is hungry at 5% or if food is &60; at what we need for 2 days.
+  *@version 1.29
+  */
+  public boolean wantFood(){
+    return isHungry(5) || (getNourriture() <= math.min(getIndividu().getNourritureConso()*2,getNourritureMax()));
   }
 }

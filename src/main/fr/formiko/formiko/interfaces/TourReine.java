@@ -27,14 +27,8 @@ public class TourReine implements Serializable, Tour{
     }
   }
   /**
-  *Actualise Creature c before the turn.
-  *@version 1.28
-  */
-  public void preTour(Creature c){
-    c.setAction(c.getActionMax());
-  }
-  /**
   *Do turn actions
+  *@version 1.29
   */
   public void tour(){
 

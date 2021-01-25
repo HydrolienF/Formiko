@@ -147,6 +147,18 @@ public class CCreature implements Serializable{
     }
     return gcr;
   }
+  public GCreature filtreWantFood(){
+    GCreature gcr = new GCreature();
+    CCreature ccTest = this;
+    ccTest = ccTest.getSuivant();
+    while(ccTest != null){
+      if (ccTest.getContenu().wantFood()){
+        gcr.ajouterFin(ccTest.getContenu());
+      }
+      ccTest = ccTest.getSuivant();
+    }
+    return gcr;
+  }
   public void setLienFere(Fourmiliere fere){
     CCreature ccTest = this;
     while(ccTest != null){

@@ -135,14 +135,29 @@ public class GCreature implements Serializable{
       return null;
     }
   }
-  public GCreature filtreAlliés(Creature c, int différenceTolléré){
+  private GCreature filtreAlliés(Creature c, int différenceTolléré){
     if (début==null || c==null){ return null;}
     return début.filtreAlliés(c,différenceTolléré);
   }
-  public GCreature filtreAlliés(Creature c){ return filtreAlliés(c,5);} // en théorie 4 suffisent.
+  public GCreature filtreAlliés(Creature c){
+    int x=0; if(c.getEspece()!=null && c.getEspece().getPolycalique()){x=5;}// en théorie 4 suffisent.
+    return filtreAlliés(c,x);
+  }
+  /**
+  *{@summary delete Creature that can't eat more.<br>}
+  *@version 1.29
+  */
   public GCreature filtreFaimMax(){
     if (début==null){ return null;}
     return début.filtreFaimMax();
+  }
+  /**
+  *{@summary delete Creature that didn't whant food.<br>}
+  *@version 1.29
+  */
+  public GCreature filtreWantFood(){
+    if (début==null){ return null;}
+    return début.filtreWantFood();
   }
   public void setLienFere(Fourmiliere fere){
     if(début==null){ return;}

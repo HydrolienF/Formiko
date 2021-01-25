@@ -13,11 +13,11 @@ import java.io.Serializable;
 public class TourFourmi implements Serializable, Tour{
   private Fourmi f;
   /**
-  *PLay 1 turn with Creature c.
+  *PLay 1 turn with Creature f.
   *@version 1.24
   */
   public void unTour(Creature c){
-    debug.débogage("la créature "+c.getId()+" tente de jouer un tour");
+    debug.débogage("la créature "+f.getId()+" tente de jouer un tour");
     if(c instanceof Fourmi){
       f = (Fourmi) c;
       tour();
@@ -29,24 +29,66 @@ public class TourFourmi implements Serializable, Tour{
 
   /**
   *Do turn actions
+  *@version 1.29
   */
-  public void tour(){//TODO have all the turn here.
-    f.tourF();
-    /*
-    preTour();
-    c.eat(5);
-    c.runAway();
+  public void tour(){
+    //f.tourF();
+    f.preTour();
+    f.eat(5);
+    f.runAway();
     cleanItself();
-    c.eat(20);
-    feedOther();
-    c.cleanOther();
-    eat(80);
-    backHomeToShareFood(); or reproduce();
-    c.eat(100);
+    f.eat(20);
+    feedOther(10);
+    cleanOther();
+    f.eat(80);
+    //reproduce();
+    backHomeToShareFood();
+    f.eat(100);
     finTour();
-
-    */
   }
+  /**
+  *{@summary Allow to be sur that the ant will be clean.<br>}
+  *@version 1.29
+  */
+  public void cleanItself(){
+    while(f.getAction()>0 && f.getProprete() < 70){ f.ceNetoyer();}
+  }
+  /**
+  *{@summary give food by trophallaxis if other ant need it.<br>}
+  *An Ant try to give all it food exept foodToQueep%.<br>
+  *@version 1.29
+  */
+  public void feedOther(int foodToQueep){
+    while(f.getAction()>0 && f.isHungry(foodToQueep-1) && !(f.trophallaxie instanceof TrophallaxieNull)){
+      Creature toFeed = aNourrir();
+      if(toFeed==null){return;}
+      int nourritureDonnée = f.getNourriture()-(f.getNourritureMax()*foodToQueep);
+      f.trophallaxie(toFeed,nourritureDonnée);
+    }
+  }
+  /**
+  *{@summary Search the ant that need the more food.<br>}
+  *We 1a feed our ant queen if it wantFood.<br>
+  *We 2a feed every creature that is concidered as an ally & want food.<br>
+  *Finaly we try to feed the queen even if she didn't absolutly need food.<br>
+  *@version 1.29
+  */
+  public Creature aNourrir(){
+    GCreature gc = f.getCCase().getContenu().getGc().filtreAlliés(f).filtreFaimMax();
+    Creature r = gc.getReine();
+    if (r!=null && r.wantFood()) {
+      return r;
+    }
+    GCreature gc2 = gc.filtreWantFood();
+    if(gc2.getDébut()!=null){
+      return gc2.getDébut().getContenu();
+    }
+    return r; //r can be null.
+  }
+  /**
+  *{@summary End a turn as an Ant.<br>}
+  *@version 1.29
+  */
   public void finTour(){
     debug.débogage("Fin du tour de la Fourmi");
     // Un tour ça coute en age et en nourriture;

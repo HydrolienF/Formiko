@@ -86,4 +86,13 @@ public class Insecte extends Creature implements Serializable{
     return sr;
   }
 
+  /**
+  *{@summary return true if this whant some food.}
+  *Insecte alway whant food from ant exept if they can eat it.
+  *@version 1.29
+  */
+  public boolean wantFood(){
+    return getNourriture()<getNourritureMax();
+  }
+
 }
