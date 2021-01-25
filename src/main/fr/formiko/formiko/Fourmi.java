@@ -107,19 +107,31 @@ public class Fourmi extends Creature implements Serializable{
   public String description(){
     return toString();
   }
-  public int getAgeMaxIndividu(int a, int b){ // b vas de -3 oeuf a 0 imago
+  /**
+  *{@summary return the max age for an Individu depending of Espece & stade.}
+  *@param especeTempId Temporary Espece id.
+  *@param stadeTemp Temporary stade.
+  */
+  public int getAgeMaxIndividu(int especeTempId, int stadeTemp){ // b vas de -3 oeuf a 0 imago
     Individu in2;
-    if(a!=100){
+    if(especeTempId!=100){
       in2 = e.getIndividuParType(a);
     }else{
       in2 = in;
     }
-    if(in2==null){erreur.erreur("L'individu de stade "+a+" n'as pas été trouvé.");in2 = in;}
-    return (int)((double)(in2.getAgeMax(b+3)*getMultiplicateurDeDiff()));
+    if(in2==null){erreur.erreur("L'individu de stade "+especeTempId+" n'as pas été trouvé.");in2 = in;}
+    return (int)((double)(in2.getAgeMax(stadeTemp+3)*getMultiplicateurDeDiff()));
   }
+  /**
+  *{@summary return the max age for an Individu with stade=0 (imago) & individu already define.}
+  */
   public int getAgeMaxIndividu(){
-    return getAgeMaxIndividu(100,0); //0 = imago.
+    return getAgeMaxIndividu(100,0);
   }
+  /**
+  *{@summary return the difficulty multiplier.}<br>
+  *Difficulty multiplier is in [0.2;3] <br>
+  */
   public double getMultiplicateurDeDiff(){
     double vit = Main.getVitesseDeJeu();
     boolean ia = fere.getJoueur().getIa();
@@ -188,10 +200,6 @@ public class Fourmi extends Creature implements Serializable{
         Main.repaint();
         bActualiserTaille=false;
       }
-      /*else if(uneSeuleAction==-1){
-        Main.getPb().removePa();
-        Main.getPb().addPa(Main.getFActuelle().getTActionFourmi());
-      }*/
     }choix++;
     return choix;
   }
@@ -411,7 +419,7 @@ public class Fourmi extends Creature implements Serializable{
     if (!aJoué && fere.getJoueur().getIa()){
       new Message("La fourmi "+id+" n'as plus d'action nourrirEtNétoyer a faire",this.getFere().getJoueur().getId());
       fere.setModeDéfaut(0); // les prochaines fourmi pourront juste s'occuper de chasser.
-      if (estReine() && fere.getGc().getCouvain().length()>=1){ // si c'est la reine et qu'elle a 1 oeuf elle ne doit pas s'enéloigner.
+      if (estReine() && fere.getGc().getCouvain().length()>=1){ // si c'est la reine et qu'elle a 1 oeuf elle ne doit pas s'en éloigner.
         //if(estALaFere()){chasser(5);}//elle chasse dans un rayon de 1 case.
         //aJoué = nétoyerTtLeMonde();
         //if (!aJoué) {
