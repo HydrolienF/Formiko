@@ -6,7 +6,8 @@ import fr.formiko.formiko.interfaces.*;
 import fr.formiko.usuel.math.allea;
 import fr.formiko.usuel.math.math;
 import fr.formiko.usuel.conversiondetype.str;
-/** {@summary The class that extends every living thing on the game.<br>}
+/**
+*{@summary The class that extends every living thing on the game.<br>}
 *Most of the common var between Fourmi and Insecte can be found here.<br>
 *Creature have a lot of interfaces. They can be used to do every action that a creature can do. If a creature can not do an action as lay (pondre) and try to do it, an error message will appear. This actions can all be call by a short cut here (to be able to do creature.action() and not ActionFourmi.action(creature)).<br>
 *@author Hydrolien
@@ -134,12 +135,13 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void setTolerencePheromone(byte x){tolerencePheromone=x;}
   public abstract boolean getVole();
   public abstract boolean wantFood();
+  public abstract boolean wantClean();
   public Espece getEspece(){ return e;}
   public void setEspece(Espece e){ this.e = e;}
   public void setEspece(int e){ setEspece(Main.getEspeceParId(e));}
   public String getNom(){return g.get("creature");}
 
-  //raccourci des action d'interface
+  //raccourci des actions d'interface
   public void ceDeplacer(boolean bIa){déplacement.unMouvement(this,bIa);}
   public void ceDeplacer(CCase p){déplacement.unMouvement(this,p);}
   public void ceDeplacer(int direction){déplacement.unMouvement(this,direction);}
@@ -184,7 +186,10 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     r+=g.get("espèce")+" "+e.getNom();
     return r;
   }
-
+  /**
+  *return stade as a string in the good language.
+  *@version 1.29
+  */
   public String getStringStade(){
     if (stade==0){ return g.get("imago");}
     if (stade==-3){ return g.get("oeuf");}
@@ -198,6 +203,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   /**
   *{@summary is this consider as an enemy of c ? <br>}
   *@param c A Creature that whant to know if we are ally.
+  *@version 1.13
   */
   public boolean getEstAllié(Creature c){ // en théorie la fourmi f reconnait plus ou moins en fonction de ses caractéristique les autre créature.
     if(this.getPheromone().equals(c.getPheromone(),c.getTolerencePheromone())){return true;}
@@ -206,6 +212,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   /**
   *{@summary is this consider as an enemy of c ? <br>}
   *@param c A Creature that whant to know if we are enemy.
+  *@version 1.13
   */
   //est ce que c nous concidère comme ennemis.
   public boolean getEstEnnemi(Creature c){
@@ -236,6 +243,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   /**
   *{@summary check if this should died of reason x. <br>}
   *@param x Reason to died or not.
+  *@version 1.20
   */
   public void mourirOuPas(int x){
     if(x==2 && age>ageMax){mourir(x);return;}

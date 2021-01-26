@@ -135,6 +135,10 @@ public class CCreature implements Serializable{
     }
     return gcr;
   }
+  /**
+  *{@summary delete Creature that can't eat more.<br>}
+  *@version 1.29
+  */
   public GCreature filtreFaimMax(){
     GCreature gcr = new GCreature();
     CCreature ccTest = this;
@@ -147,12 +151,48 @@ public class CCreature implements Serializable{
     }
     return gcr;
   }
+  /**
+  *{@summary delete Creature that can't be cleaner.<br>}
+  *@version 1.29
+  */
+  public GCreature filtrePropreteMax(){
+    GCreature gcr = new GCreature();
+    CCreature ccTest = this;
+    ccTest = ccTest.getSuivant();
+    while(ccTest != null){
+      if (ccTest.getContenu().getProprete()<100){
+        gcr.ajouterFin(ccTest.getContenu());
+      }
+      ccTest = ccTest.getSuivant();
+    }
+    return gcr;
+  }
+  /**
+  *{@summary delete Creature that didn't whant food.<br>}
+  *@version 1.29
+  */
   public GCreature filtreWantFood(){
     GCreature gcr = new GCreature();
     CCreature ccTest = this;
     ccTest = ccTest.getSuivant();
     while(ccTest != null){
       if (ccTest.getContenu().wantFood()){
+        gcr.ajouterFin(ccTest.getContenu());
+      }
+      ccTest = ccTest.getSuivant();
+    }
+    return gcr;
+  }
+  /**
+  *{@summary delete Creature that didn't whant clean.<br>}
+  *@version 1.29
+  */
+  public GCreature filtreWantClean(){
+    GCreature gcr = new GCreature();
+    CCreature ccTest = this;
+    ccTest = ccTest.getSuivant();
+    while(ccTest != null){
+      if (ccTest.getContenu().wantClean()){
         gcr.ajouterFin(ccTest.getContenu());
       }
       ccTest = ccTest.getSuivant();
@@ -239,7 +279,7 @@ public class CCreature implements Serializable{
       suivant.jouer();
     }
   }
-  public void finTour(){
+  /*public void finTour(){
     Fourmi fActuel =  null;
     if(contenu instanceof Fourmi){
       fActuel = (Fourmi) contenu;
@@ -250,7 +290,7 @@ public class CCreature implements Serializable{
     if(suivant != null){
       suivant.finTour();
     }
-  }
+  }*/
   public void actualiserCaseSN(){
     CCreature cc = this;
     while(cc!= null){

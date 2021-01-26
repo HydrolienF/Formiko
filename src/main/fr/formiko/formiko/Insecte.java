@@ -94,5 +94,13 @@ public class Insecte extends Creature implements Serializable{
   public boolean wantFood(){
     return getNourriture()<getNourritureMax();
   }
+  /**
+  *{@summary return true if this whant to be clean.}
+  *@version 1.29
+  */
+  public boolean wantClean(){
+    if(propreté>99){return false;}
+    return true;
+  }
 
 }

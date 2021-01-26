@@ -96,7 +96,7 @@ public class GCreature implements Serializable{
       }else{
         break;
       }
-    }if (gcr.getDébut() == null){ return null;}
+    }if (gcr.getDébut() == null){ return new GCreature();}
     gcr.getDébut().getCouvainsSale(); // on filtre les propre dans la suite d ela liste.
     return gcr;
   }
@@ -136,7 +136,7 @@ public class GCreature implements Serializable{
     }
   }
   private GCreature filtreAlliés(Creature c, int différenceTolléré){
-    if (début==null || c==null){ return null;}
+    if (début==null || c==null){ return new GCreature();}
     return début.filtreAlliés(c,différenceTolléré);
   }
   public GCreature filtreAlliés(Creature c){
@@ -148,16 +148,32 @@ public class GCreature implements Serializable{
   *@version 1.29
   */
   public GCreature filtreFaimMax(){
-    if (début==null){ return null;}
+    if (début==null){ return new GCreature();}
     return début.filtreFaimMax();
+  }
+  /**
+  *{@summary delete Creature that can't be cleaner.<br>}
+  *@version 1.29
+  */
+  public GCreature filtrePropreteMax(){
+    if (début==null){ return new GCreature();}
+    return début.filtrePropreteMax();
   }
   /**
   *{@summary delete Creature that didn't whant food.<br>}
   *@version 1.29
   */
   public GCreature filtreWantFood(){
-    if (début==null){ return null;}
+    if (début==null){ return new GCreature();}
     return début.filtreWantFood();
+  }
+  /**
+  *{@summary delete Creature that didn't whant clean.<br>}
+  *@version 1.29
+  */
+  public GCreature filtreWantClean(){
+    if (début==null){ return new GCreature();}
+    return début.filtreWantClean();
   }
   public void setLienFere(Fourmiliere fere){
     if(début==null){ return;}
@@ -296,7 +312,7 @@ public class GCreature implements Serializable{
       jouerE();
     }catch (ListeVideException e) {}
   }
-  private void finTourE() throws ListeVideException{
+  /*private void finTourE() throws ListeVideException{
     if(début == null){
       throw new ListeVideException("GCreature","finTour");
     }else{
@@ -307,7 +323,7 @@ public class GCreature implements Serializable{
     try{
       finTourE();
     }catch (ListeVideException e) {}
-  }
+  }*/
   public void actualiserCaseSN(){
     if(début == null){ return;}
     début.actualiserCaseSN();

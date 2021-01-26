@@ -17,7 +17,7 @@ public class TourFourmi implements Serializable, Tour{
   *@version 1.24
   */
   public void unTour(Creature c){
-    debug.débogage("la créature "+f.getId()+" tente de jouer un tour");
+    debug.débogage("la créature "+c.getId()+" tente de jouer un tour");
     if(c instanceof Fourmi){
       f = (Fourmi) c;
       tour();
@@ -42,19 +42,19 @@ public class TourFourmi implements Serializable, Tour{
     cleanOther();
     f.eat(80);
     //reproduce();
-    backHomeToShareFood();
+    backHomeAndShareFood();
     f.eat(100);
     finTour();
   }
   /**
-  *{@summary Allow to be sur that the ant will be clean.<br>}
+  *{@summary To be sur that the ant will be clean.<br>}
   *@version 1.29
   */
   public void cleanItself(){
-    while(f.getAction()>0 && f.getProprete() < 70){ f.ceNetoyer();}
+    while(f.getAction()>0 && f.wantClean() && !(f.netoyer instanceof NetoyerNull)){ f.ceNetoyer();}
   }
   /**
-  *{@summary give food by trophallaxis if other ant need it.<br>}
+  *{@summary Give food by trophallaxis if other ant need it.<br>}
   *An Ant try to give all it food exept foodToQueep%.<br>
   *@version 1.29
   */
@@ -84,6 +84,53 @@ public class TourFourmi implements Serializable, Tour{
       return gc2.getDébut().getContenu();
     }
     return r; //r can be null.
+  }
+  /**
+  *{@summary Clean if other ant need it.<br>}
+  *@version 1.29
+  */
+  public void cleanOther(){
+    while(f.getAction()>0 && !(f.netoyer instanceof NetoyerNull)){
+      Creature toClean = aNetoyer();
+      if(toClean==null){return;}
+      f.netoyer(toClean);
+    }
+  }
+  /**
+  *{@summary Search the ant that need the more to be clean.<br>}
+  *We 1a clean our ant queen if it wantClean.<br>
+  *We 2a clean every creature that is concidered as an ally & want clean.<br>
+  *@version 1.29
+  */
+  public Creature aNetoyer(){
+    GCreature gc = f.getCCase().getContenu().getGc().filtreAlliés(f).filtrePropreteMax();
+    Creature r = gc.getReine();
+    if (r!=null && r.wantClean()) {
+      return r;
+    }
+    GCreature gc2 = gc.filtreWantClean();
+    if(gc2.getDébut()!=null){
+      return gc2.getDébut().getContenu();
+    }
+    return null;
+  }
+  /**
+  *{@summary Back home and share food to the Creature that need it.<br>}
+  *@version 1.29
+  */
+  public void backHomeAndShareFood(){
+    while (f.getAction()>0 && !f.estALaFere()) {
+      rentrer();
+    }
+    feedOther(10);
+  }
+  /**
+  *{@summary Back home.<br>}
+  *@version 1.29
+  */
+  public void rentrer(){
+    int directionDeLaFourmilière = f.getCCase().getDirection(f.getFourmiliere().getCCase());
+    f.ceDeplacer(directionDeLaFourmilière);
   }
   /**
   *{@summary End a turn as an Ant.<br>}

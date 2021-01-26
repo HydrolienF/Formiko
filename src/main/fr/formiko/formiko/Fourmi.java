@@ -100,6 +100,7 @@ public class Fourmi extends Creature implements Serializable{
   public String getNom(){return g.get("fourmi");}
   //racourci
   public Fourmi getReine(){ return getFere().getGc().getReine();}
+  public byte getPropretéPerdu(){return e.getPropretéPerdu(stade);}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){return super.toString() +" "+ tableau.tableauToString(descriptionTableau());}
   public void afficheToi (){System.out.println(description());}
@@ -274,7 +275,7 @@ public class Fourmi extends Creature implements Serializable{
     gs.add(g.get("espèce")+" : "+e.getNom());
     return gs;
   }
-  public void tourF(){
+  /*public void tourF(){
     int idf = Main.getPs().getIdFourmiAjoué();
     if(idf!=-1 && getId()!=idf){mode=-1;Main.getPb().setVisiblePa(false);Main.getPb().removePi();return;}//si 1 fourmi spéciale est sencé joué et que ce n'est pas celle la.
     boolean estIa = fere.getJoueur().getIa();
@@ -342,7 +343,7 @@ public class Fourmi extends Creature implements Serializable{
       Main.getPb().setVisiblePa(false);
     }
     Main.getPs().setIdFourmiAjoué(-1);
-  }
+  }*/
 
   public String faire(int choix){
     boolean estIa = fere.getJoueur().getIa();
@@ -363,10 +364,10 @@ public class Fourmi extends Creature implements Serializable{
         netoyer();
         yield "ce netoyer ou nétoyer une autre fourmi";
       case 5:
-        mangerGraine();
+        //mangerGraine();
         yield "mangerGraine";
       case 6 :
-        casserGraine();
+        //casserGraine();
         yield "casserGraine";
       case 7 :
         setMode(0);
@@ -390,7 +391,7 @@ public class Fourmi extends Creature implements Serializable{
     return m;
   }
 
-  public void collecterOuChasser(int direction, boolean estIa){
+  /*public void collecterOuChasser(int direction, boolean estIa){
     if(this.getEspece().getInsectivore()){
       this.chasser(direction);
     }else if(this.getEspece().getGranivore()){
@@ -407,7 +408,7 @@ public class Fourmi extends Creature implements Serializable{
         }
       }
     }
-  }
+  }*/
   /*public void nourrirEtNétoyer(){
     if (!estALaFere()){ rentrer(); return;}
     boolean aJoué = false;
@@ -432,14 +433,14 @@ public class Fourmi extends Creature implements Serializable{
       setAction(0);
     }
   }*/
-  public boolean mangerGraine(){
+  /*public boolean mangerGraine(){
     //if(fere.getGGraine().getDébut()==null){return false;}
     Graine g = fere.getGGraine().getGraineOuverte();
     if(this.getNourriture() < this.getNourritureMax()/2 && g!=null){
       nourriture = nourriture + g.getNourritureFournie();
       fere.getGGraine().retirerGraine(g); return true;
     }return false;
-  }
+  }*/
   public boolean pondreOuPas(){
     if (this.getFere().getGc().getCouvainSale()!=null && getAlliéSurLaCase().getNbrOuvrière()==0){ return false;}//si personne n'aide et que le couvain et sale.
     if (fere.getGc().getNbrOuvrière()==0 && this.getFere().getGc().getCouvain().length()>=1){ return false;} // pas plus d'un oeuf au début.
@@ -451,7 +452,7 @@ public class Fourmi extends Creature implements Serializable{
       this.pondre(); return true;
     } return false;
   }
-  public boolean casserGraine(){
+  /*public boolean casserGraine(){
     debug.débogage("tentative de cassage de graine");
     try {
       debug.débogage("Etape 1");
@@ -463,9 +464,8 @@ public class Fourmi extends Creature implements Serializable{
     }catch (Exception e) {
       return false;
     }
-
-  }
-  public byte choixMode(){
+  }*/
+  /*public byte choixMode(){
     if (estReine() && nourriture > 30){
       return 3; //sauf si elle est morte de faim ou toute seule.
     }
@@ -477,15 +477,16 @@ public class Fourmi extends Creature implements Serializable{
       return 3; // ancien choix pour mode 1.
     }
     return 0;
-  }
-  public void rentrer(){
-    int directionDeLaFourmilière = this.getCCase().getDirection(this.getFourmiliere().getCCase());
-    this.ceDeplacer(directionDeLaFourmilière);
-  }
+  }*/
+  /**
+  *{@summary un-clean this.}
+  *It also let this died if it is under the seuilDeRisqueDInfection & that this have bad luck.
+  *@version 1.29
+  */
   public void salir(){
     double chanceDeMort = allea.getRand()*getSeuilDeRisqueDInfection(); // on tire le nombre min pour survivre a ce tour.
     if (getPropreté()<allea.getRand()*50){mourir(1);}
-    setPropreté(getPropreté() - e.getPropretéPerdu(stade));
+    setPropreté(getPropreté() - getPropretéPerdu());
   }
   /**
   *{@summary return true if this whant some food.}
@@ -494,5 +495,14 @@ public class Fourmi extends Creature implements Serializable{
   */
   public boolean wantFood(){
     return isHungry(5) || (getNourriture() <= math.min(getIndividu().getNourritureConso()*2,getNourritureMax()));
+  }
+  /**
+  *{@summary return true if this whant to be clean.}
+  *This want to le clean if in 2 turns it will be under the seuilDeRisqueDInfection.
+  *@version 1.29
+  */
+  public boolean wantClean(){
+    if(getProprete()>99){return false;}
+    return getProprete() - (getPropretéPerdu()*2) < getSeuilDeRisqueDInfection();
   }
 }
