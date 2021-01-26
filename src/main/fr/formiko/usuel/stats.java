@@ -99,7 +99,12 @@ public class stats {
     int sommeDesFctL = gi.getCase(1);
     sommeDesComG+=sommeDesCom;sommeDesFctLG+=sommeDesFctL;
     if(sommeDesFctL==0){return "null%";}
-    String r = ((sommeDesCom*100)/sommeDesFctL)+"%";
+    String r = "";
+    if(sommeDesCom<100){
+      r = ((sommeDesCom*100)/sommeDesFctL)+"%";
+    }else{
+      r = ((sommeDesCom*100)/sommeDesFctL)+","+(((sommeDesCom*1000)/sommeDesFctL)%10)+"%";
+    }
     while(r.length()<5){r+=" ";}
     r=r+"("+sommeDesCom+"/"+sommeDesFctL+")";
     while(r.length()<5+8){r+=" ";}
