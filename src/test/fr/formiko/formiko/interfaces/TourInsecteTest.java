@@ -1,17 +1,21 @@
 package fr.formiko.formiko.interfaces;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
-import fr.formiko.formiko.interfaces.TourInsecte;
-import fr.formiko.usuel.test.TestCaseMuet;
-import org.junit.Test;
-import fr.formiko.formiko.Creature;
-import fr.formiko.formiko.Insecte;
-import fr.formiko.formiko.CCase;
-import fr.formiko.formiko.Case;
-import fr.formiko.formiko.GCase;
-import fr.formiko.formiko.Carte;
-import fr.formiko.formiko.Partie;
 
+import org.junit.Test;
+
+import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.Carte;
+import fr.formiko.formiko.Case;
+import fr.formiko.formiko.Creature;
+import fr.formiko.formiko.GCase;
+import fr.formiko.formiko.Insecte;
+import fr.formiko.formiko.Main;
+import fr.formiko.formiko.Partie;
+import fr.formiko.formiko.interfaces.TourInsecte;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.test.TestCaseMuet;
+  
 public class TourInsecteTest extends TestCaseMuet{
   // Fonctions propre -----------------------------------------------------------
   @Test

@@ -1,7 +1,9 @@
 package fr.formiko.usuel.conversiondetype;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
-//def par défaut des fichiers depuis 0.79.5
+
 import fr.formiko.usuel.ascii;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
 import fr.formiko.usuel.tableau;
 
 /**
