@@ -18,7 +18,6 @@ import javax.swing.ImageIcon;
 import fr.formiko.usuel.image.Img;
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.image.Pixel;
-import fr.formiko.formiko.Main;
 
 public class PanneauZoom extends Panneau {
   private Bouton bPlus; private Bouton bMoins; private Bouton bc;//bouton de zoom.

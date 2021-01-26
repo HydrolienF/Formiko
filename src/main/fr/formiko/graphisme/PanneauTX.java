@@ -5,7 +5,6 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Touches;
 
 public abstract class PanneauTX extends Panneau{
