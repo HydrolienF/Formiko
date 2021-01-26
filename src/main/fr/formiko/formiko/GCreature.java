@@ -51,12 +51,13 @@ public class GCreature implements Serializable{
   }
   public Fourmi getReine(){
     if (début==null){return null;}
-    Fourmi f1 = (Fourmi) début.getContenu();
-    if (f1.estReine()){
-      return f1;
-    }else {
-      return début.getReine();
+    if (getDébut().getContenu() instanceof Fourmi){
+      Fourmi f1 = (Fourmi) getDébut().getContenu();
+      if (f1.estReine()){//si c'est la reine
+        return f1;
+      }
     }
+    return début.getReine();
   }
   public Fourmi getPlusAffamée(){
     if (début==null){return null;}
@@ -275,6 +276,7 @@ public class GCreature implements Serializable{
       retirerE(c);
     }catch (Exception e) {}
   }
+  public void delete(Creature c){retirer(c);}
   public void afficheToiE() throws ListeVideException{
     if(début==null){
       throw new ListeVideException("GCreature","tout afficher");

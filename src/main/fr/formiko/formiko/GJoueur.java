@@ -85,7 +85,12 @@ public class GJoueur implements Serializable{
       actualiserFin();
     }
   }
-  public void ajouter(Joueur j){
+  public void ajouter(Joueur j){add(j);}
+  /**
+  *{@summary Add a player to the GJoueur.}
+  *@version 1.29
+  */
+  public void add(Joueur j){
     ajouterFin(j);
   }
   public void ajouterFin(Joueur j){

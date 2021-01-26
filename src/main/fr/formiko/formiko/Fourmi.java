@@ -345,6 +345,7 @@ public class Fourmi extends Creature implements Serializable{
     Main.getPs().setIdFourmiAjoué(-1);
   }*/
 
+  //TODO move to TourFourmiNonIa
   public String faire(int choix){
     boolean estIa = fere.getJoueur().getIa();
     String m = switch(choix){
@@ -441,6 +442,7 @@ public class Fourmi extends Creature implements Serializable{
       fere.getGGraine().retirerGraine(g); return true;
     }return false;
   }*/
+  //TODO move to TourReineNonIa
   public boolean pondreOuPas(){
     if (this.getFere().getGc().getCouvainSale()!=null && getAlliéSurLaCase().getNbrOuvrière()==0){ return false;}//si personne n'aide et que le couvain et sale.
     if (fere.getGc().getNbrOuvrière()==0 && this.getFere().getGc().getCouvain().length()>=1){ return false;} // pas plus d'un oeuf au début.
@@ -494,7 +496,7 @@ public class Fourmi extends Creature implements Serializable{
   *@version 1.29
   */
   public boolean wantFood(){
-    return isHungry(5) || (getNourriture() <= math.min(getIndividu().getNourritureConso()*2,getNourritureMax()));
+    return isHungry(5) || (getNourriture() < math.min(getIndividu().getNourritureConso()*2,getNourritureMax()));
   }
   /**
   *{@summary return true if this whant to be clean.}

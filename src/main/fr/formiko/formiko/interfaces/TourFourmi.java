@@ -12,14 +12,15 @@ import java.io.Serializable;
  */
 public class TourFourmi implements Serializable, Tour{
   private Fourmi f;
+  public void setF(Fourmi fTemp){f=fTemp;}
   /**
   *PLay 1 turn with Creature f.
   *@version 1.24
   */
   public void unTour(Creature c){
     debug.débogage("la créature "+c.getId()+" tente de jouer un tour");
-    if(c instanceof Fourmi){
-      f = (Fourmi) c;
+    if(c!=null && c instanceof Fourmi){
+      setF((Fourmi) c);
       tour();
       debug.débogage("fin du tour de la fourmi.");
     }else{
@@ -75,6 +76,7 @@ public class TourFourmi implements Serializable, Tour{
   */
   public Creature aNourrir(){
     GCreature gc = f.getCCase().getContenu().getGc().filtreAlliés(f).filtreFaimMax();
+    gc.delete(f);
     Creature r = gc.getReine();
     if (r!=null && r.wantFood()) {
       return r;
@@ -104,6 +106,7 @@ public class TourFourmi implements Serializable, Tour{
   */
   public Creature aNetoyer(){
     GCreature gc = f.getCCase().getContenu().getGc().filtreAlliés(f).filtrePropreteMax();
+    gc.delete(f);
     Creature r = gc.getReine();
     if (r!=null && r.wantClean()) {
       return r;
@@ -120,7 +123,7 @@ public class TourFourmi implements Serializable, Tour{
   */
   public void backHomeAndShareFood(){
     while (f.getAction()>0 && !f.estALaFere()) {
-      rentrer();
+      backHome();
     }
     feedOther(10);
   }
@@ -128,7 +131,7 @@ public class TourFourmi implements Serializable, Tour{
   *{@summary Back home.<br>}
   *@version 1.29
   */
-  public void rentrer(){
+  public void backHome(){
     int directionDeLaFourmilière = f.getCCase().getDirection(f.getFourmiliere().getCCase());
     f.ceDeplacer(directionDeLaFourmilière);
   }

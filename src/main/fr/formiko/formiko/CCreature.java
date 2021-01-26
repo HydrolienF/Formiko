@@ -46,13 +46,14 @@ public class CCreature implements Serializable{
     }
   }
   public Fourmi getReine(){
-    if (this.getSuivant()==null){ return null;}
-    Fourmi f1 = (Fourmi) this.getSuivant().getContenu();
-    if (f1.estReine()){//si c'est la reine
-      return f1;
-    }else{
-      return this.getSuivant().getReine();
+    if (getSuivant()==null){ return null;}
+    if (getSuivant().getContenu() instanceof Fourmi){
+      Fourmi f1 = (Fourmi) getSuivant().getContenu();
+      if (f1.estReine()){//si c'est la reine
+        return f1;
+      }
     }
+    return getSuivant().getReine();
   }
   public Fourmi getPlusAffamée(){
     Fourmi fr = (Fourmi) this.getContenu();
@@ -142,7 +143,6 @@ public class CCreature implements Serializable{
   public GCreature filtreFaimMax(){
     GCreature gcr = new GCreature();
     CCreature ccTest = this;
-    ccTest = ccTest.getSuivant();
     while(ccTest != null){
       if (ccTest.getContenu().getNourriture()<ccTest.getContenu().getNourritureMax()){
         gcr.ajouterFin(ccTest.getContenu());
@@ -158,7 +158,6 @@ public class CCreature implements Serializable{
   public GCreature filtrePropreteMax(){
     GCreature gcr = new GCreature();
     CCreature ccTest = this;
-    ccTest = ccTest.getSuivant();
     while(ccTest != null){
       if (ccTest.getContenu().getProprete()<100){
         gcr.ajouterFin(ccTest.getContenu());
@@ -174,7 +173,6 @@ public class CCreature implements Serializable{
   public GCreature filtreWantFood(){
     GCreature gcr = new GCreature();
     CCreature ccTest = this;
-    ccTest = ccTest.getSuivant();
     while(ccTest != null){
       if (ccTest.getContenu().wantFood()){
         gcr.ajouterFin(ccTest.getContenu());
@@ -190,7 +188,6 @@ public class CCreature implements Serializable{
   public GCreature filtreWantClean(){
     GCreature gcr = new GCreature();
     CCreature ccTest = this;
-    ccTest = ccTest.getSuivant();
     while(ccTest != null){
       if (ccTest.getContenu().wantClean()){
         gcr.ajouterFin(ccTest.getContenu());

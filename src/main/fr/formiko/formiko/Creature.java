@@ -115,6 +115,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     this.p = p;
     p.getContenu().getGc().ajouter(this);
   }
+  public void setCc(CCase cc){setCCase(cc);}
   public Pheromone getPheromone(){ return ph;}
   public Pheromone getPh(){ return getPheromone();}
   public void setPheromone(Pheromone ph){this.ph = ph; }
@@ -123,7 +124,8 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public boolean getEstMort(){ return estMort;}
   public void setEstMort(boolean b){estMort=b;actionMax=0;action=0;}
   public byte getPropreté(){return getProprete();} public byte getProprete(){return propreté;}
-  public void setPropreté(int x){setPropreté(str.iToBy(x));}
+  public void setPropreté(int x){setProprete(x);}
+  public void setProprete(int x){setPropreté(str.iToBy(x));}
   public void setPropreté(byte x){ propreté = x; if(x<100){x=100;}}
   public boolean getFemelle(){return femelle;}
   public void setFemelle(boolean b){femelle=b;}
