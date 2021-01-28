@@ -76,11 +76,8 @@ public class strTest extends TestCaseMuet{
     try {
       assertEquals(2,str.sToLThrows("2"));
       assertEquals(21,str.sToLThrows("2   1"));
-    }catch (Exception e) {
-
-    }
-    //TODO ce débrouiller pour que assertThrows marche (probablement avec junit 5 et son sous module Jupiter)
-    //assertThrows(Exception.class,str.sToLThrows("t4"));
+      assertThrows(Exception.class, () -> {str.sToLThrows("t4");});
+    }catch (Exception e) {assertTrue(false);}
   }
   @Test
   public void testFiltreCharInterdit(){
