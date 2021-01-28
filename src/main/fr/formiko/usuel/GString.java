@@ -2,7 +2,7 @@ package fr.formiko.usuel.liste;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 import javax.swing.JComboBox;
-import fr.formiko.usuel.math.math;
+import fr.formiko.usuel.maths.math;
 import java.io.Serializable;
 
 public class GString implements Serializable{

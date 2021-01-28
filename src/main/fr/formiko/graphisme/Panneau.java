@@ -10,8 +10,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.Image;
 import fr.formiko.formiko.*;
-import fr.formiko.usuel.image.image;
-import fr.formiko.usuel.math.math;
+import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.maths.math;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 

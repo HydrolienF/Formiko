@@ -1,4 +1,4 @@
-package fr.formiko.usuel.image;
+package fr.formiko.usuel.images;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.formiko.Pheromone;

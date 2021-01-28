@@ -1,7 +1,7 @@
 package fr.formiko.formiko;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
 //def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.type.str;
 import java.io.Serializable;
 
 public class Point implements Serializable{

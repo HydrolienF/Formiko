@@ -4,7 +4,7 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.usuel.decoderUnFichier;
 import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.type.str;
 import java.io.Serializable;
 
 public class GIndividu implements Serializable{

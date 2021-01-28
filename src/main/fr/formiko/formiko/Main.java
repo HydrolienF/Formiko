@@ -2,14 +2,13 @@ package fr.formiko.formiko;
 
 import fr.formiko.graphisme.*;
 import fr.formiko.usuel.*;
-import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.type.str;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.image.*;
+import fr.formiko.usuel.images.*;
 import fr.formiko.usuel.liste.*;
-import fr.formiko.usuel.math.math;
-import fr.formiko.usuel.test.test;
+import fr.formiko.usuel.maths.math;
 
 import java.awt.Font;
 import java.io.File;

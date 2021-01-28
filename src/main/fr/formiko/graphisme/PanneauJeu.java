@@ -15,12 +15,12 @@ import java.awt.geom.AffineTransform;
 import javax.swing.JScrollPane;
 import javax.swing.JOptionPane;
 import fr.formiko.formiko.*;
-import fr.formiko.usuel.image.image;
-import fr.formiko.usuel.math.math;
+import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.Temps;
 import javax.swing.ImageIcon;
-import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.type.str;
 
 public class PanneauJeu extends Panneau {
   private PanneauCarte pc;

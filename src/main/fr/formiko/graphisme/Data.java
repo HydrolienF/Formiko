@@ -3,10 +3,10 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 //def par défaut des fichiers depuis 0.79.5
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import fr.formiko.usuel.image.image;
-import fr.formiko.usuel.image.Img;
-import fr.formiko.usuel.math.math;
-import fr.formiko.usuel.image.Pixel;
+import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.images.Img;
+import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.images.Pixel;
 import fr.formiko.formiko.Case;
 
 /**

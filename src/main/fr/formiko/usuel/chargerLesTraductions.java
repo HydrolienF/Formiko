@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.HashMap;
 import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.type.str;
 import fr.formiko.usuel.liste.GString;
 import java.io.File;
 

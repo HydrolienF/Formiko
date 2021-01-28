@@ -5,7 +5,7 @@ import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Fourmi;
 import java.io.Serializable;
-import fr.formiko.usuel.math.math;
+import fr.formiko.usuel.maths.math;
 /**
  * {@summary Chasse implementation.<br/>}
  * Allow a creature to do hunt as an herbivore.<br/>

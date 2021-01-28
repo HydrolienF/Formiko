@@ -5,7 +5,7 @@ import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.usuel.chargerLesTraductions;
 import fr.formiko.usuel.liste.GString;
 import fr.formiko.usuel.liste.CString;
-import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.type.str;
 import java.util.Map;
 import java.util.HashMap;
 

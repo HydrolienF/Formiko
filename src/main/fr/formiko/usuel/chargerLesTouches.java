@@ -7,7 +7,7 @@ import fr.formiko.usuel.liste.GString;
 import java.io.File;
 import java.util.Map;
 import java.util.HashMap;
-import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.type.str;
 
 public class chargerLesTouches {
   private static Map<String, Integer> map;

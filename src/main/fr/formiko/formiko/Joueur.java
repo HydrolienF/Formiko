@@ -3,13 +3,13 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.read;
 import fr.formiko.graphisme.readG;
-import fr.formiko.usuel.math.allea;
+import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.tableau;
 import fr.formiko.formiko.Message;
 import fr.formiko.usuel.liste.GMessage;
 import fr.formiko.usuel.liste.CMessage;
 import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.math.math;
+import fr.formiko.usuel.maths.math;
 import java.io.Serializable;
 
 public class Joueur implements Serializable{

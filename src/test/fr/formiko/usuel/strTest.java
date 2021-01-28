@@ -1,8 +1,8 @@
-package fr.formiko.usuel.conversiondetype;
+package fr.formiko.usuel.type;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
 //def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.conversiondetype.str;
-import fr.formiko.usuel.test.TestCaseMuet;
+import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.tests.TestCaseMuet;
 import org.junit.Test;
 //other import
 import fr.formiko.usuel.Os;

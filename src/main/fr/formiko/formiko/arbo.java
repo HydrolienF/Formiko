@@ -6,7 +6,7 @@ import fr.formiko.usuel.liste.GString;
 import fr.formiko.usuel.ecrireUnFichier;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.chargerLesOptions;
-import fr.formiko.usuel.image.image;
+import fr.formiko.usuel.images.image;
 
 /**
 *{@summary Check that every needed folder and every file is in data/.<br>}

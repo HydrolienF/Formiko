@@ -10,7 +10,7 @@ import java.awt.Toolkit;
 import java.io.File;
 import java.awt.Font;
 import java.util.Locale;
-import fr.formiko.usuel.image.image;
+import fr.formiko.usuel.images.image;
 
 public class chargerLesOptions {
   // Fonctions propre -----------------------------------------------------------

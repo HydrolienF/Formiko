@@ -1,8 +1,8 @@
-package fr.formiko.usuel.math;
+package fr.formiko.usuel.maths;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 import java.util.Random;
-import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.type.str;
 /**
 *{@summary Random Class.<br>}
 *@author Hydrolien

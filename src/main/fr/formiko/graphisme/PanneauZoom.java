@@ -12,12 +12,12 @@ import java.awt.Image;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Dimension;
-import fr.formiko.usuel.image.image;
-import fr.formiko.usuel.math.math;
+import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.maths.math;
 import javax.swing.ImageIcon;
-import fr.formiko.usuel.image.Img;
+import fr.formiko.usuel.images.Img;
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.image.Pixel;
+import fr.formiko.usuel.images.Pixel;
 
 public class PanneauZoom extends Panneau {
   private Bouton bPlus; private Bouton bMoins; private Bouton bc;//bouton de zoom.

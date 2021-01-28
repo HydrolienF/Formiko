@@ -2,7 +2,7 @@ package fr.formiko.graphisme;
 import fr.formiko.graphisme.*;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
 //def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.image.image;
+import fr.formiko.usuel.images.image;
 import java.awt.Image;
 import java.awt.Graphics;
 

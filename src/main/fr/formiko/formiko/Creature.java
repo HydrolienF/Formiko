@@ -3,9 +3,9 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 //def par défaut des fichiers depuis 0.79.5
 import java.io.Serializable;
 import fr.formiko.formiko.interfaces.*;
-import fr.formiko.usuel.math.allea;
-import fr.formiko.usuel.math.math;
-import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.maths.allea;
+import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.type.str;
 /**
 *{@summary The class that extends every living thing on the game.<br>}
 *Most of the common var between Fourmi and Insecte can be found here.<br>

@@ -1,4 +1,4 @@
-package fr.formiko.usuel.conversiondetype;
+package fr.formiko.usuel.type;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.tableau;

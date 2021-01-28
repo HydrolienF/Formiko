@@ -2,11 +2,11 @@ package fr.formiko.usuel;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.sauvegarderUnePartie;
-import fr.formiko.usuel.test.TestCaseMuet;
+import fr.formiko.usuel.tests.TestCaseMuet;
 import org.junit.Test;
 import org.junit.After;
 import org.junit.Before;
-import fr.formiko.usuel.math.allea;
+import fr.formiko.usuel.maths.allea;
 import fr.formiko.formiko.Partie;
 import java.io.File;
 

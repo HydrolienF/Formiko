@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
-import fr.formiko.usuel.math.math;
+import fr.formiko.usuel.maths.math;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.Carte;
 

@@ -23,7 +23,10 @@ public class erreur {
         e.printStackTrace();
       }
     }
-    System.exit(0);
+    if(!muet){
+      System.exit(0);
+      System.out.println("System.exit(0) avoid.");
+    }
   }
 
   public static void erreur(String message, String lieu, String correction, boolean fatale){

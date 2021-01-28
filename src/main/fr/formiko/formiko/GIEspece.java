@@ -2,10 +2,10 @@ package fr.formiko.formiko;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.type.str;
 import fr.formiko.usuel.decoderUnFichier;
 import fr.formiko.usuel.lireUnFichier;
-import fr.formiko.usuel.math.allea;
+import fr.formiko.usuel.maths.allea;
 import java.io.Serializable;
 
 public class GIEspece implements Serializable{

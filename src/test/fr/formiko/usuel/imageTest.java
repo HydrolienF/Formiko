@@ -1,13 +1,13 @@
-package fr.formiko.usuel.image;
+package fr.formiko.usuel.images;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
 //def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.test.TestCaseMuet;
+import fr.formiko.usuel.tests.TestCaseMuet;
 import org.junit.Test;
 import org.junit.After;
 import org.junit.Before;
-import fr.formiko.usuel.image.image;
-import fr.formiko.usuel.image.Img;
-import fr.formiko.usuel.math.allea;
+import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.images.Img;
+import fr.formiko.usuel.maths.allea;
 import java.awt.Image;
 import java.io.File;
 import fr.formiko.usuel.fichier;

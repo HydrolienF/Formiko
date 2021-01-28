@@ -1,4 +1,4 @@
-package fr.formiko.usuel.image;
+package fr.formiko.usuel.images;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.tableau;
@@ -19,9 +19,9 @@ import java.awt.event.WindowEvent;
 import java.util.Random;
 import java.awt.Image;
 import java.awt.Color;
-import fr.formiko.usuel.image.image;
-import fr.formiko.usuel.math.math;
-import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.type.str;
 import fr.formiko.usuel.Chrono;
 import fr.formiko.usuel.chargerLesTraductions;
 import java.util.HashMap;

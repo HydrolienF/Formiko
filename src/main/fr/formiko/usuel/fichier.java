@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import fr.formiko.usuel.liste.GString;
-import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.type.str;
 
 public class fichier{
 

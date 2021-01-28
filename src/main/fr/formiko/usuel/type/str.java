@@ -1,4 +1,4 @@
-package fr.formiko.usuel.conversiondetype;
+package fr.formiko.usuel.type;
 
 import fr.formiko.usuel.ascii;
 import fr.formiko.usuel.debug;

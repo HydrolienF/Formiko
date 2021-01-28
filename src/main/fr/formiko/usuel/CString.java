@@ -3,8 +3,8 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 //def par défaut des fichiers depuis 0.79.5
 import javax.swing.JComboBox;
 import java.io.Serializable;
-import fr.formiko.usuel.conversiondetype.str;
-import fr.formiko.usuel.math.math;
+import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.maths.math;
 
 public class CString implements Serializable{
   private CString suivant, précédent;

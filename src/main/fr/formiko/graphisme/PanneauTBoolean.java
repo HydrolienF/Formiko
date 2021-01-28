@@ -7,7 +7,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import fr.formiko.usuel.Temps;
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.conversiondetype.str;
+import fr.formiko.usuel.type.str;
 import fr.formiko.formiko.Touches;
 
 public class PanneauTBoolean extends PanneauTX{

@@ -1,12 +1,12 @@
-package fr.formiko.usuel.image;
+package fr.formiko.usuel.images;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
 //def par défaut des fichiers depuis 0.79.5
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.Image;
-import fr.formiko.usuel.conversiondetype.str;
-import fr.formiko.usuel.math.math;
+import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.fichier;
 import java.awt.image.BufferedImage;
 import java.awt.Graphics2D;
