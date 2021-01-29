@@ -173,7 +173,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     r+= g.getOu("le","la")+" "+getNom();
     r+=" ";
     r+=getId();r+=" ";
-    if (femelle){r+= "♀";}
+    if (this.getFemelle()){r+= "♀";}
     else {r+= "♂";}r+=" ";
     if (estMort){r+= "(☠︎)";}
     else {r+= "("+(ageMax-age)+" "+g.get("avant")+" ☠︎)";}r+=" ";

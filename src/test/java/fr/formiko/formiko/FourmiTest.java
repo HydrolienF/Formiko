@@ -1,6 +1,6 @@
 package fr.formiko.formiko;
 
-import org.junit.jupiter.api.Disabled;
+
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Fourmi;
@@ -32,7 +32,6 @@ public class FourmiTest extends TestCaseMuet{
   }
 
   @Test
-  @Disabled("test fail with maven")
   public void testWantFood(){
     Fourmi f = ini();
     assertEquals(1,f.getIndividu().getNourritureConso());
@@ -66,5 +65,26 @@ public class FourmiTest extends TestCaseMuet{
     assertTrue(!f.wantFood());
     f.setNourriture(10);
     assertTrue(!f.wantFood());
+  }
+  @Test
+  public void testGetFemelle(){
+    Fourmi f = ini();
+    Creature c = f;
+    assertTrue(f.getFemelle());
+    assertTrue(c.getFemelle());
+    c.setFemelle(false); //do not change anything for an ant.
+    assertTrue(c.getFemelle());
+    c = new Fourmi(f.getFere(),f.getEspece(),0);
+    assertTrue(c.getFemelle());
+    c = new Fourmi(f.getFere(),f.getEspece(),1);
+    assertTrue(!c.getFemelle());
+    /*c = new Fourmi(f.getFere(),f.getEspece(),2);
+    assertTrue(c.getFemelle());*/
+    c = new Fourmi(f.getFere(),f.getEspece(),3);
+    assertTrue(c.getFemelle());
+    //with an other specie.
+    c = new Fourmi(f.getFere(),Main.getEspeceParId(1),4);
+    assertTrue(c.getFemelle());
+
   }
 }

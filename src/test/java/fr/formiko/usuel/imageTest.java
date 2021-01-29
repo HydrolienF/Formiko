@@ -1,6 +1,6 @@
 package fr.formiko.usuel.images;
 
-import org.junit.jupiter.api.Disabled;
+
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
@@ -20,7 +20,6 @@ public class imageTest extends TestCaseMuet{
 
   // Fonctions propre -----------------------------------------------------------
   @Test
-  @Disabled("test fail with maven")
   public void testReadImage(){
     File f = new File(image.REP+"null.png");
     Image iNull = image.readImage(f);
@@ -66,7 +65,6 @@ public class imageTest extends TestCaseMuet{
   }
   //getImage
   @Test
-  @Disabled("test fail with maven")
   public void testGetImage(){
     Image nul = image.getImage("null");
     Image i0 = image.getImage("vbfizefzeg.png");
@@ -84,7 +82,6 @@ public class imageTest extends TestCaseMuet{
 
   //getImages
   @Test
-  @Disabled("test fail with maven")
   public void testGetImages(){
     File f = new File("testDir");
     f.mkdir();
@@ -110,7 +107,6 @@ public class imageTest extends TestCaseMuet{
 
   //getImagess
   @Test
-  @Disabled("test fail with maven")
   public void testGetImagess(){
     File f = new File("testDir2");
     f.mkdir();
@@ -166,7 +162,6 @@ public class imageTest extends TestCaseMuet{
 
   //getNbrImages
   @Test
-  @Disabled("test fail with maven")
   public void testGetNbrImages(){
     int x = allea.getAllea(1000)+100;
     //créer un dossier avec x0.png, x1.png, x2.png et x4.png.
@@ -204,7 +199,6 @@ public class imageTest extends TestCaseMuet{
     assertTrue(fichier.deleteDirectory(f));
   }
   @Test
-  @Disabled("test fail with maven")
   public void testGetNbrImagesREP3(){
     //on vérifie que d'éventuelles images complémentaire présente dans REPTEXTUREPACK seront bien chargée.
     image.setREPTEXTUREPACK("testDir5/");
@@ -229,7 +223,6 @@ public class imageTest extends TestCaseMuet{
 
   //clearTemporaire - clearPartielTemporaire
   @Test
-  @Disabled("test fail with maven")
   public void testClearTemporaire(){
     File f = null;
     File d = new File(image.REP2);
@@ -262,7 +255,6 @@ public class imageTest extends TestCaseMuet{
 
   }
   @Test
-  @Disabled("test fail with maven")
   public void testClearPartielTemporaire(){
     image.clearPartielTemporaire();
     File f = null;
@@ -321,7 +313,6 @@ public class imageTest extends TestCaseMuet{
 
   //taille
   @Test
-  @Disabled("test fail with maven")
   public void testTaille(){
     Main.iniOp();//on initialise les Options.
     //image.taille(taille de l'espece, taille voulu avec le niveau de grossicement)
@@ -347,7 +338,6 @@ public class imageTest extends TestCaseMuet{
     //assertEquals(5,image.taille(8,60));
   }
   @Test
-  @Disabled("test fail with maven")
   public void testTaillePartiellementRealiste(){
     Main.iniOp();//on initialise les Options.
     Main.getOp().setTailleRealiste(50);

@@ -1,6 +1,6 @@
 package fr.formiko.formiko;
 
-import org.junit.jupiter.api.Disabled;
+
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Creature;
@@ -16,7 +16,6 @@ public class CreatureTest extends TestCaseMuet{
 
   // Fonctions propre -----------------------------------------------------------
   @Test
-  @Disabled("test fail with maven")
   public void testIsHungry(){
     Main.initialisation();
     GCase gc = new GCase(1,1);

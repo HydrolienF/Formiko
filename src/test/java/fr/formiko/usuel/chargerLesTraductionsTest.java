@@ -1,6 +1,6 @@
 package fr.formiko.usuel;
 
-import org.junit.jupiter.api.Disabled;
+
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
@@ -74,7 +74,6 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
   }
   //iniTLangue
   @Test
-  @Disabled("test fail with maven")
   public void testIniTLangue(){
     //fonctionnement normale.
     assertTrue(chargerLesTraductions.iniTLangue());
@@ -89,7 +88,6 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
   }
 
   @Test
-  @Disabled("test fail with maven")
   public void testCreerLesFichiers(){
     //fonctionnement normale.
     assertTrue(chargerLesTraductions.iniTLangue());
@@ -188,7 +186,6 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
 
   //getTableauDesCmd
   @Test
-  @Disabled("test fail with maven")
   public void testGetTableauDesCmd(){
     String t [] = chargerLesTraductions.getTableauDesCmd();
     assertTrue(t.length>1);//Le fichier contient des lignes (et donc a bien été lu).
@@ -209,7 +206,6 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
 
   //chargerLesTraductions
   @Test
-  @Disabled("test fail with maven")
   public void testChargerLesTraductions(){
     chargerLesTraductions.setRep();
     assertTrue(chargerLesTraductions.iniTLangue());
@@ -232,7 +228,6 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
 
   //chargerLesTraductionsSansCommande
   @Test
-  @Disabled("test fail with maven")
   public void testChargerLesTraductionsSansCommande(){
     chargerLesTraductions.setRep();
     assertTrue(chargerLesTraductions.iniTLangue());

@@ -1,6 +1,6 @@
 package fr.formiko.usuel;
 
-import org.junit.jupiter.api.Disabled;
+
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
@@ -37,7 +37,6 @@ public class TempsTest extends TestCaseMuet{
     assertEquals("0 30 2 10 120",tableau.tableauToString(Temps.msToTimeLongArray((60000*60*(30))+(60000*2)+10120,false)));
   }
   @Test
-  @Disabled("test fail with maven") //because of Main.initialisation()
   public void testMsToTime(){
     Main.initialisation();
     Main.setLangue(1);

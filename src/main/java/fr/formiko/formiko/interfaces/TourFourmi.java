@@ -33,8 +33,7 @@ public class TourFourmi implements Serializable, Tour{
   *@version 1.29
   */
   public void tour(){
-    //f.tourF();
-    f.preTour();
+    //f.preTour();
     f.eat(5);
     f.runAway();
     cleanItself();
@@ -57,13 +56,15 @@ public class TourFourmi implements Serializable, Tour{
   /**
   *{@summary Give food by trophallaxis if other ant need it.<br>}
   *An Ant try to give all it food exept foodToQueep%.<br>
+  *An ant try to give food if : it have action left, it have more food than foodToQueep%, it can use Trophallaxie interface.
   *@version 1.29
   */
   public void feedOther(int foodToQueep){
-    while(f.getAction()>0 && f.isHungry(foodToQueep-1) && !(f.trophallaxie instanceof TrophallaxieNull)){
+    while(f.getAction()>0 && !(f.isHungry(foodToQueep)) && !(f.trophallaxie instanceof TrophallaxieNull)){
       Creature toFeed = aNourrir();
       if(toFeed==null){return;}
-      int nourritureDonnée = f.getNourriture()-(f.getNourritureMax()*foodToQueep);
+      int nourritureDonnée = f.getNourriture()-((f.getNourritureMax()*foodToQueep)/100);
+      System.out.println("trophallaxie voulue de "+nourritureDonnée);//@a
       f.trophallaxie(toFeed,nourritureDonnée);
     }
   }
@@ -126,6 +127,7 @@ public class TourFourmi implements Serializable, Tour{
       backHome();
     }
     feedOther(10);
+    cleanOther();
   }
   /**
   *{@summary Back home.<br>}
@@ -145,10 +147,14 @@ public class TourFourmi implements Serializable, Tour{
     f.setAgePlus1(); f.salir();
     if (f.getStade() == 0 || f.getStade() == -1 || f.getStade() == -2) {f.setNourritureMoinsConsomNourriture();}
     // if contition de température appartient a l'intervale idéale (et que stade = -1, -2 ou -3) : re setAgePlus1();
-    if (!f.getFere().getJoueur().getIa()) { //pour un joueur humain.
-      Main.getPj().setFActuelle(null);
-      Main.getPb().setVisiblePa(false);
+    try { //TODO move that to ViewGUI
+      if (!f.getFere().getJoueur().getIa()) { //pour un joueur humain.
+        Main.getPj().setFActuelle(null);
+        Main.getPb().setVisiblePa(false);
+      }
+      Main.getPs().setIdFourmiAjoué(-1);
+    }catch (Exception e) {
+      erreur.alerte("Une action graphique n'as pas pu etre lancé.","TourFourmi");
     }
-    Main.getPs().setIdFourmiAjoué(-1);
   }
 }

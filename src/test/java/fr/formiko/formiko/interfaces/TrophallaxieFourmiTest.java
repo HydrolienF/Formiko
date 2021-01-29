@@ -1,6 +1,6 @@
 package fr.formiko.formiko.interfaces;
 
-import org.junit.jupiter.api.Disabled;
+
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.*;
@@ -24,9 +24,7 @@ public class TrophallaxieFourmiTest extends TestCaseMuet{
 
   //getCreatureQuiOnFaim
   @Test
-  @Disabled("test fail with maven")
   public void testGetCreatureQuiOnFaim(){//on suppose que getAlliéSurLaCase & getAlliéSurLaCaseSansThis sont correcte (meme si on les test un peu).
-    debug.setDPG(false);
     Main.initialisation();
     Carte mapo = new Carte(new GCase(1,1));
     Main.setPartie(new Partie(1,1,mapo,1.0));

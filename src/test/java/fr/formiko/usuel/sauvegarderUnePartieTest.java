@@ -1,7 +1,7 @@
 package fr.formiko.usuel;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
+
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
@@ -39,7 +39,6 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
   }
   @Test
   //@BeforeAll
-  @Disabled("test fail with maven")
   public void testSauvegarder(){
     ini();
     assertTrue(f.exists());//il existe.
@@ -48,7 +47,6 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
   }
   @Test
   //@BeforeAll
-  @Disabled("test fail with maven")
   public void testCharger(){
     Main.setPartie(new Partie()); //nouvelle partie vide.
     debug.setDPG(false);
@@ -61,8 +59,6 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
     assertTrue(!sauvegarderUnePartie.supprimer("testVraisPartie"));//le fichier n'existe déja plus.
   }
   @Test
-  //@BeforeAll
-  @Disabled("test fail with maven")
   public void testSupprimer(){
     ini();
     assertTrue(f.exists());//il existe.

@@ -1,6 +1,6 @@
 package fr.formiko.formiko;
 
-import org.junit.jupiter.api.Disabled;
+
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
@@ -16,7 +16,6 @@ public class PartieTest extends TestCaseMuet{
 
   // Fonctions propre -----------------------------------------------------------
   @Test
-  @Disabled("test fail with maven")
   public void testToString(){
     Partie p = new Partie();
     String s = p.toString();

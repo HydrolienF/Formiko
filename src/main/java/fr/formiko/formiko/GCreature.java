@@ -1,11 +1,14 @@
 package fr.formiko.formiko;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
-import java.io.Serializable;
-import fr.formiko.usuel.exeption.*;
 
-public class GCreature implements Serializable{
-  //protected Creature gc []; // A modifier en liste chainées, simple ou double a voir.
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.exeption.*;
+import fr.formiko.usuel.g;
+
+import java.io.Serializable;
+import java.util.Iterator;
+
+public class GCreature implements Serializable{//, Iterator{
   protected CCreature début;
   protected CCreature fin;
   // CONSTRUCTEUR -----------------------------------------------------------------
@@ -314,6 +317,26 @@ public class GCreature implements Serializable{
       jouerE();
     }catch (ListeVideException e) {}
   }
+  /**
+  *reset action before the turn of all the ant.
+  *@version 1.30
+  */
+  private void preTourE() throws ListeVideException{
+    if(début == null){
+      throw new ListeVideException("GCreature","preTour");
+    }else{
+      début.preTour();
+    }
+  }
+  /**
+  *reset action before the turn of all the ant.
+  *@version 1.30
+  */
+  public void preTour(){
+    try{
+      preTourE();
+    }catch (ListeVideException e) {}
+  }
   /*private void finTourE() throws ListeVideException{
     if(début == null){
       throw new ListeVideException("GCreature","finTour");
@@ -350,4 +373,6 @@ public class GCreature implements Serializable{
     if (début==null){ return new int[0];}
     return début.toTId();
   }
+  //Iterator
+  //...
 }

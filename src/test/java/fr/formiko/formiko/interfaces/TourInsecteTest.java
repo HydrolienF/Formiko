@@ -1,6 +1,6 @@
 package fr.formiko.formiko.interfaces;
 
-import org.junit.jupiter.api.Disabled;
+
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.CCase;
@@ -20,7 +20,6 @@ import fr.formiko.usuel.tests.TestCaseMuet;
 public class TourInsecteTest extends TestCaseMuet{
   // Fonctions propre -----------------------------------------------------------
   @Test
-  @Disabled("test fail with maven")
   public void testUnTour(){ //to check that an Insect will eat if he is safe and alone.
     Main.initialisation();
     Partie p = new Partie(0,100,new Carte(new GCase(1,2),0,0,1,false,false),1);
@@ -96,7 +95,6 @@ public class TourInsecteTest extends TestCaseMuet{
     assertEquals(x,p.getGc().getCCase(0,0).getContenu().getNourritureInsecte());
   }
   @Test
-  @Disabled("test fail with maven")
   public void testUnTour2(){ //to check that an Insect will eat if he is safe and alone.
     Main.initialisation();
     Partie p = new Partie(0,100,new Carte(new GCase(1,2),0,0,1,false,false),1);

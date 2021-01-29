@@ -108,6 +108,7 @@ public class Fourmiliere implements Serializable{
   public void jouer(){
     if(gc.length()==0){return;}
     this.setModeDéfaut(3); //tant que tous le couvains n'aura pas été dorloté.
+    gc.preTour();
     do {
       gc.jouer();
     } while (!joueur.getIa() && !gc.aFiniDeJouer());

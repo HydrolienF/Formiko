@@ -1,6 +1,6 @@
 package fr.formiko.formiko.interfaces;
 
-import org.junit.jupiter.api.Disabled;
+
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.*;
@@ -32,7 +32,6 @@ public class TourFourmiTest extends TestCaseMuet{
     return f;
   }
   @Test
-  @Disabled("test fail with maven")
   public void testCleanItself(){
     Fourmi f = ini();
     assertTrue(f!=null);
@@ -113,7 +112,6 @@ public class TourFourmiTest extends TestCaseMuet{
 
   }
   @Test
-  @Disabled("test fail with maven")
   public void testFeedOther(){
     //aNourrir is tested.
     Fourmi f = ini();
@@ -125,6 +123,7 @@ public class TourFourmiTest extends TestCaseMuet{
     f2.setCc(Main.getGc().getCCase(0,0));
     //ici ca coupe sans message d'erreur...
     assertTrue(f2.equals(((TourFourmi)(f.tour)).aNourrir()));
+    assertTrue(!(f.trophallaxie instanceof TrophallaxieNull));
     ((TourFourmi)(f.tour)).feedOther(10);
     assertEquals(91,f.getNourriture());
     assertEquals(10,f2.getNourriture());
@@ -148,7 +147,6 @@ public class TourFourmiTest extends TestCaseMuet{
     assertEquals(7,f2.getNourriture());
   }
   @Test
-  @Disabled("test fail with maven")
   public void testANourrir(){
     Fourmi f2; Fourmi f3;
     Fourmi f = ini();
@@ -251,6 +249,26 @@ public class TourFourmiTest extends TestCaseMuet{
   }
   @Test
   public void testTour(){
+
+  }
+  @Test
+  public void testTourNull(){
+    Fourmi f = ini();
+    assertTrue(f!=null);
+    assertEquals(30,f.getIndividu().getNétoyage());
+    //without action :
+    f.setAction(0);
+    f.setNourriture(19);
+    assertEquals(0,f.getAge());
+    assertEquals(0,f.getAction());
+    assertEquals(19,f.getNourriture());
+    assertEquals(100,f.getProprete());
+    f.tour();
+    assertEquals(1,f.getAge());
+    assertEquals(0,f.getAction());
+    assertEquals(18,f.getNourriture());
+    assertTrue(f.getPropretéPerdu()!=0);
+    assertEquals(100-f.getPropretéPerdu(),f.getProprete());
 
   }
 }
