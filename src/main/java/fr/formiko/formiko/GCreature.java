@@ -256,7 +256,7 @@ public class GCreature implements Serializable{//, Iterator{
     ajouter(gc);
   }
   public void retirerE(Creature c)throws ListeVideException{
-    if (début == null){ throw new ListeVideException("GCreature","retirer la Creature "+c.getId(),true);}//erreur.erreur("Aucune créature n'as pu être retirer car GCreature est vide","GCreature.retirer",true); return;}
+    if (début == null){ throw new ListeVideException("GCreature","retirer la Creature "+c.getId());}//erreur.erreur("Aucune créature n'as pu être retirer car GCreature est vide","GCreature.retirer",true); return;}
     if (début.getContenu().equals(c)){
       if(fin.getContenu().equals(c)){
         début = null; fin = null; // on retire la seule créature
@@ -277,7 +277,9 @@ public class GCreature implements Serializable{//, Iterator{
   public void retirer(Creature c){
     try {
       retirerE(c);
-    }catch (Exception e) {}
+    }catch (Exception e) {
+      System.out.println(e);
+    }
   }
   public void delete(Creature c){retirer(c);}
   public void afficheToiE() throws ListeVideException{
