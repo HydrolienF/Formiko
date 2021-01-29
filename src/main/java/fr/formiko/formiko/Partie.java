@@ -118,6 +118,9 @@ public class Partie implements Serializable{
     r+= ge.toString();r+="\n";
     return r;
   }
+  public boolean equals(Partie p){
+    return toString().equals(p.toString());
+  }
   public void initialisationElément(int nbrDeJoueur, int nbrDIa, int nbrDeFourmi){
     if(!dejaIni){
       dejaIni=true;

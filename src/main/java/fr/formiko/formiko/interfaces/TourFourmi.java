@@ -64,7 +64,6 @@ public class TourFourmi implements Serializable, Tour{
       Creature toFeed = aNourrir();
       if(toFeed==null){return;}
       int nourritureDonnée = f.getNourriture()-((f.getNourritureMax()*foodToQueep)/100);
-      System.out.println("trophallaxie voulue de "+nourritureDonnée);//@a
       f.trophallaxie(toFeed,nourritureDonnée);
     }
   }
@@ -123,19 +122,20 @@ public class TourFourmi implements Serializable, Tour{
   *@version 1.29
   */
   public void backHomeAndShareFood(){
-    while (f.getAction()>0 && !f.estALaFere()) {
-      backHome();
-    }
+    backHome();
     feedOther(10);
     cleanOther();
   }
   /**
   *{@summary Back home.<br>}
+  *We find the direction to be closer to the anthill. And then we go there. <br>
   *@version 1.29
   */
   public void backHome(){
-    int directionDeLaFourmilière = f.getCCase().getDirection(f.getFourmiliere().getCCase());
-    f.ceDeplacer(directionDeLaFourmilière);
+    while (f.getAction()>0 && !f.estALaFere()) {
+      int directionDeLaFourmilière = f.getCCase().getDirection(f.getFourmiliere().getCCase());
+      f.ceDeplacer(directionDeLaFourmilière);
+    }
   }
   /**
   *{@summary End a turn as an Ant.<br>}

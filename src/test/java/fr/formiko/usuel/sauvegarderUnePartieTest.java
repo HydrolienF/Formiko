@@ -54,7 +54,7 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
     Main.setPartie(Main.getPartieParDéfaut());
     sauvegarderUnePartie.sauvegarder(Main.getPartie(), "testVraisPartie");
     Partie p = sauvegarderUnePartie.charger("testVraisPartie");
-    assertTrue(Main.getPartie().toString().equals(p.toString()));//@a pour l'instant les Parties ne sont pas égale.
+    assertTrue(Main.getPartie().equals(p));
     assertTrue(sauvegarderUnePartie.supprimer("testVraisPartie"));
     assertTrue(!sauvegarderUnePartie.supprimer("testVraisPartie"));//le fichier n'existe déja plus.
   }

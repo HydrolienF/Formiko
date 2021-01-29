@@ -22,7 +22,6 @@ public class MourirFourmi implements Serializable, Mourir {
     c.setEstMort(true);
     if(c instanceof Fourmi){
       Fourmi f = (Fourmi)c;
-      System.out.println("fourmi "+f.getId()+" est morte de "+r);//@a
       Message.messageMort(f,r);
       supprimerDeLaCarte(f);
       if (f.getStade() != 0){

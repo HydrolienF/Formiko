@@ -53,6 +53,7 @@ public class Fourmi extends Creature implements Serializable{
     fere.getCc().getContenu().getGc().ajouter(this);
     evoluer = new EvoluerFourmi();
     mourir = new MourirFourmi();
+    tour = new TourFourmi();
     if(e.getPolycalique()){tolerencePheromone=5;}//si c'est une espèce capable de s'endendre avec les fourmilières de la même famille.
   }public Fourmi(Fourmiliere fere, Espece e, int ty){ this(fere,e,(byte)ty);}
   public Fourmi(Fourmiliere fere, Espece e, byte ty,byte stade){

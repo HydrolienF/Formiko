@@ -107,7 +107,6 @@ public class PanneauJeu extends Panneau {
   }
   public void removePe(){
     //TODO make setEnabled truly reactivate Bouton.
-    System.out.println("removePe");//@a
     Main.getPz().setEnabled(true);
     Main.getPc().setEnabled(true);
     Main.getPa().setEnabled(true);
