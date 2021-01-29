@@ -2,7 +2,7 @@ package fr.formiko.formiko;
 
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.exeption.*;
+import fr.formiko.usuel.exception.*;
 import fr.formiko.usuel.g;
 
 import java.io.Serializable;
