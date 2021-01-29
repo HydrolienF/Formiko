@@ -19,6 +19,7 @@ import java.io.Serializable;
 *@version 1.13
 */
 public class Insecte extends Creature implements Serializable{
+  protected boolean femelle;
   protected byte nourritureMangeable;
   protected byte type;
   protected static GIEspece gie;
@@ -48,6 +49,7 @@ public class Insecte extends Creature implements Serializable{
     e = Main.getGEspece().getEspeceParId(100+getType());//les Espece d'insectes sont décaler de 100 par rapport au espece de Fourmi.
     if(e==null){erreur.erreur("Une espece d'insecte n'as pas pu etre chargé : "+(100+getType()),"Insecte.Insecte");}
     setNourritureFournie(e.getNourritureFournie(getStade()));
+    femelle = allea.getBAllea();
     debug.débogage("L'insecte "+ this.id + " a été  créée");
   }
   /**
@@ -68,6 +70,8 @@ public class Insecte extends Creature implements Serializable{
   }
 
   // GET SET -----------------------------------------------------------------------
+  public boolean getFemelle(){return femelle;}
+  public void setFemelle(boolean b){femelle=b;}
   public byte getNourritureMangeable(){ return nourritureMangeable;}
   public void setNourritureMangeable(byte x){ nourritureMangeable=x;} public void setNourritureMangeable(int x){ setNourritureMangeable((byte)x);}
   @Override

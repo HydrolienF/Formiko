@@ -35,7 +35,6 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   protected byte actionMax;
   protected Pheromone ph;
   protected byte propreté;
-  protected boolean femelle;
   protected byte tolerencePheromone;
   protected byte stade; // -2 = oeuf, -1 = larve, 0 =  imago L'utilisation de la variable stade permet de faire manger les larves et pas les oeux. Les diférent stade on également des image distinctes.
   protected int nourritureFournie;
@@ -57,7 +56,6 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     this.action = actionMax; this.actionMax = actionMax;
     this.ph = ph;
     this.nourriture = nourriture; this.nourritureMax =nourritureMax;
-    femelle = allea.getBAllea();
     tolerencePheromone=0;
     nourritureFournie=1;
     this.déplacement = new DeplacementNull(); this.chasse = new ChasseNull(); this.pondre = new PondreNull(); this.trophallaxie = new TrophallaxieNull(); this.collecte = new CollecteNull();this.evoluer=new EvoluerNull();this.mourir=new MourirNull();this.netoyer=new NetoyerNull();
@@ -127,8 +125,8 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void setPropreté(int x){setProprete(x);}
   public void setProprete(int x){setPropreté(str.iToBy(x));}
   public void setPropreté(byte x){ propreté = x; if(x<100){x=100;}}
-  public boolean getFemelle(){return femelle;}
-  public void setFemelle(boolean b){femelle=b;}
+  public abstract boolean getFemelle();
+  public abstract void setFemelle(boolean b);
   public byte getStade(){ return stade;}
   public void setStade(byte s){ stade = s;} public void setStade(int x){setStade(str.iToBy(x));}
   public boolean estFourmi(){return (this instanceof Fourmi);}
