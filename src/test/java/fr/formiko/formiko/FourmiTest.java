@@ -85,6 +85,35 @@ public class FourmiTest extends TestCaseMuet{
     //with an other specie.
     c = new Fourmi(f.getFere(),Main.getEspeceParId(1),4);
     assertTrue(c.getFemelle());
+  }
+  @Test
+  public void testWantClean(){
+    Fourmi f = ini();
+    assertTrue(!f.wantClean());
+    f.setProprete(55);
+    assertTrue(!f.wantClean());
+    f.setProprete(53);
+    assertTrue(!f.wantClean());
+    f.setProprete(52);
+    assertTrue(f.wantClean());
+    f.setProprete(50);
+    assertTrue(f.wantClean());
+    f.setProprete(0);
+    assertTrue(f.wantClean());
 
+    Main.getPartie().setDifficulté((byte)1);
+    assertTrue(!f.getFere().getJoueur().getIa());
+    f.setProprete(63);
+    assertTrue(!f.wantClean());
+    f.setProprete(62);
+    assertTrue(f.wantClean());
+    f.setProprete(60);
+    assertTrue(f.wantClean());
+    f.getFere().getJoueur().setIa(true);
+    assertTrue(f.getFere().getJoueur().getIa());
+    f.setProprete(43);
+    assertTrue(!f.wantClean());
+    f.setProprete(42);
+    assertTrue(f.wantClean());
   }
 }

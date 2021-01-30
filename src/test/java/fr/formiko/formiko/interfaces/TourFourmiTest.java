@@ -240,11 +240,30 @@ public class TourFourmiTest extends TestCaseMuet{
   }
   @Test
   public void testCleanOther(){
-
+    Fourmi f = ini();
+    Fourmi f2 = new Fourmi(f.getFere(),f.getEspece(), (byte) 3, (byte) 0);
+    f2.setProprete(0);
+    f.setAction(1);
+    ((TourFourmi)(f.tour)).cleanOther();
+    assertTrue(f.getAction()<=0);
+    f2.setProprete(70);
+    f.setAction(1);
+    ((TourFourmi)(f.tour)).cleanOther();
+    assertEquals(1,f.getAction());
   }
   @Test
   public void testANetoyer(){
-
+    Fourmi f = ini();
+    assertEquals(null,((TourFourmi)(f.tour)).aNetoyer());
+    Fourmi f2 = new Fourmi(f.getFere(),f.getEspece(), (byte) 3, (byte) 0);
+    assertEquals(null,((TourFourmi)(f.tour)).aNetoyer());
+    f2.setProprete(40);
+    assertEquals(f2,((TourFourmi)(f.tour)).aNetoyer());
+    Insecte i = new Insecte(Main.getPartie().getGc().getCCase(0,0),0,100,0);
+    i.setNourriture(0);
+    i.setPheromone(f.getPheromone());
+    f2.setProprete(100);
+    assertEquals(i,((TourFourmi)(f.tour)).aNetoyer());
   }
   @Test
   public void testBackHomeAndShareFood(){

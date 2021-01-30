@@ -510,6 +510,6 @@ public class Fourmi extends Creature implements Serializable{
   */
   public boolean wantClean(){
     if(getProprete()>99){return false;}
-    return getProprete() - (getPropretéPerdu()*2) < getSeuilDeRisqueDInfection();
+    return getProprete() - (getPropretéPerdu()*2) <= getSeuilDeRisqueDInfection();
   }
 }
