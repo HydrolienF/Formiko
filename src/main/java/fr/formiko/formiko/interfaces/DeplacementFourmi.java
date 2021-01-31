@@ -8,15 +8,15 @@ import fr.formiko.graphisme.PanneauTInt;
 import java.io.Serializable;
 
 /**
- * {@summary Ant implementation.<br/>}
- * Allow an ant to moove<br/>
+ * {@summary Ant implementation.<br>}
+ * Allow an ant to moove<br>
  * @author Hydrolien
  * @version 1.1
  */
 public class DeplacementFourmi implements Serializable, Deplacement{
   private Creature c;
   /**
-   *{@summary make a moove.<br/>}
+   *{@summary make a moove.<br>}
    *@param c the moving Creature.
    *@param bIa Is c moved by an AI or a player.
    *@version 1.3
@@ -31,7 +31,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     }
   }
   /**
-   *{@summary make a move to a defined Case.<br/>}
+   *{@summary make a move to a defined Case.<br>}
    *c will move 1 Case closer to p but maybe p is more than 1 Case longer to c.getCCase()<br>
    *c will move by the unMouvement(c,direction) methode.
    *@param c the moving Creature.
@@ -45,7 +45,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     unMouvementVolontaire(direction);
   }
   /**
-   *{@summary make a moove in a defined direction.<br/>}
+   *{@summary make a moove in a defined direction.<br>}
    *c will move 1 Case closer to p but maybe p is more than 1 Case longer to c.getCCase()
    *@param c the moving Creature.
    *@param direction the direction to move. (It's a number place as on the keyboard 1= North West, 2 = North, etc)
@@ -57,7 +57,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     unMouvementVolontaire(direction);
   }
   /**
-   *{@summary make as much moove as we can/need to a defined Case.<br/>}
+   *{@summary make as much moove as we can/need to a defined Case.<br>}
    *c will stop moving when it will have reach cc or when it actions will be &#60; 0
    *c will move by the unMouvement(c,cc) methode.
    *@param c the moving Creature.
@@ -76,7 +76,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
 
   // COMMENT SONT EXECUTE LES MOUVEMENTS :
   /**
-   *{@summary getDirection to use to move to c.<br/>}
+   *{@summary getDirection to use to move to c.<br>}
    *@param a Actual Case.
    *@param c Target Case.
    *@return the direction to go to c (from a).
@@ -98,7 +98,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     }
   }
   /**
-   *{@summary make a random moove.<br/>}
+   *{@summary make a random moove.<br>}
    *@version 1.3
    */
   private void unMouvementAlléa(){
@@ -143,7 +143,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     if (!((Fourmi)(c)).getJoueur().getIa() && (Main.getCarte().getCasesNuageuses() || Main.getCarte().getCasesSombres())){((Fourmi)(c)).getJoueur().actualiserCaseSN();}
   }
   /**
-   *{@summary remove some action to the moving Creature<br/>}
+   *{@summary remove some action to the moving Creature<br>}
    *It will remove 10 action to a non-ant Creature or the individu cost to an ant.
    *@version 1.3
    */
@@ -152,7 +152,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuParType(((Fourmi) c).getTypeF()).getCoutDéplacement());
   }
   /**
-   *{@summary Move to a next Case.<br/>}
+   *{@summary Move to a next Case.<br>}
    *@version 1.3
    */
   private boolean unPas(int d){
@@ -178,7 +178,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     return false; // le nombre n'était pas correcte
   }
   /**
-   *{@summary Move to a next Case.<br/>}
+   *{@summary Move to a next Case.<br>}
    *All moving thing use this methode to move.
    *@version 1.3
    */

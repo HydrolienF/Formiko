@@ -7,8 +7,8 @@ import fr.formiko.usuel.maths.math;
 import java.io.Serializable;
 
 /**
- * {@summary Ant implementation.<br/>}
- * Allow an ant to do hunt<br/>
+ * {@summary Ant implementation.<br>}
+ * Allow an ant to do hunt<br>
  * Ant are able to see other ObjetSurCarteAId as Creature at 1 Case of distance.
  * @author Hydrolien
  * @version 1.1
@@ -18,7 +18,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
 
   // Fonctions propre -----------------------------------------------------------
   /**
-   * {@summary try to hunt or moove.<br/>}
+   * {@summary try to hunt or moove.<br>}
    * @param c The hunting Creature.
    * @param direction The direction were the Creature will go if any Prey is visible.
    * return true if c can hunt more.
@@ -43,9 +43,9 @@ public class ChasseInsectivore implements Serializable, Chasse {
     return canHuntAnymore();
   }
   /**
-   * {@summary actions during hunt.<br/>}
-   * An Ant kill an Insect in the same Case<br/>
-   * It can choose the first 1 or the better 1 depending on the difficulty.<br/>
+   * {@summary actions during hunt.<br>}
+   * An Ant kill an Insect in the same Case<br>
+   * It can choose the first 1 or the better 1 depending on the difficulty.<br>
    * @param c The hunting Creature.
    * return true if c can hunt more.
    * @version 1.1
@@ -73,7 +73,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
 
   //COMMENT FONCTIONNE LA CHASSE
   /**
-   * {@summary fined a prey.<br/>}
+   * {@summary fined a prey.<br>}
    * @version 1.1
    */
   private GInsecte getProie(){
@@ -81,8 +81,8 @@ public class ChasseInsectivore implements Serializable, Chasse {
     return c.getCCase().getGi(1); // 1 est le rayon du cercle de case pris en compte.
   }
   /**
-   * {@summary kill during hunt.<br/>}
-   * An Ant kill an Insect<br/>
+   * {@summary kill during hunt.<br>}
+   * An Ant kill an Insect<br>
    * @param insecteTue The insect that will die.
    * @version 1.1
    */
@@ -102,8 +102,8 @@ public class ChasseInsectivore implements Serializable, Chasse {
     }
   }
   /**
-   * {@summary butcher during hunt.<br/>}
-   * An Ant kill an Insect<br/>
+   * {@summary butcher during hunt.<br>}
+   * An Ant kill an Insect<br>
    * @param insecteTue The died Insect.
    * @version 1.1
    */
@@ -127,7 +127,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
     return true;
   }
   /**
-   * {@summary check if can hunt.<br/>}
+   * {@summary check if can hunt.<br>}
    * @version 1.28
    */
   private boolean canHuntAnymore(){

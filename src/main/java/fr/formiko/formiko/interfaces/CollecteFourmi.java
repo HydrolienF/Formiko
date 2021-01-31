@@ -6,8 +6,8 @@ import fr.formiko.formiko.Message;
 import java.io.Serializable;
 
 /**
- * {@summary Ant implementation.<br/>}
- * Allow an ant to collect seed<br/>
+ * {@summary Ant implementation.<br>}
+ * Allow an ant to collect seed<br>
  * @author Hydrolien
  * @version 1.1
  */
@@ -15,9 +15,9 @@ public class CollecteFourmi implements Serializable, Collecte {
 
   // Fonctions propre -----------------------------------------------------------
   /**
-   *{@summary collect seeds.<br/>}
-   *Ant search a seed. If it see a seed on the same Case it take it. If it see a seed on an other Case it goes to the Case.<br/>
-   *It can choose the first 1 or the better 1 depending on the difficulty.<br/>
+   *{@summary collect seeds.<br>}
+   *Ant search a seed. If it see a seed on the same Case it take it. If it see a seed on an other Case it goes to the Case.<br>
+   *It can choose the first 1 or the better 1 depending on the difficulty.<br>
    *@param f The collecting ant.
    *@version 1.3
    */
@@ -39,8 +39,8 @@ public class CollecteFourmi implements Serializable, Collecte {
     }
   }
   /**
-   *{@summary collect a seed on the same Case.<br/>}
-   *Ant search a seed on the same Case<br/>
+   *{@summary collect a seed on the same Case.<br>}
+   *Ant search a seed on the same Case<br>
    *If there is a seed, ant take it (make it disapear on the map) and will carry it to the anthill.
    *@param f The collecting ant.
    *@version 1.3

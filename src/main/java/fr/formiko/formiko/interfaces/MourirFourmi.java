@@ -6,14 +6,14 @@ import fr.formiko.formiko.Message;
 import java.io.Serializable;
 
 /**
- * {@summary Ant implementation.<br/>}
- * Allow an ant to died<br/>
+ * {@summary Ant implementation.<br>}
+ * Allow an ant to died<br>
  * @author Hydrolien
  * @version 1.1
  */
 public class MourirFourmi implements Serializable, Mourir {
   /**
-   *{@summary Kill an ant an print a message.<br/>}
+   *{@summary Kill an ant an print a message.<br>}
    *@param c Insecte who is dieing
    *@param r Reason of death
    *@version 1.13
@@ -33,7 +33,7 @@ public class MourirFourmi implements Serializable, Mourir {
     }
   }
   /**
-   *{@summary Delete the ant from the map.<br/>}
+   *{@summary Delete the ant from the map.<br>}
    *@version 1.13
    */
   public void supprimerDeLaCarte(Creature c){
@@ -45,7 +45,7 @@ public class MourirFourmi implements Serializable, Mourir {
     }
   }
   /**
-   *{@summary Delete the ant from the map.<br/>}
+   *{@summary Delete the ant from the map.<br>}
    *@version 1.13
    */
   private void supprimerDeLaCarte(Fourmi f){

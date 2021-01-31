@@ -4,8 +4,8 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 //def par défaut des fichiers depuis 0.79.5
 import java.io.Serializable;
 /**
- * {@summary lay.<br/>}
- * Allow a Creature to lay<br/>
+ * {@summary lay.<br>}
+ * Allow a Creature to lay<br>
  * @author Hydrolien
  * @version 1.1
  */

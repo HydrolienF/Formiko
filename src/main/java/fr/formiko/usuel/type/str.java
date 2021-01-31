@@ -7,7 +7,7 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.tableau;
 
 /**
-*{@summary Types conversions from String<br/>}
+*{@summary Types conversions from String<br>}
 *@author Hydrolien
 *@version 1.1
 */

@@ -5,8 +5,8 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 import java.io.Serializable;
 
 /**
- * {@summary Creature implementation.<br/>}
- * Allow a creature without any action aviable to play a turn<br/>
+ * {@summary Creature implementation.<br>}
+ * Allow a creature without any action aviable to play a turn<br>
  * Maybe that's not usefull because if action < 0 creature will already end there turn.
  * @author Hydrolien
  * @version 1.24

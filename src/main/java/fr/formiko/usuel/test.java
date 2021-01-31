@@ -8,7 +8,7 @@ import fr.formiko.usuel.liste.GString;
 import fr.formiko.usuel.ecrireUnFichier;
 
 /**
- *{@summary test class that can launch all tests. <br/>}
+ *{@summary test class that can launch all tests. <br>}
  *@author Hydrolien
  *@version 1.4
  */
@@ -22,7 +22,7 @@ public class test {
   public static int getId(){return idCpt++;}
   // Fonctions propre -----------------------------------------------------------
   /**
-   *{@summary Test all test file in REPTEST directory and all his content.<br/>}
+   *{@summary Test all test file in REPTEST directory and all his content.<br>}
    *@version 1.4
    */
   public static boolean testAll(){
@@ -39,7 +39,7 @@ public class test {
     return true;
   }
   /**
-   *{@summary Test all test file in a directory and all his content.<br/>}
+   *{@summary Test all test file in a directory and all his content.<br>}
    *@version 1.4
    */
   public static boolean testDirectory(File dir) {
@@ -55,7 +55,7 @@ public class test {
     return executeTest(dir);
   }
   /**
-   *{@summary Launch a test.<br/>}
+   *{@summary Launch a test.<br>}
    *@version 1.4
    */
   public static boolean executeTest(File f){
@@ -85,7 +85,7 @@ public class test {
     return false;
   }
   /**
-   *{@summary Launch a test with junit package.<br/>}
+   *{@summary Launch a test with junit package.<br>}
    *@version 1.4
    */
   /*public static boolean run(Class<?> testClass){
@@ -95,7 +95,7 @@ public class test {
     return true;
   }*/
   /**
-   *{@summary Launch a test in linux terminal.<br/>}
+   *{@summary Launch a test in linux terminal.<br>}
    *@version 1.4
    */
   public static boolean run(String s){
@@ -129,7 +129,7 @@ public class test {
     return true;
   }
   /**
-   *{@summary Save all file to test in testJunit.txt.<br/>}
+   *{@summary Save all file to test in testJunit.txt.<br>}
    *@version 1.5
    */
   private static void saveGs(){

@@ -9,14 +9,14 @@ import fr.formiko.graphisme.BoiteListeDefilante;
 import java.io.Serializable;
 
 /**
- * {@summary Ant implementation.<br/>}
- * Allow an ant to do a trophallaxis<br/>
+ * {@summary Ant implementation.<br>}
+ * Allow an ant to do a trophallaxis<br>
  * @author Hydrolien
  * @version 1.1
  */
 public class TrophallaxieFourmi implements Serializable, Trophallaxie {
   /**
-   *{@summary make a trophallaxis.<br/>}
+   *{@summary make a trophallaxis.<br>}
    *This methode will check that no food will be lost and no food will be create.<br>
    *If the trophallaxis work well it will cost action to the 2 creatures.
    *@param c The trophallaxing Creature.
@@ -51,7 +51,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
     debug.débogage("Trophallaxie de "+nourritureDonnée+ " éffectuée");
   }
   /**
-   *{@summary do a trophallaxis to an id<br/>}
+   *{@summary do a trophallaxis to an id<br>}
    *@param id The target Creature to fined on the Case.
    *@version 1.3
    */
@@ -112,7 +112,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
     }
   }
   /**
-   *{@summary find hungry ant.<br/>}
+   *{@summary find hungry ant.<br>}
    *@param t The id list of the ant.
    *@param net The creature who whant to give food.
    *@version 1.7

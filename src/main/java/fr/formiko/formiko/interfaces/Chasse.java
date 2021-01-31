@@ -5,8 +5,8 @@ import fr.formiko.formiko.Creature;
 import java.io.Serializable;
 
 /**
- * {@summary hunt.<br/>}
- * Allow a Creature to hunt other creature<br/>
+ * {@summary hunt.<br>}
+ * Allow a Creature to hunt other creature<br>
  * @author Hydrolien
  * @version 1.1
  */

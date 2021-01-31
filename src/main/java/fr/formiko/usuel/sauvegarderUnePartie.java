@@ -12,7 +12,7 @@ import fr.formiko.usuel.type.str;
 import java.io.File;
 
 /**
- *{@summary Save a game <br/>}
+ *{@summary Save a game <br>}
  *@author Hydrolien
  *@version 1.1
  */
@@ -31,7 +31,7 @@ public class sauvegarderUnePartie {
   public static void setSave(Save sa){save=sa;}
   // Fonctions propre -----------------------------------------------------------
   /**
-   *{@summary Save a Partie <br/>}
+   *{@summary Save a Partie <br>}
    *It use the java tools to save in byte code a Serializable Object.
    *@param p The Partie to save
    *@param nomDuFichier The name of the output File (It will be place in REP/nomDuFichier.save)
@@ -50,7 +50,7 @@ public class sauvegarderUnePartie {
     getSave().addSave();
   }
   /**
-   *{@summary Load a Partie <br/>}
+   *{@summary Load a Partie <br>}
    *It use the java tools to load in byte code a Serializable Object.
    *@param nomDuFichier The name of the input File (File will be REP/nomDuFichier.save)
    *@version 1.2
