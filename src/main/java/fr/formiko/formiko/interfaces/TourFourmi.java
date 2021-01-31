@@ -1,17 +1,19 @@
 package fr.formiko.formiko.interfaces;
 
 import fr.formiko.formiko.*;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
 
 import java.io.Serializable;
 
 /**
- * {@summary Ant implementation.<br>}
- * Allow an ant to play a turn<br>
+ * {@summary Ant implementation.<br/>}
+ * Allow an ant to play a turn<br/>
  * @author Hydrolien
- * @version 1.24
+ * @version 1.30
  */
 public class TourFourmi implements Serializable, Tour{
-  private Fourmi f;
+  protected Fourmi f;
   public void setF(Fourmi fTemp){f=fTemp;}
   /**
   *PLay 1 turn with Creature f.
@@ -63,8 +65,9 @@ public class TourFourmi implements Serializable, Tour{
     while(f.getAction()>0 && !(f.isHungry(foodToQueep)) && !(f.trophallaxie instanceof TrophallaxieNull)){
       Creature toFeed = aNourrir();
       if(toFeed==null){return;}
-      int nourritureDonnée = f.getNourriture()-((f.getNourritureMax()*foodToQueep)/100);
-      f.trophallaxie(toFeed,nourritureDonnée);
+      int givenFood = f.getNourriture()-((f.getNourritureMax()*foodToQueep)/100);
+      if(givenFood<1){return;}
+      f.trophallaxie(toFeed,givenFood);
     }
   }
   /**

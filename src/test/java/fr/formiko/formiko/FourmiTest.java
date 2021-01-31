@@ -1,14 +1,13 @@
 package fr.formiko.formiko;
 
-
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.interfaces.*;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class FourmiTest extends TestCaseMuet{
@@ -120,5 +119,15 @@ public class FourmiTest extends TestCaseMuet{
     assertTrue(!f.wantClean());
     f.setProprete(42);
     assertTrue(f.wantClean());
+  }
+  public void testFourmi(){
+    Fourmi f = ini();
+    assertTrue(f.tour instanceof TourFourmi);
+    Joueur j2 = new Joueur(new Fourmiliere(Main.getPartie().getGc().getCCase(0,0),null),"joueurTest",true);
+    j2.getFere().setJoueur(j2);
+    Main.getPartie().getGj().add(j2);
+    Fourmi f2 = new Fourmi(j2.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    j2.getFere().getGc().add(f2);
+    assertTrue(f2.tour instanceof TourFourmiNonIa);
   }
 }

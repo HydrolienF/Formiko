@@ -290,7 +290,6 @@ public class TourFourmiTest extends TestCaseMuet{
   public void testFinTour(){
     Fourmi f = ini();
     f.setTypeF((byte)3);
-    System.out.println("     "+f.getIndividu().getNourritureConso(0));//@a
     f.setAction(f.getActionMax());
     ((TourFourmi)(f.tour)).finTour();
     assertEquals(0,f.getAction());

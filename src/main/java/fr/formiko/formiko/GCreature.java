@@ -317,7 +317,7 @@ public class GCreature implements Serializable{//, Iterator{
   public void jouer(){
     try{
       jouerE();
-    }catch (ListeVideException e) {}
+    }catch (ListeVideException e) {erreur.alerte("1 player can't play","GCreature.jouer");}
   }
   /**
   *reset action before the turn of all the ant.

@@ -269,10 +269,11 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *{@summary Eat with the interface Chasse.<br>}
   *It will stop eating only if action &#60;&#61; 0 or is not hungry or chasse have returned false (creature haven't eat the last time he try).<br>
   *return true if the Creature have eat.
-  *@version 1.28
+  *@version 1.30
   */
   public void eat(int percentageOfHungryness){
-    while(getAction()>0 && isHungry(percentageOfHungryness) && chasse()){}
+    int direction=getDirAllea();
+    while(getAction()>0 && isHungry(percentageOfHungryness) && chasser(direction)){}
   }
 
   /**

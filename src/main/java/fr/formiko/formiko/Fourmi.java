@@ -52,7 +52,11 @@ public class Fourmi extends Creature implements Serializable{
     fere.getCc().getContenu().getGc().ajouter(this);
     evoluer = new EvoluerFourmi();
     mourir = new MourirFourmi();
-    tour = new TourFourmi();
+    if(getFere().getJoueur().getIa()){
+      tour = new TourFourmi();
+    }else{
+      tour = new TourFourmiNonIa();
+    }
     if(e.getPolycalique()){tolerencePheromone=5;}//si c'est une espèce capable de s'endendre avec les fourmilières de la même famille.
   }public Fourmi(Fourmiliere fere, Espece e, int ty){ this(fere,e,(byte)ty);}
   public Fourmi(Fourmiliere fere, Espece e, byte ty,byte stade){
@@ -97,7 +101,9 @@ public class Fourmi extends Creature implements Serializable{
   public boolean getAilesCoupees(){return ailesCoupees;}
   public void setAilesCoupees(boolean b){ailesCoupees=b;}
   //static
+  public static byte getUneSeuleAction(){return uneSeuleAction;}
   public static void setUneSeuleAction(int x){uneSeuleAction=(byte)x;}public static void setUneSeuleAction(){setUneSeuleAction(-1);}
+  public static boolean getBUneSeuleAction(){return bUneSeuleAction;}
   public static void setBUneSeuleAction(boolean b){bUneSeuleAction=b;}
   public static void setBActualiserTaille(boolean b){bActualiserTaille=b;}
   @Override
@@ -189,62 +195,6 @@ public class Fourmi extends Creature implements Serializable{
     if(nourritureSouhaité<nourritureTotalPossédé){ return 3;}
     debug.débogage("la reine de la fere "+fere.getId()+" n'as pas encore assez de nourriture : "+nourriture+"/"+nourritureSouhaité);
     return 0;
-  }
-  public byte getChoixBouton(){
-    byte choix = (byte) Main.getPj().getActionF();
-    while (choix==-1) {
-      choix = (byte) Main.getPj().getActionF();
-      Temps.pause(10);
-      if (bUneSeuleAction){
-        Main.getPb().removePa();
-        Main.getPb().addPa(Main.getFActuelle().getTActionFourmi());
-        bUneSeuleAction=false;
-      }
-      if(bActualiserTaille){
-        Main.getPs().actualiserTailleMax();
-        Main.getPs().revalidate();
-        Main.repaint();
-        bActualiserTaille=false;
-      }
-    }choix++;
-    return choix;
-  }
-  public byte getChoixJoueur(){
-    int [] t = getTActionFourmi();
-    Main.getPb().removePa();
-    Main.getPb().addPa(t);
-    // on attend une action de la fenetre.
-    debug.débogage("lancement de l'attente du bouton");
-    byte choix = getChoixBouton();
-    debug.débogage("action de Fourmi lancé "+choix);
-    Main.getPj().setActionF(-1);
-    return choix;
-  }
-  public int [] getTActionFourmi(){
-    if(uneSeuleAction!=-1){
-      if(uneSeuleAction==20){return new int[0];}
-      int t []= new int [1];
-      t[0]=(int)uneSeuleAction;
-      return t;
-    }
-    int t []=new int [11];
-    for (int i=0;i<11 ;i++ ) {
-      t[i]=i;
-    }
-    GCreature gcCase = this.getCCase().getContenu().getGc();
-    if(getIndividu().getCoutDéplacement() == -1){ t=tableau.retirerX(t,0);}
-    if(getIndividu().getCoutChasse() == -1 || gcCase.getGi().length()==0){ t=tableau.retirerX(t,1);}
-    if(getIndividu().getCoutPondre() == -1 || !peutPondre()){ t=tableau.retirerX(t,2);}
-    if(getIndividu().getCoutTrophallaxie() == -1 || gcCase.filtreAlliés(this).filtreFaimMax().length() < 2 || this.getNourriture()<1){ t=tableau.retirerX(t,3);}
-    if(getIndividu().getCoutNétoyer() == -1 ||(netoyer.getNombreDeCreatureANetoyer(this))==0){ t=tableau.retirerX(t,4);}
-    if(!e.getGranivore()){
-      t=tableau.retirerX(t,5);
-      t=tableau.retirerX(t,6);
-    }
-    try {//on retire l'anciène méthode de déplacement.
-      t=tableau.retirerX(t,0);
-    }catch (Exception e) {}
-    return t;
   }
   public String [] descriptionTableau(){
     String tr [] = new String [4];
