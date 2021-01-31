@@ -65,7 +65,7 @@ public class Espece implements Serializable{
   public GIndividu getGIndividu(){ return giu;}
   public void setGIndividu(GIndividu giu){ this.giu = giu;}
   public int [] getTypeDIndividu(){ return giu.getTypeDIndividu();}
-  public Individu getIndividuParType(int x){ return giu.getIndividuParType(x);}
+  public Individu getIndividuParType(int typeF){ return giu.getIndividuParType(typeF);}
   public String getNom(){
     if(nom.equals("x")){return ""+getId();}
     return nom;

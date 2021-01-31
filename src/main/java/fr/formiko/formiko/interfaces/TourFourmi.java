@@ -143,13 +143,15 @@ public class TourFourmi implements Serializable, Tour{
   }
   /**
   *{@summary End a turn as an Ant.<br>}
-  *@version 1.29
+  *@version 1.30
   */
   public void finTour(){
     debug.débogage("Fin du tour de la Fourmi");
+    if(f.getAction()>0){f.setAction(0);}//end the turn normaly
     // Un tour ça coute en age et en nourriture;
+    if (!(f.evoluer instanceof EvoluerNull) && f.getStade()<0 && f.getAge()>=f.getAgeMax()){ f.evoluer();}
     f.setAgePlus1(); f.salir();
-    if (f.getStade() == 0 || f.getStade() == -1 || f.getStade() == -2) {f.setNourritureMoinsConsomNourriture();}
+    f.setNourritureMoinsConsomNourriture(); //will not ask food is it's an egg.
     // if contition de température appartient a l'intervale idéale (et que stade = -1, -2 ou -3) : re setAgePlus1();
     try { //TODO move that to ViewGUI
       if (!f.getFere().getJoueur().getIa()) { //pour un joueur humain.

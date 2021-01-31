@@ -66,8 +66,8 @@ public class GIndividu implements Serializable{
     byte ty=str.sToBy(t[1]); boolean se=str.sToB(t[2]); boolean se2=str.sToB(t[3]); byte né=str.sToBy(t[4]);  byte ac=str.sToBy(t[5]); byte ta=str.sToBy(t[6]);
     String co=t[7]; byte po=str.sToBy(t[8]); byte te=str.sToBy(t[9]); int tag0=str.sToI(t[10]);  int tag1=str.sToI(t[11]);  int tag2=str.sToI(t[12]);  int tag3=str.sToI(t[13]);
     int nm0=str.sToI(t[14]);  int nm1=str.sToI(t[15]);  int nm2=str.sToI(t[16]);  int nm3=str.sToI(t[17]); byte ca0=str.sToBy(t[18]); byte ca1=str.sToBy(t[19]); byte ca2=str.sToBy(t[20]);
-    byte ca3=str.sToBy(t[21]);byte ca4=str.sToBy(t[22]);
-    Individu iur = new Individu(idEsp, ty, se, se2, né, ac, ta, co, po, te, tag0, tag1, tag2, tag3, nm0, nm1, nm2, nm3, ca0,ca1,ca2,ca3,ca4);
+    byte ca3=str.sToBy(t[21]);byte ca4=str.sToBy(t[22]);byte ca5=str.sToBy(t[23]); int nc = str.sToI(t[24]);
+    Individu iur = new Individu(idEsp, ty, se, se2, né, ac, ta, co, po, te, tag0, tag1, tag2, tag3, nm0, nm1, nm2, nm3, ca0,ca1,ca2,ca3,ca4,ca5,nc);
     return iur;
   }
 }

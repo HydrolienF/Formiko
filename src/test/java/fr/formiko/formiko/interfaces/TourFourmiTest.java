@@ -266,10 +266,6 @@ public class TourFourmiTest extends TestCaseMuet{
     assertEquals(i,((TourFourmi)(f.tour)).aNetoyer());
   }
   @Test
-  public void testBackHomeAndShareFood(){
-
-  }
-  @Test
   public void testBackHome(){
     Fourmi f = ini2();
 
@@ -292,22 +288,125 @@ public class TourFourmiTest extends TestCaseMuet{
   }
   @Test
   public void testFinTour(){
+    Fourmi f = ini();
+    f.setTypeF((byte)3);
+    System.out.println("     "+f.getIndividu().getNourritureConso(0));//@a
+    f.setAction(f.getActionMax());
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(0,f.getAction());
+    f.setAction(2);
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(0,f.getAction());
+    f.setAction(-2);
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(-2,f.getAction());
 
+    f.setAge(0);
+    f.setProprete(100);
+    f.setNourriture(50);
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(1,f.getAge());
+    assertTrue(100>f.getProprete());
+    assertEquals(49,f.getNourriture());
+    //died by age.
+    f.setAge(f.getAgeMax()-1);
+    f.setProprete(100);
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(1,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(0,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    //died by proprete
+    f = ini();
+    f.setProprete(0);
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(0,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    //died by food
+    f = ini();
+    f.setTypeF((byte)3);
+    f.setNourriture(1);
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(1,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(0,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    f = ini();
+    f.setTypeF((byte)0);
+    f.setNourriture(1);
+    assertEquals(1,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(0,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    //egg don't need food.
+    f = ini();
+    f.setTypeF((byte)3);
+    f.setStade(-3);
+    f.setAge(0);
+    f.setProprete(100);
+    f.setNourriture(50);
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(1,f.getAge());
+    assertEquals(100,f.getProprete());
+    assertEquals(50,f.getNourriture());
+
+    f.setStade(-2);
+    f.setAge(0);
+    f.setProprete(100);
+    f.setNourriture(50);
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(1,f.getAge());
+    assertTrue(f.getProprete()<100);
+    assertEquals(49,f.getNourriture());
+
+    f.setStade(-1);
+    f.setAge(0);
+    f.setProprete(100);
+    f.setNourriture(50);
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(1,f.getAge());
+    assertEquals(100,f.getProprete());
+    assertEquals(49,f.getNourriture());
+
+    f = ini();
+    f.setTypeF((byte)0);//queen
+    f.setAge(0);
+    f.setProprete(100);
+    f.setNourriture(50);
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(1,f.getAge());
+    assertTrue(100>f.getProprete());
+    assertEquals(3,f.getIndividu().getNourritureConso(f.getStade()));
+    assertEquals(47,f.getNourriture());
+
+    f = ini();
+    f.setStade(-1);
+    f.setAge(f.getAgeMax()-1);
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(-1,f.getStade());
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(0,f.getStade());
+    f.setNourriture(100);
+    f.setProprete(100);
+    assertEquals(1,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    assertTrue(f.tour instanceof TourFourmi);
+    //because it evoluer TourFourmi is a new TourFourmi !
+    ((TourFourmi)(f.tour)).setF(f);
+    ((TourFourmi)(f.tour)).finTour();
+    assertEquals(1,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    assertEquals(0,f.getStade());
   }
 
-  @Test
+  /*@Test
   public void testUnTour(){
 
   }
   @Test
   public void testTour(){
 
-  }
+  }*/
   @Test
   public void testTourNull(){
     Fourmi f = ini();
     assertTrue(f!=null);
-    assertEquals(30,f.getIndividu().getNétoyage());
+    f.setTypeF((byte)3);
+    assertEquals(25,f.getIndividu().getNétoyage());
     //without action :
     f.setAction(0);
     f.setNourriture(19);
@@ -321,6 +420,13 @@ public class TourFourmiTest extends TestCaseMuet{
     assertEquals(18,f.getNourriture());
     assertTrue(f.getPropretéPerdu()!=0);
     assertEquals(100-f.getPropretéPerdu(),f.getProprete());
+
+    f.setAction(0);
+    f.setTypeF((byte)0);
+    f.tour();
+    assertEquals(2,f.getAge());
+    assertEquals(0,f.getAction());
+    assertEquals(15,f.getNourriture());
 
   }
 }

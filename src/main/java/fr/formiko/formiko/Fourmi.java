@@ -23,7 +23,6 @@ public class Fourmi extends Creature implements Serializable{
   protected byte mode; // Par défaut la fourmi chasse (0)
   // Elle peut aussi défendre la fourmilière (1) ou aider a la création de nouvelles fourmis (3)
   protected Fourmiliere fere;
-  protected Individu in;
   protected ObjetSurCarteAId transporté;
   protected byte duretéMax;
   private static byte uneSeuleAction=-1;
@@ -37,7 +36,7 @@ public class Fourmi extends Creature implements Serializable{
     // on devrais fixer l'age max en fonction de la difficulté la aussi
     super(fere.getCc(),0,e.getGIndividu().getIndividuParType(ty).getAgeMax(0),0);
     typeF = ty; this.e = e; this.fere = fere; stade = (byte)-3; propreté = (byte) 100;
-    in = e.getGIndividu().getIndividuParType(ty);
+    this.e = e;
     Fourmi reine = fere.getGc().getReine();
     if (reine != null){ e = reine.getEspece(); ph = new Pheromone(reine.getPheromone());}
     else if (fere.getGc().getDébut() != null){ ph = new Pheromone(fere.getGc().getDébut().getContenu().getPheromone());}
@@ -80,8 +79,8 @@ public class Fourmi extends Creature implements Serializable{
   public void setDuretéMax(byte x){ duretéMax=x; }
   public int getX(){return getCCase().getContenu().getX();}
   public int getY(){return getCCase().getContenu().getY();}
-  public void setNourritureMoinsConsomNourriture(){ setNourriture(getNourriture()-in.getNourritureConso());}
-  public Individu getIndividu(){ return in;}
+  public void setNourritureMoinsConsomNourriture(){ setNourriture(getNourriture()-getIndividu().getNourritureConso(getStade()));}
+  public Individu getIndividu(){ return e.getIndividuParType(typeF);}
   public boolean getTropDeNourriture(){if(getNourriture()*1.1>getNourritureMax()){ return true;} return false;}
   public boolean peutPondre(){return this.getNourriture()>20 && this.estALaFere();}
   @Override
@@ -123,9 +122,9 @@ public class Fourmi extends Creature implements Serializable{
     if(especeTempId!=100){
       in2 = e.getIndividuParType(especeTempId);
     }else{
-      in2 = in;
+      in2 = getIndividu();
     }
-    if(in2==null){erreur.erreur("L'individu de stade "+especeTempId+" n'as pas été trouvé.");in2 = in;}
+    if(in2==null){erreur.erreur("L'individu de stade "+especeTempId+" n'as pas été trouvé.");in2 = getIndividu();}
     return (int)((double)(in2.getAgeMax(stadeTemp+3)*getMultiplicateurDeDiff()));
   }
   /**
@@ -183,7 +182,8 @@ public class Fourmi extends Creature implements Serializable{
       }
       nourritureTotalPossédé = nourritureTotalPossédé + fPetite.getNourriture();
     }catch (Exception e) {}
-    int nourritureSouhaité = 40 + (in.getNourritureConso()+e.getIndividuParType(0).getNourritureConso())*nbrDeTour;
+      //TODO to update or delete.
+    int nourritureSouhaité = 40; //+ (getIndividu().getNourritureConso(getStade())+e.getIndividuParType(0).getNourritureConso(0))*nbrDeTour;
     if(nourritureSouhaité>nourritureMax){ return 3;} // au cas ou la reine ne pourrait pas stocker autant qu'il faut.
     //si la reine a plus de nourriture qu'il n'en faut pour surveillé un oeuf on part s'en occupé.
     if(nourritureSouhaité<nourritureTotalPossédé){ return 3;}
@@ -232,11 +232,11 @@ public class Fourmi extends Creature implements Serializable{
       t[i]=i;
     }
     GCreature gcCase = this.getCCase().getContenu().getGc();
-    if(in.getCoutDéplacement() == -1){ t=tableau.retirerX(t,0);}
-    if(in.getCoutChasse() == -1 || gcCase.getGi().length()==0){ t=tableau.retirerX(t,1);}
-    if(in.getCoutPondre() == -1 || !peutPondre()){ t=tableau.retirerX(t,2);}
-    if(in.getCoutTrophallaxie() == -1 || gcCase.filtreAlliés(this).filtreFaimMax().length() < 2 || this.getNourriture()<1){ t=tableau.retirerX(t,3);}
-    if(in.getCoutNétoyer() == -1 ||(netoyer.getNombreDeCreatureANetoyer(this))==0){ t=tableau.retirerX(t,4);}
+    if(getIndividu().getCoutDéplacement() == -1){ t=tableau.retirerX(t,0);}
+    if(getIndividu().getCoutChasse() == -1 || gcCase.getGi().length()==0){ t=tableau.retirerX(t,1);}
+    if(getIndividu().getCoutPondre() == -1 || !peutPondre()){ t=tableau.retirerX(t,2);}
+    if(getIndividu().getCoutTrophallaxie() == -1 || gcCase.filtreAlliés(this).filtreFaimMax().length() < 2 || this.getNourriture()<1){ t=tableau.retirerX(t,3);}
+    if(getIndividu().getCoutNétoyer() == -1 ||(netoyer.getNombreDeCreatureANetoyer(this))==0){ t=tableau.retirerX(t,4);}
     if(!e.getGranivore()){
       t=tableau.retirerX(t,5);
       t=tableau.retirerX(t,6);
@@ -252,7 +252,7 @@ public class Fourmi extends Creature implements Serializable{
     int k=0;
     //tr[k]=g.get("la")+" "+getNom()+" "+getId();k++;
     //tr[k]=g.get("coordonnées")+" : "+p.desc();k++;
-    tr[k]=g.get("type")+" : "+in.getStringType();k++;
+    tr[k]=g.get("type")+" : "+getIndividu().getStringType();k++;
     //tr[k]=g.get("stade")+" : "+getStringStade();k++;
     //tr[k]=g.get("age")+" : " + age+ "/"+ageMax;k++;
     //tr[k]=g.get("nourriture")+" : " + nourriture+ "/"+nourritureMax;k++;
@@ -267,7 +267,7 @@ public class Fourmi extends Creature implements Serializable{
   }
   public GString descriptionGString(){
     GString gs = new GString();
-    gs.add(g.get("type")+" : "+in.getStringType());
+    gs.add(g.get("type")+" : "+getIndividu().getStringType());
     gs.add(g.get("stade")+" : "+getStringStade());
     gs.add(g.get("age")+" : " + age+ "/"+ageMax);
     gs.add(g.get("nourriture")+" : " + nourriture+ "/"+nourritureMax);
@@ -288,7 +288,7 @@ public class Fourmi extends Creature implements Serializable{
     if(!estIa){ mode = -1;}
     else if(estReine()){mode = getModeReine();}
     else if(getTropDeNourriture()){mode=3;}
-    else{mode = fere.getModeDéfaut();if(nourriture<5*in.getNourritureConso()){ mode=0;}}//choixMode();}
+    else{mode = fere.getModeDéfaut();if(nourriture<5*getIndividu().getNourritureConso()){ mode=0;}}//choixMode();}
     if(stade == 0){ // les fourmis qui ne sont pas encore née ne font rien
       // Un tour de jeu d'une Fourmi
       int direction=getDirAllea();
@@ -501,7 +501,8 @@ public class Fourmi extends Creature implements Serializable{
   *@version 1.29
   */
   public boolean wantFood(){
-    return isHungry(5) || (getNourriture() < math.min(getIndividu().getNourritureConso()*2,getNourritureMax()));
+    if(stade==-3){return false;}
+    return isHungry(5) || (getNourriture() < math.min(getIndividu().getNourritureConso(getStade())*2,getNourritureMax()));
   }
   /**
   *{@summary return true if this whant to be clean.}

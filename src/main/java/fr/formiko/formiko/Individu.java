@@ -21,22 +21,22 @@ public class Individu implements Serializable{
 
   protected int tAgeMax[] = new int[4]; // sauf l'age adulte qui vari.
   protected int tNourritureMax[]= new int[4]; // sauf la nourritureMax adulte.
-  protected byte tCoutAction[] = new byte[5];
+  protected byte tCoutAction[] = new byte[6];
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public Individu(int idEsp, byte ty, boolean se,boolean se2, byte né, byte ac, byte ta, String co, byte po, byte te, int tag0, int tag1, int tag2, int tag3, int nm0, int nm1, int nm2, int nm3,byte ca0,byte ca1,byte ca2,byte ca3,byte ca4){
+  public Individu(int idEsp, byte ty, boolean se,boolean se2, byte né, byte ac, byte ta, String co, byte po, byte te, int tag0, int tag1, int tag2, int tag3, int nm0, int nm1, int nm2, int nm3,byte ca0,byte ca1,byte ca2,byte ca3,byte ca4,byte ca5,int nc){
     e = Main.getGEspece().getEspeceParId(idEsp);
     type = ty; sexué = se; sexe = se2; nétoyage = né; actionMax = ac; taille =ta; couleur = co; poidMax =po; tempsDeRepos = te;
     tAgeMax[0] = tag0; tAgeMax[1] = tag1; tAgeMax[2] = tag2; tAgeMax[3] = tag3;
     tNourritureMax[0] = nm0; tNourritureMax[1] = nm1; tNourritureMax[2] = nm2; tNourritureMax[3] = nm3;
-    tCoutAction[0] = ca0; tCoutAction[1] = ca1; tCoutAction[2] = ca2; tCoutAction[3] = ca3; tCoutAction[4] = ca4;
-    //temporairement :
-    nourritureConso=1;
+    tCoutAction[0] = ca0; tCoutAction[1] = ca1; tCoutAction[2] = ca2; tCoutAction[3] = ca3; tCoutAction[4] = ca4; tCoutAction[5] = ca5;
+    nourritureConso=nc;
     debug.débogage("Fin de la création d'un individu");
   }
   // GET SET --------------------------------------------------------------------
   public Espece getEspece(){ return e;}
   public byte getType(){ return type;}
   public byte getActionMax(){ return actionMax;}
+  public byte getTaille(){ return taille;}
 
   public int getAgeMax(int i){ return tAgeMax[i];}
   public int getAgeMax(){ return getAgeMax(3);}
@@ -60,7 +60,10 @@ public class Individu implements Serializable{
     else{ ind = g.get("individu")+" "+type;}
     return ind;
   }
-  public int getNourritureConso(){ return nourritureConso;}
+  public int getNourritureConso(int stade){
+    if(stade==-3){ return 0;}
+    return nourritureConso;
+  }
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
     GString adj = new GString();//♂ ♀

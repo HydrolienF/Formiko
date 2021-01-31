@@ -34,7 +34,7 @@ public class FourmiTest extends TestCaseMuet{
   @Test
   public void testWantFood(){
     Fourmi f = ini();
-    assertEquals(1,f.getIndividu().getNourritureConso());
+    assertEquals(1,f.getIndividu().getNourritureConso(f.getStade()));
     f.setNourriture(f.getNourritureMax());
     assertTrue(!f.wantFood());
     f.setNourriture(f.getNourritureMax()/2);
@@ -64,6 +64,11 @@ public class FourmiTest extends TestCaseMuet{
     f.setNourriture(6);
     assertTrue(!f.wantFood());
     f.setNourriture(10);
+    assertTrue(!f.wantFood());
+    f = ini();
+    f.setStade(-3);
+    assertTrue(!f.wantFood());
+    f.setNourriture(1);
     assertTrue(!f.wantFood());
   }
   @Test
