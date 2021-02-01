@@ -72,7 +72,7 @@ public class stats {
     while(cci!=null){
       String s = cs.getContenu();
       if(raccourcir){
-        s = s.substring(20);
+        s = s.substring(25);
       }
       gsr.add(toStatJd(cci)+toStatInfo(cci2.getContenu(),cci.getContenu())+numberOfLines(ci)+s);
       cci=cci.getSuivant();
