@@ -1,0 +1,27 @@
+h1,h2,h3,h4{
+  /*color: #00ff00;*/
+  margin:0px 0px;
+  padding:2vh 1vh;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.15);
+}
+h1{
+  font-size: 7vh;
+	text-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+}
+h2{
+  font-size: 5vh;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.15);
+}
+h3{
+  font-size: 4vh;
+}
+iframe{
+  width: 70vw;
+  height: 70vh;
+}
+input{
+  font-size: 4vh;
+  background-color:#e1ffe1;
+  font-weight:bold;
+  color:#00ff00;
+}
