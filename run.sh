@@ -1,4 +1,4 @@
-#command to launch the game
+#command to launch the game on mac / linux
 #exemple of use : ./run.sh -d
 for param in "$*"
 do
