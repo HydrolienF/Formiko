@@ -119,7 +119,7 @@ public class Fourmi extends Creature implements Serializable{
     return toString();
   }
   /**
-  *{@summary return the max age for an Individu depending of Espece & stade.}
+  *{@summary return the max age for an Individu depending of Espece 	&#38; stade.}
   *@param especeTempId Temporary Espece id.
   *@param stadeTemp Temporary stade.
   */
@@ -134,7 +134,7 @@ public class Fourmi extends Creature implements Serializable{
     return (int)((double)(in2.getAgeMax(stadeTemp+3)*getMultiplicateurDeDiff()));
   }
   /**
-  *{@summary return the max age for an Individu with stade=0 (imago) & individu already define.}
+  *{@summary return the max age for an Individu with stade=0 (imago) 	&#38; individu already define.}
   */
   public int getAgeMaxIndividu(){
     return getAgeMaxIndividu(100,0);
@@ -437,7 +437,7 @@ public class Fourmi extends Creature implements Serializable{
   }*/
   /**
   *{@summary un-clean this.}
-  *It also let this died if it is under the seuilDeRisqueDInfection & that this have bad luck.
+  *It also let this died if it is under the seuilDeRisqueDInfection 	&#38; that this have bad luck.
   *@version 1.29
   */
   public void salir(){
@@ -447,7 +447,7 @@ public class Fourmi extends Creature implements Serializable{
   }
   /**
   *{@summary return true if this whant some food.}
-  *This ask for food if it is hungry at 5% or if food is &60; at what we need for 2 days.
+  *This ask for food if it is hungry at 5% or if food is &#60; at what we need for 2 days.
   *@version 1.29
   */
   public boolean wantFood(){

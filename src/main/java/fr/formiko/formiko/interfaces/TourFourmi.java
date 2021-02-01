@@ -73,7 +73,7 @@ public class TourFourmi implements Serializable, Tour{
   /**
   *{@summary Search the ant that need the more food.<br>}
   *We 1a feed our ant queen if it wantFood.<br>
-  *We 2a feed every creature that is concidered as an ally & want food.<br>
+  *We 2a feed every creature that is concidered as an ally &#38; want food.<br>
   *Finaly we try to feed the queen even if she didn't absolutly need food.<br>
   *@version 1.29
   */
@@ -106,7 +106,7 @@ public class TourFourmi implements Serializable, Tour{
   /**
   *{@summary Search the ant that need the more to be clean.<br>}
   *We 1a clean our ant queen if it wantClean.<br>
-  *We 2a clean every creature that is concidered as an ally & want clean.<br>
+  *We 2a clean every creature that is concidered as an ally &#38; want clean.<br>
   *@version 1.29
   */
   public Creature aNetoyer(){
