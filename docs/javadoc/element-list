@@ -2,10 +2,9 @@ fr.formiko.formiko
 fr.formiko.formiko.interfaces
 fr.formiko.graphisme
 fr.formiko.usuel
-fr.formiko.usuel.conversiondetype
 fr.formiko.usuel.exception
-fr.formiko.usuel.exeption
-fr.formiko.usuel.image
+fr.formiko.usuel.images
 fr.formiko.usuel.liste
-fr.formiko.usuel.math
-fr.formiko.usuel.test
+fr.formiko.usuel.maths
+fr.formiko.usuel.tests
+fr.formiko.usuel.type
