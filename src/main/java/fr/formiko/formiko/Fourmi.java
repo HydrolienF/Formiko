@@ -5,7 +5,6 @@ import fr.formiko.formiko.Message;
 import fr.formiko.formiko.interfaces.*;
 import fr.formiko.graphisme.Question;
 import fr.formiko.usuel.Temps;
-import fr.formiko.usuel.type.str;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -15,9 +14,17 @@ import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.menu;
 import fr.formiko.usuel.read;
 import fr.formiko.usuel.tableau;
+import fr.formiko.usuel.type.str;
 
 import java.io.Serializable;
 
+/**
+*{@summary The ant class.<br>}
+*Ant is the creature used by player.<br>
+*Ant aren't different by extends of this class but but Espece &#38; Individu.<br>
+*@author Hydrolien
+*@version 1.30
+*/
 public class Fourmi extends Creature implements Serializable{
   protected byte typeF; // 0  Reine 1 = Male 2 = Minor 3 Medium 4 = Major 5 = soldate (etc).
   protected byte mode; // Par défaut la fourmi chasse (0)

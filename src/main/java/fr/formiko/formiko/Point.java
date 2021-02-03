@@ -1,29 +1,58 @@
 package fr.formiko.formiko;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
+
+import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.type.str;
+
 import java.io.Serializable;
 
+/**
+*{@summary Point is a basic geometic shape.<br>}
+*In Formiko, it is used to store an x and an y in a single object.<br>
+*@author Hydrolien
+*@version 1.30
+*/
 public class Point implements Serializable{
   protected int x,y; // pas de byte pour pourvoir utliser de très grande carte !
   // CONSTRUCTEUR -----------------------------------------------------------------
+  /**
+  *{@summary A simple contructor.<br>}
+  *@version 1.30
+  */
   public Point (int x,int y){
     this.x = x;
     this.y = y;
   }
+  /**
+  *{@summary A simple contructor.<br>}
+  *A Point can be create from a string that look like this : <br>
+  *<ul>
+  *<li>3,5
+  *<li>78 -90
+  *<li>+467;+100
+  *</ul>
+  *@version 1.30
+  */
   public Point(String s){//sous la forme -51,34
-      String t [] = s.split(".");
+    try {
+      String t [] = s.split(";");
       if(t.length<2){
         t = s.split(",");
         if(t.length<2){
-          t = s.split(";");
+          t = s.split(".");
+          if(t.length<2){
+            t = s.split(" ");
+          }
         }
       }
-    x=str.sToI(t[0]);
-    y=str.sToI(t[1]);
+      x=str.sToI(t[0]);
+      y=str.sToI(t[1]);
+    }catch (Exception e) {
+      erreur.alerte("1 Point can't be create","Point.Point");
+      x=-1; y=-1;
+    }
   }
 
-// GET SET -----------------------------------------------------------------------
+  // GET SET -----------------------------------------------------------------------
   public int getX(){return x;}
   public int getY(){return y;}
   public void setX(int x){this.x = x;}
@@ -31,29 +60,36 @@ public class Point implements Serializable{
   public void ajouteAX(int a){this.x = this.x + a;}
   public void ajouteAY(int a){this.y = this.y + a;}
 
-// Fonctions propre -----------------------------------------------------------
+  // Fonctions propre -----------------------------------------------------------
+  /**
+  *{@summary A simple toString function.<br>}
+  *@version 1.30
+  */
   public String toString(){
     return "("+x+","+y+")";
   }
-  public void afficheToi(){
-    System.out.println(this);
-  }
+  /**
+  *{@summary Equals methode for point.<br>}
+  *@version 1.30
+  */
   public boolean equals(Point p){
+    if(p==null){return false;}
     if (x != p.x) { return false;}
     if (y != p.y) { return false;}
     return true;
   }
+  /**
+  *{@summary Equals methode for point.<br>}
+  *A Point can be compare to a string that look like this : <br>
+  *<ul>
+  *<li>3,5
+  *<li>78 -90
+  *<li>+467;+100
+  *</ul>
+  *@version 1.30
+  */
   public boolean equals(String s){//sous la forme -51,34
-    String t [] = s.split(".");
-    if(t.length<2){
-      t = s.split(",");
-      if(t.length<2){
-        t = s.split(";");
-      }
-    }
-    if(t.length<2){return false;}
-    if(str.sToI(t[0])!=x){return false;}
-    if(str.sToI(t[1])!=y){return false;}
-    return true;
+    if(s==null){return false;}
+    return equals(new Point(s));
   }
 }
