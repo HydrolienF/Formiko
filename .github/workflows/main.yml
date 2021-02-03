@@ -35,6 +35,6 @@ jobs:
           ./javadoc.sh
           git add docs
           git commit -m "auto javadoc update"
+          ./authentification.sh
           git push
-      #./authentification.sh
       # mvn -B package --file pom.xml
