@@ -17,7 +17,8 @@ import java.io.Serializable;
  */
 public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   /**
-  *Do turn actions
+  *{@summary Do turn actions for an ant.}
+  *There is no order to do actions because player choose it.
   *@version 1.30
   */
   @Override

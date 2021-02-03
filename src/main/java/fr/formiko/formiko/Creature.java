@@ -281,6 +281,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *@version 1.28
   */
   public void runAway(){ //TODO
+    //an ant do now run away if in his anthill.
     //while(c.getAction()>0  && c.fuire()){
     return;
   }

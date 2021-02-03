@@ -31,11 +31,16 @@ public class TourFourmi implements Serializable, Tour{
   }
 
   /**
-  *Do turn actions
+  *{@summary Do turn actions for an ant.}
+  *<ul>
+  *<li>1a the ant try to survive.
+  *<li>Then it help any friendly ant in the same case.
+  *<li>Then it get more food.
+  *<li>Finaly it back home and share food with other.
+  *</ul>
   *@version 1.29
   */
   public void tour(){
-    //f.preTour();
     f.eat(5);
     f.runAway();
     cleanItself();
