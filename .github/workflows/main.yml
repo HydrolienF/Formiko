@@ -30,6 +30,6 @@ jobs:
     - name: Test with Maven
       # Runs test
       run: |
-          echo launch compilation & test
+          echo "launch compilation & test"
           echo ./test.sh
       # mvn -B package --file pom.xml
