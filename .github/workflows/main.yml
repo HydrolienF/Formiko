@@ -27,9 +27,12 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 15
-    - name: Test with Maven
+    - name: Javadoc update
       # Runs test
       run: |
           echo "launch compilation & test"
-          echo $(./javadoc.sh)
+          ./javadoc.sh
+          git add docs
+          git commit -m "auto javadoc update"
+          git push
       # mvn -B package --file pom.xml
