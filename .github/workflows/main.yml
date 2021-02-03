@@ -31,4 +31,5 @@ jobs:
       # Runs test
       run: |
           echo launch compilation & test
-          mvn -B package --file pom.xml
+          echo ./s2.sh
+      # mvn -B package --file pom.xml
