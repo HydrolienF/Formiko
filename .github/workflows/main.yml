@@ -31,5 +31,5 @@ jobs:
       # Runs test
       run: |
           echo "launch compilation & test"
-          echo ./test.sh
+          echo $(./test.sh)
       # mvn -B package --file pom.xml
