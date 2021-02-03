@@ -3,7 +3,6 @@ package fr.formiko.formiko;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
 import fr.formiko.formiko.interfaces.*;
-import fr.formiko.graphisme.Question;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
@@ -292,110 +291,8 @@ public class Fourmi extends Creature implements Serializable{
     if(!estIa && action<=0){
       Main.getPs().setIdFourmiAjoué(-1);
     }
-  }
-  public void finTour(){
-    debug.débogage("Fin du tour de la Fourmi");
-    // Un tour ça coute en age et en nourriture;
-    if (stade == 0){this.setAction(math.min(getAction(),0) + getActionMax());} // on peu avoir consommé trop d'action au tour précédent mais pas en avoir garder.
-    this.setAgePlus1(); this.salir();
-    if (stade == 0 || stade == -1 || stade == -2) {this.setNourritureMoinsConsomNourriture();}
-    // if contition de température appartient a l'intervale idéale (et que stade = -1, -2 ou -3) : re setAgePlus1();
-    if (!fere.getJoueur().getIa()) { //pour un joueur humain.
-      Main.getPj().setFActuelle(null);
-      Main.getPb().setVisiblePa(false);
-    }
-    Main.getPs().setIdFourmiAjoué(-1);
   }*/
 
-  //TODO move to TourFourmiNonIa
-  public String faire(int choix){
-    boolean estIa = fere.getJoueur().getIa();
-    String m = switch(choix){
-      case 0 :
-        ceDeplacer(estIa);
-        yield "ceDeplacer";
-      case 1 :
-        chasse();
-        yield "chasse";
-      case 2 :
-        pondre();
-        yield "pondre";
-      case 3 :
-        trophallaxer();
-        yield "trophallaxer";
-      case 4:
-        netoyer();
-        yield "ce netoyer ou nétoyer une autre fourmi";
-      case 5:
-        //mangerGraine();
-        yield "mangerGraine";
-      case 6 :
-        //casserGraine();
-        yield "casserGraine";
-      case 7 :
-        setMode(0);
-        yield "setMode0";
-      case 8 :
-        setMode(3);
-        yield "setMode1";
-      case 9 :
-        setAction(0);
-        yield "ne rien faire";
-      case 10 :
-        Question q = new Question("supprimerFourmi.1","supprimerFourmi.2");
-        if(q.getChoix()){
-          mourir(4);
-          yield "supprimer la fourmi";
-        }
-        yield "ne pas supprimer la fourmi";
-      default :
-        yield "";
-      };
-    return m;
-  }
-
-  /*public void collecterOuChasser(int direction, boolean estIa){
-    if(this.getEspece().getInsectivore()){
-      this.chasser(direction);
-    }else if(this.getEspece().getGranivore()){
-      debug.débogage("Lancement mode 3 graine.");
-      if (transporté == null){
-        if (!estALaFere()) {this.collecter(direction);}
-        else{this.ceDeplacer(estIa);}
-      }else{
-        if (!estALaFere()) {rentrer();debug.débogage("rentez");}
-        else{
-          debug.débogage("Dépo de la graine "+transporté.getId());
-          fere.déposer((Graine) transporté);
-          this.setTransporté(null);
-        }
-      }
-    }
-  }*/
-  /*public void nourrirEtNétoyer(){
-    if (!estALaFere()){ rentrer(); return;}
-    boolean aJoué = false;
-    if (getTypeF()==4 || (fere.getGc().length() < 50 && this.getEspece().getGranivore())){aJoué = casserGraine();}
-    if (!aJoué && this.getEspece().getGranivore()){ aJoué = mangerGraine();}
-    if ((estReine() && fere.getJoueur().getIa()) && !aJoué){ aJoué = pondreOuPas();}
-    //if (!aJoué){ aJoué = nourrir();}
-    if (!aJoué){ aJoué = netoyerIa();}
-    if (!aJoué && fere.getJoueur().getIa()){
-      new Message("La fourmi "+id+" n'as plus d'action nourrirEtNétoyer a faire",this.getFere().getJoueur().getId());
-      fere.setModeDéfaut(0); // les prochaines fourmi pourront juste s'occuper de chasser.
-      if (estReine() && fere.getGc().getCouvain().length()>=1){ // si c'est la reine et qu'elle a 1 oeuf elle ne doit pas s'en éloigner.
-        //if(estALaFere()){chasser(5);}//elle chasse dans un rayon de 1 case.
-        //aJoué = nétoyerTtLeMonde();
-        //if (!aJoué) {
-          setAction(0);
-        //}
-      } // elle attend qu'on ai besoin d'aide.
-      else if(nourriture < 10){ mode=0;} // elle retourne chasser
-      else{setAction(0);}
-    }else if(!aJoué){//si c'est un joueur.
-      setAction(0);
-    }
-  }*/
   /*public boolean mangerGraine(){
     //if(fere.getGGraine().getDébut()==null){return false;}
     Graine g = fere.getGGraine().getGraineOuverte();
@@ -404,18 +301,6 @@ public class Fourmi extends Creature implements Serializable{
       fere.getGGraine().retirerGraine(g); return true;
     }return false;
   }*/
-  //TODO move to TourReineNonIa
-  public boolean pondreOuPas(){
-    if (this.getFere().getGc().getCouvainSale()!=null && getAlliéSurLaCase().getNbrOuvrière()==0){ return false;}//si personne n'aide et que le couvain et sale.
-    if (fere.getGc().getNbrOuvrière()==0 && this.getFere().getGc().getCouvain().length()>=1){ return false;} // pas plus d'un oeuf au début.
-    if (nourriture > 50 + this.getFere().getGc().length()*5 || nourriture*2 > nourritureMax){ // soit la reine a au mois la moitié de sa nourriture max soit on cherche a avoir au moins 50 de nourriture plus 5 par fourmi déja présente. Une fourmilière déja bien établie n'as pas besoin de prendre de risque.
-      if (getAlliéSurLaCase().getCouvain() != null){
-        int pourcentageDeCouvain = (100*getAlliéSurLaCase().getCouvain().length()) / this.getFere().length();
-        if (pourcentageDeCouvain > 75 && nourriture > nourritureMax/2){ return false;} // si le nombre d'élément du couvain est vraiment important il faut évité de pondre plus sinon il y aura des morts pendant le dévelloppement du couvain.
-      }
-      this.pondre(); return true;
-    } return false;
-  }
   /*public boolean casserGraine(){
     debug.débogage("tentative de cassage de graine");
     try {
@@ -428,19 +313,6 @@ public class Fourmi extends Creature implements Serializable{
     }catch (Exception e) {
       return false;
     }
-  }*/
-  /*public byte choixMode(){
-    if (estReine() && nourriture > 30){
-      return 3; //sauf si elle est morte de faim ou toute seule.
-    }
-    // condition pour etre nourrice à ce tour : //&& type==1 ne générai pas assez de nourrice. Le type par défaut est 3 !
-    if (nourriture > 10 && estALaFere() && this.getFere().getGc().getCouvainSale() != null){
-      return 3;
-    }
-    if (nourriture*2 > nourritureMax || (nourriture<10 && e.getGranivore())){ // si la fourmi est au moins a moitié pleine.
-      return 3; // ancien choix pour mode 1.
-    }
-    return 0;
   }*/
   /**
   *{@summary un-clean this.}

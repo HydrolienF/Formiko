@@ -33,11 +33,13 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
     f.eat(5);
     f.runAway();
     cleanItself();
-    if(f.getFere().getGc().length()>1){f.eat(40);}
+    if(!haveSomeHelp()){f.eat(40);}
     if(needToWaitToLetNonQueenAntPlay()){return;}
     backHome();
     feedOther(30);
+    if(f.getFere().getGc().getNbrOuvrière()==0){feedOther(10);}
     lay();
+    //TODO if it still have action it can clean ant that didn't realy need it but that are not at 100/100 of clean.
     finTour();
   }
   /**
@@ -50,11 +52,23 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
     return false;
   }
   /**
+  *{@summary Check if this ant have some help from other ant of the same anthill.}<br>
+  *@version 1.31
+  */
+  public boolean haveSomeHelp(){
+    //TODO return false if for all f in fere.getGc() : !(f.tour instanceof TourReine) || f.getAction()<=0
+    return false;
+  }
+  /**
   *{@summary Lay egg as a queen ant.}<br>
+  *If the queen have no help from al list 1 ally imago ant, it don't lay more than 1 egg.
   *@version 1.31
   */
   public void lay(){
-    while(f.getAction()>0 && !f.isHungry(30)){
+    while(f.getAction()>0 && !f.isHungry(30)){ //Maybe we sould set the isHungry limite to a higer value if the anthill is big enough. 
+      if(f.getFere().getGc().getNbrOuvrière()==0 && f.getFere().getGc().getCouvain().length()>=1){return;}
+      //Maybe we should check that couvain do not represent a to higth %age.
+      //int pourcentageDeCouvain = (100*getAlliéSurLaCase().getCouvain().length()) / this.getFere().length();
       f.pondre();
     }
   }

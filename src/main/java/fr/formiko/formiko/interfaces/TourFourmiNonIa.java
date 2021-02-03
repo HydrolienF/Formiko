@@ -2,6 +2,7 @@ package fr.formiko.formiko.interfaces;
 
 import fr.formiko.formiko.*;
 import fr.formiko.formiko.interfaces.TourFourmi;
+import fr.formiko.graphisme.Question;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
@@ -24,6 +25,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   @Override
   public void tour(){
     try {
+      //TODO move to View
       Main.getPj().setFActuelle(f);
       Main.getPb().addPI();
       Main.getPb().addPIJ();
@@ -38,8 +40,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       if(choix==-2){
         return;
       }
-      // Les modes auto
-      m = f.faire(choix);
+      m = faire(choix);
     }
     if (f.getMode() == 0){
       m = "chasser / ce déplacer pour chasser (Ou Récolter des graines)";
@@ -64,6 +65,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       choix = (byte) Main.getPj().getActionF();
       Temps.pause(50);
       if (f.getBUneSeuleAction()){
+        //TODO move to View
         Main.getPb().removePa();
         Main.getPb().addPa(getTActionFourmi());
         f.setBUneSeuleAction(false);
@@ -85,7 +87,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     debug.débogage("lancement de l'attente du bouton");
     byte choix = getChoixBouton();
     debug.débogage("action de Fourmi lancé "+choix);
-    Main.getPj().setActionF(-1);
+    Main.getPj().setActionF(-1); //TODO move to View
     return choix;
   }
   public int [] getTActionFourmi(){
@@ -113,5 +115,50 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       t=tableau.retirerX(t,0);
     }catch (Exception e) {}
     return t;
+  }
+  public String faire(int choix){
+    boolean estIa = f.getFere().getJoueur().getIa();
+    String m = switch(choix){
+      case 0 :
+        f.ceDeplacer(estIa);
+        yield "ceDeplacer";
+      case 1 :
+        f.chasse();
+        yield "chasse";
+      case 2 :
+        f.pondre();
+        yield "pondre";
+      case 3 :
+        f.trophallaxer();
+        yield "trophallaxer";
+      case 4:
+        f.netoyer();
+        yield "ce netoyer ou nétoyer une autre fourmi";
+      case 5:
+        //mangerGraine();
+        yield "mangerGraine";
+      case 6 :
+        //casserGraine();
+        yield "casserGraine";
+      case 7 :
+        f.setMode(0);
+        yield "setMode0";
+      case 8 :
+        f.setMode(3);
+        yield "setMode1";
+      case 9 :
+        f.setAction(0);
+        yield "ne rien faire";
+      case 10 :
+        Question q = new Question("supprimerFourmi.1","supprimerFourmi.2");
+        if(q.getChoix()){
+          f.mourir(4);
+          yield "supprimer la fourmi";
+        }
+        yield "ne pas supprimer la fourmi";
+      default :
+        yield "";
+      };
+    return m;
   }
 }
