@@ -33,22 +33,21 @@ public class Point implements Serializable{
   *@version 1.30
   */
   public Point(String s){//sous la forme -51,34
+    x=-1; y=-1;
     try {
-      String t [] = s.split(";");
+      String t [] = s.split(";",2);
       if(t.length<2){
-        t = s.split(",");
+        t = s.split(",",2);
         if(t.length<2){
-          t = s.split(".");
-          if(t.length<2){
-            t = s.split(" ");
-          }
+          //t = s.split(".",2); //this line make test fail
+          //t = s.split("."); //this line do not break actual test but can't split "0.0"
+          t = s.split(" ",2);
         }
       }
       x=str.sToI(t[0]);
       y=str.sToI(t[1]);
     }catch (Exception e) {
       erreur.alerte("1 Point can't be create","Point.Point");
-      x=-1; y=-1;
     }
   }
 

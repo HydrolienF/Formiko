@@ -30,18 +30,7 @@ public class PointTest extends TestCaseMuet{
     Point p = new Point(0,0);
     assertTrue(p.equals("0;0"));
     assertTrue(p.equals("0,0"));
-    /*System.out.println("------------------------------");//@a
-    String s = "0n0";
-    String s2 = "01.70";
-    String s3 = "non.je";
-    String t [] = s.split("n");
-    String t2 [] = s2.split(".");
-    String t3 [] = s3.split(".");
-    tableau.afficher(t);
-    tableau.afficher(t2);
-    tableau.afficher(t3);
-    System.out.println("------------------------------");//@a*/
-    //la ligne suivante ne marche pas...
+    //la ligne suivante ne marche pas... parce que string.split() et . ne sont pas compatible...
     //assertTrue(p.equals("0.0"));
     assertTrue(p.equals("0 0"));
     assertTrue(p.equals("0 +0"));
@@ -51,13 +40,17 @@ public class PointTest extends TestCaseMuet{
     assertTrue(!p.equals("-1,0"));
     assertTrue(!p.equals("0,+1"));
 
-    //assertTrue(!p.equals("0;0;0"));
+    assertTrue(!p.equals("0;0;0"));
+    assertTrue(!p.equals("6,5,1"));
+    assertTrue(!p.equals("6,5 1"));
+    assertTrue(!p.equals("0,0 1"));
     //assertTrue(!p.equals("0 0,0"));
     p = new Point(389744,-60);
     assertTrue(p.equals("+389744,-60"));
     assertTrue(p.equals("389744,-60"));
     assertTrue(p.equals("389744;-60"));
     assertTrue(p.equals("389744 -60"));
+    assertTrue(p.equals("000389744 -060"));
     assertTrue(!p.equals("-389744 -60"));
     assertTrue(!p.equals("-60,389744"));
     assertTrue(!p.equals("-60 +389744"));
