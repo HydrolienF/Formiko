@@ -19,6 +19,7 @@ public class ObjetAId implements Serializable{
   public static void ini(){ic=1;}
   // Fonctions propre -----------------------------------------------------------
   public boolean equals(ObjetAId o){
+    if(o==null){return false;}
     if(id == o.id){ return true;}
     return false;
   }
