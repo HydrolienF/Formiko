@@ -34,7 +34,7 @@ public class TourCreatureSansAction implements Serializable, Tour{
     if(c instanceof Fourmi){
       Fourmi f = (Fourmi) c;
       f.salir();
-      if (f.getStade() == 0 || f.getStade() == -1 || f.getStade() == -2) {f.setNourritureMoinsConsomNourriture();}
+      f.setNourritureMoinsConsomNourriture(); //will not ask food is it's an egg.
     }else{
       c.setNourritureMoins1();
     }
