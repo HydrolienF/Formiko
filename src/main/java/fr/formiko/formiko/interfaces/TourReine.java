@@ -15,7 +15,6 @@ import java.io.Serializable;
  * @version 1.24
  */
 public class TourReine extends TourFourmi implements Serializable, Tour{
-  private Fourmi f;
   /**
   *{@summary Do turn actions for a queen ant.}
   *<ul>
@@ -48,7 +47,8 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
   *@version 1.31
   */
   public boolean needToWaitToLetNonQueenAntPlay(){
-    //TODO return false if for all f in fere.getGc() : !(f.tour instanceof TourReine) || f.getAction()<=0
+    //TODO #182
+    //return false if for all f in fere.getGc() : !(f.tour instanceof TourReine) || f.getAction()<=0
     return false;
   }
   /**
@@ -56,7 +56,8 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
   *@version 1.31
   */
   public boolean haveSomeHelp(){
-    //TODO return false if for all f in fere.getGc() : !(f.tour instanceof TourReine) || f.getAction()<=0
+    //TODO #182
+    //return false if for all f in fere.getGc() : !(f.tour instanceof TourReine) || f.getAction()<=0
     return false;
   }
   /**

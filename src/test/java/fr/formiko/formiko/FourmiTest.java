@@ -11,11 +11,12 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class FourmiTest extends TestCaseMuet{
+  Partie p;
 
   // Fonctions propre -----------------------------------------------------------
   private Fourmi ini(){
     Main.initialisation();
-    Partie p = new Partie(0,100,new Carte(new GCase(1,2),0,0,1,false,false),1);
+    p = new Partie(0,100,new Carte(new GCase(1,2),0,0,1,false,false),1);
     Main.setPartie(p);
     p.setAppartionInsecte(false);
     p.setAppartionGraine(false);
@@ -120,14 +121,79 @@ public class FourmiTest extends TestCaseMuet{
     f.setProprete(42);
     assertTrue(f.wantClean());
   }
+  @Test
   public void testFourmi(){
     Fourmi f = ini();
-    assertTrue(f.tour instanceof TourFourmi);
+    assertTrue(!f.getFere().getJoueur().getIa());
+    assertTrue(f.tour instanceof TourFourmiNonIa);
     Joueur j2 = new Joueur(new Fourmiliere(Main.getPartie().getGc().getCCase(0,0),null),"joueurTest",true);
     j2.getFere().setJoueur(j2);
     Main.getPartie().getGj().add(j2);
     Fourmi f2 = new Fourmi(j2.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
     j2.getFere().getGc().add(f2);
-    assertTrue(f2.tour instanceof TourFourmiNonIa);
+    assertTrue(f2.getFere().getJoueur().getIa());
+    assertTrue(f2.tour instanceof TourFourmi);
+    f2 = new Fourmi(j2.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
+    j2.getFere().getGc().add(f2);
+    assertTrue(f2.getFere().getJoueur().getIa());
+    assertTrue(f2.tour instanceof TourReine);
+  }
+  @Test
+  public void testIniTour(){
+    Fourmi f = ini();
+    f.getFere().getJoueur().setIa(false);
+    f.iniTour();
+    assertTrue(f.tour instanceof TourFourmiNonIa);
+    f.getFere().getJoueur().setIa(true);
+    f.setTypeF(0);
+    assertTrue(f.estReine());
+    f.iniTour();
+    assertTrue(f.tour instanceof TourReine);
+    f.setTypeF(3);
+    f.iniTour();
+    assertTrue(f.tour instanceof TourFourmi);
+
+  }
+  @Test
+  public void testIniPheromone(){
+    Fourmi f = ini();
+    Joueur j = new Joueur(new Fourmiliere(p.getGc().getCCase(0,0),null),"joueurTest",false);
+    j.getFere().setJoueur(j); p.getGj().add(j);
+    f.setPheromone((byte)0,(byte)0,(byte)0);
+    Fourmi fTest = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    fTest.setCCase(f.getCCase());
+    fTest.setFere(f.getFere());
+    fTest.iniPheromone();
+    assertTrue(f.getEstAllié(fTest));
+    assertTrue(fTest.getEstAllié(f));
+    fTest = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    do { //it can be the same pheromone randomly, but it shouldn't work all the time.
+      fTest.iniPheromone();
+    } while (f.getEstAllié(fTest));
+    assertTrue(!f.getEstAllié(fTest));
+    assertTrue(!fTest.getEstAllié(f));
+
+    Fourmi fQueen = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
+    assertTrue(fQueen.estReine());
+    f.getFere().getGc().ajouter(fQueen);
+    assertTrue(f.getEstAllié(fQueen));
+    assertTrue(fQueen.getEstAllié(f));
+
+    do { //it can be the same pheromone randomly, but it shouldn't work all the time.
+      f.setPheromone(new Pheromone());
+    } while (f.getEstAllié(fQueen));
+    assertTrue(!fQueen.getEstAllié(f));
+
+    fTest = new Fourmi(fQueen.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    assertTrue(fQueen.estReine());
+    assertTrue(fQueen.getFere().equals(fTest.getFere()));
+    assertTrue(fQueen.equals(fQueen.getReine()));
+    assertTrue(fQueen.equals(fTest.getReine()));
+    assertTrue(fQueen.getEstAllié(fTest));
+    assertTrue(fTest.getEstAllié(fQueen));
+  }
+  @Test
+  public void testPeutPondre(){
+    //TODO #182
   }
 }

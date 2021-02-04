@@ -102,18 +102,16 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       t[i]=i;
     }
     GCreature gcCase = f.getCCase().getContenu().getGc();
-    if(f.getIndividu().getCoutDéplacement() == -1){ t=tableau.retirerX(t,0);}
+    //if(f.getIndividu().getCoutDéplacement() == -1){ t=tableau.retirerX(t,0);}
+    t=tableau.retirerX(t,0); //on retire l'anciène méthode de déplacement.
     if(f.getIndividu().getCoutChasse() == -1 || gcCase.getGi().length()==0){ t=tableau.retirerX(t,1);}
-    if(f.getIndividu().getCoutPondre() == -1 || !f.peutPondre()){ t=tableau.retirerX(t,2);}
+    if(!f.peutPondre()){ t=tableau.retirerX(t,2);}
     if(f.getIndividu().getCoutTrophallaxie() == -1 || gcCase.filtreAlliés(f).filtreFaimMax().length() < 2 || f.getNourriture()<1){ t=tableau.retirerX(t,3);}
     if(f.getIndividu().getCoutNétoyer() == -1 ||(f.netoyer.getNombreDeCreatureANetoyer(f))==0){ t=tableau.retirerX(t,4);}
     if(!f.getEspece().getGranivore()){
       t=tableau.retirerX(t,5);
       t=tableau.retirerX(t,6);
     }
-    try {//on retire l'anciène méthode de déplacement.
-      t=tableau.retirerX(t,0);
-    }catch (Exception e) {}
     return t;
   }
   public String faire(int choix){
@@ -157,7 +155,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         }
         yield "ne pas supprimer la fourmi";
       default :
-        yield "";
+        yield "le choix "+choix+" n'est pas possible";
       };
     return m;
   }

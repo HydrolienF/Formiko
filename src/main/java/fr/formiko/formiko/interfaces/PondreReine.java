@@ -21,7 +21,7 @@ public class PondreReine implements Serializable, Pondre{
   *Lay an egg with Creature c
   *@version 1.13
   */
-  public void unePonte( Creature c){
+  public void unePonte(Creature c){
     debug.débogage("la créature "+c.getId()+" tente de pondre");
     if(c instanceof Fourmi){
       f = (Fourmi) c;
@@ -44,13 +44,13 @@ public class PondreReine implements Serializable, Pondre{
       //byte type = choixType(); // 0 et 1 sont a évité en début de jeu.
       byte type = 3;
       Fourmi fm = new Fourmi(f.getFourmiliere(),f.getEspece(),type);
-      fere.getGc().ajouter(fm);
+      fere.getGc().ajouter(fm); //TODO remove when doing #190
       fm.setAgeMax((int)((double)(f.getEspece().getIndividuParType(type).getAgeMax(0)*fm.getMultiplicateurDeDiff())));
       //f.getFourmiliere().getCCase().getContenu().getGc().ajouter(fm);
       //fere.getGc().ajouter(fm); l'ajout a la fourmilière ce fait dans le constructeur de Fourmi.
       f.setNourriture(f.getNourriture() - 12 );
       Message m = new Message("La fourmi " +fm.getId() + " est née.", fere.getId(), 3);
-      f.setActionMoins(f.getEspece().getGIndividu().getIndividuParType( f.getTypeF()).getCoutPondre());
+      f.setActionMoins(f.getIndividu().getCoutPondre());
       f.setAilesCoupees(true);//une reine qui pond n'as plus d'ailes.
     }
   }
@@ -72,6 +72,7 @@ public class PondreReine implements Serializable, Pondre{
       erreur.erreur("Le type spécifié par le joueur n'est pas défini pour cette Espece.","PondreReine.choixType","3 est le type choisi a la place.",false);
       return 3;
     }
+    //ia
     if (f.getFere().getGc().length() < f.getEspece().getNbrDIndividuMax()/10){ // si la fourmilière n'est pas encore a 10% de son dévelloppement max pas de fourmi de type 0 ou 1.
       return 3; // si il y a un type 4 ou 2 il faudrait pouvoir en faire naitre de temps en temps.
     }else{

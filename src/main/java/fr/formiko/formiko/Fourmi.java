@@ -38,15 +38,12 @@ public class Fourmi extends Creature implements Serializable{
 
   // CONSTRUCTEUR -----------------------------------------------------------------
   //Principal
+  // /!\ Ant need to be add to the Fourmiliere after that.
   public Fourmi(Fourmiliere fere, Espece e, byte ty){ // arrivé d'un oeuf.
     // on devrais fixer l'age max en fonction de la difficulté la aussi
     super(fere.getCc(),0,e.getGIndividu().getIndividuParType(ty).getAgeMax(0),0);
     typeF = ty; this.e = e; this.fere = fere; stade = (byte)-3; propreté = (byte) 100;
-    this.e = e;
-    Fourmi reine = fere.getGc().getReine();
-    if (reine != null){ e = reine.getEspece(); ph = new Pheromone(reine.getPheromone());}
-    else if (fere.getGc().getDébut() != null){ ph = new Pheromone(fere.getGc().getDébut().getContenu().getPheromone());}
-    else{ ph = new Pheromone();}
+    iniPheromone();
     // a modifier a partir des individus quand duretée sera un paramètre. OU alors on dit que duretéMax est fixe en fonction des individus. Genre les gros casse tout, les moyen jusqu'a 60 et les petit jusqu'a 20.
     duretéMax=0;
     setNourritureFournie(e.getNourritureFournie(getStade()));
@@ -69,7 +66,7 @@ public class Fourmi extends Creature implements Serializable{
   public Fourmi(){}//a ne pas utiliser sauf pour les test de class.
   // GET SET -----------------------------------------------------------------------
   public byte getTypeF(){return typeF;}
-  public void setTypeF(byte s){typeF = s;}
+  public void setTypeF(byte s){typeF = s;}public void setTypeF(int x){setTypeF((byte)x);}
   public byte getMode(){return mode;}
   public void setMode(byte x){mode = x;}public void setMode(int x){setMode((byte)x);}
   public void setFourmiliere(Fourmiliere gf){fere = gf;}public void setFere(Fourmiliere fere){setFourmiliere(fere);}
@@ -84,7 +81,7 @@ public class Fourmi extends Creature implements Serializable{
   public void setNourritureMoinsConsomNourriture(){ setNourriture(getNourriture()-getIndividu().getNourritureConso(getStade()));}
   public Individu getIndividu(){ return e.getIndividuParType(typeF);}
   public boolean getTropDeNourriture(){if(getNourriture()*1.1>getNourritureMax()){ return true;} return false;}
-  public boolean peutPondre(){return this.getNourriture()>20 && this.estALaFere();}
+  public boolean peutPondre(){return !(pondre instanceof PondreNull) && getNourriture()>getIndividu().getCoutPondre() && estALaFere();}
   @Override
   public boolean getFemelle(){ return typeF!=1;}// c'est une femmelle si ce n'est pas un male.
   @Override
@@ -334,7 +331,11 @@ public class Fourmi extends Creature implements Serializable{
     if(getProprete()>99){return false;}
     return getProprete() - (getPropretéPerdu()*2) <= getSeuilDeRisqueDInfection();
   }
-
+  /**
+  *{@summary initialize tour value for an ant.}<br>
+  *If that's a non-ai player it will have TourFourmiNonIa else it will have TourReine or TourFourmi depending of getReine().
+  *@version 1.31
+  */
   public void iniTour(){
     if(getFere().getJoueur().getIa()){
       if(estReine()){
@@ -345,5 +346,18 @@ public class Fourmi extends Creature implements Serializable{
     }else{
       tour = new TourFourmiNonIa();
     }
+  }
+  /**
+  *{@summary initialize ph value for an ant.}<br>
+  *It take similar pheromone to the 1 of the queen.
+  *If the queen is death it take ph from the 1a an of the anthill.
+  *If there is not more and it take a random pheromone.
+  *@version 1.31
+  */
+  public void iniPheromone(){
+    Fourmi reine = getReine();
+    if (reine != null){ e = reine.getEspece(); ph = new Pheromone(reine.getPheromone());}
+    else if (fere.getGc().getDébut() != null){ ph = new Pheromone(fere.getGc().getDébut().getContenu().getPheromone());}
+    else{ ph = new Pheromone();}
   }
 }
