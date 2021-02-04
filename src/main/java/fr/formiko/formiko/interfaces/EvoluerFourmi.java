@@ -46,11 +46,7 @@ public class EvoluerFourmi implements Serializable, Evoluer{
       if (in.getCoutTrophallaxie() != -1) { f.trophallaxie = new TrophallaxieFourmi();}
       if (f.getEspece().getGranivore()){ f.collecte = new CollecteFourmi();}
       f.netoyer =  new NetoyerFourmi();
-      if(f.getFere().getJoueur().getIa()){
-        f.tour = new TourFourmi();
-      }else{
-        f.tour = new TourFourmiNonIa();
-      }
+      //f.iniTour(); //done in contructor of fourmi.
       // caractéristiques de l'espèce :
       f.setNourritureMax(in.getNourritureMax());
       f.setAction(in.getActionMax()); f.setActionMax(in.getActionMax());

@@ -47,24 +47,16 @@ public class Fourmi extends Creature implements Serializable{
     if (reine != null){ e = reine.getEspece(); ph = new Pheromone(reine.getPheromone());}
     else if (fere.getGc().getDébut() != null){ ph = new Pheromone(fere.getGc().getDébut().getContenu().getPheromone());}
     else{ ph = new Pheromone();}
-    // a modifier a partir des individus quand dureté sera un paramètre.
-    if(e.getGranivore()){
-      duretéMax = 50;
-    }else{
-      duretéMax = 0;
-    }
-    if (getTypeF()==4){ duretéMax = 100;}
+    // a modifier a partir des individus quand duretée sera un paramètre. OU alors on dit que duretéMax est fixe en fonction des individus. Genre les gros casse tout, les moyen jusqu'a 60 et les petit jusqu'a 20.
+    duretéMax=0;
     setNourritureFournie(e.getNourritureFournie(getStade()));
     fere.getCc().getContenu().getGc().ajouter(this);
     evoluer = new EvoluerFourmi();
     mourir = new MourirFourmi();
-    if(getFere().getJoueur().getIa()){
-      tour = new TourFourmi();
-    }else{
-      tour = new TourFourmiNonIa();
-    }
     if(e.getPolycalique()){tolerencePheromone=5;}//si c'est une espèce capable de s'endendre avec les fourmilières de la même famille.
-  }public Fourmi(Fourmiliere fere, Espece e, int ty){ this(fere,e,(byte)ty);}
+    iniTour();
+  }
+  public Fourmi(Fourmiliere fere, Espece e, int ty){ this(fere,e,(byte)ty);}
   public Fourmi(Fourmiliere fere, Espece e, byte ty,byte stade){
     this(fere,e,ty);
     this.stade = (byte)(stade-1); evoluer(); //On simule le fait que la fourmi vien d'éclore.
@@ -341,5 +333,17 @@ public class Fourmi extends Creature implements Serializable{
   public boolean wantClean(){
     if(getProprete()>99){return false;}
     return getProprete() - (getPropretéPerdu()*2) <= getSeuilDeRisqueDInfection();
+  }
+
+  public void iniTour(){
+    if(getFere().getJoueur().getIa()){
+      if(estReine()){
+        tour = new TourReine();
+      }else{
+        tour = new TourFourmi();
+      }
+    }else{
+      tour = new TourFourmiNonIa();
+    }
   }
 }
