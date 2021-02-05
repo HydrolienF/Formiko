@@ -32,6 +32,10 @@ public class TourReineTest extends TestCaseMuet{
     //TODO #182
   }
   @Test
+  public void testHaveSomeHelp(){
+    //TODO #182
+  }
+  @Test
   public void testLay(){
     Fourmi f = ini();
     assertTrue(f.estReine());

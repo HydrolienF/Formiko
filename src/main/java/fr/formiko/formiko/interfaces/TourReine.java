@@ -48,7 +48,9 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
   */
   public boolean needToWaitToLetNonQueenAntPlay(){
     //TODO #182
-    //return false if for all f in fere.getGc() : !(f.tour instanceof TourReine) || f.getAction()<=0
+    //for (Creature c : fere.getGc() ) {
+      //if(c.getAction()>0 && !(c.tour instanceof TourReine)){return true;}
+    //}
     return false;
   }
   /**
@@ -56,9 +58,10 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
   *@version 1.31
   */
   public boolean haveSomeHelp(){
-    //TODO #182
-    //return false if for all f in fere.getGc() : !(f.tour instanceof TourReine) || f.getAction()<=0
-    return false;
+    if(f.getFere().getGc().getNbrOuvrière()==0){
+      return false;
+    }
+    return true;
   }
   /**
   *{@summary Lay egg as a queen ant.}<br>
@@ -67,7 +70,7 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
   */
   public void lay(){
     while(f.getAction()>0 && !f.isHungry(30)){ //Maybe we sould set the isHungry limite to a higer value if the anthill is big enough.
-      if(f.getFere().getGc().getNbrOuvrière()==0 && f.getFere().getGc().getCouvain().length()>=1){return;}
+      if(haveSomeHelp() && f.getFere().getGc().getCouvain().length()>=1){return;}
       //Maybe we should check that couvain do not represent a to higth %age.
       //int pourcentageDeCouvain = (100*getAlliéSurLaCase().getCouvain().length()) / this.getFere().length();
       f.pondre();
