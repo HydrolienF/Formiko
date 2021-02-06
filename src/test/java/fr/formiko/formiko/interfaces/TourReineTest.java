@@ -33,7 +33,13 @@ public class TourReineTest extends TestCaseMuet{
   }
   @Test
   public void testHaveSomeHelp(){
-    //TODO #182
+    Fourmi f = ini();
+    assertTrue(!((TourReine)(f.tour)).haveSomeHelp());
+    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    f.getFere().getGc().add(f2);
+    assertTrue(((TourReine)(f.tour)).haveSomeHelp());
+    f2.setCCase(0,1);
+    assertTrue(((TourReine)(f.tour)).haveSomeHelp());
   }
   @Test
   public void testLay(){
@@ -52,6 +58,7 @@ public class TourReineTest extends TestCaseMuet{
     //if queen alone
     f.setAction(f.getActionMax());
     f.setNourriture(f.getNourritureMax());
+    assertTrue(!((TourReine)(f.tour)).haveSomeHelp());
     ((TourReine)(f.tour)).lay();
     assertEquals(2,f.getFere().getGc().length());
 

@@ -70,7 +70,7 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
   */
   public void lay(){
     while(f.getAction()>0 && !f.isHungry(30)){ //Maybe we sould set the isHungry limite to a higer value if the anthill is big enough.
-      if(haveSomeHelp() && f.getFere().getGc().getCouvain().length()>=1){return;}
+      if(!haveSomeHelp() && f.getFere().getGc().getCouvain().length()>=1){return;}
       //Maybe we should check that couvain do not represent a to higth %age.
       //int pourcentageDeCouvain = (100*getAlliéSurLaCase().getCouvain().length()) / this.getFere().length();
       f.pondre();
