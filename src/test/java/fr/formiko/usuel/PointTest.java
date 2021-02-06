@@ -15,6 +15,7 @@ public class PointTest extends TestCaseMuet{
     Point p = new Point(0,0);
     Point p2 = new Point(0,0);
     assertTrue(p.equals(p2));
+    assertTrue(p.equals(new Point(0,0)));
     p2 = p;
     assertTrue(p.equals(p2));
     p2 = null;

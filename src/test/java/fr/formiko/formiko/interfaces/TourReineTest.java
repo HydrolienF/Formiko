@@ -29,13 +29,46 @@ public class TourReineTest extends TestCaseMuet{
   }
   @Test
   public void testNeedToWaitToLetNonQueenAntPlay(){
-    //TODO #182
+    Fourmi f = ini();
+    assertTrue(!((TourReine)(f.tour)).needToWaitToLetNonQueenAntPlay());
+    Fourmi f2 = new Fourmi(f.getFere(),f.getEspece(), (byte) 3, (byte) 0);
+    f.getFere().getGc().add(f2);
+    f2.setAction(f2.getActionMax());
+    assertTrue(((TourReine)(f.tour)).needToWaitToLetNonQueenAntPlay());
+    f2.setStade(-2);
+    assertTrue(f2.getAction()>0);
+    assertTrue(((TourReine)(f.tour)).needToWaitToLetNonQueenAntPlay());
+    f2.setStade(0);
+    assertTrue(((TourReine)(f.tour)).needToWaitToLetNonQueenAntPlay());
+    f2.setAction(0);
+    assertTrue(!((TourReine)(f.tour)).needToWaitToLetNonQueenAntPlay());
+    f2.tour = new TourReine();
+    assertTrue(!((TourReine)(f.tour)).needToWaitToLetNonQueenAntPlay());
+    f2.setAction(1);
+    assertTrue(!((TourReine)(f.tour)).needToWaitToLetNonQueenAntPlay());
+    f2.tour = new TourInsecte();
+    assertTrue(((TourReine)(f.tour)).needToWaitToLetNonQueenAntPlay());
+    f2.tour = new TourFourmi();
+    assertTrue(((TourReine)(f.tour)).needToWaitToLetNonQueenAntPlay());
+
+    Fourmi f3 = new Fourmi(f.getFere(),f.getEspece(), (byte) 3, (byte) 0);
+    f.getFere().getGc().add(f3);
+    assertTrue(((TourReine)(f.tour)).needToWaitToLetNonQueenAntPlay());
+    f3.setAction(0);f2.setAction(0);
+    assertTrue(!((TourReine)(f.tour)).needToWaitToLetNonQueenAntPlay());
+    f3.setAction(1);
+    assertTrue(((TourReine)(f.tour)).needToWaitToLetNonQueenAntPlay());
+    f3.setAction(-1);
+    assertTrue(!((TourReine)(f.tour)).needToWaitToLetNonQueenAntPlay());
+    f2.setAction(1);
+    assertTrue(((TourReine)(f.tour)).needToWaitToLetNonQueenAntPlay());
+
   }
   @Test
   public void testHaveSomeHelp(){
     Fourmi f = ini();
     assertTrue(!((TourReine)(f.tour)).haveSomeHelp());
-    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f2 = new Fourmi(f.getFere(),f.getEspece(), (byte) 3, (byte) 0);
     f.getFere().getGc().add(f2);
     assertTrue(((TourReine)(f.tour)).haveSomeHelp());
     f2.setCCase(0,1);
@@ -64,7 +97,7 @@ public class TourReineTest extends TestCaseMuet{
 
     //if queen help
     f = ini();
-    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f2 = new Fourmi(f.getFere(),f.getEspece(), (byte) 3, (byte) 0);
     f.getFere().getGc().add(f2);
     f.setAction(f.getActionMax());
     f.setNourriture(f.getNourritureMax());
@@ -72,7 +105,7 @@ public class TourReineTest extends TestCaseMuet{
     assertEquals(32,f.getFere().getGc().length());
 
     f = ini();
-    f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    f2 = new Fourmi(f.getFere(),f.getEspece(), (byte) 3, (byte) 0);
     f.getFere().getGc().add(f2);
     f.setAction(f.getActionMax());
     f.setNourriture(f.getNourritureMax()/3);

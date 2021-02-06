@@ -46,7 +46,6 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
   *@version 1.31
   */
   public boolean needToWaitToLetNonQueenAntPlay(){
-    //TODO #182
     for (Creature c : f.getFere().getGc().toList() ) {
       if(c.getAction()>0 && !(c.tour instanceof TourReine)){return true;}
     }
