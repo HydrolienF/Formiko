@@ -4,6 +4,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.exception.*;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.listes.List;
 
 import java.io.Serializable;
 import java.util.Iterator;
@@ -11,6 +12,7 @@ import java.util.Iterator;
 public class GCreature implements Serializable{//, Iterator{
   protected CCreature début;
   protected CCreature fin;
+  //TODO #82 replace début & fin by a protected List<Creature>.
   // CONSTRUCTEUR -----------------------------------------------------------------
   public GCreature(CCreature cc){
     début = cc; fin = cc;
@@ -186,11 +188,11 @@ public class GCreature implements Serializable{//, Iterator{
   public int getNbrGcStade(int x){ return getGcStade(x).length();}
   public int getNbrImago(){ return getNbrGcStade(0);}
   public int getNbrReine(){ return getGcStade(0).getGcType(0).length();}
-  public int getNbrOuvrière(){
+  public int getNbrOuvriere(){
     try {
     return getGcStade(0).getGcType(3).length() + getGcStade(0).getGcType(4).length() + getGcStade(0).getGcType(5).length();
     }catch (Exception e) {
-      erreur.erreur("Impossible de prende en compte les type major et minor dans les ouvrières.","GCreature.getNbrOuvrière");
+      erreur.erreur("Impossible de prende en compte les type major et minor dans les ouvrières.","GCreature.getNbrOuvriere");
       return getGcStade(0).getGcType(3).length();
     }
   }
@@ -339,18 +341,6 @@ public class GCreature implements Serializable{//, Iterator{
       preTourE();
     }catch (ListeVideException e) {}
   }
-  /*private void finTourE() throws ListeVideException{
-    if(début == null){
-      throw new ListeVideException("GCreature","finTour");
-    }else{
-      début.finTour();
-    }
-  }
-  public void finTour(){
-    try{
-      finTourE();
-    }catch (ListeVideException e) {}
-  }*/
   public void actualiserCaseSN(){
     if(début == null){ return;}
     début.actualiserCaseSN();
@@ -363,18 +353,31 @@ public class GCreature implements Serializable{//, Iterator{
     if (début==null){ return;}
     début.classerPourNétoyage();
   }
-  public boolean aFiniDeJouer(){
-    if (début==null){ return true;}
-    return début.aFiniDeJouer();
-  }
-  public void setAction0(){
-    if (début==null){ return;}
-    début.setAction0();
-  }
   public int [] toTId(){
     if (début==null){ return new int[0];}
     return début.toTId();
   }
   //Iterator
-  //...
+  public List<Creature> toList(){
+    if (début==null){
+      List<Creature> lc = new List<Creature>();
+      return lc;
+    }
+    return début.toList();
+  }
+  //functions that use iterator
+  public boolean aFiniDeJouer(){
+    List<Creature> lc = toList();
+    for (Creature c : lc ) {
+      if(c.getAction()>0){return false;}
+    }
+    return true;
+  }
+  public boolean setAction0(){
+    List<Creature> lc = toList();
+    for (Creature c : lc ) {
+      c.setAction(0);
+    }
+    return true;
+  }
 }

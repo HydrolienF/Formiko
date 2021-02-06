@@ -1,8 +1,14 @@
 package fr.formiko.formiko;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.exception.ElementListeIntrouvableException;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.listes.List;
+
 import java.io.Serializable;
+import java.util.Iterator;
 
 public class CCreature implements Serializable{
   protected CCreature suivant, précédente;
@@ -330,14 +336,7 @@ public class CCreature implements Serializable{
     //on met tout ce qui sont en dessous de 50 dans l'ordre d'age/stade.
     //et on ajoute ceux qui sont après dans l'ordre de saleté.
   }
-  public boolean aFiniDeJouer(){
-    if(getContenu().getAction()>0){return false;}//si la Creature n'as pas fini.
-    if(getSuivant()==null){return true;}//si c'était la dernière de la liste et que tt le monde a fini.
-    return getSuivant().aFiniDeJouer();//si il reste d'autre Creature après.
-  }
-  public void setAction0(){
-    contenu.setAction(0);
-  }
+
   public int [] toTId(){
     int tr []= new int[this.length()];
     CCreature cc = this;
@@ -347,5 +346,14 @@ public class CCreature implements Serializable{
       cc = cc.getSuivant();
     }
     return tr;
+  }
+  public List<Creature> toList(){
+    CCreature cc = this;
+    List<Creature> lc = new List<Creature>();
+    while(cc!= null){
+      lc.add(cc.getContenu());
+      cc = cc.getSuivant();
+    }
+    return lc;
   }
 }

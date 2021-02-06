@@ -166,7 +166,7 @@ public class Fourmi extends Creature implements Serializable{
   }
 
   public byte getModeReine(){
-    if(fere.getGc().getNbrOuvrière() > 0){ return 3;}
+    if(fere.getGc().getNbrOuvriere() > 0){ return 3;}
     debug.débogage("Choix spéciale");
     //on n'éffectue un choix spéciale que s'il n'y a aucune ouvrière pour aider.
     int nbrDeTour = getAgeMaxIndividu(3,-3) + getAgeMaxIndividu(3,-2) + getAgeMaxIndividu(3,-1);// l'age d'un individu de type 3 (cad ouvrière) et dans les 3 1a stades.

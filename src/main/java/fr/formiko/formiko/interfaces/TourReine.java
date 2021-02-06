@@ -1,7 +1,6 @@
 package fr.formiko.formiko.interfaces;
 
 import fr.formiko.formiko.*;
-import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -36,7 +35,7 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
     if(needToWaitToLetNonQueenAntPlay()){return;}
     backHome();
     feedOther(30);
-    if(f.getFere().getGc().getNbrOuvrière()==0){feedOther(10);}
+    if(f.getFere().getGc().getNbrOuvriere()==0){feedOther(10);}
     lay();
     //TODO if it still have action it can clean ant that didn't realy need it but that are not at 100/100 of clean.
     finTour();
@@ -48,9 +47,9 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
   */
   public boolean needToWaitToLetNonQueenAntPlay(){
     //TODO #182
-    //for (Creature c : fere.getGc() ) {
-      //if(c.getAction()>0 && !(c.tour instanceof TourReine)){return true;}
-    //}
+    for (Creature c : f.getFere().getGc().toList() ) {
+      if(c.getAction()>0 && !(c.tour instanceof TourReine)){return true;}
+    }
     return false;
   }
   /**
@@ -58,7 +57,7 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
   *@version 1.31
   */
   public boolean haveSomeHelp(){
-    if(f.getFere().getGc().getNbrOuvrière()==0){
+    if(f.getFere().getGc().getNbrOuvriere()==0){
       return false;
     }
     return true;
