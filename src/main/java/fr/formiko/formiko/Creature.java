@@ -113,6 +113,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     this.p = p;
     p.getContenu().getGc().ajouter(this);
   }
+  public void setCCase(int x, int y){setCCase(Main.getGc().getCCase(x,y));}
   public void setCc(CCase cc){setCCase(cc);}
   public Pheromone getPheromone(){ return ph;}
   public Pheromone getPh(){ return getPheromone();}
