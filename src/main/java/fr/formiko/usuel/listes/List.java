@@ -31,7 +31,7 @@ public class List<T> implements Iterable<T>, Serializable {
       tail = node;
     }
   }
-  /**
+  /***
   *{@summary add new Element at the default place. At the tail of the linked list}<br>
   *@version 1.31
   */
@@ -69,7 +69,7 @@ public class List<T> implements Iterable<T>, Serializable {
   public boolean containt(T content){
     if(content==null){return false;}
     for (T t : this ) {
-      //TODO it do not use the overriding equals methode (cf ListTest for more information)
+      //TODO #197 it do not use the overriding equals methode (cf ListTest for more information)
       if(t.equals(content)){return true;}
     }
     return false;
