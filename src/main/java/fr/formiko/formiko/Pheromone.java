@@ -48,19 +48,31 @@ public class Pheromone implements Serializable{
     System.out.println(this);
   }
   /**
-  *{@summary special equals function.}
+  *{@summary Standard equals function.}
+  *Null &#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
   *@version 1.31
   */
   @Override
-  public boolean equals(Pheromone ph, int différenceTolléré){
+  public boolean equals(Object o){
+    if(o==null || !(o instanceof Pheromone)){return false;}
+    Pheromone ph = (Pheromone)o;
+    return equals(ph,1);
+  }
+  /**
+  *{@summary special equals function.}
+  *@version 1.31
+  */
+  public boolean equals(Pheromone ph, int ndifferenceTollere){
+    if(ndifferenceTollere<1){return false;}
     // si 7 < 3 - 5
     // si 7 > 3 + 5
-    if (this.getR() <= ph.getR() - différenceTolléré){ return false;}
-    if (this.getR() >= ph.getR() + différenceTolléré){ return false;}
-    if (this.getB() <= ph.getB() - différenceTolléré){ return false;}
-    if (this.getB() >= ph.getB() + différenceTolléré){ return false;}
-    if (this.getV() <= ph.getV() - différenceTolléré){ return false;}
-    if (this.getV() >= ph.getV() + différenceTolléré){ return false;}
+    if (this.getR() <= ph.getR() - ndifferenceTollere){ return false;}
+    if (this.getR() >= ph.getR() + ndifferenceTollere){ return false;}
+    if (this.getB() <= ph.getB() - ndifferenceTollere){ return false;}
+    if (this.getB() >= ph.getB() + ndifferenceTollere){ return false;}
+    if (this.getV() <= ph.getV() - ndifferenceTollere){ return false;}
+    if (this.getV() >= ph.getV() + ndifferenceTollere){ return false;}
     return true;
   }
   public static int getXFromS(String s){
