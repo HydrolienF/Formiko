@@ -118,8 +118,16 @@ public class Partie implements Serializable{
     r+= ge.toString();r+="\n";
     return r;
   }
-  public boolean equals(Partie p){
-    return toString().equals(p.toString());
+  /**
+  *{@summary Standard equals function.}
+  *Null &#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
+  *@version 1.31
+  */
+  @Override
+  public boolean equals(Object o){
+    if(o==null || !(o instanceof Partie)){return false;}
+    return toString().equals(((Partie)(o)).toString());
   }
   public void initialisationElément(int nbrDeJoueur, int nbrDIa, int nbrDeFourmi){
     if(!dejaIni){

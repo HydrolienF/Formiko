@@ -79,8 +79,16 @@ public class Message implements Serializable{
   public String description(){
     return expediteur +" : " + texte;
   }
-  public boolean equals(Message m){
-    if (m.getId()==id){ return true;}
+  /**
+  *{@summary Standard equals function.}
+  *Null &#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
+  *@version 1.31
+  */
+  @Override
+  public boolean equals(Object o){
+    if(o==null || !(o instanceof Message)){return false;}
+    if (((Message)(o)).getId()==getId()){ return true;}
     return false;
   }
   // message particuliers :

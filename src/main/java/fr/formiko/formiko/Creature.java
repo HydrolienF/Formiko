@@ -199,7 +199,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     return g.get("stade")+" "+g.get("inconnu")+" ("+stade+")";
   }
   //public abstract void afficheToi();
-  //public boolean equals(Creature c){return getId()==c.getId();} // c'est ObjetAId qui compare l'id.
+  //... equals(Creature c) // c'est ObjetAId qui compare l'id.
 
   /**
   *{@summary is this consider as an enemy of c ? <br>}

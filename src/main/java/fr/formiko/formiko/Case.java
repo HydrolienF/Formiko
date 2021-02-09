@@ -84,7 +84,16 @@ public class Case implements Serializable{
   public int length(){
     return getNbrDElementSurCase();
   }
-  public boolean equals(Case c){
+  /**
+  *{@summary Standard equals function.}
+  *Null &#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
+  *@version 1.31
+  */
+  @Override
+  public boolean equals(Object o){
+    if(o==null || !(o instanceof Case)){return false;}
+    Case c = (Case)o;
     if(c.length() != this.length()){ return false;}
     if(!this.getPoint().equals(c.getPoint())){ return false;}
     return true;

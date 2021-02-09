@@ -72,8 +72,16 @@ public class EtiquetteJoueur extends Panneau{
   public String toString(){
     return getPseudo() +" id:"+ id + " ia:"+getIa()+" ouvert:"+getOuvert();
   }
-  public boolean equals(EtiquetteJoueur ej){
-    return id==ej.getId();
+  /**
+  *{@summary Standard equals function with id.}
+  *Null &#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
+  *@version 1.31
+  */
+  @Override
+  public boolean equals(Object o){
+    if(o==null || !(o instanceof EtiquetteJoueur)){return false;}
+    return getId()==((EtiquetteJoueur)(o)).getId();
   }
   public void paintComponent(Graphics g){
     Graphics2D g2d = (Graphics2D)g;

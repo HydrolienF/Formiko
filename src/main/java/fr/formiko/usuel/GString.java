@@ -30,8 +30,16 @@ public class GString implements Serializable{
     if(début==null){ return 0;}
     return début.length();
   }
-  public boolean equals(GString gs){
-    if(gs==null){return false;}
+  /**
+  *{@summary Standard equals function.}
+  *Null &#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
+  *@version 1.31
+  */
+  @Override
+  public boolean equals(Object o){
+    if(o==null || !(o instanceof GString)){return false;}
+    GString gs = (GString)o;
     if(début==null && gs.getDébut()==null){return true;}
     if(début==null || gs.getDébut()==null){return false;}
     return début.equals(gs.getDébut());

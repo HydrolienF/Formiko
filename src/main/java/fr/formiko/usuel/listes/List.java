@@ -70,7 +70,11 @@ public class List<T> implements Iterable<T>, Serializable {
     if(content==null){return false;}
     for (T t : this ) {
       //TODO #197 it do not use the overriding equals methode (cf ListTest for more information)
-      if(t.equals(content)){return true;}
+      //if(content instanceof T && t instanceof T){
+        if(((T)(t)).equals(content)){return true;}
+      /*}else{
+        System.out.println("pas dans le bon if");//@a
+      }*/
     }
     return false;
   }

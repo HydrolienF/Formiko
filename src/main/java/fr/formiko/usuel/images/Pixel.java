@@ -32,7 +32,16 @@ public class Pixel {
   public void setB(byte x){ b=x;}
   public void setA(byte x){ a=x;}
   // Fonctions propre -----------------------------------------------------------
-  public boolean equals(Pixel p){
+  /**
+  *{@summary Standard equals function.}
+  *Null &#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
+  *@version 1.31
+  */
+  @Override
+  public boolean equals(Object o){
+    if(o==null || !(o instanceof Pixel)){return false;}
+    Pixel p = (Pixel)o;
     if(this.getR()!=p.getR()){ return false;}
     if(this.getG()!=p.getG()){ return false;}
     if(this.getB()!=p.getB()){ return false;}

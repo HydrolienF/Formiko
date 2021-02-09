@@ -22,9 +22,16 @@ public class Chrono { //https://fr.jeffprod.com/blog/2015/un-chronometre-en-java
   public long getDureeSec(){return duree/1000;}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){return timeToHMS(getDureeSec());}
-  public boolean equals(Chrono ch){
-    if(ch==null){return false;}
-    return ch.getId()==id;
+  /**
+  *{@summary Standard equals function.}
+  *Null &#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
+  *@version 1.31
+  */
+  @Override
+  public boolean equals(Object o){
+    if(o==null || !(o instanceof Chrono)){return false;}
+    return getId()==((Chrono)(o)).getId();
   }
 
   public void start(){

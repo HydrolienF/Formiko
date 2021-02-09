@@ -47,6 +47,11 @@ public class Pheromone implements Serializable{
   public void afficheToi(){
     System.out.println(this);
   }
+  /**
+  *{@summary special equals function.}
+  *@version 1.31
+  */
+  @Override
   public boolean equals(Pheromone ph, int différenceTolléré){
     // si 7 < 3 - 5
     // si 7 > 3 + 5

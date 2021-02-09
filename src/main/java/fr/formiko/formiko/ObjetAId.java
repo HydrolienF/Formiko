@@ -18,9 +18,17 @@ public class ObjetAId implements Serializable{
   public static int getI(){return getIc();}
   public static void ini(){ic=1;}
   // Fonctions propre -----------------------------------------------------------
-  public boolean equals(ObjetAId o){
-    if(o==null){return false;}
-    if(id == o.id){ return true;}
+  /**
+  *{@summary Standard equals function with id.}
+  *Null &#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
+  *@version 1.31
+  */
+  @Override
+  public boolean equals(Object o){
+    if(o==null || !(o instanceof ObjetAId)){return false;}
+    ObjetAId oi = (ObjetAId)o;
+    if(getId() == oi.getId()){ return true;}
     return false;
   }
 }

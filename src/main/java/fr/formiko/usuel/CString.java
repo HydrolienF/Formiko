@@ -28,7 +28,16 @@ public class CString implements Serializable{
     if(suivant==null){ return 1;}
     return 1+suivant.length();
   }
-  public boolean equals(CString cs){
+  /**
+  *{@summary Standard equals function.}
+  *Null &#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
+  *@version 1.31
+  */
+  @Override
+  public boolean equals(Object o){
+    if(o==null || !(o instanceof CString)){return false;}
+    CString cs = (CString)o;
     if(!cs.getContenu().equals(getContenu())){return false;}
     if(cs.getSuivant()==null && getSuivant()==null){return true;}
     if(cs.getSuivant()==null || getSuivant()==null){return false;}

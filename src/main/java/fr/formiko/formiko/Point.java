@@ -68,11 +68,15 @@ public class Point implements Serializable{
     return "("+x+","+y+")";
   }
   /**
-  *{@summary Equals methode for point.<br>}
-  *@version 1.30
+  *{@summary Standard equals function.}
+  *Null &#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
+  *@version 1.31
   */
-  public boolean equals(Point p){
-    if(p==null){return false;}
+  @Override
+  public boolean equals(Object o){
+    if(o==null || !(o instanceof Point)){return false;}
+    Point p = (Point)o;
     if (x != p.x) { return false;}
     if (y != p.y) { return false;}
     return true;

@@ -49,8 +49,16 @@ public class CCase implements Serializable{
     }//passage a la case suivante.
     return getContenu().toString()+"\n"+droite.toStringLigne();
   }
-  //@Override
-  public boolean equals(CCase cc){ // on ne peu pas tt férifié facilement alors on ce contente de vérifié les co X Y du point et le nbr de connection.
+  /**
+  *{@summary Standard equals function.}
+  *Null &#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
+  *@version 1.31
+  */
+  @Override
+  public boolean equals(Object o){ // on ne peu pas tt férifié facilement alors on ce contente de vérifié les co X Y du point et le nbr de connection.
+    if(o==null || !(o instanceof CCase)){return false;}
+    CCase cc = (CCase)o;
     if (cc.nbrDeCaseVoisine() != this.nbrDeCaseVoisine()){ return false;}
     return cc.getContenu().equals(this.getContenu());
   }

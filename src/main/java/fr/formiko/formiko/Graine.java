@@ -43,9 +43,17 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
     String s = "Graine "+id+", nourritureFournie : "+nourritureFournie+", dureté : "+dureté+", "+adjOuverte;
     return s;
   }
-  public boolean equals(Graine g){
-    debug.débogage("Test dans Graine de "+g.getId()+" et "+this.getId());
-    if (this.id == g.getId()){ return true;}
+  /**
+  *{@summary Standard equals function.}
+  *Null &#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
+  *@version 1.31
+  */
+  @Override
+  public boolean equals(Object o){
+    if(o==null || !(o instanceof Graine)){return false;}
+    Graine g = (Graine)o;
+    if (getId() == g.getId()){ return true;}
     return false;
   }
   public void mourrir(){

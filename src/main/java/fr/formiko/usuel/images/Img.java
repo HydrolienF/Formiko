@@ -172,7 +172,16 @@ public class Img implements Cloneable{
     return r;
   }public int getNbrDePixel(Pixel a){ return getNbrDePixel(a,10);}
   // Fonctions propre -----------------------------------------------------------
-  public boolean equals(Img img2){
+  /**
+  *{@summary Standard equals function.}
+  *Null &#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
+  *@version 1.31
+  */
+  @Override
+  public boolean equals(Object o){
+    if(o==null || !(o instanceof Img)){return false;}
+    Img img2 = (Img)o;
     if(getWidth()!=img2.getWidth()){return false;}
     if(getHeight()!=img2.getHeight()){return false;}
     if(!tableau.equals(getRouge(),img2.getRouge())){return false;}
