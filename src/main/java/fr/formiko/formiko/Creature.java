@@ -277,6 +277,12 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void eat(int percentageOfHungryness){
     int direction=getDirAllea();
     while(getAction()>0 && isHungry(percentageOfHungryness) && chasser(direction)){}
+    if(this instanceof Fourmi){//@a
+      System.out.println("stop eating at "+percentageOfHungryness);//@a
+      System.out.println(getAction()>0);//@a
+      System.out.println(isHungry(percentageOfHungryness));//@a
+      System.out.println(getNourriture()<getNourritureMax());//@a
+    }//@a
   }
 
   /**

@@ -39,7 +39,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
     }else { // Si il n'y a pas d'insecte
       c.ceDeplacer(direction);
     }
-    if(canHuntAnymore()){debug.debug("La creature "+c.getId()+" ne chasse plus car elle a déjà l'inventaire plein.");return false;}
+    //if(!canHuntAnymore()){debug.debug("La creature "+c.getId()+" ne chasse plus car elle a déjà l'inventaire plein.");return false;}
     return canHuntAnymore();
   }
   /**
@@ -131,6 +131,6 @@ public class ChasseInsectivore implements Serializable, Chasse {
    * @version 1.28
    */
   private boolean canHuntAnymore(){
-    return c.getNourriture()>=c.getNourritureMax();
+    return c.getNourriture()<c.getNourritureMax();
   }
 }

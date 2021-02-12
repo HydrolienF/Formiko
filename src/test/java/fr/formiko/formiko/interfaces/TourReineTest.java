@@ -73,6 +73,15 @@ public class TourReineTest extends TestCaseMuet{
     assertTrue(((TourReine)(f.tour)).haveSomeHelp());
     f2.setCCase(0,1);
     assertTrue(((TourReine)(f.tour)).haveSomeHelp());
+    f = ini();
+    f2 = new Fourmi(f.getFere(),f.getEspece(), (byte) 3, (byte) -1);
+    assertTrue(!((TourReine)(f.tour)).haveSomeHelp());
+    f = ini();
+    f2 = new Fourmi(f.getFere(),f.getEspece(), (byte) 3, (byte) -3);
+    assertTrue(!((TourReine)(f.tour)).haveSomeHelp());
+    f = ini();
+    f2 = new Fourmi(f.getFere(),f.getEspece(), (byte) 3, (byte) -2);
+    assertTrue(!((TourReine)(f.tour)).haveSomeHelp());
   }
   @Test
   public void testLay(){

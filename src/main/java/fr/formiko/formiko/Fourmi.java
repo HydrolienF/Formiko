@@ -57,7 +57,7 @@ public class Fourmi extends Creature implements Serializable{
   public Fourmi(Fourmiliere fere, Espece e, byte ty,byte stade){
     this(fere,e,ty);
     this.stade = (byte)(stade-1); evoluer(); //On simule le fait que la fourmi vien d'éclore.
-    nourriture = 30; // on lui donne un peu de nourriture pour évité qu'elle ne meurt des le début.
+    nourriture = 50; // on lui donne un peu de nourriture pour évité qu'elle ne meurt des le début.
   }
   public Fourmi(Fourmiliere fere, Espece e, byte ty, byte st, Pheromone ph){
     this(fere,e,ty,st);
