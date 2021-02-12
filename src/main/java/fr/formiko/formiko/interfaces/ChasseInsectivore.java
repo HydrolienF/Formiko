@@ -16,6 +16,8 @@ import java.io.Serializable;
 public class ChasseInsectivore implements Serializable, Chasse {
   private Creature c;
 
+  public void setC(Creature cTemp){c=cTemp;}
+
   // Fonctions propre -----------------------------------------------------------
   /**
    * {@summary try to hunt or moove.<br>}
@@ -25,7 +27,8 @@ public class ChasseInsectivore implements Serializable, Chasse {
    * @version 1.28
    */
   public boolean chasser(Creature c, int direction){
-    this.c = c;
+    setC(c);
+    if(!canHuntMore()){return false;}
     GInsecte proieVisible = getProie();
     if (c.getCCase().getContenu().getGi().getDébut() != null){ // Si il y a un insecte sur la même case
       chasse(c);
@@ -39,8 +42,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
     }else { // Si il n'y a pas d'insecte
       c.ceDeplacer(direction);
     }
-    //if(!canHuntAnymore()){debug.debug("La creature "+c.getId()+" ne chasse plus car elle a déjà l'inventaire plein.");return false;}
-    return canHuntAnymore();
+    return canHuntMore();
   }
   /**
    * {@summary actions during hunt.<br>}
@@ -51,7 +53,8 @@ public class ChasseInsectivore implements Serializable, Chasse {
    * @version 1.1
    */
   public boolean chasse(Creature c){
-  this.c = c;
+    setC(c);
+    if(!canHuntMore()){return false;}
     //chasse
     Case pointActuel = c.getCCase().getContenu();
     GInsecte gi = pointActuel.getGi();
@@ -64,11 +67,10 @@ public class ChasseInsectivore implements Serializable, Chasse {
         insecteTue = gi.getDébut().getContenu();
       }
       tuer(insecteTue);
-      if (c.getAction()<0){ return canHuntAnymore();}
+      if(!canHuntMore()){return false;}
       depecer(insecteTue);
     }
-    if(canHuntAnymore()){debug.debug("La creature "+c.getId()+" ne chasse plus car elle a déjà l'inventaire plein.");return false;}
-    return canHuntAnymore();
+    return canHuntMore();
   }
 
   //COMMENT FONCTIONNE LA CHASSE
@@ -76,7 +78,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
    * {@summary fined a prey.<br>}
    * @version 1.1
    */
-  private GInsecte getProie(){
+  public GInsecte getProie(){
     //TODO on dervrais plutot faire un GCreature pour pouvoir inclure des Fourmis et potentiellement retirer des insectes.
     return c.getCCase().getGi(1); // 1 est le rayon du cercle de case pris en compte.
   }
@@ -86,7 +88,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
    * @param insecteTue The insect that will die.
    * @version 1.1
    */
-  private boolean tuer(Insecte insecteTue){
+  public boolean tuer(Insecte insecteTue){
     if (!insecteTue.getEstMort()){
       Message m = new Message(g.getM("laCréature")+" "+ c.getId()+" "+g.get("ChasseInsectivore.2")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
       insecteTue.setEstMort(true);
@@ -107,7 +109,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
    * @param insecteTue The died Insect.
    * @version 1.1
    */
-  private boolean depecer(Insecte insecteTue){
+  public boolean depecer(Insecte insecteTue){
     if(insecteTue==null){return false;}
     Message m = new Message(g.getM("laFourmi")+" "+ c.getId()+" "+g.get("ChasseFourmi.3")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
     debug.débogage("Nourriture fournie = " + insecteTue.getNourritureFournie());
@@ -130,7 +132,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
    * {@summary check if can hunt.<br>}
    * @version 1.28
    */
-  private boolean canHuntAnymore(){
-    return c.getNourriture()<c.getNourritureMax();
+  public boolean canHuntMore(){
+    return c.getNourriture()<c.getNourritureMax() && c.getAction()>0;
   }
 }
