@@ -2,7 +2,6 @@ package fr.formiko.usuel;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.read;
-import fr.formiko.usuel.exception.FichierDejaPresentException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -82,20 +81,20 @@ public class fichier{
       }
     }
   }
-  public static void fichierCiblePeuAvoirCeNom (String nom) throws FichierDejaPresentException {
+  public static void fichierCiblePeuAvoirCeNom (String nom) {
     File f = new File(nom);
-    if (f.exists()) { throw new FichierDejaPresentException (nom);}
+    //if (f.exists()) { throw new FichierDejaPresentException (nom);}
   }
   public static void copierUnFichier(String nomDuFichierACopier){
     String nomDuFichierCible = read.getString("Nom du nouveau fichier","Copie de " + nomDuFichierACopier);
     copierUnFichier(nomDuFichierACopier, nomDuFichierCible);
   }
   public static void copierUnFichier(String nomDuFichierACopier, String nomDuFichierCible){
-    try {
+    /*try {
       fichierCiblePeuAvoirCeNom(nomDuFichierCible);
     } catch (FichierDejaPresentException e){
       e.printStackTrace();
-    }
+    }*/
     /*if (f.exists()){ // permet d'éviter : qu'un fichier soit écrabouiller et que le fichier x soit copié dans le fichier x.
       erreur.erreur("Le nom du nouveau fichier existe déjà ! Il ne faudrait pas l'écraser !","fichier.copierUnFichier",true);
     }*/

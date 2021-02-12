@@ -238,7 +238,9 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public GCreature getAlliéSurLaCaseSansThis(){
     //if(!e.getPolycalique()){return new GCreature();}//pris en compte par la diff phéromonale tolléré
     GCreature gc = getAlliéSurLaCase();
-    gc.retirer(this);
+    try {
+      gc.retirer(this);
+    }catch (Exception e) {}
     return gc;
   }
   /**

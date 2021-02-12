@@ -2,7 +2,8 @@ package fr.formiko.formiko;
 
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.exception.*;
+import fr.formiko.usuel.exceptions.ListItemNotFoundException;
+import fr.formiko.usuel.exceptions.EmptyListException;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.List;
 
@@ -82,14 +83,14 @@ public class GCreature implements Serializable{//, Iterator{
     gcr.ajouter(getGcStade(-3));
     return gcr;
   }
-  public Creature getCouvainSaleE()throws ListeVideException{
-    if (début==null){ throw new ListeVideException("GCreature","trouver la créature sale du couvain");}
+  public Creature getCouvainSaleE()throws EmptyListException{
+    if (début==null){ throw new EmptyListException("GCreature","trouver la créature sale du couvain");}
     return début.getCouvainSale();
   }
   public Creature getCouvainSale(){
     try {
       return getCouvainSaleE();
-    }catch (ListeVideException e) {
+    }catch (EmptyListException e) {
     return null;}
   }
   public GCreature getCouvainsSale(){
@@ -103,13 +104,13 @@ public class GCreature implements Serializable{//, Iterator{
         break;
       }
     }if (gcr.getDébut() == null){ return new GCreature();}
-    gcr.getDébut().getCouvainsSale(); // on filtre les propre dans la suite d ela liste.
+    gcr.getDébut().getCouvainsSale(); // on filtre les propre dans la suite de la liste.
     return gcr;
   }
   // a ajouter :
   // public GCreature getGcSiMemeFere(Fourmiliere fere){}
-  private Creature getCreatureParIdE(int id)throws ListeVideException{
-    if (début==null){ throw new ListeVideException("GCreature","trouver la créature "+id);}
+  private Creature getCreatureParIdE(int id)throws EmptyListException{
+    if (début==null){ throw new EmptyListException("GCreature","trouver la créature "+id);}
     if (début.getContenu().getId()==id){
       return début.getContenu();
     }else {
@@ -119,7 +120,7 @@ public class GCreature implements Serializable{//, Iterator{
   public Creature getCreatureParId(int id){
     try {
       return getCreatureParIdE(id);
-    }catch (ListeVideException e) {return null;}
+    }catch (EmptyListException e) {return null;}
   }
   public Fourmi getFourmiParId(int id){
     Creature c = getCreatureParId(id);
@@ -130,8 +131,8 @@ public class GCreature implements Serializable{//, Iterator{
       return null;
     }
   }
-  private Fourmi getFourmiParFereE(Fourmiliere f)throws ListeVideException{
-    if (début==null){ throw new ListeVideException("GCreature","trouver la créature par fere");}
+  private Fourmi getFourmiParFereE(Fourmiliere f)throws EmptyListException{
+    if (début==null){ throw new EmptyListException("GCreature","trouver la créature par fere");}
     return début.getFourmiParFere(f);
   }
   public Fourmi getFourmiParFere(Fourmiliere f){
@@ -257,8 +258,13 @@ public class GCreature implements Serializable{//, Iterator{
     GCreature gc = gi.toGCreature();
     ajouter(gc);
   }
-  public void retirerE(Creature c)throws ListeVideException{
-    if (début == null){ throw new ListeVideException("GCreature","retirer la Creature "+c.getId());}//erreur.erreur("Aucune créature n'as pu être retirer car GCreature est vide","GCreature.retirer",true); return;}
+  /**
+  *{@summary remove an item from the list.} <br>
+  *if list is empty or element fail to be remove an Exception will be throw.<br>
+  *@version 1.31
+  */
+  public void remove(Creature c) {
+    if (début == null){ throw new EmptyListException("GCreature","retirer la Creature "+c.getId());}//erreur.erreur("Aucune créature n'as pu être retirer car GCreature est vide","GCreature.retirer",true); return;}
     if (début.getContenu().equals(c)){
       if(fin.getContenu().equals(c)){
         début = null; fin = null; // on retire la seule créature
@@ -267,26 +273,18 @@ public class GCreature implements Serializable{//, Iterator{
       }
       return;
     }
-    try {
-      début.retirer(c);
-    }catch (ElementListeIntrouvableException e) {}
+    début.retirer(c);
     // On remet fin a la dennière case.
     fin = début;
     while(fin.getSuivant() != null){
       fin = fin.getSuivant();
     }
   }
-  public void retirer(Creature c){
-    try {
-      retirerE(c);
-    }catch (Exception e) {
-      System.out.println(e);
-    }
-  }
+  public void retirer(Creature c){remove(c);}
   public void delete(Creature c){retirer(c);}
-  public void afficheToiE() throws ListeVideException{
+  public void afficheToiE() throws EmptyListException{
     if(début==null){
-      throw new ListeVideException("GCreature","tout afficher");
+      throw new EmptyListException("GCreature","tout afficher");
     }else{
       début.afficheTout();
     }
@@ -294,11 +292,11 @@ public class GCreature implements Serializable{//, Iterator{
   public void afficheToi(){
     try {
       afficheToiE();
-    }catch (ListeVideException e) {}
+    }catch (EmptyListException e) {}
   }
-  public void afficheToiRéduitE() throws ListeVideException{
+  public void afficheToiRéduitE() throws EmptyListException{
     if(début==null){
-      throw new ListeVideException("GCreature","tout afficher");
+      throw new EmptyListException("GCreature","tout afficher");
     }else{
       System.out.print(g.get("listeCreature")+" : ");
       début.afficheToutRéduit();
@@ -307,11 +305,11 @@ public class GCreature implements Serializable{//, Iterator{
   public void afficheToiRéduit(){
     try {
       afficheToiRéduitE();
-    }catch (ListeVideException e) {}
+    }catch (EmptyListException e) {}
   }
-  private void jouerE() throws ListeVideException{
+  private void jouerE() throws EmptyListException{
     if(début == null){
-      throw new ListeVideException("GCreature","jouer");
+      throw new EmptyListException("GCreature","jouer");
     }else{
       début.jouer();
     }
@@ -319,15 +317,15 @@ public class GCreature implements Serializable{//, Iterator{
   public void jouer(){
     try{
       jouerE();
-    }catch (ListeVideException e) {erreur.alerte("1 player can't play","GCreature.jouer");}
+    }catch (EmptyListException e) {erreur.alerte("1 player can't play","GCreature.jouer");}
   }
   /**
   *reset action before the turn of all the ant.
   *@version 1.30
   */
-  private void preTourE() throws ListeVideException{
+  private void preTourE() throws EmptyListException{
     if(début == null){
-      throw new ListeVideException("GCreature","preTour");
+      throw new EmptyListException("GCreature","preTour");
     }else{
       début.preTour();
     }
@@ -339,7 +337,7 @@ public class GCreature implements Serializable{//, Iterator{
   public void preTour(){
     try{
       preTourE();
-    }catch (ListeVideException e) {}
+    }catch (EmptyListException e) {}
   }
   public void actualiserCaseSN(){
     if(début == null){ return;}

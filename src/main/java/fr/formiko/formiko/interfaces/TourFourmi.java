@@ -3,7 +3,9 @@ package fr.formiko.formiko.interfaces;
 import fr.formiko.formiko.*;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.exceptions.ListItemNotFoundException;
 import fr.formiko.usuel.exceptions.ClassTypeException;
+import fr.formiko.usuel.exceptions.EmptyListException;
 
 import java.io.Serializable;
 
@@ -83,9 +85,10 @@ public class TourFourmi implements Serializable, Tour{
   */
   public Creature aNourrir(){
     GCreature gc = f.getCCase().getContenu().getGc().filtreAlliés(f).filtreFaimMax();
-    try {
-      gc.retirerE(f);
-    }catch (Exception e) {}
+    try { // the Creature f may not be in it.
+      gc.remove(f);
+    }catch (ListItemNotFoundException e) {
+    }catch (EmptyListException e) {}
     Creature r = gc.getReine();
     if (r!=null && r.wantFood()) {
       return r;
@@ -115,9 +118,10 @@ public class TourFourmi implements Serializable, Tour{
   */
   public Creature aNetoyer(){
     GCreature gc = f.getCCase().getContenu().getGc().filtreAlliés(f).filtrePropreteMax();
-    try {
-      gc.retirerE(f);
-    }catch (Exception e) {}
+    try { // the Creature f may not be in it.
+      gc.remove(f);
+    }catch (ListItemNotFoundException e) {
+    }catch (EmptyListException e) {}
     Creature r = gc.getReine();
     if (r!=null && r.wantClean()) {
       return r;

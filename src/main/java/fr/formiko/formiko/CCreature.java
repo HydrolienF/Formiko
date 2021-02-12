@@ -3,7 +3,8 @@ package fr.formiko.formiko;
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.exception.ElementListeIntrouvableException;
+import fr.formiko.usuel.exceptions.ListItemNotFoundException;
+import fr.formiko.usuel.exceptions.EmptyListException;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.List;
 
@@ -231,8 +232,8 @@ public class CCreature implements Serializable{
     }
     return gcr;
   }
-  public void retirer(Creature c)throws ElementListeIntrouvableException {
-    if (suivant == null){ throw new ElementListeIntrouvableException("Creature",c.getId(),true);}
+  public void retirer(Creature c) {
+    if (suivant == null){ throw new ListItemNotFoundException("Creature",c.getId());}
     if (suivant.getContenu().equals(c)){
       suivant = suivant.getSuivant(); return;
     }
