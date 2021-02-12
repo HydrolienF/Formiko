@@ -4,6 +4,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.exceptions.ListItemNotFoundException;
 import fr.formiko.usuel.exceptions.EmptyListException;
+import fr.formiko.usuel.exceptions.NullItemException;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.List;
 
@@ -66,7 +67,7 @@ public class GCreature implements Serializable{//, Iterator{
     return début.getReine();
   }
   public Fourmi getPlusAffamée(){
-    if (début==null){return new GCreature();}
+    if (début==null){return null;}
     return début.getPlusAffamée();
   }
   public GCreature getGcStade(int x){
@@ -90,8 +91,7 @@ public class GCreature implements Serializable{//, Iterator{
   public Creature getCouvainSale(){
     try {
       return getCouvainSaleE();
-    }catch (EmptyListException e) {
-    return new GCreature();}
+    }catch (EmptyListException e){return null;}
   }
   public GCreature getCouvainsSale(){
     GCreature gcr = getCouvain();
@@ -233,7 +233,7 @@ public class GCreature implements Serializable{//, Iterator{
     ajouterFin(c);
   }public void add(Creature c){ajouter(c);}
   public void ajouterFin(Creature c){
-    if(c==null){ throw new NullItemException();}
+    if(c==null){ return;}//throw new NullItemException();}
     CCreature cc = new CCreature(c);
     if (fin ==  null){
       début = cc;
@@ -245,7 +245,7 @@ public class GCreature implements Serializable{//, Iterator{
     }
   }
   public void ajouter(GCreature gc){
-    if(gc == null || gc.getDébut() == null){ throw new NullItemException();}
+    if(gc == null || gc.getDébut() == null){ return;}//throw new NullItemException();}
     if (fin == null){
       début = gc.getDébut();
       fin = gc.getFin();
@@ -265,7 +265,7 @@ public class GCreature implements Serializable{//, Iterator{
   *@version 1.31
   */
   public void remove(Creature c) {
-    if(c==null){ throw new NullItemException();}
+    if(c==null){ return;}//throw new NullItemException();}
     if(début == null){ throw new EmptyListException("GCreature","retirer la Creature "+c.getId());}//erreur.erreur("Aucune créature n'as pu être retirer car GCreature est vide","GCreature.retirer",true); return;}
     if(début.getContenu().equals(c)){
       if(fin.getContenu().equals(c)){
