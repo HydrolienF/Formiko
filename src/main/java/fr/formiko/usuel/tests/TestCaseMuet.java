@@ -6,6 +6,9 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 
 public class TestCaseMuet extends Assertions{
+
+  private static int idCpt=0;
+
   public TestCaseMuet(){
     super();
     erreur.setMuet(true);
@@ -13,4 +16,6 @@ public class TestCaseMuet extends Assertions{
     debug.setAffLesPerformances(false);
     debug.setAffG(false);
   }
+
+  public static int getId(){return idCpt++;}
 }

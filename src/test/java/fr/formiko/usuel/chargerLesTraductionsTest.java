@@ -11,7 +11,6 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.liste.GString;
 import fr.formiko.usuel.tests.TestCaseMuet;
-import fr.formiko.usuel.tests.test;
 
 import java.io.File;
 import java.util.HashMap;
@@ -93,7 +92,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertTrue(chargerLesTraductions.iniTLangue());
     assertTrue(chargerLesTraductions.créerLesFichiers());
     //test dans un autre environement
-    int x = test.getId();
+    int x = TestCaseMuet.getId();
     File f = new File("testDir"+x);
     f.mkdir();
     chargerLesTraductions.setRep("testDir"+x);
@@ -109,7 +108,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertTrue(!tableau.contient(tf,"eo"));
     assertTrue(image.deleteDirectory(f));
     //test avec un autre tableau de langue.
-    int y = test.getId();
+    int y = TestCaseMuet.getId();
     f = new File("testDir"+y);
     f.mkdir();
     String tf2 [] = {"atta.txt","n","ocotô.md"};
@@ -151,7 +150,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
   //getTableauDesTrad
   @Test
   public void testGetTableauDesTrad(){
-    int x = test.getId();
+    int x = TestCaseMuet.getId();
     File f = new File("testDir"+x);
     f.mkdir();
     File ft = new File("testDir"+x+"/te.txt");
@@ -189,7 +188,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
   public void testGetTableauDesCmd(){
     String t [] = chargerLesTraductions.getTableauDesCmd();
     assertTrue(t.length>1);//Le fichier contient des lignes (et donc a bien été lu).
-    int x = test.getId();
+    int x = TestCaseMuet.getId();
 
     File f = new File("testDir"+x);
     f.mkdir();
@@ -276,7 +275,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     gs.add("ex:test");
     gs.add("ex2:");
     gs.add("ex3:");
-    int x=test.getId();
+    int x=TestCaseMuet.getId();
     File f = new File("testDir"+x);
     f.mkdir();
     assertTrue(ecrireUnFichier.ecrireUnFichier(gs,"testDir"+x+"/test.txt"));
@@ -299,7 +298,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
   }
   @Test
   public void testGetPourcentageTraduit2(){
-    int x = test.getId();
+    int x = TestCaseMuet.getId();
     File f = new File("testDir"+x);
     f.mkdir();
     GString gsFr = new GString();
@@ -335,7 +334,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
   //getPourcentageTraduitAutomatiquement
   @Test
   public void testGetPourcentageTraduitAutomatiquement(){
-    int x = test.getId();
+    int x = TestCaseMuet.getId();
     File f = new File("testDir"+x);
     f.mkdir();
     GString gsFr = new GString();
