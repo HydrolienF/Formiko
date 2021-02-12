@@ -66,15 +66,15 @@ public class GCreature implements Serializable{//, Iterator{
     return début.getReine();
   }
   public Fourmi getPlusAffamée(){
-    if (début==null){return null;}
+    if (début==null){return new GCreature();}
     return début.getPlusAffamée();
   }
   public GCreature getGcStade(int x){
-    if (début==null){return null;}
+    if (début==null){return new GCreature();}
     return début.getGcStade(x);
   }
   public GCreature getGcType(int x){
-    if (début==null){return null;}
+    if (début==null){return new GCreature();}
     return début.getGcType(x);
   }
   public GCreature getCouvain(){ // on renvoie d'habord les plus proches de la transformation en Fourmi adulte.
@@ -91,7 +91,7 @@ public class GCreature implements Serializable{//, Iterator{
     try {
       return getCouvainSaleE();
     }catch (EmptyListException e) {
-    return null;}
+    return new GCreature();}
   }
   public GCreature getCouvainsSale(){
     GCreature gcr = getCouvain();
@@ -233,6 +233,7 @@ public class GCreature implements Serializable{//, Iterator{
     ajouterFin(c);
   }public void add(Creature c){ajouter(c);}
   public void ajouterFin(Creature c){
+    if(c==null){ throw new NullItemException();}
     CCreature cc = new CCreature(c);
     if (fin ==  null){
       début = cc;
@@ -244,7 +245,7 @@ public class GCreature implements Serializable{//, Iterator{
     }
   }
   public void ajouter(GCreature gc){
-    if(gc == null || gc.getDébut() == null){ return;}
+    if(gc == null || gc.getDébut() == null){ throw new NullItemException();}
     if (fin == null){
       début = gc.getDébut();
       fin = gc.getFin();
@@ -264,8 +265,9 @@ public class GCreature implements Serializable{//, Iterator{
   *@version 1.31
   */
   public void remove(Creature c) {
-    if (début == null){ throw new EmptyListException("GCreature","retirer la Creature "+c.getId());}//erreur.erreur("Aucune créature n'as pu être retirer car GCreature est vide","GCreature.retirer",true); return;}
-    if (début.getContenu().equals(c)){
+    if(c==null){ throw new NullItemException();}
+    if(début == null){ throw new EmptyListException("GCreature","retirer la Creature "+c.getId());}//erreur.erreur("Aucune créature n'as pu être retirer car GCreature est vide","GCreature.retirer",true); return;}
+    if(début.getContenu().equals(c)){
       if(fin.getContenu().equals(c)){
         début = null; fin = null; // on retire la seule créature
       }else{
