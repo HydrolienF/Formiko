@@ -3,6 +3,7 @@ package fr.formiko.formiko.interfaces;
 import fr.formiko.formiko.*;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.exceptions.ClassTypeException;
 
 import java.io.Serializable;
 
@@ -21,13 +22,11 @@ public class TourFourmi implements Serializable, Tour{
   */
   public void unTour(Creature c){
     debug.débogage("la créature "+c.getId()+" tente de jouer un tour");
-    if(c!=null && c instanceof Fourmi){
-      setF((Fourmi) c);
-      tour();
-      debug.débogage("fin du tour de la fourmi.");
-    }else{
-      erreur.erreurType("Fourmi","TourFourmi");
-    }
+    if(c==null){throw new NullPointerException();}
+    if(!(c instanceof Fourmi)){throw new ClassTypeException("Fourmi","Creature");}
+    setF((Fourmi) c);
+    tour();
+    debug.débogage("fin du tour de la fourmi.");
   }
 
   /**

@@ -6,6 +6,7 @@ import fr.formiko.formiko.*;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.interfaces.TourInsecte;
 import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.usuel.exceptions.ClassTypeException;
 
 public class TourFourmiTest extends TestCaseMuet{
   // Fonctions propre -----------------------------------------------------------
@@ -389,10 +390,23 @@ public class TourFourmiTest extends TestCaseMuet{
     assertEquals(0,f.getStade());
   }
 
-  /*@Test
+  @Test
   public void testUnTour(){
-
+    assertThrows(NullPointerException.class, () -> { this.unTour2();});
+    assertThrows(ClassTypeException.class, () -> { this.unTour3();});
   }
+
+  public void unTour2(){
+    Creature c = null;
+    Tour tour = new TourFourmi();
+    tour.unTour(c);
+  }
+  public void unTour3(){
+    Creature c = new Insecte();
+    Tour tour = new TourFourmi();
+    tour.unTour(c);
+  }
+  /*
   @Test
   public void testTour(){
 

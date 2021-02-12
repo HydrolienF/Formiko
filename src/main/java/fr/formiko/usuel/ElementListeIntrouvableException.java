@@ -1,7 +1,9 @@
 package fr.formiko.usuel.exception;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
+
+import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
 
+//TODO to update.
 public class ElementListeIntrouvableException extends Exception{
   private String message;
   public ElementListeIntrouvableException(String élément, int id,boolean b){

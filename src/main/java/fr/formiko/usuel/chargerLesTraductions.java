@@ -75,10 +75,6 @@ public class chargerLesTraductions {
       }
       return true;
     }catch (Exception e) {
-      System.out.println("---------------------------------------");
-      System.out.println(rep+"langue.csv");
-      System.out.println(e);
-      System.out.println("---------------------------------------");
       erreur.erreur("Impossible de charger tLangue.");
       tLangue=new String [1]; tLangue[0]="en";
       return false;
@@ -185,11 +181,6 @@ public class chargerLesTraductions {
     for (String s : t) {//on ajoute toutes les lignes qu'on peu ajouter.
       ajouterObjetMap(s);
     }
-    System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy");//@a
-    System.out.println(map.size());//@a
-    if(map.size()==3){//@a
-      System.out.println(map);//@a
-    }//@a
     return map;
   }
   /**
