@@ -73,7 +73,7 @@ public class List<T> implements Iterable<T>, Serializable {
       //if(content instanceof T && t instanceof T){
         if(((T)(t)).equals(content)){return true;}
       /*}else{
-        System.out.println("pas dans le bon if");//@a
+        System.out.println("pas dans le bon if");
       }*/
     }
     return false;

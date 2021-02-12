@@ -2,8 +2,8 @@ package fr.formiko.formiko;
 
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.exceptions.ListItemNotFoundException;
 import fr.formiko.usuel.exceptions.EmptyListException;
+import fr.formiko.usuel.exceptions.ListItemNotFoundException;
 import fr.formiko.usuel.exceptions.NullItemException;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.List;
@@ -233,7 +233,7 @@ public class GCreature implements Serializable{//, Iterator{
     ajouterFin(c);
   }public void add(Creature c){ajouter(c);}
   public void ajouterFin(Creature c){
-    if(c==null){ return;}//throw new NullItemException();}
+    if(c==null){throw new NullItemException();}
     CCreature cc = new CCreature(c);
     if (fin ==  null){
       début = cc;
@@ -245,7 +245,7 @@ public class GCreature implements Serializable{//, Iterator{
     }
   }
   public void ajouter(GCreature gc){
-    if(gc == null || gc.getDébut() == null){ return;}//throw new NullItemException();}
+    if(gc == null || gc.getDébut() == null){ return;}
     if (fin == null){
       début = gc.getDébut();
       fin = gc.getFin();
@@ -265,7 +265,7 @@ public class GCreature implements Serializable{//, Iterator{
   *@version 1.31
   */
   public void remove(Creature c) {
-    if(c==null){ return;}//throw new NullItemException();}
+    if(c==null){ throw new NullItemException();}
     if(début == null){ throw new EmptyListException("GCreature","retirer la Creature "+c.getId());}//erreur.erreur("Aucune créature n'as pu être retirer car GCreature est vide","GCreature.retirer",true); return;}
     if(début.getContenu().equals(c)){
       if(fin.getContenu().equals(c)){
