@@ -31,11 +31,12 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
     f.eat(5);
     f.runAway();
     cleanItself();
-    if(!haveSomeHelp()){f.eat(40);}
+    if(!haveSomeHelp() && !needToTakeCareOfCouvain()){f.eat(40);}
     if(needToWaitToLetNonQueenAntPlay()){return;}
     backHome();
     feedOther(30);
-    if(f.getFere().getGc().getNbrOuvriere()==0){feedOther(10);}
+    cleanOther();
+    if(f.getFere().getGc().getNbrOuvriere()==0){feedOther(5);}
     lay();
     //TODO if it still have action it can clean ant that didn't realy need it but that are not at 100/100 of clean.
     finTour();
@@ -53,13 +54,17 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
   }
   /**
   *{@summary Check if this ant have some help from other ant of the same anthill.}<br>
-  *@version 1.31
+  *@version 1.32
   */
   public boolean haveSomeHelp(){
-    if(f.getFere().getGc().getNbrOuvriere()==0){
-      return false;
-    }
-    return true;
+    return f.getFere().getGc().getNbrOuvriere()!=0;
+  }
+  /**
+  *{@summary Check if this ant need to feed/protect/clean some egg, larva or nympha.}<br>
+  *@version 1.32
+  */
+  public boolean needToTakeCareOfCouvain(){
+    return f.getFere().getGc().getCouvain().length()>0;
   }
   /**
   *{@summary Lay egg as a queen ant.}<br>
