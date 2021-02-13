@@ -13,7 +13,7 @@ import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.menu;
 import fr.formiko.usuel.read;
 import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.types.str;
 
 import java.io.Serializable;
 

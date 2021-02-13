@@ -21,7 +21,7 @@ import java.awt.Image;
 import java.awt.Color;
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.math;
-import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.Chrono;
 import fr.formiko.usuel.chargerLesTraductions;
 import java.util.HashMap;

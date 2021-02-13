@@ -9,7 +9,7 @@ import java.text.NumberFormat;
 import fr.formiko.usuel.liste.GString;
 import fr.formiko.usuel.liste.CString;
 import java.io.File;
-import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.types.str;
 import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
 import fr.formiko.usuel.maths.math;

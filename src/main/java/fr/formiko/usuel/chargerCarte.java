@@ -6,7 +6,7 @@ import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Case;
 import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.types.str;
 import fr.formiko.graphisme.PanneauChargement;
 
 public class chargerCarte {

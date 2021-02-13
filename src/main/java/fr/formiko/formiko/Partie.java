@@ -4,7 +4,7 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.HashMap;
-import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.types.str;
 import fr.formiko.formiko.Message;
 import fr.formiko.usuel.images.*;
 import java.awt.Image;
@@ -184,7 +184,7 @@ public class Partie implements Serializable{
   public void iniJoueurEtIa(Carte mapo){
     gj = gej.getGJoueur(mapo);
   }
-  public boolean jeu(){
+  public boolean launchGame(){
     //lancement du jeux
     setContinuerLeJeu(true);
     if(Main.getGj().length()==1){setPartieFinie(true);}
@@ -201,6 +201,7 @@ public class Partie implements Serializable{
     finDePartie(1);
     return false;
   }
+  public boolean jeu(){return launchGame();}
   public void testFinDePartie(){
     if(partieFinie){ return;}//on ne fait pas le test si on est déja après la fin et que le joueur veux continuer a jouer.
     if(getGj().plusQu1Joueur()){

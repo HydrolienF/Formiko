@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.Image;
-import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.fichier;
 import java.awt.image.BufferedImage;

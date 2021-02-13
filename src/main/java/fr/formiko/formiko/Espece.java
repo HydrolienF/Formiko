@@ -4,7 +4,7 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.decoderUnFichier;
-import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.liste.GString;

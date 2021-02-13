@@ -12,7 +12,7 @@ import fr.formiko.usuel.liste.GString;
 import fr.formiko.usuel.liste.CString;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
-import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.types.str;
 
 public class ecrireUnFichier {
 

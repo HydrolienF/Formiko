@@ -8,7 +8,7 @@ import fr.formiko.usuel.liste.CInt;
 import fr.formiko.usuel.liste.GString;
 import fr.formiko.usuel.liste.CString;
 import fr.formiko.usuel.fichier;
-import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.Chrono;
 
 /**

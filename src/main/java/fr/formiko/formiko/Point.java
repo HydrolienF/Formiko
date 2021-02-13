@@ -1,7 +1,7 @@
 package fr.formiko.formiko;
 
 import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.types.str;
 
 import java.io.Serializable;
 

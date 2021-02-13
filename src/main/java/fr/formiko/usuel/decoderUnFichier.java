@@ -1,8 +1,8 @@
 package fr.formiko.usuel;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.type.*;
-import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.types.*;
+import fr.formiko.usuel.types.str;
 
 public class decoderUnFichier {
   // Fonctions propre -----------------------------------------------------------

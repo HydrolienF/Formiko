@@ -2,7 +2,7 @@ package fr.formiko.formiko;
 
 import fr.formiko.graphisme.*;
 import fr.formiko.usuel.*;
-import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;

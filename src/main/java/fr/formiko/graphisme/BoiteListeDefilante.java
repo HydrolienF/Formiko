@@ -5,7 +5,7 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.ImageIcon;
-import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.Temps;
 //imspiré de http://remy-manu.no-ip.biz/Java/Tutoriels/IHM/dialogue.html
 

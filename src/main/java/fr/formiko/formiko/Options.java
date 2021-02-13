@@ -6,7 +6,7 @@ import java.io.File;
 import fr.formiko.usuel.liste.GString;
 import fr.formiko.usuel.ecrireUnFichier;
 import java.io.Serializable;
-import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.types.str;
 /**
 *{@summary Options class.<br>}
 *It contain all globals options and can save it.<br>

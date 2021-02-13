@@ -5,7 +5,7 @@ import java.io.Serializable;
 import fr.formiko.formiko.interfaces.*;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
-import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.types.str;
 /**
 *{@summary The class that extends every living thing on the game.<br>}
 *Most of the common var between Fourmi and Insecte can be found here.<br>
@@ -277,12 +277,6 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void eat(int percentageOfHungryness){
     int direction=getDirAllea();
     while(getAction()>0 && isHungry(percentageOfHungryness) && chasser(direction)){}
-    if(this instanceof Fourmi){//@a
-      System.out.println("stop eating at "+percentageOfHungryness);//@a
-      System.out.println(getAction()>0);//@a
-      System.out.println(isHungry(percentageOfHungryness));//@a
-      System.out.println(getNourriture()<getNourritureMax());//@a
-    }//@a
   }
 
   /**

@@ -20,7 +20,7 @@ import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.Temps;
 import javax.swing.ImageIcon;
-import fr.formiko.usuel.type.str;
+import fr.formiko.usuel.types.str;
 
 public class PanneauJeu extends Panneau {
   private PanneauCarte pc;
