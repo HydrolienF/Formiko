@@ -47,9 +47,9 @@ public class Partie implements Serializable{
     this.nbrDeTour=nbrDeTour;
     this.difficulté = str.iToBy(difficulté);
     this.vitesseDeJeu=vitesseDeJeu;
-    tableauDesEspecesAutorisée = new int [2];
+    tableauDesEspecesAutorisée = new int [1];//[2];
     tableauDesEspecesAutorisée[0]=0;
-    tableauDesEspecesAutorisée[1]=3;
+    //tableauDesEspecesAutorisée[1]=3;
     //a ce stade, il manque encore gi et gj. On les initialise null par précaution.
     gj = new GJoueur();
     gi = new GInsecte();
@@ -159,7 +159,9 @@ public class Partie implements Serializable{
     }
     //ce qui arrive même si c'était déja initialisé.
     Main.débutCh();
-    initialiserGraphismePartie();
+    if(Main.getF()!=null){
+      initialiserGraphismePartie();
+    }
     Main.finCh("chargementGraphismes");
     setEnCours(true);
   }

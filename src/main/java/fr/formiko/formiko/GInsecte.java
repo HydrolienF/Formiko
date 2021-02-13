@@ -48,18 +48,6 @@ public class GInsecte implements Serializable{
     if (ci.getSuivant() == null){ return ci.getInsecte();} // si il y a 1 seul éléments.
     return ci.getInsectePlusDeNourritureFournie(ci.getInsecte());
   }
-  /*public void afficheToi(){
-    if (début == null){
-      System.out.println("La liste d'insecte est vide");
-    } else {
-      System.out.println("La liste d'insecte : ");
-      CInsecte ci = début;
-      while(ci != null){
-        ci.getContenu().afficheToi();
-        ci = ci.getSuivant();
-      }
-    }
-  }*/
   public void ajouterInsecte(){
     ajouterInsecte(1);
   }

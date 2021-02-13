@@ -38,7 +38,7 @@ public class Individu implements Serializable{
   public byte getActionMax(){ return actionMax;}
   public byte getTaille(){ return taille;}
 
-  public int getAgeMax(int i){ return tAgeMax[i];}
+  public int getAgeMax(int i){ return tAgeMax[i]/2;} //to make it shorter
   public int getAgeMax(){ return getAgeMax(3);}
   public int getNourritureMax(int i){ return tNourritureMax[i];}
   public int getNourritureMax(){ return getNourritureMax(3);}

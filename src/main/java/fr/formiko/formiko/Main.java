@@ -355,7 +355,6 @@ public class Main {
     debug.débogage("lancement du retour au menu");
     Main.getPp().removePj();
     //Main.getPp().removePm();
-    //repaint();
     ini.initialiserToutLesPaneauxVide();
     ini.initialiserPanneauJeuEtDépendance();
     getPm().construitPanneauMenu(3);
@@ -406,8 +405,7 @@ public class Main {
   public static void setMusiqueSuivante(){getThm().setM();}*/
   //graphique
   public static PanneauPrincipal getPp(){ return f.getPp();}
-  public static synchronized void repaint(){f.repaint();}
-  //public static synchronized void repaintParciel(Case c){getPc().repaintParciel(c);}
+  public static synchronized void repaint(){try { f.repaint();}catch (Exception e) {}}
   public static PanneauJeu getPj(){ return getPp().getPj();}
   public static PanneauMenu getPm(){ return getPp().getPm();}
   public static PanneauNouvellePartie getPnp(){ return getPm().getPnp();}
@@ -528,7 +526,6 @@ public class Main {
       image.setREPTEXTUREPACK(image.REP+"ressourcesPack");//on déclare le ressourcesPack si il contient au moins 1 image.
     }
     finCh("initialisationDeREPTEXTUREPACK");
-    //System.out.println("Os reconnu : "+os);
     data = new Data();
     iniCpt();
   }
@@ -630,8 +627,6 @@ public class Main {
       debug.performances("temps pour "+ s + " : "+lonTotal+" ms");
       long tempsDeFinDeJeu=System.currentTimeMillis();
       long tempsJeuEcoulé = tempsDeFinDeJeu-tempsDeDébutDeJeu;
-      //System.out.println(g.getM("tempsJeuEcoulé")+" : "+ch.timeToHMS(tempsJeuEcoulé)+".");
-      //System.out.println("\ud83d\ude00");//System.out.println("😀");
       tem.addTempsEnJeux(tempsJeuEcoulé);tem.actualiserDate2();tem.sauvegarder();
       sauvegarderUnePartie.getSave().save();//sauvegarde de l'idS (id de sauvegarde) + de futur valeur importante.
       System.out.println(g.getM("tempsJeuEcoulé")+" : "+Temps.msToTime(tempsJeuEcoulé,2,false));
