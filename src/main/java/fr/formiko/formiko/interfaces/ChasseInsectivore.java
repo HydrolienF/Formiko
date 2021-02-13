@@ -128,11 +128,5 @@ public class ChasseInsectivore implements Serializable, Chasse {
     }
     return true;
   }
-  /**
-   * {@summary check if can hunt.<br>}
-   * @version 1.28
-   */
-  public boolean canHuntMore(){
-    return c.getNourriture()<c.getNourritureMax() && c.getAction()>0;
-  }
+  public boolean canHuntMore(){return canHuntMore(c);}
 }

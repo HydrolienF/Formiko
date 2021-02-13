@@ -13,4 +13,11 @@ import java.io.Serializable;
 public interface Chasse extends Serializable{
   boolean chasse(Creature c);//ni public ni private indique que c'est dispo seulement dans le package fr.formiko.formiko.
   boolean chasser(Creature c, int directionSiPasDeProie);
+  /**
+   * {@summary check if can hunt.<br>}
+   * @version 1.31
+   */
+  public default boolean canHuntMore(Creature c){
+    return c.getNourriture()<c.getNourritureMax() && c.getAction()>0;
+  }
 }

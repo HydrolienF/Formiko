@@ -253,7 +253,7 @@ public class Main {
     if(premierePartie){tuto=true;} if(tuto){pa=getPartieTuto();}
     else if(pa==null){pa=getPartieParDéfaut();}
     //finCh("chargementDézoom");
-    pa.setEnCours(true); //lance l'affichage de la Partie.
+    //pa.setEnCours(true); //lance l'affichage de la Partie.
     //débutCh();
     //la ligne qui suis n'as d'effet que si elle n'as pas déjà été appliqué a la partie.
     pa.initialisationElément(); // pour l'instant ce bout de code ne marche pas ayeur qu'ici.

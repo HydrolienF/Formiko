@@ -25,4 +25,11 @@ public class ChasseNull implements Serializable, Chasse {
   public boolean chasser(Creature c, int directionSiPasDeProie){
     return chasse(c);
   }
+  /**
+  *If lauch print an error.
+  */
+  @Override
+  public boolean canHuntMore(Creature c){
+    return chasse(c);
+  }
 }

@@ -14,6 +14,9 @@ import fr.formiko.usuel.maths.math;
  */
 public class ChasseHerbivore implements Serializable, Chasse {
   Creature c;
+
+  public void setC(Creature cTemp){c=cTemp;}
+
   public boolean chasser(Creature c, int directionSiPasDeProie){return chasse(c);}
   /**
   *{@summary Hunt as an herbivore.<br>}
@@ -57,5 +60,4 @@ public class ChasseHerbivore implements Serializable, Chasse {
     }
     return false;
   }
-
 }
