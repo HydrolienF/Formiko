@@ -1,37 +1,39 @@
 package fr.formiko.graphisme;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
-import java.awt.Graphics;
+
+import fr.formiko.formiko.CCreature;
+import fr.formiko.formiko.CGraine;
+import fr.formiko.formiko.Case;
+import fr.formiko.formiko.Creature;
+import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.Fourmiliere;
+import fr.formiko.formiko.GCase;
+import fr.formiko.formiko.Graine;
+import fr.formiko.formiko.Insecte;
+import fr.formiko.formiko.Joueur;
+import fr.formiko.formiko.Main;
+import fr.formiko.formiko.ObjetSurCarteAId;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.images.Img;
+import fr.formiko.usuel.images.Pixel;
+import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.maths.allea;
+import fr.formiko.usuel.maths.math;
+
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.JPanel;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.geom.AffineTransform;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import java.awt.Image;
-import fr.formiko.formiko.Insecte;
-import fr.formiko.formiko.Graine;
-import fr.formiko.formiko.Fourmi;
-import fr.formiko.formiko.ObjetSurCarteAId;
-import fr.formiko.formiko.Joueur;
-import fr.formiko.formiko.Case;
-import fr.formiko.formiko.Creature;
-import fr.formiko.formiko.CCreature;
-import fr.formiko.formiko.Fourmiliere;
-import fr.formiko.formiko.GCase;
-import fr.formiko.formiko.CGraine;
-import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.maths.math;
-import fr.formiko.usuel.maths.allea;
-import java.awt.geom.AffineTransform;
-import fr.formiko.usuel.images.Img;
-import fr.formiko.usuel.images.Pixel;
-import fr.formiko.usuel.debug;
-import java.awt.BasicStroke;
-import java.awt.Graphics2D;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import javax.swing.JPanel;
 
 public class PanneauCarte extends Panneau implements MouseListener{
   private int xCase; // nombre de case en X
@@ -108,12 +110,12 @@ public class PanneauCarte extends Panneau implements MouseListener{
       }catch (Exception e) {
         erreur.erreur("impossible d'afficher l'arrière plan de la carte.");
       }
+      dessinerGrille(g);
       for (int i=0;i<xCase ;i++ ) {
         for (int j=0;j<yCase ;j++ ) {
           peintImagePourCase(gc,i,j,g);
         }
       }
-      dessinerGrille(g);
       //dessin de la Fourmi selectionnée :
       if(Main.getFActuelle()!=null){
         Case c = Main.getFActuelle().getCCase().getContenu();
