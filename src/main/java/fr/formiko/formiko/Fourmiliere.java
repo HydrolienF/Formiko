@@ -12,19 +12,46 @@ import java.io.Serializable;
 
 public class Fourmiliere implements Serializable{
   //Les données communes a chaque Fourmiliere :
-  private static int idCpt; private final int id;
+  /***
+  *Counter of id.
+  */
+  private static int idCpt;
+  /***
+  *Unic id of the Fourmiliere.
+  */
+  private final int id;
+  /***
+  *Place on the map
+  */
   private CCase cc;
+  /***
+  *Player that own this.
+  */
   private Joueur joueur;
-  private GCreature gc; private GGraine gg;
-  private byte modeDéfaut;
+  /***
+  *List of the Creature own by the Fourmiliere
+  */
+  private GCreature gc;
+  /***
+  *List of the Graine own by the Fourmiliere
+  */
+  private GGraine gg;
+  //private byte modeDéfaut;
+  /***
+  *List of the Scores turn by turn of the Fourmiliere
+  */
   private GGInt ggi;
+  /***
+  *Number of died ant.
+  */
   private int nbrFourmisMorte;
 
   // CONSTRUCTEUR
   public Fourmiliere(CCase cc, Joueur j){
     id = idCpt; idCpt++;
     nbrFourmisMorte=0;
-    modeDéfaut=3; ggi = new GGInt();
+    //modeDéfaut=3;
+    ggi = new GGInt();
     if (cc==null){
       erreur.erreur("Impossible de créer une fourmilière sur une case null","Fourmiliere.Fourmiliere",true);
     }
@@ -73,9 +100,9 @@ public class Fourmiliere implements Serializable{
   public Creature getReine(){ return gc.getReine();}// on part du principe qu'il n'y a qu'une reine.
   public GGraine getGg(){return gg;} public GGraine getGGraine(){ return getGg();}
   public void setGg(GGraine gg){ this.gg = gg;}
-  public byte getModeDéfaut(){ return modeDéfaut;}
-  public void setModeDéfaut(byte x){ modeDéfaut=x;}
-  public void setModeDéfaut(int x){ setModeDéfaut((byte)x);}
+  //public byte getModeDéfaut(){ return modeDéfaut;}
+  //public void setModeDéfaut(byte x){ modeDéfaut=x;}
+  //public void setModeDéfaut(int x){ setModeDéfaut((byte)x);}
   public void setLienFere(){ gc.setLienFere(this);}
   public Pheromone getPh(){
     if(getReine()!=null){return getReine().getPh();}
@@ -89,6 +116,11 @@ public class Fourmiliere implements Serializable{
   public Espece getEspece(){return gc.getEspece();}
   public static void ini(){idCpt=1;}
   // Fonctions propre -----------------------------------------------------------
+  /**
+  *{@summary Return a description of the Fourmiliere.}<br>
+  *@param b If true we also return all the descriptions of the ants of the Fourmiliere.
+  *@version 1.31
+  */
   public String toString(boolean b){
     int leng = length();
     String s = (joueur.getIa()) ? "IA" : "Joueur";
@@ -97,21 +129,23 @@ public class Fourmiliere implements Serializable{
     sr+=gg.toString();
     return sr;
   }
+  /**
+  *{@summary Return a description of the Fourmiliere.}<br>
+  *@version 1.31
+  */
   public String toString(){
     return toString(true);
   }
-  public void afficheToi(){
-    System.out.println(this);
-  }
-  public void afficheToiAvecFourmi(){
-    afficheToi();
-    if (gc != null && gc.getDébut() != null){
-      gc.afficheToi();
-    }
-  }
+  /**
+  *{@summary Let all ant play.}<br>
+  *Before that ants play they all have a pre-turn update (gc.preTour()).<br>
+  *Ants do not necessarily play in order so we way for aFiniDeJouer() to end turn.<br>
+  *At the end of the Fourmiliere turn we add a line to there stats (How many ant are alive and what stade).
+  *@version 1.31
+  */
   public void jouer(){
     if(gc.length()==0){return;}
-    this.setModeDéfaut(3); //tant que tous le couvains n'aura pas été dorloté.
+    //this.setModeDéfaut(3); //tant que tous le couvains n'aura pas été dorloté.
     gc.preTour();
     do {
       gc.jouer();
@@ -124,6 +158,10 @@ public class Fourmiliere implements Serializable{
   public void faireVarierLesPoint(){
   }*/
   public void déposer(Graine g){gg.ajouter(g); }
+  /**
+  *{@summary Save stats/score in the GGInt.}<br>
+  *@version 1.31
+  */
   public String enregistrerLesScores(){
     return ggi.toString();
   }
