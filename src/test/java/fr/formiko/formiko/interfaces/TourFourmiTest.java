@@ -1,12 +1,13 @@
 package fr.formiko.formiko.interfaces;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.*;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.interfaces.TourInsecte;
-import fr.formiko.usuel.tests.TestCaseMuet;
 import fr.formiko.usuel.exceptions.ClassTypeException;
+import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class TourFourmiTest extends TestCaseMuet{
   // Fonctions propre -----------------------------------------------------------
@@ -395,7 +396,6 @@ public class TourFourmiTest extends TestCaseMuet{
     assertThrows(NullPointerException.class, () -> { this.unTour2();});
     assertThrows(ClassTypeException.class, () -> { this.unTour3();});
   }
-
   public void unTour2(){
     Creature c = null;
     Tour tour = new TourFourmi();
@@ -406,11 +406,35 @@ public class TourFourmiTest extends TestCaseMuet{
     Tour tour = new TourFourmi();
     tour.unTour(c);
   }
-  /*
-  @Test
-  public void testTour(){
 
-  }*/
+  @Test
+  @Disabled("launch a graphics error") //#TODO #167
+  public void testTour1(){
+    Fourmi f = ini();
+    f.setNourriture(2);
+    f.setProprete(50);
+    f.setAction(10);
+    ((TourFourmi)(f.tour)).tour();
+    assertTrue(f.getAction()<=0);
+    assertEquals(1,f.getNourriture()-f.getNourritureConso());
+    assertTrue(f.getProprete()<50);
+  }
+  @Test
+  @Disabled("launch a graphics error") //#TODO #167
+  public void testTour2(){
+    Fourmi f = ini();
+    f.setNourriture(2);
+    f.setProprete(50);
+    f.setAction(10);
+    Insecte i = new Insecte(Main.getPartie().getGc().getCCase(0,0),0,100,0);
+    ((TourFourmi)(f.tour)).tour();
+    assertTrue(f.getAction()<=0);
+    assertEquals(1,f.getNourriture()-f.getNourritureConso());
+    assertTrue(f.getProprete()<50);
+    assertTrue(i.getEstMort());
+  }
+  //TODO #167 faire bcp d'autres tests jusqu'a ce que la fourmi arrive a finTour avec encore des actions.
+  //public void testTour3(){
   @Test
   public void testTourNull(){
     Fourmi f = ini();

@@ -1,7 +1,7 @@
 package fr.formiko.formiko;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.Main;
