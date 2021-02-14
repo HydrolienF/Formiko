@@ -115,7 +115,7 @@ public class chargerLesOptions {
     son:0
     volMusique:100
     volSon:100
-    tailleRéaliste:40
+    tailleRéaliste:30
     """);
     //TODO la musique est temporairement désactivé. La réactivé quand elle marchera.
     ecrireUnFichier.ecrireUnFichier(gs,"data/Options.txt");
