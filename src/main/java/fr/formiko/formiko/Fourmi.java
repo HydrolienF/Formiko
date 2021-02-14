@@ -78,7 +78,7 @@ public class Fourmi extends Creature implements Serializable{
   public void setDuretéMax(byte x){ duretéMax=x; }
   public int getX(){return getCCase().getContenu().getX();}
   public int getY(){return getCCase().getContenu().getY();}
-  public void setNourritureMoinsConsomNourriture(){ setNourriture(getNourriture()-getIndividu().getNourritureConso(getStade()));}
+  public void setNourritureMoinsConsomNourriture(){ setNourriture(getNourriture()-getNourritureConso());}
   public Individu getIndividu(){ return e.getIndividuParType(typeF);}
   public boolean getTropDeNourriture(){if(getNourriture()*1.1>getNourritureMax()){ return true;} return false;}
   public boolean peutPondre(){return !(pondre instanceof PondreNull) && getNourriture()>getIndividu().getCoutPondre() && estALaFere();}
@@ -106,6 +106,7 @@ public class Fourmi extends Creature implements Serializable{
   //racourci
   public Fourmi getReine(){ return getFere().getGc().getReine();}
   public byte getPropretéPerdu(){return e.getPropretéPerdu(stade);}
+  public int getNourritureConso(){return getIndividu().getNourritureConso(getStade());}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){return super.toString() +" "+ tableau.tableauToString(descriptionTableau());}
   public void afficheToi (){System.out.println(description());}
@@ -165,32 +166,7 @@ public class Fourmi extends Creature implements Serializable{
     return false;
   }
 
-  public byte getModeReine(){
-    if(fere.getGc().getNbrOuvriere() > 0){ return 3;}
-    debug.débogage("Choix spéciale");
-    //on n'éffectue un choix spéciale que s'il n'y a aucune ouvrière pour aider.
-    int nbrDeTour = getAgeMaxIndividu(3,-3) + getAgeMaxIndividu(3,-2) + getAgeMaxIndividu(3,-1);// l'age d'un individu de type 3 (cad ouvrière) et dans les 3 1a stades.
-    //10 + la nourriture consommé par tour * nbrDeTour
-    int nourritureTotalPossédé = nourriture;
-    try { // on retire les tour déja écoulé.
-      Fourmi fPetite = (Fourmi) fere.getGc().getCouvain().getDébut().getContenu();
-      nbrDeTour = nbrDeTour - fPetite.getAge();
-      if(fPetite.getStade()>=-2){
-        nbrDeTour = nbrDeTour - getAgeMaxIndividu(3,-3);
-      }
-      if(fPetite.getStade()>=-1){
-        nbrDeTour = nbrDeTour - getAgeMaxIndividu(3,-2);
-      }
-      nourritureTotalPossédé = nourritureTotalPossédé + fPetite.getNourriture();
-    }catch (Exception e) {}
-      //TODO to update or delete.
-    int nourritureSouhaité = 40; //+ (getIndividu().getNourritureConso(getStade())+e.getIndividuParType(0).getNourritureConso(0))*nbrDeTour;
-    if(nourritureSouhaité>nourritureMax){ return 3;} // au cas ou la reine ne pourrait pas stocker autant qu'il faut.
-    //si la reine a plus de nourriture qu'il n'en faut pour surveillé un oeuf on part s'en occupé.
-    if(nourritureSouhaité<nourritureTotalPossédé){ return 3;}
-    debug.débogage("la reine de la fere "+fere.getId()+" n'as pas encore assez de nourriture : "+nourriture+"/"+nourritureSouhaité);
-    return 0;
-  }
+  //public byte getModeReine(){return 0;}
   public String [] descriptionTableau(){
     String tr [] = new String [4];
     String idTrans = "Rien"; if(transporté != null){ idTrans = ""+transporté.getId();}
@@ -225,62 +201,6 @@ public class Fourmi extends Creature implements Serializable{
     gs.add(g.get("espèce")+" : "+e.getNom());
     return gs;
   }
-  /*public void tourF(){
-    int idf = Main.getPs().getIdFourmiAjoué();
-    if(idf!=-1 && getId()!=idf){mode=-1;Main.getPb().setVisiblePa(false);Main.getPb().removePi();return;}//si 1 fourmi spéciale est sencé joué et que ce n'est pas celle la.
-    boolean estIa = fere.getJoueur().getIa();
-    // débloquage des modes auto :
-    if(!estIa){ mode = -1;}
-    else if(estReine()){mode = getModeReine();}
-    else if(getTropDeNourriture()){mode=3;}
-    else{mode = fere.getModeDéfaut();if(nourriture<5*getIndividu().getNourritureConso()){ mode=0;}}//choixMode();}
-    if(stade == 0){ // les fourmis qui ne sont pas encore née ne font rien
-      // Un tour de jeu d'une Fourmi
-      int direction=getDirAllea();
-      byte choix=0; int j=0; int k=0;
-      while(this.getAction() > 0 && k<actionMax+2) { // tant que la fourmi a encore des actions :
-        if(k==actionMax+1){
-          erreur.erreur("La fourmi "+ getId()+ " est en train de boucler dans ses actions","Fourmi.tourFourmi");
-        }
-        debug.débogage("Nouveau tour");
-        String m = "";
-        if (!estIa && mode == -1){
-          Main.getPj().setFActuelle(this);
-          Main.getPb().addPI();
-          Main.getPb().addPIJ();
-          choix = (byte)(getChoixJoueur()-1);
-          if(choix==-2){
-            //Main.getPb().removePi();
-            return;
-          }
-          m = faire(choix);
-        } else if (estIa){ // si c'est une ia
-          if(propreté < 70){ ceNetoyer();}
-          debug.débogage("choix mode");
-        }
-        // Les modes auto
-        if (mode == 0){
-          m = "chasser / ce déplacer pour chasser (Ou Récolter des graines)";
-          collecterOuChasser(direction, estIa);
-        }else if(mode == 1){
-          if (!estALaFere()) {rentrer();}
-          else {setAction(0);}
-          m = "défendre la fourmilière.";
-        }else if(mode == 3){
-          //nourrirEtNétoyer(); m = "Nourrir et Nétoyer";
-        }
-        k++;
-        //new Message("La fourmi " +this.getId() +" a choisi de " + m + "."+" mode : "+mode);
-        if(!Main.getMouvementRapide() && estIa){Main.repaint();} // ici on pause le jeu si les mouvement rapide sont désactivé et que la fourmi est une ia.
-        else{Main.getPb().removePi(); Main.getPb().removePij();}
-      }
-    }else{ // les fourmis non adulte.
-      if (age>=ageMax){ evoluer();}
-    }
-    if(!estIa && action<=0){
-      Main.getPs().setIdFourmiAjoué(-1);
-    }
-  }*/
 
   /*public boolean mangerGraine(){
     //if(fere.getGGraine().getDébut()==null){return false;}
@@ -320,7 +240,7 @@ public class Fourmi extends Creature implements Serializable{
   */
   public boolean wantFood(){
     if(stade==-3){return false;}
-    return isHungry(5) || (getNourriture() < math.min(getIndividu().getNourritureConso(getStade())*2,getNourritureMax()));
+    return isHungry(5) || (getNourriture() < math.min(getNourritureConso()*2,getNourritureMax()));
   }
   /**
   *{@summary return true if this whant to be clean.}
