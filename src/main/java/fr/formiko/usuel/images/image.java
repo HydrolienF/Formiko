@@ -287,6 +287,9 @@ public class image{
   *@version 1.31
   */
   public static BufferedImage resize(BufferedImage bi, int newW, int newH) {
+    if(bi==null){return null;}
+    if(newW<1){newW=1;}
+    if(newH<1){newH=1;}
     Image tmp = bi.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
     BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
 
@@ -305,8 +308,9 @@ public class image{
   *@version 1.31
   */
   public static BufferedImage resize(BufferedImage bi, int newHW){
-    int newW = 0;
-    int newH = 0;
+    if(bi==null){return null;}
+    int newW;
+    int newH;
     if(bi.getWidth()>bi.getHeight()){
       newW = newHW;
       newH = newHW*bi.getHeight()/bi.getWidth(); //a smaler size.

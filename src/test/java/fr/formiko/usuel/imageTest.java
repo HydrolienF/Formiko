@@ -389,6 +389,19 @@ public class imageTest extends TestCaseMuet{
     bi2 = image.resize(bi,6,9);
     assertEquals(6,bi2.getWidth());
     assertEquals(9,bi2.getHeight());
+    //uncorect value
+    bi = new BufferedImage(10,12,BufferedImage.TYPE_INT_ARGB);
+    bi2 = image.resize(bi,-6,-9);
+    assertEquals(1,bi2.getWidth());
+    assertEquals(1,bi2.getHeight());
+    bi = new BufferedImage(10,12,BufferedImage.TYPE_INT_ARGB);
+    bi2 = image.resize(bi,0,9);
+    assertEquals(1,bi2.getWidth());
+    assertEquals(9,bi2.getHeight());
+
+    bi=null;
+    bi2 = image.resize(bi,5);
+    assertEquals(null,bi2);
   }
 
   @Test
@@ -413,5 +426,9 @@ public class imageTest extends TestCaseMuet{
     bi2 = image.resize(bi,5);
     assertEquals(1,bi2.getWidth());
     assertEquals(5,bi2.getHeight());
+
+    bi=null;
+    bi2 = image.resize(bi,5);
+    assertEquals(null,bi2);
   }
 }
