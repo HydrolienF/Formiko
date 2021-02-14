@@ -259,8 +259,7 @@ public class image{
     return false;
   }
   public static boolean deleteDirectory(File f){ return fichier.deleteDirectory(f);}
-
-  public BufferedImage rognerImage(BufferedImage i){
+  /*public BufferedImage rognerImage(BufferedImage i){
     Img img = new Img(i);
     img.rognerBordTransparent();
     img.actualiserImage();
@@ -277,7 +276,7 @@ public class image{
       erreur.erreur("impossible de charger l'image correctement","image.rognerImage");
     }
     return i;
-  }
+  }*/
   /**
   *{@summary A fonction to getScaledInstance and return a BufferedImage.} <br>
   *cf https://stackoverflow.com/questions/9417356/bufferedimage-resize/9417836#9417836
