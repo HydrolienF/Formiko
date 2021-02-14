@@ -1,18 +1,22 @@
 package fr.formiko.formiko;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
-import java.time.LocalDateTime;
-import java.util.Map;
-import java.util.HashMap;
-import fr.formiko.usuel.types.str;
+
+import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
-import fr.formiko.usuel.images.*;
-import java.awt.Image;
-import fr.formiko.graphisme.GEtiquetteJoueur;
 import fr.formiko.graphisme.EtiquetteJoueur;
+import fr.formiko.graphisme.GEtiquetteJoueur;
 import fr.formiko.usuel.Temps;
-import java.io.Serializable;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.images.*;
 import fr.formiko.usuel.tableau;
+import fr.formiko.usuel.types.str;
+
+import java.awt.Image;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Partie implements Serializable{
   private static final long serialVersionUID = 1L;

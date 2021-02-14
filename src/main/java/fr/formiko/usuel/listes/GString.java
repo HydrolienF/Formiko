@@ -1,9 +1,10 @@
-package fr.formiko.usuel.liste;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
-//def par défaut des fichiers depuis 0.79.5
-import javax.swing.JComboBox;
+package fr.formiko.usuel.listes;
+
+import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.math;
+
 import java.io.Serializable;
+import javax.swing.JComboBox;
 
 public class GString implements Serializable{
   private CString début, fin;

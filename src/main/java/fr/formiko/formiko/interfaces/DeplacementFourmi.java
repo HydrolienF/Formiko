@@ -1,10 +1,12 @@
 package fr.formiko.formiko.interfaces;
+
 import fr.formiko.formiko.*;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.maths.allea;
-import fr.formiko.usuel.read;
 import fr.formiko.graphisme.PanneauTInt;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.maths.allea;
+
 import java.io.Serializable;
 
 /**
@@ -113,19 +115,6 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     } while (!b);
     setActionMoinsDéplacement();
   }
-  /*private void unMouvementJoueurHumain(){
-    int direction; //On a 8 direction pour ce déplacer.
-    boolean b;
-    do {
-      int ti [] = {1,2,3,4,5,6,7,8,9};
-      Main.getPp().getPj().addPti(ti,4);
-      direction = PanneauTInt.getChoixId();
-      //direction = read.getInt(1,9,"direction (pour la Fourmi "+  c.getId() +")",5);  // ici ca coince pour l'instant.
-      if (direction==5){ c.setAction(0);return;} // c'est plus rapide si on décide de pas bougé.
-      b = unPas(direction);
-    } while (!b);
-    setActionMoinsDéplacement();
-  }*/
   /**
   *{@summary make a willing moove.<br>}
   *@param direction the direction to move. (It's a number place as on the keyboard 1= North West, 2 = North, etc)

@@ -1,23 +1,25 @@
 package fr.formiko.graphisme;
-import fr.formiko.graphisme.*;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur;
-import java.awt.Graphics;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.images.Img;
+import fr.formiko.usuel.images.Pixel;
+import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.maths.math;
+
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
-import javax.swing.JPanel;
+import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import java.awt.Image;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Dimension;
-import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.maths.math;
 import javax.swing.ImageIcon;
-import fr.formiko.usuel.images.Img;
-import fr.formiko.formiko.Main;
-import fr.formiko.usuel.images.Pixel;
+import javax.swing.JPanel;
 
 public class PanneauZoom extends Panneau {
   private Bouton bPlus; private Bouton bMoins; private Bouton bc;//bouton de zoom.

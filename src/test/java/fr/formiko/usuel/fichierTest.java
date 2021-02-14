@@ -5,7 +5,7 @@ import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.tests.TestCaseMuet;
 import org.junit.jupiter.api.Test;
 import java.io.File;
-import fr.formiko.usuel.liste.GString;
+import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.ecrireUnFichier;
 
 public class fichierTest extends TestCaseMuet{

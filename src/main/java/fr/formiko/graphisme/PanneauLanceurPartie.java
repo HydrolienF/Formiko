@@ -1,8 +1,11 @@
 package fr.formiko.graphisme;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
-import java.awt.Graphics;
+
+import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.g;
+
+import java.awt.Graphics;
 
 public abstract class PanneauLanceurPartie extends Panneau{
   private BoutonLong lancerPartie;

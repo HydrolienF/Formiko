@@ -1,19 +1,21 @@
 package fr.formiko.graphisme;
-import fr.formiko.graphisme.*;
-import fr.formiko.usuel.erreur; import fr.formiko.usuel.debug;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.images.image;
-import java.awt.Graphics;
+
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
-import javax.swing.JPanel;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import java.awt.Image;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import fr.formiko.formiko.Main;
+import javax.swing.JPanel;
 
 public class PanneauPrincipal extends Panneau {
   private PanneauJeu pj;

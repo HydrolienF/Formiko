@@ -4,7 +4,7 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 import java.io.File;
 import fr.formiko.usuel.type.str;
 import java.io.*;
-import fr.formiko.usuel.liste.GString;
+import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.ecrireUnFichier;
 
 /**

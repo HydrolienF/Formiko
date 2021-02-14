@@ -1,8 +1,12 @@
 package fr.formiko.formiko;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
+
+import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
-import fr.formiko.usuel.liste.GString;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.listes.GString;
+
 import java.io.Serializable;
 
 public class GJoueur implements Serializable{

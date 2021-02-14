@@ -1,11 +1,15 @@
 package fr.formiko.formiko.interfaces;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
+
 import fr.formiko.formiko.Creature;
-import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Fourmi;
-import java.io.Serializable;
+import fr.formiko.formiko.Insecte;
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.math;
+
+import java.io.Serializable;
 /**
  * {@summary Chasse implementation.<br>}
  * Allow a creature to do hunt as an herbivore.<br>

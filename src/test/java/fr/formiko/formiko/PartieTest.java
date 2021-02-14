@@ -30,16 +30,28 @@ public class PartieTest extends TestCaseMuet{
         cpt++;
       }
     }
-    //System.out.println("done : "+cpt);
+    assertTrue(cpt>=nbTryThatWorkMin);
+  }
+  public void test2LaunchGame(int nbTurn, String mapName, int nbTry, int nbTryThatWorkMin){
+    int cpt = 0;
+    for (int i=0;i<nbTry ;i++ ) {
+      ini(nbTurn,mapName);
+      p.launchGame();
+      if(p.getGj().getJoueurParId(1).getFere().getGc().getGcStade(0).length()>5){
+        cpt++;
+      }
+    }
     assertTrue(cpt>=nbTryThatWorkMin);
   }
   @Test
   @Disabled("Tooo long for standard test")
   public void testLaunchGame(){
-    test1LaunchGame(100,"miniMonde",10,9);
-    test1LaunchGame(80,"miniMonde",10,9);
-    test1LaunchGame(50,"miniMonde",10,8);
-    test1LaunchGame(100,"jardin",10,9);
+    //test1LaunchGame(100,"miniMonde",10,9);
+    //test1LaunchGame(80,"miniMonde",10,9);
+    test1LaunchGame(50,"miniMonde",10,8); //at leaste 1 new ant.
+    //TODO #199
+    test2LaunchGame(100,"miniMonde",10,8); //at least 5 new ant.
+    //test1LaunchGame(50,"jardin",10,8);
   }
 
   @Test

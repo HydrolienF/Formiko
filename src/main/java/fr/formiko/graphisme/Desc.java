@@ -1,12 +1,14 @@
 package fr.formiko.graphisme;
-import fr.formiko.graphisme.*;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur;
-import javax.swing.JLabel;
-import java.awt.Dimension;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+
 import java.awt.Color;
-import fr.formiko.formiko.Main;
+import java.awt.Dimension;
 import java.awt.Font;
-import fr.formiko.formiko.Main;
+import javax.swing.JLabel;
 
 public class Desc extends JLabel{
   // CONSTRUCTEUR ---------------------------------------------------------------

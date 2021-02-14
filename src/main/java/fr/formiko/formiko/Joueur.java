@@ -1,15 +1,18 @@
 package fr.formiko.formiko;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.read;
-import fr.formiko.graphisme.readG;
-import fr.formiko.usuel.maths.allea;
-import fr.formiko.usuel.tableau;
+
+import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
-import fr.formiko.usuel.liste.GMessage;
-import fr.formiko.usuel.liste.CMessage;
-import fr.formiko.usuel.tableau;
+import fr.formiko.graphisme.readG;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.listes.CMessage;
+import fr.formiko.usuel.listes.GMessage;
+import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.read;
+import fr.formiko.usuel.tableau;
+
 import java.io.Serializable;
 
 public class Joueur implements Serializable{

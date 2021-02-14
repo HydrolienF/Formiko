@@ -1,26 +1,28 @@
 package fr.formiko.graphisme;
-import fr.formiko.graphisme.*;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
+
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.Touches;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.image;
+
+import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.FontMetrics;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.JButton;
 import javax.swing.ImageIcon;
-import java.awt.BasicStroke;
-import fr.formiko.formiko.Touches;
-import java.awt.font.FontRenderContext;
-import java.awt.geom.Rectangle2D;
-import java.awt.FontMetrics;
+import javax.swing.JButton;
 
 public class Bouton extends JButton implements MouseListener{
   protected final int id; protected static int cpt=1;

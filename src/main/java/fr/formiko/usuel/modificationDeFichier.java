@@ -1,10 +1,10 @@
 package fr.formiko.usuel;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
+
 //def par défaut des fichiers depuis 0.79.5
 import java.io.File;
 import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.usuel.ecrireUnFichier;
-import fr.formiko.usuel.liste.GString;
+import fr.formiko.usuel.listes.GString;
 
 public class modificationDeFichier {
 

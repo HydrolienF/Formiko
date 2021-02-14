@@ -4,8 +4,8 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko
 import fr.formiko.usuel.conversiondetype.str;
 import fr.formiko.usuel.ecrireUnFichier;
 import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.liste.GString;
-import fr.formiko.usuel.liste.CString;
+import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.listes.CString;
 import java.time.LocalDateTime;
 
 public class creerUneSauvegarde{

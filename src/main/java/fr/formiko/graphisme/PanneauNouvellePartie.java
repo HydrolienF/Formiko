@@ -1,23 +1,25 @@
 package fr.formiko.graphisme;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.41.2
-//import fr.formiko.graphisme.Desc;
-//import fr.formiko.graphisme.EtiquetteJoueur;
-import java.awt.Font;
-import javax.swing.JFormattedTextField;
-import java.text.NumberFormat;
-import fr.formiko.usuel.liste.GString;
-import fr.formiko.usuel.liste.CString;
-import java.io.File;
-import fr.formiko.usuel.types.str;
-import javax.swing.JComboBox;
-import javax.swing.JCheckBox;
-import fr.formiko.usuel.maths.math;
+
 import fr.formiko.formiko.Carte;
+import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.usuel.chargerCarte;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.listes.CString;
+import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.types.str;
+
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
+import java.io.File;
+import java.text.NumberFormat;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 
 public class PanneauNouvellePartie extends PanneauLanceurPartie {
   private Desc jl; private Desc jl2;

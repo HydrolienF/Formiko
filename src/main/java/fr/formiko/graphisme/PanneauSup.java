@@ -1,14 +1,16 @@
 package fr.formiko.graphisme;
-//import fr.formiko.formiko.*;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
+
+import fr.formiko.formiko.*;
+import fr.formiko.usuel.Temps;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.Color;
-import fr.formiko.formiko.*;
-import fr.formiko.usuel.Temps;
 
 public class PanneauSup extends Panneau{
   private int idFourmiAjoué=-1;

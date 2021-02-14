@@ -1,6 +1,6 @@
 package fr.formiko.usuel.exceptions;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
-//def par défaut des fichiers depuis 0.79.5
+
+import fr.formiko.usuel.g;
 
 public class EmptyListException extends RuntimeException{
   public EmptyListException(String liste, String action){

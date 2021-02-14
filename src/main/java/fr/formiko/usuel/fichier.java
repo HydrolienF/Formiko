@@ -1,5 +1,5 @@
 package fr.formiko.usuel;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
+
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.read;
 import java.io.File;
@@ -7,7 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import fr.formiko.usuel.liste.GString;
+import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.types.str;
 
 public class fichier{

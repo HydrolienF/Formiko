@@ -1,13 +1,15 @@
 package fr.formiko.graphisme;
-import fr.formiko.graphisme.*;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
-//def par défaut des fichiers depuis 0.41.2
+
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+
 import java.awt.Dimension;
-import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
-import javax.swing.JButton;
+import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JButton;
 
 public class PanneauChamp extends Panneau {
   private Champ c;

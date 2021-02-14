@@ -9,7 +9,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.liste.GString;
+import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
 import java.io.File;

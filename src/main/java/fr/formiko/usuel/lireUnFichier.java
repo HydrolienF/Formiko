@@ -1,5 +1,5 @@
 package fr.formiko.usuel;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
+
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.tableau;
 import java.io.BufferedReader;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.File;
 import java.util.ArrayList;
 import java.nio.charset.StandardCharsets;
-import fr.formiko.usuel.liste.GString;
+import fr.formiko.usuel.listes.GString;
 
 public class lireUnFichier {
 

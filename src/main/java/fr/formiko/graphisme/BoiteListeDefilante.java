@@ -1,12 +1,16 @@
 package fr.formiko.graphisme;
-//import fr.formiko.formiko.*;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
-import javax.swing.JOptionPane;
-import javax.swing.JComboBox;
-import javax.swing.ImageIcon;
-import fr.formiko.usuel.types.str;
+
+import fr.formiko.formiko.*;
 import fr.formiko.usuel.Temps;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.types.str;
+
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
 //imspiré de http://remy-manu.no-ip.biz/Java/Tutoriels/IHM/dialogue.html
 
 public class BoiteListeDefilante {

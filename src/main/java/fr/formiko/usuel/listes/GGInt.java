@@ -1,8 +1,9 @@
-package fr.formiko.usuel.liste;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
-//def par défaut des fichiers depuis 0.79.5
+package fr.formiko.usuel.listes;
+
 import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GCreature;
+import fr.formiko.usuel.g;
+
 import java.io.Serializable;
 
 public class GGInt implements Serializable{

@@ -1,13 +1,13 @@
 package fr.formiko.usuel;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
-//def par défaut des fichiers depuis 0.79.5
-import java.util.Map;
-import java.util.HashMap;
+
 import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
-import fr.formiko.usuel.liste.GString;
+
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ThTrad extends Thread{
   int langue;

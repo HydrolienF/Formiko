@@ -1,5 +1,5 @@
-package fr.formiko.usuel.liste;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
+package fr.formiko.usuel.listes;
+
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.formiko.Message;
 import java.io.Serializable;

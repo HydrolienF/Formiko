@@ -1,22 +1,24 @@
 package fr.formiko.graphisme;
-import fr.formiko.graphisme.*;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur;
-import java.awt.Graphics;
+
+import fr.formiko.formiko.*;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.listes.*;
+import fr.formiko.usuel.maths.math;
+
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.geom.AffineTransform;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import java.awt.Image;
-import fr.formiko.formiko.*;
-import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.maths.math;
-import java.awt.geom.AffineTransform;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.liste.*;
 
 public class PanneauBouton extends Panneau {
   private PanneauZoom pz;

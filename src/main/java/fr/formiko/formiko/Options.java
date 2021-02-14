@@ -1,12 +1,16 @@
 package fr.formiko.formiko;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.ecrireUnFichier;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.types.str;
+
 import java.awt.Font;
 import java.io.File;
-import fr.formiko.usuel.liste.GString;
-import fr.formiko.usuel.ecrireUnFichier;
 import java.io.Serializable;
-import fr.formiko.usuel.types.str;
 /**
 *{@summary Options class.<br>}
 *It contain all globals options and can save it.<br>

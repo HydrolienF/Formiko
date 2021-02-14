@@ -1,19 +1,21 @@
 package fr.formiko.graphisme;
-import fr.formiko.graphisme.*;
-import java.awt.Graphics;
+
+import fr.formiko.formiko.*;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.maths.math;
+
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.JPanel;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import java.awt.Image;
-import fr.formiko.formiko.*;
-import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.maths.math;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JPanel;
 
 public class Panneau extends JPanel {//implements ActionListener{
   private static final long serialVersionUID = -3227223889149566494L;

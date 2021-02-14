@@ -5,7 +5,7 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.decoderUnFichier;
 import fr.formiko.usuel.conversiondetype.str;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.liste.GString;
+import fr.formiko.usuel.listes.GString;
 
 public class triche {
   public static GString gs;

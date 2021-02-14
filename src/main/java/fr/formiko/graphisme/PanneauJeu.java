@@ -1,26 +1,29 @@
 package fr.formiko.graphisme;
-import fr.formiko.graphisme.*;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
-import java.awt.Graphics;
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import java.awt.Image;
-import java.awt.geom.AffineTransform;
-import javax.swing.JScrollPane;
-import javax.swing.JOptionPane;
+
 import fr.formiko.formiko.*;
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.Temps;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.sauvegarderUnePartie;
-import fr.formiko.usuel.Temps;
-import javax.swing.ImageIcon;
 import fr.formiko.usuel.types.str;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.geom.AffineTransform;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 public class PanneauJeu extends Panneau {
   private PanneauCarte pc;

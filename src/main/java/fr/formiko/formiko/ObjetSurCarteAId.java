@@ -1,8 +1,12 @@
 package fr.formiko.formiko;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
-import java.io.Serializable;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.allea;
+
+import java.io.Serializable;
 
 public class ObjetSurCarteAId extends ObjetAId implements Serializable{
   protected CCase p;

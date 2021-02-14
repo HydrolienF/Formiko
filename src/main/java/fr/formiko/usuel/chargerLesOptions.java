@@ -1,16 +1,19 @@
 package fr.formiko.usuel;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
-//def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.lireUnFichier;
+
 import fr.formiko.formiko.Options;
-import fr.formiko.usuel.ecrireUnFichier;
-import fr.formiko.usuel.liste.GString;
 import fr.formiko.usuel.chargerLesTraductions;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.ecrireUnFichier;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.listes.GString;
+
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.io.File;
-import java.awt.Font;
 import java.util.Locale;
-import fr.formiko.usuel.images.image;
 
 public class chargerLesOptions {
   // Fonctions propre -----------------------------------------------------------

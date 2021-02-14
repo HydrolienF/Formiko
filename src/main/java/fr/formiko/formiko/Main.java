@@ -2,20 +2,18 @@ package fr.formiko.formiko;
 
 import fr.formiko.graphisme.*;
 import fr.formiko.usuel.*;
-import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.*;
-import fr.formiko.usuel.liste.*;
+import fr.formiko.usuel.listes.*;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.types.str;
 
 import java.awt.Font;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.util.Map;
-// ArrayList<?> list; permet de déclarrer une liste de tout type. Sinon mettre l'objet ou Integer a la place. on peu aussi mettre Object pour spécifier que ce sera une liste d'objet.
-// diff fichier1 fichier2 permet de comparer de façon très complète, les différences entre des fichiers. On peu comparer tout le contenu de formiko avec /diff -r Formiko14 Formiko15
 
 /**
 *{@summary Launch class <br>}

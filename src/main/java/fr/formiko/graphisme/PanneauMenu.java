@@ -1,19 +1,21 @@
 package fr.formiko.graphisme;
-import fr.formiko.graphisme.*;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.erreur; import fr.formiko.usuel.debug;
-import fr.formiko.formiko.Main;
-import java.awt.Graphics;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Dimension;
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import fr.formiko.usuel.maths.math;
-import fr.formiko.formiko.Partie;
+
 import fr.formiko.formiko.Carte;
+import fr.formiko.formiko.Main;
+import fr.formiko.formiko.Partie;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.maths.math;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 public class PanneauMenu extends Panneau {
   private BoutonLong b[];

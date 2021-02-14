@@ -1,9 +1,13 @@
 package fr.formiko.formiko;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.listes.GGInt;
+import fr.formiko.usuel.listes.GInt;
 import fr.formiko.usuel.maths.allea;
-import fr.formiko.usuel.liste.GGInt;
-import fr.formiko.usuel.liste.GInt;
+
 import java.io.Serializable;
 
 public class Fourmiliere implements Serializable{

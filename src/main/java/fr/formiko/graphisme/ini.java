@@ -1,13 +1,15 @@
 package fr.formiko.graphisme;
-import fr.formiko.graphisme.*;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
-//def par défaut des fichiers depuis 0.41.2
+
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.types.str;
 import fr.formiko.formiko.Message;
-import fr.formiko.usuel.images.*;
-import java.awt.Image;
 import fr.formiko.formiko.Touches;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.images.*;
+import fr.formiko.usuel.types.str;
+
+import java.awt.Image;
 
 public class ini {
 

@@ -1,7 +1,7 @@
 package fr.formiko.usuel;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 //def par défaut des fichiers depuis 0.41.2
-import fr.formiko.usuel.liste.GString;import fr.formiko.usuel.liste.CString;
+import fr.formiko.usuel.listes.GString;import fr.formiko.usuel.listes.CString;
 import fr.formiko.usuel.lireUnFichier;
 
 public class impor {

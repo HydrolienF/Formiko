@@ -3,7 +3,7 @@ import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.usuel.ecrireUnFichier;
-import fr.formiko.usuel.liste.GString;
+import fr.formiko.usuel.listes.GString;
 import java.io.File;
 import java.util.Map;
 import java.util.HashMap;

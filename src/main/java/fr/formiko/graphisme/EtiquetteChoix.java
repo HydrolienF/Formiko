@@ -1,11 +1,14 @@
 package fr.formiko.graphisme;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
-//def par défaut des fichiers depuis 0.41.2
-import javax.swing.JComboBox;
-import fr.formiko.usuel.liste.GString;
+
 import fr.formiko.formiko.Main;
-import java.awt.Graphics;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.listes.GString;
+
 import java.awt.Font;
+import java.awt.Graphics;
+import javax.swing.JComboBox;
 
 public class EtiquetteChoix extends Panneau{
   private JComboBox<String> choixX;

@@ -1,15 +1,19 @@
 package fr.formiko.usuel.images;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.fichier;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.types.str;
+
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import java.awt.Image;
-import fr.formiko.usuel.types.str;
-import fr.formiko.usuel.maths.math;
-import fr.formiko.usuel.fichier;
-import java.awt.image.BufferedImage;
-import java.awt.Graphics2D;
 
 /**
  *{@summary image class that contain a lot of tools to use images. <br>}

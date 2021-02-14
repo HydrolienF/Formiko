@@ -1,18 +1,22 @@
 package fr.formiko.graphisme;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
-//def par défaut des fichiers depuis 0.41.2
-import java.awt.Graphics;
-import fr.formiko.formiko.Main;
-import javax.swing.JComboBox;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+
 import fr.formiko.formiko.Joueur;
-import javax.swing.JTextField;
+import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Pheromone;
-import java.awt.Graphics2D;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.event.*;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 public class EtiquetteJoueur extends Panneau{
   private static int idCpt; private final int id;

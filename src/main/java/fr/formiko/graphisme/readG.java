@@ -1,11 +1,13 @@
 package fr.formiko.graphisme;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.graphisme.PanneauBouton;
 import fr.formiko.graphisme.PanneauChamp;
 import fr.formiko.graphisme.PanneauTBoolean;
-import fr.formiko.graphisme.PanneauBouton;
-import fr.formiko.formiko.Main;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
 import fr.formiko.usuel.Temps;
-//def par défaut des fichiers depuis 0.41.2
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
 
 public class readG {
 

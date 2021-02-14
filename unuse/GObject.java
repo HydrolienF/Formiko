@@ -1,4 +1,4 @@
-package fr.formiko.usuel.liste;
+package fr.formiko.usuel.listes;
 
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
