@@ -201,15 +201,15 @@ public class Data {
       BufferedImage r [] = new BufferedImage[lenr];
       for (int i=0;i<lenr ;i++ ) {
         if(b==0){//par défaut
-          r[i]=image.resize(ti[i],dim, dim);
+          r[i]=image.resize(ti[i],dim);
         }else if(b==1){//pour les fourmis.
           int idEspece = 0;
           int stade = i-3;
-          r[i]=image.resize(ti[i],image.taille(idEspece, stade,dim), image.taille(idEspece, stade,dim));
+          r[i]=image.resize(ti[i],image.taille(idEspece, stade,dim));
         }else if(b==2){//pour les insectes
           int idEspece = i+100;
           int stade = 0;
-          r[i]=image.resize(ti[i],image.taille(idEspece, stade,dim), image.taille(idEspece, stade,dim));
+          r[i]=image.resize(ti[i],image.taille(idEspece, stade,dim));
         }
       }
       return r;

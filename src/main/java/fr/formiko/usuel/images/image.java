@@ -275,8 +275,12 @@ public class image{
     return i;
   }
   /**
-  *{@summary a better fonction to getScaledInstance and return a BufferedImage.}
+  *{@summary A fonction to getScaledInstance and return a BufferedImage.} <br>
   *cf https://stackoverflow.com/questions/9417356/bufferedimage-resize/9417836#9417836
+  *@param bi The Image to resize.
+  *@param newW The new width.
+  *@param newH The new height.
+  *@version 1.31
   */
   public static BufferedImage resize(BufferedImage bi, int newW, int newH) {
     Image tmp = bi.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
@@ -287,5 +291,26 @@ public class image{
     g2d.dispose();
 
     return dimg;
-  }public static BufferedImage resize(BufferedImage bi, int newHW){ return resize(bi,newHW,newHW);}
+  }
+  /**
+  *{@summary A fonction to getScaledInstance and return a BufferedImage.}<br>
+  *This function use resize(bufferedImage, width, height).<br>
+  *This function resize the biger side to newHW &#38; the other size to keep the proportions.<br>
+  *@param bi The Image to resize.
+  *@param newHW The new height or width (biger side).
+  *@version 1.31
+  */
+  public static BufferedImage resize(BufferedImage bi, int newHW){
+    int newW = 0;
+    int newH = 0;
+    if(bi.getWidth()>bi.getHeight()){
+      newW = newHW;
+      newH = newHW*bi.getHeight()/bi.getWidth(); //a smaler size.
+    }else{
+      newH = newHW;
+      newW = newHW*bi.getWidth()/bi.getHeight(); //a smaler size.
+    }
+    double racioWH = bi.getWidth()/bi.getHeight();
+    return resize(bi,newW,newH);
+  }
 }

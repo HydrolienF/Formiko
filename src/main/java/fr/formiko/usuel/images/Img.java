@@ -1,30 +1,34 @@
 package fr.formiko.usuel.images;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
-//def par défaut des fichiers depuis 0.79.5
+
+import fr.formiko.usuel.Chrono;
+import fr.formiko.usuel.chargerLesTraductions;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.imageio.ImageIO;
-import java.io.IOException;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import fr.formiko.usuel.types.str;
+
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.Random;
-import java.awt.Image;
-import java.awt.Color;
-import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.maths.math;
-import fr.formiko.usuel.types.str;
-import fr.formiko.usuel.Chrono;
-import fr.formiko.usuel.chargerLesTraductions;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.Random;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
 *{@summary Img is a BufferedImage where you can edit pixel value, then save it on a local file or draw it.<br>}
@@ -63,22 +67,6 @@ public class Img implements Cloneable{
   public Img(String nom){
     this(image.getImage(nom));
   }
-  /*public Img(byte [][] rouge,byte [][] vert, byte [][] bleu) {
-    width = rouge.length;
-    height = rouge[0].length;
-    img = new BufferedImage(width,height,java.awt.image.BufferedImage.TYPE_INT_RGB);
-    for (int i = 0 ; i < width; i++)
-      for (int j = 0; j < height; j++)
-        img.setRGB(i,j,(rouge[i][j]<<16)|(vert[i][j]<<8)|(bleu[i][j]));
-  }
-  public Img(byte [][] gray) {
-    width = gray.length;
-    height = gray[0].length;
-    img = new BufferedImage(width,height,java.awt.image.BufferedImage.TYPE_INT_RGB);
-    for (int i = 0 ; i < width; i++)
-      for (int j = 0; j < height; j++)
-        img.setRGB(i,j,(gray[i][j]<<16)|(gray[i][j]<<8)|(gray[i][j]));
-  }*/
   /**
   *Constructs a new grey 50% alpha Img whose width and height are specified by the arguments of the same name.
   */

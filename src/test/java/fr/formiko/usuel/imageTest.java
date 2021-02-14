@@ -1,6 +1,5 @@
 package fr.formiko.usuel.images;
 
-
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
@@ -14,6 +13,7 @@ import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class imageTest extends TestCaseMuet{
@@ -377,6 +377,41 @@ public class imageTest extends TestCaseMuet{
     assertTrue(!image.isImage(f));
     f = new File("gerh.pnj.ĉu ne");
     assertTrue(!image.isImage(f));
+  }
 
+  @Test
+  public void testResize(){
+    BufferedImage bi = new BufferedImage(8,8,BufferedImage.TYPE_INT_ARGB);
+    BufferedImage bi2 = image.resize(bi,4,4);
+    assertEquals(4,bi2.getWidth());
+    assertEquals(4,bi2.getHeight());
+    bi = new BufferedImage(10,12,BufferedImage.TYPE_INT_ARGB);
+    bi2 = image.resize(bi,6,9);
+    assertEquals(6,bi2.getWidth());
+    assertEquals(9,bi2.getHeight());
+  }
+
+  @Test
+  public void testResize2(){
+    //with int
+    BufferedImage bi = new BufferedImage(8,4,BufferedImage.TYPE_INT_ARGB);
+    BufferedImage bi2 = image.resize(bi,4);
+    assertEquals(4,bi2.getWidth());
+    assertEquals(2,bi2.getHeight()); //and not 3.
+    bi = new BufferedImage(4,12,BufferedImage.TYPE_INT_ARGB);
+    bi2 = image.resize(bi,6);
+    assertEquals(2,bi2.getWidth());
+    assertEquals(6,bi2.getHeight());
+    //with non-int.
+    //more than 2.
+    bi = new BufferedImage(4,12,BufferedImage.TYPE_INT_ARGB);
+    bi2 = image.resize(bi,7);
+    assertEquals(2,bi2.getWidth());
+    assertEquals(7,bi2.getHeight());
+    //less that 2.
+    bi = new BufferedImage(4,12,BufferedImage.TYPE_INT_ARGB);
+    bi2 = image.resize(bi,5);
+    assertEquals(1,bi2.getWidth());
+    assertEquals(5,bi2.getHeight());
   }
 }
