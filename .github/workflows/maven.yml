@@ -5,7 +5,7 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master, test31 ]
+    branches: [ master, develop ]
   pull_request:
     branches: [ master ]
 
@@ -22,3 +22,5 @@ jobs:
         java-version: 15
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: exe.sh
+      run: ./exe.sh
