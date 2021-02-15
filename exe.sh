@@ -1,9 +1,10 @@
 #File used to make 4 new realise (witout java or with java in Windows, Linux & mac)
-echo "javac"
-./javac.sh
+#echo "javac"
+#./javac.sh
 echo "test"
-./javact.sh
-./testJunit.sh
+mvn test
+#./javact.sh
+#./testJunit.sh
 echo "javadoc"
 ./javadoc.sh
 echo "to .jar"
@@ -77,6 +78,6 @@ rm -fr $nomL
 rm -fr $nomM
 
 echo "setVersion for the web site"
-cd ~/Formiko/HydrolienF.github.io/docs
-./authentification.sh
-./setVersion.sh \"$(echo `expr substr $nom 8 20`)\"
+#cd ~/Formiko/HydrolienF.github.io/docs
+#./authentification.sh
+#./setVersion.sh \"$(echo `expr substr $nom 8 20`)\"
