@@ -42,6 +42,6 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./out/$(cat version.md)Linux.zip
-        asset_name: $(cat version.md)Linux.zip
+        asset_path: ./out/Formiko${{ steps.version.outputs.version }}Linux.zip
+        asset_name: Formiko${{ steps.version.outputs.version }}Linux.zip
         asset_content_type: application/gzip
