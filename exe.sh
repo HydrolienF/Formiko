@@ -2,6 +2,7 @@
 #echo "javac"
 #./javac.sh
 echo "test"
+mvn test -q
 mvn test
 #./javact.sh
 #./testJunit.sh
@@ -12,7 +13,8 @@ echo "to .jar"
 #jarsigner -keystore monStore -signedjar FormikoTemp.jar Formiko.jar signature
 #nom = name + version
 echo "choose name"
-nom=$(./v2.sh)
+#nom=$(./v2.sh)
+nom=$(echo version.md)
 nomL=$nom"Linux"
 nomM=$nom"Mac"
 nomW=$nom"Windows"
@@ -82,7 +84,7 @@ rm -fr $nomM
 cd ..
 
 echo "-----------------------"
-ls -R out/
+ls -l out/
 echo "-----------------------"
 
 #echo "setVersion for the web site"
