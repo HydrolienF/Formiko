@@ -401,7 +401,7 @@ conseil.8:Les choix que vous avez à faire sont indiqué en haut a gauche de vot
 conseil.9:Les fourmi ne possèdent pas de paupière pour humidifier leur yeux. Elles doivent constamment conserver une bonne hygiène de vie afin de pouvoir communiquer avec leur antennes et voir avec leur yeux.
 conseil.10:Les œux, lave et nymphe ne sont pas capable de ce nettoyer tout seuls. Il leur faut nécessairement l'aide d'un imago sinon il risquerait d'être infecter par une mauvaise bactérie. veillez a ce que votre couvain reste au dessus de 50% de propreté.
 conseil.11:La Reine ne peut pondre que lorsqu'elle est dans la fourmilière.
-conseil.12:Les fourmis granivore ce nourrisse exclusivement de graine. Pour stocker leur nourriture elles conservent les graines dans des pièces sèche de la fourmilière.
+conseil.12:Les fourmis granivore ce nourrissent exclusivement de graine. Pour stocker leur nourriture elles conservent les graines dans des pièces sèche de la fourmilière.
 conseil.13:Les fourmis granivore ne sont pas capable de trophallaxer. Pour nourrir le couvain elles doivent nécessairement avoir des graines ouverte en stock dans la fourmilière.
 conseil.14:Les vitesses sont exprimées par des insectes. Plus l'insecte est rapide plus le déroulement de la partie sera rapide. La vitesse Fourmi correspond a la vitesse standard.
 conseil.15:Le jeu vous semble trop compliqué ? Choisissez la difficulté facile ou très facile.

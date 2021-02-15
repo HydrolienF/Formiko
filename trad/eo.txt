@@ -1,4 +1,0 @@
-```md
-#Version 1.14.6 19/11/2020
-Konservi kaj poste ŝargi konservitan ludon funkcias!
-```
