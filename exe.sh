@@ -5,8 +5,8 @@ echo "test"
 mvn test
 #./javact.sh
 #./testJunit.sh
-echo "javadoc"
-./javadoc.sh
+#echo "javadoc"
+#./javadoc.sh
 echo "to .jar"
 ./jar.sh Formiko
 #jarsigner -keystore monStore -signedjar FormikoTemp.jar Formiko.jar signature
@@ -33,8 +33,9 @@ cp -r data/ out/$nom/.
 cp README.md out/$nom/.
 cd out/$nom
 echo "-----------------------"
-ls -r
+ls -R
 echo "-----------------------"
+echo "";
 #suppress all file that will be recreate on the computer of the user.
 echo "Suppress unuse fill from data"
 rm -fr data/Options.txt
@@ -57,8 +58,9 @@ mkdir out/$nomW/java/
 mkdir out/$nomL/java/
 mkdir out/$nomM/java/
 echo "-----------------------"
-ls -r out/
+ls -R out/
 echo "-----------------------"
+echo "";
 echo "cp jlink & launcher"
 unzip -qq jlink.zip
 cp -r jlink/jWindows/* out/$nomW/java/
