@@ -1,9 +1,9 @@
 #File used to make 4 new realise (witout java or with java in Windows, Linux & mac)
 #echo "javac"
 #./javac.sh
-echo "test"
-mvn test -q
-mvn test
+#echo "test"
+#mvn test -q
+#mvn test
 #./javact.sh
 #./testJunit.sh
 #echo "javadoc"
@@ -14,7 +14,7 @@ echo "to .jar"
 #nom = name + version
 echo "choose name"
 #nom=$(./v2.sh)
-nom=$(echo version.md)
+nom=$(cat version.md)
 nomL=$nom"Linux"
 nomM=$nom"Mac"
 nomW=$nom"Windows"
