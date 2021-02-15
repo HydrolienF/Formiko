@@ -1,2 +1,2 @@
 content of CHANGELOG.md
-test 5
+test 7

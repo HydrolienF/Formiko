@@ -4,4 +4,4 @@ if [[ -e ./journalDesMaj.md ]]; then
 else
   nom=0
 fi
-echo -n "Formiko1."$version"."$num > version.md
+echo -n "1."$version"."$num > version.md
