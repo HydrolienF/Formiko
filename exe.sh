@@ -14,7 +14,7 @@ echo "to .jar"
 #nom = name + version
 echo "choose name"
 #nom=$(./v2.sh)
-nom=$(echo version.md)
+nom=$(cat version.md)
 nomL=$nom"Linux"
 nomM=$nom"Mac"
 nomW=$nom"Windows"
