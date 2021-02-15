@@ -23,7 +23,7 @@ jobs:
     - name: exe.sh
       run: ./exe.sh
     - name: version
-      run: echo "::set-output name=version::Formiko$(cat version.md)"
+      run: echo "::set-output name=version::$(cat version.md)"
       id: version
     - name: release
       uses: actions/create-release@v1
@@ -31,8 +31,8 @@ jobs:
       with:
         draft: false
         prerelease: false
-        release_name: ${{ steps.version.outputs.version }}
-        tag_name: $(cat version.md)
+        release_name: Formiko${{ steps.version.outputs.version }}
+        tag_name: ${{ steps.version.outputs.version }}
         body_path: CHANGELOG.md
       env:
         GITHUB_TOKEN: ${{ github.token }}
