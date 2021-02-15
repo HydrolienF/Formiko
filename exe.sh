@@ -32,10 +32,7 @@ mv Formiko.jar out/$nom/.
 cp -r data/ out/$nom/.
 cp README.md out/$nom/.
 cd out/$nom
-echo "-----------------------"
-ls -R
-echo "-----------------------"
-echo "";
+
 #suppress all file that will be recreate on the computer of the user.
 echo "Suppress unuse fill from data"
 rm -fr data/Options.txt
@@ -57,16 +54,14 @@ cp -r out/$nom/* out/$nomM/.
 mkdir out/$nomW/java/
 mkdir out/$nomL/java/
 mkdir out/$nomM/java/
-echo "-----------------------"
-ls -R out/
-echo "-----------------------"
+
 echo "";
 echo "cp jlink & launcher"
-unzip -qq jlink.zip
+#unzip -qq jlink.zip
 cp -r jlink/jWindows/* out/$nomW/java/
 cp -r jlink/jLinux/* out/$nomL/java/
 cp -r jlink/jMac/* out/$nomM/java/
-rm -fr jlink/
+#rm -fr jlink/
 cp launcher/formiko.bat out/$nomW/.
 cp launcher/formiko.sh out/$nomL/.
 cp launcher/formiko.sh out/$nomM/.
@@ -84,7 +79,13 @@ rm -fr $nomW
 rm -fr $nomL
 rm -fr $nomM
 
-echo "setVersion for the web site"
+cd ..
+
+echo "-----------------------"
+ls -R out/
+echo "-----------------------"
+
+#echo "setVersion for the web site"
 #cd ~/Formiko/HydrolienF.github.io/docs
 #./authentification.sh
 #./setVersion.sh \"$(echo `expr substr $nom 8 20`)\"
