@@ -28,4 +28,4 @@ musique:0
 son:1
 volMusique:100
 volSon:100
-tailleRealiste:60
+tailleRealiste:30
