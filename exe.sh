@@ -32,6 +32,9 @@ mv Formiko.jar out/$nom/.
 cp -r data/ out/$nom/.
 cp README.md out/$nom/.
 cd out/$nom
+echo "-----------------------"
+ls -r
+echo "-----------------------"
 #suppress all file that will be recreate on the computer of the user.
 echo "Suppress unuse fill from data"
 rm -fr data/Options.txt
@@ -53,7 +56,9 @@ cp -r out/$nom/* out/$nomM/.
 mkdir out/$nomW/java/
 mkdir out/$nomL/java/
 mkdir out/$nomM/java/
-
+echo "-----------------------"
+ls -r out/
+echo "-----------------------"
 echo "cp jlink & launcher"
 unzip -qq jlink.zip
 cp -r jlink/jWindows/* out/$nomW/java/
