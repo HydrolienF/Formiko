@@ -1,9 +1,10 @@
 #File used to make 4 new realise (witout java or with java in Windows, Linux & mac)
-echo "javac"
-./javac.sh
+#echo "javac"
+#./javac.sh
 echo "test"
-./javact.sh
-./testJunit.sh
+mvn test
+#./javact.sh
+#./testJunit.sh
 echo "javadoc"
 ./javadoc.sh
 echo "to .jar"
@@ -31,6 +32,9 @@ mv Formiko.jar out/$nom/.
 cp -r data/ out/$nom/.
 cp README.md out/$nom/.
 cd out/$nom
+echo "-----------------------"
+ls -r
+echo "-----------------------"
 #suppress all file that will be recreate on the computer of the user.
 echo "Suppress unuse fill from data"
 rm -fr data/Options.txt
@@ -52,7 +56,9 @@ cp -r out/$nom/* out/$nomM/.
 mkdir out/$nomW/java/
 mkdir out/$nomL/java/
 mkdir out/$nomM/java/
-
+echo "-----------------------"
+ls -r out/
+echo "-----------------------"
 echo "cp jlink & launcher"
 unzip -qq jlink.zip
 cp -r jlink/jWindows/* out/$nomW/java/
@@ -77,6 +83,6 @@ rm -fr $nomL
 rm -fr $nomM
 
 echo "setVersion for the web site"
-cd ~/Formiko/HydrolienF.github.io/docs
-./authentification.sh
-./setVersion.sh \"$(echo `expr substr $nom 8 20`)\"
+#cd ~/Formiko/HydrolienF.github.io/docs
+#./authentification.sh
+#./setVersion.sh \"$(echo `expr substr $nom 8 20`)\"
