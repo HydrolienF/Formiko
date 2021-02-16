@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS mhux rikonoxxut[auto]
 
 //carte :
-désert:deżert[auto]
-jardin:ġnien[auto]
-miniMonde:mini dinja[auto]
-potDeFleurs:qsari[auto]
-vide:vojta[auto]
-carteRéparée:karta msewwija[auto]
+desert:deżert[auto]
+garden:ġnien[auto]
+miniWorld:mini dinja[auto]
+flowersPot:qsari[auto]
+empty:vojta[auto]
+fixMap:karta msewwija[auto]
 mini:mini[auto]
-tiers:it-tielet[auto]
+thirds:it-tielet[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:jekk jogħġbok daħħal valur għall-varjabbli[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:سیستم عامل شناخته نشده است[auto]
 
 //carte :
-désert:کویر[auto]
-jardin:باغ[auto]
-miniMonde:دنیای کوچک[auto]
-potDeFleurs:گلدان[auto]
-vide:خالی[auto]
-carteRéparée:کارت تعمیر شده[auto]
+desert:کویر[auto]
+garden:باغ[auto]
+miniWorld:دنیای کوچک[auto]
+flowersPot:گلدان[auto]
+empty:خالی[auto]
+fixMap:کارت تعمیر شده[auto]
 mini:مینی[auto]
-tiers:سوم[auto]
+thirds:سوم[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:لطفاً برای متغیر مقداری وارد کنید[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:ওএস স্বীকৃত নয়[auto]
 
 //carte :
-désert:মরুভূমি[auto]
-jardin:উদ্যান[auto]
-miniMonde:মিনি ওয়ার্ল্ড[auto]
-potDeFleurs:ফুলদানি[auto]
-vide:খালি[auto]
-carteRéparée:মেরামত কার্ড[auto]
+desert:মরুভূমি[auto]
+garden:উদ্যান[auto]
+miniWorld:মিনি ওয়ার্ল্ড[auto]
+flowersPot:ফুলদানি[auto]
+empty:খালি[auto]
+fixMap:মেরামত কার্ড[auto]
 mini:মিনি[auto]
-tiers:তৃতীয়[auto]
+thirds:তৃতীয়[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:ভেরিয়েবলের জন্য একটি মান লিখুন[auto]

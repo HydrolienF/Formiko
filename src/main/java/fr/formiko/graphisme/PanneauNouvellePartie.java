@@ -3,7 +3,6 @@ package fr.formiko.graphisme;
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
-import fr.formiko.usuel.chargerCarte;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -58,7 +57,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     GString nomDesCartes = listeDesMap();//on charge les clé dans gsClé en meme temps.
     choixCarte = nomDesCartes.getComboBox();
     choixCarte.setFont(Main.getFont1(0.9));
-    choixCarte.setSelectedItem(g.get("miniMonde")); // 2 = miniMonde pour l'instant
+    choixCarte.setSelectedItem(g.get("miniWorld")); // 2 = miniWorld pour l'instant
     add(choixCarte);
     //nomCarte = nomDesCartes.getDébut().getContenu();
     GString gs = new GString();
@@ -130,7 +129,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
   public Partie getPartie(){
     String nomTraduitDeLaCarte = choixCarte.getSelectedItem()+"";
     String nomDeLaCarte = gsClé.getClé(nomTraduitDeLaCarte);
-    Carte mapo = new Carte(chargerCarte.chargerCarte(nomDeLaCarte));
+    Carte mapo = new Carte(nomDeLaCarte);
     mapo.setCasesNuageuses(casesNuageuses.isSelected());
     mapo.setCasesSombres(casesSombres.isSelected());
     int dif = calculeDif();
@@ -151,7 +150,6 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
       String s = f+"";int lens = s.length();
       if(str.nbrDeX(s,'~')==0 && s.substring(lens-4).equals(".csv")){
         s=s.substring(11,lens-4);
-        //s = g.getM(s);
         gsr.ajouter(g.get(s));
         gsClé.ajouter(s);
       }

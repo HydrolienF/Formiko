@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS ne rekonita
 
 //carte :
-désert:dezerto[auto]
-jardin:ĝardeno
-miniMonde:mini mondo[auto]
-potDeFleurs:florpoto[auto]
-vide:malplena
-carteRéparée:riparita karto[auto]
+desert:dezerto[auto]
+garden:ĝardeno
+miniWorld:mini mondo[auto]
+flowersPot:florpoto[auto]
+empty:malplena
+fixMap:riparita karto[auto]
 mini:mini[auto]
-tiers:tria[auto]
+thirds:tria[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:Skribu 1 valoro por la variablo

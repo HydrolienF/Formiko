@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:ስርዓተ ክወና አልታወቀም[auto]
 
 //carte :
-désert:ምድረ በዳ[auto]
-jardin:የአትክልት ስፍራ[auto]
-miniMonde:ሚኒ ዓለም[auto]
-potDeFleurs:የአበባ ማስቀመጫ[auto]
-vide:ባዶ[auto]
-carteRéparée:የተስተካከለ ካርድ[auto]
+desert:ምድረ በዳ[auto]
+garden:የአትክልት ስፍራ[auto]
+miniWorld:ሚኒ ዓለም[auto]
+flowersPot:የአበባ ማስቀመጫ[auto]
+empty:ባዶ[auto]
+fixMap:የተስተካከለ ካርድ[auto]
 mini:ሚኒ[auto]
-tiers:ሶስተኛ[auto]
+thirds:ሶስተኛ[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:እባክዎን ለተለዋጭ እሴት ያስገቡ[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS തിരിച്ചറിഞ്ഞില്ല[auto]
 
 //carte :
-désert:ഏകാന്ത[auto]
-jardin:തോട്ടം[auto]
-miniMonde:മിനി ലോകം[auto]
-potDeFleurs:പൂച്ചട്ടി[auto]
-vide:ശൂന്യമാണ്[auto]
-carteRéparée:നന്നാക്കിയ കാർഡ്[auto]
+desert:ഏകാന്ത[auto]
+garden:തോട്ടം[auto]
+miniWorld:മിനി ലോകം[auto]
+flowersPot:പൂച്ചട്ടി[auto]
+empty:ശൂന്യമാണ്[auto]
+fixMap:നന്നാക്കിയ കാർഡ്[auto]
 mini:മിനി[auto]
-tiers:മൂന്നാമത്[auto]
+thirds:മൂന്നാമത്[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:വേരിയബിളിനായി ഒരു മൂല്യം നൽകുക[auto]

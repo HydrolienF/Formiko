@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:מערכת ההפעלה לא מוכרת[auto]
 
 //carte :
-désert:מִדבָּר[auto]
-jardin:גן[auto]
-miniMonde:עולם מיני[auto]
-potDeFleurs:עציץ[auto]
-vide:ריק[auto]
-carteRéparée:כרטיס מתוקן[auto]
+desert:מִדבָּר[auto]
+garden:גן[auto]
+miniWorld:עולם מיני[auto]
+flowersPot:עציץ[auto]
+empty:ריק[auto]
+fixMap:כרטיס מתוקן[auto]
 mini:מיני[auto]
-tiers:שְׁלִישִׁי[auto]
+thirds:שְׁלִישִׁי[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:אנא הזן ערך למשתנה[auto]

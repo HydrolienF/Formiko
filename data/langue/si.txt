@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:මෙහෙයුම් පද්ධතිය හඳුනාගෙන නොමැත[auto]
 
 //carte :
-désert:කාන්තාරය[auto]
-jardin:වත්ත[auto]
-miniMonde:කුඩා ලෝකය[auto]
-potDeFleurs:මල් බඳුන[auto]
-vide:හිස්[auto]
-carteRéparée:අලුත්වැඩියා කළ කාඩ්පත[auto]
+desert:කාන්තාරය[auto]
+garden:වත්ත[auto]
+miniWorld:කුඩා ලෝකය[auto]
+flowersPot:මල් බඳුන[auto]
+empty:හිස්[auto]
+fixMap:අලුත්වැඩියා කළ කාඩ්පත[auto]
 mini:මිනි[auto]
-tiers:තුන්වන[auto]
+thirds:තුන්වන[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:කරුණාකර විචල්‍යය සඳහා අගයක් ඇතුළත් කරන්න[auto]

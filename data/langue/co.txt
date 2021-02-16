@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:U SO ùn hè micca ricunnisciutu[auto]
 
 //carte :
-désert:disertu[auto]
-jardin:giardinu[auto]
-miniMonde:mini mondu[auto]
-potDeFleurs:vaso da fiori[auto]
-vide:viotu[auto]
-carteRéparée:carta riparata[auto]
+desert:disertu[auto]
+garden:giardinu[auto]
+miniWorld:mini mondu[auto]
+flowersPot:vaso da fiori[auto]
+empty:viotu[auto]
+fixMap:carta riparata[auto]
 mini:mini[auto]
-tiers:terzu[auto]
+thirds:terzu[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:per piacè inserite un valore per a variabile[auto]

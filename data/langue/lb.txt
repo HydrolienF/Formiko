@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS net unerkannt[auto]
 
 //carte :
-désert:Wüst[auto]
-jardin:Gaart[auto]
-miniMonde:Mini Welt[auto]
-potDeFleurs:Blummendëppen[auto]
-vide:eidel[auto]
-carteRéparée:gefléckt Kaart[auto]
+desert:Wüst[auto]
+garden:Gaart[auto]
+miniWorld:Mini Welt[auto]
+flowersPot:Blummendëppen[auto]
+empty:eidel[auto]
+fixMap:gefléckt Kaart[auto]
 mini:Mini[auto]
-tiers:drëtten[auto]
+thirds:drëtten[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:gitt w.e.g. e Wäert fir d'Variabel an[auto]

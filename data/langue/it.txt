@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS non riconosciuto[auto]
 
 //carte :
-désert:deserto[auto]
-jardin:giardino[auto]
-miniMonde:mini mondo[auto]
-potDeFleurs:vaso di fiori[auto]
-vide:vuoto[auto]
-carteRéparée:carta riparata[auto]
+desert:deserto[auto]
+garden:giardino[auto]
+miniWorld:mini mondo[auto]
+flowersPot:vaso di fiori[auto]
+empty:vuoto[auto]
+fixMap:carta riparata[auto]
 mini:mini[auto]
-tiers:terzo[auto]
+thirds:terzo[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:inserisci un valore per la variabile[auto]

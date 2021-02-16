@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS lama aqoonsan[auto]
 
 //carte :
-désert:lamadegaanka[auto]
-jardin:beerta[auto]
-miniMonde:aduunka yar[auto]
-potDeFleurs:Dheriga ubaxa[auto]
-vide:faaruq[auto]
-carteRéparée:kaarka dayactiray[auto]
+desert:lamadegaanka[auto]
+garden:beerta[auto]
+miniWorld:aduunka yar[auto]
+flowersPot:Dheriga ubaxa[auto]
+empty:faaruq[auto]
+fixMap:kaarka dayactiray[auto]
 mini:yar[auto]
-tiers:saddexaad[auto]
+thirds:saddexaad[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:fadlan gali qiime loogu talagalay doorsoomaha[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS таанылган жок[auto]
 
 //carte :
-désert:чөл[auto]
-jardin:бакча[auto]
-miniMonde:мини дүйнө[auto]
-potDeFleurs:гүл идиш[auto]
-vide:бош[auto]
-carteRéparée:оңдолгон карта[auto]
+desert:чөл[auto]
+garden:бакча[auto]
+miniWorld:мини дүйнө[auto]
+flowersPot:гүл идиш[auto]
+empty:бош[auto]
+fixMap:оңдолгон карта[auto]
 mini:мини[auto]
-tiers:үчүнчү[auto]
+thirds:үчүнчү[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:сураныч, өзгөрмө үчүн маанини киргизиңиз[auto]

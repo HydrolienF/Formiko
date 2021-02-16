@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:ОЖ танылмады[auto]
 
 //carte :
-désert:шөл[auto]
-jardin:бақша[auto]
-miniMonde:шағын әлем[auto]
-potDeFleurs:гүл өсіретін құмыра[auto]
-vide:бос[auto]
-carteRéparée:жөнделген карта[auto]
+desert:шөл[auto]
+garden:бақша[auto]
+miniWorld:шағын әлем[auto]
+flowersPot:гүл өсіретін құмыра[auto]
+empty:бос[auto]
+fixMap:жөнделген карта[auto]
 mini:мини[auto]
-tiers:үшінші[auto]
+thirds:үшінші[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:айнымалының мәнін енгізіңіз[auto]

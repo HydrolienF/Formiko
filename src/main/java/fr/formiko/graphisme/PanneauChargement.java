@@ -13,45 +13,32 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 public class PanneauChargement extends Panneau {
-  private BufferedImage img [];
   private Bouton b;
   private int tempsTotalDeChargement;
   private Desc message;
   private PanneauInfo conseil;
   private boolean lancer;
   private Bouton bt;
-  private static int a=-1;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauChargement(){
-    this.setLayout(null);
-    try {
-      BufferedImage img2 [] = image.getImages("chargement",image.getNbrImages("chargement"));
-      img = image.getScaledInstance(img2,Main.getDimX(), Main.getDimY(),Image.SCALE_SMOOTH);
-    }catch (Exception e) {
-      erreur.erreur("Impossible de charger l'image de la page de chargement","PanneauChargement.PanneauChargement");
-      img = new BufferedImage[1];
-      img[0]=image.getImage("null");
-      img[0]=(BufferedImage) img[0].getScaledInstance(Main.getDimX(), Main.getDimY(),Image.SCALE_SMOOTH);
-    }
+    System.out.println("new PanneauChargement");//@a
+    setLayout(null);
+    Main.getData().loadImageChargement();
     addMessage();
     addConseil();
     lancer=false;
-    if(a==-1){
-      setA(allea.getAlléa(img.length));
-    }
   }
   // GET SET --------------------------------------------------------------------
   public void setTexte(String s){ message.setTexte(s);}
   public boolean getLancer(){return lancer;}
   public void setLancer(boolean b){lancer=b;}
-  public static void setA(int x){a=x;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     try {
       if(!Main.getPartie().getEnCours()){return;}
     }catch (Exception e) {}
     debug.g("PanneauChargement",this.getWidth(),this.getHeight());
-    g.drawImage(img[a],0,0,this);
+    g.drawImage(Main.getData().getImageChargement(),0,0,this);
     int xx = Main.getF().getWidth()/5;
     int yy = Main.getF().getHeight()/5;
     message.setBounds(xx,yy*4-Main.getTaillePolice1(),xx*3);//le niveau d'avancement du chargement

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:Sistema operatiu no reconegut[auto]
 
 //carte :
-désert:desert[auto]
-jardin:jardí[auto]
-miniMonde:mini món[auto]
-potDeFleurs:test[auto]
-vide:buit[auto]
-carteRéparée:targeta reparada[auto]
+desert:desert[auto]
+garden:jardí[auto]
+miniWorld:mini món[auto]
+flowersPot:test[auto]
+empty:buit[auto]
+fixMap:targeta reparada[auto]
 mini:mini[auto]
-tiers:tercer[auto]
+thirds:tercer[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:introduïu un valor per a la variable[auto]

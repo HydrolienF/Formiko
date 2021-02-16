@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:Käyttöjärjestelmää ei tunnistettu[auto]
 
 //carte :
-désert:autiomaa[auto]
-jardin:puutarha[auto]
-miniMonde:minimaailma[auto]
-potDeFleurs:kukkaruukku[auto]
-vide:tyhjä[auto]
-carteRéparée:korjattu kortti[auto]
+desert:autiomaa[auto]
+garden:puutarha[auto]
+miniWorld:minimaailma[auto]
+flowersPot:kukkaruukku[auto]
+empty:tyhjä[auto]
+fixMap:korjattu kortti[auto]
 mini:mini[auto]
-tiers:kolmas[auto]
+thirds:kolmas[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:kirjoita muuttujalle arvo[auto]

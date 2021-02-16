@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS heb ei gydnabod[auto]
 
 //carte :
-désert:anialwch[auto]
-jardin:gardd[auto]
-miniMonde:byd mini[auto]
-potDeFleurs:pot blodyn[auto]
-vide:gwag[auto]
-carteRéparée:cerdyn wedi'i atgyweirio[auto]
+desert:anialwch[auto]
+garden:gardd[auto]
+miniWorld:byd mini[auto]
+flowersPot:pot blodyn[auto]
+empty:gwag[auto]
+fixMap:cerdyn wedi'i atgyweirio[auto]
 mini:mini[auto]
-tiers:trydydd[auto]
+thirds:trydydd[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:nodwch werth ar gyfer y newidyn[auto]

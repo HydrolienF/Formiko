@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS ئېتىراپ قىلىنمىدى[auto]
 
 //carte :
-désert:قۇملۇق[auto]
-jardin:باغ[auto]
-miniMonde:mini world[auto]
-potDeFleurs:گۈللۈك[auto]
-vide:قۇرۇق[auto]
-carteRéparée:رېمونت قىلىنغان كارتا[auto]
+desert:قۇملۇق[auto]
+garden:باغ[auto]
+miniWorld:mini world[auto]
+flowersPot:گۈللۈك[auto]
+empty:قۇرۇق[auto]
+fixMap:رېمونت قىلىنغان كارتا[auto]
 mini:mini[auto]
-tiers:ئۈچىنچىسى[auto]
+thirds:ئۈچىنچىسى[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:ئۆزگەرگۈچى مىقدارغا قىممەت كىرگۈزۈڭ[auto]

@@ -8,7 +8,9 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.Pixel;
 import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.types.str;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -44,13 +46,13 @@ public class Data {
   private BufferedImage tIIIni[][];
   private BufferedImage tGIni[][];
   private BufferedImage tFIni[][];
-
   //PanneauAction
   private BufferedImage tImage [];
-
   //PanneauZoom
   private Image [] tIBZoom;
   private boolean initialisationFX;
+  //PanneauChargement
+  private BufferedImage imageChargement;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   /**
@@ -78,6 +80,8 @@ public class Data {
   public BufferedImage getMap(){return map;}
   //PanneauAction
   public BufferedImage [] getTImage(){return tImage;}
+  //PanneauChargement
+  public BufferedImage getImageChargement(){return imageChargement;}
   // Fonctions propre -----------------------------------------------------------
 
   //public class Controleur{
@@ -315,4 +319,29 @@ public class Data {
     f1.sauvegarder("fleche1.png");
     f3.sauvegarder("fleche3.png");
   }public void tournerLesFleches(){ tournerLesFleches("fleche");}
+
+  /**
+  *{@summary Loard a loading image for PanneauChargement.}
+  *@version 1.32
+  */
+  public boolean loadImageChargement(){
+    String mapName = Main.getMap().getMapName();
+    mapName = str.sToSMaj(mapName);
+    imageChargement=null;
+    if(mapName!=null && !mapName.equals("")){
+      imageChargement=image.getImage("chargement"+mapName,false);
+      if(imageChargement!=null){
+        imageChargement=image.resize(imageChargement,Main.getDimX(),Main.getDimY());
+      }
+    }
+    //if it haven't been load yet we try to load any image name chargementi.png or .jpj.
+    if(imageChargement==null){
+      System.out.println("loadImageChargement");//@a
+      int x = allea.getAlléa(image.getNbrImages("chargement"));
+      imageChargement=image.getImage("chargement"+x);
+      imageChargement=image.resize(imageChargement,Main.getDimX(),Main.getDimY());
+      return true;
+    }
+    return false;
+  }
 }

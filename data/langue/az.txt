@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:Əməliyyat sistemi tanınmadı[auto]
 
 //carte :
-désert:səhra[auto]
-jardin:bağ[auto]
-miniMonde:mini dünya[auto]
-potDeFleurs:dibçək[auto]
-vide:boş[auto]
-carteRéparée:təmir edilmiş kart[auto]
+desert:səhra[auto]
+garden:bağ[auto]
+miniWorld:mini dünya[auto]
+flowersPot:dibçək[auto]
+empty:boş[auto]
+fixMap:təmir edilmiş kart[auto]
 mini:mini[auto]
-tiers:üçüncü[auto]
+thirds:üçüncü[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:zəhmət olmasa dəyişən üçün bir dəyər daxil edin[auto]

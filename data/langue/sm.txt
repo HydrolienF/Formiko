@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS le amanaʻia[auto]
 
 //carte :
-désert:toafa[auto]
-jardin:togalaau[auto]
-miniMonde:lalolagi Iti[auto]
-potDeFleurs:ulo fugalaʻau[auto]
-vide:gaogao[auto]
-carteRéparée:pepa toe faʻaleleia[auto]
+desert:toafa[auto]
+garden:togalaau[auto]
+miniWorld:lalolagi Iti[auto]
+flowersPot:ulo fugalaʻau[auto]
+empty:gaogao[auto]
+fixMap:pepa toe faʻaleleia[auto]
 mini:Iti[auto]
-tiers:tulaga tolu[auto]
+thirds:tulaga tolu[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:faʻamolemole tusi se tau mo le fesuiaʻiga[auto]

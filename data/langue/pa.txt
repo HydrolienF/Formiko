@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS ਨੂੰ ਪਛਾਣਿਆ ਨਹੀਂ ਗਿਆ[auto]
 
 //carte :
-désert:ਮਾਰੂਥਲ[auto]
-jardin:ਬਾਗ[auto]
-miniMonde:ਮਿੰਨੀ ਸੰਸਾਰ[auto]
-potDeFleurs:ਗਮਲਾ[auto]
-vide:ਖਾਲੀ[auto]
-carteRéparée:ਰਿਪੇਅਰਡ ਕਾਰਡ[auto]
+desert:ਮਾਰੂਥਲ[auto]
+garden:ਬਾਗ[auto]
+miniWorld:ਮਿੰਨੀ ਸੰਸਾਰ[auto]
+flowersPot:ਗਮਲਾ[auto]
+empty:ਖਾਲੀ[auto]
+fixMap:ਰਿਪੇਅਰਡ ਕਾਰਡ[auto]
 mini:ਮਿੰਨੀ[auto]
-tiers:ਤੀਜਾ[auto]
+thirds:ਤੀਜਾ[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:ਕਿਰਪਾ ਕਰਕੇ ਵੇਰੀਏਬਲ ਲਈ ਇੱਕ ਮੁੱਲ ਦਾਖਲ ਕਰੋ[auto]

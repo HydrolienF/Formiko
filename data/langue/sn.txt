@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS haina kuzivikanwa[auto]
 
 //carte :
-désert:gwenga[auto]
-jardin:gadheni[auto]
-miniMonde:mini nyika[auto]
-potDeFleurs:chiruva[auto]
-vide:isina chinhu[auto]
-carteRéparée:kadhi rakagadziriswa[auto]
+desert:gwenga[auto]
+garden:gadheni[auto]
+miniWorld:mini nyika[auto]
+flowersPot:chiruva[auto]
+empty:isina chinhu[auto]
+fixMap:kadhi rakagadziriswa[auto]
 mini:mini[auto]
-tiers:chetatu[auto]
+thirds:chetatu[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:ndokumbirawo upe kukosha kweshanduko[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS henteu dikenal[auto]
 
 //carte :
-désert:padang pasir[auto]
-jardin:kebon[auto]
-miniMonde:mini dunya[auto]
-potDeFleurs:pot kembang[auto]
-vide:kosong[auto]
-carteRéparée:kartu dibenerkeun[auto]
+desert:padang pasir[auto]
+garden:kebon[auto]
+miniWorld:mini dunya[auto]
+flowersPot:pot kembang[auto]
+empty:kosong[auto]
+fixMap:kartu dibenerkeun[auto]
 mini:mini[auto]
-tiers:katilu[auto]
+thirds:katilu[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:mangga lebetkeun nilai pikeun variabel na[auto]

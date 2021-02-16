@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:ಓಎಸ್ ಗುರುತಿಸಲಾಗಿಲ್ಲ[auto]
 
 //carte :
-désert:ಮರುಭೂಮಿ[auto]
-jardin:ಉದ್ಯಾನ[auto]
-miniMonde:ಮಿನಿ ವರ್ಲ್ಡ್[auto]
-potDeFleurs:ಹೂ ಕುಂಡ[auto]
-vide:ಖಾಲಿ[auto]
-carteRéparée:ರಿಪೇರಿ ಮಾಡಿದ ಕಾರ್ಡ್[auto]
+desert:ಮರುಭೂಮಿ[auto]
+garden:ಉದ್ಯಾನ[auto]
+miniWorld:ಮಿನಿ ವರ್ಲ್ಡ್[auto]
+flowersPot:ಹೂ ಕುಂಡ[auto]
+empty:ಖಾಲಿ[auto]
+fixMap:ರಿಪೇರಿ ಮಾಡಿದ ಕಾರ್ಡ್[auto]
 mini:ಮಿನಿ[auto]
-tiers:ಮೂರನೇ[auto]
+thirds:ಮೂರನೇ[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:ದಯವಿಟ್ಟು ವೇರಿಯೇಬಲ್ಗಾಗಿ ಮೌಲ್ಯವನ್ನು ನಮೂದಿಸಿ[auto]

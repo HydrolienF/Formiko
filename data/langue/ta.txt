@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS அங்கீகரிக்கப்படவில்லை[auto]
 
 //carte :
-désert:பாலைவனம்[auto]
-jardin:தோட்டம்[auto]
-miniMonde:மினி உலகம்[auto]
-potDeFleurs:பூப்பொட்டி[auto]
-vide:காலியாக[auto]
-carteRéparée:சரிசெய்யப்பட்ட அட்டை[auto]
+desert:பாலைவனம்[auto]
+garden:தோட்டம்[auto]
+miniWorld:மினி உலகம்[auto]
+flowersPot:பூப்பொட்டி[auto]
+empty:காலியாக[auto]
+fixMap:சரிசெய்யப்பட்ட அட்டை[auto]
 mini:மினி[auto]
-tiers:மூன்றாவது[auto]
+thirds:மூன்றாவது[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:மாறி ஒரு மதிப்பை உள்ளிடவும்[auto]

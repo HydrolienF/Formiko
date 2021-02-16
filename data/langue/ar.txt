@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:لم يتم التعرف على نظام التشغيل[auto]
 
 //carte :
-désert:صحراء[auto]
-jardin:حديقة[auto]
-miniMonde:عالم صغير[auto]
-potDeFleurs:اناء للزهور[auto]
-vide:فارغة[auto]
-carteRéparée:بطاقة تم إصلاحها[auto]
+desert:صحراء[auto]
+garden:حديقة[auto]
+miniWorld:عالم صغير[auto]
+flowersPot:اناء للزهور[auto]
+empty:فارغة[auto]
+fixMap:بطاقة تم إصلاحها[auto]
 mini:مصغرة[auto]
-tiers:الثالث[auto]
+thirds:الثالث[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:الرجاء إدخال قيمة للمتغير[auto]

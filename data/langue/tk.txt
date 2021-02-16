@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS tanalmaýar[auto]
 
 //carte :
-désert:çöl[auto]
-jardin:bag[auto]
-miniMonde:kiçi dünýä[auto]
-potDeFleurs:gül çüýşesi[auto]
-vide:boş[auto]
-carteRéparée:abatlanan kartoçka[auto]
+desert:çöl[auto]
+garden:bag[auto]
+miniWorld:kiçi dünýä[auto]
+flowersPot:gül çüýşesi[auto]
+empty:boş[auto]
+fixMap:abatlanan kartoçka[auto]
 mini:mini[auto]
-tiers:üçünji[auto]
+thirds:üçünji[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:üýtgeýjiniň bahasyny giriziň[auto]

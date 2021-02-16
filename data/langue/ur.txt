@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS کو تسلیم نہیں کیا گیا[auto]
 
 //carte :
-désert:صحرا[auto]
-jardin:باغ[auto]
-miniMonde:منی دنیا[auto]
-potDeFleurs:پھول کی جگہ[auto]
-vide:خالی[auto]
-carteRéparée:مرمت شدہ کارڈ[auto]
+desert:صحرا[auto]
+garden:باغ[auto]
+miniWorld:منی دنیا[auto]
+flowersPot:پھول کی جگہ[auto]
+empty:خالی[auto]
+fixMap:مرمت شدہ کارڈ[auto]
 mini:منی[auto]
-tiers:تیسرے[auto]
+thirds:تیسرے[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:براہ کرم متغیر کی کوئی قیمت درج کریں[auto]

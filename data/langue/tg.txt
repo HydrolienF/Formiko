@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS шинохта нашудааст[auto]
 
 //carte :
-désert:биёбон[auto]
-jardin:боғ[auto]
-miniMonde:дунёи хурд[auto]
-potDeFleurs:тубаки гулгирак[auto]
-vide:холӣ[auto]
-carteRéparée:корти таъмиршуда[auto]
+desert:биёбон[auto]
+garden:боғ[auto]
+miniWorld:дунёи хурд[auto]
+flowersPot:тубаки гулгирак[auto]
+empty:холӣ[auto]
+fixMap:корти таъмиршуда[auto]
 mini:мини[auto]
-tiers:сеюм[auto]
+thirds:сеюм[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:лутфан арзиши тағирёбандаро ворид кунед[auto]

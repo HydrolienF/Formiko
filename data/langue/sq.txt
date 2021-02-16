@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS nuk njihet[auto]
 
 //carte :
-désert:shkretëtirë[auto]
-jardin:kopsht[auto]
-miniMonde:mini bota[auto]
-potDeFleurs:vazo lulesh[auto]
-vide:bosh[auto]
-carteRéparée:kartë e riparuar[auto]
+desert:shkretëtirë[auto]
+garden:kopsht[auto]
+miniWorld:mini bota[auto]
+flowersPot:vazo lulesh[auto]
+empty:bosh[auto]
+fixMap:kartë e riparuar[auto]
 mini:mini[auto]
-tiers:e treta[auto]
+thirds:e treta[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:ju lutem vendosni një vlerë për ndryshoren[auto]

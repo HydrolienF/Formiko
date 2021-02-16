@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS ونه پیژندل شو[auto]
 
 //carte :
-désert:صحرا[auto]
-jardin:باغ[auto]
-miniMonde:مینی نړۍ[auto]
-potDeFleurs:ګل ګل[auto]
-vide:خالي[auto]
-carteRéparée:ترمیم شوی کارت[auto]
+desert:صحرا[auto]
+garden:باغ[auto]
+miniWorld:مینی نړۍ[auto]
+flowersPot:ګل ګل[auto]
+empty:خالي[auto]
+fixMap:ترمیم شوی کارت[auto]
 mini:مینی[auto]
-tiers:دریم[auto]
+thirds:دریم[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:مهرباني وکړئ د متغیر لپاره ارزښت ورکړئ[auto]
