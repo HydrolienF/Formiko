@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS nebol rozpoznaný[auto]
 
 //carte :
-désert:púšť[auto]
-jardin:záhrada[auto]
-miniMonde:mini svet[auto]
-potDeFleurs:kvetináč[auto]
-vide:prázdny[auto]
-carteRéparée:opravená karta[auto]
+desert:púšť[auto]
+garden:záhrada[auto]
+miniWorld:mini svet[auto]
+flowersPot:kvetináč[auto]
+empty:prázdny[auto]
+fixMap:opravená karta[auto]
 mini:mini[auto]
-tiers:tretí[auto]
+thirds:tretí[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:zadajte hodnotu premennej[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS ba a gane ba[auto]
 
 //carte :
-désert:hamada[auto]
-jardin:lambu[auto]
-miniMonde:karamin duniya[auto]
-potDeFleurs:tukunyar filawa[auto]
-vide:fanko[auto]
-carteRéparée:gyara kati[auto]
+desert:hamada[auto]
+garden:lambu[auto]
+miniWorld:karamin duniya[auto]
+flowersPot:tukunyar filawa[auto]
+empty:fanko[auto]
+fixMap:gyara kati[auto]
 mini:ƙarami[auto]
-tiers:na uku[auto]
+thirds:na uku[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:da fatan za a shigar da ƙima don canjin[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS ບໍ່ຖືກຮັບຮູ້[auto]
 
 //carte :
-désert:ທະ​ເລ​ຊາຍ[auto]
-jardin:ສວນ[auto]
-miniMonde:ໂລກ mini[auto]
-potDeFleurs:ໂຖ​ດອກ​ໄມ້[auto]
-vide:ຫວ່າງເປົ່າ[auto]
-carteRéparée:ສ້ອມແປງບັດ[auto]
+desert:ທະ​ເລ​ຊາຍ[auto]
+garden:ສວນ[auto]
+miniWorld:ໂລກ mini[auto]
+flowersPot:ໂຖ​ດອກ​ໄມ້[auto]
+empty:ຫວ່າງເປົ່າ[auto]
+fixMap:ສ້ອມແປງບັດ[auto]
 mini:mini[auto]
-tiers:ທີສາມ[auto]
+thirds:ທີສາມ[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:ກະລຸນາໃສ່ຄ່າ ສຳ ລັບຕົວແປ[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS haitambuliwi[auto]
 
 //carte :
-désert:jangwa[auto]
-jardin:bustani[auto]
-miniMonde:ulimwengu wa mini[auto]
-potDeFleurs:sufuria ya maua[auto]
-vide:tupu[auto]
-carteRéparée:kadi iliyotengenezwa[auto]
+desert:jangwa[auto]
+garden:bustani[auto]
+miniWorld:ulimwengu wa mini[auto]
+flowersPot:sufuria ya maua[auto]
+empty:tupu[auto]
+fixMap:kadi iliyotengenezwa[auto]
 mini:mini[auto]
-tiers:cha tatu[auto]
+thirds:cha tatu[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:tafadhali ingiza thamani ya ubadilishaji[auto]

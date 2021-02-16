@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS sichidziwika[auto]
 
 //carte :
-désert:chipululu[auto]
-jardin:munda[auto]
-miniMonde:mini dziko[auto]
-potDeFleurs:mphika wamaluwa[auto]
-vide:chopanda kanthu[auto]
-carteRéparée:khadi lokonzedwa[auto]
+desert:chipululu[auto]
+garden:munda[auto]
+miniWorld:mini dziko[auto]
+flowersPot:mphika wamaluwa[auto]
+empty:chopanda kanthu[auto]
+fixMap:khadi lokonzedwa[auto]
 mini:mini[auto]
-tiers:chachitatu[auto]
+thirds:chachitatu[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:chonde lowetsani mtengo wosinthira[auto]

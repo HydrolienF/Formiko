@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:I-OS ayaziwa[auto]
 
 //carte :
-désert:entlango[auto]
-jardin:igadi[auto]
-miniMonde:umhlaba omncinci[auto]
-potDeFleurs:imbiza yeentyatyambo[auto]
-vide:akunanto[auto]
-carteRéparée:ikhadi elilungisiweyo[auto]
+desert:entlango[auto]
+garden:igadi[auto]
+miniWorld:umhlaba omncinci[auto]
+flowersPot:imbiza yeentyatyambo[auto]
+empty:akunanto[auto]
+fixMap:ikhadi elilungisiweyo[auto]
 mini:mini[auto]
-tiers:Isithathu[auto]
+thirds:Isithathu[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:Nceda ufake ixabiso lokwahluka[auto]

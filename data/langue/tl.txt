@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:Hindi kinikilala ang OS[auto]
 
 //carte :
-désert:disyerto[auto]
-jardin:hardin[auto]
-miniMonde:mini mundo[auto]
-potDeFleurs:bulaklak[auto]
-vide:walang laman[auto]
-carteRéparée:nag-ayos ng kard[auto]
+desert:disyerto[auto]
+garden:hardin[auto]
+miniWorld:mini mundo[auto]
+flowersPot:bulaklak[auto]
+empty:walang laman[auto]
+fixMap:nag-ayos ng kard[auto]
 mini:mini[auto]
-tiers:pangatlo[auto]
+thirds:pangatlo[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:mangyaring maglagay ng halaga para sa variable[auto]

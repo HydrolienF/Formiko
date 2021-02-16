@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:Sistema eragilea ez da ezagutzen[auto]
 
 //carte :
-désert:basamortua[auto]
-jardin:lorategia[auto]
-miniMonde:mini mundua[auto]
-potDeFleurs:Lorontzia[auto]
-vide:hutsik[auto]
-carteRéparée:konpondutako txartela[auto]
+desert:basamortua[auto]
+garden:lorategia[auto]
+miniWorld:mini mundua[auto]
+flowersPot:Lorontzia[auto]
+empty:hutsik[auto]
+fixMap:konpondutako txartela[auto]
 mini:mini[auto]
-tiers:hirugarrena[auto]
+thirds:hirugarrena[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:sartu aldagaiaren balio bat[auto]

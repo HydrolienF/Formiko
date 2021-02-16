@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS ko ṣe akiyesi[auto]
 
 //carte :
-désert:aṣálẹ̀[auto]
-jardin:ọgba[auto]
-miniMonde:mini aye[auto]
-potDeFleurs:ikoko ADODO[auto]
-vide:ṣofo[auto]
-carteRéparée:ti tunṣe kaadi[auto]
+desert:aṣálẹ̀[auto]
+garden:ọgba[auto]
+miniWorld:mini aye[auto]
+flowersPot:ikoko ADODO[auto]
+empty:ṣofo[auto]
+fixMap:ti tunṣe kaadi[auto]
 mini:kekere[auto]
-tiers:ẹkẹta[auto]
+thirds:ẹkẹta[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:jọwọ tẹ iye kan fun oniyipada naa[auto]

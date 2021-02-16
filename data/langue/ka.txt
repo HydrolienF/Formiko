@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:ოპერაციული სისტემა არ არის აღიარებული[auto]
 
 //carte :
-désert:უდაბნო[auto]
-jardin:ბაღი[auto]
-miniMonde:მინი სამყარო[auto]
-potDeFleurs:ყვავილის ქოთანი[auto]
-vide:ცარიელი[auto]
-carteRéparée:გარემონტებული ბარათი[auto]
+desert:უდაბნო[auto]
+garden:ბაღი[auto]
+miniWorld:მინი სამყარო[auto]
+flowersPot:ყვავილის ქოთანი[auto]
+empty:ცარიელი[auto]
+fixMap:გარემონტებული ბარათი[auto]
 mini:მინი[auto]
-tiers:მესამე[auto]
+thirds:მესამე[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:გთხოვთ, შეიყვანოთ ცვლადის მნიშვნელობა[auto]

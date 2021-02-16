@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS ikke gjenkjent[auto]
 
 //carte :
-désert:ørken[auto]
-jardin:hage[auto]
-miniMonde:mini verden[auto]
-potDeFleurs:blomsterpotte[auto]
-vide:tømme[auto]
-carteRéparée:reparert kort[auto]
+desert:ørken[auto]
+garden:hage[auto]
+miniWorld:mini verden[auto]
+flowersPot:blomsterpotte[auto]
+empty:tømme[auto]
+fixMap:reparert kort[auto]
 mini:mini[auto]
-tiers:tredje[auto]
+thirds:tredje[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:vennligst skriv inn en verdi for variabelen[auto]

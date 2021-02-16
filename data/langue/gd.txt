@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS gun aithneachadh[auto]
 
 //carte :
-désert:fàsach[auto]
-jardin:gàrradh[auto]
-miniMonde:saoghal beag[auto]
-potDeFleurs:flùr[auto]
-vide:falamh[auto]
-carteRéparée:cairt air a chàradh[auto]
+desert:fàsach[auto]
+garden:gàrradh[auto]
+miniWorld:saoghal beag[auto]
+flowersPot:flùr[auto]
+empty:falamh[auto]
+fixMap:cairt air a chàradh[auto]
 mini:mion[auto]
-tiers:an treas[auto]
+thirds:an treas[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:feuch an cuir thu a-steach luach airson an caochladair[auto]

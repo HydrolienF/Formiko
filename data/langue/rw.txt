@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS ntabwo izwi[auto]
 
 //carte :
-désert:ubutayu[auto]
-jardin:ubusitani[auto]
-miniMonde:isi nto[auto]
-potDeFleurs:indabyo[auto]
-vide:ubusa[auto]
-carteRéparée:ikarita yasanwe[auto]
+desert:ubutayu[auto]
+garden:ubusitani[auto]
+miniWorld:isi nto[auto]
+flowersPot:indabyo[auto]
+empty:ubusa[auto]
+fixMap:ikarita yasanwe[auto]
 mini:mini[auto]
-tiers:gatatu[auto]
+thirds:gatatu[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:nyamuneka andika agaciro kubihinduka[auto]

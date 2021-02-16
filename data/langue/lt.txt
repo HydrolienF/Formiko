@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS neatpažinta[auto]
 
 //carte :
-désert:dykuma[auto]
-jardin:sodas[auto]
-miniMonde:mini pasaulis[auto]
-potDeFleurs:Gelės vazonas[auto]
-vide:tuščia[auto]
-carteRéparée:suremontuota kortelė[auto]
+desert:dykuma[auto]
+garden:sodas[auto]
+miniWorld:mini pasaulis[auto]
+flowersPot:Gelės vazonas[auto]
+empty:tuščia[auto]
+fixMap:suremontuota kortelė[auto]
 mini:mini[auto]
-tiers:trečias[auto]
+thirds:trečias[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:įveskite kintamojo vertę[auto]

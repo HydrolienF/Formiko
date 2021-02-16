@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS pa rekonèt[auto]
 
 //carte :
-désert:dezè[auto]
-jardin:jaden[auto]
-miniMonde:mini mond lan[auto]
-potDeFleurs:po flè[auto]
-vide:vid[auto]
-carteRéparée:repare kat[auto]
+desert:dezè[auto]
+garden:jaden[auto]
+miniWorld:mini mond lan[auto]
+flowersPot:po flè[auto]
+empty:vid[auto]
+fixMap:repare kat[auto]
 mini:mini[auto]
-tiers:twazyèm[auto]
+thirds:twazyèm[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:tanpri antre yon valè pou varyab la[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:Betriebssystem nicht erkannt[auto]
 
 //carte :
-désert:Wüste[auto]
-jardin:Garten[auto]
-miniMonde:Mini-Welt[auto]
-potDeFleurs:Blumentopf[auto]
-vide:leer[auto]
-carteRéparée:reparierte Karte[auto]
+desert:Wüste[auto]
+garden:Garten[auto]
+miniWorld:Mini-Welt[auto]
+flowersPot:Blumentopf[auto]
+empty:leer[auto]
+fixMap:reparierte Karte[auto]
 mini:Mini[auto]
-tiers:dritte[auto]
+thirds:dritte[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:Bitte geben Sie einen Wert für die Variable ein[auto]

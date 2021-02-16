@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:او ايس نٿو سڃاڻجي[auto]
 
 //carte :
-désert:ريگستاني[auto]
-jardin:باغَ[auto]
-miniMonde:نن worldي دنيا[auto]
-potDeFleurs:گلن وارو پاڙو[auto]
-vide:خالي آهي[auto]
-carteRéparée:مرمت ٿيل ڪارڊ[auto]
+desert:ريگستاني[auto]
+garden:باغَ[auto]
+miniWorld:نن worldي دنيا[auto]
+flowersPot:گلن وارو پاڙو[auto]
+empty:خالي آهي[auto]
+fixMap:مرمت ٿيل ڪارڊ[auto]
 mini:ميني[auto]
-tiers:ٽيون[auto]
+thirds:ٽيون[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:مھرباني ڪري ويليو لاءِ قيمت داخل ڪريو[auto]

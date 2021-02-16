@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS net herkend[auto]
 
 //carte :
-désert:woastyn[auto]
-jardin:tún[auto]
-miniMonde:mini wrâld[auto]
-potDeFleurs:blompot[auto]
-vide:leech[auto]
-carteRéparée:repareare kaart[auto]
+desert:woastyn[auto]
+garden:tún[auto]
+miniWorld:mini wrâld[auto]
+flowersPot:blompot[auto]
+empty:leech[auto]
+fixMap:repareare kaart[auto]
 mini:mini[auto]
-tiers:tredde[auto]
+thirds:tredde[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:Fier in wearde yn foar de fariabele[auto]

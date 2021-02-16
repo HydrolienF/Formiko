@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:I-OS ayibonwa[auto]
 
 //carte :
-désert:ehlane[auto]
-jardin:ingadi[auto]
-miniMonde:umhlaba omncane[auto]
-potDeFleurs:imbiza yesithombo[auto]
-vide:akunalutho[auto]
-carteRéparée:ikhadi elilungisiwe[auto]
+desert:ehlane[auto]
+garden:ingadi[auto]
+miniWorld:umhlaba omncane[auto]
+flowersPot:imbiza yesithombo[auto]
+empty:akunalutho[auto]
+fixMap:ikhadi elilungisiwe[auto]
 mini:mini[auto]
-tiers:okwesithathu[auto]
+thirds:okwesithathu[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:sicela ufake inani lokuguquguqukayo[auto]

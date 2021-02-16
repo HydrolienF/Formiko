@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS tsy ekena[auto]
 
 //carte :
-désert:efitra[auto]
-jardin:zaridaina[auto]
-miniMonde:tontolo mini[auto]
-potDeFleurs:fitoeram-boly voninkazo[auto]
-vide:hanaisotra[auto]
-carteRéparée:karatra namboarina[auto]
+desert:efitra[auto]
+garden:zaridaina[auto]
+miniWorld:tontolo mini[auto]
+flowersPot:fitoeram-boly voninkazo[auto]
+empty:hanaisotra[auto]
+fixMap:karatra namboarina[auto]
 mini:Mini[auto]
-tiers:fahatelo[auto]
+thirds:fahatelo[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:azafady mampidira sanda ho an'ny miovaova[auto]

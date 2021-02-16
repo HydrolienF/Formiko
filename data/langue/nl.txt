@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS niet herkend[auto]
 
 //carte :
-désert:woestijn[auto]
-jardin:tuin[auto]
-miniMonde:mini wereld[auto]
-potDeFleurs:bloempot[auto]
-vide:leeg[auto]
-carteRéparée:gerepareerde kaart[auto]
+desert:woestijn[auto]
+garden:tuin[auto]
+miniWorld:mini wereld[auto]
+flowersPot:bloempot[auto]
+empty:leeg[auto]
+fixMap:gerepareerde kaart[auto]
 mini:mini[auto]
-tiers:derde[auto]
+thirds:derde[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:voer een waarde in voor de variabele[auto]

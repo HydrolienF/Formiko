@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS tidak dikenali[auto]
 
 //carte :
-désert:gurun[auto]
-jardin:taman[auto]
-miniMonde:dunia mini[auto]
-potDeFleurs:pot bunga[auto]
-vide:kosong[auto]
-carteRéparée:kartu diperbaiki[auto]
+desert:gurun[auto]
+garden:taman[auto]
+miniWorld:dunia mini[auto]
+flowersPot:pot bunga[auto]
+empty:kosong[auto]
+fixMap:kartu diperbaiki[auto]
 mini:mini[auto]
-tiers:ketiga[auto]
+thirds:ketiga[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:harap masukkan nilai untuk variabel[auto]

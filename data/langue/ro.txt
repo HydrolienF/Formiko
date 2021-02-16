@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:Sistemul de operare nu este recunoscut[auto]
 
 //carte :
-désert:deşert[auto]
-jardin:grădină[auto]
-miniMonde:mini lume[auto]
-potDeFleurs:ghiveci[auto]
-vide:gol[auto]
-carteRéparée:card reparat[auto]
+desert:deşert[auto]
+garden:grădină[auto]
+miniWorld:mini lume[auto]
+flowersPot:ghiveci[auto]
+empty:gol[auto]
+fixMap:card reparat[auto]
 mini:mini[auto]
-tiers:al treilea[auto]
+thirds:al treilea[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:vă rugăm să introduceți o valoare pentru variabilă[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS पहचाना नहीं गया[auto]
 
 //carte :
-désert:रेगिस्तान[auto]
-jardin:बगीचा[auto]
-miniMonde:मिनी दुनिया[auto]
-potDeFleurs:फूलदान[auto]
-vide:खाली[auto]
-carteRéparée:कार्ड की मरम्मत की[auto]
+desert:रेगिस्तान[auto]
+garden:बगीचा[auto]
+miniWorld:मिनी दुनिया[auto]
+flowersPot:फूलदान[auto]
+empty:खाली[auto]
+fixMap:कार्ड की मरम्मत की[auto]
 mini:छोटा[auto]
-tiers:तीसरा[auto]
+thirds:तीसरा[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:कृपया चर के लिए एक मान दर्ज करें[auto]

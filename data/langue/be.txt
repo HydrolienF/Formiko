@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:АС не распазнана[auto]
 
 //carte :
-désert:пустыня[auto]
-jardin:сад[auto]
-miniMonde:міні-свет[auto]
-potDeFleurs:гаршчок для кветак[auto]
-vide:пусты[auto]
-carteRéparée:адрамантаваная карта[auto]
+desert:пустыня[auto]
+garden:сад[auto]
+miniWorld:міні-свет[auto]
+flowersPot:гаршчок для кветак[auto]
+empty:пусты[auto]
+fixMap:адрамантаваная карта[auto]
 mini:міні[auto]
-tiers:трэці[auto]
+thirds:трэці[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:калі ласка, увядзіце значэнне для зменнай[auto]

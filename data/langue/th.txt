@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:ไม่รู้จักระบบปฏิบัติการ[auto]
 
 //carte :
-désert:ทะเลทราย[auto]
-jardin:สวน[auto]
-miniMonde:โลกขนาดเล็ก[auto]
-potDeFleurs:กระถางดอกไม้[auto]
-vide:ว่างเปล่า[auto]
-carteRéparée:การ์ดซ่อม[auto]
+desert:ทะเลทราย[auto]
+garden:สวน[auto]
+miniWorld:โลกขนาดเล็ก[auto]
+flowersPot:กระถางดอกไม้[auto]
+empty:ว่างเปล่า[auto]
+fixMap:การ์ดซ่อม[auto]
 mini:มินิ[auto]
-tiers:ที่สาม[auto]
+thirds:ที่สาม[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:โปรดป้อนค่าสำหรับตัวแปร[auto]

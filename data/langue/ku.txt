@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS nayê nas kirin[auto]
 
 //carte :
-désert:çol[auto]
-jardin:baxçe[auto]
-miniMonde:cîhana mini[auto]
-potDeFleurs:tasa çîçekan[auto]
-vide:vala[auto]
-carteRéparée:karta tamîr kirin[auto]
+desert:çol[auto]
+garden:baxçe[auto]
+miniWorld:cîhana mini[auto]
+flowersPot:tasa çîçekan[auto]
+empty:vala[auto]
+fixMap:karta tamîr kirin[auto]
 mini:mini[auto]
-tiers:sêyem[auto]
+thirds:sêyem[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:ji kerema xwe ji bo guherbarê nirxek binivîse[auto]

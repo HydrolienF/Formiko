@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:Operatsion tizim tan olinmadi[auto]
 
 //carte :
-désert:cho'l[auto]
-jardin:bog '[auto]
-miniMonde:mini dunyo[auto]
-potDeFleurs:gul tuvak[auto]
-vide:bo'sh[auto]
-carteRéparée:ta'mirlangan karta[auto]
+desert:cho'l[auto]
+garden:bog '[auto]
+miniWorld:mini dunyo[auto]
+flowersPot:gul tuvak[auto]
+empty:bo'sh[auto]
+fixMap:ta'mirlangan karta[auto]
 mini:mini[auto]
-tiers:uchinchi[auto]
+thirds:uchinchi[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:iltimos, o'zgaruvchiga qiymat kiriting[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS가 인식되지 않음[auto]
 
 //carte :
-désert:사막[auto]
-jardin:정원[auto]
-miniMonde:미니 월드[auto]
-potDeFleurs:화분[auto]
-vide:빈[auto]
-carteRéparée:수리 된 카드[auto]
+desert:사막[auto]
+garden:정원[auto]
+miniWorld:미니 월드[auto]
+flowersPot:화분[auto]
+empty:빈[auto]
+fixMap:수리 된 카드[auto]
 mini:미니[auto]
-tiers:제삼[auto]
+thirds:제삼[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:변수 값을 입력하십시오[auto]

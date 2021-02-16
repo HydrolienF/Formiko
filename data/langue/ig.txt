@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS amataghi[auto]
 
 //carte :
-désert:ọzara[auto]
-jardin:ubi[auto]
-miniMonde:Obere ụwa[auto]
-potDeFleurs:ite ifuru[auto]
-vide:efu[auto]
-carteRéparée:rụziri kaadị[auto]
+desert:ọzara[auto]
+garden:ubi[auto]
+miniWorld:Obere ụwa[auto]
+flowersPot:ite ifuru[auto]
+empty:efu[auto]
+fixMap:rụziri kaadị[auto]
 mini:Obere[auto]
-tiers:nke atọ[auto]
+thirds:nke atọ[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:biko tinye uru maka agbanwe[auto]

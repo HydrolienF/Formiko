@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS non agnita[auto]
 
 //carte :
-désert:solitudinem[auto]
-jardin:hortus[auto]
-miniMonde:mini mundum[auto]
-potDeFleurs:flowerpot[auto]
-vide:Effundensque[auto]
-carteRéparée:card: instauravitque[auto]
+desert:solitudinem[auto]
+garden:hortus[auto]
+miniWorld:mini mundum[auto]
+flowersPot:flowerpot[auto]
+empty:Effundensque[auto]
+fixMap:card: instauravitque[auto]
 mini:mini[auto]
-tiers:tertium[auto]
+thirds:tertium[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:ad valorem variabilis intra placet[auto]
