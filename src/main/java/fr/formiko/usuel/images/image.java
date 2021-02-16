@@ -279,7 +279,8 @@ public class image{
   }*/
   /**
   *{@summary A fonction to getScaledInstance and return a BufferedImage.} <br>
-  *cf https://stackoverflow.com/questions/9417356/bufferedimage-resize/9417836#9417836
+  *If images is alredy resize to the exacte dimention it only return the same image.<br>
+  *cf https://stackoverflow.com/questions/9417356/bufferedimage-resize/9417836#9417836<br>
   *@param bi The Image to resize.
   *@param newW The new width.
   *@param newH The new height.
@@ -287,6 +288,7 @@ public class image{
   */
   public static BufferedImage resize(BufferedImage bi, int newW, int newH) {
     if(bi==null){return null;}
+    if(newW==bi.getWidth() && newH==bi.getHeight()){return bi;}
     if(newW<1){newW=1;}
     if(newH<1){newH=1;}
     Image tmp = bi.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
