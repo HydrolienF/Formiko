@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 import java.util.Map;
 
 /**
-*{@summary Launch class <br>}
+*{@summary Launch class }<br>
 *Main file have all the shortcut on getter or setter that are curently used
 *@author Hydrolien
 *@version 1.1
@@ -72,7 +72,7 @@ public class Main {
   private static Data data;
 
   /**
-   * {@summary Lauch the game.<br>}
+   * {@summary Lauch the game.}<br>
    * It can have some args to do special thing.<br>
    * -d - set on the debug mode.<br>
    * trad make sur that every language file is 100% translated. It can auto translate some texte if the python file and translation api are on the same folder.<br>
@@ -180,7 +180,7 @@ public class Main {
     quitter();//en théorie on arrive pas là.
   }
   /**
-   * {@summary pre launch.<br>}
+   * {@summary pre launch.}<br>
    * @version 1.7
    */
   public static void iniLaunch(){
@@ -199,7 +199,7 @@ public class Main {
     finCh("chargementPartieEtCarteBlanche");
   }
   /**
-   * {@summary Launch in the void main if there is not other args than -something (ex : -d).<br>}
+   * {@summary Launch in the void main if there is not other args than -something (ex : -d).}<br>
    * @version 1.7
    */
   public static boolean launch(){
@@ -227,7 +227,7 @@ public class Main {
     return false;
   }
   /**
-   * {@summary Wait until player launch a new game, the tutorial or Load a game.<br>}
+   * {@summary Wait until player launch a new game, the tutorial or Load a game.}<br>
    * @version 1.7
    */
   public static Partie attenteDeLancementDePartie(){
@@ -240,7 +240,7 @@ public class Main {
     //debug.débogage("lancementNouvellePartie");
   }
   /**
-   * {@summary Launch a new game.<br>}
+   * {@summary Launch a new game.}<br>
    * @version 1.14
    */
   public static void lancementNouvellePartie(){ //Nouveau système de lancement de partie :
@@ -310,7 +310,7 @@ public class Main {
     return par;
   }
   /**
-   * {@summary create a new Partie to launch Tuto.<br>}
+   * {@summary create a new Partie to launch Tuto.}<br>
    * @version 1.1.
    */
   public static Partie getPartieTuto(){
@@ -327,7 +327,7 @@ public class Main {
     return par;
   }
   /**
-   * {@summary Initializes the tutorial parameters.<br>}
+   * {@summary Initializes the tutorial parameters.}<br>
    * @version 1.1
    */
   public static void iniParamètreCarteTuto(){
@@ -570,7 +570,7 @@ public class Main {
     finCh("chargementDesLangues");
   }
   /**
-   * {@summary Print on the window a message about game loading.<br>}
+   * {@summary Print on the window a message about game loading.}<br>
    * If you tried to use it before the creating of a new PanneauChargement, message will not appear on the window.
    * @version 1.14
    */
@@ -607,7 +607,7 @@ public class Main {
     Chrono.finCh(s,chTemp);
   }
   /**
-   * {@summary Try to exit normally.<br>}
+   * {@summary Try to exit normally.}<br>
    * Save score informations.<br>
    * Clear temporary Images.<br>
    * Save time played.<br>
@@ -638,7 +638,7 @@ public class Main {
     }
   }
   /**
-   * {@summary Play a turn.<br>}
+   * {@summary Play a turn.}<br>
    * 1a updating Case resources.<br>
    * 2a Make humain player and AI play.<br>
    * 3a Make Insecte play.<br>

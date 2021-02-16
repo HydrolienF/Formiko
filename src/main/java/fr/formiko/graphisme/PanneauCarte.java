@@ -266,7 +266,7 @@ public class PanneauCarte extends Panneau implements MouseListener{
     }
   }
   /**
-  *{@summary fonction that place ObjetSurCarteAId on the same Case.<br>}
+  *{@summary fonction that place ObjetSurCarteAId on the same Case.}<br>
   *It modify PanneauCarte value xTemp and yTemp.
   */
   public void calculerXYTemp(int xT, int yT, int k, Case c){

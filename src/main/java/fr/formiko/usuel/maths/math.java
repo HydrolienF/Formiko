@@ -5,7 +5,7 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 
 /**
- * {@summary Do math operation.<br>}
+ * {@summary Do math operation.}<br>
  * @author Hydrolien
  * @version 1.1
  */

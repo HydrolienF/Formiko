@@ -12,7 +12,7 @@ import java.awt.Font;
 import java.io.File;
 import java.io.Serializable;
 /**
-*{@summary Options class.<br>}
+*{@summary Options class.}<br>
 *It contain all globals options and can save it.<br>
 *@author Hydrolien
 *@version 1.20
@@ -120,7 +120,7 @@ public class Options implements Serializable{
   public void setTailleRealiste(byte x){tailleRealiste=x;}public void setTailleRealiste(int x){tailleRealiste=str.iToBy(x);}
   // Fonctions propre -----------------------------------------------------------
   /**
-  *{@summary tranform a byte into a button size.<br>}
+  *{@summary tranform a byte into a button size.}<br>
   *@version 1.20
   */
   private int tailleBouton(byte x){
@@ -134,7 +134,7 @@ public class Options implements Serializable{
     return 80;
   }
   /**
-  *{@summary Save the Options in data/Options.txt.<br>}
+  *{@summary Save the Options in data/Options.txt.}<br>
   *@version 1.20
   */
   public void sauvegarder(){

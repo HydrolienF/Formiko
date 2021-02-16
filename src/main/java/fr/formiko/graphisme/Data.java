@@ -87,7 +87,7 @@ public class Data {
   //public class Controleur{
     //iniImage etc
     /**
-    *{@summary Load image in map resolution.<br>}
+    *{@summary Load image in map resolution.}<br>
     *If the original image have'nt been load, it will call chargerImagesIni.<br>
     *The images defined here have the rigth dimention for being used on the map.<br>
     *@version 1.18
@@ -114,7 +114,7 @@ public class Data {
       Main.finCh("chargerImages");
     }
     /**
-    *{@summary Load image in full resolution.<br>}
+    *{@summary Load image in full resolution.}<br>
     *Image need to be load in full resolution 1 time only. If it have alredy be done the function will do nothing.
     *@version 1.18
     */
@@ -150,7 +150,7 @@ public class Data {
       tICarteIni[2]=image.getImage("sable");
     }
     /**
-    *{@summary Load a group of BufferedImage that starts with a similar name.<br>}
+    *{@summary Load a group of BufferedImage that starts with a similar name.}<br>
     *see image.getImagess() for more informations.
     @param nom Name of de group. Every image will start by this name.
     *@version 1.18

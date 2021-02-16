@@ -11,7 +11,7 @@ import fr.formiko.usuel.maths.math;
 
 import java.io.Serializable;
 /**
- * {@summary Chasse implementation.<br>}
+ * {@summary Chasse implementation.}<br>
  * Allow a creature to do hunt as an herbivore.<br>
  * @author Hydrolien
  * @version 1.28
@@ -23,7 +23,7 @@ public class ChasseHerbivore implements Serializable, Chasse {
 
   public boolean chasser(Creature c, int directionSiPasDeProie){return chasse(c);}
   /**
-  *{@summary Hunt as an herbivore.<br>}
+  *{@summary Hunt as an herbivore.}<br>
   *return true if Insecte have eat or moove.
   *@version 1.28
   */
@@ -43,7 +43,7 @@ public class ChasseHerbivore implements Serializable, Chasse {
   }
 
   /**
-  *{@summary Eat as an herbivore.<br>}
+  *{@summary Eat as an herbivore.}<br>
   *return true if Insecte have eat.
   *@version 1.28
   */

@@ -7,14 +7,14 @@ import fr.formiko.usuel.types.str;
 
 import java.util.Random;
 /**
-*{@summary Random Class.<br>}
+*{@summary Random Class.}<br>
 *@author Hydrolien
 *@version 1.0
 */
 public class allea {
   private static Random rand = new Random();
   /**
-  *{@summary get a random int in [0;x[.<br>}
+  *{@summary get a random int in [0;x[.}<br>
   *@return a random boolean.
   *@version 1.0
   */
@@ -26,7 +26,7 @@ public class allea {
   }public static int getAlléa(int x){return getAllea(x);}
   public static double getRand(){return Math.random();}
   /**
-  *{@summary get a random boolean.<br>}
+  *{@summary get a random boolean.}<br>
   *@return a random boolean.
   *@version 1.20
   */
@@ -35,7 +35,7 @@ public class allea {
     return true;
   }
   /**
-  *{@summary get a random int in [].<br>}
+  *{@summary get a random int in [].}<br>
   *@return a random int.
   *@version 1.0
   */

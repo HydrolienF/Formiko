@@ -11,7 +11,7 @@ import fr.formiko.usuel.types.str;
 import java.io.Serializable;
 
 /**
- * {@summary Ant implementation.<br>}
+ * {@summary Ant implementation.}<br>
  * Allow an ant to clean itself or an other Creature<br>
  * @author Hydrolien
  * @version 1.1
@@ -21,7 +21,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
   private Fourmi net;
   // Fonctions propre -----------------------------------------------------------
   /**
-   *{@summary An AI ant want to clean.<br>}
+   *{@summary An AI ant want to clean.}<br>
    *@param c The cleaning ant.
    *@return true only if ant realy clean someone.
    *@version 1.3
@@ -35,7 +35,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
     return true;
   }
   /**
-   *{@summary A non-AI ant want to clean.<br>}
+   *{@summary A non-AI ant want to clean.}<br>
    *@param c The cleaning ant.
    *@version 1.3
    */
@@ -47,7 +47,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
     }
   }
   /**
-   *{@summary An ant clean a Creature.<br>}
+   *{@summary An ant clean a Creature.}<br>
    *@param c The cleaning ant.
    *@param c2 The cleaned ant.
    *@version 1.3
@@ -60,7 +60,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
     netoyerPrivate();
   }
   /**
-   *{@summary get number of non-100% clean ant.<br>}
+   *{@summary get number of non-100% clean ant.}<br>
    *@param c The cleaning ant.
    *@return the number of non-100% clean ant.
    *@version 1.3
@@ -76,7 +76,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
 
   //sous fonctions
   /**
-   *{@summary Let a player choose the ant that he want to clean.<br>}
+   *{@summary Let a player choose the ant that he want to clean.}<br>
    *@return true if the player chose an ant to clean.
    *@version 1.3
    */
@@ -121,7 +121,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
     return true;
   }*/
   /**
-   *{@summary do the real cleaning action between cible ant net.<br>}
+   *{@summary do the real cleaning action between cible ant net.}<br>
    *@version 1.3
    */
   private void netoyerPrivate(){
@@ -129,7 +129,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
     net.setActionMoins(net.getIndividu().getCoutNétoyer());
   }
   /**
-   *{@summary get non-100% clean ant sort by cleaning level.<br>}
+   *{@summary get non-100% clean ant sort by cleaning level.}<br>
    *@return the non-100% clean ant sort by cleaning level on the same Case.
    *@version 1.3
    */
@@ -140,7 +140,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
     return gcTemp.gcToTInt();
   }
   /**
-   *{@summary get non-100% clean ant.<br>}
+   *{@summary get non-100% clean ant.}<br>
    *@return the non-100% clean ant.
    *@version 1.3
    */

@@ -11,7 +11,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 /**
-*{@summary Escap pannel <br>}
+*{@summary Escap pannel }<br>
 *Used to pause game.
 *@author Hydrolien
 *@version 1.23

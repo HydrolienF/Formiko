@@ -93,7 +93,7 @@ public class Chrono { //https://fr.jeffprod.com/blog/2015/un-chronometre-en-java
     chTemp.start();
   }
   /**
-   * {@summary Stop Chrono and print a message about Chrono duration.<br>}
+   * {@summary Stop Chrono and print a message about Chrono duration.}<br>
    * The message will be print in console only if debug.setAffLesPerformances is true.<br>
    *Message will be print only if the do more than 20ms.
    * @version 1.18

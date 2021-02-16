@@ -408,7 +408,7 @@ public class tableau <T>{
     }return sr;
   }public static String tableauToString(boolean t []){ return tableauToString(t," ");}
   /**
-  *{@summary check if t contain x.<br>}
+  *{@summary check if t contain x.}<br>
   */
   public static boolean contient(int t [], int x){
     int lent = t.length;
@@ -418,7 +418,7 @@ public class tableau <T>{
     return false;
   }
   /**
-  *{@summary check if t contain x.<br>}
+  *{@summary check if t contain x.}<br>
   */
   public static boolean contient(byte t [], byte x){
     int lent = t.length;
@@ -428,7 +428,7 @@ public class tableau <T>{
     return false;
   }
   /**
-  *{@summary check if t contain x.<br>}
+  *{@summary check if t contain x.}<br>
   */
   public static boolean contient(char t [], char x){
     int lent = t.length;
@@ -438,7 +438,7 @@ public class tableau <T>{
     return false;
   }
   /**
-  *{@summary check if t contain x.<br>}
+  *{@summary check if t contain x.}<br>
   */
   public static boolean contient(String t [], String x){
     int lent = t.length;
@@ -448,7 +448,7 @@ public class tableau <T>{
     return false;
   }
   /**
-  *{@summary check if t contain x.<br>}
+  *{@summary check if t contain x.}<br>
   */
   public static <T> boolean contient(T t [], T x){
     int lent = t.length;
@@ -459,7 +459,7 @@ public class tableau <T>{
   }
   //contient [][]
   /**
-  *{@summary check if t contain x.<br>}
+  *{@summary check if t contain x.}<br>
   */
   public static boolean contient(int t [][], int x){
     int lent = t.length;
@@ -469,7 +469,7 @@ public class tableau <T>{
     return false;
   }
   /**
-  *{@summary check if t contain x.<br>}
+  *{@summary check if t contain x.}<br>
   */
   public static boolean contient(byte t [][], byte x){
     int lent = t.length;
@@ -479,7 +479,7 @@ public class tableau <T>{
     return false;
   }
   /**
-  *{@summary check if t contain x.<br>}
+  *{@summary check if t contain x.}<br>
   */
   public static boolean contientLesElementDeX(byte t [][], byte x[]){
     int lent = t.length; int lenx = x.length;
@@ -492,7 +492,7 @@ public class tableau <T>{
     return true;
   }
   /**
-  *{@summary check if t contain only x.<br>}
+  *{@summary check if t contain only x.}<br>
   */
   public static boolean contientUniquement(byte t[], byte x){
     int lent = t.length;
@@ -502,7 +502,7 @@ public class tableau <T>{
     return true;
   }
   /**
-  *{@summary trim the array.<br>}
+  *{@summary trim the array.}<br>
   *@param t the array
   *@param a How much do we need to trim in pixel before width
   *@param b How much do we need to trim in pixel before height
@@ -564,7 +564,7 @@ public class tableau <T>{
     return true;
   }
   /**
-  *{@summary copy an array.<br>}
+  *{@summary copy an array.}<br>
   */
   public static byte [] copier(byte t[]){
     int len = t.length;
@@ -575,7 +575,7 @@ public class tableau <T>{
     return r;
   }
   /**
-  *{@summary copy an array [][].<br>}
+  *{@summary copy an array [][].}<br>
   */
   public static byte [][] copier(byte t[][]){
     int len = t.length;

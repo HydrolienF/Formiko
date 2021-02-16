@@ -12,7 +12,7 @@ import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.Chrono;
 
 /**
-*{@summary A tool class about statistic. <br>}
+*{@summary A tool class about statistic. }<br>
 *@author Hydrolien
 *@version 1.13
 */

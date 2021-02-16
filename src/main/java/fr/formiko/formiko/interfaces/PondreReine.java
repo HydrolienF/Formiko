@@ -16,7 +16,7 @@ import fr.formiko.usuel.tableau;
 import java.io.Serializable;
 
 /**
- * {@summary Ant queen implementation.<br>}
+ * {@summary Ant queen implementation.}<br>
  * Allow an ant queen to lay<br>
  * @author Hydrolien
  * @version 1.1

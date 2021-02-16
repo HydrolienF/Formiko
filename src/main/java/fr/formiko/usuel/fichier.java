@@ -43,7 +43,7 @@ public class fichier{
 
 
   /**
-   *{@summary Delete a directory and all his content.<br>}
+   *{@summary Delete a directory and all his content.}<br>
    *@version 1.13
    */
   public static boolean deleteDirectory(File directoryToBeDeleted) {

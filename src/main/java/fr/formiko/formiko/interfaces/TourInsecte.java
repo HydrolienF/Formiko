@@ -10,7 +10,7 @@ import fr.formiko.usuel.g;
 import java.io.Serializable;
 
 /**
- * {@summary Insect implementation.<br>}
+ * {@summary Insect implementation.}<br>
  * Allow an insect to play a turn.<br>
  * All insects can extends this class to modify runAway(), eat() or reproduce()<br>
  * @author Hydrolien
@@ -34,7 +34,7 @@ public class TourInsecte implements Serializable, Tour{
   }
 
   /**
-  *{@summary Play a turn as an Insecte.<br>}
+  *{@summary Play a turn as an Insecte.}<br>
   *Turn work like this :<br>
   *<ul>
   *<li>Eat if the creature is starving.
@@ -55,7 +55,7 @@ public class TourInsecte implements Serializable, Tour{
     finTour();
   }
   /**
-  *{@summary End a turn as an Insecte.<br>}
+  *{@summary End a turn as an Insecte.}<br>
   *@version 1.28
   */
   public void finTour(){
@@ -66,7 +66,7 @@ public class TourInsecte implements Serializable, Tour{
   }
 
   /**
-  *{@summary reproduce.<br>}
+  *{@summary reproduce.}<br>
   *@version 1.28
   */
   private void reproduce(){ //TODO

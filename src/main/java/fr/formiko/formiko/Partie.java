@@ -61,7 +61,7 @@ public class Partie implements Serializable{
     appartionGraine=true;
   }
   /**
-  *{@summary Constructor with only minimal initialization.<br>}
+  *{@summary Constructor with only minimal initialization.}<br>
   *@version 1.2
   */
   public Partie(){

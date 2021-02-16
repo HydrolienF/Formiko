@@ -28,7 +28,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
-*{@summary Img is a BufferedImage where you can edit pixel value, then save it on a local file or draw it.<br>}
+*{@summary Img is a BufferedImage where you can edit pixel value, then save it on a local file or draw it.}<br>
 *@author Hydrolien
 *@version 1.11
 */
@@ -197,7 +197,7 @@ public class Img implements Cloneable{
     }
   }
   /**
-  *{@summary Print the ARGB level.<br>}
+  *{@summary Print the ARGB level.}<br>
   */
   public void afficherLesTableaux(){
     System.out.println("transparence :");
@@ -210,7 +210,7 @@ public class Img implements Cloneable{
     tableau.afficher(this.compterNiveauDeBleu());
   }
   /**
-  *{@summary Add an Img on this.<br>}
+  *{@summary Add an Img on this.}<br>
   *It can be used to make the map image.
   */
   public void add(int x, int y, Img ie){
@@ -242,7 +242,7 @@ public class Img implements Cloneable{
     tableau.afficher(getAlpha());
   }*/
   /**
-  *{@summary save the Img as a .png image with a correct name.<br>}
+  *{@summary save the Img as a .png image with a correct name.}<br>
   *@param rep the directory were to save the image.
   *@param filename the name of the Image file. (without .png).
   */
@@ -260,14 +260,14 @@ public class Img implements Cloneable{
   }public void sauvegarder(String nom){sauvegarder(image.REP2,nom);}
   public void sauvegarde(String s){ sauvegarder(s);}
   /**
-  *{@summary try to save the Img.<br>}
+  *{@summary try to save the Img.}<br>
   */
   public void save(String filename) throws IOException {
     File file = new File(filename);
     ImageIO.write(bi, "png", file);
   }
   /**
-  *{@summary draw the Img.<br>}
+  *{@summary draw the Img.}<br>
   */
   public void draw() {
     ImageIcon icon = new ImageIcon(bi);
@@ -289,7 +289,7 @@ public class Img implements Cloneable{
   public void afficher(){ draw();}
 
   /**
-  *{@summary Make an array with all red value for all pixel of the Img.<br>}
+  *{@summary Make an array with all red value for all pixel of the Img.}<br>
   */
   public int [] compterNiveauDeRouge(){
     int xr [] = new int [256];
@@ -301,7 +301,7 @@ public class Img implements Cloneable{
     }return xr;
   }
   /**
-  *{@summary Make an array with all green value for all pixel of the Img.<br>}
+  *{@summary Make an array with all green value for all pixel of the Img.}<br>
   */
   public int [] compterNiveauDeVert(){
     int xr [] = new int [256];
@@ -313,7 +313,7 @@ public class Img implements Cloneable{
     }return xr;
   }
   /**
-  *{@summary Make an array with all blue value for all pixel of the Img.<br>}
+  *{@summary Make an array with all blue value for all pixel of the Img.}<br>
   */
   public int [] compterNiveauDeBleu(){
     int xr [] = new int [256];
@@ -325,7 +325,7 @@ public class Img implements Cloneable{
     }return xr;
   }
   /**
-  *{@summary Make an array with all alpha value for all pixel of the Img.<br>}
+  *{@summary Make an array with all alpha value for all pixel of the Img.}<br>
   */
   public int [] compterNiveauDeAlpha(){
     int xr [] = new int [256];
@@ -337,7 +337,7 @@ public class Img implements Cloneable{
     }return xr;
   }
   /**
-  *{@summary Count how much pixel there is on the image.<br>}
+  *{@summary Count how much pixel there is on the image.}<br>
   */
   public int compterPixel(Pixel a){
     int x=0;
@@ -351,7 +351,7 @@ public class Img implements Cloneable{
     return x;
   }
   /**
-  *{@summary Count how much of eatch pixel there is on the image.<br>}
+  *{@summary Count how much of eatch pixel there is on the image.}<br>
   */
   public HashMap<Pixel, Integer> compterChaquePixel(){
     Chrono.debutCh();
@@ -381,7 +381,7 @@ public class Img implements Cloneable{
     return hm;
   }
   /**
-  *{@summary Count how much of eatch pixel there is on the image and create a .html page to store the data.<br>}
+  *{@summary Count how much of eatch pixel there is on the image and create a .html page to store the data.}<br>
   */
   public void compterChaquePixelToHtml(){
     HashMap hm = compterChaquePixel();
@@ -401,7 +401,7 @@ public class Img implements Cloneable{
     System.out.println(getResultAsHtmlDiv(sr));
   }
   /**
-  *{@summary Replace pixel a by pixel b.<br>}
+  *{@summary Replace pixel a by pixel b.}<br>
   *On Formiko it is used to create random color for ant and modify the image.
   */
   public void changerPixel(Pixel a, Pixel b){
@@ -428,7 +428,7 @@ public class Img implements Cloneable{
     //debug.débogage("actualisation de l'image conculante.");
   }
   /**
-  *{@summary Replace max alpha pixel by an other color.<br>}
+  *{@summary Replace max alpha pixel by an other color.}<br>
   */
   public void changerPixelTransparent(Pixel b){
     //debug.débogage("changement des pixels voulus");
@@ -452,7 +452,7 @@ public class Img implements Cloneable{
     actualiserImage();
   }
   /**
-  *{@summary Use to refresh the BufferedImage before draw it or save it.<br>}
+  *{@summary Use to refresh the BufferedImage before draw it or save it.}<br>
   */
   public void actualiserImage(){
     Chrono.debutCh();
@@ -474,7 +474,7 @@ public class Img implements Cloneable{
     //debug.débogage(pixelActualisé+" pixels ont été actualisé.");
   }
   /**
-  *{@summary rotate the Img.<br>}
+  *{@summary rotate the Img.}<br>
   *@param x How much do we need to rotate : 1=90° 2=180° -1 or 3 = -90°
   */
   public void tourner(byte x){ // on tourne de 90° a chaque fois.
@@ -535,7 +535,7 @@ public class Img implements Cloneable{
   }public void tourner(int x){ tourner((byte) x);}
   public void tourner(){ tourner(1);}
   /**
-  *{@summary Add x in alpha (non-transparency) to the all image.<br>}
+  *{@summary Add x in alpha (non-transparency) to the all image.}<br>
   *You can remove some alpha with an x&#60;0.
   */
   public void changerAlpha(int x){
@@ -551,7 +551,7 @@ public class Img implements Cloneable{
     actualiserImage();
   }
   /**
-  *{@summary Replace all non 100% or 0% transparent pixel by a 100% or a 0% transparent pixel.<br>}
+  *{@summary Replace all non 100% or 0% transparent pixel by a 100% or a 0% transparent pixel.}<br>
   *On some image it can have some 99% transparent pixel, we may need to transforme them to 0% transparent pixel. (100 transparent pixel can be recolored more easyly.)
   *@param x alpha limit level between 0 and 255. If pixel alpha value is higer than x pixel will be at 255 alpha. Other wise it will be at 0 alpha.
   */
@@ -574,7 +574,7 @@ public class Img implements Cloneable{
     actualiserImage();
   }public void supprimerLaTransparencePartielle(){ supprimerLaTransparencePartielle(127);}
   /**
-  *{@summary draw a shadow on the border of a colored zone as ant alitrunk.<br>}
+  *{@summary draw a shadow on the border of a colored zone as ant alitrunk.}<br>
   */
   //TODO test & use it.
   public void ombrer(Pixel a, int x){
@@ -594,7 +594,7 @@ public class Img implements Cloneable{
     }
   }public void ombrer(Pixel a){ ombrer(a,10);}
   /**
-  *{@summary trim the Img.<br>}
+  *{@summary trim the Img.}<br>
   *@param a How much do we need to trim in pixel before width
   *@param b How much do we need to trim in pixel before height
   *@param c How much do we need to trim in pixel after width
@@ -607,14 +607,14 @@ public class Img implements Cloneable{
     alpha = tableau.rogner(alpha,a,b,c,d);
   }
   /**
-  *{@summary trim the Img to cut transparent border.<br>}
+  *{@summary trim the Img to cut transparent border.}<br>
   */
   public void rognerBordTransparent(){
     int t[] = compterBordTransparent();
     rogner(t[0],t[1],t[2],t[3]);
   }
   /**
-  *{@summary get how much line are composed of transparents pixels.<br>}
+  *{@summary get how much line are composed of transparents pixels.}<br>
   */
   public int [] compterBordTransparent(){
     int t[]=new int[4];

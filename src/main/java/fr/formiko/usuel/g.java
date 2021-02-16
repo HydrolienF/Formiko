@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 /**
-*{@summary Get a translation class.<br>}
+*{@summary Get a translation class.}<br>
 *@author Hydrolien
 *@version 1.5
 */
@@ -25,7 +25,7 @@ public class g {
     return get(f+"."+x,s);
   }
   /**
-  *{@summary main get methode.<br>}
+  *{@summary main get methode.}<br>
   *Null values are supported.<br>
   *@param key Map key.
   *@param s String return if key is not found.
@@ -44,7 +44,7 @@ public class g {
     }catch (Exception e){if(s==null){s="";}return s;}
   }
   /**
-  *{@summary main get methode.<br>}
+  *{@summary main get methode.}<br>
   *the String return if key is not found will be key.
   *@param key Map key.
   *@return value that corresponds to key or s if there is no value fo key.
@@ -55,7 +55,7 @@ public class g {
     return get(key,key);
   }
   /**
-  *{@summary main get methode.<br>}
+  *{@summary main get methode.}<br>
   *return String will have a 1a char in uppercase.
   *@param key Map key.
   *@return value that corresponds to key or s if there is no value fo key.

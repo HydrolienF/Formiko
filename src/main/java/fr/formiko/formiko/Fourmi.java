@@ -18,7 +18,7 @@ import fr.formiko.usuel.types.str;
 import java.io.Serializable;
 
 /**
-*{@summary The ant class.<br>}
+*{@summary The ant class.}<br>
 *Ant is the creature used by player.<br>
 *Ant aren't different by extends of this class but but Espece &#38; Individu.<br>
 *@author Hydrolien

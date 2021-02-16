@@ -6,7 +6,7 @@ import fr.formiko.formiko.Main;
 import java.io.Serializable;
 
 /**
- * {@summary trophallaxis.<br>}
+ * {@summary trophallaxis.}<br>
  * Allow a Creature to do a trophallaxis<br>
  * @author Hydrolien
  * @version 1.1
