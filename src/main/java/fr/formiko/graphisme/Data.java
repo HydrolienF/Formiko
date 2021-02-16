@@ -10,6 +10,7 @@ import fr.formiko.usuel.images.Pixel;
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.types.str;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -323,12 +324,15 @@ public class Data {
   *{@summary Loard a loading image for PanneauChargement.}
   *@version 1.32
   */
-  public boolean loadImageChargement(String mapName){
+  public boolean loadImageChargement(){
+    String mapName = Main.getMap().getMapName();
+    mapName = str.sToSMaj(mapName);
     imageChargement=null;
     if(mapName!=null && !mapName.equals("")){
-      //#TODO 195
-      //imageChargement=image.getImage("chargement"+mapName);
-      //try to load special image if it exist.
+      imageChargement=image.getImage("chargement"+mapName,false);
+      if(imageChargement!=null){
+        imageChargement=image.resize(imageChargement,Main.getDimX(),Main.getDimY());
+      }
     }
     //if it haven't been load yet we try to load any image name chargementi.png or .jpj.
     if(imageChargement==null){

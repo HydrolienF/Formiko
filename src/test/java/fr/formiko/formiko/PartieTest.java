@@ -7,7 +7,6 @@ import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.Point;
-import fr.formiko.usuel.chargerCarte;
 import fr.formiko.usuel.tests.TestCaseMuet;
 import fr.formiko.usuel.types.str;
 
@@ -16,7 +15,7 @@ public class PartieTest extends TestCaseMuet{
   // Fonctions propre -----------------------------------------------------------
   private void ini(int nbTurn, String mapName){
     Main.initialisation();
-    Carte mapo = new Carte(chargerCarte.chargerCarte(mapName));
+    Carte mapo = new Carte(mapName);
     p = new Partie(0,nbTurn,mapo,1);
     Main.setPartie(p);
     p.initialisationElément(0,1,1);
@@ -46,11 +45,11 @@ public class PartieTest extends TestCaseMuet{
   @Test
   @Disabled("Tooo long for standard test")
   public void testLaunchGame(){
-    //test1LaunchGame(100,"miniMonde",10,9);
-    //test1LaunchGame(80,"miniMonde",10,9);
-    test1LaunchGame(50,"miniMonde",10,8); //at leaste 1 new ant.
+    //test1LaunchGame(100,"miniWorld",10,9);
+    //test1LaunchGame(80,"miniWorld",10,9);
+    test1LaunchGame(50,"miniWorld",10,8); //at leaste 1 new ant.
     //TODO #199
-    test2LaunchGame(100,"miniMonde",10,8); //at least 5 new ant.
+    test2LaunchGame(100,"miniWorld",10,8); //at least 5 new ant.
     //test1LaunchGame(50,"jardin",10,8);
   }
 
@@ -63,7 +62,7 @@ public class PartieTest extends TestCaseMuet{
   @Test
   public void testEquals(){
     Main.initialisation();
-    Carte mapo = new Carte(chargerCarte.chargerCarte("miniMonde"));
+    Carte mapo = new Carte("miniWorld");
     p = new Partie(0,100,mapo,1);
     assertTrue(!p.equals(null));
     assertTrue(!p.equals(new Object()));

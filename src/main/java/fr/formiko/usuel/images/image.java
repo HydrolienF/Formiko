@@ -68,16 +68,18 @@ public class image{
    *Image are File who end with ".png" or ".jpg".<br>
    *.png or .jpg do not need to be precised on the name.<br>
    *@param nom Name of the file without REP part.
-   *@version 1.3
+   *@param returnImageNull If true it will return an error image insted of null.
+   *@version 1.32
    */
-  public static BufferedImage getImage(String nom){
+  public static BufferedImage getImage(String nom, boolean returnImageNull){
     BufferedImage imgr = null;
     if(REPTEXTUREPACK!=null){imgr = getImage(nom,REPTEXTUREPACK);}
     if(imgr==null){imgr = getImage(nom,REP);}
     if(imgr==null){imgr = getImage(nom,REP2);}//si on ne l'as pas trouvé dans le 1a répertoire on vas chercher dans le 2a.
-    if(imgr==null){imgr = readImage(new File(REP+"null.png"));}
+    if(imgr==null && returnImageNull){imgr = readImage(new File(REP+"null.png"));}
     return imgr;
   }
+  public static BufferedImage getImage(String nom){return getImage(nom,true);}
   /**
    *{@summary get an Image in a directory.<br>}
    *Image are File who end with ".png" or ".jpg".<br>

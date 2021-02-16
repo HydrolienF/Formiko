@@ -246,10 +246,11 @@ public class Main {
   public static void lancementNouvellePartie(){ //Nouveau système de lancement de partie :
     débutCh();
     getPp().removePm();//on retire le menu
-    getPj().addPch();//on met le panneau de chargement au 1a plan.
     finCh("chargementPanneauChargementEtSuppressionMenu");//débutCh();
     if(premierePartie){tuto=true;} if(tuto){pa=getPartieTuto();}
     else if(pa==null){pa=getPartieParDéfaut();}
+    getPj().addPch();//on met le panneau de chargement au 1a plan.
+    getF().printAll(getF().getGraphics());
     //finCh("chargementDézoom");
     //pa.setEnCours(true); //lance l'affichage de la Partie.
     //débutCh();
@@ -270,18 +271,18 @@ public class Main {
     //affichageDeLaPageDeChargement
     boolean b=!op.getAttendreAprèsLeChargementDeLaCarte();
     if(premierePartie){b=true;}
-    //attente de valisation du panneau de chargement.
+    //attente de validation du panneau de chargement.
     while(!b){Temps.pause(10);b=getPch().getLancer();}
     getPj().removePch();
     getPs().construire();
     getGj().prendreEnCompteLaDifficulté();
     if(premierePartie){tuto=true;}
     if(tuto){iniParamètreCarteTuto();}
-    else{//si ce n'est pas le tuto on change la musique.
-      //thm.stopThm();
-      //thm = new ThMusique();
-      //thm.start();
-    }
+    /*else{//si ce n'est pas le tuto on change la musique.
+      thm.stopThm();
+      thm = new ThMusique();
+      thm.start();
+    }*/
   }
   /**
    * Load the default Partie.
@@ -289,8 +290,8 @@ public class Main {
    */
   public static Partie getPartieParDéfaut(){
     débutCh();
-    String nomCarte = "miniMonde";
-    Carte mapo = new Carte(chargerCarte.chargerCarte(nomCarte));
+    String nomCarte = "miniWorld";
+    Carte mapo = new Carte(nomCarte);
     mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
     Partie par = new Partie(1,100,mapo,1.0);
     par.setElément(1,5,1);
@@ -315,7 +316,7 @@ public class Main {
   public static Partie getPartieTuto(){
     débutCh();
     String nomCarte = "tuto";
-    Carte mapo = new Carte(chargerCarte.chargerCarte(nomCarte));
+    Carte mapo = new Carte(nomCarte);
     mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
     Partie par = new Partie(1,5,mapo,1.0);
     par.setElément(1,0,1);
@@ -403,7 +404,7 @@ public class Main {
   public static void setMusiqueSuivante(){getThm().setM();}*/
   //graphique
   public static PanneauPrincipal getPp(){ return f.getPp();}
-  public static synchronized void repaint(){try { f.repaint();}catch (Exception e) {}}
+  public static void repaint(){try { f.repaint();}catch (Exception e) {}}
   //public static synchronized void repaint(){try { f.paintAll(f.getGraphics());}catch (Exception e) {}}
   public static PanneauJeu getPj(){ return getPp().getPj();}
   public static PanneauMenu getPm(){ return getPp().getPm();}
@@ -469,7 +470,8 @@ public class Main {
   public static LocalDateTime getDateDeCréation(){return pa.getDateDeCréation();}
   public static int [] getTableauDesEspecesAutorisée(){ return pa.getTableauDesEspecesAutorisée();}
   public static int getNbrDeJoueur(){ return pa.getNbrDeJoueurDansLaPartie();}
-  public static Carte getCarte(){ return pa.getCarte();}
+  public static Carte getMap(){ return pa.getCarte();}
+  public static Carte getCarte(){ return getMap();}
   public static double getVitesseDeJeu(){return pa.getVitesseDeJeu();}
   public static GEspece getGe(){return pa.getGe();}
   //ini
@@ -587,7 +589,7 @@ public class Main {
    */
   public static void gcToImage(){
     débutCh();
-    Carte mapo = new Carte(chargerCarte.chargerCarte("miniMonde"));
+    Carte mapo = new Carte("miniWorld");
     GCase gc = mapo.getGc();
     finCh("chargementCarteEtGc");débutCh();
     Img img = gc.getImg();

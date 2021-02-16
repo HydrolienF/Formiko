@@ -23,8 +23,7 @@ public class PanneauChargement extends Panneau {
   public PanneauChargement(){
     System.out.println("new PanneauChargement");//@a
     setLayout(null);
-    Main.getData().loadImageChargement("map");//Main.getPartie().getCarte());
-    Main.repaint();
+    Main.getData().loadImageChargement();
     addMessage();
     addConseil();
     lancer=false;
