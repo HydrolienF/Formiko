@@ -1,6 +1,6 @@
 package fr.formiko.usuel;
 
-import fr.formiko.graphisme.ini;
+import fr.formiko.views.gui2d.ini;
 import fr.formiko.usuel.Chrono;
 
 public class Th extends Thread{

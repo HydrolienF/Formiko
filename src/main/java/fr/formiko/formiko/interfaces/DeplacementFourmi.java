@@ -1,7 +1,7 @@
 package fr.formiko.formiko.interfaces;
 
 import fr.formiko.formiko.*;
-import fr.formiko.graphisme.PanneauTInt;
+import fr.formiko.views.gui2d.PanneauTInt;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;

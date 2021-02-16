@@ -5,7 +5,7 @@ import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
-import fr.formiko.graphisme.PanneauTInt;
+import fr.formiko.views.gui2d.PanneauTInt;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
