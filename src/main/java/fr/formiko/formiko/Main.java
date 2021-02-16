@@ -404,6 +404,7 @@ public class Main {
   //graphique
   public static PanneauPrincipal getPp(){ return f.getPp();}
   public static synchronized void repaint(){try { f.repaint();}catch (Exception e) {}}
+  //public static synchronized void repaint(){try { f.paintAll(f.getGraphics());}catch (Exception e) {}}
   public static PanneauJeu getPj(){ return getPp().getPj();}
   public static PanneauMenu getPm(){ return getPp().getPm();}
   public static PanneauNouvellePartie getPnp(){ return getPm().getPnp();}
