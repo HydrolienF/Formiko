@@ -1,9 +1,9 @@
 echo "Suppress unuse fill from data"
-rm -fr data/Options.txt
-rm -f data/score*
-rm -f data/.~*
-rm -f data/.save
-rm -f data/Temps.txt
-rm -fr data/sauvegarde/*
-rm -fr data/image/temporaire/*
-rm -fr data/image/ressourcesPack/*
+rm -fr $1/data/Options.txt
+rm -f $1/data/score*
+rm -f $1/data/.~*
+rm -f $1/data/.save
+rm -f $1/data/Temps.txt
+rm -fr $1/data/sauvegarde/*
+rm -fr $1/data/image/temporaire/*
+rm -fr $1/data/image/ressourcesPack/*
