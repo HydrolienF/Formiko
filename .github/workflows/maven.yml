@@ -63,3 +63,12 @@ jobs:
         asset_path: ./out/Formiko${{ steps.version.outputs.version }}Mac.zip
         asset_name: Formiko${{ steps.version.outputs.version }}Mac.zip
         asset_content_type: application/zip
+    - name: upload .jar artifact
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./out/Formiko${{ steps.version.outputs.version }}.zip
+        asset_name: Formiko${{ steps.version.outputs.version }}.zip
+        asset_content_type: application/zip
