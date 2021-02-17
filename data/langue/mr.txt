@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:ओएस ओळखला नाही[auto]
 
 //carte :
-désert:वाळवंट[auto]
-jardin:बाग[auto]
-miniMonde:मिनी जग[auto]
-potDeFleurs:फुलदाणी[auto]
-vide:रिक्त[auto]
-carteRéparée:दुरुस्ती केलेले कार्ड[auto]
+desert:वाळवंट[auto]
+garden:बाग[auto]
+miniWorld:मिनी जग[auto]
+flowersPot:फुलदाणी[auto]
+empty:रिक्त[auto]
+fixMap:दुरुस्ती केलेले कार्ड[auto]
 mini:मिनी[auto]
-tiers:तिसऱ्या[auto]
+thirds:तिसऱ्या[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:कृपया चल करीता मूल्य प्रविष्ट करा[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS గుర్తించబడలేదు[auto]
 
 //carte :
-désert:ఎడారి[auto]
-jardin:తోట[auto]
-miniMonde:మినీ వరల్డ్[auto]
-potDeFleurs:పూల కుండి[auto]
-vide:ఖాళీ[auto]
-carteRéparée:మరమ్మతులు చేసిన కార్డు[auto]
+desert:ఎడారి[auto]
+garden:తోట[auto]
+miniWorld:మినీ వరల్డ్[auto]
+flowersPot:పూల కుండి[auto]
+empty:ఖాళీ[auto]
+fixMap:మరమ్మతులు చేసిన కార్డు[auto]
 mini:మినీ[auto]
-tiers:మూడవది[auto]
+thirds:మూడవది[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:దయచేసి వేరియబుల్ కోసం విలువను నమోదు చేయండి[auto]

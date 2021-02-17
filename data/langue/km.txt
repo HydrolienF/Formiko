@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:ប្រព័ន្ធប្រតិបត្តិការមិនត្រូវបានស្គាល់[auto]
 
 //carte :
-désert:វាលខ្សាច់[auto]
-jardin:សួនច្បារ[auto]
-miniMonde:ពិភពតូច[auto]
-potDeFleurs:ផើងផ្កា[auto]
-vide:ទទេ[auto]
-carteRéparée:កាតជួសជុល[auto]
+desert:វាលខ្សាច់[auto]
+garden:សួនច្បារ[auto]
+miniWorld:ពិភពតូច[auto]
+flowersPot:ផើងផ្កា[auto]
+empty:ទទេ[auto]
+fixMap:កាតជួសជុល[auto]
 mini:ខ្នាតតូច[auto]
-tiers:ទីបី[auto]
+thirds:ទីបី[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:សូមបញ្ចូលតម្លៃសម្រាប់អថេរ[auto]

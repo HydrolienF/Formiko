@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:ओएस चिन्न सकेन[auto]
 
 //carte :
-désert:मरुभूमि[auto]
-jardin:बगैचा[auto]
-miniMonde:सानो संसार[auto]
-potDeFleurs:फुलपाट[auto]
-vide:खाली[auto]
-carteRéparée:मर्मत कार्ड[auto]
+desert:मरुभूमि[auto]
+garden:बगैचा[auto]
+miniWorld:सानो संसार[auto]
+flowersPot:फुलपाट[auto]
+empty:खाली[auto]
+fixMap:मर्मत कार्ड[auto]
 mini:मिनी[auto]
-tiers:तेस्रो[auto]
+thirds:तेस्रो[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:कृपया चरको लागि मान प्रविष्ट गर्नुहोस्[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:İşletim sistemi tanınmadı[auto]
 
 //carte :
-désert:çöl[auto]
-jardin:Bahçe[auto]
-miniMonde:mini dünya[auto]
-potDeFleurs:saksı[auto]
-vide:boş[auto]
-carteRéparée:tamir edilmiş kart[auto]
+desert:çöl[auto]
+garden:Bahçe[auto]
+miniWorld:mini dünya[auto]
+flowersPot:saksı[auto]
+empty:boş[auto]
+fixMap:tamir edilmiş kart[auto]
 mini:mini[auto]
-tiers:üçüncü[auto]
+thirds:üçüncü[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:lütfen değişken için bir değer girin[auto]

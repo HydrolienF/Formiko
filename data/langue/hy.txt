@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:ՕՀ-ն չի ճանաչվել[auto]
 
 //carte :
-désert:անապատ[auto]
-jardin:այգի[auto]
-miniMonde:մինի աշխարհ[auto]
-potDeFleurs:ծաղկաման[auto]
-vide:դատարկ[auto]
-carteRéparée:վերանորոգված քարտ[auto]
+desert:անապատ[auto]
+garden:այգի[auto]
+miniWorld:մինի աշխարհ[auto]
+flowersPot:ծաղկաման[auto]
+empty:դատարկ[auto]
+fixMap:վերանորոգված քարտ[auto]
 mini:մինի[auto]
-tiers:երրորդ[auto]
+thirds:երրորդ[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:խնդրում ենք մուտքագրել փոփոխականի արժեք[auto]

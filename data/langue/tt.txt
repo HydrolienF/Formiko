@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:ОС танылмый[auto]
 
 //carte :
-désert:чүл[auto]
-jardin:бакча[auto]
-miniMonde:мини дөнья[auto]
-potDeFleurs:гөл чүлмәге[auto]
-vide:буш[auto]
-carteRéparée:ремонтланган карточка[auto]
+desert:чүл[auto]
+garden:бакча[auto]
+miniWorld:мини дөнья[auto]
+flowersPot:гөл чүлмәге[auto]
+empty:буш[auto]
+fixMap:ремонтланган карточка[auto]
 mini:мини[auto]
-tiers:өченче[auto]
+thirds:өченче[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:зинһар, үзгәрүченең кыйммәтен кертегез[auto]

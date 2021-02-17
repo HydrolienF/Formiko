@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:Το λειτουργικό σύστημα δεν αναγνωρίζεται[auto]
 
 //carte :
-désert:έρημος[auto]
-jardin:κήπος[auto]
-miniMonde:μίνι κόσμος[auto]
-potDeFleurs:γλάστρα[auto]
-vide:αδειάζω[auto]
-carteRéparée:επισκευασμένη κάρτα[auto]
+desert:έρημος[auto]
+garden:κήπος[auto]
+miniWorld:μίνι κόσμος[auto]
+flowersPot:γλάστρα[auto]
+empty:αδειάζω[auto]
+fixMap:επισκευασμένη κάρτα[auto]
 mini:μίνι[auto]
-tiers:τρίτος[auto]
+thirds:τρίτος[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:εισαγάγετε μια τιμή για τη μεταβλητή[auto]

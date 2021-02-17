@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS נישט דערקענט[auto]
 
 //carte :
-désert:מדבר[auto]
-jardin:גאָרטן[auto]
-miniMonde:מיני וועלט[auto]
-potDeFleurs:בלומען האלטער[auto]
-vide:ליידיק[auto]
-carteRéparée:ריפּערד קאָרט[auto]
+desert:מדבר[auto]
+garden:גאָרטן[auto]
+miniWorld:מיני וועלט[auto]
+flowersPot:בלומען האלטער[auto]
+empty:ליידיק[auto]
+fixMap:ריפּערד קאָרט[auto]
 mini:מיני[auto]
-tiers:דריט[auto]
+thirds:דריט[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:ביטע אַרייַן אַ ווערט פֿאַר די בייַטעוודיק[auto]

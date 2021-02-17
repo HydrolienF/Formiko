@@ -7,7 +7,7 @@ import fr.formiko.formiko.GCreature;
 import java.io.Serializable;
 
 /**
- * {@summary Ant implementation.<br>}
+ * {@summary Ant implementation.}<br>
  * Allow an ant to play a turn<br>
  * @author Hydrolien
  * @version 1.24

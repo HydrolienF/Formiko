@@ -151,7 +151,7 @@ public class GCreature implements Serializable{//, Iterator{
     return filtreAlliés(c,x);
   }
   /**
-  *{@summary delete Creature that can't eat more.<br>}
+  *{@summary delete Creature that can't eat more.}<br>
   *@version 1.29
   */
   public GCreature filtreFaimMax(){
@@ -159,7 +159,7 @@ public class GCreature implements Serializable{//, Iterator{
     return début.filtreFaimMax();
   }
   /**
-  *{@summary delete Creature that can't be cleaner.<br>}
+  *{@summary delete Creature that can't be cleaner.}<br>
   *@version 1.29
   */
   public GCreature filtrePropreteMax(){
@@ -167,7 +167,7 @@ public class GCreature implements Serializable{//, Iterator{
     return début.filtrePropreteMax();
   }
   /**
-  *{@summary delete Creature that didn't whant food.<br>}
+  *{@summary delete Creature that didn't whant food.}<br>
   *@version 1.29
   */
   public GCreature filtreWantFood(){
@@ -175,7 +175,7 @@ public class GCreature implements Serializable{//, Iterator{
     return début.filtreWantFood();
   }
   /**
-  *{@summary delete Creature that didn't whant clean.<br>}
+  *{@summary delete Creature that didn't whant clean.}<br>
   *@version 1.29
   */
   public GCreature filtreWantClean(){

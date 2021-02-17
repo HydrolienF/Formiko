@@ -1,6 +1,6 @@
 package fr.formiko.formiko;
 
-import fr.formiko.graphisme.*;
+import fr.formiko.views.gui2d.*;
 import fr.formiko.usuel.*;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 import java.util.Map;
 
 /**
-*{@summary Launch class <br>}
+*{@summary Launch class }<br>
 *Main file have all the shortcut on getter or setter that are curently used
 *@author Hydrolien
 *@version 1.1
@@ -72,7 +72,7 @@ public class Main {
   private static Data data;
 
   /**
-   * {@summary Lauch the game.<br>}
+   * {@summary Lauch the game.}<br>
    * It can have some args to do special thing.<br>
    * -d - set on the debug mode.<br>
    * trad make sur that every language file is 100% translated. It can auto translate some texte if the python file and translation api are on the same folder.<br>
@@ -180,7 +180,7 @@ public class Main {
     quitter();//en théorie on arrive pas là.
   }
   /**
-   * {@summary pre launch.<br>}
+   * {@summary pre launch.}<br>
    * @version 1.7
    */
   public static void iniLaunch(){
@@ -199,7 +199,7 @@ public class Main {
     finCh("chargementPartieEtCarteBlanche");
   }
   /**
-   * {@summary Launch in the void main if there is not other args than -something (ex : -d).<br>}
+   * {@summary Launch in the void main if there is not other args than -something (ex : -d).}<br>
    * @version 1.7
    */
   public static boolean launch(){
@@ -227,7 +227,7 @@ public class Main {
     return false;
   }
   /**
-   * {@summary Wait until player launch a new game, the tutorial or Load a game.<br>}
+   * {@summary Wait until player launch a new game, the tutorial or Load a game.}<br>
    * @version 1.7
    */
   public static Partie attenteDeLancementDePartie(){
@@ -240,16 +240,17 @@ public class Main {
     //debug.débogage("lancementNouvellePartie");
   }
   /**
-   * {@summary Launch a new game.<br>}
+   * {@summary Launch a new game.}<br>
    * @version 1.14
    */
   public static void lancementNouvellePartie(){ //Nouveau système de lancement de partie :
     débutCh();
     getPp().removePm();//on retire le menu
-    getPj().addPch();//on met le panneau de chargement au 1a plan.
     finCh("chargementPanneauChargementEtSuppressionMenu");//débutCh();
     if(premierePartie){tuto=true;} if(tuto){pa=getPartieTuto();}
     else if(pa==null){pa=getPartieParDéfaut();}
+    getPj().addPch();//on met le panneau de chargement au 1a plan.
+    getF().printAll(getF().getGraphics());
     //finCh("chargementDézoom");
     //pa.setEnCours(true); //lance l'affichage de la Partie.
     //débutCh();
@@ -270,18 +271,18 @@ public class Main {
     //affichageDeLaPageDeChargement
     boolean b=!op.getAttendreAprèsLeChargementDeLaCarte();
     if(premierePartie){b=true;}
-    //attente de valisation du panneau de chargement.
+    //attente de validation du panneau de chargement.
     while(!b){Temps.pause(10);b=getPch().getLancer();}
     getPj().removePch();
     getPs().construire();
     getGj().prendreEnCompteLaDifficulté();
     if(premierePartie){tuto=true;}
     if(tuto){iniParamètreCarteTuto();}
-    else{//si ce n'est pas le tuto on change la musique.
-      //thm.stopThm();
-      //thm = new ThMusique();
-      //thm.start();
-    }
+    /*else{//si ce n'est pas le tuto on change la musique.
+      thm.stopThm();
+      thm = new ThMusique();
+      thm.start();
+    }*/
   }
   /**
    * Load the default Partie.
@@ -289,8 +290,8 @@ public class Main {
    */
   public static Partie getPartieParDéfaut(){
     débutCh();
-    String nomCarte = "miniMonde";
-    Carte mapo = new Carte(chargerCarte.chargerCarte(nomCarte));
+    String nomCarte = "miniWorld";
+    Carte mapo = new Carte(nomCarte);
     mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
     Partie par = new Partie(1,100,mapo,1.0);
     par.setElément(1,5,1);
@@ -309,13 +310,13 @@ public class Main {
     return par;
   }
   /**
-   * {@summary create a new Partie to launch Tuto.<br>}
+   * {@summary create a new Partie to launch Tuto.}<br>
    * @version 1.1.
    */
   public static Partie getPartieTuto(){
     débutCh();
     String nomCarte = "tuto";
-    Carte mapo = new Carte(chargerCarte.chargerCarte(nomCarte));
+    Carte mapo = new Carte(nomCarte);
     mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
     Partie par = new Partie(1,5,mapo,1.0);
     par.setElément(1,0,1);
@@ -326,7 +327,7 @@ public class Main {
     return par;
   }
   /**
-   * {@summary Initializes the tutorial parameters.<br>}
+   * {@summary Initializes the tutorial parameters.}<br>
    * @version 1.1
    */
   public static void iniParamètreCarteTuto(){
@@ -403,7 +404,8 @@ public class Main {
   public static void setMusiqueSuivante(){getThm().setM();}*/
   //graphique
   public static PanneauPrincipal getPp(){ return f.getPp();}
-  public static synchronized void repaint(){try { f.repaint();}catch (Exception e) {}}
+  public static void repaint(){try { f.repaint();}catch (Exception e) {}}
+  //public static synchronized void repaint(){try { f.paintAll(f.getGraphics());}catch (Exception e) {}}
   public static PanneauJeu getPj(){ return getPp().getPj();}
   public static PanneauMenu getPm(){ return getPp().getPm();}
   public static PanneauNouvellePartie getPnp(){ return getPm().getPnp();}
@@ -468,7 +470,8 @@ public class Main {
   public static LocalDateTime getDateDeCréation(){return pa.getDateDeCréation();}
   public static int [] getTableauDesEspecesAutorisée(){ return pa.getTableauDesEspecesAutorisée();}
   public static int getNbrDeJoueur(){ return pa.getNbrDeJoueurDansLaPartie();}
-  public static Carte getCarte(){ return pa.getCarte();}
+  public static Carte getMap(){ return pa.getCarte();}
+  public static Carte getCarte(){ return getMap();}
   public static double getVitesseDeJeu(){return pa.getVitesseDeJeu();}
   public static GEspece getGe(){return pa.getGe();}
   //ini
@@ -567,7 +570,7 @@ public class Main {
     finCh("chargementDesLangues");
   }
   /**
-   * {@summary Print on the window a message about game loading.<br>}
+   * {@summary Print on the window a message about game loading.}<br>
    * If you tried to use it before the creating of a new PanneauChargement, message will not appear on the window.
    * @version 1.14
    */
@@ -586,7 +589,7 @@ public class Main {
    */
   public static void gcToImage(){
     débutCh();
-    Carte mapo = new Carte(chargerCarte.chargerCarte("miniMonde"));
+    Carte mapo = new Carte("miniWorld");
     GCase gc = mapo.getGc();
     finCh("chargementCarteEtGc");débutCh();
     Img img = gc.getImg();
@@ -604,7 +607,7 @@ public class Main {
     Chrono.finCh(s,chTemp);
   }
   /**
-   * {@summary Try to exit normally.<br>}
+   * {@summary Try to exit normally.}<br>
    * Save score informations.<br>
    * Clear temporary Images.<br>
    * Save time played.<br>
@@ -635,7 +638,7 @@ public class Main {
     }
   }
   /**
-   * {@summary Play a turn.<br>}
+   * {@summary Play a turn.}<br>
    * 1a updating Case resources.<br>
    * 2a Make humain player and AI play.<br>
    * 3a Make Insecte play.<br>

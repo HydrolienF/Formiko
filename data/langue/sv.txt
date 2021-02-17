@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS känns inte igen[auto]
 
 //carte :
-désert:öken-[auto]
-jardin:trädgård[auto]
-miniMonde:mini-värld[auto]
-potDeFleurs:blomkruka[auto]
-vide:tömma[auto]
-carteRéparée:reparerat kort[auto]
+desert:öken-[auto]
+garden:trädgård[auto]
+miniWorld:mini-värld[auto]
+flowersPot:blomkruka[auto]
+empty:tömma[auto]
+fixMap:reparerat kort[auto]
 mini:mini[auto]
-tiers:tredje[auto]
+thirds:tredje[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:ange ett värde för variabeln[auto]

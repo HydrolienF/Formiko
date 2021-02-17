@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:Hệ điều hành không được công nhận[auto]
 
 //carte :
-désert:Sa mạc[auto]
-jardin:vườn[auto]
-miniMonde:thế giới nhỏ[auto]
-potDeFleurs:chậu hoa[auto]
-vide:trống[auto]
-carteRéparée:thẻ sửa chữa[auto]
+desert:Sa mạc[auto]
+garden:vườn[auto]
+miniWorld:thế giới nhỏ[auto]
+flowersPot:chậu hoa[auto]
+empty:trống[auto]
+fixMap:thẻ sửa chữa[auto]
 mini:mini[auto]
-tiers:ngày thứ ba[auto]
+thirds:ngày thứ ba[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:vui lòng nhập một giá trị cho biến[auto]

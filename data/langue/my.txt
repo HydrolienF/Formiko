@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS ကိုအသိအမှတ်မပြုပါ[auto]
 
 //carte :
-désert:သဲကန္တာရ[auto]
-jardin:ဥယျာဉ်[auto]
-miniMonde:ကမ္ဘာကြီး[auto]
-potDeFleurs:ပန်းအိုး[auto]
-vide:ဗလာ[auto]
-carteRéparée:ပြန်လည်ပြင်ဆင်ထားသောကဒ်[auto]
+desert:သဲကန္တာရ[auto]
+garden:ဥယျာဉ်[auto]
+miniWorld:ကမ္ဘာကြီး[auto]
+flowersPot:ပန်းအိုး[auto]
+empty:ဗလာ[auto]
+fixMap:ပြန်လည်ပြင်ဆင်ထားသောကဒ်[auto]
 mini:အသေးစား[auto]
-tiers:တတိယ[auto]
+thirds:တတိယ[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:ကျေးဇူးပြုပြီး variable အတွက်တန်ဖိုးထည့်ပါ[auto]

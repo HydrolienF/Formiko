@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OSが認識されない[auto]
 
 //carte :
-désert:砂漠[auto]
-jardin:庭園[auto]
-miniMonde:ミニワールド[auto]
-potDeFleurs:植木鉢[auto]
-vide:空の[auto]
-carteRéparée:修理されたカード[auto]
+desert:砂漠[auto]
+garden:庭園[auto]
+miniWorld:ミニワールド[auto]
+flowersPot:植木鉢[auto]
+empty:空の[auto]
+fixMap:修理されたカード[auto]
 mini:ミニ[auto]
-tiers:第三[auto]
+thirds:第三[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:変数の値を入力してください[auto]

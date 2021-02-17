@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS танигдаагүй байна[auto]
 
 //carte :
-désert:цөл[auto]
-jardin:цэцэрлэг[auto]
-miniMonde:мини ертөнц[auto]
-potDeFleurs:цэцгийн сав[auto]
-vide:хоосон[auto]
-carteRéparée:засварласан карт[auto]
+desert:цөл[auto]
+garden:цэцэрлэг[auto]
+miniWorld:мини ертөнц[auto]
+flowersPot:цэцгийн сав[auto]
+empty:хоосон[auto]
+fixMap:засварласан карт[auto]
 mini:мини[auto]
-tiers:гурав дахь[auto]
+thirds:гурав дахь[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:хувьсагчийн утгыг оруулна уу[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS nav atpazīta[auto]
 
 //carte :
-désert:tuksnesis[auto]
-jardin:dārzs[auto]
-miniMonde:mini pasaule[auto]
-potDeFleurs:puķu pods[auto]
-vide:tukšs[auto]
-carteRéparée:salabota karte[auto]
+desert:tuksnesis[auto]
+garden:dārzs[auto]
+miniWorld:mini pasaule[auto]
+flowersPot:puķu pods[auto]
+empty:tukšs[auto]
+fixMap:salabota karte[auto]
 mini:mini[auto]
-tiers:trešais[auto]
+thirds:trešais[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:lūdzu, ievadiet mainīgā vērtību[auto]

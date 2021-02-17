@@ -10,7 +10,7 @@ import fr.formiko.usuel.g;
 import java.io.Serializable;
 
 /**
- * {@summary Creature implementation.<br>}
+ * {@summary Creature implementation.}<br>
  * Allow a creature without any action aviable to play a turn<br>
  * Maybe that's not usefull because if action &#60; 0 creature will already end there turn.
  * @author Hydrolien

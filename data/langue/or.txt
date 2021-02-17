@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS ଚିହ୍ନିତ ନୁହେଁ |[auto]
 
 //carte :
-désert:ମରୁଭୂମି[auto]
-jardin:ବଗିଚା[auto]
-miniMonde:ମିନି ଦୁନିଆ |[auto]
-potDeFleurs:ଫୁଲପଟ୍ |[auto]
-vide:ଖାଲି[auto]
-carteRéparée:ମରାମତି କାର୍ଡ[auto]
+desert:ମରୁଭୂମି[auto]
+garden:ବଗିଚା[auto]
+miniWorld:ମିନି ଦୁନିଆ |[auto]
+flowersPot:ଫୁଲପଟ୍ |[auto]
+empty:ଖାଲି[auto]
+fixMap:ମରାମତି କାର୍ଡ[auto]
 mini:ମିନି[auto]
-tiers:ତୃତୀୟ[auto]
+thirds:ତୃତୀୟ[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:ଭେରିଏବଲ୍ ପାଇଁ ଦୟାକରି ଏକ ଭାଲ୍ୟୁ ଏଣ୍ଟର୍ କରନ୍ତୁ |[auto]

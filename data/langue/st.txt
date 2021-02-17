@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS ha e tsejoe[auto]
 
 //carte :
-désert:lehoatata[auto]
-jardin:serapa[auto]
-miniMonde:mini lefatše[auto]
-potDeFleurs:pitsa ea lipalesa[auto]
-vide:lefeela[auto]
-carteRéparée:karete e lokisitsoeng[auto]
+desert:lehoatata[auto]
+garden:serapa[auto]
+miniWorld:mini lefatše[auto]
+flowersPot:pitsa ea lipalesa[auto]
+empty:lefeela[auto]
+fixMap:karete e lokisitsoeng[auto]
 mini:mini[auto]
-tiers:ea boraro[auto]
+thirds:ea boraro[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:ka kopo kenya boleng ba se fapaneng[auto]

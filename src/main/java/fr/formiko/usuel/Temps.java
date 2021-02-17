@@ -9,29 +9,29 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *{@summary Time information about game.<br>}
+ *{@summary Time information about game.}<br>
  *It contain date of 1a launch. Date of last launch and time played.
  *@author Hydrolien
  *@version 1.4
  */
 public class Temps {
   /***
-   *{@summary Date of 1a lauch.<br>}
+   *{@summary Date of 1a lauch.}<br>
    *@version 1.4
    */
   private long date1;
   /***
-   *{@summary Date of last lauch.<br>}
+   *{@summary Date of last lauch.}<br>
    *@version 1.4
    */
   private long date2;
   /***
-   *{@summary Time played.<br>}
+   *{@summary Time played.}<br>
    *@version 1.4
    */
   private long tempsEnJeux;
   /***
-   *{@summary DateFormat.<br>}
+   *{@summary DateFormat.}<br>
    *@version 1.4
    */
   private String df = "dd/MM/yyyy HH:mm";

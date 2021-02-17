@@ -1,6 +1,7 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.usuel.chargerCarte;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -11,6 +12,7 @@ public class Carte implements Serializable{
   private GCase gc;
   private byte abondanceInsecte,abondanceGraine,abondanceHerbe;
   private boolean casesNuageuses,casesSombres;
+  private String mapName;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Carte(GCase gc, byte abondanceInsecte, byte abondanceGraine, byte abondanceHerbe, boolean caseNuageuse, boolean caseSombre){
     if (gc==null){erreur.erreur("impossible d'avoir un GCase null ici","Carte.Carte");}
@@ -18,9 +20,14 @@ public class Carte implements Serializable{
     debug.débogage("Création de carte a "+this.gc.length()+" cases");
     this.abondanceInsecte = abondanceInsecte; this.abondanceGraine = abondanceGraine; this.abondanceHerbe = abondanceHerbe;
     casesSombres=caseSombre; casesNuageuses=caseNuageuse;
+    mapName="";
   }public Carte(GCase gc, int a, int b, int c, boolean d, boolean e){ this(gc,(byte) a,(byte) b,(byte) c, d, e);}
   public Carte(GCase gc){
     this(gc,10,10,10,true,true);
+  }
+  public Carte(String mapName){
+    this(chargerCarte.chargerCarte(mapName));
+    this.mapName=mapName;
   }
   // GET SET --------------------------------------------------------------------
   public GCase getGc(){ return gc;}
@@ -32,6 +39,7 @@ public class Carte implements Serializable{
   public void setCasesNuageuses(boolean b){casesNuageuses=b;}
   public boolean getCasesSombres(){return casesSombres;}
   public void setCasesSombres(boolean b){casesSombres=b;}
+  public String getMapName(){return mapName;}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
     String sr = "";

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS ekki viðurkennt[auto]
 
 //carte :
-désert:eyðimörk[auto]
-jardin:garður[auto]
-miniMonde:lítill heimur[auto]
-potDeFleurs:blómapottur[auto]
-vide:tómt[auto]
-carteRéparée:lagfært kort[auto]
+desert:eyðimörk[auto]
+garden:garður[auto]
+miniWorld:lítill heimur[auto]
+flowersPot:blómapottur[auto]
+empty:tómt[auto]
+fixMap:lagfært kort[auto]
 mini:lítill[auto]
-tiers:þriðja[auto]
+thirds:þriðja[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:vinsamlegast sláðu inn gildi fyrir breytuna[auto]

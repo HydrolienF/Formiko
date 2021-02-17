@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:ОС не е разпозната[auto]
 
 //carte :
-désert:пустинен[auto]
-jardin:градина[auto]
-miniMonde:мини свят[auto]
-potDeFleurs:саксия[auto]
-vide:празен[auto]
-carteRéparée:ремонтирана карта[auto]
+desert:пустинен[auto]
+garden:градина[auto]
+miniWorld:мини свят[auto]
+flowersPot:саксия[auto]
+empty:празен[auto]
+fixMap:ремонтирана карта[auto]
 mini:мини[auto]
-tiers:трето[auto]
+thirds:трето[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:моля, въведете стойност за променливата[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:Az operációs rendszer nem ismerhető fel[auto]
 
 //carte :
-désert:sivatag[auto]
-jardin:kert[auto]
-miniMonde:mini világ[auto]
-potDeFleurs:virágcserép[auto]
-vide:üres[auto]
-carteRéparée:javított kártya[auto]
+desert:sivatag[auto]
+garden:kert[auto]
+miniWorld:mini világ[auto]
+flowersPot:virágcserép[auto]
+empty:üres[auto]
+fixMap:javított kártya[auto]
 mini:mini[auto]
-tiers:harmadik[auto]
+thirds:harmadik[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:kérjük, adja meg a változó értékét[auto]

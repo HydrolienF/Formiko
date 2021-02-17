@@ -2,8 +2,8 @@ package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
-import fr.formiko.graphisme.EtiquetteJoueur;
-import fr.formiko.graphisme.GEtiquetteJoueur;
+import fr.formiko.views.gui2d.EtiquetteJoueur;
+import fr.formiko.views.gui2d.GEtiquetteJoueur;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
@@ -61,7 +61,7 @@ public class Partie implements Serializable{
     appartionGraine=true;
   }
   /**
-  *{@summary Constructor with only minimal initialization.<br>}
+  *{@summary Constructor with only minimal initialization.}<br>
   *@version 1.2
   */
   public Partie(){

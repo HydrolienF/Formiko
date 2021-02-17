@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS nach bhfuil aitheanta[auto]
 
 //carte :
-désert:fásach[auto]
-jardin:gairdín[auto]
-miniMonde:domhan mion[auto]
-potDeFleurs:Próca bláthanna[auto]
-vide:folamh[auto]
-carteRéparée:cárta deisithe[auto]
+desert:fásach[auto]
+garden:gairdín[auto]
+miniWorld:domhan mion[auto]
+flowersPot:Próca bláthanna[auto]
+empty:folamh[auto]
+fixMap:cárta deisithe[auto]
 mini:mion[auto]
-tiers:tríú[auto]
+thirds:tríú[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:Iontráil luach don athróg le do thoil[auto]

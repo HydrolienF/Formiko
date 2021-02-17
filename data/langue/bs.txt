@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS nije prepoznat[auto]
 
 //carte :
-désert:pustinja[auto]
-jardin:vrt[auto]
-miniMonde:mini svijet[auto]
-potDeFleurs:saksija[auto]
-vide:prazno[auto]
-carteRéparée:popravljena kartica[auto]
+desert:pustinja[auto]
+garden:vrt[auto]
+miniWorld:mini svijet[auto]
+flowersPot:saksija[auto]
+empty:prazno[auto]
+fixMap:popravljena kartica[auto]
 mini:mini[auto]
-tiers:treće[auto]
+thirds:treće[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:molimo unesite vrijednost za varijablu[auto]

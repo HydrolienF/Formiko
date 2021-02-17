@@ -9,7 +9,7 @@ import fr.formiko.usuel.tableau;
 import java.io.Serializable;
 
 /**
- *{@summary Save the pop probability of an Insecte.<br>}
+ *{@summary Save the pop probability of an Insecte.}<br>
  *The pop probability depend of the Case were the Insecte will pop.
  *@author Hydrolien
  *@version 1.1

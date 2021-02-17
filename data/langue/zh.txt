@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:操作系统无法识别[auto]
 
 //carte :
-désert:沙漠[auto]
-jardin:花园[auto]
-miniMonde:迷你世界[auto]
-potDeFleurs:花盆[auto]
-vide:空的[auto]
-carteRéparée:修复卡[auto]
+desert:沙漠[auto]
+garden:花园[auto]
+miniWorld:迷你世界[auto]
+flowersPot:花盆[auto]
+empty:空的[auto]
+fixMap:修复卡[auto]
 mini:微型[auto]
-tiers:第三[auto]
+thirds:第三[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:请输入变量的值[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:System operacyjny nie został rozpoznany[auto]
 
 //carte :
-désert:pustynia[auto]
-jardin:ogród[auto]
-miniMonde:mini świat[auto]
-potDeFleurs:doniczka[auto]
-vide:pusty[auto]
-carteRéparée:naprawiona karta[auto]
+desert:pustynia[auto]
+garden:ogród[auto]
+miniWorld:mini świat[auto]
+flowersPot:doniczka[auto]
+empty:pusty[auto]
+fixMap:naprawiona karta[auto]
 mini:mini[auto]
-tiers:trzeci[auto]
+thirds:trzeci[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:proszę podać wartość zmiennej[auto]

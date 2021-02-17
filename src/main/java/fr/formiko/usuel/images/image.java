@@ -16,23 +16,23 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
- *{@summary image class that contain a lot of tools to use images. <br>}
+ *{@summary image class that contain a lot of tools to use images. }<br>
  *@author Hydrolien
  *@version 1.4
  */
 public class image{
   /**
-   *{@summary The Images directory.<br>}
+   *{@summary The Images directory.}<br>
    *@version 1.3
    */
   public static final String REP = "data/image/";
   /**
-   *{@summary The Images directory. Used to put temporary Images.<br>}
+   *{@summary The Images directory. Used to put temporary Images.}<br>
    *@version 1.3
    */
   public static final String REP2 = "data/image/temporaire/";
   /**
-   *{@summary The Images directory for extra texture.<br>}
+   *{@summary The Images directory for extra texture.}<br>
    *You can add new image that will be used as the game texture (as chargement(Max+1)).
    *Or You can replace some images by puting an image with the same name than an actual image in REP or REP2.
    *@version 1.3
@@ -46,7 +46,7 @@ public class image{
   public static String getREP(){ return REP;}
   // Fonctions propre -----------------------------------------------------------
   /**
-   *{@summary Try to read an Image file<br>}
+   *{@summary Try to read an Image file}<br>
    *Image are File who end with ".png" or ".jpg".<br>
    *@param f File that sould contain the Image.
    *@return Image on the file or null if something went wrong.
@@ -63,23 +63,25 @@ public class image{
     }
   }public static BufferedImage readImage(String s){return readImage(new File(s));}
   /**
-   *{@summary get an Image in 1 of the 3 usuals images directories.<br>}
+   *{@summary get an Image in 1 of the 3 usuals images directories.}<br>
    *It will 1a search on REPTEXTUREPACK, then in REP and finaly in REP2.
    *Image are File who end with ".png" or ".jpg".<br>
    *.png or .jpg do not need to be precised on the name.<br>
    *@param nom Name of the file without REP part.
-   *@version 1.3
+   *@param returnImageNull If true it will return an error image insted of null.
+   *@version 1.32
    */
-  public static BufferedImage getImage(String nom){
+  public static BufferedImage getImage(String nom, boolean returnImageNull){
     BufferedImage imgr = null;
     if(REPTEXTUREPACK!=null){imgr = getImage(nom,REPTEXTUREPACK);}
     if(imgr==null){imgr = getImage(nom,REP);}
     if(imgr==null){imgr = getImage(nom,REP2);}//si on ne l'as pas trouvé dans le 1a répertoire on vas chercher dans le 2a.
-    if(imgr==null){imgr = readImage(new File(REP+"null.png"));}
+    if(imgr==null && returnImageNull){imgr = readImage(new File(REP+"null.png"));}
     return imgr;
   }
+  public static BufferedImage getImage(String nom){return getImage(nom,true);}
   /**
-   *{@summary get an Image in a directory.<br>}
+   *{@summary get an Image in a directory.}<br>
    *Image are File who end with ".png" or ".jpg".<br>
    *.png or .jpg do not need to be precised on the name.<br>
    *@param nom Name of the file without REP part.
@@ -110,7 +112,7 @@ public class image{
     return imgr;
   }
   /**
-   *{@summary get an array [] of Image.<br>}
+   *{@summary get an array [] of Image.}<br>
    *Image are File who end with ".png" or ".jpg"
    *@param nom Name of the file without REP part and number and .png or .jpg part of it.
    *@param nbr Number of image that we want.
@@ -130,7 +132,7 @@ public class image{
   public static BufferedImage [] getImages(String nom, int nbr, byte x){ return getImages(nom,' ',nbr,x);}
   public static BufferedImage[] getImages(String nom, byte x){return getImages(nom, getNbrImages(nom, x));}
   /**
-   *{@summary Fined the last existing number of image from x.<br>}
+   *{@summary Fined the last existing number of image from x.}<br>
    *Image are File who end with ".png" or ".jpg"
    *@param nom Name of the file without REP part and number and .png or .jpg part of it.
    *@param x Needed only if x!=0. x is the 1a number of the numbering.
@@ -146,7 +148,7 @@ public class image{
     return math.max(t);
   }public static int getNbrImages(String n){return getNbrImages(n,(byte)0);}
   /**
-   *{@summary Fined the last existing number of image from x on a directory<br>}
+   *{@summary Fined the last existing number of image from x on a directory}<br>
    *Image are File who end with ".png" or ".jpg"
    *@param nom Name of the file without REP part and number and .png or .jpg part of it.
    *@param rep Directory name.
@@ -168,7 +170,7 @@ public class image{
   public static BufferedImage[] getImages(String nom, int nbr){ return getImages(nom,nbr,(byte)0);}
   public static BufferedImage[] getImages(String nom){ return getImages(nom,(byte)0);}
   /**
-   *{@summary get an array [][] of Image.<br>}
+   *{@summary get an array [][] of Image.}<br>
    *Image are File who end with ".png" or ".jpg"<br>
    *This metode will always return a new Image [4][nbr] to have the 4 rotated images.
    *@param nom Name of the file without REP part and number and .png or .jpg part of it.
@@ -192,7 +194,7 @@ public class image{
   public static BufferedImage[][] getImagess(String nom){ return getImagess(nom,(byte)0);}
   public static BufferedImage[][] getImagess(String nom, byte x){ return getImagess(nom,getNbrImages(nom),x);}
   /**
-   *{@summary transforme to Scaled instance a Image []<br>}
+   *{@summary transforme to Scaled instance a Image []}<br>
    *@param width the width to which to scale the image.
    *@param heigth the height to which to scale the image.
    *@param hints flags to indicate the type of algorithm to use for image resampling.
@@ -206,7 +208,7 @@ public class image{
     return img;
   }
   /**
-   *{@summary delete every file in REP2.<br>}
+   *{@summary delete every file in REP2.}<br>
    *@version 1.3
    */
   public static void clearTemporaire(){
@@ -217,7 +219,7 @@ public class image{
     }
   }
   /**
-   *{@summary delete every FSomething file in REP2.<br>}
+   *{@summary delete every FSomething file in REP2.}<br>
    *@version 1.3
    */
   public static void clearPartielTemporaire(){
@@ -231,7 +233,7 @@ public class image{
   }
   //taille d'une image de Creature.
   /**
-   *{@summary Return size of a Creature image.<br>}
+   *{@summary Return size of a Creature image.}<br>
    *@param idEspece id of the Species (size depend of Species)<br>
    *@param stade stade also infulence size of the Creature
    *@param taille taille used if it was 0% realistic.
@@ -242,7 +244,7 @@ public class image{
     return taille(a,taille);
   }
   /**
-   *{@summary Return size of a Creature image.<br>}
+   *{@summary Return size of a Creature image.}<br>
    *@param a size assumed if it was 100% realistic.
    *@param taille size used if it was 0% realistic.
    *@version 1.3
@@ -279,7 +281,8 @@ public class image{
   }*/
   /**
   *{@summary A fonction to getScaledInstance and return a BufferedImage.} <br>
-  *cf https://stackoverflow.com/questions/9417356/bufferedimage-resize/9417836#9417836
+  *If images is alredy resize to the exacte dimention it only return the same image.<br>
+  *cf https://stackoverflow.com/questions/9417356/bufferedimage-resize/9417836#9417836<br>
   *@param bi The Image to resize.
   *@param newW The new width.
   *@param newH The new height.
@@ -287,6 +290,7 @@ public class image{
   */
   public static BufferedImage resize(BufferedImage bi, int newW, int newH) {
     if(bi==null){return null;}
+    if(newW==bi.getWidth() && newH==bi.getHeight()){return bi;}
     if(newW<1){newW=1;}
     if(newH<1){newH=1;}
     Image tmp = bi.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);

@@ -7,7 +7,7 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.tableau;
 
 /**
-*{@summary Types conversions from String<br>}
+*{@summary Types conversions from String}<br>
 *@author Hydrolien
 *@version 1.1
 */
@@ -56,7 +56,7 @@ public class str{
   }public static boolean contient(String s, String s2, int x){return contient(s,s2,iToBy(x));}
   public static boolean contient(String s,String s2){return contient(s,s2,1);}
   /**
-   *{@summary add fin at the end off s, if s does not arlerdy end by fin.<br>}
+   *{@summary add fin at the end off s, if s does not arlerdy end by fin.}<br>
    *@param s main String.
    *@param fin String to add on s.
    *@return s with fin at the end.
@@ -68,7 +68,7 @@ public class str{
   }
 
   /**
-  *{@summary Delete forbidden char in the array t.<br>}
+  *{@summary Delete forbidden char in the array t.}<br>
   *@param s the String were to delete forbidden char.
   *@param t the array were forbidden char are.
   *@version 1.3
@@ -84,7 +84,7 @@ public class str{
     return r;
   }
   /**
-  *{@summary Delete forbidden char depending of the os.<br>}
+  *{@summary Delete forbidden char depending of the os.}<br>
   *if os is not define windows char will be deleted.
   *@param s the String were to delete forbidden char.
   *@version 1.3
@@ -99,7 +99,7 @@ public class str{
     //return filtreCharInterdit(s,ml);
   }public static String sToFileName(String s){ return filtreCharInterdit(s);}
   /**
-  *{@summary Transform a String to a directory name aviable on every os.<br>}
+  *{@summary Transform a String to a directory name aviable on every os.}<br>
   *if last / is missing it will be add.
   *@param s the String to transform to a directory name.
   *@version 1.3
@@ -112,7 +112,7 @@ public class str{
     return s;
   }
   /**
-  *{@summary Transform the first char of a String to the toUpperCase char.<br>}
+  *{@summary Transform the first char of a String to the toUpperCase char.}<br>
   *if s is "" or null nothing will be done.
   *@param s the String to transform.
   *@version 1.7

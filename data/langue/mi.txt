@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS kaore i te mohiotia[auto]
 
 //carte :
-désert:ururua[auto]
-jardin:māra[auto]
-miniMonde:ao paku[auto]
-potDeFleurs:ipu putiputi[auto]
-vide:putua[auto]
-carteRéparée:kaari whakatika[auto]
+desert:ururua[auto]
+garden:māra[auto]
+miniWorld:ao paku[auto]
+flowersPot:ipu putiputi[auto]
+empty:putua[auto]
+fixMap:kaari whakatika[auto]
 mini:paku[auto]
-tiers:tuatoru[auto]
+thirds:tuatoru[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:whakauruhia mai he uara mo te taurangi[auto]

@@ -213,14 +213,14 @@ os.2:Mac[]
 os.-1:OS-i ei tunnustatud[auto]
 
 //carte :
-désert:kõrb[auto]
-jardin:aed[auto]
-miniMonde:mini maailm[auto]
-potDeFleurs:lillepott[auto]
-vide:tühi[auto]
-carteRéparée:parandatud kaart[auto]
+desert:kõrb[auto]
+garden:aed[auto]
+miniWorld:mini maailm[auto]
+flowersPot:lillepott[auto]
+empty:tühi[auto]
+fixMap:parandatud kaart[auto]
 mini:mini[auto]
-tiers:kolmas[auto]
+thirds:kolmas[auto]
 
 //package usuel ------------------------------------------------------------------
 read.1:sisestage muutuja väärtus[auto]

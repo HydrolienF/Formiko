@@ -55,14 +55,14 @@ public class TourFourmi implements Serializable, Tour{
     finTour();
   }
   /**
-  *{@summary To be sur that the ant will be clean.<br>}
+  *{@summary To be sur that the ant will be clean.}<br>
   *@version 1.29
   */
   public void cleanItself(){
     while(f.getAction()>0 && f.wantClean() && !(f.netoyer instanceof NetoyerNull)){ f.ceNetoyer();}
   }
   /**
-  *{@summary Give food by trophallaxis if other ant need it.<br>}
+  *{@summary Give food by trophallaxis if other ant need it.}<br>
   *An Ant try to give all it food exept foodToQueep%.<br>
   *An ant try to give food if : it have action left, it have more food than foodToQueep%, it can use Trophallaxie interface.
   *@version 1.29
@@ -77,7 +77,7 @@ public class TourFourmi implements Serializable, Tour{
     }
   }
   /**
-  *{@summary Search the ant that need the more food.<br>}
+  *{@summary Search the ant that need the more food.}<br>
   *We 1a feed our ant queen if it wantFood.<br>
   *We 2a feed every creature that is concidered as an ally &#38; want food.<br>
   *Finaly we try to feed the queen even if she didn't absolutly need food.<br>
@@ -100,7 +100,7 @@ public class TourFourmi implements Serializable, Tour{
     return r; //r can be null.
   }
   /**
-  *{@summary Clean if other ant need it.<br>}
+  *{@summary Clean if other ant need it.}<br>
   *@version 1.29
   */
   public void cleanOther(){
@@ -111,7 +111,7 @@ public class TourFourmi implements Serializable, Tour{
     }
   }
   /**
-  *{@summary Search the ant that need the more to be clean.<br>}
+  *{@summary Search the ant that need the more to be clean.}<br>
   *We 1a clean our ant queen if it wantClean.<br>
   *We 2a clean every creature that is concidered as an ally &#38; want clean.<br>
   *@version 1.29
@@ -133,7 +133,7 @@ public class TourFourmi implements Serializable, Tour{
     return null;
   }
   /**
-  *{@summary Back home and share food to the Creature that need it.<br>}
+  *{@summary Back home and share food to the Creature that need it.}<br>
   *@version 1.29
   */
   public void backHomeAndShareFood(){
@@ -142,7 +142,7 @@ public class TourFourmi implements Serializable, Tour{
     cleanOther();
   }
   /**
-  *{@summary Back home.<br>}
+  *{@summary Back home.}<br>
   *We find the direction to be closer to the anthill. And then we go there. <br>
   *@version 1.29
   */
@@ -153,7 +153,7 @@ public class TourFourmi implements Serializable, Tour{
     }
   }
   /**
-  *{@summary End a turn as an Ant.<br>}
+  *{@summary End a turn as an Ant.}<br>
   *@version 1.30
   */
   public void finTour(){
