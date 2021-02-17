@@ -4,8 +4,8 @@ import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GCreature;
 import fr.formiko.formiko.Main;
-import fr.formiko.graphisme.BoiteListeDefilante;
-import fr.formiko.graphisme.PanneauTInt;
+import fr.formiko.views.gui2d.BoiteListeDefilante;
+import fr.formiko.views.gui2d.PanneauTInt;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -15,14 +15,14 @@ import fr.formiko.usuel.tableau;
 import java.io.Serializable;
 
 /**
- * {@summary Ant implementation.<br>}
+ * {@summary Ant implementation.}<br>
  * Allow an ant to do a trophallaxis<br>
  * @author Hydrolien
  * @version 1.1
  */
 public class TrophallaxieFourmi implements Serializable, Trophallaxie {
   /**
-   *{@summary make a trophallaxis.<br>}
+   *{@summary make a trophallaxis.}<br>
    *This methode will check that no food will be lost and no food will be create.<br>
    *If the trophallaxis work well it will cost action to the 2 creatures.
    *@param c The trophallaxing Creature.
@@ -57,7 +57,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
     debug.débogage("Trophallaxie de "+nourritureDonnée+ " éffectuée");
   }
   /**
-   *{@summary do a trophallaxis to an id<br>}
+   *{@summary do a trophallaxis to an id}<br>
    *@param id The target Creature to fined on the Case.
    *@version 1.3
    */
@@ -66,7 +66,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
     trophallaxie(c,c.getCCase().getContenu().getGc().getCreatureParId(id), nourritureDonnée);
   }
   /**
-   *{@summary player trophallaxis<br>}
+   *{@summary player trophallaxis}<br>
    *1a find the target ant that can be chose &#38; make the player chose 1.<br>
    *2a ask the amount of food transferred by the player.<br>
    *3a do the trophallaxis.<br>
@@ -118,7 +118,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
     }
   }
   /**
-   *{@summary find hungry ant.<br>}
+   *{@summary find hungry ant.}<br>
    *@param t The id list of the ant.
    *@param net The creature who whant to give food.
    *@version 1.7

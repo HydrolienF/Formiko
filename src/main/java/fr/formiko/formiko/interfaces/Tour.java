@@ -4,7 +4,7 @@ import fr.formiko.formiko.Creature;
 
 import java.io.Serializable;
 /**
- * {@summary play a turn.<br>}
+ * {@summary play a turn.}<br>
  * @author Hydrolien
  * @version 1.24
  */

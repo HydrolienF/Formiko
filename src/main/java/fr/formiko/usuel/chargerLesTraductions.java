@@ -10,7 +10,7 @@ import fr.formiko.usuel.listes.GString;
 import java.io.File;
 
 /**
-*{@summary Loard translation file class.<br>}
+*{@summary Loard translation file class.}<br>
 *@author Hydrolien
 *@version 1.5
 */
@@ -28,7 +28,7 @@ public class chargerLesTraductions {
   public static void iniMap(){map = new HashMap<>();}
   // Fonctions propre -----------------------------------------------------------
   /**
-  *{@summary get the int that corresponds to the language String.<br>}
+  *{@summary get the int that corresponds to the language String.}<br>
   *@param x language id.
   *@return language String in ISO code 639-1 if tLangue is correct.
   *@version 1.5
@@ -43,7 +43,7 @@ public class chargerLesTraductions {
     return tLangue[x];
   }
   /**
-  *{@summary get the String that corresponds to the language int.<br>}
+  *{@summary get the String that corresponds to the language int.}<br>
   *An error will return 2, the id of "en" (english) (except if tLangue isn't correctly loard (return -1;))
   *@param s language String in ISO code 639-1.
   *@version 1.5
@@ -59,7 +59,7 @@ public class chargerLesTraductions {
     return 2;
   }
   /**
-  *{@summary Loard language file "langue.csv".<br>}
+  *{@summary Loard language file "langue.csv".}<br>
   *If it fail only "en" will be aviable.
   *@version 1.5
   */
@@ -81,7 +81,7 @@ public class chargerLesTraductions {
     }
   }
   /**
-  *{@summary Check that every language file exists and create is if it's need.<br>}
+  *{@summary Check that every language file exists and create is if it's need.}<br>
   *@version 1.5
   */
   public static boolean créerLesFichiers(){
@@ -97,7 +97,7 @@ public class chargerLesTraductions {
     return true;
   }
   /**
-  *{@summary Check that the line is a translation line.<br>}
+  *{@summary Check that the line is a translation line.}<br>
   *@param s line to check
   *@version 1.5
   */
@@ -115,7 +115,7 @@ public class chargerLesTraductions {
 
 
   /**
-  *{@summary get an array of translation for a given language.<br>}
+  *{@summary get an array of translation for a given language.}<br>
   *@param langue id if the language
   *@version 1.7
   */
@@ -141,7 +141,7 @@ public class chargerLesTraductions {
     return t;
   }
   /**
-  *{@summary get an array of command.<br>}
+  *{@summary get an array of command.}<br>
   *@version 1.7
   */
   public static String [] getTableauDesCmd(){
@@ -155,7 +155,7 @@ public class chargerLesTraductions {
     return t;
   }
   /**
-  *{@summary Load translation for a given language.<br>}
+  *{@summary Load translation for a given language.}<br>
   *It included command.
   *@param langue id if the language
   *@version 1.7
@@ -170,7 +170,7 @@ public class chargerLesTraductions {
     return map;
   }
   /**
-  *{@summary Load translation for a given language.<br>}
+  *{@summary Load translation for a given language.}<br>
   *It don't included command.
   *@param langue id if the language
   *@version 1.7
@@ -184,7 +184,7 @@ public class chargerLesTraductions {
     return map;
   }
   /**
-  *{@summary Load translation for nation name.<br>}
+  *{@summary Load translation for nation name.}<br>
   *@version 1.26
   */
   public static Map<String, String> chargerLesNationsName(){
@@ -196,7 +196,7 @@ public class chargerLesTraductions {
     return map;
   }
   /**
-  *{@summary Add a translated line on the actual map.<br>}
+  *{@summary Add a translated line on the actual map.}<br>
   *@param s Translated line.
   *@version 1.7
   */
@@ -223,7 +223,7 @@ public class chargerLesTraductions {
     map.put(s1,s2);
   }
   /**
-  *{@summary Add auto translation for every languages.<br>}
+  *{@summary Add auto translation for every languages.}<br>
   *Please refert to ThTrad to have more informations
   *@version 1.7
   */
@@ -236,7 +236,7 @@ public class chargerLesTraductions {
     }
   }
   /**
-  *{@summary Count the %age translated.<br>}
+  *{@summary Count the %age translated.}<br>
   *It don't included command (that are not translate).
   *@param langue id if the language
   *@version 1.7
@@ -257,7 +257,7 @@ public class chargerLesTraductions {
     return (x*100)/xFr;
   }
   /**
-  *{@summary Count the %age translated automatically.<br>}
+  *{@summary Count the %age translated automatically.}<br>
   *It don't included command (that are not translate).
   *@param langue id if the language
   *@version 1.7
@@ -277,7 +277,7 @@ public class chargerLesTraductions {
     return (x*100)/xFr;
   }
   /**
-  *{@summary Print getPourcentageTraduitAutomatiquement and getPourcentageTraduit data for every languages.<br>}
+  *{@summary Print getPourcentageTraduitAutomatiquement and getPourcentageTraduit data for every languages.}<br>
   *@version 1.7
   */
   public static void affPourcentageTraduit(){

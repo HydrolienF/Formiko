@@ -3278,3 +3278,9 @@ test long pour vérifier le bon fonctionnement d'1 Partie (pour les ia).
 
 #Version 1.31.7 14/02/2021
 Réoragnisation des packages de facon a ce que liste est 1 s.
+
+#Version 1.33.0 17/02/2021
+tentative de faire un .deb
+
+#Version 1.33.1 17/02/2021
+les dernière release auto ne contiènent pas la partie jlink. On vas fixé ca.

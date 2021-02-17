@@ -6,7 +6,7 @@ import fr.formiko.formiko.CCase;
 import java.io.Serializable;
 
 /**
- * {@summary moove.<br>}
+ * {@summary moove.}<br>
  * Allow a Creature to moove<br>
  * @author Hydrolien
  * @version 1.1

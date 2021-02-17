@@ -6,7 +6,7 @@ import fr.formiko.usuel.erreur;
 import java.io.Serializable;
 
 /**
- * {@summary A null implementation.<br>}
+ * {@summary A null implementation.}<br>
  * It print an error for all the methode of implemented class.<br>
  * It allow to avoid error of null implementation.<br>
  * @author Hydrolien

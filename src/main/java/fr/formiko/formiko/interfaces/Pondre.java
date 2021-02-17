@@ -4,7 +4,7 @@ import fr.formiko.formiko.Creature;
 
 import java.io.Serializable;
 /**
- * {@summary lay.<br>}
+ * {@summary lay.}<br>
  * Allow a Creature to lay<br>
  * @author Hydrolien
  * @version 1.1

@@ -11,7 +11,7 @@ import fr.formiko.usuel.types.str;
 
 import java.io.Serializable;
 /**
-*{@summary The class that extends every living thing on the game.<br>}
+*{@summary The class that extends every living thing on the game.}<br>
 *Most of the common var between Fourmi and Insecte can be found here.<br>
 *Creature have a lot of interfaces. They can be used to do every action that a creature can do. If a creature can not do an action as lay (pondre) and try to do it, an error message will appear. This actions can all be call by a short cut here (to be able to do creature.action() and not ActionFourmi.action(creature)).<br>
 *@author Hydrolien
@@ -50,7 +50,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   // point de force.
   // CONSTRUCTEUR -----------------------------------------------------------------
   /**
-  *{@summary Main constructor for Creature.<br>}
+  *{@summary Main constructor for Creature.}<br>
   *All args are Creature var.
   *@version 1.13
   */
@@ -66,7 +66,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     this.tour = new TourCreatureSansAction();
   }
   /**
-  *{@summary constructor for Creature.<br>}
+  *{@summary constructor for Creature.}<br>
   *Here we only know some var, but the main constructor will take care of them.
   *@version 1.13
   */
@@ -74,7 +74,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     this(p,age,ageMax, actionMax, new Pheromone(-128,-128,-128), 10, 100);
   } public Creature(CCase p, int age, int ageMax, int actionMax){ this(p,age,ageMax,(byte) actionMax);}
   /**
-  *{@summary constructor for Creature.<br>}
+  *{@summary constructor for Creature.}<br>
   *Here we only know some var, but the main constructor will take care of them.
   *@version 1.13
   */
@@ -206,7 +206,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   //... equals(Creature c) // c'est ObjetAId qui compare l'id.
 
   /**
-  *{@summary is this consider as an enemy of c ? <br>}
+  *{@summary is this consider as an enemy of c ? }<br>
   *@param c A Creature that whant to know if we are ally.
   *@version 1.13
   */
@@ -215,7 +215,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     return false;
   }
   /**
-  *{@summary is this consider as an enemy of c ? <br>}
+  *{@summary is this consider as an enemy of c ? }<br>
   *@param c A Creature that whant to know if we are enemy.
   *@version 1.13
   */
@@ -228,7 +228,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     return false; //sinon a priori on est neutre.
   }
   /**
-   *{@summary find all allied Creature on the same Case.<br>}
+   *{@summary find all allied Creature on the same Case.}<br>
    *@version 1.7
    */
   public GCreature getAlliéSurLaCase(){
@@ -236,7 +236,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     return getCCase().getContenu().getGc().filtreAlliés(this);
   }
   /**
-   *{@summary find all allied Creature on the same Case and remove this form the GCreature.<br>}
+   *{@summary find all allied Creature on the same Case and remove this form the GCreature.}<br>
    *@version 1.7
    */
   public GCreature getAlliéSurLaCaseSansThis(){
@@ -248,7 +248,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     return gc;
   }
   /**
-  *{@summary check if this should died of reason x. <br>}
+  *{@summary check if this should died of reason x. }<br>
   *@param x Reason to died or not.
   *@version 1.20
   */
@@ -257,7 +257,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     if(x==3 && nourriture < 0){mourir(x);return;}
   }
   /**
-  *{@summary check if this is hungry.<br>}
+  *{@summary check if this is hungry.}<br>
   *@param percentageOfHungryness 0=are you starving to death, 40=are you hungry, 90=can you eat something more.<br>
   *return true if actual %age of food is 	&#60; than percentageOfHungryness.<br>
   *@version 1.28
@@ -273,7 +273,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
 
   //function shared by all Creature. -------------------------------------------
   /**
-  *{@summary Eat with the interface Chasse.<br>}
+  *{@summary Eat with the interface Chasse.}<br>
   *It will stop eating only if action &#60;&#61; 0 or is not hungry or chasse have returned false (creature haven't eat the last time he try).<br>
   *return true if the Creature have eat.
   *@version 1.30
@@ -284,7 +284,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   }
 
   /**
-  *{@summary Run away if a predator is next to you.<br>}
+  *{@summary Run away if a predator is next to you.}<br>
   *@version 1.28
   */
   public void runAway(){ //TODO

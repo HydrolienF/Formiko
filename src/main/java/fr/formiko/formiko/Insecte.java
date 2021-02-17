@@ -11,7 +11,7 @@ import fr.formiko.usuel.maths.math;
 import java.io.Serializable;
 
 /**
-*{@summary Insecte class<br>}
+*{@summary Insecte class}<br>
 *This class is used to have all the insecte on the map. Insecte are usualy eated by ant but some will eat ant.<br>
 *Specials insectes extends this class.<br>
 *Almost all the var can be found in Creature.java<br>
@@ -25,7 +25,7 @@ public class Insecte extends Creature implements Serializable{
   protected static GIEspece gie;
   // CONSTRUCTEUR -----------------------------------------------------------------
   /**
-  *{@summary Main constructor for Insecte.<br>}
+  *{@summary Main constructor for Insecte.}<br>
   *All args are Insecte var.
   *@version 1.13
   */
@@ -53,7 +53,7 @@ public class Insecte extends Creature implements Serializable{
     debug.débogage("L'insecte "+ this.id + " a été  créée");
   }
   /**
-  *{@summary constructor for Insecte.<br>}
+  *{@summary constructor for Insecte.}<br>
   *Here we only know the location of the insecte, random value will be add for ageMax and actionMax.
   *@version 1.13
   */
@@ -61,7 +61,7 @@ public class Insecte extends Creature implements Serializable{
     this(p, 0,10 + allea.getAlléa(101), allea.getAlléa(21));//action entre 0 et 20.
   }
   /**
-  *{@summary constructor for Insecte.<br>}
+  *{@summary constructor for Insecte.}<br>
   *Here know nothing, the location of the insecte will be shoose randomly on the actual GCase of Main. Random value will be add for ageMax and actionMax.
   *@version 1.13
   */
@@ -85,7 +85,7 @@ public class Insecte extends Creature implements Serializable{
   public String getNom(){return g.get("I"+getType());}
   // Fonctions propre -----------------------------------------------------------
   /**
-  *{@summary Print all information about the Insecte.<br>}
+  *{@summary Print all information about the Insecte.}<br>
   *@version 1.13
   */
   @Override

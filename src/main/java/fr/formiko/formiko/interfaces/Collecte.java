@@ -9,7 +9,7 @@ import fr.formiko.usuel.g;
 import java.io.Serializable;
 
 /**
- * {@summary collect seed.<br>}
+ * {@summary collect seed.}<br>
  * Allow a Creature to collect seed<br>
  * @author Hydrolien
  * @version 1.1

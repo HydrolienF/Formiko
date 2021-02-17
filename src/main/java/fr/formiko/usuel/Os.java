@@ -2,14 +2,14 @@ package fr.formiko.usuel;
 
 //def par défaut des fichiers depuis 0.79.5
 /**
-*{@summary Do OS search.<br>}
+*{@summary Do OS search.}<br>
 *id (var that represent OS) can be used to do special actions like graphics action that are need to work on a specific OS as Windows that do weard thing with java Panel.<br>
 *@author Hydrolien
 *@version 0.91
 */
 public class Os {
   /***
-  *{@summary Save OS.<br>}
+  *{@summary Save OS.}<br>
   *0=linux, 1=Windows, 2=Mac, -1=unknowOS
   */
   private byte id;

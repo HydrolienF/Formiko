@@ -6,7 +6,7 @@ import fr.formiko.usuel.types.str;
 import java.io.Serializable;
 
 /**
-*{@summary Point is a basic geometic shape.<br>}
+*{@summary Point is a basic geometic shape.}<br>
 *In Formiko, it is used to store an x and an y in a single object.<br>
 *@author Hydrolien
 *@version 1.30
@@ -15,7 +15,7 @@ public class Point implements Serializable{
   protected int x,y; // pas de byte pour pourvoir utliser de très grande carte !
   // CONSTRUCTEUR -----------------------------------------------------------------
   /**
-  *{@summary A simple contructor.<br>}
+  *{@summary A simple contructor.}<br>
   *@version 1.30
   */
   public Point (int x,int y){
@@ -23,7 +23,7 @@ public class Point implements Serializable{
     this.y = y;
   }
   /**
-  *{@summary A simple contructor.<br>}
+  *{@summary A simple contructor.}<br>
   *A Point can be create from a string that look like this : <br>
   *<ul>
   *<li>3,5
@@ -61,7 +61,7 @@ public class Point implements Serializable{
 
   // Fonctions propre -----------------------------------------------------------
   /**
-  *{@summary A simple toString function.<br>}
+  *{@summary A simple toString function.}<br>
   *@version 1.30
   */
   public String toString(){
@@ -82,7 +82,7 @@ public class Point implements Serializable{
     return true;
   }
   /**
-  *{@summary Equals methode for point.<br>}
+  *{@summary Equals methode for point.}<br>
   *A Point can be compare to a string that look like this : <br>
   *<ul>
   *<li>3,5

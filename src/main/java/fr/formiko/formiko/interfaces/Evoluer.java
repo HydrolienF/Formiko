@@ -5,7 +5,7 @@ import fr.formiko.formiko.Creature;
 import java.io.Serializable;
 
 /**
- * {@summary Evolve.<br>}
+ * {@summary Evolve.}<br>
  * Allow a Creature to evolve<br>
  * @author Hydrolien
  * @version 1.1

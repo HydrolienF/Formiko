@@ -13,7 +13,7 @@ import fr.formiko.usuel.listes.GString;
 import java.io.File;
 
 /**
-*{@summary Check that every needed folder and every file is in data/.<br>}
+*{@summary Check that every needed folder and every file is in data/.}<br>
 *It can repair folder if some file have been deleted. (Some file are not repearable.)
 *@author Hydrolien
 *@version 1.13
@@ -25,7 +25,7 @@ public class arbo {
 
   // Fonctions propre -----------------------------------------------------------
   /**
-  *{@summary Check that every needed folder and every file is in data/.<br>}
+  *{@summary Check that every needed folder and every file is in data/.}<br>
   *@author Hydrolien
   *@version 1.13
   */
@@ -71,7 +71,7 @@ public class arbo {
     return true;
   }
   /**
-  *{@summary Fix data/. id it's need.<br>}
+  *{@summary Fix data/. id it's need.}<br>
   *@author Hydrolien
   *@version 1.13
   */

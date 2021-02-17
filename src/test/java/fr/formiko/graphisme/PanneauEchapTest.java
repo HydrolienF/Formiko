@@ -1,11 +1,11 @@
-package fr.formiko.graphisme;
+package fr.formiko.views.gui2d;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
 //def par défaut des fichiers depuis 0.79.5
-import fr.formiko.graphisme.PanneauEchap;
+import fr.formiko.views.gui2d.PanneauEchap;
 import fr.formiko.usuel.tests.TestCaseMuet;
 import org.junit.jupiter.api.Test;
-import fr.formiko.graphisme.ini;
-import fr.formiko.graphisme.PanneauBouton;
+import fr.formiko.views.gui2d.ini;
+import fr.formiko.views.gui2d.PanneauBouton;
 
 public class PanneauEchapTest extends TestCaseMuet{
 

@@ -4,7 +4,7 @@ package fr.formiko.usuel;
 import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.lireUnFichier;
 /**
- * {@summary Tool to count add or suppress line.<br>}
+ * {@summary Tool to count add or suppress line.}<br>
  * @author Hydrolien
  * @version 1.0
  */
@@ -12,7 +12,7 @@ public class diff {
 
   // Fonctions propre -----------------------------------------------------------
   /**
-   * {@summary Count add or suppress line.<br>}
+   * {@summary Count add or suppress line.}<br>
    * @version 1.0
    */
   public static int nbrDeLigneDiff(String nouveauFichier, String ancienFichier){

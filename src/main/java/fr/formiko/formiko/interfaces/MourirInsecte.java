@@ -10,14 +10,14 @@ import fr.formiko.usuel.g;
 import java.io.Serializable;
 
 /**
- * {@summary Insect implementation.<br>}
+ * {@summary Insect implementation.}<br>
  * Allow an insect to died<br>
  * @author Hydrolien
  * @version 1.1
  */
 public class MourirInsecte implements Serializable, Mourir {
   /**
-   * {@summary Died without beeing eated.<br>}
+   * {@summary Died without beeing eated.}<br>
    *@param c Insecte who is dieing
    *@param r Reason of death
    * @version 1.1
@@ -37,7 +37,7 @@ public class MourirInsecte implements Serializable, Mourir {
     }
   }
   /**
-   * {@summary Delet an Insect from the map.<br>}
+   * {@summary Delet an Insect from the map.}<br>
    * @version 1.2
    */
   public void supprimerDeLaCarte(Creature c){
@@ -56,7 +56,7 @@ public class MourirInsecte implements Serializable, Mourir {
     }
   }
   /**
-   * {@summary Transform an Insect to a dead body.<br>}
+   * {@summary Transform an Insect to a dead body.}<br>
    * @version 1.2
    */
   public void devenirUnCadavre(Insecte i){
