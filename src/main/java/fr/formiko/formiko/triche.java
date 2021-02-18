@@ -15,6 +15,7 @@ public class triche {
   public static int nbrDeCommande;
   // Fonctions propre -----------------------------------------------------------
   public static void ini(){
+    if(gs!=null){return;}
     gs = new GString(); //GString est une liste chainées dont le contenu est une String.
     nbrDeCommande=1;
     while (!g.get("cmd."+nbrDeCommande).equals("cmd."+nbrDeCommande)){nbrDeCommande++;}
@@ -33,6 +34,7 @@ public class triche {
   }
   public static void commande(String s){
     if(s==null || s.equals("")){ return;}
+    System.out.println("cheat commande launch : \""+s+"\"");
     String args [] = decoderUnFichier.getTableauString(s,' ');
     s = args[0];
     try { // pour ne pas avoir a géré toutes les erreurs séparement on ce contente d'afficher un message d'erreur général si l'erreur est inconue.
@@ -46,6 +48,7 @@ public class triche {
       try {
         if(args[0].substring(0,2).equals("//")){return;}
       }catch (Exception e) {}
+        System.out.println(x);//@a
       switch(x){
         case 1:
           System.out.println(g.getM("affTest")+".");

@@ -1,7 +1,11 @@
 package fr.formiko.views;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.Partie;
+import fr.formiko.formiko.triche;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.sauvegarderUnePartie;
+import fr.formiko.usuel.save;
 import fr.formiko.usuel.types.str;
 
 import java.util.LinkedList;
@@ -16,6 +20,7 @@ public class ViewCLI implements View {
   private Scanner scannerAnswer;
   private String menuName;
   private boolean actionGameOn;
+  private String tToPrint[];
 
   /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
@@ -25,6 +30,7 @@ public class ViewCLI implements View {
   public boolean ini(){
     actionGameOn=false;
     menuName="";
+    tToPrint=null;
     try {
       scannerAnswer = new Scanner(System.in);
     }catch (Exception e) {
@@ -55,7 +61,11 @@ public class ViewCLI implements View {
     if(actionGameOn){
       //TODO
     }else{
-      printActionMenu();
+      if(menuName.equals("")){
+        printArray();
+      }else{
+        printActionMenu();
+      }
     }
     return true;
   }
@@ -68,20 +78,20 @@ public class ViewCLI implements View {
     actionGameOn=false;
     menuName="menuP";
     paint();
-    int action = getActionMenu(3);
+    int action = getActionMenu(4);
     switch (action) {
       case 1 :
-      System.out.println("menu new game");//@a
       menuNewGame();
       break;
       case 2 :
-      System.out.println("loard a game");//@a
+      if(!menuLoadAGame()){ //it can return false if there is no game to load.
+        menuMain();
+      }
       break;
       case 3 :
       System.out.println("open options.");//@a
       break;
       case 4 :
-      System.out.println("quit");//@a
       Main.quitter();
       break;
     }
@@ -110,7 +120,6 @@ public class ViewCLI implements View {
       System.out.println("tuto");//@a
       break;
       case 4 :
-      System.out.println("return");//@a
       menuMain();
       break;
     }
@@ -124,8 +133,14 @@ public class ViewCLI implements View {
   */
   public boolean menuLoadAGame(){
     actionGameOn=false;
+    menuName="";
+    tToPrint=save.listSave();
+    if(tToPrint.length==0){return false;}
     paint();
-    return false;
+    int choice = getActionMenu(tToPrint.length);
+    Partie pa = sauvegarderUnePartie.charger(tToPrint[choice-1]);
+    System.out.println(pa);//@a
+    return true;
   }
   /***
   *{@summary Launch action game part.}<br>
@@ -191,14 +206,38 @@ public class ViewCLI implements View {
     }
   }
   /**
+  *{@summary Print tToPrint.}<br>
+  *@version 1.33
+  */
+  private void printArray(){
+    if(tToPrint==null){return;}
+    int i=1;
+    for (String s : tToPrint ) {
+      System.out.println(i+" : "+s);
+      i++;
+    }
+  }
+  /**
   *{@summary Return an aviable action in a menu.}<br>
+  *stop stop the game.
+  *cheat alowed to write 1 cheat code.
   *@version 1.33
   */
   private int getActionMenu(int maxValue){
     int returnValue = -1;
     while(returnValue < 1 || returnValue > maxValue){
       System.out.println(g.get("choix")+" : ");
-      returnValue = scannerAnswer.nextInt();
+      String input = scannerAnswer.nextLine();
+      try {
+        returnValue = (int) str.sToLThrows(input);
+      }catch (Exception e) {
+        if(input.equals("stop")){
+          Main.quitter();
+        }else if(input.equals("cheat")){
+          input = scannerAnswer.nextLine();
+          triche.commande(input);
+        }
+      }
     }
     return returnValue;
   }

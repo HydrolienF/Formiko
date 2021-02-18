@@ -155,15 +155,11 @@ public class str{
         int asci = ascii.aToAscii(s.charAt(i));
         if((asci>=48 && asci<=57) || asci==45){// si c'est un - ou un chiffre on le garde.
           s2 = s2 + s.charAt(i);
-        }else if(asci!=32){;throw new Exception();}//au 1 a char nom autorisé.
+        }else if(asci!=32){;throw new Exception();}//au 1 a char nom autorisé. //TODO change exeption to a special exeption.
       }
       s=s2;
     }
-    try {
-      return Long.parseLong(s);
-    }catch (Exception e) {
-      throw new Exception();
-    }
+    return Long.parseLong(s);
   }
   /**
   *{@summary From String to long}

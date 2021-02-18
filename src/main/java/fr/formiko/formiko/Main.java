@@ -202,20 +202,24 @@ public class Main {
   }
   /**
    * {@summary Launch in the void main if there is not other args than -something (ex : -d).}<br>
-   * @version 1.7
+   * @version 1.33
    */
   public static boolean launch(){
     iniLaunch();
     //===
     débutCh();
     //start of test part
+    /*
     View view = new ViewCLI();
     view.ini();
     view.menuMain();
-    view.paint();
     quitter();
+    */
     //end of test part
     f = new Fenetre();
+    try {
+      trich.start(); //TODO move in ViewGUI.
+    }catch (Exception e) {}
 
     finCh("iniView");débutCh();
     try {
@@ -405,6 +409,7 @@ public class Main {
   public static boolean getJeuEnCours(){return jeuEnCours;}
   public static void setJeuEnCours(boolean b){jeuEnCours=b;}
   public static Data getData(){return data;}
+  public static ThTriche getThTriche(){return trich;}
   //racourci
   public static boolean estWindows(){return os.getId()==1;}
   public static String get(String clé){ return g.get(clé);}
@@ -519,8 +524,8 @@ public class Main {
     finCh("chargementDesTouches");
     setMessageChargement("chargementDesLangues");
     iniLangue();
+    triche.ini();
     trich = new ThTriche();//écoute des codes triche.
-    trich.start();
     débutCh();
     tem = new Temps();
     finCh("chargementDesDonnéesTemporelles");
