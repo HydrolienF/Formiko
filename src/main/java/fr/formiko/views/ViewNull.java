@@ -5,7 +5,7 @@ package fr.formiko.views;
  *@author Hydrolien
  *@version 1.33
  */
-public class ViewNull {
+public class ViewNull implements View {
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return true if nothing have been print or paint.
@@ -28,6 +28,14 @@ public class ViewNull {
   *@version 1.33
   */
   public boolean menuMain(){
+    return true;
+  }
+  /**
+  *{@summary A null view action that do nothing.}<br>
+  *@return Return true if nothing have been print or paint.
+  *@version 1.33
+  */
+  public boolean menuNewGame(){
     return true;
   }
   /**
