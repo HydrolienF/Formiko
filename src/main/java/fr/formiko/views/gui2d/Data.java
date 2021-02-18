@@ -25,6 +25,7 @@ public class Data {
   //private final int tailleDUneCaseBase = 500;
   //private int scale = Image.SCALE_SMOOTH;
   private boolean imageIni;
+  private boolean imageIniForNewGame;
   //image
   private BufferedImage imgNull;
   private BufferedImage selectionnee; private BufferedImage fere;
@@ -82,6 +83,8 @@ public class Data {
   public BufferedImage [] getTImage(){return tImage;}
   //PanneauChargement
   public BufferedImage getImageChargement(){return imageChargement;}
+  //imageIni
+  public void setImageIniForNewGame(boolean b){imageIniForNewGame=b;}
   // Fonctions propre -----------------------------------------------------------
 
   //public class Controleur{
@@ -94,10 +97,8 @@ public class Data {
     */
     public void chargerImages(){
       debug.débogage("chargement des images a la bonne taille.");
-      if(!imageIni){
-        chargerImagesIni();
-        Main.débutCh();
-      }
+      chargerImagesIni();
+      Main.débutCh();
       int tailleFourmi = (tailleDUneCase*4)/5;
       imgNull = image.resize(imgNullIni,tailleDUneCase);
       selectionnee = image.resize(selectionneeIni,tailleDUneCase);
@@ -116,7 +117,7 @@ public class Data {
     /**
     *{@summary Load image in full resolution.}<br>
     *Image need to be load in full resolution 1 time only. If it have alredy be done the function will do nothing.
-    *@version 1.18
+    *@version 1.33
     */
     public void chargerImagesIni(){
       if(!imageIni){
@@ -124,7 +125,6 @@ public class Data {
         imgNullIni = image.getImage("null");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         selectionneeIni = image.getImage("selectionnee");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         chargerTI();
-        tIFIni = chargerTX("F",Main.getNbrDeJoueur(),(byte)0,1);
         tIIIni = chargerTX("I");
         tFIni = chargerTX("fourmi",3);
         tGIni = chargerTX("graine");
@@ -138,6 +138,10 @@ public class Data {
         Main.finCh("chargerImagesIni");
       }
       imageIni=true;
+      if(!imageIniForNewGame){
+        tIFIni = chargerTX("F",Main.getNbrDeJoueur(),(byte)0,1);
+      }
+      imageIniForNewGame=true;
     }
     /**
     *Load Case image

@@ -220,7 +220,7 @@ public class Main {
     try {
       trich.start(); //TODO move in ViewGUI.
     }catch (Exception e) {}
-
+    getData().setImageIniForNewGame(false);//force reload of ant images. //TODO move in ViewGUI.
     finCh("iniView");débutCh();
     try {
       ini.initialiserToutLesPaneauxVide();
