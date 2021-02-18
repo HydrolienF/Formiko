@@ -15,6 +15,26 @@ public class tableauTest extends TestCaseMuet{
 
   // Fonctions propre -----------------------------------------------------------
   @Test
+  public void testSort(){
+    String t [] = {"1","a","t","b"};
+    tableau.sort(t,true);
+    assertEquals("1 a b t",tableau.tableauToString(t));
+    tableau.sort(t,false);
+    assertEquals("t b a 1",tableau.tableauToString(t));
+    String t2 [] = {"'1","'a","'t","'b"};
+    tableau.sort(t2,false);
+    assertEquals("'t 'b 'a '1",tableau.tableauToString(t2));
+  }
+  @Test
+  public void testSort2(){
+    int t [] = {4,-6,0,-10};
+    tableau.sort(t,true);
+    assertEquals("-10 -6 0 4",tableau.tableauToString(t));
+    tableau.sort(t,false);
+    assertEquals("4 0 -6 -10",tableau.tableauToString(t));
+  }
+
+  @Test
   public void testRogner(){
     byte t[][] = new byte[3][3];
     byte k=0;
