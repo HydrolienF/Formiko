@@ -1,13 +1,12 @@
 package fr.formiko.usuel;
 
-//def par défaut des fichiers depuis 0.79.5
-import java.util.Map;
-import java.util.HashMap;
 import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
-import fr.formiko.usuel.listes.GString;
+
 import java.io.File;
+import java.util.HashMap;
 
 /**
 *{@summary Loard translation file class.}<br>
@@ -15,7 +14,7 @@ import java.io.File;
 *@version 1.5
 */
 public class chargerLesTraductions {
-  private static Map<String, String> map;
+  private static HashMap<String, String> map;
   private static String rep="data/langue/";
   private static String tLangue[]=null;
   // get set -------------------------------------------------------------------
@@ -24,7 +23,7 @@ public class chargerLesTraductions {
   public static String getRep(){return rep;}
   public static void setRep(String s){rep = str.sToDirectoryName(s);}
   public static void setRep(){setRep("data/langue/");}
-  public static Map<String, String> getMap(){return map;}
+  public static HashMap<String, String> getMap(){return map;}
   public static void iniMap(){map = new HashMap<>();}
   // Fonctions propre -----------------------------------------------------------
   /**
@@ -160,7 +159,7 @@ public class chargerLesTraductions {
   *@param langue id if the language
   *@version 1.7
   */
-  public static Map<String, String> chargerLesTraductions(int langue){
+  public static HashMap<String, String> chargerLesTraductions(int langue){
     debug.débogage("Chargement des textes");//on lit le fichier de langue
     map = chargerLesTraductionsSansCommande(langue);
     String t2[] = getTableauDesCmd();
@@ -175,7 +174,7 @@ public class chargerLesTraductions {
   *@param langue id if the language
   *@version 1.7
   */
-  public static Map<String, String> chargerLesTraductionsSansCommande(int langue){
+  public static HashMap<String, String> chargerLesTraductionsSansCommande(int langue){
     iniMap();
     String t[] = getTableauDesTrad(langue);
     for (String s : t) {//on ajoute toutes les lignes qu'on peu ajouter.
@@ -187,7 +186,7 @@ public class chargerLesTraductions {
   *{@summary Load translation for nation name.}<br>
   *@version 1.26
   */
-  public static Map<String, String> chargerLesNationsName(){
+  public static HashMap<String, String> chargerLesNationsName(){
     iniMap();
     String t[] = getTableauDesNationsName();
     for (String s : t) {//on ajoute toutes les lignes qu'on peu ajouter.

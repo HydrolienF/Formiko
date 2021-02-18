@@ -5,14 +5,13 @@ import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.usuel.ecrireUnFichier;
 import fr.formiko.usuel.listes.GString;
 import java.io.File;
-import java.util.Map;
 import java.util.HashMap;
 import fr.formiko.usuel.types.str;
 
 public class chargerLesTouches {
-  private static Map<String, Integer> map;
+  private static HashMap<String, Integer> map;
   // Fonctions propre -----------------------------------------------------------
-  public static Map<String, Integer> chargerLesTouches(int versionActuelle){
+  public static HashMap<String, Integer> chargerLesTouches(int versionActuelle){
     map = new HashMap<>();
     File f = new File("data/Key.txt");
     if (!f.exists()){ // si le fichier d'options n'existe pas.

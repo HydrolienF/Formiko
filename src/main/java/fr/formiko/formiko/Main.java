@@ -13,7 +13,7 @@ import fr.formiko.usuel.types.str;
 import java.awt.Font;
 import java.io.File;
 import java.time.LocalDateTime;
-import java.util.Map;
+import java.util.HashMap;
 
 /**
 *{@summary Launch class }<br>
@@ -55,7 +55,7 @@ public class Main {
   private static Partie pa;
   private static byte niveauDeDétailDeLAffichage=3;
   private static Pixel pi;
-  private static Map<String, Integer> key;
+  private static HashMap<String, Integer> key;
   private static boolean ecouteClavier;
   private static int avancementChargement;
   private static boolean affGraine=true;//tant que les espece granivore ne sont pas pleinement opérationelle.
@@ -135,7 +135,7 @@ public class Main {
         chargerLesTraductions.iniTLangue();
         chargerLesTraductions.créerLesFichiers();
         g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
-        Map<String, String> mapEo = chargerLesTraductions.chargerLesTraductions(0);//chargement des langues.
+        HashMap<String, String> mapEo = chargerLesTraductions.chargerLesTraductions(0);//chargement des langues.
         trad.copieTradBase("eo",mapEo);
         //chargerLesTraductions.ajouterTradAuto();
       }else if (args[0].equals("rbt") || args[0].equals("rognerBordTransparent")){
@@ -576,7 +576,7 @@ public class Main {
    */
   public static void setMessageChargement(String s){
     //s c'est un truc du genre "chargementDesLangues"
-    String s2 = g.getM(s)+"..."; //g.getM() permet d'aller chercher la traduction dans la table de hachage Map<String, String> map.
+    String s2 = g.getM(s)+"..."; //g.getM() permet d'aller chercher la traduction dans la table de hachage HashMap<String, String> map.
     try {
       getPch().setTexte(s2); //envoie a la fenetre le message d'avancement du chargement.
     }catch (Exception e) { // si quelque chose ce passe mal on envoie un message a la console.
