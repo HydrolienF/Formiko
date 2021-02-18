@@ -1,6 +1,5 @@
 package fr.formiko.formiko;
 
-import fr.formiko.views.gui2d.*;
 import fr.formiko.usuel.*;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
@@ -9,6 +8,9 @@ import fr.formiko.usuel.images.*;
 import fr.formiko.usuel.listes.*;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.types.str;
+import fr.formiko.views.View;
+import fr.formiko.views.ViewCLI;
+import fr.formiko.views.gui2d.*;
 
 import java.awt.Font;
 import java.io.File;
@@ -41,7 +43,7 @@ public class Main {
   *{@summary The compatible version for the options file, keys and backups.}
   *@version 1.1
   */
-  private static int versionActuelle = 100;
+  private static int versionActuelle = 100; //TODO transform to the version string.
   /***
    * Main windows
    * @version 1.1
@@ -206,19 +208,29 @@ public class Main {
     iniLaunch();
     //===
     débutCh();
+    //start of test part
+    View view = new ViewCLI();
+    view.ini();
+    view.menuMain();
+    view.paint();
+    quitter();
+    //end of test part
     f = new Fenetre();
-    finCh("chargementFenetre");débutCh();
-    ini.initialiserToutLesPaneauxVide();
-    finCh("chargementPanneauVide");débutCh();
-    //===
-    if(getChargementPendantLesMenu()){chargementDesGraphismesAutonomes();}
-    else{ini.initialiserPanneauJeuEtDépendance();ini.initialiserAutreELémentTournés();}
-    finCh("chargementDesGraphismesAutonomes");
-    //menu
-    débutCh();
-    getPm().construitPanneauMenu(3);
-    finCh("chargementPanneauMenu");
-    //===
+
+    finCh("iniView");débutCh();
+    try {
+      ini.initialiserToutLesPaneauxVide();
+      finCh("chargementPanneauVide");débutCh();
+      //===
+      if(getChargementPendantLesMenu()){chargementDesGraphismesAutonomes();}
+      else{ini.initialiserPanneauJeuEtDépendance();ini.initialiserAutreELémentTournés();}
+      finCh("chargementDesGraphismesAutonomes");
+      //menu
+      débutCh();
+      getPm().construitPanneauMenu(3);
+      finCh("chargementPanneauMenu");
+      //===
+    }catch (Exception e) {erreur.erreur("Une erreur graphique est arrivé");}
     pa = attenteDeLancementDePartie();
     lancementNouvellePartie();
     Boolean b = pa.jeu(); //lance le jeux.

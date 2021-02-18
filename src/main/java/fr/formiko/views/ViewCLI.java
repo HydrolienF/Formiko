@@ -1,5 +1,6 @@
 package fr.formiko.views;
 
+import fr.formiko.formiko.Main;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.types.str;
 
@@ -14,6 +15,7 @@ import java.util.Scanner;
 public class ViewCLI implements View {
   private Scanner scannerAnswer;
   private String menuName;
+  private boolean actionGameOn;
 
   /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
@@ -21,9 +23,10 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean ini(){
+    actionGameOn=false;
+    menuName="";
     try {
       scannerAnswer = new Scanner(System.in);
-      menuName="";
     }catch (Exception e) {
       return false;
     }
@@ -35,6 +38,7 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean close(){
+    actionGameOn=false;
     try {
       scannerAnswer.close();
     }catch (Exception e) {
@@ -48,7 +52,12 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean paint(){
-    return false;
+    if(actionGameOn){
+      //TODO
+    }else{
+      printActionMenu();
+    }
+    return true;
   }
   /**
   *{@summary Load main menu.}<br>
@@ -56,7 +65,26 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean menuMain(){
+    actionGameOn=false;
     menuName="menuP";
+    paint();
+    int action = getActionMenu(3);
+    switch (action) {
+      case 1 :
+      System.out.println("menu new game");//@a
+      menuNewGame();
+      break;
+      case 2 :
+      System.out.println("loard a game");//@a
+      break;
+      case 3 :
+      System.out.println("open options.");//@a
+      break;
+      case 4 :
+      System.out.println("quit");//@a
+      Main.quitter();
+      break;
+    }
     return true;
   }
   /**
@@ -65,14 +93,38 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean menuNewGame(){
-    return false;
+    actionGameOn=false;
+    menuName="menuN";
+    paint();
+    int action = getActionMenu(4);
+    switch (action) {
+      case 1 :
+      System.out.println("launch a new game");//@a
+
+      //actionGame();
+      break;
+      case 2 :
+      System.out.println("launch a personalised game");//@a
+      break;
+      case 3 :
+      System.out.println("tuto");//@a
+      break;
+      case 4 :
+      System.out.println("return");//@a
+      menuMain();
+      break;
+    }
+
+    return true;
   }
   /**
-  *{@summary Load the save load menu.}<br>
+  *{@summary Load the game load menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.33
   */
   public boolean menuLoadAGame(){
+    actionGameOn=false;
+    paint();
     return false;
   }
   /***
@@ -81,6 +133,7 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean actionGame(){
+    actionGameOn=true;
     return false;
   }
 
@@ -93,6 +146,7 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean pauseActionGame(){
+    //bouton.nom.-10 to -15
     return false;
   }
   /**
@@ -103,6 +157,7 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean setPlayingAnt(){
+    if (!actionGameOn) {return false;}
     return false;
   }
   /**
@@ -113,11 +168,16 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean setLookedCase(){
+    if (!actionGameOn) {return false;}
     return false;
   }
 
   //private functions
-  private int getActionMenu(){
+  /**
+  *{@summary Print all action aviable in a menu.}<br>
+  *@version 1.33
+  */
+  private void printActionMenu(){
     LinkedList<String> list = new LinkedList<String>();
     int i=1;
     while(g.exist(menuName+"."+i)){
@@ -126,10 +186,21 @@ public class ViewCLI implements View {
     }
     i=1;
     for (String s : list ) {
-      System.out.println(i+" : "+s+"\n");
+      System.out.println(i+" : "+s);
       i++;
     }
-    return str.sToI(scannerAnswer.next());
+  }
+  /**
+  *{@summary Return an aviable action in a menu.}<br>
+  *@version 1.33
+  */
+  private int getActionMenu(int maxValue){
+    int returnValue = -1;
+    while(returnValue < 1 || returnValue > maxValue){
+      System.out.println(g.get("choix")+" : ");
+      returnValue = scannerAnswer.nextInt();
+    }
+    return returnValue;
   }
 
 }
