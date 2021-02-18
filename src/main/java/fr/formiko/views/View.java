@@ -15,6 +15,12 @@ public interface View {
   */
   boolean ini();
   /***
+  *{@summary close all the thing that need to be close after using view.}<br>
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.33
+  */
+  boolean close();
+  /***
   *{@summary Refrech actual view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.33

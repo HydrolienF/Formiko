@@ -15,11 +15,11 @@ public class g {
    *Contain the Strings in the chosen language.
    *@version 1.1
    */
-  private static Map<String, String> map = new HashMap<String, String>(); // g.get(clé) permet d'obtenir le texte associé.
+  private static Map<String, String> map = new HashMap<String, String>(); // g.get(key) permet d'obtenir le texte associé.
   // GET SET ----------------------------------------------------------
   public static Map<String, String> getMap(){return map;}
   public static void setMap(Map m){map=m;}
-  public static String getElementMap(String clé){ return map.get(clé);}
+  public static String getElementMap(String key){ return map.get(key);}
   // Fonctions propre -----------------------------------------------------------
   public static String get(String f, int x,String s){
     return get(f+"."+x,s);
@@ -75,14 +75,23 @@ public class g {
   public static String getOu(String key, String key2){
     String value1 = get(key,"ø");
     String value2 = get(key2,"ø");
-    //si aucune clé n'as été trouvé.
+    //si aucune key n'as été trouvé.
     if(value1.equals("ø") && value2.equals("ø")){ return key+"/"+key2;}
-    //si une des clé n'as pas été trouvée
+    //si une des key n'as pas été trouvée
     if(value1.equals("ø")){value1 = value2;}
     if(value2.equals("ø")){value2 = value1;}
     //si les 2 valeurs sont égales :
     if(value1.equals(value2)){return value1;}
     //si les 2 valeurs sont différentes :
     return value1+"/"+value2;
+  }
+  /**
+  *{@summary test if key is in the HashMap.}
+  *@param key key to test.
+  *@return try if it exist.
+  *@version 1.33
+  */
+  public static boolean exist(String key){
+    return getElementMap(key)!=null;
   }
 }
