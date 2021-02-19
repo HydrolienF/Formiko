@@ -37,7 +37,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauNouvellePartie(){
     super(100);
-    Main.débutCh();
+    Main.startCh();
     this.setLayout(null);
     //setOpaque(false);
     //les entêtes.
@@ -92,7 +92,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     casesNuageuses.setSelected(true);
     casesSombres.setSelected(true);
     add(casesNuageuses);add(casesSombres);
-    Main.finCh("chargementPanneauNouvellePartie");
+    Main.endCh("chargementPanneauNouvellePartie");
   }
   public void rafraichirPgej(){
     remove(pgej);

@@ -98,7 +98,7 @@ public class Data {
     public void chargerImages(){
       debug.débogage("chargement des images a la bonne taille.");
       chargerImagesIni();
-      Main.débutCh();
+      Main.startCh();
       int tailleFourmi = (tailleDUneCase*4)/5;
       imgNull = image.resize(imgNullIni,tailleDUneCase);
       selectionnee = image.resize(selectionneeIni,tailleDUneCase);
@@ -112,7 +112,7 @@ public class Data {
       cSombre = image.resize(cSombreIni,tailleDUneCase);
       int lenb = bIni.length;
       b=getScaledInstance(bIni,tailleDUneCase/2);
-      Main.finCh("chargerImages");
+      Main.endCh("chargerImages");
     }
     /**
     *{@summary Load image in full resolution.}<br>
@@ -121,7 +121,7 @@ public class Data {
     */
     public void chargerImagesIni(){
       if(!imageIni){
-        Main.débutCh();
+        Main.startCh();
         imgNullIni = image.getImage("null");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         selectionneeIni = image.getImage("selectionnee");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         chargerTI();
@@ -135,7 +135,7 @@ public class Data {
         /*for (int i=0;i<lenb ;i++ ) {
           bIni[i]=bIni[i].getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
         }*/
-        Main.finCh("chargerImagesIni");
+        Main.endCh("chargerImagesIni");
       }
       imageIni=true;
       if(!imageIniForNewGame){

@@ -196,9 +196,9 @@ public class Main {
     avancementChargement=0;
     ecouteClavier=true;
 
-    débutCh();
+    startCh();
     pa = new Partie(0,0,new Carte(new GCase(1,1)),1.0); //nouvelle partie vide.
-    finCh("chargementPartieEtCarteBlanche");
+    endCh("chargementPartieEtCarteBlanche");
   }
   /**
    * {@summary Launch in the void main if there is not other args than -something (ex : -d).}<br>
@@ -207,32 +207,30 @@ public class Main {
   public static boolean launch(){
     iniLaunch();
     //===
-    débutCh();
+    startCh();
     //start of test part
-    /*
     View view = new ViewCLI();
     view.ini();
     view.menuMain();
     quitter();
-    */
     //end of test part
     f = new Fenetre();
     try {
       trich.start(); //TODO move in ViewGUI.
     }catch (Exception e) {}
     getData().setImageIniForNewGame(false);//force reload of ant images. //TODO move in ViewGUI.
-    finCh("iniView");débutCh();
+    endCh("iniView");startCh();
     try {
       ini.initialiserToutLesPaneauxVide();
-      finCh("chargementPanneauVide");débutCh();
+      endCh("chargementPanneauVide");startCh();
       //===
       if(getChargementPendantLesMenu()){chargementDesGraphismesAutonomes();}
       else{ini.initialiserPanneauJeuEtDépendance();ini.initialiserAutreELémentTournés();}
-      finCh("chargementDesGraphismesAutonomes");
+      endCh("chargementDesGraphismesAutonomes");
       //menu
-      débutCh();
+      startCh();
       getPm().construitPanneauMenu(3);
-      finCh("chargementPanneauMenu");
+      endCh("chargementPanneauMenu");
       //===
     }catch (Exception e) {erreur.erreur("Une erreur graphique est arrivé");}
     pa = attenteDeLancementDePartie();
@@ -260,26 +258,26 @@ public class Main {
    * @version 1.14
    */
   public static void lancementNouvellePartie(){ //Nouveau système de lancement de partie :
-    débutCh();
+    startCh();
     getPp().removePm();//on retire le menu
-    finCh("chargementPanneauChargementEtSuppressionMenu");//débutCh();
+    endCh("chargementPanneauChargementEtSuppressionMenu");//startCh();
     if(premierePartie){tuto=true;} if(tuto){pa=getPartieTuto();}
     else if(pa==null){pa=getPartieParDéfaut();}
     getPj().addPch();//on met le panneau de chargement au 1a plan.
     getF().printAll(getF().getGraphics());
-    //finCh("chargementDézoom");
+    //endCh("chargementDézoom");
     //pa.setEnCours(true); //lance l'affichage de la Partie.
-    //débutCh();
+    //startCh();
     //la ligne qui suis n'as d'effet que si elle n'as pas déjà été appliqué a la partie.
     pa.initialisationElément(); // pour l'instant ce bout de code ne marche pas ayeur qu'ici.
-    débutCh();
+    startCh();
     Main.getPb().addPz();
-    finCh("ajoutPanneauZoom");débutCh();
+    endCh("ajoutPanneauZoom");startCh();
     getData().chargerImages(); //on a besoin du bon zoom pour effectuer cette action.
     if(Main.getDimY()!=1080 || getPartie().getGc().getNbrY()!=9){
       getPj().dézoomer((byte)2);//on met la carte a la taille la plus grande possible pour qu'on voit tout.
     }
-    finCh("chargementImagesDelaCarte");
+    endCh("chargementImagesDelaCarte");
     String s = g.get("chargementFini");
     if (debug.getAffLesPerformances()==true){s=s +" "+ "("+Temps.msToS(lonTotal)+")";}
     setMessageChargement(s);
@@ -305,14 +303,14 @@ public class Main {
    * @version 1.1
    */
   public static Partie getPartieParDéfaut(){
-    débutCh();
+    startCh();
     String nomCarte = "miniWorld";
     Carte mapo = new Carte(nomCarte);
     mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
     Partie par = new Partie(1,100,mapo,1.0);
     par.setElément(1,5,1);
     par.setVitesseDeJeu(0.2);
-    finCh("chargementParamètrePartieParDéfaut");
+    endCh("chargementParamètrePartieParDéfaut");
     return par;
   }
   /**
@@ -320,9 +318,9 @@ public class Main {
    * @version 1.14
    */
   public static Partie getPartieSave(String nom){
-    débutCh();
+    startCh();
     Partie par = sauvegarderUnePartie.charger(nom);
-    finCh("chargementPartie");
+    endCh("chargementPartie");
     return par;
   }
   /**
@@ -330,14 +328,14 @@ public class Main {
    * @version 1.1.
    */
   public static Partie getPartieTuto(){
-    débutCh();
+    startCh();
     String nomCarte = "tuto";
     Carte mapo = new Carte(nomCarte);
     mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
     Partie par = new Partie(1,5,mapo,1.0);
     par.setElément(1,0,1);
     par.setVitesseDeJeu(0.2);
-    finCh("chargementParamètrePartieTuto");
+    endCh("chargementParamètrePartieTuto");
     par.setAppartionInsecte(false);
     par.setAppartionGraine(false);
     return par;
@@ -502,10 +500,10 @@ public class Main {
   public static void initialisation(){
     tempsDeDébutDeJeu=System.currentTimeMillis();
     os = new Os();
-    setMessageChargement("vérificationsDeLArborécence");débutCh();
+    setMessageChargement("vérificationsDeLArborécence");startCh();
     if(!arbo.arborécenceIntacte()){arbo.réparationArboréscence();}
-    finCh("vérificationsDeLArborécence");
-    setMessageChargement("chargementDesOptions");débutCh();
+    endCh("vérificationsDeLArborécence");
+    setMessageChargement("chargementDesOptions");startCh();
     chargerLesTraductions.iniTLangue();
     iniOp();
     sauvegarderUnePartie.setSave(Save.getSave());
@@ -518,32 +516,32 @@ public class Main {
     if(!debug.getAffG()){//si elle n'ont pas été activé par "-g"
       debug.setAffG(op.getAffG());
     }
-    finCh("chargementDesOptions");
-    setMessageChargement("chargementDesTouches");débutCh();
+    endCh("chargementDesOptions");
+    setMessageChargement("chargementDesTouches");startCh();
     key = chargerLesTouches.chargerLesTouches(getVersionActuelle());
-    finCh("chargementDesTouches");
+    endCh("chargementDesTouches");
     setMessageChargement("chargementDesLangues");
     iniLangue();
     triche.ini();
     trich = new ThTriche();//écoute des codes triche.
-    débutCh();
+    startCh();
     tem = new Temps();
-    finCh("chargementDesDonnéesTemporelles");
-    setMessageChargement("chargementDesEspeceDeFourmi");débutCh();
+    endCh("chargementDesDonnéesTemporelles");
+    setMessageChargement("chargementDesEspeceDeFourmi");startCh();
     Partie.iniGe(); // chargement des Especes.
     GIndividu.chargerLesIndividus(); // chargement de leur individu.
-    finCh("chargementDesIndividuDeFourmi");débutCh();
+    endCh("chargementDesIndividuDeFourmi");startCh();
     Insecte.setGie(); // chargement des Insectes.
-    finCh("chargementDesEspeceDInsecte");débutCh();
+    endCh("chargementDesEspeceDInsecte");startCh();
     //thm = new ThMusique("menu");
     //thm.start();
-    //finCh("chargementDeLaMusique");débutCh();
+    //endCh("chargementDeLaMusique");startCh();
     File f = new File(image.REP+"ressourcesPack");
     String listl [] = f.list();
     if(listl.length!=0){
       image.setREPTEXTUREPACK(image.REP+"ressourcesPack");//on déclare le ressourcesPack si il contient au moins 1 image.
     }
-    finCh("initialisationDeREPTEXTUREPACK");
+    endCh("initialisationDeREPTEXTUREPACK");
     data = new Data();
     iniCpt();
   }
@@ -582,9 +580,9 @@ public class Main {
    * @version 1.1
    */
   public static void iniLangue(){
-    débutCh();
+    startCh();
     g.setMap(chargerLesTraductions.chargerLesTraductions(getLangue()));//chargement des langues.
-    finCh("chargementDesLangues");
+    endCh("chargementDesLangues");
   }
   /**
    * {@summary Print on the window a message about game loading.}<br>
@@ -605,23 +603,23 @@ public class Main {
    * @version 1.1
    */
   public static void gcToImage(){
-    débutCh();
+    startCh();
     Carte mapo = new Carte("miniWorld");
     GCase gc = mapo.getGc();
-    finCh("chargementCarteEtGc");débutCh();
+    endCh("chargementCarteEtGc");startCh();
     Img img = gc.getImg();
-    finCh("récupérationDeLImage");débutCh();
+    endCh("récupérationDeLImage");startCh();
     img.sauvegarder("carte.png");
-    finCh("sauvegardeLeLImage");
+    endCh("sauvegardeLeLImage");
     //debug.setAffLesEtapesDeRésolution(false);
   }
   //chrono shortcut
-  public static void débutCh(){Chrono.debutCh();}
-  public static void finCh(String s){Chrono.finCh(s);}
-  public static void débutCh(Chrono chTemp){Chrono.debutCh(chTemp);}
-  public static void finCh(String s,Chrono chTemp){ // fin du Chrono.
+  public static void startCh(){Chrono.debutCh();}
+  public static void endCh(String s){Chrono.endCh(s);}
+  public static void startCh(Chrono chTemp){Chrono.debutCh(chTemp);}
+  public static void endCh(String s,Chrono chTemp){ // fin du Chrono.
     lon = chTemp.getDuree(); lonTotal=lonTotal+lon;
-    Chrono.finCh(s,chTemp);
+    Chrono.endCh(s,chTemp);
   }
   /**
    * {@summary Try to exit normally.}<br>
@@ -634,13 +632,13 @@ public class Main {
    */
   public static void quitter(){
     try {
-      débutCh();
+      startCh();
       pa.enregistrerLesScores();
-      finCh("enregistementDesScores");
-      débutCh();
+      endCh("enregistementDesScores");
+      startCh();
       if(getGarderLesGraphismesTourné()){image.clearPartielTemporaire();}
       else{image.clearTemporaire();}
-      finCh("vidageDesFichiersImages");
+      endCh("vidageDesFichiersImages");
       String s = "toutes les opérations longues ";
       debug.performances("temps pour "+ s + " : "+lonTotal+" ms");
       long tempsDeFinDeJeu=System.currentTimeMillis();
@@ -680,20 +678,20 @@ public class Main {
   *@version 1.21
   */
   public static void tradCmd(){
-    débutCh();
+    startCh();
     chargerLesTraductions.iniTLangue();
     chargerLesTraductions.créerLesFichiers();
-    finCh("créerLesFichiers");débutCh();
+    endCh("créerLesFichiers");startCh();
     g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
-    finCh("chargerLesTraductions");débutCh();
+    endCh("chargerLesTraductions");startCh();
     trad.copieTrads();
-    finCh("copieTrads");débutCh();
+    endCh("copieTrads");startCh();
     chargerLesTraductions.affPourcentageTraduit();
-    finCh("affPourcentageTraduit");débutCh();
+    endCh("affPourcentageTraduit");startCh();
     /*chargerLesTraductions.ajouterTradAuto();
-    finCh("ajouterTradAuto");débutCh();
+    endCh("ajouterTradAuto");startCh();
     chargerLesTraductions.affPourcentageTraduit();
-    finCh("affPourcentageTraduit");*/
+    endCh("affPourcentageTraduit");*/
   }
   /**
   *{@summary trim the image from args.}

@@ -56,7 +56,7 @@ public class Img implements Cloneable{
     height = bi.getHeight();
     debug.débogage("Initialisation des 4 tableaux.");Chrono.debutCh();
     setRouge(); setVert(); setBleu(); setAlpha();
-    Chrono.finCh("4 tableaux de pixel initialiser");
+    Chrono.endCh("4 tableaux de pixel initialiser");
   }
   /**
   *Constructs a new Img with a fileName.
@@ -377,7 +377,7 @@ public class Img implements Cloneable{
         }
       }
     }
-    Chrono.finCh("compterChaquePixel");
+    Chrono.endCh("compterChaquePixel");
     return hm;
   }
   /**
@@ -397,7 +397,7 @@ public class Img implements Cloneable{
     for (int i=0;i<tp.length ; i++) {
       sr+="{label:'"+g.get(tp[i].toString())+"', y:"+hm.get(tp[i])+"},\n";
     }
-    Chrono.finCh("compterChaquePixelToHtml");
+    Chrono.endCh("compterChaquePixelToHtml");
     System.out.println(getResultAsHtmlDiv(sr));
   }
   /**
@@ -470,7 +470,7 @@ public class Img implements Cloneable{
         //pixelActualisé++;
       }
     }
-    Chrono.finCh("actualiserImage");
+    Chrono.endCh("actualiserImage");
     //debug.débogage(pixelActualisé+" pixels ont été actualisé.");
   }
   /**

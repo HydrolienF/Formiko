@@ -136,7 +136,7 @@ public class Partie implements Serializable{
   public void initialisationElément(int nbrDeJoueur, int nbrDIa, int nbrDeFourmi){
     if(!dejaIni){
       dejaIni=true;
-      Main.débutCh();
+      Main.startCh();
       Main.setMessageChargement(g.getM("initialisationDesJoueurs"));
       boolean b = false;
       nbrDeJoueurDansLaPartie=nbrDIa + nbrDeJoueur;
@@ -158,15 +158,15 @@ public class Partie implements Serializable{
       }else{
         gi = new GInsecte();
       }
-      Main.finCh("chargementElementsDeLaCarte");
+      Main.endCh("chargementElementsDeLaCarte");
       Main.setMessageChargement(g.getM("chargementDesGraphismes"));
     }
     //ce qui arrive même si c'était déja initialisé.
-    Main.débutCh();
+    Main.startCh();
     if(Main.getF()!=null){
       initialiserGraphismePartie();
     }
-    Main.finCh("chargementGraphismes");
+    Main.endCh("chargementGraphismes");
     setEnCours(true);
   }
   public void initialisationElément(int a, int b){initialisationElément(a,b,1);}

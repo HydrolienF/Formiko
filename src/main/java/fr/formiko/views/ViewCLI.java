@@ -110,7 +110,7 @@ public class ViewCLI implements View {
     switch (action) {
       case 1 :
       System.out.println("launch a new game");//@a
-
+      //Main.setPartie();
       //actionGame();
       break;
       case 2 :
