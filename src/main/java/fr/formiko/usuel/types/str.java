@@ -144,6 +144,19 @@ public class str{
     }
   }
   /**
+  *{@summary From String to double}
+  *return -1 if conversion fail.
+  *@version 1.1
+  */
+  public static double sToD(String s){
+    try {
+      return Double.parseDouble(s);
+    }catch (Exception e) {
+      erreurConversion("String To Double",s);
+      return -1.0;
+    }
+  }
+  /**
   *{@summary From String to int}
   *Throw a Exception trows if conversion fail.
   *@version 1.1

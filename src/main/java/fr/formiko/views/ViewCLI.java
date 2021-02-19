@@ -4,7 +4,6 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.save;
 import fr.formiko.usuel.types.str;
 
@@ -89,7 +88,9 @@ public class ViewCLI implements View {
       }
       break;
       case 3 :
-      System.out.println("open options.");//@a
+      if(!menuOptions()){ //it can return false
+        menuMain();
+      }
       break;
       case 4 :
       Main.quitter();
@@ -109,15 +110,15 @@ public class ViewCLI implements View {
     int action = getActionMenu(4);
     switch (action) {
       case 1 :
-      System.out.println("launch a new game");//@a
-      //Main.setPartie();
-      //actionGame();
+      Main.setPartie(Partie.getDefautlPartie());
+      actionGame();
       break;
       case 2 :
-      System.out.println("launch a personalised game");//@a
+      menuPersonaliseAGame();
       break;
       case 3 :
-      System.out.println("tuto");//@a
+      Main.setPartie(Partie.getPartieTuto());
+      actionGame();
       break;
       case 4 :
       menuMain();
@@ -138,17 +139,85 @@ public class ViewCLI implements View {
     if(tToPrint.length==0){return false;}
     paint();
     int choice = getActionMenu(tToPrint.length);
-    Partie pa = sauvegarderUnePartie.charger(tToPrint[choice-1]);
-    System.out.println(pa);//@a
+    Partie pa = Partie.getPartieSave(tToPrint[choice-1]);
+    Main.setPartie(pa);
+    actionGame();
     return true;
   }
-  /***
+  /**
+  *{@summary personalise a game menu.}<br>
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.33
+  */
+  public boolean menuPersonaliseAGame(){
+    actionGameOn=false;
+    menuName="";
+    tToPrint=new String [10]; int k=0;
+    tToPrint[k]=g.get("choixCarte");k++;
+    tToPrint[k]=g.get("choixDif");k++;
+    tToPrint[k]=g.get("choixVitesseDeJeu");k++;
+    tToPrint[k]=g.get("nbrDeTour");k++;
+    tToPrint[k]=g.get("casesSombres");k++;
+    tToPrint[k]=g.get("casesNuageuses");k++;
+    tToPrint[k]=g.get("nbrDeJoueur");k++;
+    tToPrint[k]=g.get("nbrDIa");k++;
+    tToPrint[k]=g.get("nbrDeFourmi");k++;
+    tToPrint[k]=g.get("lancerPartie");k++;
+    int choice = -1;
+    Partie pa = Partie.getDefautlPartie();
+    while (choice!=10) {
+      paint();
+      choice = getActionMenu(tToPrint.length);
+      String input = scannerAnswer.nextLine();
+      switch (choice) {
+        case 1:
+        pa.getCarte().setMap(input);
+        break;
+        case 2:
+        byte d = str.sToBy(input);
+        pa.setDifficulté(d);
+        break;
+        case 3:
+        double v = str.sToD(input);
+        pa.setVitesseDeJeu(v);
+        break;
+
+      }
+    }
+    /*    String nomCarte = "miniWorld";
+        Carte mapo = new Carte(nomCarte);
+        mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
+        Partie partie = new Partie(1,100,mapo,1.0);
+        partie.setElément(1,5,1);
+        partie.setVitesseDeJeu(0.4);*/
+    Main.setPartie(pa);
+    actionGame();
+    return true;
+  }
+  /**
+  *{@summary Load the options menu.}<br>
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.33
+  */
+  public boolean menuOptions(){
+    actionGameOn=false;
+    menuName="menuO";
+    //tToPrint=save.listOptions();
+    tToPrint = new String[0]; //TODO replace by a real choice.
+    if(tToPrint.length==0){return false;}
+    paint();
+    int choice = getActionMenu(tToPrint.length);
+    menuMain();
+    return true;
+  }
+  /**
   *{@summary Launch action game part.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.33
   */
   public boolean actionGame(){
     actionGameOn=true;
+    System.out.println(Main.getPartie());//@a
     return false;
   }
 

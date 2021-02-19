@@ -45,6 +45,18 @@ public interface View {
   */
   boolean menuLoadAGame();
   /***
+  *{@summary personalise a game menu.}<br>
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.33
+  */
+  boolean menuPersonaliseAGame();
+  /***
+  *{@summary options menu.}<br>
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.33
+  */
+  boolean menuOptions();
+  /***
   *{@summary Launch action game part.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.33

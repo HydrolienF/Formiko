@@ -269,7 +269,12 @@ public class triche {
           }
           break;
         case 37:
-          Main.getPj().retournerAuMenu();
+          try {
+            Main.getPj().retournerAuMenu();
+          }catch (Exception e) {}
+          try {
+            Main.getView().menuMain();
+          }catch (Exception e) {}
           break;
         default:
           erreur.erreur("La commande n'as pas été reconnue.","triche.commande");

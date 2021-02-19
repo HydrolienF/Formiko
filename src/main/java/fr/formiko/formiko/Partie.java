@@ -2,15 +2,16 @@ package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
-import fr.formiko.views.gui2d.EtiquetteJoueur;
-import fr.formiko.views.gui2d.GEtiquetteJoueur;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.*;
+import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
+import fr.formiko.views.gui2d.EtiquetteJoueur;
+import fr.formiko.views.gui2d.GEtiquetteJoueur;
 
 import java.awt.Image;
 import java.io.Serializable;
@@ -54,7 +55,7 @@ public class Partie implements Serializable{
     tableauDesEspecesAutorisée = new int [1];//[2];
     tableauDesEspecesAutorisée[0]=0;
     //tableauDesEspecesAutorisée[1]=3;
-    //a ce stade, il manque encore gi et gj. On les initialise null par précaution.
+    //a ce stade, il manque encore gi et gj. On les initialise null partie précaution.
     gj = new GJoueur();
     gi = new GInsecte();
     appartionInsecte=true;
@@ -274,7 +275,54 @@ public class Partie implements Serializable{
   public void enregistrerLesScores(){
     gj.enregistrerLesScores();
   }
+  //static
+  /**
+   * Load the GEspece.
+   * @version 1.33
+   */
   public static void iniGe(){
     ge = new GEspece();
+  }
+  /**
+   * Load the default Partie.
+   * @version 1.33
+   */
+  public static Partie getDefautlPartie(){
+    Main.startCh();
+    String nomCarte = "miniWorld";
+    Carte mapo = new Carte(nomCarte);
+    mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
+    Partie partie = new Partie(1,100,mapo,1.0);
+    partie.setElément(1,5,1);
+    partie.setVitesseDeJeu(0.2);
+    Main.endCh("chargementParamètrePartieParDéfaut");
+    return partie;
+  }
+  /**
+   * Load the default Partie.
+   * @version 1.14
+   */
+  public static Partie getPartieSave(String nom){
+    Main.startCh();
+    Partie partie = sauvegarderUnePartie.charger(nom);
+    Main.endCh("chargementPartie");
+    return partie;
+  }
+  /**
+   * {@summary create a new Partie to launch Tuto.}<br>
+   * @version 1.1.
+   */
+  public static Partie getPartieTuto(){
+    Main.startCh();
+    String nomCarte = "tuto";
+    Carte mapo = new Carte(nomCarte);
+    mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
+    Partie partie = new Partie(1,5,mapo,1.0);
+    partie.setElément(1,0,1);
+    partie.setVitesseDeJeu(0.4);
+    Main.endCh("chargementParamètrePartieTuto");
+    partie.setAppartionInsecte(false);
+    partie.setAppartionGraine(false);
+    return partie;
   }
 }

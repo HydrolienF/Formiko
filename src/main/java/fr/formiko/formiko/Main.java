@@ -72,6 +72,7 @@ public class Main {
   private static boolean premierePartie=false;
   private static boolean jeuEnCours;
   private static Data data;
+  private static View view;
 
   /**
    * {@summary Lauch the game.}<br>
@@ -209,7 +210,9 @@ public class Main {
     //===
     startCh();
     //start of test part
-    View view = new ViewCLI();
+    erreur.erreur("le jeu est en test.");
+    erreur.alerte("le jeu est en test.");
+    view = new ViewCLI();
     view.ini();
     view.menuMain();
     quitter();
@@ -261,8 +264,8 @@ public class Main {
     startCh();
     getPp().removePm();//on retire le menu
     endCh("chargementPanneauChargementEtSuppressionMenu");//startCh();
-    if(premierePartie){tuto=true;} if(tuto){pa=getPartieTuto();}
-    else if(pa==null){pa=getPartieParDéfaut();}
+    if(premierePartie){tuto=true;} if(tuto){pa=Partie.getPartieTuto();}
+    else if(pa==null){pa=Partie.getDefautlPartie();}
     getPj().addPch();//on met le panneau de chargement au 1a plan.
     getF().printAll(getF().getGraphics());
     //endCh("chargementDézoom");
@@ -297,48 +300,6 @@ public class Main {
       thm = new ThMusique();
       thm.start();
     }*/
-  }
-  /**
-   * Load the default Partie.
-   * @version 1.1
-   */
-  public static Partie getPartieParDéfaut(){
-    startCh();
-    String nomCarte = "miniWorld";
-    Carte mapo = new Carte(nomCarte);
-    mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
-    Partie par = new Partie(1,100,mapo,1.0);
-    par.setElément(1,5,1);
-    par.setVitesseDeJeu(0.2);
-    endCh("chargementParamètrePartieParDéfaut");
-    return par;
-  }
-  /**
-   * Load the default Partie.
-   * @version 1.14
-   */
-  public static Partie getPartieSave(String nom){
-    startCh();
-    Partie par = sauvegarderUnePartie.charger(nom);
-    endCh("chargementPartie");
-    return par;
-  }
-  /**
-   * {@summary create a new Partie to launch Tuto.}<br>
-   * @version 1.1.
-   */
-  public static Partie getPartieTuto(){
-    startCh();
-    String nomCarte = "tuto";
-    Carte mapo = new Carte(nomCarte);
-    mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
-    Partie par = new Partie(1,5,mapo,1.0);
-    par.setElément(1,0,1);
-    par.setVitesseDeJeu(0.2);
-    endCh("chargementParamètrePartieTuto");
-    par.setAppartionInsecte(false);
-    par.setAppartionGraine(false);
-    return par;
   }
   /**
    * {@summary Initializes the tutorial parameters.}<br>
@@ -408,6 +369,7 @@ public class Main {
   public static void setJeuEnCours(boolean b){jeuEnCours=b;}
   public static Data getData(){return data;}
   public static ThTriche getThTriche(){return trich;}
+  public static View getView(){return view;}
   //racourci
   public static boolean estWindows(){return os.getId()==1;}
   public static String get(String clé){ return g.get(clé);}

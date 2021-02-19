@@ -51,7 +51,7 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
     Main.setPartie(new Partie()); //nouvelle partie vide.
     debug.setDPG(false);
     Main.initialisation();
-    Main.setPartie(Main.getPartieParDéfaut());
+    Main.setPartie(Main.getDefautlPartie());
     sauvegarderUnePartie.sauvegarder(Main.getPartie(), "testVraisPartie");
     Partie p = sauvegarderUnePartie.charger("testVraisPartie");
     assertTrue(Main.getPartie().equals(p));
