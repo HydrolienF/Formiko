@@ -257,6 +257,8 @@ lireUnFichier.1:linioj estis trovi en la dociero.
 
 Message.1:konzolo
 
+erreur:eraro
+alerte:vigla
 erreur.1:1 malindika loko
 erreur.2:Trovu sube la kialo kaj la listo de la fonkcio kui estas vaida dum la forca fino
 erreur.3:fatala

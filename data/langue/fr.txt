@@ -86,9 +86,11 @@ sexué:sexué
 menuP.1:nouvelle partie
 menuP.2:charger une partie
 menuP.3:options
+menuP.4:quitter le jeu
 menuN.1:nouveau départ
 menuN.2:partie personnalisée
 menuN.3:tuto
+menuN.4:retour
 
 quitterJeu:quitter le jeu
 quitterOuContinuer:Souhaitez vous continuer la partie ?
@@ -257,6 +259,8 @@ lireUnFichier.1:lignes on été trouvée dans le fichier
 
 Message.1:console
 
+erreur:erreur
+alerte:alerte
 erreur.1:un lieu non précisé
 erreur.2:Trouver ci dessous la raison et la liste des fonctions qui était en cours lors de l'arrêt forcé
 erreur.3:fatale
