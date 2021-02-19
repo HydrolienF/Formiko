@@ -5,6 +5,10 @@ package fr.formiko.usuel;
 public class erreur {
   public static String lieu0 = g.get("erreur",1,"un lieu non précisé");
   public static boolean muet=false;
+  //colors
+  private static String yellow = (char)27+"[1;33m";
+  private static String red = (char)27+"[0;31m";
+  private static String neutral = (char)27+"[0;m";
 
   public static void setMuet(boolean b){muet=b;}
   private static void println(String s){
@@ -33,7 +37,7 @@ public class erreur {
     if (fatale){
       m = g.get("erreur",3,"fatale")+" ";
     }
-    println(g.get("erreur",4,"Une erreur")+" " + m + g.get("erreur",5,"c'est produite dans")+" " + lieu + " : ");
+    println(red+"["+g.get("erreur")+"] "+neutral+g.get("erreur",4,"Une erreur")+" " + m + g.get("erreur",5,"c'est produite dans")+" " + lieu + " : ");
     println(message);
     if (!correction.equals("")){
       println(g.get("erreur",6,"Correction apportée")+" : " + correction);
@@ -58,7 +62,7 @@ public class erreur {
     erreur(message, lieu0, fatale);
   }
   public static void alerte(String message, String lieu, String correction){
-    println(g.get("erreur",7,"Quelque chose d'anormale est arrivé dans")+" "+ lieu +", "+g.get("erreur",8,"il n'y a peut-être pas de raison de s'inquiéter"));
+    println(yellow+"["+g.get("alerte")+"] "+neutral+g.get("erreur",7,"Quelque chose d'anormale est arrivé dans")+" "+ lieu +", "+g.get("erreur",8,"il n'y a peut-être pas de raison de s'inquiéter"));
     if (!message.equals("")) println(message);
     if (!correction.equals("")){
       println(g.get("erreur",6,"Correction apportée")+" : " + correction);

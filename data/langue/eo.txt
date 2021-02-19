@@ -20,7 +20,7 @@ oui:jes
 non:ne
 et:kaj
 retour:reveno
-choix:rlekto
+choix:elekto
 tour:vico
 temps:tempo
 commencer:komenci
