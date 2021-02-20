@@ -86,9 +86,11 @@ sexué:nemű[auto]
 menuP.1:Új rész[auto]
 menuP.2:Töltsön be egy játékot[auto]
 menuP.3:Lehetőségek[auto]
+menuP.4:
 menuN.1:Új kezdet[auto]
 menuN.2:Custom Party[auto]
 menuN.3:ez[auto]
+menuN.4:
 
 quitterJeu:hagyja el a játékot[auto]
 quitterOuContinuer:Szeretné folytatni a játékot?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:sorokat találtak az aktában[auto]
 
 Message.1:konzol[auto]
 
+erreur:
+alerte:
 erreur.1:meghatározatlan hely[auto]
 erreur.2:Az alábbiakban megtalálja az okot és a kényszerleállítás alatt folyamatban lévő funkciók listáját[auto]
 erreur.3:fatale[auto]

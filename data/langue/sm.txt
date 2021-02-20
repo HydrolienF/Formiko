@@ -86,9 +86,11 @@ sexué:feusuaʻi[auto]
 menuP.1:Vaega fou[auto]
 menuP.2:Avega se taʻaloga[auto]
 menuP.3:Filifiliga[auto]
+menuP.4:
 menuN.1:Amata fou[auto]
 menuN.2:Pati Faʻapitoa[auto]
 menuN.3:lenei[auto]
+menuN.4:
 
 quitterJeu:tuua le taʻaloga[auto]
 quitterOuContinuer:E te manaʻo e faʻaauau le taʻaloga?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:laina na maua i le faila[auto]
 
 Message.1:faamafanafana[auto]
 
+erreur:
+alerte:
 erreur.1:o se nofoaga le faʻamaonia[auto]
 erreur.2:Saili i lalo le mafuaʻaga ma le lisi o galuega na faʻagasolo i le taimi o le faʻamalosi tapunia[auto]
 erreur.3:fatale[auto]

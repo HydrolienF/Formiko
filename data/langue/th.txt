@@ -86,9 +86,11 @@ sexué:เซ็กส์[auto]
 menuP.1:ส่วนใหม่[auto]
 menuP.2:โหลดเกม[auto]
 menuP.3:ตัวเลือก[auto]
+menuP.4:
 menuN.1:เริ่มใหม่[auto]
 menuN.2:งานเลี้ยงที่กำหนดเอง[auto]
 menuN.3:นี้[auto]
+menuN.4:
 
 quitterJeu:ออกจากเกม[auto]
 quitterOuContinuer:คุณต้องการเล่นเกมต่อหรือไม่[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:พบบรรทัดในไฟล์[auto]
 
 Message.1:คอนโซล[auto]
 
+erreur:
+alerte:
 erreur.1:สถานที่ที่ไม่ระบุ[auto]
 erreur.2:ค้นหาเหตุผลด้านล่างและรายการฟังก์ชันที่กำลังดำเนินการระหว่างการบังคับปิดเครื่อง[auto]
 erreur.3:ถึงแก่ชีวิต[auto]

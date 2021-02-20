@@ -86,9 +86,11 @@ sexué:sessuato[auto]
 menuP.1:Nuova parte[auto]
 menuP.2:Carica un gioco[auto]
 menuP.3:Opzioni[auto]
+menuP.4:
 menuN.1:Nuovo inizio[auto]
 menuN.2:Festa personalizzata[auto]
 menuN.3:Questo[auto]
+menuN.4:
 
 quitterJeu:lasciare il gioco[auto]
 quitterOuContinuer:Vorresti continuare il gioco?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:sono state trovate righe nel file[auto]
 
 Message.1:console[auto]
 
+erreur:
+alerte:
 erreur.1:un luogo imprecisato[auto]
 erreur.2:Trova di seguito il motivo e l'elenco delle funzioni che erano in corso durante lo spegnimento forzato[auto]
 erreur.3:fatale[auto]

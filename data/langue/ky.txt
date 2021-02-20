@@ -86,9 +86,11 @@ sexué:жыныстык[auto]
 menuP.1:Жаңы бөлүк[auto]
 menuP.2:Оюн жүктөө[auto]
 menuP.3:Жолдор[auto]
+menuP.4:
 menuN.1:Жаңы старт[auto]
 menuN.2:Custom Party[auto]
 menuN.3:бул[auto]
+menuN.4:
 
 quitterJeu:оюндан чыгуу[auto]
 quitterOuContinuer:Оюнду уланта бересизби?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:саптар файлда табылган[auto]
 
 Message.1:консоль[auto]
 
+erreur:
+alerte:
 erreur.1:белгиленбеген жер[auto]
 erreur.2:Төмөндө мажбурлап өчүрүүдө аткарылып жаткан функциялардын себебин жана тизмесин табыңыз[auto]
 erreur.3:fatale[auto]

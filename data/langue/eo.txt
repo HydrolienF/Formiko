@@ -86,9 +86,11 @@ sexué:seksula
 menuP.1:Nova ludo
 menuP.2:ŝargi 1 ludo
 menuP.3:Optioj
+menuP.4:foriri
 menuN.1:Nova foriro
 menuN.2:Personeciga ludo
 menuN.3:lernilo
+menuN.4:reveni
 
 quitterJeu:Deiri la ludo
 quitterOuContinuer:Ĉu vi deziri malhalti la ludo ?

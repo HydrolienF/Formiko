@@ -86,9 +86,11 @@ sexué:jinsiy aloqada[auto]
 menuP.1:Yangi qism[auto]
 menuP.2:O'yinni yuklang[auto]
 menuP.3:Tanlovlar[auto]
+menuP.4:
 menuN.1:Yangi boshlanish[auto]
 menuN.2:Maxsus partiya[auto]
 menuN.3:bu[auto]
+menuN.4:
 
 quitterJeu:o'yinni tark eting[auto]
 quitterOuContinuer:O'yinni davom ettirmoqchimisiz?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:faylda satrlar topilgan[auto]
 
 Message.1:konsol[auto]
 
+erreur:
+alerte:
 erreur.1:belgilanmagan joy[auto]
 erreur.2:Majburiy o'chirish paytida bajarilgan sabablar va funktsiyalar ro'yxatini quyida toping[auto]
 erreur.3:halokatli[auto]

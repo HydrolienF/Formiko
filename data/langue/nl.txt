@@ -86,9 +86,11 @@ sexué:gesekst[auto]
 menuP.1:Nieuw deel[auto]
 menuP.2:Laad een spel[auto]
 menuP.3:Opties[auto]
+menuP.4:
 menuN.1:Nieuw begin[auto]
 menuN.2:Aangepaste partij[auto]
 menuN.3:dit[auto]
+menuN.4:
 
 quitterJeu:verlaat het spel[auto]
 quitterOuContinuer:Wil je doorgaan met het spel?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:regels werden gevonden in het bestand[auto]
 
 Message.1:troosten[auto]
 
+erreur:
+alerte:
 erreur.1:een niet-gespecificeerde plaats[auto]
 erreur.2:Zoek hieronder de reden en de lijst met functies die werden uitgevoerd tijdens de geforceerde uitschakeling[auto]
 erreur.3:fatale[auto]

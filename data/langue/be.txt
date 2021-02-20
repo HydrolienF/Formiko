@@ -86,9 +86,11 @@ sexué:сэксуальны[auto]
 menuP.1:Новая частка[auto]
 menuP.2:Загрузіце гульню[auto]
 menuP.3:Варыянты[auto]
+menuP.4:
 menuN.1:Новы старт[auto]
 menuN.2:Нестандартная вечарына[auto]
 menuN.3:гэта[auto]
+menuN.4:
 
 quitterJeu:пакінуць гульню[auto]
 quitterOuContinuer:Хочаце працягваць гульню?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:у файле знойдзены радкі[auto]
 
 Message.1:кансоль[auto]
 
+erreur:
+alerte:
 erreur.1:неўстаноўленае месца[auto]
 erreur.2:Знайдзіце ніжэй прычыну і спіс функцый, якія выконваліся падчас прымусовага адключэння[auto]
 erreur.3:фатальны[auto]

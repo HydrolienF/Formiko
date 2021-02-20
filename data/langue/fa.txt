@@ -86,9 +86,11 @@ sexué:جنسیت زده[auto]
 menuP.1:قسمت جدید[auto]
 menuP.2:یک بازی را بارگیری کنید[auto]
 menuP.3:گزینه ها[auto]
+menuP.4:
 menuN.1:شروع جدید[auto]
 menuN.2:مهمانی سفارشی[auto]
 menuN.3:این[auto]
+menuN.4:
 
 quitterJeu:بازی را رها کن[auto]
 quitterOuContinuer:آیا دوست دارید بازی را ادامه دهید؟[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:خطوط در پرونده یافت شد[auto]
 
 Message.1:کنسول[auto]
 
+erreur:
+alerte:
 erreur.1:مکانی نامشخص[auto]
 erreur.2:در زیر دلیل و لیستی از عملکردهایی را که در خاموش کردن اجباری در حال انجام بود ، پیدا کنید[auto]
 erreur.3:کشنده[auto]

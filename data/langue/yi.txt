@@ -86,9 +86,11 @@ sexué:סעקסעד[auto]
 menuP.1:ניו טייל[auto]
 menuP.2:מאַסע אַ שפּיל[auto]
 menuP.3:אָפּציעס[auto]
+menuP.4:
 menuN.1:ניו אָנהייב[auto]
 menuN.2:מנהג פארטיי[auto]
 menuN.3:דאָס[auto]
+menuN.4:
 
 quitterJeu:לאָזן די שפּיל[auto]
 quitterOuContinuer:וואָלט איר ווי צו פאָרזעצן די שפּיל?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:שורות זענען געפונען אין דער טעקע[auto
 
 Message.1:קאַנסאָול[auto]
 
+erreur:
+alerte:
 erreur.1:אַ ונספּעסיפיעד אָרט[auto]
 erreur.2:געפֿינען די סיבה און די רשימה פון פאַנגקשאַנז בעשאַס די געצווונגען שאַטדאַון[auto]
 erreur.3:פאַטאַלע[auto]

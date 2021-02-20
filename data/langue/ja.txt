@@ -86,9 +86,11 @@ sexué:セックス[auto]
 menuP.1:新しい部分[auto]
 menuP.2:ゲームをロードする[auto]
 menuP.3:オプション[auto]
+menuP.4:
 menuN.1:再スタート[auto]
 menuN.2:カスタムパーティ[auto]
 menuN.3:この[auto]
+menuN.4:
 
 quitterJeu:ゲームを離れる[auto]
 quitterOuContinuer:ゲームを続けますか？[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:ファイルに行が見つかりました[auto]
 
 Message.1:コンソール[auto]
 
+erreur:
+alerte:
 erreur.1:不特定の場所[auto]
 erreur.2:理由と強制シャットダウン中に進行していた機能のリストを以下に示します[auto]
 erreur.3:運命の[auto]

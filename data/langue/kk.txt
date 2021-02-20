@@ -86,9 +86,11 @@ sexué:жыныстық қатынасқа түсті[auto]
 menuP.1:Жаңа бөлім[auto]
 menuP.2:Ойын жүктеңіз[auto]
 menuP.3:Опциялар[auto]
+menuP.4:
 menuN.1:Жаңа бастама[auto]
 menuN.2:Custom Party[auto]
 menuN.3:бұл[auto]
+menuN.4:
 
 quitterJeu:ойынды тастаңыз[auto]
 quitterOuContinuer:Ойынды жалғастырғыңыз келе ме?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:файлда жолдар табылды[auto]
 
 Message.1:консоль[auto]
 
+erreur:
+alerte:
 erreur.1:анықталмаған орын[auto]
 erreur.2:Төменде мәжбүрлі өшіру кезінде орындалған функциялардың себебі мен тізімін табыңыз[auto]
 erreur.3:өлім[auto]

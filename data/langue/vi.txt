@@ -86,9 +86,11 @@ sexué:tình dục[auto]
 menuP.1:Phần mới[auto]
 menuP.2:Tải một trò chơi[auto]
 menuP.3:Tùy chọn[auto]
+menuP.4:
 menuN.1:Khởi đầu mới[auto]
 menuN.2:Buổi tiệc khách hàng[auto]
 menuN.3:điều này[auto]
+menuN.4:
 
 quitterJeu:rời khỏi trò chơi[auto]
 quitterOuContinuer:Bạn có muốn tiếp tục trò chơi?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:các dòng đã được tìm thấy trong tệp[auto]
 
 Message.1:bàn điều khiển[auto]
 
+erreur:
+alerte:
 erreur.1:một nơi không xác định[auto]
 erreur.2:Tìm bên dưới lý do và danh sách các chức năng đang hoạt động trong quá trình buộc tắt máy[auto]
 erreur.3:fatale[auto]

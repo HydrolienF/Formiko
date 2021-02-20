@@ -86,9 +86,11 @@ sexué:nakipagtalik[auto]
 menuP.1:Bagong bahagi[auto]
 menuP.2:Mag-load ng isang laro[auto]
 menuP.3:Mga pagpipilian[auto]
+menuP.4:
 menuN.1:Bagong simula[auto]
 menuN.2:Pasadyang Partido[auto]
 menuN.3:ito[auto]
+menuN.4:
 
 quitterJeu:iwanan ang laro[auto]
 quitterOuContinuer:Nais mo bang ipagpatuloy ang laro?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:ang mga linya ay natagpuan sa file[auto]
 
 Message.1:console[auto]
 
+erreur:
+alerte:
 erreur.1:isang hindi natukoy na lugar[auto]
 erreur.2:Hanapin sa ibaba ang dahilan at ang listahan ng mga pagpapaandar na isinasagawa habang pinilit na isara[auto]
 erreur.3:fatale[auto]

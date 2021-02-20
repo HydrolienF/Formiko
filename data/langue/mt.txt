@@ -86,9 +86,11 @@ sexué:sessed[auto]
 menuP.1:Parti ġdida[auto]
 menuP.2:Tgħabba logħba[auto]
 menuP.3:Għażliet[auto]
+menuP.4:
 menuN.1:Bidu ġdid[auto]
 menuN.2:Parti tad-Dwana[auto]
 menuN.3:dan[auto]
+menuN.4:
 
 quitterJeu:ħalli l-logħba[auto]
 quitterOuContinuer:Tixtieq tkompli l-logħba?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:linji nstabu fil-fajl[auto]
 
 Message.1:console[auto]
 
+erreur:
+alerte:
 erreur.1:post mhux speċifikat[auto]
 erreur.2:Sib hawn taħt ir-raġuni u l-lista tal-funzjonijiet li kienu għaddejjin matul l-għeluq furzat[auto]
 erreur.3:fatale[auto]

@@ -86,9 +86,11 @@ sexué:جنسیت[auto]
 menuP.1:نوې برخه[auto]
 menuP.2:لوبه لوړه کړه[auto]
 menuP.3:غوراوي[auto]
+menuP.4:
 menuN.1:نوی پیل[auto]
 menuN.2:د ګمرک ګوند[auto]
 menuN.3:دا[auto]
+menuN.4:
 
 quitterJeu:لوبه پرېږدئ[auto]
 quitterOuContinuer:ایا ته غواړی لوبو ته دوام ورکړی؟[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:په فایل کې لینکونه وموندل شول[auto]
 
 Message.1:کنسول[auto]
 
+erreur:
+alerte:
 erreur.1:یو نامعلوم ځای[auto]
 erreur.2:لاندې دليل او د دندو لیست ومومئ چې د جبري بند په جریان کې په پرمختګ کې و[auto]
 erreur.3:مړینه[auto]

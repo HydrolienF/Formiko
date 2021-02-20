@@ -86,9 +86,11 @@ sexué:sexual
 menuP.1:New game
 menuP.2:Load a game
 menuP.3:Options
+menuP.4:quit
 menuN.1:New start
 menuN.2:Personalized game
 menuN.3:tutorial
+menuN.4:back
 
 quitterJeu:Leave the game
 quitterOuContinuer:Do you want to continue the game?
@@ -258,7 +260,7 @@ lireUnFichier.1:lines were found in the file
 Message.1:console
 
 erreur:error
-alerte:alert
+alerte:warning
 erreur.1:an unspecified place
 erreur.2:Find below the reason and the list of functions that was in progress during the forced shutdown
 erreur.3:fatal

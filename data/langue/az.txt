@@ -86,9 +86,11 @@ sexué:cinsi[auto]
 menuP.1:Yeni hissə[auto]
 menuP.2:Oyun yükləyin[auto]
 menuP.3:Seçimlər[auto]
+menuP.4:
 menuN.1:Yeni başlanğıc[auto]
 menuN.2:Xüsusi Party[auto]
 menuN.3:bu[auto]
+menuN.4:
 
 quitterJeu:oyunu tərk et[auto]
 quitterOuContinuer:Oyuna davam etmək istərdinizmi?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:faylda sətirlər tapıldı[auto]
 
 Message.1:konsol[auto]
 
+erreur:
+alerte:
 erreur.1:təyin olunmamış yer[auto]
 erreur.2:Məcburi bağlanma zamanı səbəbi və funksiyaların siyahısını aşağıda tapın[auto]
 erreur.3:ölümcül[auto]

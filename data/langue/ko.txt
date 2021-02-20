@@ -86,9 +86,11 @@ sexué:성별[auto]
 menuP.1:새로운 부분[auto]
 menuP.2:게임 불러 오기[auto]
 menuP.3:옵션[auto]
+menuP.4:
 menuN.1:새로운 시작[auto]
 menuN.2:맞춤 파티[auto]
 menuN.3:이[auto]
+menuN.4:
 
 quitterJeu:게임을 떠나[auto]
 quitterOuContinuer:게임을 계속 하시겠습니까?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:파일에서 행을 찾았습니다.[auto]
 
 Message.1:콘솔[auto]
 
+erreur:
+alerte:
 erreur.1:불특정 장소[auto]
 erreur.2:강제 종료 중에 진행중인 기능 목록과 이유를 아래에서 찾으십시오.[auto]
 erreur.3:운명[auto]

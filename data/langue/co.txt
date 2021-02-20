@@ -86,9 +86,11 @@ sexué:sessu[auto]
 menuP.1:Nova parte[auto]
 menuP.2:Carica un ghjocu[auto]
 menuP.3:Opzioni[auto]
+menuP.4:
 menuN.1:Novu principiu[auto]
 menuN.2:Festa persunalizata[auto]
 menuN.3:questu[auto]
+menuN.4:
 
 quitterJeu:lascia u ghjocu[auto]
 quitterOuContinuer:Vulete cuntinuà a partita?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:e linee sò state trovate in u schedariu[auto]
 
 Message.1:cunsola[auto]
 
+erreur:
+alerte:
 erreur.1:un locu micca specificatu[auto]
 erreur.2:Truvate quì sottu u mutivu è l'elencu di e funzioni chì era in corsu durante l'arrestu forzatu[auto]
 erreur.3:fatale[auto]

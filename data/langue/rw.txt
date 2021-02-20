@@ -86,9 +86,11 @@ sexué:igitsina[auto]
 menuP.1:Igice gishya[auto]
 menuP.2:Fungura umukino[auto]
 menuP.3:Amahitamo[auto]
+menuP.4:
 menuN.1:Intangiriro nshya[auto]
 menuN.2:Ibirori byigenga[auto]
 menuN.3:iyi[auto]
+menuN.4:
 
 quitterJeu:va mu mukino[auto]
 quitterOuContinuer:Urashaka gukomeza umukino?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:imirongo yabonetse muri dosiye[auto]
 
 Message.1:konsole[auto]
 
+erreur:
+alerte:
 erreur.1:ahantu hatazwi[auto]
 erreur.2:Shakisha munsi yimpamvu nurutonde rwibikorwa byari bigenda mugihe cyo guhagarika ku gahato[auto]
 erreur.3:fatale[auto]

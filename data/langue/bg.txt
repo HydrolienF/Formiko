@@ -86,9 +86,11 @@ sexué:секс[auto]
 menuP.1:Нова част[auto]
 menuP.2:Заредете игра[auto]
 menuP.3:Настроики[auto]
+menuP.4:
 menuN.1:Ново начало[auto]
 menuN.2:Персонализирано парти[auto]
 menuN.3:това[auto]
+menuN.4:
 
 quitterJeu:напуснете играта[auto]
 quitterOuContinuer:Искате ли да продължите играта?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:във файла бяха намерени редове[auto]
 
 Message.1:конзола[auto]
 
+erreur:
+alerte:
 erreur.1:неуточнено място[auto]
 erreur.2:Намерете по-долу причината и списъка с функции, които са били в процес по време на принудителното изключване[auto]
 erreur.3:фатална[auto]

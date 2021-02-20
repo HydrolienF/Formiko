@@ -86,9 +86,11 @@ sexué:сексуални[auto]
 menuP.1:Нов дел[auto]
 menuP.2:Вчитај игра[auto]
 menuP.3:Опции[auto]
+menuP.4:
 menuN.1:Нов почеток[auto]
 menuN.2:Прилагодена забава[auto]
 menuN.3:ова[auto]
+menuN.4:
 
 quitterJeu:напушти ја играта[auto]
 quitterOuContinuer:Дали сакате да ја продолжите играта?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:линиите беа пронајдени во досието[a
 
 Message.1:конзола[auto]
 
+erreur:
+alerte:
 erreur.1:неодредено место[auto]
 erreur.2:Пронајдете ја подолу причината и списокот со функции што беа во тек за време на присилното исклучување[auto]
 erreur.3:фатален[auto]

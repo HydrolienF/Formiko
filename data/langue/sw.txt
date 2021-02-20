@@ -86,9 +86,11 @@ sexué:kujamiiana[auto]
 menuP.1:Sehemu mpya[auto]
 menuP.2:Pakia mchezo[auto]
 menuP.3:Chaguzi[auto]
+menuP.4:
 menuN.1:Mwanzo mpya[auto]
 menuN.2:Chama Cha desturi[auto]
 menuN.3:hii[auto]
+menuN.4:
 
 quitterJeu:acha mchezo[auto]
 quitterOuContinuer:Je! Ungependa kuendelea na mchezo?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:mistari ilipatikana kwenye faili[auto]
 
 Message.1:koni[auto]
 
+erreur:
+alerte:
 erreur.1:mahali pasipojulikana[auto]
 erreur.2:Pata chini ya sababu na orodha ya kazi ambazo zilikuwa zinaendelea wakati wa kuzima kwa kulazimishwa[auto]
 erreur.3:fatale[auto]

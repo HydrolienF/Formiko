@@ -86,9 +86,11 @@ sexué:מינית[auto]
 menuP.1:חלק חדש[auto]
 menuP.2:טען משחק[auto]
 menuP.3:אפשרויות[auto]
+menuP.4:
 menuN.1:התחלה חדשה[auto]
 menuN.2:מסיבה בהתאמה אישית[auto]
 menuN.3:זֶה[auto]
+menuN.4:
 
 quitterJeu:עזוב את המשחק[auto]
 quitterOuContinuer:האם אתה רוצה להמשיך את המשחק?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:שורות נמצאו בתיק[auto]
 
 Message.1:לְנַחֵם[auto]
 
+erreur:
+alerte:
 erreur.1:מקום שלא צוין[auto]
 erreur.2:מצא מתחת לסיבה ולרשימת הפונקציות שהיו בתהליך הכיבוי הכפוי[auto]
 erreur.3:פאטאל[auto]

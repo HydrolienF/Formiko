@@ -86,9 +86,11 @@ sexué:seksi[auto]
 menuP.1:Pjesë e re[auto]
 menuP.2:Vendos një lojë[auto]
 menuP.3:Opsione[auto]
+menuP.4:
 menuN.1:Fillim i ri[auto]
 menuN.2:Partia e personalizuar[auto]
 menuN.3:kjo[auto]
+menuN.4:
 
 quitterJeu:largohet nga loja[auto]
 quitterOuContinuer:Dëshironi të vazhdoni lojën?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:linjat u gjetën në dosje[auto]
 
 Message.1:konsol[auto]
 
+erreur:
+alerte:
 erreur.1:një vend i paspecifikuar[auto]
 erreur.2:Gjeni më poshtë arsyen dhe listën e funksioneve që ishin në proces gjatë mbylljes me forcë[auto]
 erreur.3:fatale[auto]

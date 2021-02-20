@@ -86,9 +86,11 @@ sexué:sexed[auto]
 menuP.1:नया भाग[auto]
 menuP.2:एक खेल लोड करें[auto]
 menuP.3:विकल्प[auto]
+menuP.4:
 menuN.1:नई शुरुआत[auto]
 menuN.2:कस्टम पार्टी[auto]
 menuN.3:यह[auto]
+menuN.4:
 
 quitterJeu:इस खेल को छोडो[auto]
 quitterOuContinuer:क्या आप खेल जारी रखना चाहेंगे?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:फ़ाइल में लाइनें मिलीं[aut
 
 Message.1:कंसोल[auto]
 
+erreur:
+alerte:
 erreur.1:एक अनिर्दिष्ट स्थान[auto]
 erreur.2:मजबूर शटडाउन के दौरान कारण और कार्य की सूची के नीचे खोजें[auto]
 erreur.3:fatale[auto]

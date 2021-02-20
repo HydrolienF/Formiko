@@ -86,9 +86,11 @@ sexué:σεξ[auto]
 menuP.1:Νέο μέρος[auto]
 menuP.2:Φορτώστε ένα παιχνίδι[auto]
 menuP.3:Επιλογές[auto]
+menuP.4:
 menuN.1:ΝΕΟ ΞΕΚΙΝΗΜΑ[auto]
 menuN.2:Προσαρμοσμένο πάρτι[auto]
 menuN.3:Αυτό[auto]
+menuN.4:
 
 quitterJeu:φύγε από το παιχνίδι[auto]
 quitterOuContinuer:Θέλετε να συνεχίσετε το παιχνίδι;[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:βρέθηκαν γραμμές στο αρχείο[auto]
 
 Message.1:κονσόλα[auto]
 
+erreur:
+alerte:
 erreur.1:ένα μη καθορισμένο μέρος[auto]
 erreur.2:Βρείτε παρακάτω τον λόγο και τη λίστα των συναρτήσεων που ήταν σε εξέλιξη κατά την αναγκαστική διακοπή λειτουργίας[auto]
 erreur.3:fatale[auto]

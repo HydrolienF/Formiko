@@ -86,9 +86,11 @@ sexué:sexuat[auto]
 menuP.1:Piesa nouă[auto]
 menuP.2:Încărcați un joc[auto]
 menuP.3:Opțiuni[auto]
+menuP.4:
 menuN.1:Un nou inceput[auto]
 menuN.2:Petrecere personalizată[auto]
 menuN.3:acest[auto]
+menuN.4:
 
 quitterJeu:părăsiți jocul[auto]
 quitterOuContinuer:Doriți să continuați jocul?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:liniile au fost găsite în dosar[auto]
 
 Message.1:consolă[auto]
 
+erreur:
+alerte:
 erreur.1:un loc nespecificat[auto]
 erreur.2:Găsiți mai jos motivul și lista funcțiilor care se desfășurau în timpul opririi forțate[auto]
 erreur.3:fatale[auto]

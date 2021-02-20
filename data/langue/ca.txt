@@ -86,9 +86,11 @@ sexué:sexat[auto]
 menuP.1:Part nova[auto]
 menuP.2:Carrega un joc[auto]
 menuP.3:Opcions[auto]
+menuP.4:
 menuN.1:Nou començament[auto]
 menuN.2:Festa personalitzada[auto]
 menuN.3:això[auto]
+menuN.4:
 
 quitterJeu:deixar el joc[auto]
 quitterOuContinuer:Voleu continuar el joc?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:es van trobar línies al fitxer[auto]
 
 Message.1:consola[auto]
 
+erreur:
+alerte:
 erreur.1:un lloc no especificat[auto]
 erreur.2:Cerqueu a continuació el motiu i la llista de funcions que estava en curs durant l’aturada forçada[auto]
 erreur.3:fatale[auto]

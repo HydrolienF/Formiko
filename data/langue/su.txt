@@ -86,9 +86,11 @@ sexué:sexed[auto]
 menuP.1:Bagéan anyar[auto]
 menuP.2:Beban kaulinan[auto]
 menuP.3:Pilihan[auto]
+menuP.4:
 menuN.1:Mimiti énggal[auto]
 menuN.2:Partéi Adat[auto]
 menuN.3:ieu[auto]
+menuN.4:
 
 quitterJeu:ninggalkeun buruan[auto]
 quitterOuContinuer:Naha anjeun badé neraskeun pertandingan?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:garis-garis anu aya dina file[auto]
 
 Message.1:konsol[auto]
 
+erreur:
+alerte:
 erreur.1:tempat anu teu ditangtoskeun[auto]
 erreur.2:Pilarian di handap alesan sareng daptar fungsi anu aya dina waktos operasi dipaksa[auto]
 erreur.3:fatale[auto]

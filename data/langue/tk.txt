@@ -86,9 +86,11 @@ sexué:jyns[auto]
 menuP.1:Täze bölüm[auto]
 menuP.2:Oýun ýükläň[auto]
 menuP.3:Görnüş[auto]
+menuP.4:
 menuN.1:Täze başlangyç[auto]
 menuN.2:Omörite oturylyşyk[auto]
 menuN.3:Bu[auto]
+menuN.4:
 
 quitterJeu:oýundan çykyň[auto]
 quitterOuContinuer:Oýuny dowam etdirmek isleýärsiňizmi?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:faýlda setirler tapyldy[auto]
 
 Message.1:konsol[auto]
 
+erreur:
+alerte:
 erreur.1:kesgitlenmedik ýer[auto]
 erreur.2:Mejbury ýapylanda dowam edýän sebäbini we funksiýalaryň sanawyny aşakda tapyň[auto]
 erreur.3:fatale[auto]

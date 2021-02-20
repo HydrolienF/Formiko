@@ -86,9 +86,11 @@ sexué:სქესობრივი[auto]
 menuP.1:ახალი ნაწილი[auto]
 menuP.2:ჩატვირთეთ თამაში[auto]
 menuP.3:Პარამეტრები[auto]
+menuP.4:
 menuN.1:Ახალი დასაწყისი[auto]
 menuN.2:მორგებული წვეულება[auto]
 menuN.3:ეს[auto]
+menuN.4:
 
 quitterJeu:დატოვე თამაში[auto]
 quitterOuContinuer:გსურთ თამაშის გაგრძელება?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:ფაილები მოიძებნა[auto]
 
 Message.1:კონსოლი[auto]
 
+erreur:
+alerte:
 erreur.1:დაუზუსტებელი ადგილი[auto]
 erreur.2:ქვემოთ იხილეთ მიზეზი და ფუნქციების ჩამონათვალი, რომლებიც მიმდინარეობდა იძულებითი გამორთვის დროს[auto]
 erreur.3:ფატალური[auto]

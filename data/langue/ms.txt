@@ -86,9 +86,11 @@ sexué:bercinta[auto]
 menuP.1:Bahagian baru[auto]
 menuP.2:Muatkan permainan[auto]
 menuP.3:Pilihan[auto]
+menuP.4:
 menuN.1:Permulaan baru[auto]
 menuN.2:Pesta Adat[auto]
 menuN.3:ini[auto]
+menuN.4:
 
 quitterJeu:tinggalkan permainan[auto]
 quitterOuContinuer:Adakah anda ingin meneruskan permainan?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:baris dijumpai di dalam fail[auto]
 
 Message.1:konsol[auto]
 
+erreur:
+alerte:
 erreur.1:tempat yang tidak ditentukan[auto]
 erreur.2:Cari di bawah sebab dan senarai fungsi yang sedang dijalankan semasa penutupan paksa[auto]
 erreur.3:fatale[auto]

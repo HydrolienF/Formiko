@@ -86,9 +86,11 @@ sexué:seksitud[auto]
 menuP.1:Uus osa[auto]
 menuP.2:Laadige mäng[auto]
 menuP.3:Valikud[auto]
+menuP.4:
 menuN.1:Uus algus[auto]
 menuN.2:Kohandatud pidu[auto]
 menuN.3:seda[auto]
+menuN.4:
 
 quitterJeu:mängust lahkuma[auto]
 quitterOuContinuer:Kas soovite mängu jätkata?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:failist leiti read[auto]
 
 Message.1:konsool[auto]
 
+erreur:
+alerte:
 erreur.1:täpsustamata koht[auto]
 erreur.2:Siit leiate sunniviisilise seiskamise ajal pooleli olnud põhjuse ja funktsioonide loendi[auto]
 erreur.3:fatale[auto]

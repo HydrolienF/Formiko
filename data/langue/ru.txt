@@ -86,9 +86,11 @@ sexué:половой[auto]
 menuP.1:Новая часть[auto]
 menuP.2:Загрузите игру[auto]
 menuP.3:Параметры[auto]
+menuP.4:
 menuN.1:Новый начало[auto]
 menuN.2:Пользовательская вечеринка[auto]
 menuN.3:этот[auto]
+menuN.4:
 
 quitterJeu:выйти из игры[auto]
 quitterOuContinuer:Хотите продолжить игру?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:строки были найдены в файле[auto]
 
 Message.1:приставка[auto]
 
+erreur:
+alerte:
 erreur.1:неустановленное место[auto]
 erreur.2:Найдите ниже причину и список функций, которые выполнялись во время принудительного выключения.[auto]
 erreur.3:роковой[auto]

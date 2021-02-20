@@ -86,9 +86,11 @@ sexué:جنس[auto]
 menuP.1:جزء جديد[auto]
 menuP.2:تحميل لعبة[auto]
 menuP.3:خيارات[auto]
+menuP.4:
 menuN.1:بداية جديدة[auto]
 menuN.2:حزب العرف[auto]
 menuN.3:هذه[auto]
+menuN.4:
 
 quitterJeu:اترك اللعبة[auto]
 quitterOuContinuer:هل ترغب في مواصلة اللعبة؟[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:تم العثور على خطوط في الملف[auto]
 
 Message.1:وحدة التحكم[auto]
 
+erreur:
+alerte:
 erreur.1:مكان غير محدد[auto]
 erreur.2:ابحث أدناه عن السبب وقائمة الوظائف التي كانت قيد التقدم أثناء الإغلاق الإجباري[auto]
 erreur.3:قاتلة[auto]

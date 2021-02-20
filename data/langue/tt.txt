@@ -86,9 +86,11 @@ sexué:секс[auto]
 menuP.1:Яңа өлеш[auto]
 menuP.2:Уен йөкләгез[auto]
 menuP.3:Вариантлар[auto]
+menuP.4:
 menuN.1:Яңа старт[auto]
 menuN.2:Махсус кичә[auto]
 menuN.3:бу[auto]
+menuN.4:
 
 quitterJeu:уеннан китү[auto]
 quitterOuContinuer:Уенны дәвам итәсегез киләме?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:файлларда сызыклар табылды[auto]
 
 Message.1:консол[auto]
 
+erreur:
+alerte:
 erreur.1:билгесез урын[auto]
 erreur.2:Мәҗбүри ябу вакытында булган сәбәп һәм функцияләр исемлеген түбәндә табыгыз[auto]
 erreur.3:үлем[auto]

@@ -86,9 +86,11 @@ sexué:kjønnet[auto]
 menuP.1:Ny del[auto]
 menuP.2:Last et spill[auto]
 menuP.3:Alternativer[auto]
+menuP.4:
 menuN.1:Ny start[auto]
 menuN.2:Egendefinert fest[auto]
 menuN.3:dette[auto]
+menuN.4:
 
 quitterJeu:forlate spillet[auto]
 quitterOuContinuer:Vil du fortsette spillet?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:linjer ble funnet i filen[auto]
 
 Message.1:konsoll[auto]
 
+erreur:
+alerte:
 erreur.1:et uspesifisert sted[auto]
 erreur.2:Finn under årsaken og listen over funksjoner som pågår under tvungen nedleggelse[auto]
 erreur.3:fatale[auto]

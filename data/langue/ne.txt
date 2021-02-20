@@ -86,9 +86,11 @@ sexué:sexed[auto]
 menuP.1:नयाँ भाग[auto]
 menuP.2:एउटा खेल लोड गर्नुहोस्[auto]
 menuP.3:विकल्पहरू[auto]
+menuP.4:
 menuN.1:नयाँ सुरुवात[auto]
 menuN.2:कस्टम पार्टी[auto]
 menuN.3:यो[auto]
+menuN.4:
 
 quitterJeu:खेल छोड्नुहोस्[auto]
 quitterOuContinuer:के तपाइँ खेल जारी राख्न चाहानुहुन्छ?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:फाईलमा रेखाहरू भेटिए[auto]
 
 Message.1:कन्सोल[auto]
 
+erreur:
+alerte:
 erreur.1:एक अनिर्दिष्ट स्थान[auto]
 erreur.2:जबरजस्ती बन्दको समयमा प्रगतिमा रहेको कार्य र कार्यहरूको सूची तल फेला पार्नुहोस्[auto]
 erreur.3:फटाले[auto]

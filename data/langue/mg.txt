@@ -86,9 +86,11 @@ sexué:sexed[auto]
 menuP.1:Fizarana vaovao[auto]
 menuP.2:Mametraha lalao[auto]
 menuP.3:Options[auto]
+menuP.4:
 menuN.1:Fanombohana vaovao[auto]
 menuN.2:Custom Party[auto]
 menuN.3:izany[auto]
+menuN.4:
 
 quitterJeu:avelao ny lalao[auto]
 quitterOuContinuer:Te hanohy ny lalao ve ianao?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:tsipika no hita tao amin'ilay rakitra[auto]
 
 Message.1:hampionona[auto]
 
+erreur:
+alerte:
 erreur.1:toerana tsy voatondro[auto]
 erreur.2:Jereo eto ambany ny antony sy ny lisitry ny fiasa izay efa niasa nandritra ny fanakatonana an-tery[auto]
 erreur.3:fatale[auto]

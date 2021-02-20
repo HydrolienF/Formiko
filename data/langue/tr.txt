@@ -86,9 +86,11 @@ sexué:cinsiyetlendirilmiş[auto]
 menuP.1:Yeni bölüm[auto]
 menuP.2:Bir oyun yükle[auto]
 menuP.3:Seçenekler[auto]
+menuP.4:
 menuN.1:Yeni başlangıç[auto]
 menuN.2:Özel Parti[auto]
 menuN.3:bu[auto]
+menuN.4:
 
 quitterJeu:oyundan çık[auto]
 quitterOuContinuer:Oyuna devam etmek ister misin?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:dosyada satır bulundu[auto]
 
 Message.1:konsol[auto]
 
+erreur:
+alerte:
 erreur.1:belirtilmemiş bir yer[auto]
 erreur.2:Zorunlu kapatma sırasında devam eden işlevlerin nedenini ve listesini aşağıda bulabilirsiniz[auto]
 erreur.3:fatale[auto]

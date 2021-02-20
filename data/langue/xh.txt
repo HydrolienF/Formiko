@@ -86,9 +86,11 @@ sexué:ngesondo[auto]
 menuP.1:Inxalenye entsha[auto]
 menuP.2:Layisha umdlalo[auto]
 menuP.3:Khetha[auto]
+menuP.4:
 menuN.1:Isiqalo esitsha[auto]
 menuN.2:Iqela lesiko[auto]
 menuN.3:le[auto]
+menuN.4:
 
 quitterJeu:shiya umdlalo[auto]
 quitterOuContinuer:Ungathanda ukuqhubeka nomdlalo?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:imigca yafunyanwa kwifayile[auto]
 
 Message.1:ikhonsoli[auto]
 
+erreur:
+alerte:
 erreur.1:indawo engachazwanga[auto]
 erreur.2:Fumana apha ngezantsi kwesizathu kunye noluhlu lwemisebenzi ebiqhubeka ngexesha lokunyanzelwa[auto]
 erreur.3:fatale[auto]

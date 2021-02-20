@@ -86,9 +86,11 @@ sexué:ලිංගික[auto]
 menuP.1:නව කොටස[auto]
 menuP.2:ක්‍රීඩාවක් පටවන්න[auto]
 menuP.3:විකල්ප[auto]
+menuP.4:
 menuN.1:නව ආරම්භයක්[auto]
 menuN.2:අභිරුචි පක්ෂය[auto]
 menuN.3:මෙය[auto]
+menuN.4:
 
 quitterJeu:ක්‍රීඩාවෙන් ඉවත් වන්න[auto]
 quitterOuContinuer:ක්‍රීඩාව දිගටම කරගෙන යාමට ඔබ කැමතිද?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:ගොනුවේ රේඛා හමු විය[auto]
 
 Message.1:කොන්සෝලය[auto]
 
+erreur:
+alerte:
 erreur.1:නිශ්චිත ස්ථානයක්[auto]
 erreur.2:බලහත්කාරයෙන් වසා දැමීමේදී සිදුවෙමින් තිබූ හේතුව සහ කාර්යයන් ලැයිස්තුව පහත සොයා ගන්න[auto]
 erreur.3:මාරාන්තික[auto]

@@ -86,9 +86,11 @@ sexué:ភេទ[auto]
 menuP.1:ផ្នែកថ្មី[auto]
 menuP.2:ផ្ទុកល្បែង[auto]
 menuP.3:ជម្រើស[auto]
+menuP.4:
 menuN.1:ការ​ចាប់ផ្តើម​ថ្មី[auto]
 menuN.2:ពិធីជប់លៀងផ្ទាល់ខ្លួន[auto]
 menuN.3:នេះ[auto]
+menuN.4:
 
 quitterJeu:ទុកឱ្យការប្រកួត[auto]
 quitterOuContinuer:តើអ្នកចង់បន្តល្បែងនេះទេ?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:បន្ទាត់ត្រូវបានរកឃើញន�
 
 Message.1:កុងសូល[auto]
 
+erreur:
+alerte:
 erreur.1:កន្លែងដែលមិនបានបញ្ជាក់[auto]
 erreur.2:រកឃើញនៅខាងក្រោមហេតុផលនិងបញ្ជីមុខងារដែលកំពុងដំណើរការក្នុងកំឡុងពេលបិទទ្វារដោយបង្ខំ[auto]
 erreur.3:fatale[auto]

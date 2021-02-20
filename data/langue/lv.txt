@@ -86,9 +86,11 @@ sexué:dzimums[auto]
 menuP.1:Jauna daļa[auto]
 menuP.2:Ielādējiet spēli[auto]
 menuP.3:Iespējas[auto]
+menuP.4:
 menuN.1:Jauns sākums[auto]
 menuN.2:Pielāgota puse[auto]
 menuN.3:šo[auto]
+menuN.4:
 
 quitterJeu:pamet spēli[auto]
 quitterOuContinuer:Vai vēlaties turpināt spēli?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:failā tika atrastas rindas[auto]
 
 Message.1:konsole[auto]
 
+erreur:
+alerte:
 erreur.1:nenoteikta vieta[auto]
 erreur.2:Zemāk atrodiet iemeslu un to funkciju sarakstu, kas bija spēkā piespiedu izslēgšanas laikā[auto]
 erreur.3:fatale[auto]

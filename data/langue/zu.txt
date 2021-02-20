@@ -86,9 +86,11 @@ sexué:ucansi[auto]
 menuP.1:Ingxenye entsha[auto]
 menuP.2:Layisha umdlalo[auto]
 menuP.3:Izinketho[auto]
+menuP.4:
 menuN.1:Ukuqala okusha[auto]
 menuN.2:Iphathi yangokwezifiso[auto]
 menuN.3:lokhu[auto]
+menuN.4:
 
 quitterJeu:shiya umdlalo[auto]
 quitterOuContinuer:Ungathanda ukuqhubeka nomdlalo?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:imigqa itholakele kufayela[auto]
 
 Message.1:ikhonsoli[auto]
 
+erreur:
+alerte:
 erreur.1:indawo engacacisiwe[auto]
 erreur.2:Thola ngezansi kwesizathu nohlu lwemisebenzi ebiqhubeka ngesikhathi sokuvalwa okuphoqelelwe[auto]
 erreur.3:fatale[auto]

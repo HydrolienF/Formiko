@@ -86,9 +86,11 @@ sexué:сексуальний[auto]
 menuP.1:Нова частина[auto]
 menuP.2:Завантажте гру[auto]
 menuP.3:Варіанти[auto]
+menuP.4:
 menuN.1:Новий старт[auto]
 menuN.2:Спеціальна вечірка[auto]
 menuN.3:це[auto]
+menuN.4:
 
 quitterJeu:залишити гру[auto]
 quitterOuContinuer:Хочете продовжити гру?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:у файлі знайдено рядки[auto]
 
 Message.1:консолі[auto]
 
+erreur:
+alerte:
 erreur.1:невстановлене місце[auto]
 erreur.2:Знайдіть нижче причину та перелік функцій, які виконувались під час примусового вимкнення[auto]
 erreur.3:фатальний[auto]

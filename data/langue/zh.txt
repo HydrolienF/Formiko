@@ -86,9 +86,11 @@ sexué:有性[auto]
 menuP.1:新零件[auto]
 menuP.2:载入游戏[auto]
 menuP.3:选件[auto]
+menuP.4:
 menuN.1:新的开始[auto]
 menuN.2:风俗派对[auto]
 menuN.3:这个[auto]
+menuN.4:
 
 quitterJeu:离开游戏[auto]
 quitterOuContinuer:您想继续游戏吗？[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:在文件中找到了行[auto]
 
 Message.1:安慰[auto]
 
+erreur:
+alerte:
 erreur.1:一个未指定的地方[auto]
 erreur.2:在下面找到原因和强制关闭期间正在进行的功能的列表[auto]
 erreur.3:法塔莱[auto]

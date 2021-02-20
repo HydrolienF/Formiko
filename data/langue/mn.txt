@@ -86,9 +86,11 @@ sexué:бэлгийн харьцаанд орсон[auto]
 menuP.1:Шинэ хэсэг[auto]
 menuP.2:Тоглоом ачаалах[auto]
 menuP.3:Сонголтууд[auto]
+menuP.4:
 menuN.1:Шинэ эхлэл[auto]
 menuN.2:Захиалгын үдэшлэг[auto]
 menuN.3:энэ[auto]
+menuN.4:
 
 quitterJeu:тоглоомоос гарах[auto]
 quitterOuContinuer:Та тоглоомоо үргэлжлүүлэхийг хүсч байна уу?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:мөрүүд файл дотор олдсон[auto]
 
 Message.1:консол[auto]
 
+erreur:
+alerte:
 erreur.1:тодорхойгүй газар[auto]
 erreur.2:Шалтгаан болон албадан унтрах явцад хийгдэж байсан функцуудын жагсаалтыг доороос олж авна уу[auto]
 erreur.3:үхлийн аюул[auto]

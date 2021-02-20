@@ -86,9 +86,11 @@ sexué:wasmo[auto]
 menuP.1:Qayb cusub[auto]
 menuP.2:Ciyaar xamuul[auto]
 menuP.3:Fursadaha[auto]
+menuP.4:
 menuN.1:Bilow cusub[auto]
 menuN.2:Xisbiga Custom[auto]
 menuN.3:tan[auto]
+menuN.4:
 
 quitterJeu:ciyaarta iska daa[auto]
 quitterOuContinuer:Ma jeceshahay inaad ciyaarta sii wadato?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:khadadka ayaa laga helay feylka[auto]
 
 Message.1:konsol[auto]
 
+erreur:
+alerte:
 erreur.1:meel aan la cayimin[auto]
 erreur.2:Hoos ka raadi sababta iyo liiska shaqooyinka soconayay intii lagu jiray xiritaanka khasabka ah[auto]
 erreur.3:fatale[auto]

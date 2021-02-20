@@ -86,9 +86,11 @@ sexué:sexed[auto]
 menuP.1:New pars[auto]
 menuP.2:Lusum ludum[auto]
 menuP.3:options[auto]
+menuP.4:
 menuN.1:initium novum[auto]
 menuN.2:more Natus[auto]
 menuN.3:haec[auto]
+menuN.4:
 
 quitterJeu:relinquere ludum[auto]
 quitterOuContinuer:Velis permanere ludum?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:lineae sunt in tabella[auto]
 
 Message.1:consolamini[auto]
 
+erreur:
+alerte:
 erreur.1:et locus non specificatarum[auto]
 erreur.2:Find a album sub ratione et munera quae in eius progressus in magnis shutdown[auto]
 erreur.3:fatale[auto]

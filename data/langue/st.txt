@@ -86,9 +86,11 @@ sexué:thobalano[auto]
 menuP.1:Karolo e ncha[auto]
 menuP.2:Laela papali[auto]
 menuP.3:Khetho[auto]
+menuP.4:
 menuN.1:Qalo e ncha[auto]
 menuN.2:Mokete oa Tloaelo[auto]
 menuN.3:sena[auto]
+menuN.4:
 
 quitterJeu:tlohela papali[auto]
 quitterOuContinuer:O ka rata ho ntšetsa pele papali eo?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:mela e fumanoe faeleng[auto]
 
 Message.1:tšelisa[auto]
 
+erreur:
+alerte:
 erreur.1:sebaka se sa hlalosoang[auto]
 erreur.2:Fumana ka tlase lebaka le lenane la mesebetsi e neng e ntse e tsoela pele nakong ea ho koala ka qobello[auto]
 erreur.3:fatale[auto]

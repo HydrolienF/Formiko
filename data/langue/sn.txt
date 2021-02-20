@@ -86,9 +86,11 @@ sexué:bonde[auto]
 menuP.1:Chikamu chitsva[auto]
 menuP.2:Takura mutambo[auto]
 menuP.3:Sarudzo[auto]
+menuP.4:
 menuN.1:Kutanga kutsva[auto]
 menuN.2:Tsika Yetsika[auto]
 menuN.3:ichi[auto]
+menuN.4:
 
 quitterJeu:siya mutambo[auto]
 quitterOuContinuer:Ungada kuenderera mberi nemutambo here?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:mitsara yakawanikwa mufaira[auto]
 
 Message.1:kunyaradza[auto]
 
+erreur:
+alerte:
 erreur.1:nzvimbo isina kutaurwa[auto]
 erreur.2:Tsvaga pazasi pechikonzero uye runyorwa rwemabasa anga achienderera panguva yekumanikidzwa kudzima[auto]
 erreur.3:fatale[auto]

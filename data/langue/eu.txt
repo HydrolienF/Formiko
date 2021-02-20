@@ -86,9 +86,11 @@ sexué:sexu[auto]
 menuP.1:Zati berria[auto]
 menuP.2:Kargatu joko bat[auto]
 menuP.3:Aukerak[auto]
+menuP.4:
 menuN.1:Hasiera berria[auto]
 menuN.2:Pertsonalizatutako festa[auto]
 menuN.3:hau[auto]
+menuN.4:
 
 quitterJeu:utzi jokoa[auto]
 quitterOuContinuer:Jokoarekin jarraitzea gustatuko litzaizuke?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:lerroak aurkitu ziren fitxategian[auto]
 
 Message.1:kontsola[auto]
 
+erreur:
+alerte:
 erreur.1:zehaztu gabeko lekua[auto]
 erreur.2:Aurkitu azpian arrazoia eta behartutako itzalaldian burutzen ari ziren funtzioen zerrenda[auto]
 erreur.3:fatala[auto]

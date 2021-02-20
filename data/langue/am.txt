@@ -86,9 +86,11 @@ sexué:ወሲባዊ[auto]
 menuP.1:አዲስ ክፍል[auto]
 menuP.2:ጨዋታ ጫን[auto]
 menuP.3:አማራጮች[auto]
+menuP.4:
 menuN.1:አዲስ ጅምር[auto]
 menuN.2:የጉምሩክ ፓርቲ[auto]
 menuN.3:ይህ[auto]
+menuN.4:
 
 quitterJeu:ጨዋታውን ተወው[auto]
 quitterOuContinuer:ጨዋታውን መቀጠል ይፈልጋሉ?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:መስመሮች በፋይሉ ውስጥ ተገኝተዋል[auto]
 
 Message.1:ኮንሶል[auto]
 
+erreur:
+alerte:
 erreur.1:ያልታወቀ ቦታ[auto]
 erreur.2:በግዳጅ መዘጋት ወቅት በሂደት ላይ የነበሩትን ምክንያቱን እና የተግባሮችን ዝርዝር ከዚህ በታች ያግኙ[auto]
 erreur.3:ፈታሌ[auto]

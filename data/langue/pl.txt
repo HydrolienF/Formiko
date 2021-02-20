@@ -86,9 +86,11 @@ sexué:seksowane[auto]
 menuP.1:Nowa część[auto]
 menuP.2:Wczytaj grę[auto]
 menuP.3:Opcje[auto]
+menuP.4:
 menuN.1:Nowy początek[auto]
 menuN.2:Impreza niestandardowa[auto]
 menuN.3:to[auto]
+menuN.4:
 
 quitterJeu:wyjść z gry[auto]
 quitterOuContinuer:Czy chcesz kontynuować grę?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:w pliku znaleziono wiersze[auto]
 
 Message.1:konsola[auto]
 
+erreur:
+alerte:
 erreur.1:nieokreślone miejsce[auto]
 erreur.2:Znajdź poniżej przyczynę i listę funkcji, które były wykonywane podczas wymuszonego wyłączenia[auto]
 erreur.3:fatale[auto]

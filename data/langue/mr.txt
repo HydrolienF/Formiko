@@ -86,9 +86,11 @@ sexué:sexed[auto]
 menuP.1:नवीन भाग[auto]
 menuP.2:एक खेळ लोड करा[auto]
 menuP.3:पर्याय[auto]
+menuP.4:
 menuN.1:नवीन सुरवात[auto]
 menuN.2:कस्टम पार्टी[auto]
 menuN.3:हे[auto]
+menuN.4:
 
 quitterJeu:खेळ सोडा[auto]
 quitterOuContinuer:आपण खेळ सुरू ठेवू इच्छिता?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:फाईलमध्ये ओळी आढळल्या[auto
 
 Message.1:कन्सोल[auto]
 
+erreur:
+alerte:
 erreur.1:एक अनिश्चित ठिकाण[auto]
 erreur.2:सक्तीच्या शटडाऊन दरम्यान सुरू असलेल्या कार्यांची यादी आणि कार्यांची यादी खाली शोधा[auto]
 erreur.3:चरबी[auto]

@@ -86,9 +86,11 @@ sexué:سیکسڈ[auto]
 menuP.1:نیا حصہ[auto]
 menuP.2:ایک کھیل لوڈ کریں[auto]
 menuP.3:اختیارات[auto]
+menuP.4:
 menuN.1:نیا آغاز[auto]
 menuN.2:کسٹم پارٹی[auto]
 menuN.3:یہ[auto]
+menuN.4:
 
 quitterJeu:کھیل چھوڑ دو[auto]
 quitterOuContinuer:کیا آپ کھیل جاری رکھنا پسند کریں گے؟[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:فائل میں لائنیں پائی گئیں[auto]
 
 Message.1:تسلی[auto]
 
+erreur:
+alerte:
 erreur.1:ایک غیر متعینہ جگہ[auto]
 erreur.2:جبری بند کے دوران کام کرنے کی وجہ اور اس کی فہرست کے نیچے معلوم کریں[auto]
 erreur.3:مہلک[auto]

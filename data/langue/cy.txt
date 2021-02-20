@@ -86,9 +86,11 @@ sexué:rhyw[auto]
 menuP.1:Rhan newydd[auto]
 menuP.2:Llwythwch gêm[auto]
 menuP.3:Opsiynau[auto]
+menuP.4:
 menuN.1:Dechrau newydd[auto]
 menuN.2:Parti Custom[auto]
 menuN.3:hyn[auto]
+menuN.4:
 
 quitterJeu:gadael y gêm[auto]
 quitterOuContinuer:Hoffech chi barhau â'r gêm?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:darganfuwyd llinellau yn y ffeil[auto]
 
 Message.1:consol[auto]
 
+erreur:
+alerte:
 erreur.1:lle amhenodol[auto]
 erreur.2:Isod, gwelwch y rheswm a'r rhestr o swyddogaethau a oedd ar y gweill yn ystod y cau gorfodol[auto]
 erreur.3:fatale[auto]

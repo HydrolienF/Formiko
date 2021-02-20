@@ -86,9 +86,11 @@ sexué:sexuado[auto]
 menuP.1:Parte nueva[auto]
 menuP.2:Cargar un juego[auto]
 menuP.3:Opciones[auto]
+menuP.4:
 menuN.1:Nuevo comienzo[auto]
 menuN.2:Fiesta personalizada[auto]
 menuN.3:esta[auto]
+menuN.4:
 
 quitterJeu:abandonar el juego[auto]
 quitterOuContinuer:¿Le gustaría continuar el juego?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:se encontraron líneas en el archivo[auto]
 
 Message.1:consola[auto]
 
+erreur:
+alerte:
 erreur.1:un lugar no especificado[auto]
 erreur.2:Encuentre a continuación el motivo y la lista de funciones que estaban en progreso durante el apagado forzado[auto]
 erreur.3:fatal[auto]

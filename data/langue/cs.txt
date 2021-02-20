@@ -86,9 +86,11 @@ sexué:sexed[auto]
 menuP.1:Nový díl[auto]
 menuP.2:Načíst hru[auto]
 menuP.3:Možnosti[auto]
+menuP.4:
 menuN.1:Nový začátek[auto]
 menuN.2:Vlastní večírek[auto]
 menuN.3:tuto[auto]
+menuN.4:
 
 quitterJeu:opustit hru[auto]
 quitterOuContinuer:Chcete pokračovat ve hře?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:v souboru byly nalezeny řádky[auto]
 
 Message.1:řídicí panel[auto]
 
+erreur:
+alerte:
 erreur.1:neurčené místo[auto]
 erreur.2:Níže naleznete důvod a seznam funkcí, které probíhaly během nuceného vypnutí[auto]
 erreur.3:fatale[auto]

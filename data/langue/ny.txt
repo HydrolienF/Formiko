@@ -86,9 +86,11 @@ sexué:ogonana[auto]
 menuP.1:Gawo latsopano[auto]
 menuP.2:Kwezani masewera[auto]
 menuP.3:Zosankha[auto]
+menuP.4:
 menuN.1:Chiyambi chatsopano[auto]
 menuN.2:Chipani Chachikhalidwe[auto]
 menuN.3:ichi[auto]
+menuN.4:
 
 quitterJeu:siya masewerawo[auto]
 quitterOuContinuer:Kodi mukufuna kupitiliza masewerawa?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:mizere idapezeka mu fayilo[auto]
 
 Message.1:kutonthoza[auto]
 
+erreur:
+alerte:
 erreur.1:malo osadziwika[auto]
 erreur.2:Pezani pansipa chifukwa ndi mndandanda wazantchito zomwe zinali kuchitika pakutseka mokakamizidwa[auto]
 erreur.3:wachinyamata[auto]

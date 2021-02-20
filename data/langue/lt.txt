@@ -86,9 +86,11 @@ sexué:lyties[auto]
 menuP.1:Nauja dalis[auto]
 menuP.2:Įkelkite žaidimą[auto]
 menuP.3:Galimybės[auto]
+menuP.4:
 menuN.1:Nauja pradžia[auto]
 menuN.2:„Custom Party“[auto]
 menuN.3:tai[auto]
+menuN.4:
 
 quitterJeu:palikti žaidimą[auto]
 quitterOuContinuer:Ar norėtumėte tęsti žaidimą?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:byloje buvo rastos eilutės[auto]
 
 Message.1:konsolė[auto]
 
+erreur:
+alerte:
 erreur.1:nenurodyta vieta[auto]
 erreur.2:Žemiau rasite priežastį ir funkcijų, kurios buvo vykdomos priverstinio išjungimo metu, sąrašą[auto]
 erreur.3:fatale[auto]

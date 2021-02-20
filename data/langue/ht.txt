@@ -86,9 +86,11 @@ sexué:sexed[auto]
 menuP.1:Nouvo pati[auto]
 menuP.2:Chaje yon jwèt[auto]
 menuP.3:Opsyon[auto]
+menuP.4:
 menuN.1:Nouvo kòmanse[auto]
 menuN.2:Pati Custom[auto]
 menuN.3:sa a[auto]
+menuN.4:
 
 quitterJeu:kite jwèt la[auto]
 quitterOuContinuer:Èske ou ta renmen kontinye jwèt la?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:liy yo te jwenn nan dosye a[auto]
 
 Message.1:konsole[auto]
 
+erreur:
+alerte:
 erreur.1:yon kote ki pa espesifye[auto]
 erreur.2:Jwenn anba a rezon ki fè yo ak lis la nan fonksyon ki te nan pwogrè pandan are la fòse[auto]
 erreur.3:fatale[auto]

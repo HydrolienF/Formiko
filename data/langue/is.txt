@@ -86,9 +86,11 @@ sexué:kynjað[auto]
 menuP.1:Nýr hluti[auto]
 menuP.2:Hlaða leik[auto]
 menuP.3:Valkostir[auto]
+menuP.4:
 menuN.1:Ný byrjun[auto]
 menuN.2:Sérsniðin veisla[auto]
 menuN.3:þetta[auto]
+menuN.4:
 
 quitterJeu:yfirgefa leikinn[auto]
 quitterOuContinuer:Viltu halda áfram leiknum?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:línur fundust í skránni[auto]
 
 Message.1:hugga[auto]
 
+erreur:
+alerte:
 erreur.1:ótilgreindur staður[auto]
 erreur.2:Finndu fyrir neðan ástæðuna og listann yfir aðgerðir sem voru í gangi við þvingaða lokun[auto]
 erreur.3:fatale[auto]

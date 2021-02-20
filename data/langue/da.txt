@@ -86,9 +86,11 @@ sexué:sexet[auto]
 menuP.1:Ny del[auto]
 menuP.2:Indlæs et spil[auto]
 menuP.3:Muligheder[auto]
+menuP.4:
 menuN.1:Ny start[auto]
 menuN.2:Brugerdefineret fest[auto]
 menuN.3:dette[auto]
+menuN.4:
 
 quitterJeu:forlade spillet[auto]
 quitterOuContinuer:Vil du fortsætte spillet?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:linjer blev fundet i filen[auto]
 
 Message.1:konsol[auto]
 
+erreur:
+alerte:
 erreur.1:et uspecificeret sted[auto]
 erreur.2:Find nedenstående årsag og listen over funktioner, der var i gang under tvungen nedlukning[auto]
 erreur.3:fatale[auto]

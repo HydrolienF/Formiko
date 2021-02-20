@@ -86,9 +86,11 @@ sexué:nwee mmekọahụ[auto]
 menuP.1:New akụkụ[auto]
 menuP.2:Buru egwuregwu[auto]
 menuP.3:Nhọrọ[auto]
+menuP.4:
 menuN.1:Ọhụrụ mmalite[auto]
 menuN.2:Omenala Ndị otu[auto]
 menuN.3:nke a[auto]
+menuN.4:
 
 quitterJeu:hapụ egwuregwu[auto]
 quitterOuContinuer:Ọ ga-amasị gị ịga n'ihu egwuregwu ahụ?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:achọtara ahịrị na faịlị ahụ[auto]
 
 Message.1:console[auto]
 
+erreur:
+alerte:
 erreur.1:ebe akpoghi[auto]
 erreur.2:Chọta n'okpuru ihe kpatara ya na ndepụta nke ọrụ ndị na-aga n'ihu n'oge mmechi mmanye[auto]
 erreur.3:fatale[auto]

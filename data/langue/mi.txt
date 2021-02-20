@@ -86,9 +86,11 @@ sexué:whakamoemiti[auto]
 menuP.1:Wahanga Hou[auto]
 menuP.2:Utaina he kēmu[auto]
 menuP.3:Kōwhiringa[auto]
+menuP.4:
 menuN.1:Timatanga hou[auto]
 menuN.2:Paati Ritenga[auto]
 menuN.3:tenei[auto]
+menuN.4:
 
 quitterJeu:waiho te kemu[auto]
 quitterOuContinuer:Kei te hiahia koe ki te haere tonu i te keemu?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:i kitea nga raina i te konae[auto]
 
 Message.1:papatohu[auto]
 
+erreur:
+alerte:
 erreur.1:he waahi kaore i te mohiotia[auto]
 erreur.2:Rapua i raro te take me te raarangi o nga mahi i te wa e tutakina ana[auto]
 erreur.3:fatale[auto]

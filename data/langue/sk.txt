@@ -86,9 +86,11 @@ sexué:sexuálne[auto]
 menuP.1:Nová časť[auto]
 menuP.2:Načítajte hru[auto]
 menuP.3:možnosti[auto]
+menuP.4:
 menuN.1:Nový začiatok[auto]
 menuN.2:Vlastná párty[auto]
 menuN.3:túto[auto]
+menuN.4:
 
 quitterJeu:opustiť hru[auto]
 quitterOuContinuer:Prajete si pokračovať v hre?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:v súbore sa našli riadky[auto]
 
 Message.1:konzola[auto]
 
+erreur:
+alerte:
 erreur.1:nešpecifikované miesto[auto]
 erreur.2:Nižšie nájdete dôvod a zoznam funkcií, ktoré prebiehali počas núteného vypnutia[auto]
 erreur.3:fatale[auto]

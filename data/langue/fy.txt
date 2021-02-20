@@ -86,9 +86,11 @@ sexué:seksearre[auto]
 menuP.1:Nij diel[auto]
 menuP.2:Laad in spultsje[auto]
 menuP.3:Opsjes[auto]
+menuP.4:
 menuN.1:Nij begjin[auto]
 menuN.2:Oanpaste partij[auto]
 menuN.3:dizze[auto]
+menuN.4:
 
 quitterJeu:ferlitte it spultsje[auto]
 quitterOuContinuer:Wolle jo it spultsje trochgean?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:rigels waarden fûn yn it bestân[auto]
 
 Message.1:konsole[auto]
 
+erreur:
+alerte:
 erreur.1:in net oantsjutte plak[auto]
 erreur.2:Fyn hjirûnder de reden en de list mei funksjes dy't oan 'e gong wiene by de twongen ôfsluting[auto]
 erreur.3:fatale[auto]

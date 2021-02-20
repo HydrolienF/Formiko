@@ -86,9 +86,11 @@ sexué:seksi[auto]
 menuP.1:Novi dio[auto]
 menuP.2:Učitajte igru[auto]
 menuP.3:Opcije[auto]
+menuP.4:
 menuN.1:Novi početak[auto]
 menuN.2:Custom Party[auto]
 menuN.3:ovo[auto]
+menuN.4:
 
 quitterJeu:napusti igru[auto]
 quitterOuContinuer:Želite li nastaviti igru?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:linije su pronađene u datoteci[auto]
 
 Message.1:konzola[auto]
 
+erreur:
+alerte:
 erreur.1:neodređeno mjesto[auto]
 erreur.2:Ispod pronađite razlog i popis funkcija koje su bile u toku tijekom prisilnog isključivanja[auto]
 erreur.3:fatale[auto]

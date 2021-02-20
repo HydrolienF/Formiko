@@ -86,9 +86,11 @@ sexué:feise[auto]
 menuP.1:Pàirt ùr[auto]
 menuP.2:Luchdaich geama[auto]
 menuP.3:Roghainnean[auto]
+menuP.4:
 menuN.1:Toiseach ùr[auto]
 menuN.2:Pàrtaidh Custom[auto]
 menuN.3:seo[auto]
+menuN.4:
 
 quitterJeu:fàg an geama[auto]
 quitterOuContinuer:Am bu mhath leat leantainn air adhart leis a ’gheama?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:chaidh loidhnichean a lorg anns an fhaidhle[auto]
 
 Message.1:tòcan[auto]
 
+erreur:
+alerte:
 erreur.1:àite neo-ainmichte[auto]
 erreur.2:Lorg gu h-ìosal an t-adhbhar agus an liosta de ghnìomhan a bha a ’dol air adhart aig àm an dùnadh èiginneach[auto]
 erreur.3:fatale[auto]

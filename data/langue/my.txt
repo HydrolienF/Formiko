@@ -86,9 +86,11 @@ sexué:လိင်[auto]
 menuP.1:အပိုင်းအသစ်[auto]
 menuP.2:ဂိမ်းတစ်ခုတင်ပါ[auto]
 menuP.3:ရွေးစရာများ[auto]
+menuP.4:
 menuN.1:စတင်မှုအသစ်[auto]
 menuN.2:ထုံးစံပါတီ[auto]
 menuN.3:ဒီ[auto]
+menuN.4:
 
 quitterJeu:ဂိမ်းထားခဲ့ပါ[auto]
 quitterOuContinuer:သင်ဂိမ်းကိုဆက်လုပ်ချင်ပါသလား?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:ဖိုင်တွေထဲမှာလိုင်းမျ�
 
 Message.1:console[auto]
 
+erreur:
+alerte:
 erreur.1:မသတ်မှတ်ထားသောနေရာ[auto]
 erreur.2:အတင်းအဓမ္မပိတ်ပစ်စဉ်ကာလအတွင်းလုပ်ဆောင်နေသည့်လုပ်ဆောင်ချက်များ၏အကြောင်းရင်းနှင့်စာရင်းကိုအောက်တွင်ရှာဖွေပါ[auto]
 erreur.3:သေပြီ[auto]

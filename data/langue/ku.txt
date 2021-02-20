@@ -86,9 +86,11 @@ sexué:zewicandî[auto]
 menuP.1:Beşek nû[auto]
 menuP.2:Lîstikek barkirin[auto]
 menuP.3:Vebijarkên[auto]
+menuP.4:
 menuN.1:Destpêkek nû[auto]
 menuN.2:Partiya xwerû[auto]
 menuN.3:ev[auto]
+menuN.4:
 
 quitterJeu:dev ji lîstikê berdin[auto]
 quitterOuContinuer:Ma hûn dixwazin lîstikê bidomînin?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:rêzikên di pelê de hatin dîtin[auto]
 
 Message.1:konsolê[auto]
 
+erreur:
+alerte:
 erreur.1:cîhek nediyar[auto]
 erreur.2:Li jêr sedem û navnîşa fonksiyonên ku di dema rawestandina bi zorê de pêşve diçin bibînin[auto]
 erreur.3:fatale[auto]

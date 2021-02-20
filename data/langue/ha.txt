@@ -86,9 +86,11 @@ sexué:yin jima'i[auto]
 menuP.1:Sabon bangare[auto]
 menuP.2:Loda wasa[auto]
 menuP.3:Zaɓuka[auto]
+menuP.4:
 menuN.1:Sabon farawa[auto]
 menuN.2:Jam'iyyar Custom[auto]
 menuN.3:wannan[auto]
+menuN.4:
 
 quitterJeu:bar wasan[auto]
 quitterOuContinuer:Kuna so ku ci gaba da wasan?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:an sami layi a cikin fayil ɗin[auto]
 
 Message.1:wasan bidiyo[auto]
 
+erreur:
+alerte:
 erreur.1:wurin da ba a tantance shi ba[auto]
 erreur.2:Nemo ƙasa da dalili da kuma jerin ayyukan da suke gudana yayin tilasta tilastawa[auto]
 erreur.3:fatale[auto]

@@ -86,9 +86,11 @@ sexué:սեքսուալ[auto]
 menuP.1:Նոր մաս[auto]
 menuP.2:Բեռնել խաղ[auto]
 menuP.3:Ընտրանքներ[auto]
+menuP.4:
 menuN.1:Նոր մեկնարկ[auto]
 menuN.2:Պատվերով երեկույթ[auto]
 menuN.3:սա[auto]
+menuN.4:
 
 quitterJeu:թողնել խաղը[auto]
 quitterOuContinuer:Wouldանկանու՞մ եք շարունակել խաղը:[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:տողերը հայտնաբերվել են ֆայլում[auto]
 
 Message.1:մխիթարել[auto]
 
+erreur:
+alerte:
 erreur.1:անորոշ տեղ[auto]
 erreur.2:Ստորև բերեք հարկադիր անջատման ընթացքում ընթացող գործառույթի պատճառն ու ցանկը[auto]
 erreur.3:ճակատագրական[auto]

@@ -86,9 +86,11 @@ sexué:sexed[auto]
 menuP.1:يېڭى قىسمى[auto]
 menuP.2:بىر ئويۇننى يۈكلەڭ[auto]
 menuP.3:تاللانما[auto]
+menuP.4:
 menuN.1:يېڭى باشلىنىش[auto]
 menuN.2:Custom Party[auto]
 menuN.3:بۇ[auto]
+menuN.4:
 
 quitterJeu:ئويۇندىن ئايرىلغىن[auto]
 quitterOuContinuer:ئويۇننى داۋاملاشتۇرۇشنى خالامسىز؟[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:ھۆججەتتە قۇرلار تېپىلدى[auto]
 
 Message.1:console[auto]
 
+erreur:
+alerte:
 erreur.1:ئېنىق بولمىغان جاي[auto]
 erreur.2:مەجبۇرىي تاقاش جەريانىدا داۋاملىشىۋاتقان سەۋەب ۋە ئىقتىدارلارنىڭ تىزىملىكىنى تېپىڭ[auto]
 erreur.3:fatale[auto]

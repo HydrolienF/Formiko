@@ -86,9 +86,11 @@ sexué:geschlechtlich[auto]
 menuP.1:Neuer Teil[auto]
 menuP.2:Lade ein Spiel[auto]
 menuP.3:Optionen[auto]
+menuP.4:
 menuN.1:Neustart[auto]
 menuN.2:Kundenspezifische Partei[auto]
 menuN.3:Dies[auto]
+menuN.4:
 
 quitterJeu:Das Spiel verlassen[auto]
 quitterOuContinuer:Möchten Sie das Spiel fortsetzen?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:Zeilen wurden in der Datei gefunden[auto]
 
 Message.1:Konsole[auto]
 
+erreur:
+alerte:
 erreur.1:ein nicht näher bezeichneter Ort[auto]
 erreur.2:Nachfolgend finden Sie den Grund und die Liste der Funktionen, die während des erzwungenen Herunterfahrens ausgeführt wurden[auto]
 erreur.3:Fatale[auto]

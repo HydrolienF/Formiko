@@ -86,9 +86,11 @@ sexué:geslag[auto]
 menuP.1:Nuwe deel[auto]
 menuP.2:Laai 'n speletjie[auto]
 menuP.3:Opsies[auto]
+menuP.4:
 menuN.1:Nuwe begin[auto]
 menuN.2:Pasgemaakte partytjie[auto]
 menuN.3:hierdie[auto]
+menuN.4:
 
 quitterJeu:verlaat die spel[auto]
 quitterOuContinuer:Wil u die spel voortsit?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:lyne is in die lêer gevind[auto]
 
 Message.1:troos[auto]
 
+erreur:
+alerte:
 erreur.1:'n ongespesifiseerde plek[auto]
 erreur.2:Vind hieronder die rede en die lys funksies wat aan die gang was tydens die gedwonge afskakeling[auto]
 erreur.3:fatale[auto]

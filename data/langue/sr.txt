@@ -86,9 +86,11 @@ sexué:секси[auto]
 menuP.1:Нови део[auto]
 menuP.2:Учитајте игру[auto]
 menuP.3:Опције[auto]
+menuP.4:
 menuN.1:Нови почетак[auto]
 menuN.2:Цустом Парти[auto]
 menuN.3:ово[auto]
+menuN.4:
 
 quitterJeu:напусти игру[auto]
 quitterOuContinuer:Да ли желите да наставите игру?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:пронађене су линије у датотеци[auto]
 
 Message.1:конзола[auto]
 
+erreur:
+alerte:
 erreur.1:неодређено место[auto]
 erreur.2:Испод пронађите разлог и листу функција које су биле у току током принудног искључивања[auto]
 erreur.3:фатале[auto]

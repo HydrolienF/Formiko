@@ -86,9 +86,11 @@ sexué:ലൈംഗികത[auto]
 menuP.1:പുതിയ ഭാഗം[auto]
 menuP.2:ഒരു ഗെയിം ലോഡുചെയ്യുക[auto]
 menuP.3:ഓപ്ഷനുകൾ[auto]
+menuP.4:
 menuN.1:പുതിയ തുടക്കം[auto]
 menuN.2:കസ്റ്റം പാർട്ടി[auto]
 menuN.3:ഈ[auto]
+menuN.4:
 
 quitterJeu:കളി ഉപേക്ഷിക്കുക[auto]
 quitterOuContinuer:ഗെയിം തുടരാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടോ?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:ഫയലിൽ വരികൾ കണ്ടെത്തി[auto
 
 Message.1:കൺസോൾ[auto]
 
+erreur:
+alerte:
 erreur.1:വ്യക്തമാക്കാത്ത സ്ഥലം[auto]
 erreur.2:നിർബന്ധിത ഷട്ട്ഡ during ൺ സമയത്ത് പുരോഗതിയിലായിരുന്ന കാരണവും പ്രവർത്തനങ്ങളുടെ പട്ടികയും ചുവടെ കണ്ടെത്തുക[auto]
 erreur.3:മാരകമായ[auto]

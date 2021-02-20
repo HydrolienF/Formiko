@@ -86,9 +86,11 @@ sexué:sukupuoleen[auto]
 menuP.1:Uusi osa[auto]
 menuP.2:Lataa peli[auto]
 menuP.3:Vaihtoehdot[auto]
+menuP.4:
 menuN.1:Uusi aloitus[auto]
 menuN.2:Mukautettu juhla[auto]
 menuN.3:Tämä[auto]
+menuN.4:
 
 quitterJeu:jätä peli[auto]
 quitterOuContinuer:Haluatko jatkaa peliä?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:rivit löytyivät tiedostosta[auto]
 
 Message.1:konsoli[auto]
 
+erreur:
+alerte:
 erreur.1:määrittelemätön paikka[auto]
 erreur.2:Etsi syy ja luettelo toiminnoista, jotka olivat käynnissä pakotetun sammutuksen aikana[auto]
 erreur.3:fatale[auto]

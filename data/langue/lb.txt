@@ -86,9 +86,11 @@ sexué:sexéiert[auto]
 menuP.1:Neien Deel[auto]
 menuP.2:Luet e Spill[auto]
 menuP.3:Optiounen[auto]
+menuP.4:
 menuN.1:Neie Start[auto]
 menuN.2:Benotzerdefinéiert Party[auto]
 menuN.3:dëst[auto]
+menuN.4:
 
 quitterJeu:verlooss d'Spill[auto]
 quitterOuContinuer:Wëllt Dir d'Spill weiderféieren?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:Linnen goufen am Dossier fonnt[auto]
 
 Message.1:Konsol[auto]
 
+erreur:
+alerte:
 erreur.1:eng net spezifizéiert Plaz[auto]
 erreur.2:Fannt ënner dem Grond an der Lëscht vun de Funktiounen, déi amgaang wärend dem forcéierte Shutdown[auto]
 erreur.3:fatale[auto]

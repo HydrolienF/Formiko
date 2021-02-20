@@ -86,9 +86,11 @@ sexué:könsbestämd[auto]
 menuP.1:Ny del[auto]
 menuP.2:Ladda ett spel[auto]
 menuP.3:alternativ[auto]
+menuP.4:
 menuN.1:Nystart[auto]
 menuN.2:Anpassad fest[auto]
 menuN.3:detta[auto]
+menuN.4:
 
 quitterJeu:lämna spelet[auto]
 quitterOuContinuer:Vill du fortsätta spelet?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:rader hittades i filen[auto]
 
 Message.1:trösta[auto]
 
+erreur:
+alerte:
 erreur.1:en ospecificerad plats[auto]
 erreur.2:Hitta nedan anledningen och listan över funktioner som pågår under tvångsstängningen[auto]
 erreur.3:fatale[auto]

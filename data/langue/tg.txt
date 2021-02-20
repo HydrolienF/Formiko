@@ -86,9 +86,11 @@ sexué:ҷинсӣ[auto]
 menuP.1:Қисми нав[auto]
 menuP.2:Бозиро бор кунед[auto]
 menuP.3:Имконот[auto]
+menuP.4:
 menuN.1:Оғози нав[auto]
 menuN.2:Ҳизби фармоишӣ[auto]
 menuN.3:ин[auto]
+menuN.4:
 
 quitterJeu:бозиро тарк кунед[auto]
 quitterOuContinuer:Мехоҳед бозиро идома диҳед?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:сатрҳо дар парванда ёфт шуданд[auto]
 
 Message.1:консол[auto]
 
+erreur:
+alerte:
 erreur.1:ҷои номуайян[auto]
 erreur.2:Дар зер сабаб ва рӯйхати функсияҳоеро ёбед, ки ҳангоми қатъкунии маҷбурӣ иҷро шудаанд[auto]
 erreur.3:марговар[auto]

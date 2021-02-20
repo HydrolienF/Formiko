@@ -86,9 +86,11 @@ sexué:sexed[auto]
 menuP.1:Cuid nua[auto]
 menuP.2:Luchtaigh cluiche[auto]
 menuP.3:Roghanna[auto]
+menuP.4:
 menuN.1:Tús nua[auto]
 menuN.2:Cóisir Chustaim[auto]
 menuN.3:seo[auto]
+menuN.4:
 
 quitterJeu:fág an cluiche[auto]
 quitterOuContinuer:Ar mhaith leat leanúint leis an gcluiche?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:fuarthas línte sa chomhad[auto]
 
 Message.1:consól[auto]
 
+erreur:
+alerte:
 erreur.1:áit neamhshonraithe[auto]
 erreur.2:Faigh thíos an chúis agus liosta na bhfeidhmeanna a bhí ar siúl le linn an múchta éigeantaigh[auto]
 erreur.3:fatale[auto]

@@ -86,9 +86,11 @@ sexué:bergender[auto]
 menuP.1:Bagian baru[auto]
 menuP.2:Muat game[auto]
 menuP.3:Pilihan[auto]
+menuP.4:
 menuN.1:Awal baru[auto]
 menuN.2:Pesta Kustom[auto]
 menuN.3:ini[auto]
+menuN.4:
 
 quitterJeu:tinggalkan permainan[auto]
 quitterOuContinuer:Apakah Anda ingin melanjutkan permainan?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:baris ditemukan di file[auto]
 
 Message.1:menghibur[auto]
 
+erreur:
+alerte:
 erreur.1:tempat yang tidak ditentukan[auto]
 erreur.2:Temukan di bawah alasan dan daftar fungsi yang sedang berlangsung selama pemadaman paksa[auto]
 erreur.3:fatale[auto]

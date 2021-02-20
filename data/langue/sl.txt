@@ -86,9 +86,11 @@ sexué:seksi[auto]
 menuP.1:Nov del[auto]
 menuP.2:Naloži igro[auto]
 menuP.3:Opcije[auto]
+menuP.4:
 menuN.1:Nov začetek[auto]
 menuN.2:Stranka po meri[auto]
 menuN.3:to[auto]
+menuN.4:
 
 quitterJeu:zapustite igro[auto]
 quitterOuContinuer:Bi radi nadaljevali igro?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:v datoteki so bile najdene vrstice[auto]
 
 Message.1:konzola[auto]
 
+erreur:
+alerte:
 erreur.1:nedoločen kraj[auto]
 erreur.2:Spodaj poiščite razlog in seznam funkcij, ki so potekale med prisilnim izklopom[auto]
 erreur.3:usodna[auto]

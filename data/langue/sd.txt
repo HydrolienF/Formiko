@@ -86,9 +86,11 @@ sexué:جنسي هجڻ[auto]
 menuP.1:نئون حصو[auto]
 menuP.2:هڪ راند کي لوڊ ڪريو[auto]
 menuP.3:اختيارين[auto]
+menuP.4:
 menuN.1:نئين شروعات[auto]
 menuN.2:ڪسٽم پارٽي[auto]
 menuN.3:هي[auto]
+menuN.4:
 
 quitterJeu:راند کي ڇڏيو[auto]
 quitterOuContinuer:ڇا توهان راندين کي جاري رکڻ چاهيندا؟[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:فائل ۾ لائينون مليون[auto]
 
 Message.1:ڪنسول[auto]
 
+erreur:
+alerte:
 erreur.1:هڪ اڻ ifiedاتل هنڌ[auto]
 erreur.2:سبب ڳوليو ۽ جبلن جي بند ٿيڻ دوران جاري ڪيل افعال جي فهرست[auto]
 erreur.3:چرٻي[auto]

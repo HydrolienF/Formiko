@@ -86,9 +86,11 @@ sexué:ni ibalopo[auto]
 menuP.1:Apá tuntun[auto]
 menuP.2:Fifuye ere kan[auto]
 menuP.3:Awọn aṣayan[auto]
+menuP.4:
 menuN.1:Ibẹrẹ tuntun[auto]
 menuN.2:Aṣa Ẹgbẹ[auto]
 menuN.3:eyi[auto]
+menuN.4:
 
 quitterJeu:kuro ni ere[auto]
 quitterOuContinuer:Ṣe iwọ yoo fẹ lati tẹsiwaju ere naa?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:a ri awọn ila ninu faili naa[auto]
 
 Message.1:afaworanhan[auto]
 
+erreur:
+alerte:
 erreur.1:ibi ti a ko ti salaye[auto]
 erreur.2:Wa ni isalẹ idi ati atokọ awọn iṣẹ ti o wa ni ilọsiwaju lakoko tiipa ti a fi agbara mu[auto]
 erreur.3:fatale[auto]

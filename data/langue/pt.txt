@@ -86,9 +86,11 @@ sexué:sexuado[auto]
 menuP.1:Nova parte[auto]
 menuP.2:Carregue um jogo[auto]
 menuP.3:Opções[auto]
+menuP.4:
 menuN.1:Novo começo[auto]
 menuN.2:Festa Personalizada[auto]
 menuN.3:isto[auto]
+menuN.4:
 
 quitterJeu:deixe o jogo[auto]
 quitterOuContinuer:Você gostaria de continuar o jogo?[auto]
@@ -257,6 +259,8 @@ lireUnFichier.1:linhas foram encontradas no arquivo[auto]
 
 Message.1:console[auto]
 
+erreur:
+alerte:
 erreur.1:um lugar não especificado[auto]
 erreur.2:Encontre abaixo o motivo e a lista de funções que estavam em andamento durante o desligamento forçado[auto]
 erreur.3:fatale[auto]
