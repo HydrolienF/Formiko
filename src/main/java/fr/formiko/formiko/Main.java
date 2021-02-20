@@ -210,7 +210,6 @@ public class Main {
     //===
     startCh();
     //start of test part
-    erreur.erreur("le jeu est en test.");
     erreur.alerte("le jeu est en test.");
     view = new ViewCLI();
     view.ini();

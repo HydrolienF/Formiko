@@ -83,8 +83,8 @@ public class ViewNull implements View {
   *@return Return true if nothing have been print or paint.
   *@version 1.33
   */
-  public boolean pauseActionGame(){
-    return true;
+  public int pauseActionGame(){
+    return 0;
   }
   /**
   *{@summary A null view action that do nothing.}<br>

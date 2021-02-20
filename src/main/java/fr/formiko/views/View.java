@@ -71,7 +71,7 @@ public interface View {
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.33
   */
-  boolean pauseActionGame();
+  int pauseActionGame();
   /***
   *{@summary change the value of the playing ant.}<br>
   *We need to repaint the information about this playingAnt.<br>

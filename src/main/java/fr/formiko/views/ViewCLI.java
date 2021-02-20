@@ -58,7 +58,7 @@ public class ViewCLI implements View {
   */
   public boolean paint(){
     if(actionGameOn){
-      //TODO
+      printArray();
     }else{
       if(menuName.equals("")){
         printArray();
@@ -217,8 +217,40 @@ public class ViewCLI implements View {
   */
   public boolean actionGame(){
     actionGameOn=true;
+    menuName="";
     //TODO
-    System.out.println(Main.getPartie());//@a
+    int toDoAfter = 0;
+    /*while (wantToPlay) {
+      paint();
+      int choice = getActionMenu(tToPrint.length);
+      switch(){
+        //do an ant action
+
+        //end turn
+
+        case x :
+        toDoAfter = pauseActionGame();
+        if(toDoAfter!=0){wantToPlay==false;}
+
+        //etc
+
+      }
+    }*/
+    // we need to end the previous game.
+    System.out.println("game is not ready yet, interact with pauseActionGame.");//@a
+    toDoAfter = pauseActionGame();
+    switch (toDoAfter) {
+      case 3:
+      if(!menuLoadAGame()){
+        menuMain();
+      }
+      break;
+      case 4:
+      menuMain();
+      break;
+      case 5:
+      Main.quitter();
+    }
     return false;
   }
 
@@ -230,10 +262,33 @@ public class ViewCLI implements View {
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.33
   */
-  public boolean pauseActionGame(){
-    //TODO
-    //bouton.nom.-10 to -15
-    return false;
+  public int pauseActionGame(){
+    if (!actionGameOn) {return -1;}
+    tToPrint = new String[6];
+    int k=0;
+    for (int i=-10;i>-16 ;i-- ) {
+      tToPrint[k]=g.get("bouton.nom."+i);
+      k++;
+    }
+    int choice = -1;
+    while (choice!=6) {
+      paint();
+      choice=getActionMenu(tToPrint.length);
+      switch (choice) {
+        case 1 :
+        System.out.println("save game");//TODO
+        break;
+        case 2 :
+        menuOptions();
+        //when menu option will return it will end pauseActionGame & continue in actionGame.
+        break;
+        case 3 :
+        case 4 :
+        case 5 :
+        return choice;
+      }
+    }
+    return 0; //case 6.
   }
   /**
   *{@summary change the value of the playing ant.}<br>
