@@ -1,7 +1,4 @@
-//fichier contenant toutes les traductions en français. Tant qu'il sera plus complet que les autres fichier, il sera utiliser en cas de traduction incomplète.
-// "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
-// la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
-//ŭ.
+//the 1a line is used only for test.
 test:testMs
 
 s:s[auto]
@@ -10,6 +7,7 @@ n:[auto]
 ,:,[auto]
 ?:?[auto]
 !:![auto]
+et:&[]
 
 la:yang[auto]
 le:yang[auto]
@@ -18,10 +16,9 @@ notre:kami[auto]
 votre:anda[auto]
 oui:Ya[auto]
 non:tidak[auto]
-et:dan[auto]
+tour:lawatan[auto]
 retour:kembali[auto]
 choix:pilihan[auto]
-tour:lawatan[auto]
 temps:masa[auto]
 commencer:untuk mula[auto]
 raccourci:jalan pintas[auto]

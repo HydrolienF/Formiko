@@ -100,6 +100,6 @@ public class g {
   *@version 1.33
   */
   public static boolean exist(String key){
-    return getElementMap(key)!=null;
+    return getElementMap(key)!=null && !getElementMap(key).equals("");
   }
 }

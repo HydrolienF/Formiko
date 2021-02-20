@@ -1,7 +1,4 @@
-//fichier contenant toutes les traductions en français. Tant qu'il sera plus complet que les autres fichier, il sera utiliser en cas de traduction incomplète.
-// "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
-// la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
-//ŭ.
+//the 1a line is used only for test.
 test:testZh
 
 s:s[auto]
@@ -10,6 +7,7 @@ n:[auto]
 ,:,
 ?:？[auto]
 !:！[auto]
+et:&[]
 
 la:的
 le:的
@@ -18,10 +16,9 @@ notre:我们的[auto]
 votre:你的[auto]
 oui:是
 non:不
-et:和[auto]
+tour:游览[auto]
 retour:返回[auto]
 choix:选择[auto]
-tour:游览[auto]
 temps:时间[auto]
 commencer:开始[auto]
 raccourci:捷径[auto]

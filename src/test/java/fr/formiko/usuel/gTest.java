@@ -99,7 +99,7 @@ public class gTest extends TestCaseMuet{
     map.put("le","ø");
     g.setMap(map);
     assertEquals("the",g.getOu("la","le"));
-    
+
     map = new HashMap<String, String>();
     map.put("la","the");
     g.setMap(map);
@@ -114,6 +114,16 @@ public class gTest extends TestCaseMuet{
     assertTrue(g.exist("key"));
     assertTrue(!g.exist("keY"));
     assertTrue(!g.exist("clé"));
-
+  }
+  @Test
+  public void testExist2(){
+    HashMap map = new HashMap<String, String>();
+    map.put("key","tv");
+    map.put("keY","");
+    map.put("clé","ø");
+    g.setMap(map);
+    assertTrue(g.exist("key"));
+    assertTrue(!g.exist("keY"));
+    assertTrue(g.exist("clé"));
   }
 }

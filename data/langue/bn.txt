@@ -1,7 +1,4 @@
-//fichier contenant toutes les traductions en français. Tant qu'il sera plus complet que les autres fichier, il sera utiliser en cas de traduction incomplète.
-// "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
-// la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
-//ŭ.
+//the 1a line is used only for test.
 test:testBn
 
 s:s[auto]
@@ -10,6 +7,7 @@ n:[auto]
 ,:,[auto]
 ?:?[auto]
 !:![auto]
+et:&[]
 
 la:দ্য[auto]
 le:দ্য[auto]
@@ -18,10 +16,9 @@ notre:আমাদের[auto]
 votre:তোমার[auto]
 oui:হ্যাঁ[auto]
 non:না[auto]
-et:এবং[auto]
+tour:ভ্রমণ[auto]
 retour:প্রত্যাবর্তন[auto]
 choix:পছন্দ[auto]
-tour:ভ্রমণ[auto]
 temps:সময়[auto]
 commencer:শুরুতেই[auto]
 raccourci:শর্টকাট[auto]

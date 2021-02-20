@@ -260,7 +260,6 @@ public class image{
     if(str.contient(f.getName(),".jpg",2)){return true;}
     return false;
   }
-  public static boolean deleteDirectory(File f){ return fichier.deleteDirectory(f);}
   /*public BufferedImage rognerImage(BufferedImage i){
     Img img = new Img(i);
     img.rognerBordTransparent();

@@ -57,7 +57,7 @@ public class Main {
   private static Partie pa;
   private static byte niveauDeDétailDeLAffichage=3;
   private static Pixel pi;
-  private static HashMap<String, Integer> key;
+  private static HashMap<String, Integer> key; //keyboard key.
   private static boolean ecouteClavier;
   private static int avancementChargement;
   private static boolean affGraine=true;//tant que les espece granivore ne sont pas pleinement opérationelle.
@@ -543,7 +543,11 @@ public class Main {
    */
   public static void iniLangue(){
     startCh();
-    g.setMap(chargerLesTraductions.chargerLesTraductions(getLangue()));//chargement des langues.
+    HashMap<String,String> hm = chargerLesTraductions.chargerLesTraductions(getLangue());
+    g.setMap(hm);
+    if(getLangue()>2){ //language 0,1 & 2 are full translated.
+      chargerLesTraductions.completMapWithFullTranslatedLanguage();
+    }
     endCh("chargementDesLangues");
   }
   /**

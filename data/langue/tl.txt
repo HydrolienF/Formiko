@@ -1,7 +1,4 @@
-//fichier contenant toutes les traductions en français. Tant qu'il sera plus complet que les autres fichier, il sera utiliser en cas de traduction incomplète.
-// "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
-// la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
-//ŭ.
+//the 1a line is used only for test.
 test:testTl
 
 s:s[auto]
@@ -10,6 +7,7 @@ n:[auto]
 ,:,[auto]
 ?:?[auto]
 !:![auto]
+et:&[]
 
 la:ang[auto]
 le:ang[auto]
@@ -18,10 +16,9 @@ notre:ang aming[auto]
 votre:iyong[auto]
 oui:Oo[auto]
 non:hindi[auto]
-et:at[auto]
+tour:paglibot[auto]
 retour:bumalik ka[auto]
 choix:pagpipilian[auto]
-tour:paglibot[auto]
 temps:oras[auto]
 commencer:upang simulan ang[auto]
 raccourci:pintas[auto]

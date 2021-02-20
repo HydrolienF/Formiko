@@ -1,7 +1,4 @@
-//fichier contenant toutes les traductions en français. Tant qu'il sera plus complet que les autres fichier, il sera utiliser en cas de traduction incomplète.
-// "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
-// la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
-//ŭ.
+//the 1a line is used only for test.
 test:testVi
 
 s:S[auto]
@@ -10,6 +7,7 @@ n:[auto]
 ,:,[auto]
 ?:?[auto]
 !:![auto]
+et:&[]
 
 la:các[auto]
 le:các[auto]
@@ -18,10 +16,9 @@ notre:của chúng tôi[auto]
 votre:của bạn[auto]
 oui:Đúng[auto]
 non:không phải[auto]
-et:và[auto]
+tour:chuyến du lịch[auto]
 retour:trở về[auto]
 choix:sự lựa chọn[auto]
-tour:chuyến du lịch[auto]
 temps:thời gian[auto]
 commencer:để bắt đầu[auto]
 raccourci:đường tắt[auto]

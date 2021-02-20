@@ -1,7 +1,4 @@
-//fichier contenant toutes les traductions en français. Tant qu'il sera plus complet que les autres fichier, il sera utiliser en cas de traduction incomplète.
-// "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
-// la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
-//ŭ.
+//the 1a line is used only for test.
 test:testMl
 
 s:s[auto]
@@ -10,6 +7,7 @@ n:[auto]
 ,:,[auto]
 ?:?[auto]
 !:![auto]
+et:&[]
 
 la:ദി[auto]
 le:ദി[auto]
@@ -18,10 +16,9 @@ notre:ഞങ്ങളുടെ[auto]
 votre:നിങ്ങളുടെ[auto]
 oui:അതെ[auto]
 non:അല്ല[auto]
-et:ഒപ്പം[auto]
+tour:ടൂർ[auto]
 retour:മടങ്ങുക[auto]
 choix:ചോയിസ്[auto]
-tour:ടൂർ[auto]
 temps:സമയം[auto]
 commencer:ആരംഭിക്കാൻ[auto]
 raccourci:കുറുക്കുവഴി[auto]

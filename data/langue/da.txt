@@ -1,7 +1,4 @@
-//fichier contenant toutes les traductions en français. Tant qu'il sera plus complet que les autres fichier, il sera utiliser en cas de traduction incomplète.
-// "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
-// la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
-//ŭ.
+//the 1a line is used only for test.
 test:testDa
 
 s:s[auto]
@@ -10,6 +7,7 @@ n:[auto]
 ,:,[auto]
 ?:?[auto]
 !:![auto]
+et:&[]
 
 la:det[auto]
 le:det[auto]
@@ -18,10 +16,9 @@ notre:vores[auto]
 votre:jeres[auto]
 oui:Ja[auto]
 non:ikke[auto]
-et:og[auto]
+tour:tur[auto]
 retour:Vend tilbage[auto]
 choix:valg[auto]
-tour:tur[auto]
 temps:tid[auto]
 commencer:at begynde[auto]
 raccourci:genvej[auto]

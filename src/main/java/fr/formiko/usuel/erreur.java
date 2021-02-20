@@ -4,7 +4,7 @@ import fr.formiko.formiko.Main;
 //def par défaut des fichiers depuis 0.79.5
 
 public class erreur {
-  public static String lieu0 = g.get("erreur",1,"un lieu non précisé");
+  public static String lieu0 = null;// g.get("erreur",1,"un lieu non précisé");
   public static boolean muet=false;
   //colors
   private static String yellow = (char)27+"[1;33m";
@@ -59,9 +59,11 @@ public class erreur {
     erreur(message, lieu, false); // les erreurs sont non fatale par défaut.
   }
   public static void erreur(String message){
+    if(lieu0==null){lieu0 = g.get("erreur",1,"un lieu non précisé");}
     erreur(message, lieu0);
   }
   public static void erreur(String message, boolean fatale){
+    if(lieu0==null){lieu0 = g.get("erreur",1,"un lieu non précisé");}
     erreur(message, lieu0, fatale);
   }
   public static void alerte(String message, String lieu, String correction){
@@ -77,6 +79,7 @@ public class erreur {
     alerte(message,lieu,"");
   }
   public static void alerte(String message){
+    if(lieu0==null){lieu0 = g.get("erreur",1,"un lieu non précisé");}
     alerte(message, lieu0);
   }
   public static void alerte(){
@@ -84,10 +87,13 @@ public class erreur {
   }
 
 
-  public static void erreurPasEncoreImplémenté(String lieu){
+  public static void erreurPasEncoreImplemente(String lieu){
     erreur(g.get("erreur",9,"La fonctionnalité n'as pas encore été implémenté"),lieu);
   }
-  public static void erreurPasEncoreImplémenté(){ erreurPasEncoreImplémenté(lieu0);}
+  public static void erreurPasEncoreImplemente(){
+    if(lieu0==null){lieu0 = g.get("erreur",1,"un lieu non précisé");}
+    erreurPasEncoreImplemente(lieu0);
+  }
   public static void erreurChargementImage(String nomImage){
     erreur(g.get("erreur",11,"Le chargement de l'image") +" "+nomImage+" "+ g.get("erreur",12,"n'as pas fonctionné. Assurer vous que le fichier data/image/ contient bien l'image en question."));
   }
@@ -100,5 +106,8 @@ public class erreur {
   }
   public static void erreurType(String type, String lieu){
     erreur(g.getM("erreur.17")+g.get(":")+type,lieu);
-  }public static void erreurType(String type){erreurType(type,lieu0);}
+  }public static void erreurType(String type){
+    if(lieu0==null){lieu0 = g.get("erreur",1,"un lieu non précisé");}
+    erreurType(type,lieu0);
+  }
 }

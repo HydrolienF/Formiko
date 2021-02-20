@@ -291,4 +291,17 @@ public class chargerLesTraductions {
     }
   }
   public static boolean fini(String s){return !str.contient(s,":",2);}
+  /**
+  *{@summary Add untranslated key to the actual Map.}<br>
+  *For all key in english map, if key isn't in g.getMap() we add it.
+  *@version 1.33
+  */
+  public static void completMapWithFullTranslatedLanguage(){
+    HashMap<String,String> hm = chargerLesTraductions(getLangue("en"));
+    for (String key : hm.keySet() ) {
+      if(!g.exist(key)){
+        g.getMap().put(key,hm.get(key));
+      }
+    }
+  }
 }

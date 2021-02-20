@@ -1,7 +1,4 @@
-//fichier contenant toutes les traductions en français. Tant qu'il sera plus complet que les autres fichier, il sera utiliser en cas de traduction incomplète.
-// "//" permet de mettre en commentaire une ligne du fichier si les 2 char sont en début de ligne. un seul  permet de lire le char suivant comme un char sans effet.
-// la traduction en espéranto est essentiellement réalisé grâce a l'application PoŝReVo.
-//ŭ.
+//the 1a line is used only for test.
 test:testTt
 
 s:с[auto]
@@ -10,6 +7,7 @@ n:[auto]
 ,:,[auto]
 ?:?[auto]
 !:![auto]
+et:&[]
 
 la:бу[auto]
 le:бу[auto]
@@ -18,10 +16,9 @@ notre:безнең[auto]
 votre:сезнең[auto]
 oui:Әйе[auto]
 non:түгел[auto]
-et:һәм[auto]
+tour:гастрольләр[auto]
 retour:кайту[auto]
 choix:сайлау[auto]
-tour:гастрольләр[auto]
 temps:вакыт[auto]
 commencer:башларга[auto]
 raccourci:кыска юл[auto]
