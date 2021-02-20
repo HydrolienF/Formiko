@@ -188,15 +188,9 @@ public class ViewCLI implements View {
         double v = str.sToD(input);
         pa.setVitesseDeJeu(v);
         break;
-
+        //TODO
       }
     }
-    /*    String nomCarte = "miniWorld";
-        Carte mapo = new Carte(nomCarte);
-        mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
-        Partie partie = new Partie(1,100,mapo,1.0);
-        partie.setElément(1,5,1);
-        partie.setVitesseDeJeu(0.4);*/
     Main.setPartie(pa);
     actionGame();
     return true;
