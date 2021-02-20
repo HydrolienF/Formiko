@@ -217,6 +217,7 @@ public class ViewCLI implements View {
   */
   public boolean actionGame(){
     actionGameOn=true;
+    //TODO
     System.out.println(Main.getPartie());//@a
     return false;
   }
@@ -230,6 +231,7 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean pauseActionGame(){
+    //TODO
     //bouton.nom.-10 to -15
     return false;
   }
@@ -242,6 +244,7 @@ public class ViewCLI implements View {
   */
   public boolean setPlayingAnt(){
     if (!actionGameOn) {return false;}
+    //TODO
     return false;
   }
   /**
@@ -253,6 +256,7 @@ public class ViewCLI implements View {
   */
   public boolean setLookedCase(){
     if (!actionGameOn) {return false;}
+    //TODO
     return false;
   }
 

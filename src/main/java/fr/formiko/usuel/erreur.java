@@ -1,5 +1,6 @@
 package fr.formiko.usuel;
 
+import fr.formiko.formiko.Main;
 //def par défaut des fichiers depuis 0.79.5
 
 public class erreur {
@@ -37,7 +38,9 @@ public class erreur {
     if (fatale){
       m = g.get("erreur",3,"fatale")+" ";
     }
-    println(red+"["+g.get("erreur")+"] "+neutral+g.get("erreur",4,"Une erreur")+" " + m + g.get("erreur",5,"c'est produite dans")+" " + lieu + " : ");
+    String preMessage = "";
+    if(Main.getOs().isLinux()){preMessage = red+"["+g.get("erreur").toUpperCase()+"] "+neutral;}
+    println(preMessage+g.get("erreur",4,"Une erreur")+" " + m + g.get("erreur",5,"c'est produite dans")+" " + lieu + " : ");
     println(message);
     if (!correction.equals("")){
       println(g.get("erreur",6,"Correction apportée")+" : " + correction);
@@ -62,7 +65,9 @@ public class erreur {
     erreur(message, lieu0, fatale);
   }
   public static void alerte(String message, String lieu, String correction){
-    println(yellow+"["+g.get("alerte")+"] "+neutral+g.get("erreur",7,"Quelque chose d'anormale est arrivé dans")+" "+ lieu +", "+g.get("erreur",8,"il n'y a peut-être pas de raison de s'inquiéter"));
+    String preMessage = "";
+    if(Main.getOs().isLinux()){preMessage = yellow+"["+g.get("alerte").toUpperCase()+"] "+neutral;}
+    println(preMessage+g.get("erreur",7,"Quelque chose d'anormale est arrivé dans")+" "+ lieu +", "+g.get("erreur",8,"il n'y a peut-être pas de raison de s'inquiéter"));
     if (!message.equals("")) println(message);
     if (!correction.equals("")){
       println(g.get("erreur",6,"Correction apportée")+" : " + correction);
