@@ -134,12 +134,12 @@ public class Options implements Serializable{
     return 80;
   }
   /**
-  *{@summary Save the Options in data/Options.txt.}<br>
+  *{@summary Save the Options in Options.txt.}<br>
   *@version 1.20
   */
   public void sauvegarder(){
     //on s'assure que le fichier n'existe plus pour éviter d'avoir a l'écraser plus tard.
-    File f = new File("data/Options.txt");
+    File f = new File(Main.getFolder().getFolderMain()+"Options.txt");
     if (f.exists()){ // si le fichier d'options existe.
       f.delete();
     }
@@ -177,6 +177,6 @@ public class Options implements Serializable{
     gs.add("volSon:"+getVolSon());
     gs.add("tailleRealiste:"+getTailleRealiste());
     //on rempli le fichier avec le GString.
-    ecrireUnFichier.ecrireUnFichier(gs,"data/Options.txt");
+    ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderStable()+"Options.txt");
   }
 }

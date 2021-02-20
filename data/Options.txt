@@ -1,5 +1,5 @@
 version compatible:100
-langue:1
+langue:0
 taille bouton zoom:0
 taille bouton action:1
 taille bouton tint:0
@@ -8,7 +8,7 @@ déplacementInstantané:1
 fourmiOrientéAprèsDéplacement:1
 nbrMessageAfficher:10
 dessinerGrille:1
-forcerQuitter:1
+forcerQuitter:0
 bordureBouton:2
 dessinerIcone:1
 taillePolice1:30
@@ -25,7 +25,7 @@ afficher les étape graphiques(débogage):0
 dimention des lignes de la carte:2
 positionCase:2
 musique:0
-son:1
+son:0
 volMusique:100
 volSon:100
-tailleRealiste:30
+tailleRéaliste:30

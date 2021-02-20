@@ -21,7 +21,7 @@ public class imageTest extends TestCaseMuet{
   // Fonctions propre -----------------------------------------------------------
   @Test
   public void testReadImage(){
-    File f = new File(image.REP+"null.png");
+    File f = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"null.png");
     Image iNull = image.readImage(f);
     assertTrue(iNull!=null);
     assertTrue(f.isFile());//il n'as pas été supprimé lors de la lecture
@@ -30,7 +30,7 @@ public class imageTest extends TestCaseMuet{
     int x = allea.getAllea(1000)+100;
     Img img = new Img(1,1);
     img.sauvegarder("testImage"+x+".png");
-    f = new File(image.REP2+"testImage"+x+".png");
+    f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"testImage"+x+".png");
     Image i = image.readImage(f);
     assertTrue(i!=null);
     assertTrue(f.isFile());//il n'as pas été supprimé lors de la lecture
@@ -56,7 +56,7 @@ public class imageTest extends TestCaseMuet{
 
     x = allea.getAllea(1000)+100;
     img.sauvegarder("testImage"+x+".jpg");//nom d'image incorecte.
-    f = new File(image.REP2+"testImage"+x+".jpg");
+    f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"testImage"+x+".jpg");
 
     Image i3 = image.readImage(f);
     assertTrue(i3!=null);
@@ -73,7 +73,7 @@ public class imageTest extends TestCaseMuet{
     assertEquals(nul.getWidth(null),i0.getWidth(null));
     Image i1 = image.getImage("I0.png");
     Image i2 = image.getImage("I0");
-    Image i3 = image.getImage("I0",image.REP);//si on cherche dans le bon répertoire.
+    Image i3 = image.getImage("I0",Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages());//si on cherche dans le bon répertoire.
     Image i4 = image.getImage("I0","./"); //si on cherche dans un mauvais répertoire.
     assertEquals(i1.getWidth(null),i2.getWidth(null));
     assertEquals(i1.getWidth(null),i3.getWidth(null));
@@ -202,22 +202,22 @@ public class imageTest extends TestCaseMuet{
   public void testGetNbrImagesREP3(){
     //on vérifie que d'éventuelles images complémentaire présente dans REPTEXTUREPACK seront bien chargée.
     image.setREPTEXTUREPACK("testDir5/");
-    File f = new File(image.REPTEXTUREPACK);
+    File f = new File(image.getREPTEXTUREPACK());
     assertTrue(f.mkdir());
     try {
-      f = new File(image.REPTEXTUREPACK+"x0.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
-      f = new File(image.REPTEXTUREPACK+"x1.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
-      f = new File(image.REPTEXTUREPACK+"x2.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
-      f = new File(image.REPTEXTUREPACK+"x4.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
-      f = new File(image.REPTEXTUREPACK+"fourmi3.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(image.getREPTEXTUREPACK()+"x0.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(image.getREPTEXTUREPACK()+"x1.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(image.getREPTEXTUREPACK()+"x2.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(image.getREPTEXTUREPACK()+"x4.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(image.getREPTEXTUREPACK()+"fourmi3.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     assertEquals(3,image.getNbrImages("x"));
     assertEquals(4,image.getNbrImages("fourmi"));
     try {
-      f = new File(image.REPTEXTUREPACK+"fourmi4.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(image.getREPTEXTUREPACK()+"fourmi4.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     assertEquals(5,image.getNbrImages("fourmi"));
-    f = new File(image.REPTEXTUREPACK);
+    f = new File(image.getREPTEXTUREPACK());
     assertTrue(fichier.deleteDirectory(f));
   }
 
@@ -225,29 +225,29 @@ public class imageTest extends TestCaseMuet{
   @Test
   public void testClearTemporaire(){
     File f = null;
-    File d = new File(image.REP2);
+    File d = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages());
     image.clearTemporaire();//on vire déja toutes les images du fichier temporaire.
     int x = d.listFiles().length;
     try {
-      f = new File(image.REP2+"egfeFzg.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"egfeFzg.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     image.clearTemporaire();
     assertEquals(x,d.listFiles().length);
     assertTrue(!f.delete());
     try {
-      f = new File(image.REP2+"egfeFzg.p"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"egfeFzg.p"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     image.clearTemporaire();
     assertEquals(x+1,d.listFiles().length);
     assertTrue(f.delete());
     try {
-      f = new File(image.REP2+"a"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"a"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     image.clearTemporaire();
     assertEquals(x+1,d.listFiles().length);
     assertTrue(f.delete());
     try {
-      f = new File(image.REP2+".jpg"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+".jpg"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     image.clearTemporaire();
     assertEquals(x,d.listFiles().length);
@@ -258,53 +258,53 @@ public class imageTest extends TestCaseMuet{
   public void testClearPartielTemporaire(){
     image.clearPartielTemporaire();
     File f = null;
-    File d = new File(image.REP2);
+    File d = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages());
     int x = d.listFiles().length;
     // ...F...
     try {
-      f = new File(image.REP2+"egfeFzig.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"egfeFzig.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     image.clearPartielTemporaire();
     assertEquals(x+1,d.listFiles().length);
     assertTrue(f.delete());
     //f...
     try {
-      f = new File(image.REP2+"fegfezig.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"fegfezig.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     image.clearPartielTemporaire();
     assertEquals(x+1,d.listFiles().length);
     assertTrue(f.delete());
     //F...
     try {
-      f = new File(image.REP2+"Fvi.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"Fvi.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     image.clearPartielTemporaire();
     assertEquals(x,d.listFiles().length);
     assertTrue(!f.delete());
     //F...
     try {
-      f = new File(image.REP2+"F.jpg"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"F.jpg"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     image.clearPartielTemporaire();
     assertEquals(x,d.listFiles().length);
     assertTrue(!f.delete());
     //... . ...
     try {
-      f = new File(image.REP2+"vehti.hze"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"vehti.hze"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     image.clearPartielTemporaire();
     assertEquals(x+1,d.listFiles().length);
     assertTrue(f.delete());
     //F... . ...
     try {
-      f = new File(image.REP2+"Fbn.hze"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"Fbn.hze"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     image.clearPartielTemporaire();
     assertEquals(x+1,d.listFiles().length);
     assertTrue(f.delete());
     //F . ...
     try {
-      f = new File(image.REP2+"F.hze"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"F.hze"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     image.clearPartielTemporaire();
     assertEquals(x+1,d.listFiles().length);

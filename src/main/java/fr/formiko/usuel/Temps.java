@@ -1,10 +1,11 @@
 package fr.formiko.usuel;
 
-//def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.lireUnFichier;
-import fr.formiko.usuel.types.str;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.formiko.Main;
 import fr.formiko.usuel.ecrireUnFichier;
+import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.types.str;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -70,22 +71,22 @@ public class Temps {
     return r;
   }
   /**
-  *{@summary Load all time informations save in data/Temps.txt.}
+  *{@summary Load all time informations save in Temps.txt.}
   *@version 1.23
   */
   public void chargerTemps(){
-    //lecture du fichier data/Temps.txt
-    String t [] = lireUnFichier.lireUnFichier("data/Temps.txt");
+    //lecture du fichier Temps.txt
+    String t [] = lireUnFichier.lireUnFichier(Main.getFolder().getFolderTemporary()+"Temps.txt");
     if(t.length<3){
       initialiserFichierTemps();
-      t = lireUnFichier.lireUnFichier("data/Temps.txt");
+      t = lireUnFichier.lireUnFichier(Main.getFolder().getFolderTemporary()+"Temps.txt");
     } //normalement a ce stade la initialiserFichierTemps a déja réparer le fichier temps mais au cas ou on vérifi que tout est bon.
     if(t.length>=3){
       date1 = str.sToL(t[0]);
       date2 = str.sToL(t[1]);
       tempsEnJeux = str.sToL(t[2]);
     }else{
-      erreur.erreur("Le fichier data/Temps.txt est corrompu.","Temps.chargerTemps","les variables de temps ont été remises à 0.");
+      erreur.erreur("Le fichier Temps.txt est corrompu.","Temps.chargerTemps","les variables de temps ont été remises à 0.");
       initialiserFichierTemps();
       date1 = System.currentTimeMillis();
       date2 = System.currentTimeMillis();
@@ -97,7 +98,7 @@ public class Temps {
     gs.add(""+date1);
     gs.add(""+date2);
     gs.add(""+tempsEnJeux);
-    ecrireUnFichier.ecrireUnFichier(gs,"data/Temps.txt");
+    ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderTemporary()+"Temps.txt");
   }
   //static ---------------------------------------------------------------------------
   //TODO ajouter une méthode qui return un String de date le plus adapté possible avec un nombre défini d'unité allant de jours a ms.
@@ -186,7 +187,7 @@ public class Temps {
     gs.add(""+System.currentTimeMillis());
     gs.add(""+System.currentTimeMillis());
     gs.add("0");
-    ecrireUnFichier.ecrireUnFichier(gs,"data/Temps.txt");
+    ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderTemporary()+"Temps.txt");
   }
   /**
   *{@summary Try to stop execution of the programme during some ms.}

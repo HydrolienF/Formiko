@@ -1,5 +1,6 @@
 package fr.formiko.usuel;
 
+import fr.formiko.formiko.Main;
 import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.tableau;
@@ -15,14 +16,14 @@ import java.util.HashMap;
 */
 public class chargerLesTraductions {
   private static HashMap<String, String> map;
-  private static String rep="data/langue/";
+  private static String rep=Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages();
   private static String tLangue[]=null;
   // get set -------------------------------------------------------------------
   public static String [] getTLangue(){return tLangue;}
   public static void setTLangue(String t []){tLangue=t;}
   public static String getRep(){return rep;}
   public static void setRep(String s){rep = str.sToDirectoryName(s);}
-  public static void setRep(){setRep("data/langue/");}
+  public static void setRep(){setRep(Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages());}
   public static HashMap<String, String> getMap(){return map;}
   public static void iniMap(){map = new HashMap<>();}
   // Fonctions propre -----------------------------------------------------------

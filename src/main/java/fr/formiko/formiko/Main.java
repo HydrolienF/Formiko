@@ -66,6 +66,7 @@ public class Main {
   //private static ThGraphisme tg;//actualise la fenetre tt avec 20 seconde de pause entre chaque actualisation.
   private static boolean retournerAuMenu;
   private static Os os;
+  private static Folder folder;
   private static boolean tuto=false;
   private static ThScript ths;
   //private static ThMusique thm;
@@ -210,11 +211,13 @@ public class Main {
     //===
     startCh();
     //start of test part
+    /*
     erreur.alerte("le jeu est en test.");
     view = new ViewCLI();
     view.ini();
     view.menuMain();
     quitter();
+    */
     //end of test part
     f = new Fenetre();
     try {
@@ -314,7 +317,7 @@ public class Main {
     i.setEstMort(false);
     i.setType(8);
     getGi().ajouterInsecte(i);
-    ths = new ThScript("data/tuto.formiko");
+    ths = new ThScript(getFolder().getFolderMain()+getFolder().getFolderLevels()+"tuto.formiko");
     ths.start();
   }
   /**
@@ -361,6 +364,8 @@ public class Main {
   public static void setRetournerAuMenu(boolean b){retournerAuMenu=b;}
   public static Os getOs(){return os;}
   public static void setOs(Os o){os=o;}
+  public static Folder getFolder(){return folder;}
+  public static void setFolder(Folder f){folder=f;}
   public static void setTuto(boolean b){tuto=b;}
   public static boolean getPremierePartie(){return premierePartie;}
   public static void setPremierePartie(boolean b){premierePartie=b;}
@@ -461,9 +466,10 @@ public class Main {
   public static void initialisation(){
     tempsDeDébutDeJeu=System.currentTimeMillis();
     os = new Os();
-    setMessageChargement("vérificationsDeLArborécence");startCh();
-    if(!arbo.arborécenceIntacte()){arbo.réparationArboréscence();}
-    endCh("vérificationsDeLArborécence");
+    folder = new Folder();
+    //setMessageChargement("vérificationsDeLArborécence");startCh();
+    //if(!arbo.arborécenceIntacte()){arbo.réparationArboréscence();}
+    //endCh("vérificationsDeLArborécence");
     setMessageChargement("chargementDesOptions");startCh();
     chargerLesTraductions.iniTLangue();
     iniOp();
@@ -493,16 +499,7 @@ public class Main {
     GIndividu.chargerLesIndividus(); // chargement de leur individu.
     endCh("chargementDesIndividuDeFourmi");startCh();
     Insecte.setGie(); // chargement des Insectes.
-    endCh("chargementDesEspeceDInsecte");startCh();
-    //thm = new ThMusique("menu");
-    //thm.start();
-    //endCh("chargementDeLaMusique");startCh();
-    File f = new File(image.REP+"ressourcesPack");
-    String listl [] = f.list();
-    if(listl.length!=0){
-      image.setREPTEXTUREPACK(image.REP+"ressourcesPack");//on déclare le ressourcesPack si il contient au moins 1 image.
-    }
-    endCh("initialisationDeREPTEXTUREPACK");
+    endCh("chargementDesEspeceDInsecte");
     data = new Data();
     iniCpt();
   }

@@ -95,7 +95,7 @@ public class erreur {
     erreurPasEncoreImplemente(lieu0);
   }
   public static void erreurChargementImage(String nomImage){
-    erreur(g.get("erreur",11,"Le chargement de l'image") +" "+nomImage+" "+ g.get("erreur",12,"n'as pas fonctionné. Assurer vous que le fichier data/image/ contient bien l'image en question."));
+    erreur(g.get("erreur",11,"Le chargement de l'image") +" "+nomImage+" "+ g.get("erreur",12,"n'as pas fonctionné. Assurer vous que le fichier image/ contient bien l'image en question."));
   }
   public static void erreurChargementImage(){ erreurChargementImage(g.get("erreur",10,"nom inconnu"));}
   public static void erreurGXVide(String GX){

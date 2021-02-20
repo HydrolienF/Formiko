@@ -1,6 +1,7 @@
 package fr.formiko.usuel;
 
 import fr.formiko.formiko.Options;
+import fr.formiko.formiko.Main;
 import fr.formiko.usuel.chargerLesTraductions;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.ecrireUnFichier;
@@ -19,11 +20,11 @@ public class chargerLesOptions {
   // Fonctions propre -----------------------------------------------------------
   public static Options chargerLesOptions(int versionActuelle){
     //pas de vérifications de la 1a partie du texte qui nous intéresse pas tant que le fichier est dans l'ordre.
-    File f = new File("data/Options.txt");
+    File f = new File(Main.getFolder().getFolderMain()+"Options.txt");
     if (!f.exists()){ // si le fichier d'options n'existe pas.
       chargerLesOptionsDe0(versionActuelle);
     }
-    String t [] = lireUnFichier.lireUnFichier("data/Options.txt");
+    String t [] = lireUnFichier.lireUnFichier(Main.getFolder().getFolderMain()+"Options.txt");
     Options op = new Options();
     int k=0;
     if(decoderUnFichier.getIntDeLaLigne(t[k]) != versionActuelle){ return op;}k++;
@@ -60,7 +61,7 @@ public class chargerLesOptions {
     op.setVolSon(decoderUnFichier.getByteDeLaLigne(t[k]));k++;
     op.setTailleRealiste(decoderUnFichier.getByteDeLaLigne(t[k]));k++;
     try {
-      File dossier = new File(image.REP2);
+      File dossier = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages());
       //si les éléments sont tourné mais qu'il n'y a pas beaucoup d'image, il en manque.
       if(op.getElementSurCarteOrientéAprèsDéplacement() && dossier.listFiles().length<30){op.setGarderLesGraphismesTourné(false);erreur.alerte("Les graphismes déjà présent semble bien trop peu nombreux pour être complet","chargerLesOptions","Les graphismes seront rechargé pendant le lancement du jeu");}
     }catch (Exception e) {
@@ -121,7 +122,7 @@ public class chargerLesOptions {
     tailleRéaliste:30
     """);
     //TODO la musique est temporairement désactivé. La réactivé quand elle marchera.
-    ecrireUnFichier.ecrireUnFichier(gs,"data/Options.txt");
+    ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderMain()+"Options.txt");
   }
   //public static void chargerLesOptionsDe0(int l){chargerLesOptionsDe0(l,"");}
   public static void chargerLesOptionsDe0(int versionActuelle){

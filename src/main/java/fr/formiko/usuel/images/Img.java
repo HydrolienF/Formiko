@@ -1,5 +1,6 @@
 package fr.formiko.usuel.images;
 
+import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Chrono;
 import fr.formiko.usuel.chargerLesTraductions;
 import fr.formiko.usuel.debug;
@@ -257,7 +258,7 @@ public class Img implements Cloneable{
     }catch (Exception e) {
       erreur.erreur("Echec de la sauvegarde d'image pour : "+rep+filename,"img.sauvegarde");
     }
-  }public void sauvegarder(String nom){sauvegarder(image.REP2,nom);}
+  }public void sauvegarder(String nom){sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom);}
   public void sauvegarde(String s){ sauvegarder(s);}
   /**
   *{@summary try to save the Img.}<br>

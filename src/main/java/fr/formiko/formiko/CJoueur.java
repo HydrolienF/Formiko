@@ -159,7 +159,7 @@ public class CJoueur implements Serializable{
       cj=cj.getSuivant();
     }
     gs = gs.transformerScore();
-    ecrireUnFichier.ecrireUnFichier(gs,"data/score.csv");
+    ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderTemporary()+"score.csv");
   }
   public void prendreEnCompteLaDifficulté(){
     CJoueur cj = this;

@@ -73,16 +73,16 @@ public class ini {
   public static void créerDBG(String nom, int i){
     String is = ""; if(i!=-1){is=i+"";}
     Img imgTemp = new Img(nom+is+".png");
-    //String rep = image.REP2;//""; if(str.nbrDeX(nom,'/')==0){rep="temporaire/";}
+    //String rep = Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages();//""; if(str.nbrDeX(nom,'/')==0){rep="temporaire/";}
     //String s = rep+nom+is;
-    imgTemp.sauvegarder(image.REP2,nom+is+"h"+".png");
+    imgTemp.sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom+is+"h"+".png");
     if (Main.getElementSurCarteOrientéAprèsDéplacement()){
       imgTemp.tourner();
-      imgTemp.sauvegarder(image.REP2,nom+is+"d"+".png");
+      imgTemp.sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom+is+"d"+".png");
       imgTemp.tourner();
-      imgTemp.sauvegarder(image.REP2,nom+is+"b"+".png");
+      imgTemp.sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom+is+"b"+".png");
       imgTemp.tourner();
-      imgTemp.sauvegarder(image.REP2,nom+is+"g"+".png");
+      imgTemp.sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom+is+"g"+".png");
     }
   }
   public static synchronized void initialiserAutreELémentTournés(){

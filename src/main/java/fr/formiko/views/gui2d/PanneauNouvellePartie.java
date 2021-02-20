@@ -141,15 +141,19 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     return pa;
   }
   public GString listeDesMap(){
-    String chemin = "data/carte/";
+    String chemin = Main.getFolder().getFolderStable()+Main.getFolder().getFolderMaps();
     File docier = new File(chemin);
     File[] fichiers = docier.listFiles();
     GString gsr = new GString();
     gsClé = new GString();
     for (File f : fichiers ) {
-      String s = f+"";int lens = s.length();
+      String s = f+"";
+      int lens = s.length();
       if(str.nbrDeX(s,'~')==0 && s.substring(lens-4).equals(".csv")){
-        s=s.substring(11,lens-4);
+        String t [] = s.split("/");
+        s=t[t.length-1];
+        lens = s.length();
+        s=s.substring(0,lens-4);
         gsr.ajouter(g.get(s));
         gsClé.ajouter(s);
       }

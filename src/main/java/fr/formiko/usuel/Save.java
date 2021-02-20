@@ -1,6 +1,7 @@
 package fr.formiko.usuel;
 
-//def par défaut des fichiers depuis 0.79.5
+import fr.formiko.formiko.Main;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -16,7 +17,7 @@ import java.io.Serializable;
 public class Save implements Serializable{
   private static final long serialVersionUID = 42l;
   private int idS;
-  private static File f = new File("data/.save");
+  private static File f = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+".save");
 
   // CONSTRUCTEUR ---------------------------------------------------------------
 
