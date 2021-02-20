@@ -5,6 +5,7 @@ import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.save;
+import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 
 import java.util.LinkedList;
@@ -136,12 +137,18 @@ public class ViewCLI implements View {
     actionGameOn=false;
     menuName="";
     tToPrint=save.listSave();
-    if(tToPrint.length==0){return false;}
+    if(tToPrint.length==0){return menuMain();}
+    //add a line "backToMainMenu" to tToPrint.
+    tToPrint = tableau.ajouterX(tToPrint,g.get("bouton.nom.-13"));
     paint();
     int choice = getActionMenu(tToPrint.length);
-    Partie pa = Partie.getPartieSave(tToPrint[choice-1]);
-    Main.setPartie(pa);
-    actionGame();
+    if(choice==tToPrint.length){
+      menuMain();
+    }else{
+      Partie pa = Partie.getPartieSave(tToPrint[choice-1]);
+      Main.setPartie(pa);
+      actionGame();
+    }
     return true;
   }
   /**
