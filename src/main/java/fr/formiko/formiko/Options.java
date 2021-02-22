@@ -50,6 +50,7 @@ public class Options implements Serializable{
   private byte volMusique;
   private byte volSon;
   private byte tailleRealiste;
+  private boolean autoCleaning;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Options(){}
   // GET SET --------------------------------------------------------------------
@@ -118,6 +119,8 @@ public class Options implements Serializable{
   public void setVolSon(byte x){volSon=x;}
   public byte getTailleRealiste(){return tailleRealiste;}
   public void setTailleRealiste(byte x){tailleRealiste=x;}public void setTailleRealiste(int x){tailleRealiste=str.iToBy(x);}
+  public boolean getAutoCleaning(){return autoCleaning;}
+  public void setAutoCleaning(boolean b){autoCleaning=b;}
   // Fonctions propre -----------------------------------------------------------
   /**
   *{@summary tranform a byte into a button size.}<br>
@@ -176,6 +179,7 @@ public class Options implements Serializable{
     gs.add("volMusique:"+getVolMusique());
     gs.add("volSon:"+getVolSon());
     gs.add("tailleRealiste:"+getTailleRealiste());
+    gs.add("autoCleaning:"+getAutoCleaning());
     //on rempli le fichier avec le GString.
     ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderStable()+"Options.txt");
   }

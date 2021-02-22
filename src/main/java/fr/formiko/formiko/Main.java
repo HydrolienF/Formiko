@@ -44,7 +44,7 @@ public class Main {
   *{@summary The compatible version for the options file, keys and backups.}
   *@version 1.1
   */
-  private static int versionActuelle = 100; //TODO transform to the version string.
+  private static String versionActuelle = "1.33";
   /***
    * Main windows
    * @version 1.1
@@ -342,7 +342,7 @@ public class Main {
 
   // GET SET ----------------------------------------------------------
   public static byte getNiveauDeDétailDeLAffichage(){return niveauDeDétailDeLAffichage;}
-  public static int getVersionActuelle(){return versionActuelle;}
+  public static String getVersionActuelle(){return versionActuelle;}
   public static Espece getEspece(){return getEspeceParId(0);}
   public static Espece getEspeceParId(int id){ return getGe().getEspeceParId(id);}
   public static GEspece getGEspece(){ return getGe();}

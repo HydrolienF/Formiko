@@ -14,7 +14,7 @@ import java.util.HashMap;
 public class chargerLesTouches {
   private static HashMap<String, Integer> map;
   // Fonctions propre -----------------------------------------------------------
-  public static HashMap<String, Integer> chargerLesTouches(int versionActuelle){
+  public static HashMap<String, Integer> chargerLesTouches(String versionActuelle){
     map = new HashMap<>();
     File f = new File(Main.getFolder().getFolderMain()+"Keys.txt");
     if (!f.exists()){ // si le fichier d'options n'existe pas.
@@ -22,7 +22,7 @@ public class chargerLesTouches {
     }
     String t [] = new String[0];
     t=lireUnFichier.lireUnFichier(Main.getFolder().getFolderMain()+"Keys.txt");
-    if(decoderUnFichier.getIntDeLaLigne(t[0]) != versionActuelle){ erreur.erreur("Le fichier des touches n'est pas compatible avec la version "+versionActuelle,"chargerLesTouches.chargerLesTouches",true);return map;}
+    if(!decoderUnFichier.getStringDeLaLigne(t[0]).equals(versionActuelle)){ erreur.erreur("Le fichier des touches n'est pas compatible avec la version "+versionActuelle,"chargerLesTouches.chargerLesTouches",true);return map;}
     int lent = t.length;
     for (int i=1; i<lent;i++) {
       ajouterObjetMap(t[i]);
@@ -30,7 +30,7 @@ public class chargerLesTouches {
     return map;
   }
 
-  public static void chargerLesTouchesDe0(int versionActuelle){
+  public static void chargerLesTouchesDe0(String versionActuelle){
     GString gs = new GString();
     gs.ajouter("version compatible:"+versionActuelle);
     ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderMain()+"Keys.txt");

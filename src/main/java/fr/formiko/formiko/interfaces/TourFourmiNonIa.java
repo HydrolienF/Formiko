@@ -33,6 +33,9 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       Main.getView().setPlayingAnt(f);
       erreur.alerte("1 graphics action can't be launch","TourFourmiNonIa");
     }
+    if(Main.getOp().getAutoCleaning()){
+      cleanItself();
+    }
     String m = "";
     int choix = -1; f.setMode(-1);
     while(f.getAction()>0 && choix!=-2 && f.getMode()==-1){

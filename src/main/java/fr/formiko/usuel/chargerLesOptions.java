@@ -18,7 +18,7 @@ import java.util.Locale;
 
 public class chargerLesOptions {
   // Fonctions propre -----------------------------------------------------------
-  public static Options chargerLesOptions(int versionActuelle){
+  public static Options chargerLesOptions(String versionActuelle){
     //pas de vérifications de la 1a partie du texte qui nous intéresse pas tant que le fichier est dans l'ordre.
     File f = new File(Main.getFolder().getFolderMain()+"Options.txt");
     if (!f.exists()){ // si le fichier d'options n'existe pas.
@@ -27,7 +27,7 @@ public class chargerLesOptions {
     String t [] = lireUnFichier.lireUnFichier(Main.getFolder().getFolderMain()+"Options.txt");
     Options op = new Options();
     int k=0;
-    if(decoderUnFichier.getIntDeLaLigne(t[k]) != versionActuelle){ return op;}k++;
+    if(!decoderUnFichier.getStringDeLaLigne(t[0]).equals(versionActuelle)){ return op;}k++;
     op.setLangue( decoderUnFichier.getByteDeLaLigne(t[k]));k++;
     op.setTailleBoutonZoom( decoderUnFichier.getByteDeLaLigne(t[k]));k++;
     op.setTailleBoutonAction( decoderUnFichier.getByteDeLaLigne(t[k]));k++;
@@ -60,6 +60,7 @@ public class chargerLesOptions {
     op.setVolMusique(decoderUnFichier.getByteDeLaLigne(t[k]));k++;
     op.setVolSon(decoderUnFichier.getByteDeLaLigne(t[k]));k++;
     op.setTailleRealiste(decoderUnFichier.getByteDeLaLigne(t[k]));k++;
+    op.setAutoCleaning(decoderUnFichier.getBooleanDeLaLigne(t[k]));k++;
     try {
       File dossier = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages());
       //si les éléments sont tourné mais qu'il n'y a pas beaucoup d'image, il en manque.
@@ -69,7 +70,7 @@ public class chargerLesOptions {
     }
     return op;
   }
-  public static void chargerLesOptionsDe0(int langue, String pseudo, int versionActuelle){
+  public static void chargerLesOptionsDe0(int langue, String pseudo, String versionActuelle){
     //TODO passer par la méthode sauvegarder de Option pour tout sauvegarder.
     GString gs = new GString();
     gs.ajouter("version compatible:"+versionActuelle);
@@ -120,12 +121,13 @@ public class chargerLesOptions {
     volMusique:100
     volSon:100
     tailleRéaliste:30
+    autoCleaning:true
     """);
     //TODO la musique est temporairement désactivé. La réactivé quand elle marchera.
     ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderMain()+"Options.txt");
   }
   //public static void chargerLesOptionsDe0(int l){chargerLesOptionsDe0(l,"");}
-  public static void chargerLesOptionsDe0(int versionActuelle){
+  public static void chargerLesOptionsDe0(String versionActuelle){
     Locale currentLocale = Locale.getDefault();
     debug.débogage("Langue locale = "+currentLocale.getLanguage());
     String lang = currentLocale.getLanguage();
