@@ -24,6 +24,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   */
   @Override
   public void tour(){
+    if(Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()){return;}
     try {
       //TODO move to View
       Main.getPj().setFActuelle(f);
@@ -31,13 +32,14 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       Main.getPb().addPIJ();
     }catch (Exception e) {
       Main.getView().setPlayingAnt(f);
-      erreur.alerte("1 graphics action can't be launch","TourFourmiNonIa");
+      erreur.alerteGUI2Dfail("TourFourmiNonIa");
     }
     if(Main.getOp().getAutoCleaning()){
       cleanItself();
     }
     String m = "";
-    int choix = -1; f.setMode(-1);
+    int choix = -1;
+    f.setMode(-1);//TODO to remove.
     while(f.getAction()>0 && choix!=-2 && f.getMode()==-1){
       Temps.pause(50);
       choix = (byte)(getChoixJoueur()-1);
@@ -45,6 +47,17 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         return;
       }
       m = faire(choix);
+      if(choix==12){
+        return;
+      }else if(choix==14){
+        System.out.println();System.out.println();System.out.println("-----------------------------------------");//@a
+        f.setAction(0);
+        finTour();
+        Main.getPartie().setContinuerLeJeu(false);
+        //f.getFere().getGc().setAction0();
+        //Main.getPartie().setNbrDeTour(Main.getPartie().getTour()-1);
+        return;
+      }
     }
     if (f.getMode() == 0){
       m = "chasser / ce déplacer pour chasser (Ou Récolter des graines)";
@@ -55,7 +68,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     try {
       Main.getPs().setIdFourmiAjoué(-1);
     }catch (Exception e) {
-      erreur.alerte("1 graphics action can't be launch","TourFourmiNonIa");
+      erreur.alerteGUI2Dfail("TourFourmiNonIa");
     }
     finTour();
   }
@@ -70,7 +83,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         choix = (byte) Main.getPj().getActionF();
       }catch (Exception e) {
         choix = (byte) Main.getView().getAntChoice(getTActionFourmi());
-        erreur.alerte("1 graphics action can't be launch","TourFourmiNonIa");
+        erreur.alerteGUI2Dfail("TourFourmiNonIa");
       }
       Temps.pause(50);
       if (f.getBUneSeuleAction()){
@@ -79,7 +92,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
           Main.getPb().removePa();
           Main.getPb().addPa(getTActionFourmi());
         }catch (Exception e) {
-          erreur.alerte("1 graphics action can't be launch","TourFourmiNonIa");
+          erreur.alerteGUI2Dfail("TourFourmiNonIa");
         }
         f.setBUneSeuleAction(false);
       }
@@ -98,7 +111,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       Main.getPb().removePa();
       Main.getPb().addPa(t);
     }catch (Exception e) {
-      erreur.alerte("1 graphics action can't be launch","TourFourmiNonIa");
+      erreur.alerteGUI2Dfail("TourFourmiNonIa");
     }
     // on attend une action de la fenetre.
     debug.débogage("lancement de l'attente du bouton");
@@ -106,7 +119,9 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     debug.débogage("action de Fourmi lancé "+choix);
     try {
       Main.getPj().setActionF(-1); //TODO move to View
-    }catch (Exception e) {}
+    }catch (Exception e) {
+      erreur.alerteGUI2Dfail("TourFourmiNonIa");
+    }
     return choix;
   }
   private int [] getTActionFourmi(){
@@ -134,10 +149,9 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     return t;
   }
   private String faire(int choix){
-    boolean estIa = f.getFere().getJoueur().getIa();
     String m = switch(choix){
       case 0 :
-        f.ceDeplacer(estIa);
+        f.ceDeplacer(f.getFere().getJoueur().getIa());
         yield "ceDeplacer";
       case 1 :
         f.chasse();
@@ -178,6 +192,13 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
           f.mourir(4);
           yield "supprimer la fourmi";
         }
+      case 12 :
+        yield "change Fourmi";
+      case 13 :
+        f.getFere().getGc().setAction0();
+        yield "endTurn";
+      case 14 :
+        yield "endGame";
       default :
         yield "le choix "+choix+" n'est pas possible";
       };

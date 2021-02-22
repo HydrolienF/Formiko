@@ -276,6 +276,11 @@ public class triche {
             Main.getView().menuMain();
           }catch (Exception e) {}
           break;
+        case 38:
+          try {
+            Main.getFActuelle().setAction(0);
+          }catch (Exception e) {}
+          Main.getPartie().setContinuerLeJeu(false);
         default:
           erreur.erreur("La commande n'as pas été reconnue.","triche.commande");
       }

@@ -351,19 +351,22 @@ public class ViewCLI implements View {
   public int getAntChoice(int t[]){
     if (!actionGameOn) {return -1;}
     //TODO link choice to the real action print because unable action aren't print so number don't correspond.
-    String ts [] = new String[12];
+    String ts [] = new String[15];
     for (int i=0;i<12 ;i++ ) {
       ts[i]=g.get("bouton.desc."+(20+i));
       if(!tableau.estDansT(t,i)){
         ts[i]+=" ("+g.get("unaviable")+")"; //TODO add to translation.
       }
     }
+    ts[12]=g.getM("setPlayingAnt");//TODO add to translation.
+    ts[13]=g.getM("endTurn");//TODO add to translation.
+    ts[14]=g.getM("endGame");//TODO add to translation.
     tToPrint = ts;
     int choice = -1;
     do {
       paint();
       choice = getActionMenu(tToPrint.length)-1;
-    } while (!tableau.estDansT(t,choice));
+    } while (choice <12 && !tableau.estDansT(t,choice));
     return choice;
   }
 

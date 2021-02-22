@@ -45,7 +45,7 @@ public class erreur {
     if(Main.getOs().isLinux()){preMessage = "["+red+g.get("erreur").toUpperCase()+neutral+"] ";}
     //println(preMessage+g.get("erreur",4,"Une erreur")+" " + m + g.get("erreur",5,"c'est produite dans")+" " + lieu + " : ");
     print(preMessage + "("+lieu+") ");
-    println(message);
+    println(message+".");
     if (!correction.equals("")){
       println(g.get("erreur",6,"Correction apportée")+" : " + correction);
     }
@@ -75,7 +75,7 @@ public class erreur {
     if(Main.getOs().isLinux()){preMessage = "["+yellow+g.get("alerte").toUpperCase()+neutral+"] ";}
     //println(preMessage+g.get("erreur",7,"Quelque chose d'anormale est arrivé dans")+" "+ lieu +", "+g.get("erreur",8,"il n'y a peut-être pas de raison de s'inquiéter"));
     print(preMessage+"("+lieu+") ");
-    if (!message.equals("")) println(message);
+    if (!message.equals("")) println(message+".");
     if (!correction.equals("")){
       println(g.get("erreur",6,"Correction apportée")+" : " + correction);
     }
@@ -114,5 +114,11 @@ public class erreur {
   }public static void erreurType(String type){
     //if(lieu0==null){lieu0 = g.get("erreur",1,"un lieu non précisé");}
     erreurType(type,null);
+  }
+  public static void alerteGUI2Dfail(String cause, String lieu){
+    alerte(g.getM("alerteGUI2Dfail"),lieu);
+  }
+  public static void alerteGUI2Dfail(String cause){
+    alerteGUI2Dfail(cause, null);
   }
 }

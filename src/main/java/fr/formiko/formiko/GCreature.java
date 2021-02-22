@@ -309,6 +309,10 @@ public class GCreature implements Serializable{//, Iterator{
       afficheToiRéduitE();
     }catch (EmptyListException e) {}
   }
+  /**
+  *Play as an ant.
+  *@version 1.33
+  */
   private void jouerE() throws EmptyListException{
     if(début == null){
       throw new EmptyListException("GCreature","jouer");
@@ -316,6 +320,10 @@ public class GCreature implements Serializable{//, Iterator{
       début.jouer();
     }
   }
+  /**
+  *Play as an ant.
+  *@version 1.33
+  */
   public void jouer(){
     try{
       jouerE();

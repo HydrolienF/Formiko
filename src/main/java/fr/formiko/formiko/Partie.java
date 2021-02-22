@@ -197,10 +197,11 @@ public class Partie implements Serializable{
     else{setPartieFinie(false);}
     for(tour=1; tour<=nbrDeTour; tour++){
       new Message("\n"+g.get("tour")+ tour +" :");
-      Main.repaint();
+      //Main.repaint();
       //La joue toutes les ia et les joueurs
       Main.tour();
       testFinDePartie();
+      if(!getContinuerLeJeu()){finDePartie(0);}
       if(Main.getRetournerAuMenu()){return true;}
     }
     System.out.println(g.get("dernierTourPassé"));
@@ -209,6 +210,9 @@ public class Partie implements Serializable{
   }
   public boolean jeu(){return launchGame();}
   public void testFinDePartie(){
+    if(getContinuerLeJeu()){
+      finDePartie(0); //0=défaite
+    }
     if(partieFinie){ return;}//on ne fait pas le test si on est déja après la fin et que le joueur veux continuer a jouer.
     if(getGj().plusQu1Joueur()){
       finDePartie(2);
@@ -222,6 +226,9 @@ public class Partie implements Serializable{
   public void finDePartie(int x){
     if (partieFinie) {return;}//on n'affiche pas plusieur fois les info de fin de partie.
     setPartieFinie(true);
+    System.out.println("game is over.");//@a
+    System.out.println(getTour()+"/"+getNbrDeTour());
+    System.out.println(getGj());//@a
     String victoire = g.get("victoireInconue");
     GJoueur gjOrdonné = getGj().getGjOrdonné();
     Joueur gagnant = gjOrdonné.getDébut().getContenu();
@@ -241,8 +248,13 @@ public class Partie implements Serializable{
       new Message(mess);
     }
     gjOrdonné.afficheScore();
-    Main.getPj().addPfp(mess,gjOrdonné);
+    try {
+      Main.getPj().addPfp(mess,gjOrdonné);
+    }catch (Exception e) {
+      erreur.alerteGUI2Dfail("Partie.finDePartie");
+    }
     setContinuerLeJeu(false);
+    Main.setRetournerAuMenu(true);//TODO ask & not force.
     while(!getContinuerLeJeu() && !Main.getRetournerAuMenu()){//on attend la validation que la partie continue.
       Temps.pause(10);
     }

@@ -212,13 +212,11 @@ public class Main {
     //===
     startCh();
     //start of test part
-    /*
     erreur.alerte("le jeu est en test.");
     view = new ViewCLI();
     view.ini();
     view.menuMain();
     quitter();
-    */
     //end of test part
     f = new Fenetre();
     try {
@@ -625,6 +623,9 @@ public class Main {
    * @version 1.1
    */
   public static void tour(){
+    if(!getPartie().getContinuerLeJeu()){
+      return;
+    }
     getGc().tourCases(); //actualisation des ressources sur les cases.
     getGi().preTour(); //actualisation des actions des insectes
     getGj().jouer();
