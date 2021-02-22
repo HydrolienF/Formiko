@@ -1,5 +1,10 @@
 package fr.formiko.usuel;
 
+/**
+*{@summary Class that have all link to all folder of formiko.}<br>
+*You can acces to file by using getters.
+*Ex : getFolderStable()+getFolderImages() will return the path to stable images.
+*/
 public class Folder{
   private String folderMain="data/";
   private String folderStable="stable/";
