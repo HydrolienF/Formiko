@@ -41,7 +41,7 @@ public class triche {
       //affichage
       int x=-1;int i=1;
       while(x==-1 && i<=nbrDeCommande){
-        if(s.equals(g.get("cmd."+i))){x=i;}//si la commande est reconue on note le numérau de la commande et on passe a la suite.
+        if(s.equals(g.get("cmd."+i))){x=i;}//si la commande est reconue on note le numéro de la commande et on passe a la suite.
         i++;
       }
       if(x==-1){ return;}
@@ -281,6 +281,7 @@ public class triche {
             Main.getFActuelle().setAction(0);
           }catch (Exception e) {}
           Main.getPartie().setContinuerLeJeu(false);
+          break;
         default:
           erreur.erreur("La commande n'as pas été reconnue.","triche.commande");
       }

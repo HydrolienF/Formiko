@@ -39,7 +39,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     }
     String m = "";
     int choix = -1;
-    f.setMode(-1);//TODO to remove.
+    f.setMode(-1);//TODO #50 to remove.
     while(f.getAction()>0 && choix!=-2 && f.getMode()==-1){
       Temps.pause(50);
       choix = (byte)(getChoixJoueur()-1);
@@ -47,7 +47,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         return;
       }
       m = faire(choix);
-      if(choix==12){
+      if(choix==12 || choix==13){
         return;
       }else if(choix==14){
         System.out.println();System.out.println();System.out.println("-----------------------------------------");//@a
@@ -196,8 +196,10 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         yield "change Fourmi";
       case 13 :
         f.getFere().getGc().setAction0();
+        System.out.println("juste endTurn");//@a
         yield "endTurn";
       case 14 :
+        System.out.println("endGame !!");//@a
         yield "endGame";
       default :
         yield "le choix "+choix+" n'est pas possible";

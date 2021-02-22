@@ -100,9 +100,6 @@ public class Fourmiliere implements Serializable{
   public Creature getReine(){ return gc.getReine();}// on part du principe qu'il n'y a qu'une reine.
   public GGraine getGg(){return gg;} public GGraine getGGraine(){ return getGg();}
   public void setGg(GGraine gg){ this.gg = gg;}
-  //public byte getModeDéfaut(){ return modeDéfaut;}
-  //public void setModeDéfaut(byte x){ modeDéfaut=x;}
-  //public void setModeDéfaut(int x){ setModeDéfaut((byte)x);}
   public void setLienFere(){ gc.setLienFere(this);}
   public Pheromone getPh(){
     if(getReine()!=null){return getReine().getPh();}
