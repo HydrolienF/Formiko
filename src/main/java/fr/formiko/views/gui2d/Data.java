@@ -340,7 +340,6 @@ public class Data {
     }
     //if it haven't been load yet we try to load any image name chargementi.png or .jpj.
     if(imageChargement==null){
-      System.out.println("loadImageChargement");//@a
       int x = allea.getAlléa(image.getNbrImages("chargement"));
       imageChargement=image.getImage("chargement"+x);
       imageChargement=image.resize(imageChargement,Main.getDimX(),Main.getDimY());
