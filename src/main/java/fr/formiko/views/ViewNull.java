@@ -1,5 +1,8 @@
 package fr.formiko.views;
 
+import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.Fourmi;
+
 /**
  *{@summary Null view. A simple view who do nothing when a view action is launch.}<br>
  *@author Hydrolien
@@ -91,7 +94,7 @@ public class ViewNull implements View {
   *@return Return true if nothing have been print or paint.
   *@version 1.33
   */
-  public boolean setPlayingAnt(){
+  public boolean setPlayingAnt(Fourmi f){
     return true;
   }
   /**
@@ -99,7 +102,15 @@ public class ViewNull implements View {
   *@return Return true if nothing have been print or paint.
   *@version 1.33
   */
-  public boolean setLookedCase(){
+  public boolean setLookedCase(CCase cc){
     return true;
+  }
+  /**
+  *{@summary A null view action that do nothing.}<br>
+  *@return Return -1;
+  *@version 1.33
+  */
+  public int getAntChoice(int t[]){
+    return -1;
   }
 }

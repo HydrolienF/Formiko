@@ -1,8 +1,12 @@
 package fr.formiko.views;
 
+import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
+import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.save;
 import fr.formiko.usuel.tableau;
@@ -21,6 +25,8 @@ public class ViewCLI implements View {
   private String menuName;
   private boolean actionGameOn;
   private String tToPrint[];
+  private Joueur playingPlayer;
+  private Fourmi playingAnt;
 
   /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
@@ -59,6 +65,7 @@ public class ViewCLI implements View {
   */
   public boolean paint(){
     if(actionGameOn){
+      printMap();
       printArray();
     }else{
       if(menuName.equals("")){
@@ -219,27 +226,39 @@ public class ViewCLI implements View {
   public boolean actionGame(){
     actionGameOn=true;
     menuName="";
-    //TODO
+    playingAnt=null;
+    playingPlayer=null;
+    Main.getPartie().initialisationElément();
     int toDoAfter = 0;
+    String tab [] = new String[4];
+    tab[0]=g.get("doAntAction");//TODO add to translation.
+    tab[1]=g.get("selectAnt");//TODO add to translation.
+    tab[2]=g.get("endTurn");//TODO add to translation.
+    tab[3]=g.get("pauseActionGame");//TODO add to translation.
+    tToPrint = tab;
+    Main.getPartie().launchGame();
     /*while (wantToPlay) {
+      tToPrint = tab;
       paint();
       int choice = getActionMenu(tToPrint.length);
-      switch(){
-        //do an ant action
+      switch(choice){
+        case 1:
+        doAntAction();
+        break;
+        case 2:
+        int i=-1;
+        while (i<0 || !setPlayingAnt(i)) {}
+        break;
+        case 3:
+        //endTurn.
 
-        //end turn
-
-        case x :
+        case 4 :
         toDoAfter = pauseActionGame();
-        if(toDoAfter!=0){wantToPlay==false;}
-
-        //etc
-
+        if(toDoAfter!=0){wantToPlay=false;}
+        break;
       }
     }*/
-    // we need to end the previous game.
-    System.out.println("game is not ready yet, interact with pauseActionGame.");//@a
-    toDoAfter = pauseActionGame();
+    Main.setPartie(null);
     switch (toDoAfter) {
       case 3:
       if(!menuLoadAGame()){
@@ -298,10 +317,18 @@ public class ViewCLI implements View {
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.33
   */
-  public boolean setPlayingAnt(){
+  public boolean setPlayingAnt(Fourmi f){
     if (!actionGameOn) {return false;}
-    //TODO
+    playingAnt=f;
     return false;
+  }
+  private boolean setPlayingAnt(int id){
+    try {
+      return setPlayingAnt(triche.getFourmiParId(id+""));
+    }catch (Exception e) {
+      erreur.erreur("the ant "+id+" can't be used to play.");
+      return false;
+    }
   }
   /**
   *{@summary Change the value of the loked Case.}<br>
@@ -310,10 +337,34 @@ public class ViewCLI implements View {
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.33
   */
-  public boolean setLookedCase(){
+  public boolean setLookedCase(CCase cc){
     if (!actionGameOn) {return false;}
     //TODO
     return false;
+  }
+  /**
+  *{@summary Return the chosen value for ant action.}<br>
+  *This action can only be run if action game is on.<br>
+  *@return Return ant choice.
+  *@version 1.33
+  */
+  public int getAntChoice(int t[]){
+    if (!actionGameOn) {return -1;}
+    //TODO link choice to the real action print because unable action aren't print so number don't correspond.
+    String ts [] = new String[12];
+    for (int i=0;i<12 ;i++ ) {
+      ts[i]=g.get("bouton.desc."+(20+i));
+      if(!tableau.estDansT(t,i)){
+        ts[i]+=" ("+g.get("unaviable")+")"; //TODO add to translation.
+      }
+    }
+    tToPrint = ts;
+    int choice = -1;
+    do {
+      paint();
+      choice = getActionMenu(tToPrint.length)-1;
+    } while (!tableau.estDansT(t,choice));
+    return choice;
   }
 
   //private functions
@@ -345,6 +396,15 @@ public class ViewCLI implements View {
       System.out.println(i+" : "+s);
       i++;
     }
+  }
+  /**
+  *{@summary Print map of the actual Partie.}<br>
+  *@version 1.33
+  */
+  private void printMap(){
+    Main.getPartie().getGc().afficheCarte();
+    System.out.println(g.get("playingAnt")+ " : ");
+    System.out.println(playingAnt);
   }
   /**
   *{@summary Return an aviable action in a menu.}<br>

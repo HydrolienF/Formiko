@@ -1,5 +1,8 @@
 package fr.formiko.views;
 
+import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.Fourmi;
+
 /**
  *{@summary Main view interface.}<br>
  *All views need to implement this interface !<br>
@@ -79,15 +82,7 @@ public interface View {
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.33
   */
-  boolean setPlayingAnt();
-  /***
-  *{@summary Change the value of the playing ant.}<br>
-  *We need to repaint the information about this playingAnt.<br>
-  *This action can only be run if action game is on.<br>
-  *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
-  */
-  boolean setLookedCase();
+  boolean setPlayingAnt(Fourmi f);
   /***
   *{@summary Change the value of the loked Case.}<br>
   *We need to repaint the information about this Case.<br>
@@ -95,4 +90,12 @@ public interface View {
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.33
   */
+  boolean setLookedCase(CCase cc);
+  /***
+  *{@summary Return the chosen value for ant action.}<br>
+  *This action can only be run if action game is on.<br>
+  *@return Return ant choice.
+  *@version 1.33
+  */
+  int getAntChoice(int t[]);
 }

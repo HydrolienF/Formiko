@@ -28,7 +28,6 @@ public class Partie implements Serializable{
   private int nbrDeTour, tour;
   private int niveauDeLimitationDesinsectes = 4;
   private byte difficulté = 0; // 0 moyen. -1 facile, -2 très facile, 1 difficle, 2 très difficle, 3 ultra difficle.
-  //private byte difficulté = 3; // 1 facile, 2 moyen, 3 difficile.
   private LocalDateTime dateDeCréation;
   private boolean partieFinie;
   private int tableauDesEspecesAutorisée []; // les 0 et les 3 marche.

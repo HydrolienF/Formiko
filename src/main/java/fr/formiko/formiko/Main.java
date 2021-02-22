@@ -10,6 +10,7 @@ import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.View;
 import fr.formiko.views.ViewCLI;
+import fr.formiko.views.ViewNull;
 import fr.formiko.views.gui2d.*;
 
 import java.awt.Font;
@@ -385,7 +386,7 @@ public class Main {
   public static void setMusiqueSuivante(){getThm().setM();}*/
   //graphique
   public static PanneauPrincipal getPp(){ return f.getPp();}
-  public static void repaint(){try { f.repaint();}catch (Exception e) {}}
+  public static void repaint(){try { f.repaint();}catch (Exception e) {view.paint();}}
   //public static synchronized void repaint(){try { f.paintAll(f.getGraphics());}catch (Exception e) {}}
   public static PanneauJeu getPj(){ return getPp().getPj();}
   public static PanneauMenu getPm(){ return getPp().getPm();}
@@ -467,6 +468,7 @@ public class Main {
     tempsDeDébutDeJeu=System.currentTimeMillis();
     os = new Os();
     folder = new Folder();
+    view = new ViewNull();
     //setMessageChargement("vérificationsDeLArborécence");startCh();
     //if(!arbo.arborécenceIntacte()){arbo.réparationArboréscence();}
     //endCh("vérificationsDeLArborécence");

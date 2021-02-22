@@ -30,6 +30,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       Main.getPb().addPI();
       Main.getPb().addPIJ();
     }catch (Exception e) {
+      Main.getView().setPlayingAnt(f);
       erreur.alerte("1 graphics action can't be launch","TourFourmiNonIa");
     }
     String m = "";
@@ -60,14 +61,23 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
 
   // old part to choose the action to do with the ant.---------------------------
   public byte getChoixBouton(){
-    byte choix = (byte) Main.getPj().getActionF();
+    byte choix = -1;
     while (choix==-1) {
-      choix = (byte) Main.getPj().getActionF();
+      try {
+        choix = (byte) Main.getPj().getActionF();
+      }catch (Exception e) {
+        choix = (byte) Main.getView().getAntChoice(getTActionFourmi());
+        erreur.alerte("1 graphics action can't be launch","TourFourmiNonIa");
+      }
       Temps.pause(50);
       if (f.getBUneSeuleAction()){
         //TODO move to View
-        Main.getPb().removePa();
-        Main.getPb().addPa(getTActionFourmi());
+        try {
+          Main.getPb().removePa();
+          Main.getPb().addPa(getTActionFourmi());
+        }catch (Exception e) {
+          erreur.alerte("1 graphics action can't be launch","TourFourmiNonIa");
+        }
         f.setBUneSeuleAction(false);
       }
       /*if(bActualiserTaille){
@@ -81,16 +91,22 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   }
   public byte getChoixJoueur(){
     int [] t = getTActionFourmi();
-    Main.getPb().removePa();
-    Main.getPb().addPa(t);
+    try {
+      Main.getPb().removePa();
+      Main.getPb().addPa(t);
+    }catch (Exception e) {
+      erreur.alerte("1 graphics action can't be launch","TourFourmiNonIa");
+    }
     // on attend une action de la fenetre.
     debug.débogage("lancement de l'attente du bouton");
     byte choix = getChoixBouton();
     debug.débogage("action de Fourmi lancé "+choix);
-    Main.getPj().setActionF(-1); //TODO move to View
+    try {
+      Main.getPj().setActionF(-1); //TODO move to View
+    }catch (Exception e) {}
     return choix;
   }
-  public int [] getTActionFourmi(){
+  private int [] getTActionFourmi(){
     if(f.getUneSeuleAction()!=-1){
       if(f.getUneSeuleAction()==20){return new int[0];}
       int t []= new int [1];
@@ -114,7 +130,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     }
     return t;
   }
-  public String faire(int choix){
+  private String faire(int choix){
     boolean estIa = f.getFere().getJoueur().getIa();
     String m = switch(choix){
       case 0 :
@@ -148,12 +164,17 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         f.setAction(0);
         yield "ne rien faire";
       case 10 :
-        Question q = new Question("supprimerFourmi.1","supprimerFourmi.2");
-        if(q.getChoix()){
+        try {
+          Question q = new Question("supprimerFourmi.1","supprimerFourmi.2");
+          if(q.getChoix()){
+            f.mourir(4);
+            yield "supprimer la fourmi";
+          }
+          yield "ne pas supprimer la fourmi";
+        }catch (Exception e) {
           f.mourir(4);
           yield "supprimer la fourmi";
         }
-        yield "ne pas supprimer la fourmi";
       default :
         yield "le choix "+choix+" n'est pas possible";
       };
