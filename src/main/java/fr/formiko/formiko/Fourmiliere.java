@@ -109,7 +109,14 @@ public class Fourmiliere implements Serializable{
     else if(getGc().getDébut()!=null){return getGc().getDébut().getContenu().getPh();}
     else{return new Pheromone(0,0,0);}
   }
-  public int getScore(){return ggi.getFin().getContenu().calculerScore(this);}
+  public int getScore(){
+    try {
+      return ggi.getFin().getContenu().calculerScore(this);
+    }catch (NullPointerException e) {
+      ggi.ajouter(new GInt(this));
+      return ggi.getFin().getContenu().calculerScore(this);
+    }
+  }
   public int getNbrFourmisMorte(){return nbrFourmisMorte;}
   public void setNbrFourmisMorte(int x){nbrFourmisMorte=x;}
   public void nbrFourmisMortePlus1(){setNbrFourmisMorte(getNbrFourmisMorte()+1);}
