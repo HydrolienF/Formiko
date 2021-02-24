@@ -157,7 +157,6 @@ public class TourFourmi implements Serializable, Tour{
   *@version 1.30
   */
   public void finTour(){
-    System.out.println("fin tour");//@a
     debug.débogage("Fin du tour de la Fourmi");
     if(f.getAction()>0){f.setAction(0);}//end the turn normaly
     // Un tour ça coute en age et en nourriture;

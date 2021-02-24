@@ -51,7 +51,6 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       if(choix==12 || choix==13){ //Main.getPs().setIdFourmiAjoué(-1);
         return;
       }else if(choix==14){
-        System.out.println();System.out.println();System.out.println("-----------------------------------------");//@a
         f.setAction(0);
         finTour();
         Main.getPartie().setContinuerLeJeu(false);
@@ -195,10 +194,8 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         yield "change Fourmi";
       case 13 :
         f.getFere().getGc().setAction0AndEndTurn();
-        System.out.println("juste endTurn");//@a
         yield "endTurn";
       case 14 :
-        System.out.println("endGame !!");//@a
         yield "endGame";
       default :
         yield "le choix "+choix+" n'est pas possible";

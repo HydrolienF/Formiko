@@ -48,7 +48,6 @@ public class triche {
       try {
         if(args[0].substring(0,2).equals("//")){return;}
       }catch (Exception e) {}
-        System.out.println(x);//@a
       switch(x){
         case 1:
           System.out.println(g.getM("affTest")+".");

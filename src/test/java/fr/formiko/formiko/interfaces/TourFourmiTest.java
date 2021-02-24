@@ -25,7 +25,7 @@ public class TourFourmiTest extends TestCaseMuet{
     Fourmi f = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
     j.getFere().getGc().add(f);
     assertEquals(1,j.getFere().getGc().length());
-    //f.tour = new TourFourmi();
+    f.tour = new TourFourmi();
     ((TourFourmi)(f.tour)).setF(f);
     return f;
   }
@@ -448,7 +448,6 @@ public class TourFourmiTest extends TestCaseMuet{
     assertEquals(0,f.getAction());
     assertEquals(19,f.getNourriture());
     assertEquals(100,f.getProprete());
-    System.out.println("tour");//@a
     f.tour();
     assertEquals(1,f.getAge());
     assertEquals(0,f.getAction());
@@ -462,6 +461,5 @@ public class TourFourmiTest extends TestCaseMuet{
     assertEquals(2,f.getAge());
     assertEquals(0,f.getAction());
     assertEquals(15,f.getNourriture());
-
   }
 }
