@@ -134,6 +134,6 @@ public class chargerLesOptions {
     debug.débogage("Langue locale = "+currentLocale.getLanguage());
     String lang = currentLocale.getLanguage();
     chargerLesTraductions.iniTLangue();
-    chargerLesOptionsDe0(chargerLesTraductions.getLangue(lang),"",versionActuelle);
+    chargerLesOptionsDe0(chargerLesTraductions.getLanguage(lang),"",versionActuelle);
   }
 }

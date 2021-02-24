@@ -410,9 +410,9 @@ public class Main {
   public static double getRacioEspaceLibre(){return 900.0/1080.0;}
   public static int getDimXCarte(){System.out.println(getRacioEspaceLibre());return (int)(1920.0*getRacioEspaceLibre());}
   //options
-  public static byte getLangue(){ return op.getLangue();}
+  public static byte getLanguage(){ return op.getLanguage();}
   public static void setLangue(int x){ op.setLangue(x);iniLangue();}
-  public static int getTailleBoutonZoom(){return op.getTailleBoutonZoom();}
+  public static int getbuttonSizeZoom(){return op.getbuttonSizeZoom();}
   public static int getTailleBoutonAction(){return op.getTailleBoutonAction();}
   public static int getTailleBoutonTX(){return op.getTailleBoutonTX();}
   public static boolean getMouvementRapide(){ return op.getMouvementRapide();}
@@ -539,9 +539,9 @@ public class Main {
    */
   public static void iniLangue(){
     startCh();
-    HashMap<String,String> hm = chargerLesTraductions.chargerLesTraductions(getLangue());
+    HashMap<String,String> hm = chargerLesTraductions.chargerLesTraductions(getLanguage());
     g.setMap(hm);
-    if(getLangue()>2){ //language 0,1 & 2 are full translated.
+    if(getLanguage()>2){ //language 0,1 & 2 are full translated.
       chargerLesTraductions.completMapWithFullTranslatedLanguage();
     }
     endCh("chargementDesLangues");

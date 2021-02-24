@@ -33,11 +33,11 @@ public class chargerLesTraductions {
   *@return language String in ISO code 639-1 if tLangue is correct.
   *@version 1.5
   */
-  public static String getLangue(int x){
+  public static String getLanguage(int x){
     if(tLangue == null || x<0 || x>=tLangue.length){
       int l = 0;
       if(tLangue!=null){l=tLangue.length;}
-      erreur.erreur("langue non reconnu parmi les "+l+" langue(s) disponible(s).","chargerLesTraductions.getLangue","\"en\" retourné");
+      erreur.erreur("langue non reconnu parmi les "+l+" langue(s) disponible(s).","chargerLesTraductions.getLanguage","\"en\" retourné");
       return "en";
     }
     return tLangue[x];
@@ -48,7 +48,7 @@ public class chargerLesTraductions {
   *@param s language String in ISO code 639-1.
   *@version 1.5
   */
-  public static int getLangue(String s){
+  public static int getLanguage(String s){
     if(tLangue == null || s==null || s.equals("")){ return -1;}
     int k=0;
     for (String s2 : tLangue) {
@@ -123,8 +123,8 @@ public class chargerLesTraductions {
     //String tDéfaut [] = lireUnFichier.lireUnFichier(rep+"fr.txt");
     String t [] = new String[0];
     try{
-      debug.débogage("chargement de la langue "+getLangue(langue));
-      t=lireUnFichier.lireUnFichier(rep+getLangue(langue)+".txt");
+      debug.débogage("chargement de la langue "+getLanguage(langue));
+      t=lireUnFichier.lireUnFichier(rep+getLanguage(langue)+".txt");
     }catch (Exception e) {
       erreur.erreur("Echec du chargement de la langue spécifiée","en choisi par défaut");
       t=lireUnFichier.lireUnFichier(rep+"en.txt");
@@ -245,7 +245,7 @@ public class chargerLesTraductions {
     int x = 0;
     String [] t= new String [0];
     try {
-      t=lireUnFichier.lireUnFichier(rep+getLangue(langue)+".txt");
+      t=lireUnFichier.lireUnFichier(rep+getLanguage(langue)+".txt");
     }catch (Exception e) {}
       for (String s : t ) {
         if(estLigneDeTrad(s)){
@@ -266,7 +266,7 @@ public class chargerLesTraductions {
     int x = 0;
     String [] t= new String [0];
     try {
-      t=lireUnFichier.lireUnFichier(rep+getLangue(langue)+".txt");
+      t=lireUnFichier.lireUnFichier(rep+getLanguage(langue)+".txt");
     }catch (Exception e) {}
       for (String s : t ) {
         if(s.length()>6 && s.substring(s.length()-6).equals("[auto]")){
@@ -287,7 +287,7 @@ public class chargerLesTraductions {
       String s = "";int x=getPourcentageTraduitAutomatiquement(i); if(x>0){s=" ("+x+"% traduit automatiquement)";}
       int y = getPourcentageTraduit(i);
       if(x>0){
-        System.out.println(getLangue(i)+" : "+y+"%"+s);
+        System.out.println(getLanguage(i)+" : "+y+"%"+s);
       }
     }
   }
@@ -298,7 +298,7 @@ public class chargerLesTraductions {
   *@version 1.33
   */
   public static void completMapWithFullTranslatedLanguage(){
-    HashMap<String,String> hm = chargerLesTraductions(getLangue("en"));
+    HashMap<String,String> hm = chargerLesTraductions(getLanguage("en"));
     for (String key : hm.keySet() ) {
       if(!g.exist(key)){
         g.getMap().put(key,hm.get(key));

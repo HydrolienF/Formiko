@@ -20,7 +20,7 @@ public class ThTrad extends Thread{
     ajouterTradAuto();
   }
   public void ajouterTradAuto(){
-    String sLangue=chargerLesTraductions.getLangue(langue);
+    String sLangue=chargerLesTraductions.getLanguage(langue);
     System.out.println("Ajout de la langue : "+sLangue);
     GString gs = new GString();
     String t[] = chargerLesTraductions.getTableauDesTrad(langue);

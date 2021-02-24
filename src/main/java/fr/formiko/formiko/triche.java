@@ -261,7 +261,7 @@ public class triche {
             Main.setLangue((int)xL);
           }catch (Exception e) {
             try {
-              Main.setLangue(chargerLesTraductions.getLangue(args[1]));
+              Main.setLangue(chargerLesTraductions.getLanguage(args[1]));
             }catch (Exception e2) {
               erreur.erreur("Impossible de changer la langue","triche.commande");
             }

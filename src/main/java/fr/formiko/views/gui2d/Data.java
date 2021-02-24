@@ -291,7 +291,7 @@ public class Data {
   public Image [] chargerTIBZoom(){
     tIBZoom = new Image[9];
     if(!initialisationFX && !Main.getGarderLesGraphismesTourné()){tournerLesFleches();}
-    int tailleBouton=Main.getTailleBoutonZoom();
+    int tailleBouton=Main.getbuttonSizeZoom();
     tIBZoom[0] = image.getImage("moins").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
     tIBZoom[1] = image.getImage("fleche").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
     tIBZoom[2] = image.getImage("plus").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);

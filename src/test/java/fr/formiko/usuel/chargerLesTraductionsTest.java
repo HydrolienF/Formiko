@@ -27,49 +27,49 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
 
   // Fonctions propre -----------------------------------------------------------
   @Test
-  public void testGetLangue(){
+  public void testgetLanguage(){
     String t []= {"en","fr","langueTest"};
     chargerLesTraductions.setTLangue(t);
-    assertEquals("en",chargerLesTraductions.getLangue(0));
-    assertEquals("fr",chargerLesTraductions.getLangue(1));
-    assertEquals("langueTest",chargerLesTraductions.getLangue(2));
+    assertEquals("en",chargerLesTraductions.getLanguage(0));
+    assertEquals("fr",chargerLesTraductions.getLanguage(1));
+    assertEquals("langueTest",chargerLesTraductions.getLanguage(2));
     //si ca me marche pas.
-    assertEquals("en",chargerLesTraductions.getLangue(-1));
-    assertEquals("en",chargerLesTraductions.getLangue(3));
-    assertEquals("en",chargerLesTraductions.getLangue(500));
-    assertEquals("en",chargerLesTraductions.getLangue(-289));
+    assertEquals("en",chargerLesTraductions.getLanguage(-1));
+    assertEquals("en",chargerLesTraductions.getLanguage(3));
+    assertEquals("en",chargerLesTraductions.getLanguage(500));
+    assertEquals("en",chargerLesTraductions.getLanguage(-289));
     String t2 []= {};
     chargerLesTraductions.setTLangue(t2);
-    assertEquals("en",chargerLesTraductions.getLangue(0));
-    assertEquals("en",chargerLesTraductions.getLangue(1));
+    assertEquals("en",chargerLesTraductions.getLanguage(0));
+    assertEquals("en",chargerLesTraductions.getLanguage(1));
     chargerLesTraductions.setTLangue(null);
-    assertEquals("en",chargerLesTraductions.getLangue(0));
-    assertEquals("en",chargerLesTraductions.getLangue(1));
+    assertEquals("en",chargerLesTraductions.getLanguage(0));
+    assertEquals("en",chargerLesTraductions.getLanguage(1));
     //assertTrue(true);
   }
   @Test
-  public void testGetLangueS(){
+  public void testgetLanguageS(){
     String t []= {"a","bcd","épit"};
     chargerLesTraductions.setTLangue(t);
     //une langue qui y est
-    assertEquals(0,chargerLesTraductions.getLangue("a"));
-    assertEquals(1,chargerLesTraductions.getLangue("bcd"));
-    assertEquals(2,chargerLesTraductions.getLangue("bdc"));
-    assertEquals(2,chargerLesTraductions.getLangue("épit"));
+    assertEquals(0,chargerLesTraductions.getLanguage("a"));
+    assertEquals(1,chargerLesTraductions.getLanguage("bcd"));
+    assertEquals(2,chargerLesTraductions.getLanguage("bdc"));
+    assertEquals(2,chargerLesTraductions.getLanguage("épit"));
     //une langue qui n'y est pas
-    assertEquals(2,chargerLesTraductions.getLangue("test"));
-    assertEquals(2,chargerLesTraductions.getLangue("ø"));
+    assertEquals(2,chargerLesTraductions.getLanguage("test"));
+    assertEquals(2,chargerLesTraductions.getLanguage("ø"));
     //un usage imprévu
-    assertEquals(-1,chargerLesTraductions.getLangue(""));
+    assertEquals(-1,chargerLesTraductions.getLanguage(""));
     String s = null;
-    assertEquals(-1,chargerLesTraductions.getLangue(s));
+    assertEquals(-1,chargerLesTraductions.getLanguage(s));
 
     //si la langue 2 n'existe pas dans le tableau des langues.
     String t2 []= {"r"};
     chargerLesTraductions.setTLangue(t2);
-    assertEquals(0,chargerLesTraductions.getLangue("r"));
-    assertEquals(-1,chargerLesTraductions.getLangue("a"));
-    assertEquals(-1,chargerLesTraductions.getLangue("zauvfbiano"));
+    assertEquals(0,chargerLesTraductions.getLanguage("r"));
+    assertEquals(-1,chargerLesTraductions.getLanguage("a"));
+    assertEquals(-1,chargerLesTraductions.getLanguage("zauvfbiano"));
   }
   //iniTLangue
   @Test
@@ -212,10 +212,10 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertEquals("testFr",fr.get("test"));
     Map<String, String> eo = chargerLesTraductions.chargerLesTraductions(0);
     assertEquals("testEo",eo.get("test"));
-    Map<String, String> zu = chargerLesTraductions.chargerLesTraductions(chargerLesTraductions.getLangue("zu"));
+    Map<String, String> zu = chargerLesTraductions.chargerLesTraductions(chargerLesTraductions.getLanguage("zu"));
     assertEquals("testZu",zu.get("test"));
     //si c'est pas une langue existante.
-    Map<String, String> zz = chargerLesTraductions.chargerLesTraductions(chargerLesTraductions.getLangue("zz"));
+    Map<String, String> zz = chargerLesTraductions.chargerLesTraductions(chargerLesTraductions.getLanguage("zz"));
     assertEquals("testEn",zz.get("test"));
     assertTrue(!zz.get("test").equals("testZz"));
 
@@ -230,10 +230,10 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
   public void testChargerLesTraductionsSansCommande(){
     chargerLesTraductions.setRep();
     assertTrue(chargerLesTraductions.iniTLangue());
-    Map<String, String> zu = chargerLesTraductions.chargerLesTraductions(chargerLesTraductions.getLangue("zu"));
+    Map<String, String> zu = chargerLesTraductions.chargerLesTraductions(chargerLesTraductions.getLanguage("zu"));
     assertEquals("testZu",zu.get("test"));
     //si c'est pas une langue existante.
-    Map<String, String> zz = chargerLesTraductions.chargerLesTraductions(chargerLesTraductions.getLangue("zz"));
+    Map<String, String> zz = chargerLesTraductions.chargerLesTraductions(chargerLesTraductions.getLanguage("zz"));
     assertEquals("testEn",zz.get("test"));//si la langue n'existe pas on passe a l'anglais.
     assertTrue(!zz.get("test").equals("testZz"));
   }
