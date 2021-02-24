@@ -381,10 +381,17 @@ public class GCreature implements Serializable{//, Iterator{
     }
     return true;
   }
-  public boolean setAction0(){
+  /**
+  *{@summary Force all the GCreature Creature to end there turn.}<br>
+  *Ant that still haven't end there turn will have action set to 0 & tour to update age, cleaning etc.
+  */
+  public boolean setAction0AndEndTurn(){
     List<Creature> lc = toList();
     for (Creature c : lc ) {
-      c.setAction(0);
+      if(c.getAction()>0){
+        c.setAction(0);
+        c.tour();//force to do finTour() without any action ant will do nothing.
+      }
     }
     return true;
   }

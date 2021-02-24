@@ -170,10 +170,10 @@ public class CJoueur implements Serializable{
       cj = cj.getSuivant();
     }
   }
-  public void setAction0(){
+  public void setAction0AndEndTurn(){
     CJoueur cj = this;
     while(cj!=null){
-      cj.getContenu().setAction0();
+      cj.getContenu().setAction0AndEndTurn();
       cj = cj.getSuivant();
     }
   }

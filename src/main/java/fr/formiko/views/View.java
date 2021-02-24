@@ -11,6 +11,7 @@ import fr.formiko.formiko.Fourmi;
  *@version 1.33
  */
 public interface View {
+  boolean getActionGameOn();
   /***
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
@@ -75,14 +76,6 @@ public interface View {
   *@version 1.33
   */
   int pauseActionGame();
-  /***
-  *{@summary change the value of the playing ant.}<br>
-  *We need to repaint the information about this playingAnt.<br>
-  *This action can only be run if action game is on.<br>
-  *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
-  */
-  boolean setPlayingAnt(Fourmi f);
   /***
   *{@summary Change the value of the loked Case.}<br>
   *We need to repaint the information about this Case.<br>

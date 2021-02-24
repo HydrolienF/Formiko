@@ -9,12 +9,15 @@ import fr.formiko.formiko.Fourmi;
  *@version 1.33
  */
 public class ViewNull implements View {
+  private boolean actionGameOn;
+  public boolean getActionGameOn(){return actionGameOn;}
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return true if nothing have been print or paint.
   *@version 1.33
   */
   public boolean ini(){
+    actionGameOn=false;
     return true;
   }
   /**
@@ -23,6 +26,7 @@ public class ViewNull implements View {
   *@version 1.33
   */
   public boolean close(){
+    actionGameOn=false;
     return true;
   }
   /**
@@ -39,6 +43,7 @@ public class ViewNull implements View {
   *@version 1.33
   */
   public boolean menuMain(){
+    actionGameOn=false;
     return true;
   }
   /**
@@ -47,6 +52,7 @@ public class ViewNull implements View {
   *@version 1.33
   */
   public boolean menuNewGame(){
+    actionGameOn=false;
     return true;
   }
   /**
@@ -55,6 +61,7 @@ public class ViewNull implements View {
   *@version 1.33
   */
   public boolean menuLoadAGame(){
+    actionGameOn=false;
     return true;
   }
   /**
@@ -63,6 +70,7 @@ public class ViewNull implements View {
   *@version 1.33
   */
   public boolean menuPersonaliseAGame(){
+    actionGameOn=false;
     return true;
   }
   /**
@@ -71,6 +79,7 @@ public class ViewNull implements View {
   *@version 1.33
   */
   public boolean menuOptions(){
+    actionGameOn=false;
     return true;
   }
   /**
@@ -79,6 +88,7 @@ public class ViewNull implements View {
   *@version 1.33
   */
   public boolean actionGame(){
+    actionGameOn=true;
     return true;
   }
   /**
@@ -88,14 +98,6 @@ public class ViewNull implements View {
   */
   public int pauseActionGame(){
     return 0;
-  }
-  /**
-  *{@summary A null view action that do nothing.}<br>
-  *@return Return true if nothing have been print or paint.
-  *@version 1.33
-  */
-  public boolean setPlayingAnt(Fourmi f){
-    return true;
   }
   /**
   *{@summary A null view action that do nothing.}<br>

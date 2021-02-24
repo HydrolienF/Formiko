@@ -1,11 +1,13 @@
 package fr.formiko.views;
 
 import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
+import fr.formiko.usuel.listes.List;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.save;
@@ -23,11 +25,17 @@ import java.util.Scanner;
 public class ViewCLI implements View {
   private Scanner scannerAnswer;
   private String menuName;
-  private boolean actionGameOn;
   private String tToPrint[];
-  private Joueur playingPlayer;
-  private Fourmi playingAnt;
+  //colors
+  private static String yellow = (char)27+"[1;33m";
+  private static String red = (char)27+"[1;31m";
+  private static String neutral = (char)27+"[0;m";
+  private static String green=(char)27+"[1;32m";
 
+  private static String sep = "--------------------------------------------------------------------------------";
+
+  private boolean actionGameOn;
+  public boolean getActionGameOn(){return actionGameOn;}
   /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
@@ -65,7 +73,11 @@ public class ViewCLI implements View {
   */
   public boolean paint(){
     if(actionGameOn){
+      System.out.println(sep);
       printMap();
+      System.out.println(sep);
+      printFereInColor();
+      System.out.println(sep);
       printArray();
     }else{
       if(menuName.equals("")){
@@ -226,8 +238,7 @@ public class ViewCLI implements View {
   public boolean actionGame(){
     actionGameOn=true;
     menuName="";
-    playingAnt=null;
-    playingPlayer=null;
+    Main.getPartie().setPlayingAnt(null);
     Main.getPartie().initialisationElément();
     int toDoAfter = 0;
     String tab [] = new String[4];
@@ -237,33 +248,10 @@ public class ViewCLI implements View {
     tab[3]=g.get("pauseActionGame");//TODO add to translation.
     tToPrint = tab;
     Main.getPartie().launchGame();
-    /*while (wantToPlay) {
-      tToPrint = tab;
-      paint();
-      int choice = getActionMenu(tToPrint.length);
-      switch(choice){
-        case 1:
-        doAntAction();
-        break;
-        case 2:
-        int i=-1;
-        while (i<0 || !setPlayingAnt(i)) {}
-        break;
-        case 3:
-        //endTurn.
-
-        case 4 :
-        toDoAfter = pauseActionGame();
-        if(toDoAfter!=0){wantToPlay=false;}
-        break;
-      }
-    }*/
     Main.setPartie(null);
     switch (toDoAfter) {
       case 3:
-      if(!menuLoadAGame()){
-        menuMain();
-      }
+      menuLoadAGame();
       break;
       case 4:
       menuMain();
@@ -310,26 +298,7 @@ public class ViewCLI implements View {
     }
     return 0; //case 6.
   }
-  /**
-  *{@summary change the value of the playing ant.}<br>
-  *We need to repaint the information about this playingAnt.<br>
-  *This action can only be run if action game is on.<br>
-  *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
-  */
-  public boolean setPlayingAnt(Fourmi f){
-    if (!actionGameOn) {return false;}
-    playingAnt=f;
-    return false;
-  }
-  private boolean setPlayingAnt(int id){
-    try {
-      return setPlayingAnt(triche.getFourmiParId(id+""));
-    }catch (Exception e) {
-      erreur.erreur("the ant "+id+" can't be used to play.");
-      return false;
-    }
-  }
+
   /**
   *{@summary Change the value of the loked Case.}<br>
   *We need to repaint the information about this Case.<br>
@@ -367,7 +336,30 @@ public class ViewCLI implements View {
       paint();
       choice = getActionMenu(tToPrint.length)-1;
     } while (choice <12 && !tableau.estDansT(t,choice));
+    if(choice==12){Main.getPartie().setPlayingAnt(getAntFromFere());}
     return choice;
+  }
+  /**
+  *{@summary Select an ant from playingAnt anthill.}<br>
+  *@version 1.33
+  */
+  private Fourmi getAntFromFere(){
+    int len = Main.getPartie().getPlayingAnt().getFere().getGc().length();
+    String t [] = new String[len];
+    List<Creature> list = Main.getPartie().getPlayingAnt().getFere().getGc().toList();
+    int k=0;
+    for (Creature c : list ) {
+      t[k]=getAllyAntInColor(c); k++;
+    }
+    tToPrint=t;
+    printArray();
+    int choice = getActionMenu(len);
+    Creature c = list.getItem(choice-1);
+    if(c instanceof Fourmi){
+      return (Fourmi) c;
+    }
+    erreur.erreurType("Fourmi","ViewCLI.getAntFromFere");
+    return null;
   }
 
   //private functions
@@ -406,8 +398,42 @@ public class ViewCLI implements View {
   */
   private void printMap(){
     Main.getPartie().getGc().afficheCarte();
-    System.out.println(g.get("playingAnt")+ " : ");
-    System.out.println(playingAnt);
+    //System.out.println(g.get("playingPlayer")+ " : ");
+    //System.out.println(playingPlayer);
+  }
+  /**
+  *{@summary Print anthill of the playing ant.}<br>
+  *@version 1.33
+  */
+  private void printFereInColor(){
+    if(Main.getPartie().getPlayingAnt()==null){return;}
+    System.out.println(g.getM("fourmiliere")+" : ");
+    List<Creature> lgc = Main.getPartie().getPlayingAnt().getFere().getGc().toList();
+    for (Creature c : lgc ) {
+      if (c.equals(Main.getPartie().getPlayingAnt())){
+        System.out.print("-- ! -- ");
+      }
+      System.out.println(getAllyAntInColor(c));
+    }
+  }
+  private String getAllyAntInColor(Creature c){
+    String r = "";
+    if(Main.getOs().isLinux()){
+      if (c.getStade()==0) {
+        if(c.getAction()==c.getActionMax()){
+          r+=green;
+        }else if (c.getAction()<=0) {
+          r+=red;
+        }else{
+          r+=yellow;
+        }
+      }
+    }
+    r+=c;
+    if(Main.getOs().isLinux()){
+      r+=neutral;
+    }
+    return r;
   }
   /**
   *{@summary Return an aviable action in a menu.}<br>
@@ -433,5 +459,4 @@ public class ViewCLI implements View {
     }
     return returnValue;
   }
-
 }

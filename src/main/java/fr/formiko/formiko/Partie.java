@@ -40,6 +40,7 @@ public class Partie implements Serializable{
   private boolean appartionInsecte;
   private boolean appartionGraine;
   private boolean dejaIni=false;
+  private Fourmi playingAnt;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   // nombre de joueur, nombre d'ia, abondance des insectes, niveau de difficulté des ia, les especes autorisé, le nombre de tour.
@@ -201,7 +202,6 @@ public class Partie implements Serializable{
       //La joue toutes les ia et les joueurs
       Main.tour();
       testFinDePartie();
-      if(!getContinuerLeJeu()){finDePartie(0);}
       if(Main.getRetournerAuMenu()){return true;}
     }
     System.out.println(g.get("dernierTourPassé"));
@@ -210,7 +210,7 @@ public class Partie implements Serializable{
   }
   public boolean jeu(){return launchGame();}
   public void testFinDePartie(){
-    if(getContinuerLeJeu()){
+    if(!getContinuerLeJeu()){
       finDePartie(0); //0=défaite
     }
     if(partieFinie){ return;}//on ne fait pas le test si on est déja après la fin et que le joueur veux continuer a jouer.
@@ -336,4 +336,31 @@ public class Partie implements Serializable{
     partie.setAppartionGraine(false);
     return partie;
   }
+  /**
+  *{@summary change the value of the playing ant.}<br>
+  *We need to repaint the information about this playingAnt.<br>
+  *This action can only be run if action game is on.<br>
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.33
+  */
+  public boolean setPlayingAnt(Fourmi f){
+    if (!Main.getView().getActionGameOn()) {return false;}
+    playingAnt=f;
+    return false;
+  }
+  /**
+  *{@summary change the value of the playing ant with and id.}<br>
+  *This action can only be run if action game is on.<br>
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.33
+  */
+  private boolean setPlayingAnt(int id){
+    try {
+      return setPlayingAnt(triche.getFourmiParId(id+""));
+    }catch (Exception e) {
+      erreur.erreur("the ant "+id+" can't be used to play.");
+      return false;
+    }
+  }
+  public Fourmi getPlayingAnt(){return playingAnt;}
 }

@@ -25,13 +25,14 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   @Override
   public void tour(){
     if(Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()){return;}
+    //if(Main.getPartie().getIdPlayingAnt()!=-1 && Main.getPartie().getIdPlayingAnt()!=f.getId()){return;}
     try {
       //TODO move to View
       Main.getPj().setFActuelle(f);
       Main.getPb().addPI();
       Main.getPb().addPIJ();
     }catch (Exception e) {
-      Main.getView().setPlayingAnt(f);
+      Main.getPartie().setPlayingAnt(f);
       erreur.alerteGUI2Dfail("TourFourmiNonIa");
     }
     if(Main.getOp().getAutoCleaning()){
@@ -47,15 +48,13 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         return;
       }
       m = faire(choix);
-      if(choix==12 || choix==13){
+      if(choix==12 || choix==13){ //Main.getPs().setIdFourmiAjoué(-1);
         return;
       }else if(choix==14){
         System.out.println();System.out.println();System.out.println("-----------------------------------------");//@a
         f.setAction(0);
         finTour();
         Main.getPartie().setContinuerLeJeu(false);
-        //f.getFere().getGc().setAction0();
-        //Main.getPartie().setNbrDeTour(Main.getPartie().getTour()-1);
         return;
       }
     }
@@ -195,7 +194,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       case 12 :
         yield "change Fourmi";
       case 13 :
-        f.getFere().getGc().setAction0();
+        f.getFere().getGc().setAction0AndEndTurn();
         System.out.println("juste endTurn");//@a
         yield "endTurn";
       case 14 :

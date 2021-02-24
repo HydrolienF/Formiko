@@ -167,8 +167,8 @@ public class GJoueur implements Serializable{
     if(début==null){return;}
     début.prendreEnCompteLaDifficulté();
   }
-  public void setAction0(){
+  public void setAction0AndEndTurn(){
     if(début==null){return;}
-    début.setAction0();
+    début.setAction0AndEndTurn();
   }
 }
