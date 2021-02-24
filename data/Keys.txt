@@ -1,8 +1,8 @@
-version compatible:100
+version:1.33
 echap:27
 space:32
 
-//action fourmi
+//ant actions
 20:d
 21:c
 22:p
@@ -15,13 +15,13 @@ space:32
 29:r
 30:s
 
-//déplacements :
-f.1:&
-f.2:é
-f.3:"
-f.4:'
-f.5:(
-f.6:-
-f.7:è
-f.8:_
-f.9:ç
+//mooving
+f.1:1
+f.2:2
+f.3:3
+f.4:4
+f.5:5
+f.6:6
+f.7:7
+f.8:8
+f.9:9

@@ -319,7 +319,6 @@ public class ViewCLI implements View {
   */
   public int getAntChoice(int t[]){
     if (!actionGameOn) {return -1;}
-    //TODO link choice to the real action print because unable action aren't print so number don't correspond.
     String ts [] = new String[15];
     for (int i=0;i<12 ;i++ ) {
       ts[i]=g.get("bouton.desc."+(20+i));

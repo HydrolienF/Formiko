@@ -72,6 +72,7 @@ public class chargerLesOptions {
   }
   public static void chargerLesOptionsDe0(int langue, String pseudo, String versionActuelle){
     //TODO passer par la méthode sauvegarder de Option pour tout sauvegarder.
+    //TODO #230
     GString gs = new GString();
     gs.ajouter("version compatible:"+versionActuelle);
     gs.ajouter("langue:"+langue);
@@ -128,6 +129,7 @@ public class chargerLesOptions {
   }
   //public static void chargerLesOptionsDe0(int l){chargerLesOptionsDe0(l,"");}
   public static void chargerLesOptionsDe0(String versionActuelle){
+    //TODO #230
     Locale currentLocale = Locale.getDefault();
     debug.débogage("Langue locale = "+currentLocale.getLanguage());
     String lang = currentLocale.getLanguage();

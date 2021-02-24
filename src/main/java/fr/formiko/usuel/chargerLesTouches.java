@@ -31,6 +31,7 @@ public class chargerLesTouches {
   }
 
   public static void chargerLesTouchesDe0(String versionActuelle){
+    //TODO #230
     GString gs = new GString();
     gs.ajouter("version compatible:"+versionActuelle);
     ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderMain()+"Keys.txt");
