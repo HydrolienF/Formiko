@@ -1,4 +1,4 @@
-version compatible:100
+version compatible:1.33
 langue:0
 taille bouton zoom:0
 taille bouton action:1
@@ -29,3 +29,4 @@ son:0
 volMusique:100
 volSon:100
 tailleRéaliste:30
+autoCleaning:true
