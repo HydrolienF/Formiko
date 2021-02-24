@@ -407,7 +407,7 @@ public class ViewCLI implements View {
   */
   private void printFereInColor(){
     if(Main.getPartie().getPlayingAnt()==null){return;}
-    System.out.println(g.getM("fourmiliere")+" : ");
+    System.out.println(g.getM("fourmilière")+" : ");
     List<Creature> lgc = Main.getPartie().getPlayingAnt().getFere().getGc().toList();
     for (Creature c : lgc ) {
       if (c.equals(Main.getPartie().getPlayingAnt())){

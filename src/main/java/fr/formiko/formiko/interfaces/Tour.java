@@ -9,6 +9,11 @@ import java.io.Serializable;
  * @version 1.24
  */
 public interface Tour extends Serializable{
+  /***
+   * {@summary play a turn.}<br>
+   * @param c The Creature that need to play a turn.
+   * @version 1.33
+   */
   void unTour(Creature c);
   //void preTour(Creature c);
 }

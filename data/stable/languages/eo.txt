@@ -275,6 +275,7 @@ erreur.14:estas malplena
 erreur.15:malkona listo
 erreur.16:La paŭza provo maltrafi (daŭro de la paŭzo
 erreur.17:Tipo-konverto malsukcesis por tipo[auto]
+alerteGUI2Dfail:1 grafika ago ne funkciis
 
 str.1:neeble de fari 1 de la konverto
 str.2:komvene

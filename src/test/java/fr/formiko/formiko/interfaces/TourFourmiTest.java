@@ -448,6 +448,7 @@ public class TourFourmiTest extends TestCaseMuet{
     assertEquals(0,f.getAction());
     assertEquals(19,f.getNourriture());
     assertEquals(100,f.getProprete());
+    System.out.println("tour");//@a
     f.tour();
     assertEquals(1,f.getAge());
     assertEquals(0,f.getAction());

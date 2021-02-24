@@ -275,6 +275,7 @@ erreur.14:is empty
 erreur.15:unknown list
 erreur.16:Pause attempt failed (pause duration
 erreur.17:Type convert failed for type[auto]
+alerteGUI2Dfail:1 graphical action did not work
 
 str.1:Unable to convert
 str.2:correctly

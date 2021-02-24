@@ -275,6 +275,7 @@ erreur.14:est vide
 erreur.15:liste inconnue
 erreur.16:La tentative de pause a échouée (durée de pause
 erreur.17:La convertion de type a échouée pour le type
+alerteGUI2Dfail:1 action graphique n'as pas fonctionnée
 
 str.1:Impossible d'effectuer une des conversions
 str.2:correctement
