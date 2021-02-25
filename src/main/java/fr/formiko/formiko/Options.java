@@ -1,6 +1,7 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.usuel.chargerLesTraductions;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.ecrireUnFichier;
 import fr.formiko.usuel.erreur;
@@ -9,13 +10,16 @@ import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.types.str;
 
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.Serializable;
+import java.util.Locale;
+import java.util.Properties;
 /**
 *{@summary Options class.}<br>
 *It contain all globals options and can save it.<br>
 *@author Hydrolien
-*@version 1.20
+*@version 1.34
 */
 public class Options implements Serializable{
   private byte language=0; // 0=eo; 1=fr; 2=en;
@@ -25,10 +29,10 @@ public class Options implements Serializable{
   private boolean quickMovement;
   private boolean instantaneousMovement;
   private boolean orientedObjectOnMap;
-  private byte maxMessageDisplay;// =10;
-  private boolean drawGrid;//=false;
-  private boolean forceQuit;// = false;
-  private byte borderButtonSize;//=5; // en pixel.
+  private byte maxMessageDisplay;
+  private boolean drawGrid;
+  private boolean forceQuit;
+  private byte borderButtonSize;
   private boolean drawIcon;
   private int fontSizeText;
   private int fontSizeTitle;
@@ -54,6 +58,8 @@ public class Options implements Serializable{
   private byte soundVolume;
   private byte realisticSize;
   private boolean autoCleaning;
+
+  private Properties properties;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Options(){}
   // GET SET --------------------------------------------------------------------
@@ -185,5 +191,55 @@ public class Options implements Serializable{
     gs.add("autoCleaning:"+getAutoCleaning());
     //on rempli le fichier avec le GString.
     ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderStable()+"Options.txt");
+  }
+
+  public void iniProperties(){
+    properties = new Properties(getDefaultProperties());
+  }
+  /**
+  *{@summary get defaultProperties the Options in Options.txt.}<br>
+  *@version 1.20
+  */
+  private Properties getDefaultProperties(){
+    Properties defaultProperties = new Properties(34);
+    int x = Toolkit.getDefaultToolkit().getScreenSize().width; int t[]=new int[2];
+    Double racio = (x+0.0)/1920;// si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.
+    chargerLesTraductions.iniTLangue();
+    defaultProperties.setProperty("version",""+Main.getVersionActuelle());
+    String lang = Locale.getDefault().getLanguage();
+    defaultProperties.setProperty("language",""+chargerLesTraductions.getLanguage(lang));
+    defaultProperties.setProperty("buttonSizeZoom","0");
+    defaultProperties.setProperty("buttonSizeAction","1");
+    defaultProperties.setProperty("buttonSizeTX","0");
+    defaultProperties.setProperty("quickMovement","true");
+    defaultProperties.setProperty("instantaneousMovement","true");
+    defaultProperties.setProperty("orientedObjectOnMap","true");
+    defaultProperties.setProperty("maxMessageDisplay","10");
+    defaultProperties.setProperty("drawGrid","true");
+    defaultProperties.setProperty("forceQuit","false");
+    defaultProperties.setProperty("borderButtonSize","2");
+    defaultProperties.setProperty("drawIcon","true");
+    defaultProperties.setProperty("fontSizeText",""+(int)(30*racio));
+    defaultProperties.setProperty("fontSizeTitle",""+(int)(60*racio));
+    defaultProperties.setProperty("fontText","Arial");
+    defaultProperties.setProperty("fontTitle","");
+    defaultProperties.setProperty("pseudo","");
+    defaultProperties.setProperty("fullscreen","true");
+    defaultProperties.setProperty("loadingDuringMenus","true");
+    defaultProperties.setProperty("keepFilesRotated","true");
+    defaultProperties.setProperty("whaitBeforeLaunchGame","true");
+    defaultProperties.setProperty("debug_error","true");
+    defaultProperties.setProperty("debug_alerte","true");
+    defaultProperties.setProperty("debug_message","false");
+    defaultProperties.setProperty("debug_performance","false");
+    defaultProperties.setProperty("debug_gui","false");
+    defaultProperties.setProperty("sizeOfMapLines","2");
+    defaultProperties.setProperty("music","false");
+    defaultProperties.setProperty("sound","false");
+    defaultProperties.setProperty("musicVolume","50");
+    defaultProperties.setProperty("soundVolume","50");
+    defaultProperties.setProperty("realisticSize","30");
+    defaultProperties.setProperty("autoCleaning","true");
+    return new Properties(defaultProperties);
   }
 }

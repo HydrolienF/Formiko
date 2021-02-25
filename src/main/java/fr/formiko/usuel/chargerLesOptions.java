@@ -77,6 +77,7 @@ public class chargerLesOptions {
     gs.ajouter("version compatible:"+versionActuelle);
     gs.ajouter("langue:"+langue);
     int x = Toolkit.getDefaultToolkit().getScreenSize().width; int t[]=new int[2];
+    Double racio = (x+0.0)/1920;// si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.
     if(x>=1920*2){ //plus de 2*
       t[0]=2;t[1]=2;//t[2]=1;
     }else if(x>=1920*1.3){ //entre 1,3 et 2
@@ -88,8 +89,6 @@ public class chargerLesOptions {
     }else{ // moins de 0.5
       t[0]=-1;t[1]=-1;//t[2]=-2;
     }
-    Double racio = x+0.0;
-    racio = racio / 1920; // si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.
     int taillePolice1 = (int)(30*racio);
     int taillePolice2 = (int)(60*racio);
     gs.ajouter("taille bouton zoom:"+t[0]);
