@@ -26,6 +26,7 @@ public class chargerLesOptions {
     }
     String t [] = lireUnFichier.lireUnFichier(Main.getFolder().getFolderMain()+"Options.txt");
     Options op = new Options();
+    op.iniOptions();//@a
     int k=0;
     if(!decoderUnFichier.getStringDeLaLigne(t[0]).equals(versionActuelle)){ return op;}k++;
     op.setLangue( decoderUnFichier.getByteDeLaLigne(t[k]));k++;

@@ -1,6 +1,7 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.usuel.SortedProperties;
 import fr.formiko.usuel.chargerLesTraductions;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.ecrireUnFichier;
@@ -12,9 +13,15 @@ import fr.formiko.usuel.types.str;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Locale;
 import java.util.Properties;
+
 /**
 *{@summary Options class.}<br>
 *It contain all globals options and can save it.<br>
@@ -59,7 +66,7 @@ public class Options implements Serializable{
   private byte realisticSize;
   private boolean autoCleaning;
 
-  private Properties properties;
+  private SortedProperties properties=null;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Options(){}
   // GET SET --------------------------------------------------------------------
@@ -192,19 +199,46 @@ public class Options implements Serializable{
     //on rempli le fichier avec le GString.
     ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderStable()+"Options.txt");
   }
+  public void iniOptions(){
+    iniProperties();
+    //propertiesToOptions(); //transforme properties into Options. //TODO
+    //properties=null; //destory properties to save memory. //TODO
 
-  public void iniProperties(){
-    properties = new Properties(getDefaultProperties());
+    System.out.println(properties);//@a
+    saveOptions();//@a
+  }
+  public void saveOptions(){
+    if(properties==null){
+      //optionToProperties(); // transforme Options into properties. //TODO
+    }
+    saveProperties();
+  }
+  private void iniProperties(){
+    properties = new SortedProperties(getDefaultProperties());
+    try {
+      InputStream is = Files.newInputStream(Path.of(Main.getFolder().getFolderMain()+"Options2.txt"));//TODO remove 2
+      properties.load(is);
+    }catch (IOException e) {
+      erreur.erreur("Impossible de charger les options.","Option.iniProperties","Options par défaut choisie.");
+    }
+  }
+  private void saveProperties(){
+    try {
+      OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+"Options3.txt"));//TODO remove 3
+      properties.store(os,"**Options file**\nEvery value can be edit here but variable have specific type. For exemple instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that sould be in [0,100]. Most value sould be out of intervale save. But you may need to reset Options to default value by deleting this file if something goes wrong.");
+    }catch (IOException e) {
+      erreur.erreur("Impossible de sauvegarder les options.","Option.saveProperties","Options par défaut choisie.");
+    }
   }
   /**
   *{@summary get defaultProperties of the Options.}<br>
   *It can be used to save default Options or to repair Options.txt file if something is mising.<br>
-  *Value for version, language, fontSize & butonSize depend of the user computer.
-  *@version 1.20
+  *Value for version, language, fontSize & butonSize depend of the user computer.<br>
+  *@version 1.34
   */
   private Properties getDefaultProperties(){
     Properties defaultProperties = new Properties(34);
-    int x = Toolkit.getDefaultToolkit().getScreenSize().width; int t[]=new int[2];
+    int x = Toolkit.getDefaultToolkit().getScreenSize().width;
     Double racio = (x+0.0)/1920;// si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.
     chargerLesTraductions.iniTLangue();
     int t[]=new int[2];
@@ -255,6 +289,6 @@ public class Options implements Serializable{
     defaultProperties.setProperty("soundVolume","50");
     defaultProperties.setProperty("realisticSize","30");
     defaultProperties.setProperty("autoCleaning","true");
-    return new Properties(defaultProperties);
+    return new SortedProperties(defaultProperties);
   }
 }
