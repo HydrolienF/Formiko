@@ -140,6 +140,7 @@ public class str{
       return (int) sToLThrows(s);
     }catch (Exception e) {
       erreurConversion("String To long",s);
+      erreur.erreur("","",true);//@a
       return -1;
     }
   }

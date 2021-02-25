@@ -140,7 +140,7 @@ public class Options implements Serializable{
   // Fonctions propre -----------------------------------------------------------
   /**
   *{@summary Initialize Options.}<br>
-  *It load properties from Option.txt, transform it to all the Option value &#38; delete properties.
+  *It load properties from Option.md, transform it to all the Option value &#38; delete properties.
   *@version 1.34
   */
   public void iniOptions(){
@@ -169,7 +169,7 @@ public class Options implements Serializable{
   private void iniProperties(){
     properties = new SortedProperties(getDefaultProperties());
     try {
-      InputStream is = Files.newInputStream(Path.of(Main.getFolder().getFolderMain()+"Options.txt"));
+      InputStream is = Files.newInputStream(Path.of(Main.getFolder().getFolderMain()+"Options.md"));
       properties.load(is);
     }catch (IOException e) {
       erreur.erreur("Impossible de charger les options.","Option.iniProperties","Options par défaut choisie.");
@@ -182,7 +182,7 @@ public class Options implements Serializable{
   */
   private void saveProperties(){
     try {
-      OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+"Options.txt"));
+      OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+"Options.md"));
       properties.store(os,"**Options file**\nEvery value can be edit here but variable have specific type. For exemple instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that sould be in [0,100]. Most value sould be out of intervale save. But you may need to reset Options to default value by deleting this file if something goes wrong.");
     }catch (IOException e) {
       erreur.erreur("Impossible de sauvegarder les options.","Option.saveProperties","Options par défaut choisie.");
@@ -194,9 +194,8 @@ public class Options implements Serializable{
   */
   private void saveDeflautProperties(){
     Properties properties = getDefaultProperties();
-    System.out.println(properties);//@a
     try {
-      OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+"Options.txt"));
+      OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+"Options.md"));
       properties.store(os,"**Options file**\nEvery values can be edit here but variable have specific type. For exemple instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that sould be in [0,100]. Most value sould be out of intervale save. But you may need to reset Options to default value by deleting this file if something goes wrong.");
     }catch (IOException e) {
       erreur.erreur("Impossible de sauvegarder les options par défaut.","Option.saveDeflautProperties");
@@ -204,7 +203,7 @@ public class Options implements Serializable{
   }
   /**
   *{@summary get defaultProperties of the Options.}<br>
-  *It can be used to save default Options or to repair Options.txt file if something is mising.<br>
+  *It can be used to save default Options or to repair Options.md file if something is mising.<br>
   *Value for version, language, fontSize &#38; butonSize depend of the user computer.<br>
   *@version 1.34
   */
@@ -261,6 +260,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("soundVolume","50");
     defaultProperties.setProperty("realisticSize","30");
     defaultProperties.setProperty("autoCleaning","true");
+    defaultProperties.setProperty("positionCase","0");
     return defaultProperties;
   }
   /**
