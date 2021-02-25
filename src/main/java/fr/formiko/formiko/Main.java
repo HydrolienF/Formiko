@@ -114,10 +114,11 @@ public class Main {
       }else if(args[0].equals("son")){
         //System.out.println(Musique.getMusiqueAlleatoire());
       }else if(args[0].equals("op")){
-        initialisation();
-        chargerLesTraductions.iniTLangue();
-        op = chargerLesOptions.chargerLesOptions(getVersionActuelle());
-        op.sauvegarder();
+        //initialisation();
+        os = new Os();
+        folder = new Folder();
+        iniOp();
+        op.saveOptions();
       }else if(args[0].equals("supprimer")){
         initialisation();
         //diff.nbrDeLigneDiff("usuel/GString.java","../Formiko108/usuel/GString.java");
@@ -212,11 +213,13 @@ public class Main {
     //===
     startCh();
     //start of test part
+    /*
     erreur.alerte("le jeu est en test.");
     view = new ViewCLI();
     view.ini();
     view.menuMain();
     quitter();
+    */
     //end of test part
     f = new Fenetre();
     try {
@@ -531,7 +534,10 @@ public class Main {
    * @version 1.1
    */
   public static void iniOp(){
-    op = chargerLesOptions.chargerLesOptions(getVersionActuelle());
+    //TODO
+    //op = chargerLesOptions.chargerLesOptions(getVersionActuelle());
+    op = new Options();
+    op.iniOptions();
   }
   /**
    * Load language.

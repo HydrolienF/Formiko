@@ -45,8 +45,8 @@ public class Options implements Serializable{
   private int fontSizeTitle;
   private String fontText;
   private String fontTitle;
-  private Font font1;// =new Font("Arial", Font.BOLD, 20);
-  private Font font2;// =new Font("Arial", Font.BOLD, 60);
+  private Font font1;
+  private Font font2;
   private String pseudo;
   private boolean fullscreen;
   private boolean loadingDuringMenus;
@@ -139,24 +139,10 @@ public class Options implements Serializable{
   public void setAutoCleaning(boolean b){autoCleaning=b;}
   // Fonctions propre -----------------------------------------------------------
   /**
-  *{@summary tranform a byte into a button size.}<br>
-  *@version 1.20
-  */
-  private int tailleBouton(byte x){
-    if(x>2 && x%20==0){return x;}
-    if(x==0){ return 80;}
-    if(x==-1){ return 40;}
-    if(x==1){ return 160;}
-    if(x==-2){ return 20;}
-    if(x==2){ return 320;}
-    erreur.erreur("La taille des boutons spécifiée n'est pas correcte.","La taille moyenne a été choisie par défaut");
-    return 80;
-  }
-  /**
   *{@summary Save the Options in Options.txt.}<br>
   *@version 1.20
   */
-  public void sauvegarder(){
+  /*public void sauvegarder(){
     //on s'assure que le fichier n'existe plus pour éviter d'avoir a l'écraser plus tard.
     File f = new File(Main.getFolder().getFolderMain()+"Options.txt");
     if (f.exists()){ // si le fichier d'options existe.
@@ -198,46 +184,79 @@ public class Options implements Serializable{
     gs.add("autoCleaning:"+getAutoCleaning());
     //on rempli le fichier avec le GString.
     ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderStable()+"Options.txt");
-  }
+  }*/
+  /**
+  *{@summary Initialize Options.}<br>
+  *It load properties from Option.txt, transform it to all the Option value &#38; delete properties.
+  *@version 1.34
+  */
   public void iniOptions(){
     iniProperties();
-    //propertiesToOptions(); //transforme properties into Options. //TODO
-    //properties=null; //destory properties to save memory. //TODO
-
-    System.out.println(properties);//@a
-    saveOptions();//@a
+    propertiesToOptions(); //transform properties into Options.
+    properties=null; //destory properties to save memory.
   }
+  /**
+  *{@summary Save Options.}<br>
+  *It load properties from data of Options.java, transform it to properties &#38; then destory properties.
+  *@version 1.34
+  */
   public void saveOptions(){
     if(properties==null){
-      //optionToProperties(); // transforme Options into properties. //TODO
+      optionToProperties(); // transform Options into properties.
     }
     saveProperties();
+    properties=null;
   }
+
+  //private functions ----------------------------------------------------------
+  /**
+  *{@summary Initialize properties of the Options.}<br>
+  *@version 1.34
+  */
   private void iniProperties(){
     properties = new SortedProperties(getDefaultProperties());
     try {
-      InputStream is = Files.newInputStream(Path.of(Main.getFolder().getFolderMain()+"Options2.txt"));//TODO remove 2
+      InputStream is = Files.newInputStream(Path.of(Main.getFolder().getFolderMain()+"Options.txt"));
       properties.load(is);
     }catch (IOException e) {
       erreur.erreur("Impossible de charger les options.","Option.iniProperties","Options par défaut choisie.");
+      saveDeflautProperties();
     }
   }
+  /**
+  *{@summary Save properties of the Options.}<br>
+  *@version 1.34
+  */
   private void saveProperties(){
     try {
-      OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+"Options3.txt"));//TODO remove 3
+      OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+"Options.txt"));
       properties.store(os,"**Options file**\nEvery value can be edit here but variable have specific type. For exemple instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that sould be in [0,100]. Most value sould be out of intervale save. But you may need to reset Options to default value by deleting this file if something goes wrong.");
     }catch (IOException e) {
       erreur.erreur("Impossible de sauvegarder les options.","Option.saveProperties","Options par défaut choisie.");
     }
   }
   /**
-  *{@summary get defaultProperties of the Options.}<br>
-  *It can be used to save default Options or to repair Options.txt file if something is mising.<br>
-  *Value for version, language, fontSize & butonSize depend of the user computer.<br>
+  *{@summary Save default properties.}<br>
   *@version 1.34
   */
-  private Properties getDefaultProperties(){
-    Properties defaultProperties = new Properties(34);
+  private void saveDeflautProperties(){
+    Properties properties = getDefaultProperties();
+    System.out.println(properties);//@a
+    try {
+      OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+"Options.txt"));
+      properties.store(os,"**Options file**\nEvery values can be edit here but variable have specific type. For exemple instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that sould be in [0,100]. Most value sould be out of intervale save. But you may need to reset Options to default value by deleting this file if something goes wrong.");
+    }catch (IOException e) {
+      erreur.erreur("Impossible de sauvegarder les options par défaut.","Option.saveDeflautProperties");
+    }
+  }
+  /**
+  *{@summary get defaultProperties of the Options.}<br>
+  *It can be used to save default Options or to repair Options.txt file if something is mising.<br>
+  *Value for version, language, fontSize &#38; butonSize depend of the user computer.<br>
+  *@version 1.34
+  */
+  private SortedProperties getDefaultProperties(){
+    SortedProperties defaultProperties = new SortedProperties(34);
     int x = Toolkit.getDefaultToolkit().getScreenSize().width;
     Double racio = (x+0.0)/1920;// si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.
     chargerLesTraductions.iniTLangue();
@@ -271,7 +290,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("fontSizeText",""+(int)(30*racio));
     defaultProperties.setProperty("fontSizeTitle",""+(int)(60*racio));
     defaultProperties.setProperty("fontText","Arial");
-    defaultProperties.setProperty("fontTitle","");
+    defaultProperties.setProperty("fontTitle","Arial");
     defaultProperties.setProperty("pseudo","");
     defaultProperties.setProperty("fullscreen","true");
     defaultProperties.setProperty("loadingDuringMenus","true");
@@ -289,6 +308,103 @@ public class Options implements Serializable{
     defaultProperties.setProperty("soundVolume","50");
     defaultProperties.setProperty("realisticSize","30");
     defaultProperties.setProperty("autoCleaning","true");
-    return new SortedProperties(defaultProperties);
+    return defaultProperties;
+  }
+  /**
+  *{@summary tranform a byte into a button size.}<br>
+  *@version 1.20
+  */
+  private int tailleBouton(byte x){
+    if(x>2 && x%20==0){return x;}
+    if(x==0){ return 80;}
+    if(x==-1){ return 40;}
+    if(x==1){ return 160;}
+    if(x==-2){ return 20;}
+    if(x==2){ return 320;}
+    erreur.erreur("La taille des boutons spécifiée n'est pas correcte.","La taille moyenne a été choisie par défaut");
+    return 80;
+  }
+  /**
+  *{@summary tranform properties into Options var.}<br>
+  *@version 1.34
+  */
+  private void propertiesToOptions(){
+    language=str.sToBy(properties.getProperty("language"));
+    buttonSizeZoom=str.sToBy(properties.getProperty("buttonSizeZoom"));
+    buttonSizeAction=str.sToBy(properties.getProperty("buttonSizeAction"));
+    buttonSizeTX=str.sToBy(properties.getProperty("buttonSizeTX"));
+    quickMovement=str.sToB(properties.getProperty("quickMovement"));
+    instantaneousMovement=str.sToB(properties.getProperty("instantaneousMovement"));
+    orientedObjectOnMap=str.sToB(properties.getProperty("orientedObjectOnMap"));
+    maxMessageDisplay=str.sToBy(properties.getProperty("maxMessageDisplay"));
+    drawGrid=str.sToB(properties.getProperty("drawGrid"));
+    forceQuit=str.sToB(properties.getProperty("forceQuit"));
+    borderButtonSize=str.sToBy(properties.getProperty("borderButtonSize"));
+    drawIcon=str.sToB(properties.getProperty("drawIcon"));
+    fontSizeText=str.sToI(properties.getProperty("fontSizeText"));
+    fontSizeTitle=str.sToI(properties.getProperty("fontSizeTitle"));
+    fontText=properties.getProperty("fontText");
+    fontTitle=properties.getProperty("fontTitle");
+    font1=new Font(fontText, Font.BOLD, fontSizeText);
+    font2=new Font(fontTitle, Font.BOLD, fontSizeTitle);
+    pseudo=properties.getProperty("pseudo");
+    fullscreen=str.sToB(properties.getProperty("fullscreen"));
+    loadingDuringMenus=str.sToB(properties.getProperty("loadingDuringMenus"));
+    keepFilesRotated=str.sToB(properties.getProperty("keepFilesRotated"));
+    whaitBeforeLaunchGame=str.sToB(properties.getProperty("whaitBeforeLaunchGame"));
+    debug_error=str.sToB(properties.getProperty("debug_error"));
+    debug_alerte=str.sToB(properties.getProperty("debug_alerte"));
+    debug_message=str.sToB(properties.getProperty("debug_message"));
+    debug_performance=str.sToB(properties.getProperty("debug_performance"));
+    debug_gui=str.sToB(properties.getProperty("debug_gui"));
+    sizeOfMapLines=str.sToI(properties.getProperty("sizeOfMapLines"));
+    positionCase=str.sToBy(properties.getProperty("positionCase"));
+    music=str.sToB(properties.getProperty("music"));
+    sound=str.sToB(properties.getProperty("sound"));
+    musicVolume=str.sToBy(properties.getProperty("musicVolume"));
+    soundVolume=str.sToBy(properties.getProperty("soundVolume"));
+    realisticSize=str.sToBy(properties.getProperty("realisticSize"));
+    autoCleaning=str.sToB(properties.getProperty("autoCleaning"));
+  }
+  /**
+  *{@summary tranform properties into Options var.}<br>
+  *@version 1.34
+  */
+  private void optionToProperties(){
+    properties = new SortedProperties(getDefaultProperties());
+    properties.setProperty("language",""+language);
+    properties.setProperty("buttonSizeZoom",""+buttonSizeZoom);
+    properties.setProperty("buttonSizeAction",""+buttonSizeAction);
+    properties.setProperty("buttonSizeTX",""+buttonSizeTX);
+    properties.setProperty("quickMovement",""+quickMovement);
+    properties.setProperty("instantaneousMovement",""+instantaneousMovement);
+    properties.setProperty("orientedObjectOnMap",""+orientedObjectOnMap);
+    properties.setProperty("maxMessageDisplay",""+maxMessageDisplay);
+    properties.setProperty("drawGrid",""+drawGrid);
+    properties.setProperty("forceQuit",""+forceQuit);
+    properties.setProperty("borderButtonSize",""+borderButtonSize);
+    properties.setProperty("drawIcon",""+drawIcon);
+    properties.setProperty("fontSizeText",""+fontSizeText);
+    properties.setProperty("fontSizeTitle",""+fontSizeTitle);
+    properties.setProperty("fontText",""+fontText);
+    properties.setProperty("fontTitle",""+fontTitle);
+    properties.setProperty("pseudo",""+pseudo);
+    properties.setProperty("fullscreen",""+fullscreen);
+    properties.setProperty("loadingDuringMenus",""+loadingDuringMenus);
+    properties.setProperty("keepFilesRotated",""+keepFilesRotated);
+    properties.setProperty("whaitBeforeLaunchGame",""+whaitBeforeLaunchGame);
+    properties.setProperty("debug_error",""+debug_error);
+    properties.setProperty("debug_alerte",""+debug_alerte);
+    properties.setProperty("debug_message",""+debug_message);
+    properties.setProperty("debug_performance",""+debug_performance);
+    properties.setProperty("debug_gui",""+debug_gui);
+    properties.setProperty("sizeOfMapLines",""+sizeOfMapLines);
+    properties.setProperty("positionCase",""+positionCase);
+    properties.setProperty("music",""+music);
+    properties.setProperty("sound",""+sound);
+    properties.setProperty("musicVolume",""+musicVolume);
+    properties.setProperty("soundVolume",""+soundVolume);
+    properties.setProperty("realisticSize",""+realisticSize);
+    properties.setProperty("autoCleaning",""+autoCleaning);
   }
 }

@@ -14,11 +14,18 @@ import java.util.*;
 */
 public class SortedProperties extends Properties {
   /**
-  *{@summary A simple extends for constructor with a defautl properties a args.}
+  *{@summary A simple extends for constructor with a default properties a args.}
   *@version 1.34
   */
   public SortedProperties(Properties p){
     super(p);
+  }
+  /**
+  *{@summary A simple extends for constructor with a default number of properties as args.}
+  *@version 1.34
+  */
+  public SortedProperties(int x){
+    super(x);
   }
   /**
   *{@summary Set a sortable Set.}
