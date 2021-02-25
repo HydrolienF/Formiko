@@ -197,7 +197,9 @@ public class Options implements Serializable{
     properties = new Properties(getDefaultProperties());
   }
   /**
-  *{@summary get defaultProperties the Options in Options.txt.}<br>
+  *{@summary get defaultProperties of the Options.}<br>
+  *It can be used to save default Options or to repair Options.txt file if something is mising.<br>
+  *Value for version, language, fontSize & butonSize depend of the user computer.
   *@version 1.20
   */
   private Properties getDefaultProperties(){
@@ -205,12 +207,25 @@ public class Options implements Serializable{
     int x = Toolkit.getDefaultToolkit().getScreenSize().width; int t[]=new int[2];
     Double racio = (x+0.0)/1920;// si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.
     chargerLesTraductions.iniTLangue();
+    int t[]=new int[2];
+    if(x>=1920*2){ //plus de 2*
+      t[0]=2;t[1]=2;//t[2]=1;
+    }else if(x>=1920*1.3){ //entre 1,3 et 2
+      t[0]=1;t[1]=1;//t[2]=0;
+    }else if(x>=1920*0.8){ // entre 0.8 et 1.3
+      t[0]=0;t[1]=1;//t[2]=-1;
+    }else if(x>=1920*0.5){ // entre 0.5 et 0.7
+      t[0]=0;t[1]=0;//t[2]=-2;
+    }else{ // moins de 0.5
+      t[0]=-1;t[1]=-1;//t[2]=-2;
+    }
+    //setDefaultProperties
     defaultProperties.setProperty("version",""+Main.getVersionActuelle());
     String lang = Locale.getDefault().getLanguage();
     defaultProperties.setProperty("language",""+chargerLesTraductions.getLanguage(lang));
-    defaultProperties.setProperty("buttonSizeZoom","0");
-    defaultProperties.setProperty("buttonSizeAction","1");
-    defaultProperties.setProperty("buttonSizeTX","0");
+    defaultProperties.setProperty("buttonSizeZoom",""+t[0]);
+    defaultProperties.setProperty("buttonSizeAction",""+t[1]);
+    defaultProperties.setProperty("buttonSizeTX",""+t[0]);
     defaultProperties.setProperty("quickMovement","true");
     defaultProperties.setProperty("instantaneousMovement","true");
     defaultProperties.setProperty("orientedObjectOnMap","true");

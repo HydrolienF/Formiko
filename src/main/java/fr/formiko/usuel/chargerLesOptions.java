@@ -76,8 +76,9 @@ public class chargerLesOptions {
     GString gs = new GString();
     gs.ajouter("version compatible:"+versionActuelle);
     gs.ajouter("langue:"+langue);
-    int x = Toolkit.getDefaultToolkit().getScreenSize().width; int t[]=new int[2];
+    int x = Toolkit.getDefaultToolkit().getScreenSize().width;
     Double racio = (x+0.0)/1920;// si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.
+    int t[]=new int[2];
     if(x>=1920*2){ //plus de 2*
       t[0]=2;t[1]=2;//t[2]=1;
     }else if(x>=1920*1.3){ //entre 1,3 et 2
