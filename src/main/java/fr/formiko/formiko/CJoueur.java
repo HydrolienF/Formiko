@@ -71,7 +71,8 @@ public class CJoueur implements Serializable{
     CJoueur cj = this;
     while(cj!=null){
       Joueur j = cj.getContenu();
-      gjr.addOrdonnée(j);
+      gjr.add(j);//TODO #231
+      //gjr.addOrdonnée(j); //TODO #231
       cj=cj.getSuivant();
     }
     return gjr;
@@ -127,6 +128,7 @@ public class CJoueur implements Serializable{
     }
   }
   public void jouer(){
+    if(Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()){return;}
     debug.débogage("Lancement du tour du joueurs "+contenu.getId());
     contenu.jouer();
     if(suivant != null){
@@ -159,7 +161,7 @@ public class CJoueur implements Serializable{
       cj=cj.getSuivant();
     }
     gs = gs.transformerScore();
-    ecrireUnFichier.ecrireUnFichier(gs,"data/score.csv");
+    ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderTemporary()+"score.csv");
   }
   public void prendreEnCompteLaDifficulté(){
     CJoueur cj = this;
@@ -168,10 +170,10 @@ public class CJoueur implements Serializable{
       cj = cj.getSuivant();
     }
   }
-  public void setAction0(){
+  public void setAction0AndEndTurn(){
     CJoueur cj = this;
     while(cj!=null){
-      cj.getContenu().setAction0();
+      cj.getContenu().setAction0AndEndTurn();
       cj = cj.getSuivant();
     }
   }

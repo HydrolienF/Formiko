@@ -85,7 +85,7 @@ public class PanneauCarte extends Panneau implements MouseListener{
   }
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g2){
-    Main.débutCh();
+    Main.startCh();
     Graphics2D g = (Graphics2D)g2;
     setLigne(g);
     try {
@@ -124,7 +124,7 @@ public class PanneauCarte extends Panneau implements MouseListener{
     }catch (Exception e) {
       erreur.erreur("Quelque chose d'imprévu est arrivé lors de l'affichage de PanneauCarte");
     }
-    Main.finCh("repaintDeLaCarte");
+    Main.endCh("repaintDeLaCarte");
   }
   /**
   *Draw grid.

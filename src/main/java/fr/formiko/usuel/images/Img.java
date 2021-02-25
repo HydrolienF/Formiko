@@ -1,5 +1,6 @@
 package fr.formiko.usuel.images;
 
+import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Chrono;
 import fr.formiko.usuel.chargerLesTraductions;
 import fr.formiko.usuel.debug;
@@ -56,7 +57,7 @@ public class Img implements Cloneable{
     height = bi.getHeight();
     debug.débogage("Initialisation des 4 tableaux.");Chrono.debutCh();
     setRouge(); setVert(); setBleu(); setAlpha();
-    Chrono.finCh("4 tableaux de pixel initialiser");
+    Chrono.endCh("4 tableaux de pixel initialiser");
   }
   /**
   *Constructs a new Img with a fileName.
@@ -257,7 +258,7 @@ public class Img implements Cloneable{
     }catch (Exception e) {
       erreur.erreur("Echec de la sauvegarde d'image pour : "+rep+filename,"img.sauvegarde");
     }
-  }public void sauvegarder(String nom){sauvegarder(image.REP2,nom);}
+  }public void sauvegarder(String nom){sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom);}
   public void sauvegarde(String s){ sauvegarder(s);}
   /**
   *{@summary try to save the Img.}<br>
@@ -377,7 +378,7 @@ public class Img implements Cloneable{
         }
       }
     }
-    Chrono.finCh("compterChaquePixel");
+    Chrono.endCh("compterChaquePixel");
     return hm;
   }
   /**
@@ -397,7 +398,7 @@ public class Img implements Cloneable{
     for (int i=0;i<tp.length ; i++) {
       sr+="{label:'"+g.get(tp[i].toString())+"', y:"+hm.get(tp[i])+"},\n";
     }
-    Chrono.finCh("compterChaquePixelToHtml");
+    Chrono.endCh("compterChaquePixelToHtml");
     System.out.println(getResultAsHtmlDiv(sr));
   }
   /**
@@ -470,7 +471,7 @@ public class Img implements Cloneable{
         //pixelActualisé++;
       }
     }
-    Chrono.finCh("actualiserImage");
+    Chrono.endCh("actualiserImage");
     //debug.débogage(pixelActualisé+" pixels ont été actualisé.");
   }
   /**

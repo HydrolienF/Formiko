@@ -1,5 +1,7 @@
 package fr.formiko.usuel;
 
+import fr.formiko.usuel.maths.math;
+
 //def par défaut des fichiers depuis 0.79.5
 
 public class tableau <T>{
@@ -37,7 +39,75 @@ public class tableau <T>{
     }
     return tr;
   }*/
-//String
+  //SORT
+  /**
+  *{@summary A selection sorting algo.}
+  *@param ascendingOrder true → the smaler element will be the 1a.
+  *@version 1.33
+  */
+  public static void sort(String[] tab, boolean ascendingOrder){
+    for (int i = 0; i < tab.length - 1; i++) {
+      int index = i;
+      for (int j = i + 1; j < tab.length; j++) {
+        if(ascendingOrder){
+          if (isCharSmallerInString1(tab[j],tab[index])){
+             index = j;
+          }
+        }else{
+          if (isCharSmallerInString1(tab[index],tab[j])){
+             index = j;
+          }
+        }
+      }
+      String min = tab[index];
+      tab[index] = tab[i];
+      tab[i] = min;
+    }
+  }
+  /**
+  *{@summary A tools for sort sting that return true if s1 &#60; s2.}
+  *@param s1 1a String.
+  *@param s2 2a String.
+  *return s1&#60;s2 depending of char value.
+  *@version 1.33
+  */
+  private static boolean isCharSmallerInString1(String s1, String s2){
+    //if s1 < s2 return true;
+    int len = math.min(s1.length(),s2.length());
+    for (int i=0;i<len ;i++ ) { //while they are equals.
+      if(s1.charAt(i) < s2.charAt(i)){
+        return true;
+      }else if (s1.charAt(i) > s2.charAt(i)){
+        return false;
+      }
+    }
+    return false;
+  }
+  /**
+  *{@summary A selection sorting algo.}
+  *@param ascendingOrder true → the smaler element will be the 1a.
+  *@version 1.33
+  */
+  public static void sort(int[] tab, boolean ascendingOrder){
+    for (int i = 0; i < tab.length - 1; i++) {
+      int index = i;
+      for (int j = i + 1; j < tab.length; j++) {
+        if(ascendingOrder){
+          if (tab[j] < tab[index]){
+             index = j;
+          }
+        }else{
+          if (tab[j] > tab[index]){
+             index = j;
+          }
+        }
+      }
+      int min = tab[index];
+      tab[index] = tab[i];
+      tab[i] = min;
+    }
+  }
+  //String
   //Retire
   public static String [] retirer (String t[], int i){
     int lentr = t.length-1;

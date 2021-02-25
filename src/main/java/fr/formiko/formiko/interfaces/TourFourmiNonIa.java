@@ -24,16 +24,23 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   */
   @Override
   public void tour(){
+    if(Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()){return;}
+    //if(Main.getPartie().getIdPlayingAnt()!=-1 && Main.getPartie().getIdPlayingAnt()!=f.getId()){return;}
     try {
       //TODO move to View
       Main.getPj().setFActuelle(f);
       Main.getPb().addPI();
       Main.getPb().addPIJ();
     }catch (Exception e) {
-      erreur.alerte("1 graphics action can't be launch","TourFourmiNonIa");
+      Main.getPartie().setPlayingAnt(f);
+      erreur.alerteGUI2Dfail("TourFourmiNonIa");
+    }
+    if(Main.getOp().getAutoCleaning()){
+      cleanItself();
     }
     String m = "";
-    int choix = -1; f.setMode(-1);
+    int choix = -1;
+    f.setMode(-1);//TODO #50 to remove.
     while(f.getAction()>0 && choix!=-2 && f.getMode()==-1){
       Temps.pause(50);
       choix = (byte)(getChoixJoueur()-1);
@@ -41,6 +48,14 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         return;
       }
       m = faire(choix);
+      if(choix==12 || choix==13){ //Main.getPs().setIdFourmiAjoué(-1);
+        return;
+      }else if(choix==14){
+        f.setAction(0);
+        finTour();
+        Main.getPartie().setContinuerLeJeu(false);
+        return;
+      }
     }
     if (f.getMode() == 0){
       m = "chasser / ce déplacer pour chasser (Ou Récolter des graines)";
@@ -51,7 +66,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     try {
       Main.getPs().setIdFourmiAjoué(-1);
     }catch (Exception e) {
-      erreur.alerte("1 graphics action can't be launch","TourFourmiNonIa");
+      erreur.alerteGUI2Dfail("TourFourmiNonIa");
     }
     finTour();
   }
@@ -60,14 +75,23 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
 
   // old part to choose the action to do with the ant.---------------------------
   public byte getChoixBouton(){
-    byte choix = (byte) Main.getPj().getActionF();
+    byte choix = -1;
     while (choix==-1) {
-      choix = (byte) Main.getPj().getActionF();
+      try {
+        choix = (byte) Main.getPj().getActionF();
+      }catch (Exception e) {
+        choix = (byte) Main.getView().getAntChoice(getTActionFourmi());
+        erreur.alerteGUI2Dfail("TourFourmiNonIa");
+      }
       Temps.pause(50);
       if (f.getBUneSeuleAction()){
         //TODO move to View
-        Main.getPb().removePa();
-        Main.getPb().addPa(getTActionFourmi());
+        try {
+          Main.getPb().removePa();
+          Main.getPb().addPa(getTActionFourmi());
+        }catch (Exception e) {
+          erreur.alerteGUI2Dfail("TourFourmiNonIa");
+        }
         f.setBUneSeuleAction(false);
       }
       /*if(bActualiserTaille){
@@ -81,16 +105,24 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   }
   public byte getChoixJoueur(){
     int [] t = getTActionFourmi();
-    Main.getPb().removePa();
-    Main.getPb().addPa(t);
+    try {
+      Main.getPb().removePa();
+      Main.getPb().addPa(t);
+    }catch (Exception e) {
+      erreur.alerteGUI2Dfail("TourFourmiNonIa");
+    }
     // on attend une action de la fenetre.
     debug.débogage("lancement de l'attente du bouton");
     byte choix = getChoixBouton();
     debug.débogage("action de Fourmi lancé "+choix);
-    Main.getPj().setActionF(-1); //TODO move to View
+    try {
+      Main.getPj().setActionF(-1); //TODO move to View
+    }catch (Exception e) {
+      erreur.alerteGUI2Dfail("TourFourmiNonIa");
+    }
     return choix;
   }
-  public int [] getTActionFourmi(){
+  private int [] getTActionFourmi(){
     if(f.getUneSeuleAction()!=-1){
       if(f.getUneSeuleAction()==20){return new int[0];}
       int t []= new int [1];
@@ -114,11 +146,10 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     }
     return t;
   }
-  public String faire(int choix){
-    boolean estIa = f.getFere().getJoueur().getIa();
+  private String faire(int choix){
     String m = switch(choix){
       case 0 :
-        f.ceDeplacer(estIa);
+        f.ceDeplacer(f.getFere().getJoueur().getIa());
         yield "ceDeplacer";
       case 1 :
         f.chasse();
@@ -148,12 +179,24 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         f.setAction(0);
         yield "ne rien faire";
       case 10 :
-        Question q = new Question("supprimerFourmi.1","supprimerFourmi.2");
-        if(q.getChoix()){
+        try {
+          Question q = new Question("supprimerFourmi.1","supprimerFourmi.2");
+          if(q.getChoix()){
+            f.mourir(4);
+            yield "supprimer la fourmi";
+          }
+          yield "ne pas supprimer la fourmi";
+        }catch (Exception e) {
           f.mourir(4);
           yield "supprimer la fourmi";
         }
-        yield "ne pas supprimer la fourmi";
+      case 12 :
+        yield "change Fourmi";
+      case 13 :
+        f.getFere().getGc().setAction0AndEndTurn();
+        yield "endTurn";
+      case 14 :
+        yield "endGame";
       default :
         yield "le choix "+choix+" n'est pas possible";
       };

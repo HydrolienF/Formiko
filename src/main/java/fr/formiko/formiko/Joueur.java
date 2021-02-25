@@ -144,7 +144,7 @@ public class Joueur implements Serializable{
   public String scoreToString(){
     return getPseudo()+" : "+getScore();
   }
-  public void setAction0(){
-    fere.getGc().setAction0();
+  public void setAction0AndEndTurn(){
+    fere.getGc().setAction0AndEndTurn();
   }
 }

@@ -82,7 +82,7 @@ public class Chrono { //https://fr.jeffprod.com/blog/2015/un-chronometre-en-java
     if(ch==null){iniCh();}
     debutCh(ch);
   }
-  public static void finCh(String s){finCh(s,ch);}
+  public static void endCh(String s){endCh(s,ch);}
   /**
    * Start Chrono
    * @version 1.1
@@ -98,7 +98,7 @@ public class Chrono { //https://fr.jeffprod.com/blog/2015/un-chronometre-en-java
    *Message will be print only if the do more than 20ms.
    * @version 1.18
    */
-  public static void finCh(String s,Chrono chTemp){ // fin du Chrono.
+  public static void endCh(String s,Chrono chTemp){ // fin du Chrono.
     if(!debug.getAffLesPerformances()){ return;}
     String s2 = g.getM(s);
     if (s2.length()!=0){ s=s2;}

@@ -286,4 +286,32 @@ public class TourReineTest extends TestCaseMuet{
     assertEquals(7,Main.getGc().getCCase(0,0).getContenu().getGc().length());
     assertEquals(5,Main.getGc().getCCase(0,0).getContenu().getGc().getCouvain().length());
   }
+
+  @Test
+  public void testTourNull(){
+    Fourmi f = ini();
+    assertTrue(f!=null);
+    f.setTypeF((byte)3);
+    assertEquals(25,f.getIndividu().getNétoyage());
+    //without action :
+    f.setAction(0);
+    f.setNourriture(19);
+    assertEquals(0,f.getAge());
+    assertEquals(0,f.getAction());
+    assertEquals(19,f.getNourriture());
+    assertEquals(100,f.getProprete());
+    f.tour();
+    assertEquals(1,f.getAge());
+    assertEquals(0,f.getAction());
+    assertEquals(18,f.getNourriture());
+    assertTrue(f.getPropretéPerdu()!=0);
+    assertEquals(100-f.getPropretéPerdu(),f.getProprete());
+
+    f.setAction(0);
+    f.setTypeF((byte)0);
+    f.tour();
+    assertEquals(2,f.getAge());
+    assertEquals(0,f.getAction());
+    assertEquals(15,f.getNourriture());
+  }
 }
