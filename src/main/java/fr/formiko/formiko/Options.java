@@ -139,53 +139,6 @@ public class Options implements Serializable{
   public void setAutoCleaning(boolean b){autoCleaning=b;}
   // Fonctions propre -----------------------------------------------------------
   /**
-  *{@summary Save the Options in Options.txt.}<br>
-  *@version 1.20
-  */
-  /*public void sauvegarder(){
-    //on s'assure que le fichier n'existe plus pour éviter d'avoir a l'écraser plus tard.
-    File f = new File(Main.getFolder().getFolderMain()+"Options.txt");
-    if (f.exists()){ // si le fichier d'options existe.
-      f.delete();
-    }
-    //on remplie toute les infos qu'on veut sauvegarder dans un gs.
-    GString gs = new GString();
-    gs.add("version compatible:"+Main.getVersionActuelle());
-    gs.add("language:"+getLanguage());
-    gs.ajouter("taille bouton zoom:"+getbuttonSizeZoom());
-    gs.ajouter("taille bouton action:"+getTailleBoutonAction());
-    gs.ajouter("taille bouton tint:"+getTailleBoutonTX());
-    gs.ajouter("quickMovement:"+getMouvementRapide());
-    gs.ajouter("instantaneousMovement:"+getDéplacementInstantané());
-    gs.ajouter("orientedObjectOnMap:"+getElementSurCarteOrientéAprèsDéplacement());
-    gs.ajouter("maxMessageDisplay:"+getNbrMessageAfficher());
-    gs.ajouter("drawGrid:"+getDessinerGrille());
-    gs.ajouter("forceQuit:"+getForcerQuitter());
-    gs.ajouter("borderButtonSize:"+getBordureBouton());
-    gs.ajouter("drawIcon:"+getDessinerIcone());
-    gs.ajouter("fontSizeText:"+getTaillePolice1());
-    gs.ajouter("fontSizeTitle:"+getTaillePolice2());
-    gs.ajouter("fontText:"+getPolice());
-    gs.ajouter("pseudo:"+getPseudo());
-    gs.ajouter("fullscreen:"+getPleinEcran());
-    gs.ajouter("chargement pendant les menu:"+getChargementPendantLesMenu());
-    gs.ajouter("garder les graphsime tourné:"+getGarderLesGraphismesTourné());
-    gs.ajouter("attendre après le chargement de la carte:"+getAttendreAprèsLeChargementDeLaCarte());
-    gs.ajouter("afficher les étapes de résolution (débogage):"+getAffLesEtapesDeRésolution());
-    gs.ajouter("afficher les performances(débogage):"+getAffLesPerformances());
-    gs.ajouter("afficher les étape graphiques(débogage):"+getAffG());
-    gs.ajouter("dimention des lignes de la carte:"+getDimLigne());
-    gs.ajouter("positionCase:"+getPositionCase());
-    gs.ajouter("musique:"+getBMusique());
-    gs.ajouter("son:"+getBSon());
-    gs.add("musicVolume:"+getVolMusique());
-    gs.add("soundVolume:"+getVolSon());
-    gs.add("realisticSize:"+getTailleRealiste());
-    gs.add("autoCleaning:"+getAutoCleaning());
-    //on rempli le fichier avec le GString.
-    ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderStable()+"Options.txt");
-  }*/
-  /**
   *{@summary Initialize Options.}<br>
   *It load properties from Option.txt, transform it to all the Option value &#38; delete properties.
   *@version 1.34
