@@ -1,0 +1,27 @@
+version:1.33
+echap:27
+space:32
+
+//ant actions
+20:d
+21:c
+22:p
+23:t
+24:n
+25:m
+26:k
+27:A
+28:N
+29:r
+30:s
+
+//mooving
+f.1:1
+f.2:2
+f.3:3
+f.4:4
+f.5:5
+f.6:6
+f.7:7
+f.8:8
+f.9:9

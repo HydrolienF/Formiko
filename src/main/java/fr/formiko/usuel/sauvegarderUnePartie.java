@@ -1,15 +1,16 @@
 package fr.formiko.usuel;
 
-//def par défaut des fichiers depuis 0.79.5
-import fr.formiko.formiko.Partie;
+import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetAId;
+import fr.formiko.formiko.Partie;
+import fr.formiko.usuel.types.str;
+
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import fr.formiko.usuel.types.str;
-import java.io.File;
 
 /**
  *{@summary Save a game }<br>
@@ -19,7 +20,7 @@ import java.io.File;
 public class sauvegarderUnePartie {
   private static ObjectOutputStream oos = null;
   private static ObjectInputStream ois = null;
-  private static final String REP = "data/sauvegarde/";
+  private static final String REP = Main.getFolder().getFolderMain()+Main.getFolder().getFolderSaves();
   private static String s="null";
   private static Save save;
 
@@ -63,7 +64,7 @@ public class sauvegarderUnePartie {
       ois = new ObjectInputStream(new FileInputStream(getNomDuFichierComplet()));
       pa = (Partie) ois.readObject();
     }catch (Exception e) {
-      erreur.erreur("Impossible de charger la partie pour une raison inconnue","sauvegarderUnePartie.sauvegarder");
+      erreur.erreur("Impossible de charger la partie "+nomDuFichier+" pour une raison inconnue","sauvegarderUnePartie.charger");
     }
     return pa;
   }

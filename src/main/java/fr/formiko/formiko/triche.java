@@ -15,6 +15,7 @@ public class triche {
   public static int nbrDeCommande;
   // Fonctions propre -----------------------------------------------------------
   public static void ini(){
+    if(gs!=null){return;}
     gs = new GString(); //GString est une liste chainées dont le contenu est une String.
     nbrDeCommande=1;
     while (!g.get("cmd."+nbrDeCommande).equals("cmd."+nbrDeCommande)){nbrDeCommande++;}
@@ -33,13 +34,14 @@ public class triche {
   }
   public static void commande(String s){
     if(s==null || s.equals("")){ return;}
+    System.out.println("cheat commande launch : \""+s+"\"");
     String args [] = decoderUnFichier.getTableauString(s,' ');
     s = args[0];
     try { // pour ne pas avoir a géré toutes les erreurs séparement on ce contente d'afficher un message d'erreur général si l'erreur est inconue.
       //affichage
       int x=-1;int i=1;
       while(x==-1 && i<=nbrDeCommande){
-        if(s.equals(g.get("cmd."+i))){x=i;}//si la commande est reconue on note le numérau de la commande et on passe a la suite.
+        if(s.equals(g.get("cmd."+i))){x=i;}//si la commande est reconue on note le numéro de la commande et on passe a la suite.
         i++;
       }
       if(x==-1){ return;}
@@ -259,14 +261,25 @@ public class triche {
             Main.setLangue((int)xL);
           }catch (Exception e) {
             try {
-              Main.setLangue(chargerLesTraductions.getLangue(args[1]));
+              Main.setLangue(chargerLesTraductions.getLanguage(args[1]));
             }catch (Exception e2) {
               erreur.erreur("Impossible de changer la langue","triche.commande");
             }
           }
           break;
         case 37:
-          Main.getPj().retournerAuMenu();
+          try {
+            Main.getPj().retournerAuMenu();
+          }catch (Exception e) {}
+          try {
+            Main.getView().menuMain();
+          }catch (Exception e) {}
+          break;
+        case 38:
+          try {
+            Main.getFActuelle().setAction(0);
+          }catch (Exception e) {}
+          Main.getPartie().setContinuerLeJeu(false);
           break;
         default:
           erreur.erreur("La commande n'as pas été reconnue.","triche.commande");

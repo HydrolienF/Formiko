@@ -12,7 +12,6 @@ public class ThTriche extends Thread{
   // Fonctions propre -----------------------------------------------------------
   @Override
   public void run(){
-    triche.ini();
     Scanner sc = new Scanner(System.in);
     while(sc.hasNext()){
       String s = sc.nextLine();//le reste du programme tourne pendant l'attente d'une commande.

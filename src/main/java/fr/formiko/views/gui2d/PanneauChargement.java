@@ -21,7 +21,6 @@ public class PanneauChargement extends Panneau {
   private Bouton bt;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauChargement(){
-    System.out.println("new PanneauChargement");//@a
     setLayout(null);
     Main.getData().loadImageChargement();
     addMessage();

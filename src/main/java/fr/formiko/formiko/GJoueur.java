@@ -110,6 +110,7 @@ public class GJoueur implements Serializable{
       fin = cj;
     }
   }
+  //TODO #231 should place j depending of it score. (just before the 1a player that have a lower score.)
   public void addOrdonnée(Joueur j){
     if(début==null){ajouter(j);}//le cas ou on a 0 éléments dans la liste.
     else if(début.equals(fin)){//le cas ou on a 1 seul élément dans la liste
@@ -167,8 +168,8 @@ public class GJoueur implements Serializable{
     if(début==null){return;}
     début.prendreEnCompteLaDifficulté();
   }
-  public void setAction0(){
+  public void setAction0AndEndTurn(){
     if(début==null){return;}
-    début.setAction0();
+    début.setAction0AndEndTurn();
   }
 }

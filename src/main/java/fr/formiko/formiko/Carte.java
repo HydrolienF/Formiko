@@ -55,4 +55,12 @@ public class Carte implements Serializable{
     System.out.println(this);
   }
   public int length(){return gc.length();}
+  public void setMap(String s){
+    try {
+      mapName = s;
+      gc = chargerCarte.chargerCarte(mapName);
+    }catch (Exception e) {
+      erreur.erreur("impossible de trouvé cette carte");
+    }
+  }
 }

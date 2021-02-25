@@ -1,17 +1,17 @@
 package fr.formiko.usuel;
 
-//def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.lireUnFichier;
-import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Case;
+import fr.formiko.formiko.GCase;
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 
 public class chargerCarte {
   // Fonctions propre -----------------------------------------------------------
   public static GCase chargerCarte(String fichier){
-    fichier = "data/carte/"+fichier+".csv";
+    fichier = Main.getFolder().getFolderStable()+Main.getFolder().getFolderMaps()+fichier+".csv";
     String s [] = null;
     try {
       s = lireUnFichier.lireUnFichier(fichier);

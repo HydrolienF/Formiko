@@ -271,15 +271,16 @@ public class CCreature implements Serializable{
       System.out.println();
     }
   }
+  /**
+  *Play as an ant.
+  *@version 1.33
+  */
   public void jouer(){
-    Fourmi fActuel =  null;
     if(contenu instanceof Fourmi){
-      fActuel = (Fourmi) contenu;
+      Fourmi fActuel = (Fourmi) contenu;
+      fActuel.tour();
     }else{
       erreur.erreur("Impossible de faire jouer comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.","CCreature.jouer");
-    }
-    if(fActuel!=null){
-      fActuel.tour();
     }
     if(suivant != null){
       suivant.jouer();
@@ -287,16 +288,15 @@ public class CCreature implements Serializable{
   }
   /**
   *reset action before the turn of all the ant.
-  *@version 1.30
+  *@version 1.33
   */
   public void preTour(){
-    Fourmi fActuel =  null;
     if(contenu instanceof Fourmi){
-      fActuel = (Fourmi) contenu;
+      Fourmi fActuel = (Fourmi) contenu;
+      fActuel.preTour();
     }else{
       erreur.erreur("Impossible de faire preTour comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.","CCreature.preTour");
     }
-    if(fActuel!=null){fActuel.preTour();}
     if(suivant != null){
       suivant.preTour();
     }

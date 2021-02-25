@@ -21,13 +21,13 @@ public class Th extends Thread{
       Chrono ch2 = new Chrono();
       Chrono.debutCh(ch2);
       ini.initialiserPanneauJeuEtDépendance();
-      Chrono.finCh(g.get("chargementPanneauJeuEtDépendance"),ch2);
+      Chrono.endCh(g.get("chargementPanneauJeuEtDépendance"),ch2);
     }
   }
   public synchronized void chargementDesGraphismesAutonomes(){
     Chrono ch2 = new Chrono();
     Chrono.debutCh(ch2);
     ini.initialiserAutreELémentTournés();//2
-    Chrono.finCh(g.get("chargementDesElémentsTourné"),ch2);
+    Chrono.endCh(g.get("chargementDesElémentsTourné"),ch2);
   }
 }

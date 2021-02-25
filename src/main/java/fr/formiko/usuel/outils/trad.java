@@ -40,7 +40,7 @@ public class trad {
     }
   }
   public static void copieTradBase(String se, Map<String,String> map){
-    String t [] = lireUnFichier.lireUnFichier("data/langue/fr.txt");
+    String t [] = lireUnFichier.lireUnFichier(Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages()+"fr.txt");
     GString gs = new GString();
     for (String s : t) {
       if(chargerLesTraductions.estLigneDeTrad(s) && !str.contient(s,"[]",2)){//si c'est une ligne de trad qui ne correspond pas a un nom propre.
@@ -52,7 +52,7 @@ public class trad {
     }
     //int k = (k1*100)/(k1+k2);
     //System.out.println("traduction de "+se+" effectuée a "+k+"%");
-    ecrireUnFichier.ecrireUnFichier(gs,"data/langue/"+se+".txt");
+    ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages()+se+".txt");
   }
   public static String ligneTradBase(String s, Map<String,String> map){
     String s2 = debutDeLigne(s);

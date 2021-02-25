@@ -171,7 +171,7 @@ public class TourFourmi implements Serializable, Tour{
       }
       Main.getPs().setIdFourmiAjoué(-1);
     }catch (Exception e) {
-      erreur.alerte("Une action graphique n'as pas pu etre lancé.","TourFourmi");
+      erreur.alerteGUI2Dfail("TourFourmi");
     }
   }
 }

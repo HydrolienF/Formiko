@@ -2,15 +2,16 @@ package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
-import fr.formiko.views.gui2d.EtiquetteJoueur;
-import fr.formiko.views.gui2d.GEtiquetteJoueur;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.*;
+import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
+import fr.formiko.views.gui2d.EtiquetteJoueur;
+import fr.formiko.views.gui2d.GEtiquetteJoueur;
 
 import java.awt.Image;
 import java.io.Serializable;
@@ -27,7 +28,6 @@ public class Partie implements Serializable{
   private int nbrDeTour, tour;
   private int niveauDeLimitationDesinsectes = 4;
   private byte difficulté = 0; // 0 moyen. -1 facile, -2 très facile, 1 difficle, 2 très difficle, 3 ultra difficle.
-  //private byte difficulté = 3; // 1 facile, 2 moyen, 3 difficile.
   private LocalDateTime dateDeCréation;
   private boolean partieFinie;
   private int tableauDesEspecesAutorisée []; // les 0 et les 3 marche.
@@ -40,6 +40,7 @@ public class Partie implements Serializable{
   private boolean appartionInsecte;
   private boolean appartionGraine;
   private boolean dejaIni=false;
+  private Fourmi playingAnt;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   // nombre de joueur, nombre d'ia, abondance des insectes, niveau de difficulté des ia, les especes autorisé, le nombre de tour.
@@ -54,7 +55,7 @@ public class Partie implements Serializable{
     tableauDesEspecesAutorisée = new int [1];//[2];
     tableauDesEspecesAutorisée[0]=0;
     //tableauDesEspecesAutorisée[1]=3;
-    //a ce stade, il manque encore gi et gj. On les initialise null par précaution.
+    //a ce stade, il manque encore gi et gj. On les initialise null partie précaution.
     gj = new GJoueur();
     gi = new GInsecte();
     appartionInsecte=true;
@@ -136,7 +137,7 @@ public class Partie implements Serializable{
   public void initialisationElément(int nbrDeJoueur, int nbrDIa, int nbrDeFourmi){
     if(!dejaIni){
       dejaIni=true;
-      Main.débutCh();
+      Main.startCh();
       Main.setMessageChargement(g.getM("initialisationDesJoueurs"));
       boolean b = false;
       nbrDeJoueurDansLaPartie=nbrDIa + nbrDeJoueur;
@@ -158,15 +159,15 @@ public class Partie implements Serializable{
       }else{
         gi = new GInsecte();
       }
-      Main.finCh("chargementElementsDeLaCarte");
+      Main.endCh("chargementElementsDeLaCarte");
       Main.setMessageChargement(g.getM("chargementDesGraphismes"));
     }
     //ce qui arrive même si c'était déja initialisé.
-    Main.débutCh();
+    Main.startCh();
     if(Main.getF()!=null){
       initialiserGraphismePartie();
     }
-    Main.finCh("chargementGraphismes");
+    Main.endCh("chargementGraphismes");
     setEnCours(true);
   }
   public void initialisationElément(int a, int b){initialisationElément(a,b,1);}
@@ -197,7 +198,7 @@ public class Partie implements Serializable{
     else{setPartieFinie(false);}
     for(tour=1; tour<=nbrDeTour; tour++){
       new Message("\n"+g.get("tour")+ tour +" :");
-      Main.repaint();
+      //Main.repaint();
       //La joue toutes les ia et les joueurs
       Main.tour();
       testFinDePartie();
@@ -209,6 +210,9 @@ public class Partie implements Serializable{
   }
   public boolean jeu(){return launchGame();}
   public void testFinDePartie(){
+    if(!getContinuerLeJeu()){
+      finDePartie(0); //0=défaite
+    }
     if(partieFinie){ return;}//on ne fait pas le test si on est déja après la fin et que le joueur veux continuer a jouer.
     if(getGj().plusQu1Joueur()){
       finDePartie(2);
@@ -222,6 +226,9 @@ public class Partie implements Serializable{
   public void finDePartie(int x){
     if (partieFinie) {return;}//on n'affiche pas plusieur fois les info de fin de partie.
     setPartieFinie(true);
+    System.out.println("game is over.");//@a
+    System.out.println(getTour()+"/"+getNbrDeTour());
+    System.out.println(getGj());//@a
     String victoire = g.get("victoireInconue");
     GJoueur gjOrdonné = getGj().getGjOrdonné();
     Joueur gagnant = gjOrdonné.getDébut().getContenu();
@@ -241,8 +248,13 @@ public class Partie implements Serializable{
       new Message(mess);
     }
     gjOrdonné.afficheScore();
-    Main.getPj().addPfp(mess,gjOrdonné);
+    try {
+      Main.getPj().addPfp(mess,gjOrdonné);
+    }catch (Exception e) {
+      erreur.alerteGUI2Dfail("Partie.finDePartie");
+    }
     setContinuerLeJeu(false);
+    Main.setRetournerAuMenu(true);//TODO ask & not force.
     while(!getContinuerLeJeu() && !Main.getRetournerAuMenu()){//on attend la validation que la partie continue.
       Temps.pause(10);
     }
@@ -274,7 +286,81 @@ public class Partie implements Serializable{
   public void enregistrerLesScores(){
     gj.enregistrerLesScores();
   }
+  //static
+  /**
+   * Load the GEspece.
+   * @version 1.33
+   */
   public static void iniGe(){
     ge = new GEspece();
   }
+  /**
+   * Load the default Partie.
+   * @version 1.33
+   */
+  public static Partie getDefautlPartie(){
+    Main.startCh();
+    String nomCarte = "miniWorld";
+    Carte mapo = new Carte(nomCarte);
+    mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
+    Partie partie = new Partie(1,100,mapo,1.0);
+    partie.setElément(1,5,1);
+    partie.setVitesseDeJeu(0.2);
+    Main.endCh("chargementParamètrePartieParDéfaut");
+    return partie;
+  }
+  /**
+   * Load the default Partie.
+   * @version 1.14
+   */
+  public static Partie getPartieSave(String nom){
+    Main.startCh();
+    Partie partie = sauvegarderUnePartie.charger(nom);
+    Main.endCh("chargementPartie");
+    return partie;
+  }
+  /**
+   * {@summary create a new Partie to launch Tuto.}<br>
+   * @version 1.1.
+   */
+  public static Partie getPartieTuto(){
+    Main.startCh();
+    String nomCarte = "tuto";
+    Carte mapo = new Carte(nomCarte);
+    mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
+    Partie partie = new Partie(1,5,mapo,1.0);
+    partie.setElément(1,0,1);
+    partie.setVitesseDeJeu(0.4);
+    Main.endCh("chargementParamètrePartieTuto");
+    partie.setAppartionInsecte(false);
+    partie.setAppartionGraine(false);
+    return partie;
+  }
+  /**
+  *{@summary change the value of the playing ant.}<br>
+  *We need to repaint the information about this playingAnt.<br>
+  *This action can only be run if action game is on.<br>
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.33
+  */
+  public boolean setPlayingAnt(Fourmi f){
+    if (!Main.getView().getActionGameOn()) {return false;}
+    playingAnt=f;
+    return false;
+  }
+  /**
+  *{@summary change the value of the playing ant with and id.}<br>
+  *This action can only be run if action game is on.<br>
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.33
+  */
+  private boolean setPlayingAnt(int id){
+    try {
+      return setPlayingAnt(triche.getFourmiParId(id+""));
+    }catch (Exception e) {
+      erreur.erreur("the ant "+id+" can't be used to play.");
+      return false;
+    }
+  }
+  public Fourmi getPlayingAnt(){return playingAnt;}
 }
