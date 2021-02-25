@@ -33,7 +33,7 @@ public class stats {
   public static void statsJavadoc(String chemin, boolean raccourcir){
     Chrono.debutCh();
     GString gs = fichier.listerLesFichiersDuRep(chemin);
-    Chrono.finCh("listage des fichiers");Chrono.debutCh();
+    Chrono.endCh("listage des fichiers");Chrono.debutCh();
     //gs = la liste des fichiers.
 
     GGInt ggi = new GGInt();
@@ -50,7 +50,7 @@ public class stats {
       }
       cs = cs.getSuivant();
     }
-    Chrono.finCh("récupération des data");Chrono.debutCh();
+    Chrono.endCh("récupération des data");Chrono.debutCh();
 
     //GGInt = la liste de toutes les données.
     sommeDesComG=0;sommeDesFctLG=0;
@@ -63,7 +63,7 @@ public class stats {
     GString gsr = new GString();
     gsr.add("comment %    cl-pu-po-pr-sh-ln   name of the file");
     //gsr.add(total);
-    Chrono.finCh("calcul des valeur et du total");Chrono.debutCh();
+    Chrono.endCh("calcul des valeur et du total");Chrono.debutCh();
     //ajouter tt les autres.
     CCInt cci = ggi.getDébut();
     CCInt cci2 = ggi2.getDébut();
@@ -84,9 +84,9 @@ public class stats {
     GInt gi2 = new GInt(); gi2.add(sommeDesClassG);gi2.add(sommeDesFctLPuG);gi2.add(sommeDesFctLPoG);gi2.add(sommeDesFctLPrG);
     String s="global";
     gsr.add(toStatJd(gi)+" "+toStatInfo(gi2,gi)+" "+sommeNbrDeLigneG+" "+s);
-    Chrono.finCh("traitement du GString");Chrono.debutCh();
+    Chrono.endCh("traitement du GString");Chrono.debutCh();
     ecrireUnFichier.ecrireUnFichier(gsr,"stats.txt");
-    Chrono.finCh("sauvegarde finale");
+    Chrono.endCh("sauvegarde finale");
   }public static void statsJavadoc(String chemin){statsJavadoc(chemin,false);}
 
   public static String toStatJd(CCInt cci){return toStatJd(cci.getContenu());}

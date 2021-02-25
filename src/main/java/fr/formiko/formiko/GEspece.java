@@ -43,7 +43,7 @@ public class GEspece implements Serializable{
   public void chargerLesEspeces(){
     String td [] = new String [0];
     try {
-      td = lireUnFichier.lireUnFichier("data/Espece.csv");
+      td = lireUnFichier.lireUnFichier(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"Espece.csv");
     }catch (Exception e) {
       erreur.erreur("Le fichier des Espece n'as pas pu être localisé. il devrais y avoir un docier data et celui ci devrait contenir un fichier Espece.txt","GEspece.chargerLesEspeces",true);
     } int lentd = td.length;

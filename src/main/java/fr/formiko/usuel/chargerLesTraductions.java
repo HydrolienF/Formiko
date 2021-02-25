@@ -1,13 +1,13 @@
 package fr.formiko.usuel;
 
-//def par défaut des fichiers depuis 0.79.5
-import java.util.Map;
-import java.util.HashMap;
+import fr.formiko.formiko.Main;
 import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
-import fr.formiko.usuel.listes.GString;
+
 import java.io.File;
+import java.util.HashMap;
 
 /**
 *{@summary Loard translation file class.}<br>
@@ -15,16 +15,16 @@ import java.io.File;
 *@version 1.5
 */
 public class chargerLesTraductions {
-  private static Map<String, String> map;
-  private static String rep="data/langue/";
+  private static HashMap<String, String> map;
+  private static String rep=Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages();
   private static String tLangue[]=null;
   // get set -------------------------------------------------------------------
   public static String [] getTLangue(){return tLangue;}
   public static void setTLangue(String t []){tLangue=t;}
   public static String getRep(){return rep;}
   public static void setRep(String s){rep = str.sToDirectoryName(s);}
-  public static void setRep(){setRep("data/langue/");}
-  public static Map<String, String> getMap(){return map;}
+  public static void setRep(){setRep(Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages());}
+  public static HashMap<String, String> getMap(){return map;}
   public static void iniMap(){map = new HashMap<>();}
   // Fonctions propre -----------------------------------------------------------
   /**
@@ -33,11 +33,11 @@ public class chargerLesTraductions {
   *@return language String in ISO code 639-1 if tLangue is correct.
   *@version 1.5
   */
-  public static String getLangue(int x){
+  public static String getLanguage(int x){
     if(tLangue == null || x<0 || x>=tLangue.length){
       int l = 0;
       if(tLangue!=null){l=tLangue.length;}
-      erreur.erreur("langue non reconnu parmi les "+l+" langue(s) disponible(s).","chargerLesTraductions.getLangue","\"en\" retourné");
+      erreur.erreur("langue non reconnu parmi les "+l+" langue(s) disponible(s).","chargerLesTraductions.getLanguage","\"en\" retourné");
       return "en";
     }
     return tLangue[x];
@@ -48,14 +48,15 @@ public class chargerLesTraductions {
   *@param s language String in ISO code 639-1.
   *@version 1.5
   */
-  public static int getLangue(String s){
-    if(tLangue == null || s==null || s.equals("")){ return -1;}
+  public static int getLanguage(String s){
+    if(tLangue == null){ return -1;}
+    if(tLangue.length<3){return -1;}
+    if (s==null || s.equals("")) { return 2;}
     int k=0;
     for (String s2 : tLangue) {
       if(s2.equals(s)){return k;}
       k++;
     }
-    if(tLangue.length<3){return -1;}
     return 2;
   }
   /**
@@ -123,8 +124,8 @@ public class chargerLesTraductions {
     //String tDéfaut [] = lireUnFichier.lireUnFichier(rep+"fr.txt");
     String t [] = new String[0];
     try{
-      debug.débogage("chargement de la langue "+getLangue(langue));
-      t=lireUnFichier.lireUnFichier(rep+getLangue(langue)+".txt");
+      debug.débogage("chargement de la langue "+getLanguage(langue));
+      t=lireUnFichier.lireUnFichier(rep+getLanguage(langue)+".txt");
     }catch (Exception e) {
       erreur.erreur("Echec du chargement de la langue spécifiée","en choisi par défaut");
       t=lireUnFichier.lireUnFichier(rep+"en.txt");
@@ -160,7 +161,7 @@ public class chargerLesTraductions {
   *@param langue id if the language
   *@version 1.7
   */
-  public static Map<String, String> chargerLesTraductions(int langue){
+  public static HashMap<String, String> chargerLesTraductions(int langue){
     debug.débogage("Chargement des textes");//on lit le fichier de langue
     map = chargerLesTraductionsSansCommande(langue);
     String t2[] = getTableauDesCmd();
@@ -175,7 +176,7 @@ public class chargerLesTraductions {
   *@param langue id if the language
   *@version 1.7
   */
-  public static Map<String, String> chargerLesTraductionsSansCommande(int langue){
+  public static HashMap<String, String> chargerLesTraductionsSansCommande(int langue){
     iniMap();
     String t[] = getTableauDesTrad(langue);
     for (String s : t) {//on ajoute toutes les lignes qu'on peu ajouter.
@@ -187,7 +188,7 @@ public class chargerLesTraductions {
   *{@summary Load translation for nation name.}<br>
   *@version 1.26
   */
-  public static Map<String, String> chargerLesNationsName(){
+  public static HashMap<String, String> chargerLesNationsName(){
     iniMap();
     String t[] = getTableauDesNationsName();
     for (String s : t) {//on ajoute toutes les lignes qu'on peu ajouter.
@@ -245,7 +246,7 @@ public class chargerLesTraductions {
     int x = 0;
     String [] t= new String [0];
     try {
-      t=lireUnFichier.lireUnFichier(rep+getLangue(langue)+".txt");
+      t=lireUnFichier.lireUnFichier(rep+getLanguage(langue)+".txt");
     }catch (Exception e) {}
       for (String s : t ) {
         if(estLigneDeTrad(s)){
@@ -266,7 +267,7 @@ public class chargerLesTraductions {
     int x = 0;
     String [] t= new String [0];
     try {
-      t=lireUnFichier.lireUnFichier(rep+getLangue(langue)+".txt");
+      t=lireUnFichier.lireUnFichier(rep+getLanguage(langue)+".txt");
     }catch (Exception e) {}
       for (String s : t ) {
         if(s.length()>6 && s.substring(s.length()-6).equals("[auto]")){
@@ -287,9 +288,22 @@ public class chargerLesTraductions {
       String s = "";int x=getPourcentageTraduitAutomatiquement(i); if(x>0){s=" ("+x+"% traduit automatiquement)";}
       int y = getPourcentageTraduit(i);
       if(x>0){
-        System.out.println(getLangue(i)+" : "+y+"%"+s);
+        System.out.println(getLanguage(i)+" : "+y+"%"+s);
       }
     }
   }
   public static boolean fini(String s){return !str.contient(s,":",2);}
+  /**
+  *{@summary Add untranslated key to the actual Map.}<br>
+  *For all key in english map, if key isn't in g.getMap() we add it.
+  *@version 1.33
+  */
+  public static void completMapWithFullTranslatedLanguage(){
+    HashMap<String,String> hm = chargerLesTraductions(getLanguage("en"));
+    for (String key : hm.keySet() ) {
+      if(!g.exist(key)){
+        g.getMap().put(key,hm.get(key));
+      }
+    }
+  }
 }

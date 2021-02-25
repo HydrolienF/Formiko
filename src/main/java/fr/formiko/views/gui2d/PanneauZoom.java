@@ -27,13 +27,13 @@ public class PanneauZoom extends Panneau {
   private Bouton bd1; private Bouton bd2;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauZoom(){
-    int tailleBouton=Main.getTailleBoutonZoom();
+    int tailleBouton=Main.getbuttonSizeZoom();
     setSize(tailleBouton*3,tailleBouton*3);
   }
   public void construire(){
-    int tailleBouton=Main.getTailleBoutonZoom();
+    int tailleBouton=Main.getbuttonSizeZoom();
     this.setLayout(new GridBagLayout());
-    Image tIB []; tailleBouton=Main.getTailleBoutonZoom();
+    Image tIB []; tailleBouton=Main.getbuttonSizeZoom();
     //if(Main.getPiFond()==null){tIB = chargerTIB();}
     //else{tIB = chargerTIB2(Main.getPiFond());}
     tIB = Main.getData().chargerTIBZoom();
@@ -73,7 +73,7 @@ public class PanneauZoom extends Panneau {
     add(bd2,gbc);
   }
   // GET SET --------------------------------------------------------------------
-  public int getTailleBouton(){ return Main.getTailleBoutonZoom();}
+  public int getTailleBouton(){ return Main.getbuttonSizeZoom();}
   //public void setTailleBouton(int x){ tailleBouton=x;}
   public void setEnabled(boolean boo){
     bPlus.setEnabled(boo);
@@ -92,7 +92,7 @@ public class PanneauZoom extends Panneau {
     }catch (Exception e) {
       return;
     }
-    int tailleBouton=Main.getTailleBoutonZoom();
+    int tailleBouton=Main.getbuttonSizeZoom();
     debug.débogage("taille du panneau de zoom : x="+tailleBouton*3+", y="+tailleBouton*3);
     this.setSize(tailleBouton*3,tailleBouton*3);
   }

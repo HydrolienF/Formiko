@@ -92,6 +92,18 @@ public class List<T> implements Iterable<T>, Serializable {
     return r;
   }
   /**
+  *{@summary return the xa item}<br>
+  *@version 1.31
+  */
+  public T getItem(int id){
+    if(id<0){return null;}
+    for (T item : this ) {
+      if(id==0){return item;}
+      id--;
+    }
+    return null;
+  }
+  /**
   *{@summary return the coresponding Iterator}<br>
   *@version 1.31
   */

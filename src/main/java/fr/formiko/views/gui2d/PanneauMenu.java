@@ -65,7 +65,7 @@ public class PanneauMenu extends Panneau {
     }else if(ac==2){
       addPcp();
     }else if(ac==3){
-      erreur.erreurPasEncoreImplémenté("PanneauMenu");
+      erreur.erreurPasEncoreImplemente("PanneauMenu");
     }else if(ac==4){
       debug.débogage("lancementNouvellePartie");
       //Main.lancementNouvellePartie();

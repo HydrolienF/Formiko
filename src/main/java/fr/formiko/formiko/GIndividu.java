@@ -50,7 +50,7 @@ public class GIndividu implements Serializable{
   public static void chargerLesIndividus(){
     String td [] = new String [0];
     try {
-      td = lireUnFichier.lireUnFichier("data/Individu.csv");
+      td = lireUnFichier.lireUnFichier(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"Individu.csv");
     }catch (Exception e) {
       erreur.erreur("Le fichier des Individu n'as pas pu être localisé. il devrais y avoir un docier data et celui ci devrait contenir un fichier Individu.txt","GIndividu.chargerLesIndividu",true);
     } int lentd = td.length;

@@ -1,5 +1,8 @@
 package fr.formiko.views;
 
+import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.Fourmi;
+
 /**
  *{@summary Main view interface.}<br>
  *All views need to implement this interface !<br>
@@ -8,12 +11,19 @@ package fr.formiko.views;
  *@version 1.33
  */
 public interface View {
+  boolean getActionGameOn();
   /***
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.33
   */
   boolean ini();
+  /***
+  *{@summary close all the thing that need to be close after using view.}<br>
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.33
+  */
+  boolean close();
   /***
   *{@summary Refrech actual view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
@@ -39,6 +49,18 @@ public interface View {
   */
   boolean menuLoadAGame();
   /***
+  *{@summary personalise a game menu.}<br>
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.33
+  */
+  boolean menuPersonaliseAGame();
+  /***
+  *{@summary options menu.}<br>
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.33
+  */
+  boolean menuOptions();
+  /***
   *{@summary Launch action game part.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.33
@@ -53,23 +75,7 @@ public interface View {
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.33
   */
-  boolean pauseActionGame();
-  /***
-  *{@summary change the value of the playing ant.}<br>
-  *We need to repaint the information about this playingAnt.<br>
-  *This action can only be run if action game is on.<br>
-  *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
-  */
-  boolean setPlayingAnt();
-  /***
-  *{@summary Change the value of the playing ant.}<br>
-  *We need to repaint the information about this playingAnt.<br>
-  *This action can only be run if action game is on.<br>
-  *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
-  */
-  boolean setLookedCase();
+  int pauseActionGame();
   /***
   *{@summary Change the value of the loked Case.}<br>
   *We need to repaint the information about this Case.<br>
@@ -77,4 +83,12 @@ public interface View {
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.33
   */
+  boolean setLookedCase(CCase cc);
+  /***
+  *{@summary Return the chosen value for ant action.}<br>
+  *This action can only be run if action game is on.<br>
+  *@return Return ant choice.
+  *@version 1.33
+  */
+  int getAntChoice(int t[]);
 }
