@@ -60,9 +60,9 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertEquals(2,chargerLesTraductions.getLanguage("test"));
     assertEquals(2,chargerLesTraductions.getLanguage("ø"));
     //un usage imprévu
-    assertEquals(-1,chargerLesTraductions.getLanguage(""));
+    assertEquals(2,chargerLesTraductions.getLanguage(""));
     String s = null;
-    assertEquals(-1,chargerLesTraductions.getLanguage(s));
+    assertEquals(2,chargerLesTraductions.getLanguage(s));
 
     //si la langue 2 n'existe pas dans le tableau des langues.
     String t2 []= {"r"};

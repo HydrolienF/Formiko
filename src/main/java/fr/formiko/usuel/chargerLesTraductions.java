@@ -49,13 +49,14 @@ public class chargerLesTraductions {
   *@version 1.5
   */
   public static int getLanguage(String s){
-    if(tLangue == null || s==null || s.equals("")){ return -1;}
+    if(tLangue == null){ return -1;}
+    if(tLangue.length<3){return -1;}
+    if (s==null || s.equals("")) { return 2;}
     int k=0;
     for (String s2 : tLangue) {
       if(s2.equals(s)){return k;}
       k++;
     }
-    if(tLangue.length<3){return -1;}
     return 2;
   }
   /**
