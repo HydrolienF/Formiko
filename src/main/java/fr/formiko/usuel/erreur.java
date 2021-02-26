@@ -10,6 +10,7 @@ public class erreur {
   private static String yellow = (char)27+"[1;33m";
   private static String red = (char)27+"[1;31m";
   private static String neutral = (char)27+"[0;m";
+  private static String blue = (char)27+"[1;34m";
 
   public static void setMuet(boolean b){muet=b;}
   private static void println(String s){
@@ -90,6 +91,17 @@ public class erreur {
   public static void alerte(){
     alerte("");
   }
+  /**
+  *{@summary Print info about important thing that are not important as alerte or error.}<br>
+  *@version 1.37
+  */
+  public static void info(String message, String lieu){
+    String preMessage = "";
+    if(Main.getOs().isLinux()){preMessage = "["+blue+g.get("info").toUpperCase()+neutral+"] ";}
+    print(preMessage + "("+lieu+") ");
+    println(message);
+  }
+  public static void info(String message){info(message,null);}
 
 
   public static void erreurPasEncoreImplemente(String lieu){
@@ -114,6 +126,9 @@ public class erreur {
   }public static void erreurType(String type){
     //if(lieu0==null){lieu0 = g.get("erreur",1,"un lieu non précisé");}
     erreurType(type,null);
+  }
+  public static void erreurMissingFolder(String folderName){
+    erreur("Can not create all file of "+folderName+" folder","Folder.ini");
   }
   public static void alerteGUI2Dfail(String cause, String lieu){
     alerte(g.getM("alerteGUI2Dfail"),lieu);

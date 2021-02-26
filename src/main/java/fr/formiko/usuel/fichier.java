@@ -47,6 +47,7 @@ public class fichier{
    *@version 1.13
    */
   public static boolean deleteDirectory(File directoryToBeDeleted) {
+    if(directoryToBeDeleted==null){return false;}
     File allF [] = directoryToBeDeleted.listFiles();
     //on demande a tout les sous répertoires de ce surppimer.
     if (allF != null) {

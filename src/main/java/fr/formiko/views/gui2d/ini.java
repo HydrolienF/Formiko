@@ -10,6 +10,7 @@ import fr.formiko.usuel.images.*;
 import fr.formiko.usuel.types.str;
 
 import java.awt.Image;
+import java.io.File;
 
 public class ini {
 
@@ -88,7 +89,8 @@ public class ini {
   public static synchronized void initialiserAutreELémentTournés(){
     //de façon a ce que l'initialisation ce fasse qu'une seule fois.
     if(Main.getAvancementChargement()==0){
-      if(!Main.getGarderLesGraphismesTourné()){
+      File f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages());
+      if(!Main.getGarderLesGraphismesTourné() || f.list().length<10){
         //les jeunes fourmis
         for (int i=0;i<3 ;i++ ) {
           créerDBG("fourmi",i);
