@@ -469,10 +469,9 @@ public class Main {
     tempsDeDébutDeJeu=System.currentTimeMillis();
     os = new Os();
     folder = new Folder();
+    getFolder().ini();
     view = new ViewNull();
-    //setMessageChargement("vérificationsDeLArborécence");startCh();
     //if(!arbo.arborécenceIntacte()){arbo.réparationArboréscence();}
-    //endCh("vérificationsDeLArborécence");
     setMessageChargement("chargementDesOptions");startCh();
     chargerLesTraductions.iniTLangue();
     iniOp();
