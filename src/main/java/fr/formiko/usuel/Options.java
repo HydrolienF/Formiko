@@ -1,13 +1,6 @@
-package fr.formiko.formiko;
+package fr.formiko.usuel;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.SortedProperties;
-import fr.formiko.usuel.chargerLesTraductions;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.ecrireUnFichier;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.types.str;
 
 import java.awt.Font;
@@ -54,6 +47,7 @@ public class Options implements Serializable{
   private boolean whaitBeforeLaunchGame;
   private boolean debug_error;
   private boolean debug_alerte;
+  private boolean debug_info;
   private boolean debug_message;
   private boolean debug_performance;
   private boolean debug_gui;
@@ -250,6 +244,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("whaitBeforeLaunchGame","true");
     defaultProperties.setProperty("debug_error","true");
     defaultProperties.setProperty("debug_alerte","true");
+    defaultProperties.setProperty("debug_info","true");
     defaultProperties.setProperty("debug_message","false");
     defaultProperties.setProperty("debug_performance","false");
     defaultProperties.setProperty("debug_gui","false");
@@ -307,6 +302,7 @@ public class Options implements Serializable{
     whaitBeforeLaunchGame=str.sToB(properties.getProperty("whaitBeforeLaunchGame"));
     debug_error=str.sToB(properties.getProperty("debug_error"));
     debug_alerte=str.sToB(properties.getProperty("debug_alerte"));
+    debug_info=str.sToB(properties.getProperty("debug_info"));
     debug_message=str.sToB(properties.getProperty("debug_message"));
     debug_performance=str.sToB(properties.getProperty("debug_performance"));
     debug_gui=str.sToB(properties.getProperty("debug_gui"));
