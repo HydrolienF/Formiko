@@ -34,6 +34,7 @@ public class Folder{
   // GET SET -------------------------------------------------------------------
 	public String getFolderMain() {return folderMain;}
 	public void setFolderMain(String folderMain) {this.folderMain = folderMain;}
+  public void setFolderMain() {setFolderMain("data/");}
 	public String getFolderStable() {return getFolderMain()+folderStable;}
 	public void setFolderStable(String folderStable) {this.folderStable = folderStable;}
 	public String getFolderTemporary() {return getFolderMain()+folderTemporary;}
@@ -66,7 +67,7 @@ public class Folder{
   *It will send an info if some were missing and an error if some unfixable folder were missing.
   *@version 1.37
   */
-  public void ini(){
+  public int ini(){
     missingFolder=0;
     File f = new File(getFolderMain());
     if(f.mkdir()){erreur.erreurMissingFolder("main");missingFolder++;}
@@ -84,6 +85,7 @@ public class Folder{
     if(missingFolder>0){
       erreur.info(missingFolder+" folders were missing & were add.","Folder.ini");
     }
+    return missingFolder;
   }
   /**
   *{@summary Class that initialize stable missing folder.}<br>
