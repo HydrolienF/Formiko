@@ -18,6 +18,7 @@ public class chargerLesTraductions {
   private static HashMap<String, String> map;
   private static String rep=Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages();
   private static String tLangue[]=null;
+  private static int defaultLanguage=2;
   // get set -------------------------------------------------------------------
   public static String [] getTLangue(){return tLangue;}
   public static void setTLangue(String t []){tLangue=t;}
@@ -46,18 +47,25 @@ public class chargerLesTraductions {
   *{@summary get the String that corresponds to the language int.}<br>
   *An error will return 2, the id of "en" (english) (except if tLangue isn't correctly loard (return -1;))
   *@param s language String in ISO code 639-1.
-  *@version 1.5
+  *@version 1.37
   */
   public static int getLanguage(String s){
     if(tLangue == null){ return -1;}
-    if(tLangue.length<3){return -1;}
-    if (s==null || s.equals("")) { return 2;}
+    if (s==null || s.equals("")) { return getDefautlLanguage();}
     int k=0;
     for (String s2 : tLangue) {
       if(s2.equals(s)){return k;}
       k++;
     }
-    return 2;
+    return getDefautlLanguage();
+  }
+  /**
+  *Return defaultLanguage if it is aviable or -1.
+  *@version 1.37
+  */
+  public static int getDefautlLanguage(){
+    if(tLangue.length<defaultLanguage+1){return -1;}
+    return defaultLanguage;
   }
   /**
   *{@summary Loard language file "langue.csv".}<br>
