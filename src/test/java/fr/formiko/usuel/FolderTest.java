@@ -22,7 +22,7 @@ public class FolderTest extends TestCaseMuet{
     fichier.deleteDirectory(f);
     folder.setFolderMain("testMain/");
     assertEquals(29,folder.ini());
-    assertEquals("temporary stable resourcesPacks",tableau.tableauToString(f.list()));
+    assertEquals("temporary stable resourcesPacks saves",tableau.tableauToString(f.list()));
     File f2 = new File("testMain/temporary/");
     assertEquals("languages levels maps videos sounds bin musiques images",tableau.tableauToString(f2.list()));
     f2 = new File("testMain/stable/");
@@ -43,8 +43,8 @@ public class FolderTest extends TestCaseMuet{
     folder.setFolderMain("testMain"+x+"/");
     File f2 = new File("testMain"+x+"/temporary/");
     assertTrue(f2.mkdir());
-    assertEquals(26,folder.ini());
-    assertEquals("temporary stable resourcesPacks",tableau.tableauToString(f.list()));
+    assertEquals(27,folder.ini());
+    assertEquals("temporary stable resourcesPacks saves",tableau.tableauToString(f.list()));
     f2 = new File("testMain"+x+"/temporary/");
     assertEquals("languages levels maps videos sounds bin musiques images",tableau.tableauToString(f2.list()));
     f2 = new File("testMain"+x+"/stable/");
@@ -72,8 +72,8 @@ public class FolderTest extends TestCaseMuet{
     assertTrue(f3.mkdir());
     File f4 = new File("testMain/temporary/levels/testSubSubDir");
     assertTrue(f4.mkdir());
-    assertEquals(25,folder.ini());
-    assertEquals("otherDir temporary stable resourcesPacks",tableau.tableauToString(f.list()));
+    assertEquals(26,folder.ini());
+    assertEquals("otherDir temporary stable resourcesPacks saves",tableau.tableauToString(f.list()));
     f2 = new File("testMain/temporary/");
     assertEquals("languages testDir2 levels maps videos sounds bin musiques images",tableau.tableauToString(f2.list()));
     f2 = new File("testMain/stable/");
@@ -129,7 +129,7 @@ public class FolderTest extends TestCaseMuet{
     //file README.md
     file = new File("data"+x+"/");
     String t [] = file.list(); tableau.sort(t);
-    assertEquals("Keys.txt Options.md resourcesPacks stable temporary",tableau.tableauToString(t));
+    assertEquals("Keys.txt Options.md resourcesPacks saves stable temporary",tableau.tableauToString(t));
     f.cleanFolder();
     t = file.list(); tableau.sort(t);
     assertEquals("stable",tableau.tableauToString(t));
@@ -150,7 +150,7 @@ public class FolderTest extends TestCaseMuet{
     try {file.createNewFile();}catch (Exception e) {assertTrue(false);}
     file = new File("data"+x+"/");
     String t [] = file.list(); tableau.sort(t);
-    assertEquals("Options.md README.md qqchose.png resourcesPacks stable temporary",tableau.tableauToString(t));
+    assertEquals("Options.md README.md qqchose.png resourcesPacks saves stable temporary",tableau.tableauToString(t));
     f.cleanFolder();
     t = file.list(); tableau.sort(t);
     assertEquals("README.md qqchose.png stable",tableau.tableauToString(t));

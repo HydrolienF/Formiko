@@ -20,7 +20,7 @@ import java.io.ObjectOutputStream;
 public class sauvegarderUnePartie {
   private static ObjectOutputStream oos = null;
   private static ObjectInputStream ois = null;
-  private static final String REP = Main.getFolder().getFolderMain()+Main.getFolder().getFolderSaves();
+  private static final String REP = Main.getFolder().getFolderSaves();
   private static String s="null";
   private static Save save;
 

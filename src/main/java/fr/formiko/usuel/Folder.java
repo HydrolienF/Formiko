@@ -42,7 +42,7 @@ public class Folder{
 	public String getFolderResourcesPacks() {return getFolderMain()+folderResourcesPacks;}
 	public void setFolderResourcesPacks(String folderResourcesPacks) {this.folderResourcesPacks = folderResourcesPacks;}
 
-	public String getFolderSaves() {return folderSaves;}
+	public String getFolderSaves() {return getFolderMain()+folderSaves;}
 	public void setFolderSaves(String folderSaves) {this.folderSaves = folderSaves;}
   public String getFolderBin() {return folderBin;}
 	public void setFolderBin(String folderBin) {this.folderBin = folderBin;}

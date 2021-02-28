@@ -9,7 +9,7 @@ import java.io.File;
 *@version 1.33
 */
 public class save {
-  private static String REPSAVE = Main.getFolder().getFolderMain()+Main.getFolder().getFolderSaves();
+  private static String REPSAVE = Main.getFolder().getFolderSaves();
   /**
   *{@summary make a list with all save in a [] and return it.}<br>
   *return An array of every file aviable in REPSAVE sort in non-ascending order.<br>
