@@ -132,7 +132,8 @@ public class FolderTest extends TestCaseMuet{
     assertEquals("Keys.txt Options.md resourcesPacks saves stable temporary",tableau.tableauToString(t));
     f.cleanFolder();
     t = file.list(); tableau.sort(t);
-    assertEquals("stable",tableau.tableauToString(t));
+    //assertEquals("stable",tableau.tableauToString(t));
+    assertEquals("Keys.txt stable",tableau.tableauToString(t));
     fichier.deleteDirectory(file);
     f.setFolderMain();
   }

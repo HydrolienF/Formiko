@@ -99,7 +99,7 @@ public class Folder{
     f = new File(getFolderSaves());
     fichier.deleteDirectory(f);
     f = new File(getFolderMain()+"Keys.txt");
-    f.delete();
+    //f.delete();
     f = new File(getFolderMain()+"Options.md");
     f.delete();
   }
