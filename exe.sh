@@ -36,9 +36,8 @@ cp README.md out/$nom/.
 cd out/$nom
 
 #suppress all file that will be recreate on the computer of the user.
-
+java -jar Formiko.jar cleanFolder
 cd ../..
-./clearData.sh out/$nom
 
 mkdir out/$nomW
 mkdir out/$nomL
