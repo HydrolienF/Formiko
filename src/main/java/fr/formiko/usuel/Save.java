@@ -17,7 +17,7 @@ import java.io.Serializable;
 public class Save implements Serializable{
   private static final long serialVersionUID = 42l;
   private int idS;
-  private static File f = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+".save");
+  private static File f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderBin()+".save");
 
   // CONSTRUCTEUR ---------------------------------------------------------------
 
