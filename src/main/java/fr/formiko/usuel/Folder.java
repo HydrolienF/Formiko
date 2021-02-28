@@ -18,8 +18,8 @@ public class Folder{
   private String folderResourcesPacks="resourcesPacks/";
 
   private String folderSaves="saves/";
-  private String folderBin="bin/";
 
+  private String folderBin="bin/";
   private String folderImages="images/";
   private String folderSounds="sounds/";
   private String folderMusiques="musiques/";
@@ -63,7 +63,7 @@ public class Folder{
 	public void setFolderVideos(String folderVideos) {this.folderVideos = folderVideos;}
 
   /**
-  *{@summary Class that initialize missing folder if some folder are missing.}<br>
+  *{@summary Initialize missing folder if some folder are missing.}<br>
   *It will send an info if some were missing and an error if some unfixable folder were missing.
   *@version 1.37
   */
@@ -88,7 +88,23 @@ public class Folder{
     return missingFolder;
   }
   /**
-  *{@summary Class that initialize stable missing folder.}<br>
+  *{@summary Delete all unnecesary folders and files.}<br>
+  *@version 1.37
+  */
+  public void cleanFolder(){
+    File f = new File(getFolderTemporary());
+    fichier.deleteDirectory(f);
+    f = new File(getFolderResourcesPacks());
+    fichier.deleteDirectory(f);
+    f = new File(getFolderSaves());
+    fichier.deleteDirectory(f);
+    f = new File(getFolderMain()+"Keys.txt");
+    f.delete();
+    f = new File(getFolderMain()+"Options.md");
+    f.delete();
+  }
+  /**
+  *{@summary Initialize stable missing folder.}<br>
   *@version 1.37
   */
   private void iniStable(){
@@ -112,7 +128,7 @@ public class Folder{
     if(f.mkdir()){missingFolder++;}
   }
   /**
-  *{@summary Class that initialize temporary missing folder.}<br>
+  *{@summary Initialize temporary missing folder.}<br>
   *@version 1.37
   */
   private void iniTemporary(){
@@ -136,7 +152,7 @@ public class Folder{
     if(f.mkdir()){missingFolder++;}
   }
   /**
-  *{@summary Class that initialize resourcesPacks missing folder.}<br>
+  *{@summary Initialize resourcesPacks missing folder.}<br>
   *@version 1.37
   */
   private void iniRessourcesPacks(){

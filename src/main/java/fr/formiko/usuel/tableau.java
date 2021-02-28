@@ -64,6 +64,7 @@ public class tableau <T>{
       tab[i] = min;
     }
   }
+  public static void sort(String tab []){sort(tab,true);}
   /**
   *{@summary A tools for sort sting that return true if s1 &#60; s2.}
   *@param s1 1a String.

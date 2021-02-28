@@ -6,7 +6,6 @@ import fr.formiko.usuel.chargerLesTraductions;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
@@ -46,7 +45,7 @@ public class Img implements Cloneable{
   *Constructs a new Img with a BufferedImage.
   */
   public Img(BufferedImage i){
-    if (i==null){ erreur.erreur("impossible de créer une Img a partir d'une Image null","Img.Img",true);}
+    if (i==null){ erreur.erreur("impossible de créer une Img a partir d'une Image null","Img.Img");}
     //if(i instanceof BufferedImage){
       bi = (BufferedImage) i;
     /*}else{

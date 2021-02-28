@@ -167,6 +167,9 @@ public class Main {
         }else{
           erreur.alerte("arguments de cptPixels incorecte");
         }
+      }else if(args[0].equals("cleanFolder")){
+        folder = new Folder();
+        folder.cleanFolder();
       }else{
         erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue");
       }
