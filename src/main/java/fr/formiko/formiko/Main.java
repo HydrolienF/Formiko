@@ -22,7 +22,7 @@ import java.util.HashMap;
 *{@summary Launch class }<br>
 *Main file have all the shortcut on getter or setter that are curently used
 *@author Hydrolien
-*@version 1.1
+*@version 1.38
 */
 
 /*
@@ -322,14 +322,13 @@ public class Main {
     i.setEstMort(false);
     i.setType(8);
     getGi().ajouterInsecte(i);
-    ths = new ThScript(getFolder().getFolderMain()+getFolder().getFolderLevels()+"tuto.formiko");
+    ths = new ThScript(getFolder().getFolderStable()+getFolder().getFolderLevels()+"tuto.formiko");
     ths.start();
   }
   /**
    * Allow the player to get back to main menu.
    * @version 1.1
    */
-  //TODO #9 s'arranger pour que ca marche.
   public static void retourAuMenu(){
     Carte mapo = new Carte(new GCase(1,1));
     pa = new Partie(0,0,mapo,1.0); //nouvelle partie vide.

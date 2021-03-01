@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
-*Save all important information about game as what's the id of save.
+*Save all importants informations about game as what's the id of save.
 *@author Hydrolien
 *@version 1.14
 */

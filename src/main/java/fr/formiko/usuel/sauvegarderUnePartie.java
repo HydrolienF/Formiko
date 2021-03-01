@@ -13,7 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 /**
- *{@summary Save a game }<br>
+ *{@summary Save a game.}<br>
  *@author Hydrolien
  *@version 1.38
  */
