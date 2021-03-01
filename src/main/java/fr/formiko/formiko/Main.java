@@ -322,7 +322,7 @@ public class Main {
     i.setEstMort(false);
     i.setType(8);
     getGi().ajouterInsecte(i);
-    ths = new ThScript(getFolder().getFolderStable()+getFolder().getFolderLevels()+"tuto.formiko");
+    ths = new ThScript("tuto.formiko");
     ths.start();
   }
   /**
