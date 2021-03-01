@@ -10,7 +10,7 @@ import fr.formiko.formiko.triche;
 import fr.formiko.usuel.listes.List;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.save;
+import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 
@@ -155,7 +155,7 @@ public class ViewCLI implements View {
   public boolean menuLoadAGame(){
     actionGameOn=false;
     menuName="";
-    tToPrint=save.listSave();
+    tToPrint=sauvegarderUnePartie.listSave();
     if(tToPrint.length==0){return menuMain();}
     //add a line "backToMainMenu" to tToPrint.
     tToPrint = tableau.ajouterX(tToPrint,g.get("bouton.nom.-13"));
@@ -222,7 +222,7 @@ public class ViewCLI implements View {
   public boolean menuOptions(){
     actionGameOn=false;
     menuName="menuO";
-    //tToPrint=save.listOptions();
+    //tToPrint=sauvegarderUnePartie.listOptions();
     tToPrint = new String[0]; //TODO replace by a real choice.
     if(tToPrint.length==0){return false;}
     paint();

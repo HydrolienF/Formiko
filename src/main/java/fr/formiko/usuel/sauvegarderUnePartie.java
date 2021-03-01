@@ -15,7 +15,7 @@ import java.io.ObjectOutputStream;
 /**
  *{@summary Save a game }<br>
  *@author Hydrolien
- *@version 1.1
+ *@version 1.38
  */
 public class sauvegarderUnePartie {
   private static ObjectOutputStream oos = null;
@@ -71,11 +71,29 @@ public class sauvegarderUnePartie {
   /**
   *{@summary Delete a save.}
   *@param nomDuFichier The name of the file to delete
+  *@version 1.1
   */
   public static boolean supprimer(String nomDuFichier){
     s=nomDuFichier;
     String s = sauvegarderUnePartie.getNomDuFichierComplet();
     File f = new File(s);
     return f.delete();
+  }
+  /**
+  *{@summary make a list with all save in a [] and return it.}<br>
+  *return An array of every file aviable in REPSAVE sort in non-ascending order.<br>
+  *@version 1.33
+  */
+  public static String [] listSave(){
+    File f = new File(REP);
+    String r [] = f.list();
+    int lenr = r.length;
+    /*for (int i=0;i<lenr ;i++ ) {
+      try {
+        r[i]=r[i].substring(0,r[i].length()-6);
+      }catch (Exception e) {}
+    }*/
+    tableau.sort(r,false);
+    return r;
   }
 }

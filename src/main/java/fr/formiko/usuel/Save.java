@@ -25,6 +25,10 @@ public class Save implements Serializable{
   public void addSave(){idS++;}
   public int getIdS(){return idS;}
   // Fonctions propre -----------------------------------------------------------
+  /**
+  *{@summary get save informations.}<br>
+  *@version 1.14
+  */
   public static Save getSave(){
     Save r;
     if(f.exists()){
@@ -41,6 +45,10 @@ public class Save implements Serializable{
     }
     return r;
   }
+  /**
+  *{@summary save idSave as .save in bin/.}<br>
+  *@version 1.14
+  */
   public void save(){
     try {
       if(!f.exists()){
