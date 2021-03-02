@@ -44,6 +44,7 @@ public class erreur {
     }
     String preMessage = "";
     if(Main.getOs().isLinux()){preMessage = "["+red+g.get("erreur").toUpperCase()+neutral+"] ";}
+    else{preMessage=g.get("erreur").toUpperCase();}
     //println(preMessage+g.get("erreur",4,"Une erreur")+" " + m + g.get("erreur",5,"c'est produite dans")+" " + lieu + " : ");
     print(preMessage + "("+lieu+") ");
     println(message+".");
@@ -74,6 +75,7 @@ public class erreur {
   public static void alerte(String message, String lieu, String correction){
     String preMessage = "";
     if(Main.getOs().isLinux()){preMessage = "["+yellow+g.get("alerte").toUpperCase()+neutral+"] ";}
+    else{preMessage=g.get("alerte").toUpperCase();}
     //println(preMessage+g.get("erreur",7,"Quelque chose d'anormale est arrivé dans")+" "+ lieu +", "+g.get("erreur",8,"il n'y a peut-être pas de raison de s'inquiéter"));
     print(preMessage+"("+lieu+") ");
     if (!message.equals("")) println(message+".");
@@ -98,6 +100,7 @@ public class erreur {
   public static void info(String message, String lieu){
     String preMessage = "";
     if(Main.getOs().isLinux()){preMessage = "["+blue+g.get("info").toUpperCase()+neutral+"] ";}
+    else{preMessage=g.get("info").toUpperCase();}
     print(preMessage + "("+lieu+") ");
     println(message);
   }

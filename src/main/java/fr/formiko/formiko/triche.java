@@ -34,7 +34,7 @@ public class triche {
   }
   public static void commande(String s){
     if(s==null || s.equals("")){ return;}
-    System.out.println("cheat commande launch : \""+s+"\"");
+    erreur.info("cheat commande launch : \""+s+"\"");
     String args [] = decoderUnFichier.getTableauString(s,' ');
     s = args[0];
     try { // pour ne pas avoir a géré toutes les erreurs séparement on ce contente d'afficher un message d'erreur général si l'erreur est inconue.
