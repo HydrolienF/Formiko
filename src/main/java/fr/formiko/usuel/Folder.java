@@ -1,6 +1,7 @@
 package fr.formiko.usuel;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.usuel.types.str;
 
 import java.io.File;
 
@@ -33,34 +34,34 @@ public class Folder{
   public void Folder(){}
   // GET SET -------------------------------------------------------------------
 	public String getFolderMain() {return folderMain;}
-	public void setFolderMain(String folderMain) {this.folderMain = folderMain;}
+	public void setFolderMain(String folderMain) {this.folderMain = str.sToDirectoryName(folderMain);}
   public void setFolderMain() {setFolderMain("data/");}
 	public String getFolderStable() {return getFolderMain()+folderStable;}
-	public void setFolderStable(String folderStable) {this.folderStable = folderStable;}
+	public void setFolderStable(String folderStable) {this.folderStable = str.sToDirectoryName(folderStable);}
 	public String getFolderTemporary() {return getFolderMain()+folderTemporary;}
-	public void setFolderTemporary(String folderTemporary) {this.folderTemporary = folderTemporary;}
+	public void setFolderTemporary(String folderTemporary) {this.folderTemporary = str.sToDirectoryName(folderTemporary);}
 	public String getFolderResourcesPacks() {return getFolderMain()+folderResourcesPacks;}
-	public void setFolderResourcesPacks(String folderResourcesPacks) {this.folderResourcesPacks = folderResourcesPacks;}
+	public void setFolderResourcesPacks(String folderResourcesPacks) {this.folderResourcesPacks = str.sToDirectoryName(folderResourcesPacks);}
 
 	public String getFolderSaves() {return getFolderMain()+folderSaves;}
-	public void setFolderSaves(String folderSaves) {this.folderSaves = folderSaves;}
+	public void setFolderSaves(String folderSaves) {this.folderSaves = str.sToDirectoryName(folderSaves);}
   public String getFolderBin() {return folderBin;}
-	public void setFolderBin(String folderBin) {this.folderBin = folderBin;}
+	public void setFolderBin(String folderBin) {this.folderBin = str.sToDirectoryName(folderBin);}
 
 	public String getFolderImages() {return folderImages;}
-	public void setFolderImages(String folderImages) {this.folderImages = folderImages;}
+	public void setFolderImages(String folderImages) {this.folderImages = str.sToDirectoryName(folderImages);}
 	public String getFolderSounds() {return folderSounds;}
-	public void setFolderSounds(String folderSounds) {this.folderSounds = folderSounds;}
+	public void setFolderSounds(String folderSounds) {this.folderSounds = str.sToDirectoryName(folderSounds);}
 	public String getFolderMusiques() {return folderMusiques;}
-	public void setFolderMusiques(String folderMusiques) {this.folderMusiques = folderMusiques;}
+	public void setFolderMusiques(String folderMusiques) {this.folderMusiques = str.sToDirectoryName(folderMusiques);}
 	public String getFolderMaps() {return folderMaps;}
-	public void setFolderMaps(String folderMaps) {this.folderMaps = folderMaps;}
+	public void setFolderMaps(String folderMaps) {this.folderMaps = str.sToDirectoryName(folderMaps);}
 	public String getFolderLanguages() {return folderLanguages;}
-	public void setFolderLanguages(String folderLanguages) {this.folderLanguages = folderLanguages;}
+	public void setFolderLanguages(String folderLanguages) {this.folderLanguages = str.sToDirectoryName(folderLanguages);}
 	public String getFolderLevels() {return folderLevels;}
-	public void setFolderLevels(String folderLevels) {this.folderLevels = folderLevels;}
+	public void setFolderLevels(String folderLevels) {this.folderLevels = str.sToDirectoryName(folderLevels);}
   public String getFolderVideos() {return folderVideos;}
-	public void setFolderVideos(String folderVideos) {this.folderVideos = folderVideos;}
+	public void setFolderVideos(String folderVideos) {this.folderVideos = str.sToDirectoryName(folderVideos);}
 
   /**
   *{@summary Initialize missing folder if some folder are missing.}<br>
