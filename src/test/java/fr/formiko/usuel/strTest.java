@@ -128,6 +128,10 @@ public class strTest extends TestCaseMuet{
   public void testSToDirectoryName(){
     String s = null;
     assertEquals(null,str.sToDirectoryName(s));
+    s = "";
+    assertEquals("",str.sToDirectoryName(s));
+    s = "u";
+    assertEquals("u/",str.sToDirectoryName(s));
     s = "unNomDeFichier";
     assertEquals("unNomDeFichier/",str.sToDirectoryName(s));
     s = "unNomDeFichier/";

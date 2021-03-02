@@ -100,14 +100,20 @@ public class str{
   }public static String sToFileName(String s){ return filtreCharInterdit(s);}
   /**
   *{@summary Transform a String to a directory name aviable on every os.}<br>
-  *if last / is missing it will be add.
+  *If last / is missing it will be add.
+  *If there is a 1a / it will be delete.
+  *If there is \ they will be transform by /.
   *@param s the String to transform to a directory name.
   *@version 1.3
   */
   public static String sToDirectoryName(String s){
+    //TODO test
     if(s==null){return null;}
+    if(s.equals("")){return "";}
     char w [] = {'<', '>', ':', '\"', '\\', '|', '?', '*'};
+    s.replace('\\','/');
     s = filtreCharInterdit(s,w);
+    if(s.charAt(0)=='/'){s=s.substring(1);}
     s = ajouterALaFinSiNecessaire(s,"/");
     return s;
   }
