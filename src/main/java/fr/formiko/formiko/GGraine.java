@@ -4,6 +4,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.listes.List;
 
 import java.io.Serializable;
 
@@ -116,5 +117,17 @@ public class GGraine implements Serializable{
   }
   public void tour(){
     if(début!=null){ début.tour();}
+  }
+
+  /**
+  *{@summary Transform a GGraine in List<Graine>.}
+  *@version 1.38
+  */
+  public List<Graine> toList(){
+    if (début==null){
+      List<Graine> lc = new List<Graine>();
+      return lc;
+    }
+    return début.toList();
   }
 }
