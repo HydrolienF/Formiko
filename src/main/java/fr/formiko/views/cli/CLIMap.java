@@ -16,6 +16,12 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.GString;
 
+/**
+*{@summary Represent the Map in CLI mode.}<br>
+*CLI = Console Line Interface.
+*@version 1.38
+*@author Hydrolien
+*/
 public class CLIMap{
   private GCase gc;
   private static GString legend; private static int xi;
@@ -53,8 +59,17 @@ public class CLIMap{
   *@version 1.38
   */
   private static String getColorAllyStatus(Creature c){
+    Fourmi f = Main.getPartie().getPlayingAnt();
+    if(f==null){return "";}
+    String r="";
+    if(c.getEstAllié(f)){
+      r = color.GREEN;unseeableChar+=color.GREEN.length();
+    }else if(c.getEstEnnemi(f)){
+      r = color.RED;unseeableChar+=color.RED.length();
+    }else{
+      r = color.YELLOW;unseeableChar+=color.YELLOW.length();
+    }
     //if c is ally of playingAnt
-    String r = color.GREEN;unseeableChar+=color.GREEN.length();
     //TODO
     return r;
   }
@@ -67,15 +82,15 @@ public class CLIMap{
     String s="";
     boolean b = Main.getOs().isLinux();
     if(o instanceof Insecte){
-      s+="I"; if(b){s+=getColorAllyStatus((Creature)o);} s+=o.getId(); if(b){s+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();}
+      if(b){s+=getColorAllyStatus((Creature)o);} s+="I"; s+=o.getId(); if(b){s+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();}
     }else if(o instanceof Graine){
-      s+="G"; if(b){s+=color.BROWN;unseeableChar+=color.BROWN.length();} s+=o.getId(); if(b){s+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();}
+      if(b){s+=color.BROWN;unseeableChar+=color.BROWN.length();} s+="G"; s+=o.getId(); if(b){s+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();}
     }else if(o instanceof Fourmi){
       if(b){s+=getColorAllyStatus((Creature)o);}
       s+=o.getId();
       if(b){s+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();}
     }else{
-      s+="C"; if(b){s+=color.BLACK;unseeableChar+=color.BLACK.length();} s+=o.getId(); if(b){s+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();}
+      if(b){s+=color.BLACK;unseeableChar+=color.BLACK.length();} s+="C"; s+=o.getId(); if(b){s+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();}
     }
     return s;
   }
