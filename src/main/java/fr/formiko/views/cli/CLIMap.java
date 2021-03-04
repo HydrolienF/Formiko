@@ -21,10 +21,21 @@ public class CLIMap{
   private static GString legend; private static int xi;
   private static int unseeableChar;
   // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main contructor.}<br>
+  *@param gc The GCase to print.<br>
+  *@version 1.38
+  */
   public CLIMap(GCase gc){
     this.gc=gc;
   }
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Main function of CLIMap.}<br>
+  *If on linux it will use color for the map.
+  *@return Printable String that represent GString.<br>
+  *@version 1.38
+  */
   public String toString(){
     String sr = "";
     if(gc==null || gc.getDébut()==null){
@@ -68,7 +79,11 @@ public class CLIMap{
     }
     return s;
   }
-
+  /**
+  *{@summary Return the legend as a String.}<br>
+  *Legend can be empty or can have line that look like this "A : F1, 5, G12 \n B : 8, 3 etc."<br>
+  *@version 1.38
+  */
   private String legendToString(){
     String sr="";
     if (legend!=null){
@@ -77,7 +92,11 @@ public class CLIMap{
     }
     return sr;
   }
-
+  /**
+  *{@summary Return the map as a String.}<br>
+  *All map infos are stored in a GCase, this.gc.
+  *@version 1.38
+  */
   private String mapToString(){
     CCase cc = gc.getDébut();
     String sr = "";
@@ -87,6 +106,11 @@ public class CLIMap{
     }
     return sr;
   }
+  /**
+  *{@summary Return a line of a map as a String.}<br>
+  *@param cc The 1a CCase of the line.
+  *@version 1.38
+  */
   private String mapLineToString(CCase cc){
     String sr = "";
     while(cc!=null){
@@ -95,6 +119,11 @@ public class CLIMap{
     }
     return sr;
   }
+  /**
+  *{@summary Return a case as a String.}<br>
+  *This string have a fix length.<br>
+  *@version 1.38
+  */
   private String caseToString(Case contenu){
     int taille = 4;
     int nbrDElementSurCase = contenu.getNbrDElementSurCase();
