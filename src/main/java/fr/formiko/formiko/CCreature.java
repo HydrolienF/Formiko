@@ -348,6 +348,10 @@ public class CCreature implements Serializable{
     }
     return tr;
   }
+  /**
+  *{@summary Transform a GCreature in List<Creature>.}
+  *@version 1.38
+  */
   public List<Creature> toList(){
     CCreature cc = this;
     List<Creature> lc = new List<Creature>();

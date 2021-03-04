@@ -14,7 +14,6 @@ import java.io.Serializable;
 public class CCase implements Serializable{
   private CCase haut, bas, droite, gauche;
   private Case contenu;
-  private static int xi; private static GString légende;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public CCase(Case contenu, CCase haut, CCase bas, CCase droite, CCase gauche){
@@ -259,12 +258,6 @@ public class CCase implements Serializable{
     if (gauche!= null){xr++;}
     return xr;
   }
-  public void affLégende(){
-    if (légende!=null){
-      System.out.println(g.get("légende")+" : ");
-      légende.afficheToi();
-    }
-  }
   public void afficheTout(){
     this.afficheLigne();
     if(bas != null){
@@ -277,54 +270,7 @@ public class CCase implements Serializable{
       droite.afficheLigne();
     }
   }
-  public void afficheCarteTout(int x){
-    xi = x; légende = new GString();
-    afficheCarteTout();
-  }
-  public void afficheCarteTout(){
-    this.afficheCarteLigne();
-    System.out.println();
-    if(bas != null){
-      bas.afficheCarteTout();
-    }
-  }
-  public void afficheCarteLigne(){
-    this.afficheToiRéduit();
-    if(contenu.length() >= 2){xi++;}
-    if (droite != null){
-      droite.afficheCarteLigne();
-    }
-  }
-  public void afficheToiRéduit(){
-    int taille = 4;
-    int nbrDElementSurCase = contenu.getNbrDElementSurCase();
-    String sr = "";
-    if (nbrDElementSurCase == 0){
-      sr = "-";
-    }else if(nbrDElementSurCase == 1){
-      if(contenu.getFere() != null){
-        sr = "F"+contenu.getFere().getId();
-      }else if (contenu.getGc().getDébut() != null){
-        sr = sr + contenu.getGc().getDébut().getContenu().getId();
-      }else{
-        sr = sr +"G"+contenu.getGg().getDébut().getContenu().getId();
-      }
-    }else{
-      sr = ascii.getNuméroationEnAbcd(xi);
-      // ajout dans la légende.
-      String s = sr +":";
-      if(contenu.getFere() != null){
-        s = s + "F"+contenu.getFere().getId()+", ";
-      }
-      s = s + contenu.getGc().toString();
-      s = s + contenu.getGg().toString();
-      légende.ajouter(s);
-    }
-    while (sr.length()<taille){
-      sr = sr + " ";
-    }
-    System.out.print(sr);
-  }
+
   public void tourCases(){
     tourLigneCases();
     if(bas != null){

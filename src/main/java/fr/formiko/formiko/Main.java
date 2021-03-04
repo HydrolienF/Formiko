@@ -216,13 +216,13 @@ public class Main {
     //===
     startCh();
     //start of test part
-    /*
+    // /*
     erreur.alerte("le jeu est en test.");
     view = new ViewCLI();
     view.ini();
     view.menuMain();
     quitter();
-    */
+    // */
     //end of test part
     f = new Fenetre();
     try {

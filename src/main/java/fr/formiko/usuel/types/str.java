@@ -104,7 +104,7 @@ public class str{
   *If there is a 1a / it will be delete.
   *If there is \ they will be transform by /.
   *@param s the String to transform to a directory name.
-  *@version 1.3
+  *@version 1.38
   */
   public static String sToDirectoryName(String s){
     //TODO test

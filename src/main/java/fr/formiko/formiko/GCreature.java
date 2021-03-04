@@ -365,7 +365,10 @@ public class GCreature implements Serializable{//, Iterator{
     if (début==null){ return new int[0];}
     return début.toTId();
   }
-  //Iterator
+  /**
+  *{@summary Transform a GCreature in List<Creature>.}
+  *@version 1.38
+  */
   public List<Creature> toList(){
     if (début==null){
       List<Creature> lc = new List<Creature>();

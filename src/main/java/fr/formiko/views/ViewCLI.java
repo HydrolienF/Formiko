@@ -7,12 +7,14 @@ import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
-import fr.formiko.usuel.listes.List;
+import fr.formiko.usuel.color;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.listes.List;
 import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
+import fr.formiko.views.cli.*;
 
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -26,11 +28,6 @@ public class ViewCLI implements View {
   private Scanner scannerAnswer;
   private String menuName;
   private String tToPrint[];
-  //colors
-  private static String yellow = (char)27+"[1;33m";
-  private static String red = (char)27+"[1;31m";
-  private static String neutral = (char)27+"[0;m";
-  private static String green=(char)27+"[1;32m";
 
   private static String sep = "--------------------------------------------------------------------------------";
 
@@ -396,9 +393,8 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   private void printMap(){
-    Main.getPartie().getGc().afficheCarte();
-    //System.out.println(g.get("playingPlayer")+ " : ");
-    //System.out.println(playingPlayer);
+    CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
+    System.out.println(cLIMap);
   }
   /**
   *{@summary Print anthill of the playing ant.}<br>
@@ -420,17 +416,17 @@ public class ViewCLI implements View {
     if(Main.getOs().isLinux()){
       if (c.getStade()==0) {
         if(c.getAction()==c.getActionMax()){
-          r+=green;
+          r+=color.GREEN;
         }else if (c.getAction()<=0) {
-          r+=red;
+          r+=color.RED;
         }else{
-          r+=yellow;
+          r+=color.YELLOW;
         }
       }
     }
     r+=c;
     if(Main.getOs().isLinux()){
-      r+=neutral;
+      r+=color.NEUTRAL;
     }
     return r;
   }

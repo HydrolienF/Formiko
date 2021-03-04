@@ -99,14 +99,6 @@ public class GCase implements Serializable{
     ie.actualiserImage();
     return ie;
   }
-  public void afficheCarte(){
-    if (début==null){
-      erreur.erreur("La carte est vide","Gcase.afficheCarte");
-    }else{
-      début.afficheCarteTout(1);
-      début.affLégende();
-    }
-  }
   public void ajouterDroite(int x, CCase débutDeLaLigne){
     debug.débogage("Création d'une ligne");
     int k = 1; CCase temp; actuelle = débutDeLaLigne;
