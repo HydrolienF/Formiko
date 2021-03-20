@@ -52,9 +52,13 @@ public class ObjectStandard extends Parent implements Interface { //or : public 
   public ObjectStandard(int var){
     this(var,"default value for var2Name");
   }
-  public ObjectStandard(){
+  public ObjectStandard(){ // "{" are allways on the same line than function, for, if, while etc.
     this(0);
   }
+  //if a comment is toooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+  //long you can split it in several line.
+  //Plz avoid to cut code line if there are not more than 100 char long.
+  //Code line longer than 140 char long may be split.
 
   // GET SET -------------------------------------------------------------------
   //getters & setters don't have javadoc comment if they do only 1 line.
