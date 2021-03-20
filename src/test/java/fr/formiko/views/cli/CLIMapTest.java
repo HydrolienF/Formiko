@@ -222,8 +222,45 @@ public class CLIMapTest extends TestCaseMuet{
     j.actualiserCaseSN();
     assertEquals("□□□□",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
   }
-  /*@Test
+  @Test
   public void testMapToString(){
-
-  }*/
+    Main.initialisation();
+    Main.getOs().setId((byte)1);
+    Main.setPartie(Partie.getDefautlPartie());
+    Main.getMap().setCasesSombres(true);
+    Main.getMap().setCasesNuageuses(true);
+    Main.getPartie().setElément(0,0,0);
+    CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
+    //with a player
+    Joueur j = new Joueur(1,true,Main.getCarte());
+    Fourmi playingAnt = (Fourmi) j.getFere().getGc().getDébut().getContenu();
+    //Main.getView().setActionGameOn(true);
+    Main.getPartie().setPlayingAnt(playingAnt);
+    playingAnt.setCCase(Main.getGc().getCCase(2,0));
+    playingAnt.getFere().setCc(Main.getGc().getCCase(2,0));
+    j.initialisationCaseNS();
+    j.actualiserCaseSN();
+    playingAnt.setCCase(Main.getGc().getCCase(0,0));
+    j.actualiserCaseSN();
+    assertEquals("1   -   F1□□□□□□"+repeat(12,"■■■■"),cLIMap.mapLineToString(Main.getGc().getCCase(0,0),j));
+    assertTrue(Main.getPartie().setPlayingAnt(playingAnt));
+    assertTrue(Main.getPartie().getPlayingJoueur()!=null);
+    Graine g = new Graine();
+    Insecte in = new Insecte();
+    in.setCCase(1,0);
+    g.setCCase(1,1);
+    String sMap = "1   I3  F1□□□□□□■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n";
+    sMap+="-   G2  □□□□□□□□■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n";
+    for (int i=0;i<7 ;i++ ) {
+      sMap+="■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n";
+    }
+    assertEquals(sMap,cLIMap.mapToString());
+  }
+  private static String repeat(int x, String s){
+    String sr = "";
+    for (int i=0;i<x ;i++ ) {
+      sr+=s;
+    }
+    return sr;
+  }
 }
