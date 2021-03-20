@@ -8,6 +8,7 @@ import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Insecte;
+import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.usuel.ascii;
@@ -78,7 +79,7 @@ public class CLIMap{
   *@param o The Object to represent.
   *@version 1.38
   */
-  private static String objetSurCarteAIdToString(ObjetSurCarteAId o){
+  static String objetSurCarteAIdToString(ObjetSurCarteAId o){
     String s="";
     boolean b = Main.getOs().isLinux();
     if(o instanceof Insecte){
@@ -115,8 +116,9 @@ public class CLIMap{
   private String mapToString(){
     CCase cc = gc.getDébut();
     String sr = "";
+    Joueur j = Main.getPartie().getPlayingJoueur();
     while(cc!=null){
-      sr+=mapLineToString(cc)+"\n";
+      sr+=mapLineToString(cc,j)+"\n";
       cc=cc.getBas();
     }
     return sr;
@@ -126,55 +128,68 @@ public class CLIMap{
   *@param cc The 1a CCase of the line.
   *@version 1.38
   */
-  private String mapLineToString(CCase cc){
+  private String mapLineToString(CCase cc, Joueur j){
     String sr = "";
     while(cc!=null){
-      sr+=caseToString(cc.getContenu());
+      if(j==null){sr+=caseToString(cc.getContenu(),false,false);}
+      sr+=caseToString(cc,j);
       cc=cc.getDroite();
     }
     return sr;
+  }
+  public String caseToString(CCase cc,Joueur j){
+    return caseToString(cc.getContenu(),j.isCaseNuageuse(cc),j.isCaseSombre(cc));
   }
   /**
   *{@summary Return a case as a String.}<br>
   *This string have a fix length.<br>
   *@version 1.38
   */
-  private String caseToString(Case contenu){
+  //public only for test
+  public String caseToString(Case contenu, boolean caseNuageuse, boolean caseSombre){
     int taille = 4;
     int nbrDElementSurCase = contenu.getNbrDElementSurCase();
     String sr = "";
     unseeableChar=0;
-    if (nbrDElementSurCase == 0){
-      sr = "-";
-    }else if(nbrDElementSurCase == 1){
+    //if case need to be hide :
+    if(Main.getPartie().getCarte().getCasesNuageuses()==true && caseNuageuse){
+      while (sr.length()<taille+unseeableChar){sr = sr + "■";}
+    }else if(Main.getPartie().getCarte().getCasesSombres()==true && caseSombre){
       if(contenu.getFere() != null){
         sr = "F"+contenu.getFere().getId();
-      }else if (contenu.getGc().getDébut() != null){
-        sr = sr + objetSurCarteAIdToString(contenu.getGc().getDébut().getContenu());
-      }else{
-        sr = sr + objetSurCarteAIdToString(contenu.getGg().getDébut().getContenu());
       }
+      while (sr.length()<taille+unseeableChar){sr = sr + "□";}
     }else{
-      xi++;
-      sr = ascii.getNuméroationEnAbcd(xi);
-      // ajout dans la legend.
-      String s = sr +" : ";
-      if(contenu.getFere() != null){
-        s = s + "F"+contenu.getFere().getId()+", ";
+      if (nbrDElementSurCase == 0){
+        sr = "-";
+      }else if(nbrDElementSurCase == 1){
+        if(contenu.getFere() != null){
+          sr = "F"+contenu.getFere().getId();
+        }else if (contenu.getGc().getDébut() != null){
+          sr = sr + objetSurCarteAIdToString(contenu.getGc().getDébut().getContenu());
+        }else{
+          sr = sr + objetSurCarteAIdToString(contenu.getGg().getDébut().getContenu());
+        }
+      }else{
+        xi++;
+        sr = ascii.getNuméroationEnAbcd(xi);
+        // ajout dans la legend.
+        String s = sr +" : ";
+        if(contenu.getFere() != null){
+          s = s + "F"+contenu.getFere().getId()+", ";
+        }
+        for (Creature c : contenu.getGc().toList()) {
+          s+=objetSurCarteAIdToString(c)+", ";
+        }
+        for (Graine g : contenu.getGg().toList()) {
+          s+=objetSurCarteAIdToString(g)+", ";
+        }
+        s = s.substring(0,s.length()-2);
+        legend.ajouter(s);
+        unseeableChar=0;
       }
-      for (Creature c : contenu.getGc().toList()) {
-        s+=objetSurCarteAIdToString(c)+", ";
-      }
-      for (Graine g : contenu.getGg().toList()) {
-        s+=objetSurCarteAIdToString(g)+", ";
-      }
-      s = s.substring(0,s.length()-2);
-      legend.ajouter(s);
-      unseeableChar=0;
     }
-    while (sr.length()<taille+unseeableChar){
-      sr = sr + " ";
-    }
+    while (sr.length()<taille+unseeableChar){sr = sr + " ";}
     return sr;
   }
 }

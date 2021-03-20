@@ -79,6 +79,7 @@ public class Fourmiliere implements Serializable{
     gc = new GCreature(taille, this,Main.getGEspece().getEspeceParId(x),cc);
   }
   public Fourmiliere(int taille, Joueur j){ this(taille,j,Main.getCarte());}
+  public Fourmiliere() {this(((CCase)(null)),null);} //Only for test
   // GET SET -----------------------------------------------------------------------
   public int getId(){return id;}
   public Point getP(){return cc.getContenu().getP();}

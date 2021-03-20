@@ -57,10 +57,12 @@ public class Joueur implements Serializable{
   public void setIa(boolean b){ia = b; }
   public void addMessage(Message m){ gm.ajouter(m);}
   public GMessage getGm(){ return gm;}
-  public boolean getCaseSombre(int x, int y){ return caseSombre[x][y];}
+  public boolean getCaseSombre(int x, int y){ try {return caseSombre[x][y];}catch (Exception e) {return false;}}
   public void setCaseSombre(int x, int y, boolean b){ caseSombre[x][y]=b;}
-  public boolean getCaseNuageuse(int x, int y){ return caseNuageuse[x][y];}
+  public boolean isCaseSombre(CCase cc){return getCaseSombre(cc.getContenu().getPoint().getX(),cc.getContenu().getPoint().getY());}
+  public boolean getCaseNuageuse(int x, int y){ try {return caseNuageuse[x][y];}catch (Exception e) {return false;}}
   public void setCaseNuageuse(int x, int y, boolean b){ caseNuageuse[x][y]=b;}
+  public boolean isCaseNuageuse(CCase cc){return getCaseNuageuse(cc.getContenu().getPoint().getX(),cc.getContenu().getPoint().getY());}
   public void setPheromone(Pheromone ph){fere.getGc().setPheromone(ph);}
   public int getScore(){return fere.getScore();}
   public static void ini(){i=1;}

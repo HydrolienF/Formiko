@@ -363,4 +363,5 @@ public class Partie implements Serializable{
     }
   }
   public Fourmi getPlayingAnt(){return playingAnt;}
+  public Joueur getPlayingJoueur(){return playingAnt.getFere().getJoueur();}
 }
