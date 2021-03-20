@@ -18,7 +18,10 @@ Project in version 1.30.0 or later work with Maven 3.6.3 be sur that you have Ma
 
 
 *how can I help in the development of the game*
-`We need graphic designers, translators, coders & above all beta testers. Contact us via the discord link to find out more.`
+`We need graphic designers, translators, developers & above all beta testers. Contact us via the discord link to find out more.
+Graphic designers can send some graphics to hydrolien.lili502@gmail.com.
+Developers need to read standardFile.java to respect standard of the Formiko projet.
+Beta testers only need to play & share there experiment.`
 
 *how to solve errors*
 
