@@ -38,7 +38,11 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   public void setDureté(int x){ if(x<-128 || x>127){ erreur.erreur("byte inoptencible depuis "+x,"Graine.setDureté");return;}setDureté((byte)x);}
   public boolean getOuverte(){ return ouverte;}
   public void setOuverte(boolean b){ouverte = b;}
-  public void setCCase(CCase cc){ this.p = cc;} public void setCc(CCase cc){ setCCase(cc);}
+  public void setCCase(CCase p){
+    this.p.getContenu().getGg().retirer(this);
+    this.p = p;
+    p.getContenu().getGg().ajouter(this);
+  }
   public byte getType(){ return type;}
   public byte getTempsAvantDecomposition(){ return tempsAvantDecomposition;}
   // Fonctions propre -----------------------------------------------------------

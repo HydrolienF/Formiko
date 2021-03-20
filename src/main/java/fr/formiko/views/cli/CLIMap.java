@@ -113,7 +113,8 @@ public class CLIMap{
   *All map infos are stored in a GCase, this.gc.
   *@version 1.38
   */
-  private String mapToString(){
+  //public only for test
+  public String mapToString(){
     CCase cc = gc.getDébut();
     String sr = "";
     Joueur j = Main.getPartie().getPlayingJoueur();
@@ -128,7 +129,8 @@ public class CLIMap{
   *@param cc The 1a CCase of the line.
   *@version 1.38
   */
-  private String mapLineToString(CCase cc, Joueur j){
+  //public only for test
+  public String mapLineToString(CCase cc, Joueur j){
     String sr = "";
     while(cc!=null){
       if(j==null){sr+=caseToString(cc.getContenu(),false,false);}
@@ -137,12 +139,23 @@ public class CLIMap{
     }
     return sr;
   }
-  public String caseToString(CCase cc,Joueur j){
+  /**
+  *{@summary Return a case as a String.}<br>
+  *This string have a fix length.<br>
+  *@param cc CCase that contain Case to print.
+  *@param j Player that will be used to know if cases need to be nuageuse or sombre.
+  *@version 1.38
+  */
+  //public only for test
+  public String caseToString(CCase cc, Joueur j){
     return caseToString(cc.getContenu(),j.isCaseNuageuse(cc),j.isCaseSombre(cc));
   }
   /**
   *{@summary Return a case as a String.}<br>
   *This string have a fix length.<br>
+  *@param contenu Case to print.
+  *@param caseNuageuse Boolean to know if player have explored the Case.
+  *@param caseSombre Boolean to know if player is curently seeing the Case.
   *@version 1.38
   */
   //public only for test

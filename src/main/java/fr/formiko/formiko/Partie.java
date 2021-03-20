@@ -346,7 +346,7 @@ public class Partie implements Serializable{
   public boolean setPlayingAnt(Fourmi f){
     if (!Main.getView().getActionGameOn()) {return false;}
     playingAnt=f;
-    return false;
+    return true;
   }
   /**
   *{@summary change the value of the playing ant with and id.}<br>
@@ -363,5 +363,5 @@ public class Partie implements Serializable{
     }
   }
   public Fourmi getPlayingAnt(){return playingAnt;}
-  public Joueur getPlayingJoueur(){return playingAnt.getFere().getJoueur();}
+  public Joueur getPlayingJoueur(){try{return getPlayingAnt().getFere().getJoueur();}catch (Exception e) {return null;}}
 }

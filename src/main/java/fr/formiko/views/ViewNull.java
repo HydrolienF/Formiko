@@ -9,7 +9,7 @@ import fr.formiko.formiko.Fourmi;
  *@version 1.33
  */
 public class ViewNull implements View {
-  private boolean actionGameOn;
+  private boolean actionGameOn=true;
   public boolean getActionGameOn(){return actionGameOn;}
   /**
   *{@summary A null view action that do nothing.}<br>

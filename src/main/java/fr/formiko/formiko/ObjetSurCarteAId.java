@@ -25,7 +25,10 @@ public class ObjetSurCarteAId extends ObjetAId implements Serializable{
   }
   // GET SET -----------------------------------------------------------------------
   public CCase getCCase(){return this.p;}
-  //setCase utilise des Creature pour fonctionner.
+  //setCase est Override par Creature & Graine.
+  public void setCCase(CCase cc){ this.p = cc;}
+  public void setCCase(int x, int y){setCCase(Main.getGc().getCCase(x,y));}
+  public void setCc(CCase cc){setCCase(cc);}
   public byte getDirection(){ return direction;}
   public void setDirection(int x){direction = (byte)x;}
   // Fonctions propre -----------------------------------------------------------
