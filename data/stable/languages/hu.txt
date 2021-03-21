@@ -275,6 +275,7 @@ erreur.14:üres[auto]
 erreur.15:ismeretlen lista[auto]
 erreur.16:A törési kísérlet sikertelen[auto]
 erreur.17:A típus konvertálása nem sikerült[auto]
+alerteGUI2Dfail:
 
 str.1:Nem sikerült végrehajtani az egyik konverziót[auto]
 str.2:helyesen[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Adja meg a felkínált étel mennyiségét.[auto]
 pti.desc.3:Adja meg a rakandó tojás típusát: 0 = királynő, 1 = férfi, 2 = kiskorú, 3 = közepes, 4 = fő, 5 + = egyéb.[auto]
 pti.desc.4:Jelölje a követendő irányt.[auto]
 pti.desc.5:Adja meg a megtisztítandó hangya azonosítóját. A legmocskosabb hangya az 1. helyzetben lévő hangya.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:Üdvözöljük a Formiko cheat felületen. Itt írhat be csalási parancsokat.[auto]
 triche.aide.2:parancsok a "név: (érvek) leírás" formában[auto]

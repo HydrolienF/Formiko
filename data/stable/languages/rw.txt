@@ -275,6 +275,7 @@ erreur.14:ni ubusa[auto]
 erreur.15:urutonde rutazwi[auto]
 erreur.16:Kugerageza kuruhuka byarananiranye (igihe cyo kuruhuka[auto]
 erreur.17:Ubwoko bwo guhindura bwananiwe kubwoko[auto]
+alerteGUI2Dfail:
 
 str.1:Ntibishobora gukora kimwe mubihinduka[auto]
 str.2:neza[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Erekana ingano y'ibiryo bitangwa.[auto]
 pti.desc.3:Erekana ubwoko bw'amagi kugirango utere: 0 = Umwamikazi, 1 = Umugabo, 2 = Ntoya, 3 = Hagati, 4 = Majoro, 5 + = Ibindi.[auto]
 pti.desc.4:Erekana icyerekezo ugomba gukurikiza.[auto]
 pti.desc.5:Erekana id yikimonyo kugirango gisukure. Ikimonyo cyanduye cyane ni ikimonyo mumwanya wa 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:ikaze kuri interineti ya foromo. Aha niho ushobora kwandika amategeko yibeshya.[auto]
 triche.aide.2:amategeko muburyo "izina: (impaka) ibisobanuro"[auto]

@@ -275,6 +275,7 @@ erreur.14:inanis est[auto]
 erreur.15:ignotum album[auto]
 erreur.16:Et confractus defecit conatus (confractus tempus,[auto]
 erreur.17:Conversus generis defecit enim genus[auto]
+alerteGUI2Dfail:
 
 str.1:Conficere non potuit unus ex conversione[auto]
 str.2:recte[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Oblationibus tantum indicare.[auto]
 pti.desc.3:Et posuit rationem cum ovum, ut indicant: Regina = 0, = Male I, II = Minor: Pro Medium = III, IV = minor V + = Aliae.[auto]
 pti.desc.4:Sequeretur indicant.[auto]
 pti.desc.5:Formica ad id quod indicant ad purgandum est. Et dirtiest formica est, in formica I loco.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:grata Formiko decipiat in interface. Hic est qua vos can typus fraus subest imperium.[auto]
 triche.aide.2:Imperat forma "nomen (rationes) Description"[auto]

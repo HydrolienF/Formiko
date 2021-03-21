@@ -343,6 +343,15 @@ pti.desc.3:Indicate the type of egg to lay: 0 = Queen, 1 = Male, 2 = Minor, 3 = 
 pti.desc.4:Indicate the direction to follow.
 pti.desc.5:Indicate the id of the ant to be cleaned. The dirtiest ant is the ant in position 1.
 
+//cli
+doAntAction:Do ant action
+selectAnt:Select an ant
+endTurn:end turn
+endGame:end game
+pauseActionGame:pause action game
+unaviable:unaviable
+setPlayingAnt:select playing ant
+
 triche.aide.1:welcome to the Formiko cheat interface. This is where you can type cheat commands.
 triche.aide.2:commands in the form "name: (arguments) description"[auto]
 

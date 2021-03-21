@@ -275,6 +275,7 @@ erreur.14:ist leer[auto]
 erreur.15:unbekannte Liste[auto]
 erreur.16:Der Pausenversuch ist fehlgeschlagen (Pausenzeit[auto]
 erreur.17:Typkonvertierung für Typ fehlgeschlagen[auto]
+alerteGUI2Dfail:
 
 str.1:Eine der Konvertierungen kann nicht durchgeführt werden[auto]
 str.2:korrekt[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Geben Sie die Menge der angebotenen Lebensmittel an.[auto]
 pti.desc.3:Geben Sie die Art des zu legenden Eies an: 0 = Königin, 1 = Männchen, 2 = Klein, 3 = Mittel, 4 = Haupt, 5 + = Andere.[auto]
 pti.desc.4:Geben Sie die Richtung an, der Sie folgen möchten.[auto]
 pti.desc.5:Geben Sie die ID der zu reinigenden Ameise an. Die schmutzigste Ameise ist die Ameise in Position 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:Willkommen auf der Formiko Cheat-Oberfläche. Hier können Sie Cheat-Befehle eingeben.[auto]
 triche.aide.2:Befehle in der Form "Name: (Argumente) Beschreibung"[auto]

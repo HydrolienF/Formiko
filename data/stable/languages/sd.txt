@@ -275,6 +275,7 @@ erreur.14:خالي آهي[auto]
 erreur.15:اڻ listاتل فهرست[auto]
 erreur.16:وقفي جي ڪوشش ناڪام ٿي وئي (ٽائم جو وقت)[auto]
 erreur.17:قسم بدلائڻ ٽائپ لاءِ ناڪام ٿيو[auto]
+alerteGUI2Dfail:
 
 str.1:ھڪڙي تبديلي کي انجام ڏيڻ کان قاصر[auto]
 str.2:صحيح طور تي[auto]
@@ -341,6 +342,15 @@ pti.desc.2:پيش ڪيل کاڌي جي مقدار ظاهر ڪريو.[auto]
 pti.desc.3:بيهڻ لاءِ بيض جو قسم ظاهر ڪريو: 0 = راڻي ، 1 = مرد ، 2 = نن ،ڙو ، 3 = وچولي ، 4 = ميجر ، 5 + = ٻيو.[auto]
 pti.desc.4:پٺيان اچڻ لاءِ هدايت جو اشارو ڏيو.[auto]
 pti.desc.5:انتيءَ جي بت کي صاف ڪرڻ لاءِ اشارو ڪيو. پوزيشن 1 ۾ سڀ کان وڌيڪ سٺي ڪوگ انٽيگ آهي[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:فارموڪو چيٽ انٽرفيس ۾ ڀليڪار اهو ڪهڙو آهي جتي توهان ٺٽو حڪم ڪري سگھو ٿا.[auto]
 triche.aide.2:فارم ۾ آرڊر ”نالو: (دليل) وضاحت“[auto]

@@ -275,6 +275,7 @@ erreur.14:he putua[auto]
 erreur.15:rārangi unknown[auto]
 erreur.16:I rahua te nganatanga pakaru (wa whati[auto]
 erreur.17:I rahua te momo huri mo te momo[auto]
+alerteGUI2Dfail:
 
 str.1:Kaore e taea te mahi i tetahi o nga huringa[auto]
 str.2:tika[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Whakaatuhia te nui o nga kai kua tohaina.[auto]
 pti.desc.3:Whakaatuhia te momo homa ki te whakatakoto: 0 = Kuini, 1 = Tane, 2 = Iti, 3 = Waenga, 4 = Meiha, 5 + = Tetahi.[auto]
 pti.desc.4:Tohua te ahunga hei whai.[auto]
 pti.desc.5:Tohua te id o te popokorua kia horoia. Ko te popokorua tino paru ko te popokorua i te tuunga 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:nau mai ki te atanga tinihanga Formiko. Ma konei ka taea e koe te paato i nga whakahau tinihanga.[auto]
 triche.aide.2:tono i roto i te puka "ingoa: (tohenga) whakaahuatanga"[auto]

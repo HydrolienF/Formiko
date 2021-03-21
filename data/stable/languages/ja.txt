@@ -275,6 +275,7 @@ erreur.14:空です[auto]
 erreur.15:不明なリスト[auto]
 erreur.16:休憩の試行に失敗しました（休憩時間[auto]
 erreur.17:タイプのタイプ変換に失敗しました[auto]
+alerteGUI2Dfail:
 
 str.1:いずれかの変換を実行できません[auto]
 str.2:正しく[auto]
@@ -341,6 +342,15 @@ pti.desc.2:提供される食品の量を示します。[auto]
 pti.desc.3:産卵する卵の種類を示します：0 =女王、1 =男性、2 =マイナー、3 =中、4 =メジャー、5 + =その他。[auto]
 pti.desc.4:従う方向を示します。[auto]
 pti.desc.5:掃除するアリのIDを指定します。最も汚れたアリは、ポジション1のアリです。[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:Formikoチートインターフェースへようこそ。ここにチートコマンドを入力できます。[auto]
 triche.aide.2:「名前:(引数）説明」の形式のコマンド[auto]

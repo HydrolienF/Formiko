@@ -275,6 +275,7 @@ erreur.14:boş[auto]
 erreur.15:bilinmeyen liste[auto]
 erreur.16:Mola girişimi başarısız oldu (mola zamanı[auto]
 erreur.17:Tür için tür dönüştürme başarısız oldu[auto]
+alerteGUI2Dfail:
 
 str.1:Dönüşümlerden biri gerçekleştirilemiyor[auto]
 str.2:doğru şekilde[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Sunulan yiyecek miktarını belirtin.[auto]
 pti.desc.3:Döşenecek yumurtanın türünü belirtiniz: 0 = Kraliçe, 1 = Erkek, 2 = Küçük, 3 = Orta, 4 = Büyük, 5 + = Diğer.[auto]
 pti.desc.4:İzlenecek yönü belirtin.[auto]
 pti.desc.5:Temizlenecek karıncanın kimliğini belirtin. En kirli karınca, 1. pozisyondaki karıncadır.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:Formiko hile arayüzüne hoş geldiniz. Hile komutları yazabileceğiniz yer burasıdır.[auto]
 triche.aide.2:"isim: (argümanlar) açıklama" biçimindeki komutlar[auto]

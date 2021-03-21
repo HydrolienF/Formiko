@@ -275,6 +275,7 @@ erreur.14:huwa vojt[auto]
 erreur.15:lista mhux magħrufa[auto]
 erreur.16:L-attentat ta 'waqfa falla (ħin ta' pawża[auto]
 erreur.17:Il-konverżjoni tat-tip falliet għat-tip[auto]
+alerteGUI2Dfail:
 
 str.1:Ma jistax iwettaq waħda mill-konverżjonijiet[auto]
 str.2:sewwa[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Indika l-ammont ta 'ikel offrut.[auto]
 pti.desc.3:Indika t-tip ta 'bajda li għandha titqiegħed: 0 = Queen, 1 = Male, 2 = Minor, 3 = Medium, 4 = Major, 5 + = Other.[auto]
 pti.desc.4:Indika d-direzzjoni li għandek issegwi.[auto]
 pti.desc.5:Indika l-id tal-nemla li trid titnaddaf. L-iktar nemel maħmuġ huwa n-nemla fil-pożizzjoni 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:merħba lill-formiko cheat interface. Dan huwa fejn tista 'tittajpja iqarrqu kmandi.[auto]
 triche.aide.2:kmandi fil-forma "isem: (argumenti) deskrizzjoni"[auto]

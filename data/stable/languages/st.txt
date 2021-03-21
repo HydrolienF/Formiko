@@ -275,6 +275,7 @@ erreur.14:ha e na letho[auto]
 erreur.15:lenane le sa tsejoeng[auto]
 erreur.16:Boiteko ba khefu bo ile ba hloleha (nako ea khefu[auto]
 erreur.17:Mofuta oa phetolelo ha oa atleha bakeng sa mofuta[auto]
+alerteGUI2Dfail:
 
 str.1:E hloleha ho etsa e 'ngoe ea liphetoho[auto]
 str.2:ka nepo[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Bontša palo ea lijo tse fanoang.[auto]
 pti.desc.3:Bontsha mofuta wa lehe le lokelang ho behelwa: 0 = Mofumahali, 1 = Monna, 2 = Nyane, 3 = Mahareng, 4 = E kholo, 5 + = E 'ngoe.[auto]
 pti.desc.4:Bontša tsela eo u lokelang ho e latela.[auto]
 pti.desc.5:Bontša ID ea bohloa ho hloekisoa. Bohloa bo litšila ka ho fetesisa ke bohloa bo maemong a 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:rea u amohela ho sebopeho sa cheko sa Formiko. Mona ke moo o ka thaepa litaelo tsa ho qhekella.[auto]
 triche.aide.2:litaelo ka sebopeho "name: (arguments) tlhaloso"[auto]

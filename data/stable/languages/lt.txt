@@ -275,6 +275,7 @@ erreur.14:Yra tuščias[auto]
 erreur.15:nežinomas sąrašas[auto]
 erreur.16:Bandymas padaryti pertrauką nepavyko (pertraukos laikas[auto]
 erreur.17:Nepavyko konvertuoti tipo tipo[auto]
+alerteGUI2Dfail:
 
 str.1:Nepavyko atlikti vienos iš konversijų[auto]
 str.2:teisingai[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Nurodykite siūlomo maisto kiekį.[auto]
 pti.desc.3:Nurodykite dedamo kiaušinio tipą: 0 = karalienė, 1 = vyras, 2 = nepilnametis, 3 = vidutinis, 4 = pagrindinis, 5 + = kitas.[auto]
 pti.desc.4:Nurodykite kryptį, kurios reikia laikytis.[auto]
 pti.desc.5:Nurodykite valomos skruzdėlės ID. Purviniausia skruzdėlė yra skruzdėlė 1 padėtyje.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:Sveiki atvykę į „Formiko“ apgaulės sąsają. Čia galite įvesti apgaulės komandas.[auto]
 triche.aide.2:komandos forma „pavadinimas: (argumentai) aprašymas“[auto]

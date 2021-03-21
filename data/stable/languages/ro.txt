@@ -275,6 +275,7 @@ erreur.14:este gol[auto]
 erreur.15:listă necunoscută[auto]
 erreur.16:Încercarea de pauză a eșuat (timpul de pauză[auto]
 erreur.17:Conversia de tip nu a reușit pentru tip[auto]
+alerteGUI2Dfail:
 
 str.1:Nu s-a putut efectua una dintre conversii[auto]
 str.2:corect[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Indicați cantitatea de mâncare oferită.[auto]
 pti.desc.3:Indicați tipul de ou care trebuie depus: 0 = Regină, 1 = Mascul, 2 = Minor, 3 = Mediu, 4 = Major, 5 + = Altele.[auto]
 pti.desc.4:Indicați direcția de urmat.[auto]
 pti.desc.5:Indicați id-ul furnicii de curățat. Cea mai murdară furnică este furnica din poziția 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:bun venit la interfața de înșelătorie Formiko. Aici puteți introduce comenzi de cheat.[auto]
 triche.aide.2:comenzi sub forma "nume: (argumente) descriere"[auto]

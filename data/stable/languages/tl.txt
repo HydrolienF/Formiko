@@ -275,6 +275,7 @@ erreur.14:walang laman[auto]
 erreur.15:hindi kilalang listahan[auto]
 erreur.16:Nabigo ang pagtatangka sa pahinga (oras ng pahinga[auto]
 erreur.17:Nabigo para sa uri ang pag-convert ng uri[auto]
+alerteGUI2Dfail:
 
 str.1:Hindi maisagawa ang isa sa mga conversion[auto]
 str.2:tama[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Ipahiwatig ang dami ng inalok na pagkain.[auto]
 pti.desc.3:Ipahiwatig ang uri ng itlog na itabi: 0 = Queen, 1 = Lalaki, 2 = Minor, 3 = Medium, 4 = Major, 5 + = Iba pa.[auto]
 pti.desc.4:Ipahiwatig ang tagubiling susundan.[auto]
 pti.desc.5:Ipahiwatig ang id ng langgam na malinis. Ang pinakamadumi na langgam ay ang langgam sa posisyon 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:maligayang pagdating sa Formiko cheat interface. Dito mo mai-type ang mga utos na pandaraya.[auto]
 triche.aide.2:utos sa form na "pangalan: (argumento) paglalarawan"[auto]

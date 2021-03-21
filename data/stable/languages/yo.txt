@@ -275,6 +275,7 @@ erreur.14:ṣofo[auto]
 erreur.15:aimọ akojọ[auto]
 erreur.16:Igbiyanju fifọ naa kuna (akoko fifọ[auto]
 erreur.17:Iru iyipada kuna fun iru[auto]
+alerteGUI2Dfail:
 
 str.1:Ko le ṣe ọkan ninu awọn iyipada[auto]
 str.2:ni deede[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Ṣe afihan iye ti ounjẹ ti a nṣe.[auto]
 pti.desc.3:Ṣe afihan iru ẹyin lati dubulẹ: 0 = Ayaba, 1 = Akọ, 2 = Kekere, 3 = Alabọde, 4 = Pataki, 5 + = Omiiran.[auto]
 pti.desc.4:Ṣe afihan itọsọna lati tẹle.[auto]
 pti.desc.5:Ṣe afihan id ti kokoro ti yoo mọ. Kokoro ẹlẹgbin julọ ni kokoro ni ipo 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:ku si ọna wiwo cheat Formiko. Eyi ni ibiti o le tẹ awọn ofin iyanjẹ.[auto]
 triche.aide.2:awọn aṣẹ ni fọọmu "orukọ: (awọn ariyanjiyan) apejuwe"[auto]

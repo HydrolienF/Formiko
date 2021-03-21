@@ -275,6 +275,7 @@ erreur.14:je prázdný[auto]
 erreur.15:neznámý seznam[auto]
 erreur.16:Pokus o přerušení se nezdařil (čas přerušení[auto]
 erreur.17:Převod typu se nezdařil pro typ[auto]
+alerteGUI2Dfail:
 
 str.1:Nelze provést jednu z konverzí[auto]
 str.2:správně[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Uveďte množství nabízeného jídla.[auto]
 pti.desc.3:Uveďte typ vejce, které má být položeno: 0 = královna, 1 = muž, 2 = menší, 3 = střední, 4 = hlavní, 5 + = ostatní.[auto]
 pti.desc.4:Uveďte směr, kterým se máte řídit.[auto]
 pti.desc.5:Uveďte ID mravence, který má být vyčištěn. Nejšpinavější mravenec je mravenec na pozici 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:vítejte v cheatovém rozhraní Formiko. Zde můžete zadávat cheat příkazy.[auto]
 triche.aide.2:příkazy ve tvaru "název: (argumenty) popis"[auto]

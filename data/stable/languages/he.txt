@@ -275,6 +275,7 @@ erreur.14:זה ריק[auto]
 erreur.15:רשימה לא ידועה[auto]
 erreur.16:ניסיון ההפסקה נכשל (זמן הפסקה[auto]
 erreur.17:המרת סוג נכשלה עבור סוג[auto]
+alerteGUI2Dfail:
 
 str.1:לא ניתן לבצע את אחת ההמרות[auto]
 str.2:נכונה[auto]
@@ -341,6 +342,15 @@ pti.desc.2:ציין את כמות האוכל המוצעת.[auto]
 pti.desc.3:ציין את סוג הביצה שתוטל: 0 = מלכה, 1 = זכר, 2 = קטין, 3 = בינוני, 4 = מייג'ור, 5 + = אחר.[auto]
 pti.desc.4:ציין את הכיוון לעקוב.[auto]
 pti.desc.5:ציין את מזהה הנמלה שיש לנקות. הנמלה הכי מלוכלכת היא הנמלה במצב 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:ברוכים הבאים לממשק הצ'אט של פורמיקו. כאן תוכלו להקליד פקודות צ'יט.[auto]
 triche.aide.2:פקודות בצורה "שם: (ארגומנטים) תיאור"[auto]

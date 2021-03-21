@@ -275,6 +275,7 @@ erreur.14:비었다[auto]
 erreur.15:알 수없는 목록[auto]
 erreur.16:휴식 시도 실패 (휴식 시간[auto]
 erreur.17:유형에 대한 유형 변환 실패[auto]
+alerteGUI2Dfail:
 
 str.1:변환 중 하나를 수행 할 수 없습니다.[auto]
 str.2:바르게[auto]
@@ -341,6 +342,15 @@ pti.desc.2:제공되는 음식의 양을 표시하십시오.[auto]
 pti.desc.3:낳을 알의 종류를 표시합니다 : 0 = 여왕, 1 = 수컷, 2 = 경미, 3 = 중간, 4 = 중대, 5 + = 기타.[auto]
 pti.desc.4:따라야 할 방향을 표시하십시오.[auto]
 pti.desc.5:청소할 개미의 ID를 표시합니다. 가장 더러운 개미는 위치 1에있는 개미입니다.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:Formiko 치트 인터페이스에 오신 것을 환영합니다. 치트 명령을 입력 할 수있는 곳입니다.[auto]
 triche.aide.2:"이름 : (인수) 설명"형식의 명령[auto]

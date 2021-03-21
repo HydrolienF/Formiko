@@ -275,6 +275,7 @@ erreur.14:ua avanoa[auto]
 erreur.15:lisi le mailoa[auto]
 erreur.16:Ua le manuia le taumafaiga o le malologa (break time[auto]
 erreur.17:Ua le manuia le ituaiga liliu mai mo le ituaiga[auto]
+alerteGUI2Dfail:
 
 str.1:Le mafai ona faʻatino se tasi o liua[auto]
 str.2:saʻo[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Faʻailoa le aofaʻi o meaʻai na ofoina atu.[auto]
 pti.desc.3:Faʻailoa le ituaiga o fuamoa e taoto: 0 = Masiofo, 1 = Tamaloa, 2 = Minor, 3 = Feololo, 4 = Sili, 5 + = Isi.[auto]
 pti.desc.4:Faʻasino le faʻatonuga e mulimuli ai.[auto]
 pti.desc.5:Faʻailoa le id o le loi e faʻamamaina. O le loi sili ona eleelea o le loi i le tulaga 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:faʻafeiloaʻi i le Formiko cheat interface. Lenei e mafai ona e taina faʻasese tulafono.[auto]
 triche.aide.2:faʻatonuga ile fomu "igoa: (finauga) faʻamatalaga"[auto]

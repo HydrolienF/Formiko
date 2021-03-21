@@ -275,6 +275,7 @@ erreur.14:jest pusty[auto]
 erreur.15:nieznana lista[auto]
 erreur.16:Próba przerwania nie powiodła się (czas przerwy[auto]
 erreur.17:Konwersja typu nie powiodła się dla typu[auto]
+alerteGUI2Dfail:
 
 str.1:Nie można wykonać jednej z konwersji[auto]
 str.2:prawidłowo[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Wskaż ilość oferowanego jedzenia.[auto]
 pti.desc.3:Wskaż rodzaj składanego jaja: 0 = królowa, 1 = samiec, 2 = drugorzędne, 3 = średnie, 4 = główne, 5 + = inne.[auto]
 pti.desc.4:Wskaż kierunek, w którym należy podążać.[auto]
 pti.desc.5:Wskaż identyfikator mrówki do wyczyszczenia. Najbrudniejszą mrówką jest mrówka na pozycji 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:witamy w interfejsie cheatów Formiko. Tutaj możesz wpisywać polecenia do oszukiwania.[auto]
 triche.aide.2:polecenia w postaci „nazwa: (argumenty) opis”[auto]

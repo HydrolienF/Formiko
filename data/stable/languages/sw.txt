@@ -275,6 +275,7 @@ erreur.14:ni tupu[auto]
 erreur.15:orodha isiyojulikana[auto]
 erreur.16:Jaribio la mapumziko lilishindwa (muda wa mapumziko[auto]
 erreur.17:Aina ya kubadilisha imeshindwa kwa aina[auto]
+alerteGUI2Dfail:
 
 str.1:Imeshindwa kutekeleza moja ya ubadilishaji[auto]
 str.2:kwa usahihi[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Onyesha kiwango cha chakula kinachotolewa.[auto]
 pti.desc.3:Onyesha aina ya yai inayotakiwa kuwekwa: 0 = Malkia, 1 = Mwanaume, 2 = Kidogo, 3 = Kati, 4 = Kubwa, 5 + = Nyingine.[auto]
 pti.desc.4:Onyesha mwelekeo wa kufuata.[auto]
 pti.desc.5:Onyesha kitambulisho cha chungu kusafishwa. Mchwa mchafu zaidi ni chungu katika nafasi ya 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:karibu kwenye muundo wa kudanganya wa Formiko. Hapa ndipo unaweza kuchapa amri za kudanganya.[auto]
 triche.aide.2:amri katika fomu "jina: (hoja) maelezo"[auto]

@@ -275,6 +275,7 @@ erreur.14:prazno je[auto]
 erreur.15:nepoznati popis[auto]
 erreur.16:Pokušaj prekida nije uspio (vrijeme odmora[auto]
 erreur.17:Pretvorba tipa nije uspjela za tip[auto]
+alerteGUI2Dfail:
 
 str.1:Nije moguće izvršiti jednu od pretvorbi[auto]
 str.2:ispravno[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Navedite količinu ponuđene hrane.[auto]
 pti.desc.3:Navedite vrstu jaja koje treba položiti: 0 = matica, 1 = mužjak, 2 = maloljetnik, 3 = srednje, 4 = glavno, 5 + = ostalo.[auto]
 pti.desc.4:Navedite smjer koji treba slijediti.[auto]
 pti.desc.5:Navedite id mrava kojeg treba očistiti. Najprljaviji mrav je mrav u položaju 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:dobrodošli na Formiko sučelje za varanje. Ovdje možete upisati naredbe za varanje.[auto]
 triche.aide.2:naredbe u obliku "ime: (argumenti) opis"[auto]

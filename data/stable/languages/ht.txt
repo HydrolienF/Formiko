@@ -275,6 +275,7 @@ erreur.14:vid[auto]
 erreur.15:lis enkoni[auto]
 erreur.16:Tantativ la kraze echwe (tan kraze[auto]
 erreur.17:Kalite konvèti echwe pou kalite[auto]
+alerteGUI2Dfail:
 
 str.1:Kapab fè youn nan konvèsyon yo[auto]
 str.2:kòrèkteman[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Endike kantite manje yo ofri.[auto]
 pti.desc.3:Endike ki kalite ze yo dwe mete: 0 = Rèn, 1 = Gason, 2 = Minè, 3 = Mwayen, 4 = Gwo, 5 + = Lòt.[auto]
 pti.desc.4:Endike direksyon pou swiv.[auto]
 pti.desc.5:Endike id foumi a pou netwaye. Foumi ki pi sal se foumi ki nan pozisyon 1 an.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:Byenveni nan koòdone nan tronpe Formiko. Sa a se kote ou ka tape kòmandman tronpe.[auto]
 triche.aide.2:kòmandman nan fòm "non: (agiman) deskripsyon"[auto]

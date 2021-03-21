@@ -275,6 +275,7 @@ erreur.14:on tühi[auto]
 erreur.15:tundmatu loend[auto]
 erreur.16:Vaheaja katse ebaõnnestus (vaheaeg[auto]
 erreur.17:Tüübi teisendamine nurjus[auto]
+alerteGUI2Dfail:
 
 str.1:Ühte konversiooni ei saa teha[auto]
 str.2:õigesti[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Märkige pakutava toidu kogus.[auto]
 pti.desc.3:Märkige munetava muna tüüp: 0 = kuninganna, 1 = isane, 2 = alaealine, 3 = keskmine, 4 = suur, 5 + = muu.[auto]
 pti.desc.4:Märkige suund, mida järgida.[auto]
 pti.desc.5:Märkige puhastatava sipelga ID. Kõige mustem sipelgas on sipelgas asendis 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:Tere tulemast Formiko pettuste liidesesse. Siia saate sisestada petukäske.[auto]
 triche.aide.2:käsud kujul "nimi: (argumendid) kirjeldus"[auto]

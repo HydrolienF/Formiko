@@ -275,6 +275,7 @@ erreur.14:fanko[auto]
 erreur.15:jerin da ba a sani ba[auto]
 erreur.16:Attemptoƙarin hutu bai yi nasara ba (lokacin hutu[auto]
 erreur.17:Nau'in canzawa ya gaza nau'in[auto]
+alerteGUI2Dfail:
 
 str.1:Ba za a iya yin ɗayan juyawa ba[auto]
 str.2:daidai[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Nuna yawan abincin da aka bayar.[auto]
 pti.desc.3:Nuna nau'in ƙwan da za a saka: 0 = Sarauniya, 1 = Namiji, 2 = Minananan, 3 = Matsakaici, 4 = Babba, 5 + = Sauran.[auto]
 pti.desc.4:Nuna shugabanci don bi.[auto]
 pti.desc.5:Nuna id na tururuwa da za a tsabtace. Mafi datti tururuwa ita ce tururuwa a cikin matsayi na 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:barka da zuwa ga formiko cheat interface. Anan ne zaka iya rubuta umarnin yaudara.[auto]
 triche.aide.2:yayi umarni a sigar "suna: (muhawara) kwatancen"[auto]

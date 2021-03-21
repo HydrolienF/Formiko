@@ -275,6 +275,7 @@ erreur.14:ass eidel[auto]
 erreur.15:onbekannt Lëscht[auto]
 erreur.16:De Pausversuch huet gescheitert (Pauszäit[auto]
 erreur.17:Typ Konvertéiere ass net fir den Typ ausgefall[auto]
+alerteGUI2Dfail:
 
 str.1:Kann ee vun de Conversiounen net maachen[auto]
 str.2:richteg[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Uginn de Montant vun ugebueden Iessen.[auto]
 pti.desc.3:Uginn der Zort Ee ze leeën: 0 = Queen, 1 = Männlech, 2 = Mannerjäreger, 3 = Medium, 4 = Major, 5 + = Aner.[auto]
 pti.desc.4:Uginn d'Richtung ze verfollegen.[auto]
 pti.desc.5:Uginn d'Id vun der Ant ze botzen. Den dreckegste Seechomess ass den Ant an der Positioun 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:wëllkomm op der Formiko Cheat Interface. Dëst ass wou Dir Cheat Kommandë kënnt aginn.[auto]
 triche.aide.2:Kommandoen an der Form "Numm: (Argumenter) Beschreiwung"[auto]

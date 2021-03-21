@@ -275,6 +275,7 @@ erreur.14:มันว่างเปล่า[auto]
 erreur.15:รายการที่ไม่รู้จัก[auto]
 erreur.16:ความพยายามหยุดพักล้มเหลว (เวลาพัก[auto]
 erreur.17:ประเภทการแปลงล้มเหลวสำหรับประเภท[auto]
+alerteGUI2Dfail:
 
 str.1:ไม่สามารถทำการแปลงอย่างใดอย่างหนึ่งได้[auto]
 str.2:ถูกต้อง[auto]
@@ -341,6 +342,15 @@ pti.desc.2:ระบุปริมาณอาหารที่ให้[auto]
 pti.desc.3:ระบุประเภทของไข่ที่จะวาง: 0 = Queen, 1 = Male, 2 = Minor, 3 = Medium, 4 = Major, 5 + = Other[auto]
 pti.desc.4:ระบุทิศทางที่จะปฏิบัติตาม[auto]
 pti.desc.5:ระบุรหัสของมดที่จะทำความสะอาด มดที่สกปรกที่สุดคือมดในตำแหน่งที่ 1[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:ยินดีต้อนรับสู่อินเทอร์เฟซการโกง Formiko นี่คือที่ที่คุณสามารถพิมพ์คำสั่ง cheat[auto]
 triche.aide.2:คำสั่งในรูปแบบ "name: (arguments) description"[auto]

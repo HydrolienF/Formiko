@@ -275,6 +275,7 @@ erreur.14:è vuoto[auto]
 erreur.15:elenco sconosciuto[auto]
 erreur.16:Il tentativo di interruzione non è riuscito (break time[auto]
 erreur.17:Conversione del tipo non riuscita per il tipo[auto]
+alerteGUI2Dfail:
 
 str.1:Impossibile eseguire una delle conversioni[auto]
 str.2:correttamente[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Indicare la quantità di cibo offerto.[auto]
 pti.desc.3:Indicare il tipo di uovo da deporre: 0 = Regina, 1 = Maschio, 2 = Minore, 3 = Medio, 4 = Maggiore, 5 + = Altro.[auto]
 pti.desc.4:Indicare la direzione da seguire.[auto]
 pti.desc.5:Indica l'id della formica da pulire. La formica più sporca è la formica in posizione 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:benvenuto nell'interfaccia cheat di Formiko. Qui è dove puoi digitare i comandi cheat.[auto]
 triche.aide.2:comandi nella forma "nome: (argomenti) descrizione"[auto]

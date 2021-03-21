@@ -275,6 +275,7 @@ erreur.14:tọgbọ chakoo[auto]
 erreur.15:amaghi ama[auto]
 erreur.16:Nkwụsịtụ ahụ mechara (oge ezumike)[auto]
 erreur.17:Convertdị tọghatara maka ụdị[auto]
+alerteGUI2Dfail:
 
 str.1:Enweghi ike ịrụ otu n'ime mgbanwe[auto]
 str.2:n'ụzọ ziri ezi[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Gosi ego ole enyere.[auto]
 pti.desc.3:Egosi udiri akwa ichoro: 0 = Eze nwanyi, 1 = Nwoke, 2 = Obere, 3 = Agbata, 4 = Isi, 5 + = Nke ozo.[auto]
 pti.desc.4:Gosi ụzọ ị ga-eso.[auto]
 pti.desc.5:Egosi na id nke ndanda ka a kpochara. Ihe kacha sie ike bụ ndanda na ọnọdụ 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:nabata na Formiko cheat interface. Nke a bụ ebe ị nwere ike pịnye cheat iwu.[auto]
 triche.aide.2:iwu n'ụdị "aha: (arụmụka) nkọwa"[auto]

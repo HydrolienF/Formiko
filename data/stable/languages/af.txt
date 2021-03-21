@@ -275,6 +275,7 @@ erreur.14:is leeg[auto]
 erreur.15:onbekende lys[auto]
 erreur.16:Die breekpoging het misluk (rustyd[auto]
 erreur.17:Kon nie tik omskakel nie[auto]
+alerteGUI2Dfail:
 
 str.1:Kan nie een van die omskakelings uitvoer nie[auto]
 str.2:korrek[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Dui die hoeveelheid kos wat aangebied word aan.[auto]
 pti.desc.3:Dui die tipe eier aan wat gelê moet word: 0 = Koningin, 1 = Mannetjie, 2 = Klein, 3 = Medium, 4 = Majeur, 5 + = Ander.[auto]
 pti.desc.4:Dui die rigting aan wat gevolg moet word.[auto]
 pti.desc.5:Dui die ID aan van die mier wat skoongemaak moet word. Die vuilste mier is die mier in posisie 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:welkom by die Formiko cheat-koppelvlak. Dit is hier waar u bedrogopdragte kan tik.[auto]
 triche.aide.2:opdragte in die vorm "naam: (argumente) beskrywing"[auto]

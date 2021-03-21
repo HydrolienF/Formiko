@@ -275,6 +275,7 @@ erreur.14:està buit[auto]
 erreur.15:llista desconeguda[auto]
 erreur.16:L'intent de trencament ha fallat (temps de trencament[auto]
 erreur.17:No s'ha pogut convertir el tipus[auto]
+alerteGUI2Dfail:
 
 str.1:No es pot realitzar una de les conversions[auto]
 str.2:correctament[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Indiqueu la quantitat de menjar que s’ofereix.[auto]
 pti.desc.3:Indiqueu el tipus d’ou a posar: 0 = Reina, 1 = Masculí, 2 = Menor, 3 = Mitjà, 4 = Major, 5 + = Altres.[auto]
 pti.desc.4:Indiqueu la direcció a seguir.[auto]
 pti.desc.5:Indiqueu la identificació de la formiga a netejar. La formiga més bruta és la formiga de la posició 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:Benvingut a la interfície de trucs de Formiko. Aquí és on podeu escriure ordres de trampes.[auto]
 triche.aide.2:ordres en forma "nom: (arguments) descripció"[auto]

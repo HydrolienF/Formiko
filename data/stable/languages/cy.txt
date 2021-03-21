@@ -275,6 +275,7 @@ erreur.14:yn wag[auto]
 erreur.15:rhestr anhysbys[auto]
 erreur.16:Methodd yr ymgais egwyl (amser egwyl[auto]
 erreur.17:Methodd trosi math ar gyfer math[auto]
+alerteGUI2Dfail:
 
 str.1:Methu perfformio un o'r trosiadau[auto]
 str.2:yn gywir[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Nodwch faint o fwyd sy'n cael ei gynnig.[auto]
 pti.desc.3:Nodwch y math o wy i'w ddodwy: 0 = Brenhines, 1 = Gwryw, 2 = Mân, 3 = Canolig, 4 = Mawr, 5 + = Arall.[auto]
 pti.desc.4:Nodwch y cyfeiriad i'w ddilyn.[auto]
 pti.desc.5:Nodwch id y morgrugyn i'w lanhau. Y morgrugyn budr yw'r morgrugyn yn safle 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:croeso i ryngwyneb twyllo Formiko. Dyma lle gallwch chi deipio gorchmynion twyllo.[auto]
 triche.aide.2:gorchmynion ar ffurf "enw: (dadleuon) disgrifiad"[auto]

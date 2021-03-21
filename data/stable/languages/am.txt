@@ -275,6 +275,7 @@ erreur.14:ባዶ ነው[auto]
 erreur.15:ያልታወቀ ዝርዝር[auto]
 erreur.16:የእረፍት ሙከራው አልተሳካም (የእረፍት ጊዜ[auto]
 erreur.17:ዓይነት መለወጥ ለዓይነቱ አልተሳካም[auto]
+alerteGUI2Dfail:
 
 str.1:ከተለወጡት ውስጥ አንዱን ማከናወን አልተቻለም[auto]
 str.2:በትክክል[auto]
@@ -341,6 +342,15 @@ pti.desc.2:የቀረበው የምግብ መጠን ያመልክቱ።[auto]
 pti.desc.3:የሚዘረጋውን የእንቁላል አይነት ያመልክቱ-0 = ንግሥት ፣ 1 = ወንድ ፣ 2 = አናሳ ፣ 3 = መካከለኛ ፣ 4 = ሜጀር ፣ 5 + = ሌላ ፡፡[auto]
 pti.desc.4:መከተል ያለበትን አቅጣጫ ያመልክቱ ፡፡[auto]
 pti.desc.5:የሚጸዳውን የጉንዳን መታወቂያ ያመልክቱ። በጣም ርኩሱ የሆነው ጉንዳን በአቀማመጥ 1 ውስጥ ያለው ጉንዳን ነው ፡፡[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:ወደ Formiko ማታለያ በይነገጽ እንኳን በደህና መጡ። ይህ የማጭበርበር ትዕዛዞችን መተየብ የሚችሉበት ቦታ ነው።[auto]
 triche.aide.2:ትዕዛዞችን በቅጹ ላይ "ስም: (ክርክሮች) መግለጫ"[auto]

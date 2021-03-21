@@ -275,6 +275,7 @@ erreur.14:is leeg[auto]
 erreur.15:onbekende lijst[auto]
 erreur.16:De pauze-poging is mislukt (pauze[auto]
 erreur.17:Type conversie mislukt voor type[auto]
+alerteGUI2Dfail:
 
 str.1:Kan een van de conversies niet uitvoeren[auto]
 str.2:correct[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Geef de hoeveelheid aangeboden voedsel aan.[auto]
 pti.desc.3:Geef het type ei aan dat moet worden gelegd: 0 = Koningin, 1 = Mannetje, 2 = Klein, 3 = Middelgroot, 4 = Groot, 5 + = Overig.[auto]
 pti.desc.4:Geef de te volgen richting aan.[auto]
 pti.desc.5:Geef het ID aan van de mier die moet worden schoongemaakt. De smerigste mier is de mier in positie 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:welkom bij de Formiko cheat-interface. Dit is waar je cheat-commando's kunt typen.[auto]
 triche.aide.2:commando's in de vorm "naam: (argumenten) beschrijving"[auto]

@@ -275,6 +275,7 @@ erreur.14:vala ye[auto]
 erreur.15:lîsteya nenas[auto]
 erreur.16:Hewla şikestinê têk çû (dema betalbûnê[auto]
 erreur.17:Veguheztina tîpê ji bo celebê têk çû[auto]
+alerteGUI2Dfail:
 
 str.1:Nikare yek ji veguherînan pêk bîne[auto]
 str.2:rast[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Hejmara xwarina pêşkêşkirî diyar bikin.[auto]
 pti.desc.3:Cûreyek hêka ku tê danîn nîşan bikin: 0 = Queenahbanû, 1 = Nêr, 2 = Biçûk, 3 = Navîn, 4 = Mezin, 5 + = Yê din.[auto]
 pti.desc.4:Riya ku bişopînin nîşan bikin.[auto]
 pti.desc.5:Nasnameya ant ya ku were paqijkirin nîşan bikin. Mîna herî qirêj di poz 1 de mirin e.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:bi xêr hatî ser xefika Formiko. Li vir e ku hûn dikarin fermanên xapandinê binivîsin.[auto]
 triche.aide.2:bi forma "nav: (nîqaş) salixdan" ferman dike[auto]

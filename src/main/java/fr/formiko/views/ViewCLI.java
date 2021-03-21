@@ -204,7 +204,7 @@ public class ViewCLI implements View {
         double v = str.sToD(input);
         pa.setVitesseDeJeu(v);
         break;
-        //TODO
+        //TODO to finish
       }
     }
     Main.setPartie(pa);
@@ -239,10 +239,10 @@ public class ViewCLI implements View {
     Main.getPartie().initialisationElément();
     int toDoAfter = 0;
     String tab [] = new String[4];
-    tab[0]=g.get("doAntAction");//TODO add to translation.
-    tab[1]=g.get("selectAnt");//TODO add to translation.
-    tab[2]=g.get("endTurn");//TODO add to translation.
-    tab[3]=g.get("pauseActionGame");//TODO add to translation.
+    tab[0]=g.get("doAntAction");
+    tab[1]=g.get("selectAnt");
+    tab[2]=g.get("endTurn");
+    tab[3]=g.get("pauseActionGame");
     tToPrint = tab;
     Main.getPartie().launchGame();
     Main.setPartie(null);
@@ -320,12 +320,12 @@ public class ViewCLI implements View {
     for (int i=0;i<12 ;i++ ) {
       ts[i]=g.get("bouton.desc."+(20+i));
       if(!tableau.estDansT(t,i)){
-        ts[i]+=" ("+g.get("unaviable")+")"; //TODO add to translation.
+        ts[i]+=" ("+g.get("unaviable")+")";
       }
     }
-    ts[12]=g.getM("setPlayingAnt");//TODO add to translation.
-    ts[13]=g.getM("endTurn");//TODO add to translation.
-    ts[14]=g.getM("endGame");//TODO add to translation.
+    ts[12]=g.getM("setPlayingAnt");
+    ts[13]=g.getM("endTurn");
+    ts[14]=g.getM("endGame");
     tToPrint = ts;
     int choice = -1;
     do {

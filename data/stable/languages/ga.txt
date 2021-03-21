@@ -275,6 +275,7 @@ erreur.14:folamh[auto]
 erreur.15:liosta anaithnid[auto]
 erreur.16:Theip ar an iarracht sosa (am sosa[auto]
 erreur.17:Theip ar thiontú cineáil don chineál[auto]
+alerteGUI2Dfail:
 
 str.1:Ní féidir ceann de na tiontaithe a dhéanamh[auto]
 str.2:i gceart[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Cuir in iúl an méid bia a thairgtear.[auto]
 pti.desc.3:Cuir in iúl an cineál uibhe atá le leagan: 0 = Banríon, 1 = Fireann, 2 = Mion, 3 = Meánach, 4 = Mór, 5 + = Eile.[auto]
 pti.desc.4:Cuir in iúl an treo atá le leanúint.[auto]
 pti.desc.5:Cuir in iúl id an seangáin atá le glanadh. Is é an seangán is salach an seangán i suíomh 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:fáilte roimh chomhéadan meallta Formiko. Seo áit ar féidir leat orduithe meallta a chlóscríobh.[auto]
 triche.aide.2:orduithe san fhoirm "ainm: (argóintí) tuairisc"[auto]

@@ -275,6 +275,7 @@ erreur.14:akunalutho[auto]
 erreur.15:uhlu olungaziwa[auto]
 erreur.16:Umzamo wekhefu wehlulekile (isikhathi sekhefu[auto]
 erreur.17:Ukuguqula uhlobo kwehlulekile ngohlobo[auto]
+alerteGUI2Dfail:
 
 str.1:Ayikwazi ukwenza okunye kokuguqulwa[auto]
 str.2:kahle[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Khombisa inani lokudla okunikezwayo.[auto]
 pti.desc.3:Khombisa uhlobo lweqanda elizobekwa: 0 = Indlovukazi, 1 = Owesilisa, 2 = Okuncane, 3 = Okulingene, 4 = Okukhulu, 5 + = Okunye.[auto]
 pti.desc.4:Khombisa indlela okumele uyilandele.[auto]
 pti.desc.5:Khombisa ubunikazi bezintuthwane okufanele zihlanzwe. Idlozi elingcole kakhulu iyintuthwane esesikhundleni 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:wamukelekile kusixhumi esibonakalayo seFormiko. Yilapho ungathayipha khona imiyalo yokukopela.[auto]
 triche.aide.2:imiyalo efomini "name: (arguments) description"[auto]

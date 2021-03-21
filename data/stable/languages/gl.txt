@@ -275,6 +275,7 @@ erreur.14:está baleiro[auto]
 erreur.15:lista descoñecida[auto]
 erreur.16:Fallou o intento de descanso (tempo de descanso[auto]
 erreur.17:Produciuse un erro ao converter o tipo[auto]
+alerteGUI2Dfail:
 
 str.1:Non se puido realizar unha das conversións[auto]
 str.2:correctamente[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Indique a cantidade de comida ofrecida.[auto]
 pti.desc.3:Indique o tipo de ovo que poñer: 0 = raíña, 1 = macho, 2 = menor, 3 = medio, 4 = maior, 5 + = outro.[auto]
 pti.desc.4:Indique a dirección a seguir.[auto]
 pti.desc.5:Indique a identificación da formiga que se vai limpar. A formiga máis sucia é a formiga na posición 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:Benvido á interface de trampas de Formiko. Aquí é onde podes escribir comandos de trampas.[auto]
 triche.aide.2:comandos en forma "nome: (argumentos) descrición"[auto]

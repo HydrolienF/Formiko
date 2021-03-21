@@ -275,6 +275,7 @@ erreur.14:kosong[auto]
 erreur.15:daftar tidak diketahui[auto]
 erreur.16:Upaya istirahat gagal (waktu istirahat[auto]
 erreur.17:Jenis konversi gagal untuk jenis[auto]
+alerteGUI2Dfail:
 
 str.1:Tidak dapat melakukan salah satu konversi[auto]
 str.2:benar[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Tunjukkan jumlah makanan yang ditawarkan.[auto]
 pti.desc.3:Tunjukkan jenis telur yang akan diletakkan: 0 = Ratu, 1 = Jantan, 2 = Kecil, 3 = Sedang, 4 = Besar, 5 + = Lainnya.[auto]
 pti.desc.4:Tunjukkan arah yang harus diikuti.[auto]
 pti.desc.5:Tunjukkan identitas semut yang akan dibersihkan. Semut paling kotor adalah semut di posisi 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:selamat datang di antarmuka cheat Formiko. Di sinilah Anda dapat mengetik perintah cheat.[auto]
 triche.aide.2:perintah dalam bentuk "nama: (argumen) deskripsi"[auto]

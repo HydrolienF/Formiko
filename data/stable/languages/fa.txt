@@ -275,6 +275,7 @@ erreur.14:خالی است[auto]
 erreur.15:لیست ناشناخته[auto]
 erreur.16:تلاش برای شکست (شکست زمان شکست)[auto]
 erreur.17:نوع تبدیل برای نوع ناموفق است[auto]
+alerteGUI2Dfail:
 
 str.1:انجام یکی از تبدیل ها امکان پذیر نیست[auto]
 str.2:به درستی[auto]
@@ -341,6 +342,15 @@ pti.desc.2:مقدار غذای پیشنهادی را مشخص کنید.[auto]
 pti.desc.3:نوع تخم تخم گذاری را مشخص کنید: 0 = ملکه ، 1 = نر ، 2 = صغیر ، 3 = متوسط ، 4 = عمده ، 5 + = دیگر.[auto]
 pti.desc.4:جهت دنبال کردن را مشخص کنید.[auto]
 pti.desc.5:شناسه مورچه را برای تمیز کردن مشخص کنید. کثیف ترین مورچه مورچه در موقعیت 1 است.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:به رابط تقلب Formiko خوش آمدید. اینجاست که می توانید دستورات تقلب را تایپ کنید.[auto]
 triche.aide.2:دستورات به شکل "name: (argument) توضیحات"[auto]

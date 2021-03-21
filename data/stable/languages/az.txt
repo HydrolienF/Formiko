@@ -275,6 +275,7 @@ erreur.14:boşdur[auto]
 erreur.15:naməlum siyahı[auto]
 erreur.16:Qırılma cəhdi uğursuz oldu (fasilə müddəti[auto]
 erreur.17:Tip çevirmə tip üçün uğursuz oldu[auto]
+alerteGUI2Dfail:
 
 str.1:Dönüşümlərdən birini həyata keçirmək mümkün deyil[auto]
 str.2:düzgün[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Təklif olunan yemək miqdarını göstərin.[auto]
 pti.desc.3:Yumurtanın qoyulacağı növü göstərin: 0 = Kraliça, 1 = Kişi, 2 = Kiçik, 3 = Orta, 4 = Böyük, 5 + = Digər.[auto]
 pti.desc.4:İzləyəcəyiniz istiqaməti göstərin.[auto]
 pti.desc.5:Təmizlənəcək qarışqanın kimliyini göstərin. Ən çirkli qarışqa 1-ci mövqedəki qarışqadır.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:Formiko cheat interfeysinə xoş gəlmisiniz. Buradan istifadə etmək əmrlərini yaza bilərsiniz.[auto]
 triche.aide.2:"ad: (dəlillər) təsvir" şəklində əmrlər[auto]

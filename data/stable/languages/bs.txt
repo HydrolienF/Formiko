@@ -275,6 +275,7 @@ erreur.14:prazno je[auto]
 erreur.15:nepoznata lista[auto]
 erreur.16:Pokušaj pauze nije uspio (vrijeme pauze[auto]
 erreur.17:Pretvorba tipa nije uspjela za tip[auto]
+alerteGUI2Dfail:
 
 str.1:Nije moguće izvršiti jednu od konverzija[auto]
 str.2:ispravno[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Navedite količinu ponuđene hrane.[auto]
 pti.desc.3:Navedite vrstu jaja za polaganje: 0 = kraljica, 1 = muško, 2 = maloljetno, 3 = srednje, 4 = glavno, 5 + = ostalo.[auto]
 pti.desc.4:Navedite smjer kojim treba ići.[auto]
 pti.desc.5:Navedite id mrava kojeg treba očistiti. Najprljaviji mrav je mrav u položaju 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:dobrodošli u Formiko cheats interface. Ovdje možete upisati naredbe za varanje.[auto]
 triche.aide.2:naredbe u obliku "ime: (argumenti) opis"[auto]

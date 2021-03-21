@@ -275,6 +275,7 @@ erreur.14:trống rỗng[auto]
 erreur.15:danh sách không xác định[auto]
 erreur.16:Nỗ lực giải lao không thành công (thời gian nghỉ giải lao[auto]
 erreur.17:Loại chuyển đổi không thành công cho loại[auto]
+alerteGUI2Dfail:
 
 str.1:Không thể thực hiện một trong các chuyển đổi[auto]
 str.2:chính xác[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Cho biết lượng thức ăn được cung cấp.[auto]
 pti.desc.3:Cho biết loại trứng sẽ đẻ: 0 = Nữ hoàng, 1 = Đực, 2 = Con cái, 3 = Trung bình, 4 = Con chính, 5 + = Khác.[auto]
 pti.desc.4:Chỉ ra hướng đi theo.[auto]
 pti.desc.5:Cho biết id của kiến được làm sạch. Con kiến bẩn nhất là con kiến ở vị trí số 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:chào mừng bạn đến với giao diện gian lận Formiko. Đây là nơi bạn có thể gõ lệnh ăn gian.[auto]
 triche.aide.2:lệnh ở dạng "tên: (đối số) mô tả"[auto]

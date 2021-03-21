@@ -275,6 +275,7 @@ erreur.14:falamh[auto]
 erreur.15:liosta neo-aithnichte[auto]
 erreur.16:Dh'fhàillig an oidhirp fois (àm fois[auto]
 erreur.17:Dh'fhàillig tionndadh seòrsa airson seòrsa[auto]
+alerteGUI2Dfail:
 
 str.1:Cha ghabh aon de na h-atharrachaidhean a dhèanamh[auto]
 str.2:gu ceart[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Comharraich na tha de bhiadh air a thabhann.[auto]
 pti.desc.3:Comharraich an seòrsa ugh a tha ri breith: 0 = Banrigh, 1 = Fireann, 2 = Mion, 3 = Meadhanach, 4 = Mòr, 5 + = Eile.[auto]
 pti.desc.4:Comharraich an stiùireadh airson a leantainn.[auto]
 pti.desc.5:Comharraich id an t-seangan ri ghlanadh. Is e an seangan as salach an seangan ann an suidheachadh 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:fàilte gu eadar-aghaidh meallta Formiko. Seo far an urrainn dhut òrdughan meallta a thaipeadh.[auto]
 triche.aide.2:òrdughan ann an cruth "ainm: (argamaidean) tuairisgeul"[auto]

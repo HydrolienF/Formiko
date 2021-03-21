@@ -275,6 +275,7 @@ erreur.14:on tyhjä[auto]
 erreur.15:tuntematon luettelo[auto]
 erreur.16:Taukoyritys epäonnistui (taukoaika[auto]
 erreur.17:Tyypin muuntaminen epäonnistui[auto]
+alerteGUI2Dfail:
 
 str.1:Yhtä muunnosta ei voida suorittaa[auto]
 str.2:oikein[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Ilmoita tarjottavan ruoan määrä.[auto]
 pti.desc.3:Ilmoita munittavan munan tyyppi: 0 = kuningatar, 1 = uros, 2 = alaikäinen, 3 = keskikokoinen, 4 = majuri, 5 + = muu.[auto]
 pti.desc.4:Ilmoita noudatettava suunta.[auto]
 pti.desc.5:Ilmoita puhdistettavan muurahaisen tunnus. Likaisin muurahainen on muurahainen asennossa 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:tervetuloa Formiko-huijausliittymään. Tähän voit kirjoittaa huijauskomentoja.[auto]
 triche.aide.2:komennot muodossa "nimi: (argumentit) kuvaus"[auto]

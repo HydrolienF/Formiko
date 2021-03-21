@@ -275,6 +275,7 @@ erreur.14:er tom[auto]
 erreur.15:ukendt liste[auto]
 erreur.16:Pauseforsøget mislykkedes (pausetid[auto]
 erreur.17:Type konvertering mislykkedes for type[auto]
+alerteGUI2Dfail:
 
 str.1:Kan ikke udføre en af konverteringerne[auto]
 str.2:korrekt[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Angiv mængden af tilbudt mad.[auto]
 pti.desc.3:Angiv typen af æg, der skal lægges: 0 = Dronning, 1 = Mand, 2 = Mindre, 3 = Medium, 4 = Major, 5 + = Andet.[auto]
 pti.desc.4:Angiv retningen, der skal følges.[auto]
 pti.desc.5:Angiv id for myren, der skal rengøres. Den beskidte myre er myren i position 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:velkommen til Formiko snydefladen. Det er her, du kan skrive snydekommandoer.[auto]
 triche.aide.2:kommandoer i formen "navn: (argumenter) beskrivelse"[auto]

@@ -275,6 +275,7 @@ erreur.14:esta vacio[auto]
 erreur.15:lista desconocida[auto]
 erreur.16:El intento de descanso falló (tiempo de descanso[auto]
 erreur.17:Tipo de conversión falló para el tipo[auto]
+alerteGUI2Dfail:
 
 str.1:No se puede realizar una de las conversiones.[auto]
 str.2:correctamente[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Indique la cantidad de comida ofrecida.[auto]
 pti.desc.3:Indique el tipo de huevo a poner: 0 = Reina, 1 = Macho, 2 = Menor, 3 = Mediano, 4 = Mayor, 5 + = Otro.[auto]
 pti.desc.4:Indique la dirección a seguir.[auto]
 pti.desc.5:Indique la identificación de la hormiga a limpiar. La hormiga más sucia es la hormiga en la posición 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:bienvenido a la interfaz de trucos de Formiko. Aquí es donde puede escribir comandos de trampa.[auto]
 triche.aide.2:comandos en la forma "nombre: (argumentos) descripción"[auto]

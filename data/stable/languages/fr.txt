@@ -343,6 +343,15 @@ pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=
 pti.desc.4:Indiquez la direction à suivre.
 pti.desc.5:Indiquez l'id de la fourmi a nettoyer. La fourmi la plus sale est la fourmi en position 1.
 
+//cli
+doAntAction:Choisir une action de Fourmi
+selectAnt:sélectionner une fourmi
+endTurn:finir le tour
+endGame:finir la partie
+pauseActionGame:mettre le jeu en pause
+unaviable:indisponible
+setPlayingAnt:choisir la fourmi qui joue
+
 triche.aide.1:bienvenue dans l'interface de triche de Formiko. C'est ici que vous pouvez tapper des commandes de triches.
 triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 

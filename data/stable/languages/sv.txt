@@ -275,6 +275,7 @@ erreur.14:är tom[auto]
 erreur.15:okänd lista[auto]
 erreur.16:Pausförsöket misslyckades (paustid[auto]
 erreur.17:Typkonvertering misslyckades för typ[auto]
+alerteGUI2Dfail:
 
 str.1:Det går inte att utföra någon av omvandlingarna[auto]
 str.2:korrekt[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Ange mängden mat som erbjuds.[auto]
 pti.desc.3:Ange vilken typ av ägg som ska läggas: 0 = drottning, 1 = hane, 2 = mindre, 3 = medium, 4 = major, 5 + = annat.[auto]
 pti.desc.4:Ange riktningen som ska följas.[auto]
 pti.desc.5:Ange id för myran som ska rengöras. Den smutsigaste myran är myran i position 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:välkommen till Formiko-fuskgränssnittet. Det är här du kan skriva cheat-kommandon.[auto]
 triche.aide.2:kommandon i formuläret "namn: (argument) beskrivning"[auto]

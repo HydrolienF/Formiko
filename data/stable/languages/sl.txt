@@ -275,6 +275,7 @@ erreur.14:je prazno[auto]
 erreur.15:neznan seznam[auto]
 erreur.16:Poskus odmora ni uspel (čas odmora[auto]
 erreur.17:Pretvorba tipa ni uspela za vrsto[auto]
+alerteGUI2Dfail:
 
 str.1:Ene od pretvorb ni mogoče izvesti[auto]
 str.2:pravilno[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Navedite količino ponujene hrane.[auto]
 pti.desc.3:Navedite vrsto jajca, ki naj se odloži: 0 = kraljica, 1 = moški, 2 = manjše, 3 = srednje, 4 = glavno, 5 + = drugo.[auto]
 pti.desc.4:Navedite smer.[auto]
 pti.desc.5:Navedite id mravlje, ki jo je treba očistiti. Najbolj umazana mravlja je mravlja v položaju 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:dobrodošli v vmesniku za goljufanje Formiko. Tu lahko vtipkate ukaze za goljufanje.[auto]
 triche.aide.2:ukazi v obliki "ime: (argumenti) opis"[auto]

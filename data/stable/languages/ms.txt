@@ -275,6 +275,7 @@ erreur.14:kosong[auto]
 erreur.15:senarai yang tidak diketahui[auto]
 erreur.16:Percubaan rehat gagal (waktu rehat[auto]
 erreur.17:Jenis penukaran gagal untuk jenis[auto]
+alerteGUI2Dfail:
 
 str.1:Tidak dapat melakukan salah satu penukaran[auto]
 str.2:dengan betul[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Nyatakan jumlah makanan yang ditawarkan.[auto]
 pti.desc.3:Nyatakan jenis telur yang hendak diletakkan: 0 = Ratu, 1 = Lelaki, 2 = Kecil, 3 = Sederhana, 4 = Major, 5 + = Lain-lain[auto]
 pti.desc.4:Nyatakan arah yang harus diikuti.[auto]
 pti.desc.5:Nyatakan id semut yang hendak dibersihkan. Semut yang paling kotor adalah semut di kedudukan 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:selamat datang ke antara muka cheat Formiko. Di sinilah anda boleh menaip perintah cheat.[auto]
 triche.aide.2:perintah dalam bentuk "name: (argumen) keterangan"[auto]

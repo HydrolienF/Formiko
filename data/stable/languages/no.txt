@@ -275,6 +275,7 @@ erreur.14:er tom[auto]
 erreur.15:ukjent liste[auto]
 erreur.16:Pauseforsøket mislyktes (pausetid[auto]
 erreur.17:Type convert mislyktes for type[auto]
+alerteGUI2Dfail:
 
 str.1:Kan ikke utføre en av konverteringene[auto]
 str.2:riktig[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Angi mengden mat som tilbys.[auto]
 pti.desc.3:Angi hvilken type egg som skal legges: 0 = Dronning, 1 = Hann, 2 = Mindre, 3 = Middels, 4 = Major, 5 + = Annet.[auto]
 pti.desc.4:Angi retningen du skal følge.[auto]
 pti.desc.5:Angi identiteten til mauren som skal rengjøres. Den mest skitne mauren er mauren i posisjon 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:velkommen til Formiko cheat-grensesnittet. Dette er hvor du kan skrive juksekommandoer.[auto]
 triche.aide.2:kommandoer i skjemaet "navn: (argumenter) beskrivelse"[auto]

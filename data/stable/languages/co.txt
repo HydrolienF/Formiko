@@ -275,6 +275,7 @@ erreur.14:hè viotu[auto]
 erreur.15:lista scunnisciuta[auto]
 erreur.16:A prova di pausa hà fiascatu (tempu di pausa[auto]
 erreur.17:Tipu di cunversione fallitu per u tipu[auto]
+alerteGUI2Dfail:
 
 str.1:Impussibule di fà una di e cunversione[auto]
 str.2:currettamente[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Indicate a quantità di manghjà offerta.[auto]
 pti.desc.3:Indicate u tippu d'ovu da mette: 0 = Regina, 1 = Maschile, 2 = Minore, 3 = Mediu, 4 = Maghju, 5 + = Altru.[auto]
 pti.desc.4:Indicate a direzzione da seguità.[auto]
 pti.desc.5:Indicate l'identità di a furmica da pulì. A furmica a più brutta hè a furmica in pusizione 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:benvenutu à l'interfaccia di furmatu Formiko. Questu hè induve pudete scrive cumandamenti di truffe.[auto]
 triche.aide.2:cumandamenti in forma "nome: (argumenti) descrizzione"[auto]

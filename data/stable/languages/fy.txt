@@ -275,6 +275,7 @@ erreur.14:is leech[auto]
 erreur.15:ûnbekende list[auto]
 erreur.16:De brekpoging mislearre (brektiid[auto]
 erreur.17:Type konvertearje mislearre foar type[auto]
+alerteGUI2Dfail:
 
 str.1:Kin ien fan 'e konversaasjes net útfiere[auto]
 str.2:korrekt[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Jou de hoemannichte iten oan.[auto]
 pti.desc.3:Jou it type aai oan te lizzen: 0 = Keninginne, 1 = Man, 2 = Minor, 3 = Medium, 4 = Majoar, 5 + = Oar.[auto]
 pti.desc.4:Jou de rjochting oan om te folgjen.[auto]
 pti.desc.5:Jou de id oan fan de te skjinmeitsjen mier. De smoarchste mier is de mier yn posysje 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:wolkom by de Formiko cheat-ynterface. Dit is wêr't jo cheat-kommando's kinne typen.[auto]
 triche.aide.2:kommando's yn 'e foarm "namme: (arguminten) beskriuwing"[auto]

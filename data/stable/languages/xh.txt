@@ -275,6 +275,7 @@ erreur.14:ayinanto[auto]
 erreur.15:uluhlu olungaziwayo[auto]
 erreur.16:Umzamo wekhefu usilele (ixesha lekhefu[auto]
 erreur.17:Uhlobo lokuguqula aluphumelelanga kudidi[auto]
+alerteGUI2Dfail:
 
 str.1:Ayikwazi ukwenza enye yeenguqulelo[auto]
 str.2:ngokuchanekileyo[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Chaza ixabiso lokutya okubonelelweyo.[auto]
 pti.desc.3:Chaza uhlobo lweqanda oza kulibeka: 0 = Ukumkanikazi, 1 = Indoda, 2 = Incinci, 3 = Phakathi, 4 = Inkulu, 5 + = Enye.[auto]
 pti.desc.4:Chaza indlela oza kuyilandela.[auto]
 pti.desc.5:Bonisa i-id yembovane ukuba icocwe. Imbovane engcolileyo yimbovane kwindawo e-1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:wamkelekile kunxibelelwano lweFomiko cheat. Kulapho unokuchwetheza khona ukukopela imiyalelo.[auto]
 triche.aide.2:imiyalelo ekwifom "igama: (iingxoxo) inkcazo"[auto]

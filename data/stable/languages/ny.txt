@@ -275,6 +275,7 @@ erreur.14:mulibe kanthu[auto]
 erreur.15:mndandanda wosadziwika[auto]
 erreur.16:Kuyesa kopuma kwalephera (nthawi yopuma[auto]
 erreur.17:Mtundu wotembenuza walephera mtundu[auto]
+alerteGUI2Dfail:
 
 str.1:Takanika kuchita chimodzi mwakutembenuka[auto]
 str.2:molondola[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Sonyezani kuchuluka kwa chakudya chomwe mungapereke.[auto]
 pti.desc.3:Sonyezani mtundu wa dzira lomwe lidzaikidwe: 0 = Mfumukazi, 1 = Mwamuna, 2 = Wamng'ono, 3 = Wapakatikati, 4 = Wamkulu, 5 + = Wina.[auto]
 pti.desc.4:Sonyezani njira yoyenera kutsatira.[auto]
 pti.desc.5:Sonyezani id ya nyerere kuti ichapidwe. Nyerere yoyera kwambiri ndi nyerere pamalo 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:Takulandirani ku mawonekedwe achinyengo a Formiko. Apa ndipomwe mungathe kulemba malamulo achinyengo.[auto]
 triche.aide.2:amalamula mu mawonekedwe "dzina: (zifukwa) kufotokozera"[auto]

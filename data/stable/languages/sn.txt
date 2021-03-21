@@ -275,6 +275,7 @@ erreur.14:haina chinhu[auto]
 erreur.15:isingazivikanwe runyorwa[auto]
 erreur.16:Kuedza kwekuzorora kwakundikana (nguva yekuzorora[auto]
 erreur.17:Type convert yakundikana yerudzi[auto]
+alerteGUI2Dfail:
 
 str.1:Kutadza kuita imwe yeshanduko[auto]
 str.2:nemazvo[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Ratidza huwandu hwechikafu chinopihwa.[auto]
 pti.desc.3:Ratidza rudzi rwezai kukandira: 0 = Mambokadzi, 1 = Murume, 2 = Mudiki, 3 = Pakati, 4 = Huru, 5 + = Zvimwe.[auto]
 pti.desc.4:Ratidza gwara raunofanira kutevera.[auto]
 pti.desc.5:Ratidza id yemasvosve kuti icheneswe. Svosve rakasviba kwazvo svosve riri panzvimbo yekutanga[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:tinogamuchirwa kuFormiko cheat interface. Apa ndipo paunogona kutaipa kubiridzira mirairo.[auto]
 triche.aide.2:rairo muchimiro "zita: (nharo) tsananguro"[auto]

@@ -275,6 +275,7 @@ erreur.14:ແມ່ນຫວ່າງເປົ່າ[auto]
 erreur.15:ບັນຊີລາຍຊື່ທີ່ບໍ່ຮູ້ຈັກ[auto]
 erreur.16:ຄວາມພະຍາຍາມພັກຜ່ອນລົ້ມເຫລວ (ເວລາພັກຜ່ອນ[auto]
 erreur.17:Type type ລົ້ມເຫລວ ສຳ ລັບປະເພດ[auto]
+alerteGUI2Dfail:
 
 str.1:ບໍ່ສາມາດປະຕິບັດການສົນທະນາໃດ ໜຶ່ງ ໄດ້[auto]
 str.2:ຢ່າງຖືກຕ້ອງ[auto]
@@ -341,6 +342,15 @@ pti.desc.2:ຊີ້ແຈງ ຈຳ ນວນອາຫານທີ່ສະ ໜ
 pti.desc.3:ຊີ້ບອກປະເພດໄຂ່ທີ່ວາງ: 0 = ພະລາຊິນີ, 1 = ຊາຍ, 2 = ນ້ອຍ, 3 = ຂະ ໜາດ ກາງ, 4 = ໃຫຍ່, 5 + = ອື່ນໆ.[auto]
 pti.desc.4:ຊີ້ບອກທິດທາງທີ່ຈະຕິດຕາມ.[auto]
 pti.desc.5:ຊີ້ບອກ id ຂອງມົດທີ່ຈະເຮັດຄວາມສະອາດ. ມົດທີ່ເປື້ອນທີ່ສຸດແມ່ນມົດຢູ່ໃນ ຕຳ ແໜ່ງ 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:ຍິນດີຕ້ອນຮັບສູ່ Interiko cheat interface. ນີ້ແມ່ນບ່ອນທີ່ທ່ານສາມາດພິມ ຄຳ ສັ່ງໂກງ.[auto]
 triche.aide.2:ຄຳ ສັ່ງໃນຮູບແບບ "ຊື່: (ການໂຕ້ຖຽງ) ຄຳ ອະທິບາຍ"[auto]

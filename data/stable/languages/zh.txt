@@ -275,6 +275,7 @@ erreur.14:是空的[auto]
 erreur.15:未知清单[auto]
 erreur.16:中断尝试失败（中断时间[auto]
 erreur.17:类型转换类型失败[auto]
+alerteGUI2Dfail:
 
 str.1:无法执行其中一项转换[auto]
 str.2:正确地[auto]
@@ -341,6 +342,15 @@ pti.desc.2:指明提供的食物数量。[auto]
 pti.desc.3:指出要产卵的类型：0 =大号，1 =雄性，2 =较小，3 =中，4 =大，5 + =其他。[auto]
 pti.desc.4:指明要遵循的方向。[auto]
 pti.desc.5:指出要清理的蚂蚁的ID。最脏的蚂蚁是位置1的蚂蚁。[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:欢迎来到Formiko作弊界面。您可以在此处输入作弊命令。[auto]
 triche.aide.2:格式为“名称：（参数）描述”的命令[auto]

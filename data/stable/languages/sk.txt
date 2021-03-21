@@ -275,6 +275,7 @@ erreur.14:je prázdny[auto]
 erreur.15:neznámy zoznam[auto]
 erreur.16:Pokus o brejk zlyhal (čas brejku[auto]
 erreur.17:Prevod typu pre typ zlyhal[auto]
+alerteGUI2Dfail:
 
 str.1:Nepodarilo sa vykonať jednu z konverzií[auto]
 str.2:správne[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Uveďte množstvo ponúkaného jedla.[auto]
 pti.desc.3:Uveďte typ vajec, ktoré sa má položiť: 0 = kráľovná, 1 = muž, 2 = malé, 3 = stredné, 4 = veľké, 5 + = iné.[auto]
 pti.desc.4:Uveďte smer, ktorým sa máte riadiť.[auto]
 pti.desc.5:Uveďte id mravca, ktorý sa má vyčistiť. Najšpinavším mravcom je mravec v polohe 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:vitajte v rozhraní cheatu Formiko. Tu môžete zadávať cheat príkazy.[auto]
 triche.aide.2:príkazy v tvare "názov: (argumenty) popis"[auto]

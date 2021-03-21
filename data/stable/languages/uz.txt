@@ -275,6 +275,7 @@ erreur.14:bo'sh[auto]
 erreur.15:noma'lum ro'yxat[auto]
 erreur.16:Tanaffus urinishi muvaffaqiyatsiz tugadi (tanaffus vaqti)[auto]
 erreur.17:Turi uchun turini o'zgartirib bo'lmadi[auto]
+alerteGUI2Dfail:
 
 str.1:Konversiyalardan birini bajarib bo'lmadi[auto]
 str.2:to'g'ri[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Taklif qilingan ovqat miqdorini ko'rsating.[auto]
 pti.desc.3:Tuxum qo'yiladigan tuxum turini ko'rsating: 0 = Malika, 1 = Erkak, 2 = Kichik, 3 = O'rta, 4 = Major, 5 + = Boshqalar.[auto]
 pti.desc.4:Amalga oshiriladigan yo'nalishni ko'rsating.[auto]
 pti.desc.5:Tozalanadigan chumolining idini ko'rsating. Eng iflos chumoli 1-pozitsiyadagi chumolidir.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:Formiko cheat interfeysiga xush kelibsiz. Bu erda siz cheat buyruqlarini yozishingiz mumkin.[auto]
 triche.aide.2:"ism: (argumentlar) tavsif" shaklidagi buyruqlar[auto]

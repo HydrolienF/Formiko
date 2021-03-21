@@ -275,6 +275,7 @@ erreur.14:hutsik dago[auto]
 erreur.15:zerrenda ezezaguna[auto]
 erreur.16:Atseden saiakerak huts egin du (atseden denbora[auto]
 erreur.17:Mota bihurtzeak huts egin du motarako[auto]
+alerteGUI2Dfail:
 
 str.1:Ezin da bihurketarik egin[auto]
 str.2:zuzen[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Adierazi zenbat janari eskaini.[auto]
 pti.desc.3:Adierazi zer arrautza mota bota: 0 = Erregina, 1 = Arra, 2 = Txikia, 3 = Ertaina, 4 = Nagusia, 5 + = Bestelakoak.[auto]
 pti.desc.4:Adierazi jarraitu beharreko norabidea.[auto]
 pti.desc.5:Adierazi garbitu beharreko inurriaren id. Inurri zikinena 1. postuan dagoen inurria da.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:Ongi etorri Formiko tranpa interfazera. Hemen tranpa komandoak idatz ditzakezu.[auto]
 triche.aide.2:"izena: (argudioak) deskribapena" formako aginduak[auto]

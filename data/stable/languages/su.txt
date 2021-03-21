@@ -275,6 +275,7 @@ erreur.14:kosong[auto]
 erreur.15:daptar kanyahoan[auto]
 erreur.16:Usaha istirahat gagal (waktos istirahat[auto]
 erreur.17:Jenis ngarobah gagal pikeun jenis[auto]
+alerteGUI2Dfail:
 
 str.1:Teu tiasa ngalakukeun salah sahiji konvérsi[auto]
 str.2:leres[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Nunjukkeun jumlah dahareun anu ditawarkeun.[auto]
 pti.desc.3:Nunjukkeun jinis endog anu badé diletak: 0 = Ratu, 1 = Jalu, 2 = Minor, 3 = Sedeng, 4 = Mayor, 5 + = Anu sanés.[auto]
 pti.desc.4:Nunjukkeun arah nuturkeun.[auto]
 pti.desc.5:Nunjukkeun id sireum pikeun diberesihan. Sireum anu paling kotor nyaéta sireum dina posisi 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:wilujeng sumping di panganteur curang Formiko. Ieu dimana anjeun tiasa ngetik paréntah curang.[auto]
 triche.aide.2:paréntah dina bentuk "ngaran: (argumen) katerangan"[auto]

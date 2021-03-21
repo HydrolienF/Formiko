@@ -275,6 +275,7 @@ erreur.14:er tómur[auto]
 erreur.15:óþekktur listi[auto]
 erreur.16:Brottilraun mistókst (brotatími[auto]
 erreur.17:Tegund umbreyting mistókst fyrir gerð[auto]
+alerteGUI2Dfail:
 
 str.1:Ekki er hægt að framkvæma eina af viðskiptunum[auto]
 str.2:rétt[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Tilgreindu magn matar sem boðið er upp á.[auto]
 pti.desc.3:Tilgreindu tegund eggsins sem á að verpa: 0 = Queen, 1 = Male, 2 = Minor, 3 = Medium, 4 = Major, 5 + = Annað.[auto]
 pti.desc.4:Tilgreindu stefnuna sem á að fylgja.[auto]
 pti.desc.5:Tilgreindu auðkenni maursins sem á að hreinsa. Skítugasti maurinn er maurinn í stöðu 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:velkomin í Formiko svindlviðmótið. Þetta er þar sem þú getur slegið svindlskipanir.[auto]
 triche.aide.2:skipanir í forminu „nafn: (rök) lýsing“[auto]

@@ -275,6 +275,7 @@ erreur.14:madhan[auto]
 erreur.15:liis aan la garanayn[auto]
 erreur.16:Isku daygii nasashada ayaa fashilmay (waqtiga nasashada[auto]
 erreur.17:Nooca beddelaha ayaa ku dhacay nooca[auto]
+alerteGUI2Dfail:
 
 str.1:Aan awoodin inuu sameeyo mid ka mid ah beddelaadyada[auto]
 str.2:si sax ah[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Sheeg qadarka cuntada la bixiyay.[auto]
 pti.desc.3:Muuji nooca ukunta la dhigayo: 0 = Boqoradda, 1 = Lab, 2 = Yar, 3 = Dhexdhexaad, 4 = Weyn, 5 + = Kale.[auto]
 pti.desc.4:Muuji jihada loo socdo.[auto]
 pti.desc.5:Muuji id ee qudhaanjada la nadiifinayo. Qudhaanjada ugu wasakhda badan ayaa ah qudhaanjada ku jirta booska 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:ku soo dhawow interface khiyaameeya Formiko. Tani waa meesha aad ku qori karto amarrada khiyaamada.[auto]
 triche.aide.2:amarrada qaabka "magaca: (doodaha) sharaxaadda"[auto]

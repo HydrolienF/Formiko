@@ -275,6 +275,7 @@ erreur.14:boş[auto]
 erreur.15:näbelli sanaw[auto]
 erreur.16:Arakesme synanyşygy şowsuz boldy[auto]
 erreur.17:Görnüşi öwürmek şowsuz boldy[auto]
+alerteGUI2Dfail:
 
 str.1:Özgertmeleriň birini ýerine ýetirip bolmaýar[auto]
 str.2:dogry[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Teklip edilýän iýmitiň mukdaryny görkeziň.[auto]
 pti.desc.3:Edilmeli ýumurtganyň görnüşini görkeziň: 0 = Şa aýal, 1 = Erkek, 2 = kiçi, 3 = orta, 4 = maýor, 5 + = başgalar.[auto]
 pti.desc.4:Indiki ugry görkeziň.[auto]
 pti.desc.5:Arassalanmaly garynjanyň idini görkeziň. Iň hapa garynja 1-nji ýerdäki garynja.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:Formiko aldaw interfeýsine hoş geldiňiz. Bu ýerde aldaw buýruklaryny ýazyp bilersiňiz.[auto]
 triche.aide.2:"ady: (argumentler) düşündiriş" görnüşindäki buýruklar[auto]

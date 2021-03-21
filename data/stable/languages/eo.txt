@@ -343,6 +343,15 @@ pti.desc.3:Indiku la ovodemetotan ovon: 0 = Reĝino, 1 = Maskla, 2 = Malgranda, 
 pti.desc.4:Indiki la direkto a sekvi.
 pti.desc.5:Indiki la kodo de la formiko a puri.
 
+//cli
+doAntAction:faru formikon fari
+selectAnt:elektu formikon
+endTurn:finu vico
+endGame:finu ludo
+pauseActionGame:paŭza ludo
+unviable:nekapabla
+setPlayingAnt:elektu ludantan formikon
+
 triche.aide.1:bonvenon al la trompanta interfaco de Formiko. Ĉi tie vi povas tajpi trompajn komandojn.[auto]
 triche.aide.2:komandoj en la formo "nomo: (argumentoj) priskribo"[auto]
 

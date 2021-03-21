@@ -275,6 +275,7 @@ erreur.14:ir tukšs[auto]
 erreur.15:nezināms saraksts[auto]
 erreur.16:Pārtraukuma mēģinājums neizdevās (pārtraukuma laiks[auto]
 erreur.17:Neizdevās pārveidot tipu[auto]
+alerteGUI2Dfail:
 
 str.1:Nevar veikt vienu no reklāmguvumiem[auto]
 str.2:pareizi[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Norādiet piedāvātā ēdiena daudzumu.[auto]
 pti.desc.3:Norādiet dējamo olu veidu: 0 = karaliene, 1 = vīrietis, 2 = nepilngadīga, 3 = vidēja, 4 = galvenā, 5 + = cita.[auto]
 pti.desc.4:Norādiet virzienu, kas jāievēro.[auto]
 pti.desc.5:Norādiet tīrāmās skudras ID. Netīrākā skudra ir skudra 1. pozīcijā.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:laipni lūdzam Formiko apkrāptu saskarnē. Šeit jūs varat ierakstīt apkrāptu komandas.[auto]
 triche.aide.2:komandas formā "nosaukums: (argumenti) apraksts"[auto]

@@ -275,6 +275,7 @@ erreur.14:foana[auto]
 erreur.15:lisitra tsy fantatra[auto]
 erreur.16:Tsy nahomby ny fikasana fitsaharana (fotoana fiatoana[auto]
 erreur.17:Tsy nahomby ny fanovana karazana ho an'ny karazany[auto]
+alerteGUI2Dfail:
 
 str.1:Tsy afaka manao ny iray amin'ireo fiovam-po[auto]
 str.2:tsara[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Lazao ny habetsaky ny sakafo natolotra.[auto]
 pti.desc.3:Lazao ny karazana atody apetraka: 0 = Mpanjakavavy, 1 = Lehilahy, 2 = Minor, 3 = Medium, 4 = Major, 5 + = Hafa.[auto]
 pti.desc.4:Lazao ny lalana arahinao.[auto]
 pti.desc.5:Lazao ny id ny vitsika ho diovina. Ny vitsika maloto indrindra dia ny vitsika amin'ny toerana 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:tongasoa eto amin'ny interface interface cheat Formiko. Eto no ahafahanao manoratra kaody hosoka.[auto]
 triche.aide.2:baiko amin'ny endrika "anarana: (tohan-kevitra) famaritana"[auto]

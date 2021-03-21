@@ -275,6 +275,7 @@ erreur.14:eshte bosh[auto]
 erreur.15:listë e panjohur[auto]
 erreur.16:Përpjekja për pushim dështoi (koha e pushimit)[auto]
 erreur.17:Konvertimi i tipit dështoi për llojin[auto]
+alerteGUI2Dfail:
 
 str.1:Nuk mund të kryhet një nga shndërrimet[auto]
 str.2:saktë[auto]
@@ -341,6 +342,15 @@ pti.desc.2:Tregoni sasinë e ushqimit të ofruar.[auto]
 pti.desc.3:Tregoni llojin e vezës që do të lëshohet: 0 = Mbretëreshë, 1 = Mashkull, 2 = Minor, 3 = Mesatar, 4 = Major, 5 + = Tjetër.[auto]
 pti.desc.4:Tregoni drejtimin që duhet ndjekur.[auto]
 pti.desc.5:Shënoni id-në e milingonës që duhet pastruar. Milingona më e ndyrë është milingona në pozicionin 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:mirëpritur në ndërfaqen e Formiko mashtrojnë. Kjo është ajo ku ju mund të shtypni komandat e mashtrimit.[auto]
 triche.aide.2:komandat në formën "emri: (argumentet) përshkrimi"[auto]
