@@ -30,6 +30,7 @@ public class ObjectStandard extends Parent implements Interface { //or : public 
   *@version 1.39.0
   */
   private String var2Name;
+  private Point point;
   public static boolean IS_STANDARD_OBJECT=true;
 
   // CONSTRUCTORS --------------------------------------------------------------
@@ -61,7 +62,7 @@ public class ObjectStandard extends Parent implements Interface { //or : public 
   //Code line longer than 140 char long may be split.
 
   // GET SET -------------------------------------------------------------------
-  //getters & setters don't have javadoc comment if they do only 1 line.
+  //getters & setters don't have javadoc comment if they have only 1 line.
   public int getVar() {return var;}
   public void setVar(int var) {this.var = var;}
   public String getVar2Name() {return var2Name;}
