@@ -2,7 +2,7 @@
 test:testEn
 
 s:s
-n:[auto]
+n:ø
 .:.
 ,:,
 ?:?

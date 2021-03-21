@@ -30,8 +30,18 @@ public class gTest extends TestCaseMuet{
     assertEquals("ifItFail",g.get("menu",1,"ifItFail"));
     assertEquals("ifItFail",g.get("menu",3,"ifItFail"));
     assertEquals("ifItFail",g.get("menu",-2,"ifItFail"));
-    assertEquals("ifItFail",g.get("Menu",2,"ifItFail"));
     assertEquals("ifItFail",g.get("dfgh",2,"ifItFail"));
+  }
+  @Test
+  public void testGetWithAMaj(){
+    HashMap map = new HashMap<String, String>();
+    map.put("menu.2","translated value !");
+    map.put("key","translated value 2 !");
+    g.setMap(map);
+    assertEquals("translated value !",g.get("menu",2,"ifItFail"));
+    assertEquals("ifItFail",g.get("menu",3,"ifItFail"));
+    assertEquals("Translated value !",g.get("Menu",2,"ifItFail")); //it work with a uppercase & return translation with a maj.
+    assertEquals("Translated value 2 !",g.get("Key","ifItFail2"));
   }
   @Test
   public void testGet2(){

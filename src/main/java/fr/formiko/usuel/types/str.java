@@ -133,6 +133,33 @@ public class str{
       return s;
     }
   }
+  /**
+  *{@summary Transform the first char of a String to the toLowerCase char.}<br>
+  *if s is "" or null nothing will be done.
+  *@param s the String to transform.
+  *@version 1.39
+  */
+  public static String sToSMin(String s){
+    if(s==null){return null;}
+    if(s.length()>1){
+      return s.substring(0,1).toLowerCase()+s.substring(1);
+    }else if(s.length()==1){
+      return s.substring(0,1).toLowerCase();
+    }else{
+      return s;
+    }
+  }
+  /**
+  *{@summary Return true if 1a char is an english maj char.}<br>
+  *only A to Z without accent char are ok.
+  *@param s the String to test.
+  *@version 1.39
+  */
+  public static boolean isMaj(String s){
+    if(s==null || s.length()<1){return false;}
+    if(s.charAt(0)>64 && s.charAt(0)<91){return true;}
+    return false;
+  }
 
 	//nouvelle partie :
 	// conversion  :

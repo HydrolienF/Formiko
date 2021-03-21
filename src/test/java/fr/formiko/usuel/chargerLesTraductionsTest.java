@@ -283,6 +283,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     String tl []= {"test"};
     chargerLesTraductions.setTLangue(tl);
     assertEquals(-1,chargerLesTraductions.getPourcentageTraduit(0));
+    //assertEquals(-1,chargerLesTraductions.getPourcentageTraduit(1));
 
     //autre
     gs = new GString();

@@ -7,7 +7,7 @@ import java.util.HashMap;
 /**
 *{@summary Get a translation class.}<br>
 *@author Hydrolien
-*@version 1.33
+*@version 1.39
 */
 public class g {
   /***
@@ -31,37 +31,41 @@ public class g {
     return get(f+"."+x,s);
   }
   /**
-  *{@summary main get methode with a replace value if it fail.}<br>
+  *{@summary Main get methode with a replace value if it fail.}<br>
   *Null values are supported.<br>
   *@param key Map key.<br>
-  *@param s String return if key is not found.
+  *@param sDefault String return if key is not found.
   *@return value that corresponds to key or s if there is no value fo key.
-  *@version 1.5
+  *@version 1.39
   */
-  public static String get(String key, String s){
-    if(key==null){if(s==null){s="";}return s;}
+  public static String get(String key, String sDefault){
+    if(key==null || key.length()<1){if(sDefault==null){sDefault="";}return sDefault;}
+    if(str.isMaj(key.substring(0,1))){
+      //System.out.println("sToSMin for : "+key);//@a
+      return getM(str.sToSMin(key),str.sToSMaj(sDefault));
+    }
     try {
       String sr = getElementMap(key);
       if(sr.length()>6 && sr.substring(sr.length()-6).equals("[auto]")){sr=sr.substring(0,sr.length()-6);}//on retir [auto] a la fin de la String si besoin
       else if(sr.length()>2 && sr.substring(sr.length()-2).equals("[]")){sr=sr.substring(0,sr.length()-2);}//on retire les simple crochet aussi.
       if(sr.equals("ø")){return "";}
       if(sr!=null && sr.length()>0){ return sr;}
-      return s;
-    }catch (Exception e){if(s==null){s="";}return s;}
+      return sDefault;
+    }catch (Exception e){if(sDefault==null){sDefault="";}return sDefault;}
   }
   /**
-  *{@summary main get methode without a replace value if it fail.}<br>
+  *{@summary Get methode without a replace value if it fail.}<br>
   *the String return if key is not found will be key.<br>
   *@param key Map key.
-  *@return value that corresponds to key or s if there is no value fo key.
-  *@version 1.5
+  *@return value that corresponds to key or key if there is no value fo key.
+  *@version 1.39
   */
   public static String get(String key){
-    if(key.equals("n")){return get(key,"");} // le fait qu'un mots subisse l'action n'as d'impacte qu'en eo.
+    //if(key.equals("n")){return get(key,"");} // le fait qu'un mots subisse l'action n'as d'impacte qu'en eo.
     return get(key,key);
   }
   /**
-  *{@summary main get methode.}<br>
+  *{@summary Get methode with 1a char in uppercase.}<br>
   *return String will have a 1a char in uppercase.<br>
   *the String return if key is not found will be key.<br>
   *@param key Map key.
@@ -70,6 +74,19 @@ public class g {
   */
   public static String getM(String key){
     String s = get(key);
+    return str.sToSMaj(s);
+  }
+  /**
+  *{@summary Get methode with 1a char in uppercase.}<br>
+  *return String will have a 1a char in uppercase.<br>
+  *the String return if key is not found will be key.<br>
+  *@param key Map key.
+  *@param sDefault String return if key is not found.
+  *@return value that corresponds to key or s if there is no value fo key.
+  *@version 1.39
+  */
+  public static String getM(String key, String sDefault){
+    String s = get(key,sDefault);
     return str.sToSMaj(s);
   }
   /**
