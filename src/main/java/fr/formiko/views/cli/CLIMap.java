@@ -20,13 +20,14 @@ import fr.formiko.usuel.listes.GString;
 /**
 *{@summary Represent the Map in CLI mode.}<br>
 *CLI = Console Line Interface.
-*@version 1.38
+*@version 1.39
 *@author Hydrolien
 */
 public class CLIMap{
   private GCase gc;
   private static GString legend; private static int xi;
   private static int unseeableChar;
+  private int sizeCase = 4;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main contructor.}<br>
@@ -49,7 +50,7 @@ public class CLIMap{
       erreur.erreur("La carte est vide","Gcase.afficheCarte");
     }else{
       xi = 0; legend = new GString();
-      sr+=mapToString();
+      sr+=mapToMapString();
       sr+=legendToString();
     }
     return sr;
@@ -109,6 +110,40 @@ public class CLIMap{
     return sr;
   }
   /**
+  *{@summary Return the map as a String easy to use.}<br>
+  *@version 1.38
+  */
+  //public only for test
+  public String mapToMapString(){
+    CCase cc = gc.getDébut();
+    String sr = "";
+    Joueur j = Main.getPartie().getPlayingJoueur();
+    int xi2=0;
+    sr+=" ";
+    if(Main.getOs().isLinux()){sr+=color.UNDERLINE;}
+    if(Main.getOs().isLinux()){sr+=color.BLUE;}
+    sr+="  ";
+    int len = gc.getWidth();
+    for (int i=0;i<len ;i++ ) {
+      String sTemp = i+" ";
+      while (sTemp.length()<sizeCase) {
+        sTemp+=" ";
+      }
+      sr+=sTemp;
+    }
+    if(Main.getOs().isLinux()){sr+=color.NEUTRAL;}
+    sr+="\n";
+    while(cc!=null){
+      xi2++;
+      if(Main.getOs().isLinux()){sr+=color.BLUE;}
+      sr+=ascii.getNuméroationEnAbcd(xi2)+"| ";
+      if(Main.getOs().isLinux()){sr+=color.NEUTRAL;}
+      sr+=mapLineToString(cc,j)+"\n";
+      cc=cc.getBas();
+    }
+    return sr;
+  }
+  /**
   *{@summary Return the map as a String.}<br>
   *All map infos are stored in a GCase, this.gc.
   *@version 1.38
@@ -127,7 +162,7 @@ public class CLIMap{
   /**
   *{@summary Return a line of a map as a String.}<br>
   *@param cc The 1a CCase of the line.
-  *@version 1.38
+  *@version 1.39
   */
   //public only for test
   public String mapLineToString(CCase cc, Joueur j){
@@ -151,7 +186,7 @@ public class CLIMap{
     return caseToString(cc.getContenu(),j.isCaseNuageuse(cc),j.isCaseSombre(cc));
   }
   /**
-  *{@summary Return a case as a String.}<br>
+  *{@summary Return a Case as a String.}<br>
   *This string have a fix length.<br>
   *@param contenu Case to print.
   *@param caseNuageuse Boolean to know if player have explored the Case.
@@ -160,21 +195,21 @@ public class CLIMap{
   */
   //public only for test
   public String caseToString(Case contenu, boolean caseNuageuse, boolean caseSombre){
-    int taille = 4;
     int nbrDElementSurCase = contenu.getNbrDElementSurCase();
     String sr = "";
     unseeableChar=0;
     //if case need to be hide :
     if(Main.getPartie().getCarte().getCasesNuageuses()==true && caseNuageuse){
-      while (sr.length()<taille+unseeableChar){sr = sr + "■";}
+      while (sr.length()<sizeCase+unseeableChar){sr = sr + "■";}
     }else if(Main.getPartie().getCarte().getCasesSombres()==true && caseSombre){
       if(contenu.getFere() != null){
         sr = "F"+contenu.getFere().getId();
       }
-      while (sr.length()<taille+unseeableChar){sr = sr + "□";}
+      sr+=caseColor(contenu);
+      while (sr.length()<sizeCase+unseeableChar){sr = sr + "□";}
     }else{
       if (nbrDElementSurCase == 0){
-        sr = "-";
+        if(!Main.getOs().isLinux()){sr = "-";}
       }else if(nbrDElementSurCase == 1){
         if(contenu.getFere() != null){
           sr = "F"+contenu.getFere().getId();
@@ -202,7 +237,36 @@ public class CLIMap{
         unseeableChar=0;
       }
     }
-    while (sr.length()<taille+unseeableChar){sr = sr + " ";}
+    sr+=caseColor(contenu);
+    while (sr.length()<sizeCase+unseeableChar){sr = sr + " ";}
+    if(Main.getOs().isLinux()){sr+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();}
+    return sr;
+  }
+  /**
+  *{@summary Return the backgroud color of a Case.}<br>
+  *@param c Case to print.
+  *@version 1.38
+  */
+  //public only for test
+  public String caseColor(Case c){ //TODO test
+    if(!Main.getOs().isLinux()){return "";}
+    String sr="";
+    switch (c.getType()) {
+      case 0 :
+      sr+=color.BLACK_BACKGROUND;unseeableChar+=color.BLACK_BACKGROUND.length();
+      break;
+      case 1 :
+      sr+=color.GREEN_BACKGROUND;unseeableChar+=color.GREEN_BACKGROUND.length();
+      break;
+      case 2 :
+      sr+=color.PURPLE_BACKGROUND;unseeableChar+=color.PURPLE_BACKGROUND.length();
+      break;
+      case 3 :
+      sr+=color.YELLOW_BACKGROUND;unseeableChar+=color.YELLOW_BACKGROUND.length();
+      break;
+      //default :
+      //break;
+    }
     return sr;
   }
 }
