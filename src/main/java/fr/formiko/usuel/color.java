@@ -21,4 +21,6 @@ public class color {
   public static String BLACK_BACKGROUND = (char)27+"[7;30m";
   public static String BLUE_BACKGROUND = (char)27+"[7;34m";
   public static String PURPLE_BACKGROUND = (char)27+"[7;35m";
+
+  public static String GREEN_FLASH = (char)27+"[5;32m";
 }

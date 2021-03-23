@@ -197,14 +197,31 @@ public class ViewCLI implements View {
         pa.getCarte().setMap(input);
         break;
         case 2:
-        byte d = str.sToBy(input);
-        pa.setDifficulté(d);
+        pa.setDifficulté(str.sToBy(input,pa.getDifficulté()));
         break;
         case 3:
-        double v = str.sToD(input);
-        pa.setVitesseDeJeu(v);
+        pa.setVitesseDeJeu(str.sToD(input,pa.getVitesseDeJeu()));
         break;
-        //TODO to finish
+        case 4:
+        pa.setNbrDeTour(str.sToI(input,pa.getNbrDeTour()));
+        break;
+        case 5:
+        pa.getCarte().setCasesSombres(str.sToB(input));
+        break;
+        case 6:
+        pa.getCarte().setCasesNuageuses(str.sToB(input));
+        break;
+        //next setter do not exist yet & need to call back initialisationElément() to be concidered.
+        case 7:
+        erreur.erreurPasEncoreImplemente("ViewCLI");
+        //pa.setNbrDeJoueur(str.sToI(input,pa.getNbrDeJoueur()));
+        // break;
+        case 8:
+        //pa.setNbrDIa(str.sToI(input,pa.setNbrDIa()));
+        // break;
+        case 9:
+        //pa.setNbrDeFourmi(str.sToI(input,pa.setNbrDeFourmi()));
+        break;
       }
     }
     Main.setPartie(pa);

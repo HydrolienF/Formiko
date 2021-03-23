@@ -166,28 +166,43 @@ public class str{
   /**
   *{@summary From String to int}
   *return -1 if conversion fail.
-  *@version 1.1
+  *@version 1.39
   */
   public static int sToI(String s){
+    return sToI(s,-1);
+  }
+  /**
+  *{@summary From String to int}
+  *return Default value if conversion fail.
+  *@version 1.39
+  */
+  public static int sToI(String s, int iDefault){
     try {
       return (int) sToLThrows(s);
     }catch (Exception e) {
       erreurConversion("String To long",s);
-      erreur.erreur("","",true);//@a
-      return -1;
+      return iDefault;
     }
   }
   /**
   *{@summary From String to double}
   *return -1 if conversion fail.
-  *@version 1.1
+  *@version 1.39
   */
   public static double sToD(String s){
+    return sToD(s,-1.0);
+  }
+  /**
+  *{@summary From String to double}
+  *return Default value if conversion fail.
+  *@version 1.39
+  */
+  public static double sToD(String s, Double dDefault){
     try {
       return Double.parseDouble(s);
     }catch (Exception e) {
       erreurConversion("String To Double",s);
-      return -1.0;
+      return dDefault;
     }
   }
   /**
@@ -262,10 +277,17 @@ public class str{
   }
   /**
   *{@summary From String to byte}
-  *@version 1.1
+  *@version 1.39
+  */
+  public static byte sToBy(String s, int iDefault){
+    return iToBy(sToI(s));
+  }
+  /**
+  *{@summary From String to byte}
+  *@version 1.39
   */
   public static byte sToBy(String s){
-    return iToBy(sToI(s));
+    return sToBy(s,-1);
   }
   /**
   *{@summary special error for conversion}

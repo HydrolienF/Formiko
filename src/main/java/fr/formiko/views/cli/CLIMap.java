@@ -64,10 +64,12 @@ public class CLIMap{
     Fourmi f = Main.getPartie().getPlayingAnt();
     if(f==null){return "";}
     String r="";
-    if(c.getEstAllié(f)){
-      r = color.GREEN;unseeableChar+=color.GREEN.length();
+    if(c.equals(f)){
+      r = color.GREEN_FLASH;unseeableChar+=color.GREEN_FLASH.length();
     }else if(c.getEstEnnemi(f)){
       r = color.RED;unseeableChar+=color.RED.length();
+    }else if(c.getEstAllié(f)){
+      r = color.GREEN;unseeableChar+=color.GREEN.length();
     }else{
       r = color.YELLOW;unseeableChar+=color.YELLOW.length();
     }
@@ -122,7 +124,7 @@ public class CLIMap{
     sr+=" ";
     if(Main.getOs().isLinux()){sr+=color.UNDERLINE;}
     if(Main.getOs().isLinux()){sr+=color.BLUE;}
-    sr+="  ";
+    sr+=" ";
     int len = gc.getWidth();
     for (int i=0;i<len ;i++ ) {
       String sTemp = i+" ";
@@ -136,7 +138,7 @@ public class CLIMap{
     while(cc!=null){
       xi2++;
       if(Main.getOs().isLinux()){sr+=color.BLUE;}
-      sr+=ascii.getNuméroationEnAbcd(xi2)+"| ";
+      sr+=ascii.getNuméroationEnAbcd(xi2)+"|";
       if(Main.getOs().isLinux()){sr+=color.NEUTRAL;}
       sr+=mapLineToString(cc,j)+"\n";
       cc=cc.getBas();
