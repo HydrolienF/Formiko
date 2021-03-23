@@ -53,8 +53,8 @@ public class CCase implements Serializable{
     return getContenu().toString()+"\n"+droite.toStringLigne();
   }
   /**
-  *{@summary Standard equals function.}
-  *Null &#38; other class type proof.
+  *{@summary Standard equals function.}<br>
+  *Null &#38; other class type proof.<br>
   *@param o o is the Object to test. It can be null or something else than this class.
   *@version 1.31
   */
@@ -65,26 +65,31 @@ public class CCase implements Serializable{
     if (cc.nbrDeCaseVoisine() != this.nbrDeCaseVoisine()){ return false;}
     return cc.getContenu().equals(this.getContenu());
   }
+  /**
+  *{@summary Get CCase with position x,y.}<br>
+  *Null proof.<br>
+  *@param x The x of the searched CCase.
+  *@param y The y of the searched CCase.
+  *@version 1.39
+  */
   public CCase getCCase(int x, int y){
     // Si le x n'est pas encore bon.
-    //debug.débogage("X : "+contenu.getP().getX()+" = "+x+" ?");
     if (contenu.getP().getX() != x ){
       if (contenu.getP().getX() < x){
-        if(droite==null){ return nul(x,y);}
+        if(droite==null){ return null;}
         return droite.getCCase(x,y);
       }else{
-        if(gauche==null){ return nul(x,y);}
+        if(gauche==null){ return null;}
         return gauche.getCCase(x,y);
       }
     }
     // Si le y n'est pas encore bon.
-    //debug.débogage("Y : "+contenu.getP().getY()+" = "+y+" ?");
     if (contenu.getP().getY() != y ){
       if (contenu.getP().getY() < y){
-        if(bas==null){ return nul(x,y);}
+        if(bas==null){ return null;}
         return bas.getCCase(x,y);
       }else{
-        if(haut==null){ return nul(x,y);}
+        if(haut==null){ return null;}
         return haut.getCCase(x,y);
       }
     }
@@ -248,8 +253,6 @@ public class CCase implements Serializable{
   }
 
 
-
-
   public byte nbrDeCaseVoisine(){
     byte xr = 0;
     if (haut!= null){xr++;}
@@ -292,9 +295,5 @@ public class CCase implements Serializable{
       cc = cc.getDroite();
     }
     cc.setDroite(new CCase(c));
-  }
-  public CCase nul(int x, int y){
-    //erreur.erreur("La case ("+x+";"+y+") est null !","CCase.nul");
-    return null;
   }
 }

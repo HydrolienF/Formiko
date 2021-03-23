@@ -28,6 +28,7 @@ public class CLIMap{
   private static GString legend; private static int xi;
   private static int unseeableChar;
   private int sizeCase = 4;
+  private Case lookedCase;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main contructor.}<br>
@@ -37,6 +38,8 @@ public class CLIMap{
   public CLIMap(GCase gc){
     this.gc=gc;
   }
+
+  public void setLookedCase(Case c){lookedCase=c;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Main function of CLIMap.}<br>
@@ -73,8 +76,6 @@ public class CLIMap{
     }else{
       r = color.YELLOW;unseeableChar+=color.YELLOW.length();
     }
-    //if c is ally of playingAnt
-    //TODO
     return r;
   }
   /**

@@ -1,6 +1,7 @@
 package fr.formiko.views;
 
 import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Joueur;
@@ -28,7 +29,7 @@ public class ViewCLI implements View {
   private Scanner scannerAnswer;
   private String menuName;
   private String tToPrint[];
-
+  private CLIMap cLIMap;
   private static String sep = "--------------------------------------------------------------------------------";
 
   private boolean actionGameOn;
@@ -318,12 +319,30 @@ public class ViewCLI implements View {
   *We need to repaint the information about this Case.<br>
   *This action can only be run if action game is on.<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
+  *@version 1.39
   */
   public boolean setLookedCase(CCase cc){
-    if (!actionGameOn) {return false;}
-    //TODO
+    if (!actionGameOn || cLIMap==null) {return false;}
+    if (cc == null) {cLIMap.setLookedCase(null);}
+    cLIMap.setLookedCase(cc.getContenu());
     return false;
+  }
+  /**
+  *{@summary get a CCase from the payer.}<br>
+  *It read Strings like this: "b13", "2c"<br>
+  *This action can only be run if action game is on.<br>
+  *@return Selected CCase or null if it fail.
+  *@version 1.39
+  */
+  public CCase getCCase(){
+    CCase cc = null;
+    String s = scannerAnswer.nextLine();
+    //TODO à finir
+    //split number part & char part.
+    //x = number
+    //y = str.sToInt(char).
+    //cc = Main.getGc().getCCase(x,y);
+    return cc;
   }
   /**
   *{@summary Return the chosen value for ant action.}<br>
@@ -410,7 +429,7 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   private void printMap(){
-    CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
+    cLIMap = new CLIMap(Main.getPartie().getGc());
     System.out.println(cLIMap);
   }
   /**
