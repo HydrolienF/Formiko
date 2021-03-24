@@ -91,7 +91,7 @@ public class g {
   }
   /**
   *{@summary A get methode.} <br>
-  *This get methode will return 1 or 2 value split by a / if get(key) & get(key2) do not return the same String.<br>
+  *This get methode will return 1 or 2 value split by a / if get(key) &#38; get(key2) do not return the same String.<br>
   *@param key Map key1.
   *@param key2 Map key2.
   *@return value that corresponds to key and key2 or value1/value2 if that's not the same.

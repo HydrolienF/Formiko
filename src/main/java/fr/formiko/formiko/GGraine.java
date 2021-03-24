@@ -120,7 +120,7 @@ public class GGraine implements Serializable{
   }
 
   /**
-  *{@summary Transform a GGraine in List<Graine>.}
+  *{@summary Transform a GGraine in List&lt;Graine&gt;.}
   *@version 1.38
   */
   public List<Graine> toList(){

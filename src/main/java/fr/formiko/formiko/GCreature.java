@@ -366,7 +366,7 @@ public class GCreature implements Serializable{//, Iterator{
     return début.toTId();
   }
   /**
-  *{@summary Transform a GCreature in List<Creature>.}
+  *{@summary Transform a GCreature in List&lt;Creature&gt;.}
   *@version 1.38
   */
   public List<Creature> toList(){
@@ -386,7 +386,7 @@ public class GCreature implements Serializable{//, Iterator{
   }
   /**
   *{@summary Force all the GCreature Creature to end there turn.}<br>
-  *Ant that still haven't end there turn will have action set to 0 & tour to update age, cleaning etc.
+  *Ant that still haven't end there turn will have action set to 0 &#38; tour to update age, cleaning etc.
   */
   public boolean setAction0AndEndTurn(){
     List<Creature> lc = toList();
