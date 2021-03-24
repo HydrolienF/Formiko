@@ -19,11 +19,9 @@ git add version.md
 message=""
 messageNull=""
 for param in "$*"; do
-  echo $param
   message+=" "$param
 done
-echo $message
-if [ $message != $messageNull ]; then
+if ! [ $message != $messageNull ]; then
   git commit -m $message
 else
   git commit
