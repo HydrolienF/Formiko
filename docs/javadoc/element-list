@@ -1,9 +1,11 @@
 fr.formiko.formiko
 fr.formiko.formiko.interfaces
-fr.formiko.graphisme
 fr.formiko.usuel
 fr.formiko.usuel.exceptions
 fr.formiko.usuel.images
 fr.formiko.usuel.listes
 fr.formiko.usuel.maths
 fr.formiko.usuel.types
+fr.formiko.views
+fr.formiko.views.cli
+fr.formiko.views.gui2d
