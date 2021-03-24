@@ -447,6 +447,11 @@ public class ViewCLI implements View {
       System.out.println(getAllyAntInColor(c));
     }
   }
+  /**
+  *{@summary Return the color depending of the status of c for playingAnt.}<br>
+  *param c The Creature to inspect to know if it is ally, enemy or neutral (or equals to playingAnt).<br>
+  *@version 1.38
+  */
   private String getAllyAntInColor(Creature c){
     String r = "";
     if(Main.getOs().isLinux()){

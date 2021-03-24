@@ -83,7 +83,8 @@ public class CLIMap{
   *@param o The Object to represent.
   *@version 1.38
   */
-  static String objetSurCarteAIdToString(ObjetSurCarteAId o){
+  //public only for test
+  public static String objetSurCarteAIdToString(ObjetSurCarteAId o){
     String s="";
     boolean b = Main.getOs().isLinux();
     if(o instanceof Insecte){
