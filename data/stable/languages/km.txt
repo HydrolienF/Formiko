@@ -111,7 +111,7 @@ dimentionCarteY:វិមាត្រអក្សរនៅក្នុងអ៊�
 erreurCarteVide:មិនអាចចាប់ផ្តើមល្បែងដោយគ្មានអ្នកលេងនិងដោយគ្មានអាយ។[auto]
 maxFourmiIa:ចំនួនអតិបរមានៃស្រមោចសម្រាប់អាយ[auto]
 nomDuFichier:ឈ្មោះ​ឯកសារ[auto]
-getNomDuFcihier:បញ្ចូលឈ្មោះសំណុំសន្សំដែលអ្នកចង់ផ្ទុក៖ (ឬត្រឡប់ទៅក្រោយ)[auto]
+getFileName:បញ្ចូលឈ្មោះសំណុំសន្សំដែលអ្នកចង់ផ្ទុក៖ (ឬត្រឡប់ទៅក្រោយ)[auto]
 dernierTourPassé:ជុំចុងក្រោយបានកន្លងផុតទៅហើយ។[auto]
 victoireInconue:មិនស្គាល់ជ័យជម្នះ[auto]
 élimination:ការលុបបំបាត់[auto]

@@ -111,7 +111,7 @@ dimentionCarteY:y ကိုအက္ခရာအတိုင်းအတာ[auto
 erreurCarteVide:မည်သည့်ကစားသမားမဆိုနှင့် ai မပါဘဲဂိမ်းတစ်ခုစတင်ရန်မဖြစ်နိုင်ပါ။[auto]
 maxFourmiIa:ai များအတွက်ပုရွက်ဆိတ်အများဆုံးအရေအတွက်[auto]
 nomDuFichier:ဖိုင်နာမည်[auto]
-getNomDuFcihier:သင်တင်လိုသောသိမ်းဆည်းရန်အမည်ကိုထည့်ပါ။ (သို့မဟုတ်ပြန်သွားရန်ပြန်သည်)[auto]
+getFileName:သင်တင်လိုသောသိမ်းဆည်းရန်အမည်ကိုထည့်ပါ။ (သို့မဟုတ်ပြန်သွားရန်ပြန်သည်)[auto]
 dernierTourPassé:ပြီးခဲ့သည့်အလှည့်အပြောင်း[auto]
 victoireInconue:အောင်နိုင်ခြင်းမရှိ[auto]
 élimination:ဖျက်သိမ်းရေး[auto]

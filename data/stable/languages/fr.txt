@@ -111,7 +111,7 @@ dimentionCarteY:dimension de la carte en Y
 erreurCarteVide:impossible de lancer une partie sans aucun joueur et sans aucune ia.
 maxFourmiIa:nombre de fourmi maximum pour les ia
 nomDuFichier:nom du fichier
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getFileName:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Le dernier tour est désormais passé.
 victoireInconue:victoire inconnue
 élimination:élimination

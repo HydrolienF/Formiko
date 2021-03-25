@@ -111,7 +111,7 @@ dimentionCarteY:dimension of the map in Y
 erreurCarteVide:unable to start a game without any player and without any ia.
 maxFourmiIa:maximum number of ants for ia
 nomDuFichier:file name
-getNomDuFcihier:enter the name of the save set you want to load: (Or back to go back)[auto]
+getFileName:enter the name of the save set you want to load: (Or back to go back)[auto]
 dernierTourPassé:the last turn is now over.
 victoireInconue:unknown victory
 élimination:elimination

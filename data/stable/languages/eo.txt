@@ -111,7 +111,7 @@ dimentionCarteY:dimensio de la mapo en "Y"
 erreurCarteVide:neeble de impulsi la ludo kun 0 homa (aŭ malhoma) ludanto.
 maxFourmiIa:nombro maksimuma de formiko por la malhoma ludanto
 nomDuFichier:nomo de la dosiero
-getNomDuFcihier:enigu la nomon de la konservota aro, kiun vi volas ŝargi: (Aŭ reen por reiri)[auto]
+getFileName:enigu la nomon de la konservota aro, kiun vi volas ŝargi: (Aŭ reen por reiri)[auto]
 dernierTourPassé:la lasta vico estas fini.
 victoireInconue:venko nekonato.
 élimination:elimino
