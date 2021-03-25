@@ -15,7 +15,7 @@ else
   v3=0
 fi
 echo $v1.$v2.$v3 > version.md
-mvn versions:set -DnewVersion=$v1.$v2.$v3
+mvn versions:set -DnewVersion=$v1.$v2.$v3 -q
 git add version.md
 message=""
 messageNull=""
