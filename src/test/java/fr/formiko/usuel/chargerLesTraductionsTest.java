@@ -261,7 +261,14 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertEquals(2,chargerLesTraductions.getMap().size());
     assertEquals("une valeur Z",chargerLesTraductions.getMap().get("a"));
     assertEquals("une valeur Y",chargerLesTraductions.getMap().get("uneCle"));
-
+  }
+  @Test
+  public void testAjouterObjetMap2(){
+    chargerLesTraductions.iniMap();//remet a 0.
+    assertEquals(0,chargerLesTraductions.getMap().size());
+    chargerLesTraductions.ajouterObjetMap("uneCle:Une valeur X");//ne fait rien si ce n'est pas une ligne de trad.
+    assertEquals(1,chargerLesTraductions.getMap().size());
+    assertEquals("une valeur X",chargerLesTraductions.getMap().get("uneCle"));
   }
 
   //ajouterTradAuto

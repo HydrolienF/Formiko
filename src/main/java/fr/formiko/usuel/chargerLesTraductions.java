@@ -140,6 +140,10 @@ public class chargerLesTraductions {
     }
     return t;
   }
+  /**
+  *{@summary Load translation for nation name.}<br>
+  *@version 1.26
+  */
   public static String []getTableauDesNationsName(){
     String t [] = new String[0];
     try{
@@ -223,6 +227,11 @@ public class chargerLesTraductions {
     while(c != ':' && i<lens-1){
       if(c!='\\'){s1 = s1+c;}
       i++; c = s.charAt(i);
+    }
+    //lower char as 1a char
+    if(i<lens-1){
+      i++; c = s.charAt(i);
+      s2 = s2+(c+"").toLowerCase();
     }
     while(i<lens-1){
       i++; c = s.charAt(i);
