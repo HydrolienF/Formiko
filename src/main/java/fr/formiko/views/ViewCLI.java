@@ -8,6 +8,7 @@ import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
+import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.color;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -289,7 +290,7 @@ public class ViewCLI implements View {
     if (!actionGameOn) {return -1;}
     tToPrint = new String[6];
     int k=0;
-    for (int i=-10;i>-16 ;i-- ) {
+    for (int i=-10;i>-16 ;i--) {
       tToPrint[k]=g.get("bouton.nom."+i);
       k++;
     }
@@ -299,19 +300,27 @@ public class ViewCLI implements View {
       choice=getActionMenu(tToPrint.length);
       switch (choice) {
         case 1 :
-        System.out.println("save game");//TODO
-        break;
+        sauvegarderUnePartie.sauvegarder(Main.getPartie(),getSaveName()+".save");
+        System.out.println("saveDone"); //TODO to translate
+        return 1;
         case 2 :
         menuOptions();
-        //when menu option will return it will end pauseActionGame & continue in actionGame.
-        break;
+        return 2;
         case 3 :
+        menuLoadAGame();
+        return 3;
         case 4 :
+        menuMain();
+        return 4;
         case 5 :
-        return choice;
+        Main.quitter();
+        return 5;
+        default :
+        System.out.println("return O");
+        return 0;
       }
     }
-    return 0; //case 6.
+    return 0;
   }
 
   /**
@@ -352,7 +361,7 @@ public class ViewCLI implements View {
   */
   public int getAntChoice(int t[]){
     if (!actionGameOn) {return -1;}
-    String ts [] = new String[15];
+    String ts [] = new String[16];
     for (int i=0;i<12 ;i++ ) {
       ts[i]=g.get("bouton.desc."+(20+i));
       if(!tableau.estDansT(t,i)){
@@ -362,12 +371,14 @@ public class ViewCLI implements View {
     ts[12]=g.getM("setPlayingAnt");
     ts[13]=g.getM("endTurn");
     ts[14]=g.getM("endGame");
+    ts[15]=g.getM("pauseGame"); //TODO to translate
     tToPrint = ts;
     int choice = -1;
     do {
       paint();
       choice = getActionMenu(tToPrint.length)-1;
-    } while (choice <12 && !tableau.estDansT(t,choice));
+      if(choice==15){pauseActionGame();tToPrint=ts;}
+    } while ((choice <12 || choice==15) && !tableau.estDansT(t,choice));
     if(choice==12){Main.getPartie().setPlayingAnt(getAntFromFere());}
     return choice;
   }
@@ -494,5 +505,25 @@ public class ViewCLI implements View {
       }
     }
     return returnValue;
+  }
+  /**
+  *{@summary Ask a save name to the user.}<br>
+  *If nothing is choose, save will have defaultName.<br>
+  *Save name will be file save for every os.<br>
+  *@version 1.39
+  */
+  private String getSaveName(){
+    String saveName = g.getM("sauvegarde")+" "+sauvegarderUnePartie.getSave().getIdS();
+    saveName+="  "+Temps.getDatePourSauvegarde();
+    saveName = str.sToFileName(saveName);//le pseudo pourrai contenir des char interdits sur des fichiers.
+    String t [] = new String[2];
+    System.out.println(sep);
+    System.out.println(g.getM("chooseSaveName")+"."); //TODO translate
+    System.out.println(t[1]=g.getM("defaultName")+" : "+saveName);//TODO translate
+    String input = scannerAnswer.nextLine();
+    if(!input.equals("")){
+      saveName = str.sToFileName(input);
+    }
+    return saveName;
   }
 }
