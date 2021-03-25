@@ -79,6 +79,7 @@ public class ViewCLI implements View {
       System.out.println(sep);
       printArray();
     }else{
+      System.out.println(sep);
       if(menuName.equals("")){
         printArray();
       }else{
@@ -102,14 +103,11 @@ public class ViewCLI implements View {
       menuNewGame();
       break;
       case 2 :
-      if(!menuLoadAGame()){ //it can return false if there is no game to load.
-        menuMain();
-      }
+      menuLoadAGame();
       break;
       case 3 :
-      if(!menuOptions()){ //it can return false
-        menuMain();
-      }
+      menuOptions(); //it can return false
+      menuMain();
       break;
       case 4 :
       Main.quitter();
@@ -236,14 +234,15 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean menuOptions(){
-    actionGameOn=false;
-    menuName="menuO";
-    //tToPrint=sauvegarderUnePartie.listOptions();
-    tToPrint = new String[0]; //TODO replace by a real choice.
-    if(tToPrint.length==0){return false;}
-    paint();
-    int choice = getActionMenu(tToPrint.length);
-    menuMain();
+    erreur.info(g.getM("optionsCanBeEditedIn")+" data/Options.md.","ViewCLI.menuOptions");//TODO translate
+    // actionGameOn=false;
+    // menuName="menuO";
+    // //tToPrint=sauvegarderUnePartie.listOptions();
+    // tToPrint = new String[0]; //TODO replace by a real choice.
+    // if(tToPrint.length==0){return false;}
+    // paint();
+    // int choice = getActionMenu(tToPrint.length);
+    // menuMain();
     return true;
   }
   /**
