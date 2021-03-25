@@ -124,7 +124,7 @@ celluleA:سلول a[auto]
 lien:ارتباط دادن[auto]
 ChasseNull:نمی توان با موجود شکار کرد[auto]
 CollecteNull:امکان جمع آوری با موجود وجود ندارد[auto]
-CJoueur.1:CJplayer شامل پخش کننده است[auto]
+CJoueur.1:cJplayer شامل پخش کننده است[auto]
 CJoueur.2:و 1 پیوند به پخش کننده[auto]
 
 listeCreature:لیست موجودات[auto]
@@ -250,7 +250,7 @@ decoderUnFichier.4:شخصیت[auto]
 
 ent.1:تبدیل رشته به int انجام نشد[auto]
 
-GString.1:GString خالی است[auto]
+GString.1:gString خالی است[auto]
 
 lireUnFichier.1:خطوط در پرونده یافت شد[auto]
 
@@ -327,7 +327,7 @@ bouton.nom.31:منو[auto]
 bouton.desc.20:مورچه انتخاب شده را حرکت دهید[auto]
 bouton.desc.21:حشره موجود را در همان مربع مورچه شکار کنید[auto]
 bouton.desc.22:تخم مرغ بگذارید[auto]
-bouton.desc.23:Trophallaxer (غذا را از طریق دهان به مورچه دیگری منتقل کنید)[auto]
+bouton.desc.23:trophallaxer (غذا را از طریق دهان به مورچه دیگری منتقل کنید)[auto]
 bouton.desc.24:یک مورچه دوستانه (یا مورچه انتخاب شده) را روی مربع فعلی تمیز کنید.[auto]
 bouton.desc.25:یک دانه باز ذخیره شده در مورچه را بخورید.[auto]
 bouton.desc.26:یک دانه بسته را بشکنید.[auto]

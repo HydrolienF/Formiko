@@ -106,7 +106,7 @@ toutLesJoueurHumainsEliminés:सर्व मानवी खेळाडूं
 nbrDeJoueur:मानवी खेळाडूंची संख्या[auto]
 nbrDIa:नाव डी आय[auto]
 nbrDeTour:वळणांची संख्या[auto]
-dimentionCarteX:X मधील कार्डाचा आकारमान[auto]
+dimentionCarteX:x मधील कार्डाचा आकारमान[auto]
 dimentionCarteY:वाय मधील अक्षराचे परिमाण[auto]
 erreurCarteVide:कोणत्याही खेळाडूशिवाय आणि एआयशिवाय खेळ सुरू करणे अशक्य आहे.[auto]
 maxFourmiIa:आय साठी जास्तीत जास्त मुंग्या[auto]

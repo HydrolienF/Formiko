@@ -106,8 +106,8 @@ toutLesJoueurHumainsEliminés:ସମସ୍ତ ମାନବ ଖେଳାଳିଙ
 nbrDeJoueur:ମାନବ ଖେଳାଳିଙ୍କ ସଂଖ୍ୟା[auto]
 nbrDIa:ନାମ d'Ia[auto]
 nbrDeTour:ଟର୍ନର ସଂଖ୍ୟା[auto]
-dimentionCarteX:X ରେ କାର୍ଡର ପରିମାପ |[auto]
-dimentionCarteY:Y ରେ ଅକ୍ଷର ଆକାର[auto]
+dimentionCarteX:x ରେ କାର୍ଡର ପରିମାପ |[auto]
+dimentionCarteY:y ରେ ଅକ୍ଷର ଆକାର[auto]
 erreurCarteVide:କ player ଣସି ଖେଳାଳି ବିନା ଏବଂ କ a ଣସି ଆଇ ବିନା ଖେଳ ଆରମ୍ଭ କରିବା ଅସମ୍ଭବ |[auto]
 maxFourmiIa:ai ପାଇଁ ସର୍ବାଧିକ ସଂଖ୍ୟକ ପିମ୍ପୁଡ଼ି |[auto]
 nomDuFichier:ଦସ୍ତାବିଜ୍ ର ନାମ[auto]
@@ -124,7 +124,7 @@ celluleA:କକ୍ଷ a[auto]
 lien:ଲିଙ୍କ୍[auto]
 ChasseNull:ପ୍ରାଣୀ ସହିତ ଶିକାର କରିପାରିବ ନାହିଁ |[auto]
 CollecteNull:ପ୍ରାଣୀ ସହିତ ସଂଗ୍ରହ କରିବାକୁ ଅସମର୍ଥ |[auto]
-CJoueur.1:CJplayer ପ୍ଲେୟାର୍ ଧାରଣ କରେ |[auto]
+CJoueur.1:cJplayer ପ୍ଲେୟାର୍ ଧାରଣ କରେ |[auto]
 CJoueur.2:ଏବଂ ପ୍ଲେୟାର୍ ସହିତ 1 ଲିଙ୍କ୍ |[auto]
 
 listeCreature:ସୃଷ୍ଟି ତାଲିକା |[auto]
@@ -209,7 +209,7 @@ tempsEnJeux:ସମୁଦାୟ ଖେଳିବା ସମୟ |[auto]
 os.0:Linux[]
 os.1:Windows[]
 os.2:Mac[]
-os.-1:OS ଚିହ୍ନିତ ନୁହେଁ |[auto]
+os.-1:oS ଚିହ୍ନିତ ନୁହେଁ |[auto]
 
 //carte :
 desert:ମରୁଭୂମି[auto]
@@ -250,7 +250,7 @@ decoderUnFichier.4:ଚରିତ୍ର[auto]
 
 ent.1:ଷ୍ଟ୍ରିଙ୍ଗ୍ ଟୁ int ରୂପାନ୍ତର ବିଫଳ ହେଲା |[auto]
 
-GString.1:GString ଖାଲି ଅଛି |[auto]
+GString.1:gString ଖାଲି ଅଛି |[auto]
 
 lireUnFichier.1:ଫାଇଲଗୁଡ଼ିକରେ ରେଖା ମିଳିଲା |[auto]
 
@@ -280,7 +280,7 @@ alerteGUI2Dfail:
 str.1:ଗୋଟିଏ ରୂପାନ୍ତର କରିବାକୁ ଅସମର୍ଥ |[auto]
 str.2:ସଠିକ୍ ଭାବରେ |[auto]
 
-ElementListeIntrouvableExeption.1:The[auto]
+ElementListeIntrouvableExeption.1:the[auto]
 ElementListeIntrouvableExeption.2:ଅପସାରଣ କରାଯାଇପାରିବ ନାହିଁ[auto]
 
 ListeVideExeption.1:ଅସମ୍ଭବ[auto]
@@ -296,7 +296,7 @@ bouton.nom.-10:ସଞ୍ଚୟ କରନ୍ତୁ |[auto]
 bouton.nom.-11:ବିକଳ୍ପଗୁଡ଼ିକ[auto]
 bouton.nom.-12:ଚାର୍ଜର[auto]
 bouton.nom.-13:ମୁଖ୍ୟ ମେନୁକୁ ଫେରନ୍ତୁ |[auto]
-bouton.nom.-14:Ant[auto]
+bouton.nom.-14:ant[auto]
 bouton.nom.-15:ଖେଳିବାକୁ ଫେରନ୍ତୁ |[auto]
 
 save.message:ଆପଣଙ୍କର ବ୍ୟାକଅପ୍ ଦେବାକୁ ନାମ ପ୍ରବେଶ କରନ୍ତୁ |[auto]

@@ -106,8 +106,8 @@ toutLesJoueurHumainsEliminés:మానవ ఆటగాళ్లందరూ త
 nbrDeJoueur:మానవ ఆటగాడి సంఖ్య (లు)[auto]
 nbrDIa:పేరు డి'ఇయా[auto]
 nbrDeTour:మలుపుల సంఖ్య[auto]
-dimentionCarteX:X లో కార్డు యొక్క పరిమాణం[auto]
-dimentionCarteY:Y లో అక్షరాల పరిమాణం[auto]
+dimentionCarteX:x లో కార్డు యొక్క పరిమాణం[auto]
+dimentionCarteY:y లో అక్షరాల పరిమాణం[auto]
 erreurCarteVide:ఏ ఆటగాడు లేకుండా మరియు ఏ ఐ లేకుండా ఆట ప్రారంభించడం అసాధ్యం.[auto]
 maxFourmiIa:ai కోసం చీమల గరిష్ట సంఖ్య[auto]
 nomDuFichier:ఫైల్ పేరు[auto]
@@ -124,7 +124,7 @@ celluleA:సెల్ a[auto]
 lien:లింక్[auto]
 ChasseNull:జీవితో వేటాడలేరు[auto]
 CollecteNull:జీవితో సేకరించడం సాధ్యం కాలేదు[auto]
-CJoueur.1:CJplayer లో ప్లేయర్ ఉంది[auto]
+CJoueur.1:cJplayer లో ప్లేయర్ ఉంది[auto]
 CJoueur.2:మరియు ప్లేయర్‌కు 1 లింక్[auto]
 
 listeCreature:జీవి జాబితా[auto]
@@ -209,7 +209,7 @@ tempsEnJeux:మొత్తం ఆట సమయం[auto]
 os.0:Linux[]
 os.1:Windows[]
 os.2:Mac[]
-os.-1:OS గుర్తించబడలేదు[auto]
+os.-1:oS గుర్తించబడలేదు[auto]
 
 //carte :
 desert:ఎడారి[auto]
@@ -250,7 +250,7 @@ decoderUnFichier.4:పాత్ర[auto]
 
 ent.1:స్ట్రింగ్ టు ఇంటెంట్ మార్పిడి విఫలమైంది[auto]
 
-GString.1:GString ఖాళీగా ఉంది[auto]
+GString.1:gString ఖాళీగా ఉంది[auto]
 
 lireUnFichier.1:ఫైల్‌లో పంక్తులు కనుగొనబడ్డాయి[auto]
 

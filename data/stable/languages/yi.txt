@@ -209,7 +209,7 @@ tempsEnJeux:גאַנץ פּלייינג צייַט[auto]
 os.0:Linux[]
 os.1:Windows[]
 os.2:Mac[]
-os.-1:OS נישט דערקענט[auto]
+os.-1:oS נישט דערקענט[auto]
 
 //carte :
 desert:מדבר[auto]

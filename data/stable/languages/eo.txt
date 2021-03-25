@@ -80,19 +80,19 @@ assexué:malseksula
 sexué:seksula
 
 //menu :
-menuP.1:Nova ludo
+menuP.1:nova ludo
 menuP.2:ŝargi 1 ludo
-menuP.3:Optioj
+menuP.3:optioj
 menuP.4:foriri
-menuN.1:Nova foriro
-menuN.2:Personeciga ludo
+menuN.1:nova foriro
+menuN.2:personeciga ludo
 menuN.3:lernilo
 menuN.4:reveni
 
-quitterJeu:Deiri la ludo
-quitterOuContinuer:Ĉu vi deziri malhalti la ludo ?
-messageQuitter:A baldaŭ en Formiko !
-validerQuitter:Ĉu vi efektive deziri malhalti la ludo ?
+quitterJeu:deiri la ludo
+quitterOuContinuer:ĉu vi deziri malhalti la ludo ?
+messageQuitter:a baldaŭ en Formiko !
+validerQuitter:ĉu vi efektive deziri malhalti la ludo ?
 quitterToMp:revenu al la ĉefa menuo
 continuerJeu:daŭrigu la ludon
 supprimerFourmi.1:forigu la formikon
@@ -103,31 +103,31 @@ affTest:sukcesa testo[auto]
 
 toutLesJoueurHumainsEliminés:ĉiuj homaj ludantoj estis forigitaj[auto]
 
-nbrDeJoueur:Nombro de homa(j) ludanto(j)
-nbrDIa:Nombro de malhoma(j) ludanto(j)
-nbrDeTour:Nombro de vico
-dimentionCarteX:Dimensio de la mapo en "X"
-dimentionCarteY:Dimensio de la mapo en "Y"
-erreurCarteVide:Neeble de impulsi la ludo kun 0 homa (aŭ malhoma) ludanto.
-maxFourmiIa:Nombro maksimuma de formiko por la malhoma ludanto
-nomDuFichier:Nomo de la dosiero
-getNomDuFcihier:Enigu la nomon de la konservota aro, kiun vi volas ŝargi: (Aŭ reen por reiri)[auto]
-dernierTourPassé:La lasta vico estas fini.
-victoireInconue:Venko nekonato.
+nbrDeJoueur:nombro de homa(j) ludanto(j)
+nbrDIa:nombro de malhoma(j) ludanto(j)
+nbrDeTour:nombro de vico
+dimentionCarteX:dimensio de la mapo en "X"
+dimentionCarteY:dimensio de la mapo en "Y"
+erreurCarteVide:neeble de impulsi la ludo kun 0 homa (aŭ malhoma) ludanto.
+maxFourmiIa:nombro maksimuma de formiko por la malhoma ludanto
+nomDuFichier:nomo de la dosiero
+getNomDuFcihier:enigu la nomon de la konservota aro, kiun vi volas ŝargi: (Aŭ reen por reiri)[auto]
+dernierTourPassé:la lasta vico estas fini.
+victoireInconue:venko nekonato.
 élimination:elimino
-victoirePar:Havas venki per
+victoirePar:havas venki per
 pseudo:kaŝnomo
 entrezPseudo:skribu via kaŝnomo
 
 nourritureInsecte:insekta manĝaĵo
 celluleA:ĉelo A
 lien:ligo
-ChasseNull:Neeble ĉasi kun la creito
-CollecteNull:Neeble kolekti kun la creito
-CJoueur.1:La CLudanto havas la ludanto
+ChasseNull:neeble ĉasi kun la creito
+CollecteNull:neeble kolekti kun la creito
+CJoueur.1:la CLudanto havas la ludanto
 CJoueur.2:kaj 1 ligo kontraŭ
 
-listeCreature:Listo de creito
+listeCreature:listo de creito
 
 nétoyage:purigo
 actionMax:maksimuma faro
@@ -140,7 +140,7 @@ initialisationDesJoueurs:krei de la ludoj
 initialisationDesInsectes:krei de la insektoj
 chargementDesGraphismes:ŝarĝi de la grafikoj
 
-débutTourJoueur:Estas via vico
+débutTourJoueur:estas via vico
 débutTourIa:komenci estas vico
 
 tempsJeuEcoulé:vi ludi
@@ -187,7 +187,7 @@ casesNuageuses:nubaj fako
 casesSombres:malhelaj fako
 
 chargementFini:finita ŝarĝo
-lancerLeJeu:Komencante la ludon[auto]
+lancerLeJeu:komencante la ludon[auto]
 
 //temps
 t.j:t
@@ -209,7 +209,7 @@ tempsEnJeux:totala ludotempo
 os.0:Linux[]
 os.1:Windows[]
 os.2:Mac[]
-os.-1:OS ne rekonita
+os.-1:oS ne rekonita
 
 //carte :
 desert:dezerto[auto]
@@ -222,35 +222,35 @@ mini:mini[auto]
 thirds:tria[auto]
 
 //package usuel ------------------------------------------------------------------
-read.1:Skribu 1 valoro por la variablo
+read.1:skribu 1 valoro por la variablo
 read.2:(skribi nulo ne modifi la valor de la variablo)
-read.3:Vi estas ŝajne bloki. Skribu STOP por halti la programo.
-read.4:La chaine de charcatère
+read.3:vi estas ŝajne bloki. Skribu STOP por halti la programo.
+read.4:la chaine de charcatère
 read.5:ne estas 1 nombro
-read.6:Li ŝajne ke la skriba valoro ne kenvene. ĉi tiu devi esti en la intervalo
-read.7:Jes aŭ Ne ?
-read.8:Skribi via respondo en la konvencio "j" (por Jes) aŭ "n" (por Ne)
-read.9:La ludanta enskribo ne estis kompreni.
+read.6:li ŝajne ke la skriba valoro ne kenvene. ĉi tiu devi esti en la intervalo
+read.7:jes aŭ Ne ?
+read.8:skribi via respondo en la konvencio "j" (por Jes) aŭ "n" (por Ne)
+read.9:la ludanta enskribo ne estis kompreni.
 
-tableau.1:La pozicio
+tableau.1:la pozicio
 tableau.2:malekzisti en la tabelo
-tableau.3:Alaĵo de x en malunuan pozicion
+tableau.3:alaĵo de x en malunuan pozicion
 tableau.4:malekzisti en la tabelo
-tableau.5:La tableo estas malplena
+tableau.5:la tableo estas malplena
 
-allea.1:La tabelo t ne havas kiom fako ke la tabelo tc
-allea.2:Vi malatenti tc
-allea.3:Neeble tiel fluktui la variablo
-allea.4:La variablo malfluktui.
+allea.1:la tabelo t ne havas kiom fako ke la tabelo tc
+allea.2:vi malatenti tc
+allea.3:neeble tiel fluktui la variablo
+allea.4:la variablo malfluktui.
 
-decoderUnFichier.1:La karaktera ĉeno
+decoderUnFichier.1:la karaktera ĉeno
 decoderUnFichier.2:ne estas 1 nombro
 decoderUnFichier.3:ne estas 1 bulea
 decoderUnFichier.4:la karaktero
 
-ent.1:La konverto String To int maltrafi
+ent.1:la konverto String To int maltrafi
 
-GString.1:La GString estas malplena.
+GString.1:la GString estas malplena.
 
 lireUnFichier.1:linioj estis trovi en la dociero.
 
@@ -259,28 +259,28 @@ Message.1:konzolo
 erreur:eraro
 alerte:vigla
 erreur.1:1 malindika loko
-erreur.2:Trovu sube la kialo kaj la listo de la fonkcio kui estas vaida dum la forca fino
+erreur.2:trovu sube la kialo kaj la listo de la fonkcio kui estas vaida dum la forca fino
 erreur.3:fatala
 erreur.4:1 eraro
 erreur.5:alvenis en
 erreur.6:kompenso alporti
-erreur.7:Io anormala alvenis en
-erreur.8:Eble ne estas grava
-erreur.9:La funkcieco ne havas ankoraŭ ekzisti.
+erreur.7:io anormala alvenis en
+erreur.8:eble ne estas grava
+erreur.9:la funkcieco ne havas ankoraŭ ekzisti.
 erreur.10:malkona nomo
-erreur.11:La frajtaĵo de la bido
+erreur.11:la frajtaĵo de la bido
 erreur.12:ne funkciis. Certigu ke la dociero data/imageFormiko/ havas la noma bido.
-erreur.13:La listo
+erreur.13:la listo
 erreur.14:estas malplena
 erreur.15:malkona listo
-erreur.16:La paŭza provo maltrafi (daŭro de la paŭzo
-erreur.17:Tipo-konverto malsukcesis por tipo[auto]
+erreur.16:la paŭza provo maltrafi (daŭro de la paŭzo
+erreur.17:tipo-konverto malsukcesis por tipo[auto]
 alerteGUI2Dfail:1 grafika ago ne funkciis
 
 str.1:neeble de fari 1 de la konverto
 str.2:komvene
 
-ElementListeIntrouvableExeption.1:La
+ElementListeIntrouvableExeption.1:la
 ElementListeIntrouvableExeption.2:ne povas esti retiri
 
 ListeVideExeption.1:neeble de
@@ -311,37 +311,37 @@ bouton.desc.6:centri la mapo en la luda formiko
 bouton.desc.7:movi la mapo malalte
 bouton.desc.8:zomi por vidi la tua mapo
 
-bouton.nom.20:Moviĝi
-bouton.nom.21:Ĉasi la insekto en la fako
-bouton.nom.22:Akuŝi
-bouton.nom.23:Trofalaksi
-bouton.nom.24:Puriĝi aŭ purigi
-bouton.nom.25:Mangi grajno
-bouton.nom.26:Rompi grajno
-bouton.nom.27:Ĉasi (aŭtomate)
-bouton.nom.28:Varti (aŭtomate)
-bouton.nom.29:Fini la turo
-bouton.nom.30:Malaperigi
-bouton.nom.31:Menuo
+bouton.nom.20:moviĝi
+bouton.nom.21:ĉasi la insekto en la fako
+bouton.nom.22:akuŝi
+bouton.nom.23:trofalaksi
+bouton.nom.24:puriĝi aŭ purigi
+bouton.nom.25:mangi grajno
+bouton.nom.26:rompi grajno
+bouton.nom.27:ĉasi (aŭtomate)
+bouton.nom.28:varti (aŭtomate)
+bouton.nom.29:fini la turo
+bouton.nom.30:malaperigi
+bouton.nom.31:menuo
 
-bouton.desc.20:Movi la selekta formiko
-bouton.desc.21:Ĉasi la insekto en la sama fako
-bouton.desc.22:Akuŝi de 1 ovo
-bouton.desc.23:Trofalaksi (nome procezo en kiu formiko regurgitas likvan manĝaĵon tenitan en sia kropo)
+bouton.desc.20:movi la selekta formiko
+bouton.desc.21:ĉasi la insekto en la sama fako
+bouton.desc.22:akuŝi de 1 ovo
+bouton.desc.23:trofalaksi (nome procezo en kiu formiko regurgitas likvan manĝaĵon tenitan en sia kropo)
 bouton.desc.24:purigi 1 kunligana formiko aŭ puriĝi
-bouton.desc.25:Manĝi 1 malfermita grajno
-bouton.desc.26:Rompi 1 fermita grajno
-bouton.desc.27:Komenci ĉasi (aŭtomate)
-bouton.desc.28:Komenci varti (aŭtomate)
-bouton.desc.29:Fini la turo de la formiko
-bouton.desc.30:Malaperigi la formiko
-bouton.desc.31:Malfermi la opcian menuon
+bouton.desc.25:manĝi 1 malfermita grajno
+bouton.desc.26:rompi 1 fermita grajno
+bouton.desc.27:komenci ĉasi (aŭtomate)
+bouton.desc.28:komenci varti (aŭtomate)
+bouton.desc.29:fini la turo de la formiko
+bouton.desc.30:malaperigi la formiko
+bouton.desc.31:malfermi la opcian menuon
 
-pti.desc.1:Indiki la kodo de la formiko ke ricevos la manĝaĵon.
-pti.desc.2:Indiki la kvanto de dona manĝaĵo.
-pti.desc.3:Indiku la ovodemetotan ovon: 0 = Reĝino, 1 = Maskla, 2 = Malgranda, 3 = Meza, 4 = Plej granda, 5 + = Alia.[auto]
-pti.desc.4:Indiki la direkto a sekvi.
-pti.desc.5:Indiki la kodo de la formiko a puri.
+pti.desc.1:indiki la kodo de la formiko ke ricevos la manĝaĵon.
+pti.desc.2:indiki la kvanto de dona manĝaĵo.
+pti.desc.3:indiku la ovodemetotan ovon: 0 = Reĝino, 1 = Maskla, 2 = Malgranda, 3 = Meza, 4 = Plej granda, 5 + = Alia.[auto]
+pti.desc.4:indiki la direkto a sekvi.
+pti.desc.5:indiki la kodo de la formiko a puri.
 
 //cli
 doAntAction:faru formikon fari
@@ -349,7 +349,7 @@ selectAnt:elektu formikon
 endTurn:finu vico
 endGame:finu ludo
 pauseActionGame:paŭza ludo
-unviable:nekapabla
+unaviable:
 setPlayingAnt:elektu ludantan formikon
 
 triche.aide.1:bonvenon al la trompanta interfaco de Formiko. Ĉi tie vi povas tajpi trompajn komandojn.[auto]
@@ -392,37 +392,37 @@ cmd.args.22:insekto id, manĝaĵo[auto]
 cmd.args.23:ludantidentigilo, uzantnomo[auto]
 cmd.args.24:ludanto id, bulea estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Formiko aŭ Insekto aŭ Semo, Se insekto: x, y, tajpu If ant: id Ant Hill Se semo: x, y.[auto]
+cmd.args.27:formiko aŭ Insekto aŭ Semo, Se insekto: x, y, tajpu If ant: id Ant Hill Se semo: x, y.[auto]
 cmd.args.28:ido de estaĵo[auto]
-cmd.args.29:Ŝnura ŝlosilo[auto]
+cmd.args.29:ŝnura ŝlosilo[auto]
 
 
 descNull:la priskribo de ĉi tiu komando ne estas difinita.[auto]
 
 
 //conseil:
-conseil.1:Vi renkontis 1 cimo ? signalu ĉi tui a la inicitoro de la ludo, hydrolien.lili502@gmail.com.
-conseil.2:Envio de kunhelpi a la kresko de la ludo ? Programisto, fasonisto, tradukisto estas la bonvenoj (hydrolien.lili502@gmail.com).
-conseil.3:Ne envio de mikroadministri viajn formikojn ? Uzi la 2 havebla aŭtomato.
-conseil.4:Envio de variigi la luda stilo ? elekti 1 specio ke vi ne ankoraŭ ludi.
-conseil.5:Iuj specioj de formiko estas polimorfaj. Tio estas, ke ili havas laboristojn de ŝanĝiĝema grandeco por povi plenumi tute malsamajn taskojn.
-conseil.6:Ne kuŝu tro da ovoj samtempe. Alie vi ne plu povos prizorgi ĝin ĝis ĝi imago.
-conseil.7:Formikoj travivas 4 stadiojn de disvolviĝo: ovo, lafo, nimfo kaj imago (plenkreska formiko).[auto]
-conseil.8:La elektoj, kiujn vi devas fari, estas indikitaj ĉe la supra maldekstro de via ekrano.
-conseil.9:Formikoj ne havas palpebron por malsekigi siajn okulojn. Ili devas konstante konservi sanan vivstilon por komuniki kun siaj antenoj kaj vidi per siaj okuloj.
-conseil.10:La ovoj, lafo kaj nimfo ne kapablas purigi sola. Ili nepre bezonas helpon de imago aŭ li povus esti infektita per malbona bakterio. certigu, ke via bredado restas super 50% pureco.
-conseil.11:La Reĝino povas kuŝu ovojn nur kiam ŝi estas en la formiko.
-conseil.12:La granivaj formikoj nutras ekskluzive semojn. Por stoki sian manĝaĵon ili tenas la semojn en sekaj ĉambroj de la formiko.
-conseil.13:Formikoj kun manĝeblaj grajnoj ne kapablas trofalaksi. Por nutri la bredadon, ili devas nepre havi semojn malfermitajn en provizo.
-conseil.14:La rapidoj estas esprimitaj de insektoj. Ju pli rapida estas la insekto, des pli rapide disvolviĝos la ludo. La Ant-rapido respondas al la norma rapido.[auto]
-conseil.15:Ĉu la ludo ŝajnas al vi tro komplika? Elektu facilan aŭ tre facilan malfacilaĵon.[auto]
-conseil.16:Ĉu la ludo ŝajnas tro facila? Do provu gajni tre malfacilan ludon.[auto]
-conseil.17:Se vi preferas mem esplori la mapon, marku la opcion nubaj skatoloj.[auto]
-conseil.18:Ĉu vi iam provis lanĉi kutimon kun nur AI?[auto]
-conseil.19:Se vi rigardas atente la teksturon de la herbo, vi eble rimarkos, ke ĝi enhavas nur 3 malsamajn herboklingojn.[auto]
-conseil.20:Se estas nur unu formiko por purigi aŭ nutriĝi per la spaco, kie via formiko estas, ĝi estos aŭtomate elektita por esti viŝita aŭ manĝita.[auto]
-conseil.21:La ludo-lingvo estas aŭtomate tiu de via komputilo, sed vi povas ŝanĝi ĝin en la Opcioj.[auto]
-conseil.22:Iuj specioj de formikoj estas policalaj. Tio signifas, ke reĝino de formikejo A metos novajn formikojn en sia formikejo B &amp; la formikoj A kaj B daŭre helpos unu la alian kvazaŭ ŝi estus nur unu granda formikejo. Sur granda mapo utilas demeti reĝinajn kaj virajn ovojn, kiuj povas trovi novajn aliancitajn formikejojn ĉe la alia fino de la mapo.[auto]
+conseil.1:vi renkontis 1 cimo ? signalu ĉi tui a la inicitoro de la ludo, hydrolien.lili502@gmail.com.
+conseil.2:envio de kunhelpi a la kresko de la ludo ? Programisto, fasonisto, tradukisto estas la bonvenoj (hydrolien.lili502@gmail.com).
+conseil.3:ne envio de mikroadministri viajn formikojn ? Uzi la 2 havebla aŭtomato.
+conseil.4:envio de variigi la luda stilo ? elekti 1 specio ke vi ne ankoraŭ ludi.
+conseil.5:iuj specioj de formiko estas polimorfaj. Tio estas, ke ili havas laboristojn de ŝanĝiĝema grandeco por povi plenumi tute malsamajn taskojn.
+conseil.6:ne kuŝu tro da ovoj samtempe. Alie vi ne plu povos prizorgi ĝin ĝis ĝi imago.
+conseil.7:formikoj travivas 4 stadiojn de disvolviĝo: ovo, lafo, nimfo kaj imago (plenkreska formiko).[auto]
+conseil.8:la elektoj, kiujn vi devas fari, estas indikitaj ĉe la supra maldekstro de via ekrano.
+conseil.9:formikoj ne havas palpebron por malsekigi siajn okulojn. Ili devas konstante konservi sanan vivstilon por komuniki kun siaj antenoj kaj vidi per siaj okuloj.
+conseil.10:la ovoj, lafo kaj nimfo ne kapablas purigi sola. Ili nepre bezonas helpon de imago aŭ li povus esti infektita per malbona bakterio. certigu, ke via bredado restas super 50% pureco.
+conseil.11:la Reĝino povas kuŝu ovojn nur kiam ŝi estas en la formiko.
+conseil.12:la granivaj formikoj nutras ekskluzive semojn. Por stoki sian manĝaĵon ili tenas la semojn en sekaj ĉambroj de la formiko.
+conseil.13:formikoj kun manĝeblaj grajnoj ne kapablas trofalaksi. Por nutri la bredadon, ili devas nepre havi semojn malfermitajn en provizo.
+conseil.14:la rapidoj estas esprimitaj de insektoj. Ju pli rapida estas la insekto, des pli rapide disvolviĝos la ludo. La Ant-rapido respondas al la norma rapido.[auto]
+conseil.15:ĉu la ludo ŝajnas al vi tro komplika? Elektu facilan aŭ tre facilan malfacilaĵon.[auto]
+conseil.16:ĉu la ludo ŝajnas tro facila? Do provu gajni tre malfacilan ludon.[auto]
+conseil.17:se vi preferas mem esplori la mapon, marku la opcion nubaj skatoloj.[auto]
+conseil.18:ĉu vi iam provis lanĉi kutimon kun nur AI?[auto]
+conseil.19:se vi rigardas atente la teksturon de la herbo, vi eble rimarkos, ke ĝi enhavas nur 3 malsamajn herboklingojn.[auto]
+conseil.20:se estas nur unu formiko por purigi aŭ nutriĝi per la spaco, kie via formiko estas, ĝi estos aŭtomate elektita por esti viŝita aŭ manĝita.[auto]
+conseil.21:la ludo-lingvo estas aŭtomate tiu de via komputilo, sed vi povas ŝanĝi ĝin en la Opcioj.[auto]
+conseil.22:iuj specioj de formikoj estas policalaj. Tio signifas, ke reĝino de formikejo A metos novajn formikojn en sia formikejo B &amp; la formikoj A kaj B daŭre helpos unu la alian kvazaŭ ŝi estus nur unu granda formikejo. Sur granda mapo utilas demeti reĝinajn kaj virajn ovojn, kiuj povas trovi novajn aliancitajn formikejojn ĉe la alia fino de la mapo.[auto]
 
 //message ---------------:
 //mort :
@@ -435,9 +435,9 @@ mort10:morti fronte al mandiblo de
 mort11:morti per acido de
 
 //tuto :
-tuto.0:Bonvenon al Formiko juna formiko!
-tuto.1:Ni kune lernu la bazojn de ĉi tiu ludo, por ke vi amuziĝu.[auto]
-tuto.2:Nia reĝino malsatas, ni movu ĝin unu kvadraton dekstren, por ke ŝi povu ĉasi ĉi tiun predon.[auto]
+tuto.0:bonvenon al Formiko juna formiko!
+tuto.1:ni kune lernu la bazojn de ĉi tiu ludo, por ke vi amuziĝu.[auto]
+tuto.2:nia reĝino malsatas, ni movu ĝin unu kvadraton dekstren, por ke ŝi povu ĉasi ĉi tiun predon.[auto]
 tuto.3:por movi formikon, vi devas dekstre alklaki la kvadraton, kiun vi volas iri.[auto]
 tuto.4:nu! Nun ni manĝu ĝin![auto]
 tuto.5:mortigi insekton alklaku la butonon "Ĉasi la insekton sur la skatolo" situanta ĉe la fundo de via ekrano.[auto]
@@ -451,25 +451,25 @@ tuto.12:demetu ovon per la butono "Kuŝi" ĉe la fundo de via ekrano.[auto]
 tuto.13:la ovo estas demetita. Nun vi devas zorgi pri ĝi, alie ĝi neniam atingos plenaĝecon.[auto]
 tuto.14:ni atendu, ke li kreskos.[auto]
 tuto.15:atendu vicon alklakante la butonon "Transsalti la vicon" ĉe la fundo de via ekrano.[auto]
-tuto.16:Nia ovo kreskis! Ĝi nun estas larvo![auto]
-tuto.17:La larvoj bezonas oftan purigadon por eviti morton pro malsano.[auto]
-tuto.18:Purigu la larvon alklakante la butonon "Purigi" situantan ĉe la fundo de via ekrano.[auto]
-tuto.19:Nia larvo estas pura. Ni atendu, ke ĝi supreniru al la sekva nivelo per pasigado de la vico kun la rilata butono ĉe la fundo de via ekrano.[auto]
-tuto.20:La larvo evoluis, ĝi nun estas nimfo. La nimfoj, kiel la larvoj, devas esti purigitaj kaj manĝigitaj.[auto]
-tuto.21:Por nutri la idaron (ovoj, larvoj kaj krizalidoj), la formikoj vomas manĝaĵon el sia "socia stomako". Ĉi tio nomiĝas tropalakso.[auto]
+tuto.16:nia ovo kreskis! Ĝi nun estas larvo![auto]
+tuto.17:la larvoj bezonas oftan purigadon por eviti morton pro malsano.[auto]
+tuto.18:purigu la larvon alklakante la butonon "Purigi" situantan ĉe la fundo de via ekrano.[auto]
+tuto.19:nia larvo estas pura. Ni atendu, ke ĝi supreniru al la sekva nivelo per pasigado de la vico kun la rilata butono ĉe la fundo de via ekrano.[auto]
+tuto.20:la larvo evoluis, ĝi nun estas nimfo. La nimfoj, kiel la larvoj, devas esti purigitaj kaj manĝigitaj.[auto]
+tuto.21:por nutri la idaron (ovoj, larvoj kaj krizalidoj), la formikoj vomas manĝaĵon el sia "socia stomako". Ĉi tio nomiĝas tropalakso.[auto]
 tuto.22:nutru la larvon per la butono "Trophallaxis" ĉe la fundo de via ekrano.[auto]
-tuto.23:La nimfo plenas! Ni atendu iom pli longe, ke ŝi kresku. (alklaku la butonon "Transsalti la turneon" ĉe la fino de via ekrano.)[auto]
-tuto.24:La formiko finfine atingis la plenkreskan stadion (imago)! Ŝi nun povas plenumi agojn kiel la reĝino.[auto]
-tuto.25:Aliaj insektoj aperos laŭlonge de la tempo. Ni sendu la reĝinon mortigi 1 alklakante la butonon "aŭtomate ĉasi".[auto]
-tuto.26:Aŭtomata ĉasado permesas vin lasi viajn formikojn ĉasi sendepende.[auto]
-tuto.27:Ekzistas ankaŭ aŭtomata vartistina reĝimo. Lasu la reĝinon en la formikejo kun ĉi tiu reĝimo aktivigita kaj rekomendinda kiam estas ovoj, larvoj aŭ nimfoj en la formikejo.[auto]
-tuto.28:Nia specio ne estas manĝema (ne manĝas semon). Tamen iuj najbaraj formikejoj povus kolekti la semojn por manĝi ilin.[auto]
-tuto.29:La laboristo, kiun ni generis, povas plenumi la samajn agojn kiel la reĝino, krom laiko.[auto]
-tuto.30:Laboristoj estas eĉ pli efikaj pri iuj taskoj (kostas al ili malpli da agoj plenumi ilin). Nia laboristo ĉasas pli facile ol la reĝino.[auto]
-tuto.31:Ni donu al nia laboristo taskon kompletigotan por ke la rondo finiĝu. (alklaku unu el la butonoj ĉe la fino de via ekrano, plurfoje se necese.)[auto]
-tuto.32:Ĝi estis la lasta raŭndo de ĉi tiu lernilo, se vi havas dubon, vi povas refari ĉi tiun lernilon.[auto]
-tuto.33:Alie la butonaj priskriboj montriĝas kiam vi ŝvebas super ilin, same por la kestoj sur la mapo. Informoj pri la elektita formiko estas dekstre de via ekrano.[auto]
-tuto.34:Se malgraŭ tio vi ne trovas tion, kion vi bezonas, vi povas peti konsilon ĉe la oficiala malkonkorda servilo de la ludo: http://discord.gg/vqvfGzf[auto]
-tuto.35:Por gajni ludon ĝustatempe, vi devas havi pli altan poentaron ol AI kaj aliaj ludantoj.[auto]
-tuto.36:Via poentaro dependas de via nombro da formikoj, (plenkreskaj formikoj donas pli bonan poentaron), same kiel la malfacilecon de la ludo kaj la rapidecon de la ludo.[auto]
-tuto.37:Por rekomenci ludon, vi devas forlasi la ludon kaj rekomenci ĝin, mi zorgos ĉesi la ludon, dependas de vi rekomenci ĝin.[auto]
+tuto.23:la nimfo plenas! Ni atendu iom pli longe, ke ŝi kresku. (alklaku la butonon "Transsalti la turneon" ĉe la fino de via ekrano.)[auto]
+tuto.24:la formiko finfine atingis la plenkreskan stadion (imago)! Ŝi nun povas plenumi agojn kiel la reĝino.[auto]
+tuto.25:aliaj insektoj aperos laŭlonge de la tempo. Ni sendu la reĝinon mortigi 1 alklakante la butonon "aŭtomate ĉasi".[auto]
+tuto.26:aŭtomata ĉasado permesas vin lasi viajn formikojn ĉasi sendepende.[auto]
+tuto.27:ekzistas ankaŭ aŭtomata vartistina reĝimo. Lasu la reĝinon en la formikejo kun ĉi tiu reĝimo aktivigita kaj rekomendinda kiam estas ovoj, larvoj aŭ nimfoj en la formikejo.[auto]
+tuto.28:nia specio ne estas manĝema (ne manĝas semon). Tamen iuj najbaraj formikejoj povus kolekti la semojn por manĝi ilin.[auto]
+tuto.29:la laboristo, kiun ni generis, povas plenumi la samajn agojn kiel la reĝino, krom laiko.[auto]
+tuto.30:laboristoj estas eĉ pli efikaj pri iuj taskoj (kostas al ili malpli da agoj plenumi ilin). Nia laboristo ĉasas pli facile ol la reĝino.[auto]
+tuto.31:ni donu al nia laboristo taskon kompletigotan por ke la rondo finiĝu. (alklaku unu el la butonoj ĉe la fino de via ekrano, plurfoje se necese.)[auto]
+tuto.32:ĝi estis la lasta raŭndo de ĉi tiu lernilo, se vi havas dubon, vi povas refari ĉi tiun lernilon.[auto]
+tuto.33:alie la butonaj priskriboj montriĝas kiam vi ŝvebas super ilin, same por la kestoj sur la mapo. Informoj pri la elektita formiko estas dekstre de via ekrano.[auto]
+tuto.34:se malgraŭ tio vi ne trovas tion, kion vi bezonas, vi povas peti konsilon ĉe la oficiala malkonkorda servilo de la ludo: http://discord.gg/vqvfGzf[auto]
+tuto.35:por gajni ludon ĝustatempe, vi devas havi pli altan poentaron ol AI kaj aliaj ludantoj.[auto]
+tuto.36:via poentaro dependas de via nombro da formikoj, (plenkreskaj formikoj donas pli bonan poentaron), same kiel la malfacilecon de la ludo kaj la rapidecon de la ludo.[auto]
+tuto.37:por rekomenci ludon, vi devas forlasi la ludon kaj rekomenci ĝin, mi zorgos ĉesi la ludon, dependas de vi rekomenci ĝin.[auto]

@@ -209,7 +209,7 @@ tempsEnJeux:ਕੁੱਲ ਖੇਡਣ ਦਾ ਸਮਾਂ[auto]
 os.0:Linux[]
 os.1:Windows[]
 os.2:Mac[]
-os.-1:OS ਨੂੰ ਪਛਾਣਿਆ ਨਹੀਂ ਗਿਆ[auto]
+os.-1:oS ਨੂੰ ਪਛਾਣਿਆ ਨਹੀਂ ਗਿਆ[auto]
 
 //carte :
 desert:ਮਾਰੂਥਲ[auto]

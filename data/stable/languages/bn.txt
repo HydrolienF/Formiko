@@ -107,7 +107,7 @@ nbrDeJoueur:মানব খেলোয়াড়ের সংখ্যা[au
 nbrDIa:নাম ডি'আইএ[auto]
 nbrDeTour:পালা পরিবর্তন সংখ্যা[auto]
 dimentionCarteX:এক্স কার্ডের মাত্রা[auto]
-dimentionCarteY:Y এর মধ্যে অক্ষরের মাত্রা[auto]
+dimentionCarteY:y এর মধ্যে অক্ষরের মাত্রা[auto]
 erreurCarteVide:কোনও খেলোয়াড় ছাড়া এবং কোনও আইআই ছাড়াই গেম শুরু করা অসম্ভব।[auto]
 maxFourmiIa:আইয়ের জন্য পিঁপড়ার সর্বাধিক সংখ্যা[auto]
 nomDuFichier:ফাইলের নাম[auto]

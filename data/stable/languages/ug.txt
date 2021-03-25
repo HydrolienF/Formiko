@@ -85,7 +85,7 @@ menuP.2:بىر ئويۇننى يۈكلەڭ[auto]
 menuP.3:تاللانما[auto]
 menuP.4:
 menuN.1:يېڭى باشلىنىش[auto]
-menuN.2:Custom Party[auto]
+menuN.2:custom Party[auto]
 menuN.3:بۇ[auto]
 menuN.4:
 
@@ -120,11 +120,11 @@ pseudo:pseudo[auto]
 entrezPseudo:ئىشلەتكۈچى ئىسمىڭىزنى كىرگۈزۈڭ[auto]
 
 nourritureInsecte:ھاشاراتلار ئۈچۈن يېمەكلىك[auto]
-celluleA:Cell a[auto]
+celluleA:cell a[auto]
 lien:ئۇلىنىش[auto]
 ChasseNull:مەخلۇق بىلەن ئوۋلىيالمايدۇ[auto]
 CollecteNull:مەخلۇق بىلەن توپلاشقا ئامالسىز[auto]
-CJoueur.1:CJplayer قويغۇچنى ئۆز ئىچىگە ئالىدۇ[auto]
+CJoueur.1:cJplayer قويغۇچنى ئۆز ئىچىگە ئالىدۇ[auto]
 CJoueur.2:قويغۇچقا 1 ئۇلىنىش[auto]
 
 listeCreature:مەخلۇق تىزىملىكى[auto]
@@ -209,7 +209,7 @@ tempsEnJeux:ئومۇمىي ئويۇن ۋاقتى[auto]
 os.0:Linux[]
 os.1:Windows[]
 os.2:Mac[]
-os.-1:OS ئېتىراپ قىلىنمىدى[auto]
+os.-1:oS ئېتىراپ قىلىنمىدى[auto]
 
 //carte :
 desert:قۇملۇق[auto]
@@ -248,9 +248,9 @@ decoderUnFichier.2:پۈتۈن سان ئەمەس[auto]
 decoderUnFichier.3:بۇ ئاقىلانە ئەمەس[auto]
 decoderUnFichier.4:خاراكتېر[auto]
 
-ent.1:String to int ئۆزگەرتىش مەغلۇب بولدى[auto]
+ent.1:string to int ئۆزگەرتىش مەغلۇب بولدى[auto]
 
-GString.1:GString قۇرۇق[auto]
+GString.1:gString قۇرۇق[auto]
 
 lireUnFichier.1:ھۆججەتتە قۇرلار تېپىلدى[auto]
 
@@ -280,7 +280,7 @@ alerteGUI2Dfail:
 str.1:ئۆزگەرتىشتىن بىرنى ئورۇندىيالمىدى[auto]
 str.2:توغرا[auto]
 
-ElementListeIntrouvableExeption.1:The[auto]
+ElementListeIntrouvableExeption.1:the[auto]
 ElementListeIntrouvableExeption.2:ئۆچۈرگىلى بولمىدى[auto]
 
 ListeVideExeption.1:مۇمكىن ئەمەس[auto]
@@ -313,8 +313,8 @@ bouton.desc.8:چوڭايتىپ بارلىق قۇتىلارنى كۆرگىلى ب
 
 bouton.nom.20:يۆتكەڭ[auto]
 bouton.nom.21:ساندۇقتىكى ھاشاراتنى ئوۋلاڭ[auto]
-bouton.nom.22:Lay[auto]
-bouton.nom.23:Trophallaxer[auto]
+bouton.nom.22:lay[auto]
+bouton.nom.23:trophallaxer[auto]
 bouton.nom.24:ئۆزىڭىزنى تازىلاڭ ياكى ئىتتىپاقداش چۈمۈلىنى تازىلاڭ.[auto]
 bouton.nom.25:ئۇرۇق يېيىش[auto]
 bouton.nom.26:ئۇرۇقنى يېرىڭ[auto]
@@ -327,7 +327,7 @@ bouton.nom.31:تىزىملىك[auto]
 bouton.desc.20:تاللانغان چۈمۈلىنى يۆتكەڭ[auto]
 bouton.desc.21:چۈمۈلە بىلەن ئوخشاش مەيداندىكى ھاشاراتلارنى ئوۋلاڭ[auto]
 bouton.desc.22:تۇخۇم تۇغۇش[auto]
-bouton.desc.23:Trophallaxer (يېمەكلىكنى باشقا چۈمۈلىگە ئېغىز ئارقىلىق يەتكۈزۈڭ)[auto]
+bouton.desc.23:trophallaxer (يېمەكلىكنى باشقا چۈمۈلىگە ئېغىز ئارقىلىق يەتكۈزۈڭ)[auto]
 bouton.desc.24:ھازىرقى مەيداندىكى دوستانە چۈمۈلە (ياكى تاللانغان چۈمۈلە) نى تازىلاڭ.[auto]
 bouton.desc.25:چۈمۈلەدە ساقلانغان ئوچۇق ئۇرۇقنى يەڭ.[auto]
 bouton.desc.26:يېپىق ئۇرۇقنى پارچىلاش.[auto]

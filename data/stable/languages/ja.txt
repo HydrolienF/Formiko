@@ -106,8 +106,8 @@ toutLesJoueurHumainsEliminés:すべての人間のプレイヤーが排除さ�
 nbrDeJoueur:人間のプレーヤーの数[auto]
 nbrDIa:名前d'Ia[auto]
 nbrDeTour:ターン数[auto]
-dimentionCarteX:Xでのカードの寸法[auto]
-dimentionCarteY:Yの文字寸法[auto]
+dimentionCarteX:xでのカードの寸法[auto]
+dimentionCarteY:yの文字寸法[auto]
 erreurCarteVide:プレイヤーやAIなしでゲームを開始することは不可能です。[auto]
 maxFourmiIa:aiのアリの最大数[auto]
 nomDuFichier:ファイル名[auto]
@@ -124,7 +124,7 @@ celluleA:セルa[auto]
 lien:リンク[auto]
 ChasseNull:生き物と一緒に狩ることはできません[auto]
 CollecteNull:クリーチャーと一緒に収集できません[auto]
-CJoueur.1:CJplayerにはプレーヤーが含まれています[auto]
+CJoueur.1:cJplayerにはプレーヤーが含まれています[auto]
 CJoueur.2:プレイヤーへの1つのリンク[auto]
 
 listeCreature:クリーチャーリスト[auto]
@@ -194,7 +194,7 @@ t.j:j[auto]
 t.h:h[auto]
 t.min:分[auto]
 t.s:s[auto]
-t.ms:MS[auto]
+t.ms:mS[auto]
 t.,:
 jour:日[auto]
 heure:時間[auto]
@@ -209,7 +209,7 @@ tempsEnJeux:総演奏時間[auto]
 os.0:Linux[]
 os.1:Windows[]
 os.2:Mac[]
-os.-1:OSが認識されない[auto]
+os.-1:oSが認識されない[auto]
 
 //carte :
 desert:砂漠[auto]
@@ -250,7 +250,7 @@ decoderUnFichier.4:キャラクター[auto]
 
 ent.1:文字列から整数への変換に失敗しました[auto]
 
-GString.1:GStringが空です[auto]
+GString.1:gStringが空です[auto]
 
 lireUnFichier.1:ファイルに行が見つかりました[auto]
 
@@ -327,7 +327,7 @@ bouton.nom.31:メニュー[auto]
 bouton.desc.20:選択したアリを移動します[auto]
 bouton.desc.21:アリと同じ空間にいる昆虫を狩る[auto]
 bouton.desc.22:卵を産む[auto]
-bouton.desc.23:Trophallaxer（口で食べ物を別のアリに渡す）[auto]
+bouton.desc.23:trophallaxer（口で食べ物を別のアリに渡す）[auto]
 bouton.desc.24:現在の正方形の友好的なアリ（または選択したアリ）を掃除します。[auto]
 bouton.desc.25:蟻塚に保管されている開いた種を食べます。[auto]
 bouton.desc.26:閉じた種子を壊します。[auto]
@@ -352,7 +352,7 @@ pauseActionGame:
 unaviable:
 setPlayingAnt:
 
-triche.aide.1:Formikoチートインターフェースへようこそ。ここにチートコマンドを入力できます。[auto]
+triche.aide.1:formikoチートインターフェースへようこそ。ここにチートコマンドを入力できます。[auto]
 triche.aide.2:「名前:(引数）説明」の形式のコマンド[auto]
 
 //commande :
@@ -392,7 +392,7 @@ cmd.args.22:昆虫ID、食品[auto]
 cmd.args.23:プレーヤーID、ユーザー名[auto]
 cmd.args.24:プレーヤーID、ブール値estIa[auto]
 cmd.args.25:int x、int y[auto]
-cmd.args.27:AntまたはInsectまたはSeed、昆虫の場合：x、y、タイプantの場合：id Ant Hillシードの場合：x、y。[auto]
+cmd.args.27:antまたはInsectまたはSeed、昆虫の場合：x、y、タイプantの場合：id Ant Hillシードの場合：x、y。[auto]
 cmd.args.28:クリーチャーID[auto]
 cmd.args.29:文字列キー[auto]
 
@@ -418,7 +418,7 @@ conseil.14:速度は昆虫によって表されます。昆虫が速いほど、
 conseil.15:ゲームはあなたにとって複雑すぎるように見えますか？簡単または非常に簡単な難易度を選択してください。[auto]
 conseil.16:ゲームは簡単すぎるように見えますか？だからウルトラハードゲームに勝つようにしてください。[auto]
 conseil.17:自分で地図を探索したい場合は、曇りボックスのオプションをチェックしてください。[auto]
-conseil.18:AIだけでカスタムゲームを実行してみたことがありますか？[auto]
+conseil.18:aIだけでカスタムゲームを実行してみたことがありますか？[auto]
 conseil.19:ハーブのテクスチャをよく見ると、ハーブのブレードが3つしか含まれていないことに気付くでしょう。[auto]
 conseil.20:アリがいるスペースで掃除または餌を与えるアリが1つしかない場合は、自動的に選択されてワイプまたは餌が与えられます。[auto]
 conseil.21:ゲーム言語は自動的にコンピュータの言語になりますが、オプションで変更できます。[auto]

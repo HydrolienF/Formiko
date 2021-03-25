@@ -106,8 +106,8 @@ toutLesJoueurHumainsEliminés:සියලුම මිනිස් ක්‍ර
 nbrDeJoueur:මිනිස් ක්‍රීඩකයන්ගේ ගණන[auto]
 nbrDIa:නම ඩී[auto]
 nbrDeTour:හැරීම් ගණන[auto]
-dimentionCarteX:X හි කාඩ්පතේ මානය[auto]
-dimentionCarteY:Y හි අකුරු මානය[auto]
+dimentionCarteX:x හි කාඩ්පතේ මානය[auto]
+dimentionCarteY:y හි අකුරු මානය[auto]
 erreurCarteVide:කිසිදු ක්‍රීඩකයෙකු නොමැතිව සහ කිසිදු ක්‍රීඩකයෙකු නොමැතිව ක්‍රීඩාවක් ආරම්භ කළ නොහැක.[auto]
 maxFourmiIa:ai සඳහා උපරිම කුහුඹුවන් සංඛ්‍යාව[auto]
 nomDuFichier:ගොනුවේ නම[auto]
@@ -124,7 +124,7 @@ celluleA:කොටුව a[auto]
 lien:සබැඳිය[auto]
 ChasseNull:සත්වයා සමඟ දඩයම් කළ නොහැක[auto]
 CollecteNull:සත්වයා සමඟ එකතු කිරීමට නොහැකි විය[auto]
-CJoueur.1:CJplayer හි ක්‍රීඩකයා අඩංගු වේ[auto]
+CJoueur.1:cJplayer හි ක්‍රීඩකයා අඩංගු වේ[auto]
 CJoueur.2:සහ ක්‍රීඩකයාට 1 සබැඳිය[auto]
 
 listeCreature:නිර්මාණ ලැයිස්තුව[auto]
@@ -250,7 +250,7 @@ decoderUnFichier.4:චරිතය[auto]
 
 ent.1:නූල් ටු ඉන්ටර් පරිවර්තනය අසාර්ථක විය[auto]
 
-GString.1:GString හිස් ය[auto]
+GString.1:gString හිස් ය[auto]
 
 lireUnFichier.1:ගොනුවේ රේඛා හමු විය[auto]
 

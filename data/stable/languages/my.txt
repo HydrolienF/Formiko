@@ -91,7 +91,7 @@ menuN.4:
 
 quitterJeu:ဂိမ်းထားခဲ့ပါ[auto]
 quitterOuContinuer:သင်ဂိမ်းကိုဆက်လုပ်ချင်ပါသလား?[auto]
-messageQuitter:Formiko မှာမကြာခင်တွေ့မယ်[auto]
+messageQuitter:formiko မှာမကြာခင်တွေ့မယ်[auto]
 validerQuitter:ဆေးလိပ်ဖြတ်ချင်တာသေချာလား[auto]
 quitterToMp:အဓိက menu ကိုပြန်သွားပါ[auto]
 continuerJeu:ဂိမ်းကိုဆက်ပါ[auto]
@@ -106,8 +106,8 @@ toutLesJoueurHumainsEliminés:အားလုံးလူ့ကစားသမ�
 nbrDeJoueur:လူ့ကစားသမားအရေအတွက်[auto]
 nbrDIa:d'Aa နာမည်[auto]
 nbrDeTour:အလှည့်အရေအတွက်[auto]
-dimentionCarteX:X အတွက်ကဒ်၏အတိုင်းအတာ[auto]
-dimentionCarteY:Y ကိုအက္ခရာအတိုင်းအတာ[auto]
+dimentionCarteX:x အတွက်ကဒ်၏အတိုင်းအတာ[auto]
+dimentionCarteY:y ကိုအက္ခရာအတိုင်းအတာ[auto]
 erreurCarteVide:မည်သည့်ကစားသမားမဆိုနှင့် ai မပါဘဲဂိမ်းတစ်ခုစတင်ရန်မဖြစ်နိုင်ပါ။[auto]
 maxFourmiIa:ai များအတွက်ပုရွက်ဆိတ်အများဆုံးအရေအတွက်[auto]
 nomDuFichier:ဖိုင်နာမည်[auto]
@@ -209,7 +209,7 @@ tempsEnJeux:စုစုပေါင်းကစားအချိန်[auto]
 os.0:Linux[]
 os.1:Windows[]
 os.2:Mac[]
-os.-1:OS ကိုအသိအမှတ်မပြုပါ[auto]
+os.-1:oS ကိုအသိအမှတ်မပြုပါ[auto]
 
 //carte :
 desert:သဲကန္တာရ[auto]
@@ -250,7 +250,7 @@ decoderUnFichier.4:ဇာတ်ကောင်[auto]
 
 ent.1:int ပြောင်းလဲမှုရန် String မအောင်မြင်ခဲ့ပါ[auto]
 
-GString.1:GString သည်ဗလာဖြစ်သည်[auto]
+GString.1:gString သည်ဗလာဖြစ်သည်[auto]
 
 lireUnFichier.1:ဖိုင်တွေထဲမှာလိုင်းများကိုတွေ့ရှိခဲ့ကြသည်[auto]
 
@@ -319,7 +319,7 @@ bouton.nom.24:မိမိကိုယ်ကိုသန့်ရှင်းပ
 bouton.nom.25:အမျိုးအနွယ်ကိုစားလော့[auto]
 bouton.nom.26:အမျိုးအနွယ်ကို Crack[auto]
 bouton.nom.27:အမဲ (auto mode)[auto]
-bouton.nom.28:Anthill ရှိအခြားပုရွက်ဆိတ်များ (auto mode) ကိုဂရုစိုက်ပါ။[auto]
+bouton.nom.28:anthill ရှိအခြားပုရွက်ဆိတ်များ (auto mode) ကိုဂရုစိုက်ပါ။[auto]
 bouton.nom.29:ခရီးကိုကျော်လိုက်ပါ[auto]
 bouton.nom.30:ဖယ်ရှားပါ[auto]
 bouton.nom.31:မီနူး[auto]
@@ -327,7 +327,7 @@ bouton.nom.31:မီနူး[auto]
 bouton.desc.20:ရွေးချယ်ထားသောပုရွက်ဆိတ်ကိုရွှေ့ပါ[auto]
 bouton.desc.21:ပုရွက်ဆိတ်နှင့်အတူတူပင်စတုရန်းပေါ်ရှိအင်းဆက်ပိုးမွှားကိုလိုက်ရှာ[auto]
 bouton.desc.22:ဥတစ်ခုချထားပါ[auto]
-bouton.desc.23:Trophallaxer (ပါးစပ်ဖြင့်အခြားပုရွက်ဆိတ်တစ်ကောင်အားအစားအစာများပို့ပေးပါ)[auto]
+bouton.desc.23:trophallaxer (ပါးစပ်ဖြင့်အခြားပုရွက်ဆိတ်တစ်ကောင်အားအစားအစာများပို့ပေးပါ)[auto]
 bouton.desc.24:လက်ရှိရင်ပြင်ပေါ်တွင်ဖော်ရွေပုရွက်ဆိတ် (သို့မဟုတ်ရွေးချယ်ထားသောပုရွက်ဆိတ်) ကိုသန့်ရှင်းပါ။[auto]
 bouton.desc.25:ပုရွက်ဆိတ်တွေထဲမှာသိမ်းထားတဲ့ပွင့်လင်းတဲ့မျိုးစေ့ကိုစားပါ။[auto]
 bouton.desc.26:တံခါးပိတ်အမျိုးအနွယ်ကိုချိုး။[auto]
@@ -335,7 +335,7 @@ bouton.desc.27:အလိုအလျောက် "Hunting" mode ကိုအစ�
 bouton.desc.28:အလိုအလျောက် "ထိန်း" mode ကိုဖွင့်ပါ[auto]
 bouton.desc.29:ပုရွက်ဆိတ်တစ်ဝိုက်ဖြတ်သွား[auto]
 bouton.desc.30:ပုရွက်ဆိတ်ကိုဖယ်ရှားလိုက်ပါ[auto]
-bouton.desc.31:In-game options menu ကိုဖွင့်ပါ[auto]
+bouton.desc.31:in-game options menu ကိုဖွင့်ပါ[auto]
 
 pti.desc.1:အစားအစာကိုလက်ခံရရှိမည့်ပုရွက်ဆိတ်၏အိုင်ဒီကိုဖော်ပြပါ။[auto]
 pti.desc.2:ကမ်းလှမ်းသည့်အစားအစာပမာဏကိုဖော်ပြပါ။[auto]
@@ -394,7 +394,7 @@ cmd.args.24:ကစားသမားအိုင်ဒီ, Boolean estIa[auto]
 cmd.args.25:int x, int က y[auto]
 cmd.args.27:ပုရွက်ဆိတ်သို့မဟုတ်အင်းဆက်သို့မဟုတ်မျိုးစေ့၊ အင်းဆက်ပိုး၊ x၊ y၊ If ပုရွက်ဆိတ်: id ပုရွက်ဆိတ်တောင်ဟုခေါ်လျှင်မျိုးစေ့ - x၊ y ။[auto]
 cmd.args.28:သတ္တဝါအိုင်ဒီ[auto]
-cmd.args.29:String သော့[auto]
+cmd.args.29:string သော့[auto]
 
 
 descNull:ဒီ command ၏ဖော်ပြချက်ကိုသတ်မှတ်မပေးပါ။[auto]
@@ -435,7 +435,7 @@ mort10:၏ mandible ရင်ဆိုင်နေရသေဆုံးခဲ့
 mort11:အားဖြင့်အက်ဆစ်နှင့်အတူပက်ဖြန်းခဲ့သည်[auto]
 
 //tuto :
-tuto.0:Formiko လူငယ်ပုရွက်ဆိတ်မှကြိုဆိုပါသည်။[auto]
+tuto.0:formiko လူငယ်ပုရွက်ဆိတ်မှကြိုဆိုပါသည်။[auto]
 tuto.1:ဒီဂိမ်းရဲ့အခြေခံတွေကိုအတူတူလေ့လာကြည့်ရအောင်။[auto]
 tuto.2:ကျွန်ုပ်တို့၏မိဖုရားသည်ဆာလောင်မွတ်သိပ်နေပြီး၊ ဤသားကောင်ကိုလိုက်ရှာနိုင်အောင်ညာဘက်သို့စတုရန်းတစ်ခုကိုရွှေ့လိုက်ကြစို့။[auto]
 tuto.3:ပုရွက်ဆိတ်တစ်ကောင်ကိုရွှေ့ရန်သင်သွားလိုသောစတုရန်းပေါ်တွင်ညာဖက်နှိပ်ရမည်။[auto]
