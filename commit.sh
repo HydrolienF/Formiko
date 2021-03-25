@@ -15,8 +15,9 @@ else
   v3=0
 fi
 echo $v1.$v2.$v3 > version.md
-mvn versions:set -DnewVersion=$v1.$v2.$v3 -q
+# mvn versions:set -DnewVersion=$v1.$v2.$v3 -q
 git add version.md
+echo "commit for "$v1.$v2.$v3
 message=""
 messageNull=""
 for param in "$*"; do
