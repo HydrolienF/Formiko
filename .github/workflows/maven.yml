@@ -19,7 +19,7 @@ jobs:
       with:
         java-version: 15
     - name: Build with Maven
-      run: mvn compile -c
+      run: mvn compile -c --no-transfer-progress
     - name: exe.sh
       run: ./exe.sh
     - name: version
