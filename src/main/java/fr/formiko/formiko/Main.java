@@ -1,9 +1,6 @@
 package fr.formiko.formiko;
 
 import fr.formiko.usuel.*;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.*;
 import fr.formiko.usuel.listes.*;
 import fr.formiko.usuel.maths.math;
@@ -26,17 +23,12 @@ import java.util.HashMap;
 */
 
 /*
-Commencer par {@summary Phrase qui résume bien la class}
 Les descriptions sont de la forme si dessu avec la premiere phrase décris la class ou la fonction ou meme la variable.
 phrase courte.
 utiliser "it" ou "elle" pour expliquer le fonctionnement d'une class ou méthode.(Ou juste la 3a personne du sigulier "Return true if...")
 détailler le focntionnement des méthodes.
 penser a indiquer @param et @return sauf si il n'y en a pas.
 on peu utiliser des balistes html dans les commentaires. La plus utile étant <br>
-
-Mettre l'auteur Hydrolien au début de la class si j'ai tout fait, sinon 1 auteur par fonction.
-Mettre param puis version a la fin.
-
 */
 
 public class Main {
@@ -76,6 +68,8 @@ public class Main {
   private static Data data;
   private static View view;
 
+  private static boolean modeCLI=false;
+
   /**
    * {@summary Lauch the game.}<br>
    * It can have some args to do special thing.<br>
@@ -84,28 +78,20 @@ public class Main {
    * op save the Options.txt file<br>
    * Others args are not fuly usable for now.<br>
    * @param args[] It can contain -d, trad, son, op, test, supprimer
-   * @version 1.7
+   * @version 1.39
    */
   public static void main (String [] args){
-    //trad.copieTrads();quitter();
     debug.setAffLesEtapesDeRésolution(false);
     debug.setAffLesPerformances(false);
     debug.setAffG(false);
-    //menuPrincipal();
-    while(args.length > 0 && args[0].substring(0,1).equals("-")){//si il y a des options a "-"
-      if(args[0].equals("-d")){
-        debug.setAffLesEtapesDeRésolution(true);
-      }else if(args[0].equals("-p")){
-        debug.setAffLesPerformances(true);
-      }else if(args[0].equals("-g")){
-        debug.setAffG(true);
-      }else if(args[0].equals("-reload--graphics") || args[0].equals("-rg")){
-        initialisation();
-        getOp().setGarderLesGraphismesTourné(false);
+    int k=0;
+    while(args.length > k){//si il y a des options a "-"
+      if(args[k].length()>1 && args[k].substring(0,1).equals("-")){
+        launchOptions(args[k].substring(1));
+        args = tableau.retirer(args, k);
       }else{
-        erreur.alerte("une options dans la ligne de commande n'as pas été reconnue");
+        k++;
       }
-      args = tableau.retirer(args, 0);
     }
     if(args.length>0){
       if(args[0].equals("trad")){
@@ -214,16 +200,13 @@ public class Main {
   public static boolean launch(){
     iniLaunch();
     //===
+    if (modeCLI) {
+      view = new ViewCLI();
+      view.ini();
+      view.menuMain();
+      quitter();
+    }
     startCh();
-    //start of test part
-    // /*
-    erreur.alerte("le jeu est en test.");
-    view = new ViewCLI();
-    view.ini();
-    view.menuMain();
-    quitter();
-    // */
-    //end of test part
     f = new Fenetre();
     try {
       trich.start(); //TODO move in ViewGUI.
@@ -686,6 +669,42 @@ public class Main {
       }catch (Exception e) {
         name=null;
       }
+    }
+  }
+  /**
+  *{@summary Launch a -options.}<br>
+  *-options affect game but launch it, when non "-" options never launch game.<br>
+  *Here is the list of the aviable -options.<br>
+  *<ul>
+  *<li>-d Print all the debugs infos.
+  *<li>-p Print performances info for long action.
+  *<li>-g Print the graphics debugs infos.
+  *<li>-rg Reload all the graphics saved in data/temporary/images.
+  *<li>-cli Launch game but in Console Line Interface.
+  *</ul>
+  *@version 1.39
+  */
+  private static void launchOptions(String stringOptions){
+    switch(stringOptions){
+      case "d":
+      debug.setAffLesEtapesDeRésolution(true);
+      break;
+      case "p":
+      debug.setAffLesPerformances(true);
+      break;
+      case "g":
+      debug.setAffG(true);
+      break;
+      case "rg":
+      case "reload--graphics":
+      initialisation();
+      getOp().setGarderLesGraphismesTourné(false);
+      break;
+      case "cli":
+      modeCLI=true;
+      break;
+      default:
+      erreur.alerte("Unknow cli options : "+stringOptions);
     }
   }
 }
