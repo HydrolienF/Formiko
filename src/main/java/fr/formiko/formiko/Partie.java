@@ -18,7 +18,13 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+*{@summary All informations about a Game in the Game Formiko.}<br>
+*There is no word for "a game in the Game Formiko" in english so I use the french word Partie.<br>
+*All map value are in Carte var.<br>
+*@author Hydrolien
+*@version 1.39
+*/
 public class Partie implements Serializable{
   private static final long serialVersionUID = 1L;
   private GInsecte gi;
@@ -101,6 +107,8 @@ public class Partie implements Serializable{
   public void setAppartionInsecte(boolean b){appartionInsecte=b;}
   public boolean getAppartionGraine(){return appartionGraine;}
   public void setAppartionGraine(boolean b){appartionGraine=b;}
+  public Fourmi getPlayingAnt(){return playingAnt;}
+  public Joueur getPlayingJoueur(){try{return getPlayingAnt().getFere().getJoueur();}catch (Exception e) {return null;}}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
     String r="";
@@ -260,7 +268,7 @@ public class Partie implements Serializable{
     }
   }
   public void initialiserGraphismePartie(){
-    initialiserFX(gj.length());
+    initalizeAntsImages(gj.length());
     Main.initialiserElémentTournés(); //une partie des graphismes tourné est probablement déja faite.
   }
   /**
@@ -268,7 +276,7 @@ public class Partie implements Serializable{
   *It use GJoueur informations to get Pheromone of every queen & create an image that have the 3 color level of the 3 var of Pheromone.
   *@version 1.39
   */
-  public void initialiserFX(int nbrDeJoueur){
+  public void initalizeAntsImages(int nbrDeJoueur){
     //nouvelle méthode
     Pixel pi = new Pixel(255,105,0,255);
     for (int i=1;i<nbrDeJoueur+1 ;i++ ) {
@@ -366,6 +374,4 @@ public class Partie implements Serializable{
       return false;
     }
   }
-  public Fourmi getPlayingAnt(){return playingAnt;}
-  public Joueur getPlayingJoueur(){try{return getPlayingAnt().getFere().getJoueur();}catch (Exception e) {return null;}}
 }
