@@ -362,8 +362,15 @@ public class ViewCLI implements View {
     if (!actionGameOn) {return -1;}
     String ts [] = new String[16];
     for (int i=0;i<12 ;i++ ) {
-      ts[i]=g.get("bouton.desc."+(20+i));
+      ts[i]="";
+      if(!tableau.estDansT(t,i) && Main.getOs().isLinux()){
+        ts[i]+=color.NEUTRAL_CROSS_OUT;
+      }
+      ts[i]+=g.get("bouton.desc."+(20+i));
       if(!tableau.estDansT(t,i)){
+        if (Main.getOs().isLinux()) {
+          ts[i]+=color.NEUTRAL;
+        }
         ts[i]+=" ("+g.get("unaviable")+")";
       }
     }

@@ -31,4 +31,6 @@ public class color {
   public static String PURPLE_BACKGROUND = (char)27+"[7;35m";
 
   public static String GREEN_FLASH = (char)27+"[5;32m";
+
+  public static String NEUTRAL_CROSS_OUT = (char)27+"[9;3m";
 }
