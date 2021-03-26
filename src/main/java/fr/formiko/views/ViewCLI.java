@@ -238,7 +238,7 @@ public class ViewCLI implements View {
     // actionGameOn=false;
     // menuName="menuO";
     // //tToPrint=sauvegarderUnePartie.listOptions();
-    // tToPrint = new String[0]; //TODO replace by a real choice.
+    // tToPrint = new String[0]; //to replace by a real choice.
     // if(tToPrint.length==0){return false;}
     // paint();
     // int choice = getActionMenu(tToPrint.length);
@@ -343,14 +343,10 @@ public class ViewCLI implements View {
   *@version 1.39
   */
   public CCase getCCase(){
-    CCase cc = null;
+    System.out.println(sep);
+    System.out.println("Were ? (enter coordinate as G12)");//TODO translate
     String s = scannerAnswer.nextLine();
-    //TODO à finir
-    //split number part & char part.
-    //x = number
-    //y = str.sToInt(char).
-    //cc = Main.getGc().getCCase(x,y);
-    return cc;
+    return getCCaseFromString(s);
   }
   /**
   *{@summary Return the chosen value for ant action.}<br>
@@ -531,5 +527,38 @@ public class ViewCLI implements View {
       saveName = str.sToFileName(input);
     }
     return saveName;
+  }
+  /**
+  *{@summary transforme a String to a CCase and return it.}<br>
+  *@version 1.39
+  */
+  //public only for test
+  public CCase getCCaseFromString(String s){
+    s = s.toLowerCase();
+    String numbers="";
+    String letters="";
+    int len = s.length();
+    for (int i=0; i<len;i++) {
+      char c = s.charAt(i);
+      if(c>47 && c<58){
+        numbers+=c;
+      }else if(c>96 && c<123){
+        letters+=c;
+      }
+    }
+    if(numbers.equals("") || letters.equals("")){
+      erreur.alerte(g.getM("caseNonReconnue"));//TODO translate
+      return null;
+    }
+    if(letters.length()>1){
+      erreur.erreurPasEncoreImplemente("ViewCLI.getCCase");
+    }
+    int x = str.sToI(numbers);
+    int y = letters.charAt(0)-97;
+    CCase cc = Main.getGc().getCCase(x,y);
+    if(cc==null){
+      erreur.alerte("theCaseDoNotExist","ViewCLI.getCCaseFromString");//TODO to translate
+    }
+    return cc;
   }
 }
