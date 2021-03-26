@@ -55,7 +55,7 @@ public class Pixel {
   *@version 1.39
   */
   public Pixel(Pheromone ph){
-    this(ph.getR(),ph.getV(),ph.getB());
+    this((byte)ph.getR(),(byte)ph.getV(),(byte)ph.getB(),(byte)127);
   }
   // GET SET -------------------------------------------------------------------
   public byte getR(){return r;}

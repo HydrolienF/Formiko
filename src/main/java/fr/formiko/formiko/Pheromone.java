@@ -117,7 +117,7 @@ public class Pheromone implements Serializable{
     try {
       ph=new Pheromone(s);
     }catch (Exception e) {
-      erreur.erreur("Le code "+s+" n'as pas pu être changer en Pheromone","Pheromone.sToPh","Pheromone est choisi aléatoirement.");
+      erreur.alerte("Le code "+s+" n'as pas pu être changer en Pheromone","Pheromone.sToPh","Pheromone est choisi aléatoirement.");
       ph = new Pheromone();
     }
     return ph;

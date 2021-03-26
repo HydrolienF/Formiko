@@ -263,7 +263,11 @@ public class Partie implements Serializable{
     initialiserFX(gj.length());
     Main.initialiserElémentTournés(); //une partie des graphismes tourné est probablement déja faite.
   }
-
+  /**
+  *{@summary Initialize Ant images and save it.}<br>
+  *It use GJoueur informations to get Pheromone of every queen & create an image that have the 3 color level of the 3 var of Pheromone.
+  *@version 1.39
+  */
   public void initialiserFX(int nbrDeJoueur){
     //nouvelle méthode
     Pixel pi = new Pixel(255,105,0,255);
@@ -277,10 +281,10 @@ public class Partie implements Serializable{
       }
       int a = ph.getRc(); int b=ph.getVc(); int c=ph.getBc();
       Img imgTemp = new Img("F.png");
-      Pixel pi2 = new Pixel(a,b,c,255);
+      Pixel pi2 = new Pixel(ph);
       imgTemp.changerPixel(pi,pi2);
       //imgTemp.ombrer(pi2); // met de l'ombre sur le pixel pi2. (en théorie)
-      imgTemp.sauvegarde("temporaire/F"+i+".png");
+      imgTemp.sauvegarder("F"+i+".png");
     }
   }
   public void enregistrerLesScores(){

@@ -250,8 +250,8 @@ public class str{
   *@version 1.1
   */
   public static byte iToBy(int x){
-    if(x>127){ x=127;erreurConversion("int To byte",x+"");}
-    if(x<-128){ x=-128;erreurConversion("int To byte",x+"");}
+    if(x>127){ erreurConversion("int To byte",x+"");x=127;}
+    if(x<-128){ erreurConversion("int To byte",x+"");x=-128;}
     return (byte) x;
   }
   /**
