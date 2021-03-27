@@ -3,6 +3,7 @@ package fr.formiko.usuel.images;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.Point;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
 import java.awt.Color;
@@ -62,7 +63,7 @@ public class PixelTest extends TestCaseMuet{
     assertTrue(p.equals(p));
     assertTrue(!p.equals(null));
     assertTrue(!p.equals(p3));
-    assertTrue(!p.equals(new Integer("1")));
+    assertTrue(!p.equals(new Point(1,1)));
     p3 = new Pixel(0,0,256);
     assertTrue(!p.equals(p3));
   }

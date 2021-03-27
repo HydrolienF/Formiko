@@ -16,6 +16,7 @@ import java.util.Map;
 public class trad {
   private static String sep = ":";
   // Fonctions propre -----------------------------------------------------------
+  @SuppressWarnings("unchecked")
   public static void copieTrads(){
     String tLangue[] = chargerLesTraductions.getTLangue();
     int lentl = tLangue.length;
