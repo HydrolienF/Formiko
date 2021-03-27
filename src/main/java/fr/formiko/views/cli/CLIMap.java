@@ -38,7 +38,8 @@ public class CLIMap{
   public CLIMap(GCase gc){
     this.gc=gc;
   }
-
+  // GET SET -------------------------------------------------------------------
+  public Case getLookedCase(){return lookedCase;}
   public void setLookedCase(Case c){lookedCase=c;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
@@ -55,6 +56,9 @@ public class CLIMap{
       xi = 0; legend = new GString();
       sr+=mapToMapString();
       sr+=legendToString();
+      if(getLookedCase()!=null){
+        sr+="\n"+g.getM("lookedCase")+" : "+getLookedCase().toString();//TODO translate
+      }
     }
     return sr;
   }

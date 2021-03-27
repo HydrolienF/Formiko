@@ -333,7 +333,8 @@ public class ViewCLI implements View {
     if (!actionGameOn || cLIMap==null) {return false;}
     if (cc == null) {cLIMap.setLookedCase(null);}
     cLIMap.setLookedCase(cc.getContenu());
-    return false;
+    System.out.println("lokked case set");//@a
+    return true;
   }
   /**
   *{@summary get a CCase from the payer.}<br>
@@ -356,7 +357,7 @@ public class ViewCLI implements View {
   */
   public int getAntChoice(int t[]){
     if (!actionGameOn) {return -1;}
-    String ts [] = new String[16];
+    String ts [] = new String[17];
     for (int i=0;i<12 ;i++ ) {
       ts[i]="";
       if(!tableau.estDansT(t,i) && Main.getOs().isLinux()){
@@ -374,13 +375,15 @@ public class ViewCLI implements View {
     ts[13]=g.getM("endTurn");
     ts[14]=g.getM("endGame");
     ts[15]=g.getM("pauseGame"); //TODO to translate
+    ts[16]=g.getM("setLookedCase"); //TODO to translate
     tToPrint = ts;
     int choice = -1;
     do {
       paint();
       choice = getActionMenu(tToPrint.length)-1;
       if(choice==15){pauseActionGame();tToPrint=ts;}
-    } while ((choice <12 || choice==15) && !tableau.estDansT(t,choice));
+      if(choice==16){setLookedCase(getCCase());tToPrint=ts;}
+    } while ((choice <12 || choice>14) && !tableau.estDansT(t,choice));
     if(choice==12){Main.getPartie().setPlayingAnt(getAntFromFere());}
     return choice;
   }
@@ -442,7 +445,9 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   private void printMap(){
-    cLIMap = new CLIMap(Main.getPartie().getGc());
+    if(cLIMap==null){
+      cLIMap = new CLIMap(Main.getPartie().getGc());
+    }
     System.out.println(cLIMap);
   }
   /**
