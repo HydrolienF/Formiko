@@ -530,6 +530,9 @@ public class ViewCLI implements View {
   }
   /**
   *{@summary transforme a String to a CCase and return it.}<br>
+  *This action can only be run if action game is on.<br>
+  *@param s String like this: "b13", "2c"<br>
+  *@return Selected CCase or null if it fail.
   *@version 1.39
   */
   //public only for test
@@ -550,11 +553,16 @@ public class ViewCLI implements View {
       erreur.alerte(g.getM("caseNonReconnue"));//TODO translate
       return null;
     }
-    if(letters.length()>1){
+    int y = 0;
+    if(letters.length()>2){
       erreur.erreurPasEncoreImplemente("ViewCLI.getCCase");
+      return null;
+    }else if (letters.length()==2) {
+      y = (letters.charAt(0)-96)*26 + letters.charAt(1)-97;
+    }else{
+      y = letters.charAt(0)-97;
     }
     int x = str.sToI(numbers);
-    int y = letters.charAt(0)-97;
     CCase cc = Main.getGc().getCCase(x,y);
     if(cc==null){
       erreur.alerte("theCaseDoNotExist","ViewCLI.getCCaseFromString");//TODO to translate
