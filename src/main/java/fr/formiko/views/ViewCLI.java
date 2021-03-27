@@ -331,9 +331,8 @@ public class ViewCLI implements View {
   */
   public boolean setLookedCase(CCase cc){
     if (!actionGameOn || cLIMap==null) {return false;}
-    if (cc == null) {cLIMap.setLookedCase(null);}
+    if (cc == null) {cLIMap.setLookedCase(null);return true;}
     cLIMap.setLookedCase(cc.getContenu());
-    System.out.println("lokked case set");//@a
     return true;
   }
   /**
