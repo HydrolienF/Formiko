@@ -41,7 +41,9 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   public void setCCase(CCase p){
     this.p.getContenu().getGg().retirer(this);
     this.p = p;
-    p.getContenu().getGg().ajouter(this);
+    if(p!=null){
+      p.getContenu().getGg().ajouter(this);
+    }
   }
   public byte getType(){ return type;}
   public byte getTempsAvantDecomposition(){ return tempsAvantDecomposition;}

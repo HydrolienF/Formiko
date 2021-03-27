@@ -7,7 +7,11 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.allea;
 
 import java.io.Serializable;
-
+/**
+*{@summary Square objects use to represent the map.}<br>
+*@version 1.39
+*@author Hydrolien
+*/
 public class Case implements Serializable{
   private Point p;
   private byte type; //0 = herbe ...
