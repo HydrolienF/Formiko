@@ -1,3 +1,4 @@
+#version.md have 1 line that look like this "1.39.19"
 version=$(cat version.md)
 v1=${version:0:1}
 v2=${version:2:2}
@@ -18,13 +19,14 @@ echo $v1.$v2.$v3 > version.md
 # mvn versions:set -DnewVersion=$v1.$v2.$v3 -q
 git add version.md
 echo "commit for "$v1.$v2.$v3
-message=""
-messageNull=""
-for param in "$*"; do
-  message+=" "$param
-done
-if ! [ $message != $messageNull ]; then
-  git commit -m $message
-else
-  git commit
-fi
+git commit
+# message=""
+# messageNull=""
+# for param in "$*"; do
+#   message+=" "$param
+# done
+# if ! [ $message != $messageNull ]; then
+#   git commit -m $message
+# else
+#   git commit
+# fi

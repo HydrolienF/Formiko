@@ -1,7 +1,7 @@
 comment %    cl-pu-po-pr-sh-ln   name of the file
-100% (13/13) 1  12 0  0  1  118  views/ViewNull.java
-100% (1/1)   1  0  0  0  1  94   views/View.java
-100% (21/21) 1  13 0  7  1  498  views/ViewCLI.java
+100% (14/14) 1  13 0  0  1  126  views/ViewNull.java
+100% (1/1)   1  0  0  0  1  100  views/View.java
+100% (23/23) 1  14 0  8  1  572  views/ViewCLI.java
 0%   (0/6)   1  5  0  0  6  63   views/gui2d/CEtiquetteJoueur.java
 0%   (0/8)   1  7  0  0  4  67   views/gui2d/GEtiquetteJoueur.java
 0%   (0/2)   1  1  0  0  0  26   views/gui2d/PanneauLanceurPartie.java
@@ -58,11 +58,11 @@ comment %    cl-pu-po-pr-sh-ln   name of the file
 100% (1/1)   1  0  0  0  0  20   formiko/interfaces/Collecte.java
 100% (1/1)   1  0  0  0  0  21   formiko/interfaces/Deplacement.java
 100% (3/3)   1  2  0  0  1  49   formiko/interfaces/TourCreatureSansAction.java
-100% (11/11) 1  4  0  6  0  179  formiko/interfaces/DeplacementFourmi.java
+100% (11/11) 1  4  0  6  0  181  formiko/interfaces/DeplacementFourmi.java
 100% (2/2)   1  1  0  0  0  24   formiko/interfaces/EvoluerNull.java
 100% (4/4)   1  2  0  1  0  61   formiko/interfaces/MourirFourmi.java
 100% (1/1)   1  0  0  0  0  18   formiko/interfaces/Netoyer.java
-33%  (2/6)   1  3  0  2  0  205  formiko/interfaces/TourFourmiNonIa.java
+33%  (2/6)   1  3  0  2  0  204  formiko/interfaces/TourFourmiNonIa.java
 100% (1/1)   1  0  0  0  0  19   formiko/interfaces/Trophallaxie.java
 100% (3/3)   1  2  0  0  0  31   formiko/interfaces/CollecteNull.java
 100% (2/2)   1  1  0  0  0  62   formiko/interfaces/EvoluerFourmi.java
@@ -81,10 +81,10 @@ comment %    cl-pu-po-pr-sh-ln   name of the file
 0%   (0/14)  1  13 0  0  4  116  formiko/CInsecte.java
 20%  (1/5)   1  4  0  0  3  40   formiko/IEspece.java
 0%   (0/16)  1  15 0  0  20 152  formiko/Joueur.java
-93%  (15/16) 1  15 0  0  67 305  formiko/Creature.java
-38%  (8/21)  1  19 0  1  36 367  formiko/Partie.java
+93%  (15/16) 1  15 0  0  67 307  formiko/Creature.java
+47%  (10/21) 1  19 0  1  36 377  formiko/Partie.java
 0%   (0/16)  1  15 0  0  6  138  formiko/GCase.java
-10%  (1/10)  1  9  0  0  9  81   formiko/Graine.java
+10%  (1/10)  1  9  0  0  9  83   formiko/Graine.java
 0%   (0/13)  1  12 0  0  0  391  formiko/triche.java
 0%   (0/6)   1  5  0  0  4  49   formiko/CIndividu.java
 0%   (0/8)   1  7  0  0  4  77   formiko/GIndividu.java
@@ -95,12 +95,12 @@ comment %    cl-pu-po-pr-sh-ln   name of the file
 100% (2/2)   1  1  0  0  2  60   formiko/Touches.java
 11%  (2/18)  1  17 0  0  10 125  formiko/Pheromone.java
 7%   (1/14)  1  13 0  0  7  133  formiko/GGraine.java
-8%   (1/12)  1  11 0  0  25 124  formiko/Case.java
+16%  (2/12)  1  11 0  0  25 128  formiko/Case.java
 0%   (0/22)  1  21 0  0  3  172  formiko/GInsecte.java
 8%   (1/12)  1  11 0  0  4  127  formiko/CGraine.java
 0%   (0/1)   1  0  0  0  0  25   formiko/Personalite.java
 9%   (2/22)  1  21 0  0  13 299  formiko/CCase.java
-95%  (19/20) 1  19 0  0  115 691  formiko/Main.java
+95%  (20/21) 1  19 0  1  114 710  formiko/Main.java
 20%  (11/53) 2  46 0  5  10 401  formiko/GCreature.java
 21%  (7/33)  2  31 0  0  7  364  formiko/CCreature.java
 33%  (4/12)  1  11 0  0  24 173  formiko/Fourmiliere.java
@@ -134,15 +134,14 @@ comment %    cl-pu-po-pr-sh-ln   name of the file
 0%   (0/3)   1  2  0  0  0  27   usuel/ThImage.java
 100% (5/5)   1  4  0  0  5  99   usuel/sauvegarderUnePartie.java
 0%   (0/5)   1  4  0  0  11 36   usuel/debug.java
-0%   (0/5)   1  4  0  0  0  83   usuel/outils/trad.java
 0%   (0/4)   1  3  0  0  0  41   usuel/ascii.java
-0%   (0/1)   1  0  0  0  0  26   usuel/color.java
+100% (1/1)   1  0  0  0  0  36   usuel/color.java
 100% (8/8)   1  7  0  0  4  122  usuel/g.java
 100% (6/6)   1  2  0  3  28 179  usuel/Folder.java
 100% (2/2)   1  1  0  0  0  34   usuel/diff.java
 100% (2/2)   1  1  0  0  1  18   usuel/exceptions/NullItemException.java
-0%   (0/2)   1  1  0  0  1  11   usuel/exceptions/EmptyListException.java
-0%   (0/2)   1  1  0  0  0  7    usuel/exceptions/ClassTypeException.java
+100% (2/2)   1  1  0  0  2  27   usuel/exceptions/EmptyListException.java
+100% (2/2)   1  1  0  0  1  18   usuel/exceptions/ClassTypeException.java
 100% (3/3)   1  2  0  0  1  29   usuel/exceptions/ListItemNotFoundException.java
 75%  (9/12)  1  11 0  0  14 239  usuel/Temps.java
 100% (3/3)   1  2  0  0  2  69   usuel/Save.java
@@ -162,9 +161,10 @@ comment %    cl-pu-po-pr-sh-ln   name of the file
 0%   (0/3)   1  2  0  0  0  65   usuel/lireUnFichier.java
 25%  (15/60) 1  54 0  5  8  659  usuel/tableau.java
 0%   (0/5)   1  3  0  1  0  61   usuel/ThTrad.java
-4%   (1/24)  1  21 0  2  5  142  usuel/erreur.java
+0%   (0/5)   1  4  0  0  0  84   usuel/trad.java
+4%   (1/24)  1  21 0  2  5  155  usuel/erreur.java
 0%   (0/12)  1  10 0  1  0  89   usuel/read.java
-94%  (18/19) 1  18 0  0  9  317  usuel/chargerLesTraductions.java
+100% (19/19) 1  18 0  0  9  326  usuel/chargerLesTraductions.java
 0%   (0/5)   1  3  0  1  0  59   usuel/modificationDeFichier.java
 100% (8/8)   1  6  0  1  10 103  usuel/images/Pixel.java
 72%  (29/40) 1  39 0  0  36 681  usuel/images/Img.java
@@ -173,4 +173,4 @@ comment %    cl-pu-po-pr-sh-ln   name of the file
 0%   (0/3)   1  2  0  0  0  76   usuel/ecrireUnFichier.java
 100% (2/2)   1  1  0  0  2  22   usuel/clear.java
 0%   (0/4)   2  2  0  0  0  40   usuel/ListeFontes.java
-35,9%(538/1495) 187 1248 2 58 1018  20120 global
+36,7%(551/1499) 187 1250 2 60 1019  20306 global
