@@ -273,7 +273,7 @@ public class Partie implements Serializable{
   }
   /**
   *{@summary Initialize Ant images and save it.}<br>
-  *It use GJoueur informations to get Pheromone of every queen & create an image that have the 3 color level of the 3 var of Pheromone.
+  *It use GJoueur informations to get Pheromone of every queen &#38; create an image that have the 3 color level of the 3 var of Pheromone.
   *@version 1.39
   */
   public void initalizeAntsImages(int nbrDeJoueur){

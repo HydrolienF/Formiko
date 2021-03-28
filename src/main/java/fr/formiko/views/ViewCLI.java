@@ -234,7 +234,7 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean menuOptions(){
-    erreur.info(g.getM("optionsCanBeEditedIn")+" data/Options.md.","ViewCLI.menuOptions");//TODO translate
+    erreur.info(g.getM("optionsCanBeEditedIn")+" data/Options.md.","ViewCLI.menuOptions");
     // actionGameOn=false;
     // menuName="menuO";
     // //tToPrint=sauvegarderUnePartie.listOptions();
@@ -300,7 +300,7 @@ public class ViewCLI implements View {
       switch (choice) {
         case 1 :
         sauvegarderUnePartie.sauvegarder(Main.getPartie(),getSaveName()+".save");
-        System.out.println("saveDone"); //TODO to translate
+        System.out.println("saveDone");
         return 1;
         case 2 :
         menuOptions();
@@ -344,7 +344,7 @@ public class ViewCLI implements View {
   */
   public CCase getCCase(){
     System.out.println(sep);
-    System.out.println("Were ? (enter coordinate as G12)");//TODO translate
+    System.out.println(g.getM("were")+" ? ("+g.get("enterCoordinateAs")+" G12)");
     String s = scannerAnswer.nextLine();
     return getCCaseFromString(s);
   }
@@ -373,8 +373,8 @@ public class ViewCLI implements View {
     ts[12]=g.getM("setPlayingAnt");
     ts[13]=g.getM("endTurn");
     ts[14]=g.getM("endGame");
-    ts[15]=g.getM("pauseGame"); //TODO to translate
-    ts[16]=g.getM("setLookedCase"); //TODO to translate
+    ts[15]=g.getM("pauseActionGame");
+    ts[16]=g.getM("set")+" "+g.get("la")+" "+g.get("lookedCase");
     tToPrint = ts;
     int choice = -1;
     do {
@@ -524,8 +524,8 @@ public class ViewCLI implements View {
     saveName = str.sToFileName(saveName);//le pseudo pourrai contenir des char interdits sur des fichiers.
     String t [] = new String[2];
     System.out.println(sep);
-    System.out.println(g.getM("chooseSaveName")+"."); //TODO translate
-    System.out.println(t[1]=g.getM("defaultName")+" : "+saveName);//TODO translate
+    System.out.println(g.getM("set")+" "+g.get("le")+" "+g.get("saveName")+".");
+    System.out.println(t[1]=g.getM("defaultName")+" : "+saveName);
     String input = scannerAnswer.nextLine();
     if(!input.equals("")){
       saveName = str.sToFileName(input);
@@ -554,7 +554,7 @@ public class ViewCLI implements View {
       }
     }
     if(numbers.equals("") || letters.equals("")){
-      erreur.alerte(g.getM("caseNonReconnue"));//TODO translate
+      erreur.alerte(g.get("caseUnkwnowed"));
       return null;
     }
     int y = 0;
@@ -569,7 +569,7 @@ public class ViewCLI implements View {
     int x = str.sToI(numbers);
     CCase cc = Main.getGc().getCCase(x,y);
     if(cc==null){
-      erreur.alerte("theCaseDoNotExist","ViewCLI.getCCaseFromString");//TODO to translate
+      erreur.alerte(g.get("theCaseDoNotExist"),"ViewCLI.getCCaseFromString");
     }
     return cc;
   }

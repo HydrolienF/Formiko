@@ -49,7 +49,6 @@ public class CLIMapTest extends TestCaseMuet{
     assertEquals("C6",cLIMap.objetSurCarteAIdToString(new ObjetSurCarteAId()));
   }
   @Test
-  @Disabled
   public void testObjetSurCarteAIdToStringL(){
     Main.initialisation();
     Main.getOs().setId((byte)0);
@@ -59,12 +58,14 @@ public class CLIMapTest extends TestCaseMuet{
     Joueur j = new Joueur(1,true,Main.getCarte());
     Fourmi playingAnt = (Fourmi) j.getFere().getGc().getDébut().getContenu();
     Main.getPartie().setPlayingAnt(playingAnt);
-    assertEquals(color.GREEN+"1"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(playingAnt));
+    assertEquals(color.GREEN_FLASH+"1"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(playingAnt));
     assertEquals(color.BROWN+"G2"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(new Graine()));
     assertEquals(color.RED+"I3"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(new Insecte()));
     assertEquals(color.BROWN+"G4"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(new Graine()));
-    assertEquals(color.GREEN+"5"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(new Fourmi()));
-    assertEquals(color.RED+"C6"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(new ObjetSurCarteAId()));
+    Fourmi ally = new Fourmi();
+    ally.setPheromone(playingAnt.getPheromone());
+    assertEquals(color.GREEN+"5"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(ally));
+    assertEquals(color.BLACK+"C6"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(new ObjetSurCarteAId()));
   }
   @Test
   public void testCaseToStringSombreNuageuse(){

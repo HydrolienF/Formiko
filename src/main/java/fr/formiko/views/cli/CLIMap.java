@@ -57,7 +57,7 @@ public class CLIMap{
       sr+=mapToMapString();
       sr+=legendToString();
       if(getLookedCase()!=null){
-        sr+="\n"+g.getM("lookedCase")+" : "+getLookedCase().toString();//TODO translate
+        sr+="\n"+g.getM("lookedCase")+" : "+getLookedCase().toString();
       }
     }
     return sr;
@@ -256,7 +256,7 @@ public class CLIMap{
   *@version 1.38
   */
   //public only for test
-  public String caseColor(Case c){ //TODO test
+  public String caseColor(Case c){
     if(!Main.getOs().isLinux()){return "";}
     String sr="";
     switch (c.getType()) {
