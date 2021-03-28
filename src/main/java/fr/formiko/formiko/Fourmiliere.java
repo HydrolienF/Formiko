@@ -129,7 +129,7 @@ public class Fourmiliere implements Serializable{
   public String toString(boolean b){
     int leng = length();
     String s = (joueur.getIa()) ? "IA" : "Joueur";
-    String sr = g.getM("laFourmilière")+" "+ id +" ("+s+") "+g.get("aPourCoordonnées")+" : "+ getP().toString() +" "+g.get("et")+" "+g.get("contient")+" "+leng+" "+g.get("fourmis")+"."+"\n";
+    String sr = g.getM("la")+" "+g.get("fourmilière")+" "+ id +" ("+s+") "+g.get("aPourCoordonnées")+" : "+ getP().toString() +" "+g.get("et")+" "+g.get("contient")+" "+leng+" "+g.get("fourmis")+"."+"\n";
     if(b){sr+=gc.toString();}
     sr+=gg.toString();
     return sr;

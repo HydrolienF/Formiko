@@ -65,17 +65,17 @@ public class Case implements Serializable{
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
     boolean caseSombre = false;
-    if(Main.getPartie()!=null && Main.getPlayingJoueur()!=null){
-      if(Main.getPartie().getCasesNuageuses() && Main.getPlayingJoueur().getCaseNuageuse(p.getX(),p.getY())){
+    if(Main.getPartie()!=null && Main.getPartie().getPlayingJoueur()!=null){
+      if(Main.getPartie().getCasesNuageuses() && Main.getPartie().getPlayingJoueur().getCaseNuageuse(p.getX(),p.getY())){
         return "";
-      }else if(Main.getPartie().getCasesSombres() && Main.getPlayingJoueur().getCaseSombre(p.getX(),p.getY())){
+      }else if(Main.getPartie().getCasesSombres() && Main.getPartie().getPlayingJoueur().getCaseSombre(p.getX(),p.getY())){
         caseSombre=true;
       }
     }
     String s = g.get("case")+" : ("+g.get("nourritureInsecte")+" :"+nourritureInsecte+"/"+nourritureInsecteMax+" (+"+nourritureInsecteParTour+"))";
     s=s+ p.toString();s=s+"\n";
     if (fere != null){
-      s=s+g.get("fourmiliere")+" :";s=s+"\n";
+      s=s+g.get("fourmilière")+" :";s=s+"\n";
       s=s+fere.toString(false);s=s+"\n";
     }
     if (!caseSombre) {
