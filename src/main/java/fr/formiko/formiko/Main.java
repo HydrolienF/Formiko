@@ -382,7 +382,8 @@ public class Main {
   public static PanneauInfo getPi(){ return getPb().getPi();}
   public static PanneauZoom getPz(){ return getPb().getPz();}
   public static PanneauAction getPa(){ return getPb().getPa();}public static PanneauAction getPac(){return getPa();}
-  public static Fourmi getFActuelle(){ return getPj().getFActuelle();}
+  public static Fourmi getPlayingAnt(){ try {return getPartie().getPlayingAnt();}catch (Exception e) {return null;}}
+  public static Joueur getPlayingJoueur(){ try {return getPartie().getPlayingJoueur();}catch (Exception e) {return null;}}
   public static PanneauChargement getPch(){ return getPj().getPch();}
   public static PanneauSup getPs(){ return getPj().getPs();}
   public static PanneauEchap getPe(){ return getPj().getPe();}

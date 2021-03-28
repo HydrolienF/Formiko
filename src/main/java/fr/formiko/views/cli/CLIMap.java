@@ -68,7 +68,7 @@ public class CLIMap{
   *@version 1.38
   */
   private static String getColorAllyStatus(Creature c){
-    Fourmi f = Main.getPartie().getPlayingAnt();
+    Fourmi f = Main.getPlayingAnt();
     if(f==null){return "";}
     String r="";
     if(c.equals(f)){
@@ -125,7 +125,7 @@ public class CLIMap{
   public String mapToMapString(){
     CCase cc = gc.getDébut();
     String sr = "";
-    Joueur j = Main.getPartie().getPlayingJoueur();
+    Joueur j = Main.getPlayingJoueur();
     int xi2=0;
     sr+=" ";
     if(Main.getOs().isLinux()){sr+=color.UNDERLINE;}
@@ -160,7 +160,7 @@ public class CLIMap{
   public String mapToString(){
     CCase cc = gc.getDébut();
     String sr = "";
-    Joueur j = Main.getPartie().getPlayingJoueur();
+    Joueur j = Main.getPlayingJoueur();
     while(cc!=null){
       sr+=mapLineToString(cc,j)+"\n";
       cc=cc.getBas();

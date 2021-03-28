@@ -245,7 +245,7 @@ public class CLIMapTest extends TestCaseMuet{
     j.actualiserCaseSN();
     assertEquals("1   -   F1□□□□□□"+repeat(12,"■■■■"),cLIMap.mapLineToString(Main.getGc().getCCase(0,0),j));
     assertTrue(Main.getPartie().setPlayingAnt(playingAnt));
-    assertTrue(Main.getPartie().getPlayingJoueur()!=null);
+    assertTrue(Main.getPlayingJoueur()!=null);
     Graine g = new Graine();
     Insecte in = new Insecte();
     in.setCCase(1,0);

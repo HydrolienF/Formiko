@@ -36,7 +36,7 @@ public class Touches implements KeyListener, Serializable{
         Main.getPj().setDesc("");
         Main.getPe().setVisible(true);
       }
-    }else if(Main.getFActuelle()!=null){
+    }else if(Main.getPlayingAnt()!=null){
       //toutes les touches liée au fourmi
       for (int i=20;i<31 ;i++ ) {
         try {

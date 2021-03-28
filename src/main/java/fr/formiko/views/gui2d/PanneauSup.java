@@ -29,7 +29,7 @@ public class PanneauSup extends Panneau{
             gc = getCase(e).getGc();
           }catch (Exception e2) {}
           if(gc.length()>0){
-            Fourmi f = gc.getFourmiParFere(Main.getPj().getFActuelle().getFere());
+            Fourmi f = gc.getFourmiParFere(Main.getPlayingAnt().getFere());
             if(f!=null && f.getAction()>0){
               Main.getPj().setActionF(-2);
               Main.getPb().removePA();
@@ -37,7 +37,7 @@ public class PanneauSup extends Panneau{
             }
           }
         }else if(e.getButton()== MouseEvent.BUTTON3){
-          Fourmi f = Main.getFActuelle();
+          Fourmi f = Main.getPlayingAnt();
           if(f!=null){//si une fourmi est séléctionné.
             CCase cc = getCCase(e);
             if(cc!=null){

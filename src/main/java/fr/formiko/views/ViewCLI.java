@@ -391,9 +391,9 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   private Fourmi getAntFromFere(){
-    int len = Main.getPartie().getPlayingAnt().getFere().getGc().length();
+    int len = Main.getPlayingAnt().getFere().getGc().length();
     String t [] = new String[len];
-    List<Creature> list = Main.getPartie().getPlayingAnt().getFere().getGc().toList();
+    List<Creature> list = Main.getPlayingAnt().getFere().getGc().toList();
     int k=0;
     for (Creature c : list ) {
       t[k]=getAllyAntInColor(c); k++;
@@ -454,11 +454,11 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   private void printFereInColor(){
-    if(Main.getPartie().getPlayingAnt()==null){return;}
+    if(Main.getPlayingAnt()==null){return;}
     System.out.println(g.getM("fourmilière")+" : ");
-    List<Creature> lgc = Main.getPartie().getPlayingAnt().getFere().getGc().toList();
+    List<Creature> lgc = Main.getPlayingAnt().getFere().getGc().toList();
     for (Creature c : lgc ) {
-      if (c.equals(Main.getPartie().getPlayingAnt())){
+      if (c.equals(Main.getPlayingAnt())){
         System.out.print("-- ! -- ");
       }
       System.out.println(getAllyAntInColor(c));

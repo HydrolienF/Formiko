@@ -64,19 +64,29 @@ public class Case implements Serializable{
   public void setType(int x){setType((byte)x);}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
+    boolean caseSombre = false;
+    if(Main.getPartie()!=null && Main.getPlayingJoueur()!=null){
+      if(Main.getPartie().getCasesNuageuses() && Main.getPlayingJoueur().getCaseNuageuse(p.getX(),p.getY())){
+        return "";
+      }else if(Main.getPartie().getCasesSombres() && Main.getPlayingJoueur().getCaseSombre(p.getX(),p.getY())){
+        caseSombre=true;
+      }
+    }
     String s = g.get("case")+" : ("+g.get("nourritureInsecte")+" :"+nourritureInsecte+"/"+nourritureInsecteMax+" (+"+nourritureInsecteParTour+"))";
     s=s+ p.toString();s=s+"\n";
     if (fere != null){
       s=s+g.get("fourmiliere")+" :";s=s+"\n";
       s=s+fere.toString(false);s=s+"\n";
     }
-    if (gc != null && gc.getDébut() != null){
-      s=s+g.get("creatures")+" : "; s=s+"\n";
-      s=s+gc.toString();s=s+"\n";
-    }
-    if (gg != null && gg.getDébut() != null){
-      s=s+g.get("graines")+" : ";s=s+"\n";
-      s=s+gg.toString();s=s+"\n";
+    if (!caseSombre) {
+      if (gc != null && gc.getDébut() != null){
+        s=s+g.get("creatures")+" : "; s=s+"\n";
+        s=s+gc.toString();s=s+"\n";
+      }
+      if (gg != null && gg.getDébut() != null){
+        s=s+g.get("graines")+" : ";s=s+"\n";
+        s=s+gg.toString();s=s+"\n";
+      }
     }
     return s;
   }

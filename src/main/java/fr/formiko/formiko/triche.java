@@ -240,7 +240,7 @@ public class triche {
             }
             Fourmi.setBUneSeuleAction(true);
             //Main.getPb().removePa();
-            //Main.getPb().addPa(Main.getFActuelle().getTActionFourmi());
+            //Main.getPb().addPa(Main.getPlayingAnt().getTActionFourmi());
           }catch (Exception e) {}
           break;
         case 34:
@@ -277,7 +277,7 @@ public class triche {
           break;
         case 38:
           try {
-            Main.getFActuelle().setAction(0);
+            Main.getPlayingAnt().setAction(0);
           }catch (Exception e) {}
           Main.getPartie().setContinuerLeJeu(false);
           break;

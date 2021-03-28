@@ -28,7 +28,6 @@ import javax.swing.JScrollPane;
 public class PanneauJeu extends Panneau {
   private PanneauCarte pc;
   private PanneauBouton pb;
-  private Fourmi fActuelle;
   private PanneauChargement pch;
   private PanneauFinPartie pfp;
   private PanneauEchap pe;
@@ -40,16 +39,7 @@ public class PanneauJeu extends Panneau {
     setLayout(null);
   }
   // GET SET -------------------------------------------------------------------
-  public Fourmi getFActuelle(){ return fActuelle;}
-  public Joueur getJoueurActuel(){
-    if(fActuelle!=null){
-      return fActuelle.getFere().getJoueur();}
-    else if(Main.getPartie().getGj().getJoueurHumain().getDébut()!=null && Main.getPartie().getGj().getJoueurHumain().length()==1){
-      return Main.getPartie().getGj().getJoueurHumain().getDébut().getContenu();
-    }
-    return null;
-  }
-  public void setFActuelle(Fourmi f){fActuelle=f; Main.repaint();}
+  public void setFActuelle(Fourmi f){Main.getPartie().setPlayingAnt(f); Main.repaint();}
   public PanneauBouton getPb(){ return pb;}
   public PanneauCarte getPc(){ return pc;}
   public PanneauChargement getPch(){ return pch;}
@@ -178,7 +168,7 @@ public class PanneauJeu extends Panneau {
         if(ac < 9 && ac > -1){
           actionZoom(ac);
         }else if(ac>=20 && ac<=31){
-          if(fActuelle==null){
+          if(Main.getPlayingAnt()==null){
             erreur.erreur("aucune fourmi n'est selectionné pour réaliser l'action voulue.");
           }else{
             debug.débogage("clic qui lance "+(ac-20));
@@ -260,11 +250,11 @@ public class PanneauJeu extends Panneau {
     }
   }
   public void centrerSurLaFourmi(){
-    if (fActuelle==null){erreur.alerte("Impossible de centrer sur une fourmi si aucune fourmi n'est selectionné."); return;}
+    if (Main.getPlayingAnt()==null){erreur.alerte("Impossible de centrer sur une fourmi si aucune fourmi n'est selectionné."); return;}
     int x = nbrDeCaseAffichableX();
     int y = nbrDeCaseAffichableY();
-    int posX = fActuelle.getX();
-    int posY = fActuelle.getX();
+    int posX = Main.getPlayingAnt().getX();
+    int posY = Main.getPlayingAnt().getX();
     pc.setPosX(posX + x/2);
     pc.setPosY(posY + y/2);
   }

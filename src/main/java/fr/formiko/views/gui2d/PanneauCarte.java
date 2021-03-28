@@ -117,8 +117,8 @@ public class PanneauCarte extends Panneau implements MouseListener{
         }
       }
       //dessin de la Fourmi selectionnée :
-      if(Main.getFActuelle()!=null){
-        Case c = Main.getFActuelle().getCCase().getContenu();
+      if(Main.getPlayingAnt()!=null){
+        Case c = Main.getPlayingAnt().getCCase().getContenu();
         g.drawImage(Main.getData().getSelectionnee(),(c.getX()-posX)*Main.getData().getTailleDUneCase(),(c.getY()-posY)*Main.getData().getTailleDUneCase(),this);
       }
     }catch (Exception e) {
@@ -153,7 +153,7 @@ public class PanneauCarte extends Panneau implements MouseListener{
     peintImagePourCase(c,x,y,g);
   }
   public boolean peintCaseNuageuse(int x, int y,Graphics g,int xT, int yT){
-    Joueur jo = Main.getPj().getJoueurActuel();
+    Joueur jo = Main.getPlayingJoueur();
     if(Main.getPartie().getCarte().getCasesNuageuses()==true){ //si il y a des cases nuageuses
       try {
         if(Main.getPartie().getGj().getNbrDeJoueurHumain()==1){//si il ya moins de 2 joueurs, on peu afficher les cases que le joueur voie.
@@ -177,8 +177,8 @@ public class PanneauCarte extends Panneau implements MouseListener{
 
 
   public void peintImagePourCase(Case c, int x, int y,Graphics2D g){
-    Joueur jo = Main.getPj().getJoueurActuel();
-    Fourmi fi = Main.getFActuelle();
+    Joueur jo = Main.getPlayingJoueur();
+    Fourmi fi = Main.getPlayingAnt();
     if(fi==null){
       try {
         fi=(Fourmi)jo.getFere().getGc().getDébut().getContenu();
