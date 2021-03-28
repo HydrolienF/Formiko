@@ -27,6 +27,9 @@ bientôt:anjima[auto]
 suivant:mai biyowa[auto]
 avant:kafin[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:dan wasan mutum[auto]
 joueur:dan wasa[auto]
@@ -188,6 +191,15 @@ casesSombres:kwalaye masu duhu[auto]
 
 chargementFini:gama lodi[auto]
 lancerLeJeu:fara wasan[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

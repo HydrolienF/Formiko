@@ -27,6 +27,9 @@ bientôt:soon
 suivant:following[auto]
 avant:before[auto]
 
+set:set
+where:where
+
 laIA:l'IA[auto]
 laJoueurHumain:the human player[auto]
 joueur:player
@@ -188,6 +191,15 @@ casesSombres:dark squares
 
 chargementFini:loading completed
 lancerLeJeu:launch game
+
+lookedCase:looked square
+saveName:save name
+saveDone:save done
+defaultName:default name
+caseUnkwnowed:unknowned square
+theCaseDoNotExist:the square do not exist
+optionsCanBeEditedIn:options can be edited in
+enterCoordinateAs:enter coordinates as
 
 //temps
 t.j:d

@@ -27,6 +27,9 @@ bientôt:tsy ho ela[auto]
 suivant:manaraka[auto]
 avant:alohan'ny[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:ny mpilalao olombelona[auto]
 joueur:mpilalao[auto]
@@ -188,6 +191,15 @@ casesSombres:boaty maizina[auto]
 
 chargementFini:vita ny entana[auto]
 lancerLeJeu:manomboka ny lalao[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

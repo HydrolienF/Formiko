@@ -27,6 +27,9 @@ bientôt:விரைவில்[auto]
 suivant:பின்வருமாறு[auto]
 avant:முன்[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:மனித வீரர்[auto]
 joueur:ஆட்டக்காரர்[auto]
@@ -188,6 +191,15 @@ casesSombres:இருண்ட பெட்டிகள்[auto]
 
 chargementFini:ஏற்றுதல் முடிந்தது[auto]
 lancerLeJeu:விளையாட்டைத் தொடங்குகிறது[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

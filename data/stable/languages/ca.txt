@@ -27,6 +27,9 @@ bientôt:aviat[auto]
 suivant:seguint[auto]
 avant:abans[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:el jugador humà[auto]
 joueur:jugador[auto]
@@ -188,6 +191,15 @@ casesSombres:caixes fosques[auto]
 
 chargementFini:acabat de carregar[auto]
 lancerLeJeu:començant el joc[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

@@ -27,6 +27,9 @@ bientôt:weldra[auto]
 suivant:in aansluiting op[auto]
 avant:voordat[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:de menselijke speler[auto]
 joueur:speler[auto]
@@ -188,6 +191,15 @@ casesSombres:donkere dozen[auto]
 
 chargementFini:klaar met laden[auto]
 lancerLeJeu:het spel starten[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

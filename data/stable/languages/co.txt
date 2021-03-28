@@ -27,6 +27,9 @@ bientôt:prestu[auto]
 suivant:seguenti[auto]
 avant:prima[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:u ghjucatore umanu[auto]
 joueur:lettore[auto]
@@ -188,6 +191,15 @@ casesSombres:scatuli scuri[auto]
 
 chargementFini:carcu finitu[auto]
 lancerLeJeu:principià u ghjocu[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

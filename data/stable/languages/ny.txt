@@ -27,6 +27,9 @@ bientôt:posachedwa[auto]
 suivant:kutsatira[auto]
 avant:kale[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:wosewera munthu[auto]
 joueur:wosewera[auto]
@@ -188,6 +191,15 @@ casesSombres:mabokosi amdima[auto]
 
 chargementFini:kumaliza kutsitsa[auto]
 lancerLeJeu:kuyambira masewerawa[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

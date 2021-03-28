@@ -27,6 +27,9 @@ bientôt:เร็ว ๆ นี้[auto]
 suivant:กำลังติดตาม[auto]
 avant:ก่อน[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:ผู้เล่นที่เป็นมนุษย์[auto]
 joueur:ผู้เล่น[auto]
@@ -188,6 +191,15 @@ casesSombres:กล่องสีเข้ม[auto]
 
 chargementFini:โหลดเสร็จแล้ว[auto]
 lancerLeJeu:เริ่มเกม[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:ญ[auto]

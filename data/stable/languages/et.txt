@@ -27,6 +27,9 @@ bientôt:varsti[auto]
 suivant:järgnev[auto]
 avant:enne[auto]
 
+set:
+where:
+
 laIA:ma[auto]
 laJoueurHumain:inimmängija[auto]
 joueur:mängija[auto]
@@ -188,6 +191,15 @@ casesSombres:tumedad kastid[auto]
 
 chargementFini:lõpetas laadimise[auto]
 lancerLeJeu:mängu alustamine[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

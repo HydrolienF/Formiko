@@ -27,6 +27,9 @@ bientôt:brátt[auto]
 suivant:eftirfarandi[auto]
 avant:áður[auto]
 
+set:
+where:
+
 laIA:ég er[auto]
 laJoueurHumain:mannlegi leikmaðurinn[auto]
 joueur:leikmaður[auto]
@@ -188,6 +191,15 @@ casesSombres:dökkir kassar[auto]
 
 chargementFini:lokið fermingu[auto]
 lancerLeJeu:að byrja leikinn[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

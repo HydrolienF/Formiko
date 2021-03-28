@@ -27,6 +27,9 @@ bientôt:շուտով[auto]
 suivant:հետևում է[auto]
 avant:նախքան[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:մարդկային խաղացողը[auto]
 joueur:խաղացող[auto]
@@ -188,6 +191,15 @@ casesSombres:մութ տուփեր[auto]
 
 chargementFini:ավարտվեց բեռնումը[auto]
 lancerLeJeu:սկսելով խաղը[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:ժ[auto]

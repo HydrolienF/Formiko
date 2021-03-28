@@ -27,6 +27,9 @@ bientôt:త్వరలో[auto]
 suivant:క్రింది[auto]
 avant:ముందు[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:మానవ ఆటగాడు[auto]
 joueur:ప్లేయర్[auto]
@@ -188,6 +191,15 @@ casesSombres:చీకటి పెట్టెలు[auto]
 
 chargementFini:లోడింగ్ పూర్తయింది[auto]
 lancerLeJeu:ఆట ప్రారంభిస్తోంది[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

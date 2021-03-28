@@ -27,6 +27,9 @@ bientôt:haufinyane[auto]
 suivant:ho latela[auto]
 avant:pele ho[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:sebapali sa motho[auto]
 joueur:sebapali[auto]
@@ -188,6 +191,15 @@ casesSombres:mabokose a lefifi[auto]
 
 chargementFini:o qetile ho kenya[auto]
 lancerLeJeu:ho qala papali[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

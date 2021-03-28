@@ -27,6 +27,9 @@ bientôt:まもなく[auto]
 suivant:以下[auto]
 avant:前[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:人間のプレーヤー[auto]
 joueur:プレーヤー[auto]
@@ -188,6 +191,15 @@ casesSombres:ダークボックス[auto]
 
 chargementFini:読み込みが完了しました[auto]
 lancerLeJeu:ゲームを始める[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

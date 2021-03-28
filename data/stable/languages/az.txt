@@ -27,6 +27,9 @@ bientôt:tezliklə[auto]
 suivant:aşağıdakı[auto]
 avant:əvvəl[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:insan oyunçu[auto]
 joueur:oyunçu[auto]
@@ -188,6 +191,15 @@ casesSombres:qaranlıq qutular[auto]
 
 chargementFini:yükləmə tamamlandı[auto]
 lancerLeJeu:oyuna başlayırıq[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

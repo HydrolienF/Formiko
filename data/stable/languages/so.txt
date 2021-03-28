@@ -27,6 +27,9 @@ bientôt:ugu dhakhsaha badan[auto]
 suivant:soo socda[auto]
 avant:ka hor[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:ciyaaryahanka aadanaha[auto]
 joueur:ciyaaryahan[auto]
@@ -188,6 +191,15 @@ casesSombres:sanduuqyada madow[auto]
 
 chargementFini:dhammeeyey rarkii[auto]
 lancerLeJeu:bilaabida ciyaarta[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

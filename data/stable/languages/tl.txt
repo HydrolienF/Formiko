@@ -27,6 +27,9 @@ bientôt:malapit na[auto]
 suivant:sumusunod[auto]
 avant:dati pa[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:ang manlalaro[auto]
 joueur:manlalaro[auto]
@@ -188,6 +191,15 @@ casesSombres:madilim na kahon[auto]
 
 chargementFini:tapos na ang pagkarga[auto]
 lancerLeJeu:simula ng laro[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

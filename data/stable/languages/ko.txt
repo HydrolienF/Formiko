@@ -27,6 +27,9 @@ bientôt:곧[auto]
 suivant:수행원[auto]
 avant:전에[auto]
 
+set:
+where:
+
 laIA:l' IA[auto]
 laJoueurHumain:인간 플레이어[auto]
 joueur:플레이어[auto]
@@ -188,6 +191,15 @@ casesSombres:어두운 상자[auto]
 
 chargementFini:로딩 완료[auto]
 lancerLeJeu:게임 시작[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:제이[auto]

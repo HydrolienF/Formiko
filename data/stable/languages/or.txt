@@ -27,6 +27,9 @@ bientôt:ଶୀଘ୍ର[auto]
 suivant:ନିମ୍ନଲିଖିତ[auto]
 avant:ପୂର୍ବରୁ[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:ମାନବ ଖେଳାଳୀ |[auto]
 joueur:ପ୍ଲେୟାର[auto]
@@ -188,6 +191,15 @@ casesSombres:ଗା dark ଼ ବାକ୍ସଗୁଡ଼ିକ |[auto]
 
 chargementFini:ଲୋଡିଂ ସମାପ୍ତ[auto]
 lancerLeJeu:ଖେଳ ଆରମ୍ଭ[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

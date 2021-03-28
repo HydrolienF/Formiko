@@ -27,6 +27,9 @@ bientôt:nêzda[auto]
 suivant:pêketînî[auto]
 avant:berî[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:lîstikvanê mirovî[auto]
 joueur:lîstikvan[auto]
@@ -188,6 +191,15 @@ casesSombres:qutiyên tarî[auto]
 
 chargementFini:barkirin qedand[auto]
 lancerLeJeu:dest bi lîstikê dikin[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

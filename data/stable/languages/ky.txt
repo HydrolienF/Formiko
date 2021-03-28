@@ -27,6 +27,9 @@ bientôt:жакында[auto]
 suivant:кийинки[auto]
 avant:чейин[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:адам оюнчусу[auto]
 joueur:оюнчу[auto]
@@ -188,6 +191,15 @@ casesSombres:кара кутучалар[auto]
 
 chargementFini:жүктөө аяктады[auto]
 lancerLeJeu:оюнду баштап жатат[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

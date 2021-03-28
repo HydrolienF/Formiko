@@ -27,6 +27,9 @@ bientôt:již brzy[auto]
 suivant:následující[auto]
 avant:před[auto]
 
+set:
+where:
+
 laIA:já'I[auto]
 laJoueurHumain:lidský hráč[auto]
 joueur:hráč[auto]
@@ -188,6 +191,15 @@ casesSombres:tmavé boxy[auto]
 
 chargementFini:dokončeno načítání[auto]
 lancerLeJeu:spuštění hry[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

@@ -27,6 +27,9 @@ bientôt:ඉක්මනින්[auto]
 suivant:පහත දැක්වේ[auto]
 avant:කලින්[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:මිනිස් ක්‍රීඩකයා[auto]
 joueur:ක්රීඩකයා[auto]
@@ -188,6 +191,15 @@ casesSombres:අඳුරු පෙට්ටි[auto]
 
 chargementFini:පැටවීම අවසන්[auto]
 lancerLeJeu:ක්රීඩාව ආරම්භ කිරීම[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

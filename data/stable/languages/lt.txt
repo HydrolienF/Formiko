@@ -27,6 +27,9 @@ bientôt:netrukus[auto]
 suivant:sekant[auto]
 avant:prieš tai[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:žmogaus žaidėjas[auto]
 joueur:grotuvas[auto]
@@ -188,6 +191,15 @@ casesSombres:tamsios dėžės[auto]
 
 chargementFini:baigė krauti[auto]
 lancerLeJeu:žaidimo pradžia[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

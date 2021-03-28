@@ -27,6 +27,9 @@ bientôt:sớm[auto]
 suivant:tiếp theo[auto]
 avant:trước[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:người chơi con người[auto]
 joueur:người chơi[auto]
@@ -188,6 +191,15 @@ casesSombres:hộp tối[auto]
 
 chargementFini:tải xong[auto]
 lancerLeJeu:bắt đầu trò chơi[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

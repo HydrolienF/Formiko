@@ -27,6 +27,9 @@ bientôt:ژر[auto]
 suivant:لاندې[auto]
 avant:مخکې[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:انساني لوبغاړی[auto]
 joueur:غږوونکی[auto]
@@ -188,6 +191,15 @@ casesSombres:تیاره بکسونه[auto]
 
 chargementFini:بارول بشپړ شو[auto]
 lancerLeJeu:د لوبې پیل[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:ج[auto]

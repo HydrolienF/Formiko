@@ -27,6 +27,9 @@ bientôt:demnächst[auto]
 suivant:folgenden[auto]
 avant:vor[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:der menschliche Spieler[auto]
 joueur:spieler[auto]
@@ -188,6 +191,15 @@ casesSombres:dunkle Kisten[auto]
 
 chargementFini:laden beendet[auto]
 lancerLeJeu:das Spiel starten[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

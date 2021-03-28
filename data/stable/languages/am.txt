@@ -27,6 +27,9 @@ bientôt:በቅርቡ[auto]
 suivant:በመከተል ላይ[auto]
 avant:ከዚህ በፊት[auto]
 
+set:
+where:
+
 laIA:አ.አ.[auto]
 laJoueurHumain:የሰው ተጫዋች[auto]
 joueur:ተጫዋች[auto]
@@ -188,6 +191,15 @@ casesSombres:ጨለማ ሳጥኖች[auto]
 
 chargementFini:የተጠናቀቀ ጭነት[auto]
 lancerLeJeu:ጨዋታውን መጀመር[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

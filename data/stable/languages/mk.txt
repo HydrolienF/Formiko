@@ -27,6 +27,9 @@ bientôt:наскоро[auto]
 suivant:следниве[auto]
 avant:порано[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:човечкиот играч[auto]
 joueur:играч[auto]
@@ -188,6 +191,15 @@ casesSombres:темни кутии[auto]
 
 chargementFini:заврши товарењето[auto]
 lancerLeJeu:започнување на играта[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:ј[auto]

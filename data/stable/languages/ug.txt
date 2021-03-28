@@ -27,6 +27,9 @@ bientôt:soon[auto]
 suivant:تۆۋەندىكى[auto]
 avant:ئىلگىرى[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:the human player[auto]
 joueur:قويغۇچ[auto]
@@ -188,6 +191,15 @@ casesSombres:قاراڭغۇ قۇتىلار[auto]
 
 chargementFini:قاچىلاش تاماملاندى[auto]
 lancerLeJeu:ئويۇننى باشلاش[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

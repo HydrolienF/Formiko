@@ -27,6 +27,9 @@ bientôt:geuwat[auto]
 suivant:nuturkeun[auto]
 avant:sateuacanna[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:pamuter manusa[auto]
 joueur:pamuter[auto]
@@ -188,6 +191,15 @@ casesSombres:kotak poék[auto]
 
 chargementFini:réngsé dimuat[auto]
 lancerLeJeu:ngamimitian kaulinan[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

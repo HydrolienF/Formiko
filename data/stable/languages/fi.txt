@@ -27,6 +27,9 @@ bientôt:pian[auto]
 suivant:seurata[auto]
 avant:ennen[auto]
 
+set:
+where:
+
 laIA:minä[auto]
 laJoueurHumain:ihmispelaaja[auto]
 joueur:pelaaja[auto]
@@ -188,6 +191,15 @@ casesSombres:tummat laatikot[auto]
 
 chargementFini:lataus valmis[auto]
 lancerLeJeu:pelin aloittaminen[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

@@ -27,6 +27,9 @@ bientôt:लवकरच[auto]
 suivant:खालील[auto]
 avant:आधी[auto]
 
+set:
+where:
+
 laIA:एल आयआयए[auto]
 laJoueurHumain:मानवी खेळाडू[auto]
 joueur:खेळाडू[auto]
@@ -188,6 +191,15 @@ casesSombres:गडद बॉक्स[auto]
 
 chargementFini:लोड करणे समाप्त झाले[auto]
 lancerLeJeu:खेळ सुरू करीत आहे[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

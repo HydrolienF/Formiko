@@ -27,6 +27,9 @@ bientôt:ഉടൻ[auto]
 suivant:പിന്തുടരുന്നു[auto]
 avant:മുമ്പ്[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:ഹ്യൂമൻ പ്ലെയർ[auto]
 joueur:കളിക്കാരൻ[auto]
@@ -188,6 +191,15 @@ casesSombres:ഇരുണ്ട പെട്ടികൾ[auto]
 
 chargementFini:ലോഡുചെയ്യുന്നത് പൂർത്തിയായി[auto]
 lancerLeJeu:ഗെയിം ആരംഭിക്കുന്നു[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:ജെ[auto]

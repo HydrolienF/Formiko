@@ -27,6 +27,9 @@ bientôt:segera[auto]
 suivant:berikut[auto]
 avant:sebelum[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:pemain manusia[auto]
 joueur:pemain[auto]
@@ -188,6 +191,15 @@ casesSombres:kotak gelap[auto]
 
 chargementFini:selesai memuat[auto]
 lancerLeJeu:memulai permainan[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

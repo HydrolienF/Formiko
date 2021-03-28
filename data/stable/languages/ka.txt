@@ -27,6 +27,9 @@ bientôt:მალე[auto]
 suivant:შემდეგს[auto]
 avant:მანამდე[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:ადამიანის მოთამაშე[auto]
 joueur:მოთამაშე[auto]
@@ -188,6 +191,15 @@ casesSombres:მუქი ყუთები[auto]
 
 chargementFini:დასრულდა დატვირთვა[auto]
 lancerLeJeu:თამაშის დაწყება[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:კ[auto]

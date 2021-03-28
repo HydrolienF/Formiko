@@ -27,6 +27,9 @@ bientôt:ឆាប់[auto]
 suivant:បន្ទាប់[auto]
 avant:មុន[auto]
 
+set:
+where:
+
 laIA:លីអា[auto]
 laJoueurHumain:អ្នកលេងមនុស្ស[auto]
 joueur:អ្នកលេង[auto]
@@ -188,6 +191,15 @@ casesSombres:ប្រអប់ខ្មៅងងឹត[auto]
 
 chargementFini:ការផ្ទុកបានបញ្ចប់[auto]
 lancerLeJeu:ចាប់ផ្តើមល្បែង[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:ច[auto]

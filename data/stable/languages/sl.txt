@@ -27,6 +27,9 @@ bientôt:kmalu[auto]
 suivant:naslednje[auto]
 avant:prej[auto]
 
+set:
+where:
+
 laIA:l'ia[auto]
 laJoueurHumain:človeški igralec[auto]
 joueur:predvajalnik[auto]
@@ -188,6 +191,15 @@ casesSombres:temne škatle[auto]
 
 chargementFini:končano nakladanje[auto]
 lancerLeJeu:začetek igre[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

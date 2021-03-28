@@ -27,6 +27,9 @@ bientôt:geschwënn[auto]
 suivant:folgenden[auto]
 avant:virun[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:de mënschleche Spiller[auto]
 joueur:spiller[auto]
@@ -188,6 +191,15 @@ casesSombres:donkel Këschte[auto]
 
 chargementFini:fäerdeg lueden[auto]
 lancerLeJeu:fänkt d'Spill un[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

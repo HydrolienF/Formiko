@@ -27,6 +27,9 @@ bientôt:vave[auto]
 suivant:mulimuli atu[auto]
 avant:muamua[auto]
 
+set:
+where:
+
 laIA:lʻIA[auto]
 laJoueurHumain:le tagata taalo[auto]
 joueur:tagata taalo[auto]
@@ -188,6 +191,15 @@ casesSombres:pusa pogisa[auto]
 
 chargementFini:maeʻa utaina[auto]
 lancerLeJeu:amataina o le taʻaloga[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

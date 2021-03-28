@@ -27,6 +27,9 @@ bientôt:laster[auto]
 suivant:jarraituz[auto]
 avant:aurretik[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:giza jokalaria[auto]
 joueur:jokalari[auto]
@@ -188,6 +191,15 @@ casesSombres:kutxa ilunak[auto]
 
 chargementFini:kargatzen amaitu da[auto]
 lancerLeJeu:jokoa hasten[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

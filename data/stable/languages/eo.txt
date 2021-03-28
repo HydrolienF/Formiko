@@ -27,6 +27,9 @@ bientôt:baldaŭ
 suivant:sekvante[auto]
 avant:antaŭe[auto]
 
+set:elektas
+where:kie
+
 laIA:l'IA[auto]
 laJoueurHumain:la homa ludanto
 joueur:ludanto
@@ -188,6 +191,15 @@ casesSombres:malhelaj fako
 
 chargementFini:finita ŝarĝo
 lancerLeJeu:komencante la ludon[auto]
+
+lookedCase:aspektis fako
+saveName:nomo de la savo
+saveDone:savo farita
+defaultName:apriora nomo
+caseUnkwnowed:nekonata fako
+theCaseDoNotExist:la fako ne ekzisti
+optionsCanBeEditedIn:opcioj povas estu redaktita en
+enterCoordinateAs:enigu koordinatojn kiel
 
 //temps
 t.j:t

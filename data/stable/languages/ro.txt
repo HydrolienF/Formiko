@@ -27,6 +27,9 @@ bientôt:curând[auto]
 suivant:ca urmare a[auto]
 avant:inainte de[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:jucătorul uman[auto]
 joueur:jucător[auto]
@@ -188,6 +191,15 @@ casesSombres:cutii întunecate[auto]
 
 chargementFini:terminat de încărcat[auto]
 lancerLeJeu:începând jocul[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

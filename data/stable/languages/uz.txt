@@ -27,6 +27,9 @@ bientôt:tez orada[auto]
 suivant:quyidagi[auto]
 avant:oldin[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:inson o'yinchisi[auto]
 joueur:o'yinchi[auto]
@@ -188,6 +191,15 @@ casesSombres:qorong'i qutilar[auto]
 
 chargementFini:yuklash tugadi[auto]
 lancerLeJeu:o'yinni boshlash[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

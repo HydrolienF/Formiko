@@ -27,6 +27,9 @@ bientôt:byento[auto]
 suivant:swivan[auto]
 avant:anvan[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:jwè imen an[auto]
 joueur:jwè[auto]
@@ -188,6 +191,15 @@ casesSombres:bwat nwa[auto]
 
 chargementFini:fini chaje[auto]
 lancerLeJeu:kòmanse jwèt la[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

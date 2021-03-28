@@ -27,6 +27,9 @@ bientôt:bientôt
 suivant:suivant
 avant:avant
 
+set:choisir
+where:où
+
 laIA:l'IA
 laJoueurHumain:le joueur humain
 joueur:joueur
@@ -188,6 +191,15 @@ casesSombres:cases sombres
 
 chargementFini:chargement fini
 lancerLeJeu:lancer le jeu
+
+lookedCase:Case regardée
+saveName:nom de la sauvegarde
+saveDone:sauvegarde effectuée
+defaultName:nom par défaut
+caseUnkwnowed:case inconnue
+theCaseDoNotExist:la case n'existe pas
+optionsCanBeEditedIn:les options peuvent être modifié dans
+enterCoordinateAs:entrez les coordonnées comme suis
 
 //temps
 t.j:j

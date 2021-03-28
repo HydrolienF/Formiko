@@ -27,6 +27,9 @@ bientôt:不久[auto]
 suivant:以下[auto]
 avant:之前[auto]
 
+set:
+where:
+
 laIA:iA[auto]
 laJoueurHumain:人类玩家[auto]
 joueur:播放器[auto]
@@ -188,6 +191,15 @@ casesSombres:暗盒[auto]
 
 chargementFini:完成加载[auto]
 lancerLeJeu:开始游戏[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:ĵ[auto]

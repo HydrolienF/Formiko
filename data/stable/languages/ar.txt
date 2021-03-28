@@ -27,6 +27,9 @@ bientôt:هكذا[auto]
 suivant:التالية[auto]
 avant:قبل[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:اللاعب البشري[auto]
 joueur:لاعب[auto]
@@ -188,6 +191,15 @@ casesSombres:الصناديق المظلمة[auto]
 
 chargementFini:انتهى التحميل[auto]
 lancerLeJeu:بدء اللعبة[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:ي[auto]

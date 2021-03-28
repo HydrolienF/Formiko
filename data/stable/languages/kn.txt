@@ -27,6 +27,9 @@ bientôt:ಶೀಘ್ರದಲ್ಲೇ[auto]
 suivant:ಕೆಳಗಿನವು[auto]
 avant:ಮೊದಲು[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:ಮಾನವ ಆಟಗಾರ[auto]
 joueur:ಆಟಗಾರ[auto]
@@ -188,6 +191,15 @@ casesSombres:ಡಾರ್ಕ್ ಪೆಟ್ಟಿಗೆಗಳು[auto]
 
 chargementFini:ಲೋಡಿಂಗ್ ಮುಗಿದಿದೆ[auto]
 lancerLeJeu:ಆಟವನ್ನು ಪ್ರಾರಂಭಿಸುವುದು[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:ಜೆ[auto]

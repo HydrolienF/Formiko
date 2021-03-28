@@ -27,6 +27,9 @@ bientôt:בקרוב[auto]
 suivant:הבא[auto]
 avant:לפני[auto]
 
+set:
+where:
+
 laIA:אני[auto]
 laJoueurHumain:השחקן האנושי[auto]
 joueur:שחקן[auto]
@@ -188,6 +191,15 @@ casesSombres:קופסאות כהות[auto]
 
 chargementFini:הסתיים הטעינה[auto]
 lancerLeJeu:מתחילים את המשחק[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

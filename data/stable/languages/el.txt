@@ -27,6 +27,9 @@ bientôt:σύντομα[auto]
 suivant:εΠΟΜΕΝΟ[auto]
 avant:πριν[auto]
 
+set:
+where:
+
 laIA:λΙΑ[auto]
 laJoueurHumain:ο ανθρώπινος παίκτης[auto]
 joueur:παίχτης[auto]
@@ -188,6 +191,15 @@ casesSombres:σκοτεινά κουτιά[auto]
 
 chargementFini:ολοκληρώθηκε η φόρτωση[auto]
 lancerLeJeu:ξεκινώντας το παιχνίδι[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:ι[auto]

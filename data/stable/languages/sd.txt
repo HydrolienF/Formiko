@@ -27,6 +27,9 @@ bientôt:جلدي[auto]
 suivant:هيٺين[auto]
 avant:اڳ[auto]
 
+set:
+where:
+
 laIA:ايليا[auto]
 laJoueurHumain:انساني پليئر[auto]
 joueur:پليئر[auto]
@@ -188,6 +191,15 @@ casesSombres:ڪارا دٻا[auto]
 
 chargementFini:لوڊ ڪرڻ پورو ڪيو[auto]
 lancerLeJeu:راند جي شروعات ٿي[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:جي[auto]

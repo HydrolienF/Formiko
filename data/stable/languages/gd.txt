@@ -27,6 +27,9 @@ bientôt:a dh'aithghearr[auto]
 suivant:a ’leantainn[auto]
 avant:roimhe seo[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:cluicheadair an duine[auto]
 joueur:cluicheadair[auto]
@@ -188,6 +191,15 @@ casesSombres:bogsaichean dorcha[auto]
 
 chargementFini:luchdadh crìochnaichte[auto]
 lancerLeJeu:a ’tòiseachadh a’ gheama[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

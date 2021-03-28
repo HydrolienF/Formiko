@@ -27,6 +27,9 @@ bientôt:ngwa ngwa[auto]
 suivant:na-eso[auto]
 avant:tupu[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:mmadụ ọkpụkpọ[auto]
 joueur:ọkpụkpọ[auto]
@@ -188,6 +191,15 @@ casesSombres:igbe gbara ọchịchịrị[auto]
 
 chargementFini:emechara loading[auto]
 lancerLeJeu:ibido egwuregwu[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j j[auto]

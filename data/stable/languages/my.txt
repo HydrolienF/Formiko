@@ -27,6 +27,9 @@ bientôt:မကြာမီ[auto]
 suivant:အောက်ပါ[auto]
 avant:မတိုင်မီ[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:လူ့ကစားသမား[auto]
 joueur:ကစားသမား[auto]
@@ -188,6 +191,15 @@ casesSombres:အမှောင်သေတ္တာများ[auto]
 
 chargementFini:တင်ပြီးပြီ[auto]
 lancerLeJeu:ဂိမ်းစတင်ခြင်း[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:ည[auto]

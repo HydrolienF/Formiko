@@ -27,6 +27,9 @@ bientôt:go luath[auto]
 suivant:leanas[auto]
 avant:roimh[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:an t-imreoir daonna[auto]
 joueur:imreoir[auto]
@@ -188,6 +191,15 @@ casesSombres:boscaí dorcha[auto]
 
 chargementFini:luchtú críochnaithe[auto]
 lancerLeJeu:ag tosú an chluiche[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

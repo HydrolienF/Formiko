@@ -27,6 +27,9 @@ bientôt:hamar[auto]
 suivant:következő[auto]
 avant:előtt[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:az emberi játékos[auto]
 joueur:játékos[auto]
@@ -188,6 +191,15 @@ casesSombres:sötét dobozok[auto]
 
 chargementFini:befejezte a rakodást[auto]
 lancerLeJeu:a játék indítása[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

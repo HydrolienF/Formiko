@@ -27,6 +27,9 @@ bientôt:vuba[auto]
 suivant:ibikurikira[auto]
 avant:mbere[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:umukinnyi wumuntu[auto]
 joueur:umukinnyi[auto]
@@ -188,6 +191,15 @@ casesSombres:agasanduku kijimye[auto]
 
 chargementFini:kurangiza[auto]
 lancerLeJeu:gutangira umukino[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

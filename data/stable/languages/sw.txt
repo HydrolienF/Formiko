@@ -27,6 +27,9 @@ bientôt:hivi karibuni[auto]
 suivant:zifuatazo[auto]
 avant:kabla[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:mchezaji wa kibinadamu[auto]
 joueur:mchezaji[auto]
@@ -188,6 +191,15 @@ casesSombres:masanduku meusi[auto]
 
 chargementFini:kumaliza kupakia[auto]
 lancerLeJeu:kuanzia mchezo[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

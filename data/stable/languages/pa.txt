@@ -27,6 +27,9 @@ bientôt:ਜਲਦੀ[auto]
 suivant:ਹੇਠ ਦਿੱਤੇ[auto]
 avant:ਅੱਗੇ[auto]
 
+set:
+where:
+
 laIA:ਲ ਆਈ ਆਈ[auto]
 laJoueurHumain:ਮਨੁੱਖੀ ਖਿਡਾਰੀ[auto]
 joueur:ਖਿਡਾਰੀ[auto]
@@ -188,6 +191,15 @@ casesSombres:ਹਨੇਰੇ ਬਕਸੇ[auto]
 
 chargementFini:ਲੋਡਿੰਗ ਖਤਮ[auto]
 lancerLeJeu:ਖੇਡ ਸ਼ੁਰੂ ਕਰ ਰਿਹਾ ਹੈ[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:ਜੇ[auto]

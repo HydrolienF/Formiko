@@ -27,6 +27,9 @@ bientôt:së shpejti[auto]
 suivant:në vijim[auto]
 avant:para[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:lojtari njerëzor[auto]
 joueur:lojtar[auto]
@@ -188,6 +191,15 @@ casesSombres:kuti të errëta[auto]
 
 chargementFini:mbaroi ngarkimin[auto]
 lancerLeJeu:fillimi i lojës[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

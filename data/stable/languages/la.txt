@@ -27,6 +27,9 @@ bientôt:mox[auto]
 suivant:haec[auto]
 avant:ante[auto]
 
+set:
+where:
+
 laIA:l IA Omnium[auto]
 laJoueurHumain:ad humana ludio[auto]
 joueur:ludio[auto]
@@ -188,6 +191,15 @@ casesSombres:tenebris greges[auto]
 
 chargementFini:igitur perfecti loading[auto]
 lancerLeJeu:satus ludum[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

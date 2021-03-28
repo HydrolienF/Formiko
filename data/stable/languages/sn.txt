@@ -27,6 +27,9 @@ bientôt:munguva pfupi[auto]
 suivant:zvinotevera[auto]
 avant:pamberi[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:mutambi wemunhu[auto]
 joueur:mutambi[auto]
@@ -188,6 +191,15 @@ casesSombres:mabhokisi erima[auto]
 
 chargementFini:ndapedza kurodha[auto]
 lancerLeJeu:kutanga mutambo[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

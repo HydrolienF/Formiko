@@ -27,6 +27,9 @@ bientôt:snart[auto]
 suivant:følgende[auto]
 avant:før[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:den menneskelige spilleren[auto]
 joueur:spiller[auto]
@@ -188,6 +191,15 @@ casesSombres:mørke bokser[auto]
 
 chargementFini:ferdig lasting[auto]
 lancerLeJeu:starter spillet[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

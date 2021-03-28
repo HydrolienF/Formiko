@@ -27,6 +27,9 @@ bientôt:хутка[auto]
 suivant:наступныя[auto]
 avant:раней[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:чалавечы гулец[auto]
 joueur:плэер[auto]
@@ -188,6 +191,15 @@ casesSombres:цёмныя скрынкі[auto]
 
 chargementFini:скончана загрузка[auto]
 lancerLeJeu:пачатак гульні[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

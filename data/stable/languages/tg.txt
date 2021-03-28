@@ -27,6 +27,9 @@ bientôt:ба зудӣ[auto]
 suivant:пайравӣ[auto]
 avant:пеш[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:плеери инсон[auto]
 joueur:плеер[auto]
@@ -188,6 +191,15 @@ casesSombres:қуттиҳои торик[auto]
 
 chargementFini:боркунӣ анҷом ёфт[auto]
 lancerLeJeu:оғози бозӣ[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

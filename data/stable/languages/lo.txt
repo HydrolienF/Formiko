@@ -27,6 +27,9 @@ bientôt:ໃນໄວໆນີ້[auto]
 suivant:ຕໍ່ໄປນີ້[auto]
 avant:ກ່ອນ[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:ຜູ້ນມະນຸດ[auto]
 joueur:ຜູ້​ຫຼິ້ນ[auto]
@@ -188,6 +191,15 @@ casesSombres:ກ່ອງມືດ[auto]
 
 chargementFini:ສຳ ເລັດການໂຫຼດ[auto]
 lancerLeJeu:ເລີ່ມເກມ[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

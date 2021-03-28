@@ -27,6 +27,9 @@ bientôt:binnekort[auto]
 suivant:volgende[auto]
 avant:voorheen[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:die menslike speler[auto]
 joueur:speler[auto]
@@ -188,6 +191,15 @@ casesSombres:donker bokse[auto]
 
 chargementFini:klaar gelaai[auto]
 lancerLeJeu:begin die spel[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

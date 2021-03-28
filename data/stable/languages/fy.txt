@@ -27,6 +27,9 @@ bientôt:gau[auto]
 suivant:folgjend[auto]
 avant:foar[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:de minsklike spiler[auto]
 joueur:spiler[auto]
@@ -188,6 +191,15 @@ casesSombres:donkere doazen[auto]
 
 chargementFini:klear laden[auto]
 lancerLeJeu:it spultsje begjinne[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

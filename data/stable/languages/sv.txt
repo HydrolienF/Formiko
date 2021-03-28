@@ -27,6 +27,9 @@ bientôt:snart[auto]
 suivant:följande[auto]
 avant:innan[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:den mänskliga spelaren[auto]
 joueur:spelare[auto]
@@ -188,6 +191,15 @@ casesSombres:mörka lådor[auto]
 
 chargementFini:färdig laddning[auto]
 lancerLeJeu:startar spelet[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

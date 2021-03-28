@@ -27,6 +27,9 @@ bientôt:به زودی[auto]
 suivant:ذیل[auto]
 avant:قبل از[auto]
 
+set:
+where:
+
 laIA:ایا[auto]
 laJoueurHumain:بازیکن انسانی[auto]
 joueur:بازیکن[auto]
@@ -188,6 +191,15 @@ casesSombres:جعبه های تاریک[auto]
 
 chargementFini:بارگیری تمام شد[auto]
 lancerLeJeu:شروع بازی[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:ج[auto]

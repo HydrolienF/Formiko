@@ -27,6 +27,9 @@ bientôt:kungekudala[auto]
 suivant:okulandelayo[auto]
 avant:ngaphambi[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:umdlali womuntu[auto]
 joueur:isidlali[auto]
@@ -188,6 +191,15 @@ casesSombres:amabhokisi amnyama[auto]
 
 chargementFini:kuqedile ukulayishwa[auto]
 lancerLeJeu:ukuqala umdlalo[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

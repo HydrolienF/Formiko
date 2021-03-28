@@ -27,6 +27,9 @@ bientôt:اسی طرح[auto]
 suivant:درج ذیل[auto]
 avant:پہلے[auto]
 
+set:
+where:
+
 laIA:ایل آئی اے[auto]
 laJoueurHumain:انسانی کھلاڑی[auto]
 joueur:پلیئر[auto]
@@ -188,6 +191,15 @@ casesSombres:تاریک خانے[auto]
 
 chargementFini:لوڈنگ ختم[auto]
 lancerLeJeu:کھیل شروع ہو رہا ہے[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

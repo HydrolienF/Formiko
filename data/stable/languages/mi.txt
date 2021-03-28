@@ -27,6 +27,9 @@ bientôt:inamata[auto]
 suivant:e whai ake nei[auto]
 avant:tuhinga o mua[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:te kaitakaro tangata[auto]
 joueur:kaitakaro[auto]
@@ -188,6 +191,15 @@ casesSombres:pouaka pouri[auto]
 
 chargementFini:kua mutu te utaina[auto]
 lancerLeJeu:te tiimata i te keemu[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

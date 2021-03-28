@@ -27,6 +27,9 @@ bientôt:laipe[auto]
 suivant:atẹle[auto]
 avant:ṣaaju[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:eniyan player[auto]
 joueur:ẹrọ orin[auto]
@@ -188,6 +191,15 @@ casesSombres:awọn apoti dudu[auto]
 
 chargementFini:pari ikojọpọ[auto]
 lancerLeJeu:bibẹrẹ ere naa[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]

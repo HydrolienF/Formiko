@@ -27,6 +27,9 @@ bientôt:basym[auto]
 suivant:aşakda[auto]
 avant:öň[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:adam oýunçysy[auto]
 joueur:pleýer[auto]
@@ -188,6 +191,15 @@ casesSombres:gara gutular[auto]
 
 chargementFini:ýüklemek gutardy[auto]
 lancerLeJeu:oýun başlamak[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]
