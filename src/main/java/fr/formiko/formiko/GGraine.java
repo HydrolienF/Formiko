@@ -38,22 +38,15 @@ public class GGraine implements Serializable{
       return début.length();
     }
   }
-  public Graine getGrainePlusDeNourritureFournieSansDureté(Fourmi f){
+  public Graine getGrainePlusDeNourritureFournieSansDureté(){
     if (début == null){ erreur.erreur("Impossible de sélectionné la meilleur graine dans une liste vide."); return null;}
-    CGraine ci = this.getDébut();
-    //if (ci.getSuivant() != null){
-     return ci.getGrainePlusDeNourritureFournieSansDureté(ci.getContenu());
-    /*}
-    if(!ci.getContenu().getOuverte()){ // si elle est fermé et cassable.
-      return ci.getContenu();
-    }else{
-      return null;
-    }*/
+    CGraine ci = getDébut();
+    return ci.getGrainePlusDeNourritureFournieSansDureté(ci.getContenu());
   }
   public Graine getGrainePlusDeNourritureFournie(Fourmi f){
     if (début == null){ erreur.erreur("Impossible de sélectionné la meilleur graine dans une liste vide."); return null;}
     byte duretéMax = f.getDuretéMax();
-    CGraine ci = this.getDébut();
+    CGraine ci = getDébut();
     //if (ci.getSuivant() != null){
      return ci.getGrainePlusDeNourritureFournie(ci.getContenu(),duretéMax);
     /*}

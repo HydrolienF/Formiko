@@ -32,7 +32,6 @@ public class Fourmi extends Creature implements Serializable{
   protected byte mode; // Par défaut la fourmi chasse (0)
   // Elle peut aussi défendre la fourmilière (1) ou aider a la création de nouvelles fourmis (3)
   protected Fourmiliere fere;
-  protected ObjetSurCarteAId transporté;
   protected byte duretéMax;
   private static byte uneSeuleAction=-1;
   private static boolean bUneSeuleAction=false;
@@ -112,8 +111,6 @@ public class Fourmi extends Creature implements Serializable{
   public void setFourmiliere(Fourmiliere gf){fere = gf;}public void setFere(Fourmiliere fere){setFourmiliere(fere);}
   public Fourmiliere getFourmiliere(){return fere;} public Fourmiliere getFere(){ return getFourmiliere();}
   public Joueur getJoueur(){ if(getFere()==null){ return null;}return getFere().getJoueur();}
-  public ObjetSurCarteAId getTransporté(){ return transporté;}
-  public void setTransporté(ObjetSurCarteAId o){ transporté = o;}
   public byte getDuretéMax(){ return duretéMax;}
   public void setDuretéMax(byte x){ duretéMax=x; }
   public int getX(){return getCCase().getContenu().getX();}
@@ -147,6 +144,16 @@ public class Fourmi extends Creature implements Serializable{
   public Fourmi getReine(){ return getFere().getGc().getReine();}
   public byte getPropretéPerdu(){return e.getPropretéPerdu(stade);}
   public int getNourritureConso(){return getIndividu().getNourritureConso(getStade());}
+  /**
+  *{@summary Return true if is own by an AI.}<br>
+  *If it have an anthill that have a player it will return getIa() value of the player.<br>
+  *@version 1.40
+  */
+  @Override
+  public boolean getIa(){
+    try {return getFere().getJoueur().getIa();}
+    catch (NullPointerException e) {return false;}
+  }
   // Fonctions propre -----------------------------------------------------------
   public String toString(){return super.toString() +" "+ tableau.tableauToString(descriptionTableau());}
   public void afficheToi (){System.out.println(description());}
@@ -217,7 +224,7 @@ public class Fourmi extends Creature implements Serializable{
   //public byte getModeReine(){return 0;}
   public String [] descriptionTableau(){
     String tr [] = new String [4];
-    String idTrans = "Rien"; if(transporté != null){ idTrans = ""+transporté.getId();}
+    String idTrans = "Rien"; if(transported != null){ idTrans = ""+transported.getId();}
     int k=0;
     //tr[k]=g.get("la")+" "+getNom()+" "+getId();k++;
     //tr[k]=g.get("coordonnées")+" : "+p.desc();k++;
@@ -230,7 +237,7 @@ public class Fourmi extends Creature implements Serializable{
     tr[k]=g.get("fourmilière")+" : "+fere.getId();k++;
     tr[k]=g.get("mode")+" : "+mode;k++;
     //tr[k]=g.get("Pheromone")+" : "+ this.getPheromone().toString();k++;
-    tr[k]=g.get("transporté")+" : "+idTrans;k++;
+    tr[k]=g.get("transported")+" : "+idTrans;k++;
     //tr[k]=g.get("espèce")+" : "+this.getEspece().getNom();k++;
     return tr;
   }
@@ -245,7 +252,7 @@ public class Fourmi extends Creature implements Serializable{
     //gs.add(g.get("fourmilière")+" : "+fere.getId());
     //gs.add(g.get("mode")+" : "+mode);
     //gs.add(g.get("Pheromone")+" : "+ ph.description());
-    if(transporté != null){ gs.add(g.get("transporté")+" : "+""+transporté.getId());}
+    if(transported != null){ gs.add(g.get("transported")+" : "+""+transported.getId());}
     gs.add(g.get("espèce")+" : "+e.getNom());
     return gs;
   }

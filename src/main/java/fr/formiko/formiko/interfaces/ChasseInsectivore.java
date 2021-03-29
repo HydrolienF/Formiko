@@ -43,7 +43,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
       chasse(c);
     }else if (proieVisible.getDébut() != null){ // Si il y a un insecte a coté
       CCase pointDeLaProie = proieVisible.getDébut().getInsecte().getCCase();
-      if (Main.getDifficulté() >= 1 || ((c instanceof Fourmi) && ((Fourmi)c).getFere().getJoueur().getIa()==false)){ // En difficile les ia chasse les insectes les plus intéressants qu'elle voie.
+      if (Main.getDifficulté() >= 1 || (c instanceof Fourmi && c.getIa()==false)){ // en normal les ia chasse les insectes les plus intéressants sur la case ou elle sont.
         pointDeLaProie = proieVisible.getDébut().getInsectePlusDeNourritureFournie().getCCase();
       }
       debug.débogage(g.getM("laFourmi")+" " + c.getId()+ " "+g.get("ChasseInsectivore.1")+" " + pointDeLaProie.getPoint());
@@ -101,11 +101,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
     if (!insecteTue.getEstMort()){
       Message m = new Message(g.getM("laCréature")+" "+ c.getId()+" "+g.get("ChasseInsectivore.2")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
       insecteTue.setEstMort(true);
-      if(c instanceof Fourmi){
-        c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuParType(((Fourmi) c).getTypeF()).getCoutChasse()/2);
-      }else{
-        c.setActionMoins(10);
-      }
+      setActionMoins(c);
       debug.débogage("tuer l'insecte "+insecteTue.getId()+" effectué");
       return true;
     }else{
@@ -113,7 +109,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
     }
   }
   /**
-   * {@summary butcher during hunt.}<br>
+   * {@summary Butcher during hunt.}<br>
    * An Ant kill an Insect<br>
    * @param insecteTue The died Insect.
    * @version 1.1
@@ -130,11 +126,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
     }
     c.ajouteNourriture(nourriture);
     debug.débogage("dépecer l'insecte "+insecteTue.getId()+" effectué");
-    if(c instanceof Fourmi){
-      c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuParType(((Fourmi) c).getTypeF()).getCoutChasse()/2);
-    }else{
-      c.setActionMoins(10);
-    }
+    setActionMoins(c);
     return true;
   }
   public boolean canHuntMore(){return canHuntMore(c);}

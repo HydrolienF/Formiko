@@ -107,7 +107,7 @@ public class triche {
           getFourmiParId(args[1]).setPropreté(str.sToBy(args[2]));
           break;
         case 19:
-          //getFourmiParId(args[1]).setTransporté(getGraineParId(args[2]));
+          //getFourmiParId(args[1]).setTransported(getGraineParId(args[2]));
           break;
         // pour les graines
         case 20:

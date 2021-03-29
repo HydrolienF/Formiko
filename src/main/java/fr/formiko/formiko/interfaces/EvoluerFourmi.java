@@ -47,9 +47,14 @@ public class EvoluerFourmi implements Serializable, Evoluer{
       //TODO ajouter la capacité de voler
       if (in.getCoutPondre() != -1) { f.pondre = new PondreReine(); }
       if (in.getCoutDéplacement() != -1) { f.déplacement = new DeplacementFourmi();}
-      if (in.getCoutChasse() != -1) { f.chasse = new ChasseInsectivore();}
+      if (in.getCoutChasse()!=-1) {
+        if(f.getEspece().getInsectivore()){
+          f.chasse = new ChasseInsectivore();
+        }else if(f.getEspece().getGranivore()){
+          f.chasse = new ChasseGranivore();
+        }
+      }
       if (in.getCoutTrophallaxie() != -1) { f.trophallaxie = new TrophallaxieFourmi();}
-      if (f.getEspece().getGranivore()){ f.collecte = new CollecteFourmi();}
       f.netoyer =  new NetoyerFourmi();
       //f.iniTour(); //done in contructor of fourmi.
       // caractéristiques de l'espèce :

@@ -1,6 +1,7 @@
 package fr.formiko.formiko.interfaces;
 
 import fr.formiko.formiko.Creature;
+import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
@@ -23,5 +24,16 @@ public interface Chasse extends Serializable{
    */
   public default boolean canHuntMore(Creature c){
     return c.getNourriture()<c.getNourritureMax() && c.getAction()>0;
+  }
+  /**
+   * {@summary Lower creature actions count.}<br>
+   * @version 1.40
+   */
+  public default void setActionMoins(Creature c){
+    if(c instanceof Fourmi){
+      c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuParType(((Fourmi) c).getTypeF()).getCoutChasse()/2);
+    }else{
+      c.setActionMoins(10);
+    }
   }
 }

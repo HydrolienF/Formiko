@@ -23,13 +23,12 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public Chasse chasse;
   public Pondre pondre;
   public Trophallaxie trophallaxie;
-  public Collecte collecte;
+  // public Collecte collecte;
   public Evoluer evoluer;
   public Mourir mourir;
   public Netoyer netoyer;
   public Tour tour;
   // variable
-  // CCase p
   protected int nourriture;
   protected int nourritureMax;
   protected int age;
@@ -43,6 +42,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   protected byte stade; // -2 = oeuf, -1 = larve, 0 =  imago L'utilisation de la variable stade permet de faire manger les larves et pas les oeux. Les diférent stade on également des image distinctes.
   protected int nourritureFournie;
   protected Espece e;
+  protected ObjetSurCarteAId transported;
   //TODO #73
   //protected int typeEated [];
   //private int pv; //Point de vie
@@ -62,7 +62,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     this.nourriture = nourriture; this.nourritureMax =nourritureMax;
     tolerencePheromone=0;
     nourritureFournie=1;
-    this.déplacement = new DeplacementNull(); this.chasse = new ChasseNull(); this.pondre = new PondreNull(); this.trophallaxie = new TrophallaxieNull(); this.collecte = new CollecteNull();this.evoluer=new EvoluerNull();this.mourir=new MourirNull();this.netoyer=new NetoyerNull();
+    this.déplacement = new DeplacementNull(); this.chasse = new ChasseNull(); this.pondre = new PondreNull(); this.trophallaxie = new TrophallaxieNull(); this.evoluer=new EvoluerNull();this.mourir=new MourirNull();this.netoyer=new NetoyerNull();
     this.tour = new TourCreatureSansAction();
   }
   /**
@@ -148,6 +148,13 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void setEspece(Espece e){ this.e = e;}
   public void setEspece(int e){ setEspece(Main.getEspeceParId(e));}
   public String getNom(){return g.get("creature");}
+  /***
+  *{@summary Return true if is own by an AI.}<br>
+  *@version 1.40
+  */
+  public boolean getIa(){return true;}
+  public ObjetSurCarteAId getTransported(){ return transported;}
+  public void setTransported(ObjetSurCarteAId o){ transported = o;}
 
   //raccourci des actions d'interface
   public void ceDeplacer(boolean bIa){déplacement.unMouvement(this,bIa);}
@@ -160,7 +167,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void trophallaxie(int id, int nourritureDonnée){trophallaxie.trophallaxie(this, id, nourritureDonnée);}
   public void trophallaxie(Creature c, int nourritureDonnée){trophallaxie.trophallaxie(this,c, nourritureDonnée);}
   public void trophallaxer(){trophallaxie.trophallaxer(this);}
-  public void collecter(int direction){collecte.collecter((Fourmi) this, (byte) direction);}
+  // public void collecter(int direction){collecte.collecter((Fourmi) this, (byte) direction);}
   public void evoluer(){evoluer.evoluer(this);}
   public void mourir(){mourir(0);}//mourrir sans raison spécifié.
   public void mourir(int r){mourir.mourir(this,r);}
