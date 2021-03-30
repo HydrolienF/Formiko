@@ -1,6 +1,5 @@
 package fr.formiko.formiko;
 
-
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Creature;
@@ -9,6 +8,7 @@ import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.exceptions.NotNullLocationException;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
@@ -40,6 +40,24 @@ public class CreatureTest extends TestCaseMuet{
     g1.setCCase(Main.getCCase(0,3));
     assertEquals(Main.getCCase(0,3), g1.getCCase());
     assertEquals(Main.getCCase(0,3), g2.getCCase());
+  }
+  @Test
+  public void testSetTransported(){
+    Creature c = new Insecte(Main.getGc().getCCase(0,0));
+    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    Graine g2 = new Graine(Main.getGc().getCCase(0,0),100,(byte)11);
+    assertEquals(null,c.getTransported());
+    c.setTransported(g1);
+    assertEquals(g1,c.getTransported());
+    assertThrows(NotNullLocationException.class, () -> {
+        c.setTransported(g2);
+    });
+    assertEquals(g1,c.getTransported());
+    c.setTransported(null);
+    assertEquals(null,c.getTransported());
+    c.setTransported(g2);
+    assertEquals(g2,c.getTransported());
+
   }
   @Test
   public void testIsHungry(){
