@@ -18,14 +18,13 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     p.setAppartionGraine(false);
     Joueur j = new Joueur(new Fourmiliere(p.getGc().getCCase(0,0),null),"joueurTest",false);
     j.getFere().setJoueur(j);
-    assertTrue(p.getGc().getCCase(0,0).getContenu().getFere().equals(j.getFere()));
-    assertTrue(p.getGc().getCCase(0,1).getContenu().getFere()==null);
     p.getGj().add(j);
     Fourmi f = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
     j.getFere().getGc().add(f);
-    assertEquals(1,j.getFere().getGc().length());
     f.chasse = new ChasseGranivore();
     ((ChasseGranivore)(f.chasse)).setC(f);
+    f.setCCase(0,0);
+    f.getFere().setCCase(Main.getCCase(0,1));
     return f;
   }
   @Test
@@ -54,6 +53,26 @@ public class ChasseGranivoreTest extends TestCaseMuet{
   }
   @Test
   public void testChasse(){
+    Fourmi f = ini();
+    f.setAction(f.getActionMax());
+    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    Graine g2 = new Graine(null,10,(byte)20);
+    f.setTransported(g2);
+    assertTrue(!f.chasse());
+
+    f = ini();
+    f.setAction(f.getActionMax());
+    g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    assertTrue(f.chasse());
+    // assertEquals(g1,f.getTransported());
+    // assertEquals(null,g1.getCCase());
+
+    f = ini();
+    f.setAction(0);
+    g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    assertTrue(!f.chasse());
+    assertEquals(null,f.getTransported());
+    assertEquals(Main.getGc().getCCase(0,0),g1.getCCase());
     //TODO
     //doit collecter 1 graine si il y en a une sur la case et qu'elle n'en pas pas déja et quelle a des actions.
   }

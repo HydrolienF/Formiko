@@ -23,7 +23,7 @@ public class Fourmiliere implements Serializable{
   /***
   *Place on the map
   */
-  private CCase cc;
+  private CCase ccase;
   /***
   *Player that own this.
   */
@@ -47,23 +47,23 @@ public class Fourmiliere implements Serializable{
   private int nbrFourmisMorte;
 
   // CONSTRUCTEUR
-  public Fourmiliere(CCase cc, Joueur j){
+  public Fourmiliere(CCase ccase, Joueur j){
     id = idCpt; idCpt++;
     nbrFourmisMorte=0;
     //modeDéfaut=3;
     ggi = new GGInt();
-    if (cc==null){
+    if (ccase==null){
       erreur.erreur("Impossible de créer une fourmilière sur une case null","Fourmiliere.Fourmiliere",true);
     }
     debug.débogage("Placement de la Fourmiliere dans la Case.");
-    if (cc.getContenu().getFere() != null){
+    if (ccase.getContenu().getFere() != null){
       erreur.alerte("Impossible de créer une fourmilière sur une case qui en contient déjà une !","Fourmiliere.Fourmiliere","Choix d'une autre case alléatoire.");
       do {
-        cc = Main.getGc().getCCaseAlléa();
-      } while (cc.getContenu().getFere() != null);
+        ccase = Main.getGc().getCCaseAlléa();
+      } while (ccase.getContenu().getFere() != null);
     }
-    this.cc = cc; // la cc doit etre une case reliée a début de Main.getGc sinon on la vera pas.
-    cc.getContenu().setFere(this);
+    this.ccase = ccase; // la ccase doit etre une case reliée a début de Main.getGc sinon on la vera pas.
+    ccase.getContenu().setFere(this);
     joueur = j;
     gc = new GCreature();
     gg = new GGraine();
@@ -76,21 +76,30 @@ public class Fourmiliere implements Serializable{
     this(j, mapo);
     int x = allea.getAlléaDansTableau(Main.getTableauDesEspecesAutorisée());
     if(!j.getIa()){x=0;}//les joueurs ne joue que des Lasius Niger
-    gc = new GCreature(taille, this,Main.getGEspece().getEspeceParId(x),cc);
+    gc = new GCreature(taille, this,Main.getGEspece().getEspeceParId(x),getCCase());
   }
   public Fourmiliere(int taille, Joueur j){ this(taille,j,Main.getCarte());}
   public Fourmiliere() {this(((CCase)(null)),null);} //Only for test
   // GET SET -----------------------------------------------------------------------
   public int getId(){return id;}
-  public Point getP(){return cc.getContenu().getP();}
+  public Point getP(){return getCCase().getContenu().getP();}
   public Point getPoint(){return getP();}
-  public CCase getCc(){return cc;}
+  public CCase getCc(){return ccase;}
   public CCase getCCase(){return getCc();}
-  public void setCc(CCase x){
-    getCCase().getContenu().setFere(null);
-    cc = x;
-    getCCase().getContenu().setFere(this);
-  }
+  /**
+  *{@summary Move the anthill from a case to an other.}<br>
+  *It will try to remove from old CCase and add to new CCase.<br>
+  *@version 1.40
+  */
+  public void setCc(CCase newCCase){
+    if (getCCase()!=null) {
+      getCCase().getContenu().setFere(null);
+    }
+    ccase = newCCase;
+    if (newCCase!=null){
+      getCCase().getContenu().setFere(this);
+    }
+  }public void setCCase(CCase ccase){setCc(ccase);}
   public static int getI(){return idCpt;}
   public int getNbrDeFourmi(){return length();}
   public int getLen(){return length();}

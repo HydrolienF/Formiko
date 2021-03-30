@@ -429,7 +429,8 @@ public class Main {
   public static GInsecte getGi(){return pa.getGi();}
   public static GJoueur getListeJoueur(){return pa.getGj();}
   public static GJoueur getGj(){return pa.getGj();}
-  public static GCase getGc(){return pa.getGc();}
+  public static GCase getGc(){if(getPartie()==null){return null;}return getPartie().getGc();}
+  public static CCase getCCase(int x, int y){if(getGc()==null){return null;}return getGc().getCCase(x,y);}
   public static void setNbrDeTour(int x){pa.setNbrDeTour(x);}
   public static void setTour(int x){pa.setTour(x);}
   public static int getNbrDeTour(){return pa.getNbrDeTour();}

@@ -17,14 +17,14 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   private byte tempsAvantDecomposition;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public Graine(CCase p, int nourritureFournie, byte dureté){
-    super(p); ouverte = false;
+  public Graine(CCase ccase, int nourritureFournie, byte dureté){
+    super(ccase); ouverte = false;
     this.nourritureFournie = nourritureFournie; this.dureté = dureté;
     type = (byte) allea.getAlléa(4);//0,1 ou 2.
     tempsAvantDecomposition = (byte)(20 + allea.getAlléa(100));// de 19 a 119
   }
-  public Graine(CCase p){
-    this(p,allea.getAlléa(400)+10,(byte) 0);
+  public Graine(CCase ccase){
+    this(ccase,allea.getAlléa(400)+10,(byte) 0);
     setDureté(getNourritureFournie()/10 + allea.getAlléa(80)); // de 1 a 41 + de 0 a 80.
   }
   public Graine(){
@@ -38,11 +38,19 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   public void setDureté(int x){ if(x<-128 || x>127){ erreur.erreur("byte inoptencible depuis "+x,"Graine.setDureté");return;}setDureté((byte)x);}
   public boolean getOuverte(){ return ouverte;}
   public void setOuverte(boolean b){ouverte = b;}
-  public void setCCase(CCase p){
-    this.p.getContenu().getGg().retirer(this);
-    this.p = p;
-    if(p!=null){
-      p.getContenu().getGg().ajouter(this);
+  /**
+  *{@summary Move the Graine from a case to an other.}<br>
+  *It is used by Deplacement interfaces.<br>
+  *It wil try to remove from old CCase and add to new CCase.<br>
+  *@version 1.40
+  */
+  public void setCCase(CCase newCCase){
+    if(this.ccase!=null){
+      this.ccase.getContenu().getGg().retirer(this);
+    }
+    this.ccase = newCCase;
+    if(newCCase!=null){
+      newCCase.getContenu().getGg().ajouter(this);
     }
   }
   public byte getType(){ return type;}
@@ -68,7 +76,7 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   }
   public void mourrir(){
     debug.débogage("Lancement de la mort de la graine.");
-    Main.getGc().getCCase(p.getContenu().getX(),p.getContenu().getY()).getGg().retirerGraine(this);//on retire la graine de sa liste.
+    Main.getGc().getCCase(ccase.getContenu().getX(),ccase.getContenu().getY()).getGg().retirerGraine(this);//on retire la graine de sa liste.
     this.setCCase(null);
   }
   public void casser(){
