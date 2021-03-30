@@ -17,6 +17,7 @@ public class CaseTest extends TestCaseMuet{
   // Fonctions propre -----------------------------------------------------------
   private Fourmi ini(){
     Main.initialisation();
+    Main.setLangue(0);
     p = new Partie(0,100,new Carte(new GCase(1,2),0,0,1,false,false),1);
     Main.setPartie(p);
     p.setAppartionInsecte(false);
