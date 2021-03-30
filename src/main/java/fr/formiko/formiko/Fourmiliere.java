@@ -4,6 +4,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.exceptions.NotNullLocationException;
 import fr.formiko.usuel.listes.GGInt;
 import fr.formiko.usuel.listes.GInt;
 import fr.formiko.usuel.maths.allea;
@@ -56,14 +57,16 @@ public class Fourmiliere implements Serializable{
       erreur.erreur("Impossible de créer une fourmilière sur une case null","Fourmiliere.Fourmiliere",true);
     }
     debug.débogage("Placement de la Fourmiliere dans la Case.");
-    if (ccase.getContenu().getFere() != null){
-      erreur.alerte("Impossible de créer une fourmilière sur une case qui en contient déjà une !","Fourmiliere.Fourmiliere","Choix d'une autre case alléatoire.");
+    if (ccase!=null && ccase.getContenu().getFere() != null){
+      int k=0;
       do {
         ccase = Main.getGc().getCCaseAlléa();
+        k++;
+        if(k==100){erreur.alerte("Impossible de créer une fourmilière sur une case qui en contient déjà une ! Déjà 100 tentative de placement","Fourmiliere.Fourmiliere","Choix d'une autre case alléatoire.");}
       } while (ccase.getContenu().getFere() != null);
     }
-    this.ccase = ccase; // la ccase doit etre une case reliée a début de Main.getGc sinon on la vera pas.
-    ccase.getContenu().setFere(this);
+    this.ccase = ccase;
+    if(ccase!=null) {ccase.getContenu().setFere(this);}
     joueur = j;
     gc = new GCreature();
     gg = new GGraine();
@@ -88,10 +91,12 @@ public class Fourmiliere implements Serializable{
   public CCase getCCase(){return getCc();}
   /**
   *{@summary Move the anthill from a case to an other.}<br>
+  *It will not add a Fourmiliere to a case that already have 1 but throw an Exception.
   *It will try to remove from old CCase and add to new CCase.<br>
   *@version 1.40
   */
   public void setCc(CCase newCCase){
+    if(newCCase!=null && newCCase.getContenu()!=null && newCCase.getContenu().getFere()!=null){throw new NotNullLocationException();}
     if (getCCase()!=null) {
       getCCase().getContenu().setFere(null);
     }
