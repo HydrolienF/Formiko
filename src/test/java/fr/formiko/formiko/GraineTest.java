@@ -38,4 +38,16 @@ public class GraineTest extends TestCaseMuet{
     assertEquals(Main.getCCase(0,3), g1.getCCase());
     assertEquals(Main.getCCase(0,3), g2.getCCase());
   }
+  @Test
+  public void testGraine(){
+    ini();
+    assertEquals(0,Main.getGc().getCCase(0,0).getContenu().getGg().length());
+    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    assertEquals(1,Main.getGc().getCCase(0,0).getContenu().getGg().length());
+    assertEquals(g1,Main.getGc().getCCase(0,0).getContenu().getGg().getDébut().getContenu());
+    Graine g2 = new Graine(Main.getGc().getCCase(0,0),10,(byte)100);
+    assertEquals(2,Main.getGc().getCCase(0,0).getContenu().getGg().length());
+    assertEquals(g2,Main.getGc().getCCase(0,0).getContenu().getGg().getDébut().getContenu());
+    assertEquals(g1,Main.getGc().getCCase(0,0).getContenu().getGg().getDébut().getSuivant().getContenu());
+  }
 }

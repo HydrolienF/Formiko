@@ -437,6 +437,7 @@ public class Main {
   public static int getTour(){return pa.getTour();}
   public static byte getDifficulté(){return pa.getDifficulté();}
   public static void setDifficulté(byte x){pa.setDifficulté(x);}
+  public static void setDifficulté(int x){setDifficulté((byte)x);}
   public static LocalDateTime getDateDeCréation(){return pa.getDateDeCréation();}
   public static int [] getTableauDesEspecesAutorisée(){ return pa.getTableauDesEspecesAutorisée();}
   public static int getNbrDeJoueur(){ return pa.getNbrDeJoueurDansLaPartie();}

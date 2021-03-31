@@ -66,10 +66,8 @@ public class ChasseGranivore implements Serializable, Chasse {
    public boolean chasse(Creature c){
      setC(c);
      if(!canHuntMore()){return false;}
-     System.out.println("get proie");//@a
      GGraine gg = c.getCCase().getContenu().getGg();
      if (gg.getDébut() != null){
-       System.out.println("proi non null");//@a
        Graine graineCollecté;
        if (Main.getDifficulté() >= 0 || !c.getIa()){
          graineCollecté = gg.getGrainePlusDeNourritureFournieSansDureté();
@@ -77,13 +75,10 @@ public class ChasseGranivore implements Serializable, Chasse {
          graineCollecté = gg.getDébut().getContenu();
        }
        debug.débogage("Suppression de la graine "+graineCollecté.getId() + " en "+graineCollecté.getCCase().getContenu().description());
-       // graineCollecté.mourrir();
        c.setTransported(graineCollecté);
-       //pointActuel.getGg().retirer(graineCollecté);
-       //graineCollecté.setCCase(null);
        setActionMoins(c);
      }else{
-       erreur.erreur("La fonction collecte ne devrais pas être appeler sur une case vide.","ChasseGranivore.chasse");
+       erreur.alerte("La fonction collecte ne devrais pas être appeler sur une case vide.","ChasseGranivore.chasse");
      }
      return canHuntMore();
    }
