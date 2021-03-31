@@ -12,7 +12,7 @@ public class ChasseGranivoreTest extends TestCaseMuet{
   // Fonctions propre -----------------------------------------------------------
   private Fourmi ini(){
     Main.initialisation();
-    Partie p = new Partie(0,100,new Carte(new GCase(1,2),0,0,1,false,false),1);
+    Partie p = new Partie(0,100,new Carte(new GCase(2,5),0,0,1,false,false),1);
     Main.setPartie(p);
     p.setAppartionInsecte(false);
     p.setAppartionGraine(false);
@@ -148,10 +148,154 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     assertTrue(f.getAction()<f.getActionMax());
     assertEquals(g2,f.getTransported());
   }
+
+  // 1 seed to get on the same Case.
   @Test
   public void testChasser(){
-    //TODO
-    //doit faire comme chasse si il y a une graine.
-    //sinon doit ce déplacer vers une graine. (la meilleure graine si la difficulté est suffisante.)
+    Fourmi f = ini();
+    f.getFere().getJoueur().setIa(false);
+    f.setAction(f.getActionMax());
+    Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    f.chasser(8);
+    assertTrue(f.getAction()<f.getActionMax());
+    assertEquals(g2,f.getTransported());
+  }
+  // 1 seed to get on an other Case.
+  @Test
+  public void testChasser2(){
+    Fourmi f = ini();
+    f.setCCase(0,1);
+    f.getFere().getJoueur().setIa(false);
+    f.setAction(f.getActionMax());
+    Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    f.chasser(8);
+    assertTrue(f.getAction()<f.getActionMax());
+    assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
+    assertEquals(null,f.getTransported());
+  }
+  // 2 seed
+  @Test
+  public void testChasser3(){
+    Fourmi f = ini();
+    f.setCCase(0,1);
+    f.getFere().getJoueur().setIa(false);
+    f.setAction(f.getActionMax());
+    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    f.chasser(8);
+    assertTrue(f.getAction()<f.getActionMax());
+    assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
+    assertEquals(null,f.getTransported());
+  }
+  // 2 seed 1 on the same case.
+  @Test
+  public void testChasser3b(){
+    Fourmi f = ini();
+    f.setCCase(0,1);
+    f.getFere().getJoueur().setIa(false);
+    f.setAction(f.getActionMax());
+    Graine g1 = new Graine(Main.getGc().getCCase(0,1),100,(byte)10);
+    Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    f.chasser(8);
+    assertTrue(f.getAction()<f.getActionMax());
+    assertEquals(Main.getGc().getCCase(0,1),f.getCCase());
+    assertEquals(g1,f.getTransported());
+  }
+  // 2 seed on different Case.
+  @Test
+  public void testChasser4(){
+    Fourmi f = ini();
+    f.setCCase(0,1);
+    f.getFere().getJoueur().setIa(false);
+    f.setAction(f.getActionMax());
+    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    Graine g2 = new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
+    f.chasser(8);
+    assertTrue(f.getAction()<f.getActionMax());
+    assertEquals(Main.getGc().getCCase(0,2),f.getCCase());
+    assertEquals(null,f.getTransported());
+  }
+  //if it choose default seed.
+  @Test
+  public void testChasser5(){
+    Fourmi f = ini();
+    f.setCCase(0,1);
+    f.getFere().getJoueur().setIa(true);
+    Main.setDifficulté(0);
+    f.setAction(f.getActionMax());
+    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    Graine g2 = new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
+    f.chasser(8);
+    assertTrue(f.getAction()<f.getActionMax());
+    assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
+    assertEquals(null,f.getTransported());
+  }
+  @Test
+  public void testChasser6(){
+    Fourmi f = ini();
+    f.setCCase(0,1);
+    f.getFere().getJoueur().setIa(true);
+    Main.setDifficulté(0);
+    f.setAction(f.getActionMax());
+    Graine g2 = new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
+    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    f.chasser(8);
+    assertTrue(f.getAction()<f.getActionMax());
+    assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
+    assertEquals(null,f.getTransported());
+  }
+  @Test
+  public void testChasser6b(){
+    Fourmi f = ini();
+    f.setCCase(0,1);
+    f.getFere().getJoueur().setIa(true);
+    Main.setDifficulté(0);
+    f.setAction(f.getActionMax());
+    Graine g1 = new Graine(Main.getGc().getCCase(1,1),100,(byte)10);
+    Graine g2 = new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
+    f.chasser(8);
+    assertTrue(f.getAction()<f.getActionMax());
+    assertEquals(Main.getGc().getCCase(1,1),f.getCCase());
+    assertEquals(null,f.getTransported());
+  }
+  //if it choose best seed.
+  @Test
+  public void testChasser7(){
+    Fourmi f = ini();
+    f.setCCase(0,1);
+    f.getFere().getJoueur().setIa(true);
+    Main.setDifficulté(1);
+    f.setAction(f.getActionMax());
+    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    Graine g2 = new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
+    f.chasser(8);
+    assertTrue(f.getAction()<f.getActionMax());
+    assertEquals(Main.getGc().getCCase(0,2),f.getCCase());
+    assertEquals(null,f.getTransported());
+  }
+  //if there is no seed move to give direction.
+  @Test
+  public void testChasser8(){
+    Fourmi f = ini();
+    f.setCCase(0,1);
+    f.getFere().getJoueur().setIa(true);
+    Main.setDifficulté(1);
+    f.setAction(f.getActionMax());
+    f.chasser(6);
+    assertTrue(f.getAction()<f.getActionMax());
+    assertEquals(Main.getGc().getCCase(1,1),f.getCCase());
+    assertEquals(null,f.getTransported());
+  }
+  @Test
+  public void testChasser9(){
+    Fourmi f = ini();
+    f.setCCase(0,1);
+    f.getFere().getJoueur().setIa(true);
+    Main.setDifficulté(1);
+    f.setAction(f.getActionMax());
+    f.chasser(9);
+    assertTrue(f.getAction()<f.getActionMax());
+    assertEquals(Main.getGc().getCCase(1,2),f.getCCase());
+    assertEquals(null,f.getTransported());
   }
 }
