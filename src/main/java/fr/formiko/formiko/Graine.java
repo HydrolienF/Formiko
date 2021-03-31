@@ -22,6 +22,7 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
     this.nourritureFournie = nourritureFournie; this.dureté = dureté;
     type = (byte) allea.getAlléa(4);//0,1 ou 2.
     tempsAvantDecomposition = (byte)(20 + allea.getAlléa(100));// de 19 a 119
+    if(ccase!=null){ccase.getGg().ajouterGraine(this);}
   }
   public Graine(CCase ccase){
     this(ccase,allea.getAlléa(400)+10,(byte) 0);

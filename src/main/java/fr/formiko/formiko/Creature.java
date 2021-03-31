@@ -161,7 +161,8 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public ObjetSurCarteAId getTransported(){ return transported;}
   /**
   *{@summary Set as transported item o.}<br>
-  *If Item is no null it will be remove from the CCase.<br>
+  *If item is no null it will be remove from the CCase.<br>
+  *If item is not null &#38; it already have an item it will throw an exception.<br>
   *@version 1.40
   */
   public void setTransported(ObjetSurCarteAId o){
