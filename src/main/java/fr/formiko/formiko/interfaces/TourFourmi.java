@@ -42,15 +42,15 @@ public class TourFourmi implements Serializable, Tour{
   *@version 1.29
   */
   public void tour(){
-    f.eat(5);
+    f.eat(5); //if granivore go back to anthill if anthill have oppen seed or oppenable seed.
     f.runAway();
     cleanItself();
     f.eat(20);
-    feedOther(10);
+    feedOther(10); //if granivore do not feedOther out of anthill
     cleanOther();
     f.eat(80);
     //reproduce();
-    backHomeAndShareFood();
+    backHomeAndShareFood(); //if granivore oppen seed & feedOther.
     f.eat(100);
     finTour();
   }

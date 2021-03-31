@@ -36,7 +36,7 @@ public class ChasseGranivore implements Serializable, Chasse {
    */
   public boolean chasser(Creature c, int direction){
     setC(c);
-    if(!canHuntMore()){return false;}
+    if(!canHuntMore()){return eatIfNeed();}
     GGraine proieVisible = getProie();
     if (c.getCCase().getContenu().getGg().getDébut() != null){ // Si il y a une graine sur la même case
       debug.débogage("la graine "+c.getCCase().getContenu().getGg().getDébut().getContenu().getId()+" a été détecté sur la meme case que la Fourmi.");
@@ -101,5 +101,23 @@ public class ChasseGranivore implements Serializable, Chasse {
   public boolean canHuntMore(Creature c){
     //return c.getTransported()==null && super.canHuntMore(c);
     return c.getTransported()==null && c.getNourriture()<c.getNourritureMax() && c.getAction()>0;
+  }
+  private boolean eatIfNeed(){
+    // if(c.isHungry(90)){
+    //   if(){//peux ouvrir la graine qu'elle porte et la manger
+    //     //ouvrir puis manger ou juste manger.
+    //   }else{
+    //     if(!(c instanceof Fourmi)){
+    //       return false;
+    //     }else if((Fourmi c).estALaFere()){
+    //       //choisir une graine mangeable.
+    //       //if n'as pas pris de graine return false;
+    //     }else{
+    //
+    //     }
+    //   }
+    //   return true;
+    // }
+    return false;
   }
 }
