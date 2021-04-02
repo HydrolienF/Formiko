@@ -47,6 +47,10 @@ public class keys {
 
     //globals actions
     Action action = new AbstractAction() {
+      /**
+      *{@summary Show or hide escape panel.}
+      *@version 1.40
+      */
       public void actionPerformed(ActionEvent actionEvent) {
         if(Main.getJeuEnCours()){return;}
         if(Main.getPe().getAff()){
@@ -60,6 +64,10 @@ public class keys {
     actionMap.put("escape",action);
 
     action = new AbstractAction() {
+      /**
+      *{@summary Try to go to next PanneauDialogue.}
+      *@version 1.40
+      */
       public void actionPerformed(ActionEvent actionEvent) {
         try {
           Main.getPd().clicEn(0,0);
@@ -69,6 +77,10 @@ public class keys {
     actionMap.put("space",action);
 
     action = new AbstractAction() {
+      /**
+      *{@summary Launch game or swap plaing ant or end turn.}
+      *@version 1.40
+      */
       public void actionPerformed(ActionEvent actionEvent) {
         // if (Main.getPd()!=null) {
         //   try {
@@ -85,6 +97,10 @@ public class keys {
 
     //ants actions
     action = new AbstractAction() {
+      /**
+      *{@summary Do an ant action.}
+      *@version 1.40
+      */
       public void actionPerformed(ActionEvent actionEvent) {
         if(Main.getPlayingAnt()==null){return;}
         char c = actionEvent.getActionCommand().charAt(0);

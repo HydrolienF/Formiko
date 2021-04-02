@@ -94,7 +94,7 @@ public class ChasseGranivore implements Serializable, Chasse {
   public boolean canHuntMore(){return canHuntMore(c);}
   /**
    * {@summary Check if can hunt.}<br>
-   * It should use Chasse.canHuntMore & specifique condition for granivore species.<br>
+   * It should use Chasse.canHuntMore &#38; specifics conditions for granivore species.<br>
    * @version 1.40
    */
   //@Override
