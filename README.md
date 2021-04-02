@@ -61,4 +61,5 @@ Bidulman
 Jerryh
 Arc en Ciel
 
-`license: all rights reserved. Contact hydrolien.lili502@gmail.com`
+`license: Full license aviable on LICENSE.md
+To make it shorter, it allowed you to use, or modify the game but you need to merge modification on this repository to have it on the game.`
