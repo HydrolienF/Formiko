@@ -16,7 +16,6 @@ import java.awt.event.WindowEvent;
 import javax.swing.SwingUtilities;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-import fr.formiko.formiko.Touches;
 
 public class Fenetre extends JFrame {
   private PanneauPrincipal pp;
@@ -48,7 +47,6 @@ public class Fenetre extends JFrame {
     SwingUtilities.invokeLater(r);
     pp = new PanneauPrincipal();
     this.setContentPane(pp);
-    addKeyListener(new Touches());
     this.setResizable(true); //On permet ou pas le redimensionnement
     this.setVisible(true); // visible
     debug.g("Fenetre",xMax,yMax);

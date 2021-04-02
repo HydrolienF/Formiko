@@ -1,7 +1,6 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.formiko.Touches;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
@@ -18,7 +17,6 @@ public class PanneauTBoolean extends PanneauTX{
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauTBoolean(String desc){super();
     if(desc==null){ return;}
-    addKeyListener(new Touches());
     tailleBouton = Main.getTailleBoutonTX();
     this.descTI = desc;
     debug.débogage("Création d'un PanneauTBoolean");

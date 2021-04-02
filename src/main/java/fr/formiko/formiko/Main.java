@@ -384,10 +384,10 @@ public class Main {
   public static PanneauAction getPa(){ return getPb().getPa();}public static PanneauAction getPac(){return getPa();}
   public static Fourmi getPlayingAnt(){ try {return getPartie().getPlayingAnt();}catch (Exception e) {return null;}}
   public static Joueur getPlayingJoueur(){ try {return getPartie().getPlayingJoueur();}catch (Exception e) {return null;}}
-  public static PanneauChargement getPch(){ return getPj().getPch();}
-  public static PanneauSup getPs(){ return getPj().getPs();}
+  public static PanneauChargement getPch(){ try {return getPj().getPch();}catch (Exception e) {return null;}}
+  public static PanneauSup getPs(){ try {return getPj().getPs();}catch (Exception e) {return null;}}
   public static PanneauEchap getPe(){ return getPj().getPe();}
-  public static PanneauDialogue getPd(){ return getPj().getPd();}
+  public static PanneauDialogue getPd(){ try {return getPj().getPd();}catch (Exception e) {return null;}}
   public static PanneauDialogueInf getPdi(){ return getPj().getPdi();}
   public static int getDimX(){ try {return getPp().getWidth();}catch (Exception e){erreur.erreur("Impossible de récupérer les dim de Pp");return 1;}}
   public static int getDimY(){ try {return getPp().getHeight();}catch (Exception e){erreur.erreur("Impossible de récupérer les dim de Pp");return 1;}}

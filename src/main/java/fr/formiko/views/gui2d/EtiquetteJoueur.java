@@ -36,8 +36,6 @@ public class EtiquetteJoueur extends Panneau{
     dsc.setBorder(null);
     ItemState2 is2 = new ItemState2();
     is2.setEj(this);
-    //addKeyListener(is2);
-    dsc.addKeyListener(is2);
     add(dsc);
     String[] tab = {g.getM("joueur"), g.getM("ia"), g.getM("fermé")};
     combo = new ComboBox<String>(tab);
@@ -52,7 +50,6 @@ public class EtiquetteJoueur extends Panneau{
     combo.setFont(Main.getFont1(0.9));
     is.setEj(this);
     add(combo);
-    couleur.addKeyListener(is2);
     add(couleur);
 
   }

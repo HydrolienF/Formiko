@@ -1,7 +1,6 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.formiko.Touches;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
@@ -18,7 +17,6 @@ public class PanneauTInt extends PanneauTX{
   private int choix;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauTInt(int ti [],String desc){super();
-    addKeyListener(new Touches());
     tailleBouton = Main.getTailleBoutonTX();
     this.descTI = desc;
     debug.débogage("Création d'un PanneauTInt");
@@ -39,7 +37,6 @@ public class PanneauTInt extends PanneauTX{
       Dimension dim = new Dimension(tailleBouton,tailleBouton);
       for (int i=0;i<nbrDeCase ;i++ ) {
         tB[i]=new Bouton(ti[i]+"", Main.getPp().getPj(),40+i);
-        tB[i].addKeyListener(new Touches());
         tB[i].setFont(Main.getFont2());
       }
       for (Bouton b :tB){b.setPreferredSize(dim);}
