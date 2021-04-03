@@ -14,19 +14,13 @@ import java.awt.Graphics2D;
 *{@summary Escap pannel }<br>
 *Used to pause game.
 *@author Hydrolien
-*@version 1.23
+*@version 1.41
 */
 public class PanneauEchap extends Panneau{
   private Bouton tb[];
-  private boolean aff;
+  private boolean visible;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public void PanneauEchap(){
-    setLayout(null);
-    //setOpaque(false);
-    tb = new Bouton[0];
-    setOpaque(true);
-  }
   public void construire(){
     if(estContruit()){return;}
     Main.getPz().setEnabled(false);
@@ -51,9 +45,8 @@ public class PanneauEchap extends Panneau{
     repaint();
   }
   // GET SET --------------------------------------------------------------------
-  public boolean getAff(){return aff;}
-  public void setAff(boolean b){aff=b;}
   public void setTb(Bouton tbTemp[]){tb=tbTemp;}
+  public boolean getVisible(){return visible;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     Graphics2D g2d = (Graphics2D)g;
@@ -75,23 +68,23 @@ public class PanneauEchap extends Panneau{
     }catch (Exception e) {}
   }
   /**
-  *{@summary set PanneauEchap visible}
+  *{@summary Set PanneauEchap visible.}<br>
+  *It Override Component.setVisible() but also build panel if needed & update PanneauSup size.<br>
+  *@version 1.41
   */
   @Override
   public void setVisible(boolean b){
     if(b){construire();Main.getPs().setSize(0,0);}
     else{Main.getPs().actualiserTaille();}
-    setAff(b);
+    visible=b;
     super.setVisible(b);
   }
   /**
   *{@summary return true if only PanneauEchap button sould be enable.}
-  *@version 1.23
+  *@version 1.41
   */
   public boolean estContruit(){
-    if(tb==null){return false;}
-    return true;
-    //return !(tb.length==0);}//il est contruit si le tableau n'est pas vide.
+    return tb!=null;
   }
   /*
   public void miseALaMemeTaille(int lentb){

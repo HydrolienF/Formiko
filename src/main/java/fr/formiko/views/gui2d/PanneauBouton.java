@@ -63,7 +63,7 @@ public class PanneauBouton extends Panneau {
   // GET SET -------------------------------------------------------------------
   public String getDesc(){return descS;}
   public void setDesc(String s){
-    if(Main.getPe() == null || !Main.getPe().estContruit()){
+    if(Main.getPe()==null || !Main.getPe().getVisible()){
       descS=s;
       actualiserDesc();
     }

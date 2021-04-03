@@ -53,7 +53,7 @@ public class keys {
       */
       public void actionPerformed(ActionEvent actionEvent) {
         if(Main.getJeuEnCours()){return;}
-        if(Main.getPe().getAff()){
+        if(Main.getPe().getVisible()){
           Main.getPe().setVisible(false);
         }else{
           Main.getPj().setDesc("");

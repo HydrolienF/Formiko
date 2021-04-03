@@ -22,6 +22,8 @@ public class Panneau extends JPanel {//implements ActionListener{
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Panneau(){
+    super();
+    setLayout(null);
     //setOpaque(false); //cause issues about Bouton.
   }
   // GET SET --------------------------------------------------------------------

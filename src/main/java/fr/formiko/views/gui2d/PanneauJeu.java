@@ -95,7 +95,7 @@ public class PanneauJeu extends Panneau {
   }
   public void addPe(){
     pe=new PanneauEchap();
-    pe.setBounds(0,0,0,0);
+    //pe.setBounds(0,0,0,0);
     add(pe);
   }
   public void addPs(){
@@ -152,7 +152,7 @@ public class PanneauJeu extends Panneau {
   public void doAction(byte ac){
     debug.débogage("action pj : "+ac);
     try {
-      if(Main.getPe() == null || !Main.getPe().estContruit()){
+      if(Main.getPe()==null || !Main.getPe().getVisible()){
         if(ac < 9 && ac > -1){
           actionZoom(ac);
         }else if(ac>=20 && ac<=31){
