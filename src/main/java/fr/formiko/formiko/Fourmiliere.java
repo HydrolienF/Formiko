@@ -93,16 +93,19 @@ public class Fourmiliere implements Serializable{
   *{@summary Move the anthill from a case to an other.}<br>
   *It will not add a Fourmiliere to a case that already have 1 but throw an Exception.
   *It will try to remove from old CCase and add to new CCase.<br>
-  *@version 1.40
+  *@version 1.41
   */
   public void setCc(CCase newCCase){
-    if(newCCase!=null && newCCase.getContenu()!=null && newCCase.getContenu().getFere()!=null){throw new NotNullLocationException();}
+    if(newCCase!=null && newCCase.getContenu()!=null){
+      if(equals(newCCase.getContenu().getFere())){return;}
+      if(newCCase.getContenu().getFere()!=null){throw new NotNullLocationException();}
+    }
     if (getCCase()!=null) {
       getCCase().getContenu().setFere(null);
     }
     ccase = newCCase;
     if (newCCase!=null){
-      getCCase().getContenu().setFere(this);
+      newCCase.getContenu().setFere(this);
     }
   }public void setCCase(CCase ccase){setCc(ccase);}
   public static int getI(){return idCpt;}

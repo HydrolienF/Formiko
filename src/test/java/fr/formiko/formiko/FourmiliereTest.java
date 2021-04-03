@@ -46,4 +46,11 @@ public class FourmiliereTest extends TestCaseMuet{
     assertEquals(Main.getCCase(0,0), g1.getCCase());
     assertEquals(Main.getCCase(0,3), g2.getCCase());
   }
+  @Test
+  public void testSetCCase2(){
+    ini();
+    Fourmiliere fere = new Fourmiliere();
+    CCase cc = fere.getCCase();
+    fere.setCCase(cc);
+  }
 }
