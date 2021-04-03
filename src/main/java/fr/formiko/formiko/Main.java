@@ -383,6 +383,7 @@ public class Main {
   public static PanneauZoom getPz(){ return getPb().getPz();}
   public static PanneauAction getPa(){ return getPb().getPa();}public static PanneauAction getPac(){return getPa();}
   public static Fourmi getPlayingAnt(){ try {return getPartie().getPlayingAnt();}catch (Exception e) {return null;}}
+  public static void setPlayingAnt(Fourmi f){ getPartie().setPlayingAnt(f);}
   public static Joueur getPlayingJoueur(){ try {return getPartie().getPlayingJoueur();}catch (Exception e) {return null;}}
   public static PanneauChargement getPch(){ try {return getPj().getPch();}catch (Exception e) {return null;}}
   public static PanneauSup getPs(){ try {return getPj().getPs();}catch (Exception e) {return null;}}
