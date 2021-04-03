@@ -136,7 +136,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     GCreature gcCase = f.getCCase().getContenu().getGc();
     if(f.getIndividu().getCoutDéplacement() == -1){ t=tableau.retirerX(t,0);}
     if(f.getIndividu().getCoutChasse() == -1 || gcCase.getGi().length()==0 || !f.chasse.canHuntMore(f)){ t=tableau.retirerX(t,1);}
-    if(!f.peutPondre()){ t=tableau.retirerX(t,2);}
+    if(!f.canLay()){ t=tableau.retirerX(t,2);}
     if(f.getIndividu().getCoutTrophallaxie() == -1 || gcCase.filtreAlliés(f).filtreFaimMax().length() < 2 || f.getNourriture()<1){ t=tableau.retirerX(t,3);}
     if(f.getIndividu().getCoutNétoyer() == -1 ||(f.netoyer.getNombreDeCreatureANetoyer(f))==0){ t=tableau.retirerX(t,4);}
     if(!f.getEspece().getGranivore()){

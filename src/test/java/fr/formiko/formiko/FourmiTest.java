@@ -192,8 +192,4 @@ public class FourmiTest extends TestCaseMuet{
     assertTrue(fQueen.getEstAllié(fTest));
     assertTrue(fTest.getEstAllié(fQueen));
   }
-  @Test
-  public void testPeutPondre(){
-    //TODO #182
-  }
 }

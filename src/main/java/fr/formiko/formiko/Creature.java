@@ -177,6 +177,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void ceDeplacer(int direction){déplacement.unMouvement(this,direction);}
   public void ceDeplacerPlusieurCase(CCase cc){déplacement.plusieurMouvement(this,cc);}
   public void pondre(){pondre.unePonte(this);}
+  public boolean canLay(){return pondre.canLay(this);}
   public boolean chasse(){return chasse.chasse(this);}
   public boolean chasser(int direction){return chasse.chasser(this, direction);}
   public void trophallaxie(int id, int nourritureDonnée){trophallaxie.trophallaxie(this, id, nourritureDonnée);}

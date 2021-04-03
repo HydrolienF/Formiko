@@ -118,7 +118,6 @@ public class Fourmi extends Creature implements Serializable{
   public void setNourritureMoinsConsomNourriture(){ setNourriture(getNourriture()-getNourritureConso());}
   public Individu getIndividu(){ return e.getIndividuParType(typeF);}
   public boolean getTropDeNourriture(){if(getNourriture()*1.1>getNourritureMax()){ return true;} return false;}
-  public boolean peutPondre(){return !(pondre instanceof PondreNull) && getNourriture()>getIndividu().getCoutPondre() && estALaFere();}
   @Override
   public boolean getFemelle(){ return typeF!=1;}// c'est une femmelle si ce n'est pas un male.
   @Override
