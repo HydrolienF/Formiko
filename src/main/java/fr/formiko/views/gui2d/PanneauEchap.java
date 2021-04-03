@@ -90,7 +90,7 @@ public class PanneauEchap extends Panneau{
   */
   public boolean estContruit(){
     if(tb==null){return false;}
-    return isVisible();
+    return true;
     //return !(tb.length==0);}//il est contruit si le tableau n'est pas vide.
   }
   /*

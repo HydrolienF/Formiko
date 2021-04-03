@@ -98,18 +98,6 @@ public class PanneauJeu extends Panneau {
     pe.setBounds(0,0,0,0);
     add(pe);
   }
-  public void removePe(){
-    //TODO make setEnabled truly reactivate Bouton.
-    Main.getPz().setEnabled(true);
-    Main.getPc().setEnabled(true);
-    Main.getPa().setEnabled(true);
-    pe.setVisible(false);
-    pe.setTb(null);
-    ps.actualiserTaille();
-    revalidate();
-    Main.repaint();
-    Main.setJeuEnCours(true);
-  }
   public void addPs(){
     ps=new PanneauSup();
     ps.setBounds(0,0,0,0);
