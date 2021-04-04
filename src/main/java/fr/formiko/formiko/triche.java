@@ -9,6 +9,7 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.types.str;
+import fr.formiko.views.gui2d.action;
 
 public class triche {
   public static GString gs;
@@ -269,7 +270,7 @@ public class triche {
           break;
         case 37:
           try {
-            Main.getPj().retournerAuMenu();
+            action.retournerAuMenu();
           }catch (Exception e) {}
           try {
             Main.getView().menuMain();

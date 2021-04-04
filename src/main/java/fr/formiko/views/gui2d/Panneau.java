@@ -3,6 +3,7 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.*;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
+import fr.formiko.views.gui2d.action;
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.math;
 
@@ -17,7 +18,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-public class Panneau extends JPanel {//implements ActionListener{
+public class Panneau extends JPanel {
   private static final long serialVersionUID = -3227223889149566494L;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
@@ -40,18 +41,8 @@ public class Panneau extends JPanel {//implements ActionListener{
   public void paintComponent(Graphics g){
 
   }
-  public void doAction(int action){
-    try {
-      ((PanneauMenu)this).doAction(action);
-    }catch (Exception e2) {
-      debug.débogage("echec de PanneauMenu.doAction");
-      try {
-        ((PanneauJeu)this).doAction(action);
-      }catch (Exception e3) {
-        debug.débogage("echec de PanneauJeu.doAction. Lancement de Pj.doAction imposé.");
-        Main.getPp().getPj().doAction(action);
-      }
-    }
+  public void doAction(int ac){
+    action.doAction(ac);
   }
 
   class BListener implements ActionListener{

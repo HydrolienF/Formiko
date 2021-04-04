@@ -243,7 +243,7 @@ public class Main {
     Main.repaint();
     boolean b=false;
     while(!b && !premierePartie){Temps.pause(10);b=getPm().getLancer();}
-    return getPm().getPartie();
+    return action.getPartie();
     //debug.débogage("lancementNouvellePartie");
   }
   /**
