@@ -39,7 +39,7 @@ public class sauvegarderUnePartie {
    *@version 1.2
    */
   public static void sauvegarder(Partie p, String nomDuFichier){
-    setSave(Save.getSave());
+    // setSave(Save.getSave());
     s=nomDuFichier;
     try {
       oos = new ObjectOutputStream(new FileOutputStream(getNomDuFichierComplet()));
