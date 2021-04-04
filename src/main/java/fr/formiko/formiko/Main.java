@@ -67,6 +67,7 @@ public class Main {
   private static boolean jeuEnCours;
   private static Data data;
   private static View view;
+  private static MusicPlayer musicPlayer;
 
   private static boolean modeCLI=false;
 
@@ -199,6 +200,8 @@ public class Main {
    */
   public static boolean launch(){
     iniLaunch();
+    musicPlayer = new MusicPlayer();
+    musicPlayer.launch("menu");
     //===
     if (modeCLI) {
       view = new ViewCLI();

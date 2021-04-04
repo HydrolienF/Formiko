@@ -9,7 +9,7 @@
   <packaging>jar</packaging>
   <version>1.39.19</version>
   <name>Formiko</name>
-  <url>http://maven.apache.org</url>
+  <url>http://formiko.fr</url>
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -20,6 +20,11 @@
       <groupId>com.google.inject</groupId>
       <artifactId>guice</artifactId>
       <version>5.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-media</artifactId>
+      <version>15.0.1</version>
     </dependency>
   </dependencies>
   <build>
@@ -58,6 +63,14 @@
                 </goals>
             </execution>
         </executions>
+    </plugin>
+    <plugin>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>0.0.4</version>
+        <configuration>
+            <mainClass>fr.formiko.Main</mainClass>
+        </configuration>
     </plugin>
     </plugins>
   </build>
