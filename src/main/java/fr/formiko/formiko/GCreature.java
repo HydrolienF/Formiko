@@ -31,11 +31,11 @@ public class GCreature implements Serializable{//, Iterator{
     debug.débogage("Création d'un groupe de Fourmi avec au moins 1 fourmis.");
     Fourmi reine = new Fourmi(fere,e, (byte) 0,(byte) 0);
     //reine.setCCase(cc);
-    ajouterFin(reine);
+    addFin(reine);
     for (int i =1 ;i < nbrDeCreature ;i++ ) {
       Fourmi f = new Fourmi(fere,e,(byte) 3,(byte) 0,reine.getPheromone());
       //f.setCCase(cc);
-      ajouterFin(f);
+      addFin(f);
     }
   }
   // GET SET -----------------------------------------------------------------------
@@ -80,8 +80,8 @@ public class GCreature implements Serializable{//, Iterator{
   }
   public GCreature getCouvain(){ // on renvoie d'habord les plus proches de la transformation en Fourmi adulte.
     GCreature gcr = getGcStade(-1);
-    gcr.ajouter(getGcStade(-2));
-    gcr.ajouter(getGcStade(-3));
+    gcr.add(getGcStade(-2));
+    gcr.add(getGcStade(-3));
     return gcr;
   }
   public Creature getCouvainSaleE()throws EmptyListException{
@@ -107,7 +107,7 @@ public class GCreature implements Serializable{//, Iterator{
     gcr.getDébut().getCouvainsSale(); // on filtre les propre dans la suite de la liste.
     return gcr;
   }
-  // a ajouter :
+  // a add :
   // public GCreature getGcSiMemeFere(Fourmiliere fere){}
   private Creature getCreatureParIdE(int id)throws EmptyListException{
     if (début==null){ throw new EmptyListException("GCreature","trouver la créature "+id);}
@@ -224,15 +224,15 @@ public class GCreature implements Serializable{//, Iterator{
     CCreature cc = début;
     while(cc != null){
       Creature c = cc.getContenu();
-      if(c instanceof Insecte){gi.ajouter((Insecte) cc.getContenu());}
+      if(c instanceof Insecte){gi.add((Insecte) cc.getContenu());}
       cc = cc.getSuivant();
     }
     return gi;
   }
-  public void ajouter(Creature c){
-    ajouterFin(c);
-  }public void add(Creature c){ajouter(c);}
-  public void ajouterFin(Creature c){
+  public void add(Creature c){
+    addFin(c);
+  }
+  public void addFin(Creature c){
     if(c==null){throw new NullItemException();}
     CCreature cc = new CCreature(c);
     if (fin ==  null){
@@ -244,7 +244,7 @@ public class GCreature implements Serializable{//, Iterator{
       fin = cc;
     }
   }
-  public void ajouter(GCreature gc){
+  public void add(GCreature gc){
     if(gc == null || gc.getDébut() == null){ return;}
     if (fin == null){
       début = gc.getDébut();
@@ -257,7 +257,7 @@ public class GCreature implements Serializable{//, Iterator{
   }
   public void add(GInsecte gi ){
     GCreature gc = gi.toGCreature();
-    ajouter(gc);
+    add(gc);
   }
   /**
   *{@summary remove an item from the list.} <br>

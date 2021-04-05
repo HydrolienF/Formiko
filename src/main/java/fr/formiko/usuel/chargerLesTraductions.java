@@ -177,8 +177,8 @@ public class chargerLesTraductions {
     debug.débogage("Chargement des textes");//on lit le fichier de langue
     map = chargerLesTraductionsSansCommande(langue);
     String t2[] = getTableauDesCmd();
-    for (String s : t2) {//on ajoute toutes les commande qu'on peu ajouter.
-      ajouterObjetMap(s);
+    for (String s : t2) {//on ajoute toutes les commande qu'on peu add.
+      addObjetMap(s);
     }
     return map;
   }
@@ -191,8 +191,8 @@ public class chargerLesTraductions {
   public static HashMap<String, String> chargerLesTraductionsSansCommande(int langue){
     iniMap();
     String t[] = getTableauDesTrad(langue);
-    for (String s : t) {//on ajoute toutes les lignes qu'on peu ajouter.
-      ajouterObjetMap(s);
+    for (String s : t) {//on ajoute toutes les lignes qu'on peu add.
+      addObjetMap(s);
     }
     return map;
   }
@@ -203,8 +203,8 @@ public class chargerLesTraductions {
   public static HashMap<String, String> chargerLesNationsName(){
     iniMap();
     String t[] = getTableauDesNationsName();
-    for (String s : t) {//on ajoute toutes les lignes qu'on peu ajouter.
-      ajouterObjetMap(s);
+    for (String s : t) {//on ajoute toutes les lignes qu'on peu add.
+      addObjetMap(s);
     }
     return map;
   }
@@ -213,7 +213,7 @@ public class chargerLesTraductions {
   *@param s Translated line.
   *@version 1.7
   */
-  public static void ajouterObjetMap(String s){
+  public static void addObjetMap(String s){
     if(!estLigneDeTrad(s)){return;}
     //getPosDu1a ":"
     //coupe en 2.
@@ -245,7 +245,7 @@ public class chargerLesTraductions {
   *Please refert to ThTrad to have more informations
   *@version 1.7
   */
-  public static void ajouterTradAuto(){
+  public static void addTradAuto(){
     if(tLangue==null){iniTLangue();}
     int lentl=getTLangue().length;
     new ThTrad(0);

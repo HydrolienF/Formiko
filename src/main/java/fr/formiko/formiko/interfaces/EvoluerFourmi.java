@@ -44,7 +44,7 @@ public class EvoluerFourmi implements Serializable, Evoluer{
     else if(f.getStade()==-1) { f.setAgeMax((int)(in.getAgeMax(2)*diff)); f.setNourritureMax(in.getNourritureMax(2));}
     else if(f.getStade() == 0){
       if(f.getTypeF()<2){f.setAilesCoupees(false);}//si c'est une fourmi ailé qui est désormais imago.
-      //TODO ajouter la capacité de voler
+      //TODO add la capacité de voler
       if (in.getCoutPondre() != -1) { f.pondre = new PondreReine(); }
       if (in.getCoutDéplacement() != -1) { f.déplacement = new DeplacementFourmi();}
       if (in.getCoutChasse()!=-1) {

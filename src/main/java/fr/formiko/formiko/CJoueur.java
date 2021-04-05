@@ -25,10 +25,10 @@ public class CJoueur implements Serializable{
   public GCreature getGc(){
     CJoueur act = this;
     GCreature gcr = new GCreature();
-    gcr.ajouter(this.getContenu().getFere().getGc().copier());
+    gcr.add(this.getContenu().getFere().getGc().copier());
     while(act.getSuivant() != null){
       GCreature gcr2 = act.getSuivant().getContenu().getFere().getGc().copier();
-      gcr.ajouter(gcr2);
+      gcr.add(gcr2);
       act=act.getSuivant();
     }
     return gcr;
@@ -42,7 +42,7 @@ public class CJoueur implements Serializable{
     GJoueur gjr = new GJoueur();
     CJoueur cj = this;
     while(cj!= null){
-      if(!cj.getContenu().getIa()){ gjr.ajouter(cj.getContenu());}
+      if(!cj.getContenu().getIa()){ gjr.add(cj.getContenu());}
       cj = cj.getSuivant();
     }
     return gjr;

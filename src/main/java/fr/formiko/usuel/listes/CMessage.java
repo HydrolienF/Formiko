@@ -34,7 +34,7 @@ public class CMessage implements Serializable{
     while(csTemp != null){
       Message s = csTemp.getContenu();
       if (!gsr.contient(s)){
-        gsr.ajouter(s);
+        gsr.add(s);
       }
       csTemp = csTemp.getSuivant();
     }
@@ -51,7 +51,7 @@ public class CMessage implements Serializable{
     GString gs = new GString();
     CMessage csTemp = this;
     while(x>0 && csTemp != null){
-      gs.ajouter(csTemp.getContenu().description());
+      gs.add(csTemp.getContenu().description());
       csTemp = csTemp.getPrécédent();
     }
     return gs;

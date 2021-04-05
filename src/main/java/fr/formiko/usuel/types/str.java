@@ -62,7 +62,7 @@ public class str{
    *@return s with fin at the end.
    *@version 1.2
    */
-  public static String ajouterALaFinSiNecessaire(String s, String fin){
+  public static String addALaFinSiNecessaire(String s, String fin){
     if(!contient(s,fin,2)){s+=fin;}
     return s;
   }
@@ -114,7 +114,7 @@ public class str{
     s.replace('\\','/');
     s = filtreCharInterdit(s,w);
     if(s.charAt(0)=='/'){s=s.substring(1);}
-    s = ajouterALaFinSiNecessaire(s,"/");
+    s = addALaFinSiNecessaire(s,"/");
     return s;
   }
   /**

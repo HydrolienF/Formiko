@@ -14,11 +14,11 @@ public class GEtiquetteJoueur {
   public GEtiquetteJoueur(int x){
     String pseudo = Main.getOp().getPseudo();
     if(pseudo.equals("") || pseudo.equals("-1")){pseudo = g.getM("joueur")+" 1";}
-    this.ajouter(new EtiquetteJoueur(pseudo,false));
+    this.add(new EtiquetteJoueur(pseudo,false));
     for (int i=0;i<x ;i++) {
-      this.ajouter(new EtiquetteJoueur(true));
+      this.add(new EtiquetteJoueur(true));
     }
-    this.ajouter(new EtiquetteJoueur());
+    this.add(new EtiquetteJoueur());
   }
   public GEtiquetteJoueur(){}
   // GET SET --------------------------------------------------------------------
@@ -39,7 +39,7 @@ public class GEtiquetteJoueur {
     this.retirer(fin.getContenu()); // on retir la fin qui est fermé.
     return début.getGJoueur(mapo);
   }
-  public void ajouter(EtiquetteJoueur ej){
+  public void add(EtiquetteJoueur ej){
     if(début==null){ début = new CEtiquetteJoueur(ej); fin = début;}
     else{
       fin.setSuivant(new CEtiquetteJoueur(ej));

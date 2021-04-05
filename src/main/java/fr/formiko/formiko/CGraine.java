@@ -99,7 +99,7 @@ public class CGraine implements Serializable{
     GGraine ggr = new GGraine();
     CGraine temp = this;
     while(temp != null){
-      ggr.ajouterGraine(temp.getContenu());
+      ggr.addGraine(temp.getContenu());
       temp = temp.getSuivant();
     }
     return ggr;

@@ -99,7 +99,7 @@ public class triche {
           break;
         case 16:
           getFourmiParId(args[1]).setFourmiliere(getFourmiliereParId(args[2]));
-          getFourmiliereParId(args[2]).getGc().ajouter(getFourmiParId(args[1]));
+          getFourmiliereParId(args[2]).getGc().add(getFourmiParId(args[1]));
           break;
         case 17:
           getFourmiParId(args[1]).setEspece(str.sToI(args[2]));
@@ -144,16 +144,16 @@ public class triche {
           if(args[1].equalsIgnoreCase(g.get("cmd.type.2"))){
             Insecte in=new Insecte(Main.getGc().getCCase(str.sToI(args[2]),str.sToI(args[3])));
             in.setType(str.sToI(args[4]));
-            Main.getGi().ajouter(in);
+            Main.getGi().add(in);
           }else if(args[1].equalsIgnoreCase(g.get("cmd.type.3"))){
             Fourmiliere fere = getFourmiliereParId(args[2]);
             Fourmi fm = new Fourmi(fere,fere.getEspece(),3);
             fm.setStade((byte)-1);
             fm.evoluer();
-            fere.getGc().ajouter(fm);
+            fere.getGc().add(fm);
           }else if(args[1].equalsIgnoreCase(g.get("cmd.type.4"))){
             Graine g=new Graine(Main.getGc().getCCase(str.sToI(args[2]),str.sToI(args[3])));
-            Main.getGc().getCCase(str.sToI(args[2]),str.sToI(args[3])).getGg().ajouter(g);
+            Main.getGc().getCCase(str.sToI(args[2]),str.sToI(args[3])).getGg().add(g);
           }
           break;
         case 28:

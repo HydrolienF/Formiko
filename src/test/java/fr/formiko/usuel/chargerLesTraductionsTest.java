@@ -238,40 +238,40 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertTrue(!zz.get("test").equals("testZz"));
   }
 
-  //ajouterObjetMap
+  //addObjetMap
   @Test
-  public void testAjouterObjetMap(){
+  public void testaddObjetMap(){
     chargerLesTraductions.iniMap();//remet a 0.
     assertEquals(0,chargerLesTraductions.getMap().size());
-    chargerLesTraductions.ajouterObjetMap("ezgubo.zegh");//ne fait rien si ce n'est pas une ligne de trad.
+    chargerLesTraductions.addObjetMap("ezgubo.zegh");//ne fait rien si ce n'est pas une ligne de trad.
     assertEquals(0,chargerLesTraductions.getMap().size());
-    chargerLesTraductions.ajouterObjetMap("uneCle:une valeur X");//ne fait rien si ce n'est pas une ligne de trad.
+    chargerLesTraductions.addObjetMap("uneCle:une valeur X");//ne fait rien si ce n'est pas une ligne de trad.
     assertEquals(1,chargerLesTraductions.getMap().size());
     assertEquals("une valeur X",chargerLesTraductions.getMap().get("uneCle"));
     //la meme chose :
-    chargerLesTraductions.ajouterObjetMap("uneCle:une valeur X");//ne fait rien si ce n'est pas une ligne de trad.
+    chargerLesTraductions.addObjetMap("uneCle:une valeur X");//ne fait rien si ce n'est pas une ligne de trad.
     assertEquals(1,chargerLesTraductions.getMap().size());
     assertEquals("une valeur X",chargerLesTraductions.getMap().get("uneCle"));
     //une valeur différente.
-    chargerLesTraductions.ajouterObjetMap("uneCle:une valeur Y");//ne fait rien si ce n'est pas une ligne de trad.
+    chargerLesTraductions.addObjetMap("uneCle:une valeur Y");//ne fait rien si ce n'est pas une ligne de trad.
     assertEquals(1,chargerLesTraductions.getMap().size());
     assertEquals("une valeur Y",chargerLesTraductions.getMap().get("uneCle"));
     //une autre clé
-    chargerLesTraductions.ajouterObjetMap("a:une valeur Z");//ne fait rien si ce n'est pas une ligne de trad.
+    chargerLesTraductions.addObjetMap("a:une valeur Z");//ne fait rien si ce n'est pas une ligne de trad.
     assertEquals(2,chargerLesTraductions.getMap().size());
     assertEquals("une valeur Z",chargerLesTraductions.getMap().get("a"));
     assertEquals("une valeur Y",chargerLesTraductions.getMap().get("uneCle"));
   }
   @Test
-  public void testAjouterObjetMap2(){
+  public void testaddObjetMap2(){
     chargerLesTraductions.iniMap();//remet a 0.
     assertEquals(0,chargerLesTraductions.getMap().size());
-    chargerLesTraductions.ajouterObjetMap("uneCle:Une valeur X");//ne fait rien si ce n'est pas une ligne de trad.
+    chargerLesTraductions.addObjetMap("uneCle:Une valeur X");//ne fait rien si ce n'est pas une ligne de trad.
     assertEquals(1,chargerLesTraductions.getMap().size());
     assertEquals("une valeur X",chargerLesTraductions.getMap().get("uneCle"));
   }
 
-  //ajouterTradAuto
+  //addTradAuto
   //testé dans ThTrad.
 
   //getPourcentageTraduit

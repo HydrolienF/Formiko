@@ -108,7 +108,7 @@ public class EtiquetteJoueur extends Panneau{
     dsc.setBounds(Desc.getDimY()/2,0,taille*5/10-Desc.getDimY()/4);
     combo.setBounds(taille*5/10,0,taille/7,Desc.getDimY());
     couleur.setBounds(taille*5/10+taille/7,0,taille/7,Desc.getDimY());
-    //ajouter un bouton changer la couleur alléatoirement
+    //add un bouton changer la couleur alléatoirement
     g2d.setColor(new Color(0,0,0));
     peintBordure(g2d,taille,arrondi);
   }
@@ -153,7 +153,7 @@ public class EtiquetteJoueur extends Panneau{
         }
       }
       if(pnp.getGej().getFin().getContenu().getOuvert()){ // si la dernière n'est pas fermé.
-        pnp.getGej().ajouter(new EtiquetteJoueur());
+        pnp.getGej().add(new EtiquetteJoueur());
         pnp.rafraichirPgej();
       }
       pnp.repaint();

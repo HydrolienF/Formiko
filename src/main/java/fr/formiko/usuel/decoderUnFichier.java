@@ -115,7 +115,7 @@ public class decoderUnFichier {
       char c = s.charAt(i);
       if (c == ';'){ // si c'est un séparateur
         //debug.débogage("On ajoute \"" + sActuel + "\" au tableau de tableau de tableau");
-        // Ici il faut ajouter un tableau a un tableau de tableau.
+        // Ici il faut add un tableau a un tableau de tableau.
         tr[k] = getTableauString(sActuel,','); k++;
         sActuel = "";
       } else { // Si on est pas encore arrivé au séparateur.

@@ -32,7 +32,7 @@ public class GIndividu implements Serializable{
     if (début==null){ return null;}
     return début.getTypeDIndividu();
   }
-  public void ajouter(Individu e){
+  public void add(Individu e){
     if(début == null){
       début = new CIndividu(e);
       fin =  début;
@@ -58,7 +58,7 @@ public class GIndividu implements Serializable{
     String tDéfaut [] = decoderUnFichier.getTableauString(td[2],',');
     for (int i=3;i<lentd; i++) {
       Individu iu = créerUnIndividu(td[i],tDéfaut); // on le cré.
-      iu.getEspece().getGIndividu().ajouter(iu); // on l'ajoute a son espèce.
+      iu.getEspece().getGIndividu().add(iu); // on l'ajoute a son espèce.
     }
   }
   public static Individu créerUnIndividu(String s, String [] tDéfaut){

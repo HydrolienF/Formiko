@@ -3,7 +3,6 @@ package fr.formiko.usuel;
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.chargerLesTraductions;
 import fr.formiko.usuel.lireUnFichier;
-import fr.formiko.usuel.listes.CString;
 import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.debug;
@@ -45,10 +44,10 @@ public class trad {
     GString gs = new GString();
     for (String s : t) {
       if(chargerLesTraductions.estLigneDeTrad(s) && !str.contient(s,"[]",2)){//si c'est une ligne de trad qui ne correspond pas a un nom propre.
-        if(str.contient(s,"test:",0)){gs.ajouter("test:test"+str.sToSMaj(se));}
-        else{gs.ajouter(ligneTradBase(s,map));}//modifié
+        if(str.contient(s,"test:",0)){gs.add("test:test"+str.sToSMaj(se));}
+        else{gs.add(ligneTradBase(s,map));}//modifié
       }else{
-        gs.ajouter(s);//pas modifié.
+        gs.add(s);//pas modifié.
       }
     }
     //int k = (k1*100)/(k1+k2);

@@ -27,7 +27,7 @@ public class sauvegarderUnePartie {
   // GET SET -----------------------------------------------------------------------
   public static void setS(String s2){s=s2;}
   public static String getRep(){return REP;}
-  public static String getNomDuFichierComplet(){return str.ajouterALaFinSiNecessaire(REP+s,".save");}
+  public static String getNomDuFichierComplet(){return str.addALaFinSiNecessaire(REP+s,".save");}
   public static Save getSave(){return save;}
   public static void setSave(Save sa){save=sa;}
   // Fonctions propre -----------------------------------------------------------

@@ -2,99 +2,84 @@ package fr.formiko.usuel.listes;
 
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.types.str;
 
 import java.io.Serializable;
 import javax.swing.JComboBox;
 
-public class GString implements Serializable{
-  private CString début, fin;
+/**
+*{@summary Custom String Linked List class.}<br>
+*It have a lot of useful function that use fore() loop.<br>
+*@version 1.41
+*@author Hydrolien
+*/
+public class GString extends List<String> implements Serializable {
   // CONSTRUCTEUR -----------------------------------------------------------------
-  public GString(){}
+  /**
+  *{@summary Constructor from an array.}<br>
+  *@version 1.41
+  */
   public GString(String t[]){
-    if(t==null || t.length==0){return;}
-    début = new CString(t[0]);
     for (String s : t ) {
       add(s);
     }
-    actualiserFin();
   }
+  public GString(){}
 
   // GET SET -----------------------------------------------------------------------
-  public CString getDébut(){ return début;}
-  public CString getFin(){ return fin;}
+
   // Fonctions propre -----------------------------------------------------------
-  public String toString(){
-    if(début==null){return "";}
-    return début.toString();
+  /**
+  *{@summary Return a JComboBox with all the String in it.}<br>
+  *@param x the default select item.
+  *@version 1.41
+  */
+  public JComboBox<String> getComboBox(int x){
+    JComboBox<String> cb = new JComboBox<String>();
+    for (String s : this ) {
+      cb.addItem(s);
+    }
+    if(x!=0){
+      try {
+        cb.setSelectedItem(getItem(x));
+      }catch (Exception e) {
+        erreur.erreur("Impossible de mettre l'élément n°"+x+" par défaut.","CString.getComboBox");
+      }
+    }
+    return cb;
   }
-  public int length(){
-    if(début==null){ return 0;}
-    return début.length();
+  /***
+  *{@summary Return a JComboBox with all the String in it.}<br>
+  *1a item is selected.
+  *@version 1.41
+  */
+  public JComboBox<String> getComboBox(){ return getComboBox(0);}
+  /**
+  *{@summary Return the translation key for s.}<br>
+  *If it fail it return null.<br>
+  *@param s the string give by the key.
+  *@version 1.41
+  */
+  public String getKey(String s){
+    for (String key : this ) {
+      if(g.get(key).equalsIgnoreCase(s)){return key;}
+    }
+    return null;
   }
   /**
-  *{@summary Standard equals function.}
-  *Null &#38; other class type proof.
-  *@param o o is the Object to test. It can be null or something else than this class.
-  *@version 1.31
+  *{@summary Add item peace by peace.}<br>
+  *@param s the String to split.
+  *@param maxLen the max length for a line.
+  *@param doNotCutWord if true word will not be cut. (If a word is too long for being in 1 line it will be cut.)
+  *@version 1.41
   */
-  @Override
-  public boolean equals(Object o){
-    if(o==null || !(o instanceof GString)){return false;}
-    GString gs = (GString)o;
-    if(début==null && gs.getDébut()==null){return true;}
-    if(début==null || gs.getDébut()==null){return false;}
-    return début.equals(gs.getDébut());
-  }
-  public JComboBox<String> getComboBox(int x){
-    if (début==null){ return new JComboBox<String>();}
-    return début.getComboBox(x);
-  }
-  public JComboBox<String> getComboBox(){ return getComboBox(0);}
-  public String getElementX(int x){
-    if (début==null){ return null;}
-    return début.getElementX(x);
-  }
-  public String getClé(String s){
-    if (début==null){ return null;}
-    return début.getClé(s);
-  }
-  public void ajouter(String s){ // On ajoute a la fin par défaut.
-    CString c = new CString(s);
-    if (fin == null){ // si la liste est complètement vide.
-      fin = c;
-      début = c;
-    } else {
-      fin.setSuivant(c);
-      c.setPrécédent(fin);
-      fin = c;
-    }
-  }
-  public void ajouter(GString gs){
-    if(gs==null){ return;}
-    if(getDébut()==null){début = gs.getDébut(); actualiserFin();return;}
-    //on lie l'anciène fin au début de gs.
-    fin.setSuivant(gs.getDébut());
-    fin.getSuivant().setPrécédent(fin);
-    // on change la fin actuelle.
-    actualiserFin();
-  }
-  public void add(String s){ ajouter(s);}
-  public void add(GString s){ ajouter(s);}
-  public String concatène(){
-    if (début == null){ // 0
-      return "";
-    } else if (début.getSuivant() == null) { // 1
-      return début.getContenu();
-    } else {
-      return début.concatène(); // plus d'1
-    }
-  }
-  public void addParMorceaux(String s,int x, boolean b){
+  public void addParMorceaux(String s, int maxLen, boolean doNotCutWord){
     int k=0; int lens = s.length();
-    if(!b){
+    if(!doNotCutWord){
       while(k<lens){
-        add(s.substring(k,math.min(k+x,lens))); //ajout de la sous chaine a partir de k et pendant x. Sauf la dernière qui s'arrète a lens et pas a k+x.
-        k=k+x;
+        add(s.substring(k,math.min(k+maxLen,lens))); //ajout de la sous chaine a partir de k et pendant maxLen. Sauf la dernière qui s'arrète a lens et pas a k+maxLen.
+        k=k+maxLen;
       }
     }else{//on évite de couper des mots.
       while(k<lens){
@@ -102,7 +87,7 @@ public class GString implements Serializable{
         String t[] = sub.split(" ");
         String s2="";
         int i=0; int lent=t.length;
-        while(i<lent && (s2.length()+t[i].length()<x || s2.length()==0)){//tant qu'on dépace pas le nombre de char autorisé on ajoute des mots. On ajoute quand meme un mot si il est trop long pour la chaine.
+        while(i<lent && (s2.length()+t[i].length()<maxLen || s2.length()==0)){//tant qu'on dépace pas le nombre de char autorisé on ajoute des mots. On ajoute quand meme un mot si il est trop long pour la chaine.
           if(s2.length()>0){s2=s2+" ";}
           s2=s2+t[i];
           i++;
@@ -112,92 +97,136 @@ public class GString implements Serializable{
       }
     }
   }
-  public void addParMorceaux(String s, int x){addParMorceaux(s,x,false);}
-  public String concatèneCompacte(){
-    if (début == null){ // 0
-      return "";
-    } else if (début.getSuivant() == null) { // 1
-      return début.getContenu();
-    } else {
-      return début.concatèneCompacte(); // plus d'1
-    }
-  }
+  /***
+  *{@summary Add item peace by peace.}<br>
+  *@param s the String to split.
+  *@param maxLen the max length for a line.
+  *@version 1.41
+  */
+  public void addParMorceaux(String s, int maxLen){addParMorceaux(s,maxLen,false);}
+  /**
+  *{@summary Print this.}<br>
+  *If is empty it will print a special mail.
+  *@version 1.41
+  */
   public void afficheToi(){
-    if(début==null){
+    if(getHead()==null){
       System.out.println(g.get("GString",1,"Le GString est vide"));
     }else{
-      début.afficheTout();
+      //getHead().afficheTout();
+      System.out.println(toString());
     }
   }
-  public void filtreDoublon(){//permet de filtré les doublon dans un GString
-    if (début==null){ return;}
-    GString gs = début.filtreDoublon();
-    début = gs.getDébut();
-    fin = gs.getFin();
-  }
-  // renvoie true si est seulement si s est une des String du GString
-  public boolean contient(String s){
-    if (début==null){ return false;}
-    return début.contient(s);
-  }
-  public void classer(){
-    if (début==null){ return;}
-    //début.classer(); a poursuivre
-  }
+  // public void classer(){
+  //   if (getHead()==null){ return;}
+  //   //getHead().classer(); a poursuivre
+  // }
+  /**
+  *{@summary Do a transformation for score.}<br>
+  *@version 1.41
+  */
   public GString transformerScore(){
-    if (début==null){ return null;}
-    return début.transformerScore();
-  }
-  public int compterLigneDifferenteDe(GString gs2){
-    if (début==null){ return 0;}
-    return début.compterLigneDifferenteDe(gs2);
-  }
-  public void supprimerLesLignesCommunesAvec(GString gs2){
-    if (début==null){ return;}
-    début.supprimerLesLignesCommunesAvec(gs2,this);//on met aussi ce GString pour pouvoir retirer une CString.
-  }
-  public boolean supprimer(String s){
-    if (début==null){ return false;}
-    if(début.getContenu().equals(s)){//on teste la 1a CString car après on vérifira seulement la suivante. (puis la suivante et ainsi de suite).
-      début = début.getSuivant(); return true;
-    }
-    boolean b = début.supprimer(s);
-    actualiserFin();
-    //if(!b){System.out.println("la suppression de la ligne qui suis n'as pas pu etre éffectuée"+s);}
-    return b;
-  }
-  /*public boolean supprimer(String s, int max){
-    if (début==null){ return 0;}
-    if(début.getContenu().equals(s)){//on teste la 1a CString car après on vérifira seulement la suivante. (puis la suivante et ainsi de suite).
-      début = début.getSuivant(); return true;
-    }
-    int b = début.supprimer(s);
-    actualiserFin();
-    if(!b){System.out.println("la suppression de la ligne qui suis n'as pas pu etre éffectuée"+s);}
-    return b;
-  }*/
-  public void actualiserFin(){ //remet fin a ce place.
-    if(début==null){fin=null; return;}
-    fin = début;
-    while(fin.getSuivant()!=null){//tant que ce n'est pas le dernier éléments de la chaine.
-      fin = fin.getSuivant();
-    }
+    if (getHead()==null){ return null;}
+      /*on cherche a passer de :
+      1,0,0,0,0
+      1,1,0,0,1
+
+      1,2,0,0,0
+      1,3,0,0,0
+
+      a :
+      1,0,0,0,0,,1,2,0,0,0
+      1,2,0,0,1,,1,3,0,0,0
+      */
+      //phase 1 on cré un tableau avec tout les éléments de début.
+      //String t [] = {"Reine..."}
+      String t [] = getHead().getContent().split("\n");int lent = t.length;
+      //phase 2 on add a la fin de chaque line les éléments de chaque CString.
+      for (String s : this ) {
+        String tTemp [] = s.split("\n");
+        for (int i=0;i<lent ;i++ ) {//on ajoute tout les nouveau éléments
+          t[i]=t[i]+",,"+tTemp[i];
+        }
+      }
+      //phase 3 on passe du tableau au GString.
+      GString gsr = new GString();
+      String s = g.getM("reine")+","+g.getM("imago")+","+g.getM("nymphe")+","+g.getM("larve")+","+g.getM("oeuf")+",,";
+      int lengj = length();
+      String s2 = "";
+      for(int i=0;i<lengj;i++){
+        s2=s2+s;
+      }
+      gsr.add(s2);
+      for (int i=0;i<lent ;i++ ) {
+        gsr.add(t[i]);
+      }
+      return gsr;
   }
   /**
+  *{@summary Count different line between this &#38; gs2.}<br>
+  *@version 1.41
+  */
+  public int compterlineDifferenteDe(GString gs2){
+    int cpt=0;
+    for (String line : this ) {
+      if(!gs2.containt(line)){cpt++;}//on compte 1 line différente.
+    }
+    return cpt;
+  }
+  /**
+  *{@summary Remove different line between this &#38; gs2.}<br>
+  *@version 1.41
+  */
+  public void supprimerLesLignesCommunesAvec(GString gs2){
+    for (String line : this ) {
+      if(gs2.containt(line)){
+        gs2.remove(line);
+        remove(line);//pour évité les soucis de "c'est la 1a CString on passe par le GString."
+      }//on supprime la line en question dans les 2 fichiers.
+    }
+  }
+  /*public boolean supprimer(String s, int max){
+    if (getHead()==null){ return 0;}
+    if(getHead().getContent().equals(s)){//on teste la 1a CString car après on vérifira seulement la suivante. (puis la suivante et ainsi de suite).
+      getHead() = getHead().getNext(); return true;
+    }
+    int b = getHead().supprimer(s);
+    actualiserFin();
+    if(!b){System.out.println("la suppression de la line qui suis n'as pas pu etre éffectuée"+s);}
+    return b;
+  }*/
+  /**
   *{@summary count how much fonction and class (short or long) a GString have.}
-  *@version 1.13
+  *@version 1.41
   */
   public GInt compterFct(){
-    if (début==null){ GInt gi = new GInt(); gi.add(0);gi.add(0); return gi;}
-    return début.compterFct();
+    if (getHead()==null){ GInt gi = new GInt(); gi.add(0);gi.add(0); return gi;}
+    int shortFct=0; int longFct=0;
+    for (String line : this ) {
+      if(str.contient(line,"{") && !estCom(line) && (str.contient(line, "class") || str.contient(line, "interface") || str.contient(line,"public") || str.contient(line,"private") || str.contient(line,"protected"))){
+        if(str.contient(line,"}")){
+          shortFct++;
+        }else{
+          longFct++;
+        }
+      }
+    }
+    GInt r = new GInt();
+    r.add(shortFct);r.add(longFct);
+    return r;
   }
   /**
   *{@summary count how much javadoc commentary a GString have.}
-  *@version 1.13
+  *@version 1.41
   */
   public int compterComJavadoc(){
-    if (début==null){ return 0;}
-    return début.compterComJavadoc();
+    int c=0;
+    for (String line : this ) {
+      if(str.contient(line,"/**") && !str.contient(line,"/***")){
+        c++;
+      }
+    }
+    return c;
   }
   /**
   *{@summary count how much javadoc commentary and fonction and class (short or long) a GString have.}
@@ -210,10 +239,39 @@ public class GString implements Serializable{
   }
   /**
   *{@summary count how much class and long fonction (public, ø, protected, private) a GString have.}
-  *@version 1.13
+  *@version 1.41
   */
   public GInt compterFctEnDetail(){
-    if (début==null){ GInt gi = new GInt(); gi.add(0);gi.add(0);gi.add(0);gi.add(0);gi.add(0); return gi;}
-    return début.compterFctEnDetail();
+    if (getHead()==null){ GInt gi = new GInt(); gi.add(0);gi.add(0);gi.add(0);gi.add(0);gi.add(0); return gi;}
+    int c=0; int pu=0; int po=0; int pr=0;
+    for (String line : this ) {
+      if(!str.contient(line,"}") && str.contient(line,"{") && !estCom(line)) {
+        //if(!str.contient(line,"if(") && !str.contient(line,"if (") && !str.contient(line,"while") && !str.contient(line,"for(") && !str.contient(line,"for (") && !str.contient(line,"switch")){
+        if(str.contient(line, "class") || str.contient(line, "interface")){
+          c++;
+        }else if (str.contient(line, "(") && str.contient(line, ")")){
+          if(str.contient(line, "public")){
+            pu++;
+          }else if(str.contient(line, "protected")){
+            po++;
+          }else if(str.contient(line, "private")){
+            pr++;
+          }
+        }
+      }
+    }
+    GInt gi = new GInt();
+    gi.add(c);gi.add(pu);gi.add(po);gi.add(pr);
+    return gi;
+  }
+  /**
+  *{@summary Return true if is a java commentary line.}<br>
+  *Line can have a comment at the end of the line & be concidered as a non-comment line if comment start after char 20 &#38; midle of the line.<br>
+  *@version 1.41
+  */
+  private boolean estCom(String line){
+    if(str.contient(line.substring(0,math.min(line.length()/2,20)),"/*")){return true;}
+    if(str.contient(line.substring(0,math.min(line.length()/2,20)),"//")){return true;}
+    return false;
   }
 }

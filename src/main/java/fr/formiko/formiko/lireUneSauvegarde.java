@@ -55,7 +55,7 @@ public class lireUneSauvegarde {
           Fourmi fm = new Fourmi (new Point(ent.ent(ts[0]),  ent.ent(ts[1])),  ent.ent(ts[2]),  ent.ent(ts[3]),  ts[4], ent.ent(ts[5]), ent.ent(ts[6]), ent.ent(ts[7]), ent.ent(ts[8]) );
           gf = new Fourmiliere (gf,fm);
         }
-        gj.ajouter(new Joueur (gf, joueurJ [0], estIa ));
+        gj.add(new Joueur (gf, joueurJ [0], estIa ));
         debug.débogage("ajout d'1 joueur");
         k=k+i; // On a passer i Foumis
         gf.afficheToi();
@@ -72,7 +72,7 @@ public class lireUneSauvegarde {
           erreur.erreur("L'Insecte ne possède pas le bon nombre de variable","Main.lireUneSauvegarde",true);
         }
         Insecte cr = new Insecte (new Point(ent.ent(ts[0]),  ent.ent(ts[1])),  ent.ent(ts[2]),  ent.ent(ts[3]),  ent.ent(ts[4]),  ent.ent(ts[5]));
-        gi.ajouterUneCreature(cr);
+        gi.addUneCreature(cr);
         debug.débogage("Ajout d'1 insecte");
       }
 

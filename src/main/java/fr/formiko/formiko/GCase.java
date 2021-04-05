@@ -21,11 +21,11 @@ public class GCase implements Serializable{
     if(horizontale < 0 || verticale < 0){ erreur.erreur("Impossible de créer une carte si petite","GCase.GCase","la carte la plus petite possible a été créée."); horizontale = 1; verticale = 1;}
 
     début = new CCase(new Case(0,0));
-    ajouterDroite(horizontale-1, début);
+    addDroite(horizontale-1, début);
     int d = 1; CCase début2;
     while (d < verticale){
       début2 = new CCase(new Case(0,d)); d++;
-      ajouterDroite(horizontale-1, début2);
+      addDroite(horizontale-1, début2);
       fusionnnerLigne(début2);
     }
   }
@@ -99,7 +99,7 @@ public class GCase implements Serializable{
     ie.actualiserImage();
     return ie;
   }
-  public void ajouterDroite(int x, CCase débutDeLaLigne){
+  public void addDroite(int x, CCase débutDeLaLigne){
     debug.débogage("Création d'une ligne");
     int k = 1; CCase temp; actuelle = débutDeLaLigne;
     while (x>0){
@@ -131,8 +131,8 @@ public class GCase implements Serializable{
       début.tourCases();
     }
   }
-  public void ajouter(Case c){
+  public void add(Case c){
     if (début==null){début = new CCase(c);return;}
-    début.ajouter(c);
+    début.add(c);
   }
 }

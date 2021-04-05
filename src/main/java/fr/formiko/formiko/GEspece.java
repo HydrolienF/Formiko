@@ -50,7 +50,7 @@ public class GEspece implements Serializable{
     if (lentd < 3){ erreur.erreur("Le fichier des espece devrais contenir au moins 4 lignes dont 1 Espece","GEspece.chargerLesEspeces",true);}
     String tDéfaut [] = decoderUnFichier.getTableauString(td[2],',');
     for (int i=3;i<lentd; i++) {
-      this.ajouter(créerUneEspece(td[i],tDéfaut));
+      this.add(créerUneEspece(td[i],tDéfaut));
     }
   }
   public Espece créerUneEspece(String s, String [] tDéfaut){
@@ -71,7 +71,7 @@ public class GEspece implements Serializable{
     return e;
   }
 
-  public void ajouter(Espece e){
+  public void add(Espece e){
     if(début == null){
       début = new CEspece(e);
       fin =  début;

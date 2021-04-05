@@ -79,7 +79,7 @@ public class CCreature implements Serializable{
       Creature cTest = ccTest.getContenu();
       Fourmi fTest = (Fourmi) cTest;
       if(fTest.getStade() == stade){
-        gcr.ajouter(cTest);
+        gcr.add(cTest);
       }
       ccTest = ccTest.getSuivant();
     }
@@ -92,7 +92,7 @@ public class CCreature implements Serializable{
       Creature cTest = ccTest.getContenu();
       Fourmi fTest = (Fourmi) cTest;
       if(fTest.getTypeF() == type){
-        gcr.ajouter(cTest);
+        gcr.add(cTest);
       }
       ccTest = ccTest.getSuivant();
     }
@@ -137,7 +137,7 @@ public class CCreature implements Serializable{
     CCreature ccTest = this;
     while(ccTest != null){
       if (c.getPheromone().equals(ccTest.getContenu().getPheromone(),différenceTolléré)){
-        gcr.ajouterFin(ccTest.getContenu());
+        gcr.addFin(ccTest.getContenu());
       }
       ccTest = ccTest.getSuivant();
     }
@@ -152,7 +152,7 @@ public class CCreature implements Serializable{
     CCreature ccTest = this;
     while(ccTest != null){
       if (ccTest.getContenu().getNourriture()<ccTest.getContenu().getNourritureMax()){
-        gcr.ajouterFin(ccTest.getContenu());
+        gcr.addFin(ccTest.getContenu());
       }
       ccTest = ccTest.getSuivant();
     }
@@ -167,7 +167,7 @@ public class CCreature implements Serializable{
     CCreature ccTest = this;
     while(ccTest != null){
       if (ccTest.getContenu().getProprete()<100){
-        gcr.ajouterFin(ccTest.getContenu());
+        gcr.addFin(ccTest.getContenu());
       }
       ccTest = ccTest.getSuivant();
     }
@@ -182,7 +182,7 @@ public class CCreature implements Serializable{
     CCreature ccTest = this;
     while(ccTest != null){
       if (ccTest.getContenu().wantFood()){
-        gcr.ajouterFin(ccTest.getContenu());
+        gcr.addFin(ccTest.getContenu());
       }
       ccTest = ccTest.getSuivant();
     }
@@ -197,7 +197,7 @@ public class CCreature implements Serializable{
     CCreature ccTest = this;
     while(ccTest != null){
       if (ccTest.getContenu().wantClean()){
-        gcr.ajouterFin(ccTest.getContenu());
+        gcr.addFin(ccTest.getContenu());
       }
       ccTest = ccTest.getSuivant();
     }
@@ -227,7 +227,7 @@ public class CCreature implements Serializable{
     CCreature cc = this;
     GCreature gcr = new GCreature();
     while(cc!=null){
-      gcr.ajouterFin(cc.getContenu());//on ajoute seulement le contenu a chaque fois.
+      gcr.addFin(cc.getContenu());//on ajoute seulement le contenu a chaque fois.
       cc=cc.getSuivant();
     }
     return gcr;

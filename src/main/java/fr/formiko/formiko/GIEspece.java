@@ -64,7 +64,7 @@ public class GIEspece implements Serializable{
     //if (lentd < 3){ erreur.erreur("Le fichier des IEspece devrais contenir au moins 4 lignes dont 1 IEspece","GIEspece.chargerLesIEspeces",true);}
     String tDéfaut [] = {"5","5","5"};
     for (int i=1;i<lentd; i++) {
-      this.ajouter(créerUneIEspece(td[i],tDéfaut));
+      this.add(créerUneIEspece(td[i],tDéfaut));
     }
   }
   public IEspece créerUneIEspece(String s, String [] tDéfaut){
@@ -82,7 +82,7 @@ public class GIEspece implements Serializable{
     return new IEspece(tInt);
   }
 
-  public void ajouter(IEspece e){
+  public void add(IEspece e){
     if(début == null){
       début = new CIEspece(e);
       fin =  début;

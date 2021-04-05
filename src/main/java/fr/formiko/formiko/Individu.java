@@ -4,7 +4,6 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.CString;
 import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.tableau;
 
@@ -71,12 +70,12 @@ public class Individu implements Serializable{
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
     GString adj = new GString();//♂ ♀
-    if(sexué){ String sex = "♀"; if(sexe){ sex = "♂";} adj.ajouter(g.get("sexué")+" ("+sex+")");}
-    else{adj.ajouter(g.get("assexué"));}
-    adj.ajouter(couleur);
+    if(sexué){ String sex = "♀"; if(sexe){ sex = "♂";} adj.add(g.get("sexué")+" ("+sex+")");}
+    else{adj.add(g.get("assexué"));}
+    adj.add(couleur);
     String ind = getStringType();
     String s = "";
-    s+=ind +" "+ adj.concatèneCompacte();s+="\n";
+    s+=ind +" "+ adj.toString();s+="\n";
     s+=g.get("nétoyage")+" : "+nétoyage;s+="\n";
     s+=g.get("actionMax")+" : "+actionMax;s+="\n";
     s+=g.get("taille")+" : "+taille;s+="\n";

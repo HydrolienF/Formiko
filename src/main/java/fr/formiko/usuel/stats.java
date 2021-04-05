@@ -6,7 +6,6 @@ import fr.formiko.usuel.listes.CCInt;
 import fr.formiko.usuel.listes.GInt;
 import fr.formiko.usuel.listes.CInt;
 import fr.formiko.usuel.listes.GString;
-import fr.formiko.usuel.listes.CString;
 import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.Chrono;
@@ -38,17 +37,14 @@ public class stats {
 
     GGInt ggi = new GGInt();
     GGInt ggi2 = new GGInt();
-    CString cs = null;
-    if(gs.length()>0){cs = gs.getDébut();}
     GInt nbrDeLigne = new GInt();
-    while(cs!=null){//pour chaque fichier on récupère le comtenu et on compte les Commentaire et les fonction longue et courte.
-      if(str.contient(cs.getContenu(),".java",2)){ //on lit tt les .java
-        GString contenuDuFichier = lireUnFichier.lireUnFichierGs(cs.getContenu());
+    for (String s : gs ) { //pour chaque fichier on récupère le comtenu et on compte les Commentaire et les fonction longue et courte.
+      if(str.contient(s,".java",2)){ //on lit tt les .java
+        GString contenuDuFichier = lireUnFichier.lireUnFichierGs(s);
         ggi.add(contenuDuFichier.compterFctEtComJavadoc());
         ggi2.add(contenuDuFichier.compterFctEnDetail());
         nbrDeLigne.add(contenuDuFichier.length());
       }
-      cs = cs.getSuivant();
     }
     Chrono.endCh("récupération des data");Chrono.debutCh();
 
@@ -64,13 +60,12 @@ public class stats {
     gsr.add("comment %    cl-pu-po-pr-sh-ln   name of the file");
     //gsr.add(total);
     Chrono.endCh("calcul des valeur et du total");Chrono.debutCh();
-    //ajouter tt les autres.
+    //add tt les autres.
     CCInt cci = ggi.getDébut();
     CCInt cci2 = ggi2.getDébut();
     CInt ci = nbrDeLigne.getDébut();
-    cs = gs.getDébut();
-    while(cci!=null){
-      String s = cs.getContenu();
+    for (String s : gs ) {
+      if(cci==null){break;}
       if(raccourcir){
         s = s.substring(25);
       }
@@ -78,7 +73,6 @@ public class stats {
       cci=cci.getSuivant();
       cci2=cci2.getSuivant();
       ci=ci.getSuivant();
-      cs=cs.getSuivant();
     }
     GInt gi = new GInt(); gi.add(sommeDesFctCG); gi.add(sommeDesFctLG); gi.add(sommeDesComG);
     GInt gi2 = new GInt(); gi2.add(sommeDesClassG);gi2.add(sommeDesFctLPuG);gi2.add(sommeDesFctLPoG);gi2.add(sommeDesFctLPrG);

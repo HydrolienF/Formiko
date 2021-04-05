@@ -31,7 +31,7 @@ public class ListTest extends TestCaseMuet{
       l.add(i+" formiko");
     }
     assertEquals(13,l.length());
-    l.add(null); //it shouldn't add it.
+    l.add((String)null); //it shouldn't add it.
     assertEquals(13,l.length());
   }
   @Test

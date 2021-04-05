@@ -42,7 +42,7 @@ public class Insecte extends Creature implements Serializable{
     this.nourritureMangeable =(byte) (allea.getAllea(3)+2);// de 2 a 5.
     this.déplacement = new DeplacementFourmi();
     this.chasse = new ChasseHerbivore();
-    p.getContenu().getGc().ajouter(this);
+    p.getContenu().getGc().add(this);
     type = getTypeInsecte();//p.getContenu().getTypeInsecte();
     stade = (byte)0; // doit apparaitre en -3 pour etre un oeuf.
     mourir = new MourirInsecte();

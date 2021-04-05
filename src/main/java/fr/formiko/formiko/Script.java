@@ -59,7 +59,7 @@ public class Script implements Serializable{
   */
   private String [] loadScript(String rep){
     rep+=Main.getFolder().getFolderLevels();
-    name = str.ajouterALaFinSiNecessaire(name,".formiko");
+    name = str.addALaFinSiNecessaire(name,".formiko");
     String ts [] = lireUnFichier.lireUnFichier(rep+name);
     return ts;
   }

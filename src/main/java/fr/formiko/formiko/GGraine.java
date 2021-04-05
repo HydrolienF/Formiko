@@ -65,7 +65,7 @@ public class GGraine implements Serializable{
   //}
 
   public void afficheToi(){ System.out.println(this);}
-  // public void ajouterGraine(CCase cc){ ajouterGraine(new Graine(cc));}
+  // public void addGraine(CCase cc){ addGraine(new Graine(cc));}
   /**
   *{@summary Add a seed to this GGraine.}
   *@version 1.40
@@ -76,9 +76,9 @@ public class GGraine implements Serializable{
       ci.setSuivant(début);
       début = ci;
     }
-  }public void ajouter(Graine i){add(i);}
-  public void ajouterGraine(Graine i){add(i);}
-  public void ajouterGg(GGraine giTemp){
+  }
+  public void addGraine(Graine i){add(i);}
+  public void addGg(GGraine giTemp){
     if (this.début == null){
       this.début = giTemp.getDébut();
     }else{

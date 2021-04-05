@@ -102,28 +102,28 @@ public class CCase implements Serializable{
     GGraine gir = contenu.getGGraineCopier(); // ici on ne veut pas modifier le groupe originale alors on en fait une copie.
     //if (nbrDeCaseVoisine() != 4){ debug.débogage("La détection des graine ne marche pas car trop proche de la bordure de la carte");return gir;}
     try {
-      gir.ajouterGg(droite.getContenu().getGGraineCopier());
+      gir.addGg(droite.getContenu().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.ajouterGg(haut.getContenu().getGGraineCopier());
+      gir.addGg(haut.getContenu().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.ajouterGg(bas.getContenu().getGGraineCopier());
+      gir.addGg(bas.getContenu().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.ajouterGg(gauche.getContenu().getGGraineCopier());
+      gir.addGg(gauche.getContenu().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.ajouterGg(gauche.getHaut().getContenu().getGGraineCopier());
+      gir.addGg(gauche.getHaut().getContenu().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.ajouterGg(gauche.getBas().getContenu().getGGraineCopier());
+      gir.addGg(gauche.getBas().getContenu().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.ajouterGg(droite.getHaut().getContenu().getGGraineCopier());
+      gir.addGg(droite.getHaut().getContenu().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.ajouterGg(droite.getBas().getContenu().getGGraineCopier());
+      gir.addGg(droite.getBas().getContenu().getGGraineCopier());
     }catch (Exception e) {}
     return gir;
   }
@@ -132,30 +132,30 @@ public class CCase implements Serializable{
       erreur.erreurPasEncoreImplemente("CCase.getGi");
     }
     GCase gir = new GCase(); // ici on ne veut pas modifier le groupe originale alors on en fait une copie.
-    gir.ajouter(this.getContenu());
+    gir.add(this.getContenu());
     try {
-      gir.ajouter(droite.getContenu());
+      gir.add(droite.getContenu());
     }catch (Exception e) {}
     try {
-      gir.ajouter(haut.getContenu());
+      gir.add(haut.getContenu());
     }catch (Exception e) {}
     try {
-      gir.ajouter(bas.getContenu());
+      gir.add(bas.getContenu());
     }catch (Exception e) {}
     try {
-      gir.ajouter(gauche.getContenu());
+      gir.add(gauche.getContenu());
     }catch (Exception e) {}
     try {
-      gir.ajouter(gauche.getHaut().getContenu());
+      gir.add(gauche.getHaut().getContenu());
     }catch (Exception e) {}
     try {
-      gir.ajouter(gauche.getBas().getContenu());
+      gir.add(gauche.getBas().getContenu());
     }catch (Exception e) {}
     try {
-      gir.ajouter(droite.getHaut().getContenu());
+      gir.add(droite.getHaut().getContenu());
     }catch (Exception e) {}
     try {
-      gir.ajouter(droite.getBas().getContenu());
+      gir.add(droite.getBas().getContenu());
     }catch (Exception e) {}
     return gir;
   }
@@ -226,28 +226,28 @@ public class CCase implements Serializable{
     GInsecte gir = getGi();
     //if (nbrDeCaseVoisine() != 4){ debug.débogage("La detection des insecte ne marche pas car trop proche de la bordure de la carte");return gir;}
     try {
-      gir.ajouterGi(droite.getGi());
+      gir.addGi(droite.getGi());
     }catch (Exception e) {}
     try {
-      gir.ajouterGi(haut.getGi());
+      gir.addGi(haut.getGi());
     }catch (Exception e) {}
     try {
-      gir.ajouterGi(bas.getGi());
+      gir.addGi(bas.getGi());
     }catch (Exception e) {}
     try {
-      gir.ajouterGi(gauche.getGi());
+      gir.addGi(gauche.getGi());
     }catch (Exception e) {}
     try {
-      gir.ajouterGi(gauche.getHaut().getGi());
+      gir.addGi(gauche.getHaut().getGi());
     }catch (Exception e) {}
     try {
-      gir.ajouterGi(gauche.getBas().getGi());
+      gir.addGi(gauche.getBas().getGi());
     }catch (Exception e) {}
     try {
-      gir.ajouterGi(droite.getHaut().getGi());
+      gir.addGi(droite.getHaut().getGi());
     }catch (Exception e) {}
     try {
-      gir.ajouterGi(droite.getBas().getGi());
+      gir.addGi(droite.getBas().getGi());
     }catch (Exception e) {}
     return gir;
   }
@@ -289,7 +289,7 @@ public class CCase implements Serializable{
       droite.tourLigneCases();
     }
   }
-  public void ajouter(Case c){
+  public void add(Case c){
     CCase cc = this;
     while (cc.getDroite() != null){
       cc = cc.getDroite();

@@ -49,7 +49,7 @@ public class modificationDeFichier {
     boolean b;
     do {
       //b=gs.supprimer(s,dmft);k++; //TODO donner un impacte a débutMilieuxFinTotal. 0=on cherche au début 1 =on cherche partout, 2= on cherche a la fin, 3 ca doit correspondre exatement a la ligne.
-      b=gs.supprimer(s);k++;
+      b=gs.remove(s);k++;
     } while (b && k<nbrARetire);//tant que la denière suppression a marché et que on doit encore supprimer des lignes.
     if(!b){k--;}//si la dernière suppression n'as rien supprimer on ne la compte pas comme une ligne supprimé.
     //on enregistre sous le nême nom le fichier sans les lignes qui on été retiré.

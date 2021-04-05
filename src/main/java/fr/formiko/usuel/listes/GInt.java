@@ -15,12 +15,12 @@ public class GInt implements Serializable{
     this();
     GCreature gc = fere.getGc();
     if(gc.length()==0){return;}
-    if(gc.getReine()!=null){ajouter(1);}else{ajouter(0);}
-    ajouter(gc.getGcStade(0).length()-début.getContenu());
+    if(gc.getReine()!=null){add(1);}else{add(0);}
+    add(gc.getGcStade(0).length()-début.getContenu());
     for(int i=-1; i>-4;i--){
-      ajouter(gc.getGcStade(i).length());
+      add(gc.getGcStade(i).length());
     }
-    ajouter(fere.getNbrFourmisMorte());
+    add(fere.getNbrFourmisMorte());
   }
   // GET SET -----------------------------------------------------------------------
   public CInt getDébut(){ return début;}
@@ -30,7 +30,7 @@ public class GInt implements Serializable{
     if(début==null){ return 0;}
     return début.length();
   }
-  public void ajouter(int s){ // On ajoute a la fin par défaut.
+  public void add(int s){ // On ajoute a la fin par défaut.
     CInt c = new CInt(s);
     if (fin == null){ // si la liste est complètement vide.
       fin = c;
@@ -41,7 +41,7 @@ public class GInt implements Serializable{
       fin = c;
     }
   }
-  public void ajouter(GInt gs){
+  public void add(GInt gs){
     if(gs==null){ return;}
     if(this.getDébut()==null){début = gs.getDébut();return;}
     //on lie l'anciène fin au début de gs.
@@ -50,8 +50,6 @@ public class GInt implements Serializable{
     // on change la fin actuelle.
     this.fin = gs.getFin();
   }
-  public void add(int s){ ajouter(s);}
-  public void add(GInt s){ ajouter(s);}
   public void afficheToi(){
     if(début==null){
       System.out.println(g.get("GInt",1,"Le GInt est vide"));

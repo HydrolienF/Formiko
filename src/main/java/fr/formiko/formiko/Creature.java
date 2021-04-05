@@ -122,7 +122,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     }
     this.ccase = newCCase;
     if(newCCase!=null){
-      newCCase.getContenu().getGc().ajouter(this);
+      newCCase.getContenu().getGc().add(this);
     }
   }
   //public void setCCase(int x, int y){setCCase(Main.getGc().getCCase(x,y));}

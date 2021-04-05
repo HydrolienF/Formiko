@@ -241,7 +241,7 @@ public class CLIMap{
           s+=objetSurCarteAIdToString(g)+", ";
         }
         s = s.substring(0,s.length()-2);
-        legend.ajouter(s);
+        legend.add(s);
         unseeableChar=0;
       }
     }

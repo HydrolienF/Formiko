@@ -129,7 +129,7 @@ public class Main {
         g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
         HashMap<String, String> mapEo = chargerLesTraductions.chargerLesTraductions(0);//chargement des langues.
         trad.copieTradBase("eo",mapEo);
-        //chargerLesTraductions.ajouterTradAuto();
+        //chargerLesTraductions.addTradAuto();
       }else if (args[0].equals("rbt") || args[0].equals("rognerBordTransparent")){
         initialisation();
         try {
@@ -304,7 +304,7 @@ public class Main {
     i.setNourritureFournie(200);
     i.setEstMort(false);
     i.setType(8);
-    getGi().ajouterInsecte(i);
+    getGi().addInsecte(i);
     ths = new ThScript("tuto.formiko");
     ths.start();
   }
@@ -628,8 +628,8 @@ public class Main {
       int nbrDInsecteRestant = math.max( getGc().getNbrDeCase()/5 -  getGi().getGiVivant().length(),0);
       int x2 = math.min( getGc().getNbrDeCase()/20, nbrDInsecteRestant);
       new Message("Ajout de "+x2+" insectes");
-      getGi().ajouterInsecte((x2*9)/10); //les insectes vivants n'apparaissent pas sur des cases déja occupé.
-      getGi().ajouterInsecte(x2/10);
+      getGi().addInsecte((x2*9)/10); //les insectes vivants n'apparaissent pas sur des cases déja occupé.
+      getGi().addInsecte(x2/10);
     }
   }
   /**
@@ -647,8 +647,8 @@ public class Main {
     endCh("copieTrads");startCh();
     chargerLesTraductions.affPourcentageTraduit();
     endCh("affPourcentageTraduit");startCh();
-    /*chargerLesTraductions.ajouterTradAuto();
-    endCh("ajouterTradAuto");startCh();
+    /*chargerLesTraductions.addTradAuto();
+    endCh("addTradAuto");startCh();
     chargerLesTraductions.affPourcentageTraduit();
     endCh("affPourcentageTraduit");*/
   }

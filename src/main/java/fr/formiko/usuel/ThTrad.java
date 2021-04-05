@@ -17,9 +17,9 @@ public class ThTrad extends Thread{
   }
   @Override
   public void run(){
-    ajouterTradAuto();
+    addTradAuto();
   }
-  public void ajouterTradAuto(){
+  public void addTradAuto(){
     String sLangue=chargerLesTraductions.getLanguage(langue);
     System.out.println("Ajout de la langue : "+sLangue);
     GString gs = new GString();

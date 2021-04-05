@@ -63,10 +63,10 @@ public class PondreReine implements Serializable, Pondre{
       //byte type = choixType(); // 0 et 1 sont a évité en début de jeu.
       byte type = 3;
       Fourmi fm = new Fourmi(f.getFourmiliere(),f.getEspece(),type);
-      fere.getGc().ajouter(fm); //TODO remove when doing #190
+      fere.getGc().add(fm); //TODO remove when doing #190
       fm.setAgeMax((int)((double)(f.getEspece().getIndividuParType(type).getAgeMax(0)*fm.getMultiplicateurDeDiff())));
-      //f.getFourmiliere().getCCase().getContenu().getGc().ajouter(fm);
-      //fere.getGc().ajouter(fm); l'ajout a la fourmilière ce fait dans le constructeur de Fourmi.
+      //f.getFourmiliere().getCCase().getContenu().getGc().add(fm);
+      //fere.getGc().add(fm); l'ajout a la fourmilière ce fait dans le constructeur de Fourmi.
       f.setNourriture(f.getNourriture() - FOOD_COST_TO_LAY);
       Message m = new Message("La fourmi " +fm.getId() + " est née.", fere.getId(), 3);
       f.setActionMoins(f.getIndividu().getCoutPondre());

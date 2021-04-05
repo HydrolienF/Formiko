@@ -55,7 +55,7 @@ public class PanneauBouton extends Panneau {
     setDescTI("");
     setDesc("");
     descTI.setBounds(0,0,800);
-    // on ajoute les éléments non visible. Les éléments visible sont ajouter 1 a 1 quand le besoin ce fait sentir.
+    // on ajoute les éléments non visible. Les éléments visible sont add 1 a 1 quand le besoin ce fait sentir.
     add(descTI);
     add(desc);
     add(pz);

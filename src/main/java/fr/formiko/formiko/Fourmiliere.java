@@ -128,7 +128,7 @@ public class Fourmiliere implements Serializable{
     try {
       return ggi.getFin().getContenu().calculerScore(this);
     }catch (NullPointerException e) {
-      ggi.ajouter(new GInt(this));
+      ggi.add(new GInt(this));
       return ggi.getFin().getContenu().calculerScore(this);
     }
   }
@@ -173,13 +173,13 @@ public class Fourmiliere implements Serializable{
       gc.jouer();
     } while (!gc.aFiniDeJouer());
     //gc.finTour();
-    ggi.ajouter(new GInt(this)); //stats of this turn
+    ggi.add(new GInt(this)); //stats of this turn
   }
   /*public void faireVarierLesAge(){
   }
   public void faireVarierLesPoint(){
   }*/
-  public void déposer(Graine g){gg.ajouter(g); }
+  public void déposer(Graine g){gg.add(g); }
   /**
   *{@summary Save stats/score in the GGInt.}<br>
   *@version 1.31

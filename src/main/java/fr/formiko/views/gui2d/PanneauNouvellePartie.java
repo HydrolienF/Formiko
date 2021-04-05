@@ -6,7 +6,6 @@ import fr.formiko.formiko.Partie;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.CString;
 import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.types.str;
@@ -128,7 +127,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
   }
   public Partie getPartie(){
     String nomTraduitDeLaCarte = choixCarte.getSelectedItem()+"";
-    String nomDeLaCarte = gsClé.getClé(nomTraduitDeLaCarte);
+    String nomDeLaCarte = gsClé.getKey(nomTraduitDeLaCarte);
     Carte mapo = new Carte(nomDeLaCarte);
     mapo.setCasesNuageuses(casesNuageuses.isSelected());
     mapo.setCasesSombres(casesSombres.isSelected());
@@ -154,8 +153,8 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
         s=t[t.length-1];
         lens = s.length();
         s=s.substring(0,lens-4);
-        gsr.ajouter(g.get(s));
-        gsClé.ajouter(s);
+        gsr.add(g.get(s));
+        gsClé.add(s);
       }
     }
     return gsr;

@@ -185,7 +185,7 @@ public class Partie implements Serializable{
   public void iniJoueur(int nbrDeJoueur, int nbrDeFourmi, Carte mapo){
     for (int i=0; i<nbrDeJoueur; i++){
       Joueur j = new Joueur(nbrDeFourmi,false,mapo);
-      gj.ajouter(j);
+      gj.add(j);
       if (mapo.getCasesNuageuses() || mapo.getCasesSombres()){
         j.initialisationCaseNS();
         j.actualiserCaseSN();
@@ -195,7 +195,7 @@ public class Partie implements Serializable{
   public void iniIa(int nbrDIa, int nbrDeFourmi, Carte mapo){
     for (int i=0; i<nbrDIa; i++){
       Joueur j = new Joueur(nbrDeFourmi,true,mapo);
-      gj.ajouter(j);
+      gj.add(j);
     }
   }
   public void iniJoueurEtIa(Carte mapo){

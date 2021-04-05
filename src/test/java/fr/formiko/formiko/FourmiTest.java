@@ -175,7 +175,7 @@ public class FourmiTest extends TestCaseMuet{
 
     Fourmi fQueen = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
     assertTrue(fQueen.estReine());
-    f.getFere().getGc().ajouter(fQueen);
+    f.getFere().getGc().add(fQueen);
     assertTrue(f.getEstAllié(fQueen));
     assertTrue(fQueen.getEstAllié(f));
 

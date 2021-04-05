@@ -86,7 +86,7 @@ public class CInsecte implements Serializable{
     CInsecte ci = this;
     while(ci!=null){
       if (!ci.getContenu().getEstMort()){
-        gir.ajouter(ci.getContenu());
+        gir.add(ci.getContenu());
       }
       ci=ci.getSuivant();
     }

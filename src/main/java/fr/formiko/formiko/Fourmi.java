@@ -57,7 +57,7 @@ public class Fourmi extends Creature implements Serializable{
     // a modifier a partir des individus quand duretée sera un paramètre. OU alors on dit que duretéMax est fixe en fonction des individus. Genre les gros casse tout, les moyen jusqu'a 60 et les petit jusqu'a 20.
     duretéMax=0;
     setNourritureFournie(e.getNourritureFournie(getStade()));
-    fere.getCc().getContenu().getGc().ajouter(this);
+    fere.getCc().getContenu().getGc().add(this);
     evoluer = new EvoluerFourmi();
     mourir = new MourirFourmi();
     if(e.getPolycalique()){tolerencePheromone=5;}//si c'est une espèce capable de s'endendre avec les fourmilières de la même famille.
