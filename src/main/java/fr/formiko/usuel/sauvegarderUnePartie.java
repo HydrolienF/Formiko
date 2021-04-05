@@ -36,7 +36,7 @@ public class sauvegarderUnePartie {
    *It use the java tools to save in byte code a Serializable Object.
    *@param p The Partie to save
    *@param nomDuFichier The name of the output File (It will be place in REP/nomDuFichier.save)
-   *@version 1.2
+   *@version 1.41
    */
   public static void sauvegarder(Partie p, String nomDuFichier){
     // setSave(Save.getSave());
@@ -47,6 +47,7 @@ public class sauvegarderUnePartie {
       oos.flush();//ca permet de bien nétoyer le flu si j'ai bien compris
     }catch (Exception e) {
       erreur.erreur("Impossible de sauvegarder la partie pour une raison inconnue","sauvegarderUnePartie.sauvegarder");
+      return;
     }
     getSave().addSave();
   }
@@ -88,11 +89,6 @@ public class sauvegarderUnePartie {
     File f = new File(REP);
     String r [] = f.list();
     int lenr = r.length;
-    /*for (int i=0;i<lenr ;i++ ) {
-      try {
-        r[i]=r[i].substring(0,r[i].length()-6);
-      }catch (Exception e) {}
-    }*/
     tableau.sort(r,false);
     return r;
   }
