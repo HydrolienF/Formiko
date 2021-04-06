@@ -35,10 +35,10 @@ public class Pheromone implements Serializable{
   }
   // GET SET --------------------------------------------------------------------
   public byte getR(){ return r;}
-  public byte getV(){ return v;}
+  public byte getV(){ return v;}public byte getG(){ return v;}
   public byte getB(){ return b;}
   public void setR(byte x){r=x;}
-  public void setV(byte x){r=v;}
+  public void setV(byte x){r=v;}public void setG(byte x){r=v;}
   public void setB(byte x){r=b;}
   public byte getRc(){ return (byte)(r+128);}
   public byte getVc(){ return (byte)(v+128);}
@@ -63,6 +63,8 @@ public class Pheromone implements Serializable{
     Pheromone ph = (Pheromone)o;
     return equals(ph,1);
   }
+  @Override
+  public int hashCode(){return getR()+getG()*1000+getB()*1000000;}
   /**
   *{@summary special equals function.}
   *@version 1.31

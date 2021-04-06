@@ -1,6 +1,5 @@
 package fr.formiko.formiko;
 
-
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Creature;

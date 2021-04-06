@@ -74,9 +74,9 @@ public class Point implements Serializable{
   *@version 1.31
   */
   @Override
-  public boolean equals(Object o){
-    if(o==null || !(o instanceof Point)){return false;}
-    Point p = (Point)o;
+  public boolean equals(Object obj){
+    if(obj==null || !(obj instanceof Point)){return false;}
+    Point p = (Point)obj;
     if (x != p.x) { return false;}
     if (y != p.y) { return false;}
     return true;
