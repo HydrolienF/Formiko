@@ -28,6 +28,9 @@ Permet de compiler en spécifiant un classPath (-cp) suplémentaire de celui de 
 java -cp junit-4.13.1.jar:. junit.textui.TestRunner NomDuTest
 lance le test NumDuTest
 
+javap nom.class
+Ca affiche toutes les info de type et de méthode de la classe.
+
 atom $(grep -r -i -l 'try' ./src/main/)
 Ouvre tout les fichiers qui contiène 'try' parmi les .java des dossier spécifier.
 

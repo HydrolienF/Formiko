@@ -34,10 +34,7 @@ mv Formiko.jar out/$nom/.
 cp -r data/ out/$nom/.
 cp README.md out/$nom/.
 cp LICENSE.md out/$nom/.
-<<<<<<< HEAD
 cp version out/$nom/.
-=======
->>>>>>> 5ea60c02d56a73732545da5515f02106f8f978f1
 cd out/$nom
 
 #suppress all file that will be recreate on the computer of the user.
