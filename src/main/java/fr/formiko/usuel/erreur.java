@@ -42,8 +42,7 @@ public class erreur {
         className = className.substring(0,className.length()-5);
       }catch (Exception e) {}
     } while (k<lenst && (className.equals("erreur") || className.equals("alerte")));
-    String methodName = stackTrace[k].getMethodName();
-    return className+"."+methodName;
+    return className+"."+stackTrace[k].getMethodName()+" l"+stackTrace[k].getLineNumber();
   }
 
   public static void arretForcé(){
