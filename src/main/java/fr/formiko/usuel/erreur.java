@@ -2,8 +2,12 @@ package fr.formiko.usuel;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.types.str;
-//def par défaut des fichiers depuis 0.79.5
 
+/**
+*{@summary Error class call to print error message.}<br>
+*@author Hydrolien
+*@version 1.41
+*/
 public class erreur {
   //public static String lieu0 = null;// g.get("erreur",1,"un lieu non précisé");
   public static boolean muet=false;
@@ -21,6 +25,25 @@ public class erreur {
     if(!muet){
       System.out.print(s);
     }
+  }
+  /**
+  *{@summary Return last method & class that was runing before this class.}<br>
+  *@version 1.41
+  */
+  private static String getCurentClassAndMethodName(){
+    StackTraceElement[] stackTrace = new Throwable().getStackTrace();
+    int lenst = stackTrace.length;
+    int k=0;
+    String className;
+    do {
+      k++;
+      className = stackTrace[k].getFileName();
+      try {
+        className = className.substring(0,className.length()-5);
+      }catch (Exception e) {}
+    } while (k<lenst && (className.equals("erreur") || className.equals("alerte")));
+    String methodName = stackTrace[k].getMethodName();
+    return className+"."+methodName;
   }
 
   public static void arretForcé(){
@@ -51,7 +74,7 @@ public class erreur {
       preMessage=g.get("erreur").toUpperCase();
     }
     //println(preMessage+g.get("erreur",4,"Une erreur")+" " + m + g.get("erreur",5,"c'est produite dans")+" " + lieu + " : ");
-    print(preMessage + "("+lieu+") ");
+    print(preMessage + "("+getCurentClassAndMethodName()+") ");
     println(str.sToSMaj(message)+".");
     if (!correction.equals("")){
       println(g.get("erreur",6,"Correction apportée")+" : " + correction);
@@ -86,7 +109,7 @@ public class erreur {
       preMessage=g.get("alerte").toUpperCase();
     }
     //println(preMessage+g.get("erreur",7,"Quelque chose d'anormale est arrivé dans")+" "+ lieu +", "+g.get("erreur",8,"il n'y a peut-être pas de raison de s'inquiéter"));
-    print(preMessage+"("+lieu+") ");
+    print(preMessage+"("+getCurentClassAndMethodName()+") ");
     if (!message.equals("")) {println(str.sToSMaj(message)+".");}
     if (!correction.equals("")){
       println(g.get("erreur",6,"Correction apportée")+" : " + correction);
