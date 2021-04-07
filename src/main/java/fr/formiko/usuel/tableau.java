@@ -15,7 +15,7 @@ public class tableau <T>{
   }
 
   private static void erreurPositionCorrige(int i){
-    erreur.erreur(g.get(f,1,"La position")+" " + i + " "+g.get(f,2,"n'existe pas dans le tableau")+".", "ø",g.get(f,3,"On ajoute x en position finale."));
+    erreur.erreur(g.get(f,1,"La position")+" " + i + " "+g.get(f,2,"n'existe pas dans le tableau")+".",g.get(f,3,"On ajoute x en position finale."));
   }
   private static void erreurVide(){
     erreur.alerte(g.get(f,5,"Le tableau est vide !"));

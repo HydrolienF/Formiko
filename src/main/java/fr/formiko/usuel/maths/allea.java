@@ -19,7 +19,7 @@ public class allea {
   *@version 1.0
   */
   public static int getAllea(int x){
-    if (x <= 0) { erreur.erreur("On ne peu tirer un nombre alléatoire qu'entre 2 borne positive, "+x+" ne convient pas","allea.getAlléa","On revoie -1"); return -1;}
+    if (x <= 0) { erreur.erreur("On ne peu tirer un nombre alléatoire qu'entre 2 borne positive, "+x+" ne convient pas","On revoie -1"); return -1;}
     int xr = rand.nextInt(x);
     debug.débogage(x + " a été tiré alléatoirement");
     return xr;
@@ -77,7 +77,7 @@ public class allea {
   }
   public static int [] remplirTableauGraceATc(int t[], int tc[]){
     int lentr = 0; int lentc = tc.length; int lent = t.length;
-    if (lentc != lent) { erreur.erreur(g.get("allea",1,"Le tableau t n'as pas autant de case que le tableau tc"),"remplirTableauGraceATc", g.get("allea",2,"On ne prend pas en compte tc")); return t; }
+    if (lentc != lent) { erreur.erreur(g.get("allea",1,"Le tableau t n'as pas autant de case que le tableau tc"), g.get("allea",2,"On ne prend pas en compte tc")); return t; }
     for (int i=0; i<lentc; i++){
       lentr = lentr + tc[i];
     }
@@ -98,7 +98,7 @@ public class allea {
   // fluctuer
   // en %age
   public static int fluctuer(int x, byte a){ // a varit de 1 a 100;
-    if (a < 1 || a > 100 || x<1){ erreur.erreur(g.get("allea",3,"Impossible de faire fluctuer une variable d'autant"),"Espece.fluctuer",g.get("allea",4,"Pas de fluctuation pour cette variable")); return x;}
+    if (a < 1 || a > 100 || x<1){ erreur.erreur(g.get("allea",3,"Impossible de faire fluctuer une variable d'autant"),g.get("allea",4,"Pas de fluctuation pour cette variable")); return x;}
     return (x*(100-a)/100) + getAlléa(math.max(((x*a)/50),1));
   }
   public static int fluctuer(int x){ //de 10% par défaut

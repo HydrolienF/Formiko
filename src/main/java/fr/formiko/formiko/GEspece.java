@@ -45,9 +45,9 @@ public class GEspece implements Serializable{
     try {
       td = lireUnFichier.lireUnFichier(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"Espece.csv");
     }catch (Exception e) {
-      erreur.erreur("Le fichier des Espece n'as pas pu être localisé. il devrais y avoir un docier data et celui ci devrait contenir un fichier Espece.txt","GEspece.chargerLesEspeces",true);
+      erreur.erreur("Le fichier des Espece n'as pas pu être localisé. il devrais y avoir un docier data et celui ci devrait contenir un fichier Espece.txt",true);
     } int lentd = td.length;
-    if (lentd < 3){ erreur.erreur("Le fichier des espece devrais contenir au moins 4 lignes dont 1 Espece","GEspece.chargerLesEspeces",true);}
+    if (lentd < 3){ erreur.erreur("Le fichier des espece devrais contenir au moins 4 lignes dont 1 Espece",true);}
     String tDéfaut [] = decoderUnFichier.getTableauString(td[2],',');
     for (int i=3;i<lentd; i++) {
       this.add(créerUneEspece(td[i],tDéfaut));

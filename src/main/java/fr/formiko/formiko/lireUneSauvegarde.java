@@ -10,7 +10,7 @@ import fr.formiko.usuel.types.*;
 
 public class lireUneSauvegarde {
   public static void lireUneSauvegarde(String nomDuFichier){
-    erreur.erreur("Le système de lecture des sauvegardes n'est pas a jour !","lireUneSauvegarde.lireUneSauvegarde",true);
+    erreur.erreur("Le système de lecture des sauvegardes n'est pas a jour !",true);
     /*
     // On récupère les donnes du fichier sous la forme d'un tableau de Str. 1 par ligne.
     String donnéeSauvegardée [] = lireUnFichier.lireUnFichier(nomDuFichier);

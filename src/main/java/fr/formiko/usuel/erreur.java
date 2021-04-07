@@ -9,7 +9,6 @@ import fr.formiko.usuel.types.str;
 *@version 1.41
 */
 public class erreur {
-  //public static String lieu0 = null;// g.get("erreur",1,"un lieu non précisé");
   public static boolean muet=false;
   //colors
   private static String yellow = (char)27+"[1;33m";
@@ -30,7 +29,8 @@ public class erreur {
   *{@summary Return last method & class that was runing before this class.}<br>
   *@version 1.41
   */
-  private static String getCurentClassAndMethodName(){
+  //public only for test
+  public static String getCurentClassAndMethodName(){
     StackTraceElement[] stackTrace = new Throwable().getStackTrace();
     int lenst = stackTrace.length;
     int k=0;
@@ -60,7 +60,7 @@ public class erreur {
     }
   }
 
-  public static void erreur(String message, String lieu, String correction, boolean fatale){
+  public static void erreur(String message, String correction, boolean fatale){
     String m = "";
     if (fatale){
       m = g.get("erreur",3,"fatale")+" ";
@@ -72,7 +72,6 @@ public class erreur {
     }catch (Exception e) {
       preMessage=g.get("erreur").toUpperCase();
     }
-    //println(preMessage+g.get("erreur",4,"Une erreur")+" " + m + g.get("erreur",5,"c'est produite dans")+" " + lieu + " : ");
     print(preMessage + "("+getCurentClassAndMethodName()+") ");
     println(str.sToSMaj(message)+".");
     if (!correction.equals("")){
@@ -82,24 +81,16 @@ public class erreur {
       arretForcé();
     }
   }
-  public static void erreur(String message, String lieu, String correction){
-    erreur(message, lieu, correction, false);
-  }
-  public static void erreur(String message, String lieu, boolean fatale){
-    erreur(message, lieu, "", fatale);
-  }
-  // public static void erreur(String message, String lieu){
-  //   erreur(message, lieu, false); // les erreurs sont non fatale par défaut.
-  // }
-  public static void erreur(String message){
-    //if(lieu0==null){lieu0 = g.get("erreur",1,"un lieu non précisé");}
-    erreur(message, "", false);
+  public static void erreur(String message, String correction){
+    erreur(message, correction, false);
   }
   public static void erreur(String message, boolean fatale){
-    //if(lieu0==null){lieu0 = g.get("erreur",1,"un lieu non précisé");}
     erreur(message, "", fatale);
   }
-  public static void alerte(String message, String lieu, String correction){
+  public static void erreur(String message){
+    erreur(message, false);
+  }
+  public static void alerte(String message, String correction){
     String preMessage = "";
     try {
       if(Main.getOs().isLinux()){preMessage = "["+yellow+g.get("alerte").toUpperCase()+neutral+"] ";}
@@ -107,15 +98,14 @@ public class erreur {
     }catch (Exception e) {
       preMessage=g.get("alerte").toUpperCase();
     }
-    //println(preMessage+g.get("erreur",7,"Quelque chose d'anormale est arrivé dans")+" "+ lieu +", "+g.get("erreur",8,"il n'y a peut-être pas de raison de s'inquiéter"));
     print(preMessage+"("+getCurentClassAndMethodName()+") ");
     if (!message.equals("")) {println(str.sToSMaj(message)+".");}
-    if (!correction.equals("")){
+    if (correction != null && !correction.equals("")){
       println(g.get("erreur",6,"Correction apportée")+" : " + correction);
     }
   }
   public static void alerte(String message){
-    alerte(message,"","");
+    alerte(message,"");
   }
   public static void alerte(){
     alerte("");

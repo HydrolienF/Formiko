@@ -38,7 +38,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
     if(!(c instanceof Fourmi)){erreur.alerte("Impossible de trophallaxer depuis une créature qui n'est pas une Fourmi");return;}
     Fourmi f1 = (Fourmi) c;
     if (f1.getNourriture() < nourritureDonnée){ // si f1 donne trop
-      erreur.erreur("Une fourmi a voulu donnée plus de nourriture que ce qu'elle a","ø","Elle ne donnera que la moitié de sa nourriture par mesure de précaution");
+      erreur.erreur("Une fourmi a voulu donnée plus de nourriture que ce qu'elle a","Elle ne donnera que la moitié de sa nourriture par mesure de précaution");
       nourritureDonnée = f1.getNourriture()/2;
     }
     if ((c2.getNourritureMax() - c2.getNourriture()) < nourritureDonnée){ // si c2 ne peu pas tt recevoir

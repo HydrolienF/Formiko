@@ -54,7 +54,7 @@ public class Fourmiliere implements Serializable{
     //modeDéfaut=3;
     ggi = new GGInt();
     if (ccase==null){
-      erreur.erreur("Impossible de créer une fourmilière sur une case null","Fourmiliere.Fourmiliere",true);
+      erreur.erreur("Impossible de créer une fourmilière sur une case null",true);
     }
     debug.débogage("Placement de la Fourmiliere dans la Case.");
     if (ccase!=null && ccase.getContenu().getFere() != null){
@@ -62,7 +62,7 @@ public class Fourmiliere implements Serializable{
       do {
         ccase = Main.getGc().getCCaseAlléa();
         k++;
-        if(k==100){erreur.alerte("Impossible de créer une fourmilière sur une case qui en contient déjà une ! Déjà 100 tentative de placement","Fourmiliere.Fourmiliere","Choix d'une autre case alléatoire.");}
+        if(k==100){erreur.alerte("Impossible de créer une fourmilière sur une case qui en contient déjà une ! Déjà 100 tentative de placement","Choix d'une autre case alléatoire.");}
       } while (ccase.getContenu().getFere() != null);
     }
     this.ccase = ccase;

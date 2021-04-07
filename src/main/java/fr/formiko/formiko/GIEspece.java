@@ -59,7 +59,7 @@ public class GIEspece implements Serializable{
     try {
       td = lireUnFichier.lireUnFichier(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"IEspece.csv");
     }catch (Exception e) {
-      erreur.erreur("Le fichier des IEspece n'as pas pu être localisé. il devrais y avoir un docier data et celui ci devrait contenir un fichier IEspece.txt","GIEspece.chargerLesIEspeces",true);
+      erreur.erreur("Le fichier des IEspece n'as pas pu être localisé. il devrais y avoir un docier data et celui ci devrait contenir un fichier IEspece.txt",true);
     } int lentd = td.length;
     //if (lentd < 3){ erreur.erreur("Le fichier des IEspece devrais contenir au moins 4 lignes dont 1 IEspece","GIEspece.chargerLesIEspeces",true);}
     String tDéfaut [] = {"5","5","5"};

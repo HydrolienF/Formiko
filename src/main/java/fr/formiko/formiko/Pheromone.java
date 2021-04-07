@@ -82,7 +82,7 @@ public class Pheromone implements Serializable{
     return true;
   }
   public static int getXFromS(String s){
-    if (s.length()!=2){ erreur.alerte("un code couleur n'as pas pu être transformer "+s+".  Il sera remplacer par un code alléatoire. "); return allea.getAlléa(256);}
+    if (s.length()!=2){ erreur.alerte("un code couleur n'as pas pu être transformer "+s+".  Il sera remplacer par un code alléatoire"); return allea.getAlléa(256);}
     return b16ToB10(s.charAt(0))*16 + b16ToB10(s.charAt(1));
   }
   public String phToS(){
@@ -119,7 +119,7 @@ public class Pheromone implements Serializable{
     try {
       ph=new Pheromone(s);
     }catch (Exception e) {
-      erreur.alerte("Le code "+s+" n'as pas pu être changer en Pheromone","Pheromone.sToPh","Pheromone est choisi aléatoirement.");
+      erreur.alerte("Le code "+s+" n'as pas pu être changer en Pheromone","Pheromone est choisi aléatoirement.");
       ph = new Pheromone();
     }
     return ph;

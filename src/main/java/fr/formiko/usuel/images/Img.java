@@ -63,7 +63,7 @@ public class Img implements Cloneable{
   *Constructs a new grey 50% alpha Img whose width and height are specified by the arguments of the same name.
   */
   public Img(int width,int height){
-    if(width < 0 || height < 0){erreur.erreur("Impossible d'initialiser une image avec des dimentions négative : "+width+","+height,"ø","taille set a 0"); width=0; height=0;}
+    if(width < 0 || height < 0){erreur.erreur("Impossible d'initialiser une image avec des dimentions négative : "+width+","+height,"taille set a 0"); width=0; height=0;}
     this.width=width; this.height=height;
     bi = new BufferedImage(width,height,java.awt.image.BufferedImage.TYPE_INT_ARGB);
     alpha = new byte[width][height];

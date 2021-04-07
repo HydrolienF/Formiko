@@ -86,7 +86,7 @@ public class Temps {
       date2 = str.sToL(t[1]);
       tempsEnJeux = str.sToL(t[2]);
     }else{
-      erreur.erreur("Le fichier Temps.txt est corrompu.","Temps.chargerTemps","les variables de temps ont été remises à 0.");
+      erreur.erreur("Le fichier Temps.txt est corrompu.","les variables de temps ont été remises à 0.");
       initialiserFichierTemps();
       date1 = System.currentTimeMillis();
       date2 = System.currentTimeMillis();

@@ -152,7 +152,7 @@ public class Partie implements Serializable{
       boolean b = false;
       nbrDeJoueurDansLaPartie=nbrDIa + nbrDeJoueur;
       if(gej!=null){nbrDeJoueurDansLaPartie=gej.length()-1;}//on a une case vide dans gej.
-      if(nbrDeJoueurDansLaPartie>this.getCarte().length()){erreur.erreur("la carte est trop petite pour abriter "+nbrDeJoueur+" joueurs ; taille : "+getGc().length(),"Fourmiliere.Fourmiliere",true);}
+      if(nbrDeJoueurDansLaPartie>this.getCarte().length()){erreur.erreur("la carte est trop petite pour abriter "+nbrDeJoueur+" joueurs ; taille : "+getGc().length(),true);}
       if(gej==null){
         gj = new GJoueur();
         iniJoueur(nbrDeJoueur,nbrDeFourmi,mapo);

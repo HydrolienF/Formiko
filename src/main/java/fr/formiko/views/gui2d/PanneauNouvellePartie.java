@@ -170,13 +170,13 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
         x=i+3;b=true;//si on trouve la String b = true
       }i++;
     }//si b n'est pas true, on a une erreur.
-    if (!b){ erreur.erreur("La vitesse de jeu n'as pas pue être reconnue au lancement de la partie","PanneauNouvellePartie.getPartie","vitesse déffinie a 1 (normale)");}
+    if (!b){ erreur.erreur("La vitesse de jeu n'as pas pue être reconnue au lancement de la partie","vitesse déffinie a 1 (normale)");}
     Double tv [] = {0.25,0.5,0.75,1.0,1.5,2.0,2.75,4.0}; //du plus rapide au plus lent
     Double vitesseDeJeu;
     try { // on cherche dans le tableau la case numéro x.
       vitesseDeJeu = tv[x];
     }catch (Exception e) { // au cas ou cette case n'existe pas on prévoi un message d'erreur.
-      erreur.erreur("La difficulté n'est pas correcte","PanneauNouvellePartie.getPartie","difficulté fixé a la valeur min ou max.");
+      erreur.erreur("La difficulté n'est pas correcte","difficulté fixé a la valeur min ou max.");
       if(x<1){vitesseDeJeu = tv[0];}
       else{vitesseDeJeu = tv[tv.length-1];}
     }//on return la vitesse de jeu.
@@ -190,7 +190,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
         dif = i;b=true;break;
       }
     }
-    if (!b){ erreur.erreur("La difficulté n'as pas pue être reconnue au lancement de la partie","PanneauNouvellePartie.getPartie","difficulté déffinie a 0 (normale)");}
+    if (!b){ erreur.erreur("La difficulté n'as pas pue être reconnue au lancement de la partie","difficulté déffinie a 0 (normale)");}
     return dif;
   }
 }

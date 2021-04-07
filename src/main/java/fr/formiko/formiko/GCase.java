@@ -18,7 +18,7 @@ public class GCase implements Serializable{
   public CCase actuelle;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public GCase(int horizontale, int verticale){
-    if(horizontale < 0 || verticale < 0){ erreur.erreur("Impossible de créer une carte si petite","ø","la carte la plus petite possible a été créée."); horizontale = 1; verticale = 1;}
+    if(horizontale < 0 || verticale < 0){ erreur.erreur("Impossible de créer une carte si petite","la carte la plus petite possible a été créée."); horizontale = 1; verticale = 1;}
 
     début = new CCase(new Case(0,0));
     addDroite(horizontale-1, début);
