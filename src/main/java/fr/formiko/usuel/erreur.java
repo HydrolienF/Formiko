@@ -41,23 +41,30 @@ public class erreur {
       try {
         className = className.substring(0,className.length()-5);
       }catch (Exception e) {}
-    } while (k<lenst && (className.equals("erreur") || className.equals("alerte")));
+    } while (k<lenst && (className.equals("erreur") || className.equals("alerte") || className.equals("info")));
     return className+"."+stackTrace[k].getMethodName()+" l"+stackTrace[k].getLineNumber();
   }
-
-  public static void arretForcé(){
-    println(g.get("erreur",2,"trouver si dessous la raison et la liste des fonctions qui était en cours lors de l'arrêt forcé")+".");
-    //throw new RuntimeException();
-    try {
-      int x = 7/0;
-    } catch (Exception e){
-      if(!muet){
-        e.printStackTrace();
+  /**
+  *{@summary Show curent stack trace without error file part &#38; stop game.}<br>
+  *@version 1.41
+  */
+  public static void forceStop(){
+    if(muet){return;}
+    println(g.get("erreur",2,"trouver si dessous la raison et la liste des fonctions qui était en cours lors de l'arrêt forcé")+" :");
+    StackTraceElement[] stackTrace = new Throwable().getStackTrace();
+    int lenst = stackTrace.length;
+    int k=0;
+    for (StackTraceElement st : stackTrace) {
+      k++;
+      String className = st.getFileName();
+      try {
+        className = className.substring(0,className.length()-5);
+      }catch (Exception e) {}
+      if(!className.equals("erreur") && !className.equals("alerte") && !className.equals("forceStop")){
+        System.out.println("\t"+st);
       }
     }
-    if(!muet){
-      System.exit(0);
-    }
+    System.exit(-1);
   }
 
   public static void erreur(String message, String correction, boolean fatale){
@@ -78,7 +85,7 @@ public class erreur {
       println(g.get("erreur",6,"Correction apportée")+" : " + correction);
     }
     if (fatale){
-      arretForcé();
+      forceStop();
     }
   }
   public static void erreur(String message, String correction){
