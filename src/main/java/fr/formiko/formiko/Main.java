@@ -200,7 +200,6 @@ public class Main {
   public static boolean launch(){
     iniLaunch();
     //===
-    erreur.erreur("test",true);
     if (modeCLI) {
       view = new ViewCLI();
       view.ini();
