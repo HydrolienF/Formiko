@@ -27,6 +27,7 @@ public class erreur {
   }
   /**
   *{@summary Return last method & class that was runing before this class.}<br>
+  *It will be like this "className.functionName llineNumber".<br>
   *@version 1.41
   */
   //public only for test
