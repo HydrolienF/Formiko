@@ -84,7 +84,7 @@ public class Folder{
     iniTemporary();
     iniRessourcesPacks();
     if(missingFolder>0){
-      erreur.info(missingFolder+" folders were missing & were add.","Folder.ini");
+      erreur.info(missingFolder+" folders were missing & were add.");
     }
     return missingFolder;
   }

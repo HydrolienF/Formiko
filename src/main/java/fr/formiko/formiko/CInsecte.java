@@ -39,7 +39,7 @@ public class CInsecte implements Serializable{
       return contenu;
     }
     if (suivant == null){
-      erreur.alerte("L'insecte " + id + " n'as pas été trouvé dans la liste d'Insecte encore vivant.", "GInsecte.getInsecteParId");
+      erreur.alerte("L'insecte " + id + " n'as pas été trouvé dans la liste d'Insecte encore vivant.");
       return null;
     }
     return suivant.getInsecteParId(id);
@@ -94,7 +94,7 @@ public class CInsecte implements Serializable{
   }
   public void retirerInsecte(Insecte i){
     if (suivant == null){
-      erreur.alerte("L'insecte "+ i.getId() +" n'as pas été trouvé et n'as donc pas pu être retirer","CInsecte.retirerInsecte");
+      erreur.alerte("L'insecte "+ i.getId() +" n'as pas été trouvé et n'as donc pas pu être retirer");
     }else {
       if(suivant.getContenu().equals(i)){
         debug.débogage("Suppression d'1 Insecte");

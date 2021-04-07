@@ -215,7 +215,7 @@ public class Fourmi extends Creature implements Serializable{
     try {
       if (this.getCCase().equals(this.getFourmiliere().getCCase())){ return true;}
     }catch (Exception e) {
-      erreur.alerte("Impossible de savoir si la fourmi est a la fourmilière","Fourmi.estALaFere");
+      erreur.alerte("Impossible de savoir si la fourmi est a la fourmilière");
     }
     return false;
   }

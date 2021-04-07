@@ -114,12 +114,8 @@ public class erreur {
       println(g.get("erreur",6,"Correction apportée")+" : " + correction);
     }
   }
-  public static void alerte(String message, String lieu){
-    alerte(message,lieu,"");
-  }
   public static void alerte(String message){
-    //if(lieu0==null){lieu0 = g.get("erreur",1,"un lieu non précisé");}
-    alerte(message, null);
+    alerte(message,"","");
   }
   public static void alerte(){
     alerte("");
@@ -128,7 +124,7 @@ public class erreur {
   *{@summary Print info about important thing that are not important as alerte or error.}<br>
   *@version 1.37
   */
-  public static void info(String message, String lieu){
+  public static void info(String message){
     String preMessage = "";
     try {
       if(Main.getOs().isLinux()){preMessage = "["+blue+g.get("info").toUpperCase()+neutral+"] ";}
@@ -136,10 +132,9 @@ public class erreur {
     }catch (Exception e) {
       preMessage=g.get("info").toUpperCase();
     }
-    print(preMessage + "("+lieu+") ");
+    print(preMessage + "("+getCurentClassAndMethodName()+") ");
     println(message);
   }
-  public static void info(String message){info(message,null);}
 
 
   public static void erreurPasEncoreImplemente(){
@@ -161,10 +156,7 @@ public class erreur {
   public static void erreurMissingFolder(String folderName){
     erreur("Can not create all file of "+folderName+" folder");
   }
-  public static void alerteGUI2Dfail(String cause, String lieu){
-    alerte(g.getM("alerteGUI2Dfail"),lieu);
-  }
   public static void alerteGUI2Dfail(String cause){
-    alerteGUI2Dfail(cause, null);
+    alerte(g.getM("alerteGUI2Dfail"));
   }
 }

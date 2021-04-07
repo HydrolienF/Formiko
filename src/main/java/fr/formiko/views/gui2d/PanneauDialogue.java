@@ -26,7 +26,7 @@ public class PanneauDialogue extends Panneau {
     try {
       Main.getPj().getPdi().setVisible(true);
     }catch (Exception e) {
-      erreur.alerte("Le PanneauDialogueInf n'as pas pu être mis visible.","PanneauDialogue.initialiser");
+      erreur.alerte("Le PanneauDialogueInf n'as pas pu être mis visible.");
     }
     GString gs = new GString();
     gs.addParMorceaux(s,80,true);

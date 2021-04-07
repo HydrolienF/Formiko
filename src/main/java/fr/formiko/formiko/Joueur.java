@@ -141,7 +141,7 @@ public class Joueur implements Serializable{
       int x = (Main.getDifficulté()+3)*10;
       if(!ia){ x= 60-x;}
       this.fere.getGc().getReine().setNourriture(math.max(x,10));//10 minimum. (60 max en théorie.)
-    }catch (Exception e) {erreur.alerte("Impossible de prendre en compte la difficulté","Joueur.prendreEnCompteLaDifficulté");}
+    }catch (Exception e) {erreur.alerte("Impossible de prendre en compte la difficulté");}
   }
   public String scoreToString(){
     return getPseudo()+" : "+getScore();

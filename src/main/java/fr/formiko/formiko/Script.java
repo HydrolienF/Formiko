@@ -79,7 +79,7 @@ public class Script implements Serializable{
       try {
         triche.commande(s);
       }catch (Exception e) {
-        erreur.alerte("la commande suivante n'as pas été reconnue : "+s,"script.executeScript");
+        erreur.alerte("la commande suivante n'as pas été reconnue : "+s);
       }
     }
   }

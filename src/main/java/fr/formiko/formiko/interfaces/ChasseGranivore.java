@@ -78,7 +78,7 @@ public class ChasseGranivore implements Serializable, Chasse {
        c.setTransported(graineCollecté);
        setActionMoins(c);
      }else{
-       erreur.alerte("La fonction collecte ne devrais pas être appeler sur une case vide.","ChasseGranivore.chasse");
+       erreur.alerte("La fonction collecte ne devrais pas être appeler sur une case vide.");
      }
      return canHuntMore();
    }

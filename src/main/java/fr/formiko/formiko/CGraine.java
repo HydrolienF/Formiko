@@ -65,14 +65,14 @@ public class CGraine implements Serializable{
       return contenu;
     }
     if (suivant == null){
-      erreur.alerte("La Graine " + id + " n'as pas été trouvé dans la liste de Graine encore vivant.", "CGraine.getGraineParId");
+      erreur.alerte("La Graine " + id + " n'as pas été trouvé dans la liste de Graine encore vivant.");
       return null;
     }
     return suivant.getGraineParId(id);
   }
   public void retirerGraine(int i){
     if (suivant == null){
-      erreur.alerte("La Graine "+ i +" n'as pas été trouvé et n'as donc pas pu être retirer","CGraine.retirerGraine");
+      erreur.alerte("La Graine "+ i +" n'as pas été trouvé et n'as donc pas pu être retirer");
     }else {
       debug.débogage("Test dans CGraine");
       if(suivant.getContenu().getId()==i){
@@ -86,7 +86,7 @@ public class CGraine implements Serializable{
   public void retirerGraine(Graine i){
     debug.débogage("on a fait début.retirerGraine(i);");
     if (suivant == null){
-      erreur.alerte("La Graine "+ i.getId() +" n'as pas été trouvé et n'as donc pas pu être retirer","CGraine.retirerGraine");
+      erreur.alerte("La Graine "+ i.getId() +" n'as pas été trouvé et n'as donc pas pu être retirer");
     }else {
       if(suivant.getContenu().equals(i)){
         suivant = suivant.getSuivant(); // on saute un maillons.

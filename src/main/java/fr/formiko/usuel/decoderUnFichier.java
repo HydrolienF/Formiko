@@ -28,12 +28,12 @@ public class decoderUnFichier {
   }
   public static int getIntDeLaLigne(String s){
     String sr = getStringDeLaLigne(s);
-    return str.sToI(sr); //print une erreur si la convertion échoue.
+    return str.sToI(sr);
   }
   public static byte getByteDeLaLigne(String s){
     int x = getIntDeLaLigne(s);
-    if(x>127){x=127;erreur.alerte("La valeur de la ligne : "+s+" ne convient pas comme byte.","decoderUnFichier");}
-    else if(x<-128){x=-128;erreur.alerte("La valeur de la ligne : "+s+" ne convient pas comme byte.","decoderUnFichier");}
+    if(x>127){x=127;erreur.alerte("La valeur de la ligne : "+s+" ne convient pas comme byte.");}
+    else if(x<-128){x=-128;erreur.alerte("La valeur de la ligne : "+s+" ne convient pas comme byte.");}
     return (byte)x;
   }
   public static boolean getBooleanDeLaLigne(String x){
@@ -54,14 +54,14 @@ public class decoderUnFichier {
       if (sa.charAt(i) != ' '){ s = s + sa.charAt(i);}
     }
     if (s.length() != 1){
-      erreur.alerte(g.get("decoderUnFichier",1,"la chaîne de caractère")+" \"" + s + "\" "+g.get("decoderUnFichier",3,"n'est pas un booléen"),"decoderUnFichier.getBoolean");
+      erreur.alerte(g.get("decoderUnFichier",1,"la chaîne de caractère")+" \"" + s + "\" "+g.get("decoderUnFichier",3,"n'est pas un booléen"));
     }else {
       if (s.charAt(0) == '1'){
         return true;
       }else if (s.charAt(0) == '0'){
         return false;
       }else{
-        erreur.alerte(g.get("decoderUnFichier",4,"le caractère")+" \"" + s.charAt(0) + "\" "+g.get("decoderUnFichier",3,"n'est pas un booléen")+" (1 ou 0)","decoderUnFichier.getBoolean");
+        erreur.alerte(g.get("decoderUnFichier",4,"le caractère")+" \"" + s.charAt(0) + "\" "+g.get("decoderUnFichier",3,"n'est pas un booléen")+" (1 ou 0)");
       }
     }
     return null;

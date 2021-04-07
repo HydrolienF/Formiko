@@ -47,7 +47,7 @@ public class Point implements Serializable{
       x=str.sToI(t[0]);
       y=str.sToI(t[1]);
     }catch (Exception e) {
-      erreur.alerte("1 Point can't be create","Point.Point");
+      erreur.alerte("1 Point can't be create");
     }
   }
 
