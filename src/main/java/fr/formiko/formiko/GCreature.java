@@ -193,7 +193,7 @@ public class GCreature implements Serializable{//, Iterator{
     try {
     return getGcStade(0).getGcType(3).length() + getGcStade(0).getGcType(4).length() + getGcStade(0).getGcType(5).length();
     }catch (Exception e) {
-      erreur.erreur("Impossible de prende en compte les type major et minor dans les ouvrières.","GCreature.getNbrOuvriere");
+      erreur.erreur("Impossible de prende en compte les type major et minor dans les ouvrières.");
       return getGcStade(0).getGcType(3).length();
     }
   }
@@ -327,7 +327,7 @@ public class GCreature implements Serializable{//, Iterator{
   public void jouer(){
     try{
       jouerE();
-    }catch (EmptyListException e) {erreur.alerte("1 player can't play","GCreature.jouer");}
+    }catch (EmptyListException e) {erreur.alerte("1 player can't play");}
   }
   /**
   *reset action before the turn of all the ant.

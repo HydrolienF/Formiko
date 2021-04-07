@@ -32,7 +32,7 @@ public class BoiteListeDefilante {
     while (x==-1){
       JOptionPane.showMessageDialog(Main.getF(), jcb, message, JOptionPane.PLAIN_MESSAGE);//,new ImageIcon("montre.gif"));
       Object o = jcb.getSelectedItem();
-      if(o==null){erreur.erreur("L'élément sélectioné est null","BoiteListeDefilante"); return x;}
+      if(o==null){erreur.erreur("L'élément sélectioné est null"); return x;}
       String s = o.toString();
       try {
         //on ne prend en compte que le premier mot qui dervait être l'id de la Créature.
@@ -41,7 +41,7 @@ public class BoiteListeDefilante {
           s = tsSplit[0];
         }
         x=str.sToI(s);
-      }catch (Exception e) {erreur.erreur("L'Objet de JOptionPane n'est pas reconnu comme int : "+s,"BoiteListeDefilante");}
+      }catch (Exception e) {erreur.erreur("L'Objet de JOptionPane n'est pas reconnu comme int : "+s);}
       Temps.pause(10);
     }
     return x;

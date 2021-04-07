@@ -213,7 +213,7 @@ public class ViewCLI implements View {
         break;
         //next setter do not exist yet & need to call back initialisationElément() to be concidered.
         case 7:
-        erreur.erreurPasEncoreImplemente("ViewCLI");
+        erreur.erreurPasEncoreImplemente();
         //pa.setNbrDeJoueur(str.sToI(input,pa.getNbrDeJoueur()));
         // break;
         case 8:
@@ -234,7 +234,7 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean menuOptions(){
-    erreur.info(g.getM("optionsCanBeEditedIn")+" data/Options.md.","ViewCLI.menuOptions");
+    erreur.info(g.getM("optionsCanBeEditedIn")+" data/Options.md.");
     // actionGameOn=false;
     // menuName="menuO";
     // //tToPrint=sauvegarderUnePartie.listOptions();
@@ -405,7 +405,7 @@ public class ViewCLI implements View {
     if(c instanceof Fourmi){
       return (Fourmi) c;
     }
-    erreur.erreurType("Fourmi","ViewCLI.getAntFromFere");
+    erreur.erreurType("Fourmi");
     return null;
   }
 
@@ -559,7 +559,7 @@ public class ViewCLI implements View {
     }
     int y = 0;
     if(letters.length()>2){
-      erreur.erreurPasEncoreImplemente("ViewCLI.getCCase");
+      erreur.erreurPasEncoreImplemente();
       return null;
     }else if (letters.length()==2) {
       y = (letters.charAt(0)-96)*26 + letters.charAt(1)-97;
@@ -569,7 +569,7 @@ public class ViewCLI implements View {
     int x = str.sToI(numbers);
     CCase cc = Main.getGc().getCCase(x,y);
     if(cc==null){
-      erreur.alerte(g.get("theCaseDoNotExist"),"ViewCLI.getCCaseFromString");
+      erreur.alerte(g.get("theCaseDoNotExist"));
     }
     return cc;
   }

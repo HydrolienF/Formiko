@@ -135,7 +135,7 @@ public class Main {
         try {
           rbtCmd(args);
         }catch (Exception e) {
-          erreur.erreur("echec de rognage de l'image","Main.main");
+          erreur.erreur("echec de rognage de l'image");
         }
       }else if(args[0].equals("stats")){
         if(args.length>1){

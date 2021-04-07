@@ -54,7 +54,7 @@ public class ThTrad extends Thread{
       BufferedReader bfr = new BufferedReader(new InputStreamReader(pr.getInputStream()));
       s2 = bfr.readLine();
     }catch (Exception e) {
-      erreur.erreur("erreur de traduction","chargerLesTraductions.tradAuto");
+      erreur.erreur("transaltion fail");
     }
     return s2+"[auto]";
   }

@@ -24,7 +24,7 @@ public class ecrireUnFichier {
       try {
         ecriteurAvecBuffer = new BufferedWriter(new FileWriter(nomDuFichier));
       } catch(FileNotFoundException e) {
-        erreur.erreur("Le fichier n'as pas pu être créer. Le problème peut venir d'un caractère incorecte","ecrireUnFichier.ecrireUnFichier");
+        erreur.erreur("Le fichier n'as pas pu être créer. Le problème peut venir d'un caractère incorecte");
         return false;
         //ecriteurAvecBuffer = new BufferedWriter(new FileWriter("sauvegarde/sauvegardeEnCasDErreur.txt"));
   	    //e.printStackTrace();

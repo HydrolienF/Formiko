@@ -18,7 +18,7 @@ public class GCase implements Serializable{
   public CCase actuelle;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public GCase(int horizontale, int verticale){
-    if(horizontale < 0 || verticale < 0){ erreur.erreur("Impossible de créer une carte si petite","GCase.GCase","la carte la plus petite possible a été créée."); horizontale = 1; verticale = 1;}
+    if(horizontale < 0 || verticale < 0){ erreur.erreur("Impossible de créer une carte si petite","ø","la carte la plus petite possible a été créée."); horizontale = 1; verticale = 1;}
 
     début = new CCase(new Case(0,0));
     addDroite(horizontale-1, début);
@@ -38,7 +38,7 @@ public class GCase implements Serializable{
   public String getDim(){ return getWidth()+";"+getHeight();}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
-    if (début==null){erreur.erreur("La carte est vide","Gcase.afficheToi");return "";}
+    if (début==null){erreur.erreur("La carte est vide");return "";}
     return début.toString();
   }
   public CCase getCCase(int x, int y){
@@ -126,7 +126,7 @@ public class GCase implements Serializable{
   }
   public void tourCases(){
     if (début==null){
-      erreur.erreur("La carte est vide","Gcase.tourCases");
+      erreur.erreur("La carte est vide");
     }else{
       début.tourCases();
     }

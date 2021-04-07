@@ -51,7 +51,7 @@ public class action{
     }else if(ac==2){
       pm.addPcp();
     }else if(ac==3){
-      erreur.erreurPasEncoreImplemente("PanneauMenu");
+      erreur.erreurPasEncoreImplemente();
     }else if(ac==4){
       debug.débogage("lancementNouvellePartie");
       pm.setLancer(true);
@@ -104,7 +104,7 @@ public class action{
         }
       }
     }catch (Exception e) {
-      erreur.erreur("L'action "+ac+" n'as pas fonctionnée","PanneauJeu.doAction");
+      erreur.erreur("L'action "+ac+" n'as pas fonctionnée");
     }
   }
   /**

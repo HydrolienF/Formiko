@@ -53,17 +53,17 @@ public class Save implements Serializable{
     try {
       if(!f.exists()){
         if(!f.createNewFile()){
-          erreur.erreur("le fichier n'as pas été créer","Save.save");
+          erreur.erreur("le fichier n'as pas été créer");
         }
       }
     }catch (Exception e) {
-      erreur.erreur("le fichier n'as pas été créer","Save.save");
+      erreur.erreur("le fichier n'as pas été créer");
     }
     try {
       ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f.getPath()+""));
       oos.writeObject(this);
     }catch (Exception e) {
-      erreur.erreur("le fichier n'as pas été rempli","Save.save");
+      erreur.erreur("le fichier n'as pas été rempli");
     }
   }
 }

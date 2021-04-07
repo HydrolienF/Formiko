@@ -46,7 +46,7 @@ public class sauvegarderUnePartie {
       oos.writeObject(p);
       oos.flush();//ca permet de bien nétoyer le flu si j'ai bien compris
     }catch (Exception e) {
-      erreur.erreur("Impossible de sauvegarder la partie pour une raison inconnue","sauvegarderUnePartie.sauvegarder");
+      erreur.erreur("Impossible de sauvegarder la partie pour une raison inconnue");
       return;
     }
     getSave().addSave();
@@ -65,7 +65,7 @@ public class sauvegarderUnePartie {
       ois = new ObjectInputStream(new FileInputStream(getNomDuFichierComplet()));
       pa = (Partie) ois.readObject();
     }catch (Exception e) {
-      erreur.erreur("Impossible de charger la partie "+nomDuFichier+" pour une raison inconnue","sauvegarderUnePartie.charger");
+      erreur.erreur("Impossible de charger la partie "+nomDuFichier+" pour une raison inconnue");
     }
     return pa;
   }

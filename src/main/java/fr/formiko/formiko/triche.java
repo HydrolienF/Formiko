@@ -264,7 +264,7 @@ public class triche {
             try {
               Main.setLangue(chargerLesTraductions.getLanguage(args[1]));
             }catch (Exception e2) {
-              erreur.erreur("Impossible de changer la langue","triche.commande");
+              erreur.erreur("Impossible de changer la langue");
             }
           }
           break;
@@ -283,10 +283,10 @@ public class triche {
           Main.getPartie().setContinuerLeJeu(false);
           break;
         default:
-          erreur.erreur("La commande n'as pas été reconnue.","triche.commande");
+          erreur.erreur("La commande n'as pas été reconnue.");
       }
       Main.repaint();
-    }catch (Exception e) { erreur.erreur("La commande triche a échoué.","triche.commande");}
+    }catch (Exception e) { erreur.erreur("La commande triche a échoué.");}
   }
 
 

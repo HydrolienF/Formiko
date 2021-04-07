@@ -169,7 +169,7 @@ public class PanneauCarte extends Panneau implements MouseListener{
           return true;//on ne dessine rien par dessus.
         }
       }catch (Exception e) {
-        erreur.erreur("Une case possiblement nuageuse n'as pas pue atre affiché","PanneauCarte");
+        erreur.erreur("Une case possiblement nuageuse n'as pas pue atre affiché");
       }
     }
     return false;

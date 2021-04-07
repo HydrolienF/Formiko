@@ -15,7 +15,7 @@ public class Carte implements Serializable{
   private String mapName;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Carte(GCase gc, byte abondanceInsecte, byte abondanceGraine, byte abondanceHerbe, boolean caseNuageuse, boolean caseSombre){
-    if (gc==null){erreur.erreur("impossible d'avoir un GCase null ici","Carte.Carte");}
+    if (gc==null){erreur.erreur("impossible d'avoir un GCase null ici");}
     this.gc = gc;
     debug.débogage("Création de carte a "+this.gc.length()+" cases");
     this.abondanceInsecte = abondanceInsecte; this.abondanceGraine = abondanceGraine; this.abondanceHerbe = abondanceHerbe;

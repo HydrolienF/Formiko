@@ -21,7 +21,7 @@ public class GIndividu implements Serializable{
   public void setDébut(CIndividu ce){début = ce; }
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
-    if(début == null){ erreur.erreur("Impossible d'afficher une liste vide","GIndividu.afficheToi");return g.get("GIndividu")+" "+g.get("vide");}
+    if(début == null){ erreur.erreur("Impossible d'afficher une liste vide");return g.get("GIndividu")+" "+g.get("vide");}
     return g.get("GIndividu") +" : "+ début.toString();
   }
   public Individu getIndividuParType(byte x){
@@ -52,9 +52,9 @@ public class GIndividu implements Serializable{
     try {
       td = lireUnFichier.lireUnFichier(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"Individu.csv");
     }catch (Exception e) {
-      erreur.erreur("Le fichier des Individu n'as pas pu être localisé. il devrais y avoir un docier data et celui ci devrait contenir un fichier Individu.txt","GIndividu.chargerLesIndividu",true);
+      erreur.erreur("Le fichier des Individu n'as pas pu être localisé. il devrais y avoir un docier data et celui ci devrait contenir un fichier Individu.txt",true);
     } int lentd = td.length;
-    if (lentd < 3){ erreur.erreur("Le fichier des Individu devrais contenir au moins 4 lignes dont 1 Individu","GIndividu.chargerLesIndividu",true);}
+    if (lentd < 3){ erreur.erreur("Le fichier des Individu devrais contenir au moins 4 lignes dont 1 Individu",true);}
     String tDéfaut [] = decoderUnFichier.getTableauString(td[2],',');
     for (int i=3;i<lentd; i++) {
       Individu iu = créerUnIndividu(td[i],tDéfaut); // on le cré.

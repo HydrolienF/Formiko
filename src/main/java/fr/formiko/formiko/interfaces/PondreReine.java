@@ -35,7 +35,7 @@ public class PondreReine implements Serializable, Pondre{
       pondre();
       debug.débogage("fin de la ponte");
     }else{
-      erreur.erreurType("Fourmi","PondreReine");
+      erreur.erreurType("Fourmi");
     }
   }
   /**

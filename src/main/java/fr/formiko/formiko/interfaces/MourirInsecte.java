@@ -33,7 +33,7 @@ public class MourirInsecte implements Serializable, Mourir {
         devenirUnCadavre(i);
       }
     }else{
-      erreur.erreurType("Insecte","MourirInsecte");
+      erreur.erreurType("Insecte");
     }
   }
   /**
@@ -49,10 +49,10 @@ public class MourirInsecte implements Serializable, Mourir {
       try {
         Main.getGi().retirer(i);
       }catch (Exception e) {
-        erreur.erreur("L'insecte "+id+" n'as pas pu être retiré de Main.Gi.","MourirInsecte");
+        erreur.erreur("L'insecte "+id+" n'as pas pu être retiré de Main.Gi.");
       }
     }else{
-      erreur.erreur("L'insecte "+id+" n'as pas pu être retiré.","MourirInsecte");
+      erreur.erreur("L'insecte "+id+" n'as pas pu être retiré.");
     }
   }
   /**

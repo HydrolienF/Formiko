@@ -29,7 +29,7 @@ public class TourInsecte implements Serializable, Tour{
       tour();
       debug.débogage("fin du tour de l'insecte.");
     }else{
-      erreur.erreurType("Insecte","TourInsecte");
+      erreur.erreurType("Insecte");
     }
   }
 

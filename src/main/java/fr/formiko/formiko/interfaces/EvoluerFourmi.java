@@ -31,7 +31,7 @@ public class EvoluerFourmi implements Serializable, Evoluer{
     if(c instanceof Fourmi){
       f = (Fourmi)c;
     }else{
-      erreur.erreurType("Fourmi","EvoluerFourmi");
+      erreur.erreurType("Fourmi");
       return;
     }
     if(f.getStade()==0){return;}

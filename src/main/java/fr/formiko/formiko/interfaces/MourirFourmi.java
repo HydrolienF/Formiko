@@ -39,7 +39,7 @@ public class MourirFourmi implements Serializable, Mourir {
         //f.getCCase().getContenu().getGc().add(new Insecte(f.getCCase(),10 + (int) getNourriture()/3,0,0,0));
       }
     }else{
-      erreur.erreurType("Fourmi","MourirFourmi.Mourir");
+      erreur.erreurType("Fourmi");
     }
   }
   /**
@@ -52,7 +52,7 @@ public class MourirFourmi implements Serializable, Mourir {
       Fourmi f = (Fourmi)c;
       supprimerDeLaCarte(f);
     }else{
-      erreur.erreurType("Fourmi","MourirFourmi.Mourir");
+      erreur.erreurType("Fourmi");
     }
   }
   /**

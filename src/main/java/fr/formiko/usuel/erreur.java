@@ -88,16 +88,16 @@ public class erreur {
   public static void erreur(String message, String lieu, boolean fatale){
     erreur(message, lieu, "", fatale);
   }
-  public static void erreur(String message, String lieu){
-    erreur(message, lieu, false); // les erreurs sont non fatale par défaut.
-  }
+  // public static void erreur(String message, String lieu){
+  //   erreur(message, lieu, false); // les erreurs sont non fatale par défaut.
+  // }
   public static void erreur(String message){
     //if(lieu0==null){lieu0 = g.get("erreur",1,"un lieu non précisé");}
-    erreur(message, null);
+    erreur(message, "", false);
   }
   public static void erreur(String message, boolean fatale){
     //if(lieu0==null){lieu0 = g.get("erreur",1,"un lieu non précisé");}
-    erreur(message, null, fatale);
+    erreur(message, "", fatale);
   }
   public static void alerte(String message, String lieu, String correction){
     String preMessage = "";
@@ -142,12 +142,8 @@ public class erreur {
   public static void info(String message){info(message,null);}
 
 
-  public static void erreurPasEncoreImplemente(String lieu){
-    erreur(g.get("erreur",9,"La fonctionnalité n'as pas encore été implémenté"),lieu);
-  }
   public static void erreurPasEncoreImplemente(){
-    //if(lieu0==null){lieu0 = g.get("erreur",1,"un lieu non précisé");}
-    erreurPasEncoreImplemente(null);
+    erreur(g.get("erreur",9,"La fonctionnalité n'as pas encore été implémenté"));
   }
   public static void erreurChargementImage(String nomImage){
     erreur(g.get("erreur",11,"Le chargement de l'image") +" "+nomImage+" "+ g.get("erreur",12,"n'as pas fonctionné. Assurer vous que le fichier image/ contient bien l'image en question."));
@@ -159,14 +155,11 @@ public class erreur {
   public static void erreurPause(int x){
     erreur(g.get("erreur",16,"la tentative de pause a échouée (durée de pause"+" : "+x+" )"));
   }
-  public static void erreurType(String type, String lieu){
-    erreur(g.getM("erreur.17")+g.get(":")+type,lieu);
-  }public static void erreurType(String type){
-    //if(lieu0==null){lieu0 = g.get("erreur",1,"un lieu non précisé");}
-    erreurType(type,null);
+  public static void erreurType(String type){
+    erreur(g.getM("erreur.17")+g.get(":")+type);
   }
   public static void erreurMissingFolder(String folderName){
-    erreur("Can not create all file of "+folderName+" folder","Folder.ini");
+    erreur("Can not create all file of "+folderName+" folder");
   }
   public static void alerteGUI2Dfail(String cause, String lieu){
     alerte(g.getM("alerteGUI2Dfail"),lieu);

@@ -256,11 +256,10 @@ public class CCreature implements Serializable{
     afficheToi();
     if (suivant!=null){
       try {
-      suivant.afficheTout();
-    }catch (Exception e) {
-      System.out.println("impossible de retirer cet éléments pour cause de stack OverFlow");
-      erreur.erreur("","",true);
-    }
+        suivant.afficheTout();
+      }catch (Exception e) {
+        erreur.erreur("impossible de retirer cet éléments pour cause de stack OverFlow",true);
+      }
     }
   }
   public void afficheToutRéduit(){
@@ -280,7 +279,7 @@ public class CCreature implements Serializable{
       Fourmi fActuel = (Fourmi) contenu;
       fActuel.tour();
     }else{
-      erreur.erreur("Impossible de faire jouer comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.","CCreature.jouer");
+      erreur.erreur("Impossible de faire jouer comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.");
     }
     if(suivant != null){
       suivant.jouer();
@@ -295,7 +294,7 @@ public class CCreature implements Serializable{
       Fourmi fActuel = (Fourmi) contenu;
       fActuel.preTour();
     }else{
-      erreur.erreur("Impossible de faire preTour comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.","CCreature.preTour");
+      erreur.erreur("Impossible de faire preTour comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.");
     }
     if(suivant != null){
       suivant.preTour();
@@ -306,7 +305,7 @@ public class CCreature implements Serializable{
     if(contenu instanceof Fourmi){
       fActuel = (Fourmi) contenu;
     }else{
-      erreur.erreur("Impossible de faire jouer comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.","CCreature.jouer");
+      erreur.erreur("Impossible de faire jouer comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.");
     }
     if(fActuel!=null){fActuel.finTour();}
     if(suivant != null){

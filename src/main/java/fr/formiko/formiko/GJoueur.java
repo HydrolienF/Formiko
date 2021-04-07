@@ -145,7 +145,7 @@ public class GJoueur implements Serializable{
   }
   public void jouer(){
     if(début == null){
-      erreur.erreur("Impossible de faire jouer un groupe de joueur vide !","GJoueur.jouer");
+      erreur.erreur("Impossible de faire jouer un groupe de joueur vide !");
     }else{
       if(Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()){return;}
       début.jouer();

@@ -22,7 +22,7 @@ public class chargerLesTouches {
     }
     String t [] = new String[0];
     t=lireUnFichier.lireUnFichier(Main.getFolder().getFolderMain()+"Keys.txt");
-    if(!decoderUnFichier.getStringDeLaLigne(t[0]).equals(versionActuelle)){ erreur.erreur("Le fichier des touches n'est pas compatible avec la version "+versionActuelle,"chargerLesTouches.chargerLesTouches",true);return map;}
+    if(!decoderUnFichier.getStringDeLaLigne(t[0]).equals(versionActuelle)){ erreur.erreur("Le fichier des touches n'est pas compatible avec la version "+versionActuelle,true);return map;}
     int lent = t.length;
     for (int i=1; i<lent;i++) {
       addObjetMap(t[i]);
@@ -40,10 +40,10 @@ public class chargerLesTouches {
   private static void addObjetMap(String s){
     int lens = s.length(); if(lens<3 || (s.charAt(0) == '/' && s.charAt(1) == '/')){ return;}
     String ts [] = s.split(":");
-    if (ts.length<2){erreur.erreur("Il n'y a pas de ':' dans la String","chargerLesTouches.addObjetMap");}
-    else if (ts.length>2){erreur.erreur("Il y a trop de ':' dans la String","chargerLesTouches.addObjetMap");}
-    else if (ts[0].length()==0){ erreur.erreur("Il n'a pas suffisement de char pour former la clé.","chargerLesTouches.addObjetMap");}
-    else if(ts[1].length()==0){ erreur.alerte("Una action n'as pas de touche associée","chargerLesTouches.addObjetMap");map.put(ts[0],-1);}
+    if (ts.length<2){erreur.erreur("Il n'y a pas de ':' dans la String");}
+    else if (ts.length>2){erreur.erreur("Il y a trop de ':' dans la String");}
+    else if (ts[0].length()==0){ erreur.erreur("Il n'a pas suffisement de char pour former la clé.");}
+    else if(ts[1].length()==0){ erreur.alerte("Una action n'as pas de touche associée");map.put(ts[0],-1);}
     else{ // le cas ou tout marche bien :
       Integer c;
       try {

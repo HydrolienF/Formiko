@@ -87,7 +87,7 @@ public class PanneauSup extends Panneau{
     try {
       return Main.getGc().getCCase(cx+Main.getPc().getPosX(),cy+Main.getPc().getPosY());
     }catch (Exception e2) {
-      erreur.erreur("aucune case n'est sélectionné avec les coordonées : "+cx+" "+cy,"PanneauSup.getCase");
+      erreur.erreur("aucune case n'est sélectionné avec les coordonées : "+cx+" "+cy);
       return null;
     }
   }

@@ -18,7 +18,7 @@ public class modificationDeFichier {
   public static int retirerLesLignes(String s, String fichier, int nbrARetire, byte dmft){
     File f = new File(fichier);
     if(!f.exists()){
-      erreur.erreur("Le fichier spécifié n'existe pas : "+fichier,"modificationDeFichier,retirerLesLignes");
+      erreur.erreur("Le fichier spécifié n'existe pas : "+fichier);
       return 0;
     }
     //si c'est un dossier on transmet l'info a tout ses sous fichier et dossier jusqu'a ce que tout les fichier de l'arboressence ai été traité.
@@ -42,7 +42,7 @@ public class modificationDeFichier {
 
   //fonctionnement interne.
   private static int retirerLesLignesDuFichier(String s, String f, int nbrARetire, byte dmft){
-    if(nbrARetire <0){erreur.erreur("Impossible de retirer un nombre négatif de ligne d'un fichier","modificationDeFichier,retirerLesLignes");return 0;}
+    if(nbrARetire <0){erreur.erreur("Impossible de retirer un nombre négatif de ligne d'un fichier");return 0;}
     GString gs = lireUnFichier.lireUnFichierGs(f);
     if(nbrARetire==0){nbrARetire=gs.length();}//si c'est 0 on retirera autant de lignes que néssésaire
     int k=0;

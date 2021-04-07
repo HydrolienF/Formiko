@@ -38,7 +38,7 @@ public class chargerLesTraductions {
     if(tLangue == null || x<0 || x>=tLangue.length){
       int l = 0;
       if(tLangue!=null){l=tLangue.length;}
-      erreur.erreur("langue non reconnu parmi les "+l+" langue(s) disponible(s).","chargerLesTraductions.getLanguage","\"en\" retourné");
+      erreur.erreur("langue non reconnu parmi les "+l+" langue(s) disponible(s).","ø","\"en\" retourné");
       return "en";
     }
     return tLangue[x];
@@ -99,7 +99,7 @@ public class chargerLesTraductions {
       try {
         f.createNewFile();
       }catch (Exception e) {
-        erreur.erreur("Impossible de créer un fichier de trad","chargerLesTraductions.créerLesFichiers");
+        erreur.erreur("Impossible de créer un fichier de trad");
         return false;
       }
     }
@@ -135,7 +135,7 @@ public class chargerLesTraductions {
       debug.débogage("chargement de la langue "+getLanguage(langue));
       t=lireUnFichier.lireUnFichier(rep+getLanguage(langue)+".txt");
     }catch (Exception e) {
-      erreur.erreur("Echec du chargement de la langue spécifiée","en choisi par défaut");
+      erreur.erreur("Echec du chargement de la langue spécifiée","ø","en choisi par défaut");
       t=lireUnFichier.lireUnFichier(rep+"en.txt");
     }
     return t;

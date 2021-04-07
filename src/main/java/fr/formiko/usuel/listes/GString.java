@@ -44,7 +44,7 @@ public class GString extends List<String> implements Serializable {
       try {
         cb.setSelectedItem(getItem(x));
       }catch (Exception e) {
-        erreur.erreur("Impossible de mettre l'élément n°"+x+" par défaut.","CString.getComboBox");
+        erreur.erreur("Impossible de mettre l'élément n°"+x+" par défaut.");
       }
     }
     return cb;

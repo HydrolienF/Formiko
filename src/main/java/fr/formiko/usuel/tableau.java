@@ -11,17 +11,17 @@ public class tableau <T>{
 // mylist.add(objet1) etc.
   private static String f = "tableau";
   private static void erreurPosition(int i){
-    erreur.erreur(g.get(f,1,"La position")+" " + i + " "+g.get(f,2,"n'existe pas dans le tableau")+".", "tableau.retir");
+    erreur.erreur(g.get(f,1,"La position")+" " + i + " "+g.get(f,2,"n'existe pas dans le tableau")+".");
   }
 
   private static void erreurPositionCorrige(int i){
-    erreur.erreur(g.get(f,1,"La position")+" " + i + " "+g.get(f,2,"n'existe pas dans le tableau")+".", "tableau.retir",g.get(f,3,"On ajoute x en position finale."));
+    erreur.erreur(g.get(f,1,"La position")+" " + i + " "+g.get(f,2,"n'existe pas dans le tableau")+".", "ø",g.get(f,3,"On ajoute x en position finale."));
   }
   private static void erreurVide(){
-    erreur.alerte(g.get(f,5,"Le tableau est vide !"),"tableau.");
+    erreur.alerte(g.get(f,5,"Le tableau est vide !"));
   }
   private static void erreurElementManquant(String x){
-    erreur.alerte("\""+x + "\" "+g.get(f,4,"n'est pas présent dans le tableau")+".", "tableau.retirX");
+    erreur.alerte("\""+x + "\" "+g.get(f,4,"n'est pas présent dans le tableau")+".");
   }
 //Objet
   /*public static <T> T[] retire (T t[], T i){

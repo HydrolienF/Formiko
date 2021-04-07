@@ -159,7 +159,7 @@ public class GInsecte implements Serializable{
   public void retirer(Insecte i){ retirerInsecte(i);}
   public void retirer(Creature i){
     if(i instanceof Insecte){retirerInsecte((Insecte)i);}
-    else{erreur.erreur("Impossible de retirer la créature "+i.getId()+" car ne n'est pas un insecte.","GInsecte.retirer");}
+    else{erreur.erreur("Impossible de retirer la créature "+i.getId()+" car ne n'est pas un insecte.");}
   }
   public GInsecte getGiVivant(){
     if (début == null){ erreur.erreurGXVide();return new GInsecte();}

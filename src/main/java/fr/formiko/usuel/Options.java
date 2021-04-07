@@ -166,7 +166,7 @@ public class Options implements Serializable{
       InputStream is = Files.newInputStream(Path.of(Main.getFolder().getFolderMain()+"Options.md"));
       properties.load(is);
     }catch (IOException e) {
-      erreur.erreur("Impossible de charger les options.","Option.iniProperties","Options par défaut choisie.");
+      erreur.erreur("Impossible de charger les options.","ø","Options par défaut choisie.");
       saveDeflautProperties();
     }
   }
@@ -179,7 +179,7 @@ public class Options implements Serializable{
       OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+"Options.md"));
       properties.store(os,"**Options file**\nEvery value can be edit here but variable have specific type. For exemple instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that sould be in [0,100]. Most value sould be out of intervale save. But you may need to reset Options to default value by deleting this file if something goes wrong.");
     }catch (IOException e) {
-      erreur.erreur("Impossible de sauvegarder les options.","Option.saveProperties","Options par défaut choisie.");
+      erreur.erreur("Impossible de sauvegarder les options.","ø","Options par défaut choisie.");
     }
   }
   /**
@@ -192,7 +192,7 @@ public class Options implements Serializable{
       OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+"Options.md"));
       properties.store(os,"**Options file**\nEvery values can be edit here but variable have specific type. For exemple instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that sould be in [0,100]. Most value sould be out of intervale save. But you may need to reset Options to default value by deleting this file if something goes wrong.");
     }catch (IOException e) {
-      erreur.erreur("Impossible de sauvegarder les options par défaut.","Option.saveDeflautProperties");
+      erreur.erreur("Impossible de sauvegarder les options par défaut.");
     }
   }
   /**
@@ -269,7 +269,7 @@ public class Options implements Serializable{
     if(x==1){ return 160;}
     if(x==-2){ return 20;}
     if(x==2){ return 320;}
-    erreur.erreur("La taille des boutons spécifiée n'est pas correcte.","La taille moyenne a été choisie par défaut");
+    erreur.erreur("La taille des boutons spécifiée n'est pas correcte.","ø","La taille moyenne a été choisie par défaut");
     return 80;
   }
   /**

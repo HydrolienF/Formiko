@@ -51,7 +51,7 @@ public class CLIMap{
   public String toString(){
     String sr = "";
     if(gc==null || gc.getDébut()==null){
-      erreur.erreur("La carte est vide","Gcase.afficheCarte");
+      erreur.erreur("La carte est vide");
     }else{
       xi = 0; legend = new GString();
       sr+=mapToMapString();

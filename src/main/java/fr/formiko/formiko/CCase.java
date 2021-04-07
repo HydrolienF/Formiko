@@ -23,7 +23,7 @@ public class CCase implements Serializable{
   public CCase(Case contenu){
     this(contenu, null, null, null, null);
     if(contenu==null){
-      erreur.erreur("Le contenu est déclaré vide !","CCase.CCase",true);
+      erreur.erreur("Le contenu est déclaré vide !",true);
     }
   }
   // GET SET --------------------------------------------------------------------
@@ -97,7 +97,7 @@ public class CCase implements Serializable{
   }
   public GGraine getGg(int x){
     if (x != 1){
-      erreur.erreurPasEncoreImplemente("CCase.getGi");
+      erreur.erreurPasEncoreImplemente();
     }
     GGraine gir = contenu.getGGraineCopier(); // ici on ne veut pas modifier le groupe originale alors on en fait une copie.
     //if (nbrDeCaseVoisine() != 4){ debug.débogage("La détection des graine ne marche pas car trop proche de la bordure de la carte");return gir;}
@@ -129,7 +129,7 @@ public class CCase implements Serializable{
   }
   public GCase getGca(int x){
     if (x != 1){
-      erreur.erreurPasEncoreImplemente("CCase.getGi");
+      erreur.erreurPasEncoreImplemente();
     }
     GCase gir = new GCase(); // ici on ne veut pas modifier le groupe originale alors on en fait une copie.
     gir.add(this.getContenu());
@@ -221,7 +221,7 @@ public class CCase implements Serializable{
   public GInsecte getGi(){return contenu.getGi();}
   public GInsecte getGi(int x){
     if (x != 1){
-      erreur.erreurPasEncoreImplemente("CCase.getGi");
+      erreur.erreurPasEncoreImplemente();
     }
     GInsecte gir = getGi();
     //if (nbrDeCaseVoisine() != 4){ debug.débogage("La detection des insecte ne marche pas car trop proche de la bordure de la carte");return gir;}
