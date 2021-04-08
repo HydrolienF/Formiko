@@ -42,7 +42,7 @@ public class erreur {
       try {
         className = className.substring(0,className.length()-5);
       }catch (Exception e) {}
-    } while (k<lenst && (className.equals("erreur") || className.equals("alerte") || className.equals("info")));
+    } while (k<lenst && (className.equals("erreur")));
     return className+"."+stackTrace[k].getMethodName()+" l"+stackTrace[k].getLineNumber();
   }
   /**
@@ -61,7 +61,7 @@ public class erreur {
       try {
         className = className.substring(0,className.length()-5);
       }catch (Exception e) {}
-      if(!className.equals("erreur") && !className.equals("alerte") && !className.equals("forceStop")){
+      if(!className.equals("erreur")){
         System.out.println("\t"+st);
       }
     }
