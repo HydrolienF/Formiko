@@ -10,6 +10,7 @@ import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.Th;
+import fr.formiko.usuel.ThTriche;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.List;
@@ -28,6 +29,7 @@ import java.util.Scanner;
  */
 public class ViewGUI2d implements View {
   private boolean actionGameOn;
+  private ThTriche trich; //écoute de commande triche dans le terminal.
   /***
   *Main windows
   *@version 1.1
@@ -44,13 +46,7 @@ public class ViewGUI2d implements View {
     actionGameOn=false;
     Main.startCh();
     f = new Fenetre();
-    try {
-      if(!Main.getThTriche().isAlive()){
-        Main.getThTriche().start();
-      }
-    }catch (Exception e) {
-      erreur.erreur("Impossible de lancer l'écoute des codes triches.");
-    }
+    iniThTriche();
     Main.getData().setImageIniForNewGame(false);//force reload of ant images.
     Main.endCh("iniView");Main.startCh();
     try {
@@ -190,7 +186,7 @@ public class ViewGUI2d implements View {
    * Load graphics during menu time.
    * @version 1.1
    */
-  private static void chargementDesGraphismesAutonomes(){
+  private void chargementDesGraphismesAutonomes(){
     if(Main.getPremierePartie()){ini.initialiserPanneauJeuEtDépendance();}
     else{
       Th thTemp = new Th(1);
@@ -198,5 +194,16 @@ public class ViewGUI2d implements View {
     }
     Th thTemp2 = new Th(2);
     thTemp2.start();
+  }
+  private void iniThTriche(){
+    try {
+      if(trich == null || !trich.isAlive()){
+        triche.ini();
+        trich = new ThTriche();//écoute des codes triche.
+        trich.start();
+      }
+    }catch (Exception e) {
+      erreur.erreur("Impossible de lancer l'écoute des codes triches.");
+    }
   }
 }

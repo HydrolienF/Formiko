@@ -50,7 +50,6 @@ public class Main {
   private static int avancementChargement;
   private static boolean affGraine=true;//tant que les espece granivore ne sont pas pleinement opérationelle.
   private static Temps tem;
-  private static ThTriche trich; //écoute de commande triche dans le terminal.
   //private static ThGraphisme tg;//actualise la fenetre tt avec 20 seconde de pause entre chaque actualisation.
   private static boolean retournerAuMenu;
   private static Os os;
@@ -341,7 +340,6 @@ public class Main {
   public static boolean getJeuEnCours(){return jeuEnCours;}
   public static void setJeuEnCours(boolean b){jeuEnCours=b;}
   public static Data getData(){return data;}
-  public static ThTriche getThTriche(){return trich;}
   public static View getView(){return view;}
   //racourci
   public static boolean estWindows(){return os.getId()==1;}
@@ -462,8 +460,6 @@ public class Main {
     endCh("chargementDesTouches");
     setMessageChargement("chargementDesLangues");
     iniLangue();
-    triche.ini();
-    trich = new ThTriche();//écoute des codes triche.
     startCh();
     tem = new Temps();
     endCh("chargementDesDonnéesTemporelles");
