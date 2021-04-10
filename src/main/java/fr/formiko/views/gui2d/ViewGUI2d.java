@@ -9,6 +9,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
 import fr.formiko.usuel.Temps;
+import fr.formiko.usuel.Th;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.List;
@@ -41,6 +42,7 @@ public class ViewGUI2d implements View {
   */
   public boolean ini(){
     actionGameOn=false;
+    Main.startCh();
     f = new Fenetre();
     try {
       Main.getThTriche().start();
@@ -48,6 +50,20 @@ public class ViewGUI2d implements View {
       erreur.erreur("Impossible de lancer l'écoute des codes triches.");
     }
     Main.getData().setImageIniForNewGame(false);//force reload of ant images.
+    Main.endCh("iniView");Main.startCh();
+    try {
+      ini.initialiserToutLesPaneauxVide();
+      Main.endCh("chargementPanneauVide");Main.startCh();
+      //===
+      if(Main.getChargementPendantLesMenu()){chargementDesGraphismesAutonomes();}
+      else{ini.initialiserPanneauJeuEtDépendance();ini.initialiserAutreELémentTournés();}
+      Main.endCh("chargementDesGraphismesAutonomes");
+      //menu
+      Main.startCh();
+      Main.getPm().construitPanneauMenu(3);
+      Main.endCh("chargementPanneauMenu");
+      //===
+    }catch (Exception e) {erreur.erreur("Une erreur graphique est arrivé");}
     return true;
   }
   /***
@@ -164,5 +180,21 @@ public class ViewGUI2d implements View {
   public CCase getCCase(){
     if (!actionGameOn) {return null;}
     return null;
+  }
+
+  //private
+
+  /**
+   * Load graphics during menu time.
+   * @version 1.1
+   */
+  private static void chargementDesGraphismesAutonomes(){
+    if(Main.getPremierePartie()){ini.initialiserPanneauJeuEtDépendance();}
+    else{
+      Th thTemp = new Th(1);
+      thTemp.start();
+    }
+    Th thTemp2 = new Th(2);
+    thTemp2.start();
   }
 }

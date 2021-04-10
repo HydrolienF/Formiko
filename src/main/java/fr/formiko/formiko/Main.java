@@ -205,24 +205,9 @@ public class Main {
       view.menuMain();
       quitter();
     }else{
-      startCh();
       view = new ViewGUI2d();
       view.ini();
-      endCh("iniView");startCh();
     }
-    try {
-      ini.initialiserToutLesPaneauxVide();
-      endCh("chargementPanneauVide");startCh();
-      //===
-      if(getChargementPendantLesMenu()){chargementDesGraphismesAutonomes();}
-      else{ini.initialiserPanneauJeuEtDépendance();ini.initialiserAutreELémentTournés();}
-      endCh("chargementDesGraphismesAutonomes");
-      //menu
-      startCh();
-      getPm().construitPanneauMenu(3);
-      endCh("chargementPanneauMenu");
-      //===
-    }catch (Exception e) {erreur.erreur("Une erreur graphique est arrivé");}
     pa = attenteDeLancementDePartie();
     lancementNouvellePartie();
     Boolean b = pa.jeu(); //lance le jeux.
@@ -502,19 +487,6 @@ public class Main {
     Joueur.ini();
     Fourmiliere.ini();
     ObjetAId.ini();
-  }
-  /**
-   * Load graphics during menu time.
-   * @version 1.1
-   */
-  public static void chargementDesGraphismesAutonomes(){
-    if(premierePartie){ini.initialiserPanneauJeuEtDépendance();}
-    else{
-      Th thTemp = new Th(1);
-      thTemp.start();
-    }
-    Th thTemp2 = new Th(2);
-    thTemp2.start();
   }
   /**
    * Load Options.
