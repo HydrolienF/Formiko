@@ -183,9 +183,9 @@ public class ViewGUI2d implements View {
   //private
 
   /**
-   * Load graphics during menu time.
-   * @version 1.1
-   */
+  *Load graphics during menu time.
+  *@version 1.1
+  */
   private void chargementDesGraphismesAutonomes(){
     if(Main.getPremierePartie()){ini.initialiserPanneauJeuEtDépendance();}
     else{
@@ -195,6 +195,10 @@ public class ViewGUI2d implements View {
     Th thTemp2 = new Th(2);
     thTemp2.start();
   }
+  /**
+  *{@summary Initialize cheat code listener if it haven't been yet.}<br>
+  *@version 1.42
+  */
   private void iniThTriche(){
     try {
       if(trich == null || !trich.isAlive()){

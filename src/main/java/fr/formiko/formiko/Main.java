@@ -58,7 +58,6 @@ public class Main {
   private static ThScript ths;
   //private static ThMusique thm;
   private static boolean premierePartie=false;
-  private static boolean jeuEnCours;
   private static Data data;
   private static View view;
 
@@ -181,7 +180,6 @@ public class Main {
     if(premierePartie){tuto=true;}
     avancementChargement=-1;
     //on initialise ici si ça n'as pas déja été fait par une options.
-    setJeuEnCours(false);
     if(getOp()==null){initialisation();}
     iniCpt();
     avancementChargement=0;
@@ -193,7 +191,7 @@ public class Main {
   }
   /**
    * {@summary Launch in the void main if there is not other args than -something (ex : -d).}<br>
-   * @version 1.33
+   * @version 1.42
    */
   public static boolean launch(){
     iniLaunch();
@@ -205,7 +203,7 @@ public class Main {
     }
     view.ini();
     view.menuMain();
-    if (modeCLI) {quitter();}
+    if (modeCLI) {quitter();} //TODO menuMain sould call all functions so we sould be able to stop here.
     pa = attenteDeLancementDePartie();
     lancementNouvellePartie();
     Boolean b = pa.jeu(); //lance le jeux.
@@ -337,8 +335,6 @@ public class Main {
   public static void setTuto(boolean b){tuto=b;}
   public static boolean getPremierePartie(){return premierePartie;}
   public static void setPremierePartie(boolean b){premierePartie=b;}
-  public static boolean getJeuEnCours(){return jeuEnCours;}
-  public static void setJeuEnCours(boolean b){jeuEnCours=b;}
   public static Data getData(){return data;}
   public static View getView(){return view;}
   //racourci

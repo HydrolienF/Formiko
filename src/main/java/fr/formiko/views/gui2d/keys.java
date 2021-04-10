@@ -52,7 +52,7 @@ public class keys {
       *@version 1.40
       */
       public void actionPerformed(ActionEvent actionEvent) {
-        if(Main.getJeuEnCours()){return;}
+        if(!Main.getView().getActionGameOn()){return;}
         if(Main.getPe().getVisible()){
           Main.getPe().setVisible(false);
         }else{
