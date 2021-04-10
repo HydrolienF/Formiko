@@ -114,7 +114,7 @@ public class GString extends List<String> implements Serializable {
       System.out.println(g.get("GString",1,"Le GString est vide"));
     }else{
       //getHead().afficheTout();
-      System.out.println(toString());
+      System.out.println(toStringLong());
     }
   }
   // public void classer(){
