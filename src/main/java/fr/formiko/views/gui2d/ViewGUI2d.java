@@ -42,12 +42,12 @@ public class ViewGUI2d implements View {
   public boolean ini(){
     actionGameOn=false;
     f = new Fenetre();
-    // try {
-    //   Main.getThTriche().start();
-    // }catch (Exception e) {
-    //   erreur.erreur("Impossible de lancer l'écoute des codes triches.");
-    // }
-    // Main.getData().setImageIniForNewGame(false);//force reload of ant images.
+    try {
+      Main.getThTriche().start();
+    }catch (Exception e) {
+      erreur.erreur("Impossible de lancer l'écoute des codes triches.");
+    }
+    Main.getData().setImageIniForNewGame(false);//force reload of ant images.
     return true;
   }
   /***
