@@ -81,7 +81,7 @@ public class ViewGUI2d implements View {
   *@version 1.42
   */
   public boolean paint(){
-    Main.repaint();
+    getF().repaint();
     return true;
   }
   /***

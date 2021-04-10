@@ -356,7 +356,7 @@ public class Main {
   public static void setMusiqueSuivante(){getThm().setM();}*/
   //graphique
   public static PanneauPrincipal getPp(){ return getF().getPp();}
-  public static void repaint(){try { getF().repaint();}catch (Exception e) {view.paint();}}
+  public static void repaint(){view.paint();}
   //public static synchronized void repaint(){try { f.paintAll(f.getGraphics());}catch (Exception e) {}}
   public static PanneauJeu getPj(){ return getPp().getPj();}
   public static PanneauMenu getPm(){ return getPp().getPm();}
