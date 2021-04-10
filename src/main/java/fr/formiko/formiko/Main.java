@@ -201,13 +201,12 @@ public class Main {
     //===
     if (modeCLI) {
       view = new ViewCLI();
-      view.ini();
-      view.menuMain();
-      quitter();
     }else{
       view = new ViewGUI2d();
-      view.ini();
     }
+    view.ini();
+    view.menuMain();
+    if (modeCLI) {quitter();}
     pa = attenteDeLancementDePartie();
     lancementNouvellePartie();
     Boolean b = pa.jeu(); //lance le jeux.
@@ -222,7 +221,7 @@ public class Main {
   public static Partie attenteDeLancementDePartie(){
     //attente
     debug.débogage("attente de lancement de la partie");
-    Main.repaint();
+    repaint();
     boolean b=false;
     while(!b && !premierePartie){Temps.pause(10);b=getPm().getLancer();}
     return action.getPartie();
@@ -318,7 +317,6 @@ public class Main {
   public static Joueur getJoueurParId(int id){ return Main.getGj().getJoueurParId(id);}
   public static Fourmiliere getFourmiliereParId(int id){ return getJoueurParId(id).getFere();}
   public static Fenetre getF(){ return ((ViewGUI2d)view).getF();}
-  // public static Fenetre getF(){ return f;}
   public static Options getOp(){return op;}
   public static Chrono getCh(){ return ch;}
   public static int getKey(String clé){ int r = key.get(clé);if(r==-1){return -1;}return r; }

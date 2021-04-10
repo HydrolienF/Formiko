@@ -45,7 +45,9 @@ public class ViewGUI2d implements View {
     Main.startCh();
     f = new Fenetre();
     try {
-      Main.getThTriche().start();
+      if(!Main.getThTriche().isAlive()){
+        Main.getThTriche().start();
+      }
     }catch (Exception e) {
       erreur.erreur("Impossible de lancer l'écoute des codes triches.");
     }
