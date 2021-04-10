@@ -37,10 +37,6 @@ public class Main {
   *@version 1.1
   */
   private static String versionActuelle = "1.33";
-  /***
-   * Main windows
-   * @version 1.1
-   */
   private static Fenetre f;
   private static Options op;
   private static Chrono ch;
@@ -166,7 +162,9 @@ public class Main {
       while(continuerJeu){
         continuerJeu = launch();//on attend ici tant que le joueur veux jouer.
         debug.débogage("ReLancement du jeu");
-        f.dispose();
+        try {
+          getF().dispose();
+        }catch (Exception e) {}
         retournerAuMenu=false;
         //op=null;//force la réinitialisation de tout.
         image.clearPartielTemporaire();
@@ -205,6 +203,9 @@ public class Main {
       view.ini();
       view.menuMain();
       quitter();
+    }else{
+      // view = new ViewGUI2d();
+      // view.ini();
     }
     startCh();
     f = new Fenetre();
@@ -334,6 +335,7 @@ public class Main {
   public static GEspece getGEspece(){ return getGe();}
   public static Joueur getJoueurParId(int id){ return Main.getGj().getJoueurParId(id);}
   public static Fourmiliere getFourmiliereParId(int id){ return getJoueurParId(id).getFere();}
+  // public static Fenetre getF(){ return ((ViewGUI2d)view).getF();}
   public static Fenetre getF(){ return f;}
   public static Options getOp(){return op;}
   public static Chrono getCh(){ return ch;}
@@ -371,8 +373,8 @@ public class Main {
   public static void setMusique(Musique m){getThm().setM(m);}
   public static void setMusiqueSuivante(){getThm().setM();}*/
   //graphique
-  public static PanneauPrincipal getPp(){ return f.getPp();}
-  public static void repaint(){try { f.repaint();}catch (Exception e) {view.paint();}}
+  public static PanneauPrincipal getPp(){ return getF().getPp();}
+  public static void repaint(){try { getF().repaint();}catch (Exception e) {view.paint();}}
   //public static synchronized void repaint(){try { f.paintAll(f.getGraphics());}catch (Exception e) {}}
   public static PanneauJeu getPj(){ return getPp().getPj();}
   public static PanneauMenu getPm(){ return getPp().getPm();}
