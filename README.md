@@ -8,11 +8,17 @@
 [version]: https://shields.io/badge/download-1.42-blue
 [discord-shield]: https://discord.com/api/guilds/125227483518861312/widget.png
 [license-shield]: https://img.shields.io/badge/license-custom-49C2E3
+[eo-shield]: https://shields.io/badge/Esperanto-99%25-green
+[fr-shield]: https://shields.io/badge/French-100%25-brigthgreen
+[en-shield]: https://shields.io/badge/English-100%25-brigthgreen
 [ ![version][] ][download]
 [ ![coverage-shield][] ][main]
 [ ![doc-shield][] ][doc]
 [ ![license-shield][] ][license]
 [ ![discord-shield][] ][discord-invite]
+[ ![en-shield][] ][main]
+[ ![fr-shield][] ][main]
+[ ![eo-shield][] ][main]
 
 **Formiko**
 
