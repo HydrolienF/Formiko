@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
 *{@summary All the gui action are launch here.}
-*@Author Hydrolien
+*@author Hydrolien
 *@version 1.41
 */
 public class action{

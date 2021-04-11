@@ -69,7 +69,7 @@ public class PanneauEchap extends Panneau{
   }
   /**
   *{@summary Set PanneauEchap visible.}<br>
-  *It Override Component.setVisible() but also build panel if needed & update PanneauSup size.<br>
+  *It Override Component.setVisible() but also build panel if needed &#38; update PanneauSup size.<br>
   *@version 1.41
   */
   @Override

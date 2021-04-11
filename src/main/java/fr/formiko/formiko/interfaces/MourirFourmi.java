@@ -57,7 +57,7 @@ public class MourirFourmi implements Serializable, Mourir {
   }
   /**
    *{@summary Delete the ant from the map and the anthill.}<br>
-   *@param c ant who is diing.
+   *@param f ant who is diing.
    *@version 1.41
    */
   private void deleteFromGame(Fourmi f){

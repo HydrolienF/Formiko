@@ -70,7 +70,7 @@ public class Point implements Serializable{
   /**
   *{@summary Standard equals function.}
   *Null &#38; other class type proof.
-  *@param o o is the Object to test. It can be null or something else than this class.
+  *@param obj o is the Object to test. It can be null or something else than this class.
   *@version 1.31
   */
   @Override

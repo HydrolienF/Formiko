@@ -266,7 +266,7 @@ public class GString extends List<String> implements Serializable {
   }
   /**
   *{@summary Return true if is a java commentary line.}<br>
-  *Line can have a comment at the end of the line & be concidered as a non-comment line if comment start after char 20 &#38; midle of the line.<br>
+  *Line can have a comment at the end of the line &#38; be concidered as a non-comment line if comment start after char 20 &#38; midle of the line.<br>
   *@version 1.41
   */
   private boolean estCom(String line){
