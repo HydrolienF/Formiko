@@ -49,19 +49,13 @@ public class ViewGUI2d implements View {
     iniThTriche();
     Main.getData().setImageIniForNewGame(false);//force reload of ant images.
     Main.endCh("iniView");Main.startCh();
-    try {
-      ini.initialiserToutLesPaneauxVide();
-      Main.endCh("chargementPanneauVide");Main.startCh();
-      //===
-      if(Main.getChargementPendantLesMenu()){chargementDesGraphismesAutonomes();}
-      else{ini.initialiserPanneauJeuEtDépendance();ini.initialiserAutreELémentTournés();}
-      Main.endCh("chargementDesGraphismesAutonomes");
-      //menu
-      Main.startCh();
-      Main.getPm().construitPanneauMenu(3);
-      Main.endCh("chargementPanneauMenu");
-      //===
-    }catch (Exception e) {erreur.erreur("Une erreur graphique est arrivé");}
+    ini.initialiserToutLesPaneauxVide();
+    Main.endCh("chargementPanneauVide");
+    loadGraphics();
+    //menu
+    Main.startCh();
+    Main.getPm().construitPanneauMenu(3);
+    Main.endCh("chargementPanneauMenu");
     return true;
   }
   /***
@@ -181,7 +175,16 @@ public class ViewGUI2d implements View {
   }
 
   //private
-
+  /**
+  *Load graphics.
+  *@version 1.42
+  */
+  private void loadGraphics(){
+    Main.startCh();
+    if(Main.getChargementPendantLesMenu()){chargementDesGraphismesAutonomes();}
+    else{ini.initialiserPanneauJeuEtDépendance();ini.initialiserAutreELémentTournés();}
+    Main.endCh("chargementDesGraphismesAutonomes");
+  }
   /**
   *Load graphics during menu time.
   *@version 1.1
