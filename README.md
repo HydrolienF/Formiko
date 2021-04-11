@@ -1,3 +1,19 @@
+[main]: https://formiko.fr
+[download]: https://formiko.fr/download.html
+[doc]: https://formiko.fr/Formiko/javadoc/index.html
+[discord-invite]: https://discord.gg/FuaaD8fEXn
+[coverage-shield]: https://img.shields.io/badge/coverage-38%25-yellow
+[doc-shield]: https://img.shields.io/badge/doc-40%25-yellow
+[license]: https://github.com/HydrolienF/Formiko/blob/master/LICENSE.md
+[version]: https://shields.io/badge/download-1.42-blue
+[discord-shield]: https://discord.com/api/guilds/125227483518861312/widget.png
+[license-shield]: https://img.shields.io/badge/license-custom-49C2E3
+[ ![version][] ][download]
+[ ![coverage-shield][] ][main]
+[ ![doc-shield][] ][doc]
+[ ![license-shield][] ][license]
+[ ![discord-shield][] ][discord-invite]
+
 **Formiko**
 
 `Formiko is a game where you play as a ant queen who develops its anthill.`
@@ -61,5 +77,5 @@ Bidulman
 Jerryh
 Arc en Ciel
 
-`license: Full license aviable on LICENSE.md
-To make it shorter, it allowed you to use, or modify the game but you need to merge modification on this repository to have it on the game.`
+license: Full license aviable on LICENSE.md
+To make it shorter, it allowed you to use, or modify the game but you need to merge modification on this repository to have it on the game.
