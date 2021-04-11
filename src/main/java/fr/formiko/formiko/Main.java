@@ -337,7 +337,10 @@ public class Main {
   public static void setPremierePartie(boolean b){premierePartie=b;}
   public static Data getData(){return data;}
   public static View getView(){return view;}
-  //racourci
+  //shortcut
+  //view
+  public static boolean getActionGameOn(){return getView().getActionGameOn();}
+  //other
   public static boolean estWindows(){return os.getId()==1;}
   public static String get(String clé){ return g.get(clé);}
   public static Script getScript(){return ths.getScript();}
