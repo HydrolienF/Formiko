@@ -168,39 +168,52 @@ public class Data {
 
     /**
     *Create a background image from tI1 and tI2 images.
-    *@version 1.18
+    *@version 1.42
     */
-    public void iniMap(){
+    public void iniBackgroundMapImage(){
+      if(!Main.getView().getActionGameOn()){return;}
+      Main.startCh();
+      // if(Main.getPc()==null){erreur.erreur("Map panel is null");}
       Main.getPc().actualiserSize();
       Img img = new Img(Main.getPc().getWidth(),Main.getPc().getHeight());
       //if(img.)
+      Img img2 = null;
+      int xCase = Main.getPc().getXCase();
+      int yCase = Main.getPc().getYCase();
       try {
-        Img img2 = null;
-        int xCase = Main.getPc().getXCase();
-        int yCase = Main.getPc().getYCase();
+        // if(getTailleDUneCase()<1){erreur.erreur("Case size is <1");}
         for (int i=0;i<xCase ;i++ ) {
           for (int j=0;j<yCase ;j++ ) {
             int xT = i*getTailleDUneCase(); int yT = j*getTailleDUneCase();
-            Case c = Main.getGc().getCCase(i+Main.getPc().getPosX(),j+Main.getPc().getPosY()).getContenu();
+            Case c=null;
+            try {
+              c = Main.getGc().getCCase(i+Main.getPc().getPosX(),j+Main.getPc().getPosY()).getContenu();
+            }catch (Exception e) {erreur.erreur("case is null");}
             try {
               img2 = new Img(tICarte[c.getType()-1]);
             }catch (Exception e) {
               img2 = new Img(imgNull);
+              erreur.alerte("A map image can't be load");
             }
-            img.add(xT,yT,img2);
+            try {
+              img.add(xT,yT,img2);
+            }catch (Exception e) {
+              erreur.erreur("img.add() fail");
+            }
           }
         }
+        try {
+          img.actualiserImage();
+          map = img.getBi();
+        }catch (Exception e) {
+          erreur.erreur("Map image can't be update");
+          map=null;
+        }
       }catch (Exception e) {
-        erreur.erreur("1");
+        erreur.erreur("iniBackgroundMapImage fail");
+        map=null;
       }
-      //img.sauvegarder("map");
-      try {
-        img.actualiserImage();
-        //img.draw();
-        map = img.getBi();
-      }catch (Exception e) {
-        erreur.erreur("2");
-      }
+      Main.endCh("iniBackgroundMapImage");
     }
 
     //getScaledInstance.

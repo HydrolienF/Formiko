@@ -174,7 +174,7 @@ public class PanneauJeu extends Panneau {
     if (Main.getPartie().getEnCours()){
       Main.getPc().actualiserSize();
       Main.getData().chargerImages();
-      Main.getData().iniMap();
+      Main.getData().iniBackgroundMapImage();
     }
   }
   public void centrerSurLaFourmi(){

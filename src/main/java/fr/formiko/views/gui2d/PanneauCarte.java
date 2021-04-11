@@ -81,7 +81,7 @@ public class PanneauCarte extends Panneau implements MouseListener{
   public void actualiserCarte(){
     actualiserSize();//actualise la taille du PanneauCarte a la bonne dimention.
     //chargerImages();
-    Main.getData().iniMap(); //demande au donnée d'image de rechargé l'image qui représente l'arrière plan de la carte.
+    Main.getData().iniBackgroundMapImage(); //demande au donnée d'image de rechargé l'image qui représente l'arrière plan de la carte.
   }
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g2){
@@ -105,10 +105,10 @@ public class PanneauCarte extends Panneau implements MouseListener{
       debug.débogage("taille réèle du panneau de la carte : x="+this.getWidth()+", y="+this.getHeight());
       //dessin des cases :
       try {
-        if(Main.getData().getMap()==null){Main.getData().iniMap();}
+        if(Main.getData().getMap()==null){Main.getData().iniBackgroundMapImage();}
         g.drawImage(Main.getData().getMap(),0,0,this);
       }catch (Exception e) {
-        erreur.erreur("impossible d'afficher l'arrière plan de la carte.");
+        erreur.erreur("impossible d'afficher l'arrière plan de la carte");
       }
       dessinerGrille(g);
       for (int i=0;i<xCase ;i++ ) {
