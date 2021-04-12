@@ -24,4 +24,4 @@ jobs:
       with:
         java-version: 15
     - name: Build with Maven
-      run: mvn test
+      run: mvn -ntp test
