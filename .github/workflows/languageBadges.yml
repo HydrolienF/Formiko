@@ -6,6 +6,8 @@ name: Update language value
 
 on:
   push:
+    branches:
+    - "*"
 
 jobs:
   setLanguage:
