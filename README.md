@@ -21,6 +21,9 @@
 [ ![fr-shield][] ][main]
 [ ![eo-shield][] ][main]
 [ ![test-workflow][] ][main]
+[![Actions Status](https://github.com/RobDWaller/csp-generator/workflows/Build%20and%20Test/badge.svg)](https://github.com/RobDWaller/csp-generator/actions)
+[![Actions Statu](https://github.com/HydrolienF/Formiko/blob/master/.github/workflows/test.yml/badge.svg)](https://github.com/RobDWaller/csp-generator/actions)
+
 
 **Formiko**
 
