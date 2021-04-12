@@ -8,21 +8,16 @@
 [version]: https://shields.io/badge/download-1.42-blue
 [discord-shield]: https://discord.com/api/guilds/125227483518861312/widget.png
 [license-shield]: https://img.shields.io/badge/license-custom-49C2E3
-[eo-shield]: https://shields.io/badge/Esperanto-99%25-green
-[fr-shield]: https://shields.io/badge/French-100%25-brigthgreen
-[en-shield]: https://shields.io/badge/English-100%25-brigthgreen
 [test-workflow]: https://github.com/HydrolienF/Formiko/blob/master/.github/workflows/test.yml/badge.svg
 [ ![version][] ][download]
 [ ![coverage-shield][] ][main]
 [ ![doc-shield][] ][doc]
 [ ![license-shield][] ][license]
 [ ![discord-shield][] ][discord-invite]
-[ ![en-shield][] ][main]
-[ ![fr-shield][] ][main]
-[ ![eo-shield][] ][main]
-[ ![test-workflow][] ][main]
-[![Actions Status](https://github.com/RobDWaller/csp-generator/workflows/Build%20and%20Test/badge.svg)](https://github.com/RobDWaller/csp-generator/actions)
-[![Actions Statu](https://github.com/HydrolienF/Formiko/blob/master/.github/workflows/test.yml/badge.svg)](https://github.com/RobDWaller/csp-generator/actions)
+![en](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/HydrolienF/24aaccba7831d311c44552b5ea6bb263/raw/en.json)
+![fr](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/HydrolienF/0dc21ed2c0788b4de206102871410d4b/raw/fr.json)
+![eo](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/HydrolienF/a14aa8ba50997dfbc0414c604c249cee/raw/eo.json)
+
 
 
 **Formiko**
