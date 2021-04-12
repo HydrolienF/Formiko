@@ -11,6 +11,7 @@
 [eo-shield]: https://shields.io/badge/Esperanto-99%25-green
 [fr-shield]: https://shields.io/badge/French-100%25-brigthgreen
 [en-shield]: https://shields.io/badge/English-100%25-brigthgreen
+[test-workflow]: https://github.com/HydrolienF/Formiko/blob/master/.github/workflows/test.yml/badge.svg
 [ ![version][] ][download]
 [ ![coverage-shield][] ][main]
 [ ![doc-shield][] ][doc]
@@ -19,6 +20,7 @@
 [ ![en-shield][] ][main]
 [ ![fr-shield][] ][main]
 [ ![eo-shield][] ][main]
+[ ![test-workflow][] ][main]
 
 **Formiko**
 
