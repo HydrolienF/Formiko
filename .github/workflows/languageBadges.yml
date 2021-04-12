@@ -1,9 +1,23 @@
-- name: Create Awesome Badge
-  uses: schneegans/dynamic-badges-action@v1.0.0
-  with:
-    auth: ${{ secrets.GIST_SECRET }}
-    gistID: <gist-ID>
-    filename: test.json
-    label: Hello
-    message: World
-    color: orange
+
+# This workflow will build a Java project with Maven
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: Java CI with Maven
+
+on:
+  push:
+
+jobs:
+  setLanguage:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create Awesome Badge
+      uses: schneegans/dynamic-badges-action@v1.0.0
+      with:
+        auth: ${{ secrets.GIST_SECRET }}
+        gistID: <gist-ID>
+        filename: test.json
+        label: Hello
+        message: World
+        color: orange
