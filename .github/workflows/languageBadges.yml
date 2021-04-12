@@ -17,4 +17,4 @@ jobs:
         filename: fr.json
         label: French
         message: 98%
-        color: gree
+        color: green
