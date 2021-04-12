@@ -10,7 +10,7 @@ on:
     - "*"
 
 jobs:
-  setLanguage:
+  compile:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
@@ -19,7 +19,7 @@ jobs:
       with:
         auth: ${{ secrets.GIST_SECRET }}
         gistID: <gist-ID>
-        filename: test.json
-        label: Hello
-        message: World
-        color: orange
+        filename: fr.json
+        label: French
+        message: 98%
+        color: gree
