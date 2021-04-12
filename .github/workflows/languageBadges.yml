@@ -13,7 +13,7 @@ jobs:
       uses: Schneegans/dynamic-badges-action@v1.0.0
       with:
         auth: ${{ secrets.GIST_SECRET }}
-        gistID: <gist-ID>
+        gistID: 0dc21ed2c0788b4de206102871410d4b
         filename: fr.json
         label: French
         message: 98%
