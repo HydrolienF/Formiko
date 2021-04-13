@@ -11,7 +11,7 @@ import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.Chrono;
 
 /**
-*{@summary A tool class about statistic. }<br>
+*{@summary A tool class about statistic.}<br>
 *@author Hydrolien
 *@version 1.13
 */
@@ -77,7 +77,7 @@ public class stats {
     GInt gi = new GInt(); gi.add(sommeDesFctCG); gi.add(sommeDesFctLG); gi.add(sommeDesComG);
     GInt gi2 = new GInt(); gi2.add(sommeDesClassG);gi2.add(sommeDesFctLPuG);gi2.add(sommeDesFctLPoG);gi2.add(sommeDesFctLPrG);
     String s="global";
-    gsr.add(toStatJd(gi)+" "+toStatInfo(gi2,gi)+" "+sommeNbrDeLigneG+" "+s);
+    gsr.add(toStatJd(gi,false)+" "+toStatInfo(gi2,gi,false)+" "+sommeNbrDeLigneG+" "+s);
     Chrono.endCh("traitement du GString");Chrono.debutCh();
     ecrireUnFichier.ecrireUnFichier(gsr,"stats.txt");
     Chrono.endCh("sauvegarde finale");
@@ -88,7 +88,7 @@ public class stats {
   *{@summary calculate the %age of commented fonction in a file.}
   *@version 1.13
   */
-  public static String toStatJd(GInt gi){
+  public static String toStatJd(GInt gi, boolean addToGlobal){
     int sommeDesCom = gi.getCase(2);
     int sommeDesFctL = gi.getCase(1);
     sommeDesComG+=sommeDesCom;sommeDesFctLG+=sommeDesFctL;
@@ -103,7 +103,7 @@ public class stats {
     r=r+"("+sommeDesCom+"/"+sommeDesFctL+")";
     while(r.length()<5+8){r+=" ";}
     return r;
-  }
+  }public static String toStatJd(GInt gi){return toStatJd(gi,true);}
   /**
   *{@summary calculate the %age of tested fonction in a file.}
   *@version 1.13
@@ -124,17 +124,19 @@ public class stats {
   *{@summary calculate the number of class, public, ø, protected, private longue fonction.}
   *@version 1.13
   */
-  public static String toStatInfo(GInt gi,GInt gi2){
+  public static String toStatInfo(GInt gi,GInt gi2, boolean addToGlobal){
     int sommeDesClass = gi.getCase(0);
     int sommeDesFctLPu = gi.getCase(1);
     int sommeDesFctLPo = gi.getCase(2);
     int sommeDesFctLPr = gi.getCase(3);
     int sommeDesFctC = gi2.getCase(0);
-    sommeDesClassG+=sommeDesClass;
-    sommeDesFctLPuG+=sommeDesFctLPu;
-    sommeDesFctLPoG+=sommeDesFctLPo;
-    sommeDesFctLPrG+=sommeDesFctLPr;
-    sommeDesFctCG+=sommeDesFctC;
+    if(addToGlobal){
+      sommeDesClassG+=sommeDesClass;
+      sommeDesFctLPuG+=sommeDesFctLPu;
+      sommeDesFctLPoG+=sommeDesFctLPo;
+      sommeDesFctLPrG+=sommeDesFctLPr;
+      sommeDesFctCG+=sommeDesFctC;
+    }
     String r = sommeDesClass+" "; int k=3;
     while(r.length()<k){r+=" ";}k+=3;
     r+=sommeDesFctLPu+" ";
@@ -147,9 +149,10 @@ public class stats {
     //k++;
     while(r.length()<k){r+=" ";}
     return r;
-  }
+  }public static String toStatInfo(GInt gi, GInt gi2){return toStatInfo(gi,gi2,true);}
   /**
   *Count the number of ligne in a file an add it to the statistic info.
+  *@version 1.13
   */
   public static String numberOfLines(CInt ci){
     sommeNbrDeLigneG+=ci.getContenu();

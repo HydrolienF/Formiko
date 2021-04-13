@@ -131,11 +131,7 @@ public class Main {
           erreur.erreur("echec de rognage de l'image");
         }
       }else if(args[0].equals("stats")){
-        if(args.length>1){
-          stats.statsJavadoc(args[1]);
-        }else{
-          stats.statsJavadoc("src/main/",true);
-        }
+        stats(args);
       }else if(args[0].equals("cptPixels")){
         if(args.length>1){
           //image.setREPTEXTUREPACK("docs/cc/images");
@@ -673,6 +669,32 @@ public class Main {
       break;
       default:
       erreur.alerte("Unknow cli options : "+stringOptions);
+    }
+  }
+  private static void stats(String args[]){
+    int valueToPrint = 0;
+    if(args.length>2){
+      valueToPrint=str.sToI(args[2]);
+    }
+    if(args.length>1){
+      stats.statsJavadoc(args[1]);
+    }else{
+      stats.statsJavadoc("src/main/",true);
+    }
+    if(valueToPrint>0){
+      String s = switch (valueToPrint) {
+        case 1:
+        yield stats.sommeNbrDeLigneG+"";
+        case 2:
+        yield stats.sommeDesClassG+"";
+        case 3:
+        yield stats.sommeDesFctLG+"";
+        case 4:
+        yield stats.sommeDesFctCG+"";
+        default:
+        yield "";
+      };
+      System.out.println(s);
     }
   }
 }
