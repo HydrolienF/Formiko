@@ -1,4 +1,9 @@
-on: [push]
+name: test for coverage
+
+on:
+  push:
+    branches:
+    - "*"
 
 jobs:
   test:
