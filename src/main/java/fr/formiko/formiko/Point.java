@@ -47,7 +47,7 @@ public class Point implements Serializable{
       x=str.sToI(t[0]);
       y=str.sToI(t[1]);
     }catch (Exception e) {
-      erreur.alerte("1 Point can't be create","Point.Point");
+      erreur.alerte("1 Point can't be create");
     }
   }
 
@@ -70,13 +70,13 @@ public class Point implements Serializable{
   /**
   *{@summary Standard equals function.}
   *Null &#38; other class type proof.
-  *@param o o is the Object to test. It can be null or something else than this class.
+  *@param obj o is the Object to test. It can be null or something else than this class.
   *@version 1.31
   */
   @Override
-  public boolean equals(Object o){
-    if(o==null || !(o instanceof Point)){return false;}
-    Point p = (Point)o;
+  public boolean equals(Object obj){
+    if(obj==null || !(obj instanceof Point)){return false;}
+    Point p = (Point)obj;
     if (x != p.x) { return false;}
     if (y != p.y) { return false;}
     return true;

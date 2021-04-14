@@ -36,7 +36,7 @@ public class read {
       try {
         x = (int)str.sToLThrows(s);  //on essaye d'en faire un nombre
       } catch(Exception e) {
-        erreur.alerte(g.get("read",4,"la chaine de charcatère")+" \"" + s + "\" "+g.get("read",5,"n'est pas un nombre"),"read.getInt");
+        erreur.alerte(g.get("read",4,"la chaine de charcatère")+" \"" + s + "\" "+g.get("read",5,"n'est pas un nombre"));
         x = min-1; // si on y arrive pas on lui met la mauvaise valeur.
       }
       if (x<min | x>max || x==-1){ //si x n'est pas dans l'intervale [min;max]
@@ -79,7 +79,7 @@ public class read {
       if (s.equals("")) { return laVariable;} // si l'utilisateur ne rentre rien la variable reste la même.
       if (s.equals("1") || s.equals("true")) { return true;}
       if (s.equals("0") || s.equals("false")) { return false;}
-      erreur.alerte(g.get("read",9,"L'entrée de l'utilisateur n'as pas été reconue."), "read.getBooolean");
+      erreur.alerte(g.get("read",9,"L'entrée de l'utilisateur n'as pas été reconue."));
       i++; // au bout de 10 échec la boucle s'arrète.
     }
     System.out.println(g.get("read",3,"Il semblerai que vous soyez bloqué. Tapper STOP pour interompre ce programme."));

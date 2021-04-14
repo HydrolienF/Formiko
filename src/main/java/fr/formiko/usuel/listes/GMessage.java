@@ -17,7 +17,7 @@ public class GMessage implements Serializable{
     if(début==null){ return 0;}
     return début.length();
   }
-  public void ajouter(Message s){ // On ajoute a la fin par défaut.
+  public void add(Message s){ // On ajoute a la fin par défaut.
     CMessage c = new CMessage(s);
     if (fin == null){ // si la liste est complètement vide.
       fin = c;
@@ -28,7 +28,7 @@ public class GMessage implements Serializable{
       fin = c;
     }
   }
-  public void ajouter(GMessage gs){
+  public void add(GMessage gs){
     if(gs==null){ return;}
     if(this.getDébut()==null){début = gs.getDébut();return;}
     //on lie l'anciène fin au début de gs.
@@ -37,8 +37,6 @@ public class GMessage implements Serializable{
     // on change la fin actuelle.
     this.fin = gs.getFin();
   }
-  public void add(Message s){ ajouter(s);}
-  public void add(GMessage s){ ajouter(s);}
   public void afficheToi(){
     if(début==null){
       System.out.println(g.get("GMessage",1,"Le GMessage est vide"));

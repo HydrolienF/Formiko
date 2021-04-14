@@ -34,7 +34,7 @@ public class CIEspece implements Serializable{
   public int getIEspeceParAllea(int a, int x){
     a=a-contenu.getCt(x);//on dessend un peu a.
     if(a<0){return contenu.getId();}//si on est passer en dessous de 0 c'est que le nombre alléatoire correpondait.
-    if(suivant==null){erreur.erreur("Sortie du GIEspece non désiré.","CIEspece.getIEspeceParAllea","l'insecte choisi sera le dernier");return contenu.getId();}
+    if(suivant==null){erreur.erreur("Sortie du GIEspece non désiré.","l'insecte choisi sera le dernier");return contenu.getId();}
     return suivant.getIEspeceParAllea(a,x);//sinon on passe au suivant.
   }
   // Fonctions propre -----------------------------------------------------------

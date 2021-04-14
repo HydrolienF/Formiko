@@ -31,7 +31,7 @@ public class EvoluerFourmi implements Serializable, Evoluer{
     if(c instanceof Fourmi){
       f = (Fourmi)c;
     }else{
-      erreur.erreurType("Fourmi","EvoluerFourmi");
+      erreur.erreurType("Fourmi");
       return;
     }
     if(f.getStade()==0){return;}
@@ -44,12 +44,17 @@ public class EvoluerFourmi implements Serializable, Evoluer{
     else if(f.getStade()==-1) { f.setAgeMax((int)(in.getAgeMax(2)*diff)); f.setNourritureMax(in.getNourritureMax(2));}
     else if(f.getStade() == 0){
       if(f.getTypeF()<2){f.setAilesCoupees(false);}//si c'est une fourmi ailé qui est désormais imago.
-      //TODO ajouter la capacité de voler
+      //TODO add la capacité de voler
       if (in.getCoutPondre() != -1) { f.pondre = new PondreReine(); }
       if (in.getCoutDéplacement() != -1) { f.déplacement = new DeplacementFourmi();}
-      if (in.getCoutChasse() != -1) { f.chasse = new ChasseInsectivore();}
+      if (in.getCoutChasse()!=-1) {
+        if(f.getEspece().getInsectivore()){
+          f.chasse = new ChasseInsectivore();
+        }else if(f.getEspece().getGranivore()){
+          f.chasse = new ChasseGranivore();
+        }
+      }
       if (in.getCoutTrophallaxie() != -1) { f.trophallaxie = new TrophallaxieFourmi();}
-      if (f.getEspece().getGranivore()){ f.collecte = new CollecteFourmi();}
       f.netoyer =  new NetoyerFourmi();
       //f.iniTour(); //done in contructor of fourmi.
       // caractéristiques de l'espèce :

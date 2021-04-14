@@ -9,6 +9,7 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.types.str;
+import fr.formiko.views.gui2d.action;
 
 public class triche {
   public static GString gs;
@@ -34,14 +35,14 @@ public class triche {
   }
   public static void commande(String s){
     if(s==null || s.equals("")){ return;}
-    System.out.println("cheat commande launch : \""+s+"\"");
+    erreur.info("cheat commande launch : \""+s+"\"");
     String args [] = decoderUnFichier.getTableauString(s,' ');
     s = args[0];
     try { // pour ne pas avoir a géré toutes les erreurs séparement on ce contente d'afficher un message d'erreur général si l'erreur est inconue.
       //affichage
       int x=-1;int i=1;
       while(x==-1 && i<=nbrDeCommande){
-        if(s.equals(g.get("cmd."+i))){x=i;}//si la commande est reconue on note le numéro de la commande et on passe a la suite.
+        if(s.equalsIgnoreCase(g.get("cmd."+i))){x=i;}//si la commande est reconue on note le numéro de la commande et on passe a la suite.
         i++;
       }
       if(x==-1){ return;}
@@ -98,7 +99,7 @@ public class triche {
           break;
         case 16:
           getFourmiParId(args[1]).setFourmiliere(getFourmiliereParId(args[2]));
-          getFourmiliereParId(args[2]).getGc().ajouter(getFourmiParId(args[1]));
+          getFourmiliereParId(args[2]).getGc().add(getFourmiParId(args[1]));
           break;
         case 17:
           getFourmiParId(args[1]).setEspece(str.sToI(args[2]));
@@ -107,7 +108,7 @@ public class triche {
           getFourmiParId(args[1]).setPropreté(str.sToBy(args[2]));
           break;
         case 19:
-          //getFourmiParId(args[1]).setTransporté(getGraineParId(args[2]));
+          //getFourmiParId(args[1]).setTransported(getGraineParId(args[2]));
           break;
         // pour les graines
         case 20:
@@ -140,19 +141,19 @@ public class triche {
           System.out.println(Main.getGj());
           break;
         case 27:
-          if(args[1].equals(g.get("cmd.type.2"))){
+          if(args[1].equalsIgnoreCase(g.get("cmd.type.2"))){
             Insecte in=new Insecte(Main.getGc().getCCase(str.sToI(args[2]),str.sToI(args[3])));
             in.setType(str.sToI(args[4]));
-            Main.getGi().ajouter(in);
-          }else if(args[1].equals(g.get("cmd.type.3"))){
+            Main.getGi().add(in);
+          }else if(args[1].equalsIgnoreCase(g.get("cmd.type.3"))){
             Fourmiliere fere = getFourmiliereParId(args[2]);
             Fourmi fm = new Fourmi(fere,fere.getEspece(),3);
             fm.setStade((byte)-1);
             fm.evoluer();
-            fere.getGc().ajouter(fm);
-          }else if(args[1].equals(g.get("cmd.type.4"))){
+            fere.getGc().add(fm);
+          }else if(args[1].equalsIgnoreCase(g.get("cmd.type.4"))){
             Graine g=new Graine(Main.getGc().getCCase(str.sToI(args[2]),str.sToI(args[3])));
-            Main.getGc().getCCase(str.sToI(args[2]),str.sToI(args[3])).getGg().ajouter(g);
+            Main.getGc().getCCase(str.sToI(args[2]),str.sToI(args[3])).getGg().add(g);
           }
           break;
         case 28:
@@ -193,32 +194,32 @@ public class triche {
           int tourActuel = Main.getTour();
           while(!b){
             Main.getScript().setEcouteClic(false);//on n'écoute plus les clic de l'utilisateur.
-            if(args[1].equals(g.get("cmd.type.1"))){// Creature
+            if(args[1].equalsIgnoreCase(g.get("cmd.type.1"))){// Creature
               Creature c = getCreatureParId(args[2]);
-              if(args[3].equals(g.get("cmd.31.1"))){//getPoint
+              if(args[3].equalsIgnoreCase(g.get("cmd.31.1"))){//getPoint
                 b = testSupInfEga(args,c.getCCase().getContenu().getPoint());
-              }else if(args[3].equals(g.get("cmd.31.2"))){//estMort
+              }else if(args[3].equalsIgnoreCase(g.get("cmd.31.2"))){//estMort
                 b = c.getEstMort();
-              }else if(args[3].equals(g.get("cmd.31.5"))){//getProprete
+              }else if(args[3].equalsIgnoreCase(g.get("cmd.31.5"))){//getProprete
                 int p = ((Fourmi) (c)).getProprete();
                 if(testSupInfEga(args,p)){b=true;}
-              }else if(args[3].equals(g.get("cmd.31.6"))){//getNourriture
+              }else if(args[3].equalsIgnoreCase(g.get("cmd.31.6"))){//getNourriture
                 int p = ((Fourmi) (c)).getNourriture();
                 if(testSupInfEga(args,p)){b=true;}
-              }else if(args[3].equals(g.get("cmd.31.7"))){//getAction
+              }else if(args[3].equalsIgnoreCase(g.get("cmd.31.7"))){//getAction
                 int p = c.getAction();
                 if(testSupInfEga(args,p)){b=true;}
               }
-            }else if(args[1].equals(g.get("cmd.type.8"))){
-              if(args[2].equals(g.get("cmd.31.3"))){//length
+            }else if(args[1].equalsIgnoreCase(g.get("cmd.type.8"))){
+              if(args[2].equalsIgnoreCase(g.get("cmd.31.3"))){//length
                 b = Main.getGi().length()==str.sToI(args[3]);
               }
-            }else if(args[1].equals(g.get("cmd.type.5"))){//fourmilière
+            }else if(args[1].equalsIgnoreCase(g.get("cmd.type.5"))){//fourmilière
               Fourmiliere fe = Main.getGj().getJoueurParId(str.sToI(args[2])).getFere();
-              if(args[3].equals(g.get("cmd.31.3"))){//length
+              if(args[3].equalsIgnoreCase(g.get("cmd.31.3"))){//length
                 b = fe.length()==str.sToI(args[4]);
               }
-            }else if(args[1].equals(g.get("cmd.31.4"))){//finDuTour
+            }else if(args[1].equalsIgnoreCase(g.get("cmd.31.4"))){//finDuTour
               b = tourActuel+1==Main.getTour();
             }
             if(b){//si la condition d'attente est bonne.
@@ -240,15 +241,15 @@ public class triche {
             }
             Fourmi.setBUneSeuleAction(true);
             //Main.getPb().removePa();
-            //Main.getPb().addPa(Main.getFActuelle().getTActionFourmi());
+            //Main.getPb().addPa(Main.getPlayingAnt().getTActionFourmi());
           }catch (Exception e) {}
           break;
         case 34:
-          if(args[2].equals("cmd.34.1")){
+          if(args[2].equalsIgnoreCase("cmd.34.1")){
             Main.getPs().actualiserTaille();
-          }else if(args[2].equals("cmd.34.2")){
+          }else if(args[2].equalsIgnoreCase("cmd.34.2")){
             Main.getPs().actualiserTailleMax();
-          }else if(args[2].equals("cmd.34.3")){
+          }else if(args[2].equalsIgnoreCase("cmd.34.3")){
             Main.getPs().actualiserTailleMin();
           }
           break;
@@ -263,13 +264,13 @@ public class triche {
             try {
               Main.setLangue(chargerLesTraductions.getLanguage(args[1]));
             }catch (Exception e2) {
-              erreur.erreur("Impossible de changer la langue","triche.commande");
+              erreur.erreur("Impossible de changer la langue");
             }
           }
           break;
         case 37:
           try {
-            Main.getPj().retournerAuMenu();
+            action.retournerAuMenu();
           }catch (Exception e) {}
           try {
             Main.getView().menuMain();
@@ -277,15 +278,15 @@ public class triche {
           break;
         case 38:
           try {
-            Main.getFActuelle().setAction(0);
+            Main.getPlayingAnt().setAction(0);
           }catch (Exception e) {}
           Main.getPartie().setContinuerLeJeu(false);
           break;
         default:
-          erreur.erreur("La commande n'as pas été reconnue.","triche.commande");
+          erreur.erreur("La commande n'as pas été reconnue.");
       }
       Main.repaint();
-    }catch (Exception e) { erreur.erreur("La commande triche a échoué.","triche.commande");}
+    }catch (Exception e) { erreur.erreur("La commande triche a échoué.");}
   }
 
 

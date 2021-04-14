@@ -1,18 +1,22 @@
 package fr.formiko.views;
 
 import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
-import fr.formiko.usuel.listes.List;
+import fr.formiko.usuel.Temps;
+import fr.formiko.usuel.color;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.save;
+import fr.formiko.usuel.listes.List;
+import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
+import fr.formiko.views.cli.*;
 
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -26,12 +30,7 @@ public class ViewCLI implements View {
   private Scanner scannerAnswer;
   private String menuName;
   private String tToPrint[];
-  //colors
-  private static String yellow = (char)27+"[1;33m";
-  private static String red = (char)27+"[1;31m";
-  private static String neutral = (char)27+"[0;m";
-  private static String green=(char)27+"[1;32m";
-
+  private CLIMap cLIMap;
   private static String sep = "--------------------------------------------------------------------------------";
 
   private boolean actionGameOn;
@@ -80,6 +79,7 @@ public class ViewCLI implements View {
       System.out.println(sep);
       printArray();
     }else{
+      System.out.println(sep);
       if(menuName.equals("")){
         printArray();
       }else{
@@ -103,14 +103,11 @@ public class ViewCLI implements View {
       menuNewGame();
       break;
       case 2 :
-      if(!menuLoadAGame()){ //it can return false if there is no game to load.
-        menuMain();
-      }
+      menuLoadAGame();
       break;
       case 3 :
-      if(!menuOptions()){ //it can return false
-        menuMain();
-      }
+      menuOptions(); //it can return false
+      menuMain();
       break;
       case 4 :
       Main.quitter();
@@ -155,10 +152,10 @@ public class ViewCLI implements View {
   public boolean menuLoadAGame(){
     actionGameOn=false;
     menuName="";
-    tToPrint=save.listSave();
+    tToPrint=sauvegarderUnePartie.listSave();
     if(tToPrint.length==0){return menuMain();}
     //add a line "backToMainMenu" to tToPrint.
-    tToPrint = tableau.ajouterX(tToPrint,g.get("bouton.nom.-13"));
+    tToPrint = tableau.addX(tToPrint,g.get("bouton.nom.-13"));
     paint();
     int choice = getActionMenu(tToPrint.length);
     if(choice==tToPrint.length){
@@ -200,14 +197,31 @@ public class ViewCLI implements View {
         pa.getCarte().setMap(input);
         break;
         case 2:
-        byte d = str.sToBy(input);
-        pa.setDifficulté(d);
+        pa.setDifficulté(str.sToBy(input,pa.getDifficulté()));
         break;
         case 3:
-        double v = str.sToD(input);
-        pa.setVitesseDeJeu(v);
+        pa.setVitesseDeJeu(str.sToD(input,pa.getVitesseDeJeu()));
         break;
-        //TODO
+        case 4:
+        pa.setNbrDeTour(str.sToI(input,pa.getNbrDeTour()));
+        break;
+        case 5:
+        pa.getCarte().setCasesSombres(str.sToB(input));
+        break;
+        case 6:
+        pa.getCarte().setCasesNuageuses(str.sToB(input));
+        break;
+        //next setter do not exist yet & need to call back initialisationElément() to be concidered.
+        case 7:
+        erreur.erreurPasEncoreImplemente();
+        //pa.setNbrDeJoueur(str.sToI(input,pa.getNbrDeJoueur()));
+        // break;
+        case 8:
+        //pa.setNbrDIa(str.sToI(input,pa.setNbrDIa()));
+        // break;
+        case 9:
+        //pa.setNbrDeFourmi(str.sToI(input,pa.setNbrDeFourmi()));
+        break;
       }
     }
     Main.setPartie(pa);
@@ -220,14 +234,15 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean menuOptions(){
-    actionGameOn=false;
-    menuName="menuO";
-    //tToPrint=save.listOptions();
-    tToPrint = new String[0]; //TODO replace by a real choice.
-    if(tToPrint.length==0){return false;}
-    paint();
-    int choice = getActionMenu(tToPrint.length);
-    menuMain();
+    erreur.info(g.getM("optionsCanBeEditedIn")+" data/Options.md.");
+    // actionGameOn=false;
+    // menuName="menuO";
+    // //tToPrint=sauvegarderUnePartie.listOptions();
+    // tToPrint = new String[0]; //to replace by a real choice.
+    // if(tToPrint.length==0){return false;}
+    // paint();
+    // int choice = getActionMenu(tToPrint.length);
+    // menuMain();
     return true;
   }
   /**
@@ -242,10 +257,10 @@ public class ViewCLI implements View {
     Main.getPartie().initialisationElément();
     int toDoAfter = 0;
     String tab [] = new String[4];
-    tab[0]=g.get("doAntAction");//TODO add to translation.
-    tab[1]=g.get("selectAnt");//TODO add to translation.
-    tab[2]=g.get("endTurn");//TODO add to translation.
-    tab[3]=g.get("pauseActionGame");//TODO add to translation.
+    tab[0]=g.get("doAntAction");
+    tab[1]=g.get("selectAnt");
+    tab[2]=g.get("endTurn");
+    tab[3]=g.get("pauseActionGame");
     tToPrint = tab;
     Main.getPartie().launchGame();
     Main.setPartie(null);
@@ -274,7 +289,7 @@ public class ViewCLI implements View {
     if (!actionGameOn) {return -1;}
     tToPrint = new String[6];
     int k=0;
-    for (int i=-10;i>-16 ;i-- ) {
+    for (int i=-10;i>-16 ;i--) {
       tToPrint[k]=g.get("bouton.nom."+i);
       k++;
     }
@@ -284,19 +299,27 @@ public class ViewCLI implements View {
       choice=getActionMenu(tToPrint.length);
       switch (choice) {
         case 1 :
-        System.out.println("save game");//TODO
-        break;
+        sauvegarderUnePartie.sauvegarder(Main.getPartie(),getSaveName()+".save");
+        System.out.println("saveDone");
+        return 1;
         case 2 :
         menuOptions();
-        //when menu option will return it will end pauseActionGame & continue in actionGame.
-        break;
+        return 2;
         case 3 :
+        menuLoadAGame();
+        return 3;
         case 4 :
+        menuMain();
+        return 4;
         case 5 :
-        return choice;
+        Main.quitter();
+        return 5;
+        default :
+        System.out.println("return O");
+        return 0;
       }
     }
-    return 0; //case 6.
+    return 0;
   }
 
   /**
@@ -304,12 +327,26 @@ public class ViewCLI implements View {
   *We need to repaint the information about this Case.<br>
   *This action can only be run if action game is on.<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
+  *@version 1.39
   */
   public boolean setLookedCase(CCase cc){
-    if (!actionGameOn) {return false;}
-    //TODO
-    return false;
+    if (!actionGameOn || cLIMap==null) {return false;}
+    if (cc == null) {cLIMap.setLookedCase(null);return true;}
+    cLIMap.setLookedCase(cc.getContenu());
+    return true;
+  }
+  /**
+  *{@summary get a CCase from the payer.}<br>
+  *It read Strings like this: "b13", "2c"<br>
+  *This action can only be run if action game is on.<br>
+  *@return Selected CCase or null if it fail.
+  *@version 1.39
+  */
+  public CCase getCCase(){
+    System.out.println(sep);
+    System.out.println(g.getM("were")+" ? ("+g.get("enterCoordinateAs")+" G12)");
+    String s = scannerAnswer.nextLine();
+    return getCCaseFromString(s);
   }
   /**
   *{@summary Return the chosen value for ant action.}<br>
@@ -319,22 +356,33 @@ public class ViewCLI implements View {
   */
   public int getAntChoice(int t[]){
     if (!actionGameOn) {return -1;}
-    String ts [] = new String[15];
+    String ts [] = new String[17];
     for (int i=0;i<12 ;i++ ) {
-      ts[i]=g.get("bouton.desc."+(20+i));
+      ts[i]="";
+      if(!tableau.estDansT(t,i) && Main.getOs().isLinux()){
+        ts[i]+=color.NEUTRAL_CROSS_OUT;
+      }
+      ts[i]+=g.get("bouton.desc."+(20+i));
       if(!tableau.estDansT(t,i)){
-        ts[i]+=" ("+g.get("unaviable")+")"; //TODO add to translation.
+        if (Main.getOs().isLinux()) {
+          ts[i]+=color.NEUTRAL;
+        }
+        ts[i]+=" ("+g.get("unaviable")+")";
       }
     }
-    ts[12]=g.getM("setPlayingAnt");//TODO add to translation.
-    ts[13]=g.getM("endTurn");//TODO add to translation.
-    ts[14]=g.getM("endGame");//TODO add to translation.
+    ts[12]=g.getM("setPlayingAnt");
+    ts[13]=g.getM("endTurn");
+    ts[14]=g.getM("endGame");
+    ts[15]=g.getM("pauseActionGame");
+    ts[16]=g.getM("set")+" "+g.get("la")+" "+g.get("lookedCase");
     tToPrint = ts;
     int choice = -1;
     do {
       paint();
       choice = getActionMenu(tToPrint.length)-1;
-    } while (choice <12 && !tableau.estDansT(t,choice));
+      if(choice==15){pauseActionGame();tToPrint=ts;}
+      if(choice==16){setLookedCase(getCCase());tToPrint=ts;}
+    } while ((choice <12 || choice>14) && !tableau.estDansT(t,choice));
     if(choice==12){Main.getPartie().setPlayingAnt(getAntFromFere());}
     return choice;
   }
@@ -343,9 +391,9 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   private Fourmi getAntFromFere(){
-    int len = Main.getPartie().getPlayingAnt().getFere().getGc().length();
+    int len = Main.getPlayingAnt().getFere().getGc().length();
     String t [] = new String[len];
-    List<Creature> list = Main.getPartie().getPlayingAnt().getFere().getGc().toList();
+    List<Creature> list = Main.getPlayingAnt().getFere().getGc().toList();
     int k=0;
     for (Creature c : list ) {
       t[k]=getAllyAntInColor(c); k++;
@@ -357,7 +405,7 @@ public class ViewCLI implements View {
     if(c instanceof Fourmi){
       return (Fourmi) c;
     }
-    erreur.erreurType("Fourmi","ViewCLI.getAntFromFere");
+    erreur.erreurType("Fourmi");
     return null;
   }
 
@@ -396,41 +444,47 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   private void printMap(){
-    Main.getPartie().getGc().afficheCarte();
-    //System.out.println(g.get("playingPlayer")+ " : ");
-    //System.out.println(playingPlayer);
+    if(cLIMap==null){
+      cLIMap = new CLIMap(Main.getPartie().getGc());
+    }
+    System.out.println(cLIMap);
   }
   /**
   *{@summary Print anthill of the playing ant.}<br>
   *@version 1.33
   */
   private void printFereInColor(){
-    if(Main.getPartie().getPlayingAnt()==null){return;}
+    if(Main.getPlayingAnt()==null){return;}
     System.out.println(g.getM("fourmilière")+" : ");
-    List<Creature> lgc = Main.getPartie().getPlayingAnt().getFere().getGc().toList();
+    List<Creature> lgc = Main.getPlayingAnt().getFere().getGc().toList();
     for (Creature c : lgc ) {
-      if (c.equals(Main.getPartie().getPlayingAnt())){
+      if (c.equals(Main.getPlayingAnt())){
         System.out.print("-- ! -- ");
       }
       System.out.println(getAllyAntInColor(c));
     }
   }
+  /**
+  *{@summary Return the color depending of the status of c for playingAnt.}<br>
+  *param c The Creature to inspect to know if it is ally, enemy or neutral (or equals to playingAnt).<br>
+  *@version 1.38
+  */
   private String getAllyAntInColor(Creature c){
     String r = "";
     if(Main.getOs().isLinux()){
       if (c.getStade()==0) {
         if(c.getAction()==c.getActionMax()){
-          r+=green;
+          r+=color.GREEN;
         }else if (c.getAction()<=0) {
-          r+=red;
+          r+=color.RED;
         }else{
-          r+=yellow;
+          r+=color.YELLOW;
         }
       }
     }
     r+=c;
     if(Main.getOs().isLinux()){
-      r+=neutral;
+      r+=color.NEUTRAL;
     }
     return r;
   }
@@ -457,5 +511,66 @@ public class ViewCLI implements View {
       }
     }
     return returnValue;
+  }
+  /**
+  *{@summary Ask a save name to the user.}<br>
+  *If nothing is choose, save will have defaultName.<br>
+  *Save name will be file save for every os.<br>
+  *@version 1.39
+  */
+  private String getSaveName(){
+    String saveName = g.getM("sauvegarde")+" "+sauvegarderUnePartie.getSave().getIdS();
+    saveName+="  "+Temps.getDatePourSauvegarde();
+    saveName = str.sToFileName(saveName);//le pseudo pourrai contenir des char interdits sur des fichiers.
+    String t [] = new String[2];
+    System.out.println(sep);
+    System.out.println(g.getM("set")+" "+g.get("le")+" "+g.get("saveName")+".");
+    System.out.println(t[1]=g.getM("defaultName")+" : "+saveName);
+    String input = scannerAnswer.nextLine();
+    if(!input.equals("")){
+      saveName = str.sToFileName(input);
+    }
+    return saveName;
+  }
+  /**
+  *{@summary transforme a String to a CCase and return it.}<br>
+  *This action can only be run if action game is on.<br>
+  *@param s String like this: "b13", "2c"<br>
+  *@return Selected CCase or null if it fail.
+  *@version 1.39
+  */
+  //public only for test
+  public CCase getCCaseFromString(String s){
+    s = s.toLowerCase();
+    String numbers="";
+    String letters="";
+    int len = s.length();
+    for (int i=0; i<len;i++) {
+      char c = s.charAt(i);
+      if(c>47 && c<58){
+        numbers+=c;
+      }else if(c>96 && c<123){
+        letters+=c;
+      }
+    }
+    if(numbers.equals("") || letters.equals("")){
+      erreur.alerte(g.get("caseUnkwnowed"));
+      return null;
+    }
+    int y = 0;
+    if(letters.length()>2){
+      erreur.erreurPasEncoreImplemente();
+      return null;
+    }else if (letters.length()==2) {
+      y = (letters.charAt(0)-96)*26 + letters.charAt(1)-97;
+    }else{
+      y = letters.charAt(0)-97;
+    }
+    int x = str.sToI(numbers);
+    CCase cc = Main.getGc().getCCase(x,y);
+    if(cc==null){
+      erreur.alerte(g.get("theCaseDoNotExist"));
+    }
+    return cc;
   }
 }

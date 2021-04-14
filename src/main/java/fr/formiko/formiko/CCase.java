@@ -14,7 +14,6 @@ import java.io.Serializable;
 public class CCase implements Serializable{
   private CCase haut, bas, droite, gauche;
   private Case contenu;
-  private static int xi; private static GString légende;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public CCase(Case contenu, CCase haut, CCase bas, CCase droite, CCase gauche){
@@ -24,7 +23,7 @@ public class CCase implements Serializable{
   public CCase(Case contenu){
     this(contenu, null, null, null, null);
     if(contenu==null){
-      erreur.erreur("Le contenu est déclaré vide !","CCase.CCase",true);
+      erreur.erreur("Le contenu est déclaré vide !",true);
     }
   }
   // GET SET --------------------------------------------------------------------
@@ -54,8 +53,8 @@ public class CCase implements Serializable{
     return getContenu().toString()+"\n"+droite.toStringLigne();
   }
   /**
-  *{@summary Standard equals function.}
-  *Null &#38; other class type proof.
+  *{@summary Standard equals function.}<br>
+  *Null &#38; other class type proof.<br>
   *@param o o is the Object to test. It can be null or something else than this class.
   *@version 1.31
   */
@@ -66,26 +65,31 @@ public class CCase implements Serializable{
     if (cc.nbrDeCaseVoisine() != this.nbrDeCaseVoisine()){ return false;}
     return cc.getContenu().equals(this.getContenu());
   }
+  /**
+  *{@summary Get CCase with position x,y.}<br>
+  *Null proof.<br>
+  *@param x The x of the searched CCase.
+  *@param y The y of the searched CCase.
+  *@version 1.39
+  */
   public CCase getCCase(int x, int y){
     // Si le x n'est pas encore bon.
-    //debug.débogage("X : "+contenu.getP().getX()+" = "+x+" ?");
     if (contenu.getP().getX() != x ){
       if (contenu.getP().getX() < x){
-        if(droite==null){ return nul(x,y);}
+        if(droite==null){ return null;}
         return droite.getCCase(x,y);
       }else{
-        if(gauche==null){ return nul(x,y);}
+        if(gauche==null){ return null;}
         return gauche.getCCase(x,y);
       }
     }
     // Si le y n'est pas encore bon.
-    //debug.débogage("Y : "+contenu.getP().getY()+" = "+y+" ?");
     if (contenu.getP().getY() != y ){
       if (contenu.getP().getY() < y){
-        if(bas==null){ return nul(x,y);}
+        if(bas==null){ return null;}
         return bas.getCCase(x,y);
       }else{
-        if(haut==null){ return nul(x,y);}
+        if(haut==null){ return null;}
         return haut.getCCase(x,y);
       }
     }
@@ -93,65 +97,65 @@ public class CCase implements Serializable{
   }
   public GGraine getGg(int x){
     if (x != 1){
-      erreur.erreurPasEncoreImplemente("CCase.getGi");
+      erreur.erreurPasEncoreImplemente();
     }
     GGraine gir = contenu.getGGraineCopier(); // ici on ne veut pas modifier le groupe originale alors on en fait une copie.
     //if (nbrDeCaseVoisine() != 4){ debug.débogage("La détection des graine ne marche pas car trop proche de la bordure de la carte");return gir;}
     try {
-      gir.ajouterGg(droite.getContenu().getGGraineCopier());
+      gir.addGg(droite.getContenu().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.ajouterGg(haut.getContenu().getGGraineCopier());
+      gir.addGg(haut.getContenu().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.ajouterGg(bas.getContenu().getGGraineCopier());
+      gir.addGg(bas.getContenu().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.ajouterGg(gauche.getContenu().getGGraineCopier());
+      gir.addGg(gauche.getContenu().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.ajouterGg(gauche.getHaut().getContenu().getGGraineCopier());
+      gir.addGg(gauche.getHaut().getContenu().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.ajouterGg(gauche.getBas().getContenu().getGGraineCopier());
+      gir.addGg(gauche.getBas().getContenu().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.ajouterGg(droite.getHaut().getContenu().getGGraineCopier());
+      gir.addGg(droite.getHaut().getContenu().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.ajouterGg(droite.getBas().getContenu().getGGraineCopier());
+      gir.addGg(droite.getBas().getContenu().getGGraineCopier());
     }catch (Exception e) {}
     return gir;
   }
   public GCase getGca(int x){
     if (x != 1){
-      erreur.erreurPasEncoreImplemente("CCase.getGi");
+      erreur.erreurPasEncoreImplemente();
     }
     GCase gir = new GCase(); // ici on ne veut pas modifier le groupe originale alors on en fait une copie.
-    gir.ajouter(this.getContenu());
+    gir.add(this.getContenu());
     try {
-      gir.ajouter(droite.getContenu());
+      gir.add(droite.getContenu());
     }catch (Exception e) {}
     try {
-      gir.ajouter(haut.getContenu());
+      gir.add(haut.getContenu());
     }catch (Exception e) {}
     try {
-      gir.ajouter(bas.getContenu());
+      gir.add(bas.getContenu());
     }catch (Exception e) {}
     try {
-      gir.ajouter(gauche.getContenu());
+      gir.add(gauche.getContenu());
     }catch (Exception e) {}
     try {
-      gir.ajouter(gauche.getHaut().getContenu());
+      gir.add(gauche.getHaut().getContenu());
     }catch (Exception e) {}
     try {
-      gir.ajouter(gauche.getBas().getContenu());
+      gir.add(gauche.getBas().getContenu());
     }catch (Exception e) {}
     try {
-      gir.ajouter(droite.getHaut().getContenu());
+      gir.add(droite.getHaut().getContenu());
     }catch (Exception e) {}
     try {
-      gir.ajouter(droite.getBas().getContenu());
+      gir.add(droite.getBas().getContenu());
     }catch (Exception e) {}
     return gir;
   }
@@ -217,38 +221,36 @@ public class CCase implements Serializable{
   public GInsecte getGi(){return contenu.getGi();}
   public GInsecte getGi(int x){
     if (x != 1){
-      erreur.erreurPasEncoreImplemente("CCase.getGi");
+      erreur.erreurPasEncoreImplemente();
     }
     GInsecte gir = getGi();
     //if (nbrDeCaseVoisine() != 4){ debug.débogage("La detection des insecte ne marche pas car trop proche de la bordure de la carte");return gir;}
     try {
-      gir.ajouterGi(droite.getGi());
+      gir.addGi(droite.getGi());
     }catch (Exception e) {}
     try {
-      gir.ajouterGi(haut.getGi());
+      gir.addGi(haut.getGi());
     }catch (Exception e) {}
     try {
-      gir.ajouterGi(bas.getGi());
+      gir.addGi(bas.getGi());
     }catch (Exception e) {}
     try {
-      gir.ajouterGi(gauche.getGi());
+      gir.addGi(gauche.getGi());
     }catch (Exception e) {}
     try {
-      gir.ajouterGi(gauche.getHaut().getGi());
+      gir.addGi(gauche.getHaut().getGi());
     }catch (Exception e) {}
     try {
-      gir.ajouterGi(gauche.getBas().getGi());
+      gir.addGi(gauche.getBas().getGi());
     }catch (Exception e) {}
     try {
-      gir.ajouterGi(droite.getHaut().getGi());
+      gir.addGi(droite.getHaut().getGi());
     }catch (Exception e) {}
     try {
-      gir.ajouterGi(droite.getBas().getGi());
+      gir.addGi(droite.getBas().getGi());
     }catch (Exception e) {}
     return gir;
   }
-
-
 
 
   public byte nbrDeCaseVoisine(){
@@ -258,12 +260,6 @@ public class CCase implements Serializable{
     if (droite!= null){xr++;}
     if (gauche!= null){xr++;}
     return xr;
-  }
-  public void affLégende(){
-    if (légende!=null){
-      System.out.println(g.get("légende")+" : ");
-      légende.afficheToi();
-    }
   }
   public void afficheTout(){
     this.afficheLigne();
@@ -277,54 +273,7 @@ public class CCase implements Serializable{
       droite.afficheLigne();
     }
   }
-  public void afficheCarteTout(int x){
-    xi = x; légende = new GString();
-    afficheCarteTout();
-  }
-  public void afficheCarteTout(){
-    this.afficheCarteLigne();
-    System.out.println();
-    if(bas != null){
-      bas.afficheCarteTout();
-    }
-  }
-  public void afficheCarteLigne(){
-    this.afficheToiRéduit();
-    if(contenu.length() >= 2){xi++;}
-    if (droite != null){
-      droite.afficheCarteLigne();
-    }
-  }
-  public void afficheToiRéduit(){
-    int taille = 4;
-    int nbrDElementSurCase = contenu.getNbrDElementSurCase();
-    String sr = "";
-    if (nbrDElementSurCase == 0){
-      sr = "-";
-    }else if(nbrDElementSurCase == 1){
-      if(contenu.getFere() != null){
-        sr = "F"+contenu.getFere().getId();
-      }else if (contenu.getGc().getDébut() != null){
-        sr = sr + contenu.getGc().getDébut().getContenu().getId();
-      }else{
-        sr = sr +"G"+contenu.getGg().getDébut().getContenu().getId();
-      }
-    }else{
-      sr = ascii.getNuméroationEnAbcd(xi);
-      // ajout dans la légende.
-      String s = sr +":";
-      if(contenu.getFere() != null){
-        s = s + "F"+contenu.getFere().getId()+", ";
-      }
-      s = s + contenu.getGc().toString();
-      s = s + contenu.getGg().toString();
-      légende.ajouter(s);
-    }
-    while (sr.length()<taille){
-      sr = sr + " ";
-    }
-    System.out.print(sr);
-  }
+
   public void tourCases(){
     tourLigneCases();
     if(bas != null){
@@ -340,15 +289,11 @@ public class CCase implements Serializable{
       droite.tourLigneCases();
     }
   }
-  public void ajouter(Case c){
+  public void add(Case c){
     CCase cc = this;
     while (cc.getDroite() != null){
       cc = cc.getDroite();
     }
     cc.setDroite(new CCase(c));
-  }
-  public CCase nul(int x, int y){
-    //erreur.erreur("La case ("+x+";"+y+") est null !","CCase.nul");
-    return null;
   }
 }

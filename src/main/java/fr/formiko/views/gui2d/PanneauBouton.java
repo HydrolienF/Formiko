@@ -55,7 +55,7 @@ public class PanneauBouton extends Panneau {
     setDescTI("");
     setDesc("");
     descTI.setBounds(0,0,800);
-    // on ajoute les éléments non visible. Les éléments visible sont ajouter 1 a 1 quand le besoin ce fait sentir.
+    // on ajoute les éléments non visible. Les éléments visible sont add 1 a 1 quand le besoin ce fait sentir.
     add(descTI);
     add(desc);
     add(pz);
@@ -63,7 +63,7 @@ public class PanneauBouton extends Panneau {
   // GET SET -------------------------------------------------------------------
   public String getDesc(){return descS;}
   public void setDesc(String s){
-    if(Main.getPe() == null || !Main.getPe().estContruit()){
+    if(Main.getPe()==null || !Main.getPe().getVisible()){
       descS=s;
       actualiserDesc();
     }
@@ -155,7 +155,7 @@ public class PanneauBouton extends Panneau {
   public void addPA(){ int t [] = {0,1,2,3,4,5,6,7}; addPA(t);}
   /*public void modPa(){
     remove(pa);
-    pa = new PanneauAction(Main.getFActuelle().getTActionFourmi());
+    pa = new PanneauAction(Main.getPlayingAnt().getTActionFourmi());
     pa.construire();
     add(pa);
     revalidate();
@@ -174,7 +174,7 @@ public class PanneauBouton extends Panneau {
       removePi();
     }catch (Exception e) {}
     debug.débogage("addPI()");
-    pi = new PanneauInfo(Main.getPj().getFActuelle(),Main.getTailleElementGraphiqueX(320));
+    pi = new PanneauInfo(Main.getPlayingAnt(),Main.getTailleElementGraphiqueX(320));
     int xx2 = pz.getTailleBouton()*3;
     debug.débogage("initialisation du PanneauInfo en "+(getWidth()-Main.getTailleElementGraphiqueX(320))+" "+Main.getTailleElementGraphiqueX(320));
     pi.setBounds(getWidth()-Main.getTailleElementGraphiqueX(320),xx2,Main.getTailleElementGraphiqueX(320),pi.getYPi());
@@ -183,7 +183,7 @@ public class PanneauBouton extends Panneau {
   public void removePi(){ remove(pi);}
   public void addPIJ(){
     //removePij();
-    Fourmi ft = Main.getPj().getFActuelle();
+    Fourmi ft = Main.getPlayingAnt();
     if (ft==null){ return;}
     GString gs = ft.getFourmiliere().getJoueur().getGm().gmToGs(Main.getNbrMessageAfficher());
     debug.débogage("affichage console du contenu de gs");

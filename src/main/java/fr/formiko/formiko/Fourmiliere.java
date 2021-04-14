@@ -4,6 +4,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.exceptions.NotNullLocationException;
 import fr.formiko.usuel.listes.GGInt;
 import fr.formiko.usuel.listes.GInt;
 import fr.formiko.usuel.maths.allea;
@@ -23,7 +24,7 @@ public class Fourmiliere implements Serializable{
   /***
   *Place on the map
   */
-  private CCase cc;
+  private CCase ccase;
   /***
   *Player that own this.
   */
@@ -47,23 +48,25 @@ public class Fourmiliere implements Serializable{
   private int nbrFourmisMorte;
 
   // CONSTRUCTEUR
-  public Fourmiliere(CCase cc, Joueur j){
+  public Fourmiliere(CCase ccase, Joueur j){
     id = idCpt; idCpt++;
     nbrFourmisMorte=0;
     //modeDéfaut=3;
     ggi = new GGInt();
-    if (cc==null){
-      erreur.erreur("Impossible de créer une fourmilière sur une case null","Fourmiliere.Fourmiliere",true);
+    if (ccase==null){
+      erreur.erreur("Impossible de créer une fourmilière sur une case null",true);
     }
     debug.débogage("Placement de la Fourmiliere dans la Case.");
-    if (cc.getContenu().getFere() != null){
-      erreur.alerte("Impossible de créer une fourmilière sur une case qui en contient déjà une !","Fourmiliere.Fourmiliere","Choix d'une autre case alléatoire.");
+    if (ccase!=null && ccase.getContenu().getFere() != null){
+      int k=0;
       do {
-        cc = Main.getGc().getCCaseAlléa();
-      } while (cc.getContenu().getFere() != null);
+        ccase = Main.getGc().getCCaseAlléa();
+        k++;
+        if(k==100){erreur.alerte("Impossible de créer une fourmilière sur une case qui en contient déjà une ! Déjà 100 tentative de placement","Choix d'une autre case alléatoire.");}
+      } while (ccase.getContenu().getFere() != null);
     }
-    this.cc = cc; // la cc doit etre une case reliée a début de Main.getGc sinon on la vera pas.
-    cc.getContenu().setFere(this);
+    this.ccase = ccase;
+    if(ccase!=null) {ccase.getContenu().setFere(this);}
     joueur = j;
     gc = new GCreature();
     gg = new GGraine();
@@ -76,20 +79,35 @@ public class Fourmiliere implements Serializable{
     this(j, mapo);
     int x = allea.getAlléaDansTableau(Main.getTableauDesEspecesAutorisée());
     if(!j.getIa()){x=0;}//les joueurs ne joue que des Lasius Niger
-    gc = new GCreature(taille, this,Main.getGEspece().getEspeceParId(x),cc);
+    gc = new GCreature(taille, this,Main.getGEspece().getEspeceParId(x),getCCase());
   }
   public Fourmiliere(int taille, Joueur j){ this(taille,j,Main.getCarte());}
+  public Fourmiliere() {this(((CCase)(null)),null);} //Only for test
   // GET SET -----------------------------------------------------------------------
   public int getId(){return id;}
-  public Point getP(){return cc.getContenu().getP();}
+  public Point getP(){return getCCase().getContenu().getP();}
   public Point getPoint(){return getP();}
-  public CCase getCc(){return cc;}
+  public CCase getCc(){return ccase;}
   public CCase getCCase(){return getCc();}
-  public void setCc(CCase x){
-    getCCase().getContenu().setFere(null);
-    cc = x;
-    getCCase().getContenu().setFere(this);
-  }
+  /**
+  *{@summary Move the anthill from a case to an other.}<br>
+  *It will not add a Fourmiliere to a case that already have 1 but throw an Exception.
+  *It will try to remove from old CCase and add to new CCase.<br>
+  *@version 1.41
+  */
+  public void setCc(CCase newCCase){
+    if(newCCase!=null && newCCase.getContenu()!=null){
+      if(equals(newCCase.getContenu().getFere())){return;}
+      if(newCCase.getContenu().getFere()!=null){throw new NotNullLocationException();}
+    }
+    if (getCCase()!=null) {
+      getCCase().getContenu().setFere(null);
+    }
+    ccase = newCCase;
+    if (newCCase!=null){
+      newCCase.getContenu().setFere(this);
+    }
+  }public void setCCase(CCase ccase){setCc(ccase);}
   public static int getI(){return idCpt;}
   public int getNbrDeFourmi(){return length();}
   public int getLen(){return length();}
@@ -110,7 +128,7 @@ public class Fourmiliere implements Serializable{
     try {
       return ggi.getFin().getContenu().calculerScore(this);
     }catch (NullPointerException e) {
-      ggi.ajouter(new GInt(this));
+      ggi.add(new GInt(this));
       return ggi.getFin().getContenu().calculerScore(this);
     }
   }
@@ -128,7 +146,7 @@ public class Fourmiliere implements Serializable{
   public String toString(boolean b){
     int leng = length();
     String s = (joueur.getIa()) ? "IA" : "Joueur";
-    String sr = g.getM("laFourmilière")+" "+ id +" ("+s+") "+g.get("aPourCoordonnées")+" : "+ getP().toString() +" "+g.get("et")+" "+g.get("contient")+" "+leng+" "+g.get("fourmis")+"."+"\n";
+    String sr = g.getM("la")+" "+g.get("fourmilière")+" "+ id +" ("+s+") "+g.get("aPourCoordonnées")+" : "+ getP().toString() +" "+g.get("et")+" "+g.get("contient")+" "+leng+" "+g.get("fourmis")+"."+"\n";
     if(b){sr+=gc.toString();}
     sr+=gg.toString();
     return sr;
@@ -155,13 +173,13 @@ public class Fourmiliere implements Serializable{
       gc.jouer();
     } while (!gc.aFiniDeJouer());
     //gc.finTour();
-    ggi.ajouter(new GInt(this)); //stats of this turn
+    ggi.add(new GInt(this)); //stats of this turn
   }
   /*public void faireVarierLesAge(){
   }
   public void faireVarierLesPoint(){
   }*/
-  public void déposer(Graine g){gg.ajouter(g); }
+  public void déposer(Graine g){gg.add(g); }
   /**
   *{@summary Save stats/score in the GGInt.}<br>
   *@version 1.31

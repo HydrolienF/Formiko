@@ -35,7 +35,14 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-public class PanneauCarte extends Panneau implements MouseListener{
+/**
+*{@summary Map panel.}<br>
+*It can draw map.<br>
+*Mouse listener part is in PanneauSup.java.<br>
+*@author Hydrolien
+*@version 1.42
+*/
+public class PanneauCarte extends Panneau {
   private int xCase; // nombre de case en X
   private int yCase; // nombre de case en Y
   private int posX; // position de la 1a case.
@@ -44,6 +51,10 @@ public class PanneauCarte extends Panneau implements MouseListener{
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauCarte(){}
+  /**
+  *{@summary Build methode.}<br>
+  *@version 1.x
+  */
   public void construire(){
     Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(100));
     posX = 0; posY = 0;
@@ -70,6 +81,7 @@ public class PanneauCarte extends Panneau implements MouseListener{
   }
   /**
   *setSize sould never be used. Use actualiserSize insted.
+  *@version 1.x
   */
   @Override
   public void setSize(int x, int y){
@@ -77,38 +89,39 @@ public class PanneauCarte extends Panneau implements MouseListener{
   }
   /**
   *Do the 3 steps that are need to set PanneauCarte to a new size.
+  *@version 1.x
   */
   public void actualiserCarte(){
     actualiserSize();//actualise la taille du PanneauCarte a la bonne dimention.
     //chargerImages();
-    Main.getData().iniMap(); //demande au donnée d'image de rechargé l'image qui représente l'arrière plan de la carte.
+    Main.getData().iniBackgroundMapImage(); //demande au donnée d'image de rechargé l'image qui représente l'arrière plan de la carte.
   }
-  // Fonctions propre -----------------------------------------------------------
+  // Fonctions propre ----------------------------------------------------------
+  /**
+  *{@summary Main paint function for Map.}<br>
+  *It print 1 by 1: map with only Case, grids, all map element Case by Case, the mark for all game as playingAnt mark.
+  *@version 1.42
+  */
   public void paintComponent(Graphics g2){
-    Main.startCh();
-    Graphics2D g = (Graphics2D)g2;
-    setLigne(g);
+    if(!Main.getActionGameOn()){return;}
     try {
       if(!Main.getPartie().getEnCours()){return;}
     }catch (Exception e) {
       erreur.alerte("la partie est null");
     }
+    Main.startCh();
+    Graphics2D g = (Graphics2D)g2;
+    setLigne(g);
     try {
       GCase gc = Main.getGc();
       actualiserSize();
-      //int x = Main.getPp().getWidth();
-      //int y = Main.getPp().getHeight();
-      //this.setSize(x,y);
-      //xCase = math.min((x/Main.getData().getTailleDUneCase())+1,gc.getNbrX()-posX);
-      //yCase = math.min((y/Main.getData().getTailleDUneCase())+1,gc.getNbrY()-posY);
       debug.débogage("Dimention du PanneauCarte en case : x="+xCase+" y="+yCase);
       debug.débogage("taille réèle du panneau de la carte : x="+this.getWidth()+", y="+this.getHeight());
-      //dessin des cases :
       try {
-        if(Main.getData().getMap()==null){Main.getData().iniMap();}
+        if(Main.getData().getMap()==null){Main.getData().iniBackgroundMapImage();}
         g.drawImage(Main.getData().getMap(),0,0,this);
       }catch (Exception e) {
-        erreur.erreur("impossible d'afficher l'arrière plan de la carte.");
+        erreur.erreur("impossible d'afficher l'arrière plan de la carte");
       }
       dessinerGrille(g);
       for (int i=0;i<xCase ;i++ ) {
@@ -116,18 +129,15 @@ public class PanneauCarte extends Panneau implements MouseListener{
           peintImagePourCase(gc,i,j,g);
         }
       }
-      //dessin de la Fourmi selectionnée :
-      if(Main.getFActuelle()!=null){
-        Case c = Main.getFActuelle().getCCase().getContenu();
-        g.drawImage(Main.getData().getSelectionnee(),(c.getX()-posX)*Main.getData().getTailleDUneCase(),(c.getY()-posY)*Main.getData().getTailleDUneCase(),this);
-      }
+      drawPlayingAnt(g);
     }catch (Exception e) {
       erreur.erreur("Quelque chose d'imprévu est arrivé lors de l'affichage de PanneauCarte");
     }
     Main.endCh("repaintDeLaCarte");
   }
   /**
-  *Draw grid.
+  *{@summary Draw grid.}<br>
+  *@version 1.x
   */
   public void dessinerGrille(Graphics g){
     if(Main.getDessinerGrille()){
@@ -152,8 +162,12 @@ public class PanneauCarte extends Panneau implements MouseListener{
     Case c = gc.getCCase(x+posX,y+posY).getContenu();
     peintImagePourCase(c,x,y,g);
   }
+  /**
+  *{@summary Draw cloud Case.}<br>
+  *@version 1.x
+  */
   public boolean peintCaseNuageuse(int x, int y,Graphics g,int xT, int yT){
-    Joueur jo = Main.getPj().getJoueurActuel();
+    Joueur jo = Main.getPlayingJoueur();
     if(Main.getPartie().getCarte().getCasesNuageuses()==true){ //si il y a des cases nuageuses
       try {
         if(Main.getPartie().getGj().getNbrDeJoueurHumain()==1){//si il ya moins de 2 joueurs, on peu afficher les cases que le joueur voie.
@@ -169,16 +183,29 @@ public class PanneauCarte extends Panneau implements MouseListener{
           return true;//on ne dessine rien par dessus.
         }
       }catch (Exception e) {
-        erreur.erreur("Une case possiblement nuageuse n'as pas pue atre affiché","PanneauCarte");
+        erreur.erreur("Une case possiblement nuageuse n'as pas pue atre affiché");
       }
     }
     return false;
   }
+  /**
+  *{@summary Draw the mark for playingAnt.}<br>
+  *@version 1.x
+  */
+  private void drawPlayingAnt(Graphics g){
+    if(Main.getPlayingAnt()!=null){
+      Case c = Main.getPlayingAnt().getCCase().getContenu();
+      g.drawImage(Main.getData().getSelectionnee(),(c.getX()-posX)*Main.getData().getTailleDUneCase(),(c.getY()-posY)*Main.getData().getTailleDUneCase(),this);
+    }
+  }
 
-
+  /**
+  *{@summary Draw a Case.}<br>
+  *@version 1.x
+  */
   public void peintImagePourCase(Case c, int x, int y,Graphics2D g){
-    Joueur jo = Main.getPj().getJoueurActuel();
-    Fourmi fi = Main.getFActuelle();
+    Joueur jo = Main.getPlayingJoueur();
+    Fourmi fi = Main.getPlayingAnt();
     if(fi==null){
       try {
         fi=(Fourmi)jo.getFere().getGc().getDébut().getContenu();
@@ -192,16 +219,6 @@ public class PanneauCarte extends Panneau implements MouseListener{
     CGraine ccg = c.getGg().getDébut();
     int lenTIF = Main.getData().getTIF()[0].length+1;
     try {
-      //--- TODO remplacer par un affichage 1 fois dans paintComponent.
-      /*if (ty==1) {
-        g.drawImage(Main.getData().getTI2()[0],xT,yT,this);
-      }else if (ty==2){
-        g.drawImage(Main.getData().getTI2()[1],xT,yT,this);
-      }else if (ty==3){
-        g.drawImage(Main.getData().getTI1()[1],xT,yT,this);
-      }else{
-        g.drawImage(Main.getData().getImgNull(),xT,yT,this);
-      }*/
       int tC10 = Main.getData().getTailleDUneCase()/10;int tC4 = Main.getData().getTailleDUneCase()/4;int tC2 = Main.getData().getTailleDUneCase()/2;
       // la fourmilière
       if (c.getFere()!=null){
@@ -262,12 +279,13 @@ public class PanneauCarte extends Panneau implements MouseListener{
         }
       }
     }catch (Exception e) {
-      erreur.erreur("impossible de dessiner l'image de la case : "+x+" "+y);
+      erreur.erreur("impossible de dessiner l'image de la Case : "+x+" "+y);
     }
   }
   /**
   *{@summary fonction that place ObjetSurCarteAId on the same Case.}<br>
   *It modify PanneauCarte value xTemp and yTemp.
+  *@version 1.x
   */
   public void calculerXYTemp(int xT, int yT, int k, Case c){
     int deplacementEnX=0;
@@ -296,6 +314,10 @@ public class PanneauCarte extends Panneau implements MouseListener{
     xTemp = xT+deplacementEnX;
     yTemp = yT+deplacementEnY;
   }
+  /**
+  *{@summary Draw an anthill mark.}<br>
+  *@version 1.x
+  */
   public void drawRondOuRect(int x, int y, int tailleDUneCase, Graphics2D g, Fourmiliere fere, int tailleDuCercle){
     if(tailleDuCercle<tailleDUneCase/2){
       drawRond(x,y,tailleDUneCase,g,fere,tailleDuCercle);
@@ -305,6 +327,10 @@ public class PanneauCarte extends Panneau implements MouseListener{
       setLigne(g);//retour au paramètres par défaut.
     }
   }
+  /**
+  *{@summary Draw a circle as an anthill mark.}<br>
+  *@version 1.x
+  */
   public void drawRond(int x, int y, int r, Graphics2D g, Fourmiliere fere, int tailleDuCercle){
     g.setColor(fere.getPh().getColor());
     BasicStroke line = new BasicStroke(tailleDuCercle);
@@ -312,9 +338,17 @@ public class PanneauCarte extends Panneau implements MouseListener{
     g.drawOval(x+tailleDuCercle/2,y+tailleDuCercle/2,r-tailleDuCercle,r-tailleDuCercle);
     setLigne(g);//retour au paramètres par défaut.
   }
-  public void drawIcone(Graphics g, int x, int xT, int yT, int tC2){
+  /**
+  *{@summary Draw an icone.}<br>
+  *@param iconeId the icone id to load the good image.
+  *@param xT x value to use.
+  *@param yT y value to use.
+  *@param xOffset offset in x.
+  *@version 1.x
+  */
+  public void drawIcone(Graphics g, int iconeId, int xT, int yT, int xOffset){
     if (!Main.getDessinerIcone()){ return;}
-    g.drawImage(Main.getData().getB()[x],xT+tC2,yT,this);
+    g.drawImage(Main.getData().getB()[iconeId],xT+xOffset,yT,this);
   }
   public int getDir(ObjetSurCarteAId obj){
     if (!Main.getElementSurCarteOrientéAprèsDéplacement()){return 0;}// si la direction de l'objet n'est pas prise en compte on cherche dans le tableau 0.
@@ -333,38 +367,6 @@ public class PanneauCarte extends Panneau implements MouseListener{
     int yTemp = Main.getData().getTailleDUneCase()*yCase;
     super.setSize(xTemp,yTemp);
   }
-
-
-  //sourie
-  public void mouseClicked(MouseEvent e){
-    debug.débogage("Clic détecté sur la carte");
-    if (e.getButton() == MouseEvent.BUTTON1){System.out.println("bouton gauche");}
-
-    else if (e.getButton() == MouseEvent.BUTTON2){System.out.println("bouton du milieu");}
-
-    else if (e.getButton() == MouseEvent.BUTTON3){System.out.println("bouton droit");}
-  }
-
-  //Méthode appelée lors du survol de la souris
-
-  public void mouseEntered(MouseEvent e) {
-    //setDesc(g.get("case.desc."+));
-    int x = e.getX();
-    int y = e.getY();
-    setDesc("");
-    debug.débogage("x = "+x+" y = "+y);
-  }
-
-  //Méthode appelée lorsque la souris sort de la zone du bouton
-  public void mouseExited(MouseEvent event) {
-    setDesc("");
-  }
-
-  //Méthode appelée lorsque l'on presse le bouton gauche de la souris
-  public void mousePressed(MouseEvent event) { }
-
-  //Méthode appelée lorsque l'on relâche le clic de souris
-  public void mouseReleased(MouseEvent event) { }
 
   public void setDesc(String s){
     if(Main.getPp().getPj()==null){ erreur.erreur("pj null");}

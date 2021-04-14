@@ -18,7 +18,7 @@ public class GInsecte implements Serializable{
     if (x<1){ return; }
     début = new CInsecte(new Insecte());
     for (int i=0;i<x-1 ;i++ ) {
-      this.ajouterInsecte(new Insecte());
+      this.addInsecte(new Insecte());
     }
     debug.débogage("fin de création des x insectes");
   }
@@ -52,37 +52,37 @@ public class GInsecte implements Serializable{
     if (ci.getSuivant() == null){ return ci.getInsecte();} // si il y a 1 seul éléments.
     return ci.getInsectePlusDeNourritureFournie(ci.getInsecte());
   }
-  public void ajouterInsecte(){
-    ajouterInsecte(1);
+  public void addInsecte(){
+    addInsecte(1);
   }
-  public void ajouterInsecte(int x){
+  public void addInsecte(int x){
     if (x<1){ return ;}
     CInsecte ci = new CInsecte();
     ci.setSuivant(début);
     début = ci;
-    debug.débogage((x-1) + " Insectes reste a ajouter");
-    ajouterInsecte(x-1);
+    debug.débogage((x-1) + " Insectes reste a add");
+    addInsecte(x-1);
   }
-  public void ajouterInsecteM(int x){
+  public void addInsecteM(int x){
     if (x<1){ return ;}
     CInsecte ci = new CInsecte();
     ci.getInsecte().setEstMort(true);
     ci.setSuivant(début);
     début = ci;
-    debug.débogage((x-1) + " Insectes reste a ajouter");
-    ajouterInsecte(x-1);
+    debug.débogage((x-1) + " Insectes reste a add");
+    addInsecte(x-1);
   }
-  public void ajouter(Insecte i){
-    ajouterInsecte(i);
+  public void add(Insecte i){
+    addInsecte(i);
   }
-  public void ajouterInsecte(Insecte i){
+  public void addInsecte(Insecte i){
     if (i != null){
       CInsecte ci = new CInsecte(i);
       ci.setSuivant(début);
       début = ci;
     }
   }
-  public void ajouterGi(GInsecte giTemp){
+  public void addGi(GInsecte giTemp){
     if (this.début == null){
       this.début = giTemp.getDébut();
     }else{
@@ -104,7 +104,7 @@ public class GInsecte implements Serializable{
     if (début == null){ return null;}
     CInsecte ciTest = début;
     while (ciTest.getSuivant() != null){
-      gir.ajouterInsecte(ciTest.getInsecteSurLaCase(pTest));
+      gir.addInsecte(ciTest.getInsecteSurLaCase(pTest));
       ciTest = ciTest.getSuivant();
     }
     return gir;
@@ -123,7 +123,7 @@ public class GInsecte implements Serializable{
     }// là on a la liste de tt les points a testé.
     int lentp = tp.length;
     for (int i=0;i<lentp ;i++ ) {
-      gir.ajouterGi(getInsecteSurLaCase(tp[i])); // on ajoute case par case les insectes des cases.
+      gir.addGi(getInsecteSurLaCase(tp[i])); // on ajoute case par case les insectes des cases.
     }
     return gir;
   }
@@ -136,7 +136,7 @@ public class GInsecte implements Serializable{
     if(début == null){ return tr;}
     CInsecte ci = début;
     while (ci != null){
-      tr = tableau.ajouterX (tr, "I" + ci.getContenu().getId());
+      tr = tableau.addX (tr, "I" + ci.getContenu().getId());
       ci = ci.getSuivant();
     }
     return tr;
@@ -159,7 +159,7 @@ public class GInsecte implements Serializable{
   public void retirer(Insecte i){ retirerInsecte(i);}
   public void retirer(Creature i){
     if(i instanceof Insecte){retirerInsecte((Insecte)i);}
-    else{erreur.erreur("Impossible de retirer la créature "+i.getId()+" car ne n'est pas un insecte.","GInsecte.retirer");}
+    else{erreur.erreur("Impossible de retirer la créature "+i.getId()+" car ne n'est pas un insecte.");}
   }
   public GInsecte getGiVivant(){
     if (début == null){ erreur.erreurGXVide();return new GInsecte();}

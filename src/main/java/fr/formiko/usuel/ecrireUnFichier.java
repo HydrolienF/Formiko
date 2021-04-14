@@ -9,7 +9,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import fr.formiko.usuel.listes.GString;
-import fr.formiko.usuel.listes.CString;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 import fr.formiko.usuel.types.str;
@@ -25,12 +24,12 @@ public class ecrireUnFichier {
       try {
         ecriteurAvecBuffer = new BufferedWriter(new FileWriter(nomDuFichier));
       } catch(FileNotFoundException e) {
-        erreur.erreur("Le fichier n'as pas pu être créer. Le problème peut venir d'un caractère incorecte","ecrireUnFichier.ecrireUnFichier");
+        erreur.erreur("Le fichier n'as pas pu être créer. Le problème peut venir d'un caractère incorecte");
         return false;
         //ecriteurAvecBuffer = new BufferedWriter(new FileWriter("sauvegarde/sauvegardeEnCasDErreur.txt"));
   	    //e.printStackTrace();
       }
-      String contenu = tableauDeLigne.concatène();
+      String contenu = tableauDeLigne.toStringLong();
       ecriteurAvecBuffer.write(contenu);
       /*for (String s : tableauDeLigne) {
         ecriteurAvecBuffer.write(s+"\n");

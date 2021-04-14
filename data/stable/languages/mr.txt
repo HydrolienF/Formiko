@@ -27,6 +27,9 @@ bientôt:लवकरच[auto]
 suivant:खालील[auto]
 avant:आधी[auto]
 
+set:
+where:
+
 laIA:एल आयआयए[auto]
 laJoueurHumain:मानवी खेळाडू[auto]
 joueur:खेळाडू[auto]
@@ -106,12 +109,12 @@ toutLesJoueurHumainsEliminés:सर्व मानवी खेळाडूं
 nbrDeJoueur:मानवी खेळाडूंची संख्या[auto]
 nbrDIa:नाव डी आय[auto]
 nbrDeTour:वळणांची संख्या[auto]
-dimentionCarteX:X मधील कार्डाचा आकारमान[auto]
+dimentionCarteX:x मधील कार्डाचा आकारमान[auto]
 dimentionCarteY:वाय मधील अक्षराचे परिमाण[auto]
 erreurCarteVide:कोणत्याही खेळाडूशिवाय आणि एआयशिवाय खेळ सुरू करणे अशक्य आहे.[auto]
 maxFourmiIa:आय साठी जास्तीत जास्त मुंग्या[auto]
 nomDuFichier:फाईलचे नाव[auto]
-getNomDuFcihier:आपण लोड करू इच्छित सेव्ह सेटचे नाव प्रविष्ट करा: (किंवा परत जाण्यासाठी परत)[auto]
+getFileName:आपण लोड करू इच्छित सेव्ह सेटचे नाव प्रविष्ट करा: (किंवा परत जाण्यासाठी परत)[auto]
 dernierTourPassé:शेवटची फेरी आता संपली आहे.[auto]
 victoireInconue:अज्ञात विजय[auto]
 élimination:निर्मूलन[auto]
@@ -188,6 +191,15 @@ casesSombres:गडद बॉक्स[auto]
 
 chargementFini:लोड करणे समाप्त झाले[auto]
 lancerLeJeu:खेळ सुरू करीत आहे[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]
@@ -275,6 +287,7 @@ erreur.14:रिक्त आहे[auto]
 erreur.15:अज्ञात यादी[auto]
 erreur.16:ब्रेक प्रयत्न अयशस्वी (ब्रेक टाइम)[auto]
 erreur.17:प्रकारासाठी प्रकार रूपांतरण अयशस्वी[auto]
+alerteGUI2Dfail:
 
 str.1:एक रूपांतरण करण्यात अक्षम[auto]
 str.2:योग्यरित्या[auto]
@@ -341,6 +354,15 @@ pti.desc.2:देऊ केलेल्या अन्नाचे प्रम
 pti.desc.3:अंडी घालण्याचे प्रकार दर्शवा: ० = राणी, १ = नर, २ = गौण, = = मध्यम, = = प्रमुख, 5 + = अन्य.[auto]
 pti.desc.4:अनुसरण करण्यासाठी दिशा दर्शवा.[auto]
 pti.desc.5:साफ करण्यासाठी मुंग्याची आयडी दर्शवा. सर्वात महत्वाची मुंगी म्हणजे मुंगी 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:फॉर्मिको फसवणूक इंटरफेसमध्ये आपले स्वागत आहे. येथे आपण फसवणूक आदेश टाइप करू शकता.[auto]
 triche.aide.2:"नेम: (वितर्क) वर्णन" या रूपात आज्ञा[auto]

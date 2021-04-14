@@ -7,7 +7,6 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.sauvegarderUnePartie;
-import fr.formiko.usuel.save;
 
 import java.awt.Graphics;
 import java.io.File;
@@ -20,7 +19,7 @@ public class PanneauChoixPartie extends PanneauLanceurPartie{
   public PanneauChoixPartie(){
     super(101);
     this.setLayout(null);
-    GString gs = new GString(save.listSave());
+    GString gs = new GString(sauvegarderUnePartie.listSave());
     ePartie = new EtiquetteChoix("choisirPartie",gs);
     //ePartie.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,getHeight()*3/5);
     //ePartie.setTaille(getWidth()*1/5,getHeight()*1/5);

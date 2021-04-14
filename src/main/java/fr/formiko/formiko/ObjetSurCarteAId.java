@@ -9,14 +9,14 @@ import fr.formiko.usuel.maths.allea;
 import java.io.Serializable;
 
 public class ObjetSurCarteAId extends ObjetAId implements Serializable{
-  protected CCase p;
+  protected CCase ccase;
   protected byte direction;
 
   // CONSTRUCTEUR -----------------------------------------------------------------
   //Principal
-  public ObjetSurCarteAId(CCase p){
+  public ObjetSurCarteAId(CCase ccase){
     super();
-    this.p = p;
+    this.ccase = ccase;
     direction = getDirAllea();
   }
   //Auxiliaire
@@ -24,8 +24,11 @@ public class ObjetSurCarteAId extends ObjetAId implements Serializable{
     this((CCase) null);
   }
   // GET SET -----------------------------------------------------------------------
-  public CCase getCCase(){return this.p;}
-  //setCase utilise des Creature pour fonctionner.
+  public CCase getCCase(){return this.ccase;}
+  //setCase est Override par Creature & Graine.
+  public void setCCase(CCase cc){ this.ccase = cc;}
+  public void setCCase(int x, int y){setCCase(Main.getGc().getCCase(x,y));}
+  public void setCc(CCase cc){setCCase(cc);}
   public byte getDirection(){ return direction;}
   public void setDirection(int x){direction = (byte)x;}
   // Fonctions propre -----------------------------------------------------------

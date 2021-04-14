@@ -2,7 +2,7 @@
 test:testEn
 
 s:s
-n:[auto]
+n:ø
 .:.
 ,:,
 ?:?
@@ -16,16 +16,19 @@ notre:our
 votre:your
 oui:yes
 non:no
-tour:Turn
-retour:Back
-choix:Choice
-temps:Time
+tour:turn
+retour:back
+choix:choice
+temps:time
 commencer:start
 raccourci:shortcut
 commande:command
 bientôt:soon
 suivant:following[auto]
 avant:before[auto]
+
+set:set
+where:where
 
 laIA:l'IA[auto]
 laJoueurHumain:the human player[auto]
@@ -80,19 +83,19 @@ assexué:asexual
 sexué:sexual
 
 //menu :
-menuP.1:New game
-menuP.2:Load a game
-menuP.3:Options
+menuP.1:new game
+menuP.2:load a game
+menuP.3:options
 menuP.4:quit
-menuN.1:New start
-menuN.2:Personalized game
+menuN.1:new start
+menuN.2:personalized game
 menuN.3:tutorial
 menuN.4:back
 
-quitterJeu:Leave the game
-quitterOuContinuer:Do you want to continue the game?
-messageQuitter:See you soon on Formiko!
-validerQuitter:Are you sure you want to leave?
+quitterJeu:leave the game
+quitterOuContinuer:do you want to continue the game?
+messageQuitter:see you soon on Formiko!
+validerQuitter:are you sure you want to leave?
 quitterToMp:return to the main menu[auto]
 continuerJeu:continue the game[auto]
 supprimerFourmi.1:remove the ant[auto]
@@ -103,31 +106,31 @@ affTest:successful test
 
 toutLesJoueurHumainsEliminés:all human players have been eliminated
 
-nbrDeJoueur:Number of human player (s)
-nbrDIa:Number of Ai
-nbrDeTour:Number of turn
-dimentionCarteX:Dimension of the map in X
-dimentionCarteY:Dimension of the map in Y
-erreurCarteVide:Unable to start a game without any player and without any ia.
-maxFourmiIa:Maximum number of ants for ia
-nomDuFichier:File name
-getNomDuFcihier:Enter the name of the save set you want to load: (Or back to go back)[auto]
-dernierTourPassé:The last turn is now over.
-victoireInconue:Unknown victory
+nbrDeJoueur:number of human player (s)
+nbrDIa:number of Ai
+nbrDeTour:number of turn
+dimentionCarteX:dimension of the map in X
+dimentionCarteY:dimension of the map in Y
+erreurCarteVide:unable to start a game without any player and without any ia.
+maxFourmiIa:maximum number of ants for ia
+nomDuFichier:file name
+getFileName:enter the name of the save set you want to load: (Or back to go back)[auto]
+dernierTourPassé:the last turn is now over.
+victoireInconue:unknown victory
 élimination:elimination
-victoirePar:Win by
+victoirePar:win by
 pseudo:username
-entrezPseudo:Please enter your username
+entrezPseudo:please enter your username
 
 nourritureInsecte:food for insects
 celluleA:cell a
 lien:link
-ChasseNull:Can't hunt with creature
-CollecteNull:Can't collect with creature
-CJoueur.1:The CPlayer contains the player
+ChasseNull:can't hunt with creature
+CollecteNull:can't collect with creature
+CJoueur.1:the CPlayer contains the player
 CJoueur.2:and 1 link to the player
 
-listeCreature:Creature List
+listeCreature:creature List
 
 nétoyage:cleaning
 actionMax:maximum action
@@ -140,7 +143,7 @@ initialisationDesJoueurs:player initialization
 initialisationDesInsectes:insects initialisation
 chargementDesGraphismes:graphics initialization
 
-débutTourJoueur:It's your turn[auto]
+débutTourJoueur:it's your turn[auto]
 débutTourIa:to start are turn[auto]
 
 tempsJeuEcoulé:you played
@@ -189,6 +192,15 @@ casesSombres:dark squares
 chargementFini:loading completed
 lancerLeJeu:launch game
 
+lookedCase:looked square
+saveName:save name
+saveDone:save done
+defaultName:default name
+caseUnkwnowed:unknowned square
+theCaseDoNotExist:the square do not exist
+optionsCanBeEditedIn:options can be edited in
+enterCoordinateAs:enter coordinates as
+
 //temps
 t.j:d
 t.h:h
@@ -209,7 +221,7 @@ tempsEnJeux:total time in game
 os.0:Linux[]
 os.1:Windows[]
 os.2:Mac[]
-os.-1:OS not recognized[auto]
+os.-1:oS not recognized[auto]
 
 //carte :
 desert:desert
@@ -222,35 +234,35 @@ mini:mini[auto]
 thirds:third
 
 //package usuel ------------------------------------------------------------------
-read.1:Please enter a value for the variable
+read.1:please enter a value for the variable
 read.2:(entering nothing does not change the value of the variable)
-read.3:It looks like you are stuck. Write STOP to stop this program.
-read.4:The character string
+read.3:it looks like you are stuck. Write STOP to stop this program.
+read.4:the character string
 read.5:is not a number
-read.6:It would seem that the given value is not suitable. This should be included in the interval
-read.7:Yes or No ?
-read.8:Write your answer in the form "o" (for yes) or "n" (for no)
-read.9:User input has not been recognized.
+read.6:it would seem that the given value is not suitable. This should be included in the interval
+read.7:yes or No ?
+read.8:write your answer in the form "o" (for yes) or "n" (for no)
+read.9:user input has not been recognized.
 
-tableau.1:Position
+tableau.1:position
 tableau.2:does not exist in the array
-tableau.3:We add x in the final position
+tableau.3:we add x in the final position
 tableau.4:is not present in the array
-tableau.5:The array is empty!
+tableau.5:the array is empty!
 
-allea.1:Array t does not have as many boxes as array tc
-allea.2:We don't take tc into account
-allea.3:Impossible to fluctuate as much a variable
-allea.4:No fluctuation for this variable
+allea.1:array t does not have as many boxes as array tc
+allea.2:we don't take tc into account
+allea.3:impossible to fluctuate as much a variable
+allea.4:no fluctuation for this variable
 
-decoderUnFichier.1:The string
+decoderUnFichier.1:the string
 decoderUnFichier.2:is not a integer
 decoderUnFichier.3:is not a boolean
-decoderUnFichier.4:The character
+decoderUnFichier.4:the character
 
-ent.1:String To int conversion failed
+ent.1:string To int conversion failed
 
-GString.1:The GString is empty
+GString.1:the GString is empty
 
 lireUnFichier.1:lines were found in the file
 
@@ -259,28 +271,28 @@ Message.1:console
 erreur:error
 alerte:warning
 erreur.1:an unspecified place
-erreur.2:Find below the reason and the list of functions that was in progress during the forced shutdown
+erreur.2:find below the reason and the list of functions that was in progress during the forced shutdown
 erreur.3:fatal
-erreur.4:An error
+erreur.4:an error
 erreur.5:happend in
-erreur.6:Correction made
-erreur.7:Something abnormal happened in
-erreur.8:Maybe there is no reason to worry
-erreur.9:The functionality has not yet been implemented
+erreur.6:correction made
+erreur.7:something abnormal happened in
+erreur.8:maybe there is no reason to worry
+erreur.9:the functionality has not yet been implemented
 erreur.10:unknown name
-erreur.11:Image loading
+erreur.11:image loading
 erreur.12:did not work. Make sure that the data/imageFormiko/ file contains the named image.
-erreur.13:The list
+erreur.13:the list
 erreur.14:is empty
 erreur.15:unknown list
-erreur.16:Pause attempt failed (pause duration
-erreur.17:Type convert failed for type[auto]
+erreur.16:pause attempt failed (pause duration
+erreur.17:type convert failed for type[auto]
 alerteGUI2Dfail:1 graphical action did not work
 
-str.1:Unable to convert
+str.1:unable to convert
 str.2:correctly
 
-ElementListeIntrouvableExeption.1:The
+ElementListeIntrouvableExeption.1:the
 ElementListeIntrouvableExeption.2:could not be removed
 
 ListeVideExeption.1:impossible to
@@ -301,47 +313,56 @@ bouton.nom.-15:back to game
 
 save.message:enter the name to give to your backup.[auto]
 
-bouton.desc.0:Shrink the map
-bouton.desc.1:Move the map up
-bouton.desc.2:Enlarge the map
-bouton.desc.3:Move the map left
-bouton.desc.4:Center the map
-bouton.desc.5:Move the map right
-bouton.desc.6:Center the map on the playing ant
-bouton.desc.7:Move the map down
-bouton.desc.8:Zoom in so that all the boxes are visible
+bouton.desc.0:shrink the map
+bouton.desc.1:move the map up
+bouton.desc.2:enlarge the map
+bouton.desc.3:move the map left
+bouton.desc.4:center the map
+bouton.desc.5:move the map right
+bouton.desc.6:center the map on the playing ant
+bouton.desc.7:move the map down
+bouton.desc.8:zoom in so that all the boxes are visible
 
-bouton.nom.20:Move
-bouton.nom.21:Hunt the insect on the box
-bouton.nom.22:Lay
-bouton.nom.23:Trophallax
-bouton.nom.24:Clean yourself or an allied ant.
-bouton.nom.25:Eat a seed
-bouton.nom.26:Break a seed
-bouton.nom.27:Hunt (auto mode)
-bouton.nom.28:Caring for other Ant Ants (auto mode)
-bouton.nom.29:Skip the turn
-bouton.nom.30:Remove
-bouton.nom.31:Menu
+bouton.nom.20:move
+bouton.nom.21:hunt the insect on the box
+bouton.nom.22:lay
+bouton.nom.23:trophallax
+bouton.nom.24:clean yourself or an allied ant.
+bouton.nom.25:eat a seed
+bouton.nom.26:break a seed
+bouton.nom.27:hunt (auto mode)
+bouton.nom.28:caring for other Ant Ants (auto mode)
+bouton.nom.29:skip the turn
+bouton.nom.30:remove
+bouton.nom.31:menu
 
-bouton.desc.20:Move the selected ant
-bouton.desc.21:Hunt the insect who is on the same space as the ant
-bouton.desc.22:Lay an egg
-bouton.desc.23:Trophallax (pass food to another ant by mouth)
-bouton.desc.24:Clean up a friendly ant (or selected ant) on the current box.
-bouton.desc.25:Eat an open seed stored in the anthill.
-bouton.desc.26:Break a closed seed.
-bouton.desc.27:Activate the automatic Hunting mode
-bouton.desc.28:Activate automatic Nurse mode
-bouton.desc.29:Pass the ant turn
-bouton.desc.30:Remove the ant
-bouton.desc.31:Open in-game options menu
+bouton.desc.20:move the selected ant
+bouton.desc.21:hunt the insect who is on the same space as the ant
+bouton.desc.22:lay an egg
+bouton.desc.23:trophallax (pass food to another ant by mouth)
+bouton.desc.24:clean up a friendly ant (or selected ant) on the current box.
+bouton.desc.25:eat an open seed stored in the anthill.
+bouton.desc.26:break a closed seed.
+bouton.desc.27:activate the automatic Hunting mode
+bouton.desc.28:activate automatic Nurse mode
+bouton.desc.29:pass the ant turn
+bouton.desc.30:remove the ant
+bouton.desc.31:open in-game options menu
 
-pti.desc.1:Indicate the id of the ant that will receive the food.
-pti.desc.2:Indicate the amount of food offered.
-pti.desc.3:Indicate the type of egg to lay: 0 = Queen, 1 = Male, 2 = Minor, 3 = Medium, 4 = Major, 5 + = Other.[auto]
-pti.desc.4:Indicate the direction to follow.
-pti.desc.5:Indicate the id of the ant to be cleaned. The dirtiest ant is the ant in position 1.
+pti.desc.1:indicate the id of the ant that will receive the food.
+pti.desc.2:indicate the amount of food offered.
+pti.desc.3:indicate the type of egg to lay: 0 = Queen, 1 = Male, 2 = Minor, 3 = Medium, 4 = Major, 5 + = Other.[auto]
+pti.desc.4:indicate the direction to follow.
+pti.desc.5:indicate the id of the ant to be cleaned. The dirtiest ant is the ant in position 1.
+
+//cli
+doAntAction:do ant action
+selectAnt:select an ant
+endTurn:end turn
+endGame:end game
+pauseActionGame:pause action game
+unaviable:unaviable
+setPlayingAnt:select playing ant
 
 triche.aide.1:welcome to the Formiko cheat interface. This is where you can type cheat commands.
 triche.aide.2:commands in the form "name: (arguments) description"[auto]
@@ -383,37 +404,37 @@ cmd.args.22:insect id, food[auto]
 cmd.args.23:player id, username[auto]
 cmd.args.24:player id, boolean estIa[auto]
 cmd.args.25:int x, int y[auto]
-cmd.args.27:Ant or Insect or Seed, If insect: x, y, type If ant: id Ant Hill If seed: x, y.[auto]
+cmd.args.27:ant or Insect or Seed, If insect: x, y, type If ant: id Ant Hill If seed: x, y.[auto]
 cmd.args.28:creature id[auto]
-cmd.args.29:String key[auto]
+cmd.args.29:string key[auto]
 
 
 descNull:the description of this command is not defined.
 
 
 //conseil:
-conseil.1:Did you find a bug? Report it to the game developer at hydrolien.lili502@gmail.com.
-conseil.2:Want to participate in the development of the game? Coder, graphic designer and translator are welcome (hydrolien.lili502@gmail.com).
-conseil.3:No longer want to micromanage your ants? Use the 2 automatic modes that are able.
-conseil.4:Want to vary the style of play a bit? choose a species you haven't played with yet.
-conseil.5:Some species of ant are polymorphic. That is to say that they have workers of variable size in order to be able to carry out quite different tasks.
-conseil.6:Do not lay too many eggs at once. Otherwise you will no longer be able to take care of it until it becomes imagos.
-conseil.7:Ants go through 4 stages of development: egg, lava, nymph and imago (adult ant).[auto]
-conseil.8:The choices you have to make are indicated at the top left of your screen.
-conseil.9:Ants do not have an eyelid to moisten their eyes. They must constantly maintain a healthy lifestyle in order to communicate with their antenna and see with their eyes.
-conseil.10:The eggs, lava and nymph are not able to clean them on their own. They need help from an imago or they could be infected with a bad bacteria. make sure your brood stays above 50% cleanliness.
-conseil.11:The Queen can only lay eggs when she is in the anthill.
-conseil.12:The granivorous ants feed exclusively on seeds. To store their food they keeps the seeds in dry rooms of the anthill.
-conseil.13:The granivorous ants are not able to Trophalax. To feed the brood they must necessarily have seeds open in stock in the anthill.
-conseil.14:The speeds are expressed by insects. The faster the insect, the faster the game will be. The Ant speed corresponds to the standard speed.
-conseil.15:Does the game seem too complicated? Choose easy or very easy difficulty.
-conseil.16:Does the game seem too easy? So try to win an ultra hard game.
-conseil.17:If you prefer to explore the map on your own, check the cloudy option.
-conseil.18:Have you ever tried running a custom game with only AIs?
-conseil.19:If you look closely at the texture of the grass you might notice that it only contains 3 different blades of herbs.
-conseil.20:If there is only one ant to clean or feed on the space where your ant is, it will be automatically selected to be cleaned or fed.[auto]
-conseil.21:The game language is automatically that of your computer, but you can change it in the Options.[auto]
-conseil.22:Some species of ants are polycalic. That is to say that a queen from an anthill A, will lay new ants in her anthill B &amp; the ants A and B will continue to help each other as if she were only one large anthill. On a large map it is useful to lay queen and male eggs which can found new allied anthills at the other end of the map.[auto]
+conseil.1:did you find a bug? Report it to the game developer at hydrolien.lili502@gmail.com.
+conseil.2:want to participate in the development of the game? Coder, graphic designer and translator are welcome (hydrolien.lili502@gmail.com).
+conseil.3:no longer want to micromanage your ants? Use the 2 automatic modes that are able.
+conseil.4:want to vary the style of play a bit? choose a species you haven't played with yet.
+conseil.5:some species of ant are polymorphic. That is to say that they have workers of variable size in order to be able to carry out quite different tasks.
+conseil.6:do not lay too many eggs at once. Otherwise you will no longer be able to take care of it until it becomes imagos.
+conseil.7:ants go through 4 stages of development: egg, lava, nymph and imago (adult ant).[auto]
+conseil.8:the choices you have to make are indicated at the top left of your screen.
+conseil.9:ants do not have an eyelid to moisten their eyes. They must constantly maintain a healthy lifestyle in order to communicate with their antenna and see with their eyes.
+conseil.10:the eggs, lava and nymph are not able to clean them on their own. They need help from an imago or they could be infected with a bad bacteria. make sure your brood stays above 50% cleanliness.
+conseil.11:the Queen can only lay eggs when she is in the anthill.
+conseil.12:the granivorous ants feed exclusively on seeds. To store their food they keeps the seeds in dry rooms of the anthill.
+conseil.13:the granivorous ants are not able to Trophalax. To feed the brood they must necessarily have seeds open in stock in the anthill.
+conseil.14:the speeds are expressed by insects. The faster the insect, the faster the game will be. The Ant speed corresponds to the standard speed.
+conseil.15:does the game seem too complicated? Choose easy or very easy difficulty.
+conseil.16:does the game seem too easy? So try to win an ultra hard game.
+conseil.17:if you prefer to explore the map on your own, check the cloudy option.
+conseil.18:have you ever tried running a custom game with only AIs?
+conseil.19:if you look closely at the texture of the grass you might notice that it only contains 3 different blades of herbs.
+conseil.20:if there is only one ant to clean or feed on the space where your ant is, it will be automatically selected to be cleaned or fed.[auto]
+conseil.21:the game language is automatically that of your computer, but you can change it in the Options.[auto]
+conseil.22:some species of ants are polycalic. That is to say that a queen from an anthill A, will lay new ants in her anthill B &amp; the ants A and B will continue to help each other as if she were only one large anthill. On a large map it is useful to lay queen and male eggs which can found new allied anthills at the other end of the map.[auto]
 
 //message ---------------:
 //mort :
@@ -426,9 +447,9 @@ mort10:died facing the mandible of
 mort11:was sprayed with acid by
 
 //tuto :
-tuto.0:Welcome to Formiko young ant![auto]
-tuto.1:Let's learn the basics of this game together so you can have fun.[auto]
-tuto.2:Our queen is hungry, let's move it one square to the right so that she can hunt this prey.[auto]
+tuto.0:welcome to Formiko young ant![auto]
+tuto.1:let's learn the basics of this game together so you can have fun.[auto]
+tuto.2:our queen is hungry, let's move it one square to the right so that she can hunt this prey.[auto]
 tuto.3:to move an ant you must right click on the square you want to go.[auto]
 tuto.4:well ! Now let's eat it![auto]
 tuto.5:to kill an insect click on the button "Hunt the insect on the box" located at the bottom of your screen.[auto]
@@ -442,25 +463,25 @@ tuto.12:lay an egg with the "Lay" button at the bottom of your screen.[auto]
 tuto.13:the egg is laid. Now you have to take care of it, otherwise it will never reach adulthood.[auto]
 tuto.14:let's wait for him to grow up.[auto]
 tuto.15:wait for a turn by clicking on the "Skip the turn" button at the bottom of your screen.[auto]
-tuto.16:Our egg has grown! It is now a larva![auto]
-tuto.17:The larvae need frequent cleaning to avoid dying from disease.[auto]
-tuto.18:Clean the larva by clicking on the "Clean" button located at the bottom of your screen.[auto]
-tuto.19:Our larva is clean. Let’s wait for it to move up to the next level by passing the turn with the associated button at the bottom of your screen.[auto]
-tuto.20:The larva has evolved, it is now a nymph. The nymphs, like the larvae, need to be cleaned and fed.[auto]
-tuto.21:To feed the brood (the eggs, larvae and pupae), the ants regurgitate food from their "social stomach". This is called trophallaxis.[auto]
+tuto.16:our egg has grown! It is now a larva![auto]
+tuto.17:the larvae need frequent cleaning to avoid dying from disease.[auto]
+tuto.18:clean the larva by clicking on the "Clean" button located at the bottom of your screen.[auto]
+tuto.19:our larva is clean. Let’s wait for it to move up to the next level by passing the turn with the associated button at the bottom of your screen.[auto]
+tuto.20:the larva has evolved, it is now a nymph. The nymphs, like the larvae, need to be cleaned and fed.[auto]
+tuto.21:to feed the brood (the eggs, larvae and pupae), the ants regurgitate food from their "social stomach". This is called trophallaxis.[auto]
 tuto.22:feed the larva with the "Trophallaxis" button at the bottom of your screen.[auto]
-tuto.23:The nymph is full! Let's wait a little longer for her to grow up. (click on the "Skip the tour" button at the bottom of your screen.)[auto]
-tuto.24:The ant has finally reached the adult stage (imago)! She can now perform actions like the queen.[auto]
-tuto.25:Other insects will appear over time. Let's send the queen to kill 1 by clicking on the "auto-hunt" button.[auto]
-tuto.26:Automatic hunting allows you to let your ants hunt independently.[auto]
-tuto.27:There is also an automatic nanny mode. Leave the queen in the anthill with this mode activated and recommended when there are eggs, larvae or nymphs in the anthill.[auto]
-tuto.28:Our species is not granivorous (does not eat seed). However, some neighboring anthills could collect the seeds to eat them.[auto]
-tuto.29:The worker we have spawned can perform the same actions as the queen, except lay.[auto]
-tuto.30:Workers are even more efficient on certain tasks (it costs them less actions to perform them). Our worker hunts more easily than the queen.[auto]
-tuto.31:Let's give our worker a task to complete so that the round ends. (click on one of the buttons at the bottom of your screen, several times if necessary.)[auto]
-tuto.32:It was the last round of this tutorial, if you have any doubts you can redo this tutorial.[auto]
-tuto.33:Otherwise the button descriptions are displayed when you hover over them, ditto for the boxes on the map. Information about the selected ant is on the right of your screen.[auto]
-tuto.34:If despite this you do not find what you need you can seek advice on the game's official discord server: http://discord.gg/vqvfGzf[auto]
-tuto.35:To win a game on time you must have a higher score than AI and other players.[auto]
-tuto.36:Your score depends on your number of ants, (adult ants give a better score), as well as the difficulty of the game and the speed of the game.[auto]
-tuto.37:To restart a game, you have to quit the game and restart it, I'll take care of quitting the game, it's up to you to restart it.[auto]
+tuto.23:the nymph is full! Let's wait a little longer for her to grow up. (click on the "Skip the tour" button at the bottom of your screen.)[auto]
+tuto.24:the ant has finally reached the adult stage (imago)! She can now perform actions like the queen.[auto]
+tuto.25:other insects will appear over time. Let's send the queen to kill 1 by clicking on the "auto-hunt" button.[auto]
+tuto.26:automatic hunting allows you to let your ants hunt independently.[auto]
+tuto.27:there is also an automatic nanny mode. Leave the queen in the anthill with this mode activated and recommended when there are eggs, larvae or nymphs in the anthill.[auto]
+tuto.28:our species is not granivorous (does not eat seed). However, some neighboring anthills could collect the seeds to eat them.[auto]
+tuto.29:the worker we have spawned can perform the same actions as the queen, except lay.[auto]
+tuto.30:workers are even more efficient on certain tasks (it costs them less actions to perform them). Our worker hunts more easily than the queen.[auto]
+tuto.31:let's give our worker a task to complete so that the round ends. (click on one of the buttons at the bottom of your screen, several times if necessary.)[auto]
+tuto.32:it was the last round of this tutorial, if you have any doubts you can redo this tutorial.[auto]
+tuto.33:otherwise the button descriptions are displayed when you hover over them, ditto for the boxes on the map. Information about the selected ant is on the right of your screen.[auto]
+tuto.34:if despite this you do not find what you need you can seek advice on the game's official discord server: http://discord.gg/vqvfGzf[auto]
+tuto.35:to win a game on time you must have a higher score than AI and other players.[auto]
+tuto.36:your score depends on your number of ants, (adult ants give a better score), as well as the difficulty of the game and the speed of the game.[auto]
+tuto.37:to restart a game, you have to quit the game and restart it, I'll take care of quitting the game, it's up to you to restart it.[auto]

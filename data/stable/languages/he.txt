@@ -27,6 +27,9 @@ bientôt:בקרוב[auto]
 suivant:הבא[auto]
 avant:לפני[auto]
 
+set:
+where:
+
 laIA:אני[auto]
 laJoueurHumain:השחקן האנושי[auto]
 joueur:שחקן[auto]
@@ -111,7 +114,7 @@ dimentionCarteY:ממד אותיות ב- Y[auto]
 erreurCarteVide:בלתי אפשרי להתחיל משחק בלי שום שחקן ובלי שום איי.[auto]
 maxFourmiIa:מספר הנמלים המרבי עבור ai[auto]
 nomDuFichier:שם קובץ[auto]
-getNomDuFcihier:הזן את שם ערכת השמירה שברצונך לטעון: (או חזרה כדי לחזור)[auto]
+getFileName:הזן את שם ערכת השמירה שברצונך לטעון: (או חזרה כדי לחזור)[auto]
 dernierTourPassé:הסיבוב האחרון עבר עכשיו.[auto]
 victoireInconue:ניצחון לא ידוע[auto]
 élimination:חיסול[auto]
@@ -188,6 +191,15 @@ casesSombres:קופסאות כהות[auto]
 
 chargementFini:הסתיים הטעינה[auto]
 lancerLeJeu:מתחילים את המשחק[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]
@@ -275,6 +287,7 @@ erreur.14:זה ריק[auto]
 erreur.15:רשימה לא ידועה[auto]
 erreur.16:ניסיון ההפסקה נכשל (זמן הפסקה[auto]
 erreur.17:המרת סוג נכשלה עבור סוג[auto]
+alerteGUI2Dfail:
 
 str.1:לא ניתן לבצע את אחת ההמרות[auto]
 str.2:נכונה[auto]
@@ -313,7 +326,7 @@ bouton.desc.8:התקרב כך שכל התיבות נראות לעין[auto]
 bouton.nom.20:מהלך  לזוז  לעבור[auto]
 bouton.nom.21:צוד את החרק על הקופסה[auto]
 bouton.nom.22:לְהַנִיחַ[auto]
-bouton.nom.23:Trophallaxer[auto]
+bouton.nom.23:trophallaxer[auto]
 bouton.nom.24:התנקו או נקו נמלה של בעלות ברית.[auto]
 bouton.nom.25:לאכול זרע[auto]
 bouton.nom.26:לפצח זרע[auto]
@@ -326,7 +339,7 @@ bouton.nom.31:תַפרִיט[auto]
 bouton.desc.20:הזז את הנמלה שנבחרה[auto]
 bouton.desc.21:צוד את החרק שנמצא באותו כיכר כמו הנמלה[auto]
 bouton.desc.22:להטיל ביצה[auto]
-bouton.desc.23:Trophallaxer (להעביר אוכל לנמלה אחרת דרך הפה)[auto]
+bouton.desc.23:trophallaxer (להעביר אוכל לנמלה אחרת דרך הפה)[auto]
 bouton.desc.24:נקו נמלה ידידותית (או את הנמלה שנבחרה) בכיכר הנוכחית.[auto]
 bouton.desc.25:אכלו זרע פתוח המאוחסן בתוך הנמלה.[auto]
 bouton.desc.26:לשבור זרע סגור.[auto]
@@ -341,6 +354,15 @@ pti.desc.2:ציין את כמות האוכל המוצעת.[auto]
 pti.desc.3:ציין את סוג הביצה שתוטל: 0 = מלכה, 1 = זכר, 2 = קטין, 3 = בינוני, 4 = מייג'ור, 5 + = אחר.[auto]
 pti.desc.4:ציין את הכיוון לעקוב.[auto]
 pti.desc.5:ציין את מזהה הנמלה שיש לנקות. הנמלה הכי מלוכלכת היא הנמלה במצב 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:ברוכים הבאים לממשק הצ'אט של פורמיקו. כאן תוכלו להקליד פקודות צ'יט.[auto]
 triche.aide.2:פקודות בצורה "שם: (ארגומנטים) תיאור"[auto]

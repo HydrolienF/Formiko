@@ -1,6 +1,6 @@
 #**Options file**
 #Every values can be edit here but variable have specific type. For exemple instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that sould be in [0,100]. Most value sould be out of intervale save. But you may need to reset Options to default value by deleting this file if something goes wrong.
-#Thu Feb 25 12:47:12 CET 2021
+#Sun Feb 28 10:00:28 CET 2021
 autoCleaning=true
 borderButtonSize=2
 buttonSizeAction=1
@@ -9,6 +9,7 @@ buttonSizeZoom=0
 debug_alerte=true
 debug_error=true
 debug_gui=false
+debug_info=true
 debug_message=false
 debug_performance=false
 drawGrid=true
@@ -21,7 +22,7 @@ forceQuit=false
 fullscreen=true
 instantaneousMovement=true
 keepFilesRotated=true
-language=0
+language=1
 loadingDuringMenus=true
 maxMessageDisplay=10
 music=false

@@ -5,7 +5,6 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.CString;
 import fr.formiko.usuel.listes.GString;
 
 import java.awt.Dimension;
@@ -28,14 +27,12 @@ public class PanneauInfo extends Panneau {
     xPi=xD; yPi=yD*nbrDeDesc;
     this.setSize(xPi,yPi);
     debug.débogage(getSize()+"");
-    CString cs = gs.getDébut();
     gbc.gridx = 0; int k=0;
-    while (cs != null){
+    for (String s : gs ) {
       gbc.gridy = k;k++;
       Desc desc = new Desc(xD,yD);
-      desc.setTexte(cs.getContenu());
+      desc.setTexte(s);
       this.add(desc,gbc);
-      cs = cs.getSuivant();
     }
   }
   public PanneauInfo(GString gs){

@@ -79,7 +79,7 @@ public class CCreature implements Serializable{
       Creature cTest = ccTest.getContenu();
       Fourmi fTest = (Fourmi) cTest;
       if(fTest.getStade() == stade){
-        gcr.ajouter(cTest);
+        gcr.add(cTest);
       }
       ccTest = ccTest.getSuivant();
     }
@@ -92,7 +92,7 @@ public class CCreature implements Serializable{
       Creature cTest = ccTest.getContenu();
       Fourmi fTest = (Fourmi) cTest;
       if(fTest.getTypeF() == type){
-        gcr.ajouter(cTest);
+        gcr.add(cTest);
       }
       ccTest = ccTest.getSuivant();
     }
@@ -137,7 +137,7 @@ public class CCreature implements Serializable{
     CCreature ccTest = this;
     while(ccTest != null){
       if (c.getPheromone().equals(ccTest.getContenu().getPheromone(),différenceTolléré)){
-        gcr.ajouterFin(ccTest.getContenu());
+        gcr.addFin(ccTest.getContenu());
       }
       ccTest = ccTest.getSuivant();
     }
@@ -152,7 +152,7 @@ public class CCreature implements Serializable{
     CCreature ccTest = this;
     while(ccTest != null){
       if (ccTest.getContenu().getNourriture()<ccTest.getContenu().getNourritureMax()){
-        gcr.ajouterFin(ccTest.getContenu());
+        gcr.addFin(ccTest.getContenu());
       }
       ccTest = ccTest.getSuivant();
     }
@@ -167,7 +167,7 @@ public class CCreature implements Serializable{
     CCreature ccTest = this;
     while(ccTest != null){
       if (ccTest.getContenu().getProprete()<100){
-        gcr.ajouterFin(ccTest.getContenu());
+        gcr.addFin(ccTest.getContenu());
       }
       ccTest = ccTest.getSuivant();
     }
@@ -182,7 +182,7 @@ public class CCreature implements Serializable{
     CCreature ccTest = this;
     while(ccTest != null){
       if (ccTest.getContenu().wantFood()){
-        gcr.ajouterFin(ccTest.getContenu());
+        gcr.addFin(ccTest.getContenu());
       }
       ccTest = ccTest.getSuivant();
     }
@@ -197,7 +197,7 @@ public class CCreature implements Serializable{
     CCreature ccTest = this;
     while(ccTest != null){
       if (ccTest.getContenu().wantClean()){
-        gcr.ajouterFin(ccTest.getContenu());
+        gcr.addFin(ccTest.getContenu());
       }
       ccTest = ccTest.getSuivant();
     }
@@ -227,7 +227,7 @@ public class CCreature implements Serializable{
     CCreature cc = this;
     GCreature gcr = new GCreature();
     while(cc!=null){
-      gcr.ajouterFin(cc.getContenu());//on ajoute seulement le contenu a chaque fois.
+      gcr.addFin(cc.getContenu());//on ajoute seulement le contenu a chaque fois.
       cc=cc.getSuivant();
     }
     return gcr;
@@ -256,11 +256,10 @@ public class CCreature implements Serializable{
     afficheToi();
     if (suivant!=null){
       try {
-      suivant.afficheTout();
-    }catch (Exception e) {
-      System.out.println("impossible de retirer cet éléments pour cause de stack OverFlow");
-      erreur.erreur("","",true);
-    }
+        suivant.afficheTout();
+      }catch (Exception e) {
+        erreur.erreur("impossible de retirer cet éléments pour cause de stack OverFlow",true);
+      }
     }
   }
   public void afficheToutRéduit(){
@@ -280,7 +279,7 @@ public class CCreature implements Serializable{
       Fourmi fActuel = (Fourmi) contenu;
       fActuel.tour();
     }else{
-      erreur.erreur("Impossible de faire jouer comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.","CCreature.jouer");
+      erreur.erreur("Impossible de faire jouer comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.");
     }
     if(suivant != null){
       suivant.jouer();
@@ -295,7 +294,7 @@ public class CCreature implements Serializable{
       Fourmi fActuel = (Fourmi) contenu;
       fActuel.preTour();
     }else{
-      erreur.erreur("Impossible de faire preTour comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.","CCreature.preTour");
+      erreur.erreur("Impossible de faire preTour comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.");
     }
     if(suivant != null){
       suivant.preTour();
@@ -306,7 +305,7 @@ public class CCreature implements Serializable{
     if(contenu instanceof Fourmi){
       fActuel = (Fourmi) contenu;
     }else{
-      erreur.erreur("Impossible de faire jouer comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.","CCreature.jouer");
+      erreur.erreur("Impossible de faire jouer comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.");
     }
     if(fActuel!=null){fActuel.finTour();}
     if(suivant != null){
@@ -348,6 +347,10 @@ public class CCreature implements Serializable{
     }
     return tr;
   }
+  /**
+  *{@summary Transform a GCreature in List&lt;Creature&gt;.}
+  *@version 1.38
+  */
   public List<Creature> toList(){
     CCreature cc = this;
     List<Creature> lc = new List<Creature>();

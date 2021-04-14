@@ -28,7 +28,6 @@ import javax.swing.JScrollPane;
 public class PanneauJeu extends Panneau {
   private PanneauCarte pc;
   private PanneauBouton pb;
-  private Fourmi fActuelle;
   private PanneauChargement pch;
   private PanneauFinPartie pfp;
   private PanneauEchap pe;
@@ -40,16 +39,7 @@ public class PanneauJeu extends Panneau {
     setLayout(null);
   }
   // GET SET -------------------------------------------------------------------
-  public Fourmi getFActuelle(){ return fActuelle;}
-  public Joueur getJoueurActuel(){
-    if(fActuelle!=null){
-      return fActuelle.getFere().getJoueur();}
-    else if(Main.getPartie().getGj().getJoueurHumain().getDébut()!=null && Main.getPartie().getGj().getJoueurHumain().length()==1){
-      return Main.getPartie().getGj().getJoueurHumain().getDébut().getContenu();
-    }
-    return null;
-  }
-  public void setFActuelle(Fourmi f){fActuelle=f; Main.repaint();}
+  public void setFActuelle(Fourmi f){Main.getPartie().setPlayingAnt(f); Main.repaint();}
   public PanneauBouton getPb(){ return pb;}
   public PanneauCarte getPc(){ return pc;}
   public PanneauChargement getPch(){ return pch;}
@@ -105,20 +95,8 @@ public class PanneauJeu extends Panneau {
   }
   public void addPe(){
     pe=new PanneauEchap();
-    pe.setBounds(0,0,0,0);
+    //pe.setBounds(0,0,0,0);
     add(pe);
-  }
-  public void removePe(){
-    //TODO make setEnabled truly reactivate Bouton.
-    Main.getPz().setEnabled(true);
-    Main.getPc().setEnabled(true);
-    Main.getPa().setEnabled(true);
-    pe.setVisible(false);
-    pe.setTb(null);
-    ps.actualiserTaille();
-    revalidate();
-    Main.repaint();
-    Main.setJeuEnCours(true);
   }
   public void addPs(){
     ps=new PanneauSup();
@@ -170,66 +148,6 @@ public class PanneauJeu extends Panneau {
     if(x<taille){ return x;}
     return x/2-(taille);
   }*/
-  // ici sont synchronisées toutes les actions de jeux.
-  public void doAction(byte ac){
-    debug.débogage("action pj : "+ac);
-    try {
-      if(Main.getPe() == null || !Main.getPe().estContruit()){
-        if(ac < 9 && ac > -1){
-          actionZoom(ac);
-        }else if(ac>=20 && ac<=31){
-          if(fActuelle==null){
-            erreur.erreur("aucune fourmi n'est selectionné pour réaliser l'action voulue.");
-          }else{
-            debug.débogage("clic qui lance "+(ac-20));
-            getPb().setActionF(ac-20);
-          }
-          repaint();
-        }else if(ac==111){
-          Main.getPch().setLancer(true);
-        }else if(ac==112){//retour au menu
-          Main.setRetournerAuMenu(true);
-          //en suite on doit revenir quasiment a la void main.
-        }else if(ac==113){//retour au jeu
-          removePfp();
-          Main.getPartie().setContinuerLeJeu(true);
-          Main.repaint();
-        }else if(ac>=40){
-          pb.setChoixId(getPb().getPti().getBoutonX(ac-40));
-          getPb().remove(getPb().getPti());
-          pb.setPti(new PanneauTInt(null,pb));
-          repaint();
-        }
-      }else { // si seule les actions du PanneauEchap doivent etre prise en compte.
-        if(ac==-9){
-          Main.getScript().setCmdSuivante(true);
-        }else if(ac==-10){
-          String s = getSaveName();
-          sauvegarderUnePartie.sauvegarder(Main.getPartie(),s+".save");
-          pe.setVisible(false);
-        }else if(ac==-11){
-
-        }else if(ac==-12){
-
-        }else if(ac==-13){
-          retournerAuMenu();
-        }else if(ac==-14){
-          Main.getF().quit();
-        }else if(ac==-15){
-          pe.setVisible(false);
-        }
-      }
-    }catch (Exception e) {
-      erreur.erreur("L'action "+ac+" n'as pas fonctionnée","PanneauJeu.doAction");
-    }
-  }public void doAction(int ac){ doAction((byte) ac);}
-  public void retournerAuMenu(){
-    Main.setRetournerAuMenu(true);//ne prend effet dans la void main que lorsque le tour est fini.
-    try {
-      Main.getGj().setAction0AndEndTurn();//empèche une autre fourmi de jouer
-      setActionF(9);//empèche la fourmi actuel de jouer.
-    }catch (Exception e) {}
-  }
   public void centrerLaCarte(){
     GCase gc = Main.getGc();
     pc.setPosX(math.max(gc.getNbrX()/2 - nbrDeCaseAffichableX(),0));
@@ -256,15 +174,15 @@ public class PanneauJeu extends Panneau {
     if (Main.getPartie().getEnCours()){
       Main.getPc().actualiserSize();
       Main.getData().chargerImages();
-      Main.getData().iniMap();
+      Main.getData().iniBackgroundMapImage();
     }
   }
   public void centrerSurLaFourmi(){
-    if (fActuelle==null){erreur.alerte("Impossible de centrer sur une fourmi si aucune fourmi n'est selectionné."); return;}
+    if (Main.getPlayingAnt()==null){erreur.alerte("Impossible de centrer sur une fourmi si aucune fourmi n'est selectionné."); return;}
     int x = nbrDeCaseAffichableX();
     int y = nbrDeCaseAffichableY();
-    int posX = fActuelle.getX();
-    int posY = fActuelle.getX();
+    int posX = Main.getPlayingAnt().getX();
+    int posY = Main.getPlayingAnt().getX();
     pc.setPosX(posX + x/2);
     pc.setPosY(posY + y/2);
   }
@@ -299,29 +217,4 @@ public class PanneauJeu extends Panneau {
     jop1.showMessageDialog(null, s, s2, JOptionPane.INFORMATION_MESSAGE);
   }
   public void alerte(String s){ alerte(s,g.getM("information"));}
-  public String getSaveName(){
-    String s = "null";
-    JOptionPane d = new JOptionPane(g.get("sauvegarder"));
-    d.setMessageType(JOptionPane.QUESTION_MESSAGE);
-    //d.setInitialSelectionValue(Temps.getDatePourSauvegarde());
-    Object[] options = {g.get("ok")};
-    //d.title = g.get("sauvegarder");
-    String saveName = g.getM("sauvegarde")+" "+sauvegarderUnePartie.getSave().getIdS();//donne un identifiant unique au fichier.
-    try {
-      //saveName+="  "+Main.getGj().getDébut().getContenu().getPseudo();
-      saveName+="  "+Temps.getDatePourSauvegarde();
-    }catch (Exception e) {
-      erreur.alerte("Un nom de sauvegarde n'a pas pu être choisi.");
-    }
-    saveName = str.sToFileName(saveName);//le pseudo pourrai contenir des char interdits sur des fichiers.
-    s = d.showInputDialog(Main.getF(),g.get("save.message"),saveName);
-    s = str.sToFileName(s);
-    //s = d.showInputDialog(Main.getF(),g.get("save.message"),g.get("sauvegarder"),JOptionPane.QUESTION_MESSAGE);
-    Object o = g.get("save.message");
-    Object oNull = null;
-    //TODO s'arranger pour conserver ce qu'on a mais avoir 1 seul bouton g.get("ok") & on veut le titre et la valeur préremplie.
-    //javadoc showInputDialog(Component parentComponent, Object message, String title, int messageType, Icon icon, Object[] selectionValues, Object initialSelectionValue)
-    //s = d.showInputDialog(Main.getF(),o,g.get("sauvegarder"),JOptionPane.QUESTION_MESSAGE,new ImageIcon(),options,oNull);
-    return s;
-  }
 }

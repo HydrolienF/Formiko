@@ -10,14 +10,14 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
-*Save all important information about game as what's the id of save.
+*Save all importants informations about game as what's the id of save.
 *@author Hydrolien
 *@version 1.14
 */
 public class Save implements Serializable{
   private static final long serialVersionUID = 42l;
   private int idS;
-  private static File f = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+".save");
+  private static File f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderBin()+".save");
 
   // CONSTRUCTEUR ---------------------------------------------------------------
 
@@ -25,6 +25,10 @@ public class Save implements Serializable{
   public void addSave(){idS++;}
   public int getIdS(){return idS;}
   // Fonctions propre -----------------------------------------------------------
+  /**
+  *{@summary get save informations.}<br>
+  *@version 1.14
+  */
   public static Save getSave(){
     Save r;
     if(f.exists()){
@@ -41,21 +45,25 @@ public class Save implements Serializable{
     }
     return r;
   }
+  /**
+  *{@summary save idSave as .save in bin/.}<br>
+  *@version 1.14
+  */
   public void save(){
     try {
       if(!f.exists()){
         if(!f.createNewFile()){
-          erreur.erreur("le fichier n'as pas été créer","Save.save");
+          erreur.erreur("le fichier n'as pas été créer");
         }
       }
     }catch (Exception e) {
-      erreur.erreur("le fichier n'as pas été créer","Save.save");
+      erreur.erreur("le fichier n'as pas été créer");
     }
     try {
       ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f.getPath()+""));
       oos.writeObject(this);
     }catch (Exception e) {
-      erreur.erreur("le fichier n'as pas été rempli","Save.save");
+      erreur.erreur("le fichier n'as pas été rempli");
     }
   }
 }

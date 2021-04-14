@@ -27,6 +27,9 @@ bientôt:ໃນໄວໆນີ້[auto]
 suivant:ຕໍ່ໄປນີ້[auto]
 avant:ກ່ອນ[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:ຜູ້ນມະນຸດ[auto]
 joueur:ຜູ້​ຫຼິ້ນ[auto]
@@ -111,7 +114,7 @@ dimentionCarteY:ມິຕິຂອງຕົວອັກສອນໃນ Y[auto]
 erreurCarteVide:ເປັນໄປບໍ່ໄດ້ທີ່ຈະເລີ່ມຕົ້ນເກມໂດຍບໍ່ມີເຄື່ອງຫຼີ້ນໃດໆແລະບໍ່ມີຜູ້ໃດ.[auto]
 maxFourmiIa:ຈຳ ນວນມົດສູງສຸດ ສຳ ລັບ ai[auto]
 nomDuFichier:ຊື່​ເອ​ກະ​ສານ[auto]
-getNomDuFcihier:ໃສ່ຊື່ຂອງຊຸດບັນທຶກທີ່ທ່ານຕ້ອງການໂຫລດ: (ຫລືກັບໄປທາງຫຼັງ)[auto]
+getFileName:ໃສ່ຊື່ຂອງຊຸດບັນທຶກທີ່ທ່ານຕ້ອງການໂຫລດ: (ຫລືກັບໄປທາງຫຼັງ)[auto]
 dernierTourPassé:ຮອບສຸດທ້າຍໄດ້ຜ່ານໄປແລ້ວ.[auto]
 victoireInconue:ໄຊຊະນະທີ່ບໍ່ຮູ້ຈັກ[auto]
 élimination:ການລົບລ້າງ[auto]
@@ -124,7 +127,7 @@ celluleA:ຈຸລັງກ[auto]
 lien:link[auto]
 ChasseNull:ບໍ່ສາມາດລ່າສັດກັບສັດໄດ້[auto]
 CollecteNull:ບໍ່ສາມາດເກັບ ກຳ ກັບສິ່ງມີຊີວິດໄດ້[auto]
-CJoueur.1:The CJplayer ມີເຄື່ອງຫຼີ້ນ[auto]
+CJoueur.1:the CJplayer ມີເຄື່ອງຫຼີ້ນ[auto]
 CJoueur.2:ແລະ 1 ເຊື່ອມຕໍ່ກັບຜູ້ຫຼິ້ນ[auto]
 
 listeCreature:ບັນຊີສ້າງ[auto]
@@ -189,6 +192,15 @@ casesSombres:ກ່ອງມືດ[auto]
 chargementFini:ສຳ ເລັດການໂຫຼດ[auto]
 lancerLeJeu:ເລີ່ມເກມ[auto]
 
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
+
 //temps
 t.j:j[auto]
 t.h:ຮ[auto]
@@ -209,7 +221,7 @@ tempsEnJeux:ເວລາຫຼີ້ນທັງ ໝົດ[auto]
 os.0:Linux[]
 os.1:Windows[]
 os.2:Mac[]
-os.-1:OS ບໍ່ຖືກຮັບຮູ້[auto]
+os.-1:oS ບໍ່ຖືກຮັບຮູ້[auto]
 
 //carte :
 desert:ທະ​ເລ​ຊາຍ[auto]
@@ -248,9 +260,9 @@ decoderUnFichier.2:ບໍ່ແມ່ນຕົວເລກທັງ ໝົດ[au
 decoderUnFichier.3:ບໍ່ແມ່ນເຫຼົ້າ[auto]
 decoderUnFichier.4:ລັກສະນະ[auto]
 
-ent.1:String To int ການປ່ຽນແປງລົ້ມເຫລວ[auto]
+ent.1:string To int ການປ່ຽນແປງລົ້ມເຫລວ[auto]
 
-GString.1:GString ແມ່ນຫວ່າງເປົ່າ[auto]
+GString.1:gString ແມ່ນຫວ່າງເປົ່າ[auto]
 
 lireUnFichier.1:ສາຍໄດ້ຖືກພົບເຫັນຢູ່ໃນເອກະສານ[auto]
 
@@ -274,7 +286,8 @@ erreur.13:ບັນຊີລາຍຊື່[auto]
 erreur.14:ແມ່ນຫວ່າງເປົ່າ[auto]
 erreur.15:ບັນຊີລາຍຊື່ທີ່ບໍ່ຮູ້ຈັກ[auto]
 erreur.16:ຄວາມພະຍາຍາມພັກຜ່ອນລົ້ມເຫລວ (ເວລາພັກຜ່ອນ[auto]
-erreur.17:Type type ລົ້ມເຫລວ ສຳ ລັບປະເພດ[auto]
+erreur.17:type type ລົ້ມເຫລວ ສຳ ລັບປະເພດ[auto]
+alerteGUI2Dfail:
 
 str.1:ບໍ່ສາມາດປະຕິບັດການສົນທະນາໃດ ໜຶ່ງ ໄດ້[auto]
 str.2:ຢ່າງຖືກຕ້ອງ[auto]
@@ -313,7 +326,7 @@ bouton.desc.8:ຂະຫຍາຍໃຫຍ່ຂື້ນເພື່ອໃຫ້
 bouton.nom.20:ຍ້າຍ[auto]
 bouton.nom.21:ລ່າແມງໄມ້ໃສ່ກ່ອງ[auto]
 bouton.nom.22:ຈັດວາງ[auto]
-bouton.nom.23:Trophallaxer[auto]
+bouton.nom.23:trophallaxer[auto]
 bouton.nom.24:ເຮັດຄວາມສະອາດຕົວເອງຫລືລ້າງມົດທີ່ຜູກພັນ.[auto]
 bouton.nom.25:ກິນແນວພັນ[auto]
 bouton.nom.26:ແຕກເມັດ[auto]
@@ -326,7 +339,7 @@ bouton.nom.31:ເມນູ[auto]
 bouton.desc.20:ຍ້າຍມົດທີ່ທ່ານເລືອກ[auto]
 bouton.desc.21:ການລ່າສັດແມງໄມ້ທີ່ມີຢູ່ໃນຮຽບຮ້ອຍດຽວກັນກັບມົດ[auto]
 bouton.desc.22:ວາງໄຂ່[auto]
-bouton.desc.23:Trophallaxer (ສົ່ງອາຫານໄປທາງປາກອີກໂຕ ໜຶ່ງ)[auto]
+bouton.desc.23:trophallaxer (ສົ່ງອາຫານໄປທາງປາກອີກໂຕ ໜຶ່ງ)[auto]
 bouton.desc.24:ເຮັດຄວາມສະອາດມົດທີ່ເປັນມິດ (ຫຼືມົດທີ່ທ່ານເລືອກ) ຢູ່ຮຽບຮ້ອຍປະຈຸບັນ.[auto]
 bouton.desc.25:ກິນແນວພັນເປີດທີ່ເກັບໄວ້ໃນປອກພູ.[auto]
 bouton.desc.26:ແຍກເມັດປິດ.[auto]
@@ -341,6 +354,15 @@ pti.desc.2:ຊີ້ແຈງ ຈຳ ນວນອາຫານທີ່ສະ ໜ
 pti.desc.3:ຊີ້ບອກປະເພດໄຂ່ທີ່ວາງ: 0 = ພະລາຊິນີ, 1 = ຊາຍ, 2 = ນ້ອຍ, 3 = ຂະ ໜາດ ກາງ, 4 = ໃຫຍ່, 5 + = ອື່ນໆ.[auto]
 pti.desc.4:ຊີ້ບອກທິດທາງທີ່ຈະຕິດຕາມ.[auto]
 pti.desc.5:ຊີ້ບອກ id ຂອງມົດທີ່ຈະເຮັດຄວາມສະອາດ. ມົດທີ່ເປື້ອນທີ່ສຸດແມ່ນມົດຢູ່ໃນ ຕຳ ແໜ່ງ 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:ຍິນດີຕ້ອນຮັບສູ່ Interiko cheat interface. ນີ້ແມ່ນບ່ອນທີ່ທ່ານສາມາດພິມ ຄຳ ສັ່ງໂກງ.[auto]
 triche.aide.2:ຄຳ ສັ່ງໃນຮູບແບບ "ຊື່: (ການໂຕ້ຖຽງ) ຄຳ ອະທິບາຍ"[auto]

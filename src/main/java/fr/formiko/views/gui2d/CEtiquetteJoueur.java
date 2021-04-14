@@ -34,7 +34,7 @@ public class CEtiquetteJoueur {
       Joueur j = new Joueur(nbrDeFourmi,cej.getContenu().getIa(),mapo);
       j.setPseudo(cej.getContenu().getPseudo());
       j.setPheromone(cej.getContenu().getCouleur());
-      gj.ajouter(j);
+      gj.add(j);
       if(!cej.getContenu().getIa()){ // si c'est un joueur Humain.
         if (mapo.getCasesNuageuses() || mapo.getCasesSombres()){
           j.initialisationCaseNS();

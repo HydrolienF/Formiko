@@ -22,10 +22,10 @@ public class chargerLesTouches {
     }
     String t [] = new String[0];
     t=lireUnFichier.lireUnFichier(Main.getFolder().getFolderMain()+"Keys.txt");
-    if(!decoderUnFichier.getStringDeLaLigne(t[0]).equals(versionActuelle)){ erreur.erreur("Le fichier des touches n'est pas compatible avec la version "+versionActuelle,"chargerLesTouches.chargerLesTouches",true);return map;}
+    if(!decoderUnFichier.getStringDeLaLigne(t[0]).equals(versionActuelle)){ erreur.erreur("Le fichier des touches n'est pas compatible avec la version "+versionActuelle,true);return map;}
     int lent = t.length;
     for (int i=1; i<lent;i++) {
-      ajouterObjetMap(t[i]);
+      addObjetMap(t[i]);
     }
     return map;
   }
@@ -33,17 +33,17 @@ public class chargerLesTouches {
   public static void chargerLesTouchesDe0(String versionActuelle){
     //TODO #230
     GString gs = new GString();
-    gs.ajouter("version compatible:"+versionActuelle);
+    gs.add("version compatible:"+versionActuelle);
     ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderMain()+"Keys.txt");
   }
 
-  private static void ajouterObjetMap(String s){
+  private static void addObjetMap(String s){
     int lens = s.length(); if(lens<3 || (s.charAt(0) == '/' && s.charAt(1) == '/')){ return;}
     String ts [] = s.split(":");
-    if (ts.length<2){erreur.erreur("Il n'y a pas de ':' dans la String","chargerLesTouches.ajouterObjetMap");}
-    else if (ts.length>2){erreur.erreur("Il y a trop de ':' dans la String","chargerLesTouches.ajouterObjetMap");}
-    else if (ts[0].length()==0){ erreur.erreur("Il n'a pas suffisement de char pour former la clé.","chargerLesTouches.ajouterObjetMap");}
-    else if(ts[1].length()==0){ erreur.alerte("Una action n'as pas de touche associée","chargerLesTouches.ajouterObjetMap");map.put(ts[0],-1);}
+    if (ts.length<2){erreur.erreur("Il n'y a pas de ':' dans la String");}
+    else if (ts.length>2){erreur.erreur("Il y a trop de ':' dans la String");}
+    else if (ts[0].length()==0){ erreur.erreur("Il n'a pas suffisement de char pour former la clé.");}
+    else if(ts[1].length()==0){ erreur.alerte("Una action n'as pas de touche associée");map.put(ts[0],-1);}
     else{ // le cas ou tout marche bien :
       Integer c;
       try {

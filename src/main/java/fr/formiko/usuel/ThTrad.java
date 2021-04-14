@@ -17,9 +17,9 @@ public class ThTrad extends Thread{
   }
   @Override
   public void run(){
-    ajouterTradAuto();
+    addTradAuto();
   }
-  public void ajouterTradAuto(){
+  public void addTradAuto(){
     String sLangue=chargerLesTraductions.getLanguage(langue);
     System.out.println("Ajout de la langue : "+sLangue);
     GString gs = new GString();
@@ -54,7 +54,7 @@ public class ThTrad extends Thread{
       BufferedReader bfr = new BufferedReader(new InputStreamReader(pr.getInputStream()));
       s2 = bfr.readLine();
     }catch (Exception e) {
-      erreur.erreur("erreur de traduction","chargerLesTraductions.tradAuto");
+      erreur.erreur("transaltion fail");
     }
     return s2+"[auto]";
   }

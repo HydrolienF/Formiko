@@ -21,7 +21,6 @@ public class PanneauMenu extends Panneau {
   private BoutonLong b[];
   private byte menu;
   private boolean lancer = false;
-  private Partie pa;
   private PanneauNouvellePartie pnp;
   private PanneauChoixPartie pcp;
   // CONSTRUCTEUR ---------------------------------------------------------------
@@ -32,17 +31,22 @@ public class PanneauMenu extends Panneau {
   }
   // GET SET --------------------------------------------------------------------
   public byte getMenu(){return menu; }
-  public void setMenu(byte x){ menu=x;} public void setMenu(int x){ setMenu((byte)x);}
   public boolean getLancer(){ return lancer;}
   public void setLancer(boolean b){lancer=b;}
-  public Partie getPartie(){ return pa;}
-  public void setPartie(Partie p){pa=p;}
   public PanneauNouvellePartie getPnp(){return pnp;}
+  public PanneauChoixPartie getPcp(){return pcp;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics gra){
     //this.setSize(Main.getPp().getWidth(),Main.getPp().getHeight());
     //debug.débogage("La taille du PanneauMenu est : x="+this.getWidth()+", y="+this.getHeight());
   }
+  public void setMenu(byte x){
+    menu=x;
+    if(x==1){
+      b[0].setActionB(4);b[1].setActionB(5);b[2].setActionB(6);
+    }
+  }
+  public void setMenu(int x){ setMenu((byte)x);}
   public void actualiserText(){
     char c = 'P'; if(menu==1){c='N';}if(menu==2){c='M';}
     String s = " ("+g.get("bientôt")+")";
@@ -51,39 +55,6 @@ public class PanneauMenu extends Panneau {
     //if(c=='P'){b[1].setNom(g.get("menu"+c+".2")+s);}
     b[2].setNom(g.get("menu"+c+".3"));
     if(c=='P'){b[2].setNom(g.get("menu"+c+".3")+s);}
-  }
-  /**
-  *Launch an action on the PanneauMenu
-  *@version 1.14
-  */
-  public void doAction(int ac){//TODO passer dans une autre class Controleur ?
-    if(ac==0){
-
-    }else if(ac==1){
-      setMenu(1);repaint(); b[0].setActionB(4);b[1].setActionB(5);b[2].setActionB(6);
-      actualiserText();
-    }else if(ac==2){
-      addPcp();
-    }else if(ac==3){
-      erreur.erreurPasEncoreImplemente("PanneauMenu");
-    }else if(ac==4){
-      debug.débogage("lancementNouvellePartie");
-      //Main.lancementNouvellePartie();
-      lancer=true;
-    }else if(ac==5){
-      addPnp();
-    }else if(ac==6){
-      Main.setTuto(true);
-      lancer=true;
-    }else if(ac==100){
-      //Carte mapo = pnp.getCarte();
-      pa=pnp.getPartie();
-      lancer=true;
-    }else if(ac==101){
-      //Carte mapo = pnp.getCarte();
-      pa=pcp.getPartie();
-      lancer=true;
-    }
   }
   public void construitPanneauMenu(int nbrDeBouton){
     debug.débogage("construitPanneauMenu");

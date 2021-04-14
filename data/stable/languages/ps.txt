@@ -27,7 +27,10 @@ bientôt:ژر[auto]
 suivant:لاندې[auto]
 avant:مخکې[auto]
 
-laIA:L'IA[auto]
+set:
+where:
+
+laIA:l'IA[auto]
 laJoueurHumain:انساني لوبغاړی[auto]
 joueur:غږوونکی[auto]
 case:قضیه[auto]
@@ -111,7 +114,7 @@ dimentionCarteY:په Y کې د لیک اندازه[auto]
 erreurCarteVide:پرته له کوم لوبغاړي او پرته له الف څخه لوبه پیل کول ناممکن دي.[auto]
 maxFourmiIa:د Ai لپاره د میږیانو اعظمي شمیر[auto]
 nomDuFichier:د دوتنې نوم[auto]
-getNomDuFcihier:د خوندي کولو سیټ نوم دننه کړئ چې تاسو یې پورته کول غواړئ: (یا بیرته بیرته تلل)[auto]
+getFileName:د خوندي کولو سیټ نوم دننه کړئ چې تاسو یې پورته کول غواړئ: (یا بیرته بیرته تلل)[auto]
 dernierTourPassé:وروستی پړاو اوس تېر شوی.[auto]
 victoireInconue:نامعلومه بریا[auto]
 élimination:له منځه وړل[auto]
@@ -124,7 +127,7 @@ celluleA:حجره الف[auto]
 lien:لینک[auto]
 ChasseNull:د مخلوق سره ښکار نشی کولی[auto]
 CollecteNull:د مخلوق سره راټولولو توان نلري[auto]
-CJoueur.1:CJplayer لوبغاړی لري[auto]
+CJoueur.1:cJplayer لوبغاړی لري[auto]
 CJoueur.2:او پلیر ته 1 لینک[auto]
 
 listeCreature:د کور لیست[auto]
@@ -189,6 +192,15 @@ casesSombres:تیاره بکسونه[auto]
 chargementFini:بارول بشپړ شو[auto]
 lancerLeJeu:د لوبې پیل[auto]
 
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
+
 //temps
 t.j:ج[auto]
 t.h:h[auto]
@@ -209,7 +221,7 @@ tempsEnJeux:د لوبو ټول وخت[auto]
 os.0:Linux[]
 os.1:Windows[]
 os.2:Mac[]
-os.-1:OS ونه پیژندل شو[auto]
+os.-1:oS ونه پیژندل شو[auto]
 
 //carte :
 desert:صحرا[auto]
@@ -275,6 +287,7 @@ erreur.14:تش ده[auto]
 erreur.15:نامعلوم لیست[auto]
 erreur.16:د ماتولو هڅه ناکامه شوه (د وخت وقفه[auto]
 erreur.17:د ډول بدلول د ډول لپاره ناکام شو[auto]
+alerteGUI2Dfail:
 
 str.1:د یو بدلون نه ترسره کولو توان نلري[auto]
 str.2:په سمه توګه[auto]
@@ -341,6 +354,15 @@ pti.desc.2:د وړاندیز شوي خواړو مقدار په ګوته کړئ.[
 pti.desc.3:د هګۍ ډول د ایښودو څرنګوالی په ګوته کړئ: 0 = ملکه ، 1 = نر ، 2 = کوچنی ، 3 = منځني ، 4 = لوی ، 5 + = نور.[auto]
 pti.desc.4:لارښوونې تعقیب کړئ.[auto]
 pti.desc.5:د میږې شناخت پاک کړئ. ترټولو ستره وږمه یې په یوه ځای کې د وږی په حیث ده.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:د فارمیکو چیټ انٹرفیس ته ښه راغلاست. دا هغه ځای دی چیرې چې تاسو کولی شئ د چیټ کمانډونه ټایپ کړئ.[auto]
 triche.aide.2:په فورمه کې حکمونه "نوم: (دلیلونه) توضیحات"[auto]

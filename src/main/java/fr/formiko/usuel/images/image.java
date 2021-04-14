@@ -95,7 +95,7 @@ public class image{
     // si le .png ou .jpg etc n'as pas été précisé, on teste les 2 terminaison (.png d'habord).
     if(str.contient(nom,".png",2) || str.contient(nom,".jpg",2)){//si on a déja un .png ou un .jpd a la fin du nom.
       imgr = readImage(new File(repTemp+nom));
-    }else{//sinon il nous faut ajouter l'un ou l'autre.
+    }else{//sinon il nous faut add l'un ou l'autre.
       String nomTemp = nom + ".png";
       File f = new File(repTemp+nomTemp);
       if(f.exists()){

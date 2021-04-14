@@ -29,7 +29,7 @@ public class TrophallaxieFourmiTest extends TestCaseMuet{
     Main.setPartie(new Partie(1,1,mapo,1.0));
     Joueur j = new Joueur(1,true,mapo);
     GJoueur gj = new GJoueur();
-    gj.ajouter(j);
+    gj.add(j);
     Main.getPartie().setGj(gj);
 
     Fourmiliere fere = j.getFere();
@@ -64,7 +64,7 @@ public class TrophallaxieFourmiTest extends TestCaseMuet{
     Insecte i1 = new Insecte();
     i1.setNourriture(0);
     i1.setPheromone(new Pheromone(-100,10,30));
-    //gi.ajouter(i1);
+    //gi.add(i1);
     t = f.getAlliéSurLaCaseSansThis().toTId();
     r = f.trophallaxie.getCreatureQuiOnFaim(t,f);
     assertEquals(2,r.length);
@@ -72,7 +72,7 @@ public class TrophallaxieFourmiTest extends TestCaseMuet{
     Insecte i2 = new Insecte();
     i2.setNourriture(0);
     i2.setPheromone(new Pheromone(0,0,0));
-    //gi.ajouter(i2);
+    //gi.add(i2);
     t = f.getAlliéSurLaCaseSansThis().toTId();
     r = f.trophallaxie.getCreatureQuiOnFaim(t,f);
     assertEquals(3,r.length);

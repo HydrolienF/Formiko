@@ -1,22 +1,26 @@
 package fr.formiko.views.gui2d;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
 import fr.formiko.views.gui2d.*;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import java.awt.Color;
+
 import java.awt.BorderLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Toolkit;
-import javax.swing.JScrollPane;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import javax.swing.SwingUtilities;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-import fr.formiko.formiko.Touches;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
 
 public class Fenetre extends JFrame {
   private PanneauPrincipal pp;
@@ -48,7 +52,6 @@ public class Fenetre extends JFrame {
     SwingUtilities.invokeLater(r);
     pp = new PanneauPrincipal();
     this.setContentPane(pp);
-    addKeyListener(new Touches());
     this.setResizable(true); //On permet ou pas le redimensionnement
     this.setVisible(true); // visible
     debug.g("Fenetre",xMax,yMax);
@@ -89,7 +92,7 @@ public class Fenetre extends JFrame {
         Main.quitter();
       }//sinon rien.
     }catch (Exception e2) {
-      erreur.erreur("La fermeture normale n'as pas fonctionné","Fenetre.setBoutonFermer");
+      erreur.erreur("La fermeture normale n'as pas fonctionné");
       Main.quitter();
     }
   }

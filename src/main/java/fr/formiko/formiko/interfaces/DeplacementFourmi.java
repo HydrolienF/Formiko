@@ -29,7 +29,9 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     if (bIa) {
       unMouvementAlléa();
     } else { // SI c'est un joueur
-      //unMouvementJoueurHumain();
+      CCase cc = Main.getView().getCCase();
+      if(cc==null){return;}
+      plusieurMouvement(c,cc);
     }
   }
   /**

@@ -18,14 +18,14 @@ public class GCase implements Serializable{
   public CCase actuelle;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public GCase(int horizontale, int verticale){
-    if(horizontale < 0 || verticale < 0){ erreur.erreur("Impossible de créer une carte si petite","GCase.GCase","la carte la plus petite possible a été créée."); horizontale = 1; verticale = 1;}
+    if(horizontale < 0 || verticale < 0){ erreur.erreur("Impossible de créer une carte si petite","la carte la plus petite possible a été créée."); horizontale = 1; verticale = 1;}
 
     début = new CCase(new Case(0,0));
-    ajouterDroite(horizontale-1, début);
+    addDroite(horizontale-1, début);
     int d = 1; CCase début2;
     while (d < verticale){
       début2 = new CCase(new Case(0,d)); d++;
-      ajouterDroite(horizontale-1, début2);
+      addDroite(horizontale-1, début2);
       fusionnnerLigne(début2);
     }
   }
@@ -38,7 +38,7 @@ public class GCase implements Serializable{
   public String getDim(){ return getWidth()+";"+getHeight();}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
-    if (début==null){erreur.erreur("La carte est vide","Gcase.afficheToi");return "";}
+    if (début==null){erreur.erreur("La carte est vide");return "";}
     return début.toString();
   }
   public CCase getCCase(int x, int y){
@@ -99,15 +99,7 @@ public class GCase implements Serializable{
     ie.actualiserImage();
     return ie;
   }
-  public void afficheCarte(){
-    if (début==null){
-      erreur.erreur("La carte est vide","Gcase.afficheCarte");
-    }else{
-      début.afficheCarteTout(1);
-      début.affLégende();
-    }
-  }
-  public void ajouterDroite(int x, CCase débutDeLaLigne){
+  public void addDroite(int x, CCase débutDeLaLigne){
     debug.débogage("Création d'une ligne");
     int k = 1; CCase temp; actuelle = débutDeLaLigne;
     while (x>0){
@@ -134,13 +126,13 @@ public class GCase implements Serializable{
   }
   public void tourCases(){
     if (début==null){
-      erreur.erreur("La carte est vide","Gcase.tourCases");
+      erreur.erreur("La carte est vide");
     }else{
       début.tourCases();
     }
   }
-  public void ajouter(Case c){
+  public void add(Case c){
     if (début==null){début = new CCase(c);return;}
-    début.ajouter(c);
+    début.add(c);
   }
 }

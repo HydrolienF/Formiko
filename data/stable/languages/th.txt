@@ -27,6 +27,9 @@ bientôt:เร็ว ๆ นี้[auto]
 suivant:กำลังติดตาม[auto]
 avant:ก่อน[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:ผู้เล่นที่เป็นมนุษย์[auto]
 joueur:ผู้เล่น[auto]
@@ -111,7 +114,7 @@ dimentionCarteY:มิติตัวอักษรใน Y[auto]
 erreurCarteVide:เป็นไปไม่ได้ที่จะเริ่มเกมโดยไม่มีผู้เล่นและไม่มี ai[auto]
 maxFourmiIa:จำนวนมดสูงสุดสำหรับ ai[auto]
 nomDuFichier:ชื่อไฟล์[auto]
-getNomDuFcihier:ป้อนชื่อชุดบันทึกที่คุณต้องการโหลด: (หรือย้อนกลับเพื่อย้อนกลับ)[auto]
+getFileName:ป้อนชื่อชุดบันทึกที่คุณต้องการโหลด: (หรือย้อนกลับเพื่อย้อนกลับ)[auto]
 dernierTourPassé:รอบที่แล้วผ่านไปแล้ว[auto]
 victoireInconue:ชัยชนะที่ไม่รู้จัก[auto]
 élimination:การกำจัด[auto]
@@ -124,7 +127,7 @@ celluleA:เซลล์ก[auto]
 lien:ลิงค์[auto]
 ChasseNull:ไม่สามารถล่าสัตว์ได้[auto]
 CollecteNull:ไม่สามารถรวบรวมกับสิ่งมีชีวิต[auto]
-CJoueur.1:CJplayer มีเครื่องเล่น[auto]
+CJoueur.1:cJplayer มีเครื่องเล่น[auto]
 CJoueur.2:และ 1 ลิงค์ไปยังผู้เล่น[auto]
 
 listeCreature:รายชื่อสิ่งมีชีวิต[auto]
@@ -168,7 +171,7 @@ I3:เพลี้ยเขียว[auto]
 I4:แอสทิคอต[auto]
 I5:ไปทาง[auto]
 I6:ริ้น[auto]
-I7:Chenille[auto]
+I7:chenille[auto]
 I8:woodlouse[auto]
 I9:มด[auto]
 
@@ -188,6 +191,15 @@ casesSombres:กล่องสีเข้ม[auto]
 
 chargementFini:โหลดเสร็จแล้ว[auto]
 lancerLeJeu:เริ่มเกม[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:ญ[auto]
@@ -250,7 +262,7 @@ decoderUnFichier.4:บทบาท[auto]
 
 ent.1:การแปลงสตริงเป็น int ล้มเหลว[auto]
 
-GString.1:GString ว่างเปล่า[auto]
+GString.1:gString ว่างเปล่า[auto]
 
 lireUnFichier.1:พบบรรทัดในไฟล์[auto]
 
@@ -275,6 +287,7 @@ erreur.14:มันว่างเปล่า[auto]
 erreur.15:รายการที่ไม่รู้จัก[auto]
 erreur.16:ความพยายามหยุดพักล้มเหลว (เวลาพัก[auto]
 erreur.17:ประเภทการแปลงล้มเหลวสำหรับประเภท[auto]
+alerteGUI2Dfail:
 
 str.1:ไม่สามารถทำการแปลงอย่างใดอย่างหนึ่งได้[auto]
 str.2:ถูกต้อง[auto]
@@ -295,7 +308,7 @@ bouton.nom.-10:บันทึก[auto]
 bouton.nom.-11:ตัวเลือก[auto]
 bouton.nom.-12:เครื่องชาร์จ[auto]
 bouton.nom.-13:กลับไปที่เมนูหลัก[auto]
-bouton.nom.-14:Quitter Ant[auto]
+bouton.nom.-14:quitter Ant[auto]
 bouton.nom.-15:กลับไปเล่น[auto]
 
 save.message:ป้อนชื่อเพื่อให้ข้อมูลสำรองของคุณ[auto]
@@ -313,7 +326,7 @@ bouton.desc.8:ซูมเข้าเพื่อให้มองเห็น
 bouton.nom.20:ย้าย[auto]
 bouton.nom.21:ล่าแมลงบนกล่อง[auto]
 bouton.nom.22:เลย์[auto]
-bouton.nom.23:Trophallaxer[auto]
+bouton.nom.23:trophallaxer[auto]
 bouton.nom.24:ล้างตัวเองหรือล้างมดพันธมิตร[auto]
 bouton.nom.25:กินเมล็ด[auto]
 bouton.nom.26:แตกเมล็ด[auto]
@@ -326,7 +339,7 @@ bouton.nom.31:เมนู[auto]
 bouton.desc.20:ย้ายมดที่เลือก[auto]
 bouton.desc.21:ล่าแมลงที่มีอยู่ในสี่เหลี่ยมเดียวกับมด[auto]
 bouton.desc.22:วางไข่[auto]
-bouton.desc.23:Trophallaxer (ส่งอาหารให้มดตัวอื่นทางปาก)[auto]
+bouton.desc.23:trophallaxer (ส่งอาหารให้มดตัวอื่นทางปาก)[auto]
 bouton.desc.24:ทำความสะอาดมดที่เป็นมิตร (หรือมดที่เลือก) บนสี่เหลี่ยมปัจจุบัน[auto]
 bouton.desc.25:กินเมล็ดพืชเปิดที่เก็บไว้ในจอมปลวก[auto]
 bouton.desc.26:ทำลายเมล็ดปิด[auto]
@@ -341,6 +354,15 @@ pti.desc.2:ระบุปริมาณอาหารที่ให้[auto]
 pti.desc.3:ระบุประเภทของไข่ที่จะวาง: 0 = Queen, 1 = Male, 2 = Minor, 3 = Medium, 4 = Major, 5 + = Other[auto]
 pti.desc.4:ระบุทิศทางที่จะปฏิบัติตาม[auto]
 pti.desc.5:ระบุรหัสของมดที่จะทำความสะอาด มดที่สกปรกที่สุดคือมดในตำแหน่งที่ 1[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:ยินดีต้อนรับสู่อินเทอร์เฟซการโกง Formiko นี่คือที่ที่คุณสามารถพิมพ์คำสั่ง cheat[auto]
 triche.aide.2:คำสั่งในรูปแบบ "name: (arguments) description"[auto]

@@ -27,6 +27,9 @@ bientôt:هكذا[auto]
 suivant:التالية[auto]
 avant:قبل[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:اللاعب البشري[auto]
 joueur:لاعب[auto]
@@ -111,7 +114,7 @@ dimentionCarteY:البعد الحرف في Y[auto]
 erreurCarteVide:من المستحيل أن تبدأ لعبة بدون أي لاعب وبدون أي ذكاء اصطناعي.[auto]
 maxFourmiIa:أقصى عدد من النمل للذكاء الاصطناعي[auto]
 nomDuFichier:اسم الملف[auto]
-getNomDuFcihier:أدخل اسم مجموعة الحفظ التي تريد تحميلها: (أو الرجوع للرجوع)[auto]
+getFileName:أدخل اسم مجموعة الحفظ التي تريد تحميلها: (أو الرجوع للرجوع)[auto]
 dernierTourPassé:لقد مرت الجولة الأخيرة الآن.[auto]
 victoireInconue:انتصار غير معروف[auto]
 élimination:إزالة[auto]
@@ -188,6 +191,15 @@ casesSombres:الصناديق المظلمة[auto]
 
 chargementFini:انتهى التحميل[auto]
 lancerLeJeu:بدء اللعبة[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:ي[auto]
@@ -275,6 +287,7 @@ erreur.14:فارغ[auto]
 erreur.15:قائمة غير معروفة[auto]
 erreur.16:فشلت محاولة الكسر (وقت الاستراحة[auto]
 erreur.17:فشل تحويل النوع للنوع[auto]
+alerteGUI2Dfail:
 
 str.1:تعذر إجراء إحدى التحويلات[auto]
 str.2:بشكل صحيح[auto]
@@ -326,7 +339,7 @@ bouton.nom.31:قائمة طعام[auto]
 bouton.desc.20:حرك النملة المختارة[auto]
 bouton.desc.21:اصطياد الحشرة الموجودة في نفس المربع مثل النملة[auto]
 bouton.desc.22:وضع بيضة[auto]
-bouton.desc.23:Trophallaxer (ينقل الطعام إلى نملة أخرى عن طريق الفم)[auto]
+bouton.desc.23:trophallaxer (ينقل الطعام إلى نملة أخرى عن طريق الفم)[auto]
 bouton.desc.24:نظف نملة صديقة (أو نملة مختارة) في الساحة الحالية.[auto]
 bouton.desc.25:تناول بذرة مفتوحة مخزنة في عش النمل.[auto]
 bouton.desc.26:كسر بذرة مغلقة.[auto]
@@ -341,6 +354,15 @@ pti.desc.2:حدد كمية الطعام المقدمة.[auto]
 pti.desc.3:حدد نوع البيض المراد وضعه: 0 = ملكة ، 1 = ذكر ، 2 = ثانوية ، 3 = متوسطة ، 4 = رئيسي ، 5 + = أخرى.[auto]
 pti.desc.4:حدد الاتجاه الذي يجب اتباعه.[auto]
 pti.desc.5:حدد معرف النملة المراد تنظيفها. أقذر نملة هي النملة في الموضع 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:مرحبًا بك في واجهة Formiko للغش. هذا هو المكان الذي يمكنك فيه كتابة أوامر الغش.[auto]
 triche.aide.2:أوامر في النموذج "الاسم: (الوسائط) الوصف"[auto]

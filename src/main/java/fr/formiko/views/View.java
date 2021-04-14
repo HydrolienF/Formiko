@@ -91,4 +91,10 @@ public interface View {
   *@version 1.33
   */
   int getAntChoice(int t[]);
+  /***
+  *{@summary Return the chosen CCase.}<br>
+  *It is used to move ant.
+  *@version 1.39
+  */
+  CCase getCCase();
 }

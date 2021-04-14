@@ -27,6 +27,9 @@ bientôt:শীঘ্রই[auto]
 suivant:নিম্নলিখিত[auto]
 avant:আগে[auto]
 
+set:
+where:
+
 laIA:এল'আইএ[auto]
 laJoueurHumain:মানব খেলোয়াড়[auto]
 joueur:প্লেয়ার[auto]
@@ -107,11 +110,11 @@ nbrDeJoueur:মানব খেলোয়াড়ের সংখ্যা[au
 nbrDIa:নাম ডি'আইএ[auto]
 nbrDeTour:পালা পরিবর্তন সংখ্যা[auto]
 dimentionCarteX:এক্স কার্ডের মাত্রা[auto]
-dimentionCarteY:Y এর মধ্যে অক্ষরের মাত্রা[auto]
+dimentionCarteY:y এর মধ্যে অক্ষরের মাত্রা[auto]
 erreurCarteVide:কোনও খেলোয়াড় ছাড়া এবং কোনও আইআই ছাড়াই গেম শুরু করা অসম্ভব।[auto]
 maxFourmiIa:আইয়ের জন্য পিঁপড়ার সর্বাধিক সংখ্যা[auto]
 nomDuFichier:ফাইলের নাম[auto]
-getNomDuFcihier:আপনি যে লোভ করতে চান সেভের নামটি প্রবেশ করান: (বা ফিরে যেতে ফিরে)[auto]
+getFileName:আপনি যে লোভ করতে চান সেভের নামটি প্রবেশ করান: (বা ফিরে যেতে ফিরে)[auto]
 dernierTourPassé:শেষ দফায় এখন কেটে গেছে।[auto]
 victoireInconue:অজানা জয়[auto]
 élimination:নির্মূল[auto]
@@ -188,6 +191,15 @@ casesSombres:অন্ধকার বাক্স[auto]
 
 chargementFini:লোড শেষ হয়েছে[auto]
 lancerLeJeu:খেলা শুরু হচ্ছে[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:j[auto]
@@ -275,6 +287,7 @@ erreur.14:খালি[auto]
 erreur.15:অজানা তালিকা[auto]
 erreur.16:বিরতি প্রচেষ্টা ব্যর্থ হয়েছে (বিরতি সময়)[auto]
 erreur.17:প্রকারের জন্য রূপান্তর ব্যর্থ হয়েছে[auto]
+alerteGUI2Dfail:
 
 str.1:কোনও একটি রূপান্তর সম্পাদন করতে অক্ষম[auto]
 str.2:সঠিকভাবে[auto]
@@ -341,6 +354,15 @@ pti.desc.2:দেওয়া খাবারের পরিমাণটি ই
 pti.desc.3:ডিম দেওয়ার ধরণের ইঙ্গিত করুন: 0 = রানী, 1 = পুরুষ, 2 = নাবালিকা, 3 = মাঝারি, 4 = মেজর, 5 + = অন্যান্য।[auto]
 pti.desc.4:নির্দেশ অনুসরণ করুন।[auto]
 pti.desc.5:পরিষ্কার করার জন্য পিঁপড়ার আইডি ইঙ্গিত করুন। ডিরিস্টেস্ট পিপীলিকা হ'ল পিপড়া 1 নম্বরে।[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:ফর্মিকো চিট ইন্টারফেসে স্বাগতম। এটিই আপনি চিট আদেশগুলি টাইপ করতে পারেন।[auto]
 triche.aide.2:"নাম: (আর্গুমেন্ট) বিবরণ" আকারে আদেশগুলি[auto]

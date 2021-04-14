@@ -27,6 +27,9 @@ bientôt:ଶୀଘ୍ର[auto]
 suivant:ନିମ୍ନଲିଖିତ[auto]
 avant:ପୂର୍ବରୁ[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:ମାନବ ଖେଳାଳୀ |[auto]
 joueur:ପ୍ଲେୟାର[auto]
@@ -106,12 +109,12 @@ toutLesJoueurHumainsEliminés:ସମସ୍ତ ମାନବ ଖେଳାଳିଙ
 nbrDeJoueur:ମାନବ ଖେଳାଳିଙ୍କ ସଂଖ୍ୟା[auto]
 nbrDIa:ନାମ d'Ia[auto]
 nbrDeTour:ଟର୍ନର ସଂଖ୍ୟା[auto]
-dimentionCarteX:X ରେ କାର୍ଡର ପରିମାପ |[auto]
-dimentionCarteY:Y ରେ ଅକ୍ଷର ଆକାର[auto]
+dimentionCarteX:x ରେ କାର୍ଡର ପରିମାପ |[auto]
+dimentionCarteY:y ରେ ଅକ୍ଷର ଆକାର[auto]
 erreurCarteVide:କ player ଣସି ଖେଳାଳି ବିନା ଏବଂ କ a ଣସି ଆଇ ବିନା ଖେଳ ଆରମ୍ଭ କରିବା ଅସମ୍ଭବ |[auto]
 maxFourmiIa:ai ପାଇଁ ସର୍ବାଧିକ ସଂଖ୍ୟକ ପିମ୍ପୁଡ଼ି |[auto]
 nomDuFichier:ଦସ୍ତାବିଜ୍ ର ନାମ[auto]
-getNomDuFcihier:ଆପଣ ଲୋଡ୍ କରିବାକୁ ଚାହୁଁଥିବା ସେଭ୍ ସେଟ୍ ର ନାମ ପ୍ରବେଶ କରନ୍ତୁ: (କିମ୍ବା ପଛକୁ ଯିବାକୁ)[auto]
+getFileName:ଆପଣ ଲୋଡ୍ କରିବାକୁ ଚାହୁଁଥିବା ସେଭ୍ ସେଟ୍ ର ନାମ ପ୍ରବେଶ କରନ୍ତୁ: (କିମ୍ବା ପଛକୁ ଯିବାକୁ)[auto]
 dernierTourPassé:ଶେଷ ରାଉଣ୍ଡ ବର୍ତ୍ତମାନ ଅତିକ୍ରମ କରିଛି |[auto]
 victoireInconue:ଅଜ୍ଞାତ ବିଜୟ |[auto]
 élimination:ବିଲୋପ[auto]
@@ -124,7 +127,7 @@ celluleA:କକ୍ଷ a[auto]
 lien:ଲିଙ୍କ୍[auto]
 ChasseNull:ପ୍ରାଣୀ ସହିତ ଶିକାର କରିପାରିବ ନାହିଁ |[auto]
 CollecteNull:ପ୍ରାଣୀ ସହିତ ସଂଗ୍ରହ କରିବାକୁ ଅସମର୍ଥ |[auto]
-CJoueur.1:CJplayer ପ୍ଲେୟାର୍ ଧାରଣ କରେ |[auto]
+CJoueur.1:cJplayer ପ୍ଲେୟାର୍ ଧାରଣ କରେ |[auto]
 CJoueur.2:ଏବଂ ପ୍ଲେୟାର୍ ସହିତ 1 ଲିଙ୍କ୍ |[auto]
 
 listeCreature:ସୃଷ୍ଟି ତାଲିକା |[auto]
@@ -189,6 +192,15 @@ casesSombres:ଗା dark ଼ ବାକ୍ସଗୁଡ଼ିକ |[auto]
 chargementFini:ଲୋଡିଂ ସମାପ୍ତ[auto]
 lancerLeJeu:ଖେଳ ଆରମ୍ଭ[auto]
 
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
+
 //temps
 t.j:j[auto]
 t.h:ଘ[auto]
@@ -209,7 +221,7 @@ tempsEnJeux:ସମୁଦାୟ ଖେଳିବା ସମୟ |[auto]
 os.0:Linux[]
 os.1:Windows[]
 os.2:Mac[]
-os.-1:OS ଚିହ୍ନିତ ନୁହେଁ |[auto]
+os.-1:oS ଚିହ୍ନିତ ନୁହେଁ |[auto]
 
 //carte :
 desert:ମରୁଭୂମି[auto]
@@ -250,7 +262,7 @@ decoderUnFichier.4:ଚରିତ୍ର[auto]
 
 ent.1:ଷ୍ଟ୍ରିଙ୍ଗ୍ ଟୁ int ରୂପାନ୍ତର ବିଫଳ ହେଲା |[auto]
 
-GString.1:GString ଖାଲି ଅଛି |[auto]
+GString.1:gString ଖାଲି ଅଛି |[auto]
 
 lireUnFichier.1:ଫାଇଲଗୁଡ଼ିକରେ ରେଖା ମିଳିଲା |[auto]
 
@@ -275,11 +287,12 @@ erreur.14:ଖାଲି ଅଛି |[auto]
 erreur.15:ଅଜ୍ଞାତ ତାଲିକା |[auto]
 erreur.16:ବ୍ରେକ୍ ପ୍ରୟାସ ବିଫଳ ହେଲା (ବ୍ରେକ୍ ଟାଇମ୍) |[auto]
 erreur.17:ଟାଇପ୍ ପାଇଁ ରୂପାନ୍ତର ବିଫଳ ହେଲା |[auto]
+alerteGUI2Dfail:
 
 str.1:ଗୋଟିଏ ରୂପାନ୍ତର କରିବାକୁ ଅସମର୍ଥ |[auto]
 str.2:ସଠିକ୍ ଭାବରେ |[auto]
 
-ElementListeIntrouvableExeption.1:The[auto]
+ElementListeIntrouvableExeption.1:the[auto]
 ElementListeIntrouvableExeption.2:ଅପସାରଣ କରାଯାଇପାରିବ ନାହିଁ[auto]
 
 ListeVideExeption.1:ଅସମ୍ଭବ[auto]
@@ -295,7 +308,7 @@ bouton.nom.-10:ସଞ୍ଚୟ କରନ୍ତୁ |[auto]
 bouton.nom.-11:ବିକଳ୍ପଗୁଡ଼ିକ[auto]
 bouton.nom.-12:ଚାର୍ଜର[auto]
 bouton.nom.-13:ମୁଖ୍ୟ ମେନୁକୁ ଫେରନ୍ତୁ |[auto]
-bouton.nom.-14:Ant[auto]
+bouton.nom.-14:ant[auto]
 bouton.nom.-15:ଖେଳିବାକୁ ଫେରନ୍ତୁ |[auto]
 
 save.message:ଆପଣଙ୍କର ବ୍ୟାକଅପ୍ ଦେବାକୁ ନାମ ପ୍ରବେଶ କରନ୍ତୁ |[auto]
@@ -341,6 +354,15 @@ pti.desc.2:ଦିଆଯାଉଥିବା ଖାଦ୍ୟର ପରିମାଣ 
 pti.desc.3:ଅଣ୍ଡାର ପ୍ରକାରକୁ ସୂଚାନ୍ତୁ: 0 = ରାଣୀ, 1 = ପୁରୁଷ, 2 = ନାବାଳକ, 3 = ମଧ୍ୟମ, 4 = ମେଜର, 5 + = ଅନ୍ୟ |[auto]
 pti.desc.4:ଅନୁସରଣ କରିବାକୁ ଦିଗ ଦର୍ଶାନ୍ତୁ |[auto]
 pti.desc.5:ସଫା ହେବାକୁ ଥିବା ପିମ୍ପୁଡ଼ିର id କୁ ସୂଚିତ କର | ମଇଳା ପିମ୍ପୁଡ଼ି ହେଉଛି ସ୍ଥିତିରେ ଥିବା ପିମ୍ପୁଡ଼ି |[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:ଫର୍ମିକୋ ଠକ ଇଣ୍ଟରଫେସକୁ ସ୍ୱାଗତ | ଏହା ହେଉଛି ଯେଉଁଠାରେ ଆପଣ cheat କମାଣ୍ଡ୍ ଟାଇପ୍ କରିପାରିବେ |[auto]
 triche.aide.2:"ନାମ: (ଆର୍ଗୁମେଣ୍ଟସ୍) ବର୍ଣ୍ଣନା" ଫର୍ମରେ ନିର୍ଦ୍ଦେଶ |[auto]

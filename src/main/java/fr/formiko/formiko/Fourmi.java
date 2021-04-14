@@ -25,19 +25,29 @@ import java.io.Serializable;
 *@version 1.30
 */
 public class Fourmi extends Creature implements Serializable{
-  protected byte typeF; // 0  Reine 1 = Male 2 = Minor 3 Medium 4 = Major 5 = soldate (etc).
+  /***
+  *It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  */
+  protected byte typeF;
   protected byte mode; // Par défaut la fourmi chasse (0)
   // Elle peut aussi défendre la fourmilière (1) ou aider a la création de nouvelles fourmis (3)
   protected Fourmiliere fere;
-  protected ObjetSurCarteAId transporté;
   protected byte duretéMax;
   private static byte uneSeuleAction=-1;
   private static boolean bUneSeuleAction=false;
   private static boolean bActualiserTaille=false;
   protected boolean ailesCoupees=true;
 
-  // CONSTRUCTEUR -----------------------------------------------------------------
-  //Principal
+  // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor.}<br>
+  *By default the ant is an egg of 0 years old &#38; 100/100 of cleaning
+  *Pheromone are set depending of the queen of the anthill.
+  *param fere The anthill of this.
+  *param e The specie of this.
+  *param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  *@version 1.39
+  */
   // /!\ Ant need to be add to the Fourmiliere after that.
   public Fourmi(Fourmiliere fere, Espece e, byte ty){ // arrivé d'un oeuf.
     // on devrais fixer l'age max en fonction de la difficulté la aussi
@@ -47,22 +57,51 @@ public class Fourmi extends Creature implements Serializable{
     // a modifier a partir des individus quand duretée sera un paramètre. OU alors on dit que duretéMax est fixe en fonction des individus. Genre les gros casse tout, les moyen jusqu'a 60 et les petit jusqu'a 20.
     duretéMax=0;
     setNourritureFournie(e.getNourritureFournie(getStade()));
-    fere.getCc().getContenu().getGc().ajouter(this);
+    fere.getCc().getContenu().getGc().add(this);
     evoluer = new EvoluerFourmi();
     mourir = new MourirFourmi();
     if(e.getPolycalique()){tolerencePheromone=5;}//si c'est une espèce capable de s'endendre avec les fourmilières de la même famille.
     iniTour();
   }
+  /**
+  *{@summary Secondary constructor.}<br>
+  *param fere The anthill of this.
+  *param e The specie of this.
+  *param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  *@version 1.39
+  */
   public Fourmi(Fourmiliere fere, Espece e, int ty){ this(fere,e,(byte)ty);}
-  public Fourmi(Fourmiliere fere, Espece e, byte ty,byte stade){
+  /**
+  *{@summary Secondary constructor.}<br>
+  *param fere The anthill of this.
+  *param e The specie of this.
+  *param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  *param stade The stade of the ant. It will call evoluer() to be sur that everything it update as if the ant have grow.
+  *@version 1.39
+  */
+  public Fourmi(Fourmiliere fere, Espece e, byte ty, byte stade){
     this(fere,e,ty);
     this.stade = (byte)(stade-1); evoluer(); //On simule le fait que la fourmi vien d'éclore.
     nourriture = 50; // on lui donne un peu de nourriture pour évité qu'elle ne meurt des le début.
   }
+  /**
+  *{@summary Secondary constructor.}<br>
+  *param fere The anthill of this.
+  *param e The specie of this.
+  *param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  *param stade The stade of the ant. It will call evoluer() to be sur that everything it update as if the ant have grow up.
+  *param ph The Pheromone of the ant.
+  *@version 1.39
+  */
   public Fourmi(Fourmiliere fere, Espece e, byte ty, byte st, Pheromone ph){
     this(fere,e,ty,st);
     this.ph =ph;
   }
+  /***
+  *{@summary Null constructor.}<br>
+  *Use only for test.
+  *@version 1.39
+  */
   public Fourmi(){}//a ne pas utiliser sauf pour les test de class.
   // GET SET -----------------------------------------------------------------------
   public byte getTypeF(){return typeF;}
@@ -72,8 +111,6 @@ public class Fourmi extends Creature implements Serializable{
   public void setFourmiliere(Fourmiliere gf){fere = gf;}public void setFere(Fourmiliere fere){setFourmiliere(fere);}
   public Fourmiliere getFourmiliere(){return fere;} public Fourmiliere getFere(){ return getFourmiliere();}
   public Joueur getJoueur(){ if(getFere()==null){ return null;}return getFere().getJoueur();}
-  public ObjetSurCarteAId getTransporté(){ return transporté;}
-  public void setTransporté(ObjetSurCarteAId o){ transporté = o;}
   public byte getDuretéMax(){ return duretéMax;}
   public void setDuretéMax(byte x){ duretéMax=x; }
   public int getX(){return getCCase().getContenu().getX();}
@@ -81,7 +118,6 @@ public class Fourmi extends Creature implements Serializable{
   public void setNourritureMoinsConsomNourriture(){ setNourriture(getNourriture()-getNourritureConso());}
   public Individu getIndividu(){ return e.getIndividuParType(typeF);}
   public boolean getTropDeNourriture(){if(getNourriture()*1.1>getNourritureMax()){ return true;} return false;}
-  public boolean peutPondre(){return !(pondre instanceof PondreNull) && getNourriture()>getIndividu().getCoutPondre() && estALaFere();}
   @Override
   public boolean getFemelle(){ return typeF!=1;}// c'est une femmelle si ce n'est pas un male.
   @Override
@@ -107,6 +143,16 @@ public class Fourmi extends Creature implements Serializable{
   public Fourmi getReine(){ return getFere().getGc().getReine();}
   public byte getPropretéPerdu(){return e.getPropretéPerdu(stade);}
   public int getNourritureConso(){return getIndividu().getNourritureConso(getStade());}
+  /**
+  *{@summary Return true if is own by an AI.}<br>
+  *If it have an anthill that have a player it will return getIa() value of the player.<br>
+  *@version 1.40
+  */
+  @Override
+  public boolean getIa(){
+    try {return getFere().getJoueur().getIa();}
+    catch (NullPointerException e) {return false;}
+  }
   // Fonctions propre -----------------------------------------------------------
   public String toString(){return super.toString() +" "+ tableau.tableauToString(descriptionTableau());}
   public void afficheToi (){System.out.println(description());}
@@ -161,15 +207,23 @@ public class Fourmi extends Creature implements Serializable{
     if (x<10){ x=10;} if (x>70){ x=70;} // seuil a ne pas dépacer.
     return x;
   }
+  /**
+  *{@summary True if the ant is at its anthill.}<br>
+  *@version 1.39
+  */
   public boolean estALaFere(){
-    if (this.getCCase().equals(this.getFourmiliere().getCCase())){ return true;}
+    try {
+      if (this.getCCase().equals(this.getFourmiliere().getCCase())){ return true;}
+    }catch (Exception e) {
+      erreur.alerte("Impossible de savoir si la fourmi est a la fourmilière");
+    }
     return false;
   }
 
   //public byte getModeReine(){return 0;}
   public String [] descriptionTableau(){
     String tr [] = new String [4];
-    String idTrans = "Rien"; if(transporté != null){ idTrans = ""+transporté.getId();}
+    String idTrans = "Rien"; if(transported != null){ idTrans = ""+transported.getId();}
     int k=0;
     //tr[k]=g.get("la")+" "+getNom()+" "+getId();k++;
     //tr[k]=g.get("coordonnées")+" : "+p.desc();k++;
@@ -182,7 +236,7 @@ public class Fourmi extends Creature implements Serializable{
     tr[k]=g.get("fourmilière")+" : "+fere.getId();k++;
     tr[k]=g.get("mode")+" : "+mode;k++;
     //tr[k]=g.get("Pheromone")+" : "+ this.getPheromone().toString();k++;
-    tr[k]=g.get("transporté")+" : "+idTrans;k++;
+    tr[k]=g.get("transported")+" : "+idTrans;k++;
     //tr[k]=g.get("espèce")+" : "+this.getEspece().getNom();k++;
     return tr;
   }
@@ -197,7 +251,7 @@ public class Fourmi extends Creature implements Serializable{
     //gs.add(g.get("fourmilière")+" : "+fere.getId());
     //gs.add(g.get("mode")+" : "+mode);
     //gs.add(g.get("Pheromone")+" : "+ ph.description());
-    if(transporté != null){ gs.add(g.get("transporté")+" : "+""+transporté.getId());}
+    if(transported != null){ gs.add(g.get("transported")+" : "+""+transported.getId());}
     gs.add(g.get("espèce")+" : "+e.getNom());
     return gs;
   }

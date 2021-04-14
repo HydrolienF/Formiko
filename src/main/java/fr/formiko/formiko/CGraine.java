@@ -4,6 +4,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.listes.List;
 
 import java.io.Serializable;
 
@@ -64,14 +65,14 @@ public class CGraine implements Serializable{
       return contenu;
     }
     if (suivant == null){
-      erreur.alerte("La Graine " + id + " n'as pas été trouvé dans la liste de Graine encore vivant.", "CGraine.getGraineParId");
+      erreur.alerte("La Graine " + id + " n'as pas été trouvé dans la liste de Graine encore vivant.");
       return null;
     }
     return suivant.getGraineParId(id);
   }
   public void retirerGraine(int i){
     if (suivant == null){
-      erreur.alerte("La Graine "+ i +" n'as pas été trouvé et n'as donc pas pu être retirer","CGraine.retirerGraine");
+      erreur.alerte("La Graine "+ i +" n'as pas été trouvé et n'as donc pas pu être retirer");
     }else {
       debug.débogage("Test dans CGraine");
       if(suivant.getContenu().getId()==i){
@@ -85,7 +86,7 @@ public class CGraine implements Serializable{
   public void retirerGraine(Graine i){
     debug.débogage("on a fait début.retirerGraine(i);");
     if (suivant == null){
-      erreur.alerte("La Graine "+ i.getId() +" n'as pas été trouvé et n'as donc pas pu être retirer","CGraine.retirerGraine");
+      erreur.alerte("La Graine "+ i.getId() +" n'as pas été trouvé et n'as donc pas pu être retirer");
     }else {
       if(suivant.getContenu().equals(i)){
         suivant = suivant.getSuivant(); // on saute un maillons.
@@ -98,7 +99,7 @@ public class CGraine implements Serializable{
     GGraine ggr = new GGraine();
     CGraine temp = this;
     while(temp != null){
-      ggr.ajouterGraine(temp.getContenu());
+      ggr.addGraine(temp.getContenu());
       temp = temp.getSuivant();
     }
     return ggr;
@@ -109,5 +110,18 @@ public class CGraine implements Serializable{
       temp.getContenu().tour();
       temp = temp.getSuivant();
     }
+  }
+  /**
+  *{@summary Transform a GGraine in List&lt;Graine&gt;.}
+  *@version 1.38
+  */
+  public List<Graine> toList(){
+    CGraine cc = this;
+    List<Graine> lc = new List<Graine>();
+    while(cc!= null){
+      lc.add(cc.getContenu());
+      cc = cc.getSuivant();
+    }
+    return lc;
   }
 }

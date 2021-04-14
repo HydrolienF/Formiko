@@ -86,7 +86,7 @@ public class Temps {
       date2 = str.sToL(t[1]);
       tempsEnJeux = str.sToL(t[2]);
     }else{
-      erreur.erreur("Le fichier Temps.txt est corrompu.","Temps.chargerTemps","les variables de temps ont été remises à 0.");
+      erreur.erreur("Le fichier Temps.txt est corrompu.","les variables de temps ont été remises à 0.");
       initialiserFichierTemps();
       date1 = System.currentTimeMillis();
       date2 = System.currentTimeMillis();
@@ -101,7 +101,7 @@ public class Temps {
     ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderTemporary()+"Temps.txt");
   }
   //static ---------------------------------------------------------------------------
-  //TODO ajouter une méthode qui return un String de date le plus adapté possible avec un nombre défini d'unité allant de jours a ms.
+  //TODO add une méthode qui return un String de date le plus adapté possible avec un nombre défini d'unité allant de jours a ms.
   //par défaut on a 2 unité. ex : x jours y heures  ex2 : x min y s
   /**
   *{@summary return time with as specify number of unit.}

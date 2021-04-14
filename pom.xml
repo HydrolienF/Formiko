@@ -7,7 +7,7 @@
   <groupId>fr.formiko</groupId>
   <artifactId>Formiko</artifactId>
   <packaging>jar</packaging>
-  <version>1.31.x</version>
+  <version>1.39.19</version>
   <name>Formiko</name>
   <url>http://maven.apache.org</url>
   <dependencies>
@@ -16,16 +16,22 @@
       <artifactId>junit-jupiter-engine</artifactId>
       <version>5.7.0</version>
     </dependency>
+    <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+      <version>5.0.1</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.1</version>
+        <version>3.8.1</version>
         <configuration>
           <source>15</source>
           <target>15</target>
+          <compilerArgument>-Xlint:all</compilerArgument>
         </configuration>
       </plugin>
       <plugin>

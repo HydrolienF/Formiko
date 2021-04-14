@@ -13,6 +13,9 @@ public class ObjetAId implements Serializable{
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   //Principal
+  /**
+  *{@summary Main constructor.}<br>
+  */
   public ObjetAId(){
     id = ic; ic++;
   }
@@ -35,4 +38,6 @@ public class ObjetAId implements Serializable{
     if(getId() == oi.getId()){ return true;}
     return false;
   }
+  @Override
+  public int hashCode(){return getId();}
 }

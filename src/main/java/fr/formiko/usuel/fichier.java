@@ -82,7 +82,7 @@ public class fichier{
       }
     }
   }
-  public static void fichierCiblePeuAvoirCeNom (String nom) {
+  public static void fichierCiblePeuAvoirCeNom(String nom) {
     File f = new File(nom);
     //if (f.exists()) { throw new FichierDejaPresentException (nom);}
   }

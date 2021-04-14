@@ -44,7 +44,7 @@ public class ent{
 		try{
 			return Integer.parseInt(s);
 		}catch (NumberFormatException e) {
-			erreur.erreur(g.get("ent",1,"La conversion String To int a échoué"),"ent.stringToInt");
+			erreur.erreur(g.get("ent",1,"La conversion String To int a échoué"));
 			return -1;
 		}
 	}public static int sToI(String s){ return stringToInt(s);}

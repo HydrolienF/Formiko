@@ -6,7 +6,6 @@ import fr.formiko.usuel.chargerLesTraductions;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
@@ -46,13 +45,8 @@ public class Img implements Cloneable{
   *Constructs a new Img with a BufferedImage.
   */
   public Img(BufferedImage i){
-    if (i==null){ erreur.erreur("impossible de créer une Img a partir d'une Image null","Img.Img",true);}
-    //if(i instanceof BufferedImage){
-      bi = (BufferedImage) i;
-    /*}else{
-      erreur.erreur("impossible de créer une image non issus d'une BufferedImage","Img.Img",true);
-      //bi = new BufferedImage(i);
-    }*/
+    if (i==null){ erreur.erreur("impossible de créer une Img a partir d'une Image null");}
+    bi = i;
     width = bi.getWidth();
     height = bi.getHeight();
     debug.débogage("Initialisation des 4 tableaux.");Chrono.debutCh();
@@ -69,7 +63,7 @@ public class Img implements Cloneable{
   *Constructs a new grey 50% alpha Img whose width and height are specified by the arguments of the same name.
   */
   public Img(int width,int height){
-    if(width < 0 || height < 0){erreur.erreur("Impossible d'initialiser une image avec des dimentions négative : "+width+","+height,"Img.Img","taille set a 0"); width=0; height=0;}
+    if(width < 0 || height < 0){erreur.erreur("Impossible d'initialiser une image avec des dimentions négative : "+width+","+height,"taille set a 0"); width=0; height=0;}
     this.width=width; this.height=height;
     bi = new BufferedImage(width,height,java.awt.image.BufferedImage.TYPE_INT_ARGB);
     alpha = new byte[width][height];
@@ -256,7 +250,7 @@ public class Img implements Cloneable{
     try {
       save(rep+filename);
     }catch (Exception e) {
-      erreur.erreur("Echec de la sauvegarde d'image pour : "+rep+filename,"img.sauvegarde");
+      erreur.erreur("Echec de la sauvegarde d'image pour : "+rep+filename);
     }
   }public void sauvegarder(String nom){sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom);}
   public void sauvegarde(String s){ sauvegarder(s);}

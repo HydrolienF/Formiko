@@ -13,6 +13,7 @@ public class gTest extends TestCaseMuet{
 
   // Fonctions propre -----------------------------------------------------------
   @Test
+  @SuppressWarnings("unchecked")
   public void testSetMap(){
     HashMap map = new HashMap<String, String>();
     g.setMap(map);
@@ -23,19 +24,29 @@ public class gTest extends TestCaseMuet{
   }
   @Test
   public void testGet1(){
-    HashMap map = new HashMap<String, String>();
+    HashMap<String,String> map = new HashMap<String, String>();
     map.put("menu.2","translated value !");
     g.setMap(map);
     assertEquals("translated value !",g.get("menu",2,"ifItFail"));
     assertEquals("ifItFail",g.get("menu",1,"ifItFail"));
     assertEquals("ifItFail",g.get("menu",3,"ifItFail"));
     assertEquals("ifItFail",g.get("menu",-2,"ifItFail"));
-    assertEquals("ifItFail",g.get("Menu",2,"ifItFail"));
     assertEquals("ifItFail",g.get("dfgh",2,"ifItFail"));
   }
   @Test
+  public void testGetWithAMaj(){
+    HashMap<String,String> map = new HashMap<String, String>();
+    map.put("menu.2","translated value !");
+    map.put("key","translated value 2 !");
+    g.setMap(map);
+    assertEquals("translated value !",g.get("menu",2,"ifItFail"));
+    assertEquals("ifItFail",g.get("menu",3,"ifItFail"));
+    assertEquals("Translated value !",g.get("Menu",2,"ifItFail")); //it work with a uppercase & return translation with a maj.
+    assertEquals("Translated value 2 !",g.get("Key","ifItFail2"));
+  }
+  @Test
   public void testGet2(){
-    HashMap map = new HashMap<String, String>();
+    HashMap<String,String> map = new HashMap<String, String>();
     map.put("key","translated value 1");
     map.put("key in several words","translated value 2");
     map.put("keyInSeveralWordsWithoutSpace","translated value 3");
@@ -51,7 +62,7 @@ public class gTest extends TestCaseMuet{
   }
   @Test
   public void testGet3(){
-    HashMap map = new HashMap<String, String>();
+    HashMap<String,String> map = new HashMap<String, String>();
     map.put("key","translated value 1");
     map.put("key in several words","translated value 2");
     map.put("keyInSeveralWordsWithoutSpace","translated value 3");
@@ -64,7 +75,7 @@ public class gTest extends TestCaseMuet{
   }
   @Test
   public void testGetM(){
-    HashMap map = new HashMap<String, String>();
+    HashMap<String,String> map = new HashMap<String, String>();
     map.put("key","tv");
     map.put("key2","translated value 2");
     map.put("key3","OP");
@@ -82,7 +93,7 @@ public class gTest extends TestCaseMuet{
   }
   @Test
   public void testGetOu(){
-    HashMap map = new HashMap<String, String>();
+    HashMap<String,String> map = new HashMap<String, String>();
     map.put("la","la");
     map.put("le","le");
     g.setMap(map);
@@ -108,7 +119,7 @@ public class gTest extends TestCaseMuet{
   }
   @Test
   public void testExist(){
-    HashMap map = new HashMap<String, String>();
+    HashMap<String,String> map = new HashMap<String, String>();
     map.put("key","tv");
     g.setMap(map);
     assertTrue(g.exist("key"));
@@ -117,7 +128,7 @@ public class gTest extends TestCaseMuet{
   }
   @Test
   public void testExist2(){
-    HashMap map = new HashMap<String, String>();
+    HashMap<String,String> map = new HashMap<String, String>();
     map.put("key","tv");
     map.put("keY","");
     map.put("clé","ø");

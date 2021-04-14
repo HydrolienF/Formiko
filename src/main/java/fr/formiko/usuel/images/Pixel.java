@@ -1,28 +1,63 @@
 package fr.formiko.usuel.images;
 
-//def par défaut des fichiers depuis 0.79.5
 import fr.formiko.formiko.Pheromone;
+import fr.formiko.usuel.types.str;
+
 import java.awt.Color;
 
+/**
+*{@summary Pixel class used by images package.}<br>
+*@author Hydrolien
+*@version 1.39
+*/
 public class Pixel {
   private byte r;
   private byte g;
   private byte b;
   private byte a;
-  // CONSTRUCTEUR ---------------------------------------------------------------
-  public Pixel(byte r, byte g, byte b, byte a){
+  // CONSTRUCTEUR --------------------------------------------------------------
+  /**
+  *{@summary Main constructor private. Use the int 1 to create a Pixel.}<br>
+  *param r Red value between -128 &#38; 127.
+  *param g Green value between -128 &#38; 127.
+  *param b Blue value between -128 &#38; 127.
+  *param a Alpha value between -128 &#38; 127.
+  *@version 1.39
+  */
+  private Pixel(byte r, byte g, byte b, byte a){
     this.r=r; this.g=g; this.b=b; this.a=a;
   }
+  /**
+  *{@summary Main constructor with int.}<br>
+  *param r Red value between 0 &#38; 255.
+  *param g Green value between 0 &#38; 255.
+  *param b Blue value between 0 &#38; 255.
+  *param a Alpha value between 0 &#38; 255.
+  *@version 1.39
+  */
   public Pixel(int r, int g, int b, int a){
-    this((byte)(r-128),(byte)(g-128),(byte)(b-128),(byte)(a-128));
+    this(str.iToBy(r-128),str.iToBy(g-128),str.iToBy(b-128),str.iToBy(a-128));
   }
-  public Pixel(byte r, byte g, byte b){
-    this(r,g,b,127);
+  /**
+  *{@summary Secondary constructor.}<br>
+  *It will set Alpha value to 255 (maximum value).
+  *param r Red value between 0 &#38; 255.
+  *param g Green value between 0 &#38; 255.
+  *param b Blue value between 0 &#38; 255.
+  *@version 1.39
+  */
+  public Pixel(int r, int g, int b){
+    this(r,g,b,255);
   }
+  /**
+  *{@summary Secondary constructor that use Pheromone.}<br>
+  *param ph Pheromone of the Creature to colored. Pheromone have 3 color value: red, green, blue.
+  *@version 1.39
+  */
   public Pixel(Pheromone ph){
-    this(ph.getR(),ph.getV(),ph.getB());
+    this((byte)ph.getR(),(byte)ph.getV(),(byte)ph.getB(),(byte)127);
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public byte getR(){return r;}
   public byte getG(){return g;} public byte getV(){return getG();}
   public byte getB(){return b;}
@@ -48,12 +83,21 @@ public class Pixel {
     if(this.getA()!=p.getA()){ return false;}
     return true;
   }
+  /**
+  *{@summary Return pixel as a String.}<br>
+  *If alpha value is 127, it will not be print.<br>
+  *@version 1.39
+  */
   public String toString(){
     String s = (r+128)+" "+(g+128)+" "+(b+128);
-    if(a>127)s+=" "+(a+128);
+    if(a<127)s+=" "+(a+128);
     return s;
   }
+  /**
+  *{@summary Return pixel as a Color.}<br>
+  *@version 1.39
+  */
   public Color piToColor(){
-    return new Color(r,g,b,a);
+    return new Color(r+128,g+128,b+128,a+128);
   }
 }

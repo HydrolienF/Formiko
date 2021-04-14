@@ -6,7 +6,6 @@ import fr.formiko.usuel.decoderUnFichier;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.lireUnFichier;
-import fr.formiko.usuel.listes.CString;
 import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
@@ -77,9 +76,9 @@ public class Espece implements Serializable{
   public boolean getPolycalique(){return polycalique;}
   public void setPolycalique(boolean b){polycalique=b;}
   public boolean getVole(){return vole;}//seule les imagos chez les insectes et spécifiquement les individu de type 0 ou 1 chez les fourmi vole.
-  public int getNourritureFournie(byte stade){if(stade<-3 || stade > 0){erreur.erreur("nourritureFournie demande un stade entre -3 et 0 hors le stade est de "+stade,"Espece.getNourritureFournie"); return -1;}
+  public int getNourritureFournie(byte stade){if(stade<-3 || stade > 0){erreur.erreur("nourritureFournie demande un stade entre -3 et 0 hors le stade est de "+stade); return -1;}
     return allea.fluctuer(tNourritureFournie[stade+3]);}//-3 = case 0. 0 = case 3.
-  public int getTaille(byte stade){if(stade<-3 || stade > 0){erreur.erreur("getTaille demande un stade entre -3 et 0 hors le stade est de "+stade,"Espece.getTaille"); return -1;}
+  public int getTaille(byte stade){if(stade<-3 || stade > 0){erreur.erreur("getTaille demande un stade entre -3 et 0 hors le stade est de "+stade); return -1;}
     return tTaille[stade+3];}
   public int getTaille(int stade){return getTaille(str.iToBy(stade));}
   // Fonctions propre -----------------------------------------------------------
@@ -106,18 +105,18 @@ public class Espece implements Serializable{
   public String descriptionF(){
     // pour l'instant ne sont prise en compte que les fourmi ouvrière les plus courante dans les espèce a taille variable (2 ou 3 tailles).
     GString adj = new GString();
-    if(polycalique){adj.ajouter(g.get("polycalique"));}
-    else{adj.ajouter(g.get("monocalique"));}
-    if(monogyne){ adj.ajouter(g.get("monogyne"));}
-    else{ adj.ajouter(g.get("polygyne"));}
-    if (insectivore && granivore && fongivore && herbivore && miellativore){ adj.ajouter(g.get("omnivore"));}
+    if(polycalique){adj.add(g.get("polycalique"));}
+    else{adj.add(g.get("monocalique"));}
+    if(monogyne){ adj.add(g.get("monogyne"));}
+    else{ adj.add(g.get("polygyne"));}
+    if (insectivore && granivore && fongivore && herbivore && miellativore){ adj.add(g.get("omnivore"));}
     else{
-      if(insectivore){ adj.ajouter(g.get("insectivore"));}
-      if(granivore){ adj.ajouter(g.get("granivore"));}
-      if(fongivore){ adj.ajouter(g.get("fongivore"));}
-      if(herbivore){ adj.ajouter(g.get("herbivore"));}
-      if(miellativore){ adj.ajouter(g.get("miellativore"));}
+      if(insectivore){ adj.add(g.get("insectivore"));}
+      if(granivore){ adj.add(g.get("granivore"));}
+      if(fongivore){ adj.add(g.get("fongivore"));}
+      if(herbivore){ adj.add(g.get("herbivore"));}
+      if(miellativore){ adj.add(g.get("miellativore"));}
     }
-    return nom +"("+id+") est une espèce " + adj.concatèneCompacte()+".";
+    return nom +"("+id+") est une espèce " + adj.toString()+".";
   }
 }

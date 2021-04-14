@@ -27,6 +27,9 @@ bientôt:በቅርቡ[auto]
 suivant:በመከተል ላይ[auto]
 avant:ከዚህ በፊት[auto]
 
+set:
+where:
+
 laIA:አ.አ.[auto]
 laJoueurHumain:የሰው ተጫዋች[auto]
 joueur:ተጫዋች[auto]
@@ -111,7 +114,7 @@ dimentionCarteY:በ Y ውስጥ የፊደል ልኬት[auto]
 erreurCarteVide:ያለ ተጫዋች እና ያለ አየር ጨዋታን ለመጀመር የማይቻል ፡፡[auto]
 maxFourmiIa:ለአይ ከፍተኛ የጉንዳኖች ብዛት[auto]
 nomDuFichier:የፋይል ስም[auto]
-getNomDuFcihier:ሊጭኑት የሚፈልጉትን የቁጠባ ስብስብ ስም ያስገቡ (ወይም ለመመለስ ተመለስ)[auto]
+getFileName:ሊጭኑት የሚፈልጉትን የቁጠባ ስብስብ ስም ያስገቡ (ወይም ለመመለስ ተመለስ)[auto]
 dernierTourPassé:የመጨረሻው ዙር አሁን አል passedል ፡፡[auto]
 victoireInconue:ያልታወቀ ድል[auto]
 élimination:መወገድ[auto]
@@ -124,7 +127,7 @@ celluleA:ሕዋስ ሀ[auto]
 lien:አገናኝ[auto]
 ChasseNull:ከፍጡር ጋር ማደን አይቻልም[auto]
 CollecteNull:ከፍጡሩ ጋር መሰብሰብ አልተቻለም[auto]
-CJoueur.1:CJplayer ተጫዋቹን ይይዛል[auto]
+CJoueur.1:cJplayer ተጫዋቹን ይይዛል[auto]
 CJoueur.2:እና 1 ወደ ማጫወቻው አገናኝ[auto]
 
 listeCreature:የፍጥረት ዝርዝር[auto]
@@ -189,6 +192,15 @@ casesSombres:ጨለማ ሳጥኖች[auto]
 chargementFini:የተጠናቀቀ ጭነት[auto]
 lancerLeJeu:ጨዋታውን መጀመር[auto]
 
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
+
 //temps
 t.j:j[auto]
 t.h:ሸ[auto]
@@ -250,7 +262,7 @@ decoderUnFichier.4:ባህሪው[auto]
 
 ent.1:ገመድ ወደ int ልወጣ አልተሳካም[auto]
 
-GString.1:GString ባዶ ነው[auto]
+GString.1:gString ባዶ ነው[auto]
 
 lireUnFichier.1:መስመሮች በፋይሉ ውስጥ ተገኝተዋል[auto]
 
@@ -275,6 +287,7 @@ erreur.14:ባዶ ነው[auto]
 erreur.15:ያልታወቀ ዝርዝር[auto]
 erreur.16:የእረፍት ሙከራው አልተሳካም (የእረፍት ጊዜ[auto]
 erreur.17:ዓይነት መለወጥ ለዓይነቱ አልተሳካም[auto]
+alerteGUI2Dfail:
 
 str.1:ከተለወጡት ውስጥ አንዱን ማከናወን አልተቻለም[auto]
 str.2:በትክክል[auto]
@@ -326,7 +339,7 @@ bouton.nom.31:ምናሌ[auto]
 bouton.desc.20:የተመረጠውን ጉንዳን አንቀሳቅስ[auto]
 bouton.desc.21:ከጉንዳኑ ጋር በተመሳሳይ አደባባይ ላይ የሚገኙትን ነፍሳት ማደን[auto]
 bouton.desc.22:እንቁላል ይጥሉ[auto]
-bouton.desc.23:Trophallaxer (ምግብን ለሌላ ጉንዳን በአፍ ያስተላልፉ)[auto]
+bouton.desc.23:trophallaxer (ምግብን ለሌላ ጉንዳን በአፍ ያስተላልፉ)[auto]
 bouton.desc.24:አሁን ባለው አደባባይ ላይ ወዳጃዊ ጉንዳን (ወይም የተመረጠውን ጉንዳን) ያፅዱ ፡፡[auto]
 bouton.desc.25:በጉንዳን ውስጥ የተከማቸ ክፍት ዘር ይብሉ ፡፡[auto]
 bouton.desc.26:የተዘጋ ዘርን ይሰብሩ ፡፡[auto]
@@ -341,6 +354,15 @@ pti.desc.2:የቀረበው የምግብ መጠን ያመልክቱ።[auto]
 pti.desc.3:የሚዘረጋውን የእንቁላል አይነት ያመልክቱ-0 = ንግሥት ፣ 1 = ወንድ ፣ 2 = አናሳ ፣ 3 = መካከለኛ ፣ 4 = ሜጀር ፣ 5 + = ሌላ ፡፡[auto]
 pti.desc.4:መከተል ያለበትን አቅጣጫ ያመልክቱ ፡፡[auto]
 pti.desc.5:የሚጸዳውን የጉንዳን መታወቂያ ያመልክቱ። በጣም ርኩሱ የሆነው ጉንዳን በአቀማመጥ 1 ውስጥ ያለው ጉንዳን ነው ፡፡[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:ወደ Formiko ማታለያ በይነገጽ እንኳን በደህና መጡ። ይህ የማጭበርበር ትዕዛዞችን መተየብ የሚችሉበት ቦታ ነው።[auto]
 triche.aide.2:ትዕዛዞችን በቅጹ ላይ "ስም: (ክርክሮች) መግለጫ"[auto]

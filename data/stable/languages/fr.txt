@@ -27,6 +27,9 @@ bientôt:bientôt
 suivant:suivant
 avant:avant
 
+set:choisir
+where:où
+
 laIA:l'IA
 laJoueurHumain:le joueur humain
 joueur:joueur
@@ -111,7 +114,7 @@ dimentionCarteY:dimension de la carte en Y
 erreurCarteVide:impossible de lancer une partie sans aucun joueur et sans aucune ia.
 maxFourmiIa:nombre de fourmi maximum pour les ia
 nomDuFichier:nom du fichier
-getNomDuFcihier:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+getFileName:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
 dernierTourPassé:Le dernier tour est désormais passé.
 victoireInconue:victoire inconnue
 élimination:élimination
@@ -188,6 +191,15 @@ casesSombres:cases sombres
 
 chargementFini:chargement fini
 lancerLeJeu:lancer le jeu
+
+lookedCase:Case regardée
+saveName:nom de la sauvegarde
+saveDone:sauvegarde effectuée
+defaultName:nom par défaut
+caseUnkwnowed:case inconnue
+theCaseDoNotExist:la case n'existe pas
+optionsCanBeEditedIn:les options peuvent être modifié dans
+enterCoordinateAs:entrez les coordonnées comme suis
 
 //temps
 t.j:j
@@ -342,6 +354,15 @@ pti.desc.2:Indiquez la quantité de nourriture offerte.
 pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Indiquez la direction à suivre.
 pti.desc.5:Indiquez l'id de la fourmi a nettoyer. La fourmi la plus sale est la fourmi en position 1.
+
+//cli
+doAntAction:Choisir une action de Fourmi
+selectAnt:sélectionner une fourmi
+endTurn:finir le tour
+endGame:finir la partie
+pauseActionGame:mettre le jeu en pause
+unaviable:indisponible
+setPlayingAnt:choisir la fourmi qui joue
 
 triche.aide.1:bienvenue dans l'interface de triche de Formiko. C'est ici que vous pouvez tapper des commandes de triches.
 triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"

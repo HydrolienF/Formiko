@@ -72,7 +72,7 @@ public class GJoueur implements Serializable{
     if (début == null){ return new GString();}
     return début.scoreToGString();
   }
-  public void ajouterDébut(Joueur j){
+  public void addDébut(Joueur j){
     CJoueur cj = new CJoueur(j);
     if (début == null){
       début = cj;
@@ -89,15 +89,14 @@ public class GJoueur implements Serializable{
       actualiserFin();
     }
   }
-  public void ajouter(Joueur j){add(j);}
   /**
   *{@summary Add a player to the GJoueur.}
   *@version 1.29
   */
   public void add(Joueur j){
-    ajouterFin(j);
+    addFin(j);
   }
-  public void ajouterFin(Joueur j){
+  public void addFin(Joueur j){
     CJoueur cj = new CJoueur(j);
     if(fin == null){
       début = cj;
@@ -112,18 +111,18 @@ public class GJoueur implements Serializable{
   }
   //TODO #231 should place j depending of it score. (just before the 1a player that have a lower score.)
   public void addOrdonnée(Joueur j){
-    if(début==null){ajouter(j);}//le cas ou on a 0 éléments dans la liste.
+    if(début==null){add(j);}//le cas ou on a 0 éléments dans la liste.
     else if(début.equals(fin)){//le cas ou on a 1 seul élément dans la liste
       if(début.getContenu().getScore()>=j.getScore()){
-        ajouterFin(j);
+        addFin(j);
       }else{
-        ajouterDébut(j);
+        addDébut(j);
       }
     }else{
       if(début.getContenu().getScore()>=j.getScore()){
         début.addOrdonnée(j);
       }else{
-        ajouterDébut(j);
+        addDébut(j);
       }
     }
     actualiserFin();
@@ -146,7 +145,7 @@ public class GJoueur implements Serializable{
   }
   public void jouer(){
     if(début == null){
-      erreur.erreur("Impossible de faire jouer un groupe de joueur vide !","GJoueur.jouer");
+      erreur.erreur("Impossible de faire jouer un groupe de joueur vide !");
     }else{
       if(Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()){return;}
       début.jouer();

@@ -42,12 +42,12 @@ public class Insecte extends Creature implements Serializable{
     this.nourritureMangeable =(byte) (allea.getAllea(3)+2);// de 2 a 5.
     this.déplacement = new DeplacementFourmi();
     this.chasse = new ChasseHerbivore();
-    p.getContenu().getGc().ajouter(this);
+    p.getContenu().getGc().add(this);
     type = getTypeInsecte();//p.getContenu().getTypeInsecte();
     stade = (byte)0; // doit apparaitre en -3 pour etre un oeuf.
     mourir = new MourirInsecte();
     e = Main.getGEspece().getEspeceParId(100+getType());//les Espece d'insectes sont décaler de 100 par rapport au espece de Fourmi.
-    if(e==null){erreur.erreur("Une espece d'insecte n'as pas pu etre chargé : "+(100+getType()),"Insecte.Insecte");}
+    if(e==null){erreur.erreur("Une espece d'insecte n'as pas pu etre chargé : "+(100+getType()));}
     setNourritureFournie(e.getNourritureFournie(getStade()));
     femelle = allea.getBAllea();
     debug.débogage("L'insecte "+ this.id + " a été  créée");

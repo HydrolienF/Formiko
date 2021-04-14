@@ -4,6 +4,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.listes.List;
 
 import java.io.Serializable;
 
@@ -37,22 +38,15 @@ public class GGraine implements Serializable{
       return début.length();
     }
   }
-  public Graine getGrainePlusDeNourritureFournieSansDureté(Fourmi f){
+  public Graine getGrainePlusDeNourritureFournieSansDureté(){
     if (début == null){ erreur.erreur("Impossible de sélectionné la meilleur graine dans une liste vide."); return null;}
-    CGraine ci = this.getDébut();
-    //if (ci.getSuivant() != null){
-     return ci.getGrainePlusDeNourritureFournieSansDureté(ci.getContenu());
-    /*}
-    if(!ci.getContenu().getOuverte()){ // si elle est fermé et cassable.
-      return ci.getContenu();
-    }else{
-      return null;
-    }*/
+    CGraine ci = getDébut();
+    return ci.getGrainePlusDeNourritureFournieSansDureté(ci.getContenu());
   }
   public Graine getGrainePlusDeNourritureFournie(Fourmi f){
     if (début == null){ erreur.erreur("Impossible de sélectionné la meilleur graine dans une liste vide."); return null;}
     byte duretéMax = f.getDuretéMax();
-    CGraine ci = this.getDébut();
+    CGraine ci = getDébut();
     //if (ci.getSuivant() != null){
      return ci.getGrainePlusDeNourritureFournie(ci.getContenu(),duretéMax);
     /*}
@@ -71,15 +65,20 @@ public class GGraine implements Serializable{
   //}
 
   public void afficheToi(){ System.out.println(this);}
-  public void ajouterGraine(CCase cc){ ajouterGraine(new Graine(cc));}
-  public void ajouterGraine(Graine i){
+  // public void addGraine(CCase cc){ addGraine(new Graine(cc));}
+  /**
+  *{@summary Add a seed to this GGraine.}
+  *@version 1.40
+  */
+  public void add(Graine i){
     if (i != null){
       CGraine ci = new CGraine(i);
       ci.setSuivant(début);
       début = ci;
     }
-  }public void ajouter(Graine i){ajouterGraine(i);}
-  public void ajouterGg(GGraine giTemp){
+  }
+  public void addGraine(Graine i){add(i);}
+  public void addGg(GGraine giTemp){
     if (this.début == null){
       this.début = giTemp.getDébut();
     }else{
@@ -116,5 +115,17 @@ public class GGraine implements Serializable{
   }
   public void tour(){
     if(début!=null){ début.tour();}
+  }
+
+  /**
+  *{@summary Transform a GGraine in List&lt;Graine&gt;.}
+  *@version 1.38
+  */
+  public List<Graine> toList(){
+    if (début==null){
+      List<Graine> lc = new List<Graine>();
+      return lc;
+    }
+    return début.toList();
   }
 }

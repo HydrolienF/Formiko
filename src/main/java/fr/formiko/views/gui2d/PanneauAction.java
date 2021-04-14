@@ -38,7 +38,7 @@ public class PanneauAction extends Panneau {
   }
   public PanneauAction(){}
   public void construire(){
-    if(nbrDeBouton > nbrDeBoutonMax){ erreur.erreur("impossible d'afficher tant de boutons","PanneauAction.this()");}
+    if(nbrDeBouton > nbrDeBoutonMax){ erreur.erreur("impossible d'afficher tant de boutons");}
     Dimension dim = new Dimension(tailleBouton, tailleBouton);
     this.setLayout(new GridBagLayout());
     tB = new Bouton [nbrDeBouton]; // pour l'instant le bouton 10 n'as pas d'images.

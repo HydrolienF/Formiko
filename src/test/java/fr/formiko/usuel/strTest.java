@@ -128,6 +128,10 @@ public class strTest extends TestCaseMuet{
   public void testSToDirectoryName(){
     String s = null;
     assertEquals(null,str.sToDirectoryName(s));
+    s = "";
+    assertEquals("",str.sToDirectoryName(s));
+    s = "u";
+    assertEquals("u/",str.sToDirectoryName(s));
     s = "unNomDeFichier";
     assertEquals("unNomDeFichier/",str.sToDirectoryName(s));
     s = "unNomDeFichier/";
@@ -146,6 +150,45 @@ public class strTest extends TestCaseMuet{
   public void testSToSMaj(){
     String s = null;
     assertEquals(null,str.sToSMaj(s));
+    assertEquals("",str.sToSMaj(""));
+    assertEquals("M",str.sToSMaj("M"));
+    assertEquals("M",str.sToSMaj("m"));
+    assertEquals(" un mot",str.sToSMaj(" un mot"));
+    assertEquals("Un mot",str.sToSMaj("un mot"));
+    assertEquals(" un mot",str.sToSMaj(" un mot"));
+    assertEquals("择",str.sToSMaj("择"));
+    assertEquals("Ĉ",str.sToSMaj("ĉ"));
+    assertEquals("Ĉ",str.sToSMaj("Ĉ"));
+  }
 
+  @Test
+  public void testSToSMin(){
+    String s = null;
+    assertEquals(null,str.sToSMin(s));
+    assertEquals("",str.sToSMin(""));
+    assertEquals("m",str.sToSMin("M"));
+    assertEquals("m",str.sToSMin("m"));
+    assertEquals(" un mot",str.sToSMin(" un mot"));
+    assertEquals("un mot",str.sToSMin("Un mot"));
+    assertEquals("un mot",str.sToSMin("un mot"));
+    assertEquals("择",str.sToSMin("择"));
+    assertEquals("ĉ",str.sToSMin("ĉ"));
+    assertEquals("ĉ",str.sToSMin("Ĉ"));
+  }
+
+  @Test
+  public void testIsMaj(){
+    assertTrue(!str.isMaj(""));
+    assertTrue(!str.isMaj(" "));
+    assertTrue(!str.isMaj("7"));
+    assertTrue(!str.isMaj("a"));
+    assertTrue(!str.isMaj("a O"));
+    assertTrue(!str.isMaj("pOOOOOOOOOOOOOOOOOOOOOOO000"));
+    assertTrue(str.isMaj("A"));
+    assertTrue(str.isMaj("Z"));
+    assertTrue(str.isMaj("O"));
+    assertTrue(str.isMaj("Ok"));
+    assertTrue(str.isMaj("OK c'est bon"));
+    assertTrue(!str.isMaj("Ĉ"));//only A-Z without accent char are ok.
   }
 }

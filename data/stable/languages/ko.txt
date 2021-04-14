@@ -27,6 +27,9 @@ bientôt:곧[auto]
 suivant:수행원[auto]
 avant:전에[auto]
 
+set:
+where:
+
 laIA:l' IA[auto]
 laJoueurHumain:인간 플레이어[auto]
 joueur:플레이어[auto]
@@ -106,12 +109,12 @@ toutLesJoueurHumainsEliminés:모든 인간 플레이어가 제거되었습니�
 nbrDeJoueur:인간 플레이어 수[auto]
 nbrDIa:이름 d' Ia[auto]
 nbrDeTour:턴 수[auto]
-dimentionCarteX:X의 카드 크기[auto]
-dimentionCarteY:Y의 문자 치수[auto]
+dimentionCarteX:x의 카드 크기[auto]
+dimentionCarteY:y의 문자 치수[auto]
 erreurCarteVide:어떤 플레이어와 AI 없이는 게임을 시작할 수 없습니다.[auto]
 maxFourmiIa:인공 지능에 대한 최대 개미 수[auto]
 nomDuFichier:파일 이름[auto]
-getNomDuFcihier:로드 할 세이브 세트의 이름을 입력합니다. (또는 뒤로 돌아 가기)[auto]
+getFileName:로드 할 세이브 세트의 이름을 입력합니다. (또는 뒤로 돌아 가기)[auto]
 dernierTourPassé:이제 마지막 라운드가 지났습니다.[auto]
 victoireInconue:알 수없는 승리[auto]
 élimination:제거[auto]
@@ -124,7 +127,7 @@ celluleA:셀 A[auto]
 lien:링크[auto]
 ChasseNull:생물과 사냥을 할 수 없습니다[auto]
 CollecteNull:생물과 함께 수집 할 수 없음[auto]
-CJoueur.1:CJplayer에는 플레이어가 있습니다.[auto]
+CJoueur.1:cJplayer에는 플레이어가 있습니다.[auto]
 CJoueur.2:플레이어에 대한 링크 1 개[auto]
 
 listeCreature:생물 목록[auto]
@@ -169,7 +172,7 @@ I4:아 스티 콧[auto]
 I5:...쪽으로[auto]
 I6:모기[auto]
 I7:셔닐 실[auto]
-I8:Woodlouse[auto]
+I8:woodlouse[auto]
 I9:개미[auto]
 
 choixCarte:카드 선택[auto]
@@ -188,6 +191,15 @@ casesSombres:어두운 상자[auto]
 
 chargementFini:로딩 완료[auto]
 lancerLeJeu:게임 시작[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:제이[auto]
@@ -209,7 +221,7 @@ tempsEnJeux:총 재생 시간[auto]
 os.0:Linux[]
 os.1:Windows[]
 os.2:Mac[]
-os.-1:OS가 인식되지 않음[auto]
+os.-1:oS가 인식되지 않음[auto]
 
 //carte :
 desert:사막[auto]
@@ -250,7 +262,7 @@ decoderUnFichier.4:캐릭터[auto]
 
 ent.1:문자열을 정수로 변환하지 못했습니다.[auto]
 
-GString.1:GString이 비어 있습니다.[auto]
+GString.1:gString이 비어 있습니다.[auto]
 
 lireUnFichier.1:파일에서 행을 찾았습니다.[auto]
 
@@ -275,6 +287,7 @@ erreur.14:비었다[auto]
 erreur.15:알 수없는 목록[auto]
 erreur.16:휴식 시도 실패 (휴식 시간[auto]
 erreur.17:유형에 대한 유형 변환 실패[auto]
+alerteGUI2Dfail:
 
 str.1:변환 중 하나를 수행 할 수 없습니다.[auto]
 str.2:바르게[auto]
@@ -313,12 +326,12 @@ bouton.desc.8:모든 상자가 보이도록 확대[auto]
 bouton.nom.20:움직임[auto]
 bouton.nom.21:상자에서 곤충 사냥[auto]
 bouton.nom.22:위치[auto]
-bouton.nom.23:Trophallaxer[auto]
+bouton.nom.23:trophallaxer[auto]
 bouton.nom.24:자신을 정화하거나 아군 개미를 정화하십시오.[auto]
 bouton.nom.25:씨앗 먹기[auto]
 bouton.nom.26:씨앗 깨기[auto]
 bouton.nom.27:사냥 (자동 모드)[auto]
-bouton.nom.28:Anthill에서 다른 Ant 관리 (자동 모드)[auto]
+bouton.nom.28:anthill에서 다른 Ant 관리 (자동 모드)[auto]
 bouton.nom.29:둘러보기 건너 뛰기[auto]
 bouton.nom.30:없애다[auto]
 bouton.nom.31:메뉴[auto]
@@ -326,7 +339,7 @@ bouton.nom.31:메뉴[auto]
 bouton.desc.20:선택한 개미 이동[auto]
 bouton.desc.21:개미와 같은 사각형에있는 곤충 사냥[auto]
 bouton.desc.22:알을 낳는다[auto]
-bouton.desc.23:Trophallaxer (입으로 다른 개미에게 음식을 전달)[auto]
+bouton.desc.23:trophallaxer (입으로 다른 개미에게 음식을 전달)[auto]
 bouton.desc.24:현재 광장에서 아군 개미 (또는 선택한 개미)를 청소합니다.[auto]
 bouton.desc.25:개미집에 저장된 열린 씨앗을 먹습니다.[auto]
 bouton.desc.26:닫힌 씨앗을 끊습니다.[auto]
@@ -342,7 +355,16 @@ pti.desc.3:낳을 알의 종류를 표시합니다 : 0 = 여왕, 1 = 수컷, 2 =
 pti.desc.4:따라야 할 방향을 표시하십시오.[auto]
 pti.desc.5:청소할 개미의 ID를 표시합니다. 가장 더러운 개미는 위치 1에있는 개미입니다.[auto]
 
-triche.aide.1:Formiko 치트 인터페이스에 오신 것을 환영합니다. 치트 명령을 입력 할 수있는 곳입니다.[auto]
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
+
+triche.aide.1:formiko 치트 인터페이스에 오신 것을 환영합니다. 치트 명령을 입력 할 수있는 곳입니다.[auto]
 triche.aide.2:"이름 : (인수) 설명"형식의 명령[auto]
 
 //commande :
@@ -408,7 +430,7 @@ conseil.14:속도는 곤충으로 표현됩니다. 곤충이 빠를수록 게임
 conseil.15:게임이 너무 복잡해 보입니까? 쉬운 또는 매우 쉬운 난이도를 선택하십시오.[auto]
 conseil.16:게임이 너무 쉬워 보입니까? 따라서 매우 어려운 게임에서이기십시오.[auto]
 conseil.17:지도를 직접 탐색하려면 흐린 상자 옵션을 선택하십시오.[auto]
-conseil.18:AI만으로 사용자 지정 게임을 실행 해 본 적이 있습니까?[auto]
+conseil.18:aI만으로 사용자 지정 게임을 실행 해 본 적이 있습니까?[auto]
 conseil.19:풀의 질감을 자세히 살펴보면 3 개의 다른 허브 잎만 포함되어 있음을 알 수 있습니다.[auto]
 conseil.20:개미가있는 공간에 청소하거나 먹이를 줄 개미가 한 마리 만 있으면 자동으로 청소하거나 먹이를 주도록 선택됩니다.[auto]
 conseil.21:게임 언어는 자동으로 컴퓨터 언어이지만 옵션에서 변경할 수 있습니다.[auto]
@@ -425,7 +447,7 @@ mort10:아래 턱뼈에 직면하여 사망[auto]
 mort11:산으로 뿌렸다[auto]
 
 //tuto :
-tuto.0:Formiko young ant에 오신 것을 환영합니다![auto]
+tuto.0:formiko young ant에 오신 것을 환영합니다![auto]
 tuto.1:재미있게 즐길 수 있도록이 게임의 기본을 함께 배우자.[auto]
 tuto.2:우리 여왕은 배가 고파서이 먹이를 사냥 할 수 있도록 오른쪽으로 한 칸 이동합시다.[auto]
 tuto.3:개미를 이동하려면 이동하려는 사각형을 마우스 오른쪽 버튼으로 클릭해야합니다.[auto]

@@ -27,6 +27,9 @@ bientôt:באַלד[auto]
 suivant:ווייַטערדיק[auto]
 avant:איידער[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:דער מענטש שפּילער[auto]
 joueur:שפּילער[auto]
@@ -111,7 +114,7 @@ dimentionCarteY:בריוו ויסמעסטונג אין י[auto]
 erreurCarteVide:אוממעגלעך צו אָנהייבן אַ שפּיל אָן קיין שפּילער און אָן אַי.[auto]
 maxFourmiIa:מאַקסימום נומער פון אַנץ פֿאַר יי[auto]
 nomDuFichier:טעקע נאָמען[auto]
-getNomDuFcihier:אַרייַן די נאָמען פון די שפּאָרן שטעלן איר ווילן צו אַרייַן: (אָדער צוריק צו צוריק)[auto]
+getFileName:אַרייַן די נאָמען פון די שפּאָרן שטעלן איר ווילן צו אַרייַן: (אָדער צוריק צו צוריק)[auto]
 dernierTourPassé:די לעצטע קייַלעכיק איז איצט דורכגעגאנגען.[auto]
 victoireInconue:אומבאַקאַנט נצחון[auto]
 élimination:ילימאַניישאַן[auto]
@@ -189,6 +192,15 @@ casesSombres:טונקל באָקסעס[auto]
 chargementFini:פאַרטיק לאָודינג[auto]
 lancerLeJeu:סטאַרטינג די שפּיל[auto]
 
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
+
 //temps
 t.j:j[auto]
 t.h:h[auto]
@@ -209,7 +221,7 @@ tempsEnJeux:גאַנץ פּלייינג צייַט[auto]
 os.0:Linux[]
 os.1:Windows[]
 os.2:Mac[]
-os.-1:OS נישט דערקענט[auto]
+os.-1:oS נישט דערקענט[auto]
 
 //carte :
 desert:מדבר[auto]
@@ -275,6 +287,7 @@ erreur.14:איז ליידיק[auto]
 erreur.15:אומבאַקאַנט רשימה[auto]
 erreur.16:די ברעכן פּרווון ניט אַנדערש (ברעכן צייט[auto]
 erreur.17:טיפּ גער קען פֿאַר טיפּ[auto]
+alerteGUI2Dfail:
 
 str.1:ניט געקענט צו דורכפירן איינער פון די קאַנווערזשאַנז[auto]
 str.2:ריכטיק[auto]
@@ -341,6 +354,15 @@ pti.desc.2:אָנווייַזן די סומע פון געפֿינט עסנווא
 pti.desc.3:אָנווייַזן דעם טיפּ פון יי צו זיין געלייגט: 0 = מלכּה, 1 = זכר, 2 = מינערווערטיק, 3 = מיטל, 4 = הויפּט, 5 + = אנדערע.[auto]
 pti.desc.4:אָנווייַזן די ריכטונג צו נאָכפאָלגן.[auto]
 pti.desc.5:אָנווייַזן די יד פון די מוראַשקע צו זיין קלינד. די גראָבסטע מוראַשקע איז די מוראַשקע אין שטעלע 1.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:באַגריסונג צו די פאָרמיקאָ אָפּנאַרן צובינד. דאָ איר קענען דרוקן אָפּנאַרן קאַמאַנדז.[auto]
 triche.aide.2:קאַמאַנדז אין די פאָרעם "נאָמען: (טענות) באַשרייַבונג"[auto]

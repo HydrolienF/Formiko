@@ -11,4 +11,5 @@ import java.io.Serializable;
  */
 public interface Pondre extends Serializable{
   void unePonte(Creature c);
+  boolean canLay(Creature c);
 }

@@ -218,7 +218,7 @@ public class math {
   public static long factorielle(int k){
     if(k==0){return 0;}
     if (k < 0) {
-      erreur.erreur("Impossible de calculé n! si n n'est pas positif n="+k,"math.factorielleSwitchLong");
+      erreur.erreur("Impossible de calculé n! si n n'est pas positif n="+k);
       return -1;
     }
     long mem [] = new long [2];
@@ -265,8 +265,8 @@ public class math {
   public static int kParmiN(int k, int n){
     // k parmi n = n!/(k! * (n-k)!) c'est la formule simple.
     // k parmi n = n! - k! / (n-k)! OU k! echange avec (n-k)! c'est la fourmule économe en calcule.
-    if (k < 0 || n < 0){erreur.erreur("nombre dégatif","math.kParmiN");return -1;}
-    if(k>n){erreur.erreur("k<n","math.kParmiN");return -1;}
+    if (k < 0 || n < 0){erreur.erreur("nombre dégatif");return -1;}
+    if(k>n){erreur.erreur("k<n");return -1;}
     if(n==0){return 0;}
     long xr;
     xr = factorielle(n)/(factorielle(k)*factorielle(n-k));
@@ -285,7 +285,7 @@ public class math {
   */
   public static int syracuse(int n){
     if (n <= 0) {
-      erreur.erreur("Impossible de calculé syracuse si n n'est pas positif","math.syracuse");
+      erreur.erreur("Impossible de calculé syracuse si n n'est pas positif");
       return -1;
     }
     // u¨0 = n et u¨(i+1) = u¨i/2 si pair
@@ -308,7 +308,7 @@ public class math {
   */
   public static int syracuseSwitch(int n){
     if (n <= 0) {
-      erreur.erreur("Impossible de calculé syracuse si n n'est pas positif","math.syracuseSwitch");
+      erreur.erreur("Impossible de calculé syracuse si n n'est pas positif");
       return -1;
     }
     int i=0;

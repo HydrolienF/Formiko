@@ -29,7 +29,7 @@ public class lireUnFichier {
   	    //e.printStackTrace();
       }
       while ((ligne = lecteurAvecBuffer.readLine()) != null){
-        tr = tableau.ajouterX(tr, ligne); // La c'est couteux en opération.
+        tr = tableau.addX(tr, ligne); // La c'est couteux en opération.
       }
       lecteurAvecBuffer.close();
     }catch (IOException e) {

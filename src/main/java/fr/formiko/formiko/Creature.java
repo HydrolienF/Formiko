@@ -2,6 +2,7 @@ package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.interfaces.*;
+import fr.formiko.usuel.exceptions.NotNullLocationException;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -23,13 +24,12 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public Chasse chasse;
   public Pondre pondre;
   public Trophallaxie trophallaxie;
-  public Collecte collecte;
+  // public Collecte collecte;
   public Evoluer evoluer;
   public Mourir mourir;
   public Netoyer netoyer;
   public Tour tour;
   // variable
-  // CCase p
   protected int nourriture;
   protected int nourritureMax;
   protected int age;
@@ -43,6 +43,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   protected byte stade; // -2 = oeuf, -1 = larve, 0 =  imago L'utilisation de la variable stade permet de faire manger les larves et pas les oeux. Les diférent stade on également des image distinctes.
   protected int nourritureFournie;
   protected Espece e;
+  protected ObjetSurCarteAId transported;
   //TODO #73
   //protected int typeEated [];
   //private int pv; //Point de vie
@@ -54,15 +55,15 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *All args are Creature var.
   *@version 1.13
   */
-  public Creature (CCase p, int age, int ageMax, byte actionMax, Pheromone ph, int nourriture, int nourritureMax){
-    super(p);
+  public Creature (CCase ccase, int age, int ageMax, byte actionMax, Pheromone ph, int nourriture, int nourritureMax){
+    super(ccase);
     this.age = age; this.ageMax= ageMax; this.estMort = false;
     this.action = actionMax; this.actionMax = actionMax;
     this.ph = ph;
     this.nourriture = nourriture; this.nourritureMax =nourritureMax;
     tolerencePheromone=0;
     nourritureFournie=1;
-    this.déplacement = new DeplacementNull(); this.chasse = new ChasseNull(); this.pondre = new PondreNull(); this.trophallaxie = new TrophallaxieNull(); this.collecte = new CollecteNull();this.evoluer=new EvoluerNull();this.mourir=new MourirNull();this.netoyer=new NetoyerNull();
+    this.déplacement = new DeplacementNull(); this.chasse = new ChasseNull(); this.pondre = new PondreNull(); this.trophallaxie = new TrophallaxieNull(); this.evoluer=new EvoluerNull();this.mourir=new MourirNull();this.netoyer=new NetoyerNull();
     this.tour = new TourCreatureSansAction();
   }
   /**
@@ -70,19 +71,19 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *Here we only know some var, but the main constructor will take care of them.
   *@version 1.13
   */
-  public Creature (CCase p,int age, int ageMax, byte actionMax){ // Les fourmis utilise ce contructeur.
-    this(p,age,ageMax, actionMax, new Pheromone(-128,-128,-128), 10, 100);
-  } public Creature(CCase p, int age, int ageMax, int actionMax){ this(p,age,ageMax,(byte) actionMax);}
+  public Creature (CCase ccase,int age, int ageMax, byte actionMax){ // Les fourmis utilise ce contructeur.
+    this(ccase,age,ageMax, actionMax, new Pheromone(-128,-128,-128), 10, 100);
+  } public Creature(CCase ccase, int age, int ageMax, int actionMax){ this(ccase,age,ageMax,(byte) actionMax);}
   /**
   *{@summary constructor for Creature.}<br>
   *Here we only know some var, but the main constructor will take care of them.
   *@version 1.13
   */
-  public Creature (CCase p,int age, int ageMax){
-    this(p,age,ageMax,(byte) 50); // 50 action par défaut.
+  public Creature (CCase ccase,int age, int ageMax){
+    this(ccase,age,ageMax,(byte) 50); // 50 action par défaut.
   }
-  public Creature (CCase p,int ageMax){this(p,0,ageMax);}
-  public Creature (CCase p){this(p,100);}
+  public Creature (CCase ccase,int ageMax){this(ccase,0,ageMax);}
+  public Creature (CCase ccase){this(ccase,100);}
   public Creature (){this((CCase) null);}
   // GET SET -----------------------------------------------------------------------
   //Nourriture
@@ -109,16 +110,23 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public byte getActionMax(){return actionMax;}
   public void setActionMax(byte x){actionMax =x;}
   /**
-  *move the Creature from a case to an other (used by Deplacement interfaces).
-  *@version 1.13
+  *{@summary Move the Creature from a case to an other.}<br>
+  *It is used by Deplacement interfaces.<br>
+  *It wil try to remove from old CCase and add to new CCase.<br>
+  *@version 1.40
   */
-  public void setCCase(CCase p){
-    this.p.getContenu().getGc().retirer(this);
-    this.p = p;
-    p.getContenu().getGc().ajouter(this);
+  @Override
+  public void setCCase(CCase newCCase){
+    if(this.ccase!=null){
+      this.ccase.getContenu().getGc().retirer(this);
+    }
+    this.ccase = newCCase;
+    if(newCCase!=null){
+      newCCase.getContenu().getGc().add(this);
+    }
   }
-  public void setCCase(int x, int y){setCCase(Main.getGc().getCCase(x,y));}
-  public void setCc(CCase cc){setCCase(cc);}
+  //public void setCCase(int x, int y){setCCase(Main.getGc().getCCase(x,y));}
+  //public void setCc(CCase cc){setCCase(cc);}
   public Pheromone getPheromone(){ return ph;}
   public Pheromone getPh(){ return getPheromone();}
   public void setPheromone(Pheromone ph){this.ph = ph; }
@@ -145,19 +153,37 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void setEspece(Espece e){ this.e = e;}
   public void setEspece(int e){ setEspece(Main.getEspeceParId(e));}
   public String getNom(){return g.get("creature");}
+  /***
+  *{@summary Return true if is own by an AI.}<br>
+  *@version 1.40
+  */
+  public boolean getIa(){return true;}
+  public ObjetSurCarteAId getTransported(){ return transported;}
+  /**
+  *{@summary Set as transported item o.}<br>
+  *If item is no null it will be remove from the CCase.<br>
+  *If item is not null &#38; it already have an item it will throw an exception.<br>
+  *@version 1.40
+  */
+  public void setTransported(ObjetSurCarteAId o){
+    if(o!=null && getTransported()!=null){throw new NotNullLocationException();}
+    transported = o;
+    if(o!=null){o.setCCase(null);}
+  }
 
   //raccourci des actions d'interface
   public void ceDeplacer(boolean bIa){déplacement.unMouvement(this,bIa);}
-  public void ceDeplacer(CCase p){déplacement.unMouvement(this,p);}
+  public void ceDeplacer(CCase ccase){déplacement.unMouvement(this,ccase);}
   public void ceDeplacer(int direction){déplacement.unMouvement(this,direction);}
   public void ceDeplacerPlusieurCase(CCase cc){déplacement.plusieurMouvement(this,cc);}
   public void pondre(){pondre.unePonte(this);}
+  public boolean canLay(){return pondre.canLay(this);}
   public boolean chasse(){return chasse.chasse(this);}
   public boolean chasser(int direction){return chasse.chasser(this, direction);}
   public void trophallaxie(int id, int nourritureDonnée){trophallaxie.trophallaxie(this, id, nourritureDonnée);}
   public void trophallaxie(Creature c, int nourritureDonnée){trophallaxie.trophallaxie(this,c, nourritureDonnée);}
   public void trophallaxer(){trophallaxie.trophallaxer(this);}
-  public void collecter(int direction){collecte.collecter((Fourmi) this, (byte) direction);}
+  // public void collecter(int direction){collecte.collecter((Fourmi) this, (byte) direction);}
   public void evoluer(){evoluer.evoluer(this);}
   public void mourir(){mourir(0);}//mourrir sans raison spécifié.
   public void mourir(int r){mourir.mourir(this,r);}
@@ -180,7 +206,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     else {r+= "♂";}r+=" ";
     if (estMort){r+= "(☠︎)";}
     else {r+= "("+(ageMax-age)+" "+g.get("avant")+" ☠︎)";}r+=" ";
-    r+=p.desc();r+=", ";
+    r+=ccase.desc();r+=", ";
     r+=g.get("stade")+" "+getStringStade()+", ";
     r+=g.get("nourriture")+" "+nourriture+"/"+nourritureMax+" (nf:"+nourritureFournie+")"+", ";
     r+=g.get("age")+" "+age+"/"+ageMax+", ";

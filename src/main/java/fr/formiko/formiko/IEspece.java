@@ -25,7 +25,7 @@ public class IEspece implements Serializable{
   // GET SET --------------------------------------------------------------------
   public int getCt(int i){
     i--;
-    if(i<0 || i>=ct.length){erreur.erreur("Impossible de récupéré la valeur de la case "+i,"IEspece.getCt");return 0;}
+    if(i<0 || i>=ct.length){erreur.erreur("Impossible de récupéré la valeur de la case "+i);return 0;}
     return ct[i];}
   public int [] getCt(){return ct;}
   public int getId(){ return id;}

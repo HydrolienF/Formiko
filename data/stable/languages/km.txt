@@ -27,6 +27,9 @@ bientôt:ឆាប់[auto]
 suivant:បន្ទាប់[auto]
 avant:មុន[auto]
 
+set:
+where:
+
 laIA:លីអា[auto]
 laJoueurHumain:អ្នកលេងមនុស្ស[auto]
 joueur:អ្នកលេង[auto]
@@ -111,7 +114,7 @@ dimentionCarteY:វិមាត្រអក្សរនៅក្នុងអ៊�
 erreurCarteVide:មិនអាចចាប់ផ្តើមល្បែងដោយគ្មានអ្នកលេងនិងដោយគ្មានអាយ។[auto]
 maxFourmiIa:ចំនួនអតិបរមានៃស្រមោចសម្រាប់អាយ[auto]
 nomDuFichier:ឈ្មោះ​ឯកសារ[auto]
-getNomDuFcihier:បញ្ចូលឈ្មោះសំណុំសន្សំដែលអ្នកចង់ផ្ទុក៖ (ឬត្រឡប់ទៅក្រោយ)[auto]
+getFileName:បញ្ចូលឈ្មោះសំណុំសន្សំដែលអ្នកចង់ផ្ទុក៖ (ឬត្រឡប់ទៅក្រោយ)[auto]
 dernierTourPassé:ជុំចុងក្រោយបានកន្លងផុតទៅហើយ។[auto]
 victoireInconue:មិនស្គាល់ជ័យជម្នះ[auto]
 élimination:ការលុបបំបាត់[auto]
@@ -124,7 +127,7 @@ celluleA:ក្រឡាក[auto]
 lien:តំណ[auto]
 ChasseNull:មិនអាចបរបាញ់ជាមួយសត្វបានទេ[auto]
 CollecteNull:មិនអាចប្រមូលជាមួយសត្វបានទេ[auto]
-CJoueur.1:CJplayer មានអ្នកលេង[auto]
+CJoueur.1:cJplayer មានអ្នកលេង[auto]
 CJoueur.2:និងតំណមួយទៅកាន់អ្នកលេង[auto]
 
 listeCreature:បញ្ជីសត្វ[auto]
@@ -189,6 +192,15 @@ casesSombres:ប្រអប់ខ្មៅងងឹត[auto]
 chargementFini:ការផ្ទុកបានបញ្ចប់[auto]
 lancerLeJeu:ចាប់ផ្តើមល្បែង[auto]
 
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
+
 //temps
 t.j:ច[auto]
 t.h:ជ[auto]
@@ -250,7 +262,7 @@ decoderUnFichier.4:តួអក្សរ[auto]
 
 ent.1:ខ្សែអក្សរទៅការបំលែង int បានបរាជ័យ[auto]
 
-GString.1:GString គឺទទេ[auto]
+GString.1:gString គឺទទេ[auto]
 
 lireUnFichier.1:បន្ទាត់ត្រូវបានរកឃើញនៅក្នុងឯកសារ[auto]
 
@@ -275,6 +287,7 @@ erreur.14:គឺ​ទទេ[auto]
 erreur.15:បញ្ជីមិនស្គាល់[auto]
 erreur.16:ការប៉ុនប៉ងសម្រាកបានបរាជ័យ (ពេលវេលាសំរាក[auto]
 erreur.17:ការបំលែងប្រភេទបានបរាជ័យសម្រាប់ប្រភេទ[auto]
+alerteGUI2Dfail:
 
 str.1:មិនអាចអនុវត្តការផ្លាស់ប្តូរមួយបានទេ[auto]
 str.2:ត្រឹមត្រូវ[auto]
@@ -313,7 +326,7 @@ bouton.desc.8:ពង្រីកដើម្បីឱ្យប្រអប់ទ
 bouton.nom.20:ផ្លាស់ទី[auto]
 bouton.nom.21:បរបាញ់សត្វល្អិតនៅលើប្រអប់[auto]
 bouton.nom.22:ដាក់[auto]
-bouton.nom.23:Trophallaxer[auto]
+bouton.nom.23:trophallaxer[auto]
 bouton.nom.24:សម្អាតខ្លួនអ្នកឬសំអាតស្រមោចដែលមានសម្ព័ន្ធមិត្ត។[auto]
 bouton.nom.25:បរិភោគគ្រាប់[auto]
 bouton.nom.26:បំបែកគ្រាប់[auto]
@@ -326,7 +339,7 @@ bouton.nom.31:មឺនុយ[auto]
 bouton.desc.20:ផ្លាស់ទីស្រមោចដែលបានជ្រើសរើស[auto]
 bouton.desc.21:បរបាញ់សត្វល្អិតដែលមានវត្តមាននៅលើចន្លោះដូចគ្នានឹងស្រមោច[auto]
 bouton.desc.22:ដាក់ពងមួយ[auto]
-bouton.desc.23:Trophallaxer (ហុចម្ហូបទៅសត្វស្រមោចមួយទៀតតាមមាត់)[auto]
+bouton.desc.23:trophallaxer (ហុចម្ហូបទៅសត្វស្រមោចមួយទៀតតាមមាត់)[auto]
 bouton.desc.24:លាងសម្អាតស្រមោចដែលមានភាពរួសរាយរាក់ទាក់ (ឬស្រមោចដែលបានជ្រើសរើស) នៅលើទីលានបច្ចុប្បន្ន។[auto]
 bouton.desc.25:បរិភោគគ្រាប់ពូជចំហរដែលផ្ទុកនៅក្នុងជួរភ្នំ។[auto]
 bouton.desc.26:បំបែកគ្រាប់ពូជបិទជិត។[auto]
@@ -341,6 +354,15 @@ pti.desc.2:ចង្អុលបង្ហាញបរិមាណអាហារ
 pti.desc.3:ចង្អុលបង្ហាញប្រភេទស៊ុតដែលត្រូវដាក់: 0 = ព្រះមហាក្សត្រិយានី, 1 = ប្រុស, 2 = អនីតិជន, 3 = មធ្យម, 4 = ធំ, 5 + = ផ្សេងទៀត។[auto]
 pti.desc.4:ចង្អុលបង្ហាញទិសដៅដែលត្រូវធ្វើតាម។[auto]
 pti.desc.5:ចង្អុលបង្ហាញលេខសម្គាល់របស់ស្រមោចដែលត្រូវសម្អាត។ ស្រមោចដែលកខ្វក់បំផុតគឺស្រមោចនៅក្នុងទីតាំងទី ១ ។[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:សូមស្វាគមន៍មកកាន់ចំណុចប្រទាក់បន្លំ Formiko ។ នេះគឺជាកន្លែងដែលអ្នកអាចវាយពាក្យបញ្ជាបោក។[auto]
 triche.aide.2:ពាក្យបញ្ជានៅក្នុងសំណុំបែបបទ "ឈ្មោះ: (អាគុយម៉ង់) ការពិពណ៌នា"[auto]

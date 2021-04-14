@@ -38,7 +38,7 @@ public class chargerLesTraductions {
     if(tLangue == null || x<0 || x>=tLangue.length){
       int l = 0;
       if(tLangue!=null){l=tLangue.length;}
-      erreur.erreur("langue non reconnu parmi les "+l+" langue(s) disponible(s).","chargerLesTraductions.getLanguage","\"en\" retourné");
+      erreur.erreur("langue non reconnu parmi les "+l+" langue(s) disponible(s).","\"en\" retourné");
       return "en";
     }
     return tLangue[x];
@@ -99,7 +99,7 @@ public class chargerLesTraductions {
       try {
         f.createNewFile();
       }catch (Exception e) {
-        erreur.erreur("Impossible de créer un fichier de trad","chargerLesTraductions.créerLesFichiers");
+        erreur.erreur("Impossible de créer un fichier de trad");
         return false;
       }
     }
@@ -140,6 +140,10 @@ public class chargerLesTraductions {
     }
     return t;
   }
+  /**
+  *{@summary Load translation for nation name.}<br>
+  *@version 1.26
+  */
   public static String []getTableauDesNationsName(){
     String t [] = new String[0];
     try{
@@ -173,8 +177,8 @@ public class chargerLesTraductions {
     debug.débogage("Chargement des textes");//on lit le fichier de langue
     map = chargerLesTraductionsSansCommande(langue);
     String t2[] = getTableauDesCmd();
-    for (String s : t2) {//on ajoute toutes les commande qu'on peu ajouter.
-      ajouterObjetMap(s);
+    for (String s : t2) {//on ajoute toutes les commande qu'on peu add.
+      addObjetMap(s);
     }
     return map;
   }
@@ -187,8 +191,8 @@ public class chargerLesTraductions {
   public static HashMap<String, String> chargerLesTraductionsSansCommande(int langue){
     iniMap();
     String t[] = getTableauDesTrad(langue);
-    for (String s : t) {//on ajoute toutes les lignes qu'on peu ajouter.
-      ajouterObjetMap(s);
+    for (String s : t) {//on ajoute toutes les lignes qu'on peu add.
+      addObjetMap(s);
     }
     return map;
   }
@@ -199,8 +203,8 @@ public class chargerLesTraductions {
   public static HashMap<String, String> chargerLesNationsName(){
     iniMap();
     String t[] = getTableauDesNationsName();
-    for (String s : t) {//on ajoute toutes les lignes qu'on peu ajouter.
-      ajouterObjetMap(s);
+    for (String s : t) {//on ajoute toutes les lignes qu'on peu add.
+      addObjetMap(s);
     }
     return map;
   }
@@ -209,7 +213,7 @@ public class chargerLesTraductions {
   *@param s Translated line.
   *@version 1.7
   */
-  public static void ajouterObjetMap(String s){
+  public static void addObjetMap(String s){
     if(!estLigneDeTrad(s)){return;}
     //getPosDu1a ":"
     //coupe en 2.
@@ -224,6 +228,11 @@ public class chargerLesTraductions {
       if(c!='\\'){s1 = s1+c;}
       i++; c = s.charAt(i);
     }
+    //lower char as 1a char
+    if(i<lens-1){
+      i++; c = s.charAt(i);
+      s2 = s2+(c+"").toLowerCase();
+    }
     while(i<lens-1){
       i++; c = s.charAt(i);
       s2 = s2+c;
@@ -236,7 +245,7 @@ public class chargerLesTraductions {
   *Please refert to ThTrad to have more informations
   *@version 1.7
   */
-  public static void ajouterTradAuto(){
+  public static void addTradAuto(){
     if(tLangue==null){iniTLangue();}
     int lentl=getTLangue().length;
     new ThTrad(0);

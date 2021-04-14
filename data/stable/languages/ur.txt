@@ -27,6 +27,9 @@ bientôt:اسی طرح[auto]
 suivant:درج ذیل[auto]
 avant:پہلے[auto]
 
+set:
+where:
+
 laIA:ایل آئی اے[auto]
 laJoueurHumain:انسانی کھلاڑی[auto]
 joueur:پلیئر[auto]
@@ -106,12 +109,12 @@ toutLesJoueurHumainsEliminés:تمام انسانی کھلاڑیوں کو ختم
 nbrDeJoueur:انسانی کھلاڑیوں کی تعداد[auto]
 nbrDIa:نام D'Ia[auto]
 nbrDeTour:موڑ کی تعداد[auto]
-dimentionCarteX:X میں کارڈ کا طول و عرض[auto]
-dimentionCarteY:Y میں حرفی طول و عرض[auto]
+dimentionCarteX:x میں کارڈ کا طول و عرض[auto]
+dimentionCarteY:y میں حرفی طول و عرض[auto]
 erreurCarteVide:کسی کھلاڑی کے بغیر اور بغیر کسی عی کے کھیل شروع کرنا ناممکن ہے۔[auto]
 maxFourmiIa:عی کے لئے چیونٹوں کی زیادہ سے زیادہ تعداد[auto]
 nomDuFichier:فائل کا نام[auto]
-getNomDuFcihier:آپ جس سیف سیٹ کو لوڈ کرنا چاہتے ہیں اس کا نام درج کریں: (یا واپس جانے کے لئے واپس جائیں)[auto]
+getFileName:آپ جس سیف سیٹ کو لوڈ کرنا چاہتے ہیں اس کا نام درج کریں: (یا واپس جانے کے لئے واپس جائیں)[auto]
 dernierTourPassé:اب آخری دور گزر چکا ہے۔[auto]
 victoireInconue:نامعلوم فتح[auto]
 élimination:خاتمہ[auto]
@@ -124,7 +127,7 @@ celluleA:سیل a[auto]
 lien:لنک[auto]
 ChasseNull:مخلوق کا شکار نہیں کرسکتا[auto]
 CollecteNull:مخلوق کے ساتھ جمع کرنے سے قاصر ہے[auto]
-CJoueur.1:CJplayer پلیئر پر مشتمل ہے[auto]
+CJoueur.1:cJplayer پلیئر پر مشتمل ہے[auto]
 CJoueur.2:اور کھلاڑی کا 1 لنک[auto]
 
 listeCreature:جانوروں کی فہرست[auto]
@@ -189,12 +192,21 @@ casesSombres:تاریک خانے[auto]
 chargementFini:لوڈنگ ختم[auto]
 lancerLeJeu:کھیل شروع ہو رہا ہے[auto]
 
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
+
 //temps
 t.j:j[auto]
 t.h:h[auto]
 t.min:منٹ[auto]
 t.s:s[auto]
-t.ms:MS[auto]
+t.ms:mS[auto]
 t.,:
 jour:دن[auto]
 heure:گھنٹے[auto]
@@ -209,7 +221,7 @@ tempsEnJeux:کل کھیل کا وقت[auto]
 os.0:Linux[]
 os.1:Windows[]
 os.2:Mac[]
-os.-1:OS کو تسلیم نہیں کیا گیا[auto]
+os.-1:oS کو تسلیم نہیں کیا گیا[auto]
 
 //carte :
 desert:صحرا[auto]
@@ -275,6 +287,7 @@ erreur.14:خالی ہے[auto]
 erreur.15:نامعلوم فہرست[auto]
 erreur.16:وقفے کی کوشش ناکام ہوگئی (وقت کا وقفہ)[auto]
 erreur.17:قسم میں تبدیل کرنا ناکام ہوگیا[auto]
+alerteGUI2Dfail:
 
 str.1:تبادلوں میں سے ایک انجام دینے سے قاصر[auto]
 str.2:صحیح طریقے سے[auto]
@@ -341,6 +354,15 @@ pti.desc.2:پیش کردہ کھانے کی مقدار کی نشاندہی کری
 pti.desc.3:انڈے کی جس قسم کی تیاری کی جائے اس کی نشاندہی کریں: 0 = ملکہ ، 1 = مرد ، 2 = معمولی ، 3 = میڈیم ، 4 = میجر ، 5 + = دیگر۔[auto]
 pti.desc.4:پیروی کرنے کی سمت کا اشارہ کریں۔[auto]
 pti.desc.5:صاف ہونے کے ل of چیونٹی کی شناخت ظاہر کریں۔ سب سے گہری چیونٹی پوزیشن 1 میں چیونٹی ہے۔[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:فارمیکو چیٹ انٹرفیس میں خوش آمدید۔ یہ وہ جگہ ہے جہاں آپ دھوکہ دہی کے احکامات ٹائپ کرسکتے ہیں۔[auto]
 triche.aide.2:"نام: (دلائل) تفصیل" کے فارم میں احکامات[auto]

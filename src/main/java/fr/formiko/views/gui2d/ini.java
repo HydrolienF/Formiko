@@ -2,7 +2,6 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
-import fr.formiko.formiko.Touches;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -39,19 +38,9 @@ public class ini {
     //pj a ses 4 sous panneau
     Main.getPb().construire();//plein d'élément non visible sont initialiser ici.
     Main.getPc().construire();
-    initialiserTouches();
+    keys.addBindings();
   }
 
-  public static void initialiserTouches(){
-    Touches tu = new Touches();
-    Main.getPp().addKeyListener(tu);
-    Main.getPm().addKeyListener(tu);
-    Main.getPj().addKeyListener(tu);
-    Main.getPb().addKeyListener(tu);
-    Main.getPc().addKeyListener(tu);
-    Main.getPi().addKeyListener(tu);
-    Main.getPac().addKeyListener(tu);
-  }
 
   //initialisation des éléments graphiques
   public static void initialiserElémentTournés(){
@@ -59,15 +48,9 @@ public class ini {
     initialiserAutreELémentTournés();
   }
 
-  /*public static void initialiserFourmiTournées(){
-    //les fourmis.
-    int len = Main.getGj().length()+1;//tF.length;
-    for (int i=1;i<len ;i++ ) {
-      créerDBG("F",i);
-    }
-  }*/
   public static void initialiserFourmiTournées(){
-    for (int i=1;i<Main.getGj().length()+1 ;i++ ) {
+    int len = Main.getGj().length()+1;
+    for (int i=1;i<len ;i++ ) {
       créerDBG("F",i);
     }
   }

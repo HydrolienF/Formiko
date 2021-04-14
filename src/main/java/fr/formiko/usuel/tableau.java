@@ -11,17 +11,17 @@ public class tableau <T>{
 // mylist.add(objet1) etc.
   private static String f = "tableau";
   private static void erreurPosition(int i){
-    erreur.erreur(g.get(f,1,"La position")+" " + i + " "+g.get(f,2,"n'existe pas dans le tableau")+".", "tableau.retir");
+    erreur.erreur(g.get(f,1,"La position")+" " + i + " "+g.get(f,2,"n'existe pas dans le tableau")+".");
   }
 
   private static void erreurPositionCorrige(int i){
-    erreur.erreur(g.get(f,1,"La position")+" " + i + " "+g.get(f,2,"n'existe pas dans le tableau")+".", "tableau.retir",g.get(f,3,"On ajoute x en position finale."));
+    erreur.erreur(g.get(f,1,"La position")+" " + i + " "+g.get(f,2,"n'existe pas dans le tableau")+".",g.get(f,3,"On ajoute x en position finale."));
   }
   private static void erreurVide(){
-    erreur.alerte(g.get(f,5,"Le tableau est vide !"),"tableau.");
+    erreur.alerte(g.get(f,5,"Le tableau est vide !"));
   }
   private static void erreurElementManquant(String x){
-    erreur.alerte("\""+x + "\" "+g.get(f,4,"n'est pas présent dans le tableau")+".", "tableau.retirX");
+    erreur.alerte("\""+x + "\" "+g.get(f,4,"n'est pas présent dans le tableau")+".");
   }
 //Objet
   /*public static <T> T[] retire (T t[], T i){
@@ -64,6 +64,7 @@ public class tableau <T>{
       tab[i] = min;
     }
   }
+  public static void sort(String tab []){sort(tab,true);}
   /**
   *{@summary A tools for sort sting that return true if s1 &#60; s2.}
   *@param s1 1a String.
@@ -146,7 +147,7 @@ public class tableau <T>{
   }//public static String [] retireX(String t[],String x){return retirerX(t,x);}
 
 //AJOUTE
-  public static String [] ajouterX (String t[], String x, int i){
+  public static String [] addX (String t[], String x, int i){
     // Fonction qui permet d'ajouté x en position i du tableau.
     if (i<0 || i>t.length) {
       erreurPositionCorrige(i);
@@ -163,9 +164,9 @@ public class tableau <T>{
     }
     return tr;
   }
-  public static String [] ajouterX (String t[], String x){
-    return ajouterX(t,x,t.length); // Par défaut on ajoute a la dernière case d'un tableau
-  }//public static String [] ajouteX(String t[],String x){return ajouterX(t,x);}
+  public static String [] addX (String t[], String x){
+    return addX(t,x,t.length); // Par défaut on ajoute a la dernière case d'un tableau
+  }//public static String [] ajouteX(String t[],String x){return addX(t,x);}
   public static String [] ajouteT (String t1[], String t2[]){
     int lent1 = t1.length; int lent2 = t2.length;
     String tr [] = new String [lent1 + lent2];

@@ -18,7 +18,13 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+*{@summary All informations about a Game in the Game Formiko.}<br>
+*There is no word for "a game in the Game Formiko" in english so I use the french word Partie.<br>
+*All map value are in Carte var.<br>
+*@author Hydrolien
+*@version 1.39
+*/
 public class Partie implements Serializable{
   private static final long serialVersionUID = 1L;
   private GInsecte gi;
@@ -101,6 +107,10 @@ public class Partie implements Serializable{
   public void setAppartionInsecte(boolean b){appartionInsecte=b;}
   public boolean getAppartionGraine(){return appartionGraine;}
   public void setAppartionGraine(boolean b){appartionGraine=b;}
+  public Fourmi getPlayingAnt(){return playingAnt;}
+  public Joueur getPlayingJoueur(){try{return getPlayingAnt().getFere().getJoueur();}catch (Exception e) {return null;}}
+  public boolean getCasesSombres(){if(getCarte()==null){ return false;} else {return getCarte().getCasesSombres();}}
+  public boolean getCasesNuageuses(){if(getCarte()==null){ return false;} else {return getCarte().getCasesNuageuses();}}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
     String r="";
@@ -142,7 +152,7 @@ public class Partie implements Serializable{
       boolean b = false;
       nbrDeJoueurDansLaPartie=nbrDIa + nbrDeJoueur;
       if(gej!=null){nbrDeJoueurDansLaPartie=gej.length()-1;}//on a une case vide dans gej.
-      if(nbrDeJoueurDansLaPartie>this.getCarte().length()){erreur.erreur("la carte est trop petite pour abriter "+nbrDeJoueur+" joueurs ; taille : "+getGc().length(),"Fourmiliere.Fourmiliere",true);}
+      if(nbrDeJoueurDansLaPartie>this.getCarte().length()){erreur.erreur("la carte est trop petite pour abriter "+nbrDeJoueur+" joueurs ; taille : "+getGc().length(),true);}
       if(gej==null){
         gj = new GJoueur();
         iniJoueur(nbrDeJoueur,nbrDeFourmi,mapo);
@@ -175,7 +185,7 @@ public class Partie implements Serializable{
   public void iniJoueur(int nbrDeJoueur, int nbrDeFourmi, Carte mapo){
     for (int i=0; i<nbrDeJoueur; i++){
       Joueur j = new Joueur(nbrDeFourmi,false,mapo);
-      gj.ajouter(j);
+      gj.add(j);
       if (mapo.getCasesNuageuses() || mapo.getCasesSombres()){
         j.initialisationCaseNS();
         j.actualiserCaseSN();
@@ -185,7 +195,7 @@ public class Partie implements Serializable{
   public void iniIa(int nbrDIa, int nbrDeFourmi, Carte mapo){
     for (int i=0; i<nbrDIa; i++){
       Joueur j = new Joueur(nbrDeFourmi,true,mapo);
-      gj.ajouter(j);
+      gj.add(j);
     }
   }
   public void iniJoueurEtIa(Carte mapo){
@@ -260,11 +270,15 @@ public class Partie implements Serializable{
     }
   }
   public void initialiserGraphismePartie(){
-    initialiserFX(gj.length());
+    initalizeAntsImages(gj.length());
     Main.initialiserElémentTournés(); //une partie des graphismes tourné est probablement déja faite.
   }
-
-  public void initialiserFX(int nbrDeJoueur){
+  /**
+  *{@summary Initialize Ant images and save it.}<br>
+  *It use GJoueur informations to get Pheromone of every queen &#38; create an image that have the 3 color level of the 3 var of Pheromone.
+  *@version 1.39
+  */
+  public void initalizeAntsImages(int nbrDeJoueur){
     //nouvelle méthode
     Pixel pi = new Pixel(255,105,0,255);
     for (int i=1;i<nbrDeJoueur+1 ;i++ ) {
@@ -277,10 +291,10 @@ public class Partie implements Serializable{
       }
       int a = ph.getRc(); int b=ph.getVc(); int c=ph.getBc();
       Img imgTemp = new Img("F.png");
-      Pixel pi2 = new Pixel(a,b,c,255);
+      Pixel pi2 = new Pixel(ph);
       imgTemp.changerPixel(pi,pi2);
       //imgTemp.ombrer(pi2); // met de l'ombre sur le pixel pi2. (en théorie)
-      imgTemp.sauvegarde("temporaire/F"+i+".png");
+      imgTemp.sauvegarder("F"+i+".png");
     }
   }
   public void enregistrerLesScores(){
@@ -346,7 +360,7 @@ public class Partie implements Serializable{
   public boolean setPlayingAnt(Fourmi f){
     if (!Main.getView().getActionGameOn()) {return false;}
     playingAnt=f;
-    return false;
+    return true;
   }
   /**
   *{@summary change the value of the playing ant with and id.}<br>
@@ -362,5 +376,4 @@ public class Partie implements Serializable{
       return false;
     }
   }
-  public Fourmi getPlayingAnt(){return playingAnt;}
 }

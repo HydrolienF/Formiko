@@ -27,6 +27,9 @@ bientôt:جلدي[auto]
 suivant:هيٺين[auto]
 avant:اڳ[auto]
 
+set:
+where:
+
 laIA:ايليا[auto]
 laJoueurHumain:انساني پليئر[auto]
 joueur:پليئر[auto]
@@ -107,11 +110,11 @@ nbrDeJoueur:انساني رانديگر جو تعداد[auto]
 nbrDIa:نالو آئي[auto]
 nbrDeTour:موڙ جو تعداد[auto]
 dimentionCarteX:ايڪس ۾ ڪارڊ جي طول و عرض[auto]
-dimentionCarteY:Y ۾ خط جو طول و عرض[auto]
+dimentionCarteY:y ۾ خط جو طول و عرض[auto]
 erreurCarteVide:بغير راند ڪنهن کي به شروع ڪرڻ ناممڪن آهي بغير ڪنهن رانديگر ۽ ائي بغير اي.[auto]
 maxFourmiIa:سڀيئي لاءِ وڌ ۾ وڌ اينٽي لاءِ[auto]
 nomDuFichier:فائيل جو نالو[auto]
-getNomDuFcihier:توهان جيڪو لوڊ ڪرڻ چاهيو بچايو سيٽ جو نالو داخل ڪريو: (يا واپس وڃڻ لاءِ واپس)[auto]
+getFileName:توهان جيڪو لوڊ ڪرڻ چاهيو بچايو سيٽ جو نالو داخل ڪريو: (يا واپس وڃڻ لاءِ واپس)[auto]
 dernierTourPassé:آخري دور هاڻي گذري چڪو آهي.[auto]
 victoireInconue:اڻ victoryاتل فتح[auto]
 élimination:خاتمو[auto]
@@ -188,6 +191,15 @@ casesSombres:ڪارا دٻا[auto]
 
 chargementFini:لوڊ ڪرڻ پورو ڪيو[auto]
 lancerLeJeu:راند جي شروعات ٿي[auto]
+
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
 
 //temps
 t.j:جي[auto]
@@ -275,6 +287,7 @@ erreur.14:خالي آهي[auto]
 erreur.15:اڻ listاتل فهرست[auto]
 erreur.16:وقفي جي ڪوشش ناڪام ٿي وئي (ٽائم جو وقت)[auto]
 erreur.17:قسم بدلائڻ ٽائپ لاءِ ناڪام ٿيو[auto]
+alerteGUI2Dfail:
 
 str.1:ھڪڙي تبديلي کي انجام ڏيڻ کان قاصر[auto]
 str.2:صحيح طور تي[auto]
@@ -341,6 +354,15 @@ pti.desc.2:پيش ڪيل کاڌي جي مقدار ظاهر ڪريو.[auto]
 pti.desc.3:بيهڻ لاءِ بيض جو قسم ظاهر ڪريو: 0 = راڻي ، 1 = مرد ، 2 = نن ،ڙو ، 3 = وچولي ، 4 = ميجر ، 5 + = ٻيو.[auto]
 pti.desc.4:پٺيان اچڻ لاءِ هدايت جو اشارو ڏيو.[auto]
 pti.desc.5:انتيءَ جي بت کي صاف ڪرڻ لاءِ اشارو ڪيو. پوزيشن 1 ۾ سڀ کان وڌيڪ سٺي ڪوگ انٽيگ آهي[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:فارموڪو چيٽ انٽرفيس ۾ ڀليڪار اهو ڪهڙو آهي جتي توهان ٺٽو حڪم ڪري سگھو ٿا.[auto]
 triche.aide.2:فارم ۾ آرڊر ”نالو: (دليل) وضاحت“[auto]

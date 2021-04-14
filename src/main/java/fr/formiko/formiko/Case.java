@@ -7,7 +7,11 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.allea;
 
 import java.io.Serializable;
-
+/**
+*{@summary Square objects use to represent the map.}<br>
+*@version 1.39
+*@author Hydrolien
+*/
 public class Case implements Serializable{
   private Point p;
   private byte type; //0 = herbe ...
@@ -60,19 +64,29 @@ public class Case implements Serializable{
   public void setType(int x){setType((byte)x);}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
+    boolean caseSombre = false;
+    if(Main.getPartie()!=null && Main.getPartie().getPlayingJoueur()!=null){
+      if(Main.getPartie().getCasesNuageuses() && Main.getPartie().getPlayingJoueur().getCaseNuageuse(p.getX(),p.getY())){
+        return "";
+      }else if(Main.getPartie().getCasesSombres() && Main.getPartie().getPlayingJoueur().getCaseSombre(p.getX(),p.getY())){
+        caseSombre=true;
+      }
+    }
     String s = g.get("case")+" : ("+g.get("nourritureInsecte")+" :"+nourritureInsecte+"/"+nourritureInsecteMax+" (+"+nourritureInsecteParTour+"))";
     s=s+ p.toString();s=s+"\n";
     if (fere != null){
-      s=s+g.get("fourmiliere")+" :";s=s+"\n";
+      s=s+g.get("fourmilière")+" :";s=s+"\n";
       s=s+fere.toString(false);s=s+"\n";
     }
-    if (gc != null && gc.getDébut() != null){
-      s=s+g.get("creatures")+" : "; s=s+"\n";
-      s=s+gc.toString();s=s+"\n";
-    }
-    if (gg != null && gg.getDébut() != null){
-      s=s+g.get("graines")+" : ";s=s+"\n";
-      s=s+gg.toString();s=s+"\n";
+    if (!caseSombre) {
+      if (gc != null && gc.getDébut() != null){
+        s=s+g.get("creatures")+" : "; s=s+"\n";
+        s=s+gc.toString();s=s+"\n";
+      }
+      if (gg != null && gg.getDébut() != null){
+        s=s+g.get("graines")+" : ";s=s+"\n";
+        s=s+gg.toString();s=s+"\n";
+      }
     }
     return s;
   }
@@ -118,7 +132,7 @@ public class Case implements Serializable{
   public void actualisationGraine(CCase p){
     //ici un %age dépendant du type de la Case et de la saison serait bienvenue. (multiplié par l'abondance des graines.)
     int x  = allea.getAlléa(50);
-    if(x==0 && this.getFere()==null){ gg.ajouterGraine(p);} // si on a de la chance et que il n'y a pas de fere sur la case.
+    if(x==0 && this.getFere()==null){ new Graine(p);} // si on a de la chance et que il n'y a pas de fere sur la case.
     gg.tour();
   }
 }

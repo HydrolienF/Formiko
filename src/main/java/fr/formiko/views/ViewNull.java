@@ -9,7 +9,7 @@ import fr.formiko.formiko.Fourmi;
  *@version 1.33
  */
 public class ViewNull implements View {
-  private boolean actionGameOn;
+  private boolean actionGameOn=true;
   public boolean getActionGameOn(){return actionGameOn;}
   /**
   *{@summary A null view action that do nothing.}<br>
@@ -114,5 +114,13 @@ public class ViewNull implements View {
   */
   public int getAntChoice(int t[]){
     return -1;
+  }
+  /**
+  *{@summary A null view action that do nothing.}<br>
+  *@return Return -1;
+  *@version 1.39
+  */
+  public CCase getCCase(){
+    return null;
   }
 }

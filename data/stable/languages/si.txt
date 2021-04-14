@@ -27,6 +27,9 @@ bientôt:ඉක්මනින්[auto]
 suivant:පහත දැක්වේ[auto]
 avant:කලින්[auto]
 
+set:
+where:
+
 laIA:l'IA[auto]
 laJoueurHumain:මිනිස් ක්‍රීඩකයා[auto]
 joueur:ක්රීඩකයා[auto]
@@ -106,12 +109,12 @@ toutLesJoueurHumainsEliminés:සියලුම මිනිස් ක්‍ර
 nbrDeJoueur:මිනිස් ක්‍රීඩකයන්ගේ ගණන[auto]
 nbrDIa:නම ඩී[auto]
 nbrDeTour:හැරීම් ගණන[auto]
-dimentionCarteX:X හි කාඩ්පතේ මානය[auto]
-dimentionCarteY:Y හි අකුරු මානය[auto]
+dimentionCarteX:x හි කාඩ්පතේ මානය[auto]
+dimentionCarteY:y හි අකුරු මානය[auto]
 erreurCarteVide:කිසිදු ක්‍රීඩකයෙකු නොමැතිව සහ කිසිදු ක්‍රීඩකයෙකු නොමැතිව ක්‍රීඩාවක් ආරම්භ කළ නොහැක.[auto]
 maxFourmiIa:ai සඳහා උපරිම කුහුඹුවන් සංඛ්‍යාව[auto]
 nomDuFichier:ගොනුවේ නම[auto]
-getNomDuFcihier:ඔබට පූරණය කිරීමට අවශ්‍ය සුරැකුම් කට්ටලයේ නම ඇතුළත් කරන්න: (නැතහොත් ආපසු යාමට ආපසු)[auto]
+getFileName:ඔබට පූරණය කිරීමට අවශ්‍ය සුරැකුම් කට්ටලයේ නම ඇතුළත් කරන්න: (නැතහොත් ආපසු යාමට ආපසු)[auto]
 dernierTourPassé:අවසන් වටය දැන් සමත් වී ඇත.[auto]
 victoireInconue:නොදන්නා ජයග්‍රහණය[auto]
 élimination:තුරන් කිරීම[auto]
@@ -124,7 +127,7 @@ celluleA:කොටුව a[auto]
 lien:සබැඳිය[auto]
 ChasseNull:සත්වයා සමඟ දඩයම් කළ නොහැක[auto]
 CollecteNull:සත්වයා සමඟ එකතු කිරීමට නොහැකි විය[auto]
-CJoueur.1:CJplayer හි ක්‍රීඩකයා අඩංගු වේ[auto]
+CJoueur.1:cJplayer හි ක්‍රීඩකයා අඩංගු වේ[auto]
 CJoueur.2:සහ ක්‍රීඩකයාට 1 සබැඳිය[auto]
 
 listeCreature:නිර්මාණ ලැයිස්තුව[auto]
@@ -189,6 +192,15 @@ casesSombres:අඳුරු පෙට්ටි[auto]
 chargementFini:පැටවීම අවසන්[auto]
 lancerLeJeu:ක්රීඩාව ආරම්භ කිරීම[auto]
 
+lookedCase:
+saveName:
+saveDone:
+defaultName:
+caseUnkwnowed:
+theCaseDoNotExist:
+optionsCanBeEditedIn:
+enterCoordinateAs:
+
 //temps
 t.j:j[auto]
 t.h:h[auto]
@@ -250,7 +262,7 @@ decoderUnFichier.4:චරිතය[auto]
 
 ent.1:නූල් ටු ඉන්ටර් පරිවර්තනය අසාර්ථක විය[auto]
 
-GString.1:GString හිස් ය[auto]
+GString.1:gString හිස් ය[auto]
 
 lireUnFichier.1:ගොනුවේ රේඛා හමු විය[auto]
 
@@ -275,6 +287,7 @@ erreur.14:හිස්[auto]
 erreur.15:නොදන්නා ලැයිස්තුව[auto]
 erreur.16:විවේක උත්සාහය අසාර්ථක විය (විවේක කාලය[auto]
 erreur.17:වර්ගය සඳහා වර්ගය පරිවර්තනය කිරීම අසාර්ථක විය[auto]
+alerteGUI2Dfail:
 
 str.1:එක් පරිවර්තනයක් සිදු කිරීමට නොහැකි විය[auto]
 str.2:නිවැරදිව[auto]
@@ -341,6 +354,15 @@ pti.desc.2:පිරිනමන ආහාර ප්‍රමාණය දක්
 pti.desc.3:තැබිය යුතු බිත්තර වර්ගය දක්වන්න: 0 = රැජින, 1 = පිරිමි, 2 = කුඩා, 3 = මධ්‍යම, 4 = මේජර්, 5 + = වෙනත්.[auto]
 pti.desc.4:අනුගමනය කළ යුතු දිශාව දක්වන්න.[auto]
 pti.desc.5:පිරිසිදු කළ යුතු කුහුඹුවාගේ හැඳුනුම්පත දක්වන්න. 1 වන ස්ථානයේ සිටින කුහුඹුවා වේ.[auto]
+
+//cli
+doAntAction:
+selectAnt:
+endTurn:
+endGame:
+pauseActionGame:
+unaviable:
+setPlayingAnt:
 
 triche.aide.1:ෆෝමිකෝ වංචා අතුරුමුහුණතට සාදරයෙන් පිළිගනිමු. ඔබට වංචා විධාන ටයිප් කළ හැකි ස්ථානය මෙයයි.[auto]
 triche.aide.2:"name: (තර්ක) විස්තරය" ආකාරයෙන් විධාන[auto]

@@ -62,7 +62,7 @@ public class str{
    *@return s with fin at the end.
    *@version 1.2
    */
-  public static String ajouterALaFinSiNecessaire(String s, String fin){
+  public static String addALaFinSiNecessaire(String s, String fin){
     if(!contient(s,fin,2)){s+=fin;}
     return s;
   }
@@ -100,15 +100,21 @@ public class str{
   }public static String sToFileName(String s){ return filtreCharInterdit(s);}
   /**
   *{@summary Transform a String to a directory name aviable on every os.}<br>
-  *if last / is missing it will be add.
+  *If last / is missing it will be add.
+  *If there is a 1a / it will be delete.
+  *If there is \ they will be transform by /.
   *@param s the String to transform to a directory name.
-  *@version 1.3
+  *@version 1.38
   */
   public static String sToDirectoryName(String s){
+    //TODO test
     if(s==null){return null;}
+    if(s.equals("")){return "";}
     char w [] = {'<', '>', ':', '\"', '\\', '|', '?', '*'};
+    s.replace('\\','/');
     s = filtreCharInterdit(s,w);
-    s = ajouterALaFinSiNecessaire(s,"/");
+    if(s.charAt(0)=='/'){s=s.substring(1);}
+    s = addALaFinSiNecessaire(s,"/");
     return s;
   }
   /**
@@ -127,34 +133,76 @@ public class str{
       return s;
     }
   }
+  /**
+  *{@summary Transform the first char of a String to the toLowerCase char.}<br>
+  *if s is "" or null nothing will be done.
+  *@param s the String to transform.
+  *@version 1.39
+  */
+  public static String sToSMin(String s){
+    if(s==null){return null;}
+    if(s.length()>1){
+      return s.substring(0,1).toLowerCase()+s.substring(1);
+    }else if(s.length()==1){
+      return s.substring(0,1).toLowerCase();
+    }else{
+      return s;
+    }
+  }
+  /**
+  *{@summary Return true if 1a char is an english maj char.}<br>
+  *only A to Z without accent char are ok.
+  *@param s the String to test.
+  *@version 1.39
+  */
+  public static boolean isMaj(String s){
+    if(s==null || s.length()<1){return false;}
+    if(s.charAt(0)>64 && s.charAt(0)<91){return true;}
+    return false;
+  }
 
 	//nouvelle partie :
 	// conversion  :
   /**
   *{@summary From String to int}
   *return -1 if conversion fail.
-  *@version 1.1
+  *@version 1.39
   */
   public static int sToI(String s){
+    return sToI(s,-1);
+  }
+  /**
+  *{@summary From String to int}
+  *return Default value if conversion fail.
+  *@version 1.39
+  */
+  public static int sToI(String s, int iDefault){
     try {
       return (int) sToLThrows(s);
     }catch (Exception e) {
       erreurConversion("String To long",s);
-      erreur.erreur("","",true);//@a
-      return -1;
+      return iDefault;
     }
   }
   /**
   *{@summary From String to double}
   *return -1 if conversion fail.
-  *@version 1.1
+  *@version 1.39
   */
   public static double sToD(String s){
+    return sToD(s,-1.0);
+  }
+  /**
+  *{@summary From String to double}
+  *return Default value if conversion fail.
+  *@version 1.39
+  */
+  public static double sToD(String s, Double dDefault){
     try {
       return Double.parseDouble(s);
     }catch (Exception e) {
       erreurConversion("String To Double",s);
-      return -1.0;
+      return dDefault;
     }
   }
   /**
@@ -202,8 +250,8 @@ public class str{
   *@version 1.1
   */
   public static byte iToBy(int x){
-    if(x>127){ x=127;erreurConversion("int To byte",x+"");}
-    if(x<-128){ x=-128;erreurConversion("int To byte",x+"");}
+    if(x>127){ erreurConversion("int To byte",x+"");x=127;}
+    if(x<-128){ erreurConversion("int To byte",x+"");x=-128;}
     return (byte) x;
   }
   /**
@@ -229,10 +277,17 @@ public class str{
   }
   /**
   *{@summary From String to byte}
-  *@version 1.1
+  *@version 1.39
+  */
+  public static byte sToBy(String s, int iDefault){
+    return iToBy(sToI(s));
+  }
+  /**
+  *{@summary From String to byte}
+  *@version 1.39
   */
   public static byte sToBy(String s){
-    return iToBy(sToI(s));
+    return sToBy(s,-1);
   }
   /**
   *{@summary special error for conversion}
@@ -240,7 +295,7 @@ public class str{
   *@version 1.1
   */
   public static void erreurConversion(String xToY, String s){
-    erreur.erreur(g.get("str",1,"Impossible d'effectuer une des conversions") +" "+ xToY +" "+g.get("str",2,"correctement")+" : "+s,"str.");
+    erreur.erreur(g.get("str",1,"Impossible d'effectuer une des conversions") +" "+ xToY +" "+g.get("str",2,"correctement")+" : "+s);
   }
   //tableaux
   /**

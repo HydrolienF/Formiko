@@ -33,12 +33,13 @@ echo "cp data, README & .jar"
 mv Formiko.jar out/$nom/.
 cp -r data/ out/$nom/.
 cp README.md out/$nom/.
+cp LICENSE.md out/$nom/.
+cp version out/$nom/.
 cd out/$nom
 
 #suppress all file that will be recreate on the computer of the user.
-
+java -jar Formiko.jar cleanFolder
 cd ../..
-./clearData.sh out/$nom
 
 mkdir out/$nomW
 mkdir out/$nomL
