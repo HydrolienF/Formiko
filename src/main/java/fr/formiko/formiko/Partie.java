@@ -174,7 +174,7 @@ public class Partie implements Serializable{
     }
     //ce qui arrive même si c'était déja initialisé.
     Main.startCh();
-    if(Main.getF()!=null){
+    if(Main.getF()!=null){ //TODO move to ViewGUI2d
       initialiserGraphismePartie();
     }
     Main.endCh("chargementGraphismes");
