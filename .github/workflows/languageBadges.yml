@@ -21,8 +21,9 @@ jobs:
       id: dataCreation
       run: |
         # Generates a GitHub Workflow output named `status`
-        value=$(./run.sh -q trad fr)
-        echo "##[set-output name=status;]$value"
+        #value=$(./run.sh -q trad fr)
+        #echo "##[set-output name=status;]$value"
+        echo "##[set-output name=status;]$(./run.sh -q trad fr)"
         #color="red"
         #if: value > 40
         #  color="green"
