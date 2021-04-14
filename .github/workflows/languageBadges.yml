@@ -23,10 +23,10 @@ jobs:
         # Generates a GitHub Workflow output named `status`
         value=$(./run.sh -q trad fr)
         echo "##[set-output name=status;]$value"
-        color="red"
+        #color="red"
         #if: value > 40
         #  color="green"
-        echo "##[set-output name=color;]$color"
+        #echo "##[set-output name=color;]$color"
         # Create the directory where badges will be saved, if needed
         mkdir -p "${BADGE_PATH%/*}"
         echo "##[set-output name=path;]${BADGE_PATH}"
@@ -40,7 +40,8 @@ jobs:
       with:
         label: 'Coverage'
         status: ${{ steps.dataCreation.outputs.status }}%
-        color: ${{ steps.dataCreation.outputs.color }}
+        color: "red"
+        #${{ steps.dataCreation.outputs.color }}
         path: ${{ steps.dataCreation.outputs.path }}
 
     - name: Upload badge as artifact
