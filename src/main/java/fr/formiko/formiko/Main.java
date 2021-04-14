@@ -665,6 +665,9 @@ public class Main {
   */
   private static void launchOptions(String stringOptions){
     switch(stringOptions){
+      case "q":
+      erreur.setMuet(true);
+      break;
       case "d":
       debug.setAffLesEtapesDeRésolution(true);
       break;
