@@ -18,10 +18,15 @@ jobs:
     - name: Build with Maven
       run: mvn -ntp compile -c
     - name: Generate 3 language value
-      id: coverage
+      id: dataCreation
       run: |
         # Generates a GitHub Workflow output named `status`
-        echo "##[set-output name=status;]$(./run.sh -q trad fr)"
+        value=$(./run.sh -q trad fr)
+        echo "##[set-output name=status;]$value"
+        color="red"
+        if: value > 40
+          color="green"
+        echo "##[set-output name=color;]$color"
         # Create the directory where badges will be saved, if needed
         mkdir -p "${BADGE_PATH%/*}"
         echo "##[set-output name=path;]${BADGE_PATH}"
@@ -34,9 +39,9 @@ jobs:
       id: badge
       with:
         label: 'Coverage'
-        status: ${{ steps.coverage.outputs.status }}%
-        color: 'yellow'
-        path: ${{ steps.coverage.outputs.path }}
+        status: ${{ steps.dataCreation.outputs.status }}%
+        color: ${{ steps.dataCreation.outputs.color }}
+        path: ${{ steps.dataCreation.outputs.path }}
 
     - name: Upload badge as artifact
       uses: actions/upload-artifact@v2
