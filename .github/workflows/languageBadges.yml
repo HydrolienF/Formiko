@@ -21,11 +21,12 @@ jobs:
       id: dataCreation
       run: |
         # Generates a GitHub Workflow output named `status`
-        #value=$(./run.sh -q trad fr)
-        #echo "##[set-output name=status;]$value"
-        echo "##[set-output name=status;]$(./run.sh -q trad fr)"
-        #color="red"
-        #if: value > 40
+        VALUE=$(./run.sh -q trad fr)
+        echo "##[set-output name=status;]${VALUE}"
+        #echo "##[set-output name=status;]$(./run.sh -q trad fr)"
+        #if: ${VALUE} < 40
+        #  color="red"
+        #if: ${VALUE} > 80
         #  color="green"
         #echo "##[set-output name=color;]$color"
         # Create the directory where badges will be saved, if needed
@@ -33,6 +34,8 @@ jobs:
         echo "##[set-output name=path;]${BADGE_PATH}"
       env:
         BADGE_PATH: .github/badges/fr.svg
+        VALUE: 0
+        COLOR: "yellow"
 
     # Use the output from the `coverage` step
     - name: Generate the badge SVG image
