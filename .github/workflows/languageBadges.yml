@@ -20,8 +20,8 @@ jobs:
     - name: Generate 3 language value
       id: coverage
       run: |
-        # Generates a GitHub Workflow output named `lines`
-        echo "##[set-output name=lines;]$(./run.sh -q trad fr)"
+        # Generates a GitHub Workflow output named `status`
+        echo "##[set-output name=status;]$(./run.sh -q trad fr)"
         # Create the directory where badges will be saved, if needed
         mkdir -p "${BADGE_PATH%/*}"
         echo "##[set-output name=path;]${BADGE_PATH}"
@@ -34,7 +34,7 @@ jobs:
       id: badge
       with:
         label: 'Coverage'
-        status: ${{ steps.coverage.outputs.lines }}
+        status: ${{ steps.coverage.outputs.status }}%
         color: 'yellow'
         path: ${{ steps.coverage.outputs.path }}
 
