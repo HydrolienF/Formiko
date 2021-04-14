@@ -207,7 +207,7 @@ public class Options implements Serializable{
     try {
       x = Toolkit.getDefaultToolkit().getScreenSize().width;
     }catch (Exception e) {
-      erreur.alerte("no screen size");
+      erreur.alerte("no screen size found");
     }
     Double racio = (x+0.0)/1920;// si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.
     chargerLesTraductions.iniTLangue();
