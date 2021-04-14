@@ -21,7 +21,7 @@ jobs:
         mkdir -p "${BADGE_PATH%/*}"
         echo "##[set-output name=path;]${BADGE_PATH}"
       env:
-        COVERAGE: 53.5%
+        COVERAGE: 54%
         BADGE_PATH: .github/badges/coverage.svg
 
     # Use the output from the `coverage` step
