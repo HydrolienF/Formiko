@@ -49,7 +49,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: badge
-        path: ${{ steps.coverage.outputs.path }}
+        path: ${{ steps.dataCreation.outputs.path }}
         if-no-files-found: error
 
     - name: Extract branch name
@@ -58,7 +58,7 @@ jobs:
       id: extract_branch
     - name: Commit badge
       env:
-        BADGE: ${{ steps.coverage.outputs.path }}
+        BADGE: ${{ steps.dataCreation.outputs.path }}
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
