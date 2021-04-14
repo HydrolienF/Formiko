@@ -313,7 +313,7 @@ public class Main {
   public static GEspece getGEspece(){ return getGe();}
   public static Joueur getJoueurParId(int id){ return Main.getGj().getJoueurParId(id);}
   public static Fourmiliere getFourmiliereParId(int id){ return getJoueurParId(id).getFere();}
-  public static Fenetre getF(){ return ((ViewGUI2d)view).getF();}
+  public static Fenetre getF(){ try {return ((ViewGUI2d)view).getF();} catch (Exception e) {return null;}}
   public static Options getOp(){return op;}
   public static Chrono getCh(){ return ch;}
   public static int getKey(String clé){ int r = key.get(clé);if(r==-1){return -1;}return r; }

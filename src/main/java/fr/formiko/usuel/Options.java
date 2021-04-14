@@ -203,7 +203,12 @@ public class Options implements Serializable{
   */
   private SortedProperties getDefaultProperties(){
     SortedProperties defaultProperties = new SortedProperties(34);
-    int x = Toolkit.getDefaultToolkit().getScreenSize().width;
+    int x=0
+    try {
+      int x = Toolkit.getDefaultToolkit().getScreenSize().width;
+    }catch (Exception e) {
+      erreur.alerte("no screen size");
+    }
     Double racio = (x+0.0)/1920;// si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.
     chargerLesTraductions.iniTLangue();
     int t[]=new int[2];
