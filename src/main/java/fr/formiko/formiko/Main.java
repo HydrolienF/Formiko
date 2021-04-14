@@ -89,7 +89,11 @@ public class Main {
     if(args.length>0){
       if(args[0].equals("trad")){
         initialisation();
-        tradCmd();
+        if(args.length>0){
+          tradCmd(args[1]);
+        }else{
+          tradCmd();
+        }
       }else if(args[0].equals("son")){
         //System.out.println(Musique.getMusiqueAlleatoire());
       }else if(args[0].equals("op")){
@@ -606,11 +610,22 @@ public class Main {
     trad.copieTrads();
     endCh("copieTrads");startCh();
     chargerLesTraductions.affPourcentageTraduit();
-    endCh("affPourcentageTraduit");startCh();
+    endCh("affPourcentageTraduit");//startCh();
     /*chargerLesTraductions.addTradAuto();
     endCh("addTradAuto");startCh();
     chargerLesTraductions.affPourcentageTraduit();
     endCh("affPourcentageTraduit");*/
+  }
+  /**
+  *{@summary Update 1 translation & print it's #&25;age of translation.}<br>
+  *@version 1.42
+  */
+  public static void tradCmd(String language){
+    // startCh();
+    chargerLesTraductions.iniTLangue();
+    chargerLesTraductions.créerLesFichiers();
+    g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
+    System.out.print(chargerLesTraductions.getPourcentageTraduit(chargerLesTraductions.getLanguage(language)));
   }
   /**
   *{@summary trim the image from args.}
