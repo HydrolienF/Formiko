@@ -24,8 +24,8 @@ jobs:
         value=$(./run.sh -q trad fr)
         echo "##[set-output name=status;]$value"
         color="red"
-        if: value > 40
-          color="green"
+        #if: value > 40
+        #  color="green"
         echo "##[set-output name=color;]$color"
         # Create the directory where badges will be saved, if needed
         mkdir -p "${BADGE_PATH%/*}"
