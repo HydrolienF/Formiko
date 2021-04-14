@@ -21,7 +21,7 @@ jobs:
       id: coverage
       run: |
         # Generates a GitHub Workflow output named `lines`
-        echo $(./run.sh trad fr)
+        echo "##[set-output name=lines;]$(./run.sh trad fr)"
         # Create the directory where badges will be saved, if needed
         mkdir -p "${BADGE_PATH%/*}"
         echo "##[set-output name=path;]${BADGE_PATH}"
