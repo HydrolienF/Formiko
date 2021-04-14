@@ -1,4 +1,4 @@
-name: Update language value
+name: Update coverage value
 
 on:
   push:
@@ -15,4 +15,4 @@ jobs:
         label: 'Test coverage'
         status: '53.4%'
         color: 'blue,555,daf'
-        path: '.github/badges/coverage.svg'
+        path: 'coverage.svg'
