@@ -203,9 +203,9 @@ public class Options implements Serializable{
   */
   private SortedProperties getDefaultProperties(){
     SortedProperties defaultProperties = new SortedProperties(34);
-    int x=0
+    int x=0;
     try {
-      int x = Toolkit.getDefaultToolkit().getScreenSize().width;
+      x = Toolkit.getDefaultToolkit().getScreenSize().width;
     }catch (Exception e) {
       erreur.alerte("no screen size");
     }
