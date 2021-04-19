@@ -76,7 +76,8 @@ jobs:
     # Badge part
     - name: Generate version Badge file
       id: badgeFile
-      run: 'echo "{" > temp; echo "  \"schemaVersion\": 1," >> temp; echo "  \"label\": \"Version\"," >> temp; echo -n "  \"message\": \"" >> temp; cat version.md | tr '\n' '' >> temp; echo "\"," >> temp;echo "  \"color\": \"blue\"" >> temp; echo "}" >> temp'
+      run: echo "{" > temp; echo "  \"schemaVersion\"'%3A' 1," >> temp; echo "  \"label\"'%3A' \"Version\"," >> temp; echo -n "  \"message\"'%3A' \"" >> temp; cat version.md | tr '\n' '' >> temp; echo "\"," >> temp;echo "  \"color\"'%3A' \"blue\"" >> temp; echo "}" >> temp
+    
     - name: Generate version Badge
     - uses: popsiclestick/gist-sync-action@v1.2.0
       id: sync
