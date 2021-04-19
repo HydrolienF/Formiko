@@ -4,7 +4,7 @@
 [discord-invite]: https://discord.gg/FuaaD8fEXn
 [doc-shield]: https://img.shields.io/badge/doc-40%25-yellow
 [license]: https://github.com/HydrolienF/Formiko/blob/master/LICENSE.md
-[version]: https://shields.io/badge/download-1.42-blue
+[version]: https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json
 [discord-shield]: https://discord.com/api/guilds/125227483518861312/widget.png
 [license-shield]: https://img.shields.io/badge/license-custom-49C2E3
 [test-workflow]: https://github.com/HydrolienF/Formiko/blob/master/.github/workflows/test.yml/badge.svg
