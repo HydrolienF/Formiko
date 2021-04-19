@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: fr.formiko.formiko.FourmiTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s - in fr.formiko.formiko.FourmiTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in fr.formiko.formiko.FourmiTest

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: fr.formiko.usuel.types.strTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 s - in fr.formiko.usuel.types.strTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 s - in fr.formiko.usuel.types.strTest
