@@ -9,7 +9,7 @@ on:
     types: [closed]
 
 jobs:
-  release:
+  main:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
@@ -72,6 +72,18 @@ jobs:
         asset_path: ./out/Formiko${{ steps.version.outputs.version }}.zip
         asset_name: Formiko${{ steps.version.outputs.version }}.zip
         asset_content_type: application/zip
+        
+    # Badge part
+    - name: Generate version Badge
+      run: 'echo "{" > temp; echo "  \"schemaVersion\": 1," >> temp; echo "  \"label\": \"Version\"," >> temp; echo -n "  \"message\": \"" >> temp; cat version.md | tr '\n' '' >> temp; echo "\"," >> temp;echo "  \"color\": \"blue\"" >> temp; echo "}" >> temp'
+    - uses: popsiclestick/gist-sync-action@v1.2.0
+      id: sync
+      with:
+        auth: ${{ secrets.GIST_TOKEN }}
+        gist_url: https://gist.github.com/<USER_NAME>/<GIST_ID>
+        gist_title: version.json
+        gist_description: ""
+        github_file: "temp"
 
     - name: Generate JaCoCo Badge
       id: jacoco
@@ -82,7 +94,7 @@ jobs:
         echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
         echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
 
-    - name: Commit the badge (if it changed)
+    - name: Commit the badges (if it changed)
       run: |
         if [[ `git status --untracked-files=no --porcelain` != "\n" ]]; then
           git config --local user.email "action@github.com"
