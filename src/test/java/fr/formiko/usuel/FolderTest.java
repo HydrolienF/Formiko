@@ -15,6 +15,11 @@ public class FolderTest extends TestCaseMuet{
     //if we need we can change name of sub folder for test.
     return folder;
   }
+  public void contain(String s, String ts []){
+    for (String sTest : ts ) {
+      assertTrue(s.contains(sTest));
+    }
+  }
   @Test
   public void testIni(){
     Folder folder = ini();
@@ -22,13 +27,13 @@ public class FolderTest extends TestCaseMuet{
     fichier.deleteDirectory(f);
     folder.setFolderMain("testMain/");
     assertEquals(29,folder.ini());
-    assertEquals("temporary stable resourcesPacks saves",tableau.tableauToString(f.list()));
+    contain("temporary stable resourcesPacks saves",f.list());
     File f2 = new File("testMain/temporary/");
-    assertEquals("languages levels maps videos sounds bin musiques images",tableau.tableauToString(f2.list()));
+    contain("languages levels maps videos sounds bin musiques images",f2.list());
     f2 = new File("testMain/stable/");
-    assertEquals("languages levels maps videos sounds bin musiques images",tableau.tableauToString(f2.list()));
+    contain("languages levels maps videos sounds bin musiques images",f2.list());
     f2 = new File("testMain/resourcesPacks/");
-    assertEquals("languages levels maps videos sounds bin musiques images",tableau.tableauToString(f2.list()));
+    contain("languages levels maps videos sounds bin musiques images",f2.list());
 
     assertTrue(fichier.deleteDirectory(f));
     folder.setFolderMain();
@@ -44,13 +49,13 @@ public class FolderTest extends TestCaseMuet{
     File f2 = new File("testMain"+x+"/temporary/");
     assertTrue(f2.mkdir());
     assertEquals(27,folder.ini());
-    assertEquals("temporary stable resourcesPacks saves",tableau.tableauToString(f.list()));
+    contain("temporary stable resourcesPacks saves",f.list());
     f2 = new File("testMain"+x+"/temporary/");
-    assertEquals("languages levels maps videos sounds bin musiques images",tableau.tableauToString(f2.list()));
+    contain("languages levels maps videos sounds bin musiques images",f2.list());
     f2 = new File("testMain"+x+"/stable/");
-    assertEquals("languages levels maps videos sounds bin musiques images",tableau.tableauToString(f2.list()));
+    contain("languages levels maps videos sounds bin musiques images",f2.list());
     f2 = new File("testMain"+x+"/resourcesPacks/");
-    assertEquals("languages levels maps videos sounds bin musiques images",tableau.tableauToString(f2.list()));
+    contain("languages levels maps videos sounds bin musiques images",f2.list());
 
     assertTrue(fichier.deleteDirectory(f));
     folder.setFolderMain();
@@ -73,13 +78,13 @@ public class FolderTest extends TestCaseMuet{
     File f4 = new File("testMain/temporary/levels/testSubSubDir");
     assertTrue(f4.mkdir());
     assertEquals(26,folder.ini());
-    assertEquals("otherDir temporary stable resourcesPacks saves",tableau.tableauToString(f.list()));
+    contain("otherDir temporary stable resourcesPacks saves",f.list());
     f2 = new File("testMain/temporary/");
-    assertEquals("languages testDir2 levels maps videos sounds bin musiques images",tableau.tableauToString(f2.list()));
+    contain("languages testDir2 levels maps videos sounds bin musiques images",f2.list());
     f2 = new File("testMain/stable/");
-    assertEquals("languages levels maps videos sounds bin musiques images",tableau.tableauToString(f2.list()));
+    contain("languages levels maps videos sounds bin musiques images",f2.list());
     f2 = new File("testMain/resourcesPacks/");
-    assertEquals("languages levels maps videos sounds bin musiques images",tableau.tableauToString(f2.list()));
+    contain("languages levels maps videos sounds bin musiques images",f2.list());
 
     assertTrue(f3.exists());
     assertTrue(f4.exists());
@@ -104,13 +109,13 @@ public class FolderTest extends TestCaseMuet{
     f2 = new File("testMain/"+folder.getFolderTemporary()+"otherSubDir/");
     f2.mkdir();
     assertEquals(27,folder.ini());
-    assertEquals(folder.getFolderTemporary()+" otherDir "+folder.getFolderStable()+" "+folder.getFolderResourcesPacks(),tableau.tableauToString(f.list()));
+    contain(folder.getFolderTemporary()+" otherDir "+folder.getFolderStable()+" "+folder.getFolderResourcesPacks(),f.list()));
     f2 = new File("testMain/"+folder.getFolderTemporary());
-    assertEquals("otherSubDir "+fullFolderList,tableau.tableauToString(f2.list()));
+    contain("otherSubDir "+fullFolderList,f2.list()));
     f2 = new File("testMain/"+folder.getFolderStable());
-    assertEquals(fullFolderList,tableau.tableauToString(f2.list()));
+    contain(fullFolderList,f2.list()));
     f2 = new File("testMain/"+folder.getFolderResourcesPacks());
-    assertEquals(fullFolderList,tableau.tableauToString(f2.list()));
+    contain(fullFolderList,f2.list()));
 
     assertTrue(fichier.deleteDirectory(f));
     folder.setFolderMain();
@@ -129,11 +134,11 @@ public class FolderTest extends TestCaseMuet{
     //file README.md
     file = new File("data"+x+"/");
     String t [] = file.list(); tableau.sort(t);
-    assertEquals("Keys.txt Options.md resourcesPacks saves stable temporary",tableau.tableauToString(t));
+    contain("Keys.txt Options.md resourcesPacks saves stable temporary",t);
     f.cleanFolder();
     t = file.list(); tableau.sort(t);
-    //assertEquals("stable",tableau.tableauToString(t));
-    assertEquals("Keys.txt stable",tableau.tableauToString(t));
+    //contain("stable",t));
+    contain("Keys.txt stable",t);
     fichier.deleteDirectory(file);
     f.setFolderMain();
   }
@@ -151,10 +156,10 @@ public class FolderTest extends TestCaseMuet{
     try {file.createNewFile();}catch (Exception e) {assertTrue(false);}
     file = new File("data"+x+"/");
     String t [] = file.list(); tableau.sort(t);
-    assertEquals("Options.md README.md qqchose.png resourcesPacks saves stable temporary",tableau.tableauToString(t));
+    contain("Options.md README.md qqchose.png resourcesPacks saves stable temporary",t);
     f.cleanFolder();
     t = file.list(); tableau.sort(t);
-    assertEquals("README.md qqchose.png stable",tableau.tableauToString(t));
+    contain("README.md qqchose.png stable",t);
     fichier.deleteDirectory(file);
     f.setFolderMain();
   }

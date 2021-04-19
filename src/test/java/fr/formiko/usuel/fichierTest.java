@@ -39,11 +39,11 @@ public class fichierTest extends TestCaseMuet{
     assertTrue(new GString().equals(gs));
     ecrireUnFichier.ecrireUnFichier(new GString(),"repFichierTest/f2.ja");
     ecrireUnFichier.ecrireUnFichier(new GString(),"repFichierTest/sousRep/f1.ja");
-    GString gs2 = new GString();
-    gs2.add("repFichierTest/sousRep/f1.ja");
-    gs2.add("repFichierTest/f2.ja");
     gs = fichier.listerLesFichiersDuRep(d);//Contient 2 fichier.
-    assertTrue(gs2.equals(gs));
+    String s = "repFichierTest/sousRep/f1.ja repFichierTest/f2.ja";
+    for (String sTest : gs ) {
+      assertTrue(s.contains(sTest));
+    }
 
     assertTrue(fichier.deleteDirectory(d));
   }
