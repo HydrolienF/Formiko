@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: fr.formiko.usuel.images.PixelTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in fr.formiko.usuel.images.PixelTest

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>erreur.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.usuel</a> &gt; <span class="el_source">erreur.java</span></div><h1>erreur.java</h1><pre class="source lang-java linenums">package fr.formiko.usuel;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.types.str;
+
+/**
+*{@summary Error class call to print error message.}&lt;br&gt;
+*@author Hydrolien
+*@version 1.41
+*/
+<span class="nc" id="L11">public class erreur {</span>
+<span class="fc" id="L12">  public static boolean muet=false;</span>
+  //colors
+<span class="fc" id="L14">  private static String yellow = (char)27+&quot;[1;33m&quot;;</span>
+<span class="fc" id="L15">  private static String red = (char)27+&quot;[1;31m&quot;;</span>
+<span class="fc" id="L16">  private static String neutral = (char)27+&quot;[0;m&quot;;</span>
+<span class="fc" id="L17">  private static String blue = (char)27+&quot;[1;34m&quot;;</span>
+
+<span class="fc" id="L19">  public static void setMuet(boolean b){muet=b;}</span>
+  private static void println(String s){
+<span class="fc" id="L21">    print(s+&quot;\n&quot;);</span>
+<span class="fc" id="L22">  }</span>
+  private static void print(String s){
+<span class="pc bpc" id="L24" title="1 of 2 branches missed.">    if(!muet){</span>
+<span class="nc" id="L25">      System.out.print(s);</span>
+    }
+<span class="fc" id="L27">  }</span>
+  /**
+  *{@summary Return last method &amp;#38; class that was runing before this class.}&lt;br&gt;
+  *It will be like this &quot;className.functionName llineNumber&quot;.&lt;br&gt;
+  *@version 1.41
+  */
+  //public only for test
+  public static String getCurentClassAndMethodName(){
+<span class="fc" id="L35">    StackTraceElement[] stackTrace = new Throwable().getStackTrace();</span>
+<span class="fc" id="L36">    int lenst = stackTrace.length;</span>
+<span class="fc" id="L37">    int k=0;</span>
+    String className;
+    do {
+<span class="fc" id="L40">      k++;</span>
+<span class="fc" id="L41">      className = stackTrace[k].getFileName();</span>
+      try {
+<span class="fc" id="L43">        className = className.substring(0,className.length()-5);</span>
+<span class="pc" id="L44">      }catch (Exception e) {}</span>
+<span class="pc bpc" id="L45" title="1 of 4 branches missed.">    } while (k&lt;lenst &amp;&amp; (className.equals(&quot;erreur&quot;)));</span>
+<span class="fc" id="L46">    return className+&quot;.&quot;+stackTrace[k].getMethodName()+&quot; l&quot;+stackTrace[k].getLineNumber();</span>
+  }
+  /**
+  *{@summary Show curent stack trace without error file part &amp;#38; stop game.}&lt;br&gt;
+  *@version 1.41
+  */
+  public static void forceStop(){
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">    if(muet){return;}</span>
+<span class="nc" id="L54">    println(g.get(&quot;erreur&quot;,2,&quot;trouver si dessous la raison et la liste des fonctions qui était en cours lors de l'arrêt forcé&quot;)+&quot; :&quot;);</span>
+<span class="nc" id="L55">    StackTraceElement[] stackTrace = new Throwable().getStackTrace();</span>
+<span class="nc" id="L56">    int lenst = stackTrace.length;</span>
+<span class="nc" id="L57">    int k=0;</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">    for (StackTraceElement st : stackTrace) {</span>
+<span class="nc" id="L59">      k++;</span>
+<span class="nc" id="L60">      String className = st.getFileName();</span>
+      try {
+<span class="nc" id="L62">        className = className.substring(0,className.length()-5);</span>
+<span class="nc" id="L63">      }catch (Exception e) {}</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">      if(!className.equals(&quot;erreur&quot;)){</span>
+<span class="nc" id="L65">        System.out.println(&quot;\t&quot;+st);</span>
+      }
+    }
+<span class="nc" id="L68">    System.exit(-1);</span>
+<span class="nc" id="L69">  }</span>
+
+  public static void erreur(String message, String correction, boolean fatale){
+<span class="fc" id="L72">    String m = &quot;&quot;;</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">    if (fatale){</span>
+<span class="fc" id="L74">      m = g.get(&quot;erreur&quot;,3,&quot;fatale&quot;)+&quot; &quot;;</span>
+    }
+<span class="fc" id="L76">    String preMessage = &quot;&quot;;</span>
+    try {
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">      if(Main.getOs().isLinux()){preMessage = &quot;[&quot;+red+g.get(&quot;erreur&quot;).toUpperCase()+neutral+&quot;] &quot;;}</span>
+<span class="nc" id="L79">      else{preMessage=g.get(&quot;erreur&quot;).toUpperCase();}</span>
+<span class="fc" id="L80">    }catch (Exception e) {</span>
+<span class="fc" id="L81">      preMessage=g.get(&quot;erreur&quot;).toUpperCase();</span>
+<span class="fc" id="L82">    }</span>
+<span class="fc" id="L83">    print(preMessage + &quot;(&quot;+getCurentClassAndMethodName()+&quot;) &quot;);</span>
+<span class="fc" id="L84">    println(str.sToSMaj(message)+&quot;.&quot;);</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">    if (!correction.equals(&quot;&quot;)){</span>
+<span class="fc" id="L86">      println(g.get(&quot;erreur&quot;,6,&quot;Correction apportée&quot;)+&quot; : &quot; + correction);</span>
+    }
+<span class="fc bfc" id="L88" title="All 2 branches covered.">    if (fatale){</span>
+<span class="fc" id="L89">      forceStop();</span>
+    }
+<span class="fc" id="L91">  }</span>
+  public static void erreur(String message, String correction){
+<span class="fc" id="L93">    erreur(message, correction, false);</span>
+<span class="fc" id="L94">  }</span>
+  public static void erreur(String message, boolean fatale){
+<span class="fc" id="L96">    erreur(message, &quot;&quot;, fatale);</span>
+<span class="fc" id="L97">  }</span>
+  public static void erreur(String message){
+<span class="fc" id="L99">    erreur(message, false);</span>
+<span class="fc" id="L100">  }</span>
+  public static void alerte(String message, String correction){
+<span class="fc" id="L102">    String preMessage = &quot;&quot;;</span>
+    try {
+<span class="pc bpc" id="L104" title="1 of 2 branches missed.">      if(Main.getOs().isLinux()){preMessage = &quot;[&quot;+yellow+g.get(&quot;alerte&quot;).toUpperCase()+neutral+&quot;] &quot;;}</span>
+<span class="nc" id="L105">      else{preMessage=g.get(&quot;alerte&quot;).toUpperCase();}</span>
+<span class="nc" id="L106">    }catch (Exception e) {</span>
+<span class="nc" id="L107">      preMessage=g.get(&quot;alerte&quot;).toUpperCase();</span>
+<span class="fc" id="L108">    }</span>
+<span class="fc" id="L109">    print(preMessage+&quot;(&quot;+getCurentClassAndMethodName()+&quot;) &quot;);</span>
+<span class="pc bpc" id="L110" title="1 of 2 branches missed.">    if (!message.equals(&quot;&quot;)) {println(str.sToSMaj(message)+&quot;.&quot;);}</span>
+<span class="pc bpc" id="L111" title="2 of 4 branches missed.">    if (correction != null &amp;&amp; !correction.equals(&quot;&quot;)){</span>
+<span class="nc" id="L112">      println(g.get(&quot;erreur&quot;,6,&quot;Correction apportée&quot;)+&quot; : &quot; + correction);</span>
+    }
+<span class="fc" id="L114">  }</span>
+  public static void alerte(String message){
+<span class="fc" id="L116">    alerte(message,&quot;&quot;);</span>
+<span class="fc" id="L117">  }</span>
+  public static void alerte(){
+<span class="nc" id="L119">    alerte(&quot;&quot;);</span>
+<span class="nc" id="L120">  }</span>
+  /**
+  *{@summary Print info about important thing that are not important as alerte or error.}&lt;br&gt;
+  *@version 1.37
+  */
+  public static void info(String message){
+<span class="fc" id="L126">    String preMessage = &quot;&quot;;</span>
+    try {
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">      if(Main.getOs().isLinux()){preMessage = &quot;[&quot;+blue+g.get(&quot;info&quot;).toUpperCase()+neutral+&quot;] &quot;;}</span>
+<span class="nc" id="L129">      else{preMessage=g.get(&quot;info&quot;).toUpperCase();}</span>
+<span class="nc" id="L130">    }catch (Exception e) {</span>
+<span class="nc" id="L131">      preMessage=g.get(&quot;info&quot;).toUpperCase();</span>
+<span class="fc" id="L132">    }</span>
+<span class="fc" id="L133">    print(preMessage + &quot;(&quot;+getCurentClassAndMethodName()+&quot;) &quot;);</span>
+<span class="fc" id="L134">    println(message);</span>
+<span class="fc" id="L135">  }</span>
+
+
+  public static void erreurPasEncoreImplemente(){
+<span class="nc" id="L139">    erreur(g.get(&quot;erreur&quot;,9,&quot;La fonctionnalité n'as pas encore été implémenté&quot;));</span>
+<span class="nc" id="L140">  }</span>
+  public static void erreurChargementImage(String nomImage){
+<span class="nc" id="L142">    erreur(g.get(&quot;erreur&quot;,11,&quot;Le chargement de l'image&quot;) +&quot; &quot;+nomImage+&quot; &quot;+ g.get(&quot;erreur&quot;,12,&quot;n'as pas fonctionné. Assurer vous que le fichier image/ contient bien l'image en question.&quot;));</span>
+<span class="nc" id="L143">  }</span>
+<span class="nc" id="L144">  public static void erreurChargementImage(){ erreurChargementImage(g.get(&quot;erreur&quot;,10,&quot;nom inconnu&quot;));}</span>
+  public static void erreurGXVide(String GX){
+<span class="nc" id="L146">    erreur(g.get(&quot;erreur&quot;,13,&quot;la liste&quot;)+&quot; &quot;+GX+&quot; &quot;+g.get(&quot;erreur&quot;,14,&quot;est vide&quot;));</span>
+<span class="nc" id="L147">  }public static void erreurGXVide(){ erreurGXVide(g.get(&quot;erreur&quot;,15,&quot;liste inconnue&quot;));}</span>
+  public static void erreurPause(int x){
+<span class="nc" id="L149">    erreur(g.get(&quot;erreur&quot;,16,&quot;la tentative de pause a échouée (durée de pause&quot;+&quot; : &quot;+x+&quot; )&quot;));</span>
+<span class="nc" id="L150">  }</span>
+  public static void erreurType(String type){
+<span class="nc" id="L152">    erreur(g.getM(&quot;erreur.17&quot;)+g.get(&quot;:&quot;)+type);</span>
+<span class="nc" id="L153">  }</span>
+  public static void erreurMissingFolder(String folderName){
+<span class="fc" id="L155">    erreur(&quot;Can not create all file of &quot;+folderName+&quot; folder&quot;);</span>
+<span class="fc" id="L156">  }</span>
+  public static void alerteGUI2Dfail(String cause){
+<span class="fc" id="L158">    alerte(g.getM(&quot;alerteGUI2Dfail&quot;));</span>
+<span class="fc" id="L159">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

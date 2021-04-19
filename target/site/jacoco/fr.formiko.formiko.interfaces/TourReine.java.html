@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TourReine.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.formiko.interfaces</a> &gt; <span class="el_source">TourReine.java</span></div><h1>TourReine.java</h1><pre class="source lang-java linenums">package fr.formiko.formiko.interfaces;
+
+import fr.formiko.formiko.Creature;
+import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.GCreature;
+
+import java.io.Serializable;
+
+/**
+ * {@summary Ant implementation.}&lt;br&gt;
+ * Allow an ant to play a turn&lt;br&gt;
+ * @author Hydrolien
+ * @version 1.24
+ */
+<span class="fc" id="L15">public class TourReine extends TourFourmi implements Serializable, Tour{</span>
+  /**
+  *{@summary Do turn actions for a queen ant.}
+  *&lt;ul&gt;
+  *&lt;li&gt;1a the ant try to survive.
+  *&lt;li&gt;If the ant is alone, it try to get more food.
+  *&lt;li&gt;If some other ant (of the same anthill) haven't played yet, it wait that they have.
+  *This allow the queen to lay more egg only if every other ant are clean and well feed.
+  *&lt;li&gt;Then it help any friendly ant in the anthill place.
+  *&lt;li&gt;Finaly it lay more egg.
+  *&lt;/ul&gt;
+  *@version 1.31
+  */
+  @Override
+  public void tour(){
+<span class="fc" id="L30">    f.eat(5);</span>
+<span class="fc" id="L31">    f.runAway();</span>
+<span class="fc" id="L32">    cleanItself();</span>
+<span class="pc bpc" id="L33" title="1 of 4 branches missed.">    if(!haveSomeHelp() &amp;&amp; !needToTakeCareOfCouvain()){f.eat(40);}</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">    if(needToWaitToLetNonQueenAntPlay()){return;}</span>
+<span class="fc" id="L35">    backHome();</span>
+<span class="fc" id="L36">    feedOther(30);</span>
+<span class="fc" id="L37">    cleanOther();</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">    if(f.getFere().getGc().getNbrOuvriere()==0){feedOther(5);}</span>
+<span class="fc" id="L39">    lay();</span>
+    //TODO if it still have action it can clean ant that didn't realy need it but that are not at 100/100 of clean.
+<span class="fc" id="L41">    finTour();</span>
+<span class="fc" id="L42">  }</span>
+  /**
+  *{@summary Wait to be the last ant to play.}&lt;br&gt;
+  *The queen whait util all the ant that did'nt have this implementation have played
+  *@version 1.31
+  */
+  public boolean needToWaitToLetNonQueenAntPlay(){
+<span class="fc bfc" id="L49" title="All 2 branches covered.">    for (Creature c : f.getFere().getGc().toList() ) {</span>
+<span class="fc bfc" id="L50" title="All 4 branches covered.">      if(c.getAction()&gt;0 &amp;&amp; !(c.tour instanceof TourReine)){return true;}</span>
+<span class="fc" id="L51">    }</span>
+<span class="fc" id="L52">    return false;</span>
+  }
+  /**
+  *{@summary Check if this ant have some help from other ant of the same anthill.}&lt;br&gt;
+  *@version 1.32
+  */
+  public boolean haveSomeHelp(){
+<span class="fc bfc" id="L59" title="All 2 branches covered.">    return f.getFere().getGc().getNbrOuvriere()!=0;</span>
+  }
+  /**
+  *{@summary Check if this ant need to feed/protect/clean some egg, larva or nympha.}&lt;br&gt;
+  *@version 1.32
+  */
+  public boolean needToTakeCareOfCouvain(){
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">    return f.getFere().getGc().getCouvain().length()&gt;0;</span>
+  }
+  /**
+  *{@summary Lay egg as a queen ant.}&lt;br&gt;
+  *If the queen have no help from al list 1 ally imago ant, it don't lay more than 1 egg.
+  *@version 1.31
+  */
+  public void lay(){
+<span class="fc bfc" id="L74" title="All 4 branches covered.">    while(f.getAction()&gt;0 &amp;&amp; !f.isHungry(30)){ //Maybe we sould set the isHungry limite to a higer value if the anthill is big enough.</span>
+<span class="fc bfc" id="L75" title="All 4 branches covered.">      if(!haveSomeHelp() &amp;&amp; f.getFere().getGc().getCouvain().length()&gt;=1){return;}</span>
+      //Maybe we should check that couvain do not represent a to higth %age.
+      //int pourcentageDeCouvain = (100*getAlliéSurLaCase().getCouvain().length()) / this.getFere().length();
+<span class="fc" id="L78">      f.pondre();</span>
+    }
+<span class="fc" id="L80">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

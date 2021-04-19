@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PanneauJeu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.views.gui2d</a> &gt; <span class="el_source">PanneauJeu.java</span></div><h1>PanneauJeu.java</h1><pre class="source lang-java linenums">package fr.formiko.views.gui2d;
+
+import fr.formiko.formiko.*;
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.Temps;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.sauvegarderUnePartie;
+import fr.formiko.usuel.types.str;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.geom.AffineTransform;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+public class PanneauJeu extends Panneau {
+  private PanneauCarte pc;
+  private PanneauBouton pb;
+  private PanneauChargement pch;
+  private PanneauFinPartie pfp;
+  private PanneauEchap pe;
+  private PanneauSup ps;
+  private PanneauDialogue pd;
+  private PanneauDialogueInf pdi;
+  // CONSTRUCTEUR ---------------------------------------------------------------
+<span class="nc" id="L38">  public PanneauJeu(){</span>
+<span class="nc" id="L39">    setLayout(null);</span>
+<span class="nc" id="L40">  }</span>
+  // GET SET -------------------------------------------------------------------
+<span class="nc" id="L42">  public void setFActuelle(Fourmi f){Main.getPartie().setPlayingAnt(f); Main.repaint();}</span>
+<span class="nc" id="L43">  public PanneauBouton getPb(){ return pb;}</span>
+<span class="nc" id="L44">  public PanneauCarte getPc(){ return pc;}</span>
+<span class="nc" id="L45">  public PanneauChargement getPch(){ return pch;}</span>
+<span class="nc" id="L46">  public PanneauSup getPs(){return ps;}</span>
+<span class="nc" id="L47">  public PanneauEchap getPe(){return pe;}</span>
+<span class="nc" id="L48">  public PanneauDialogue getPd(){return pd;}</span>
+<span class="nc" id="L49">  public PanneauDialogueInf getPdi(){return pdi;}</span>
+  //get set transmis
+<span class="nc" id="L51">  public void addPA(){ pb.addPA();}</span>
+<span class="nc" id="L52">  public void setActionF(int x){pb.setActionF(x);}</span>
+<span class="nc" id="L53">  public void addPti(int x [], int y){pb.addPti(x,y);}</span>
+<span class="nc" id="L54">  public int getActionF(){ return pb.getActionF();}</span>
+<span class="nc" id="L55">  public void setDesc(String s){pb.setDesc(s);}</span>
+<span class="nc" id="L56">  public void setDescTI(String s){pb.setDescTI(s);}</span>
+<span class="nc" id="L57">  public PanneauTInt getPti(){return pb.getPti(); }</span>
+  // Fonctions propre -----------------------------------------------------------
+  public void paintComponent(Graphics g){
+    try {
+<span class="nc" id="L61">      pc.actualiserSize();</span>
+      //pc.setBounds(0,0,getWidth(),getHeight());
+<span class="nc" id="L63">    }catch (Exception e) {}</span>
+    try {
+<span class="nc" id="L65">      pb.setBounds(0,0,getWidth(),getHeight());</span>
+<span class="nc" id="L66">    }catch (Exception e) {}</span>
+    try {
+<span class="nc" id="L68">      ps.setBounds(0,0,getWidth(),getHeight());</span>
+<span class="nc" id="L69">    }catch (Exception e) {}</span>
+    try {
+<span class="nc" id="L71">      pe.setBounds(0,0,getWidth(),getHeight());</span>
+<span class="nc" id="L72">    }catch (Exception e) {}</span>
+    try {
+<span class="nc" id="L74">      pd.setBounds(0,0,pd.getWidth(),pd.getHeight());</span>
+<span class="nc" id="L75">    }catch (Exception e) {}</span>
+<span class="nc" id="L76">  }</span>
+  public void addPd(){
+<span class="nc bnc" id="L78" title="All 2 branches missed.">    if(pd==null){pd = new PanneauDialogue();}</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">    if(pdi==null){</span>
+<span class="nc" id="L80">      PanneauDialogueInf.chargerFond();</span>
+<span class="nc" id="L81">      pdi = new PanneauDialogueInf();</span>
+    }
+<span class="nc" id="L83">    add(pd);</span>
+<span class="nc" id="L84">    add(pdi);</span>
+<span class="nc" id="L85">  }</span>
+  public void initialiserPd(String s){
+<span class="nc" id="L87">    pd.initialiser(s);</span>
+<span class="nc" id="L88">    pdi.initialiser();</span>
+<span class="nc" id="L89">    pd.setBounds(0,0,pd.getWidth(),pd.getHeight());</span>
+<span class="nc" id="L90">    revalidate();</span>
+<span class="nc" id="L91">  }</span>
+  public void removePd(){
+<span class="nc" id="L93">    remove(pd);</span>
+<span class="nc" id="L94">    remove(pdi);</span>
+<span class="nc" id="L95">  }</span>
+  public void addPe(){
+<span class="nc" id="L97">    pe=new PanneauEchap();</span>
+    //pe.setBounds(0,0,0,0);
+<span class="nc" id="L99">    add(pe);</span>
+<span class="nc" id="L100">  }</span>
+  public void addPs(){
+<span class="nc" id="L102">    ps=new PanneauSup();</span>
+<span class="nc" id="L103">    ps.setBounds(0,0,0,0);</span>
+<span class="nc" id="L104">    add(ps);</span>
+<span class="nc" id="L105">  }</span>
+  public void addPc(){
+<span class="nc" id="L107">    pc = new PanneauCarte();</span>
+<span class="nc" id="L108">    pc.setBounds(0,0,0,0);</span>
+<span class="nc" id="L109">    add(pc);</span>
+<span class="nc" id="L110">  }</span>
+  public void addPb(){
+<span class="nc" id="L112">    pb = new PanneauBouton();</span>
+<span class="nc" id="L113">    pb.setBounds(0,0,0,0);</span>
+<span class="nc" id="L114">    add(pb);</span>
+<span class="nc" id="L115">  }</span>
+  public void addPch(){
+<span class="nc" id="L117">    pch = new PanneauChargement();</span>
+<span class="nc" id="L118">    pch.setBounds(0,0,getWidth(),getHeight());</span>
+<span class="nc" id="L119">    add(pch);</span>
+<span class="nc" id="L120">    pc.setVisible(false);</span>
+<span class="nc" id="L121">    pb.setVisible(false);</span>
+<span class="nc" id="L122">  }</span>
+  public void removePch(){
+<span class="nc" id="L124">    remove(pch);</span>
+<span class="nc" id="L125">    pch = null;</span>
+<span class="nc" id="L126">    pc.setVisible(true);</span>
+<span class="nc" id="L127">    pb.setVisible(true);</span>
+<span class="nc" id="L128">  }</span>
+  public void addPfp(){
+<span class="nc" id="L130">    pfp = new PanneauFinPartie();</span>
+<span class="nc" id="L131">    add(pfp);</span>
+<span class="nc" id="L132">  }</span>
+  public void addPfp(String mess, GJoueur gj){
+<span class="nc" id="L134">    pfp = new PanneauFinPartie(mess,gj);</span>
+<span class="nc" id="L135">    pfp.setBounds(getWidth()/4,getHeight()/8,getWidth()/2,(getHeight()*3)/4);</span>
+<span class="nc" id="L136">    add(pfp);</span>
+<span class="nc" id="L137">    pb.setVisible(false);</span>
+<span class="nc" id="L138">    ps.setSize(0,0);</span>
+<span class="nc" id="L139">  }</span>
+  public void removePfp(){
+<span class="nc" id="L141">    remove(pfp);</span>
+<span class="nc" id="L142">    pfp = null;</span>
+<span class="nc" id="L143">    pc.setVisible(true);</span>
+<span class="nc" id="L144">    pb.setVisible(true);</span>
+<span class="nc" id="L145">    ps.actualiserTaille();</span>
+<span class="nc" id="L146">  }</span>
+  /*public int getXPourCentré(int x, int taille){
+    if(x&lt;taille){ return x;}
+    return x/2-(taille);
+  }*/
+  public void centrerLaCarte(){
+<span class="nc" id="L152">    GCase gc = Main.getGc();</span>
+<span class="nc" id="L153">    pc.setPosX(math.max(gc.getNbrX()/2 - nbrDeCaseAffichableX(),0));</span>
+<span class="nc" id="L154">    pc.setPosY(math.max(gc.getNbrY()/2 - nbrDeCaseAffichableY(),0));</span>
+<span class="nc" id="L155">  }</span>
+  public int nbrDeCaseAffichableX(){
+<span class="nc" id="L157">    return (getWidth()/pc.getTailleDUneCase())+1;</span>
+  }
+  public int nbrDeCaseAffichableY(){
+<span class="nc" id="L160">    return (getHeight()/pc.getTailleDUneCase())+1;</span>
+  }
+  public void dézoomer(byte x){
+<span class="nc" id="L163">    int y1 = Main.getDimX()/Main.getGc().getNbrX();</span>
+<span class="nc" id="L164">    int pah = Main.getPa().getHeight();</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">    if(pah==0){pah=Main.getTailleElementGraphique(180);}</span>
+<span class="nc" id="L166">    int y2 = (Main.getDimY()-pah)/Main.getGc().getNbrY();</span>
+<span class="nc" id="L167">    int y=0;</span>
+<span class="nc bnc" id="L168" title="All 2 branches missed.">    if(x==1){ y=math.max(y1,y2);}</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">    else if(x==2){ y=math.min(y1,y2);}</span>
+<span class="nc" id="L170">    pc.setTailleDUneCase(y);</span>
+<span class="nc" id="L171">    actionAFaireSiTailleD1CaseChange();</span>
+<span class="nc" id="L172">  }</span>
+  public void actionAFaireSiTailleD1CaseChange(){
+<span class="nc bnc" id="L174" title="All 2 branches missed.">    if (Main.getPartie().getEnCours()){</span>
+<span class="nc" id="L175">      Main.getPc().actualiserSize();</span>
+<span class="nc" id="L176">      Main.getData().chargerImages();</span>
+<span class="nc" id="L177">      Main.getData().iniBackgroundMapImage();</span>
+    }
+<span class="nc" id="L179">  }</span>
+  public void centrerSurLaFourmi(){
+<span class="nc bnc" id="L181" title="All 2 branches missed.">    if (Main.getPlayingAnt()==null){erreur.alerte(&quot;Impossible de centrer sur une fourmi si aucune fourmi n'est selectionné.&quot;); return;}</span>
+<span class="nc" id="L182">    int x = nbrDeCaseAffichableX();</span>
+<span class="nc" id="L183">    int y = nbrDeCaseAffichableY();</span>
+<span class="nc" id="L184">    int posX = Main.getPlayingAnt().getX();</span>
+<span class="nc" id="L185">    int posY = Main.getPlayingAnt().getX();</span>
+<span class="nc" id="L186">    pc.setPosX(posX + x/2);</span>
+<span class="nc" id="L187">    pc.setPosY(posY + y/2);</span>
+<span class="nc" id="L188">  }</span>
+  public void actionZoom(byte ac){
+<span class="nc bnc" id="L190" title="All 2 branches missed.">    if (ac==2) { // zoom</span>
+<span class="nc" id="L191">      pc.setTailleDUneCase(math.min((pc.getTailleDUneCase()*4)/3,500));</span>
+<span class="nc" id="L192">      actionAFaireSiTailleD1CaseChange();</span>
+<span class="nc bnc" id="L193" title="All 2 branches missed.">    }else if(ac==0){ // dézoom</span>
+<span class="nc" id="L194">      pc.setTailleDUneCase(math.max((pc.getTailleDUneCase()*3)/4,10));</span>
+<span class="nc" id="L195">      actionAFaireSiTailleD1CaseChange();</span>
+<span class="nc bnc" id="L196" title="All 2 branches missed.">    }else if(ac==1){</span>
+<span class="nc" id="L197">      pc.setPosY(math.max(pc.getPosY()-1,0));</span>
+<span class="nc bnc" id="L198" title="All 2 branches missed.">    }else if(ac==7){</span>
+<span class="nc" id="L199">      GCase gc = Main.getGc();</span>
+<span class="nc" id="L200">      pc.setPosY(math.min(pc.getPosY()+1,gc.getNbrY()-1));</span>
+<span class="nc bnc" id="L201" title="All 2 branches missed.">    }else if(ac==5){</span>
+<span class="nc" id="L202">      GCase gc = Main.getGc();</span>
+<span class="nc" id="L203">      pc.setPosX(math.min(pc.getPosX()+1,gc.getNbrX()-1));</span>
+<span class="nc bnc" id="L204" title="All 2 branches missed.">    }else if(ac==3){</span>
+<span class="nc" id="L205">      pc.setPosX(math.max(pc.getPosX()-1,0));</span>
+<span class="nc bnc" id="L206" title="All 2 branches missed.">    }else if(ac==4){</span>
+<span class="nc" id="L207">      centrerLaCarte();</span>
+<span class="nc bnc" id="L208" title="All 2 branches missed.">    }else if(ac==6){</span>
+      //centrerSurLaFourmi(); //pour l'instant ca fait pas ce qu'il faut.
+<span class="nc bnc" id="L210" title="All 2 branches missed.">    }else if(ac==8){</span>
+<span class="nc" id="L211">      dézoomer((byte)2);</span>
+    }
+<span class="nc" id="L213">    repaint();</span>
+<span class="nc" id="L214">  }</span>
+  public void alerte(String s, String s2){
+<span class="nc" id="L216">    JOptionPane jop1 = new JOptionPane();</span>
+<span class="nc" id="L217">    jop1.showMessageDialog(null, s, s2, JOptionPane.INFORMATION_MESSAGE);</span>
+<span class="nc" id="L218">  }</span>
+<span class="nc" id="L219">  public void alerte(String s){ alerte(s,g.getM(&quot;information&quot;));}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

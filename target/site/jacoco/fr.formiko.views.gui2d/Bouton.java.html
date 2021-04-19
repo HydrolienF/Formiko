@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Bouton.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.views.gui2d</a> &gt; <span class="el_source">Bouton.java</span></div><h1>Bouton.java</h1><pre class="source lang-java linenums">package fr.formiko.views.gui2d;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.images.image;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.FontMetrics;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.Rectangle2D;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+
+public class Bouton extends JButton implements MouseListener{
+<span class="nc" id="L27">  protected final int id; protected static int cpt=1;</span>
+  protected Image img;
+  protected String nom;
+  protected Panneau p;
+  protected int action;
+<span class="nc" id="L32">  protected boolean bordure=true;</span>
+  protected Color cFond;
+  // CONSTRUCTEUR ---------------------------------------------------------------
+  public Bouton(String str, Panneau p, int action, Image imag){
+<span class="nc" id="L36">    super();id=cpt; cpt++;setBorderPainted(false);setOpaque(false);</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">    img = imag; String s = &quot;non null&quot;; if(imag==null){ s=&quot;null&quot;;}</span>
+<span class="nc" id="L38">    debug.débogage(&quot;Création du bouton &quot;+str+&quot; avec une image &quot;+s);</span>
+<span class="nc" id="L39">    this.nom = str; this.p = p; this.action = action;</span>
+<span class="nc" id="L40">    this.addMouseListener(this); //Grâce à cette instruction, notre objet va s'écouter  Dès qu'un événement de la souris sera intercepté, il en sera averti</span>
+<span class="nc" id="L41">    this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.</span>
+<span class="nc" id="L42">  }</span>
+  public Bouton(String str, Panneau p, int action){
+<span class="nc" id="L44">    super(str);id=cpt; cpt++;setBorderPainted(false);setOpaque(false);</span>
+<span class="nc" id="L45">    debug.débogage(&quot;Création du bouton &quot;+str);</span>
+<span class="nc" id="L46">    this.nom = str; this.p = p; this.action = action;</span>
+<span class="nc" id="L47">    this.addMouseListener(this);</span>
+<span class="nc" id="L48">    this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.</span>
+<span class="nc" id="L49">    this.setFont(Main.getFont1());</span>
+<span class="nc" id="L50">  }</span>
+  //public Bouton (String str, Panneau p, int action, Image i){ this(str,p,(byte) action,i);}
+  //public Bouton(String str,Panneau p, byte action,String imageX){this(str,p,action,image.getImage(imageX));}
+  //public Bouton(String s, Panneau p, int ac,String i){ this(s,p,(byte)ac,i);}
+  //public Bouton(String s, Panneau p, int ac){ this(s,p,(byte)ac);}
+  // GET SET --------------------------------------------------------------------
+<span class="nc" id="L56">  public String getNom(){ return nom;}</span>
+<span class="nc" id="L57">  public void setNom(String s){nom=s;debug.débogage(&quot;le nom a été changé pour &quot;+s);}</span>
+<span class="nc" id="L58">  public int getActionB(){ return action;}</span>
+<span class="nc" id="L59">  public void setActionB(int x){action =x; }</span>
+<span class="nc" id="L60">  public void setBordure(boolean b){bordure=b;}</span>
+<span class="nc" id="L61">  public void setCFond(Color c){cFond=c;}</span>
+<span class="nc" id="L62">  public static int getDimY(){ return (int)(Main.getOp().getTaillePolice1()*1.4);}</span>
+  public void setDesc(String s){
+<span class="nc bnc" id="L64" title="All 2 branches missed.">    if(Main.getPp().getPj()==null){ erreur.erreur(&quot;pj null&quot;);}</span>
+    try {
+<span class="nc" id="L66">      Main.getPp().getPj().getPb().setDesc(s);</span>
+<span class="nc" id="L67">    }catch (Exception e) {erreur.alerte(&quot;Impossible de setDesc pour le bouton.&quot;);}</span>
+<span class="nc" id="L68">  }</span>
+  // Fonctions propre -----------------------------------------------------------
+  public void paintComponent(Graphics g){
+<span class="nc" id="L71">    Graphics2D g2d = (Graphics2D)g;</span>
+    /*GradientPaint gp = new GradientPaint(0, 0, Color.blue, 0, 20, Color.cyan, true);
+    g2d.setPaint(gp);
+    //g2d.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
+    g2d.setColor(Color.black);*/
+    /*try {
+      //g.setBackround(new Color(255,100,255,100));
+      g2d.drawImage(this.img,0,0, null);
+    }catch (Exception e) {
+      g2d.drawString(this.nom, this.getWidth() / 2 - (this.getWidth() /  2 /2 ), (this.getHeight() / 2) + 5);
+    }*/
+    //if(img==null){g2d.drawString(this.nom, this.getWidth() / 2 - (this.getWidth() /  2 /2 ), (this.getHeight() / 2) + 5);}
+<span class="nc bnc" id="L83" title="All 2 branches missed.">    if(img==null){</span>
+      //g2d.drawString(this.nom,0,this.getHeight()*2/3);
+      //FontMetrics fm = new FontMetrics(Main.getFont1());//new FontRenderContext(null, false, false);
+      //Rectangle2D rect = fm.getStringBounds(nom,g);
+      //new FontRenderContext(null, false, false)
+      //le fond
+<span class="nc bnc" id="L89" title="All 2 branches missed.">      if(cFond!=null){</span>
+<span class="nc" id="L90">        g2d.setColor(cFond);</span>
+<span class="nc" id="L91">        g2d.fillRect(0,0,getWidth(),getHeight());</span>
+      }
+      //le texte
+<span class="nc" id="L94">      g2d.setColor(new Color(0,0,0));</span>
+<span class="nc" id="L95">      g2d.drawString(nom,0,this.getHeight()*2/3);</span>
+<span class="nc" id="L96">    }else{g2d.drawImage(this.img,0,0, null);}</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">    if(bordure){peintBordure(g2d);}</span>
+<span class="nc" id="L98">  }</span>
+  /*
+  public Rectangle2D getStringBounds(String str,FontRenderContext frc);
+  c'est sencé pemetre d'avoir juste la dimention qu'il faut pour un textes
+  */
+  public void peintBordure(Graphics2D g){
+<span class="nc" id="L104">    byte x = Main.getBordureBouton();</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">    if(x&lt;1){return;}</span>
+<span class="nc" id="L106">    BasicStroke ligne = new BasicStroke(x);</span>
+<span class="nc" id="L107">    g.setStroke(ligne);</span>
+<span class="nc" id="L108">    g.drawRect( 0, 0, getWidth(), getHeight());</span>
+<span class="nc" id="L109">  }</span>
+
+  //Méthode appelée lors du clic de souris
+<span class="nc" id="L112">  public void mouseClicked(MouseEvent event) {}</span>
+
+  //Méthode appelée lors du survol de la souris
+  public void mouseEntered(MouseEvent event) {
+<span class="nc" id="L116">    String clé = &quot;&quot;;</span>
+    try { //on essaie de récupéré le raccourci clavier associé.
+<span class="nc" id="L118">      clé = &quot;&quot;+(char)Main.getKey(action+&quot;&quot;);</span>
+<span class="nc" id="L119">    }catch (Exception e) {}</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">    if(clé!=&quot;&quot;){clé=&quot;(&quot;+g.get(&quot;raccourci&quot;)+&quot; \&quot;&quot;+clé+&quot;\&quot;)&quot;;}</span>
+<span class="nc" id="L121">    setDesc(g.get(&quot;bouton.desc.&quot;+action)+clé);</span>
+<span class="nc" id="L122">  }</span>
+
+  //Méthode appelée lorsque la souris sort de la zone du bouton
+  public void mouseExited(MouseEvent event) {
+<span class="nc" id="L126">    setDesc(&quot;&quot;);</span>
+<span class="nc" id="L127">  }</span>
+
+  //Méthode appelée lorsque l'on presse le bouton gauche de la souris
+<span class="nc" id="L130">  public void mousePressed(MouseEvent event) { }</span>
+
+  //Méthode appelée lorsque l'on relâche le clic de souris
+  public void mouseReleased(MouseEvent event) {
+<span class="nc" id="L134">    debug.débogage(&quot;Un bouton a été cliqué, l'action &quot;+action+&quot; vas être effectué.&quot;);</span>
+<span class="nc" id="L135">    p.doAction(action);</span>
+<span class="nc" id="L136">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ChasseHerbivore.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.formiko.interfaces</a> &gt; <span class="el_source">ChasseHerbivore.java</span></div><h1>ChasseHerbivore.java</h1><pre class="source lang-java linenums">package fr.formiko.formiko.interfaces;
+
+import fr.formiko.formiko.Creature;
+import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.Insecte;
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.maths.math;
+
+import java.io.Serializable;
+/**
+ * {@summary Chasse implementation.}&lt;br&gt;
+ * Allow a creature to do hunt as an herbivore.&lt;br&gt;
+ * @author Hydrolien
+ * @version 1.28
+ */
+<span class="fc" id="L19">public class ChasseHerbivore implements Serializable, Chasse {</span>
+  Creature c;
+
+<span class="nc" id="L22">  public void setC(Creature cTemp){c=cTemp;}</span>
+
+<span class="fc" id="L24">  public boolean chasser(Creature c, int directionSiPasDeProie){return chasse(c);}</span>
+  /**
+  *{@summary Hunt as an herbivore.}&lt;br&gt;
+  *return true if Insecte have eat or moove.
+  *@version 1.28
+  */
+  public boolean chasse(Creature c){
+<span class="fc" id="L31">    this.c=c;</span>
+<span class="fc" id="L32">    int nourritureMangeable = 1;</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">    if(c instanceof Insecte){nourritureMangeable=((Insecte)(c)).getNourritureMangeable();}</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">    if(c.getCCase().getContenu().getNourritureInsecte() &gt;= nourritureMangeable){</span>
+<span class="fc" id="L35">      return manger();</span>
+    }else{
+      //TODO
+      //l'insecte doit choisir la case la plus interessante pour lui cad :
+      //scoreDeLaCase = herbe/(1+nombre d'insecte déja la)
+<span class="fc" id="L40">      c.ceDeplacer(true); // ce déplacer de façon alléatoire.</span>
+<span class="fc" id="L41">      return true;</span>
+    }
+  }
+
+  /**
+  *{@summary Eat as an herbivore.}&lt;br&gt;
+  *return true if Insecte have eat.
+  *@version 1.28
+  */
+  public boolean manger(){
+<span class="fc" id="L51">    byte nourritureSurCase = c.getCCase().getContenu().getNourritureInsecte();</span>
+<span class="fc" id="L52">    int nourritureMangeable = 1;</span>
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">    if(c instanceof Insecte){nourritureMangeable=((Insecte)(c)).getNourritureMangeable();}</span>
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">    if (nourritureSurCase &gt; 0){</span>
+<span class="fc" id="L55">      byte nourritureMangé = (byte) math.min(nourritureSurCase,nourritureMangeable);</span>
+<span class="fc" id="L56">      c.getCCase().getContenu().setNourritureInsecte((byte)(nourritureSurCase-nourritureMangé));</span>
+<span class="fc" id="L57">      c.setNourriture(c.getNourriture() + nourritureMangé);</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">      if(c instanceof Fourmi){</span>
+<span class="nc" id="L59">        c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuParType(((Fourmi) c).getTypeF()).getCoutChasse()/2);</span>
+      }else{
+<span class="fc" id="L61">        c.setActionMoins(1);</span>
+      }
+<span class="fc" id="L63">      return true;</span>
+    }
+<span class="nc" id="L65">    return false;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

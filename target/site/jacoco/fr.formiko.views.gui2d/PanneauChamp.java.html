@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PanneauChamp.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.views.gui2d</a> &gt; <span class="el_source">PanneauChamp.java</span></div><h1>PanneauChamp.java</h1><pre class="source lang-java linenums">package fr.formiko.views.gui2d;
+
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JButton;
+
+public class PanneauChamp extends Panneau {
+  private Champ c;
+  private BoutonV b;
+<span class="nc" id="L17">  private int tailleBouton=20;</span>
+<span class="nc" id="L18">  private boolean validé=false;</span>
+  // CONSTRUCTEUR ---------------------------------------------------------------
+<span class="nc" id="L20">  public PanneauChamp(String défaut){</span>
+<span class="nc" id="L21">    this.setLayout(new GridBagLayout());</span>
+<span class="nc" id="L22">    GridBagConstraints gbc = new GridBagConstraints();</span>
+<span class="nc" id="L23">    Dimension dimC = new Dimension(500,tailleBouton);</span>
+<span class="nc" id="L24">    Dimension dimB = new Dimension(tailleBouton*2,tailleBouton);</span>
+<span class="nc" id="L25">    c = new Champ(défaut);</span>
+<span class="nc" id="L26">    b = new BoutonV();</span>
+<span class="nc" id="L27">    c.setPreferredSize(dimC); b.setPreferredSize(dimB);</span>
+<span class="nc" id="L28">    gbc.gridy = 0; gbc.gridx = 0;</span>
+<span class="nc" id="L29">    this.add(c,gbc);</span>
+<span class="nc" id="L30">    gbc.gridx = 1;</span>
+<span class="nc" id="L31">    this.add(b,gbc);</span>
+<span class="nc" id="L32">  }</span>
+<span class="nc" id="L33">  public PanneauChamp(){ this(&quot;&quot;);}</span>
+  // GET SET --------------------------------------------------------------------
+<span class="nc" id="L35">  public boolean getValidé(){ return validé;}</span>
+<span class="nc" id="L36">  public String getTexte(){ return c.getText();}</span>
+  // Fonctions propre -----------------------------------------------------------
+
+
+  class BoutonV extends JButton implements MouseListener{
+<span class="nc" id="L41">    public BoutonV(){</span>
+<span class="nc" id="L42">      super(&quot;OK&quot;);</span>
+<span class="nc" id="L43">      this.addMouseListener(this);</span>
+<span class="nc" id="L44">    }</span>
+    //Méthode appelée lors du clic de souris
+    public void mouseClicked(MouseEvent event) {
+<span class="nc" id="L47">      debug.débogage(&quot;Un bouton a été cliqué, l'action \&quot;validé\&quot; vas être effectué.&quot;);</span>
+<span class="nc" id="L48">      validé=true;</span>
+<span class="nc" id="L49">    }</span>
+    //Méthode appelée lors du survol de la souris
+<span class="nc" id="L51">    public void mouseEntered(MouseEvent event) { }</span>
+
+    //Méthode appelée lorsque la souris sort de la zone du bouton
+<span class="nc" id="L54">    public void mouseExited(MouseEvent event) { }</span>
+
+    //Méthode appelée lorsque l'on presse le bouton gauche de la souris
+<span class="nc" id="L57">    public void mousePressed(MouseEvent event) { }</span>
+
+    //Méthode appelée lorsque l'on relâche le clic de souris
+<span class="nc" id="L60">    public void mouseReleased(MouseEvent event) { }</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

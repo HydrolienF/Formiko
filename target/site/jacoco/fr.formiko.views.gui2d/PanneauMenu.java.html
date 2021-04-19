@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PanneauMenu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.views.gui2d</a> &gt; <span class="el_source">PanneauMenu.java</span></div><h1>PanneauMenu.java</h1><pre class="source lang-java linenums">package fr.formiko.views.gui2d;
+
+import fr.formiko.formiko.Carte;
+import fr.formiko.formiko.Main;
+import fr.formiko.formiko.Partie;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.maths.math;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public class PanneauMenu extends Panneau {
+  private BoutonLong b[];
+  private byte menu;
+<span class="nc" id="L23">  private boolean lancer = false;</span>
+  private PanneauNouvellePartie pnp;
+  private PanneauChoixPartie pcp;
+  // CONSTRUCTEUR ---------------------------------------------------------------
+<span class="nc" id="L27">  public PanneauMenu(){}</span>
+  public void construire(){
+<span class="nc" id="L29">    this.setLayout(null);</span>
+<span class="nc" id="L30">    setMenu(0);</span>
+<span class="nc" id="L31">  }</span>
+  // GET SET --------------------------------------------------------------------
+<span class="nc" id="L33">  public byte getMenu(){return menu; }</span>
+<span class="nc" id="L34">  public boolean getLancer(){ return lancer;}</span>
+<span class="nc" id="L35">  public void setLancer(boolean b){lancer=b;}</span>
+<span class="nc" id="L36">  public PanneauNouvellePartie getPnp(){return pnp;}</span>
+<span class="nc" id="L37">  public PanneauChoixPartie getPcp(){return pcp;}</span>
+  // Fonctions propre -----------------------------------------------------------
+  public void paintComponent(Graphics gra){
+    //this.setSize(Main.getPp().getWidth(),Main.getPp().getHeight());
+    //debug.débogage(&quot;La taille du PanneauMenu est : x=&quot;+this.getWidth()+&quot;, y=&quot;+this.getHeight());
+<span class="nc" id="L42">  }</span>
+  public void setMenu(byte x){
+<span class="nc" id="L44">    menu=x;</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">    if(x==1){</span>
+<span class="nc" id="L46">      b[0].setActionB(4);b[1].setActionB(5);b[2].setActionB(6);</span>
+    }
+<span class="nc" id="L48">  }</span>
+<span class="nc" id="L49">  public void setMenu(int x){ setMenu((byte)x);}</span>
+  public void actualiserText(){
+<span class="nc bnc" id="L51" title="All 4 branches missed.">    char c = 'P'; if(menu==1){c='N';}if(menu==2){c='M';}</span>
+<span class="nc" id="L52">    String s = &quot; (&quot;+g.get(&quot;bientôt&quot;)+&quot;)&quot;;</span>
+<span class="nc" id="L53">    b[0].setNom(g.get(&quot;menu&quot;+c+&quot;.1&quot;));</span>
+<span class="nc" id="L54">    b[1].setNom(g.get(&quot;menu&quot;+c+&quot;.2&quot;));</span>
+    //if(c=='P'){b[1].setNom(g.get(&quot;menu&quot;+c+&quot;.2&quot;)+s);}
+<span class="nc" id="L56">    b[2].setNom(g.get(&quot;menu&quot;+c+&quot;.3&quot;));</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">    if(c=='P'){b[2].setNom(g.get(&quot;menu&quot;+c+&quot;.3&quot;)+s);}</span>
+<span class="nc" id="L58">  }</span>
+  public void construitPanneauMenu(int nbrDeBouton){
+<span class="nc" id="L60">    debug.débogage(&quot;construitPanneauMenu&quot;);</span>
+<span class="nc" id="L61">    int xT = Main.getDimX(); int yT = Main.getDimY();</span>
+<span class="nc" id="L62">    this.setLayout(null);</span>
+<span class="nc bnc" id="L63" title="All 4 branches missed.">    char c = 'P'; if(menu==1){c='N';}if(menu==2){c='M';}</span>
+<span class="nc" id="L64">    Double part = 4 + 1.5*nbrDeBouton;</span>
+    //3 part avant les boutons, 2 part après les boutons, 1 pour chaque bouton et 1/2 entre chaque bouton.
+<span class="nc" id="L66">    int tailleBoutonX = xT/2;</span>
+<span class="nc" id="L67">    int tailleBoutonY = (int)(yT/part);</span>
+<span class="nc" id="L68">    BoutonLong.setXBL(tailleBoutonX);</span>
+<span class="nc" id="L69">    BoutonLong.setYBL(tailleBoutonY);</span>
+<span class="nc" id="L70">    int posX = xT/4;</span>
+<span class="nc" id="L71">    int posY = tailleBoutonY*3;</span>
+
+<span class="nc" id="L73">    b = new BoutonLong[nbrDeBouton];</span>
+<span class="nc" id="L74">    b[0] = new BoutonLong(g.get(&quot;menu&quot;+c+&quot;.&quot;+1),this,1);</span>
+<span class="nc" id="L75">    Dimension dim = b[0].getPreferredSize();</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">    for (int i=0;i&lt;nbrDeBouton ;i++ ) {</span>
+<span class="nc" id="L77">      b[i] = new BoutonLong(g.get(&quot;menu&quot;+c+&quot;.&quot;+i+1),this,i+1);</span>
+<span class="nc" id="L78">      b[i].setBounds(posX,posY+(int)(i*tailleBoutonY*1.5),(int)dim.getWidth(),(int)dim.getHeight());</span>
+<span class="nc" id="L79">      add(b[i]);</span>
+    }
+<span class="nc" id="L81">    actualiserText();</span>
+<span class="nc" id="L82">  }</span>
+  public void addPnp(){
+<span class="nc" id="L84">    retirerBouton();</span>
+<span class="nc" id="L85">    pnp = new PanneauNouvellePartie();</span>
+<span class="nc" id="L86">    pnp.setBounds(0,0,this.getWidth(),this.getHeight());</span>
+<span class="nc" id="L87">    this.add(pnp);</span>
+<span class="nc" id="L88">    repaint();</span>
+<span class="nc" id="L89">  }</span>
+  public void retirerBouton(){
+<span class="nc" id="L91">    int lenb = b.length;</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">    for (int i=0;i&lt;lenb ;i++ ) {</span>
+      try {
+<span class="nc" id="L94">        remove(b[i]);</span>
+<span class="nc" id="L95">      }catch (Exception e) {}</span>
+    }
+<span class="nc" id="L97">  }</span>
+  public void addPcp(){
+<span class="nc" id="L99">    retirerBouton();</span>
+<span class="nc" id="L100">    pcp = new PanneauChoixPartie();</span>
+<span class="nc" id="L101">    pcp.setBounds(0,0,this.getWidth(),this.getHeight());</span>
+<span class="nc" id="L102">    this.add(pcp);</span>
+<span class="nc" id="L103">    repaint();</span>
+<span class="nc" id="L104">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>math.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.usuel.maths</a> &gt; <span class="el_source">math.java</span></div><h1>math.java</h1><pre class="source lang-java linenums">package fr.formiko.usuel.maths;
+
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+
+/**
+ * {@summary Do math operation.}&lt;br&gt;
+ * @author Hydrolien
+ * @version 1.1
+ */
+<span class="nc" id="L12">public class math {</span>
+  //int
+  /**
+  *{@summary return maximum}
+  *@return maximum of 2 int
+  *@version 1.1
+  */
+  public static int max(int x, int y){
+<span class="fc bfc" id="L20" title="All 2 branches covered.">    if (y&gt;x){ return y;}</span>
+<span class="fc" id="L21">    return x;</span>
+  }
+  /**
+  *{@summary return maximum}
+  *@return maximum of int t []
+  *@version 1.1
+  */
+  public static int max(int t[]){
+<span class="fc" id="L29">    int lent = t.length;</span>
+<span class="fc" id="L30">    int xMax = t[0];</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">    for (int i=0; i&lt;lent-1;i++){</span>
+<span class="fc" id="L32">      xMax = max(t[i+1],xMax);</span>
+    }
+<span class="fc" id="L34">    return xMax;</span>
+  }
+  /**
+  *{@summary return maximum}
+  *@return maximum of int t [][]
+  *@version 1.1
+  */
+  public static int max(int t[][]){
+<span class="nc" id="L42">    int lent = t.length;</span>
+<span class="nc" id="L43">    int xMax = max(t[0]);</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">    for (int i=0; i&lt;lent-1;i++){</span>
+<span class="nc" id="L45">      int xMax2 = max(t[i+1]);</span>
+<span class="nc" id="L46">      xMax = max(xMax,xMax2);</span>
+    }
+<span class="nc" id="L48">    return xMax;</span>
+  }
+  /**
+  *{@summary return minimum}
+  *@return minimum of 2 int
+  *@version 1.1
+  */
+  public static int min(int x, int y){
+<span class="fc bfc" id="L56" title="All 2 branches covered.">    if (y&lt;x){ return y;}</span>
+<span class="fc" id="L57">    return x;</span>
+  }
+  /**
+  *{@summary return minimum}
+  *@return minimum of int t []
+  *@version 1.1
+  */
+  public static int min(int t[]){
+<span class="fc" id="L65">    int lent = t.length;</span>
+<span class="fc" id="L66">    int xMin = t[0];</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">    for (int i=0; i&lt;lent-1;i++){</span>
+<span class="fc" id="L68">      xMin = min(t[i+1],xMin);</span>
+    }
+<span class="fc" id="L70">    return xMin;</span>
+  }
+  /**
+  *{@summary return minimum}
+  *@return minimum of int t [][]
+  *@version 1.1
+  */
+  public static int min(int t[][]){
+<span class="nc" id="L78">    int lent = t.length;</span>
+<span class="nc" id="L79">    int xMin = min(t[0]);</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">    for (int i=0; i&lt;lent-1;i++){</span>
+<span class="nc" id="L81">      int xMin2 = min(t[i+1]);</span>
+<span class="nc" id="L82">      xMin = min(xMin,xMin2);</span>
+    }
+<span class="nc" id="L84">    return xMin;</span>
+  }
+  /**
+  *{@summary return absolute value}
+  *@return absolute value of an int.
+  *@version 1.1
+  */
+  public static int valAbs(int x){
+<span class="fc bfc" id="L92" title="All 2 branches covered.">    if (x&lt;0) { return x*-1;}</span>
+<span class="fc" id="L93">    return x;</span>
+  }
+  //double
+  /**
+  *{@summary return maximum}
+  *@return maximum of double
+  *@version 1.1
+  */
+  public static double max(double x, double y){
+<span class="fc bfc" id="L102" title="All 2 branches covered.">    if (y&gt;x){ return y;}</span>
+<span class="fc" id="L103">    return x;</span>
+  }
+  /**
+  *{@summary return maximum}
+  *@return maximum of double
+  *@version 1.1
+  */
+  public static double max(double t[]){
+<span class="fc" id="L111">    int lent = t.length;</span>
+<span class="fc" id="L112">    double xMax = t[0];</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">    for (int i=0; i&lt;lent-1;i++){</span>
+<span class="fc" id="L114">      xMax = max(t[i+1],xMax);</span>
+    }
+<span class="fc" id="L116">    return xMax;</span>
+  }
+  /**
+  *{@summary return minimum}
+  *@return minimum of double
+  *@version 1.1
+  */
+  public static double min(double x, double y){
+<span class="fc bfc" id="L124" title="All 2 branches covered.">    if (y&lt;x){ return y;}</span>
+<span class="fc" id="L125">    return x;</span>
+  }
+  /**
+  *{@summary return minimum}
+  *@return minimum of double
+  *@version 1.1
+  */
+  public static double min(double t[]){
+<span class="fc" id="L133">    int lent = t.length;</span>
+<span class="fc" id="L134">    double xMin = t[0];</span>
+<span class="fc bfc" id="L135" title="All 2 branches covered.">    for (int i=0; i&lt;lent-1;i++){</span>
+<span class="fc" id="L136">      xMin = min(t[i+1],xMin);</span>
+    }
+<span class="fc" id="L138">    return xMin;</span>
+  }
+  /**
+  *{@summary return absolute value}
+  *@return absolute value of double
+  *@version 1.1
+  */
+  public static double valAbs(double x){
+<span class="fc bfc" id="L146" title="All 2 branches covered.">    if (x&lt;0) { return x*-1;}</span>
+<span class="fc" id="L147">    return x;</span>
+  }
+
+  // somme :
+  /**
+  *{@summary return the sum from 0 to k }
+  *@return sum from 0 to k
+  *@version 1.1
+  */
+  public static int sommeDe0AXSwitch(int k){
+<span class="fc" id="L157">    int mem [] = new int [2];</span>
+<span class="fc" id="L158">    int ic = 0;</span>
+    while(true){
+<span class="pc bpc" id="L160" title="1 of 8 branches missed.">      switch (ic++){</span>
+<span class="fc" id="L161">        case 0: mem[0] = 0; break;</span>
+<span class="fc" id="L162">        case 1: mem[1] = 0; break;</span>
+<span class="fc bfc" id="L163" title="All 2 branches covered.">        case 2: if (mem[0]&gt;=k+1) ic+=3; break;</span>
+<span class="fc" id="L164">        case 3: mem[1]+=mem[0]; break;</span>
+<span class="fc" id="L165">        case 4: mem[0]++; break;</span>
+<span class="fc" id="L166">        case 5: ic-=4; break;</span>
+<span class="fc" id="L167">        case 6: return mem[1];</span>
+      }
+    }
+  }
+  /**
+  *{@summary return the sum from 0 to k }
+  *@return sum from 0 to k or -1 if k &amp;lt; 0
+  *@version 1.1
+  */
+  public static int sommeDe0AX(int k){
+<span class="fc" id="L177">    int somme = 0;</span>
+<span class="fc bfc" id="L178" title="All 2 branches covered.">    for (int i=1;i&lt;=k;i++ ) {</span>
+<span class="fc" id="L179">      somme+=i;</span>
+    }
+<span class="fc" id="L181">    return somme;</span>
+  }
+  /*public static int factorielle(int k){
+    if (k &lt;= 0) {
+      erreur.erreur(&quot;Impossible de calculé n! si n n'est pas positif&quot;,&quot;math.factorielle&quot;);
+      return -1;
+    }
+    if (k == 1){
+      return 1;
+    } else {
+      return factorielle(k-1)*k;piNoir/20
+    }
+  }
+  public static int factorielleSwitch(int k){
+    if (k &lt;= 0) {
+      erreur.erreur(&quot;Impossible de calculé n! si n n'est pas positif&quot;,&quot;math.factorielleSwitch&quot;);
+      return -1;
+    }
+    int mem [] = new int [2];
+    int ic = 0;
+    while(true){
+      switch (ic++){
+        case 0: mem[0] = 1; break;
+        case 1: mem[1] = 1; break;
+        case 2: if (mem[0]&gt;=k+1) ic+=3;break; // test de sortie de boucle
+        case 3: mem[1]*=mem[0]; break;
+        case 4: mem[0]++; break;
+        case 5: ic-=4; break;
+        case 6: return mem[1];
+      }
+    }
+  }*/
+  /**
+  *{@summary return k! }
+  *@return k! or -1 if k &amp;lt; 0
+  *@version 1.1
+  */
+  public static long factorielle(int k){
+<span class="fc bfc" id="L219" title="All 2 branches covered.">    if(k==0){return 0;}</span>
+<span class="fc bfc" id="L220" title="All 2 branches covered.">    if (k &lt; 0) {</span>
+<span class="fc" id="L221">      erreur.erreur(&quot;Impossible de calculé n! si n n'est pas positif n=&quot;+k);</span>
+<span class="fc" id="L222">      return -1;</span>
+    }
+<span class="fc" id="L224">    long mem [] = new long [2];</span>
+<span class="fc" id="L225">    int ic = 0;</span>
+    while(true){
+<span class="pc bpc" id="L227" title="1 of 8 branches missed.">      switch (ic++){</span>
+<span class="fc" id="L228">        case 0: mem[0] = 1; break;</span>
+<span class="fc" id="L229">        case 1: mem[1] = 1; break;</span>
+<span class="fc bfc" id="L230" title="All 2 branches covered.">        case 2: if (mem[0]&gt;=k+1) ic+=3;break; // test de sortie de boucle</span>
+<span class="fc" id="L231">        case 3: mem[1]*=mem[0]; break;</span>
+<span class="fc" id="L232">        case 4: mem[0]++; break;</span>
+<span class="fc" id="L233">        case 5: ic-=4; break;</span>
+<span class="fc" id="L234">        case 6: return mem[1];</span>
+      }
+    }
+  }
+  /*public static long factorielleNMoinsK(int max, int n){
+    if (max &lt;= 0 ) {
+      erreur.erreur(&quot;Impossible de calculé n! si n n'est pas positif&quot;,&quot;math.factorielleSwitchLong&quot;);
+      return -1;
+    }
+    if (n &lt; max){
+      erreur.erreur(&quot;Impossible de calculé un un factorielle négatif&quot;);
+    }
+    long mem [] = new long [2];
+    int ic = 0;
+    while(true){
+      switch (ic++){
+        case 0: mem[0] = max; break;
+        case 1: mem[1] = 1; break;
+        case 2: if (mem[0]&gt;=max+1) ic+=3;break; // test de sortie de boucle
+        case 3: mem[1]*=mem[0]; break;
+        case 4: mem[0]++; break;
+        case 5: ic-=4; break;
+        case 6: return mem[1];
+      }
+    }
+  }*/
+  /**
+  *{@summary n choose k}
+  *@return n choose k
+  *@version 1.1
+  */
+  public static int kParmiN(int k, int n){
+    // k parmi n = n!/(k! * (n-k)!) c'est la formule simple.
+    // k parmi n = n! - k! / (n-k)! OU k! echange avec (n-k)! c'est la fourmule économe en calcule.
+<span class="pc bpc" id="L268" title="1 of 4 branches missed.">    if (k &lt; 0 || n &lt; 0){erreur.erreur(&quot;nombre dégatif&quot;);return -1;}</span>
+<span class="fc bfc" id="L269" title="All 2 branches covered.">    if(k&gt;n){erreur.erreur(&quot;k&lt;n&quot;);return -1;}</span>
+<span class="fc bfc" id="L270" title="All 2 branches covered.">    if(n==0){return 0;}</span>
+    long xr;
+<span class="fc" id="L272">    xr = factorielle(n)/(factorielle(k)*factorielle(n-k));</span>
+    /*System.out.println(&quot;xr = &quot;+xr);
+    int max = max(k,n-k);
+    int min = min(k,n-k);
+    System.out.println(&quot;fact min = &quot; + factorielle(min));
+    System.out.println(&quot;factorielleNMoinsK = &quot; + factorielleNMoinsK(max,n));
+    xr = (factorielleNMoinsK(max,n)) / factorielle(min);*/
+<span class="fc" id="L279">    return (int) xr;</span>
+  }
+  /**
+  *{@summary Syracuse suite}
+  *@return Syracuse suite
+  *@version 1.1
+  */
+  public static int syracuse(int n){
+<span class="nc bnc" id="L287" title="All 2 branches missed.">    if (n &lt;= 0) {</span>
+<span class="nc" id="L288">      erreur.erreur(&quot;Impossible de calculé syracuse si n n'est pas positif&quot;);</span>
+<span class="nc" id="L289">      return -1;</span>
+    }
+    // u¨0 = n et u¨(i+1) = u¨i/2 si pair
+    //            u¨(i+1) = 3*u¨i+1 sinon
+<span class="nc" id="L293">    int i =0;</span>
+<span class="nc bnc" id="L294" title="All 2 branches missed.">    while (n != 1){</span>
+<span class="nc" id="L295">      i++;</span>
+<span class="nc bnc" id="L296" title="All 2 branches missed.">      if (n%2 == 0 ){</span>
+<span class="nc" id="L297">        n = n/2;</span>
+      }else{
+<span class="nc" id="L299">        n = 3*n + 1;</span>
+      }
+    }
+<span class="nc" id="L302">    return i;</span>
+  }
+  /**
+  *{@summary Syracuse suite}
+  *@return Syracuse suite
+  *@version 1.1
+  */
+  public static int syracuseSwitch(int n){
+<span class="nc bnc" id="L310" title="All 2 branches missed.">    if (n &lt;= 0) {</span>
+<span class="nc" id="L311">      erreur.erreur(&quot;Impossible de calculé syracuse si n n'est pas positif&quot;);</span>
+<span class="nc" id="L312">      return -1;</span>
+    }
+<span class="nc" id="L314">    int i=0;</span>
+<span class="nc" id="L315">    int ic = 0;</span>
+    while(true){
+<span class="nc bnc" id="L317" title="All 6 branches missed.">      switch (ic++) {</span>
+<span class="nc" id="L318">        case 0 : i = 0; break;</span>
+<span class="nc bnc" id="L319" title="All 2 branches missed.">        case 1 : if(n==1) ic+=2;break;</span>
+<span class="nc bnc" id="L320" title="All 2 branches missed.">        case 2 : if(n%2 == 0) {n = n/2; ic-=2; i++; } break;</span>
+<span class="nc" id="L321">        case 3 : n = 3*n+1; ic-=3; i++; break;</span>
+<span class="nc" id="L322">        case 4 : return i;</span>
+<span class="nc" id="L323">        default : System.out.println(&quot;Sortie en cours de boucle&quot;);return i;</span>
+      }
+    }
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Fourmi.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.formiko</a> &gt; <span class="el_source">Fourmi.java</span></div><h1>Fourmi.java</h1><pre class="source lang-java linenums">package fr.formiko.formiko;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.formiko.Message;
+import fr.formiko.formiko.interfaces.*;
+import fr.formiko.usuel.Temps;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.maths.allea;
+import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.menu;
+import fr.formiko.usuel.read;
+import fr.formiko.usuel.tableau;
+import fr.formiko.usuel.types.str;
+
+import java.io.Serializable;
+
+/**
+*{@summary The ant class.}&lt;br&gt;
+*Ant is the creature used by player.&lt;br&gt;
+*Ant aren't different by extends of this class but but Espece &amp;#38; Individu.&lt;br&gt;
+*@author Hydrolien
+*@version 1.30
+*/
+public class Fourmi extends Creature implements Serializable{
+  /***
+  *It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  */
+  protected byte typeF;
+  protected byte mode; // Par défaut la fourmi chasse (0)
+  // Elle peut aussi défendre la fourmilière (1) ou aider a la création de nouvelles fourmis (3)
+  protected Fourmiliere fere;
+  protected byte duretéMax;
+<span class="fc" id="L36">  private static byte uneSeuleAction=-1;</span>
+<span class="fc" id="L37">  private static boolean bUneSeuleAction=false;</span>
+<span class="fc" id="L38">  private static boolean bActualiserTaille=false;</span>
+<span class="fc" id="L39">  protected boolean ailesCoupees=true;</span>
+
+  // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor.}&lt;br&gt;
+  *By default the ant is an egg of 0 years old &amp;#38; 100/100 of cleaning
+  *Pheromone are set depending of the queen of the anthill.
+  *param fere The anthill of this.
+  *param e The specie of this.
+  *param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  *@version 1.39
+  */
+  // /!\ Ant need to be add to the Fourmiliere after that.
+  public Fourmi(Fourmiliere fere, Espece e, byte ty){ // arrivé d'un oeuf.
+    // on devrais fixer l'age max en fonction de la difficulté la aussi
+<span class="fc" id="L54">    super(fere.getCc(),0,e.getGIndividu().getIndividuParType(ty).getAgeMax(0),0);</span>
+<span class="fc" id="L55">    typeF = ty; this.e = e; this.fere = fere; stade = (byte)-3; propreté = (byte) 100;</span>
+<span class="fc" id="L56">    iniPheromone();</span>
+    // a modifier a partir des individus quand duretée sera un paramètre. OU alors on dit que duretéMax est fixe en fonction des individus. Genre les gros casse tout, les moyen jusqu'a 60 et les petit jusqu'a 20.
+<span class="fc" id="L58">    duretéMax=0;</span>
+<span class="fc" id="L59">    setNourritureFournie(e.getNourritureFournie(getStade()));</span>
+<span class="fc" id="L60">    fere.getCc().getContenu().getGc().add(this);</span>
+<span class="fc" id="L61">    evoluer = new EvoluerFourmi();</span>
+<span class="fc" id="L62">    mourir = new MourirFourmi();</span>
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">    if(e.getPolycalique()){tolerencePheromone=5;}//si c'est une espèce capable de s'endendre avec les fourmilières de la même famille.</span>
+<span class="fc" id="L64">    iniTour();</span>
+<span class="fc" id="L65">  }</span>
+  /**
+  *{@summary Secondary constructor.}&lt;br&gt;
+  *param fere The anthill of this.
+  *param e The specie of this.
+  *param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  *@version 1.39
+  */
+<span class="fc" id="L73">  public Fourmi(Fourmiliere fere, Espece e, int ty){ this(fere,e,(byte)ty);}</span>
+  /**
+  *{@summary Secondary constructor.}&lt;br&gt;
+  *param fere The anthill of this.
+  *param e The specie of this.
+  *param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  *param stade The stade of the ant. It will call evoluer() to be sur that everything it update as if the ant have grow.
+  *@version 1.39
+  */
+  public Fourmi(Fourmiliere fere, Espece e, byte ty, byte stade){
+<span class="fc" id="L83">    this(fere,e,ty);</span>
+<span class="fc" id="L84">    this.stade = (byte)(stade-1); evoluer(); //On simule le fait que la fourmi vien d'éclore.</span>
+<span class="fc" id="L85">    nourriture = 50; // on lui donne un peu de nourriture pour évité qu'elle ne meurt des le début.</span>
+<span class="fc" id="L86">  }</span>
+  /**
+  *{@summary Secondary constructor.}&lt;br&gt;
+  *param fere The anthill of this.
+  *param e The specie of this.
+  *param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  *param stade The stade of the ant. It will call evoluer() to be sur that everything it update as if the ant have grow up.
+  *param ph The Pheromone of the ant.
+  *@version 1.39
+  */
+  public Fourmi(Fourmiliere fere, Espece e, byte ty, byte st, Pheromone ph){
+<span class="nc" id="L97">    this(fere,e,ty,st);</span>
+<span class="nc" id="L98">    this.ph =ph;</span>
+<span class="nc" id="L99">  }</span>
+  /***
+  *{@summary Null constructor.}&lt;br&gt;
+  *Use only for test.
+  *@version 1.39
+  */
+<span class="fc" id="L105">  public Fourmi(){}//a ne pas utiliser sauf pour les test de class.</span>
+  // GET SET -----------------------------------------------------------------------
+<span class="fc" id="L107">  public byte getTypeF(){return typeF;}</span>
+<span class="fc" id="L108">  public void setTypeF(byte s){typeF = s;}public void setTypeF(int x){setTypeF((byte)x);}</span>
+<span class="nc" id="L109">  public byte getMode(){return mode;}</span>
+<span class="nc" id="L110">  public void setMode(byte x){mode = x;}public void setMode(int x){setMode((byte)x);}</span>
+<span class="fc" id="L111">  public void setFourmiliere(Fourmiliere gf){fere = gf;}public void setFere(Fourmiliere fere){setFourmiliere(fere);}</span>
+<span class="fc" id="L112">  public Fourmiliere getFourmiliere(){return fere;} public Fourmiliere getFere(){ return getFourmiliere();}</span>
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">  public Joueur getJoueur(){ if(getFere()==null){ return null;}return getFere().getJoueur();}</span>
+<span class="nc" id="L114">  public byte getDuretéMax(){ return duretéMax;}</span>
+<span class="nc" id="L115">  public void setDuretéMax(byte x){ duretéMax=x; }</span>
+<span class="nc" id="L116">  public int getX(){return getCCase().getContenu().getX();}</span>
+<span class="nc" id="L117">  public int getY(){return getCCase().getContenu().getY();}</span>
+<span class="fc" id="L118">  public void setNourritureMoinsConsomNourriture(){ setNourriture(getNourriture()-getNourritureConso());}</span>
+<span class="fc" id="L119">  public Individu getIndividu(){ return e.getIndividuParType(typeF);}</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">  public boolean getTropDeNourriture(){if(getNourriture()*1.1&gt;getNourritureMax()){ return true;} return false;}</span>
+  @Override
+<span class="fc bfc" id="L122" title="All 2 branches covered.">  public boolean getFemelle(){ return typeF!=1;}// c'est une femmelle si ce n'est pas un male.</span>
+  @Override
+<span class="fc" id="L124">  public void setFemelle(boolean b){erreur.alerte(&quot;Le sexe d'une fourmi ne peu pas être modifié, modifiez plutot son type.&quot;);}</span>
+  @Override
+<span class="nc" id="L126">  public byte getType(){return -2;}//Les Fourmis sont toutes identifié comme -2.</span>
+  @Override
+  public boolean getVole(){
+<span class="nc bnc" id="L129" title="All 4 branches missed.">    if(!e.getVole() || getTypeF() &gt; 1){return false;}//si l'espece ne vole pas ou si le type n'est pas male ou reine.</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">    return !getAilesCoupees();//true si les ailes ne sont pas coupée.</span>
+  }
+<span class="nc" id="L132">  public boolean getAilesCoupees(){return ailesCoupees;}</span>
+<span class="fc" id="L133">  public void setAilesCoupees(boolean b){ailesCoupees=b;}</span>
+  //static
+<span class="nc" id="L135">  public static byte getUneSeuleAction(){return uneSeuleAction;}</span>
+<span class="nc" id="L136">  public static void setUneSeuleAction(int x){uneSeuleAction=(byte)x;}public static void setUneSeuleAction(){setUneSeuleAction(-1);}</span>
+<span class="nc" id="L137">  public static boolean getBUneSeuleAction(){return bUneSeuleAction;}</span>
+<span class="nc" id="L138">  public static void setBUneSeuleAction(boolean b){bUneSeuleAction=b;}</span>
+<span class="nc" id="L139">  public static void setBActualiserTaille(boolean b){bActualiserTaille=b;}</span>
+  @Override
+<span class="fc" id="L141">  public String getNom(){return g.get(&quot;fourmi&quot;);}</span>
+  //racourci
+<span class="fc" id="L143">  public Fourmi getReine(){ return getFere().getGc().getReine();}</span>
+<span class="fc" id="L144">  public byte getPropretéPerdu(){return e.getPropretéPerdu(stade);}</span>
+<span class="fc" id="L145">  public int getNourritureConso(){return getIndividu().getNourritureConso(getStade());}</span>
+  /**
+  *{@summary Return true if is own by an AI.}&lt;br&gt;
+  *If it have an anthill that have a player it will return getIa() value of the player.&lt;br&gt;
+  *@version 1.40
+  */
+  @Override
+  public boolean getIa(){
+<span class="fc" id="L153">    try {return getFere().getJoueur().getIa();}</span>
+<span class="nc" id="L154">    catch (NullPointerException e) {return false;}</span>
+  }
+  // Fonctions propre -----------------------------------------------------------
+<span class="fc" id="L157">  public String toString(){return super.toString() +&quot; &quot;+ tableau.tableauToString(descriptionTableau());}</span>
+<span class="nc" id="L158">  public void afficheToi (){System.out.println(description());}</span>
+<span class="fc bfc" id="L159" title="All 2 branches covered.">  public boolean estReine(){return getTypeF()==0;}</span>
+  public String description(){
+<span class="nc" id="L161">    return toString();</span>
+  }
+  /**
+  *{@summary return the max age for an Individu depending of Espece 	&amp;#38; stade.}
+  *@param especeTempId Temporary Espece id.
+  *@param stadeTemp Temporary stade.
+  */
+  public int getAgeMaxIndividu(int especeTempId, int stadeTemp){ // b vas de -3 oeuf a 0 imago
+    Individu in2;
+<span class="pc bpc" id="L170" title="1 of 2 branches missed.">    if(especeTempId!=100){</span>
+<span class="nc" id="L171">      in2 = e.getIndividuParType(especeTempId);</span>
+    }else{
+<span class="fc" id="L173">      in2 = getIndividu();</span>
+    }
+<span class="pc bpc" id="L175" title="1 of 2 branches missed.">    if(in2==null){erreur.erreur(&quot;L'individu de stade &quot;+especeTempId+&quot; n'as pas été trouvé.&quot;);in2 = getIndividu();}</span>
+<span class="fc" id="L176">    return (int)((double)(in2.getAgeMax(stadeTemp+3)*getMultiplicateurDeDiff()));</span>
+  }
+  /**
+  *{@summary return the max age for an Individu with stade=0 (imago) 	&amp;#38; individu already define.}
+  */
+  public int getAgeMaxIndividu(){
+<span class="fc" id="L182">    return getAgeMaxIndividu(100,0);</span>
+  }
+  /**
+  *{@summary return the difficulty multiplier.}&lt;br&gt;
+  *Difficulty multiplier is in [0.2;3] &lt;br&gt;
+  */
+  public double getMultiplicateurDeDiff(){
+<span class="fc" id="L189">    double vit = Main.getVitesseDeJeu();</span>
+<span class="fc" id="L190">    boolean ia = fere.getJoueur().getIa();</span>
+<span class="fc" id="L191">    double difé = (double)Main.getDifficulté();</span>
+<span class="fc" id="L192">    double diff=1;</span>
+<span class="fc" id="L193">    diff = 1+0.2*difé;// +0.2*difé sera négatif si la difficulté est négative.</span>
+    //on évite les dépassements.
+<span class="pc bpc" id="L195" title="1 of 2 branches missed.">    if(diff&gt;3){diff=3;}</span>
+<span class="pc bpc" id="L196" title="1 of 2 branches missed.">    else if(diff&lt;0.2){diff=0.2;}</span>
+<span class="fc" id="L197">    double x = diff*vit;</span>
+<span class="fc" id="L198">    return x;</span>
+  }
+  public int getSeuilDeRisqueDInfection(){ // dépend du boolean ia et de la difficulté de la partie.
+    int x;
+<span class="fc bfc" id="L202" title="All 2 branches covered.">    if(fere.getJoueur().getIa()){</span>
+<span class="fc" id="L203">      x=50-(Main.getDifficulté()*10);</span>
+    }else{//les joueurs
+<span class="fc" id="L205">      x=50+(Main.getDifficulté()*10);</span>
+    }
+<span class="pc bpc" id="L207" title="1 of 4 branches missed.">    if (x&lt;10){ x=10;} if (x&gt;70){ x=70;} // seuil a ne pas dépacer.</span>
+<span class="fc" id="L208">    return x;</span>
+  }
+  /**
+  *{@summary True if the ant is at its anthill.}&lt;br&gt;
+  *@version 1.39
+  */
+  public boolean estALaFere(){
+    try {
+<span class="fc bfc" id="L216" title="All 2 branches covered.">      if (this.getCCase().equals(this.getFourmiliere().getCCase())){ return true;}</span>
+<span class="nc" id="L217">    }catch (Exception e) {</span>
+<span class="nc" id="L218">      erreur.alerte(&quot;Impossible de savoir si la fourmi est a la fourmilière&quot;);</span>
+<span class="fc" id="L219">    }</span>
+<span class="fc" id="L220">    return false;</span>
+  }
+
+  //public byte getModeReine(){return 0;}
+  public String [] descriptionTableau(){
+<span class="fc" id="L225">    String tr [] = new String [4];</span>
+<span class="pc bpc" id="L226" title="1 of 2 branches missed.">    String idTrans = &quot;Rien&quot;; if(transported != null){ idTrans = &quot;&quot;+transported.getId();}</span>
+<span class="fc" id="L227">    int k=0;</span>
+    //tr[k]=g.get(&quot;la&quot;)+&quot; &quot;+getNom()+&quot; &quot;+getId();k++;
+    //tr[k]=g.get(&quot;coordonnées&quot;)+&quot; : &quot;+p.desc();k++;
+<span class="fc" id="L230">    tr[k]=g.get(&quot;type&quot;)+&quot; : &quot;+getIndividu().getStringType();k++;</span>
+    //tr[k]=g.get(&quot;stade&quot;)+&quot; : &quot;+getStringStade();k++;
+    //tr[k]=g.get(&quot;age&quot;)+&quot; : &quot; + age+ &quot;/&quot;+ageMax;k++;
+    //tr[k]=g.get(&quot;nourriture&quot;)+&quot; : &quot; + nourriture+ &quot;/&quot;+nourritureMax;k++;
+    //tr[k]=g.get(&quot;action&quot;)+&quot; : &quot;+action+&quot;/&quot;+actionMax;k++;
+    //tr[k]=g.get(&quot;propreté&quot;)+&quot; : &quot;+propreté+&quot;/100&quot;;k++;
+<span class="fc" id="L236">    tr[k]=g.get(&quot;fourmilière&quot;)+&quot; : &quot;+fere.getId();k++;</span>
+<span class="fc" id="L237">    tr[k]=g.get(&quot;mode&quot;)+&quot; : &quot;+mode;k++;</span>
+    //tr[k]=g.get(&quot;Pheromone&quot;)+&quot; : &quot;+ this.getPheromone().toString();k++;
+<span class="fc" id="L239">    tr[k]=g.get(&quot;transported&quot;)+&quot; : &quot;+idTrans;k++;</span>
+    //tr[k]=g.get(&quot;espèce&quot;)+&quot; : &quot;+this.getEspece().getNom();k++;
+<span class="fc" id="L241">    return tr;</span>
+  }
+  public GString descriptionGString(){
+<span class="nc" id="L244">    GString gs = new GString();</span>
+<span class="nc" id="L245">    gs.add(g.get(&quot;type&quot;)+&quot; : &quot;+getIndividu().getStringType());</span>
+<span class="nc" id="L246">    gs.add(g.get(&quot;stade&quot;)+&quot; : &quot;+getStringStade());</span>
+<span class="nc" id="L247">    gs.add(g.get(&quot;age&quot;)+&quot; : &quot; + age+ &quot;/&quot;+ageMax);</span>
+<span class="nc" id="L248">    gs.add(g.get(&quot;nourriture&quot;)+&quot; : &quot; + nourriture+ &quot;/&quot;+nourritureMax);</span>
+<span class="nc" id="L249">    gs.add(g.get(&quot;action&quot;)+&quot; : &quot;+action+&quot;/&quot;+actionMax);</span>
+<span class="nc" id="L250">    gs.add(g.get(&quot;propreté&quot;)+&quot; : &quot;+propreté+&quot;/100&quot;);</span>
+    //gs.add(g.get(&quot;fourmilière&quot;)+&quot; : &quot;+fere.getId());
+    //gs.add(g.get(&quot;mode&quot;)+&quot; : &quot;+mode);
+    //gs.add(g.get(&quot;Pheromone&quot;)+&quot; : &quot;+ ph.description());
+<span class="nc bnc" id="L254" title="All 2 branches missed.">    if(transported != null){ gs.add(g.get(&quot;transported&quot;)+&quot; : &quot;+&quot;&quot;+transported.getId());}</span>
+<span class="nc" id="L255">    gs.add(g.get(&quot;espèce&quot;)+&quot; : &quot;+e.getNom());</span>
+<span class="nc" id="L256">    return gs;</span>
+  }
+
+  /*public boolean mangerGraine(){
+    //if(fere.getGGraine().getDébut()==null){return false;}
+    Graine g = fere.getGGraine().getGraineOuverte();
+    if(this.getNourriture() &lt; this.getNourritureMax()/2 &amp;&amp; g!=null){
+      nourriture = nourriture + g.getNourritureFournie();
+      fere.getGGraine().retirerGraine(g); return true;
+    }return false;
+  }*/
+  /*public boolean casserGraine(){
+    debug.débogage(&quot;tentative de cassage de graine&quot;);
+    try {
+      debug.débogage(&quot;Etape 1&quot;);
+      System.out.println(fere.getGg().getGrainePlusDeNourritureFournie(this));
+      if (fere.getGg().getGrainePlusDeNourritureFournie(this).getDureté() &lt; this.getDuretéMax()){
+        debug.débogage(&quot;Etape 2&quot;);
+        fere.getGg().getGrainePlusDeNourritureFournie(this).casser();return true;
+      }return false;
+    }catch (Exception e) {
+      return false;
+    }
+  }*/
+  /**
+  *{@summary un-clean this.}
+  *It also let this died if it is under the seuilDeRisqueDInfection 	&amp;#38; that this have bad luck.
+  *@version 1.29
+  */
+  public void salir(){
+<span class="fc" id="L286">    double chanceDeMort = allea.getRand()*getSeuilDeRisqueDInfection(); // on tire le nombre min pour survivre a ce tour.</span>
+<span class="fc bfc" id="L287" title="All 2 branches covered.">    if (getPropreté()&lt;allea.getRand()*50){mourir(1);}</span>
+<span class="fc" id="L288">    setPropreté(getPropreté() - getPropretéPerdu());</span>
+<span class="fc" id="L289">  }</span>
+  /**
+  *{@summary return true if this whant some food.}
+  *This ask for food if it is hungry at 5% or if food is &amp;#60; at what we need for 2 days.
+  *@version 1.29
+  */
+  public boolean wantFood(){
+<span class="fc bfc" id="L296" title="All 2 branches covered.">    if(stade==-3){return false;}</span>
+<span class="fc bfc" id="L297" title="All 4 branches covered.">    return isHungry(5) || (getNourriture() &lt; math.min(getNourritureConso()*2,getNourritureMax()));</span>
+  }
+  /**
+  *{@summary return true if this whant to be clean.}
+  *This want to le clean if in 2 turns it will be under the seuilDeRisqueDInfection.
+  *@version 1.29
+  */
+  public boolean wantClean(){
+<span class="fc bfc" id="L305" title="All 2 branches covered.">    if(getProprete()&gt;99){return false;}</span>
+<span class="fc bfc" id="L306" title="All 2 branches covered.">    return getProprete() - (getPropretéPerdu()*2) &lt;= getSeuilDeRisqueDInfection();</span>
+  }
+  /**
+  *{@summary initialize tour value for an ant.}&lt;br&gt;
+  *If that's a non-ai player it will have TourFourmiNonIa else it will have TourReine or TourFourmi depending of getReine().
+  *@version 1.31
+  */
+  public void iniTour(){
+<span class="fc bfc" id="L314" title="All 2 branches covered.">    if(getFere().getJoueur().getIa()){</span>
+<span class="fc bfc" id="L315" title="All 2 branches covered.">      if(estReine()){</span>
+<span class="fc" id="L316">        tour = new TourReine();</span>
+      }else{
+<span class="fc" id="L318">        tour = new TourFourmi();</span>
+      }
+    }else{
+<span class="fc" id="L321">      tour = new TourFourmiNonIa();</span>
+    }
+<span class="fc" id="L323">  }</span>
+  /**
+  *{@summary initialize ph value for an ant.}&lt;br&gt;
+  *It take similar pheromone to the 1 of the queen.
+  *If the queen is death it take ph from the 1a an of the anthill.
+  *If there is not more and it take a random pheromone.
+  *@version 1.31
+  */
+  public void iniPheromone(){
+<span class="fc" id="L332">    Fourmi reine = getReine();</span>
+<span class="fc bfc" id="L333" title="All 2 branches covered.">    if (reine != null){ e = reine.getEspece(); ph = new Pheromone(reine.getPheromone());}</span>
+<span class="fc bfc" id="L334" title="All 2 branches covered.">    else if (fere.getGc().getDébut() != null){ ph = new Pheromone(fere.getGc().getDébut().getContenu().getPheromone());}</span>
+<span class="fc" id="L335">    else{ ph = new Pheromone();}</span>
+<span class="fc" id="L336">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

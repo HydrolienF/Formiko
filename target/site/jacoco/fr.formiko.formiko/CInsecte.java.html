@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CInsecte.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.formiko</a> &gt; <span class="el_source">CInsecte.java</span></div><h1>CInsecte.java</h1><pre class="source lang-java linenums">package fr.formiko.formiko;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+
+import java.io.Serializable;
+
+public class CInsecte implements Serializable{
+  protected CInsecte suivant;
+  protected Insecte contenu;
+  // CONSTRUCTEUR ---------------------------------------------------------------
+<span class="fc" id="L14">  public CInsecte(Insecte c){</span>
+<span class="fc" id="L15">    contenu = c;</span>
+<span class="fc" id="L16">  }</span>
+  public CInsecte(){
+<span class="nc" id="L18">    this(new Insecte());</span>
+<span class="nc" id="L19">  }</span>
+  // GET SET --------------------------------------------------------------------
+<span class="fc" id="L21">  public CInsecte getSuivant(){return suivant;}</span>
+<span class="fc" id="L22">  public void setSuivant(CInsecte ci){suivant = ci;}</span>
+<span class="fc" id="L23">  public Insecte getContenu(){return contenu;}</span>
+<span class="fc" id="L24">  public Insecte getInsecte(){return getContenu();}</span>
+  // Fonctions propre -----------------------------------------------------------
+  public String toString(){
+<span class="nc bnc" id="L27" title="All 2 branches missed.">    if(suivant==null){return contenu.toString();}</span>
+<span class="nc" id="L28">    return contenu.toString() +&quot;\n&quot;+ suivant.toString();</span>
+  }
+  public int length(){
+<span class="nc bnc" id="L31" title="All 2 branches missed.">    if(suivant == null){</span>
+<span class="nc" id="L32">      return 1;</span>
+    }else{
+<span class="nc" id="L34">      return 1+suivant.length();</span>
+    }
+  }
+  public Insecte getInsecteParId(int id){
+<span class="nc bnc" id="L38" title="All 2 branches missed.">    if (contenu.getId() == id){</span>
+<span class="nc" id="L39">      return contenu;</span>
+    }
+<span class="nc bnc" id="L41" title="All 2 branches missed.">    if (suivant == null){</span>
+<span class="nc" id="L42">      erreur.alerte(&quot;L'insecte &quot; + id + &quot; n'as pas été trouvé dans la liste d'Insecte encore vivant.&quot;);</span>
+<span class="nc" id="L43">      return null;</span>
+    }
+<span class="nc" id="L45">    return suivant.getInsecteParId(id);</span>
+  }
+  public void tourInsecte(){
+<span class="nc" id="L48">    contenu.tour();</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">    if (suivant != null){</span>
+<span class="nc" id="L50">      suivant.tourInsecte();</span>
+    }else {
+<span class="nc" id="L52">      debug.débogage(&quot;tous les insectes ont joué&quot;);</span>
+    }
+<span class="nc" id="L54">  }</span>
+  public void preTour(){
+<span class="nc" id="L56">    contenu.preTour();</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">    if (suivant != null){</span>
+<span class="nc" id="L58">      suivant.tourInsecte();</span>
+    }else {
+<span class="nc" id="L60">      debug.débogage(&quot;preTour insectes fini&quot;);</span>
+    }
+<span class="nc" id="L62">  }</span>
+  public Insecte getInsecteSurLaCase(Point pTest){
+<span class="nc bnc" id="L64" title="All 2 branches missed.">    if(contenu.getCCase().getContenu().getPoint().equals(pTest)){</span>
+<span class="nc" id="L65">      return contenu;</span>
+    } else {
+<span class="nc" id="L67">      return null;</span>
+    }
+  }
+  public Insecte getInsectePlusDeNourritureFournie(Insecte i){
+    // on actualise l'insecte si néssésaire. (si un autre insecte peut founir plus de nourriture)
+<span class="nc bnc" id="L72" title="All 2 branches missed.">    if (this.getInsecte().getNourritureFournie() &gt; i.getNourritureFournie()){</span>
+<span class="nc" id="L73">      i = this.getInsecte();</span>
+    }
+    // Soit on s'arrête :
+<span class="nc bnc" id="L76" title="All 2 branches missed.">    if (this.getSuivant() ==  null){ return i;}</span>
+    // Soit on continue
+<span class="nc" id="L78">    return this.getSuivant().getInsectePlusDeNourritureFournie(i);</span>
+  }
+  public Insecte getInsectePlusDeNourritureFournie(){
+<span class="nc bnc" id="L81" title="All 2 branches missed.">    if (this.getSuivant()== null){ return this.getInsecte();}</span>
+<span class="nc" id="L82">    return this.getSuivant().getInsectePlusDeNourritureFournie(this.getInsecte());</span>
+  }
+  public GInsecte getGiVivant(){
+<span class="nc" id="L85">    GInsecte gir = new GInsecte();</span>
+<span class="nc" id="L86">    CInsecte ci = this;</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">    while(ci!=null){</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">      if (!ci.getContenu().getEstMort()){</span>
+<span class="nc" id="L89">        gir.add(ci.getContenu());</span>
+      }
+<span class="nc" id="L91">      ci=ci.getSuivant();</span>
+    }
+<span class="nc" id="L93">    return gir;</span>
+  }
+  public void retirerInsecte(Insecte i){
+<span class="nc bnc" id="L96" title="All 2 branches missed.">    if (suivant == null){</span>
+<span class="nc" id="L97">      erreur.alerte(&quot;L'insecte &quot;+ i.getId() +&quot; n'as pas été trouvé et n'as donc pas pu être retirer&quot;);</span>
+    }else {
+<span class="nc bnc" id="L99" title="All 2 branches missed.">      if(suivant.getContenu().equals(i)){</span>
+<span class="nc" id="L100">        debug.débogage(&quot;Suppression d'1 Insecte&quot;);</span>
+<span class="nc" id="L101">        suivant = suivant.getSuivant(); // on saute un maillons.</span>
+      }else {
+<span class="nc" id="L103">        suivant.retirerInsecte(i);</span>
+      }
+    }
+<span class="nc" id="L106">  }</span>
+  public GCreature toGCreature(){
+<span class="nc" id="L108">    GCreature gc = new GCreature();</span>
+<span class="nc" id="L109">    CInsecte ci = this;</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">    while(ci!=null){</span>
+<span class="nc" id="L111">      gc.add(ci.getContenu());</span>
+<span class="nc" id="L112">      ci=ci.getSuivant();</span>
+    }
+<span class="nc" id="L114">    return gc;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

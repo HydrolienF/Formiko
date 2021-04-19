@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MourirInsecte.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.formiko.interfaces</a> &gt; <span class="el_source">MourirInsecte.java</span></div><h1>MourirInsecte.java</h1><pre class="source lang-java linenums">package fr.formiko.formiko.interfaces;
+
+import fr.formiko.formiko.Creature;
+import fr.formiko.formiko.Insecte;
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+
+import java.io.Serializable;
+
+/**
+ * {@summary Insect implementation.}&lt;br&gt;
+ * Allow an insect to died&lt;br&gt;
+ * @author Hydrolien
+ * @version 1.1
+ */
+<span class="fc" id="L18">public class MourirInsecte implements Serializable, Mourir {</span>
+  /**
+   * {@summary Died without beeing eated.}&lt;br&gt;
+   *@param c Insecte who is dieing
+   *@param r Reason of death
+   * @version 1.1
+   */
+  public void mourir(Creature c, int r){
+<span class="nc" id="L26">    System.out.println(c);</span>
+<span class="nc" id="L27">    c.setEstMort(true);</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">    if(c instanceof Insecte){</span>
+<span class="nc" id="L29">      Insecte i= (Insecte)c;</span>
+<span class="nc bnc" id="L30" title="All 4 branches missed.">      if(i.getEstMort() &amp;&amp; i.getAge()&gt;i.getAgeMax()){</span>
+<span class="nc" id="L31">        supprimerDeLaCarte(i);</span>
+      }else{
+<span class="nc" id="L33">        devenirUnCadavre(i);</span>
+      }
+<span class="nc" id="L35">    }else{</span>
+<span class="nc" id="L36">      erreur.erreurType(&quot;Insecte&quot;);</span>
+    }
+<span class="nc" id="L38">  }</span>
+  /**
+   * {@summary Delet an Insect from the map.}&lt;br&gt;
+   * @version 1.2
+   */
+  public void supprimerDeLaCarte(Creature c){
+<span class="fc" id="L44">    int id = -1;</span>
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">    if(c instanceof Insecte){</span>
+<span class="fc" id="L46">      Insecte i = (Insecte)c;</span>
+<span class="fc" id="L47">      id = i.getId();</span>
+<span class="fc" id="L48">      i.getCCase().getContenu().getGc().retirer(i);</span>
+      try {
+<span class="fc" id="L50">        Main.getGi().retirer(i);</span>
+<span class="nc" id="L51">      }catch (Exception e) {</span>
+<span class="nc" id="L52">        erreur.erreur(&quot;L'insecte &quot;+id+&quot; n'as pas pu être retiré de Main.Gi.&quot;);</span>
+<span class="fc" id="L53">      }</span>
+<span class="fc" id="L54">    }else{</span>
+<span class="nc" id="L55">      erreur.erreur(&quot;L'insecte &quot;+id+&quot; n'as pas pu être retiré.&quot;);</span>
+    }
+<span class="fc" id="L57">  }</span>
+  /**
+   * {@summary Transform an Insect to a dead body.}&lt;br&gt;
+   * @version 1.2
+   */
+  public void devenirUnCadavre(Insecte i){
+<span class="nc" id="L63">    i.setAge(0);//temps de putréfaction.</span>
+<span class="nc" id="L64">    i.setAgeMax(i.getAgeMax()/5);</span>
+<span class="nc" id="L65">    i.tour = new TourCreatureMorte();</span>
+<span class="nc" id="L66">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

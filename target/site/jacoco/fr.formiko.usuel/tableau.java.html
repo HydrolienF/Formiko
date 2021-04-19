@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>tableau.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.usuel</a> &gt; <span class="el_source">tableau.java</span></div><h1>tableau.java</h1><pre class="source lang-java linenums">package fr.formiko.usuel;
+
+import fr.formiko.usuel.maths.math;
+
+//def par défaut des fichiers depuis 0.79.5
+
+<span class="nc" id="L7">public class tableau &lt;T&gt;{</span>
+// piste pour utiliser des méthodes sur des tableau sans qu'un type soit forcément donné :
+// List&lt;Objet&gt; mulist = new ArrayList&lt;objet&gt;();
+// déclaration des Objet
+// mylist.add(objet1) etc.
+<span class="fc" id="L12">  private static String f = &quot;tableau&quot;;</span>
+  private static void erreurPosition(int i){
+<span class="nc" id="L14">    erreur.erreur(g.get(f,1,&quot;La position&quot;)+&quot; &quot; + i + &quot; &quot;+g.get(f,2,&quot;n'existe pas dans le tableau&quot;)+&quot;.&quot;);</span>
+<span class="nc" id="L15">  }</span>
+
+  private static void erreurPositionCorrige(int i){
+<span class="nc" id="L18">    erreur.erreur(g.get(f,1,&quot;La position&quot;)+&quot; &quot; + i + &quot; &quot;+g.get(f,2,&quot;n'existe pas dans le tableau&quot;)+&quot;.&quot;,g.get(f,3,&quot;On ajoute x en position finale.&quot;));</span>
+<span class="nc" id="L19">  }</span>
+  private static void erreurVide(){
+<span class="nc" id="L21">    erreur.alerte(g.get(f,5,&quot;Le tableau est vide !&quot;));</span>
+<span class="nc" id="L22">  }</span>
+  private static void erreurElementManquant(String x){
+<span class="nc" id="L24">    erreur.alerte(&quot;\&quot;&quot;+x + &quot;\&quot; &quot;+g.get(f,4,&quot;n'est pas présent dans le tableau&quot;)+&quot;.&quot;);</span>
+<span class="nc" id="L25">  }</span>
+//Objet
+  /*public static &lt;T&gt; T[] retire (T t[], T i){
+    int lentr = t.length-1;
+    if (i&lt;0 || i&gt;t.length) {
+      erreurPosition(i);
+    }
+    T tr [] = new Object [lentr];//ne marche pas
+    Array&lt;?&gt; tr = new Array(T,lentr); // pourrai marché.
+    for (int j=0;j&lt;i; j++){
+      tr[j]=t[j];
+    }
+    for (int j=i+1; j&lt;lentr+1; j++){
+      tr[j-1]=t[j];
+    }
+    return tr;
+  }*/
+  //SORT
+  /**
+  *{@summary A selection sorting algo.}
+  *@param ascendingOrder true → the smaler element will be the 1a.
+  *@version 1.33
+  */
+  public static void sort(String[] tab, boolean ascendingOrder){
+<span class="fc bfc" id="L49" title="All 2 branches covered.">    for (int i = 0; i &lt; tab.length - 1; i++) {</span>
+<span class="fc" id="L50">      int index = i;</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">      for (int j = i + 1; j &lt; tab.length; j++) {</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        if(ascendingOrder){</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">          if (isCharSmallerInString1(tab[j],tab[index])){</span>
+<span class="fc" id="L54">             index = j;</span>
+          }
+        }else{
+<span class="fc bfc" id="L57" title="All 2 branches covered.">          if (isCharSmallerInString1(tab[index],tab[j])){</span>
+<span class="fc" id="L58">             index = j;</span>
+          }
+        }
+      }
+<span class="fc" id="L62">      String min = tab[index];</span>
+<span class="fc" id="L63">      tab[index] = tab[i];</span>
+<span class="fc" id="L64">      tab[i] = min;</span>
+    }
+<span class="fc" id="L66">  }</span>
+<span class="fc" id="L67">  public static void sort(String tab []){sort(tab,true);}</span>
+  /**
+  *{@summary A tools for sort sting that return true if s1 &amp;#60; s2.}
+  *@param s1 1a String.
+  *@param s2 2a String.
+  *return s1&amp;#60;s2 depending of char value.
+  *@version 1.33
+  */
+  private static boolean isCharSmallerInString1(String s1, String s2){
+    //if s1 &lt; s2 return true;
+<span class="fc" id="L77">    int len = math.min(s1.length(),s2.length());</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">    for (int i=0;i&lt;len ;i++ ) { //while they are equals.</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">      if(s1.charAt(i) &lt; s2.charAt(i)){</span>
+<span class="fc" id="L80">        return true;</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">      }else if (s1.charAt(i) &gt; s2.charAt(i)){</span>
+<span class="fc" id="L82">        return false;</span>
+      }
+    }
+<span class="nc" id="L85">    return false;</span>
+  }
+  /**
+  *{@summary A selection sorting algo.}
+  *@param ascendingOrder true → the smaler element will be the 1a.
+  *@version 1.33
+  */
+  public static void sort(int[] tab, boolean ascendingOrder){
+<span class="fc bfc" id="L93" title="All 2 branches covered.">    for (int i = 0; i &lt; tab.length - 1; i++) {</span>
+<span class="fc" id="L94">      int index = i;</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">      for (int j = i + 1; j &lt; tab.length; j++) {</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">        if(ascendingOrder){</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">          if (tab[j] &lt; tab[index]){</span>
+<span class="fc" id="L98">             index = j;</span>
+          }
+        }else{
+<span class="fc bfc" id="L101" title="All 2 branches covered.">          if (tab[j] &gt; tab[index]){</span>
+<span class="fc" id="L102">             index = j;</span>
+          }
+        }
+      }
+<span class="fc" id="L106">      int min = tab[index];</span>
+<span class="fc" id="L107">      tab[index] = tab[i];</span>
+<span class="fc" id="L108">      tab[i] = min;</span>
+    }
+<span class="fc" id="L110">  }</span>
+  //String
+  //Retire
+  public static String [] retirer (String t[], int i){
+<span class="nc" id="L114">    int lentr = t.length-1;</span>
+<span class="nc bnc" id="L115" title="All 4 branches missed.">    if (i&lt;0 || i&gt;t.length) {</span>
+<span class="nc" id="L116">      erreurPosition(i);</span>
+    }
+<span class="nc" id="L118">    String tr [] = new String [lentr];</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">    for (int j=0;j&lt;i; j++){</span>
+<span class="nc" id="L120">      tr[j]=t[j];</span>
+      //System.out.println(&quot;On garde &quot; + tr[j]);
+    }
+<span class="nc bnc" id="L123" title="All 2 branches missed.">    for (int j=i+1; j&lt;lentr+1; j++){</span>
+<span class="nc" id="L124">      tr[j-1]=t[j];</span>
+      //System.out.println(&quot;On garde &quot; + tr[j-1]);
+    }
+<span class="nc" id="L127">    return tr;</span>
+  }//public static String [] retire(String t[], int i){retirer(t,i);}
+
+  public static String [] retirerX (String t[], String x){
+<span class="fc" id="L131">    int lent = t.length;</span>
+    // On  compte le nombre de x a retirer
+<span class="fc" id="L133">    int k=0;</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">    for (int i=0;i&lt;lent ;i++ ) {</span>
+<span class="fc bfc" id="L135" title="All 2 branches covered.">      if (x.equals(t[i])){ k++;}</span>
+    }
+<span class="pc bpc" id="L137" title="1 of 2 branches missed.">    if (k==0){ erreurElementManquant(x);}</span>
+<span class="fc" id="L138">    String tr [] = new String [lent-k];</span>
+    // On les retire
+<span class="fc" id="L140">    int m=0;</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">    for (int j=0;j&lt;lent; j++){</span>
+<span class="fc bfc" id="L142" title="All 2 branches covered.">      if (!x.equals(t[j])){ // Si c'est qqchose qu'on garde :</span>
+<span class="fc" id="L143">        tr[m]=t[j]; m++;</span>
+      }//sinon j augemnte mais pas m
+    }
+<span class="fc" id="L146">    return tr;</span>
+  }//public static String [] retireX(String t[],String x){return retirerX(t,x);}
+
+//AJOUTE
+  public static String [] addX (String t[], String x, int i){
+    // Fonction qui permet d'ajouté x en position i du tableau.
+<span class="pc bpc" id="L152" title="2 of 4 branches missed.">    if (i&lt;0 || i&gt;t.length) {</span>
+<span class="nc" id="L153">      erreurPositionCorrige(i);</span>
+<span class="nc" id="L154">      i = t.length;</span>
+    }
+<span class="fc" id="L156">    int lentr = t.length+1;</span>
+<span class="fc" id="L157">    String tr [] = new String [lentr];</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">    for (int j=0;j&lt;i ;j++ ) {</span>
+<span class="fc" id="L159">      tr [j] = t[j];</span>
+    }
+<span class="fc" id="L161">    tr[i] = x;</span>
+<span class="pc bpc" id="L162" title="1 of 2 branches missed.">    for (int j=i+1;j&lt;lentr ;j++ ) {</span>
+<span class="nc" id="L163">      tr[j] = t[j-1];</span>
+    }
+<span class="fc" id="L165">    return tr;</span>
+  }
+  public static String [] addX (String t[], String x){
+<span class="fc" id="L168">    return addX(t,x,t.length); // Par défaut on ajoute a la dernière case d'un tableau</span>
+  }//public static String [] ajouteX(String t[],String x){return addX(t,x);}
+  public static String [] ajouteT (String t1[], String t2[]){
+<span class="nc" id="L171">    int lent1 = t1.length; int lent2 = t2.length;</span>
+<span class="nc" id="L172">    String tr [] = new String [lent1 + lent2];</span>
+<span class="nc bnc" id="L173" title="All 2 branches missed.">    for (int i=0;i&lt;lent1 ;i++ ) {</span>
+<span class="nc" id="L174">      tr[i] = t1[i];</span>
+    }
+<span class="nc bnc" id="L176" title="All 2 branches missed.">    for (int i=0;i&lt;lent2 ;i++ ) {</span>
+<span class="nc" id="L177">      tr[lent1 + i] = t2[i];</span>
+    }
+<span class="nc" id="L179">    return tr;</span>
+  }
+
+
+  // int
+  // retir
+  public static int [] retire (int t[], int i){
+<span class="nc" id="L186">    int lentr = t.length-1;</span>
+<span class="nc bnc" id="L187" title="All 4 branches missed.">    if (i&lt;0 || i&gt;t.length) {</span>
+<span class="nc" id="L188">      erreurPosition(i);</span>
+    }
+<span class="nc" id="L190">    int tr [] = new int [lentr];</span>
+<span class="nc bnc" id="L191" title="All 2 branches missed.">    for (int j=0;j&lt;i; j++){</span>
+<span class="nc" id="L192">      tr[j]=t[j];</span>
+      //System.out.println(&quot;On garde &quot; + tr[j]);
+    }
+<span class="nc bnc" id="L195" title="All 2 branches missed.">    for (int j=i+1; j&lt;lentr+1; j++){</span>
+<span class="nc" id="L196">      tr[j-1]=t[j];</span>
+      //System.out.println(&quot;On garde &quot; + tr[j-1]);
+    }
+<span class="nc" id="L199">    return tr;</span>
+  }
+
+  public static int [] retirerX (int t[], int x){
+<span class="nc" id="L203">    int lent = t.length;</span>
+    // On  compte le nombre de x a retirer
+<span class="nc" id="L205">    int k=0;</span>
+<span class="nc bnc" id="L206" title="All 2 branches missed.">    for (int i=0;i&lt;lent ;i++ ) {</span>
+<span class="nc bnc" id="L207" title="All 2 branches missed.">      if (x == t[i]){ k++;}</span>
+    }
+<span class="nc bnc" id="L209" title="All 2 branches missed.">    if (k==0){ erreurElementManquant(x+&quot;&quot;);}</span>
+<span class="nc" id="L210">    int tr [] = new int [lent-k];</span>
+    // On les retire
+<span class="nc" id="L212">    int m=0;</span>
+<span class="nc bnc" id="L213" title="All 2 branches missed.">    for (int j=0;j&lt;lent; j++){</span>
+<span class="nc bnc" id="L214" title="All 2 branches missed.">      if (x != t[j]){ // Si c'est qqchose qu'on garde :</span>
+<span class="nc" id="L215">        tr[m]=t[j]; m++;</span>
+      }//sinon j augemnte mais pas m
+    }
+<span class="nc" id="L218">    return tr;</span>
+  }//public static void retirerX(int t[],int x){return retirerX(t,x);}
+
+//AJOUTE
+  public static int [] ajouteX (int t[], int x, int i){
+    // Fonction qui permet d'ajouté x en position i du tableau.
+<span class="nc bnc" id="L224" title="All 4 branches missed.">    if (i&lt;0 || i&gt;t.length) {</span>
+<span class="nc" id="L225">      erreurPositionCorrige(i);</span>
+<span class="nc" id="L226">      i = t.length;</span>
+    }
+<span class="nc" id="L228">    int lentr = t.length+1;</span>
+<span class="nc" id="L229">    int tr [] = new int [lentr];</span>
+<span class="nc bnc" id="L230" title="All 2 branches missed.">    for (int j=0;j&lt;i ;j++ ) {</span>
+<span class="nc" id="L231">      tr [j] = t[j];</span>
+    }
+<span class="nc" id="L233">    tr[i] = x;</span>
+<span class="nc bnc" id="L234" title="All 2 branches missed.">    for (int j=i+1;j&lt;lentr ;j++ ) {</span>
+<span class="nc" id="L235">      tr[j] = t[j-1];</span>
+    }
+<span class="nc" id="L237">    return tr;</span>
+  }
+  public static int [] ajouteX (int t[], int x){
+<span class="nc" id="L240">    return ajouteX(t,x,t.length); // Par défaut on ajoute a la dernière case d'un tableau</span>
+  }
+  public static int [] ajouteT (int t1[], int t2[]){
+<span class="nc" id="L243">    int lent1 = t1.length; int lent2 = t2.length;</span>
+<span class="nc" id="L244">    int tr [] = new int [lent1 + lent2];</span>
+<span class="nc bnc" id="L245" title="All 2 branches missed.">    for (int i=0;i&lt;lent1 ;i++ ) {</span>
+<span class="nc" id="L246">      tr[i] = t1[i];</span>
+    }
+<span class="nc bnc" id="L248" title="All 2 branches missed.">    for (int i=0;i&lt;lent2 ;i++ ) {</span>
+<span class="nc" id="L249">      tr[lent1 + i] = t2[i];</span>
+    }
+<span class="nc" id="L251">    return tr;</span>
+  }
+
+
+
+  // byte
+  // retir
+  public static byte [] retire (byte t[], int i){
+<span class="nc" id="L259">    int lentr = t.length-1;</span>
+<span class="nc bnc" id="L260" title="All 4 branches missed.">    if (i&lt;0 || i&gt;t.length) {</span>
+<span class="nc" id="L261">      erreurPositionCorrige(i);</span>
+    }
+<span class="nc" id="L263">    byte tr [] = new byte [lentr];</span>
+<span class="nc bnc" id="L264" title="All 2 branches missed.">    for (int j=0;j&lt;i; j++){</span>
+<span class="nc" id="L265">      tr[j]=t[j];</span>
+      //System.out.println(&quot;On garde &quot; + tr[j]);
+    }
+<span class="nc bnc" id="L268" title="All 2 branches missed.">    for (int j=i+1; j&lt;lentr+1; j++){</span>
+<span class="nc" id="L269">      tr[j-1]=t[j];</span>
+      //System.out.println(&quot;On garde &quot; + tr[j-1]);
+    }
+
+<span class="nc" id="L273">    return tr;</span>
+  }
+
+  public static byte [] retireX (byte t[], byte x){
+<span class="nc" id="L277">    int lent = t.length;</span>
+    // On  compte le nombre de x a retirer
+<span class="nc" id="L279">    byte k=0;</span>
+<span class="nc bnc" id="L280" title="All 2 branches missed.">    for (byte i=0;i&lt;lent ;i++ ) {</span>
+<span class="nc bnc" id="L281" title="All 2 branches missed.">      if (x == t[i]){ k++;}</span>
+    }
+<span class="nc bnc" id="L283" title="All 2 branches missed.">    if (k==0){ erreurElementManquant(x+&quot;&quot;);}</span>
+<span class="nc" id="L284">    byte tr [] = new byte [lent-k];</span>
+    // On les retire
+<span class="nc" id="L286">    byte m=0;</span>
+<span class="nc bnc" id="L287" title="All 2 branches missed.">    for (byte j=0;j&lt;lent; j++){</span>
+<span class="nc bnc" id="L288" title="All 2 branches missed.">      if (x != t[j]){ // Si c'est qqchose qu'on garde :</span>
+<span class="nc" id="L289">        tr[m]=t[j]; m++;</span>
+      }//sinon j augemnte mais pas m
+    }
+<span class="nc" id="L292">    return tr;</span>
+  }
+
+  //AJOUTE
+  public static byte [] ajouteX (byte t[], byte x, int i){
+    // Fonction qui permet d'ajouté x en position i du tableau.
+<span class="nc bnc" id="L298" title="All 4 branches missed.">    if (i&lt;0 || i&gt;t.length) {</span>
+<span class="nc" id="L299">      erreurPositionCorrige(i);</span>
+<span class="nc" id="L300">      i = t.length;</span>
+    }
+<span class="nc" id="L302">    int lentr = t.length+1;</span>
+<span class="nc" id="L303">    byte tr [] = new byte [lentr];</span>
+<span class="nc bnc" id="L304" title="All 2 branches missed.">    for (int j=0;j&lt;i ;j++ ) {</span>
+<span class="nc" id="L305">      tr [j] = t[j];</span>
+    }
+<span class="nc" id="L307">    tr[i] = x;</span>
+<span class="nc bnc" id="L308" title="All 2 branches missed.">    for (int j=i+1;j&lt;lentr ;j++ ) {</span>
+<span class="nc" id="L309">      tr[j] = t[j-1];</span>
+    }
+<span class="nc" id="L311">    return tr;</span>
+  }
+  public static byte [] ajouteX (byte t[], byte x){
+<span class="nc" id="L314">    return ajouteX(t,x,t.length); // Par défaut on ajoute a la dernière case d'un tableau</span>
+  }
+  public static byte [] ajouteT (byte t1[], byte t2[]){
+<span class="nc" id="L317">    int lent1 = t1.length; int lent2 = t2.length;</span>
+<span class="nc" id="L318">    byte tr [] = new byte [lent1 + lent2];</span>
+<span class="nc bnc" id="L319" title="All 2 branches missed.">    for (byte i=0;i&lt;lent1 ;i++ ) {</span>
+<span class="nc" id="L320">      tr[i] = t1[i];</span>
+    }
+<span class="nc bnc" id="L322" title="All 2 branches missed.">    for (byte i=0;i&lt;lent2 ;i++ ) {</span>
+<span class="nc" id="L323">      tr[lent1 + i] = t2[i];</span>
+    }
+<span class="nc" id="L325">    return tr;</span>
+  }
+
+  public static boolean estDansT(int t[], int x){
+<span class="nc" id="L329">    int lent = t.length;</span>
+<span class="nc bnc" id="L330" title="All 2 branches missed.">    for(int i=0; i&lt;lent;i++){</span>
+<span class="nc bnc" id="L331" title="All 2 branches missed.">      if(t[i]==x){ return true;}</span>
+    }
+<span class="nc" id="L333">    return false;</span>
+  }
+
+  //AFFICHE
+  /*public static void affiche (Object t[], String separateur){
+    int lent =t.length;
+    if (lent==0) { erreur.alerte(&quot;Le tableau a afficher est vide.&quot;,&quot;tableau.affiche&quot;);}
+    for(int i=0;i&lt;lent;i++){
+      System.out.println(t[i] + separateur); // ca marche mal pour les objet mais il ont pas tous une class afficheToi() ;(
+    }
+    System.out.println();
+  }
+  public static void affiche (Object t[]){
+    affiche(t,&quot; &quot;);
+  }*/
+
+  // affiche str
+  public static void afficher (String t[], String separateur){
+<span class="nc" id="L351">    int lent =t.length;</span>
+<span class="nc bnc" id="L352" title="All 2 branches missed.">    if (lent==0) { erreurVide();}</span>
+<span class="nc bnc" id="L353" title="All 2 branches missed.">    for(int i=0;i&lt;lent;i++){</span>
+<span class="nc" id="L354">      System.out.print(t[i] + separateur);</span>
+    }
+<span class="nc" id="L356">    System.out.println();</span>
+<span class="nc" id="L357">  }</span>
+  public static void afficher (String t[]){
+<span class="nc" id="L359">    afficher(t,&quot; &quot;);</span>
+<span class="nc" id="L360">  }</span>
+  public static void afficher (String t[][]){
+<span class="nc bnc" id="L362" title="All 2 branches missed.">    for ( String t2 [] : t) {</span>
+<span class="nc" id="L363">      afficher(t2,&quot; &quot;);</span>
+    }
+<span class="nc" id="L365">  }</span>
+
+  // affiche T
+  public static &lt;T&gt; void afficher (T t[], String separateur){
+<span class="nc" id="L369">    int lent =t.length;</span>
+<span class="nc bnc" id="L370" title="All 2 branches missed.">    if (lent==0) { erreurVide();}</span>
+<span class="nc bnc" id="L371" title="All 2 branches missed.">    for(int i=0;i&lt;lent;i++){</span>
+<span class="nc" id="L372">      System.out.print(t[i] + separateur);</span>
+    }
+<span class="nc" id="L374">    System.out.println();</span>
+<span class="nc" id="L375">  }</span>
+  public static &lt;T&gt; void afficher (T t[]){
+<span class="nc" id="L377">    afficher(t,&quot; &quot;);</span>
+<span class="nc" id="L378">  }</span>
+  public static &lt;T&gt; void afficher (T t[][]){
+<span class="nc bnc" id="L380" title="All 2 branches missed.">    for ( T t2 [] : t) {</span>
+<span class="nc" id="L381">      afficher(t2,&quot; &quot;);</span>
+    }
+<span class="nc" id="L383">  }</span>
+
+  // afficher int
+  public static void afficher (int t[], String separateur){
+<span class="nc" id="L387">    int lent =t.length;</span>
+<span class="nc bnc" id="L388" title="All 2 branches missed.">    if (lent==0) { erreurVide();}</span>
+<span class="nc bnc" id="L389" title="All 2 branches missed.">    for(int i=0;i&lt;lent;i++){</span>
+<span class="nc" id="L390">      System.out.print(t[i] + separateur);</span>
+    }
+<span class="nc" id="L392">    System.out.println();</span>
+<span class="nc" id="L393">  }</span>
+  public static void afficher (int t[]){
+<span class="nc" id="L395">    afficher(t,&quot; &quot;);</span>
+<span class="nc" id="L396">  }</span>
+  public static void afficher (int t[][]){
+<span class="nc bnc" id="L398" title="All 2 branches missed.">    if (t.length==0) { erreurVide();}</span>
+<span class="nc bnc" id="L399" title="All 2 branches missed.">    for ( int t2 [] : t) {</span>
+<span class="nc" id="L400">      afficher(t2,&quot; &quot;);</span>
+    }
+<span class="nc" id="L402">  }</span>
+  //afficher byte
+  public static void afficher(byte t[], String separateur){
+<span class="nc" id="L405">    int lent =t.length;</span>
+<span class="nc bnc" id="L406" title="All 2 branches missed.">    if (lent==0) { erreurVide();}</span>
+<span class="nc bnc" id="L407" title="All 2 branches missed.">    for(int i=0;i&lt;lent;i++){</span>
+<span class="nc" id="L408">      System.out.print(t[i] + separateur);</span>
+    }
+<span class="nc" id="L410">    System.out.println();</span>
+<span class="nc" id="L411">  }</span>
+  public static void afficher (byte t[]){
+<span class="nc" id="L413">    afficher(t,&quot; &quot;);</span>
+<span class="nc" id="L414">  }</span>
+  public static void afficher (byte t[][]){
+<span class="nc bnc" id="L416" title="All 2 branches missed.">    if (t.length==0) { erreurVide();}</span>
+<span class="nc bnc" id="L417" title="All 2 branches missed.">    for (byte t2 [] : t) {</span>
+<span class="nc" id="L418">      afficher(t2,&quot; &quot;);</span>
+    }
+<span class="nc" id="L420">  }</span>
+  //afficher Boolean
+  public static void afficher(boolean t[], String separateur){
+<span class="nc" id="L423">    int lent =t.length;</span>
+<span class="nc bnc" id="L424" title="All 2 branches missed.">    if (lent==0) { erreurVide();}</span>
+<span class="nc bnc" id="L425" title="All 2 branches missed.">    for(int i=0;i&lt;lent;i++){</span>
+<span class="nc" id="L426">      System.out.print(t[i] + separateur);</span>
+    }
+<span class="nc" id="L428">    System.out.println();</span>
+<span class="nc" id="L429">  }</span>
+  public static void afficher(boolean t[][], String s){
+<span class="nc bnc" id="L431" title="All 2 branches missed.">    for (int i=0;i&lt;t.length ;i++ ) {</span>
+<span class="nc" id="L432">      afficher(t[i],s);</span>
+    }
+<span class="nc" id="L434">  }</span>
+<span class="nc" id="L435">  public static void afficher(boolean t[]){afficher(t,&quot; &quot;);}</span>
+<span class="nc" id="L436">  public static void afficher(boolean t[][]){afficher(t,&quot; &quot;);}</span>
+  // autres
+  public static void boucherLesCasesVide(String t[], String tDefaut []){
+<span class="fc" id="L439">    int lent = t.length;</span>
+<span class="fc bfc" id="L440" title="All 2 branches covered.">    for (int i=0;i&lt;lent ;i++ ) {</span>
+<span class="fc bfc" id="L441" title="All 2 branches covered.">      if( &quot;&quot;.equals(t[i])){</span>
+<span class="fc" id="L442">        t[i] = tDefaut[i];</span>
+      }
+    }
+<span class="fc" id="L445">  }</span>
+  public static String tableauToString(String t [], String sep){
+<span class="fc" id="L447">    String sr = &quot;&quot;;</span>
+<span class="fc bfc" id="L448" title="All 2 branches covered.">    for (String s :t ) {</span>
+<span class="fc bfc" id="L449" title="All 2 branches covered.">      if(sr.length()!=0){sr=sr+sep+s;}</span>
+<span class="fc" id="L450">      else{sr+=s;}</span>
+<span class="fc" id="L451">    }return sr;</span>
+<span class="fc" id="L452">  }public static String tableauToString(String t []){ return tableauToString(t,&quot; &quot;);}</span>
+  public static String tableauToString(int t [],String sep){
+<span class="fc" id="L454">    String sr = &quot;&quot;;</span>
+<span class="fc bfc" id="L455" title="All 2 branches covered.">    for (int s :t ) {</span>
+<span class="fc bfc" id="L456" title="All 2 branches covered.">      if(sr.length()!=0){sr=sr+sep+s;}</span>
+<span class="fc" id="L457">      else{sr+=s;}</span>
+<span class="fc" id="L458">    }return sr;</span>
+<span class="fc" id="L459">  }public static String tableauToString(int t []){ return tableauToString(t,&quot; &quot;);}</span>
+  public static String tableauToString(byte t [],String sep){
+<span class="fc" id="L461">    String sr = &quot;&quot;;</span>
+<span class="fc bfc" id="L462" title="All 2 branches covered.">    for (byte s :t ) {</span>
+<span class="fc bfc" id="L463" title="All 2 branches covered.">      if(sr.length()!=0){sr=sr+sep+s;}</span>
+<span class="fc" id="L464">      else{sr+=s;}</span>
+<span class="fc" id="L465">    }return sr;</span>
+<span class="fc" id="L466">  }public static String tableauToString(byte t []){ return tableauToString(t,&quot; &quot;);}</span>
+  public static String tableauToString(long t [],String sep){
+<span class="fc" id="L468">    String sr = &quot;&quot;;</span>
+<span class="fc bfc" id="L469" title="All 2 branches covered.">    for (long s :t ) {</span>
+<span class="fc bfc" id="L470" title="All 2 branches covered.">      if(sr.length()!=0){sr=sr+sep+s;}</span>
+<span class="fc" id="L471">      else{sr+=s;}</span>
+<span class="fc" id="L472">    }return sr;</span>
+<span class="fc" id="L473">  }public static String tableauToString(long t []){ return tableauToString(t,&quot; &quot;);}</span>
+  public static String tableauToString(boolean t [],String sep){
+<span class="fc" id="L475">    String sr = &quot;&quot;;</span>
+<span class="fc bfc" id="L476" title="All 2 branches covered.">    for (boolean s :t ) {</span>
+<span class="fc bfc" id="L477" title="All 2 branches covered.">      if(sr.length()!=0){sr=sr+sep+s;}</span>
+<span class="fc" id="L478">      else{sr+=s;}</span>
+<span class="fc" id="L479">    }return sr;</span>
+<span class="nc" id="L480">  }public static String tableauToString(boolean t []){ return tableauToString(t,&quot; &quot;);}</span>
+  /**
+  *{@summary check if t contain x.}&lt;br&gt;
+  */
+  public static boolean contient(int t [], int x){
+<span class="fc" id="L485">    int lent = t.length;</span>
+<span class="fc bfc" id="L486" title="All 2 branches covered.">    for (int i=0;i&lt;lent ;i++ ) {</span>
+<span class="fc bfc" id="L487" title="All 2 branches covered.">      if(t[i]==x){return true;}</span>
+    }
+<span class="fc" id="L489">    return false;</span>
+  }
+  /**
+  *{@summary check if t contain x.}&lt;br&gt;
+  */
+  public static boolean contient(byte t [], byte x){
+<span class="fc" id="L495">    int lent = t.length;</span>
+<span class="fc bfc" id="L496" title="All 2 branches covered.">    for (int i=0;i&lt;lent ;i++ ) {</span>
+<span class="fc bfc" id="L497" title="All 2 branches covered.">      if(t[i]==x){return true;}</span>
+    }
+<span class="fc" id="L499">    return false;</span>
+  }
+  /**
+  *{@summary check if t contain x.}&lt;br&gt;
+  */
+  public static boolean contient(char t [], char x){
+<span class="fc" id="L505">    int lent = t.length;</span>
+<span class="fc bfc" id="L506" title="All 2 branches covered.">    for (int i=0;i&lt;lent ;i++ ) {</span>
+<span class="fc bfc" id="L507" title="All 2 branches covered.">      if(t[i]==x){return true;}</span>
+    }
+<span class="fc" id="L509">    return false;</span>
+  }
+  /**
+  *{@summary check if t contain x.}&lt;br&gt;
+  */
+  public static boolean contient(String t [], String x){
+<span class="fc" id="L515">    int lent = t.length;</span>
+<span class="fc bfc" id="L516" title="All 2 branches covered.">    for (int i=0;i&lt;lent ;i++ ) {</span>
+<span class="fc bfc" id="L517" title="All 2 branches covered.">      if(t[i].equals(x)){return true;}</span>
+    }
+<span class="fc" id="L519">    return false;</span>
+  }
+  /**
+  *{@summary check if t contain x.}&lt;br&gt;
+  */
+  public static &lt;T&gt; boolean contient(T t [], T x){
+<span class="nc" id="L525">    int lent = t.length;</span>
+<span class="nc bnc" id="L526" title="All 2 branches missed.">    for (int i=0;i&lt;lent ;i++ ) {</span>
+<span class="nc bnc" id="L527" title="All 2 branches missed.">      if(t[i].equals(x)){return true;}</span>
+    }
+<span class="nc" id="L529">    return false;</span>
+  }
+  //contient [][]
+  /**
+  *{@summary check if t contain x.}&lt;br&gt;
+  */
+  public static boolean contient(int t [][], int x){
+<span class="nc" id="L536">    int lent = t.length;</span>
+<span class="nc bnc" id="L537" title="All 2 branches missed.">    for (int i=0;i&lt;lent ;i++ ) {</span>
+<span class="nc bnc" id="L538" title="All 2 branches missed.">      if(contient(t[i],x)){return true;}</span>
+    }
+<span class="nc" id="L540">    return false;</span>
+  }
+  /**
+  *{@summary check if t contain x.}&lt;br&gt;
+  */
+  public static boolean contient(byte t [][], byte x){
+<span class="fc" id="L546">    int lent = t.length;</span>
+<span class="pc bpc" id="L547" title="1 of 2 branches missed.">    for (int i=0;i&lt;lent ;i++ ) {</span>
+<span class="fc bfc" id="L548" title="All 2 branches covered.">      if(contient(t[i],x)){return true;}</span>
+    }
+<span class="nc" id="L550">    return false;</span>
+  }
+  /**
+  *{@summary check if t contain x.}&lt;br&gt;
+  */
+  public static boolean contientLesElementDeX(byte t [][], byte x[]){
+<span class="fc" id="L556">    int lent = t.length; int lenx = x.length;</span>
+<span class="fc bfc" id="L557" title="All 2 branches covered.">    for (int j=0;j&lt;lenx ;j++ ) {</span>
+<span class="fc" id="L558">      byte xx = x[j];</span>
+      //si le double tableau ne contient pas l'élément qu'on test.
+<span class="pc bpc" id="L560" title="1 of 2 branches missed.">      if(!contient(t,xx)){</span>
+<span class="nc" id="L561">        return false;}//si 1 des éléments n'y est pas.</span>
+    }
+<span class="fc" id="L563">    return true;</span>
+  }
+  /**
+  *{@summary check if t contain only x.}&lt;br&gt;
+  */
+  public static boolean contientUniquement(byte t[], byte x){
+<span class="fc" id="L569">    int lent = t.length;</span>
+<span class="fc bfc" id="L570" title="All 2 branches covered.">    for (int i=0;i&lt;lent ;i++ ) {</span>
+<span class="fc bfc" id="L571" title="All 2 branches covered.">      if(t[i]!=x){return false;}</span>
+    }
+<span class="fc" id="L573">    return true;</span>
+  }
+  /**
+  *{@summary trim the array.}&lt;br&gt;
+  *@param t the array
+  *@param a How much do we need to trim in pixel before width
+  *@param b How much do we need to trim in pixel before height
+  *@param c How much do we need to trim in pixel after width
+  *@param d How much do we need to trim in pixel after height
+  *@return a new array trim
+  */
+  public static byte [][] rogner(byte t[][],int a, int b, int c, int d){
+    try {
+<span class="fc" id="L586">      int x = t[0].length-b-d; //la verticale = y.</span>
+<span class="fc" id="L587">      int y = t.length-a-c; //l'horizontale = x = width</span>
+<span class="fc" id="L588">      int len = t[0].length;</span>
+<span class="pc bpc" id="L589" title="1 of 4 branches missed.">      if(x&lt;=0 || y&lt;=0){return new byte[0][0];}</span>
+<span class="fc" id="L590">      byte r [][]= new byte[y][x];</span>
+<span class="fc" id="L591">      int j=0;</span>
+<span class="fc bfc" id="L592" title="All 2 branches covered.">      for (byte[] t2 : t ) {</span>
+<span class="fc bfc" id="L593" title="All 4 branches covered.">        if(j&gt;=a &amp;&amp; j&lt;t.length-c){//si on est dans la bonne section.</span>
+<span class="fc" id="L594">          int k=0;</span>
+<span class="fc bfc" id="L595" title="All 2 branches covered.">          for (int i=0;i&lt;len-d ;i++ ) {//jusqu'a la fin - ce qu'on enlève.</span>
+<span class="fc bfc" id="L596" title="All 2 branches covered.">            if(i-b&gt;=0){ //si on a passer le début</span>
+<span class="fc" id="L597">              r[j-a][k] = t2[i];k++;</span>
+            }
+          }
+        }
+<span class="fc" id="L601">        j++;</span>
+      }
+<span class="fc" id="L603">      return r;</span>
+<span class="nc" id="L604">    }catch (Exception e) {</span>
+<span class="nc" id="L605">      erreur.erreur(&quot;Impossible de rogner le tableau pour une raison inconu.&quot;);</span>
+<span class="nc" id="L606">      return t;</span>
+    }
+  }
+  //equals
+  public static boolean equals(byte t[], byte t2[]){
+<span class="pc bpc" id="L611" title="2 of 4 branches missed.">    if(t==null || t2==null){return false;}</span>
+<span class="fc" id="L612">    int len = t.length;</span>
+<span class="pc bpc" id="L613" title="1 of 2 branches missed.">    if(len!=t2.length){return false;}</span>
+<span class="fc bfc" id="L614" title="All 2 branches covered.">    for (int i=0;i&lt;len ;i++ ) {</span>
+<span class="fc bfc" id="L615" title="All 2 branches covered.">      if(t[i]!=t2[i]){return false;}</span>
+    }
+<span class="fc" id="L617">    return true;</span>
+  }
+  public static boolean equals(byte t[][], byte t2[][]){
+<span class="pc bpc" id="L620" title="2 of 4 branches missed.">    if(t==null || t2==null){return false;}</span>
+<span class="fc" id="L621">    int len = t.length;</span>
+<span class="pc bpc" id="L622" title="1 of 2 branches missed.">    if(len!=t2.length){return false;}</span>
+<span class="fc bfc" id="L623" title="All 2 branches covered.">    for (int i=0;i&lt;len ;i++ ) {</span>
+<span class="fc bfc" id="L624" title="All 2 branches covered.">      if(!equals(t[i],t2[i])){return false;}</span>
+    }
+<span class="fc" id="L626">    return true;</span>
+  }
+  public static boolean equals(int t[], int t2[]){
+<span class="pc bpc" id="L629" title="2 of 4 branches missed.">    if(t==null || t2==null){return false;}</span>
+<span class="fc" id="L630">    int len = t.length;</span>
+<span class="pc bpc" id="L631" title="1 of 2 branches missed.">    if(len!=t2.length){return false;}</span>
+<span class="fc bfc" id="L632" title="All 2 branches covered.">    for (int i=0;i&lt;len ;i++ ) {</span>
+<span class="pc bpc" id="L633" title="1 of 2 branches missed.">      if(t[i]!=t2[i]){return false;}</span>
+    }
+<span class="fc" id="L635">    return true;</span>
+  }
+  /**
+  *{@summary copy an array.}&lt;br&gt;
+  */
+  public static byte [] copier(byte t[]){
+<span class="fc" id="L641">    int len = t.length;</span>
+<span class="fc" id="L642">    byte r [] = new byte[len];</span>
+<span class="fc bfc" id="L643" title="All 2 branches covered.">    for(int i=0;i&lt;len;i++){</span>
+<span class="fc" id="L644">      r[i]=t[i];</span>
+    }
+<span class="fc" id="L646">    return r;</span>
+  }
+  /**
+  *{@summary copy an array [][].}&lt;br&gt;
+  */
+  public static byte [][] copier(byte t[][]){
+<span class="fc" id="L652">    int len = t.length;</span>
+<span class="fc" id="L653">    byte r [][] = new byte[len][];</span>
+<span class="fc bfc" id="L654" title="All 2 branches covered.">    for(int i=0;i&lt;len;i++){</span>
+<span class="fc" id="L655">      r[i]=copier(t[i]);</span>
+    }
+<span class="fc" id="L657">    return r;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>stats.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.usuel</a> &gt; <span class="el_source">stats.java</span></div><h1>stats.java</h1><pre class="source lang-java linenums">package fr.formiko.usuel;
+
+//def par défaut des fichiers depuis 0.79.5
+import fr.formiko.usuel.listes.GGInt;
+import fr.formiko.usuel.listes.CCInt;
+import fr.formiko.usuel.listes.GInt;
+import fr.formiko.usuel.listes.CInt;
+import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.fichier;
+import fr.formiko.usuel.types.str;
+import fr.formiko.usuel.Chrono;
+
+/**
+*{@summary A tool class about statistic.}&lt;br&gt;
+*@author Hydrolien
+*@version 1.13
+*/
+<span class="nc" id="L18">public class stats {</span>
+  public static int sommeDesComG;
+  public static int sommeDesFctLG;
+  public static int sommeDesClassG;
+  public static int sommeDesFctLPuG;
+  public static int sommeDesFctLPoG;
+  public static int sommeDesFctLPrG;
+  public static int sommeDesFctCG;
+  public static int sommeNbrDeLigneG;
+  // Fonctions propre -----------------------------------------------------------
+  /**
+  *Write the stats of javadoc comments in stats.txt.
+  *@version 1.13
+  */
+  public static void statsJavadoc(String chemin, boolean raccourcir){
+<span class="nc" id="L33">    Chrono.debutCh();</span>
+<span class="nc" id="L34">    GString gs = fichier.listerLesFichiersDuRep(chemin);</span>
+<span class="nc" id="L35">    Chrono.endCh(&quot;listage des fichiers&quot;);Chrono.debutCh();</span>
+    //gs = la liste des fichiers.
+
+<span class="nc" id="L38">    GGInt ggi = new GGInt();</span>
+<span class="nc" id="L39">    GGInt ggi2 = new GGInt();</span>
+<span class="nc" id="L40">    GInt nbrDeLigne = new GInt();</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">    for (String s : gs ) { //pour chaque fichier on récupère le comtenu et on compte les Commentaire et les fonction longue et courte.</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">      if(str.contient(s,&quot;.java&quot;,2)){ //on lit tt les .java</span>
+<span class="nc" id="L43">        GString contenuDuFichier = lireUnFichier.lireUnFichierGs(s);</span>
+<span class="nc" id="L44">        ggi.add(contenuDuFichier.compterFctEtComJavadoc());</span>
+<span class="nc" id="L45">        ggi2.add(contenuDuFichier.compterFctEnDetail());</span>
+<span class="nc" id="L46">        nbrDeLigne.add(contenuDuFichier.length());</span>
+      }
+<span class="nc" id="L48">    }</span>
+<span class="nc" id="L49">    Chrono.endCh(&quot;récupération des data&quot;);Chrono.debutCh();</span>
+
+    //GGInt = la liste de toutes les données.
+<span class="nc" id="L52">    sommeDesComG=0;sommeDesFctLG=0;</span>
+<span class="nc" id="L53">    sommeDesClassG=0;sommeDesFctLPuG=0;sommeDesFctLPoG=0;sommeDesFctLPrG=0;sommeDesFctCG=0;</span>
+<span class="nc" id="L54">    sommeNbrDeLigneG=0;</span>
+    //int sommeDesCom = ggi.sommeCase(2);
+    //int sommeDesFctL = ggi.sommeCase(1);
+    //String total = &quot;total : &quot;;
+    //if(sommeDesFctL&gt;0){total+=((sommeDesCom*100)/sommeDesFctL)+&quot;% (&quot;+sommeDesCom+&quot;/&quot;+sommeDesFctL+&quot;)&quot;;}
+<span class="nc" id="L59">    GString gsr = new GString();</span>
+<span class="nc" id="L60">    gsr.add(&quot;comment %    cl-pu-po-pr-sh-ln   name of the file&quot;);</span>
+    //gsr.add(total);
+<span class="nc" id="L62">    Chrono.endCh(&quot;calcul des valeur et du total&quot;);Chrono.debutCh();</span>
+    //add tt les autres.
+<span class="nc" id="L64">    CCInt cci = ggi.getDébut();</span>
+<span class="nc" id="L65">    CCInt cci2 = ggi2.getDébut();</span>
+<span class="nc" id="L66">    CInt ci = nbrDeLigne.getDébut();</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">    for (String s : gs ) {</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">      if(cci==null){break;}</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">      if(raccourcir){</span>
+<span class="nc" id="L70">        s = s.substring(25);</span>
+      }
+<span class="nc" id="L72">      gsr.add(toStatJd(cci)+toStatInfo(cci2.getContenu(),cci.getContenu())+numberOfLines(ci)+s);</span>
+<span class="nc" id="L73">      cci=cci.getSuivant();</span>
+<span class="nc" id="L74">      cci2=cci2.getSuivant();</span>
+<span class="nc" id="L75">      ci=ci.getSuivant();</span>
+<span class="nc" id="L76">    }</span>
+<span class="nc" id="L77">    GInt gi = new GInt(); gi.add(sommeDesFctCG); gi.add(sommeDesFctLG); gi.add(sommeDesComG);</span>
+<span class="nc" id="L78">    GInt gi2 = new GInt(); gi2.add(sommeDesClassG);gi2.add(sommeDesFctLPuG);gi2.add(sommeDesFctLPoG);gi2.add(sommeDesFctLPrG);</span>
+<span class="nc" id="L79">    String s=&quot;global&quot;;</span>
+<span class="nc" id="L80">    gsr.add(toStatJd(gi,false)+&quot; &quot;+toStatInfo(gi2,gi,false)+&quot; &quot;+sommeNbrDeLigneG+&quot; &quot;+s);</span>
+<span class="nc" id="L81">    Chrono.endCh(&quot;traitement du GString&quot;);Chrono.debutCh();</span>
+<span class="nc" id="L82">    ecrireUnFichier.ecrireUnFichier(gsr,&quot;stats.txt&quot;);</span>
+<span class="nc" id="L83">    Chrono.endCh(&quot;sauvegarde finale&quot;);</span>
+<span class="nc" id="L84">  }public static void statsJavadoc(String chemin){statsJavadoc(chemin,false);}</span>
+
+<span class="nc" id="L86">  public static String toStatJd(CCInt cci){return toStatJd(cci.getContenu());}</span>
+  /**
+  *{@summary calculate the %age of commented fonction in a file.}
+  *@version 1.13
+  */
+  public static String toStatJd(GInt gi, boolean addToGlobal){
+<span class="nc" id="L92">    int sommeDesCom = gi.getCase(2);</span>
+<span class="nc" id="L93">    int sommeDesFctL = gi.getCase(1);</span>
+<span class="nc" id="L94">    sommeDesComG+=sommeDesCom;sommeDesFctLG+=sommeDesFctL;</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">    if(sommeDesFctL==0){return &quot;null%&quot;;}</span>
+<span class="nc" id="L96">    String r = &quot;&quot;;</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">    if(sommeDesCom&lt;100){</span>
+<span class="nc" id="L98">      r = ((sommeDesCom*100)/sommeDesFctL)+&quot;%&quot;;</span>
+    }else{
+<span class="nc" id="L100">      r = ((sommeDesCom*100)/sommeDesFctL)+&quot;,&quot;+(((sommeDesCom*1000)/sommeDesFctL)%10)+&quot;%&quot;;</span>
+    }
+<span class="nc bnc" id="L102" title="All 2 branches missed.">    while(r.length()&lt;5){r+=&quot; &quot;;}</span>
+<span class="nc" id="L103">    r=r+&quot;(&quot;+sommeDesCom+&quot;/&quot;+sommeDesFctL+&quot;)&quot;;</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">    while(r.length()&lt;5+8){r+=&quot; &quot;;}</span>
+<span class="nc" id="L105">    return r;</span>
+<span class="nc" id="L106">  }public static String toStatJd(GInt gi){return toStatJd(gi,true);}</span>
+  /**
+  *{@summary calculate the %age of tested fonction in a file.}
+  *@version 1.13
+  */
+  //TODO adapter au test (les tests sont dans un autre fichier).
+  public static String toStatTst(GInt gi){
+<span class="nc" id="L113">    int sommeDesCom = gi.getCase(2);</span>
+<span class="nc" id="L114">    int sommeDesFctL = gi.getCase(1);</span>
+<span class="nc" id="L115">    sommeDesComG+=sommeDesCom;sommeDesFctLG+=sommeDesFctL;</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">    if(sommeDesFctL==0){return &quot;null%&quot;;}</span>
+<span class="nc" id="L117">    String r = ((sommeDesCom*100)/sommeDesFctL)+&quot;%&quot;;</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">    while(r.length()&lt;5){r+=&quot; &quot;;}</span>
+<span class="nc" id="L119">    r=r+&quot;(&quot;+sommeDesCom+&quot;/&quot;+sommeDesFctL+&quot;)&quot;;</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">    while(r.length()&lt;5+8){r+=&quot; &quot;;}</span>
+<span class="nc" id="L121">    return r;</span>
+  }
+  /**
+  *{@summary calculate the number of class, public, ø, protected, private longue fonction.}
+  *@version 1.13
+  */
+  public static String toStatInfo(GInt gi,GInt gi2, boolean addToGlobal){
+<span class="nc" id="L128">    int sommeDesClass = gi.getCase(0);</span>
+<span class="nc" id="L129">    int sommeDesFctLPu = gi.getCase(1);</span>
+<span class="nc" id="L130">    int sommeDesFctLPo = gi.getCase(2);</span>
+<span class="nc" id="L131">    int sommeDesFctLPr = gi.getCase(3);</span>
+<span class="nc" id="L132">    int sommeDesFctC = gi2.getCase(0);</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">    if(addToGlobal){</span>
+<span class="nc" id="L134">      sommeDesClassG+=sommeDesClass;</span>
+<span class="nc" id="L135">      sommeDesFctLPuG+=sommeDesFctLPu;</span>
+<span class="nc" id="L136">      sommeDesFctLPoG+=sommeDesFctLPo;</span>
+<span class="nc" id="L137">      sommeDesFctLPrG+=sommeDesFctLPr;</span>
+<span class="nc" id="L138">      sommeDesFctCG+=sommeDesFctC;</span>
+    }
+<span class="nc" id="L140">    String r = sommeDesClass+&quot; &quot;; int k=3;</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">    while(r.length()&lt;k){r+=&quot; &quot;;}k+=3;</span>
+<span class="nc" id="L142">    r+=sommeDesFctLPu+&quot; &quot;;</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">    while(r.length()&lt;k){r+=&quot; &quot;;}k+=3;</span>
+<span class="nc" id="L144">    r+=sommeDesFctLPo+&quot; &quot;;</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">    while(r.length()&lt;k){r+=&quot; &quot;;}k+=3;</span>
+<span class="nc" id="L146">    r+=sommeDesFctLPr+&quot; &quot;;</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">    while(r.length()&lt;k){r+=&quot; &quot;;}k+=3;</span>
+<span class="nc" id="L148">    r+=sommeDesFctC+&quot; &quot;;</span>
+    //k++;
+<span class="nc bnc" id="L150" title="All 2 branches missed.">    while(r.length()&lt;k){r+=&quot; &quot;;}</span>
+<span class="nc" id="L151">    return r;</span>
+<span class="nc" id="L152">  }public static String toStatInfo(GInt gi, GInt gi2){return toStatInfo(gi,gi2,true);}</span>
+  /**
+  *Count the number of ligne in a file an add it to the statistic info.
+  *@version 1.13
+  */
+  public static String numberOfLines(CInt ci){
+<span class="nc" id="L158">    sommeNbrDeLigneG+=ci.getContenu();</span>
+<span class="nc" id="L159">    String r=ci.getContenu()+&quot;&quot;;</span>
+<span class="nc bnc" id="L160" title="All 2 branches missed.">    while(r.length()&lt;5){r+=&quot; &quot;;}</span>
+<span class="nc" id="L161">    return r;</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

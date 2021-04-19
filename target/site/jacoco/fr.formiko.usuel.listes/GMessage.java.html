@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GMessage.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.usuel.listes</a> &gt; <span class="el_source">GMessage.java</span></div><h1>GMessage.java</h1><pre class="source lang-java linenums">package fr.formiko.usuel.listes;
+
+import fr.formiko.formiko.Message;
+import fr.formiko.usuel.g;
+
+import java.io.Serializable;
+
+public class GMessage implements Serializable{
+  private CMessage début, fin;
+  // CONSTRUCTEUR ---------------------------------------------------------------
+<span class="fc" id="L11">  public GMessage(){}</span>
+  // GET SET --------------------------------------------------------------------
+<span class="nc" id="L13">  public CMessage getDébut(){ return début;}</span>
+<span class="nc" id="L14">  public CMessage getFin(){ return fin;}</span>
+  // Fonctions propre -----------------------------------------------------------
+  public int length(){
+<span class="nc bnc" id="L17" title="All 2 branches missed.">    if(début==null){ return 0;}</span>
+<span class="nc" id="L18">    return début.length();</span>
+  }
+  public void add(Message s){ // On ajoute a la fin par défaut.
+<span class="fc" id="L21">    CMessage c = new CMessage(s);</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">    if (fin == null){ // si la liste est complètement vide.</span>
+<span class="fc" id="L23">      fin = c;</span>
+<span class="fc" id="L24">      début = c;</span>
+    } else {
+<span class="fc" id="L26">      fin.setSuivant(c);</span>
+<span class="fc" id="L27">      c.setPrécédent(fin);</span>
+<span class="fc" id="L28">      fin = c;</span>
+    }
+<span class="fc" id="L30">  }</span>
+  public void add(GMessage gs){
+<span class="nc bnc" id="L32" title="All 2 branches missed.">    if(gs==null){ return;}</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">    if(this.getDébut()==null){début = gs.getDébut();return;}</span>
+    //on lie l'anciène fin au début de gs.
+<span class="nc" id="L35">    this.fin.setSuivant(gs.getDébut());</span>
+<span class="nc" id="L36">    this.fin.getSuivant().setPrécédent(fin);</span>
+    // on change la fin actuelle.
+<span class="nc" id="L38">    this.fin = gs.getFin();</span>
+<span class="nc" id="L39">  }</span>
+  public void afficheToi(){
+<span class="nc bnc" id="L41" title="All 2 branches missed.">    if(début==null){</span>
+<span class="nc" id="L42">      System.out.println(g.get(&quot;GMessage&quot;,1,&quot;Le GMessage est vide&quot;));</span>
+    }else{
+<span class="nc" id="L44">      début.afficheTout();</span>
+    }
+<span class="nc" id="L46">  }</span>
+  public boolean contient(Message s){
+<span class="nc bnc" id="L48" title="All 2 branches missed.">    if (début==null){ return false;}</span>
+<span class="nc" id="L49">    return début.contient(s);</span>
+  }
+  public GString gmToGs(int x){
+<span class="nc bnc" id="L52" title="All 2 branches missed.">    if (début==null){ return new GString();}</span>
+<span class="nc" id="L53">    return fin.gmToGs(x);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

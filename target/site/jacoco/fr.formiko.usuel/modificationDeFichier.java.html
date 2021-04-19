@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>modificationDeFichier.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.usuel</a> &gt; <span class="el_source">modificationDeFichier.java</span></div><h1>modificationDeFichier.java</h1><pre class="source lang-java linenums">package fr.formiko.usuel;
+
+//def par défaut des fichiers depuis 0.79.5
+import java.io.File;
+import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.ecrireUnFichier;
+import fr.formiko.usuel.listes.GString;
+
+<span class="nc" id="L9">public class modificationDeFichier {</span>
+
+  // Fonctions propre -----------------------------------------------------------
+  public static void retirerLesLignesR(String s, String fichier, byte by){
+<span class="nc" id="L13">    int x = retirerLesLignes(s,fichier, by);</span>
+<span class="nc" id="L14">    System.out.println(x+&quot; lignes ont été supprimées&quot;);</span>
+<span class="nc" id="L15">  }</span>
+
+
+  public static int retirerLesLignes(String s, String fichier, int nbrARetire, byte dmft){
+<span class="nc" id="L19">    File f = new File(fichier);</span>
+<span class="nc bnc" id="L20" title="All 2 branches missed.">    if(!f.exists()){</span>
+<span class="nc" id="L21">      erreur.erreur(&quot;Le fichier spécifié n'existe pas : &quot;+fichier);</span>
+<span class="nc" id="L22">      return 0;</span>
+    }
+    //si c'est un dossier on transmet l'info a tout ses sous fichier et dossier jusqu'a ce que tout les fichier de l'arboressence ai été traité.
+<span class="nc bnc" id="L25" title="All 2 branches missed.">    if(f.isDirectory()){</span>
+<span class="nc" id="L26">      String tf [] = f.list();</span>
+<span class="nc" id="L27">      int k=0;int lentf = tf.length;</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">      for (int i=0; i&lt;lentf ;i++ ) {</span>
+<span class="nc" id="L29">        k=k+retirerLesLignes(s,fichier +&quot;/&quot;+ tf[i],nbrARetire,dmft);</span>
+      }
+<span class="nc" id="L31">      return k;</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">    }else if(f.isFile()){//si c'est un fichier on le traite normalement</span>
+<span class="nc" id="L33">      return retirerLesLignesDuFichier(s,fichier,nbrARetire, dmft);</span>
+    }else{
+<span class="nc" id="L35">      erreur.erreur(&quot;Le fichier n'est ni identifié comme un fichier ni comme un dossier :&quot;+fichier);</span>
+    }
+<span class="nc" id="L37">    return 0;</span>
+  }
+  public static int retirerLesLignes(String s, String fichier, byte x){
+<span class="nc" id="L40">    return retirerLesLignes(s,fichier,0, x);//0 = pas de limite</span>
+  }
+
+  //fonctionnement interne.
+  private static int retirerLesLignesDuFichier(String s, String f, int nbrARetire, byte dmft){
+<span class="nc bnc" id="L45" title="All 2 branches missed.">    if(nbrARetire &lt;0){erreur.erreur(&quot;Impossible de retirer un nombre négatif de ligne d'un fichier&quot;);return 0;}</span>
+<span class="nc" id="L46">    GString gs = lireUnFichier.lireUnFichierGs(f);</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">    if(nbrARetire==0){nbrARetire=gs.length();}//si c'est 0 on retirera autant de lignes que néssésaire</span>
+<span class="nc" id="L48">    int k=0;</span>
+    boolean b;
+    do {
+      //b=gs.supprimer(s,dmft);k++; //TODO donner un impacte a débutMilieuxFinTotal. 0=on cherche au début 1 =on cherche partout, 2= on cherche a la fin, 3 ca doit correspondre exatement a la ligne.
+<span class="nc" id="L52">      b=gs.remove(s);k++;</span>
+<span class="nc bnc" id="L53" title="All 4 branches missed.">    } while (b &amp;&amp; k&lt;nbrARetire);//tant que la denière suppression a marché et que on doit encore supprimer des lignes.</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">    if(!b){k--;}//si la dernière suppression n'as rien supprimer on ne la compte pas comme une ligne supprimé.</span>
+    //on enregistre sous le nême nom le fichier sans les lignes qui on été retiré.
+<span class="nc" id="L56">    ecrireUnFichier.ecrireUnFichier(gs,f);</span>
+<span class="nc" id="L57">    return k; //a la fin on a retiré k ligne.</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

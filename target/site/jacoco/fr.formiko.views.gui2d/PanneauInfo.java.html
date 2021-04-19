@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PanneauInfo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.views.gui2d</a> &gt; <span class="el_source">PanneauInfo.java</span></div><h1>PanneauInfo.java</h1><pre class="source lang-java linenums">package fr.formiko.views.gui2d;
+
+import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.listes.GString;
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import javax.swing.JLabel;
+
+public class PanneauInfo extends Panneau {
+  private int nbrDeDesc;
+  private Desc desc [];
+  private int xPi; private int yPi;
+  // CONSTRUCTEUR ---------------------------------------------------------------
+<span class="nc" id="L21">  public PanneauInfo(GString gs, int xD){</span>
+<span class="nc" id="L22">    debug.débogage(&quot;création d'un panneauInfo avec &quot;+gs.length()+&quot; éléments.&quot;);</span>
+<span class="nc" id="L23">    this.setLayout(new GridBagLayout());</span>
+<span class="nc" id="L24">    GridBagConstraints gbc = new GridBagConstraints();</span>
+<span class="nc" id="L25">    nbrDeDesc=gs.length();</span>
+<span class="nc" id="L26">    int yD = Desc.getDimY();</span>
+<span class="nc" id="L27">    xPi=xD; yPi=yD*nbrDeDesc;</span>
+<span class="nc" id="L28">    this.setSize(xPi,yPi);</span>
+<span class="nc" id="L29">    debug.débogage(getSize()+&quot;&quot;);</span>
+<span class="nc" id="L30">    gbc.gridx = 0; int k=0;</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">    for (String s : gs ) {</span>
+<span class="nc" id="L32">      gbc.gridy = k;k++;</span>
+<span class="nc" id="L33">      Desc desc = new Desc(xD,yD);</span>
+<span class="nc" id="L34">      desc.setTexte(s);</span>
+<span class="nc" id="L35">      this.add(desc,gbc);</span>
+<span class="nc" id="L36">    }</span>
+<span class="nc" id="L37">  }</span>
+  public PanneauInfo(GString gs){
+<span class="nc" id="L39">    this(gs, Main.getPz().getTailleBouton()*5);</span>
+<span class="nc" id="L40">  }</span>
+  public PanneauInfo(Fourmi f,int xD){
+<span class="nc" id="L42">    this(f.descriptionGString(),xD);</span>
+<span class="nc" id="L43">  }</span>
+  public PanneauInfo(Fourmi f){
+<span class="nc" id="L45">    this(f.descriptionGString());</span>
+<span class="nc" id="L46">  }</span>
+<span class="nc" id="L47">  public PanneauInfo(){}</span>
+  // GET SET -------- ------------------------------------------------------------
+<span class="nc" id="L49">  public int length(){ return nbrDeDesc;}</span>
+<span class="nc" id="L50">  public int getXPi(){ return xPi;}</span>
+<span class="nc" id="L51">  public int getYPi(){ return yPi;}</span>
+  // Fonctions propre -----------------------------------------------------------
+  public void paintComponent(Graphics g){
+<span class="nc" id="L54">    debug.débogage(&quot;actualisation du PanneauInfo avec pour taille : &quot;+this.getWidth()+&quot; &quot;+this.getHeight());</span>
+<span class="nc" id="L55">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

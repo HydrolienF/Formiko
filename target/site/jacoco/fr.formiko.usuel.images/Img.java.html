@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Img.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.usuel.images</a> &gt; <span class="el_source">Img.java</span></div><h1>Img.java</h1><pre class="source lang-java linenums">package fr.formiko.usuel.images;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.Chrono;
+import fr.formiko.usuel.chargerLesTraductions;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.tableau;
+import fr.formiko.usuel.types.str;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Random;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+/**
+*{@summary Img is a BufferedImage where you can edit pixel value, then save it on a local file or draw it.}&lt;br&gt;
+*@author Hydrolien
+*@version 1.11
+*/
+public class Img implements Cloneable{
+<span class="fc" id="L36">  private Random rand = new Random();</span>
+  private BufferedImage bi;
+  private int width, height;
+  private byte [][] rouge;
+  private byte [][] vert;
+  private byte [][] bleu;
+  private byte [][] alpha;
+  // CONSTRUCTEUR ---------------------------------------------------------------
+  /**
+  *Constructs a new Img with a BufferedImage.
+  */
+<span class="fc" id="L47">  public Img(BufferedImage i){</span>
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">    if (i==null){ erreur.erreur(&quot;impossible de créer une Img a partir d'une Image null&quot;);}</span>
+<span class="fc" id="L49">    bi = i;</span>
+<span class="fc" id="L50">    width = bi.getWidth();</span>
+<span class="fc" id="L51">    height = bi.getHeight();</span>
+<span class="fc" id="L52">    debug.débogage(&quot;Initialisation des 4 tableaux.&quot;);Chrono.debutCh();</span>
+<span class="fc" id="L53">    setRouge(); setVert(); setBleu(); setAlpha();</span>
+<span class="fc" id="L54">    Chrono.endCh(&quot;4 tableaux de pixel initialiser&quot;);</span>
+<span class="fc" id="L55">  }</span>
+  /**
+  *Constructs a new Img with a fileName.
+  */
+  public Img(String nom){
+<span class="nc" id="L60">    this(image.getImage(nom));</span>
+<span class="nc" id="L61">  }</span>
+  /**
+  *Constructs a new grey 50% alpha Img whose width and height are specified by the arguments of the same name.
+  */
+<span class="fc" id="L65">  public Img(int width,int height){</span>
+<span class="pc bpc" id="L66" title="2 of 4 branches missed.">    if(width &lt; 0 || height &lt; 0){erreur.erreur(&quot;Impossible d'initialiser une image avec des dimentions négative : &quot;+width+&quot;,&quot;+height,&quot;taille set a 0&quot;); width=0; height=0;}</span>
+<span class="fc" id="L67">    this.width=width; this.height=height;</span>
+<span class="fc" id="L68">    bi = new BufferedImage(width,height,java.awt.image.BufferedImage.TYPE_INT_ARGB);</span>
+<span class="fc" id="L69">    alpha = new byte[width][height];</span>
+<span class="fc" id="L70">    rouge = new byte[width][height];</span>
+<span class="fc" id="L71">    vert = new byte[width][height];</span>
+<span class="fc" id="L72">    bleu = new byte[width][height];</span>
+<span class="fc" id="L73">  }</span>
+  // GET SET --------------------------------------------------------------------
+<span class="fc" id="L75">  public BufferedImage getBi(){ return bi;}</span>
+  public byte[][] getAlpha() { // transparence.
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">    if (alpha != null){ return alpha;}</span>
+<span class="nc" id="L78">    else { setAlpha(); return alpha;}</span>
+<span class="nc" id="L79">  }public byte [][] getA(){return getAlpha();}</span>
+<span class="nc" id="L80">  public byte getA(int i, int j){ return alpha[i][j];}</span>
+  public void setAlpha(){
+<span class="fc" id="L82">    alpha = new byte[width][height];</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">    for (int i = 0 ; i &lt; width; i++)</span>
+<span class="fc bfc" id="L84" title="All 2 branches covered.">      for (int j = 0; j &lt; height; j++)</span>
+<span class="fc" id="L85">        alpha[i][j] = (byte)(((bi.getRGB(i,j)&gt;&gt;24)&amp;255) -128);</span>
+<span class="fc" id="L86">  }public void setAlpha(int i,int j, byte x){ alpha[i][j]=x;}</span>
+<span class="nc" id="L87">  public void setA(int i,int j, byte x){setAlpha(i,i,x);}</span>
+
+  public byte[][] getRouge() {
+<span class="pc bpc" id="L90" title="1 of 2 branches missed.">    if (rouge != null) return rouge;</span>
+<span class="nc" id="L91">    else setRouge(); return rouge;</span>
+<span class="nc" id="L92">  }public byte [][] getR(){ return getRouge();}</span>
+<span class="nc" id="L93">  public byte getR(int i, int j){ return rouge[i][j];}</span>
+  public void setRouge(){
+<span class="fc" id="L95">    rouge = new byte[width][height];</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">    for (int i = 0 ; i &lt; width; i++)</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">      for (int j = 0; j &lt; height; j++)</span>
+<span class="fc" id="L98">        rouge[i][j] = (byte)(((bi.getRGB(i,j)&gt;&gt;16)&amp;255) -128);</span>
+<span class="pc" id="L99">  }public void setRouge(int i,int j, byte x){ rouge[i][j]=x;}</span>
+<span class="nc" id="L100">  public void setR(int i,int j, byte x){setRouge(i,i,x);}</span>
+
+  public byte[][] getVert() {
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">    if (vert != null) return vert;</span>
+<span class="nc" id="L104">    else setVert(); return vert;</span>
+<span class="nc" id="L105">  }public byte [][] getG(){ return getVert();}</span>
+<span class="nc" id="L106">  public byte [][] getV(){ return getVert();}</span>
+<span class="nc" id="L107">  public byte getV(int i, int j){ return vert[i][j];}</span>
+  public void setVert(){
+<span class="fc" id="L109">    vert = new byte[width][height];</span>
+<span class="fc bfc" id="L110" title="All 2 branches covered.">    for (int i = 0 ; i &lt; width; i++)</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">      for (int j = 0; j &lt; height; j++)</span>
+<span class="fc" id="L112">        vert[i][j] = (byte)(((bi.getRGB(i,j)&gt;&gt;8)&amp;255) -128);</span>
+<span class="pc" id="L113">  }public void setVert(int i,int j, byte x){ vert[i][j]=x;}</span>
+<span class="nc" id="L114">  public void setV(int i,int j, byte x){setVert(i,i,x);}</span>
+
+  public byte[][] getBleu() {
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">    if (bleu != null) return bleu;</span>
+<span class="nc" id="L118">    else setBleu(); return bleu;</span>
+<span class="nc" id="L119">  }public byte [][] getB(){ return getBleu();}</span>
+<span class="nc" id="L120">  public byte getB(int i, int j){ return bleu[i][j];}</span>
+  public void setBleu(){
+<span class="fc" id="L122">    bleu = new byte[width][height];</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">    for (int i = 0 ; i &lt; width; i++)</span>
+<span class="fc bfc" id="L124" title="All 2 branches covered.">      for (int j = 0; j &lt; height; j++)</span>
+<span class="fc" id="L125">        bleu[i][j] = (byte)((bi.getRGB(i,j)&amp;255) -128);</span>
+<span class="pc" id="L126">  }public void setBleu(int i,int j, byte x){ bleu[i][j]=x;}</span>
+<span class="nc" id="L127">  public void setB(int i,int j, byte x){setBleu(i,i,x);}</span>
+
+  public byte[][] getGray() {
+<span class="nc" id="L130">    byte [][] gray = new byte[width][height];</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">    for (int i = 0 ; i &lt; width; i++)</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">      for (int j = 0; j &lt; height; j++)</span>
+<span class="nc" id="L133">        gray[i][j] = (byte)(((bi.getRGB(i,j)&amp;255)  + ((bi.getRGB(i,j)&gt;&gt;8)&amp;255)*10  + ((bi.getRGB(i,j)&gt;&gt;16)&amp;255)*3 ) / 14);</span>
+<span class="nc" id="L134">    return gray;</span>
+  }
+  /*public Image getImage(){
+    sauvegarde(&quot;img.png&quot;);
+    return image.getImage(&quot;img.png&quot;);
+  }*/
+<span class="fc" id="L140">  public void setRouge(byte [][] x){rouge=x;}</span>
+<span class="fc" id="L141">  public void setVert(byte [][] x){vert=x;}</span>
+<span class="fc" id="L142">  public void setBleu(byte [][] x){bleu=x;}</span>
+<span class="fc" id="L143">  public void setAlpha(byte [][] x){alpha=x;}</span>
+<span class="fc" id="L144">  public int getWidth(){return width;}</span>
+<span class="fc" id="L145">  public int getHeight(){return height;}</span>
+<span class="nc" id="L146">  public void setARVB(int i, int j, int x){setARVB(i,j,(byte)x);}</span>
+<span class="nc" id="L147">  public void setARVB(int i, int j, byte x){setA(i,j,x);setR(i,j,x);setV(i,j,x);setB(i,j,x);}</span>
+<span class="nc" id="L148">  public Pixel getPixel(int i, int j){ return new Pixel(getR(i,j),getV(i,j),getB(i,j),getA(i,j));}</span>
+  public int getNbrDePixel(Pixel a, int x){
+<span class="nc" id="L150">    int r = 0;</span>
+    //la il faudrait arriver a compter les pixels a dans un rayon de x.
+<span class="nc" id="L152">    return r;</span>
+<span class="nc" id="L153">  }public int getNbrDePixel(Pixel a){ return getNbrDePixel(a,10);}</span>
+  // Fonctions propre -----------------------------------------------------------
+  /**
+  *{@summary Standard equals function.}
+  *Null &amp;#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
+  *@version 1.31
+  */
+  @Override
+  public boolean equals(Object o){
+<span class="pc bpc" id="L163" title="2 of 4 branches missed.">    if(o==null || !(o instanceof Img)){return false;}</span>
+<span class="fc" id="L164">    Img img2 = (Img)o;</span>
+<span class="pc bpc" id="L165" title="1 of 2 branches missed.">    if(getWidth()!=img2.getWidth()){return false;}</span>
+<span class="pc bpc" id="L166" title="1 of 2 branches missed.">    if(getHeight()!=img2.getHeight()){return false;}</span>
+<span class="pc bpc" id="L167" title="1 of 2 branches missed.">    if(!tableau.equals(getRouge(),img2.getRouge())){return false;}</span>
+<span class="pc bpc" id="L168" title="1 of 2 branches missed.">    if(!tableau.equals(getVert(),img2.getVert())){return false;}</span>
+<span class="pc bpc" id="L169" title="1 of 2 branches missed.">    if(!tableau.equals(getBleu(),img2.getBleu())){return false;}</span>
+<span class="fc bfc" id="L170" title="All 2 branches covered.">    if(!tableau.equals(getAlpha(),img2.getAlpha())){return false;}</span>
+<span class="fc" id="L171">    return true;</span>
+  }
+  /**
+  *Make a copie of the Img.
+  */
+  @Override
+  public Img clone(){
+<span class="fc" id="L178">    actualiserImage(); //on s'assure que la BufferedImage repésente bien l'image actuelle</span>
+<span class="fc" id="L179">    Img imgr = new Img(this.getBi());//puis on ce sert de celle la pour recréer une img.</span>
+<span class="fc" id="L180">    return imgr;</span>
+  }
+  /**
+  *Initialize width &amp;#38; height.
+  */
+  public boolean iniWH(){
+    try {
+<span class="fc" id="L187">      width = rouge.length;</span>
+<span class="fc" id="L188">      height = rouge[0].length;</span>
+<span class="fc" id="L189">      return true;</span>
+<span class="nc" id="L190">    }catch (ArrayIndexOutOfBoundsException e) {</span>
+<span class="nc" id="L191">      return false;</span>
+    }
+  }
+  /**
+  *{@summary Print the ARGB level.}&lt;br&gt;
+  */
+  public void afficherLesTableaux(){
+<span class="nc" id="L198">    System.out.println(&quot;transparence :&quot;);</span>
+<span class="nc" id="L199">    tableau.afficher(this.compterNiveauDeAlpha());</span>
+<span class="nc" id="L200">    System.out.println(&quot;rouge&quot;);</span>
+<span class="nc" id="L201">    tableau.afficher(this.compterNiveauDeRouge());</span>
+<span class="nc" id="L202">    System.out.println(&quot;vert&quot;);</span>
+<span class="nc" id="L203">    tableau.afficher(this.compterNiveauDeVert());</span>
+<span class="nc" id="L204">    System.out.println(&quot;bleu&quot;);</span>
+<span class="nc" id="L205">    tableau.afficher(this.compterNiveauDeBleu());</span>
+<span class="nc" id="L206">  }</span>
+  /**
+  *{@summary Add an Img on this.}&lt;br&gt;
+  *It can be used to make the map image.
+  */
+  public void add(int x, int y, Img ie){
+    //on rajoute les niveau de couleurs
+<span class="nc" id="L213">    int xTemp = ie.getWidth();</span>
+<span class="nc" id="L214">    int yTemp = ie.getHeight();</span>
+    //on évite de sortir de la zone de l'image pour éviter les arrayOutOffBoundExceptions.
+<span class="nc" id="L216">    xTemp = math.min(rouge.length,x+xTemp) -x;</span>
+<span class="nc" id="L217">    yTemp = math.min(rouge[0].length,y+yTemp) -y;</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">    for (int i=0; i&lt;xTemp; i++){</span>
+<span class="nc bnc" id="L219" title="All 2 branches missed.">      for (int j=0; j&lt;yTemp; j++){</span>
+        //on remplace le pixel de l'image par celui de i au mêm e endrois
+<span class="nc" id="L221">        rouge[i+x][j+y]=ie.getR(i,j);</span>
+<span class="nc" id="L222">        vert[i+x][j+y]=ie.getV(i,j);</span>
+<span class="nc" id="L223">        bleu[i+x][j+y]=ie.getB(i,j);</span>
+<span class="nc" id="L224">        alpha[i+x][j+y]=ie.getA(i,j);</span>
+      }
+    }
+    //actualiserImage(); Trop consomateur a faire a la fin
+<span class="nc" id="L228">  }</span>
+  /*public void afficheToi(){
+    System.out.println(&quot;ROUGE :&quot;);
+    tableau.afficher(getRouge());
+    System.out.println(&quot;VERT :&quot;);
+    tableau.afficher(getVert());
+    System.out.println(&quot;BLEU :&quot;);
+    tableau.afficher(getBleu());
+    System.out.println(&quot;TRANSPARENCE :&quot;);
+    tableau.afficher(getAlpha());
+  }*/
+  /**
+  *{@summary save the Img as a .png image with a correct name.}&lt;br&gt;
+  *@param rep the directory were to save the image.
+  *@param filename the name of the Image file. (without .png).
+  */
+  public void sauvegarder(String rep, String filename){
+<span class="pc bpc" id="L245" title="1 of 2 branches missed.">    if(str.contient(filename,&quot;temporaire/&quot;,0)){</span>
+<span class="nc" id="L246">      filename = filename.substring(11,filename.length());</span>
+    }
+<span class="fc" id="L248">    filename = str.filtreCharInterdit(filename);</span>
+<span class="fc" id="L249">    debug.débogage(&quot;save de &quot;+filename+&quot; dans &quot;+rep);</span>
+    try {
+<span class="fc" id="L251">      save(rep+filename);</span>
+<span class="nc" id="L252">    }catch (Exception e) {</span>
+<span class="nc" id="L253">      erreur.erreur(&quot;Echec de la sauvegarde d'image pour : &quot;+rep+filename);</span>
+<span class="fc" id="L254">    }</span>
+<span class="fc" id="L255">  }public void sauvegarder(String nom){sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom);}</span>
+<span class="nc" id="L256">  public void sauvegarde(String s){ sauvegarder(s);}</span>
+  /**
+  *{@summary try to save the Img.}&lt;br&gt;
+  */
+  public void save(String filename) throws IOException {
+<span class="fc" id="L261">    File file = new File(filename);</span>
+<span class="fc" id="L262">    ImageIO.write(bi, &quot;png&quot;, file);</span>
+<span class="fc" id="L263">  }</span>
+  /**
+  *{@summary draw the Img.}&lt;br&gt;
+  */
+  public void draw() {
+<span class="nc" id="L268">    ImageIcon icon = new ImageIcon(bi);</span>
+    //Image icon = (Image)(bi);
+<span class="nc" id="L270">    JLabel d = new JLabel(icon);</span>
+<span class="nc" id="L271">    JFrame frame = new JFrame();</span>
+<span class="nc" id="L272">    frame.getContentPane().add(new JPanel());</span>
+<span class="nc" id="L273">    frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</span>
+<span class="nc" id="L274">    frame.setSize(width,height);</span>
+<span class="nc" id="L275">    frame.setContentPane(d);</span>
+<span class="nc" id="L276">    Toolkit tk = Toolkit.getDefaultToolkit();</span>
+<span class="nc" id="L277">    Dimension screenSize = tk.getScreenSize();</span>
+<span class="nc" id="L278">    int screenHeight = screenSize.height;</span>
+<span class="nc" id="L279">    int screenWidth = screenSize.width;</span>
+
+<span class="nc" id="L281">    frame.setLocation(rand.nextInt(screenWidth/2), rand.nextInt(screenHeight/2));</span>
+<span class="nc" id="L282">    frame.setVisible(true);</span>
+<span class="nc" id="L283">  }public void dessiner(){ draw();}</span>
+<span class="nc" id="L284">  public void afficher(){ draw();}</span>
+
+  /**
+  *{@summary Make an array with all red value for all pixel of the Img.}&lt;br&gt;
+  */
+  public int [] compterNiveauDeRouge(){
+<span class="nc" id="L290">    int xr [] = new int [256];</span>
+<span class="nc bnc" id="L291" title="All 2 branches missed.">    for (int i = 0 ; i &lt; width; i++){</span>
+<span class="nc bnc" id="L292" title="All 2 branches missed.">      for (int j = 0; j &lt; height; j++){</span>
+<span class="nc" id="L293">        int x = rouge[i][j]+128;</span>
+<span class="nc" id="L294">        xr[x]++;</span>
+      }
+<span class="nc" id="L296">    }return xr;</span>
+  }
+  /**
+  *{@summary Make an array with all green value for all pixel of the Img.}&lt;br&gt;
+  */
+  public int [] compterNiveauDeVert(){
+<span class="nc" id="L302">    int xr [] = new int [256];</span>
+<span class="nc bnc" id="L303" title="All 2 branches missed.">    for (int i = 0 ; i &lt; width; i++){</span>
+<span class="nc bnc" id="L304" title="All 2 branches missed.">      for (int j = 0; j &lt; height; j++){</span>
+<span class="nc" id="L305">        int x = vert[i][j]+128;</span>
+<span class="nc" id="L306">        xr[x]++;</span>
+      }
+<span class="nc" id="L308">    }return xr;</span>
+  }
+  /**
+  *{@summary Make an array with all blue value for all pixel of the Img.}&lt;br&gt;
+  */
+  public int [] compterNiveauDeBleu(){
+<span class="nc" id="L314">    int xr [] = new int [256];</span>
+<span class="nc bnc" id="L315" title="All 2 branches missed.">    for (int i = 0 ; i &lt; width; i++){</span>
+<span class="nc bnc" id="L316" title="All 2 branches missed.">      for (int j = 0; j &lt; height; j++){</span>
+<span class="nc" id="L317">        int x = bleu[i][j]+128;</span>
+<span class="nc" id="L318">        xr[x]++;</span>
+      }
+<span class="nc" id="L320">    }return xr;</span>
+  }
+  /**
+  *{@summary Make an array with all alpha value for all pixel of the Img.}&lt;br&gt;
+  */
+  public int [] compterNiveauDeAlpha(){
+<span class="nc" id="L326">    int xr [] = new int [256];</span>
+<span class="nc bnc" id="L327" title="All 2 branches missed.">    for (int i = 0 ; i &lt; width; i++){</span>
+<span class="nc bnc" id="L328" title="All 2 branches missed.">      for (int j = 0; j &lt; height; j++){</span>
+<span class="nc" id="L329">        int x = alpha[i][j]+128;</span>
+<span class="nc" id="L330">        xr[x]++;</span>
+      }
+<span class="nc" id="L332">    }return xr;</span>
+  }
+  /**
+  *{@summary Count how much pixel there is on the image.}&lt;br&gt;
+  */
+  public int compterPixel(Pixel a){
+<span class="nc" id="L338">    int x=0;</span>
+<span class="nc bnc" id="L339" title="All 2 branches missed.">    for (int i = 0 ; i &lt; width; i++){</span>
+<span class="nc bnc" id="L340" title="All 2 branches missed.">      for (int j = 0; j &lt; height; j++){</span>
+<span class="nc bnc" id="L341" title="All 8 branches missed.">        if(a.getR()==rouge[i][j] &amp;&amp; a.getG()==vert[i][i] &amp;&amp; a.getB()==bleu[i][j] &amp;&amp; a.getA()==alpha[i][j]){</span>
+<span class="nc" id="L342">          x++;</span>
+        }
+      }
+    }
+<span class="nc" id="L346">    return x;</span>
+  }
+  /**
+  *{@summary Count how much of eatch pixel there is on the image.}&lt;br&gt;
+  */
+  public HashMap&lt;Pixel, Integer&gt; compterChaquePixel(){
+<span class="nc" id="L352">    Chrono.debutCh();</span>
+    //faire une liste de tt les pixels différents
+    //compter le nombre de pixel identique pour chaque pixel dans la liste.
+<span class="nc" id="L355">    HashMap&lt;Pixel, Integer&gt; hm = new HashMap&lt;Pixel, Integer&gt;();</span>
+    //ou Parcourir chaque pixel de l'image, si il est dans la liste on compte +1, sinon on l'ajoute dans la liste.
+<span class="nc bnc" id="L357" title="All 2 branches missed.">    for (int i = 0 ; i &lt; width; i++){</span>
+<span class="nc bnc" id="L358" title="All 2 branches missed.">      for (int j = 0; j &lt; height; j++){</span>
+<span class="nc" id="L359">        boolean estDansLaListe=false;</span>
+<span class="nc" id="L360">        Pixel p2 = new Pixel(rouge[i][j],vert[i][j],bleu[i][j],alpha[i][j]);</span>
+<span class="nc bnc" id="L361" title="All 2 branches missed.">        if(alpha[i][j]!=-128){</span>
+<span class="nc bnc" id="L362" title="All 2 branches missed.">          for (Pixel p : hm.keySet()) {</span>
+<span class="nc bnc" id="L363" title="All 2 branches missed.">            if(p.equals(p2)){</span>
+<span class="nc" id="L364">              hm.replace(p,hm.get(p)+1);</span>
+<span class="nc" id="L365">              estDansLaListe=true;</span>
+<span class="nc" id="L366">              break;</span>
+            }
+<span class="nc" id="L368">          }</span>
+<span class="nc bnc" id="L369" title="All 2 branches missed.">          if(!estDansLaListe){</span>
+<span class="nc" id="L370">            hm.put(p2,1);</span>
+          }
+        }
+      }
+    }
+<span class="nc" id="L375">    Chrono.endCh(&quot;compterChaquePixel&quot;);</span>
+<span class="nc" id="L376">    return hm;</span>
+  }
+  /**
+  *{@summary Count how much of eatch pixel there is on the image and create a .html page to store the data.}&lt;br&gt;
+  */
+  public void compterChaquePixelToHtml(){
+<span class="nc" id="L382">    HashMap hm = compterChaquePixel();</span>
+<span class="nc" id="L383">    g.setMap(chargerLesTraductions.chargerLesNationsName());</span>
+<span class="nc" id="L384">    String sr = &quot;&quot;;</span>
+<span class="nc" id="L385">    Chrono.debutCh();</span>
+    //for (var item : hm.entrySet()) {
+<span class="nc" id="L387">    Object to[] = hm.keySet().toArray();</span>
+<span class="nc" id="L388">    Pixel tp[] = new Pixel[to.length];</span>
+<span class="nc bnc" id="L389" title="All 2 branches missed.">    for (int i=0;i&lt;to.length ;i++ ) {</span>
+<span class="nc" id="L390">      tp[i] = (Pixel)to[i];</span>
+    }
+<span class="nc bnc" id="L392" title="All 2 branches missed.">    for (int i=0;i&lt;tp.length ; i++) {</span>
+<span class="nc" id="L393">      sr+=&quot;{label:'&quot;+g.get(tp[i].toString())+&quot;', y:&quot;+hm.get(tp[i])+&quot;},\n&quot;;</span>
+    }
+<span class="nc" id="L395">    Chrono.endCh(&quot;compterChaquePixelToHtml&quot;);</span>
+<span class="nc" id="L396">    System.out.println(getResultAsHtmlDiv(sr));</span>
+<span class="nc" id="L397">  }</span>
+  /**
+  *{@summary Replace pixel a by pixel b.}&lt;br&gt;
+  *On Formiko it is used to create random color for ant and modify the image.
+  */
+  public void changerPixel(Pixel a, Pixel b){
+    //debug.débogage(&quot;changement des pixels voulus&quot;);
+    //debug.débogage(compterPixel(a)+&quot; pixel devrais être modifié.&quot;);
+<span class="nc" id="L405">    int x = 0;</span>
+<span class="nc bnc" id="L406" title="All 2 branches missed.">    for (int i = 0 ; i &lt; width; i++){</span>
+<span class="nc bnc" id="L407" title="All 2 branches missed.">      for (int j = 0; j &lt; height; j++){</span>
+<span class="nc bnc" id="L408" title="All 8 branches missed.">        if(a.getR()==rouge[i][j] &amp;&amp; a.getG()==vert[i][j] &amp;&amp; a.getB()==bleu[i][j] &amp;&amp; a.getA()==alpha[i][j]){</span>
+<span class="nc" id="L409">          rouge[i][j]=b.getR();</span>
+<span class="nc" id="L410">          vert[i][j]=b.getV();</span>
+<span class="nc" id="L411">          bleu[i][j]=b.getB();</span>
+<span class="nc" id="L412">          alpha[i][j]=b.getA();</span>
+<span class="nc" id="L413">          x++;</span>
+        }
+      }
+    }
+<span class="nc" id="L417">    int taille = width*height;</span>
+<span class="nc" id="L418">    int y = (x*100)/(taille);</span>
+<span class="nc" id="L419">    String s =&quot;&quot;;</span>
+<span class="nc bnc" id="L420" title="All 4 branches missed.">    if(y==0 &amp;&amp; x &gt; 0){s=&quot;&gt;&quot;;}</span>
+    //debug.débogage(s+y+&quot;% des pixels on été changés (&quot;+x+&quot;/&quot;+taille+&quot;)&quot;);
+<span class="nc" id="L422">    actualiserImage();</span>
+    //debug.débogage(&quot;actualisation de l'image conculante.&quot;);
+<span class="nc" id="L424">  }</span>
+  /**
+  *{@summary Replace max alpha pixel by an other color.}&lt;br&gt;
+  */
+  public void changerPixelTransparent(Pixel b){
+    //debug.débogage(&quot;changement des pixels voulus&quot;);
+    //debug.débogage(compterPixel(a)+&quot; pixel devrais être modifié.&quot;);
+<span class="nc" id="L431">    int x = 0;</span>
+<span class="nc bnc" id="L432" title="All 2 branches missed.">    for (int i = 0 ; i &lt; width; i++){</span>
+<span class="nc bnc" id="L433" title="All 2 branches missed.">      for (int j = 0; j &lt; height; j++){</span>
+<span class="nc bnc" id="L434" title="All 2 branches missed.">        if(alpha[i][j]==-128){</span>
+<span class="nc" id="L435">          rouge[i][j]=b.getR();</span>
+<span class="nc" id="L436">          vert[i][j]=b.getV();</span>
+<span class="nc" id="L437">          bleu[i][j]=b.getB();</span>
+<span class="nc" id="L438">          alpha[i][j]=b.getA();</span>
+<span class="nc" id="L439">          x++;</span>
+        }
+      }
+    }
+<span class="nc" id="L443">    int taille = width*height;</span>
+<span class="nc" id="L444">    int y = (x*100)/(taille);</span>
+<span class="nc" id="L445">    String s =&quot;&quot;;</span>
+<span class="nc bnc" id="L446" title="All 4 branches missed.">    if(y==0 &amp;&amp; x &gt; 0){s=&quot;&gt;&quot;;}</span>
+<span class="nc" id="L447">    actualiserImage();</span>
+<span class="nc" id="L448">  }</span>
+  /**
+  *{@summary Use to refresh the BufferedImage before draw it or save it.}&lt;br&gt;
+  */
+  public void actualiserImage(){
+<span class="fc" id="L453">    Chrono.debutCh();</span>
+<span class="fc" id="L454">    iniWH();</span>
+    //néssésaire si l'image n'as plus les mêmes dimentions.
+<span class="fc" id="L456">    bi = new BufferedImage(width,height,java.awt.image.BufferedImage.TYPE_INT_ARGB);</span>
+    //int pixelActualisé = 0;
+<span class="fc bfc" id="L458" title="All 2 branches covered.">    for (int i = 0 ; i &lt; width; i++){</span>
+<span class="fc bfc" id="L459" title="All 2 branches covered.">      for (int j = 0; j &lt; height; j++){</span>
+        //Color cl = new Color(rouge[i][j]+128,vert[i][j]+128,bleu[i][j]+128,alpha[i][j]+128);
+<span class="fc" id="L461">        int x = ((alpha[i][j]+128&lt;&lt;24)|(rouge[i][j]+128&lt;&lt;16)|(vert[i][j]+128&lt;&lt;8)|(bleu[i][j]+128)); //on transforme les donnée des tableaux en 1 int qui représente les niveaux de couleur. (Exactement comme color ferait sauf que ca demande probablement un peu moins de temps de ne pas avoir a passer par le constructeur.)</span>
+        //bi.setRGB(i,j,cl.getRGB());
+<span class="fc" id="L463">        bi.setRGB(i,j,x);</span>
+        //if(x!=0){System.out.println(x+ &quot; &quot;+rouge[i][j]+&quot; &quot;+vert[i][j]+&quot; &quot;+bleu[i][j]); }
+        //pixelActualisé++;
+      }
+    }
+<span class="fc" id="L468">    Chrono.endCh(&quot;actualiserImage&quot;);</span>
+    //debug.débogage(pixelActualisé+&quot; pixels ont été actualisé.&quot;);
+<span class="fc" id="L470">  }</span>
+  /**
+  *{@summary rotate the Img.}&lt;br&gt;
+  *@param x How much do we need to rotate : 1=90° 2=180° -1 or 3 = -90°
+  */
+  public void tourner(byte x){ // on tourne de 90° a chaque fois.
+<span class="fc" id="L476">    x=(byte)(x+4); // pour pouvoir utiliser des angles négatifs.</span>
+    //if(width!=height){ return null;}
+<span class="fc" id="L478">    Img ir = new Img(width,height);</span>
+<span class="fc bfc" id="L479" title="All 2 branches covered.">    if (x%2==1){ //si la largeur et la hauteur sont échangée.</span>
+<span class="fc" id="L480">      int wTemp = width;</span>
+<span class="fc" id="L481">      width = height;</span>
+<span class="fc" id="L482">      height = wTemp;</span>
+    }
+<span class="fc" id="L484">    byte [][] rougeT = new byte[width][height];</span>
+<span class="fc" id="L485">    byte [][] vertT = new byte[width][height];</span>
+<span class="fc" id="L486">    byte [][] bleuT = new byte[width][height];</span>
+<span class="fc" id="L487">    byte [][] alphaT = new byte[width][height];</span>
+    //TODO remplacer les width par des height si nésséssaire. (Puis écrire une fonction test associée.)
+<span class="fc bfc" id="L489" title="All 2 branches covered.">    if (x%4==1){</span>
+<span class="fc bfc" id="L490" title="All 2 branches covered.">      for (int i=0;i&lt;width;i++) {</span>
+<span class="fc bfc" id="L491" title="All 2 branches covered.">        for (int j=0;j&lt;height;j++) {</span>
+<span class="fc" id="L492">          rougeT[i][j]=rouge[j][width-1-i];</span>
+<span class="fc" id="L493">          vertT[i][j]=vert[j][width-1-i];</span>
+<span class="fc" id="L494">          bleuT[i][j]=bleu[j][width-1-i];</span>
+<span class="fc" id="L495">          alphaT[i][j]=alpha[j][width-1-i];</span>
+        }
+      }
+<span class="fc bfc" id="L498" title="All 2 branches covered.">    }else if(x%4==2){</span>
+<span class="fc bfc" id="L499" title="All 2 branches covered.">      for (int i=0;i&lt;width;i++) {</span>
+<span class="fc bfc" id="L500" title="All 2 branches covered.">        for (int j=0;j&lt;height;j++) {</span>
+<span class="fc" id="L501">          rougeT[i][j]=rouge[width-1-i][height-1-j];</span>
+<span class="fc" id="L502">          vertT[i][j]=vert[width-1-i][height-1-j];</span>
+<span class="fc" id="L503">          bleuT[i][j]=bleu[width-1-i][height-1-j];</span>
+<span class="fc" id="L504">          alphaT[i][j]=alpha[width-1-i][height-1-j];</span>
+        }
+      }
+<span class="fc bfc" id="L507" title="All 2 branches covered.">    }else if(x%4==3){ // -1 ou 3.</span>
+<span class="fc bfc" id="L508" title="All 2 branches covered.">      for (int i=0;i&lt;width;i++) {</span>
+<span class="fc bfc" id="L509" title="All 2 branches covered.">        for (int j=0;j&lt;height;j++) {</span>
+<span class="fc" id="L510">          rougeT[i][j]=rouge[height-1-j][i];</span>
+<span class="fc" id="L511">          vertT[i][j]=vert[height-1-j][i];</span>
+<span class="fc" id="L512">          bleuT[i][j]=bleu[height-1-j][i];</span>
+<span class="fc" id="L513">          alphaT[i][j]=alpha[height-1-j][i];</span>
+        }
+      }
+    }else{//si sa me change pas.
+      /*setRouge(tableau.copier(rouge));
+      setVert(tableau.copier(vert));
+      setBleu(tableau.copier(bleu));
+      setAlpha(tableau.copier(alpha));*/
+      //actualiserImage();
+<span class="fc" id="L522">      return;</span>
+    }//si sa a changé.
+<span class="fc" id="L524">    setRouge(rougeT);</span>
+<span class="fc" id="L525">    setVert(vertT);</span>
+<span class="fc" id="L526">    setBleu(bleuT);</span>
+<span class="fc" id="L527">    setAlpha(alphaT);</span>
+<span class="fc" id="L528">    actualiserImage();</span>
+    //return ir;
+<span class="fc" id="L530">  }public void tourner(int x){ tourner((byte) x);}</span>
+<span class="fc" id="L531">  public void tourner(){ tourner(1);}</span>
+  /**
+  *{@summary Add x in alpha (non-transparency) to the all image.}&lt;br&gt;
+  *You can remove some alpha with an x&amp;#60;0.
+  */
+  public void changerAlpha(int x){
+<span class="nc" id="L537">    int taille = width;</span>
+<span class="nc bnc" id="L538" title="All 2 branches missed.">    for (int i=0;i&lt;taille;i++) {</span>
+<span class="nc bnc" id="L539" title="All 2 branches missed.">      for (int j=0;j&lt;taille;j++) {</span>
+<span class="nc" id="L540">        int alphaTemp = alpha[i][j]+x;</span>
+<span class="nc bnc" id="L541" title="All 2 branches missed.">        if (alphaTemp &lt; -128){ alphaTemp=-128;}</span>
+<span class="nc bnc" id="L542" title="All 2 branches missed.">        if (alphaTemp &gt; 127){ alphaTemp=127;}</span>
+<span class="nc" id="L543">        alpha[i][j]=(byte) alphaTemp;</span>
+      }
+    }
+<span class="nc" id="L546">    actualiserImage();</span>
+<span class="nc" id="L547">  }</span>
+  /**
+  *{@summary Replace all non 100% or 0% transparent pixel by a 100% or a 0% transparent pixel.}&lt;br&gt;
+  *On some image it can have some 99% transparent pixel, we may need to transforme them to 0% transparent pixel. (100 transparent pixel can be recolored more easyly.)
+  *@param x alpha limit level between 0 and 255. If pixel alpha value is higer than x pixel will be at 255 alpha. Other wise it will be at 0 alpha.
+  */
+  public void supprimerLaTransparencePartielle(int x){ //x est le niveau de transparence de 0 a 255.
+<span class="nc" id="L554">    x = x-128; // pour qu'il soit callé sur le pixel.</span>
+<span class="nc bnc" id="L555" title="All 4 branches missed.">    if(x&lt;-128 || x&gt;127){ return;}</span>
+    //opération :
+    //si alpha du pixel est suppérieur a x alpha = 255
+    //sinon alpha = 0.
+<span class="nc" id="L559">    int taille = width;</span>
+<span class="nc bnc" id="L560" title="All 2 branches missed.">    for (int i=0;i&lt;taille;i++) {</span>
+<span class="nc bnc" id="L561" title="All 2 branches missed.">      for (int j=0;j&lt;taille;j++) {</span>
+<span class="nc bnc" id="L562" title="All 2 branches missed.">        if(alpha[i][j]&lt;x){</span>
+<span class="nc" id="L563">          alpha[i][j]=-128;</span>
+        }else{
+<span class="nc" id="L565">          alpha[i][j]=127;</span>
+        }
+      }
+    }
+<span class="nc" id="L569">    actualiserImage();</span>
+<span class="nc" id="L570">  }public void supprimerLaTransparencePartielle(){ supprimerLaTransparencePartielle(127);}</span>
+  /**
+  *{@summary draw a shadow on the border of a colored zone as ant alitrunk.}&lt;br&gt;
+  */
+  //TODO test &amp; use it.
+  public void ombrer(Pixel a, int x){
+<span class="nc bnc" id="L576" title="All 2 branches missed.">    for (int i = 0 ; i &lt; width; i++){</span>
+<span class="nc bnc" id="L577" title="All 2 branches missed.">      for (int j = 0; j &lt; height; j++){</span>
+<span class="nc bnc" id="L578" title="All 8 branches missed.">        if(a.getR()==rouge[i][j] &amp;&amp; a.getG()==vert[i][j] &amp;&amp; a.getB()==bleu[i][j] &amp;&amp; a.getA()==alpha[i][j]){</span>
+          //si le pixel correspond on le décolore jusqu'a 50%
+<span class="nc" id="L580">          int piNoir = getNbrDePixel(new Pixel(0,0,0,255)); //get le nombre de pixel noir dans un petit rayon.</span>
+<span class="nc" id="L581">          double d = 1;</span>
+<span class="nc" id="L582">          d=math.min(2.0,(double)((piNoir/20) +1)); // d = 1 ou 1,05 ou 1,1 etx ou 2</span>
+<span class="nc" id="L583">          rouge[i][j]=(byte)(rouge[i][j]/d);</span>
+<span class="nc" id="L584">          vert[i][j]=(byte)(vert[i][j]/d);</span>
+<span class="nc" id="L585">          bleu[i][j]=(byte)(bleu[i][j]/d);</span>
+<span class="nc" id="L586">          alpha[i][j]=(byte)(alpha[i][j]/d);</span>
+        }
+      }
+    }
+<span class="nc" id="L590">  }public void ombrer(Pixel a){ ombrer(a,10);}</span>
+  /**
+  *{@summary trim the Img.}&lt;br&gt;
+  *@param a How much do we need to trim in pixel before width
+  *@param b How much do we need to trim in pixel before height
+  *@param c How much do we need to trim in pixel after width
+  *@param d How much do we need to trim in pixel after height
+  */
+  public void rogner(int a, int b, int c, int d){
+<span class="nc" id="L599">    rouge = tableau.rogner(rouge,a,b,c,d);</span>
+<span class="nc" id="L600">    vert = tableau.rogner(vert,a,b,c,d);</span>
+<span class="nc" id="L601">    bleu = tableau.rogner(bleu,a,b,c,d);</span>
+<span class="nc" id="L602">    alpha = tableau.rogner(alpha,a,b,c,d);</span>
+<span class="nc" id="L603">  }</span>
+  /**
+  *{@summary trim the Img to cut transparent border.}&lt;br&gt;
+  */
+  public void rognerBordTransparent(){
+<span class="nc" id="L608">    int t[] = compterBordTransparent();</span>
+<span class="nc" id="L609">    rogner(t[0],t[1],t[2],t[3]);</span>
+<span class="nc" id="L610">  }</span>
+  /**
+  *{@summary get how much line are composed of transparents pixels.}&lt;br&gt;
+  */
+  public int [] compterBordTransparent(){
+<span class="fc" id="L615">    int t[]=new int[4];</span>
+<span class="fc" id="L616">    int a = 0;</span>
+<span class="fc bfc" id="L617" title="All 4 branches covered.">    while(a&lt;width &amp;&amp; tableau.contientUniquement(alpha[a],(byte)-128)){//tant qu'il n'y a que des pixels transparent.</span>
+<span class="fc" id="L618">      a++;</span>
+    }
+<span class="fc" id="L620">    int c=0;</span>
+<span class="fc bfc" id="L621" title="All 4 branches covered.">    while(c&lt;width &amp;&amp; tableau.contientUniquement(alpha[width-c-1],(byte)-128)){//tant qu'il n'y a que des pixels transparent.</span>
+<span class="fc" id="L622">      c++;</span>
+    }
+
+<span class="fc" id="L625">    Img imgTemp = clone();</span>
+<span class="fc" id="L626">    imgTemp.tourner();</span>
+<span class="fc" id="L627">    int d = 0;</span>
+<span class="fc bfc" id="L628" title="All 4 branches covered.">    while(d&lt;width &amp;&amp; tableau.contientUniquement(imgTemp.getAlpha()[d],(byte)-128)){//tant qu'il n'y a que des pixels transparent.</span>
+<span class="fc" id="L629">      d++;</span>
+    }
+<span class="fc" id="L631">    int b=0;</span>
+<span class="fc bfc" id="L632" title="All 4 branches covered.">    while(b&lt;width &amp;&amp; tableau.contientUniquement(imgTemp.getAlpha()[width-b-1],(byte)-128)){//tant qu'il n'y a que des pixels transparent.</span>
+<span class="fc" id="L633">      b++;</span>
+    }
+<span class="fc" id="L635">    t[0]=a;t[1]=b;t[2]=c;t[3]=d;</span>
+<span class="fc" id="L636">    return t;</span>
+  }
+
+  public String getResultAsHtmlDiv(String sr) {
+<span class="nc" id="L640">    String a =</span>
+            &quot;&lt;!DOCTYPE HTML&gt;\n&quot; +
+                    &quot;&lt;html&gt;\n&quot; +
+                    &quot;&lt;head&gt;\n&quot; +
+                    &quot;&lt;meta charset=\&quot;utf-8\&quot;&gt;&quot; +
+                  	&quot;&lt;link rel=\&quot;stylesheet\&quot; type=\&quot;text/css\&quot; href=\&quot;styles.css\&quot;&gt;&quot; +
+                    &quot;&lt;script src=\&quot;https://canvasjs.com/assets/script/canvasjs.min.js\&quot;&gt;&lt;/script&gt;\n&quot; +
+                    &quot;&lt;script type=\&quot;text/javascript\&quot;&gt;\n&quot; +
+                    &quot;\n&quot; +
+                    &quot;window.onload = function () {\n&quot; +
+                    &quot;\tvar chart = new CanvasJS.Chart(\&quot;chartContainer\&quot;, {\n&quot; +
+                    &quot;\t\ttitle:{\n&quot; +
+                    &quot;\t\t\ttext: \&quot;&quot;+&quot;%age of claim&quot;+&quot;\&quot;              \n&quot; +
+                    &quot;\t\t},\n&quot; +
+                    &quot;\t\tdata: [              \n&quot; +
+                    &quot;\t\t{\n&quot; +
+                    &quot;\t\t\t// Change type to \&quot;doughnut\&quot;, \&quot;line\&quot;, \&quot;splineArea\&quot;, etc.\n&quot; +
+                    &quot;\t\t\ttype: \&quot;pie\&quot;,\n&quot; +
+                    &quot;\t\t\tdataPoints: [\n&quot; ;
+
+<span class="nc" id="L660">    String c =</span>
+            &quot;\t\t\t]\n&quot; +
+                    &quot;\t\t}\n&quot; +
+                    &quot;\t\t]\n&quot; +
+                    &quot;\t});\n&quot; +
+                    &quot;\tchart.render();\n&quot; +
+                    &quot;}\n&quot; +
+                    &quot;&lt;/script&gt;\n&quot; +
+                    &quot;&lt;/head&gt;\n&quot; +
+                    &quot;&lt;body&gt;\n&quot; +
+                    &quot;&lt;img src=\&quot;images/worldMapByHydrolien.jpg\&quot; width=\&quot;100%\&quot; height=\&quot;70%\&quot;&gt;&quot; +
+                    &quot;&lt;div id=\&quot;chartContainer\&quot; style=\&quot;height: 30%; width: 300;\&quot;&gt;&lt;/div&gt;\n&quot; +
+                    &quot;&lt;/body&gt;\n&quot; +
+                    &quot;&lt;/html&gt;&quot;;
+<span class="nc" id="L674">    return a+sr+c;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

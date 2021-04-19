@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CInt.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.usuel.listes</a> &gt; <span class="el_source">CInt.java</span></div><h1>CInt.java</h1><pre class="source lang-java linenums">package fr.formiko.usuel.listes;
+
+import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.Fourmiliere;
+import fr.formiko.usuel.erreur;
+
+import java.io.Serializable;
+import javax.swing.JComboBox;
+
+public class CInt implements Serializable{
+  private CInt suivant, précédent;
+  private int contenu;
+  // CONSTRUCTEUR -----------------------------------------------------------------
+<span class="fc" id="L14">  public CInt(int contenu){</span>
+<span class="fc" id="L15">    this.contenu = contenu;</span>
+<span class="fc" id="L16">  }</span>
+  // GET SET -----------------------------------------------------------------------
+<span class="nc" id="L18">  public CInt getSuivant(){return suivant;}</span>
+<span class="fc" id="L19">  public void setSuivant(CInt cs){suivant = cs;}</span>
+<span class="nc" id="L20">  public CInt getPrécédent(){return précédent;}</span>
+<span class="fc" id="L21">  public void setPrécédent(CInt cs){précédent = cs;}</span>
+<span class="nc" id="L22">  public int getContenu(){ return contenu;}</span>
+<span class="nc" id="L23">  public void setContenu(int x){contenu=x;}</span>
+  // Fonctions propre -----------------------------------------------------------
+  public int length(){
+<span class="nc bnc" id="L26" title="All 2 branches missed.">    if(suivant==null){ return 1;}</span>
+<span class="nc" id="L27">    return 1+suivant.length();</span>
+  }
+  public void afficheTout(){
+<span class="nc" id="L30">    afficheToi();</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">    if(suivant != null){ System.out.print(&quot;, &quot;);suivant.afficheTout();}</span>
+<span class="nc" id="L32">  }</span>
+  public void afficheToi(){
+<span class="nc" id="L34">    System.out.print(contenu);</span>
+<span class="nc" id="L35">  }</span>
+  public int calculerScore(Fourmiliere fere){
+<span class="nc" id="L37">    int x=0;</span>
+<span class="nc" id="L38">    x=contenu*50 + suivant.getContenu()*20 + suivant.getSuivant().getContenu()*9 + suivant.getSuivant().getSuivant().getContenu()*6 + suivant.getSuivant().getSuivant().getSuivant().getContenu()*3 + suivant.getSuivant().getSuivant().getSuivant().getSuivant().getContenu()*(-1);</span>
+    try {
+<span class="nc bnc" id="L40" title="All 2 branches missed.">      if(!fere.getJoueur().getIa()){</span>
+<span class="nc" id="L41">        x=(int)(x*((Fourmi) (fere.getGc().getDébut().getContenu())).getMultiplicateurDeDiff());</span>
+      }
+<span class="nc" id="L43">    }catch (Exception e) {</span>
+<span class="nc" id="L44">      erreur.erreurGXVide(&quot;GCreature&quot;);</span>
+<span class="nc" id="L45">    }</span>
+<span class="nc" id="L46">    return x;</span>
+  }
+  public String toString(){
+<span class="nc bnc" id="L49" title="All 2 branches missed.">    if(suivant==null){return contenu+&quot;&quot;;}</span>
+<span class="nc" id="L50">    else{return contenu+&quot;,&quot;+suivant.toString();}</span>
+  }
+  public int getCase(int ca){
+<span class="fc bfc" id="L53" title="All 2 branches covered.">    if(ca==0){return contenu;}</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">    if(suivant==null){return 0;}</span>
+<span class="fc" id="L55">    else{return suivant.getCase(ca-1);}</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

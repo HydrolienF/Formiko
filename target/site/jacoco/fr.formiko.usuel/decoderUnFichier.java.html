@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>decoderUnFichier.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.usuel</a> &gt; <span class="el_source">decoderUnFichier.java</span></div><h1>decoderUnFichier.java</h1><pre class="source lang-java linenums">package fr.formiko.usuel;
+
+//def par défaut des fichiers depuis 0.79.5
+import fr.formiko.usuel.types.*;
+import fr.formiko.usuel.types.str;
+
+<span class="nc" id="L7">public class decoderUnFichier {</span>
+  // Fonctions propre -----------------------------------------------------------
+  // fonction simple
+  public static String getStringDeLaLigne(String s){
+<span class="fc" id="L11">    int i=0; int lens = s.length();</span>
+<span class="fc" id="L12">    String sr = &quot;&quot;;</span>
+<span class="pc bpc" id="L13" title="1 of 4 branches missed.">    while (i &lt; lens &amp;&amp; s.charAt(i) != ':'){ // On cherche les 2 points</span>
+<span class="fc" id="L14">      i++;</span>
+    }
+<span class="fc" id="L16">    i++; //on saute les :</span>
+<span class="pc bpc" id="L17" title="1 of 2 branches missed.">    if (i &gt;= lens) { return &quot;-1&quot;;} // pas de : dans la chaine.</span>
+<span class="pc bpc" id="L18" title="2 of 4 branches missed.">    if (i &lt; lens &amp;&amp; s.charAt(i) == ' '){ // on saute l'espace.</span>
+<span class="nc" id="L19">      i++;</span>
+    }
+<span class="fc bfc" id="L21" title="All 2 branches covered.">    while (i &lt; lens){</span>
+<span class="fc" id="L22">      sr = sr + s.charAt(i);</span>
+<span class="fc" id="L23">      i++;</span>
+      //debug.débogage(&quot;sr = \&quot;&quot; + sr + &quot;\&quot;&quot;);
+    }
+<span class="fc" id="L26">    debug.débogage(&quot;sr = \&quot;&quot; + sr + &quot;\&quot;&quot;);</span>
+<span class="fc" id="L27">    return sr;</span>
+  }
+  public static int getIntDeLaLigne(String s){
+<span class="nc" id="L30">    String sr = getStringDeLaLigne(s);</span>
+<span class="nc" id="L31">    return str.sToI(sr);</span>
+  }
+  public static byte getByteDeLaLigne(String s){
+<span class="nc" id="L34">    int x = getIntDeLaLigne(s);</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">    if(x&gt;127){x=127;erreur.alerte(&quot;La valeur de la ligne : &quot;+s+&quot; ne convient pas comme byte.&quot;);}</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">    else if(x&lt;-128){x=-128;erreur.alerte(&quot;La valeur de la ligne : &quot;+s+&quot; ne convient pas comme byte.&quot;);}</span>
+<span class="nc" id="L37">    return (byte)x;</span>
+  }
+  public static boolean getBooleanDeLaLigne(String x){
+<span class="nc" id="L40">    String s = &quot;&quot;;int lenx = x.length();</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">    if(lenx&gt;5){s = x.substring(lenx-4,lenx);}</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">    if(s.equals(&quot;true&quot;)){return true;}</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">    if(lenx&gt;6){s = x.substring(lenx-5,lenx);}</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">    if(s.equals(&quot;false&quot;)){return false;}</span>
+<span class="nc" id="L45">    return getBooleanDeLaLigne(getIntDeLaLigne(x));</span>
+  }
+  public static boolean getBooleanDeLaLigne(int x){
+<span class="nc" id="L48">    return str.iToB(x);</span>
+  }
+
+  public static Boolean getBoolean(String sa){
+<span class="nc" id="L52">    String s = &quot;&quot;;</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">    for (int i=0;i&lt;sa.length() ;i++ ) {</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">      if (sa.charAt(i) != ' '){ s = s + sa.charAt(i);}</span>
+    }
+<span class="nc bnc" id="L56" title="All 2 branches missed.">    if (s.length() != 1){</span>
+<span class="nc" id="L57">      erreur.alerte(g.get(&quot;decoderUnFichier&quot;,1,&quot;la chaîne de caractère&quot;)+&quot; \&quot;&quot; + s + &quot;\&quot; &quot;+g.get(&quot;decoderUnFichier&quot;,3,&quot;n'est pas un booléen&quot;));</span>
+    }else {
+<span class="nc bnc" id="L59" title="All 2 branches missed.">      if (s.charAt(0) == '1'){</span>
+<span class="nc" id="L60">        return true;</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">      }else if (s.charAt(0) == '0'){</span>
+<span class="nc" id="L62">        return false;</span>
+      }else{
+<span class="nc" id="L64">        erreur.alerte(g.get(&quot;decoderUnFichier&quot;,4,&quot;le caractère&quot;)+&quot; \&quot;&quot; + s.charAt(0) + &quot;\&quot; &quot;+g.get(&quot;decoderUnFichier&quot;,3,&quot;n'est pas un booléen&quot;)+&quot; (1 ou 0)&quot;);</span>
+      }
+    }
+<span class="nc" id="L67">    return null;</span>
+  }
+
+  // fonction a tableau.
+
+  public static String [] getTableauString(String s, char séparateur){
+<span class="fc" id="L73">    int nombreDeSéparateur = getNbrDeCharDansStr(s,séparateur);</span>
+<span class="fc" id="L74">    String tr []= new String [nombreDeSéparateur +1]; int k=0;</span>
+<span class="fc" id="L75">    int lens = s.length(); int i=0;</span>
+<span class="fc" id="L76">    String sActuel = &quot;&quot;;</span>
+<span class="fc" id="L77">    boolean ouvert = false;</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">    while (i &lt; lens){</span>
+<span class="fc" id="L79">      char c = s.charAt(i);</span>
+      //debug.débogage(&quot;test du char : &quot;+c);
+<span class="pc bpc" id="L81" title="5 of 6 branches missed.">      if(c=='&quot;' &amp;&amp; (i==0 || s.charAt(i-1) != '\\')){ // si on a un gillemet non échappé :</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">        if(ouvert){ ouvert = false;}</span>
+<span class="nc" id="L83">        else{ ouvert = true;}</span>
+      }
+<span class="pc bpc" id="L85" title="1 of 4 branches missed.">      if (c == séparateur &amp;&amp; !ouvert){//&amp;&amp; (i==0 || s.charAt(i-1) != '\\') // si c'est un séparateur</span>
+        //debug.débogage(&quot;On ajoute \&quot;&quot; + sActuel + &quot;\&quot; au tableau&quot;);
+<span class="fc" id="L87">        tr [k] = sActuel; k++;</span>
+<span class="fc" id="L88">        sActuel = &quot;&quot;;</span>
+      } else { // Si on est pas encore arrivé au séparateur.
+<span class="pc bpc" id="L90" title="2 of 4 branches missed.">        if (s.charAt(i) != '\\' &amp;&amp; s.charAt(i) != '&quot;'){ // on ne recopie pas le char d'échappement ou un guillemet.</span>
+<span class="fc" id="L91">          sActuel = sActuel + str.str(c);</span>
+        }
+      }
+<span class="fc" id="L94">      i++;</span>
+<span class="fc" id="L95">    }</span>
+    //debug.débogage(&quot;On ajoute \&quot;&quot; + sActuel + &quot;\&quot; au tableau&quot;);
+<span class="fc" id="L97">    tr [k] = sActuel;</span>
+<span class="fc" id="L98">    return tr;</span>
+  }
+
+  public static String [] getTableauStringDeLaLigne(String ligne){
+<span class="nc" id="L102">    String s = getStringDeLaLigne(ligne);</span>
+<span class="nc" id="L103">    return getTableauString(s,',');</span>
+  }
+
+
+  public static String [][] getTableauTableauStringDeLaLigne(String ligne){
+<span class="nc" id="L108">    String s = getStringDeLaLigne(ligne); int lens = s.length(); int i=0;</span>
+    // s = un texte,un 2a texte,autre chose;le début du 2a tableau,la fin;etc
+<span class="nc" id="L110">    int nombreDePointVirgule = getNbrDeCharDansStr(ligne,';');</span>
+<span class="nc" id="L111">    String tr [][] = new String [nombreDePointVirgule+1][]; int k=0;</span>
+<span class="nc" id="L112">    String sActuel = &quot;&quot;;</span>
+<span class="nc" id="L113">    i=0;</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">    while (i &lt; lens){</span>
+<span class="nc" id="L115">      char c = s.charAt(i);</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">      if (c == ';'){ // si c'est un séparateur</span>
+        //debug.débogage(&quot;On ajoute \&quot;&quot; + sActuel + &quot;\&quot; au tableau de tableau de tableau&quot;);
+        // Ici il faut add un tableau a un tableau de tableau.
+<span class="nc" id="L119">        tr[k] = getTableauString(sActuel,','); k++;</span>
+<span class="nc" id="L120">        sActuel = &quot;&quot;;</span>
+      } else { // Si on est pas encore arrivé au séparateur.
+<span class="nc" id="L122">        sActuel = sActuel + str.str(c);</span>
+      }
+<span class="nc" id="L124">      i++;</span>
+<span class="nc" id="L125">    }</span>
+    //debug.débogage(&quot;On ajoute \&quot;&quot; + sActuel + &quot;\&quot; au tableau de tableau&quot;);
+<span class="nc" id="L127">    tr[k] = getTableauString(sActuel,',');</span>
+    //tr = tableau.ajouteX(tr,sActuel); // la dernière String du tableau n'as pas de virgule après elle.
+<span class="nc" id="L129">    return tr;</span>
+  }
+
+  public static int [] getTableauIntDeLaLigne(String ligne){
+<span class="nc" id="L133">    return ent.ent(getTableauStringDeLaLigne(ligne));</span>
+  }
+  public static int [][] getTableauTableauIntDeLaLigne(String ligne){
+<span class="nc" id="L136">    return ent.ent(getTableauTableauStringDeLaLigne(ligne));</span>
+  }
+
+  public static int getNbrDeCharDansStr(String s, char c){
+<span class="fc" id="L140">    int lens = s.length(); int kr =0;</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">    for (int i=0;i&lt;lens ;i++ ) {</span>
+<span class="fc bfc" id="L142" title="All 2 branches covered.">      if (s.charAt(i) == c) { kr++;}</span>
+    }
+<span class="fc" id="L144">    return kr;</span>
+  }
+
+  // OBJET
+
+  public static String [] getObjet(String s){
+<span class="nc" id="L150">    return getTableauString(s,'-');</span>
+  }
+
+  // FOURMI
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Creature.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.formiko</a> &gt; <span class="el_source">Creature.java</span></div><h1>Creature.java</h1><pre class="source lang-java linenums">package fr.formiko.formiko;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.formiko.interfaces.*;
+import fr.formiko.usuel.exceptions.NotNullLocationException;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.maths.allea;
+import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.types.str;
+
+import java.io.Serializable;
+/**
+*{@summary The class that extends every living thing on the game.}&lt;br&gt;
+*Most of the common var between Fourmi and Insecte can be found here.&lt;br&gt;
+*Creature have a lot of interfaces. They can be used to do every action that a creature can do. If a creature can not do an action as lay (pondre) and try to do it, an error message will appear. This actions can all be call by a short cut here (to be able to do creature.action() and not ActionFourmi.action(creature)).&lt;br&gt;
+*@author Hydrolien
+*@version 1.13
+*/
+public abstract class Creature extends ObjetSurCarteAId implements Serializable{
+  // action
+  public Deplacement déplacement;
+  public Chasse chasse;
+  public Pondre pondre;
+  public Trophallaxie trophallaxie;
+  // public Collecte collecte;
+  public Evoluer evoluer;
+  public Mourir mourir;
+  public Netoyer netoyer;
+  public Tour tour;
+  // variable
+  protected int nourriture;
+  protected int nourritureMax;
+  protected int age;
+  protected int ageMax;
+  protected boolean estMort;
+  protected byte action;
+  protected byte actionMax;
+  protected Pheromone ph;
+  protected byte propreté;
+  protected byte tolerencePheromone;
+  protected byte stade; // -2 = oeuf, -1 = larve, 0 =  imago L'utilisation de la variable stade permet de faire manger les larves et pas les oeux. Les diférent stade on également des image distinctes.
+  protected int nourritureFournie;
+  protected Espece e;
+  protected ObjetSurCarteAId transported;
+  //TODO #73
+  //protected int typeEated [];
+  //private int pv; //Point de vie
+  //private int pa; //Point de dégats
+  // point de force.
+  // CONSTRUCTEUR -----------------------------------------------------------------
+  /**
+  *{@summary Main constructor for Creature.}&lt;br&gt;
+  *All args are Creature var.
+  *@version 1.13
+  */
+  public Creature (CCase ccase, int age, int ageMax, byte actionMax, Pheromone ph, int nourriture, int nourritureMax){
+<span class="fc" id="L59">    super(ccase);</span>
+<span class="fc" id="L60">    this.age = age; this.ageMax= ageMax; this.estMort = false;</span>
+<span class="fc" id="L61">    this.action = actionMax; this.actionMax = actionMax;</span>
+<span class="fc" id="L62">    this.ph = ph;</span>
+<span class="fc" id="L63">    this.nourriture = nourriture; this.nourritureMax =nourritureMax;</span>
+<span class="fc" id="L64">    tolerencePheromone=0;</span>
+<span class="fc" id="L65">    nourritureFournie=1;</span>
+<span class="fc" id="L66">    this.déplacement = new DeplacementNull(); this.chasse = new ChasseNull(); this.pondre = new PondreNull(); this.trophallaxie = new TrophallaxieNull(); this.evoluer=new EvoluerNull();this.mourir=new MourirNull();this.netoyer=new NetoyerNull();</span>
+<span class="fc" id="L67">    this.tour = new TourCreatureSansAction();</span>
+<span class="fc" id="L68">  }</span>
+  /**
+  *{@summary constructor for Creature.}&lt;br&gt;
+  *Here we only know some var, but the main constructor will take care of them.
+  *@version 1.13
+  */
+  public Creature (CCase ccase,int age, int ageMax, byte actionMax){ // Les fourmis utilise ce contructeur.
+<span class="fc" id="L75">    this(ccase,age,ageMax, actionMax, new Pheromone(-128,-128,-128), 10, 100);</span>
+<span class="fc" id="L76">  } public Creature(CCase ccase, int age, int ageMax, int actionMax){ this(ccase,age,ageMax,(byte) actionMax);}</span>
+  /**
+  *{@summary constructor for Creature.}&lt;br&gt;
+  *Here we only know some var, but the main constructor will take care of them.
+  *@version 1.13
+  */
+  public Creature (CCase ccase,int age, int ageMax){
+<span class="fc" id="L83">    this(ccase,age,ageMax,(byte) 50); // 50 action par défaut.</span>
+<span class="fc" id="L84">  }</span>
+<span class="fc" id="L85">  public Creature (CCase ccase,int ageMax){this(ccase,0,ageMax);}</span>
+<span class="fc" id="L86">  public Creature (CCase ccase){this(ccase,100);}</span>
+<span class="fc" id="L87">  public Creature (){this((CCase) null);}</span>
+  // GET SET -----------------------------------------------------------------------
+  //Nourriture
+<span class="fc" id="L90">  public int getNourriture(){return nourriture;}</span>
+<span class="fc" id="L91">  public int getNourritureMax(){return nourritureMax;}</span>
+<span class="fc" id="L92">  public void setNourritureMoins1(){nourriture--; mourirOuPas(3);}</span>
+<span class="fc" id="L93">  public void setNourriture(int x){nourriture = x;diminuerOuPasNourriture();mourirOuPas(3);}</span>
+<span class="fc" id="L94">  public void setNourritureMax(int x){ nourritureMax = x;diminuerOuPasNourriture();}</span>
+<span class="fc" id="L95">  public void ajouteNourriture(int x){nourriture += x;diminuerOuPasNourriture();mourirOuPas(3);}</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">  public void diminuerOuPasNourriture(){if (nourriture&gt;nourritureMax) {nourriture = nourritureMax;}}</span>
+<span class="fc" id="L97">  public int getNourritureFournie(){return nourritureFournie;}</span>
+<span class="fc" id="L98">  public void setNourritureFournie(int x){nourritureFournie=x;}</span>
+  //Age
+<span class="fc" id="L100">  public int getAge(){return age;}</span>
+<span class="fc" id="L101">  public int getAgeMax(){return ageMax;}</span>
+<span class="fc" id="L102">  public void setAgeMax(int x){ageMax = x;}</span>
+<span class="fc" id="L103">  public void setAgePlus1(){age++; mourirOuPas(2);}</span>
+<span class="fc" id="L104">  public void setAge(int x){age=x;mourirOuPas(2);}</span>
+<span class="nc" id="L105">  public void ajouteAge(int x){age+=x; mourirOuPas(2);}</span>
+<span class="fc" id="L106">  public int getAction(){return action;}</span>
+<span class="fc" id="L107">  public void setAction(byte x){action = x;}</span>
+<span class="fc" id="L108">  public void setAction(int x){setAction(str.iToBy(x));}</span>
+<span class="fc" id="L109">  public void setActionMoins(int x){setAction(getAction() - x);}</span>
+<span class="fc" id="L110">  public byte getActionMax(){return actionMax;}</span>
+<span class="fc" id="L111">  public void setActionMax(byte x){actionMax =x;}</span>
+  /**
+  *{@summary Move the Creature from a case to an other.}&lt;br&gt;
+  *It is used by Deplacement interfaces.&lt;br&gt;
+  *It wil try to remove from old CCase and add to new CCase.&lt;br&gt;
+  *@version 1.40
+  */
+  @Override
+  public void setCCase(CCase newCCase){
+<span class="fc bfc" id="L120" title="All 2 branches covered.">    if(this.ccase!=null){</span>
+<span class="fc" id="L121">      this.ccase.getContenu().getGc().retirer(this);</span>
+    }
+<span class="fc" id="L123">    this.ccase = newCCase;</span>
+<span class="fc bfc" id="L124" title="All 2 branches covered.">    if(newCCase!=null){</span>
+<span class="fc" id="L125">      newCCase.getContenu().getGc().add(this);</span>
+    }
+<span class="fc" id="L127">  }</span>
+  //public void setCCase(int x, int y){setCCase(Main.getGc().getCCase(x,y));}
+  //public void setCc(CCase cc){setCCase(cc);}
+<span class="fc" id="L130">  public Pheromone getPheromone(){ return ph;}</span>
+<span class="nc" id="L131">  public Pheromone getPh(){ return getPheromone();}</span>
+<span class="fc" id="L132">  public void setPheromone(Pheromone ph){this.ph = ph; }</span>
+<span class="nc" id="L133">  public void setPh(Pheromone ph){ setPheromone(ph);}</span>
+<span class="fc" id="L134">  public void setPheromone(byte a, byte b, byte c){ph = new Pheromone(a,b,c);}</span>
+<span class="fc" id="L135">  public boolean getEstMort(){ return estMort;}</span>
+<span class="fc" id="L136">  public void setEstMort(boolean b){estMort=b;actionMax=0;action=0;}</span>
+<span class="fc" id="L137">  public byte getPropreté(){return getProprete();} public byte getProprete(){return propreté;}</span>
+<span class="fc" id="L138">  public void setPropreté(int x){setProprete(x);}</span>
+<span class="fc" id="L139">  public void setProprete(int x){setPropreté(str.iToBy(x));}</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">  public void setPropreté(byte x){ propreté = x; if(x&lt;100){x=100;}}</span>
+  public abstract boolean getFemelle();
+  public abstract void setFemelle(boolean b);
+<span class="fc" id="L143">  public byte getStade(){ return stade;}</span>
+<span class="fc" id="L144">  public void setStade(byte s){ stade = s;} public void setStade(int x){setStade(str.iToBy(x));}</span>
+<span class="nc" id="L145">  public boolean estFourmi(){return (this instanceof Fourmi);}</span>
+  public abstract byte getType();//réclame une implémentation de getType.
+<span class="fc" id="L147">  public byte getTolerencePheromone(){return tolerencePheromone;}</span>
+<span class="nc" id="L148">  public void setTolerencePheromone(byte x){tolerencePheromone=x;}</span>
+  public abstract boolean getVole();
+  public abstract boolean wantFood();
+  public abstract boolean wantClean();
+<span class="fc" id="L152">  public Espece getEspece(){ return e;}</span>
+<span class="nc" id="L153">  public void setEspece(Espece e){ this.e = e;}</span>
+<span class="nc" id="L154">  public void setEspece(int e){ setEspece(Main.getEspeceParId(e));}</span>
+<span class="nc" id="L155">  public String getNom(){return g.get(&quot;creature&quot;);}</span>
+  /***
+  *{@summary Return true if is own by an AI.}&lt;br&gt;
+  *@version 1.40
+  */
+<span class="nc" id="L160">  public boolean getIa(){return true;}</span>
+<span class="fc" id="L161">  public ObjetSurCarteAId getTransported(){ return transported;}</span>
+  /**
+  *{@summary Set as transported item o.}&lt;br&gt;
+  *If item is no null it will be remove from the CCase.&lt;br&gt;
+  *If item is not null &amp;#38; it already have an item it will throw an exception.&lt;br&gt;
+  *@version 1.40
+  */
+  public void setTransported(ObjetSurCarteAId o){
+<span class="fc bfc" id="L169" title="All 4 branches covered.">    if(o!=null &amp;&amp; getTransported()!=null){throw new NotNullLocationException();}</span>
+<span class="fc" id="L170">    transported = o;</span>
+<span class="fc bfc" id="L171" title="All 2 branches covered.">    if(o!=null){o.setCCase(null);}</span>
+<span class="fc" id="L172">  }</span>
+
+  //raccourci des actions d'interface
+<span class="fc" id="L175">  public void ceDeplacer(boolean bIa){déplacement.unMouvement(this,bIa);}</span>
+<span class="fc" id="L176">  public void ceDeplacer(CCase ccase){déplacement.unMouvement(this,ccase);}</span>
+<span class="fc" id="L177">  public void ceDeplacer(int direction){déplacement.unMouvement(this,direction);}</span>
+<span class="nc" id="L178">  public void ceDeplacerPlusieurCase(CCase cc){déplacement.plusieurMouvement(this,cc);}</span>
+<span class="fc" id="L179">  public void pondre(){pondre.unePonte(this);}</span>
+<span class="fc" id="L180">  public boolean canLay(){return pondre.canLay(this);}</span>
+<span class="fc" id="L181">  public boolean chasse(){return chasse.chasse(this);}</span>
+<span class="fc" id="L182">  public boolean chasser(int direction){return chasse.chasser(this, direction);}</span>
+<span class="nc" id="L183">  public void trophallaxie(int id, int nourritureDonnée){trophallaxie.trophallaxie(this, id, nourritureDonnée);}</span>
+<span class="fc" id="L184">  public void trophallaxie(Creature c, int nourritureDonnée){trophallaxie.trophallaxie(this,c, nourritureDonnée);}</span>
+<span class="nc" id="L185">  public void trophallaxer(){trophallaxie.trophallaxer(this);}</span>
+  // public void collecter(int direction){collecte.collecter((Fourmi) this, (byte) direction);}
+<span class="fc" id="L187">  public void evoluer(){evoluer.evoluer(this);}</span>
+<span class="nc" id="L188">  public void mourir(){mourir(0);}//mourrir sans raison spécifié.</span>
+<span class="fc" id="L189">  public void mourir(int r){mourir.mourir(this,r);}</span>
+<span class="fc" id="L190">  public void supprimerDeLaCarte(){ mourir.supprimerDeLaCarte(this);}</span>
+<span class="nc" id="L191">  public void netoyer(){netoyer.netoyer(this);}</span>
+<span class="fc" id="L192">  public void netoyer(Creature c){netoyer.netoyer(this,c);}</span>
+<span class="fc" id="L193">  public void ceNetoyer(){netoyer.netoyer(this,this);}</span>
+<span class="nc" id="L194">  public boolean netoyerIa(){return netoyer.netoyerIa(this);}</span>
+<span class="fc" id="L195">  public void tour(){tour.unTour(this);}</span>
+  //public void preTour(){tour.preTour(this);}
+  //public void manger (graine pour certaine fourmi, champnons pour d'autre et herbe pour les insectes.)
+  // Fonctions propre -----------------------------------------------------------
+  @Override
+  public String toString(){
+<span class="fc" id="L201">    String r = &quot;&quot;;</span>
+<span class="fc" id="L202">    r+= g.getOu(&quot;le&quot;,&quot;la&quot;)+&quot; &quot;+getNom();</span>
+<span class="fc" id="L203">    r+=&quot; &quot;;</span>
+<span class="fc" id="L204">    r+=getId();r+=&quot; &quot;;</span>
+<span class="pc bpc" id="L205" title="1 of 2 branches missed.">    if (this.getFemelle()){r+= &quot;♀&quot;;}</span>
+<span class="pc" id="L206">    else {r+= &quot;♂&quot;;}r+=&quot; &quot;;</span>
+<span class="pc bpc" id="L207" title="1 of 2 branches missed.">    if (estMort){r+= &quot;(☠︎)&quot;;}</span>
+<span class="fc" id="L208">    else {r+= &quot;(&quot;+(ageMax-age)+&quot; &quot;+g.get(&quot;avant&quot;)+&quot; ☠︎)&quot;;}r+=&quot; &quot;;</span>
+<span class="fc" id="L209">    r+=ccase.desc();r+=&quot;, &quot;;</span>
+<span class="fc" id="L210">    r+=g.get(&quot;stade&quot;)+&quot; &quot;+getStringStade()+&quot;, &quot;;</span>
+<span class="fc" id="L211">    r+=g.get(&quot;nourriture&quot;)+&quot; &quot;+nourriture+&quot;/&quot;+nourritureMax+&quot; (nf:&quot;+nourritureFournie+&quot;)&quot;+&quot;, &quot;;</span>
+<span class="fc" id="L212">    r+=g.get(&quot;age&quot;)+&quot; &quot;+age+&quot;/&quot;+ageMax+&quot;, &quot;;</span>
+<span class="fc" id="L213">    r+=g.get(&quot;action&quot;)+&quot; &quot;+action+&quot;/&quot;+actionMax+&quot;, &quot;;</span>
+<span class="fc" id="L214">    r+=g.get(&quot;propreté&quot;)+&quot; &quot;+propreté+&quot;/&quot;+&quot;100&quot;+&quot;, &quot;;</span>
+<span class="fc" id="L215">    r+=g.get(&quot;phéromone&quot;)+&quot; &quot;+ph.toString()+&quot;, &quot;;</span>
+<span class="fc" id="L216">    r+=g.get(&quot;tolerencePheromone&quot;)+&quot; &quot;+tolerencePheromone+&quot;, &quot;;</span>
+<span class="fc" id="L217">    r+=g.get(&quot;espèce&quot;)+&quot; &quot;+e.getNom();</span>
+<span class="fc" id="L218">    return r;</span>
+  }
+  /**
+  *return stade as a string in the good language.
+  *@version 1.29
+  */
+  public String getStringStade(){
+<span class="pc bpc" id="L225" title="1 of 2 branches missed.">    if (stade==0){ return g.get(&quot;imago&quot;);}</span>
+<span class="nc bnc" id="L226" title="All 2 branches missed.">    if (stade==-3){ return g.get(&quot;oeuf&quot;);}</span>
+<span class="nc bnc" id="L227" title="All 2 branches missed.">    if (stade==-2){ return g.get(&quot;larve&quot;);}</span>
+<span class="nc bnc" id="L228" title="All 2 branches missed.">    if (stade==-1){ return g.get(&quot;nymphe&quot;);}</span>
+<span class="nc" id="L229">    return g.get(&quot;stade&quot;)+&quot; &quot;+g.get(&quot;inconnu&quot;)+&quot; (&quot;+stade+&quot;)&quot;;</span>
+  }
+  //public abstract void afficheToi();
+  //... equals(Creature c) // c'est ObjetAId qui compare l'id.
+
+  /**
+  *{@summary is this consider as an enemy of c ? }&lt;br&gt;
+  *@param c A Creature that whant to know if we are ally.
+  *@version 1.13
+  */
+  public boolean getEstAllié(Creature c){ // en théorie la fourmi f reconnait plus ou moins en fonction de ses caractéristique les autre créature.
+<span class="fc bfc" id="L240" title="All 2 branches covered.">    if(this.getPheromone().equals(c.getPheromone(),c.getTolerencePheromone())){return true;}</span>
+<span class="fc" id="L241">    return false;</span>
+  }
+  /**
+  *{@summary is this consider as an enemy of c ? }&lt;br&gt;
+  *@param c A Creature that whant to know if we are enemy.
+  *@version 1.13
+  */
+  //est ce que c nous concidère comme ennemis.
+  public boolean getEstEnnemi(Creature c){
+<span class="fc bfc" id="L250" title="All 2 branches covered.">    if(this.getPheromone().equals(c.getPheromone(),c.getTolerencePheromone())){ return false;} //c me voie comme un allié aucune raison de ce méfier de moi</span>
+    //TODO chercher si dans ma liste des proies de this on trouve c.getType(); si je mange c, c doit ce méfier de moi.
+    //if(this.getGiProie().contient(c.getType())){ return true;}
+<span class="pc bpc" id="L253" title="1 of 2 branches missed.">    if(!this.getPheromone().equals(c.getPheromone(),math.min(127,c.getTolerencePheromone()*6))){ return true;} // c est une fourmi non alliés, et nous n'avons pas de lien de parenté.</span>
+<span class="nc" id="L254">    return false; //sinon a priori on est neutre.</span>
+  }
+  /**
+   *{@summary find all allied Creature on the same Case.}&lt;br&gt;
+   *@version 1.7
+   */
+  public GCreature getAlliéSurLaCase(){
+    //if(!e.getPolycalique()){return new GCreature(this);} //pris en compte par la diff phéromonale tolléré
+<span class="fc" id="L262">    return getCCase().getContenu().getGc().filtreAlliés(this);</span>
+  }
+  /**
+   *{@summary find all allied Creature on the same Case and remove this form the GCreature.}&lt;br&gt;
+   *@version 1.7
+   */
+  public GCreature getAlliéSurLaCaseSansThis(){
+    //if(!e.getPolycalique()){return new GCreature();}//pris en compte par la diff phéromonale tolléré
+<span class="fc" id="L270">    GCreature gc = getAlliéSurLaCase();</span>
+    try {
+<span class="fc" id="L272">      gc.retirer(this);</span>
+<span class="fc" id="L273">    }catch (Exception e) {}</span>
+<span class="fc" id="L274">    return gc;</span>
+  }
+  /**
+  *{@summary check if this should died of reason x. }&lt;br&gt;
+  *@param x Reason to died or not.
+  *@version 1.20
+  */
+  public void mourirOuPas(int x){
+<span class="fc bfc" id="L282" title="All 4 branches covered.">    if(x==2 &amp;&amp; age&gt;ageMax){mourir(x);return;}</span>
+<span class="fc bfc" id="L283" title="All 4 branches covered.">    if(x==3 &amp;&amp; nourriture &lt; 0){mourir(x);return;}</span>
+<span class="fc" id="L284">  }</span>
+  /**
+  *{@summary check if this is hungry.}&lt;br&gt;
+  *@param percentageOfHungryness 0=are you starving to death, 40=are you hungry, 90=can you eat something more.&lt;br&gt;
+  *return true if actual %age of food is 	&amp;#60; than percentageOfHungryness.&lt;br&gt;
+  *@version 1.28
+  */
+  public boolean isHungry(int percentageOfHungryness){
+<span class="fc bfc" id="L292" title="All 2 branches covered.">    if(percentageOfHungryness&gt;100){percentageOfHungryness=100;}</span>
+<span class="fc bfc" id="L293" title="All 2 branches covered.">    else if(percentageOfHungryness&lt;0){percentageOfHungryness=0;}</span>
+<span class="fc bfc" id="L294" title="All 2 branches covered.">    if((getNourriture()*100)/getNourritureMax()&lt;percentageOfHungryness){</span>
+<span class="fc" id="L295">      return true;</span>
+    }
+<span class="fc" id="L297">    return false;</span>
+  }
+
+  //function shared by all Creature. -------------------------------------------
+  /**
+  *{@summary Eat with the interface Chasse.}&lt;br&gt;
+  *It will stop eating only if action &amp;#60;&amp;#61; 0 or is not hungry or chasse have returned false (creature haven't eat the last time he try).&lt;br&gt;
+  *return true if the Creature have eat.
+  *@version 1.30
+  */
+  public void eat(int percentageOfHungryness){
+<span class="fc" id="L308">    int direction=getDirAllea();</span>
+<span class="fc bfc" id="L309" title="All 6 branches covered.">    while(getAction()&gt;0 &amp;&amp; isHungry(percentageOfHungryness) &amp;&amp; chasser(direction)){}</span>
+<span class="fc" id="L310">  }</span>
+
+  /**
+  *{@summary Run away if a predator is next to you.}&lt;br&gt;
+  *@version 1.28
+  */
+  public void runAway(){ //TODO
+    //an ant do now run away if in his anthill.
+    //while(c.getAction()&gt;0  &amp;&amp; c.fuire()){
+<span class="fc" id="L319">    return;</span>
+  }
+
+  /**
+  *Actualise Creature c before the turn.
+  *@version 1.28
+  */
+  public void preTour(){
+<span class="fc" id="L327">    setAction(math.min(getAction(),0) + getActionMax());//If we have used more action that what we had, we have less this turn.</span>
+<span class="pc bpc" id="L328" title="4 of 6 branches missed.">    if((evoluer instanceof EvoluerNull) &amp;&amp; (getStade()!=0 &amp;&amp; getAge()&gt;=getAgeMax())){ evoluer();}</span>
+<span class="fc" id="L329">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

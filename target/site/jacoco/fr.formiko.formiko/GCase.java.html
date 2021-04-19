@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GCase.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.formiko</a> &gt; <span class="el_source">GCase.java</span></div><h1>GCase.java</h1><pre class="source lang-java linenums">package fr.formiko.formiko;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.Temps;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.images.Img;
+import fr.formiko.usuel.images.ThImage;
+import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.maths.allea;
+
+import java.awt.Image;
+import java.io.Serializable;
+
+public class GCase implements Serializable{
+  public CCase début;
+  public CCase actuelle;
+  // CONSTRUCTEUR ---------------------------------------------------------------
+<span class="fc" id="L20">  public GCase(int horizontale, int verticale){</span>
+<span class="pc bpc" id="L21" title="2 of 4 branches missed.">    if(horizontale &lt; 0 || verticale &lt; 0){ erreur.erreur(&quot;Impossible de créer une carte si petite&quot;,&quot;la carte la plus petite possible a été créée.&quot;); horizontale = 1; verticale = 1;}</span>
+
+<span class="fc" id="L23">    début = new CCase(new Case(0,0));</span>
+<span class="fc" id="L24">    addDroite(horizontale-1, début);</span>
+<span class="fc" id="L25">    int d = 1; CCase début2;</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">    while (d &lt; verticale){</span>
+<span class="fc" id="L27">      début2 = new CCase(new Case(0,d)); d++;</span>
+<span class="fc" id="L28">      addDroite(horizontale-1, début2);</span>
+<span class="fc" id="L29">      fusionnnerLigne(début2);</span>
+    }
+<span class="fc" id="L31">  }</span>
+  public GCase(int taille){
+<span class="nc" id="L33">    this(taille, taille);</span>
+<span class="nc" id="L34">  }</span>
+<span class="fc" id="L35">  public GCase(){}</span>
+  // GET SET --------------------------------------------------------------------
+<span class="fc" id="L37">  public CCase getDébut(){ return début;}</span>
+<span class="fc" id="L38">  public String getDim(){ return getWidth()+&quot;;&quot;+getHeight();}</span>
+  // Fonctions propre -----------------------------------------------------------
+  public String toString(){
+<span class="nc bnc" id="L41" title="All 2 branches missed.">    if (début==null){erreur.erreur(&quot;La carte est vide&quot;);return &quot;&quot;;}</span>
+<span class="nc" id="L42">    return début.toString();</span>
+  }
+  public CCase getCCase(int x, int y){
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">    if(début==null){</span>
+<span class="nc" id="L46">      return null;</span>
+    }else{
+<span class="fc bfc" id="L48" title="All 4 branches covered.">      if (x==0 &amp;&amp; y==0){</span>
+<span class="fc" id="L49">        return début;</span>
+      }
+    }
+<span class="fc" id="L52">    return début.getCCase(x,y);</span>
+  }
+  public CCase getCCase(Point p){
+<span class="nc" id="L55">    return getCCase(p.getX(),p.getY());</span>
+  }
+  public int getNbrX(){
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">    if (début== null){ return 0;}</span>
+<span class="fc" id="L59">    return début.getNbrX();</span>
+<span class="fc" id="L60">  }public int getWidth(){return getNbrX();}</span>
+  public int getNbrY(){
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">    if (début== null){ return 0;}</span>
+<span class="fc" id="L63">    return début.getNbrY();</span>
+<span class="fc" id="L64">  }public int getHeight(){return getNbrY();}</span>
+  public int getNbrDeCase(){
+<span class="fc" id="L66">    return getNbrX()*getNbrY();</span>
+<span class="fc" id="L67">  }public int length(){ return getNbrDeCase();}</span>
+  public CCase getCCaseAlléa(){
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">    if (début== null){ erreur.erreurGXVide(&quot;GCase&quot;); return null;}</span>
+<span class="fc" id="L70">    return getCCase(allea.getAlléa(this.getNbrX()), allea.getAlléa(this.getNbrY()));</span>
+  }
+  public void setTypes(String t[]){
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">    if (début== null){ erreur.erreurGXVide(&quot;GCase&quot;); return;}</span>
+<span class="fc" id="L74">    début.setTypes(t);</span>
+<span class="fc" id="L75">  }</span>
+  public Img getImg(){
+<span class="nc" id="L77">    Img herbe = new Img(image.getImage(&quot;herbe&quot;));</span>
+<span class="nc" id="L78">    Img mousse = new Img(image.getImage(&quot;mousse&quot;));</span>
+<span class="nc" id="L79">    Img sab = new Img(image.getImage(&quot;sable&quot;));</span>
+<span class="nc" id="L80">    Img terre = new Img(image.getImage(&quot;terre&quot;));</span>
+<span class="nc" id="L81">    mousse.changerPixelTransparent(terre.getPixel(0,0));</span>
+<span class="nc" id="L82">    Img sable = new Img(500,500);</span>
+<span class="nc" id="L83">    sable.changerPixel(sable.getPixel(0,0),sab.getPixel(0,0));//tt les pixel deviènnent des pixel de la couleur de sable.</span>
+<span class="nc" id="L84">    int leni=getWidth(); int lenj=getHeight();</span>
+<span class="nc" id="L85">    Img ie = new Img(leni*500,lenj*500);</span>
+<span class="nc" id="L86">    System.out.println(ie.getWidth()+&quot;   &quot;+ie.getHeight());</span>
+<span class="nc" id="L87">    Img ti[] = new Img[4];</span>
+<span class="nc" id="L88">    ti[1]=herbe;ti[2]=mousse;ti[3]=sable;</span>
+<span class="nc" id="L89">    debug.débogage(&quot;add de &quot;+(leni*lenj)+&quot; éléments&quot;);</span>
+    //ThImage tth[] = new ThImage[leni];
+<span class="nc bnc" id="L91" title="All 2 branches missed.">    for(int i=0;i&lt;leni;i++){</span>
+      //tth[i] = new ThImage(this,ie,i,ti,lenj,leni);
+      //tth[i].start();
+<span class="nc bnc" id="L94" title="All 2 branches missed.">      for (int j=0;j&lt;lenj;j++ ) {</span>
+<span class="nc" id="L95">        System.out.println(&quot;éléments n°&quot;+(i*lenj+j)+&quot;/&quot;+(leni*lenj));</span>
+<span class="nc" id="L96">        ie.add(i*500,j*500,ti[this.getCCase(i,j).getContenu().getType()]);</span>
+      }
+    }
+<span class="nc" id="L99">    ie.actualiserImage();</span>
+<span class="nc" id="L100">    return ie;</span>
+  }
+  public void addDroite(int x, CCase débutDeLaLigne){
+<span class="fc" id="L103">    debug.débogage(&quot;Création d'une ligne&quot;);</span>
+<span class="fc" id="L104">    int k = 1; CCase temp; actuelle = débutDeLaLigne;</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">    while (x&gt;0){</span>
+<span class="fc" id="L106">      temp = new CCase(new Case(k,actuelle.getContenu().getPoint().getY())); k++;</span>
+<span class="fc" id="L107">      actuelle.setDroite(temp);</span>
+<span class="fc" id="L108">      temp.setGauche(actuelle);</span>
+<span class="fc" id="L109">      actuelle = temp;</span>
+<span class="fc" id="L110">      x--;</span>
+    }
+<span class="fc" id="L112">  }</span>
+  public void fusionnnerLigne(CCase débutDeLaLigne2){
+<span class="fc" id="L114">    CCase débutDeLaLigne = début;</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">    while (débutDeLaLigne.getBas() != null){</span>
+<span class="fc" id="L116">      débutDeLaLigne = débutDeLaLigne.getBas();</span>
+    }
+<span class="fc" id="L118">    CCase tempHaut = débutDeLaLigne;</span>
+<span class="fc" id="L119">    CCase tempBas = débutDeLaLigne2;</span>
+<span class="pc bpc" id="L120" title="1 of 4 branches missed.">    while(tempHaut != null &amp;&amp; tempBas != null){</span>
+<span class="fc" id="L121">      tempHaut.setBas(tempBas);</span>
+<span class="fc" id="L122">      tempBas.setHaut(tempHaut);</span>
+<span class="fc" id="L123">      tempHaut = tempHaut.getDroite();</span>
+<span class="fc" id="L124">      tempBas = tempBas.getDroite();</span>
+    }
+<span class="fc" id="L126">  }</span>
+  public void tourCases(){
+<span class="nc bnc" id="L128" title="All 2 branches missed.">    if (début==null){</span>
+<span class="nc" id="L129">      erreur.erreur(&quot;La carte est vide&quot;);</span>
+    }else{
+<span class="nc" id="L131">      début.tourCases();</span>
+    }
+<span class="nc" id="L133">  }</span>
+  public void add(Case c){
+<span class="fc bfc" id="L135" title="All 2 branches covered.">    if (début==null){début = new CCase(c);return;}</span>
+<span class="fc" id="L136">    début.add(c);</span>
+<span class="fc" id="L137">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

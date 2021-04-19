@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Options.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.usuel</a> &gt; <span class="el_source">Options.java</span></div><h1>Options.java</h1><pre class="source lang-java linenums">package fr.formiko.usuel;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.types.str;
+
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Locale;
+import java.util.Properties;
+
+/**
+*{@summary Options class.}&lt;br&gt;
+*It contain all globals options and can save it.&lt;br&gt;
+*@author Hydrolien
+*@version 1.34
+*/
+public class Options implements Serializable{
+<span class="fc" id="L25">  private byte language=0; // 0=eo; 1=fr; 2=en;</span>
+<span class="fc" id="L26">  private byte buttonSizeZoom=0;</span>
+<span class="fc" id="L27">  private byte buttonSizeAction=0;</span>
+<span class="fc" id="L28">  private byte buttonSizeTX=0;</span>
+  private boolean quickMovement;
+  private boolean instantaneousMovement;
+  private boolean orientedObjectOnMap;
+  private byte maxMessageDisplay;
+  private boolean drawGrid;
+  private boolean forceQuit;
+  private byte borderButtonSize;
+  private boolean drawIcon;
+  private int fontSizeText;
+  private int fontSizeTitle;
+  private String fontText;
+  private String fontTitle;
+  private Font font1;
+  private Font font2;
+  private String pseudo;
+  private boolean fullscreen;
+  private boolean loadingDuringMenus;
+  private boolean keepFilesRotated;
+  private boolean whaitBeforeLaunchGame;
+  private boolean debug_error;
+  private boolean debug_alerte;
+  private boolean debug_info;
+  private boolean debug_message;
+  private boolean debug_performance;
+  private boolean debug_gui;
+  private int sizeOfMapLines;
+  private byte positionCase;
+  private boolean music;
+  private boolean sound;
+  private byte musicVolume;
+  private byte soundVolume;
+  private byte realisticSize;
+  private boolean autoCleaning;
+
+<span class="fc" id="L63">  private SortedProperties properties=null;</span>
+  // CONSTRUCTEUR ---------------------------------------------------------------
+<span class="fc" id="L65">  public Options(){}</span>
+  // GET SET --------------------------------------------------------------------
+<span class="fc" id="L67">  public byte getLanguage(){return language;}</span>
+<span class="fc" id="L68">  public void setLangue(byte x){language=x;} public void setLangue(int x){setLangue(str.iToBy(x));}</span>
+<span class="nc" id="L69">  public int getbuttonSizeZoom(){ return tailleBouton(buttonSizeZoom);}</span>
+<span class="nc" id="L70">  public void setTailleBoutonZoom(byte x){ buttonSizeZoom=x;}</span>
+<span class="nc" id="L71">  public int getTailleBoutonAction(){ return tailleBouton(buttonSizeAction);}</span>
+<span class="nc" id="L72">  public void setTailleBoutonAction(byte x){ buttonSizeAction=x;}</span>
+<span class="nc" id="L73">  public int getTailleBoutonTX(){ return tailleBouton(buttonSizeTX);}</span>
+<span class="nc" id="L74">  public void setTailleBoutonTX(byte x){ buttonSizeTX=x;}</span>
+<span class="nc" id="L75">  public boolean getMouvementRapide(){ return quickMovement;}</span>
+<span class="nc" id="L76">  public void setMouvementRapide(boolean b){ quickMovement = b;}</span>
+<span class="nc" id="L77">  public boolean getDéplacementInstantané(){return instantaneousMovement;}</span>
+<span class="nc" id="L78">  public void setDéplacementInstantané(boolean b){instantaneousMovement=b;}</span>
+<span class="fc" id="L79">  public boolean getElementSurCarteOrientéAprèsDéplacement(){ return orientedObjectOnMap;}</span>
+<span class="fc" id="L80">  public void setElementSurCarteOrientéAprèsDéplacement(boolean b){orientedObjectOnMap=b;}</span>
+<span class="nc" id="L81">  public byte getNbrMessageAfficher(){ return maxMessageDisplay;}</span>
+<span class="nc" id="L82">  public void setNbrMessageAfficher(int x){ maxMessageDisplay=str.iToBy(x);}</span>
+<span class="nc" id="L83">  public boolean getDessinerGrille(){ return drawGrid;}</span>
+<span class="nc" id="L84">  public void setDessinerGrille(boolean b){drawGrid=b; }</span>
+<span class="nc" id="L85">  public boolean getForcerQuitter(){ return forceQuit;}</span>
+<span class="nc" id="L86">  public void setForcerQuitter(boolean b){ forceQuit=b;}</span>
+<span class="nc" id="L87">  public byte getBordureBouton(){ return borderButtonSize;}</span>
+<span class="nc" id="L88">  public void setBordureBouton(int x){borderButtonSize=str.iToBy(x);}</span>
+<span class="nc" id="L89">  public boolean getDessinerIcone(){ return drawIcon;}</span>
+<span class="nc" id="L90">  public void setDessinerIcone(boolean b){drawIcon=b;}</span>
+<span class="nc" id="L91">  public Font getFont1(){ return font1;}</span>
+<span class="nc" id="L92">  public Font getFont1(Double d){ Font fTemp = new Font(getPolice(),Font.PLAIN,(int)(getTaillePolice1()*d)); return fTemp;}</span>
+<span class="nc" id="L93">  public void setFont1(Font f){ font1=f;}</span>
+<span class="nc" id="L94">  public Font getFont2(){ return font2;}</span>
+<span class="nc" id="L95">  public void setFont2(Font f){ font2=f;}</span>
+<span class="nc" id="L96">  public int getTaillePolice1(){ return fontSizeText;}</span>
+<span class="nc" id="L97">  public void setTaillePolice1(int x){ fontSizeText=x;}</span>
+<span class="nc" id="L98">  public int getTaillePolice2(){ return fontSizeTitle;}</span>
+<span class="nc" id="L99">  public void setTaillePolice2(int x){ fontSizeTitle=x;}</span>
+<span class="nc" id="L100">  public String getPolice(){ return fontText;}</span>
+<span class="nc" id="L101">  public void setPolice(String s){fontText=s;}</span>
+<span class="nc" id="L102">  public String getPseudo(){ return pseudo;}</span>
+<span class="nc" id="L103">  public void setPseudo(String s){pseudo=s;}</span>
+<span class="nc" id="L104">  public boolean getPleinEcran(){ return fullscreen;}</span>
+<span class="nc" id="L105">  public void setPleinEcran(boolean b){ fullscreen=b;}</span>
+<span class="nc" id="L106">  public boolean getChargementPendantLesMenu(){ return loadingDuringMenus;}</span>
+<span class="nc" id="L107">  public void setChargementPendantLesMenu(boolean b){loadingDuringMenus=b;}</span>
+<span class="nc" id="L108">  public boolean getGarderLesGraphismesTourné(){ return keepFilesRotated;}</span>
+<span class="nc" id="L109">  public void setGarderLesGraphismesTourné(boolean b){keepFilesRotated=b;}</span>
+<span class="nc" id="L110">  public boolean getAttendreAprèsLeChargementDeLaCarte(){ return whaitBeforeLaunchGame;}</span>
+<span class="nc" id="L111">  public void setAttendreAprèsLeChargementDeLaCarte(boolean b){whaitBeforeLaunchGame=b;}</span>
+<span class="fc" id="L112">  public boolean getAffLesEtapesDeRésolution(){return debug_message;}</span>
+<span class="nc" id="L113">  public void setAffLesEtapesDeRésolution(boolean b){debug_message=b;}</span>
+<span class="fc" id="L114">  public boolean getAffLesPerformances(){return debug_performance;}</span>
+<span class="nc" id="L115">  public void setAffLesPerformances(boolean b){debug_performance=b;}</span>
+<span class="fc" id="L116">  public boolean getAffG(){return debug_gui;}</span>
+<span class="nc" id="L117">  public void setAffG(boolean b){debug_gui=b;}</span>
+<span class="nc" id="L118">  public int getDimLigne(){ return sizeOfMapLines;}</span>
+<span class="nc" id="L119">  public void setDimLigne(int x){sizeOfMapLines=x;}</span>
+<span class="nc" id="L120">  public byte getPositionCase(){return positionCase;}</span>
+<span class="nc" id="L121">  public void setPositionCase(byte x){positionCase=x;}</span>
+<span class="nc" id="L122">  public boolean getBMusique(){return music;}</span>
+<span class="nc" id="L123">  public void setBMusique(boolean b){music=b;}</span>
+<span class="nc" id="L124">  public boolean getBSon(){return sound;}</span>
+<span class="nc" id="L125">  public void setBSon(boolean b){sound =b;}</span>
+<span class="nc" id="L126">  public byte getVolMusique(){return musicVolume;}</span>
+<span class="nc" id="L127">  public void setVolMusique(byte x){musicVolume=x;}</span>
+<span class="nc" id="L128">  public byte getVolSon(){return soundVolume;}</span>
+<span class="nc" id="L129">  public void setVolSon(byte x){soundVolume=x;}</span>
+<span class="fc" id="L130">  public byte getTailleRealiste(){return realisticSize;}</span>
+<span class="pc" id="L131">  public void setTailleRealiste(byte x){realisticSize=x;}public void setTailleRealiste(int x){realisticSize=str.iToBy(x);}</span>
+<span class="nc" id="L132">  public boolean getAutoCleaning(){return autoCleaning;}</span>
+<span class="nc" id="L133">  public void setAutoCleaning(boolean b){autoCleaning=b;}</span>
+  // Fonctions propre -----------------------------------------------------------
+  /**
+  *{@summary Initialize Options.}&lt;br&gt;
+  *It load properties from Option.md, transform it to all the Option value &amp;#38; delete properties.
+  *@version 1.34
+  */
+  public void iniOptions(){
+<span class="fc" id="L141">    iniProperties();</span>
+<span class="fc" id="L142">    propertiesToOptions(); //transform properties into Options.</span>
+<span class="fc" id="L143">    properties=null; //destory properties to save memory.</span>
+<span class="fc" id="L144">  }</span>
+  /**
+  *{@summary Save Options.}&lt;br&gt;
+  *It load properties from data of Options.java, transform it to properties &amp;#38; then destory properties.
+  *@version 1.34
+  */
+  public void saveOptions(){
+<span class="nc bnc" id="L151" title="All 2 branches missed.">    if(properties==null){</span>
+<span class="nc" id="L152">      optionToProperties(); // transform Options into properties.</span>
+    }
+<span class="nc" id="L154">    saveProperties();</span>
+<span class="nc" id="L155">    properties=null;</span>
+<span class="nc" id="L156">  }</span>
+
+  //private functions ----------------------------------------------------------
+  /**
+  *{@summary Initialize properties of the Options.}&lt;br&gt;
+  *@version 1.34
+  */
+  private void iniProperties(){
+<span class="fc" id="L164">    properties = new SortedProperties(getDefaultProperties());</span>
+    try {
+<span class="fc" id="L166">      InputStream is = Files.newInputStream(Path.of(Main.getFolder().getFolderMain()+&quot;Options.md&quot;));</span>
+<span class="fc" id="L167">      properties.load(is);</span>
+<span class="nc" id="L168">    }catch (IOException e) {</span>
+<span class="nc" id="L169">      erreur.erreur(&quot;Impossible de charger les options.&quot;,&quot;Options par défaut choisie.&quot;);</span>
+<span class="nc" id="L170">      saveDeflautProperties();</span>
+<span class="fc" id="L171">    }</span>
+<span class="fc" id="L172">  }</span>
+  /**
+  *{@summary Save properties of the Options.}&lt;br&gt;
+  *@version 1.34
+  */
+  private void saveProperties(){
+    try {
+<span class="nc" id="L179">      OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+&quot;Options.md&quot;));</span>
+<span class="nc" id="L180">      properties.store(os,&quot;**Options file**\nEvery value can be edit here but variable have specific type. For exemple instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that sould be in [0,100]. Most value sould be out of intervale save. But you may need to reset Options to default value by deleting this file if something goes wrong.&quot;);</span>
+<span class="nc" id="L181">    }catch (IOException e) {</span>
+<span class="nc" id="L182">      erreur.erreur(&quot;Impossible de sauvegarder les options.&quot;,&quot;Options par défaut choisie.&quot;);</span>
+<span class="nc" id="L183">    }</span>
+<span class="nc" id="L184">  }</span>
+  /**
+  *{@summary Save default properties.}&lt;br&gt;
+  *@version 1.34
+  */
+  private void saveDeflautProperties(){
+<span class="nc" id="L190">    Properties properties = getDefaultProperties();</span>
+    try {
+<span class="nc" id="L192">      OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+&quot;Options.md&quot;));</span>
+<span class="nc" id="L193">      properties.store(os,&quot;**Options file**\nEvery values can be edit here but variable have specific type. For exemple instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that sould be in [0,100]. Most value sould be out of intervale save. But you may need to reset Options to default value by deleting this file if something goes wrong.&quot;);</span>
+<span class="nc" id="L194">    }catch (IOException e) {</span>
+<span class="nc" id="L195">      erreur.erreur(&quot;Impossible de sauvegarder les options par défaut.&quot;);</span>
+<span class="nc" id="L196">    }</span>
+<span class="nc" id="L197">  }</span>
+  /**
+  *{@summary get defaultProperties of the Options.}&lt;br&gt;
+  *It can be used to save default Options or to repair Options.md file if something is mising.&lt;br&gt;
+  *Value for version, language, fontSize &amp;#38; butonSize depend of the user computer.&lt;br&gt;
+  *@version 1.34
+  */
+  private SortedProperties getDefaultProperties(){
+<span class="fc" id="L205">    SortedProperties defaultProperties = new SortedProperties(34);</span>
+<span class="fc" id="L206">    int x=0;</span>
+    try {
+<span class="nc" id="L208">      x = Toolkit.getDefaultToolkit().getScreenSize().width;</span>
+<span class="fc" id="L209">    }catch (Exception e) {</span>
+<span class="fc" id="L210">      erreur.alerte(&quot;no screen size found&quot;);</span>
+<span class="nc" id="L211">    }</span>
+<span class="fc" id="L212">    Double racio = (x+0.0)/1920;// si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.</span>
+<span class="fc" id="L213">    chargerLesTraductions.iniTLangue();</span>
+<span class="fc" id="L214">    int t[]=new int[2];</span>
+<span class="pc bpc" id="L215" title="1 of 2 branches missed.">    if(x&gt;=1920*2){ //plus de 2*</span>
+<span class="nc" id="L216">      t[0]=2;t[1]=2;//t[2]=1;</span>
+<span class="pc bpc" id="L217" title="1 of 2 branches missed.">    }else if(x&gt;=1920*1.3){ //entre 1,3 et 2</span>
+<span class="nc" id="L218">      t[0]=1;t[1]=1;//t[2]=0;</span>
+<span class="pc bpc" id="L219" title="1 of 2 branches missed.">    }else if(x&gt;=1920*0.8){ // entre 0.8 et 1.3</span>
+<span class="nc" id="L220">      t[0]=0;t[1]=1;//t[2]=-1;</span>
+<span class="pc bpc" id="L221" title="1 of 2 branches missed.">    }else if(x&gt;=1920*0.5){ // entre 0.5 et 0.7</span>
+<span class="nc" id="L222">      t[0]=0;t[1]=0;//t[2]=-2;</span>
+    }else{ // moins de 0.5
+<span class="fc" id="L224">      t[0]=-1;t[1]=-1;//t[2]=-2;</span>
+    }
+    //setDefaultProperties
+<span class="fc" id="L227">    defaultProperties.setProperty(&quot;version&quot;,&quot;&quot;+Main.getVersionActuelle());</span>
+<span class="fc" id="L228">    String lang = Locale.getDefault().getLanguage();</span>
+<span class="fc" id="L229">    defaultProperties.setProperty(&quot;language&quot;,&quot;&quot;+chargerLesTraductions.getLanguage(lang));</span>
+<span class="fc" id="L230">    defaultProperties.setProperty(&quot;buttonSizeZoom&quot;,&quot;&quot;+t[0]);</span>
+<span class="fc" id="L231">    defaultProperties.setProperty(&quot;buttonSizeAction&quot;,&quot;&quot;+t[1]);</span>
+<span class="fc" id="L232">    defaultProperties.setProperty(&quot;buttonSizeTX&quot;,&quot;&quot;+t[0]);</span>
+<span class="fc" id="L233">    defaultProperties.setProperty(&quot;quickMovement&quot;,&quot;true&quot;);</span>
+<span class="fc" id="L234">    defaultProperties.setProperty(&quot;instantaneousMovement&quot;,&quot;true&quot;);</span>
+<span class="fc" id="L235">    defaultProperties.setProperty(&quot;orientedObjectOnMap&quot;,&quot;true&quot;);</span>
+<span class="fc" id="L236">    defaultProperties.setProperty(&quot;maxMessageDisplay&quot;,&quot;10&quot;);</span>
+<span class="fc" id="L237">    defaultProperties.setProperty(&quot;drawGrid&quot;,&quot;true&quot;);</span>
+<span class="fc" id="L238">    defaultProperties.setProperty(&quot;forceQuit&quot;,&quot;false&quot;);</span>
+<span class="fc" id="L239">    defaultProperties.setProperty(&quot;borderButtonSize&quot;,&quot;2&quot;);</span>
+<span class="fc" id="L240">    defaultProperties.setProperty(&quot;drawIcon&quot;,&quot;true&quot;);</span>
+<span class="fc" id="L241">    defaultProperties.setProperty(&quot;fontSizeText&quot;,&quot;&quot;+(int)(30*racio));</span>
+<span class="fc" id="L242">    defaultProperties.setProperty(&quot;fontSizeTitle&quot;,&quot;&quot;+(int)(60*racio));</span>
+<span class="fc" id="L243">    defaultProperties.setProperty(&quot;fontText&quot;,&quot;Arial&quot;);</span>
+<span class="fc" id="L244">    defaultProperties.setProperty(&quot;fontTitle&quot;,&quot;Arial&quot;);</span>
+<span class="fc" id="L245">    defaultProperties.setProperty(&quot;pseudo&quot;,&quot;&quot;);</span>
+<span class="fc" id="L246">    defaultProperties.setProperty(&quot;fullscreen&quot;,&quot;true&quot;);</span>
+<span class="fc" id="L247">    defaultProperties.setProperty(&quot;loadingDuringMenus&quot;,&quot;true&quot;);</span>
+<span class="fc" id="L248">    defaultProperties.setProperty(&quot;keepFilesRotated&quot;,&quot;true&quot;);</span>
+<span class="fc" id="L249">    defaultProperties.setProperty(&quot;whaitBeforeLaunchGame&quot;,&quot;true&quot;);</span>
+<span class="fc" id="L250">    defaultProperties.setProperty(&quot;debug_error&quot;,&quot;true&quot;);</span>
+<span class="fc" id="L251">    defaultProperties.setProperty(&quot;debug_alerte&quot;,&quot;true&quot;);</span>
+<span class="fc" id="L252">    defaultProperties.setProperty(&quot;debug_info&quot;,&quot;true&quot;);</span>
+<span class="fc" id="L253">    defaultProperties.setProperty(&quot;debug_message&quot;,&quot;false&quot;);</span>
+<span class="fc" id="L254">    defaultProperties.setProperty(&quot;debug_performance&quot;,&quot;false&quot;);</span>
+<span class="fc" id="L255">    defaultProperties.setProperty(&quot;debug_gui&quot;,&quot;false&quot;);</span>
+<span class="fc" id="L256">    defaultProperties.setProperty(&quot;sizeOfMapLines&quot;,&quot;2&quot;);</span>
+<span class="fc" id="L257">    defaultProperties.setProperty(&quot;music&quot;,&quot;false&quot;);</span>
+<span class="fc" id="L258">    defaultProperties.setProperty(&quot;sound&quot;,&quot;false&quot;);</span>
+<span class="fc" id="L259">    defaultProperties.setProperty(&quot;musicVolume&quot;,&quot;50&quot;);</span>
+<span class="fc" id="L260">    defaultProperties.setProperty(&quot;soundVolume&quot;,&quot;50&quot;);</span>
+<span class="fc" id="L261">    defaultProperties.setProperty(&quot;realisticSize&quot;,&quot;30&quot;);</span>
+<span class="fc" id="L262">    defaultProperties.setProperty(&quot;autoCleaning&quot;,&quot;true&quot;);</span>
+<span class="fc" id="L263">    defaultProperties.setProperty(&quot;positionCase&quot;,&quot;0&quot;);</span>
+<span class="fc" id="L264">    return defaultProperties;</span>
+  }
+  /**
+  *{@summary tranform a byte into a button size.}&lt;br&gt;
+  *@version 1.20
+  */
+  private int tailleBouton(byte x){
+<span class="nc bnc" id="L271" title="All 4 branches missed.">    if(x&gt;2 &amp;&amp; x%20==0){return x;}</span>
+<span class="nc bnc" id="L272" title="All 2 branches missed.">    if(x==0){ return 80;}</span>
+<span class="nc bnc" id="L273" title="All 2 branches missed.">    if(x==-1){ return 40;}</span>
+<span class="nc bnc" id="L274" title="All 2 branches missed.">    if(x==1){ return 160;}</span>
+<span class="nc bnc" id="L275" title="All 2 branches missed.">    if(x==-2){ return 20;}</span>
+<span class="nc bnc" id="L276" title="All 2 branches missed.">    if(x==2){ return 320;}</span>
+<span class="nc" id="L277">    erreur.erreur(&quot;La taille des boutons spécifiée n'est pas correcte.&quot;,&quot;La taille moyenne a été choisie par défaut&quot;);</span>
+<span class="nc" id="L278">    return 80;</span>
+  }
+  /**
+  *{@summary tranform properties into Options var.}&lt;br&gt;
+  *@version 1.34
+  */
+  private void propertiesToOptions(){
+<span class="fc" id="L285">    language=str.sToBy(properties.getProperty(&quot;language&quot;));</span>
+<span class="fc" id="L286">    buttonSizeZoom=str.sToBy(properties.getProperty(&quot;buttonSizeZoom&quot;));</span>
+<span class="fc" id="L287">    buttonSizeAction=str.sToBy(properties.getProperty(&quot;buttonSizeAction&quot;));</span>
+<span class="fc" id="L288">    buttonSizeTX=str.sToBy(properties.getProperty(&quot;buttonSizeTX&quot;));</span>
+<span class="fc" id="L289">    quickMovement=str.sToB(properties.getProperty(&quot;quickMovement&quot;));</span>
+<span class="fc" id="L290">    instantaneousMovement=str.sToB(properties.getProperty(&quot;instantaneousMovement&quot;));</span>
+<span class="fc" id="L291">    orientedObjectOnMap=str.sToB(properties.getProperty(&quot;orientedObjectOnMap&quot;));</span>
+<span class="fc" id="L292">    maxMessageDisplay=str.sToBy(properties.getProperty(&quot;maxMessageDisplay&quot;));</span>
+<span class="fc" id="L293">    drawGrid=str.sToB(properties.getProperty(&quot;drawGrid&quot;));</span>
+<span class="fc" id="L294">    forceQuit=str.sToB(properties.getProperty(&quot;forceQuit&quot;));</span>
+<span class="fc" id="L295">    borderButtonSize=str.sToBy(properties.getProperty(&quot;borderButtonSize&quot;));</span>
+<span class="fc" id="L296">    drawIcon=str.sToB(properties.getProperty(&quot;drawIcon&quot;));</span>
+<span class="fc" id="L297">    fontSizeText=str.sToI(properties.getProperty(&quot;fontSizeText&quot;));</span>
+<span class="fc" id="L298">    fontSizeTitle=str.sToI(properties.getProperty(&quot;fontSizeTitle&quot;));</span>
+<span class="fc" id="L299">    fontText=properties.getProperty(&quot;fontText&quot;);</span>
+<span class="fc" id="L300">    fontTitle=properties.getProperty(&quot;fontTitle&quot;);</span>
+<span class="fc" id="L301">    font1=new Font(fontText, Font.BOLD, fontSizeText);</span>
+<span class="fc" id="L302">    font2=new Font(fontTitle, Font.BOLD, fontSizeTitle);</span>
+<span class="fc" id="L303">    pseudo=properties.getProperty(&quot;pseudo&quot;);</span>
+<span class="fc" id="L304">    fullscreen=str.sToB(properties.getProperty(&quot;fullscreen&quot;));</span>
+<span class="fc" id="L305">    loadingDuringMenus=str.sToB(properties.getProperty(&quot;loadingDuringMenus&quot;));</span>
+<span class="fc" id="L306">    keepFilesRotated=str.sToB(properties.getProperty(&quot;keepFilesRotated&quot;));</span>
+<span class="fc" id="L307">    whaitBeforeLaunchGame=str.sToB(properties.getProperty(&quot;whaitBeforeLaunchGame&quot;));</span>
+<span class="fc" id="L308">    debug_error=str.sToB(properties.getProperty(&quot;debug_error&quot;));</span>
+<span class="fc" id="L309">    debug_alerte=str.sToB(properties.getProperty(&quot;debug_alerte&quot;));</span>
+<span class="fc" id="L310">    debug_info=str.sToB(properties.getProperty(&quot;debug_info&quot;));</span>
+<span class="fc" id="L311">    debug_message=str.sToB(properties.getProperty(&quot;debug_message&quot;));</span>
+<span class="fc" id="L312">    debug_performance=str.sToB(properties.getProperty(&quot;debug_performance&quot;));</span>
+<span class="fc" id="L313">    debug_gui=str.sToB(properties.getProperty(&quot;debug_gui&quot;));</span>
+<span class="fc" id="L314">    sizeOfMapLines=str.sToI(properties.getProperty(&quot;sizeOfMapLines&quot;));</span>
+<span class="fc" id="L315">    positionCase=str.sToBy(properties.getProperty(&quot;positionCase&quot;));</span>
+<span class="fc" id="L316">    music=str.sToB(properties.getProperty(&quot;music&quot;));</span>
+<span class="fc" id="L317">    sound=str.sToB(properties.getProperty(&quot;sound&quot;));</span>
+<span class="fc" id="L318">    musicVolume=str.sToBy(properties.getProperty(&quot;musicVolume&quot;));</span>
+<span class="fc" id="L319">    soundVolume=str.sToBy(properties.getProperty(&quot;soundVolume&quot;));</span>
+<span class="fc" id="L320">    realisticSize=str.sToBy(properties.getProperty(&quot;realisticSize&quot;));</span>
+<span class="fc" id="L321">    autoCleaning=str.sToB(properties.getProperty(&quot;autoCleaning&quot;));</span>
+<span class="fc" id="L322">  }</span>
+  /**
+  *{@summary tranform properties into Options var.}&lt;br&gt;
+  *@version 1.34
+  */
+  private void optionToProperties(){
+<span class="nc" id="L328">    properties = new SortedProperties(getDefaultProperties());</span>
+<span class="nc" id="L329">    properties.setProperty(&quot;language&quot;,&quot;&quot;+language);</span>
+<span class="nc" id="L330">    properties.setProperty(&quot;buttonSizeZoom&quot;,&quot;&quot;+buttonSizeZoom);</span>
+<span class="nc" id="L331">    properties.setProperty(&quot;buttonSizeAction&quot;,&quot;&quot;+buttonSizeAction);</span>
+<span class="nc" id="L332">    properties.setProperty(&quot;buttonSizeTX&quot;,&quot;&quot;+buttonSizeTX);</span>
+<span class="nc" id="L333">    properties.setProperty(&quot;quickMovement&quot;,&quot;&quot;+quickMovement);</span>
+<span class="nc" id="L334">    properties.setProperty(&quot;instantaneousMovement&quot;,&quot;&quot;+instantaneousMovement);</span>
+<span class="nc" id="L335">    properties.setProperty(&quot;orientedObjectOnMap&quot;,&quot;&quot;+orientedObjectOnMap);</span>
+<span class="nc" id="L336">    properties.setProperty(&quot;maxMessageDisplay&quot;,&quot;&quot;+maxMessageDisplay);</span>
+<span class="nc" id="L337">    properties.setProperty(&quot;drawGrid&quot;,&quot;&quot;+drawGrid);</span>
+<span class="nc" id="L338">    properties.setProperty(&quot;forceQuit&quot;,&quot;&quot;+forceQuit);</span>
+<span class="nc" id="L339">    properties.setProperty(&quot;borderButtonSize&quot;,&quot;&quot;+borderButtonSize);</span>
+<span class="nc" id="L340">    properties.setProperty(&quot;drawIcon&quot;,&quot;&quot;+drawIcon);</span>
+<span class="nc" id="L341">    properties.setProperty(&quot;fontSizeText&quot;,&quot;&quot;+fontSizeText);</span>
+<span class="nc" id="L342">    properties.setProperty(&quot;fontSizeTitle&quot;,&quot;&quot;+fontSizeTitle);</span>
+<span class="nc" id="L343">    properties.setProperty(&quot;fontText&quot;,&quot;&quot;+fontText);</span>
+<span class="nc" id="L344">    properties.setProperty(&quot;fontTitle&quot;,&quot;&quot;+fontTitle);</span>
+<span class="nc" id="L345">    properties.setProperty(&quot;pseudo&quot;,&quot;&quot;+pseudo);</span>
+<span class="nc" id="L346">    properties.setProperty(&quot;fullscreen&quot;,&quot;&quot;+fullscreen);</span>
+<span class="nc" id="L347">    properties.setProperty(&quot;loadingDuringMenus&quot;,&quot;&quot;+loadingDuringMenus);</span>
+<span class="nc" id="L348">    properties.setProperty(&quot;keepFilesRotated&quot;,&quot;&quot;+keepFilesRotated);</span>
+<span class="nc" id="L349">    properties.setProperty(&quot;whaitBeforeLaunchGame&quot;,&quot;&quot;+whaitBeforeLaunchGame);</span>
+<span class="nc" id="L350">    properties.setProperty(&quot;debug_error&quot;,&quot;&quot;+debug_error);</span>
+<span class="nc" id="L351">    properties.setProperty(&quot;debug_alerte&quot;,&quot;&quot;+debug_alerte);</span>
+<span class="nc" id="L352">    properties.setProperty(&quot;debug_message&quot;,&quot;&quot;+debug_message);</span>
+<span class="nc" id="L353">    properties.setProperty(&quot;debug_performance&quot;,&quot;&quot;+debug_performance);</span>
+<span class="nc" id="L354">    properties.setProperty(&quot;debug_gui&quot;,&quot;&quot;+debug_gui);</span>
+<span class="nc" id="L355">    properties.setProperty(&quot;sizeOfMapLines&quot;,&quot;&quot;+sizeOfMapLines);</span>
+<span class="nc" id="L356">    properties.setProperty(&quot;positionCase&quot;,&quot;&quot;+positionCase);</span>
+<span class="nc" id="L357">    properties.setProperty(&quot;music&quot;,&quot;&quot;+music);</span>
+<span class="nc" id="L358">    properties.setProperty(&quot;sound&quot;,&quot;&quot;+sound);</span>
+<span class="nc" id="L359">    properties.setProperty(&quot;musicVolume&quot;,&quot;&quot;+musicVolume);</span>
+<span class="nc" id="L360">    properties.setProperty(&quot;soundVolume&quot;,&quot;&quot;+soundVolume);</span>
+<span class="nc" id="L361">    properties.setProperty(&quot;realisticSize&quot;,&quot;&quot;+realisticSize);</span>
+<span class="nc" id="L362">    properties.setProperty(&quot;autoCleaning&quot;,&quot;&quot;+autoCleaning);</span>
+<span class="nc" id="L363">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

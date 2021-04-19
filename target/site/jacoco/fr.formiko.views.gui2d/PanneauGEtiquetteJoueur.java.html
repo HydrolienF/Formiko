@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PanneauGEtiquetteJoueur.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.views.gui2d</a> &gt; <span class="el_source">PanneauGEtiquetteJoueur.java</span></div><h1>PanneauGEtiquetteJoueur.java</h1><pre class="source lang-java linenums">package fr.formiko.views.gui2d;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.g;
+
+import java.awt.Graphics;
+
+public class PanneauGEtiquetteJoueur extends Panneau{
+  private GEtiquetteJoueur gej;
+  // CONSTRUCTEUR ---------------------------------------------------------------
+<span class="nc" id="L12">  public PanneauGEtiquetteJoueur(GEtiquetteJoueur gej){</span>
+<span class="nc" id="L13">    this.gej=gej;</span>
+<span class="nc" id="L14">    this.setLayout(null);</span>
+    //int nbrDeJoueur = gej.length();
+<span class="nc" id="L16">    CEtiquetteJoueur cej = gej.getDébut();</span>
+<span class="nc" id="L17">    int wi2 = Main.getF().getWidth()/2;</span>
+<span class="nc" id="L18">    int k=0;</span>
+<span class="nc bnc" id="L19" title="All 2 branches missed.">    while(cej!=null){</span>
+<span class="nc" id="L20">      cej.getContenu().setBounds(0,k*Desc.getDimY()*3,wi2*gej.length(),Desc.getDimY()*3);</span>
+<span class="nc" id="L21">      add(cej.getContenu());</span>
+<span class="nc" id="L22">      cej=cej.getSuivant();k++;</span>
+    }
+<span class="nc" id="L24">  }</span>
+  // GET SET --------------------------------------------------------------------
+
+  // Fonctions propre -----------------------------------------------------------
+  public void paintComponent(Graphics g){
+    /*int wi2 = Main.getF().getWidth()/2;
+    CEtiquetteJoueur cej = gej.getDébut();
+    int k=0;
+    while(cej!=null){
+      cej.getContenu().setBounds(0,k*Desc.getDimY()*3,wi2*gej.length(),Desc.getDimY()*3);
+      cej=cej.getSuivant();k++;
+    }*/
+<span class="nc" id="L36">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

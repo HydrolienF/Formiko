@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PanneauEchap.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.views.gui2d</a> &gt; <span class="el_source">PanneauEchap.java</span></div><h1>PanneauEchap.java</h1><pre class="source lang-java linenums">package fr.formiko.views.gui2d;
+
+import fr.formiko.formiko.*;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+/**
+*{@summary Escap pannel }&lt;br&gt;
+*Used to pause game.
+*@author Hydrolien
+*@version 1.41
+*/
+<span class="nc" id="L19">public class PanneauEchap extends Panneau{</span>
+  private Bouton tb[];
+  private boolean visible;
+
+  // CONSTRUCTEUR ---------------------------------------------------------------
+  public void construire(){
+<span class="nc bnc" id="L25" title="All 2 branches missed.">    if(estContruit()){return;}</span>
+<span class="nc" id="L26">    Main.getPz().setEnabled(false);</span>
+<span class="nc" id="L27">    Main.getPc().setEnabled(false);</span>
+<span class="nc" id="L28">    Main.getPa().setEnabled(false);</span>
+    //setBackground(new Color(50,50,50,100));
+<span class="nc" id="L30">    Main.getPs().setSize(0,0);</span>
+<span class="nc" id="L31">    setSize(Main.getDimX(),Main.getDimY());</span>
+<span class="nc" id="L32">    int lentb = 6;</span>
+<span class="nc" id="L33">    tb = new Bouton[lentb];</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">    for (int i=0;i&lt;lentb ;i++ ) {</span>
+<span class="nc" id="L35">      String s =&quot;&quot;;</span>
+<span class="nc bnc" id="L36" title="All 4 branches missed.">      if(i&gt; 0 &amp;&amp; i&lt;3){s=&quot; (&quot;+g.get(&quot;bientôt&quot;)+&quot;)&quot;;}//TODO s'assurer que ce n'est plus utile puis le retirer.</span>
+<span class="nc" id="L37">      tb[i]=new Bouton(g.getM(&quot;bouton.nom.&quot;+(-10-i))+s,Main.getPj(),-10-i);</span>
+      //tb[i].setBounds(0,Desc.getDimY()*i*2,Main.getDimX()/4,Desc.getDimY());
+<span class="nc" id="L39">      tb[i].setOpaque(true);</span>
+<span class="nc" id="L40">      tb[i].setCFond(new Color(55, 255, 0));</span>
+<span class="nc" id="L41">      add(tb[i]);</span>
+    }
+    //miseALaMemeTaille(lentb);
+<span class="nc" id="L44">    revalidate();</span>
+<span class="nc" id="L45">    repaint();</span>
+<span class="nc" id="L46">  }</span>
+  // GET SET --------------------------------------------------------------------
+<span class="nc" id="L48">  public void setTb(Bouton tbTemp[]){tb=tbTemp;}</span>
+<span class="nc" id="L49">  public boolean getVisible(){return visible;}</span>
+  // Fonctions propre -----------------------------------------------------------
+  public void paintComponent(Graphics g){
+<span class="nc" id="L52">    Graphics2D g2d = (Graphics2D)g;</span>
+    try {
+<span class="nc" id="L54">      int lentb = tb.length;</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">      if(lentb==0){return;}</span>
+<span class="nc" id="L56">      int xCentré = (int)(Main.getDimX()*1.5/4);</span>
+<span class="nc" id="L57">      int tailleY =(int)(Bouton.getDimY()*lentb*1.5 - Bouton.getDimY()*0.5);</span>
+<span class="nc" id="L58">      int yCentré = ((Main.getDimY()-tailleY)/2);</span>
+<span class="nc" id="L59">      g2d.setColor(new Color(0,250,255));</span>
+<span class="nc" id="L60">      int bordure = Main.getTailleElementGraphique(10);</span>
+<span class="nc" id="L61">      g2d.fillRect(-bordure+xCentré,-bordure+yCentré,2*bordure+(Main.getDimX()/4),2*bordure+tailleY);</span>
+<span class="nc" id="L62">      g2d.setColor(new Color(20,20,255));</span>
+<span class="nc" id="L63">      g2d.setStroke(new BasicStroke(Main.getTailleElementGraphique(3)));</span>
+<span class="nc" id="L64">      g2d.drawRect(-bordure+xCentré,-bordure+yCentré,2*bordure+(Main.getDimX()/4),2*bordure+tailleY);</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">      for (int i=0;i&lt;lentb ;i++ ) {</span>
+<span class="nc" id="L66">        tb[i].setBounds(xCentré,yCentré+(int)(Bouton.getDimY()*i*1.5),Main.getDimX()/4,Bouton.getDimY());</span>
+      }
+<span class="nc" id="L68">    }catch (Exception e) {}</span>
+<span class="nc" id="L69">  }</span>
+  /**
+  *{@summary Set PanneauEchap visible.}&lt;br&gt;
+  *It Override Component.setVisible() but also build panel if needed &amp;#38; update PanneauSup size.&lt;br&gt;
+  *@version 1.41
+  */
+  @Override
+  public void setVisible(boolean b){
+<span class="nc bnc" id="L77" title="All 2 branches missed.">    if(b){construire();Main.getPs().setSize(0,0);}</span>
+<span class="nc" id="L78">    else{Main.getPs().actualiserTaille();}</span>
+<span class="nc" id="L79">    visible=b;</span>
+<span class="nc" id="L80">    super.setVisible(b);</span>
+<span class="nc" id="L81">  }</span>
+  /**
+  *{@summary return true if only PanneauEchap button sould be enable.}
+  *@version 1.41
+  */
+  public boolean estContruit(){
+<span class="nc bnc" id="L87" title="All 2 branches missed.">    return tb!=null;</span>
+  }
+  /*
+  public void miseALaMemeTaille(int lentb){
+    int xMax = 0;
+    for (int i=0;i&lt;lentb ;i++ ) {
+      if(tb[i].getWidth()&gt;xMax){xMax = tb[i].getWidth();}
+    }
+    for (int i=0;i&lt;lentb ;i++ ) {
+      tb[i].setSize(xMax,getHeight());
+    }
+  }*/
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

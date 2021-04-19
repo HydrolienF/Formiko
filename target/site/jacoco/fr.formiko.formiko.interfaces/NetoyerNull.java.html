@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NetoyerNull.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.formiko.interfaces</a> &gt; <span class="el_source">NetoyerNull.java</span></div><h1>NetoyerNull.java</h1><pre class="source lang-java linenums">package fr.formiko.formiko.interfaces;
+
+import fr.formiko.formiko.Creature;
+import fr.formiko.usuel.erreur;
+
+import java.io.Serializable;
+
+/**
+ * {@summary A null implementation.}&lt;br&gt;
+ * It print an error for all the methode of implemented class.&lt;br&gt;
+ * It allow to avoid error of null implementation.&lt;br&gt;
+ * @author Hydrolien
+ * @version 1.1
+ */
+<span class="fc" id="L15">public class NetoyerNull implements Serializable, Netoyer {</span>
+
+  // Fonctions propre -----------------------------------------------------------
+  /**
+  *If lauch print an error.
+  */
+  public void netoyer(Creature c){
+<span class="nc" id="L22">    err(c);</span>
+<span class="nc" id="L23">  }</span>
+  /**
+  *If lauch print an error.
+  */
+  public void netoyer(Creature c, Creature c2){
+<span class="nc" id="L28">    err(c);</span>
+<span class="nc" id="L29">  }</span>
+  /**
+  *If lauch print an error.
+  */
+  public boolean netoyerIa(Creature c){
+<span class="nc" id="L34">    err(c);return false;</span>
+  }
+  /**
+  *If lauch print an error.
+  */
+  public int getNombreDeCreatureANetoyer(Creature c){
+<span class="nc" id="L40">    return 0;</span>
+  }
+  /**
+  *Print the error.
+  */
+  private void err(Creature c){
+<span class="nc" id="L46">    erreur.erreur(&quot;Impossible de netoyer avec la créature &quot; + c.getId());</span>
+<span class="nc" id="L47">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

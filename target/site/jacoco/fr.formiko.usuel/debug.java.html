@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>debug.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.usuel</a> &gt; <span class="el_source">debug.java</span></div><h1>debug.java</h1><pre class="source lang-java linenums">package fr.formiko.usuel;
+import fr.formiko.usuel.erreur; import fr.formiko.usuel.g;
+//def par défaut des fichiers depuis 0.79.5
+
+<span class="nc" id="L5">public class debug{</span>
+<span class="fc" id="L6">  private static boolean affLesEtapesDeRésolution = true;</span>
+<span class="fc" id="L7">  private static boolean affG = true;</span>
+<span class="fc" id="L8">  private static boolean affLesDescriptionsDesExeptions = true;</span>
+<span class="fc" id="L9">  private static boolean affLesPerformances=true;</span>
+
+// GET SET -----------------------------------------------------------------------
+<span class="fc" id="L12">  public static void setAffLesEtapesDeRésolution (boolean b){affLesEtapesDeRésolution = b;}</span>
+<span class="nc" id="L13">  public static void setAffLesDescriptionsDesExeptions (boolean b){affLesDescriptionsDesExeptions = b;}</span>
+<span class="nc" id="L14">  public static boolean getAffLesDescriptionsDesExeptions (){return affLesDescriptionsDesExeptions;}</span>
+<span class="fc" id="L15">  public static boolean getAffLesEtapesDeRésolution (){return affLesEtapesDeRésolution;}</span>
+<span class="fc" id="L16">  public static boolean getAffLesPerformances(){ return affLesPerformances;}</span>
+<span class="fc" id="L17">  public static void setAffLesPerformances(boolean b){affLesPerformances=b;}</span>
+<span class="fc" id="L18">  public static boolean getAffG(){ return affG;}</span>
+<span class="fc" id="L19">  public static void setAffG(boolean b){ affG=b;}</span>
+<span class="fc" id="L20">  public static void setDPG(boolean b){setAffG(b); setAffLesEtapesDeRésolution(b);setAffLesPerformances(b);}</span>
+  //fonction propre ----------------------------------------------------------------
+  public static void débogage(String s){
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">    if (affLesEtapesDeRésolution) { System.out.println(s); }</span>
+<span class="fc" id="L24">  }</span>
+<span class="nc" id="L25">  public static void débogage(int s){ débogage(s+&quot;&quot;);}</span>
+<span class="nc" id="L26">  public static void debug(String s){débogage(s);}</span>
+  public static void performances(String s){
+<span class="nc bnc" id="L28" title="All 2 branches missed.">    if (affLesPerformances){ System.out.println(s);}</span>
+<span class="nc" id="L29">  }</span>
+  public static void g(String s){
+<span class="nc bnc" id="L31" title="All 2 branches missed.">    if (affG){ System.out.println(s);}</span>
+<span class="nc" id="L32">  }</span>
+  public static void g(String s, int x, int y){
+<span class="nc" id="L34">    g(s+&quot; : x=&quot;+x+&quot;, y=&quot;+y);</span>
+<span class="nc" id="L35">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

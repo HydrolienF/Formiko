@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>str.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.usuel.types</a> &gt; <span class="el_source">str.java</span></div><h1>str.java</h1><pre class="source lang-java linenums">package fr.formiko.usuel.types;
+
+import fr.formiko.usuel.ascii;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.tableau;
+
+/**
+*{@summary Types conversions from String}&lt;br&gt;
+*@author Hydrolien
+*@version 1.1
+*/
+<span class="nc" id="L14">public class str{</span>
+  // Fonctions propre -----------------------------------------------------------
+  /**
+   *{@summary get the number of char x in a String}
+   *@param s String were to search.
+   *@param x char to search on s.
+   *@return number of char x in s.
+   *@version 1.1
+   */
+  public static int nbrDeX(String s,char x){
+<span class="fc" id="L24">    int xr=0;</span>
+<span class="fc" id="L25">    int lens = s.length();</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">    for (int i=0;i&lt;lens ;i++ ) {</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">      if(s.charAt(i)==x){xr++;}</span>
+<span class="fc" id="L28">    }return xr;</span>
+  }
+  /**
+   *{@summary is subS on the String}
+   *@param s String were to search.
+   *@param subS String to search on s.
+   *@param x 0=s should starts with subS, 1=s should contain subS, 2=s should end with subsS, 3=s should be equals to subS.
+   *@return true if it contain subS
+   *@version 1.2
+   */
+  public static boolean contient(String s,String subS, byte x){
+    //les cas d'erreur.
+<span class="fc bfc" id="L40" title="All 2 branches covered.">    if(s==null){return false;}</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">    if(subS==null){return false;}</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">    if(subS.equals(&quot;&quot;)){return true;}</span>
+<span class="fc bfc" id="L43" title="All 4 branches covered.">    if(x&lt;0 || x&gt;4){return false;}</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">    if(s.length()&lt;subS.length()){return false;}</span>
+
+    //if(x==3){return s.equals(subS);}
+<span class="fc bfc" id="L47" title="All 2 branches covered.">    if(x==1){return s.contains(subS);}//quelque part</span>
+<span class="fc" id="L48">    int lensubS = subS.length();</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">    if(x==0){</span>
+<span class="fc" id="L50">      s = s.substring(0,lensubS);//au début</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">    }else if(x==2){</span>
+<span class="fc" id="L52">      int lens = s.length();</span>
+<span class="fc" id="L53">      s = s.substring(lens-lensubS,lens);//a la fin</span>
+    }
+<span class="fc" id="L55">    return s.equals(subS);</span>
+<span class="fc" id="L56">  }public static boolean contient(String s, String s2, int x){return contient(s,s2,iToBy(x));}</span>
+<span class="fc" id="L57">  public static boolean contient(String s,String s2){return contient(s,s2,1);}</span>
+  /**
+   *{@summary add fin at the end off s, if s does not arlerdy end by fin.}&lt;br&gt;
+   *@param s main String.
+   *@param fin String to add on s.
+   *@return s with fin at the end.
+   *@version 1.2
+   */
+  public static String addALaFinSiNecessaire(String s, String fin){
+<span class="fc bfc" id="L66" title="All 2 branches covered.">    if(!contient(s,fin,2)){s+=fin;}</span>
+<span class="fc" id="L67">    return s;</span>
+  }
+
+  /**
+  *{@summary Delete forbidden char in the array t.}&lt;br&gt;
+  *@param s the String were to delete forbidden char.
+  *@param t the array were forbidden char are.
+  *@version 1.3
+  */
+  public static String filtreCharInterdit(String s, char t[]){
+<span class="fc bfc" id="L77" title="All 2 branches covered.">    if(s==null){return null;}</span>
+<span class="fc" id="L78">    String r = &quot;&quot;;</span>
+<span class="fc" id="L79">    int len = s.length();</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">    for (int i=0;i&lt;len ;i++ ) {</span>
+<span class="fc" id="L81">      char c = s.charAt(i);</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">      if(!tableau.contient(t,c)){ r=r+c;}</span>
+    }
+<span class="fc" id="L84">    return r;</span>
+  }
+  /**
+  *{@summary Delete forbidden char depending of the os.}&lt;br&gt;
+  *if os is not define windows char will be deleted.
+  *@param s the String were to delete forbidden char.
+  *@version 1.3
+  */
+  public static String filtreCharInterdit(String s){
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">    if(s==null){return null;}</span>
+<span class="fc" id="L94">    char w [] = {'&lt;', '&gt;', ':', '\&quot;', '/', '\\', '|', '?', '*'};</span>
+    //char ml [] = {':','/','\\'};
+    //if(Main.getOs()==null || Main.getOs().isWindows()){
+<span class="fc" id="L97">      return filtreCharInterdit(s,w);</span>
+    //}
+    //return filtreCharInterdit(s,ml);
+<span class="fc" id="L100">  }public static String sToFileName(String s){ return filtreCharInterdit(s);}</span>
+  /**
+  *{@summary Transform a String to a directory name aviable on every os.}&lt;br&gt;
+  *If last / is missing it will be add.
+  *If there is a 1a / it will be delete.
+  *If there is \ they will be transform by /.
+  *@param s the String to transform to a directory name.
+  *@version 1.38
+  */
+  public static String sToDirectoryName(String s){
+    //TODO test
+<span class="fc bfc" id="L111" title="All 2 branches covered.">    if(s==null){return null;}</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">    if(s.equals(&quot;&quot;)){return &quot;&quot;;}</span>
+<span class="fc" id="L113">    char w [] = {'&lt;', '&gt;', ':', '\&quot;', '\\', '|', '?', '*'};</span>
+<span class="fc" id="L114">    s.replace('\\','/');</span>
+<span class="fc" id="L115">    s = filtreCharInterdit(s,w);</span>
+<span class="pc bpc" id="L116" title="1 of 2 branches missed.">    if(s.charAt(0)=='/'){s=s.substring(1);}</span>
+<span class="fc" id="L117">    s = addALaFinSiNecessaire(s,&quot;/&quot;);</span>
+<span class="fc" id="L118">    return s;</span>
+  }
+  /**
+  *{@summary Transform the first char of a String to the toUpperCase char.}&lt;br&gt;
+  *if s is &quot;&quot; or null nothing will be done.
+  *@param s the String to transform.
+  *@version 1.7
+  */
+  public static String sToSMaj(String s){
+<span class="fc bfc" id="L127" title="All 2 branches covered.">    if(s==null){return null;}</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">    if(s.length()&gt;1){</span>
+<span class="fc" id="L129">      return s.substring(0,1).toUpperCase()+s.substring(1); // 1a char en majuscule.</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">    }else if(s.length()==1){</span>
+<span class="fc" id="L131">      return s.substring(0,1).toUpperCase();</span>
+    }else{
+<span class="fc" id="L133">      return s;</span>
+    }
+  }
+  /**
+  *{@summary Transform the first char of a String to the toLowerCase char.}&lt;br&gt;
+  *if s is &quot;&quot; or null nothing will be done.
+  *@param s the String to transform.
+  *@version 1.39
+  */
+  public static String sToSMin(String s){
+<span class="fc bfc" id="L143" title="All 2 branches covered.">    if(s==null){return null;}</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">    if(s.length()&gt;1){</span>
+<span class="fc" id="L145">      return s.substring(0,1).toLowerCase()+s.substring(1);</span>
+<span class="fc bfc" id="L146" title="All 2 branches covered.">    }else if(s.length()==1){</span>
+<span class="fc" id="L147">      return s.substring(0,1).toLowerCase();</span>
+    }else{
+<span class="fc" id="L149">      return s;</span>
+    }
+  }
+  /**
+  *{@summary Return true if 1a char is an english maj char.}&lt;br&gt;
+  *only A to Z without accent char are ok.
+  *@param s the String to test.
+  *@version 1.39
+  */
+  public static boolean isMaj(String s){
+<span class="pc bpc" id="L159" title="1 of 4 branches missed.">    if(s==null || s.length()&lt;1){return false;}</span>
+<span class="fc bfc" id="L160" title="All 4 branches covered.">    if(s.charAt(0)&gt;64 &amp;&amp; s.charAt(0)&lt;91){return true;}</span>
+<span class="fc" id="L161">    return false;</span>
+  }
+
+	//nouvelle partie :
+	// conversion  :
+  /**
+  *{@summary From String to int}
+  *return -1 if conversion fail.
+  *@version 1.39
+  */
+  public static int sToI(String s){
+<span class="fc" id="L172">    return sToI(s,-1);</span>
+  }
+  /**
+  *{@summary From String to int}
+  *return Default value if conversion fail.
+  *@version 1.39
+  */
+  public static int sToI(String s, int iDefault){
+    try {
+<span class="fc" id="L181">      return (int) sToLThrows(s);</span>
+<span class="fc" id="L182">    }catch (Exception e) {</span>
+<span class="fc" id="L183">      erreurConversion(&quot;String To long&quot;,s);</span>
+<span class="fc" id="L184">      return iDefault;</span>
+    }
+  }
+  /**
+  *{@summary From String to double}
+  *return -1 if conversion fail.
+  *@version 1.39
+  */
+  public static double sToD(String s){
+<span class="nc" id="L193">    return sToD(s,-1.0);</span>
+  }
+  /**
+  *{@summary From String to double}
+  *return Default value if conversion fail.
+  *@version 1.39
+  */
+  public static double sToD(String s, Double dDefault){
+    try {
+<span class="nc" id="L202">      return Double.parseDouble(s);</span>
+<span class="nc" id="L203">    }catch (Exception e) {</span>
+<span class="nc" id="L204">      erreurConversion(&quot;String To Double&quot;,s);</span>
+<span class="nc" id="L205">      return dDefault;</span>
+    }
+  }
+  /**
+  *{@summary From String to int}
+  *Throw a Exception trows if conversion fail.
+  *@version 1.1
+  */
+  public static long sToLThrows(String s) throws Exception {//on ne tolère que les espace les chiffres et les moins.
+<span class="fc" id="L214">    int lens = s.length();String s2=&quot;&quot;;</span>
+<span class="fc bfc" id="L215" title="All 2 branches covered.">    if(nbrDeX(s,' ')&gt;0){</span>
+<span class="fc bfc" id="L216" title="All 2 branches covered.">      for(int i=0;i&lt;lens;i++){</span>
+<span class="fc" id="L217">        int asci = ascii.aToAscii(s.charAt(i));</span>
+<span class="pc bpc" id="L218" title="1 of 6 branches missed.">        if((asci&gt;=48 &amp;&amp; asci&lt;=57) || asci==45){// si c'est un - ou un chiffre on le garde.</span>
+<span class="fc" id="L219">          s2 = s2 + s.charAt(i);</span>
+<span class="fc bfc" id="L220" title="All 2 branches covered.">        }else if(asci!=32){;throw new Exception();}//au 1 a char nom autorisé. //TODO change exeption to a special exeption.</span>
+      }
+<span class="fc" id="L222">      s=s2;</span>
+    }
+<span class="fc" id="L224">    return Long.parseLong(s);</span>
+  }
+  /**
+  *{@summary From String to long}
+  *return -1 if conversion fail.
+  *@version 1.1
+  */
+  public static long sToL(String s){
+    try {
+<span class="fc" id="L233">      return sToLThrows(s);</span>
+<span class="nc" id="L234">    }catch (Exception e) {</span>
+<span class="nc" id="L235">      erreurConversion(&quot;String To long&quot;,s);</span>
+<span class="nc" id="L236">      return -1;</span>
+    }
+  }
+
+  /**
+  *{@summary From int to String}
+  *@version 1.1
+  */
+  public static String iToS(int x){
+<span class="nc" id="L245">    return &quot;&quot;+x;</span>
+  }
+  /**
+  *{@summary From int to byte}
+  *return the max or the min if conversion fail.
+  *@version 1.1
+  */
+  public static byte iToBy(int x){
+<span class="fc bfc" id="L253" title="All 2 branches covered.">    if(x&gt;127){ erreurConversion(&quot;int To byte&quot;,x+&quot;&quot;);x=127;}</span>
+<span class="fc bfc" id="L254" title="All 2 branches covered.">    if(x&lt;-128){ erreurConversion(&quot;int To byte&quot;,x+&quot;&quot;);x=-128;}</span>
+<span class="fc" id="L255">    return (byte) x;</span>
+  }
+  /**
+  *{@summary From int to boolean}
+  *return true if conversion fail.
+  *@version 1.1
+  */
+  public static boolean iToB(int b){
+<span class="fc bfc" id="L263" title="All 2 branches covered.">    if (b==0){ return false;}</span>
+<span class="pc bpc" id="L264" title="1 of 2 branches missed.">    if (b==1){ return true;}</span>
+<span class="nc" id="L265">    erreurConversion(&quot;int To Boolean&quot;,b+&quot;&quot;);</span>
+<span class="nc" id="L266">    return true;</span>
+  }
+  /**
+  *{@summary From String to boolean}
+  *boolean can be &quot;true&quot;, &quot;false&quot; or &quot;1&quot;, &quot;0&quot;.
+  *@version 1.1
+  */
+  public static boolean sToB(String s){
+<span class="fc bfc" id="L274" title="All 2 branches covered.">    if(&quot;true&quot;.equals(s)){ return true;}</span>
+<span class="fc bfc" id="L275" title="All 2 branches covered.">    if(&quot;false&quot;.equals(s)){ return false;}</span>
+<span class="fc" id="L276">    return iToB(sToI(s));</span>
+  }
+  /**
+  *{@summary From String to byte}
+  *@version 1.39
+  */
+  public static byte sToBy(String s, int iDefault){
+<span class="fc" id="L283">    return iToBy(sToI(s));</span>
+  }
+  /**
+  *{@summary From String to byte}
+  *@version 1.39
+  */
+  public static byte sToBy(String s){
+<span class="fc" id="L290">    return sToBy(s,-1);</span>
+  }
+  /**
+  *{@summary special error for conversion}
+  *return -1 if conversion fail.
+  *@version 1.1
+  */
+  public static void erreurConversion(String xToY, String s){
+<span class="fc" id="L298">    erreur.erreur(g.get(&quot;str&quot;,1,&quot;Impossible d'effectuer une des conversions&quot;) +&quot; &quot;+ xToY +&quot; &quot;+g.get(&quot;str&quot;,2,&quot;correctement&quot;)+&quot; : &quot;+s);</span>
+<span class="fc" id="L299">  }</span>
+  //tableaux
+  /**
+  *{@summary From int to String}
+  *@version 1.1
+  */
+  public static int[] sToI(String ts[]){
+<span class="fc" id="L306">    int lents=ts.length;</span>
+<span class="fc" id="L307">    int tr[]=new int[lents];</span>
+<span class="fc bfc" id="L308" title="All 2 branches covered.">    for (int i=0;i&lt;lents ;i++ ) {</span>
+<span class="fc" id="L309">      tr[i]=sToI(ts[i]);</span>
+    }
+<span class="fc" id="L311">    return tr;</span>
+  }
+  /**
+  *{@summary From String to int}
+  *file a case with -1 if conversion fail.
+  *@version 1.1
+  */
+  public static String[] iToS(int ts[]){
+<span class="nc" id="L319">    int lents=ts.length;</span>
+<span class="nc" id="L320">    String tr[]=new String[lents];</span>
+<span class="nc bnc" id="L321" title="All 2 branches missed.">    for (int i=0;i&lt;lents ;i++ ) {</span>
+<span class="nc" id="L322">      tr[i]=iToS(ts[i]);</span>
+    }
+<span class="nc" id="L324">    return tr;</span>
+  }
+
+	/*//anciène partie.
+	public static String str(int s){
+		return s+&quot;&quot;;
+	}*/
+  //anciène partie.
+  //Conversion de type.
+  public static String str(int s){
+<span class="nc" id="L334">    return String.valueOf(s);</span>
+  }
+  public static String str(String s){
+<span class="nc" id="L337">    return s;</span>
+  }
+  public static String str(char c){
+<span class="fc" id="L340">    return String.valueOf(c);</span>
+  }
+  public static String str(double x){
+<span class="nc" id="L343">    return String.valueOf(x);</span>
+  }
+  public static String str(float x){
+<span class="nc" id="L346">    return String.valueOf(x);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

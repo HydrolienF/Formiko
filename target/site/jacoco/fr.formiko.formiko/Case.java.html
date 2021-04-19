@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Case.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.formiko</a> &gt; <span class="el_source">Case.java</span></div><h1>Case.java</h1><pre class="source lang-java linenums">package fr.formiko.formiko;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.maths.allea;
+
+import java.io.Serializable;
+/**
+*{@summary Square objects use to represent the map.}&lt;br&gt;
+*@version 1.39
+*@author Hydrolien
+*/
+public class Case implements Serializable{
+  private Point p;
+  private byte type; //0 = herbe ...
+  private Fourmiliere fere;
+  private GCreature gc; private GGraine gg;
+  private byte nourritureInsecte;
+  private byte nourritureInsecteMax;
+  private byte nourritureInsecteParTour;
+
+  // CONSTRUCTEUR ---------------------------------------------------------------
+<span class="fc" id="L25">  public Case(Point p, Fourmiliere fere, GCreature gc, byte nourritureInsecte, byte nourritureInsecteMax, byte nt){</span>
+<span class="fc" id="L26">    this.p =p;</span>
+<span class="fc" id="L27">    this.fere = fere;</span>
+<span class="fc" id="L28">    this.gc = gc;</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">    if(this.gc == null){ this.gc = new GCreature();}</span>
+<span class="fc" id="L30">    this.nourritureInsecte = nourritureInsecte;</span>
+<span class="fc" id="L31">    this.nourritureInsecteMax = nourritureInsecteMax;</span>
+<span class="fc" id="L32">    nourritureInsecteParTour = nt;</span>
+<span class="fc" id="L33">    gg = new GGraine(); type = 1;</span>
+<span class="fc" id="L34">  }</span>
+  public Case(Point p, Fourmiliere fere, GCreature gc){
+<span class="fc" id="L36">    this(p,fere,gc,(byte) allea.getAlléa(3),(byte)(allea.getAlléa(100)+2),(byte) allea.getAlléa(3));</span>
+    // si la nourriture de départ n'est pas réduite :
+<span class="fc" id="L38">    nourritureInsecte = (byte) allea.getAlléa(nourritureInsecteMax);</span>
+<span class="fc" id="L39">  }</span>
+<span class="fc" id="L40">  public Case(Point p){this(p,null,new GCreature());}</span>
+<span class="fc" id="L41">  public Case(int x, int y){this(new Point(x,y));}</span>
+  // GET SET --------------------------------------------------------------------
+<span class="fc" id="L43">  public Point getP(){return p;}</span>
+<span class="fc" id="L44">  public Point getPoint(){ return getP();}</span>
+<span class="nc" id="L45">  public void setP(Point p){this.p = p;}</span>
+<span class="fc" id="L46">  public int getX(){ return p.getX();}</span>
+<span class="fc" id="L47">  public int getY(){ return p.getY();}</span>
+<span class="fc" id="L48">  public Fourmiliere getFere(){return fere;}</span>
+<span class="fc" id="L49">  public void setFere(Fourmiliere fere){this.fere = fere;}</span>
+<span class="fc" id="L50">  public GCreature getGc(){return gc;}</span>
+<span class="nc" id="L51">  public void setGc(GCreature gc){this.gc = gc;}</span>
+<span class="fc" id="L52">  public GInsecte getGi(){return gc.getGi();}</span>
+<span class="fc" id="L53">  public byte getNourritureInsecte(){return nourritureInsecte;}</span>
+<span class="fc" id="L54">  public void setNourritureInsecte(byte x){nourritureInsecte=x;}</span>
+<span class="nc" id="L55">  public byte getNourritureInsecteMax(){return nourritureInsecteMax;}</span>
+<span class="fc" id="L56">  public void setNourritureInsecteMax(byte x){nourritureInsecteMax =x;}</span>
+<span class="fc" id="L57">  public byte getNourritureInsecteParTour(){return nourritureInsecteParTour;}</span>
+<span class="fc" id="L58">  public void setNourritureInsecteParTour(byte x){nourritureInsecteParTour=x;}</span>
+<span class="fc" id="L59">  public GGraine getGGraineCopier(){return gg.copierGGraine();}</span>
+<span class="fc" id="L60">  public GGraine getGGraine(){return gg;}</span>
+<span class="fc" id="L61">  public GGraine getGg(){ return getGGraine();}</span>
+<span class="fc" id="L62">  public byte getType(){ return type;}</span>
+<span class="pc bpc" id="L63" title="1 of 4 branches missed.">  public void setType(byte x){type = x; if(type==3 || type&lt;0){setNourritureInsecteMax((byte)0); setNourritureInsecteParTour((byte)0);}}</span>
+<span class="fc" id="L64">  public void setType(int x){setType((byte)x);}</span>
+  // Fonctions propre -----------------------------------------------------------
+  public String toString(){
+<span class="fc" id="L67">    boolean caseSombre = false;</span>
+<span class="pc bpc" id="L68" title="1 of 4 branches missed.">    if(Main.getPartie()!=null &amp;&amp; Main.getPartie().getPlayingJoueur()!=null){</span>
+<span class="fc bfc" id="L69" title="All 4 branches covered.">      if(Main.getPartie().getCasesNuageuses() &amp;&amp; Main.getPartie().getPlayingJoueur().getCaseNuageuse(p.getX(),p.getY())){</span>
+<span class="fc" id="L70">        return &quot;&quot;;</span>
+<span class="pc bpc" id="L71" title="1 of 4 branches missed.">      }else if(Main.getPartie().getCasesSombres() &amp;&amp; Main.getPartie().getPlayingJoueur().getCaseSombre(p.getX(),p.getY())){</span>
+<span class="fc" id="L72">        caseSombre=true;</span>
+      }
+    }
+<span class="fc" id="L75">    String s = g.get(&quot;case&quot;)+&quot; : (&quot;+g.get(&quot;nourritureInsecte&quot;)+&quot; :&quot;+nourritureInsecte+&quot;/&quot;+nourritureInsecteMax+&quot; (+&quot;+nourritureInsecteParTour+&quot;))&quot;;</span>
+<span class="fc" id="L76">    s=s+ p.toString();s=s+&quot;\n&quot;;</span>
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">    if (fere != null){</span>
+<span class="fc" id="L78">      s=s+g.get(&quot;fourmilière&quot;)+&quot; :&quot;;s=s+&quot;\n&quot;;</span>
+<span class="fc" id="L79">      s=s+fere.toString(false);s=s+&quot;\n&quot;;</span>
+    }
+<span class="fc bfc" id="L81" title="All 2 branches covered.">    if (!caseSombre) {</span>
+<span class="pc bpc" id="L82" title="2 of 4 branches missed.">      if (gc != null &amp;&amp; gc.getDébut() != null){</span>
+<span class="fc" id="L83">        s=s+g.get(&quot;creatures&quot;)+&quot; : &quot;; s=s+&quot;\n&quot;;</span>
+<span class="fc" id="L84">        s=s+gc.toString();s=s+&quot;\n&quot;;</span>
+      }
+<span class="pc bpc" id="L86" title="2 of 4 branches missed.">      if (gg != null &amp;&amp; gg.getDébut() != null){</span>
+<span class="nc" id="L87">        s=s+g.get(&quot;graines&quot;)+&quot; : &quot;;s=s+&quot;\n&quot;;</span>
+<span class="nc" id="L88">        s=s+gg.toString();s=s+&quot;\n&quot;;</span>
+      }
+    }
+<span class="fc" id="L91">    return s;</span>
+  }
+<span class="fc" id="L93">  public String desc(){return p.toString();}</span>
+  public void afficheToi(){
+<span class="nc" id="L95">    System.out.println(this);</span>
+<span class="nc" id="L96">  }</span>
+  public int getNbrDElementSurCase(){
+<span class="fc" id="L98">    int xr = 0;</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">    if (fere != null){ xr=1;}</span>
+<span class="fc" id="L100">    return xr + gc.length() + gg.length();</span>
+  }
+  public int length(){
+<span class="fc" id="L103">    return getNbrDElementSurCase();</span>
+  }
+  /**
+  *{@summary Standard equals function.}
+  *Null &amp;#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
+  *@version 1.31
+  */
+  @Override
+  public boolean equals(Object o){
+<span class="pc bpc" id="L113" title="2 of 4 branches missed.">    if(o==null || !(o instanceof Case)){return false;}</span>
+<span class="fc" id="L114">    Case c = (Case)o;</span>
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">    if(c.length() != this.length()){ return false;}</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">    if(!this.getPoint().equals(c.getPoint())){ return false;}</span>
+<span class="fc" id="L117">    return true;</span>
+  }
+  public boolean estCaseVide(){
+<span class="nc bnc" id="L120" title="All 2 branches missed.">    if (getNbrDElementSurCase() == 0){ return true;}</span>
+<span class="nc" id="L121">    return false;</span>
+  }
+  public String description(){
+<span class="fc" id="L124">    return p.toString();</span>
+  }
+  public void actualisationNourritureInsecte(){
+<span class="fc" id="L127">    setNourritureInsecte((byte) (getNourritureInsecte()+getNourritureInsecteParTour()));</span>
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">    if(nourritureInsecte &gt; nourritureInsecteMax){</span>
+<span class="nc" id="L129">      nourritureInsecte=nourritureInsecteMax;</span>
+    }
+<span class="fc" id="L131">  }</span>
+  public void actualisationGraine(CCase p){
+    //ici un %age dépendant du type de la Case et de la saison serait bienvenue. (multiplié par l'abondance des graines.)
+<span class="nc" id="L134">    int x  = allea.getAlléa(50);</span>
+<span class="nc bnc" id="L135" title="All 4 branches missed.">    if(x==0 &amp;&amp; this.getFere()==null){ new Graine(p);} // si on a de la chance et que il n'y a pas de fere sur la case.</span>
+<span class="nc" id="L136">    gg.tour();</span>
+<span class="nc" id="L137">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

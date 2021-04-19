@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CIndividu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.formiko</a> &gt; <span class="el_source">CIndividu.java</span></div><h1>CIndividu.java</h1><pre class="source lang-java linenums">package fr.formiko.formiko;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+
+import java.io.Serializable;
+
+public class CIndividu implements Serializable{
+  private Individu contenu;
+  protected CIndividu suivant;
+  // CONSTRUCTEUR ---------------------------------------------------------------
+<span class="fc" id="L14">  public CIndividu(Individu iu){</span>
+<span class="fc" id="L15">    contenu = iu;</span>
+<span class="fc" id="L16">  }</span>
+  // GET SET --------------------------------------------------------------------
+<span class="fc" id="L18">  public Individu getContenu(){return contenu;}</span>
+<span class="nc" id="L19">  public void setContenu(Individu c){contenu = c;}</span>
+<span class="fc" id="L20">  public CIndividu getSuivant(){return suivant;}</span>
+<span class="fc" id="L21">  public void setSuivant(CIndividu ce){ suivant =ce; }</span>
+  public Individu getIndividuParType(byte type){
+<span class="fc bfc" id="L23" title="All 2 branches covered.">    if (this.getContenu().getType() == type){ return this.getContenu();}</span>
+<span class="pc bpc" id="L24" title="1 of 2 branches missed.">    if (this.getSuivant() == null){ return null;}</span>
+<span class="fc" id="L25">    return suivant.getIndividuParType(type);</span>
+  }
+  // Fonctions propre -----------------------------------------------------------
+  public String toString(){
+<span class="fc" id="L29">    String s = contenu.toString();</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">    if(suivant==null){return s;}</span>
+<span class="fc" id="L31">    return s +&quot;\n&quot;+ suivant.toString();</span>
+  }
+  public int length(){
+<span class="nc bnc" id="L34" title="All 2 branches missed.">    if (suivant == null){ return 1;}</span>
+<span class="nc" id="L35">    return 1+suivant.length();</span>
+  }
+
+  public int [] getTypeDIndividu(){
+<span class="nc" id="L39">    int lentr = this.length();</span>
+<span class="nc" id="L40">    int [] tr = new int [lentr];</span>
+<span class="nc" id="L41">    CIndividu ci = this;int k=0;</span>
+<span class="nc bnc" id="L42" title="All 4 branches missed.">    while(ci != null &amp;&amp; k&lt;lentr){</span>
+<span class="nc" id="L43">      tr[k]=ci.getContenu().getType();k++;</span>
+<span class="nc" id="L44">      ci = ci.getSuivant();</span>
+    }
+<span class="nc" id="L46">    return tr;</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

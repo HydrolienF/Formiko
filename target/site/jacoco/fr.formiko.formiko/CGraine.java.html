@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CGraine.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.formiko</a> &gt; <span class="el_source">CGraine.java</span></div><h1>CGraine.java</h1><pre class="source lang-java linenums">package fr.formiko.formiko;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.listes.List;
+
+import java.io.Serializable;
+
+public class CGraine implements Serializable{
+  protected CGraine suivant;
+  protected Graine contenu;
+  // CONSTRUCTEUR ---------------------------------------------------------------
+<span class="fc" id="L15">  public CGraine(Graine i){contenu=i;}</span>
+  // GET SET --------------------------------------------------------------------
+<span class="fc" id="L17">  public CGraine getSuivant(){return suivant;}</span>
+<span class="fc" id="L18">  public void setSuivant(CGraine ci){suivant = ci;}</span>
+<span class="fc" id="L19">  public Graine getContenu(){return contenu;}</span>
+  // Fonctions propre -----------------------------------------------------------
+  public String toString(){
+<span class="nc bnc" id="L22" title="All 2 branches missed.">    if (suivant == null){</span>
+<span class="nc" id="L23">      return &quot;, G&quot;+contenu.getId();</span>
+    }else{
+<span class="nc" id="L25">    return &quot;, G&quot;+contenu.getId() + suivant.toString();}</span>
+  }
+  public int length(){
+<span class="fc bfc" id="L28" title="All 2 branches covered.">    if(suivant == null){</span>
+<span class="fc" id="L29">      return 1;</span>
+    }else{
+<span class="fc" id="L31">      return 1+suivant.length();</span>
+    }
+  }
+  public Graine getGrainePlusDeNourritureFournieSansDureté(Graine gMax){ // si la graine est cassable et que sont contenue est meilleur.
+<span class="pc bpc" id="L35" title="1 of 4 branches missed.">    if(gMax.getNourritureFournie() &lt; this.getContenu().getNourritureFournie() &amp;&amp; !this.getContenu().getOuverte()){</span>
+<span class="fc" id="L36">      gMax = this.getContenu();</span>
+    }
+<span class="fc bfc" id="L38" title="All 2 branches covered.">    if(suivant == null){</span>
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">      if (!gMax.getOuverte()){ return gMax;}</span>
+<span class="nc" id="L40">      return null;</span>
+    }
+<span class="fc" id="L42">    return suivant.getGrainePlusDeNourritureFournieSansDureté(gMax);</span>
+  }
+  public Graine getGrainePlusDeNourritureFournie(Graine gMax,byte duretéMax){
+    // si la graine est cassable et que sont contenu est meilleur.
+<span class="nc bnc" id="L46" title="All 6 branches missed.">    if(contenu.getDureté() &lt; duretéMax &amp;&amp; gMax.getNourritureFournie() &lt; this.getContenu().getNourritureFournie() &amp;&amp; !this.getContenu().getOuverte()){</span>
+<span class="nc" id="L47">      gMax = this.getContenu();</span>
+<span class="nc" id="L48">      debug.débogage(&quot;changement de gMax pour :&quot;);</span>
+    }
+<span class="nc bnc" id="L50" title="All 2 branches missed.">    if(suivant == null){</span>
+<span class="nc bnc" id="L51" title="All 4 branches missed.">      if (!gMax.getOuverte() &amp;&amp; gMax.getDureté() &lt; duretéMax){ return gMax;}</span>
+<span class="nc" id="L52">      return null;</span>
+    }
+<span class="nc" id="L54">    return suivant.getGrainePlusDeNourritureFournie(gMax, duretéMax);</span>
+  }
+  public Graine getGraineOuverte(){
+<span class="nc bnc" id="L57" title="All 2 branches missed.">    if(this.getSuivant()==null){ return null;}</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">    if(this.getSuivant().getContenu().getOuverte()){ return suivant.getContenu();}</span>
+<span class="nc" id="L59">    return suivant.getGraineOuverte();</span>
+  }
+
+
+  public Graine getGraineParId(int id){
+<span class="nc bnc" id="L64" title="All 2 branches missed.">    if (contenu.getId() == id){</span>
+<span class="nc" id="L65">      return contenu;</span>
+    }
+<span class="nc bnc" id="L67" title="All 2 branches missed.">    if (suivant == null){</span>
+<span class="nc" id="L68">      erreur.alerte(&quot;La Graine &quot; + id + &quot; n'as pas été trouvé dans la liste de Graine encore vivant.&quot;);</span>
+<span class="nc" id="L69">      return null;</span>
+    }
+<span class="nc" id="L71">    return suivant.getGraineParId(id);</span>
+  }
+  public void retirerGraine(int i){
+<span class="nc bnc" id="L74" title="All 2 branches missed.">    if (suivant == null){</span>
+<span class="nc" id="L75">      erreur.alerte(&quot;La Graine &quot;+ i +&quot; n'as pas été trouvé et n'as donc pas pu être retirer&quot;);</span>
+    }else {
+<span class="nc" id="L77">      debug.débogage(&quot;Test dans CGraine&quot;);</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">      if(suivant.getContenu().getId()==i){</span>
+<span class="nc" id="L79">        suivant = suivant.getSuivant(); // on saute un maillons.</span>
+      }else {
+<span class="nc" id="L81">        debug.débogage(&quot;Graine non trouvée &quot;+i+&quot; != &quot;+suivant.getContenu().getId());</span>
+<span class="nc" id="L82">        suivant.retirerGraine(i);</span>
+      }
+    }
+<span class="nc" id="L85">  }</span>
+  public void retirerGraine(Graine i){
+<span class="nc" id="L87">    debug.débogage(&quot;on a fait début.retirerGraine(i);&quot;);</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">    if (suivant == null){</span>
+<span class="nc" id="L89">      erreur.alerte(&quot;La Graine &quot;+ i.getId() +&quot; n'as pas été trouvé et n'as donc pas pu être retirer&quot;);</span>
+    }else {
+<span class="nc bnc" id="L91" title="All 2 branches missed.">      if(suivant.getContenu().equals(i)){</span>
+<span class="nc" id="L92">        suivant = suivant.getSuivant(); // on saute un maillons.</span>
+      }else {
+<span class="nc" id="L94">        suivant.retirerGraine(i);</span>
+      }
+    }
+<span class="nc" id="L97">  }</span>
+  public GGraine copierGGraine(){
+<span class="fc" id="L99">    GGraine ggr = new GGraine();</span>
+<span class="fc" id="L100">    CGraine temp = this;</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">    while(temp != null){</span>
+<span class="fc" id="L102">      ggr.addGraine(temp.getContenu());</span>
+<span class="fc" id="L103">      temp = temp.getSuivant();</span>
+    }
+<span class="fc" id="L105">    return ggr;</span>
+  }
+  public void tour(){
+<span class="nc" id="L108">    CGraine temp = this;</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">    while(temp != null){</span>
+<span class="nc" id="L110">      temp.getContenu().tour();</span>
+<span class="nc" id="L111">      temp = temp.getSuivant();</span>
+    }
+<span class="nc" id="L113">  }</span>
+  /**
+  *{@summary Transform a GGraine in List&amp;lt;Graine&amp;gt;.}
+  *@version 1.38
+  */
+  public List&lt;Graine&gt; toList(){
+<span class="nc" id="L119">    CGraine cc = this;</span>
+<span class="nc" id="L120">    List&lt;Graine&gt; lc = new List&lt;Graine&gt;();</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">    while(cc!= null){</span>
+<span class="nc" id="L122">      lc.add(cc.getContenu());</span>
+<span class="nc" id="L123">      cc = cc.getSuivant();</span>
+    }
+<span class="nc" id="L125">    return lc;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EmptyListException.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.usuel.exceptions</a> &gt; <span class="el_source">EmptyListException.java</span></div><h1>EmptyListException.java</h1><pre class="source lang-java linenums">package fr.formiko.usuel.exceptions;
+
+import fr.formiko.usuel.g;
+/**
+*{@summary exceptions class for an unexpected empty list.}&lt;br&gt;
+*@author Hydrolien
+*@version 1.39
+*/
+public class EmptyListException extends RuntimeException{
+  /**
+  *{@summary Constructs a new runtime exception with a detail message.}&lt;br&gt;
+  *@param list Name of the list that is empty.
+  *@param action Action that the program were doing.
+  *@version 1.39
+  */
+  public EmptyListException(String list, String action){
+<span class="fc" id="L17">    super(g.get(&quot;erreur&quot;,13,&quot;La liste&quot;)+&quot; &quot;+list+&quot; &quot;+g.get(&quot;erreur&quot;,14,&quot;est vide&quot;)+&quot; &quot;+g.get(&quot;EmptyListException&quot;,1,&quot;impossible de&quot;)+&quot; &quot;+action);</span>
+    //erreur.erreur(g.get(&quot;erreur&quot;,13,&quot;La liste&quot;)+liste+&quot; &quot;+g.get(&quot;erreur&quot;,14,&quot;est vide&quot;)+&quot; &quot;+g.get(&quot;EmptyListException&quot;,1,&quot;impossible de&quot;)+&quot; &quot;+action,&quot;EmptyListException&quot;,b);
+<span class="fc" id="L19">  }</span>
+  /***
+  *{@summary Constructs a new runtime exception with a detail message.}&lt;br&gt;
+  *List name is unknow.
+  *@param action Action that the program were doing.
+  *@version 1.39
+  */
+<span class="nc" id="L26">  public EmptyListException(String action){ this(&quot;unknow list&quot;,action);}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

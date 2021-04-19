@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DeplacementFourmi.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.formiko.interfaces</a> &gt; <span class="el_source">DeplacementFourmi.java</span></div><h1>DeplacementFourmi.java</h1><pre class="source lang-java linenums">package fr.formiko.formiko.interfaces;
+
+import fr.formiko.formiko.*;
+import fr.formiko.views.gui2d.PanneauTInt;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.maths.allea;
+
+import java.io.Serializable;
+
+/**
+ * {@summary Ant implementation.}&lt;br&gt;
+ * Allow an ant to moove&lt;br&gt;
+ * @author Hydrolien
+ * @version 1.1
+ */
+<span class="fc" id="L18">public class DeplacementFourmi implements Serializable, Deplacement{</span>
+  private Creature c;
+  /**
+   *{@summary make a moove.}&lt;br&gt;
+   *@param c the moving Creature.
+   *@param bIa Is c moved by an AI or a player.
+   *@version 1.3
+   */
+  public void unMouvement(Creature c, boolean bIa){
+<span class="fc" id="L27">    debug.débogage(&quot;Le déplacement de la Creature &quot;+c.getId()+&quot; vien de DeplacementDUneFourmi&quot;);</span>
+<span class="fc" id="L28">    this.c = c;</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">    if (bIa) {</span>
+<span class="fc" id="L30">      unMouvementAlléa();</span>
+    } else { // SI c'est un joueur
+<span class="nc" id="L32">      CCase cc = Main.getView().getCCase();</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">      if(cc==null){return;}</span>
+<span class="nc" id="L34">      plusieurMouvement(c,cc);</span>
+    }
+<span class="fc" id="L36">  }</span>
+  /**
+   *{@summary make a move to a defined Case.}&lt;br&gt;
+   *c will move 1 Case closer to p but maybe p is more than 1 Case longer to c.getCCase()&lt;br&gt;
+   *c will move by the unMouvement(c,direction) methode.
+   *@param c the moving Creature.
+   *@param p the CCase were c want to go.
+   *@version 1.3
+   */
+  public void unMouvement(Creature c, CCase p){
+<span class="fc" id="L46">    debug.débogage(&quot;Le déplacement de la Creature &quot;+c.getId()+&quot; vien de DeplacementDUneFourmi avec CCase&quot;);</span>
+<span class="fc" id="L47">    this.c = c;</span>
+<span class="fc" id="L48">    int direction = getDirection(c.getCCase().getContenu(),p.getContenu());</span>
+<span class="fc" id="L49">    unMouvementVolontaire(direction);</span>
+<span class="fc" id="L50">  }</span>
+  /**
+   *{@summary make a moove in a defined direction.}&lt;br&gt;
+   *c will move 1 Case closer to p but maybe p is more than 1 Case longer to c.getCCase()
+   *@param c the moving Creature.
+   *@param direction the direction to move. (It's a number place as on the keyboard 1= North West, 2 = North, etc)
+   *@version 1.3
+   */
+  public void unMouvement(Creature c, int direction){
+<span class="fc" id="L59">    debug.débogage(&quot;Le déplacement de la Creature &quot;+c.getId()+&quot; vien de DeplacementDUneFourmi avec direction&quot;);</span>
+<span class="fc" id="L60">    this.c = c;</span>
+<span class="fc" id="L61">    unMouvementVolontaire(direction);</span>
+<span class="fc" id="L62">  }</span>
+  /**
+   *{@summary make as much moove as we can/need to a defined Case.}&lt;br&gt;
+   *c will stop moving when it will have reach cc or when it actions will be &amp;#60; 0
+   *c will move by the unMouvement(c,cc) methode.
+   *@param c the moving Creature.
+   *@param cc the CCase were c want to go.
+   *@version 1.3
+   */
+  public void plusieurMouvement(Creature c, CCase cc){
+<span class="nc" id="L72">    CCase ccAct = c.getCCase();</span>
+<span class="nc bnc" id="L73" title="All 4 branches missed.">    while(!ccAct.equals(cc) &amp;&amp; c.getAction()&gt;0){//tant qu'on est pas arrivé a la case et qu'on a encore des actions.</span>
+<span class="nc" id="L74">      unMouvement(c,cc);</span>
+<span class="nc" id="L75">      ccAct=c.getCCase();</span>
+    }
+<span class="nc" id="L77">  }</span>
+
+
+
+  // COMMENT SONT EXECUTE LES MOUVEMENTS :
+  /**
+   *{@summary getDirection to use to move to c.}&lt;br&gt;
+   *@param a Actual Case.
+   *@param c Target Case.
+   *@return the direction to go to c (from a).
+   *@version 1.3
+   */
+  private int getDirection(Case a, Case c){ // a case actuel / c case cible
+<span class="pc bpc" id="L90" title="1 of 2 branches missed.">    if (a.getX()&gt;c.getX()){ // 1,4,7</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">      if (a.getY()&gt;c.getY()){return 1;}</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">      if (a.getY()==c.getY()){return 4;}</span>
+<span class="nc" id="L93">      return 7;</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">    }else if(a.getX()&lt;c.getX()){//3,6,9</span>
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">      if (a.getY()&gt;c.getY()){return 3;}</span>
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">      if (a.getY()==c.getY()){return 6;}</span>
+<span class="nc" id="L97">      return 9;</span>
+    }else{//2,5,8
+<span class="fc bfc" id="L99" title="All 2 branches covered.">      if (a.getY()&gt;c.getY()){return 2;}</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">      if (a.getY()==c.getY()){return 5;}</span>
+<span class="fc" id="L101">      return 8;</span>
+    }
+  }
+  /**
+   *{@summary make a random moove.}&lt;br&gt;
+   *@version 1.3
+   */
+  private void unMouvementAlléa(){
+    // cette fonction permet au ia de bouger de manière alléatoire
+    int direction; //On a 8 directions pour ce déplacer car le 5 ne nous fait pas bougé.
+    boolean b;
+    do {
+      do {
+<span class="fc" id="L114">        direction = allea.getAlléa(8)+1;</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">      } while (direction==5);</span>
+<span class="fc" id="L116">      b = unPas(direction);</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">    } while (!b);</span>
+<span class="fc" id="L118">    setActionMoinsDéplacement();</span>
+<span class="fc" id="L119">  }</span>
+  /**
+  *{@summary make a willing moove.}&lt;br&gt;
+  *@param direction the direction to move. (It's a number place as on the keyboard 1= North West, 2 = North, etc)
+  *@version 1.3
+  */
+  private void unMouvementVolontaire(int direction){
+<span class="pc bpc" id="L126" title="1 of 2 branches missed.">    if (unPas(direction)){ // si on a bien bougé</span>
+<span class="fc" id="L127">      debug.débogage(&quot;La Fourmie &quot; + c.getId() +&quot; a fait un mouvement volontaire dans la direction &quot;+ direction);</span>
+    } else { // Sinon
+      //erreur.alerte(&quot;La Fourmie &quot; + id +&quot; n'as pas réussi a faire un unMouvementVolontaire vers&quot; + p.getPoint(),&quot;Fourmi.unMouvementVolontaire&quot;);
+<span class="nc" id="L130">      unMouvementAlléa();</span>
+    }
+<span class="fc" id="L132">    setActionMoinsDéplacement();</span>
+<span class="pc bpc" id="L133" title="1 of 2 branches missed.">    if(!(c instanceof Fourmi)){ return;}</span>
+<span class="pc bpc" id="L134" title="2 of 6 branches missed.">    if (!((Fourmi)(c)).getJoueur().getIa() &amp;&amp; (Main.getCarte().getCasesNuageuses() || Main.getCarte().getCasesSombres())){((Fourmi)(c)).getJoueur().actualiserCaseSN();}</span>
+<span class="fc" id="L135">  }</span>
+  /**
+   *{@summary remove some action to the moving Creature}&lt;br&gt;
+   *It will remove 10 action to a non-ant Creature or the individu cost to an ant.
+   *@version 1.3
+   */
+  private void setActionMoinsDéplacement(){
+<span class="fc bfc" id="L142" title="All 2 branches covered.">    if(!(c instanceof Fourmi)){ c.setActionMoins(10); return;}</span>
+<span class="fc" id="L143">    c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuParType(((Fourmi) c).getTypeF()).getCoutDéplacement());</span>
+<span class="fc" id="L144">  }</span>
+  /**
+   *{@summary Move to a next Case.}&lt;br&gt;
+   *@version 1.3
+   */
+  private boolean unPas(int d){
+<span class="fc" id="L150">    c.setDirection(d);</span>
+<span class="pc bpc" id="L151" title="1 of 2 branches missed.">    if(d==5){ return true;}</span>
+<span class="fc bfc" id="L152" title="All 2 branches covered.">    if(d==2){ return unPas(c.getCCase().getHaut());}</span>
+<span class="fc bfc" id="L153" title="All 2 branches covered.">    if(d==6){ return unPas(c.getCCase().getDroite());}</span>
+<span class="fc bfc" id="L154" title="All 2 branches covered.">    if(d==8){ return unPas(c.getCCase().getBas());}</span>
+<span class="fc bfc" id="L155" title="All 2 branches covered.">    if(d==4){ return unPas(c.getCCase().getGauche());}</span>
+    // les plus compliqué :
+<span class="fc bfc" id="L157" title="All 2 branches covered.">    if (d==1){ CCase cc = c.getCCase().getHaut();</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">      if(cc != null){ return unPas(cc.getGauche());} return false;</span>
+    }
+<span class="fc bfc" id="L160" title="All 2 branches covered.">    if (d==3){ CCase cc = c.getCCase().getHaut();</span>
+<span class="pc bpc" id="L161" title="1 of 2 branches missed.">      if(cc != null){ return unPas(cc.getDroite());} return false;</span>
+    }
+<span class="fc bfc" id="L163" title="All 2 branches covered.">    if (d==7){ CCase cc = c.getCCase().getBas();</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">      if(cc != null){ return unPas(cc.getGauche());} return false;</span>
+    }
+<span class="pc bpc" id="L166" title="1 of 2 branches missed.">    if (d==9){ CCase cc = c.getCCase().getBas();</span>
+<span class="pc bpc" id="L167" title="1 of 2 branches missed.">      if(cc != null){ return unPas(cc.getDroite());} return false;</span>
+    }
+<span class="nc" id="L169">    return false; // le nombre n'était pas correcte</span>
+  }
+  /**
+   *{@summary Move to a next Case.}&lt;br&gt;
+   *All moving thing use this methode to move.
+   *@version 1.3
+   */
+  private boolean unPas(CCase p){
+<span class="fc bfc" id="L177" title="All 2 branches covered.">    if (p==null){ return false;}</span>
+<span class="fc" id="L178">    c.setCCase(p);</span>
+<span class="fc" id="L179">    return true;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

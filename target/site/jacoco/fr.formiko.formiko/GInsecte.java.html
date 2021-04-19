@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GInsecte.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.formiko</a> &gt; <span class="el_source">GInsecte.java</span></div><h1>GInsecte.java</h1><pre class="source lang-java linenums">package fr.formiko.formiko;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.tableau;
+
+import java.io.Serializable;
+
+public class GInsecte implements Serializable{
+  protected CInsecte début;
+  // CONSTRUCTEUR -----------------------------------------------------------------
+<span class="fc" id="L15">  public GInsecte(){}</span>
+  public GInsecte(int x){
+<span class="nc" id="L17">    this();</span>
+<span class="nc bnc" id="L18" title="All 2 branches missed.">    if (x&lt;1){ return; }</span>
+<span class="nc" id="L19">    début = new CInsecte(new Insecte());</span>
+<span class="nc bnc" id="L20" title="All 2 branches missed.">    for (int i=0;i&lt;x-1 ;i++ ) {</span>
+<span class="nc" id="L21">      this.addInsecte(new Insecte());</span>
+    }
+<span class="nc" id="L23">    debug.débogage(&quot;fin de création des x insectes&quot;);</span>
+<span class="nc" id="L24">  }</span>
+  // GET SET -----------------------------------------------------------------------
+<span class="fc" id="L26">  public CInsecte getDébut(){return début;}</span>
+  public CInsecte getFin(){
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">    if (début == null ){ return null;}</span>
+<span class="fc" id="L29">    CInsecte fin = début;</span>
+<span class="pc bpc" id="L30" title="1 of 2 branches missed.">    while (fin.getSuivant() != null){</span>
+<span class="nc" id="L31">      fin = fin.getSuivant();</span>
+    }
+<span class="fc" id="L33">    return fin;</span>
+  }
+  // Fonctions propre -----------------------------------------------------------
+  public String toString(){
+<span class="fc" id="L37">    String s = g.get(&quot;gj&quot;)+&quot; : &quot;;</span>
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">    if (début == null){ return s+g.get(&quot;vide&quot;);}</span>
+<span class="nc" id="L39">    return s+début.toString();</span>
+  }
+  public int length(){
+<span class="nc bnc" id="L42" title="All 2 branches missed.">    if(début==null){</span>
+<span class="nc" id="L43">      return 0;</span>
+    }else {
+<span class="nc" id="L45">      return début.length();</span>
+    }
+  }
+  public Insecte getInsectePlusDeNourritureFournie(){
+<span class="fc" id="L49">    debug.débogage(&quot;Choix de l'insecte qui peut fournir le plus de nourriture&quot;);</span>
+<span class="fc" id="L50">    CInsecte ci = this.getDébut();</span>
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">    if (ci == null){ return null;} // si la liste est vide.</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">    if (ci.getSuivant() == null){ return ci.getInsecte();} // si il y a 1 seul éléments.</span>
+<span class="nc" id="L53">    return ci.getInsectePlusDeNourritureFournie(ci.getInsecte());</span>
+  }
+  public void addInsecte(){
+<span class="nc" id="L56">    addInsecte(1);</span>
+<span class="nc" id="L57">  }</span>
+  public void addInsecte(int x){
+<span class="nc bnc" id="L59" title="All 2 branches missed.">    if (x&lt;1){ return ;}</span>
+<span class="nc" id="L60">    CInsecte ci = new CInsecte();</span>
+<span class="nc" id="L61">    ci.setSuivant(début);</span>
+<span class="nc" id="L62">    début = ci;</span>
+<span class="nc" id="L63">    debug.débogage((x-1) + &quot; Insectes reste a add&quot;);</span>
+<span class="nc" id="L64">    addInsecte(x-1);</span>
+<span class="nc" id="L65">  }</span>
+  public void addInsecteM(int x){
+<span class="nc bnc" id="L67" title="All 2 branches missed.">    if (x&lt;1){ return ;}</span>
+<span class="nc" id="L68">    CInsecte ci = new CInsecte();</span>
+<span class="nc" id="L69">    ci.getInsecte().setEstMort(true);</span>
+<span class="nc" id="L70">    ci.setSuivant(début);</span>
+<span class="nc" id="L71">    début = ci;</span>
+<span class="nc" id="L72">    debug.débogage((x-1) + &quot; Insectes reste a add&quot;);</span>
+<span class="nc" id="L73">    addInsecte(x-1);</span>
+<span class="nc" id="L74">  }</span>
+  public void add(Insecte i){
+<span class="fc" id="L76">    addInsecte(i);</span>
+<span class="fc" id="L77">  }</span>
+  public void addInsecte(Insecte i){
+<span class="pc bpc" id="L79" title="1 of 2 branches missed.">    if (i != null){</span>
+<span class="fc" id="L80">      CInsecte ci = new CInsecte(i);</span>
+<span class="fc" id="L81">      ci.setSuivant(début);</span>
+<span class="fc" id="L82">      début = ci;</span>
+    }
+<span class="fc" id="L84">  }</span>
+  public void addGi(GInsecte giTemp){
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">    if (this.début == null){</span>
+<span class="nc" id="L87">      this.début = giTemp.getDébut();</span>
+    }else{
+<span class="fc" id="L89">      this.getFin().setSuivant(giTemp.getDébut()); // On raccroche les 2 bouts.</span>
+    }
+<span class="fc" id="L91">  }</span>
+  public void tourInsecte(){
+<span class="nc bnc" id="L93" title="All 2 branches missed.">    if (début != null){</span>
+<span class="nc" id="L94">      début.tourInsecte();</span>
+    }
+<span class="nc" id="L96">  }</span>
+  public void preTour(){
+<span class="nc bnc" id="L98" title="All 2 branches missed.">    if (début != null){</span>
+<span class="nc" id="L99">      début.preTour();</span>
+    }
+<span class="nc" id="L101">  }</span>
+  public GInsecte getInsecteSurLaCase(Point pTest){
+<span class="nc" id="L103">    GInsecte gir = new GInsecte();</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">    if (début == null){ return null;}</span>
+<span class="nc" id="L105">    CInsecte ciTest = début;</span>
+<span class="nc bnc" id="L106" title="All 2 branches missed.">    while (ciTest.getSuivant() != null){</span>
+<span class="nc" id="L107">      gir.addInsecte(ciTest.getInsecteSurLaCase(pTest));</span>
+<span class="nc" id="L108">      ciTest = ciTest.getSuivant();</span>
+    }
+<span class="nc" id="L110">    return gir;</span>
+  }
+  public GInsecte getInsecteSurLaCase(Point p1, Point p2){
+<span class="nc" id="L113">    GInsecte gir = new GInsecte();</span>
+    // Fonction qui renvoie tout les insectes dans le réctangle contenant les points p1 et p2.
+<span class="nc" id="L115">    int longueur = 1 + math.valAbs(p1.getX() - p2.getX());</span>
+<span class="nc" id="L116">    int largeur = 1 + math.valAbs(p1.getY() - p2.getY());</span>
+<span class="nc" id="L117">    debug.débogage(&quot;Le rectangle contient &quot; + longueur*largeur + &quot; Points.&quot;);</span>
+<span class="nc" id="L118">    Point tp [] = new Point [longueur*largeur];</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">    for (int i=0;i&lt;longueur ;i++ ) {</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">      for (int j=0;j&lt;largeur ;j++ ) {</span>
+<span class="nc" id="L121">        tp[i*largeur + j] = new Point (p1.getX() + i,p1.getY() + j);</span>
+      }
+    }// là on a la liste de tt les points a testé.
+<span class="nc" id="L124">    int lentp = tp.length;</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">    for (int i=0;i&lt;lentp ;i++ ) {</span>
+<span class="nc" id="L126">      gir.addGi(getInsecteSurLaCase(tp[i])); // on ajoute case par case les insectes des cases.</span>
+    }
+<span class="nc" id="L128">    return gir;</span>
+  }
+  public String [] getInsecteSurLaCaseStr(Point pTest){
+<span class="nc" id="L131">    GInsecte gi = getInsecteSurLaCase(pTest);</span>
+<span class="nc" id="L132">    return gi.gInsecteToString();</span>
+  }
+  public String [] gInsecteToString(){
+<span class="nc" id="L135">    String [] tr = new String [0];</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">    if(début == null){ return tr;}</span>
+<span class="nc" id="L137">    CInsecte ci = début;</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">    while (ci != null){</span>
+<span class="nc" id="L139">      tr = tableau.addX (tr, &quot;I&quot; + ci.getContenu().getId());</span>
+<span class="nc" id="L140">      ci = ci.getSuivant();</span>
+    }
+<span class="nc" id="L142">    return tr;</span>
+  }
+  // Tuer un insecte :
+  public void retirerInsecte(Insecte i){
+<span class="pc bpc" id="L146" title="1 of 2 branches missed.">    if (i == null){</span>
+<span class="nc" id="L147">      erreur.alerte(&quot;Impossiblede retirer null d'un groupe d'insecte&quot;);</span>
+    }
+<span class="pc bpc" id="L149" title="1 of 2 branches missed.">    if (début == null){</span>
+<span class="fc" id="L150">      erreur.alerte(&quot;Impossible de retirer un insecte d'un groupe vide.&quot;);</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">    }else if (début.getInsecte().equals(i)){ // Si c'est le 1a</span>
+<span class="nc" id="L152">      début = début.getSuivant(); // On en retir 1.</span>
+<span class="nc bnc" id="L153" title="All 4 branches missed.">    } else if(début.getSuivant() != null &amp;&amp; début.getSuivant().getInsecte().equals(i)){ // Si c'est le 2a</span>
+<span class="nc" id="L154">      début.setSuivant(début.getSuivant().getSuivant());</span>
+    }else {
+<span class="nc" id="L156">      début.retirerInsecte(i);</span>
+    }
+<span class="fc" id="L158">  }</span>
+<span class="fc" id="L159">  public void retirer(Insecte i){ retirerInsecte(i);}</span>
+  public void retirer(Creature i){
+<span class="nc bnc" id="L161" title="All 2 branches missed.">    if(i instanceof Insecte){retirerInsecte((Insecte)i);}</span>
+<span class="nc" id="L162">    else{erreur.erreur(&quot;Impossible de retirer la créature &quot;+i.getId()+&quot; car ne n'est pas un insecte.&quot;);}</span>
+<span class="nc" id="L163">  }</span>
+  public GInsecte getGiVivant(){
+<span class="nc bnc" id="L165" title="All 2 branches missed.">    if (début == null){ erreur.erreurGXVide();return new GInsecte();}</span>
+<span class="nc" id="L166">    return début.getGiVivant();</span>
+  }
+  public GCreature toGCreature(){
+<span class="nc bnc" id="L169" title="All 2 branches missed.">    if(début==null){return new GCreature();}</span>
+<span class="nc" id="L170">    return début.toGCreature();</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

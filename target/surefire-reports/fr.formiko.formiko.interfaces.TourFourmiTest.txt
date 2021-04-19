@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: fr.formiko.formiko.interfaces.TourFourmiTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.074 s - in fr.formiko.formiko.interfaces.TourFourmiTest

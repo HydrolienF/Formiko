@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Partie.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Formiko</a> &gt; <a href="index.source.html" class="el_package">fr.formiko.formiko</a> &gt; <span class="el_source">Partie.java</span></div><h1>Partie.java</h1><pre class="source lang-java linenums">package fr.formiko.formiko;
+
+import fr.formiko.formiko.Main;
+import fr.formiko.formiko.Message;
+import fr.formiko.usuel.Temps;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.images.*;
+import fr.formiko.usuel.sauvegarderUnePartie;
+import fr.formiko.usuel.tableau;
+import fr.formiko.usuel.types.str;
+import fr.formiko.views.gui2d.EtiquetteJoueur;
+import fr.formiko.views.gui2d.GEtiquetteJoueur;
+
+import java.awt.Image;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
+/**
+*{@summary All informations about a Game in the Game Formiko.}&lt;br&gt;
+*There is no word for &quot;a game in the Game Formiko&quot; in english so I use the french word Partie.&lt;br&gt;
+*All map value are in Carte var.&lt;br&gt;
+*@author Hydrolien
+*@version 1.39
+*/
+public class Partie implements Serializable{
+  private static final long serialVersionUID = 1L;
+  private GInsecte gi;
+  private GJoueur gj;
+  private static GEspece ge;
+  private Carte mapo;
+  private int nbrDeTour, tour;
+<span class="fc" id="L35">  private int niveauDeLimitationDesinsectes = 4;</span>
+<span class="fc" id="L36">  private byte difficulté = 0; // 0 moyen. -1 facile, -2 très facile, 1 difficle, 2 très difficle, 3 ultra difficle.</span>
+  private LocalDateTime dateDeCréation;
+  private boolean partieFinie;
+  private int tableauDesEspecesAutorisée []; // les 0 et les 3 marche.
+  private int nbrDeJoueurDansLaPartie;
+  private boolean enCours;
+  private int [] elément;
+  private GEtiquetteJoueur gej;
+<span class="fc" id="L44">  private double vitesseDeJeu=1;</span>
+  private boolean continerLeJeu;
+  private boolean appartionInsecte;
+  private boolean appartionGraine;
+<span class="fc" id="L48">  private boolean dejaIni=false;</span>
+  private Fourmi playingAnt;
+
+  // CONSTRUCTEUR ---------------------------------------------------------------
+  // nombre de joueur, nombre d'ia, abondance des insectes, niveau de difficulté des ia, les especes autorisé, le nombre de tour.
+<span class="fc" id="L53">  public Partie(int difficulté, int nbrDeTour, Carte mapo, double vitesseDeJeu){</span>
+<span class="fc" id="L54">    tour=0; partieFinie=false; enCours=false;</span>
+<span class="fc" id="L55">    dateDeCréation = LocalDateTime.now();</span>
+<span class="fc" id="L56">    this.mapo=mapo;</span>
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">    if (nbrDeTour==-1){ nbrDeTour = 2147483647;}</span>
+<span class="fc" id="L58">    this.nbrDeTour=nbrDeTour;</span>
+<span class="fc" id="L59">    this.difficulté = str.iToBy(difficulté);</span>
+<span class="fc" id="L60">    this.vitesseDeJeu=vitesseDeJeu;</span>
+<span class="fc" id="L61">    tableauDesEspecesAutorisée = new int [1];//[2];</span>
+<span class="fc" id="L62">    tableauDesEspecesAutorisée[0]=0;</span>
+    //tableauDesEspecesAutorisée[1]=3;
+    //a ce stade, il manque encore gi et gj. On les initialise null partie précaution.
+<span class="fc" id="L65">    gj = new GJoueur();</span>
+<span class="fc" id="L66">    gi = new GInsecte();</span>
+<span class="fc" id="L67">    appartionInsecte=true;</span>
+<span class="fc" id="L68">    appartionGraine=true;</span>
+<span class="fc" id="L69">  }</span>
+  /**
+  *{@summary Constructor with only minimal initialization.}&lt;br&gt;
+  *@version 1.2
+  */
+  public Partie(){
+<span class="fc" id="L75">    this(0,0,new Carte(new GCase(1,1)),1.0);//initialisation &quot;null&quot;</span>
+<span class="fc" id="L76">    gj = new GJoueur();</span>
+<span class="fc" id="L77">    gi = new GInsecte();</span>
+<span class="fc" id="L78">  }</span>
+  // GET SET --------------------------------------------------------------------
+<span class="fc" id="L80">  public GInsecte getGi(){ return gi;}</span>
+<span class="nc" id="L81">  public void setGi(GInsecte g){gi=g;}</span>
+<span class="fc" id="L82">  public GJoueur getGj(){ return gj;}</span>
+<span class="fc" id="L83">  public void setGj(GJoueur g){gj=g;}</span>
+<span class="fc" id="L84">  public GCase getGc(){return mapo.getGc();}</span>
+<span class="fc" id="L85">  public static GEspece getGe(){return ge;}</span>
+<span class="fc" id="L86">  public int getTour(){ return tour;}</span>
+<span class="nc" id="L87">  public void setTour(int x){ tour=x;}</span>
+<span class="nc" id="L88">  public int getNbrDeTour(){ return nbrDeTour;}</span>
+<span class="nc" id="L89">  public void setNbrDeTour(int x){ nbrDeTour=x;}</span>
+<span class="fc" id="L90">  public byte getDifficulté(){return difficulté;}</span>
+<span class="fc" id="L91">  public void setDifficulté(byte x){difficulté = x;}</span>
+<span class="nc" id="L92">  public LocalDateTime getDateDeCréation(){ return dateDeCréation;}</span>
+<span class="fc" id="L93">  public int [] getTableauDesEspecesAutorisée(){return tableauDesEspecesAutorisée;}</span>
+<span class="nc" id="L94">  public int getNbrDeJoueurDansLaPartie(){ return nbrDeJoueurDansLaPartie;}</span>
+<span class="fc" id="L95">  public Carte getCarte(){ return mapo;}</span>
+<span class="nc" id="L96">  public boolean getEnCours(){ return enCours;}</span>
+<span class="nc" id="L97">  public void setEnCours(boolean b){enCours=b;}</span>
+<span class="fc" id="L98">  public void setElément(int a, int b, int c){ elément=new int [3]; elément[0]=a;elément[1]=b;elément[2]=c;}</span>
+<span class="nc" id="L99">  public void setGej(GEtiquetteJoueur gej){this.gej=gej;}</span>
+<span class="fc" id="L100">  public double getVitesseDeJeu(){ return vitesseDeJeu;}</span>
+<span class="fc" id="L101">  public void setVitesseDeJeu(double v){vitesseDeJeu=v;}</span>
+<span class="nc" id="L102">  public boolean getPartieFinie(){return partieFinie;}</span>
+<span class="nc" id="L103">  public void setPartieFinie(boolean b){partieFinie=b;}</span>
+<span class="nc" id="L104">  public boolean getContinuerLeJeu(){ return continerLeJeu;}</span>
+<span class="nc" id="L105">  public void setContinuerLeJeu(boolean b){continerLeJeu=b;}</span>
+<span class="nc" id="L106">  public boolean getAppartionInsecte(){return appartionInsecte;}</span>
+<span class="fc" id="L107">  public void setAppartionInsecte(boolean b){appartionInsecte=b;}</span>
+<span class="nc" id="L108">  public boolean getAppartionGraine(){return appartionGraine;}</span>
+<span class="fc" id="L109">  public void setAppartionGraine(boolean b){appartionGraine=b;}</span>
+<span class="fc" id="L110">  public Fourmi getPlayingAnt(){return playingAnt;}</span>
+<span class="fc" id="L111">  public Joueur getPlayingJoueur(){try{return getPlayingAnt().getFere().getJoueur();}catch (Exception e) {return null;}}</span>
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">  public boolean getCasesSombres(){if(getCarte()==null){ return false;} else {return getCarte().getCasesSombres();}}</span>
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">  public boolean getCasesNuageuses(){if(getCarte()==null){ return false;} else {return getCarte().getCasesNuageuses();}}</span>
+  // Fonctions propre -----------------------------------------------------------
+  public String toString(){
+<span class="fc" id="L116">    String r=&quot;&quot;;</span>
+<span class="fc" id="L117">    r+= g.get(&quot;continerLeJeu&quot;)+&quot; : &quot;+continerLeJeu;r+=&quot;\n&quot;;</span>
+<span class="fc" id="L118">    r+= g.get(&quot;appartionInsecte&quot;)+&quot; : &quot;+appartionInsecte;r+=&quot;\n&quot;;</span>
+<span class="fc" id="L119">    r+= g.get(&quot;appartionGraine&quot;)+&quot; : &quot;+appartionGraine;r+=&quot;\n&quot;;</span>
+<span class="fc" id="L120">    r+= g.get(&quot;vitesseDeJeu&quot;)+&quot; : &quot;+vitesseDeJeu;r+=&quot;\n&quot;;</span>
+<span class="fc" id="L121">    r+= g.get(&quot;enCours&quot;)+&quot; : &quot;+enCours;r+=&quot;\n&quot;;</span>
+<span class="fc" id="L122">    r+= g.get(&quot;nbrDeJoueurDansLaPartie&quot;)+&quot; : &quot;+nbrDeJoueurDansLaPartie;r+=&quot;\n&quot;;</span>
+<span class="fc" id="L123">    r+= g.get(&quot;partieFinie&quot;)+&quot; : &quot;+partieFinie;r+=&quot;\n&quot;;</span>
+<span class="fc" id="L124">    r+= g.get(&quot;dateDeCréation&quot;)+&quot; : &quot;+dateDeCréation;r+=&quot;\n&quot;;</span>
+<span class="fc" id="L125">    r+= g.get(&quot;difficulté&quot;)+&quot; : &quot;+difficulté;r+=&quot;\n&quot;;</span>
+<span class="fc" id="L126">    r+= g.get(&quot;niveauDeLimitationDesinsectes&quot;)+&quot; : &quot;+niveauDeLimitationDesinsectes;r+=&quot;\n&quot;;</span>
+<span class="fc" id="L127">    r+= g.get(&quot;nbrDeTour&quot;)+&quot; : &quot;+nbrDeTour;r+=&quot;\n&quot;;</span>
+<span class="fc" id="L128">    r+= g.get(&quot;tour&quot;)+&quot; : &quot;+tour;r+=&quot;\n&quot;;</span>
+<span class="fc" id="L129">    r+= g.get(&quot;tableauDesEspecesAutorisée&quot;)+&quot; : &quot;+tableau.tableauToString(tableauDesEspecesAutorisée);r+=&quot;\n&quot;;</span>
+<span class="fc" id="L130">    r+= g.get(&quot;mapo&quot;)+&quot; : &quot;+mapo;r+=&quot;\n&quot;;</span>
+<span class="fc" id="L131">    r+= gj.toString();r+=&quot;\n&quot;;</span>
+<span class="fc" id="L132">    r+= gi.toString();r+=&quot;\n&quot;;</span>
+<span class="fc" id="L133">    r+= ge.toString();r+=&quot;\n&quot;;</span>
+<span class="fc" id="L134">    return r;</span>
+  }
+  /**
+  *{@summary Standard equals function.}
+  *Null &amp;#38; other class type proof.
+  *@param o o is the Object to test. It can be null or something else than this class.
+  *@version 1.31
+  */
+  @Override
+  public boolean equals(Object o){
+<span class="fc bfc" id="L144" title="All 4 branches covered.">    if(o==null || !(o instanceof Partie)){return false;}</span>
+<span class="fc" id="L145">    return toString().equals(((Partie)(o)).toString());</span>
+  }
+  public void initialisationElément(int nbrDeJoueur, int nbrDIa, int nbrDeFourmi){
+<span class="nc bnc" id="L148" title="All 2 branches missed.">    if(!dejaIni){</span>
+<span class="nc" id="L149">      dejaIni=true;</span>
+<span class="nc" id="L150">      Main.startCh();</span>
+<span class="nc" id="L151">      Main.setMessageChargement(g.getM(&quot;initialisationDesJoueurs&quot;));</span>
+<span class="nc" id="L152">      boolean b = false;</span>
+<span class="nc" id="L153">      nbrDeJoueurDansLaPartie=nbrDIa + nbrDeJoueur;</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">      if(gej!=null){nbrDeJoueurDansLaPartie=gej.length()-1;}//on a une case vide dans gej.</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">      if(nbrDeJoueurDansLaPartie&gt;this.getCarte().length()){erreur.erreur(&quot;la carte est trop petite pour abriter &quot;+nbrDeJoueur+&quot; joueurs ; taille : &quot;+getGc().length(),true);}</span>
+<span class="nc bnc" id="L156" title="All 2 branches missed.">      if(gej==null){</span>
+<span class="nc" id="L157">        gj = new GJoueur();</span>
+<span class="nc" id="L158">        iniJoueur(nbrDeJoueur,nbrDeFourmi,mapo);</span>
+<span class="nc" id="L159">        iniIa(nbrDIa,nbrDeFourmi,mapo);</span>
+      }else{
+<span class="nc" id="L161">        iniJoueurEtIa(mapo); gej=null;</span>
+      }
+<span class="nc bnc" id="L163" title="All 2 branches missed.">      if(nbrDeJoueur==0){partieFinie=true;}//on ne déclanche pas de condition de victoire.</span>
+<span class="nc bnc" id="L164" title="All 2 branches missed.">      if (nbrDeJoueurDansLaPartie==1){partieFinie=true;}//on ne déclanche pas les condition de victoire si il y a un seul joueur.</span>
+<span class="nc" id="L165">      debug.débogage(&quot;Création de 10 insectes programmé.&quot;);</span>
+<span class="nc" id="L166">      Main.setMessageChargement(g.getM(&quot;initialisationDesInsectes&quot;));</span>
+<span class="nc bnc" id="L167" title="All 2 branches missed.">      if(appartionInsecte){</span>
+<span class="nc" id="L168">        gi = new GInsecte(mapo.getNbrDInsecteAuDébut());</span>
+      }else{
+<span class="nc" id="L170">        gi = new GInsecte();</span>
+      }
+<span class="nc" id="L172">      Main.endCh(&quot;chargementElementsDeLaCarte&quot;);</span>
+<span class="nc" id="L173">      Main.setMessageChargement(g.getM(&quot;chargementDesGraphismes&quot;));</span>
+    }
+    //ce qui arrive même si c'était déja initialisé.
+<span class="nc" id="L176">    Main.startCh();</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">    if(Main.getF()!=null){ //TODO move to ViewGUI2d</span>
+<span class="nc" id="L178">      initialiserGraphismePartie();</span>
+    }
+<span class="nc" id="L180">    Main.endCh(&quot;chargementGraphismes&quot;);</span>
+<span class="nc" id="L181">    setEnCours(true);</span>
+<span class="nc" id="L182">  }</span>
+<span class="nc" id="L183">  public void initialisationElément(int a, int b){initialisationElément(a,b,1);}</span>
+<span class="nc" id="L184">  public void initialisationElément(){ initialisationElément(elément[0],elément[1],elément[2]);}</span>
+  public void iniJoueur(int nbrDeJoueur, int nbrDeFourmi, Carte mapo){
+<span class="nc bnc" id="L186" title="All 2 branches missed.">    for (int i=0; i&lt;nbrDeJoueur; i++){</span>
+<span class="nc" id="L187">      Joueur j = new Joueur(nbrDeFourmi,false,mapo);</span>
+<span class="nc" id="L188">      gj.add(j);</span>
+<span class="nc bnc" id="L189" title="All 4 branches missed.">      if (mapo.getCasesNuageuses() || mapo.getCasesSombres()){</span>
+<span class="nc" id="L190">        j.initialisationCaseNS();</span>
+<span class="nc" id="L191">        j.actualiserCaseSN();</span>
+      }
+    }
+<span class="nc" id="L194">  }</span>
+  public void iniIa(int nbrDIa, int nbrDeFourmi, Carte mapo){
+<span class="nc bnc" id="L196" title="All 2 branches missed.">    for (int i=0; i&lt;nbrDIa; i++){</span>
+<span class="nc" id="L197">      Joueur j = new Joueur(nbrDeFourmi,true,mapo);</span>
+<span class="nc" id="L198">      gj.add(j);</span>
+    }
+<span class="nc" id="L200">  }</span>
+  public void iniJoueurEtIa(Carte mapo){
+<span class="nc" id="L202">    gj = gej.getGJoueur(mapo);</span>
+<span class="nc" id="L203">  }</span>
+  public boolean launchGame(){
+    //lancement du jeux
+<span class="nc" id="L206">    setContinuerLeJeu(true);</span>
+<span class="nc bnc" id="L207" title="All 2 branches missed.">    if(Main.getGj().length()==1){setPartieFinie(true);}</span>
+<span class="nc" id="L208">    else{setPartieFinie(false);}</span>
+<span class="nc bnc" id="L209" title="All 2 branches missed.">    for(tour=1; tour&lt;=nbrDeTour; tour++){</span>
+<span class="nc" id="L210">      new Message(&quot;\n&quot;+g.get(&quot;tour&quot;)+ tour +&quot; :&quot;);</span>
+      //Main.repaint();
+      //La joue toutes les ia et les joueurs
+<span class="nc" id="L213">      Main.tour();</span>
+<span class="nc" id="L214">      testFinDePartie();</span>
+<span class="nc bnc" id="L215" title="All 2 branches missed.">      if(Main.getRetournerAuMenu()){return true;}</span>
+    }
+<span class="nc" id="L217">    System.out.println(g.get(&quot;dernierTourPassé&quot;));</span>
+<span class="nc" id="L218">    finDePartie(1);</span>
+<span class="nc" id="L219">    return false;</span>
+  }
+<span class="nc" id="L221">  public boolean jeu(){return launchGame();}</span>
+  public void testFinDePartie(){
+<span class="nc bnc" id="L223" title="All 2 branches missed.">    if(!getContinuerLeJeu()){</span>
+<span class="nc" id="L224">      finDePartie(0); //0=défaite</span>
+    }
+<span class="nc bnc" id="L226" title="All 2 branches missed.">    if(partieFinie){ return;}//on ne fait pas le test si on est déja après la fin et que le joueur veux continuer a jouer.</span>
+<span class="nc bnc" id="L227" title="All 2 branches missed.">    if(getGj().plusQu1Joueur()){</span>
+<span class="nc" id="L228">      finDePartie(2);</span>
+    }
+<span class="nc bnc" id="L230" title="All 2 branches missed.">    if(Main.getGj().getJoueurHumain().getPlusDeFourmi()){//si aucun joueur humain n'as de fourmi :</span>
+<span class="nc" id="L231">      finDePartie(0); //0=défaite</span>
+    }
+    //afichage
+<span class="nc" id="L234">  }</span>
+<span class="nc" id="L235">  public void finDePartie(){ finDePartie(-1);}</span>
+  public void finDePartie(int x){
+<span class="nc bnc" id="L237" title="All 2 branches missed.">    if (partieFinie) {return;}//on n'affiche pas plusieur fois les info de fin de partie.</span>
+<span class="nc" id="L238">    setPartieFinie(true);</span>
+<span class="nc" id="L239">    System.out.println(&quot;game is over.&quot;);//@a</span>
+<span class="nc" id="L240">    System.out.println(getTour()+&quot;/&quot;+getNbrDeTour());</span>
+<span class="nc" id="L241">    System.out.println(getGj());//@a</span>
+<span class="nc" id="L242">    String victoire = g.get(&quot;victoireInconue&quot;);</span>
+<span class="nc" id="L243">    GJoueur gjOrdonné = getGj().getGjOrdonné();</span>
+<span class="nc" id="L244">    Joueur gagnant = gjOrdonné.getDébut().getContenu();</span>
+<span class="nc bnc" id="L245" title="All 2 branches missed.">    if (x==2){</span>
+<span class="nc" id="L246">      victoire = g.get(&quot;élimination&quot;);</span>
+<span class="nc bnc" id="L247" title="All 2 branches missed.">    } else if (x==1){</span>
+      // en théorie ici gagnant = joueur qui a le meilleur score.
+<span class="nc" id="L249">      victoire =  g.get(&quot;temps&quot;);</span>
+    }
+<span class="nc" id="L251">    String mess = &quot;&quot;;</span>
+<span class="nc bnc" id="L252" title="All 2 branches missed.">    if(x!=0){</span>
+      //g.getM(&quot;le&quot;)+&quot; &quot;+g.get(&quot;joueur&quot;)+&quot; &quot;
+<span class="nc" id="L254">      mess=gagnant.getPseudo()+&quot; &quot;+g.get(&quot;victoirePar&quot;)+&quot; &quot; + victoire+&quot; !&quot;;</span>
+<span class="nc" id="L255">      new Message(mess);</span>
+    }else{
+<span class="nc" id="L257">      mess=g.getM(&quot;toutLesJoueurHumainsEliminés&quot;);</span>
+<span class="nc" id="L258">      new Message(mess);</span>
+    }
+<span class="nc" id="L260">    gjOrdonné.afficheScore();</span>
+    try {
+<span class="nc" id="L262">      Main.getPj().addPfp(mess,gjOrdonné);</span>
+<span class="nc" id="L263">    }catch (Exception e) {</span>
+<span class="nc" id="L264">      erreur.alerteGUI2Dfail(&quot;Partie.finDePartie&quot;);</span>
+<span class="nc" id="L265">    }</span>
+<span class="nc" id="L266">    setContinuerLeJeu(false);</span>
+<span class="nc" id="L267">    Main.setRetournerAuMenu(true);//TODO ask &amp; not force.</span>
+<span class="nc bnc" id="L268" title="All 4 branches missed.">    while(!getContinuerLeJeu() &amp;&amp; !Main.getRetournerAuMenu()){//on attend la validation que la partie continue.</span>
+<span class="nc" id="L269">      Temps.pause(10);</span>
+    }
+<span class="nc" id="L271">  }</span>
+  public void initialiserGraphismePartie(){
+<span class="nc" id="L273">    initalizeAntsImages(gj.length());</span>
+<span class="nc" id="L274">    Main.initialiserElémentTournés(); //une partie des graphismes tourné est probablement déja faite.</span>
+<span class="nc" id="L275">  }</span>
+  /**
+  *{@summary Initialize Ant images and save it.}&lt;br&gt;
+  *It use GJoueur informations to get Pheromone of every queen &amp;#38; create an image that have the 3 color level of the 3 var of Pheromone.
+  *@version 1.39
+  */
+  public void initalizeAntsImages(int nbrDeJoueur){
+    //nouvelle méthode
+<span class="nc" id="L283">    Pixel pi = new Pixel(255,105,0,255);</span>
+<span class="nc bnc" id="L284" title="All 2 branches missed.">    for (int i=1;i&lt;nbrDeJoueur+1 ;i++ ) {</span>
+      Pheromone ph;
+      try {
+<span class="nc" id="L287">        ph = gj.getJoueurParId(i).getFere().getGc().getDébut().getContenu().getPh();</span>
+<span class="nc" id="L288">      }catch (Exception e) {</span>
+<span class="nc" id="L289">        erreur.erreur(&quot;Les Pheromones de la fourmi n'ont pas put etre récupérer, il sont donc choisi aléatoirement.&quot;);</span>
+<span class="nc" id="L290">        ph = new Pheromone(127,127,127); // blanc sinon.</span>
+<span class="nc" id="L291">      }</span>
+<span class="nc" id="L292">      int a = ph.getRc(); int b=ph.getVc(); int c=ph.getBc();</span>
+<span class="nc" id="L293">      Img imgTemp = new Img(&quot;F.png&quot;);</span>
+<span class="nc" id="L294">      Pixel pi2 = new Pixel(ph);</span>
+<span class="nc" id="L295">      imgTemp.changerPixel(pi,pi2);</span>
+      //imgTemp.ombrer(pi2); // met de l'ombre sur le pixel pi2. (en théorie)
+<span class="nc" id="L297">      imgTemp.sauvegarder(&quot;F&quot;+i+&quot;.png&quot;);</span>
+    }
+<span class="nc" id="L299">  }</span>
+  public void enregistrerLesScores(){
+<span class="nc" id="L301">    gj.enregistrerLesScores();</span>
+<span class="nc" id="L302">  }</span>
+  //static
+  /**
+   * Load the GEspece.
+   * @version 1.33
+   */
+  public static void iniGe(){
+<span class="fc" id="L309">    ge = new GEspece();</span>
+<span class="fc" id="L310">  }</span>
+  /**
+   * Load the default Partie.
+   * @version 1.33
+   */
+  public static Partie getDefautlPartie(){
+<span class="fc" id="L316">    Main.startCh();</span>
+<span class="fc" id="L317">    String nomCarte = &quot;miniWorld&quot;;</span>
+<span class="fc" id="L318">    Carte mapo = new Carte(nomCarte);</span>
+<span class="fc" id="L319">    mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);</span>
+<span class="fc" id="L320">    Partie partie = new Partie(1,100,mapo,1.0);</span>
+<span class="fc" id="L321">    partie.setElément(1,5,1);</span>
+<span class="fc" id="L322">    partie.setVitesseDeJeu(0.2);</span>
+<span class="fc" id="L323">    Main.endCh(&quot;chargementParamètrePartieParDéfaut&quot;);</span>
+<span class="fc" id="L324">    return partie;</span>
+  }
+  /**
+   * Load the default Partie.
+   * @version 1.14
+   */
+  public static Partie getPartieSave(String nom){
+<span class="nc" id="L331">    Main.startCh();</span>
+<span class="nc" id="L332">    Partie partie = sauvegarderUnePartie.charger(nom);</span>
+<span class="nc" id="L333">    Main.endCh(&quot;chargementPartie&quot;);</span>
+<span class="nc" id="L334">    return partie;</span>
+  }
+  /**
+   * {@summary create a new Partie to launch Tuto.}&lt;br&gt;
+   * @version 1.1.
+   */
+  public static Partie getPartieTuto(){
+<span class="nc" id="L341">    Main.startCh();</span>
+<span class="nc" id="L342">    String nomCarte = &quot;tuto&quot;;</span>
+<span class="nc" id="L343">    Carte mapo = new Carte(nomCarte);</span>
+<span class="nc" id="L344">    mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);</span>
+<span class="nc" id="L345">    Partie partie = new Partie(1,5,mapo,1.0);</span>
+<span class="nc" id="L346">    partie.setElément(1,0,1);</span>
+<span class="nc" id="L347">    partie.setVitesseDeJeu(0.4);</span>
+<span class="nc" id="L348">    Main.endCh(&quot;chargementParamètrePartieTuto&quot;);</span>
+<span class="nc" id="L349">    partie.setAppartionInsecte(false);</span>
+<span class="nc" id="L350">    partie.setAppartionGraine(false);</span>
+<span class="nc" id="L351">    return partie;</span>
+  }
+  /**
+  *{@summary change the value of the playing ant.}&lt;br&gt;
+  *We need to repaint the information about this playingAnt.&lt;br&gt;
+  *This action can only be run if action game is on.&lt;br&gt;
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.33
+  */
+  public boolean setPlayingAnt(Fourmi f){
+<span class="pc bpc" id="L361" title="1 of 2 branches missed.">    if (!Main.getView().getActionGameOn()) {return false;}</span>
+<span class="fc" id="L362">    playingAnt=f;</span>
+<span class="fc" id="L363">    return true;</span>
+  }
+  /**
+  *{@summary change the value of the playing ant with and id.}&lt;br&gt;
+  *This action can only be run if action game is on.&lt;br&gt;
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.33
+  */
+  private boolean setPlayingAnt(int id){
+    try {
+<span class="nc" id="L373">      return setPlayingAnt(triche.getFourmiParId(id+&quot;&quot;));</span>
+<span class="nc" id="L374">    }catch (Exception e) {</span>
+<span class="nc" id="L375">      erreur.erreur(&quot;the ant &quot;+id+&quot; can't be used to play.&quot;);</span>
+<span class="nc" id="L376">      return false;</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
