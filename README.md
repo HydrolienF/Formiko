@@ -8,7 +8,7 @@
 [discord-shield]: https://discord.com/api/guilds/125227483518861312/widget.png
 [license-shield]: https://img.shields.io/badge/license-custom-49C2E3
 [test-workflow]: https://github.com/HydrolienF/Formiko/blob/master/.github/workflows/test.yml/badge.svg
-[coverage-shield]: https://raw.githubusercontent.com/HydrolienF/Formiko/master/.github/badges/coverage.svg
+[coverage-shield]: https://raw.githubusercontent.com/HydrolienF/Formiko/master/.github/badges/jacoco.svg
 [ ![version][] ][download]
 [ ![coverage-shield][] ][main]
 [ ![doc-shield][] ][doc]
