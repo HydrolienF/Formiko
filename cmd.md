@@ -34,6 +34,8 @@ Ca affiche toutes les info de type et de méthode de la classe.
 atom $(grep -r -i -l 'try' ./src/main/)
 Ouvre tout les fichiers qui contiène 'try' parmi les .java des dossier spécifier.
 
+git checkout -b nomDeLaBrancheCible idDuCommit698F824BIQF754
+
 git branch 14 develop
 Ouvre une nouvelle branch qui ne "suis" pas la branche principale (master) mais qui "suis" la branche develop. En pratique une modification sur develop ne met pas a jour 14.
 
