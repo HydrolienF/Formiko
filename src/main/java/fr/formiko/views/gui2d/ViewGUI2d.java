@@ -55,9 +55,9 @@ public class ViewGUI2d implements View {
     Main.endCh("chargementPanneauVide");
     loadGraphics();
     //menu
-    Main.startCh();
-    Main.getPm().construitPanneauMenu(3);
-    Main.endCh("chargementPanneauMenu");
+    // Main.startCh();
+    // getPm().construitPanneauMenu(3);
+    // Main.endCh("chargementPanneauMenu");
     return true;
   }
   /**
@@ -86,6 +86,8 @@ public class ViewGUI2d implements View {
   */
   public boolean menuMain(){
     actionGameOn=false;
+    getPm().removeP();
+    getPm().construitPanneauMenu(3);
     paint();
     boolean b=false;
     if(!Main.getPremierePartie()){
@@ -101,6 +103,8 @@ public class ViewGUI2d implements View {
   */
   public boolean menuNewGame(){
     actionGameOn=false;
+    getPm().removeP();
+    getPm().construitPanneauMenu(3);
     getPm().setMenu(1);
     getPm().actualiserText();
     paint();
@@ -113,6 +117,7 @@ public class ViewGUI2d implements View {
   */
   public boolean menuLoadAGame(){
     actionGameOn=false;
+    getPm().removeP();
     getPm().addPcp();
     return true;
   }

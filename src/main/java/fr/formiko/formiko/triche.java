@@ -282,6 +282,14 @@ public class triche {
           }catch (Exception e) {}
           Main.getPartie().setContinuerLeJeu(false);
           break;
+        case 39:
+          try {
+            setMenu(args[1]);
+          }catch (Exception e) {
+            erreur.alerte("Une action de menu a échouée");
+          }
+          break;
+
         default:
           erreur.erreur("La commande n'as pas été reconnue.");
       }
@@ -289,8 +297,38 @@ public class triche {
     }catch (Exception e) { erreur.erreur("La commande triche a échoué.");}
   }
 
-
-
+  /**
+  *{@summary set a new Menu as curent menu.}
+  */
+  private static void setMenu(String s){
+    int x=0;
+    int k=1;
+    while(x==0 && k<7){
+      if(g.get("cmd.menu."+k).equals(s)){x=k;}
+      k++;
+    }
+    switch(x){
+      case 1:
+        Main.getView().menuMain();
+        break;
+      case 2:
+        Main.getView().menuNewGame();
+        break;
+      case 3:
+        Main.getView().menuLoadAGame();
+        break;
+      case 4:
+        Main.getView().menuPersonaliseAGame();
+        break;
+      case 5:
+        Main.getView().menuOptions();
+        break;
+      case 6:
+        Main.getView().actionGame();
+        break;
+    }
+    Main.repaint();
+  }
 
   public static boolean testSupInfEga(String args[], int p){
     boolean b=false;

@@ -58,6 +58,9 @@ public class PanneauMenu extends Panneau {
   }
   public void construitPanneauMenu(int nbrDeBouton){
     debug.débogage("construitPanneauMenu");
+    try {
+      retirerBouton();
+    }catch (Exception e) {}
     int xT = Main.getDimX(); int yT = Main.getDimY();
     this.setLayout(null);
     char c = 'P'; if(menu==1){c='N';}if(menu==2){c='M';}
@@ -82,6 +85,7 @@ public class PanneauMenu extends Panneau {
   }
   public void addPnp(){
     retirerBouton();
+    removeP();
     pnp = new PanneauNouvellePartie();
     pnp.setBounds(0,0,this.getWidth(),this.getHeight());
     this.add(pnp);
@@ -93,13 +97,31 @@ public class PanneauMenu extends Panneau {
       try {
         remove(b[i]);
       }catch (Exception e) {}
+      // b[i]=null;
     }
   }
   public void addPcp(){
     retirerBouton();
+    removeP();
     pcp = new PanneauChoixPartie();
     pcp.setBounds(0,0,this.getWidth(),this.getHeight());
     this.add(pcp);
     repaint();
+  }
+  public void removePnp(){
+    remove(pnp);
+    pnp=null;
+  }
+  public void removePcp(){
+    remove(pcp);
+    pcp=null;
+  }
+  public void removeP(){
+    try {
+      removePnp();
+    }catch (Exception e) {}
+    try {
+      removePcp();
+    }catch (Exception e) {}
   }
 }

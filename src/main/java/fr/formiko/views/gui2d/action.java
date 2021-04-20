@@ -60,7 +60,7 @@ public class action{
       Main.setTuto(true);
       pm.setLancer(true); //TODO to remove
     }else if(ac==100){
-      Main.getView().menuNewGame();
+      // Main.getView().menuNewGame();
       pa=Main.getPnp().getPartie();
       pm.setLancer(true); //TODO to remove
     }else if(ac==101){
