@@ -80,78 +80,14 @@ public class Main {
     int k=0;
     while(args.length > k){//si il y a des options a "-"
       if(args[k].length()>1 && args[k].substring(0,1).equals("-")){
-        launchOptions(args[k].substring(1));
+        launchOptions.launchOptionsMinor(args[k].substring(1));
         args = tableau.retirer(args, k);
       }else{
         k++;
       }
     }
     if(args.length>0){
-      if(args[0].equals("trad")){
-        initialisation();
-        if(args.length>0){
-          tradCmd(args[1]);
-        }else{
-          tradCmd();
-        }
-      }else if(args[0].equals("son")){
-        //System.out.println(Musique.getMusiqueAlleatoire());
-      }else if(args[0].equals("op")){
-        //initialisation();
-        os = new Os();
-        folder = new Folder();
-        iniOp();
-        op.saveOptions();
-      }else if(args[0].equals("supprimer")){
-        initialisation();
-        //diff.nbrDeLigneDiff("usuel/GString.java","../Formiko108/usuel/GString.java");
-        if(args.length == 4){
-          String s = args[1];
-          //c'est pas nésséssaire sur le terminal linux mais au cas ou
-          if(s.charAt(0)=='"' && s.charAt(s.length()-1)=='"'){
-            s = s.substring(1,s.length()-1);
-          }
-          String f = args[2];
-          byte x = str.sToBy(args[3]);
-          modificationDeFichier.retirerLesLignesR(s,f,x);//3== ca doit etre une ligne complète.
-        }else{
-          erreur.alerte("arguments de supprimer incorecte");
-        }
-      }else if(args[0].equals("test")){
-        System.out.println("test");
-      }else if(args[0].equals("trad2")){
-        initialisation();
-        chargerLesTraductions.iniTLangue();
-        chargerLesTraductions.créerLesFichiers();
-        g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
-        HashMap<String, String> mapEo = chargerLesTraductions.chargerLesTraductions(0);//chargement des langues.
-        trad.copieTradBase("eo",mapEo);
-        //chargerLesTraductions.addTradAuto();
-      }else if (args[0].equals("rbt") || args[0].equals("rognerBordTransparent")){
-        initialisation();
-        try {
-          rbtCmd(args);
-        }catch (Exception e) {
-          erreur.erreur("echec de rognage de l'image");
-        }
-      }else if(args[0].equals("stats")){
-        stats(args);
-      }else if(args[0].equals("cptPixels")){
-        if(args.length>1){
-          //image.setREPTEXTUREPACK("docs/cc/images");
-          debug.débogage("chargement de l'image");
-          Img img = new Img(image.getImage(args[1],"docs/cc/images/"));
-          debug.débogage("Image chargée");
-          img.compterChaquePixelToHtml();
-        }else{
-          erreur.alerte("arguments de cptPixels incorecte");
-        }
-      }else if(args[0].equals("cleanFolder")){
-        folder = new Folder();
-        folder.cleanFolder();
-      }else{
-        erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue");
-      }
+      launchOptions.launchOptionsMajor(args);
       quitter();
     }else{ // si il n'y a pas d'options ou que des options a "-".
       // LE JEU -------------------------------------------------------------------
@@ -337,6 +273,7 @@ public class Main {
   public static void setPremierePartie(boolean b){premierePartie=b;}
   public static Data getData(){return data;}
   public static View getView(){return view;}
+  public static void setModeCLI(boolean b){modeCLI=b;}
   //shortcut
   //view
   public static boolean getActionGameOn(){return getView().getActionGameOn();}
@@ -439,7 +376,6 @@ public class Main {
     folder = new Folder();
     getFolder().ini();
     view = new ViewNull();
-    //if(!arbo.arborécenceIntacte()){arbo.réparationArboréscence();}
     setMessageChargement("chargementDesOptions");startCh();
     chargerLesTraductions.iniTLangue();
     iniOp();
@@ -486,7 +422,6 @@ public class Main {
    * @version 1.1
    */
   public static void iniOp(){
-    //TODO
     //op = chargerLesOptions.chargerLesOptions(getVersionActuelle());
     op = new Options();
     op.iniOptions();
@@ -596,123 +531,6 @@ public class Main {
       getGi().addInsecte(x2/10);
     }
   }
-  /**
-  *{@summary Update translation}
-  *@version 1.21
-  */
-  public static void tradCmd(){
-    startCh();
-    chargerLesTraductions.iniTLangue();
-    chargerLesTraductions.créerLesFichiers();
-    endCh("créerLesFichiers");startCh();
-    g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
-    endCh("chargerLesTraductions");startCh();
-    trad.copieTrads();
-    endCh("copieTrads");startCh();
-    chargerLesTraductions.affPourcentageTraduit();
-    endCh("affPourcentageTraduit");//startCh();
-    /*chargerLesTraductions.addTradAuto();
-    endCh("addTradAuto");startCh();
-    chargerLesTraductions.affPourcentageTraduit();
-    endCh("affPourcentageTraduit");*/
-  }
-  /**
-  *{@summary Update 1 translation & print it's #&25;age of translation.}<br>
-  *@version 1.42
-  */
-  public static void tradCmd(String language){
-    // startCh();
-    chargerLesTraductions.iniTLangue();
-    chargerLesTraductions.créerLesFichiers();
-    g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
-    System.out.print(chargerLesTraductions.getPourcentageTraduit(chargerLesTraductions.getLanguage(language)));
-  }
-  /**
-  *{@summary trim the image from args.}
-  *@version 1.21
-  */
-  public static void rbtCmd(String args[]){
-    String name = "";
-    name = args[1];int k=2;
-    while(name!=null){
-      debug.débogage("=============================Chargement de l'image "+name);
-      //Image i = image.getImage(nom,image.getREP());
-      Img img = new Img(image.getImage(name,image.getREP()));
-      debug.débogage("=============================Ronage de l'image "+name);
-      img.rognerBordTransparent();
-      img.actualiserImage();
-      debug.débogage("=============================Sauvegarde de l'image "+name);
-      img.sauvegarder(image.getREP(),name+".png");
-      try {
-        name=args[k++];
-      }catch (Exception e) {
-        name=null;
-      }
-    }
-  }
-  /**
-  *{@summary Launch a -options.}<br>
-  *-options affect game but launch it, when non "-" options never launch game.<br>
-  *Here is the list of the aviable -options.<br>
-  *<ul>
-  *<li>-d Print all the debugs infos.
-  *<li>-p Print performances info for long action.
-  *<li>-g Print the graphics debugs infos.
-  *<li>-rg Reload all the graphics saved in data/temporary/images.
-  *<li>-cli Launch game but in Console Line Interface.
-  *</ul>
-  *@version 1.39
-  */
-  private static void launchOptions(String stringOptions){
-    switch(stringOptions){
-      case "q":
-      erreur.setMuet(true);
-      break;
-      case "d":
-      debug.setAffLesEtapesDeRésolution(true);
-      break;
-      case "p":
-      debug.setAffLesPerformances(true);
-      break;
-      case "g":
-      debug.setAffG(true);
-      break;
-      case "rg":
-      case "reload--graphics":
-      initialisation();
-      getOp().setGarderLesGraphismesTourné(false);
-      break;
-      case "cli":
-      modeCLI=true;
-      break;
-      default:
-      erreur.alerte("Unknow cli options : "+stringOptions);
-    }
-  }
-  private static void stats(String args[]){
-    int valueToPrint = 0;
-    if(args.length>2){
-      valueToPrint=str.sToI(args[2]);
-    }
-    if(args.length>1){
-      stats.statsJavadoc(args[1]);
-    }else{
-      stats.statsJavadoc("src/main/",true);
-    }
-    if(valueToPrint>0){
-      String s = switch (valueToPrint) {
-        case 1:
-        yield stats.sommeNbrDeLigneG+"";
-        case 2:
-        yield stats.sommeDesClassG+"";
-        case 3:
-        yield stats.sommeDesFctLG+"";
-        case 4:
-        yield stats.sommeDesFctCG+"";
-        default:
-        yield "";
-      };
-      System.out.println(s);
-    }
-  }
+
+
 }
