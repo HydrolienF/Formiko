@@ -65,6 +65,7 @@ public class ViewGUI2d implements View {
   */
   public boolean close(){
     actionGameOn=false;
+    getF().quit();
     return true;
   }
   /***
