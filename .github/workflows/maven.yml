@@ -76,8 +76,7 @@ jobs:
         
     # Badge part
     - name: Generate version Badge file
-      run: echo test
-      # run: echo "{" > temp; echo "  \"schemaVersion\"'%3A' 1," >> temp; echo "  \"label\"'%3A' \"Version\"," >> temp; echo -n "  \"message\"'%3A' \"" >> temp; cat version.md | tr '\n' '' >> temp; echo "\"," >> temp;echo "  \"color\"'%3A' \"blue\"" >> temp; echo "}" >> temp
+      run: echo "{" > temp; echo "  \"schemaVersion\"'%3A' 1," >> temp; echo "  \"label\"'%3A' \"Version\"," >> temp; echo -n "  \"message\"'%3A' \"" >> temp; cat version.md | tr -d '\n' >> temp; echo "\"," >> temp;echo "  \"color\"'%3A' \"blue\"" >> temp; echo "}" >> temp
       id: badgeFile
     
     - name: Generate version Badge
