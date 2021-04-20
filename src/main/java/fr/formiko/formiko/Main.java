@@ -140,7 +140,7 @@ public class Main {
     view.ini();
     view.menuMain();
     if (modeCLI) {quitter();} //TODO menuMain sould call all functions so we sould be able to stop here.
-    pa = attenteDeLancementDePartie();
+    // setPartie(attenteDeLancementDePartie());
     lancementNouvellePartie();
     Boolean b = pa.jeu(); //lance le jeux.
     //===

@@ -45,27 +45,27 @@ public class action{
     if(ac==0){
 
     }else if(ac==1){
-      pm.setMenu(1);
-      Main.repaint();
-      pm.actualiserText();
+      Main.getView().menuNewGame();
     }else if(ac==2){
-      pm.addPcp();
+      Main.getView().menuLoadAGame();
     }else if(ac==3){
-      erreur.erreurPasEncoreImplemente();
+      Main.getView().menuOptions();
     }else if(ac==4){
       debug.débogage("lancementNouvellePartie");
-      pm.setLancer(true);
+      pm.setLancer(true); //TODO to remove
+      Main.getView().actionGame();
     }else if(ac==5){
-      pm.addPnp();
+      Main.getView().menuPersonaliseAGame();
     }else if(ac==6){
       Main.setTuto(true);
-      pm.setLancer(true);
+      pm.setLancer(true); //TODO to remove
     }else if(ac==100){
+      Main.getView().menuNewGame();
       pa=Main.getPnp().getPartie();
-      pm.setLancer(true);
+      pm.setLancer(true); //TODO to remove
     }else if(ac==101){
       pa=pm.getPcp().getPartie();
-      pm.setLancer(true);
+      pm.setLancer(true); //TODO to remove
     }
   }
   /**
