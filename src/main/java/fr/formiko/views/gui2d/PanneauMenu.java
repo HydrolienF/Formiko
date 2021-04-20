@@ -83,6 +83,11 @@ public class PanneauMenu extends Panneau {
     }
     actualiserText();
   }
+  /**
+  *{@summary Add PanneauNouvellePartie.}<br>
+  *It remove all button or other panel if needed.<br>
+  *@version 1.44
+  */
   public void addPnp(){
     retirerBouton();
     removeP();
@@ -91,15 +96,11 @@ public class PanneauMenu extends Panneau {
     this.add(pnp);
     repaint();
   }
-  public void retirerBouton(){
-    int lenb = b.length;
-    for (int i=0;i<lenb ;i++ ) {
-      try {
-        remove(b[i]);
-      }catch (Exception e) {}
-      // b[i]=null;
-    }
-  }
+  /**
+  *{@summary Add PanneauChoixPartie.}<br>
+  *It remove all button or other panel if needed.<br>
+  *@version 1.44
+  */
   public void addPcp(){
     retirerBouton();
     removeP();
@@ -108,14 +109,26 @@ public class PanneauMenu extends Panneau {
     this.add(pcp);
     repaint();
   }
+  /**
+  *{@summary Remove PanneauNouvellePartie & set it to null.}<br>
+  *@version 1.44
+  */
   public void removePnp(){
     remove(pnp);
     pnp=null;
   }
+  /**
+  *{@summary Remove PanneauChoixPartie & set it to null.}<br>
+  *@version 1.44
+  */
   public void removePcp(){
     remove(pcp);
     pcp=null;
   }
+  /**
+  *{@summary Remove PanneauNouvellePartie & PanneauChoixPartie.}<br>
+  *@version 1.44
+  */
   public void removeP(){
     try {
       removePnp();
@@ -123,5 +136,17 @@ public class PanneauMenu extends Panneau {
     try {
       removePcp();
     }catch (Exception e) {}
+  }
+  /**
+  *{@summary Remove all button.}<br>
+  *@version 1.44
+  */
+  public void retirerBouton(){
+    int lenb = b.length;
+    for (int i=0;i<lenb ;i++ ) {
+      try {
+        remove(b[i]);
+      }catch (Exception e) {}
+    }
   }
 }
