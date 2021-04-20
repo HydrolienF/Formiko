@@ -470,11 +470,10 @@ public class Main {
   }
   //chrono shortcut
   public static void startCh(){Chrono.debutCh();}
-  public static void endCh(String s){Chrono.endCh(s);}
+  public static void endCh(String s){lonTotal+=Chrono.endCh(s);}
   public static void startCh(Chrono chTemp){Chrono.debutCh(chTemp);}
   public static void endCh(String s,Chrono chTemp){ // fin du Chrono.
-    lon = chTemp.getDuree(); lonTotal=lonTotal+lon;
-    Chrono.endCh(s,chTemp);
+    lonTotal+=Chrono.endCh(s,chTemp);
   }
   /**
    * {@summary Try to exit normally.}<br>

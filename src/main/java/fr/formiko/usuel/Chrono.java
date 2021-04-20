@@ -82,7 +82,7 @@ public class Chrono { //https://fr.jeffprod.com/blog/2015/un-chronometre-en-java
     if(ch==null){iniCh();}
     debutCh(ch);
   }
-  public static void endCh(String s){endCh(s,ch);}
+  public static int endCh(String s){return endCh(s,ch);}
   /**
    * Start Chrono
    * @version 1.1
@@ -95,16 +95,18 @@ public class Chrono { //https://fr.jeffprod.com/blog/2015/un-chronometre-en-java
   /**
    * {@summary Stop Chrono and print a message about Chrono duration.}<br>
    * The message will be print in console only if debug.setAffLesPerformances is true.<br>
-   *Message will be print only if the do more than 20ms.
+   * Message will be print only if the do more than 20ms.<br>
+   * @return duration time.
    * @version 1.18
    */
-  public static void endCh(String s,Chrono chTemp){ // fin du Chrono.
-    if(!debug.getAffLesPerformances()){ return;}
+  public static int endCh(String s,Chrono chTemp){ // fin du Chrono.
+    if(!debug.getAffLesPerformances()){ return 0;}
     String s2 = g.getM(s);
     if (s2.length()!=0){ s=s2;}
     chTemp.stop();long lon = chTemp.getDuree();
-    if(!debug.getAffLesEtapesDeRésolution() && lon<20){return;}
+    if(!debug.getAffLesEtapesDeRésolution() && lon<20){return (int)lon;}
     String s3 = ""; if(!chTemp.equals(ch)){s3 = " ("+g.get("actionSecondaire")+" "+ch.getId()+")";}
     debug.performances("temps pour "+ s + " : "+lon+" ms"+s3); //affichage du chrono.
+    return (int)lon;
   }
 }
