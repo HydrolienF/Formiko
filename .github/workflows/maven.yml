@@ -74,7 +74,11 @@ jobs:
         asset_name: Formiko${{ steps.version.outputs.version }}.zip
         asset_content_type: application/zip
         
-    # Badge part
+  # Badge part
+  badge:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
     - name: Generate version Badge file
       run: echo "{" > temp; echo "  \"schemaVersion\"'%3A' 1," >> temp; echo "  \"label\"'%3A' \"Version\"," >> temp; echo -n "  \"message\"'%3A' \"" >> temp; cat version.md | tr -d '\n' >> temp; echo "\"," >> temp;echo "  \"color\"'%3A' \"blue\"" >> temp; echo "}" >> temp
       id: badgeFile
@@ -84,7 +88,7 @@ jobs:
       id: sync
       with:
         auth: ${{ secrets.GIST_TOKEN }}
-        gist_url: https://gist.github.com/<USER_NAME>/<GIST_ID>
+        gist_url: https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json
         gist_title: version.json
         gist_description: ""
         github_file: "temp"
