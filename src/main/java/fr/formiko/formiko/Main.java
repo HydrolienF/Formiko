@@ -132,6 +132,8 @@ public class Main {
     }
     view.ini();
     view.menuMain();
+    if(premierePartie){tuto=true;} if(tuto){pa=Partie.getPartieTuto();}
+    else if(pa==null){pa=Partie.getDefautlPartie();}
     if (modeCLI) {quitter();} //TODO menuMain sould call all functions so we sould be able to stop here.
     // setPartie(attenteDeLancementDePartie());
     lancementNouvellePartie();
@@ -148,8 +150,6 @@ public class Main {
     startCh();
     getPp().removePm();//on retire le menu
     endCh("chargementPanneauChargementEtSuppressionMenu");//startCh();
-    if(premierePartie){tuto=true;} if(tuto){pa=Partie.getPartieTuto();}
-    else if(pa==null){pa=Partie.getDefautlPartie();}
     getPj().addPch();//on met le panneau de chargement au 1a plan.
     getF().printAll(getF().getGraphics());
     //la ligne qui suis n'as d'effet que si elle n'as pas déjà été appliqué a la partie.
