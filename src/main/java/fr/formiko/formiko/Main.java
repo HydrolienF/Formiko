@@ -136,6 +136,7 @@ public class Main {
     else if(pa==null){pa=Partie.getDefautlPartie();}
     if (modeCLI) {quitter();} //TODO menuMain sould call all functions so we sould be able to stop here.
     // setPartie(attenteDeLancementDePartie());
+    view.actionGame();
     lancementNouvellePartie();
     Boolean b = pa.jeu(); //lance le jeux.
     //===
@@ -147,31 +148,11 @@ public class Main {
    * @version 1.14
    */
   public static void lancementNouvellePartie(){ //Nouveau système de lancement de partie :
-    startCh();
-    getPp().removePm();//on retire le menu
-    endCh("chargementPanneauChargementEtSuppressionMenu");//startCh();
-    getPj().addPch();//on met le panneau de chargement au 1a plan.
-    getF().printAll(getF().getGraphics());
-    //la ligne qui suis n'as d'effet que si elle n'as pas déjà été appliqué a la partie.
-    pa.initialisationElément(); // pour l'instant ce bout de code ne marche pas ayeur qu'ici.
-    startCh();
-    Main.getPb().addPz();
-    endCh("ajoutPanneauZoom");startCh();
-    getData().chargerImages(); //on a besoin du bon zoom pour effectuer cette action.
-    if(Main.getDimY()!=1080 || getPartie().getGc().getNbrY()!=9){
-      getPj().dézoomer((byte)2);//on met la carte a la taille la plus grande possible pour qu'on voit tout.
-    }
-    endCh("chargementImagesDelaCarte");
-    String s = g.get("chargementFini");
-    if (debug.getAffLesPerformances()==true){s=s +" "+ "("+Temps.msToS(lonTotal)+")";}
-    setMessageChargement(s);
-    getPch().addBt();
     //affichageDeLaPageDeChargement
     boolean b=!op.getAttendreAprèsLeChargementDeLaCarte();
     if(premierePartie){b=true;}
-    //attente de validation du panneau de chargement.
-    while(!b){Temps.pause(10);b=getPch().getLancer();}
-    view.actionGame();
+    while(!b){Temps.pause(10);b=getPch().getLancer();}//attente de validation du panneau de chargement.
+    //remove PanneauChargement & listen mouse clic.
     getPj().removePch();
     getPs().construire();
     getGj().prendreEnCompteLaDifficulté();
@@ -210,6 +191,7 @@ public class Main {
   public static Data getData(){return data;}
   public static View getView(){return view;}
   public static void setModeCLI(boolean b){modeCLI=b;}
+  public static long getLonTotal(){return lonTotal;}
   //shortcut
   //view
   public static boolean getActionGameOn(){return getView().getActionGameOn();}

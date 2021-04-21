@@ -263,7 +263,8 @@ public class ViewCLI implements View {
     tab[2]=g.get("endTurn");
     tab[3]=g.get("pauseActionGame");
     tToPrint = tab;
-    Main.getPartie().launchGame();
+    Main.getPartie().launchGame(); //MAIN GAME PART
+    //after a game :
     Main.setPartie(null);
     switch (toDoAfter) {
       case 3:

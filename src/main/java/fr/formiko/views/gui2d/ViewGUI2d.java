@@ -11,6 +11,7 @@ import fr.formiko.formiko.triche;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.Th;
 import fr.formiko.usuel.ThTriche;
+import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.List;
@@ -36,10 +37,15 @@ public class ViewGUI2d implements View {
   */
   private Fenetre f;
   // GET SET -------------------------------------------------------------------
-  public Fenetre getF(){return f;}
-  public PanneauMenu getPm(){return Main.getPm();}
   public boolean getActionGameOn(){return actionGameOn;}
-  /**
+  //Graphics components.
+  public Fenetre getF(){return f;}
+  public PanneauPrincipal getPp(){return Main.getPp();}
+  public PanneauMenu getPm(){return Main.getPm();}
+  public PanneauJeu getPj(){return Main.getPj();}
+  public PanneauBouton getPb(){return Main.getPb();}
+  public PanneauChargement getPch(){return Main.getPch();}
+  /**  // FUNCTIONS -----------------------------------------------------------------
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.42
@@ -148,7 +154,25 @@ public class ViewGUI2d implements View {
   */
   public boolean actionGame(){
     actionGameOn=true;
-    // getPm().setLancer();
+    Main.startCh();
+    Main.getPp().removePm();//on retire le menu
+    Main.endCh("chargementPanneauChargementEtSuppressionMenu");//startCh();
+    getPj().addPch();//on met le panneau de chargement au 1a plan.
+    //la ligne qui suis n'as d'effet que si elle n'as pas déjà été appliqué a la partie.
+    Main.getPartie().initialisationElément(); // pour l'instant ce bout de code ne marche pas ayeur qu'ici.
+    Main.startCh();
+    getPb().addPz();
+    Main.endCh("ajoutPanneauZoom");Main.startCh();
+    Main.getData().chargerImages(); //on a besoin du bon zoom pour effectuer cette action.
+    if(Main.getDimY()!=1080 || Main.getPartie().getGc().getNbrY()!=9){
+      getPj().dézoomer((byte)2);//on met la carte a la taille la plus grande possible pour qu'on voit tout.
+    }
+    Main.endCh("chargementImagesDelaCarte");
+
+    String s = g.get("chargementFini");
+    if (debug.getAffLesPerformances()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
+    Main.setMessageChargement(s);
+    getPch().addBt();
     return true;
   }
 
