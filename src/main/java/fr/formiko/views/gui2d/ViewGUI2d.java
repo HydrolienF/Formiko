@@ -25,7 +25,7 @@ import java.util.Scanner;
 /**
  *{@summary View Graphics User Interface in 2 dimention.}<br>
  *@author Hydrolien
- *@version 1.42
+ *@version 1.44
  */
 public class ViewGUI2d implements View {
   private boolean actionGameOn;
@@ -63,7 +63,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary close all the thing that need to be close after using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.42
+  *@version 1.44
   */
   public boolean close(){
     actionGameOn=false;
@@ -82,7 +82,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Load main menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.42
+  *@version 1.44
   */
   public boolean menuMain(){
     actionGameOn=false;
@@ -99,7 +99,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Load new game menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.42
+  *@version 1.44
   */
   public boolean menuNewGame(){
     actionGameOn=false;
@@ -113,7 +113,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Load the save load menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.42
+  *@version 1.44
   */
   public boolean menuLoadAGame(){
     actionGameOn=false;
@@ -124,7 +124,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary personalise a game menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.42
+  *@version 1.44
   */
   public boolean menuPersonaliseAGame(){
     actionGameOn=false;
@@ -134,7 +134,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary options menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.42
+  *@version 1.44
   */
   public boolean menuOptions(){
     actionGameOn=false;

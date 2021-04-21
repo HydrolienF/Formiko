@@ -96,6 +96,7 @@ public class ViewCLI implements View {
   public boolean menuMain(){
     actionGameOn=false;
     menuName="menuP";
+    if(Main.getPremierePartie()){Main.setPartie(Partie.getPartieTuto());return true;}
     paint();
     int action = getActionMenu(4);
     switch (action) {
@@ -118,7 +119,7 @@ public class ViewCLI implements View {
   /**
   *{@summary Load new game menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
+  *@version 1.34
   */
   public boolean menuNewGame(){
     actionGameOn=false;

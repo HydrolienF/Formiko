@@ -46,7 +46,6 @@ public class Main {
   private static byte niveauDeDétailDeLAffichage=3;
   private static Pixel pi;
   private static HashMap<String, Integer> key; //keyboard key.
-  private static boolean ecouteClavier;
   private static int avancementChargement;
   private static boolean affGraine=true;//tant que les espece granivore ne sont pas pleinement opérationelle.
   private static Temps tem;
@@ -112,15 +111,10 @@ public class Main {
    * @version 1.7
    */
   public static void iniLaunch(){
-    //premierePartie=true;
     if(premierePartie){tuto=true;}
-    avancementChargement=-1;
     //on initialise ici si ça n'as pas déja été fait par une options.
     if(getOp()==null){initialisation();}
     iniCpt();
-    avancementChargement=0;
-    ecouteClavier=true;
-
     startCh();
     pa = new Partie(0,0,new Carte(new GCase(1,1)),1.0); //nouvelle partie vide.
     endCh("chargementPartieEtCarteBlanche");
@@ -131,7 +125,6 @@ public class Main {
    */
   public static boolean launch(){
     iniLaunch();
-    //===
     if (modeCLI) {
       view = new ViewCLI();
     }else{
@@ -148,19 +141,6 @@ public class Main {
     return false;
   }
   /**
-   * {@summary Wait until player launch a new game, the tutorial or Load a game.}<br>
-   * @version 1.7
-   */
-  public static Partie attenteDeLancementDePartie(){
-    //attente
-    debug.débogage("attente de lancement de la partie");
-    repaint();
-    boolean b=false;
-    while(!b && !premierePartie){Temps.pause(10);b=getPm().getLancer();}
-    return action.getPartie();
-    //debug.débogage("lancementNouvellePartie");
-  }
-  /**
    * {@summary Launch a new game.}<br>
    * @version 1.14
    */
@@ -172,9 +152,6 @@ public class Main {
     else if(pa==null){pa=Partie.getDefautlPartie();}
     getPj().addPch();//on met le panneau de chargement au 1a plan.
     getF().printAll(getF().getGraphics());
-    //endCh("chargementDézoom");
-    //pa.setEnCours(true); //lance l'affichage de la Partie.
-    //startCh();
     //la ligne qui suis n'as d'effet que si elle n'as pas déjà été appliqué a la partie.
     pa.initialisationElément(); // pour l'instant ce bout de code ne marche pas ayeur qu'ici.
     startCh();
@@ -199,46 +176,7 @@ public class Main {
     getPs().construire();
     getGj().prendreEnCompteLaDifficulté();
     if(premierePartie){tuto=true;}
-    if(tuto){iniParamètreCarteTuto();}
-    /*else{//si ce n'est pas le tuto on change la musique.
-      thm.stopThm();
-      thm = new ThMusique();
-      thm.start();
-    }*/
-  }
-  /**
-   * {@summary Initializes the tutorial parameters.}<br>
-   * @version 1.1
-   */
-  public static void iniParamètreCarteTuto(){
-    Fourmiliere fere = Main.getGj().getDébut().getContenu().getFere();
-    CCase ccIni = Main.getPartie().getGc().getCCase(0,1);
-    fere.setCc(ccIni);
-    fere.getGc().getDébut().getContenu().setCCase(ccIni);
-    Insecte i = new Insecte(Main.getPartie().getGc().getCCase(1,1),0,100,0);
-    i.setNourritureFournie(200);
-    i.setEstMort(false);
-    i.setType(8);
-    getGi().addInsecte(i);
-    ths = new ThScript("tuto.formiko");
-    ths.start();
-  }
-  /**
-   * Allow the player to get back to main menu.
-   * @version 1.1
-   */
-  public static void retourAuMenu(){
-    Carte mapo = new Carte(new GCase(1,1));
-    pa = new Partie(0,0,mapo,1.0); //nouvelle partie vide.
-    debug.débogage("lancement du retour au menu");
-    Main.getPp().removePj();
-    //Main.getPp().removePm();
-    ini.initialiserToutLesPaneauxVide();
-    ini.initialiserPanneauJeuEtDépendance();
-    getPm().construitPanneauMenu(3);
-    repaint();
-    debug.débogage("fin du retour au menu");
-    attenteDeLancementDePartie();
+    if(tuto){Partie.iniParametreCarteTuto(Main.getPartie());}
   }
 
   // GET SET ----------------------------------------------------------
@@ -252,12 +190,10 @@ public class Main {
   public static Fenetre getF(){ try {return ((ViewGUI2d)view).getF();} catch (Exception e) {return null;}}
   public static Options getOp(){return op;}
   public static Chrono getCh(){ return ch;}
-  public static int getKey(String clé){ int r = key.get(clé);if(r==-1){return -1;}return r; }
+  public static int getKey(String clé){ return key.get(clé); }
   public static Partie getPartie(){ return pa;}
   public static void setPartie(Partie p){pa=p;}
   public static Pixel getPiFond(){ return pi;}
-  public static boolean getEcouteClavier(){ return ecouteClavier;}
-  public static void setEcouteClavier(Boolean b){ecouteClavier=b;}
   public static int getAvancementChargement(){ return avancementChargement;}
   public static void setAvancementChargement(int x){avancementChargement=x;}
   public static boolean getAffGraine(){return affGraine;}
@@ -281,6 +217,7 @@ public class Main {
   public static boolean estWindows(){return os.getId()==1;}
   public static String get(String clé){ return g.get(clé);}
   public static Script getScript(){return ths.getScript();}
+  public static void setScript(ThScript t){ths=t;}
   //musique
   /*public static ThMusique getThm(){return thm;}
   public static Musique getMusique(){return getThm().getM();}

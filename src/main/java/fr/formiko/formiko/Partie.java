@@ -348,7 +348,26 @@ public class Partie implements Serializable{
     Main.endCh("chargementParamètrePartieTuto");
     partie.setAppartionInsecte(false);
     partie.setAppartionGraine(false);
+    // iniParametreCarteTuto(partie);
     return partie;
+  }
+  /**
+   * {@summary Initializes the tutorial parameters.}<br>
+   * @version 1.1
+   */
+  public static void iniParametreCarteTuto(Partie pa){
+    Fourmiliere fere = pa.getGj().getDébut().getContenu().getFere();
+    CCase ccIni = pa.getGc().getCCase(0,1);
+    fere.setCc(ccIni);
+    fere.getGc().getDébut().getContenu().setCCase(ccIni);
+    Insecte i = new Insecte(Main.getPartie().getGc().getCCase(1,1),0,100,0);
+    i.setNourritureFournie(200);
+    i.setEstMort(false);
+    i.setType(8);
+    pa.getGi().addInsecte(i);
+    ThScript ths = new ThScript("tuto.formiko");
+    Main.setScript(ths);
+    ths.start();
   }
   /**
   *{@summary change the value of the playing ant.}<br>
