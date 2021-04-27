@@ -95,11 +95,14 @@ public class ViewGUI2d implements View {
     getPm().removeP();
     getPm().construitPanneauMenu(3);
     paint();
-    boolean b=false;
-    if(!Main.getPremierePartie()){
-      while(!b){Temps.pause(10);b=getPm().getLancer();}
+    if(Main.getPremierePartie()){
+      Main.setPartie(action.getPartie());
+      return true;
     }
+    boolean b=false;
+    while(!b){Temps.pause(10);b=getPm().getLancer();}
     Main.setPartie(action.getPartie());
+    // while(!b){Temps.pause(1000000);}
     return true;
   }
   /**

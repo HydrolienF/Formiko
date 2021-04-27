@@ -53,6 +53,7 @@ public class action{
     }else if(ac==4){
       debug.débogage("lancementNouvellePartie");
       pm.setLancer(true); //TODO to remove
+      //Main.setPartie(action.getPartie());
     }else if(ac==5){
       Main.getView().menuPersonaliseAGame();
     }else if(ac==6){
