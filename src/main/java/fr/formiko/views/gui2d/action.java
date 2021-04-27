@@ -53,7 +53,6 @@ public class action{
     }else if(ac==4){
       debug.débogage("lancementNouvellePartie");
       pm.setLancer(true); //TODO to remove
-      // Main.getView().actionGame();
     }else if(ac==5){
       Main.getView().menuPersonaliseAGame();
     }else if(ac==6){
@@ -87,7 +86,7 @@ public class action{
           }
           Main.repaint();
         }else if(ac==111){
-          Main.getPch().setLancer(true);
+          Main.finLancementNouvellePartie();
         }else if(ac==112){//retour au menu
           Main.setRetournerAuMenu(true);
           //en suite on doit revenir quasiment a la void main.

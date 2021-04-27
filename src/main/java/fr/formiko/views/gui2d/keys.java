@@ -86,10 +86,10 @@ public class keys {
         //   try {
         //     Main.getPd().clicEn(0,0);
         //   }catch (Exception e) {}
-        if(Main.getPlayingAnt()!=null){
+        if (Main.getPch()!=null) {
+          Main.finLancementNouvellePartie();
+        }else if(Main.getPlayingAnt()!=null){
           //TODO passer le tour ou a la prochaine Fourmi qui a des actions.
-        }else if (Main.getPch()!=null) {
-          Main.getPch().setLancer(true);
         }
       }
     };

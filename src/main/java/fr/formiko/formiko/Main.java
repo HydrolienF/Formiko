@@ -151,7 +151,10 @@ public class Main {
     //affichageDeLaPageDeChargement
     boolean b=!op.getAttendreAprèsLeChargementDeLaCarte();
     if(premierePartie){b=true;}
-    while(!b){Temps.pause(10);b=getPch().getLancer();}//attente de validation du panneau de chargement.
+    // while(!b){Temps.pause(10);b=getPch().getLancer();}//attente de validation du panneau de chargement.
+    // finLancementNouvellePartie();
+  }
+  public static void finLancementNouvellePartie(){
     //remove PanneauChargement & listen mouse clic.
     getPj().removePch();
     getPs().construire();

@@ -52,7 +52,6 @@ public class PanneauMenu extends Panneau {
     String s = " ("+g.get("bientôt")+")";
     b[0].setNom(g.get("menu"+c+".1"));
     b[1].setNom(g.get("menu"+c+".2"));
-    //if(c=='P'){b[1].setNom(g.get("menu"+c+".2")+s);}
     b[2].setNom(g.get("menu"+c+".3"));
     if(c=='P'){b[2].setNom(g.get("menu"+c+".3")+s);}
   }
