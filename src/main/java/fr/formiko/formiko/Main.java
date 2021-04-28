@@ -91,8 +91,11 @@ public class Main {
     }else{ // si il n'y a pas d'options ou que des options a "-".
       // LE JEU -------------------------------------------------------------------
       boolean continuerJeu=true;
-      while(continuerJeu){
+      int k2=0;
+      while(continuerJeu && k2<10){
+        k2++;
         continuerJeu = launch();//on attend ici tant que le joueur veux jouer.
+        System.out.println("after launch");//@a
         debug.débogage("ReLancement du jeu");
         try {
           getF().dispose();
@@ -108,11 +111,12 @@ public class Main {
   }
   /**
    * {@summary pre launch.}<br>
-   * @version 1.7
+   * @version 1.44
    */
   public static void iniLaunch(){
-    if(premierePartie){tuto=true;}
-    //on initialise ici si ça n'as pas déja été fait par une options.
+    if(premierePartie){Partie.setScript("tuto");
+      System.out.println("setTuto");//@a
+    }
     if(getOp()==null){initialisation();}
     iniCpt();
     startCh();
@@ -121,7 +125,7 @@ public class Main {
   }
   /**
    * {@summary Launch in the void main if there is not other args than -something (ex : -d).}<br>
-   * @version 1.42
+   * @version 1.44
    */
   public static boolean launch(){
     iniLaunch();
@@ -132,35 +136,7 @@ public class Main {
     }
     view.ini();
     view.menuMain();
-    if(premierePartie){tuto=true;} if(tuto){pa=Partie.getPartieTuto();}
-    else if(pa==null){pa=Partie.getDefautlPartie();}
-    if (modeCLI) {quitter();} //TODO menuMain sould call all functions so we sould be able to stop here.
-    // setPartie(attenteDeLancementDePartie());
-    view.actionGame();
-    lancementNouvellePartie();
-    Boolean b = pa.jeu(); //lance le jeux.
-    //===
-    if(b){return true;}
-    return false;
-  }
-  /**
-   * {@summary Launch a new game.}<br>
-   * @version 1.14
-   */
-  public static void lancementNouvellePartie(){ //Nouveau système de lancement de partie :
-    //affichageDeLaPageDeChargement
-    boolean b=!op.getAttendreAprèsLeChargementDeLaCarte();
-    if(premierePartie){b=true;}
-    // while(!b){Temps.pause(10);b=getPch().getLancer();}//attente de validation du panneau de chargement.
-    // finLancementNouvellePartie();
-  }
-  public static void finLancementNouvellePartie(){
-    //remove PanneauChargement & listen mouse clic.
-    getPj().removePch();
-    getPs().construire();
-    getGj().prendreEnCompteLaDifficulté();
-    if(premierePartie){tuto=true;}
-    if(tuto){Partie.iniParametreCarteTuto(Main.getPartie());}
+    return true;
   }
 
   // GET SET ----------------------------------------------------------

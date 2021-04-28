@@ -45,6 +45,7 @@ public class ViewGUI2d implements View {
   public PanneauJeu getPj(){return Main.getPj();}
   public PanneauBouton getPb(){return Main.getPb();}
   public PanneauChargement getPch(){return Main.getPch();}
+  public PanneauSup getPs(){return Main.getPs();}
   /**  // FUNCTIONS -----------------------------------------------------------------
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
@@ -73,7 +74,12 @@ public class ViewGUI2d implements View {
   */
   public boolean close(){
     actionGameOn=false;
-    getF().quit();
+    try {
+      getF().quit();
+    }catch (Exception e) {
+      erreur.erreur("Fail to close windows","close full game");
+      System.exit(2);
+    }
     return true;
   }
   /**
@@ -102,9 +108,16 @@ public class ViewGUI2d implements View {
     boolean b=false;
     while(!b){Temps.pause(10);b=getPm().getLancer();}
     Main.setPartie(action.getPartie());
+    System.out.println("end launch from gui");//@a
+    actionGame();
     // while(!b){Temps.pause(1000000);}
     return true;
   }
+  // private void endLaunch(){
+  //   // if(premierePartie){tuto=true;} if(tuto){pa=Partie.getPartieTuto();}
+  //   // if(Main.getPartie()==null){pa=Partie.getDefautlPartie();}
+  //   view.actionGame();
+  // }
   /**
   *{@summary Load new game menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
@@ -157,6 +170,8 @@ public class ViewGUI2d implements View {
   */
   public boolean actionGame(){
     actionGameOn=true;
+    // if(Partie.getScript().equals("tuto")){pa=Partie.getPartieTuto();}
+    if(Main.getPartie()==null){Main.setPartie(Partie.getDefautlPartie());}
     Main.startCh();
     Main.getPp().removePm();//on retire le menu
     Main.endCh("chargementPanneauChargementEtSuppressionMenu");//startCh();
@@ -176,6 +191,7 @@ public class ViewGUI2d implements View {
     if (debug.getAffLesPerformances()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
     Main.setMessageChargement(s);
     getPch().addBt();
+    Main.getPartie().jeu(); //lance le jeux.
     return true;
   }
 
@@ -222,6 +238,17 @@ public class ViewGUI2d implements View {
     return null;
   }
 
+
+  public void closePanneauChargement(){
+    //remove PanneauChargement & listen mouse clic.
+    getPj().removePch();
+    getPs().construire();
+    Main.getPartie().getGj().prendreEnCompteLaDifficulté();
+    if(Partie.getScript().equals("tuto")){
+      Main.setPartie(Partie.getPartieTuto());
+      Partie.iniParametreCarteTuto(Main.getPartie());
+    }
+  }
   //private
   /**
   *Load graphics.

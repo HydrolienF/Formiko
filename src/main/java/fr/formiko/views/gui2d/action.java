@@ -53,11 +53,11 @@ public class action{
     }else if(ac==4){
       debug.débogage("lancementNouvellePartie");
       pm.setLancer(true); //TODO to remove
-      //Main.setPartie(action.getPartie());
     }else if(ac==5){
       Main.getView().menuPersonaliseAGame();
     }else if(ac==6){
-      Main.setTuto(true);
+      Partie.setScript("tuto");
+      System.out.println("set tuto 2");//@a
       pm.setLancer(true); //TODO to remove
     }else if(ac==100){
       // Main.getView().menuNewGame();
@@ -87,7 +87,8 @@ public class action{
           }
           Main.repaint();
         }else if(ac==111){
-          Main.finLancementNouvellePartie();
+          ((ViewGUI2d)(Main.getView())).closePanneauChargement();
+          Main.getPm().setLancer(true); //TODO to remove
         }else if(ac==112){//retour au menu
           Main.setRetournerAuMenu(true);
           //en suite on doit revenir quasiment a la void main.

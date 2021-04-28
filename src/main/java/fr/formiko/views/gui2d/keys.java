@@ -87,7 +87,7 @@ public class keys {
         //     Main.getPd().clicEn(0,0);
         //   }catch (Exception e) {}
         if (Main.getPch()!=null) {
-          Main.finLancementNouvellePartie();
+          ((ViewGUI2d)(Main.getView())).closePanneauChargement();
         }else if(Main.getPlayingAnt()!=null){
           //TODO passer le tour ou a la prochaine Fourmi qui a des actions.
         }

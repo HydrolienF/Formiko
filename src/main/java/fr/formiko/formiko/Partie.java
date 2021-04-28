@@ -27,6 +27,7 @@ import java.util.Map;
 */
 public class Partie implements Serializable{
   private static final long serialVersionUID = 1L;
+  private static String script="";
   private GInsecte gi;
   private GJoueur gj;
   private static GEspece ge;
@@ -51,6 +52,7 @@ public class Partie implements Serializable{
   // CONSTRUCTEUR ---------------------------------------------------------------
   // nombre de joueur, nombre d'ia, abondance des insectes, niveau de difficulté des ia, les especes autorisé, le nombre de tour.
   public Partie(int difficulté, int nbrDeTour, Carte mapo, double vitesseDeJeu){
+    // script=""; //TODO we don't whant to update it every time.
     tour=0; partieFinie=false; enCours=false;
     dateDeCréation = LocalDateTime.now();
     this.mapo=mapo;
@@ -77,6 +79,8 @@ public class Partie implements Serializable{
     gi = new GInsecte();
   }
   // GET SET --------------------------------------------------------------------
+  public static String getScript(){return script;}
+  public static void setScript(String s){script=s;}
   public GInsecte getGi(){ return gi;}
   public void setGi(GInsecte g){gi=g;}
   public GJoueur getGj(){ return gj;}
