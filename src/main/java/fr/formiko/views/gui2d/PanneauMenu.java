@@ -23,6 +23,7 @@ public class PanneauMenu extends Panneau {
   private boolean lancer = false;
   private PanneauNouvellePartie pnp;
   private PanneauChoixPartie pcp;
+  private Bouton returnButon;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauMenu(){}
   public void construire(){
@@ -37,6 +38,7 @@ public class PanneauMenu extends Panneau {
   public PanneauChoixPartie getPcp(){return pcp;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics gra){
+    super.paintComponent(gra);
     //this.setSize(Main.getPp().getWidth(),Main.getPp().getHeight());
     //debug.débogage("La taille du PanneauMenu est : x="+this.getWidth()+", y="+this.getHeight());
   }
@@ -80,6 +82,10 @@ public class PanneauMenu extends Panneau {
       b[i].setBounds(posX,posY+(int)(i*tailleBoutonY*1.5),(int)dim.getWidth(),(int)dim.getHeight());
       add(b[i]);
     }
+    //TODO add the return / leave button.
+    // returnButon = new Bouton(g.get("menu"+c+"."+4),Main.getPm(),5);
+    // returnButon.setBounds(0,0,100,100);
+    // add(returnButon);
     actualiserText();
   }
   /**

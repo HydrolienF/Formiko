@@ -43,7 +43,7 @@ public class action{
   public static void doActionPm(int ac){//TODO passer dans une autre class Controleur ?
     PanneauMenu pm = Main.getPm();
     if(ac==0){
-
+      Main.getView().menuMain();
     }else if(ac==1){
       Main.getView().menuNewGame();
     }else if(ac==2){

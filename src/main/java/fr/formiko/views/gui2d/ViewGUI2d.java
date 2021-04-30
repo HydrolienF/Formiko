@@ -100,6 +100,7 @@ public class ViewGUI2d implements View {
   public boolean menuMain(){
     actionGameOn=false;
     getPm().removeP();
+    getPm().setMenu(0);
     getPm().construitPanneauMenu(3);
     paint();
     if(!Main.getPremierePartie()){

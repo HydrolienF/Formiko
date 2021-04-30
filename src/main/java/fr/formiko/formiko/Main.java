@@ -184,7 +184,8 @@ public class Main {
   public static void setMusique(Musique m){getThm().setM(m);}
   public static void setMusiqueSuivante(){getThm().setM();}*/
   //view
-  public static void repaint(){view.paint();}
+  public static void repaint(){getView().paint();}
+  public static void doAction(int x){action.doAction(x);}
 
   public static PanneauPrincipal getPp(){ return getF().getPp();}
   public static PanneauJeu getPj(){ return getPp().getPj();}
