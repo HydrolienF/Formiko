@@ -113,11 +113,6 @@ public class ViewGUI2d implements View {
     // while(!b){Temps.pause(1000000);}
     return true;
   }
-  // private void endLaunch(){
-  //   // if(premierePartie){tuto=true;} if(tuto){pa=Partie.getPartieTuto();}
-  //   // if(Main.getPartie()==null){pa=Partie.getDefautlPartie();}
-  //   view.actionGame();
-  // }
   /**
   *{@summary Load new game menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
@@ -190,7 +185,11 @@ public class ViewGUI2d implements View {
     String s = g.get("chargementFini");
     if (debug.getAffLesPerformances()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
     Main.setMessageChargement(s);
-    getPch().addBt();
+    if(!Main.getOp().getAttendreAprèsLeChargementDeLaCarte()){
+      action.doAction(111);
+    }else{
+      getPch().addBt();
+    }
     Main.getPartie().jeu(); //lance le jeux.
     return true;
   }
@@ -240,14 +239,21 @@ public class ViewGUI2d implements View {
 
 
   public void closePanneauChargement(){
+    if(Partie.getScript().equals("tuto")){
+      System.out.println("Action for tuto");//@a
+      Main.iniCpt();
+      Main.setPartie(Partie.getPartieTuto());
+      Main.getPartie().initialisationElément();
+      Partie.iniParametreCarteTuto(Main.getPartie());
+      System.out.println(Main.getPartie().getGj());//@a
+    }
     //remove PanneauChargement & listen mouse clic.
     getPj().removePch();
     getPs().construire();
     Main.getPartie().getGj().prendreEnCompteLaDifficulté();
-    if(Partie.getScript().equals("tuto")){
-      Main.setPartie(Partie.getPartieTuto());
-      Partie.iniParametreCarteTuto(Main.getPartie());
-    }
+    // Main.getPm().setLancer(true); //TODO to remove
+    // Main.launchScript();
+    // actionGame();
   }
   //private
   /**

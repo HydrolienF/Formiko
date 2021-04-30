@@ -51,7 +51,12 @@ public class PanneauPrincipal extends Panneau {
     pj.setVisible(true);
     this.add(pj);
   }
-  public void removePm(){
+  public synchronized void removePm(){
+    System.out.println("remove PM");//@a
+    // if(pm==null){
+    //   erreur.alerte("Impossible de retirer le PanneauMenu.");
+    //   return;
+    // }
     pm.setVisible(false);
     remove(pm);
     pm=null;

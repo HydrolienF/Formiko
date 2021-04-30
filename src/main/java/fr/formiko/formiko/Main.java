@@ -179,15 +179,16 @@ public class Main {
   public static String get(String clé){ return g.get(clé);}
   public static Script getScript(){return ths.getScript();}
   public static void setScript(ThScript t){ths=t;}
+  public static void launchScript(){ths.start();}
   //musique
   /*public static ThMusique getThm(){return thm;}
   public static Musique getMusique(){return getThm().getM();}
   public static void setMusique(Musique m){getThm().setM(m);}
   public static void setMusiqueSuivante(){getThm().setM();}*/
-  //graphique
-  public static PanneauPrincipal getPp(){ return getF().getPp();}
+  //view
   public static void repaint(){view.paint();}
-  //public static synchronized void repaint(){try { f.paintAll(f.getGraphics());}catch (Exception e) {}}
+
+  public static PanneauPrincipal getPp(){ return getF().getPp();}
   public static PanneauJeu getPj(){ return getPp().getPj();}
   public static PanneauMenu getPm(){ return getPp().getPm();}
   public static PanneauNouvellePartie getPnp(){ return getPm().getPnp();}
@@ -204,6 +205,7 @@ public class Main {
   public static PanneauEchap getPe(){ return getPj().getPe();}
   public static PanneauDialogue getPd(){ try {return getPj().getPd();}catch (Exception e) {return null;}}
   public static PanneauDialogueInf getPdi(){ return getPj().getPdi();}
+
   public static int getDimX(){ try {return getPp().getWidth();}catch (Exception e){erreur.erreur("Impossible de récupérer les dim de Pp");return 1;}}
   public static int getDimY(){ try {return getPp().getHeight();}catch (Exception e){erreur.erreur("Impossible de récupérer les dim de Pp");return 1;}}
   public static int getWidth(){return getDimX();}

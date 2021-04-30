@@ -268,7 +268,9 @@ public class PanneauCarte extends Panneau {
             try {
               Insecte i = (Insecte)(ccrea.getContenu());
               g.drawImage(Main.getData().getTII()[dir][math.min(i.getType(),Main.getData().getTII()[dir].length)],xTemp,yTemp,this);
-            }catch (Exception e2) {erreur.erreur("impossible de dessiner l'image de la case : "+x+" "+y);}
+            }catch (Exception e2) {erreur.erreur("impossible de dessiner l'image de la case : "+x+" "+y);
+              System.out.println(ccrea.getContenu());//@a
+            }
           }
           //les icone
           if(cr.getEstMort()){drawIcone(g,3,xT,yT,tC2);}

@@ -88,7 +88,6 @@ public class action{
           Main.repaint();
         }else if(ac==111){
           ((ViewGUI2d)(Main.getView())).closePanneauChargement();
-          Main.getPm().setLancer(true); //TODO to remove
         }else if(ac==112){//retour au menu
           Main.setRetournerAuMenu(true);
           //en suite on doit revenir quasiment a la void main.
