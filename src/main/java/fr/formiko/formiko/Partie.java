@@ -352,14 +352,15 @@ public class Partie implements Serializable{
     Main.endCh("chargementParamètrePartieTuto");
     partie.setAppartionInsecte(false);
     partie.setAppartionGraine(false);
-    // iniParametreCarteTuto(partie);
+    partie.initialisationElément();
+    iniParametreCarteTuto(partie);
     return partie;
   }
   /**
    * {@summary Initializes the tutorial parameters.}<br>
    * @version 1.1
    */
-  public static void iniParametreCarteTuto(Partie pa){
+  private static void iniParametreCarteTuto(Partie pa){
     Fourmiliere fere = pa.getGj().getDébut().getContenu().getFere();
     CCase ccIni = pa.getGc().getCCase(0,1);
     fere.setCc(ccIni);

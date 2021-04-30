@@ -152,6 +152,11 @@ public class PanneauJeu extends Panneau {
     GCase gc = Main.getGc();
     pc.setPosX(math.max(gc.getNbrX()/2 - nbrDeCaseAffichableX(),0));
     pc.setPosY(math.max(gc.getNbrY()/2 - nbrDeCaseAffichableY(),0));
+    //TODO fix it
+    System.out.println(gc.getNbrX());
+    System.out.println(nbrDeCaseAffichableX());
+    System.out.println(pc);
+    Main.repaint();
   }
   public int nbrDeCaseAffichableX(){
     return (getWidth()/pc.getTailleDUneCase())+1;

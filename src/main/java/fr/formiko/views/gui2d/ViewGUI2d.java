@@ -177,9 +177,11 @@ public class ViewGUI2d implements View {
     getPb().addPz();
     Main.endCh("ajoutPanneauZoom");Main.startCh();
     Main.getData().chargerImages(); //on a besoin du bon zoom pour effectuer cette action.
-    if(Main.getDimY()!=1080 || Main.getPartie().getGc().getNbrY()!=9){
-      getPj().dézoomer((byte)2);//on met la carte a la taille la plus grande possible pour qu'on voit tout.
-    }
+    // if(Main.getDimY()!=1080 || Main.getPartie().getGc().getNbrY()!=9){
+      // getPj().dézoomer((byte)2);//on met la carte a la taille la plus grande possible pour qu'on voit tout.
+      System.out.println("unzoom");//@a
+      action.doActionPj(4);
+    // }
     Main.endCh("chargementImagesDelaCarte");
 
     String s = g.get("chargementFini");
@@ -243,9 +245,6 @@ public class ViewGUI2d implements View {
       System.out.println("Action for tuto");//@a
       Main.iniCpt();
       Main.setPartie(Partie.getPartieTuto());
-      Main.getPartie().initialisationElément();
-      Partie.iniParametreCarteTuto(Main.getPartie());
-      System.out.println(Main.getPartie().getGj());//@a
     }
     //remove PanneauChargement & listen mouse clic.
     getPj().removePch();
