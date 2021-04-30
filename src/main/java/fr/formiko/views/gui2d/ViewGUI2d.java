@@ -7,6 +7,7 @@ import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
+import fr.formiko.formiko.ThScript;
 import fr.formiko.formiko.triche;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.Th;
@@ -101,12 +102,12 @@ public class ViewGUI2d implements View {
     getPm().removeP();
     getPm().construitPanneauMenu(3);
     paint();
-    if(Main.getPremierePartie()){
-      Main.setPartie(action.getPartie());
-      return true;
+    if(!Main.getPremierePartie()){
+      boolean b=false;
+      while(!b){Temps.pause(10);b=getPm().getLancer();}
+    }else{
+      //play launching video
     }
-    boolean b=false;
-    while(!b){Temps.pause(10);b=getPm().getLancer();}
     Main.setPartie(action.getPartie());
     System.out.println("end launch from gui");//@a
     actionGame();
@@ -187,12 +188,18 @@ public class ViewGUI2d implements View {
     String s = g.get("chargementFini");
     if (debug.getAffLesPerformances()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
     Main.setMessageChargement(s);
-    if(!Main.getOp().getAttendreAprèsLeChargementDeLaCarte()){
+    if(!Main.getOp().getAttendreAprèsLeChargementDeLaCarte() || Main.getPremierePartie()){
       closePanneauChargement();
+      paint();
     }else{
       getPch().addBt();
     }
-    System.out.println(Main.getPartie().getGi().length()+"\n");//@a
+    Main.getPartie().getGj().prendreEnCompteLaDifficulté();//setFood acording to difficutly.
+    if(!Partie.getScript().equals("")){
+      ThScript ths = new ThScript(Partie.getScript()+".formiko");
+      Main.setScript(ths);
+      Main.launchScript();
+    }
     Main.getPartie().jeu(); //lance le jeux.
     return true;
   }
@@ -245,7 +252,6 @@ public class ViewGUI2d implements View {
     //remove PanneauChargement & listen mouse clic.
     getPj().removePch();
     getPs().construire();
-    Main.getPartie().getGj().prendreEnCompteLaDifficulté();
     // Main.getPm().setLancer(true); //TODO to remove
     // Main.launchScript();
     // actionGame();

@@ -340,7 +340,7 @@ public class Partie implements Serializable{
   public static void setPartieTutoInMain(){
     Main.setPartie(getPartieTuto());
     Main.getPartie().iniParametreCarteTuto();
-    Main.launchScript();
+    // Main.launchScript();
   }
   /**
    * {@summary create a new Partie to launch Tuto.}<br>
@@ -374,8 +374,6 @@ public class Partie implements Serializable{
     i.setEstMort(false);
     i.setType(8);
     getGi().addInsecte(i);
-    ThScript ths = new ThScript("tuto.formiko");
-    Main.setScript(ths);
     // ths.start();
   }
   /**

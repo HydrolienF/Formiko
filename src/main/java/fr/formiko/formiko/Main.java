@@ -114,10 +114,8 @@ public class Main {
    * @version 1.44
    */
   public static void iniLaunch(){
-    if(premierePartie){Partie.setScript("tuto");
-      System.out.println("setTuto");//@a
-    }
     if(getOp()==null){initialisation();}
+    if(premierePartie){Partie.setScript("tuto");}
     iniCpt();
     startCh();
     pa = new Partie(0,0,new Carte(new GCase(1,1)),1.0); //nouvelle partie vide.
