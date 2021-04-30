@@ -26,6 +26,7 @@ public class PanneauDialogueInf extends Panneau {
 
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
+    super.paintComponent(g);
     g.drawImage(fond,0,0,this);
   }
   public static void chargerFond(){

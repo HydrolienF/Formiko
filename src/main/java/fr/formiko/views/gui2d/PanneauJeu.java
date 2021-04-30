@@ -86,7 +86,7 @@ public class PanneauJeu extends Panneau {
   public void initialiserPd(String s){
     pd.initialiser(s);
     pdi.initialiser();
-    pd.setBounds(0,0,pd.getWidth(),pd.getHeight());
+    pd.setLocation(0,0);
     revalidate();
   }
   public void removePd(){
@@ -117,12 +117,21 @@ public class PanneauJeu extends Panneau {
     pch = new PanneauChargement();
     pch.setBounds(0,0,getWidth(),getHeight());
     add(pch);
+    if(pd!=null){
+      pd.setVisible(false);
+      pdi.setVisible(false);
+    }
     pc.setVisible(false);
     pb.setVisible(false);
+    Main.repaint();
   }
   public void removePch(){
     remove(pch);
     pch = null;
+    if(pd!=null){
+      pd.setVisible(true);
+      pdi.setVisible(true);
+    }
     pc.setVisible(true);
     pb.setVisible(true);
   }

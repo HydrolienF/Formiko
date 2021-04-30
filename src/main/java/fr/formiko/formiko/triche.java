@@ -190,8 +190,6 @@ public class triche {
             Main.getPdi().addBSuivant();
             Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
           }
-          //Main.getPs().revalidate();
-          //Main.repaint();
           break;
         case 30:
           Main.quitter();
