@@ -337,11 +337,16 @@ public class Partie implements Serializable{
     Main.endCh("chargementPartie");
     return partie;
   }
+  public static void setPartieTutoInMain(){
+    Main.setPartie(getPartieTuto());
+    Main.getPartie().iniParametreCarteTuto();
+    Main.launchScript();
+  }
   /**
    * {@summary create a new Partie to launch Tuto.}<br>
    * @version 1.1.
    */
-  public static Partie getPartieTuto(){
+  private static Partie getPartieTuto(){
     Main.startCh();
     String nomCarte = "tuto";
     Carte mapo = new Carte(nomCarte);
@@ -353,26 +358,25 @@ public class Partie implements Serializable{
     partie.setAppartionInsecte(false);
     partie.setAppartionGraine(false);
     partie.initialisationElément();
-    iniParametreCarteTuto(partie);
     return partie;
   }
   /**
    * {@summary Initializes the tutorial parameters.}<br>
    * @version 1.1
    */
-  private static void iniParametreCarteTuto(Partie pa){
-    Fourmiliere fere = pa.getGj().getDébut().getContenu().getFere();
-    CCase ccIni = pa.getGc().getCCase(0,1);
+  private void iniParametreCarteTuto(){
+    Fourmiliere fere = getGj().getDébut().getContenu().getFere();
+    CCase ccIni = getGc().getCCase(0,1);
     fere.setCc(ccIni);
     fere.getGc().getDébut().getContenu().setCCase(ccIni);
     Insecte i = new Insecte(Main.getPartie().getGc().getCCase(1,1),0,100,0);
     i.setNourritureFournie(200);
     i.setEstMort(false);
     i.setType(8);
-    pa.getGi().addInsecte(i);
+    getGi().addInsecte(i);
     ThScript ths = new ThScript("tuto.formiko");
     Main.setScript(ths);
-    ths.start();
+    // ths.start();
   }
   /**
   *{@summary change the value of the playing ant.}<br>

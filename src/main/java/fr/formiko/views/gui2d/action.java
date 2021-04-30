@@ -57,7 +57,6 @@ public class action{
       Main.getView().menuPersonaliseAGame();
     }else if(ac==6){
       Partie.setScript("tuto");
-      System.out.println("set tuto 2");//@a
       pm.setLancer(true); //TODO to remove
     }else if(ac==100){
       // Main.getView().menuNewGame();

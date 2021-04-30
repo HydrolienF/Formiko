@@ -177,21 +177,22 @@ public class ViewGUI2d implements View {
     getPb().addPz();
     Main.endCh("ajoutPanneauZoom");Main.startCh();
     Main.getData().chargerImages(); //on a besoin du bon zoom pour effectuer cette action.
-    // if(Main.getDimY()!=1080 || Main.getPartie().getGc().getNbrY()!=9){
-      // getPj().dézoomer((byte)2);//on met la carte a la taille la plus grande possible pour qu'on voit tout.
-      System.out.println("unzoom");//@a
-      action.doActionPj(4);
-    // }
+    if(Partie.getScript().equals("tuto")){
+      Main.iniCpt();
+      Partie.setPartieTutoInMain();
+    }
+    action.doActionPj(8);
     Main.endCh("chargementImagesDelaCarte");
 
     String s = g.get("chargementFini");
     if (debug.getAffLesPerformances()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
     Main.setMessageChargement(s);
     if(!Main.getOp().getAttendreAprèsLeChargementDeLaCarte()){
-      action.doAction(111);
+      closePanneauChargement();
     }else{
       getPch().addBt();
     }
+    System.out.println(Main.getPartie().getGi().length()+"\n");//@a
     Main.getPartie().jeu(); //lance le jeux.
     return true;
   }
@@ -241,11 +242,6 @@ public class ViewGUI2d implements View {
 
 
   public void closePanneauChargement(){
-    if(Partie.getScript().equals("tuto")){
-      System.out.println("Action for tuto");//@a
-      Main.iniCpt();
-      Main.setPartie(Partie.getPartieTuto());
-    }
     //remove PanneauChargement & listen mouse clic.
     getPj().removePch();
     getPs().construire();

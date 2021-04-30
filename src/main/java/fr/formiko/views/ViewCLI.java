@@ -135,7 +135,7 @@ public class ViewCLI implements View {
       menuPersonaliseAGame();
       break;
       case 3 :
-      Main.setPartie(Partie.getPartieTuto());
+      Partie.setPartieTutoInMain();
       actionGame();
       break;
       case 4 :

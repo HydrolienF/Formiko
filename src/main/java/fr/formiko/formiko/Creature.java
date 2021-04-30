@@ -214,7 +214,9 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     r+=g.get("propreté")+" "+propreté+"/"+"100"+", ";
     r+=g.get("phéromone")+" "+ph.toString()+", ";
     r+=g.get("tolerencePheromone")+" "+tolerencePheromone+", ";
-    r+=g.get("espèce")+" "+e.getNom();
+    try {
+      r+=g.get("espèce")+" "+e.getNom();
+    }catch (Exception e) {}
     return r;
   }
   /**
