@@ -246,6 +246,32 @@ public class ViewGUI2d implements View {
     if (!actionGameOn) {return null;}
     return null;
   }
+  /**
+  *{@summary Print a message.}<br>
+  *If message.equals("") we may need to delete last message, but we don't need to print a new message.<br>
+  *@param message the message to print.
+  *@param doWeNeedToDoNextCmdNow true if we need to do next commande now.
+  *@version 1.44
+  */
+  public void message(String message, boolean doWeNeedToDoNextCmdNow){
+    Main.getPj().initialiserPd(message);
+    try {
+      Main.getPdi().removeBSuivant();
+    }catch (Exception e) {}
+    try {
+      Main.getScript().setCmdSuivante(doWeNeedToDoNextCmdNow);
+      if(!doWeNeedToDoNextCmdNow){
+        Main.getPdi().addBSuivant();
+        Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
+      }else{
+        Main.getPs().actualiserTaille();//écoute normale
+      }
+    }catch (Exception e) {//par défaut on attend avant de passer a la commande suivante.
+      Main.getScript().setCmdSuivante(false);
+      Main.getPdi().addBSuivant();
+      Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
+    }
+  }
 
 
   public void closePanneauChargement(){

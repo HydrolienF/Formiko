@@ -389,6 +389,19 @@ public class ViewCLI implements View {
     return choice;
   }
   /**
+  *{@summary Print a message.}<br>
+  *If message.equals("") we may need to delete last message, but we don't need to print a new message.<br>
+  *@param message the message to print
+  *@param doWeNeedToDoNextCmdNow true if we need to do next commande now.
+  *@version 1.44
+  */
+  public void message(String message, boolean doWeNeedToDoNextCmdNow){
+    //TODO print it at a special location when printing all game info.
+    System.out.println(message);
+  }
+
+  //private
+  /**
   *{@summary Select an ant from playingAnt anthill.}<br>
   *@version 1.33
   */

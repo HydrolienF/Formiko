@@ -117,10 +117,15 @@ public class ViewNull implements View {
   }
   /**
   *{@summary A null view action that do nothing.}<br>
-  *@return Return -1;
+  *@return Return null;
   *@version 1.39
   */
   public CCase getCCase(){
     return null;
   }
+  /**
+  *{@summary A null view action that do nothing.}<br>
+  *@version 1.44
+  */
+  public void message(String message, boolean doWeNeedToDoNextCmdNow){}
 }

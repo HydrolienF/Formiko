@@ -24,10 +24,9 @@ public class PanneauDialogue extends Panneau {
         Main.getPj().getPdi().setVisible(false);
         return;
       }
-      if(Main.getPch()!= null && !Main.getPch().isVisible()){
-        Main.getPj().getPdi().setVisible(true);
-      }else{
-        // Main.getPj().getPdi().setVisible(false);
+      Main.getPj().getPdi().setVisible(true);
+      if(Main.getPch()!= null && Main.getPch().isVisible()){
+        Main.getPj().getPdi().setVisible(false);
       }
     }catch (Exception e) {
       erreur.alerte("Le PanneauDialogueInf n'as pas pu être mis visible.");

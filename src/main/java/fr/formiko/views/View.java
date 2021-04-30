@@ -97,4 +97,12 @@ public interface View {
   *@version 1.39
   */
   CCase getCCase();
+  /***
+  *{@summary Print a message.}<br>
+  *If message.equals("") we may need to delete last message, but we don't need to print a new message.<br>
+  *@param message the message to print.
+  *@param doWeNeedToDoNextCmdNow true if we need to do next commande now.
+  *@version 1.44
+  */
+  void message(String message, boolean doWeNeedToDoNextCmdNow);
 }

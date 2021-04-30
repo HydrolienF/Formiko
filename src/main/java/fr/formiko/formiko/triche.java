@@ -169,27 +169,14 @@ public class triche {
           break;
         case 29://print
           String s2 = "";
-          try {
+          if(args.length>1){
             s2 = g.getM(args[1]);
-          }catch (Exception e) {}//si s2 est vide c'est juste que on souhaite retirer le PanneauDialogue et le PanneauDialogueInf
-          //affichage sur la page
-          Main.getPj().initialiserPd(s2);
-          try {
-            Main.getPdi().removeBSuivant();
-          }catch (Exception e) {}
-          try {
-            Main.getScript().setCmdSuivante(str.sToB(args[2]));
-            if(!str.sToB(args[2])){
-              Main.getPdi().addBSuivant();
-              Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
-            }else{
-              Main.getPs().actualiserTaille();//écoute normale
-            }
-          }catch (Exception e) {//par défaut on attend avant de passer a la commande suivante.
-            Main.getScript().setCmdSuivante(false);
-            Main.getPdi().addBSuivant();
-            Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
           }
+          boolean doWeNeedToDoNextCmdNow = false;
+          if(args.length>2){
+            doWeNeedToDoNextCmdNow=str.sToB(args[2]);
+          }
+          Main.getView().message(s2,doWeNeedToDoNextCmdNow);
           break;
         case 30:
           Main.quitter();
