@@ -95,7 +95,6 @@ public class ViewGUI2d implements View {
   *@version 1.44
   */
   public boolean menuMain(){
-    System.out.println("call menu main from "+Thread.currentThread().getName());//@a
     actionGameOn=false;
     getPm().removeP();
     // getPm().setMenu(0);
@@ -319,15 +318,12 @@ public class ViewGUI2d implements View {
 
   public synchronized void waitForGameLaunch(){
     if(!Main.getPremierePartie()){
-      System.out.println("waitForGameLaunch");//@a
       boolean b=false;
       while(!b){Temps.pause(10);b=getPm().getLancer();}
     }else{
       //play launching video
     }
     Main.setPartie(action.getPartie());
-    System.out.println("end launch from gui");//@a
     actionGame();
-    // while(!b){Temps.pause(1000000);}
   }
 }

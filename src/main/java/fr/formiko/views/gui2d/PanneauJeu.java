@@ -84,7 +84,6 @@ public class PanneauJeu extends Panneau {
     add(pdi);
   }
   public void initialiserPd(String s){
-    System.out.println("ini pour "+s);//@a
     pd.initialiser(s);
     pdi.initialiser();
     pd.setLocation(0,0);

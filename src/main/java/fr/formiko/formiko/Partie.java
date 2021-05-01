@@ -268,7 +268,7 @@ public class Partie implements Serializable{
       erreur.alerteGUI2Dfail("Partie.finDePartie");
     }
     setContinuerLeJeu(false);
-    Main.setRetournerAuMenu(true);//TODO ask & not force.
+    // Main.setRetournerAuMenu(true);//TODO ask & not force.
     while(!getContinuerLeJeu() && !Main.getRetournerAuMenu()){//on attend la validation que la partie continue.
       Temps.pause(10);
     }

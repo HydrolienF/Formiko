@@ -270,10 +270,11 @@ public class triche {
           }catch (Exception e) {}
           break;
         case 38:
-          try {
-            Main.getPlayingAnt().setAction(0);
-          }catch (Exception e) {}
-          Main.getPartie().setContinuerLeJeu(false);
+          // try {
+          //   Main.getPlayingAnt().setAction(0);
+          // }catch (Exception e) {}
+          // Main.getPartie().setContinuerLeJeu(false);
+          Main.getPartie().finDePartie();
           break;
         case 39:
           try {

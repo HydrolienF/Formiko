@@ -74,7 +74,6 @@ public class PanneauMenu extends Panneau {
   */
   public void actualiserText(){
     char c = 'P'; if(menu==1){c='N';}if(menu==2){c='M';}
-    System.out.println("actualiserText with "+c+" from "+Thread.currentThread().getName());//@a
     String s = " ("+g.get("bientôt")+")";
     b[0].setNom(g.get("menu"+c+".1"));
     b[1].setNom(g.get("menu"+c+".2"));
@@ -91,7 +90,6 @@ public class PanneauMenu extends Panneau {
   public void buildPanneauMenu(int nbrOfButtons, int menu){
     if(b==null || b[0]==null){
       debug.débogage("construitPanneauMenu");
-      System.out.println("construitPanneauMenu "+menu);//@a
       this.setLayout(null);
       setBounds(0,0,Main.getDimX(),Main.getDimY());
       createButton(nbrOfButtons);

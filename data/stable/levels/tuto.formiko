@@ -80,7 +80,7 @@ print tuto.32
 print tuto.33
 print tuto.34
 print tuto.35 true
-finirPartie
+//endGame //TODO fix it to print a decent endScreen.
 print tuto.36
 print tuto.37
 backToMainMenu
