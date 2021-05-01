@@ -37,6 +37,7 @@ public class ViewGUI2d implements View {
   *@version 1.1
   */
   private Fenetre f;
+  private boolean needToWaitForGameLaunch=true;
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
@@ -62,10 +63,6 @@ public class ViewGUI2d implements View {
     ini.initialiserToutLesPaneauxVide();
     Main.endCh("chargementPanneauVide");
     loadGraphics();
-    //menu
-    // Main.startCh();
-    // getPm().buildPanneauMenu(3);
-    // Main.endCh("chargementPanneauMenu");
     return true;
   }
   /**
@@ -98,21 +95,18 @@ public class ViewGUI2d implements View {
   *@version 1.44
   */
   public boolean menuMain(){
+    System.out.println("call menu main from "+Thread.currentThread().getName());//@a
     actionGameOn=false;
     getPm().removeP();
-    getPm().setMenu(0);
-    getPm().buildPanneauMenu(3);
+    // getPm().setMenu(0);
+    getPm().buildPanneauMenu(3,0);
     paint();
-    if(!Main.getPremierePartie()){
-      boolean b=false;
-      while(!b){Temps.pause(10);b=getPm().getLancer();}
+    if(needToWaitForGameLaunch){
+      // waitForGameLaunch();
+      needToWaitForGameLaunch=false;
     }else{
-      //play launching video
+      erreur.info("don't need to wait for game launch");
     }
-    Main.setPartie(action.getPartie());
-    System.out.println("end launch from gui");//@a
-    actionGame();
-    // while(!b){Temps.pause(1000000);}
     return true;
   }
   /**
@@ -123,8 +117,8 @@ public class ViewGUI2d implements View {
   public boolean menuNewGame(){
     actionGameOn=false;
     getPm().removeP();
-    getPm().buildPanneauMenu(3);
-    getPm().setMenu(1);
+    getPm().buildPanneauMenu(3,1);
+    // getPm().setMenu(1);
     getPm().actualiserText();
     paint();
     return true;
@@ -321,5 +315,19 @@ public class ViewGUI2d implements View {
     }catch (Exception e) {
       erreur.erreur("Impossible de lancer l'écoute des codes triches.");
     }
+  }
+
+  public synchronized void waitForGameLaunch(){
+    if(!Main.getPremierePartie()){
+      System.out.println("waitForGameLaunch");//@a
+      boolean b=false;
+      while(!b){Temps.pause(10);b=getPm().getLancer();}
+    }else{
+      //play launching video
+    }
+    Main.setPartie(action.getPartie());
+    System.out.println("end launch from gui");//@a
+    actionGame();
+    // while(!b){Temps.pause(1000000);}
   }
 }

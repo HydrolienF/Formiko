@@ -24,7 +24,7 @@ import javax.swing.JPanel;
 *@version 1.44
 */
 public class PanneauMenu extends Panneau {
-  private BoutonLong b[];
+  private BoutonLong b[]=null;
   private byte menu;
   private boolean lancer = false;
   private PanneauNouvellePartie pnp;
@@ -37,9 +37,9 @@ public class PanneauMenu extends Panneau {
   *@version 1.44
   */
   public void build(){
-    this.setLayout(null);
-    setBounds(0,0,Main.getDimX(),Main.getDimY());
-    returnButton=null;
+    // this.setLayout(null);
+    // setBounds(0,0,Main.getDimX(),Main.getDimY());
+    // returnButton=null;
   }
   // GET SET --------------------------------------------------------------------
   public byte getMenu(){return menu; }
@@ -55,7 +55,10 @@ public class PanneauMenu extends Panneau {
   */
   private void setMenu(byte x){
     menu=x;
-    if(x==1){
+    if(x==0){
+      b[0].setActionB(1);b[1].setActionB(2);b[2].setActionB(3);
+      setReturnButtonAction(-1);
+    }else if(x==1){
       b[0].setActionB(4);b[1].setActionB(5);b[2].setActionB(6);
       setReturnButtonAction(0);
     }
@@ -71,6 +74,7 @@ public class PanneauMenu extends Panneau {
   */
   public void actualiserText(){
     char c = 'P'; if(menu==1){c='N';}if(menu==2){c='M';}
+    System.out.println("actualiserText with "+c+" from "+Thread.currentThread().getName());//@a
     String s = " ("+g.get("bientôt")+")";
     b[0].setNom(g.get("menu"+c+".1"));
     b[1].setNom(g.get("menu"+c+".2"));
@@ -84,9 +88,12 @@ public class PanneauMenu extends Panneau {
   *@param nbrOfButtons the number of buttons.
   *@version 1.44
   */
-  public void buildPanneauMenu(int nbrOfButtons){
-    if(b==null){
+  public void buildPanneauMenu(int nbrOfButtons, int menu){
+    if(b==null || b[0]==null){
       debug.débogage("construitPanneauMenu");
+      System.out.println("construitPanneauMenu "+menu);//@a
+      this.setLayout(null);
+      setBounds(0,0,Main.getDimX(),Main.getDimY());
       createButton(nbrOfButtons);
     }
     if(b[0].getParent()==null){
@@ -94,7 +101,7 @@ public class PanneauMenu extends Panneau {
         add(b[i]);
       }
     }
-    setReturnButtonAction(-1);
+    setMenu(menu);
     actualiserText();
   }
   /**

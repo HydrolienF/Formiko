@@ -134,6 +134,9 @@ public class Main {
     }
     view.ini();
     view.menuMain();
+    if (!modeCLI) {
+      ((ViewGUI2d)(view)).waitForGameLaunch();
+    }
     return true;
   }
 
