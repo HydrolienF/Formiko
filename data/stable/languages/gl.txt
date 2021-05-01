@@ -485,4 +485,4 @@ tuto.33:se non, as descricións dos botóns móstranse ao pasar o rato sobre ela
 tuto.34:se a pesar diso non atopas o que necesitas, podes buscar consello no servidor oficial de discordia do xogo: http://discord.gg/vqvfGzf[auto]
 tuto.35:para gañar un xogo a tempo debes ter unha puntuación máis alta que a IA e outros xogadores.[auto]
 tuto.36:a túa puntuación depende do teu número de formigas (as formigas adultas dan unha mellor puntuación), así como da dificultade do xogo e da velocidade do xogo.[auto]
-tuto.37:para reiniciar un xogo, tes que deixar o xogo e reinicialo, eu encargaréme de deixar o xogo, correspóndelle a vostede reinicialo.[auto]
+tuto.37:

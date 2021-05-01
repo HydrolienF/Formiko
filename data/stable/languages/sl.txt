@@ -485,4 +485,4 @@ tuto.33:v nasprotnem primeru se opisi gumbov prikažejo, ko premaknete miškin k
 tuto.34:če kljub temu ne najdete tistega, kar potrebujete, poiščite nasvet na uradnem strežniku za neskladja v igri: http://discord.gg/vqvfGzf[auto]
 tuto.35:če želite pravočasno zmagati v igri, morate imeti višji rezultat kot AI in drugi igralci.[auto]
 tuto.36:vaš rezultat je odvisen od vašega števila mravelj (odrasli mravi dajo boljši rezultat), pa tudi od težavnosti igre in hitrosti igre.[auto]
-tuto.37:če želite znova zagnati igro, morate zapreti igro in jo znova zagnati, jaz bom poskrbel za izhod iz igre, na vas je, da jo znova zaženete.[auto]
+tuto.37:

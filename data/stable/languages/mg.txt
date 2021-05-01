@@ -485,4 +485,4 @@ tuto.33:raha tsy izany dia aseho ny famaritana ny bokotra rehefa manidina eo amb
 tuto.34:raha na eo aza izany dia tsy hitanao izay ilainao dia azonao atao ny mangataka torohevitra amin'ny mpizara fifanolanana ofisialin'ny lalao: http://discord.gg/vqvfGzf[auto]
 tuto.35:mba handresena lalao ara-potoana dia tsy maintsy manana isa ambony noho AI ianao sy mpilalao hafa.[auto]
 tuto.36:miankina amin'ny isa ny isa anao, (ny ants ny olon-dehibe manome isa tsara kokoa), ary koa ny fahasahiranan'ny lalao sy ny hafainganan'ny lalao.[auto]
-tuto.37:mba hamerenana lalao iray dia mila miala amin'ny lalao ianao ary mamerina azy, hikarakara ny fialana amin'ny lalao aho, anjaranao ny mamerina azy io.[auto]
+tuto.37:

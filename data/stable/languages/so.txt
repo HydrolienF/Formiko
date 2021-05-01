@@ -485,4 +485,4 @@ tuto.33:haddii kale sharraxaadda badhanka ayaa la soo bandhigayaa markii aad dul
 tuto.34:haddii ay taasi jirto oo aadan helin waxaad u baahan tahay waxaad talo ka raadin kartaa server-ka khilaafka rasmiga ah ee ciyaarta: http://discord.gg/vqvfGzf[auto]
 tuto.35:si aad ugu guuleysato ciyaar waqtiga loogu talagalay waa inaad leedahay dhibco ka sarreeya AI iyo ciyaartoy kale.[auto]
 tuto.36:dhibcahaadu waxay kuxirantahay tiradaada qudhaanjada, (quraanjada qaangaarka ah waxay siisaa dhibco fiican), iyo sidoo kale dhibaatada ciyaarta iyo xawaaraha ciyaarta.[auto]
-tuto.37:si aad dib ugu bilowdo ciyaar, waa inaad ciyaarta ka tagtaa oo aad dib u bilowdaa, waxaan daryeelayaa joojinta ciyaarta, adiga ayay kugu xidhan tahay inaad dib u bilowdo.[auto]
+tuto.37:

@@ -485,4 +485,4 @@ tuto.33:ho seng joalo litlhaloso tsa konopo li bonts'oa ha o itsamaisa ka holim'
 tuto.34:haeba ntle le sena o sa fumane seo o se hlokang o ka batla boeletsi ho seva sa semmuso sa likhohlano sa papali: http://discord.gg/vqvfGzf[auto]
 tuto.35:ho hapa papali ka nako o tlameha ho ba le lintlha tse phahameng ho feta AI le libapali tse ling.[auto]
 tuto.36:lintlha tsa hau li ipapisitse le palo ea bohloa, (bohloa bo baholo bo fana ka lintlha tse betere), hammoho le bothata ba papali le lebelo la papali.[auto]
-tuto.37:ho qala papali hape, o tlameha ho tlohela papali eo ebe oe qala hape, ke tla hlokomela ho tlohela papali, ho ho uena ho e qala bocha.[auto]
+tuto.37:

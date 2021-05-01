@@ -485,4 +485,4 @@ tuto.33:inače se opisi gumba prikazuju kad zadržite pokazivač iznad njih, jed
 tuto.34:ako unatoč tome ne pronađete ono što vam treba, savjet možete potražiti na službenom poslužitelju za razdor u igri: http://discord.gg/vqvfGzf[auto]
 tuto.35:da biste na vrijeme pobijedili u igri, morate imati viši rezultat od AI i ostalih igrača.[auto]
 tuto.36:vaš rezultat ovisi o vašem broju mrava (odrasli mravi daju bolji rezultat), kao i o težini igre i brzini igre.[auto]
-tuto.37:da biste ponovno pokrenuli igru, morate napustiti igru i ponovno je pokrenuti, ja ću se pobrinuti za napuštanje igre, na vama je da je ponovno pokrenete.[auto]
+tuto.37:

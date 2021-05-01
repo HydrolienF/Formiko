@@ -485,4 +485,4 @@ tuto.33:anders worden de knopbeschrijvingen weergegeven wanneer u erover zweeft,
 tuto.34:als je desondanks niet vindt wat je zoekt, kun je advies inwinnen op de officiële onenigheidsserver van het spel: http://discord.gg/vqvfGzf[auto]
 tuto.35:om een spel op tijd te winnen, moet je een hogere score hebben dan AI en andere spelers.[auto]
 tuto.36:uw score is afhankelijk van uw aantal mieren (volwassen mieren geven een betere score), evenals de moeilijkheidsgraad van het spel en de snelheid van het spel.[auto]
-tuto.37:om een spel opnieuw te starten, moet je het spel afsluiten en opnieuw starten, ik zorg ervoor dat het spel wordt afgesloten, het is aan jou om het opnieuw te starten.[auto]
+tuto.37:

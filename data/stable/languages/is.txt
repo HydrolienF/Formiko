@@ -485,4 +485,4 @@ tuto.33:annars birtast hnappalýsingarnar þegar þú sveima yfir þeim, það e
 tuto.34:ef þú finnur ekki það sem þú þarft þrátt fyrir þetta, þá geturðu leitað ráðgjafar á opinberum ósamþjóni leiksins: http://discord.gg/vqvfGzf[auto]
 tuto.35:til að vinna leik á réttum tíma verður þú að hafa hærri einkunn en AI og aðrir leikmenn.[auto]
 tuto.36:stig þitt fer eftir fjölda maura, (fullorðnir maurar skora betra), sem og erfiðleika leiksins og hraða leiksins.[auto]
-tuto.37:til að endurræsa leik þarftu að hætta í leiknum og endurræsa hann, ég mun sjá um að hætta í leiknum, það er þitt að endurræsa hann.[auto]
+tuto.37:

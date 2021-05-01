@@ -485,4 +485,4 @@ tuto.33:jika tidak, deskripsi tombol akan ditampilkan saat Anda mengarahkan kurs
 tuto.34:meskipun demikian, jika Anda tidak menemukan yang Anda butuhkan, Anda dapat mencari saran di server perselisihan resmi gim: http://discord.gg/vqvfGzf[auto]
 tuto.35:untuk memenangkan permainan tepat waktu, Anda harus memiliki skor yang lebih tinggi dari AI dan pemain lain.[auto]
 tuto.36:skor Anda tergantung pada jumlah semut Anda, (semut dewasa memberikan skor yang lebih baik), serta tingkat kesulitan permainan dan kecepatan permainan.[auto]
-tuto.37:untuk memulai kembali game, Anda harus keluar dari game dan memulai ulang, saya akan urus game tersebut, terserah Anda untuk memulai ulang.[auto]
+tuto.37:

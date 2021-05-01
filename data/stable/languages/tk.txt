@@ -485,4 +485,4 @@ tuto.33:otherwiseogsam, düwmäniň düşündirişleri kartanyň üstündäki gu
 tuto.34:muňa garamazdan, zerur zatlary tapmasaňyz, oýnuň resmi nägilelik serwerinden maslahat alyp bilersiňiz: http://discord.gg/vqvfGzf[auto]
 tuto.35:bir oýunda wagtynda ýeňiş gazanmak üçin AI we beýleki oýunçylardan has ýokary bal bolmaly.[auto]
 tuto.36:siziň balyňyz garynjalaryň sanyna, (uly garynjalar has gowy bal berýär), oýnuň kynlygyna we oýnuň tizligine baglydyr.[auto]
-tuto.37:bir oýny täzeden başlamak üçin oýundan ýüz öwürmeli we täzeden başlamaly, men oýundan çykmak barada alada ederin, ony täzeden başlamak saňa bagly.[auto]
+tuto.37:

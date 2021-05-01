@@ -485,4 +485,4 @@ tuto.33:zvikasadaro bhatani rondedzero dzinoratidzwa kana iwe uchifamba pamusoro
 tuto.34:kana zvisinei neizvi usingawani zvaunoda, unogona kutsvaga mazano pane mutambo wepamutemo kusawirirana server: http://discord.gg/vqvfGzf[auto]
 tuto.35:kuti ukunde mutambo nenguva unofanirwa kunge uine mamaki akakwirira kupfuura AI nevamwe vatambi.[auto]
 tuto.36:chibodzwa chako chinoenderana nenhamba yako yemasvosve, (vakuru masvosve anopa mamaki ari nani), pamwe nekuoma kwemutambo uye kumhanya kwemutambo.[auto]
-tuto.37:kuti utangezve mutambo, iwe unofanirwa kusiya mutambo uye kuutangazve, ini ndichatarisira zvekusiya mutambo, zviri kwauri kuti utangezve.[auto]
+tuto.37:

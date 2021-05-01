@@ -485,4 +485,4 @@ tuto.33:w przeciwnym razie opisy przycisków są wyświetlane po najechaniu na n
 tuto.34:jeśli mimo to nie znajdziesz tego, czego potrzebujesz, możesz poszukać porady na oficjalnym serwerze discord gry: http://discord.gg/vqvfGzf[auto]
 tuto.35:aby wygrać grę na czas, musisz mieć wyższy wynik niż AI i inni gracze.[auto]
 tuto.36:twój wynik zależy od liczby mrówek (dorosłe mrówki dają lepszy wynik), a także od trudności i szybkości gry.[auto]
-tuto.37:aby zrestartować grę, musisz wyjść z gry i ponownie ją uruchomić. Zajmę się zamknięciem gry, ponowne uruchomienie zależy od Ciebie.[auto]
+tuto.37:

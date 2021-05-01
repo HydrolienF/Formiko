@@ -485,4 +485,4 @@ tuto.33:seachas sin taispeántar na tuairiscí cnaipe nuair a théann tú os a g
 tuto.34:ina ainneoin sin mura bhfaigheann tú a bhfuil uait is féidir leat comhairle a lorg ar fhreastalaí neamhord oifigiúil an chluiche: http://discord.gg/vqvfGzf[auto]
 tuto.35:chun cluiche a bhuachan in am caithfidh scór níos airde a bheith agat ná AI agus imreoirí eile.[auto]
 tuto.36:braitheann do scór ar líon na seangán, (tugann seangáin do dhaoine fásta scór níos fearr), chomh maith le deacracht an chluiche agus luas an chluiche.[auto]
-tuto.37:chun cluiche a atosú, caithfidh tú an cluiche a scor agus é a atosú, tabharfaidh mé aire duit an cluiche a scor, is fútsa atá sé é a atosú.[auto]
+tuto.37:

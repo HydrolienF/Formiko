@@ -485,4 +485,4 @@ tuto.33:ngaphandle kwalokho izincazelo zenkinobho ziyaboniswa lapho uzulazula ph
 tuto.34:uma ngaphandle kwalokhu ungakutholi okudingayo ungafuna izeluleko kuseva yomdlalo esemthethweni yokungezwani: http://discord.gg/vqvfGzf[auto]
 tuto.35:ukuze unqobe umdlalo ngesikhathi kufanele ube namanqaku aphezulu kune-AI nabanye abadlali.[auto]
 tuto.36:isikolo sakho sincike kwinani lezintuthwane zakho, (izintuthwane ezindala zinikeza amaphuzu angcono), kanye nobunzima bomdlalo nejubane lomdlalo.[auto]
-tuto.37:ukuqala kabusha umdlalo, kufanele uwuyeke umdlalo bese uqala kabusha, ngizokunakekela ukuwuyeka umdlalo, kukuwe ukuthi uwuqale phansi.[auto]
+tuto.37:

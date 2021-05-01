@@ -485,4 +485,4 @@ tuto.33:jika tidak, keterangan butang dipaparkan semasa anda mengarahkan kursor 
 tuto.34:sekiranya anda tidak menemui apa yang anda perlukan, anda boleh mendapatkan nasihat mengenai pelayan perselisihan rasmi permainan: http://discord.gg/vqvfGzf[auto]
 tuto.35:untuk memenangi permainan tepat pada masanya, anda mesti mempunyai skor yang lebih tinggi daripada AI dan pemain lain.[auto]
 tuto.36:skor anda bergantung pada jumlah semut anda, (semut dewasa memberikan skor yang lebih baik), serta kesukaran permainan dan kepantasan permainan.[auto]
-tuto.37:untuk memulakan semula permainan, anda harus berhenti dari permainan dan memulakannya semula, saya akan mengurus berhenti dari permainan, terserah kepada anda untuk memulakannya semula.[auto]
+tuto.37:

@@ -485,4 +485,4 @@ tuto.33:inkella d-deskrizzjonijiet tal-buttuni jintwerew meta tpoġġi fuqhom, i
 tuto.34:jekk minkejja dan ma ssibx dak li għandek bżonn tista 'tfittex parir fuq id-diskord server uffiċjali tal-logħba: http://discord.gg/vqvfGzf[auto]
 tuto.35:biex tirbaħ logħba fil-ħin irid ikollok punteġġ ogħla minn AI u plejers oħra.[auto]
 tuto.36:il-punteġġ tiegħek jiddependi fuq in-numru ta 'nemel tiegħek, (nemel adulti jagħtu punteġġ aħjar), kif ukoll id-diffikultà tal-logħba u l-veloċità tal-logħba.[auto]
-tuto.37:biex terġa 'tibda logħba, trid tieqaf il-logħba u terġa' tibdaha, jien nieħu ħsieb li nieqaf il-logħba, huwa f'idejk li terġa 'tibdaha.[auto]
+tuto.37:

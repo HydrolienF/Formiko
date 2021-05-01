@@ -485,4 +485,4 @@ tuto.33:bestela, botoien deskribapenak bistaratzen dira haien gainetik pasatzean
 tuto.34:hala ere, behar duzuna aurkitzen ez baduzu, jokoaren desadostasun zerbitzari ofizialean aholkularitza bila dezakezu: http://discord.gg/vqvfGzf[auto]
 tuto.35:partida garaiz irabazteko AIk eta beste jokalariek baino puntuazio altuagoa izan behar duzu.[auto]
 tuto.36:zure puntuazioa zure inurri kopuruaren araberakoa da (inurri helduek puntuazio hobea ematen dute), baita jokoaren zailtasuna eta jokoaren abiadura ere.[auto]
-tuto.37:partida bat berrabiarazteko, partida utzi eta berrabiarazi egin behar duzu, ni jokua uzteaz arduratuko naiz, berrabiaraztea zure esku dago.[auto]
+tuto.37:

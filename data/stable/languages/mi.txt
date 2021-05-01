@@ -485,4 +485,4 @@ tuto.33:ki te kore ka whakaatuhia nga whakaahuatanga paatene ka huri ana koe ki 
 tuto.34:mena ahakoa kaore koe e kite i nga mea e hiahiatia ana e koe, ka taea e koe te rapu tohutohu mo te kaituku taupatupatu mana o te kemu: http://discord.gg/vqvfGzf[auto]
 tuto.35:kia wini i tetahi kemu i te wa tika me teitei ake te kaute i a AI me etahi atu kaitakaro.[auto]
 tuto.36:ko to kaute kei i to maha o nga popokorua, (he pai ake te kaute o nga popokorua pakeke), me te uaua o te keemu me te tere o te keemu.[auto]
-tuto.37:hei tiimata ano i tetahi keemu, me whakamutu te keemu ka tiimata ano, maaku e tiaki te whakamutu i te keemu, maau ano e timata.[auto]
+tuto.37:

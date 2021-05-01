@@ -485,4 +485,4 @@ tuto.33:bibẹẹkọ awọn apejuwe bọtini yoo han nigbati o ba kọlu lori w
 tuto.34:ti o ba jẹ pe eyi ko rii ohun ti o nilo, o le wa imọran lori olupin iwakọ osise ti ere: http://discord.gg/vqvfGzf[auto]
 tuto.35:lati ṣẹgun ere ni akoko o gbọdọ ni ikun ti o ga julọ ju AI ati awọn ẹrọ orin miiran lọ.[auto]
 tuto.36:dimegilio rẹ da lori nọmba awọn kokoro rẹ, (awọn kokoro agbalagba fun ikun ti o dara julọ), bakanna pẹlu iṣoro ti ere ati iyara ere.[auto]
-tuto.37:lati tun bẹrẹ ere kan, o ni lati da ere naa duro ki o tun bẹrẹ, Emi yoo ṣe abojuto pipaduro ere naa, o jẹ tirẹ lati tun bẹrẹ.[auto]
+tuto.37:

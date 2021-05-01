@@ -34,6 +34,9 @@ Ca affiche toutes les info de type et de méthode de la classe.
 atom $(grep -r -i -l 'try' ./src/main/)
 Ouvre tout les fichiers qui contiène 'try' parmi les .java des dossier spécifier.
 
+mvn package
+Lance le module de package qui génère un .jar
+
 git checkout -b nomDeLaBrancheCible idDuCommit698F824BIQF754
 
 git branch 14 develop

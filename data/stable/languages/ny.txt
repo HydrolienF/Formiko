@@ -485,4 +485,4 @@ tuto.33:kupanda kutero mafotokozedwe amtunduwo amawonetsedwa mukamayandama pamwa
 tuto.34:ngati ngakhale simukupeza zomwe mukufuna mutha kufunsa upangiri pa seva yomwe ili pamasewerawa: http://discord.gg/vqvfGzf[auto]
 tuto.35:kuti mupambane masewerawa munthawi yoyenera muyenera kukhala ndi zigoli zambiri kuposa AI ndi osewera ena.[auto]
 tuto.36:zolemba zanu zimatengera kuchuluka kwa nyerere, (nyerere zazikulu zimapereka mphambu yabwinoko), komanso zovuta zamasewera komanso kuthamanga kwa masewerawo.[auto]
-tuto.37:kuti muyambitse masewerawa, muyenera kusiya masewerawa ndikuyambiranso, ndikusamala kuti ndisiye masewerawo, zili ndi inu kuti muyambe kuyambitsa.[auto]
+tuto.37:

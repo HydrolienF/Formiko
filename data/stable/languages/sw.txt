@@ -485,4 +485,4 @@ tuto.33:vinginevyo maelezo ya kitufe yanaonyeshwa unapoteleza juu yao, andika ma
 tuto.34:ikiwa licha ya hii hautapata unachohitaji, unaweza kutafuta ushauri juu ya seva rasmi ya ugomvi wa mchezo: http://discord.gg/vqvfGzf[auto]
 tuto.35:ili kushinda mchezo kwa wakati lazima uwe na alama ya juu kuliko AI na wachezaji wengine.[auto]
 tuto.36:alama yako inategemea idadi ya mchwa, (mchwa wazima hutoa alama bora), na vile vile ugumu wa mchezo na kasi ya mchezo.[auto]
-tuto.37:ili kuanza tena mchezo, lazima uache mchezo na uuanze upya, nitajali kuacha mchezo, ni juu yako kuanza upya.[auto]
+tuto.37:

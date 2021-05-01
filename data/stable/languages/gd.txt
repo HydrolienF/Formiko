@@ -485,4 +485,4 @@ tuto.33:air neo bidh na tuairisgeulan putan air an taisbeanadh nuair a thèid th
 tuto.34:mura h-eil thu a ’lorg na tha a dhìth ort faodaidh tu comhairle a shireadh air frithealaiche discord oifigeil a’ gheama: http://discord.gg/vqvfGzf[auto]
 tuto.35:gus geama a bhuannachadh ann an àm feumaidh sgòr nas àirde a bhith agad na AI agus cluicheadairean eile.[auto]
 tuto.36:tha an sgòr agad an urra ris an àireamh de sheangain agad (tha seangan inbheach a ’toirt sgòr nas fheàrr), a bharrachd air cho duilich sa tha an geama agus astar a’ gheama.[auto]
-tuto.37:gus geama ath-thòiseachadh, feumaidh tu an geama a leigeil seachad agus ath-thòiseachadh, bheir mi aire dhut an geama a leigeil seachad, tha e an urra riut ath-thòiseachadh.[auto]
+tuto.37:

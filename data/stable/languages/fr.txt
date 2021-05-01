@@ -485,4 +485,4 @@ tuto.33:Sinon les descriptions des boutons s'affiche lorsque vous les survolez, 
 tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
 tuto.35:Pour remporter une partie au temps vous devez avoir un score plus élevé que celui des ia et des autre joueurs.
 tuto.36:Votre score dépend de votre nombre de fourmi, (les fourmis adultes donne un meilleur score), ainsi que de la difficulté de la partie et de la vitesse de jeu.
-tuto.37:Pour relancer une partie, il faut quitter le jeu et le relancer, je m'occupe de quitter le jeu, a vous de le relancer.
+tuto.37:ce sera tout pour ce tuto, je vous renvoie au menu principal ou vous pourrez commencer votre prochaine partie !

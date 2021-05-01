@@ -485,4 +485,4 @@ tuto.33:kung hindi man ang mga paglalarawan ng pindutan ay ipinapakita kapag nag
 tuto.34:kung sa kabila nito hindi mo nahanap kung ano ang kailangan mo maaari kang humingi ng payo sa opisyal na discord server ng laro: http://discord.gg/vqvfGzf[auto]
 tuto.35:upang manalo ng isang laro sa tamang oras dapat kang magkaroon ng isang mas mataas na marka kaysa sa AI at iba pang mga manlalaro.[auto]
 tuto.36:ang iyong iskor ay nakasalalay sa iyong bilang ng mga ants, (ang mga may sapat na gulang na ants ay nagbibigay ng isang mas mahusay na iskor), pati na rin ang kahirapan ng laro at ang bilis ng laro.[auto]
-tuto.37:upang muling simulan ang isang laro, kailangan mong umalis sa laro at i-restart ito, aalagaan kong umalis sa laro, nasa sa iyo na itong muling simulan.[auto]
+tuto.37:

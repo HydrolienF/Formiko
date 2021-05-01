@@ -485,4 +485,4 @@ tuto.33:përndryshe përshkrimet e butonit shfaqen kur ju rrini pezull mbi to, v
 tuto.34:nëse pavarësisht kësaj nuk i gjeni ato që ju nevojiten, mund të kërkoni këshilla në serverin zyrtar të mosmarrëveshjes së lojës: http://discord.gg/vqvfGzf[auto]
 tuto.35:për të fituar një lojë në kohë duhet të keni një rezultat më të lartë se AI dhe lojtarët e tjerë.[auto]
 tuto.36:rezultati juaj varet nga numri juaj i milingonave, (milingonat e rritura japin një rezultat më të mirë), si dhe nga vështirësia e lojës dhe shpejtësia e lojës.[auto]
-tuto.37:për të rifilluar një lojë, ju duhet ta lini lojën dhe ta rifilloni atë, unë do të kujdesem për lënien e lojës, varet nga ju që ta rifilloni atë.[auto]
+tuto.37:

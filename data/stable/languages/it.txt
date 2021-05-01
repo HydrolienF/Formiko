@@ -485,4 +485,4 @@ tuto.33:altrimenti le descrizioni dei pulsanti vengono visualizzate quando ci pa
 tuto.34:se nonostante questo non trovi quello che ti serve, puoi chiedere consiglio al server discord ufficiale del gioco: http://discord.gg/vqvfGzf[auto]
 tuto.35:per vincere una partita in tempo devi avere un punteggio più alto dell'IA e degli altri giocatori.[auto]
 tuto.36:il tuo punteggio dipende dal tuo numero di formiche, (le formiche adulte danno un punteggio migliore), così come dalla difficoltà del gioco e dalla velocità del gioco.[auto]
-tuto.37:per riavviare un gioco, devi uscire dal gioco e riavviarlo, ci penserò io a chiudere il gioco, sta a te riavviarlo.[auto]
+tuto.37:

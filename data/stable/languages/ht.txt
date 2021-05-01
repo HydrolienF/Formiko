@@ -485,4 +485,4 @@ tuto.33:sinon deskripsyon yo bouton yo ap parèt lè ou hover sou yo, menm pou b
 tuto.34:si malgre sa ou pa jwenn sa ou bezwen ou ka chèche konsèy sou sèvè ofisyèl diskòd jwèt la: http://discord.gg/vqvfGzf[auto]
 tuto.35:pou genyen yon jwèt sou tan ou dwe gen yon nòt ki pi wo pase lavil Ayi ak lòt jwè yo.[auto]
 tuto.36:pwen ou depann sou kantite foumi ou, (foumi granmoun bay yon pi bon nòt), osi byen ke difikilte pou nan jwèt la ak vitès la nan jwèt la.[auto]
-tuto.37:pou rekòmanse yon jwèt, ou dwe kite jwèt la epi rekòmanse li, mwen pral pran swen pou kite jwèt la, se ou ki pou rekòmanse li.[auto]
+tuto.37:
