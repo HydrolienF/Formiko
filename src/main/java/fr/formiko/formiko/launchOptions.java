@@ -66,7 +66,7 @@ public class launchOptions {
   public static void launchOptionsMajor(String args[]){
     if(args[0].equals("trad")){
       Main.initialisation();
-      if(args.length>0){
+      if(args.length>1){
         tradCmd(args[1]);
       }else{
         tradCmd();
