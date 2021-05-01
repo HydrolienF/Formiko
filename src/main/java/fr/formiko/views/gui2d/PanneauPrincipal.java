@@ -23,7 +23,7 @@ public class PanneauPrincipal extends Panneau {
   private Image img;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauPrincipal(){}
-  public void construire(){
+  public void build(){
     this.setLayout(null);
     img = image.getImage("arrierePlan.png");
     img = img.getScaledInstance(this.getWidth(), this.getHeight(),Image.SCALE_SMOOTH);

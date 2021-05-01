@@ -64,7 +64,7 @@ public class ViewGUI2d implements View {
     loadGraphics();
     //menu
     // Main.startCh();
-    // getPm().construitPanneauMenu(3);
+    // getPm().buildPanneauMenu(3);
     // Main.endCh("chargementPanneauMenu");
     return true;
   }
@@ -101,7 +101,7 @@ public class ViewGUI2d implements View {
     actionGameOn=false;
     getPm().removeP();
     getPm().setMenu(0);
-    getPm().construitPanneauMenu(3);
+    getPm().buildPanneauMenu(3);
     paint();
     if(!Main.getPremierePartie()){
       boolean b=false;
@@ -123,7 +123,7 @@ public class ViewGUI2d implements View {
   public boolean menuNewGame(){
     actionGameOn=false;
     getPm().removeP();
-    getPm().construitPanneauMenu(3);
+    getPm().buildPanneauMenu(3);
     getPm().setMenu(1);
     getPm().actualiserText();
     paint();
@@ -278,7 +278,7 @@ public class ViewGUI2d implements View {
   public void closePanneauChargement(){
     //remove PanneauChargement & listen mouse clic.
     getPj().removePch();
-    getPs().construire();
+    getPs().build();
     // Main.getPm().setLancer(true); //TODO to remove
     // Main.launchScript();
     // actionGame();

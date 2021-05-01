@@ -37,7 +37,7 @@ public class PanneauSup extends Panneau{
   *</ul>
   *@version 1.42
   */
-  public void construire(){
+  public void build(){
     addMouseListener(new MouseAdapter() {
       @Override
       public void mouseExited​(MouseEvent e){

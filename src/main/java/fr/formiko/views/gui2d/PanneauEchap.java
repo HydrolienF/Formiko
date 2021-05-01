@@ -21,7 +21,7 @@ public class PanneauEchap extends Panneau{
   private boolean visible;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public void construire(){
+  public void build(){
     if(estContruit()){return;}
     Main.getPz().setEnabled(false);
     Main.getPc().setEnabled(false);
@@ -74,7 +74,7 @@ public class PanneauEchap extends Panneau{
   */
   @Override
   public void setVisible(boolean b){
-    if(b){construire();Main.getPs().setSize(0,0);}
+    if(b){build();Main.getPs().setSize(0,0);}
     else{Main.getPs().actualiserTaille();}
     visible=b;
     super.setVisible(b);

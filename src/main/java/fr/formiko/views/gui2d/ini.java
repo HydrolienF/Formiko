@@ -19,10 +19,10 @@ public class ini {
   //arboressence des Panneaux
   public static void initialiserToutLesPaneauxVide(){
     PanneauPrincipal pp = Main.getPp();
-    pp.construire();
+    pp.build();
     pp.addPm();
-    pp.getPm().construire();
-    pp.getPm().setBounds(0,0,Main.getDimX(),Main.getDimY());
+    pp.getPm().build();
+    // pp.getPm().setBounds(0,0,Main.getDimX(),Main.getDimY());
     //le Menu est fonctionnel ici.
   }
   public static void initialiserPanneauJeuEtDépendance(){
@@ -36,8 +36,8 @@ public class ini {
     Main.getPj().addPb();
     Main.getPj().addPc();
     //pj a ses 4 sous panneau
-    Main.getPb().construire();//plein d'élément non visible sont initialiser ici.
-    Main.getPc().construire();
+    Main.getPb().build();//plein d'élément non visible sont initialiser ici.
+    Main.getPc().build();
     keys.addBindings();
   }
 

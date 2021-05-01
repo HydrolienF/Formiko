@@ -37,7 +37,7 @@ public class PanneauAction extends Panneau {
     //setBackground(new Color(0,0,0,0));// du transparent en arrière plan.
   }
   public PanneauAction(){}
-  public void construire(){
+  public void build(){
     if(nbrDeBouton > nbrDeBoutonMax){ erreur.erreur("impossible d'afficher tant de boutons");}
     Dimension dim = new Dimension(tailleBouton, tailleBouton);
     this.setLayout(new GridBagLayout());

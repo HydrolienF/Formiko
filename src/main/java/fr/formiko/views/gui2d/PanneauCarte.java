@@ -55,7 +55,7 @@ public class PanneauCarte extends Panneau {
   *{@summary Build methode.}<br>
   *@version 1.x
   */
-  public void construire(){
+  public void build(){
     Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(100));
     posX = 0; posY = 0;
     GCase gc = new GCase(1,1);
