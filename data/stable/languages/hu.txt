@@ -26,6 +26,7 @@ commande:parancsolt[auto]
 bientôt:hamar[auto]
 suivant:következő[auto]
 avant:előtt[auto]
+save:
 
 set:
 where:

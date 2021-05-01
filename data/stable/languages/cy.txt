@@ -26,6 +26,7 @@ commande:archebu[auto]
 bientôt:yn fuan[auto]
 suivant:yn dilyn[auto]
 avant:o'r blaen[auto]
+save:
 
 set:
 where:

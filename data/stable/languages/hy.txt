@@ -26,6 +26,7 @@ commande:պատվիրված[auto]
 bientôt:շուտով[auto]
 suivant:հետևում է[auto]
 avant:նախքան[auto]
+save:
 
 set:
 where:

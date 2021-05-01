@@ -26,6 +26,7 @@ commande:загадаў[auto]
 bientôt:хутка[auto]
 suivant:наступныя[auto]
 avant:раней[auto]
+save:
 
 set:
 where:

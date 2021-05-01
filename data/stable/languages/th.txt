@@ -26,6 +26,7 @@ commande:สั่ง[auto]
 bientôt:เร็ว ๆ นี้[auto]
 suivant:กำลังติดตาม[auto]
 avant:ก่อน[auto]
+save:
 
 set:
 where:

@@ -26,6 +26,7 @@ commande:bestellt[auto]
 bientôt:demnächst[auto]
 suivant:folgenden[auto]
 avant:vor[auto]
+save:
 
 set:
 where:

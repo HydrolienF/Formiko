@@ -26,6 +26,7 @@ commande:زاكاز قىلدى[auto]
 bientôt:soon[auto]
 suivant:تۆۋەندىكى[auto]
 avant:ئىلگىرى[auto]
+save:
 
 set:
 where:

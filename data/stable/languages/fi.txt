@@ -26,6 +26,7 @@ commande:tilattu[auto]
 bientôt:pian[auto]
 suivant:seurata[auto]
 avant:ennen[auto]
+save:
 
 set:
 where:

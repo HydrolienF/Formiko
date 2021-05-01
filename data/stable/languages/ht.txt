@@ -26,6 +26,7 @@ commande:te bay lòd[auto]
 bientôt:byento[auto]
 suivant:swivan[auto]
 avant:anvan[auto]
+save:
 
 set:
 where:

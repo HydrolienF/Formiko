@@ -26,6 +26,7 @@ commande:yategetse[auto]
 bientôt:vuba[auto]
 suivant:ibikurikira[auto]
 avant:mbere[auto]
+save:
 
 set:
 where:

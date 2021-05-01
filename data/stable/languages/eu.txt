@@ -26,6 +26,7 @@ commande:agindu[auto]
 bientôt:laster[auto]
 suivant:jarraituz[auto]
 avant:aurretik[auto]
+save:
 
 set:
 where:

@@ -26,6 +26,7 @@ commande:kuamuru[auto]
 bientôt:hivi karibuni[auto]
 suivant:zifuatazo[auto]
 avant:kabla[auto]
+save:
 
 set:
 where:

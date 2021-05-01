@@ -26,6 +26,7 @@ commande:ਦਾ ਆਦੇਸ਼ ਦਿੱਤਾ[auto]
 bientôt:ਜਲਦੀ[auto]
 suivant:ਹੇਠ ਦਿੱਤੇ[auto]
 avant:ਅੱਗੇ[auto]
+save:
 
 set:
 where:

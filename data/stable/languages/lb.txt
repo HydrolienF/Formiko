@@ -26,6 +26,7 @@ commande:bestallt[auto]
 bientôt:geschwënn[auto]
 suivant:folgenden[auto]
 avant:virun[auto]
+save:
 
 set:
 where:

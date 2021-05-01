@@ -26,6 +26,7 @@ commande:உத்தரவிட்டது[auto]
 bientôt:விரைவில்[auto]
 suivant:பின்வருமாறு[auto]
 avant:முன்[auto]
+save:
 
 set:
 where:

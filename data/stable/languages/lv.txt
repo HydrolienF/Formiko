@@ -26,6 +26,7 @@ commande:pasūtīts[auto]
 bientôt:drīz[auto]
 suivant:sekojošs[auto]
 avant:pirms[auto]
+save:
 
 set:
 where:

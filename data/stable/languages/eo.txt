@@ -26,6 +26,7 @@ commande:ordono
 bientôt:baldaŭ
 suivant:sekvante[auto]
 avant:antaŭe[auto]
+save:savo
 
 set:elektas
 where:kie

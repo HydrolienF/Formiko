@@ -26,6 +26,7 @@ commande:ඇණවුම් කළා[auto]
 bientôt:ඉක්මනින්[auto]
 suivant:පහත දැක්වේ[auto]
 avant:කලින්[auto]
+save:
 
 set:
 where:

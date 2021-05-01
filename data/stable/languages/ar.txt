@@ -26,6 +26,7 @@ commande:أمر[auto]
 bientôt:هكذا[auto]
 suivant:التالية[auto]
 avant:قبل[auto]
+save:
 
 set:
 where:

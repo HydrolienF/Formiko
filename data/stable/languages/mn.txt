@@ -26,6 +26,7 @@ commande:захиалсан[auto]
 bientôt:удахгүй[auto]
 suivant:дараах[auto]
 avant:өмнө нь[auto]
+save:
 
 set:
 where:

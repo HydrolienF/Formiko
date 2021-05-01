@@ -26,6 +26,7 @@ commande:фармон дод[auto]
 bientôt:ба зудӣ[auto]
 suivant:пайравӣ[auto]
 avant:пеш[auto]
+save:
 
 set:
 where:

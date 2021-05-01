@@ -26,6 +26,7 @@ commande:অর্ডার[auto]
 bientôt:শীঘ্রই[auto]
 suivant:নিম্নলিখিত[auto]
 avant:আগে[auto]
+save:
 
 set:
 where:

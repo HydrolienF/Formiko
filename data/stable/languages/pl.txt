@@ -26,6 +26,7 @@ commande:zamówione[auto]
 bientôt:wkrótce[auto]
 suivant:następujący[auto]
 avant:przed[auto]
+save:
 
 set:
 where:

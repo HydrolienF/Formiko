@@ -26,6 +26,7 @@ commande:διέταξε[auto]
 bientôt:σύντομα[auto]
 suivant:εΠΟΜΕΝΟ[auto]
 avant:πριν[auto]
+save:
 
 set:
 where:

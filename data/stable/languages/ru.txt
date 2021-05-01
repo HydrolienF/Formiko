@@ -26,6 +26,7 @@ commande:приказал[auto]
 bientôt:скоро[auto]
 suivant:следующий[auto]
 avant:перед[auto]
+save:
 
 set:
 where:

@@ -26,6 +26,7 @@ commande:urdinatu[auto]
 bientôt:prestu[auto]
 suivant:seguenti[auto]
 avant:prima[auto]
+save:
 
 set:
 where:

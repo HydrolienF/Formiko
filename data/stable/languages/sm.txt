@@ -26,6 +26,7 @@ commande:okaina[auto]
 bientôt:vave[auto]
 suivant:mulimuli atu[auto]
 avant:muamua[auto]
+save:
 
 set:
 where:

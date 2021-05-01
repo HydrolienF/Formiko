@@ -26,6 +26,7 @@ commande:iussit[auto]
 bientôt:mox[auto]
 suivant:haec[auto]
 avant:ante[auto]
+save:
 
 set:
 where:

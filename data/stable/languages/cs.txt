@@ -26,6 +26,7 @@ commande:objednal[auto]
 bientôt:již brzy[auto]
 suivant:následující[auto]
 avant:před[auto]
+save:
 
 set:
 where:

@@ -26,6 +26,7 @@ commande:nyere iwu[auto]
 bientôt:ngwa ngwa[auto]
 suivant:na-eso[auto]
 avant:tupu[auto]
+save:
 
 set:
 where:

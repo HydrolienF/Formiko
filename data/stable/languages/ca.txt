@@ -26,6 +26,7 @@ commande:ordenat[auto]
 bientôt:aviat[auto]
 suivant:seguint[auto]
 avant:abans[auto]
+save:
 
 set:
 where:

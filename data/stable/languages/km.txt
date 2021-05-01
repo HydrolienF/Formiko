@@ -26,6 +26,7 @@ commande:បានបញ្ជាទិញ[auto]
 bientôt:ឆាប់[auto]
 suivant:បន្ទាប់[auto]
 avant:មុន[auto]
+save:
 
 set:
 where:

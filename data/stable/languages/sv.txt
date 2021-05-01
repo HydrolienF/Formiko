@@ -26,6 +26,7 @@ commande:beordrade[auto]
 bientôt:snart[auto]
 suivant:följande[auto]
 avant:innan[auto]
+save:
 
 set:
 where:

@@ -26,6 +26,7 @@ commande:سفارش داده شده[auto]
 bientôt:به زودی[auto]
 suivant:ذیل[auto]
 avant:قبل از[auto]
+save:
 
 set:
 where:

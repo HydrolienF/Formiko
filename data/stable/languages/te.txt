@@ -26,6 +26,7 @@ commande:ఆదేశించారు[auto]
 bientôt:త్వరలో[auto]
 suivant:క్రింది[auto]
 avant:ముందు[auto]
+save:
 
 set:
 where:

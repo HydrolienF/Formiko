@@ -26,6 +26,7 @@ commande:უბრძანა[auto]
 bientôt:მალე[auto]
 suivant:შემდეგს[auto]
 avant:მანამდე[auto]
+save:
 
 set:
 where:

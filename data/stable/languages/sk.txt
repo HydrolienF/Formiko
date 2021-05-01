@@ -26,6 +26,7 @@ commande:nariadil[auto]
 bientôt:čoskoro[auto]
 suivant:nasledujúce[auto]
 avant:predtým[auto]
+save:
 
 set:
 where:

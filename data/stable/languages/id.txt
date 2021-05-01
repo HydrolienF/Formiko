@@ -26,6 +26,7 @@ commande:dipesan[auto]
 bientôt:segera[auto]
 suivant:berikut[auto]
 avant:sebelum[auto]
+save:
 
 set:
 where:

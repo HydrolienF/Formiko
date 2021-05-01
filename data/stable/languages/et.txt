@@ -26,6 +26,7 @@ commande:tellitud[auto]
 bientôt:varsti[auto]
 suivant:järgnev[auto]
 avant:enne[auto]
+save:
 
 set:
 where:

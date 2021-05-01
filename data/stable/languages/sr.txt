@@ -26,6 +26,7 @@ commande:наредио[auto]
 bientôt:ускоро[auto]
 suivant:следећи[auto]
 avant:пре него што[auto]
+save:
 
 set:
 where:

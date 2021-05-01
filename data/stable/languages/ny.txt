@@ -26,6 +26,7 @@ commande:analamula[auto]
 bientôt:posachedwa[auto]
 suivant:kutsatira[auto]
 avant:kale[auto]
+save:
 
 set:
 where:

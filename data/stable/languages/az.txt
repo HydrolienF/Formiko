@@ -26,6 +26,7 @@ commande:sifariş verdi[auto]
 bientôt:tezliklə[auto]
 suivant:aşağıdakı[auto]
 avant:əvvəl[auto]
+save:
 
 set:
 where:

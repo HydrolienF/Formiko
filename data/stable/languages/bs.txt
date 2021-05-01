@@ -26,6 +26,7 @@ commande:naređeno[auto]
 bientôt:uskoro[auto]
 suivant:slijedeći[auto]
 avant:prije[auto]
+save:
 
 set:
 where:

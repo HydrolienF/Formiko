@@ -26,6 +26,7 @@ commande:įsakė[auto]
 bientôt:netrukus[auto]
 suivant:sekant[auto]
 avant:prieš tai[auto]
+save:
 
 set:
 where:

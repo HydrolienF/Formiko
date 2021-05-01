@@ -26,6 +26,7 @@ commande:حڪم ڏنو[auto]
 bientôt:جلدي[auto]
 suivant:هيٺين[auto]
 avant:اڳ[auto]
+save:
 
 set:
 where:

@@ -26,6 +26,7 @@ commande:wayala[auto]
 bientôt:kungekudala[auto]
 suivant:okulandelayo[auto]
 avant:ngaphambi[auto]
+save:
 
 set:
 where:

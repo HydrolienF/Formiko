@@ -24,8 +24,9 @@ commencer:start
 raccourci:shortcut
 commande:command
 bientôt:soon
-suivant:following[auto]
-avant:before[auto]
+suivant:following
+avant:before
+save:save
 
 set:set
 where:where

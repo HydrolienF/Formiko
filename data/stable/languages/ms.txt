@@ -26,6 +26,7 @@ commande:mengarahkan[auto]
 bientôt:tidak lama lagi[auto]
 suivant:mengikuti[auto]
 avant:sebelum ini[auto]
+save:
 
 set:
 where:

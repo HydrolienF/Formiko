@@ -26,6 +26,7 @@ commande:sargyt etdi[auto]
 bientôt:basym[auto]
 suivant:aşakda[auto]
 avant:öň[auto]
+save:
 
 set:
 where:

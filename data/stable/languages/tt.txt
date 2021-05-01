@@ -26,6 +26,7 @@ commande:заказ бирде[auto]
 bientôt:тиздән[auto]
 suivant:түбәндәге[auto]
 avant:элек[auto]
+save:
 
 set:
 where:

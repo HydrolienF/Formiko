@@ -26,6 +26,7 @@ commande:ordnat[auto]
 bientôt:dalwaqt[auto]
 suivant:wara[auto]
 avant:qabel[auto]
+save:
 
 set:
 where:

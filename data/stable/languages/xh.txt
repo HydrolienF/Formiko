@@ -26,6 +26,7 @@ commande:iyalelwe[auto]
 bientôt:kungekudala[auto]
 suivant:elandelayo[auto]
 avant:ngaphambili[auto]
+save:
 
 set:
 where:

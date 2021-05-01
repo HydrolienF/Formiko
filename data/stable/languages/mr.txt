@@ -26,6 +26,7 @@ commande:आज्ञा केली[auto]
 bientôt:लवकरच[auto]
 suivant:खालील[auto]
 avant:आधी[auto]
+save:
 
 set:
 where:

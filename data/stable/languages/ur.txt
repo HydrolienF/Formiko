@@ -26,6 +26,7 @@ commande:حکم دیا[auto]
 bientôt:اسی طرح[auto]
 suivant:درج ذیل[auto]
 avant:پہلے[auto]
+save:
 
 set:
 where:

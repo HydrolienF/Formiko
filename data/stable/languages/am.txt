@@ -26,6 +26,7 @@ commande:ታዘዘ[auto]
 bientôt:በቅርቡ[auto]
 suivant:በመከተል ላይ[auto]
 avant:ከዚህ በፊት[auto]
+save:
 
 set:
 where:

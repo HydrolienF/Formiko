@@ -26,6 +26,7 @@ commande:oardere[auto]
 bientôt:gau[auto]
 suivant:folgjend[auto]
 avant:foar[auto]
+save:
 
 set:
 where:

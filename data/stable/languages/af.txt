@@ -26,6 +26,7 @@ commande:bestel[auto]
 bientôt:binnekort[auto]
 suivant:volgende[auto]
 avant:voorheen[auto]
+save:
 
 set:
 where:

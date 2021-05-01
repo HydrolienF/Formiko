@@ -26,6 +26,7 @@ commande:באפוילן[auto]
 bientôt:באַלד[auto]
 suivant:ווייַטערדיק[auto]
 avant:איידער[auto]
+save:
 
 set:
 where:

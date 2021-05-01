@@ -26,6 +26,7 @@ commande:ordenou[auto]
 bientôt:em breve[auto]
 suivant:segue[auto]
 avant:antes[auto]
+save:
 
 set:
 where:

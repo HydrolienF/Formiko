@@ -26,6 +26,7 @@ commande:amar ku bixiyay[auto]
 bientôt:ugu dhakhsaha badan[auto]
 suivant:soo socda[auto]
 avant:ka hor[auto]
+save:
 
 set:
 where:

@@ -26,6 +26,7 @@ commande:ಆದೇಶಿಸಲಾಗಿದೆ[auto]
 bientôt:ಶೀಘ್ರದಲ್ಲೇ[auto]
 suivant:ಕೆಳಗಿನವು[auto]
 avant:ಮೊದಲು[auto]
+save:
 
 set:
 where:

@@ -26,6 +26,7 @@ commande:òrdachadh[auto]
 bientôt:a dh'aithghearr[auto]
 suivant:a ’leantainn[auto]
 avant:roimhe seo[auto]
+save:
 
 set:
 where:

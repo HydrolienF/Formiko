@@ -26,6 +26,7 @@ commande:आदेश[auto]
 bientôt:चाँडै[auto]
 suivant:निम्न[auto]
 avant:पहिले[auto]
+save:
 
 set:
 where:

@@ -26,6 +26,7 @@ commande:ສັ່ງ[auto]
 bientôt:ໃນໄວໆນີ້[auto]
 suivant:ຕໍ່ໄປນີ້[auto]
 avant:ກ່ອນ[auto]
+save:
 
 set:
 where:

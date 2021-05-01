@@ -26,6 +26,7 @@ commande:주문[auto]
 bientôt:곧[auto]
 suivant:수행원[auto]
 avant:전에[auto]
+save:
 
 set:
 where:

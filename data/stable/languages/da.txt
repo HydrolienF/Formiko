@@ -26,6 +26,7 @@ commande:beordrede[auto]
 bientôt:snart[auto]
 suivant:følge[auto]
 avant:før[auto]
+save:
 
 set:
 where:

@@ -26,6 +26,7 @@ commande:ഉത്തരവിട്ടു[auto]
 bientôt:ഉടൻ[auto]
 suivant:പിന്തുടരുന്നു[auto]
 avant:മുമ്പ്[auto]
+save:
 
 set:
 where:

@@ -26,6 +26,7 @@ commande:порачано[auto]
 bientôt:наскоро[auto]
 suivant:следниве[auto]
 avant:порано[auto]
+save:
 
 set:
 where:

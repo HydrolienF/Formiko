@@ -26,6 +26,7 @@ commande:bestilt[auto]
 bientôt:snart[auto]
 suivant:følgende[auto]
 avant:før[auto]
+save:
 
 set:
 where:

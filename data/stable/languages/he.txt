@@ -26,6 +26,7 @@ commande:הורה[auto]
 bientôt:בקרוב[auto]
 suivant:הבא[auto]
 avant:לפני[auto]
+save:
 
 set:
 where:

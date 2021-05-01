@@ -26,6 +26,7 @@ commande:下令[auto]
 bientôt:不久[auto]
 suivant:以下[auto]
 avant:之前[auto]
+save:
 
 set:
 where:

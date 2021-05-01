@@ -26,6 +26,7 @@ commande:pantaði[auto]
 bientôt:brátt[auto]
 suivant:eftirfarandi[auto]
 avant:áður[auto]
+save:
 
 set:
 where:

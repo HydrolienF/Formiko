@@ -26,6 +26,7 @@ commande:امر شوی[auto]
 bientôt:ژر[auto]
 suivant:لاندې[auto]
 avant:مخکې[auto]
+save:
 
 set:
 where:

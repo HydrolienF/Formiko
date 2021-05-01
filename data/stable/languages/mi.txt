@@ -26,6 +26,7 @@ commande:whakahaua[auto]
 bientôt:inamata[auto]
 suivant:e whai ake nei[auto]
 avant:tuhinga o mua[auto]
+save:
 
 set:
 where:

@@ -26,6 +26,7 @@ commande:ra lệnh[auto]
 bientôt:sớm[auto]
 suivant:tiếp theo[auto]
 avant:trước[auto]
+save:
 
 set:
 where:

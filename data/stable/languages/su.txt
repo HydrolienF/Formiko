@@ -26,6 +26,7 @@ commande:dipesen[auto]
 bientôt:geuwat[auto]
 suivant:nuturkeun[auto]
 avant:sateuacanna[auto]
+save:
 
 set:
 where:

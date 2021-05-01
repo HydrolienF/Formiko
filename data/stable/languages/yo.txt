@@ -26,6 +26,7 @@ commande:paṣẹ[auto]
 bientôt:laipe[auto]
 suivant:atẹle[auto]
 avant:ṣaaju[auto]
+save:
 
 set:
 where:

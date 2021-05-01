@@ -26,6 +26,7 @@ commande:буйрук берди[auto]
 bientôt:жакында[auto]
 suivant:кийинки[auto]
 avant:чейин[auto]
+save:
 
 set:
 where:

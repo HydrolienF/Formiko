@@ -26,6 +26,7 @@ commande:ordonat[auto]
 bientôt:curând[auto]
 suivant:ca urmare a[auto]
 avant:inainte de[auto]
+save:
 
 set:
 where:

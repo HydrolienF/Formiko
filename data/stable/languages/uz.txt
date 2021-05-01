@@ -26,6 +26,7 @@ commande:buyurdi[auto]
 bientôt:tez orada[auto]
 suivant:quyidagi[auto]
 avant:oldin[auto]
+save:
 
 set:
 where:

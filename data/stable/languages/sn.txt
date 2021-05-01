@@ -26,6 +26,7 @@ commande:akarayira[auto]
 bientôt:munguva pfupi[auto]
 suivant:zvinotevera[auto]
 avant:pamberi[auto]
+save:
 
 set:
 where:

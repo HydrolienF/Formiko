@@ -26,6 +26,7 @@ commande:အမိန့်ပေး[auto]
 bientôt:မကြာမီ[auto]
 suivant:အောက်ပါ[auto]
 avant:မတိုင်မီ[auto]
+save:
 
 set:
 where:

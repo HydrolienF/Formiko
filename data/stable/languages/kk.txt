@@ -26,6 +26,7 @@ commande:тапсырыс берді[auto]
 bientôt:көп ұзамай[auto]
 suivant:келесі[auto]
 avant:бұрын[auto]
+save:
 
 set:
 where:

@@ -26,6 +26,7 @@ commande:ferman kir[auto]
 bientôt:nêzda[auto]
 suivant:pêketînî[auto]
 avant:berî[auto]
+save:
 
 set:
 where:

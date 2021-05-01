@@ -26,6 +26,7 @@ commande:ନିର୍ଦ୍ଦେଶିତ |[auto]
 bientôt:ଶୀଘ୍ର[auto]
 suivant:ନିମ୍ନଲିଖିତ[auto]
 avant:ପୂର୍ବରୁ[auto]
+save:
 
 set:
 where:

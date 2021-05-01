@@ -26,6 +26,7 @@ commande:laela[auto]
 bientôt:haufinyane[auto]
 suivant:ho latela[auto]
 avant:pele ho[auto]
+save:
 
 set:
 where:

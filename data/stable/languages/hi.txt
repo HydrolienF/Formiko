@@ -26,6 +26,7 @@ commande:आदेश दिया[auto]
 bientôt:जल्द ही[auto]
 suivant:निम्नलिखित[auto]
 avant:इससे पहले[auto]
+save:
 
 set:
 where:

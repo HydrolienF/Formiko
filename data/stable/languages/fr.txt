@@ -26,6 +26,7 @@ commande:commande
 bientôt:bientôt
 suivant:suivant
 avant:avant
+save:sauvegarde
 
 set:choisir
 where:où

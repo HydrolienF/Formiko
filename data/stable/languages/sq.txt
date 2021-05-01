@@ -26,6 +26,7 @@ commande:urdhëroi[auto]
 bientôt:së shpejti[auto]
 suivant:në vijim[auto]
 avant:para[auto]
+save:
 
 set:
 where:

@@ -26,6 +26,7 @@ commande:umurta[auto]
 bientôt:anjima[auto]
 suivant:mai biyowa[auto]
 avant:kafin[auto]
+save:
 
 set:
 where:

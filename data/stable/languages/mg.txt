@@ -26,6 +26,7 @@ commande:baiko[auto]
 bientôt:tsy ho ela[auto]
 suivant:manaraka[auto]
 avant:alohan'ny[auto]
+save:
 
 set:
 where:

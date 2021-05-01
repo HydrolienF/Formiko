@@ -26,6 +26,7 @@ commande:замовляв[auto]
 bientôt:найближчим часом[auto]
 suivant:наступні[auto]
 avant:раніше[auto]
+save:
 
 set:
 where:

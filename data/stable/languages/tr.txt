@@ -26,6 +26,7 @@ commande:sipariş[auto]
 bientôt:yakında[auto]
 suivant:takip etme[auto]
 avant:önce[auto]
+save:
 
 set:
 where:
