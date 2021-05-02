@@ -96,8 +96,6 @@ public class ViewGUI2d implements View {
   */
   public boolean menuMain(){
     actionGameOn=false;
-    getPm().removeP();
-    // getPm().setMenu(0);
     getPm().buildPanneauMenu(3,0);
     paint();
     if(needToWaitForGameLaunch){
@@ -115,10 +113,7 @@ public class ViewGUI2d implements View {
   */
   public boolean menuNewGame(){
     actionGameOn=false;
-    getPm().removeP();
     getPm().buildPanneauMenu(3,1);
-    // getPm().setMenu(1);
-    getPm().actualiserText();
     paint();
     return true;
   }

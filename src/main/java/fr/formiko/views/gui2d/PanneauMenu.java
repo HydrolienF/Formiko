@@ -88,6 +88,7 @@ public class PanneauMenu extends Panneau {
   *@version 1.44
   */
   public void buildPanneauMenu(int nbrOfButtons, int menu){
+    removeP();
     if(b==null || b[0]==null){
       debug.débogage("construitPanneauMenu");
       this.setLayout(null);
