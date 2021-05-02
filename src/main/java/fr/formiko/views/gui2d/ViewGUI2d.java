@@ -86,6 +86,7 @@ public class ViewGUI2d implements View {
   *@version 1.42
   */
   public boolean paint(){
+    if(f==null){erreur.alerte("La fenetre est null & ne peu pas être redessinée.");}
     getF().repaint();
     return true;
   }
@@ -96,6 +97,7 @@ public class ViewGUI2d implements View {
   */
   public boolean menuMain(){
     actionGameOn=false;
+    if(f==null){ini();}
     getPm().buildPanneauMenu(3,0);
     paint();
     if(needToWaitForGameLaunch){
@@ -113,6 +115,7 @@ public class ViewGUI2d implements View {
   */
   public boolean menuNewGame(){
     actionGameOn=false;
+    if(f==null){ini();}
     getPm().buildPanneauMenu(3,1);
     paint();
     return true;
@@ -124,6 +127,7 @@ public class ViewGUI2d implements View {
   */
   public boolean menuLoadAGame(){
     actionGameOn=false;
+    if(f==null){ini();}
     getPm().removeP();
     getPm().addPcp();
     return true;
@@ -135,6 +139,7 @@ public class ViewGUI2d implements View {
   */
   public boolean menuPersonaliseAGame(){
     actionGameOn=false;
+    if(f==null){ini();}
     getPm().addPnp();
     return true;
   }
@@ -145,6 +150,7 @@ public class ViewGUI2d implements View {
   */
   public boolean menuOptions(){
     actionGameOn=false;
+    if(f==null){ini();}
     erreur.erreurPasEncoreImplemente();
     return true;
   }
@@ -155,6 +161,7 @@ public class ViewGUI2d implements View {
   */
   public boolean actionGame(){
     actionGameOn=true;
+    if(f==null){ini();}
     // if(Partie.getScript().equals("tuto")){pa=Partie.getPartieTuto();}
     if(Main.getPartie()==null){Main.setPartie(Partie.getDefautlPartie());}
     Main.startCh();
@@ -243,6 +250,8 @@ public class ViewGUI2d implements View {
   *@version 1.44
   */
   public void message(String message, boolean doWeNeedToDoNextCmdNow){
+    if (!actionGameOn) {return;}
+    if(f==null){ini();}
     Main.getPj().initialiserPd(message);
     try {
       Main.getPdi().removeBSuivant();
@@ -262,16 +271,16 @@ public class ViewGUI2d implements View {
     }
   }
 
-
+  /**
+  *{@summary remove PanneauChargement & listen mouse clic on the map.}<br>
+  *@version 1.44
+  */
   public void closePanneauChargement(){
-    //remove PanneauChargement & listen mouse clic.
+    if (!actionGameOn) {return;}
     getPj().removePch();
     getPs().build();
-    // Main.getPm().setLancer(true); //TODO to remove
-    // Main.launchScript();
-    // actionGame();
   }
-  //private
+  //private---------------------------------------------------------------------
   /**
   *Load graphics.
   *@version 1.42

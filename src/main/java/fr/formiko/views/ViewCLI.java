@@ -71,6 +71,7 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean paint(){
+    if(scannerAnswer==null){return false;}
     if(actionGameOn){
       System.out.println(sep);
       printMap();
@@ -95,6 +96,7 @@ public class ViewCLI implements View {
   */
   public boolean menuMain(){
     actionGameOn=false;
+    if(scannerAnswer==null){ini();}
     menuName="menuP";
     // if(Main.getPremierePartie()){Main.setPartie(Partie.getPartieTuto());return true;}
     paint();
@@ -123,6 +125,7 @@ public class ViewCLI implements View {
   */
   public boolean menuNewGame(){
     actionGameOn=false;
+    if(scannerAnswer==null){ini();}
     menuName="menuN";
     paint();
     int action = getActionMenu(4);
@@ -152,6 +155,7 @@ public class ViewCLI implements View {
   */
   public boolean menuLoadAGame(){
     actionGameOn=false;
+    if(scannerAnswer==null){ini();}
     menuName="";
     tToPrint=sauvegarderUnePartie.listSave();
     if(tToPrint.length==0){return menuMain();}
@@ -171,12 +175,13 @@ public class ViewCLI implements View {
   /**
   *{@summary personalise a game menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
+  *@version 1.35
   */
   public boolean menuPersonaliseAGame(){
     actionGameOn=false;
+    if(scannerAnswer==null){ini();}
     menuName="";
-    tToPrint=new String [10]; int k=0;
+    tToPrint=new String [11]; int k=0;
     tToPrint[k]=g.get("choixCarte");k++;
     tToPrint[k]=g.get("choixDif");k++;
     tToPrint[k]=g.get("choixVitesseDeJeu");k++;
@@ -187,11 +192,23 @@ public class ViewCLI implements View {
     tToPrint[k]=g.get("nbrDIa");k++;
     tToPrint[k]=g.get("nbrDeFourmi");k++;
     tToPrint[k]=g.get("lancerPartie");k++;
+    tToPrint[k]=g.get("retour");k++;
     int choice = -1;
     Partie pa = Partie.getDefautlPartie();
     while (choice!=10) {
       paint();
       choice = getActionMenu(tToPrint.length);
+      System.out.println("choix : "+choice);//@a
+      if(choice==11){
+        System.out.println("menuNewGame & return");//@a
+        menuNewGame();
+        paint();
+        return true;
+      }else if(choice==10){
+        Main.setPartie(pa);
+        actionGame();
+        return true;
+      }
       String input = scannerAnswer.nextLine();
       switch (choice) {
         case 1:
@@ -216,18 +233,16 @@ public class ViewCLI implements View {
         case 7:
         erreur.erreurPasEncoreImplemente();
         //pa.setNbrDeJoueur(str.sToI(input,pa.getNbrDeJoueur()));
-        // break;
+        break;
         case 8:
         //pa.setNbrDIa(str.sToI(input,pa.setNbrDIa()));
-        // break;
+        break;
         case 9:
         //pa.setNbrDeFourmi(str.sToI(input,pa.setNbrDeFourmi()));
         break;
       }
     }
-    Main.setPartie(pa);
-    actionGame();
-    return true;
+    return false;
   }
   /**
   *{@summary Load the options menu.}<br>
@@ -235,8 +250,9 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean menuOptions(){
+    actionGameOn=false;
+    if(scannerAnswer==null){ini();}
     erreur.info(g.getM("optionsCanBeEditedIn")+" data/Options.md.");
-    // actionGameOn=false;
     // menuName="menuO";
     // //tToPrint=sauvegarderUnePartie.listOptions();
     // tToPrint = new String[0]; //to replace by a real choice.
@@ -253,6 +269,7 @@ public class ViewCLI implements View {
   */
   public boolean actionGame(){
     actionGameOn=true;
+    if(scannerAnswer==null){ini();}
     menuName="";
     Main.getPartie().setPlayingAnt(null);
     Main.getPartie().initialisationElément();
@@ -400,7 +417,7 @@ public class ViewCLI implements View {
     System.out.println(message);
   }
 
-  //private
+  //private---------------------------------------------------------------------
   /**
   *{@summary Select an ant from playingAnt anthill.}<br>
   *@version 1.33

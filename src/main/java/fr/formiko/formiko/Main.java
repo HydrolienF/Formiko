@@ -132,7 +132,6 @@ public class Main {
     }else{
       view = new ViewGUI2d();
     }
-    view.ini();
     view.menuMain();
     if (!modeCLI) {
       ((ViewGUI2d)(view)).waitForGameLaunch();
