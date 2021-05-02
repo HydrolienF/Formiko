@@ -96,8 +96,9 @@ public class ViewGUI2d implements View {
   *@version 1.44
   */
   public boolean menuMain(){
+    if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
-    if(f==null){ini();}
+    if(f==null || getPm()==null){ini();}
     getPm().buildPanneauMenu(3,0);
     paint();
     if(needToWaitForGameLaunch){
@@ -114,8 +115,9 @@ public class ViewGUI2d implements View {
   *@version 1.44
   */
   public boolean menuNewGame(){
+    if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
-    if(f==null){ini();}
+    if(f==null || getPm()==null){ini();}
     getPm().buildPanneauMenu(3,1);
     paint();
     return true;
@@ -126,8 +128,11 @@ public class ViewGUI2d implements View {
   *@version 1.44
   */
   public boolean menuLoadAGame(){
+    System.out.println("retournerAuMenu");//@a
+    if(actionGameOn){action.retournerAuMenu();}
+    System.out.println("retournerAuMenu done");//@a
     actionGameOn=false;
-    if(f==null){ini();}
+    if(f==null || getPm()==null){ini();}
     getPm().removeP();
     getPm().addPcp();
     return true;
@@ -138,8 +143,9 @@ public class ViewGUI2d implements View {
   *@version 1.44
   */
   public boolean menuPersonaliseAGame(){
+    if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
-    if(f==null){ini();}
+    if(f==null || getPm()==null){ini();}
     getPm().addPnp();
     return true;
   }
@@ -149,8 +155,9 @@ public class ViewGUI2d implements View {
   *@version 1.44
   */
   public boolean menuOptions(){
+    if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
-    if(f==null){ini();}
+    if(f==null || getPm()==null){ini();}
     erreur.erreurPasEncoreImplemente();
     return true;
   }
@@ -161,7 +168,7 @@ public class ViewGUI2d implements View {
   */
   public boolean actionGame(){
     actionGameOn=true;
-    if(f==null){ini();}
+    if(f==null || getPm()==null){ini();}
     // if(Partie.getScript().equals("tuto")){pa=Partie.getPartieTuto();}
     if(Main.getPartie()==null){Main.setPartie(Partie.getDefautlPartie());}
     Main.startCh();
@@ -251,7 +258,7 @@ public class ViewGUI2d implements View {
   */
   public void message(String message, boolean doWeNeedToDoNextCmdNow){
     if (!actionGameOn) {return;}
-    if(f==null){ini();}
+    if(f==null || getPm()==null){ini();}
     Main.getPj().initialiserPd(message);
     try {
       Main.getPdi().removeBSuivant();

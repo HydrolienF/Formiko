@@ -117,9 +117,7 @@ public class Main {
     if(getOp()==null){initialisation();}
     if(premierePartie){Partie.setScript("tuto");}
     iniCpt();
-    startCh();
-    pa = new Partie(0,0,new Carte(new GCase(1,1)),1.0); //nouvelle partie vide.
-    endCh("chargementPartieEtCarteBlanche");
+    pa = new Partie(0,0,new Carte(new GCase(1,1)),1.0); //new empty game
   }
   /**
    * {@summary Launch in the void main if there is not other args than -something (ex : -d).}<br>
@@ -128,9 +126,14 @@ public class Main {
   public static boolean launch(){
     iniLaunch();
     if (modeCLI) {
-      view = new ViewCLI();
+      if (view!=null && !(view instanceof ViewCLI)) {
+        view = new ViewCLI();
+      }
     }else{
-      view = new ViewGUI2d();
+      if (view!=null && !(view instanceof ViewGUI2d)) {
+        System.out.println("new view");//@a
+        view = new ViewGUI2d();
+      }
     }
     view.menuMain();
     if (!modeCLI) {
@@ -276,7 +279,9 @@ public class Main {
     os = new Os();
     folder = new Folder();
     getFolder().ini();
-    view = new ViewNull();
+    if(view==null){
+      view = new ViewNull();
+    }
     setMessageChargement("chargementDesOptions");startCh();
     chargerLesTraductions.iniTLangue();
     iniOp();
