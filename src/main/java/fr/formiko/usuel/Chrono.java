@@ -2,7 +2,13 @@ package fr.formiko.usuel;
 
 //def par défaut des fichiers depuis 0.79.5
 
-public class Chrono { //https://fr.jeffprod.com/blog/2015/un-chronometre-en-java/
+/**
+*{@summary Time counter}<br>
+*cf https://fr.jeffprod.com/blog/2015/un-chronometre-en-java/
+*@author Hydrolien, JeffProd
+*@version 1.46
+*/
+public class Chrono {
 
   private long tempsDepart=0;
   private long tempsFin=0;
@@ -58,11 +64,18 @@ public class Chrono { //https://fr.jeffprod.com/blog/2015/un-chronometre-en-java
   public void stop(){
     if(tempsDepart==0) {return;}
     tempsFin=System.currentTimeMillis();
-    duree=(tempsFin-tempsDepart) - (pauseFin-pauseDepart);
+    updateDuree();
     tempsDepart=0;
     tempsFin=0;
     pauseDepart=0;
     pauseFin=0;
+  }
+  /**
+  *{@summary update duree to be able to read it.}<br>
+  *@version 1.46
+  */
+  public void updateDuree(){
+    duree=(System.currentTimeMillis()-tempsDepart) - (pauseFin-pauseDepart);
   }
 
   //static

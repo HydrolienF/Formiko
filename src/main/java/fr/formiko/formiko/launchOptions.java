@@ -7,6 +7,7 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.types.str;
+import fr.formiko.usuel.media.audio.*;
 
 import java.util.HashMap;
 
@@ -72,7 +73,7 @@ public class launchOptions {
         tradCmd();
       }
     }else if(args[0].equals("son")){
-      //System.out.println(Musique.getMusiqueAlleatoire());
+      music();
     }else if(args[0].equals("op")){
       //Main.initialisation();
       Main.setOs(new Os());
@@ -130,7 +131,7 @@ public class launchOptions {
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue");
     }
-    Main.quitter();
+    // Main.quitter();
   }
   /**
   *{@summary update stats in stats.txt.}<br>
@@ -223,5 +224,11 @@ public class launchOptions {
     Main.endCh("addTradAuto");Main.startCh();
     chargerLesTraductions.affPourcentageTraduit();
     Main.endCh("affPourcentageTraduit");*/
+  }
+  private static void music(){
+    AudioPlayer sp = new AudioPlayer("C:/Users/lili5/Music/son/x.mp3",true,2000);
+    sp.play();
+    AudioPlayer sp2 = new AudioPlayer("C:/Users/lili5/Music/son/pock.mp3",true,2000);
+    sp2.play();
   }
 }
