@@ -226,8 +226,13 @@ public class launchOptions {
     chargerLesTraductions.affPourcentageTraduit();
     Main.endCh("affPourcentageTraduit");*/
   }
+  /**
+  *{@summary Do sounds or music test.}<br>
+  *@version 1.46
+  */
   private static void music(){
-    AudioPlayer sp = new AudioPlayer("C:/Users/lili5/Music/son/x.mp3",true,2000);
+    Main.initialisation(); //for color & language
+    AudioPlayer sp = new AudioPlayer("1.mp3",true,2000);
     sp.play();
     AudioPlayer sp2 = new AudioPlayer("C:/Users/lili5/Music/son/pock.mp3",true,2000);
     sp2.play();

@@ -77,41 +77,43 @@ public class Main {
     debug.setAffLesPerformances(false);
     debug.setAffG(false);
     if(args==null){args = new String[0];}
-    if(args.length==1 && args[0] != null){
-      args = args[0].split(" ");
-    }
-    int k=0;
-    while(args.length > k){//si il y a des options a "-"
-      if(args[k] != null && args[k].length()>1 && args[k].substring(0,1).equals("-")){
-        launchOptions.launchOptionsMinor(args[k].substring(1));
-        args = tableau.retirer(args, k);
-      }else{
-        k++;
+    if(args.length!=0){
+      if(args.length==1 && args[0] != null){
+        args = args[0].split(" ");
       }
-    }
-    if(args.length>0 && args[0] != null){
-      launchOptions.launchOptionsMajor(args);
-      quitter();
-    }else{ // si il n'y a pas d'options ou que des options a "-".
-      // LE JEU -------------------------------------------------------------------
-      boolean continuerJeu=true;
-      int k2=0;
-      while(continuerJeu && k2<10){
-        k2++;
-        continuerJeu = launch();//on attend ici tant que le joueur veux jouer.
-        System.out.println("after launch");//@a
-        debug.débogage("ReLancement du jeu");
-        try {
-          getF().dispose();
-        }catch (Exception e) {
-          erreur.info("Window can not be dispose.");
+      int k=0;
+      while(args.length > k){//si il y a des options a "-"
+        if(args[k] != null && args[k].length()>1 && args[k].substring(0,1).equals("-")){
+          launchOptions.launchOptionsMinor(args[k].substring(1));
+          args = tableau.retirer(args, k);
+        }else{
+          k++;
         }
-        retournerAuMenu=false;
-        //op=null;//force la réinitialisation de tout.
-        image.clearPartielTemporaire();
       }
+      if(args.length>0 && args[0] != null){
+        launchOptions.launchOptionsMajor(args);
+        quitter();
+      }else{ // si il n'y a pas d'options ou que des options a "-".
+        // LE JEU -------------------------------------------------------------------
+        boolean continuerJeu=true;
+        int k2=0;
+        while(continuerJeu && k2<10){
+          k2++;
+          continuerJeu = launch();//on attend ici tant que le joueur veux jouer.
+          System.out.println("after launch");//@a
+          debug.débogage("ReLancement du jeu");
+          try {
+            getF().dispose();
+          }catch (Exception e) {
+            erreur.info("Window can not be dispose.");
+          }
+          retournerAuMenu=false;
+          //op=null;//force la réinitialisation de tout.
+          image.clearPartielTemporaire();
+        }
+      }
+      quitter();//en théorie on arrive pas là.
     }
-    quitter();//en théorie on arrive pas là.
   }
   /**
    * {@summary pre launch.}<br>
