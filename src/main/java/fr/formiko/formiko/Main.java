@@ -76,16 +76,20 @@ public class Main {
     debug.setAffLesEtapesDeRésolution(false);
     debug.setAffLesPerformances(false);
     debug.setAffG(false);
+    if(args==null){args = new String[0];}
+    if(args.length==1 && args[0] != null){
+      args = args[0].split(" ");
+    }
     int k=0;
     while(args.length > k){//si il y a des options a "-"
-      if(args[k].length()>1 && args[k].substring(0,1).equals("-")){
+      if(args[k] != null && args[k].length()>1 && args[k].substring(0,1).equals("-")){
         launchOptions.launchOptionsMinor(args[k].substring(1));
         args = tableau.retirer(args, k);
       }else{
         k++;
       }
     }
-    if(args.length>0){
+    if(args.length>0 && args[0] != null){
       launchOptions.launchOptionsMajor(args);
       quitter();
     }else{ // si il n'y a pas d'options ou que des options a "-".

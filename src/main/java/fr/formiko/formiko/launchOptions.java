@@ -6,8 +6,9 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.media.audio.*;
+import fr.formiko.usuel.tableau;
+import fr.formiko.usuel.types.str;
 
 import java.util.HashMap;
 
@@ -129,7 +130,7 @@ public class launchOptions {
       Main.setFolder(folder);
       folder.cleanFolder();
     }else{
-      erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue");
+      erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }
     // Main.quitter();
   }

@@ -2,5 +2,6 @@
 #exemple of use : ./run.sh -d
 for param in "$*"
 do
-  java -cp target/classes/:. fr.formiko.formiko.Main $param
+  # java -cp target/classes/:. fr.formiko.formiko.Main $param
+  mvn exec:java -Dargs="$param"
 done

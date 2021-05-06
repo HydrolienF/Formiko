@@ -283,6 +283,12 @@ public class triche {
             erreur.alerte("Une action de menu a échouée");
           }
           break;
+        case 40:
+        try {
+          Main.getView().actionGame();
+        }catch (Exception e) {
+          erreur.alerte("Une action de menu a échouée");
+        }
 
         default:
           erreur.erreur("La commande n'as pas été reconnue.");
