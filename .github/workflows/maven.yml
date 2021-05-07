@@ -88,7 +88,8 @@ jobs:
       id: sync
       with:
         auth: ${{ secrets.GIST_TOKEN }}
-        gist_url: https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json
+        gist_url: https://gist.github.com//HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json
+        #gist_url: https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json
         gist_title: version.json
         gist_description: ""
         github_file: "temp"
