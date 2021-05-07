@@ -48,6 +48,8 @@ public class PanneauCarte extends Panneau {
   private int posX; // position de la 1a case.
   private int posY;
   private int xTemp,yTemp;
+  private int idCurentFere=-1;
+  private static boolean drawAllFere;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauCarte(){}
@@ -61,7 +63,6 @@ public class PanneauCarte extends Panneau {
     GCase gc = new GCase(1,1);
     xCase = gc.getNbrX();
     yCase = gc.getNbrY();
-    //xCase = yCase = 1.
   }
   // GET SET --------------------------------------------------------------------
   public int getTailleDUneCase(){return Main.getData().getTailleDUneCase();}
@@ -74,6 +75,7 @@ public class PanneauCarte extends Panneau {
   public void setPosX(int x){posX=x; }
   public int getPosY(){ return posY;}
   public void setPosY(int x){posY=x; }
+  public void setIdCurentFere(int x){idCurentFere=x;}
   public void setLigne(Graphics2D g){
     BasicStroke ligne = new BasicStroke(Main.getDimLigne());
     g.setStroke(ligne);
@@ -85,7 +87,7 @@ public class PanneauCarte extends Panneau {
   */
   @Override
   public void setSize(int x, int y){
-    //actualiserSize();
+    erreur.alerte("Not alowed to setSize here ! (Nothing have been done.)");
   }
   /**
   *Do the 3 steps that are need to set PanneauCarte to a new size.
@@ -221,7 +223,7 @@ public class PanneauCarte extends Panneau {
     try {
       int tC10 = Main.getData().getTailleDUneCase()/10;int tC4 = Main.getData().getTailleDUneCase()/4;int tC2 = Main.getData().getTailleDUneCase()/2;
       // la fourmilière
-      if (c.getFere()!=null){
+      if (c.getFere()!=null && (drawAllFere || c.getFere().getId()==idCurentFere)){
         g.drawImage(Main.getData().getFere(),xT+tC4,yT+tC4,this);
         int tailleDuCercle = Main.getTailleElementGraphique(20);
         drawRondOuRect(xT,yT,Main.getData().getTailleDUneCase(),g,c.getFere(),tailleDuCercle);

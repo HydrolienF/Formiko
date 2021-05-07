@@ -80,7 +80,7 @@ public class PanneauSup extends Panneau{
         if(cc==null){Main.getPb().setDesc("");cc2=null;return;}
         if(cc2==null || !cc2.getContenu().equals(cc.getContenu())){//si la case a changé.
           cc2=new CCase(cc.getContenu());
-          Main.getPb().setDesc(cc.getContenu().toString());
+          Main.getView().setLookedCase(cc);
         }
       }
     });

@@ -3,6 +3,7 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
+import fr.formiko.formiko.GCreature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
@@ -48,6 +49,7 @@ public class ViewGUI2d implements View {
   public PanneauBouton getPb(){return Main.getPb();}
   public PanneauChargement getPch(){return Main.getPch();}
   public PanneauSup getPs(){return Main.getPs();}
+  public PanneauCarte getPc(){ return getPj().getPc();}
   /**  // FUNCTIONS -----------------------------------------------------------------
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
@@ -224,10 +226,24 @@ public class ViewGUI2d implements View {
   *We need to repaint the information about this Case.<br>
   *This action can only be run if action game is on.<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.42
+  *@version 1.46
   */
   public boolean setLookedCase(CCase cc){
     if (!actionGameOn) {return false;}
+    if(cc==null){
+      getPb().setDesc("");
+      getPc().setIdCurentFere(-1);
+    }else{
+      getPb().setDesc(cc.getContenu().toString());
+      GCreature gAnt = cc.getContenu().getGc();
+      getPc().setIdCurentFere(-1);
+      for (Creature f : gAnt.toList() ) {
+        if(f instanceof Fourmi){
+          getPc().setIdCurentFere(((Fourmi)(f)).getFere().getId());
+          break;
+        }
+      }
+    }
     return true;
   }
   /**
