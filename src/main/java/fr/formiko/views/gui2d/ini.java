@@ -79,9 +79,9 @@ public class ini {
           créerDBG("fourmi",i);
         }
         // les graines
-        int len2 = image.getNbrImages("graine");
+        int len2 = image.getNbrImages("seed");
         for (int i=0;i<len2 ;i++ ) {
-          créerDBG("graine",i);
+          créerDBG("seed",i);
         }
         //les insectes
         int len3 = image.getNbrImages("I");

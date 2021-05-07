@@ -54,6 +54,9 @@ public class Data {
   private boolean initialisationFX;
   //PanneauChargement
   private BufferedImage imageChargement;
+  //PanneauActionInf / Sup
+  private Image backgroundPAI;
+  private Image backgroundPAS;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   /**
@@ -85,6 +88,9 @@ public class Data {
   public BufferedImage getImageChargement(){return imageChargement;}
   //imageIni
   public void setImageIniForNewGame(boolean b){imageIniForNewGame=b;}
+  //PanneauActionInf / Sup
+  public Image getBackgroundPAI(){return backgroundPAI;}
+  public Image getBackgroundPAS(){return backgroundPAS;}
   // Fonctions propre -----------------------------------------------------------
 
   //public class Controleur{
@@ -127,8 +133,8 @@ public class Data {
         chargerTI();
         tIIIni = chargerTX("I");
         tFIni = chargerTX("fourmi",3);
-        tGIni = chargerTX("graine");
-        fereIni = image.getImage("fourmiliere");//.getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
+        tGIni = chargerTX("seed");
+        fereIni = image.getImage("antnest");//.getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
         cNuageuseIni = image.getImage("cNuageuse");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         cSombreIni = image.getImage("cSombre");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         bIni = image.getImages("b"); int lenb = bIni.length;
@@ -265,15 +271,31 @@ public class Data {
       }else{
         chargerTImage();
       }
-      PanneauActionInf.chargerFond();
-      PanneauActionSup.chargerFond();
+      loadBackgroundPAI();
+      loadBackgroundPAS();
     }
+  }
+  /**
+  *Load backgroundPAI
+  *@version 1.46
+  */
+  private void loadBackgroundPAI(){
+    backgroundPAI = image.getImage("backgroundPAI");
+    backgroundPAI = backgroundPAI.getScaledInstance(Main.getDimX(), Main.getPa().getHeight(),Image.SCALE_SMOOTH);
+  }
+  /**
+  *Load backgroundPAS
+  *@version 1.46
+  */
+  private void loadBackgroundPAS(){
+    backgroundPAS = image.getImage("backgroundPAS");
+    backgroundPAS = backgroundPAS.getScaledInstance(Main.getPa().getHeight(), Main.getPa().getHeight(),Image.SCALE_SMOOTH);
   }
   /**
   *Load images for PanneauAction without background
   *@version 1.18
   */
-  public void chargerTImage(){
+  private void chargerTImage(){
     int tailleBouton = Main.getPa().getTailleBouton();
     tImage = image.getImages("desc");
     for (int i=0;i<10 ;i++ ) {
@@ -284,7 +306,7 @@ public class Data {
   *Load images for PanneauAction with background
   *@version 1.18
   */
-  public void chargerTImageAvecFond(Pixel pi){
+  private void chargerTImageAvecFond(Pixel pi){
     int tailleBouton = Main.getPa().getTailleBouton();
     for (int k=0;k<10 ;k++) {
       Img img = new Img("desc"+k);
@@ -346,15 +368,15 @@ public class Data {
     mapName = str.sToSMaj(mapName);
     imageChargement=null;
     if(mapName!=null && !mapName.equals("")){
-      imageChargement=image.getImage("chargement"+mapName,false);
+      imageChargement=image.getImage("loading"+mapName,false);
       if(imageChargement!=null){
         imageChargement=image.resize(imageChargement,Main.getDimX(),Main.getDimY());
       }
     }
     //if it haven't been load yet we try to load any image name chargementi.png or .jpj.
     if(imageChargement==null){
-      int x = allea.getAlléa(image.getNbrImages("chargement"));
-      imageChargement=image.getImage("chargement"+x);
+      int x = allea.getAlléa(image.getNbrImages("loading"));
+      imageChargement=image.getImage("loading"+x);
       imageChargement=image.resize(imageChargement,Main.getDimX(),Main.getDimY());
       return true;
     }

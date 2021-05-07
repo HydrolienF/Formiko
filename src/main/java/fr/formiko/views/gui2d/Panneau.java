@@ -25,7 +25,7 @@ public class Panneau extends JPanel {
   public Panneau(){
     super();
     setLayout(null);
-    //setOpaque(false); //cause issues about Bouton.
+    // setOpaque(false); //TODO fix : cause issues about Bouton.
   }
   // GET SET --------------------------------------------------------------------
   //public int getTailleDUneCase(){return tailleDUneCase;}
@@ -35,11 +35,13 @@ public class Panneau extends JPanel {
   //public void setXCase(int x){xCase = x;}
   //public void setYCase(int y){yCase = y;}
   public BListener getBListener(){ return new BListener();}
+  public Data getData(){return Main.getData();}
   // Fonctions propre -----------------------------------------------------------
   //repaint() permet de réactualisé paintComponent()
   // L'instruction Thread.sleep(x miliseconde) permet d'effectuer une pause dans le programme.
   public void paintComponent(Graphics g){
-
+    //TODO it should repaint as normal Panel.
+    // super.paintComponent(g);
   }
   public void doAction(int ac){
     action.doAction(ac);

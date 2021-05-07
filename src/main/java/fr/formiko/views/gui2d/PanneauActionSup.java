@@ -10,7 +10,6 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 public class PanneauActionSup extends Panneau{
-  public static Image fond;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauActionSup(){
@@ -23,11 +22,7 @@ public class PanneauActionSup extends Panneau{
     int len = Main.getPa().getNbrBouton();
     int dim = Main.getPa().getHeight();
     for (int i=0;i<len ;i++ ) {
-      g.drawImage(fond, i*dim+Main.getPa().getBordureBouton(),0, this);
+      g.drawImage(getData().getBackgroundPAS(), i*dim+Main.getPa().getBordureBouton(),0, this);
     }
-  }
-  public static void chargerFond(){
-    fond = image.getImage("bordureBouton");
-    fond = fond.getScaledInstance(Main.getPa().getHeight(), Main.getPa().getHeight(),Image.SCALE_SMOOTH);
   }
 }

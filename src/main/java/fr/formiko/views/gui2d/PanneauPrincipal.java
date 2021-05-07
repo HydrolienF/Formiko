@@ -25,7 +25,7 @@ public class PanneauPrincipal extends Panneau {
   public PanneauPrincipal(){}
   public void build(){
     this.setLayout(null);
-    img = image.getImage("arrierePlan.png");
+    img = image.getImage("backgroundPP");
     img = img.getScaledInstance(this.getWidth(), this.getHeight(),Image.SCALE_SMOOTH);
   }
   // GET SET --------------------------------------------------------------------
