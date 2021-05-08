@@ -3,6 +3,7 @@ package fr.formiko.formiko;
 import fr.formiko.usuel.*;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.image;
@@ -129,6 +130,8 @@ public class launchOptions {
       Folder folder = new Folder();
       Main.setFolder(folder);
       folder.cleanFolder();
+    }else if(args[0].equals("zip")){
+      zip();
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }
@@ -236,5 +239,9 @@ public class launchOptions {
     sp.play();
     AudioPlayer sp2 = new AudioPlayer("C:/Users/lili5/Music/son/pock.mp3",true,2000);
     sp2.play();
+  }
+  private static void zip(){
+    fichier.zip("tools/", "tools.zip");
+    fichier.unzip("tools.zip", "tools2");
   }
 }
