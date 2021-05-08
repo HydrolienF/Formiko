@@ -132,7 +132,7 @@ public class Data {
         selectionneeIni = image.getImage("selectionnee");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         chargerTI();
         tIIIni = chargerTX("I");
-        tFIni = chargerTX("fourmi",3);
+        tFIni = chargerTX("F",3,(byte)0,-3);
         tGIni = chargerTX("seed");
         fereIni = image.getImage("antnest");//.getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
         cNuageuseIni = image.getImage("cNuageuse");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
@@ -145,7 +145,7 @@ public class Data {
       }
       imageIni=true;
       if(!imageIniForNewGame){
-        tIFIni = chargerTX("F",Main.getNbrDeJoueur(),(byte)0,1);
+        tIFIni = chargerTX("F0&",Main.getNbrDeJoueur(),(byte)0,1);
       }
       imageIniForNewGame=true;
     }

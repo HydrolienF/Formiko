@@ -118,11 +118,12 @@ public class image{
    *@param nom Name of the file without REP_STABLE part and number and .png or .jpg part of it.
    *@param nbr Number of image that we want.
    *@param lettre A letter that can be after the number on rotated image file. ' ' or 'ø' if there is no letter after the number.
-   *@param x Needed only if x!=0. x is the 1a number of the numbering.
+   *@param k Needed only if k!=0. k is the 1a number of the numbering.
    *@version 1.3
    */
-  public static BufferedImage [] getImages(String nom,char lettre, int nbr, byte x){
-    BufferedImage tr [] = new BufferedImage [nbr];int k=x;
+  public static BufferedImage [] getImages(String nom, char lettre, int nbr, byte k){
+    debug.débogage("getImagess "+nom+" from "+k+" to "+(nbr+k));
+    BufferedImage tr [] = new BufferedImage [nbr];
     for (int i=0;i<nbr ;i++ ) {
       String s = nom+k+lettre;
       if(lettre==' ' || lettre=='ø'){ s = nom+k;}
@@ -227,7 +228,7 @@ public class image{
     File docier = new File(REP_TEMPORARY);
     File[] fichiers = docier.listFiles();
     for (File f : fichiers ) {
-      if(str.contient(f.getName(),"F",0)){//si c'est une fourmi. (= si le fichier commence par "F")
+      if(str.contient(f.getName(),"F0&",0)){//si c'est une fourmi. (= si le fichier commence par "F")
         if(isImage(f)){f.delete();}
       }
     }

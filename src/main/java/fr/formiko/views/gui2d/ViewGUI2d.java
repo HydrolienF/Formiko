@@ -130,9 +130,7 @@ public class ViewGUI2d implements View {
   *@version 1.44
   */
   public boolean menuLoadAGame(){
-    System.out.println("retournerAuMenu");//@a
     if(actionGameOn){action.retournerAuMenu();}
-    System.out.println("retournerAuMenu done");//@a
     actionGameOn=false;
     if(f==null || getPm()==null){ini();}
     getPm().removeP();

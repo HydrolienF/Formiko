@@ -51,12 +51,16 @@ public class ini {
   public static void initialiserFourmiTournées(){
     int len = Main.getGj().length()+1;
     for (int i=1;i<len ;i++ ) {
-      créerDBG("F",i);
+      créerDBG("F0&",i);
     }
   }
   public static void créerDBG(String nom, int i){
-    String is = ""; if(i!=-1){is=i+"";}
-    Img imgTemp = new Img(nom+is+".png");
+    String is = "";
+    // if(i!=-1){
+      is=i+"";
+    // }
+    Img imgTemp = new Img(nom+is);
+    debug.débogage("load "+nom+is);
     //String rep = Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages();//""; if(str.nbrDeX(nom,'/')==0){rep="temporaire/";}
     //String s = rep+nom+is;
     imgTemp.sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom+is+"h"+".png");
@@ -75,8 +79,8 @@ public class ini {
       File f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages());
       if(!Main.getGarderLesGraphismesTourné() || f.list().length<10){
         //les jeunes fourmis
-        for (int i=0;i<3 ;i++ ) {
-          créerDBG("fourmi",i);
+        for (int i=-3;i<0 ;i++ ) {
+          créerDBG("F",i);
         }
         // les graines
         int len2 = image.getNbrImages("seed");

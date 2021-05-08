@@ -40,7 +40,8 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   protected Pheromone ph;
   protected byte propreté;
   protected byte tolerencePheromone;
-  protected byte stade; // -2 = oeuf, -1 = larve, 0 =  imago L'utilisation de la variable stade permet de faire manger les larves et pas les oeux. Les diférent stade on également des image distinctes.
+  /** -3=egg, -2=larva, -1=nymph, 0=imago */
+  protected byte stade;
   protected int nourritureFournie;
   protected Espece e;
   protected ObjetSurCarteAId transported;

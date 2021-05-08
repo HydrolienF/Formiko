@@ -294,11 +294,11 @@ public class Partie implements Serializable{
         ph = new Pheromone(127,127,127); // blanc sinon.
       }
       int a = ph.getRc(); int b=ph.getVc(); int c=ph.getBc();
-      Img imgTemp = new Img("F.png");
+      Img imgTemp = new Img("F0");
       Pixel pi2 = new Pixel(ph);
       imgTemp.changerPixel(pi,pi2);
-      //imgTemp.ombrer(pi2); // met de l'ombre sur le pixel pi2. (en théorie)
-      imgTemp.sauvegarder("F"+i+".png");
+      //imgTemp.ombrer(pi2); // met de l'ombre sur le pixel pi2. (en théorie) En pratique on vas plutot déciner moins de couleur sur les bords.
+      imgTemp.sauvegarder("F0&"+i+".png");
     }
   }
   public void enregistrerLesScores(){
