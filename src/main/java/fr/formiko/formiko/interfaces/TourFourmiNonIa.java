@@ -81,7 +81,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       try {
         choix = (byte) Panneau.getView().getPj().getActionF();
       }catch (Exception e) {
-        choix = (byte) Panneau.getView().getAntChoice(getTActionFourmi());
+        choix = (byte) Main.getView().getAntChoice(getTActionFourmi());
         erreur.alerteGUI2Dfail("TourFourmiNonIa");
       }
       Temps.pause(50);
