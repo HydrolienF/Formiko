@@ -41,7 +41,7 @@ public class PanneauDialogueInf extends Panneau {
     b.setFondTransparent();
     b.setTexte(g.get("suivant"));
     //b.setSize(Main.getTailleElementGraphiqueX(80),((int)(b.getPreferredSize().getHeight())));
-    b.setBounds(Main.getPd().getWidth()-b.getWidth()-Main.getTailleElementGraphiqueX(100),getHeight()-b.getHeight()-Main.getTailleElementGraphiqueY(40),b.getWidth());
+    b.setBounds(getView().getPd().getWidth()-b.getWidth()-Main.getTailleElementGraphiqueX(100),getHeight()-b.getHeight()-Main.getTailleElementGraphiqueY(40),b.getWidth());
     add(b);
     repaint();
   }

@@ -41,7 +41,7 @@ public class PanneauSup extends Panneau{
     addMouseListener(new MouseAdapter() {
       @Override
       public void mouseExited​(MouseEvent e){
-        Main.getPb().setDesc("");
+        getView().getPb().setDesc("");
       }
       @Override
       public void mouseReleased(MouseEvent e) {
@@ -54,8 +54,8 @@ public class PanneauSup extends Panneau{
           if(gc.length()>0){
             Fourmi f = gc.getFourmiParFere(Main.getPlayingAnt().getFere());
             if(f!=null && f.getAction()>0){
-              Main.getPj().setActionF(-2);
-              Main.getPb().removePA();
+              getView().getPj().setActionF(-2);
+              getView().getPb().removePA();
               setIdFourmiAjoué(f.getId());
             }
           }
@@ -65,7 +65,7 @@ public class PanneauSup extends Panneau{
             CCase cc = getCCase(e);
             if(cc!=null){
               f.ceDeplacerPlusieurCase(cc);
-              Main.getPj().setActionF(-2);
+              getView().getPj().setActionF(-2);
               setIdFourmiAjoué(f.getId());
             }
           }
@@ -77,19 +77,19 @@ public class PanneauSup extends Panneau{
       public void mouseMoved(MouseEvent e) {
         //Temps.pause(10);
         CCase cc = getCCase(e);
-        if(cc==null){Main.getPb().setDesc("");cc2=null;return;}
+        if(cc==null){getView().getPb().setDesc("");cc2=null;return;}
         if(cc2==null || !cc2.getContenu().equals(cc.getContenu())){//si la case a changé.
           cc2=new CCase(cc.getContenu());
-          Main.getView().setLookedCase(cc);
+          getView().setLookedCase(cc);
         }
       }
     });
   }
   // GET SET --------------------------------------------------------------------
   public void actualiserTaille(){
-    setSize(Main.getDimX()-Main.getPz().getWidth(), Main.getDimY()-Main.getPa().getHeight());
+    setSize(Main.getDimX()-getView().getPz().getWidth(), Main.getDimY()-getView().getPa().getHeight());
     //la 2a version est mieux pour prendre en compte les déplacements.
-    //setSize(Main.getDimX()-Main.getPz().getWidth(), Main.getDimY()-math.max(Main.getPa().getHeight(),Main.getPTInt().getHeight()));
+    //setSize(Main.getDimX()-Main.getPz().getWidth(), Main.getDimY()-math.max(getView().getPa().getHeight(),Main.getPTInt().getHeight()));
   }
   public void actualiserTailleMax(){
     setSize(Main.getDimX(), Main.getDimY());
@@ -100,15 +100,13 @@ public class PanneauSup extends Panneau{
   public int getIdFourmiAjoué(){return idFourmiAjoué;}
   public void setIdFourmiAjoué(int x){idFourmiAjoué=x;}
   // Fonctions propre -----------------------------------------------------------
-  public void paintComponent(){
 
-  }
   public CCase getCCase(MouseEvent e){
-    int tc = Main.getPc().getTailleDUneCase();
+    int tc = getView().getPc().getTailleDUneCase();
     int cx = e.getX()/tc;
     int cy = e.getY()/tc;
     try {
-      return Main.getGc().getCCase(cx+Main.getPc().getPosX(),cy+Main.getPc().getPosY());
+      return Main.getGc().getCCase(cx+getView().getPc().getPosX(),cy+getView().getPc().getPosY());
     }catch (Exception e2) {
       erreur.erreur("aucune case n'est sélectionné avec les coordonées : "+cx+" "+cy);
       return null;
@@ -123,7 +121,7 @@ public class PanneauSup extends Panneau{
   }
   public boolean vérifierPanneauDialogue(MouseEvent e){
     try {
-      return Main.getPd().clicEn(e.getX(),e.getY());
+      return getView().getPd().clicEn(e.getX(),e.getY());
     }catch (Exception e2) {
       return false;
     }

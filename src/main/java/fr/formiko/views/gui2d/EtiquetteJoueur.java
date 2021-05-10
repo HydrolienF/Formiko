@@ -131,7 +131,7 @@ public class EtiquetteJoueur extends Panneau{
     public EtiquetteJoueur ej;
     public void itemStateChanged(ItemEvent e) {
       debug.débogage("événement déclenché sur : " + e.getItem());
-      PanneauNouvellePartie pnp = Main.getPnp();
+      PanneauNouvellePartie pnp = getView().getPnp();
       if(e.getStateChange()==1){ // si l'action est bien sélectionner.
         if(combo.getItemAt(0).equals(e.getItem())){
           ouvert=true; ia=false; setPseudo(g.getM("joueur")+" "+(id+1));
@@ -163,7 +163,7 @@ public class EtiquetteJoueur extends Panneau{
   class ItemState2 implements KeyListener{
     public EtiquetteJoueur ej;
     public void keyReleased(KeyEvent e) {
-      Main.getPnp().getPGej().repaint();
+      getView().getPnp().getPGej().repaint();
     }
     public void keyPressed(KeyEvent e){}
     public void keyTyped(KeyEvent e){}

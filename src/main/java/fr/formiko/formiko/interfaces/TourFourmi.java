@@ -3,6 +3,7 @@ package fr.formiko.formiko.interfaces;
 import fr.formiko.formiko.*;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
+import fr.formiko.views.gui2d.Panneau; //TODO #134
 import fr.formiko.usuel.exceptions.ListItemNotFoundException;
 import fr.formiko.usuel.exceptions.ClassTypeException;
 import fr.formiko.usuel.exceptions.EmptyListException;
@@ -164,12 +165,14 @@ public class TourFourmi implements Serializable, Tour{
     f.setAgePlus1(); f.salir();
     f.setNourritureMoinsConsomNourriture(); //will not ask food is it's an egg.
     // if contition de température appartient a l'intervale idéale (et que stade = -1, -2 ou -3) : re setAgePlus1();
-    try { //TODO move that to ViewGUI
+    try {
+      //TODO #134 move that to ViewGUI
       if (!f.getFere().getJoueur().getIa()) { //pour un joueur humain.
-        Main.getPj().setFActuelle(null);
-        Main.getPb().setVisiblePa(false);
+        Panneau.getView().getPj().setFActuelle(null);
+        Panneau.getView().getPb().setVisiblePa(false);
       }
-      Main.getPs().setIdFourmiAjoué(-1);
+      Panneau.getView().getPs().setIdFourmiAjoué(-1);
+      //End TODO
     }catch (Exception e) {
       erreur.alerteGUI2Dfail("TourFourmi");
     }

@@ -23,18 +23,18 @@ public class PanneauEchap extends Panneau{
   // CONSTRUCTEUR ---------------------------------------------------------------
   public void build(){
     if(estContruit()){return;}
-    Main.getPz().setEnabled(false);
-    Main.getPc().setEnabled(false);
-    Main.getPa().setEnabled(false);
+    getView().getPz().setEnabled(false);
+    getView().getPc().setEnabled(false);
+    getView().getPa().setEnabled(false);
     //setBackground(new Color(50,50,50,100));
-    Main.getPs().setSize(0,0);
+    getView().getPs().setSize(0,0);
     setSize(Main.getDimX(),Main.getDimY());
     int lentb = 6;
     tb = new Bouton[lentb];
     for (int i=0;i<lentb ;i++ ) {
       String s ="";
       if(i> 0 && i<3){s=" ("+g.get("bientôt")+")";}//TODO s'assurer que ce n'est plus utile puis le retirer.
-      tb[i]=new Bouton(g.getM("bouton.nom."+(-10-i))+s,Main.getPj(),-10-i);
+      tb[i]=new Bouton(g.getM("bouton.nom."+(-10-i))+s,getView().getPj(),-10-i);
       //tb[i].setBounds(0,Desc.getDimY()*i*2,Main.getDimX()/4,Desc.getDimY());
       tb[i].setOpaque(true);
       tb[i].setCFond(new Color(55, 255, 0));
@@ -74,8 +74,8 @@ public class PanneauEchap extends Panneau{
   */
   @Override
   public void setVisible(boolean b){
-    if(b){build();Main.getPs().setSize(0,0);}
-    else{Main.getPs().actualiserTaille();}
+    if(b){build();getView().getPs().setSize(0,0);}
+    else{getView().getPs().actualiserTaille();}
     visible=b;
     super.setVisible(b);
   }

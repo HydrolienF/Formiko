@@ -63,9 +63,9 @@ public class Bouton extends JButton implements MouseListener{
   public void setCFond(Color c){cFond=c;}
   public static int getDimY(){ return (int)(Main.getOp().getTaillePolice1()*1.4);}
   public void setDesc(String s){
-    if(Main.getPp().getPj()==null){ erreur.erreur("pj null");}
+    if(Panneau.getView().getPp().getPj()==null){ erreur.erreur("pj null");}
     try {
-      Main.getPp().getPj().getPb().setDesc(s);
+      Panneau.getView().getPp().getPj().getPb().setDesc(s);
     }catch (Exception e) {erreur.alerte("Impossible de setDesc pour le bouton.");}
   }
   // Fonctions propre -----------------------------------------------------------

@@ -9,6 +9,7 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.types.str;
+import fr.formiko.views.gui2d.Panneau;
 import fr.formiko.views.gui2d.action;
 
 /**
@@ -222,11 +223,14 @@ public class triche {
           }
           break;
         case 32:
-          Main.getPb().removePz();
+          if(!Main.isCLI()){
+            Panneau.getView().getPb().removePz();
+          }
           break;
         case 33:
           try {
-            if(str.sToI(args[1])==20 || str.sToI(args[1])==1){Main.getPb().removePa();}
+            //TODO #134 update so that ViewCLI will be modify to.
+            if(str.sToI(args[1])==20 || str.sToI(args[1])==1){Panneau.getView().getPb().removePa();}
             try {
               Fourmi.setUneSeuleAction(str.sToI(args[1]));
             }catch (Exception e) {
@@ -239,11 +243,11 @@ public class triche {
           break;
         case 34:
           if(args[2].equalsIgnoreCase("cmd.34.1")){
-            Main.getPs().actualiserTaille();
+            Panneau.getView().getPs().actualiserTaille();
           }else if(args[2].equalsIgnoreCase("cmd.34.2")){
-            Main.getPs().actualiserTailleMax();
+            Panneau.getView().getPs().actualiserTailleMax();
           }else if(args[2].equalsIgnoreCase("cmd.34.3")){
-            Main.getPs().actualiserTailleMin();
+            Panneau.getView().getPs().actualiserTailleMin();
           }
           break;
         case 35:

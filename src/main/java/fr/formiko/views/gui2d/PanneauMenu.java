@@ -199,7 +199,7 @@ public class PanneauMenu extends Panneau {
   *@version 1.44
   */
   private void createReturnButton(){
-    returnButton = new Bouton("",Main.getPm(),-1);
+    returnButton = new Bouton("",getView().getPm(),-1);
     returnButton.setBounds(Main.getTailleElementGraphiqueX(10),Main.getDimY()-Main.getTailleElementGraphiqueY(10)-Main.getTailleElementGraphiqueY(50),Main.getTailleElementGraphiqueX(200),Main.getTailleElementGraphiqueY(50));
   }
   /**

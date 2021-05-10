@@ -2,6 +2,7 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
+import fr.formiko.views.gui2d.Panneau;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -18,7 +19,7 @@ public class ini {
   // Fonctions propre -----------------------------------------------------------
   //arboressence des Panneaux
   public static void initialiserToutLesPaneauxVide(){
-    PanneauPrincipal pp = Main.getPp();
+    PanneauPrincipal pp = Panneau.getView().getPp();
     pp.build();
     pp.addPm();
     pp.getPm().build();
@@ -26,18 +27,18 @@ public class ini {
     //le Menu est fonctionnel ici.
   }
   public static void initialiserPanneauJeuEtDépendance(){
-    Main.getPp().addPj();
-    Main.getPj().setBounds(0,0,Main.getDimX(),Main.getDimY());
-    Main.getPj().addPs();
+    Panneau.getView().getPp().addPj();
+    Panneau.getView().getPj().setBounds(0,0,Main.getDimX(),Main.getDimY());
+    Panneau.getView().getPj().addPs();
     //le panneau pp a ses 2 sous panneaux
-    Main.getPj().addPe();//ajoute le panneau complètement vide juste pour qu'il soit au 1a plan
-    Main.getPj().addPd();
-    Main.getPj().addPfp();//ajoute le panneau complètement vide
-    Main.getPj().addPb();
-    Main.getPj().addPc();
+    Panneau.getView().getPj().addPe();//ajoute le panneau complètement vide juste pour qu'il soit au 1a plan
+    Panneau.getView().getPj().addPd();
+    Panneau.getView().getPj().addPfp();//ajoute le panneau complètement vide
+    Panneau.getView().getPj().addPb();
+    Panneau.getView().getPj().addPc();
     //pj a ses 4 sous panneau
-    Main.getPb().build();//plein d'élément non visible sont initialiser ici.
-    Main.getPc().build();
+    Panneau.getView().getPb().build();//plein d'élément non visible sont initialiser ici.
+    Panneau.getView().getPc().build();
     keys.addBindings();
   }
 

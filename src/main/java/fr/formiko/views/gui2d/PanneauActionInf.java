@@ -13,7 +13,7 @@ public class PanneauActionInf extends Panneau{
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauActionInf(){
-    setSize(Main.getDimX(),Main.getPa().getHeight());
+    setSize(Main.getDimX(),Panneau.getView().getPa().getHeight());
   }
   // GET SET --------------------------------------------------------------------
 

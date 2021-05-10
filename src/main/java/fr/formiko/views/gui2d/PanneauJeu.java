@@ -170,7 +170,7 @@ public class PanneauJeu extends Panneau {
   }
   public void dézoomer(byte x){
     int y1 = Main.getDimX()/Main.getGc().getNbrX();
-    int pah = Main.getPa().getHeight();
+    int pah = Panneau.getView().getPa().getHeight();
     if(pah==0){pah=Main.getTailleElementGraphique(180);}
     int y2 = (Main.getDimY()-pah)/Main.getGc().getNbrY();
     int y=0;
@@ -181,7 +181,7 @@ public class PanneauJeu extends Panneau {
   }
   public void actionAFaireSiTailleD1CaseChange(){
     if (Main.getPartie().getEnCours()){
-      Main.getPc().actualiserSize();
+      Panneau.getView().getPc().actualiserSize();
       Main.getData().chargerImages();
       Main.getData().iniBackgroundMapImage();
     }

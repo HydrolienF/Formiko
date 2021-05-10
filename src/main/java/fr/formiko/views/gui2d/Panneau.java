@@ -36,6 +36,7 @@ public class Panneau extends JPanel {
   //public void setYCase(int y){yCase = y;}
   public BListener getBListener(){ return new BListener();}
   public Data getData(){return Main.getData();}
+  public static ViewGUI2d getView(){return (ViewGUI2d)(Main.getView());}
   // Fonctions propre -----------------------------------------------------------
   //repaint() permet de réactualisé paintComponent()
   // L'instruction Thread.sleep(x miliseconde) permet d'effectuer une pause dans le programme.

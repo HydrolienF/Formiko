@@ -22,17 +22,17 @@ public class PanneauTBoolean extends PanneauTX{
     debug.débogage("Création d'un PanneauTBoolean");
     this.setLayout(new GridBagLayout());
     int nbrDeCase = 2;
-    if (nbrDeCase > 0){Main.getPb().setDescTI(descTI);}
+    if (nbrDeCase > 0){getView().getPb().setDescTI(descTI);}
     else{((PanneauBouton) pb).setDescTI("");}
     x = 2;
     y = 1;
     this.setSize(x*tailleBouton,y*tailleBouton);
     Bouton tB [] = new Bouton [nbrDeCase];
     Dimension dim = new Dimension(tailleBouton,tailleBouton);
-    //tB[0]=new Bouton(g.get("OUI"), Main.getPp().getPj(),40);
-    //tB[1]=new Bouton(g.get("NON"), Main.getPp().getPj(),41);
-    tB[0]=new Bouton("O", Main.getPp().getPj(),40);
-    tB[1]=new Bouton("N", Main.getPp().getPj(),41);
+    //tB[0]=new Bouton(g.get("OUI"), getView().getPp().getPj(),40);
+    //tB[1]=new Bouton(g.get("NON"), getView().getPp().getPj(),41);
+    tB[0]=new Bouton("O", getView().getPp().getPj(),40);
+    tB[1]=new Bouton("N", getView().getPp().getPj(),41);
     for (Bouton b :tB){b.setPreferredSize(dim);}
     GridBagConstraints gbc = new GridBagConstraints();
     int k=0;
@@ -48,15 +48,15 @@ public class PanneauTBoolean extends PanneauTX{
   public static boolean getChoixId(){
     int id2 = -1;
     debug.débogage("lancement d'une boucle de choix.");
-    //Main.getPj().repaint();
+    //Panneau.getView().getPj().repaint();
     while(id2==-1){
-      id2 = Main.getPp().getPj().getPb().getChoixId();
+      id2 = getView().getPp().getPj().getPb().getChoixId();
       Temps.pause(10);
     } // on a reçu 0 ou 1.
     boolean b = str.iToB(id2);
-    Main.getPp().getPj().getPb().setChoixId(-1);
-    Main.getPp().getPj().setDescTI("");
-    Main.getPp().getPj().remove(Main.getPp().getPj().getPti());
+    getView().getPp().getPj().getPb().setChoixId(-1);
+    getView().getPp().getPj().setDescTI("");
+    getView().getPp().getPj().remove(getView().getPp().getPj().getPti());
     return b;
   }
 }

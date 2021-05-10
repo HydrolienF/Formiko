@@ -137,7 +137,6 @@ public class Main {
       }
     }else{
       if (view!=null && !(view instanceof ViewGUI2d)) {
-        System.out.println("new view");//@a
         view = new ViewGUI2d();
       }
     }
@@ -149,6 +148,7 @@ public class Main {
   }
 
   // GET SET ----------------------------------------------------------
+  public static boolean isCLI(){return modeCLI;}
   public static byte getNiveauDeDétailDeLAffichage(){return niveauDeDétailDeLAffichage;}
   public static String getVersionActuelle(){return versionActuelle;}
   public static Espece getEspece(){return getEspeceParId(0);}
@@ -181,6 +181,9 @@ public class Main {
   public static void setModeCLI(boolean b){modeCLI=b;}
   public static long getLonTotal(){return lonTotal;}
   //shortcut
+  public static Fourmi getPlayingAnt(){ try {return getPartie().getPlayingAnt();}catch (Exception e) {return null;}}
+  public static void setPlayingAnt(Fourmi f){ getPartie().setPlayingAnt(f);}
+  public static Joueur getPlayingJoueur(){ try {return getPartie().getPlayingJoueur();}catch (Exception e) {return null;}}
   //view
   public static boolean getActionGameOn(){return getView().getActionGameOn();}
   //other
@@ -198,26 +201,8 @@ public class Main {
   public static void repaint(){getView().paint();}
   public static void doAction(int x){action.doAction(x);}
 
-  public static PanneauPrincipal getPp(){ return getF().getPp();}
-  public static PanneauJeu getPj(){ return getPp().getPj();}
-  public static PanneauMenu getPm(){ return getPp().getPm();}
-  public static PanneauNouvellePartie getPnp(){ return getPm().getPnp();}
-  public static PanneauBouton getPb(){ return getPj().getPb();}
-  public static PanneauCarte getPc(){ return getPj().getPc();}
-  public static PanneauInfo getPi(){ return getPb().getPi();}
-  public static PanneauZoom getPz(){ return getPb().getPz();}
-  public static PanneauAction getPa(){ return getPb().getPa();}public static PanneauAction getPac(){return getPa();}
-  public static Fourmi getPlayingAnt(){ try {return getPartie().getPlayingAnt();}catch (Exception e) {return null;}}
-  public static void setPlayingAnt(Fourmi f){ getPartie().setPlayingAnt(f);}
-  public static Joueur getPlayingJoueur(){ try {return getPartie().getPlayingJoueur();}catch (Exception e) {return null;}}
-  public static PanneauChargement getPch(){ try {return getPj().getPch();}catch (Exception e) {return null;}}
-  public static PanneauSup getPs(){ try {return getPj().getPs();}catch (Exception e) {return null;}}
-  public static PanneauEchap getPe(){ return getPj().getPe();}
-  public static PanneauDialogue getPd(){ try {return getPj().getPd();}catch (Exception e) {return null;}}
-  public static PanneauDialogueInf getPdi(){ return getPj().getPdi();}
-
-  public static int getDimX(){ try {return getPp().getWidth();}catch (Exception e){erreur.erreur("Impossible de récupérer les dim de Pp");return 1;}}
-  public static int getDimY(){ try {return getPp().getHeight();}catch (Exception e){erreur.erreur("Impossible de récupérer les dim de Pp");return 1;}}
+  public static int getDimX(){ try {return ((ViewGUI2d)(getView())).getPp().getWidth();}catch (Exception e){erreur.erreur("Impossible de récupérer les dim de Pp");return 1;}}
+  public static int getDimY(){ try {return ((ViewGUI2d)(getView())).getPp().getHeight();}catch (Exception e){erreur.erreur("Impossible de récupérer les dim de Pp");return 1;}}
   public static int getWidth(){return getDimX();}
   public static int getHeight(){return getDimY();}
   public static int getTailleElementGraphique(int x){ return math.min(getTailleElementGraphiqueY(x),getTailleElementGraphiqueX(x));}
@@ -359,11 +344,12 @@ public class Main {
   public static void setMessageChargement(String s){
     //s c'est un truc du genre "chargementDesLangues"
     String s2 = g.getM(s)+"..."; //g.getM() permet d'aller chercher la traduction dans la table de hachage HashMap<String, String> map.
-    try {
-      getPch().setTexte(s2); //envoie a la fenetre le message d'avancement du chargement.
-    }catch (Exception e) { // si quelque chose ce passe mal on envoie un message a la console.
-      //erreur.alerte("Un message de chargement n'est pas arrivé a destination.");
-    }
+    //TODO #134 put in view.
+    // try {
+    //   getPch().setTexte(s2); //envoie a la fenetre le message d'avancement du chargement.
+    // }catch (Exception e) { // si quelque chose ce passe mal on envoie un message a la console.
+    //   //erreur.alerte("Un message de chargement n'est pas arrivé a destination.");
+    // }
   }
   /**
    * Sould transforme a GCase to a Image that can be used for mini-map.<br>

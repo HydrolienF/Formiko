@@ -97,6 +97,6 @@ public class PanneauZoom extends Panneau {
     this.setSize(tailleBouton*3,tailleBouton*3);
   }
   public void doAction(byte ac){
-    Main.getPj().doAction(ac);
+    Panneau.getView().getPj().doAction(ac);
   }public void doAction(int ac){ doAction((byte)ac);}
 }

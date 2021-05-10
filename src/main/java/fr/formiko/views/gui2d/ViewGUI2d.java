@@ -43,13 +43,20 @@ public class ViewGUI2d implements View {
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
   public Fenetre getF(){return f;}
-  public PanneauPrincipal getPp(){return Main.getPp();}
-  public PanneauMenu getPm(){return Main.getPm();}
-  public PanneauJeu getPj(){return Main.getPj();}
-  public PanneauBouton getPb(){return Main.getPb();}
-  public PanneauChargement getPch(){return Main.getPch();}
-  public PanneauSup getPs(){return Main.getPs();}
+  public PanneauPrincipal getPp(){ return getF().getPp();}
+  public PanneauJeu getPj(){ return getPp().getPj();}
+  public PanneauMenu getPm(){ return getPp().getPm();}
+  public PanneauNouvellePartie getPnp(){ return getPm().getPnp();}
+  public PanneauBouton getPb(){ return getPj().getPb();}
   public PanneauCarte getPc(){ return getPj().getPc();}
+  public PanneauInfo getPi(){ return getPb().getPi();}
+  public PanneauZoom getPz(){ return getPb().getPz();}
+  public PanneauAction getPa(){ return getPb().getPa();}
+  public PanneauChargement getPch(){ try {return getPj().getPch();}catch (Exception e) {return null;}}
+  public PanneauSup getPs(){ try {return getPj().getPs();}catch (Exception e) {return null;}}
+  public PanneauEchap getPe(){ return getPj().getPe();}
+  public PanneauDialogue getPd(){ try {return getPj().getPd();}catch (Exception e) {return null;}}
+  public PanneauDialogueInf getPdi(){ return getPj().getPdi();}
   /**  // FUNCTIONS -----------------------------------------------------------------
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
@@ -172,7 +179,7 @@ public class ViewGUI2d implements View {
     // if(Partie.getScript().equals("tuto")){pa=Partie.getPartieTuto();}
     if(Main.getPartie()==null){Main.setPartie(Partie.getDefautlPartie());}
     Main.startCh();
-    Main.getPp().removePm();//on retire le menu
+    getPp().removePm();//on retire le menu
     Main.endCh("chargementPanneauChargementEtSuppressionMenu");//startCh();
     getPj().addPch();//on met le panneau de chargement au 1a plan.
     //la ligne qui suis n'as d'effet que si elle n'as pas déjà été appliqué a la partie.
@@ -273,21 +280,21 @@ public class ViewGUI2d implements View {
   public void message(String message, boolean doWeNeedToDoNextCmdNow){
     if (!actionGameOn) {return;}
     if(f==null || getPm()==null){ini();}
-    Main.getPj().initialiserPd(message);
+    getPj().initialiserPd(message);
     try {
-      Main.getPdi().removeBSuivant();
+      getPdi().removeBSuivant();
     }catch (Exception e) {}
     try {
       Main.getScript().setCmdSuivante(doWeNeedToDoNextCmdNow);
       if(!doWeNeedToDoNextCmdNow){
-        Main.getPdi().addBSuivant();
+        getPdi().addBSuivant();
         Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
       }else{
-        Main.getPs().actualiserTaille();//écoute normale
+        getPs().actualiserTaille();//écoute normale
       }
     }catch (Exception e) {//par défaut on attend avant de passer a la commande suivante.
       Main.getScript().setCmdSuivante(false);
-      Main.getPdi().addBSuivant();
+      getPdi().addBSuivant();
       Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
     }
   }

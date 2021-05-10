@@ -373,9 +373,9 @@ public class PanneauCarte extends Panneau {
   }
 
   public void setDesc(String s){
-    if(Main.getPp().getPj()==null){ erreur.erreur("pj null");}
+    if(getView().getPp().getPj()==null){ erreur.erreur("pj null");}
     try {
-      Main.getPp().getPj().getPb().setDesc(s);
+      getView().getPp().getPj().getPb().setDesc(s);
     }catch (Exception e) {
       erreur.alerte("Impossible de setDesc pour la carte.");
     }

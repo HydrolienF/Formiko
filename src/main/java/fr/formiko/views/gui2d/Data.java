@@ -179,13 +179,13 @@ public class Data {
     public void iniBackgroundMapImage(){
       if(!Main.getView().getActionGameOn()){return;}
       Main.startCh();
-      // if(Main.getPc()==null){erreur.erreur("Map panel is null");}
-      Main.getPc().actualiserSize();
-      Img img = new Img(Main.getPc().getWidth(),Main.getPc().getHeight());
+      // if(Panneau.getView().getPc()==null){erreur.erreur("Map panel is null");}
+      Panneau.getView().getPc().actualiserSize();
+      Img img = new Img(Panneau.getView().getPc().getWidth(),Panneau.getView().getPc().getHeight());
       //if(img.)
       Img img2 = null;
-      int xCase = Main.getPc().getXCase();
-      int yCase = Main.getPc().getYCase();
+      int xCase = Panneau.getView().getPc().getXCase();
+      int yCase = Panneau.getView().getPc().getYCase();
       try {
         // if(getTailleDUneCase()<1){erreur.erreur("Case size is <1");}
         for (int i=0;i<xCase ;i++ ) {
@@ -193,7 +193,7 @@ public class Data {
             int xT = i*getTailleDUneCase(); int yT = j*getTailleDUneCase();
             Case c=null;
             try {
-              c = Main.getGc().getCCase(i+Main.getPc().getPosX(),j+Main.getPc().getPosY()).getContenu();
+              c = Main.getGc().getCCase(i+Panneau.getView().getPc().getPosX(),j+Panneau.getView().getPc().getPosY()).getContenu();
             }catch (Exception e) {erreur.erreur("case is null");}
             try {
               img2 = new Img(tICarte[c.getType()-1]);
@@ -281,7 +281,7 @@ public class Data {
   */
   private void loadBackgroundPAI(){
     backgroundPAI = image.getImage("backgroundPAI");
-    backgroundPAI = backgroundPAI.getScaledInstance(Main.getDimX(), Main.getPa().getHeight(),Image.SCALE_SMOOTH);
+    backgroundPAI = backgroundPAI.getScaledInstance(Main.getDimX(), Panneau.getView().getPa().getHeight(),Image.SCALE_SMOOTH);
   }
   /**
   *Load backgroundPAS
@@ -289,14 +289,14 @@ public class Data {
   */
   private void loadBackgroundPAS(){
     backgroundPAS = image.getImage("backgroundPAS");
-    backgroundPAS = backgroundPAS.getScaledInstance(Main.getPa().getHeight(), Main.getPa().getHeight(),Image.SCALE_SMOOTH);
+    backgroundPAS = backgroundPAS.getScaledInstance(Panneau.getView().getPa().getHeight(), Panneau.getView().getPa().getHeight(),Image.SCALE_SMOOTH);
   }
   /**
   *Load images for PanneauAction without background
   *@version 1.18
   */
   private void chargerTImage(){
-    int tailleBouton = Main.getPa().getTailleBouton();
+    int tailleBouton = Panneau.getView().getPa().getTailleBouton();
     tImage = image.getImages("desc");
     for (int i=0;i<10 ;i++ ) {
       tImage[i] = image.resize(tImage[i],tailleBouton);
@@ -307,7 +307,7 @@ public class Data {
   *@version 1.18
   */
   private void chargerTImageAvecFond(Pixel pi){
-    int tailleBouton = Main.getPa().getTailleBouton();
+    int tailleBouton = Panneau.getView().getPa().getTailleBouton();
     for (int k=0;k<10 ;k++) {
       Img img = new Img("desc"+k);
       img.changerPixelTransparent(pi);

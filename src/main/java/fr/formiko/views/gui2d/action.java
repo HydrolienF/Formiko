@@ -28,9 +28,9 @@ public class action{
   *@version 1.41
   */
   public static void doAction(int action){
-    if(Main.getPe() != null && Main.getPe().getVisible()){
+    if(Panneau.getView().getPe() != null && Panneau.getView().getPe().getVisible()){
       doActionPe(action);
-    }else if(Main.getPlayingAnt()!=null || Main.getPch()!=null){ //TODO replace by if getActionGameOn()
+    }else if(Main.getView().getActionGameOn()){
       doActionPj(action);
     }else{
       doActionPm(action);
@@ -41,29 +41,29 @@ public class action{
   *@version 1.41
   */
   public static void doActionPm(int ac){//TODO passer dans une autre class Controleur ?
-    PanneauMenu pm = Main.getPm();
+    PanneauMenu pm = Panneau.getView().getPm();
     if(ac==-1){
-      Main.getView().close();
+      Panneau.getView().close();
     }if(ac==0){
       System.out.println("back to main menu");
-      Main.getView().menuMain();
+      Panneau.getView().menuMain();
     }else if(ac==1){
-      Main.getView().menuNewGame();
+      Panneau.getView().menuNewGame();
     }else if(ac==2){
-      Main.getView().menuLoadAGame();
+      Panneau.getView().menuLoadAGame();
     }else if(ac==3){
-      Main.getView().menuOptions();
+      Panneau.getView().menuOptions();
     }else if(ac==4){
       debug.débogage("lancementNouvellePartie");
       pm.setLancer(true); //TODO to remove
     }else if(ac==5){
-      Main.getView().menuPersonaliseAGame();
+      Panneau.getView().menuPersonaliseAGame();
     }else if(ac==6){
       Partie.setScript("tuto");
       pm.setLancer(true); //TODO to remove
     }else if(ac==100){
       // Main.getView().menuNewGame();
-      pa=Main.getPnp().getPartie();
+      pa=Panneau.getView().getPnp().getPartie();
       pm.setLancer(true); //TODO to remove
     }else if(ac==101){
       pa=pm.getPcp().getPartie();
@@ -77,28 +77,28 @@ public class action{
   public static void doActionPj(int ac){
     debug.débogage("action pj : "+ac);
     try {
-      if(Main.getPe()==null || !Main.getPe().getVisible()){
+      if(Panneau.getView().getPe()==null || !Panneau.getView().getPe().getVisible()){
         if(ac < 9 && ac > -1){
-          Main.getPj().actionZoom((byte)ac);
+          Panneau.getView().getPj().actionZoom((byte)ac);
         }else if(ac>=20 && ac<=31){
           if(Main.getPlayingAnt()==null){
             erreur.erreur("aucune fourmi n'est selectionné pour réaliser l'action voulue.");
           }else{
             debug.débogage("clic qui lance "+(ac-20));
-            Main.getPb().setActionF(ac-20);
+            Panneau.getView().getPb().setActionF(ac-20);
           }
           Main.repaint();
         }else if(ac==111){
-          ((ViewGUI2d)(Main.getView())).closePanneauChargement();
+          ((ViewGUI2d)(Panneau.getView())).closePanneauChargement();
         }else if(ac==112){//retour au menu
           Main.setRetournerAuMenu(true);
           //en suite on doit revenir quasiment a la void main.
         }else if(ac==113){//retour au jeu
-          Main.getPj().removePfp();
+          Panneau.getView().getPj().removePfp();
           Main.getPartie().setContinuerLeJeu(true);
           Main.repaint();
         }else if(ac>=40){
-          PanneauBouton pb = Main.getPb();
+          PanneauBouton pb = Panneau.getView().getPb();
           pb.setChoixId(pb.getPti().getBoutonX(ac-40));
           pb.remove(pb.getPti());
           pb.setPti(new PanneauTInt(null,pb));
@@ -119,7 +119,7 @@ public class action{
     }else if(ac==-10){
       String s = getSaveName();
       sauvegarderUnePartie.sauvegarder(Main.getPartie(),s+".save");
-      Main.getPe().setVisible(false);
+      Panneau.getView().getPe().setVisible(false);
     }else if(ac==-11){
 
     }else if(ac==-12){
@@ -129,7 +129,7 @@ public class action{
     }else if(ac==-14){
       Main.getF().quit();
     }else if(ac==-15){
-      Main.getPe().setVisible(false);
+      Panneau.getView().getPe().setVisible(false);
     }
   }
   /**
@@ -169,7 +169,7 @@ public class action{
     Main.setRetournerAuMenu(true);//ne prend effet dans la void main que lorsque le tour est fini.
     try {
       Main.getGj().setAction0AndEndTurn();//empèche une autre fourmi de jouer
-      Main.getPb().setActionF(9);//empèche la fourmi actuel de jouer.
+      Panneau.getView().getPb().setActionF(9);//empèche la fourmi actuel de jouer.
     }catch (Exception e) {}
   }
 }

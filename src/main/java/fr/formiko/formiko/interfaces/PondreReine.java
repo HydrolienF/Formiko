@@ -82,7 +82,8 @@ public class PondreReine implements Serializable, Pondre{
     if (!f.getFere().getJoueur().getIa()){
       int ti[] = f.getEspece().getTypeDIndividu();
       //byte x = (byte) read.getInt(0,10,"type de l'oeuf",3);
-      Main.getPp().getPj().addPti(ti,3);
+      //TODO
+      // getView().getPp().getPj().addPti(ti,3);
       tableau.afficher(ti);
       byte x = (byte) PanneauTInt.getChoixId();
       if(f.getEspece().getGIndividu().getIndividuParType(x) != null){

@@ -13,16 +13,16 @@ public class PanneauActionSup extends Panneau{
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauActionSup(){
-    setSize(Main.getPa().getWidth(),Main.getPa().getHeight());
+    setSize(Panneau.getView().getPa().getWidth(),Panneau.getView().getPa().getHeight());
   }
   // GET SET --------------------------------------------------------------------
 
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
-    int len = Main.getPa().getNbrBouton();
-    int dim = Main.getPa().getHeight();
+    int len = Panneau.getView().getPa().getNbrBouton();
+    int dim = Panneau.getView().getPa().getHeight();
     for (int i=0;i<len ;i++ ) {
-      g.drawImage(getData().getBackgroundPAS(), i*dim+Main.getPa().getBordureBouton(),0, this);
+      g.drawImage(getData().getBackgroundPAS(), i*dim+Panneau.getView().getPa().getBordureBouton(),0, this);
     }
   }
 }

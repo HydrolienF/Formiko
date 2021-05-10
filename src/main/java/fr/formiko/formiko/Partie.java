@@ -262,11 +262,13 @@ public class Partie implements Serializable{
       new Message(mess);
     }
     gjOrdonné.afficheScore();
-    try {
-      Main.getPj().addPfp(mess,gjOrdonné);
-    }catch (Exception e) {
-      erreur.alerteGUI2Dfail("Partie.finDePartie");
-    }
+    //TODO #134 create menuEndGame in view.
+    // Main.getView().menuEndGame();
+    // try {
+    //   Panneau.getView().getPj().addPfp(mess,gjOrdonné);
+    // }catch (Exception e) {
+    //   erreur.alerteGUI2Dfail("Partie.finDePartie");
+    // }
     setContinuerLeJeu(false);
     // Main.setRetournerAuMenu(true);//TODO ask & not force.
     while(!getContinuerLeJeu() && !Main.getRetournerAuMenu()){//on attend la validation que la partie continue.
