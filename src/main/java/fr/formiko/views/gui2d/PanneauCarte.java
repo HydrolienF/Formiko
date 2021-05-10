@@ -11,6 +11,7 @@ import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
@@ -50,6 +51,7 @@ public class PanneauCarte extends Panneau {
   private int xTemp,yTemp;
   private int idCurentFere=-1;
   private static boolean drawAllFere;
+  private CCase lookedCCase;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauCarte(){}
@@ -76,6 +78,8 @@ public class PanneauCarte extends Panneau {
   public int getPosY(){ return posY;}
   public void setPosY(int x){posY=x; }
   public void setIdCurentFere(int x){idCurentFere=x;}
+  public CCase getLookedCCase(){return lookedCCase;}
+  public void setLookedCCase(CCase cc){lookedCCase=cc;}
   public void setLigne(Graphics2D g){
     BasicStroke ligne = new BasicStroke(Main.getDimLigne());
     g.setStroke(ligne);
@@ -203,7 +207,7 @@ public class PanneauCarte extends Panneau {
 
   /**
   *{@summary Draw a Case.}<br>
-  *@version 1.x
+  *@version 1.46
   */
   public void peintImagePourCase(Case c, int x, int y,Graphics2D g){
     Joueur jo = Main.getPlayingJoueur();
@@ -222,12 +226,14 @@ public class PanneauCarte extends Panneau {
     int lenTIF = Main.getData().getTIF()[0].length+1;
     try {
       int tC10 = Main.getData().getTailleDUneCase()/10;int tC4 = Main.getData().getTailleDUneCase()/4;int tC2 = Main.getData().getTailleDUneCase()/2;
-      // la fourmilière
-      if (c.getFere()!=null && (drawAllFere || c.getFere().getId()==idCurentFere)){
+      // anthill
+      if (c.getFere()!=null){
         g.drawImage(Main.getData().getFere(),xT+tC4,yT+tC4,this);
-        int tailleDuCercle = Main.getTailleElementGraphique(20);
-        drawRondOuRect(xT,yT,Main.getData().getTailleDUneCase(),g,c.getFere(),tailleDuCercle);
-        //affichage d'un rond de la couleur de la fere.
+        if (drawAllFere || (c.getFere().getId()==idCurentFere || (lookedCCase!=null && lookedCCase.getContenu() !=null && lookedCCase.getContenu().equals(c)) )) {
+          //print fere color
+          int tailleDuCercle = Main.getTailleElementGraphique(20);
+          drawRondOuRect(xT,yT,Main.getData().getTailleDUneCase(),g,c.getFere(),tailleDuCercle);
+        }
       }
       if(jo!=null && Main.getPartie().getCarte().getCasesSombres() && jo.getCaseSombre(x+posX,y+posY)){
         g.drawImage(Main.getData().getCSombre(),xT,yT,this); // si les créatures sur la case ne sont pas visible.
@@ -271,7 +277,6 @@ public class PanneauCarte extends Panneau {
               Insecte i = (Insecte)(ccrea.getContenu());
               g.drawImage(Main.getData().getTII()[dir][math.min(i.getType(),Main.getData().getTII()[dir].length)],xTemp,yTemp,this);
             }catch (Exception e2) {erreur.erreur("impossible de dessiner l'image de la case : "+x+" "+y);
-              System.out.println(ccrea.getContenu());//@a
             }
           }
           //les icone

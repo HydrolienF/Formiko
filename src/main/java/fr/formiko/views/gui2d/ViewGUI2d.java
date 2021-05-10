@@ -31,6 +31,7 @@ import java.util.Scanner;
  *@version 1.44
  */
 public class ViewGUI2d implements View {
+  private CCase lookedCCase=null;
   private boolean actionGameOn;
   private ThTriche trich; //écoute de commande triche dans le terminal.
   /***
@@ -233,7 +234,7 @@ public class ViewGUI2d implements View {
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.46
   */
-  public boolean setLookedCase(CCase cc){
+  public boolean setLookedCCase(CCase cc){
     if (!actionGameOn) {return false;}
     if(cc==null){
       getPb().setDesc("");
@@ -249,7 +250,18 @@ public class ViewGUI2d implements View {
         }
       }
     }
+    getPc().setLookedCCase(cc);
     return true;
+  }
+  /**
+  *{@summary Return the value of the looked CCase.}<br>
+  *This action can only be run if action game is on.<br>
+  *@return lookedCCase.
+  *@version 1.46
+  */
+  public CCase getLookedCCase(){
+    if (!actionGameOn) {return null;}
+    return getPc().getLookedCCase();
   }
   /**
   *{@summary Return the chosen value for ant action.}<br>

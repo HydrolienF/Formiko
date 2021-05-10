@@ -348,11 +348,20 @@ public class ViewCLI implements View {
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.39
   */
-  public boolean setLookedCase(CCase cc){
+  public boolean setLookedCCase(CCase cc){
     if (!actionGameOn || cLIMap==null) {return false;}
-    if (cc == null) {cLIMap.setLookedCase(null);return true;}
-    cLIMap.setLookedCase(cc.getContenu());
+    cLIMap.setLookedCCase(cc);
     return true;
+  }
+  /**
+  *{@summary Return the value of the looked CCase.}<br>
+  *This action can only be run if action game is on and cLIMap have been created.<br>
+  *@return lookedCCase.
+  *@version 1.46
+  */
+  public CCase getLookedCCase(){
+    if (!actionGameOn || cLIMap==null) {return null;}
+    return cLIMap.getLookedCCase();
   }
   /**
   *{@summary get a CCase from the payer.}<br>
@@ -400,7 +409,7 @@ public class ViewCLI implements View {
       paint();
       choice = getActionMenu(tToPrint.length)-1;
       if(choice==15){pauseActionGame();tToPrint=ts;}
-      if(choice==16){setLookedCase(getCCase());tToPrint=ts;}
+      if(choice==16){setLookedCCase(getCCase());tToPrint=ts;}
     } while ((choice <12 || choice>14) && !tableau.estDansT(t,choice));
     if(choice==12){Main.getPartie().setPlayingAnt(getAntFromFere());}
     return choice;

@@ -77,13 +77,20 @@ public interface View {
   */
   int pauseActionGame();
   /***
-  *{@summary Change the value of the loked Case.}<br>
+  *{@summary Change the value of the looked CCase.}<br>
   *We need to repaint the information about this Case.<br>
   *This action can only be run if action game is on.<br>
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.33
   */
-  boolean setLookedCase(CCase cc);
+  boolean setLookedCCase(CCase cc);
+  /***
+  *{@summary Return the value of the looked CCase.}<br>
+  *This action can only be run if action game is on.<br>
+  *@return lookedCCase
+  *@version 1.46
+  */
+  CCase getLookedCCase();
   /***
   *{@summary Return the chosen value for ant action.}<br>
   *This action can only be run if action game is on.<br>
