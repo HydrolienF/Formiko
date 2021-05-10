@@ -341,15 +341,11 @@ public class Main {
    * If you tried to use it before the creating of a new PanneauChargement, message will not appear on the window.
    * @version 1.14
    */
-  public static void setMessageChargement(String s){
+  public static void setMessageChargement(String key){
     //s c'est un truc du genre "chargementDesLangues"
-    String s2 = g.getM(s)+"..."; //g.getM() permet d'aller chercher la traduction dans la table de hachage HashMap<String, String> map.
-    //TODO #134 put in view.
-    // try {
-    //   getPch().setTexte(s2); //envoie a la fenetre le message d'avancement du chargement.
-    // }catch (Exception e) { // si quelque chose ce passe mal on envoie un message a la console.
-    //   //erreur.alerte("Un message de chargement n'est pas arrivé a destination.");
-    // }
+    String message = g.getM(key)+"..."; //g.getM() permet d'aller chercher la traduction dans la table de hachage HashMap<String, String> map.
+    getView().loadingMessage(message);
+    System.out.println(message);//@a
   }
   /**
    * Sould transforme a GCase to a Image that can be used for mini-map.<br>

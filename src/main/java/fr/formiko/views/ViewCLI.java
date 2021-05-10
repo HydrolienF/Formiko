@@ -425,6 +425,14 @@ public class ViewCLI implements View {
     //TODO print it at a special location when printing all game info.
     System.out.println(message);
   }
+  /**
+  *{@summary Print a loading message.}<br>
+  *@param message the message to print.
+  *@version 1.46
+  */
+  public void loadingMessage(String message){
+    erreur.info(message);
+  }
 
   //private---------------------------------------------------------------------
   /**

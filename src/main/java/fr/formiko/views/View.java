@@ -112,4 +112,10 @@ public interface View {
   *@version 1.44
   */
   void message(String message, boolean doWeNeedToDoNextCmdNow);
+  /***
+  *{@summary Print a loading message.}<br>
+  *@param message the message to print.
+  *@version 1.46
+  */
+  void loadingMessage(String message);
 }

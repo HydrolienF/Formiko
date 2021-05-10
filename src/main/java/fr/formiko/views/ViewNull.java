@@ -136,4 +136,9 @@ public class ViewNull implements View {
   *@version 1.44
   */
   public void message(String message, boolean doWeNeedToDoNextCmdNow){}
+  /**
+  *{@summary A null view action that do nothing.}<br>
+  *@version 1.46
+  */
+  public void loadingMessage(String message){}
 }

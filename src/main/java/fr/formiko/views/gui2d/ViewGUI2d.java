@@ -310,6 +310,21 @@ public class ViewGUI2d implements View {
       Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
     }
   }
+  /**
+  *{@summary Print a loading message.}<br>
+  *@param message the message to print.
+  *@version 1.46
+  */
+  public void loadingMessage(String message){
+    System.out.println("new message");
+    if (getPch()==null) {return;}
+    System.out.println("pch");
+    try {
+      getPch().setTexte(message);
+    }catch (NullPointerException e) {
+      erreur.alerte("Fail to print loadingMessage");
+    }
+  }
 
   /**
   *{@summary remove PanneauChargement & listen mouse clic on the map.}<br>
