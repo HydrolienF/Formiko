@@ -62,6 +62,8 @@ public class Main {
 
   private static boolean modeCLI=false;
 
+  private static int cptMessageChargement=0;
+
   /**
    * {@summary Lauch the game.}<br>
    * It can have some args to do special thing.<br>
@@ -339,14 +341,17 @@ public class Main {
   /**
    * {@summary Print on the window a message about game loading.}<br>
    * If you tried to use it before the creating of a new PanneauChargement, message will not appear on the window.
-   * @version 1.14
+   * @version 1.46
    */
   public static void setMessageChargement(String key){
-    //s c'est un truc du genre "chargementDesLangues"
-    String message = g.getM(key)+"..."; //g.getM() permet d'aller chercher la traduction dans la table de hachage HashMap<String, String> map.
-    getView().loadingMessage(message);
-    System.out.println(message);//@a
+    int percentageDone = (100*cptMessageChargement) / 7;
+    cptMessageChargement++;
+    String message = g.getM(key);
+    if(percentageDone<100){message+="...";}
+    getView().loadingMessage(message, percentageDone);
+    System.out.println(message+" "+percentageDone+"%");//x@a
   }
+  // public static void setMessageChargement(String key){setMessageChargement(key, false);}
   /**
    * Sould transforme a GCase to a Image that can be used for mini-map.<br>
    * @version 1.1

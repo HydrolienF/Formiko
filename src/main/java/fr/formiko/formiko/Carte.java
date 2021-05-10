@@ -8,7 +8,7 @@ import fr.formiko.usuel.g;
 
 import java.io.Serializable;
 
-public class Carte implements Serializable{
+public class Carte implements Serializable {
   private GCase gc;
   private byte abondanceInsecte,abondanceGraine,abondanceHerbe;
   private boolean casesNuageuses,casesSombres;

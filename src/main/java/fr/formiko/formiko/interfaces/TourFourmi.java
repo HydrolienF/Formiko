@@ -166,13 +166,7 @@ public class TourFourmi implements Serializable, Tour{
     f.setNourritureMoinsConsomNourriture(); //will not ask food is it's an egg.
     // if contition de température appartient a l'intervale idéale (et que stade = -1, -2 ou -3) : re setAgePlus1();
     try {
-      //TODO #134 move that to ViewGUI
-      if (!f.getFere().getJoueur().getIa()) { //pour un joueur humain.
-        Panneau.getView().getPj().setFActuelle(null);
-        Panneau.getView().getPb().setVisiblePa(false);
-      }
-      Panneau.getView().getPs().setIdFourmiAjoué(-1);
-      //End TODO
+      Main.getPartie().setPlayingAnt(null);
     }catch (Exception e) {
       erreur.alerteGUI2Dfail("TourFourmi");
     }

@@ -313,14 +313,14 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Print a loading message.}<br>
   *@param message the message to print.
+  *@param percentageDone the percentage of loading curently done.
   *@version 1.46
   */
-  public void loadingMessage(String message){
-    System.out.println("new message");
+  public void loadingMessage(String message, int percentageDone){
     if (getPch()==null) {return;}
-    System.out.println("pch");
     try {
       getPch().setTexte(message);
+      //TODO update barre de chargement with percentageDone
     }catch (NullPointerException e) {
       erreur.alerte("Fail to print loadingMessage");
     }
@@ -334,6 +334,19 @@ public class ViewGUI2d implements View {
     if (!actionGameOn) {return;}
     getPj().removePch();
     getPs().build();
+  }
+  /**
+  *{@summary set playing ant.}<br>
+  *This action can only be run if action game is on.<br>
+  *@version 1.46
+  */
+  public void setPlayingAnt(Fourmi f){
+    if (!actionGameOn) {return;}
+    // if (!f.getFere().getJoueur().getIa()) {
+    //   getPj().setFActuelle(null);
+    //   getPb().setVisiblePa(false);
+    // }
+    // getPs().setIdFourmiAjoué(-1);
   }
   //private---------------------------------------------------------------------
   /**

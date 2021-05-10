@@ -140,5 +140,10 @@ public class ViewNull implements View {
   *{@summary A null view action that do nothing.}<br>
   *@version 1.46
   */
-  public void loadingMessage(String message){}
+  public void loadingMessage(String message, int percentageDone){}
+  /**
+  *{@summary A null view action that do nothing.}<br>
+  *@version 1.46
+  */
+  public void setPlayingAnt(Fourmi f){}
 }

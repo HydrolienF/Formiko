@@ -115,7 +115,14 @@ public interface View {
   /***
   *{@summary Print a loading message.}<br>
   *@param message the message to print.
+  *@param percentageDone the percentage of loading curently done.
   *@version 1.46
   */
-  void loadingMessage(String message);
+  void loadingMessage(String message, int percentageDone);
+  /***
+  *{@summary set playing ant.}<br>
+  *This action can only be run if action game is on.<br>
+  *@version 1.46
+  */
+  void setPlayingAnt(Fourmi f);
 }

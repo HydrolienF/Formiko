@@ -10,6 +10,7 @@ import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.color;
+import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.List;
@@ -280,6 +281,9 @@ public class ViewCLI implements View {
     tab[2]=g.get("endTurn");
     tab[3]=g.get("pauseActionGame");
     tToPrint = tab;
+    String s = g.get("chargementFini");
+    if (debug.getAffLesPerformances()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
+    Main.setMessageChargement(s);
     Main.getPartie().launchGame(); //MAIN GAME PART
     //after a game :
     Main.setPartie(null);
@@ -428,10 +432,20 @@ public class ViewCLI implements View {
   /**
   *{@summary Print a loading message.}<br>
   *@param message the message to print.
+  *@param percentageDone the percentage of loading curently done.
   *@version 1.46
   */
-  public void loadingMessage(String message){
-    erreur.info(message);
+  public void loadingMessage(String message, int percentageDone){
+    erreur.info(message+" "+percentageDone+"%");
+  }
+  /**
+  *{@summary set playing ant.}<br>
+  *This action can only be run if action game is on.<br>
+  *@version 1.46
+  */
+  public void setPlayingAnt(Fourmi f){
+    if (!actionGameOn) {return;}
+    //nothing more to do
   }
 
   //private---------------------------------------------------------------------

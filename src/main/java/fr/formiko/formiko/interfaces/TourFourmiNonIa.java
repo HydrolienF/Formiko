@@ -86,7 +86,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       }
       Temps.pause(50);
       if (f.getBUneSeuleAction()){
-        //TODO move to View
+        //TODO #134 move to View
         try {
           Panneau.getView().getPb().removePa();
           Panneau.getView().getPb().addPa(getTActionFourmi());
