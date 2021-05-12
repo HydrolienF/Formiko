@@ -3,7 +3,6 @@ package fr.formiko.formiko.interfaces;
 import fr.formiko.formiko.*;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
-import fr.formiko.views.gui2d.Panneau; //TODO #134
 import fr.formiko.usuel.exceptions.ListItemNotFoundException;
 import fr.formiko.usuel.exceptions.ClassTypeException;
 import fr.formiko.usuel.exceptions.EmptyListException;

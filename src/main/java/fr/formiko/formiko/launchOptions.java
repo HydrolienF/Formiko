@@ -127,11 +127,12 @@ public class launchOptions {
         erreur.alerte("arguments de cptPixels incorecte");
       }
     }else if(args[0].equals("cleanFolder")){
+      Main.setOs(new Os());
       Folder folder = new Folder();
       Main.setFolder(folder);
       folder.cleanFolder();
     }else if(args[0].equals("zip")){
-      zip();
+      fichier.zip(args[1],args[2]);
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }

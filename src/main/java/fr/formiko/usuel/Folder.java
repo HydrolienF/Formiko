@@ -31,7 +31,11 @@ public class Folder{
 
   private int missingFolder;
 
-  public void Folder(){}
+  public Folder(){
+    if(Main.getOs().isWindows()){
+      setFolderMain(System.getenv("APPDATA")+"/Formiko/data/");
+    }
+  }
   // GET SET -------------------------------------------------------------------
 	public String getFolderMain() {return folderMain;}
 	public void setFolderMain(String folderMain) {this.folderMain = str.sToDirectoryName(folderMain);}
@@ -65,15 +69,21 @@ public class Folder{
 
   /**
   *{@summary Initialize missing folder if some folder are missing.}<br>
+  *It will call download if main folder is missing.<br>
   *It will send an info if some were missing and an error if some unfixable folder were missing.
   *@version 1.37
   */
   public int ini(){
     missingFolder=0;
     File f = new File(getFolderMain());
-    if(f.mkdir()){erreur.erreurMissingFolder("main");missingFolder++;}
+    if(!f.exists()){
+      erreur.erreurMissingFolder("main");
+      missingFolder++;
+      //TODO test that it work & print an error only if it fail.
+      downloadData();
+    }
 
-    f = new File("data/Options.md");
+    f = new File(getFolderMain()+"Options.md");
     if(!f.exists() || f.isDirectory()){
       Main.setPremierePartie(true);
     }
@@ -175,5 +185,16 @@ public class Folder{
     if(f.mkdir()){missingFolder++;}
     f = new File(getFolderResourcesPacks()+getFolderVideos());
     if(f.mkdir()){missingFolder++;}
+  }
+  /**
+  *{@summary Download main data from github release.}<br>
+  *It need Main.version to be correct to work.<br>
+  */
+  public void downloadData(){
+    File f = new File(getFolderMain());
+    f.mkdirs();
+    fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+Main.getVersionActuelle()+"/data.zip",getFolderMain()+"data.zip");
+    fichier.unzip(getFolderMain()+"data.zip",getFolderMain().substring(0,getFolderMain().length()-5));
+    fichier.deleteDirectory(getFolderMain()+"data.zip");
   }
 }
