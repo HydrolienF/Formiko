@@ -350,7 +350,7 @@ public class Main {
     String message = g.getM(key);
     if(percentageDone<100){message+="...";}
     getView().loadingMessage(message, percentageDone);
-    System.out.println(message+" "+percentageDone+"%");//x@a
+    // System.out.println(message+" "+percentageDone+"%");
   }
   // public static void setMessageChargement(String key){setMessageChargement(key, false);}
   /**

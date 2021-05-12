@@ -50,6 +50,7 @@ public class ViewCLI implements View {
     }catch (Exception e) {
       return false;
     }
+    triche.ini();
     return true;
   }
   /**
@@ -199,9 +200,7 @@ public class ViewCLI implements View {
     while (choice!=10) {
       paint();
       choice = getActionMenu(tToPrint.length);
-      System.out.println("choix : "+choice);//@a
       if(choice==11){
-        System.out.println("menuNewGame & return");//@a
         menuNewGame();
         paint();
         return true;

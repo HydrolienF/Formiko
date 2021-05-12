@@ -229,16 +229,12 @@ public class triche {
           break;
         case 33:
           try {
-            //TODO #134 update so that ViewCLI will be modify to.
-            if(str.sToI(args[1])==20 || str.sToI(args[1])==1){Panneau.getView().getPb().removePa();}
             try {
               Fourmi.setUneSeuleAction(str.sToI(args[1]));
             }catch (Exception e) {
               Fourmi.setUneSeuleAction();
             }
-            Fourmi.setBUneSeuleAction(true);
-            //Main.getPb().removePa();
-            //Main.getPb().addPa(Main.getPlayingAnt().getTActionFourmi());
+            // Fourmi.setUneSeuleAction();
           }catch (Exception e) {}
           break;
         case 34:
@@ -288,11 +284,20 @@ public class triche {
           }
           break;
         case 40:
-        try {
-          Main.getView().actionGame();
-        }catch (Exception e) {
-          erreur.alerte("Une action de menu a échouée");
-        }
+          try {
+            Main.getView().actionGame();
+          }catch (Exception e) {
+            erreur.alerte("Une action de menu a échouée");
+          }
+          break;
+        case 41:
+        System.out.println("paint from cheatcode");//@a
+          try {
+            Main.getView().paint();
+          }catch (Exception e) {
+            erreur.alerte("Une action de menu a échouée");
+          }
+          break;
 
         default:
           erreur.erreur("La commande n'as pas été reconnue.");

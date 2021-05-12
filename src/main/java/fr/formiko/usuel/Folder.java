@@ -32,9 +32,9 @@ public class Folder{
   private int missingFolder;
 
   public Folder(){
-    if(Main.getOs().isWindows()){
-      setFolderMain(System.getenv("APPDATA")+"/Formiko/data/");
-    }
+    // if(Main.getOs().isWindows()){
+    //   setFolderMain(System.getenv("APPDATA")+"/Formiko/data/");
+    // }
   }
   // GET SET -------------------------------------------------------------------
 	public String getFolderMain() {return folderMain;}
