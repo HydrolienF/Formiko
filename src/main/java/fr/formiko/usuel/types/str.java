@@ -110,8 +110,8 @@ public class str{
     //TODO test
     if(s==null){return null;}
     if(s.equals("")){return "";}
-    char w [] = {'<', '>', ':', '\"', '\\', '|', '?', '*'};
-    s.replace('\\','/');
+    char w [] = {'<', '>', '\"', '|', '?', '*'};//, ':', '\\'
+    s = s.replace('\\','/');
     s = filtreCharInterdit(s,w);
     if(s.charAt(0)=='/'){s=s.substring(1);}
     s = addALaFinSiNecessaire(s,"/");
