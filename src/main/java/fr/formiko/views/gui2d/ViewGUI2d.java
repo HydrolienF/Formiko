@@ -66,6 +66,7 @@ public class ViewGUI2d implements View {
   public boolean ini(){
     actionGameOn=false;
     Main.startCh();
+    if(f!=null) {f.dispose();}
     f = new Fenetre();
     iniThTriche();
     Main.getData().setImageIniForNewGame(false);//force reload of ant images.
@@ -291,8 +292,15 @@ public class ViewGUI2d implements View {
   */
   public void message(String message, boolean doWeNeedToDoNextCmdNow){
     if (!actionGameOn) {return;}
-    if(f==null || getPm()==null){ini();}
-    getPj().initialiserPd(message);
+    if(f==null){
+      System.out.println("message force initialisation");//@a
+      ini();
+    }
+    try {
+      getPj().initialiserPd(message);
+    }catch (Exception e) {
+      erreur.alerte("can't print message : "+message);
+    }
     try {
       getPdi().removeBSuivant();
     }catch (Exception e) {}
@@ -324,6 +332,20 @@ public class ViewGUI2d implements View {
     }catch (NullPointerException e) {
       erreur.alerte("Fail to print loadingMessage");
     }
+  }
+  /**
+  *{@summary Print a message in a new window.}<br>
+  *@param message the message to print.
+  *@version 1.46
+  */
+  public void popUpMessage(String message){
+    if (getPch()!=null) {return;}
+    //Main.getPartie().getPlayingAnt() is null but window didn't clear all data.
+    getPb().setVisiblePa(false);
+    getPj().setDesc("");
+    getPb().removePi();
+    paint();
+    getPj().alerte(message);
   }
 
   /**

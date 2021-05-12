@@ -120,6 +120,12 @@ public interface View {
   */
   void loadingMessage(String message, int percentageDone);
   /***
+  *{@summary Print a message in a new window.}<br>
+  *@param message the message to print.
+  *@version 1.46
+  */
+  void popUpMessage(String message);
+  /***
   *{@summary set playing ant.}<br>
   *This action can only be run if action game is on.<br>
   *@version 1.46

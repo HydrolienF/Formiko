@@ -93,11 +93,10 @@ public class Joueur implements Serializable{
     }else{
       Message m = new Message(pseudo+" "+g.get("débutTourIa"),id,6);
     }
-    //TODO #134
-    // if(Main.getGj().getJoueurHumain().length()>1 && !ia){
-    //   Main.repaint();
-    //   Panneau.getView().getPj().alerte(pseudo+" "+g.get("débutTourJoueur")+".");
-    // }
+    if(Main.getGj().getJoueurHumain().length()>1 && !ia){
+      Main.getPartie().setPlayingAnt(null);
+      Main.getView().popUpMessage(pseudo+" "+g.get("débutTourJoueur")+".");
+    }
     fere.jouer();
   }
   public void afficheScore(){

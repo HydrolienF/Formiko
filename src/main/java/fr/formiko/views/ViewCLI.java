@@ -439,6 +439,14 @@ public class ViewCLI implements View {
     erreur.info(message+" "+percentageDone+"%");
   }
   /**
+  *{@summary Print a message in a new window.}<br>
+  *@param message the message to print.
+  *@version 1.46
+  */
+  public void popUpMessage(String message){
+    message(message, false);
+  }
+  /**
   *{@summary set playing ant.}<br>
   *This action can only be run if action game is on.<br>
   *@version 1.46

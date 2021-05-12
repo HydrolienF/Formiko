@@ -145,5 +145,10 @@ public class ViewNull implements View {
   *{@summary A null view action that do nothing.}<br>
   *@version 1.46
   */
+  public void popUpMessage(String message){}
+  /**
+  *{@summary A null view action that do nothing.}<br>
+  *@version 1.46
+  */
   public void setPlayingAnt(Fourmi f){}
 }

@@ -106,11 +106,12 @@ public class Main {
           debug.débogage("ReLancement du jeu");
           try {
             getF().dispose();
+            // getView().close();
           }catch (Exception e) {
             erreur.info("Window can not be dispose.");
           }
           retournerAuMenu=false;
-          //op=null;//force la réinitialisation de tout.
+          op=null;//force la réinitialisation de tout.
           image.clearPartielTemporaire();
         }
       }
