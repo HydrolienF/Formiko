@@ -47,6 +47,8 @@ cmd.36:setLangue
 cmd.37:backToMainMenu
 cmd.38:endGame
 cmd.39:menu
+cmd.40:actionGame
+cmd.41:paint
 
 cmd.type.1:Creature
 cmd.type.2:Insecte
