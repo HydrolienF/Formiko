@@ -91,8 +91,8 @@ public class action{
         }else if(ac==111){
           ((ViewGUI2d)(Panneau.getView())).closePanneauChargement();
         }else if(ac==112){//retour au menu
-          Main.setRetournerAuMenu(true);
-          //en suite on doit revenir quasiment a la void main.
+          // Main.setRetournerAuMenu(true);
+          retournerAuMenu();
         }else if(ac==113){//retour au jeu
           Panneau.getView().getPj().removePfp();
           Main.getPartie().setContinuerLeJeu(true);
@@ -166,6 +166,7 @@ public class action{
   *@version 1.41
   */
   public static void retournerAuMenu(){
+    erreur.info("call retournerAuMenu");//@a
     Main.setRetournerAuMenu(true);//ne prend effet dans la void main que lorsque le tour est fini.
     try {
       Main.getGj().setAction0AndEndTurn();//empèche une autre fourmi de jouer

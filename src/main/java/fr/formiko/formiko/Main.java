@@ -100,17 +100,19 @@ public class Main {
         boolean continuerJeu=true;
         int k2=0;
         while(continuerJeu && k2<10){
+          // setPartie(null);
           k2++;
           continuerJeu = launch();//on attend ici tant que le joueur veux jouer.
           System.out.println("after launch");//@a
           debug.débogage("ReLancement du jeu");
           try {
+            System.out.println("close windows in Main");//@a
             getF().dispose();
             // getView().close();
           }catch (Exception e) {
             erreur.info("Window can not be dispose.");
           }
-          retournerAuMenu=false;
+          setRetournerAuMenu(false);
           op=null;//force la réinitialisation de tout.
           image.clearPartielTemporaire();
         }
@@ -125,6 +127,7 @@ public class Main {
   public static void iniLaunch(){
     if(getOp()==null){initialisation();}
     if(premierePartie){Partie.setScript("tuto");}
+    else{Partie.setScript("");}
     iniCpt();
     pa = new Partie(0,0,new Carte(new GCase(1,1)),1.0); //new empty game
   }

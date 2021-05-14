@@ -93,7 +93,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         }catch (Exception e) {
           erreur.alerteGUI2Dfail("TourFourmiNonIa");
         }
-        f.setBUneSeuleAction(false);
+        f.setUneSeuleAction(-1);
       }
       /*if(bActualiserTaille){
         Main.getPs().actualiserTailleMax();

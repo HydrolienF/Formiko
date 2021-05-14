@@ -216,7 +216,10 @@ public class Partie implements Serializable{
       //La joue toutes les ia et les joueurs
       Main.tour();
       testFinDePartie();
-      if(Main.getRetournerAuMenu()){return true;}
+      if(Main.getRetournerAuMenu()){
+        erreur.info("back to main menu !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");//@a
+        return true;
+      }
     }
     System.out.println(g.get("dernierTourPassé"));
     finDePartie(1);

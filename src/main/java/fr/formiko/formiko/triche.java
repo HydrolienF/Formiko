@@ -265,9 +265,9 @@ public class triche {
           try {
             action.retournerAuMenu();
           }catch (Exception e) {}
-          try {
-            Main.getView().menuMain();
-          }catch (Exception e) {}
+          // try {
+          //   Main.getView().menuMain();
+          // }catch (Exception e) {}
           break;
         case 38:
           // try {

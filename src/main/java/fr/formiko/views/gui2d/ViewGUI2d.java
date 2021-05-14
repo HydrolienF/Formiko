@@ -64,6 +64,7 @@ public class ViewGUI2d implements View {
   *@version 1.42
   */
   public boolean ini(){
+    erreur.alerte("re ini");//@a
     actionGameOn=false;
     Main.startCh();
     if(f!=null) {f.dispose();}
@@ -74,6 +75,7 @@ public class ViewGUI2d implements View {
     ini.initialiserToutLesPaneauxVide();
     Main.endCh("chargementPanneauVide");
     loadGraphics();
+    System.out.println(getPm());//@a
     return true;
   }
   /**
@@ -107,7 +109,7 @@ public class ViewGUI2d implements View {
   *@version 1.44
   */
   public boolean menuMain(){
-    if(actionGameOn){action.retournerAuMenu();}
+    // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
     if(f==null || getPm()==null){ini();}
     getPm().buildPanneauMenu(3,0);
@@ -126,7 +128,7 @@ public class ViewGUI2d implements View {
   *@version 1.44
   */
   public boolean menuNewGame(){
-    if(actionGameOn){action.retournerAuMenu();}
+    // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
     if(f==null || getPm()==null){ini();}
     getPm().buildPanneauMenu(3,1);
@@ -139,7 +141,7 @@ public class ViewGUI2d implements View {
   *@version 1.44
   */
   public boolean menuLoadAGame(){
-    if(actionGameOn){action.retournerAuMenu();}
+    // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
     if(f==null || getPm()==null){ini();}
     getPm().removeP();
@@ -152,7 +154,7 @@ public class ViewGUI2d implements View {
   *@version 1.44
   */
   public boolean menuPersonaliseAGame(){
-    if(actionGameOn){action.retournerAuMenu();}
+    // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
     if(f==null || getPm()==null){ini();}
     getPm().addPnp();
@@ -164,7 +166,7 @@ public class ViewGUI2d implements View {
   *@version 1.44
   */
   public boolean menuOptions(){
-    if(actionGameOn){action.retournerAuMenu();}
+    // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
     if(f==null || getPm()==null){ini();}
     erreur.erreurPasEncoreImplemente();
@@ -177,7 +179,7 @@ public class ViewGUI2d implements View {
   */
   public boolean actionGame(){
     actionGameOn=true;
-    if(f==null || getPm()==null){ini();}
+    if(f==null){ini();}
     // if(Partie.getScript().equals("tuto")){pa=Partie.getPartieTuto();}
     if(Main.getPartie()==null){Main.setPartie(Partie.getDefautlPartie());}
     Main.startCh();
@@ -213,6 +215,7 @@ public class ViewGUI2d implements View {
       Main.launchScript();
     }
     Main.getPartie().jeu(); //lance le jeux.
+    erreur.alerte("jeu is over");//@a
     return true;
   }
 
