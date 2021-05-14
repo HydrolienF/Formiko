@@ -180,22 +180,25 @@ public class ViewGUI2d implements View {
   public boolean actionGame(){
     actionGameOn=true;
     if(f==null){ini();}
-    // if(Partie.getScript().equals("tuto")){pa=Partie.getPartieTuto();}
-    if(Main.getPartie()==null){Main.setPartie(Partie.getDefautlPartie());}
+    if(action.getPartie()!=null){
+      Main.setPartie(action.getPartie());
+      action.setPartie(null);
+    }else if(Partie.getScript()==null || Partie.getScript().equals("")){
+      Main.setPartie(Partie.getDefautlPartie());
+    }//partie can still be null here if script!=""
     Main.startCh();
     getPp().removePm();//on retire le menu
-    Main.endCh("chargementPanneauChargementEtSuppressionMenu");//startCh();
+    Main.endCh("chargementPanneauChargementEtSuppressionMenu");
     getPj().addPch();//on met le panneau de chargement au 1a plan.
-    //la ligne qui suis n'as d'effet que si elle n'as pas déjà été appliqué a la partie.
-    Main.getPartie().initialisationElément(); // pour l'instant ce bout de code ne marche pas ayeur qu'ici.
     Main.startCh();
     getPb().addPz();
     Main.endCh("ajoutPanneauZoom");Main.startCh();
-    Main.getData().chargerImages(); //on a besoin du bon zoom pour effectuer cette action.
     if(Partie.getScript().equals("tuto")){
       Main.iniCpt();
       Partie.setPartieTutoInMain();
     }
+    Main.getPartie().initialisationElément();
+    Main.getData().chargerImages(); //on a besoin du bon zoom pour effectuer cette action.
     action.doActionPj(8);
     Main.endCh("chargementImagesDelaCarte");
 
@@ -420,7 +423,6 @@ public class ViewGUI2d implements View {
     }else{
       //play launching video
     }
-    Main.setPartie(action.getPartie());
     actionGame();
   }
 }

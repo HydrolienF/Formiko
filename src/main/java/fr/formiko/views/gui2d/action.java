@@ -22,6 +22,8 @@ public class action{
   // GET SET -------------------------------------------------------------------
   public static Partie getPartie(){ return pa;}
   public static void setPartie(Partie p){pa=p;}
+  // public static Partie getPartie(){return Main.getPartie();}
+  // public static void setPartie(Partie p){Main.setPartie(p);}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Launch an action on gui mode.}
@@ -63,10 +65,10 @@ public class action{
       pm.setLancer(true); //TODO to remove
     }else if(ac==100){
       // Main.getView().menuNewGame();
-      pa=Panneau.getView().getPnp().getPartie();
+      setPartie(Panneau.getView().getPnp().getPartie());
       pm.setLancer(true); //TODO to remove
     }else if(ac==101){
-      pa=pm.getPcp().getPartie();
+      setPartie(pm.getPcp().getPartie());
       pm.setLancer(true); //TODO to remove
     }
   }
