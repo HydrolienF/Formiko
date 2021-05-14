@@ -212,11 +212,6 @@ public class PanneauCarte extends Panneau {
   public void peintImagePourCase(Case c, int x, int y,Graphics2D g){
     Joueur jo = Main.getPlayingJoueur();
     Fourmi fi = Main.getPlayingAnt();
-    if(fi==null){
-      try {
-        fi=(Fourmi)jo.getFere().getGc().getDébut().getContenu();
-      }catch (Exception e) {}
-    }
     int xT = x*Main.getData().getTailleDUneCase(); int yT = y*Main.getData().getTailleDUneCase();
     int xT2 = (x-posX)*Main.getData().getTailleDUneCase(); int yT2 = (y-posY)*Main.getData().getTailleDUneCase();
     if(peintCaseNuageuse(x,y,g,xT,yT)){ return;}//si la case est nuageuse, on n'affichera rien d'autre dessus.
@@ -229,13 +224,12 @@ public class PanneauCarte extends Panneau {
       // anthill
       if (c.getFere()!=null){
         g.drawImage(Main.getData().getFere(),xT+tC4,yT+tC4,this);
-        if (drawAllFere || (c.getFere().getId()==idCurentFere || (lookedCCase!=null && lookedCCase.getContenu() !=null && lookedCCase.getContenu().equals(c)) )) {
-          //print fere color
+        if (needToDrawAnthillColor(c, x, y)) {
           int tailleDuCercle = Main.getTailleElementGraphique(20);
           drawRondOuRect(xT,yT,Main.getData().getTailleDUneCase(),g,c.getFere(),tailleDuCercle);
         }
       }
-      if(jo!=null && Main.getPartie().getCarte().getCasesSombres() && jo.getCaseSombre(x+posX,y+posY)){
+      if(isSombre(x,y)){
         g.drawImage(Main.getData().getCSombre(),xT,yT,this); // si les créatures sur la case ne sont pas visible.
       }else{
         // les graines
@@ -290,6 +284,23 @@ public class PanneauCarte extends Panneau {
     }catch (Exception e) {
       erreur.erreur("impossible de dessiner l'image de la Case : "+x+" "+y);
     }
+  }
+  /**
+  *{@summary return true if case in x,y is sombre.}<br>
+  *@version 1.46
+  */
+  private boolean isSombre(int x, int y){
+    Joueur jo = Main.getPlayingJoueur();
+    return jo!=null && Main.getPartie().getCarte().getCasesSombres() && jo.getCaseSombre(x+posX,y+posY);
+  }
+  /**
+  *{@summary return true if we need to draw the color of the anthill.}<br>
+  *@version 1.46
+  */
+  private boolean needToDrawAnthillColor(Case c, int x, int y){
+    if (drawAllFere) { return true;}
+    if(c.getFere().getId()==idCurentFere && !isSombre(x,y)){return true;}
+    return (lookedCCase!=null && lookedCCase.getContenu() !=null && lookedCCase.getContenu().equals(c));
   }
   /**
   *{@summary fonction that place ObjetSurCarteAId on the same Case.}<br>
