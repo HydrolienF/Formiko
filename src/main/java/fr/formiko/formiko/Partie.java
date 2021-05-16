@@ -240,7 +240,8 @@ public class Partie implements Serializable{
     //afichage
   }
   public void finDePartie(){ finDePartie(-1);}
-  public void finDePartie(int x){
+  public void finDePartie(int x){ finDePartie(x, true, -1);}
+  public void finDePartie(int x, boolean withButton, int nextLevel){
     if (partieFinie) {return;}//on n'affiche pas plusieur fois les info de fin de partie.
     setPartieFinie(true);
     System.out.println("game is over.");//@a
@@ -265,13 +266,7 @@ public class Partie implements Serializable{
       new Message(mess);
     }
     gjOrdonné.afficheScore();
-    //TODO #134 create menuEndGame in view.
-    // Main.getView().menuEndGame();
-    // try {
-    //   Panneau.getView().getPj().addPfp(mess,gjOrdonné);
-    // }catch (Exception e) {
-    //   erreur.alerteGUI2Dfail("Partie.finDePartie");
-    // }
+    Main.getView().endActionGame(withButton, nextLevel, mess, gjOrdonné);
     setContinuerLeJeu(false);
     // Main.setRetournerAuMenu(true);//TODO ask & not force.
     while(!getContinuerLeJeu() && !Main.getRetournerAuMenu()){//on attend la validation que la partie continue.
@@ -356,7 +351,7 @@ public class Partie implements Serializable{
     String nomCarte = "tuto";
     Carte mapo = new Carte(nomCarte);
     mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
-    Partie partie = new Partie(1,5,mapo,1.0);
+    Partie partie = new Partie(1,100,mapo,1.0);
     partie.setElément(1,0,1);
     partie.setVitesseDeJeu(0.4);
     Main.endCh("chargementParamètrePartieTuto");

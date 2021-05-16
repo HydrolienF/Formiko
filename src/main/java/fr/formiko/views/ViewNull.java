@@ -2,6 +2,7 @@ package fr.formiko.views;
 
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.GJoueur;
 
 /**
  *{@summary Null view. A simple view who do nothing when a view action is launch.}<br>
@@ -98,6 +99,14 @@ public class ViewNull implements View {
   */
   public int pauseActionGame(){
     return 0;
+  }
+  /**
+  *{@summary A null view action that do nothing.}<br>
+  *@return Return true if nothing have been print or paint.
+  *@version 1.33
+  */
+  public boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj){
+    return true;
   }
   /**
   *{@summary A null view action that do nothing.}<br>

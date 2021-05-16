@@ -21,6 +21,7 @@ import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.View;
+import fr.formiko.formiko.GJoueur;
 
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -233,6 +234,26 @@ public class ViewGUI2d implements View {
   public int pauseActionGame(){
     if (!actionGameOn) {return -1;}
     return 0;
+  }
+  /**
+  *{@summary Stop game and print the end menu.}<br>
+  *This action can only be run if action game is on.<br>
+  *@param withButton true if we need to add button "return to main menu" and "next level".
+  *@param nextLevel the number of the next level to link to the button. -1 = no next level.
+  *@param message message to print.
+  *@param gj sorted player list to print.
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.46
+  */
+  public boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj){
+    erreur.info("message");//@a
+    System.out.println(gj);//@a
+    try {
+      getPj().addPfp(message, gj);
+    }catch (Exception e) {
+      return false;
+    }
+    return true;
   }
   /**
   *{@summary Change the value of the loked Case.}<br>

@@ -45,7 +45,7 @@ cmd.34.3:actualiserTailleMin
 cmd.35:affDate
 cmd.36:setLangue
 cmd.37:backToMainMenu
-cmd.38:endGame
+cmd.38:endActionGame
 cmd.39:menu
 cmd.40:actionGame
 cmd.41:paint

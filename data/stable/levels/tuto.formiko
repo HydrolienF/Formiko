@@ -76,11 +76,12 @@ print tuto.31 true
 setPa -1
 attendre finDuTour
 setPa 20
+endActionGame 1 true 1
 print tuto.32
 print tuto.33
 print tuto.34
-print tuto.35 true
-//endGame //TODO fix it to print a decent endScreen.
+print tuto.35
 print tuto.36
 print tuto.37
+//TODO remove and let player choose betwen next & backToMainMenu
 backToMainMenu

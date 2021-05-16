@@ -219,7 +219,7 @@ public class triche {
             if(b){//si la condition d'attente est bonne.
               Main.getScript().setCmdSuivante(true);
             }
-            Temps.pause(10);
+            Temps.pause(50);
           }
           break;
         case 32:
@@ -270,11 +270,13 @@ public class triche {
           // }catch (Exception e) {}
           break;
         case 38:
-          // try {
-          //   Main.getPlayingAnt().setAction(0);
-          // }catch (Exception e) {}
-          // Main.getPartie().setContinuerLeJeu(false);
-          Main.getPartie().finDePartie();
+          Main.getPartie().setPartieFinie(false);
+          if(args.length > 3){
+            Main.getPartie().finDePartie(str.sToI(args[1]), str.sToB(args[2]), str.sToI(args[3]));
+          }else {
+            Main.getPartie().finDePartie();
+          }
+          System.out.println("fin de Main.getPartie().finDePartie");//@a
           break;
         case 39:
           try {

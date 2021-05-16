@@ -2,6 +2,7 @@ package fr.formiko.views;
 
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.GJoueur;
 
 /**
  *{@summary Main view interface.}<br>
@@ -72,10 +73,21 @@ public interface View {
   /***
   *{@summary Stop game and print the escape menu.}<br>
   *This action can only be run if action game is on.<br>
-  *@return Return true if it work well. (Nothing goes wrong.)
+  *@return Return 0 if it work well. (Nothing goes wrong.)
   *@version 1.33
   */
   int pauseActionGame();
+  /***
+  *{@summary Stop game and print the end menu.}<br>
+  *This action can only be run if action game is on.<br>
+  *@param withButton true if we need to add button "return to main menu" and "next level".
+  *@param nextLevel the number of the next level to link to the button. -1 = no next level.
+  *@param message message to print.
+  *@param gj sorted player list to print.
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.46
+  */
+  boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj);
   /***
   *{@summary Change the value of the looked CCase.}<br>
   *We need to repaint the information about this Case.<br>
