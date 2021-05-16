@@ -74,14 +74,16 @@ public class Folder{
   *It will send an info if some were missing and an error if some unfixable folder were missing.
   *@version 1.37
   */
-  public int ini(){
+  public int ini(boolean alowedDownolad){
     missingFolder=0;
     File f = new File(getFolderMain());
     if(!f.exists()){
       erreur.erreurMissingFolder("main");
+      f.mkdirs();
       missingFolder++;
-      //TODO test that it work & print an error only if it fail.
-      downloadData();
+      if(alowedDownolad){
+        downloadData();
+      }
     }
 
     f = new File(getFolderMain()+"Options.md");
@@ -99,6 +101,7 @@ public class Folder{
     }
     return missingFolder;
   }
+  public int ini(){return ini(true);}
   /**
   *{@summary Delete all unnecesary folders and files.}<br>
   *@version 1.37
@@ -192,10 +195,15 @@ public class Folder{
   *It need Main.version to be correct to work.<br>
   */
   public void downloadData(){
-    File f = new File(getFolderMain());
-    f.mkdirs();
     fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+Main.getVersionActuelle()+"/data.zip",getFolderMain()+"data.zip");
     fichier.unzip(getFolderMain()+"data.zip",getFolderMain().substring(0,getFolderMain().length()-5));
     fichier.deleteDirectory(getFolderMain()+"data.zip");
+    // File fzip = new File(getFolderMain()+"data.zip");
+    // fzip.delete();
+    System.out.println(getFolderMain()+"data.zip removed");//@a
+    File f  = new File(getFolderMain());//@a
+    for ( String f2 : f.list() ) {
+      System.out.println(f2);//@a
+    }
   }
 }
