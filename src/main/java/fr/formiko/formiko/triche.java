@@ -229,13 +229,10 @@ public class triche {
           break;
         case 33:
           try {
-            try {
-              Fourmi.setUneSeuleAction(str.sToI(args[1]));
-            }catch (Exception e) {
-              Fourmi.setUneSeuleAction();
-            }
-            // Fourmi.setUneSeuleAction();
-          }catch (Exception e) {}
+            Fourmi.setUneSeuleAction(str.sToI(args[1]));
+          }catch (Exception e) {
+            Fourmi.setUneSeuleAction();
+          }
           break;
         case 34:
           if(args[2].equalsIgnoreCase("cmd.34.1")){
