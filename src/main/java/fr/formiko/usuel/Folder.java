@@ -32,7 +32,7 @@ public class Folder{
   private int missingFolder;
 
   public Folder(){
-    setFolderMain("");
+    setFolderMain();
     // if(Main.getOs().isWindows()){
     //   setFolderMain(System.getenv("APPDATA")+"/Formiko/data/");
     // }
@@ -197,9 +197,10 @@ public class Folder{
   public void downloadData(){
     fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+Main.getVersionActuelle()+"/data.zip",getFolderMain()+"data.zip");
     fichier.unzip(getFolderMain()+"data.zip",getFolderMain().substring(0,getFolderMain().length()-5));
-    fichier.deleteDirectory(getFolderMain()+"data.zip");
-    // File fzip = new File(getFolderMain()+"data.zip");
-    // fzip.delete();
+    System.gc();
+    if(!fichier.deleteDirectory(getFolderMain()+"data.zip")){
+      erreur.alerte("unable to delete "+getFolderMain()+"data.zip");
+    }
     System.out.println(getFolderMain()+"data.zip removed");//@a
     File f  = new File(getFolderMain());//@a
     for ( String f2 : f.list() ) {

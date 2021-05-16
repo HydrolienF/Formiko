@@ -3,6 +3,7 @@ package fr.formiko.usuel;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
+import org.junit.jupiter.api.Disabled;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
 import java.io.File;
@@ -130,7 +131,10 @@ public class FolderTest extends TestCaseMuet{
     int x = getId();
     f.setFolderMain("data"+x+"/");
     f.ini(false);
+    File fileToRemove = new File("data"+x+"/");
+    fichier.deleteDirectory(fileToRemove);
     File file = new File(f.getFolderMain()+"Options.md");
+    file.mkdirs();
     try {file.createNewFile();}catch (Exception e) {assertTrue(false);}
     file = new File(f.getFolderMain()+"Keys.txt");
     try {file.createNewFile();}catch (Exception e) {assertTrue(false);}
@@ -139,10 +143,10 @@ public class FolderTest extends TestCaseMuet{
     String t [] = file.list();
     contain("Keys.txt Options.md resourcesPacks saves stable temporary",t);
     f.cleanFolder();
-    t = file.list(); tableau.sort(t);
+    t = file.list();
     //contain("stable",t));
     contain("Keys.txt stable",t);
-    fichier.deleteDirectory(file);
+    fichier.deleteDirectory(fileToRemove);
     f.setFolderMain();
   }
   @Test
@@ -151,7 +155,7 @@ public class FolderTest extends TestCaseMuet{
     int x = getId();
     f.setFolderMain("data"+x+"/");
     File fileToRemove = new File("data"+x+"/");
-    fileToRemove.deleteOnExit();
+    fichier.deleteDirectory(fileToRemove);
     f.ini(false);
     File file = new File(f.getFolderMain()+"Options.md");
     try {file.createNewFile();}catch (Exception e) {assertTrue(false);}
@@ -165,31 +169,36 @@ public class FolderTest extends TestCaseMuet{
     f.cleanFolder();
     t = file.list(); tableau.sort(t);
     contain("README.md qqchose.png stable",t);
+    fichier.deleteDirectory(fileToRemove);
     f.setFolderMain();
   }
   @Test
+  // @Disabled("Tooo long for standard test")
   public void testDownloadData(){
     Folder folder = new Folder();
     int x = getId();
     folder.setFolderMain("data"+x+"/");
     File fileToRemove = new File("data"+x+"/");
-    fileToRemove.deleteOnExit();
     File file = new File(folder.getFolderMain());
     file.mkdirs();
     folder.downloadData();
     String t [] = file.list();
-    contain("Keys.txt Options.md resourcesPacks saves stable temporary",t);
+    contain("Keys.txt Options.md resourcesPacks saves stable temporary README.md",t);
+    fichier.deleteDirectory(fileToRemove);
+    folder.setFolderMain();
   }
   @Test
+  // @Disabled("Tooo long for standard test")
   public void testDownloadData2(){
     Folder folder = new Folder();
     int x = getId();
     folder.setFolderMain("data"+x+"/");
     File fileToRemove = new File("data"+x+"/");
-    fileToRemove.deleteOnExit();
     assertEquals(1,folder.ini(true));
     File file = new File(folder.getFolderMain());
     String t [] = file.list();
-    contain("Keys.txt Options.md resourcesPacks saves stable temporary",t);
+    contain("Keys.txt Options.md resourcesPacks saves stable temporary README.md",t);
+    fichier.deleteDirectory(fileToRemove);
+    folder.setFolderMain();
   }
 }
