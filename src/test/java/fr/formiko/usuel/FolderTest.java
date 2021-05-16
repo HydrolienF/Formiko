@@ -133,7 +133,10 @@ public class FolderTest extends TestCaseMuet{
     try {file.createNewFile();}catch (Exception e) {assertTrue(false);}
     //file README.md
     file = new File("data"+x+"/");
-    String t [] = file.list(); tableau.sort(t);
+    String t [] = file.list();
+    for (String s : t) {//@a
+      System.out.println(s);
+    }
     contain("Keys.txt Options.md resourcesPacks saves stable temporary",t);
     f.cleanFolder();
     t = file.list(); tableau.sort(t);

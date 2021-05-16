@@ -32,14 +32,15 @@ public class Folder{
   private int missingFolder;
 
   public Folder(){
+    setFolderMain("");
     // if(Main.getOs().isWindows()){
     //   setFolderMain(System.getenv("APPDATA")+"/Formiko/data/");
     // }
   }
   // GET SET -------------------------------------------------------------------
-	public String getFolderMain() {return folderMain;}
+	public String getFolderMain() {return folderMain+"data/";}
 	public void setFolderMain(String folderMain) {this.folderMain = str.sToDirectoryName(folderMain);}
-  public void setFolderMain() {setFolderMain("data/");}
+  public void setFolderMain() {setFolderMain("");}
 	public String getFolderStable() {return getFolderMain()+folderStable;}
 	public void setFolderStable(String folderStable) {this.folderStable = str.sToDirectoryName(folderStable);}
 	public String getFolderTemporary() {return getFolderMain()+folderTemporary;}

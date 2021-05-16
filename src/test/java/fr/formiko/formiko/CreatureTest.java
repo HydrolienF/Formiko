@@ -43,6 +43,7 @@ public class CreatureTest extends TestCaseMuet{
   }
   @Test
   public void testSetTransported(){
+    ini();
     Creature c = new Insecte(Main.getGc().getCCase(0,0));
     Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
     Graine g2 = new Graine(Main.getGc().getCCase(0,0),100,(byte)11);
