@@ -72,6 +72,7 @@ public class PondreReineTest extends TestCaseMuet{
     f.setAction(f.getActionMax());
     assertTrue(!f.canLay());
     f.pondre = new PondreReine();
+    f.setNourriture(f.getNourritureMax());
     assertTrue(f.canLay());
   }
 }
