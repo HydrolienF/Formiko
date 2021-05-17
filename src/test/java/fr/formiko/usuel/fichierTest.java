@@ -16,7 +16,8 @@ public class fichierTest extends TestCaseMuet{
     ecrireUnFichier.ecrireUnFichier(new GString(),"fileFichierTest.ja");
     File f = new File("fileFichierTest.ja");
     assertTrue(f.exists());
-    File d = new File("repFichierTest");
+    int x = getId();
+    File d = new File("repFichierTest"+x);
     d.mkdir();
     GString gs = fichier.listerLesFichiersDuRep(f);
     assertEquals(1,gs.length());
@@ -24,19 +25,22 @@ public class fichierTest extends TestCaseMuet{
     //assertEquals(gs2,gs);
     assertTrue(gs2.equals(gs));
     gs = fichier.listerLesFichiersDuRep(d);//juste un répertoire vide n'affiche rien.
-    assertTrue(new GString().equals(gs));
+    gs2 = new GString();
+    assertTrue(gs2.equals(gs));
 
     assertTrue(fichier.deleteDirectory(d));
     assertTrue(f.delete());
   }
   @Test
   public void testListerLesFichiersDuRep2(){
-    File d = new File("repFichierTest");
-    File d2 = new File("repFichierTest/sousRep/");
+    int x = getId();
+    File d = new File("repFichierTest"+x);
+    File d2 = new File("repFichierTest/"+x+"sousRep/");
     d.mkdir();
     d2.mkdir();
+    GString gs2 = new GString();
     GString gs = fichier.listerLesFichiersDuRep(d);//juste 2 répertoire vide n'affiche rien.
-    assertTrue(new GString().equals(gs));
+    assertTrue(gs2.equals(gs));
     ecrireUnFichier.ecrireUnFichier(new GString(),"repFichierTest/f2.ja");
     ecrireUnFichier.ecrireUnFichier(new GString(),"repFichierTest/sousRep/f1.ja");
     gs = fichier.listerLesFichiersDuRep(d);//Contient 2 fichier.

@@ -30,6 +30,7 @@ public class GString extends List<String> implements Serializable {
   // GET SET -----------------------------------------------------------------------
 
   // Fonctions propre -----------------------------------------------------------
+  //equals is in List
   /**
   *{@summary Return a JComboBox with all the String in it.}<br>
   *@param x the default select item.

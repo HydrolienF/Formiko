@@ -43,7 +43,8 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
     ini();
     assertTrue(f.exists());//il existe.
     assertTrue(f.isFile());//c'est un fichier pas un dossier.
-    assertTrue(f.delete());
+    // assertTrue(f.delete());
+    assertTrue(fichier.deleteDirectory(f));
   }
   @Test
   //@BeforeAll
@@ -63,7 +64,8 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
     ini();
     assertTrue(f.exists());//il existe.
     assertTrue(f.isFile());//c'est un fichier pas un dossier.
-    assertTrue(f.delete());//le fichier ce supprime bien.
+    // assertTrue(f.delete());//le fichier ce supprime bien.
+    assertTrue(fichier.deleteDirectory(f));
   }
 
 }

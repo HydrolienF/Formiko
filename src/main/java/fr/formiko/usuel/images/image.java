@@ -225,10 +225,11 @@ public class image{
    *@version 1.3
    */
   public static void clearPartielTemporaire(){
+    //TODO #248 remove all this function that isn't need anymore.
     File docier = new File(REP_TEMPORARY);
     File[] fichiers = docier.listFiles();
     for (File f : fichiers ) {
-      if(str.contient(f.getName(),"F0&",0)){//si c'est une fourmi. (= si le fichier commence par "F")
+      if(str.contient(f.getName(),"F0&",0)){//si c'est une fourmi. (= si le fichier commence par "F0&")
         if(isImage(f)){f.delete();}
       }
     }

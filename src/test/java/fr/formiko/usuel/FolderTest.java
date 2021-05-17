@@ -194,7 +194,7 @@ public class FolderTest extends TestCaseMuet{
     int x = getId();
     folder.setFolderMain("data"+x+"/");
     File fileToRemove = new File("data"+x+"/");
-    assertEquals(1,folder.ini(true));
+    folder.ini(true);
     File file = new File(folder.getFolderMain());
     String t [] = file.list();
     contain("Keys.txt Options.md resourcesPacks saves stable temporary README.md",t);
