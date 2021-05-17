@@ -96,12 +96,13 @@ public class Chrono {
     debutCh(ch);
   }
   public static int endCh(String s){return endCh(s,ch);}
+
+  public static void debutCh(Chrono chTemp){startCh(chTemp);}
   /**
    * Start Chrono
    * @version 1.1
    */
-  public static void debutCh(Chrono chTemp){ //début du Chrono.
-    //if(chTemp == null){chTemp = new Chrono();}
+  public static void startCh(Chrono chTemp){
     if(!debug.getAffLesPerformances()){ return;}
     chTemp.start();
   }

@@ -2,6 +2,8 @@ package fr.formiko.usuel;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.types.str;
+import fr.formiko.usuel.Chrono;
+import fr.formiko.usuel.exceptions.MissingFolderException;
 
 import java.io.File;
 
@@ -33,9 +35,25 @@ public class Folder{
 
   public Folder(){
     setFolderMain();
-    // if(Main.getOs().isWindows()){
-    //   setFolderMain(System.getenv("APPDATA")+"/Formiko/data/");
-    // }
+    if(Main.getOs().isWindows()){
+      setFolderMain(System.getenv("APPDATA")+"/Formiko/");
+    }else if(Main.getOs().isLinux()){
+      //TODO test
+      setFolderMain(System.getProperty("user.home")+"/Formiko/");
+    }else if(Main.getOs().isMac()){
+      //TODO fined & test a good path for mac.
+      // setFolderMain(System.getProperty("user.home")+"/Formiko/");
+    }
+    File folderM = new File(getFolderMain());
+    if(!folderM.mkdirs() && !folderM.isDirectory()){
+      erreur.alerte("can't create main folder : "+getFolderMain());
+      setFolderMain();
+      setFolderMain();
+      folderM = new File(getFolderMain());
+      if(!folderM.mkdirs()){
+        erreur.erreur("can't create main folder even in curent repository : "+getFolderMain());
+      }
+    }
   }
   // GET SET -------------------------------------------------------------------
 	public String getFolderMain() {return folderMain+"data/";}
@@ -72,30 +90,33 @@ public class Folder{
   *{@summary Initialize missing folder if some folder are missing.}<br>
   *It will call download if main folder is missing.<br>
   *It will send an info if some were missing and an error if some unfixable folder were missing.
-  *@version 1.37
+  *@param allowedDownolad true if we can download files.
+  *@version 1.46
   */
-  public int ini(boolean alowedDownolad){
+  public int ini(boolean allowedDownolad){
     missingFolder=0;
     File f = new File(getFolderMain());
-    if(!f.exists()){
-      erreur.erreurMissingFolder("main");
-      f.mkdirs();
-      missingFolder++;
-      if(alowedDownolad){
-        downloadData();
+    try{
+      if(!f.exists() || f.listFiles().length==0){
+        f.mkdirs();
+        missingFolder++;
+        if(allowedDownolad){throw new MissingFolderException("main");}
       }
-    }
 
-    f = new File(getFolderMain()+"Options.md");
-    if(!f.exists() || f.isDirectory()){
-      Main.setPremierePartie(true);
-    }
+      f = new File(getFolderMain()+"Options.md");
+      if(!f.exists() || f.isDirectory()){
+        Main.setPremierePartie(true);
+      }
 
-    f = new File(getFolderSaves());
-    if(f.mkdir()){missingFolder++;}
-    iniStable();
-    iniTemporary();
-    iniRessourcesPacks();
+      f = new File(getFolderSaves());
+      if(f.mkdir()){missingFolder++;}
+      iniStable(allowedDownolad);
+      iniTemporary();
+      iniRessourcesPacks();
+    }catch (MissingFolderException e) {
+      erreur.erreur("an error occured when fixing file","Downolad file from main repository");
+      if(allowedDownolad){downloadData();}
+    }
     if(missingFolder>0){
       erreur.info(missingFolder+" folders were missing & were add.");
     }
@@ -120,21 +141,40 @@ public class Folder{
   }
   /**
   *{@summary Initialize stable missing folder.}<br>
-  *@version 1.37
+  *@param allowedDownolad true if we can download files.
+  *@version 1.46
   */
-  private void iniStable(){
+  private void iniStable(boolean allowedDownolad){
     File f = new File(getFolderStable());
-    if(f.mkdir()){erreur.erreurMissingFolder("stable");missingFolder++;}
+    if(f.mkdir() || f.listFiles().length==0){
+      missingFolder++;
+      if(allowedDownolad){throw new MissingFolderException("stable");}
+    }
     f = new File(getFolderStable()+getFolderBin());
-    if(f.mkdir()){erreur.erreurMissingFolder("stable bin");missingFolder++;}
+    if(f.mkdir() || f.listFiles().length==0){
+      missingFolder++;
+      if(allowedDownolad){throw new MissingFolderException("stable bin");}
+    }
     f = new File(getFolderStable()+getFolderImages());
-    if(f.mkdir()){erreur.erreurMissingFolder("stable images");missingFolder++;}
+    if(f.mkdir() || f.listFiles().length==0){
+      missingFolder++;
+      if(allowedDownolad){throw new MissingFolderException("stable images");}
+    }
     f = new File(getFolderStable()+getFolderLanguages());
-    if(f.mkdir()){erreur.erreurMissingFolder("stable language");missingFolder++;}
+    if(f.mkdir() || f.listFiles().length==0){
+      missingFolder++;
+      if(allowedDownolad){throw new MissingFolderException("stable language");}
+    }
     f = new File(getFolderStable()+getFolderLevels());
-    if(f.mkdir()){erreur.erreurMissingFolder("stable level");missingFolder++;}
+    if(f.mkdir() || f.listFiles().length==0){
+      missingFolder++;
+      if(allowedDownolad){throw new MissingFolderException("stable level");}
+    }
     f = new File(getFolderStable()+getFolderMaps());
-    if(f.mkdir()){erreur.erreurMissingFolder("stable maps");missingFolder++;}
+    if(f.mkdir() || f.listFiles().length==0){
+      missingFolder++;
+      if(allowedDownolad){throw new MissingFolderException("stable maps");}
+    }
     f = new File(getFolderStable()+getFolderMusiques());
     if(f.mkdir()){missingFolder++;}
     f = new File(getFolderStable()+getFolderSounds());
@@ -195,16 +235,14 @@ public class Folder{
   *It need Main.version to be correct to work.<br>
   */
   public void downloadData(){
+    // Chrono ch = new Chrono();
+    // ch.startCh(ch);
     fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+Main.getVersionActuelle()+"/data.zip",getFolderMain()+"data.zip");
     fichier.unzip(getFolderMain()+"data.zip",getFolderMain().substring(0,getFolderMain().length()-5));
     System.gc();
     if(!fichier.deleteDirectory(getFolderMain()+"data.zip")){
       erreur.alerte("unable to delete "+getFolderMain()+"data.zip");
     }
-    System.out.println(getFolderMain()+"data.zip removed");//@a
-    File f  = new File(getFolderMain());//@a
-    for ( String f2 : f.list() ) {
-      System.out.println(f2);//@a
-    }
+    // ch.endCh("download&UnzipData",ch);
   }
 }

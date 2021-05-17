@@ -198,6 +198,18 @@ public class FolderTest extends TestCaseMuet{
     File file = new File(folder.getFolderMain());
     String t [] = file.list();
     contain("Keys.txt Options.md resourcesPacks saves stable temporary README.md",t);
+    //delete 1 folder & let it repare it.
+    fichier.deleteDirectory(folder.getFolderStable());
+    t = file.list();
+    contain("Keys.txt Options.md resourcesPacks saves temporary README.md",t);
+    assertEquals(1,folder.ini(true));
+    contain("Keys.txt Options.md resourcesPacks saves stable temporary README.md",t);
+    File stable = new File(folder.getFolderStable());
+    contain("languages levels maps videos sounds bin musiques images",stable.list());
+    fichier.deleteDirectory(folder.getFolderStable()+folder.getFolderImages());
+    contain("languages levels maps videos sounds bin musiques",stable.list());
+    assertEquals(1,folder.ini(true));
+    contain("languages levels maps videos sounds bin musiques images",stable.list());
     fichier.deleteDirectory(fileToRemove);
     folder.setFolderMain();
   }
