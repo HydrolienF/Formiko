@@ -14,6 +14,7 @@ import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
 import java.io.File;
+import java.nio.file.Files;
 
 public class sauvegarderUnePartieTest extends TestCaseMuet{
   private File f=null;
@@ -43,8 +44,23 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
     ini();
     assertTrue(f.exists());//il existe.
     assertTrue(f.isFile());//c'est un fichier pas un dossier.
-    // assertTrue(f.delete());
-    assertTrue(fichier.deleteDirectory(f));
+    // try {
+    //   Files.delete(f.toPath());
+    // }catch (Exception e) {
+    //   System.out.println(e);
+    //   assertTrue(false);
+    // }
+    // FileUtils.forceDelete(f)
+    // int k=0;
+    // while (!f.delete()) {
+    //   System.gc();
+    //   Temps.pause(500);
+    //   if(k==10){assertTrue(false);}
+    //   k++;
+    // }
+    // assertTrue(fichier.deleteDirectory(f));
+    assertTrue(f.delete());
+    assertTrue(!f.exists());
   }
   @Test
   //@BeforeAll
@@ -64,8 +80,7 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
     ini();
     assertTrue(f.exists());//il existe.
     assertTrue(f.isFile());//c'est un fichier pas un dossier.
-    // assertTrue(f.delete());//le fichier ce supprime bien.
-    assertTrue(fichier.deleteDirectory(f));
+    assertTrue(f.delete());//le fichier ce supprime bien.
   }
 
 }

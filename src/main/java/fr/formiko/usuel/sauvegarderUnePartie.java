@@ -44,7 +44,8 @@ public class sauvegarderUnePartie {
     try {
       oos = new ObjectOutputStream(new FileOutputStream(getNomDuFichierComplet()));
       oos.writeObject(p);
-      oos.flush();//ca permet de bien nétoyer le flu si j'ai bien compris
+      oos.flush();
+      oos.close();
     }catch (Exception e) {
       erreur.erreur("Impossible de sauvegarder la partie pour une raison inconnue");
       return;
@@ -64,6 +65,7 @@ public class sauvegarderUnePartie {
     try {
       ois = new ObjectInputStream(new FileInputStream(getNomDuFichierComplet()));
       pa = (Partie) ois.readObject();
+      ois.close();
     }catch (Exception e) {
       erreur.erreur("Impossible de charger la partie "+nomDuFichier+" pour une raison inconnue");
     }
@@ -78,6 +80,7 @@ public class sauvegarderUnePartie {
     s=nomDuFichier;
     String s = sauvegarderUnePartie.getNomDuFichierComplet();
     File f = new File(s);
+    // System.gc();
     return f.delete();
   }
   /**
