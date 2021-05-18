@@ -24,7 +24,13 @@ public class PartieTest extends TestCaseMuet{
     int cpt = 0;
     for (int i=0;i<nbTry ;i++ ) {
       ini(nbTurn,mapName);
-      p.launchGame();
+      try {
+        p.launchGame();
+      }catch (Exception e) {
+        System.out.println(e);
+        e.getStackTrace();
+        assertTrue(false);
+      }
       if(p.getGj().getJoueurParId(1).getFere().getGc().getGcStade(0).length()>1){
         cpt++;
       }

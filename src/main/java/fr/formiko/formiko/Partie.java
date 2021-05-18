@@ -220,7 +220,7 @@ public class Partie implements Serializable{
         return true;
       }
     }
-    System.out.println(g.get("dernierTourPassé"));
+    erreur.info(g.get("dernierTourPassé"));
     finDePartie(1);
     return false;
   }

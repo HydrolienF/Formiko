@@ -43,13 +43,14 @@ public class Message implements Serializable{
       debug.débogage("id = "+idDuJoueurConcerné);
       if (idDuJoueurConcerné==-1){
         GJoueur gj = Main.getGj().getJoueurHumain();
-        debug.débogage(gj.length()+" joueurs on été detecté comme humain");
+        // debug.débogage(gj.length()+" joueurs on été detecté comme humain");
         gj.addMessage(this);
       }else if(idDuJoueurConcerné>0){
         Main.getJoueurParId(idDuJoueurConcerné).addMessage(this);
       }
     }catch (Exception e) {}
     //this.afficheToi();
+    //TODO #5 send to the player
   }
   // message d'un joueur :
   public Message(String texte, int idDuJoueurConcerné, String expediteur){
@@ -101,7 +102,7 @@ public class Message implements Serializable{
     // la fourmi neutre / allié / énemie (id) est morte / a été infectée par une bactérie mortelle / est morte de vieillesse / est morte face au mandibule de la foumi / a été aspergé d'acide par la fourmi / l'insecte idDuTueur.
     GJoueur gj = Main.getGj().getJoueurHumain();
     if(gj.length()==0){
-      System.out.println("La fourmi "+f.getId()+" du joueur "+f.getJoueur().getId()+" "+ g.get("mort"+raison));
+      new Message("La fourmi "+f.getId()+" du joueur "+f.getJoueur().getId()+" "+ g.get("mort"+raison));
       return;}
     debug.débogage(gj.length()+" joueur humains");
     //Ici on doit filtrer les joueurs qui ne vois pas la case ou la fourmi meurt.
