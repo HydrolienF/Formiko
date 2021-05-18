@@ -103,10 +103,8 @@ public class Main {
           // setPartie(null);
           k2++;
           continuerJeu = launch();//on attend ici tant que le joueur veux jouer.
-          System.out.println("after launch");//@a
           debug.débogage("ReLancement du jeu");
           try {
-            System.out.println("close windows in Main");//@a
             getF().dispose();
             // getView().close();
           }catch (Exception e) {

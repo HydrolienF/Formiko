@@ -35,7 +35,7 @@ public class PartieTest extends TestCaseMuet{
     int cpt = 0;
     for (int i=0;i<nbTry ;i++ ) {
       ini(nbTurn,mapName);
-      p.launchGame();
+      Main.getPartie().launchGame();
       if(p.getGj().getJoueurParId(1).getFere().getGc().getGcStade(0).length()>5){
         cpt++;
       }
@@ -43,7 +43,7 @@ public class PartieTest extends TestCaseMuet{
     assertTrue(cpt>=nbTryThatWorkMin);
   }
   @Test
-  @Disabled("Tooo long for standard test")
+  // @Disabled("Tooo long for standard test")
   public void testLaunchGame(){
     //test1LaunchGame(100,"miniWorld",10,9);
     //test1LaunchGame(80,"miniWorld",10,9);

@@ -273,7 +273,6 @@ public class triche {
           }else {
             Main.getPartie().finDePartie();
           }
-          System.out.println("fin de Main.getPartie().finDePartie");//@a
           break;
         case 39:
           try {
@@ -290,7 +289,6 @@ public class triche {
           }
           break;
         case 41:
-        System.out.println("paint from cheatcode");//@a
           try {
             Main.getView().paint();
           }catch (Exception e) {

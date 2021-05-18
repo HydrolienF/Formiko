@@ -173,7 +173,7 @@ public class launchOptions {
         default:
         yield "";
       };
-      System.out.println(s);
+      erreur.info(s);//@a
     }
   }
   /**

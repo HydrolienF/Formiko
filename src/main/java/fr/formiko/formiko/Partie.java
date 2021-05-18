@@ -217,7 +217,6 @@ public class Partie implements Serializable{
       Main.tour();
       testFinDePartie();
       if(Main.getRetournerAuMenu()){
-        erreur.info("back to main menu !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");//@a
         return true;
       }
     }

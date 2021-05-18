@@ -76,7 +76,6 @@ public class ViewGUI2d implements View {
     ini.initialiserToutLesPaneauxVide();
     Main.endCh("chargementPanneauVide");
     loadGraphics();
-    System.out.println(getPm());//@a
     return true;
   }
   /**
@@ -246,8 +245,6 @@ public class ViewGUI2d implements View {
   *@version 1.46
   */
   public boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj){
-    erreur.info("message");//@a
-    System.out.println(gj);//@a
     try {
       getPj().addPfp(message, gj);
     }catch (Exception e) {
@@ -320,7 +317,7 @@ public class ViewGUI2d implements View {
   public void message(String message, boolean doWeNeedToDoNextCmdNow){
     if (!actionGameOn) {return;}
     if(f==null){
-      System.out.println("message force initialisation");//@a
+      erreur.info("message() force initialisation");
       ini();
     }
     try {
