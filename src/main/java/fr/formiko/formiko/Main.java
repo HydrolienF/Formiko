@@ -102,6 +102,7 @@ public class Main {
         while(continuerJeu && k2<10){
           // setPartie(null);
           k2++;
+          erreur.info("game launch");
           continuerJeu = launch();//on attend ici tant que le joueur veux jouer.
           debug.débogage("ReLancement du jeu");
           try {
