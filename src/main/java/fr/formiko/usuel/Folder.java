@@ -48,7 +48,6 @@ public class Folder{
     if(!folderM.mkdirs() && !folderM.isDirectory()){
       erreur.alerte("can't create main folder : "+getFolderMain());
       setFolderMain();
-      setFolderMain();
       folderM = new File(getFolderMain());
       if(!folderM.mkdirs()){
         erreur.erreur("can't create main folder even in curent repository : "+getFolderMain());
@@ -125,19 +124,25 @@ public class Folder{
   public int ini(){return ini(true);}
   /**
   *{@summary Delete all unnecesary folders and files.}<br>
-  *@version 1.37
+  *@version 1.46
   */
   public void cleanFolder(){
-    File f = new File(getFolderTemporary());
-    fichier.deleteDirectory(f);
-    f = new File(getFolderResourcesPacks());
-    fichier.deleteDirectory(f);
-    f = new File(getFolderSaves());
-    fichier.deleteDirectory(f);
-    f = new File(getFolderMain()+"Keys.txt");
-    //f.delete();
-    f = new File(getFolderMain()+"Options.md");
-    f.delete();
+    File folder = new File(getFolderMain());
+    for (File file : folder.listFiles() ) {
+      if(!file.getName().equals("stable") && !file.getName().equals("README.md") && !file.getName().equals("Keys.txt")){
+        fichier.deleteDirectory(file);
+      }
+    }
+    // File f = new File(getFolderTemporary());
+    // fichier.deleteDirectory(f);
+    // f = new File(getFolderResourcesPacks());
+    // fichier.deleteDirectory(f);
+    // f = new File(getFolderSaves());
+    // fichier.deleteDirectory(f);
+    // f = new File(getFolderMain()+"Keys.txt");
+    // //f.delete();
+    // f = new File(getFolderMain()+"Options.md");
+    // f.delete();
   }
   /**
   *{@summary Initialize stable missing folder.}<br>

@@ -3,6 +3,7 @@ package fr.formiko.usuel.images;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.usuel.Folder;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.fichier;
@@ -27,6 +28,8 @@ public class imageTest extends TestCaseMuet{
     assertTrue(f.isFile());//il n'as pas été supprimé lors de la lecture
 
     //répertoire d'image.
+    Folder folder = new Folder();
+    folder.ini();
     int x = allea.getAllea(1000)+100;
     Img img = new Img(1,1);
     img.sauvegarder("testImage"+x+".png");

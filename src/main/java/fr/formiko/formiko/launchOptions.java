@@ -129,7 +129,11 @@ public class launchOptions {
     }else if(args[0].equals("cleanFolder")){
       Main.setOs(new Os());
       Folder folder = new Folder();
+      if(args.length>1){
+        folder.setFolderMain(args[1]);
+      }
       Main.setFolder(folder);
+      erreur.info("Clean main folder : "+folder.getFolderMain());
       folder.cleanFolder();
     }else if(args[0].equals("zip")){
       fichier.zip(args[1],args[2]);

@@ -1,12 +1,13 @@
 package fr.formiko.usuel;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
-import org.junit.jupiter.api.Disabled;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
 import java.io.File;
+import java.util.Arrays;
 
 public class FolderTest extends TestCaseMuet{
 
@@ -17,8 +18,13 @@ public class FolderTest extends TestCaseMuet{
     return folder;
   }
   public void contain(String s, String ts []){
-    for (String sTest : ts ) {
-      assertTrue(s.contains(sTest));
+    String ts2 [] = s.split(" ");
+    Arrays.sort(ts2);
+    Arrays.sort(ts);
+    int len = ts2.length;
+    for (int i=0; i<len; i++) {
+      // assertTrue(s.contains(sTest));
+      assertEquals(ts[i], ts2[i]);
     }
   }
   @Test
@@ -141,11 +147,11 @@ public class FolderTest extends TestCaseMuet{
     //file README.md
     file = new File(f.getFolderMain());
     String t [] = file.list();
-    contain("Keys.txt Options.md resourcesPacks saves stable temporary",t);
+    contain("Keys.txt Options.md",t);
     f.cleanFolder();
     t = file.list();
     //contain("stable",t));
-    contain("Keys.txt stable",t);
+    contain("Keys.txt",t);
     fichier.deleteDirectory(fileToRemove);
     f.setFolderMain();
   }
@@ -168,7 +174,8 @@ public class FolderTest extends TestCaseMuet{
     contain("Options.md README.md qqchose.png resourcesPacks saves stable temporary",t);
     f.cleanFolder();
     t = file.list(); tableau.sort(t);
-    contain("README.md qqchose.png stable",t);
+    contain("README.md stable",t);
+    // contain("qqchose.png Options.md",t,false);
     fichier.deleteDirectory(fileToRemove);
     f.setFolderMain();
   }
@@ -204,6 +211,7 @@ public class FolderTest extends TestCaseMuet{
     t = file.list();
     contain("Keys.txt Options.md resourcesPacks saves temporary README.md",t);
     assertEquals(1,folder.ini(true));
+    t = file.list();
     contain("Keys.txt Options.md resourcesPacks saves stable temporary README.md",t);
     File stable = new File(folder.getFolderStable());
     contain("languages levels maps videos sounds bin musiques images",stable.list());

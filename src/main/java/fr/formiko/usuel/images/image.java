@@ -214,10 +214,12 @@ public class image{
    *@version 1.3
    */
   public static void clearTemporaire(){
-    File docier = new File(REP_TEMPORARY);
-    File[] fichiers = docier.listFiles();
-    for (File f : fichiers ) {
-      if(isImage(f)){f.delete();}
+    File folder = new File(REP_TEMPORARY);
+    if(folder.isDirectory()){
+      File[] fichiers = folder.listFiles();
+      for (File f : fichiers ) {
+        if(isImage(f)){f.delete();}
+      }
     }
   }
   /**
