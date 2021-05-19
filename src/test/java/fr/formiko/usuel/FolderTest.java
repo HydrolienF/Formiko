@@ -194,6 +194,7 @@ public class FolderTest extends TestCaseMuet{
     int x = getId();
     folder.setFolderMain("data"+x+"/");
     File fileToRemove = new File("data"+x+"/");
+    fichier.deleteDirectory(fileToRemove);
     folder.ini(true);
     File file = new File(folder.getFolderMain());
     String t [] = file.list();

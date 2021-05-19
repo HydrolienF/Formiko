@@ -75,10 +75,10 @@ public class Main {
    * @version 1.39
    */
   public static void main (String [] args){
+    if(args==null || (args.length==1 && args[0]==null)){args = new String[0];}
     debug.setAffLesEtapesDeRésolution(false);
     debug.setAffLesPerformances(false);
     debug.setAffG(false);
-    if(args==null){args = new String[0];}
     if(args.length!=0){
       if(args.length==1 && args[0] != null){
         args = args[0].split(" ");
@@ -92,32 +92,32 @@ public class Main {
           k++;
         }
       }
-      if(args.length>0 && args[0] != null){
-        launchOptions.launchOptionsMajor(args);
-        quitter();
-      }else{ // si il n'y a pas d'options ou que des options a "-".
-        // LE JEU -------------------------------------------------------------------
-        boolean continuerJeu=true;
-        int k2=0;
-        while(continuerJeu && k2<10){
-          // setPartie(null);
-          k2++;
-          erreur.info("game launch");
-          continuerJeu = launch();//on attend ici tant que le joueur veux jouer.
-          debug.débogage("ReLancement du jeu");
-          try {
-            getF().dispose();
-            // getView().close();
-          }catch (Exception e) {
-            erreur.info("Window can not be dispose.");
-          }
-          setRetournerAuMenu(false);
-          op=null;//force la réinitialisation de tout.
-          image.clearPartielTemporaire();
-        }
-      }
-      quitter();//en théorie on arrive pas là.
     }
+    if(args.length>0 && args[0] != null){
+      launchOptions.launchOptionsMajor(args);
+      quitter();
+    }else{ // si il n'y a pas d'options ou que des options a "-".
+      // LE JEU -------------------------------------------------------------------
+      boolean continuerJeu=true;
+      int k2=0;
+      while(continuerJeu && k2<10){
+        // setPartie(null);
+        k2++;
+        erreur.info("game launch");
+        continuerJeu = launch();//on attend ici tant que le joueur veux jouer.
+        debug.débogage("ReLancement du jeu");
+        try {
+          getF().dispose();
+          // getView().close();
+        }catch (Exception e) {
+          erreur.alerte("Window can not be dispose.");
+        }
+        setRetournerAuMenu(false);
+        op=null;//force la réinitialisation de tout.
+        image.clearPartielTemporaire();
+      }
+    }
+    quitter();//en théorie on arrive pas là.
   }
   /**
    * {@summary pre launch.}<br>
