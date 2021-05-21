@@ -8,7 +8,7 @@
 #./testJunit.sh
 #echo "javadoc"
 #./javadoc.sh
-mvn exec:java -Dargs="cleanFolder ."
+mvn -ntp exec:java -Dargs="cleanFolder ."
 echo "to .jar"
 ./jar.sh Formiko
 #jarsigner -keystore monStore -signedjar FormikoTemp.jar Formiko.jar signature
