@@ -7,7 +7,7 @@
   <groupId>fr.formiko</groupId>
   <artifactId>Formiko</artifactId>
   <packaging>jar</packaging>
-  <version>1.39.19</version>
+  <version>1.46.38</version>
   <name>Formiko</name>
   <url>http://maven.apache.org</url>
   <dependencies>
@@ -15,12 +15,13 @@
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
       <version>5.7.0</version>
+      <scope>test</scope>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.google.inject</groupId>
       <artifactId>guice</artifactId>
       <version>5.0.1</version>
-    </dependency>
+    </dependency> -->
     <!--3 next to support mp3 files.-->
     <dependency>
       <groupId>com.googlecode.soundlibs</groupId>
@@ -98,7 +99,48 @@
                 </goals>
             </execution>
         </executions>
-    </plugin>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <archive>
+            <manifest>
+            <addClasspath>true</addClasspath>
+            <mainClass>fr.formiko.formiko.Main</mainClass>
+            <!-- <classpathPrefix>dependency-jars/</classpathPrefix> -->
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <index>true</index>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>fr.formiko.formiko.Main</mainClass>
+            </manifest>
+            <!-- <manifestEntries> -->
+              <!-- <mode>development</mode> -->
+              <!-- <key>value</key> -->
+            <!-- </manifestEntries> -->
+          </archive>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
