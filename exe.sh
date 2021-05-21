@@ -8,6 +8,7 @@
 #./testJunit.sh
 #echo "javadoc"
 #./javadoc.sh
+mvn exec:java -Dargs="cleanFolder ."
 echo "to .jar"
 ./jar.sh Formiko
 #jarsigner -keystore monStore -signedjar FormikoTemp.jar Formiko.jar signature
@@ -29,17 +30,13 @@ rm -fr out/$nomL
 rm -fr out/$nomM
 
 mkdir out/$nom
-echo "cp data, README & .jar"
+echo "cp .jar, README.md, LICENSE.md & version.md"
 mv Formiko.jar out/$nom/.
-cp -r data/ out/$nom/.
+# data will be download by the game.
+# cp -r data/ out/$nom/.
 cp README.md out/$nom/.
 cp LICENSE.md out/$nom/.
-cp version out/$nom/.
-cd out/$nom
-
-#suppress all file that will be recreate on the computer of the user.
-java -jar Formiko.jar cleanFolder
-cd ../..
+cp version.md out/$nom/.
 
 mkdir out/$nomW
 mkdir out/$nomL
