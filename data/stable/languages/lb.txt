@@ -26,6 +26,7 @@ commande:bestallt[auto]
 bientôt:geschwënn[auto]
 suivant:folgenden[auto]
 avant:virun[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:soss ginn d'Knäppbeschreiwunge ugewisen wann Dir driwwer schwieft, ditt
 tuto.34:wann Dir trotzdem net fënns wat Dir braucht, kënnt Dir Berodung op den offiziellen Discordserver vum Spill sichen: http://discord.gg/vqvfGzf[auto]
 tuto.35:fir e Spill op Zäit ze gewannen, musst Dir e méi héije Score hunn wéi AI an aner Spiller.[auto]
 tuto.36:äre Score hänkt vun Ärer Unzuel vun Ameen of, (erwuesse Seechomessen ginn e bessere Score), souwéi d'Schwieregkeet vum Spill an d'Geschwindegkeet vum Spill.[auto]
-tuto.37:fir e Spill neu ze starten, musst Dir d'Spill ophalen an et neu starten, ech këmmere mech fir d'Spill opzehalen, et ass u Iech fir et neu ze starten.[auto]
+tuto.37:

@@ -26,6 +26,7 @@ commande:sipariş[auto]
 bientôt:yakında[auto]
 suivant:takip etme[auto]
 avant:önce[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:aksi takdirde, imleci üzerlerine getirdiğinizde düğme açıklamalar�
 tuto.34:buna rağmen ihtiyacınız olanı bulamazsanız, oyunun resmi discord sunucusundan tavsiye alabilirsiniz: http://discord.gg/vqvfGzf[auto]
 tuto.35:bir oyunu zamanında kazanmak için AI ve diğer oyunculardan daha yüksek bir puana sahip olmalısınız.[auto]
 tuto.36:puanınız, karınca sayınıza (yetişkin karıncalar daha iyi bir puan verir), ayrıca oyunun zorluğuna ve oyunun hızına bağlıdır.[auto]
-tuto.37:bir oyunu yeniden başlatmak için, oyundan çıkmanız ve yeniden başlatmanız gerekir, oyundan çıkmakla ben ilgileneceğim, yeniden başlatmak size kalmış.[auto]
+tuto.37:

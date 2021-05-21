@@ -26,6 +26,7 @@ public class PanneauDialogueInf extends Panneau {
 
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
+    super.paintComponent(g);
     g.drawImage(fond,0,0,this);
   }
   public static void chargerFond(){
@@ -40,7 +41,7 @@ public class PanneauDialogueInf extends Panneau {
     b.setFondTransparent();
     b.setTexte(g.get("suivant"));
     //b.setSize(Main.getTailleElementGraphiqueX(80),((int)(b.getPreferredSize().getHeight())));
-    b.setBounds(Main.getPd().getWidth()-b.getWidth()-Main.getTailleElementGraphiqueX(100),getHeight()-b.getHeight()-Main.getTailleElementGraphiqueY(40),b.getWidth());
+    b.setBounds(getView().getPd().getWidth()-b.getWidth()-Main.getTailleElementGraphiqueX(100),getHeight()-b.getHeight()-Main.getTailleElementGraphiqueY(40),b.getWidth());
     add(b);
     repaint();
   }

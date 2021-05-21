@@ -27,6 +27,7 @@ import java.util.Map;
 */
 public class Partie implements Serializable{
   private static final long serialVersionUID = 1L;
+  private static String script="";
   private GInsecte gi;
   private GJoueur gj;
   private static GEspece ge;
@@ -51,6 +52,7 @@ public class Partie implements Serializable{
   // CONSTRUCTEUR ---------------------------------------------------------------
   // nombre de joueur, nombre d'ia, abondance des insectes, niveau de difficulté des ia, les especes autorisé, le nombre de tour.
   public Partie(int difficulté, int nbrDeTour, Carte mapo, double vitesseDeJeu){
+    // script=""; //TODO we don't whant to update it every time.
     tour=0; partieFinie=false; enCours=false;
     dateDeCréation = LocalDateTime.now();
     this.mapo=mapo;
@@ -77,6 +79,8 @@ public class Partie implements Serializable{
     gi = new GInsecte();
   }
   // GET SET --------------------------------------------------------------------
+  public static String getScript(){return script;}
+  public static void setScript(String s){script=s;}
   public GInsecte getGi(){ return gi;}
   public void setGi(GInsecte g){gi=g;}
   public GJoueur getGj(){ return gj;}
@@ -212,9 +216,11 @@ public class Partie implements Serializable{
       //La joue toutes les ia et les joueurs
       Main.tour();
       testFinDePartie();
-      if(Main.getRetournerAuMenu()){return true;}
+      if(Main.getRetournerAuMenu()){
+        return true;
+      }
     }
-    System.out.println(g.get("dernierTourPassé"));
+    erreur.info(g.get("dernierTourPassé"));
     finDePartie(1);
     return false;
   }
@@ -233,7 +239,8 @@ public class Partie implements Serializable{
     //afichage
   }
   public void finDePartie(){ finDePartie(-1);}
-  public void finDePartie(int x){
+  public void finDePartie(int x){ finDePartie(x, true, -1);}
+  public void finDePartie(int x, boolean withButton, int nextLevel){
     if (partieFinie) {return;}//on n'affiche pas plusieur fois les info de fin de partie.
     setPartieFinie(true);
     System.out.println("game is over.");//@a
@@ -258,13 +265,9 @@ public class Partie implements Serializable{
       new Message(mess);
     }
     gjOrdonné.afficheScore();
-    try {
-      Main.getPj().addPfp(mess,gjOrdonné);
-    }catch (Exception e) {
-      erreur.alerteGUI2Dfail("Partie.finDePartie");
-    }
+    Main.getView().endActionGame(withButton, nextLevel, mess, gjOrdonné);
     setContinuerLeJeu(false);
-    Main.setRetournerAuMenu(true);//TODO ask & not force.
+    // Main.setRetournerAuMenu(true);//TODO ask & not force.
     while(!getContinuerLeJeu() && !Main.getRetournerAuMenu()){//on attend la validation que la partie continue.
       Temps.pause(10);
     }
@@ -290,11 +293,11 @@ public class Partie implements Serializable{
         ph = new Pheromone(127,127,127); // blanc sinon.
       }
       int a = ph.getRc(); int b=ph.getVc(); int c=ph.getBc();
-      Img imgTemp = new Img("F.png");
+      Img imgTemp = new Img("F0");
       Pixel pi2 = new Pixel(ph);
       imgTemp.changerPixel(pi,pi2);
-      //imgTemp.ombrer(pi2); // met de l'ombre sur le pixel pi2. (en théorie)
-      imgTemp.sauvegarder("F"+i+".png");
+      //imgTemp.ombrer(pi2); // met de l'ombre sur le pixel pi2. (en théorie) En pratique on vas plutot déciner moins de couleur sur les bords.
+      imgTemp.sauvegarder("F0&"+i+".png");
     }
   }
   public void enregistrerLesScores(){
@@ -333,22 +336,44 @@ public class Partie implements Serializable{
     Main.endCh("chargementPartie");
     return partie;
   }
+  public static void setPartieTutoInMain(){
+    Main.setPartie(getPartieTuto());
+    Main.getPartie().iniParametreCarteTuto();
+    // Main.launchScript();
+  }
   /**
    * {@summary create a new Partie to launch Tuto.}<br>
    * @version 1.1.
    */
-  public static Partie getPartieTuto(){
+  private static Partie getPartieTuto(){
     Main.startCh();
     String nomCarte = "tuto";
     Carte mapo = new Carte(nomCarte);
     mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
-    Partie partie = new Partie(1,5,mapo,1.0);
+    Partie partie = new Partie(1,100,mapo,1.0);
     partie.setElément(1,0,1);
     partie.setVitesseDeJeu(0.4);
     Main.endCh("chargementParamètrePartieTuto");
     partie.setAppartionInsecte(false);
     partie.setAppartionGraine(false);
+    partie.initialisationElément();
     return partie;
+  }
+  /**
+   * {@summary Initializes the tutorial parameters.}<br>
+   * @version 1.1
+   */
+  private void iniParametreCarteTuto(){
+    Fourmiliere fere = getGj().getDébut().getContenu().getFere();
+    CCase ccIni = getGc().getCCase(0,1);
+    fere.setCc(ccIni);
+    fere.getGc().getDébut().getContenu().setCCase(ccIni);
+    Insecte i = new Insecte(Main.getPartie().getGc().getCCase(1,1),0,100,0);
+    i.setNourritureFournie(200);
+    i.setEstMort(false);
+    i.setType(8);
+    getGi().addInsecte(i);
+    // ths.start();
   }
   /**
   *{@summary change the value of the playing ant.}<br>

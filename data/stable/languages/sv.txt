@@ -26,6 +26,7 @@ commande:beordrade[auto]
 bientôt:snart[auto]
 suivant:följande[auto]
 avant:innan[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:annars visas knappbeskrivningarna när du svävar över dem, detta för 
 tuto.34:om du trots detta inte hittar vad du behöver kan du söka råd på spelets officiella splittringsserver: http://discord.gg/vqvfGzf[auto]
 tuto.35:för att vinna ett spel i tid måste du ha en högre poäng än AI och andra spelare.[auto]
 tuto.36:din poäng beror på ditt antal myror (vuxna myror ger ett bättre poäng), liksom spelets svårighet och spelets hastighet.[auto]
-tuto.37:för att starta om ett spel måste du avsluta spelet och starta om det, jag tar hand om att avsluta spelet, det är upp till dig att starta om det.[auto]
+tuto.37:

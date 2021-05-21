@@ -26,6 +26,7 @@ commande:parancsolt[auto]
 bientôt:hamar[auto]
 suivant:következő[auto]
 avant:előtt[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:ellenkező esetben a gombok leírása akkor jelenik meg, amikor az egér
 tuto.34:ha ennek ellenére sem találja meg azt, amire szüksége van, tanácsot kérhet a játék hivatalos diszkord szerverén: http://discord.gg/vqvfGzf[auto]
 tuto.35:ahhoz, hogy időben megnyerj egy játékot, magasabb pontszámmal kell rendelkezned, mint az AI és a többi játékos.[auto]
 tuto.36:a pontszám függ a hangyák számától (a felnőtt hangyák adnak jobb pontszámot), valamint a játék nehézségétől és a játék sebességétől.[auto]
-tuto.37:a játék újraindításához le kell állítania a játékot és újra kell indítania, én gondoskodom a játékról való kilépésről, rajtad múlik az újraindítás.[auto]
+tuto.37:

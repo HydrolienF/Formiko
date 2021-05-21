@@ -54,6 +54,9 @@ public class Data {
   private boolean initialisationFX;
   //PanneauChargement
   private BufferedImage imageChargement;
+  //PanneauActionInf / Sup
+  private Image backgroundPAI;
+  private Image backgroundPAS;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   /**
@@ -85,6 +88,9 @@ public class Data {
   public BufferedImage getImageChargement(){return imageChargement;}
   //imageIni
   public void setImageIniForNewGame(boolean b){imageIniForNewGame=b;}
+  //PanneauActionInf / Sup
+  public Image getBackgroundPAI(){return backgroundPAI;}
+  public Image getBackgroundPAS(){return backgroundPAS;}
   // Fonctions propre -----------------------------------------------------------
 
   //public class Controleur{
@@ -126,9 +132,9 @@ public class Data {
         selectionneeIni = image.getImage("selectionnee");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         chargerTI();
         tIIIni = chargerTX("I");
-        tFIni = chargerTX("fourmi",3);
-        tGIni = chargerTX("graine");
-        fereIni = image.getImage("fourmiliere");//.getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
+        tFIni = chargerTX("F",3,(byte)0,-3);
+        tGIni = chargerTX("seed");
+        fereIni = image.getImage("antnest");//.getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
         cNuageuseIni = image.getImage("cNuageuse");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         cSombreIni = image.getImage("cSombre");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         bIni = image.getImages("b"); int lenb = bIni.length;
@@ -139,7 +145,7 @@ public class Data {
       }
       imageIni=true;
       if(!imageIniForNewGame){
-        tIFIni = chargerTX("F",Main.getNbrDeJoueur(),(byte)0,1);
+        tIFIni = chargerTX("F0&",Main.getNbrDeJoueur(),(byte)0,1);
       }
       imageIniForNewGame=true;
     }
@@ -173,13 +179,13 @@ public class Data {
     public void iniBackgroundMapImage(){
       if(!Main.getView().getActionGameOn()){return;}
       Main.startCh();
-      // if(Main.getPc()==null){erreur.erreur("Map panel is null");}
-      Main.getPc().actualiserSize();
-      Img img = new Img(Main.getPc().getWidth(),Main.getPc().getHeight());
+      // if(Panneau.getView().getPc()==null){erreur.erreur("Map panel is null");}
+      Panneau.getView().getPc().actualiserSize();
+      Img img = new Img(Panneau.getView().getPc().getWidth(),Panneau.getView().getPc().getHeight());
       //if(img.)
       Img img2 = null;
-      int xCase = Main.getPc().getXCase();
-      int yCase = Main.getPc().getYCase();
+      int xCase = Panneau.getView().getPc().getXCase();
+      int yCase = Panneau.getView().getPc().getYCase();
       try {
         // if(getTailleDUneCase()<1){erreur.erreur("Case size is <1");}
         for (int i=0;i<xCase ;i++ ) {
@@ -187,7 +193,7 @@ public class Data {
             int xT = i*getTailleDUneCase(); int yT = j*getTailleDUneCase();
             Case c=null;
             try {
-              c = Main.getGc().getCCase(i+Main.getPc().getPosX(),j+Main.getPc().getPosY()).getContenu();
+              c = Main.getGc().getCCase(i+Panneau.getView().getPc().getPosX(),j+Panneau.getView().getPc().getPosY()).getContenu();
             }catch (Exception e) {erreur.erreur("case is null");}
             try {
               img2 = new Img(tICarte[c.getType()-1]);
@@ -265,16 +271,32 @@ public class Data {
       }else{
         chargerTImage();
       }
-      PanneauActionInf.chargerFond();
-      PanneauActionSup.chargerFond();
+      loadBackgroundPAI();
+      loadBackgroundPAS();
     }
+  }
+  /**
+  *Load backgroundPAI
+  *@version 1.46
+  */
+  private void loadBackgroundPAI(){
+    backgroundPAI = image.getImage("backgroundPAI");
+    backgroundPAI = backgroundPAI.getScaledInstance(Main.getDimX(), Panneau.getView().getPa().getHeight(),Image.SCALE_SMOOTH);
+  }
+  /**
+  *Load backgroundPAS
+  *@version 1.46
+  */
+  private void loadBackgroundPAS(){
+    backgroundPAS = image.getImage("backgroundPAS");
+    backgroundPAS = backgroundPAS.getScaledInstance(Panneau.getView().getPa().getHeight(), Panneau.getView().getPa().getHeight(),Image.SCALE_SMOOTH);
   }
   /**
   *Load images for PanneauAction without background
   *@version 1.18
   */
-  public void chargerTImage(){
-    int tailleBouton = Main.getPa().getTailleBouton();
+  private void chargerTImage(){
+    int tailleBouton = Panneau.getView().getPa().getTailleBouton();
     tImage = image.getImages("desc");
     for (int i=0;i<10 ;i++ ) {
       tImage[i] = image.resize(tImage[i],tailleBouton);
@@ -284,8 +306,8 @@ public class Data {
   *Load images for PanneauAction with background
   *@version 1.18
   */
-  public void chargerTImageAvecFond(Pixel pi){
-    int tailleBouton = Main.getPa().getTailleBouton();
+  private void chargerTImageAvecFond(Pixel pi){
+    int tailleBouton = Panneau.getView().getPa().getTailleBouton();
     for (int k=0;k<10 ;k++) {
       Img img = new Img("desc"+k);
       img.changerPixelTransparent(pi);
@@ -346,15 +368,15 @@ public class Data {
     mapName = str.sToSMaj(mapName);
     imageChargement=null;
     if(mapName!=null && !mapName.equals("")){
-      imageChargement=image.getImage("chargement"+mapName,false);
+      imageChargement=image.getImage("loading"+mapName,false);
       if(imageChargement!=null){
         imageChargement=image.resize(imageChargement,Main.getDimX(),Main.getDimY());
       }
     }
     //if it haven't been load yet we try to load any image name chargementi.png or .jpj.
     if(imageChargement==null){
-      int x = allea.getAlléa(image.getNbrImages("chargement"));
-      imageChargement=image.getImage("chargement"+x);
+      int x = allea.getAlléa(image.getNbrImages("loading"));
+      imageChargement=image.getImage("loading"+x);
       imageChargement=image.resize(imageChargement,Main.getDimX(),Main.getDimY());
       return true;
     }

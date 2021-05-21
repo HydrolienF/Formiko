@@ -45,7 +45,9 @@ public class Bouton extends JButton implements MouseListener{
     debug.débogage("Création du bouton "+str);
     this.nom = str; this.p = p; this.action = action;
     this.addMouseListener(this);
-    this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.
+    if (p!=null) {
+      this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.
+    }
     this.setFont(Main.getFont1());
   }
   //public Bouton (String str, Panneau p, int action, Image i){ this(str,p,(byte) action,i);}
@@ -61,9 +63,9 @@ public class Bouton extends JButton implements MouseListener{
   public void setCFond(Color c){cFond=c;}
   public static int getDimY(){ return (int)(Main.getOp().getTaillePolice1()*1.4);}
   public void setDesc(String s){
-    if(Main.getPp().getPj()==null){ erreur.erreur("pj null");}
+    if(Panneau.getView().getPp().getPj()==null){ erreur.erreur("pj null");}
     try {
-      Main.getPp().getPj().getPb().setDesc(s);
+      Panneau.getView().getPp().getPj().getPb().setDesc(s);
     }catch (Exception e) {erreur.alerte("Impossible de setDesc pour le bouton.");}
   }
   // Fonctions propre -----------------------------------------------------------
@@ -132,6 +134,6 @@ public class Bouton extends JButton implements MouseListener{
   //Méthode appelée lorsque l'on relâche le clic de souris
   public void mouseReleased(MouseEvent event) {
     debug.débogage("Un bouton a été cliqué, l'action "+action+" vas être effectué.");
-    p.doAction(action);
+    Main.doAction(action);
   }
 }

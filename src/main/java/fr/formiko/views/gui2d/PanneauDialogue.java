@@ -19,12 +19,15 @@ public class PanneauDialogue extends Panneau {
   }
   public void initialiser(String s){
     if(pi!=null){remove(pi);}
-    if(s.equals("")){
-      Main.getPj().getPdi().setVisible(false);
-      return;
-    }
     try {
-      Main.getPj().getPdi().setVisible(true);
+      if(s.equals("")){
+        getView().getPj().getPdi().setVisible(false);
+        return;
+      }
+      getView().getPj().getPdi().setVisible(true);
+      if(getView().getPch()!= null && getView().getPch().isVisible()){
+        getView().getPj().getPdi().setVisible(false);
+      }
     }catch (Exception e) {
       erreur.alerte("Le PanneauDialogueInf n'as pas pu être mis visible.");
     }

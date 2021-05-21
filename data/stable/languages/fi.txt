@@ -26,6 +26,7 @@ commande:tilattu[auto]
 bientôt:pian[auto]
 suivant:seurata[auto]
 avant:ennen[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:muussa tapauksessa painikkeiden kuvaukset näkyvät, kun viet hiiren oso
 tuto.34:jos et siitä huolimatta löydä tarvitsemasi, voit kysyä neuvoja pelin virallisesta riitapalvelimesta: http://discord.gg/vqvfGzf[auto]
 tuto.35:voit voittaa pelin ajoissa sinulla on oltava korkeammat pisteet kuin tekoälyllä ja muilla pelaajilla.[auto]
 tuto.36:pisteet riippuvat muurahaismäärästäsi (aikuiset muurahaiset antavat paremman pistemäärän), sekä pelin vaikeudesta ja nopeudesta.[auto]
-tuto.37:pelin käynnistämiseksi sinun on lopetettava peli ja käynnistettävä se uudelleen, minä hoidan pelin lopettamisen, sinun on aloitettava se uudelleen.[auto]
+tuto.37:

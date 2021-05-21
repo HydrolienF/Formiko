@@ -26,6 +26,7 @@ commande:objednal[auto]
 bientôt:již brzy[auto]
 suivant:následující[auto]
 avant:před[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:jinak se popisy tlačítek zobrazí, když na ně umístíte ukazatel my
 tuto.34:pokud navzdory tomu nenajdete, co potřebujete, můžete vyhledat radu na oficiálním serveru sváru hry: http://discord.gg/vqvfGzf[auto]
 tuto.35:abyste vyhráli hru včas, musíte mít vyšší skóre než AI a ostatní hráči.[auto]
 tuto.36:vaše skóre závisí na vašem počtu mravenců (dospělí mravenci dávají lepší skóre), stejně jako obtížnosti hry a rychlosti hry.[auto]
-tuto.37:chcete-li hru restartovat, musíte hru ukončit a restartovat. O ukončení hry se postarám, je na vás, abyste ji restartovali.[auto]
+tuto.37:

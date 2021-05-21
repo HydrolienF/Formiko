@@ -21,30 +21,22 @@ import javax.imageio.ImageIO;
  *@version 1.4
  */
 public class image{
+
+  // GET SET --------------------------------------------------------------------
+  /***
+  *{@summary The Images directory for extra texture.}<br>
+  *You can add new image that will be used as the game texture (as chargement(Max+1)).
+  *Or You can replace some images by puting an image with the same name than an actual image in getREP() or REP_TEMPORARY.
+  *@version 1.33
+  */
+  public static String getREPTEXTUREPACK(){return Main.getFolder().getFolderResourcesPacks()+Main.getFolder().getFolderImages();}
+  public static void setREPTEXTUREPACK(String s){Main.getFolder().setFolderResourcesPacks(s);}
   /***
    *{@summary The Images directory.}<br>
    *@version 1.33
    */
-  private static final String REP_STABLE = Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages();
-  /***
-   *{@summary The Images directory. Used to put temporary Images.}<br>
-   *@version 1.33
-   */
-  private static final String REP_TEMPORARY = Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages();
-  /***
-   *{@summary The Images directory for extra texture.}<br>
-   *You can add new image that will be used as the game texture (as chargement(Max+1)).
-   *Or You can replace some images by puting an image with the same name than an actual image in REP_STABLE or REP_TEMPORARY.
-   *@version 1.33
-   */
-  private static String REP_TEXTUREPACK = Main.getFolder().getFolderResourcesPacks()+Main.getFolder().getFolderImages();
-  // GET SET --------------------------------------------------------------------
-  public static String getREPTEXTUREPACK(){return REP_TEXTUREPACK;}
-  public static void setREPTEXTUREPACK(String s){
-    if(s!=null){s = str.sToDirectoryName(s);}
-    REP_TEXTUREPACK=s;
-  }
-  public static String getREP(){ return REP_STABLE;}
+  public static String getREP(){ return Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages();}
+  public static String getREPTEMPORARY(){ return Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(); }
   // Fonctions propre -----------------------------------------------------------
   /**
    *{@summary Try to read an Image file}<br>
@@ -65,19 +57,19 @@ public class image{
   }public static BufferedImage readImage(String s){return readImage(new File(s));}
   /**
    *{@summary get an Image in 1 of the 3 usuals images directories.}<br>
-   *It will 1a search on REP_TEXTUREPACK, then in REP_STABLE and finaly in REP_TEMPORARY.
+   *It will 1a search on getREPTEXTUREPACK(), then in getREP() and finaly in REP_TEMPORARY.
    *Image are File who end with ".png" or ".jpg".<br>
    *.png or .jpg do not need to be precised on the name.<br>
-   *@param nom Name of the file without REP_STABLE part.
+   *@param nom Name of the file without getREP() part.
    *@param returnImageNull If true it will return an error image insted of null.
    *@version 1.32
    */
   public static BufferedImage getImage(String nom, boolean returnImageNull){
     BufferedImage imgr = null;
-    if(REP_TEXTUREPACK!=null){imgr = getImage(nom,REP_TEXTUREPACK);}
-    if(imgr==null){imgr = getImage(nom,REP_STABLE);}
-    if(imgr==null){imgr = getImage(nom,REP_TEMPORARY);}//si on ne l'as pas trouvé dans le 1a répertoire on vas chercher dans le 2a.
-    if(imgr==null && returnImageNull){imgr = readImage(new File(REP_STABLE+"null.png"));}
+    if(getREPTEXTUREPACK()!=null){imgr = getImage(nom,getREPTEXTUREPACK());}
+    if(imgr==null){imgr = getImage(nom,getREP());}
+    if(imgr==null){imgr = getImage(nom,getREPTEMPORARY());}//si on ne l'as pas trouvé dans le 1a répertoire on vas chercher dans le 2a.
+    if(imgr==null && returnImageNull){imgr = readImage(new File(getREP()+"null.png"));}
     return imgr;
   }
   public static BufferedImage getImage(String nom){return getImage(nom,true);}
@@ -85,7 +77,7 @@ public class image{
    *{@summary get an Image in a directory.}<br>
    *Image are File who end with ".png" or ".jpg".<br>
    *.png or .jpg do not need to be precised on the name.<br>
-   *@param nom Name of the file without REP_STABLE part.
+   *@param nom Name of the file without getREP() part.
    *@param repTemp directory were to search.
    *@version 1.3
    */
@@ -115,14 +107,15 @@ public class image{
   /**
    *{@summary get an array [] of Image.}<br>
    *Image are File who end with ".png" or ".jpg"
-   *@param nom Name of the file without REP_STABLE part and number and .png or .jpg part of it.
+   *@param nom Name of the file without getREP() part and number and .png or .jpg part of it.
    *@param nbr Number of image that we want.
    *@param lettre A letter that can be after the number on rotated image file. ' ' or 'ø' if there is no letter after the number.
-   *@param x Needed only if x!=0. x is the 1a number of the numbering.
+   *@param k Needed only if k!=0. k is the 1a number of the numbering.
    *@version 1.3
    */
-  public static BufferedImage [] getImages(String nom,char lettre, int nbr, byte x){
-    BufferedImage tr [] = new BufferedImage [nbr];int k=x;
+  public static BufferedImage [] getImages(String nom, char lettre, int nbr, byte k){
+    debug.débogage("getImagess "+nom+" from "+k+" to "+(nbr+k));
+    BufferedImage tr [] = new BufferedImage [nbr];
     for (int i=0;i<nbr ;i++ ) {
       String s = nom+k+lettre;
       if(lettre==' ' || lettre=='ø'){ s = nom+k;}
@@ -135,46 +128,46 @@ public class image{
   /**
    *{@summary Fined the last existing number of image from x.}<br>
    *Image are File who end with ".png" or ".jpg"
-   *@param nom Name of the file without REP_STABLE part and number and .png or .jpg part of it.
+   *@param nom Name of the file without getREP() part and number and .png or .jpg part of it.
    *@param x Needed only if x!=0. x is the 1a number of the numbering.
    *@version 1.3
    */
   public static int getNbrImages(String nom, byte x){
     int t [] = new int [5];
-    t[0] = getNbrImages(nom,REP_STABLE,x);
-    t[1] = getNbrImages(nom,REP_TEMPORARY,x);
-    t[2] = getNbrImages(nom,REP_TEXTUREPACK,x);
-    t[3] = getNbrImages(nom,REP_TEXTUREPACK,(byte)t[0]);//il peu y avoir la suite des images des répertoires classique.
-    t[4] = getNbrImages(nom,REP_TEXTUREPACK,(byte)t[1]);
+    t[0] = getNbrImages(nom,getREP(),x);
+    t[1] = getNbrImages(nom,getREPTEMPORARY(),x);
+    t[2] = getNbrImages(nom,getREPTEXTUREPACK(),x);
+    t[3] = getNbrImages(nom,getREPTEXTUREPACK(),(byte)t[0]);//il peu y avoir la suite des images des répertoires classique.
+    t[4] = getNbrImages(nom,getREPTEXTUREPACK(),(byte)t[1]);
     return math.max(t);
   }public static int getNbrImages(String n){return getNbrImages(n,(byte)0);}
   /**
    *{@summary Fined the last existing number of image from x on a directory}<br>
    *Image are File who end with ".png" or ".jpg"
-   *@param nom Name of the file without REP_STABLE part and number and .png or .jpg part of it.
-   *@param REP_STABLE Directory name.
+   *@param nom Name of the file without repStable part and number and .png or .jpg part of it.
+   *@param repStable Directory name.
    *@param x Needed only if x!=0. x is the 1a number of the numbering.
    *@version 1.3
    */
-  public static int getNbrImages(String nom, String REP_STABLE, byte x){
+  public static int getNbrImages(String nom, String repStable, byte x){
     int nbr = x;
-    File f = new File(REP_STABLE+nom+nbr+".png");
-    File f2 = new File(REP_STABLE+nom+nbr+".jpg");
+    File f = new File(repStable+nom+nbr+".png");
+    File f2 = new File(repStable+nom+nbr+".jpg");
     while(f.exists() || f2.exists()){
-      f = new File(REP_STABLE+nom+nbr+".png");
-      f2 = new File(REP_STABLE+nom+nbr+".jpg");
+      f = new File(repStable+nom+nbr+".png");
+      f2 = new File(repStable+nom+nbr+".jpg");
       nbr++;
     }nbr--; //on compense le cran de trop.
     if(nbr==x-1){return 0;}//si on est jamais entré dans la boucle.
     return math.max(nbr,0);
-  }public static int getNbrImages(String n, String REP_STABLE){return getNbrImages(n,REP_STABLE,(byte)0);}
+  }public static int getNbrImages(String n, String repStable){return getNbrImages(n,repStable,(byte)0);}
   public static BufferedImage[] getImages(String nom, int nbr){ return getImages(nom,nbr,(byte)0);}
   public static BufferedImage[] getImages(String nom){ return getImages(nom,(byte)0);}
   /**
    *{@summary get an array [][] of Image.}<br>
    *Image are File who end with ".png" or ".jpg"<br>
    *This metode will always return a new Image [4][nbr] to have the 4 rotated images.
-   *@param nom Name of the file without REP_STABLE part and number and .png or .jpg part of it.
+   *@param nom Name of the file without getREP() part and number and .png or .jpg part of it.
    *@param nbr Number of image that we want.
    *@param x Needed only if x!=0. x is the 1a number of the numbering.
    *@version 1.3
@@ -213,10 +206,14 @@ public class image{
    *@version 1.3
    */
   public static void clearTemporaire(){
-    File docier = new File(REP_TEMPORARY);
-    File[] fichiers = docier.listFiles();
-    for (File f : fichiers ) {
-      if(isImage(f)){f.delete();}
+    File folder = new File(getREPTEMPORARY());
+    if(folder !=null && folder.isDirectory()){
+      File[] fichiers = folder.listFiles();
+      if(fichiers!=null){
+        for (File f : fichiers ) {
+          if(isImage(f)){f.delete();}
+        }
+      }
     }
   }
   /**
@@ -224,11 +221,17 @@ public class image{
    *@version 1.3
    */
   public static void clearPartielTemporaire(){
-    File docier = new File(REP_TEMPORARY);
-    File[] fichiers = docier.listFiles();
-    for (File f : fichiers ) {
-      if(str.contient(f.getName(),"F",0)){//si c'est une fourmi. (= si le fichier commence par "F")
-        if(isImage(f)){f.delete();}
+    //TODO #248 remove all this function that isn't need anymore.
+    File folder = new File(getREPTEMPORARY());
+    if(folder.exists() && folder.isDirectory()){
+      File[] fichiers = new File[0];
+      fichiers = folder.listFiles();
+      if(fichiers != null){
+        for (File f : fichiers ) {
+          if(str.contient(f.getName(),"F0&",0)){
+            if(isImage(f)){f.delete();}
+          }
+        }
       }
     }
   }
@@ -267,7 +270,7 @@ public class image{
     img.actualiserImage();
     img.sauvegarder("tempFromImage");
     try {
-      File f = new File(REP_STABLE+"tempFromImage.png");
+      File f = new File(getREP()+"tempFromImage.png");
       if(isImage(f)){
         BufferedImage i2 = getImage("tempFromImage");
         return i2;

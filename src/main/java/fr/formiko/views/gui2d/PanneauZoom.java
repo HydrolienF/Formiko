@@ -30,7 +30,7 @@ public class PanneauZoom extends Panneau {
     int tailleBouton=Main.getbuttonSizeZoom();
     setSize(tailleBouton*3,tailleBouton*3);
   }
-  public void construire(){
+  public void build(){
     int tailleBouton=Main.getbuttonSizeZoom();
     this.setLayout(new GridBagLayout());
     Image tIB []; tailleBouton=Main.getbuttonSizeZoom();
@@ -97,6 +97,6 @@ public class PanneauZoom extends Panneau {
     this.setSize(tailleBouton*3,tailleBouton*3);
   }
   public void doAction(byte ac){
-    Main.getPj().doAction(ac);
+    Panneau.getView().getPj().doAction(ac);
   }public void doAction(int ac){ doAction((byte)ac);}
 }

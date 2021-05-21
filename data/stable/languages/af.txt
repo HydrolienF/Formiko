@@ -26,6 +26,7 @@ commande:bestel[auto]
 bientôt:binnekort[auto]
 suivant:volgende[auto]
 avant:voorheen[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:andersins word die beskrywings van die knoppies vertoon as u daaroor bew
 tuto.34:as u egter nie vind wat u nodig het nie, kan u advies inwin oor die amptelike diskordbediener van die spel: http://discord.gg/vqvfGzf[auto]
 tuto.35:om 'n wedstryd betyds te wen, moet u 'n hoër telling hê as AI en ander spelers.[auto]
 tuto.36:u telling hang af van u aantal miere (volwasse miere gee 'n beter telling), sowel as die moeilikheid van die spel en die spoed van die spel.[auto]
-tuto.37:om 'n speletjie weer te begin, moet u die spel ophou en dit weer begin, ek sal sorg dat u die spel ophou, dit hang van u af om dit weer te begin.[auto]
+tuto.37:

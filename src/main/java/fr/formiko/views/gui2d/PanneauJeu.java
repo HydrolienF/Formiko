@@ -86,7 +86,7 @@ public class PanneauJeu extends Panneau {
   public void initialiserPd(String s){
     pd.initialiser(s);
     pdi.initialiser();
-    pd.setBounds(0,0,pd.getWidth(),pd.getHeight());
+    pd.setLocation(0,0);
     revalidate();
   }
   public void removePd(){
@@ -117,12 +117,21 @@ public class PanneauJeu extends Panneau {
     pch = new PanneauChargement();
     pch.setBounds(0,0,getWidth(),getHeight());
     add(pch);
+    if(pd!=null){
+      pd.setVisible(false);
+      pdi.setVisible(false);
+    }
     pc.setVisible(false);
     pb.setVisible(false);
+    Main.repaint();
   }
   public void removePch(){
     remove(pch);
     pch = null;
+    if(pd!=null){
+      pd.setVisible(true);
+      pdi.setVisible(true);
+    }
     pc.setVisible(true);
     pb.setVisible(true);
   }
@@ -161,7 +170,7 @@ public class PanneauJeu extends Panneau {
   }
   public void dézoomer(byte x){
     int y1 = Main.getDimX()/Main.getGc().getNbrX();
-    int pah = Main.getPa().getHeight();
+    int pah = Panneau.getView().getPa().getHeight();
     if(pah==0){pah=Main.getTailleElementGraphique(180);}
     int y2 = (Main.getDimY()-pah)/Main.getGc().getNbrY();
     int y=0;
@@ -172,7 +181,7 @@ public class PanneauJeu extends Panneau {
   }
   public void actionAFaireSiTailleD1CaseChange(){
     if (Main.getPartie().getEnCours()){
-      Main.getPc().actualiserSize();
+      Panneau.getView().getPc().actualiserSize();
       Main.getData().chargerImages();
       Main.getData().iniBackgroundMapImage();
     }
@@ -210,7 +219,7 @@ public class PanneauJeu extends Panneau {
     }else if(ac==8){
       dézoomer((byte)2);
     }
-    repaint();
+    Main.repaint();
   }
   public void alerte(String s, String s2){
     JOptionPane jop1 = new JOptionPane();

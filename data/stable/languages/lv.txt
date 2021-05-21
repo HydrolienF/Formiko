@@ -26,6 +26,7 @@ commande:pasūtīts[auto]
 bientôt:drīz[auto]
 suivant:sekojošs[auto]
 avant:pirms[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:pretējā gadījumā pogu apraksti tiek parādīti, virzot kursoru virs 
 tuto.34:ja, neskatoties uz to, neatrodat to, kas jums nepieciešams, varat meklēt padomu spēles oficiālajā nesaskaņu serverī: http://discord.gg/vqvfGzf[auto]
 tuto.35:lai uzvarētu spēlē laikā, jums ir jābūt augstākam rādītājam nekā AI un citiem spēlētājiem.[auto]
 tuto.36:jūsu rezultāts ir atkarīgs no jūsu skudru skaita (pieaugušas skudras dod labāku rezultātu), kā arī no spēles grūtības un spēles ātruma.[auto]
-tuto.37:lai atsāktu spēli, jums ir jāpamet spēle un jārestartē, es rūpēšos par spēles pārtraukšanu, jums ir jāpārtrauc tā.[auto]
+tuto.37:

@@ -67,6 +67,8 @@ public class PondreReineTest extends TestCaseMuet{
   public void testCanLay5(){
     ini();
     Creature f = new Insecte();
+    ((Insecte)(f)).setType((byte)(0));
+    f.setNourritureMax(100);
     assertTrue(!f.canLay());
     f.setNourriture(f.getNourritureMax());
     f.setAction(f.getActionMax());

@@ -26,6 +26,7 @@ commande:bestilt[auto]
 bientôt:snart[auto]
 suivant:følgende[auto]
 avant:før[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:ellers vises knappebeskrivelsene når du holder markøren over dem, ditt
 tuto.34:hvis du til tross for dette ikke finner det du trenger, kan du søke råd på spillets offisielle diskordserver: http://discord.gg/vqvfGzf[auto]
 tuto.35:for å vinne et spill i tide må du ha en høyere poengsum enn AI og andre spillere.[auto]
 tuto.36:poengsummen din avhenger av antall maur, (voksne maur gir bedre score), samt vanskeligheten med spillet og hastigheten på spillet.[auto]
-tuto.37:for å starte et spill på nytt, må du slutte spillet og starte det på nytt, jeg tar meg av å slutte spillet, det er opp til deg å starte det på nytt.[auto]
+tuto.37:

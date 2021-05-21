@@ -26,6 +26,7 @@ commande:ferman kir[auto]
 bientôt:nêzda[auto]
 suivant:pêketînî[auto]
 avant:berî[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:wekî din dema ku hûn li ser wan digerin, ji bo qutiyên li ser nexşey
 tuto.34:ger digel vê yekê hûn çi hewce nebînin hûn dikarin li ser servera nakokiya lîstikê şîretan bigerin: http://discord.gg/vqvfGzf[auto]
 tuto.35:ji bo ku demek lîstikek bi dest bixin divê hûn ji AI û lîstikvanên din puanek mezintir hebin.[auto]
 tuto.36:pûana we bi jimara weya maran ve girêdayî ye, (kewên mezin puanek baştir didin), û her weha dijwariya lîstikê û leza lîstikê.[auto]
-tuto.37:ji bo ku lîstikek ji nû ve dest pê bike, hûn neçar in ku dev ji lîstikê berdin û wê ji nû ve bidin destpêkirin, ez ê dev ji lîstikê berdim, ji we re ye ku wê ji nû ve bidin destpêkirin.[auto]
+tuto.37:

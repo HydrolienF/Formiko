@@ -45,7 +45,10 @@ cmd.34.3:actualiserTailleMin
 cmd.35:affDate
 cmd.36:setLangue
 cmd.37:backToMainMenu
-cmd.38:endGame
+cmd.38:endActionGame
+cmd.39:menu
+cmd.40:actionGame
+cmd.41:paint
 
 cmd.type.1:Creature
 cmd.type.2:Insecte
@@ -57,3 +60,10 @@ cmd.type.7:GCreature
 cmd.type.8:GInsecte
 cmd.type.9:GFourmi
 cmd.type.10:GJoueur
+
+cmd.menu.1:main
+cmd.menu.2:newGame
+cmd.menu.3:loadAGame
+cmd.menu.4:personaliseAGame
+cmd.menu.5:options
+cmd.menu.6:actionGame

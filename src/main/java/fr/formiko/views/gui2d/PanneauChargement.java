@@ -45,7 +45,7 @@ public class PanneauChargement extends Panneau {
   }
   public void addBt(){
     lancer=false;
-    bt = new Bouton(g.getM("lancerLeJeu"), Main.getPj(), 111);
+    bt = new Bouton(g.getM("lancerLeJeu"), Panneau.getView().getPj(), 111);
     bt.setFont(Main.getFont2());
     add(bt);
     int xx = Main.getF().getWidth()/5;

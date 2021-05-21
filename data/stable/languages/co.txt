@@ -26,6 +26,7 @@ commande:urdinatu[auto]
 bientôt:prestu[auto]
 suivant:seguenti[auto]
 avant:prima[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:altrimenti e descrizzioni di i buttoni sò affissate quandu passate nant
 tuto.34:se malgradu questu ùn truvate micca ciò chì avete bisognu pudete cercà cunsiglii nantu à u servitore ufficiale di discordia di u ghjocu: http://discord.gg/vqvfGzf[auto]
 tuto.35:per vince una partita à tempu duvete avè un puntuu più altu ch'è AI è altri ghjucatori.[auto]
 tuto.36:u vostru puntuu dipende da u vostru numeru di furmicule, (e furmicule adulte danu un puntuu megliu), è ancu da a difficultà di u ghjocu è a velocità di u ghjocu.[auto]
-tuto.37:per riavviare un ghjocu, duvete abbandunà u ghjocu è riavvià lu, aghju a cura di lascià u ghjocu, tocca à voi di riavviallu.[auto]
+tuto.37:

@@ -23,9 +23,9 @@ public class PanneauPrincipal extends Panneau {
   private Image img;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauPrincipal(){}
-  public void construire(){
+  public void build(){
     this.setLayout(null);
-    img = image.getImage("arrierePlan.png");
+    img = image.getImage("backgroundPP");
     img = img.getScaledInstance(this.getWidth(), this.getHeight(),Image.SCALE_SMOOTH);
   }
   // GET SET --------------------------------------------------------------------
@@ -51,7 +51,11 @@ public class PanneauPrincipal extends Panneau {
     pj.setVisible(true);
     this.add(pj);
   }
-  public void removePm(){
+  public synchronized void removePm(){
+    // if(pm==null){
+    //   erreur.alerte("Impossible de retirer le PanneauMenu.");
+    //   return;
+    // }
     pm.setVisible(false);
     remove(pm);
     pm=null;

@@ -26,6 +26,7 @@ commande:ordonat[auto]
 bientôt:curând[auto]
 suivant:ca urmare a[auto]
 avant:inainte de[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:în caz contrar, descrierile butoanelor sunt afișate când treceți cu 
 tuto.34:dacă în ciuda acestui fapt nu găsiți ceea ce aveți nevoie, puteți solicita sfaturi pe serverul oficial de discordie al jocului: http://discord.gg/vqvfGzf[auto]
 tuto.35:pentru a câștiga un joc la timp trebuie să ai un scor mai mare decât AI și ceilalți jucători.[auto]
 tuto.36:scorul dvs. depinde de numărul dvs. de furnici (furnicile adulte dau un scor mai bun), precum și de dificultatea jocului și de viteza jocului.[auto]
-tuto.37:pentru a reporni un joc, trebuie să renunțați la joc și să-l reporniți, eu mă voi ocupa de renunțarea la joc, depinde de dvs. să îl reporniți.[auto]
+tuto.37:

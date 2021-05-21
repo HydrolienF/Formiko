@@ -26,6 +26,7 @@ commande:buyurdi[auto]
 bientôt:tez orada[auto]
 suivant:quyidagi[auto]
 avant:oldin[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:aks holda tugma tavsiflari ustiga siljiganingizda ko'rsatiladi, xaritada
 tuto.34:agar bunga qaramay, kerakli narsani topa olmasangiz, o'yinning rasmiy kelishmovchiliklar serveridan maslahat olishingiz mumkin: http://discord.gg/vqvfGzf[auto]
 tuto.35:o'yinni o'z vaqtida yutish uchun siz sun'iy intellekt va boshqa o'yinchilarga qaraganda yuqori ball to'plashingiz kerak.[auto]
 tuto.36:sizning hisobingiz chumolilar soniga, (kattalar chumolilar yaxshiroq ball beradi), shuningdek, o'yinning qiyinligi va o'yin tezligiga bog'liq.[auto]
-tuto.37:o'yinni qayta boshlash uchun siz o'yinni tugatishingiz va uni qayta boshlashingiz kerak, men o'yinni tugatish bilan shug'ullanaman, uni qayta boshlash sizning ixtiyoringizda.[auto]
+tuto.37:

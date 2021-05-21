@@ -26,6 +26,7 @@ commande:nyere iwu[auto]
 bientôt:ngwa ngwa[auto]
 suivant:na-eso[auto]
 avant:tupu[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:ma ọ bụghị, a na-egosipụta nkọwa bọtịnụ mgbe ị na-at�
 tuto.34:ọ bụrụ n ’agbanyeghị nke a ịchọtaghị ihe ịchọrọ, inwere ike ịchọ ndụmọdụ n’ozi ihe eji arụ ọrụ egwuregwu: http://discord.gg/vqvfGzf[auto]
 tuto.35:iji merie egwuregwu na oge ị ga - enwerịrị akara karịa AI na ndị egwuregwu ndị ọzọ.[auto]
 tuto.36:ihe akara gị dabere na ọnụ ọgụgụ gị nke ndanda, (okenye ndanda na-enye akara ka mma), yana nsogbu nke egwuregwu na ọsọ nke egwuregwu.[auto]
-tuto.37:ka ịmalitegharia egwuregwu, ị ga-akwụsị egwuregwu ahụ ma bidogharịa ya, m ga-eleba anya ịkwụsị egwuregwu ahụ, ọ bụ gị ka ịmalitegharịa ya.[auto]
+tuto.37:

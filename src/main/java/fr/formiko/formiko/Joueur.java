@@ -94,8 +94,8 @@ public class Joueur implements Serializable{
       Message m = new Message(pseudo+" "+g.get("débutTourIa"),id,6);
     }
     if(Main.getGj().getJoueurHumain().length()>1 && !ia){
-      Main.repaint();
-      Main.getPj().alerte(pseudo+" "+g.get("débutTourJoueur")+".");
+      Main.getPartie().setPlayingAnt(null);
+      Main.getView().popUpMessage(pseudo+" "+g.get("débutTourJoueur")+".");
     }
     fere.jouer();
   }

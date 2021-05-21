@@ -1,15 +1,27 @@
 package fr.formiko.usuel;
 
-//def par défaut des fichiers depuis 0.79.5
+import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.read;
+import fr.formiko.usuel.types.str;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import fr.formiko.usuel.listes.GString;
-import fr.formiko.usuel.types.str;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.FileChannel;
+import java.nio.channels.ReadableByteChannel;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+import java.util.zip.ZipOutputStream;
 
+/**
+*{@summary tools about Files.}
+*@author Hydrolien Baeldung
+*@version 1.46
+*/
 public class fichier{
 
   // CONSTRUCTEUR -----------------------------------------------------------------
@@ -44,18 +56,18 @@ public class fichier{
 
   /**
    *{@summary Delete a directory and all his content.}<br>
+   *If it's a folder it will call deleteDirectory on all sub file/folder and then destroy itself.
+   *If it's a file it will destroy itself.
    *@version 1.13
    */
   public static boolean deleteDirectory(File directoryToBeDeleted) {
     if(directoryToBeDeleted==null){return false;}
     File allF [] = directoryToBeDeleted.listFiles();
-    //on demande a tout les sous répertoires de ce surppimer.
     if (allF != null) {
         for (File file : allF) {
             deleteDirectory(file);
         }
     }
-    //on traite le fichier.
     return directoryToBeDeleted.delete();
   }public static boolean deleteDirectory(String s){try {return deleteDirectory(new File(str.sToDirectoryName(s)));}catch (Exception e){return false;}}
 
@@ -76,10 +88,7 @@ public class fichier{
           i++;
         }
         System.out.println("\n");
-      } catch (NullPointerException e) {
-        //L'instruction peut générer une NullPointerException
-        //s'il n'y a pas de sous-fichier !
-      }
+      } catch (NullPointerException e) {} //can be throw if there is no file.
     }
   }
   public static void fichierCiblePeuAvoirCeNom(String nom) {
@@ -91,26 +100,12 @@ public class fichier{
     copierUnFichier(nomDuFichierACopier, nomDuFichierCible);
   }
   public static void copierUnFichier(String nomDuFichierACopier, String nomDuFichierCible){
-    /*try {
-      fichierCiblePeuAvoirCeNom(nomDuFichierCible);
-    } catch (FichierDejaPresentException e){
-      e.printStackTrace();
-    }*/
-    /*if (f.exists()){ // permet d'éviter : qu'un fichier soit écrabouiller et que le fichier x soit copié dans le fichier x.
-      erreur.erreur("Le nom du nouveau fichier existe déjà ! Il ne faudrait pas l'écraser !","fichier.copierUnFichier",true);
-    }*/
-    // Nous déclarons nos objets en dehors du bloc try/catch
     FileInputStream fis = null;
     FileOutputStream fos = null;
 
     try {
-       // On instancie nos objets :
-       // fis va lire le fichier
-       // fos va écrire dans le nouveau !
        fis = new FileInputStream(new File(nomDuFichierACopier));
        fos = new FileOutputStream(new File(nomDuFichierCible));
-
-       // On crée un tableau de byte pour indiquer le nombre de bytes lus à chaque tour de boucle
        byte[] buf = new byte[8];
 
        // On crée une variable de type int pour y affecter le résultat de
@@ -161,5 +156,128 @@ public class fichier{
           e.printStackTrace();
        }
     }
+  }
+  /**
+   *{@summary download a file from the web.}<br>
+   *@param url the url as a String.
+   *@param fileName the name of the file were to save data from the web.
+   *@version 1.46
+   */
+  public static void download(String url, String fileName){
+    try {
+      ReadableByteChannel readChannel = Channels.newChannel(new URL(url).openStream());
+      FileOutputStream fileOS = new FileOutputStream(fileName);
+      FileChannel writeChannel = fileOS.getChannel();
+      writeChannel.transferFrom(readChannel, 0, Long.MAX_VALUE);
+    }catch (Exception e) {
+      erreur.erreur("Fail to download "+fileName+" from "+url);
+    }
+  }
+  /**
+  *{@summary a class to zip file.}<br>
+  *cf https://www.baeldung.com/java-compress-and-uncompress
+  *@version 1.46
+  */
+  public static void zip(String sourceFolder, String outputFile){
+    try {
+      outputFile = str.addALaFinSiNecessaire(outputFile,".zip");
+      FileOutputStream fos = new FileOutputStream(outputFile);
+      ZipOutputStream zipOut = new ZipOutputStream(fos);
+      File fileToZip = new File(sourceFolder);
+      zipFile(fileToZip, fileToZip.getName(), zipOut, outputFile);
+      zipOut.close();
+      fos.close();
+    }catch (Exception e) {
+      erreur.erreur("Fail to zip file "+sourceFolder+" into "+outputFile);
+    }
+  }
+  /**
+  *{@summary a class to do main part of ziping a file.}<br>
+  *cf https://www.baeldung.com/java-compress-and-uncompress
+  *@version 1.46
+  */
+  private static void zipFile(File fileToZip, String fileName, ZipOutputStream zipOut, String outputFile) {
+    try {
+      if (fileToZip.isHidden()) {
+          return;
+      }
+      if (fileToZip.isDirectory()) {
+          fileName = str.addALaFinSiNecessaire(fileName,"/");
+          zipOut.putNextEntry(new ZipEntry(fileName));
+          zipOut.closeEntry();
+          File[] children = fileToZip.listFiles();
+          for (File childFile : children) {
+              zipFile(childFile, fileName + childFile.getName(), zipOut, outputFile);
+          }
+          return;
+      }
+      FileInputStream fis = new FileInputStream(fileToZip);
+      ZipEntry zipEntry = new ZipEntry(fileName);
+      zipOut.putNextEntry(zipEntry);
+      byte[] bytes = new byte[1024];
+      int length;
+      while ((length = fis.read(bytes)) >= 0) {
+          zipOut.write(bytes, 0, length);
+      }
+      fis.close();
+    }catch (Exception e) {
+      erreur.erreur("Fail to zip file during ziping of "+fileToZip.getName()+" into "+outputFile);
+    }
+  }
+  /**
+  *{@summary a class to unzip file.}<br>
+  *cf https://www.baeldung.com/java-compress-and-uncompress
+  *@param fileName the name of the .zip file.
+  *@param folderName the name of the folder were to save data from the .zip.
+  *@version 1.46
+  */
+  public static void unzip(String fileName, final String folderName){
+    fileName = str.addALaFinSiNecessaire(fileName,".zip");
+    final File destDir = new File(folderName);
+    final byte[] buffer = new byte[1024];
+    try {
+      final ZipInputStream zis = new ZipInputStream(new FileInputStream(fileName));
+      ZipEntry zipEntry = zis.getNextEntry();
+      while (zipEntry != null) {
+          final File newFile = newFile(destDir, zipEntry);
+          if (zipEntry.isDirectory()) {
+              if (!newFile.isDirectory() && !newFile.mkdirs()) {
+                  throw new IOException("Failed to create directory " + newFile);
+              }
+          } else {
+              File parent = newFile.getParentFile();
+              if (!parent.isDirectory() && !parent.mkdirs()) {
+                  throw new IOException("Failed to create directory " + parent);
+              }
+
+              final FileOutputStream fos = new FileOutputStream(newFile);
+              int len;
+              while ((len = zis.read(buffer)) > 0) {
+                  fos.write(buffer, 0, len);
+              }
+              fos.close();
+          }
+          zipEntry = zis.getNextEntry();
+      }
+      zis.closeEntry();
+      zis.close();
+    }catch (Exception e) {
+      erreur.erreur("Fail to unzip "+fileName+" in "+folderName);
+    }
+  }
+    /**
+    *{@summary a safe way to create a File from a zip file to avoid Zip Slip.}<br>
+    *@param destinationDir File that we whant to create in the zipEntry folder.
+    *@param zipEntry the ZipEntry.
+    *@version 1.46
+    */
+  public static File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
+      File destFile = new File(destinationDir, zipEntry.getName());
+      String destDirPath = destinationDir.getCanonicalPath();
+      String destFilePath = destFile.getCanonicalPath();
+      if (!destFilePath.startsWith(destDirPath + File.separator)) {
+          throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
+      }
+      return destFile;
   }
 }

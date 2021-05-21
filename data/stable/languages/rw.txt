@@ -26,6 +26,7 @@ commande:yategetse[auto]
 bientôt:vuba[auto]
 suivant:ibikurikira[auto]
 avant:mbere[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:ubundi ibisobanuro bya buto byerekanwe mugihe uzengurutse hejuru, ditto 
 tuto.34:niba nubwo bimeze bityo utabonye icyo ukeneye urashobora gushaka inama kuri seriveri yemewe yimikino: http://discord.gg/vqvfGzf[auto]
 tuto.35:kugira ngo utsinde umukino ku gihe ugomba kuba ufite amanota menshi kurenza AI hamwe nabandi bakinnyi.[auto]
 tuto.36:amanota yawe aterwa numubare wibimonyo, (ibimonyo bikuze bitanga amanota meza), kimwe nikibazo cyumukino n'umuvuduko wumukino.[auto]
-tuto.37:kugirango utangire umukino, ugomba kureka umukino ukongera ukitangira, nzita ku kureka umukino, ni wowe ugomba kongera gutangira.[auto]
+tuto.37:

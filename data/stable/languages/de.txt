@@ -26,6 +26,7 @@ commande:bestellt[auto]
 bientôt:demnächst[auto]
 suivant:folgenden[auto]
 avant:vor[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:andernfalls werden die Schaltflächenbeschreibungen angezeigt, wenn Sie 
 tuto.34:wenn Sie trotzdem nicht das finden, was Sie brauchen, können Sie sich auf dem offiziellen Discord-Server des Spiels beraten lassen: http://discord.gg/vqvfGzf[auto]
 tuto.35:um ein Spiel rechtzeitig zu gewinnen, müssen Sie eine höhere Punktzahl als AI und andere Spieler haben.[auto]
 tuto.36:ihre Punktzahl hängt von Ihrer Anzahl der Ameisen ab (erwachsene Ameisen geben eine bessere Punktzahl) sowie von der Schwierigkeit des Spiels und der Geschwindigkeit des Spiels.[auto]
-tuto.37:um ein Spiel neu zu starten, müssen Sie das Spiel beenden und neu starten. Ich kümmere mich darum, das Spiel zu beenden. Es liegt an Ihnen, es neu zu starten.[auto]
+tuto.37:

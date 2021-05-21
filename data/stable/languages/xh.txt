@@ -26,6 +26,7 @@ commande:iyalelwe[auto]
 bientôt:kungekudala[auto]
 suivant:elandelayo[auto]
 avant:ngaphambili[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:ngaphandle koko iinkcazo zeqhosha ziyavezwa xa uzulazula phezu kwazo, ku
 tuto.34:ukuba ngaphandle koku awuyifumani into oyifunayo unokufuna iingcebiso kwiseva yomdlalo osemthethweni wokungavisisani: http://discord.gg/vqvfGzf[auto]
 tuto.35:ukuphumelela umdlalo ngexesha kufuneka ube namanqaku aphezulu kune-AI kunye nabanye abadlali.[auto]
 tuto.36:amanqaku akho axhomekeke kwinani leembovane, (iimbovane ezindala zinika amanqaku angcono), kunye nobunzima bomdlalo kunye nesantya somdlalo.[auto]
-tuto.37:ukuwuqala kwakhona umdlalo, kuya kufuneka uyeke umdlalo kwaye uwuqale phantsi, ndiza kukukhathalela ukuwuyeka umdlalo, kukuwe ukuba uwuqale phantsi.[auto]
+tuto.37:

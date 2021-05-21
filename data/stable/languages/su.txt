@@ -26,6 +26,7 @@ commande:dipesen[auto]
 bientôt:geuwat[auto]
 suivant:nuturkeun[auto]
 avant:sateuacanna[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:upami teu kitu, pedaran tombol ditampilkeun nalika anjeun ngantosan di l
 tuto.34:upami sanaos ieu anjeun henteu mendakan naon anu anjeun peryogikeun anjeun tiasa milari naséhat ngeunaan server sengketa resmi kaulinan: http://discord.gg/vqvfGzf[auto]
 tuto.35:pikeun meunang pertandingan dina waktosna anjeun kedah ngagaduhan skor anu langkung luhur tibatan AI sareng pamaén sanés.[auto]
 tuto.36:skor anjeun gumantung kana jumlah sireum anjeun, (sireum déwasa masihan skor anu langkung saé), ogé kana kasusah kaulinan sareng gancangna gim.[auto]
-tuto.37:pikeun ngabalikan deui hiji pertandingan, anjeun kedah kaluar ti buruan sareng ngabalikan deui, kuring bakal ngaraoskeun mundur tina permainan, terserah anjeun ngabalikan deui.[auto]
+tuto.37:

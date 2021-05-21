@@ -26,6 +26,7 @@ commande:umurta[auto]
 bientôt:anjima[auto]
 suivant:mai biyowa[auto]
 avant:kafin[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:in ba haka ba ana nuna bayanan maɓallin lokacin da kake shawagi a kansu
 tuto.34:idan duk da wannan ba ku sami abin da kuke buƙata ba, kuna iya neman shawara game da sabar fitinar aikin wasan: http://discord.gg/vqvfGzf[auto]
 tuto.35:don cin wasa akan lokaci dole ne ku sami maki mafi girma fiye da AI da sauran 'yan wasan.[auto]
 tuto.36:sakamakonku ya dogara da yawan tururuwa, (tsofaffin tururuwa suna ba da mafi kyawu), da kuma wahalar wasan da saurin wasan.[auto]
-tuto.37:don sake kunna wasa, dole ne ku bar wasan ku sake kunna shi, Zan kula da barin wasan, ya rage naku sake kunnawa.[auto]
+tuto.37:

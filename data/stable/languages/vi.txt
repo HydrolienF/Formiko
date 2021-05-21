@@ -26,6 +26,7 @@ commande:ra lệnh[auto]
 bientôt:sớm[auto]
 suivant:tiếp theo[auto]
 avant:trước[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:nếu không, các mô tả nút sẽ được hiển thị khi bạn di
 tuto.34:nếu mặc dù vậy, bạn không tìm thấy thứ mình cần, bạn có thể tìm lời khuyên trên máy chủ bất hòa chính thức của trò chơi: http://discord.gg/vqvfGzf[auto]
 tuto.35:để thắng một trò chơi đúng thời gian, bạn phải có số điểm cao hơn AI và những người chơi khác.[auto]
 tuto.36:điểm của bạn phụ thuộc vào số lượng kiến của bạn, (kiến trưởng thành cho điểm cao hơn), cũng như độ khó của trò chơi và tốc độ của trò chơi.[auto]
-tuto.37:để khởi động lại trò chơi, bạn phải thoát trò chơi và khởi động lại nó, tôi sẽ lo việc thoát trò chơi, bạn có thể khởi động lại nó hay không.[auto]
+tuto.37:

@@ -2,6 +2,7 @@ package fr.formiko.views;
 
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.GJoueur;
 
 /**
  *{@summary Null view. A simple view who do nothing when a view action is launch.}<br>
@@ -104,8 +105,24 @@ public class ViewNull implements View {
   *@return Return true if nothing have been print or paint.
   *@version 1.33
   */
-  public boolean setLookedCase(CCase cc){
+  public boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj){
     return true;
+  }
+  /**
+  *{@summary A null view action that do nothing.}<br>
+  *@return Return true if nothing have been print or paint.
+  *@version 1.33
+  */
+  public boolean setLookedCCase(CCase cc){
+    return true;
+  }
+  /**
+  *{@summary A null view action that do nothing.}<br>
+  *@return Return true if nothing have been print or paint.
+  *@version 1.46
+  */
+  public CCase getLookedCCase(){
+    return null;
   }
   /**
   *{@summary A null view action that do nothing.}<br>
@@ -117,10 +134,30 @@ public class ViewNull implements View {
   }
   /**
   *{@summary A null view action that do nothing.}<br>
-  *@return Return -1;
+  *@return Return null;
   *@version 1.39
   */
   public CCase getCCase(){
     return null;
   }
+  /**
+  *{@summary A null view action that do nothing.}<br>
+  *@version 1.44
+  */
+  public void message(String message, boolean doWeNeedToDoNextCmdNow){}
+  /**
+  *{@summary A null view action that do nothing.}<br>
+  *@version 1.46
+  */
+  public void loadingMessage(String message, int percentageDone){}
+  /**
+  *{@summary A null view action that do nothing.}<br>
+  *@version 1.46
+  */
+  public void popUpMessage(String message){}
+  /**
+  *{@summary A null view action that do nothing.}<br>
+  *@version 1.46
+  */
+  public void setPlayingAnt(Fourmi f){}
 }

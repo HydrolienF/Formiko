@@ -26,6 +26,7 @@ commande:įsakė[auto]
 bientôt:netrukus[auto]
 suivant:sekant[auto]
 avant:prieš tai[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:kitu atveju mygtukų aprašymai rodomi užvedus pelės žymeklį ant jų
 tuto.34:jei nepaisant to nerandate to, ko jums reikia, galite kreiptis patarimo į oficialų žaidimo nesantaikos serverį: http://discord.gg/vqvfGzf[auto]
 tuto.35:norėdami laimėti žaidimą laiku, turite turėti aukštesnį rezultatą nei dirbtinis intelektas ir kiti žaidėjai.[auto]
 tuto.36:jūsų rezultatas priklauso nuo jūsų skruzdžių skaičiaus (suaugusios skruzdėlės duoda geresnį rezultatą), taip pat nuo žaidimo sunkumo ir žaidimo greičio.[auto]
-tuto.37:norėdami paleisti žaidimą iš naujo, turite išeiti iš žaidimo ir jį paleisti iš naujo, aš pasirūpinsiu žaidimo nutraukimu, tik jūs turite jį paleisti iš naujo.[auto]
+tuto.37:

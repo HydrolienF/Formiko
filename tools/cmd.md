@@ -34,13 +34,18 @@ Ca affiche toutes les info de type et de méthode de la classe.
 atom $(grep -r -i -l 'try' ./src/main/)
 Ouvre tout les fichiers qui contiène 'try' parmi les .java des dossier spécifier.
 
+mvn package
+Lance le module de package qui génère un .jar
+
 git checkout -b nomDeLaBrancheCible idDuCommit698F824BIQF754
 
 git branch 14 develop
 Ouvre une nouvelle branch qui ne "suis" pas la branche principale (master) mais qui "suis" la branche develop. En pratique une modification sur develop ne met pas a jour 14.
 
-ctrl alg g (sur atom) lance la construction de tout les setter possible en un bloc compacte comme j'aime.
+ctrl alg g (sur Atom) lance la construction de tout les setter possible en un bloc compacte comme j'aime.
 
-ctrl maj f (sur atom) permet de chercher et de remplacer dans l'ensemble du projet.
+ctrl maj f (sur Atom) permet de chercher et de remplacer dans l'ensemble du projet.
 
-ctrl alt o (atom) trie les imports d'un fichier.
+ctrl alt o (Atom) trie les imports d'un fichier. (grace a java-import-wiz)
+
+ctrl alt a (Atom) avec un nom d'objet Java met dans le ctrl-c la ligne d'importe qu'il faut si elle existe dans le projet ou dans Java (avant Java 9) (Grace a java-importer)

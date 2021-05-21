@@ -21,7 +21,7 @@ public class ScriptTest extends TestCaseMuet{
     File f = new File("testScriptTemporaryFolder"+x+"/");
     fichier.deleteDirectory(f);
     folder.setFolderMain("testScriptTemporaryFolder"+x+"/");
-    assertEquals(29,folder.ini());
+    assertEquals(29,folder.ini(false));
     GString gs = new GString(); gs.add("1 line");
     assertTrue(ecrireUnFichier.ecrireUnFichier(gs,folder.getFolderStable()+folder.getFolderLevels()+"test.formiko"));
     Script script = new Script("test");
@@ -38,7 +38,7 @@ public class ScriptTest extends TestCaseMuet{
     File f = new File("testScriptTemporaryFolder"+x+"/");
     fichier.deleteDirectory(f);
     folder.setFolderMain("testScriptTemporaryFolder"+x+"/");
-    assertEquals(29,folder.ini());
+    assertEquals(29,folder.ini(false));
     GString gs = new GString(); gs.add("1 line");
     assertTrue(ecrireUnFichier.ecrireUnFichier(gs,folder.getFolderStable()+folder.getFolderLevels()+"test.formiko"));
     Script script = new Script("test.formiko");
@@ -55,7 +55,7 @@ public class ScriptTest extends TestCaseMuet{
     File f = new File("testScriptTemporaryFolder"+x+"/");
     fichier.deleteDirectory(f);
     folder.setFolderMain("testScriptTemporaryFolder"+x+"/");
-    assertEquals(29,folder.ini());
+    assertEquals(29,folder.ini(false));
     GString gs = new GString(); gs.add("1 line");
     assertTrue(ecrireUnFichier.ecrireUnFichier(gs,folder.getFolderStable()+folder.getFolderBin()+"test.formiko"));
     Script script = new Script("test");
@@ -72,7 +72,7 @@ public class ScriptTest extends TestCaseMuet{
     File f = new File("testScriptTemporaryFolder"+x+"/");
     fichier.deleteDirectory(f);
     folder.setFolderMain("testScriptTemporaryFolder"+x+"/");
-    assertEquals(29,folder.ini());
+    assertEquals(29,folder.ini(false));
     GString gs = new GString(); gs.add("1 line");
     assertTrue(ecrireUnFichier.ecrireUnFichier(gs,folder.getFolderStable()+"test.formiko"));
     Script script = new Script("test");
@@ -89,7 +89,7 @@ public class ScriptTest extends TestCaseMuet{
     File f = new File("testScriptTemporaryFolder"+x+"/");
     fichier.deleteDirectory(f);
     folder.setFolderMain("testScriptTemporaryFolder"+x+"/");
-    assertEquals(29,folder.ini());
+    assertEquals(29,folder.ini(false));
     GString gs = new GString();
     assertTrue(ecrireUnFichier.ecrireUnFichier(gs,folder.getFolderStable()+folder.getFolderLevels()+"test.formiko"));
     Script script = new Script("test.formiko");
@@ -106,7 +106,7 @@ public class ScriptTest extends TestCaseMuet{
     File f = new File("testScriptTemporaryFolder"+x+"/");
     fichier.deleteDirectory(f);
     folder.setFolderMain("testScriptTemporaryFolder"+x+"/");
-    assertEquals(29,folder.ini());
+    assertEquals(29,folder.ini(false));
     GString gs = new GString(); gs.add("1 line");
     assertTrue(ecrireUnFichier.ecrireUnFichier(gs,folder.getFolderStable()+folder.getFolderLevels()+"test.md"));
     assertTrue(ecrireUnFichier.ecrireUnFichier(gs,folder.getFolderStable()+folder.getFolderLevels()+"test"));
@@ -124,7 +124,7 @@ public class ScriptTest extends TestCaseMuet{
     File f = new File("testScriptTemporaryFolder"+x+"/");
     fichier.deleteDirectory(f);
     folder.setFolderMain("testScriptTemporaryFolder"+x+"/");
-    assertEquals(29,folder.ini());
+    assertEquals(29,folder.ini(false));
     GString gs = new GString(); gs.add("1 line");
     assertTrue(ecrireUnFichier.ecrireUnFichier(gs,folder.getFolderStable()+folder.getFolderLevels()+"test.formiko"));
     Script script = new Script("test");
@@ -141,7 +141,7 @@ public class ScriptTest extends TestCaseMuet{
     File f = new File("testScriptTemporaryFolder"+x+"/");
     fichier.deleteDirectory(f);
     folder.setFolderMain("testScriptTemporaryFolder"+x+"/");
-    assertEquals(29,folder.ini());
+    assertEquals(29,folder.ini(false));
     GString gs = new GString(); gs.add("1 line");
     assertTrue(ecrireUnFichier.ecrireUnFichier(gs,folder.getFolderStable()+folder.getFolderLevels()+"test.formiko"));
     Script script = new Script("test");

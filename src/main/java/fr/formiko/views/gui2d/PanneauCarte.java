@@ -11,6 +11,7 @@ import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
@@ -48,6 +49,9 @@ public class PanneauCarte extends Panneau {
   private int posX; // position de la 1a case.
   private int posY;
   private int xTemp,yTemp;
+  private int idCurentFere=-1;
+  private static boolean drawAllFere;
+  private CCase lookedCCase;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauCarte(){}
@@ -55,13 +59,12 @@ public class PanneauCarte extends Panneau {
   *{@summary Build methode.}<br>
   *@version 1.x
   */
-  public void construire(){
+  public void build(){
     Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(100));
     posX = 0; posY = 0;
     GCase gc = new GCase(1,1);
     xCase = gc.getNbrX();
     yCase = gc.getNbrY();
-    //xCase = yCase = 1.
   }
   // GET SET --------------------------------------------------------------------
   public int getTailleDUneCase(){return Main.getData().getTailleDUneCase();}
@@ -74,6 +77,9 @@ public class PanneauCarte extends Panneau {
   public void setPosX(int x){posX=x; }
   public int getPosY(){ return posY;}
   public void setPosY(int x){posY=x; }
+  public void setIdCurentFere(int x){idCurentFere=x;}
+  public CCase getLookedCCase(){return lookedCCase;}
+  public void setLookedCCase(CCase cc){lookedCCase=cc;}
   public void setLigne(Graphics2D g){
     BasicStroke ligne = new BasicStroke(Main.getDimLigne());
     g.setStroke(ligne);
@@ -85,7 +91,7 @@ public class PanneauCarte extends Panneau {
   */
   @Override
   public void setSize(int x, int y){
-    //actualiserSize();
+    erreur.alerte("Not alowed to setSize here ! (Nothing have been done.)");
   }
   /**
   *Do the 3 steps that are need to set PanneauCarte to a new size.
@@ -201,16 +207,11 @@ public class PanneauCarte extends Panneau {
 
   /**
   *{@summary Draw a Case.}<br>
-  *@version 1.x
+  *@version 1.46
   */
   public void peintImagePourCase(Case c, int x, int y,Graphics2D g){
     Joueur jo = Main.getPlayingJoueur();
     Fourmi fi = Main.getPlayingAnt();
-    if(fi==null){
-      try {
-        fi=(Fourmi)jo.getFere().getGc().getDébut().getContenu();
-      }catch (Exception e) {}
-    }
     int xT = x*Main.getData().getTailleDUneCase(); int yT = y*Main.getData().getTailleDUneCase();
     int xT2 = (x-posX)*Main.getData().getTailleDUneCase(); int yT2 = (y-posY)*Main.getData().getTailleDUneCase();
     if(peintCaseNuageuse(x,y,g,xT,yT)){ return;}//si la case est nuageuse, on n'affichera rien d'autre dessus.
@@ -220,14 +221,15 @@ public class PanneauCarte extends Panneau {
     int lenTIF = Main.getData().getTIF()[0].length+1;
     try {
       int tC10 = Main.getData().getTailleDUneCase()/10;int tC4 = Main.getData().getTailleDUneCase()/4;int tC2 = Main.getData().getTailleDUneCase()/2;
-      // la fourmilière
+      // anthill
       if (c.getFere()!=null){
         g.drawImage(Main.getData().getFere(),xT+tC4,yT+tC4,this);
-        int tailleDuCercle = Main.getTailleElementGraphique(20);
-        drawRondOuRect(xT,yT,Main.getData().getTailleDUneCase(),g,c.getFere(),tailleDuCercle);
-        //affichage d'un rond de la couleur de la fere.
+        if (needToDrawAnthillColor(c, x, y)) {
+          int tailleDuCercle = Main.getTailleElementGraphique(20);
+          drawRondOuRect(xT,yT,Main.getData().getTailleDUneCase(),g,c.getFere(),tailleDuCercle);
+        }
       }
-      if(jo!=null && Main.getPartie().getCarte().getCasesSombres() && jo.getCaseSombre(x+posX,y+posY)){
+      if(isSombre(x,y)){
         g.drawImage(Main.getData().getCSombre(),xT,yT,this); // si les créatures sur la case ne sont pas visible.
       }else{
         // les graines
@@ -268,7 +270,8 @@ public class PanneauCarte extends Panneau {
             try {
               Insecte i = (Insecte)(ccrea.getContenu());
               g.drawImage(Main.getData().getTII()[dir][math.min(i.getType(),Main.getData().getTII()[dir].length)],xTemp,yTemp,this);
-            }catch (Exception e2) {erreur.erreur("impossible de dessiner l'image de la case : "+x+" "+y);}
+            }catch (Exception e2) {erreur.erreur("impossible de dessiner l'image de la case : "+x+" "+y);
+            }
           }
           //les icone
           if(cr.getEstMort()){drawIcone(g,3,xT,yT,tC2);}
@@ -281,6 +284,23 @@ public class PanneauCarte extends Panneau {
     }catch (Exception e) {
       erreur.erreur("impossible de dessiner l'image de la Case : "+x+" "+y);
     }
+  }
+  /**
+  *{@summary return true if case in x,y is sombre.}<br>
+  *@version 1.46
+  */
+  private boolean isSombre(int x, int y){
+    Joueur jo = Main.getPlayingJoueur();
+    return jo!=null && Main.getPartie().getCarte().getCasesSombres() && jo.getCaseSombre(x+posX,y+posY);
+  }
+  /**
+  *{@summary return true if we need to draw the color of the anthill.}<br>
+  *@version 1.46
+  */
+  private boolean needToDrawAnthillColor(Case c, int x, int y){
+    if (drawAllFere) { return true;}
+    if(c.getFere().getId()==idCurentFere && !isSombre(x,y)){return true;}
+    return (lookedCCase!=null && lookedCCase.getContenu() !=null && lookedCCase.getContenu().equals(c));
   }
   /**
   *{@summary fonction that place ObjetSurCarteAId on the same Case.}<br>
@@ -369,9 +389,9 @@ public class PanneauCarte extends Panneau {
   }
 
   public void setDesc(String s){
-    if(Main.getPp().getPj()==null){ erreur.erreur("pj null");}
+    if(getView().getPp().getPj()==null){ erreur.erreur("pj null");}
     try {
-      Main.getPp().getPj().getPb().setDesc(s);
+      getView().getPp().getPj().getPb().setDesc(s);
     }catch (Exception e) {
       erreur.alerte("Impossible de setDesc pour la carte.");
     }

@@ -55,11 +55,11 @@ public class PanneauFinPartie extends Panneau {
     //pi.setBounds(0,message.getHeight(),pi.getWidth(),pi.getHeight());
   }
   public void addBoutonMenuPrincipal(){
-    mp= new Bouton(g.getM("quitterToMp"),Main.getPj(),112);
+    mp= new Bouton(g.getM("quitterToMp"),Panneau.getView().getPj(),112);
     add(mp);
   }
   public void addBoutonContinuer(){
-    c = new Bouton(g.getM("continuerJeu"),Main.getPj(),113);
+    c = new Bouton(g.getM("continuerJeu"),Panneau.getView().getPj(),113);
     add(c);
   }
 }

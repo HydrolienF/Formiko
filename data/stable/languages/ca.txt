@@ -26,6 +26,7 @@ commande:ordenat[auto]
 bientôt:aviat[auto]
 suivant:seguint[auto]
 avant:abans[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:en cas contrari, les descripcions de botons es mostren quan passeu el cu
 tuto.34:si tot i això no trobeu el que necessiteu, podeu demanar consell al servidor oficial de discòrdies del joc: http://discord.gg/vqvfGzf[auto]
 tuto.35:per guanyar una partida a temps cal que obtingueu una puntuació més alta que la IA i la resta de jugadors.[auto]
 tuto.36:la vostra puntuació depèn del vostre nombre de formigues (les formigues adultes donen una millor puntuació), així com de la dificultat del joc i la velocitat del joc.[auto]
-tuto.37:per reiniciar un joc, heu d'abandonar el joc i reiniciar-lo, m'encarregaré de deixar el joc, és a vosaltres de reiniciar-lo.[auto]
+tuto.37:

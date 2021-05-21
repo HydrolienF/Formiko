@@ -26,6 +26,7 @@ commande:nariadil[auto]
 bientôt:čoskoro[auto]
 suivant:nasledujúce[auto]
 avant:predtým[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:v opačnom prípade sa popisy tlačidiel zobrazia, keď na ne umiestnite
 tuto.34:ak napriek tomu nenájdete, čo potrebujete, môžete požiadať o radu na oficiálnom serveri hry svár: http://discord.gg/vqvfGzf[auto]
 tuto.35:ak chcete vyhrať hru včas, musíte mať vyššie skóre ako AI a ostatní hráči.[auto]
 tuto.36:vaše skóre závisí od vášho počtu mravcov (dospelí mravce dávajú lepšie skóre), ako aj od náročnosti hry a rýchlosti hry.[auto]
-tuto.37:ak chcete reštartovať hru, musíte hru ukončiť a reštartovať. O ukončenie hry sa postarám, je len na vás, či ju reštartujete.[auto]
+tuto.37:

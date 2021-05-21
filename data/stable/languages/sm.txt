@@ -26,6 +26,7 @@ commande:okaina[auto]
 bientôt:vave[auto]
 suivant:mulimuli atu[auto]
 avant:muamua[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:a leai, e faʻaalia le faʻamatalaina o faʻamau pe a e faʻapipiʻi lug
 tuto.34:afai e ui i lenei e te le mauaina le mea e te manaʻomia mafai ona e sailia fautuaga i luga o le taʻaloga aloaia feeseeseaiga tautua: http://discord.gg/vqvfGzf[auto]
 tuto.35:ina ia manumalo i se taʻaloga i le taimi tatau e tatau ona i ai se togi maualuga atu nai lo AI ma isi tagata taʻalo.[auto]
 tuto.36:o lou togi faʻamoemoeina i lau numera o loi, (loi matutua avatua se sili togi), faʻapea foi ma le faigata o le taʻaloga ma le saoasaoa o le taʻaloga.[auto]
-tuto.37:ina ia toe amataina se taʻaloga, e tatau ona e tuʻua le taʻaloga ma toe amataina, o le a ou vaʻaia le faʻamutaina o le taʻaloga, e pule lava oe i le toe amataina.[auto]
+tuto.37:

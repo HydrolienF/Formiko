@@ -26,6 +26,7 @@ commande:ordono
 bientôt:baldaŭ
 suivant:sekvante[auto]
 avant:antaŭe[auto]
+save:savo
 
 set:elektas
 where:kie
@@ -484,4 +485,4 @@ tuto.33:alie la butonaj priskriboj montriĝas kiam vi ŝvebas super ilin, same p
 tuto.34:se malgraŭ tio vi ne trovas tion, kion vi bezonas, vi povas peti konsilon ĉe la oficiala malkonkorda servilo de la ludo: http://discord.gg/vqvfGzf[auto]
 tuto.35:por gajni ludon ĝustatempe, vi devas havi pli altan poentaron ol AI kaj aliaj ludantoj.[auto]
 tuto.36:via poentaro dependas de via nombro da formikoj, (plenkreskaj formikoj donas pli bonan poentaron), same kiel la malfacilecon de la ludo kaj la rapidecon de la ludo.[auto]
-tuto.37:por rekomenci ludon, vi devas forlasi la ludon kaj rekomenci ĝin, mi zorgos ĉesi la ludon, dependas de vi rekomenci ĝin.[auto]
+tuto.37:Tio estos ĉio por ĉi tiu lernilo, mi sendas vin al la ĉefa menuo, kie vi povas komenci vian sekvan ludon!

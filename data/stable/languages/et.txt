@@ -26,6 +26,7 @@ commande:tellitud[auto]
 bientôt:varsti[auto]
 suivant:järgnev[auto]
 avant:enne[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:vastasel juhul kuvatakse nuppude kirjeldused, kui hõljutate nende kohal
 tuto.34:kui te sellele vaatamata vajalikku ei leia, võite nõu küsida mängu ametlikust ebakõlaserverist: http://discord.gg/vqvfGzf[auto]
 tuto.35:mängu õigeks ajaks võitmiseks peab teil olema kõrgem skoor kui tehisintellektil ja teistel mängijatel.[auto]
 tuto.36:teie tulemus sõltub teie sipelgate arvust (täiskasvanud sipelgad annavad parema tulemuse), samuti mängu raskusest ja mängu kiirusest.[auto]
-tuto.37:mängu taaskäivitamiseks peate mängu lõpetama ja taaskäivitama, mina hoolitsen mängu lõpetamise eest, see on teie enda taaskäivitamine.[auto]
+tuto.37:

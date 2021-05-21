@@ -28,7 +28,7 @@ public class CLIMap{
   private static GString legend; private static int xi;
   private static int unseeableChar;
   private int sizeCase = 4;
-  private Case lookedCase;
+  private CCase lookedCCase;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main contructor.}<br>
@@ -39,8 +39,8 @@ public class CLIMap{
     this.gc=gc;
   }
   // GET SET -------------------------------------------------------------------
-  public Case getLookedCase(){return lookedCase;}
-  public void setLookedCase(Case c){lookedCase=c;}
+  public CCase getLookedCCase(){return lookedCCase;}
+  public void setLookedCCase(CCase cc){lookedCCase=cc;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Main function of CLIMap.}<br>
@@ -56,8 +56,8 @@ public class CLIMap{
       xi = 0; legend = new GString();
       sr+=mapToMapString();
       sr+=legendToString();
-      if(getLookedCase()!=null){
-        sr+="\n"+g.getM("lookedCase")+" : "+getLookedCase().toString();
+      if(getLookedCCase()!=null){
+        sr+="\n"+g.getM("lookedCCase")+" : "+getLookedCCase().toString();
       }
     }
     return sr;

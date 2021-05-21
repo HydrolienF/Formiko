@@ -26,6 +26,7 @@ commande:archebu[auto]
 bientôt:yn fuan[auto]
 suivant:yn dilyn[auto]
 avant:o'r blaen[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:fel arall mae'r disgrifiadau botwm yn cael eu harddangos pan fyddwch chi
 tuto.34:er gwaethaf hyn, ni fyddwch yn dod o hyd i'r hyn sydd ei angen arnoch gallwch ofyn am gyngor ar weinydd anghytgord swyddogol y gêm: http://discord.gg/vqvfGzf[auto]
 tuto.35:er mwyn ennill gêm mewn pryd mae'n rhaid bod gennych sgôr uwch nag AI a chwaraewyr eraill.[auto]
 tuto.36:mae eich sgôr yn dibynnu ar nifer eich morgrug, (mae morgrug oedolion yn rhoi sgôr well), yn ogystal ag anhawster y gêm a chyflymder y gêm.[auto]
-tuto.37:i ailgychwyn gêm, mae'n rhaid i chi roi'r gorau i'r gêm a'i hailgychwyn, byddaf yn gofalu am roi'r gorau i'r gêm, eich dewis chi yw ei hailgychwyn.[auto]
+tuto.37:

@@ -24,8 +24,9 @@ commencer:start
 raccourci:shortcut
 commande:command
 bientôt:soon
-suivant:following[auto]
-avant:before[auto]
+suivant:following
+avant:before
+save:save
 
 set:set
 where:where
@@ -484,4 +485,4 @@ tuto.33:otherwise the button descriptions are displayed when you hover over them
 tuto.34:if despite this you do not find what you need you can seek advice on the game's official discord server: http://discord.gg/vqvfGzf[auto]
 tuto.35:to win a game on time you must have a higher score than AI and other players.[auto]
 tuto.36:your score depends on your number of ants, (adult ants give a better score), as well as the difficulty of the game and the speed of the game.[auto]
-tuto.37:to restart a game, you have to quit the game and restart it, I'll take care of quitting the game, it's up to you to restart it.[auto]
+tuto.37:that will be all for this tutorial, I send you to the main menu where you can start your next game!

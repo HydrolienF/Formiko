@@ -36,7 +36,7 @@ public class PanneauInfo extends Panneau {
     }
   }
   public PanneauInfo(GString gs){
-    this(gs, Main.getPz().getTailleBouton()*5);
+    this(gs, getView().getPz().getTailleBouton()*5);
   }
   public PanneauInfo(Fourmi f,int xD){
     this(f.descriptionGString(),xD);

@@ -53,7 +53,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     this.add(jl);this.add(jl2);this.add(jtfDesc);this.add(choixCarteDesc);
     //a gauche :
     //nom de la carte parmi ceux proposer.
-    GString nomDesCartes = listeDesMap();//on charge les clé dans gsClé en meme temps.
+    GString nomDesCartes = mapList();//on charge les clé dans gsClé en meme temps.
     choixCarte = nomDesCartes.getComboBox();
     choixCarte.setFont(Main.getFont1(0.9));
     choixCarte.setSelectedItem(g.get("miniWorld")); // 2 = miniWorld pour l'instant
@@ -139,25 +139,37 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     pa.setGej(gej); // permet de passer toutes les informations des joueurs et ia a la partie.
     return pa;
   }
-  public GString listeDesMap(){
-    String chemin = Main.getFolder().getFolderStable()+Main.getFolder().getFolderMaps();
-    File docier = new File(chemin);
-    File[] fichiers = docier.listFiles();
+  /**
+  *{@summary Do a list of the maps.}<br>
+  *@return a list of all aviable map in all possible path.
+  *@version 1.46
+  */
+  public GString mapList(){
     GString gsr = new GString();
     gsClé = new GString();
-    for (File f : fichiers ) {
-      String s = f+"";
-      int lens = s.length();
-      if(str.nbrDeX(s,'~')==0 && s.substring(lens-4).equals(".csv")){
-        String t [] = s.split("/");
-        s=t[t.length-1];
-        lens = s.length();
-        s=s.substring(0,lens-4);
-        gsr.add(g.get(s));
-        gsClé.add(s);
+    addMapList(Main.getFolder().getFolderResourcesPacks()+Main.getFolder().getFolderMaps(), gsr);
+    addMapList(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderMaps(), gsr);
+    addMapList(Main.getFolder().getFolderStable()+Main.getFolder().getFolderMaps(), gsr);
+    return gsr;
+  }
+  /**
+  *{@summary add all .csv file from path folder.}<br>
+  *Path with "~" are not accepted because they are probably some lock file create by LibreOffice.
+  *@return a list of all aviable map in this path.
+  *@version 1.46
+  */
+  private void addMapList(String path, GString gsr){
+    File folder = new File(path);
+    File[] files = folder.listFiles();
+    for (File f : files ) {
+      String fileName = f.getName();
+      int lens = f.getName().length();
+      if(str.nbrDeX(fileName,'~')==0 && fileName.substring(lens-4).equals(".csv")){
+        fileName = fileName.substring(0,lens-4);
+        gsr.add(g.get(fileName));
+        gsClé.add(fileName);
       }
     }
-    return gsr;
   }
 
   public double calculeVitesseDeJeu(){

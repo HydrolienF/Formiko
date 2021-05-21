@@ -26,6 +26,7 @@ commande:ordenou[auto]
 bientôt:em breve[auto]
 suivant:segue[auto]
 avant:antes[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:caso contrário, as descrições dos botões são exibidas quando você 
 tuto.34:se, apesar disso, você não encontrar o que precisa, pode procurar aconselhamento no servidor oficial de discórdia do jogo: http://discord.gg/vqvfGzf[auto]
 tuto.35:para ganhar um jogo a tempo, você deve ter uma pontuação mais alta do que a IA e outros jogadores.[auto]
 tuto.36:a sua pontuação depende do seu número de formigas (formigas adultas dão uma pontuação melhor), bem como da dificuldade do jogo e da velocidade do jogo.[auto]
-tuto.37:para reiniciar um jogo, você tem que sair do jogo e reiniciá-lo, eu tratarei de encerrar o jogo, cabe a você reiniciá-lo.[auto]
+tuto.37:

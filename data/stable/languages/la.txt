@@ -26,6 +26,7 @@ commande:iussit[auto]
 bientôt:mox[auto]
 suivant:haec[auto]
 avant:ante[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:quod ipsum si versetur exhibentur descriptiones eorum ditto adipiscing e
 tuto.34:quod si hoc non obstante invenies quod tibi necessarium est, non potest quaerere in ad consilium scriptor officialis discordiae ludum server, http://discord.gg/vqvfGzf[auto]
 tuto.35:quanto tempore habent vincere ludum histriones ustulo Ahi.[auto]
 tuto.36:score pendeat tuum in numero formicae farris (formicae in adulta reddere meliorem score), tum difficultas celeritatem ad ludum et ludo.[auto]
-tuto.37:et ad sileo ludum, vos have ut sileo quieti ludum et eam curam Et relictis ludum, suus 'usque vos sileo eam.[auto]
+tuto.37:

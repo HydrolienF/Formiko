@@ -26,6 +26,7 @@ commande:sifariş verdi[auto]
 bientôt:tezliklə[auto]
 suivant:aşağıdakı[auto]
 avant:əvvəl[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:əks təqdirdə, düymələrin təsvirləri üzərində gəzdiyiniz zama
 tuto.34:buna baxmayaraq ehtiyacınız olanı tapmasanız, oyunun rəsmi ixtilaf serverində məsləhət ala bilərsiniz: http://discord.gg/vqvfGzf[auto]
 tuto.35:bir oyunu vaxtında qazanmaq üçün süni zəka və digər oyunçulardan daha yüksək bal qazanmalısan.[auto]
 tuto.36:hesabınız qarışqa sayınıza, (yetkin qarışqalar daha yaxşı hesab verir), eləcə də oyunun çətinliyinə və oyunun sürətinə bağlıdır.[auto]
-tuto.37:bir oyunu yenidən başlatmaq üçün oyundan çıxmalı və yenidən başlamalısan, oyundan çıxmağın qayğısına qalacağam, yenidən başlamağına bax.[auto]
+tuto.37:

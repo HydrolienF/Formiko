@@ -26,6 +26,7 @@ commande:ordenado[auto]
 bientôt:pronto[auto]
 suivant:próximo[auto]
 avant:antes de[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:de lo contrario, las descripciones de los botones se muestran cuando pas
 tuto.34:si a pesar de esto no encuentra lo que necesita, puede buscar consejo en el servidor de discordia oficial del juego: http://discord.gg/vqvfGzf[auto]
 tuto.35:para ganar un juego a tiempo, debes tener una puntuación más alta que la IA y otros jugadores.[auto]
 tuto.36:su puntuación depende de su número de hormigas (las hormigas adultas dan una mejor puntuación), así como de la dificultad del juego y la velocidad del juego.[auto]
-tuto.37:para reiniciar un juego, debes salir del juego y reiniciarlo, yo me encargaré de salir del juego, depende de ti reiniciarlo.[auto]
+tuto.37:

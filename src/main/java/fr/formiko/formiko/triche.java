@@ -9,7 +9,16 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.types.str;
+import fr.formiko.views.gui2d.Panneau;
 import fr.formiko.views.gui2d.action;
+
+/**
+*{@summary Cheat code.}<br>
+*This class is used to launch cheat code for debug, test, script or fun.<br>
+*Every commande can be found in data/stable/language/cmd.txt.<br>
+*@author Hydrolien
+*@version 1.44
+*/
 
 public class triche {
   public static GString gs;
@@ -161,29 +170,14 @@ public class triche {
           break;
         case 29://print
           String s2 = "";
-          try {
+          if(args.length>1){
             s2 = g.getM(args[1]);
-          }catch (Exception e) {}//si s2 est vide c'est juste que on souhaite retirer le PanneauDialogue et le PanneauDialogueInf
-          //affichage sur la page
-          Main.getPj().initialiserPd(s2);
-          try {
-            Main.getPdi().removeBSuivant();
-          }catch (Exception e) {}
-          try {
-            Main.getScript().setCmdSuivante(str.sToB(args[2]));
-            if(!str.sToB(args[2])){
-              Main.getPdi().addBSuivant();
-              Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
-            }else{
-              Main.getPs().actualiserTaille();//écoute normale
-            }
-          }catch (Exception e) {//par défaut on attend avant de passer a la commande suivante.
-            Main.getScript().setCmdSuivante(false);
-            Main.getPdi().addBSuivant();
-            Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
           }
-          //Main.getPs().revalidate();
-          //Main.repaint();
+          boolean doWeNeedToDoNextCmdNow = false;
+          if(args.length>2){
+            doWeNeedToDoNextCmdNow=str.sToB(args[2]);
+          }
+          Main.getView().message(s2,doWeNeedToDoNextCmdNow);
           break;
         case 30:
           Main.quitter();
@@ -225,32 +219,28 @@ public class triche {
             if(b){//si la condition d'attente est bonne.
               Main.getScript().setCmdSuivante(true);
             }
-            Temps.pause(10);
+            Temps.pause(50);
           }
           break;
         case 32:
-          Main.getPb().removePz();
+          if(!Main.isCLI()){
+            Panneau.getView().getPb().removePz();
+          }
           break;
         case 33:
           try {
-            if(str.sToI(args[1])==20 || str.sToI(args[1])==1){Main.getPb().removePa();}
-            try {
-              Fourmi.setUneSeuleAction(str.sToI(args[1]));
-            }catch (Exception e) {
-              Fourmi.setUneSeuleAction();
-            }
-            Fourmi.setBUneSeuleAction(true);
-            //Main.getPb().removePa();
-            //Main.getPb().addPa(Main.getPlayingAnt().getTActionFourmi());
-          }catch (Exception e) {}
+            Fourmi.setUneSeuleAction(str.sToI(args[1]));
+          }catch (Exception e) {
+            Fourmi.setUneSeuleAction();
+          }
           break;
         case 34:
           if(args[2].equalsIgnoreCase("cmd.34.1")){
-            Main.getPs().actualiserTaille();
+            Panneau.getView().getPs().actualiserTaille();
           }else if(args[2].equalsIgnoreCase("cmd.34.2")){
-            Main.getPs().actualiserTailleMax();
+            Panneau.getView().getPs().actualiserTailleMax();
           }else if(args[2].equalsIgnoreCase("cmd.34.3")){
-            Main.getPs().actualiserTailleMin();
+            Panneau.getView().getPs().actualiserTailleMin();
           }
           break;
         case 35:
@@ -272,16 +262,40 @@ public class triche {
           try {
             action.retournerAuMenu();
           }catch (Exception e) {}
-          try {
-            Main.getView().menuMain();
-          }catch (Exception e) {}
+          // try {
+          //   Main.getView().menuMain();
+          // }catch (Exception e) {}
           break;
         case 38:
-          try {
-            Main.getPlayingAnt().setAction(0);
-          }catch (Exception e) {}
-          Main.getPartie().setContinuerLeJeu(false);
+          Main.getPartie().setPartieFinie(false);
+          if(args.length > 3){
+            Main.getPartie().finDePartie(str.sToI(args[1]), str.sToB(args[2]), str.sToI(args[3]));
+          }else {
+            Main.getPartie().finDePartie();
+          }
           break;
+        case 39:
+          try {
+            setMenu(args[1]);
+          }catch (Exception e) {
+            erreur.alerte("Une action de menu a échouée");
+          }
+          break;
+        case 40:
+          try {
+            Main.getView().actionGame();
+          }catch (Exception e) {
+            erreur.alerte("Une action de menu a échouée");
+          }
+          break;
+        case 41:
+          try {
+            Main.getView().paint();
+          }catch (Exception e) {
+            erreur.alerte("Une action de menu a échouée");
+          }
+          break;
+
         default:
           erreur.erreur("La commande n'as pas été reconnue.");
       }
@@ -289,8 +303,39 @@ public class triche {
     }catch (Exception e) { erreur.erreur("La commande triche a échoué.");}
   }
 
-
-
+  /**
+  *{@summary set a new Menu as curent menu.}
+  *@version 1.44
+  */
+  private static void setMenu(String s){
+    int x=0;
+    int k=1;
+    while(x==0 && k<7){
+      if(g.get("cmd.menu."+k).equals(s)){x=k;}
+      k++;
+    }
+    switch(x){
+      case 1:
+        Main.getView().menuMain();
+        break;
+      case 2:
+        Main.getView().menuNewGame();
+        break;
+      case 3:
+        Main.getView().menuLoadAGame();
+        break;
+      case 4:
+        Main.getView().menuPersonaliseAGame();
+        break;
+      case 5:
+        Main.getView().menuOptions();
+        break;
+      case 6:
+        Main.getView().actionGame();
+        break;
+    }
+    Main.repaint();
+  }
 
   public static boolean testSupInfEga(String args[], int p){
     boolean b=false;

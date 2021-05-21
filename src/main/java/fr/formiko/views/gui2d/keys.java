@@ -28,7 +28,7 @@ public class keys {
   */
   public static void addBindings(){
     addActionToActionMap();
-    InputMap inputMap = Main.getPp().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+    InputMap inputMap = Panneau.getView().getPp().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
 
     inputMap.put(KeyStroke.getKeyStroke((char)27),"escape");
     inputMap.put(KeyStroke.getKeyStroke('\n'), "enter");
@@ -52,12 +52,12 @@ public class keys {
       *@version 1.40
       */
       public void actionPerformed(ActionEvent actionEvent) {
-        if(!Main.getView().getActionGameOn()){return;}
-        if(Main.getPe().getVisible()){
-          Main.getPe().setVisible(false);
+        if(!Panneau.getView().getActionGameOn()){return;}
+        if(Panneau.getView().getPe().getVisible()){
+          Panneau.getView().getPe().setVisible(false);
         }else{
-          Main.getPj().setDesc("");
-          Main.getPe().setVisible(true);
+          Panneau.getView().getPj().setDesc("");
+          Panneau.getView().getPe().setVisible(true);
         }
       }
     };
@@ -70,7 +70,7 @@ public class keys {
       */
       public void actionPerformed(ActionEvent actionEvent) {
         try {
-          Main.getPd().clicEn(0,0);
+          Panneau.getView().getPd().clicEn(0,0);
         }catch (Exception e) {}
       }
     };
@@ -86,10 +86,10 @@ public class keys {
         //   try {
         //     Main.getPd().clicEn(0,0);
         //   }catch (Exception e) {}
-        if(Main.getPlayingAnt()!=null){
+        if (Panneau.getView().getPch()!=null) {
+          Panneau.getView().closePanneauChargement();
+        }else if(Main.getPlayingAnt()!=null){
           //TODO passer le tour ou a la prochaine Fourmi qui a des actions.
-        }else if (Main.getPch()!=null) {
-          Main.getPch().setLancer(true);
         }
       }
     };
@@ -110,7 +110,7 @@ public class keys {
           try {
             debug.débogage("comparaisons de la clé avec "+Main.getKey(i+""));
             if(c==Main.getKey(i+"")){ // les actions des fourmis
-              Main.getPb().setActionF(i-20);return;
+              Panneau.getView().getPb().setActionF(i-20);return;
             }
           }catch (Exception e) {
             erreur.erreur("la clé d'action de fourmi "+i+" n'as pas été trouvée.");

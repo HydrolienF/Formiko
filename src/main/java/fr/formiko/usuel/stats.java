@@ -91,7 +91,9 @@ public class stats {
   public static String toStatJd(GInt gi, boolean addToGlobal){
     int sommeDesCom = gi.getCase(2);
     int sommeDesFctL = gi.getCase(1);
-    sommeDesComG+=sommeDesCom;sommeDesFctLG+=sommeDesFctL;
+    if(addToGlobal){
+      sommeDesComG+=sommeDesCom;sommeDesFctLG+=sommeDesFctL;
+    }
     if(sommeDesFctL==0){return "null%";}
     String r = "";
     if(sommeDesCom<100){

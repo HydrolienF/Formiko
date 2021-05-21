@@ -7,6 +7,7 @@ import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.tableau;
+import fr.formiko.views.gui2d.Panneau; //TODO #134 move
 
 import java.io.Serializable;
 
@@ -27,10 +28,10 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     if(Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()){return;}
     //if(Main.getPartie().getIdPlayingAnt()!=-1 && Main.getPartie().getIdPlayingAnt()!=f.getId()){return;}
     try {
-      //TODO move to View
-      Main.getPj().setFActuelle(f);
-      Main.getPb().addPI();
-      Main.getPb().addPIJ();
+      //TODO #134move to View
+      Panneau.getView().getPj().setFActuelle(f);
+      Panneau.getView().getPb().addPI();
+      Panneau.getView().getPb().addPIJ();
     }catch (Exception e) {
       Main.getPartie().setPlayingAnt(f);
       erreur.alerteGUI2Dfail("TourFourmiNonIa");
@@ -64,7 +65,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       backHomeAndShareFood(); m = "Nourrir et Nétoyer";
     }
     try {
-      Main.getPs().setIdFourmiAjoué(-1);
+      Panneau.getView().getPs().setIdFourmiAjoué(-1);
     }catch (Exception e) {
       erreur.alerteGUI2Dfail("TourFourmiNonIa");
     }
@@ -78,21 +79,21 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     byte choix = -1;
     while (choix==-1) {
       try {
-        choix = (byte) Main.getPj().getActionF();
+        choix = (byte) Panneau.getView().getPj().getActionF();
       }catch (Exception e) {
         choix = (byte) Main.getView().getAntChoice(getTActionFourmi());
         erreur.alerteGUI2Dfail("TourFourmiNonIa");
       }
       Temps.pause(50);
       if (f.getBUneSeuleAction()){
-        //TODO move to View
+        //TODO #134 move to View
         try {
-          Main.getPb().removePa();
-          Main.getPb().addPa(getTActionFourmi());
+          Panneau.getView().getPb().removePa();
+          Panneau.getView().getPb().addPa(getTActionFourmi());
         }catch (Exception e) {
           erreur.alerteGUI2Dfail("TourFourmiNonIa");
         }
-        f.setBUneSeuleAction(false);
+        f.setUneSeuleAction(-1);
       }
       /*if(bActualiserTaille){
         Main.getPs().actualiserTailleMax();
@@ -106,8 +107,8 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   public byte getChoixJoueur(){
     int [] t = getTActionFourmi();
     try {
-      Main.getPb().removePa();
-      Main.getPb().addPa(t);
+      Panneau.getView().getPb().removePa();
+      Panneau.getView().getPb().addPa(t);
     }catch (Exception e) {
       erreur.alerteGUI2Dfail("TourFourmiNonIa");
     }
@@ -116,7 +117,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     byte choix = getChoixBouton();
     debug.débogage("action de Fourmi lancé "+choix);
     try {
-      Main.getPj().setActionF(-1); //TODO move to View
+      Panneau.getView().getPj().setActionF(-1); //TODO move to View
     }catch (Exception e) {
       erreur.alerteGUI2Dfail("TourFourmiNonIa");
     }

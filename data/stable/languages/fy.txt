@@ -26,6 +26,7 @@ commande:oardere[auto]
 bientôt:gau[auto]
 suivant:folgjend[auto]
 avant:foar[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:oars wurde de knopbeskriuwingen werjûn as jo der oer hinne sweverje, di
 tuto.34:as jo nettsjinsteande dit net fine wat jo nedich binne, kinne jo advys sykje oer de offisjele diskordtsjinner fan it spultsje: http://discord.gg/vqvfGzf[auto]
 tuto.35:om in spultsje op 'e tiid te winnen moatte jo in hegere skoare hawwe dan AI en oare spilers.[auto]
 tuto.36:jo skoare hinget ôf fan jo oantal mieren, (folwoeksen mieren jouwe in bettere skoare), lykas de swierrichheid fan it spultsje en de snelheid fan it spultsje.[auto]
-tuto.37:om in spultsje opnij te begjinnen, moatte jo it spultsje stopje en it opnij starte, ik sil soargje foar it stopjen fan it spultsje, it is oan jo om it opnij te begjinnen.[auto]
+tuto.37:

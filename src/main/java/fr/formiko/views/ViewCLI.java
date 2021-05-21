@@ -10,6 +10,7 @@ import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.color;
+import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.List;
@@ -17,6 +18,7 @@ import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.cli.*;
+import fr.formiko.formiko.GJoueur;
 
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -49,6 +51,7 @@ public class ViewCLI implements View {
     }catch (Exception e) {
       return false;
     }
+    triche.ini();
     return true;
   }
   /**
@@ -71,6 +74,7 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean paint(){
+    if(scannerAnswer==null){return false;}
     if(actionGameOn){
       System.out.println(sep);
       printMap();
@@ -95,7 +99,9 @@ public class ViewCLI implements View {
   */
   public boolean menuMain(){
     actionGameOn=false;
+    if(scannerAnswer==null){ini();}
     menuName="menuP";
+    // if(Main.getPremierePartie()){Main.setPartie(Partie.getPartieTuto());return true;}
     paint();
     int action = getActionMenu(4);
     switch (action) {
@@ -118,10 +124,11 @@ public class ViewCLI implements View {
   /**
   *{@summary Load new game menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
+  *@version 1.34
   */
   public boolean menuNewGame(){
     actionGameOn=false;
+    if(scannerAnswer==null){ini();}
     menuName="menuN";
     paint();
     int action = getActionMenu(4);
@@ -134,7 +141,7 @@ public class ViewCLI implements View {
       menuPersonaliseAGame();
       break;
       case 3 :
-      Main.setPartie(Partie.getPartieTuto());
+      Partie.setPartieTutoInMain();
       actionGame();
       break;
       case 4 :
@@ -151,6 +158,7 @@ public class ViewCLI implements View {
   */
   public boolean menuLoadAGame(){
     actionGameOn=false;
+    if(scannerAnswer==null){ini();}
     menuName="";
     tToPrint=sauvegarderUnePartie.listSave();
     if(tToPrint.length==0){return menuMain();}
@@ -170,12 +178,13 @@ public class ViewCLI implements View {
   /**
   *{@summary personalise a game menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
+  *@version 1.35
   */
   public boolean menuPersonaliseAGame(){
     actionGameOn=false;
+    if(scannerAnswer==null){ini();}
     menuName="";
-    tToPrint=new String [10]; int k=0;
+    tToPrint=new String [11]; int k=0;
     tToPrint[k]=g.get("choixCarte");k++;
     tToPrint[k]=g.get("choixDif");k++;
     tToPrint[k]=g.get("choixVitesseDeJeu");k++;
@@ -186,11 +195,21 @@ public class ViewCLI implements View {
     tToPrint[k]=g.get("nbrDIa");k++;
     tToPrint[k]=g.get("nbrDeFourmi");k++;
     tToPrint[k]=g.get("lancerPartie");k++;
+    tToPrint[k]=g.get("retour");k++;
     int choice = -1;
     Partie pa = Partie.getDefautlPartie();
     while (choice!=10) {
       paint();
       choice = getActionMenu(tToPrint.length);
+      if(choice==11){
+        menuNewGame();
+        paint();
+        return true;
+      }else if(choice==10){
+        Main.setPartie(pa);
+        actionGame();
+        return true;
+      }
       String input = scannerAnswer.nextLine();
       switch (choice) {
         case 1:
@@ -215,18 +234,16 @@ public class ViewCLI implements View {
         case 7:
         erreur.erreurPasEncoreImplemente();
         //pa.setNbrDeJoueur(str.sToI(input,pa.getNbrDeJoueur()));
-        // break;
+        break;
         case 8:
         //pa.setNbrDIa(str.sToI(input,pa.setNbrDIa()));
-        // break;
+        break;
         case 9:
         //pa.setNbrDeFourmi(str.sToI(input,pa.setNbrDeFourmi()));
         break;
       }
     }
-    Main.setPartie(pa);
-    actionGame();
-    return true;
+    return false;
   }
   /**
   *{@summary Load the options menu.}<br>
@@ -234,8 +251,9 @@ public class ViewCLI implements View {
   *@version 1.33
   */
   public boolean menuOptions(){
+    actionGameOn=false;
+    if(scannerAnswer==null){ini();}
     erreur.info(g.getM("optionsCanBeEditedIn")+" data/Options.md.");
-    // actionGameOn=false;
     // menuName="menuO";
     // //tToPrint=sauvegarderUnePartie.listOptions();
     // tToPrint = new String[0]; //to replace by a real choice.
@@ -252,6 +270,7 @@ public class ViewCLI implements View {
   */
   public boolean actionGame(){
     actionGameOn=true;
+    if(scannerAnswer==null){ini();}
     menuName="";
     Main.getPartie().setPlayingAnt(null);
     Main.getPartie().initialisationElément();
@@ -262,7 +281,11 @@ public class ViewCLI implements View {
     tab[2]=g.get("endTurn");
     tab[3]=g.get("pauseActionGame");
     tToPrint = tab;
-    Main.getPartie().launchGame();
+    String s = g.get("chargementFini");
+    if (debug.getAffLesPerformances()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
+    Main.setMessageChargement(s);
+    Main.getPartie().launchGame(); //MAIN GAME PART
+    //after a game :
     Main.setPartie(null);
     switch (toDoAfter) {
       case 3:
@@ -323,17 +346,42 @@ public class ViewCLI implements View {
   }
 
   /**
+  *{@summary Stop game and print the end menu.}<br>
+  *This action can only be run if action game is on.<br>
+  *@param withButton true if we need to add button "return to main menu" and "next level".
+  *@param nextLevel the number of the next level to link to the button. -1 = no next level.
+  *@param message message to print.
+  *@param gj sorted player list to print.
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.46
+  */
+  public boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj){
+    erreur.info("message");
+    System.out.println(gj);
+    return true;
+  }
+
+  /**
   *{@summary Change the value of the loked Case.}<br>
   *We need to repaint the information about this Case.<br>
   *This action can only be run if action game is on.<br>
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.39
   */
-  public boolean setLookedCase(CCase cc){
+  public boolean setLookedCCase(CCase cc){
     if (!actionGameOn || cLIMap==null) {return false;}
-    if (cc == null) {cLIMap.setLookedCase(null);return true;}
-    cLIMap.setLookedCase(cc.getContenu());
+    cLIMap.setLookedCCase(cc);
     return true;
+  }
+  /**
+  *{@summary Return the value of the looked CCase.}<br>
+  *This action can only be run if action game is on and cLIMap have been created.<br>
+  *@return lookedCCase.
+  *@version 1.46
+  */
+  public CCase getLookedCCase(){
+    if (!actionGameOn || cLIMap==null) {return null;}
+    return cLIMap.getLookedCCase();
   }
   /**
   *{@summary get a CCase from the payer.}<br>
@@ -381,11 +429,50 @@ public class ViewCLI implements View {
       paint();
       choice = getActionMenu(tToPrint.length)-1;
       if(choice==15){pauseActionGame();tToPrint=ts;}
-      if(choice==16){setLookedCase(getCCase());tToPrint=ts;}
+      if(choice==16){setLookedCCase(getCCase());tToPrint=ts;}
     } while ((choice <12 || choice>14) && !tableau.estDansT(t,choice));
     if(choice==12){Main.getPartie().setPlayingAnt(getAntFromFere());}
     return choice;
   }
+  /**
+  *{@summary Print a message.}<br>
+  *If message.equals("") we may need to delete last message, but we don't need to print a new message.<br>
+  *@param message the message to print
+  *@param doWeNeedToDoNextCmdNow true if we need to do next commande now.
+  *@version 1.44
+  */
+  public void message(String message, boolean doWeNeedToDoNextCmdNow){
+    //TODO print it at a special location when printing all game info.
+    System.out.println(message);
+  }
+  /**
+  *{@summary Print a loading message.}<br>
+  *@param message the message to print.
+  *@param percentageDone the percentage of loading curently done.
+  *@version 1.46
+  */
+  public void loadingMessage(String message, int percentageDone){
+    erreur.info(message+" "+percentageDone+"%");
+  }
+  /**
+  *{@summary Print a message in a new window.}<br>
+  *@param message the message to print.
+  *@version 1.46
+  */
+  public void popUpMessage(String message){
+    message(message, false);
+  }
+  /**
+  *{@summary set playing ant.}<br>
+  *This action can only be run if action game is on.<br>
+  *@version 1.46
+  */
+  public void setPlayingAnt(Fourmi f){
+    if (!actionGameOn) {return;}
+    //nothing more to do
+  }
+
+  //private---------------------------------------------------------------------
   /**
   *{@summary Select an ant from playingAnt anthill.}<br>
   *@version 1.33

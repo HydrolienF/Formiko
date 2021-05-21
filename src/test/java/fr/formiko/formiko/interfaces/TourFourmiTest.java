@@ -408,7 +408,6 @@ public class TourFourmiTest extends TestCaseMuet{
   }
 
   @Test
-  @Disabled("launch a graphics error") //#TODO #167
   public void testTour1(){
     Fourmi f = ini();
     f.setNourriture(2);
@@ -416,20 +415,20 @@ public class TourFourmiTest extends TestCaseMuet{
     f.setAction(10);
     ((TourFourmi)(f.tour)).tour();
     assertTrue(f.getAction()<=0);
-    assertEquals(1,f.getNourriture()-f.getNourritureConso());
+    assertEquals(2-f.getNourritureConso(),f.getNourriture());
     assertTrue(f.getProprete()<50);
   }
   @Test
-  @Disabled("launch a graphics error") //#TODO #167
   public void testTour2(){
     Fourmi f = ini();
     f.setNourriture(2);
     f.setProprete(50);
     f.setAction(10);
     Insecte i = new Insecte(Main.getPartie().getGc().getCCase(0,0),0,100,0);
+    int givenFood = i.getNourritureFournie();
     ((TourFourmi)(f.tour)).tour();
     assertTrue(f.getAction()<=0);
-    assertEquals(1,f.getNourriture()-f.getNourritureConso());
+    assertEquals(2-f.getNourritureConso()+givenFood,f.getNourriture());
     assertTrue(f.getProprete()<50);
     assertTrue(i.getEstMort());
   }

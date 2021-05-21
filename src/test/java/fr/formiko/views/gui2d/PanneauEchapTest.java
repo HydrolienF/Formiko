@@ -20,7 +20,7 @@ public class PanneauEchapTest extends TestCaseMuet{
     /*Main.initialisation();
     //ini.initialiserToutLesPaneauxVide();
     Main.launch();
-    PanneauEchap pe = Main.getPe();
+    PanneauEchap pe = getView().getPe();
     PanneauBouton pb = Main.getPb();
     pe.setVisible(false);
     pb.setDesc("testDesc");

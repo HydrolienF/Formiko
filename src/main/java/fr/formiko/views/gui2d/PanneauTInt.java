@@ -24,7 +24,7 @@ public class PanneauTInt extends PanneauTX{
     this.ti=ti;
     if(ti!=null){
       int nbrDeCase = ti.length;
-      if (nbrDeCase > 0){Main.getPb().setDescTI(descTI);}
+      if (nbrDeCase > 0){getView().getPb().setDescTI(descTI);}
       else{((PanneauBouton) pb).setDescTI("");}
       x = ((int) (Math.sqrt(nbrDeCase)))+1;
       y = x;
@@ -36,7 +36,7 @@ public class PanneauTInt extends PanneauTX{
       Bouton tB [] = new Bouton [nbrDeCase];
       Dimension dim = new Dimension(tailleBouton,tailleBouton);
       for (int i=0;i<nbrDeCase ;i++ ) {
-        tB[i]=new Bouton(ti[i]+"", Main.getPp().getPj(),40+i);
+        tB[i]=new Bouton(ti[i]+"", getView().getPp().getPj(),40+i);
         tB[i].setFont(Main.getFont2());
       }
       for (Bouton b :tB){b.setPreferredSize(dim);}
@@ -63,12 +63,12 @@ public class PanneauTInt extends PanneauTX{
     int id2 = -1;
     debug.débogage("lancement d'une boucle de choix.");
     while(id2==-1){
-      id2 = Main.getPp().getPj().getPb().getChoixId();
+      id2 = getView().getPp().getPj().getPb().getChoixId();
       Temps.pause(10);
     }
-    Main.getPp().getPj().getPb().setChoixId(-1);
-    Main.getPp().getPj().setDescTI("");
-    Main.getPp().getPj().remove(Main.getPp().getPj().getPti());
+    getView().getPp().getPj().getPb().setChoixId(-1);
+    getView().getPp().getPj().setDescTI("");
+    getView().getPp().getPj().remove(getView().getPp().getPj().getPti());
     return id2;
   }
 }

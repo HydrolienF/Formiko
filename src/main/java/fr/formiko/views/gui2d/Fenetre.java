@@ -27,6 +27,7 @@ public class Fenetre extends JFrame {
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Fenetre(String titre, int xMax, int yMax){
+    erreur.info("new fenetre");//@a
     if(Main.getPleinEcran()){
       //@OS
       if(Main.getOs().getId()==1){
@@ -72,7 +73,7 @@ public class Fenetre extends JFrame {
         @Override // indique au compilateur qu'on écrit sur la méthode windowClosing déjà défini et il est sencé vérifier qu'on a pas fait de bêtise d'écriture.
         public void windowClosing(WindowEvent e) {
           //si la fermeture de la fenetre ne doit pas etre immédiate.
-          quit();
+          Main.getView().close();
         }
     });
   }

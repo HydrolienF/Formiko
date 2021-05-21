@@ -28,6 +28,7 @@ public class FourmiliereTest extends TestCaseMuet{
       g1.setCCase(Main.getCCase(0,0));
     }catch (Exception e) {
       e.printStackTrace();
+      assertTrue(false);
     }
     assertEquals(Main.getCCase(0,0), g1.getCCase());
     Fourmiliere g2 = new Fourmiliere();

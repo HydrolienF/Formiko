@@ -37,7 +37,7 @@ public class PanneauBouton extends Panneau {
   private PanneauInfo pij;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauBouton(){}
-  public void construire(){
+  public void build(){
     setLayout(null);
     descS=""; desc = new Desc();
     actionF = -1; choixId = -1;
@@ -63,14 +63,14 @@ public class PanneauBouton extends Panneau {
   // GET SET -------------------------------------------------------------------
   public String getDesc(){return descS;}
   public void setDesc(String s){
-    if(Main.getPe()==null || !Main.getPe().getVisible()){
+    if(getView().getPe()==null || !getView().getPe().getVisible()){
       descS=s;
       actualiserDesc();
     }
   }
   public int getActionF(){ return actionF;}
   public void setActionF(int x){ actionF=x;}
-  //public void setActionF(int x){ if(Main.getPac().getEstBoutonActif(x)){actionF=x;}else{erreur.alerte("L'action "+x+" n'est pas dans les actions faisable.","PanneauBouton.setActionF","l'action n'est pas prise en compte.");}}
+  //public void setActionF(int x){ if(Panneau.getView().getPa().getEstBoutonActif(x)){actionF=x;}else{erreur.alerte("L'action "+x+" n'est pas dans les actions faisable.","PanneauBouton.setActionF","l'action n'est pas prise en compte.");}}
   public PanneauTInt getPti(){ return pti;}
   public void setPti(PanneauTInt p){pti=p; }
   public int getChoixId(){ return choixId;}
@@ -87,7 +87,7 @@ public class PanneauBouton extends Panneau {
   public void addPz(){
     remove(pz);
     pz = new PanneauZoom();
-    pz.construire();
+    pz.build();
     int x = pz.getTailleBouton()*3;
     pz.setBounds(getWidth()-x,0,x,x);
     pz.setOpaque(false);
@@ -123,7 +123,7 @@ public class PanneauBouton extends Panneau {
       remove(pas);
     }catch (Exception e) {}
     pa = new PanneauAction(t);
-    pa.construire();
+    pa.build();
     int xxx = pa.getTailleBouton();
     pa.setBounds(0,getHeight()-pa.getHeight(),pa.getWidth(),pa.getHeight());
     pas = new PanneauActionSup();
@@ -131,7 +131,7 @@ public class PanneauBouton extends Panneau {
     //PanneauActionInf paiPrécédent = pai;
     pai = new PanneauActionInf();
     pai.setBounds(0,getHeight()-pai.getHeight(),pai.getWidth(),pai.getHeight());
-    Main.getPs().actualiserTaille();
+    getView().getPs().actualiserTaille();
     add(pas);
     add(pa);
     add(pai);
@@ -156,7 +156,7 @@ public class PanneauBouton extends Panneau {
   /*public void modPa(){
     remove(pa);
     pa = new PanneauAction(Main.getPlayingAnt().getTActionFourmi());
-    pa.construire();
+    pa.build();
     add(pa);
     revalidate();
     Main.repaint();

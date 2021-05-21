@@ -3,6 +3,8 @@ package fr.formiko.usuel;
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.types.str;
 
+import java.io.IOException;
+
 /**
 *{@summary Error class call to print error message.}<br>
 *@author Hydrolien
@@ -151,9 +153,10 @@ public class erreur {
   public static void erreurType(String type){
     erreur(g.getM("erreur.17")+g.get(":")+type);
   }
-  public static void erreurMissingFolder(String folderName){
-    erreur("Can not create all file of "+folderName+" folder");
-  }
+  // public static void erreurMissingFolder(String folderName){
+  //   erreur("Can not create all file of "+folderName+" folder");
+  //   throw new MissingFolderException(folderName);
+  // }
   public static void alerteGUI2Dfail(String cause){
     alerte(g.getM("alerteGUI2Dfail"));
   }

@@ -26,6 +26,7 @@ commande:beordrede[auto]
 bientôt:snart[auto]
 suivant:følge[auto]
 avant:før[auto]
+save:
 
 set:
 where:
@@ -484,4 +485,4 @@ tuto.33:ellers vises knappebeskrivelserne, når du holder markøren over dem, di
 tuto.34:hvis du på trods af dette ikke finder det, du har brug for, kan du søge råd på spillets officielle diskordsserver: http://discord.gg/vqvfGzf[auto]
 tuto.35:for at vinde et spil til tiden skal du have en højere score end AI og andre spillere.[auto]
 tuto.36:din score afhænger af dit antal myrer (voksne myrer giver en bedre score), såvel som sværhedsgraden ved spillet og hastigheden i spillet.[auto]
-tuto.37:for at genstarte et spil skal du afslutte spillet og genstarte det, jeg sørger for at afslutte spillet, det er op til dig at genstarte det.[auto]
+tuto.37:

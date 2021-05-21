@@ -2,6 +2,7 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
+import fr.formiko.views.gui2d.Panneau;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -18,26 +19,26 @@ public class ini {
   // Fonctions propre -----------------------------------------------------------
   //arboressence des Panneaux
   public static void initialiserToutLesPaneauxVide(){
-    PanneauPrincipal pp = Main.getPp();
-    pp.construire();
+    PanneauPrincipal pp = Panneau.getView().getPp();
+    pp.build();
     pp.addPm();
-    pp.getPm().construire();
-    pp.getPm().setBounds(0,0,Main.getDimX(),Main.getDimY());
+    pp.getPm().build();
+    // pp.getPm().setBounds(0,0,Main.getDimX(),Main.getDimY());
     //le Menu est fonctionnel ici.
   }
   public static void initialiserPanneauJeuEtDépendance(){
-    Main.getPp().addPj();
-    Main.getPj().setBounds(0,0,Main.getDimX(),Main.getDimY());
-    Main.getPj().addPs();
+    Panneau.getView().getPp().addPj();
+    Panneau.getView().getPj().setBounds(0,0,Main.getDimX(),Main.getDimY());
+    Panneau.getView().getPj().addPs();
     //le panneau pp a ses 2 sous panneaux
-    Main.getPj().addPe();//ajoute le panneau complètement vide juste pour qu'il soit au 1a plan
-    Main.getPj().addPd();
-    Main.getPj().addPfp();//ajoute le panneau complètement vide
-    Main.getPj().addPb();
-    Main.getPj().addPc();
+    Panneau.getView().getPj().addPe();//ajoute le panneau complètement vide juste pour qu'il soit au 1a plan
+    Panneau.getView().getPj().addPd();
+    Panneau.getView().getPj().addPfp();//ajoute le panneau complètement vide
+    Panneau.getView().getPj().addPb();
+    Panneau.getView().getPj().addPc();
     //pj a ses 4 sous panneau
-    Main.getPb().construire();//plein d'élément non visible sont initialiser ici.
-    Main.getPc().construire();
+    Panneau.getView().getPb().build();//plein d'élément non visible sont initialiser ici.
+    Panneau.getView().getPc().build();
     keys.addBindings();
   }
 
@@ -51,12 +52,16 @@ public class ini {
   public static void initialiserFourmiTournées(){
     int len = Main.getGj().length()+1;
     for (int i=1;i<len ;i++ ) {
-      créerDBG("F",i);
+      créerDBG("F0&",i);
     }
   }
   public static void créerDBG(String nom, int i){
-    String is = ""; if(i!=-1){is=i+"";}
-    Img imgTemp = new Img(nom+is+".png");
+    String is = "";
+    // if(i!=-1){
+      is=i+"";
+    // }
+    Img imgTemp = new Img(nom+is);
+    debug.débogage("load "+nom+is);
     //String rep = Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages();//""; if(str.nbrDeX(nom,'/')==0){rep="temporaire/";}
     //String s = rep+nom+is;
     imgTemp.sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom+is+"h"+".png");
@@ -75,13 +80,13 @@ public class ini {
       File f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages());
       if(!Main.getGarderLesGraphismesTourné() || f.list().length<10){
         //les jeunes fourmis
-        for (int i=0;i<3 ;i++ ) {
-          créerDBG("fourmi",i);
+        for (int i=-3;i<0 ;i++ ) {
+          créerDBG("F",i);
         }
         // les graines
-        int len2 = image.getNbrImages("graine");
+        int len2 = image.getNbrImages("seed");
         for (int i=0;i<len2 ;i++ ) {
-          créerDBG("graine",i);
+          créerDBG("seed",i);
         }
         //les insectes
         int len3 = image.getNbrImages("I");
