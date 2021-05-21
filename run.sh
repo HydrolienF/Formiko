@@ -3,5 +3,5 @@
 for param in "$*"
 do
   # java -cp target/classes/:. fr.formiko.formiko.Main $param
-  mvn exec:java -Dargs="$param"
+  mvn -ntp exec:java -Dargs="$param"
 done
