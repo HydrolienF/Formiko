@@ -15,6 +15,9 @@ lance la finition du projet et la déplace dans un fichier synchronisé sur MEGA
 cat *.java package/* fenetre/* > projet.txt
 Permet de regrouper tout le texte du projet.
 
+jlink --module-path " jmods,out" --add-modules "java.desktop,java.base,jdk.crypto.ec" --output java
+Permet de créer notre petit java.
+
 jpackage --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version 1.32.4 --description "Formiko, a game about ant." --icon icon.ico --resource-dir in/data --runtime-image jlink/jWindows --win-shortcut --win-dir-chooser --win-menu --win-console
 Permet de créer un .exe sur Windows #98
 jpackage --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version 1.33.3 --description "Formiko, a game about ant. Linux distribution" --icon icon.ico --resource-dir in/data --runtime-image jlink/JLinux

@@ -1,14 +1,7 @@
 #File used to make 4 new realise (witout java or with java in Windows, Linux & mac)
-#echo "javac"
-#./javac.sh
-#echo "test"
-#mvn test -q
-#mvn test
-#./javact.sh
-#./testJunit.sh
 #echo "javadoc"
 #./javadoc.sh
-mvn -ntp exec:java -Dargs="cleanFolder ."
+./run.sh cleanFolder .
 echo "to .jar"
 ./jar.sh Formiko
 #jarsigner -keystore monStore -signedjar FormikoTemp.jar Formiko.jar signature
@@ -49,6 +42,9 @@ mkdir out/$nomL/java/
 mkdir out/$nomM/java/
 
 echo "";
+echo "download jlink/";
+./run.sh download "https://github.com/HydrolienF/JRE/releases/download/1.0.1/jlink.zip" jlink.zip
+./run.sh unzip jlink.zip jlink/
 echo "cp jlink & launcher"
 #unzip -qq jlink.zip
 cp -r jlink/jWindows/* out/$nomW/java/
