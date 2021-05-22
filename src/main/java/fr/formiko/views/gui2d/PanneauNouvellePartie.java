@@ -119,6 +119,9 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     eVitesseDeJeu.setBounds(0,taille*k,1000,Desc.getDimY());k++;
     casesNuageuses.setBounds(0,taille*k,wi2/2,Desc.getDimY());
     casesSombres.setBounds(wi2/2,taille*k,wi2/3,Desc.getDimY());k++;
+    g.setColor(Main.getData().getButtonColor());
+    g.fillRect(0,0,wi/2,taille*k);
+    g.fillRect(wi/2,0,wi,taille);
     //droite
     int yDep=0;
     jl2.setBounds(wi2,yDep,wi2); yDep=yDep+jl2.getHeight()*2;

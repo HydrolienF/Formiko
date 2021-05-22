@@ -12,6 +12,7 @@ import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.types.str;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 
@@ -58,6 +59,9 @@ public class Data {
   private Image backgroundPAI;
   private Image backgroundPAS;
 
+  //PanneauMenu
+  private Color buttonColor = new Color(55, 255, 0, 100);
+
   // CONSTRUCTEUR ---------------------------------------------------------------
   /**
   *Main constructor.
@@ -91,8 +95,8 @@ public class Data {
   //PanneauActionInf / Sup
   public Image getBackgroundPAI(){return backgroundPAI;}
   public Image getBackgroundPAS(){return backgroundPAS;}
+  public Color getButtonColor(){return buttonColor;}
   // Fonctions propre -----------------------------------------------------------
-
   //public class Controleur{
     //iniImage etc
     /**

@@ -39,6 +39,7 @@ public class Bouton extends JButton implements MouseListener{
     this.nom = str; this.p = p; this.action = action;
     this.addMouseListener(this); //Grâce à cette instruction, notre objet va s'écouter  Dès qu'un événement de la souris sera intercepté, il en sera averti
     this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.
+    setCFond(Main.getData().getButtonColor());
   }
   public Bouton(String str, Panneau p, int action){
     super(str);id=cpt; cpt++;setBorderPainted(false);setOpaque(false);
@@ -49,6 +50,7 @@ public class Bouton extends JButton implements MouseListener{
       this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.
     }
     this.setFont(Main.getFont1());
+    setCFond(Main.getData().getButtonColor());
   }
   //public Bouton (String str, Panneau p, int action, Image i){ this(str,p,(byte) action,i);}
   //public Bouton(String str,Panneau p, byte action,String imageX){this(str,p,action,image.getImage(imageX));}
