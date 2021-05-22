@@ -137,6 +137,10 @@ public class launchOptions {
       folder.cleanFolder();
     }else if(args[0].equals("zip")){
       fichier.zip(args[1],args[2]);
+    }else if(args[0].equals("unzip")){
+      fichier.unzip(args[1],args[2]);
+    }else if(args[0].equals("download")){
+      fichier.download(args[1],args[2]);
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }
