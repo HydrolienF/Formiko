@@ -240,14 +240,17 @@ public class Folder{
   *It need Main.version to be correct to work.<br>
   */
   public void downloadData(){
-    // Chrono ch = new Chrono();
-    // ch.startCh(ch);
+    //TODO uncomment next line when #301 (tuto issues) will be fix.
+    // Main.setPremierePartie(true);
+    Main.startCh();
     fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+Main.getVersionActuelle()+"/data.zip",getFolderMain()+"data.zip");
+    Main.endCh("downloadData");
+    Main.startCh();
     fichier.unzip(getFolderMain()+"data.zip",getFolderMain().substring(0,getFolderMain().length()-5));
+    Main.endCh("unzipData");
     System.gc();
     if(!fichier.deleteDirectory(getFolderMain()+"data.zip")){
       erreur.alerte("unable to delete "+getFolderMain()+"data.zip");
     }
-    // ch.endCh("download&UnzipData",ch);
   }
 }

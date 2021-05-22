@@ -30,6 +30,7 @@ public class PanneauMenu extends Panneau {
   private PanneauNouvellePartie pnp;
   private PanneauChoixPartie pcp;
   private Bouton returnButton;
+  private Color buttonColor;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauMenu(){}
   /**
