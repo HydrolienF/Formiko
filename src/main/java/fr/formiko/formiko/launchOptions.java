@@ -9,6 +9,7 @@ import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.media.audio.*;
 import fr.formiko.usuel.tableau;
+import fr.formiko.usuel.createBadges;
 import fr.formiko.usuel.types.str;
 
 import java.util.HashMap;
@@ -141,6 +142,8 @@ public class launchOptions {
       fichier.unzip(args[1],args[2]);
     }else if(args[0].equals("download")){
       fichier.download(args[1],args[2]);
+    }else if(args[0].equals("createBadges")){
+      createBadges.createBadges();
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }
@@ -249,8 +252,8 @@ public class launchOptions {
     AudioPlayer sp2 = new AudioPlayer("C:/Users/lili5/Music/son/pock.mp3",true,2000);
     sp2.play();
   }
-  private static void zip(){
-    fichier.zip("tools/", "tools.zip");
-    fichier.unzip("tools.zip", "tools2");
-  }
+  // private static void zip(){
+  //   fichier.zip("tools/", "tools.zip");
+  //   fichier.unzip("tools.zip", "tools2");
+  // }
 }
