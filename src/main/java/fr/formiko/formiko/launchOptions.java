@@ -181,7 +181,7 @@ public class launchOptions {
         default:
         yield "";
       };
-      erreur.info(s);//@a
+      System.out.println(s);
     }
   }
   /**
