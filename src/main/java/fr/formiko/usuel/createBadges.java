@@ -79,10 +79,10 @@ public class createBadges{
     stats.statsJavadoc("src/main/",true);
     GString gs = createBadge("Lines",stats.sommeNbrDeLigneG,"blue");
     ecrireUnFichier.ecrireUnFichier(gs,PATH_TO_JSON+"linesBadges.json");
-    gs = createBadge("Classes",stats.sommeDesClassG,"blue");
+    gs = createBadge("Classes",stats.sommeDesClassG, "blue");
     ecrireUnFichier.ecrireUnFichier(gs,PATH_TO_JSON+"classesBadges.json");
     int percentageDoc = (stats.sommeDesComG*100)/stats.sommeDesFctLG;
-    gs = createBadge("Doc",percentageDoc+"%",getColor(percentageDoc));
+    gs = createBadge("Doc",percentageDoc+"%", getColor(percentageDoc));
     ecrireUnFichier.ecrireUnFichier(gs,PATH_TO_JSON+"docBadges.json");
   }
   /**
@@ -94,13 +94,13 @@ public class createBadges{
     chargerLesTraductions.créerLesFichiers();
     g.setMap(chargerLesTraductions.chargerLesTraductions(1));
     int val = chargerLesTraductions.getPourcentageTraduit(0);
-    GString gs = createBadge("Doc", val+"%", getColor(val));
+    GString gs = createBadge("Esperanto", val+"%", getColor(val));
     ecrireUnFichier.ecrireUnFichier(gs,PATH_TO_JSON+"eoBadges.json");
     val = chargerLesTraductions.getPourcentageTraduit(1);
-    gs = createBadge("Doc", val+"%", getColor(val));
+    gs = createBadge("Français", val+"%", getColor(val));
     ecrireUnFichier.ecrireUnFichier(gs,PATH_TO_JSON+"frBadges.json");
     val = chargerLesTraductions.getPourcentageTraduit(2);
-    gs = createBadge("Doc", val+"%", getColor(val));
+    gs = createBadge("English", val+"%", getColor(val));
     ecrireUnFichier.ecrireUnFichier(gs,PATH_TO_JSON+"enBadges.json");
   }
   /**
@@ -116,7 +116,7 @@ public class createBadges{
     }else if(percentage>60){
       color="yellow";
     }else if(percentage>20){
-      color="orrange";
+      color="FF6A00";
     }else{
       color = "red";
     }
