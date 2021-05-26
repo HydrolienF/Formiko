@@ -388,9 +388,11 @@ public class Main {
    */
   public static void quitter(){
     try {
-      startCh();
-      pa.enregistrerLesScores();
-      endCh("enregistementDesScores");
+      if(pa!=null){
+        startCh();
+        pa.enregistrerLesScores();
+        endCh("enregistementDesScores");
+      }
       startCh();
       if(getGarderLesGraphismesTourné()){image.clearPartielTemporaire();}
       else{image.clearTemporaire();}
@@ -405,6 +407,7 @@ public class Main {
       System.out.println(g.getM("messageQuitter"));
       System.exit(0);
     }catch (Exception e) {
+      erreur.alerte("Game fail to close normally.");
       System.exit(1); //une erreur a la fermeture.
     }
   }
