@@ -113,7 +113,7 @@ public class createBadges{
     String color;
     if(percentage>95){
       color="00FF21";
-    if(percentage>80){
+    }else if(percentage>80){
       color="green";
     }else if(percentage>60){
       color="yellow";
