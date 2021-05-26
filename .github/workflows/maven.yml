@@ -15,12 +15,10 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - name: Set up JDK 15
+    - name: Set up JDK 16
       uses: actions/setup-java@v1
       with:
-        java-version: 15
-    - name: Build with Maven
-      run: mvn -ntp -B test
+        java-version: 16
     - name: exe.sh
       run: ./exe.sh
     - name: version
@@ -79,19 +77,26 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-    - name: Generate version Badge file
-      run: echo "{" > temp; echo "  \"schemaVersion\"'%3A' 1," >> temp; echo "  \"label\"'%3A' \"Version\"," >> temp; echo -n "  \"message\"'%3A' \"" >> temp; cat version.md | tr -d '\n' >> temp; echo "\"," >> temp;echo "  \"color\"'%3A' \"blue\"" >> temp; echo "}" >> temp
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: Set up JDK 16
+      uses: actions/setup-java@v1
+      with:
+        java-version: 16
+    - name: Generate Badges files
+      run: mvn -ntp compile exec:java -Dargs="createBadges"
       id: badgeFile
     
-    - name: Generate version Badge
-      uses: popsiclestick/gist-sync-action@v1.2.0
-      id: sync
-      with:
-        auth: ${{ secrets.GIST_TOKEN }}
-        gist_url: https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json
-        gist_title: version.json
-        gist_description: ""
-        github_file: "temp"
+#     - name: Generate version Badge
+#       uses: popsiclestick/gist-sync-action@v1.2.0
+#       id: sync
+#       with:
+#         auth: ${{ secrets.GIST_TOKEN }}
+#         gist_url: https://gist.github.com//HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json
+#         #gist_url: https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json
+#         gist_title: version.json
+#         gist_description: ""
+#         github_file: "temp"
 
     - name: Generate JaCoCo Badge
       id: jacoco
@@ -104,7 +109,7 @@ jobs:
 
     - name: Commit the badges (if it changed)
       run: |
-        if [[ `git status --untracked-files=no --porcelain` != "\n" ]]; then
+        if [[ `git status --untracked-files=no --porcelain` .github/badges/ != "\n" ]]; then
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .github/badges/*
