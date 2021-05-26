@@ -140,22 +140,22 @@ public class ViewNull implements View {
   public CCase getCCase(){
     return null;
   }
-  /**
+  /***
   *{@summary A null view action that do nothing.}<br>
   *@version 1.44
   */
   public void message(String message, boolean doWeNeedToDoNextCmdNow){}
-  /**
+  /***
   *{@summary A null view action that do nothing.}<br>
   *@version 1.46
   */
   public void loadingMessage(String message, int percentageDone){}
-  /**
+  /***
   *{@summary A null view action that do nothing.}<br>
   *@version 1.46
   */
   public void popUpMessage(String message){}
-  /**
+  /***
   *{@summary A null view action that do nothing.}<br>
   *@version 1.46
   */
