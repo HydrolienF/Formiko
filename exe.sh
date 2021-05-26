@@ -1,6 +1,7 @@
 #File used to make 4 new realise (witout java or with java in Windows, Linux & mac)
 #echo "javadoc"
 #./javadoc.sh
+mvn -ntp compile
 ./run.sh cleanFolder .
 echo "to .jar"
 ./jar.sh Formiko

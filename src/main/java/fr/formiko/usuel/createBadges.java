@@ -1,7 +1,9 @@
 package fr.formiko.usuel;
 
-import fr.formiko.usuel.listes.GString;
 import fr.formiko.formiko.Main;
+import fr.formiko.usuel.listes.GString;
+
+import java.io.File;
 
 /**
 *{@summary Create badges for github readme.}<br>
@@ -16,9 +18,14 @@ public class createBadges{
   */
   public static void createBadges(){
     Main.initialisation();
+    System.out.println("ini done");//@a
+    File f = new File(".github/badges/json/");
+    f.mkdirs();
+    System.out.println(".github/badges/json/ done");//@a
     createVersionsBadges();
     createDocBadges();
     createLanguagesBadges();
+    System.out.println("all done");//@a
   }
   /**
   *{@summary Create a badge for github readme.}<br>
