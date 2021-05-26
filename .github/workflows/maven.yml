@@ -84,7 +84,7 @@ jobs:
       with:
         java-version: 16
     - name: Generate Badges files
-      run: mvn -ntp compile exec:java -Dargs="createBadges"
+      run: mvn -ntp compile test exec:java -Dargs="createBadges"
       id: badgeFile
     
 #     - name: Generate version Badge
