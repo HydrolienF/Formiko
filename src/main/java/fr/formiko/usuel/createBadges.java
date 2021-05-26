@@ -33,11 +33,12 @@ public class createBadges{
   */
   private static GString createBadge(String label, String message, String color){
     GString gs = new GString();
+    String pre = "  ";
     gs.add("{");
-    gs.add("\t\"schemaVersion\": 1,");
-    gs.add("\t\"label\": \""+label+"\",");
-    gs.add("\t\"message\": \""+message+"\",");
-    gs.add("\t\"color\": \""+color+"\",");
+    gs.add(pre+"\"schemaVersion\": 1,");
+    gs.add(pre+"\"label\": \""+label+"\",");
+    gs.add(pre+"\"message\": \""+message+"\",");
+    gs.add(pre+"\"color\": \""+color+"\"");
     gs.add("}");
     return gs;
   }
