@@ -95,6 +95,7 @@ public class Joueur implements Serializable{
     }
     if(Main.getGj().getJoueurHumain().length()>1 && !ia){
       Main.getPartie().setPlayingAnt(null);
+      if(Main.getRetournerAuMenu()){return;}
       Main.getView().popUpMessage(pseudo+" "+g.get("débutTourJoueur")+".");
     }
     fere.jouer();

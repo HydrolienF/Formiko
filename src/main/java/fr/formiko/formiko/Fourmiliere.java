@@ -171,7 +171,7 @@ public class Fourmiliere implements Serializable{
     gc.preTour();
     do {
       gc.jouer();
-    } while (!gc.aFiniDeJouer());
+    } while (!gc.aFiniDeJouer() && !Main.getRetournerAuMenu());
     //gc.finTour();
     ggi.add(new GInt(this)); //stats of this turn
   }
