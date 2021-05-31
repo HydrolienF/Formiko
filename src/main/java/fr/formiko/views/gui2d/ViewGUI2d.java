@@ -468,7 +468,10 @@ public class ViewGUI2d implements View {
       erreur.erreur("Impossible de lancer l'écoute des codes triches.");
     }
   }
-
+  /**
+  *{@summary A loop to wait for game launch.}<br>
+  *@version 1.46
+  */
   public synchronized void waitForGameLaunch(){
     if(!Main.getPremierePartie()){
       boolean b=false;
@@ -478,28 +481,24 @@ public class ViewGUI2d implements View {
     }
     actionGame();
   }
-
+  /**
+  *{@summary Launch refrech of main Frame.}<br>
+  *It have been add to solve all GUI issues of Java Swing.<br>
+  *It use 1 timer and a simple refrech task repeat fps times per second.<br>
+  *@version 1.47
+  */
   private void launchFrameRefresh(){
-    // Thread th = new GuiThread(this);
-    // th.run();
     timer = new Timer();
-    // if(timer != null){
-    //   timer.cancel();
-    // }else{
-    //   timer = new Timer();
-    // }
     int k=0;
     int secToRefresh = 1000/Main.getOp().getFps();
     timer.schedule(new TimerTaskViewGUI2d(this){
         @Override
         public void run(){
-          try {
+          if(getF()!=null && getF().isFocused()){ // isShowing() can also be used, but it can't see it window is fully hide by other 1.
             if(!paintGUI()){
               erreur.alerte("can't paint");
             }
             view.setCurentFPS(view.getCurentFPS()+1);
-          }catch (Exception e) {
-            erreur.alerte("can't repaint");
           }
         }
     }, 0, secToRefresh);
@@ -513,6 +512,10 @@ public class ViewGUI2d implements View {
       }, 0, 10000);
     }
   }
+  /**
+  *{@summary Tool to print mains Panneaux infos.}<br>
+  *@version 1.47
+  */
   private void printPanelInfo(){
     erreur.info("pp : "+getPp());
     erreur.info("pm : "+getPm());
@@ -522,23 +525,12 @@ public class ViewGUI2d implements View {
     }
   }
 }
-// class GuiThread extends Thread {
-//   private ViewGUI2d view;
-//   public GuiThread(ViewGUI2d view){
-//     this.view = view;
-//   }
-//   // Fonctions propre -----------------------------------------------------------
-//   @Override
-//   public void run(){
-//     boolean continu=true;
-//     while(view!=null){
-//       // view.paint();
-//       // RepaintManager.currentManager​(view.getPp()).markCompletelyDirty​(view.getPp());
-//       Temps.pause(400);
-//       // continu=false;
-//     }
-//   }
-// }
+
+/**
+*{@summary A simple TimerTask extends class with a ViewGUI2d.}<br>
+*@version 1.47
+*@author Hydrolien
+*/
 class TimerTaskViewGUI2d extends TimerTask{
   protected static ViewGUI2d view;
   public TimerTaskViewGUI2d(ViewGUI2d view){
