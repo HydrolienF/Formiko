@@ -19,8 +19,11 @@ import java.awt.Graphics2D;
 public class PanneauEchap extends Panneau{
   private Bouton tb[];
   private boolean visible;
-
   // CONSTRUCTEUR ---------------------------------------------------------------
+  public PanneauEchap(){
+    setVisible(false);
+  }
+
   public void build(){
     if(estContruit()){return;}
     getView().getPz().setEnabled(false);
@@ -48,6 +51,11 @@ public class PanneauEchap extends Panneau{
   public void setTb(Bouton tbTemp[]){tb=tbTemp;}
   public boolean getVisible(){return visible;}
   // Fonctions propre -----------------------------------------------------------
+  /**
+  *{@summary standard paint methode.}
+  *@version 1.47
+  */
+  @Override
   public void paintComponent(Graphics g){
     Graphics2D g2d = (Graphics2D)g;
     try {
@@ -65,17 +73,27 @@ public class PanneauEchap extends Panneau{
       for (int i=0;i<lentb ;i++ ) {
         tb[i].setBounds(xCentré,yCentré+(int)(Bouton.getDimY()*i*1.5),Main.getDimX()/4,Bouton.getDimY());
       }
-    }catch (Exception e) {}
+    }catch (Exception e) {
+      erreur.alerte("something when wrong when drawing component");
+    }
   }
   /**
   *{@summary Set PanneauEchap visible.}<br>
   *It Override Component.setVisible() but also build panel if needed &#38; update PanneauSup size.<br>
-  *@version 1.41
+  *@version 1.47
   */
   @Override
   public void setVisible(boolean b){
     if(b){build();getView().getPs().setSize(0,0);}
-    else{getView().getPs().actualiserTaille();}
+    else{
+      try {
+        getView().getPs().actualiserTaille();
+      }catch (Exception e) {
+        if(estContruit()){
+          erreur.alerte("Can't update size of Ps.");
+        }
+      }
+    }
     visible=b;
     super.setVisible(b);
   }
