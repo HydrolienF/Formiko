@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.JLabel;
+import java.awt.Graphics;
 
 public class Desc extends JLabel{
   // CONSTRUCTEUR ---------------------------------------------------------------
@@ -49,4 +50,8 @@ public class Desc extends JLabel{
   public void setBounds(int a, int b, int c){this.setBounds(a,b,c,getDimY());}
   public static int getDimY(){ return (int)(Main.getOp().getTaillePolice1()*1.2);}
   // Fonctions propre -----------------------------------------------------------
+  // @Override
+  // public void paintComponent(Graphics g){
+  //
+  // }
 }

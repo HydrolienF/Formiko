@@ -22,6 +22,9 @@ import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.View;
 import fr.formiko.formiko.GJoueur;
+import javax.swing.RepaintManager;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -41,6 +44,8 @@ public class ViewGUI2d implements View {
   */
   private Fenetre f;
   private boolean needToWaitForGameLaunch=true;
+  private Timer timer;
+  private boolean canRefresh=true;
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
@@ -49,8 +54,8 @@ public class ViewGUI2d implements View {
   public PanneauJeu getPj(){ return getPp().getPj();}
   public PanneauMenu getPm(){ return getPp().getPm();}
   public PanneauNouvellePartie getPnp(){ return getPm().getPnp();}
-  public PanneauBouton getPb(){ return getPj().getPb();}
-  public PanneauCarte getPc(){ return getPj().getPc();}
+  public PanneauBouton getPb(){ try{return getPj().getPb();}catch (Exception e){return null;}}
+  public PanneauCarte getPc(){ try{return getPj().getPc();}catch (Exception e){return null;}}
   public PanneauInfo getPi(){ return getPb().getPi();}
   public PanneauZoom getPz(){ return getPb().getPz();}
   public PanneauAction getPa(){ return getPb().getPa();}
@@ -76,6 +81,9 @@ public class ViewGUI2d implements View {
     ini.initialiserToutLesPaneauxVide();
     Main.endCh("chargementPanneauVide");
     loadGraphics();
+    // if(Main.getOp().getModeFPS()){
+      launchFrameRefresh();
+    // }
     return true;
   }
   /**
@@ -94,13 +102,45 @@ public class ViewGUI2d implements View {
     return true;
   }
   /**
-  *{@summary Refrech actual view.}<br>
+  *{@summary Refrech actual view without constant fps.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.42
+  *@version 1.47
   */
   public boolean paint(){
-    if(f==null){erreur.alerte("La fenetre est null & ne peu pas être redessinée.");}
-    getF().repaint();
+    // if(!Main.getOp().getModeFPS()){
+      if(f==null){erreur.alerte("La fenetre est null & ne peu pas être redessinée."); return false;}
+      // erreur.info("repaint.",3);
+      // System.out.print(" ");
+      // System.out.println("repaint"); //work with it but not witout it.
+      if(!canRefresh){return false;}
+      canRefresh=false;
+      try {
+        // synchronized(null){
+          getF().repaint(10);
+        // }
+      }catch (Exception e) {
+        canRefresh=true;
+        return false;
+      }
+      canRefresh=true;
+    // }
+    // System.out.println("test");
+    // getPp().paintImmediately(0,0,getPp().getWidth(),getPp().getHeight());
+    // getPp().printAll(getPp().getGraphics());
+    // getF().paintComponent​s(getF().getGraphics());
+    // getF().paintAll(getF().getGraphics());
+    return true;
+  }
+  /**
+  *{@summary Refrech actual view with constant fps.}<br>
+  *It use timer & patch all Java swing issues.
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.47
+  */
+  public boolean paintGUI(){
+    if(f==null){erreur.alerte("La fenetre est null & ne peu pas être redessinée."); return false;}
+    // erreur.info("repaint.",3);
+    getF().repaint(10);
     return true;
   }
   /**
@@ -151,13 +191,14 @@ public class ViewGUI2d implements View {
   /**
   *{@summary personalise a game menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.44
+  *@version 1.47
   */
   public boolean menuPersonaliseAGame(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
     if(f==null || getPm()==null){ini();}
     getPm().addPnp();
+    paint();
     return true;
   }
   /**
@@ -443,4 +484,53 @@ public class ViewGUI2d implements View {
     }
     actionGame();
   }
+
+  private void launchFrameRefresh(){
+    // Thread th = new GuiThread(this);
+    // th.run();
+    timer = new Timer();
+    // if(timer != null){
+    //   timer.cancel();
+    // }else{
+    //   timer = new Timer();
+    // }
+    timer.schedule(new TimerTask(){
+        @Override
+        public void run(){
+          try {
+            // paintGUI();
+            if(!paint()){
+              erreur.alerte("can't paint");
+            }
+          }catch (Exception e) {
+            erreur.alerte("can't repaint");
+          }
+        }
+    }, 0, 50);
+  }
+  private void printPanelInfo(){
+    erreur.info("pp : "+getPp());
+    erreur.info("pm : "+getPm());
+    erreur.info("pj : "+getPj());
+    if(getPb()!=null && getPb().isVisible()){
+      erreur.info("pb : "+getPb());
+    }
+  }
 }
+// class GuiThread extends Thread {
+//   private ViewGUI2d view;
+//   public GuiThread(ViewGUI2d view){
+//     this.view = view;
+//   }
+//   // Fonctions propre -----------------------------------------------------------
+//   @Override
+//   public void run(){
+//     boolean continu=true;
+//     while(view!=null){
+//       // view.paint();
+//       // RepaintManager.currentManager​(view.getPp()).markCompletelyDirty​(view.getPp());
+//       Temps.pause(400);
+//       // continu=false;
+//     }
+//   }
+// }

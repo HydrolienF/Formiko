@@ -56,23 +56,25 @@ public class PanneauJeu extends Panneau {
   public void setDescTI(String s){pb.setDescTI(s);}
   public PanneauTInt getPti(){return pb.getPti(); }
   // Fonctions propre -----------------------------------------------------------
+  @Override
   public void paintComponent(Graphics g){
-    try {
-      pc.actualiserSize();
-      //pc.setBounds(0,0,getWidth(),getHeight());
-    }catch (Exception e) {}
-    try {
-      pb.setBounds(0,0,getWidth(),getHeight());
-    }catch (Exception e) {}
-    try {
-      ps.setBounds(0,0,getWidth(),getHeight());
-    }catch (Exception e) {}
-    try {
-      pe.setBounds(0,0,getWidth(),getHeight());
-    }catch (Exception e) {}
-    try {
-      pd.setBounds(0,0,pd.getWidth(),pd.getHeight());
-    }catch (Exception e) {}
+    // try {
+    //   pc.actualiserSize();
+    //   //pc.setBounds(0,0,getWidth(),getHeight());
+    // }catch (Exception e) {}
+    // try {
+    //   pb.setBounds(0,0,getWidth(),getHeight());
+    // }catch (Exception e) {}
+    // try {
+    //   ps.setBounds(0,0,getWidth(),getHeight());
+    // }catch (Exception e) {}
+    // try {
+    //   pe.setBounds(0,0,getWidth(),getHeight());
+    // }catch (Exception e) {}
+    // try {
+    //   pd.setBounds(0,0,pd.getWidth(),pd.getHeight());
+    // }catch (Exception e) {}
+    super.paintComponent(g);
   }
   public void addPd(){
     if(pd==null){pd = new PanneauDialogue();}
@@ -86,7 +88,8 @@ public class PanneauJeu extends Panneau {
   public void initialiserPd(String s){
     pd.initialiser(s);
     pdi.initialiser();
-    pd.setLocation(0,0);
+    // pd.setLocation(0,0);
+    pd.setBounds(0,0,pd.getWidth(),pd.getHeight());
     revalidate();
   }
   public void removePd(){
@@ -96,21 +99,25 @@ public class PanneauJeu extends Panneau {
   public void addPe(){
     pe=new PanneauEchap();
     //pe.setBounds(0,0,0,0);
+    pe.setBounds(0,0,getWidth(),getHeight());
     add(pe);
   }
   public void addPs(){
     ps=new PanneauSup();
-    ps.setBounds(0,0,0,0);
+    // ps.setBounds(0,0,0,0);
+    ps.setBounds(0,0,getWidth(),getHeight());
     add(ps);
   }
   public void addPc(){
     pc = new PanneauCarte();
-    pc.setBounds(0,0,0,0);
+    // pc.setBounds(0,0,0,0);
+    pc.actualiserSize();
     add(pc);
   }
   public void addPb(){
     pb = new PanneauBouton();
-    pb.setBounds(0,0,0,0);
+    // pb.setBounds(0,0,0,0);
+    pb.setBounds(0,0,getWidth(),getHeight());
     add(pb);
   }
   public void addPch(){

@@ -42,7 +42,7 @@ public class PanneauEchap extends Panneau{
     }
     //miseALaMemeTaille(lentb);
     revalidate();
-    repaint();
+    getView().paint();
   }
   // GET SET --------------------------------------------------------------------
   public void setTb(Bouton tbTemp[]){tb=tbTemp;}

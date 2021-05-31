@@ -197,11 +197,14 @@ public class PanneauBouton extends Panneau {
   }
   public void removePij(){ remove(pij);}
   //repaint() permet de réactualisé paintComponent()
+  @Override
   public void paintComponent(Graphics gr){
     // pas mal de satBounds pourrait partir si la fenetre avait une taille fixe.
+    // erreur.info("try dessin de PanneauBouton");
     try {
       if(!Main.getPartie().getEnCours()){return;}
     }catch (Exception e) {}
+    // erreur.info("dessin de PanneauBouton");
     try {
       //debug.g("PanneauBouton",getWidth(),getHeight());
       int xxx=0;

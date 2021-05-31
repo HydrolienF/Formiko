@@ -59,6 +59,7 @@ public class Options implements Serializable{
   private byte soundVolume;
   private byte realisticSize;
   private boolean autoCleaning;
+  // private boolean modeFPS;
 
   private SortedProperties properties=null;
   // CONSTRUCTEUR ---------------------------------------------------------------
@@ -131,6 +132,8 @@ public class Options implements Serializable{
   public void setTailleRealiste(byte x){realisticSize=x;}public void setTailleRealiste(int x){realisticSize=str.iToBy(x);}
   public boolean getAutoCleaning(){return autoCleaning;}
   public void setAutoCleaning(boolean b){autoCleaning=b;}
+  // public boolean getModeFPS(){return modeFPS;}
+  // public void setModeFPS(boolean b){modeFPS=b;}
   // Fonctions propre -----------------------------------------------------------
   /**
   *{@summary Initialize Options.}<br>
@@ -261,6 +264,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("realisticSize","30");
     defaultProperties.setProperty("autoCleaning","true");
     defaultProperties.setProperty("positionCase","0");
+    // defaultProperties.setProperty("modeFPS","true");
     return defaultProperties;
   }
   /**
@@ -319,6 +323,7 @@ public class Options implements Serializable{
     soundVolume=str.sToBy(properties.getProperty("soundVolume"));
     realisticSize=str.sToBy(properties.getProperty("realisticSize"));
     autoCleaning=str.sToB(properties.getProperty("autoCleaning"));
+    // modeFPS=str.sToB(properties.getProperty("modeFPS"));
   }
   /**
   *{@summary tranform properties into Options var.}<br>
@@ -360,5 +365,6 @@ public class Options implements Serializable{
     properties.setProperty("soundVolume",""+soundVolume);
     properties.setProperty("realisticSize",""+realisticSize);
     properties.setProperty("autoCleaning",""+autoCleaning);
+    // properties.setProperty("modeFPS",""+modeFPS);
   }
 }
