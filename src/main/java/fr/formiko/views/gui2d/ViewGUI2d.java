@@ -46,6 +46,7 @@ public class ViewGUI2d implements View {
   private boolean needToWaitForGameLaunch=true;
   private Timer timer;
   private boolean canRefresh=true;
+  private int curentFPS=0;
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
@@ -64,6 +65,8 @@ public class ViewGUI2d implements View {
   public PanneauEchap getPe(){ return getPj().getPe();}
   public PanneauDialogue getPd(){ try {return getPj().getPd();}catch (Exception e) {return null;}}
   public PanneauDialogueInf getPdi(){ return getPj().getPdi();}
+  public int getCurentFPS(){return curentFPS;}
+  public void setCurentFPS(int x){curentFPS=x;}
   /**  // FUNCTIONS -----------------------------------------------------------------
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
@@ -485,19 +488,30 @@ public class ViewGUI2d implements View {
     // }else{
     //   timer = new Timer();
     // }
+    int k=0;
     int secToRefresh = 1000/Main.getOp().getFps();
-    timer.schedule(new TimerTask(){
+    timer.schedule(new TimerTaskViewGUI2d(this){
         @Override
         public void run(){
           try {
             if(!paintGUI()){
               erreur.alerte("can't paint");
             }
+            view.setCurentFPS(view.getCurentFPS()+1);
           }catch (Exception e) {
             erreur.alerte("can't repaint");
           }
         }
     }, 0, secToRefresh);
+    if(debug.getAffLesPerformances()){
+      timer.schedule(new TimerTaskViewGUI2d(this){
+        @Override
+        public void run(){
+          erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()/10));
+          view.setCurentFPS(0);
+        }
+      }, 0, 10000);
+    }
   }
   private void printPanelInfo(){
     erreur.info("pp : "+getPp());
@@ -525,3 +539,11 @@ public class ViewGUI2d implements View {
 //     }
 //   }
 // }
+class TimerTaskViewGUI2d extends TimerTask{
+  protected static ViewGUI2d view;
+  public TimerTaskViewGUI2d(ViewGUI2d view){
+    this.view=view;
+  }
+  @Override
+  public void run(){}
+}
