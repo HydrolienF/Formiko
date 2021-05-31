@@ -60,6 +60,7 @@ public class Options implements Serializable{
   private byte realisticSize;
   private boolean autoCleaning;
   private boolean modeFPS;
+  private int fps;
 
   private SortedProperties properties=null;
   // CONSTRUCTEUR ---------------------------------------------------------------
@@ -134,6 +135,8 @@ public class Options implements Serializable{
   public void setAutoCleaning(boolean b){autoCleaning=b;}
   public boolean getModeFPS(){return modeFPS;}
   public void setModeFPS(boolean b){modeFPS=b;}
+  public int getFps(){return fps;}
+  public void setFps(int b){fps=b;}
   // Fonctions propre -----------------------------------------------------------
   /**
   *{@summary Initialize Options.}<br>
@@ -265,6 +268,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("autoCleaning","true");
     defaultProperties.setProperty("positionCase","0");
     defaultProperties.setProperty("modeFPS","true");
+    defaultProperties.setProperty("fps","50");
     return defaultProperties;
   }
   /**
@@ -324,6 +328,7 @@ public class Options implements Serializable{
     realisticSize=str.sToBy(properties.getProperty("realisticSize"));
     autoCleaning=str.sToB(properties.getProperty("autoCleaning"));
     modeFPS=str.sToB(properties.getProperty("modeFPS"));
+    fps=str.sToI(properties.getProperty("fps"));
   }
   /**
   *{@summary tranform properties into Options var.}<br>
@@ -366,5 +371,6 @@ public class Options implements Serializable{
     properties.setProperty("realisticSize",""+realisticSize);
     properties.setProperty("autoCleaning",""+autoCleaning);
     properties.setProperty("modeFPS",""+modeFPS);
+    properties.setProperty("fps",""+fps);
   }
 }

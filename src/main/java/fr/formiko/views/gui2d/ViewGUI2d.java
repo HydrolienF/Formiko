@@ -485,6 +485,7 @@ public class ViewGUI2d implements View {
     // }else{
     //   timer = new Timer();
     // }
+    int secToRefresh = 1000/Main.getOp().getFps();
     timer.schedule(new TimerTask(){
         @Override
         public void run(){
@@ -496,7 +497,7 @@ public class ViewGUI2d implements View {
             erreur.alerte("can't repaint");
           }
         }
-    }, 0, 50);
+    }, 0, secToRefresh);
   }
   private void printPanelInfo(){
     erreur.info("pp : "+getPp());
