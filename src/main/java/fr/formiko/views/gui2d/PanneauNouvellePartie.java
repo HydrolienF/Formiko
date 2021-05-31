@@ -97,7 +97,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     remove(pgej);
     pgej = new PanneauGEtiquetteJoueur(gej);
     add(pgej);
-    repaint();
+    getView().paint();
   }
   // GET SET --------------------------------------------------------------------
   public GEtiquetteJoueur getGej(){ return gej;}

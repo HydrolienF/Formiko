@@ -116,7 +116,7 @@ public class PanneauMenu extends Panneau {
     pnp = new PanneauNouvellePartie();
     pnp.setBounds(0,0,this.getWidth(),this.getHeight());
     this.add(pnp);
-    repaint();
+    getView().paint();
   }
   /**
   *{@summary Add PanneauChoixPartie.}<br>

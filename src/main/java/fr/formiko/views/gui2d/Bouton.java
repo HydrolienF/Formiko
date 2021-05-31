@@ -113,9 +113,11 @@ public class Bouton extends JButton implements MouseListener{
   }
 
   //Méthode appelée lors du clic de souris
+  @Override
   public void mouseClicked(MouseEvent event) {}
 
   //Méthode appelée lors du survol de la souris
+  @Override
   public void mouseEntered(MouseEvent event) {
     String clé = "";
     try { //on essaie de récupéré le raccourci clavier associé.
@@ -126,14 +128,17 @@ public class Bouton extends JButton implements MouseListener{
   }
 
   //Méthode appelée lorsque la souris sort de la zone du bouton
+  @Override
   public void mouseExited(MouseEvent event) {
     setDesc("");
   }
 
   //Méthode appelée lorsque l'on presse le bouton gauche de la souris
+  @Override
   public void mousePressed(MouseEvent event) { }
 
   //Méthode appelée lorsque l'on relâche le clic de souris
+  @Override
   public void mouseReleased(MouseEvent event) {
     debug.débogage("Un bouton a été cliqué, l'action "+action+" vas être effectué.");
     Main.doAction(action);

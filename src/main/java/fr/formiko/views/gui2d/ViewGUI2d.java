@@ -22,6 +22,9 @@ import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.View;
 import fr.formiko.formiko.GJoueur;
+import javax.swing.RepaintManager;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -41,6 +44,9 @@ public class ViewGUI2d implements View {
   */
   private Fenetre f;
   private boolean needToWaitForGameLaunch=true;
+  private Timer timer;
+  private boolean canRefresh=true;
+  private int curentFPS=0;
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
@@ -49,8 +55,8 @@ public class ViewGUI2d implements View {
   public PanneauJeu getPj(){ return getPp().getPj();}
   public PanneauMenu getPm(){ return getPp().getPm();}
   public PanneauNouvellePartie getPnp(){ return getPm().getPnp();}
-  public PanneauBouton getPb(){ return getPj().getPb();}
-  public PanneauCarte getPc(){ return getPj().getPc();}
+  public PanneauBouton getPb(){ try{return getPj().getPb();}catch (Exception e){return null;}}
+  public PanneauCarte getPc(){ try{return getPj().getPc();}catch (Exception e){return null;}}
   public PanneauInfo getPi(){ return getPb().getPi();}
   public PanneauZoom getPz(){ return getPb().getPz();}
   public PanneauAction getPa(){ return getPb().getPa();}
@@ -59,6 +65,8 @@ public class ViewGUI2d implements View {
   public PanneauEchap getPe(){ return getPj().getPe();}
   public PanneauDialogue getPd(){ try {return getPj().getPd();}catch (Exception e) {return null;}}
   public PanneauDialogueInf getPdi(){ return getPj().getPdi();}
+  public int getCurentFPS(){return curentFPS;}
+  public void setCurentFPS(int x){curentFPS=x;}
   /**  // FUNCTIONS -----------------------------------------------------------------
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
@@ -76,6 +84,9 @@ public class ViewGUI2d implements View {
     ini.initialiserToutLesPaneauxVide();
     Main.endCh("chargementPanneauVide");
     loadGraphics();
+    // if(Main.getOp().getModeFPS()){
+      launchFrameRefresh();
+    // }
     return true;
   }
   /**
@@ -94,13 +105,36 @@ public class ViewGUI2d implements View {
     return true;
   }
   /**
-  *{@summary Refrech actual view.}<br>
+  *{@summary Refrech actual view without constant fps.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.42
+  *@version 1.47
   */
   public boolean paint(){
-    if(f==null){erreur.alerte("La fenetre est null & ne peu pas être redessinée.");}
-    getF().repaint();
+    if(!Main.getOp().getModeFPS()){
+      if(f==null){erreur.alerte("La fenetre est null & ne peu pas être redessinée."); return false;}
+      // erreur.info("repaint.",3);
+      // if(!canRefresh){return false;}
+      // canRefresh=false;
+      getF().repaint(10);
+      // canRefresh=true;
+    }
+    // System.out.println("test");
+    // getPp().paintImmediately(0,0,getPp().getWidth(),getPp().getHeight());
+    // getPp().printAll(getPp().getGraphics());
+    // getF().paintComponent​s(getF().getGraphics());
+    // getF().paintAll(getF().getGraphics());
+    return true;
+  }
+  /**
+  *{@summary Refrech actual view with constant fps.}<br>
+  *It use timer & patch all Java swing issues.
+  *@return Return true if it work well. (Nothing goes wrong.)
+  *@version 1.47
+  */
+  public boolean paintGUI(){
+    if(f==null){erreur.alerte("La fenetre est null & ne peu pas être redessinée."); return false;}
+    // erreur.info("repaint.",3);
+    getF().repaint(10);
     return true;
   }
   /**
@@ -151,13 +185,14 @@ public class ViewGUI2d implements View {
   /**
   *{@summary personalise a game menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.44
+  *@version 1.47
   */
   public boolean menuPersonaliseAGame(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
     if(f==null || getPm()==null){ini();}
     getPm().addPnp();
+    paint();
     return true;
   }
   /**
@@ -433,7 +468,10 @@ public class ViewGUI2d implements View {
       erreur.erreur("Impossible de lancer l'écoute des codes triches.");
     }
   }
-
+  /**
+  *{@summary A loop to wait for game launch.}<br>
+  *@version 1.46
+  */
   public synchronized void waitForGameLaunch(){
     if(!Main.getPremierePartie()){
       boolean b=false;
@@ -443,4 +481,61 @@ public class ViewGUI2d implements View {
     }
     actionGame();
   }
+  /**
+  *{@summary Launch refrech of main Frame.}<br>
+  *It have been add to solve all GUI issues of Java Swing.<br>
+  *It use 1 timer and a simple refrech task repeat fps times per second.<br>
+  *@version 1.47
+  */
+  private void launchFrameRefresh(){
+    timer = new Timer();
+    int k=0;
+    int secToRefresh = 1000/Main.getOp().getFps();
+    timer.schedule(new TimerTaskViewGUI2d(this){
+        @Override
+        public void run(){
+          if(getF()!=null && getF().isFocused()){ // isShowing() can also be used, but it can't see it window is fully hide by other 1.
+            if(!paintGUI()){
+              erreur.alerte("can't paint");
+            }
+            view.setCurentFPS(view.getCurentFPS()+1);
+          }
+        }
+    }, 0, secToRefresh);
+    if(debug.getAffLesPerformances()){
+      timer.schedule(new TimerTaskViewGUI2d(this){
+        @Override
+        public void run(){
+          erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()/10));
+          view.setCurentFPS(0);
+        }
+      }, 0, 10000);
+    }
+  }
+  /**
+  *{@summary Tool to print mains Panneaux infos.}<br>
+  *@version 1.47
+  */
+  private void printPanelInfo(){
+    erreur.info("pp : "+getPp());
+    erreur.info("pm : "+getPm());
+    erreur.info("pj : "+getPj());
+    if(getPb()!=null && getPb().isVisible()){
+      erreur.info("pb : "+getPb());
+    }
+  }
+}
+
+/**
+*{@summary A simple TimerTask extends class with a ViewGUI2d.}<br>
+*@version 1.47
+*@author Hydrolien
+*/
+class TimerTaskViewGUI2d extends TimerTask{
+  protected static ViewGUI2d view;
+  public TimerTaskViewGUI2d(ViewGUI2d view){
+    this.view=view;
+  }
+  @Override
+  public void run(){}
 }

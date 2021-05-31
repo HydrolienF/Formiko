@@ -33,7 +33,7 @@ public class erreur {
   *@version 1.41
   */
   //public only for test
-  public static String getCurentClassAndMethodName(){
+  public static String getCurentClassAndMethodName(int classDepth){
     StackTraceElement[] stackTrace = new Throwable().getStackTrace();
     int lenst = stackTrace.length;
     int k=0;
@@ -45,8 +45,22 @@ public class erreur {
         className = className.substring(0,className.length()-5);
       }catch (Exception e) {}
     } while (k<lenst && (className.equals("erreur")));
-    return className+"."+stackTrace[k].getMethodName()+" l"+stackTrace[k].getLineNumber();
+    String cmName = "";
+    for (int i=0;i<classDepth ; i++) {
+      if(i>0){ cmName+=" - ";}
+      try {
+        className = stackTrace[k+i].getFileName();
+        try {
+          className = className.substring(0,className.length()-5);
+        }catch (Exception e) {}
+        cmName+= className+"."+stackTrace[k+i].getMethodName()+" l"+stackTrace[k+i].getLineNumber();
+      }catch (Exception e) {
+        cmName+="null";
+      }
+    }
+    return cmName;
   }
+  public static String getCurentClassAndMethodName(){return getCurentClassAndMethodName(1);}
   /**
   *{@summary Show curent stack trace without error file part &#38; stop game.}<br>
   *@version 1.41
@@ -124,7 +138,7 @@ public class erreur {
   *{@summary Print info about important thing that are not important as alerte or error.}<br>
   *@version 1.37
   */
-  public static void info(String message){
+  public static void info(String message, int classDepth){
     String preMessage = "";
     try {
       if(Main.getOs().isLinux()){preMessage = "["+blue+g.get("info").toUpperCase()+neutral+"] ";}
@@ -132,9 +146,10 @@ public class erreur {
     }catch (Exception e) {
       preMessage=g.get("info").toUpperCase();
     }
-    print(preMessage + "("+getCurentClassAndMethodName()+") ");
+    print(preMessage + "("+getCurentClassAndMethodName(classDepth)+") ");
     println(message);
   }
+  public static void info(String message){info(message,1);}
 
 
   public static void erreurPasEncoreImplemente(){

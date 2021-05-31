@@ -25,7 +25,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   */
   @Override
   public void tour(){
-    if(Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()){return;}
+    if((Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()) || Main.getRetournerAuMenu()){return;}
     //if(Main.getPartie().getIdPlayingAnt()!=-1 && Main.getPartie().getIdPlayingAnt()!=f.getId()){return;}
     try {
       //TODO #134move to View
