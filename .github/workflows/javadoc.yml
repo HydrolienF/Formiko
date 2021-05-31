@@ -1,14 +1,14 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Javadoc
 
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ "30" ]
+    branches: [ "47" ]
   pull_request:
-    branches: [ "30" ]
+    branches: [ master, "47" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -27,14 +27,16 @@ jobs:
       uses: actions/setup-java@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        java-version: 15
+        java-version: 16
     - name: Javadoc update
       # Runs test
+      run: ./javadoc.sh
+    - name: Commit
       run: |
-          echo "launch compilation & test"
-          ./javadoc.sh
-          git add docs
-          git commit -m "auto javadoc update"
-          ./authentification.sh
+        if [[ `git status --untracked-files=no --porcelain docs/` != "\n" ]]; then
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add docs/
+          git commit -m "Auto javadoc update"
           git push
-      # mvn -B package --file pom.xml
+        fi
