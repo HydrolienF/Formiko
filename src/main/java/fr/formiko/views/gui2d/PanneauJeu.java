@@ -88,7 +88,6 @@ public class PanneauJeu extends Panneau {
   public void initialiserPd(String s){
     pd.initialiser(s);
     pdi.initialiser();
-    // pd.setLocation(0,0);
     pd.setBounds(0,0,pd.getWidth(),pd.getHeight());
     revalidate();
   }
@@ -98,19 +97,16 @@ public class PanneauJeu extends Panneau {
   }
   public void addPe(){
     pe=new PanneauEchap();
-    //pe.setBounds(0,0,0,0);
     pe.setBounds(0,0,getWidth(),getHeight());
     add(pe);
   }
   public void addPs(){
     ps=new PanneauSup();
-    // ps.setBounds(0,0,0,0);
     ps.setBounds(0,0,getWidth(),getHeight());
     add(ps);
   }
   public void addPc(){
     pc = new PanneauCarte();
-    // pc.setBounds(0,0,0,0);
     pc.actualiserSize();
     add(pc);
   }

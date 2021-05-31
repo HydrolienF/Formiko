@@ -13,8 +13,6 @@ import fr.formiko.usuel.types.str;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.File;
 import java.text.NumberFormat;
 import javax.swing.JCheckBox;
@@ -94,31 +92,6 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     casesSombres.setSelected(true);
     add(casesNuageuses);add(casesSombres);
     Main.endCh("chargementPanneauNouvellePartie");
-    // getView().paint();
-    // addMouseListener(new MouseAdapter() {
-    //   @Override
-    //   public void mouseExited​(MouseEvent e){
-    //     getView().paint();
-    //   }
-    //   @Override
-    //   public void mouseReleased(MouseEvent e) {
-    //     getView().paint();
-    //   }
-    //   @Override
-    //   public void mousePressed(MouseEvent e) {
-    //     getView().paint();
-    //   }
-    //   @Override
-    //   public void mouseClicked(MouseEvent e) {
-    //     getView().paint();
-    //   }
-    // });
-    // addMouseMotionListener(new MouseAdapter() {
-    //   @Override
-    //   public void mouseMoved(MouseEvent e) {
-    //     getView().paint();
-    //   }
-    // });
   }
   public void rafraichirPgej(){
     remove(pgej);

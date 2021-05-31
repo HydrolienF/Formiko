@@ -107,23 +107,14 @@ public class ViewGUI2d implements View {
   *@version 1.47
   */
   public boolean paint(){
-    // if(!Main.getOp().getModeFPS()){
+    if(!Main.getOp().getModeFPS()){
       if(f==null){erreur.alerte("La fenetre est null & ne peu pas être redessinée."); return false;}
       // erreur.info("repaint.",3);
-      // System.out.print(" ");
-      // System.out.println("repaint"); //work with it but not witout it.
-      if(!canRefresh){return false;}
-      canRefresh=false;
-      try {
-        // synchronized(null){
-          getF().repaint(10);
-        // }
-      }catch (Exception e) {
-        canRefresh=true;
-        return false;
-      }
-      canRefresh=true;
-    // }
+      // if(!canRefresh){return false;}
+      // canRefresh=false;
+      getF().repaint(10);
+      // canRefresh=true;
+    }
     // System.out.println("test");
     // getPp().paintImmediately(0,0,getPp().getWidth(),getPp().getHeight());
     // getPp().printAll(getPp().getGraphics());
@@ -498,8 +489,7 @@ public class ViewGUI2d implements View {
         @Override
         public void run(){
           try {
-            // paintGUI();
-            if(!paint()){
+            if(!paintGUI()){
               erreur.alerte("can't paint");
             }
           }catch (Exception e) {
