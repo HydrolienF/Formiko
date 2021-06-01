@@ -167,11 +167,11 @@ button {
     overflow:hidden;
 }
 .about-language {
-    float:right;
+    /* float:right;
     padding:0 21px 8px 8px;
     font-size:11px;
     margin-top:-9px;
-    height:2.9em;
+    height:2.9em; */
 }
 .legal-copy {
     margin-left:.5em;
