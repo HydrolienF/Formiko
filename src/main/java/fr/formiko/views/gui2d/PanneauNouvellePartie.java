@@ -157,7 +157,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
   }
   /**
   *{@summary add all .csv file from path folder.}<br>
-  *Path with "~" are not accepted because they are probably some lock file create by LibreOffice.
+  *Path with ~ are not accepted because they are probably some lock file create by LibreOffice.
   *@return a list of all aviable map in this path.
   *@version 1.46
   */

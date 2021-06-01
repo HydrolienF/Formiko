@@ -127,7 +127,7 @@ public class ViewGUI2d implements View {
   }
   /**
   *{@summary Refrech actual view with constant fps.}<br>
-  *It use timer & patch all Java swing issues.
+  *It use timer &#38; patch all Java swing issues.
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.47
   */
@@ -408,7 +408,7 @@ public class ViewGUI2d implements View {
   }
 
   /**
-  *{@summary remove PanneauChargement & listen mouse clic on the map.}<br>
+  *{@summary remove PanneauChargement &#38; listen mouse clic on the map.}<br>
   *@version 1.44
   */
   public void closePanneauChargement(){
