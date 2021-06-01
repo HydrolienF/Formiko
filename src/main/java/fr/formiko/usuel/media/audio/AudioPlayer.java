@@ -111,7 +111,7 @@ public class AudioPlayer {
   }
   //private --------------------------------------------------------------------
   /**
-  *{@summary open file & do sounds.}<br>
+  *{@summary open file &#38; do sounds.}<br>
   *@version 1.46
   */
   private void doSounds(){

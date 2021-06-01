@@ -211,7 +211,7 @@ public class launchOptions {
     }
   }
   /**
-  *{@summary Update 1 translation & print it's #&25;age of translation.}<br>
+  *{@summary Update 1 translation &#38; print it's &#37;age of translation.}<br>
   *@version 1.42
   */
   private static void tradCmd(String language){

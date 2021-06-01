@@ -157,10 +157,10 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
   }
   /**
   *{@summary add all .csv file from path folder.}<br>
-  *Path with "~" are not accepted because they are probably some lock file create by LibreOffice.
-  *@return a list of all aviable map in this path.
+  *Path with &#126; are not accepted because they are probably some lock file create by LibreOffice.
   *@version 1.46
   */
+  //*@return a list of all aviable map in this path.
   private void addMapList(String path, GString gsr){
     File folder = new File(path);
     File[] files = folder.listFiles();

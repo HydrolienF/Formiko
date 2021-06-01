@@ -133,7 +133,7 @@ public class PanneauMenu extends Panneau {
     repaint();
   }
   /**
-  *{@summary Remove PanneauNouvellePartie & set it to null.}<br>
+  *{@summary Remove PanneauNouvellePartie &#38; set it to null.}<br>
   *@version 1.44
   */
   public void removePnp(){
@@ -141,7 +141,7 @@ public class PanneauMenu extends Panneau {
     pnp=null;
   }
   /**
-  *{@summary Remove PanneauChoixPartie & set it to null.}<br>
+  *{@summary Remove PanneauChoixPartie &#38; set it to null.}<br>
   *@version 1.44
   */
   public void removePcp(){
@@ -149,7 +149,7 @@ public class PanneauMenu extends Panneau {
     pcp=null;
   }
   /**
-  *{@summary Remove PanneauNouvellePartie & PanneauChoixPartie.}<br>
+  *{@summary Remove PanneauNouvellePartie &#38; PanneauChoixPartie.}<br>
   *@version 1.44
   */
   public void removeP(){
