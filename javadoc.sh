@@ -1,6 +1,6 @@
 #Generate the javadoc for the project in docs/javadoc
 
-javadoc -doctitle "Javadoc of Formiko" -version -quiet -author -private -d docs/javadoc/ $(find src/main/java -name "*.java" | grep -v fr/formiko/usuel/tests/) -locale en_US -stylesheetfile styles.css -header '
+javadoc -doctitle "Javadoc of Formiko" -version -quiet -author -private -d docs/javadoc/ $(find src/main/java -name "*.java" | grep -v fr/formiko/usuel/tests/) -locale en_US -stylesheetfile docs/javadoc/styles.css -header '
 <h1 id="main-title">Formiko</h1>
 <nav>
   <ul id="buttons-bar">
