@@ -1,6 +1,7 @@
 package fr.formiko.formiko;
 
 import fr.formiko.usuel.*;
+import fr.formiko.usuel.createBadges;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.fichier;
@@ -9,8 +10,9 @@ import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.media.audio.*;
 import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.createBadges;
 import fr.formiko.usuel.types.str;
+import fr.formiko.views.ViewNull;
+import fr.formiko.usuel.trad;
 
 import java.util.HashMap;
 
@@ -144,6 +146,9 @@ public class launchOptions {
       fichier.download(args[1],args[2]);
     }else if(args[0].equals("createBadges")){
       createBadges.createBadges();
+    }else if(args[0].equals("translateWebSite") || args[0].equals("tws")){
+      translateWebSite(args[1]);
+      // System.exit(0);
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }
@@ -256,4 +261,22 @@ public class launchOptions {
   //   fichier.zip("tools/", "tools.zip");
   //   fichier.unzip("tools.zip", "tools2");
   // }
+  private static void translateWebSite(String pathToWebSiteFile){
+    Main.setView(new ViewNull());
+    Main.setOs(new Os());
+    Main.setFolder(new Folder());
+    Main.iniOp();
+    // Chrono ch = new Chrono();
+    // Main.startCh(ch);
+    Main.getOp().setLangue(0);
+    Main.iniLangue();
+    trad.translateWebSiteFiles(pathToWebSiteFile);
+    Main.getOp().setLangue(1);
+    Main.iniLangue();
+    trad.translateWebSiteFiles(pathToWebSiteFile);
+    Main.getOp().setLangue(2);
+    Main.iniLangue();
+    trad.translateWebSiteFiles(pathToWebSiteFile);
+    // Main.endCh("translateWebSite",ch);
+  }
 }

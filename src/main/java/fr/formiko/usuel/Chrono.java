@@ -118,7 +118,7 @@ public class Chrono {
     String s2 = g.getM(s);
     if (s2.length()!=0){ s=s2;}
     chTemp.stop();long lon = chTemp.getDuree();
-    if(!debug.getAffLesEtapesDeRésolution() && lon<20){return (int)lon;}
+    if(!debug.getAffLesEtapesDeRésolution()){return (int)lon;}
     String s3 = ""; if(!chTemp.equals(ch)){s3 = " ("+g.get("actionSecondaire")+" "+ch.getId()+")";}
     debug.performances("temps pour "+ s + " : "+lon+" ms"+s3); //affichage du chrono.
     return (int)lon;

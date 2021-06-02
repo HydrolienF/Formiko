@@ -2,13 +2,15 @@ package fr.formiko.usuel;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.chargerLesTraductions;
+import fr.formiko.usuel.debug;
+import fr.formiko.usuel.ecrireUnFichier;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
 import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.types.str;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -77,6 +79,68 @@ public class trad {
     for (i=1;i<lens && c!=':';i++ ) {
       sr = sr+c;
       c = s.charAt(i);
+    }
+    return sr;
+  }
+  /**
+  *{@summary Translate all web site file for curent language.}<br>
+  *It need to have the good path to web site file.
+  *@version 1.48
+  */
+  public static void translateWebSiteFiles(String pathToWebSiteFile){
+    // String pathToWebSiteFile = "../HydrolienF.github.io/docs/";
+    String language = chargerLesTraductions.getLanguage(Main.getLanguage());
+    File index = new File(pathToWebSiteFile+"Newindex.html");
+    GString gsr = new GString();
+    if(index.exists()){
+      GString gs = lireUnFichier.lireUnFichierGs(index);
+      for (String s : gs ) {
+        gsr.add(replaceTranslation(s));
+      }
+    }else{
+      erreur.erreur("can't read "+pathToWebSiteFile+"index.html");
+    }
+    // File newIndex = new File(pathToWebSiteFile+language+"/"+"index.html");
+    // System.out.println(pathToWebSiteFile+language+"/"+"index.html");
+    ecrireUnFichier.ecrireUnFichier(gsr,pathToWebSiteFile+language+"/"+"index.html");
+  }
+  /**
+  *{@summary Translate a String by replacing €{key} by the translation of key.}<br>
+  *@param s the String to translate.
+  *@version 1.48
+  */
+  //TODO test
+  public static String replaceTranslation(String s){
+    // replaceAll​("€[^€]", String replacement)
+    String sr = "";
+    boolean euro=false;
+    boolean readingKey=false;
+    String key="";
+    //.toCharArray() is maybe not the best solution but I think that always using .charAt(i); for long String will cost more time.
+    for (char c : s.toCharArray()) {
+      if (readingKey) { //if were reading the key.
+        if(c=='}'){ //if it just end.
+          readingKey=false;
+          sr+=g.get(key);
+          key="";
+        }else{ //if were still readinf the key.
+          key+=c;
+        }
+      }else if(c=='€'){ //if next char may be key.
+        euro=true;
+      }else{
+        if(euro){ //if last char where €.
+          euro=false;
+          if(c=='{'){ //if key start.
+            readingKey=true;
+          }else{ //if it wasn't a key.
+            sr+='€';
+            sr+=c;
+          }
+        }else{ //if no key start & not reading key.
+          sr+=c;
+        }
+      }
     }
     return sr;
   }

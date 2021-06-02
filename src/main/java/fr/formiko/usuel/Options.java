@@ -183,7 +183,7 @@ public class Options implements Serializable{
   private void saveProperties(){
     try {
       OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+"Options.md"));
-      properties.store(os,"**Options file**\nEvery value can be edit here but variable have specific type. For exemple instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that sould be in [0,100]. Most value sould be out of intervale save. But you may need to reset Options to default value by deleting this file if something goes wrong.");
+      properties.store(os,"**Options file**\nEvery value can be edit here but variable have specific type. For example instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that should be in [0,100]. Most value should be out of interval save. But you may need to reset Options to default value by deleting this file if something goes wrong.");
     }catch (IOException e) {
       erreur.erreur("Impossible de sauvegarder les options.","Options par défaut choisie.");
     }
@@ -196,7 +196,7 @@ public class Options implements Serializable{
     Properties properties = getDefaultProperties();
     try {
       OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+"Options.md"));
-      properties.store(os,"**Options file**\nEvery values can be edit here but variable have specific type. For exemple instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that sould be in [0,100]. Most value sould be out of intervale save. But you may need to reset Options to default value by deleting this file if something goes wrong.");
+      properties.store(os,"**Options file**\nEvery values can be edit here but variable have specific type. For example instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that should be in [0,100]. Most value should be out of interval save. But you may need to reset Options to default value by deleting this file if something goes wrong.");
     }catch (IOException e) {
       erreur.erreur("Impossible de sauvegarder les options par défaut.");
     }

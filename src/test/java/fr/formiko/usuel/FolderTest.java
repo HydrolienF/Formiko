@@ -180,7 +180,7 @@ public class FolderTest extends TestCaseMuet{
     f.setFolderMain();
   }
   @Test
-  // @Disabled("Tooo long for standard test")
+  @Disabled("Tooo long for standard test")
   public void testDownloadData(){
     Folder folder = new Folder();
     int x = getId();
@@ -195,7 +195,7 @@ public class FolderTest extends TestCaseMuet{
     folder.setFolderMain();
   }
   @Test
-  // @Disabled("Tooo long for standard test")
+  @Disabled("Tooo long for standard test")
   public void testDownloadData2(){
     Folder folder = new Folder();
     int x = getId();
