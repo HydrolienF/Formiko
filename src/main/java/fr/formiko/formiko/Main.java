@@ -183,6 +183,7 @@ public class Main {
   public static void setPremierePartie(boolean b){premierePartie=b;}
   public static Data getData(){return data;}
   public static View getView(){return view;}
+  public static void setView(View v){view=v;}
   public static void setModeCLI(boolean b){modeCLI=b;}
   public static long getLonTotal(){return lonTotal;}
   //shortcut
@@ -329,8 +330,9 @@ public class Main {
     op.iniOptions();
   }
   /**
-   * Load language.
-   * @version 1.1
+   *{@summary Load language.}<br>
+   *If language are not fully translated, it will add data of default language.
+   *@version 1.1
    */
   public static void iniLangue(){
     startCh();

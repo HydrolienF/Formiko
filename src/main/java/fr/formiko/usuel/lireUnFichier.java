@@ -61,5 +61,6 @@ public class lireUnFichier {
     debug.débogage(gs.length() + " "+g.get("lireUnFichier",1,"lignes on été trouvée dans le fichier"));
     return gs;
   }
+  public static GString lireUnFichierGs(File f){return lireUnFichierGs(f.getAbsolutePath());}
 
 }

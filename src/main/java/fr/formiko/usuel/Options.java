@@ -216,6 +216,11 @@ public class Options implements Serializable{
       erreur.alerte("no screen size found");
     }
     Double racio = (x+0.0)/1920;// si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.
+    if(Main.getFolder()==null){
+      Folder folder = new Folder();
+      folder.ini();
+      Main.setFolder(folder);
+    }
     chargerLesTraductions.iniTLangue();
     int t[]=new int[2];
     if(x>=1920*2){ //plus de 2*
