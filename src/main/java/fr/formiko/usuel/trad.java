@@ -98,11 +98,29 @@ public class trad {
         gsr.add(replaceTranslation(s));
       }
     }else{
-      erreur.erreur("can't read "+pathToWebSiteFile+"index.html");
+      String path = "unknow";
+      try {
+        path = index.getCanonicalPath();
+      }catch (Exception e) {}
+      erreur.erreur("can't read "+path);
     }
-    // File newIndex = new File(pathToWebSiteFile+language+"/"+"index.html");
-    // System.out.println(pathToWebSiteFile+language+"/"+"index.html");
     ecrireUnFichier.ecrireUnFichier(gsr,pathToWebSiteFile+language+"/"+"index.html");
+
+    File download = new File(pathToWebSiteFile+"Newdownload.html");
+    gsr = new GString();
+    if(index.exists()){
+      GString gs = lireUnFichier.lireUnFichierGs(download);
+      for (String s : gs ) {
+        gsr.add(replaceTranslation(s));
+      }
+    }else{
+      String path = "unknow";
+      try {
+        path = index.getCanonicalPath();
+      }catch (Exception e) {}
+      erreur.erreur("can't read "+path);
+    }
+    ecrireUnFichier.ecrireUnFichier(gsr,pathToWebSiteFile+language+"/"+"download.html");
   }
   /**
   *{@summary Translate a String by replacing €{key} by the translation of key.}<br>

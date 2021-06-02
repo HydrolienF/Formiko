@@ -44,7 +44,7 @@ public class Folder{
       //TODO fined & test a good path for mac.
       // setFolderMain(System.getProperty("user.home")+"/Formiko/");
     }
-    setFolderMain("");//TODO remove after test
+    // setFolderMain("");//always remove after test
     File folderM = new File(getFolderMain());
     if(!folderM.mkdirs() && !folderM.isDirectory()){
       erreur.alerte("can't create main folder : "+getFolderMain());
