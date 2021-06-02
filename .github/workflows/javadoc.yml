@@ -4,11 +4,9 @@ name: Javadoc
 
 # Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
-  push:
-    branches: [ "48" ]
   pull_request:
-    branches: [ master, "48" ]
+    branches: [ master ]
+    types: [closed]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -16,8 +14,8 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  updateJavadoc:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
