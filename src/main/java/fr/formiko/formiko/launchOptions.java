@@ -147,7 +147,7 @@ public class launchOptions {
     }else if(args[0].equals("createBadges")){
       createBadges.createBadges();
     }else if(args[0].equals("translateWebSite") || args[0].equals("tws")){
-      translateWebSite(args[1]);
+      translateWebSite(args[1],args[2]);
       // System.exit(0);
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
@@ -261,11 +261,12 @@ public class launchOptions {
   //   fichier.zip("tools/", "tools.zip");
   //   fichier.unzip("tools.zip", "tools2");
   // }
-  private static void translateWebSite(String pathToWebSiteFile){
+  private static void translateWebSite(String pathToWebSiteFile, String pathToWebSiteTranslation){
     Main.setView(new ViewNull());
     Main.setOs(new Os());
     Main.setFolder(new Folder());
     Main.iniOp();
+    chargerLesTraductions.setRep(pathToWebSiteTranslation);
     // Chrono ch = new Chrono();
     // Main.startCh(ch);
     Main.getOp().setLangue(0);
