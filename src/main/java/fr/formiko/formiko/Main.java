@@ -275,6 +275,8 @@ public class Main {
   public static void initialisation(){
     tempsDeDébutDeJeu=System.currentTimeMillis();
     os = new Os();
+    setPremierePartie(false);
+    Fourmi.setUneSeuleAction(-1);
     folder = new Folder();
     getFolder().ini();
     if(view==null){
