@@ -4,11 +4,13 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.views.gui2d.action;
 
 import java.awt.Event;
 import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ActionMap;
@@ -46,24 +48,30 @@ public class keys {
     ActionMap actionMap = Main.getF().getPp().getActionMap();
 
     //globals actions
-    Action action = new AbstractAction() {
+    Action actionA = new AbstractAction() {
       /**
-      *{@summary Show or hide escape panel.}
+      *{@summary Show or hide escape panel or do return action.}
       *@version 1.40
       */
       public void actionPerformed(ActionEvent actionEvent) {
-        if(!Panneau.getView().getActionGameOn()){return;}
-        if(Panneau.getView().getPe().getVisible()){
-          Panneau.getView().getPe().setVisible(false);
+        if(Panneau.getView().getActionGameOn()){
+          if(Panneau.getView().getPe().getVisible()){
+            Panneau.getView().getPe().setVisible(false);
+          }else{
+            Panneau.getView().getPj().setDesc("");
+            Panneau.getView().getPe().setVisible(true);
+          }
         }else{
-          Panneau.getView().getPj().setDesc("");
-          Panneau.getView().getPe().setVisible(true);
+          System.out.println("do clic");//@a
+          // Panneau.getView().getPm().getReturnButton().doClick();
+          // Panneau.getView().getPm().getReturnButton().processMouseEvent​(new MouseEvent());
+          action.doAction(Panneau.getView().getPm().getReturnButton().getActionB());
         }
       }
     };
-    actionMap.put("escape",action);
+    actionMap.put("escape",actionA);
 
-    action = new AbstractAction() {
+    actionA = new AbstractAction() {
       /**
       *{@summary Try to go to next PanneauDialogue.}
       *@version 1.40
@@ -74,9 +82,9 @@ public class keys {
         }catch (Exception e) {}
       }
     };
-    actionMap.put("space",action);
+    actionMap.put("space",actionA);
 
-    action = new AbstractAction() {
+    actionA = new AbstractAction() {
       /**
       *{@summary Launch game or swap plaing ant or end turn.}
       *@version 1.40
@@ -93,10 +101,10 @@ public class keys {
         }
       }
     };
-    actionMap.put("enter",action);
+    actionMap.put("enter",actionA);
 
     //ants actions
-    action = new AbstractAction() {
+    actionA = new AbstractAction() {
       /**
       *{@summary Do an ant action.}
       *@version 1.40
@@ -118,6 +126,6 @@ public class keys {
         }
       }
     };
-    actionMap.put("antAction",action);
+    actionMap.put("antAction",actionA);
   }
 }

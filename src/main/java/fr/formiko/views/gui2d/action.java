@@ -125,12 +125,10 @@ public class action{
     }else if(ac==-11){
 
     }else if(ac==-12){
-
-    }else if(ac==-13){
       retournerAuMenu();
-    }else if(ac==-14){
+    }else if(ac==-13){
       Main.getF().quit();
-    }else if(ac==-15){
+    }else if(ac==-14){
       Panneau.getView().getPe().setVisible(false);
     }
   }

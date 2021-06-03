@@ -41,6 +41,8 @@ public class Bouton extends JButton implements MouseListener{
     // this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.
     setCFond(Main.getData().getButtonColor());
     setContentAreaFilled(false);
+    setFocusPainted(false); //paint swap to next button when do tab disable.
+
   }
   public Bouton(String str, Panneau p, int action){
     super(str);id=cpt; cpt++;setBorderPainted(false);setOpaque(false);
@@ -55,6 +57,7 @@ public class Bouton extends JButton implements MouseListener{
     setForeground(new Color(0,0,0));
     super.setBackground(cFond);
     setContentAreaFilled(false);
+    setFocusPainted(false); //paint swap to next button when do tab disable.
   }
   //public Bouton (String str, Panneau p, int action, Image i){ this(str,p,(byte) action,i);}
   //public Bouton(String str,Panneau p, byte action,String imageX){this(str,p,action,image.getImage(imageX));}
@@ -120,7 +123,9 @@ public class Bouton extends JButton implements MouseListener{
 
   //Méthode appelée lors du clic de souris
   @Override
-  public void mouseClicked(MouseEvent event) {}
+  public void mouseClicked(MouseEvent event) {
+    System.out.println("clicked");//@a
+  }
 
   //Méthode appelée lors du survol de la souris
   @Override
@@ -141,11 +146,14 @@ public class Bouton extends JButton implements MouseListener{
 
   //Méthode appelée lorsque l'on presse le bouton gauche de la souris
   @Override
-  public void mousePressed(MouseEvent event) { }
+  public void mousePressed(MouseEvent event) {
+    System.out.println("pressed");//@a
+  }
 
   //Méthode appelée lorsque l'on relâche le clic de souris
   @Override
   public void mouseReleased(MouseEvent event) {
+    System.out.println("relesed");//@a
     debug.débogage("Un bouton a été cliqué, l'action "+action+" vas être effectué.");
     Main.doAction(action);
   }
