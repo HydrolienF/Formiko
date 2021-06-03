@@ -1,17 +1,18 @@
 package fr.formiko.usuel;
 
-//def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.tableau;
-import java.io.File;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
 import fr.formiko.usuel.listes.GString;
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDateTime;
+import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class ecrireUnFichier {
 
@@ -20,9 +21,12 @@ public class ecrireUnFichier {
     try {
       BufferedWriter ecriteurAvecBuffer = null;
       String ligne;
-
+      File f = new File(nomDuFichier);
+      // if(!f.exists()){
+      f.createNewFile(); //it will be crate only if it haven't been yet.
+      // }
       try {
-        ecriteurAvecBuffer = new BufferedWriter(new FileWriter(nomDuFichier));
+        ecriteurAvecBuffer = new BufferedWriter(new FileWriter(nomDuFichier, StandardCharsets.UTF_8));
       } catch(FileNotFoundException e) {
         erreur.erreur("Le fichier n'as pas pu être créer. Le problème peut venir d'un caractère incorecte");
         return false;
