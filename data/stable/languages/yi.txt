@@ -307,10 +307,10 @@ ChasseFourmi.3:צו שנייַדן אַרויף די ינסעקט[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:ראַטעווען[auto]
 bouton.nom.-11:אָפּציעס[auto]
-bouton.nom.-12:טשאַרדזשער[auto]
-bouton.nom.-13:צוריק צו הויפּט מעניו[auto]
-bouton.nom.-14:קוויטטער אַנט[auto]
-bouton.nom.-15:צוריק צו שפּילן[auto]
+bouton.nom.-12disable:טשאַרדזשער[auto]
+bouton.nom.-12:צוריק צו הויפּט מעניו[auto]
+bouton.nom.-13:קוויטטער אַנט[auto]
+bouton.nom.-14:צוריק צו שפּילן[auto]
 
 save.message:אַרייַן די נאָמען צו געבן דיין באַקאַפּ.[auto]
 

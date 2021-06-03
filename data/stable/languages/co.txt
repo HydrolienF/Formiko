@@ -307,10 +307,10 @@ ChasseFourmi.3:per taglià l'insettu[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:salvà[auto]
 bouton.nom.-11:ozzione[auto]
-bouton.nom.-12:caricatore[auto]
-bouton.nom.-13:torna à u menu principale[auto]
-bouton.nom.-14:quitter Ant[auto]
-bouton.nom.-15:torna à ghjucà[auto]
+bouton.nom.-12disable:caricatore[auto]
+bouton.nom.-12:torna à u menu principale[auto]
+bouton.nom.-13:quitter Ant[auto]
+bouton.nom.-14:torna à ghjucà[auto]
 
 save.message:entre u nome da dà à a vostra copia di salvezza.[auto]
 

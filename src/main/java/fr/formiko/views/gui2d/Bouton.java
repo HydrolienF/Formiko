@@ -38,19 +38,23 @@ public class Bouton extends JButton implements MouseListener{
     debug.débogage("Création du bouton "+str+" avec une image "+s);
     this.nom = str; this.p = p; this.action = action;
     this.addMouseListener(this); //Grâce à cette instruction, notre objet va s'écouter  Dès qu'un événement de la souris sera intercepté, il en sera averti
-    this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.
+    // this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.
     setCFond(Main.getData().getButtonColor());
+    setContentAreaFilled(false);
   }
   public Bouton(String str, Panneau p, int action){
     super(str);id=cpt; cpt++;setBorderPainted(false);setOpaque(false);
     debug.débogage("Création du bouton "+str);
     this.nom = str; this.p = p; this.action = action;
     this.addMouseListener(this);
-    if (p!=null) {
-      this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.
-    }
+    // if (p!=null) {
+    //   this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.
+    // }
     this.setFont(Main.getFont1());
     setCFond(Main.getData().getButtonColor());
+    setForeground(new Color(0,0,0));
+    super.setBackground(cFond);
+    setContentAreaFilled(false);
   }
   //public Bouton (String str, Panneau p, int action, Image i){ this(str,p,(byte) action,i);}
   //public Bouton(String str,Panneau p, byte action,String imageX){this(str,p,action,image.getImage(imageX));}
@@ -90,13 +94,15 @@ public class Bouton extends JButton implements MouseListener{
       //Rectangle2D rect = fm.getStringBounds(nom,g);
       //new FontRenderContext(null, false, false)
       //le fond
-      if(cFond!=null){
+      if(cFond!=null && !isOpaque()){
         g2d.setColor(cFond);
         g2d.fillRect(0,0,getWidth(),getHeight());
       }
+      setText(nom);
       //le texte
-      g2d.setColor(new Color(0,0,0));
-      g2d.drawString(nom,0,this.getHeight()*2/3);
+      // g2d.setColor(new Color(0,0,0));
+      // g2d.drawString(nom,0,this.getHeight()*2/3);
+      super.paintComponent(g);
     }else{g2d.drawImage(this.img,0,0, null);}
     if(bordure){peintBordure(g2d);}
   }

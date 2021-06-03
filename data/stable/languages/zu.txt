@@ -307,10 +307,10 @@ ChasseFourmi.3:ukusika isinambuzane[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:londoloza[auto]
 bouton.nom.-11:ongakhetha kukho[auto]
-bouton.nom.-12:ishaja[auto]
-bouton.nom.-13:buyela kumenyu enkulu[auto]
-bouton.nom.-14:yeka Intuthwane[auto]
-bouton.nom.-15:emuva ukudlala[auto]
+bouton.nom.-12disable:ishaja[auto]
+bouton.nom.-12:buyela kumenyu enkulu[auto]
+bouton.nom.-13:yeka Intuthwane[auto]
+bouton.nom.-14:emuva ukudlala[auto]
 
 save.message:faka igama ozolinika isipele sakho.[auto]
 

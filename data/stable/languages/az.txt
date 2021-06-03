@@ -307,10 +307,10 @@ ChasseFourmi.3:böcəyi kəsmək[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:yadda saxla[auto]
 bouton.nom.-11:seçimlər[auto]
-bouton.nom.-12:adapter[auto]
-bouton.nom.-13:əsas menyuya qayıdın[auto]
-bouton.nom.-14:quş qarışqa[auto]
-bouton.nom.-15:oynamaq üçün geri[auto]
+bouton.nom.-12disable:adapter[auto]
+bouton.nom.-12:əsas menyuya qayıdın[auto]
+bouton.nom.-13:quş qarışqa[auto]
+bouton.nom.-14:oynamaq üçün geri[auto]
 
 save.message:ehtiyatınıza vermək üçün adı daxil edin.[auto]
 

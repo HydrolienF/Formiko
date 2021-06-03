@@ -307,10 +307,10 @@ ChasseFourmi.3:wyciąć owada[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:zapisać[auto]
 bouton.nom.-11:opcje[auto]
-bouton.nom.-12:ładowarka[auto]
-bouton.nom.-13:powrót do menu głównego[auto]
-bouton.nom.-14:quitter Ant[auto]
-bouton.nom.-15:z powrotem do gry[auto]
+bouton.nom.-12disable:ładowarka[auto]
+bouton.nom.-12:powrót do menu głównego[auto]
+bouton.nom.-13:quitter Ant[auto]
+bouton.nom.-14:z powrotem do gry[auto]
 
 save.message:wprowadź nazwę, którą chcesz nadać kopii zapasowej.[auto]
 

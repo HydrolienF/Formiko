@@ -307,10 +307,10 @@ ChasseFourmi.3:kudula tizilombo[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:sungani[auto]
 bouton.nom.-11:zosankha[auto]
-bouton.nom.-12:naupereka[auto]
-bouton.nom.-13:kubwerera ku menyu yayikulu[auto]
-bouton.nom.-14:asiye Nyerere[auto]
-bouton.nom.-15:kubwerera kusewera[auto]
+bouton.nom.-12disable:naupereka[auto]
+bouton.nom.-12:kubwerera ku menyu yayikulu[auto]
+bouton.nom.-13:asiye Nyerere[auto]
+bouton.nom.-14:kubwerera kusewera[auto]
 
 save.message:kulowa dzina kupereka kubwerera wanu.[auto]
 

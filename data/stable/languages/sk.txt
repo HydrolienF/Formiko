@@ -307,10 +307,10 @@ ChasseFourmi.3:rozrezať hmyz[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:uložiť[auto]
 bouton.nom.-11:možnosti[auto]
-bouton.nom.-12:nabíjačka[auto]
-bouton.nom.-13:späť do hlavnej ponuky[auto]
-bouton.nom.-14:tlmočník Ant[auto]
-bouton.nom.-15:späť hrať[auto]
+bouton.nom.-12disable:nabíjačka[auto]
+bouton.nom.-12:späť do hlavnej ponuky[auto]
+bouton.nom.-13:tlmočník Ant[auto]
+bouton.nom.-14:späť hrať[auto]
 
 save.message:zadajte názov, ktorý chcete dať svojej zálohe.[auto]
 

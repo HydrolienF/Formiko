@@ -307,10 +307,10 @@ ChasseFourmi.3:барои нест кардани хашарот[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:захира кунед[auto]
 bouton.nom.-11:имконоти[auto]
-bouton.nom.-12:пуркунандаи барқ[auto]
-bouton.nom.-13:бозгашт ба менюи асосӣ[auto]
-bouton.nom.-14:мурчаи мурт[auto]
-bouton.nom.-15:бозгашт ба бозӣ[auto]
+bouton.nom.-12disable:пуркунандаи барқ[auto]
+bouton.nom.-12:бозгашт ба менюи асосӣ[auto]
+bouton.nom.-13:мурчаи мурт[auto]
+bouton.nom.-14:бозгашт ба бозӣ[auto]
 
 save.message:номеро ворид кунед, ки ба нусхаи эҳтиётии худ дода мешавад.[auto]
 

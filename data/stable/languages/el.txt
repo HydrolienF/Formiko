@@ -307,10 +307,10 @@ ChasseFourmi.3:για να κόψει το έντομο[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:σώσει[auto]
 bouton.nom.-11:επιλογές[auto]
-bouton.nom.-12:φορτιστής[auto]
-bouton.nom.-13:επιστροφή στο κύριο μενού[auto]
-bouton.nom.-14:εγκατάλειψη Ant[auto]
-bouton.nom.-15:πίσω στο παιχνίδι[auto]
+bouton.nom.-12disable:φορτιστής[auto]
+bouton.nom.-12:επιστροφή στο κύριο μενού[auto]
+bouton.nom.-13:εγκατάλειψη Ant[auto]
+bouton.nom.-14:πίσω στο παιχνίδι[auto]
 
 save.message:εισαγάγετε το όνομα για να δώσετε στο αντίγραφο ασφαλείας σας.[auto]
 

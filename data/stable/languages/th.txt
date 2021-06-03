@@ -307,10 +307,10 @@ ChasseFourmi.3:เพื่อตัดแมลง[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:บันทึก[auto]
 bouton.nom.-11:ตัวเลือก[auto]
-bouton.nom.-12:เครื่องชาร์จ[auto]
-bouton.nom.-13:กลับไปที่เมนูหลัก[auto]
-bouton.nom.-14:quitter Ant[auto]
-bouton.nom.-15:กลับไปเล่น[auto]
+bouton.nom.-12disable:เครื่องชาร์จ[auto]
+bouton.nom.-12:กลับไปที่เมนูหลัก[auto]
+bouton.nom.-13:quitter Ant[auto]
+bouton.nom.-14:กลับไปเล่น[auto]
 
 save.message:ป้อนชื่อเพื่อให้ข้อมูลสำรองของคุณ[auto]
 

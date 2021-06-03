@@ -307,10 +307,10 @@ ChasseFourmi.3:senhaŭtigi insekto
 //bouton du PanneauEchap
 bouton.nom.-10:savi
 bouton.nom.-11:opcio
-bouton.nom.-12:ŝargi
-bouton.nom.-13:reiri al ĉefa menuo
-bouton.nom.-14:deiri Formiko
-bouton.nom.-15:reiri a la ludo
+bouton.nom.-12disable:ŝargi
+bouton.nom.-12:reiri al ĉefa menuo
+bouton.nom.-13:deiri Formiko
+bouton.nom.-14:reiri a la ludo
 
 save.message:enigu la nomon por doni al via rezervo.[auto]
 

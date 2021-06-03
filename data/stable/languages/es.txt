@@ -307,10 +307,10 @@ ChasseFourmi.3:cortar el insecto[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:salvar[auto]
 bouton.nom.-11:opciones[auto]
-bouton.nom.-12:cargador[auto]
-bouton.nom.-13:volver al menú principal[auto]
-bouton.nom.-14:hormiga abandonada[auto]
-bouton.nom.-15:volver a jugar[auto]
+bouton.nom.-12disable:cargador[auto]
+bouton.nom.-12:volver al menú principal[auto]
+bouton.nom.-13:hormiga abandonada[auto]
+bouton.nom.-14:volver a jugar[auto]
 
 save.message:ingrese el nombre para darle a su respaldo.[auto]
 

@@ -307,10 +307,10 @@ ChasseFourmi.3:lati ge kokoro naa[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:fipamọ[auto]
 bouton.nom.-11:awọn aṣayan[auto]
-bouton.nom.-12:ṣaja[auto]
-bouton.nom.-13:pada si akojọ aṣayan akọkọ[auto]
-bouton.nom.-14:quitter Kokoro[auto]
-bouton.nom.-15:pada lati mu ṣiṣẹ[auto]
+bouton.nom.-12disable:ṣaja[auto]
+bouton.nom.-12:pada si akojọ aṣayan akọkọ[auto]
+bouton.nom.-13:quitter Kokoro[auto]
+bouton.nom.-14:pada lati mu ṣiṣẹ[auto]
 
 save.message:tẹ orukọ sii lati fi fun afẹyinti rẹ.[auto]
 

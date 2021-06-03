@@ -307,10 +307,10 @@ ChasseFourmi.3:虫を切る[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:保存する[auto]
 bouton.nom.-11:オプション[auto]
-bouton.nom.-12:充電器[auto]
-bouton.nom.-13:メインメニューに戻る[auto]
-bouton.nom.-14:やめたAnt[auto]
-bouton.nom.-15:再生に戻る[auto]
+bouton.nom.-12disable:充電器[auto]
+bouton.nom.-12:メインメニューに戻る[auto]
+bouton.nom.-13:やめたAnt[auto]
+bouton.nom.-14:再生に戻る[auto]
 
 save.message:バックアップに付ける名前を入力します。[auto]
 

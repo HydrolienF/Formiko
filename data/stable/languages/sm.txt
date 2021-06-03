@@ -307,10 +307,10 @@ ChasseFourmi.3:e tipi le iniseti[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:sefe[auto]
 bouton.nom.-11:filifiliga[auto]
-bouton.nom.-12:charger[auto]
-bouton.nom.-13:toe foi i le autu lisi[auto]
-bouton.nom.-14:lūlū loi[auto]
-bouton.nom.-15:toe foi e taalo[auto]
+bouton.nom.-12disable:charger[auto]
+bouton.nom.-12:toe foi i le autu lisi[auto]
+bouton.nom.-13:lūlū loi[auto]
+bouton.nom.-14:toe foi e taalo[auto]
 
 save.message:ulufale i le igoa e ave i lau backup.[auto]
 

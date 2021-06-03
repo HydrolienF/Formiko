@@ -307,10 +307,10 @@ ChasseFourmi.3:biex taqta 'l-insett[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:ħlief[auto]
 bouton.nom.-11:għażliet[auto]
-bouton.nom.-12:ċarġer[auto]
-bouton.nom.-13:lura għall-menu prinċipali[auto]
-bouton.nom.-14:quitter Ant[auto]
-bouton.nom.-15:lura biex tilgħab[auto]
+bouton.nom.-12disable:ċarġer[auto]
+bouton.nom.-12:lura għall-menu prinċipali[auto]
+bouton.nom.-13:quitter Ant[auto]
+bouton.nom.-14:lura biex tilgħab[auto]
 
 save.message:daħħal l-isem li tagħti lill-backup tiegħek.[auto]
 

@@ -307,10 +307,10 @@ ChasseFourmi.3:om die insek op te kap[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:red[auto]
 bouton.nom.-11:opsies[auto]
-bouton.nom.-12:laaier[auto]
-bouton.nom.-13:terug na hoofkieslys[auto]
-bouton.nom.-14:ophou Ant[auto]
-bouton.nom.-15:terug om te speel[auto]
+bouton.nom.-12disable:laaier[auto]
+bouton.nom.-12:terug na hoofkieslys[auto]
+bouton.nom.-13:ophou Ant[auto]
+bouton.nom.-14:terug om te speel[auto]
 
 save.message:tik die naam in om aan u rugsteun te gee.[auto]
 

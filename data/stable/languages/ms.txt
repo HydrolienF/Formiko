@@ -307,10 +307,10 @@ ChasseFourmi.3:untuk memotong serangga[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:berjimat[auto]
 bouton.nom.-11:pilihan[auto]
-bouton.nom.-12:pengecas[auto]
-bouton.nom.-13:kembali ke menu utama[auto]
-bouton.nom.-14:semut Semut[auto]
-bouton.nom.-15:kembali bermain[auto]
+bouton.nom.-12disable:pengecas[auto]
+bouton.nom.-12:kembali ke menu utama[auto]
+bouton.nom.-13:semut Semut[auto]
+bouton.nom.-14:kembali bermain[auto]
 
 save.message:masukkan nama yang akan diberikan pada sandaran anda.[auto]
 

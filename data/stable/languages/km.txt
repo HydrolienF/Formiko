@@ -307,10 +307,10 @@ ChasseFourmi.3:ដើម្បីកាត់សត្វល្អិត[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:រក្សាទុក[auto]
 bouton.nom.-11:ជំរើស[auto]
-bouton.nom.-12:ឆ្នាំងសាក[auto]
-bouton.nom.-13:ត្រឡប់ទៅម៉ឺនុយមេវិញ[auto]
-bouton.nom.-14:quitter Ant[auto]
-bouton.nom.-15:ត្រលប់ទៅលេង[auto]
+bouton.nom.-12disable:ឆ្នាំងសាក[auto]
+bouton.nom.-12:ត្រឡប់ទៅម៉ឺនុយមេវិញ[auto]
+bouton.nom.-13:quitter Ant[auto]
+bouton.nom.-14:ត្រលប់ទៅលេង[auto]
 
 save.message:បញ្ចូលឈ្មោះដើម្បីផ្តល់ការបម្រុងទុករបស់អ្នក។[auto]
 

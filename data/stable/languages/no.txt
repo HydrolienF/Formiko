@@ -307,10 +307,10 @@ ChasseFourmi.3:å kutte opp insektet[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:lagre[auto]
 bouton.nom.-11:alternativer[auto]
-bouton.nom.-12:lader[auto]
-bouton.nom.-13:tilbake til hovedmenyen[auto]
-bouton.nom.-14:kvitter Ant[auto]
-bouton.nom.-15:tilbake for å spille[auto]
+bouton.nom.-12disable:lader[auto]
+bouton.nom.-12:tilbake til hovedmenyen[auto]
+bouton.nom.-13:kvitter Ant[auto]
+bouton.nom.-14:tilbake for å spille[auto]
 
 save.message:skriv inn navnet du vil gi til sikkerhetskopien din.[auto]
 

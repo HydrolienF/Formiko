@@ -307,10 +307,10 @@ ChasseFourmi.3:cắt côn trùng[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:tiết kiệm[auto]
 bouton.nom.-11:tùy chọn[auto]
-bouton.nom.-12:bộ sạc[auto]
-bouton.nom.-13:trở lại menu chính[auto]
-bouton.nom.-14:kiến quitter[auto]
-bouton.nom.-15:trở lại chơi[auto]
+bouton.nom.-12disable:bộ sạc[auto]
+bouton.nom.-12:trở lại menu chính[auto]
+bouton.nom.-13:kiến quitter[auto]
+bouton.nom.-14:trở lại chơi[auto]
 
 save.message:nhập tên để cung cấp cho bản sao lưu của bạn.[auto]
 
