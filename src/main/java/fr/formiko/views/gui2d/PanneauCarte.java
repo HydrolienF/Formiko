@@ -52,9 +52,13 @@ public class PanneauCarte extends Panneau {
   private int idCurentFere=-1;
   private static boolean drawAllFere;
   private CCase lookedCCase;
+  // private SubPanel subPanel;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public PanneauCarte(){}
+  public PanneauCarte(){
+    // subPanel = new SubPanel(this);
+    // add(subPanel);
+  }
   /**
   *{@summary Build methode.}<br>
   *@version 1.x
@@ -86,7 +90,7 @@ public class PanneauCarte extends Panneau {
     g.setColor(Color.BLACK);
   }
   /**
-  *setSize sould never be used. Use actualiserSize insted.
+  *setSize sould never be used. Use updateSize insted.
   *@version 1.x
   */
   @Override
@@ -98,7 +102,7 @@ public class PanneauCarte extends Panneau {
   *@version 1.x
   */
   public void actualiserCarte(){
-    actualiserSize();//actualise la taille du PanneauCarte a la bonne dimention.
+    updateSize();//actualise la taille du PanneauCarte a la bonne dimention.
     //chargerImages();
     Main.getData().iniBackgroundMapImage(); //demande au donnée d'image de rechargé l'image qui représente l'arrière plan de la carte.
   }
@@ -116,11 +120,14 @@ public class PanneauCarte extends Panneau {
       erreur.alerte("la partie est null");
     }
     Main.startCh();
+
+    setLocation(-getPosX()*getTailleDUneCase(),-getPosY()*getTailleDUneCase());
+
     Graphics2D g = (Graphics2D)g2;
     setLigne(g);
     try {
       GCase gc = Main.getGc();
-      actualiserSize();
+      updateSize();
       debug.débogage("Dimention du PanneauCarte en case : x="+xCase+" y="+yCase);
       debug.débogage("taille réèle du panneau de la carte : x="+this.getWidth()+", y="+this.getHeight());
       try {
@@ -147,13 +154,14 @@ public class PanneauCarte extends Panneau {
   */
   public void dessinerGrille(Graphics g){
     if(Main.getDessinerGrille()){
+      int tailleCase = getTailleDUneCase();
       for (int i=0;i<xCase+1 ;i++ ) {
-        int xT = Main.getData().getTailleDUneCase()*i;
-        g.drawLine(xT,0,xT,Main.getData().getTailleDUneCase()*yCase);
+        int xT = tailleCase*i;
+        g.drawLine(xT,0,xT,tailleCase*(yCase));
       }
       for (int i=0;i<yCase+1 ;i++ ) {
-        int xT = Main.getData().getTailleDUneCase()*i;
-        g.drawLine(0,xT,Main.getData().getTailleDUneCase()*xCase,xT);
+        int xT = tailleCase*i;
+        g.drawLine(0,xT,tailleCase*xCase,xT);
       }
     }
   }
@@ -165,8 +173,12 @@ public class PanneauCarte extends Panneau {
     peintImagePourCase(c,x,y,g);
   }
   public void peintImagePourCase(GCase gc, int x, int y,Graphics2D g){
-    Case c = gc.getCCase(x+posX,y+posY).getContenu();
-    peintImagePourCase(c,x,y,g);
+    try {
+      Case c = gc.getCCase(x,y).getContenu();
+      peintImagePourCase(c,x,y,g);
+    }catch (Exception e) {
+      erreur.erreur("fail to draw "+x+" "+y);
+    }
   }
   /**
   *{@summary Draw cloud Case.}<br>
@@ -180,7 +192,7 @@ public class PanneauCarte extends Panneau {
           jo = Main.getPartie().getGj().getJoueurHumain().getDébut().getContenu();
         }
         if (jo!=null){//si on a un joueur sélectionné.
-          if ((x+posX)>=0 && (y+posY)>=0 && jo.getCaseNuageuse(x+posX,y+posY)){//si la case est invisible (nuageuse.)
+          if (x>=0 && y>=0 && jo.getCaseNuageuse(x,y)){//si la case est invisible (nuageuse.)
             g.drawImage(Main.getData().getCNuageuse(),xT,yT,this);
             return true;//on ne dessine rien par dessus.
           }
@@ -201,7 +213,7 @@ public class PanneauCarte extends Panneau {
   private void drawPlayingAnt(Graphics g){
     if(Main.getPlayingAnt()!=null){
       Case c = Main.getPlayingAnt().getCCase().getContenu();
-      g.drawImage(Main.getData().getSelectionnee(),(c.getX()-posX)*Main.getData().getTailleDUneCase(),(c.getY()-posY)*Main.getData().getTailleDUneCase(),this);
+      g.drawImage(Main.getData().getSelectionnee(),(c.getX())*Main.getData().getTailleDUneCase(),(c.getY())*Main.getData().getTailleDUneCase(),this);
     }
   }
 
@@ -210,10 +222,11 @@ public class PanneauCarte extends Panneau {
   *@version 1.46
   */
   public void peintImagePourCase(Case c, int x, int y,Graphics2D g){
+    if(!isCaseVisible(c)){return;}
     Joueur jo = Main.getPlayingJoueur();
     Fourmi fi = Main.getPlayingAnt();
-    int xT = x*Main.getData().getTailleDUneCase(); int yT = y*Main.getData().getTailleDUneCase();
-    int xT2 = (x-posX)*Main.getData().getTailleDUneCase(); int yT2 = (y-posY)*Main.getData().getTailleDUneCase();
+    int xT = x*getTailleDUneCase(); int yT = y*getTailleDUneCase();
+    int xT2 = (x)*getTailleDUneCase(); int yT2 = (y)*getTailleDUneCase();
     if(peintCaseNuageuse(x,y,g,xT,yT)){ return;}//si la case est nuageuse, on n'affichera rien d'autre dessus.
     byte ty = c.getType();
     CCreature ccrea = c.getGc().getDébut();
@@ -291,7 +304,7 @@ public class PanneauCarte extends Panneau {
   */
   private boolean isSombre(int x, int y){
     Joueur jo = Main.getPlayingJoueur();
-    return jo!=null && Main.getPartie().getCarte().getCasesSombres() && jo.getCaseSombre(x+posX,y+posY);
+    return jo!=null && Main.getPartie().getCarte().getCasesSombres() && jo.getCaseSombre(x,y);
   }
   /**
   *{@summary return true if we need to draw the color of the anthill.}<br>
@@ -379,7 +392,7 @@ public class PanneauCarte extends Panneau {
     return 3;
   }
 
-  public void actualiserSize(){
+  public void updateSize(){
     GCase gc = Main.getGc();
     xCase = gc.getNbrX();
     yCase = gc.getNbrY();
@@ -396,4 +409,69 @@ public class PanneauCarte extends Panneau {
       erreur.alerte("Impossible de setDesc pour la carte.");
     }
   }
+
+  /**
+  *{@summary Tool to save performances by drawing only visible Case.}<br>
+  *@param c Case to check
+  *return true if case is visible
+  */
+  public boolean isCaseVisible(Case c){
+    if(c.getX()<getPosX() || c.getY()<getPosY()){return false;}
+    if(c.getX()>nbrPrintableCase(true)-getPosX() || c.getY()>nbrPrintableCase(false)-getPosY()){return false;}
+    return true;
+  }
+  /**
+  *{@summary Tool to calculate the number of printable case on this Panel.}<br>
+  *It depend of the size of the panel and of the size of the Case.<br>
+  *@param inX true if we check x (width)
+  *@return number of printable Case
+  */
+  public int nbrPrintableCase(boolean inX){
+    if(inX){
+      int xTemp = 0;
+      try {
+        xTemp = math.min(getWidth(),getView().getWidth());
+      }catch (Exception e) {}
+      if(xTemp==0){xTemp=getWidth();}
+      return (int)(xTemp/getTailleDUneCase())+1;
+    }else{
+      int yTemp = 0;
+      try {
+        yTemp = math.min(getHeight(),getView().getHeight());
+      }catch (Exception e) {}
+      if(yTemp==0){yTemp=getHeight();}
+      return (int)(yTemp/getTailleDUneCase())+1;
+    }
+  }
 }
+// class SubPanel extends Panneau{
+//   PanneauCarte pc;
+//   public SubPanel(PanneauCarte pc) {
+//     this.pc = pc;
+//   }
+//   public void paintComponent(Graphics g2){
+//     Graphics2D g = (Graphics2D)g2;
+//     setLigne(g);
+//     try {
+//       GCase gc = Main.getGc();
+//       updateSize();
+//       debug.débogage("Dimention du PanneauCarte en case : x="+xCase+" y="+yCase);
+//       debug.débogage("taille réèle du panneau de la carte : x="+this.getWidth()+", y="+this.getHeight());
+//       try {
+//         if(Main.getData().getMap()==null){Main.getData().iniBackgroundMapImage();}
+//         g.drawImage(Main.getData().getMap(),0-posX*getTailleDUneCase(),0-posY*getTailleDUneCase(),this);
+//       }catch (Exception e) {
+//         erreur.erreur("impossible d'afficher l'arrière plan de la carte");
+//       }
+//       dessinerGrille(g);
+//       for (int i=0;i<xCase ;i++ ) {
+//         for (int j=0;j<yCase ;j++ ) {
+//           peintImagePourCase(gc,i,j,g);
+//         }
+//       }
+//       drawPlayingAnt(g);
+//     }catch (Exception e) {
+//       erreur.erreur("Quelque chose d'imprévu est arrivé lors de l'affichage de PanneauCarte");
+//     }
+//   }
+// }

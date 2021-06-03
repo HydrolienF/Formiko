@@ -130,7 +130,6 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       t[0]=(int)f.getUneSeuleAction();
       return t;
     }else{
-      System.out.println("f.getUneSeuleAction()==-1");//@a
       int t []=new int [11];
       for (int i=0;i<11 ;i++ ) {
         t[i]=i;

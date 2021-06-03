@@ -182,6 +182,7 @@ public class Main {
   public static boolean getPremierePartie(){return premierePartie;}
   public static void setPremierePartie(boolean b){premierePartie=b;}
   public static Data getData(){return data;}
+  public static void setData(Data d){data=d;}
   public static View getView(){return view;}
   public static void setView(View v){view=v;}
   public static void setModeCLI(boolean b){modeCLI=b;}
@@ -207,8 +208,8 @@ public class Main {
   public static void repaint(){getView().paint();}
   public static void doAction(int x){action.doAction(x);}
 
-  public static int getDimX(){ try {return ((ViewGUI2d)(getView())).getPp().getWidth();}catch (Exception e){erreur.erreur("Impossible de récupérer les dim de Pp");return 1;}}
-  public static int getDimY(){ try {return ((ViewGUI2d)(getView())).getPp().getHeight();}catch (Exception e){erreur.erreur("Impossible de récupérer les dim de Pp");return 1;}}
+  public static int getDimX(){ try {return ((ViewGUI2d)(getView())).getWidth();}catch (Exception e){erreur.erreur("Impossible de récupérer les dim de Pp");return 1;}}
+  public static int getDimY(){ try {return ((ViewGUI2d)(getView())).getHeight();}catch (Exception e){erreur.erreur("Impossible de récupérer les dim de Pp");return 1;}}
   public static int getWidth(){return getDimX();}
   public static int getHeight(){return getDimY();}
   public static int getTailleElementGraphique(int x){ return math.min(getTailleElementGraphiqueY(x),getTailleElementGraphiqueX(x));}

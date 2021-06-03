@@ -39,12 +39,12 @@ public class PanneauZoom extends Panneau {
     tIB = Main.getData().chargerTIBZoom();
     Dimension dim = new Dimension(tailleBouton, tailleBouton);
     bMoins = new Bouton("-",(Panneau)this,0,tIB[0]);
-    bh = new Bouton("haut",(Panneau)this,1,tIB[1]);
+    bh = new Bouton("haut",(Panneau)this,7,tIB[1]);
     bPlus = new Bouton("+",(Panneau)this,2,tIB[2]);
-    bd = new Bouton("droite",(Panneau)this,5,tIB[3]);
+    bd = new Bouton("droite",(Panneau)this,3,tIB[3]);
     bc = new Bouton("centrer",(Panneau)this,4,tIB[4]);
-    bg = new Bouton("gauche",(Panneau)this,3,tIB[5]);
-    bb = new Bouton("bas",(Panneau)this,7,tIB[6]);
+    bg = new Bouton("gauche",(Panneau)this,5,tIB[5]);
+    bb = new Bouton("bas",(Panneau)this,1,tIB[6]);
     bd1 = new Bouton("centrer sur la fourmi",(Panneau)this,6,tIB[7]);
     bd2 = new Bouton("dézoomer 2",(Panneau)this,8,tIB[8]);
     bPlus.setPreferredSize(dim); bMoins.setPreferredSize(dim); bb.setPreferredSize(dim); bh.setPreferredSize(dim); bd.setPreferredSize(dim); bg.setPreferredSize(dim);bc.setPreferredSize(dim); bd1.setPreferredSize(dim); bd2.setPreferredSize(dim);

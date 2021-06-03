@@ -55,18 +55,20 @@ public class ViewGUI2d implements View {
   public PanneauJeu getPj(){ return getPp().getPj();}
   public PanneauMenu getPm(){ return getPp().getPm();}
   public PanneauNouvellePartie getPnp(){ return getPm().getPnp();}
-  public PanneauBouton getPb(){ try{return getPj().getPb();}catch (Exception e){return null;}}
-  public PanneauCarte getPc(){ try{return getPj().getPc();}catch (Exception e){return null;}}
+  public PanneauBouton getPb(){ try{return getPj().getPb();}catch (NullPointerException e){return null;}}
+  public PanneauCarte getPc(){ try{return getPj().getPc();}catch (NullPointerException e){return null;}}
   public PanneauInfo getPi(){ return getPb().getPi();}
   public PanneauZoom getPz(){ return getPb().getPz();}
   public PanneauAction getPa(){ return getPb().getPa();}
-  public PanneauChargement getPch(){ try {return getPj().getPch();}catch (Exception e) {return null;}}
-  public PanneauSup getPs(){ try {return getPj().getPs();}catch (Exception e) {return null;}}
+  public PanneauChargement getPch(){ try {return getPj().getPch();}catch (NullPointerException e) {return null;}}
+  public PanneauSup getPs(){ try {return getPj().getPs();}catch (NullPointerException e) {return null;}}
   public PanneauEchap getPe(){ return getPj().getPe();}
-  public PanneauDialogue getPd(){ try {return getPj().getPd();}catch (Exception e) {return null;}}
+  public PanneauDialogue getPd(){ try {return getPj().getPd();}catch (NullPointerException e) {return null;}}
   public PanneauDialogueInf getPdi(){ return getPj().getPdi();}
   public int getCurentFPS(){return curentFPS;}
   public void setCurentFPS(int x){curentFPS=x;}
+  public int getWidth(){try {return getPp().getWidth();}catch (NullPointerException e) {return 0;}}
+  public int getHeight(){try {return getPp().getHeight();}catch (NullPointerException e) {return 0;}}
   /**  // FUNCTIONS -----------------------------------------------------------------
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
