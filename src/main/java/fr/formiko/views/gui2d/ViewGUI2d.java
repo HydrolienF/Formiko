@@ -367,14 +367,14 @@ public class ViewGUI2d implements View {
       Main.getScript().setCmdSuivante(doWeNeedToDoNextCmdNow);
       if(!doWeNeedToDoNextCmdNow){
         getPdi().addBSuivant();
-        Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
+        // Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
       }else{
         getPs().actualiserTaille();//écoute normale
       }
     }catch (Exception e) {//par défaut on attend avant de passer a la commande suivante.
       Main.getScript().setCmdSuivante(false);
       getPdi().addBSuivant();
-      Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
+      // Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
     }
   }
   /**

@@ -85,7 +85,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         erreur.alerteGUI2Dfail("TourFourmiNonIa");
       }
       Temps.pause(50);
-      if (f.getBUneSeuleAction()){
+      if (f.getBActionHaveChange()){
         //TODO #134 move to View
         try {
           Panneau.getView().getPb().removePa();
@@ -93,7 +93,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         }catch (Exception e) {
           erreur.alerteGUI2Dfail("TourFourmiNonIa");
         }
-        f.setUneSeuleAction(-1);
+        f.setBActionHaveChange(false);
       }
       /*if(bActualiserTaille){
         Main.getPs().actualiserTailleMax();
@@ -129,22 +129,24 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       int t []= new int [1];
       t[0]=(int)f.getUneSeuleAction();
       return t;
+    }else{
+      System.out.println("f.getUneSeuleAction()==-1");//@a
+      int t []=new int [11];
+      for (int i=0;i<11 ;i++ ) {
+        t[i]=i;
+      }
+      GCreature gcCase = f.getCCase().getContenu().getGc();
+      if(f.getIndividu().getCoutDéplacement() == -1){ t=tableau.retirerX(t,0);}
+      if(f.getIndividu().getCoutChasse() == -1 || gcCase.getGi().length()==0 || !f.chasse.canHuntMore(f)){ t=tableau.retirerX(t,1);}
+      if(!f.canLay()){ t=tableau.retirerX(t,2);}
+      if(f.getIndividu().getCoutTrophallaxie() == -1 || gcCase.filtreAlliés(f).filtreFaimMax().length() < 2 || f.getNourriture()<1){ t=tableau.retirerX(t,3);}
+      if(f.getIndividu().getCoutNétoyer() == -1 ||(f.netoyer.getNombreDeCreatureANetoyer(f))==0){ t=tableau.retirerX(t,4);}
+      if(!f.getEspece().getGranivore()){
+        t=tableau.retirerX(t,5);
+        t=tableau.retirerX(t,6);
+      }
+      return t;
     }
-    int t []=new int [11];
-    for (int i=0;i<11 ;i++ ) {
-      t[i]=i;
-    }
-    GCreature gcCase = f.getCCase().getContenu().getGc();
-    if(f.getIndividu().getCoutDéplacement() == -1){ t=tableau.retirerX(t,0);}
-    if(f.getIndividu().getCoutChasse() == -1 || gcCase.getGi().length()==0 || !f.chasse.canHuntMore(f)){ t=tableau.retirerX(t,1);}
-    if(!f.canLay()){ t=tableau.retirerX(t,2);}
-    if(f.getIndividu().getCoutTrophallaxie() == -1 || gcCase.filtreAlliés(f).filtreFaimMax().length() < 2 || f.getNourriture()<1){ t=tableau.retirerX(t,3);}
-    if(f.getIndividu().getCoutNétoyer() == -1 ||(f.netoyer.getNombreDeCreatureANetoyer(f))==0){ t=tableau.retirerX(t,4);}
-    if(!f.getEspece().getGranivore()){
-      t=tableau.retirerX(t,5);
-      t=tableau.retirerX(t,6);
-    }
-    return t;
   }
   private String faire(int choix){
     String m = switch(choix){

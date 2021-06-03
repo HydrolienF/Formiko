@@ -174,5 +174,8 @@ public class action{
       Main.getGj().setAction0AndEndTurn();//empèche une autre fourmi de jouer
       Panneau.getView().getPb().setActionF(9);//empèche la fourmi actuel de jouer.
     }catch (Exception e) {}
+    // erreur.info("retournerAuMenu 2");//@a
+    // Panneau.getView().getPp().removePj();
+    // Panneau.getView().getPp().addPm();
   }
 }

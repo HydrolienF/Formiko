@@ -34,7 +34,8 @@ public class Fourmi extends Creature implements Serializable{
   protected Fourmiliere fere;
   protected byte duretéMax;
   private static byte uneSeuleAction=-1;
-  private static boolean bActualiserTaille=false;
+  private static boolean bActionHaveChange=false;
+  // private static boolean bActualiserTaille=false;
   protected boolean ailesCoupees=true;
 
   // CONSTRUCTORS --------------------------------------------------------------
@@ -132,9 +133,10 @@ public class Fourmi extends Creature implements Serializable{
   public void setAilesCoupees(boolean b){ailesCoupees=b;}
   //static
   public static byte getUneSeuleAction(){return uneSeuleAction;}
-  public static void setUneSeuleAction(int x){uneSeuleAction=(byte)x;}public static void setUneSeuleAction(){setUneSeuleAction(-1);}
-  public static boolean getBUneSeuleAction(){return getUneSeuleAction()!=-1;}
-  public static void setBActualiserTaille(boolean b){bActualiserTaille=b;}
+  public static void setUneSeuleAction(int x){uneSeuleAction=(byte)x;setBActionHaveChange(true);}public static void setUneSeuleAction(){setUneSeuleAction(-1);}
+  public static boolean getBActionHaveChange(){return bActionHaveChange;}
+  public static void setBActionHaveChange(boolean b){bActionHaveChange=b;}
+  // public static void setBActualiserTaille(boolean b){bActualiserTaille=b;}
   @Override
   public String getNom(){return g.get("fourmi");}
   //racourci
