@@ -22,7 +22,7 @@ public class chargerLesTouches {
     }
     String t [] = new String[0];
     t=lireUnFichier.lireUnFichier(Main.getFolder().getFolderMain()+"Keys.txt");
-    if(!decoderUnFichier.getStringDeLaLigne(t[0]).equals(versionActuelle)){ erreur.erreur("Le fichier des touches n'est pas compatible avec la version "+versionActuelle,true);return map;}
+    // if(!decoderUnFichier.getStringDeLaLigne(t[0]).equals(versionActuelle)){ erreur.erreur("Le fichier des touches n'est pas compatible avec la version "+versionActuelle,true);return map;}
     int lent = t.length;
     for (int i=1; i<lent;i++) {
       addObjetMap(t[i]);

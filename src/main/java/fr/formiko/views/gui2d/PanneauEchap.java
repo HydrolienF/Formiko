@@ -25,14 +25,20 @@ public class PanneauEchap extends Panneau{
   }
   /**
   *{@summary standard build methode.}
-  *Disable all other panel & print this one with the 5 button.
+  *Disable all other panel #38; print this one with the 5 button.
   *@version 1.49
   */
   public void build(){
     if(estContruit()){return;}
-    getView().getPz().setEnabled(false);
-    getView().getPc().setEnabled(false);
-    getView().getPa().setEnabled(false);
+    try {
+      getView().getPz().setEnabled(false);
+    }catch (Exception e) {}
+    try {
+      getView().getPc().setEnabled(false);
+    }catch (Exception e) {}
+    try{
+      getView().getPa().setEnabled(false);
+    }catch (Exception e) {}
     //setBackground(new Color(50,50,50,100));
     getView().getPs().setSize(0,0);
     setSize(Main.getDimX(),Main.getDimY());

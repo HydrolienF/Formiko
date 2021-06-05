@@ -36,7 +36,7 @@ public class Main {
   *{@summary The compatible version for the options file, keys and backups.}
   *@version 1.1
   */
-  private static String versionActuelle = "1.43.9";
+  private static String versionActuelle = "1.49.9";
   private static Options op;
   private static Chrono ch;
   private static long lon;
