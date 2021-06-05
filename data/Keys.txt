@@ -1,3 +1,4 @@
+//main key
 escape:27
 space:32
 enter:\n
