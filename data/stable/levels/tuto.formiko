@@ -10,13 +10,13 @@ setAction 1 1
 setPa 20
 print tuto.4
 print tuto.5 true
-setPa 1
+// setPa 1
 attendre Creature 2 estMort
 setPa 20
 print tuto.6
 print tuto.7
 print tuto.8 true
-setPa 1
+// setPa 1
 attendre GInsecte length 0
 setPa 20
 print tuto.9
