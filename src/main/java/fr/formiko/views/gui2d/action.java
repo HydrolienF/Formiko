@@ -166,13 +166,12 @@ public class action{
   *@version 1.41
   */
   public static void retournerAuMenu(){
-    erreur.info("call retournerAuMenu");//@a
     Main.setRetournerAuMenu(true);//ne prend effet dans la void main que lorsque le tour est fini.
     try {
       Main.getGj().setAction0AndEndTurn();//empèche une autre fourmi de jouer
       Panneau.getView().getPb().setActionF(9);//empèche la fourmi actuel de jouer.
     }catch (Exception e) {}
-    // erreur.info("retournerAuMenu 2");//@a
+    // erreur.info("retournerAuMenu 2");
     // Panneau.getView().getPp().removePj();
     // Panneau.getView().getPp().addPm();
   }

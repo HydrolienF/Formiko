@@ -8,19 +8,19 @@ import fr.formiko.usuel.g;
 import java.awt.Graphics;
 
 public abstract class PanneauLanceurPartie extends Panneau{
-  private BoutonLong lancerPartie;
+  private BoutonLong launchButton;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauLanceurPartie(int ac){
     this.setLayout(null);
-    lancerPartie = new BoutonLong(g.getM("lancerPartie"),getView().getPm(),ac);
-    add(lancerPartie);
+    launchButton = new BoutonLong(g.getM("lancerPartie"),getView().getPm(),ac);
+    add(launchButton);
     int wi = Main.getDimX();
     int he = Main.getDimY();
     int wi2 = wi/2;
-    lancerPartie.setBounds(wi2/2,Main.getDimY()-lancerPartie.getYBL(),wi2,lancerPartie.getYBL());
+    launchButton.setBounds(wi2/2,Main.getDimY()-launchButton.getYBL(),wi2,launchButton.getYBL());
   }
   // GET SET --------------------------------------------------------------------
-
+  public BoutonLong getLaunchButton(){return launchButton;}
   // Fonctions propre -----------------------------------------------------------
   public abstract Partie getPartie();
 }

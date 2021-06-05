@@ -123,9 +123,7 @@ public class Bouton extends JButton implements MouseListener{
 
   //Méthode appelée lors du clic de souris
   @Override
-  public void mouseClicked(MouseEvent event) {
-    System.out.println("clicked");//@a
-  }
+  public void mouseClicked(MouseEvent event) {}
 
   //Méthode appelée lors du survol de la souris
   @Override
@@ -146,14 +144,11 @@ public class Bouton extends JButton implements MouseListener{
 
   //Méthode appelée lorsque l'on presse le bouton gauche de la souris
   @Override
-  public void mousePressed(MouseEvent event) {
-    System.out.println("pressed");//@a
-  }
+  public void mousePressed(MouseEvent event) {}
 
   //Méthode appelée lorsque l'on relâche le clic de souris
   @Override
   public void mouseReleased(MouseEvent event) {
-    System.out.println("relesed");//@a
     debug.débogage("Un bouton a été cliqué, l'action "+action+" vas être effectué.");
     Main.doAction(action);
   }

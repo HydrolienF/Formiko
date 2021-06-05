@@ -148,6 +148,7 @@ public class PanneauJeu extends Panneau {
     add(pfp);
     pb.setVisible(false);
     ps.setSize(0,0);
+    erreur.info("print PanneauFinPartie : "+pfp);
   }
   public void removePfp(){
     remove(pfp);

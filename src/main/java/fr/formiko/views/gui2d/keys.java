@@ -51,7 +51,7 @@ public class keys {
     Action actionA = new AbstractAction() {
       /**
       *{@summary Show or hide escape panel or do return action.}
-      *@version 1.40
+      *@version 1.49
       */
       public void actionPerformed(ActionEvent actionEvent) {
         if(Panneau.getView().getActionGameOn()){
@@ -94,11 +94,15 @@ public class keys {
         //   try {
         //     Main.getPd().clicEn(0,0);
         //   }catch (Exception e) {}
+        erreur.info("enter action");//@a
         if (Panneau.getView().getPch()!=null) {
           Panneau.getView().closePanneauChargement();
+        }else if(Panneau.getView().getPcp() != null && Panneau.getView().getPcp().getLaunchButton() !=null){
+          action.doAction(Panneau.getView().getPcp().getLaunchButton().getActionB());
         }else if(Main.getPlayingAnt()!=null){
           //TODO passer le tour ou a la prochaine Fourmi qui a des actions.
         }
+        erreur.info("no enter action to do");//@a
       }
     };
     actionMap.put("enter",actionA);
@@ -112,8 +116,8 @@ public class keys {
       public void actionPerformed(ActionEvent actionEvent) {
         if(Main.getPlayingAnt()==null){return;}
         char c = actionEvent.getActionCommand().charAt(0);
-        System.out.println(actionEvent);
-        System.out.println(c);
+        System.out.println(actionEvent);//@a
+        System.out.println(c);//@a
         for (int i=20;i<31 ;i++ ) {
           try {
             debug.débogage("comparaisons de la clé avec "+Main.getKey(i+""));

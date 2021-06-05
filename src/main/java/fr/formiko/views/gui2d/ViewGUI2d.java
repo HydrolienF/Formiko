@@ -54,7 +54,8 @@ public class ViewGUI2d implements View {
   public PanneauPrincipal getPp(){ return getF().getPp();}
   public PanneauJeu getPj(){ return getPp().getPj();}
   public PanneauMenu getPm(){ return getPp().getPm();}
-  public PanneauNouvellePartie getPnp(){ return getPm().getPnp();}
+  public PanneauNouvellePartie getPnp(){ try{return getPm().getPnp();}catch (NullPointerException e){return null;}}
+  public PanneauChoixPartie getPcp(){ try{return getPm().getPcp();}catch (NullPointerException e){return null;}}
   public PanneauBouton getPb(){ try{return getPj().getPb();}catch (NullPointerException e){return null;}}
   public PanneauCarte getPc(){ try{return getPj().getPc();}catch (NullPointerException e){return null;}}
   public PanneauInfo getPi(){ return getPb().getPi();}
@@ -285,6 +286,7 @@ public class ViewGUI2d implements View {
     try {
       getPj().addPfp(message, gj);
     }catch (Exception e) {
+      erreur.alerte("can't print PanneauFinPartie.");
       return false;
     }
     return true;
