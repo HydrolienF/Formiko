@@ -62,7 +62,6 @@ public class keys {
             Panneau.getView().getPe().setVisible(true);
           }
         }else{
-          System.out.println("do clic");//@a
           // Panneau.getView().getPm().getReturnButton().doClick();
           // Panneau.getView().getPm().getReturnButton().processMouseEvent​(new MouseEvent());
           action.doAction(Panneau.getView().getPm().getReturnButton().getActionB());
@@ -94,15 +93,15 @@ public class keys {
         //   try {
         //     Main.getPd().clicEn(0,0);
         //   }catch (Exception e) {}
-        erreur.info("enter action");//@a
         if (Panneau.getView().getPch()!=null) {
           Panneau.getView().closePanneauChargement();
         }else if(Panneau.getView().getPcp() != null && Panneau.getView().getPcp().getLaunchButton() !=null){
           action.doAction(Panneau.getView().getPcp().getLaunchButton().getActionB());
+        }else if(Panneau.getView().getPnp() != null && Panneau.getView().getPnp().getLaunchButton() !=null){
+          action.doAction(Panneau.getView().getPnp().getLaunchButton().getActionB());
         }else if(Main.getPlayingAnt()!=null){
           //TODO passer le tour ou a la prochaine Fourmi qui a des actions.
         }
-        erreur.info("no enter action to do");//@a
       }
     };
     actionMap.put("enter",actionA);
