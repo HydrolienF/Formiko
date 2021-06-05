@@ -25,7 +25,7 @@ public class PanneauEchap extends Panneau{
   }
   /**
   *{@summary standard build methode.}
-  *Disable all other panel & print this one with the 5 button.
+  *Disable all other panel #38; print this one with the 5 button.
   *@version 1.49
   */
   public void build(){
