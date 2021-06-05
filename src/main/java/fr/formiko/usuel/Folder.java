@@ -1,11 +1,16 @@
 package fr.formiko.usuel;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.Chrono;
 import fr.formiko.usuel.exceptions.MissingFolderException;
+import fr.formiko.usuel.types.str;
 
 import java.io.File;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import com.github.cliftonlabs.json_simple.JsonObject;
+import com.github.cliftonlabs.json_simple.Jsoner;
 
 /**
 *{@summary Class that have all link to all folder of formiko.}<br>
@@ -101,6 +106,9 @@ public class Folder{
         f.mkdirs();
         missingFolder++;
         if(allowedDownolad){throw new MissingFolderException("main");}
+      }else if(needToUpdateVersion()){
+        erreur.alerte("A compatible data version is downloaded");
+        if(allowedDownolad){downloadData();}
       }
 
       f = new File(getFolderMain()+"Options.md");
@@ -252,6 +260,41 @@ public class Folder{
     System.gc();
     if(!fichier.deleteDirectory(getFolderMain()+"data.zip")){
       erreur.alerte("unable to delete "+getFolderMain()+"data.zip");
+    }
+  }
+  public boolean needToUpdateVersion(){
+    String wantedDataVersion = getWantedDataVersion();
+    String curentDataVersion = getCurentDataVersion();
+    if(wantedDataVersion.equals("null") || curentDataVersion.equals("null")){return false;}
+    if(!wantedDataVersion.equals(curentDataVersion)){return true;}
+    return false;
+  }
+  public String getCurentDataVersion(){
+    try {
+      // create a reader
+      Reader reader = Files.newBufferedReader(Paths.get(getFolderMain()+"version.json"));
+      // create parser
+      JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
+      // read customer details
+      String version = (String) parser.get("data");
+      return version;
+    }catch (Exception e) {
+      erreur.alerte("can't read data version");
+      return "null";
+    }
+  }
+  public String getWantedDataVersion(){
+    try {
+      // create a reader
+      Reader reader = Files.newBufferedReader(Paths.get("version.json"));
+      // create parser
+      JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
+      // read customer details
+      String version = (String) parser.get("data");
+      return version;
+    }catch (Exception e) {
+      erreur.alerte("can't read data version");
+      return "null";
     }
   }
 }

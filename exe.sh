@@ -25,6 +25,7 @@ mkdir out/
 # If data need to be upload.
 echo "data"
 # cp -r data/ out/.
+cp version.json data/
 zip -qr out/data.zip data/
 
 mkdir out/$nom
