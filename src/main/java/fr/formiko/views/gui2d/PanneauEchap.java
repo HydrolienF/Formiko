@@ -30,9 +30,15 @@ public class PanneauEchap extends Panneau{
   */
   public void build(){
     if(estContruit()){return;}
-    getView().getPz().setEnabled(false);
-    getView().getPc().setEnabled(false);
-    getView().getPa().setEnabled(false);
+    try {
+      getView().getPz().setEnabled(false);
+    }catch (Exception e) {}
+    try {
+      getView().getPc().setEnabled(false);
+    }catch (Exception e) {}
+    try{
+      getView().getPa().setEnabled(false);
+    }catch (Exception e) {}
     //setBackground(new Color(50,50,50,100));
     getView().getPs().setSize(0,0);
     setSize(Main.getDimX(),Main.getDimY());
