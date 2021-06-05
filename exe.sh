@@ -18,16 +18,18 @@ if [[ -e out/ ]]; then
   rm out/ -fr
 fi
 mkdir out/
-rm -fr out/$nom
-rm -fr out/$nomW
-rm -fr out/$nomL
-rm -fr out/$nomM
+# rm -fr out/$nom
+# rm -fr out/$nomW
+# rm -fr out/$nomL
+# rm -fr out/$nomM
+# If data need to be upload.
+echo "data"
+# cp -r data/ out/.
+zip -qr data.zip data
 
 mkdir out/$nom
 echo "cp .jar, README.md, LICENSE.md & version.md"
 mv Formiko.jar out/$nom/.
-# data will be download by the game.
-# cp -r data/ out/$nom/.
 cp README.md out/$nom/.
 cp LICENSE.md out/$nom/.
 cp version.md out/$nom/.
