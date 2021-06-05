@@ -122,8 +122,9 @@ public class Folder{
       iniTemporary();
       iniRessourcesPacks();
     }catch (MissingFolderException e) {
-      erreur.erreur("an error occured when fixing file","Download file from main repository");
+      erreur.erreur("an error occured when fixing file : "+e,"Download file from main repository");
       if(allowedDownolad){downloadData();}
+      return ini();
     }
     if(missingFolder>0){
       erreur.info(missingFolder+" folders were missing & were add.");
