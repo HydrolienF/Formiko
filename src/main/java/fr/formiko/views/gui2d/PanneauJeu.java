@@ -59,7 +59,7 @@ public class PanneauJeu extends Panneau {
   @Override
   public void paintComponent(Graphics g){
     // try {
-    //   pc.actualiserSize();
+    //   pc.updateSize();
     //   //pc.setBounds(0,0,getWidth(),getHeight());
     // }catch (Exception e) {}
     // try {
@@ -107,7 +107,7 @@ public class PanneauJeu extends Panneau {
   }
   public void addPc(){
     pc = new PanneauCarte();
-    pc.actualiserSize();
+    pc.updateSize();
     add(pc);
   }
   public void addPb(){
@@ -148,6 +148,7 @@ public class PanneauJeu extends Panneau {
     add(pfp);
     pb.setVisible(false);
     ps.setSize(0,0);
+    erreur.info("print PanneauFinPartie : "+pfp);
   }
   public void removePfp(){
     remove(pfp);
@@ -184,7 +185,7 @@ public class PanneauJeu extends Panneau {
   }
   public void actionAFaireSiTailleD1CaseChange(){
     if (Main.getPartie().getEnCours()){
-      Panneau.getView().getPc().actualiserSize();
+      Panneau.getView().getPc().updateSize();
       Main.getData().chargerImages();
       Main.getData().iniBackgroundMapImage();
     }

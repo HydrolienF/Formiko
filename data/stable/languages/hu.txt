@@ -307,10 +307,10 @@ ChasseFourmi.3:hogy feldarabolja a rovart[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:megment[auto]
 bouton.nom.-11:lehetőségek[auto]
-bouton.nom.-12:töltő[auto]
-bouton.nom.-13:vissza a főmenübe[auto]
-bouton.nom.-14:kilép Ant[auto]
-bouton.nom.-15:vissza játszani[auto]
+bouton.nom.-12disable:töltő[auto]
+bouton.nom.-12:vissza a főmenübe[auto]
+bouton.nom.-13:kilép Ant[auto]
+bouton.nom.-14:vissza játszani[auto]
 
 save.message:írja be a biztonsági másolatnak adandó nevet.[auto]
 

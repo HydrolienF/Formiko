@@ -40,16 +40,20 @@ public class PanneauPrincipal extends Panneau {
   }
 
   public void addPm(){
-    pm = new PanneauMenu();
+    if(pm==null){
+      pm = new PanneauMenu();
+      this.add(pm);
+    }
     pm.setOpaque(false);
     pm.setVisible(true);
-    this.add(pm);
   }
   public void addPj(){
-    pj = new PanneauJeu();
+    if(pj==null){
+      pj = new PanneauJeu();
+      this.add(pj);
+    }
     pj.setOpaque(false);
     pj.setVisible(true);
-    this.add(pj);
   }
   public synchronized void removePm(){
     // if(pm==null){

@@ -307,10 +307,10 @@ ChasseFourmi.3:leikata hyönteinen[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:tallentaa[auto]
 bouton.nom.-11:vaihtoehtoja[auto]
-bouton.nom.-12:laturi[auto]
-bouton.nom.-13:takaisin päävalikkoon[auto]
-bouton.nom.-14:lopettaa Ant[auto]
-bouton.nom.-15:takaisin pelaamaan[auto]
+bouton.nom.-12disable:laturi[auto]
+bouton.nom.-12:takaisin päävalikkoon[auto]
+bouton.nom.-13:lopettaa Ant[auto]
+bouton.nom.-14:takaisin pelaamaan[auto]
 
 save.message:kirjoita varmuuskopiolle annettava nimi.[auto]
 

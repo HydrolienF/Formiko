@@ -307,10 +307,10 @@ ChasseFourmi.3:لتقطيع الحشرة[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:حفظ[auto]
 bouton.nom.-11:خيارات[auto]
-bouton.nom.-12:شاحن[auto]
-bouton.nom.-13:العودة إلى القائمة الرئيسية[auto]
-bouton.nom.-14:هاجر النملة[auto]
-bouton.nom.-15:العودة للعب[auto]
+bouton.nom.-12disable:شاحن[auto]
+bouton.nom.-12:العودة إلى القائمة الرئيسية[auto]
+bouton.nom.-13:هاجر النملة[auto]
+bouton.nom.-14:العودة للعب[auto]
 
 save.message:أدخل الاسم الذي تريده لنسختك الاحتياطية.[auto]
 

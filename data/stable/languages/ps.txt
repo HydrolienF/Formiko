@@ -307,10 +307,10 @@ ChasseFourmi.3:د حشراتو قطع کول[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:خوندي کړئ[auto]
 bouton.nom.-11:غوراوي[auto]
-bouton.nom.-12:چارجر[auto]
-bouton.nom.-13:بېرته اصلي مینو ته[auto]
-bouton.nom.-14:کویت[auto]
-bouton.nom.-15:بېرته لوبې ته[auto]
+bouton.nom.-12disable:چارجر[auto]
+bouton.nom.-12:بېرته اصلي مینو ته[auto]
+bouton.nom.-13:کویت[auto]
+bouton.nom.-14:بېرته لوبې ته[auto]
 
 save.message:خپل شاتړ ته د نوم ورکولو لپاره نوم دننه کړه.[auto]
 

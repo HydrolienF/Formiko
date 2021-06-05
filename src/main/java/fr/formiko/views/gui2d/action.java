@@ -125,12 +125,10 @@ public class action{
     }else if(ac==-11){
 
     }else if(ac==-12){
-
-    }else if(ac==-13){
       retournerAuMenu();
-    }else if(ac==-14){
+    }else if(ac==-13){
       Main.getF().quit();
-    }else if(ac==-15){
+    }else if(ac==-14){
       Panneau.getView().getPe().setVisible(false);
     }
   }
@@ -168,11 +166,13 @@ public class action{
   *@version 1.41
   */
   public static void retournerAuMenu(){
-    erreur.info("call retournerAuMenu");//@a
     Main.setRetournerAuMenu(true);//ne prend effet dans la void main que lorsque le tour est fini.
     try {
       Main.getGj().setAction0AndEndTurn();//empèche une autre fourmi de jouer
       Panneau.getView().getPb().setActionF(9);//empèche la fourmi actuel de jouer.
     }catch (Exception e) {}
+    // erreur.info("retournerAuMenu 2");
+    // Panneau.getView().getPp().removePj();
+    // Panneau.getView().getPp().addPm();
   }
 }

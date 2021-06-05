@@ -48,6 +48,7 @@ public class PanneauMenu extends Panneau {
   public void setLancer(boolean b){lancer=b;}
   public PanneauNouvellePartie getPnp(){return pnp;}
   public PanneauChoixPartie getPcp(){return pcp;}
+  public Bouton getReturnButton(){return returnButton;}
   // Fonctions propre -----------------------------------------------------------
 
   /**

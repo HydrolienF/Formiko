@@ -307,10 +307,10 @@ ChasseFourmi.3:කෘමියා කපා දැමීමට[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:සුරකින්න[auto]
 bouton.nom.-11:විකල්ප[auto]
-bouton.nom.-12:චාජරය[auto]
-bouton.nom.-13:ප්‍රධාන මෙනුවට ආපසු යන්න[auto]
-bouton.nom.-14:quitter කුහුඹුවා[auto]
-bouton.nom.-15:නැවත ක්‍රීඩා කිරීමට[auto]
+bouton.nom.-12disable:චාජරය[auto]
+bouton.nom.-12:ප්‍රධාන මෙනුවට ආපසු යන්න[auto]
+bouton.nom.-13:quitter කුහුඹුවා[auto]
+bouton.nom.-14:නැවත ක්‍රීඩා කිරීමට[auto]
 
 save.message:ඔබගේ උපස්ථයට ලබා දීමට නම ඇතුළත් කරන්න.[auto]
 

@@ -307,10 +307,10 @@ ChasseFourmi.3:si loo gooyo cayayaanka[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:badbaadi[auto]
 bouton.nom.-11:fursadaha[auto]
-bouton.nom.-12:xeedho[auto]
-bouton.nom.-13:dib ugu noqo liiska[auto]
-bouton.nom.-14:quudin Ant[auto]
-bouton.nom.-15:dib u ciyaar[auto]
+bouton.nom.-12disable:xeedho[auto]
+bouton.nom.-12:dib ugu noqo liiska[auto]
+bouton.nom.-13:quudin Ant[auto]
+bouton.nom.-14:dib u ciyaar[auto]
 
 save.message:qor magaca si aad u siiso keydkaaga.[auto]
 

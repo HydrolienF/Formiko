@@ -307,10 +307,10 @@ ChasseFourmi.3:միջատը կտրելու համար[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:խնայել[auto]
 bouton.nom.-11:տարբերակներ[auto]
-bouton.nom.-12:լիցքավորիչ[auto]
-bouton.nom.-13:վերադառնալ հիմնական ընտրացանկ[auto]
-bouton.nom.-14:մռայլ Անտ[auto]
-bouton.nom.-15:վերադառնալ խաղալ[auto]
+bouton.nom.-12disable:լիցքավորիչ[auto]
+bouton.nom.-12:վերադառնալ հիմնական ընտրացանկ[auto]
+bouton.nom.-13:մռայլ Անտ[auto]
+bouton.nom.-14:վերադառնալ խաղալ[auto]
 
 save.message:մուտքագրեք անունը ձեր կրկնօրինակում տալու համար:[auto]
 

@@ -307,10 +307,10 @@ ChasseFourmi.3:ነፍሳትን ለመቁረጥ[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:አስቀምጥ[auto]
 bouton.nom.-11:አማራጮች[auto]
-bouton.nom.-12:የኃይል መሙያ[auto]
-bouton.nom.-13:ወደ ዋናው ምናሌ ተመለስ[auto]
-bouton.nom.-14:የሚያጠፋ ጉንዳን[auto]
-bouton.nom.-15:ለመጫወት ተመለስ[auto]
+bouton.nom.-12disable:የኃይል መሙያ[auto]
+bouton.nom.-12:ወደ ዋናው ምናሌ ተመለስ[auto]
+bouton.nom.-13:የሚያጠፋ ጉንዳን[auto]
+bouton.nom.-14:ለመጫወት ተመለስ[auto]
 
 save.message:ለመጠባበቂያዎ ለመስጠት ስሙን ያስገቡ።[auto]
 

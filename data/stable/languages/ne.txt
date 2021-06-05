@@ -307,10 +307,10 @@ ChasseFourmi.3:किरालाई काट्नु[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:बचत गर्नुहोस्[auto]
 bouton.nom.-11:विकल्पहरू[auto]
-bouton.nom.-12:चार्जर[auto]
-bouton.nom.-13:मुख्य मेनूमा फिर्ता[auto]
-bouton.nom.-14:क्विटर कमिला[auto]
-bouton.nom.-15:खेल्न फिर्ता[auto]
+bouton.nom.-12disable:चार्जर[auto]
+bouton.nom.-12:मुख्य मेनूमा फिर्ता[auto]
+bouton.nom.-13:क्विटर कमिला[auto]
+bouton.nom.-14:खेल्न फिर्ता[auto]
 
 save.message:तपाईंको ब्याकअपमा दिनको लागि नाम प्रविष्ट गर्नुहोस्।[auto]
 

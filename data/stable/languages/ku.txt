@@ -307,10 +307,10 @@ ChasseFourmi.3:kêzik birrîn[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:rizgarkirin[auto]
 bouton.nom.-11:vebijarkên[auto]
-bouton.nom.-12:şarjker[auto]
-bouton.nom.-13:vegere menuya sereke[auto]
-bouton.nom.-14:quitter Ant[auto]
-bouton.nom.-15:vegerin ser lîstinê[auto]
+bouton.nom.-12disable:şarjker[auto]
+bouton.nom.-12:vegere menuya sereke[auto]
+bouton.nom.-13:quitter Ant[auto]
+bouton.nom.-14:vegerin ser lîstinê[auto]
 
 save.message:navê bikevin da ku bidin paşila xwe.[auto]
 

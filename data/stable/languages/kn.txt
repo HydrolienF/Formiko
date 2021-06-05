@@ -307,10 +307,10 @@ ChasseFourmi.3:ಕೀಟವನ್ನು ಕತ್ತರಿಸಲು[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:ಉಳಿಸಿ[auto]
 bouton.nom.-11:ಆಯ್ಕೆಗಳು[auto]
-bouton.nom.-12:ಚಾರ್ಜರ್[auto]
-bouton.nom.-13:ಮುಖ್ಯ ಮೆನುಗೆ ಹಿಂತಿರುಗಿ[auto]
-bouton.nom.-14:quitter ಇರುವೆ[auto]
-bouton.nom.-15:ಮತ್ತೆ ಆಡಲು[auto]
+bouton.nom.-12disable:ಚಾರ್ಜರ್[auto]
+bouton.nom.-12:ಮುಖ್ಯ ಮೆನುಗೆ ಹಿಂತಿರುಗಿ[auto]
+bouton.nom.-13:quitter ಇರುವೆ[auto]
+bouton.nom.-14:ಮತ್ತೆ ಆಡಲು[auto]
 
 save.message:ನಿಮ್ಮ ಬ್ಯಾಕಪ್‌ಗೆ ನೀಡಲು ಹೆಸರನ್ನು ನಮೂದಿಸಿ.[auto]
 

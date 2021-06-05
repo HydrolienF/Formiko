@@ -307,10 +307,10 @@ ChasseFourmi.3:жәндікті кесу үшін[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:сақтау[auto]
 bouton.nom.-11:опциялар[auto]
-bouton.nom.-12:зарядтағыш[auto]
-bouton.nom.-13:негізгі мәзірге оралу[auto]
-bouton.nom.-14:құмырсқа[auto]
-bouton.nom.-15:ойнауға қайта оралу[auto]
+bouton.nom.-12disable:зарядтағыш[auto]
+bouton.nom.-12:негізгі мәзірге оралу[auto]
+bouton.nom.-13:құмырсқа[auto]
+bouton.nom.-14:ойнауға қайта оралу[auto]
 
 save.message:сақтық көшірмесін беру үшін атауды енгізіңіз.[auto]
 

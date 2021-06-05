@@ -307,10 +307,10 @@ ChasseFourmi.3:upang putulin ang insekto[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:magtipid[auto]
 bouton.nom.-11:mga pagpipilian[auto]
-bouton.nom.-12:charger[auto]
-bouton.nom.-13:bumalik sa pangunahing menu[auto]
-bouton.nom.-14:kumalas na Ant[auto]
-bouton.nom.-15:bumalik sa paglalaro[auto]
+bouton.nom.-12disable:charger[auto]
+bouton.nom.-12:bumalik sa pangunahing menu[auto]
+bouton.nom.-13:kumalas na Ant[auto]
+bouton.nom.-14:bumalik sa paglalaro[auto]
 
 save.message:ipasok ang pangalan upang ibigay sa iyong backup.[auto]
 

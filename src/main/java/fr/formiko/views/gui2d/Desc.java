@@ -14,6 +14,7 @@ import java.awt.Graphics;
 public class Desc extends JLabel{
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Desc(int x, int y){
+    super();
     setOpaque(false);
     //label.setForeground(Color.blue); couleur du text.
     Dimension dim = new Dimension(x,y);
@@ -22,6 +23,13 @@ public class Desc extends JLabel{
     setPolice();
   }
   public Desc(){ this(500,getDimY());}
+  public Desc(String s){
+    super(s);
+    setOpaque(false);
+    //label.setForeground(Color.blue); couleur du text.
+    setFondColoré(new Color(55,255,0));
+    setPolice();
+  }
   /*public Desc(){
     setText("");
     setOpaque(false);

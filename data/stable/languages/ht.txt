@@ -307,10 +307,10 @@ ChasseFourmi.3:koupe ensèk la[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:sove[auto]
 bouton.nom.-11:opsyon[auto]
-bouton.nom.-12:plato[auto]
-bouton.nom.-13:tounen nan meni prensipal la[auto]
-bouton.nom.-14:kite foumi[auto]
-bouton.nom.-15:tounen jwe[auto]
+bouton.nom.-12disable:plato[auto]
+bouton.nom.-12:tounen nan meni prensipal la[auto]
+bouton.nom.-13:kite foumi[auto]
+bouton.nom.-14:tounen jwe[auto]
 
 save.message:antre nan non an pou bay backup ou.[auto]
 

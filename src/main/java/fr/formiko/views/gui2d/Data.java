@@ -184,7 +184,7 @@ public class Data {
       if(!Main.getView().getActionGameOn()){return;}
       Main.startCh();
       // if(Panneau.getView().getPc()==null){erreur.erreur("Map panel is null");}
-      Panneau.getView().getPc().actualiserSize();
+      Panneau.getView().getPc().updateSize();
       Img img = new Img(Panneau.getView().getPc().getWidth(),Panneau.getView().getPc().getHeight());
       //if(img.)
       Img img2 = null;

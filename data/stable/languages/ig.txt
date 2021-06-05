@@ -307,10 +307,10 @@ ChasseFourmi.3:igbupụ ahụhụ[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:chekwaa[auto]
 bouton.nom.-11:nhọrọ[auto]
-bouton.nom.-12:chaja[auto]
-bouton.nom.-13:laghachi isi menu[auto]
-bouton.nom.-14:itterhapụ Ant[auto]
-bouton.nom.-15:laghachi na-egwu[auto]
+bouton.nom.-12disable:chaja[auto]
+bouton.nom.-12:laghachi isi menu[auto]
+bouton.nom.-13:itterhapụ Ant[auto]
+bouton.nom.-14:laghachi na-egwu[auto]
 
 save.message:tinye aha iji nye nkwado ndabere gị.[auto]
 

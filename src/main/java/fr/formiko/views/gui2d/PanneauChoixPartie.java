@@ -13,7 +13,6 @@ import java.io.File;
 
 public class PanneauChoixPartie extends PanneauLanceurPartie{
   private EtiquetteChoix ePartie;
-  private BoutonLong lancerPartie;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauChoixPartie(){
@@ -26,7 +25,7 @@ public class PanneauChoixPartie extends PanneauLanceurPartie{
     add(ePartie);
   }
   // GET SET --------------------------------------------------------------------
-
+  
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     ePartie.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,getHeight()*3/5);

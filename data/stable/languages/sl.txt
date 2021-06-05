@@ -307,10 +307,10 @@ ChasseFourmi.3:da bi posekali žuželko[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:shrani[auto]
 bouton.nom.-11:opcije[auto]
-bouton.nom.-12:polnilnik[auto]
-bouton.nom.-13:nazaj v glavni meni[auto]
-bouton.nom.-14:zapustil Ant[auto]
-bouton.nom.-15:nazaj k igri[auto]
+bouton.nom.-12disable:polnilnik[auto]
+bouton.nom.-12:nazaj v glavni meni[auto]
+bouton.nom.-13:zapustil Ant[auto]
+bouton.nom.-14:nazaj k igri[auto]
 
 save.message:vnesite ime za varnostno kopijo.[auto]
 

@@ -54,19 +54,22 @@ public class ViewGUI2d implements View {
   public PanneauPrincipal getPp(){ return getF().getPp();}
   public PanneauJeu getPj(){ return getPp().getPj();}
   public PanneauMenu getPm(){ return getPp().getPm();}
-  public PanneauNouvellePartie getPnp(){ return getPm().getPnp();}
-  public PanneauBouton getPb(){ try{return getPj().getPb();}catch (Exception e){return null;}}
-  public PanneauCarte getPc(){ try{return getPj().getPc();}catch (Exception e){return null;}}
+  public PanneauNouvellePartie getPnp(){ try{return getPm().getPnp();}catch (NullPointerException e){return null;}}
+  public PanneauChoixPartie getPcp(){ try{return getPm().getPcp();}catch (NullPointerException e){return null;}}
+  public PanneauBouton getPb(){ try{return getPj().getPb();}catch (NullPointerException e){return null;}}
+  public PanneauCarte getPc(){ try{return getPj().getPc();}catch (NullPointerException e){return null;}}
   public PanneauInfo getPi(){ return getPb().getPi();}
   public PanneauZoom getPz(){ return getPb().getPz();}
   public PanneauAction getPa(){ return getPb().getPa();}
-  public PanneauChargement getPch(){ try {return getPj().getPch();}catch (Exception e) {return null;}}
-  public PanneauSup getPs(){ try {return getPj().getPs();}catch (Exception e) {return null;}}
+  public PanneauChargement getPch(){ try {return getPj().getPch();}catch (NullPointerException e) {return null;}}
+  public PanneauSup getPs(){ try {return getPj().getPs();}catch (NullPointerException e) {return null;}}
   public PanneauEchap getPe(){ return getPj().getPe();}
-  public PanneauDialogue getPd(){ try {return getPj().getPd();}catch (Exception e) {return null;}}
+  public PanneauDialogue getPd(){ try {return getPj().getPd();}catch (NullPointerException e) {return null;}}
   public PanneauDialogueInf getPdi(){ return getPj().getPdi();}
   public int getCurentFPS(){return curentFPS;}
   public void setCurentFPS(int x){curentFPS=x;}
+  public int getWidth(){try {return getPp().getWidth();}catch (NullPointerException e) {return 0;}}
+  public int getHeight(){try {return getPp().getHeight();}catch (NullPointerException e) {return 0;}}
   /**  // FUNCTIONS -----------------------------------------------------------------
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
@@ -283,6 +286,7 @@ public class ViewGUI2d implements View {
     try {
       getPj().addPfp(message, gj);
     }catch (Exception e) {
+      erreur.alerte("can't print PanneauFinPartie.");
       return false;
     }
     return true;
@@ -367,14 +371,14 @@ public class ViewGUI2d implements View {
       Main.getScript().setCmdSuivante(doWeNeedToDoNextCmdNow);
       if(!doWeNeedToDoNextCmdNow){
         getPdi().addBSuivant();
-        Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
+        // Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
       }else{
         getPs().actualiserTaille();//écoute normale
       }
     }catch (Exception e) {//par défaut on attend avant de passer a la commande suivante.
       Main.getScript().setCmdSuivante(false);
       getPdi().addBSuivant();
-      Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
+      // Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
     }
   }
   /**

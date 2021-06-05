@@ -307,10 +307,10 @@ ChasseFourmi.3:cortar o inseto[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:salve [auto]
 bouton.nom.-11:opções[auto]
-bouton.nom.-12:carregador[auto]
-bouton.nom.-13:voltar ao menu principal[auto]
-bouton.nom.-14:quitter Ant[auto]
-bouton.nom.-15:voltar a jogar[auto]
+bouton.nom.-12disable:carregador[auto]
+bouton.nom.-12:voltar ao menu principal[auto]
+bouton.nom.-13:quitter Ant[auto]
+bouton.nom.-14:voltar a jogar[auto]
 
 save.message:digite o nome a ser dado ao seu backup.[auto]
 

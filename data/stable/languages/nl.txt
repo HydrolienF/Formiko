@@ -307,10 +307,10 @@ ChasseFourmi.3:om het insect in stukken te snijden[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:besparen[auto]
 bouton.nom.-11:opties[auto]
-bouton.nom.-12:oplader[auto]
-bouton.nom.-13:terug naar het hoofdmenu[auto]
-bouton.nom.-14:quitter Ant[auto]
-bouton.nom.-15:terug om te spelen[auto]
+bouton.nom.-12disable:oplader[auto]
+bouton.nom.-12:terug naar het hoofdmenu[auto]
+bouton.nom.-13:quitter Ant[auto]
+bouton.nom.-14:terug om te spelen[auto]
 
 save.message:voer de naam in die u aan uw back-up wilt geven.[auto]
 

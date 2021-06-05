@@ -307,10 +307,10 @@ ChasseFourmi.3:പ്രാണികളെ മുറിക്കാൻ[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:രക്ഷിക്കും[auto]
 bouton.nom.-11:ഓപ്ഷനുകൾ[auto]
-bouton.nom.-12:ചാർജർ[auto]
-bouton.nom.-13:പ്രധാന മെനുവിലേക്ക് മടങ്ങുക[auto]
-bouton.nom.-14:quitter ഉറുമ്പ്[auto]
-bouton.nom.-15:തിരികെ കളിക്കാൻ[auto]
+bouton.nom.-12disable:ചാർജർ[auto]
+bouton.nom.-12:പ്രധാന മെനുവിലേക്ക് മടങ്ങുക[auto]
+bouton.nom.-13:quitter ഉറുമ്പ്[auto]
+bouton.nom.-14:തിരികെ കളിക്കാൻ[auto]
 
 save.message:നിങ്ങളുടെ ബാക്കപ്പിന് നൽകാൻ പേര് നൽകുക.[auto]
 

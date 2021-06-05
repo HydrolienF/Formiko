@@ -307,10 +307,10 @@ ChasseFourmi.3:পোকা কাটা[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:সংরক্ষণ[auto]
 bouton.nom.-11:বিকল্পগুলি[auto]
-bouton.nom.-12:চার্জার[auto]
-bouton.nom.-13:প্রধান মেনুতে ফিরে যাই[auto]
-bouton.nom.-14:কুইটার পিপীলিকা[auto]
-bouton.nom.-15:খেলতে ফিরে[auto]
+bouton.nom.-12disable:চার্জার[auto]
+bouton.nom.-12:প্রধান মেনুতে ফিরে যাই[auto]
+bouton.nom.-13:কুইটার পিপীলিকা[auto]
+bouton.nom.-14:খেলতে ফিরে[auto]
 
 save.message:আপনার ব্যাকআপটি দিতে নামটি প্রবেশ করান।[auto]
 

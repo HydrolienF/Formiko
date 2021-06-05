@@ -307,10 +307,10 @@ ChasseFourmi.3:курт-кумурсканы кесүү[auto]
 //bouton du PanneauEchap
 bouton.nom.-10:сактоо[auto]
 bouton.nom.-11:параметрлер[auto]
-bouton.nom.-12:кубаттагыч[auto]
-bouton.nom.-13:негизги менюга кайтуу[auto]
-bouton.nom.-14:quitter Ant[auto]
-bouton.nom.-15:кайра ойноого[auto]
+bouton.nom.-12disable:кубаттагыч[auto]
+bouton.nom.-12:негизги менюга кайтуу[auto]
+bouton.nom.-13:quitter Ant[auto]
+bouton.nom.-14:кайра ойноого[auto]
 
 save.message:камдык көчүрмөсүн берүү үчүн атын киргизиңиз.[auto]
 

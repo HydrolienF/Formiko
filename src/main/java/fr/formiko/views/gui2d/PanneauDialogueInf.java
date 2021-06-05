@@ -8,6 +8,7 @@ import fr.formiko.usuel.images.image;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import javax.swing.JLabel;
 
 public class PanneauDialogueInf extends Panneau {
   private static Image fond;
@@ -36,12 +37,15 @@ public class PanneauDialogueInf extends Panneau {
   public void addBSuivant(){
     // TODO fixer la Desc Suivant qui s'affiche mal.
     //b.setVisible(true);
-    b = new Desc(Main.getTailleElementGraphiqueX(80),Desc.getDimY());
+    // b=new JLabel(g.get("suivant"));
+    // b.setVisible(true);
+    // b.updateUI();
+    b = new Desc(Main.getTailleElementGraphiqueX(180),Desc.getDimY());
     b.setSize(b.getPreferredSize());
     b.setFondTransparent();
     b.setTexte(g.get("suivant"));
-    //b.setSize(Main.getTailleElementGraphiqueX(80),((int)(b.getPreferredSize().getHeight())));
-    b.setBounds(getView().getPd().getWidth()-b.getWidth()-Main.getTailleElementGraphiqueX(100),getHeight()-b.getHeight()-Main.getTailleElementGraphiqueY(40),b.getWidth());
+    b.setBounds(getView().getPd().getWidth()-b.getWidth()-Main.getTailleElementGraphiqueX(20),getHeight()-b.getHeight()-Main.getTailleElementGraphiqueY(40),b.getWidth());
+    b.setHorizontalAlignment(b.RIGHT);
     add(b);
     repaint();
   }
