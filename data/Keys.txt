@@ -1,4 +1,3 @@
-version:1.43.9
 escape:27
 space:32
 enter:\n
