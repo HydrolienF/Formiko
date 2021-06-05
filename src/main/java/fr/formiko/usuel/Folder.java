@@ -122,7 +122,7 @@ public class Folder{
       iniTemporary();
       iniRessourcesPacks();
     }catch (MissingFolderException e) {
-      erreur.erreur("an error occured when fixing file","Downolad file from main repository");
+      erreur.erreur("an error occured when fixing file","Download file from main repository");
       if(allowedDownolad){downloadData();}
     }
     if(missingFolder>0){
@@ -252,7 +252,12 @@ public class Folder{
     //TODO uncomment next line when #301 (tuto issues) will be fix.
     // Main.setPremierePartie(true);
     Main.startCh();
-    fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+Main.getVersionActuelle()+"/data.zip",getFolderMain()+"data.zip");
+    fichier.deleteDirectory(getFolderMain());
+    File f = new File(getFolderMain());
+    f.mkdirs();
+    Main.endCh("removeOldData");
+    Main.startCh();
+    fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+getWantedDataVersion()+"/data.zip",getFolderMain()+"data.zip");
     Main.endCh("downloadData");
     Main.startCh();
     fichier.unzip(getFolderMain()+"data.zip",getFolderMain().substring(0,getFolderMain().length()-5));
@@ -294,7 +299,7 @@ public class Folder{
       return version;
     }catch (Exception e) {
       erreur.alerte("can't read data version");
-      return "null";
+      return "1.49.12";
     }
   }
 }
