@@ -25,7 +25,7 @@ mkdir out/
 # If data need to be upload.
 echo "data"
 # cp -r data/ out/.
-cp version.json data/
+cp version.json data/.
 zip -qr out/data.zip data/
 
 mkdir out/$nom
@@ -34,6 +34,7 @@ mv Formiko.jar out/$nom/.
 cp README.md out/$nom/.
 cp LICENSE.md out/$nom/.
 cp version.md out/$nom/.
+cp version.json out/$nom/.
 
 mkdir out/$nomW
 mkdir out/$nomL
