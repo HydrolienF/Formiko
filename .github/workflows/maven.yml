@@ -74,8 +74,11 @@ jobs:
         asset_name: Formiko${{ steps.version.outputs.version }}.zip
         asset_content_type: application/zip
         
+    - name: dataVersionChange
+      run: echo "::set-output name=version::$(./needToReleaseData.sh)"
+      id: dataVersionChange
     - name: upload data artifact
-      if: $(./needToReleaseData.sh) == "1"
+      if: ${{ steps.dataVersionChange.outputs.dataVersionChange }} == "1"
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ github.token }}
