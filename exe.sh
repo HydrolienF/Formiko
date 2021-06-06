@@ -23,10 +23,6 @@ mkdir out/
 # rm -fr out/$nomL
 # rm -fr out/$nomM
 # If data need to be upload.
-echo "data"
-# cp -r data/ out/.
-cp version.json data/.
-zip -qr out/data.zip data/
 
 mkdir out/$nom
 echo "cp .jar, README.md, LICENSE.md & version.md"

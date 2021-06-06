@@ -1,6 +1,10 @@
 package fr.formiko.formiko;
 
+import com.github.cliftonlabs.json_simple.JsonObject;
+import com.github.cliftonlabs.json_simple.Jsoner;
+
 import fr.formiko.usuel.*;
+import fr.formiko.usuel.Folder;
 import fr.formiko.usuel.createBadges;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
@@ -8,13 +12,20 @@ import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.media.audio.*;
 import fr.formiko.usuel.tableau;
+import fr.formiko.usuel.trad;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.ViewNull;
-import fr.formiko.usuel.trad;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
+
 
 //default File since 1.39.0
 /**
@@ -149,6 +160,8 @@ public class launchOptions {
     }else if(args[0].equals("translateWebSite") || args[0].equals("tws")){
       translateWebSite(args[1],args[2]);
       // System.exit(0);
+    }else if(args[0].equals("updateDataVersion")){
+      updateDataVersion();
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }
@@ -279,5 +292,39 @@ public class launchOptions {
     Main.iniLangue();
     trad.translateWebSiteFiles(pathToWebSiteFile);
     // Main.endCh("translateWebSite",ch);
+  }
+  public static void updateDataVersion(){
+    try {
+      Main.initialisation();
+      // Main.setView(new ViewNull());
+      // Main.setOs(new Os());
+      // Folder f = new Folder();
+      // Main.setFolder(f);
+      // Main.iniOp();
+      Folder f = Main.getFolder();
+      Reader reader = Files.newBufferedReader(Paths.get(f.getFolderMain()+"version.json"));
+      JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
+      String dataVersion = getCurentversion();
+      System.out.println(dataVersion);//@a
+      String musicVersion = (String) parser.get("music");
+      reader.close();
+
+      JsonObject jsr = new JsonObject();
+      jsr.put("data",dataVersion);
+      jsr.put("music",musicVersion);
+      File file = new File(f.getFolderMain()+"version.json");
+      file.delete();
+      BufferedWriter writer = Files.newBufferedWriter(Paths.get(f.getFolderMain()+"version.json"));
+      Jsoner.serialize(jsr, writer);
+      writer.close();
+    }catch (Exception e) {
+      erreur.alerte("can't update data version");
+    }
+  }
+  public static String getCurentversion(){
+    GString gsIn = lireUnFichier.lireUnFichierGs("version.md");
+    String version = "x.x.x";
+    if(gsIn.length()>0){version = gsIn.getItem(0);}
+    return version;
   }
 }
