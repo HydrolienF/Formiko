@@ -249,12 +249,6 @@ public class ViewGUI2d implements View {
     }else{
       getPch().addBt();
     }
-    Main.getPartie().getGj().prendreEnCompteLaDifficulté();//setFood acording to difficutly.
-    if(!Partie.getScript().equals("")){
-      ThScript ths = new ThScript(Partie.getScript()+".formiko");
-      Main.setScript(ths);
-      Main.launchScript();
-    }
     Main.getPartie().jeu(); //lance le jeux.
     erreur.alerte("jeu is over");//@a
     return true;
