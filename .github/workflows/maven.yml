@@ -78,7 +78,8 @@ jobs:
       run: echo "::set-output name=dataVersionChangeVal::$(./needToReleaseData.sh)"
       id: dataVersionChange
     - name: upload data artifact
-      if: ${{ ${{ steps.dataVersionChange.outputs.dataVersionChangeVal }} == "1" }}
+      #if: ${{ github.ref == 'refs/heads/main' }}
+      if: ${{ steps.dataVersionChange.outputs.dataVersionChangeVal == '1' }}
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ github.token }}
