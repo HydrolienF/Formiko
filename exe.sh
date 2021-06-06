@@ -24,6 +24,11 @@ mkdir out/
 # rm -fr out/$nomM
 # If data need to be upload.
 
+if [[ $(./needToReleaseData.sh) == "1" ]]; then
+  echo "update data version & prepare data"
+  ./prepareData.sh
+fi
+
 mkdir out/$nom
 echo "cp .jar, README.md, LICENSE.md & version.md"
 mv Formiko.jar out/$nom/.

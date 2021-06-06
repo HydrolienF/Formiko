@@ -4,25 +4,25 @@ print tuto.0
 print tuto.1
 print tuto.2
 print tuto.3 true
-setPa 0
+//setPa 0
 attendre Creature 1 getPoint 1,1
 setAction 1 1
 setPa 20
 print tuto.4
 print tuto.5 true
-// setPa 1
+setPa 1
 attendre Creature 2 estMort
 setPa 20
 print tuto.6
 print tuto.7
 print tuto.8 true
-// setPa 1
+setPa 1
 attendre GInsecte length 0
 setPa 20
 print tuto.9
 print tuto.10
 print tuto.11 true
-setPa 0
+//setPa 0
 attendre Creature 1 getPoint 0,1
 print tuto.12 true
 setPa 2
