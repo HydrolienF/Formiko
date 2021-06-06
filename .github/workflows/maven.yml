@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: chmod
-      run: chmod 700 -R *.sh
+      run: chmod 700 *.sh
     - name: checkout
       uses: actions/checkout@v2
     - name: Set up JDK 16
