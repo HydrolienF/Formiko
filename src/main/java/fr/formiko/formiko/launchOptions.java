@@ -26,7 +26,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
-
 //default File since 1.39.0
 /**
 *{@summary Launch options at Launch of the game.}<br>
