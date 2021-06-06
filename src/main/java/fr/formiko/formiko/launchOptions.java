@@ -294,30 +294,33 @@ public class launchOptions {
   }
   public static void updateDataVersion(){
     try {
-      Main.initialisation();
-      // Main.setView(new ViewNull());
-      // Main.setOs(new Os());
-      // Folder f = new Folder();
-      // Main.setFolder(f);
-      // Main.iniOp();
-      Folder f = Main.getFolder();
-      Reader reader = Files.newBufferedReader(Paths.get(f.getFolderMain()+"version.json"));
+      // Main.initialisation();
+      Main.setView(new ViewNull());
+      Main.setOs(new Os());
+      Folder f = new Folder();
+      f.setFolderMain();
+      Main.setFolder(f);
+      Main.iniOp();
+      // Folder f = Main.getFolder();
+      Reader reader = Files.newBufferedReader(Paths.get("version.json"));
       JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
       String dataVersion = getCurentversion();
-      System.out.println(dataVersion);//@a
       String musicVersion = (String) parser.get("music");
       reader.close();
 
       JsonObject jsr = new JsonObject();
+      System.out.println(dataVersion);//@a
       jsr.put("data",dataVersion);
       jsr.put("music",musicVersion);
-      File file = new File(f.getFolderMain()+"version.json");
-      file.delete();
-      BufferedWriter writer = Files.newBufferedWriter(Paths.get(f.getFolderMain()+"version.json"));
+      // File file = new File(f.getFolderMain()+"version.json");
+      // file.delete();
+      BufferedWriter writer = Files.newBufferedWriter(Paths.get("version.json"));
       Jsoner.serialize(jsr, writer);
+      // System.out.println(jsr);
+      // writer.write(jsr.toString());
       writer.close();
     }catch (Exception e) {
-      erreur.alerte("can't update data version");
+      erreur.alerte("can't update data version "+e);
     }
   }
   public static String getCurentversion(){
