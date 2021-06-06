@@ -77,6 +77,18 @@ jobs:
     - name: dataVersionChange
       run: echo "::set-output name=dataVersionChangeVal::$(./needToReleaseData.sh)"
       id: dataVersionChange
+    - name: commit version.json
+      if: ${{ steps.dataVersionChange.outputs.dataVersionChangeVal == '1' }}
+      run: |
+        echo "echo \"0\"" > needToReleaseData.sh
+        if [[ `git status --untracked-files=no --porcelain docs/` != "\n" ]]; then
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add version.json
+          git add needToReleaseData.sh
+          git commit -m "Auto data version update"
+          git push
+        fi
     - name: upload data artifact
       #if: ${{ github.ref == 'refs/heads/main' }}
       if: ${{ steps.dataVersionChange.outputs.dataVersionChangeVal == '1' }}
