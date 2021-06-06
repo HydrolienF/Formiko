@@ -206,6 +206,13 @@ public class Partie implements Serializable{
     gj = gej.getGJoueur(mapo);
   }
   public boolean launchGame(){
+    Main.getPartie().getGj().prendreEnCompteLaDifficulté();//setFood acording to difficutly.
+    Main.stopScript();
+    if(!Partie.getScript().equals("")){
+      ThScript ths = new ThScript(Partie.getScript()+".formiko");
+      Main.setScript(ths);
+      Main.launchScript();
+    }
     //lancement du jeux
     setContinuerLeJeu(true);
     if(Main.getGj().length()==1){setPartieFinie(true);}

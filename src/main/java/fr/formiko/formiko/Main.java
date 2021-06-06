@@ -199,6 +199,7 @@ public class Main {
   public static Script getScript(){return ths.getScript();}
   public static void setScript(ThScript t){ths=t;}
   public static void launchScript(){ths.start();}
+  public static void stopScript(){if(ths!=null) {ths.stop();}}
   //musique
   /*public static ThMusique getThm(){return thm;}
   public static Musique getMusique(){return getThm().getM();}
