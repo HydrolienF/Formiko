@@ -75,7 +75,7 @@ jobs:
         asset_content_type: application/zip
         
     - name: upload data artifact
-      # if: ${{ $(./needToReleaseData.sh) == "1" }}
+      if: $(./needToReleaseData.sh) == "1"
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ github.token }}
