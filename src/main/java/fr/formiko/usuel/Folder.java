@@ -37,8 +37,10 @@ public class Folder{
   private String folderVideos="videos/";
 
   private int missingFolder;
+  private boolean secondTime;
 
   public Folder(){
+    secondTime=false;
     setFolderMain();
     if(Main.getOs().isWindows()){
       setFolderMain(System.getenv("APPDATA")+"/Formiko/");
@@ -124,7 +126,10 @@ public class Folder{
     }catch (MissingFolderException e) {
       erreur.erreur("an error occured when fixing file : "+e,"Download file from main repository");
       if(allowedDownolad){downloadData();}
-      return ini();
+      if(!secondTime){
+        secondTime=true;
+        return ini();
+      }
     }
     if(missingFolder>0){
       erreur.info(missingFolder+" folders were missing & were add.");
