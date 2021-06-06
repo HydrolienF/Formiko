@@ -24,7 +24,7 @@ mkdir out/
 # rm -fr out/$nomM
 # If data need to be upload.
 
-if [[ $(./needToReleaseData.sh)=="1" ]]; then
+if [[ $(./needToReleaseData.sh) == "1" ]]; then
   echo "update data version & prepare data"
   ./prepareData.sh
 fi
