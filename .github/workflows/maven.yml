@@ -13,6 +13,8 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
+    - name: chmod
+      run: chmod 700 -R *.sh
     - name: checkout
       uses: actions/checkout@v2
     - name: Set up JDK 16
