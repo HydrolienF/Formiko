@@ -75,10 +75,10 @@ jobs:
         asset_content_type: application/zip
         
     - name: dataVersionChange
-      run: echo "::set-output name=version::$(./needToReleaseData.sh)"
+      run: echo "::set-output name=dataVersionChangeVal::$(./needToReleaseData.sh)"
       id: dataVersionChange
     - name: upload data artifact
-      if: ${{ steps.dataVersionChange.outputs.dataVersionChange }} == "1"
+      if: ${{ steps.dataVersionChange.outputs.dataVersionChangeVal }} == "1"
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ github.token }}
