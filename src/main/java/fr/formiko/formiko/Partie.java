@@ -273,14 +273,17 @@ public class Partie implements Serializable{
       new Message(mess);
     }else{
       mess=g.getM("toutLesJoueurHumainsEliminés");
+      canResumeGame = false;
       new Message(mess);
     }
     gjOrdonné.afficheScore();
     Main.getView().endActionGame(withButton, nextLevel, mess, gjOrdonné, canResumeGame);
     setContinuerLeJeu(false);
     // Main.setRetournerAuMenu(true);//TODO ask & not force.
-    while(!getContinuerLeJeu() && !Main.getRetournerAuMenu()){//on attend la validation que la partie continue.
-      Temps.pause(10);
+    if(withButton){
+      while(!getContinuerLeJeu() && !Main.getRetournerAuMenu()){//on attend la validation que la partie continue.
+        Temps.pause(10);
+      }
     }
   }
   public void initialiserGraphismePartie(){

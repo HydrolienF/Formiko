@@ -355,7 +355,8 @@ public class ViewGUI2d implements View {
       ini();
     }
     try {
-      getPj().initialiserPd(message);
+      boolean needToStayMaxSize = !doWeNeedToDoNextCmdNow;
+      getPj().initialiserPd(message, needToStayMaxSize);
     }catch (Exception e) {
       erreur.alerte("can't print message : "+message);
     }
@@ -367,6 +368,7 @@ public class ViewGUI2d implements View {
       if(!doWeNeedToDoNextCmdNow){
         getPdi().addBSuivant();
         // Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
+        // getPs().actualiserTailleMax();
       }else{
         getPs().actualiserTaille();//écoute normale
       }

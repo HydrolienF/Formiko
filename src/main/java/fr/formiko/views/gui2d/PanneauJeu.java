@@ -85,8 +85,8 @@ public class PanneauJeu extends Panneau {
     add(pd);
     add(pdi);
   }
-  public void initialiserPd(String s){
-    pd.initialiser(s);
+  public void initialiserPd(String s, boolean needToStayMaxSize){
+    pd.initialiser(s, needToStayMaxSize);
     pdi.initialiser();
     pd.setBounds(0,0,pd.getWidth(),pd.getHeight());
     revalidate();
@@ -147,9 +147,9 @@ public class PanneauJeu extends Panneau {
     add(pfp);
   }
   public void addPfp(String mess, GJoueur gj, boolean withButton, boolean canResumeGame){
-    pfp.setBounds(getWidth()/4,Main.getTailleElementGraphiqueX(210),getWidth()/2,Main.getDimY()-(2*Main.getTailleElementGraphiqueX(210)));
+    pfp.setBounds(getWidth()/4,Main.getTailleElementGraphiqueX(250),getWidth()/2,Main.getDimY()-(2*Main.getTailleElementGraphiqueX(250)));
     pfp.ini(mess,gj,withButton,canResumeGame);
-    if(!withButton){
+    if(withButton){
       pb.setVisible(false);
       ps.setSize(0,0);
     }
