@@ -480,6 +480,7 @@ tuto.28:mefuta ea rona ha e granivorous (ha e je peo). Leha ho le joalo, bohloa 
 tuto.29:mosebetsi eo re mo tsoaletseng a ka etsa liketso tse tšoanang le tsa mofumahali, ntle le lay lay.[auto]
 tuto.30:basebetsi ba sebetsa hantle le ho feta mesebetsing e itseng (ho ba jella likhato tse seng kae ho e etsa). Mosebetsi oa rona o tsoma habonolo ho feta mofumahali.[auto]
 tuto.31:ha re fe mosebeletsi oa rona mosebetsi oa ho o phethela hore potoloho e fele. (tobetsa ho e 'ngoe ea likonopo tse ka tlase skrineng sa hau, makhetlo a' maloa ha ho hlokahala.)[auto]
+tuto.31.1:
 tuto.32:e ne e le potoloho ea ho qetela ea thupelo ena, haeba u na le lipelaelo u ka etsa thuto ena bocha.[auto]
 tuto.33:ho seng joalo litlhaloso tsa konopo li bonts'oa ha o itsamaisa ka holim'a tsona, le bakeng sa mabokose a 'mapeng. Tlhahisoleseding e mabapi le bohloa bo khethiloeng e ka letsohong le letona la skrine sa hau.[auto]
 tuto.34:haeba ntle le sena o sa fumane seo o se hlokang o ka batla boeletsi ho seva sa semmuso sa likhohlano sa papali: http://discord.gg/vqvfGzf[auto]

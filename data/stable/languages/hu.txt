@@ -480,6 +480,7 @@ tuto.28:fajunk nem magevő (nem eszik magot). Egyes szomszédos hangyabolyok azo
 tuto.29:az általunk kikelt munkavállaló a laikus kivételével ugyanazokat a műveleteket hajthatja végre, mint a királynő.[auto]
 tuto.30:a munkavállalók még hatékonyabban teljesítenek bizonyos feladatokat (kevesebb műveletükbe kerül a teljesítésük). Munkásunk könnyebben vadászik, mint a királynő.[auto]
 tuto.31:adjunk a munkánknak egy feladatot, amelyet el kell végeznie, hogy a kör véget érjen. (kattintson a képernyő alján található gombok egyikére, szükség esetén többször is.)[auto]
+tuto.31.1:
 tuto.32:ez volt az oktatóprogram utolsó fordulója. Ha kétségei merülnek fel, akkor újra elvégezheti az oktatóanyagot.[auto]
 tuto.33:ellenkező esetben a gombok leírása akkor jelenik meg, amikor az egérrel az egérrel fölé viszi az egeret, ugyanúgy, mint a térkép mezői. A kiválasztott hangyával kapcsolatos információk a képernyő jobb oldalán találhatók.[auto]
 tuto.34:ha ennek ellenére sem találja meg azt, amire szüksége van, tanácsot kérhet a játék hivatalos diszkord szerverén: http://discord.gg/vqvfGzf[auto]

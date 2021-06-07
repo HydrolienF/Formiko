@@ -480,6 +480,7 @@ tuto.28:noocyadeennu ma aha kuwa sida loo yaqaan 'granivorous' (ma cunaan abuur)
 tuto.29:shaqaaleeyaha aan kicinay wuxuu sameyn karaa ficillo la mid ah boqoradda, marka laga reebo jiifka.[auto]
 tuto.30:shaqaaluhu xitaa way ka waxtar badan yihiin hawlaha qaarkood (waxay ku kacdaa iyaga ficil yar oo ay ku qabtaan). Shaqaalaheennu waxay uga ugaadhsadaan si ka fudud boqoradda.[auto]
 tuto.31:aan u dhiibno shaqaalaheena hawl ay ku dhameystiraan si ay wareega u dhammaado. (dhagsii mid ka mid ah badhannada hoosta shaashaddaada, dhowr jeer haddii loo baahdo.)[auto]
+tuto.31.1:
 tuto.32:waxay ahayd wareegii ugu dambeeyay ee casharkaan, haddii aad wax shaki ah ka qabtid waxaad dib u dhigi kartaa casharkaan.[auto]
 tuto.33:haddii kale sharraxaadda badhanka ayaa la soo bandhigayaa markii aad duljoogto ditto sanduuqyada khariidada. Macluumaadka ku saabsan qudhaanjada la doortay waxay ku taal midigta shaashaddaada.[auto]
 tuto.34:haddii ay taasi jirto oo aadan helin waxaad u baahan tahay waxaad talo ka raadin kartaa server-ka khilaafka rasmiga ah ee ciyaarta: http://discord.gg/vqvfGzf[auto]

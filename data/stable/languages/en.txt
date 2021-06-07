@@ -480,6 +480,7 @@ tuto.28:our species is not granivorous (does not eat seed). However, some neighb
 tuto.29:the worker we have spawned can perform the same actions as the queen, except lay.[auto]
 tuto.30:workers are even more efficient on certain tasks (it costs them less actions to perform them). Our worker hunts more easily than the queen.[auto]
 tuto.31:let's give our worker a task to complete so that the round ends. (click on one of the buttons at the bottom of your screen, several times if necessary.)[auto]
+tuto.31.1:Voilà you have won! But actually, how should I call you?
 tuto.32:it was the last round of this tutorial, if you have any doubts you can redo this tutorial.[auto]
 tuto.33:otherwise the button descriptions are displayed when you hover over them, ditto for the boxes on the map. Information about the selected ant is on the right of your screen.[auto]
 tuto.34:if despite this you do not find what you need you can seek advice on the game's official discord server: http://discord.gg/vqvfGzf[auto]

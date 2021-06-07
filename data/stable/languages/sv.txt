@@ -480,6 +480,7 @@ tuto.28:vår art är inte granivorös (äter inte utsäde). Men vissa angränsan
 tuto.29:arbetaren vi har gett oss kan utföra samma handlingar som drottningen, utom lekmännen.[auto]
 tuto.30:arbetstagarna är ännu effektivare på vissa uppgifter (det kostar mindre handlingar att utföra dem). Vår arbetare jagar lättare än drottningen.[auto]
 tuto.31:låt oss ge vår arbetare en uppgift att slutföra så att rundan slutar. (klicka på en av knapparna längst ned på skärmen, flera gånger om det behövs.)[auto]
+tuto.31.1:
 tuto.32:det var den sista omgången i denna handledning, om du är osäker kan du göra om den här självstudien.[auto]
 tuto.33:annars visas knappbeskrivningarna när du svävar över dem, detta för rutorna på kartan. Information om den valda myran finns till höger på din skärm.[auto]
 tuto.34:om du trots detta inte hittar vad du behöver kan du söka råd på spelets officiella splittringsserver: http://discord.gg/vqvfGzf[auto]

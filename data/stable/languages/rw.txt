@@ -480,6 +480,7 @@ tuto.28:ubwoko bwacu ntabwo bukurura (ntiburya imbuto). Ariko, ibimonyo bimwe bi
 tuto.29:umukozi twabyaye arashobora gukora ibikorwa nkumwamikazi, usibye abalayiki.[auto]
 tuto.30:abakozi barushijeho gukora neza kubikorwa bimwe (bisaba ibikorwa bike kubikora). Umukozi wacu arahiga byoroshye kuruta umwamikazi.[auto]
 tuto.31:reka duhe umukozi wacu umurimo wo kurangiza kugirango uruziga rurangire. (kanda kuri imwe muri buto hepfo ya ecran yawe, inshuro nyinshi nibiba ngombwa.)[auto]
+tuto.31.1:
 tuto.32:byari icyiciro cya nyuma cyiyi nyigisho, niba ufite ugushidikanya ushobora gusubiramo iyi nyigisho.[auto]
 tuto.33:ubundi ibisobanuro bya buto byerekanwe mugihe uzengurutse hejuru, ditto kubisanduku kurikarita. Amakuru yerekeye ikimonyo cyatoranijwe kiri iburyo bwa ecran yawe.[auto]
 tuto.34:niba nubwo bimeze bityo utabonye icyo ukeneye urashobora gushaka inama kuri seriveri yemewe yimikino: http://discord.gg/vqvfGzf[auto]

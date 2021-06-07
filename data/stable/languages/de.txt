@@ -480,6 +480,7 @@ tuto.28:unsere Art ist nicht granivor (frisst kein Saatgut). Einige benachbarte 
 tuto.29:der Arbeiter, den wir hervorgebracht haben, kann die gleichen Aktionen wie die Königin ausführen, außer Laien.[auto]
 tuto.30:die Mitarbeiter sind bei bestimmten Aufgaben noch effizienter (die Ausführung kostet weniger Maßnahmen). Unser Arbeiter jagt leichter als die Königin.[auto]
 tuto.31:geben wir unserem Arbeiter eine Aufgabe, damit die Runde endet. (Klicken Sie bei Bedarf mehrmals auf eine der Schaltflächen am unteren Bildschirmrand.)[auto]
+tuto.31.1:
 tuto.32:es war die letzte Runde dieses Tutorials. Wenn Sie Zweifel haben, können Sie dieses Tutorial wiederholen.[auto]
 tuto.33:andernfalls werden die Schaltflächenbeschreibungen angezeigt, wenn Sie mit der Maus darüber fahren, ebenso für die Felder auf der Karte. Informationen zur ausgewählten Ameise finden Sie rechts auf Ihrem Bildschirm.[auto]
 tuto.34:wenn Sie trotzdem nicht das finden, was Sie brauchen, können Sie sich auf dem offiziellen Discord-Server des Spiels beraten lassen: http://discord.gg/vqvfGzf[auto]

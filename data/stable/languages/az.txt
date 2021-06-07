@@ -480,6 +480,7 @@ tuto.28:bizim növlər dənli deyil (toxum yemir). Ancaq bəzi qonşu qarışqa 
 tuto.29:yumurtladığımız işçi, yatmaq xaricində kraliça ilə eyni hərəkətləri edə bilər.[auto]
 tuto.30:i̇şçilər müəyyən işlərdə daha da səmərəlidirlər (onları yerinə yetirmək üçün daha az hərəkətə ehtiyac olur). İşçimiz kraliçadan daha asan ovlayır.[auto]
 tuto.31:gəlin işçimizə tapşırıq verək ki, dəyirmi bitsin. (lazım olduqda bir neçə dəfə ekranınızın altındakı düymələrdən birini vurun.)[auto]
+tuto.31.1:
 tuto.32:bu təlimatın son turu idi, şübhə edirsinizsə bu təlimatı təkrarlaya bilərsiniz.[auto]
 tuto.33:əks təqdirdə, düymələrin təsvirləri üzərində gəzdiyiniz zaman göstərilir, xəritədəki qutular üçün ditto. Seçilmiş qarışqa haqqında məlumat ekranınızın sağındadır.[auto]
 tuto.34:buna baxmayaraq ehtiyacınız olanı tapmasanız, oyunun rəsmi ixtilaf serverində məsləhət ala bilərsiniz: http://discord.gg/vqvfGzf[auto]

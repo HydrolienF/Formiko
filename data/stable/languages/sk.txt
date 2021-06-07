@@ -480,6 +480,7 @@ tuto.28:náš druh nie je granivorózny (nejedí semeno). Niektoré susedné mra
 tuto.29:pracovník, ktorého sme vytvorili, môže vykonávať rovnaké činnosti ako kráľovná, okrem laikov.[auto]
 tuto.30:pracovníci sú pri určitých úlohách ešte efektívnejší (ich vykonávanie ich stojí menej úkonov). Náš pracovník loví ľahšie ako kráľovná.[auto]
 tuto.31:dajme nášmu pracovníkovi úlohu, ktorú má dokončiť, aby sa kolo skončilo. (kliknite na jedno z tlačidiel v dolnej časti obrazovky, v prípade potreby niekoľkokrát.)[auto]
+tuto.31.1:
 tuto.32:bolo to posledné kolo tohto tutoriálu. Ak máte pochybnosti, môžete tento tutoriál zopakovať.[auto]
 tuto.33:v opačnom prípade sa popisy tlačidiel zobrazia, keď na ne umiestnite kurzor myši, rovnako ako pri poliach na mape. Informácie o vybranom mravcovi sú na pravej strane obrazovky.[auto]
 tuto.34:ak napriek tomu nenájdete, čo potrebujete, môžete požiadať o radu na oficiálnom serveri hry svár: http://discord.gg/vqvfGzf[auto]

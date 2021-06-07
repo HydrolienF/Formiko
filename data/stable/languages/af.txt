@@ -480,6 +480,7 @@ tuto.28:ons spesie is nie lewendig nie (eet nie saad nie). Sommige naburige mier
 tuto.29:die werker wat ons gebore het, kan dieselfde as die koningin doen, behalwe as leek.[auto]
 tuto.30:werkers is selfs doeltreffender met sekere take (dit kos hulle minder aksies om dit uit te voer). Ons werker jag makliker as die koningin.[auto]
 tuto.31:kom ons gee ons werker die taak om te voltooi sodat die rondte eindig. (klik op een van die knoppies onderaan u skerm, indien nodig 'n paar keer.)[auto]
+tuto.31.1:
 tuto.32:dit was die laaste ronde van hierdie tutoriaal. As u twyfel, kan u hierdie tutoriaal oor doen.[auto]
 tuto.33:andersins word die beskrywings van die knoppies vertoon as u daaroor beweeg, dito vir die blokkies op die kaart. Inligting oor die geselekteerde mier is aan die regterkant van u skerm.[auto]
 tuto.34:as u egter nie vind wat u nodig het nie, kan u advies inwin oor die amptelike diskordbediener van die spel: http://discord.gg/vqvfGzf[auto]

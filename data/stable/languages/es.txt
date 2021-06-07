@@ -480,6 +480,7 @@ tuto.28:nuestra especie no es granívora (no come semillas). Sin embargo, alguno
 tuto.29:la trabajadora que hemos engendrado puede realizar las mismas acciones que la reina, excepto poner.[auto]
 tuto.30:los trabajadores son aún más eficientes en ciertas tareas (les cuesta menos acciones realizarlas). Nuestro trabajador caza más fácilmente que la reina.[auto]
 tuto.31:démosle a nuestro trabajador una tarea para completar para que termine la ronda. (haga clic en uno de los botones en la parte inferior de su pantalla, varias veces si es necesario).[auto]
+tuto.31.1:
 tuto.32:fue la última ronda de este tutorial, si tienes alguna duda puedes rehacer este tutorial.[auto]
 tuto.33:de lo contrario, las descripciones de los botones se muestran cuando pasa el mouse sobre ellos, lo mismo ocurre con las casillas del mapa. La información sobre la hormiga seleccionada se encuentra a la derecha de su pantalla.[auto]
 tuto.34:si a pesar de esto no encuentra lo que necesita, puede buscar consejo en el servidor de discordia oficial del juego: http://discord.gg/vqvfGzf[auto]

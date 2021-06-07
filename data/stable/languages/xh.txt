@@ -480,6 +480,7 @@ tuto.28:uhlobo lwethu alunambeko (alutyi mbewu). Nangona kunjalo, ezinye iimbova
 tuto.29:umsebenzi esiwuzalisileyo unokwenza isenzo esifanayo nendlovukazi, ngaphandle kokulala.[auto]
 tuto.30:abasebenzi basebenza ngakumbi kwimisebenzi ethile (kubabiza amanyathelo amancinci okuba bakwenze). Umsebenzi wethu uzingela ngokulula kunendlovukazi.[auto]
 tuto.31:masinike umsebenzi wethu ukuba awugqibe ukuze umjikelo uphele. (cofa kwelinye lamaqhosha asezantsi kwesikrini sakho, amaxesha amaninzi xa kukho imfuneko.)[auto]
+tuto.31.1:
 tuto.32:yayingumjikelo wokugqibela wale khokelo, ukuba unawo nawaphi na amathandabuzo onokuphinda wenze esi sifundo.[auto]
 tuto.33:ngaphandle koko iinkcazo zeqhosha ziyavezwa xa uzulazula phezu kwazo, kunye neebhokisi kwimephu. Ulwazi malunga nembovane ekhethiweyo lusekunene kwesikrini sakho.[auto]
 tuto.34:ukuba ngaphandle koku awuyifumani into oyifunayo unokufuna iingcebiso kwiseva yomdlalo osemthethweni wokungavisisani: http://discord.gg/vqvfGzf[auto]

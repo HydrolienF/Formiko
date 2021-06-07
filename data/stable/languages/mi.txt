@@ -480,6 +480,7 @@ tuto.28:ko o tatou momo ehara i te moemoea (kaore e kai purapura). Heoi, ka taea
 tuto.29:ka taea e te kaimahi i whakatipuhia e maatau te mahi i nga mahi rite ki te kuini, haunga ia te reimana.[auto]
 tuto.30:he kaha ake te mahi a nga kaimahi ki etahi mahi (he iti ake te utu mo a raatau). He maamaa ake te whai a to kaimahi i ta te kuini.[auto]
 tuto.31:me hoatu e maatau ki ta maatau kaimahi tetahi mahi hei whakaoti, kia mutu ai te rauna. (paatohia tetahi o nga paatene i raro o to mata, kia maha nga wa ka hiahiatia.)[auto]
+tuto.31.1:
 tuto.32:koinei te waahanga whakamutunga o tenei akoranga, mena ka ruarua koe ka taea e koe te mahi ano i tenei kaupapa ako.[auto]
 tuto.33:ki te kore ka whakaatuhia nga whakaahuatanga paatene ka huri ana koe ki runga ake, mauria ki nga pouaka i te mapi. Ko nga korero mo te popokorua kua tohua kei te taha matau o to mata.[auto]
 tuto.34:mena ahakoa kaore koe e kite i nga mea e hiahiatia ana e koe, ka taea e koe te rapu tohutohu mo te kaituku taupatupatu mana o te kemu: http://discord.gg/vqvfGzf[auto]

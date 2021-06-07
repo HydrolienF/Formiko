@@ -480,6 +480,7 @@ tuto.28:us soarte is net granivoar (yt gjin sied). Guon buorlju mierenhoarnen ko
 tuto.29:de arbeider dy't wy hawwe ûntstien kin deselde aksjes útfiere as de keninginne, útsein lay.[auto]
 tuto.30:arbeiders binne noch effisjinter op bepaalde taken (it kostet har minder aksjes om se út te fieren). Us arbeider jaget makliker dan de keninginne.[auto]
 tuto.31:litte wy ús arbeider in taak jaan om te foltôgjen, sadat de ronde einiget. (klikje op ien fan 'e knoppen ûnderoan jo skerm, ferskate kearen as it nedich is.)[auto]
+tuto.31.1:
 tuto.32:it wie de lêste ronde fan dit tutorial, as jo twivelje, kinne jo dizze tutorial opnij dwaan.[auto]
 tuto.33:oars wurde de knopbeskriuwingen werjûn as jo der oer hinne sweverje, dito foar de fakjes op 'e kaart. Ynformaasje oer de selekteare mier is rjochts fan jo skerm.[auto]
 tuto.34:as jo nettsjinsteande dit net fine wat jo nedich binne, kinne jo advys sykje oer de offisjele diskordtsjinner fan it spultsje: http://discord.gg/vqvfGzf[auto]

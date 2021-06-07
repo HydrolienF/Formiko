@@ -480,6 +480,7 @@ tuto.28:bizning turimiz granivor emas (urug'ni emaydi). Biroq, ba'zi qo'shni chu
 tuto.29:biz tug'dirgan ishchi, yotishdan tashqari, malika bilan bir xil harakatlarni amalga oshirishi mumkin.[auto]
 tuto.30:ishchilar ma'lum vazifalarni bajarishda yanada samaraliroq (ularni bajarish uchun ularga kam harakat talab etiladi). Bizning ishchimiz malikaga qaraganda osonroq ov qiladi.[auto]
 tuto.31:keling, ishchimizga davra tugashi uchun bajarish uchun topshiriq beraylik. (agar kerak bo'lsa, ekranning pastki qismidagi tugmachalardan birini bir necha marta bosing.)[auto]
+tuto.31.1:
 tuto.32:bu ushbu o'quv qo'llanmaning so'nggi bosqichi edi, agar sizda biron bir shubha bo'lsa, ushbu qo'llanmani takrorlashingiz mumkin.[auto]
 tuto.33:aks holda tugma tavsiflari ustiga siljiganingizda ko'rsatiladi, xaritadagi katakchalarga o'ting. Tanlangan chumoli haqida ma'lumot ekranning o'ng tomonida joylashgan.[auto]
 tuto.34:agar bunga qaramay, kerakli narsani topa olmasangiz, o'yinning rasmiy kelishmovchiliklar serveridan maslahat olishingiz mumkin: http://discord.gg/vqvfGzf[auto]

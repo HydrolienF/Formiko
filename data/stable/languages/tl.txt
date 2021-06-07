@@ -480,6 +480,7 @@ tuto.28:ang aming mga species ay hindi granivorous (hindi kumakain ng binhi). Ga
 tuto.29:ang manggagawa na aming naitlog ay maaaring gumanap ng parehong mga aksyon tulad ng reyna, maliban sa lay.[auto]
 tuto.30:ang mga manggagawa ay mas mahusay sa ilang mga gawain (nagkakahalaga ang mga ito ng mas kaunting mga pagkilos upang maisagawa ang mga ito). Ang aming manggagawa ay mas madaling manghuli kaysa sa reyna.[auto]
 tuto.31:bigyan natin ang ating trabahador ng isang gawain upang makumpleto upang matapos ang pag-ikot. (mag-click sa isa sa mga pindutan sa ilalim ng iyong screen, maraming beses kung kinakailangan.)[auto]
+tuto.31.1:
 tuto.32:ito ang huling pag-ikot ng tutorial na ito, kung mayroon kang anumang mga pagdududa maaari mong gawing muli ang tutorial na ito.[auto]
 tuto.33:kung hindi man ang mga paglalarawan ng pindutan ay ipinapakita kapag nag-hover ka sa kanila, ditto para sa mga kahon sa mapa. Ang impormasyon tungkol sa napiling langgam ay nasa kanan ng iyong screen.[auto]
 tuto.34:kung sa kabila nito hindi mo nahanap kung ano ang kailangan mo maaari kang humingi ng payo sa opisyal na discord server ng laro: http://discord.gg/vqvfGzf[auto]

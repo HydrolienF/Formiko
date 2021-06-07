@@ -480,6 +480,7 @@ tuto.28:meie liik ei ole söötja (ei söö seemneid). Mõni naabruses asuv sipe
 tuto.29:meie kootud töötaja saab teha samu toiminguid nagu kuninganna, välja arvatud munemine.[auto]
 tuto.30:töötajad on teatud ülesannete täitmisel veelgi tõhusamad (nende täitmine maksab vähem toiminguid). Meie töötaja küttib kergemini kui kuninganna.[auto]
 tuto.31:anname oma töötajale ülesande täita, nii et ring lõppeks. (klõpsake ekraani allservas ühel nupul, vajadusel mitu korda.)[auto]
+tuto.31.1:
 tuto.32:see oli selle õpetuse viimane voor. Kui teil on kahtlusi, saate selle õpetuse uuesti teha.[auto]
 tuto.33:vastasel juhul kuvatakse nuppude kirjeldused, kui hõljutate nende kohal, sama ka kaardil olevate kastide puhul. Teave valitud sipelga kohta on teie ekraani paremal pool.[auto]
 tuto.34:kui te sellele vaatamata vajalikku ei leia, võite nõu küsida mängu ametlikust ebakõlaserverist: http://discord.gg/vqvfGzf[auto]

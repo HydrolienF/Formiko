@@ -480,6 +480,7 @@ tuto.28:vores art er ikke granivorøs (spiser ikke frø). Imidlertid kunne nogle
 tuto.29:den arbejder, vi har skabt, kan udføre de samme handlinger som dronningen, undtagen læg.[auto]
 tuto.30:arbejdstagere er endnu mere effektive på bestemte opgaver (det koster dem færre handlinger at udføre dem). Vores arbejdstager jager lettere end dronningen.[auto]
 tuto.31:lad os give vores arbejdstager en opgave at udføre, så runden slutter. (klik på en af knapperne nederst på skærmen, flere gange om nødvendigt.)[auto]
+tuto.31.1:
 tuto.32:det var den sidste tur i denne vejledning. Hvis du er i tvivl, kan du gentage denne vejledning.[auto]
 tuto.33:ellers vises knappebeskrivelserne, når du holder markøren over dem, dito for felterne på kortet. Oplysninger om den valgte myre er til højre på din skærm.[auto]
 tuto.34:hvis du på trods af dette ikke finder det, du har brug for, kan du søge råd på spillets officielle diskordsserver: http://discord.gg/vqvfGzf[auto]

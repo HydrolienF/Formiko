@@ -480,6 +480,7 @@ tuto.28:a nostra spezia ùn hè micca granivora (ùn manghja micca sumente). Tut
 tuto.29:u travagliadore chì avemu generatu pò fà e stesse azzioni cum'è a regina, eccettu laicu.[auto]
 tuto.30:i travagliadori sò ancu più efficienti per certe attività (li costa menu azzioni per realizalli). U nostru travagliadore caccia più faciule ch'è a regina.[auto]
 tuto.31:demu à u nostru travagliadore un compitu da compie per chì u giru finisca. (cliccate nantu à unu di i buttoni in u fondu di u vostru schermu, parechje volte se necessariu.)[auto]
+tuto.31.1:
 tuto.32:era l'ultimu giru di stu tutoriale, sè avete qualchì dubbitu pudete rifà stu tutoriale.[auto]
 tuto.33:altrimenti e descrizzioni di i buttoni sò affissate quandu passate nantu à elli, idem per e scatule nantu à a carta. L'infurmazione nantu à a furmica scelta hè à a diritta di u vostru schermu.[auto]
 tuto.34:se malgradu questu ùn truvate micca ciò chì avete bisognu pudete cercà cunsiglii nantu à u servitore ufficiale di discordia di u ghjocu: http://discord.gg/vqvfGzf[auto]

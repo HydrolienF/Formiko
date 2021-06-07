@@ -480,6 +480,7 @@ tuto.28:nossa espécie não é granívora (não come sementes). No entanto, algu
 tuto.29:a operária que geramos pode realizar as mesmas ações que a rainha, exceto postura.[auto]
 tuto.30:os trabalhadores são ainda mais eficientes em certas tarefas (custa menos ações para executá-las). Nossa operária caça com mais facilidade do que a rainha.[auto]
 tuto.31:vamos dar ao nosso trabalhador uma tarefa para completar para que a rodada termine. (clique em um dos botões na parte inferior da tela, várias vezes, se necessário).[auto]
+tuto.31.1:
 tuto.32:foi a última rodada deste tutorial, se você tiver alguma dúvida pode refazer este tutorial.[auto]
 tuto.33:caso contrário, as descrições dos botões são exibidas quando você passa o mouse sobre eles, idem para as caixas no mapa. As informações sobre a formiga selecionada estão à direita da tela.[auto]
 tuto.34:se, apesar disso, você não encontrar o que precisa, pode procurar aconselhamento no servidor oficial de discórdia do jogo: http://discord.gg/vqvfGzf[auto]

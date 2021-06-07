@@ -480,6 +480,7 @@ tuto.28:eis Spezies ass net granivoréis (ësst kee Som). Wéi och ëmmer, e pue
 tuto.29:den Aarbechter dee mir gespaant hunn, kann déiselwecht Handlunge wéi d'Kinnigin ausféieren, ausser de Laien.[auto]
 tuto.30:d'Aarbechter sinn nach méi effizient op verschidden Aufgaben (et kascht se manner Aktiounen fir se auszeféieren). Eisen Aarbechter Juegt méi einfach wéi d'Kinnigin.[auto]
 tuto.31:loosst eis eisen Aarbechter eng Aufgab ginn fir ze kompletéieren sou datt d'Ronn endet. (klickt op ee vun de Knäppercher ënnen op Ärem Écran, e puer Mol wann néideg.)[auto]
+tuto.31.1:
 tuto.32:et war déi lescht Ronn vun dësem Tutorial, wann Dir Zweifel hutt, kënnt Dir dësen Tutorial nei maachen.[auto]
 tuto.33:soss ginn d'Knäppbeschreiwunge ugewisen wann Dir driwwer schwieft, ditto fir d'Boxen op der Kaart. Informatioun iwwer den ausgewielten Ant ass riets vun Ärem Écran.[auto]
 tuto.34:wann Dir trotzdem net fënns wat Dir braucht, kënnt Dir Berodung op den offiziellen Discordserver vum Spill sichen: http://discord.gg/vqvfGzf[auto]

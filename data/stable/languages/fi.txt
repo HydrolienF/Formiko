@@ -480,6 +480,7 @@ tuto.28:lajimme ei ole syöpäinen (ei syö siemeniä). Jotkut naapurimaiden muu
 tuto.29:kudottu työntekijä voi suorittaa samat toimet kuin kuningatar, paitsi maallikko.[auto]
 tuto.30:työntekijät ovat vieläkin tehokkaampia tietyissä tehtävissä (niiden suorittaminen maksaa vähemmän toimia). Työntekijämme metsästää helpommin kuin kuningatar.[auto]
 tuto.31:annetaan työntekijällemme tehtävä, jotta kierros päättyy. (napsauta yhtä näytön alareunassa olevista painikkeista tarvittaessa useita kertoja.)[auto]
+tuto.31.1:
 tuto.32:se oli tämän opetusohjelman viimeinen kierros, jos sinulla on epäilyksiä, voit tehdä sen uudelleen.[auto]
 tuto.33:muussa tapauksessa painikkeiden kuvaukset näkyvät, kun viet hiiren osoittimen niiden päälle, samalla tavalla kuin kartan ruudut. Tiedot valitusta muurahaisesta ovat ruudun oikealla puolella.[auto]
 tuto.34:jos et siitä huolimatta löydä tarvitsemasi, voit kysyä neuvoja pelin virallisesta riitapalvelimesta: http://discord.gg/vqvfGzf[auto]

@@ -480,6 +480,7 @@ tuto.28:izinhlobo zethu azinansini (ayidli imbewu). Kodwa-ke, ezinye izintuthane
 tuto.29:isisebenzi esisizalile singenza isenzo esifanayo nesendlovukazi, ngaphandle kwalabo abasebenza phansi.[auto]
 tuto.30:abasebenzi basebenza kangcono emisebenzini ethile (kubabiza ngezenzo ezingatheni zokuyenza). Isisebenzi sethu sizingela kalula kunendlovukazi.[auto]
 tuto.31:masinike umsebenzi wethu umsebenzi okumele awuqede ukuze umzuliswano uphele. (chofoza kwenye yezinkinobho ezansi kwesikrini sakho, kaningi uma kunesidingo.)[auto]
+tuto.31.1:
 tuto.32:bekungumjikelezo wokugcina walesi sifundo, uma unokungabaza ungaphinda wenze lesi sifundo.[auto]
 tuto.33:ngaphandle kwalokho izincazelo zenkinobho ziyaboniswa lapho uzulazula phezu kwazo, ditto ngamabhokisi emephini. Imininingwane emayelana nentuthwane ekhethiwe ingakwesokudla kwesikrini sakho.[auto]
 tuto.34:uma ngaphandle kwalokhu ungakutholi okudingayo ungafuna izeluleko kuseva yomdlalo esemthethweni yokungezwani: http://discord.gg/vqvfGzf[auto]

@@ -480,6 +480,7 @@ tuto.28:speciet tona nuk janë granivore (nuk ha farë). Sidoqoftë, disa anthil
 tuto.29:punëtori që ne kemi pjellë mund të kryejë të njëjtat veprime si mbretëresha, përveç laikut.[auto]
 tuto.30:punëtorët janë edhe më efikasë në detyra të caktuara (u kushton më pak veprime për t'i kryer ato). Punëtori ynë gjuan më lehtë se mbretëresha.[auto]
 tuto.31:le t'i japim punëtorit tonë një detyrë për të përfunduar në mënyrë që raundi të përfundojë. (klikoni në një nga butonat në fund të ekranit tuaj, disa herë nëse është e nevojshme.)[auto]
+tuto.31.1:
 tuto.32:ishte raundi i fundit i këtij tutoriali, nëse keni ndonjë dyshim mund ta ribëni këtë manual.[auto]
 tuto.33:përndryshe përshkrimet e butonit shfaqen kur ju rrini pezull mbi to, vend për kutitë në hartë. Informacioni në lidhje me milingonën e zgjedhur është në të djathtë të ekranit tuaj.[auto]
 tuto.34:nëse pavarësisht kësaj nuk i gjeni ato që ju nevojiten, mund të kërkoni këshilla në serverin zyrtar të mosmarrëveshjes së lojës: http://discord.gg/vqvfGzf[auto]

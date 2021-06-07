@@ -480,6 +480,7 @@ tuto.28:eya wa kii ṣe granivorous (ko jẹ irugbin). Sibẹsibẹ, diẹ ninu 
 tuto.29:oṣiṣẹ ti a ti bimọ le ṣe awọn iṣe kanna bi ayaba, ayafi dubulẹ.[auto]
 tuto.30:awọn oṣiṣẹ paapaa ni ilọsiwaju diẹ sii lori awọn iṣẹ-ṣiṣe kan (o jẹ ki wọn dinku awọn iṣe lati ṣe wọn). Osise wa n wa ni irọrun diẹ sii ju ayaba lọ.[auto]
 tuto.31:jẹ ki a fun oṣiṣẹ wa iṣẹ kan lati pari ki iyipo naa pari. (tẹ lori ọkan ninu awọn bọtini ti o wa ni isalẹ iboju rẹ, awọn igba pupọ ti o ba jẹ dandan.)[auto]
+tuto.31.1:
 tuto.32:o jẹ iyipo ikẹhin ti ẹkọ yii, ti o ba ni iyemeji eyikeyi o le tunṣe ẹkọ yii.[auto]
 tuto.33:bibẹẹkọ awọn apejuwe bọtini yoo han nigbati o ba kọlu lori wọn, ditto fun awọn apoti lori maapu naa. Alaye nipa kokoro ti o yan wa ni apa ọtun iboju rẹ.[auto]
 tuto.34:ti o ba jẹ pe eyi ko rii ohun ti o nilo, o le wa imọran lori olupin iwakọ osise ti ere: http://discord.gg/vqvfGzf[auto]

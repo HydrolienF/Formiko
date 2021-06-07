@@ -480,6 +480,7 @@ tuto.28:arten vår er ikke granivorøs (spiser ikke frø). Imidlertid kunne noen
 tuto.29:arbeideren vi har skapt, kan utføre de samme handlingene som dronningen, bortsett fra lekmannen.[auto]
 tuto.30:arbeidere er enda mer effektive på visse oppgaver (det koster dem mindre handlinger å utføre dem). Arbeideren vår jakter lettere enn dronningen.[auto]
 tuto.31:la oss gi arbeideren vår en oppgave å fullføre, slik at runden slutter. (klikk på en av knappene nederst på skjermen, flere ganger om nødvendig.)[auto]
+tuto.31.1:
 tuto.32:det var den siste runden av denne opplæringen. Hvis du er i tvil, kan du gjøre om denne opplæringen.[auto]
 tuto.33:ellers vises knappebeskrivelsene når du holder markøren over dem, ditto for boksene på kartet. Informasjon om den valgte mauren er til høyre på skjermen.[auto]
 tuto.34:hvis du til tross for dette ikke finner det du trenger, kan du søke råd på spillets offisielle diskordserver: http://discord.gg/vqvfGzf[auto]

@@ -480,6 +480,7 @@ tuto.28:Notre espèce n'est pas granivore (ne mange pas de graine). Toutes fois 
 tuto.29:L'ouvrière que nous avons pondu peut effectué les mêmes actions que la reine, a l’exception de pondre.
 tuto.30:Les ouvrières sont même plus efficaces sur certaines tâches (cela leur coûtent moins d'actions pour les effectuer). Notre ouvrière chasse plus facilement que la reine.
 tuto.31:Donnons une tache a accomplir a notre ouvrière pour que le tour ce termine. (cliquer sur un des boutons en bas de votre écran, plusieurs fois si nécessaire.)
+tuto.31.1:Voilà vous avez gagné ! Mais en fait comment dois-je vous appeller ?
 tuto.32:C'était le dernier tour de ce tuto, si vous avez un doute vous pouvez refaire ce tuto.
 tuto.33:Sinon les descriptions des boutons s'affiche lorsque vous les survolez, idem pour les case de la carte. Les informations concernant la fourmi sélectionné sont a droite de votre écran.
 tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf

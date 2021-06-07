@@ -480,6 +480,7 @@ tuto.28:jinsunanmu ba su da girma (baya cin iri). Koyaya, wasu maƙwabtaka da ke
 tuto.29:ma'aikacin da muka yiwa faranti na iya yin ayyuka iri ɗaya da sarauniya, banda kwance.[auto]
 tuto.30:ma'aikata sun fi dacewa kan wasu ayyuka (yana rage musu ƙananan ayyuka don yin su). Ma'aikatanmu suna farauta cikin sauƙin kai tsaye fiye da sarauniya.[auto]
 tuto.31:bari mu bawa ma'aikacin mu aiki don kammalawa domin zagaye ya kare. (danna ɗaya maɓallin a ƙasan allo, sau da yawa idan ya cancanta.)[auto]
+tuto.31.1:
 tuto.32:ya kasance zagayen ƙarshe na wannan koyarwar, idan kuna da wata shakka kuna iya sake wannan koyarwar.[auto]
 tuto.33:in ba haka ba ana nuna bayanan maɓallin lokacin da kake shawagi a kansu, ditto don akwatunan da ke kan taswirar. Bayani game da zaɓin tururuwa yana kan hannun dama na allo.[auto]
 tuto.34:idan duk da wannan ba ku sami abin da kuke buƙata ba, kuna iya neman shawara game da sabar fitinar aikin wasan: http://discord.gg/vqvfGzf[auto]

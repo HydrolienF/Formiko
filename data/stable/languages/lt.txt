@@ -480,6 +480,7 @@ tuto.28:mūsų rūšis nėra grūdėdė (nevalgo sėklos). Tačiau kai kurie kai
 tuto.29:darbininkas, kurį mes pagimdėme, gali atlikti tuos pačius veiksmus kaip ir karalienė, išskyrus gulėjimą.[auto]
 tuto.30:darbuotojai dar efektyviau atlieka tam tikras užduotis (jiems atlikti reikia mažiau veiksmų). Mūsų darbininkas medžioja lengviau nei karalienė.[auto]
 tuto.31:duokime savo darbininkui užduotį įvykdyti, kad raundas baigtųsi. (jei reikia, kelis kartus spustelėkite vieną iš mygtukų ekrano apačioje.)[auto]
+tuto.31.1:
 tuto.32:tai buvo paskutinis šios mokymo programos ratas. Jei turite kokių nors abejonių, galite pakartoti šią mokymo programą.[auto]
 tuto.33:kitu atveju mygtukų aprašymai rodomi užvedus pelės žymeklį ant jų, taip pat ir žemėlapio laukeliuose. Informacija apie pasirinktą skruzdėlę yra ekrano dešinėje.[auto]
 tuto.34:jei nepaisant to nerandate to, ko jums reikia, galite kreiptis patarimo į oficialų žaidimo nesantaikos serverį: http://discord.gg/vqvfGzf[auto]

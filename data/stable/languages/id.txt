@@ -480,6 +480,7 @@ tuto.28:spesies kita tidak granivora (tidak memakan biji). Namun, beberapa saran
 tuto.29:pekerja yang telah kita hasilkan dapat melakukan tindakan yang sama seperti ratu, kecuali awam.[auto]
 tuto.30:pekerja bahkan lebih efisien dalam tugas-tugas tertentu (dengan biaya yang lebih sedikit untuk melaksanakannya). Pekerja kami berburu lebih mudah daripada ratu.[auto]
 tuto.31:mari beri pekerja kita tugas untuk diselesaikan sehingga putarannya berakhir. (klik salah satu tombol di bagian bawah layar Anda, beberapa kali jika perlu.)[auto]
+tuto.31.1:
 tuto.32:itu adalah putaran terakhir dari tutorial ini, jika Anda ragu, Anda dapat mengulangi tutorial ini.[auto]
 tuto.33:jika tidak, deskripsi tombol akan ditampilkan saat Anda mengarahkan kursor ke tombol tersebut, ditto untuk kotak-kotak di peta. Informasi tentang semut yang dipilih ada di sebelah kanan layar Anda.[auto]
 tuto.34:meskipun demikian, jika Anda tidak menemukan yang Anda butuhkan, Anda dapat mencari saran di server perselisihan resmi gim: http://discord.gg/vqvfGzf[auto]

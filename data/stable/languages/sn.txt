@@ -480,6 +480,7 @@ tuto.28:mhando yedu haina granivorous (haidye mbeu). Nekudaro, mamwe masvosve ak
 tuto.29:mushandi watakaburitsa anogona kuita zviito zvakafanana nemambokadzi, kunze kwekurara.[auto]
 tuto.30:vashandi vanotonyanya kushanda pane mamwe mabasa (zvinovatorera zviito zvishoma kuzviita) Mushandi wedu anovhima zviri nyore kupfuura mambokadzi.[auto]
 tuto.31:ngatipei mushandi wedu basa rekupedzisa kuitira kuti denderedzwa ripere (tinya pane rimwe bhatani riri pazasi kwescreen yako, kakawanda kana zvichidikanwa.)[auto]
+tuto.31.1:
 tuto.32:yakanga iri yekupedzisira denderedzwa redzidziso iyi, kana iwe uine chero kusahadzika unogona kuitazve iyi dzidziso.[auto]
 tuto.33:zvikasadaro bhatani rondedzero dzinoratidzwa kana iwe uchifamba pamusoro pazvo, ditto yemabhokisi ari pamepu. Ruzivo nezve svosve rakasarudzwa riri kurudyi kwescreen yako.[auto]
 tuto.34:kana zvisinei neizvi usingawani zvaunoda, unogona kutsvaga mazano pane mutambo wepamutemo kusawirirana server: http://discord.gg/vqvfGzf[auto]

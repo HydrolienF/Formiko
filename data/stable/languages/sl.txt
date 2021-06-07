@@ -480,6 +480,7 @@ tuto.28:naša vrsta ni žlahtna (ne je semena). Nekateri sosednji mravljišči p
 tuto.29:delavec, ki smo ga ujeli, lahko izvaja enaka dejanja kot kraljica, razen laičnega.[auto]
 tuto.30:delavci so pri nekaterih nalogah še bolj učinkoviti (njihovo izvajanje jih stane manj). Naš delavec lovi lažje kot kraljica.[auto]
 tuto.31:dajmo našemu delavcu nalogo, ki jo mora opraviti, da se krog konča. (po potrebi večkrat kliknite enega od gumbov na dnu zaslona.)[auto]
+tuto.31.1:
 tuto.32:bil je zadnji krog te vadnice, če dvomite, jo lahko ponovite.[auto]
 tuto.33:v nasprotnem primeru se opisi gumbov prikažejo, ko premaknete miškin kazalec nad njimi, prav tako za polja na zemljevidu. Informacije o izbrani mravljici so na desni strani zaslona.[auto]
 tuto.34:če kljub temu ne najdete tistega, kar potrebujete, poiščite nasvet na uradnem strežniku za neskladja v igri: http://discord.gg/vqvfGzf[auto]

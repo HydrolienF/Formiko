@@ -480,6 +480,7 @@ tuto.28:o a tatou ituaiga e le o le tele (e le 'aina fatu). Ae ui i lea, o isi t
 tuto.29:o le tagata faigaluega na matou faʻatupuina e mafai ona faʻatinoina gaioiga tutusa ma le masiofo, seʻi vagana le taʻoto.[auto]
 tuto.30:tagata faigaluega e sili atu ona lelei i luga o nisi galuega (e taugofie ai latou tau gaioiga e faatino ai). O la matou tagata faigaluega e faigofie tele ona sailia nai lo le masiofo.[auto]
 tuto.31:tatou tuʻuina atu i le tatou tagata faigaluega se galuega e faʻamaeʻaina ina ia maeʻa le taʻamilosaga. (kiliki i luga o se tasi o faʻamau i le pito i lalo o lau lau, i le tele o taimi pe a talafeagai ai.)[auto]
+tuto.31.1:
 tuto.32:o le taʻamilosaga mulimuli lea o lenei aʻoaʻoga, pe a i ai ni ou masalosaloga e mafai ona e toe faia lenei aʻoaʻoga.[auto]
 tuto.33:a leai, e faʻaalia le faʻamatalaina o faʻamau pe a e faʻapipiʻi luga ia i latou, togi mo atigipusa i luga o le faʻafanua. O faʻamatalaga e uiga i le loi filifilia o loʻo i le itu taumatau o lau pupuni.[auto]
 tuto.34:afai e ui i lenei e te le mauaina le mea e te manaʻomia mafai ona e sailia fautuaga i luga o le taʻaloga aloaia feeseeseaiga tautua: http://discord.gg/vqvfGzf[auto]
