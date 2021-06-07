@@ -84,7 +84,7 @@ public class erreur {
     System.exit(-1);
   }
 
-  public static void erreur(String message, String correction, boolean fatale){
+  public static void erreur(String message, String correction, boolean fatale, int classDepth){
     String m = "";
     if (fatale){
       m = g.get("erreur",3,"fatale")+" ";
@@ -96,7 +96,7 @@ public class erreur {
     }catch (Exception e) {
       preMessage=g.get("erreur").toUpperCase();
     }
-    print(preMessage + "("+getCurentClassAndMethodName()+") ");
+    print(preMessage + "("+getCurentClassAndMethodName(classDepth)+") ");
     println(str.sToSMaj(message)+".");
     if (!correction.equals("")){
       println(g.get("erreur",6,"Correction apportée")+" : " + correction);
@@ -106,13 +106,19 @@ public class erreur {
     }
   }
   public static void erreur(String message, String correction){
-    erreur(message, correction, false);
+    erreur(message, correction, false, 1);
+  }
+  public static void erreur(String message, boolean fatale, int classDepth){
+    erreur(message, "", fatale, classDepth);
   }
   public static void erreur(String message, boolean fatale){
-    erreur(message, "", fatale);
+    erreur(message, "", fatale, 1);
+  }
+  public static void erreur(String message, int classDepth){
+    erreur(message, false, classDepth);
   }
   public static void erreur(String message){
-    erreur(message, false);
+    erreur(message, 1);
   }
   public static void alerte(String message, String correction){
     String preMessage = "";

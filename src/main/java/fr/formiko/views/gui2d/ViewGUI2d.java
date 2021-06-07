@@ -276,9 +276,10 @@ public class ViewGUI2d implements View {
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.46
   */
-  public boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj){
+  public boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj, boolean canResumeGame){
     try {
-      getPj().addPfp(message, gj);
+      //TODO add withButton & next level
+      getPj().addPfp(message, gj, withButton, canResumeGame);
     }catch (Exception e) {
       erreur.alerte("can't print PanneauFinPartie.");
       return false;
@@ -400,9 +401,25 @@ public class ViewGUI2d implements View {
     //Main.getPartie().getPlayingAnt() is null but window didn't clear all data.
     getPb().setVisiblePa(false);
     getPj().setDesc("");
-    getPb().removePi();
+    // getPb().removePi();
     paint();
     getPj().alerte(message);
+  }
+  /**
+  *{@summary Print a question in a new window.}<br>
+  *@param message the message to print.
+  *@return the answer.
+  *@version 1.50
+  */
+  public String popUpQuestion(String message){
+    if (getPch()!=null) {return "";}
+    getPb().setVisiblePa(false);
+    getPj().setDesc("");
+    // getPb().removePi();
+    paint();
+    String s = getPj().question(message);
+    getPb().setVisiblePa(true);
+    return s;
   }
 
   /**

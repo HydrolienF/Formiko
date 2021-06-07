@@ -89,7 +89,7 @@ public class PondreReine implements Serializable, Pondre{
       if(f.getEspece().getGIndividu().getIndividuParType(x) != null){
         return x;
       }
-      erreur.erreur("Le type spécifié par le joueur n'est pas défini pour cette Espece.","3 est le type choisi a la place.",false);
+      erreur.erreur("Le type spécifié par le joueur n'est pas défini pour cette Espece.","3 est le type choisi a la place.",false,1);
       return 3;
     }
     //ia

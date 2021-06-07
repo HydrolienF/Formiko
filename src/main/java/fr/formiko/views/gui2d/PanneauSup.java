@@ -7,6 +7,7 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -100,7 +101,9 @@ public class PanneauSup extends Panneau{
   public int getIdFourmiAjoué(){return idFourmiAjoué;}
   public void setIdFourmiAjoué(int x){idFourmiAjoué=x;}
   // Fonctions propre -----------------------------------------------------------
-
+  public void paintComponent(Graphics g){
+    //do nothing
+  }
   public CCase getCCase(MouseEvent e){
     int tc = getView().getPc().getTailleDUneCase();
     int cx = e.getX()/tc;

@@ -16,30 +16,40 @@ public class PanneauFinPartie extends Panneau {
   private Bouton mp;
   private Bouton c;
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public PanneauFinPartie(String s, GJoueur gj){
+  public PanneauFinPartie(){
+    setVisible(false);
+  }
+  public void ini(String s, GJoueur gj, boolean withButton, boolean canResumeGame){
+    this.setLayout(null);
     addMessage(s);
     addPanneauInfo(gj);
-    addBoutonMenuPrincipal();
-    //si le type de victoire le permet :
-      addBoutonContinuer();
+    if(withButton){
+      addBoutonMenuPrincipal();
+      if(canResumeGame){
+        addBoutonContinuer();
+      }
+    }
+    message.setBounds(0,0,this.getWidth(),Desc.getDimY());
+    pi.setBounds(0,message.getHeight(),pi.getWidth(),pi.getHeight());
+    setBackground(Main.getData().getButtonColor());
+    setOpaque(true);
     setVisible(true);
-  }
-  public PanneauFinPartie(){
-    this.setLayout(null);
   }
   // GET SET --------------------------------------------------------------------
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
-    try {
-      message.setBounds(0,0,this.getWidth(),Main.getTaillePolice2()*2);
-      pi.setBounds(0,message.getHeight(),pi.getWidth(),pi.getHeight());
+    // try {
+      // message.setBounds(0,0,this.getWidth(),Main.getTaillePolice2()*2);
+      // pi.setBounds(0,message.getHeight(),pi.getWidth(),pi.getHeight());
       //mp.setBounds()
-    }catch (Exception e) {
-      erreur.erreur("certain élément graphique de PanneauFinPartie ne sont pas affichable.");
-    }
+    // }catch (Exception e) {
+    //   erreur.erreur("certain élément graphique de PanneauFinPartie ne sont pas affichable.");
+    // }
+    super.paintComponent(g);
   }
   public void addMessage(String s){
-    message = new Desc(this.getWidth(),Main.getTaillePolice2()*2);
+    erreur.info("add message");//@a
+    message = new Desc(this.getWidth(),(int)(Main.getTaillePolice2()*1.5));
     //message = new Desc();
     //message.setFondColoré();
     //message.setPolice(Main.getFont1());
@@ -56,10 +66,14 @@ public class PanneauFinPartie extends Panneau {
   }
   public void addBoutonMenuPrincipal(){
     mp= new Bouton(g.getM("quitterToMp"),Panneau.getView().getPj(),112);
+    mp.setSize(getWidth()/2, Desc.getDimY());
+    mp.setLocation(0,getHeight()-mp.getHeight());
     add(mp);
   }
   public void addBoutonContinuer(){
     c = new Bouton(g.getM("continuerJeu"),Panneau.getView().getPj(),113);
+    c.setSize(getWidth()/2, Desc.getDimY());
+    c.setLocation(getWidth()/2,getHeight()-mp.getHeight());
     add(c);
   }
 }

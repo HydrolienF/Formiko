@@ -32,6 +32,7 @@ public class ini {
     Panneau.getView().getPj().addPs();
     //le panneau pp a ses 2 sous panneaux
     Panneau.getView().getPj().addPe();//ajoute le panneau complètement vide juste pour qu'il soit au 1a plan
+    Panneau.getView().getPj().addPfp();//add empty panel.
     Panneau.getView().getPj().addPd();
     Panneau.getView().getPj().addPfp();//ajoute le panneau complètement vide
     Panneau.getView().getPj().addPb();

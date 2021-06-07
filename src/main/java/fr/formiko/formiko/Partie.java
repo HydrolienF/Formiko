@@ -84,6 +84,8 @@ public class Partie implements Serializable{
   public GInsecte getGi(){ return gi;}
   public void setGi(GInsecte g){gi=g;}
   public GJoueur getGj(){ return gj;}
+  public boolean isMultiplayer(){if(getGj()!=null){return getGj().getJoueurHumain().length()>1;}return false;}
+  public boolean isSolo(){if(getGj()!=null){return getGj().getJoueurHumain().length()==1;}return false;}
   public void setGj(GJoueur g){gj=g;}
   public GCase getGc(){return mapo.getGc();}
   public static GEspece getGe(){return ge;}
@@ -250,6 +252,7 @@ public class Partie implements Serializable{
   public void finDePartie(int x, boolean withButton, int nextLevel){
     if (partieFinie) {return;}//on n'affiche pas plusieur fois les info de fin de partie.
     setPartieFinie(true);
+    boolean canResumeGame=true;
     System.out.println("game is over.");//@a
     System.out.println(getTour()+"/"+getNbrDeTour());
     System.out.println(getGj());//@a
@@ -261,6 +264,7 @@ public class Partie implements Serializable{
     } else if (x==1){
       // en théorie ici gagnant = joueur qui a le meilleur score.
       victoire =  g.get("temps");
+      canResumeGame = false;
     }
     String mess = "";
     if(x!=0){
@@ -272,7 +276,7 @@ public class Partie implements Serializable{
       new Message(mess);
     }
     gjOrdonné.afficheScore();
-    Main.getView().endActionGame(withButton, nextLevel, mess, gjOrdonné);
+    Main.getView().endActionGame(withButton, nextLevel, mess, gjOrdonné, canResumeGame);
     setContinuerLeJeu(false);
     // Main.setRetournerAuMenu(true);//TODO ask & not force.
     while(!getContinuerLeJeu() && !Main.getRetournerAuMenu()){//on attend la validation que la partie continue.
