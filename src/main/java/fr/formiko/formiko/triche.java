@@ -133,7 +133,7 @@ public class triche {
 
         //pour les joueurs
         case 23:
-          getJoueurParId(args[1]).setPseudo(args[2]);
+          pseudo(args);
           break;
         case 24:
           getJoueurParId(args[1]).setIa(str.sToB(args[2]));
@@ -408,7 +408,7 @@ public class triche {
       return null;
     }
   }
-  public static Joueur getJoueurParId(String id){
+  private static Joueur getJoueurParId(String id){
     try {
       return Main.getJoueurParId(str.sToI(id));
     }catch (Exception e) {
@@ -416,7 +416,43 @@ public class triche {
       return null;
     }
   }
-  public static void aff(String s){
+  /**
+  *{@summary change pseudo of the player.}<br>
+  *It use parameters : id, pseudo & boolean.
+  *Only id is needed.
+  */
+  private static void pseudo(String args[]){
+    //setPseudo id boolean pseudo
+    Joueur j = getJoueurParId(args[1]);
+    boolean permanent = false;
+    String pseudo = "";
+    // try {
+    //   permanent = str.sToB(args[2]);
+    // }catch (Exception e) {
+    try {
+      permanent = str.sToB(args[2]);
+    }catch (Exception e2) {}
+    try {
+      pseudo = args[3];
+    }catch (Exception e2) {}
+    // }
+
+    if(pseudo.equals("")){
+      try {
+        pseudo = Panneau.getView().popUpQuestion("entrezPseudo");
+      }catch (Exception e) {
+        erreur.alerte("Une action de menu a échouée");
+      }
+    }
+    if(pseudo!=null && !pseudo.equals("")){
+      j.setPseudo(pseudo);
+      if(permanent && Main.getPartie().isSolo()){
+        Main.getOp().setPseudo(pseudo);
+        Main.getOp().saveOptions();
+      }
+    }
+  }
+  private static void aff(String s){
     try {
       Creature c = getCreatureParId(s);
       System.out.println(c);//si c est une fourmi ou un insecte s'est leur implémentation de toString qui sera appellée.
@@ -424,12 +460,12 @@ public class triche {
       erreur.alerte("la créature "+s+" n'as pas été trouvée.");
     }
   }
-  public static void affJ(String s){
+  private static void affJ(String s){
     try {
       System.out.println(getJoueurParId(s));
     }catch (Exception e) {}
   }
-  public static void affAide(){
+  private static void affAide(){
     System.out.println(g.getM("triche.aide.1"));
     System.out.println(g.getM("commande")+" : "+"("+g.get("triche.aide.2")+")");
     gs.afficheToi();

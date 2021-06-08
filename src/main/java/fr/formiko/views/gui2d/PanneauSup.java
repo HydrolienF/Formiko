@@ -7,6 +7,7 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -87,6 +88,7 @@ public class PanneauSup extends Panneau{
   }
   // GET SET --------------------------------------------------------------------
   public void actualiserTaille(){
+    if(getView().getPd()!= null && getView().getPd().getNeedToStayMaxSize()){actualiserTailleMax(); return;}
     setSize(Main.getDimX()-getView().getPz().getWidth(), Main.getDimY()-getView().getPa().getHeight());
     //la 2a version est mieux pour prendre en compte les déplacements.
     //setSize(Main.getDimX()-Main.getPz().getWidth(), Main.getDimY()-math.max(getView().getPa().getHeight(),Main.getPTInt().getHeight()));
@@ -100,7 +102,9 @@ public class PanneauSup extends Panneau{
   public int getIdFourmiAjoué(){return idFourmiAjoué;}
   public void setIdFourmiAjoué(int x){idFourmiAjoué=x;}
   // Fonctions propre -----------------------------------------------------------
-
+  public void paintComponent(Graphics g){
+    //do nothing
+  }
   public CCase getCCase(MouseEvent e){
     int tc = getView().getPc().getTailleDUneCase();
     int cx = e.getX()/tc;

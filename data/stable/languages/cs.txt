@@ -480,6 +480,7 @@ tuto.28:náš druh není granivorózní (nejedí semeno). Někteří sousední m
 tuto.29:pracovník, kterého jsme vytvořili, může provádět stejné akce jako královna, kromě ležení.[auto]
 tuto.30:pracovníci jsou při určitých úkolech ještě efektivnější (jejich provádění je stojí méně akcí). Náš pracovník loví snadněji než královna.[auto]
 tuto.31:dejme našemu pracovníkovi úkol dokončit, aby kolo skončilo. (klikněte na jedno z tlačítek ve spodní části obrazovky, v případě potřeby několikrát.)[auto]
+tuto.31.1:
 tuto.32:bylo to poslední kolo tohoto tutoriálu, pokud máte pochybnosti, můžete tento tutoriál zopakovat.[auto]
 tuto.33:jinak se popisy tlačítek zobrazí, když na ně umístíte ukazatel myši, stejně jako u polí na mapě. Informace o vybraném mravenci jsou na pravé straně obrazovky.[auto]
 tuto.34:pokud navzdory tomu nenajdete, co potřebujete, můžete vyhledat radu na oficiálním serveru sváru hry: http://discord.gg/vqvfGzf[auto]

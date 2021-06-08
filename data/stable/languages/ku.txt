@@ -480,6 +480,7 @@ tuto.28:cûreyên me gêrîk ne (tov naxwe). Lêbelê, hin kûçikên cîran dik
 tuto.29:karkerê ku me avjenî kiriye, ji xeynî laîk, dikare eynî kirinên şahbanûyê jî bike.[auto]
 tuto.30:karker di hin karan de hêj jêhatîtir in (pêkanîna wan ji wan re kiryar kêmtir e). Karkerê me ji şahbanûyê hêsantir nêçîr dike.[auto]
 tuto.31:bila wezîfeyek bidin xebatkarê xwe ku biqedîne da ku dor biqede. (li ser yek ji bişkojên li binê dîmendera we, heke hewce be çend caran bikirtînin.)[auto]
+tuto.31.1:
 tuto.32:ew dora dawîn a vê tutoriyê bû, heke gumanên we hebin hûn dikarin vê tutorialê ji nû ve bikin.[auto]
 tuto.33:wekî din dema ku hûn li ser wan digerin, ji bo qutiyên li ser nexşeyê dîwankirin bişkojk têne danasîn. Agahdariya der barê ant-ê ya hilbijartî de li rastê dîmendera we ye.[auto]
 tuto.34:ger digel vê yekê hûn çi hewce nebînin hûn dikarin li ser servera nakokiya lîstikê şîretan bigerin: http://discord.gg/vqvfGzf[auto]

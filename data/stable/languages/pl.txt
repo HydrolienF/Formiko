@@ -480,6 +480,7 @@ tuto.28:nasz gatunek nie jest ziarnożerny (nie je nasion). Jednak niektóre są
 tuto.29:zrodzony przez nas robotnik może wykonywać te same czynności co królowa, z wyjątkiem leżenia.[auto]
 tuto.30:pracownicy są jeszcze wydajniejsi w niektórych zadaniach (ich wykonanie kosztuje ich mniej). Nasz robotnik łatwiej poluje niż królowa.[auto]
 tuto.31:dajmy naszemu pracownikowi zadanie do wykonania, aby runda się zakończyła. (kliknij jeden z przycisków u dołu ekranu, w razie potrzeby kilka razy).[auto]
+tuto.31.1:
 tuto.32:to była ostatnia runda tego samouczka, jeśli masz jakiekolwiek wątpliwości, możesz powtórzyć ten samouczek.[auto]
 tuto.33:w przeciwnym razie opisy przycisków są wyświetlane po najechaniu na nie kursorem, tak samo jak w przypadku pól na mapie. Informacje o wybranej mrówce znajdują się po prawej stronie ekranu.[auto]
 tuto.34:jeśli mimo to nie znajdziesz tego, czego potrzebujesz, możesz poszukać porady na oficjalnym serwerze discord gry: http://discord.gg/vqvfGzf[auto]

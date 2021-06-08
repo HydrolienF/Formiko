@@ -355,9 +355,10 @@ public class ViewCLI implements View {
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.46
   */
-  public boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj){
+  public boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj, boolean canResumeGame){
     erreur.info("message");
     System.out.println(gj);
+    //TODO to update.
     return true;
   }
 
@@ -391,9 +392,7 @@ public class ViewCLI implements View {
   *@version 1.39
   */
   public CCase getCCase(){
-    System.out.println(sep);
-    System.out.println(g.getM("were")+" ? ("+g.get("enterCoordinateAs")+" G12)");
-    String s = scannerAnswer.nextLine();
+    String s = popUpQuestion(g.getM("were")+" ? ("+g.get("enterCoordinateAs")+" G12)");
     return getCCaseFromString(s);
   }
   /**
@@ -460,7 +459,20 @@ public class ViewCLI implements View {
   *@version 1.46
   */
   public void popUpMessage(String message){
+    System.out.println(sep);
     message(message, false);
+  }
+  /**
+  *{@summary Print a question in a new window.}<br>
+  *@param message the message to print.
+  *@return the answer.
+  *@version 1.50
+  */
+  public String popUpQuestion(String message){
+    System.out.println(sep);
+    message(message,false);
+    String s = scannerAnswer.nextLine();
+    return s;
   }
   /**
   *{@summary set playing ant.}<br>

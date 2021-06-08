@@ -10,14 +10,16 @@ import java.awt.Graphics;
 
 public class PanneauDialogue extends Panneau {
   private PanneauInfo pi;
+  private boolean needToStayMaxSize;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauDialogue(){
-    this.setLayout(null);
-    pi = new PanneauInfo(new GString(),0);
-    pi.setBounds(0,0,0,0);
-    setSize(pi.getWidth(),pi.getHeight());
+    super();
+    // pi = new PanneauInfo(new GString(),0);
+    // pi.setBounds(0,0,0,0);
+    // setSize(pi.getWidth(),pi.getHeight());
   }
-  public void initialiser(String s){
+  public void initialiser(String s, boolean needToStayMaxSize){
+    this.needToStayMaxSize=needToStayMaxSize;
     if(pi!=null){remove(pi);}
     try {
       if(s.equals("")){
@@ -44,10 +46,10 @@ public class PanneauDialogue extends Panneau {
     add(pi);
   }
   // GET SET --------------------------------------------------------------------
-
+  public boolean getNeedToStayMaxSize(){return needToStayMaxSize;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
-
+    super.paintComponent(g);
   }
   public synchronized boolean clicEn(int x, int y){
     //on écoute toute la fenetre si un panneau de dialogue est afficher et qu'on peu le passer.

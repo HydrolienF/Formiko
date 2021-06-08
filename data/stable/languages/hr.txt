@@ -480,6 +480,7 @@ tuto.28:naša vrsta nije žedna (ne jede sjeme). Međutim, neki susjedni mravinj
 tuto.29:radnik kojeg smo iznjedrili može izvoditi iste radnje kao i kraljica, osim laika.[auto]
 tuto.30:radnici su još učinkovitiji u određenim zadacima (njihovo ih izvršavanje košta manje radnji). Naš radnik lovi lakše od matice.[auto]
 tuto.31:dajmo svom radniku zadatak da ga završi tako da krug završi. (kliknite jedan od gumba na dnu zaslona, nekoliko puta ako je potrebno.)[auto]
+tuto.31.1:
 tuto.32:bio je zadnji krug ovog tutorijala, ako sumnjate, možete ga ponoviti.[auto]
 tuto.33:inače se opisi gumba prikazuju kad zadržite pokazivač iznad njih, jednako kao i za okvire na karti. Informacije o odabranom mravu nalaze se s desne strane vašeg zaslona.[auto]
 tuto.34:ako unatoč tome ne pronađete ono što vam treba, savjet možete potražiti na službenom poslužitelju za razdor u igri: http://discord.gg/vqvfGzf[auto]

@@ -480,6 +480,7 @@ tuto.28:aina yetu sio mbaya (haila mbegu). Walakini, vichuguu jirani vingeweza k
 tuto.29:mfanyakazi ambaye tumezaliwa anaweza kufanya vitendo sawa na malkia, isipokuwa tu.[auto]
 tuto.30:wafanyakazi wana ufanisi zaidi katika kazi fulani (inawagharimu vitendo kidogo vya kuzifanya). Mfanyakazi wetu anawinda kwa urahisi kuliko malkia.[auto]
 tuto.31:wacha tumpe mfanyakazi wetu kazi ya kumaliza ili raundi iishe. (bonyeza kitufe kimoja chini ya skrini yako, mara kadhaa ikiwa ni lazima.)[auto]
+tuto.31.1:
 tuto.32:ilikuwa zamu ya mwisho ya mafunzo haya, ikiwa una mashaka yoyote unaweza kufanya tena mafunzo haya.[auto]
 tuto.33:vinginevyo maelezo ya kitufe yanaonyeshwa unapoteleza juu yao, andika masanduku kwenye ramani. Habari kuhusu chungu iliyochaguliwa iko upande wa kulia wa skrini yako.[auto]
 tuto.34:ikiwa licha ya hii hautapata unachohitaji, unaweza kutafuta ushauri juu ya seva rasmi ya ugomvi wa mchezo: http://discord.gg/vqvfGzf[auto]

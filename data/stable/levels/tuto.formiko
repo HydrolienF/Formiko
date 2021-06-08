@@ -75,8 +75,10 @@ print tuto.30
 print tuto.31 true
 setPa -1
 attendre finDuTour
+print tuto.31.1 true
+setPseudo 1 true
 setPa 20
-endActionGame 1 true 1
+endActionGame 1 false 1
 print tuto.32
 print tuto.33
 print tuto.34

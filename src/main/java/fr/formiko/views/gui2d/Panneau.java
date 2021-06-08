@@ -25,6 +25,7 @@ public class Panneau extends JPanel {
   public Panneau(){
     super();
     setLayout(null);
+    setOpaque(false);
     // setOpaque(false); //TODO fix : cause issues about Bouton.
   }
   // GET SET --------------------------------------------------------------------
@@ -41,8 +42,7 @@ public class Panneau extends JPanel {
   //repaint() permet de réactualisé paintComponent()
   // L'instruction Thread.sleep(x miliseconde) permet d'effectuer une pause dans le programme.
   public void paintComponent(Graphics g){
-    //TODO it should repaint as normal Panel.
-    // super.paintComponent(g);
+    super.paintComponent(g);
   }
   public void doAction(int ac){
     action.doAction(ac);

@@ -480,6 +480,7 @@ tuto.28:non est species granivorous nostri (non manducare semen). Verum semina p
 tuto.29:operarius mercede nos spawned potest praestare quod ipse actus regina nisi pro strato utentibus.[auto]
 tuto.30:sunt etiam quaedam exercere operarios in pluribus agentibus (nulla est iactura minus et praestare actiones ea). Adiutor noster prae illa persequitur.[auto]
 tuto.31:sit ut nostrum circa finem perfectum opus operatur. (Click de buttons imo tui screen saepius necesse est.)[auto]
+tuto.31.1:
 tuto.32:hoc erat ultimum per hoc consequat, te potest dubitari redo si hoc doceo.[auto]
 tuto.33:quod ipsum si versetur exhibentur descriptiones eorum ditto adipiscing enim in charta. Lego vestri notitia formicam dextra elit.[auto]
 tuto.34:quod si hoc non obstante invenies quod tibi necessarium est, non potest quaerere in ad consilium scriptor officialis discordiae ludum server, http://discord.gg/vqvfGzf[auto]

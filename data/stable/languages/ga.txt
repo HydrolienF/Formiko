@@ -480,6 +480,7 @@ tuto.28:níl ár speiceas gráinneach (ní itheann síol). Mar sin féin, d’fh
 tuto.29:is féidir leis an oibrí a sceith muid na gníomhartha céanna a dhéanamh leis an bhanríon, seachas tuata.[auto]
 tuto.30:bíonn oibrithe níos éifeachtaí fós ar thascanna áirithe (cosnaíonn sé níos lú gníomhartha dóibh chun iad a dhéanamh). Déanann ár n-oibrí fiach níos éasca ná an bhanríon.[auto]
 tuto.31:tugaimis tasc dár n-oibrí a chur i gcrích ionas go mbeidh deireadh leis an mbabhta. (cliceáil ar cheann de na cnaipí ag bun do scáileáin, arís agus arís eile más gá.)[auto]
+tuto.31.1:
 tuto.32:ba é an babhta deireanach den rang teagaisc seo é, má tá aon amhras ort is féidir leat an rang teagaisc seo a athdhéanamh.[auto]
 tuto.33:seachas sin taispeántar na tuairiscí cnaipe nuair a théann tú os a gcionn, ditto do na boscaí ar an léarscáil. Tá faisnéis faoin seangán roghnaithe ar thaobh dheis do scáileáin.[auto]
 tuto.34:ina ainneoin sin mura bhfaigheann tú a bhfuil uait is féidir leat comhairle a lorg ar fhreastalaí neamhord oifigiúil an chluiche: http://discord.gg/vqvfGzf[auto]

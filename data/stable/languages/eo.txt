@@ -119,7 +119,7 @@ getFileName:enigu la nomon de la konservota aro, kiun vi volas ŝargi: (Aŭ reen
 dernierTourPassé:la lasta vico estas fini.
 victoireInconue:venko nekonato.
 élimination:elimino
-victoirePar:havas venki per
+victoirePar:havas gajni per
 pseudo:kaŝnomo
 entrezPseudo:skribu via kaŝnomo
 
@@ -480,9 +480,10 @@ tuto.28:nia specio ne estas manĝema (ne manĝas semon). Tamen iuj najbaraj form
 tuto.29:la laboristo, kiun ni generis, povas plenumi la samajn agojn kiel la reĝino, krom laiko.[auto]
 tuto.30:laboristoj estas eĉ pli efikaj pri iuj taskoj (kostas al ili malpli da agoj plenumi ilin). Nia laboristo ĉasas pli facile ol la reĝino.[auto]
 tuto.31:ni donu al nia laboristo taskon kompletigotan por ke la rondo finiĝu. (alklaku unu el la butonoj ĉe la fino de via ekrano, plurfoje se necese.)[auto]
+tuto.31.1:Jen vi havas gajni ! Sed efektive, kiel mi povas nomu vin ?
 tuto.32:ĝi estis la lasta raŭndo de ĉi tiu lernilo, se vi havas dubon, vi povas refari ĉi tiun lernilon.[auto]
 tuto.33:alie la butonaj priskriboj montriĝas kiam vi ŝvebas super ilin, same por la kestoj sur la mapo. Informoj pri la elektita formiko estas dekstre de via ekrano.[auto]
 tuto.34:se malgraŭ tio vi ne trovas tion, kion vi bezonas, vi povas peti konsilon ĉe la oficiala malkonkorda servilo de la ludo: http://discord.gg/vqvfGzf[auto]
 tuto.35:por gajni ludon ĝustatempe, vi devas havi pli altan poentaron ol AI kaj aliaj ludantoj.[auto]
 tuto.36:via poentaro dependas de via nombro da formikoj, (plenkreskaj formikoj donas pli bonan poentaron), same kiel la malfacilecon de la ludo kaj la rapidecon de la ludo.[auto]
-tuto.37:Tio estos ĉio por ĉi tiu lernilo, mi sendas vin al la ĉefa menuo, kie vi povas komenci vian sekvan ludon!
+tuto.37:tio estos ĉio por ĉi tiu lernilo, mi sendas vin al la ĉefa menuo, kie vi povas komenci vian sekvan ludon!

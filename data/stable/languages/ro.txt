@@ -480,6 +480,7 @@ tuto.28:specia noastră nu este granivoră (nu mănâncă semințe). Cu toate ac
 tuto.29:lucrătorul pe care l-am născut poate efectua aceleași acțiuni ca și regina, cu excepția laicilor.[auto]
 tuto.30:lucrătorii sunt și mai eficienți în anumite sarcini (le costă mai puține acțiuni să le îndeplinească). Muncitorul nostru vânează mai ușor decât regina.[auto]
 tuto.31:să îi oferim lucrătorului nostru o sarcină de finalizat, astfel încât runda să se termine. (faceți clic pe unul dintre butoanele din partea de jos a ecranului, de mai multe ori dacă este necesar.)[auto]
+tuto.31.1:
 tuto.32:a fost ultima rundă a acestui tutorial, dacă aveți îndoieli, puteți reface acest tutorial.[auto]
 tuto.33:în caz contrar, descrierile butoanelor sunt afișate când treceți cu mouse-ul peste ele, la fel pentru casetele de pe hartă. Informațiile despre furnica selectată sunt în partea dreaptă a ecranului.[auto]
 tuto.34:dacă în ciuda acestui fapt nu găsiți ceea ce aveți nevoie, puteți solicita sfaturi pe serverul oficial de discordie al jocului: http://discord.gg/vqvfGzf[auto]

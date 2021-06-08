@@ -480,6 +480,7 @@ tuto.28:türümüz granül yapmaz (tohum yemez). Bununla birlikte, bazı komşu 
 tuto.29:doğurduğumuz işçi, yatmak dışında kraliçe ile aynı eylemleri gerçekleştirebilir.[auto]
 tuto.30:çalışanlar belirli görevlerde daha da verimlidir (bunları gerçekleştirmek onlara daha az eylem maliyeti). İşçimiz kraliçeden daha kolay avlanıyor.[auto]
 tuto.31:i̇şçimize, turun bitmesi için tamamlaması gereken bir görev verelim. (Gerekirse ekranınızın altındaki düğmelerden birine birkaç kez tıklayın.)[auto]
+tuto.31.1:
 tuto.32:bu eğitimin son turuydu, herhangi bir şüpheniz varsa, bu öğreticiyi yeniden yapabilirsiniz.[auto]
 tuto.33:aksi takdirde, imleci üzerlerine getirdiğinizde düğme açıklamaları, haritadaki kutular için de aynı şekilde görüntülenir. Seçili karınca ile ilgili bilgiler ekranınızın sağındadır.[auto]
 tuto.34:buna rağmen ihtiyacınız olanı bulamazsanız, oyunun resmi discord sunucusundan tavsiye alabilirsiniz: http://discord.gg/vqvfGzf[auto]

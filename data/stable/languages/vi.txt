@@ -480,6 +480,7 @@ tuto.28:loài chúng ta không ăn thịt (không ăn hạt). Tuy nhiên, một 
 tuto.29:mối thợ mà chúng ta đã sinh sản có thể thực hiện các hành động tương tự như mối chúa, ngoại trừ chim đẻ.[auto]
 tuto.30:người lao động thậm chí còn hiệu quả hơn trong một số nhiệm vụ nhất định (họ sẽ tốn ít hành động hơn để thực hiện chúng). Công nhân của chúng ta săn dễ dàng hơn nữ hoàng.[auto]
 tuto.31:hãy giao cho nhân viên của chúng ta một nhiệm vụ phải hoàn thành để vòng chơi kết thúc. (nhấp vào một trong các nút ở cuối màn hình của bạn, nhiều lần nếu cần).[auto]
+tuto.31.1:
 tuto.32:đây là vòng cuối cùng của hướng dẫn này, nếu bạn có bất kỳ nghi ngờ nào, bạn có thể thực hiện lại hướng dẫn này.[auto]
 tuto.33:nếu không, các mô tả nút sẽ được hiển thị khi bạn di chuột qua chúng, hãy chuyển sang các ô trên bản đồ. Thông tin về kiến đã chọn nằm ở bên phải màn hình của bạn.[auto]
 tuto.34:nếu mặc dù vậy, bạn không tìm thấy thứ mình cần, bạn có thể tìm lời khuyên trên máy chủ bất hòa chính thức của trò chơi: http://discord.gg/vqvfGzf[auto]

@@ -480,6 +480,7 @@ tuto.28:mitundu yathu siyabwino (siyidya mbewu). Komabe, nyerere zina zoyandikan
 tuto.29:wogwira ntchito amene tidamupanga atha kuchita zomwezi monga mfumukazi, kupatula atagona.[auto]
 tuto.30:ogwira ntchito ndiwothandiza kwambiri pantchito zina (zimawatengera zinthu zochepa kuti achite). Wogwira ntchito amatisaka mosavuta kuposa mfumukazi.[auto]
 tuto.31:tiyeni timupatse ntchito wantchito wathu kuti amalize kuti zozungulira zizitha. (dinani pa batani limodzi pansi pazenera lanu, kangapo ngati kuli kofunikira.)[auto]
+tuto.31.1:
 tuto.32:anali gawo lomaliza la phunziroli, ngati mukukayika, mutha kuyambiranso phunziroli.[auto]
 tuto.33:kupanda kutero mafotokozedwe amtunduwo amawonetsedwa mukamayandama pamwamba pake, lembani mabokosi pamapu. Zambiri zokhudza nyerere zomwe mwasankha zili kumanja kwazenera lanu.[auto]
 tuto.34:ngati ngakhale simukupeza zomwe mukufuna mutha kufunsa upangiri pa seva yomwe ili pamasewerawa: http://discord.gg/vqvfGzf[auto]

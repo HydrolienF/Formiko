@@ -480,6 +480,7 @@ tuto.28:onze soort is niet granivoor (eet geen zaad). Sommige naburige mierenhop
 tuto.29:de werker die we hebben voortgebracht, kan dezelfde acties uitvoeren als de koningin, behalve leggen.[auto]
 tuto.30:werknemers zijn zelfs nog efficiënter bij bepaalde taken (het kost hun minder handelingen om ze uit te voeren). Onze werker jaagt gemakkelijker dan de koningin.[auto]
 tuto.31:laten we onze werker een taak geven om te voltooien zodat de ronde eindigt. (klik op een van de knoppen onderaan uw scherm, eventueel meerdere keren.)[auto]
+tuto.31.1:
 tuto.32:het was de laatste ronde van deze tutorial, als je twijfelt, kun je deze tutorial opnieuw doen.[auto]
 tuto.33:anders worden de knopbeschrijvingen weergegeven wanneer u erover zweeft, idem voor de vakjes op de kaart. Informatie over de geselecteerde mier staat aan de rechterkant van je scherm.[auto]
 tuto.34:als je desondanks niet vindt wat je zoekt, kun je advies inwinnen op de officiële onenigheidsserver van het spel: http://discord.gg/vqvfGzf[auto]

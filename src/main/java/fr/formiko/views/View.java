@@ -87,7 +87,7 @@ public interface View {
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.46
   */
-  boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj);
+  boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj, boolean canResumeGame);
   /***
   *{@summary Change the value of the looked CCase.}<br>
   *We need to repaint the information about this Case.<br>
@@ -137,6 +137,13 @@ public interface View {
   *@version 1.46
   */
   void popUpMessage(String message);
+  /***
+  *{@summary Print a question in a new window.}<br>
+  *@param message the message to print.
+  *@return the answer.
+  *@version 1.50
+  */
+  String popUpQuestion(String message);
   /***
   *{@summary set playing ant.}<br>
   *This action can only be run if action game is on.<br>

@@ -480,6 +480,7 @@ tuto.28:biziň görnüşlerimiz granivor däl (tohum iýmeýär). Şeýle-de bol
 tuto.29:öwrenen işçimiz, ýatmakdan başga şa aýal ýaly hereketleri edip biler.[auto]
 tuto.30:işçiler käbir meselelerde has täsirli bolýarlar (olary ýerine ýetirmek üçin az hereket edýär). Işçimiz şa aýalyndan has aňsat aw edýär.[auto]
 tuto.31:işçimize tegelek gutarmak üçin bir iş bereliň. (zerur bolsa birnäçe gezek ekranyňyzyň aşagyndaky düwmeleriň birine basyň.)[auto]
+tuto.31.1:
 tuto.32:bu gollanmanyň iň soňky tapgyrydy, şübhelenýän bolsaňyz, bu sapagy täzeden ulanyp bilersiňiz.[auto]
 tuto.33:otherwiseogsam, düwmäniň düşündirişleri kartanyň üstündäki gutulara ýazyň. Saýlanan garynja hakda maglumatlar ekranyňyzyň sag tarapynda.[auto]
 tuto.34:muňa garamazdan, zerur zatlary tapmasaňyz, oýnuň resmi nägilelik serwerinden maslahat alyp bilersiňiz: http://discord.gg/vqvfGzf[auto]

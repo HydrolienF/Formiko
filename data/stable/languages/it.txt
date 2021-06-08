@@ -480,6 +480,7 @@ tuto.28:la nostra specie non è granivora (non mangia semi). Tuttavia, alcuni fo
 tuto.29:la lavoratrice che abbiamo generato può eseguire le stesse azioni della regina, tranne la deposizione.[auto]
 tuto.30:i lavoratori sono ancora più efficienti su determinati compiti (costa loro meno azioni per eseguirli). Il nostro lavoratore caccia più facilmente della regina.[auto]
 tuto.31:diamo al nostro lavoratore un compito da completare in modo che il round finisca. (fare clic su uno dei pulsanti nella parte inferiore dello schermo, più volte se necessario.)[auto]
+tuto.31.1:
 tuto.32:era l'ultimo round di questo tutorial, se hai dei dubbi puoi rifarlo.[auto]
 tuto.33:altrimenti le descrizioni dei pulsanti vengono visualizzate quando ci passi sopra con il mouse, idem per le caselle sulla mappa. Le informazioni sulla formica selezionata si trovano sulla destra dello schermo.[auto]
 tuto.34:se nonostante questo non trovi quello che ti serve, puoi chiedere consiglio al server discord ufficiale del gioco: http://discord.gg/vqvfGzf[auto]

@@ -480,6 +480,7 @@ tuto.28:spésiés urang sanés gemuk (henteu tuang siki). Nanging, sababaraha an
 tuto.29:pagawe anu parantos urang hasilkeun tiasa ngalakukeun tindakan anu sami sareng ratu, kecuali awam.[auto]
 tuto.30:pagawe bahkan langkung épisién dina tugas-tugas anu tangtu (hargana kirang langkung tindakan pikeun ngalaksanakeunana). Pagawe urang moro langkung gampil tibatan ratu.[auto]
 tuto.31:hayu urang masihan pagawé urang tugas pikeun ngarengsekeun supados buleudna réngsé. (pencét kana salah sahiji tombol di handapeun layar anjeun, sababaraha kali upami diperyogikeun.)[auto]
+tuto.31.1:
 tuto.32:ieu mangrupikeun babak terakhir tina tutorial ieu, upami anjeun gaduh mamang anjeun tiasa ngulang tutorial ieu.[auto]
 tuto.33:upami teu kitu, pedaran tombol ditampilkeun nalika anjeun ngantosan di luhur, ditto kanggo kotak dina peta. Inpormasi ngeunaan sireum anu dipilih aya di beulah katuhu layar anjeun.[auto]
 tuto.34:upami sanaos ieu anjeun henteu mendakan naon anu anjeun peryogikeun anjeun tiasa milari naséhat ngeunaan server sengketa resmi kaulinan: http://discord.gg/vqvfGzf[auto]

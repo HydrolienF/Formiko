@@ -85,8 +85,8 @@ public class PanneauJeu extends Panneau {
     add(pd);
     add(pdi);
   }
-  public void initialiserPd(String s){
-    pd.initialiser(s);
+  public void initialiserPd(String s, boolean needToStayMaxSize){
+    pd.initialiser(s, needToStayMaxSize);
     pdi.initialiser();
     pd.setBounds(0,0,pd.getWidth(),pd.getHeight());
     revalidate();
@@ -138,17 +138,22 @@ public class PanneauJeu extends Panneau {
     pc.setVisible(true);
     pb.setVisible(true);
   }
+  // public void addPfp(){
+  //   pfp = new PanneauFinPartie();
+  //   add(pfp);
+  // }
   public void addPfp(){
     pfp = new PanneauFinPartie();
     add(pfp);
   }
-  public void addPfp(String mess, GJoueur gj){
-    pfp = new PanneauFinPartie(mess,gj);
-    pfp.setBounds(getWidth()/4,getHeight()/8,getWidth()/2,(getHeight()*3)/4);
-    add(pfp);
-    pb.setVisible(false);
-    ps.setSize(0,0);
-    erreur.info("print PanneauFinPartie : "+pfp);
+  public void addPfp(String mess, GJoueur gj, boolean withButton, boolean canResumeGame){
+    pfp.setBounds(getWidth()/4,Main.getTailleElementGraphiqueX(250),getWidth()/2,Main.getDimY()-(2*Main.getTailleElementGraphiqueX(250)));
+    pfp.ini(mess,gj,withButton,canResumeGame);
+    if(withButton){
+      pb.setVisible(false);
+      ps.setSize(0,0);
+    }
+    erreur.info("print PanneauFinPartie : "+pfp);//@a
   }
   public void removePfp(){
     remove(pfp);
@@ -225,9 +230,25 @@ public class PanneauJeu extends Panneau {
     }
     Main.repaint();
   }
+  /**
+  *{@summary print an alerte box.}
+  *@version 1.49
+  */
   public void alerte(String s, String s2){
     JOptionPane jop1 = new JOptionPane();
-    jop1.showMessageDialog(null, s, s2, JOptionPane.INFORMATION_MESSAGE);
+    jop1.showMessageDialog(Main.getF(), s, s2, JOptionPane.INFORMATION_MESSAGE);
   }
   public void alerte(String s){ alerte(s,g.getM("information"));}
+  /**
+  *{@summary print a question box.}
+  *@return answer.
+  *@version 1.50
+  */
+  public String question(String s, String s2){
+    // String[] options = {g.get("oui"),g.get("non")};
+    // String r = JOptionPane.showOptionDialog(Main.getF(), g.get(s), g.get(s2)+" ?",JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE);
+    String r = JOptionPane.showInputDialog (Main.getF(), g.getM(s), s2, JOptionPane.QUESTION_MESSAGE);
+    return r;
+  }
+  public String question(String s){ return question(s,"?");}
 }

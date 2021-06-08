@@ -15,7 +15,10 @@ public class PanneauDialogueInf extends Panneau {
   private Desc b;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauDialogueInf(){
-    this.setLayout(null);
+    super();
+    // this.setLayout(null);
+    // this.setBackground(new Color(0,0,0,0));
+    // setOpaque(false);
   }
   public void initialiser(){
     setSize(Main.getDimX(),Main.getTailleElementGraphiqueY(210));
@@ -27,8 +30,8 @@ public class PanneauDialogueInf extends Panneau {
 
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
-    super.paintComponent(g);
     g.drawImage(fond,0,0,this);
+    super.paintComponent(g);
   }
   public static void chargerFond(){
     fond = image.getImage("hautDeLaFenetre");

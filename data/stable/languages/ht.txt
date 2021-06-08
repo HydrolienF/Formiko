@@ -480,6 +480,7 @@ tuto.28:espès nou yo pa granivò (pa manje grenn). Sepandan, kèk plant vwazen 
 tuto.29:travayè nou te anjandre a ka fè menm aksyon ak larenn lan, eksepte kouche.[auto]
 tuto.30:travayè yo menm pi efikas nan sèten travay (li koute yo mwens aksyon pou fè yo). Travayè nou an lachas pi fasil pase larenn lan.[auto]
 tuto.31:ann bay travayè nou an yon travay pou konplete wonn lan. (klike sou youn nan bouton ki anba ekran an, plizyè fwa si sa nesesè.)[auto]
+tuto.31.1:
 tuto.32:se te dènye wonn nan leson patikilye sa a, si ou gen nenpòt dout ou ka refè leson patikilye sa a.[auto]
 tuto.33:sinon deskripsyon yo bouton yo ap parèt lè ou hover sou yo, menm pou bwat yo sou kat la. Enfòmasyon sou foumi yo chwazi a se sou bò dwat la nan ekran ou.[auto]
 tuto.34:si malgre sa ou pa jwenn sa ou bezwen ou ka chèche konsèy sou sèvè ofisyèl diskòd jwèt la: http://discord.gg/vqvfGzf[auto]

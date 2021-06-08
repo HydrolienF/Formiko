@@ -480,6 +480,7 @@ tuto.28:ny karazanay dia tsy mavesatra (tsy mihinana voa). Na izany aza, ny voro
 tuto.29:ilay mpiasa notontosaintsika dia afaka manao hetsika mitovy amin'ny vadin'ny mpanjaka, afa-tsy ny laika.[auto]
 tuto.30:ny mpiasa aza mahomby kokoa amin'ny lahasa sasany (tsy dia mihetsika loatra ny vidin'izy ireo amin'ny fanatanterahana izany). Mora kokoa ny fihazanan'ny mpiasanay noho ny mpanjakavavy.[auto]
 tuto.31:andao omentsika ny mpiasa ny asany mba hamaranana ny fihodinana. (tsindrio ny bokotra iray eo ambanin'ny efijery misy anao, im-betsaka raha ilaina izany.)[auto]
+tuto.31.1:
 tuto.32:io no fihodinana farany tamin'ity fampianarana ity, raha misy fisalasalana azonao atao ny mamerina ity tutorial ity.[auto]
 tuto.33:raha tsy izany dia aseho ny famaritana ny bokotra rehefa manidina eo amboniny ianao, ampidiro ireo boaty ao amin'ny sari-tany. Ny vaovao momba ilay vitsika voafantina dia eo ankavanan'ny efijeryo.[auto]
 tuto.34:raha na eo aza izany dia tsy hitanao izay ilainao dia azonao atao ny mangataka torohevitra amin'ny mpizara fifanolanana ofisialin'ny lalao: http://discord.gg/vqvfGzf[auto]

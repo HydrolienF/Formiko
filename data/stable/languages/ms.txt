@@ -480,6 +480,7 @@ tuto.28:spesies kita tidak berbiji (tidak memakan biji). Namun, beberapa sarang 
 tuto.29:pekerja yang telah kita melahirkan dapat melakukan tindakan yang sama seperti ratu, kecuali orang awam.[auto]
 tuto.30:pekerja lebih cekap dalam tugas-tugas tertentu (mereka memerlukan lebih sedikit tindakan untuk melaksanakannya). Pekerja kami memburu dengan lebih senang daripada permaisuri.[auto]
 tuto.31:mari beri tugas kepada pekerja kita untuk menyelesaikan sehingga pusingan berakhir. (klik pada salah satu butang di bahagian bawah skrin anda, beberapa kali jika perlu.)[auto]
+tuto.31.1:
 tuto.32:ini adalah pusingan terakhir tutorial ini, jika anda mempunyai keraguan, anda boleh membuat semula tutorial ini.[auto]
 tuto.33:jika tidak, keterangan butang dipaparkan semasa anda mengarahkan kursor ke atasnya, ditto untuk kotak di peta. Maklumat mengenai semut yang dipilih ada di sebelah kanan skrin anda.[auto]
 tuto.34:sekiranya anda tidak menemui apa yang anda perlukan, anda boleh mendapatkan nasihat mengenai pelayan perselisihan rasmi permainan: http://discord.gg/vqvfGzf[auto]

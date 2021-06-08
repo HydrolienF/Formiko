@@ -480,6 +480,7 @@ tuto.28:l-ispeċi tagħna mhix granivora (ma tiekolx żerriegħa). Madankollu, x
 tuto.29:il-ħaddiem li nissilna jista 'jwettaq l-istess azzjonijiet bħar-reġina, minbarra l-lajċi.[auto]
 tuto.30:il-ħaddiema huma saħansitra aktar effiċjenti f'ċerti kompiti (jiswilhom inqas azzjonijiet biex iwettquhom). Il-ħaddiem tagħna jikkaċċja aktar faċilment mir-reġina.[auto]
 tuto.31:ejja nagħtu lill-ħaddiem tagħna kompitu biex jitlesta sabiex it-tond jintemm. (ikklikkja fuq waħda mill-buttuni fil-qiegħ tal-iskrin tiegħek, bosta drabi jekk meħtieġ.)[auto]
+tuto.31.1:
 tuto.32:kienet l-aħħar rawnd ta 'dan it-tutorja, jekk għandek xi dubji tista' terġa 'tagħmel dan it-tutorja.[auto]
 tuto.33:inkella d-deskrizzjonijiet tal-buttuni jintwerew meta tpoġġi fuqhom, idem għall-kaxxi fuq il-mappa. Informazzjoni dwar in-nemla magħżula tinsab fuq il-lemin tal-iskrin tiegħek.[auto]
 tuto.34:jekk minkejja dan ma ssibx dak li għandek bżonn tista 'tfittex parir fuq id-diskord server uffiċjali tal-logħba: http://discord.gg/vqvfGzf[auto]

@@ -480,6 +480,7 @@ tuto.28:chan eil an gnè againn granivorous (chan eil e ag ithe sìol). Ach, dh 
 tuto.29:faodaidh an neach-obrach a tha sinn air sìolachadh na h-aon gnìomhan a dhèanamh ris a ’bhanrigh, ach a-mhàin laighe.[auto]
 tuto.30:tha luchd-obrach eadhon nas èifeachdaiche air cuid de ghnìomhan (tha e a ’cosg nas lugha de ghnìomhan dhaibh an coileanadh). Bidh an neach-obrach againn a ’sealg nas fhasa na a’ bhanrigh.[auto]
 tuto.31:bheir sinn gnìomh don neach-obrach againn gus a chrìochnachadh. (cliog air aon de na putanan aig bonn na sgrìn agad, grunn thursan ma tha sin riatanach.)[auto]
+tuto.31.1:
 tuto.32:b ’e seo a’ chuairt mu dheireadh den oideachadh seo, ma tha teagamh sam bith agad faodaidh tu an oideachadh seo ath-dhèanamh.[auto]
 tuto.33:air neo bidh na tuairisgeulan putan air an taisbeanadh nuair a thèid thu thairis orra, ditto airson na bogsaichean air a ’mhapa. Tha fiosrachadh mun t-seang taghte air taobh deas do sgrion.[auto]
 tuto.34:mura h-eil thu a ’lorg na tha a dhìth ort faodaidh tu comhairle a shireadh air frithealaiche discord oifigeil a’ gheama: http://discord.gg/vqvfGzf[auto]

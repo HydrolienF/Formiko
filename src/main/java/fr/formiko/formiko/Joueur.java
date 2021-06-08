@@ -40,6 +40,10 @@ public class Joueur implements Serializable{
     this(nbrDeFourmi,ia,"",mapo); // On crée un joueur au pseudo vide puis on le rempli si c'est une ia.
     if (ia){
       pseudo = get1Pseudo();
+    }else{
+      try {
+        pseudo = Main.getOp().getPseudo();
+      }catch (Exception e) {}
     }
   }
   // GET SET -----------------------------------------------------------------------

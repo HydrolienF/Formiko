@@ -480,6 +480,7 @@ tuto.28:speciesdị anyị abụghị granivorous (anaghị eri mkpụrụ). Agb
 tuto.29:onye oru nke anyi choro nwere ike ime otua omume dika eze nwanyi, ma ewezuga nke edina.[auto]
 tuto.30:ndị ọrụ na-arụ ọrụ nke ọma na ụfọdụ ọrụ (ọ na-efu ha obere omume iji rụọ ha). Onye ọrụ anyị na-achụ nta ngwa ngwa karịa eze nwanyị.[auto]
 tuto.31:ka anyị nye onye ọrụ anyị ọrụ iji mezue ka okirikiri ahụ wee kwụsị. (pịa otu bọtịnụ na ala nke ihuenyo gị, ọtụtụ oge ma ọ bụrụ na ọ dị mkpa.)[auto]
+tuto.31.1:
 tuto.32:ọ bụ usoro ikpeazụ nke nkuzi a, ma ọ bụrụ na ị nwere obi abụọ ọ bụla i nwere ike ịmegharị nkuzi a.[auto]
 tuto.33:ma ọ bụghị, a na-egosipụta nkọwa bọtịnụ mgbe ị na-atụgharị ha, pịa maka igbe ndị dị na map. Ozi gbasara ndanda ahọpụtara dị n'aka nri nke ihuenyo gị.[auto]
 tuto.34:ọ bụrụ n ’agbanyeghị nke a ịchọtaghị ihe ịchọrọ, inwere ike ịchọ ndụmọdụ n’ozi ihe eji arụ ọrụ egwuregwu: http://discord.gg/vqvfGzf[auto]

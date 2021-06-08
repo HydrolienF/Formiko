@@ -480,6 +480,7 @@ tuto.28:a nosa especie non é granívora (non come sementes). Non obstante, alg�
 tuto.29:o traballador que xeramos pode realizar as mesmas accións que a raíña, excepto laico.[auto]
 tuto.30:os traballadores son aínda máis eficientes en determinadas tarefas (cústalles menos accións realizalas). A nosa traballadora caza máis facilmente que a raíña.[auto]
 tuto.31:imos dar ao noso traballador unha tarefa para que remate a rolda. (Fai clic nun dos botóns na parte inferior da pantalla, varias veces se é necesario.)[auto]
+tuto.31.1:
 tuto.32:foi a última rolda deste tutorial, se tes algunha dúbida podes refacer este tutorial.[auto]
 tuto.33:se non, as descricións dos botóns móstranse ao pasar o rato sobre elas, idem para as caixas do mapa. A información sobre a formiga seleccionada está á dereita da pantalla.[auto]
 tuto.34:se a pesar diso non atopas o que necesitas, podes buscar consello no servidor oficial de discordia do xogo: http://discord.gg/vqvfGzf[auto]

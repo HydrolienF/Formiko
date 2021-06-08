@@ -480,6 +480,7 @@ tuto.28:nid yw ein rhywogaeth yn granivorous (nid yw'n bwyta hadau). Fodd bynnag
 tuto.29:gall y gweithiwr rydyn ni wedi silio gyflawni'r un gweithredoedd â'r frenhines, ac eithrio lleyg.[auto]
 tuto.30:mae gweithwyr hyd yn oed yn fwy effeithlon ar rai tasgau (mae'n costio llai o gamau iddynt i'w cyflawni). Mae ein gweithiwr yn hela'n haws na'r frenhines.[auto]
 tuto.31:gadewch i ni roi tasg i'n gweithiwr ei chwblhau fel bod y rownd yn dod i ben. (cliciwch ar un o'r botymau ar waelod eich sgrin, sawl gwaith os oes angen.)[auto]
+tuto.31.1:
 tuto.32:hon oedd rownd olaf y tiwtorial hwn, os oes gennych unrhyw amheuon gallwch ail-wneud y tiwtorial hwn.[auto]
 tuto.33:fel arall mae'r disgrifiadau botwm yn cael eu harddangos pan fyddwch chi'n hofran drostyn nhw, ditto ar gyfer y blychau ar y map. Mae gwybodaeth am y morgrugyn a ddewiswyd ar ochr dde eich sgrin.[auto]
 tuto.34:er gwaethaf hyn, ni fyddwch yn dod o hyd i'r hyn sydd ei angen arnoch gallwch ofyn am gyngor ar weinydd anghytgord swyddogol y gêm: http://discord.gg/vqvfGzf[auto]

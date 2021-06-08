@@ -480,6 +480,7 @@ tuto.28:tegundin okkar er ekki lífvæn (borðar ekki fræ). Sumar nálægar mau
 tuto.29:starfsmaðurinn sem við höfum orðið var við getur framkvæmt sömu aðgerðir og drottningin, nema lágvættur.[auto]
 tuto.30:starfsmenn eru enn skilvirkari í ákveðnum verkefnum (það kostar þá minni aðgerðir að framkvæma þau). Starfsmaður okkar veiðir auðveldara en drottningin.[auto]
 tuto.31:gefum starfsmanni okkar verkefni að ljúka svo umferðinni ljúki. (smelltu á einn hnappana neðst á skjánum, nokkrum sinnum ef þörf krefur.)[auto]
+tuto.31.1:
 tuto.32:þetta var síðasta umferðin í þessari kennslu, ef þú hefur einhverjar efasemdir geturðu gert þessa kennslu upp á nýtt.[auto]
 tuto.33:annars birtast hnappalýsingarnar þegar þú sveima yfir þeim, það er fyrir kassana á kortinu. Upplýsingar um valinn maur eru til hægri á skjánum þínum.[auto]
 tuto.34:ef þú finnur ekki það sem þú þarft þrátt fyrir þetta, þá geturðu leitað ráðgjafar á opinberum ósamþjóni leiksins: http://discord.gg/vqvfGzf[auto]

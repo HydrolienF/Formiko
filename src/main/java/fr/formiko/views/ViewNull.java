@@ -105,7 +105,7 @@ public class ViewNull implements View {
   *@return Return true if nothing have been print or paint.
   *@version 1.33
   */
-  public boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj){
+  public boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj, boolean canResumeGame){
     return true;
   }
   /**
@@ -155,6 +155,11 @@ public class ViewNull implements View {
   *@version 1.46
   */
   public void popUpMessage(String message){}
+  /***
+  *{@summary A null view action that do nothing.}<br>
+  *@version 1.50
+  */
+  public String popUpQuestion(String message){return "";}
   /***
   *{@summary A null view action that do nothing.}<br>
   *@version 1.46

@@ -480,6 +480,7 @@ tuto.28:mūsu suga nav graudēdāja (neēd sēklas). Tomēr daži kaimiņu skudr
 tuto.29:strādnieks, kuru mēs esam nārstojuši, var veikt tādas pašas darbības kā karaliene, izņemot gulēšanu.[auto]
 tuto.30:darbinieki ir vēl efektīvāki attiecībā uz noteiktiem uzdevumiem (to veikšana izmaksā mazāk darbību). Mūsu strādnieks medī vieglāk nekā karaliene.[auto]
 tuto.31:dosim savam darbiniekam uzdevumu izpildīt, lai kārta beigtos. (noklikšķiniet uz vienas no pogām ekrāna apakšdaļā, nepieciešamības gadījumā vairākas reizes.)[auto]
+tuto.31.1:
 tuto.32:tā bija šīs apmācības pēdējā kārta. Ja jums ir kādas šaubas, varat šo mācību atkārtoti izmantot.[auto]
 tuto.33:pretējā gadījumā pogu apraksti tiek parādīti, virzot kursoru virs tiem, tāpat kā kartes lodziņos. Informācija par izvēlēto skudru atrodas ekrāna labajā pusē.[auto]
 tuto.34:ja, neskatoties uz to, neatrodat to, kas jums nepieciešams, varat meklēt padomu spēles oficiālajā nesaskaņu serverī: http://discord.gg/vqvfGzf[auto]

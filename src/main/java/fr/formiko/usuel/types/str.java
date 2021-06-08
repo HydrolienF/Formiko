@@ -295,7 +295,7 @@ public class str{
   *@version 1.1
   */
   public static void erreurConversion(String xToY, String s){
-    erreur.erreur(g.get("str",1,"Impossible d'effectuer une des conversions") +" "+ xToY +" "+g.get("str",2,"correctement")+" : "+s);
+    erreur.erreur(g.get("str",1,"Impossible d'effectuer une des conversions") +" "+ xToY +" "+g.get("str",2,"correctement")+" : "+s,5);
   }
   //tableaux
   /**

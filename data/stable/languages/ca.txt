@@ -480,6 +480,7 @@ tuto.28:la nostra espècie no és granívora (no menja llavors). No obstant aix�
 tuto.29:el treballador que hem generat pot realitzar les mateixes accions que la reina, excepte laica.[auto]
 tuto.30:els treballadors són encara més eficients en determinades tasques (els costa menys accions realitzar-les). El nostre treballador caça més fàcilment que la reina.[auto]
 tuto.31:donem al nostre treballador una tasca per completar perquè finalitzi la ronda. (feu clic en un dels botons de la part inferior de la pantalla, diverses vegades si cal.)[auto]
+tuto.31.1:
 tuto.32:va ser l'última ronda d'aquest tutorial, si teniu dubtes, podeu refer-lo.[auto]
 tuto.33:en cas contrari, les descripcions de botons es mostren quan passeu el cursor per sobre d'ells, idem per a les caselles del mapa. La informació sobre la formiga seleccionada es troba a la dreta de la pantalla.[auto]
 tuto.34:si tot i això no trobeu el que necessiteu, podeu demanar consell al servidor oficial de discòrdies del joc: http://discord.gg/vqvfGzf[auto]

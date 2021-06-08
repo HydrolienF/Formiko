@@ -480,6 +480,7 @@ tuto.28:gure espeziea ez da graniboroa (ez du hazia jaten). Hala ere, inguruko i
 tuto.29:sortu dugun langileak erreginaren ekintza berak egin ditzake, laikoa izan ezik.[auto]
 tuto.30:langileak are eraginkorragoak dira zenbait zereginetan (ekintza gutxiago egitea kostatzen zaie horiek egitea). Gure langileak erregina baino errazago ehizatzen du.[auto]
 tuto.31:eman diezaiogun gure langileari burutzeko zeregina txanda amaitu dadin. (egin klik pantailaren behealdeko botoietako batean, beharrezkoa bada hainbat aldiz.)[auto]
+tuto.31.1:
 tuto.32:tutorial honen azken txanda izan zen. Zalantzarik baduzu tutorial hau berriro egin dezakezu.[auto]
 tuto.33:bestela, botoien deskribapenak bistaratzen dira haien gainetik pasatzean, mapako koadroetarako ere. Aukeratutako inurriari buruzko informazioa zure pantailaren eskuinean dago.[auto]
 tuto.34:hala ere, behar duzuna aurkitzen ez baduzu, jokoaren desadostasun zerbitzari ofizialean aholkularitza bila dezakezu: http://discord.gg/vqvfGzf[auto]
