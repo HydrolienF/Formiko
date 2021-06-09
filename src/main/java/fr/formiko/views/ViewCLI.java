@@ -100,6 +100,7 @@ public class ViewCLI implements View {
   public boolean menuMain(){
     actionGameOn=false;
     if(scannerAnswer==null){ini();}
+    Main.stopScript();
     menuName="menuP";
     // if(Main.getPremierePartie()){Main.setPartie(Partie.getPartieTuto());return true;}
     paint();

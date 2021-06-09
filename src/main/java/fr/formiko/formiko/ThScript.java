@@ -8,9 +8,11 @@ import fr.formiko.usuel.g;
 
 public class ThScript extends Thread{
   private Script scr;
+  private boolean needToStop;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public ThScript(String s){
     scr = new Script(s);
+    needToStop=false;
   }
   // GET SET --------------------------------------------------------------------
   public Script getScript(){return scr;}
@@ -18,5 +20,13 @@ public class ThScript extends Thread{
   @Override
   public void run(){
     scr.script();
+  }
+  @Override
+  public void interrupt(){
+    needToStop=true;
+  }
+  @Override
+  public boolean isInterrupted(){
+    return needToStop;
   }
 }

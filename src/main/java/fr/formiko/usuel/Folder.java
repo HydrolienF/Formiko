@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.Path;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsoner;
 
@@ -297,7 +298,7 @@ public class Folder{
   public String getWantedDataVersion(){
     try {
       // create a reader
-      Reader reader = Files.newBufferedReader(Paths.get("version.json"));
+      Reader reader = Files.newBufferedReader(getVersionJsonPath());
       // create parser
       JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
       // read customer details
@@ -307,5 +308,22 @@ public class Folder{
       erreur.alerte("can't read data version");
       return "1.49.12";
     }
+  }
+  /**
+  *{@summary return the path to version.json.}<br>
+  *Curent version is in version.md.
+  *@version 1.51
+  */
+  public static Path getVersionJsonPath(){
+    File f = new File("version.json");
+    if(f.exists()){
+      return Paths.get("version.json");
+    }
+    f = new File("app/version.json");
+    if(f.exists()){
+      return Paths.get("app/version.json");
+    }
+    erreur.alerte("Can't fined version.json path.");
+    return Paths.get("");
   }
 }

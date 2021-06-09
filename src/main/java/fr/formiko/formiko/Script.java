@@ -74,6 +74,9 @@ public class Script implements Serializable{
     setEcouteClic(true);
     for (String s : t ) {
       while(!getCmdSuivante()){
+        if(Main.getThScript().isInterrupted()){
+          return;
+        }
         Temps.pause(50);
       }
       setEcouteClic(true);//au cas ou la commande juste avant ai désactivé l'écoute clic.

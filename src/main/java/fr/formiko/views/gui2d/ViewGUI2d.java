@@ -149,6 +149,7 @@ public class ViewGUI2d implements View {
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
     if(f==null || getPm()==null){ini();}
+    Main.stopScript();
     getPm().buildPanneauMenu(3,0);
     paint();
     if(needToWaitForGameLaunch){
