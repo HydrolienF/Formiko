@@ -301,7 +301,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertTrue(ecrireUnFichier.ecrireUnFichier(gs,"testDir"+x+"/test.txt"));
     assertEquals(-1,chargerLesTraductions.getPourcentageTraduit(0));
 
-    fichier.deleteDirectory(f);
+    assertTrue(fichier.deleteDirectory(f));
     chargerLesTraductions.setRep();
   }
   @Test
@@ -335,7 +335,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertTrue(ecrireUnFichier.ecrireUnFichier(gs,"testDir"+x+"/test.txt"));
     assertEquals(100,chargerLesTraductions.getPourcentageTraduit(0));
 
-    fichier.deleteDirectory(f);
+    assertTrue(fichier.deleteDirectory(f));
     chargerLesTraductions.setRep();
   }
 
@@ -373,7 +373,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertTrue(ecrireUnFichier.ecrireUnFichier(gs,"testDir"+x+"/test.txt"));
     assertEquals(100,chargerLesTraductions.getPourcentageTraduitAutomatiquement(0));
 
-    fichier.deleteDirectory(f);
+    assertTrue(fichier.deleteDirectory(f));
     chargerLesTraductions.setRep();
   }
   @Test
@@ -403,7 +403,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertEquals("testAF",g.get("ex"));
     assertEquals("tradInENglish",g.get("ex2"));
 
-    fichier.deleteDirectory(f);
+    assertTrue(fichier.deleteDirectory(f));
     chargerLesTraductions.setRep();
   }
 }
