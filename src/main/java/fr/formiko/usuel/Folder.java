@@ -110,7 +110,7 @@ public class Folder{
         missingFolder++;
         if(allowedDownolad){throw new MissingFolderException("main");}
       }else if(needToUpdateVersion()){
-        erreur.alerte("A compatible data version is downloaded");
+        erreur.alerte("A compatible data version ("+getWantedDataVersion()+") is downloaded");
         if(allowedDownolad){downloadData();}
       }
 
@@ -317,13 +317,17 @@ public class Folder{
   public static Path getVersionJsonPath(){
     File f = new File("version.json");
     if(f.exists()){
-      return Paths.get("version.json");
+      return Paths.get(f.getPath());
     }
     f = new File("app/version.json");
     if(f.exists()){
-      return Paths.get("app/version.json");
+      return Paths.get(f.getPath());
     }
-    erreur.alerte("Can't fined version.json path.");
+    f = new File(System.getenv("ProgramFiles")+"/Formiko/app/version.json");
+    if(f.exists()){
+      return Paths.get(f.getPath());
+    }
+    erreur.alerte("Can't fined version.json path");
     return Paths.get("");
   }
 }

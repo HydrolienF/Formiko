@@ -55,6 +55,10 @@ public class Fenetre extends JFrame {
     this.setContentPane(pp);
     this.setResizable(true); //On permet ou pas le redimensionnement
     this.setVisible(true); // visible
+    super.setAlwaysOnTop(true);
+    super.toFront();
+    super.requestFocus();
+    super.setAlwaysOnTop(false);
     debug.g("Fenetre",xMax,yMax);
   }
   public Fenetre(){
