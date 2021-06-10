@@ -16,4 +16,5 @@ cp version.json in/
 jpackage --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version $(cat version.md) --description "Formiko, a game about ant." --icon tools/icon.ico --runtime-image jlink/jWindows --win-shortcut --win-menu --win-console --license-file LICENSE.md --vendor Hydrolien -t msi
 rm -r in
 
-./addLaunchToMsi.bat
+$version = cat .\version.md
+cscript addLaunchToMsi.js $version
