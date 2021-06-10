@@ -102,6 +102,7 @@ public class Folder{
   *@version 1.46
   */
   public int ini(boolean allowedDownolad){
+    erreur.info("Launch of Formiko.jar with data version:"+getWantedDataVersion());//@a
     missingFolder=0;
     File f = new File(getFolderMain());
     try{
@@ -319,6 +320,14 @@ public class Folder{
     if(f.exists()){
       return Paths.get(f.getPath());
     }
+    // try {
+    //   f = new File(new Main().getClass().getResource("version.json").toURI());
+    // }catch (Exception e) {
+    //   erreur.alerte("Can't fined version.json path in jar file");
+    // }
+    // if(f.exists()){
+    //   return Paths.get(f.getPath());
+    // }
     f = new File("app/version.json");
     if(f.exists()){
       return Paths.get(f.getPath());

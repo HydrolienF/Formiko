@@ -12,9 +12,9 @@ Permet de regrouper tout le texte du projet.
 jlink --module-path " jmods,out" --add-modules "java.desktop,java.base,jdk.crypto.ec" --output java
 Permet de créer notre petit java.
 
-jpackage --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version $(cat version.md) --description "Formiko, a game about ant." --icon tools/icon.ico --runtime-image jlink/jWindows --win-shortcut --win-menu --win-console --license-file LICENSE.md --vendor Hydrolien
+jpackage --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version $(cat version.md) --description "Formiko, a game about ant." --icon tools/icon.ico --runtime-image jlink/jWindows --win-shortcut --win-menu --win-console --license-file LICENSE.md --vendor Hydrolien -t msi
 cscript add-change.js
--t msi --verbose
+--verbose
 Permet de créer un .exe sur Windows #98
 jpackage --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version $(cat version.md) --description "Formiko, a game about ant. Linux distribution" tools/icon.ico --runtime-image jlink/JLinux
 
