@@ -27,7 +27,6 @@ public class Fenetre extends JFrame {
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Fenetre(String titre, int xMax, int yMax){
-    erreur.info("new fenetre");//@a
     if(Main.getPleinEcran()){
       //@OS
       if(Main.getOs().getId()==1){
@@ -55,6 +54,10 @@ public class Fenetre extends JFrame {
     this.setContentPane(pp);
     this.setResizable(true); //On permet ou pas le redimensionnement
     this.setVisible(true); // visible
+    super.setAlwaysOnTop(true);
+    super.toFront();
+    super.requestFocus();
+    super.setAlwaysOnTop(false);
     debug.g("Fenetre",xMax,yMax);
   }
   public Fenetre(){

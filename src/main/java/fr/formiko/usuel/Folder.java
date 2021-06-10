@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.Path;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsoner;
 
@@ -109,7 +110,7 @@ public class Folder{
         missingFolder++;
         if(allowedDownolad){throw new MissingFolderException("main");}
       }else if(needToUpdateVersion()){
-        erreur.alerte("A compatible data version is downloaded");
+        erreur.alerte("A compatible data version ("+getWantedDataVersion()+") is downloaded");
         if(allowedDownolad){downloadData();}
       }
 
@@ -297,7 +298,7 @@ public class Folder{
   public String getWantedDataVersion(){
     try {
       // create a reader
-      Reader reader = Files.newBufferedReader(Paths.get("version.json"));
+      Reader reader = Files.newBufferedReader(getVersionJsonPath());
       // create parser
       JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
       // read customer details
@@ -307,5 +308,34 @@ public class Folder{
       erreur.alerte("can't read data version");
       return "1.49.12";
     }
+  }
+  /**
+  *{@summary return the path to version.json.}<br>
+  *Curent version is in version.md.
+  *@version 1.51
+  */
+  public static Path getVersionJsonPath(){
+    File f = new File("version.json");
+    if(f.exists()){
+      return Paths.get(f.getPath());
+    }
+    // try {
+    //   f = new File(new Main().getClass().getResource("version.json").toURI());
+    // }catch (Exception e) {
+    //   erreur.alerte("Can't fined version.json path in jar file");
+    // }
+    // if(f.exists()){
+    //   return Paths.get(f.getPath());
+    // }
+    f = new File("app/version.json");
+    if(f.exists()){
+      return Paths.get(f.getPath());
+    }
+    f = new File(System.getenv("ProgramFiles")+"/Formiko/app/version.json");
+    if(f.exists()){
+      return Paths.get(f.getPath());
+    }
+    erreur.alerte("Can't fined version.json path");
+    return Paths.get("");
   }
 }

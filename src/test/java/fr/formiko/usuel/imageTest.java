@@ -94,7 +94,7 @@ public class imageTest extends TestCaseMuet{
   @Test
   public void testGetImages(){
     Folder folder = new Folder();
-    folder.setFolderMain("imgTestDir"+getId());
+    folder.setFolderMain("imassertTrue(fichier.deleteDirectory(new File(folder.getFolderMain().substring(0,folder.getFolderMain().length()-5))));lsSPEC"+getId());
     folder.ini(false);
     Main.setFolder(folder);
     Img img = new Img(1,1);
@@ -105,15 +105,15 @@ public class imageTest extends TestCaseMuet{
     assertEquals(0,image.getImages("testImag").length);
     assertEquals(0,image.getImages("testImage.png").length);
     // image.setREPTEXTUREPACK("./");
-    // assertEquals(3,image.getImages("testDir/testImage").length);
+    // assertEquals(3,image.getImages("testDirIT/testImage").length);
     // assertEquals(0,image.getImages("testImage").length);
     // image.setREPTEXTUREPACK(null);
-    // assertEquals(0,image.getImages("testDir/testImage").length);
+    // assertEquals(0,image.getImages("testDirIT/testImage").length);
     // assertEquals(0,image.getImages("testImage").length);
-    //assertEquals(3,image.getImages("testDir/","testImage").length);
-    //assertEquals(3,image.getImages("testDir","testImage").length);
+    //assertEquals(3,image.getImages("testDirIT/","testImage").length);
+    //assertEquals(3,image.getImages("testDirIT","testImage").length);
     //assertEquals(0,image.getImages("dirX","testImage").length);
-    fichier.deleteDirectory(new File(folder.getFolderMain()));
+    assertTrue(fichier.deleteDirectory(new File(folder.getFolderMain().substring(0,folder.getFolderMain().length()-5))));
   }
 
   //getImagess
@@ -122,7 +122,7 @@ public class imageTest extends TestCaseMuet{
     Main.iniOp();
     Main.getOp().setElementSurCarteOrientéAprèsDéplacement(true);
     Folder folder = new Folder();
-    folder.setFolderMain("testDir"+getId());
+    folder.setFolderMain("testDirIT"+getId());
     folder.ini(false);
     Main.setFolder(folder);
     Img img = new Img(3,1);
@@ -141,7 +141,7 @@ public class imageTest extends TestCaseMuet{
     img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"g"+".png");
     img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"g"+".png");
     img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"g"+".png");
-    // image.setREPTEXTUREPACK("testDir2/");
+    // image.setREPTEXTUREPACK("testDirIT2/");
     Image [][] t = image.getImagess("testImage");
     int k=0;
     for(Image ti []: t){
@@ -170,7 +170,7 @@ public class imageTest extends TestCaseMuet{
     }
     assertEquals(3,k);
     image.setREPTEXTUREPACK(null);
-    fichier.deleteDirectory(Main.getFolder().getFolderMain());
+    assertTrue(fichier.deleteDirectory(new File(folder.getFolderMain().substring(0,folder.getFolderMain().length()-5))));
   }
 
   //getNbrImages
@@ -215,7 +215,7 @@ public class imageTest extends TestCaseMuet{
   public void testGetNbrImagesREP3(){
     //on vérifie que d'éventuelles images complémentaire présente dans REPTEXTUREPACK seront bien chargée.
     Folder folder = new Folder();
-    folder.setFolderMain("testDir"+getId());
+    folder.setFolderMain("testDirIT"+getId());
     folder.ini(false);
     Main.setFolder(folder);
     File f = new File(image.getREPTEXTUREPACK());
@@ -238,7 +238,7 @@ public class imageTest extends TestCaseMuet{
     }catch (Exception e) {assertTrue(false);}
     assertEquals(5,image.getNbrImages("fourmi"));
     f = new File(image.getREPTEXTUREPACK());
-    assertTrue(fichier.deleteDirectory(f));
+    assertTrue(fichier.deleteDirectory(new File(folder.getFolderMain().substring(0,folder.getFolderMain().length()-5))));
   }
 
   //clearTemporaire - clearPartielTemporaire
@@ -278,6 +278,7 @@ public class imageTest extends TestCaseMuet{
     image.clearTemporaire();
     assertEquals(x,d.listFiles().length);
     assertTrue(!f.delete());
+    assertTrue(fichier.deleteDirectory(new File(folder.getFolderMain().substring(0,folder.getFolderMain().length()-5))));
   }
   // @Test
   // public void testClearPartielTemporaire(){

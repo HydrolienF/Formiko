@@ -3,14 +3,8 @@
 grep -r -i -l '//@a' ./src/main/
 permet de retrouver tout les fichiers qui contienne une ligne a retirer facillement
 
-./s.sh
-actualise les donnée de nombre de lignes, mots et char des fichiers .java.
-
-./actualiserJDM.sh
-actualise le jdm en y ajoutant ce que contient trad/out.txt
-
 ./exe.sh
-lance la finition du projet et la déplace dans un fichier synchronisé sur MEGA.nz
+lance la finition du projet et crer 3 .zip.
 
 cat *.java package/* fenetre/* > projet.txt
 Permet de regrouper tout le texte du projet.
@@ -18,9 +12,11 @@ Permet de regrouper tout le texte du projet.
 jlink --module-path " jmods,out" --add-modules "java.desktop,java.base,jdk.crypto.ec" --output java
 Permet de créer notre petit java.
 
-jpackage --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version 1.32.4 --description "Formiko, a game about ant." --icon icon.ico --resource-dir in/data --runtime-image jlink/jWindows --win-shortcut --win-dir-chooser --win-menu --win-console
+jpackage --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version $(cat version.md) --description "Formiko, a game about ant." --icon tools/icon.ico --runtime-image jlink/jWindows --win-shortcut --win-menu --win-console --license-file LICENSE.md --vendor Hydrolien -t msi
+cscript add-change.js
+--verbose
 Permet de créer un .exe sur Windows #98
-jpackage --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version 1.33.3 --description "Formiko, a game about ant. Linux distribution" --icon icon.ico --resource-dir in/data --runtime-image jlink/JLinux
+jpackage --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version $(cat version.md) --description "Formiko, a game about ant. Linux distribution" tools/icon.ico --runtime-image jlink/JLinux
 
 serialver fr.formiko.usuel.souspackage.nomDuFichier
 permet de recevoir une serialVersionUID spécifique a la class et de la modifier si elle est identique a une autre class.

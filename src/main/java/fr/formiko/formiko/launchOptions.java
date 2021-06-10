@@ -23,6 +23,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.Reader;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
@@ -273,6 +274,12 @@ public class launchOptions {
   //   fichier.zip("tools/", "tools.zip");
   //   fichier.unzip("tools.zip", "tools2");
   // }
+  /**
+  *{@summary Translate the web site files.}<br>
+  *@param pathToWebSiteFile path to acces to web site files.
+  *@param pathToWebSiteTranslation path to acces to translation files.
+  *@version 1.49
+  */
   private static void translateWebSite(String pathToWebSiteFile, String pathToWebSiteTranslation){
     Main.setView(new ViewNull());
     Main.setOs(new Os());
@@ -292,6 +299,12 @@ public class launchOptions {
     trad.translateWebSiteFiles(pathToWebSiteFile);
     // Main.endCh("translateWebSite",ch);
   }
+  /**
+  *{@summary Set value of data to last version in version.json.}<br>
+  *It is need to help the game to choose the data version that it need.
+  *Data version aren't allaws the same that game version because data don't change all time that game is update.
+  *@version 1.51
+  */
   public static void updateDataVersion(){
     try {
       // Main.initialisation();
@@ -302,7 +315,7 @@ public class launchOptions {
       Main.setFolder(f);
       Main.iniOp();
       // Folder f = Main.getFolder();
-      Reader reader = Files.newBufferedReader(Paths.get("version.json"));
+      Reader reader = Files.newBufferedReader(Folder.getVersionJsonPath());
       JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
       String dataVersion = getCurentversion();
       String musicVersion = (String) parser.get("music");
@@ -314,7 +327,7 @@ public class launchOptions {
       jsr.put("music",musicVersion);
       // File file = new File(f.getFolderMain()+"version.json");
       // file.delete();
-      BufferedWriter writer = Files.newBufferedWriter(Paths.get("version.json"));
+      BufferedWriter writer = Files.newBufferedWriter(Folder.getVersionJsonPath());
       Jsoner.serialize(jsr, writer);
       // System.out.println(jsr);
       // writer.write(jsr.toString());
@@ -323,8 +336,16 @@ public class launchOptions {
       erreur.alerte("can't update data version "+e);
     }
   }
+  /**
+  *{@summary return the curent version.}<br>
+  *Curent version is in version.md.
+  *@version 1.51
+  */
   public static String getCurentversion(){
     GString gsIn = lireUnFichier.lireUnFichierGs("version.md");
+    if(gsIn.length()==0){
+      gsIn = lireUnFichier.lireUnFichierGs("app/version.md");
+    }
     String version = "x.x.x";
     if(gsIn.length()>0){version = gsIn.getItem(0);}
     return version;

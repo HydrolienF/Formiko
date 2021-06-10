@@ -196,10 +196,11 @@ public class Main {
   //other
   public static boolean estWindows(){return os.getId()==1;}
   public static String get(String clé){ return g.get(clé);}
-  public static Script getScript(){return ths.getScript();}
+  public static Script getScript(){if(ths!=null) {return ths.getScript();}else{return null;}}
+  public static ThScript getThScript(){return ths;}
   public static void setScript(ThScript t){ths=t;}
   public static void launchScript(){ths.start();}
-  public static void stopScript(){if(ths!=null) {ths.stop();}}
+  public static void stopScript(){if(ths!=null) {ths.interrupt();}}
   //musique
   /*public static ThMusique getThm(){return thm;}
   public static Musique getMusique(){return getThm().getM();}
