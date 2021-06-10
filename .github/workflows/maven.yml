@@ -120,9 +120,11 @@ jobs:
       id: version
     - name: jlink
       run: |
+        mvn -ntp compile
         echo "download jlink/"
-        ./run.sh download "https://github.com/HydrolienF/JRE/releases/download/1.0.1/jlink.zip" jlink.zip
-        ./run.sh unzip jlink.zip jlink/
+        mvn -ntp exec:java download "https://github.com/HydrolienF/JRE/releases/download/1.0.1/jlink.zip" jlink.zip
+        mvn -ntp exec:java unzip jlink.zip jlink/
+        dir jlink/
     - name: build
       run: |
         ./toMsi.ps1
