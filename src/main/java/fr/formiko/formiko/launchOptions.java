@@ -151,17 +151,22 @@ public class launchOptions {
       folder.cleanFolder();
     }else if(args[0].equals("zip")){
       fichier.zip(args[1],args[2]);
+      System.exit(0);
     }else if(args[0].equals("unzip")){
       fichier.unzip(args[1],args[2]);
+      System.exit(0);
     }else if(args[0].equals("download")){
       fichier.download(args[1],args[2]);
+      System.exit(0);
     }else if(args[0].equals("createBadges")){
       createBadges.createBadges();
+      System.exit(0);
     }else if(args[0].equals("translateWebSite") || args[0].equals("tws")){
       translateWebSite(args[1],args[2]);
-      // System.exit(0);
+      System.exit(0);
     }else if(args[0].equals("updateDataVersion")){
       updateDataVersion();
+      System.exit(0);
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }
