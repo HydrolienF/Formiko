@@ -12,6 +12,8 @@ jobs:
   releaseJob:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.create_release.outputs.upload_url }}
     steps:
     - name: checkout
       uses: actions/checkout@v2
@@ -128,7 +130,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
       with:
-        upload_url: ${{ needs.releaseJob.create_release.outputs.upload_url }}
+        upload_url: ${{needs.releaseJob.outputs.output1}}
         asset_path: ./out/Formiko${{ steps.version.outputs.version }}.msi
         asset_name: Formiko${{ steps.version.outputs.version }}.msi
         asset_content_type: application/msi
