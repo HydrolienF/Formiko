@@ -27,7 +27,6 @@ public class Fenetre extends JFrame {
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Fenetre(String titre, int xMax, int yMax){
-    erreur.info("new fenetre");//@a
     if(Main.getPleinEcran()){
       //@OS
       if(Main.getOs().getId()==1){

@@ -102,7 +102,6 @@ public class Folder{
   *@version 1.46
   */
   public int ini(boolean allowedDownolad){
-    erreur.info("Launch of Formiko.jar with data version:"+getWantedDataVersion());//@a
     missingFolder=0;
     File f = new File(getFolderMain());
     try{
