@@ -124,7 +124,9 @@ jobs:
         ./run.sh download "https://github.com/HydrolienF/JRE/releases/download/1.0.1/jlink.zip" jlink.zip
         ./run.sh unzip jlink.zip jlink/
     - name: build
-      run: ./toMsi.ps1
+      run: |
+        ./toMsi.ps1
+        mv ./out/Formiko-${{ steps.version.outputs.version }}.msi ./out/Formiko${{ steps.version.outputs.version }}.msi
     - name: upload .msi artifact
       uses: actions/upload-release-asset@v1
       env:
