@@ -80,7 +80,7 @@ public class PanneauMenu extends Panneau {
     b[0].setNom(g.get("menu"+c+".1"));
     b[1].setNom(g.get("menu"+c+".2"));
     b[2].setNom(g.get("menu"+c+".3"));
-    if(c=='P'){b[2].setNom(g.get("menu"+c+".3")+s);}
+    if(c=='P'){b[2].setNom(g.get("menu"+c+".3")+s);b[2].setEnabled(false);}
   }
   /**
   *{@summary Create the Panel with buttons.}<br>
