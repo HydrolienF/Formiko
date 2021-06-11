@@ -64,6 +64,17 @@ public class List<T> implements Iterable<T>, Serializable {
   }
   public void add(List<T> list){addList(list);}
   /**
+  *{@summary Return true is list is empty.}<br>
+  *It's a better function than doing list.length()==0.
+  *@version 1.52
+  */
+  public boolean isEmpty(){
+    for (T t : this ) {
+      return false;
+    }
+    return true;
+  }
+  /**
   *{@summary Return the number of element.}<br>
   *@version 1.31
   */

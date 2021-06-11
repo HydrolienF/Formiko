@@ -22,7 +22,7 @@ import static javax.sound.sampled.AudioSystem.getAudioInputStream;
 *@author Hydrolien, Oliver Doepner
 *@version 1.46
 */
-public class AudioPlayer {
+public class AudioPlayer implements AudioInterface {
   private File file;
   private boolean loop;
   private int maxTime;
@@ -107,6 +107,7 @@ public class AudioPlayer {
   */
   public void stop(){
     maxTime=0;
+    //TODO stop audio
     chrono.stop();
   }
   //private --------------------------------------------------------------------
