@@ -4,6 +4,7 @@ import fr.formiko.usuel.*;
 import fr.formiko.usuel.images.*;
 import fr.formiko.usuel.listes.*;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.media.audio.MusicPlayer;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.View;
 import fr.formiko.views.ViewCLI;
@@ -136,6 +137,8 @@ public class Main {
    */
   public static boolean launch(){
     iniLaunch();
+    MusicPlayer mp = new MusicPlayer();
+    mp.play();
     if (modeCLI) {
       if (view!=null && !(view instanceof ViewCLI)) {
         view = new ViewCLI();

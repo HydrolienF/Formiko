@@ -5,6 +5,7 @@ import fr.formiko.usuel.erreur;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.Thread;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -27,6 +28,7 @@ public class AudioPlayer implements AudioInterface {
   private boolean loop;
   private int maxTime;
   private Chrono chrono;
+  private AudioThread at;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary main constructor}<br>
@@ -68,7 +70,14 @@ public class AudioPlayer implements AudioInterface {
     this(fileName,false);
   }
   // GET SET -------------------------------------------------------------------
-
+  public File getFile(){return file;}
+  public void setFile(File f){file=f;}
+  public boolean getLoop(){return loop;}
+  public void setLoop(boolean f){loop=f;}
+  public int getMaxTime(){return maxTime;}
+  public void setMaxTime(int f){maxTime=f;}
+  public Chrono getChrono(){return chrono;}
+  public void setChrono(Chrono f){chrono=f;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary play audio &#38; launch time}<br>
@@ -108,15 +117,31 @@ public class AudioPlayer implements AudioInterface {
   public void stop(){
     maxTime=0;
     //TODO stop audio
+    at.interrupt();
     chrono.stop();
   }
   //private --------------------------------------------------------------------
+  private void doSounds(){
+    at = new AudioThread(this);
+    at.start();
+  }
+
+}
+class AudioThread extends Thread{
+  private AudioPlayer ap;
+  public AudioThread(AudioPlayer ap){
+    this.ap=ap;
+  }
+  @Override
+  public void run(){
+    doSounds();
+  }
   /**
   *{@summary open file &#38; do sounds.}<br>
   *@version 1.46
   */
   private void doSounds(){
-    try (final AudioInputStream in = getAudioInputStream(file)) {
+    try (final AudioInputStream in = getAudioInputStream(ap.getFile())) {
       final AudioFormat outFormat = getOutFormat(in.getFormat());
       final Info info = new Info(SourceDataLine.class, outFormat);
       try (final SourceDataLine line = (SourceDataLine) AudioSystem.getLine(info)) {
@@ -147,9 +172,9 @@ public class AudioPlayer implements AudioInterface {
   */
   private void stream(AudioInputStream in, SourceDataLine line) throws IOException {
     final byte[] buffer = new byte[4096];
-    for (int n = 0; n != -1 && chrono.getDuree() < maxTime; n = in.read(buffer, 0, buffer.length)) {
+    for (int n = 0; n != -1 && ap.getChrono().getDuree() < ap.getMaxTime(); n = in.read(buffer, 0, buffer.length)) {
       line.write(buffer, 0, n);
-      chrono.updateDuree();
+      ap.getChrono().updateDuree();
     }
   }
 }
