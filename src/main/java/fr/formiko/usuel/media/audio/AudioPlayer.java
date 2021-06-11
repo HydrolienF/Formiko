@@ -155,18 +155,17 @@ public class AudioPlayer implements AudioInterface {
 
 class AudioThread extends Thread{
   private AudioPlayer ap;
-  // private boolean normallyEnded;
+  private boolean normallyEnded;
   public AudioThread(AudioPlayer ap){
     this.ap=ap;
   }
   @Override
   public void run(){
-    // normallyEnded=false;
+    normallyEnded=true;
     doSounds();
-    System.out.println("next");//@a
-    // if(ap.getIsMusique() && normallyEnded){
-    //   Main.getMp().next();
-    // }
+    if(ap.getIsMusique() && normallyEnded){
+      Main.getMp().next();
+    }
   }
   /**
   *{@summary open file &#38; do sounds.}<br>
@@ -204,12 +203,18 @@ class AudioThread extends Thread{
   */
   private void stream(AudioInputStream in, SourceDataLine line) throws IOException {
     final byte[] buffer = new byte[4096];
-    // normallyEnded=false;
     for (int n = 0; n != -1 && ap.getChrono().getDuree() < ap.getMaxTime(); n = in.read(buffer, 0, buffer.length)) {
       line.write(buffer, 0, n);
       ap.getChrono().updateDuree();
-      if(isInterrupted()){return;}
     }
-    // normallyEnded=true;
+  }
+  /**
+  *{@summary interrupt game &#38; don't launch next music.}<br>
+  *@version 1.52
+  */
+  @Override
+  public void interrupt(){
+    normallyEnded=false;
+    super.interrupt();
   }
 }
