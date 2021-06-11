@@ -218,6 +218,7 @@ public class Partie implements Serializable{
     //lancement du jeux
     setContinuerLeJeu(true);
     if(Main.getGj().length()==1){setPartieFinie(true);}
+    Main.getMp().next();
     else{setPartieFinie(false);}
     for(tour=1; tour<=nbrDeTour; tour++){
       new Message("\n"+g.get("tour")+ tour +" :");

@@ -125,17 +125,37 @@ public class AudioPlayer implements AudioInterface {
     at = new AudioThread(this);
     at.start();
   }
-
 }
+
+
 class AudioThread extends Thread{
   private AudioPlayer ap;
+  // private boolean needToStop;
   public AudioThread(AudioPlayer ap){
     this.ap=ap;
+    // needToStop=false;
   }
   @Override
   public void run(){
     doSounds();
   }
+  // /**
+  // *{@summary To stop thread.}<br>
+  // *@version 1.51
+  // */
+  // @Override
+  // public void interrupt(){
+  //   needToStop=true;
+  //   System.out.println("stop");
+  // }
+  // /**
+  // *{@summary Used by the script to know if it should stop himself.}<br>
+  // *@version 1.51
+  // */
+  // @Override
+  // public boolean isInterrupted(){
+  //   return needToStop;
+  // }
   /**
   *{@summary open file &#38; do sounds.}<br>
   *@version 1.46
@@ -175,6 +195,7 @@ class AudioThread extends Thread{
     for (int n = 0; n != -1 && ap.getChrono().getDuree() < ap.getMaxTime(); n = in.read(buffer, 0, buffer.length)) {
       line.write(buffer, 0, n);
       ap.getChrono().updateDuree();
+      if(isInterrupted()){return;}
     }
   }
 }

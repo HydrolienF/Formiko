@@ -60,7 +60,7 @@ public class MusicPlayer implements AudioInterface {
     }
   }
   /**
-  *{@summary stop curent music.}<br>
+  *{@summary Stop curent music.}<br>
   *We need play() to start music again.<br>
   *@version 1.52
   */
@@ -71,6 +71,23 @@ public class MusicPlayer implements AudioInterface {
       musicPaused=true;
     }
   }
+  /**
+  *{@summary Add next music to list of music to play.}<br>
+  *@version 1.52
+  */
+  public void addNextMusic(String music, boolean first){
+    //TODO use last (& comment)
+    nextMusics.add(music);
+  }
+  public void next(){
+    if(audioPlayer!=null){
+      audioPlayer.stop();
+    }
+    String music = getNextMusique();
+    audioPlayer = new AudioPlayer(music);
+    audioPlayer.play();
+    musicPaused=false;
+  }
   //private --------------------------------------------------------------------
   /**
   *{@summary return a music.}<br>
@@ -80,11 +97,13 @@ public class MusicPlayer implements AudioInterface {
   */
   private String getNextMusique(){
     if(nextMusics.isEmpty()){
-      return getRandomMusic();
+      return getPath()+getRandomMusic();
     }else{
       String music = nextMusics.getItem(0);
       nextMusics.removeItem(0);
-      return music;
+      System.out.println("nextMusics");//@a
+      System.out.println(nextMusics);//@a
+      return getPath()+music;
     }
   }
   /**
@@ -100,7 +119,7 @@ public class MusicPlayer implements AudioInterface {
     int i = allea.getAllea(len);
     String music = availableMusics.getItem(i);
     erreur.info("music "+i+" :"+music);//@a
-    return getPath()+music;
+    return music;
   }
   /**
   *{@summary Initialize availables musics list.}<br>

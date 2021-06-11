@@ -178,16 +178,18 @@ public class List<T> implements Iterable<T>, Serializable {
   */
   public boolean removeItem(int i){
     if(getHead()==null || i<0){return false;}
+    if(i==0){head=getHead().getNext(); return true;}
     return getHead().removeItem(i);
   }
   /**
   *{@summary Delete the 1a t element}<br>
   *@param t the element to remove.
   *@return true if it have been remove
-  *@version 1.41
+  *@version 1.52
   */
   public boolean remove(T t){
     if(getHead()==null || t==null){return false;}
+    if(getHead().getContent().equals(t)){head=getHead().getNext(); return true;}
     return getHead().remove(t);
   }
   /**

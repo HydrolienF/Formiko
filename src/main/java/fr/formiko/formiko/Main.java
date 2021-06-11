@@ -64,6 +64,7 @@ public class Main {
   private static boolean modeCLI=false;
 
   private static int cptMessageChargement=0;
+  private static MusicPlayer mp;
 
   /**
    * {@summary Lauch the game.}<br>
@@ -137,7 +138,10 @@ public class Main {
    */
   public static boolean launch(){
     iniLaunch();
-    MusicPlayer mp = new MusicPlayer();
+    if(mp==null){
+      mp = new MusicPlayer();
+    }
+    mp.addNextMusic("Beyond The Warriors - Guifrog.mp3", true);
     mp.play();
     if (modeCLI) {
       if (view!=null && !(view instanceof ViewCLI)) {
@@ -190,6 +194,7 @@ public class Main {
   public static void setView(View v){view=v;}
   public static void setModeCLI(boolean b){modeCLI=b;}
   public static long getLonTotal(){return lonTotal;}
+  public static MusicPlayer getMp(){return mp;}
   //shortcut
   public static Fourmi getPlayingAnt(){ try {return getPartie().getPlayingAnt();}catch (Exception e) {return null;}}
   public static void setPlayingAnt(Fourmi f){ getPartie().setPlayingAnt(f);}
