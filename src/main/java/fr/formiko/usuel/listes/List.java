@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 /**
 *{@summary Custom Linked List class using Generics.}<br>
-*@version 1.41
+*@version 1.52
 *@author Hydrolien
 */
 public class List<T> implements Iterable<T>, Serializable {
@@ -156,15 +156,29 @@ public class List<T> implements Iterable<T>, Serializable {
   *{@summary copy only different item.}<br>
   *@version 1.41
   */
-  public void removeDuplicateItem(){
+  public boolean removeDuplicateItem(){
     List<T> newList = new List<T>();
+    boolean flag=false;
     for (T t : this ) {
       if (!newList.containt(t)){
         newList.add(t);
+      }else{
+        flag=true;
       }
     }
     head = newList.getHead();
     tail = newList.getTail();
+    return flag;
+  }
+  /**
+  *{@summary Delete the xa element}<br>
+  *@param i the number of the element to remove.
+  *@return true if it have been remove
+  *@version 1.52
+  */
+  public boolean removeItem(int i){
+    if(getHead()==null || i<0){return false;}
+    return getHead().removeItem(i);
   }
   /**
   *{@summary Delete the 1a t element}<br>
@@ -253,6 +267,20 @@ class Node<T> {
       }catch (Exception e) {}
     }
     return false;
+  }
+  /**
+  *{@summary Delete the xa element}<br>
+  *@param i the number of the element to remove.
+  *@return true if it have been remove
+  *@version 1.52
+  */
+  public boolean removeItem(int i){
+    if(getNext() == null){return false;}
+    if(i==0){
+      next = getNext().getNext();//go over the element.
+      return true;
+    }
+    return getNext().removeItem(i-1);
   }
   /**
   *{@summary Delete the 1a t element}<br>

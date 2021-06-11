@@ -56,6 +56,34 @@ public class ListTest extends TestCaseMuet{
     assertEquals("Pirpo & kartoĉio La libro , formiko la ludo ",l2.toString());
   }
   @Test
+  public void testEquals(){
+    List<String> l = new List<String>();
+    List<String> l2 = new List<String>();
+    assertTrue(l.equals(l2));
+    assertTrue(l2.equals(l));
+    assertTrue(!l.equals(null));
+    l.add("an item");
+    assertTrue(!l.equals(l2));
+    assertTrue(!l2.equals(l));
+    l2.add("an item");
+    assertTrue(l.equals(l2));
+    assertTrue(l2.equals(l));
+    l2.add("2a item");
+    assertTrue(!l.equals(l2));
+    assertTrue(!l2.equals(l));
+  }
+  @Test
+  public void testEquals2(){
+    List<String> l = new List<String>();
+    List<String> l2 = new List<String>();
+    l.add("1a");
+    l.add("2a");
+    l2.add("2a");
+    l2.add("1a");
+    assertTrue(!l.equals(l2));
+    assertTrue(!l2.equals(l));
+  }
+  @Test
   public void testContaint(){
     List<String> l = new List<String>();
     assertTrue(!l.containt(null));
@@ -82,5 +110,75 @@ public class ListTest extends TestCaseMuet{
     assertTrue(l.containt(p));
     //TODO #197 it do not use the overriding equals methode.
     //assertTrue(l.containt(new Point(-1,1)));
+  }
+  @Test
+  public void testAdd(){
+    List<String> list = new List<String>();
+    list.add("test string");
+    assertTrue(!list.isEmpty());
+    assertEquals(1,list.length());
+    assertEquals("test string",list.getItem(0));
+  }
+  public void testRemove(){
+    List<String> list = new List<String>();
+    String s = "test string";
+    list.add(s);
+    assertEquals(1,list.length());
+    list.remove(s);
+  }
+  public void testRemove2(){
+    List<String> list = new List<String>();
+    list.add("test string");
+    assertEquals(1,list.length());
+    list.remove("test string");
+  }
+  public void testRemoveItem(){
+    List<String> list = new List<String>();
+    list.add("test string");
+    assertEquals(1,list.length());
+    assertTrue(list.removeItem(0));
+    assertEquals(0,list.length());
+    assertTrue(!list.removeItem(0));
+    assertTrue(!list.removeItem(3));
+  }
+  public void testRemoveItem2(){
+    List<String> list = new List<String>();
+    list.add("0");
+    list.add("1");
+    list.add("2");
+    list.add("3");
+    assertEquals(4,list.length());
+    assertTrue(list.removeItem(1));
+    List<String> list2 = new List<String>();
+    list.add("0");
+    list.add("2");
+    list.add("3");
+    assertEquals(list2, list);
+    assertTrue(list.removeItem(1));
+    list2 = new List<String>();
+    list.add("0");
+    list.add("3");
+    assertEquals(list2, list);
+    assertTrue(list.removeItem(0));
+    list2 = new List<String>();
+    list.add("3");
+    assertEquals(list2, list);
+  }
+  public void testRemoveDuplicateItem(){
+    List<String> list = new List<String>();
+    list.add("0");
+    list.add("1");
+    list.add("2");
+    list.add("0");
+    list.add("0");
+    list.add("4");
+    assertTrue(list.removeDuplicateItem());
+    List<String> list2 = new List<String>();
+    list2.add("0");
+    list2.add("1");
+    list2.add("2");
+    list2.add("3");
+    list2.add("4");
+    assertEquals(list2, list);
   }
 }
