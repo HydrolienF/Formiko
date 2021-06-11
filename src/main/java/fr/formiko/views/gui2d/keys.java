@@ -115,8 +115,6 @@ public class keys {
       public void actionPerformed(ActionEvent actionEvent) {
         if(Main.getPlayingAnt()==null){return;}
         char c = actionEvent.getActionCommand().charAt(0);
-        System.out.println(actionEvent);//@a
-        System.out.println(c);//@a
         for (int i=20;i<31 ;i++ ) {
           try {
             debug.débogage("comparaisons de la clé avec "+Main.getKey(i+""));

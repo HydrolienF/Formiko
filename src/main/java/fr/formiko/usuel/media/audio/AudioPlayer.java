@@ -1,5 +1,6 @@
 package fr.formiko.usuel.media.audio;
 
+import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Chrono;
 import fr.formiko.usuel.erreur;
 
@@ -29,19 +30,32 @@ public class AudioPlayer implements AudioInterface {
   private int maxTime;
   private Chrono chrono;
   private AudioThread at;
+  private boolean isMusique;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary main constructor}<br>
   *@param fileName name of the file.
   *@param loop if true, we will loop when audio end.
   *@param maxTime time to stop.
-  *@version 1.46
+  *@param isMusique true if this audio player is for a music (That's meen that MusicPlayer need to play next after this).
+  *@version 1.52
   */
-  public AudioPlayer(String fileName, boolean loop, int maxTime){
+  public AudioPlayer(String fileName, boolean loop, int maxTime, boolean isMusique){
     file = new File(fileName);
     this.loop=loop;
     this.maxTime=maxTime;
     chrono=new Chrono();
+    this.isMusique=isMusique;
+  }
+  /**
+  *{@summary secondary constructor}<br>
+  *@param fileName name of the file.
+  *@param loop if true, we will loop when audio end.
+  *@param maxTime time to stop.
+  *@version 1.46
+  */
+  public AudioPlayer(String fileName, boolean loop, int maxTime){
+    this(fileName, loop, maxTime, false);
   }
   /**
   *{@summary secondary constructor}<br>
@@ -50,7 +64,16 @@ public class AudioPlayer implements AudioInterface {
   *@version 1.46
   */
   public AudioPlayer(String fileName, boolean loop){
-    this(fileName,loop,Integer.MAX_VALUE);
+    this(fileName,loop,Integer.MAX_VALUE, false);
+  }
+  /**
+  *{@summary secondary constructor}<br>
+  *@param fileName name of the file.
+  *@param isMusique true if this audio player is for a music (That's meen that MusicPlayer need to play next after this).
+  *@version 1.52
+  */
+  public AudioPlayer(boolean isMusique, String fileName){
+    this(fileName,false,Integer.MAX_VALUE,isMusique);
   }
   /**
   *{@summary secondary constructor}<br>
@@ -78,6 +101,8 @@ public class AudioPlayer implements AudioInterface {
   public void setMaxTime(int f){maxTime=f;}
   public Chrono getChrono(){return chrono;}
   public void setChrono(Chrono f){chrono=f;}
+  public boolean getIsMusique(){return isMusique;}
+  public void setIsMusique(boolean f){isMusique=f;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary play audio &#38; launch time}<br>
@@ -130,15 +155,18 @@ public class AudioPlayer implements AudioInterface {
 
 class AudioThread extends Thread{
   private AudioPlayer ap;
-  private boolean ended;
+  // private boolean normallyEnded;
   public AudioThread(AudioPlayer ap){
     this.ap=ap;
   }
   @Override
   public void run(){
-    ended=false;
+    // normallyEnded=false;
     doSounds();
-    ended=true;
+    System.out.println("next");//@a
+    // if(ap.getIsMusique() && normallyEnded){
+    //   Main.getMp().next();
+    // }
   }
   /**
   *{@summary open file &#38; do sounds.}<br>
@@ -176,10 +204,12 @@ class AudioThread extends Thread{
   */
   private void stream(AudioInputStream in, SourceDataLine line) throws IOException {
     final byte[] buffer = new byte[4096];
+    // normallyEnded=false;
     for (int n = 0; n != -1 && ap.getChrono().getDuree() < ap.getMaxTime(); n = in.read(buffer, 0, buffer.length)) {
       line.write(buffer, 0, n);
       ap.getChrono().updateDuree();
       if(isInterrupted()){return;}
     }
+    // normallyEnded=true;
   }
 }

@@ -48,7 +48,7 @@ public class Main {
   private static Pixel pi;
   private static HashMap<String, Integer> key; //keyboard key.
   private static int avancementChargement;
-  private static boolean affGraine=true;//tant que les espece granivore ne sont pas pleinement opérationelle.
+  private static boolean affGraine=false;//tant que les espece granivore ne sont pas pleinement opérationelle.
   private static Temps tem;
   //private static ThGraphisme tg;//actualise la fenetre tt avec 20 seconde de pause entre chaque actualisation.
   private static boolean retournerAuMenu;

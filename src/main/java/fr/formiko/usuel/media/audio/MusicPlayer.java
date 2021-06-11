@@ -19,6 +19,7 @@ public class MusicPlayer implements AudioInterface {
   private boolean musicPaused;
   private GString nextMusics;
   private GString availableMusics;
+  private String curentMusique;
   // CONSTRUCTORS --------------------------------------------------------------
   public MusicPlayer(){
     nextMusics = new GString();
@@ -33,13 +34,14 @@ public class MusicPlayer implements AudioInterface {
   *@version 1.52
   */
   public void play(){
+    erreur.info("Play",4);//@a
     if(audioPlayer!=null){audioPlayer.stop();}
-    String music = getNextMusique();
-    if(music==null || music.equals("")){
+    curentMusique = getNextMusique();
+    if(curentMusique==null || curentMusique.equals("")){
       erreur.alerte("Can't play music because music is null or empty");
       return;
     }
-    audioPlayer = new AudioPlayer(music, true);
+    audioPlayer = new AudioPlayer(true, curentMusique);
     audioPlayer.play();
     musicPaused=false;
   }
@@ -106,18 +108,19 @@ public class MusicPlayer implements AudioInterface {
   */
   private String getNextMusique(){
     if(nextMusics.isEmpty()){
-      return getPath()+getRandomMusic();
+      curentMusique = getRandomMusic();
     }else{
-      String music = nextMusics.getItem(0);
+      curentMusique = nextMusics.getItem(0);
       nextMusics.removeItem(0);
       System.out.println("nextMusics");//@a
       System.out.println(nextMusics);//@a
-      return getPath()+music;
     }
+    return getPath()+curentMusique;
   }
   /**
   *{@summary return a random music.}<br>
   *If the list of availableMusics is null, it create it.<br>
+  *It should avoid to play same music than curent one by gettin a new random 1 (10 try).
   *@version 1.52
   */
   private String getRandomMusic(){
@@ -125,8 +128,14 @@ public class MusicPlayer implements AudioInterface {
     if(availableMusics==null){return null;}
     int len = availableMusics.length();
     if(len<1){return "";}
-    int i = allea.getAllea(len);
-    String music = availableMusics.getItem(i);
+    String music = null;
+    int k=0;
+    int i=0;
+    do {
+      i = allea.getAllea(len);
+      music = availableMusics.getItem(allea.getAllea(len));
+      k++;
+    } while (curentMusique.equals(music) && len>1 && k<10);
     erreur.info("music "+i+" :"+music);//@a
     return music;
   }
