@@ -44,6 +44,26 @@ public class ListTest extends TestCaseMuet{
     assertEquals("string pantalon formiko 2 ",l.toString());
   }
   @Test
+  public void testAddHead(){
+    List<String> l = new List<String>();
+    l.addHead("string");
+    l.addHead("pantalon");
+    l.addHead("formiko 2");
+    assertEquals(3,l.length());
+    assertEquals("formiko 2 pantalon string ",l.toString());
+  }
+  @Test
+  public void testAddTailAndHead(){
+    List<String> l = new List<String>();
+    l.addTail("0");
+    l.addHead("1");
+    l.addHead("2");
+    l.addTail("3");
+    l.addHead("4");
+    assertEquals(5,l.length());
+    assertEquals("4 2 1 0 3 ",l.toString());
+  }
+  @Test
   public void testAddList(){
     List<String> l = new List<String>();
     l.addTail(", formiko");

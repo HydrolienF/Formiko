@@ -8,6 +8,12 @@ import fr.formiko.usuel.maths.allea;
 import java.io.File;
 import java.io.IOException;
 
+/**
+*{@summary to listen music.}<br>
+*It use audioPlayer &#38; make sur than only 1 is running at the same time.
+*@author Hydrolien
+*@version 1.52
+*/
 public class MusicPlayer implements AudioInterface {
   private AudioPlayer audioPlayer;
   private boolean musicPaused;
@@ -23,7 +29,7 @@ public class MusicPlayer implements AudioInterface {
   }
   // FUNCTIONS -----------------------------------------------------------------
   /**
-  *{@summary play next music.}<br>
+  *{@summary Play next music.}<br>
   *@version 1.52
   */
   public void play(){
@@ -33,12 +39,12 @@ public class MusicPlayer implements AudioInterface {
       erreur.alerte("Can't play music because music is null or empty");
       return;
     }
-    audioPlayer = new AudioPlayer(music);
+    audioPlayer = new AudioPlayer(music, true);
     audioPlayer.play();
     musicPaused=false;
   }
   /**
-  *{@summary pause curent music.}<br>
+  *{@summary Pause curent music.}<br>
   *@see MusicPlayer#resume()
   *@version 1.52
   */
@@ -49,7 +55,7 @@ public class MusicPlayer implements AudioInterface {
     }
   }
   /**
-  *{@summary resume curent music.}<br>
+  *{@summary Resume curent music.}<br>
   *@see MusicPlayer#pause()
   *@version 1.52
   */
@@ -73,20 +79,23 @@ public class MusicPlayer implements AudioInterface {
   }
   /**
   *{@summary Add next music to list of music to play.}<br>
+  *@param music name of the music.
+  *@param first If true add music at the head of the list. Else add at the end.
   *@version 1.52
   */
   public void addNextMusic(String music, boolean first){
-    //TODO use last (& comment)
-    nextMusics.add(music);
-  }
-  public void next(){
-    if(audioPlayer!=null){
-      audioPlayer.stop();
+    if(first){
+      nextMusics.addHead(music);
+    }else{
+      nextMusics.addTail(music);
     }
-    String music = getNextMusique();
-    audioPlayer = new AudioPlayer(music);
-    audioPlayer.play();
-    musicPaused=false;
+  }
+  /**
+  *{@summary Play next music.}<br>
+  *@version 1.52
+  */
+  public void next(){
+    play();
   }
   //private --------------------------------------------------------------------
   /**

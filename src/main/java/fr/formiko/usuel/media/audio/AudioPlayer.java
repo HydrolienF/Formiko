@@ -130,32 +130,16 @@ public class AudioPlayer implements AudioInterface {
 
 class AudioThread extends Thread{
   private AudioPlayer ap;
-  // private boolean needToStop;
+  private boolean ended;
   public AudioThread(AudioPlayer ap){
     this.ap=ap;
-    // needToStop=false;
   }
   @Override
   public void run(){
+    ended=false;
     doSounds();
+    ended=true;
   }
-  // /**
-  // *{@summary To stop thread.}<br>
-  // *@version 1.51
-  // */
-  // @Override
-  // public void interrupt(){
-  //   needToStop=true;
-  //   System.out.println("stop");
-  // }
-  // /**
-  // *{@summary Used by the script to know if it should stop himself.}<br>
-  // *@version 1.51
-  // */
-  // @Override
-  // public boolean isInterrupted(){
-  //   return needToStop;
-  // }
   /**
   *{@summary open file &#38; do sounds.}<br>
   *@version 1.46

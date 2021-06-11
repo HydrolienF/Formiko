@@ -18,6 +18,7 @@ public class List<T> implements Iterable<T>, Serializable {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary add new Element at tail of the linked list}<br>
+  *content content of the element to add.
   *@version 1.31
   */
   public void addTail(T content){
@@ -29,6 +30,22 @@ public class List<T> implements Iterable<T>, Serializable {
     else {
       tail.setNext(node);
       tail = node;
+    }
+  }
+  /**
+  *{@summary add new Element at head of the linked list}<br>
+  *content content of the element to add.
+  *@version 1.52
+  */
+  public void addHead(T content){
+    if(content==null){return;}
+    //if(containt(content)){return;}
+    Node<T> node = new Node<>(content, null);
+    if (head == null)
+      tail = head = node;
+    else {
+      node.setNext(head);
+      head = node;
     }
   }
   /**
