@@ -34,7 +34,7 @@ public class MusicPlayer implements AudioInterface {
   *@version 1.52
   */
   public void play(){
-    erreur.info("Play",4);//@a
+    // erreur.info("Play",4);
     if(audioPlayer!=null){audioPlayer.stop();}
     curentMusique = getNextMusique();
     if(curentMusique==null || curentMusique.equals("")){

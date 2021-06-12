@@ -142,6 +142,7 @@ public class Main {
       mp = new MusicPlayer();
       if(premierePartie){
         getFolder().downloadMusicData();
+        mp.addNextMusic("Ride of the Valkyries - Wagner.mp3", true);
       }
     }
     if(!premierePartie){
