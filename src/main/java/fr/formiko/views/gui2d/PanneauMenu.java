@@ -82,7 +82,7 @@ public class PanneauMenu extends Panneau {
     b[2].setNom(g.get("menu"+c+".3"));
     //TODO remove when Options panel will be aviable
     if(c=='P'){b[2].setNom(g.get("menu"+c+".3")+s);b[2].setEnabled(false);}
-    else{b[2].setEnabled(false);}
+    else{b[2].setEnabled(true);}
   }
   /**
   *{@summary Create the Panel with buttons.}<br>

@@ -219,6 +219,11 @@ public class Partie implements Serializable{
     setContinuerLeJeu(true);
     if(Main.getGj().length()==1){setPartieFinie(true);}
     else{setPartieFinie(false);}
+    try {
+      Main.getMp().next();
+    }catch (Exception e) {
+      erreur.alerte("Music can't be played next");
+    }
     for(tour=1; tour<=nbrDeTour; tour++){
       new Message("\n"+g.get("tour")+ tour +" :");
       //Main.repaint();

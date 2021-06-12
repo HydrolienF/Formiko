@@ -165,7 +165,7 @@ public class launchOptions {
       translateWebSite(args[1],args[2]);
       System.exit(0);
     }else if(args[0].equals("updateDataVersion")){
-      updateDataVersion();
+      updateDataVersion(args);
       System.exit(0);
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
@@ -310,7 +310,7 @@ public class launchOptions {
   *Data version aren't allaws the same that game version because data don't change all time that game is update.
   *@version 1.51
   */
-  public static void updateDataVersion(){
+  public static void updateDataVersion(String args[]){
     try {
       // Main.initialisation();
       Main.setView(new ViewNull());
@@ -322,12 +322,23 @@ public class launchOptions {
       // Folder f = Main.getFolder();
       Reader reader = Files.newBufferedReader(Folder.getVersionJsonPath());
       JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
-      String dataVersion = getCurentversion();
-      String musicVersion = (String) parser.get("music");
+      String musicVersion="";
+      String dataVersion="";
+      if(args[1].equals("1")){
+        erreur.info("Update dataVersion");
+        dataVersion = getCurentversion();
+      }else{
+        dataVersion = (String) parser.get("data");
+      }
+      if(args[2].equals("1")){
+        erreur.info("Update musicVersion");
+        musicVersion = getCurentversion();
+      }else{
+        musicVersion = (String) parser.get("music");
+      }
       reader.close();
 
       JsonObject jsr = new JsonObject();
-      System.out.println(dataVersion);//@a
       jsr.put("data",dataVersion);
       jsr.put("music",musicVersion);
       // File file = new File(f.getFolderMain()+"version.json");
