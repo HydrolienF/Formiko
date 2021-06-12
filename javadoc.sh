@@ -7,6 +7,7 @@ javadoc --allow-script-in-comments -encoding "utf-8" -docencoding "utf-8" -windo
   <li class="mainButon" id="button-github-page"><a href="https://github.com/HydrolienF/Formiko/">Github</a></li>
   <li class="mainButon" id="button-javadoc-page"><a href="https://formiko.fr/Formiko/javadoc/index.html">Javadoc</a></li>
 </ul>'
+# -classpath pathTo com.github.cliftonlabs.json_simple
 # -top '<link rel="shortcut icon" type="image/png" href="https://formiko.fr/assets/logo.png">'
 # -bottom
 # $(find src/main/java -name "*.html")
