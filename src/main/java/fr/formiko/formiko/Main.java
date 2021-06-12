@@ -140,9 +140,14 @@ public class Main {
     iniLaunch();
     if(mp==null){
       mp = new MusicPlayer();
+      if(premierePartie){
+        getFolder().downloadMusicData();
+      }
     }
-    mp.addNextMusic("Beyond The Warriors - Guifrog.mp3", true);
-    mp.play();
+    if(!premierePartie){
+      mp.addNextMusic("Beyond The Warriors - Guifrog.mp3", true);
+      mp.play();
+    }
     if (modeCLI) {
       if (view!=null && !(view instanceof ViewCLI)) {
         view = new ViewCLI();

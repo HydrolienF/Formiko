@@ -254,6 +254,7 @@ public class Folder{
   /**
   *{@summary Download main data from github release.}<br>
   *It need Main.version to be correct to work.<br>
+  *@version 1.51
   */
   public void downloadData(){
     //TODO uncomment next line when #301 (tuto issues) will be fix.
@@ -337,5 +338,40 @@ public class Folder{
     }
     erreur.alerte("Can't fined version.json path");
     return Paths.get("");
+  }
+  /**
+  *{@summary Download music data from github release.}<br>
+  *It need Main.version to be correct to work.<br>
+  *@version 1.53
+  */
+  public void downloadMusicData(){
+    Thread th = new ThDownloadMusicData(this);
+    th.start();
+  }
+}
+class ThDownloadMusicData extends Thread {
+  private Folder folder;
+  public ThDownloadMusicData(Folder f){
+    folder=f;
+  }
+  @Override
+  public void run(){
+    erreur.info("downloadMusicData");
+    Main.startCh();
+    fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+folder.getWantedDataVersion()+"/music.zip",folder.getFolderMain()+"music.zip");
+    Main.endCh("downloadMusicData");
+    erreur.info("downloadMusicData done");
+    Main.startCh();
+    fichier.unzip(folder.getFolderMain()+"music.zip",folder.getFolderStable());
+    Main.endCh("unzipMusicData");
+    System.gc();
+    if(!fichier.deleteDirectory(folder.getFolderMain()+"music.zip")){
+      erreur.alerte("unable to delete "+folder.getFolderMain()+"music.zip");
+    }
+    try {
+      Main.getMp().iniAvailableMusics();
+    }catch (Exception e) {
+      erreur.alerte("Can't refresh availableMusics");
+    }
   }
 }
