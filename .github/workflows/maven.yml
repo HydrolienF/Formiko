@@ -108,7 +108,7 @@ jobs:
         asset_content_type: application/zip
     - name: upload music artifact
       #if: ${{ github.ref == 'refs/heads/main' }}
-      if: ${{ steps.dataVersionChange.outputs.musicVersionChangeVal == '1' }}
+      if: ${{ steps.musicVersionChange.outputs.musicVersionChangeVal == '1' }}
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ github.token }}
