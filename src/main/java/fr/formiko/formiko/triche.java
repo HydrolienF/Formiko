@@ -295,6 +295,23 @@ public class triche {
             erreur.alerte("Une action de menu a échouée");
           }
           break;
+        case 42:
+          try {
+            String musicName = "";
+            int len = args.length;
+            for (int j=1;j<len ;j++ ) {
+              musicName+=args[j];
+              if(j<len-1){
+                musicName+=" ";
+              }
+            }
+            musicName = str.addALaFinSiNecessaire(musicName,".mp3");
+            Main.getMp().addNextMusic(musicName, true);
+            Main.getMp().play();
+          }catch (Exception e) {
+            erreur.alerte("Une action de menu a échouée");
+          }
+          break;
 
         default:
           erreur.erreur("La commande n'as pas été reconnue.");

@@ -49,6 +49,7 @@ cmd.38:endActionGame
 cmd.39:menu
 cmd.40:actionGame
 cmd.41:paint
+cmd.42:playMusic
 
 cmd.type.1:Creature
 cmd.type.2:Insecte
