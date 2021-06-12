@@ -39,11 +39,11 @@ public class FolderTest extends TestCaseMuet{
     assertEquals(29,folder.ini(false));
     contain("temporary stable resourcesPacks saves",f.list());
     File f2 = new File(folder.getFolderMain()+"temporary/");
-    contain("languages levels maps videos sounds bin musiques images",f2.list());
+    contain("languages levels maps videos sounds bin musics images",f2.list());
     f2 = new File(folder.getFolderMain()+"stable/");
-    contain("languages levels maps videos sounds bin musiques images",f2.list());
+    contain("languages levels maps videos sounds bin musics images",f2.list());
     f2 = new File(folder.getFolderMain()+"resourcesPacks/");
-    contain("languages levels maps videos sounds bin musiques images",f2.list());
+    contain("languages levels maps videos sounds bin musics images",f2.list());
 
     assertTrue(fichier.deleteDirectory(fToRemove));
     folder.setFolderMain();
@@ -62,11 +62,11 @@ public class FolderTest extends TestCaseMuet{
     assertEquals(27,folder.ini(false));
     contain("temporary stable resourcesPacks saves",f.list());
     f2 = new File(folder.getFolderMain()+"temporary/");
-    contain("languages levels maps videos sounds bin musiques images",f2.list());
+    contain("languages levels maps videos sounds bin musics images",f2.list());
     f2 = new File(folder.getFolderMain()+"stable/");
-    contain("languages levels maps videos sounds bin musiques images",f2.list());
+    contain("languages levels maps videos sounds bin musics images",f2.list());
     f2 = new File(folder.getFolderMain()+"resourcesPacks/");
-    contain("languages levels maps videos sounds bin musiques images",f2.list());
+    contain("languages levels maps videos sounds bin musics images",f2.list());
 
     assertTrue(fichier.deleteDirectory(fToRemove));
     folder.setFolderMain();
@@ -92,11 +92,11 @@ public class FolderTest extends TestCaseMuet{
     assertEquals(26,folder.ini(false));
     contain("otherDir temporary stable resourcesPacks saves",f.list());
     f2 = new File(folder.getFolderMain()+"temporary/");
-    contain("languages testDir2 levels maps videos sounds bin musiques images",f2.list());
+    contain("languages testDir2 levels maps videos sounds bin musics images",f2.list());
     f2 = new File(folder.getFolderMain()+"stable/");
-    contain("languages levels maps videos sounds bin musiques images",f2.list());
+    contain("languages levels maps videos sounds bin musics images",f2.list());
     f2 = new File(folder.getFolderMain()+"resourcesPacks/");
-    contain("languages levels maps videos sounds bin musiques images",f2.list());
+    contain("languages levels maps videos sounds bin musics images",f2.list());
 
     assertTrue(f3.exists());
     assertTrue(f4.exists());
@@ -110,7 +110,7 @@ public class FolderTest extends TestCaseMuet{
   @Test
   public void testIni3(){
     Folder folder = new Folder();
-    String fullFolderList = folder.getFolderLanguages()+" "+folder.getFolderLevels()+" "+folder.getFolderMaps()+" "+folder.getFolderVideos()+" "+folder.getFolderSounds()+" "+folder.getFolderBin()+" "+folder.getFolderMusiques()+" "+folder.getFolderImages();
+    String fullFolderList = folder.getFolderLanguages()+" "+folder.getFolderLevels()+" "+folder.getFolderMaps()+" "+folder.getFolderVideos()+" "+folder.getFolderSounds()+" "+folder.getFolderBin()+" "+folder.getFoldermusics()+" "+folder.getFolderImages();
     File f = new File("testMain/");
     fichier.deleteDirectory(f);
     folder.setFolderMain("testMain/");
@@ -216,11 +216,11 @@ public class FolderTest extends TestCaseMuet{
     t = file.list();
     contain("Keys.txt Options.md resourcesPacks saves stable temporary README.md",t);
     File stable = new File(folder.getFolderStable());
-    contain("languages levels maps videos sounds bin musiques images",stable.list());
+    contain("languages levels maps videos sounds bin musics images",stable.list());
     fichier.deleteDirectory(folder.getFolderStable()+folder.getFolderImages());
-    contain("languages levels maps videos sounds bin musiques",stable.list());
+    contain("languages levels maps videos sounds bin musics",stable.list());
     assertEquals(1,folder.ini(true));
-    contain("languages levels maps videos sounds bin musiques images",stable.list());
+    contain("languages levels maps videos sounds bin musics images",stable.list());
     fichier.deleteDirectory(fileToRemove);
     folder.setFolderMain();
   }
