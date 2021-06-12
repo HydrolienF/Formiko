@@ -220,7 +220,7 @@ public class Partie implements Serializable{
     if(Main.getGj().length()==1){setPartieFinie(true);}
     else{setPartieFinie(false);}
     try {
-      Main.getMp().next();
+      Main.getMp().play();
     }catch (Exception e) {
       erreur.alerte("Music can't be played next");
     }
