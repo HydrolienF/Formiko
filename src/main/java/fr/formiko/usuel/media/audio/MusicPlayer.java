@@ -99,6 +99,30 @@ public class MusicPlayer implements AudioInterface {
   public void next(){
     play();
   }
+  /**
+  *{@summary Initialize availables musics list.}<br>
+  *@version 1.52
+  */
+  public void iniAvailableMusics(){
+    File dir = new File(getPath());
+    if(dir.isDirectory()){
+      String t [] = dir.list();
+      if(t.length>0){
+        availableMusics = new GString();
+        for (String s : t) {
+          availableMusics.add(s);
+        }
+      }else{
+        String path = "null";
+        try {
+          path=dir.getCanonicalPath();
+        }catch (IOException e) {}
+        erreur.info("no availableMusics in "+path);
+      }
+    }else{
+      erreur.info("no music file");
+    }
+  }
   //private --------------------------------------------------------------------
   /**
   *{@summary return a music.}<br>
@@ -138,29 +162,5 @@ public class MusicPlayer implements AudioInterface {
     } while (curentMusique.equals(music) && len>1 && k<10);
     erreur.info("music "+i+" :"+music);//@a
     return music;
-  }
-  /**
-  *{@summary Initialize availables musics list.}<br>
-  *@version 1.52
-  */
-  private void iniAvailableMusics(){
-    File dir = new File(getPath());
-    if(dir.isDirectory()){
-      String t [] = dir.list();
-      if(t.length>0){
-        availableMusics = new GString();
-        for (String s : t) {
-          availableMusics.add(s);
-        }
-      }else{
-        String path = "null";
-        try {
-          path=dir.getCanonicalPath();
-        }catch (IOException e) {}
-        erreur.info("no availableMusics in "+path);
-      }
-    }else{
-      erreur.info("no music file");
-    }
   }
 }
