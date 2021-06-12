@@ -80,17 +80,18 @@ jobs:
       run: echo "::set-output name=dataVersionChangeVal::$(./needToReleaseData.sh)"
       id: dataVersionChange
     - name: musicVersionChange
-      run: echo "::set-output name=musicVersionChange::$(./needToReleaseMusic.sh)"
+      run: echo "::set-output name=musicVersionChangeVal::$(./needToReleaseMusic.sh)"
       id: musicVersionChange
     - name: commit version.json
-      if: ${{ steps.dataVersionChange.outputs.dataVersionChangeVal == '1' }}
+      if: ${{ steps.dataVersionChange.outputs.dataVersionChangeVal == '1' || steps.musicVersionChange.outputs.musicVersionChangeVal == '1'}}
       run: |
         echo "echo \"0\"" > needToReleaseData.sh
+        echo "echo \"0\"" > needToReleaseMusic.sh
         if [[ `git status --untracked-files=no --porcelain docs/` != "\n" ]]; then
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add version.json
-          git add needToReleaseData.sh
+          git add needToRelease*.sh
           git commit -m "Auto data version update"
           git pull
           git push
