@@ -31,7 +31,7 @@ public class Folder{
   private String folderBin="bin/";
   private String folderImages="images/";
   private String folderSounds="sounds/";
-  private String folderMusiques="musiques/";
+  private String folderMusiques="musics/";
   private String folderMaps="maps/";
   private String folderLanguages="languages/";
   private String folderLevels="levels/";

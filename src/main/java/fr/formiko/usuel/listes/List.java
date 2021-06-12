@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 /**
 *{@summary Custom Linked List class using Generics.}<br>
-*@version 1.41
+*@version 1.52
 *@author Hydrolien
 */
 public class List<T> implements Iterable<T>, Serializable {
@@ -18,6 +18,7 @@ public class List<T> implements Iterable<T>, Serializable {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary add new Element at tail of the linked list}<br>
+  *content content of the element to add.
   *@version 1.31
   */
   public void addTail(T content){
@@ -29,6 +30,22 @@ public class List<T> implements Iterable<T>, Serializable {
     else {
       tail.setNext(node);
       tail = node;
+    }
+  }
+  /**
+  *{@summary add new Element at head of the linked list}<br>
+  *content content of the element to add.
+  *@version 1.52
+  */
+  public void addHead(T content){
+    if(content==null){return;}
+    //if(containt(content)){return;}
+    Node<T> node = new Node<>(content, null);
+    if (head == null)
+      tail = head = node;
+    else {
+      node.setNext(head);
+      head = node;
     }
   }
   /**
@@ -63,6 +80,17 @@ public class List<T> implements Iterable<T>, Serializable {
     }
   }
   public void add(List<T> list){addList(list);}
+  /**
+  *{@summary Return true is list is empty.}<br>
+  *It's a better function than doing list.length()==0.
+  *@version 1.52
+  */
+  public boolean isEmpty(){
+    for (T t : this ) {
+      return false;
+    }
+    return true;
+  }
   /**
   *{@summary Return the number of element.}<br>
   *@version 1.31
@@ -145,24 +173,40 @@ public class List<T> implements Iterable<T>, Serializable {
   *{@summary copy only different item.}<br>
   *@version 1.41
   */
-  public void removeDuplicateItem(){
+  public boolean removeDuplicateItem(){
     List<T> newList = new List<T>();
+    boolean flag=false;
     for (T t : this ) {
       if (!newList.containt(t)){
         newList.add(t);
+      }else{
+        flag=true;
       }
     }
     head = newList.getHead();
     tail = newList.getTail();
+    return flag;
+  }
+  /**
+  *{@summary Delete the xa element}<br>
+  *@param i the number of the element to remove.
+  *@return true if it have been remove
+  *@version 1.52
+  */
+  public boolean removeItem(int i){
+    if(getHead()==null || i<0){return false;}
+    if(i==0){head=getHead().getNext(); return true;}
+    return getHead().removeItem(i);
   }
   /**
   *{@summary Delete the 1a t element}<br>
   *@param t the element to remove.
   *@return true if it have been remove
-  *@version 1.41
+  *@version 1.52
   */
   public boolean remove(T t){
     if(getHead()==null || t==null){return false;}
+    if(getHead().getContent().equals(t)){head=getHead().getNext(); return true;}
     return getHead().remove(t);
   }
   /**
@@ -242,6 +286,20 @@ class Node<T> {
       }catch (Exception e) {}
     }
     return false;
+  }
+  /**
+  *{@summary Delete the xa element}<br>
+  *@param i the number of the element to remove.
+  *@return true if it have been remove
+  *@version 1.52
+  */
+  public boolean removeItem(int i){
+    if(getNext() == null){return false;}
+    if(i==0){
+      next = getNext().getNext();//go over the element.
+      return true;
+    }
+    return getNext().removeItem(i-1);
   }
   /**
   *{@summary Delete the 1a t element}<br>

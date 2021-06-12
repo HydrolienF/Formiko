@@ -4,6 +4,7 @@ import fr.formiko.usuel.*;
 import fr.formiko.usuel.images.*;
 import fr.formiko.usuel.listes.*;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.media.audio.MusicPlayer;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.View;
 import fr.formiko.views.ViewCLI;
@@ -47,7 +48,7 @@ public class Main {
   private static Pixel pi;
   private static HashMap<String, Integer> key; //keyboard key.
   private static int avancementChargement;
-  private static boolean affGraine=true;//tant que les espece granivore ne sont pas pleinement opérationelle.
+  private static boolean affGraine=false;//tant que les espece granivore ne sont pas pleinement opérationelle.
   private static Temps tem;
   //private static ThGraphisme tg;//actualise la fenetre tt avec 20 seconde de pause entre chaque actualisation.
   private static boolean retournerAuMenu;
@@ -63,6 +64,7 @@ public class Main {
   private static boolean modeCLI=false;
 
   private static int cptMessageChargement=0;
+  private static MusicPlayer mp;
 
   /**
    * {@summary Lauch the game.}<br>
@@ -136,6 +138,11 @@ public class Main {
    */
   public static boolean launch(){
     iniLaunch();
+    if(mp==null){
+      mp = new MusicPlayer();
+    }
+    mp.addNextMusic("Beyond The Warriors - Guifrog.mp3", true);
+    mp.play();
     if (modeCLI) {
       if (view!=null && !(view instanceof ViewCLI)) {
         view = new ViewCLI();
@@ -187,6 +194,7 @@ public class Main {
   public static void setView(View v){view=v;}
   public static void setModeCLI(boolean b){modeCLI=b;}
   public static long getLonTotal(){return lonTotal;}
+  public static MusicPlayer getMp(){return mp;}
   //shortcut
   public static Fourmi getPlayingAnt(){ try {return getPartie().getPlayingAnt();}catch (Exception e) {return null;}}
   public static void setPlayingAnt(Fourmi f){ getPartie().setPlayingAnt(f);}
