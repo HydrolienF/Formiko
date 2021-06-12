@@ -310,6 +310,20 @@ public class Folder{
       return "1.49.12";
     }
   }
+  public String getWantedMusicVersion(){
+    try {
+      // create a reader
+      Reader reader = Files.newBufferedReader(getVersionJsonPath());
+      // create parser
+      JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
+      // read customer details
+      String version = (String) parser.get("music");
+      return version;
+    }catch (Exception e) {
+      erreur.alerte("can't read data version");
+      return "1.49.12";
+    }
+  }
   /**
   *{@summary return the path to version.json.}<br>
   *Curent version is in version.md.
@@ -358,7 +372,7 @@ class ThDownloadMusicData extends Thread {
   public void run(){
     erreur.info("downloadMusicData");
     Main.startCh();
-    fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+folder.getWantedDataVersion()+"/music.zip",folder.getFolderMain()+"music.zip");
+    fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+folder.getWantedMusicVersion()+"/music.zip",folder.getFolderMain()+"music.zip");
     Main.endCh("downloadMusicData");
     erreur.info("downloadMusicData done");
     Main.startCh();
