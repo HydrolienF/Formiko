@@ -2,7 +2,7 @@
 mvn -ntp compile exec:java -Dargs="updateDataVersion $(./needToReleaseData.sh) $(./needToReleaseMusic.sh)"
 ./run.sh cleanFolder .
 cp version.json data/.
-mkdir music
+mkdir musics
 mv data/stable/musics/* musics/
 mv "musics/Ride of the Valkyries - Wagner.mp3" data/stable/musics/.
 zip -qr out/data.zip data/
