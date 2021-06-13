@@ -360,6 +360,7 @@ public class ViewCLI implements View {
     erreur.info("message");
     System.out.println(gj);
     //TODO to update.
+    menuMain();
     return true;
   }
 
@@ -404,6 +405,7 @@ public class ViewCLI implements View {
   */
   public int getAntChoice(int t[]){
     if (!actionGameOn) {return -1;}
+    if (t==null) {return -1;}
     String ts [] = new String[17];
     for (int i=0;i<12 ;i++ ) {
       ts[i]="";
@@ -432,6 +434,7 @@ public class ViewCLI implements View {
       if(choice==16){setLookedCCase(getCCase());tToPrint=ts;}
     } while ((choice <12 || choice>14) && !tableau.estDansT(t,choice));
     if(choice==12){Main.setPlayingAnt(getAntFromFere());}
+    Main.getPlayingAnt().setBActionHaveChange(true);
     return choice;
   }
   /**

@@ -7,7 +7,6 @@ import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.tableau;
-import fr.formiko.views.gui2d.Panneau; //TODO #134 move
 
 import java.io.Serializable;
 
@@ -15,13 +14,13 @@ import java.io.Serializable;
  * {@summary Ant implementation for real player.<br/>}
  * Allow an ant to play a turn<br/>
  * @author Hydrolien
- * @version 1.30
+ * @version 1.54
  */
 public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   /**
   *{@summary Do turn actions for an ant.}
   *There is no order to do actions because player choose it.
-  *@version 1.30
+  *@version 1.54
   */
   @Override
   public void tour(){
@@ -58,11 +57,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     }else if(f.getMode() == 3){
       backHomeAndShareFood(); m = "Nourrir et Nétoyer";
     }
-    try {
-      Panneau.getView().getPs().setIdFourmiAjoué(-1);
-    }catch (Exception e) {
-      erreur.alerteGUI2Dfail("TourFourmiNonIa");
-    }
+    Main.setPlayingAnt(null);
     finTour();
   }
 
@@ -71,54 +66,25 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   // old part to choose the action to do with the ant.---------------------------
   public byte getChoixBouton(){
     byte choix = -1;
+    int t [] = null;
+    f.setBActionHaveChange(true);
     while (choix==-1) {
-      try {
-        //TODO #134 move to View
-        choix = (byte) Panneau.getView().getPj().getActionF();
-      }catch (Exception e) {
-        //TODO #134 move to View
-        choix = (byte) Main.getView().getAntChoice(getTActionFourmi());
-        erreur.alerteGUI2Dfail("TourFourmiNonIa");
-      }
       Temps.pause(50);
       if (f.getBActionHaveChange()){
-        //TODO #134 move to View
-        try {
-          //Update PanneauAction
-          Panneau.getView().getPb().removePa();
-          Panneau.getView().getPb().addPa(getTActionFourmi());
-        }catch (Exception e) {
-          erreur.alerteGUI2Dfail("TourFourmiNonIa");
-        }
+        t = getTActionFourmi();
         f.setBActionHaveChange(false);
+      }else{
+        t = null;
       }
-      /*if(bActualiserTaille){
-        Main.getPs().actualiserTailleMax();
-        Main.getPs().revalidate();
-        Main.repaint();
-        bActualiserTaille=false;
-      }*/
+      choix = (byte) Main.getView().getAntChoice(t);
     }choix++;
     return choix;
   }
 
   public byte getChoixJoueur(){
-    int [] t = getTActionFourmi();
-    try {
-      Panneau.getView().getPb().removePa();
-      Panneau.getView().getPb().addPa(t);
-    }catch (Exception e) {
-      erreur.alerteGUI2Dfail("TourFourmiNonIa");
-    }
-    // on attend une action de la fenetre.
     debug.débogage("lancement de l'attente du bouton");
     byte choix = getChoixBouton();
     debug.débogage("action de Fourmi lancé "+choix);
-    try {
-      Panneau.getView().getPj().setActionF(-1); //TODO move to View
-    }catch (Exception e) {
-      erreur.alerteGUI2Dfail("TourFourmiNonIa");
-    }
     return choix;
   }
 

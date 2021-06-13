@@ -331,7 +331,13 @@ public class ViewGUI2d implements View {
   */
   public int getAntChoice(int t[]){
     if (!actionGameOn) {return -1;}
-    return 0;
+    if(t!=null){
+      Panneau.getView().getPb().removePa();
+      Panneau.getView().getPb().addPa(t);
+    }
+    int r = Panneau.getView().getPb().getActionF();
+    Panneau.getView().getPb().setActionF(-1);
+    return r;
   }
   /**
   *{@summary Return the chosen CCase.}<br>
@@ -437,13 +443,16 @@ public class ViewGUI2d implements View {
   /**
   *{@summary set playing ant.}<br>
   *This action can only be run if action game is on.<br>
-  *@version 1.46
+  *@version 1.54
   */
   public void setPlayingAnt(Fourmi f){
     if (!actionGameOn) {return;}
     if(f!=null){
       Panneau.getView().getPb().addPI();
       Panneau.getView().getPb().addPIJ();
+      erreur.info("setPlayingAnt "+f.getId(),4);
+    }else{
+      Panneau.getView().getPs().setIdFourmiAjoué(-1);
     }
     // if (!f.getFere().getJoueur().getIa()) {
     //   getPb().setVisiblePa(false);

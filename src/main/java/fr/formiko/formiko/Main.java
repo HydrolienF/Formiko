@@ -292,10 +292,12 @@ public class Main {
     if(!erreur.getMuet()){ //if not in test.
       if (modeCLI) {
         if (view!=null && !(view instanceof ViewCLI)) {
+          erreur.info("ViewCLI");//@a
           view = new ViewCLI();
         }
       }else{
         if (view!=null && !(view instanceof ViewGUI2d)) {
+          erreur.info("ViewGUI2D");//@a
           view = new ViewGUI2d();
         }
       }

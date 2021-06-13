@@ -48,9 +48,7 @@ public class PanneauJeu extends Panneau {
   public PanneauDialogueInf getPdi(){return pdi;}
   //get set transmis
   public void addPA(){ pb.addPA();}
-  public void setActionF(int x){pb.setActionF(x);}
   public void addPti(int x [], int y){pb.addPti(x,y);}
-  public int getActionF(){ return pb.getActionF();}
   public void setDesc(String s){pb.setDesc(s);}
   public void setDescTI(String s){pb.setDescTI(s);}
   public PanneauTInt getPti(){return pb.getPti(); }

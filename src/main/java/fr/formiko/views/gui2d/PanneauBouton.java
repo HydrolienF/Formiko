@@ -70,7 +70,6 @@ public class PanneauBouton extends Panneau {
   }
   public int getActionF(){ return actionF;}
   public void setActionF(int x){ actionF=x;}
-  //public void setActionF(int x){ if(Panneau.getView().getPa().getEstBoutonActif(x)){actionF=x;}else{erreur.alerte("L'action "+x+" n'est pas dans les actions faisable.","PanneauBouton.setActionF","l'action n'est pas prise en compte.");}}
   public PanneauTInt getPti(){ return pti;}
   public void setPti(PanneauTInt p){pti=p; }
   public int getChoixId(){ return choixId;}
