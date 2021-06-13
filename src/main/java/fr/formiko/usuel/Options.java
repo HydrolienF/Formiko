@@ -247,7 +247,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("maxMessageDisplay","10");
     defaultProperties.setProperty("drawGrid","true");
     defaultProperties.setProperty("forceQuit","false");
-    defaultProperties.setProperty("borderButtonSize","2");
+    defaultProperties.setProperty("borderButtonSize","4");
     defaultProperties.setProperty("drawIcon","true");
     defaultProperties.setProperty("fontSizeText",""+(int)(30*racio));
     defaultProperties.setProperty("fontSizeTitle",""+(int)(60*racio));

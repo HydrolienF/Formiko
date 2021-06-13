@@ -204,7 +204,7 @@ public class PanneauMenu extends Panneau {
   */
   private void createReturnButton(){
     returnButton = new Bouton("",getView().getPm(),-1);
-    returnButton.setBounds(Main.getTailleElementGraphiqueX(10),Main.getDimY()-Main.getTailleElementGraphiqueY(10)-Main.getTailleElementGraphiqueY(50),Main.getTailleElementGraphiqueX(200),Main.getTailleElementGraphiqueY(50));
+    returnButton.setBounds(Main.getTailleElementGraphiqueX(10),Main.getDimY()-Main.getTailleElementGraphiqueY(10)-Main.getTailleElementGraphiqueY(50),Main.getTailleElementGraphiqueX(250),Main.getTailleElementGraphiqueY(50));
   }
   /**
   *{@summary Create the main buttons of the panel.}<br>

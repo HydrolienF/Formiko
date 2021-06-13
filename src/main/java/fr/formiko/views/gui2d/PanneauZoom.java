@@ -71,6 +71,25 @@ public class PanneauZoom extends Panneau {
     add(bb,gbc);
     gbc.gridx = 2;
     add(bd2,gbc);
+    Color col = new Color(0,0,0,0);
+    bPlus.setCFond(col);
+    bMoins.setCFond(col);
+    bh.setCFond(col);
+    bb.setCFond(col);
+    bd.setCFond(col);
+    bg.setCFond(col);
+    bc.setCFond(col);
+    bd1.setCFond(col);
+    bd2.setCFond(col);
+    // bPlus.setBordure(false);
+    // bMoins.setBordure(false);
+    // bh.setBordure(false);
+    // bb.setBordure(false);
+    // bd.setBordure(false);
+    // bg.setBordure(false);
+    // bc.setBordure(false);
+    // bd1.setBordure(false);
+    // bd2.setBordure(false);
   }
   // GET SET --------------------------------------------------------------------
   public int getTailleBouton(){ return Main.getbuttonSizeZoom();}

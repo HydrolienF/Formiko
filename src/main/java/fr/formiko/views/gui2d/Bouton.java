@@ -5,6 +5,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.images.Pixel;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -31,6 +32,7 @@ public class Bouton extends JButton implements MouseListener{
   protected int action;
   protected boolean bordure=true;
   protected Color cFond;
+  protected boolean cFondUseAlpha;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Bouton(String str, Panneau p, int action, Image imag){
     super();id=cpt; cpt++;setBorderPainted(false);setOpaque(false);
@@ -41,7 +43,8 @@ public class Bouton extends JButton implements MouseListener{
     // this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.
     setCFond(Main.getData().getButtonColor());
     setContentAreaFilled(false);
-    setFocusPainted(false); //paint swap to next button when do tab disable.
+    setFocusPainted(false); //Diasble paint swap to next button when do tab.
+    setCFondUseAlpha(true);
 
   }
   public Bouton(String str, Panneau p, int action){
@@ -58,6 +61,7 @@ public class Bouton extends JButton implements MouseListener{
     super.setBackground(cFond);
     setContentAreaFilled(false);
     setFocusPainted(false); //paint swap to next button when do tab disable.
+    setCFondUseAlpha(true);
   }
   //public Bouton (String str, Panneau p, int action, Image i){ this(str,p,(byte) action,i);}
   //public Bouton(String str,Panneau p, byte action,String imageX){this(str,p,action,image.getImage(imageX));}
@@ -77,48 +81,56 @@ public class Bouton extends JButton implements MouseListener{
       Panneau.getView().getPp().getPj().getPb().setDesc(s);
     }catch (Exception e) {erreur.alerte("Impossible de setDesc pour le bouton.");}
   }
+  public void setCFondUseAlpha(boolean b){
+    // if(b){
+    //   // setOpaque(false);
+    // }else{
+    //   // setOpaque(true);
+    //   // setBackground(cFond);
+    // }
+    cFondUseAlpha=b;
+  }
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     Graphics2D g2d = (Graphics2D)g;
-    /*GradientPaint gp = new GradientPaint(0, 0, Color.blue, 0, 20, Color.cyan, true);
-    g2d.setPaint(gp);
-    //g2d.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
-    g2d.setColor(Color.black);*/
-    /*try {
-      //g.setBackround(new Color(255,100,255,100));
-      g2d.drawImage(this.img,0,0, null);
-    }catch (Exception e) {
-      g2d.drawString(this.nom, this.getWidth() / 2 - (this.getWidth() /  2 /2 ), (this.getHeight() / 2) + 5);
-    }*/
-    //if(img==null){g2d.drawString(this.nom, this.getWidth() / 2 - (this.getWidth() /  2 /2 ), (this.getHeight() / 2) + 5);}
     if(img==null){
-      //g2d.drawString(this.nom,0,this.getHeight()*2/3);
       //FontMetrics fm = new FontMetrics(Main.getFont1());//new FontRenderContext(null, false, false);
       //Rectangle2D rect = fm.getStringBounds(nom,g);
       //new FontRenderContext(null, false, false)
       //le fond
       if(cFond!=null && !isOpaque()){
-        g2d.setColor(cFond);
+        if(cFondUseAlpha){
+          g2d.setColor(cFond);
+        }else{
+          g2d.setColor(new Color(cFond.getRed(),cFond.getGreen(),cFond.getBlue(),255));
+        }
         g2d.fillRect(0,0,getWidth(),getHeight());
       }
       setText(nom);
-      //le texte
-      // g2d.setColor(new Color(0,0,0));
-      // g2d.drawString(nom,0,this.getHeight()*2/3);
-      super.paintComponent(g);
     }else{g2d.drawImage(this.img,0,0, null);}
     if(bordure){peintBordure(g2d);}
+    super.paintComponent(g);
   }
   /*
   public Rectangle2D getStringBounds(String str,FontRenderContext frc);
   c'est sencé pemetre d'avoir juste la dimention qu'il faut pour un textes
   */
   public void peintBordure(Graphics2D g){
+    g.setColor(new Color(cFond.getRed(),cFond.getGreen(),cFond.getBlue()));
     byte x = Main.getBordureBouton();
     if(x<1){return;}
     BasicStroke ligne = new BasicStroke(x);
     g.setStroke(ligne);
     g.drawRect( 0, 0, getWidth(), getHeight());
+  }
+  @Override
+  public void setEnabled(boolean b){
+    if(b){
+      setCFond(Main.getData().getButtonColor());
+    }else{
+      setCFond(Main.getData().getButtonDisableColor());
+    }
+    super.setEnabled(b);
   }
 
   //Méthode appelée lors du clic de souris
@@ -135,12 +147,20 @@ public class Bouton extends JButton implements MouseListener{
     }catch (Exception e) {}
     if(clé!=""){clé="("+g.get("raccourci")+" \""+clé+"\")";}
     setDesc(g.get("bouton.desc."+action)+clé);
+    if(isEnabled()){
+      setCFond(Main.getData().getButtonFocusColor());
+      repaint();
+    }
   }
 
   //Méthode appelée lorsque la souris sort de la zone du bouton
   @Override
   public void mouseExited(MouseEvent event) {
     setDesc("");
+    if(isEnabled()){
+      setCFond(Main.getData().getButtonColor());
+      repaint();
+    }
   }
 
   //Méthode appelée lorsque l'on presse le bouton gauche de la souris
