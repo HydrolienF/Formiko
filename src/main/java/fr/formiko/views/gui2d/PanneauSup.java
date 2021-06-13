@@ -66,8 +66,7 @@ public class PanneauSup extends Panneau{
             CCase cc = getCCase(e);
             if(cc!=null){
               f.ceDeplacerPlusieurCase(cc);
-              getView().getPb().setActionF(-2);
-              setIdFourmiAjoué(f.getId());
+              f.setBActionHaveChange(true);
             }
           }
         }

@@ -35,7 +35,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     f.setMode(-1);//TODO #50 to remove.
     while(f.getAction()>0 && choix!=-2 && f.getMode()==-1){
       Temps.pause(50);
-      choix = (byte)(getChoixJoueur()-1);
+      choix = (byte)(getChoixBouton()-1);
       if(choix==-2){
         if(f.getAction()<1){finTour();}
         return;
@@ -68,7 +68,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     byte choix = -1;
     int t [] = null;
     f.setBActionHaveChange(true);
-    while (choix==-1) {
+    while (choix==-1 && f.getAction()>0) {
       Temps.pause(50);
       if (f.getBActionHaveChange()){
         t = getTActionFourmi();
@@ -78,13 +78,6 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       }
       choix = (byte) Main.getView().getAntChoice(t);
     }choix++;
-    return choix;
-  }
-
-  public byte getChoixJoueur(){
-    debug.débogage("lancement de l'attente du bouton");
-    byte choix = getChoixBouton();
-    debug.débogage("action de Fourmi lancé "+choix);
     return choix;
   }
 

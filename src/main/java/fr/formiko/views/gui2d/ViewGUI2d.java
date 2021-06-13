@@ -76,7 +76,6 @@ public class ViewGUI2d implements View {
   *@version 1.42
   */
   public boolean ini(){
-    erreur.alerte("re ini");//@a
     actionGameOn=false;
     Main.startCh();
     if(f!=null) {f.dispose();}
@@ -450,7 +449,6 @@ public class ViewGUI2d implements View {
     if(f!=null){
       Panneau.getView().getPb().addPI();
       Panneau.getView().getPb().addPIJ();
-      erreur.info("setPlayingAnt "+f.getId(),4);
     }else{
       Panneau.getView().getPs().setIdFourmiAjoué(-1);
     }
