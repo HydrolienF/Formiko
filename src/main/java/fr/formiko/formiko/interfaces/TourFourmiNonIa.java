@@ -27,15 +27,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   public void tour(){
     if((Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()) || Main.getRetournerAuMenu()){return;}
     //if(Main.getPartie().getIdPlayingAnt()!=-1 && Main.getPartie().getIdPlayingAnt()!=f.getId()){return;}
-    try {
-      //TODO #134move to View
-      Panneau.getView().getPj().setFActuelle(f);
-      Panneau.getView().getPb().addPI();
-      Panneau.getView().getPb().addPIJ();
-    }catch (Exception e) {
-      Main.getPartie().setPlayingAnt(f);
-      erreur.alerteGUI2Dfail("TourFourmiNonIa");
-    }
+    Main.setPlayingAnt(f);
     if(Main.getOp().getAutoCleaning()){
       cleanItself();
     }
@@ -46,10 +38,12 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       Temps.pause(50);
       choix = (byte)(getChoixJoueur()-1);
       if(choix==-2){
+        if(f.getAction()<1){finTour();}
         return;
       }
       m = faire(choix);
       if(choix==12 || choix==13){ //Main.getPs().setIdFourmiAjoué(-1);
+        if(f.getAction()<1){finTour();}
         return;
       }else if(choix==14){
         f.setAction(0);
@@ -79,8 +73,10 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     byte choix = -1;
     while (choix==-1) {
       try {
+        //TODO #134 move to View
         choix = (byte) Panneau.getView().getPj().getActionF();
       }catch (Exception e) {
+        //TODO #134 move to View
         choix = (byte) Main.getView().getAntChoice(getTActionFourmi());
         erreur.alerteGUI2Dfail("TourFourmiNonIa");
       }
@@ -88,6 +84,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       if (f.getBActionHaveChange()){
         //TODO #134 move to View
         try {
+          //Update PanneauAction
           Panneau.getView().getPb().removePa();
           Panneau.getView().getPb().addPa(getTActionFourmi());
         }catch (Exception e) {
@@ -104,6 +101,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     }choix++;
     return choix;
   }
+
   public byte getChoixJoueur(){
     int [] t = getTActionFourmi();
     try {
@@ -123,6 +121,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     }
     return choix;
   }
+
   private int [] getTActionFourmi(){
     if(f.getUneSeuleAction()!=-1){
       if(f.getUneSeuleAction()==20){return new int[0];}

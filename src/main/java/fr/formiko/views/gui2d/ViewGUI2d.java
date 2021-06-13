@@ -441,8 +441,11 @@ public class ViewGUI2d implements View {
   */
   public void setPlayingAnt(Fourmi f){
     if (!actionGameOn) {return;}
+    if(f!=null){
+      Panneau.getView().getPb().addPI();
+      Panneau.getView().getPb().addPIJ();
+    }
     // if (!f.getFere().getJoueur().getIa()) {
-    //   getPj().setFActuelle(null);
     //   getPb().setVisiblePa(false);
     // }
     // getPs().setIdFourmiAjoué(-1);

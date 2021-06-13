@@ -149,15 +149,6 @@ public class Main {
       mp.addNextMusic("Beyond The Warriors - Guifrog.mp3", true);
       mp.play();
     }
-    if (modeCLI) {
-      if (view!=null && !(view instanceof ViewCLI)) {
-        view = new ViewCLI();
-      }
-    }else{
-      if (view!=null && !(view instanceof ViewGUI2d)) {
-        view = new ViewGUI2d();
-      }
-    }
     view.menuMain();
     if (!modeCLI) {
       ((ViewGUI2d)(view)).waitForGameLaunch();
@@ -203,7 +194,7 @@ public class Main {
   public static MusicPlayer getMp(){return mp;}
   //shortcut
   public static Fourmi getPlayingAnt(){ try {return getPartie().getPlayingAnt();}catch (Exception e) {return null;}}
-  public static void setPlayingAnt(Fourmi f){ getPartie().setPlayingAnt(f);}
+  public static void setPlayingAnt(Fourmi f){ getPartie().setPlayingAnt(f); getView().setPlayingAnt(f);}
   public static Joueur getPlayingJoueur(){ try {return getPartie().getPlayingJoueur();}catch (Exception e) {return null;}}
   //view
   public static boolean getActionGameOn(){return getView().getActionGameOn();}
@@ -298,6 +289,17 @@ public class Main {
     if(view==null){
       view = new ViewNull();
     }
+    if(!erreur.getMuet()){ //if not in test.
+      if (modeCLI) {
+        if (view!=null && !(view instanceof ViewCLI)) {
+          view = new ViewCLI();
+        }
+      }else{
+        if (view!=null && !(view instanceof ViewGUI2d)) {
+          view = new ViewGUI2d();
+        }
+      }
+    }
     setMessageChargement("chargementDesOptions");startCh();
     chargerLesTraductions.iniTLangue();
     iniOp();
@@ -347,6 +349,10 @@ public class Main {
     //op = chargerLesOptions.chargerLesOptions(getVersionActuelle());
     op = new Options();
     op.iniOptions();
+    if(premierePartie){
+      // getView();
+      System.out.println("ASK LANGUAGE");//@a
+    }
   }
   /**
    *{@summary Load language.}<br>

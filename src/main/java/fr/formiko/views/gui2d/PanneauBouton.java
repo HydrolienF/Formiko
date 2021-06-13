@@ -182,7 +182,9 @@ public class PanneauBouton extends Panneau {
   }
   public void removePi(){ remove(pi);}
   public void addPIJ(){
-    //removePij();
+    try {
+      removePij();
+    }catch (Exception e) {}
     Fourmi ft = Main.getPlayingAnt();
     if (ft==null){ return;}
     GString gs = ft.getFourmiliere().getJoueur().getGm().gmToGs(Main.getNbrMessageAfficher());

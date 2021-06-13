@@ -273,7 +273,7 @@ public class ViewCLI implements View {
     actionGameOn=true;
     if(scannerAnswer==null){ini();}
     menuName="";
-    Main.getPartie().setPlayingAnt(null);
+    Main.setPlayingAnt(null);
     Main.getPartie().initialisationElément();
     int toDoAfter = 0;
     String tab [] = new String[4];
@@ -431,7 +431,7 @@ public class ViewCLI implements View {
       if(choice==15){pauseActionGame();tToPrint=ts;}
       if(choice==16){setLookedCCase(getCCase());tToPrint=ts;}
     } while ((choice <12 || choice>14) && !tableau.estDansT(t,choice));
-    if(choice==12){Main.getPartie().setPlayingAnt(getAntFromFere());}
+    if(choice==12){Main.setPlayingAnt(getAntFromFere());}
     return choice;
   }
   /**

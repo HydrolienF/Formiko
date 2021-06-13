@@ -71,6 +71,7 @@ public class PondreReine implements Serializable, Pondre{
       Message m = new Message("La fourmi " +fm.getId() + " est née.", fere.getId(), 3);
       f.setActionMoins(f.getIndividu().getCoutPondre());
       f.setAilesCoupees(true);//une reine qui pond n'as plus d'ailes.
+      // Main.getView().; //TODO
     }
   }
   //TODO #131

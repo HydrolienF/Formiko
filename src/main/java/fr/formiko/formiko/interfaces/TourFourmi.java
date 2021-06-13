@@ -169,6 +169,6 @@ public class TourFourmi implements Serializable, Tour{
       }
     }
     // if contition de température appartient a l'intervale idéale (et que stade = -1, -2 ou -3) : re setAgePlus1();
-    Main.getPartie().setPlayingAnt(null);
+    Main.setPlayingAnt(null);
   }
 }

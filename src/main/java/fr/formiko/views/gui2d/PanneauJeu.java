@@ -39,7 +39,6 @@ public class PanneauJeu extends Panneau {
     setLayout(null);
   }
   // GET SET -------------------------------------------------------------------
-  public void setFActuelle(Fourmi f){Main.getPartie().setPlayingAnt(f); Main.repaint();}
   public PanneauBouton getPb(){ return pb;}
   public PanneauCarte getPc(){ return pc;}
   public PanneauChargement getPch(){ return pch;}
