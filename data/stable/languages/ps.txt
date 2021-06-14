@@ -27,6 +27,7 @@ bientôt:ژر[auto]
 suivant:لاندې[auto]
 avant:مخکې[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:چارجر[auto]
 bouton.nom.-12:بېرته اصلي مینو ته[auto]
 bouton.nom.-13:کویت[auto]
 bouton.nom.-14:بېرته لوبې ته[auto]
+
+languageChoice:
 
 save.message:خپل شاتړ ته د نوم ورکولو لپاره نوم دننه کړه.[auto]
 

@@ -27,6 +27,7 @@ bientôt:շուտով[auto]
 suivant:հետևում է[auto]
 avant:նախքան[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:լիցքավորիչ[auto]
 bouton.nom.-12:վերադառնալ հիմնական ընտրացանկ[auto]
 bouton.nom.-13:մռայլ Անտ[auto]
 bouton.nom.-14:վերադառնալ խաղալ[auto]
+
+languageChoice:
 
 save.message:մուտքագրեք անունը ձեր կրկնօրինակում տալու համար:[auto]
 

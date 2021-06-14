@@ -27,6 +27,7 @@ bientôt:presto[auto]
 suivant:seguente[auto]
 avant:prima[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:caricabatterie[auto]
 bouton.nom.-12:indietro al menù principale[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:torna a giocare[auto]
+
+languageChoice:
 
 save.message:inserisci il nome da dare al tuo backup.[auto]
 

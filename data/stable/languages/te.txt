@@ -27,6 +27,7 @@ bientôt:త్వరలో[auto]
 suivant:క్రింది[auto]
 avant:ముందు[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:ఛార్జర్[auto]
 bouton.nom.-12:ప్రధాన మెనూకు తిరిగి వెళ్ళు[auto]
 bouton.nom.-13:quitter చీమ[auto]
 bouton.nom.-14:తిరిగి ఆడటానికి[auto]
+
+languageChoice:
 
 save.message:మీ బ్యాకప్‌కు ఇవ్వడానికి పేరును నమోదు చేయండి.[auto]
 

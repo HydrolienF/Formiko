@@ -27,6 +27,7 @@ bientôt:곧[auto]
 suivant:수행원[auto]
 avant:전에[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:충전기[auto]
 bouton.nom.-12:메인 메뉴로 돌아 가기[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:다시 재생[auto]
+
+languageChoice:
 
 save.message:백업에 제공 할 이름을 입력하십시오.[auto]
 

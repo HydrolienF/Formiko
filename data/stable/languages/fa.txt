@@ -27,6 +27,7 @@ bientôt:به زودی[auto]
 suivant:ذیل[auto]
 avant:قبل از[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:شارژر[auto]
 bouton.nom.-12:بازگشت به فهرست اصلی[auto]
 bouton.nom.-13:مورچه خوار[auto]
 bouton.nom.-14:برگشت به بازی[auto]
+
+languageChoice:
 
 save.message:نام را وارد کنید تا به پشتیبان خود بدهید.[auto]
 

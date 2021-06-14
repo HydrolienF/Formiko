@@ -27,6 +27,7 @@ bientôt:a dh'aithghearr[auto]
 suivant:a ’leantainn[auto]
 avant:roimhe seo[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:charger[auto]
 bouton.nom.-12:air ais chun phrìomh chlàr[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:air ais a chluich[auto]
+
+languageChoice:
 
 save.message:cuir a-steach an t-ainm airson a thoirt don chùl-taic agad.[auto]
 

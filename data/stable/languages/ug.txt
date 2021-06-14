@@ -27,6 +27,7 @@ bientôt:soon[auto]
 suivant:تۆۋەندىكى[auto]
 avant:ئىلگىرى[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:توك قاچىلىغۇچ[auto]
 bouton.nom.-12:ئاساسىي تىزىملىككە قايتىڭ[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:to play to play[auto]
+
+languageChoice:
 
 save.message:زاپاسلاش ئۈچۈن بېرىدىغان ئىسىمنى كىرگۈزۈڭ.[auto]
 

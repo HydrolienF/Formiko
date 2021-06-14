@@ -27,6 +27,7 @@ bientôt:ба зудӣ[auto]
 suivant:пайравӣ[auto]
 avant:пеш[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:пуркунандаи барқ[auto]
 bouton.nom.-12:бозгашт ба менюи асосӣ[auto]
 bouton.nom.-13:мурчаи мурт[auto]
 bouton.nom.-14:бозгашт ба бозӣ[auto]
+
+languageChoice:
 
 save.message:номеро ворид кунед, ки ба нусхаи эҳтиётии худ дода мешавад.[auto]
 

@@ -27,6 +27,7 @@ bientôt:kungekudala[auto]
 suivant:okulandelayo[auto]
 avant:ngaphambi[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:ishaja[auto]
 bouton.nom.-12:buyela kumenyu enkulu[auto]
 bouton.nom.-13:yeka Intuthwane[auto]
 bouton.nom.-14:emuva ukudlala[auto]
+
+languageChoice:
 
 save.message:faka igama ozolinika isipele sakho.[auto]
 

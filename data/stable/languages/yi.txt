@@ -27,6 +27,7 @@ bientôt:באַלד[auto]
 suivant:ווייַטערדיק[auto]
 avant:איידער[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:טשאַרדזשער[auto]
 bouton.nom.-12:צוריק צו הויפּט מעניו[auto]
 bouton.nom.-13:קוויטטער אַנט[auto]
 bouton.nom.-14:צוריק צו שפּילן[auto]
+
+languageChoice:
 
 save.message:אַרייַן די נאָמען צו געבן דיין באַקאַפּ.[auto]
 

@@ -27,6 +27,7 @@ bientôt:ngwa ngwa[auto]
 suivant:na-eso[auto]
 avant:tupu[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:chaja[auto]
 bouton.nom.-12:laghachi isi menu[auto]
 bouton.nom.-13:itterhapụ Ant[auto]
 bouton.nom.-14:laghachi na-egwu[auto]
+
+languageChoice:
 
 save.message:tinye aha iji nye nkwado ndabere gị.[auto]
 

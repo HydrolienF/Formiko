@@ -27,6 +27,7 @@ bientôt:விரைவில்[auto]
 suivant:பின்வருமாறு[auto]
 avant:முன்[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:சார்ஜர்[auto]
 bouton.nom.-12:பிரதான மெனுவுக்குத் திரும்பு[auto]
 bouton.nom.-13:quitter எறும்பு[auto]
 bouton.nom.-14:மீண்டும் விளையாட[auto]
+
+languageChoice:
 
 save.message:உங்கள் காப்புப்பிரதிக்கு கொடுக்க பெயரை உள்ளிடவும்.[auto]
 

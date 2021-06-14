@@ -27,6 +27,7 @@ bientôt:まもなく[auto]
 suivant:以下[auto]
 avant:前[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:充電器[auto]
 bouton.nom.-12:メインメニューに戻る[auto]
 bouton.nom.-13:やめたAnt[auto]
 bouton.nom.-14:再生に戻る[auto]
+
+languageChoice:
 
 save.message:バックアップに付ける名前を入力します。[auto]
 

@@ -27,6 +27,7 @@ bientôt:ugu dhakhsaha badan[auto]
 suivant:soo socda[auto]
 avant:ka hor[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:xeedho[auto]
 bouton.nom.-12:dib ugu noqo liiska[auto]
 bouton.nom.-13:quudin Ant[auto]
 bouton.nom.-14:dib u ciyaar[auto]
+
+languageChoice:
 
 save.message:qor magaca si aad u siiso keydkaaga.[auto]
 

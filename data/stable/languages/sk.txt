@@ -27,6 +27,7 @@ bientôt:čoskoro[auto]
 suivant:nasledujúce[auto]
 avant:predtým[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:nabíjačka[auto]
 bouton.nom.-12:späť do hlavnej ponuky[auto]
 bouton.nom.-13:tlmočník Ant[auto]
 bouton.nom.-14:späť hrať[auto]
+
+languageChoice:
 
 save.message:zadajte názov, ktorý chcete dať svojej zálohe.[auto]
 

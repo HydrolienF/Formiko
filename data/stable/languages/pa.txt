@@ -27,6 +27,7 @@ bientôt:ਜਲਦੀ[auto]
 suivant:ਹੇਠ ਦਿੱਤੇ[auto]
 avant:ਅੱਗੇ[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:ਚਾਰਜਰ[auto]
 bouton.nom.-12:ਵਾਪਸ ਮੁੱਖ ਮੇਨੂ 'ਤੇ ਵਾਪਸ[auto]
 bouton.nom.-13:ਕੁਈਟਰ ਕੀੜੀ[auto]
 bouton.nom.-14:ਵਾਪਸ ਖੇਡਣ ਲਈ[auto]
+
+languageChoice:
 
 save.message:ਆਪਣੇ ਬੈਕਅਪ ਨੂੰ ਦੇਣ ਲਈ ਨਾਮ ਦਰਜ ਕਰੋ.[auto]
 

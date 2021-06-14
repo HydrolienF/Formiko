@@ -27,6 +27,7 @@ bientôt:শীঘ্রই[auto]
 suivant:নিম্নলিখিত[auto]
 avant:আগে[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:চার্জার[auto]
 bouton.nom.-12:প্রধান মেনুতে ফিরে যাই[auto]
 bouton.nom.-13:কুইটার পিপীলিকা[auto]
 bouton.nom.-14:খেলতে ফিরে[auto]
+
+languageChoice:
 
 save.message:আপনার ব্যাকআপটি দিতে নামটি প্রবেশ করান।[auto]
 

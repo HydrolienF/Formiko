@@ -27,6 +27,7 @@ bientôt:ໃນໄວໆນີ້[auto]
 suivant:ຕໍ່ໄປນີ້[auto]
 avant:ກ່ອນ[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:ເຄື່ອງຊາດ[auto]
 bouton.nom.-12:ກັບໄປທີ່ເມນູຫລັກ[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:ກັບຄືນໄປບ່ອນຫຼິ້ນ[auto]
+
+languageChoice:
 
 save.message:ໃສ່ຊື່ເພື່ອໃຫ້ ສຳ ຮອງຂໍ້ມູນຂອງທ່ານ.[auto]
 

@@ -27,6 +27,7 @@ bientôt:tidak lama lagi[auto]
 suivant:mengikuti[auto]
 avant:sebelum ini[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:pengecas[auto]
 bouton.nom.-12:kembali ke menu utama[auto]
 bouton.nom.-13:semut Semut[auto]
 bouton.nom.-14:kembali bermain[auto]
+
+languageChoice:
 
 save.message:masukkan nama yang akan diberikan pada sandaran anda.[auto]
 

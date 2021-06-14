@@ -27,6 +27,7 @@ bientôt:көп ұзамай[auto]
 suivant:келесі[auto]
 avant:бұрын[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:зарядтағыш[auto]
 bouton.nom.-12:негізгі мәзірге оралу[auto]
 bouton.nom.-13:құмырсқа[auto]
 bouton.nom.-14:ойнауға қайта оралу[auto]
+
+languageChoice:
 
 save.message:сақтық көшірмесін беру үшін атауды енгізіңіз.[auto]
 

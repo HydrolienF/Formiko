@@ -149,7 +149,11 @@ public class ViewGUI2d implements View {
     actionGameOn=false;
     if(f==null || getPm()==null){ini();}
     Main.stopScript();
-    getPm().buildPanneauMenu(3,0);
+    if(Main.getPremierePartie()){
+      getPm().askLanguage();
+    }else{
+      getPm().buildPanneauMenu(3,0);
+    }
     paint();
     if(needToWaitForGameLaunch){
       // waitForGameLaunch();
@@ -250,7 +254,6 @@ public class ViewGUI2d implements View {
       getPch().addBt();
     }
     Main.getPartie().jeu(); //lance le jeux.
-    erreur.alerte("jeu is over");//@a
     return true;
   }
 
@@ -501,12 +504,9 @@ public class ViewGUI2d implements View {
   *@version 1.46
   */
   public synchronized void waitForGameLaunch(){
-    if(!Main.getPremierePartie()){
-      boolean b=false;
-      while(!b){Temps.pause(10);b=getPm().getLancer();}
-    }else{
-      //play launching video
-    }
+    // if(!Main.getPremierePartie()){
+    boolean b=false;
+    while(!b){Temps.pause(10);b=getPm().getLancer();}
     actionGame();
   }
   /**

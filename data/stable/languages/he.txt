@@ -27,6 +27,7 @@ bientôt:בקרוב[auto]
 suivant:הבא[auto]
 avant:לפני[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:מַטעֵן[auto]
 bouton.nom.-12:בחזרה לתפריט הראשי[auto]
 bouton.nom.-13:נמלה[auto]
 bouton.nom.-14:חזרה לשחק[auto]
+
+languageChoice:
 
 save.message:הזן את השם שייתן לגיבוי שלך.[auto]
 

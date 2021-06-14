@@ -27,6 +27,7 @@ bientôt:brátt[auto]
 suivant:eftirfarandi[auto]
 avant:áður[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:hleðslutæki[auto]
 bouton.nom.-12:aftur í aðalvalmynd[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:aftur til leiks[auto]
+
+languageChoice:
 
 save.message:sláðu inn nafnið til að gefa öryggisafritinu þínu.[auto]
 

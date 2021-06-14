@@ -27,6 +27,7 @@ bientôt:kmalu[auto]
 suivant:naslednje[auto]
 avant:prej[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:polnilnik[auto]
 bouton.nom.-12:nazaj v glavni meni[auto]
 bouton.nom.-13:zapustil Ant[auto]
 bouton.nom.-14:nazaj k igri[auto]
+
+languageChoice:
 
 save.message:vnesite ime za varnostno kopijo.[auto]
 

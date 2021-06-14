@@ -27,6 +27,7 @@ bientôt:tezliklə[auto]
 suivant:aşağıdakı[auto]
 avant:əvvəl[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:adapter[auto]
 bouton.nom.-12:əsas menyuya qayıdın[auto]
 bouton.nom.-13:quş qarışqa[auto]
 bouton.nom.-14:oynamaq üçün geri[auto]
+
+languageChoice:
 
 save.message:ehtiyatınıza vermək üçün adı daxil edin.[auto]
 

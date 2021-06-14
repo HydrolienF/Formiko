@@ -27,6 +27,7 @@ bientôt:जल्द ही[auto]
 suivant:निम्नलिखित[auto]
 avant:इससे पहले[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:अभियोक्ता[auto]
 bouton.nom.-12:मुख्य मेनू में वापस जाएं[auto]
 bouton.nom.-13:विचित्र चींटी[auto]
 bouton.nom.-14:वापस खेलने के लिए[auto]
+
+languageChoice:
 
 save.message:अपने बैकअप को देने के लिए नाम दर्ज करें।[auto]
 

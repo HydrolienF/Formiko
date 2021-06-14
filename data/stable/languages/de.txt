@@ -27,6 +27,7 @@ bientôt:demnächst[auto]
 suivant:folgenden[auto]
 avant:vor[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:ladegerät[auto]
 bouton.nom.-12:zurück zum Hauptmenü[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:zurück zum spielen[auto]
+
+languageChoice:
 
 save.message:geben Sie den Namen ein, den Sie Ihrem Backup geben möchten.[auto]
 

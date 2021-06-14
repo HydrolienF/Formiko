@@ -27,6 +27,7 @@ bientôt:yakında[auto]
 suivant:takip etme[auto]
 avant:önce[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:şarj cihazı[auto]
 bouton.nom.-12:ana menüye dön[auto]
 bouton.nom.-13:pes eden Karınca[auto]
 bouton.nom.-14:oyuna geri dön[auto]
+
+languageChoice:
 
 save.message:yedeklemenize vereceğiniz adı girin.[auto]
 

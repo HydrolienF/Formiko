@@ -27,6 +27,7 @@ bientôt:netrukus[auto]
 suivant:sekant[auto]
 avant:prieš tai[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:kroviklis[auto]
 bouton.nom.-12:grįžti į pagrindinį meniu[auto]
 bouton.nom.-13:mesti ranka[auto]
 bouton.nom.-14:atgal žaisti[auto]
+
+languageChoice:
 
 save.message:įveskite vardą, kurį suteiksite savo atsarginei kopijai.[auto]
 

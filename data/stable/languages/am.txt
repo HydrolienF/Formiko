@@ -27,6 +27,7 @@ bientôt:በቅርቡ[auto]
 suivant:በመከተል ላይ[auto]
 avant:ከዚህ በፊት[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:የኃይል መሙያ[auto]
 bouton.nom.-12:ወደ ዋናው ምናሌ ተመለስ[auto]
 bouton.nom.-13:የሚያጠፋ ጉንዳን[auto]
 bouton.nom.-14:ለመጫወት ተመለስ[auto]
+
+languageChoice:
 
 save.message:ለመጠባበቂያዎ ለመስጠት ስሙን ያስገቡ።[auto]
 

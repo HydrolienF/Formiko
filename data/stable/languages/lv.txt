@@ -27,6 +27,7 @@ bientôt:drīz[auto]
 suivant:sekojošs[auto]
 avant:pirms[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:lādētājs[auto]
 bouton.nom.-12:atpakaļ uz galveno izvēlni[auto]
 bouton.nom.-13:atmest Ant[auto]
 bouton.nom.-14:atkal spēlēt[auto]
+
+languageChoice:
 
 save.message:ievadiet nosaukumu, ko piešķirt dublējumkopijai.[auto]
 

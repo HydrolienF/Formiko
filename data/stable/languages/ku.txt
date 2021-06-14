@@ -27,6 +27,7 @@ bientôt:nêzda[auto]
 suivant:pêketînî[auto]
 avant:berî[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:şarjker[auto]
 bouton.nom.-12:vegere menuya sereke[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:vegerin ser lîstinê[auto]
+
+languageChoice:
 
 save.message:navê bikevin da ku bidin paşila xwe.[auto]
 

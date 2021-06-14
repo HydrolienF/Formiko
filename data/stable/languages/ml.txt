@@ -27,6 +27,7 @@ bientôt:ഉടൻ[auto]
 suivant:പിന്തുടരുന്നു[auto]
 avant:മുമ്പ്[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:ചാർജർ[auto]
 bouton.nom.-12:പ്രധാന മെനുവിലേക്ക് മടങ്ങുക[auto]
 bouton.nom.-13:quitter ഉറുമ്പ്[auto]
 bouton.nom.-14:തിരികെ കളിക്കാൻ[auto]
+
+languageChoice:
 
 save.message:നിങ്ങളുടെ ബാക്കപ്പിന് നൽകാൻ പേര് നൽകുക.[auto]
 

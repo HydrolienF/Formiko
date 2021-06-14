@@ -27,6 +27,7 @@ bientôt:удахгүй[auto]
 suivant:дараах[auto]
 avant:өмнө нь[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:цэнэглэгч[auto]
 bouton.nom.-12:үндсэн цэс рүү буцах[auto]
 bouton.nom.-13:шоргоолж[auto]
 bouton.nom.-14:буцааж тоглох[auto]
+
+languageChoice:
 
 save.message:нөөцдөө өгөх нэрээ оруулна уу.[auto]
 

@@ -27,6 +27,7 @@ bientôt:anjima[auto]
 suivant:mai biyowa[auto]
 avant:kafin[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:caja[auto]
 bouton.nom.-12:koma zuwa menu na ainihi[auto]
 bouton.nom.-13:kwatancin Ant[auto]
 bouton.nom.-14:koma wasa[auto]
+
+languageChoice:
 
 save.message:shigar da sunan don ba wa madadinku.[auto]
 

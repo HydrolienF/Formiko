@@ -27,6 +27,7 @@ bientôt:en breve[auto]
 suivant:seguindo[auto]
 avant:antes[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:cargador[auto]
 bouton.nom.-12:volver ao menú principal[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:volta para xogar[auto]
+
+languageChoice:
 
 save.message:introduza o nome para darlle á copia de seguridade.[auto]
 

@@ -27,6 +27,7 @@ bientôt:varsti[auto]
 suivant:järgnev[auto]
 avant:enne[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:laadija[auto]
 bouton.nom.-12:tagasi peamenüüsse[auto]
 bouton.nom.-13:loobunud Ant[auto]
 bouton.nom.-14:tagasi mängima[auto]
+
+languageChoice:
 
 save.message:sisestage varukoopiale nimi.[auto]
 

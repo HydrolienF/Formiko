@@ -27,6 +27,7 @@ bientôt:sớm[auto]
 suivant:tiếp theo[auto]
 avant:trước[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:bộ sạc[auto]
 bouton.nom.-12:trở lại menu chính[auto]
 bouton.nom.-13:kiến quitter[auto]
 bouton.nom.-14:trở lại chơi[auto]
+
+languageChoice:
 
 save.message:nhập tên để cung cấp cho bản sao lưu của bạn.[auto]
 

@@ -27,6 +27,7 @@ bientôt:ଶୀଘ୍ର[auto]
 suivant:ନିମ୍ନଲିଖିତ[auto]
 avant:ପୂର୍ବରୁ[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:ଚାର୍ଜର[auto]
 bouton.nom.-12:ମୁଖ୍ୟ ମେନୁକୁ ଫେରନ୍ତୁ |[auto]
 bouton.nom.-13:ant[auto]
 bouton.nom.-14:ଖେଳିବାକୁ ଫେରନ୍ତୁ |[auto]
+
+languageChoice:
 
 save.message:ଆପଣଙ୍କର ବ୍ୟାକଅପ୍ ଦେବାକୁ ନାମ ପ୍ରବେଶ କରନ୍ତୁ |[auto]
 

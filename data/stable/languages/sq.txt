@@ -27,6 +27,7 @@ bientôt:së shpejti[auto]
 suivant:në vijim[auto]
 avant:para[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:karikues[auto]
 bouton.nom.-12:përsëri në menunë kryesore[auto]
 bouton.nom.-13:lëkundës Ant[auto]
 bouton.nom.-14:përsëri për të luajtur[auto]
+
+languageChoice:
 
 save.message:shkruani emrin për t'i dhënë rezervimit tuaj.[auto]
 

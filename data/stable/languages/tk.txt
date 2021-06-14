@@ -27,6 +27,7 @@ bientôt:basym[auto]
 suivant:aşakda[auto]
 avant:öň[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:güýçlendiriji[auto]
 bouton.nom.-12:esasy menýu[auto]
 bouton.nom.-13:garynja[auto]
 bouton.nom.-14:oýnamak üçin[auto]
+
+languageChoice:
 
 save.message:ätiýaçlyk nusgasyna bermek üçin adyny giriziň.[auto]
 

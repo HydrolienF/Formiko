@@ -27,6 +27,7 @@ bientôt:اسی طرح[auto]
 suivant:درج ذیل[auto]
 avant:پہلے[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:چارجر[auto]
 bouton.nom.-12:واپس مین مینو پر[auto]
 bouton.nom.-13:quitter چیونٹی[auto]
 bouton.nom.-14:کھیلنے کے لئے واپس[auto]
+
+languageChoice:
 
 save.message:اپنا بیک اپ دینے کے لئے نام درج کریں۔[auto]
 

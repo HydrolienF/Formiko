@@ -27,6 +27,7 @@ bientôt:dalwaqt[auto]
 suivant:wara[auto]
 avant:qabel[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:ċarġer[auto]
 bouton.nom.-12:lura għall-menu prinċipali[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:lura biex tilgħab[auto]
+
+languageChoice:
 
 save.message:daħħal l-isem li tagħti lill-backup tiegħek.[auto]
 

@@ -27,6 +27,7 @@ bientôt:hamar[auto]
 suivant:következő[auto]
 avant:előtt[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:töltő[auto]
 bouton.nom.-12:vissza a főmenübe[auto]
 bouton.nom.-13:kilép Ant[auto]
 bouton.nom.-14:vissza játszani[auto]
+
+languageChoice:
 
 save.message:írja be a biztonsági másolatnak adandó nevet.[auto]
 

@@ -27,6 +27,7 @@ bientôt:laipe[auto]
 suivant:atẹle[auto]
 avant:ṣaaju[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:ṣaja[auto]
 bouton.nom.-12:pada si akojọ aṣayan akọkọ[auto]
 bouton.nom.-13:quitter Kokoro[auto]
 bouton.nom.-14:pada lati mu ṣiṣẹ[auto]
+
+languageChoice:
 
 save.message:tẹ orukọ sii lati fi fun afẹyinti rẹ.[auto]
 

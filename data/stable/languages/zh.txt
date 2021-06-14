@@ -27,6 +27,7 @@ bientôt:不久[auto]
 suivant:以下[auto]
 avant:之前[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:充电器[auto]
 bouton.nom.-12:返回主菜单[auto]
 bouton.nom.-13:退出蚂蚁[auto]
 bouton.nom.-14:回到玩[auto]
+
+languageChoice:
 
 save.message:输入要备份的名称。[auto]
 

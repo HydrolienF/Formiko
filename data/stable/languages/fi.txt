@@ -27,6 +27,7 @@ bientôt:pian[auto]
 suivant:seurata[auto]
 avant:ennen[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:laturi[auto]
 bouton.nom.-12:takaisin päävalikkoon[auto]
 bouton.nom.-13:lopettaa Ant[auto]
 bouton.nom.-14:takaisin pelaamaan[auto]
+
+languageChoice:
 
 save.message:kirjoita varmuuskopiolle annettava nimi.[auto]
 

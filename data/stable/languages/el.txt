@@ -27,6 +27,7 @@ bientôt:σύντομα[auto]
 suivant:εΠΟΜΕΝΟ[auto]
 avant:πριν[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:φορτιστής[auto]
 bouton.nom.-12:επιστροφή στο κύριο μενού[auto]
 bouton.nom.-13:εγκατάλειψη Ant[auto]
 bouton.nom.-14:πίσω στο παιχνίδι[auto]
+
+languageChoice:
 
 save.message:εισαγάγετε το όνομα για να δώσετε στο αντίγραφο ασφαλείας σας.[auto]
 

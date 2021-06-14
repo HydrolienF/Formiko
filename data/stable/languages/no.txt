@@ -27,6 +27,7 @@ bientôt:snart[auto]
 suivant:følgende[auto]
 avant:før[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:lader[auto]
 bouton.nom.-12:tilbake til hovedmenyen[auto]
 bouton.nom.-13:kvitter Ant[auto]
 bouton.nom.-14:tilbake for å spille[auto]
+
+languageChoice:
 
 save.message:skriv inn navnet du vil gi til sikkerhetskopien din.[auto]
 

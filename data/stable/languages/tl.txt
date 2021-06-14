@@ -27,6 +27,7 @@ bientôt:malapit na[auto]
 suivant:sumusunod[auto]
 avant:dati pa[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:charger[auto]
 bouton.nom.-12:bumalik sa pangunahing menu[auto]
 bouton.nom.-13:kumalas na Ant[auto]
 bouton.nom.-14:bumalik sa paglalaro[auto]
+
+languageChoice:
 
 save.message:ipasok ang pangalan upang ibigay sa iyong backup.[auto]
 

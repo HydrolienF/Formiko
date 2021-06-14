@@ -27,6 +27,7 @@ bientôt:vuba[auto]
 suivant:ibikurikira[auto]
 avant:mbere[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:charger[auto]
 bouton.nom.-12:garuka Kuri Ibikubiyemo[auto]
 bouton.nom.-13:kureka Ikimonyo[auto]
 bouton.nom.-14:gusubira gukina[auto]
+
+languageChoice:
 
 save.message:andika izina kugirango utange kuri backup yawe.[auto]
 

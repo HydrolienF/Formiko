@@ -27,6 +27,7 @@ bientôt:byento[auto]
 suivant:swivan[auto]
 avant:anvan[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:plato[auto]
 bouton.nom.-12:tounen nan meni prensipal la[auto]
 bouton.nom.-13:kite foumi[auto]
 bouton.nom.-14:tounen jwe[auto]
+
+languageChoice:
 
 save.message:antre nan non an pou bay backup ou.[auto]
 

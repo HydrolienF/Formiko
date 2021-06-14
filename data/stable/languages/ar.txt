@@ -27,6 +27,7 @@ bientôt:هكذا[auto]
 suivant:التالية[auto]
 avant:قبل[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:شاحن[auto]
 bouton.nom.-12:العودة إلى القائمة الرئيسية[auto]
 bouton.nom.-13:هاجر النملة[auto]
 bouton.nom.-14:العودة للعب[auto]
+
+languageChoice:
 
 save.message:أدخل الاسم الذي تريده لنسختك الاحتياطية.[auto]
 

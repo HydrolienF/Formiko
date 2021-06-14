@@ -27,6 +27,7 @@ bientôt:bientôt
 suivant:suivant
 avant:avant
 save:sauvegarde
+validate:valider
 
 set:choisir
 where:où
@@ -311,6 +312,8 @@ bouton.nom.-12disable:charger
 bouton.nom.-12:retour au menu principal
 bouton.nom.-13:quitter Formiko
 bouton.nom.-14:retour au jeu
+
+languageChoice:choisissez une langue
 
 save.message:entrez le nom a donner a votre sauvegarde.
 

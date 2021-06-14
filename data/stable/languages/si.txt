@@ -27,6 +27,7 @@ bientôt:ඉක්මනින්[auto]
 suivant:පහත දැක්වේ[auto]
 avant:කලින්[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:චාජරය[auto]
 bouton.nom.-12:ප්‍රධාන මෙනුවට ආපසු යන්න[auto]
 bouton.nom.-13:quitter කුහුඹුවා[auto]
 bouton.nom.-14:නැවත ක්‍රීඩා කිරීමට[auto]
+
+languageChoice:
 
 save.message:ඔබගේ උපස්ථයට ලබා දීමට නම ඇතුළත් කරන්න.[auto]
 

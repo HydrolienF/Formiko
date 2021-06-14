@@ -27,6 +27,7 @@ bientôt:ускоро[auto]
 suivant:следећи[auto]
 avant:пре него што[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:пуњач[auto]
 bouton.nom.-12:повратак на главни мени[auto]
 bouton.nom.-13:куиттер Ант[auto]
 bouton.nom.-14:назад за игру[auto]
+
+languageChoice:
 
 save.message:унесите име за резервну копију.[auto]
 

@@ -63,6 +63,8 @@ public class action{
     }else if(ac==6){
       Partie.setScript("tuto");
       pm.setLancer(true); //TODO to remove
+    }else if(ac==7){
+      pm.validatelanguageChoice();
     }else if(ac==100){
       // Main.getView().menuNewGame();
       setPartie(Panneau.getView().getPnp().getPartie());

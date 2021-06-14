@@ -27,6 +27,7 @@ bientôt:weldra[auto]
 suivant:in aansluiting op[auto]
 avant:voordat[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:oplader[auto]
 bouton.nom.-12:terug naar het hoofdmenu[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:terug om te spelen[auto]
+
+languageChoice:
 
 save.message:voer de naam in die u aan uw back-up wilt geven.[auto]
 

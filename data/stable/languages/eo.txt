@@ -27,6 +27,7 @@ bientôt:baldaŭ
 suivant:sekvante[auto]
 avant:antaŭe[auto]
 save:savo
+validate:validigi
 
 set:elektas
 where:kie
@@ -312,6 +313,8 @@ bouton.nom.-12:reiri al ĉefa menuo
 bouton.nom.-13:deiri Formiko
 bouton.nom.-14:reiri a la ludo
 
+languageChoice:elekti lingvon
+
 save.message:enigu la nomon por doni al via rezervo.[auto]
 
 bouton.desc.0:malvastifi la mapo
@@ -362,7 +365,7 @@ selectAnt:elektu formikon
 endTurn:finu vico
 endGame:finu ludo
 pauseActionGame:paŭza ludo
-unaviable:
+unaviable:neatingebla
 setPlayingAnt:elektu ludantan formikon
 
 triche.aide.1:bonvenon al la trompanta interfaco de Formiko. Ĉi tie vi povas tajpi trompajn komandojn.[auto]
@@ -480,7 +483,7 @@ tuto.28:nia specio ne estas manĝema (ne manĝas semon). Tamen iuj najbaraj form
 tuto.29:la laboristo, kiun ni generis, povas plenumi la samajn agojn kiel la reĝino, krom laiko.[auto]
 tuto.30:laboristoj estas eĉ pli efikaj pri iuj taskoj (kostas al ili malpli da agoj plenumi ilin). Nia laboristo ĉasas pli facile ol la reĝino.[auto]
 tuto.31:ni donu al nia laboristo taskon kompletigotan por ke la rondo finiĝu. (alklaku unu el la butonoj ĉe la fino de via ekrano, plurfoje se necese.)[auto]
-tuto.31.1:Jen vi havas gajni ! Sed efektive, kiel mi povas nomu vin ?
+tuto.31.1:jen vi havas gajni ! Sed efektive, kiel mi povas nomu vin ?
 tuto.32:ĝi estis la lasta raŭndo de ĉi tiu lernilo, se vi havas dubon, vi povas refari ĉi tiun lernilon.[auto]
 tuto.33:alie la butonaj priskriboj montriĝas kiam vi ŝvebas super ilin, same por la kestoj sur la mapo. Informoj pri la elektita formiko estas dekstre de via ekrano.[auto]
 tuto.34:se malgraŭ tio vi ne trovas tion, kion vi bezonas, vi povas peti konsilon ĉe la oficiala malkonkorda servilo de la ludo: http://discord.gg/vqvfGzf[auto]

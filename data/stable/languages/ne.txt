@@ -27,6 +27,7 @@ bientôt:चाँडै[auto]
 suivant:निम्न[auto]
 avant:पहिले[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:चार्जर[auto]
 bouton.nom.-12:मुख्य मेनूमा फिर्ता[auto]
 bouton.nom.-13:क्विटर कमिला[auto]
 bouton.nom.-14:खेल्न फिर्ता[auto]
+
+languageChoice:
 
 save.message:तपाईंको ब्याकअपमा दिनको लागि नाम प्रविष्ट गर्नुहोस्।[auto]
 

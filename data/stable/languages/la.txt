@@ -27,6 +27,7 @@ bientôt:mox[auto]
 suivant:haec[auto]
 avant:ante[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:patina[auto]
 bouton.nom.-12:in pelagus menu[auto]
 bouton.nom.-13:v. quitter[auto]
 bouton.nom.-14:in fabula[auto]
+
+languageChoice:
 
 save.message:nomine tuo ingrediuntur ad tergum.[auto]
 

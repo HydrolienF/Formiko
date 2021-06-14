@@ -27,6 +27,7 @@ bientôt:vave[auto]
 suivant:mulimuli atu[auto]
 avant:muamua[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:charger[auto]
 bouton.nom.-12:toe foi i le autu lisi[auto]
 bouton.nom.-13:lūlū loi[auto]
 bouton.nom.-14:toe foi e taalo[auto]
+
+languageChoice:
 
 save.message:ulufale i le igoa e ave i lau backup.[auto]
 

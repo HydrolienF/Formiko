@@ -27,6 +27,7 @@ bientôt:uskoro[auto]
 suivant:slijedeći[auto]
 avant:prije[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:punjač[auto]
 bouton.nom.-12:natrag na glavni izbornik[auto]
 bouton.nom.-13:napustio Ant[auto]
 bouton.nom.-14:natrag igrati[auto]
+
+languageChoice:
 
 save.message:unesite ime za sigurnosnu kopiju.[auto]
 

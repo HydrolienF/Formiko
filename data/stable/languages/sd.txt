@@ -27,6 +27,7 @@ bientôt:جلدي[auto]
 suivant:هيٺين[auto]
 avant:اڳ[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:چارجر[auto]
 bouton.nom.-12:مکيه مينيو ڏانھن واپس ٿيو[auto]
 bouton.nom.-13:ڪٽر انٽي[auto]
 bouton.nom.-14:کيڏڻ واپس[auto]
+
+languageChoice:
 
 save.message:نالو داخل ڪريو پنهنجو بيڪ اپ ڏي.[auto]
 

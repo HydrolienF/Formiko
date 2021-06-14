@@ -27,6 +27,7 @@ bientôt:inamata[auto]
 suivant:e whai ake nei[auto]
 avant:tuhinga o mua[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:rihi[auto]
 bouton.nom.-12:hoki ki te tahua matua[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:hoki ki te purei[auto]
+
+languageChoice:
 
 save.message:whakauruhia te ingoa hei hoatu ki to taapiri.[auto]
 

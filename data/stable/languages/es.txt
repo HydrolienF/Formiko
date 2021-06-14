@@ -27,6 +27,7 @@ bientôt:pronto[auto]
 suivant:próximo[auto]
 avant:antes de[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:cargador[auto]
 bouton.nom.-12:volver al menú principal[auto]
 bouton.nom.-13:hormiga abandonada[auto]
 bouton.nom.-14:volver a jugar[auto]
+
+languageChoice:
 
 save.message:ingrese el nombre para darle a su respaldo.[auto]
 

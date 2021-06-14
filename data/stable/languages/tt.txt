@@ -27,6 +27,7 @@ bientôt:тиздән[auto]
 suivant:түбәндәге[auto]
 avant:элек[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:зарядлагыч[auto]
 bouton.nom.-12:төп менюга кире кайту[auto]
 bouton.nom.-13:кырмыска[auto]
 bouton.nom.-14:уйнарга[auto]
+
+languageChoice:
 
 save.message:резервыгызга бирү өчен исем кертегез.[auto]
 

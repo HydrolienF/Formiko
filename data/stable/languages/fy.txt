@@ -27,6 +27,7 @@ bientôt:gau[auto]
 suivant:folgjend[auto]
 avant:foar[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:skûtel[auto]
 bouton.nom.-12:werom nei haadmenu[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:werom te spyljen[auto]
+
+languageChoice:
 
 save.message:fier de namme yn om jo reservekopy te jaan.[auto]
 

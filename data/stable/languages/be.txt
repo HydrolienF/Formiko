@@ -27,6 +27,7 @@ bientôt:хутка[auto]
 suivant:наступныя[auto]
 avant:раней[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:зарадная прылада[auto]
 bouton.nom.-12:вярнуцца ў галоўнае меню[auto]
 bouton.nom.-13:кінуў Мурашка[auto]
 bouton.nom.-14:назад гуляць[auto]
+
+languageChoice:
 
 save.message:увядзіце імя для рэзервовай копіі.[auto]
 

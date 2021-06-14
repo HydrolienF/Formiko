@@ -27,6 +27,7 @@ bientôt:laster[auto]
 suivant:jarraituz[auto]
 avant:aurretik[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:kargagailua[auto]
 bouton.nom.-12:menu nagusira itzuli[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:atzera jolastera[auto]
+
+languageChoice:
 
 save.message:idatzi izena zure segurtasun kopiari emateko.[auto]
 

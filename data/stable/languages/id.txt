@@ -27,6 +27,7 @@ bientôt:segera[auto]
 suivant:berikut[auto]
 avant:sebelum[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:pengisi daya[auto]
 bouton.nom.-12:kembali ke menu utama[auto]
 bouton.nom.-13:semut yang menyerah[auto]
 bouton.nom.-14:kembali bermain[auto]
+
+languageChoice:
 
 save.message:masukkan nama yang akan diberikan untuk cadangan Anda.[auto]
 

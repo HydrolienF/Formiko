@@ -27,6 +27,7 @@ bientôt:скоро[auto]
 suivant:следующий[auto]
 avant:перед[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:зарядное устройство[auto]
 bouton.nom.-12:вернуться в главное меню[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:вернуться к игре[auto]
+
+languageChoice:
 
 save.message:введите имя для резервной копии.[auto]
 

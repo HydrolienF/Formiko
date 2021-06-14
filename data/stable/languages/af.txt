@@ -27,6 +27,7 @@ bientôt:binnekort[auto]
 suivant:volgende[auto]
 avant:voorheen[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:laaier[auto]
 bouton.nom.-12:terug na hoofkieslys[auto]
 bouton.nom.-13:ophou Ant[auto]
 bouton.nom.-14:terug om te speel[auto]
+
+languageChoice:
 
 save.message:tik die naam in om aan u rugsteun te gee.[auto]
 

@@ -27,6 +27,7 @@ bientôt:prestu[auto]
 suivant:seguenti[auto]
 avant:prima[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:caricatore[auto]
 bouton.nom.-12:torna à u menu principale[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:torna à ghjucà[auto]
+
+languageChoice:
 
 save.message:entre u nome da dà à a vostra copia di salvezza.[auto]
 

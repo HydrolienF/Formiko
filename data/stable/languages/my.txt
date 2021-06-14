@@ -27,6 +27,7 @@ bientôt:မကြာမီ[auto]
 suivant:အောက်ပါ[auto]
 avant:မတိုင်မီ[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:အားသွင်းကြိုး[auto]
 bouton.nom.-12:နောက်ကျောအဓိက menu ကိုမှ[auto]
 bouton.nom.-13:ပုရွက်ဆိတ် quitter[auto]
 bouton.nom.-14:ပြန်ကစားရန်[auto]
+
+languageChoice:
 
 save.message:သင်၏အရန်ကူးရန်အတွက်အမည်ထည့်ပါ။[auto]
 

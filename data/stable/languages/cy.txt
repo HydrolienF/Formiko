@@ -27,6 +27,7 @@ bientôt:yn fuan[auto]
 suivant:yn dilyn[auto]
 avant:o'r blaen[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:gwefrydd[auto]
 bouton.nom.-12:yn ôl i'r brif ddewislen[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:yn ôl i chwarae[auto]
+
+languageChoice:
 
 save.message:nodwch yr enw i'w roi i'ch copi wrth gefn.[auto]
 

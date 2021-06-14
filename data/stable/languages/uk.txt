@@ -27,6 +27,7 @@ bientôt:найближчим часом[auto]
 suivant:наступні[auto]
 avant:раніше[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:зарядний пристрій[auto]
 bouton.nom.-12:повернутися до головного меню[auto]
 bouton.nom.-13:кинув Мураха[auto]
 bouton.nom.-14:назад до гри[auto]
+
+languageChoice:
 
 save.message:введіть ім'я, яке потрібно надати резервній копії.[auto]
 

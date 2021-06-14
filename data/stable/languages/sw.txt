@@ -27,6 +27,7 @@ bientôt:hivi karibuni[auto]
 suivant:zifuatazo[auto]
 avant:kabla[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:chaja[auto]
 bouton.nom.-12:kurudi kwenye menyu kuu[auto]
 bouton.nom.-13:achana na Mchwa[auto]
 bouton.nom.-14:kurudi kucheza[auto]
+
+languageChoice:
 
 save.message:ingiza jina upe chelezo yako.[auto]
 

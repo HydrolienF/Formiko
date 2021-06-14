@@ -27,6 +27,7 @@ bientôt:munguva pfupi[auto]
 suivant:zvinotevera[auto]
 avant:pamberi[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:ndiro[auto]
 bouton.nom.-12:dzokera kumenu huru[auto]
 bouton.nom.-13:kurega Svosve[auto]
 bouton.nom.-14:dzokera kunotamba[auto]
+
+languageChoice:
 
 save.message:isa zita rekupa kune yako backup.[auto]
 

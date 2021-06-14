@@ -27,6 +27,7 @@ bientôt:लवकरच[auto]
 suivant:खालील[auto]
 avant:आधी[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:चार्जर[auto]
 bouton.nom.-12:मुख्य मेनूवर परत[auto]
 bouton.nom.-13:क्विट मुंगी[auto]
 bouton.nom.-14:परत खेळायला[auto]
+
+languageChoice:
 
 save.message:आपल्या बॅकअपला देण्यासाठी नाव प्रविष्ट करा.[auto]
 

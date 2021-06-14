@@ -27,6 +27,7 @@ bientôt:kungekudala[auto]
 suivant:elandelayo[auto]
 avant:ngaphambili[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:itshaja[auto]
 bouton.nom.-12:buyela kwimenyu ephambili[auto]
 bouton.nom.-13:yeka Imbovane[auto]
 bouton.nom.-14:buyela ukudlala[auto]
+
+languageChoice:
 
 save.message:ngenisa igama ukunika ukhuphelo lwakho.[auto]
 

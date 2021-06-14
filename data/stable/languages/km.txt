@@ -27,6 +27,7 @@ bientôt:ឆាប់[auto]
 suivant:បន្ទាប់[auto]
 avant:មុន[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:ឆ្នាំងសាក[auto]
 bouton.nom.-12:ត្រឡប់ទៅម៉ឺនុយមេវិញ[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:ត្រលប់ទៅលេង[auto]
+
+languageChoice:
 
 save.message:បញ្ចូលឈ្មោះដើម្បីផ្តល់ការបម្រុងទុករបស់អ្នក។[auto]
 

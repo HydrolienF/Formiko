@@ -27,6 +27,7 @@ bientôt:жакында[auto]
 suivant:кийинки[auto]
 avant:чейин[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:кубаттагыч[auto]
 bouton.nom.-12:негизги менюга кайтуу[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:кайра ойноого[auto]
+
+languageChoice:
 
 save.message:камдык көчүрмөсүн берүү үчүн атын киргизиңиз.[auto]
 

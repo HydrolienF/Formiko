@@ -27,6 +27,7 @@ bientôt:haufinyane[auto]
 suivant:ho latela[auto]
 avant:pele ho[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:tjhaja[auto]
 bouton.nom.-12:khutlela ho menu e kholo[auto]
 bouton.nom.-13:tlohela Kokonyana[auto]
 bouton.nom.-14:khutlela ho bapala[auto]
+
+languageChoice:
 
 save.message:kenya lebitso ho fa bekapo hao.[auto]
 

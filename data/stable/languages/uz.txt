@@ -27,6 +27,7 @@ bientôt:tez orada[auto]
 suivant:quyidagi[auto]
 avant:oldin[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:zaryadlovchi[auto]
 bouton.nom.-12:asosiy menyuga qaytish[auto]
 bouton.nom.-13:chumoli chumoli[auto]
 bouton.nom.-14:o'ynash uchun qaytib[auto]
+
+languageChoice:
 
 save.message:zaxirangizga berish uchun nomni kiriting.[auto]
 

@@ -27,6 +27,7 @@ bientôt:posachedwa[auto]
 suivant:kutsatira[auto]
 avant:kale[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:naupereka[auto]
 bouton.nom.-12:kubwerera ku menyu yayikulu[auto]
 bouton.nom.-13:asiye Nyerere[auto]
 bouton.nom.-14:kubwerera kusewera[auto]
+
+languageChoice:
 
 save.message:kulowa dzina kupereka kubwerera wanu.[auto]
 

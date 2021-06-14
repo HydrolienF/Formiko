@@ -27,6 +27,7 @@ bientôt:geuwat[auto]
 suivant:nuturkeun[auto]
 avant:sateuacanna[auto]
 save:
+validate:
 
 set:
 where:
@@ -311,6 +312,8 @@ bouton.nom.-12disable:carjer[auto]
 bouton.nom.-12:deui kana ménu utami[auto]
 bouton.nom.-13:quitter Sireum[auto]
 bouton.nom.-14:deui maén[auto]
+
+languageChoice:
 
 save.message:lebetkeun nami kanggo masihan cadangan anjeun.[auto]
 
