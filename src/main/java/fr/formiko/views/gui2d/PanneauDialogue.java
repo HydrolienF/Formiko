@@ -40,8 +40,8 @@ public class PanneauDialogue extends Panneau {
       tailleX = Main.getDimXCarte();
       tailleX=tailleX-Main.getTailleElementGraphiqueX(210);
     }catch (Exception e) {}
-    pi = new PanneauInfo(gs,tailleX+Main.getTailleElementGraphiqueX(200));
-    pi.setBounds(Main.getTailleElementGraphiqueX(210),Main.getTailleElementGraphiqueY(15),pi.getWidth(),pi.getHeight());
+    pi = new PanneauInfo(gs,tailleX+Main.getTailleElementGraphiqueX(200),false);
+    pi.setLocation(Main.getTailleElementGraphiqueX(210),Main.getTailleElementGraphiqueY(15));
     setSize(pi.getWidth(),pi.getHeight()+Main.getTailleElementGraphiqueX(30));
     add(pi);
   }

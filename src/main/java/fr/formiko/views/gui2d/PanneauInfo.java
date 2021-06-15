@@ -8,6 +8,7 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.GString;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -18,12 +19,15 @@ public class PanneauInfo extends Panneau {
   private Desc desc [];
   private int xPi; private int yPi;
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public PanneauInfo(GString gs, int xD){
+  public PanneauInfo(GString gs, int xD, boolean withAlpha, Font font){
     debug.débogage("création d'un panneauInfo avec "+gs.length()+" éléments.");
     this.setLayout(new GridBagLayout());
     GridBagConstraints gbc = new GridBagConstraints();
     nbrDeDesc=gs.length();
     int yD = Desc.getDimY();
+    if(font!=null){
+      yD = (int)(font.getSize()*1.2);
+    }
     xPi=xD; yPi=yD*nbrDeDesc;
     this.setSize(xPi,yPi);
     debug.débogage(getSize()+"");
@@ -31,15 +35,22 @@ public class PanneauInfo extends Panneau {
     for (String s : gs ) {
       gbc.gridy = k;k++;
       Desc desc = new Desc(xD,yD);
+      if(withAlpha){
+        desc.setFondColoré(Main.getData().getButtonColor());
+      }
+      if(font!=null){
+        desc.setFont(font);
+      }
       desc.setTexte(s);
       this.add(desc,gbc);
     }
   }
+  public PanneauInfo(GString gs, int xD, boolean withAlpha){this(gs,xD,withAlpha,null);}
   public PanneauInfo(GString gs){
-    this(gs, getView().getPz().getTailleBouton()*5);
+    this(gs, getView().getPz().getTailleBouton()*5,false);
   }
   public PanneauInfo(Fourmi f,int xD){
-    this(f.descriptionGString(),xD);
+    this(f.descriptionGString(),xD,false);
   }
   public PanneauInfo(Fourmi f){
     this(f.descriptionGString());
@@ -51,6 +62,7 @@ public class PanneauInfo extends Panneau {
   public int getYPi(){ return yPi;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
-    debug.débogage("actualisation du PanneauInfo avec pour taille : "+this.getWidth()+" "+this.getHeight());
+    // debug.débogage("actualisation du PanneauInfo avec pour taille : "+this.getWidth()+" "+this.getHeight());
+    super.paintComponent(g);
   }
 }

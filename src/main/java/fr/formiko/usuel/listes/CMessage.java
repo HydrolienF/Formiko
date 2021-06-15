@@ -53,6 +53,7 @@ public class CMessage implements Serializable{
     while(x>0 && csTemp != null){
       gs.add(csTemp.getContenu().description());
       csTemp = csTemp.getPrécédent();
+      x--;
     }
     return gs;
   }

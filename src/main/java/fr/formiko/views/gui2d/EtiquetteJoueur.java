@@ -110,9 +110,9 @@ public class EtiquetteJoueur extends Panneau{
     couleur.setBounds(taille*5/10+taille/7,0,taille/7,Desc.getDimY());
     //add un bouton changer la couleur alléatoirement
     g2d.setColor(new Color(0,0,0));
-    peintBordure(g2d,taille,arrondi);
+    paintBorder(g2d,taille,arrondi);
   }
-  public void peintBordure(Graphics2D g, int taille, int arrondi){
+  public void paintBorder(Graphics2D g, int taille, int arrondi){
     byte x = 3;//Main.getBordureBouton();
     if(x<1){return;}
     BasicStroke ligne = new BasicStroke(x);

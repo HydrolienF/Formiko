@@ -24,6 +24,13 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+/**
+*{@summary Extends of Button with some added functions.}<br>
+*There is a default color for normal button, focus button &#38; disable button.<br>
+*Defaults colors are in Data.<br>
+*@author Hydrolien
+*@version 1.54
+*/
 public class Bouton extends JButton implements MouseListener{
   protected final int id; protected static int cpt=1;
   protected Image img;
@@ -57,16 +64,12 @@ public class Bouton extends JButton implements MouseListener{
     // }
     this.setFont(Main.getFont1());
     setCFond(Main.getData().getButtonColor());
-    setForeground(new Color(0,0,0));
+    setForeground(Color.BLACK);
     super.setBackground(cFond);
     setContentAreaFilled(false);
     setFocusPainted(false); //paint swap to next button when do tab disable.
     setCFondUseAlpha(true);
   }
-  //public Bouton (String str, Panneau p, int action, Image i){ this(str,p,(byte) action,i);}
-  //public Bouton(String str,Panneau p, byte action,String imageX){this(str,p,action,image.getImage(imageX));}
-  //public Bouton(String s, Panneau p, int ac,String i){ this(s,p,(byte)ac,i);}
-  //public Bouton(String s, Panneau p, int ac){ this(s,p,(byte)ac);}
   // GET SET --------------------------------------------------------------------
   public String getNom(){ return nom;}
   public void setNom(String s){nom=s;debug.débogage("le nom a été changé pour "+s);}
@@ -81,16 +84,26 @@ public class Bouton extends JButton implements MouseListener{
       Panneau.getView().getPp().getPj().getPb().setDesc(s);
     }catch (Exception e) {erreur.alerte("Impossible de setDesc pour le bouton.");}
   }
-  public void setCFondUseAlpha(boolean b){
-    // if(b){
-    //   // setOpaque(false);
-    // }else{
-    //   // setOpaque(true);
-    //   // setBackground(cFond);
-    // }
-    cFondUseAlpha=b;
+  public void setCFondUseAlpha(boolean b){cFondUseAlpha=b;}
+  /**
+  *{@summary return background color with or without alpha.}
+  *With alpha if cFondUseAlpha==True;
+  *@version 1.54
+  */
+  public Color getBackgroundColor(){
+    if(cFondUseAlpha){
+      return cFond;
+    }else{
+      return new Color(cFond.getRed(),cFond.getGreen(),cFond.getBlue(),255);
+    }
   }
-  // Fonctions propre -----------------------------------------------------------
+  // Fonctions propre ----------------------------------------------------------
+  /**
+  *{@summary To draw component.}<br>
+  *It draw a fill rectangle as background color.
+  *Draw it there alow to have alpha color.
+  *@version 1.54
+  */
   public void paintComponent(Graphics g){
     Graphics2D g2d = (Graphics2D)g;
     if(img==null){
@@ -99,23 +112,20 @@ public class Bouton extends JButton implements MouseListener{
       //new FontRenderContext(null, false, false)
       //le fond
       if(cFond!=null && !isOpaque()){
-        if(cFondUseAlpha){
-          g2d.setColor(cFond);
-        }else{
-          g2d.setColor(new Color(cFond.getRed(),cFond.getGreen(),cFond.getBlue(),255));
-        }
+        g2d.setColor(getBackgroundColor());
         g2d.fillRect(0,0,getWidth(),getHeight());
       }
       setText(nom);
     }else{g2d.drawImage(this.img,0,0, null);}
-    if(bordure){peintBordure(g2d);}
+    if(bordure){paintBorder(g2d);}
     super.paintComponent(g);
   }
-  /*
-  public Rectangle2D getStringBounds(String str,FontRenderContext frc);
-  c'est sencé pemetre d'avoir juste la dimention qu'il faut pour un textes
+  /**
+  *{@summary Draw border.}<br>
+  *@author Hydrolien
+  *@version 1.54
   */
-  public void peintBordure(Graphics2D g){
+  public void paintBorder(Graphics2D g){
     g.setColor(new Color(cFond.getRed(),cFond.getGreen(),cFond.getBlue()));
     byte x = Main.getBordureBouton();
     if(x<1){return;}

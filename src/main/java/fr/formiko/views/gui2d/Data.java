@@ -63,6 +63,7 @@ public class Data {
   private Color buttonColor = new Color(81, 252, 0, 100);
   private Color buttonDisableColor = new Color(56, 56, 56, 100);
   private Color buttonFocusColor = new Color(248, 152, 29, 100);
+  private Color getButtonColorWithoutAlpha = new Color(81, 252, 0);
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   /**
@@ -98,6 +99,7 @@ public class Data {
   public Image getBackgroundPAI(){return backgroundPAI;}
   public Image getBackgroundPAS(){return backgroundPAS;}
   public Color getButtonColor(){return buttonColor;}
+  public Color getButtonColorWithoutAlpha(){return getButtonColorWithoutAlpha;}
   public Color getButtonDisableColor(){return buttonDisableColor;}
   public Color getButtonFocusColor(){return buttonFocusColor;}
   // Fonctions propre -----------------------------------------------------------

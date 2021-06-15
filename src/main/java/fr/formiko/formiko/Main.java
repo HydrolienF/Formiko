@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 
 /**
-*{@summary Launch class }<br>
+*{@summary Launch class.}<br>
 *Main file have all the shortcut on getter or setter that are curently used
 *@author Hydrolien
 *@version 1.38
