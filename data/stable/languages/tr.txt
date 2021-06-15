@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:kaldırılamadı[auto]
 
 ListeVideExeption.1:imkansız[auto]
 
-ChasseFourmi.1:içinde bir av gördü[auto]
-ChasseFourmi.2:böceği öldürdü[auto]
-ChasseFourmi.3:böceği kesmek[auto]
+chasseInsectivore.1:içinde bir av gördü[auto]
+chasseInsectivore.2:böceği öldürdü[auto]
+chasseInsectivore.3:böceği kesmek[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

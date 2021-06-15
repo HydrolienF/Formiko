@@ -48,7 +48,7 @@ taille:talio
 coordonées:koordinatoj
 coordonnées:kontakt-informoj[auto]
 type:tipo
-stade:stadio
+stade:fazo
 age:aĝo
 nourriture:manĝaĵo
 action:faro
@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:ne povas esti retiri
 
 ListeVideExeption.1:neeble de
 
-ChasseFourmi.1:vidis predo
-ChasseFourmi.2:mortigi insekto
-ChasseFourmi.3:senhaŭtigi insekto
+chasseInsectivore.1:vidis predo
+chasseInsectivore.2:mortigi insekto
+chasseInsectivore.3:senhaŭtigi insekto
+evoluerFourmi.1:evolui al la sekva fazo
+pondreReine.1:naskiĝis
+spawnOf:generi de
 
 //objet graphique:
 
@@ -396,7 +399,7 @@ cmd.args.10:ido de ido, ago[auto]
 cmd.args.11:ido de ido, actionMax[auto]
 cmd.args.12:ido de estaĵo, ruĝa feromono, verda feromono, blua feromono[auto]
 cmd.args.13:ida tipo[auto]
-cmd.args.14:estaĵo id-stadio[auto]
+cmd.args.14:estaĵo id-fazo[auto]
 cmd.args.15:ido de ido, modo[auto]
 cmd.args.16:estaĵo id, formikeja identigilo[auto]
 cmd.args.17:estaĵo id specio[auto]
@@ -423,7 +426,7 @@ conseil.3:ne envio de mikroadministri viajn formikojn ? Uzi la 2 havebla aŭtoma
 conseil.4:envio de variigi la luda stilo ? elekti 1 specio ke vi ne ankoraŭ ludi.
 conseil.5:iuj specioj de formiko estas polimorfaj. Tio estas, ke ili havas laboristojn de ŝanĝiĝema grandeco por povi plenumi tute malsamajn taskojn.
 conseil.6:ne kuŝu tro da ovoj samtempe. Alie vi ne plu povos prizorgi ĝin ĝis ĝi imago.
-conseil.7:formikoj travivas 4 stadiojn de disvolviĝo: ovo, lafo, nimfo kaj imago (plenkreska formiko).[auto]
+conseil.7:formikoj travivas 4 fazojn de disvolviĝo: ovo, lafo, nimfo kaj imago (plenkreska formiko).[auto]
 conseil.8:la elektoj, kiujn vi devas fari, estas indikitaj ĉe la supra maldekstro de via ekrano.
 conseil.9:formikoj ne havas palpebron por malsekigi siajn okulojn. Ili devas konstante konservi sanan vivstilon por komuniki kun siaj antenoj kaj vidi per siaj okuloj.
 conseil.10:la ovoj, lafo kaj nimfo ne kapablas purigi sola. Ili nepre bezonas helpon de imago aŭ li povus esti infektita per malbona bakterio. certigu, ke via bredado restas super 50% pureco.
@@ -475,7 +478,7 @@ tuto.20:la larvo evoluis, ĝi nun estas nimfo. La nimfoj, kiel la larvoj, devas 
 tuto.21:por nutri la idaron (ovoj, larvoj kaj krizalidoj), la formikoj vomas manĝaĵon el sia "socia stomako". Ĉi tio nomiĝas tropalakso.[auto]
 tuto.22:nutru la larvon per la butono "Trophallaxis" ĉe la fundo de via ekrano.[auto]
 tuto.23:la nimfo plenas! Ni atendu iom pli longe, ke ŝi kresku. (alklaku la butonon "Transsalti la turneon" ĉe la fino de via ekrano.)[auto]
-tuto.24:la formiko finfine atingis la plenkreskan stadion (imago)! Ŝi nun povas plenumi agojn kiel la reĝino.[auto]
+tuto.24:la formiko finfine atingis la plenkreskan fazon (imago)! Ŝi nun povas plenumi agojn kiel la reĝino.[auto]
 tuto.25:aliaj insektoj aperos laŭlonge de la tempo. Ni sendu la reĝinon mortigi 1 alklakante la butonon "aŭtomate ĉasi".[auto]
 tuto.26:aŭtomata ĉasado permesas vin lasi viajn formikojn ĉasi sendepende.[auto]
 tuto.27:ekzistas ankaŭ aŭtomata vartistina reĝimo. Lasu la reĝinon en la formikejo kun ĉi tiu reĝimo aktivigita kaj rekomendinda kiam estas ovoj, larvoj aŭ nimfoj en la formikejo.[auto]

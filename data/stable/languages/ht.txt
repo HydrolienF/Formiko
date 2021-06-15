@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:pa t 'kapab retire li[auto]
 
 ListeVideExeption.1:enposib[auto]
 
-ChasseFourmi.1:te wè yon bèt nan[auto]
-ChasseFourmi.2:touye ensèk la[auto]
-ChasseFourmi.3:koupe ensèk la[auto]
+chasseInsectivore.1:te wè yon bèt nan[auto]
+chasseInsectivore.2:touye ensèk la[auto]
+chasseInsectivore.3:koupe ensèk la[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

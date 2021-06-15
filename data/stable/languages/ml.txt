@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:നീക്കംചെയ്യാനായ�
 
 ListeVideExeption.1:അസാധ്യമാണ്[auto]
 
-ChasseFourmi.1:ഒരു ഇരയെ അകത്തേക്ക് കണ്ടു[auto]
-ChasseFourmi.2:പ്രാണിയെ കൊന്നു[auto]
-ChasseFourmi.3:പ്രാണികളെ മുറിക്കാൻ[auto]
+chasseInsectivore.1:ഒരു ഇരയെ അകത്തേക്ക് കണ്ടു[auto]
+chasseInsectivore.2:പ്രാണിയെ കൊന്നു[auto]
+chasseInsectivore.3:പ്രാണികളെ മുറിക്കാൻ[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

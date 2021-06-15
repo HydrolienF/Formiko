@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:haina kukwanisa kubviswa[auto]
 
 ListeVideExeption.1:zvisingaite ku[auto]
 
-ChasseFourmi.1:akaona mhuka mukati[auto]
-ChasseFourmi.2:akauraya chipembenene[auto]
-ChasseFourmi.3:kucheka chipembenene[auto]
+chasseInsectivore.1:akaona mhuka mukati[auto]
+chasseInsectivore.2:akauraya chipembenene[auto]
+chasseInsectivore.3:kucheka chipembenene[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

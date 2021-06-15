@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:हटाया नहीं जा सका[
 
 ListeVideExeption.1:असंभव के लिए[auto]
 
-ChasseFourmi.1:में एक शिकार देखा[auto]
-ChasseFourmi.2:कीट को मार डाला[auto]
-ChasseFourmi.3:कीट को काटने के लिए[auto]
+chasseInsectivore.1:में एक शिकार देखा[auto]
+chasseInsectivore.2:कीट को मार डाला[auto]
+chasseInsectivore.3:कीट को काटने के लिए[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

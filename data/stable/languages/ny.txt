@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:sakanakhoza kuchotsedwa[auto]
 
 ListeVideExeption.1:zosatheka kutero[auto]
 
-ChasseFourmi.1:adawona nyama yolowa[auto]
-ChasseFourmi.2:anapha tizilombo[auto]
-ChasseFourmi.3:kudula tizilombo[auto]
+chasseInsectivore.1:adawona nyama yolowa[auto]
+chasseInsectivore.2:anapha tizilombo[auto]
+chasseInsectivore.3:kudula tizilombo[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:бартараф карда натавонис
 
 ListeVideExeption.1:ғайриимкон аст[auto]
 
-ChasseFourmi.1:тӯъмаро дид[auto]
-ChasseFourmi.2:хашаротро нест кард[auto]
-ChasseFourmi.3:барои нест кардани хашарот[auto]
+chasseInsectivore.1:тӯъмаро дид[auto]
+chasseInsectivore.2:хашаротро нест кард[auto]
+chasseInsectivore.3:барои нест кардани хашарот[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

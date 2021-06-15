@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:ບໍ່ສາມາດເອົາອອກ�
 
 ListeVideExeption.1:ເປັນໄປບໍ່ໄດ້ທີ່ຈະ[auto]
 
-ChasseFourmi.1:ໄດ້ເຫັນຜູ້ຖືກລ້າໃນ[auto]
-ChasseFourmi.2:ຂ້າແມງໄມ້[auto]
-ChasseFourmi.3:ເພື່ອຕັດແມງໄມ້[auto]
+chasseInsectivore.1:ໄດ້ເຫັນຜູ້ຖືກລ້າໃນ[auto]
+chasseInsectivore.2:ຂ້າແມງໄມ້[auto]
+chasseInsectivore.3:ເພື່ອຕັດແມງໄມ້[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

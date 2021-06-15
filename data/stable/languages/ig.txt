@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:enweghị ike iwepu[auto]
 
 ListeVideExeption.1:agaghị ekwe omume[auto]
 
-ChasseFourmi.1:hụrụ anụ oriri n'ime[auto]
-ChasseFourmi.2:gburu ahụhụ[auto]
-ChasseFourmi.3:igbupụ ahụhụ[auto]
+chasseInsectivore.1:hụrụ anụ oriri n'ime[auto]
+chasseInsectivore.2:gburu ahụhụ[auto]
+chasseInsectivore.3:igbupụ ahụhụ[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

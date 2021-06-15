@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:waa laga saari kari waayey[auto]
 
 ListeVideExeption.1:macquul aheyn in[auto]
 
-ChasseFourmi.1:wuxuu arkay ugaadh ku jira[auto]
-ChasseFourmi.2:dishay cayayaanka[auto]
-ChasseFourmi.3:si loo gooyo cayayaanka[auto]
+chasseInsectivore.1:wuxuu arkay ugaadh ku jira[auto]
+chasseInsectivore.2:dishay cayayaanka[auto]
+chasseInsectivore.3:si loo gooyo cayayaanka[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

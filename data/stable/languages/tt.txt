@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:алып булмый[auto]
 
 ListeVideExeption.1:мөмкин түгел[auto]
 
-ChasseFourmi.1:ерткычны күрде[auto]
-ChasseFourmi.2:бөҗәкне үтерде[auto]
-ChasseFourmi.3:бөҗәкне кисәргә[auto]
+chasseInsectivore.1:ерткычны күрде[auto]
+chasseInsectivore.2:бөҗәкне үтерде[auto]
+chasseInsectivore.3:бөҗәкне кисәргә[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

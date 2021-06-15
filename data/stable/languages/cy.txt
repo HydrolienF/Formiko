@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:ni ellid ei symud[auto]
 
 ListeVideExeption.1:amhosibl[auto]
 
-ChasseFourmi.1:gwelodd ysglyfaeth i mewn[auto]
-ChasseFourmi.2:lladd y pryf[auto]
-ChasseFourmi.3:i dorri'r pryf i fyny[auto]
+chasseInsectivore.1:gwelodd ysglyfaeth i mewn[auto]
+chasseInsectivore.2:lladd y pryf[auto]
+chasseInsectivore.3:i dorri'r pryf i fyny[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:সরানো যায়নি[auto]
 
 ListeVideExeption.1:অসম্ভব[auto]
 
-ChasseFourmi.1:একটি শিকার দেখেছি[auto]
-ChasseFourmi.2:পোকা মারা[auto]
-ChasseFourmi.3:পোকা কাটা[auto]
+chasseInsectivore.1:একটি শিকার দেখেছি[auto]
+chasseInsectivore.2:পোকা মারা[auto]
+chasseInsectivore.3:পোকা কাটা[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

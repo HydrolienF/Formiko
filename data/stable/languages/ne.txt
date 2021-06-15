@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:हटाउन सकिएन[auto]
 
 ListeVideExeption.1:असम्भव छ[auto]
 
-ChasseFourmi.1:एउटा सिकार भित्र पसे[auto]
-ChasseFourmi.2:किरालाई मार्न[auto]
-ChasseFourmi.3:किरालाई काट्नु[auto]
+chasseInsectivore.1:एउटा सिकार भित्र पसे[auto]
+chasseInsectivore.2:किरालाई मार्न[auto]
+chasseInsectivore.3:किरालाई काट्नु[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

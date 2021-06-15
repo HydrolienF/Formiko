@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:ma setgħetx titneħħa[auto]
 
 ListeVideExeption.1:impossibbli li[auto]
 
-ChasseFourmi.1:raw priża ġewwa[auto]
-ChasseFourmi.2:qatel l-insett[auto]
-ChasseFourmi.3:biex taqta 'l-insett[auto]
+chasseInsectivore.1:raw priża ġewwa[auto]
+chasseInsectivore.2:qatel l-insett[auto]
+chasseInsectivore.3:biex taqta 'l-insett[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

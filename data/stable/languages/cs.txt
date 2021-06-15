@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:nelze odstranit[auto]
 
 ListeVideExeption.1:nemožné[auto]
 
-ChasseFourmi.1:viděl kořist[auto]
-ChasseFourmi.2:zabil hmyz[auto]
-ChasseFourmi.3:rozřezat hmyz[auto]
+chasseInsectivore.1:viděl kořist[auto]
+chasseInsectivore.2:zabil hmyz[auto]
+chasseInsectivore.3:rozřezat hmyz[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

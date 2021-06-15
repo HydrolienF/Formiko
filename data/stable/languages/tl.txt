@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:hindi matanggal[auto]
 
 ListeVideExeption.1:imposibleng[auto]
 
-ChasseFourmi.1:nakakita ng isang biktima sa[auto]
-ChasseFourmi.2:pinatay ang insekto[auto]
-ChasseFourmi.3:upang putulin ang insekto[auto]
+chasseInsectivore.1:nakakita ng isang biktima sa[auto]
+chasseInsectivore.2:pinatay ang insekto[auto]
+chasseInsectivore.3:upang putulin ang insekto[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

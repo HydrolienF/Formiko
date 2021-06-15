@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:не может быть удален[auto]
 
 ListeVideExeption.1:невозможно[auto]
 
-ChasseFourmi.1:увидел добычу в[auto]
-ChasseFourmi.2:убил насекомое[auto]
-ChasseFourmi.3:резать насекомое[auto]
+chasseInsectivore.1:увидел добычу в[auto]
+chasseInsectivore.2:убил насекомое[auto]
+chasseInsectivore.3:резать насекомое[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

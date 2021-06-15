@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:መወገድ አልተቻለም[auto]
 
 ListeVideExeption.1:የማይቻል[auto]
 
-ChasseFourmi.1:ውስጥ አንድ ምርኮ አየ[auto]
-ChasseFourmi.2:ነፍሳቱን ገደለው[auto]
-ChasseFourmi.3:ነፍሳትን ለመቁረጥ[auto]
+chasseInsectivore.1:ውስጥ አንድ ምርኮ አየ[auto]
+chasseInsectivore.2:ነፍሳቱን ገደለው[auto]
+chasseInsectivore.3:ነፍሳትን ለመቁረጥ[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

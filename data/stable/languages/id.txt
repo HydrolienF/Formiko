@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:tidak bisa dilepas[auto]
 
 ListeVideExeption.1:tidak mungkin[auto]
 
-ChasseFourmi.1:melihat mangsa masuk[auto]
-ChasseFourmi.2:membunuh serangga itu[auto]
-ChasseFourmi.3:untuk memotong serangga[auto]
+chasseInsectivore.1:melihat mangsa masuk[auto]
+chasseInsectivore.2:membunuh serangga itu[auto]
+chasseInsectivore.3:untuk memotong serangga[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

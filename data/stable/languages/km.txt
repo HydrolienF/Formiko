@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:មិនអាចត្រូវបានយ�
 
 ListeVideExeption.1:មិនអាចទៅរួចទេ[auto]
 
-ChasseFourmi.1:បានឃើញសត្វព្រៃនៅក្នុង[auto]
-ChasseFourmi.2:សម្លាប់សត្វល្អិត[auto]
-ChasseFourmi.3:ដើម្បីកាត់សត្វល្អិត[auto]
+chasseInsectivore.1:បានឃើញសត្វព្រៃនៅក្នុង[auto]
+chasseInsectivore.2:សម្លាប់សត្វល្អិត[auto]
+chasseInsectivore.3:ដើម្បីកាត់សត្វល្អិត[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

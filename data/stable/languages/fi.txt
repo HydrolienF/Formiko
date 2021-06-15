@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:ei voitu poistaa[auto]
 
 ListeVideExeption.1:mahdotonta[auto]
 
-ChasseFourmi.1:näki saaliin[auto]
-ChasseFourmi.2:tappoi hyönteisen[auto]
-ChasseFourmi.3:leikata hyönteinen[auto]
+chasseInsectivore.1:näki saaliin[auto]
+chasseInsectivore.2:tappoi hyönteisen[auto]
+chasseInsectivore.3:leikata hyönteinen[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

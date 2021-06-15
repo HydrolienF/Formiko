@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:akukwazanga ukususwa[auto]
 
 ListeVideExeption.1:kungenzeki[auto]
 
-ChasseFourmi.1:wabona isisulu ku[auto]
-ChasseFourmi.2:wabulala isinambuzane[auto]
-ChasseFourmi.3:ukusika isinambuzane[auto]
+chasseInsectivore.1:wabona isisulu ku[auto]
+chasseInsectivore.2:wabulala isinambuzane[auto]
+chasseInsectivore.3:ukusika isinambuzane[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

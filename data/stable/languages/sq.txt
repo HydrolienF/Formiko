@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:nuk mund të hiqet[auto]
 
 ListeVideExeption.1:e pamundur të[auto]
 
-ChasseFourmi.1:pa një pre në[auto]
-ChasseFourmi.2:vrau insektin[auto]
-ChasseFourmi.3:për të prerë insektin[auto]
+chasseInsectivore.1:pa një pre në[auto]
+chasseInsectivore.2:vrau insektin[auto]
+chasseInsectivore.3:për të prerë insektin[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

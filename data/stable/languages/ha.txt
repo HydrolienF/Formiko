@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:ba za a iya cirewa ba[auto]
 
 ListeVideExeption.1:ba zai yiwu ba ga[auto]
 
-ChasseFourmi.1:ya ga ganima a ciki[auto]
-ChasseFourmi.2:kashe kwaro[auto]
-ChasseFourmi.3:don sare kwaron[auto]
+chasseInsectivore.1:ya ga ganima a ciki[auto]
+chasseInsectivore.2:kashe kwaro[auto]
+chasseInsectivore.3:don sare kwaron[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

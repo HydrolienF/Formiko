@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:அகற்ற முடியவில்ல
 
 ListeVideExeption.1:சாத்தியமற்றது[auto]
 
-ChasseFourmi.1:உள்ளே ஒரு இரையைப் பார்த்தேன்[auto]
-ChasseFourmi.2:பூச்சியைக் கொன்றது[auto]
-ChasseFourmi.3:பூச்சியை வெட்டுவதற்கு[auto]
+chasseInsectivore.1:உள்ளே ஒரு இரையைப் பார்த்தேன்[auto]
+chasseInsectivore.2:பூச்சியைக் கொன்றது[auto]
+chasseInsectivore.3:பூச்சியை வெட்டுவதற்கு[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

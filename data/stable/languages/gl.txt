@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:non se puido eliminar[auto]
 
 ListeVideExeption.1:imposible[auto]
 
-ChasseFourmi.1:viu unha presa dentro[auto]
-ChasseFourmi.2:matou o insecto[auto]
-ChasseFourmi.3:para cortar o insecto[auto]
+chasseInsectivore.1:viu unha presa dentro[auto]
+chasseInsectivore.2:matou o insecto[auto]
+chasseInsectivore.3:para cortar o insecto[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

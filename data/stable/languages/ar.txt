@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:لا يمكن إزالتها[auto]
 
 ListeVideExeption.1:مستحيل ان[auto]
 
-ChasseFourmi.1:رأى فريسة في[auto]
-ChasseFourmi.2:قتل الحشرة[auto]
-ChasseFourmi.3:لتقطيع الحشرة[auto]
+chasseInsectivore.1:رأى فريسة في[auto]
+chasseInsectivore.2:قتل الحشرة[auto]
+chasseInsectivore.3:لتقطيع الحشرة[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

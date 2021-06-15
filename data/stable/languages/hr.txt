@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:nije se moglo ukloniti[auto]
 
 ListeVideExeption.1:nemoguće[auto]
 
-ChasseFourmi.1:vidio plijen u[auto]
-ChasseFourmi.2:ubio kukca[auto]
-ChasseFourmi.3:da isječe kukca[auto]
+chasseInsectivore.1:vidio plijen u[auto]
+chasseInsectivore.2:ubio kukca[auto]
+chasseInsectivore.3:da isječe kukca[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

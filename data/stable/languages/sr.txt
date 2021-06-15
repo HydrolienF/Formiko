@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:није било могуће уклонит�
 
 ListeVideExeption.1:немогуће[auto]
 
-ChasseFourmi.1:угледао плен у[auto]
-ChasseFourmi.2:убио инсекта[auto]
-ChasseFourmi.3:да посече инсект[auto]
+chasseInsectivore.1:угледао плен у[auto]
+chasseInsectivore.2:убио инсекта[auto]
+chasseInsectivore.3:да посече инсект[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

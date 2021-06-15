@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:немагчыма выдаліць[auto]
 
 ListeVideExeption.1:немагчыма[auto]
 
-ChasseFourmi.1:убачыў здабычу ў[auto]
-ChasseFourmi.2:забіла казурка[auto]
-ChasseFourmi.3:выразаць казурка[auto]
+chasseInsectivore.1:убачыў здабычу ў[auto]
+chasseInsectivore.2:забіла казурка[auto]
+chasseInsectivore.3:выразаць казурка[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

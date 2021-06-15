@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:ئۆچۈرگىلى بولمىدى[auto]
 
 ListeVideExeption.1:مۇمكىن ئەمەس[auto]
 
-ChasseFourmi.1:بىر ئولجىنى كۆردى[auto]
-ChasseFourmi.2:ھاشاراتنى ئۆلتۈردى[auto]
-ChasseFourmi.3:ھاشاراتنى كېسىش[auto]
+chasseInsectivore.1:بىر ئولجىنى كۆردى[auto]
+chasseInsectivore.2:ھاشاراتنى ئۆلتۈردى[auto]
+chasseInsectivore.3:ھاشاراتنى كېسىش[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:kunde inte tas bort[auto]
 
 ListeVideExeption.1:omöjligt att[auto]
 
-ChasseFourmi.1:såg ett byte i[auto]
-ChasseFourmi.2:dödade insekten[auto]
-ChasseFourmi.3:att skära upp insekten[auto]
+chasseInsectivore.1:såg ett byte i[auto]
+chasseInsectivore.2:dödade insekten[auto]
+chasseInsectivore.3:att skära upp insekten[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

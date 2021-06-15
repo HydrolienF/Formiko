@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:cha b ’urrainnear a thoirt air falbh[auto]
 
 ListeVideExeption.1:do-dhèanta[auto]
 
-ChasseFourmi.1:chunnaic creach a-steach[auto]
-ChasseFourmi.2:mharbh a ’bhiastag[auto]
-ChasseFourmi.3:gus a ’bhiast a ghearradh suas[auto]
+chasseInsectivore.1:chunnaic creach a-steach[auto]
+chasseInsectivore.2:mharbh a ’bhiastag[auto]
+chasseInsectivore.3:gus a ’bhiast a ghearradh suas[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

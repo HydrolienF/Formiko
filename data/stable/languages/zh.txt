@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:无法删除[auto]
 
 ListeVideExeption.1:不可能[auto]
 
-ChasseFourmi.1:看到一个猎物[auto]
-ChasseFourmi.2:杀死了昆虫[auto]
-ChasseFourmi.3:切开昆虫[auto]
+chasseInsectivore.1:看到一个猎物[auto]
+chasseInsectivore.2:杀死了昆虫[auto]
+chasseInsectivore.3:切开昆虫[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

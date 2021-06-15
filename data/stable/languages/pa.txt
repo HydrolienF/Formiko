@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿ�
 
 ListeVideExeption.1:ਅਸੰਭਵ[auto]
 
-ChasseFourmi.1:ਅੰਦਰ ਇੱਕ ਸ਼ਿਕਾਰ ਵੇਖਿਆ[auto]
-ChasseFourmi.2:ਕੀੜੇ ਮਾਰੇ[auto]
-ChasseFourmi.3:ਕੀੜੇ ਨੂੰ ਕੱਟਣ ਲਈ[auto]
+chasseInsectivore.1:ਅੰਦਰ ਇੱਕ ਸ਼ਿਕਾਰ ਵੇਖਿਆ[auto]
+chasseInsectivore.2:ਕੀੜੇ ਮਾਰੇ[auto]
+chasseInsectivore.3:ਕੀੜੇ ਨੂੰ ਕੱਟਣ ਲਈ[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

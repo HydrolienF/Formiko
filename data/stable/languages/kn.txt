@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:ತೆಗೆದುಹಾಕಲಾಗಲಿಲ�
 
 ListeVideExeption.1:ಅಸಾಧ್ಯ[auto]
 
-ChasseFourmi.1:ಒಂದು ಬೇಟೆಯನ್ನು ನೋಡಿದೆ[auto]
-ChasseFourmi.2:ಕೀಟವನ್ನು ಕೊಂದರು[auto]
-ChasseFourmi.3:ಕೀಟವನ್ನು ಕತ್ತರಿಸಲು[auto]
+chasseInsectivore.1:ಒಂದು ಬೇಟೆಯನ್ನು ನೋಡಿದೆ[auto]
+chasseInsectivore.2:ಕೀಟವನ್ನು ಕೊಂದರು[auto]
+chasseInsectivore.3:ಕೀಟವನ್ನು ಕತ್ತರಿಸಲು[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

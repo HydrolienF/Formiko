@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:قابل حذف نیست[auto]
 
 ListeVideExeption.1:غیر ممکن است[auto]
 
-ChasseFourmi.1:طعمه ای را دید[auto]
-ChasseFourmi.2:حشره را کشت[auto]
-ChasseFourmi.3:برای بریدن حشره[auto]
+chasseInsectivore.1:طعمه ای را دید[auto]
+chasseInsectivore.2:حشره را کشت[auto]
+chasseInsectivore.3:برای بریدن حشره[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

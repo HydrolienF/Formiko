@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:nepavyko pašalinti[auto]
 
 ListeVideExeption.1:neįmanoma[auto]
 
-ChasseFourmi.1:pamatė grobį[auto]
-ChasseFourmi.2:užmušė vabzdį[auto]
-ChasseFourmi.3:vabzdžiui nupjauti[auto]
+chasseInsectivore.1:pamatė grobį[auto]
+chasseInsectivore.2:užmušė vabzdį[auto]
+chasseInsectivore.3:vabzdžiui nupjauti[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

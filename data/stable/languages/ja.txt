@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:削除できませんでした[auto]
 
 ListeVideExeption.1:不可能[auto]
 
-ChasseFourmi.1:獲物を見た[auto]
-ChasseFourmi.2:虫を殺した[auto]
-ChasseFourmi.3:虫を切る[auto]
+chasseInsectivore.1:獲物を見た[auto]
+chasseInsectivore.2:虫を殺した[auto]
+chasseInsectivore.3:虫を切る[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:kaore i taea te tango[auto]
 
 ListeVideExeption.1:kaore e taea ki[auto]
 
-ChasseFourmi.1:i kite he taonga parakete i roto[auto]
-ChasseFourmi.2:patua te ngarara[auto]
-ChasseFourmi.3:hei tapahi i te pepeke[auto]
+chasseInsectivore.1:i kite he taonga parakete i roto[auto]
+chasseInsectivore.2:patua te ngarara[auto]
+chasseInsectivore.3:hei tapahi i te pepeke[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

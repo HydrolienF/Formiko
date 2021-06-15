@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:نہیں ہٹایا جاسکا[auto]
 
 ListeVideExeption.1:ناممکن ہے[auto]
 
-ChasseFourmi.1:ایک شکار کو دیکھا[auto]
-ChasseFourmi.2:کیڑے کو مار ڈالا[auto]
-ChasseFourmi.3:کیڑے کاٹنے کے لئے[auto]
+chasseInsectivore.1:ایک شکار کو دیکھا[auto]
+chasseInsectivore.2:کیڑے کو مار ڈالا[auto]
+chasseInsectivore.3:کیڑے کاٹنے کے لئے[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

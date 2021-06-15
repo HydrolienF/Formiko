@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:հնարավոր չէր հեռացնել[auto]
 
 ListeVideExeption.1:անհնար է[auto]
 
-ChasseFourmi.1:մեջ որս տեսավ[auto]
-ChasseFourmi.2:սպանեց միջատին[auto]
-ChasseFourmi.3:միջատը կտրելու համար[auto]
+chasseInsectivore.1:մեջ որս տեսավ[auto]
+chasseInsectivore.2:սպանեց միջատին[auto]
+chasseInsectivore.3:միջատը կտրելու համար[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

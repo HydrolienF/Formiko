@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:konnt net ewechgeholl ginn[auto]
 
 ListeVideExeption.1:onméiglech fir[auto]
 
-ChasseFourmi.1:gesinn e Kaz an[auto]
-ChasseFourmi.2:huet d'Insekt ëmbruecht[auto]
-ChasseFourmi.3:d'Insekt opzeschneiden[auto]
+chasseInsectivore.1:gesinn e Kaz an[auto]
+chasseInsectivore.2:huet d'Insekt ëmbruecht[auto]
+chasseInsectivore.3:d'Insekt opzeschneiden[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:ختم نه ٿي ڪري سگھجي[auto]
 
 ListeVideExeption.1:ناممڪن[auto]
 
-ChasseFourmi.1:ڏٺو ويو شڪار ۾[auto]
-ChasseFourmi.2:حشر کي ماريو[auto]
-ChasseFourmi.3:جيٽ ڀوڳڻ[auto]
+chasseInsectivore.1:ڏٺو ويو شڪار ۾[auto]
+chasseInsectivore.2:حشر کي ماريو[auto]
+chasseInsectivore.3:جيٽ ڀوڳڻ[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

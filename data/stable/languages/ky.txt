@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:алынып салынган жок[auto]
 
 ListeVideExeption.1:мүмкүн эмес[auto]
 
-ChasseFourmi.1:ичинде олжосун көрдү[auto]
-ChasseFourmi.2:курт-кумурсканы жок кылган[auto]
-ChasseFourmi.3:курт-кумурсканы кесүү[auto]
+chasseInsectivore.1:ичинде олжосун көрдү[auto]
+chasseInsectivore.2:курт-кумурсканы жок кылган[auto]
+chasseInsectivore.3:курт-кумурсканы кесүү[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

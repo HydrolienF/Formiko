@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:устгаж чадсангүй[auto]
 
 ListeVideExeption.1:боломжгүй[auto]
 
-ChasseFourmi.1:олзоо харав[auto]
-ChasseFourmi.2:шавьжийг устгасан[auto]
-ChasseFourmi.3:шавьжийг тайрч авах[auto]
+chasseInsectivore.1:олзоо харав[auto]
+chasseInsectivore.2:шавьжийг устгасан[auto]
+chasseInsectivore.3:шавьжийг тайрч авах[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

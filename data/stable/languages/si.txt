@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:ඉවත් කළ නොහැක[auto]
 
 ListeVideExeption.1:කළ නොහැකි ය[auto]
 
-ChasseFourmi.1:ගොදුරක් දුටුවා[auto]
-ChasseFourmi.2:කෘමියා මැරුවා[auto]
-ChasseFourmi.3:කෘමියා කපා දැමීමට[auto]
+chasseInsectivore.1:ගොදුරක් දුටුවා[auto]
+chasseInsectivore.2:කෘමියා මැරුවා[auto]
+chasseInsectivore.3:කෘමියා කපා දැමීමට[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

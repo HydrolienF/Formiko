@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:nem lehetett eltávolítani[auto]
 
 ListeVideExeption.1:lehetetlen[auto]
 
-ChasseFourmi.1:zsákmányt látott be[auto]
-ChasseFourmi.2:megölte a rovart[auto]
-ChasseFourmi.3:hogy feldarabolja a rovart[auto]
+chasseInsectivore.1:zsákmányt látott be[auto]
+chasseInsectivore.2:megölte a rovart[auto]
+chasseInsectivore.3:hogy feldarabolja a rovart[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:kon nie verwyder word nie[auto]
 
 ListeVideExeption.1:onmoontlik om[auto]
 
-ChasseFourmi.1:het 'n prooi gesien in[auto]
-ChasseFourmi.2:die insek doodgemaak[auto]
-ChasseFourmi.3:om die insek op te kap[auto]
+chasseInsectivore.1:het 'n prooi gesien in[auto]
+chasseInsectivore.2:die insek doodgemaak[auto]
+chasseInsectivore.3:om die insek op te kap[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

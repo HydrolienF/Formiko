@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:nu a putut fi eliminat[auto]
 
 ListeVideExeption.1:imposibil de făcut[auto]
 
-ChasseFourmi.1:a văzut o pradă înăuntru[auto]
-ChasseFourmi.2:a ucis insecta[auto]
-ChasseFourmi.3:pentru a tăia insecta[auto]
+chasseInsectivore.1:a văzut o pradă înăuntru[auto]
+chasseInsectivore.2:a ucis insecta[auto]
+chasseInsectivore.3:pentru a tăia insecta[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

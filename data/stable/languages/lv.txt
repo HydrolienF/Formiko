@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:nevarēja noņemt[auto]
 
 ListeVideExeption.1:neiespējami[auto]
 
-ChasseFourmi.1:ieraudzīju upuri iekšā[auto]
-ChasseFourmi.2:nogalināja kukaini[auto]
-ChasseFourmi.3:sagriezt kukaini[auto]
+chasseInsectivore.1:ieraudzīju upuri iekšā[auto]
+chasseInsectivore.2:nogalināja kukaini[auto]
+chasseInsectivore.3:sagriezt kukaini[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:δεν ήταν δυνατή η κατάργη
 
 ListeVideExeption.1:αδύνατο[auto]
 
-ChasseFourmi.1:είδα ένα θήραμα μέσα[auto]
-ChasseFourmi.2:σκότωσε το έντομο[auto]
-ChasseFourmi.3:για να κόψει το έντομο[auto]
+chasseInsectivore.1:είδα ένα θήραμα μέσα[auto]
+chasseInsectivore.2:σκότωσε το έντομο[auto]
+chasseInsectivore.3:για να κόψει το έντομο[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

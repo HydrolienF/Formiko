@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:لیرې نه شو[auto]
 
 ListeVideExeption.1:ناممکن[auto]
 
-ChasseFourmi.1:یو ښکار په کې وکتل[auto]
-ChasseFourmi.2:حشرات مړ کړل[auto]
-ChasseFourmi.3:د حشراتو قطع کول[auto]
+chasseInsectivore.1:یو ښکار په کې وکتل[auto]
+chasseInsectivore.2:حشرات مړ کړل[auto]
+chasseInsectivore.3:د حشراتو قطع کول[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

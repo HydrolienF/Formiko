@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:aýryp bolmady[auto]
 
 ListeVideExeption.1:mümkin däl[auto]
 
-ChasseFourmi.1:ýyrtyjyny gördi[auto]
-ChasseFourmi.2:mör-möjeki öldürdi[auto]
-ChasseFourmi.3:mör-möjekleri kesmek üçin[auto]
+chasseInsectivore.1:ýyrtyjyny gördi[auto]
+chasseInsectivore.2:mör-möjeki öldürdi[auto]
+chasseInsectivore.3:mör-möjekleri kesmek üçin[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

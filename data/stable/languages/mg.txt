@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:tsy afaka nesorina[auto]
 
 ListeVideExeption.1:tsy azo atao[auto]
 
-ChasseFourmi.1:nahita remby niditra[auto]
-ChasseFourmi.2:namono ilay bibikely[auto]
-ChasseFourmi.3:manapaka ny bibikely[auto]
+chasseInsectivore.1:nahita remby niditra[auto]
+chasseInsectivore.2:namono ilay bibikely[auto]
+chasseInsectivore.3:manapaka ny bibikely[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:could not be removed
 
 ListeVideExeption.1:impossible to
 
-ChasseFourmi.1:saw a prey in[auto]
-ChasseFourmi.2:killed the insect[auto]
-ChasseFourmi.3:to cut up the insect[auto]
+chasseInsectivore.1:saw a prey in
+chasseInsectivore.2:killed the insect
+chasseInsectivore.3:to cut up the insect
+evoluerFourmi.1:evolve to the next stage
+pondreReine.1:was born
+spawnOf:spawn of
 
 //objet graphique:
 

@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:níorbh fhéidir é a bhaint[auto]
 
 ListeVideExeption.1:dodhéanta[auto]
 
-ChasseFourmi.1:chonaic creiche i[auto]
-ChasseFourmi.2:mharaigh an fheithid[auto]
-ChasseFourmi.3:an fheithid a ghearradh suas[auto]
+chasseInsectivore.1:chonaic creiche i[auto]
+chasseInsectivore.2:mharaigh an fheithid[auto]
+chasseInsectivore.3:an fheithid a ghearradh suas[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

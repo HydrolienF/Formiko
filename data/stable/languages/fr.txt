@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:n'as pu être retiré
 
 ListeVideExeption.1:impossible de
 
-ChasseFourmi.1:a vue une proie en
-ChasseFourmi.2:a tué l'insecte
-ChasseFourmi.3:a dépecer l'insecte
+chasseInsectivore.1:a vue une proie en
+chasseInsectivore.2:a tué l'insecte
+chasseInsectivore.3:a dépecer l'insecte
+evoluerFourmi.1:passe au stade suivant
+pondreReine.1:est née
+spawnOf:apparition de
 
 //objet graphique:
 

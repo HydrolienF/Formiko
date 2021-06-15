@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:ไม่สามารถลบออกไ�
 
 ListeVideExeption.1:เป็นไปไม่ได้ที่จะ[auto]
 
-ChasseFourmi.1:เห็นเหยื่อเข้ามา[auto]
-ChasseFourmi.2:ฆ่าแมลง[auto]
-ChasseFourmi.3:เพื่อตัดแมลง[auto]
+chasseInsectivore.1:เห็นเหยื่อเข้ามา[auto]
+chasseInsectivore.2:ฆ่าแมลง[auto]
+chasseInsectivore.3:เพื่อตัดแมลง[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

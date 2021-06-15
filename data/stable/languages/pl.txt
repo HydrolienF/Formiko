@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:nie można było usunąć[auto]
 
 ListeVideExeption.1:niemożliwe[auto]
 
-ChasseFourmi.1:zobaczył zdobycz[auto]
-ChasseFourmi.2:zabił owada[auto]
-ChasseFourmi.3:wyciąć owada[auto]
+chasseInsectivore.1:zobaczył zdobycz[auto]
+chasseInsectivore.2:zabił owada[auto]
+chasseInsectivore.3:wyciąć owada[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

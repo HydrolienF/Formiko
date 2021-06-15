@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:teu tiasa dipiceun[auto]
 
 ListeVideExeption.1:mustahil pikeun[auto]
 
-ChasseFourmi.1:nempo mangsa di[auto]
-ChasseFourmi.2:maéhan serangga[auto]
-ChasseFourmi.3:pikeun motong serangga[auto]
+chasseInsectivore.1:nempo mangsa di[auto]
+chasseInsectivore.2:maéhan serangga[auto]
+chasseInsectivore.3:pikeun motong serangga[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

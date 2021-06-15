@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:không thể bị loại bỏ[auto]
 
 ListeVideExeption.1:không thể[auto]
 
-ChasseFourmi.1:nhìn thấy một con mồi trong[auto]
-ChasseFourmi.2:giết côn trùng[auto]
-ChasseFourmi.3:cắt côn trùng[auto]
+chasseInsectivore.1:nhìn thấy một con mồi trong[auto]
+chasseInsectivore.2:giết côn trùng[auto]
+chasseInsectivore.3:cắt côn trùng[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

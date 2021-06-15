@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:ko le yọ[auto]
 
 ListeVideExeption.1:soro lati[auto]
 
-ChasseFourmi.1:ri ohun ọdẹ ninu[auto]
-ChasseFourmi.2:pa kokoro[auto]
-ChasseFourmi.3:lati ge kokoro naa[auto]
+chasseInsectivore.1:ri ohun ọdẹ ninu[auto]
+chasseInsectivore.2:pa kokoro[auto]
+chasseInsectivore.3:lati ge kokoro naa[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

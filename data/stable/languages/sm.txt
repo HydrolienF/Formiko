@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:le mafai ona aveʻesea[auto]
 
 ListeVideExeption.1:faigata ona[auto]
 
-ChasseFourmi.1:vaai se vete i totonu[auto]
-ChasseFourmi.2:fasiotia le iniseti[auto]
-ChasseFourmi.3:e tipi le iniseti[auto]
+chasseInsectivore.1:vaai se vete i totonu[auto]
+chasseInsectivore.2:fasiotia le iniseti[auto]
+chasseInsectivore.3:e tipi le iniseti[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

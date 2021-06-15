@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:తీసివేయబడలేదు[auto]
 
 ListeVideExeption.1:అసాధ్యం[auto]
 
-ChasseFourmi.1:లో ఒక ఎర చూసింది[auto]
-ChasseFourmi.2:కీటకాన్ని చంపింది[auto]
-ChasseFourmi.3:కీటకాన్ని కత్తిరించడానికి[auto]
+chasseInsectivore.1:లో ఒక ఎర చూసింది[auto]
+chasseInsectivore.2:కీటకాన్ని చంపింది[auto]
+chasseInsectivore.3:కీటకాన్ని కత్తిరించడానికి[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 

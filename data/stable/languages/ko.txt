@@ -299,9 +299,12 @@ ElementListeIntrouvableExeption.2:제거 할 수 없습니다[auto]
 
 ListeVideExeption.1:불가능하다[auto]
 
-ChasseFourmi.1:먹이를 보았다[auto]
-ChasseFourmi.2:곤충을 죽였다[auto]
-ChasseFourmi.3:곤충을 자르다[auto]
+chasseInsectivore.1:먹이를 보았다[auto]
+chasseInsectivore.2:곤충을 죽였다[auto]
+chasseInsectivore.3:곤충을 자르다[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
