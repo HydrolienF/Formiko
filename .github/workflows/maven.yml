@@ -33,7 +33,7 @@ jobs:
       id: create_release
       with:
         draft: false
-        prerelease: false
+        prerelease: true
         release_name: Formiko${{ steps.version.outputs.version }}
         tag_name: ${{ steps.version.outputs.version }}
         body_path: CHANGELOG.md
