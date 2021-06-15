@@ -136,8 +136,6 @@ public class MusicPlayer implements AudioInterface {
     }else{
       curentMusique = nextMusics.getItem(0);
       nextMusics.removeItem(0);
-      System.out.println("nextMusics");//@a
-      System.out.println(nextMusics);//@a
     }
     return getPath()+curentMusique;
   }

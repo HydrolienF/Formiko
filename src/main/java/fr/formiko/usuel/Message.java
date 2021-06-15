@@ -107,6 +107,7 @@ public class Message implements Serializable{
     GJoueur gj = Main.getGj().getJoueurHumain();
     if(gj.length()==0){
       new Message(g.getM("la")+" "+f.getNom()+" "+f.getId()+" "+g.get("du")+" "+g.get("joueur")+" "+f.getJoueur().getId()+" "+ g.get("mort"+raison));
+      Main.setPlayingAnt(f); //to refrech playingant info
       return;
     }
     //Ici on doit filtrer les joueurs qui ne vois pas la case ou la fourmi meurt.

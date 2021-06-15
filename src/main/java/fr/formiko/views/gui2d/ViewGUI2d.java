@@ -373,18 +373,18 @@ public class ViewGUI2d implements View {
       getPdi().removeBSuivant();
     }catch (Exception e) {}
     try {
-      Main.getScript().setCmdSuivante(doWeNeedToDoNextCmdNow);
+      if(Main.getScript()!=null){
+        Main.getScript().setCmdSuivante(doWeNeedToDoNextCmdNow);
+      }
       if(!doWeNeedToDoNextCmdNow){
         getPdi().addBSuivant();
-        // Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
-        // getPs().actualiserTailleMax();
       }else{
         getPs().actualiserTaille();//écoute normale
       }
     }catch (Exception e) {//par défaut on attend avant de passer a la commande suivante.
+      erreur.alerte("can't print message : "+message);
       Main.getScript().setCmdSuivante(false);
       getPdi().addBSuivant();
-      // Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
     }
   }
   /**

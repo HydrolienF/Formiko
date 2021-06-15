@@ -292,12 +292,10 @@ public class Main {
     if(!erreur.getMuet()){ //if not in test.
       if (modeCLI) {
         if (view!=null && !(view instanceof ViewCLI)) {
-          erreur.info("ViewCLI");//@a
           view = new ViewCLI();
         }
       }else{
         if (view!=null && !(view instanceof ViewGUI2d)) {
-          erreur.info("ViewGUI2D");//@a
           view = new ViewGUI2d();
         }
       }
@@ -351,10 +349,6 @@ public class Main {
     //op = chargerLesOptions.chargerLesOptions(getVersionActuelle());
     op = new Options();
     op.iniOptions();
-    if(premierePartie){
-      // getView();
-      System.out.println("ASK LANGUAGE");//@a
-    }
   }
   /**
    *{@summary Load language.}<br>

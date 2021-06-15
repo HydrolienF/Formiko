@@ -33,7 +33,6 @@ public class PanneauChoixPartie extends PanneauLanceurPartie{
     //ePartie.setTaille(getWidth()*1/5,getHeight()*1/5);
     add(ePartie);
     if (emptyList) {
-      erreur.info("disable launch button");//@a
       getLaunchButton().setEnabled(false);
     }
   }

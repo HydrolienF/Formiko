@@ -177,7 +177,11 @@ public class triche {
           if(args.length>2){
             doWeNeedToDoNextCmdNow=str.sToB(args[2]);
           }
-          Main.getView().message(s2,doWeNeedToDoNextCmdNow);
+          try {
+            Main.getView().message(s2,doWeNeedToDoNextCmdNow);
+          }catch (Exception e) {
+            erreur.erreur("cheat code 29 fail to print message");
+          }
           break;
         case 30:
           Main.quitter();

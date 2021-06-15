@@ -81,6 +81,8 @@ public class PanneauJeu extends Panneau {
     }
     add(pd);
     add(pdi);
+    pd.setVisible(false);
+    pdi.setVisible(false);
   }
   public void initialiserPd(String s, boolean needToStayMaxSize){
     pd.initialiser(s, needToStayMaxSize);
@@ -129,8 +131,10 @@ public class PanneauJeu extends Panneau {
     remove(pch);
     pch = null;
     if(pd!=null){
-      pd.setVisible(true);
-      pdi.setVisible(true);
+      if(pd.getWidth()>1){
+        pd.setVisible(true);
+        pdi.setVisible(true);
+      }
     }
     pc.setVisible(true);
     pb.setVisible(true);
@@ -150,7 +154,6 @@ public class PanneauJeu extends Panneau {
       pb.setVisible(false);
       ps.setSize(0,0);
     }
-    erreur.info("print PanneauFinPartie : "+pfp);//@a
   }
   public void removePfp(){
     remove(pfp);

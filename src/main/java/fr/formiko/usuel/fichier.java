@@ -171,8 +171,7 @@ public class fichier{
       writeChannel.transferFrom(readChannel, 0, Long.MAX_VALUE);
     }catch (Exception e) {
       erreur.erreur("Fail to download "+fileName+" from "+url);
-      System.out.println(e);//@a
-      e.printStackTrace();//@a
+      e.printStackTrace();
       System.out.println(e.getCause());
       System.out.println("--------------------");
     }

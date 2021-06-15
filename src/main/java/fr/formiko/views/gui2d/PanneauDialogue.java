@@ -19,34 +19,44 @@ public class PanneauDialogue extends Panneau {
     // setSize(pi.getWidth(),pi.getHeight());
   }
   public void initialiser(String s, boolean needToStayMaxSize){
+    erreur.info("ini pd with "+s);
     this.needToStayMaxSize=needToStayMaxSize;
     if(pi!=null){remove(pi);}
     try {
-      if(s.equals("")){
+      if(s==null || s.equals("")){
         getView().getPj().getPdi().setVisible(false);
+        setVisible(false);
         return;
       }
       getView().getPj().getPdi().setVisible(true);
-      if(getView().getPch()!= null && getView().getPch().isVisible()){
+      if(getView().getPch() != null && getView().getPch().isVisible()){
         getView().getPj().getPdi().setVisible(false);
       }
     }catch (Exception e) {
       erreur.alerte("Le PanneauDialogueInf n'as pas pu être mis visible.");
     }
-    GString gs = new GString();
-    gs.addParMorceaux(s,80,true);
-    int tailleX = Main.getDimX();
     try {
-      tailleX = Main.getDimXCarte();
-      tailleX=tailleX-Main.getTailleElementGraphiqueX(210);
-    }catch (Exception e) {}
-    pi = new PanneauInfo(gs,tailleX+Main.getTailleElementGraphiqueX(200),false);
-    pi.setLocation(Main.getTailleElementGraphiqueX(210),Main.getTailleElementGraphiqueY(15));
-    setSize(pi.getWidth(),pi.getHeight()+Main.getTailleElementGraphiqueX(30));
-    add(pi);
+      GString gs = new GString();
+      gs.addParMorceaux(s,80,true);
+      int tailleX = Main.getDimX();
+      try {
+        tailleX = Main.getDimXCarte();
+        tailleX=tailleX-Main.getTailleElementGraphiqueX(210);
+      }catch (Exception e) {}
+        pi = new PanneauInfo(gs,tailleX+Main.getTailleElementGraphiqueX(200),false);
+        pi.setLocation(Main.getTailleElementGraphiqueX(210),Main.getTailleElementGraphiqueY(15));
+        setSize(pi.getWidth(),pi.getHeight()+Main.getTailleElementGraphiqueX(30));
+        add(pi);
+    }catch (Exception e) {
+      erreur.alerte("fail to ini PanneauDialogue");
+    }
   }
   // GET SET --------------------------------------------------------------------
   public boolean getNeedToStayMaxSize(){return needToStayMaxSize;}
+  public void setVisible(boolean b){
+    super.setVisible(b);
+    erreur.info("setVisible "+b,4);//@a
+  }
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     super.paintComponent(g);
