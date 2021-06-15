@@ -27,6 +27,7 @@ bientôt:ឆាប់[auto]
 suivant:បន្ទាប់[auto]
 avant:មុន[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:មិនអាចត្រូវបានយ�
 
 ListeVideExeption.1:មិនអាចទៅរួចទេ[auto]
 
-ChasseFourmi.1:បានឃើញសត្វព្រៃនៅក្នុង[auto]
-ChasseFourmi.2:សម្លាប់សត្វល្អិត[auto]
-ChasseFourmi.3:ដើម្បីកាត់សត្វល្អិត[auto]
+chasseInsectivore.1:បានឃើញសត្វព្រៃនៅក្នុង[auto]
+chasseInsectivore.2:សម្លាប់សត្វល្អិត[auto]
+chasseInsectivore.3:ដើម្បីកាត់សត្វល្អិត[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:ឆ្នាំងសាក[auto]
 bouton.nom.-12:ត្រឡប់ទៅម៉ឺនុយមេវិញ[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:ត្រលប់ទៅលេង[auto]
+
+languageChoice:
 
 save.message:បញ្ចូលឈ្មោះដើម្បីផ្តល់ការបម្រុងទុករបស់អ្នក។[auto]
 

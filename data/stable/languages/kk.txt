@@ -27,6 +27,7 @@ bientôt:көп ұзамай[auto]
 suivant:келесі[auto]
 avant:бұрын[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:жою мүмкін болмады[auto]
 
 ListeVideExeption.1:мүмкін емес[auto]
 
-ChasseFourmi.1:ішіндегі олжасын көрді[auto]
-ChasseFourmi.2:жәндікті өлтірді[auto]
-ChasseFourmi.3:жәндікті кесу үшін[auto]
+chasseInsectivore.1:ішіндегі олжасын көрді[auto]
+chasseInsectivore.2:жәндікті өлтірді[auto]
+chasseInsectivore.3:жәндікті кесу үшін[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:зарядтағыш[auto]
 bouton.nom.-12:негізгі мәзірге оралу[auto]
 bouton.nom.-13:құмырсқа[auto]
 bouton.nom.-14:ойнауға қайта оралу[auto]
+
+languageChoice:
 
 save.message:сақтық көшірмесін беру үшін атауды енгізіңіз.[auto]
 

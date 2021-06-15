@@ -62,7 +62,7 @@ public class PanneauChargement extends Panneau {
     String s = g.getM("conseil."+x);
     GString gs = new GString();
     gs.addParMorceaux(s,70,true);//ajoute 70 char par 70 char (sans couper les mots) a la GString
-    conseil = new PanneauInfo(gs,(Main.getF().getWidth()*3)/5);
+    conseil = new PanneauInfo(gs,(Main.getF().getWidth()*3)/5,false);
     add(conseil);
     repaint();
   }

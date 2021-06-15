@@ -27,6 +27,7 @@ bientôt:жакында[auto]
 suivant:кийинки[auto]
 avant:чейин[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:алынып салынган жок[auto]
 
 ListeVideExeption.1:мүмкүн эмес[auto]
 
-ChasseFourmi.1:ичинде олжосун көрдү[auto]
-ChasseFourmi.2:курт-кумурсканы жок кылган[auto]
-ChasseFourmi.3:курт-кумурсканы кесүү[auto]
+chasseInsectivore.1:ичинде олжосун көрдү[auto]
+chasseInsectivore.2:курт-кумурсканы жок кылган[auto]
+chasseInsectivore.3:курт-кумурсканы кесүү[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:кубаттагыч[auto]
 bouton.nom.-12:негизги менюга кайтуу[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:кайра ойноого[auto]
+
+languageChoice:
 
 save.message:камдык көчүрмөсүн берүү үчүн атын киргизиңиз.[auto]
 

@@ -27,6 +27,7 @@ bientôt:ускоро[auto]
 suivant:следећи[auto]
 avant:пре него што[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:није било могуће уклонит�
 
 ListeVideExeption.1:немогуће[auto]
 
-ChasseFourmi.1:угледао плен у[auto]
-ChasseFourmi.2:убио инсекта[auto]
-ChasseFourmi.3:да посече инсект[auto]
+chasseInsectivore.1:угледао плен у[auto]
+chasseInsectivore.2:убио инсекта[auto]
+chasseInsectivore.3:да посече инсект[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:пуњач[auto]
 bouton.nom.-12:повратак на главни мени[auto]
 bouton.nom.-13:куиттер Ант[auto]
 bouton.nom.-14:назад за игру[auto]
+
+languageChoice:
 
 save.message:унесите име за резервну копију.[auto]
 

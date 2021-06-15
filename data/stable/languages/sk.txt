@@ -27,6 +27,7 @@ bientôt:čoskoro[auto]
 suivant:nasledujúce[auto]
 avant:predtým[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:sa nepodarilo odstrániť[auto]
 
 ListeVideExeption.1:nemožné[auto]
 
-ChasseFourmi.1:uvidel som korisť[auto]
-ChasseFourmi.2:zabil hmyz[auto]
-ChasseFourmi.3:rozrezať hmyz[auto]
+chasseInsectivore.1:uvidel som korisť[auto]
+chasseInsectivore.2:zabil hmyz[auto]
+chasseInsectivore.3:rozrezať hmyz[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:nabíjačka[auto]
 bouton.nom.-12:späť do hlavnej ponuky[auto]
 bouton.nom.-13:tlmočník Ant[auto]
 bouton.nom.-14:späť hrať[auto]
+
+languageChoice:
 
 save.message:zadajte názov, ktorý chcete dať svojej zálohe.[auto]
 

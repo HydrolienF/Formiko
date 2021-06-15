@@ -27,6 +27,7 @@ bientôt:скоро[auto]
 suivant:следующий[auto]
 avant:перед[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:не может быть удален[auto]
 
 ListeVideExeption.1:невозможно[auto]
 
-ChasseFourmi.1:увидел добычу в[auto]
-ChasseFourmi.2:убил насекомое[auto]
-ChasseFourmi.3:резать насекомое[auto]
+chasseInsectivore.1:увидел добычу в[auto]
+chasseInsectivore.2:убил насекомое[auto]
+chasseInsectivore.3:резать насекомое[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:зарядное устройство[auto]
 bouton.nom.-12:вернуться в главное меню[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:вернуться к игре[auto]
+
+languageChoice:
 
 save.message:введите имя для резервной копии.[auto]
 

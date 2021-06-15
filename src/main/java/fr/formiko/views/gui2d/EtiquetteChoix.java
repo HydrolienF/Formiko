@@ -6,8 +6,10 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.GString;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import javax.swing.JComboBox;
 
 public class EtiquetteChoix extends Panneau{
@@ -15,7 +17,7 @@ public class EtiquetteChoix extends Panneau{
   private Desc choixXDesc;
   private int k;
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public EtiquetteChoix(int x, String clé,GString gs){
+  public EtiquetteChoix(int x, String clé, GString gs){
     debug.débogage("Lancement de la création d'une EtiquetteChoix avec "+gs.length()+" éléments");
     this.setLayout(null);
     setOpaque(false);
@@ -34,15 +36,27 @@ public class EtiquetteChoix extends Panneau{
   public EtiquetteChoix(String clé, GString gs){ this(0,clé,gs);}
   // GET SET --------------------------------------------------------------------
   public String getSelectedItem(){ return choixX.getSelectedItem()+"";}
+  public int getSelectedIndex(){ return choixX.getSelectedIndex();}
   public JComboBox getChoixX(){ return choixX;}
   public Desc getChoixXDesc(){ return choixXDesc;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     //debug.débogage("Lancement de eDif.paintComponent");
+    Graphics2D g2d = (Graphics2D)g;
+    Color cFond = Main.getData().getButtonColor();
+    boolean cFondUseAlpha = true;
+    if(cFond!=null && !isOpaque()){
+      if(cFondUseAlpha){
+        g2d.setColor(cFond);
+      }else{
+        g2d.setColor(new Color(cFond.getRed(),cFond.getGreen(),cFond.getBlue(),255));
+      }
+      g2d.fillRect(0,0,getWidth(),getHeight());
+    }
+    super.paintComponent(g);
   }
   public void setPos(int k){
     this.k = k;
-    //repaint();
   }
   public void setTaille(int x, int y){
     choixX.setSize(x/2,y);

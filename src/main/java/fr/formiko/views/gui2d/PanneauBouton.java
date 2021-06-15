@@ -35,11 +35,13 @@ public class PanneauBouton extends Panneau {
   private PanneauChamp pchamp;
   private PanneauInfo pi;
   private PanneauInfo pij;
+  private Font fontPij;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauBouton(){}
   public void build(){
     setLayout(null);
     descS=""; desc = new Desc();
+    desc.setFondColoré(Main.getData().getButtonColor());
     actionF = -1; choixId = -1;
     int t [] = {0,1,2,3,4,5};
     ptb = new PanneauTBoolean(null);
@@ -52,6 +54,7 @@ public class PanneauBouton extends Panneau {
     pz = new PanneauZoom();
     add(pi);add(pij);
     descTI = new Desc();
+    descTI.setFondColoré(Main.getData().getButtonColor());
     setDescTI("");
     setDesc("");
     descTI.setBounds(0,0,800);
@@ -70,7 +73,6 @@ public class PanneauBouton extends Panneau {
   }
   public int getActionF(){ return actionF;}
   public void setActionF(int x){ actionF=x;}
-  //public void setActionF(int x){ if(Panneau.getView().getPa().getEstBoutonActif(x)){actionF=x;}else{erreur.alerte("L'action "+x+" n'est pas dans les actions faisable.","PanneauBouton.setActionF","l'action n'est pas prise en compte.");}}
   public PanneauTInt getPti(){ return pti;}
   public void setPti(PanneauTInt p){pti=p; }
   public int getChoixId(){ return choixId;}
@@ -182,18 +184,25 @@ public class PanneauBouton extends Panneau {
   }
   public void removePi(){ remove(pi);}
   public void addPIJ(){
-    //removePij();
+    try {
+      removePij();
+    }catch (Exception e) {}
+    if(getView().getPd()!=null && getView().getPd().isVisible()){return;}
+    if(fontPij==null){
+      fontPij = new Font(Main.getOp().getPolice(),Font.PLAIN,(int)(Main.getOp().getTaillePolice1()/2));
+    }
     Fourmi ft = Main.getPlayingAnt();
     if (ft==null){ return;}
     GString gs = ft.getFourmiliere().getJoueur().getGm().gmToGs(Main.getNbrMessageAfficher());
     debug.débogage("affichage console du contenu de gs");
-    debug.débogage("");
-    pij = new PanneauInfo(gs);
-    add(pij);
+    pij = new PanneauInfo(gs,Main.getTailleElementGraphiqueX(500),true,fontPij);
     int xx = pz.getTailleBouton()*5;
     debug.débogage("initialisation du PanneauInfoJoueur en "+(getWidth()-xx)+" "+(getHeight()-pij.getYPi()));
     //pij.setBounds(getWidth()-xx,xx+pi.getY()*(pi.length()+1),pij.getX(),pij.getY()*pij.length());
-    pij.setBounds(getWidth()-xx,getHeight()-pij.getY(),pij.getWidth(),pij.getHeight());
+    // pij.setBounds(getWidth()-xx,getHeight()-pij.getY(),pij.getWidth(),pij.getHeight());
+    int x = Main.getTailleElementGraphiqueX(320);
+    pij.setBounds((getWidth()-x*2)/2,Main.getTailleElementGraphiqueY(100),x,pij.getYPi());
+    add(pij);
   }
   public void removePij(){ remove(pij);}
   //repaint() permet de réactualisé paintComponent()

@@ -27,6 +27,7 @@ bientôt:prestu[auto]
 suivant:seguenti[auto]
 avant:prima[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:ùn pò micca esse cacciatu[auto]
 
 ListeVideExeption.1:impussibile à[auto]
 
-ChasseFourmi.1:hà vistu una preda in[auto]
-ChasseFourmi.2:hà tombu l'insettu[auto]
-ChasseFourmi.3:per taglià l'insettu[auto]
+chasseInsectivore.1:hà vistu una preda in[auto]
+chasseInsectivore.2:hà tombu l'insettu[auto]
+chasseInsectivore.3:per taglià l'insettu[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:caricatore[auto]
 bouton.nom.-12:torna à u menu principale[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:torna à ghjucà[auto]
+
+languageChoice:
 
 save.message:entre u nome da dà à a vostra copia di salvezza.[auto]
 

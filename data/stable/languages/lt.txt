@@ -27,6 +27,7 @@ bientôt:netrukus[auto]
 suivant:sekant[auto]
 avant:prieš tai[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:nepavyko pašalinti[auto]
 
 ListeVideExeption.1:neįmanoma[auto]
 
-ChasseFourmi.1:pamatė grobį[auto]
-ChasseFourmi.2:užmušė vabzdį[auto]
-ChasseFourmi.3:vabzdžiui nupjauti[auto]
+chasseInsectivore.1:pamatė grobį[auto]
+chasseInsectivore.2:užmušė vabzdį[auto]
+chasseInsectivore.3:vabzdžiui nupjauti[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:kroviklis[auto]
 bouton.nom.-12:grįžti į pagrindinį meniu[auto]
 bouton.nom.-13:mesti ranka[auto]
 bouton.nom.-14:atgal žaisti[auto]
+
+languageChoice:
 
 save.message:įveskite vardą, kurį suteiksite savo atsarginei kopijai.[auto]
 

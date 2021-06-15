@@ -27,6 +27,7 @@ bientôt:brátt[auto]
 suivant:eftirfarandi[auto]
 avant:áður[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:var ekki hægt að fjarlægja[auto]
 
 ListeVideExeption.1:ómögulegt að[auto]
 
-ChasseFourmi.1:sá bráð í[auto]
-ChasseFourmi.2:drap skordýrið[auto]
-ChasseFourmi.3:að skera upp skordýrið[auto]
+chasseInsectivore.1:sá bráð í[auto]
+chasseInsectivore.2:drap skordýrið[auto]
+chasseInsectivore.3:að skera upp skordýrið[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:hleðslutæki[auto]
 bouton.nom.-12:aftur í aðalvalmynd[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:aftur til leiks[auto]
+
+languageChoice:
 
 save.message:sláðu inn nafnið til að gefa öryggisafritinu þínu.[auto]
 

@@ -27,6 +27,7 @@ bientôt:ଶୀଘ୍ର[auto]
 suivant:ନିମ୍ନଲିଖିତ[auto]
 avant:ପୂର୍ବରୁ[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:ଅପସାରଣ କରାଯାଇପାର
 
 ListeVideExeption.1:ଅସମ୍ଭବ[auto]
 
-ChasseFourmi.1:ଭିତରକୁ ଏକ ଶିକାର ଦେଖିଲେ[auto]
-ChasseFourmi.2:କୀଟନାଶକକୁ ମାରିଦେଲା |[auto]
-ChasseFourmi.3:କୀଟ କାଟିବା ପାଇଁ |[auto]
+chasseInsectivore.1:ଭିତରକୁ ଏକ ଶିକାର ଦେଖିଲେ[auto]
+chasseInsectivore.2:କୀଟନାଶକକୁ ମାରିଦେଲା |[auto]
+chasseInsectivore.3:କୀଟ କାଟିବା ପାଇଁ |[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:ଚାର୍ଜର[auto]
 bouton.nom.-12:ମୁଖ୍ୟ ମେନୁକୁ ଫେରନ୍ତୁ |[auto]
 bouton.nom.-13:ant[auto]
 bouton.nom.-14:ଖେଳିବାକୁ ଫେରନ୍ତୁ |[auto]
+
+languageChoice:
 
 save.message:ଆପଣଙ୍କର ବ୍ୟାକଅପ୍ ଦେବାକୁ ନାମ ପ୍ରବେଶ କରନ୍ତୁ |[auto]
 

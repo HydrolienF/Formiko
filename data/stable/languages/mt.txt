@@ -27,6 +27,7 @@ bientôt:dalwaqt[auto]
 suivant:wara[auto]
 avant:qabel[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:ma setgħetx titneħħa[auto]
 
 ListeVideExeption.1:impossibbli li[auto]
 
-ChasseFourmi.1:raw priża ġewwa[auto]
-ChasseFourmi.2:qatel l-insett[auto]
-ChasseFourmi.3:biex taqta 'l-insett[auto]
+chasseInsectivore.1:raw priża ġewwa[auto]
+chasseInsectivore.2:qatel l-insett[auto]
+chasseInsectivore.3:biex taqta 'l-insett[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:ċarġer[auto]
 bouton.nom.-12:lura għall-menu prinċipali[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:lura biex tilgħab[auto]
+
+languageChoice:
 
 save.message:daħħal l-isem li tagħti lill-backup tiegħek.[auto]
 

@@ -27,6 +27,7 @@ bientôt:tez orada[auto]
 suivant:quyidagi[auto]
 avant:oldin[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:olib tashlab bo‘lmadi[auto]
 
 ListeVideExeption.1:imkonsiz[auto]
 
-ChasseFourmi.1:yirtqichni ko'rdi[auto]
-ChasseFourmi.2:hasharotni yo'q qildi[auto]
-ChasseFourmi.3:hasharotlarni kesib tashlash[auto]
+chasseInsectivore.1:yirtqichni ko'rdi[auto]
+chasseInsectivore.2:hasharotni yo'q qildi[auto]
+chasseInsectivore.3:hasharotlarni kesib tashlash[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:zaryadlovchi[auto]
 bouton.nom.-12:asosiy menyuga qaytish[auto]
 bouton.nom.-13:chumoli chumoli[auto]
 bouton.nom.-14:o'ynash uchun qaytib[auto]
+
+languageChoice:
 
 save.message:zaxirangizga berish uchun nomni kiriting.[auto]
 

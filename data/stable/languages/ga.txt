@@ -27,6 +27,7 @@ bientôt:go luath[auto]
 suivant:leanas[auto]
 avant:roimh[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:níorbh fhéidir é a bhaint[auto]
 
 ListeVideExeption.1:dodhéanta[auto]
 
-ChasseFourmi.1:chonaic creiche i[auto]
-ChasseFourmi.2:mharaigh an fheithid[auto]
-ChasseFourmi.3:an fheithid a ghearradh suas[auto]
+chasseInsectivore.1:chonaic creiche i[auto]
+chasseInsectivore.2:mharaigh an fheithid[auto]
+chasseInsectivore.3:an fheithid a ghearradh suas[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:charger[auto]
 bouton.nom.-12:ar ais go dtí an príomh-roghchlár[auto]
 bouton.nom.-13:quitter Seangán[auto]
 bouton.nom.-14:ar ais ag imirt[auto]
+
+languageChoice:
 
 save.message:cuir isteach an t-ainm le tabhairt ar do chúltaca.[auto]
 

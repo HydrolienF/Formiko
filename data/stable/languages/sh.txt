@@ -266,9 +266,9 @@ ElementListeIntrouvableExeption.2:nije bilo moguće ukloniti[auto]
 
 ListeVideExeption.1:nemoguće[auto]
 
-ChasseFourmi.1:vidio plijen u[auto]
-ChasseFourmi.2:ubio insekta[auto]
-ChasseFourmi.3:da isječe insekta[auto]
+chasseInsectivore.1:vidio plijen u[auto]
+chasseInsectivore.2:ubio insekta[auto]
+chasseInsectivore.3:da isječe insekta[auto]
 
 //objet graphique:
 

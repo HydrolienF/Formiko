@@ -27,6 +27,7 @@ bientôt:snart[auto]
 suivant:følge[auto]
 avant:før[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:kunne ikke fjernes[auto]
 
 ListeVideExeption.1:umuligt at[auto]
 
-ChasseFourmi.1:så et bytte i[auto]
-ChasseFourmi.2:dræbte insektet[auto]
-ChasseFourmi.3:at skære insektet op[auto]
+chasseInsectivore.1:så et bytte i[auto]
+chasseInsectivore.2:dræbte insektet[auto]
+chasseInsectivore.3:at skære insektet op[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:oplader[auto]
 bouton.nom.-12:tilbage til hovedmenuen[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:tilbage til at spille[auto]
+
+languageChoice:
 
 save.message:indtast det navn, der skal gives til din sikkerhedskopi.[auto]
 

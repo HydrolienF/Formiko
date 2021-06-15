@@ -27,6 +27,7 @@ bientôt:nêzda[auto]
 suivant:pêketînî[auto]
 avant:berî[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:nehate rakirin[auto]
 
 ListeVideExeption.1:ne gengaz e ku[auto]
 
-ChasseFourmi.1:nêçîrek dît di[auto]
-ChasseFourmi.2:kêzik kuşt[auto]
-ChasseFourmi.3:kêzik birrîn[auto]
+chasseInsectivore.1:nêçîrek dît di[auto]
+chasseInsectivore.2:kêzik kuşt[auto]
+chasseInsectivore.3:kêzik birrîn[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:şarjker[auto]
 bouton.nom.-12:vegere menuya sereke[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:vegerin ser lîstinê[auto]
+
+languageChoice:
 
 save.message:navê bikevin da ku bidin paşila xwe.[auto]
 

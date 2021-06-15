@@ -100,4 +100,12 @@ public class Pixel {
   public Color piToColor(){
     return new Color(r+128,g+128,b+128,a+128);
   }
+  /**
+  *{@summary Return Color as a grey color.}<br>
+  *@version 1.54
+  */
+  public static Color colorToGrey(Color c){
+    int g = (int)(0.2989*c.getRed() + 0.5870*c.getGreen() + 0.1140*c.getBlue());
+    return new Color(g,g,g, c.getAlpha());
+  }
 }

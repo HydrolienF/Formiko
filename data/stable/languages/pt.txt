@@ -27,6 +27,7 @@ bientôt:em breve[auto]
 suivant:segue[auto]
 avant:antes[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:não pôde ser removido[auto]
 
 ListeVideExeption.1:impossível[auto]
 
-ChasseFourmi.1:viu uma presa em[auto]
-ChasseFourmi.2:matou o inseto[auto]
-ChasseFourmi.3:cortar o inseto[auto]
+chasseInsectivore.1:viu uma presa em[auto]
+chasseInsectivore.2:matou o inseto[auto]
+chasseInsectivore.3:cortar o inseto[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:carregador[auto]
 bouton.nom.-12:voltar ao menu principal[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:voltar a jogar[auto]
+
+languageChoice:
 
 save.message:digite o nome a ser dado ao seu backup.[auto]
 

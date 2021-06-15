@@ -27,6 +27,7 @@ bientôt:త్వరలో[auto]
 suivant:క్రింది[auto]
 avant:ముందు[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:తీసివేయబడలేదు[auto]
 
 ListeVideExeption.1:అసాధ్యం[auto]
 
-ChasseFourmi.1:లో ఒక ఎర చూసింది[auto]
-ChasseFourmi.2:కీటకాన్ని చంపింది[auto]
-ChasseFourmi.3:కీటకాన్ని కత్తిరించడానికి[auto]
+chasseInsectivore.1:లో ఒక ఎర చూసింది[auto]
+chasseInsectivore.2:కీటకాన్ని చంపింది[auto]
+chasseInsectivore.3:కీటకాన్ని కత్తిరించడానికి[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:ఛార్జర్[auto]
 bouton.nom.-12:ప్రధాన మెనూకు తిరిగి వెళ్ళు[auto]
 bouton.nom.-13:quitter చీమ[auto]
 bouton.nom.-14:తిరిగి ఆడటానికి[auto]
+
+languageChoice:
 
 save.message:మీ బ్యాకప్‌కు ఇవ్వడానికి పేరును నమోదు చేయండి.[auto]
 

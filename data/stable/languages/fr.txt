@@ -27,6 +27,7 @@ bientôt:bientôt
 suivant:suivant
 avant:avant
 save:sauvegarde
+validate:valider
 
 set:choisir
 where:où
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:n'as pu être retiré
 
 ListeVideExeption.1:impossible de
 
-ChasseFourmi.1:a vue une proie en
-ChasseFourmi.2:a tué l'insecte
-ChasseFourmi.3:a dépecer l'insecte
+chasseInsectivore.1:a vue une proie en
+chasseInsectivore.2:a tué l'insecte
+chasseInsectivore.3:a dépecer l'insecte
+evoluerFourmi.1:passe au stade suivant
+pondreReine.1:est née
+spawnOf:apparition de
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:charger
 bouton.nom.-12:retour au menu principal
 bouton.nom.-13:quitter Formiko
 bouton.nom.-14:retour au jeu
+
+languageChoice:choisissez une langue
 
 save.message:entrez le nom a donner a votre sauvegarde.
 

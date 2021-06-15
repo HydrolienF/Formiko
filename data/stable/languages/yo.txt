@@ -27,6 +27,7 @@ bientôt:laipe[auto]
 suivant:atẹle[auto]
 avant:ṣaaju[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:ko le yọ[auto]
 
 ListeVideExeption.1:soro lati[auto]
 
-ChasseFourmi.1:ri ohun ọdẹ ninu[auto]
-ChasseFourmi.2:pa kokoro[auto]
-ChasseFourmi.3:lati ge kokoro naa[auto]
+chasseInsectivore.1:ri ohun ọdẹ ninu[auto]
+chasseInsectivore.2:pa kokoro[auto]
+chasseInsectivore.3:lati ge kokoro naa[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:ṣaja[auto]
 bouton.nom.-12:pada si akojọ aṣayan akọkọ[auto]
 bouton.nom.-13:quitter Kokoro[auto]
 bouton.nom.-14:pada lati mu ṣiṣẹ[auto]
+
+languageChoice:
 
 save.message:tẹ orukọ sii lati fi fun afẹyinti rẹ.[auto]
 

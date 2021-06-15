@@ -33,7 +33,7 @@ public class MusicPlayer implements AudioInterface {
   *{@summary Play next music.}<br>
   *@version 1.52
   */
-  public void play(){
+  public synchronized void play(){
     // erreur.info("Play",4);
     if(audioPlayer!=null){audioPlayer.stop();}
     curentMusique = getNextMusique();
@@ -50,7 +50,7 @@ public class MusicPlayer implements AudioInterface {
   *@see MusicPlayer#resume()
   *@version 1.52
   */
-  public void pause(){
+  public synchronized void pause(){
     if(audioPlayer!=null && !musicPaused){
       audioPlayer.pause();
       musicPaused=true;
@@ -61,7 +61,7 @@ public class MusicPlayer implements AudioInterface {
   *@see MusicPlayer#pause()
   *@version 1.52
   */
-  public void resume(){
+  public synchronized void resume(){
     if(audioPlayer!=null && musicPaused){
       audioPlayer.resume();
       musicPaused=false;
@@ -72,7 +72,7 @@ public class MusicPlayer implements AudioInterface {
   *We need play() to start music again.<br>
   *@version 1.52
   */
-  public void stop(){
+  public synchronized void stop(){
     if(audioPlayer!=null){
       audioPlayer.stop();
       audioPlayer=null;
@@ -85,7 +85,7 @@ public class MusicPlayer implements AudioInterface {
   *@param first If true add music at the head of the list. Else add at the end.
   *@version 1.52
   */
-  public void addNextMusic(String music, boolean first){
+  public synchronized void addNextMusic(String music, boolean first){
     if(first){
       nextMusics.addHead(music);
     }else{
@@ -136,8 +136,6 @@ public class MusicPlayer implements AudioInterface {
     }else{
       curentMusique = nextMusics.getItem(0);
       nextMusics.removeItem(0);
-      System.out.println("nextMusics");//@a
-      System.out.println(nextMusics);//@a
     }
     return getPath()+curentMusique;
   }

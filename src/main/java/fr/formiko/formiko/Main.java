@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 
 /**
-*{@summary Launch class }<br>
+*{@summary Launch class.}<br>
 *Main file have all the shortcut on getter or setter that are curently used
 *@author Hydrolien
 *@version 1.38
@@ -149,15 +149,6 @@ public class Main {
       mp.addNextMusic("Beyond The Warriors - Guifrog.mp3", true);
       mp.play();
     }
-    if (modeCLI) {
-      if (view!=null && !(view instanceof ViewCLI)) {
-        view = new ViewCLI();
-      }
-    }else{
-      if (view!=null && !(view instanceof ViewGUI2d)) {
-        view = new ViewGUI2d();
-      }
-    }
     view.menuMain();
     if (!modeCLI) {
       ((ViewGUI2d)(view)).waitForGameLaunch();
@@ -203,7 +194,7 @@ public class Main {
   public static MusicPlayer getMp(){return mp;}
   //shortcut
   public static Fourmi getPlayingAnt(){ try {return getPartie().getPlayingAnt();}catch (Exception e) {return null;}}
-  public static void setPlayingAnt(Fourmi f){ getPartie().setPlayingAnt(f);}
+  public static void setPlayingAnt(Fourmi f){ getPartie().setPlayingAnt(f); getView().setPlayingAnt(f);}
   public static Joueur getPlayingJoueur(){ try {return getPartie().getPlayingJoueur();}catch (Exception e) {return null;}}
   //view
   public static boolean getActionGameOn(){return getView().getActionGameOn();}
@@ -297,6 +288,17 @@ public class Main {
     getFolder().ini();
     if(view==null){
       view = new ViewNull();
+    }
+    if(!erreur.getMuet()){ //if not in test.
+      if (modeCLI) {
+        if (view!=null && !(view instanceof ViewCLI)) {
+          view = new ViewCLI();
+        }
+      }else{
+        if (view!=null && !(view instanceof ViewGUI2d)) {
+          view = new ViewGUI2d();
+        }
+      }
     }
     setMessageChargement("chargementDesOptions");startCh();
     chargerLesTraductions.iniTLangue();
@@ -451,7 +453,8 @@ public class Main {
     if(Main.getPartie().getAppartionInsecte()){
       int nbrDInsecteRestant = math.max( getGc().getNbrDeCase()/5 -  getGi().getGiVivant().length(),0);
       int x2 = math.min( getGc().getNbrDeCase()/20, nbrDInsecteRestant);
-      new Message("Ajout de "+x2+" insectes");
+      String s = g.get("SpawnOf")+" "+x2+" "+g.get("insecte")+g.get("s");
+      new Message(s);
       getGi().addInsecte((x2*9)/10); //les insectes vivants n'apparaissent pas sur des cases déja occupé.
       getGi().addInsecte(x2/10);
     }

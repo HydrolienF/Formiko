@@ -27,6 +27,7 @@ bientôt:a dh'aithghearr[auto]
 suivant:a ’leantainn[auto]
 avant:roimhe seo[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:cha b ’urrainnear a thoirt air falbh[auto]
 
 ListeVideExeption.1:do-dhèanta[auto]
 
-ChasseFourmi.1:chunnaic creach a-steach[auto]
-ChasseFourmi.2:mharbh a ’bhiastag[auto]
-ChasseFourmi.3:gus a ’bhiast a ghearradh suas[auto]
+chasseInsectivore.1:chunnaic creach a-steach[auto]
+chasseInsectivore.2:mharbh a ’bhiastag[auto]
+chasseInsectivore.3:gus a ’bhiast a ghearradh suas[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:charger[auto]
 bouton.nom.-12:air ais chun phrìomh chlàr[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:air ais a chluich[auto]
+
+languageChoice:
 
 save.message:cuir a-steach an t-ainm airson a thoirt don chùl-taic agad.[auto]
 

@@ -27,6 +27,7 @@ bientôt:लवकरच[auto]
 suivant:खालील[auto]
 avant:आधी[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:काढले जाऊ शकले ना�
 
 ListeVideExeption.1:अशक्य[auto]
 
-ChasseFourmi.1:आत एक शिकार पाहिले[auto]
-ChasseFourmi.2:कीटक मारले[auto]
-ChasseFourmi.3:किडे कापण्यासाठी[auto]
+chasseInsectivore.1:आत एक शिकार पाहिले[auto]
+chasseInsectivore.2:कीटक मारले[auto]
+chasseInsectivore.3:किडे कापण्यासाठी[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:चार्जर[auto]
 bouton.nom.-12:मुख्य मेनूवर परत[auto]
 bouton.nom.-13:क्विट मुंगी[auto]
 bouton.nom.-14:परत खेळायला[auto]
+
+languageChoice:
 
 save.message:आपल्या बॅकअपला देण्यासाठी नाव प्रविष्ट करा.[auto]
 

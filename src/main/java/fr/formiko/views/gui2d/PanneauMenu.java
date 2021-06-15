@@ -6,6 +6,8 @@ import fr.formiko.formiko.Partie;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.maths.math;
 
 import java.awt.Color;
@@ -31,8 +33,12 @@ public class PanneauMenu extends Panneau {
   private PanneauChoixPartie pcp;
   private Bouton returnButton;
   private Color buttonColor;
+  private EtiquetteChoix ecLanguage;
+  private Bouton validatelanguage;
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public PanneauMenu(){}
+  public PanneauMenu(){
+    super();
+  }
   /**
   *{@summary Create the Panel empty.}<br>
   *@version 1.44
@@ -95,8 +101,7 @@ public class PanneauMenu extends Panneau {
     removeP();
     if(b==null || b[0]==null){
       debug.débogage("construitPanneauMenu");
-      this.setLayout(null);
-      setBounds(0,0,Main.getDimX(),Main.getDimY());
+      setSize(Main.getDimX(),Main.getDimY());
       createButton(nbrOfButtons);
     }
     if(b[0].getParent()==null){
@@ -117,7 +122,7 @@ public class PanneauMenu extends Panneau {
     removeP();
     setReturnButtonAction(1);
     pnp = new PanneauNouvellePartie();
-    pnp.setBounds(0,0,this.getWidth(),this.getHeight());
+    pnp.setSize(this.getWidth(),this.getHeight());
     this.add(pnp);
     getView().paint();
   }
@@ -131,7 +136,7 @@ public class PanneauMenu extends Panneau {
     removeP();
     setReturnButtonAction(0);
     pcp = new PanneauChoixPartie();
-    pcp.setBounds(0,0,this.getWidth(),this.getHeight());
+    pcp.setSize(this.getWidth(),this.getHeight());
     this.add(pcp);
     repaint();
   }
@@ -163,8 +168,49 @@ public class PanneauMenu extends Panneau {
       removePcp();
     }catch (Exception e) {}
   }
+  /**
+  *{@summary Tool to ask language to the user.}<br>
+  *@version 1.54
+  */
+  public void askLanguage(){
+    removeP();
+    setSize(Main.getDimX(),Main.getDimY());
+    GString gs = lireUnFichier.lireUnFichierGs(Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages()+"langue.csv");
+    GString gs2 = new GString();
+    for (String s : gs) {
+      gs2.add(s.split(",")[1]);
+    }
+    int defaultValue = Main.getOp().getLanguage();
+    ecLanguage = new EtiquetteChoix(defaultValue,g.getM("languageChoice"),gs2);
+    ecLanguage.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,(int)(Main.getTaillePolice2()*1.2));
+    add(ecLanguage);
+    validatelanguage = new Bouton(g.getM("validate"),this,7);
+    validatelanguage.setBounds((getWidth()-Main.getTailleElementGraphiqueX(250))/2,Main.getDimY()-Main.getTailleElementGraphiqueY(10)-Main.getTailleElementGraphiqueY(50),Main.getTailleElementGraphiqueX(250),Main.getTailleElementGraphiqueY(50));
+    add(validatelanguage);
+  }
+  /**
+  *{@summary Tool to validate language to the user.}<br>
+  *It save language in curent Options, save curent Options and reload language with new language (if language have been changed only).<br>
+  *@version 1.54
+  */
+  public void validatelanguageChoice(){
+    int index = ecLanguage.getSelectedIndex();
+    boolean changed = !(Main.getLanguage()==(byte)(index));
+    if(changed){
+      Main.getOp().setLangue(index);
+      Main.iniLangue();
+    }
+    remove(ecLanguage);
+    remove(validatelanguage);
+    ecLanguage=null; validatelanguage=null;
+    if(changed){
+      Main.getOp().saveOptions();
+    }
+    // TODO play launching video
+    setLancer(true);
+  }
 
-  //private
+  //private---------------------------------------------------------------------
   /**
   *{@summary Remove all button.}<br>
   *@version 1.44
@@ -203,8 +249,8 @@ public class PanneauMenu extends Panneau {
   *@version 1.44
   */
   private void createReturnButton(){
-    returnButton = new Bouton("",getView().getPm(),-1);
-    returnButton.setBounds(Main.getTailleElementGraphiqueX(10),Main.getDimY()-Main.getTailleElementGraphiqueY(10)-Main.getTailleElementGraphiqueY(50),Main.getTailleElementGraphiqueX(200),Main.getTailleElementGraphiqueY(50));
+    returnButton = new Bouton("",this,-1);
+    returnButton.setBounds(Main.getTailleElementGraphiqueX(10),Main.getDimY()-Main.getTailleElementGraphiqueY(10)-Main.getTailleElementGraphiqueY(50),Main.getTailleElementGraphiqueX(250),Main.getTailleElementGraphiqueY(50));
   }
   /**
   *{@summary Create the main buttons of the panel.}<br>

@@ -16,26 +16,19 @@ public class Desc extends JLabel{
   public Desc(int x, int y){
     super();
     setOpaque(false);
-    //label.setForeground(Color.blue); couleur du text.
-    Dimension dim = new Dimension(x,y);
-    setFondColoré(new Color(55,255,0));
-    setPreferredSize(dim);
+    setForeground(Color.BLACK);
+    if(x!=-1 && y!=-1){
+      Dimension dim = new Dimension(x,y);
+      setPreferredSize(dim);
+    }
+    setFondColoré(Main.getData().getButtonColorWithoutAlpha());
     setPolice();
   }
   public Desc(){ this(500,getDimY());}
   public Desc(String s){
-    super(s);
-    setOpaque(false);
-    //label.setForeground(Color.blue); couleur du text.
-    setFondColoré(new Color(55,255,0));
-    setPolice();
+    this(-1,-1);
+    setText("s");
   }
-  /*public Desc(){
-    setText("");
-    setOpaque(false);
-    setFondColoré(new Color(55,255,0,255));
-    setPolice();
-  }*/
   // GET SET --------------------------------------------------------------------
   public void setTexte(String s){
     if(s.length() > 12 && s.substring(0,12).equals("bouton.desc.")){s="";}

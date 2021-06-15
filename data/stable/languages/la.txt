@@ -27,6 +27,7 @@ bientôt:mox[auto]
 suivant:haec[auto]
 avant:ante[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:ne amoveatur[auto]
 
 ListeVideExeption.1:est impossibile,[auto]
 
-ChasseFourmi.1:vidi reddita praeda,[auto]
-ChasseFourmi.2:interfectus est animal[auto]
-ChasseFourmi.3:insectum discidere[auto]
+chasseInsectivore.1:vidi reddita praeda,[auto]
+chasseInsectivore.2:interfectus est animal[auto]
+chasseInsectivore.3:insectum discidere[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:patina[auto]
 bouton.nom.-12:in pelagus menu[auto]
 bouton.nom.-13:v. quitter[auto]
 bouton.nom.-14:in fabula[auto]
+
+languageChoice:
 
 save.message:nomine tuo ingrediuntur ad tergum.[auto]
 

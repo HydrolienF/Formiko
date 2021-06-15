@@ -27,6 +27,7 @@ bientôt:varsti[auto]
 suivant:järgnev[auto]
 avant:enne[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:ei saanud eemaldada[auto]
 
 ListeVideExeption.1:võimatu[auto]
 
-ChasseFourmi.1:nägi saaki sisse[auto]
-ChasseFourmi.2:tappis putuka[auto]
-ChasseFourmi.3:putuka tükeldamiseks[auto]
+chasseInsectivore.1:nägi saaki sisse[auto]
+chasseInsectivore.2:tappis putuka[auto]
+chasseInsectivore.3:putuka tükeldamiseks[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:laadija[auto]
 bouton.nom.-12:tagasi peamenüüsse[auto]
 bouton.nom.-13:loobunud Ant[auto]
 bouton.nom.-14:tagasi mängima[auto]
+
+languageChoice:
 
 save.message:sisestage varukoopiale nimi.[auto]
 

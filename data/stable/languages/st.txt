@@ -27,6 +27,7 @@ bientôt:haufinyane[auto]
 suivant:ho latela[auto]
 avant:pele ho[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:e ne e ke ke ea tlosoa[auto]
 
 ListeVideExeption.1:khone ho[auto]
 
-ChasseFourmi.1:a bona phofu[auto]
-ChasseFourmi.2:bolaile kokoanyana[auto]
-ChasseFourmi.3:ho poma kokoanyana[auto]
+chasseInsectivore.1:a bona phofu[auto]
+chasseInsectivore.2:bolaile kokoanyana[auto]
+chasseInsectivore.3:ho poma kokoanyana[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:tjhaja[auto]
 bouton.nom.-12:khutlela ho menu e kholo[auto]
 bouton.nom.-13:tlohela Kokonyana[auto]
 bouton.nom.-14:khutlela ho bapala[auto]
+
+languageChoice:
 
 save.message:kenya lebitso ho fa bekapo hao.[auto]
 

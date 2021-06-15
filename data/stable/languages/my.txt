@@ -27,6 +27,7 @@ bientôt:မကြာမီ[auto]
 suivant:အောက်ပါ[auto]
 avant:မတိုင်မီ[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:မဖယ်ရှားနိုင်ပါ[
 
 ListeVideExeption.1:မဖြစ်နိုင်ဘူး[auto]
 
-ChasseFourmi.1:တစ် ဦး လုယူရာဥစ္စာကိုမြင်တော်မူ၏[auto]
-ChasseFourmi.2:အင်းဆက်ပိုးကိုသတ်လိုက်တယ်[auto]
-ChasseFourmi.3:အင်းဆက်ပိုးမွှားဖြတ်ရန်[auto]
+chasseInsectivore.1:တစ် ဦး လုယူရာဥစ္စာကိုမြင်တော်မူ၏[auto]
+chasseInsectivore.2:အင်းဆက်ပိုးကိုသတ်လိုက်တယ်[auto]
+chasseInsectivore.3:အင်းဆက်ပိုးမွှားဖြတ်ရန်[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:အားသွင်းကြိုး[auto]
 bouton.nom.-12:နောက်ကျောအဓိက menu ကိုမှ[auto]
 bouton.nom.-13:ပုရွက်ဆိတ် quitter[auto]
 bouton.nom.-14:ပြန်ကစားရန်[auto]
+
+languageChoice:
 
 save.message:သင်၏အရန်ကူးရန်အတွက်အမည်ထည့်ပါ။[auto]
 

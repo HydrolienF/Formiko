@@ -27,6 +27,7 @@ bientôt:uskoro[auto]
 suivant:slijedeći[auto]
 avant:prije[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:nije bilo moguće ukloniti[auto]
 
 ListeVideExeption.1:nemoguće[auto]
 
-ChasseFourmi.1:vidio plijen u[auto]
-ChasseFourmi.2:ubio insekta[auto]
-ChasseFourmi.3:da isječe insekta[auto]
+chasseInsectivore.1:vidio plijen u[auto]
+chasseInsectivore.2:ubio insekta[auto]
+chasseInsectivore.3:da isječe insekta[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:punjač[auto]
 bouton.nom.-12:povratak na glavni meni[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:nazad za igru[auto]
+
+languageChoice:
 
 save.message:unesite ime za rezervnu kopiju.[auto]
 

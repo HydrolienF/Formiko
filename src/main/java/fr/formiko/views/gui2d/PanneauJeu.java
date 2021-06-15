@@ -39,7 +39,6 @@ public class PanneauJeu extends Panneau {
     setLayout(null);
   }
   // GET SET -------------------------------------------------------------------
-  public void setFActuelle(Fourmi f){Main.getPartie().setPlayingAnt(f); Main.repaint();}
   public PanneauBouton getPb(){ return pb;}
   public PanneauCarte getPc(){ return pc;}
   public PanneauChargement getPch(){ return pch;}
@@ -49,9 +48,7 @@ public class PanneauJeu extends Panneau {
   public PanneauDialogueInf getPdi(){return pdi;}
   //get set transmis
   public void addPA(){ pb.addPA();}
-  public void setActionF(int x){pb.setActionF(x);}
   public void addPti(int x [], int y){pb.addPti(x,y);}
-  public int getActionF(){ return pb.getActionF();}
   public void setDesc(String s){pb.setDesc(s);}
   public void setDescTI(String s){pb.setDescTI(s);}
   public PanneauTInt getPti(){return pb.getPti(); }
@@ -84,6 +81,8 @@ public class PanneauJeu extends Panneau {
     }
     add(pd);
     add(pdi);
+    pd.setVisible(false);
+    pdi.setVisible(false);
   }
   public void initialiserPd(String s, boolean needToStayMaxSize){
     pd.initialiser(s, needToStayMaxSize);
@@ -132,8 +131,10 @@ public class PanneauJeu extends Panneau {
     remove(pch);
     pch = null;
     if(pd!=null){
-      pd.setVisible(true);
-      pdi.setVisible(true);
+      if(pd.getWidth()>1){
+        pd.setVisible(true);
+        pdi.setVisible(true);
+      }
     }
     pc.setVisible(true);
     pb.setVisible(true);
@@ -153,7 +154,6 @@ public class PanneauJeu extends Panneau {
       pb.setVisible(false);
       ps.setSize(0,0);
     }
-    erreur.info("print PanneauFinPartie : "+pfp);//@a
   }
   public void removePfp(){
     remove(pfp);

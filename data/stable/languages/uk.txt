@@ -27,6 +27,7 @@ bientôt:найближчим часом[auto]
 suivant:наступні[auto]
 avant:раніше[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:не вдалося видалити[auto]
 
 ListeVideExeption.1:неможливо[auto]
 
-ChasseFourmi.1:побачив здобич у[auto]
-ChasseFourmi.2:вбив комаху[auto]
-ChasseFourmi.3:вирізати комаху[auto]
+chasseInsectivore.1:побачив здобич у[auto]
+chasseInsectivore.2:вбив комаху[auto]
+chasseInsectivore.3:вирізати комаху[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:зарядний пристрій[auto]
 bouton.nom.-12:повернутися до головного меню[auto]
 bouton.nom.-13:кинув Мураха[auto]
 bouton.nom.-14:назад до гри[auto]
+
+languageChoice:
 
 save.message:введіть ім'я, яке потрібно надати резервній копії.[auto]
 

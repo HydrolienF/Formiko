@@ -76,7 +76,6 @@ public class ViewGUI2d implements View {
   *@version 1.42
   */
   public boolean ini(){
-    erreur.alerte("re ini");//@a
     actionGameOn=false;
     Main.startCh();
     if(f!=null) {f.dispose();}
@@ -150,7 +149,11 @@ public class ViewGUI2d implements View {
     actionGameOn=false;
     if(f==null || getPm()==null){ini();}
     Main.stopScript();
-    getPm().buildPanneauMenu(3,0);
+    if(Main.getPremierePartie()){
+      getPm().askLanguage();
+    }else{
+      getPm().buildPanneauMenu(3,0);
+    }
     paint();
     if(needToWaitForGameLaunch){
       // waitForGameLaunch();
@@ -251,7 +254,6 @@ public class ViewGUI2d implements View {
       getPch().addBt();
     }
     Main.getPartie().jeu(); //lance le jeux.
-    erreur.alerte("jeu is over");//@a
     return true;
   }
 
@@ -331,7 +333,13 @@ public class ViewGUI2d implements View {
   */
   public int getAntChoice(int t[]){
     if (!actionGameOn) {return -1;}
-    return 0;
+    if(t!=null){
+      Panneau.getView().getPb().removePa();
+      Panneau.getView().getPb().addPa(t);
+    }
+    int r = Panneau.getView().getPb().getActionF();
+    Panneau.getView().getPb().setActionF(-1);
+    return r;
   }
   /**
   *{@summary Return the chosen CCase.}<br>
@@ -365,18 +373,18 @@ public class ViewGUI2d implements View {
       getPdi().removeBSuivant();
     }catch (Exception e) {}
     try {
-      Main.getScript().setCmdSuivante(doWeNeedToDoNextCmdNow);
+      if(Main.getScript()!=null){
+        Main.getScript().setCmdSuivante(doWeNeedToDoNextCmdNow);
+      }
       if(!doWeNeedToDoNextCmdNow){
         getPdi().addBSuivant();
-        // Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
-        // getPs().actualiserTailleMax();
       }else{
         getPs().actualiserTaille();//écoute normale
       }
     }catch (Exception e) {//par défaut on attend avant de passer a la commande suivante.
+      erreur.alerte("can't print message : "+message);
       Main.getScript().setCmdSuivante(false);
       getPdi().addBSuivant();
-      // Fourmi.setBActualiserTaille(true);//écoute de toute la fenetre.
     }
   }
   /**
@@ -437,12 +445,17 @@ public class ViewGUI2d implements View {
   /**
   *{@summary set playing ant.}<br>
   *This action can only be run if action game is on.<br>
-  *@version 1.46
+  *@version 1.54
   */
   public void setPlayingAnt(Fourmi f){
     if (!actionGameOn) {return;}
+    if(f!=null){
+      Panneau.getView().getPb().addPI();
+      Panneau.getView().getPb().addPIJ();
+    }else{
+      Panneau.getView().getPs().setIdFourmiAjoué(-1);
+    }
     // if (!f.getFere().getJoueur().getIa()) {
-    //   getPj().setFActuelle(null);
     //   getPb().setVisiblePa(false);
     // }
     // getPs().setIdFourmiAjoué(-1);
@@ -491,12 +504,9 @@ public class ViewGUI2d implements View {
   *@version 1.46
   */
   public synchronized void waitForGameLaunch(){
-    if(!Main.getPremierePartie()){
-      boolean b=false;
-      while(!b){Temps.pause(10);b=getPm().getLancer();}
-    }else{
-      //play launching video
-    }
+    // if(!Main.getPremierePartie()){
+    boolean b=false;
+    while(!b){Temps.pause(10);b=getPm().getLancer();}
     actionGame();
   }
   /**

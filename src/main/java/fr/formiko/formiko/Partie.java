@@ -225,7 +225,7 @@ public class Partie implements Serializable{
       erreur.alerte("Music can't be played next");
     }
     for(tour=1; tour<=nbrDeTour; tour++){
-      new Message("\n"+g.get("tour")+ tour +" :");
+      new Message("\n"+g.get("tour")+" "+ tour +" :");
       //Main.repaint();
       //La joue toutes les ia et les joueurs
       Main.tour();
@@ -258,9 +258,7 @@ public class Partie implements Serializable{
     if (partieFinie) {return;}//on n'affiche pas plusieur fois les info de fin de partie.
     setPartieFinie(true);
     boolean canResumeGame=true;
-    System.out.println("game is over.");//@a
     System.out.println(getTour()+"/"+getNbrDeTour());
-    System.out.println(getGj());//@a
     String victoire = g.get("victoireInconue");
     GJoueur gjOrdonné = getGj().getGjOrdonné();
     Joueur gagnant = gjOrdonné.getDébut().getContenu();

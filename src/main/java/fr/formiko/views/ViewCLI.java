@@ -273,7 +273,7 @@ public class ViewCLI implements View {
     actionGameOn=true;
     if(scannerAnswer==null){ini();}
     menuName="";
-    Main.getPartie().setPlayingAnt(null);
+    Main.setPlayingAnt(null);
     Main.getPartie().initialisationElément();
     int toDoAfter = 0;
     String tab [] = new String[4];
@@ -360,6 +360,7 @@ public class ViewCLI implements View {
     erreur.info("message");
     System.out.println(gj);
     //TODO to update.
+    menuMain();
     return true;
   }
 
@@ -404,6 +405,7 @@ public class ViewCLI implements View {
   */
   public int getAntChoice(int t[]){
     if (!actionGameOn) {return -1;}
+    if (t==null) {return -1;}
     String ts [] = new String[17];
     for (int i=0;i<12 ;i++ ) {
       ts[i]="";
@@ -431,7 +433,8 @@ public class ViewCLI implements View {
       if(choice==15){pauseActionGame();tToPrint=ts;}
       if(choice==16){setLookedCCase(getCCase());tToPrint=ts;}
     } while ((choice <12 || choice>14) && !tableau.estDansT(t,choice));
-    if(choice==12){Main.getPartie().setPlayingAnt(getAntFromFere());}
+    if(choice==12){Main.setPlayingAnt(getAntFromFere());}
+    Main.getPlayingAnt().setBActionHaveChange(true);
     return choice;
   }
   /**

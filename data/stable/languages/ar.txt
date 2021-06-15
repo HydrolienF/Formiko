@@ -27,6 +27,7 @@ bientôt:هكذا[auto]
 suivant:التالية[auto]
 avant:قبل[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:لا يمكن إزالتها[auto]
 
 ListeVideExeption.1:مستحيل ان[auto]
 
-ChasseFourmi.1:رأى فريسة في[auto]
-ChasseFourmi.2:قتل الحشرة[auto]
-ChasseFourmi.3:لتقطيع الحشرة[auto]
+chasseInsectivore.1:رأى فريسة في[auto]
+chasseInsectivore.2:قتل الحشرة[auto]
+chasseInsectivore.3:لتقطيع الحشرة[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:شاحن[auto]
 bouton.nom.-12:العودة إلى القائمة الرئيسية[auto]
 bouton.nom.-13:هاجر النملة[auto]
 bouton.nom.-14:العودة للعب[auto]
+
+languageChoice:
 
 save.message:أدخل الاسم الذي تريده لنسختك الاحتياطية.[auto]
 

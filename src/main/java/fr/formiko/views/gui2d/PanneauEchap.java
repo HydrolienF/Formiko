@@ -46,10 +46,12 @@ public class PanneauEchap extends Panneau{
     tb = new Bouton[lentb];
     for (int i=0;i<lentb ;i++ ) {
       String s ="";
-      if(i==1){s=" ("+g.get("bientôt")+")";}//TODO s'assurer que ce n'est plus utile puis le retirer.
+      if(i==1){s=" ("+g.get("bientôt")+")";} //TODO #40 s'assurer que ce n'est plus utile puis le retirer.
       tb[i]=new Bouton(g.getM("bouton.nom."+(-10-i))+s,getView().getPj(),-10-i);
+      if(i==1){tb[i].setEnabled(false);} //TODO s'assurer que ce n'est plus utile puis le retirer.
       //tb[i].setBounds(0,Desc.getDimY()*i*2,Main.getDimX()/4,Desc.getDimY());
-      tb[i].setCFond(new Color(55, 255, 0));
+      // tb[i].setCFond(new Color(55, 255, 0));
+      tb[i].setCFondUseAlpha(false); //TODO #40
       add(tb[i]);
     }
     revalidate();

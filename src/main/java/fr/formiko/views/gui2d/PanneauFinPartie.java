@@ -48,15 +48,9 @@ public class PanneauFinPartie extends Panneau {
     super.paintComponent(g);
   }
   public void addMessage(String s){
-    erreur.info("add message");//@a
     message = new Desc(this.getWidth(),(int)(Main.getTaillePolice2()*1.5));
-    //message = new Desc();
-    //message.setFondColoré();
-    //message.setPolice(Main.getFont1());
     message.setText(s);
     add(message);
-    //message.setBounds(0,0,this.getWidth(),Main.getTaillePolice2()*2);
-    //message.setBounds(0,0,this.getWidth());
   }
   public void addPanneauInfo(GJoueur gj){
     this.gj=gj;

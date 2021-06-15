@@ -27,6 +27,7 @@ bientôt:ಶೀಘ್ರದಲ್ಲೇ[auto]
 suivant:ಕೆಳಗಿನವು[auto]
 avant:ಮೊದಲು[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:ತೆಗೆದುಹಾಕಲಾಗಲಿಲ�
 
 ListeVideExeption.1:ಅಸಾಧ್ಯ[auto]
 
-ChasseFourmi.1:ಒಂದು ಬೇಟೆಯನ್ನು ನೋಡಿದೆ[auto]
-ChasseFourmi.2:ಕೀಟವನ್ನು ಕೊಂದರು[auto]
-ChasseFourmi.3:ಕೀಟವನ್ನು ಕತ್ತರಿಸಲು[auto]
+chasseInsectivore.1:ಒಂದು ಬೇಟೆಯನ್ನು ನೋಡಿದೆ[auto]
+chasseInsectivore.2:ಕೀಟವನ್ನು ಕೊಂದರು[auto]
+chasseInsectivore.3:ಕೀಟವನ್ನು ಕತ್ತರಿಸಲು[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:ಚಾರ್ಜರ್[auto]
 bouton.nom.-12:ಮುಖ್ಯ ಮೆನುಗೆ ಹಿಂತಿರುಗಿ[auto]
 bouton.nom.-13:quitter ಇರುವೆ[auto]
 bouton.nom.-14:ಮತ್ತೆ ಆಡಲು[auto]
+
+languageChoice:
 
 save.message:ನಿಮ್ಮ ಬ್ಯಾಕಪ್‌ಗೆ ನೀಡಲು ಹೆಸರನ್ನು ನಮೂದಿಸಿ.[auto]
 

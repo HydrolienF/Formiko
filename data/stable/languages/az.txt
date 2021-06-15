@@ -27,6 +27,7 @@ bientôt:tezliklə[auto]
 suivant:aşağıdakı[auto]
 avant:əvvəl[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:silinə bilmədi[auto]
 
 ListeVideExeption.1:mümkün deyil[auto]
 
-ChasseFourmi.1:içərisində bir yırtıcı gördüm[auto]
-ChasseFourmi.2:böcəyi öldürdü[auto]
-ChasseFourmi.3:böcəyi kəsmək[auto]
+chasseInsectivore.1:içərisində bir yırtıcı gördüm[auto]
+chasseInsectivore.2:böcəyi öldürdü[auto]
+chasseInsectivore.3:böcəyi kəsmək[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:adapter[auto]
 bouton.nom.-12:əsas menyuya qayıdın[auto]
 bouton.nom.-13:quş qarışqa[auto]
 bouton.nom.-14:oynamaq üçün geri[auto]
+
+languageChoice:
 
 save.message:ehtiyatınıza vermək üçün adı daxil edin.[auto]
 

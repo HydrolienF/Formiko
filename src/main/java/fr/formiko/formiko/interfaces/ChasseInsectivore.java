@@ -99,10 +99,12 @@ public class ChasseInsectivore implements Serializable, Chasse {
    */
   public boolean tuer(Insecte insecteTue){
     if (!insecteTue.getEstMort()){
-      Message m = new Message(g.getM("laCréature")+" "+ c.getId()+" "+g.get("ChasseInsectivore.2")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
+      Message m = new Message(g.getOu("la","le")+" "+c.getNom()+" "+ c.getId()+" "+g.get("chasseInsectivore.2")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
+      if(c instanceof Fourmi){
+        Main.setPlayingAnt((Fourmi)(c)); //to refrech playingant info
+      }
       insecteTue.setEstMort(true);
       setActionMoins(c);
-      debug.débogage("tuer l'insecte "+insecteTue.getId()+" effectué");
       return true;
     }else{
       return false;
@@ -116,8 +118,10 @@ public class ChasseInsectivore implements Serializable, Chasse {
    */
   public boolean depecer(Insecte insecteTue){
     if(insecteTue==null){return false;}
-    Message m = new Message(g.getM("laFourmi")+" "+ c.getId()+" "+g.get("ChasseFourmi.3")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
-    debug.débogage("Nourriture fournie = " + insecteTue.getNourritureFournie());
+    Message m = new Message(g.getOu("la","le")+" "+c.getNom()+" "+ c.getId()+" "+g.get("chasseInsectivore.3")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
+    if(c instanceof Fourmi){
+      Main.setPlayingAnt((Fourmi)(c)); //to refrech playingant info
+    }
     int nourriture = math.min(insecteTue.getNourritureFournie(),c.getNourritureMax()-c.getNourriture());
     if (insecteTue.getNourritureFournie()==nourriture){
       insecteTue.supprimerDeLaCarte();
@@ -125,7 +129,6 @@ public class ChasseInsectivore implements Serializable, Chasse {
       insecteTue.setNourritureFournie(insecteTue.getNourritureFournie()-nourriture);
     }
     c.ajouteNourriture(nourriture);
-    debug.débogage("dépecer l'insecte "+insecteTue.getId()+" effectué");
     setActionMoins(c);
     return true;
   }

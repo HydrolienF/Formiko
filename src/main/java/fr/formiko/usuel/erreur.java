@@ -18,6 +18,7 @@ public class erreur {
   private static String neutral = (char)27+"[0;m";
   private static String blue = (char)27+"[1;34m";
 
+  public static boolean getMuet(){return muet;}
   public static void setMuet(boolean b){muet=b;}
   private static void println(String s){
     print(s+"\n");

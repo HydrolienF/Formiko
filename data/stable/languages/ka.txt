@@ -27,6 +27,7 @@ bientôt:მალე[auto]
 suivant:შემდეგს[auto]
 avant:მანამდე[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:ვერ მოიხსნა[auto]
 
 ListeVideExeption.1:შეუძლებელია[auto]
 
-ChasseFourmi.1:დაინახა მტაცებელი[auto]
-ChasseFourmi.2:მოკლეს მწერი[auto]
-ChasseFourmi.3:მწერის ამოჭრა[auto]
+chasseInsectivore.1:დაინახა მტაცებელი[auto]
+chasseInsectivore.2:მოკლეს მწერი[auto]
+chasseInsectivore.3:მწერის ამოჭრა[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:დამტენი[auto]
 bouton.nom.-12:მთავარ მენიუში დაბრუნება[auto]
 bouton.nom.-13:quitter Ant[auto]
 bouton.nom.-14:უკან თამაში[auto]
+
+languageChoice:
 
 save.message:შეიყვანეთ სახელი, რომ მისცეთ თქვენი სარეზერვო ასლის შექმნა.[auto]
 

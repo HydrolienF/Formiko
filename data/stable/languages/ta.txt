@@ -27,6 +27,7 @@ bientôt:விரைவில்[auto]
 suivant:பின்வருமாறு[auto]
 avant:முன்[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:அகற்ற முடியவில்ல
 
 ListeVideExeption.1:சாத்தியமற்றது[auto]
 
-ChasseFourmi.1:உள்ளே ஒரு இரையைப் பார்த்தேன்[auto]
-ChasseFourmi.2:பூச்சியைக் கொன்றது[auto]
-ChasseFourmi.3:பூச்சியை வெட்டுவதற்கு[auto]
+chasseInsectivore.1:உள்ளே ஒரு இரையைப் பார்த்தேன்[auto]
+chasseInsectivore.2:பூச்சியைக் கொன்றது[auto]
+chasseInsectivore.3:பூச்சியை வெட்டுவதற்கு[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:சார்ஜர்[auto]
 bouton.nom.-12:பிரதான மெனுவுக்குத் திரும்பு[auto]
 bouton.nom.-13:quitter எறும்பு[auto]
 bouton.nom.-14:மீண்டும் விளையாட[auto]
+
+languageChoice:
 
 save.message:உங்கள் காப்புப்பிரதிக்கு கொடுக்க பெயரை உள்ளிடவும்.[auto]
 

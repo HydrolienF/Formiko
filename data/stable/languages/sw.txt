@@ -27,6 +27,7 @@ bientôt:hivi karibuni[auto]
 suivant:zifuatazo[auto]
 avant:kabla[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:haikuweza kuondolewa[auto]
 
 ListeVideExeption.1:haiwezekani[auto]
 
-ChasseFourmi.1:aliona mawindo katika[auto]
-ChasseFourmi.2:aliua wadudu[auto]
-ChasseFourmi.3:kukata mdudu[auto]
+chasseInsectivore.1:aliona mawindo katika[auto]
+chasseInsectivore.2:aliua wadudu[auto]
+chasseInsectivore.3:kukata mdudu[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:chaja[auto]
 bouton.nom.-12:kurudi kwenye menyu kuu[auto]
 bouton.nom.-13:achana na Mchwa[auto]
 bouton.nom.-14:kurudi kucheza[auto]
+
+languageChoice:
 
 save.message:ingiza jina upe chelezo yako.[auto]
 

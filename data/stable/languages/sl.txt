@@ -27,6 +27,7 @@ bientôt:kmalu[auto]
 suivant:naslednje[auto]
 avant:prej[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:ni bilo mogoče odstraniti[auto]
 
 ListeVideExeption.1:nemogoče[auto]
 
-ChasseFourmi.1:videl plen v[auto]
-ChasseFourmi.2:ubil žuželko[auto]
-ChasseFourmi.3:da bi posekali žuželko[auto]
+chasseInsectivore.1:videl plen v[auto]
+chasseInsectivore.2:ubil žuželko[auto]
+chasseInsectivore.3:da bi posekali žuželko[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:polnilnik[auto]
 bouton.nom.-12:nazaj v glavni meni[auto]
 bouton.nom.-13:zapustil Ant[auto]
 bouton.nom.-14:nazaj k igri[auto]
+
+languageChoice:
 
 save.message:vnesite ime za varnostno kopijo.[auto]
 

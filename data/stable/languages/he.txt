@@ -27,6 +27,7 @@ bientôt:בקרוב[auto]
 suivant:הבא[auto]
 avant:לפני[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:לא ניתן היה להסיר[auto]
 
 ListeVideExeption.1:בלתי אפשרי ל[auto]
 
-ChasseFourmi.1:ראה טרף ב[auto]
-ChasseFourmi.2:הרג את החרק[auto]
-ChasseFourmi.3:לחתוך את החרק[auto]
+chasseInsectivore.1:ראה טרף ב[auto]
+chasseInsectivore.2:הרג את החרק[auto]
+chasseInsectivore.3:לחתוך את החרק[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:מַטעֵן[auto]
 bouton.nom.-12:בחזרה לתפריט הראשי[auto]
 bouton.nom.-13:נמלה[auto]
 bouton.nom.-14:חזרה לשחק[auto]
+
+languageChoice:
 
 save.message:הזן את השם שייתן לגיבוי שלך.[auto]
 

@@ -27,6 +27,7 @@ bientôt:באַלד[auto]
 suivant:ווייַטערדיק[auto]
 avant:איידער[auto]
 save:
+validate:
 
 set:
 where:
@@ -298,9 +299,12 @@ ElementListeIntrouvableExeption.2:קען נישט ווערן אַוועקגענ�
 
 ListeVideExeption.1:אוממעגלעך צו[auto]
 
-ChasseFourmi.1:געזען אַ רויב אין[auto]
-ChasseFourmi.2:געהרגעט די ינסעקט[auto]
-ChasseFourmi.3:צו שנייַדן אַרויף די ינסעקט[auto]
+chasseInsectivore.1:געזען אַ רויב אין[auto]
+chasseInsectivore.2:געהרגעט די ינסעקט[auto]
+chasseInsectivore.3:צו שנייַדן אַרויף די ינסעקט[auto]
+evoluerFourmi.1:
+pondreReine.1:
+spawnOf:
 
 //objet graphique:
 
@@ -311,6 +315,8 @@ bouton.nom.-12disable:טשאַרדזשער[auto]
 bouton.nom.-12:צוריק צו הויפּט מעניו[auto]
 bouton.nom.-13:קוויטטער אַנט[auto]
 bouton.nom.-14:צוריק צו שפּילן[auto]
+
+languageChoice:
 
 save.message:אַרייַן די נאָמען צו געבן דיין באַקאַפּ.[auto]
 

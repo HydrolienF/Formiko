@@ -55,7 +55,7 @@ public class PanneauSup extends Panneau{
           if(gc.length()>0){
             Fourmi f = gc.getFourmiParFere(Main.getPlayingAnt().getFere());
             if(f!=null && f.getAction()>0){
-              getView().getPj().setActionF(-2);
+              getView().getPb().setActionF(-2);
               getView().getPb().removePA();
               setIdFourmiAjoué(f.getId());
             }
@@ -66,8 +66,7 @@ public class PanneauSup extends Panneau{
             CCase cc = getCCase(e);
             if(cc!=null){
               f.ceDeplacerPlusieurCase(cc);
-              getView().getPj().setActionF(-2);
-              setIdFourmiAjoué(f.getId());
+              f.setBActionHaveChange(true);
             }
           }
         }
