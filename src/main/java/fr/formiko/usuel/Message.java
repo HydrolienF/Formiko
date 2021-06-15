@@ -35,7 +35,7 @@ public class Message implements Serializable{
   // CONSTRUCTEUR -----------------------------------------------------------------
   public Message(String texte, int idDuJoueurConcerné, int typeDeMessage, String expediteur){
     id = i; i++;
-    this.texte = texte;
+    this.texte = g.getM(texte);
     this.idDuJoueurConcerné = idDuJoueurConcerné;
     this.typeDeMessage = typeDeMessage;
     this.expediteur = expediteur;
@@ -62,7 +62,7 @@ public class Message implements Serializable{
 
   // message de la console :
   public Message(String texte, int idDuJoueurConcerné, int typeDeMessage){
-    this(texte, idDuJoueurConcerné, typeDeMessage, g.get("Message",1,"Console"));
+    this(texte, idDuJoueurConcerné, typeDeMessage, null);
   }
   public Message(String texte, int idDuJoueurConcerné){
     this(texte, idDuJoueurConcerné, 0);
@@ -81,7 +81,11 @@ public class Message implements Serializable{
     }
   }
   public String description(){
-    return expediteur +" : " + texte;
+    if(expediteur!=null){
+      return expediteur +" : " + texte;
+    }else{
+      return texte;
+    }
   }
   /**
   *{@summary Standard equals function.}
@@ -102,11 +106,10 @@ public class Message implements Serializable{
     // la fourmi neutre / allié / énemie (id) est morte / a été infectée par une bactérie mortelle / est morte de vieillesse / est morte face au mandibule de la foumi / a été aspergé d'acide par la fourmi / l'insecte idDuTueur.
     GJoueur gj = Main.getGj().getJoueurHumain();
     if(gj.length()==0){
-      new Message("La fourmi "+f.getId()+" du joueur "+f.getJoueur().getId()+" "+ g.get("mort"+raison));
-      return;}
-    debug.débogage(gj.length()+" joueur humains");
+      new Message(g.getM("la")+" "+f.getNom()+" "+f.getId()+" "+g.get("du")+" "+g.get("joueur")+" "+f.getJoueur().getId()+" "+ g.get("mort"+raison));
+      return;
+    }
     //Ici on doit filtrer les joueurs qui ne vois pas la case ou la fourmi meurt.
-
 
 
     CJoueur cj = gj.getDébut();
@@ -128,21 +131,8 @@ public class Message implements Serializable{
         if(j.equals(f.getJoueur())){ laNotre = g.getM("votre"); status="";}
         else{status = status+" ";}
       }
-      String tueur = "";
-      if (cr!= null){
-        if(cr instanceof Fourmi){
-          Fourmi fTemp = (Fourmi)cr;
-          tueur = g.get("la")+" "+g.get("fourmi");
-        }else if(cr instanceof Insecte){
-          Insecte iTemp = (Insecte)cr;
-          tueur = g.get("l'")+" "+g.get("insecte")+g.get("n");
-        }else{
-          tueur = g.get("la")+" "+g.get("créature")+g.get("n");
-        }
-        tueur = " "+tueur+" "+cr.getId();
-      }
-      String texte = laNotre +" "+ g.get("fourmi")+" "+status+"("+f.getId()+")"+" "+ g.get("mort"+raison)+tueur+".";
-      debug.débogage("1 nouveau message de mort pour le joueur "+cj.getContenu().getId());
+      String tueur = g.getOu("la","le")+" "+cr.getNom();
+      String texte = laNotre +" "+ g.get("fourmi")+" "+status+"("+f.getId()+")"+" "+ g.get("mort"+raison)+" "+tueur+".";
       new Message(texte,cj.getContenu().getId());
       cj=cj.getSuivant();
     }

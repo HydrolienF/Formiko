@@ -93,7 +93,7 @@ public class Joueur implements Serializable{
   }
   public void jouer(){
     if(!ia){
-      Message m = new Message(pseudo+" , "+g.get("débutTourJoueur"),id,6);
+      Message m = new Message(pseudo+", "+g.get("débutTourJoueur"),id,6);
     }else{
       Message m = new Message(pseudo+" "+g.get("débutTourIa"),id,6);
     }

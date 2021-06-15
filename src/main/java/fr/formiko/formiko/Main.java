@@ -459,7 +459,8 @@ public class Main {
     if(Main.getPartie().getAppartionInsecte()){
       int nbrDInsecteRestant = math.max( getGc().getNbrDeCase()/5 -  getGi().getGiVivant().length(),0);
       int x2 = math.min( getGc().getNbrDeCase()/20, nbrDInsecteRestant);
-      new Message("Ajout de "+x2+" insectes");
+      String s = g.get("SpawnOf")+" "+x2+" "+g.get("insecte")+g.get("s");
+      new Message(s);
       getGi().addInsecte((x2*9)/10); //les insectes vivants n'apparaissent pas sur des cases déja occupé.
       getGi().addInsecte(x2/10);
     }

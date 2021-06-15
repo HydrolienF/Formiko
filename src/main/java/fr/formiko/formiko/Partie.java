@@ -225,7 +225,7 @@ public class Partie implements Serializable{
       erreur.alerte("Music can't be played next");
     }
     for(tour=1; tour<=nbrDeTour; tour++){
-      new Message("\n"+g.get("tour")+ tour +" :");
+      new Message("\n"+g.get("tour")+" "+ tour +" :");
       //Main.repaint();
       //La joue toutes les ia et les joueurs
       Main.tour();

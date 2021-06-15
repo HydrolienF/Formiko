@@ -54,6 +54,9 @@ public class CMessage implements Serializable{
       gs.add(csTemp.getContenu().description());
       csTemp = csTemp.getPrécédent();
       x--;
+      if(x==0){
+        gs.addTail("...");
+      }
     }
     return gs;
   }
