@@ -195,7 +195,7 @@ public class PanneauMenu extends Panneau {
   */
   public void validatelanguageChoice(){
     int index = ecLanguage.getSelectedIndex();
-    boolean changed = Main.getLanguage()==(byte)(index);
+    boolean changed = !(Main.getLanguage()==(byte)(index));
     if(changed){
       Main.getOp().setLangue(index);
       Main.iniLangue();

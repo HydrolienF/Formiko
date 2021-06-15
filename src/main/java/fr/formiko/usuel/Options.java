@@ -251,8 +251,8 @@ public class Options implements Serializable{
     defaultProperties.setProperty("drawIcon","true");
     defaultProperties.setProperty("fontSizeText",""+(int)(30*racio));
     defaultProperties.setProperty("fontSizeTitle",""+(int)(60*racio));
-    defaultProperties.setProperty("fontText","Arial");
-    defaultProperties.setProperty("fontTitle","Arial");
+    defaultProperties.setProperty("fontText","Default");
+    defaultProperties.setProperty("fontTitle","Default");
     defaultProperties.setProperty("pseudo","");
     defaultProperties.setProperty("fullscreen","true");
     defaultProperties.setProperty("loadingDuringMenus","true");
