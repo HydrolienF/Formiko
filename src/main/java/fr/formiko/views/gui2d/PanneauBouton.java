@@ -189,7 +189,7 @@ public class PanneauBouton extends Panneau {
     }catch (Exception e) {}
     if(getView().getPd()!=null && getView().getPd().isVisible()){return;}
     if(fontPij==null){
-      fontPij = new Font(Main.getOp().getPolice(),Font.PLAIN,(int)(Main.getOp().getTaillePolice1()/2));
+      fontPij = new Font(Main.getOp().getPolice(),Font.PLAIN,(int)(Main.getOp().getTaillePolice1()/1.5));
     }
     Fourmi ft = Main.getPlayingAnt();
     if (ft==null){ return;}

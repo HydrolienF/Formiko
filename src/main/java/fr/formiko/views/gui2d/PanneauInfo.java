@@ -28,7 +28,7 @@ public class PanneauInfo extends Panneau {
     if(font!=null){
       yD = (int)(font.getSize()*1.2);
     }
-    xPi=xD; yPi=yD*nbrDeDesc;
+    xPi=xD; yPi=(yD+1)*nbrDeDesc;
     this.setSize(xPi,yPi);
     debug.débogage(getSize()+"");
     gbc.gridx = 0; int k=0;
