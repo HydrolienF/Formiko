@@ -2,8 +2,9 @@ package fr.formiko.formiko;
 
 import fr.formiko.formiko.*;
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.g;
 import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.g;
 
 import java.io.Serializable;
 
@@ -49,8 +50,6 @@ public class Message implements Serializable{
         Main.getJoueurParId(idDuJoueurConcerné).addMessage(this);
       }
     }catch (Exception e) {}
-    //this.afficheToi();
-    //TODO #5 send to the player
   }
   // message d'un joueur :
   public Message(String texte, int idDuJoueurConcerné, String expediteur){
@@ -74,7 +73,7 @@ public class Message implements Serializable{
   // GET SET -----------------------------------------------------------------------
   public int getId(){ return id;}
   // Fonctions propre -----------------------------------------------------------
-  public void afficheToi(){ // idélment la méthode d'affichage n'affiche que si les paramètres d'affichage du joueur le lui demande.
+  public void afficheToi(){ // idéalement la méthode d'affichage n'affiche que si les paramètres d'affichage du joueur le lui demande.
     //if (Main.getNiveauDeDétailDeLAffichage()>0){
     if (niveauDeDétailDeLAffichage>0){
       System.out.println(description());
@@ -101,41 +100,57 @@ public class Message implements Serializable{
   }
   // message particuliers :
   public static void messageMort(Fourmi f, int raison, Creature cr){
-    debug.débogage("Message de morts");
-    // le message est destiné au joueurs qui voie la fourmi ou qui possède la fourmi.
-    // la fourmi neutre / allié / énemie (id) est morte / a été infectée par une bactérie mortelle / est morte de vieillesse / est morte face au mandibule de la foumi / a été aspergé d'acide par la fourmi / l'insecte idDuTueur.
-    GJoueur gj = Main.getGj().getJoueurHumain();
-    if(gj.length()==0){
-      new Message(g.getM("la")+" "+f.getNom()+" "+f.getId()+" "+g.get("du")+" "+g.get("joueur")+" "+f.getJoueur().getId()+" "+ g.get("mort"+raison));
-      Main.setPlayingAnt(f); //to refrech playingant info
-      return;
-    }
-    //Ici on doit filtrer les joueurs qui ne vois pas la case ou la fourmi meurt.
-
-
-    CJoueur cj = gj.getDébut();
-    String laNotre = g.getM("la");
-    while(cj!=null){
-      Joueur j = cj.getContenu();
-      String status = g.get("neutre");
-      Fourmi r =null;
-      try {
-        r = j.getFere().getGc().getReine(); // par défaut la reine sert a identifié si la fourmi est alliées neutre ou énemies.
-        if (r==null){ r= (Fourmi)(j.getFere().getGc().getDébut().getContenu());}//sinon on prend la 1a fourmi du GCreature.
-      }catch (Exception e) {}
-      if (r!=null){
-        if (((Creature)f).getEstAllié(r)){
-          status = g.get("allié");
-        }else if (((Creature)f).getEstEnnemi(r)){
-          status = g.get("ennemi");
+    try {
+      debug.débogage("Message de morts");
+      // le message est destiné au joueurs qui voie la fourmi ou qui possède la fourmi.
+      // la fourmi neutre / allié / énemie (id) est morte / a été infectée par une bactérie mortelle / est morte de vieillesse / est morte face au mandibule de la foumi / a été aspergé d'acide par la fourmi / l'insecte idDuTueur.
+      GJoueur gj = Main.getGj().getJoueurHumain();
+      if(gj.length()==0){
+        String nom;
+        if (f!=null) {
+          nom = f.getNom();
+        }else{
+          nom = g.get("creature");
         }
-        if(j.equals(f.getJoueur())){ laNotre = g.getM("votre"); status="";}
-        else{status = status+" ";}
+        new Message(g.getM("la")+" "+nom+" "+f.getId()+" "+g.get("du")+" "+g.get("joueur")+" "+f.getJoueur().getId()+" "+ g.get("mort"+raison));
+        Main.setPlayingAnt(f); //to refrech playingant info
+        return;
       }
-      String tueur = g.getOu("la","le")+" "+cr.getNom();
-      String texte = laNotre +" "+ g.get("fourmi")+" "+status+"("+f.getId()+")"+" "+ g.get("mort"+raison)+" "+tueur+".";
-      new Message(texte,cj.getContenu().getId());
-      cj=cj.getSuivant();
+      //Ici on doit filtrer les joueurs qui ne vois pas la case ou la fourmi meurt.
+
+
+      CJoueur cj = gj.getDébut();
+      String laNotre = g.getM("la");
+      while(cj!=null){
+        Joueur j = cj.getContenu();
+        String status = g.get("neutre");
+        Fourmi r =null;
+        try {
+          r = j.getFere().getGc().getReine(); // par défaut la reine sert a identifié si la fourmi est alliées neutre ou énemies.
+          if (r==null){ r= (Fourmi)(j.getFere().getGc().getDébut().getContenu());}//sinon on prend la 1a fourmi du GCreature.
+        }catch (Exception e) {}
+        if (r!=null){
+          if (((Creature)f).getEstAllié(r)){
+            status = g.get("allié");
+          }else if (((Creature)f).getEstEnnemi(r)){
+            status = g.get("ennemi");
+          }
+          if(j.equals(f.getJoueur())){ laNotre = g.getM("votre"); status="";}
+          else{status = status+" ";}
+        }
+        String nom = "";
+        if(cr==null){
+          nom="null";
+        }else{
+          nom=cr.getNom();
+        }
+        String tueur = g.getOu("la","le")+" "+nom;
+        String texte = laNotre +" "+ g.get("fourmi")+" "+status+"("+f.getId()+")"+" "+ g.get("mort"+raison)+" "+tueur+".";
+        new Message(texte,cj.getContenu().getId());
+        cj=cj.getSuivant();
+      }
+    }catch (Exception e2) {
+      erreur.alerte("death message fail.");
     }
   }
   public static void messageMort(Fourmi f, int r){
