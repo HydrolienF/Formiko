@@ -27,6 +27,9 @@ public class ini {
     //le Menu est fonctionnel ici.
   }
   public static void initialiserPanneauJeuEtDépendance(){
+    if(Panneau.getView().getPj()!=null){
+      erreur.alerte("This function should be call only 1 time by fenetre.");
+    }
     Panneau.getView().getPp().addPj();
     Panneau.getView().getPj().setBounds(0,0,Main.getDimX(),Main.getDimY());
     Panneau.getView().getPj().addPs();
@@ -34,7 +37,6 @@ public class ini {
     Panneau.getView().getPj().addPe();//ajoute le panneau complètement vide juste pour qu'il soit au 1a plan
     Panneau.getView().getPj().addPfp();//add empty panel.
     Panneau.getView().getPj().addPd();
-    Panneau.getView().getPj().addPfp();//ajoute le panneau complètement vide
     Panneau.getView().getPj().addPb();
     Panneau.getView().getPj().addPc();
     //pj a ses 4 sous panneau

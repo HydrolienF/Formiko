@@ -23,6 +23,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.awt.Component;
 import javax.swing.JScrollPane;
 
 public class PanneauJeu extends Panneau {
@@ -79,6 +80,7 @@ public class PanneauJeu extends Panneau {
       PanneauDialogueInf.chargerFond();
       pdi = new PanneauDialogueInf();
     }
+    erreur.info("add");//@a
     add(pd);
     add(pdi);
     pd.setVisible(false);
@@ -87,7 +89,11 @@ public class PanneauJeu extends Panneau {
   public void initialiserPd(String s, boolean needToStayMaxSize){
     pd.initialiser(s, needToStayMaxSize);
     pdi.initialiser();
-    pd.setBounds(0,0,pd.getWidth(),pd.getHeight());
+    pd.setLocation(0,0);
+    System.out.println("--------------------------");//@a
+    for (Component c : getComponents() ) {
+      System.out.println(c);//@a
+    }
     revalidate();
   }
   public void removePd(){
@@ -144,6 +150,10 @@ public class PanneauJeu extends Panneau {
   //   add(pfp);
   // }
   public void addPfp(){
+    if(pfp!=null){
+      erreur.alerte("Pfp already add");
+      return;
+    }
     pfp = new PanneauFinPartie();
     add(pfp);
   }

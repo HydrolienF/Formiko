@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 
 public class PanneauInfo extends Panneau {
   private int nbrDeDesc;
-  private Desc desc [];
+  private Desc descs [];
   private int xPi; private int yPi;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauInfo(GString gs, int xD, boolean withAlpha, Font font){
@@ -32,6 +32,7 @@ public class PanneauInfo extends Panneau {
     this.setSize(xPi,yPi);
     debug.débogage(getSize()+"");
     gbc.gridx = 0; int k=0;
+    descs = new Desc[gs.length()];
     for (String s : gs ) {
       gbc.gridy = k;k++;
       Desc desc = new Desc(xD,yD);
@@ -43,6 +44,7 @@ public class PanneauInfo extends Panneau {
       }
       desc.setTexte(s);
       this.add(desc,gbc);
+      descs[k-1]=desc;
     }
   }
   public PanneauInfo(GString gs, int xD, boolean withAlpha){this(gs,xD,withAlpha,null);}
@@ -64,5 +66,18 @@ public class PanneauInfo extends Panneau {
   public void paintComponent(Graphics g){
     // debug.débogage("actualisation du PanneauInfo avec pour taille : "+this.getWidth()+" "+this.getHeight());
     super.paintComponent(g);
+  }
+  public String toString(){
+    String r = super.toString()+" number of desc "+nbrDeDesc+" ";
+    if(descs!=null){
+      for (Desc d : descs ) {
+        try {
+          r+=" "+d.getText();
+        }catch (Exception e) {
+          erreur.alerte("can't read desc text.");
+        }
+      }
+    }
+    return r;
   }
 }

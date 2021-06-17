@@ -430,7 +430,7 @@ conseil.7:ants go through 4 stages of development: egg, lava, nymph and imago (a
 conseil.8:the choices you have to make are indicated at the top left of your screen.
 conseil.9:ants do not have an eyelid to moisten their eyes. They must constantly maintain a healthy lifestyle in order to communicate with their antenna and see with their eyes.
 conseil.10:the eggs, lava and nymph are not able to clean them on their own. They need help from an imago or they could be infected with a bad bacteria. make sure your brood stays above 50% cleanliness.
-conseil.11:the Queen can only lay eggs when she is in the anthill.
+conseil.11:the Queen can only lay eggs when it is in the anthill.
 conseil.12:the granivorous ants feed exclusively on seeds. To store their food they keeps the seeds in dry rooms of the anthill.
 conseil.13:the granivorous ants are not able to Trophalax. To feed the brood they must necessarily have seeds open in stock in the anthill.
 conseil.14:the speeds are expressed by insects. The faster the insect, the faster the game will be. The Ant speed corresponds to the standard speed.
@@ -441,7 +441,7 @@ conseil.18:have you ever tried running a custom game with only AIs?
 conseil.19:if you look closely at the texture of the grass you might notice that it only contains 3 different blades of herbs.
 conseil.20:if there is only one ant to clean or feed on the space where your ant is, it will be automatically selected to be cleaned or fed.[auto]
 conseil.21:the game language is automatically that of your computer, but you can change it in the Options.[auto]
-conseil.22:some species of ants are polycalic. That is to say that a queen from an anthill A, will lay new ants in her anthill B &amp; the ants A and B will continue to help each other as if she were only one large anthill. On a large map it is useful to lay queen and male eggs which can found new allied anthills at the other end of the map.[auto]
+conseil.22:some species of ants are polycalic. That is to say that a queen from an anthill A, will lay new ants in her anthill B &amp; the ants A and B will continue to help each other as if it were only one large anthill. On a large map it is useful to lay queen and male eggs which can found new allied anthills at the other end of the map.[auto]
 
 //message ---------------:
 //mort :
@@ -456,11 +456,11 @@ mort11:was sprayed with acid by
 //tuto :
 tuto.0:welcome to Formiko young ant![auto]
 tuto.1:let's learn the basics of this game together so you can have fun.[auto]
-tuto.2:our queen is hungry, let's move it one square to the right so that she can hunt this prey.[auto]
+tuto.2:our queen is hungry, let's move it one square to the right so that it can hunt this prey.[auto]
 tuto.3:to move an ant you must right click on the square you want to go.[auto]
 tuto.4:well ! Now let's eat it![auto]
 tuto.5:to kill an insect click on the button "Hunt the insect on the box" located at the bottom of your screen.[auto]
-tuto.6:our queen ant succeeded in killing the insect but she did not have enough action to eat it.[auto]
+tuto.6:our queen ant succeeded in killing the insect but it did not have enough action to eat it.[auto]
 tuto.7:but don't worry, a dead insect won't get very far![auto]
 tuto.8:use the "Hunt the insect on the square" button again to eat the insect.[auto]
 tuto.9:great you now know how to hunt.[auto]
@@ -478,7 +478,7 @@ tuto.20:the larva has evolved, it is now a nymph. The nymphs, like the larvae, n
 tuto.21:to feed the brood (the eggs, larvae and pupae), the ants regurgitate food from their "social stomach". This is called trophallaxis.[auto]
 tuto.22:feed the larva with the "Trophallaxis" button at the bottom of your screen.[auto]
 tuto.23:the nymph is full! Let's wait a little longer for her to grow up. (click on the "Skip the tour" button at the bottom of your screen.)[auto]
-tuto.24:the ant has finally reached the adult stage (imago)! She can now perform actions like the queen.[auto]
+tuto.24:the ant has finally reached the adult stage (imago)! It can now perform actions like the queen.[auto]
 tuto.25:other insects will appear over time. Let's send the queen to kill 1 by clicking on the "auto-hunt" button.[auto]
 tuto.26:automatic hunting allows you to let your ants hunt independently.[auto]
 tuto.27:there is also an automatic nanny mode. Leave the queen in the anthill with this mode activated and recommended when there are eggs, larvae or nymphs in the anthill.[auto]

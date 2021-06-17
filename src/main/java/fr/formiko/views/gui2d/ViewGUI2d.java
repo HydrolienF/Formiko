@@ -480,9 +480,9 @@ public class ViewGUI2d implements View {
     else{
       Th thTemp = new Th(1);
       thTemp.start();
+      Th thTemp2 = new Th(2);
+      thTemp2.start();
     }
-    Th thTemp2 = new Th(2);
-    thTemp2.start();
   }
   /**
   *{@summary Initialize cheat code listener if it haven't been yet.}<br>

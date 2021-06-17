@@ -12,14 +12,13 @@ public class PanneauDialogue extends Panneau {
   private PanneauInfo pi;
   private boolean needToStayMaxSize;
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public PanneauDialogue(){
-    super();
-    // pi = new PanneauInfo(new GString(),0);
-    // pi.setBounds(0,0,0,0);
-    // setSize(pi.getWidth(),pi.getHeight());
-  }
+  // public PanneauDialogue(){
+  //   super();
+  //   // pi = new PanneauInfo(new GString(),0);
+  //   // pi.setBounds(0,0,0,0);
+  //   // setSize(pi.getWidth(),pi.getHeight());
+  // }
   public void initialiser(String s, boolean needToStayMaxSize){
-    erreur.info("ini pd with "+s);
     this.needToStayMaxSize=needToStayMaxSize;
     if(pi!=null){remove(pi);}
     try {
@@ -49,6 +48,14 @@ public class PanneauDialogue extends Panneau {
         add(pi);
     }catch (Exception e) {
       erreur.alerte("fail to ini PanneauDialogue");
+    }
+    try {
+      System.out.println("");//@a
+      erreur.info("ini pd with "+s);//@a
+      erreur.info(""+this);//@a
+      erreur.info(""+pi);//@a
+    }catch (Exception e) {
+      erreur.alerte("can't print info");//@a
     }
   }
   // GET SET --------------------------------------------------------------------
