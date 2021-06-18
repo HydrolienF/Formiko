@@ -49,7 +49,7 @@ mkdir out/$nomM/java/
 
 echo "";
 echo "download jlink/";
-./run.sh download "https://github.com/HydrolienF/JRE/releases/download/1.0.1/jlink.zip" jlink.zip
+./run.sh download "https://github.com/HydrolienF/JRE/releases/download/1.0.3/jlink.zip" jlink.zip
 ./run.sh unzip jlink.zip jlink/
 echo "cp jlink & launcher"
 #unzip -qq jlink.zip
