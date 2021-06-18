@@ -37,11 +37,13 @@ public class PanneauChargement extends Panneau {
       if(!Main.getPartie().getEnCours()){return;}
     }catch (Exception e) {}
     debug.g("PanneauChargement",this.getWidth(),this.getHeight());
-    g.drawImage(Main.getData().getImageChargement(),0,0,this);
-    int xx = Main.getF().getWidth()/5;
-    int yy = Main.getF().getHeight()/5;
-    message.setBounds(xx,yy*4-Main.getTaillePolice1(),xx*3);//le niveau d'avancement du chargement
-    conseil.setBounds(xx,(yy*4)-(2*Main.getTaillePolice1())-conseil.getYPi(),conseil.getWidth(),conseil.getHeight());//le conseil
+    try {
+      g.drawImage(Main.getData().getImageChargement(),0,0,this);
+    }catch (Exception e) {}
+    // int xx = Main.getF().getWidth()/5;
+    // int yy = Main.getF().getHeight()/5;
+    // message.setBounds(xx,yy*4-Main.getTaillePolice1(),xx*3);
+    // conseil.setLocation(xx,(yy*4)-(2*Main.getTaillePolice1())-conseil.getYPi());
   }
   public void addBt(){
     lancer=false;
@@ -55,6 +57,9 @@ public class PanneauChargement extends Panneau {
   public void addMessage(){
     message = new Desc();
     message.setTexte("");
+    int xx = Main.getF().getWidth()/5;
+    int yy = Main.getF().getHeight()/5;
+    message.setBounds(xx,yy*4-Main.getTaillePolice1(),xx*3);
     add(message);
   }
   public void addConseil(){
@@ -64,6 +69,9 @@ public class PanneauChargement extends Panneau {
     gs.addParMorceaux(s,70,true);//ajoute 70 char par 70 char (sans couper les mots) a la GString
     conseil = new PanneauInfo(gs,(Main.getF().getWidth()*3)/5,false);
     add(conseil);
+    int xx = Main.getF().getWidth()/5;
+    int yy = Main.getF().getHeight()/5;
+    conseil.setLocation(xx,(yy*4)-(2*Main.getTaillePolice1())-conseil.getYPi());
     repaint();
   }
 }
