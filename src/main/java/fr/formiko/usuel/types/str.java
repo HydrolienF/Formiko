@@ -113,7 +113,7 @@ public class str{
     char w [] = {'<', '>', '\"', '|', '?', '*'};//, ':', '\\'
     s = s.replace('\\','/');
     s = filtreCharInterdit(s,w);
-    if(s.charAt(0)=='/'){s=s.substring(1);}
+    // if(s.charAt(0)=='/'){s=s.substring(1);} //To avoid for Linux canonicalPath
     s = addALaFinSiNecessaire(s,"/");
     return s;
   }
