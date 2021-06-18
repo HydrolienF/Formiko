@@ -142,6 +142,7 @@ jobs:
         dir jlink/
     - name: build
       run: |
+        git pull
         ./toMsi.ps1
         mv ./out/Formiko-${{ steps.version.outputs.version }}.msi ./out/Formiko${{ steps.version.outputs.version }}.msi
     - name: upload .msi artifact
