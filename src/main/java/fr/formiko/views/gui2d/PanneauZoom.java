@@ -90,6 +90,7 @@ public class PanneauZoom extends Panneau {
     // bc.setBordure(false);
     // bd1.setBordure(false);
     // bd2.setBordure(false);
+    setEnabled(true);
   }
   // GET SET --------------------------------------------------------------------
   public int getTailleBouton(){ return Main.getbuttonSizeZoom();}
@@ -103,6 +104,7 @@ public class PanneauZoom extends Panneau {
     bg.setEnabled(boo);
     bc.setEnabled(boo);
     bd1.setEnabled(boo);bd2.setEnabled(boo);
+    super.setEnabled(boo);
   }
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
