@@ -231,7 +231,7 @@ public class ViewGUI2d implements View {
     Main.startCh();
     getPp().removePm();//on retire le menu
     Main.endCh("chargementPanneauChargementEtSuppressionMenu");
-    getPj().addPch();//on met le panneau de chargement au 1a plan.
+    getPj().iniPch();//on met le panneau de chargement au 1a plan.
     Main.startCh();
     getPb().addPz();
     Main.endCh("ajoutPanneauZoom");Main.startCh();

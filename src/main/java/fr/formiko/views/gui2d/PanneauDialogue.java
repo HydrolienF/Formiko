@@ -12,12 +12,12 @@ public class PanneauDialogue extends Panneau {
   private PanneauInfo pi;
   private boolean needToStayMaxSize;
   // CONSTRUCTEUR ---------------------------------------------------------------
-  // public PanneauDialogue(){
-  //   super();
-  //   // pi = new PanneauInfo(new GString(),0);
-  //   // pi.setBounds(0,0,0,0);
-  //   // setSize(pi.getWidth(),pi.getHeight());
-  // }
+  public PanneauDialogue(){
+    super();
+    // pi = new PanneauInfo(new GString(),0);
+    // pi.setBounds(0,0,0,0);
+    // setSize(pi.getWidth(),pi.getHeight());
+  }
   public void initialiser(String s, boolean needToStayMaxSize){
     this.needToStayMaxSize=needToStayMaxSize;
     if(pi!=null){remove(pi);}
@@ -49,6 +49,7 @@ public class PanneauDialogue extends Panneau {
     }catch (Exception e) {
       erreur.alerte("fail to ini PanneauDialogue");
     }
+    setVisible(true);
     try {
       System.out.println("");//@a
       erreur.info("ini pd with "+s);//@a
@@ -60,10 +61,10 @@ public class PanneauDialogue extends Panneau {
   }
   // GET SET --------------------------------------------------------------------
   public boolean getNeedToStayMaxSize(){return needToStayMaxSize;}
-  public void setVisible(boolean b){
-    super.setVisible(b);
-    erreur.info("setVisible "+b,4);//@a
-  }
+  // public void setVisible(boolean b){
+  //   super.setVisible(b);
+  //   erreur.info("setVisible "+b,4);
+  // }
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     super.paintComponent(g);

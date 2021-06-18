@@ -90,11 +90,11 @@ public class PanneauJeu extends Panneau {
     pd.initialiser(s, needToStayMaxSize);
     pdi.initialiser();
     pd.setLocation(0,0);
+    revalidate();
     System.out.println("--------------------------");//@a
     for (Component c : getComponents() ) {
       System.out.println(c);//@a
     }
-    revalidate();
   }
   public void removePd(){
     remove(pd);
@@ -123,15 +123,19 @@ public class PanneauJeu extends Panneau {
   }
   public void addPch(){
     pch = new PanneauChargement();
-    pch.setBounds(0,0,getWidth(),getHeight());
     add(pch);
+    pch.setVisible(false);
+  }
+  public void iniPch(){
+    pch.setBounds(0,0,getWidth(),getHeight());
     if(pd!=null){
       pd.setVisible(false);
       pdi.setVisible(false);
     }
     pc.setVisible(false);
     pb.setVisible(false);
-    Main.repaint();
+    pch.setVisible(true);
+    // getView().repaint();
   }
   public void removePch(){
     remove(pch);

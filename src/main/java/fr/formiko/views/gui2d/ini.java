@@ -23,7 +23,6 @@ public class ini {
     pp.build();
     pp.addPm();
     pp.getPm().build();
-    // pp.getPm().setBounds(0,0,Main.getDimX(),Main.getDimY());
     //le Menu est fonctionnel ici.
   }
   public static void initialiserPanneauJeuEtDépendance(){
@@ -35,6 +34,7 @@ public class ini {
     Panneau.getView().getPj().addPs();
     //le panneau pp a ses 2 sous panneaux
     Panneau.getView().getPj().addPe();//ajoute le panneau complètement vide juste pour qu'il soit au 1a plan
+    Panneau.getView().getPj().addPch();
     Panneau.getView().getPj().addPfp();//add empty panel.
     Panneau.getView().getPj().addPd();
     Panneau.getView().getPj().addPb();
