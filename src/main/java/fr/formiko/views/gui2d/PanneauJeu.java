@@ -80,21 +80,16 @@ public class PanneauJeu extends Panneau {
       PanneauDialogueInf.chargerFond();
       pdi = new PanneauDialogueInf();
     }
-    erreur.info("add");//@a
     add(pd);
     add(pdi);
-    pd.setVisible(false);
-    pdi.setVisible(false);
+    // pd.setVisible(false);
+    // pdi.setVisible(false);
   }
   public void initialiserPd(String s, boolean needToStayMaxSize){
     pd.initialiser(s, needToStayMaxSize);
     pdi.initialiser();
     pd.setLocation(0,0);
     revalidate();
-    System.out.println("--------------------------");//@a
-    for (Component c : getComponents() ) {
-      System.out.println(c);//@a
-    }
   }
   public void removePd(){
     remove(pd);

@@ -28,7 +28,8 @@ public class PanneauAction extends Panneau {
   private static int tailBouton=160;
   private Bouton tB [];
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public PanneauAction(int t[]){super();
+  public PanneauAction(int t[]){
+    super();
     tailleBouton=Main.getTailleElementGraphique(tailBouton);
     tBoutonActif=t;
     nbrDeBouton=math.min(t.length,nbrDeBoutonMax-1);

@@ -50,14 +50,6 @@ public class PanneauDialogue extends Panneau {
       erreur.alerte("fail to ini PanneauDialogue");
     }
     setVisible(true);
-    try {
-      System.out.println("");//@a
-      erreur.info("ini pd with "+s);//@a
-      erreur.info(""+this);//@a
-      erreur.info(""+pi);//@a
-    }catch (Exception e) {
-      erreur.alerte("can't print info");//@a
-    }
   }
   // GET SET --------------------------------------------------------------------
   public boolean getNeedToStayMaxSize(){return needToStayMaxSize;}
