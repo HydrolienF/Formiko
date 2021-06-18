@@ -43,7 +43,7 @@ neutre:neutre
 ennemi:ennemi
 proie:proie
 
-//caractéristiques :
+//characteristics :
 taille:taille
 coordonées:coordonnées
 coordonnées:coordonnées
@@ -61,7 +61,7 @@ espèce:espèce
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:fourmi
 insecte:insecte
 créature:créature
@@ -203,7 +203,7 @@ theCaseDoNotExist:la case n'existe pas
 optionsCanBeEditedIn:les options peuvent être modifié dans
 enterCoordinateAs:entrez les coordonnées comme suis
 
-//temps
+//time
 t.j:j
 t.h:h
 t.min:min
@@ -306,9 +306,9 @@ evoluerFourmi.1:passe au stade suivant
 pondreReine.1:est née
 spawnOf:apparition de
 
-//objet graphique:
+//graphic item:
 
-//bouton du PanneauEchap
+//bouton of PanneauEchap
 bouton.nom.-10:sauvegarder
 bouton.nom.-11:options
 bouton.nom.-12disable:charger
@@ -374,7 +374,7 @@ setPlayingAnt:choisir la fourmi qui joue
 triche.aide.1:bienvenue dans l'interface de triche de Formiko. C'est ici que vous pouvez tapper des commandes de triches.
 triche.aide.2:les commandes sous sous la forme "nom : (arguments) description"
 
-//commande :
+//command :
 
 cmd.desc.1:permet de vérifier que les codes triches sont disponible
 cmd.desc.2:affiche les informations relative a une créature (si possible elle affiche également les variables prpre au insecte ou au fourmi)
