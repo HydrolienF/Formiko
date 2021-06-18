@@ -93,8 +93,8 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         t[i]=i;
       }
       GCreature gcCase = f.getCCase().getContenu().getGc();
-      //TODO #229
-      // if(f.getIndividu().getCoutDéplacement() == -1){ t=tableau.retirerX(t,0);}
+      t=tableau.retirerX(t,0); //TODO #229
+      if(f.getIndividu().getCoutDéplacement() == -1){ t=tableau.retirerX(t,0);}
       if(f.getIndividu().getCoutChasse() == -1 || gcCase.getGi().length()==0 || !f.chasse.canHuntMore(f)){ t=tableau.retirerX(t,1);}
       if(!f.canLay()){ t=tableau.retirerX(t,2);}
       if(f.getIndividu().getCoutTrophallaxie() == -1 || gcCase.filtreAlliés(f).filtreFaimMax().length() < 2 || f.getNourriture()<1){ t=tableau.retirerX(t,3);}
