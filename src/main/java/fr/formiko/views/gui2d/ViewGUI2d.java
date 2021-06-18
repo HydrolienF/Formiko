@@ -58,7 +58,8 @@ public class ViewGUI2d implements View {
   public PanneauChoixPartie getPcp(){ try{return getPm().getPcp();}catch (NullPointerException e){return null;}}
   public PanneauBouton getPb(){ try{return getPj().getPb();}catch (NullPointerException e){return null;}}
   public PanneauCarte getPc(){ try{return getPj().getPc();}catch (NullPointerException e){return null;}}
-  public PanneauInfo getPi(){ return getPb().getPi();}
+  public PanneauInfo getPi(){ try{return getPb().getPi();}catch (NullPointerException e){return null;}}
+  public PanneauInfo getPij(){ try{return getPb().getPij();}catch (NullPointerException e){return null;}}
   public PanneauZoom getPz(){ return getPb().getPz();}
   public PanneauAction getPa(){ return getPb().getPa();}
   public PanneauChargement getPch(){ try {return getPj().getPch();}catch (NullPointerException e) {return null;}}
@@ -231,7 +232,7 @@ public class ViewGUI2d implements View {
     Main.startCh();
     getPp().removePm();//on retire le menu
     Main.endCh("chargementPanneauChargementEtSuppressionMenu");
-    getPj().addPch();//on met le panneau de chargement au 1a plan.
+    getPj().iniPch();//on met le panneau de chargement au 1a plan.
     Main.startCh();
     getPb().addPz();
     Main.endCh("ajoutPanneauZoom");Main.startCh();
@@ -480,9 +481,9 @@ public class ViewGUI2d implements View {
     else{
       Th thTemp = new Th(1);
       thTemp.start();
+      Th thTemp2 = new Th(2);
+      thTemp2.start();
     }
-    Th thTemp2 = new Th(2);
-    thTemp2.start();
   }
   /**
   *{@summary Initialize cheat code listener if it haven't been yet.}<br>

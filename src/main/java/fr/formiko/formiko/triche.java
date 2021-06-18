@@ -170,10 +170,10 @@ public class triche {
           break;
         case 29://print
           String s2 = "";
+          boolean doWeNeedToDoNextCmdNow = true;
           if(args.length>1){
             s2 = g.getM(args[1]);
           }
-          boolean doWeNeedToDoNextCmdNow = false;
           if(args.length>2){
             doWeNeedToDoNextCmdNow=str.sToB(args[2]);
           }

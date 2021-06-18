@@ -23,6 +23,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.awt.Component;
 import javax.swing.JScrollPane;
 
 public class PanneauJeu extends Panneau {
@@ -81,13 +82,13 @@ public class PanneauJeu extends Panneau {
     }
     add(pd);
     add(pdi);
-    pd.setVisible(false);
-    pdi.setVisible(false);
+    // pd.setVisible(false);
+    // pdi.setVisible(false);
   }
   public void initialiserPd(String s, boolean needToStayMaxSize){
     pd.initialiser(s, needToStayMaxSize);
     pdi.initialiser();
-    pd.setBounds(0,0,pd.getWidth(),pd.getHeight());
+    pd.setLocation(0,0);
     revalidate();
   }
   public void removePd(){
@@ -117,15 +118,19 @@ public class PanneauJeu extends Panneau {
   }
   public void addPch(){
     pch = new PanneauChargement();
-    pch.setBounds(0,0,getWidth(),getHeight());
     add(pch);
+    pch.setVisible(false);
+  }
+  public void iniPch(){
+    pch.setBounds(0,0,getWidth(),getHeight());
     if(pd!=null){
       pd.setVisible(false);
       pdi.setVisible(false);
     }
     pc.setVisible(false);
     pb.setVisible(false);
-    Main.repaint();
+    pch.setVisible(true);
+    // getView().repaint();
   }
   public void removePch(){
     remove(pch);
@@ -144,6 +149,10 @@ public class PanneauJeu extends Panneau {
   //   add(pfp);
   // }
   public void addPfp(){
+    if(pfp!=null){
+      erreur.alerte("Pfp already add");
+      return;
+    }
     pfp = new PanneauFinPartie();
     add(pfp);
   }

@@ -19,12 +19,10 @@ public class PanneauDialogue extends Panneau {
     // setSize(pi.getWidth(),pi.getHeight());
   }
   public void initialiser(String s, boolean needToStayMaxSize){
-    erreur.info("ini pd with "+s);
     this.needToStayMaxSize=needToStayMaxSize;
     if(pi!=null){remove(pi);}
     try {
       if(s==null || s.equals("")){
-        getView().getPj().getPdi().setVisible(false);
         setVisible(false);
         return;
       }
@@ -43,20 +41,21 @@ public class PanneauDialogue extends Panneau {
         tailleX = Main.getDimXCarte();
         tailleX=tailleX-Main.getTailleElementGraphiqueX(210);
       }catch (Exception e) {}
-        pi = new PanneauInfo(gs,tailleX+Main.getTailleElementGraphiqueX(200),false);
-        pi.setLocation(Main.getTailleElementGraphiqueX(210),Main.getTailleElementGraphiqueY(15));
-        setSize(pi.getWidth(),pi.getHeight()+Main.getTailleElementGraphiqueX(30));
-        add(pi);
+      pi = new PanneauInfo(gs,tailleX+Main.getTailleElementGraphiqueX(200),false);
+      pi.setLocation(Main.getTailleElementGraphiqueX(210),Main.getTailleElementGraphiqueY(15));
+      setSize(pi.getWidth(),pi.getHeight()+Main.getTailleElementGraphiqueX(30));
+      add(pi);
     }catch (Exception e) {
       erreur.alerte("fail to ini PanneauDialogue");
     }
+    setVisible(true);
   }
   // GET SET --------------------------------------------------------------------
   public boolean getNeedToStayMaxSize(){return needToStayMaxSize;}
-  public void setVisible(boolean b){
-    super.setVisible(b);
-    erreur.info("setVisible "+b,4);//@a
-  }
+  // public void setVisible(boolean b){
+  //   super.setVisible(b);
+  //   erreur.info("setVisible "+b,4);
+  // }
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     super.paintComponent(g);
@@ -71,5 +70,22 @@ public class PanneauDialogue extends Panneau {
       return false; //si on écoute pas la fenetre.
     //}
     //return false;
+  }
+  /**
+  *{@summary Override setVisible to also setVisible dependent Panneau.}
+  *Dependent Panneau are pdi &#38; pij.
+  *@param visible true if need to be visible.
+  *@version 2.0
+  */
+  @Override
+  public void setVisible(boolean visible){
+    super.setVisible(visible);
+    getView().getPj().getPdi().setVisible(visible);
+    try {
+      getView().getPij().setVisible(!visible);
+      if(!visible){
+        Panneau.getView().getPb().addPIJ();
+      }
+    }catch (Exception e) {}
   }
 }

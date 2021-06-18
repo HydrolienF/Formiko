@@ -28,7 +28,8 @@ public class PanneauAction extends Panneau {
   private static int tailBouton=160;
   private Bouton tB [];
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public PanneauAction(int t[]){super();
+  public PanneauAction(int t[]){
+    super();
     tailleBouton=Main.getTailleElementGraphique(tailBouton);
     tBoutonActif=t;
     nbrDeBouton=math.min(t.length,nbrDeBoutonMax-1);
@@ -46,6 +47,7 @@ public class PanneauAction extends Panneau {
     for (int i=0;i<nbrDeBouton ;i++ ) { // seul les bouton mentionné dans t sont créé.
       tB[i] = new Bouton(g.get("bouton.nom."+(20+tBoutonActif[i])),(Panneau)this,20+tBoutonActif[i],Main.getData().getTImage()[tBoutonActif[i]]);
       tB[i].setBordure(false);
+      tB[i].setWithBackground(true);
     }
     for (Bouton b :tB){b.setPreferredSize(dim);}
     GridBagConstraints gbc = new GridBagConstraints();
@@ -67,19 +69,13 @@ public class PanneauAction extends Panneau {
     for (Bouton b : tB ) {
       b.setEnabled(boo);
     }
+    super.setEnabled(boo);
   }
   // Fonctions propre -----------------------------------------------------------
 
   public void paintComponent(Graphics g){
     if(!Main.getPartie().getEnCours()){return;}
     debug.g("PanneauAction",this.getWidth(),this.getHeight());
-    //this.setSize(tailleBouton*nbrDeBouton,tailleBouton);
-    Color c = new Color(55,255,0);
-    Graphics2D g2d = (Graphics2D)g;
-    g2d.setColor(c);
-    for (int i=0;i<nbrDeBouton ;i++ ) {
-      g2d.fillRect(getBordureBouton()*2+(getTailleBouton()+getBordureBouton()*2)*i,getBordureBouton(),getTailleBouton(),getTailleBouton());
-    }
   }
   public static int [] getTIntDef(){
     int tr[] = new int [nbrDeBoutonMax];

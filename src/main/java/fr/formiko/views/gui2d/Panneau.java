@@ -20,13 +20,15 @@ import javax.swing.JPanel;
 
 public class Panneau extends JPanel {
   private static final long serialVersionUID = -3227223889149566494L;
+  private static int cptId=0;
+  private final int id;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Panneau(){
     super();
+    id=cptId++;
     setLayout(null);
     setOpaque(false);
-    // setOpaque(false); //TODO fix : cause issues about Bouton.
   }
   // GET SET --------------------------------------------------------------------
   //public int getTailleDUneCase(){return tailleDUneCase;}
@@ -41,8 +43,13 @@ public class Panneau extends JPanel {
   // Fonctions propre -----------------------------------------------------------
   //repaint() permet de réactualisé paintComponent()
   // L'instruction Thread.sleep(x miliseconde) permet d'effectuer une pause dans le programme.
+  @Override
   public void paintComponent(Graphics g){
     super.paintComponent(g);
+  }
+  @Override
+  public String toString(){
+    return id+" "+super.toString();
   }
   public void doAction(int ac){
     action.doAction(ac);

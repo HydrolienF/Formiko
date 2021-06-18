@@ -40,6 +40,7 @@ public class Bouton extends JButton implements MouseListener{
   protected boolean bordure=true;
   protected Color cFond;
   protected boolean cFondUseAlpha;
+  protected boolean withBackground;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Bouton(String str, Panneau p, int action, Image imag){
     super();id=cpt; cpt++;setBorderPainted(false);setOpaque(false);
@@ -51,8 +52,8 @@ public class Bouton extends JButton implements MouseListener{
     setCFond(Main.getData().getButtonColor());
     setContentAreaFilled(false);
     setFocusPainted(false); //Diasble paint swap to next button when do tab.
-    setCFondUseAlpha(true);
-
+    setCFondUseAlpha(false);
+    withBackground=false;
   }
   public Bouton(String str, Panneau p, int action){
     super(str);id=cpt; cpt++;setBorderPainted(false);setOpaque(false);
@@ -69,6 +70,8 @@ public class Bouton extends JButton implements MouseListener{
     setContentAreaFilled(false);
     setFocusPainted(false); //paint swap to next button when do tab disable.
     setCFondUseAlpha(true);
+    setText(nom);
+    withBackground=true;
   }
   // GET SET --------------------------------------------------------------------
   public String getNom(){ return nom;}
@@ -97,6 +100,8 @@ public class Bouton extends JButton implements MouseListener{
       return new Color(cFond.getRed(),cFond.getGreen(),cFond.getBlue(),255);
     }
   }
+  public boolean getWithBackground(){return withBackground;}
+  public void setWithBackground(boolean b){withBackground=b;}
   // Fonctions propre ----------------------------------------------------------
   /**
   *{@summary To draw component.}<br>
@@ -106,7 +111,7 @@ public class Bouton extends JButton implements MouseListener{
   */
   public void paintComponent(Graphics g){
     Graphics2D g2d = (Graphics2D)g;
-    if(img==null){
+    if(withBackground){
       //FontMetrics fm = new FontMetrics(Main.getFont1());//new FontRenderContext(null, false, false);
       //Rectangle2D rect = fm.getStringBounds(nom,g);
       //new FontRenderContext(null, false, false)
@@ -115,8 +120,9 @@ public class Bouton extends JButton implements MouseListener{
         g2d.setColor(getBackgroundColor());
         g2d.fillRect(0,0,getWidth(),getHeight());
       }
-      setText(nom);
-    }else{g2d.drawImage(this.img,0,0, null);}
+    }
+    if(img==null){setText(nom);}
+    else{g2d.drawImage(this.img,0,0, null);}
     if(bordure){paintBorder(g2d);}
     super.paintComponent(g);
   }
