@@ -23,8 +23,8 @@ public class GInt implements Serializable{
     add(fere.getNbrFourmisMorte());
   }
   // GET SET -----------------------------------------------------------------------
-  public CInt getDébut(){ return début;}
-  public CInt getFin(){ return fin;}
+  public CInt gethead(){ return début;}
+  public CInt getTail(){ return fin;}
   // Fonctions propre -----------------------------------------------------------
   public int length(){
     if(début==null){ return 0;}
@@ -43,12 +43,12 @@ public class GInt implements Serializable{
   }
   public void add(GInt gs){
     if(gs==null){ return;}
-    if(this.getDébut()==null){début = gs.getDébut();return;}
+    if(this.gethead()==null){début = gs.gethead();return;}
     //on lie l'anciène fin au début de gs.
-    this.fin.setSuivant(gs.getDébut());
+    this.fin.setSuivant(gs.gethead());
     this.fin.getSuivant().setPrécédent(fin);
     // on change la fin actuelle.
-    this.fin = gs.getFin();
+    this.fin = gs.getTail();
   }
   public void afficheToi(){
     if(début==null){

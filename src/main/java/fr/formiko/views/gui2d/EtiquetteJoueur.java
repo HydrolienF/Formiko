@@ -144,7 +144,7 @@ public class EtiquetteJoueur extends Panneau{
             iniCouleur();
           //}
         }else if(combo.getItemAt(2).equals(e.getItem())){
-          //if(ej.equals(pnp.getGej().getFin().getContenu())){}
+          //if(ej.equals(pnp.getGej().getTail().getContenu())){}
           ouvert=false;
           pnp.getGej().retirer(ej);
           pnp.rafraichirPgej();
@@ -152,7 +152,7 @@ public class EtiquetteJoueur extends Panneau{
           //Main.getPnp().get...
         }
       }
-      if(pnp.getGej().getFin().getContenu().getOuvert()){ // si la dernière n'est pas fermé.
+      if(pnp.getGej().getTail().getContenu().getOuvert()){ // si la dernière n'est pas fermé.
         pnp.getGej().add(new EtiquetteJoueur());
         pnp.rafraichirPgej();
       }

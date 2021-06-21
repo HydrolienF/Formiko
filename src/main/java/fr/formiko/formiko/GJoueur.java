@@ -14,8 +14,8 @@ public class GJoueur implements Serializable{
   // CONSTRUCTEUR -----------------------------------------------------------------
   public GJoueur(){}
   // GET SET -----------------------------------------------------------------------
-  public CJoueur getDébut(){return début;}
-  public CJoueur getFin(){return fin;}
+  public CJoueur gethead(){return début;}
+  public CJoueur getTail(){return fin;}
   public GCreature getGc(){ // renvoie toutes les créatures de tout les joueurs.
     if (début == null){ return new GCreature();}
     return début.getGc();

@@ -10,8 +10,8 @@ public class GMessage implements Serializable{
   // CONSTRUCTEUR ---------------------------------------------------------------
   public GMessage(){}
   // GET SET --------------------------------------------------------------------
-  public CMessage getDébut(){ return début;}
-  public CMessage getFin(){ return fin;}
+  public CMessage gethead(){ return début;}
+  public CMessage getTail(){ return fin;}
   // Fonctions propre -----------------------------------------------------------
   public int length(){
     if(début==null){ return 0;}
@@ -30,12 +30,12 @@ public class GMessage implements Serializable{
   }
   public void add(GMessage gs){
     if(gs==null){ return;}
-    if(this.getDébut()==null){début = gs.getDébut();return;}
+    if(this.gethead()==null){début = gs.gethead();return;}
     //on lie l'anciène fin au début de gs.
-    this.fin.setSuivant(gs.getDébut());
+    this.fin.setSuivant(gs.gethead());
     this.fin.getSuivant().setPrécédent(fin);
     // on change la fin actuelle.
-    this.fin = gs.getFin();
+    this.fin = gs.getTail();
   }
   public void afficheToi(){
     if(début==null){

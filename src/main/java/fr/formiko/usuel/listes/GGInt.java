@@ -11,8 +11,8 @@ public class GGInt implements Serializable{
   // CONSTRUCTEUR -----------------------------------------------------------------
   public GGInt(){}
   // GET SET -----------------------------------------------------------------------
-  public CCInt getDébut(){ return début;}
-  public CCInt getFin(){ return fin;}
+  public CCInt gethead(){ return début;}
+  public CCInt getTail(){ return fin;}
   // Fonctions propre -----------------------------------------------------------
   public int length(){
     if(début==null){ return 0;}

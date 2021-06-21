@@ -34,7 +34,7 @@ public class GCase implements Serializable{
   }
   public GCase(){}
   // GET SET --------------------------------------------------------------------
-  public CCase getDébut(){ return début;}
+  public CCase gethead(){ return début;}
   public String getDim(){ return getWidth()+";"+getHeight();}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){

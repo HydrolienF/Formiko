@@ -190,7 +190,7 @@ public class PanneauCarte extends Panneau {
     if(Main.getPartie().getCarte().getCasesNuageuses()==true){ //si il y a des cases nuageuses
       try {
         if(Main.getPartie().getGj().getNbrDeJoueurHumain()==1){//si il ya moins de 2 joueurs, on peu afficher les cases que le joueur voie.
-          jo = Main.getPartie().getGj().getJoueurHumain().getDébut().getContenu();
+          jo = Main.getPartie().getGj().getJoueurHumain().gethead().getContenu();
         }
         if (jo!=null){//si on a un joueur sélectionné.
           if (x>=0 && y>=0 && jo.getCaseNuageuse(x,y)){//si la case est invisible (nuageuse.)
@@ -230,8 +230,8 @@ public class PanneauCarte extends Panneau {
     int xT2 = (x)*getTailleDUneCase(); int yT2 = (y)*getTailleDUneCase();
     if(peintCaseNuageuse(x,y,g,xT,yT)){ return;}//si la case est nuageuse, on n'affichera rien d'autre dessus.
     byte ty = c.getType();
-    CCreature ccrea = c.getGc().getDébut();
-    CGraine ccg = c.getGg().getDébut();
+    CCreature ccrea = c.getGc().gethead();
+    CGraine ccg = c.getGg().gethead();
     try {
       int tC10 = Main.getData().getTailleDUneCase()/10;int tC4 = Main.getData().getTailleDUneCase()/4;int tC2 = Main.getData().getTailleDUneCase()/2;
       // anthill
@@ -272,9 +272,14 @@ public class PanneauCarte extends Panneau {
           }
         }
         // les créatures.
-        //TODO sort by quicksort Creature by size od there futur image.
-        while (ccrea !=null) {
-          Creature cr = ccrea.getContenu();
+        //TODO sort by quicksort Creature by size of there futur image.
+        // GCreature gcToPrint = new GCreature();
+        // for (Creature c : c.getGc()) {
+        //
+        // }
+        for (Creature cr : c.getGc().toList()) {
+        // while (ccrea !=null) {
+        //   Creature cr = ccrea.getContenu();
           int dir = getDir((ObjetSurCarteAId)cr);
           boolean insecte = true;
           calculerXYTemp(xT,yT,k,c);k++;
@@ -309,7 +314,7 @@ public class PanneauCarte extends Panneau {
           }catch (Exception e) {
             erreur.erreur("impossible de dessiner l'icone de la Case : "+x+" "+y);
           }
-          ccrea=ccrea.getSuivant();
+          // ccrea=ccrea.getSuivant();
         }
       }
     }catch (Exception e) {

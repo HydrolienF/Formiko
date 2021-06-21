@@ -38,7 +38,7 @@ public class CInt implements Serializable{
     x=contenu*50 + suivant.getContenu()*20 + suivant.getSuivant().getContenu()*9 + suivant.getSuivant().getSuivant().getContenu()*6 + suivant.getSuivant().getSuivant().getSuivant().getContenu()*3 + suivant.getSuivant().getSuivant().getSuivant().getSuivant().getContenu()*(-1);
     try {
       if(!fere.getJoueur().getIa()){
-        x=(int)(x*((Fourmi) (fere.getGc().getDébut().getContenu())).getMultiplicateurDeDiff());
+        x=(int)(x*((Fourmi) (fere.getGc().gethead().getContenu())).getMultiplicateurDeDiff());
       }
     }catch (Exception e) {
       erreur.erreurGXVide("GCreature");

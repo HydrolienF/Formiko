@@ -61,9 +61,9 @@ public class stats {
     //gsr.add(total);
     Chrono.endCh("calcul des valeur et du total");Chrono.debutCh();
     //add tt les autres.
-    CCInt cci = ggi.getDébut();
-    CCInt cci2 = ggi2.getDébut();
-    CInt ci = nbrDeLigne.getDébut();
+    CCInt cci = ggi.gethead();
+    CCInt cci2 = ggi2.gethead();
+    CInt ci = nbrDeLigne.gethead();
     for (String s : gs ) {
       if(cci==null){break;}
       if(raccourcir){

@@ -121,15 +121,15 @@ public class Fourmiliere implements Serializable{
   public void setLienFere(){ gc.setLienFere(this);}
   public Pheromone getPh(){
     if(getReine()!=null){return getReine().getPh();}
-    else if(getGc().getDébut()!=null){return getGc().getDébut().getContenu().getPh();}
+    else if(getGc().gethead()!=null){return getGc().gethead().getContenu().getPh();}
     else{return new Pheromone(0,0,0);}
   }
   public int getScore(){
     try {
-      return ggi.getFin().getContenu().calculerScore(this);
+      return ggi.getTail().getContenu().calculerScore(this);
     }catch (NullPointerException e) {
       ggi.add(new GInt(this));
-      return ggi.getFin().getContenu().calculerScore(this);
+      return ggi.getTail().getContenu().calculerScore(this);
     }
   }
   public int getNbrFourmisMorte(){return nbrFourmisMorte;}

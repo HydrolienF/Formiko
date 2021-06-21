@@ -56,7 +56,7 @@ public class CLIMapTest extends TestCaseMuet{
     Main.getPartie().setElément(1,0,0);
     CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
     Joueur j = new Joueur(1,true,Main.getCarte());
-    Fourmi playingAnt = (Fourmi) j.getFere().getGc().getDébut().getContenu();
+    Fourmi playingAnt = (Fourmi) j.getFere().getGc().gethead().getContenu();
     Main.getPartie().setPlayingAnt(playingAnt);
     assertEquals(color.GREEN_FLASH+"1"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(playingAnt));
     assertEquals(color.BROWN+"G2"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(new Graine()));
@@ -77,10 +77,10 @@ public class CLIMapTest extends TestCaseMuet{
     Main.getPartie().setElément(0,0,0);
     CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
     //without any player on the map
-    assertEquals("-   ",cLIMap.caseToString(Main.getGc().getDébut().getContenu(),false,false));
-    assertEquals("-   ",cLIMap.caseToString(Main.getGc().getDébut().getContenu(),false,true));
-    assertEquals("-   ",cLIMap.caseToString(Main.getGc().getDébut().getContenu(),true,false));
-    assertEquals("-   ",cLIMap.caseToString(Main.getGc().getDébut().getContenu(),true,true));
+    assertEquals("-   ",cLIMap.caseToString(Main.getGc().gethead().getContenu(),false,false));
+    assertEquals("-   ",cLIMap.caseToString(Main.getGc().gethead().getContenu(),false,true));
+    assertEquals("-   ",cLIMap.caseToString(Main.getGc().gethead().getContenu(),true,false));
+    assertEquals("-   ",cLIMap.caseToString(Main.getGc().gethead().getContenu(),true,true));
   }
   @Test
   public void testCaseToStringSombreNuageuse2(){
@@ -93,10 +93,10 @@ public class CLIMapTest extends TestCaseMuet{
     CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
     //without any player on the map but we input value for the 2 boolean
     assertEquals(0,Main.getGj().length());
-    assertEquals("-   ",cLIMap.caseToString(Main.getGc().getDébut().getContenu(),false,false));
-    assertEquals("□□□□",cLIMap.caseToString(Main.getGc().getDébut().getContenu(),false,true));
-    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getDébut().getContenu(),true,false));
-    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getDébut().getContenu(),true,true));
+    assertEquals("-   ",cLIMap.caseToString(Main.getGc().gethead().getContenu(),false,false));
+    assertEquals("□□□□",cLIMap.caseToString(Main.getGc().gethead().getContenu(),false,true));
+    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().gethead().getContenu(),true,false));
+    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().gethead().getContenu(),true,true));
   }
   @Test
   public void testCaseToStringSombreNuageuse3(){
@@ -109,10 +109,10 @@ public class CLIMapTest extends TestCaseMuet{
     CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
     //without any player on the map but we input value for the 2 boolean
     assertEquals(0,Main.getGj().length());
-    assertEquals("-   ",cLIMap.caseToString(Main.getGc().getDébut().getContenu(),false,false));
-    assertEquals("□□□□",cLIMap.caseToString(Main.getGc().getDébut().getContenu(),false,true));
-    assertEquals("-   ",cLIMap.caseToString(Main.getGc().getDébut().getContenu(),true,false));
-    assertEquals("□□□□",cLIMap.caseToString(Main.getGc().getDébut().getContenu(),true,true));
+    assertEquals("-   ",cLIMap.caseToString(Main.getGc().gethead().getContenu(),false,false));
+    assertEquals("□□□□",cLIMap.caseToString(Main.getGc().gethead().getContenu(),false,true));
+    assertEquals("-   ",cLIMap.caseToString(Main.getGc().gethead().getContenu(),true,false));
+    assertEquals("□□□□",cLIMap.caseToString(Main.getGc().gethead().getContenu(),true,true));
   }
   @Test
   public void testCaseToStringSombreNuageuse4(){
@@ -125,7 +125,7 @@ public class CLIMapTest extends TestCaseMuet{
     CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
     //with a player
     Joueur j = new Joueur(1,true,Main.getCarte());
-    Fourmi playingAnt = (Fourmi) j.getFere().getGc().getDébut().getContenu();
+    Fourmi playingAnt = (Fourmi) j.getFere().getGc().gethead().getContenu();
     Main.getPartie().setPlayingAnt(playingAnt);
     playingAnt.setCCase(Main.getGc().getCCase(2,0));
     playingAnt.getFere().setCc(Main.getGc().getCCase(2,0));
@@ -161,7 +161,7 @@ public class CLIMapTest extends TestCaseMuet{
     CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
     //with a player
     Joueur j = new Joueur(1,true,Main.getCarte());
-    Fourmi playingAnt = (Fourmi) j.getFere().getGc().getDébut().getContenu();
+    Fourmi playingAnt = (Fourmi) j.getFere().getGc().gethead().getContenu();
     Main.getPartie().setPlayingAnt(playingAnt);
     playingAnt.setCCase(Main.getGc().getCCase(2,0));
     playingAnt.getFere().setCc(Main.getGc().getCCase(2,0));
@@ -197,7 +197,7 @@ public class CLIMapTest extends TestCaseMuet{
     CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
     //with a player
     Joueur j = new Joueur(1,true,Main.getCarte());
-    Fourmi playingAnt = (Fourmi) j.getFere().getGc().getDébut().getContenu();
+    Fourmi playingAnt = (Fourmi) j.getFere().getGc().gethead().getContenu();
     Main.getPartie().setPlayingAnt(playingAnt);
     playingAnt.setCCase(Main.getGc().getCCase(2,0));
     playingAnt.getFere().setCc(Main.getGc().getCCase(2,0));
@@ -234,7 +234,7 @@ public class CLIMapTest extends TestCaseMuet{
     CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
     //with a player
     Joueur j = new Joueur(1,true,Main.getCarte());
-    Fourmi playingAnt = (Fourmi) j.getFere().getGc().getDébut().getContenu();
+    Fourmi playingAnt = (Fourmi) j.getFere().getGc().gethead().getContenu();
     //Main.getView().setActionGameOn(true);
     Main.getPartie().setPlayingAnt(playingAnt);
     playingAnt.setCCase(Main.getGc().getCCase(2,0));

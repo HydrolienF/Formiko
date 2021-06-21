@@ -13,9 +13,9 @@ public class GGraine implements Serializable{
   // CONSTRUCTEUR ---------------------------------------------------------------
   public void GGraine(){début = null;}
   // GET SET --------------------------------------------------------------------
-  public CGraine getDébut(){ return début;}
+  public CGraine gethead(){ return début;}
   public void setDébut(CGraine x){début=x;}
-  public CGraine getFin(){
+  public CGraine getTail(){
     if (début == null ){ return null;}
     CGraine fin = début;
     while (fin.getSuivant() != null){
@@ -40,13 +40,13 @@ public class GGraine implements Serializable{
   }
   public Graine getGrainePlusDeNourritureFournieSansDureté(){
     if (début == null){ erreur.erreur("Impossible de sélectionné la meilleur graine dans une liste vide."); return null;}
-    CGraine ci = getDébut();
+    CGraine ci = gethead();
     return ci.getGrainePlusDeNourritureFournieSansDureté(ci.getContenu());
   }
   public Graine getGrainePlusDeNourritureFournie(Fourmi f){
     if (début == null){ erreur.erreur("Impossible de sélectionné la meilleur graine dans une liste vide."); return null;}
     byte duretéMax = f.getDuretéMax();
-    CGraine ci = getDébut();
+    CGraine ci = gethead();
     //if (ci.getSuivant() != null){
      return ci.getGrainePlusDeNourritureFournie(ci.getContenu(),duretéMax);
     /*}
@@ -80,9 +80,9 @@ public class GGraine implements Serializable{
   public void addGraine(Graine i){add(i);}
   public void addGg(GGraine giTemp){
     if (this.début == null){
-      this.début = giTemp.getDébut();
+      this.début = giTemp.gethead();
     }else{
-      this.getFin().setSuivant(giTemp.getDébut()); // On raccroche les 2 bouts.
+      this.getTail().setSuivant(giTemp.gethead()); // On raccroche les 2 bouts.
     }
   }
   public void retirerGraine(int i){

@@ -39,12 +39,12 @@ public class ChasseInsectivore implements Serializable, Chasse {
     setC(c);
     if(!canHuntMore()){return false;}
     GInsecte proieVisible = getProie();
-    if (c.getCCase().getContenu().getGi().getDébut() != null){ // Si il y a un insecte sur la même case
+    if (c.getCCase().getContenu().getGi().gethead() != null){ // Si il y a un insecte sur la même case
       chasse(c);
-    }else if (proieVisible.getDébut() != null){ // Si il y a un insecte a coté
-      CCase pointDeLaProie = proieVisible.getDébut().getInsecte().getCCase();
+    }else if (proieVisible.gethead() != null){ // Si il y a un insecte a coté
+      CCase pointDeLaProie = proieVisible.gethead().getInsecte().getCCase();
       if (Main.getDifficulté() >= 1 || (c instanceof Fourmi && c.getIa()==false)){ // en normal les ia chasse les insectes les plus intéressants sur la case ou elle sont.
-        pointDeLaProie = proieVisible.getDébut().getInsectePlusDeNourritureFournie().getCCase();
+        pointDeLaProie = proieVisible.gethead().getInsectePlusDeNourritureFournie().getCCase();
       }
       debug.débogage(g.getM("laFourmi")+" " + c.getId()+ " "+g.get("ChasseInsectivore.1")+" " + pointDeLaProie.getPoint());
       c.ceDeplacer(pointDeLaProie);
@@ -68,12 +68,12 @@ public class ChasseInsectivore implements Serializable, Chasse {
     Case pointActuel = c.getCCase().getContenu();
     GInsecte gi = pointActuel.getGi();
     debug.débogage("Chasse : action = "+c.getAction() + "actionMax = "+c.getActionMax());
-    if (gi.getDébut() != null) { // sous forme de str I+id
+    if (gi.gethead() != null) { // sous forme de str I+id
       Insecte insecteTue;
       if (Main.getDifficulté() >= 0 || ((c instanceof Fourmi) && ((Fourmi)c).getFere().getJoueur().getIa()==false)){ // en normal les ia chasse les insectes les plus intéressants sur la case ou elle sont.
         insecteTue = gi.getInsectePlusDeNourritureFournie();
       }else{
-        insecteTue = gi.getDébut().getContenu();
+        insecteTue = gi.gethead().getContenu();
       }
       tuer(insecteTue);
       if(!canHuntMore()){return false;}

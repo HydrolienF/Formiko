@@ -38,12 +38,12 @@ public class ChasseGranivore implements Serializable, Chasse {
     setC(c);
     if(!canHuntMore()){return eatIfNeed();}
     GGraine proieVisible = getProie();
-    if (c.getCCase().getContenu().getGg().getDébut() != null){ // Si il y a une graine sur la même case
-      debug.débogage("la graine "+c.getCCase().getContenu().getGg().getDébut().getContenu().getId()+" a été détecté sur la meme case que la Fourmi.");
+    if (c.getCCase().getContenu().getGg().gethead() != null){ // Si il y a une graine sur la même case
+      debug.débogage("la graine "+c.getCCase().getContenu().getGg().gethead().getContenu().getId()+" a été détecté sur la meme case que la Fourmi.");
       debug.débogage("la fourmi est en "+c.getCCase().getContenu().description());
       return chasse(c);
-    }else if (proieVisible.getDébut() != null){ // Si il y a une graine a coté
-      CCase pointDeLaProie = proieVisible.getDébut().getContenu().getCCase();
+    }else if (proieVisible.gethead() != null){ // Si il y a une graine a coté
+      CCase pointDeLaProie = proieVisible.gethead().getContenu().getCCase();
       Graine betterSeed = proieVisible.getGrainePlusDeNourritureFournieSansDureté();
       if ((Main.getDifficulté() >= 1 || !c.getIa()) && betterSeed!= null){
         pointDeLaProie = betterSeed.getCCase();
@@ -67,12 +67,12 @@ public class ChasseGranivore implements Serializable, Chasse {
      setC(c);
      if(!canHuntMore()){return false;}
      GGraine gg = c.getCCase().getContenu().getGg();
-     if (gg.getDébut() != null){
+     if (gg.gethead() != null){
        Graine graineCollecté;
        if (Main.getDifficulté() >= 0 || !c.getIa()){
          graineCollecté = gg.getGrainePlusDeNourritureFournieSansDureté();
        }else{
-         graineCollecté = gg.getDébut().getContenu();
+         graineCollecté = gg.gethead().getContenu();
        }
        debug.débogage("Suppression de la graine "+graineCollecté.getId() + " en "+graineCollecté.getCCase().getContenu().description());
        c.setTransported(graineCollecté);

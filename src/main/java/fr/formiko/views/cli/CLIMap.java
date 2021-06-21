@@ -50,7 +50,7 @@ public class CLIMap{
   */
   public String toString(){
     String sr = "";
-    if(gc==null || gc.getDébut()==null){
+    if(gc==null || gc.gethead()==null){
       erreur.erreur("La carte est vide");
     }else{
       xi = 0; legend = new GString();
@@ -123,7 +123,7 @@ public class CLIMap{
   */
   //public only for test
   public String mapToMapString(){
-    CCase cc = gc.getDébut();
+    CCase cc = gc.gethead();
     String sr = "";
     Joueur j = Main.getPlayingJoueur();
     int xi2=0;
@@ -158,7 +158,7 @@ public class CLIMap{
   */
   //public only for test
   public String mapToString(){
-    CCase cc = gc.getDébut();
+    CCase cc = gc.gethead();
     String sr = "";
     Joueur j = Main.getPlayingJoueur();
     while(cc!=null){
@@ -221,10 +221,10 @@ public class CLIMap{
       }else if(nbrDElementSurCase == 1){
         if(contenu.getFere() != null){
           sr = "F"+contenu.getFere().getId();
-        }else if (contenu.getGc().getDébut() != null){
-          sr = sr + objetSurCarteAIdToString(contenu.getGc().getDébut().getContenu());
+        }else if (contenu.getGc().gethead() != null){
+          sr = sr + objetSurCarteAIdToString(contenu.getGc().gethead().getContenu());
         }else{
-          sr = sr + objetSurCarteAIdToString(contenu.getGg().getDébut().getContenu());
+          sr = sr + objetSurCarteAIdToString(contenu.getGg().gethead().getContenu());
         }
       }else{
         xi++;
