@@ -52,52 +52,7 @@ public class CCreature implements Serializable{
       cc=cc.getSuivant();
     }
   }
-  public Fourmi getReine(){
-    if (getSuivant()==null){ return null;}
-    if (getSuivant().getContent() instanceof Fourmi){
-      Fourmi f1 = (Fourmi) getSuivant().getContent();
-      if (f1.estReine()){//si c'est la reine
-        return f1;
-      }
-    }
-    return getSuivant().getReine();
-  }
-  public Fourmi getPlusAffamée(){
-    Fourmi fr = (Fourmi) this.getContent();
-    CCreature ccTest = suivant;
-    while (ccTest != null){
-      Fourmi fTest = (Fourmi) ccTest.getContent();
-      if (fTest.getNourriture()<fr.getNourriture()){ fr = fTest;}
-      ccTest = ccTest.getSuivant();
-    }
-    return fr;
-  }
-  public GCreature getGcStade(int stade){
-    GCreature gcr = new GCreature();
-    CCreature ccTest = this;
-    while (ccTest != null){
-      Creature cTest = ccTest.getContent();
-      Fourmi fTest = (Fourmi) cTest;
-      if(fTest.getStade() == stade){
-        gcr.add(cTest);
-      }
-      ccTest = ccTest.getSuivant();
-    }
-    return gcr;
-  }
-  public GCreature getGcType(int type){
-    GCreature gcr = new GCreature();
-    CCreature ccTest = this;
-    while (ccTest != null){
-      Creature cTest = ccTest.getContent();
-      Fourmi fTest = (Fourmi) cTest;
-      if(fTest.getTypeF() == type){
-        gcr.add(cTest);
-      }
-      ccTest = ccTest.getSuivant();
-    }
-    return gcr;
-  }
+
   public Creature getCouvainSale(){
     if (suivant == null){ return null;}
     Fourmi f = (Fourmi) suivant.getContent();

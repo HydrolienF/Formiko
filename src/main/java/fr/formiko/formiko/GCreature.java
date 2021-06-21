@@ -56,32 +56,49 @@ public class GCreature implements Serializable{//, Iterator{
       return début.length();
     }
   }
+  /**
+  *{summary Return the 1a queen of the anthill}
+  *,or null if there is no qeen.
+  *@version 2.1
+  */
   public Fourmi getReine(){
-    if (début==null){return null;}
-    if (gethead().getContent() instanceof Fourmi){
-      Fourmi f1 = (Fourmi) gethead().getContent();
-      if (f1.estReine()){//si c'est la reine
-        return f1;
+    for (Creature c : toList()) {
+      if (c instanceof Fourmi && ((Fourmi)c).estReine()){
+        return ((Fourmi)c);
       }
     }
-    return début.getReine();
+    return null;
   }
-  public Fourmi getPlusAffamée(){
-    if (début==null){return null;}
-    return début.getPlusAffamée();
+  /**
+  *{summary Return all the Creature at a specific stade.}
+  *@param stade The specific stade to fined.
+  *@version 2.1
+  */
+  public GCreature getGcStade(int stade){
+    GCreature gcr = new GCreature();
+    for (Creature c : toList()) {
+      if(c.getStade() == stade){
+        gcr.add(c);
+      }
+    }
+    return gcr;
   }
-  public GCreature getGcStade(int x){
-    if (début==null){return new GCreature();}
-    return début.getGcStade(x);
-  }
-  public GCreature getGcType(int x){
-    if (début==null){return new GCreature();}
-    return début.getGcType(x);
+  public GCreature getGcType(int typeF){
+    GCreature gcr = new GCreature();
+    for (Creature c : toList()) {
+      if (c instanceof Fourmi && ((Fourmi)c).getTypeF()==typeF){
+        gcr.add((Fourmi)c);
+      }
+    }
+    return null;
   }
   public GCreature getCouvain(){ // on renvoie d'habord les plus proches de la transformation en Fourmi adulte.
-    GCreature gcr = getGcStade(-1);
-    gcr.add(getGcStade(-2));
-    gcr.add(getGcStade(-3));
+    GCreature gcr = new GCreature();
+    for (Creature c : toList()) {
+      if(c.getStade() != 0){
+        gcr.add(c);
+      }
+    }
     return gcr;
   }
   public Creature getCouvainSaleE()throws EmptyListException{
@@ -378,8 +395,7 @@ public class GCreature implements Serializable{//, Iterator{
   }
   //functions that use iterator
   public boolean aFiniDeJouer(){
-    List<Creature> lc = toList();
-    for (Creature c : lc ) {
+    for (Creature c : toList()) {
       if(c.getAction()>0){return false;}
     }
     return true;
@@ -389,8 +405,7 @@ public class GCreature implements Serializable{//, Iterator{
   *Ant that still haven't end there turn will have action set to 0 &#38; tour to update age, cleaning etc.
   */
   public boolean setAction0AndEndTurn(){
-    List<Creature> lc = toList();
-    for (Creature c : lc ) {
+    for (Creature c : toList()) {
       if(c.getAction()>0){
         c.setAction(0);
         c.tour();//force to do finTour() without any action ant will do nothing.
