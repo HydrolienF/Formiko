@@ -263,7 +263,7 @@ public class PanneauCarte extends Panneau {
             int dir = getDir((ObjetSurCarteAId)ccg.getContenu());
             try {
               BufferedImage bi = Main.getData().getTG()[0][ccg.getContenu().getType()];
-              g.drawImage(image.rotateImage(bi,dir),xTemp,yTemp,this);
+              drawImage(g,image.rotateImage(bi,dir),xT,yT);
             }catch (Exception e) {}
             if(ccg.getContenu().getOuverte()){drawIcone(g,5,xT,yT,tC2,kIcon++,cptIcon);}
             else if(fi==null || ccg.getContenu().getDureté()<=fi.getDuretéMax()){drawIcone(g,4,xT,yT,tC2,kIcon++,cptIcon);}
@@ -272,6 +272,7 @@ public class PanneauCarte extends Panneau {
           }
         }
         // les créatures.
+        //TODO sort by quicksort Creature by size od there futur image.
         while (ccrea !=null) {
           Creature cr = ccrea.getContenu();
           int dir = getDir((ObjetSurCarteAId)cr);
@@ -283,7 +284,7 @@ public class PanneauCarte extends Panneau {
               BufferedImage bi = Main.getData().getAntImage(f.getEspece().getId(),f.getStade());
               BufferedImage bi2 = image.rotateImage(bi,dir);
               // erreur.info("from a "+bi.getWidth()+"x"+bi.getHeight()+" image to a "+bi2.getWidth()+"x"+bi2.getHeight()+" image.");
-              g.drawImage(bi2,xTemp,yTemp,this);
+              drawImage(g,bi2,xT,yT);
             }catch (Exception e) {
               erreur.erreur("can't draw ant "+f.getId()+" at stade "+f.getStade());
             }
@@ -294,7 +295,7 @@ public class PanneauCarte extends Panneau {
               BufferedImage bi = Main.getData().getTII()[0][math.min(i.getType(),Main.getData().getTII()[0].length)];
               // BufferedImage bi2 = image.rotateImage(bi,dir);
               // erreur.info("from a "+bi.getWidth()+"x"+bi.getHeight()+" image to a "+bi2.getWidth()+"x"+bi2.getHeight()+" image.");
-              g.drawImage(image.rotateImage(bi,dir),xTemp,yTemp,this);
+              drawImage(g,image.rotateImage(bi,dir),xT,yT);
             }catch (Exception e) {
               erreur.erreur("can't draw insect "+i.getId()+" with type "+i.getType());
             }
@@ -314,6 +315,22 @@ public class PanneauCarte extends Panneau {
     }catch (Exception e) {
       erreur.erreur("impossible de dessiner l'image de la Case : "+x+" "+y);
     }
+  }
+  /**
+  *{@summary draw an image centered for a Case.}<br>
+  *@param g Graphics element were to draw.
+  *@param image the image to draw.
+  *@param xT the x of the Case were to draw.
+  *@param yT the y of the Case were to draw.
+  *@version 2.1
+  */
+  private void drawImage(Graphics2D g, BufferedImage image, int xT, int yT){
+    int w = image.getWidth();
+    int h = image.getHeight();
+    int caseSize = getTailleDUneCase();
+    int xI = xT+(caseSize-w)/2;
+    int yI = yT+(caseSize-h)/2;
+    g.drawImage(image,xI,yI,this);
   }
   /**
   *{@summary return true if case in x,y is sombre.}<br>
