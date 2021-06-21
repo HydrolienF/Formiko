@@ -68,14 +68,14 @@ public class ini {
     //String rep = Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages();//""; if(str.nbrDeX(nom,'/')==0){rep="temporaire/";}
     //String s = rep+nom+is;
     imgTemp.sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom+is+"h"+".png");
-    if (Main.getElementSurCarteOrientéAprèsDéplacement()){
-      imgTemp.tourner();
-      imgTemp.sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom+is+"d"+".png");
-      imgTemp.tourner();
-      imgTemp.sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom+is+"b"+".png");
-      imgTemp.tourner();
-      imgTemp.sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom+is+"g"+".png");
-    }
+    // if (Main.getElementSurCarteOrientéAprèsDéplacement()){
+    //   imgTemp.tourner();
+    //   imgTemp.sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom+is+"d"+".png");
+    //   imgTemp.tourner();
+    //   imgTemp.sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom+is+"b"+".png");
+    //   imgTemp.tourner();
+    //   imgTemp.sauvegarder(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(),nom+is+"g"+".png");
+    // }
   }
   public static synchronized void initialiserAutreELémentTournés(){
     //de façon a ce que l'initialisation ce fasse qu'une seule fois.

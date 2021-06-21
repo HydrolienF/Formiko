@@ -265,7 +265,10 @@ public class Data {
     *@version 1.18
     */
     public BufferedImage [] getScaledInstance(BufferedImage ti[],int dim, int b){
-      int lenr = ti.length;
+      int lenr = 0;
+      if(ti!=null){
+        lenr=ti.length;
+      }
       BufferedImage r [] = new BufferedImage[lenr];
       for (int i=0;i<lenr ;i++ ) {
         if(b==0){//par défaut

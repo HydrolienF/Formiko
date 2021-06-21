@@ -178,11 +178,11 @@ public class image{
     BufferedImage tr [][]= new BufferedImage[4][];
     //nom = "temporaire/"+nom;
     tr[0] = getImages(nom,'h',nbr,x);
-    if(Main.getElementSurCarteOrientéAprèsDéplacement()){
-      tr[1] = getImages(nom,'d',nbr,x);
-      tr[2] = getImages(nom,'b',nbr,x);
-      tr[3] = getImages(nom,'g',nbr,x);
-    }
+    // if(Main.getElementSurCarteOrientéAprèsDéplacement()){
+    //   tr[1] = getImages(nom,'d',nbr,x);
+    //   tr[2] = getImages(nom,'b',nbr,x);
+    //   tr[3] = getImages(nom,'g',nbr,x);
+    // }
     return tr; // tr[1] et plus est null si l'orrientation n'est pas prise en compte.
   }
 
