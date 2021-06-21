@@ -10,7 +10,7 @@ import fr.formiko.usuel.listes.List;
 
 import java.io.Serializable;
 import java.util.Iterator;
-
+// extends List<Creature>
 public class GCreature implements Serializable{//, Iterator{
   protected CCreature début;
   protected CCreature fin;
@@ -50,7 +50,7 @@ public class GCreature implements Serializable{//, Iterator{
   public int length(){
     if (début==null){
       return 0;
-    }else if(début.getContenu().equals(fin.getContenu())){
+    }else if(début.getContent().equals(fin.getContent())){
       return 1;
     }else {
       return début.length();
@@ -58,8 +58,8 @@ public class GCreature implements Serializable{//, Iterator{
   }
   public Fourmi getReine(){
     if (début==null){return null;}
-    if (gethead().getContenu() instanceof Fourmi){
-      Fourmi f1 = (Fourmi) gethead().getContenu();
+    if (gethead().getContent() instanceof Fourmi){
+      Fourmi f1 = (Fourmi) gethead().getContent();
       if (f1.estReine()){//si c'est la reine
         return f1;
       }
@@ -97,9 +97,9 @@ public class GCreature implements Serializable{//, Iterator{
     GCreature gcr = getCouvain();
     // on garde le premier sale :
     while (gcr.gethead() != null){
-      Fourmi fTest = (Fourmi) gcr.gethead().getContenu();
+      Fourmi fTest = (Fourmi) gcr.gethead().getContent();
       if (fTest.getPropreté() < 90) {
-        gcr.retirer(gcr.gethead().getContenu());
+        gcr.retirer(gcr.gethead().getContent());
       }else{
         break;
       }
@@ -111,8 +111,8 @@ public class GCreature implements Serializable{//, Iterator{
   // public GCreature getGcSiMemeFere(Fourmiliere fere){}
   private Creature getCreatureParIdE(int id)throws EmptyListException{
     if (début==null){ throw new EmptyListException("GCreature","trouver la créature "+id);}
-    if (début.getContenu().getId()==id){
-      return début.getContenu();
+    if (début.getContent().getId()==id){
+      return début.getContent();
     }else {
       return début.getCreatureParId(id);
     }
@@ -200,7 +200,7 @@ public class GCreature implements Serializable{//, Iterator{
   public Espece getEspece(){
     Fourmi c = this.getReine();
     if(c!=null){return c.getEspece();}
-    if(début!=null){return ((Fourmi)début.getContenu()).getEspece();}
+    if(début!=null){return ((Fourmi)début.getContent()).getEspece();}
     return null;
   }
 
@@ -223,8 +223,8 @@ public class GCreature implements Serializable{//, Iterator{
     GInsecte gi = new GInsecte();
     CCreature cc = début;
     while(cc != null){
-      Creature c = cc.getContenu();
-      if(c instanceof Insecte){gi.add((Insecte) cc.getContenu());}
+      Creature c = cc.getContent();
+      if(c instanceof Insecte){gi.add((Insecte) cc.getContent());}
       cc = cc.getSuivant();
     }
     return gi;
@@ -267,8 +267,8 @@ public class GCreature implements Serializable{//, Iterator{
   public void remove(Creature c) {
     if(c==null){ throw new NullItemException();}
     if(début == null){ throw new EmptyListException("GCreature","retirer la Creature "+c.getId());}//erreur.erreur("Aucune créature n'as pu être retirer car GCreature est vide","GCreature.retirer",true); return;}
-    if(début.getContenu().equals(c)){
-      if(fin.getContenu().equals(c)){
+    if(début.getContent().equals(c)){
+      if(fin.getContent().equals(c)){
         début = null; fin = null; // on retire la seule créature
       }else{
         début = début.getSuivant(); // on retire la 1a créature.

@@ -15,13 +15,13 @@ public class CEspece implements Serializable{
     contenu = e;
   }
   // GET SET --------------------------------------------------------------------
-  public Espece getContenu(){return contenu;}
+  public Espece getContent(){return contenu;}
   public void setContenu(Espece c){contenu = c;}
   public CEspece getSuivant(){return suivant;}
   public void setSuivant(CEspece ce){ suivant =ce; }
   // Fonctions propre -----------------------------------------------------------
   public Espece getEspeceParId(int id){
-    if (this.getContenu().getId() == id){ return contenu;}
+    if (this.getContent().getId() == id){ return contenu;}
     if (this.getSuivant() != null){
       return suivant.getEspeceParId(id);
     }else{

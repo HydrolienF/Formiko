@@ -136,7 +136,7 @@ public class GInsecte implements Serializable{
     if(début == null){ return tr;}
     CInsecte ci = début;
     while (ci != null){
-      tr = tableau.addX (tr, "I" + ci.getContenu().getId());
+      tr = tableau.addX (tr, "I" + ci.getContent().getId());
       ci = ci.getSuivant();
     }
     return tr;

@@ -19,7 +19,7 @@ public class CInt implements Serializable{
   public void setSuivant(CInt cs){suivant = cs;}
   public CInt getPrécédent(){return précédent;}
   public void setPrécédent(CInt cs){précédent = cs;}
-  public int getContenu(){ return contenu;}
+  public int getContent(){ return contenu;}
   public void setContenu(int x){contenu=x;}
   // Fonctions propre -----------------------------------------------------------
   public int length(){
@@ -35,10 +35,10 @@ public class CInt implements Serializable{
   }
   public int calculerScore(Fourmiliere fere){
     int x=0;
-    x=contenu*50 + suivant.getContenu()*20 + suivant.getSuivant().getContenu()*9 + suivant.getSuivant().getSuivant().getContenu()*6 + suivant.getSuivant().getSuivant().getSuivant().getContenu()*3 + suivant.getSuivant().getSuivant().getSuivant().getSuivant().getContenu()*(-1);
+    x=contenu*50 + suivant.getContent()*20 + suivant.getSuivant().getContent()*9 + suivant.getSuivant().getSuivant().getContent()*6 + suivant.getSuivant().getSuivant().getSuivant().getContent()*3 + suivant.getSuivant().getSuivant().getSuivant().getSuivant().getContent()*(-1);
     try {
       if(!fere.getJoueur().getIa()){
-        x=(int)(x*((Fourmi) (fere.getGc().gethead().getContenu())).getMultiplicateurDeDiff());
+        x=(int)(x*((Fourmi) (fere.getGc().gethead().getContent())).getMultiplicateurDeDiff());
       }
     }catch (Exception e) {
       erreur.erreurGXVide("GCreature");

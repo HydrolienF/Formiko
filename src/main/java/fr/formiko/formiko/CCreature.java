@@ -28,8 +28,8 @@ public class CCreature implements Serializable{
   public void setSuivant(CCreature cc){suivant = cc;}
   public CCreature getPrécédent(){return précédente;}
   public void setPrécédent(CCreature cc){précédente = cc;}
-  public Creature getContenu(){return contenu;}
-  public Creature getCreature(){return getContenu();}
+  public Creature getContent(){return contenu;}
+  public Creature getCreature(){return getContent();}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
     if (suivant == null){
@@ -48,14 +48,14 @@ public class CCreature implements Serializable{
   public void setPheromone(Pheromone ph){
     CCreature cc = this;
     while(cc!=null){
-      cc.getContenu().setPheromone(ph);
+      cc.getContent().setPheromone(ph);
       cc=cc.getSuivant();
     }
   }
   public Fourmi getReine(){
     if (getSuivant()==null){ return null;}
-    if (getSuivant().getContenu() instanceof Fourmi){
-      Fourmi f1 = (Fourmi) getSuivant().getContenu();
+    if (getSuivant().getContent() instanceof Fourmi){
+      Fourmi f1 = (Fourmi) getSuivant().getContent();
       if (f1.estReine()){//si c'est la reine
         return f1;
       }
@@ -63,10 +63,10 @@ public class CCreature implements Serializable{
     return getSuivant().getReine();
   }
   public Fourmi getPlusAffamée(){
-    Fourmi fr = (Fourmi) this.getContenu();
+    Fourmi fr = (Fourmi) this.getContent();
     CCreature ccTest = suivant;
     while (ccTest != null){
-      Fourmi fTest = (Fourmi) ccTest.getContenu();
+      Fourmi fTest = (Fourmi) ccTest.getContent();
       if (fTest.getNourriture()<fr.getNourriture()){ fr = fTest;}
       ccTest = ccTest.getSuivant();
     }
@@ -76,7 +76,7 @@ public class CCreature implements Serializable{
     GCreature gcr = new GCreature();
     CCreature ccTest = this;
     while (ccTest != null){
-      Creature cTest = ccTest.getContenu();
+      Creature cTest = ccTest.getContent();
       Fourmi fTest = (Fourmi) cTest;
       if(fTest.getStade() == stade){
         gcr.add(cTest);
@@ -89,7 +89,7 @@ public class CCreature implements Serializable{
     GCreature gcr = new GCreature();
     CCreature ccTest = this;
     while (ccTest != null){
-      Creature cTest = ccTest.getContenu();
+      Creature cTest = ccTest.getContent();
       Fourmi fTest = (Fourmi) cTest;
       if(fTest.getTypeF() == type){
         gcr.add(cTest);
@@ -100,7 +100,7 @@ public class CCreature implements Serializable{
   }
   public Creature getCouvainSale(){
     if (suivant == null){ return null;}
-    Fourmi f = (Fourmi) suivant.getContenu();
+    Fourmi f = (Fourmi) suivant.getContent();
     if (f.getPropreté() < 75){
       return f;
     }else{
@@ -109,7 +109,7 @@ public class CCreature implements Serializable{
   }
   public void getCouvainsSale(){
     if (suivant == null){ return;}
-    Fourmi f = (Fourmi) suivant.getContenu();
+    Fourmi f = (Fourmi) suivant.getContent();
     if (f.getPropreté() > 75){
       suivant = suivant.getSuivant();
       this.getCouvainsSale();
@@ -119,15 +119,15 @@ public class CCreature implements Serializable{
   }
   public Creature getCreatureParId(int id){
     if (this.getSuivant()==null){ return null;}
-    if (suivant.getContenu().getId()==id){
-      return suivant.getContenu();
+    if (suivant.getContent().getId()==id){
+      return suivant.getContent();
     }else{
       return this.getSuivant().getCreatureParId(id);
     }
   }
   public Fourmi getFourmiParFere(Fourmiliere fere){
-    if(getContenu().estFourmi()){
-      if(((Fourmi)(getContenu())).getFere().equals(fere)){return (Fourmi)contenu;}
+    if(getContent().estFourmi()){
+      if(((Fourmi)(getContent())).getFere().equals(fere)){return (Fourmi)contenu;}
     }
     if (this.getSuivant()==null){ return null;}
     return suivant.getFourmiParFere(fere);
@@ -136,8 +136,8 @@ public class CCreature implements Serializable{
     GCreature gcr = new GCreature();
     CCreature ccTest = this;
     while(ccTest != null){
-      if (c.getPheromone().equals(ccTest.getContenu().getPheromone(),différenceTolléré)){
-        gcr.addFin(ccTest.getContenu());
+      if (c.getPheromone().equals(ccTest.getContent().getPheromone(),différenceTolléré)){
+        gcr.addFin(ccTest.getContent());
       }
       ccTest = ccTest.getSuivant();
     }
@@ -151,8 +151,8 @@ public class CCreature implements Serializable{
     GCreature gcr = new GCreature();
     CCreature ccTest = this;
     while(ccTest != null){
-      if (ccTest.getContenu().getNourriture()<ccTest.getContenu().getNourritureMax()){
-        gcr.addFin(ccTest.getContenu());
+      if (ccTest.getContent().getNourriture()<ccTest.getContent().getNourritureMax()){
+        gcr.addFin(ccTest.getContent());
       }
       ccTest = ccTest.getSuivant();
     }
@@ -166,8 +166,8 @@ public class CCreature implements Serializable{
     GCreature gcr = new GCreature();
     CCreature ccTest = this;
     while(ccTest != null){
-      if (ccTest.getContenu().getProprete()<100){
-        gcr.addFin(ccTest.getContenu());
+      if (ccTest.getContent().getProprete()<100){
+        gcr.addFin(ccTest.getContent());
       }
       ccTest = ccTest.getSuivant();
     }
@@ -181,8 +181,8 @@ public class CCreature implements Serializable{
     GCreature gcr = new GCreature();
     CCreature ccTest = this;
     while(ccTest != null){
-      if (ccTest.getContenu().wantFood()){
-        gcr.addFin(ccTest.getContenu());
+      if (ccTest.getContent().wantFood()){
+        gcr.addFin(ccTest.getContent());
       }
       ccTest = ccTest.getSuivant();
     }
@@ -196,8 +196,8 @@ public class CCreature implements Serializable{
     GCreature gcr = new GCreature();
     CCreature ccTest = this;
     while(ccTest != null){
-      if (ccTest.getContenu().wantClean()){
-        gcr.addFin(ccTest.getContenu());
+      if (ccTest.getContent().wantClean()){
+        gcr.addFin(ccTest.getContent());
       }
       ccTest = ccTest.getSuivant();
     }
@@ -206,8 +206,8 @@ public class CCreature implements Serializable{
   public void setLienFere(Fourmiliere fere){
     CCreature ccTest = this;
     while(ccTest != null){
-      if(ccTest.getContenu() instanceof Fourmi){
-        Fourmi fTest = (Fourmi)(ccTest.getContenu());
+      if(ccTest.getContent() instanceof Fourmi){
+        Fourmi fTest = (Fourmi)(ccTest.getContent());
         fTest.setFere(fere);
       }
       ccTest = ccTest.getSuivant();
@@ -218,7 +218,7 @@ public class CCreature implements Serializable{
     int tr[]=new int [lentr];int k=0;
     CCreature cc = this;
     while(k<lentr && cc!= null){
-      tr[k]=cc.getContenu().getId();k++;
+      tr[k]=cc.getContent().getId();k++;
       cc=cc.getSuivant();
     }
     return tr;
@@ -227,14 +227,14 @@ public class CCreature implements Serializable{
     CCreature cc = this;
     GCreature gcr = new GCreature();
     while(cc!=null){
-      gcr.addFin(cc.getContenu());//on ajoute seulement le contenu a chaque fois.
+      gcr.addFin(cc.getContent());//on ajoute seulement le contenu a chaque fois.
       cc=cc.getSuivant();
     }
     return gcr;
   }
   public void retirer(Creature c) {
     if (suivant == null){ throw new ListItemNotFoundException("Creature",c.getId());}
-    if (suivant.getContenu().equals(c)){
+    if (suivant.getContent().equals(c)){
       suivant = suivant.getSuivant(); return;
     }
     suivant.retirer(c);
@@ -315,13 +315,13 @@ public class CCreature implements Serializable{
   public void actualiserCaseSN(){
     CCreature cc = this;
     while(cc!= null){
-      if(cc.getContenu() instanceof Fourmi){
-        Fourmi f = (Fourmi)(cc.getContenu());
+      if(cc.getContent() instanceof Fourmi){
+        Fourmi f = (Fourmi)(cc.getContent());
         Joueur j = f.getJoueur();
         GCase gc = f.getCCase().getGca(1); //ensemble des case vue par la créature.
         CCase cca = gc.gethead();
         while(cca!=null){
-          int x = cca.getContenu().getX(); int y = cca.getContenu().getY();
+          int x = cca.getContent().getX(); int y = cca.getContent().getY();
           j.setCaseSombre(x,y,false);
           j.setCaseNuageuse(x,y,false);
           cca=cca.getDroite();
@@ -342,7 +342,7 @@ public class CCreature implements Serializable{
     CCreature cc = this;
     int k=0;
     while(cc!= null){
-      tr[k]=cc.getContenu().getId();k++;
+      tr[k]=cc.getContent().getId();k++;
       cc = cc.getSuivant();
     }
     return tr;
@@ -355,7 +355,7 @@ public class CCreature implements Serializable{
     CCreature cc = this;
     List<Creature> lc = new List<Creature>();
     while(cc!= null){
-      lc.add(cc.getContenu());
+      lc.add(cc.getContent());
       cc = cc.getSuivant();
     }
     return lc;

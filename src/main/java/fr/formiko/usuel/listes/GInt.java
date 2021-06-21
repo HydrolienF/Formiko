@@ -16,7 +16,7 @@ public class GInt implements Serializable{
     GCreature gc = fere.getGc();
     if(gc.length()==0){return;}
     if(gc.getReine()!=null){add(1);}else{add(0);}
-    add(gc.getGcStade(0).length()-début.getContenu());
+    add(gc.getGcStade(0).length()-début.getContent());
     for(int i=-1; i>-4;i--){
       add(gc.getGcStade(i).length());
     }

@@ -20,8 +20,8 @@ public class CInsecte implements Serializable{
   // GET SET --------------------------------------------------------------------
   public CInsecte getSuivant(){return suivant;}
   public void setSuivant(CInsecte ci){suivant = ci;}
-  public Insecte getContenu(){return contenu;}
-  public Insecte getInsecte(){return getContenu();}
+  public Insecte getContent(){return contenu;}
+  public Insecte getInsecte(){return getContent();}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
     if(suivant==null){return contenu.toString();}
@@ -61,7 +61,7 @@ public class CInsecte implements Serializable{
     }
   }
   public Insecte getInsecteSurLaCase(Point pTest){
-    if(contenu.getCCase().getContenu().getPoint().equals(pTest)){
+    if(contenu.getCCase().getContent().getPoint().equals(pTest)){
       return contenu;
     } else {
       return null;
@@ -85,8 +85,8 @@ public class CInsecte implements Serializable{
     GInsecte gir = new GInsecte();
     CInsecte ci = this;
     while(ci!=null){
-      if (!ci.getContenu().getEstMort()){
-        gir.add(ci.getContenu());
+      if (!ci.getContent().getEstMort()){
+        gir.add(ci.getContent());
       }
       ci=ci.getSuivant();
     }
@@ -96,7 +96,7 @@ public class CInsecte implements Serializable{
     if (suivant == null){
       erreur.alerte("L'insecte "+ i.getId() +" n'as pas été trouvé et n'as donc pas pu être retirer");
     }else {
-      if(suivant.getContenu().equals(i)){
+      if(suivant.getContent().equals(i)){
         debug.débogage("Suppression d'1 Insecte");
         suivant = suivant.getSuivant(); // on saute un maillons.
       }else {
@@ -108,7 +108,7 @@ public class CInsecte implements Serializable{
     GCreature gc = new GCreature();
     CInsecte ci = this;
     while(ci!=null){
-      gc.add(ci.getContenu());
+      gc.add(ci.getContent());
       ci=ci.getSuivant();
     }
     return gc;

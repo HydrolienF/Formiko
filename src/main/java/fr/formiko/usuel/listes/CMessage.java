@@ -14,7 +14,7 @@ public class CMessage implements Serializable{
   public void setSuivant(CMessage cs){suivant = cs;}
   public CMessage getPrécédent(){return précédent;}
   public void setPrécédent(CMessage cs){précédent = cs;}
-  public Message getContenu(){ return contenu;}
+  public Message getContent(){ return contenu;}
   public void setContenu(Message x){contenu=x;}
   // Fonctions propre -----------------------------------------------------------
   public int length(){
@@ -32,7 +32,7 @@ public class CMessage implements Serializable{
     GMessage gsr = new GMessage();
     CMessage csTemp = this;
     while(csTemp != null){
-      Message s = csTemp.getContenu();
+      Message s = csTemp.getContent();
       if (!gsr.contient(s)){
         gsr.add(s);
       }
@@ -43,7 +43,7 @@ public class CMessage implements Serializable{
   public boolean contient(Message s){
     CMessage csTemp = this;
     while(csTemp != null){
-      if(csTemp.getContenu().equals(s)){ return true;}
+      if(csTemp.getContent().equals(s)){ return true;}
       csTemp = csTemp.getSuivant();
     }return false;
   }
@@ -51,7 +51,7 @@ public class CMessage implements Serializable{
     GString gs = new GString();
     CMessage csTemp = this;
     while(x>0 && csTemp != null){
-      gs.add(csTemp.getContenu().description());
+      gs.add(csTemp.getContent().description());
       csTemp = csTemp.getPrécédent();
       x--;
       if(x==0){

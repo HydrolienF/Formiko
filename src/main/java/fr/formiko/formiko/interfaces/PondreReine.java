@@ -65,7 +65,7 @@ public class PondreReine implements Serializable, Pondre{
       Fourmi fm = new Fourmi(f.getFourmiliere(),f.getEspece(),type);
       fere.getGc().add(fm); //TODO remove when doing #190
       fm.setAgeMax((int)((double)(f.getEspece().getIndividuParType(type).getAgeMax(0)*fm.getMultiplicateurDeDiff())));
-      //f.getFourmiliere().getCCase().getContenu().getGc().add(fm);
+      //f.getFourmiliere().getCCase().getContent().getGc().add(fm);
       //fere.getGc().add(fm); l'ajout a la fourmilière ce fait dans le constructeur de Fourmi.
       f.setNourriture(f.getNourriture() - FOOD_COST_TO_LAY);
       Message m = new Message(g.getM("la")+" "+f.getNom()+" "+fm.getId() + " "+g.get("pondreReine.1")+".", fere.getId(), 3);

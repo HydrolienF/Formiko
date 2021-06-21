@@ -175,7 +175,7 @@ public class PanneauCarte extends Panneau {
   }
   public void peintImagePourCase(GCase gc, int x, int y,Graphics2D g){
     try {
-      Case c = gc.getCCase(x,y).getContenu();
+      Case c = gc.getCCase(x,y).getContent();
       peintImagePourCase(c,x,y,g);
     }catch (Exception e) {
       erreur.erreur("fail to draw "+x+" "+y);
@@ -190,7 +190,7 @@ public class PanneauCarte extends Panneau {
     if(Main.getPartie().getCarte().getCasesNuageuses()==true){ //si il y a des cases nuageuses
       try {
         if(Main.getPartie().getGj().getNbrDeJoueurHumain()==1){//si il ya moins de 2 joueurs, on peu afficher les cases que le joueur voie.
-          jo = Main.getPartie().getGj().getJoueurHumain().gethead().getContenu();
+          jo = Main.getPartie().getGj().getJoueurHumain().gethead().getContent();
         }
         if (jo!=null){//si on a un joueur sélectionné.
           if (x>=0 && y>=0 && jo.getCaseNuageuse(x,y)){//si la case est invisible (nuageuse.)
@@ -213,7 +213,7 @@ public class PanneauCarte extends Panneau {
   */
   private void drawPlayingAnt(Graphics g){
     if(Main.getPlayingAnt()!=null){
-      Case c = Main.getPlayingAnt().getCCase().getContenu();
+      Case c = Main.getPlayingAnt().getCCase().getContent();
       g.drawImage(Main.getData().getSelectionnee(),(c.getX())*Main.getData().getTailleDUneCase(),(c.getY())*Main.getData().getTailleDUneCase(),this);
     }
   }
@@ -260,13 +260,13 @@ public class PanneauCarte extends Panneau {
         if(seedPrinted){
           while (ccg!=null){
             calculerXYTemp(xT,yT,k,c);k++;
-            int dir = getDir((ObjetSurCarteAId)ccg.getContenu());
+            int dir = getDir((ObjetSurCarteAId)ccg.getContent());
             try {
-              BufferedImage bi = Main.getData().getTG()[0][ccg.getContenu().getType()];
+              BufferedImage bi = Main.getData().getTG()[0][ccg.getContent().getType()];
               drawImage(g,image.rotateImage(bi,dir),xT,yT);
             }catch (Exception e) {}
-            if(ccg.getContenu().getOuverte()){drawIcone(g,5,xT,yT,tC2,kIcon++,cptIcon);}
-            else if(fi==null || ccg.getContenu().getDureté()<=fi.getDuretéMax()){drawIcone(g,4,xT,yT,tC2,kIcon++,cptIcon);}
+            if(ccg.getContent().getOuverte()){drawIcone(g,5,xT,yT,tC2,kIcon++,cptIcon);}
+            else if(fi==null || ccg.getContent().getDureté()<=fi.getDuretéMax()){drawIcone(g,4,xT,yT,tC2,kIcon++,cptIcon);}
             else {drawIcone(g,6,xT,yT,tC2,kIcon++,cptIcon);}
             ccg = ccg.getSuivant();
           }
@@ -279,7 +279,7 @@ public class PanneauCarte extends Panneau {
         // }
         for (Creature cr : c.getGc().toList()) {
         // while (ccrea !=null) {
-        //   Creature cr = ccrea.getContenu();
+        //   Creature cr = ccrea.getContent();
           int dir = getDir((ObjetSurCarteAId)cr);
           boolean insecte = true;
           calculerXYTemp(xT,yT,k,c);k++;
@@ -352,7 +352,7 @@ public class PanneauCarte extends Panneau {
   private boolean needToDrawAnthillColor(Case c, int x, int y){
     if (drawAllFere) { return true;}
     if(c.getFere().getId()==idCurentFere && !isSombre(x,y)){return true;}
-    return (lookedCCase!=null && lookedCCase.getContenu() !=null && lookedCCase.getContenu().equals(c));
+    return (lookedCCase!=null && lookedCCase.getContent() !=null && lookedCCase.getContent().equals(c));
   }
   /**
   *{@summary fonction that place ObjetSurCarteAId on the same Case.}<br>

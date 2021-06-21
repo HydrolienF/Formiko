@@ -69,7 +69,7 @@ public class stats {
       if(raccourcir){
         s = s.substring(25);
       }
-      gsr.add(toStatJd(cci)+toStatInfo(cci2.getContenu(),cci.getContenu())+numberOfLines(ci)+s);
+      gsr.add(toStatJd(cci)+toStatInfo(cci2.getContent(),cci.getContent())+numberOfLines(ci)+s);
       cci=cci.getSuivant();
       cci2=cci2.getSuivant();
       ci=ci.getSuivant();
@@ -83,7 +83,7 @@ public class stats {
     Chrono.endCh("sauvegarde finale");
   }public static void statsJavadoc(String chemin){statsJavadoc(chemin,false);}
 
-  public static String toStatJd(CCInt cci){return toStatJd(cci.getContenu());}
+  public static String toStatJd(CCInt cci){return toStatJd(cci.getContent());}
   /**
   *{@summary calculate the %age of commented fonction in a file.}
   *@version 1.13
@@ -157,8 +157,8 @@ public class stats {
   *@version 1.13
   */
   public static String numberOfLines(CInt ci){
-    sommeNbrDeLigneG+=ci.getContenu();
-    String r=ci.getContenu()+"";
+    sommeNbrDeLigneG+=ci.getContent();
+    String r=ci.getContent()+"";
     while(r.length()<5){r+=" ";}
     return r;
   }

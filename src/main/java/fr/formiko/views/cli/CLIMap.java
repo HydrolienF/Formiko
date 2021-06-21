@@ -176,7 +176,7 @@ public class CLIMap{
   public String mapLineToString(CCase cc, Joueur j){
     String sr = "";
     while(cc!=null){
-      if(j==null){sr+=caseToString(cc.getContenu(),false,false);}
+      if(j==null){sr+=caseToString(cc.getContent(),false,false);}
       sr+=caseToString(cc,j);
       cc=cc.getDroite();
     }
@@ -191,7 +191,7 @@ public class CLIMap{
   */
   //public only for test
   public String caseToString(CCase cc, Joueur j){
-    return caseToString(cc.getContenu(),j.isCaseNuageuse(cc),j.isCaseSombre(cc));
+    return caseToString(cc.getContent(),j.isCaseNuageuse(cc),j.isCaseSombre(cc));
   }
   /**
   *{@summary Return a Case as a String.}<br>
@@ -222,9 +222,9 @@ public class CLIMap{
         if(contenu.getFere() != null){
           sr = "F"+contenu.getFere().getId();
         }else if (contenu.getGc().gethead() != null){
-          sr = sr + objetSurCarteAIdToString(contenu.getGc().gethead().getContenu());
+          sr = sr + objetSurCarteAIdToString(contenu.getGc().gethead().getContent());
         }else{
-          sr = sr + objetSurCarteAIdToString(contenu.getGg().gethead().getContenu());
+          sr = sr + objetSurCarteAIdToString(contenu.getGg().gethead().getContent());
         }
       }else{
         xi++;

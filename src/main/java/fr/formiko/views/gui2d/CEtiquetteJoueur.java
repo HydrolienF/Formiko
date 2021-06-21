@@ -16,7 +16,7 @@ public class CEtiquetteJoueur {
   }
   public CEtiquetteJoueur(){}
   // GET SET --------------------------------------------------------------------
-  public EtiquetteJoueur getContenu(){return contenu;}
+  public EtiquetteJoueur getContent(){return contenu;}
   public void setContenu(EtiquetteJoueur ej){contenu=ej;}
   public CEtiquetteJoueur getSuivant(){ return suivant;}
   public void setSuivant(CEtiquetteJoueur cej){ suivant=cej;}
@@ -31,11 +31,11 @@ public class CEtiquetteJoueur {
     CEtiquetteJoueur cej = this;
     GJoueur gj = new GJoueur();
     while (cej!=null){
-      Joueur j = new Joueur(nbrDeFourmi,cej.getContenu().getIa(),mapo);
-      j.setPseudo(cej.getContenu().getPseudo());
-      j.setPheromone(cej.getContenu().getCouleur());
+      Joueur j = new Joueur(nbrDeFourmi,cej.getContent().getIa(),mapo);
+      j.setPseudo(cej.getContent().getPseudo());
+      j.setPheromone(cej.getContent().getCouleur());
       gj.add(j);
-      if(!cej.getContenu().getIa()){ // si c'est un joueur Humain.
+      if(!cej.getContent().getIa()){ // si c'est un joueur Humain.
         if (mapo.getCasesNuageuses() || mapo.getCasesSombres()){
           j.initialisationCaseNS();
           j.actualiserCaseSN();
@@ -48,14 +48,14 @@ public class CEtiquetteJoueur {
   public void afficheToi(){
     CEtiquetteJoueur cej = this;
     while(cej!=null){
-      cej.getContenu().afficheToi();
+      cej.getContent().afficheToi();
       cej=cej.getSuivant();
     }
   }
   public void retirer(int idX){
     CEtiquetteJoueur cej = this;
     while(cej.getSuivant()!=null){
-      if(cej.getSuivant().getContenu().getId()==idX){cej.setSuivant(cej.getSuivant().getSuivant());break;} //on saute un mayon.
+      if(cej.getSuivant().getContent().getId()==idX){cej.setSuivant(cej.getSuivant().getSuivant());break;} //on saute un mayon.
       cej=cej.getSuivant();
     }
     if(cej==null){ erreur.erreur("impossible de retirer l'élément "+idX+" du GEtiquetteJoueur spécifié.");}

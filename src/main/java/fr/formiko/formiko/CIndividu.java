@@ -15,12 +15,12 @@ public class CIndividu implements Serializable{
     contenu = iu;
   }
   // GET SET --------------------------------------------------------------------
-  public Individu getContenu(){return contenu;}
+  public Individu getContent(){return contenu;}
   public void setContenu(Individu c){contenu = c;}
   public CIndividu getSuivant(){return suivant;}
   public void setSuivant(CIndividu ce){ suivant =ce; }
   public Individu getIndividuParType(byte type){
-    if (this.getContenu().getType() == type){ return this.getContenu();}
+    if (this.getContent().getType() == type){ return this.getContent();}
     if (this.getSuivant() == null){ return null;}
     return suivant.getIndividuParType(type);
   }
@@ -40,7 +40,7 @@ public class CIndividu implements Serializable{
     int [] tr = new int [lentr];
     CIndividu ci = this;int k=0;
     while(ci != null && k<lentr){
-      tr[k]=ci.getContenu().getType();k++;
+      tr[k]=ci.getContent().getType();k++;
       ci = ci.getSuivant();
     }
     return tr;

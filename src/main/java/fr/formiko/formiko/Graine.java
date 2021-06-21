@@ -47,11 +47,11 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   */
   public void setCCase(CCase newCCase){
     if(this.ccase!=null){
-      this.ccase.getContenu().getGg().retirer(this);
+      this.ccase.getContent().getGg().retirer(this);
     }
     this.ccase = newCCase;
     if(newCCase!=null){
-      newCCase.getContenu().getGg().add(this);
+      newCCase.getContent().getGg().add(this);
     }
   }
   public byte getType(){ return type;}
@@ -77,14 +77,14 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   }
   public void mourrir(){
     debug.débogage("Lancement de la mort de la graine.");
-    Main.getGc().getCCase(ccase.getContenu().getX(),ccase.getContenu().getY()).getGg().retirerGraine(this);//on retire la graine de sa liste.
+    Main.getGc().getCCase(ccase.getContent().getX(),ccase.getContent().getY()).getGg().retirerGraine(this);//on retire la graine de sa liste.
     this.setCCase(null);
   }
   public void casser(){
     ouverte=true;
   }
   public void tour(){
-    if(getCCase().getContenu().getFere()==null){//si la graine n'est pas dans une fourmiliere :
+    if(getCCase().getContent().getFere()==null){//si la graine n'est pas dans une fourmiliere :
       tempsAvantDecomposition--;
       if(tempsAvantDecomposition<0){mourrir();}//la graine pourrie.
     }

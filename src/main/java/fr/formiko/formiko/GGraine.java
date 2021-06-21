@@ -41,24 +41,24 @@ public class GGraine implements Serializable{
   public Graine getGrainePlusDeNourritureFournieSansDureté(){
     if (début == null){ erreur.erreur("Impossible de sélectionné la meilleur graine dans une liste vide."); return null;}
     CGraine ci = gethead();
-    return ci.getGrainePlusDeNourritureFournieSansDureté(ci.getContenu());
+    return ci.getGrainePlusDeNourritureFournieSansDureté(ci.getContent());
   }
   public Graine getGrainePlusDeNourritureFournie(Fourmi f){
     if (début == null){ erreur.erreur("Impossible de sélectionné la meilleur graine dans une liste vide."); return null;}
     byte duretéMax = f.getDuretéMax();
     CGraine ci = gethead();
     //if (ci.getSuivant() != null){
-     return ci.getGrainePlusDeNourritureFournie(ci.getContenu(),duretéMax);
+     return ci.getGrainePlusDeNourritureFournie(ci.getContent(),duretéMax);
     /*}
-    if(ci.getContenu().getDureté() <  f.getDuretéMax() && !ci.getContenu().getOuverte()){ // si elle est fermé et cassable.
-      return ci.getContenu();
+    if(ci.getContent().getDureté() <  f.getDuretéMax() && !ci.getContent().getOuverte()){ // si elle est fermé et cassable.
+      return ci.getContent();
     }else{
       return null;
     }*/
   }
   public Graine getGraineOuverte(){
     if (début == null){ erreur.erreur("Impossible de sélectionné 1 graine ouverte dans une liste vide."); return null;}
-    if (début.getContenu().getOuverte()){ return début.getContenu();}
+    if (début.getContent().getOuverte()){ return début.getContent();}
     return début.getGraineOuverte();
   }
     // ici on choisirai la graine avec le plus de nourritureFournie parmi toutes les Graine que la fourmi peut ouvrir.
@@ -87,8 +87,8 @@ public class GGraine implements Serializable{
   }
   public void retirerGraine(int i){
     if (this.début == null){ erreur.alerte("Impossible de retirer i d'un groupe de Graine null"); return;}
-    if(début.getContenu().getId()==i){
-      retirerGraine(début.getContenu());
+    if(début.getContent().getId()==i){
+      retirerGraine(début.getContent());
     }else{
       début.retirerGraine(i);
     }
@@ -100,10 +100,10 @@ public class GGraine implements Serializable{
     }
     if (début == null){
       erreur.alerte("Impossible de retirer une Graine d'un groupe vide.");
-    }else if (début.getContenu().equals(i)){ // Si c'est le 1a
+    }else if (début.getContent().equals(i)){ // Si c'est le 1a
       début = début.getSuivant(); // On en retir 1.
       debug.débogage("début = début.getSuivant();");
-    } else if(début.getSuivant() != null && début.getSuivant().getContenu().equals(i)){ // Si c'est le 2a
+    } else if(début.getSuivant() != null && début.getSuivant().getContent().equals(i)){ // Si c'est le 2a
       début.setSuivant(début.getSuivant().getSuivant());
     }else {
       début.retirerGraine(i);

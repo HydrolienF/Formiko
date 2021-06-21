@@ -93,7 +93,7 @@ public class GCase implements Serializable{
       //tth[i].start();
       for (int j=0;j<lenj;j++ ) {
         System.out.println("éléments n°"+(i*lenj+j)+"/"+(leni*lenj));
-        ie.add(i*500,j*500,ti[this.getCCase(i,j).getContenu().getType()]);
+        ie.add(i*500,j*500,ti[this.getCCase(i,j).getContent().getType()]);
       }
     }
     ie.actualiserImage();
@@ -103,7 +103,7 @@ public class GCase implements Serializable{
     debug.débogage("Création d'une ligne");
     int k = 1; CCase temp; actuelle = débutDeLaLigne;
     while (x>0){
-      temp = new CCase(new Case(k,actuelle.getContenu().getPoint().getY())); k++;
+      temp = new CCase(new Case(k,actuelle.getContent().getPoint().getY())); k++;
       actuelle.setDroite(temp);
       temp.setGauche(actuelle);
       actuelle = temp;

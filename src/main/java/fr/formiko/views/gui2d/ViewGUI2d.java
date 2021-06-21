@@ -303,8 +303,8 @@ public class ViewGUI2d implements View {
       getPb().setDesc("");
       getPc().setIdCurentFere(-1);
     }else{
-      getPb().setDesc(cc.getContenu().toString());
-      GCreature gAnt = cc.getContenu().getGc();
+      getPb().setDesc(cc.getContent().toString());
+      GCreature gAnt = cc.getContent().getGc();
       getPc().setIdCurentFere(-1);
       for (Creature f : gAnt.toList() ) {
         if(f instanceof Fourmi){

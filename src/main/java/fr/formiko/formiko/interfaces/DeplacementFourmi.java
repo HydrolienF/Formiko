@@ -45,7 +45,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
   public void unMouvement(Creature c, CCase p){
     debug.débogage("Le déplacement de la Creature "+c.getId()+" vien de DeplacementDUneFourmi avec CCase");
     this.c = c;
-    int direction = getDirection(c.getCCase().getContenu(),p.getContenu());
+    int direction = getDirection(c.getCCase().getContent(),p.getContent());
     unMouvementVolontaire(direction);
   }
   /**

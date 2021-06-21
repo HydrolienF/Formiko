@@ -17,8 +17,8 @@ public class TourReineTest extends TestCaseMuet{
     p.setAppartionGraine(false);
     Joueur j = new Joueur(new Fourmiliere(p.getGc().getCCase(0,0),null),"joueurTest",true);
     j.getFere().setJoueur(j);
-    assertTrue(p.getGc().getCCase(0,0).getContenu().getFere().equals(j.getFere()));
-    assertTrue(p.getGc().getCCase(0,1).getContenu().getFere()==null);
+    assertTrue(p.getGc().getCCase(0,0).getContent().getFere().equals(j.getFere()));
+    assertTrue(p.getGc().getCCase(0,1).getContent().getFere()==null);
     p.getGj().add(j);
     Fourmi f = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
     j.getFere().getGc().add(f);
@@ -140,7 +140,7 @@ public class TourReineTest extends TestCaseMuet{
     assertEquals(nourriture - 3, f.getNourriture());
     assertTrue(f.getProprete()>f.getSeuilDeRisqueDInfection());
     assertTrue(i.getEstMort());
-    assertEquals(2,Main.getGc().getCCase(0,1).getContenu().getGc().length());
+    assertEquals(2,Main.getGc().getCCase(0,1).getContent().getGc().length());
   }
   @Test
   public void TestTour2(){
@@ -159,7 +159,7 @@ public class TourReineTest extends TestCaseMuet{
     assertEquals(nourriture - 3, f.getNourriture());
     assertTrue(f.getProprete()>f.getSeuilDeRisqueDInfection());
     assertTrue(i.getEstMort());
-    assertEquals(2,Main.getGc().getCCase(0,1).getContenu().getGc().length());
+    assertEquals(2,Main.getGc().getCCase(0,1).getContent().getGc().length());
   }
   @Test
   public void TestTour22(){
@@ -178,7 +178,7 @@ public class TourReineTest extends TestCaseMuet{
     assertEquals(nourriture - 3 + 300, f.getNourriture());
     assertTrue(f.getProprete()>f.getSeuilDeRisqueDInfection());
     assertTrue(i.getEstMort());
-    assertEquals(1,Main.getGc().getCCase(0,1).getContenu().getGc().length());
+    assertEquals(1,Main.getGc().getCCase(0,1).getContent().getGc().length());
   }
   @Test
   public void TestTour3(){
@@ -197,8 +197,8 @@ public class TourReineTest extends TestCaseMuet{
     assertEquals(nourriture - 3 + 300, f.getNourriture());
     assertTrue(f.getProprete()>f.getSeuilDeRisqueDInfection());
     assertTrue(i.getEstMort());
-    assertEquals(1,Main.getGc().getCCase(0,1).getContenu().getGc().length());
-    assertEquals(0,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    assertEquals(1,Main.getGc().getCCase(0,1).getContent().getGc().length());
+    assertEquals(0,Main.getGc().getCCase(0,0).getContent().getGc().length());
   }
   @Test
   public void TestTour4(){
@@ -216,11 +216,11 @@ public class TourReineTest extends TestCaseMuet{
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
     assertTrue(f.getProprete()>f.getSeuilDeRisqueDInfection());
     assertTrue(i.getEstMort());
-    assertEquals(0,Main.getGc().getCCase(0,1).getContenu().getGc().length());
-    assertEquals(2,Main.getGc().getCCase(0,0).getContenu().getGc().length());
-    assertEquals(1,Main.getGc().getCCase(0,0).getContenu().getGc().getCouvain().length());
+    assertEquals(0,Main.getGc().getCCase(0,1).getContent().getGc().length());
+    assertEquals(2,Main.getGc().getCCase(0,0).getContent().getGc().length());
+    assertEquals(1,Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().length());
     assertEquals(nourriture - 3 + 300 - 12, f.getNourriture());
-    assertEquals(10, Main.getGc().getCCase(0,0).getContenu().getGc().getCouvain().gethead().getContenu().getNourriture());
+    assertEquals(10, Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().gethead().getContent().getNourriture());
   }
   @Test
   public void TestTour5(){
@@ -258,9 +258,9 @@ public class TourReineTest extends TestCaseMuet{
     assertEquals(nourriture - 3, f.getNourriture());
     assertTrue(f.getProprete()>f.getSeuilDeRisqueDInfection());
     assertTrue(!i.getEstMort());
-    assertEquals(1,Main.getGc().getCCase(0,1).getContenu().getGc().length());
-    assertEquals(2,Main.getGc().getCCase(0,0).getContenu().getGc().length());
-    assertEquals(0,Main.getGc().getCCase(0,0).getContenu().getGc().getCouvain().length());
+    assertEquals(1,Main.getGc().getCCase(0,1).getContent().getGc().length());
+    assertEquals(2,Main.getGc().getCCase(0,0).getContent().getGc().length());
+    assertEquals(0,Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().length());
   }
   @Test
   public void TestTour7(){
@@ -282,9 +282,9 @@ public class TourReineTest extends TestCaseMuet{
     assertEquals(nourriture - 3 - (12*5), f.getNourriture());
     assertTrue(f.getProprete()>f.getSeuilDeRisqueDInfection());
     assertTrue(!i.getEstMort());
-    assertEquals(1,Main.getGc().getCCase(0,1).getContenu().getGc().length());
-    assertEquals(7,Main.getGc().getCCase(0,0).getContenu().getGc().length());
-    assertEquals(5,Main.getGc().getCCase(0,0).getContenu().getGc().getCouvain().length());
+    assertEquals(1,Main.getGc().getCCase(0,1).getContent().getGc().length());
+    assertEquals(7,Main.getGc().getCCase(0,0).getContent().getGc().length());
+    assertEquals(5,Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().length());
   }
 
   @Test

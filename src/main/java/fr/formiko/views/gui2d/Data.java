@@ -211,7 +211,7 @@ public class Data {
             int xT = i*getTailleDUneCase(); int yT = j*getTailleDUneCase();
             Case c=null;
             try {
-              c = Main.getGc().getCCase(i+Panneau.getView().getPc().getPosX(),j+Panneau.getView().getPc().getPosY()).getContenu();
+              c = Main.getGc().getCCase(i+Panneau.getView().getPc().getPosX(),j+Panneau.getView().getPc().getPosY()).getContent();
             }catch (Exception e) {erreur.erreur("case is null");}
             try {
               img2 = new Img(tICarte[c.getType()-1]);

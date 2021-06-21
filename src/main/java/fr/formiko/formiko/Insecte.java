@@ -42,8 +42,8 @@ public class Insecte extends Creature implements Serializable{
     this.nourritureMangeable =(byte) (allea.getAllea(3)+2);// de 2 a 5.
     this.déplacement = new DeplacementFourmi();
     this.chasse = new ChasseHerbivore();
-    p.getContenu().getGc().add(this);
-    type = getTypeInsecte();//p.getContenu().getTypeInsecte();
+    p.getContent().getGc().add(this);
+    type = getTypeInsecte();//p.getContent().getTypeInsecte();
     stade = (byte)0; // doit apparaitre en -3 pour etre un oeuf.
     mourir = new MourirInsecte();
     e = Main.getGEspece().getEspeceParId(100+getType());//les Espece d'insectes sont décaler de 100 par rapport au espece de Fourmi.
@@ -77,7 +77,7 @@ public class Insecte extends Creature implements Serializable{
   @Override
   public byte getType(){ return type;}
   public void setType(byte x){type=x;}public void setType(int x){setType((byte)x);}
-  public byte getTypeInsecte(){return gie.getTypeInsecte(getCCase().getContenu().getType());}
+  public byte getTypeInsecte(){return gie.getTypeInsecte(getCCase().getContent().getType());}
   @Override
   public boolean getVole(){if(getStade()!=0){return false;}return e.getVole();}//si c'est un imago ca dépend de l'espece.
   public static void setGie(){ gie=new GIEspece();}//initialise le fichier/

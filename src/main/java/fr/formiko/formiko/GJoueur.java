@@ -113,13 +113,13 @@ public class GJoueur implements Serializable{
   public void addOrdonnée(Joueur j){
     if(début==null){add(j);}//le cas ou on a 0 éléments dans la liste.
     else if(début.equals(fin)){//le cas ou on a 1 seul élément dans la liste
-      if(début.getContenu().getScore()>=j.getScore()){
+      if(début.getContent().getScore()>=j.getScore()){
         addFin(j);
       }else{
         addDébut(j);
       }
     }else{
-      if(début.getContenu().getScore()>=j.getScore()){
+      if(début.getContent().getScore()>=j.getScore()){
         début.addOrdonnée(j);
       }else{
         addDébut(j);
@@ -135,7 +135,7 @@ public class GJoueur implements Serializable{
   }
   public void retirer(Joueur j){
     if (début != null){
-      if(début.getContenu() == j){
+      if(début.getContent() == j){
         début = début.getSuivant();
       }else {
         début.retirer(j);

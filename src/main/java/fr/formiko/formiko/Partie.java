@@ -261,7 +261,7 @@ public class Partie implements Serializable{
     System.out.println(getTour()+"/"+getNbrDeTour());
     String victoire = g.get("victoireInconue");
     GJoueur gjOrdonné = getGj().getGjOrdonné();
-    Joueur gagnant = gjOrdonné.gethead().getContenu();
+    Joueur gagnant = gjOrdonné.gethead().getContent();
     if (x==2){
       victoire = g.get("élimination");
     } else if (x==1){
@@ -304,7 +304,7 @@ public class Partie implements Serializable{
     for (int i=1;i<nbrDeJoueur+1 ;i++ ) {
       Pheromone ph;
       try {
-        ph = gj.getJoueurParId(i).getFere().getGc().gethead().getContenu().getPh();
+        ph = gj.getJoueurParId(i).getFere().getGc().gethead().getContent().getPh();
       }catch (Exception e) {
         erreur.erreur("Les Pheromones de la fourmi n'ont pas put etre récupérer, il sont donc choisi aléatoirement.");
         ph = new Pheromone(127,127,127); // blanc sinon.
@@ -381,10 +381,10 @@ public class Partie implements Serializable{
    * @version 1.1
    */
   private void iniParametreCarteTuto(){
-    Fourmiliere fere = getGj().gethead().getContenu().getFere();
+    Fourmiliere fere = getGj().gethead().getContent().getFere();
     CCase ccIni = getGc().getCCase(0,1);
     fere.setCc(ccIni);
-    fere.getGc().gethead().getContenu().setCCase(ccIni);
+    fere.getGc().gethead().getContent().setCCase(ccIni);
     Insecte i = new Insecte(Main.getPartie().getGc().getCCase(1,1),0,100,0);
     i.setNourritureFournie(200);
     i.setEstMort(false);

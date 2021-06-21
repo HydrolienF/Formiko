@@ -78,8 +78,8 @@ public class PanneauSup extends Panneau{
         //Temps.pause(10);
         CCase cc = getCCase(e);
         if(cc==null){getView().getPb().setDesc("");cc2=null;return;}
-        if(cc2==null || !cc2.getContenu().equals(cc.getContenu())){//si la case a changé.
-          cc2=new CCase(cc.getContenu());
+        if(cc2==null || !cc2.getContent().equals(cc.getContent())){//si la case a changé.
+          cc2=new CCase(cc.getContent());
           getView().setLookedCCase(cc);
         }
       }
@@ -117,7 +117,7 @@ public class PanneauSup extends Panneau{
   }
   public Case getCase(MouseEvent e){
     try {
-      return getCCase(e).getContenu();
+      return getCCase(e).getContent();
     }catch (Exception e2) {
       return null;
     }

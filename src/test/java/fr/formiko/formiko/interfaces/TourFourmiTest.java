@@ -19,8 +19,8 @@ public class TourFourmiTest extends TestCaseMuet{
     p.setAppartionGraine(false);
     Joueur j = new Joueur(new Fourmiliere(p.getGc().getCCase(0,0),null),"joueurTest",false);
     j.getFere().setJoueur(j);
-    assertTrue(p.getGc().getCCase(0,0).getContenu().getFere().equals(j.getFere()));
-    assertTrue(p.getGc().getCCase(0,1).getContenu().getFere()==null);
+    assertTrue(p.getGc().getCCase(0,0).getContent().getFere().equals(j.getFere()));
+    assertTrue(p.getGc().getCCase(0,1).getContent().getFere()==null);
     p.getGj().add(j);
     Fourmi f = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
     j.getFere().getGc().add(f);
@@ -37,8 +37,8 @@ public class TourFourmiTest extends TestCaseMuet{
     p.setAppartionGraine(false);
     Joueur j = new Joueur(new Fourmiliere(p.getGc().getCCase(0,0),null),"joueurTest",false);
     j.getFere().setJoueur(j);
-    assertTrue(p.getGc().getCCase(0,0).getContenu().getFere().equals(j.getFere()));
-    assertTrue(p.getGc().getCCase(0,1).getContenu().getFere()==null);
+    assertTrue(p.getGc().getCCase(0,0).getContent().getFere().equals(j.getFere()));
+    assertTrue(p.getGc().getCCase(0,1).getContent().getFere()==null);
     p.getGj().add(j);
     Fourmi f = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
     j.getFere().getGc().add(f);
@@ -176,8 +176,8 @@ public class TourFourmiTest extends TestCaseMuet{
     assertEquals(null,((TourFourmi)(f.tour)).aNourrir());
     //in the same case & wantFood :
     f2.setCc(Main.getGc().getCCase(0,0));
-    assertEquals(2,Main.getGc().getCCase(0,0).getContenu().getGc().length());
-    assertEquals(0,Main.getGc().getCCase(0,1).getContenu().getGc().length());
+    assertEquals(2,Main.getGc().getCCase(0,0).getContent().getGc().length());
+    assertEquals(0,Main.getGc().getCCase(0,1).getContent().getGc().length());
     f2.setNourriture(0);
     assertTrue(f2.wantFood());
     assertEquals(f2,((TourFourmi)(f.tour)).aNourrir());
@@ -190,8 +190,8 @@ public class TourFourmiTest extends TestCaseMuet{
     f2.setNourriture(0);
     f2.setCc(Main.getGc().getCCase(0,1));
     f2.setCc(Main.getGc().getCCase(0,0));
-    assertEquals(3,Main.getGc().getCCase(0,0).getContenu().getGc().length());
-    assertEquals(0,Main.getGc().getCCase(0,1).getContenu().getGc().length());
+    assertEquals(3,Main.getGc().getCCase(0,0).getContent().getGc().length());
+    assertEquals(0,Main.getGc().getCCase(0,1).getContent().getGc().length());
     assertTrue(((TourFourmi)(f.tour)).aNourrir().equals(f3) || ((TourFourmi)(f.tour)).aNourrir().equals(f2));
 
     //f3.mourir(-1); ca fait bugué je sais pas pourquoi...
@@ -200,8 +200,8 @@ public class TourFourmiTest extends TestCaseMuet{
     f3.setCc(Main.getGc().getCCase(0,0));
     f3.setNourriture(0);
     f2.setNourriture(0);
-    assertEquals(3,Main.getGc().getCCase(0,0).getContenu().getGc().length());
-    assertEquals(0,Main.getGc().getCCase(0,1).getContenu().getGc().length());
+    assertEquals(3,Main.getGc().getCCase(0,0).getContent().getGc().length());
+    assertEquals(0,Main.getGc().getCCase(0,1).getContent().getGc().length());
     assertTrue(((TourFourmi)(f.tour)).aNourrir().equals(f3) || ((TourFourmi)(f.tour)).aNourrir().equals(f2));
 
     //1 Creature + 1 Qeen wantFood :
@@ -310,28 +310,28 @@ public class TourFourmiTest extends TestCaseMuet{
     f.setAge(f.getAgeMax()-1);
     f.setProprete(100);
     ((TourFourmi)(f.tour)).finTour();
-    assertEquals(1,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    assertEquals(1,Main.getGc().getCCase(0,0).getContent().getGc().length());
     ((TourFourmi)(f.tour)).finTour();
-    assertEquals(0,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    assertEquals(0,Main.getGc().getCCase(0,0).getContent().getGc().length());
     //died by proprete
     f = ini();
     f.setProprete(0);
     ((TourFourmi)(f.tour)).finTour();
-    assertEquals(0,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    assertEquals(0,Main.getGc().getCCase(0,0).getContent().getGc().length());
     //died by food
     f = ini();
     f.setTypeF((byte)3);
     f.setNourriture(1);
     ((TourFourmi)(f.tour)).finTour();
-    assertEquals(1,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    assertEquals(1,Main.getGc().getCCase(0,0).getContent().getGc().length());
     ((TourFourmi)(f.tour)).finTour();
-    assertEquals(0,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    assertEquals(0,Main.getGc().getCCase(0,0).getContent().getGc().length());
     f = ini();
     f.setTypeF((byte)0);
     f.setNourriture(1);
-    assertEquals(1,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    assertEquals(1,Main.getGc().getCCase(0,0).getContent().getGc().length());
     ((TourFourmi)(f.tour)).finTour();
-    assertEquals(0,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    assertEquals(0,Main.getGc().getCCase(0,0).getContent().getGc().length());
     //egg don't need food.
     f = ini();
     f.setTypeF((byte)3);
@@ -382,12 +382,12 @@ public class TourFourmiTest extends TestCaseMuet{
     assertEquals(0,f.getStade());
     f.setNourriture(100);
     f.setProprete(100);
-    assertEquals(1,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    assertEquals(1,Main.getGc().getCCase(0,0).getContent().getGc().length());
     assertTrue(f.tour instanceof TourFourmi);
     //because it evoluer TourFourmi is a new TourFourmi !
     ((TourFourmi)(f.tour)).setF(f);
     ((TourFourmi)(f.tour)).finTour();
-    assertEquals(1,Main.getGc().getCCase(0,0).getContenu().getGc().length());
+    assertEquals(1,Main.getGc().getCCase(0,0).getContent().getGc().length());
     assertEquals(0,f.getStade());
   }
 

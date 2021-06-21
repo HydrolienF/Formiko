@@ -21,7 +21,7 @@ public class ThImage extends Thread{
   public void run(){
     for (int j=0;j<lenj;j++ ) {
       System.out.println("éléments n°"+(i*lenj+j)+"/"+(leni*lenj));
-      ie.add(i*500,j*500,ti[gc.getCCase(i,j).getContenu().getType()]);
+      ie.add(i*500,j*500,ti[gc.getCCase(i,j).getContent().getType()]);
     }
   }
 }

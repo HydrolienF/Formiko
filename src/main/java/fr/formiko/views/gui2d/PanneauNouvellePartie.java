@@ -58,7 +58,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     choixCarte.setFont(Main.getFont1(0.9));
     choixCarte.setSelectedItem(g.get("miniWorld")); // 2 = miniWorld pour l'instant
     add(choixCarte);
-    //nomCarte = nomDesCartes.gethead().getContenu();
+    //nomCarte = nomDesCartes.gethead().getContent();
     GString gs = new GString();
     for (int i=-2; i<4; i++){ // tout les niveaux de difficulté.
       gs.add(g.getM("diff"+i));

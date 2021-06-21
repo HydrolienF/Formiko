@@ -16,7 +16,7 @@ public class CCInt implements Serializable{
   public void setSuivant(CCInt cs){suivant = cs;}
   public CCInt getPrécédent(){return précédent;}
   public void setPrécédent(CCInt cs){précédent = cs;}
-  public GInt getContenu(){ return contenu;}
+  public GInt getContent(){ return contenu;}
   public void setContenu(GInt x){contenu=x;}
   // Fonctions propre -----------------------------------------------------------
   public int length(){
@@ -39,6 +39,6 @@ public class CCInt implements Serializable{
   }
   public int sommeCase(int ca){
     if(suivant==null){ return contenu.getCase(ca);}
-    return contenu.getCase(ca)+suivant.getContenu().getCase(ca);
+    return contenu.getCase(ca)+suivant.getContent().getCase(ca);
   }
 }

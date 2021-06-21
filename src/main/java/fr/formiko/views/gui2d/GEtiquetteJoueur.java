@@ -36,7 +36,7 @@ public class GEtiquetteJoueur {
   }
   public GJoueur getGJoueur(Carte mapo){
     if (début==null){ return new GJoueur();}
-    this.retirer(fin.getContenu()); // on retir la fin qui est fermé.
+    this.retirer(fin.getContent()); // on retir la fin qui est fermé.
     return début.getGJoueur(mapo);
   }
   public void add(EtiquetteJoueur ej){
@@ -48,7 +48,7 @@ public class GEtiquetteJoueur {
   }
   public void retirer(int idX){
     if(début==null){erreur.erreurGXVide("GEtiquetteJoueur");return;}
-    if(début.getContenu().getId()==idX){
+    if(début.getContent().getId()==idX){
       début = début.getSuivant();
     }else{
       début.retirer(idX);

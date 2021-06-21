@@ -17,8 +17,8 @@ public class PanneauGEtiquetteJoueur extends Panneau{
     int wi2 = Main.getF().getWidth()/2;
     int k=0;
     while(cej!=null){
-      cej.getContenu().setBounds(Desc.getDimY(),k*Desc.getDimY()*3,wi2*gej.length(),Desc.getDimY()*3);
-      add(cej.getContenu());
+      cej.getContent().setBounds(Desc.getDimY(),k*Desc.getDimY()*3,wi2*gej.length(),Desc.getDimY()*3);
+      add(cej.getContent());
       cej=cej.getSuivant();k++;
     }
   }
@@ -26,9 +26,9 @@ public class PanneauGEtiquetteJoueur extends Panneau{
 
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
-    if(gej!=null && gej.gethead()!=null && gej.gethead().getContenu()!=null){
+    if(gej!=null && gej.gethead()!=null && gej.gethead().getContent()!=null){
       g.setColor(Main.getData().getButtonColor());
-      int taille = gej.gethead().getContenu().getHeight();
+      int taille = gej.gethead().getContent().getHeight();
       int size = gej.length();
       g.fillRect(0,0,getWidth(),taille*size);
     }
@@ -36,7 +36,7 @@ public class PanneauGEtiquetteJoueur extends Panneau{
     CEtiquetteJoueur cej = gej.gethead();
     int k=0;
     while(cej!=null){
-      cej.getContenu().setBounds(0,k*Desc.getDimY()*3,wi2*gej.length(),Desc.getDimY()*3);
+      cej.getContent().setBounds(0,k*Desc.getDimY()*3,wi2*gej.length(),Desc.getDimY()*3);
       cej=cej.getSuivant();k++;
     }*/
   }

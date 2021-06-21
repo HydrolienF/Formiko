@@ -57,7 +57,7 @@ public class Fourmi extends Creature implements Serializable{
     // a modifier a partir des individus quand duretée sera un paramètre. OU alors on dit que duretéMax est fixe en fonction des individus. Genre les gros casse tout, les moyen jusqu'a 60 et les petit jusqu'a 20.
     duretéMax=0;
     setNourritureFournie(e.getNourritureFournie(getStade()));
-    fere.getCc().getContenu().getGc().add(this);
+    fere.getCc().getContent().getGc().add(this);
     evoluer = new EvoluerFourmi();
     mourir = new MourirFourmi();
     if(e.getPolycalique()){tolerencePheromone=5;}//si c'est une espèce capable de s'endendre avec les fourmilières de la même famille.
@@ -113,8 +113,8 @@ public class Fourmi extends Creature implements Serializable{
   public Joueur getJoueur(){ if(getFere()==null){ return null;}return getFere().getJoueur();}
   public byte getDuretéMax(){ return duretéMax;}
   public void setDuretéMax(byte x){ duretéMax=x; }
-  public int getX(){return getCCase().getContenu().getX();}
-  public int getY(){return getCCase().getContenu().getY();}
+  public int getX(){return getCCase().getContent().getX();}
+  public int getY(){return getCCase().getContent().getY();}
   public void setNourritureMoinsConsomNourriture(){ setNourriture(getNourriture()-getNourritureConso());}
   public Individu getIndividu(){ return e.getIndividuParType(typeF);}
   public boolean getTropDeNourriture(){if(getNourriture()*1.1>getNourritureMax()){ return true;} return false;}
@@ -331,7 +331,7 @@ public class Fourmi extends Creature implements Serializable{
   public void iniPheromone(){
     Fourmi reine = getReine();
     if (reine != null){ e = reine.getEspece(); ph = new Pheromone(reine.getPheromone());}
-    else if (fere.getGc().gethead() != null){ ph = new Pheromone(fere.getGc().gethead().getContenu().getPheromone());}
+    else if (fere.getGc().gethead() != null){ ph = new Pheromone(fere.getGc().gethead().getContent().getPheromone());}
     else{ ph = new Pheromone();}
   }
 }

@@ -23,7 +23,7 @@ public class TourCreatureSansActionTest extends TestCaseMuet{
     Main.setPartie(p);
     p.setAppartionInsecte(false);
     p.setAppartionGraine(false);
-    Creature c = new Insecte(new CCase(p.getGc().getCCase(0,0).getContenu()));
+    Creature c = new Insecte(new CCase(p.getGc().getCCase(0,0).getContent()));
     return c;
   }
   @Test

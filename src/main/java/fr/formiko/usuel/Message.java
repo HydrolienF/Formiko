@@ -122,12 +122,12 @@ public class Message implements Serializable{
       CJoueur cj = gj.gethead();
       String laNotre = g.getM("la");
       while(cj!=null){
-        Joueur j = cj.getContenu();
+        Joueur j = cj.getContent();
         String status = g.get("neutre");
         Fourmi r =null;
         try {
           r = j.getFere().getGc().getReine(); // par défaut la reine sert a identifié si la fourmi est alliées neutre ou énemies.
-          if (r==null){ r= (Fourmi)(j.getFere().getGc().gethead().getContenu());}//sinon on prend la 1a fourmi du GCreature.
+          if (r==null){ r= (Fourmi)(j.getFere().getGc().gethead().getContent());}//sinon on prend la 1a fourmi du GCreature.
         }catch (Exception e) {}
         if (r!=null){
           if (((Creature)f).getEstAllié(r)){
@@ -146,7 +146,7 @@ public class Message implements Serializable{
         }
         String tueur = g.getOu("la","le")+" "+nom;
         String texte = laNotre +" "+ g.get("fourmi")+" "+status+"("+f.getId()+")"+" "+ g.get("mort"+raison)+" "+tueur+".";
-        new Message(texte,cj.getContenu().getId());
+        new Message(texte,cj.getContent().getId());
         cj=cj.getSuivant();
       }
     }catch (Exception e2) {

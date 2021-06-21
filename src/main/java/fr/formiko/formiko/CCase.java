@@ -35,7 +35,7 @@ public class CCase implements Serializable{
   public void setDroite(CCase c){droite = c;}
   public CCase getGauche(){return gauche;}
   public void setGauche(CCase c){gauche = c;}
-  public Case getContenu(){return contenu;}
+  public Case getContent(){return contenu;}
   public void setContenu(Case c){contenu = c;}
   public GGraine getGg(){return contenu.getGg();}
   // Fonctions propre -----------------------------------------------------------
@@ -48,9 +48,9 @@ public class CCase implements Serializable{
   public String desc(){ return contenu.desc();}
   public String toStringLigne(){
     if(droite==null){//si c'est le dernier de la ligne
-      return getContenu().toString();
+      return getContent().toString();
     }//passage a la case suivante.
-    return getContenu().toString()+"\n"+droite.toStringLigne();
+    return getContent().toString()+"\n"+droite.toStringLigne();
   }
   /**
   *{@summary Standard equals function.}<br>
@@ -63,7 +63,7 @@ public class CCase implements Serializable{
     if(o==null || !(o instanceof CCase)){return false;}
     CCase cc = (CCase)o;
     if (cc.nbrDeCaseVoisine() != this.nbrDeCaseVoisine()){ return false;}
-    return cc.getContenu().equals(this.getContenu());
+    return cc.getContent().equals(this.getContent());
   }
   /**
   *{@summary Get CCase with position x,y.}<br>
@@ -102,28 +102,28 @@ public class CCase implements Serializable{
     GGraine gir = contenu.getGGraineCopier(); // ici on ne veut pas modifier le groupe originale alors on en fait une copie.
     //if (nbrDeCaseVoisine() != 4){ debug.débogage("La détection des graine ne marche pas car trop proche de la bordure de la carte");return gir;}
     try {
-      gir.addGg(droite.getContenu().getGGraineCopier());
+      gir.addGg(droite.getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.addGg(haut.getContenu().getGGraineCopier());
+      gir.addGg(haut.getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.addGg(bas.getContenu().getGGraineCopier());
+      gir.addGg(bas.getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.addGg(gauche.getContenu().getGGraineCopier());
+      gir.addGg(gauche.getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.addGg(gauche.getHaut().getContenu().getGGraineCopier());
+      gir.addGg(gauche.getHaut().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.addGg(gauche.getBas().getContenu().getGGraineCopier());
+      gir.addGg(gauche.getBas().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.addGg(droite.getHaut().getContenu().getGGraineCopier());
+      gir.addGg(droite.getHaut().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.addGg(droite.getBas().getContenu().getGGraineCopier());
+      gir.addGg(droite.getBas().getContent().getGGraineCopier());
     }catch (Exception e) {}
     return gir;
   }
@@ -132,37 +132,37 @@ public class CCase implements Serializable{
       erreur.erreurPasEncoreImplemente();
     }
     GCase gir = new GCase(); // ici on ne veut pas modifier le groupe originale alors on en fait une copie.
-    gir.add(this.getContenu());
+    gir.add(this.getContent());
     try {
-      gir.add(droite.getContenu());
+      gir.add(droite.getContent());
     }catch (Exception e) {}
     try {
-      gir.add(haut.getContenu());
+      gir.add(haut.getContent());
     }catch (Exception e) {}
     try {
-      gir.add(bas.getContenu());
+      gir.add(bas.getContent());
     }catch (Exception e) {}
     try {
-      gir.add(gauche.getContenu());
+      gir.add(gauche.getContent());
     }catch (Exception e) {}
     try {
-      gir.add(gauche.getHaut().getContenu());
+      gir.add(gauche.getHaut().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(gauche.getBas().getContenu());
+      gir.add(gauche.getBas().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(droite.getHaut().getContenu());
+      gir.add(droite.getHaut().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(droite.getBas().getContenu());
+      gir.add(droite.getBas().getContent());
     }catch (Exception e) {}
     return gir;
   }
   public int getDirection(CCase cc){
     if (cc==null){ return 5;}
-    int x = this.getContenu().getX() - cc.getContenu().getX();
-    int y = this.getContenu().getY() - cc.getContenu().getY();
+    int x = this.getContent().getX() - cc.getContent().getX();
+    int y = this.getContent().getY() - cc.getContent().getY();
     //int xabs = valAbs(x); int yabs = valAbs(y); on pourrait utiliser ces données pour aller parfois juste en x parfois juste en y lorsque le trajet n'est pas conplètement en diagonale. (cad lorsque xabs == yabs)
     // x est négatif si le point ou l'on veux ce rendre est plus a droite.
     // y est négatif si le point ou l'on veux ce rendre est plus bas.
@@ -203,7 +203,7 @@ public class CCase implements Serializable{
     String t [] = decoderUnFichier.getTableauString(s,',');
     CCase cc = this;int lent = t.length;
     for (int i=0;i<lent  && cc != null ;i++ ) {
-      cc.getContenu().setType(str.sToI(t[i]));
+      cc.getContent().setType(str.sToI(t[i]));
       cc = cc.getDroite();
     }
   }

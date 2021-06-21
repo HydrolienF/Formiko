@@ -144,7 +144,7 @@ public class triche {
           }
           break;
         case 25:
-          Main.getGc().getCCase(str.sToI(args[1]),str.sToI(args[2])).getContenu().afficheToi();
+          Main.getGc().getCCase(str.sToI(args[1]),str.sToI(args[2])).getContent().afficheToi();
           break;
         case 26:
           System.out.println(Main.getGj());
@@ -195,7 +195,7 @@ public class triche {
             if(args[1].equalsIgnoreCase(g.get("cmd.type.1"))){// Creature
               Creature c = getCreatureParId(args[2]);
               if(args[3].equalsIgnoreCase(g.get("cmd.31.1"))){//getPoint
-                b = testSupInfEga(args,c.getCCase().getContenu().getPoint());
+                b = testSupInfEga(args,c.getCCase().getContent().getPoint());
               }else if(args[3].equalsIgnoreCase(g.get("cmd.31.2"))){//estMort
                 b = c.getEstMort();
               }else if(args[3].equalsIgnoreCase(g.get("cmd.31.5"))){//getProprete

@@ -15,12 +15,12 @@ public class CIEspece implements Serializable{
     contenu=ie;
   }
   // GET SET --------------------------------------------------------------------
-  public IEspece getContenu(){return contenu;}
+  public IEspece getContent(){return contenu;}
   public void setContenu(IEspece c){contenu = c;}
   public CIEspece getSuivant(){return suivant;}
   public void setSuivant(CIEspece ce){ suivant =ce; }
   public IEspece getIEspeceParId(int id){
-    if (this.getContenu().getId() == id){ return contenu;}
+    if (this.getContent().getId() == id){ return contenu;}
     if (this.getSuivant() != null){
       return suivant.getIEspeceParId(id);
     }else{

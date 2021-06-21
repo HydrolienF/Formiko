@@ -40,13 +40,13 @@ public class GraineTest extends TestCaseMuet{
   @Test
   public void testGraine(){
     ini();
-    assertEquals(0,Main.getGc().getCCase(0,0).getContenu().getGg().length());
+    assertEquals(0,Main.getGc().getCCase(0,0).getContent().getGg().length());
     Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
-    assertEquals(1,Main.getGc().getCCase(0,0).getContenu().getGg().length());
-    assertEquals(g1,Main.getGc().getCCase(0,0).getContenu().getGg().gethead().getContenu());
+    assertEquals(1,Main.getGc().getCCase(0,0).getContent().getGg().length());
+    assertEquals(g1,Main.getGc().getCCase(0,0).getContent().getGg().gethead().getContent());
     Graine g2 = new Graine(Main.getGc().getCCase(0,0),10,(byte)100);
-    assertEquals(2,Main.getGc().getCCase(0,0).getContenu().getGg().length());
-    assertEquals(g2,Main.getGc().getCCase(0,0).getContenu().getGg().gethead().getContenu());
-    assertEquals(g1,Main.getGc().getCCase(0,0).getContenu().getGg().gethead().getSuivant().getContenu());
+    assertEquals(2,Main.getGc().getCCase(0,0).getContent().getGg().length());
+    assertEquals(g2,Main.getGc().getCCase(0,0).getContent().getGg().gethead().getContent());
+    assertEquals(g1,Main.getGc().getCCase(0,0).getContent().getGg().gethead().getSuivant().getContent());
   }
 }
