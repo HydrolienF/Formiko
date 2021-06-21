@@ -7,7 +7,7 @@
   <groupId>fr.formiko</groupId>
   <artifactId>Formiko</artifactId>
   <packaging>jar</packaging>
-  <version>1.47.2</version>
+  <version>1.53.0</version>
   <name>Formiko</name>
   <url>http://maven.apache.org</url>
   <dependencies>

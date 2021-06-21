@@ -59,7 +59,7 @@ cp -r jlink/jMac/* out/$nomM/java/
 #rm -fr jlink/
 cp launcher/formiko.bat out/$nomW/.
 cp launcher/formiko.sh out/$nomL/.
-cp launcher/formiko.sh out/$nomM/.
+cp launcher/formiko.command out/$nomM/.
 
 echo "zip part"
 cd out/
