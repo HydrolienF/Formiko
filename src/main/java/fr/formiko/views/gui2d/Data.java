@@ -33,7 +33,7 @@ public class Data {
   private BufferedImage cNuageuse,cSombre;
   private BufferedImage b[];
   private BufferedImage tICarte[];
-  private BufferedImage tIF[][];
+  private BufferedImage tIF[];
   private BufferedImage tII[][];
   private BufferedImage tG[][];
   private BufferedImage tF[][];
@@ -44,7 +44,7 @@ public class Data {
   private BufferedImage cNuageuseIni,cSombreIni;
   private BufferedImage bIni[];
   private BufferedImage tICarteIni[];
-  private BufferedImage tIFIni[][];
+  private BufferedImage tIFIni[];
   private BufferedImage tIIIni[][];
   private BufferedImage tGIni[][];
   private BufferedImage tFIni[][];
@@ -84,7 +84,13 @@ public class Data {
   public BufferedImage getCSombre(){return cSombre;}
   public BufferedImage [] getB(){return b;}
   public BufferedImage [] getTICarte(){return tICarte;}
-  public BufferedImage [][] getTIF(){return tIF;}
+  public BufferedImage getAntImage(int idEspece, int stade){
+    if(stade==0){
+      try{return tIF[idEspece];}catch (Exception e) {return tIF[0];}
+    }else{
+      return getTF()[0][3+stade];
+    }
+  }
   public BufferedImage [][] getTII(){return tII;}
   public BufferedImage [][] getTG(){return tG;}
   public BufferedImage [][] getTF(){return tF;}
@@ -155,7 +161,9 @@ public class Data {
       }
       imageIni=true;
       if(!imageIniForNewGame){
-        tIFIni = chargerTX("F0&",Main.getNbrDeJoueur(),(byte)0,1);
+        //TODO #246 & #247 add various image for every species.
+        tIFIni = new BufferedImage[1];
+        tIFIni[0] = image.getImage("F0");
       }
       imageIniForNewGame=true;
     }
@@ -233,6 +241,25 @@ public class Data {
     }
 
     //getScaledInstance.
+    /**
+    *Return a scaled BufferedImage
+    *@version 2.1
+    */
+    // public BufferedImage getScaledInstance(BufferedImage bi, int dim, int b){
+    //   BufferedImage r = null;
+    //   if(b==0){//par défaut
+    //     r=image.resize(bi,dim);
+    //   }else if(b==1){//pour les fourmis.
+    //     int idEspece = 0;
+    //     int stade = i-3;
+    //     r=image.resize(bi,image.taille(idEspece, stade,dim));
+    //   }else if(b==2){//pour les insectes
+    //     int idEspece = i+100;
+    //     int stade = 0;
+    //     r=image.resize(bi,image.taille(idEspece, stade,dim));
+    //   }
+    //   return r;
+    // }public BufferedImage getScaledInstance(BufferedImage bi, int dim){return getScaledInstance(bi,dim,0);}
     /**
     *Return a scaled BufferedImage []
     *@version 1.18
@@ -352,7 +379,7 @@ public class Data {
     return tIBZoom;
   }
   /**
-  *Turn the arrow for PanneauZoom
+  *{@summary Turn the arrow for PanneauZoom.}<br>
   *@version 1.18
   */
   public void tournerLesFleches(String nom){
@@ -370,7 +397,7 @@ public class Data {
   }public void tournerLesFleches(){ tournerLesFleches("fleche");}
 
   /**
-  *{@summary Loard a loading image for PanneauChargement.}
+  *{@summary Load a loading image for PanneauChargement.}<br>
   *@version 1.32
   */
   public boolean loadImageChargement(){
@@ -393,3 +420,13 @@ public class Data {
     return false;
   }
 }
+    // //début test
+    // BufferedImage before = Main.getData().getB()[iconeId];
+    // int w = before.getWidth();
+    // int h = before.getHeight();
+    // BufferedImage after = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+    // AffineTransform at = new AffineTransform();
+    // at.scale(2.0, 2.0);
+    // AffineTransformOp scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR);
+    // after = scaleOp.filter(before, after);
+    // //fin test

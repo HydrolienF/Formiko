@@ -14,6 +14,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 
 /**
  *{@summary image class that contain a lot of tools to use images. }<br>
@@ -326,5 +328,25 @@ public class image{
     }
     double racioWH = bi.getWidth()/bi.getHeight();
     return resize(bi,newW,newH);
+  }
+  public static BufferedImage rotateImage(BufferedImage before, int direction){
+    int w = before.getWidth();
+    int h = before.getHeight();
+    int max = Math.max(w,h);
+    int min = Math.min(w,h);
+    // BufferedImage after = new BufferedImage(newSize, newSize, BufferedImage.TYPE_INT_ARGB);
+    BufferedImage after = null;//new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+    AffineTransform at = new AffineTransform();
+    // at.rotate(direction * Math.PI / 4.0,w/2,h/2);
+    // last, width = height and height = width
+    int halfDiagonal = (int)(Math.sqrt(w*w+h*h)/2.0);
+    at.translate(-halfDiagonal + max/2, -halfDiagonal + max/2);
+    at.rotate(direction * Math.PI / 4.0,halfDiagonal,halfDiagonal);
+    // first - center image at the origin so rotate works OK
+    at.translate(halfDiagonal - w/2, halfDiagonal - h/2);
+    AffineTransformOp scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR);
+    after = scaleOp.filter(before, null);
+    // erreur.info("from a "+w+"x"+h+" image to a "+after.getWidth()+"x"+after.getHeight()+" image.");
+    return after;
   }
 }

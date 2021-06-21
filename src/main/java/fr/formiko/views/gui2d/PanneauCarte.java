@@ -31,8 +31,6 @@ import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.AffineTransform;
-import java.awt.geom.AffineTransform;
-import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -222,7 +220,7 @@ public class PanneauCarte extends Panneau {
 
   /**
   *{@summary Draw a Case.}<br>
-  *@version 1.46
+  *@version 2.1
   */
   public void peintImagePourCase(Case c, int x, int y,Graphics2D g){
     if(!isCaseVisible(c)){return;}
@@ -234,7 +232,6 @@ public class PanneauCarte extends Panneau {
     byte ty = c.getType();
     CCreature ccrea = c.getGc().getDébut();
     CGraine ccg = c.getGg().getDébut();
-    int lenTIF = Main.getData().getTIF()[0].length+1;
     try {
       int tC10 = Main.getData().getTailleDUneCase()/10;int tC4 = Main.getData().getTailleDUneCase()/4;int tC2 = Main.getData().getTailleDUneCase()/2;
       // anthill
@@ -248,7 +245,6 @@ public class PanneauCarte extends Panneau {
       if(isSombre(x,y)){
         g.drawImage(Main.getData().getCSombre(),xT,yT,this); // si les créatures sur la case ne sont pas visible.
       }else{
-        // les graines
         int k=0;
         boolean seedPrinted = Main.getAffGraine();
         boolean insectPrinted = true;
@@ -260,12 +256,14 @@ public class PanneauCarte extends Panneau {
         if(insectPrinted){
           cptIcon+=c.getGc().length();
         }
+        // les graines
         if(seedPrinted){
           while (ccg!=null){
             calculerXYTemp(xT,yT,k,c);k++;
             int dir = getDir((ObjetSurCarteAId)ccg.getContenu());
             try {
-              g.drawImage(Main.getData().getTG()[dir][ccg.getContenu().getType()],xTemp,yTemp,this);
+              BufferedImage bi = Main.getData().getTG()[0][ccg.getContenu().getType()];
+              g.drawImage(image.rotateImage(bi,dir),xTemp,yTemp,this);
             }catch (Exception e) {}
             if(ccg.getContenu().getOuverte()){drawIcone(g,5,xT,yT,tC2,kIcon++,cptIcon);}
             else if(fi==null || ccg.getContenu().getDureté()<=fi.getDuretéMax()){drawIcone(g,4,xT,yT,tC2,kIcon++,cptIcon);}
@@ -280,21 +278,26 @@ public class PanneauCarte extends Panneau {
           boolean insecte = true;
           calculerXYTemp(xT,yT,k,c);k++;
           if(cr instanceof Fourmi){
-            //System.out.println(ccrea.getContenu().getClass().equals(new Fourmi().getClass()));
-            Fourmi f = ((Fourmi)ccrea.getContenu());
-            if(f.getStade()==0){
-              g.drawImage(Main.getData().getTIF()[dir][math.min(f.getFourmiliere().getId()-1,lenTIF)],xTemp,yTemp,this);
-            }else if(f.getStade()==-1){
-              g.drawImage(Main.getData().getTF()[dir][2],xTemp,yTemp,this);
-            }else if(f.getStade()==-2){
-              g.drawImage(Main.getData().getTF()[dir][1],xTemp,yTemp,this);
-            }else{ //stade == -3
-              g.drawImage(Main.getData().getTF()[dir][0],xTemp,yTemp,this);
+            Fourmi f = ((Fourmi)cr);
+            try {
+              BufferedImage bi = Main.getData().getAntImage(f.getEspece().getId(),f.getStade());
+              BufferedImage bi2 = image.rotateImage(bi,dir);
+              // erreur.info("from a "+bi.getWidth()+"x"+bi.getHeight()+" image to a "+bi2.getWidth()+"x"+bi2.getHeight()+" image.");
+              g.drawImage(bi2,xTemp,yTemp,this);
+            }catch (Exception e) {
+              erreur.erreur("can't draw ant "+f.getId()+" at stade "+f.getStade());
             }
             insecte=false;
-          }else if(cr instanceof Insecte){
-            Insecte i = (Insecte)(ccrea.getContenu());
-            g.drawImage(Main.getData().getTII()[dir][math.min(i.getType(),Main.getData().getTII()[dir].length)],xTemp,yTemp,this);
+          }else if(cr instanceof Insecte && insectPrinted){
+            Insecte i = (Insecte)(cr);
+            try {
+              BufferedImage bi = Main.getData().getTII()[0][math.min(i.getType(),Main.getData().getTII()[0].length)];
+              // BufferedImage bi2 = image.rotateImage(bi,dir);
+              // erreur.info("from a "+bi.getWidth()+"x"+bi.getHeight()+" image to a "+bi2.getWidth()+"x"+bi2.getHeight()+" image.");
+              g.drawImage(image.rotateImage(bi,dir),xTemp,yTemp,this);
+            }catch (Exception e) {
+              erreur.erreur("can't draw insect "+i.getId()+" with type "+i.getType());
+            }
           }
           //les icone
           try {
@@ -402,10 +405,20 @@ public class PanneauCarte extends Panneau {
   public int getDir(ObjetSurCarteAId obj){
     if (!Main.getElementSurCarteOrientéAprèsDéplacement()){return 0;}// si la direction de l'objet n'est pas prise en compte on cherche dans le tableau 0.
     int x = obj.getDirection();
-    if(x==1 || x==2){ return 0;}
-    if(x==3 || x==6){ return 1;}
-    if(x==9 || x==8){ return 2;}
-    return 3;
+    // return x;
+    // if(x==1 || x==2){ return 0;}
+    // if(x==3 || x==6){ return 1;}
+    // if(x==9 || x==8){ return 2;}
+    // return 3;
+    if(x==2){return 0;}
+    if(x==3){return 1;}
+    if(x==6){return 2;}
+    if(x==9){return 3;}
+    if(x==8){return 4;}
+    if(x==7){return 5;}
+    if(x==4){return 6;}
+    if(x==1){return 7;}
+    return 0;
   }
 
   public void updateSize(){
