@@ -430,7 +430,7 @@ conseil.7:formikoj travivas 4 fazojn de disvolviĝo: ovo, lafo, nimfo kaj imago 
 conseil.8:la elektoj, kiujn vi devas fari, estas indikitaj ĉe la supra maldekstro de via ekrano.
 conseil.9:formikoj ne havas palpebron por malsekigi ĝiajn okulojn. Ili devas konstante konservi sanan vivstilon por komuniki kun ĝiaj antenoj kaj vidi per ĝiaj okuloj.
 conseil.10:la ovoj, lafo kaj nimfo ne kapablas purigi sola. Ili nepre bezonas helpon de imago aŭ ĝi povus esti infektita per malbona bakterio. certigu, ke via bredado restas super 50% pureco.
-conseil.11:la Reĝino povas kuŝu ovojn nur kiam ŝi estas en la formiko.
+conseil.11:la reĝino povas kuŝu ovojn nur kiam ŝi estas en la formiko.
 conseil.12:la granivaj formikoj nutras ekskluzive semojn. Por stoki ĝian manĝaĵon ili tenas la semojn en sekaj ĉambroj de la formiko.
 conseil.13:formikoj kun manĝeblaj grajnoj ne kapablas trofalaksi. Por nutri la bredadon, ili devas nepre havi semojn malfermitajn en provizo.
 conseil.14:la rapidoj estas esprimitaj de insektoj. Ju pli rapida estas la insekto, des pli rapide disvolviĝos la ludo. La Ant-rapido respondas al la norma rapido.[auto]
@@ -456,7 +456,7 @@ mort11:morti per acido de
 //tuto :
 tuto.0:bonvenon al Formiko juna formiko!
 tuto.1:ni kune lernu la bazojn de ĉi tiu ludo, por ke vi amuziĝu.[auto]
-tuto.2:nia reĝino malsatas, ni movu ĝin unu kvadraton dekstren, por ke ŝi povu ĉasi ĉi tiun predon.[auto]
+tuto.2:nia formika reĝino malsatas, ni movu ŝin unu kvadraton dekstren, por ke ŝi povu ĉasi ĉi tiun predon.
 tuto.3:por movi formikon, vi devas dekstre alklaki la kvadraton, kiun vi volas iri.[auto]
 tuto.4:nu! Nun ni manĝu ĝin![auto]
 tuto.5:mortigi insekton alklaku la butonon "Ĉasi la insekton sur la skatolo" situanta ĉe la fundo de via ekrano.[auto]
