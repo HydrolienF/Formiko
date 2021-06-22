@@ -429,7 +429,7 @@ conseil.6:ne kuŝu tro da ovoj samtempe. Alie vi ne plu povos prizorgi ĝin ĝis
 conseil.7:formikoj travivas 4 fazojn de disvolviĝo: ovo, lafo, nimfo kaj imago (plenkreska formiko).[auto]
 conseil.8:la elektoj, kiujn vi devas fari, estas indikitaj ĉe la supra maldekstro de via ekrano.
 conseil.9:formikoj ne havas palpebron por malsekigi ĝiajn okulojn. Ili devas konstante konservi sanan vivstilon por komuniki kun ĝiaj antenoj kaj vidi per ĝiaj okuloj.
-conseil.10:la ovoj, lafo kaj nimfo ne kapablas purigi sola. Ili nepre bezonas helpon de imago aŭ li povus esti infektita per malbona bakterio. certigu, ke via bredado restas super 50% pureco.
+conseil.10:la ovoj, lafo kaj nimfo ne kapablas purigi sola. Ili nepre bezonas helpon de imago aŭ ĝi povus esti infektita per malbona bakterio. certigu, ke via bredado restas super 50% pureco.
 conseil.11:la Reĝino povas kuŝu ovojn nur kiam ŝi estas en la formiko.
 conseil.12:la granivaj formikoj nutras ekskluzive semojn. Por stoki ĝian manĝaĵon ili tenas la semojn en sekaj ĉambroj de la formiko.
 conseil.13:formikoj kun manĝeblaj grajnoj ne kapablas trofalaksi. Por nutri la bredadon, ili devas nepre havi semojn malfermitajn en provizo.
@@ -460,7 +460,7 @@ tuto.2:nia reĝino malsatas, ni movu ĝin unu kvadraton dekstren, por ke ŝi pov
 tuto.3:por movi formikon, vi devas dekstre alklaki la kvadraton, kiun vi volas iri.[auto]
 tuto.4:nu! Nun ni manĝu ĝin![auto]
 tuto.5:mortigi insekton alklaku la butonon "Ĉasi la insekton sur la skatolo" situanta ĉe la fundo de via ekrano.[auto]
-tuto.6:nia reĝinformiko sukcesis mortigi la insekton sed ŝi ne havis sufiĉan agon por manĝi ĝin.[auto]
+tuto.6:nia reĝino sukcesis mortigi la insekton sed ŝi ne havis sufiĉan agon por manĝi ĝin.[auto]
 tuto.7:sed ne zorgu, mortinta insekto ne atingos tre malproksimen![auto]
 tuto.8:uzu denove la butonon "Ĉasi la insekton sur la kvadrato" por manĝi la insekton.[auto]
 tuto.9:bonege vi nun scias ĉasi.[auto]
@@ -468,7 +468,7 @@ tuto.10:nun necesas certigi la prosperon de la formikejo.[auto]
 tuto.11:revenu al la formikejo. (dekstre alklaku la kvadraton, al kiu vi volas iri.)[auto]
 tuto.12:demetu ovon per la butono "Kuŝi" ĉe la fundo de via ekrano.[auto]
 tuto.13:la ovo estas demetita. Nun vi devas zorgi pri ĝi, alie ĝi neniam atingos plenaĝecon.[auto]
-tuto.14:ni atendu, ke li kreskos.[auto]
+tuto.14:ni atendu, ke ĝi kreskos.[auto]
 tuto.15:atendu vicon alklakante la butonon "Transsalti la vicon" ĉe la fundo de via ekrano.[auto]
 tuto.16:nia ovo kreskis! Ĝi nun estas larvo![auto]
 tuto.17:la larvoj bezonas oftan purigadon por eviti morton pro malsano.[auto]
