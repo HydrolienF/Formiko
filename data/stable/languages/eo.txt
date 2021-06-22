@@ -346,7 +346,7 @@ bouton.nom.31:menuo
 bouton.desc.20:movi la selekta formiko
 bouton.desc.21:ĉasi la insekto en la sama fako
 bouton.desc.22:akuŝi de 1 ovo
-bouton.desc.23:trofalaksi (nome procezo en kiu formiko regurgitas likvan manĝaĵon tenitan en sia kropo)
+bouton.desc.23:trofalaksi (nome procezo en kiu formiko regurgitas likvan manĝaĵon tenitan en ĝia kropo)
 bouton.desc.24:purigi 1 kunligana formiko aŭ puriĝi
 bouton.desc.25:manĝi 1 malfermita grajno
 bouton.desc.26:rompi 1 fermita grajno
@@ -428,10 +428,10 @@ conseil.5:iuj specioj de formiko estas polimorfaj. Tio estas, ke ili havas labor
 conseil.6:ne kuŝu tro da ovoj samtempe. Alie vi ne plu povos prizorgi ĝin ĝis ĝi imago.
 conseil.7:formikoj travivas 4 fazojn de disvolviĝo: ovo, lafo, nimfo kaj imago (plenkreska formiko).[auto]
 conseil.8:la elektoj, kiujn vi devas fari, estas indikitaj ĉe la supra maldekstro de via ekrano.
-conseil.9:formikoj ne havas palpebron por malsekigi siajn okulojn. Ili devas konstante konservi sanan vivstilon por komuniki kun siaj antenoj kaj vidi per siaj okuloj.
+conseil.9:formikoj ne havas palpebron por malsekigi ĝiajn okulojn. Ili devas konstante konservi sanan vivstilon por komuniki kun ĝiaj antenoj kaj vidi per ĝiaj okuloj.
 conseil.10:la ovoj, lafo kaj nimfo ne kapablas purigi sola. Ili nepre bezonas helpon de imago aŭ li povus esti infektita per malbona bakterio. certigu, ke via bredado restas super 50% pureco.
 conseil.11:la Reĝino povas kuŝu ovojn nur kiam ŝi estas en la formiko.
-conseil.12:la granivaj formikoj nutras ekskluzive semojn. Por stoki sian manĝaĵon ili tenas la semojn en sekaj ĉambroj de la formiko.
+conseil.12:la granivaj formikoj nutras ekskluzive semojn. Por stoki ĝian manĝaĵon ili tenas la semojn en sekaj ĉambroj de la formiko.
 conseil.13:formikoj kun manĝeblaj grajnoj ne kapablas trofalaksi. Por nutri la bredadon, ili devas nepre havi semojn malfermitajn en provizo.
 conseil.14:la rapidoj estas esprimitaj de insektoj. Ju pli rapida estas la insekto, des pli rapide disvolviĝos la ludo. La Ant-rapido respondas al la norma rapido.[auto]
 conseil.15:ĉu la ludo ŝajnas al vi tro komplika? Elektu facilan aŭ tre facilan malfacilaĵon.[auto]
@@ -441,7 +441,7 @@ conseil.18:ĉu vi iam provis lanĉi kutimon kun nur AI?[auto]
 conseil.19:se vi rigardas atente la teksturon de la herbo, vi eble rimarkos, ke ĝi enhavas nur 3 malsamajn herboklingojn.[auto]
 conseil.20:se estas nur unu formiko por purigi aŭ nutriĝi per la spaco, kie via formiko estas, ĝi estos aŭtomate elektita por esti viŝita aŭ manĝita.[auto]
 conseil.21:la ludo-lingvo estas aŭtomate tiu de via komputilo, sed vi povas ŝanĝi ĝin en la Opcioj.[auto]
-conseil.22:iuj specioj de formikoj estas policalaj. Tio signifas, ke reĝino de formikejo A metos novajn formikojn en sia formikejo B &amp; la formikoj A kaj B daŭre helpos unu la alian kvazaŭ ŝi estus nur unu granda formikejo. Sur granda mapo utilas demeti reĝinajn kaj virajn ovojn, kiuj povas trovi novajn aliancitajn formikejojn ĉe la alia fino de la mapo.[auto]
+conseil.22:iuj specioj de formikoj estas policalaj. Tio signifas, ke reĝino de formikejo A metos novajn formikojn en ŝia formikejo B & la formikoj A kaj B daŭre helpos unu la alian kvazaŭ ŝi estus nur unu granda formikejo. Sur granda mapo utilas demeti reĝinajn kaj virajn ovojn, kiuj povas trovi novajn aliancitajn formikejojn ĉe la alia fino de la mapo.[auto]
 
 //message ---------------:
 //mort :
