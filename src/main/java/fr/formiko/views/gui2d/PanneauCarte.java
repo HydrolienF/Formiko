@@ -286,10 +286,12 @@ public class PanneauCarte extends Panneau {
           if(cr instanceof Fourmi){
             Fourmi f = ((Fourmi)cr);
             try {
-              BufferedImage bi = Main.getData().getAntImage(f.getEspece().getId(),f.getStade());
-              BufferedImage bi2 = image.rotateImage(bi,dir);
-              // erreur.info("from a "+bi.getWidth()+"x"+bi.getHeight()+" image to a "+bi2.getWidth()+"x"+bi2.getHeight()+" image.");
-              drawImage(g,bi2,xT,yT);
+              BufferedImage tBi [] = Main.getData().getAntImage(f);
+              for (BufferedImage bi : tBi ) {
+                if(bi!=null){
+                  drawImage(g,image.rotateImage(bi,dir),xT,yT);
+                }
+              }
             }catch (Exception e) {
               erreur.erreur("can't draw ant "+f.getId()+" at stade "+f.getStade());
             }

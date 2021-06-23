@@ -73,6 +73,7 @@ public class Img implements Cloneable{
   }
   // GET SET --------------------------------------------------------------------
   public BufferedImage getBi(){ return bi;}
+  public BufferedImage getImage(){return getBi();}
   public byte[][] getAlpha() { // transparence.
     if (alpha != null){ return alpha;}
     else { setAlpha(); return alpha;}

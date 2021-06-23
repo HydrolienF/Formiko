@@ -35,10 +35,10 @@ public class Pheromone implements Serializable{
   }
   // GET SET --------------------------------------------------------------------
   public byte getR(){ return r;}
-  public byte getV(){ return v;}public byte getG(){ return v;}
+  public byte getG(){ return v;} public byte getV(){ return getG();}
   public byte getB(){ return b;}
   public void setR(byte x){r=x;}
-  public void setV(byte x){r=v;}public void setG(byte x){r=v;}
+  public void setG(byte x){r=v;} public void setV(byte x){setG(x);}
   public void setB(byte x){r=b;}
   public byte getRc(){ return (byte)(r+128);}
   public byte getVc(){ return (byte)(v+128);}

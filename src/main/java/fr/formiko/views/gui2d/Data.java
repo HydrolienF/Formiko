@@ -1,7 +1,9 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Case;
+import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.Pheromone;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -37,6 +39,7 @@ public class Data {
   private BufferedImage tII[][];
   private BufferedImage tG[][];
   private BufferedImage tF[][];
+  private BufferedImage antColor[];
   private BufferedImage map;
   //ini (this var sould not be modify in an other place than here.)
   private BufferedImage imgNullIni;
@@ -48,6 +51,7 @@ public class Data {
   private BufferedImage tIIIni[][];
   private BufferedImage tGIni[][];
   private BufferedImage tFIni[][];
+  private BufferedImage antColorIni[];
   //PanneauAction
   private BufferedImage tImage [];
   //PanneauZoom
@@ -84,13 +88,6 @@ public class Data {
   public BufferedImage getCSombre(){return cSombre;}
   public BufferedImage [] getB(){return b;}
   public BufferedImage [] getTICarte(){return tICarte;}
-  public BufferedImage getAntImage(int idEspece, int stade){
-    if(stade==0){
-      try{return tIF[idEspece];}catch (Exception e) {return tIF[0];}
-    }else{
-      return getTF()[0][3+stade];
-    }
-  }
   public BufferedImage [][] getTII(){return tII;}
   public BufferedImage [][] getTG(){return tG;}
   public BufferedImage [][] getTF(){return tF;}
@@ -109,6 +106,57 @@ public class Data {
   public Color getButtonDisableColor(){return buttonDisableColor;}
   public Color getButtonFocusColor(){return buttonFocusColor;}
   // Fonctions propre -----------------------------------------------------------
+  /**
+  *{@summary Return an array with all images use to draw an ant.}<br>
+  *This image are sorted by order to daw.
+  *<ul>
+  *<li>Legs
+  *<li>Body
+  *<li>Color of the thorax
+  *<li>Wings
+  *</ul>
+  *@version 2.1
+  */
+  public BufferedImage [] getAntImage(Fourmi f){
+    int idEspece = f.getEspece().getId();
+    int stade = f.getStade();
+    Pheromone ph = f.getPheromone();
+    BufferedImage tBi [] = new BufferedImage[2];
+    Img imgColor = null;
+    //TODO add legs 1 by 1.
+    if(stade==0){
+      BufferedImage r = null;
+      try{tBi[0] = tIF[idEspece];}catch (Exception e) {tBi[0] = tIF[0];}
+      try {imgColor=new Img(antColor[idEspece]);} catch (Exception e) {imgColor=new Img(antColor[0]);}
+    }else{
+      tBi[0]=getTF()[0][3+stade];
+    }
+    if(imgColor!=null){
+      int w = imgColor.getWidth();
+      int h = imgColor.getHeight();
+      byte r [][] = fullOf(w,h,ph.getR());
+      imgColor.setRouge(r);
+      byte g [][] = fullOf(w,h,ph.getG());
+      imgColor.setVert(g);
+      byte b [][] = fullOf(w,h,ph.getB());
+      imgColor.setBleu(b);
+      // byte a [][] = fullOf(w,h,(byte)127);
+      // imgColor.setAlpha(a);
+      imgColor.actualiserImage();
+      tBi[1]=imgColor.getImage();
+    }
+    //TODO add wings for queen.
+    return tBi;
+  }
+  private byte [][] fullOf(int x, int y, byte b){
+    byte r [][] = new byte[x][y];
+    for (int i=0; i<x; i++) {
+      for (int j=0; j<y; j++) {
+        r[i][j]=b;
+      }
+    }
+    return r;
+  }
   //public class Controleur{
     //iniImage etc
     /**
@@ -128,6 +176,7 @@ public class Data {
       tIF=getScaledInstance(tIFIni, tailleFourmi);
       tII=getScaledInstance(tIIIni, tailleFourmi,2);//les insectes
       tF=getScaledInstance(tFIni, tailleFourmi,1);//les Fourmis au différent stade.
+      antColor=getScaledInstance(antColorIni, tailleFourmi,0);//les Fourmis au différent stade.
       tG=getScaledInstance(tGIni, tailleFourmi);
       fere = image.resize(fereIni,tailleDUneCase/2);
       cNuageuse = image.resize(cNuageuseIni,tailleDUneCase);
@@ -149,6 +198,8 @@ public class Data {
         chargerTI();
         tIIIni = chargerTX("I");
         tFIni = chargerTX("F",3,(byte)0,-3);
+        antColorIni = image.getImages("Fcol",image.getNbrImages("Fcol"),(byte)0);
+        // antColorIni = image.getImage("F0col");
         tGIni = chargerTX("seed");
         fereIni = image.getImage("antnest");//.getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
         cNuageuseIni = image.getImage("cNuageuse");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
@@ -180,15 +231,15 @@ public class Data {
     /**
     *{@summary Load a group of BufferedImage that starts with a similar name.}<br>
     *see image.getImagess() for more informations.
-    @param nom Name of de group. Every image will start by this name.
+    @param name Name of de group. Every image will start by this name.
     *@version 1.18
     */
-    public BufferedImage [][] chargerTX(String nom, int x, byte y, int début){
-      return image.getImagess(nom,x,(byte)début);
+    public BufferedImage [][] chargerTX(String name, int x, byte y, int début){
+      return image.getImagess(name,x,(byte)début);
     }
-    public BufferedImage [][] chargerTX(String nom, int x, byte y){ return chargerTX(nom,x,y,0);}
-    public BufferedImage [][] chargerTX(String sn, int x){ return chargerTX(sn,x,(byte)0);}
-    public BufferedImage [][] chargerTX(String sn){return chargerTX(sn,image.getNbrImages(sn));}
+    public BufferedImage [][] chargerTX(String name, int x, byte y){ return chargerTX(name,x,y,0);}
+    public BufferedImage [][] chargerTX(String name, int x){ return chargerTX(name,x,(byte)0);}
+    public BufferedImage [][] chargerTX(String name){return chargerTX(name,image.getNbrImages(name));}
 
     /**
     *Create a background image from tI1 and tI2 images.
@@ -245,21 +296,22 @@ public class Data {
     *Return a scaled BufferedImage
     *@version 2.1
     */
-    // public BufferedImage getScaledInstance(BufferedImage bi, int dim, int b){
-    //   BufferedImage r = null;
-    //   if(b==0){//par défaut
-    //     r=image.resize(bi,dim);
-    //   }else if(b==1){//pour les fourmis.
-    //     int idEspece = 0;
-    //     int stade = i-3;
-    //     r=image.resize(bi,image.taille(idEspece, stade,dim));
-    //   }else if(b==2){//pour les insectes
-    //     int idEspece = i+100;
-    //     int stade = 0;
-    //     r=image.resize(bi,image.taille(idEspece, stade,dim));
-    //   }
-    //   return r;
-    // }public BufferedImage getScaledInstance(BufferedImage bi, int dim){return getScaledInstance(bi,dim,0);}
+    public BufferedImage getScaledInstance(BufferedImage bi, int dim, int b){
+      BufferedImage r = null;
+      if(b==0){//par défaut
+        r=image.resize(bi,dim);
+      }
+      // else if(b==1){//pour les fourmis.
+      //   int idEspece = 0;
+      //   // int stade = i-3;
+      //   r=image.resize(bi,image.taille(idEspece, stade,dim));
+      // }else if(b==2){//pour les insectes
+      //   // int idEspece = i+100;
+      //   int stade = 0;
+      //   r=image.resize(bi,image.taille(idEspece, stade,dim));
+      // }
+      return r;
+    }public BufferedImage getScaledInstance(BufferedImage bi, int dim){return getScaledInstance(bi,dim,0);}
     /**
     *Return a scaled BufferedImage []
     *@version 1.18

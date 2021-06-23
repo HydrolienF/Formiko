@@ -361,7 +361,8 @@ public class image{
       at.rotate(direction * Math.PI / 4.0);
       at.translate(-w/2,-h/2);
     }
-    AffineTransformOp scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR);
+    AffineTransformOp scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_BICUBIC);
+    // AffineTransformOp scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR);
     after = scaleOp.filter(before, null);
     // erreur.info("from a "+w+"x"+h+" image to a "+after.getWidth()+"x"+after.getHeight()+" image.");
     return after;

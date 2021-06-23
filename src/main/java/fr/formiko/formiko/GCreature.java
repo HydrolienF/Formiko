@@ -90,7 +90,7 @@ public class GCreature implements Serializable{//, Iterator{
         gcr.add((Fourmi)c);
       }
     }
-    return null;
+    return gcr;
   }
   public GCreature getCouvain(){ // on renvoie d'habord les plus proches de la transformation en Fourmi adulte.
     GCreature gcr = new GCreature();
