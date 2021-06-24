@@ -117,61 +117,62 @@ public class imageTest extends TestCaseMuet{
   }
 
   //getImagess
-  @Test
-  public void testGetImagess(){
-    Main.iniOp();
-    Main.getOp().setElementSurCarteOrientéAprèsDéplacement(true);
-    Folder folder = new Folder();
-    folder.setFolderMain("testDirIT"+getId());
-    folder.ini(false);
-    Main.setFolder(folder);
-    Img img = new Img(3,1);
-    img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+""+".png");
-    img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+""+".png");
-    img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+""+".png");
-    img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"h"+".png");
-    img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"h"+".png");
-    img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"h"+".png");
-    img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"d"+".png");
-    img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"d"+".png");
-    img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"d"+".png");
-    img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"b"+".png");
-    img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"b"+".png");
-    img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"b"+".png");
-    img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"g"+".png");
-    img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"g"+".png");
-    img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"g"+".png");
-    // image.setREPTEXTUREPACK("testDirIT2/");
-    Image [][] t = image.getImagess("testImage");
-    int k=0;
-    for(Image ti []: t){
-      for (Image i : ti) {
-        assertEquals(3,i.getWidth(null));
-        assertEquals(1,i.getHeight(null));
-        k++;
-      }
-    }
-    assertEquals(12,k);
-    Main.getOp().setElementSurCarteOrientéAprèsDéplacement(false);
-    t = image.getImagess("testImage");
-    k=0;
-    for(Image ti []: t){
-      if(t!=null){
-        try { // on ne peu lire que la 1a colone.
-          for (Image i : ti) {
-            if(i!=null){
-              assertEquals(3,i.getWidth(null));
-              assertEquals(1,i.getHeight(null));
-              k++;
-            }
-          }
-        }catch (Exception e) {}
-      }
-    }
-    assertEquals(3,k);
-    image.setREPTEXTUREPACK(null);
-    assertTrue(fichier.deleteDirectory(new File(folder.getFolderMain().substring(0,folder.getFolderMain().length()-5))));
-  }
+  //not used anymore.
+  // @Test
+  // public void testGetImagess(){
+  //   Main.iniOp();
+  //   Main.getOp().setElementSurCarteOrientéAprèsDéplacement(true);
+  //   Folder folder = new Folder();
+  //   folder.setFolderMain("testDirIT"+getId());
+  //   folder.ini(false);
+  //   Main.setFolder(folder);
+  //   Img img = new Img(3,1);
+  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+""+".png");
+  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+""+".png");
+  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+""+".png");
+  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"h"+".png");
+  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"h"+".png");
+  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"h"+".png");
+  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"d"+".png");
+  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"d"+".png");
+  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"d"+".png");
+  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"b"+".png");
+  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"b"+".png");
+  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"b"+".png");
+  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"g"+".png");
+  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"g"+".png");
+  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"g"+".png");
+  //   // image.setREPTEXTUREPACK("testDirIT2/");
+  //   Image [][] t = image.getImagess("testImage");
+  //   int k=0;
+  //   for(Image ti []: t){
+  //     for (Image i : ti) {
+  //       assertEquals(3,i.getWidth(null));
+  //       assertEquals(1,i.getHeight(null));
+  //       k++;
+  //     }
+  //   }
+  //   assertEquals(12,k);
+  //   Main.getOp().setElementSurCarteOrientéAprèsDéplacement(false);
+  //   t = image.getImagess("testImage");
+  //   k=0;
+  //   for(Image ti []: t){
+  //     if(t!=null){
+  //       try { // on ne peu lire que la 1a colone.
+  //         for (Image i : ti) {
+  //           if(i!=null){
+  //             assertEquals(3,i.getWidth(null));
+  //             assertEquals(1,i.getHeight(null));
+  //             k++;
+  //           }
+  //         }
+  //       }catch (Exception e) {}
+  //     }
+  //   }
+  //   assertEquals(3,k);
+  //   image.setREPTEXTUREPACK(null);
+  //   assertTrue(fichier.deleteDirectory(new File(folder.getFolderMain().substring(0,folder.getFolderMain().length()-5))));
+  // }
 
   //getNbrImages
   @Test

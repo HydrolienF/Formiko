@@ -282,6 +282,8 @@ public class PanneauCarte extends Panneau {
         //   gcToPrint.add(cr, cr.getTaille());
         // }
         // c.setGc(gcToPrint);
+        //TODO #82 for GCreature then do #94 with sort.
+        // gcToPrint.sort(new GcComparator<Creature>());
         // gcToPrint = Collection.sort(gcToPrint, new GcComparator<Creature>());
         for (Creature cr : gcToPrint) {
         // while (ccrea !=null) {

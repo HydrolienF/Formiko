@@ -72,7 +72,14 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   @Override
   public void add(int index, T content){
-    throw new UnsupportedOperationException();
+    if(index<0){throw new IndexOutOfBoundsException();}
+    if(index==0){
+      addHead(content);
+    }else{
+      if(!getHead().add(index, content)){
+        throw new IndexOutOfBoundsException();
+      }
+    }
     //TODO
     // addTail(content);
     // return true;
@@ -99,10 +106,8 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   *@version 1.52
   */
   public boolean isEmpty(){
-    for (T t : this ) {
-      return false;
-    }
-    return true;
+    if (getHead() == null){ return true;}
+    return false;
   }
   /**
   *{@summary Return the number of element.}<br>
@@ -385,6 +390,13 @@ class Node<T> {
       this.content = content;
       this.next = next;
   }
+  /**
+  *{@summary Secondary constructor for Node with null next item.}<br>
+  *@version 2.1
+  */
+  public Node(T content){
+    this(content, null);
+  }
   // GET SET -------------------------------------------------------------------
   public T getContent(){return content;}
   public void setContent(T content){this.content = content;}
@@ -439,5 +451,21 @@ class Node<T> {
       return true;
     }
     return getNext().remove(t);
+  }
+  /**
+  *{@summary Add the t element}<br>
+  *@param t the element to add.
+  *@return true if it have been add.
+  *@version 2.1
+  */
+  public boolean add(int index, T t){
+    if(index==1){
+      Node<T> node = new Node<T>(t);
+      node.setNext(getNext());
+      setNext(node);
+      return true;
+    }
+    if(getNext() == null){return false;}
+    return getNext().add(index--, t);
   }
 }

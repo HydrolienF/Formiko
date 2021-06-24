@@ -6,12 +6,35 @@ import fr.formiko.formiko.Point;
 import fr.formiko.usuel.listes.Liste;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
-import java.util.Set;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class ListTest extends TestCaseMuet{
 
   // Fonctions propre -----------------------------------------------------------
+  @Test
+  public void testIsEmpty(){
+    Liste<String> list = new Liste<String>();
+    assertTrue(list.isEmpty());
+    list.add("test string");
+    assertTrue(!list.isEmpty());
+    list.remove("test string");
+    assertTrue(list.isEmpty());
+    list.add("test string");
+    list.add("test string2");
+    list.remove("test string");
+    assertTrue(!list.isEmpty());
+  }
+  @Test
+  public void testClear(){
+    List<String> list = new Liste<String>();
+    list.add("test string");
+    list.add("test string2");
+    list.remove("test string");
+    list.clear();
+    assertTrue(list.isEmpty());
+  }
   @Test
   public void testLength(){
     Liste<Object> l = new Liste<Object>();
@@ -113,6 +136,39 @@ public class ListTest extends TestCaseMuet{
     l2.add("La libro");
     l2.addAll(l);
     assertEquals("Pirpo & kartoĉio La libro , formiko la ludo ",l2.toString());
+  }
+  @Test
+  public void testRemoveAll(){
+    Liste<String> l = new Liste<String>();
+    l.addTail("2");
+    l.addTail("4");
+    l.add("6");
+
+    Liste<String> l2 = new Liste<String>();
+    l2.add("1");
+    l2.add("2");
+    l2.add("3");
+    l2.add("4");
+    l2.add("5");
+    l2.add("6");
+    assertTrue(l2.removeAll(l));
+    assertEquals("1 3 5 ",l2.toString());
+  }
+  @Test
+  public void testRemoveAll2(){
+    Liste<String> l = new Liste<String>();
+    l.addTail("2");
+    l.add("6");
+    l.addTail("4");
+
+    Liste<String> l2 = new Liste<String>();
+    l2.add("1");
+    l2.add("2");
+    l2.add("3");
+    l2.add("4");
+    l2.add("5");
+    assertTrue(!l2.removeAll(l));
+    assertEquals("1 3 5 ",l2.toString());
   }
   // @Test
   // public void testAddTail(){
@@ -248,5 +304,16 @@ public class ListTest extends TestCaseMuet{
     list2.add("3");
     list2.add("4");
     assertEquals(list2, list);
+  }
+  @Test
+  public void testAdd1(){
+    Liste<String> l = new Liste<String>();
+    l.add(0,"a");
+    assertThrows(IndexOutOfBoundsException.class, () -> {
+        l.add(2,"b");
+    });
+    l.add(1,"c");
+    l.add(1,"d");
+    assertEquals("a d c ",l.toString());
   }
 }
