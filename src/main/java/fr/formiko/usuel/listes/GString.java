@@ -223,7 +223,7 @@ public class GString extends Liste<String> implements Serializable {
   public int compterComJavadoc(){
     int c=0;
     for (String line : this ) {
-      if(str.contient(line,"/**") && !str.contient(line,"/***")){
+      if(str.contient(line,"/**") && !str.contient(line,"/***") && !str.contient(line,"*/")){
         c++;
       }
     }

@@ -354,11 +354,7 @@ public class GCreature implements Serializable{//, Iterator{
       return;
     }
     début.retirer(c);
-    // On remet fin a la dennière case.
-    fin = début;
-    while(fin.getSuivant() != null){
-      fin = fin.getSuivant();
-    }
+    actualiserFin();
   }
   public void retirer(Creature c){remove(c);}
   public void delete(Creature c){remove(c);}
