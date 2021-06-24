@@ -38,7 +38,7 @@ public class CEtiquetteJoueur {
       if(!cej.getContent().getIa()){ // si c'est un joueur Humain.
         if (mapo.getCasesNuageuses() || mapo.getCasesSombres()){
           j.initialisationCaseNS();
-          j.actualiserCaseSN();
+          j.updateCaseSN();
         }
       }
       cej = cej.getSuivant();

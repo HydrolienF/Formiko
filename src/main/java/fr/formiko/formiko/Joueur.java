@@ -67,7 +67,15 @@ public class Joueur implements Serializable{
   public boolean getCaseNuageuse(int x, int y){ try {return caseNuageuse[x][y];}catch (Exception e) {return false;}}
   public void setCaseNuageuse(int x, int y, boolean b){ caseNuageuse[x][y]=b;}
   public boolean isCaseNuageuse(CCase cc){return getCaseNuageuse(cc.getContent().getPoint().getX(),cc.getContent().getPoint().getY());}
-  public void setPheromone(Pheromone ph){fere.getGc().setPheromone(ph);}
+  /**
+  *{@summary Set Pheromone for all the Ants of the player.}
+  *@version 2.1
+  */
+  public void setPheromone(Pheromone ph){
+    for (Creature c : fere.getGc().toList()) {
+      c.setPheromone(ph);
+    }
+  }
   public int getScore(){return fere.getScore();}
   public static void ini(){i=1;}
 // Fonctions propre -----------------------------------------------------------
@@ -123,7 +131,7 @@ public class Joueur implements Serializable{
       }
     }
   }
-  public void actualiserCaseSN(){
+  public void updateCaseSN(){
     int x = Main.getGc().getNbrX();
     int y = Main.getGc().getNbrY();
     for (int i=0;i<x ;i++ ) {
@@ -131,7 +139,7 @@ public class Joueur implements Serializable{
         caseSombre[i][j]=true;
       }
     }
-    fere.getGc().actualiserCaseSN();
+    fere.getGc().updateCaseSN();
     //affichecaseSN();
   }
   public void affichecaseSN(){

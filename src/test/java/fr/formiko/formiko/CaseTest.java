@@ -37,7 +37,7 @@ public class CaseTest extends TestCaseMuet{
     p.setPlayingAnt(f);
     Joueur j = Main.getGj().gethead().getContent();
     j.initialisationCaseNS();
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     //show everything
     assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formikejo"));
     assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formiko"));
@@ -58,7 +58,7 @@ public class CaseTest extends TestCaseMuet{
   //   Fourmi f = ini();
   //   Joueur j = Main.getGj().gethead().getContent();
   //   j.initialisationCaseNS();
-  //   j.actualiserCaseSN();
+  //   j.updateCaseSN();
   //   //show everything
   //   assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formikejo"));
   //   assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formiko"));
@@ -77,7 +77,7 @@ public class CaseTest extends TestCaseMuet{
     p.getCarte().setCasesNuageuses(false);
     p.setPlayingAnt(f);
     j.initialisationCaseNS();
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     //show everything
     assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formikejo"));
     assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formiko"));

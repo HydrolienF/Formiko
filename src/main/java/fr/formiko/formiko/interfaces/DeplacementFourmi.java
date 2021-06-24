@@ -131,7 +131,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     }
     setActionMoinsDéplacement();
     if(!(c instanceof Fourmi)){ return;}
-    if (!((Fourmi)(c)).getJoueur().getIa() && (Main.getCarte().getCasesNuageuses() || Main.getCarte().getCasesSombres())){((Fourmi)(c)).getJoueur().actualiserCaseSN();}
+    if (!((Fourmi)(c)).getJoueur().getIa() && (Main.getCarte().getCasesNuageuses() || Main.getCarte().getCasesSombres())){((Fourmi)(c)).getJoueur().updateCaseSN();}
   }
   /**
    *{@summary remove some action to the moving Creature}<br>

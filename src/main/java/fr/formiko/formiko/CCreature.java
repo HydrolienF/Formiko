@@ -45,13 +45,6 @@ public class CCreature implements Serializable{
       return 1 + suivant.length();
     }
   }
-  public void setPheromone(Pheromone ph){
-    CCreature cc = this;
-    while(cc!=null){
-      cc.getContent().setPheromone(ph);
-      cc=cc.getSuivant();
-    }
-  }
 
   public Creature getCouvainSale(){
     if (suivant == null){ return null;}
@@ -72,14 +65,6 @@ public class CCreature implements Serializable{
       suivant.getCouvainsSale();
     }
   }
-  public Creature getCreatureParId(int id){
-    if (this.getSuivant()==null){ return null;}
-    if (suivant.getContent().getId()==id){
-      return suivant.getContent();
-    }else{
-      return this.getSuivant().getCreatureParId(id);
-    }
-  }
   public Fourmi getFourmiParFere(Fourmiliere fere){
     if(getContent().estFourmi()){
       if(((Fourmi)(getContent())).getFere().equals(fere)){return (Fourmi)contenu;}
@@ -87,87 +72,7 @@ public class CCreature implements Serializable{
     if (this.getSuivant()==null){ return null;}
     return suivant.getFourmiParFere(fere);
   }
-  public GCreature filtreAlliés(Creature c,int différenceTolléré){
-    GCreature gcr = new GCreature();
-    CCreature ccTest = this;
-    while(ccTest != null){
-      if (c.getPheromone().equals(ccTest.getContent().getPheromone(),différenceTolléré)){
-        gcr.addFin(ccTest.getContent());
-      }
-      ccTest = ccTest.getSuivant();
-    }
-    return gcr;
-  }
-  /**
-  *{@summary delete Creature that can't eat more.}<br>
-  *@version 1.29
-  */
-  public GCreature filtreFaimMax(){
-    GCreature gcr = new GCreature();
-    CCreature ccTest = this;
-    while(ccTest != null){
-      if (ccTest.getContent().getNourriture()<ccTest.getContent().getNourritureMax()){
-        gcr.addFin(ccTest.getContent());
-      }
-      ccTest = ccTest.getSuivant();
-    }
-    return gcr;
-  }
-  /**
-  *{@summary delete Creature that can't be cleaner.}<br>
-  *@version 1.29
-  */
-  public GCreature filtrePropreteMax(){
-    GCreature gcr = new GCreature();
-    CCreature ccTest = this;
-    while(ccTest != null){
-      if (ccTest.getContent().getProprete()<100){
-        gcr.addFin(ccTest.getContent());
-      }
-      ccTest = ccTest.getSuivant();
-    }
-    return gcr;
-  }
-  /**
-  *{@summary delete Creature that didn't whant food.}<br>
-  *@version 1.29
-  */
-  public GCreature filtreWantFood(){
-    GCreature gcr = new GCreature();
-    CCreature ccTest = this;
-    while(ccTest != null){
-      if (ccTest.getContent().wantFood()){
-        gcr.addFin(ccTest.getContent());
-      }
-      ccTest = ccTest.getSuivant();
-    }
-    return gcr;
-  }
-  /**
-  *{@summary delete Creature that didn't whant clean.}<br>
-  *@version 1.29
-  */
-  public GCreature filtreWantClean(){
-    GCreature gcr = new GCreature();
-    CCreature ccTest = this;
-    while(ccTest != null){
-      if (ccTest.getContent().wantClean()){
-        gcr.addFin(ccTest.getContent());
-      }
-      ccTest = ccTest.getSuivant();
-    }
-    return gcr;
-  }
-  public void setLienFere(Fourmiliere fere){
-    CCreature ccTest = this;
-    while(ccTest != null){
-      if(ccTest.getContent() instanceof Fourmi){
-        Fourmi fTest = (Fourmi)(ccTest.getContent());
-        fTest.setFere(fere);
-      }
-      ccTest = ccTest.getSuivant();
-    }
-  }
+
   public int [] gcToTInt(){
     int lentr =this.length();
     int tr[]=new int [lentr];int k=0;
@@ -224,72 +129,6 @@ public class CCreature implements Serializable{
     }else{
       System.out.println();
     }
-  }
-  /**
-  *Play as an ant.
-  *@version 1.33
-  */
-  public void jouer(){
-    if(contenu instanceof Fourmi){
-      Fourmi fActuel = (Fourmi) contenu;
-      fActuel.tour();
-    }else{
-      erreur.erreur("Impossible de faire jouer comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.");
-    }
-    if(suivant != null){
-      suivant.jouer();
-    }
-  }
-  /**
-  *reset action before the turn of all the ant.
-  *@version 1.33
-  */
-  public void preTour(){
-    if(contenu instanceof Fourmi){
-      Fourmi fActuel = (Fourmi) contenu;
-      fActuel.preTour();
-    }else{
-      erreur.erreur("Impossible de faire preTour comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.");
-    }
-    if(suivant != null){
-      suivant.preTour();
-    }
-  }
-  /*public void finTour(){
-    Fourmi fActuel =  null;
-    if(contenu instanceof Fourmi){
-      fActuel = (Fourmi) contenu;
-    }else{
-      erreur.erreur("Impossible de faire jouer comme une fourmi la créature "+contenu.getId()+" qui n'en est pas une.");
-    }
-    if(fActuel!=null){fActuel.finTour();}
-    if(suivant != null){
-      suivant.finTour();
-    }
-  }*/
-  public void actualiserCaseSN(){
-    CCreature cc = this;
-    while(cc!= null){
-      if(cc.getContent() instanceof Fourmi){
-        Fourmi f = (Fourmi)(cc.getContent());
-        Joueur j = f.getJoueur();
-        GCase gc = f.getCCase().getGca(1); //ensemble des case vue par la créature.
-        CCase cca = gc.gethead();
-        while(cca!=null){
-          int x = cca.getContent().getX(); int y = cca.getContent().getY();
-          j.setCaseSombre(x,y,false);
-          j.setCaseNuageuse(x,y,false);
-          cca=cca.getDroite();
-        }
-      }
-      cc = cc.getSuivant();
-    }
-  }
-  public void classerPourNétoyage(){
-    //TODO
-    //le but est d'habord que personne ne passe en dessous des 50 de propretée.
-    //on met tout ce qui sont en dessous de 50 dans l'ordre d'age/stade.
-    //et on ajoute ceux qui sont après dans l'ordre de saleté.
   }
 
   public int [] toTId(){

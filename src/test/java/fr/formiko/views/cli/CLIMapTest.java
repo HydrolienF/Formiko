@@ -130,10 +130,10 @@ public class CLIMapTest extends TestCaseMuet{
     playingAnt.setCCase(Main.getGc().getCCase(2,0));
     playingAnt.getFere().setCc(Main.getGc().getCCase(2,0));
     j.initialisationCaseNS();
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
     playingAnt.setCCase(Main.getGc().getCCase(0,0));
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     assertEquals("1   ",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
     assertEquals("-   ",cLIMap.caseToString(Main.getGc().getCCase(0,1),j));
     assertEquals("-   ",cLIMap.caseToString(Main.getGc().getCCase(1,1),j));
@@ -144,11 +144,11 @@ public class CLIMapTest extends TestCaseMuet{
     assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCCase(1,2),j));
 
     playingAnt.setCCase(Main.getGc().getCCase(1,1));
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     assertEquals("-   ",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
     assertEquals("F1  ",cLIMap.caseToString(Main.getGc().getCCase(2,0),j));
     playingAnt.setCCase(Main.getGc().getCCase(2,2));
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     assertEquals("□□□□",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
   }
   public void testCaseToStringNuageuse(){
@@ -166,10 +166,10 @@ public class CLIMapTest extends TestCaseMuet{
     playingAnt.setCCase(Main.getGc().getCCase(2,0));
     playingAnt.getFere().setCc(Main.getGc().getCCase(2,0));
     j.initialisationCaseNS();
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
     playingAnt.setCCase(Main.getGc().getCCase(0,0));
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     assertEquals("1   ",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
     assertEquals("-   ",cLIMap.caseToString(Main.getGc().getCCase(0,1),j));
     assertEquals("-   ",cLIMap.caseToString(Main.getGc().getCCase(1,1),j));
@@ -180,11 +180,11 @@ public class CLIMapTest extends TestCaseMuet{
     assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCCase(1,2),j));
 
     playingAnt.setCCase(Main.getGc().getCCase(1,1));
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     assertEquals("-   ",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
     assertEquals("F1  ",cLIMap.caseToString(Main.getGc().getCCase(2,0),j));
     playingAnt.setCCase(Main.getGc().getCCase(2,2));
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     assertEquals("    ",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
   }
   public void testCaseToStringSombre(){
@@ -202,10 +202,10 @@ public class CLIMapTest extends TestCaseMuet{
     playingAnt.setCCase(Main.getGc().getCCase(2,0));
     playingAnt.getFere().setCc(Main.getGc().getCCase(2,0));
     j.initialisationCaseNS();
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     assertEquals("□□□□",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
     playingAnt.setCCase(Main.getGc().getCCase(0,0));
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     assertEquals("1   ",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
     assertEquals("-   ",cLIMap.caseToString(Main.getGc().getCCase(0,1),j));
     assertEquals("-   ",cLIMap.caseToString(Main.getGc().getCCase(1,1),j));
@@ -216,11 +216,11 @@ public class CLIMapTest extends TestCaseMuet{
     assertEquals("□□□□",cLIMap.caseToString(Main.getGc().getCCase(1,2),j));
 
     playingAnt.setCCase(Main.getGc().getCCase(1,1));
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     assertEquals("-   ",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
     assertEquals("F1  ",cLIMap.caseToString(Main.getGc().getCCase(2,0),j));
     playingAnt.setCCase(Main.getGc().getCCase(2,2));
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     assertEquals("□□□□",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
   }
   @Test
@@ -240,9 +240,9 @@ public class CLIMapTest extends TestCaseMuet{
     playingAnt.setCCase(Main.getGc().getCCase(2,0));
     playingAnt.getFere().setCc(Main.getGc().getCCase(2,0));
     j.initialisationCaseNS();
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     playingAnt.setCCase(Main.getGc().getCCase(0,0));
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     assertEquals("1   -   F1□□□□□□"+repeat(12,"■■■■"),cLIMap.mapLineToString(Main.getGc().getCCase(0,0),j));
     assertTrue(Main.getPartie().setPlayingAnt(playingAnt));
     assertTrue(Main.getPlayingJoueur()!=null);

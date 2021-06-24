@@ -194,7 +194,7 @@ public class Partie implements Serializable{
       gj.add(j);
       if (mapo.getCasesNuageuses() || mapo.getCasesSombres()){
         j.initialisationCaseNS();
-        j.actualiserCaseSN();
+        j.updateCaseSN();
       }
     }
   }

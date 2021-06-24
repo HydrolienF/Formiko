@@ -138,7 +138,7 @@ public class triche {
         case 24:
           getJoueurParId(args[1]).setIa(str.sToB(args[2]));
           try {
-            if (!str.sToB(args[2]) && (Main.getCarte().getCasesNuageuses() || Main.getCarte().getCasesSombres())){getJoueurParId(args[1]).actualiserCaseSN();}
+            if (!str.sToB(args[2]) && (Main.getCarte().getCasesNuageuses() || Main.getCarte().getCasesSombres())){getJoueurParId(args[1]).updateCaseSN();}
           }catch (Exception e) {
             erreur.erreur("Le code triche de changement de jouer n'as pas pu actualiser les cases sombre et nuageuse.");
           }
