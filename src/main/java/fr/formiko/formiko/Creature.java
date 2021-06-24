@@ -172,6 +172,8 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     if(o!=null){o.setCCase(null);}
   }
 
+  public int getTaille(){if(getEspece()!=null){return getEspece().getTaille(getStade());}return 1;}
+
   //raccourci des actions d'interface
   public void ceDeplacer(boolean bIa){déplacement.unMouvement(this,bIa);}
   public void ceDeplacer(CCase ccase){déplacement.unMouvement(this,ccase);}

@@ -30,16 +30,16 @@ public class Fourmiliere implements Serializable{
   */
   private Joueur joueur;
   /***
-  *List of the Creature own by the Fourmiliere
+  *Liste of the Creature own by the Fourmiliere
   */
   private GCreature gc;
   /***
-  *List of the Graine own by the Fourmiliere
+  *Liste of the Graine own by the Fourmiliere
   */
   private GGraine gg;
   //private byte modeDéfaut;
   /***
-  *List of the Scores turn by turn of the Fourmiliere
+  *Liste of the Scores turn by turn of the Fourmiliere
   */
   private GGInt ggi;
   /***

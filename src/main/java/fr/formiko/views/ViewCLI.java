@@ -13,7 +13,7 @@ import fr.formiko.usuel.color;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.List;
+import fr.formiko.usuel.listes.Liste;
 import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
@@ -496,7 +496,7 @@ public class ViewCLI implements View {
   private Fourmi getAntFromFere(){
     int len = Main.getPlayingAnt().getFere().getGc().length();
     String t [] = new String[len];
-    List<Creature> list = Main.getPlayingAnt().getFere().getGc().toList();
+    Liste<Creature> list = Main.getPlayingAnt().getFere().getGc().toList();
     int k=0;
     for (Creature c : list ) {
       t[k]=getAllyAntInColor(c); k++;
@@ -559,7 +559,7 @@ public class ViewCLI implements View {
   private void printFereInColor(){
     if(Main.getPlayingAnt()==null){return;}
     System.out.println(g.getM("fourmilière")+" : ");
-    List<Creature> lgc = Main.getPlayingAnt().getFere().getGc().toList();
+    Liste<Creature> lgc = Main.getPlayingAnt().getFere().getGc().toList();
     for (Creature c : lgc ) {
       if (c.equals(Main.getPlayingAnt())){
         System.out.print("-- ! -- ");

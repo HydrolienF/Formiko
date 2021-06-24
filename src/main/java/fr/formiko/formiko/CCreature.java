@@ -6,7 +6,7 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.exceptions.ListItemNotFoundException;
 import fr.formiko.usuel.exceptions.EmptyListException;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.List;
+import fr.formiko.usuel.listes.Liste;
 
 import java.io.Serializable;
 import java.util.Iterator;
@@ -303,12 +303,12 @@ public class CCreature implements Serializable{
     return tr;
   }
   /**
-  *{@summary Transform a GCreature in List&lt;Creature&gt;.}
+  *{@summary Transform a GCreature in Liste&lt;Creature&gt;.}
   *@version 1.38
   */
-  public List<Creature> toList(){
+  public Liste<Creature> toList(){
     CCreature cc = this;
-    List<Creature> lc = new List<Creature>();
+    Liste<Creature> lc = new Liste<Creature>();
     while(cc!= null){
       lc.add(cc.getContent());
       cc = cc.getSuivant();

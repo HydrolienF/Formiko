@@ -4,7 +4,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.List;
+import fr.formiko.usuel.listes.Liste;
 
 import java.io.Serializable;
 
@@ -112,12 +112,12 @@ public class CGraine implements Serializable{
     }
   }
   /**
-  *{@summary Transform a GGraine in List&lt;Graine&gt;.}
+  *{@summary Transform a GGraine in Liste&lt;Graine&gt;.}
   *@version 1.38
   */
-  public List<Graine> toList(){
+  public Liste<Graine> toList(){
     CGraine cc = this;
-    List<Graine> lc = new List<Graine>();
+    Liste<Graine> lc = new Liste<Graine>();
     while(cc!= null){
       lc.add(cc.getContent());
       cc = cc.getSuivant();

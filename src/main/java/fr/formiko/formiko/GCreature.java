@@ -6,15 +6,15 @@ import fr.formiko.usuel.exceptions.EmptyListException;
 import fr.formiko.usuel.exceptions.ListItemNotFoundException;
 import fr.formiko.usuel.exceptions.NullItemException;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.List;
+import fr.formiko.usuel.listes.Liste;
 
 import java.io.Serializable;
 import java.util.Iterator;
-// extends List<Creature>
+// extends Liste<Creature>
 public class GCreature implements Serializable{//, Iterator{
   protected CCreature début;
   protected CCreature fin;
-  //TODO #82 replace début & fin by a protected List<Creature>.
+  //TODO #82 replace début & fin by a protected Liste<Creature>.
   // CONSTRUCTEUR -----------------------------------------------------------------
   public GCreature(CCreature cc){
     début = cc; fin = cc;
@@ -383,12 +383,12 @@ public class GCreature implements Serializable{//, Iterator{
     return début.toTId();
   }
   /**
-  *{@summary Transform a GCreature in List&lt;Creature&gt;.}
+  *{@summary Transform a GCreature in Liste&lt;Creature&gt;.}
   *@version 1.38
   */
-  public List<Creature> toList(){
+  public Liste<Creature> toList(){
     if (début==null){
-      List<Creature> lc = new List<Creature>();
+      Liste<Creature> lc = new Liste<Creature>();
       return lc;
     }
     return début.toList();

@@ -2,16 +2,19 @@ package fr.formiko.usuel.listes;
 
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.usuel.listes.List;
 import fr.formiko.formiko.Point;
+import fr.formiko.usuel.listes.Liste;
 import fr.formiko.usuel.tests.TestCaseMuet;
+
+import java.util.Set;
+import java.util.HashSet;
 
 public class ListTest extends TestCaseMuet{
 
   // Fonctions propre -----------------------------------------------------------
   @Test
   public void testLength(){
-    List<Object> l = new List<Object>();
+    Liste<Object> l = new Liste<Object>();
     assertEquals(0,l.length());
     l.add(new Point(0,5));
     l.add("string");
@@ -21,7 +24,7 @@ public class ListTest extends TestCaseMuet{
   }
   @Test
   public void testLength2(){
-    List<String> l = new List<String>();
+    Liste<String> l = new Liste<String>();
     assertEquals(0,l.length());
     l.add("string");
     l.add("pantalon");
@@ -36,7 +39,7 @@ public class ListTest extends TestCaseMuet{
   }
   @Test
   public void testAddTail(){
-    List<String> l = new List<String>();
+    Liste<String> l = new Liste<String>();
     l.addTail("string");
     l.addTail("pantalon");
     l.addTail("formiko 2");
@@ -45,7 +48,7 @@ public class ListTest extends TestCaseMuet{
   }
   @Test
   public void testAddHead(){
-    List<String> l = new List<String>();
+    Liste<String> l = new Liste<String>();
     l.addHead("string");
     l.addHead("pantalon");
     l.addHead("formiko 2");
@@ -54,7 +57,7 @@ public class ListTest extends TestCaseMuet{
   }
   @Test
   public void testAddTailAndHead(){
-    List<String> l = new List<String>();
+    Liste<String> l = new Liste<String>();
     l.addTail("0");
     l.addHead("1");
     l.addHead("2");
@@ -65,20 +68,65 @@ public class ListTest extends TestCaseMuet{
   }
   @Test
   public void testAddList(){
-    List<String> l = new List<String>();
+    Liste<String> l = new Liste<String>();
     l.addTail(", formiko");
     l.addTail("la ludo");
 
-    List<String> l2 = new List<String>();
+    Liste<String> l2 = new Liste<String>();
     l2.add("Pirpo & kartoĉio");
     l2.add("La libro");
     l2.addList(l);
     assertEquals("Pirpo & kartoĉio La libro , formiko la ludo ",l2.toString());
   }
   @Test
+  public void testAddAll(){
+    Liste<String> l = new Liste<String>();
+    l.addTail(", formiko");
+    l.addTail("la ludo");
+
+    Set<String> l2 = new HashSet<String>();
+    l2.add("Pirpo & kartoĉio");
+    l2.add("La libro");
+    l2.addAll(l);
+    assertEquals("[, formiko, la ludo, La libro, Pirpo & kartoĉio]",l2.toString());
+  }
+  @Test
+  public void testAddAll2(){
+    Set<String> l = new HashSet<String>();
+    l.add(", formiko");
+    l.add("la ludo");
+
+    Liste<String> l2 = new Liste<String>();
+    l2.add("Pirpo & kartoĉio");
+    l2.add("La libro");
+    l2.addAll(l);
+    assertEquals("Pirpo & kartoĉio La libro , formiko la ludo ",l2.toString());
+  }
+  @Test
+  public void testAddAll3(){
+    Liste<String> l = new Liste<String>();
+    l.addTail(", formiko");
+    l.addTail("la ludo");
+
+    Liste<String> l2 = new Liste<String>();
+    l2.add("Pirpo & kartoĉio");
+    l2.add("La libro");
+    l2.addAll(l);
+    assertEquals("Pirpo & kartoĉio La libro , formiko la ludo ",l2.toString());
+  }
+  // @Test
+  // public void testAddTail(){
+  //   Liste<String> l = new Liste<String>();
+  //   l.addTail("string");
+  //   l.addTail("pantalon");
+  //   l.addTail("formiko 2");
+  //   assertEquals(3,l.length());
+  //   assertEquals("string pantalon formiko 2 ",l.toString());
+  // }
+  @Test
   public void testEquals(){
-    List<String> l = new List<String>();
-    List<String> l2 = new List<String>();
+    Liste<String> l = new Liste<String>();
+    Liste<String> l2 = new Liste<String>();
     assertTrue(l.equals(l2));
     assertTrue(l2.equals(l));
     assertTrue(!l.equals(null));
@@ -94,8 +142,8 @@ public class ListTest extends TestCaseMuet{
   }
   @Test
   public void testEquals2(){
-    List<String> l = new List<String>();
-    List<String> l2 = new List<String>();
+    Liste<String> l = new Liste<String>();
+    Liste<String> l2 = new Liste<String>();
     l.add("1a");
     l.add("2a");
     l2.add("2a");
@@ -104,56 +152,56 @@ public class ListTest extends TestCaseMuet{
     assertTrue(!l2.equals(l));
   }
   @Test
-  public void testContaint(){
-    List<String> l = new List<String>();
-    assertTrue(!l.containt(null));
-    assertTrue(!l.containt("formiko"));
+  public void testcontains(){
+    Liste<String> l = new Liste<String>();
+    assertTrue(!l.contains(null));
+    assertTrue(!l.contains("formiko"));
     l.addTail("string");
-    assertTrue(!l.containt("formiko"));
+    assertTrue(!l.contains("formiko"));
     l.addTail("formiko");
-    assertTrue(l.containt("formiko"));
+    assertTrue(l.contains("formiko"));
     l.addTail("formiko");
     l.addTail("formiko");
-    assertTrue(l.containt("formiko"));
-    assertTrue(!l.containt(null));
+    assertTrue(l.contains("formiko"));
+    assertTrue(!l.contains(null));
   }
   @Test
-  public void testContaint2(){
-    List<Point> l = new List<Point>();
-    assertTrue(!l.containt(new Point(0,0)));
+  public void testcontains2(){
+    Liste<Point> l = new Liste<Point>();
+    assertTrue(!l.contains(new Point(0,0)));
     l.add(new Point(0,0));
     assertEquals(1,l.length());
-    //assertTrue(l.containt(new Point(0,0)));
-    assertTrue(!l.containt(new Point(0,1)));
+    //assertTrue(l.contains(new Point(0,0)));
+    assertTrue(!l.contains(new Point(0,1)));
     Point p = new Point(-1,1);
     l.add(p);
-    assertTrue(l.containt(p));
+    assertTrue(l.contains(p));
     //TODO #197 it do not use the overriding equals methode.
-    //assertTrue(l.containt(new Point(-1,1)));
+    //assertTrue(l.contains(new Point(-1,1)));
   }
   @Test
   public void testAdd(){
-    List<String> list = new List<String>();
+    Liste<String> list = new Liste<String>();
     list.add("test string");
     assertTrue(!list.isEmpty());
     assertEquals(1,list.length());
     assertEquals("test string",list.getItem(0));
   }
   public void testRemove(){
-    List<String> list = new List<String>();
+    Liste<String> list = new Liste<String>();
     String s = "test string";
     list.add(s);
     assertEquals(1,list.length());
     list.remove(s);
   }
   public void testRemove2(){
-    List<String> list = new List<String>();
+    Liste<String> list = new Liste<String>();
     list.add("test string");
     assertEquals(1,list.length());
     list.remove("test string");
   }
   public void testRemoveItem(){
-    List<String> list = new List<String>();
+    Liste<String> list = new Liste<String>();
     list.add("test string");
     assertEquals(1,list.length());
     assertTrue(list.removeItem(0));
@@ -162,30 +210,30 @@ public class ListTest extends TestCaseMuet{
     assertTrue(!list.removeItem(3));
   }
   public void testRemoveItem2(){
-    List<String> list = new List<String>();
+    Liste<String> list = new Liste<String>();
     list.add("0");
     list.add("1");
     list.add("2");
     list.add("3");
     assertEquals(4,list.length());
     assertTrue(list.removeItem(1));
-    List<String> list2 = new List<String>();
+    Liste<String> list2 = new Liste<String>();
     list.add("0");
     list.add("2");
     list.add("3");
     assertEquals(list2, list);
     assertTrue(list.removeItem(1));
-    list2 = new List<String>();
+    list2 = new Liste<String>();
     list.add("0");
     list.add("3");
     assertEquals(list2, list);
     assertTrue(list.removeItem(0));
-    list2 = new List<String>();
+    list2 = new Liste<String>();
     list.add("3");
     assertEquals(list2, list);
   }
   public void testRemoveDuplicateItem(){
-    List<String> list = new List<String>();
+    Liste<String> list = new Liste<String>();
     list.add("0");
     list.add("1");
     list.add("2");
@@ -193,7 +241,7 @@ public class ListTest extends TestCaseMuet{
     list.add("0");
     list.add("4");
     assertTrue(list.removeDuplicateItem());
-    List<String> list2 = new List<String>();
+    Liste<String> list2 = new Liste<String>();
     list2.add("0");
     list2.add("1");
     list2.add("2");

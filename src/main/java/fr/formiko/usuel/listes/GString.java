@@ -9,12 +9,12 @@ import java.io.Serializable;
 import javax.swing.JComboBox;
 
 /**
-*{@summary Custom String Linked List class.}<br>
+*{@summary Custom String Linked Liste class.}<br>
 *It have a lot of useful function that use fore() loop.<br>
 *@version 1.41
 *@author Hydrolien
 */
-public class GString extends List<String> implements Serializable {
+public class GString extends Liste<String> implements Serializable {
   // CONSTRUCTEUR -----------------------------------------------------------------
   /**
   *{@summary Constructor from an array.}<br>
@@ -30,7 +30,7 @@ public class GString extends List<String> implements Serializable {
   // GET SET -----------------------------------------------------------------------
 
   // Fonctions propre -----------------------------------------------------------
-  //equals is in List
+  //equals is in Liste
   /**
   *{@summary Return a JComboBox with all the String in it.}<br>
   *@param x the default select item.
@@ -170,7 +170,7 @@ public class GString extends List<String> implements Serializable {
   public int compterlineDifferenteDe(GString gs2){
     int cpt=0;
     for (String line : this ) {
-      if(!gs2.containt(line)){cpt++;}//on compte 1 line différente.
+      if(!gs2.contains(line)){cpt++;}//on compte 1 line différente.
     }
     return cpt;
   }
@@ -180,7 +180,7 @@ public class GString extends List<String> implements Serializable {
   */
   public void supprimerLesLignesCommunesAvec(GString gs2){
     for (String line : this ) {
-      if(gs2.containt(line)){
+      if(gs2.contains(line)){
         gs2.remove(line);
         remove(line);//pour évité les soucis de "c'est la 1a CString on passe par le GString."
       }//on supprime la line en question dans les 2 fichiers.

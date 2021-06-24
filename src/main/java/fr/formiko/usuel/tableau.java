@@ -6,7 +6,7 @@ import fr.formiko.usuel.maths.math;
 
 public class tableau <T>{
 // piste pour utiliser des méthodes sur des tableau sans qu'un type soit forcément donné :
-// List<Objet> mulist = new ArrayList<objet>();
+// Liste<Objet> mulist = new ArrayList<objet>();
 // déclaration des Objet
 // mylist.add(objet1) etc.
   private static String f = "tableau";

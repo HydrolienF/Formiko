@@ -22,6 +22,10 @@ import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
 
+import java.util.Comparator;
+import fr.formiko.usuel.listes.Liste;
+import java.util.Collection;
+
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -273,11 +277,13 @@ public class PanneauCarte extends Panneau {
         }
         // les créatures.
         //TODO sort by quicksort Creature by size of there futur image.
-        // GCreature gcToPrint = new GCreature();
-        // for (Creature c : c.getGc()) {
-        //
+        Liste<Creature> gcToPrint = c.getGc().toList();//new Liste<Creature>();
+        // for (Creature cr : c.getGc().toList()) {
+        //   gcToPrint.add(cr, cr.getTaille());
         // }
-        for (Creature cr : c.getGc().toList()) {
+        // c.setGc(gcToPrint);
+        // gcToPrint = Collection.sort(gcToPrint, new GcComparator<Creature>());
+        for (Creature cr : gcToPrint) {
         // while (ccrea !=null) {
         //   Creature cr = ccrea.getContent();
           int dir = getDir((ObjetSurCarteAId)cr);
@@ -528,3 +534,9 @@ public class PanneauCarte extends Panneau {
 //     }
 //   }
 // }
+class GcComparator<Creature> implements Comparator<Creature>{
+  public int compare(Creature c1, Creature c2) {
+    // return c1.getTaille() - c2.getTaille();
+    return 1;
+  }
+}
