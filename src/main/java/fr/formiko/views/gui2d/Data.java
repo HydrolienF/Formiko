@@ -130,37 +130,41 @@ public class Data {
     BufferedImage tBi [] = new BufferedImage[9];
     Point tp [] = new Point[9];
     int tRotation [] = new int[9];
-    int diffX = 2;// difference between fixation point & start of the image.
-    int diffY = 2;
-    //52% 55%
-    //Basic point & rotation
-    tp[0] = new Point(52,55);
-    tp[1] = new Point(56,46);
-    tp[2] = new Point(54,36);
-    tRotation[1]=-30;
-    tRotation[2]=-70;
-    //op for modify basic point & rotation.
-    for (int i=3; i<6; i++) {
-      tRotation[i]=tRotation[i-3]+180;
-    }
-    for (int i=3; i<6; i++) {
-      tp[i] = new Point(100 - tp[i-3].getX(), tp[i-3].getY());
-    }
-    for (int i=0; i<6; i++) {
-      if(tp[i]!=null){
-        tp[i] = new Point(((tp[i].getX()-diffX)*widthImage)/100, ((tp[i].getY()-diffY)*widthImage)/100);
-      }
-    }
     Img imgColor = null;
+    int diffX=0;
+    int diffY=0;
     int k=0;
-    for (int i=0; i<6; i++) {
-      try{tBi[k++] = antLeg[idEspece];}catch (Exception e) {antLeg[k++] = tIF[0];}
-    }
     if(stade==0){
+      diffX = 2;// difference between fixation point & start of the image.
+      diffY = 2;
+      //Basic point & rotation
+      tp[0] = new Point(52,55);
+      tp[1] = new Point(56,46);
+      tp[2] = new Point(54,36);
+      tRotation[1]=-30;
+      tRotation[2]=-65;
+      //op° for modify basic point & rotation.
+      for (int i=3; i<6; i++) {
+        // tRotation[i]=tRotation[6-i]+180;
+        tRotation[i]=tRotation[i-3];
+      }
+      for (int i=3; i<6; i++) {
+        // tp[i] = new Point(100 - tp[i-3].getX(), tp[i-3].getY());
+        tp[i] = new Point(tp[i-3].getX(), tp[i-3].getY()); //it will be flip.
+      }
+      for (int i=0; i<6; i++) {
+        if(tp[i]!=null){
+          tp[i] = new Point(((tp[i].getX()-diffX)*widthImage)/100, ((tp[i].getY()-diffY)*widthImage)/100);
+        }
+      }
+      for (int i=0; i<6; i++) {
+        try{tBi[k++] = antLeg[idEspece];}catch (Exception e) {antLeg[k++] = tIF[0];}
+      }
       BufferedImage r = null;
-      try{tBi[k++] = tIF[idEspece];}catch (Exception e) {tBi[k++] = tIF[0];}
+      try {tBi[k++] = tIF[idEspece];} catch (Exception e) {tBi[k++] = tIF[0];}
       try {imgColor=new Img(antColor[idEspece]);} catch (Exception e) {imgColor=new Img(antColor[0]);}
     }else{
+      k=6;
       tBi[k++]=getTF()[0][3+stade];
     }
     if(imgColor!=null){
@@ -172,21 +176,26 @@ public class Data {
       imgColor.setVert(g);
       byte b [][] = fullOf(w,h,ph.getB());
       imgColor.setBleu(b);
-      // byte a [][] = fullOf(w,h,(byte)127);
-      // imgColor.setAlpha(a);
       imgColor.actualiserImage();
       tBi[k++]=imgColor.getImage();
     }
     //TODO add wings for queen.
-
-    for(int i=0; i<imageNumber; i++){
-      if(tRotation[i]!=0){
-        tBi[i] = image.translateImage(tBi[i], 0, 0, widthImage, heightImage);
-        //TODO
-        // tBi[i] = image.rotateImage2(tBi[i], tRotation[i], diffX, diffY);
+    if(stade==0){
+      for(int i=0; i<imageNumber; i++){
+        if(i<6){
+          tBi[i] = image.translateImage(tBi[i], widthImage/2, heightImage/2, widthImage, heightImage);
+        }
+        if(tRotation[i]!=0){
+          //TODO #32
+          // System.out.println((diffX+(widthImage/2))+" "+ (diffY+(heightImage/2)) +"     "+ tRotation[i]);
+          tBi[i] = image.rotateImage2(tBi[i], tRotation[i], diffX+(widthImage/2), diffY+(heightImage/2));
+        }
+        if(tp[i]!=null){
+          tBi[i] = image.translateImage(tBi[i], tp[i].getX()-(widthImage/2), tp[i].getY()-(heightImage/2), widthImage, heightImage);
+        }
       }
-      if(tp[i]!=null){
-        tBi[i] = image.translateImage(tBi[i], tp[i].getX(), tp[i].getY(), widthImage, heightImage);
+      for (int i=3; i<6; i++) {
+        tBi[i] = image.flipImage(tBi[i], false);
       }
     }
     return tBi;
@@ -361,7 +370,7 @@ public class Data {
     *Return a scaled BufferedImage []
     *@version 1.18
     */
-    public BufferedImage [] getScaledInstance(BufferedImage ti[],int dim, int b){
+    public BufferedImage [] getScaledInstance(BufferedImage ti[], int dim, int b){
       int lenr = 0;
       if(ti!=null){
         lenr=ti.length;

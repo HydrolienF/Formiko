@@ -18,7 +18,7 @@ public class Point implements Serializable{
   *{@summary A simple contructor.}<br>
   *@version 1.30
   */
-  public Point (int x,int y){
+  public Point (int x, int y){
     this.x = x;
     this.y = y;
   }

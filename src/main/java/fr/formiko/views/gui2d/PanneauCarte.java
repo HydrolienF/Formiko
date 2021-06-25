@@ -325,7 +325,7 @@ public class PanneauCarte extends Panneau {
               erreur.erreur("can't draw insect "+i.getId()+" with type "+i.getType());
             }
           }
-          //les icone
+          //icons
           try {
             if(cr.getEstMort()){drawIcone(g,3,xT,yT,tC2,kIcon++,cptIcon);}
             else if(fi!=null && cr.getEstAllié(fi)){drawIcone(g,0,xT,yT,tC2,kIcon++,cptIcon);}

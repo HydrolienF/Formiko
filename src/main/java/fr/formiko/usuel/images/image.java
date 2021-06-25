@@ -407,4 +407,24 @@ public class image{
     // erreur.info("from a "+w+"x"+h+" image to a "+after.getWidth()+"x"+after.getHeight()+" image.");
     return after;
   }
+  /**
+  *{@summary A tool to flip a BufferedImage.}<br>
+  *@param before The Image to flip.
+  *@param vertically True, the image will be flip vertically, false it will be flip horizontally.
+  *@version 2.1
+  */
+  public static BufferedImage flipImage(BufferedImage before, boolean vertically){
+    AffineTransform tx;
+    AffineTransformOp op;
+    if(vertically){
+      tx = AffineTransform.getScaleInstance(1, -1);
+      tx.translate(0, -before.getHeight(null));
+      op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
+    }else{
+      tx = AffineTransform.getScaleInstance(-1, 1);
+      tx.translate(-before.getWidth(null), 0);
+      op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
+    }
+    return op.filter(before, null);
+  }
 }
