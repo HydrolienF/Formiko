@@ -144,7 +144,7 @@ public class Data {
       tRotation[1]=-30;
       tRotation[2]=-65;
       //op° for modify basic point & rotation.
-      for (int i=3; i<6; i++) { //it will be flip.
+      for (int i=3; i<6; i++) { //The 3 left legs will be flip, so we just need to copy opperation as the other 1.
         tRotation[i]=tRotation[i-3];
         tp[i] = tp[i-3].clone();
       }

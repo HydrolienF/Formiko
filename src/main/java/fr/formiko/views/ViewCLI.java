@@ -4,8 +4,10 @@ import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
 import fr.formiko.usuel.Temps;
@@ -18,7 +20,6 @@ import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.cli.*;
-import fr.formiko.formiko.GJoueur;
 
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -487,6 +488,16 @@ public class ViewCLI implements View {
     if (!actionGameOn) {return;}
     //nothing more to do
   }
+  /***
+  *{@summary move ObjetSurCarteAId.}<br>
+  *This action can only be run if action game is on.<br>
+  *This action do noting on view cli.
+  *@param o object to move.
+  *@param from CCase that o leave.
+  *@param to CCase were o is going.
+  *@version 2.1
+  */
+  public void move(ObjetSurCarteAId o, CCase from, CCase to){}
 
   //private---------------------------------------------------------------------
   /**

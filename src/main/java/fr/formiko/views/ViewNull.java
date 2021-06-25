@@ -3,6 +3,7 @@ package fr.formiko.views;
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GJoueur;
+import fr.formiko.formiko.ObjetSurCarteAId;
 
 /**
  *{@summary Null view. A simple view who do nothing when a view action is launch.}<br>
@@ -165,4 +166,9 @@ public class ViewNull implements View {
   *@version 1.46
   */
   public void setPlayingAnt(Fourmi f){}
+  /***
+  *{@summary A null view action that do nothing.}<br>
+  *@version 2.1
+  */
+  public void move(ObjetSurCarteAId o, CCase from, CCase to){}
 }

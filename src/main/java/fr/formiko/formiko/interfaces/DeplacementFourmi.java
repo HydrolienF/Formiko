@@ -175,6 +175,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
    */
   private boolean unPas(CCase p){
     if (p==null){ return false;}
+    Main.getView().move(c,c.getCCase(),p);
     c.setCCase(p);
     return true;
   }

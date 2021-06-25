@@ -3,11 +3,14 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
-import fr.formiko.formiko.GCreature;
 import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.GCreature;
+import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
+import fr.formiko.formiko.Point;
 import fr.formiko.formiko.ThScript;
 import fr.formiko.formiko.triche;
 import fr.formiko.usuel.Temps;
@@ -21,13 +24,12 @@ import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.View;
-import fr.formiko.formiko.GJoueur;
-import javax.swing.RepaintManager;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
+import javax.swing.RepaintManager;
 
 /**
  *{@summary View Graphics User Interface in 2 dimention.}<br>
@@ -463,6 +465,26 @@ public class ViewGUI2d implements View {
     // }
     // getPs().setIdFourmiAjoué(-1);
   }
+  /**
+  *{@summary move ObjetSurCarteAId.}<br>
+  *This action can only be run if action game is on.<br>
+  *@param o object to move.
+  *@param from CCase that o leave.
+  *@param to CCase were o is going.
+  *@version 2.1
+  */
+  public void move(ObjetSurCarteAId o, CCase from, CCase to){
+    if(Main.getOp().getInstantaneousMovement()){
+      ThMove th = new ThMove(o, from, to);
+      //TODO #32 fix more than 1 move annimation.
+      // if(Panneau.getView().getPc().getMovingObject(o.getId())==null){
+        th.start();
+      // }
+      // while(th.isAlive()){
+      //   Temps.pause(10);
+      // }
+    }
+  }
   //private---------------------------------------------------------------------
   /**
   *Load graphics.
@@ -569,4 +591,48 @@ class TimerTaskViewGUI2d extends TimerTask{
   }
   @Override
   public void run(){}
+}
+/**
+*{@summary A simple Thread extends class to move ObjetSurCarteAId.}<br>
+*@version 2.1
+*@author Hydrolien
+*/
+class ThMove extends Thread{
+  private ObjetSurCarteAId o;
+  private Point from;
+  private Point to;
+  private Point curent;
+  private int vectX;
+  private int vectY;
+  public ThMove(ObjetSurCarteAId o, CCase from, CCase to){
+    this.o=o;
+    Case c = from.getContent();
+    this.from = Panneau.getView().getPc().getPointFromCase(c.getX(), c.getY(), false);
+    c = to.getContent();
+    this.to = Panneau.getView().getPc().getPointFromCase(c.getX(), c.getY(), false);
+  }
+  @Override
+  public void run(){
+    int k=100;
+    System.out.println("from "+from);
+    System.out.println("to "+to);
+    vectX = to.getX()-from.getX();
+    vectY = to.getY()-from.getY();
+    curent = new Point(-vectX,-vectY);
+    // if(Panneau.getView().getPc().getMovingObject(o.getId())!=null){
+      //TODO #32 déplacer le déplacement précédents de façon a ce qu'il s'adapte a celui ci.
+    // }
+    while(Panneau.getView().getPc().getMovingObject(o.getId())!=null){
+      Temps.pause(10);
+    }
+    Panneau.getView().getPc().addMovingObject(o.getId(),curent);
+    while(k>0){
+      curent.setX(curent.getX()+(vectX/100));
+      curent.setY(curent.getY()+(vectY/100));
+      //TODO #32 move legs if ants.
+      k--;
+      Temps.pause(10);
+    }
+    Panneau.getView().getPc().removeMovingObject(o.getId());
+  }
 }

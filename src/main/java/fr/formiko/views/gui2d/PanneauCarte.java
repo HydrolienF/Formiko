@@ -14,6 +14,7 @@ import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Point;
+import fr.formiko.formiko.Point;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -23,6 +24,8 @@ import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.listes.Liste;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
+import java.util.Map;
+import java.util.HashMap;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -57,6 +60,7 @@ public class PanneauCarte extends Panneau {
   private int idCurentFere=-1;
   private static boolean drawAllFere;
   private CCase lookedCCase;
+  private Map<Integer,Point> hashMapMovingObjectSurCarteAid;
   // private SubPanel subPanel;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
@@ -74,6 +78,7 @@ public class PanneauCarte extends Panneau {
     GCase gc = new GCase(1,1);
     xCase = gc.getNbrX();
     yCase = gc.getNbrY();
+    hashMapMovingObjectSurCarteAid = new HashMap<Integer,Point>();
   }
   // GET SET --------------------------------------------------------------------
   public int getTailleDUneCase(){return Main.getData().getTailleDUneCase();}
@@ -221,7 +226,21 @@ public class PanneauCarte extends Panneau {
       g.drawImage(Main.getData().getSelectionnee(),(c.getX())*Main.getData().getTailleDUneCase(),(c.getY())*Main.getData().getTailleDUneCase(),this);
     }
   }
-
+  /**
+  *{@summary Return the coordinates on screen for Case with x &#38; y.}<br>
+  *@param x the x of the Case.
+  *@param y the y of the Case.
+  *@param centered True return the coordinates of the center of the case. False return left top coordinates.
+  *@version 2.1
+  */
+  public Point getPointFromCase(int x, int y, boolean centered){
+    Point p = new Point(x*getTailleDUneCase(),y*getTailleDUneCase());
+    if(centered){
+      p.setX(p.getX()+getTailleDUneCase()/2);
+      p.setY(p.getY()+getTailleDUneCase()/2);
+    }
+    return p;
+  }
   /**
   *{@summary Draw a Case.}<br>
   *@version 2.1
@@ -230,7 +249,8 @@ public class PanneauCarte extends Panneau {
     if(!isCaseVisible(c)){return;}
     Joueur jo = Main.getPlayingJoueur();
     Fourmi fi = Main.getPlayingAnt();
-    int xT = x*getTailleDUneCase(); int yT = y*getTailleDUneCase();
+    Point point = getPointFromCase(x,y,false);
+    int xT = point.getX(); int yT = point.getY();
     int xT2 = (x)*getTailleDUneCase(); int yT2 = (y)*getTailleDUneCase();
     if(peintCaseNuageuse(x,y,g,xT,yT)){ return;}//si la case est nuageuse, on n'affichera rien d'autre dessus.
     byte ty = c.getType();
@@ -286,8 +306,14 @@ public class PanneauCarte extends Panneau {
         // gcToPrint.sort(new GcComparator<Creature>());
         // gcToPrint = Collection.sort(gcToPrint, new GcComparator<Creature>());
         for (Creature cr : gcToPrint) {
-        // while (ccrea !=null) {
-        //   Creature cr = ccrea.getContent();
+          Point p = hashMapMovingObjectSurCarteAid.get(cr.getId());
+          int x2,y2;
+          if(p!=null){
+            x2=p.getX();
+            y2=p.getY();
+          }else{
+            x2 = y2 = 0;
+          }
           int dir = getDir((ObjetSurCarteAId)cr);
           boolean insecte = true;
           calculerXYTemp(xT,yT,k,c);k++;
@@ -297,14 +323,7 @@ public class PanneauCarte extends Panneau {
               BufferedImage tBi [] = Main.getData().getAntImage(f);
               // Point tp [] = Main.getData().getAntImageLocation();
               int k2=0;
-              int x2,y2;
               for (BufferedImage bi : tBi ) {
-                // if(tp[k2]!=null){
-                //   x2 = tp[k2].getX();
-                //   y2 = tp[k2].getY();
-                // }else{
-                  x2 = y2 = 0;
-                // }
                 if(bi!=null){
                   drawImage(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
                 }
@@ -320,7 +339,7 @@ public class PanneauCarte extends Panneau {
               BufferedImage bi = Main.getData().getTII()[0][math.min(i.getType(),Main.getData().getTII()[0].length)];
               // BufferedImage bi2 = image.rotateImage(bi,dir);
               // erreur.info("from a "+bi.getWidth()+"x"+bi.getHeight()+" image to a "+bi2.getWidth()+"x"+bi2.getHeight()+" image.");
-              drawImage(g,image.rotateImage(bi,dir),xT,yT);
+              drawImage(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
             }catch (Exception e) {
               erreur.erreur("can't draw insect "+i.getId()+" with type "+i.getType());
             }
@@ -340,6 +359,15 @@ public class PanneauCarte extends Panneau {
     }catch (Exception e) {
       erreur.erreur("impossible de dessiner l'image de la Case : "+x+" "+y);
     }
+  }
+  public void addMovingObject(int id, Point p){
+    hashMapMovingObjectSurCarteAid.put(id,p);
+  }
+  public Point getMovingObject(int id){
+    return hashMapMovingObjectSurCarteAid.get(id);
+  }
+  public void removeMovingObject(int id){
+    hashMapMovingObjectSurCarteAid.remove(id);
   }
   /**
   *{@summary draw an image centered for a Case.}<br>

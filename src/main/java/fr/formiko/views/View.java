@@ -3,6 +3,7 @@ package fr.formiko.views;
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GJoueur;
+import fr.formiko.formiko.ObjetSurCarteAId;
 
 /**
  *{@summary Main view interface.}<br>
@@ -150,4 +151,13 @@ public interface View {
   *@version 1.46
   */
   void setPlayingAnt(Fourmi f);
+  /***
+  *{@summary move ObjetSurCarteAId.}<br>
+  *This action can only be run if action game is on.<br>
+  *@param o object to move.
+  *@param from CCase that o leave.
+  *@param to CCase were o is going.
+  *@version 2.1
+  */
+  void move(ObjetSurCarteAId o, CCase from, CCase to);
 }
