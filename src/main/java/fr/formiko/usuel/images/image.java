@@ -367,4 +367,44 @@ public class image{
     // erreur.info("from a "+w+"x"+h+" image to a "+after.getWidth()+"x"+after.getHeight()+" image.");
     return after;
   }
+  /**
+  *{@summary A fonction to translate a BufferedImage.}<br>
+  *@param before The Image to translate.
+  *@param xOffset offset in x.
+  *@param yOffset offset in y.
+  *@version 2.1
+  */
+  public static BufferedImage translateImage(BufferedImage before, int xOffset, int yOffset, int width, int height){
+    if(xOffset==0 && yOffset==0){return before;}
+    AffineTransform at = new AffineTransform();
+    at.translate(xOffset, yOffset);
+    AffineTransformOp op = new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR);
+    return op.filter(before, new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB));
+  }
+  /**
+  *{@summary A fonction to rotate a BufferedImage.}<br>
+  *@param before The Image to rotate.
+  *@param direction The direction to rotate. Direction are multiplied by 1°.
+  *@version 2.1
+  */
+  public static BufferedImage rotateImage2(BufferedImage before, int direction, int pivotX, int pivotY){
+    direction = (direction+360)%360;
+    if(direction==0){return before;}
+    int w = before.getWidth();
+    int h = before.getHeight();
+    int max = Math.max(w,h);
+    int min = Math.min(w,h);
+    // BufferedImage after = new BufferedImage(newSize, newSize, BufferedImage.TYPE_INT_ARGB);
+    BufferedImage after = null;//new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+    AffineTransform at = new AffineTransform();
+    // int halfDiagonal = (int)(Math.sqrt(w*w+h*h)/2.0);
+    // at.translate(-halfDiagonal + max/2, -halfDiagonal + max/2);
+    at.rotate(direction * Math.PI / 180, pivotX, pivotY);
+    // at.translate(halfDiagonal - w/2, halfDiagonal - h/2);
+    AffineTransformOp scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_BICUBIC);
+    // AffineTransformOp scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR);
+    after = scaleOp.filter(before, null);
+    // erreur.info("from a "+w+"x"+h+" image to a "+after.getWidth()+"x"+after.getHeight()+" image.");
+    return after;
+  }
 }

@@ -13,18 +13,16 @@ import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
+import fr.formiko.formiko.Point;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.Pixel;
 import fr.formiko.usuel.images.image;
+import fr.formiko.usuel.listes.Liste;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
-
-import java.util.Comparator;
-import fr.formiko.usuel.listes.Liste;
-import java.util.Collection;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -38,6 +36,8 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Comparator;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
@@ -295,10 +295,20 @@ public class PanneauCarte extends Panneau {
             Fourmi f = ((Fourmi)cr);
             try {
               BufferedImage tBi [] = Main.getData().getAntImage(f);
+              // Point tp [] = Main.getData().getAntImageLocation();
+              int k2=0;
+              int x2,y2;
               for (BufferedImage bi : tBi ) {
+                // if(tp[k2]!=null){
+                //   x2 = tp[k2].getX();
+                //   y2 = tp[k2].getY();
+                // }else{
+                  x2 = y2 = 0;
+                // }
                 if(bi!=null){
-                  drawImage(g,image.rotateImage(bi,dir),xT,yT);
+                  drawImage(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
                 }
+                k2++;
               }
             }catch (Exception e) {
               erreur.erreur("can't draw ant "+f.getId()+" at stade "+f.getStade());
