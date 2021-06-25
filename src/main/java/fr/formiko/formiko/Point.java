@@ -11,7 +11,7 @@ import java.io.Serializable;
 *@author Hydrolien
 *@version 1.30
 */
-public class Point implements Serializable{
+public class Point implements Serializable, Cloneable{
   protected int x,y; // pas de byte pour pourvoir utliser de très grande carte !
   // CONSTRUCTEUR -----------------------------------------------------------------
   /**
@@ -94,5 +94,13 @@ public class Point implements Serializable{
   public boolean equals(String s){//sous la forme -51,34
     if(s==null){return false;}
     return equals(new Point(s));
+  }
+  /**
+  *{@summary Standard clone function.}
+  *@version 2.1
+  */
+  @Override
+  public Point clone(){
+    return new Point(x,y);
   }
 }

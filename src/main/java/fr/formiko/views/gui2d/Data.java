@@ -127,9 +127,9 @@ public class Data {
     int imageNumber = 9;
     int widthImage = tIF[idEspece].getWidth();
     int heightImage = tIF[idEspece].getHeight();
-    BufferedImage tBi [] = new BufferedImage[9];
-    Point tp [] = new Point[9];
-    int tRotation [] = new int[9];
+    BufferedImage tBi [] = new BufferedImage[imageNumber];
+    Point tp [] = new Point[imageNumber];
+    int tRotation [] = new int[imageNumber];
     Img imgColor = null;
     int diffX=0;
     int diffY=0;
@@ -144,13 +144,9 @@ public class Data {
       tRotation[1]=-30;
       tRotation[2]=-65;
       //op° for modify basic point & rotation.
-      for (int i=3; i<6; i++) {
-        // tRotation[i]=tRotation[6-i]+180;
+      for (int i=3; i<6; i++) { //it will be flip.
         tRotation[i]=tRotation[i-3];
-      }
-      for (int i=3; i<6; i++) {
-        // tp[i] = new Point(100 - tp[i-3].getX(), tp[i-3].getY());
-        tp[i] = new Point(tp[i-3].getX(), tp[i-3].getY()); //it will be flip.
+        tp[i] = tp[i-3].clone();
       }
       for (int i=0; i<6; i++) {
         if(tp[i]!=null){
@@ -160,7 +156,6 @@ public class Data {
       for (int i=0; i<6; i++) {
         try{tBi[k++] = antLeg[idEspece];}catch (Exception e) {antLeg[k++] = tIF[0];}
       }
-      BufferedImage r = null;
       try {tBi[k++] = tIF[idEspece];} catch (Exception e) {tBi[k++] = tIF[0];}
       try {imgColor=new Img(antColor[idEspece]);} catch (Exception e) {imgColor=new Img(antColor[0]);}
     }else{
@@ -168,25 +163,15 @@ public class Data {
       tBi[k++]=getTF()[0][3+stade];
     }
     if(imgColor!=null){
-      int w = imgColor.getWidth();
-      int h = imgColor.getHeight();
-      byte r [][] = fullOf(w,h,ph.getR());
-      imgColor.setRouge(r);
-      byte g [][] = fullOf(w,h,ph.getG());
-      imgColor.setVert(g);
-      byte b [][] = fullOf(w,h,ph.getB());
-      imgColor.setBleu(b);
-      imgColor.actualiserImage();
-      tBi[k++]=imgColor.getImage();
+      tBi[k++]=changeColor(imgColor, ph);
     }
-    //TODO add wings for queen.
     if(stade==0){
+      //TODO add wings for queen.
       for(int i=0; i<imageNumber; i++){
         if(i<6){
           tBi[i] = image.translateImage(tBi[i], widthImage/2, heightImage/2, widthImage, heightImage);
         }
         if(tRotation[i]!=0){
-          //TODO #32
           // System.out.println((diffX+(widthImage/2))+" "+ (diffY+(heightImage/2)) +"     "+ tRotation[i]);
           tBi[i] = image.rotateImage2(tBi[i], tRotation[i], diffX+(widthImage/2), diffY+(heightImage/2));
         }
@@ -200,7 +185,28 @@ public class Data {
     }
     return tBi;
   }
-  // public Point [] getAntImageLocation(){return tp;}
+  /**
+  *{@summary Change the image color depending of ant Pheromone.}<br>
+  *@param imgColor the image to change.
+  *@param ph the Pheromone to get color from.
+  *@version 2.1
+  */
+  private BufferedImage changeColor(Img imgColor, Pheromone ph){
+    int w = imgColor.getWidth();
+    int h = imgColor.getHeight();
+    byte r [][] = fullOf(w,h,ph.getR());
+    imgColor.setRouge(r);
+    byte g [][] = fullOf(w,h,ph.getG());
+    imgColor.setVert(g);
+    byte b [][] = fullOf(w,h,ph.getB());
+    imgColor.setBleu(b);
+    imgColor.actualiserImage();
+    return imgColor.getImage();
+  }
+  /**
+  *{@summary Full the color of an array.}<br>
+  *@version 2.1
+  */
   private byte [][] fullOf(int x, int y, byte b){
     byte r [][] = new byte[x][y];
     for (int i=0; i<x; i++) {
