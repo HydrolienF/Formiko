@@ -252,7 +252,9 @@ public class ViewGUI2d implements View {
       closePanneauChargement();
       paint();
     }else{
-      getPch().addBt();
+      if(getPch()!=null){ //it can have been remove by key "enter".
+        getPch().addBt();
+      }
     }
     Main.getPartie().jeu(); //lance le jeux.
     return true;

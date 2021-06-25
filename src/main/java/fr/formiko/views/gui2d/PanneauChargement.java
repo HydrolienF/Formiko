@@ -26,11 +26,13 @@ public class PanneauChargement extends Panneau {
     addMessage();
     addConseil();
     lancer=false;
+    bt=null;
   }
   // GET SET --------------------------------------------------------------------
   public void setTexte(String s){ message.setTexte(s);}
   public boolean getLancer(){return lancer;}
   public void setLancer(boolean b){lancer=b;}
+  public boolean canBeClose(){return bt!=null;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     try {
