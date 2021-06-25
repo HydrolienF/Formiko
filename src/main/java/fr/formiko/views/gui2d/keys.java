@@ -89,12 +89,12 @@ public class keys {
       *@version 1.40
       */
       public void actionPerformed(ActionEvent actionEvent) {
-        // if (Main.getPd()!=null) {
-        //   try {
-        //     Main.getPd().clicEn(0,0);
-        //   }catch (Exception e) {}
         if (Panneau.getView().getPch()!=null && Panneau.getView().getPch().canBeClose()) {
           Panneau.getView().closePanneauChargement();
+        }else if (Panneau.getView().getPd()!=null) {
+          try {
+            Panneau.getView().getPd().clicEn(0,0);
+          }catch (Exception e) {}
         }else if(Panneau.getView().getPcp()!=null && Panneau.getView().getPcp().getLaunchButton()!=null){
           action.doAction(Panneau.getView().getPcp().getLaunchButton().getActionB());
         }else if(Panneau.getView().getPnp()!=null && Panneau.getView().getPnp().getLaunchButton()!=null){
