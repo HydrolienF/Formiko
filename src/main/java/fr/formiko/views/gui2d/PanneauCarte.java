@@ -61,6 +61,7 @@ public class PanneauCarte extends Panneau {
   private static boolean drawAllFere;
   private CCase lookedCCase;
   private Map<Integer,Point> hashMapMovingObjectSurCarteAid;
+  private Map<Integer,Point> hashMapMovingObjectSurCarteAidRotation;
   // private SubPanel subPanel;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
@@ -79,6 +80,7 @@ public class PanneauCarte extends Panneau {
     xCase = gc.getNbrX();
     yCase = gc.getNbrY();
     hashMapMovingObjectSurCarteAid = new HashMap<Integer,Point>();
+    hashMapMovingObjectSurCarteAidRotation = new HashMap<Integer,Point>();
   }
   // GET SET --------------------------------------------------------------------
   public int getTailleDUneCase(){return Main.getData().getTailleDUneCase();}
@@ -360,14 +362,19 @@ public class PanneauCarte extends Panneau {
       erreur.erreur("impossible de dessiner l'image de la Case : "+x+" "+y);
     }
   }
-  public void addMovingObject(int id, Point p){
-    hashMapMovingObjectSurCarteAid.put(id,p);
+  public void addMovingObject(int id, Point location, Point rotation){
+    hashMapMovingObjectSurCarteAid.put(id, location);
+    hashMapMovingObjectSurCarteAidRotation.put(id, rotation);
   }
-  public Point getMovingObject(int id){
+  public Point getMovingObjectLocation(int id){
     return hashMapMovingObjectSurCarteAid.get(id);
+  }
+  public Point getMovingObjectRotation(int id){
+    return hashMapMovingObjectSurCarteAidRotation.get(id);
   }
   public void removeMovingObject(int id){
     hashMapMovingObjectSurCarteAid.remove(id);
+    hashMapMovingObjectSurCarteAidRotation.remove(id);
   }
   /**
   *{@summary draw an image centered for a Case.}<br>

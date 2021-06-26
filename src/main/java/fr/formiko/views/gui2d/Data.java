@@ -140,9 +140,10 @@ public class Data {
       //Basic point & rotation
       tp[0] = new Point(52,55);
       tp[1] = new Point(56,46);
-      tp[2] = new Point(54,36);
-      tRotation[1]=-30;
-      tRotation[2]=-65;
+      tp[2] = new Point(53,38);
+      tRotation[0]=-17;
+      tRotation[1]=-45;
+      tRotation[2]=-75;
       //op° for modify basic point & rotation.
       for (int i=3; i<6; i++) { //The 3 left legs will be flip, so we just need to copy opperation as the other 1.
         tRotation[i]=tRotation[i-3];
@@ -153,6 +154,17 @@ public class Data {
           tp[i] = new Point(((tp[i].getX()-diffX)*widthImage)/100, ((tp[i].getY()-diffY)*widthImage)/100);
         }
       }
+      try {
+        Point rotate = Panneau.getView().getPc().getMovingObjectRotation(f.getId());
+        for (int i=0; i<6; i+=2) {
+          tRotation[i] += rotate.getX();
+        }
+        for (int i=1; i<6; i+=2) {
+          tRotation[i] += -rotate.getX();
+        }
+      }catch (Exception e) {}
+
+      //get images
       for (int i=0; i<6; i++) {
         try{tBi[k++] = antLeg[idEspece];}catch (Exception e) {antLeg[k++] = tIF[0];}
       }

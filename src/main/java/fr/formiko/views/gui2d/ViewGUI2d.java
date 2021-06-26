@@ -602,8 +602,9 @@ class ThMove extends Thread{
   private Point from;
   private Point to;
   private Point curent;
-  private int vectX;
-  private int vectY;
+  private double vectX;
+  private double vectY;
+  private double vectRotate;
   public ThMove(ObjetSurCarteAId o, CCase from, CCase to){
     this.o=o;
     Case c = from.getContent();
@@ -613,23 +614,36 @@ class ThMove extends Thread{
   }
   @Override
   public void run(){
-    int k=100;
-    System.out.println("from "+from);
-    System.out.println("to "+to);
+    int walkCycle = 2;
+    int k=120; //should be a mutiple of 2*walkCycle.
+    int kIni=k;
+    int numberOfTic = k/(2*walkCycle);
+    // System.out.println("from "+from);
+    // System.out.println("to "+to);
     vectX = to.getX()-from.getX();
     vectY = to.getY()-from.getY();
-    curent = new Point(-vectX,-vectY);
+    curent = new Point((int)-vectX,(int)-vectY);
+    Point rotate = new Point(0,0);
     // if(Panneau.getView().getPc().getMovingObject(o.getId())!=null){
       //TODO #32 déplacer le déplacement précédents de façon a ce qu'il s'adapte a celui ci.
     // }
-    while(Panneau.getView().getPc().getMovingObject(o.getId())!=null){
+    while(Panneau.getView().getPc().getMovingObjectLocation(o.getId())!=null){
       Temps.pause(10);
     }
-    Panneau.getView().getPc().addMovingObject(o.getId(),curent);
+    Panneau.getView().getPc().addMovingObject(o.getId(), curent, rotate);
+    double rotateAngle = 0;
+    vectRotate=-40;
+    vectRotate/=numberOfTic;
     while(k>0){
-      curent.setX(curent.getX()+(vectX/100));
-      curent.setY(curent.getY()+(vectY/100));
-      //TODO #32 move legs if ants.
+      curent.setX((int)((-k)*(vectX/kIni)));
+      curent.setY((int)((-k)*(vectY/kIni)));
+      if (o instanceof Fourmi && ((Fourmi)o).getStade()==0){
+        if ((k+(numberOfTic/2))%numberOfTic==0) { //4 changement = 6 cycle de marche.
+          vectRotate=-vectRotate;
+        }
+        rotateAngle+=vectRotate;
+        rotate.setX((int)rotateAngle);
+      }
       k--;
       Temps.pause(10);
     }
