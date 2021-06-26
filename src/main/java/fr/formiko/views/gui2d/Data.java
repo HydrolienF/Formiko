@@ -137,10 +137,19 @@ public class Data {
     if(stade==0){
       diffX = 2;// difference between fixation point & start of the image.
       diffY = 2;
+      //to have full images.
+      // widthImage*=1.2;
+      // heightImage*=1.2;
+      // diffX*=1.2;
+      // diffY*=1.2;
       //Basic point & rotation
       tp[0] = new Point(52,55);
       tp[1] = new Point(56,46);
       tp[2] = new Point(53,38);
+      // for (int i=0; i<3; i++) {
+      //   tp[i].setX((int)(tp[i].getX()*1.1));
+      //   tp[i].setY((int)(tp[i].getY()*1.1));
+      // }
       tRotation[0]=-17;
       tRotation[1]=-45;
       tRotation[2]=-75;
@@ -151,7 +160,7 @@ public class Data {
       }
       for (int i=0; i<6; i++) {
         if(tp[i]!=null){
-          tp[i] = new Point(((tp[i].getX()-diffX)*widthImage)/100, ((tp[i].getY()-diffY)*widthImage)/100);
+          tp[i] = new Point((int)((tp[i].getX()-diffX)*widthImage)/100, (int)((tp[i].getY()-diffY)*widthImage)/100);
         }
       }
       try {
@@ -183,14 +192,29 @@ public class Data {
         if(i<6){
           tBi[i] = image.translateImage(tBi[i], widthImage/2, heightImage/2, widthImage, heightImage);
         }
+        // else{
+        //   tBi[i] = image.translateImage(tBi[i], 0, 0, widthImage, heightImage);
+        // }
         if(tRotation[i]!=0){
           // System.out.println((diffX+(widthImage/2))+" "+ (diffY+(heightImage/2)) +"     "+ tRotation[i]);
-          tBi[i] = image.rotateImage2(tBi[i], tRotation[i], diffX+(widthImage/2), diffY+(heightImage/2));
+          tBi[i] = image.rotateImage2(tBi[i], tRotation[i], (int)(diffX+(widthImage/2)), (int)(diffY+(heightImage/2)));
         }
         if(tp[i]!=null){
           tBi[i] = image.translateImage(tBi[i], tp[i].getX()-(widthImage/2), tp[i].getY()-(heightImage/2), widthImage, heightImage);
         }
       }
+      // for(int i=0; i<imageNumber; i++){
+      //   if(i<6){
+      //     tBi[i] = image.translateImage(tBi[i], (int)(widthImage/2.4), (int)(heightImage/2.4), widthImage, heightImage);
+      //   }
+      //   if(tRotation[i]!=0){
+      //     // System.out.println((diffX+(widthImage/2))+" "+ (diffY+(heightImage/2)) +"     "+ tRotation[i]);
+      //     tBi[i] = image.rotateImage2(tBi[i], tRotation[i], diffX+((int)(widthImage/2.4)), diffY+((int)(heightImage/2.4)));
+      //   }
+      //   if(tp[i]!=null){
+      //     tBi[i] = image.translateImage(tBi[i], tp[i].getX()-((int)(widthImage/2.4)), tp[i].getY()-((int)(heightImage/2.4)), widthImage, heightImage);
+      //   }
+      // }
       for (int i=3; i<6; i++) {
         tBi[i] = image.flipImage(tBi[i], false);
       }

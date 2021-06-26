@@ -645,7 +645,11 @@ class ThMove extends Thread{
         rotate.setX((int)rotateAngle);
       }
       k--;
-      Temps.pause(10);
+      if(vectX!=0 && vectY!=0){
+        Temps.pause(8);
+      }else{
+        Temps.pause(6);
+      }
     }
     Panneau.getView().getPc().removeMovingObject(o.getId());
   }
