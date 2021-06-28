@@ -313,6 +313,7 @@ public class PanneauCarte extends Panneau {
           if(p!=null){
             x2=p.getX();
             y2=p.getY();
+            if(x2==-1){continue;}//go to next loop turn.
           }else{
             x2 = y2 = 0;
           }
@@ -333,6 +334,7 @@ public class PanneauCarte extends Panneau {
               }
             }catch (Exception e) {
               erreur.erreur("can't draw ant "+f.getId()+" at stade "+f.getStade());
+              e.printStackTrace();
             }
             insecte=false;
           }else if(cr instanceof Insecte && insectPrinted){

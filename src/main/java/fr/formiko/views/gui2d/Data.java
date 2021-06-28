@@ -131,8 +131,8 @@ public class Data {
     Point tp [] = new Point[imageNumber];
     int tRotation [] = new int[imageNumber];
     Img imgColor = null;
-    int diffX=0;
-    int diffY=0;
+    double diffX=0;
+    double diffY=0;
     int k=0;
     if(stade==0){
       diffX = 2;// difference between fixation point & start of the image.

@@ -25,7 +25,9 @@ import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.View;
 
+import java.util.Comparator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -49,6 +51,7 @@ public class ViewGUI2d implements View {
   private Timer timer;
   private boolean canRefresh=true;
   private int curentFPS=0;
+  private ThMoveManager thMoveManager;
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
@@ -474,15 +477,14 @@ public class ViewGUI2d implements View {
   *@version 2.1
   */
   public void move(ObjetSurCarteAId o, CCase from, CCase to){
-    if(Main.getOp().getInstantaneousMovement()){
+    if(!Main.getOp().getInstantaneousMovement()){
+      ThMove.updateTo(to, o.getId());
       ThMove th = new ThMove(o, from, to);
-      //TODO #32 fix more than 1 move annimation.
-      // if(Panneau.getView().getPc().getMovingObject(o.getId())==null){
-        th.start();
-      // }
-      // while(th.isAlive()){
-      //   Temps.pause(10);
-      // }
+      if(thMoveManager==null){
+        thMoveManager = new ThMoveManager();
+        thMoveManager.start();
+      }
+      // th.start();
     }
   }
   //private---------------------------------------------------------------------
@@ -602,41 +604,146 @@ class ThMove extends Thread{
   private Point from;
   private Point to;
   private Point curent;
+  private Point curent2;
+  private Point rotate;
   private double vectX;
   private double vectY;
   private double vectRotate;
+  private static Liste<ThMove> curentThList = new Liste<ThMove>();
+  private static Liste<ThMove> queue = new Liste<ThMove>();
+  private int id;private static int cptId=0;
+  private boolean lock;
+  /**
+  *{@summary Create Thread for the ObjetSurCarteAId animation.}
+  *@param o the Object to animate.
+  *@param from CCase from where it move.
+  *@param yo CCase to where it move.
+  *@version 2.1
+  */
   public ThMove(ObjetSurCarteAId o, CCase from, CCase to){
+    id=cptId++;
     this.o=o;
     Case c = from.getContent();
     this.from = Panneau.getView().getPc().getPointFromCase(c.getX(), c.getY(), false);
     c = to.getContent();
     this.to = Panneau.getView().getPc().getPointFromCase(c.getX(), c.getY(), false);
+    //TODO add it sorted by id will solve a lot of issues.
+    curent2 = new Point(0,0);
+    addToQueue(this);
+    ThMove.updateQueue();
   }
+  private int getIdMovingObject(){return o.getId();}
+  public int getIdTh(){return id;}
+  private static void addToQueue(ThMove th){
+    // while(queue.getLast()!=null && queue.getLast().getIdTh()!=th.getIdTh()-1){
+    //   Temps.pause(10);
+    // }
+    System.out.println("add "+th.getId());
+    Comparator<ThMove> comparator = (ThMove e1, ThMove e2) -> (int)(e2.getIdTh() - e1.getIdTh());
+    queue.addSorted(th, comparator);
+    // listTh.sort();
+    //Comparator<Book> descPriceComp = (Book b1, Book b2) -> (int) (b2.getPrice() - b1.getPrice());
+    //Collections.sort(listBooks, descPriceComp);
+    // Collections.sort(queue, (d1, d2) -> {
+    // 	return d2.getIdTh() - d1.getIdTh();
+    // });
+  }
+  static void updateQueue(){
+    // System.out.println(queue.size()+" in queue");
+    for (ThMove th : queue ) {
+      //if need to launch : launch
+      if(Panneau.getView().getPc().getMovingObjectLocation(th.getIdMovingObject())==null){
+        th.start();
+        queue.remove(th);
+        System.out.println("start "+th.getIdTh());
+      }
+    }
+  }
+  /**
+  *{@summary Update the destination Point.}
+  *@param to the new destination.
+  *@version 2.1
+  */
+  private void updateTo(Point to){
+    // System.out.println("curent2INi="+curent2);//@a
+    System.out.println("update th"+getIdTh()+" "+(curent2.getX() + this.to.getX() - to.getX()));
+    curent2.setX(curent2.getX() + this.to.getX() - to.getX());
+    curent2.setY(curent2.getY() + this.to.getY() - to.getY());
+    // System.out.println("curent2Then="+curent2);//@a
+    this.to=to;
+  }
+  /**
+  *{@summary Update all ThMove that need to be change if ant move a 2a time.}
+  *It will update all ThMove that haven't been done &#38; that are about ObjetSurCarteAId with given id.
+  *@param to new CCase were to go.
+  *@param id id of the concerned ObjetSurCarteAId.
+  *@version 2.1
+  */
+  public static void updateTo(CCase to, int id){
+    Case c = to.getContent();
+    for (ThMove th : curentThList ) {
+      System.out.println("update th"+th.getIdTh()+" beween "+curentThList.size()+" item. (curentThList)");//@a
+      if(th.getIdMovingObject()==id){
+        th.updateTo(Panneau.getView().getPc().getPointFromCase(c.getX(), c.getY(), false));
+      }
+    }
+    for (ThMove th: queue) {
+      System.out.println("update th"+th.getIdTh()+" beween "+queue.size()+" item. (queue)");//@a
+      // System.out.println(Panneau.getView().getPc().getPointFromCase(c.getX(), c.getY(), false));
+      if(th.getIdMovingObject()==id){
+        th.updateTo(Panneau.getView().getPc().getPointFromCase(c.getX(), c.getY(), false));
+      }
+    }
+  }
+  //synchronized
+  private static void addMovingObject(int idO, Point curent, Point rotate, int idTh){
+    // while(Panneau.getView().getPc().getMovingObjectLocation(idO)!=null){
+    //   Temps.pause(10);
+    // }
+    //et un thread qui lance les éléments de la queue en parcourant la liste.
+    //Si le thread trouve un getMovingObjectLocation(idO)!=null il ne lance pas sinon il lance. puis passe au suivant et fait une pause de 50ms a la fin de la liste.
+    //TODO il y a 1 chance sur 2 que ce soit le 3a plutot que le 2a puisque les 2 en sont la.
+    Panneau.getView().getPc().addMovingObject(idO, curent, rotate);
+  }
+  /**
+  *{@summary Do the ObjetSurCarteAId animation.}
+  *@version 2.1
+  */
   @Override
   public void run(){
+    queue.remove(this);
+    curentThList.add(this);
+    curent = new Point(-1,-1);
+    rotate = new Point(0,0);
+    addMovingObject(o.getId(), curent, rotate, this.id);
     int walkCycle = 2;
     int k=120; //should be a mutiple of 2*walkCycle.
     int kIni=k;
     int numberOfTic = k/(2*walkCycle);
-    // System.out.println("from "+from);
-    // System.out.println("to "+to);
-    vectX = to.getX()-from.getX();
-    vectY = to.getY()-from.getY();
-    curent = new Point((int)-vectX,(int)-vectY);
-    Point rotate = new Point(0,0);
-    // if(Panneau.getView().getPc().getMovingObject(o.getId())!=null){
-      //TODO #32 déplacer le déplacement précédents de façon a ce qu'il s'adapte a celui ci.
-    // }
-    while(Panneau.getView().getPc().getMovingObjectLocation(o.getId())!=null){
-      Temps.pause(10);
+    vectX = this.to.getX()-this.from.getX();
+    vectY = this.to.getY()-this.from.getY();
+    //patch to move 1 Case max.
+    if(vectX>Main.getData().getTailleDUneCase()){
+      vectX=Main.getData().getTailleDUneCase();
+    }else if(vectX<-Main.getData().getTailleDUneCase()){
+      vectX=-Main.getData().getTailleDUneCase();
     }
-    Panneau.getView().getPc().addMovingObject(o.getId(), curent, rotate);
+    if(vectY>Main.getData().getTailleDUneCase()){
+      vectY=Main.getData().getTailleDUneCase();
+    }else if(vectY<-Main.getData().getTailleDUneCase()){
+      vectY=-Main.getData().getTailleDUneCase();
+    }
+    // curent = new Point((int)-vectX,(int)-vectY);
+    // System.out.println();
+    // System.out.print("ThMove "+id+"     ");//@a
+    long time = System.currentTimeMillis();
+    // System.out.println("curent2 = "+curent2);//@a
     double rotateAngle = 0;
     vectRotate=-40;
     vectRotate/=numberOfTic;
     while(k>0){
-      curent.setX((int)((-k)*(vectX/kIni)));
-      curent.setY((int)((-k)*(vectY/kIni)));
+      curent.setX((int)((-k)*(vectX/kIni))+curent2.getX());
+      curent.setY((int)((-k)*(vectY/kIni))+curent2.getY());
       if (o instanceof Fourmi && ((Fourmi)o).getStade()==0){
         if ((k+(numberOfTic/2))%numberOfTic==0) { //4 changement = 6 cycle de marche.
           vectRotate=-vectRotate;
@@ -652,5 +759,19 @@ class ThMove extends Thread{
       }
     }
     Panneau.getView().getPc().removeMovingObject(o.getId());
+    curentThList.remove(this);
+    // System.out.println("ThMove "+id+" done in "+(System.currentTimeMillis()-time));//@a
+    if(System.currentTimeMillis()-time<500){
+      System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    }
+  }
+}
+class ThMoveManager extends Thread{
+  @Override
+  public void run(){
+    while(true){
+      ThMove.updateQueue();
+      Temps.pause(100);
+    }
   }
 }
