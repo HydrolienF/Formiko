@@ -1,10 +1,11 @@
 package fr.formiko.usuel.listes;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.Collection;
 
 /**
 *{@summary Custom Linked Liste class using Generics.}<br>
@@ -17,7 +18,10 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   public Liste(){}
   // GET SET -------------------------------------------------------------------
   public Node<T> getHead(){return head;}
+  private void setHead(Node<T> node){head=node;}
   public Node<T> getTail(){return tail;}
+  private void setTail(Node<T> node){tail=node;}
+  public T getLast(){if(getTail()!=null){return getTail().getContent();}else{return null;}}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary add new Element at tail of the linked list}<br>
@@ -337,6 +341,47 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   public void clear(){
     head = null;
     tail = null;
+  }
+  // @Override
+  // public void sort​(Comparator<? super T> c){
+  //   Liste<T> newList = new Liste<T>();
+  //   for (T t : this) {
+  //     Node<T> node = newList.getHead();
+  //     while(node=!null){
+  //       // setNext(list.getHead());
+  //       node=node.getNext();
+  //     }
+  //   }
+  // }
+  public boolean addSorted(T t, Comparator<? super T> c){
+    if(getHead()==null){
+      return add(t);
+    }else if(c.compare(t,getHead().getContent())>0){
+      Node<T> newNode = new Node<T>(t);
+      newNode.setNext(getHead());
+      setHead(newNode);
+      return true;
+    }else{
+      //TODO
+      Node<T> node = getHead();
+      Node<T> newNode = new Node<T>(t);
+      while(node.getNext()!=null){
+        if(c.compare(t,node.getNext().getContent())>0){
+          //insert beween node & node.next
+          newNode.setNext(node.getNext());
+          node.setNext(newNode);
+          return true;
+        }
+        node=node.getNext();
+      }
+    }
+    // if(c.compare(t,getTail().getContent())>0){
+      Node<T> newNode = new Node<T>(t);
+      getTail().setNext(newNode);
+      setTail(newNode);
+      return true;
+    // }
+    // return false;
   }
   /**
   *{@summary return the coresponding Iterator}<br>

@@ -6,6 +6,7 @@ import fr.formiko.formiko.Point;
 import fr.formiko.usuel.listes.Liste;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -315,5 +316,15 @@ public class ListTest extends TestCaseMuet{
     l.add(1,"c");
     l.add(1,"d");
     assertEquals("a d c ",l.toString());
+  }
+  @Test
+  public void testAddSorted(){
+    Liste<Point> l = new Liste<Point>();
+    Comparator<Point> comparator = (Point p1, Point p2) -> (int)(p2.getX() - p1.getX());
+    assertTrue(l.addSorted(new Point(2,3), comparator));
+    assertEquals("(2,3) ",l.toString());
+    assertTrue(l.addSorted(new Point(1,5), comparator));
+    assertTrue(l.addSorted(new Point(7,1), comparator));
+    assertEquals("(1,5) (2,3) (7,1) ",l.toString());
   }
 }
