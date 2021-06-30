@@ -74,8 +74,8 @@ public class Options implements Serializable{
   public void setTailleBoutonAction(byte x){ buttonSizeAction=x;}
   public int getTailleBoutonTX(){ return tailleBouton(buttonSizeTX);}
   public void setTailleBoutonTX(byte x){ buttonSizeTX=x;}
-  public boolean getMouvementRapide(){ return quickMovement;}
-  public void setMouvementRapide(boolean b){ quickMovement = b;}
+  public boolean getQuickMovement(){ return quickMovement;}
+  public void setQuickMovement(boolean b){ quickMovement = b;}
   public boolean getInstantaneousMovement(){return instantaneousMovement;}
   public void setInstantaneousMovement(boolean b){instantaneousMovement=b;}
   public boolean getElementSurCarteOrientéAprèsDéplacement(){ return orientedObjectOnMap;}

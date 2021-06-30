@@ -230,8 +230,6 @@ public class Main {
   public static int getbuttonSizeZoom(){return op.getbuttonSizeZoom();}
   public static int getTailleBoutonAction(){return op.getTailleBoutonAction();}
   public static int getTailleBoutonTX(){return op.getTailleBoutonTX();}
-  public static boolean getMouvementRapide(){ return op.getMouvementRapide();}
-  public static void setMouvementRapide(boolean b){ op.setMouvementRapide(b);}
   public static int getNbrMessageAfficher(){ return op.getNbrMessageAfficher();}
   public static boolean getDessinerGrille(){ return op.getDessinerGrille();}
   public static boolean getElementSurCarteOrientéAprèsDéplacement(){ return op.getElementSurCarteOrientéAprèsDéplacement();}

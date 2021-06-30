@@ -634,11 +634,11 @@ class ThMove extends Thread{
   }
   private int getIdMovingObject(){return o.getId();}
   public int getIdTh(){return id;}
-  private static void addToQueue(ThMove th){
+  private static synchronized void addToQueue(ThMove th){
     // while(queue.getLast()!=null && queue.getLast().getIdTh()!=th.getIdTh()-1){
     //   Temps.pause(10);
     // }
-    System.out.println("add "+th.getId());
+    // System.out.println("add "+th.getId());
     Comparator<ThMove> comparator = (ThMove e1, ThMove e2) -> (int)(e2.getIdTh() - e1.getIdTh());
     queue.addSorted(th, comparator);
     // listTh.sort();
@@ -648,14 +648,14 @@ class ThMove extends Thread{
     // 	return d2.getIdTh() - d1.getIdTh();
     // });
   }
-  static void updateQueue(){
+  static synchronized void updateQueue(){
     // System.out.println(queue.size()+" in queue");
     for (ThMove th : queue ) {
       //if need to launch : launch
       if(Panneau.getView().getPc().getMovingObjectLocation(th.getIdMovingObject())==null){
         th.start();
         queue.remove(th);
-        System.out.println("start "+th.getIdTh());
+        // System.out.println("start "+th.getIdTh());
       }
     }
   }
@@ -666,7 +666,7 @@ class ThMove extends Thread{
   */
   private void updateTo(Point to){
     // System.out.println("curent2INi="+curent2);//@a
-    System.out.println("update th"+getIdTh()+" "+(curent2.getX() + this.to.getX() - to.getX()));
+    // System.out.println("update th"+getIdTh()+" "+(curent2.getX() + this.to.getX() - to.getX()));
     curent2.setX(curent2.getX() + this.to.getX() - to.getX());
     curent2.setY(curent2.getY() + this.to.getY() - to.getY());
     // System.out.println("curent2Then="+curent2);//@a
@@ -682,13 +682,13 @@ class ThMove extends Thread{
   public static void updateTo(CCase to, int id){
     Case c = to.getContent();
     for (ThMove th : curentThList ) {
-      System.out.println("update th"+th.getIdTh()+" beween "+curentThList.size()+" item. (curentThList)");//@a
+      // System.out.println("update th"+th.getIdTh()+" beween "+curentThList.size()+" item. (curentThList)");//@a
       if(th.getIdMovingObject()==id){
         th.updateTo(Panneau.getView().getPc().getPointFromCase(c.getX(), c.getY(), false));
       }
     }
     for (ThMove th: queue) {
-      System.out.println("update th"+th.getIdTh()+" beween "+queue.size()+" item. (queue)");//@a
+      // System.out.println("update th"+th.getIdTh()+" beween "+queue.size()+" item. (queue)");//@a
       // System.out.println(Panneau.getView().getPc().getPointFromCase(c.getX(), c.getY(), false));
       if(th.getIdMovingObject()==id){
         th.updateTo(Panneau.getView().getPc().getPointFromCase(c.getX(), c.getY(), false));
@@ -718,6 +718,7 @@ class ThMove extends Thread{
     addMovingObject(o.getId(), curent, rotate, this.id);
     int walkCycle = 2;
     int k=120; //should be a mutiple of 2*walkCycle.
+    if(Main.getOp().getQuickMovement()){k=20;}
     int kIni=k;
     int numberOfTic = k/(2*walkCycle);
     vectX = this.to.getX()-this.from.getX();
@@ -761,9 +762,9 @@ class ThMove extends Thread{
     Panneau.getView().getPc().removeMovingObject(o.getId());
     curentThList.remove(this);
     // System.out.println("ThMove "+id+" done in "+(System.currentTimeMillis()-time));//@a
-    if(System.currentTimeMillis()-time<500){
-      System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    }
+    // if(System.currentTimeMillis()-time<500){
+    //   System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    // }
   }
 }
 class ThMoveManager extends Thread{
