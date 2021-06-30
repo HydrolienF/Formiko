@@ -551,7 +551,7 @@ public class Img implements Cloneable{
   *On some image it can have some 99% transparent pixel, we may need to transforme them to 0% transparent pixel. (100 transparent pixel can be recolored more easyly.)
   *@param x alpha limit level between 0 and 255. If pixel alpha value is higer than x pixel will be at 255 alpha. Other wise it will be at 0 alpha.
   */
-  public void supprimerLaTransparencePartielle(int x){ //x est le niveau de transparence de 0 a 255.
+  public void supprimerLaTransparencePartielle(int x){
     x = x-128; // pour qu'il soit callé sur le pixel.
     if(x<-128 || x>127){ return;}
     //opération :

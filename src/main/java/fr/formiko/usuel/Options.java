@@ -61,6 +61,7 @@ public class Options implements Serializable{
   private boolean autoCleaning;
   private boolean modeFPS;
   private int fps;
+  private byte antColorLevel;
 
   private SortedProperties properties=null;
   // CONSTRUCTEUR ---------------------------------------------------------------
@@ -137,6 +138,8 @@ public class Options implements Serializable{
   public void setModeFPS(boolean b){modeFPS=b;}
   public int getFps(){return fps;}
   public void setFps(int b){fps=b;}
+  public byte getAntColorLevel(){return antColorLevel;}
+  public void setAntColorLevel(byte x){antColorLevel=x;}
   // Fonctions propre -----------------------------------------------------------
   /**
   *{@summary Initialize Options.}<br>
@@ -274,6 +277,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("positionCase","0");
     defaultProperties.setProperty("modeFPS","true");
     defaultProperties.setProperty("fps","50");
+    defaultProperties.setProperty("antColorLevel","1");
     return defaultProperties;
   }
   /**
@@ -334,6 +338,7 @@ public class Options implements Serializable{
     autoCleaning=str.sToB(properties.getProperty("autoCleaning"));
     modeFPS=str.sToB(properties.getProperty("modeFPS"));
     fps=str.sToI(properties.getProperty("fps"));
+    setAntColorLevel(str.sToBy(properties.getProperty("antColorLevel")));
   }
   /**
   *{@summary tranform properties into Options var.}<br>
@@ -377,5 +382,6 @@ public class Options implements Serializable{
     properties.setProperty("autoCleaning",""+autoCleaning);
     properties.setProperty("modeFPS",""+modeFPS);
     properties.setProperty("fps",""+fps);
+    properties.setProperty("antColorLevel", ""+antColorLevel);
   }
 }

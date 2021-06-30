@@ -178,7 +178,9 @@ public class Data {
         try{tBi[k++] = antLeg[idEspece];}catch (Exception e) {antLeg[k++] = tIF[0];}
       }
       try {tBi[k++] = tIF[idEspece];} catch (Exception e) {tBi[k++] = tIF[0];}
-      try {imgColor=new Img(antColor[idEspece]);} catch (Exception e) {imgColor=new Img(antColor[0]);}
+      if(Main.getOp().getAntColorLevel()>0){
+        try {imgColor=new Img(antColor[idEspece]);} catch (Exception e) {imgColor=new Img(antColor[0]);}
+      }
     }else{
       k=6;
       tBi[k++]=getTF()[0][3+stade];
@@ -294,7 +296,7 @@ public class Data {
         chargerTI();
         tIIIni = chargerTX("I");
         tFIni = chargerTX("F",3,(byte)0,-3);
-        antColorIni = image.getImages("FCol",image.getNbrImages("FCol"),(byte)0);
+        iniAntColorIni();
         antLegIni = image.getImages("FLeg",image.getNbrImages("FLeg"),(byte)0);
         tGIni = chargerTX("seed");
         fereIni = image.getImage("antnest");//.getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
@@ -313,6 +315,23 @@ public class Data {
         tIFIni[0] = image.getImage("F0");
       }
       imageIniForNewGame=true;
+    }
+    /**
+    *{@summary Load antColorIni.}
+    *antColorIni will be set to max in alpha if it need.
+    *@version 2.2
+    */
+    private void iniAntColorIni(){
+      antColorIni = image.getImages("FCol",image.getNbrImages("FCol"),(byte)0);
+      int len = antColorIni.length;
+      if(Main.getOp().getAntColorLevel()>1){
+        for (int i=0; i<len; i++) {
+          Img img = new Img(antColorIni[i]);
+          img.supprimerLaTransparencePartielle(1);
+          img.actualiserImage();
+          antColorIni[i] = img.getImage();
+        }
+      }
     }
     /**
     *Load Case image
