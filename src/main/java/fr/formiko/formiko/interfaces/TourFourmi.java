@@ -94,8 +94,8 @@ public class TourFourmi implements Serializable, Tour{
       return r;
     }
     GCreature gc2 = gc.filtreWantFood();
-    if(gc2.gethead()!=null){
-      return gc2.gethead().getContent();
+    if(gc2.getHead()!=null){
+      return gc2.getHead().getContent();
     }
     return r; //r can be null.
   }
@@ -127,8 +127,8 @@ public class TourFourmi implements Serializable, Tour{
       return r;
     }
     GCreature gc2 = gc.filtreWantClean();
-    if(gc2.gethead()!=null){
-      return gc2.gethead().getContent();
+    if(gc2.getHead()!=null){
+      return gc2.getHead().getContent();
     }
     return null;
   }

@@ -79,11 +79,11 @@ public class Case implements Serializable{
       s=s+fere.toString(false);s=s+"\n";
     }
     if (!caseSombre) {
-      if (gc != null && gc.gethead() != null){
+      if (gc != null && gc.getHead() != null){
         s=s+g.get("creatures")+" : "; s=s+"\n";
         s=s+gc.toString();s=s+"\n";
       }
-      if (gg != null && gg.gethead() != null){
+      if (gg != null && gg.getHead() != null){
         s=s+g.get("graines")+" : ";s=s+"\n";
         s=s+gg.toString();s=s+"\n";
       }

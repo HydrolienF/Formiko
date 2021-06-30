@@ -22,7 +22,7 @@ public class GEtiquetteJoueur {
   }
   public GEtiquetteJoueur(){}
   // GET SET --------------------------------------------------------------------
-  public CEtiquetteJoueur gethead(){ return début;}
+  public CEtiquetteJoueur getHead(){ return début;}
   public CEtiquetteJoueur getTail(){ return fin;}
   // Fonctions propre -----------------------------------------------------------
   public int length(){

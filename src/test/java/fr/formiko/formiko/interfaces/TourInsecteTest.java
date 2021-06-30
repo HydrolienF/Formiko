@@ -44,7 +44,7 @@ public class TourInsecteTest extends TestCaseMuet{
     //everything is ok in initialisation :
     int x=10;
     assertEquals(x,p.getGc().getCCase(0,0).getContent().getNourritureInsecte());
-    assertTrue(p.getGc().getCCase(0,0).getContent().getGc().gethead().getContent().getId()==i.getId());
+    assertTrue(p.getGc().getCCase(0,0).getContent().getGc().getHead().getContent().getId()==i.getId());
     assertTrue(i.tour instanceof TourInsecte);
 
     //if insect hungry.

@@ -26,7 +26,7 @@ public class GEspece implements Serializable{
     chargerLesEspeces();
   }
   // GET SET --------------------------------------------------------------------
-  public CEspece gethead(){ return début;}
+  public CEspece getHead(){ return début;}
   public void setDébut(CEspece ce){début = ce; }
   public Espece getEspeceParId(int id){
     if (début == null){

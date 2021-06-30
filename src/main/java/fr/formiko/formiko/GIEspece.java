@@ -21,7 +21,7 @@ public class GIEspece implements Serializable{
     chargerLesIEspeces();
   }
   // GET SET --------------------------------------------------------------------
-  public CIEspece gethead(){ return début;}
+  public CIEspece getHead(){ return début;}
   public void setDébut(CIEspece ce){début = ce; }
   public IEspece getIEspeceParId(int id){
     if (début == null){

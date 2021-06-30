@@ -201,7 +201,7 @@ public class PanneauCarte extends Panneau {
     if(Main.getPartie().getCarte().getCasesNuageuses()==true){ //si il y a des cases nuageuses
       try {
         if(Main.getPartie().getGj().getNbrDeJoueurHumain()==1){//si il ya moins de 2 joueurs, on peu afficher les cases que le joueur voie.
-          jo = Main.getPartie().getGj().getJoueurHumain().gethead().getContent();
+          jo = Main.getPartie().getGj().getJoueurHumain().getHead().getContent();
         }
         if (jo!=null){//si on a un joueur sélectionné.
           if (x>=0 && y>=0 && jo.getCaseNuageuse(x,y)){//si la case est invisible (nuageuse.)
@@ -256,8 +256,8 @@ public class PanneauCarte extends Panneau {
     int xT2 = (x)*getTailleDUneCase(); int yT2 = (y)*getTailleDUneCase();
     if(peintCaseNuageuse(x,y,g,xT,yT)){ return;}//si la case est nuageuse, on n'affichera rien d'autre dessus.
     byte ty = c.getType();
-    CCreature ccrea = c.getGc().gethead();
-    CGraine ccg = c.getGg().gethead();
+    CCreature ccrea = c.getGc().getHead();
+    CGraine ccg = c.getGg().getHead();
     try {
       int tC10 = Main.getData().getTailleDUneCase()/10;int tC4 = Main.getData().getTailleDUneCase()/4;int tC2 = Main.getData().getTailleDUneCase()/2;
       // anthill

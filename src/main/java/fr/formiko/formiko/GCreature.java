@@ -39,7 +39,7 @@ public class GCreature implements Serializable{//, Iterator{
     }
   }
   // GET SET -----------------------------------------------------------------------
-  public CCreature gethead(){return début;}
+  public CCreature getHead(){return début;}
   public CCreature getTail(){return fin;}
   public void setDébut(CCreature cc){début = cc;}
   // Fonctions propre -----------------------------------------------------------
@@ -113,15 +113,15 @@ public class GCreature implements Serializable{//, Iterator{
   public GCreature getCouvainsSale(){
     GCreature gcr = getCouvain();
     // on garde le premier sale :
-    while (gcr.gethead() != null){
-      Fourmi fTest = (Fourmi) gcr.gethead().getContent();
+    while (gcr.getHead() != null){
+      Fourmi fTest = (Fourmi) gcr.getHead().getContent();
       if (fTest.getPropreté() < 90) {
-        gcr.retirer(gcr.gethead().getContent());
+        gcr.retirer(gcr.getHead().getContent());
       }else{
         break;
       }
-    }if (gcr.gethead() == null){ return new GCreature();}
-    gcr.gethead().getCouvainsSale(); // on filtre les propre dans la suite de la liste.
+    }if (gcr.getHead() == null){ return new GCreature();}
+    gcr.getHead().getCouvainsSale(); // on filtre les propre dans la suite de la liste.
     return gcr;
   }
   // a add :
@@ -323,13 +323,13 @@ public class GCreature implements Serializable{//, Iterator{
     }
   }
   public void add(GCreature gc){
-    if(gc == null || gc.gethead() == null){ return;}
+    if(gc == null || gc.getHead() == null){ return;}
     if (fin == null){
-      début = gc.gethead();
+      début = gc.getHead();
       fin = gc.getTail();
     }else {
-      fin.setSuivant(gc.gethead());
-      gc.gethead().setPrécédent(fin);
+      fin.setSuivant(gc.getHead());
+      gc.getHead().setPrécédent(fin);
       fin = gc.getTail();
     }
   }
@@ -451,7 +451,7 @@ public class GCreature implements Serializable{//, Iterator{
         Fourmi f = (Fourmi)(c);
         Joueur j = f.getJoueur();
         GCase gc = f.getCCase().getGca(1); //ensemble des case vue par la créature.
-        CCase cca = gc.gethead();
+        CCase cca = gc.getHead();
         while(cca!=null){
           int x = cca.getContent().getX(); int y = cca.getContent().getY();
           j.setCaseSombre(x,y,false);

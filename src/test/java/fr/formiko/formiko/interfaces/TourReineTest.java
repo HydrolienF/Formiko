@@ -220,7 +220,7 @@ public class TourReineTest extends TestCaseMuet{
     assertEquals(2,Main.getGc().getCCase(0,0).getContent().getGc().length());
     assertEquals(1,Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().length());
     assertEquals(nourriture - 3 + 300 - 12, f.getNourriture());
-    assertEquals(10, Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().gethead().getContent().getNourriture());
+    assertEquals(10, Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().getHead().getContent().getNourriture());
   }
   @Test
   public void TestTour5(){

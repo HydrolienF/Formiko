@@ -23,7 +23,7 @@ public class GInsecte implements Serializable{
     debug.débogage("fin de création des x insectes");
   }
   // GET SET -----------------------------------------------------------------------
-  public CInsecte gethead(){return début;}
+  public CInsecte getHead(){return début;}
   public CInsecte getTail(){
     if (début == null ){ return null;}
     CInsecte fin = début;
@@ -47,7 +47,7 @@ public class GInsecte implements Serializable{
   }
   public Insecte getInsectePlusDeNourritureFournie(){
     debug.débogage("Choix de l'insecte qui peut fournir le plus de nourriture");
-    CInsecte ci = this.gethead();
+    CInsecte ci = this.getHead();
     if (ci == null){ return null;} // si la liste est vide.
     if (ci.getSuivant() == null){ return ci.getInsecte();} // si il y a 1 seul éléments.
     return ci.getInsectePlusDeNourritureFournie(ci.getInsecte());
@@ -84,9 +84,9 @@ public class GInsecte implements Serializable{
   }
   public void addGi(GInsecte giTemp){
     if (this.début == null){
-      this.début = giTemp.gethead();
+      this.début = giTemp.getHead();
     }else{
-      this.getTail().setSuivant(giTemp.gethead()); // On raccroche les 2 bouts.
+      this.getTail().setSuivant(giTemp.getHead()); // On raccroche les 2 bouts.
     }
   }
   public void tourInsecte(){

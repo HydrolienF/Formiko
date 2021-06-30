@@ -257,7 +257,7 @@ public class Fourmi extends Creature implements Serializable{
   }
 
   /*public boolean mangerGraine(){
-    //if(fere.getGGraine().gethead()==null){return false;}
+    //if(fere.getGGraine().getHead()==null){return false;}
     Graine g = fere.getGGraine().getGraineOuverte();
     if(this.getNourriture() < this.getNourritureMax()/2 && g!=null){
       nourriture = nourriture + g.getNourritureFournie();
@@ -331,7 +331,7 @@ public class Fourmi extends Creature implements Serializable{
   public void iniPheromone(){
     Fourmi reine = getReine();
     if (reine != null){ e = reine.getEspece(); ph = new Pheromone(reine.getPheromone());}
-    else if (fere.getGc().gethead() != null){ ph = new Pheromone(fere.getGc().gethead().getContent().getPheromone());}
+    else if (fere.getGc().getHead() != null){ ph = new Pheromone(fere.getGc().getHead().getContent().getPheromone());}
     else{ ph = new Pheromone();}
   }
 }

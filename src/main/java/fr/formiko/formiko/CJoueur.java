@@ -7,6 +7,7 @@ import fr.formiko.usuel.ecrireUnFichier;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.listes.Liste;
 
 import java.io.Serializable;
 
@@ -65,17 +66,6 @@ public class CJoueur implements Serializable{
     if(getContent().getFere().getGc().length()>0){ return false;} //si on a trouvé une fourmi
     else if(suivant!=null){ return suivant.getPlusDeFourmi();}// sinon on test le joueur suivant.
     return true; //si tout les joueurs on été parcouru
-  }
-  public GJoueur getGjOrdonné(){
-    GJoueur gjr = new GJoueur();
-    CJoueur cj = this;
-    while(cj!=null){
-      Joueur j = cj.getContent();
-      gjr.add(j);//TODO #231
-      //gjr.addOrdonnée(j); //TODO #231
-      cj=cj.getSuivant();
-    }
-    return gjr;
   }
   public int getNbrDeJoueurVivant(){
     int x = 0; if(contenu.getFere().getGc().length()!=0){x=1;}
@@ -176,5 +166,18 @@ public class CJoueur implements Serializable{
       cj.getContent().setAction0AndEndTurn();
       cj = cj.getSuivant();
     }
+  }
+  /**
+  *{@summary Transform a GJoueur in Liste&lt;Joueur&gt;.}
+  *@version 1.38
+  */
+  public Liste<Joueur> toList(){
+    CJoueur cc = this;
+    Liste<Joueur> lc = new Liste<Joueur>();
+    while(cc!= null){
+      lc.add(cc.getContent());
+      cc = cc.getSuivant();
+    }
+    return lc;
   }
 }

@@ -17,7 +17,7 @@ public class GIndividu implements Serializable{
   // CONSTRUCTEUR ---------------------------------------------------------------
   public GIndividu(){}
   // GET SET --------------------------------------------------------------------
-  public CIndividu gethead(){ return début;}
+  public CIndividu getHead(){ return début;}
   public void setDébut(CIndividu ce){début = ce; }
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
