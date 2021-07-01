@@ -759,7 +759,9 @@ class ThMove extends Thread{
         Temps.pause(6);
       }
     }
-    Panneau.getView().getPc().removeMovingObject(o.getId());
+    try {
+      Panneau.getView().getPc().removeMovingObject(o.getId());
+    }catch (NullPointerException e) {}
     curentThList.remove(this);
     // System.out.println("ThMove "+id+" done in "+(System.currentTimeMillis()-time));//@a
     // if(System.currentTimeMillis()-time<500){
