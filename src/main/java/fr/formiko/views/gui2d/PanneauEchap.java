@@ -106,6 +106,9 @@ public class PanneauEchap extends Panneau{
       getView().getPa().setEnabled(!visible);
     }catch (Exception e) {}
     super.setVisible(b);
+    if(!b){
+      action.updateMouseLocation();
+    }
   }
   /**
   *{@summary return true if only PanneauEchap button sould be enable.}

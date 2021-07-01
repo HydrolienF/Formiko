@@ -56,22 +56,6 @@ public class PanneauJeu extends Panneau {
   // Fonctions propre -----------------------------------------------------------
   @Override
   public void paintComponent(Graphics g){
-    // try {
-    //   pc.updateSize();
-    //   //pc.setBounds(0,0,getWidth(),getHeight());
-    // }catch (Exception e) {}
-    // try {
-    //   pb.setBounds(0,0,getWidth(),getHeight());
-    // }catch (Exception e) {}
-    // try {
-    //   ps.setBounds(0,0,getWidth(),getHeight());
-    // }catch (Exception e) {}
-    // try {
-    //   pe.setBounds(0,0,getWidth(),getHeight());
-    // }catch (Exception e) {}
-    // try {
-    //   pd.setBounds(0,0,pd.getWidth(),pd.getHeight());
-    // }catch (Exception e) {}
     super.paintComponent(g);
   }
   public void addPd(){
@@ -82,8 +66,6 @@ public class PanneauJeu extends Panneau {
     }
     add(pd);
     add(pdi);
-    // pd.setVisible(false);
-    // pdi.setVisible(false);
   }
   public void initialiserPd(String s, boolean needToStayMaxSize){
     pd.initialiser(s, needToStayMaxSize);
@@ -112,7 +94,6 @@ public class PanneauJeu extends Panneau {
   }
   public void addPb(){
     pb = new PanneauBouton();
-    // pb.setBounds(0,0,0,0);
     pb.setBounds(0,0,getWidth(),getHeight());
     add(pb);
   }
@@ -143,6 +124,7 @@ public class PanneauJeu extends Panneau {
     }
     pc.setVisible(true);
     pb.setVisible(true);
+    action.updateMouseLocation();
   }
   // public void addPfp(){
   //   pfp = new PanneauFinPartie();

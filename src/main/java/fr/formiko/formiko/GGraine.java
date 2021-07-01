@@ -7,8 +7,9 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.Liste;
 
 import java.io.Serializable;
-
+//extends Liste<Graine>
 public class GGraine implements Serializable{
+  //TODO #82
   protected CGraine début;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public void GGraine(){début = null;}

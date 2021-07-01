@@ -4,8 +4,8 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.images.Pixel;
+import fr.formiko.usuel.images.image;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -14,6 +14,7 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.MouseInfo;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.font.FontRenderContext;
@@ -156,27 +157,13 @@ public class Bouton extends JButton implements MouseListener{
   //Méthode appelée lors du survol de la souris
   @Override
   public void mouseEntered(MouseEvent event) {
-    if(!isEnabled()){return;}
-    String clé = "";
-    try { //on essaie de récupéré le raccourci clavier associé.
-      clé = ""+(char)Main.getKey(action+"");
-    }catch (Exception e) {}
-    if(clé!=""){clé="("+g.get("raccourci")+" \""+clé+"\")";}
-    setDesc(g.get("bouton.desc."+action)+clé);
-    if(isEnabled()){
-      setCFond(Main.getData().getButtonFocusColor());
-      repaint();
-    }
+    setSelected(true);
   }
 
   //Méthode appelée lorsque la souris sort de la zone du bouton
   @Override
   public void mouseExited(MouseEvent event) {
-    setDesc("");
-    if(isEnabled()){
-      setCFond(Main.getData().getButtonColor());
-      repaint();
-    }
+    setSelected(false);
   }
 
   //Méthode appelée lorsque l'on presse le bouton gauche de la souris
@@ -189,5 +176,43 @@ public class Bouton extends JButton implements MouseListener{
     if(!isEnabled()){return;}
     debug.débogage("Un bouton a été cliqué, l'action "+action+" vas être effectué.");
     Main.doAction(action);
+  }
+  /**
+  *{@summary set the button selected or not depending of mouse x,y.}<br>
+  *@version 2.2
+  */
+  public void updateSelected(){
+    int mouseX = (int)MouseInfo.getPointerInfo().getLocation().getX();
+    int mouseY = (int)MouseInfo.getPointerInfo().getLocation().getY();
+    setSelected(mouseX>=getX() && mouseX<=(getX()+getWidth()) && mouseY>=getY() && mouseY<=(getY()+getHeight()));
+  }
+  /**
+  *{@summary set the button selected or not.}<br>
+  *@param selected true if button is selected.
+  *@version 2.2
+  */
+  public void setSelected(boolean selected){
+    if(!isEnabled()){setDesc(""); return;}
+    if(selected){
+      setDesc(g.get("bouton.desc."+action)+getKeyboardKey());
+      setCFond(Main.getData().getButtonFocusColor());
+    }else{
+      setDesc("");
+      setCFond(Main.getData().getButtonColor());
+    }
+    repaint();
+  }
+  /**
+  *{@summary return the shortcut key as a String.}<br>
+  *If key don't exist it will return an empty String.
+  *@version 2.2
+  */
+  private String getKeyboardKey(){
+    String key = "";
+    try { //on essaie de récupéré le raccourci clavier associé.
+      key = ""+(char)Main.getKey(action+"");
+    }catch (Exception e) {}
+    if(!key.equals("")){key="("+g.get("raccourci")+" \""+key+"\")";}
+    return key;
   }
 }

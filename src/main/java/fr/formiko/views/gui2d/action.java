@@ -9,7 +9,7 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.types.str;
 
-
+import java.awt.MouseInfo;
 import javax.swing.JOptionPane;
 
 /**
@@ -176,5 +176,13 @@ public class action{
     // erreur.info("retournerAuMenu 2");
     // Panneau.getView().getPp().removePj();
     // Panneau.getView().getPp().addPm();
+  }
+  public static void updateMouseLocation(){
+    try {
+      // System.out.println("moved 1");
+      // Panneau.getView().getPs().mouseMovedUpdate(Panneau.getView().getPs().getCCase((int)MouseInfo.getPointerInfo().getLocation().getX(), (int)MouseInfo.getPointerInfo().getLocation().getY()));
+      System.out.println(Panneau.getView().getPs().getCCase((int)MouseInfo.getPointerInfo().getLocation().getX(), (int)MouseInfo.getPointerInfo().getLocation().getY()).getContent());
+      // System.out.println("moved 2");
+    }catch (Exception e) {}
   }
 }

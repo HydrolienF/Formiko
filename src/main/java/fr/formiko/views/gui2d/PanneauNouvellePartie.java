@@ -64,12 +64,14 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
       gs.add(g.getM("diff"+i));
     }
     eDif = new EtiquetteChoix(2,"choixDif",gs);
+    eDif.setCFond(null);
     add(eDif);
     gs = new GString();
     for (int i=-3; i<5; i++){ // tout les niveaux de vitesse.
       gs.add(g.getM("vitesseDeJeu"+i));
     }
     eVitesseDeJeu = new EtiquetteChoix(3,"choixVitesseDeJeu",gs);
+    eVitesseDeJeu.setCFond(null);
     add(eVitesseDeJeu);
     //a droite :
     gej = new GEtiquetteJoueur(3);
@@ -84,6 +86,8 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     casesSombres = new JCheckBox();
     // casesNuageuses.setFont(Main.getFont1());
     // casesSombres.setFont(Main.getFont1());
+    casesNuageuses.setForeground(Color.BLACK);
+    casesSombres.setForeground(Color.BLACK);
     casesNuageuses.setText(g.getM("casesNuageuses"));
     casesSombres.setText(g.getM("casesSombres"));
     casesNuageuses.setBackground(new Color(0,0,0,0));

@@ -16,6 +16,7 @@ public class EtiquetteChoix extends Panneau{
   private JComboBox<String> choixX;
   private Desc choixXDesc;
   private int k;
+  private Color cFond;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public EtiquetteChoix(int x, String clé, GString gs){
     debug.débogage("Lancement de la création d'une EtiquetteChoix avec "+gs.length()+" éléments");
@@ -32,6 +33,7 @@ public class EtiquetteChoix extends Panneau{
     int taille = Desc.getDimY();
     choixXDesc.setBounds(0,taille*k,wi2/2,Desc.getDimY());
     choixX.setBounds(wi2/2,taille*k,wi2/3,Desc.getDimY());
+    cFond = Main.getData().getButtonColor();
   }
   public EtiquetteChoix(String clé, GString gs){ this(0,clé,gs);}
   // GET SET --------------------------------------------------------------------
@@ -39,11 +41,11 @@ public class EtiquetteChoix extends Panneau{
   public int getSelectedIndex(){ return choixX.getSelectedIndex();}
   public JComboBox getChoixX(){ return choixX;}
   public Desc getChoixXDesc(){ return choixXDesc;}
+  public void setCFond(Color c){cFond=c;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     //debug.débogage("Lancement de eDif.paintComponent");
     Graphics2D g2d = (Graphics2D)g;
-    Color cFond = Main.getData().getButtonColor();
     boolean cFondUseAlpha = true;
     if(cFond!=null && !isOpaque()){
       if(cFondUseAlpha){

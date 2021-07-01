@@ -70,6 +70,9 @@ public class PanneauMenu extends Panneau {
       b[0].setActionB(4);b[1].setActionB(5);b[2].setActionB(6);
       setReturnButtonAction(0);
     }
+    for (Bouton bouton : b ) { //remove desc & selected if it's need
+      bouton.updateSelected();
+    }
   }
   /***
   *{@summary Update action of the menu buttons.}<br>

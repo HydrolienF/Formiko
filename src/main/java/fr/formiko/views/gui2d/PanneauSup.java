@@ -75,13 +75,8 @@ public class PanneauSup extends Panneau{
     addMouseMotionListener(new MouseAdapter() {
       @Override
       public void mouseMoved(MouseEvent e) {
-        //Temps.pause(10);
         CCase cc = getCCase(e);
-        if(cc==null){getView().getPb().setDesc("");cc2=null;return;}
-        if(cc2==null || !cc2.getContent().equals(cc.getContent())){//si la case a changé.
-          cc2=new CCase(cc.getContent());
-          getView().setLookedCCase(cc);
-        }
+        mouseMovedUpdate(cc);
       }
     });
   }
@@ -105,9 +100,12 @@ public class PanneauSup extends Panneau{
     //do nothing
   }
   public CCase getCCase(MouseEvent e){
+    return getCCase(e.getX(), e.getY());
+  }
+  public CCase getCCase(int x, int y){
     int tc = getView().getPc().getTailleDUneCase();
-    int cx = e.getX()/tc;
-    int cy = e.getY()/tc;
+    int cx = x/tc;
+    int cy = y/tc;
     try {
       return Main.getGc().getCCase(cx+getView().getPc().getPosX(),cy+getView().getPc().getPosY());
     }catch (Exception e2) {
@@ -127,6 +125,13 @@ public class PanneauSup extends Panneau{
       return getView().getPd().clicEn(e.getX(),e.getY());
     }catch (Exception e2) {
       return false;
+    }
+  }
+  public void mouseMovedUpdate(CCase cc){
+    if(cc==null){getView().getPb().setDesc("");cc2=null;return;}
+    if(cc2==null || !cc2.getContent().equals(cc.getContent())){//si la case a changé.
+      cc2=new CCase(cc.getContent());
+      getView().setLookedCCase(cc);
     }
   }
 }
