@@ -63,7 +63,7 @@ public class Bouton extends JButton implements MouseListener{
     // if (p!=null) {
     //   this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.
     // }
-    this.setFont(Main.getFont1());
+    // this.setFont(Main.getFont1());
     setCFond(Main.getData().getButtonColor());
     setForeground(Color.BLACK);
     super.setBackground(cFond);

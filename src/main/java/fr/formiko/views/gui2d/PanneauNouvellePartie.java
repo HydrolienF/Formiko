@@ -82,8 +82,8 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     add(jtf);
     casesNuageuses = new JCheckBox();
     casesSombres = new JCheckBox();
-    casesNuageuses.setFont(Main.getFont1());
-    casesSombres.setFont(Main.getFont1());
+    // casesNuageuses.setFont(Main.getFont1());
+    // casesSombres.setFont(Main.getFont1());
     casesNuageuses.setText(g.getM("casesNuageuses"));
     casesSombres.setText(g.getM("casesSombres"));
     casesNuageuses.setBackground(new Color(0,0,0,0));

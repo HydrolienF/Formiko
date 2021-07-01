@@ -25,6 +25,7 @@ import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.View;
 
+import java.awt.Font;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,6 +33,7 @@ import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.RepaintManager;
+import javax.swing.UIManager;
 
 /**
  *{@summary View Graphics User Interface in 2 dimention.}<br>
@@ -86,6 +88,7 @@ public class ViewGUI2d implements View {
     Main.startCh();
     if(f!=null) {f.dispose();}
     f = new Fenetre();
+    iniFont();
     iniThTriche();
     Main.getData().setImageIniForNewGame(false);//force reload of ant images.
     Main.endCh("iniView");Main.startCh();
@@ -578,6 +581,25 @@ public class ViewGUI2d implements View {
     if(getPb()!=null && getPb().isVisible()){
       erreur.info("pb : "+getPb());
     }
+  }
+  /**
+  *{@summary ini font at default value for all graphics components.}<br>
+  *@version 2.2
+  */
+  private void iniFont(){
+    // UIManager.getLookAndFeelDefaults().put("defaultFont", Main.getFont1());
+    // public static void setUIFont (javax.swing.plaf.FontUIResource f){
+    Font f = Main.getOp().getFont1();
+    java.util.Enumeration keys = UIManager.getDefaults().keys();
+    while (keys.hasMoreElements()) {
+      Object key = keys.nextElement();
+      Object value = UIManager.get (key);
+      if (value instanceof javax.swing.plaf.FontUIResource){
+        UIManager.put (key, f);
+      }
+    }
+    // UIManager.getLookAndFeelDefaults().put("defaultFont", new Font("Arial", Font.BOLD, 14));
+    // setForeground(Color.BLACK);
   }
 }
 
