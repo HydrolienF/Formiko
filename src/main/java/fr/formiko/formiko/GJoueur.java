@@ -152,12 +152,12 @@ public class GJoueur implements Serializable{
       fin = fin.getSuivant();
     }
   }
-  public void retirer(Joueur j){
+  public void remove(Joueur j){
     if (début != null){
       if(début.getContent() == j){
         début = début.getSuivant();
       }else {
-        début.retirer(j);
+        début.remove(j);
       }
     }
     erreur.erreur("Le joueur "+j.getId()+" n'as pas pue être retiré");

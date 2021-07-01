@@ -116,7 +116,7 @@ public class GCreature implements Serializable{//, Iterator{
     while (gcr.getHead() != null){
       Fourmi fTest = (Fourmi) gcr.getHead().getContent();
       if (fTest.getPropreté() < 90) {
-        gcr.retirer(gcr.getHead().getContent());
+        gcr.remove(gcr.getHead().getContent());
       }else{
         break;
       }
@@ -344,7 +344,7 @@ public class GCreature implements Serializable{//, Iterator{
   */
   public void remove(Creature c) {
     if(c==null){ throw new NullItemException();}
-    if(début == null){ throw new EmptyListException("GCreature","retirer la Creature "+c.getId());}//erreur.erreur("Aucune créature n'as pu être retirer car GCreature est vide","GCreature.retirer",true); return;}
+    if(début == null){ throw new EmptyListException("GCreature","remove la Creature "+c.getId());}//erreur.erreur("Aucune créature n'as pu être remove car GCreature est vide","GCreature.remove",true); return;}
     if(début.getContent().equals(c)){
       if(fin.getContent().equals(c)){
         début = null; fin = null; // on retire la seule créature
@@ -353,14 +353,14 @@ public class GCreature implements Serializable{//, Iterator{
       }
       return;
     }
-    début.retirer(c);
+    début.remove(c);
     fin = début;
     while(fin.getSuivant() != null){
       fin = fin.getSuivant();
     }
     // actualiserFin();
   }
-  public void retirer(Creature c){remove(c);}
+  // public void remove(Creature c){remove(c);}
   public void delete(Creature c){remove(c);}
   public void afficheToiE() throws EmptyListException{
     if(début==null){

@@ -395,7 +395,7 @@ public class Partie implements Serializable{
     i.setNourritureFournie(200);
     i.setEstMort(false);
     i.setType(8);
-    getGi().addInsecte(i);
+    getGi().add(i);
     // ths.start();
   }
   /**

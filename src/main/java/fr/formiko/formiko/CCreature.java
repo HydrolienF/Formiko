@@ -92,12 +92,12 @@ public class CCreature implements Serializable{
     }
     return gcr;
   }
-  public void retirer(Creature c) {
+  public void remove(Creature c) {
     if (suivant == null){ throw new ListItemNotFoundException("Creature",c.getId());}
     if (suivant.getContent().equals(c)){
       suivant = suivant.getSuivant(); return;
     }
-    suivant.retirer(c);
+    suivant.remove(c);
   }
   public void afficheToi(){
     int x = 0;
@@ -118,7 +118,7 @@ public class CCreature implements Serializable{
       try {
         suivant.afficheTout();
       }catch (Exception e) {
-        erreur.erreur("impossible de retirer cet éléments pour cause de stack OverFlow",true);
+        erreur.erreur("impossible de remove cet éléments pour cause de stack OverFlow",true);
       }
     }
   }

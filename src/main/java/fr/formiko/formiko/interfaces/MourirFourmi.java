@@ -62,7 +62,7 @@ public class MourirFourmi implements Serializable, Mourir {
    */
   private void deleteFromGame(Fourmi f){
     f.getFere().nbrFourmisMortePlus1();
-    f.getCCase().getContent().getGc().retirer(f);
-    f.getFere().getGc().retirer(f);
+    f.getCCase().getContent().getGc().remove(f);
+    f.getFere().getGc().remove(f);
   }
 }

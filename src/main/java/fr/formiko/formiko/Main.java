@@ -89,7 +89,7 @@ public class Main {
       while(args.length > k){//si il y a des options a "-"
         if(args[k] != null && args[k].length()>1 && args[k].substring(0,1).equals("-")){
           launchOptions.launchOptionsMinor(args[k].substring(1));
-          args = tableau.retirer(args, k);
+          args = tableau.remove(args, k);
         }else{
           k++;
         }
@@ -453,8 +453,8 @@ public class Main {
       int x2 = math.min( getGc().getNbrDeCase()/20, nbrDInsecteRestant);
       String s = g.get("SpawnOf")+" "+x2+" "+g.get("insecte")+g.get("s");
       new Message(s);
-      getGi().addInsecte((x2*9)/10); //les insectes vivants n'apparaissent pas sur des cases déja occupé.
-      getGi().addInsecte(x2/10);
+      getGi().add((x2*9)/10); //les insectes vivants n'apparaissent pas sur des cases déja occupé.
+      getGi().add(x2/10);
     }
   }
 

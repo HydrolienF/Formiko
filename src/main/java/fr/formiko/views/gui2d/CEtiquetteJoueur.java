@@ -52,12 +52,12 @@ public class CEtiquetteJoueur {
       cej=cej.getSuivant();
     }
   }
-  public void retirer(int idX){
+  public void remove(int idX){
     CEtiquetteJoueur cej = this;
     while(cej.getSuivant()!=null){
       if(cej.getSuivant().getContent().getId()==idX){cej.setSuivant(cej.getSuivant().getSuivant());break;} //on saute un mayon.
       cej=cej.getSuivant();
     }
-    if(cej==null){ erreur.erreur("impossible de retirer l'élément "+idX+" du GEtiquetteJoueur spécifié.");}
+    if(cej==null){ erreur.erreur("impossible de remove l'élément "+idX+" du GEtiquetteJoueur spécifié.");}
   }
 }

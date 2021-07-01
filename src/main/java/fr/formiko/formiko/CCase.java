@@ -226,28 +226,28 @@ public class CCase implements Serializable{
     GInsecte gir = getGi();
     //if (nbrDeCaseVoisine() != 4){ debug.débogage("La detection des insecte ne marche pas car trop proche de la bordure de la carte");return gir;}
     try {
-      gir.addGi(droite.getGi());
+      gir.addList(droite.getGi());
     }catch (Exception e) {}
     try {
-      gir.addGi(haut.getGi());
+      gir.addList(haut.getGi());
     }catch (Exception e) {}
     try {
-      gir.addGi(bas.getGi());
+      gir.addList(bas.getGi());
     }catch (Exception e) {}
     try {
-      gir.addGi(gauche.getGi());
+      gir.addList(gauche.getGi());
     }catch (Exception e) {}
     try {
-      gir.addGi(gauche.getHaut().getGi());
+      gir.addList(gauche.getHaut().getGi());
     }catch (Exception e) {}
     try {
-      gir.addGi(gauche.getBas().getGi());
+      gir.addList(gauche.getBas().getGi());
     }catch (Exception e) {}
     try {
-      gir.addGi(droite.getHaut().getGi());
+      gir.addList(droite.getHaut().getGi());
     }catch (Exception e) {}
     try {
-      gir.addGi(droite.getBas().getGi());
+      gir.addList(droite.getBas().getGi());
     }catch (Exception e) {}
     return gir;
   }

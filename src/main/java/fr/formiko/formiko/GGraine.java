@@ -86,7 +86,7 @@ public class GGraine implements Serializable{
     }
   }
   public void retirerGraine(int i){
-    if (this.début == null){ erreur.alerte("Impossible de retirer i d'un groupe de Graine null"); return;}
+    if (this.début == null){ erreur.alerte("Impossible de remove i d'un groupe de Graine null"); return;}
     if(début.getContent().getId()==i){
       retirerGraine(début.getContent());
     }else{
@@ -96,10 +96,10 @@ public class GGraine implements Serializable{
   public void retirerGraine(Graine i){
     debug.débogage("Suppression de : "+i.getId());
     if (i == null){
-      erreur.alerte("Impossible de retirer null d'un groupe de Graine");
+      erreur.alerte("Impossible de remove null d'un groupe de Graine");
     }
     if (début == null){
-      erreur.alerte("Impossible de retirer une Graine d'un groupe vide.");
+      erreur.alerte("Impossible de remove une Graine d'un groupe vide.");
     }else if (début.getContent().equals(i)){ // Si c'est le 1a
       début = début.getSuivant(); // On en retir 1.
       debug.débogage("début = début.getSuivant();");
@@ -108,7 +108,7 @@ public class GGraine implements Serializable{
     }else {
       début.retirerGraine(i);
     }
-  }public void retirer(Graine i){ retirerGraine(i);}
+  }public void remove(Graine i){ retirerGraine(i);}
   public GGraine copierGGraine(){
     if(début==null){ return new GGraine();}
     return début.copierGGraine();

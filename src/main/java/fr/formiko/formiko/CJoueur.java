@@ -108,13 +108,13 @@ public class CJoueur implements Serializable{
       }
     }
   }
-  public void retirer(Joueur j){
+  public void remove(Joueur j){
     if (suivant == null){
       erreur.erreur("Le joueur "+j.getId()+" n'as pas pue être retiré");
     } else if( suivant.getContent()==j){
       suivant = suivant.getSuivant();
     }else{
-      suivant.retirer(j);
+      suivant.remove(j);
     }
   }
   public void jouer(){

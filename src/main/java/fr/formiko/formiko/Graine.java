@@ -47,7 +47,7 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   */
   public void setCCase(CCase newCCase){
     if(this.ccase!=null){
-      this.ccase.getContent().getGg().retirer(this);
+      this.ccase.getContent().getGg().remove(this);
     }
     this.ccase = newCCase;
     if(newCCase!=null){

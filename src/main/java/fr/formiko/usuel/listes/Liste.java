@@ -21,6 +21,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   private void setHead(Node<T> node){head=node;}
   public Node<T> getTail(){return tail;}
   private void setTail(Node<T> node){tail=node;}
+  public T getFirst(){if(getHead()!=null){return getHead().getContent();}else{return null;}}
   public T getLast(){if(getTail()!=null){return getTail().getContent();}else{return null;}}
   // FUNCTIONS -----------------------------------------------------------------
   /**

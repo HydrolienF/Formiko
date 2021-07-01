@@ -42,7 +42,7 @@ public class modificationDeFichier {
 
   //fonctionnement interne.
   private static int retirerLesLignesDuFichier(String s, String f, int nbrARetire, byte dmft){
-    if(nbrARetire <0){erreur.erreur("Impossible de retirer un nombre négatif de ligne d'un fichier");return 0;}
+    if(nbrARetire <0){erreur.erreur("Impossible de remove un nombre négatif de ligne d'un fichier");return 0;}
     GString gs = lireUnFichier.lireUnFichierGs(f);
     if(nbrARetire==0){nbrARetire=gs.length();}//si c'est 0 on retirera autant de lignes que néssésaire
     int k=0;

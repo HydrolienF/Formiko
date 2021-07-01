@@ -42,9 +42,9 @@ public class ChasseInsectivore implements Serializable, Chasse {
     if (c.getCCase().getContent().getGi().getHead() != null){ // Si il y a un insecte sur la même case
       chasse(c);
     }else if (proieVisible.getHead() != null){ // Si il y a un insecte a coté
-      CCase pointDeLaProie = proieVisible.getHead().getInsecte().getCCase();
+      CCase pointDeLaProie = proieVisible.getFirst().getCCase();
       if (Main.getDifficulté() >= 1 || (c instanceof Fourmi && c.getIa()==false)){ // en normal les ia chasse les insectes les plus intéressants sur la case ou elle sont.
-        pointDeLaProie = proieVisible.getHead().getInsectePlusDeNourritureFournie().getCCase();
+        pointDeLaProie = proieVisible.getInsectePlusDeNourritureFournie().getCCase();
       }
       debug.débogage(g.getM("laFourmi")+" " + c.getId()+ " "+g.get("ChasseInsectivore.1")+" " + pointDeLaProie.getPoint());
       c.ceDeplacer(pointDeLaProie);
@@ -73,7 +73,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
       if (Main.getDifficulté() >= 0 || ((c instanceof Fourmi) && ((Fourmi)c).getFere().getJoueur().getIa()==false)){ // en normal les ia chasse les insectes les plus intéressants sur la case ou elle sont.
         insecteTue = gi.getInsectePlusDeNourritureFournie();
       }else{
-        insecteTue = gi.getHead().getContent();
+        insecteTue = gi.getFirst();
       }
       tuer(insecteTue);
       if(!canHuntMore()){return false;}
@@ -88,7 +88,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
    * @version 1.1
    */
   public GInsecte getProie(){
-    //TODO on dervrais plutot faire un GCreature pour pouvoir inclure des Fourmis et potentiellement retirer des insectes.
+    //TODO on dervrais plutot faire un GCreature pour pouvoir inclure des Fourmis et potentiellement remove des insectes.
     return c.getCCase().getGi(1); // 1 est le rayon du cercle de case pris en compte.
   }
   /**

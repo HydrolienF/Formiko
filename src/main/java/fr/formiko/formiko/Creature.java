@@ -119,7 +119,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   @Override
   public void setCCase(CCase newCCase){
     if(this.ccase!=null){
-      this.ccase.getContent().getGc().retirer(this);
+      this.ccase.getContent().getGc().remove(this);
     }
     this.ccase = newCCase;
     if(newCCase!=null){
@@ -274,7 +274,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     //if(!e.getPolycalique()){return new GCreature();}//pris en compte par la diff phéromonale tolléré
     GCreature gc = getAlliéSurLaCase();
     try {
-      gc.retirer(this);
+      gc.remove(this);
     }catch (Exception e) {}
     return gc;
   }

@@ -110,7 +110,7 @@ public class tableau <T>{
   }
   //String
   //Retire
-  public static String [] retirer (String t[], int i){
+  public static String [] remove (String t[], int i){
     int lentr = t.length-1;
     if (i<0 || i>t.length) {
       erreurPosition(i);
@@ -125,11 +125,11 @@ public class tableau <T>{
       //System.out.println("On garde " + tr[j-1]);
     }
     return tr;
-  }//public static String [] retire(String t[], int i){retirer(t,i);}
+  }//public static String [] retire(String t[], int i){remove(t,i);}
 
   public static String [] retirerX (String t[], String x){
     int lent = t.length;
-    // On  compte le nombre de x a retirer
+    // On  compte le nombre de x a remove
     int k=0;
     for (int i=0;i<lent ;i++ ) {
       if (x.equals(t[i])){ k++;}
@@ -201,7 +201,7 @@ public class tableau <T>{
 
   public static int [] retirerX (int t[], int x){
     int lent = t.length;
-    // On  compte le nombre de x a retirer
+    // On  compte le nombre de x a remove
     int k=0;
     for (int i=0;i<lent ;i++ ) {
       if (x == t[i]){ k++;}
@@ -275,7 +275,7 @@ public class tableau <T>{
 
   public static byte [] retireX (byte t[], byte x){
     int lent = t.length;
-    // On  compte le nombre de x a retirer
+    // On  compte le nombre de x a remove
     byte k=0;
     for (byte i=0;i<lent ;i++ ) {
       if (x == t[i]){ k++;}

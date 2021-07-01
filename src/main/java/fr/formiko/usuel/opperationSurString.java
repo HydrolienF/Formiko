@@ -28,7 +28,7 @@ public class opperationSurString{
     return sr;
   }
   public static String retirerChar(String s, char tc[]){
-    // permet de retirer tt les char contenue dans tc de la String s.
+    // permet de remove tt les char contenue dans tc de la String s.
     int lens = s.length();
     String sr = "";
     for (int i=0;i<lens ;i++ ) { // on copie uniquement les chars autorisé.

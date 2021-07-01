@@ -146,7 +146,7 @@ public class EtiquetteJoueur extends Panneau{
         }else if(combo.getItemAt(2).equals(e.getItem())){
           //if(ej.equals(pnp.getGej().getTail().getContent())){}
           ouvert=false;
-          pnp.getGej().retirer(ej);
+          pnp.getGej().remove(ej);
           pnp.rafraichirPgej();
           //on retire l'EtiquetteJoueur.
           //Main.getPnp().get...
