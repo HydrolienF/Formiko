@@ -47,9 +47,9 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
     f1.setNourriture(f1.getNourriture()-nourritureDonnée);
     c2.setNourriture(c2.getNourriture()+nourritureDonnée);
     if(nourritureDonnée>0){
-      f1.setActionMoins(f1.getEspece().getGIndividu().getIndividuParType(((Fourmi) c).getTypeF()).getCoutTrophallaxie());
+      f1.setActionMoins(f1.getEspece().getGIndividu().getIndividuByType(((Fourmi) c).getTypeF()).getCoutTrophallaxie());
       if(c2 instanceof Fourmi){
-        c2.setActionMoins(f1.getEspece().getGIndividu().getIndividuParType(((Fourmi) c).getTypeF()).getCoutTrophallaxie());
+        c2.setActionMoins(f1.getEspece().getGIndividu().getIndividuByType(((Fourmi) c).getTypeF()).getCoutTrophallaxie());
       }else{
         c2.setActionMoins(1);
       }

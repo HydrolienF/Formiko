@@ -67,8 +67,8 @@ public class Espece implements Serializable{
   public int getNbrDIndividuMax(){ return nbrDIndividuMax;}
   public GIndividu getGIndividu(){ return giu;}
   public void setGIndividu(GIndividu giu){ this.giu = giu;}
-  public int [] getTypeDIndividu(){ return giu.getTypeDIndividu();}
-  public Individu getIndividuParType(int typeF){ return giu.getIndividuParType(typeF);}
+  public int [] getAviableType(){ return giu.getAviableType();}
+  public Individu getIndividuByType(int typeF){ return giu.getIndividuByType(typeF);}
   public String getNom(){
     if(nom.equals("x")){return ""+getId();}
     return nom;

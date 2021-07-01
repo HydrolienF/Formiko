@@ -25,7 +25,7 @@ public class EspeceTest extends TestCaseMuet{
     return f;
   }
   @Test
-  public void testGetIndividuParType(){
+  public void testgetIndividuByType(){
     Fourmi f = ini();
     assertEquals(0,f.getTypeF());
     assertEquals(8,(int)(f.getIndividu().getTaille()));

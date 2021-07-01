@@ -31,7 +31,7 @@ public interface Chasse extends Serializable{
    */
   public default void setActionMoins(Creature c){
     if(c instanceof Fourmi){
-      c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuParType(((Fourmi) c).getTypeF()).getCoutChasse()/2);
+      c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuByType(((Fourmi) c).getTypeF()).getCoutChasse()/2);
     }else{
       c.setActionMoins(10);
     }

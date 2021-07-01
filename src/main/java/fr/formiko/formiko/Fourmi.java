@@ -51,7 +51,7 @@ public class Fourmi extends Creature implements Serializable{
   // /!\ Ant need to be add to the Fourmiliere after that.
   public Fourmi(Fourmiliere fere, Espece e, byte ty){ // arrivé d'un oeuf.
     // on devrais fixer l'age max en fonction de la difficulté la aussi
-    super(fere.getCc(),0,e.getGIndividu().getIndividuParType(ty).getAgeMax(0),0);
+    super(fere.getCc(),0,e.getGIndividu().getIndividuByType(ty).getAgeMax(0),0);
     typeF = ty; this.e = e; this.fere = fere; stade = (byte)-3; propreté = (byte) 100;
     iniPheromone();
     // a modifier a partir des individus quand duretée sera un paramètre. OU alors on dit que duretéMax est fixe en fonction des individus. Genre les gros casse tout, les moyen jusqu'a 60 et les petit jusqu'a 20.
@@ -116,7 +116,7 @@ public class Fourmi extends Creature implements Serializable{
   public int getX(){return getCCase().getContent().getX();}
   public int getY(){return getCCase().getContent().getY();}
   public void setNourritureMoinsConsomNourriture(){ setNourriture(getNourriture()-getNourritureConso());}
-  public Individu getIndividu(){ return e.getIndividuParType(typeF);}
+  public Individu getIndividu(){ return e.getIndividuByType(typeF);}
   public boolean getTropDeNourriture(){if(getNourriture()*1.1>getNourritureMax()){ return true;} return false;}
   @Override
   public boolean getFemelle(){ return typeF!=1;}// c'est une femmelle si ce n'est pas un male.
@@ -168,7 +168,7 @@ public class Fourmi extends Creature implements Serializable{
   public int getAgeMaxIndividu(int especeTempId, int stadeTemp){ // b vas de -3 oeuf a 0 imago
     Individu in2;
     if(especeTempId!=100){
-      in2 = e.getIndividuParType(especeTempId);
+      in2 = e.getIndividuByType(especeTempId);
     }else{
       in2 = getIndividu();
     }

@@ -322,7 +322,7 @@ public class Main {
     endCh("chargementDesDonnéesTemporelles");
     setMessageChargement("chargementDesEspeceDeFourmi");startCh();
     Partie.iniGe(); // chargement des Especes.
-    GIndividu.chargerLesIndividus(); // chargement de leur individu.
+    GIndividu.loadIndividus(); // chargement de leur individu.
     endCh("chargementDesIndividuDeFourmi");startCh();
     Insecte.setGie(); // chargement des Insectes.
     endCh("chargementDesEspeceDInsecte");
