@@ -44,7 +44,9 @@ public class Bouton extends JButton implements MouseListener{
   protected boolean withBackground;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Bouton(String str, Panneau p, int action, Image imag){
-    super();id=cpt; cpt++;setBorderPainted(false);setOpaque(false);
+    super();id=cpt; cpt++;
+    // setBorderPainted(false);
+    setOpaque(false);
     img = imag; String s = "non null"; if(imag==null){ s="null";}
     debug.débogage("Création du bouton "+str+" avec une image "+s);
     this.nom = str; this.p = p; this.action = action;
@@ -55,9 +57,12 @@ public class Bouton extends JButton implements MouseListener{
     setFocusPainted(false); //Diasble paint swap to next button when do tab.
     setCFondUseAlpha(false);
     withBackground=false;
+    setBorder(new FBorder());
   }
   public Bouton(String str, Panneau p, int action){
-    super(str);id=cpt; cpt++;setBorderPainted(false);setOpaque(false);
+    super(str);id=cpt; cpt++;
+    // setBorderPainted(false);
+    setOpaque(false);
     debug.débogage("Création du bouton "+str);
     this.nom = str; this.p = p; this.action = action;
     this.addMouseListener(this);
@@ -73,6 +78,7 @@ public class Bouton extends JButton implements MouseListener{
     setCFondUseAlpha(true);
     setText(nom);
     withBackground=true;
+    setBorder(new FBorder());
   }
   // GET SET --------------------------------------------------------------------
   public String getNom(){ return nom;}
@@ -124,7 +130,14 @@ public class Bouton extends JButton implements MouseListener{
     }
     if(img==null){setText(nom);}
     else{g2d.drawImage(this.img,0,0, null);}
-    if(bordure){paintBorder(g2d);}
+    if(bordure){
+      try {
+        ((FBorder)getBorder()).setColor(new Color(cFond.getRed(), cFond.getGreen(), cFond.getBlue()));
+      }catch (Exception e) {
+        erreur.alerte("can't set border color");
+      }
+      // paintBorder(g2d);
+    }
     super.paintComponent(g);
   }
   /**
