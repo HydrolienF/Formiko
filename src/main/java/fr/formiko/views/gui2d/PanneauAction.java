@@ -41,7 +41,7 @@ public class PanneauAction extends Panneau {
   public void build(){
     if(nbrDeBouton > nbrDeBoutonMax){ erreur.erreur("impossible d'afficher tant de boutons");}
     Dimension dim = new Dimension(tailleBouton, tailleBouton);
-    this.setLayout(new GridBagLayout());
+    setLayout(new GridBagLayout());
     tB = new Bouton [nbrDeBouton]; // pour l'instant le bouton 10 n'as pas d'images.
     Main.getData().chargerTIPanneauAction();//ne ce lance que si néssésaire.
     for (int i=0;i<nbrDeBouton ;i++ ) { // seul les bouton mentionné dans t sont créé.
@@ -56,7 +56,9 @@ public class PanneauAction extends Panneau {
     gbc.gridy = 0;
     for (int i=0;i<nbrDeBouton ;i++ ) {
       gbc.gridx = i;
-      this.add(tB[i],gbc);
+      add(tB[i],gbc);
+      //TODO use FBorder
+      // tB[i].getFBorder().setColor(Main.getData().getButonBorderColor());
     }
   }
   // GET SET --------------------------------------------------------------------

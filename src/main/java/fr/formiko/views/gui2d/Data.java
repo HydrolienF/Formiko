@@ -73,6 +73,7 @@ public class Data {
   private Color buttonColorWithoutAlpha = new Color(81, 252, 0);
   private Color buttonDisableColorWithoutAlpha = new Color(56, 56, 56);
   private Color buttonFocusColorWithoutAlpha = new Color(248, 152, 29);
+  private Color butonBorderColor = new Color(19, 161, 14);
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   /**
@@ -112,6 +113,7 @@ public class Data {
   public Color getButtonColorWithoutAlpha(){return buttonColorWithoutAlpha;}
   public Color getButtonDisableColorWithoutAlpha(){return buttonDisableColorWithoutAlpha;}
   public Color getButtonFocusColorWithoutAlpha(){return buttonFocusColorWithoutAlpha;}
+  public Color getButonBorderColor() {return butonBorderColor;}
   // Fonctions propre -----------------------------------------------------------
   /**
   *{@summary Return an array with all images use to draw an ant.}<br>

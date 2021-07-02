@@ -109,6 +109,9 @@ public class Bouton extends JButton implements MouseListener{
   }
   public boolean getWithBackground(){return withBackground;}
   public void setWithBackground(boolean b){withBackground=b;}
+  public FBorder getFBorder(){
+    return (FBorder)getBorder();
+  }
   // Fonctions propre ----------------------------------------------------------
   /**
   *{@summary To draw component.}<br>

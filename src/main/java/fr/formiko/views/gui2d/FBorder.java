@@ -45,5 +45,6 @@ public class FBorder extends AbstractBorder {
     BasicStroke ligne = new BasicStroke(thickness);
     g2d.setStroke(ligne);
     g2d.drawRect( 0, 0, c.getWidth(), c.getHeight());
+    //TODO #399 use cuve to do different Border cf https://docs.oracle.com/en/java/javase/16/docs/api/java.desktop/java/awt/geom/Path2D.Double.html#curveTo(double,double,double,double,double,double)
   }
 }
