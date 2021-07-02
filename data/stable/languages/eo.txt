@@ -177,9 +177,9 @@ I7:ĉenilo
 I8:onisko
 I9:formiko[auto]
 
-choixCarte:elekto de la mapo
-choixDif:elekto de la malfacilaĵo
-choixVitesseDeJeu:elekto de ludrapideco
+choixCarte:Mapo
+choixDif:Malfacilaĵo
+choixVitesseDeJeu:Ludrapideco
 
 aPourCoordonnées:havas por koordinatoj
 contient:enhavi

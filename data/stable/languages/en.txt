@@ -177,9 +177,9 @@ I7:chenille[auto]
 I8:woodlouse[auto]
 I9:ant[auto]
 
-choixCarte:card choice
-choixDif:difficulty choice
-choixVitesseDeJeu:game speed choice
+choixCarte:map
+choixDif:difficulty
+choixVitesseDeJeu:game speed
 
 aPourCoordonnées:has for coordinates[auto]
 contient:contain

@@ -177,9 +177,9 @@ I7:chenille
 I8:cloporte
 I9:fourmilion
 
-choixCarte:choix de la carte
-choixDif:choix de la difficulté
-choixVitesseDeJeu:choix de la vitesse de jeu
+choixCarte:Carte
+choixDif:Difficulté
+choixVitesseDeJeu:Vitesse de jeu
 
 aPourCoordonnées:a pour coordonnées
 contient:contient
