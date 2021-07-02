@@ -133,6 +133,7 @@ public class Bouton extends JButton implements MouseListener{
   *@version 1.54
   */
   public void paintBorder(Graphics2D g){
+    //TODO #398 move to FBorder.
     g.setColor(new Color(cFond.getRed(),cFond.getGreen(),cFond.getBlue()));
     byte x = Main.getBordureBouton();
     if(x<1){return;}

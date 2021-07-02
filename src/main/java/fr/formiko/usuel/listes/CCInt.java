@@ -1,7 +1,6 @@
 package fr.formiko.usuel.listes;
 
 //def par défaut des fichiers depuis 0.79.5
-import javax.swing.JComboBox;
 import java.io.Serializable;
 
 public class CCInt implements Serializable{

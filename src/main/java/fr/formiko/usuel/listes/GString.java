@@ -4,9 +4,9 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.types.str;
+import fr.formiko.views.gui2d.FComboBox;
 
 import java.io.Serializable;
-import javax.swing.JComboBox;
 
 /**
 *{@summary Custom String Linked Liste class.}<br>
@@ -32,12 +32,12 @@ public class GString extends Liste<String> implements Serializable {
   // Fonctions propre -----------------------------------------------------------
   //equals is in Liste
   /**
-  *{@summary Return a JComboBox with all the String in it.}<br>
+  *{@summary Return a FComboBox with all the String in it.}<br>
   *@param x the default select item.
   *@version 1.41
   */
-  public JComboBox<String> getComboBox(int x){
-    JComboBox<String> cb = new JComboBox<String>();
+  public FComboBox<String> getComboBox(int x){
+    FComboBox<String> cb = new FComboBox<String>();
     for (String s : this ) {
       cb.addItem(s);
     }
@@ -51,11 +51,11 @@ public class GString extends Liste<String> implements Serializable {
     return cb;
   }
   /***
-  *{@summary Return a JComboBox with all the String in it.}<br>
+  *{@summary Return a FComboBox with all the String in it.}<br>
   *1a item is selected.
   *@version 1.41
   */
-  public JComboBox<String> getComboBox(){ return getComboBox(0);}
+  public FComboBox<String> getComboBox(){ return getComboBox(0);}
   /**
   *{@summary Return the translation key for s.}<br>
   *If it fail it return null.<br>

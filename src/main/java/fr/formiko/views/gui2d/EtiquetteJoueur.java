@@ -15,7 +15,6 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 public class EtiquetteJoueur extends Panneau{
@@ -23,7 +22,7 @@ public class EtiquetteJoueur extends Panneau{
   private Champ dsc;
   private boolean ia;
   private boolean ouvert;
-  private ComboBox<String> combo;
+  private FComboBox<String> combo;
   private Champ couleur;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public EtiquetteJoueur(String s, Boolean b){
@@ -38,7 +37,7 @@ public class EtiquetteJoueur extends Panneau{
     is2.setEj(this);
     add(dsc);
     String[] tab = {g.getM("joueur"), g.getM("ia"), g.getM("fermé")};
-    combo = new ComboBox<String>(tab);
+    combo = new FComboBox<String>(tab);
     couleur=new Champ();
     couleur.setFondTransparent();
     couleur.setBorder(null);
@@ -127,7 +126,7 @@ public class EtiquetteJoueur extends Panneau{
   }
 
   //Classe interne implémentant l'interface ItemListener
-  class ItemState implements ItemListener{
+  class ItemState implements ItemListener {
     public EtiquetteJoueur ej;
     public void itemStateChanged(ItemEvent e) {
       debug.débogage("événement déclenché sur : " + e.getItem());
@@ -160,7 +159,7 @@ public class EtiquetteJoueur extends Panneau{
     }
     public void setEj(EtiquetteJoueur ejTemp){ ej=ejTemp;}
   }
-  class ItemState2 implements KeyListener{
+  class ItemState2 implements KeyListener {
     public EtiquetteJoueur ej;
     public void keyReleased(KeyEvent e) {
       getView().getPnp().getPGej().repaint();

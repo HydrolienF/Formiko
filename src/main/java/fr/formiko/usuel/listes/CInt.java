@@ -5,7 +5,6 @@ import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.usuel.erreur;
 
 import java.io.Serializable;
-import javax.swing.JComboBox;
 
 public class CInt implements Serializable{
   private CInt suivant, précédent;

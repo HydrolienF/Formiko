@@ -8,8 +8,9 @@ import fr.formiko.usuel.erreur;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import javax.swing.JLabel;
 import java.awt.Graphics;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 public class Desc extends JLabel{
   // CONSTRUCTEUR ---------------------------------------------------------------
@@ -50,6 +51,8 @@ public class Desc extends JLabel{
   public void setPolice(){ setPolice(Main.getFont1());}
   public void setBounds(int a, int b, int c){this.setBounds(a,b,c,getDimY());}
   public static int getDimY(){ return (int)(Main.getOp().getTaillePolice1()*1.2);}
+  public void setCentered(){setHorizontalAlignment(SwingConstants.CENTER);}
+  public void setSize(int w){setSize(w,getDimY());}
   // Fonctions propre -----------------------------------------------------------
   // @Override
   // public void paintComponent(Graphics g){

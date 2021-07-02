@@ -10,10 +10,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import javax.swing.JComboBox;
 
 public class EtiquetteChoix extends Panneau{
-  private JComboBox<String> choixX;
+  private FComboBox<String> choixX;
   private Desc choixXDesc;
   private int k;
   private Color cFond;
@@ -39,7 +38,7 @@ public class EtiquetteChoix extends Panneau{
   // GET SET --------------------------------------------------------------------
   public String getSelectedItem(){ return choixX.getSelectedItem()+"";}
   public int getSelectedIndex(){ return choixX.getSelectedIndex();}
-  public JComboBox getChoixX(){ return choixX;}
+  public FComboBox getChoixX(){ return choixX;}
   public Desc getChoixXDesc(){ return choixXDesc;}
   public void setCFond(Color c){cFond=c;}
   // Fonctions propre -----------------------------------------------------------

@@ -16,7 +16,6 @@ import java.awt.Graphics;
 import java.io.File;
 import java.text.NumberFormat;
 import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 
 public class PanneauNouvellePartie extends PanneauLanceurPartie {
@@ -25,7 +24,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
   private PanneauGEtiquetteJoueur pgej;
   private JFormattedTextField jtf;
   private Desc jtfDesc;
-  private JComboBox<String> choixCarte;
+  private FComboBox<String> choixCarte;
   private Desc choixCarteDesc;
   private JCheckBox casesNuageuses;
   private JCheckBox casesSombres;
@@ -44,6 +43,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     jl.setTexte(g.getM("paramètreCarte"));
     jl2.setTexte(g.getM("paramètreJeu"));
     jl.setFondTransparent();jl2.setFondTransparent();
+    jl.setCentered();jl2.setCentered();
     jtfDesc = new Desc();
     jtfDesc.setTexte(g.getM("nbrDeTour")+" : ");
     jtfDesc.setFondTransparent();
@@ -113,7 +113,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     int he = Main.getDimY();
     int wi2 = wi/2;
     //gauche
-    jl.setBounds(0,0,wi2);
+    jl.setSize((int)(wi2*0.9));
     int k=1; taille = jl.getHeight()*2;
     jtfDesc.setBounds(0,taille*k,wi2/2,Desc.getDimY());
     jtf.setBounds(wi2/2,taille*k,wi2/3,Desc.getDimY());k++;
@@ -128,7 +128,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     g.fillRect(wi/2,0,wi,taille);
     //droite
     int yDep=0;
-    jl2.setBounds(wi2,yDep,wi2); yDep=yDep+jl2.getHeight()*2;
+    jl2.setBounds(wi2,yDep,(int)(wi2*0.9)); yDep=yDep+jl2.getHeight()*2;
     int tailleMaxY = this.getHeight() - yDep;
     pgej.setBounds(wi2,yDep,wi2,math.max(Desc.getDimY()*3*gej.length(),tailleMaxY));
   }
