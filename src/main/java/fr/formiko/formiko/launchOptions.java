@@ -10,6 +10,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.DataBase;
 import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.listes.GString;
@@ -167,6 +168,8 @@ public class launchOptions {
     }else if(args[0].equals("updateDataVersion")){
       updateDataVersion(args);
       System.exit(0);
+    }else if(args[0].equals("mysql")){
+      connectionTestMysql();
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }
@@ -365,5 +368,16 @@ public class launchOptions {
     String version = "x.x.x";
     if(gsIn.length()>0){version = gsIn.getItem(0);}
     return version;
+  }
+  /**
+  *{@summary a connection test to the data base.}<br>
+  *@version 2.3
+  */
+  private static void connectionTestMysql(){
+    // DB db = new DB();
+    // public DataBase(String host, int port, String database, String username, String password) {
+    //TODO find a way to save the password without puting it there.
+    DataBase db = new DataBase("mysql-hydrolien.alwaysdata.net", 3306, "hydrolien_formikodb", "hydrolien", "");
+    // DataBase db = new DataBase("2a00:b6e0:1:50:1::", 3306, "hydrolien_formikodb", "hydrolien", "2S69de!KXwCVzTb");
   }
 }

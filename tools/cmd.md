@@ -51,3 +51,6 @@ ctrl alt a (Atom) avec un nom d'objet Java met dans le ctrl-c la ligne d'importe
 
 mvn compile exec:java -Dargs="tws ../HydrolienF.github.io/docs/ -p ../HydrolienF.github.io/docs/data/language"
 Lance la traduction des pages du site sur mon pc.
+
+Insérer un utilisateur dans la Base de Donnée en laissant l'id s'auto incrémenté.
+INSERT INTO user (Pseudo, Email, Password) VALUES ("hydro", "x.y@gmail.com","mdp")
