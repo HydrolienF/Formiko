@@ -141,6 +141,7 @@ public class ThMove extends Thread{
     int numberOfTic = k/(2*walkCycle);
     vectX = this.to.getX()-this.from.getX();
     vectY = this.to.getY()-this.from.getY();
+    if(vectX==0 && vectY==0){return;}
     //patch to move 1 Case max.
     if(vectX>Main.getData().getTailleDUneCase()){
       vectX=Main.getData().getTailleDUneCase();
