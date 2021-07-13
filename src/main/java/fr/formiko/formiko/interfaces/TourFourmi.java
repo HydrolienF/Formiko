@@ -87,15 +87,15 @@ public class TourFourmi implements Serializable, Tour{
     GCreature gc = f.getCCase().getContent().getGc().filtreAlliés(f).filtreFaimMax();
     try { // the Creature f may not be in it.
       gc.remove(f);
-    }catch (ListItemNotFoundException e) {
-    }catch (EmptyListException e) {}
+    }catch (ListItemNotFoundException e) {}
+    catch (EmptyListException e) {}
     Creature r = gc.getReine();
     if (r!=null && r.wantFood()) {
       return r;
     }
     GCreature gc2 = gc.filtreWantFood();
     if(gc2.getHead()!=null){
-      return gc2.getHead().getContent();
+      return gc2.getFirst();
     }
     return r; //r can be null.
   }
@@ -128,7 +128,7 @@ public class TourFourmi implements Serializable, Tour{
     }
     GCreature gc2 = gc.filtreWantClean();
     if(gc2.getHead()!=null){
-      return gc2.getHead().getContent();
+      return gc2.getFirst();
     }
     return null;
   }

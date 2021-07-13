@@ -46,25 +46,25 @@ public class CCreature implements Serializable{
     }
   }
 
-  public Creature getCouvainSale(){
-    if (suivant == null){ return null;}
-    Fourmi f = (Fourmi) suivant.getContent();
-    if (f.getPropreté() < 75){
-      return f;
-    }else{
-      return suivant.getCouvainSale();
-    }
-  }
-  public void getCouvainsSale(){
-    if (suivant == null){ return;}
-    Fourmi f = (Fourmi) suivant.getContent();
-    if (f.getPropreté() > 75){
-      suivant = suivant.getSuivant();
-      this.getCouvainsSale();
-    }else{
-      suivant.getCouvainsSale();
-    }
-  }
+  // public Creature getCouvainSale(){
+  //   if (suivant == null){ return null;}
+  //   Fourmi f = (Fourmi) suivant.getContent();
+  //   if (f.getPropreté() < 75){
+  //     return f;
+  //   }else{
+  //     return suivant.getCouvainSale();
+  //   }
+  // }
+  // public void getCouvainsSale(){
+  //   if (suivant == null){ return;}
+  //   Fourmi f = (Fourmi) suivant.getContent();
+  //   if (f.getPropreté() > 75){
+  //     suivant = suivant.getSuivant();
+  //     this.getCouvainsSale();
+  //   }else{
+  //     suivant.getCouvainsSale();
+  //   }
+  // }
   public Fourmi getFourmiParFere(Fourmiliere fere){
     if(getContent().estFourmi()){
       if(((Fourmi)(getContent())).getFere().equals(fere)){return (Fourmi)contenu;}
@@ -73,21 +73,21 @@ public class CCreature implements Serializable{
     return suivant.getFourmiParFere(fere);
   }
 
-  public int [] gcToTInt(){
-    int lentr =this.length();
-    int tr[]=new int [lentr];int k=0;
-    CCreature cc = this;
-    while(k<lentr && cc!= null){
-      tr[k]=cc.getContent().getId();k++;
-      cc=cc.getSuivant();
-    }
-    return tr;
-  }
+  // public int [] gcToTInt(){
+  //   int lentr =this.length();
+  //   int tr[]=new int [lentr];int k=0;
+  //   CCreature cc = this;
+  //   while(k<lentr && cc!= null){
+  //     tr[k]=cc.getContent().getId();k++;
+  //     cc=cc.getSuivant();
+  //   }
+  //   return tr;
+  // }
   public GCreature copier(){
     CCreature cc = this;
     GCreature gcr = new GCreature();
     while(cc!=null){
-      gcr.addFin(cc.getContent());//on ajoute seulement le contenu a chaque fois.
+      gcr.addTail(cc.getContent());//on ajoute seulement le contenu a chaque fois.
       cc=cc.getSuivant();
     }
     return gcr;

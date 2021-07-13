@@ -113,9 +113,9 @@ public class GJoueur implements Serializable{
   *@version 1.29
   */
   public void add(Joueur j){
-    addFin(j);
+    addTail(j);
   }
-  public void addFin(Joueur j){
+  public void addTail(Joueur j){
     CJoueur cj = new CJoueur(j);
     if(fin == null){
       début = cj;
@@ -133,7 +133,7 @@ public class GJoueur implements Serializable{
     if(début==null){add(j);}//le cas ou on a 0 éléments dans la liste.
     else if(début.equals(fin)){//le cas ou on a 1 seul élément dans la liste
       if(début.getContent().getScore()>=j.getScore()){
-        addFin(j);
+        addTail(j);
       }else{
         addDébut(j);
       }

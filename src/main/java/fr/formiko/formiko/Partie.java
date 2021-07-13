@@ -310,7 +310,7 @@ public class Partie implements Serializable{
     for (int i=1;i<nbrDeJoueur+1 ;i++ ) {
       Pheromone ph;
       try {
-        ph = gj.getJoueurParId(i).getFere().getGc().getHead().getContent().getPh();
+        ph = gj.getJoueurParId(i).getFere().getGc().getFirst().getPh();
       }catch (Exception e) {
         erreur.erreur("Les Pheromones de la fourmi n'ont pas put etre récupérer, il sont donc choisi aléatoirement.");
         ph = new Pheromone(127,127,127); // blanc sinon.
@@ -390,7 +390,7 @@ public class Partie implements Serializable{
     Fourmiliere fere = getGj().getHead().getContent().getFere();
     CCase ccIni = getGc().getCCase(0,1);
     fere.setCc(ccIni);
-    fere.getGc().getHead().getContent().setCCase(ccIni);
+    fere.getGc().getFirst().setCCase(ccIni);
     Insecte i = new Insecte(Main.getPartie().getGc().getCCase(1,1),0,100,0);
     i.setNourritureFournie(200);
     i.setEstMort(false);

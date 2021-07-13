@@ -113,7 +113,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   /**
   *{@summary Move the Creature from a case to an other.}<br>
   *It is used by Deplacement interfaces.<br>
-  *It wil try to remove from old CCase and add to new CCase.<br>
+  *It will try to remove from old CCase and add to new CCase.<br>
   *@version 1.40
   */
   @Override
@@ -123,11 +123,30 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     }
     this.ccase = newCCase;
     if(newCCase!=null){
+      int len = newCCase.getContent().getGc().length();//@a
       newCCase.getContent().getGc().add(this);
+      if(len!=newCCase.getContent().getGc().length()-1){
+        // THIS SHOUDN'T HAPEND !
+        System.out.println("ADD FAILLLLLLLLLLLLLLLLLLLLLLLLLLL");//@a
+        System.out.println(Thread.currentThread());
+        try {
+          int x = 0;
+          int y = 3/x;
+        }catch (Exception e) {
+          e.printStackTrace();
+        }
+        newCCase.getContent().getGc().add(this);
+        if(len!=newCCase.getContent().getGc().length()-1){
+          // THIS SHOUDN'T HAPEND !
+          System.out.println("ADD FAILLLLLLLLLLLLLLLLLLLLLLLLLLL 222222222222222222222222222222222");//@a
+        }
+      }//@a
     }
   }
-  //public void setCCase(int x, int y){setCCase(Main.getGc().getCCase(x,y));}
-  //public void setCc(CCase cc){setCCase(cc);}
+  // @Override
+  // public void setCCase(int x, int y){setCCase(Main.getGc().getCCase(x,y));}
+  // @Override
+  // public void setCc(CCase cc){setCCase(cc);}
   public Pheromone getPheromone(){ return ph;}
   public Pheromone getPh(){ return getPheromone();}
   public void setPheromone(Pheromone ph){this.ph = ph; }

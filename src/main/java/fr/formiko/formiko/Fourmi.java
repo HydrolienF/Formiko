@@ -331,7 +331,7 @@ public class Fourmi extends Creature implements Serializable{
   public void iniPheromone(){
     Fourmi reine = getReine();
     if (reine != null){ e = reine.getEspece(); ph = new Pheromone(reine.getPheromone());}
-    else if (fere.getGc().getHead() != null){ ph = new Pheromone(fere.getGc().getHead().getContent().getPheromone());}
+    else if (fere.getGc().getHead() != null){ ph = new Pheromone(fere.getGc().getFirst().getPheromone());}
     else{ ph = new Pheromone();}
   }
 }

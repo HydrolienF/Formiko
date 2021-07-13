@@ -42,6 +42,73 @@ public class CreatureTest extends TestCaseMuet{
     assertEquals(Main.getCCase(0,3), g2.getCCase());
   }
   @Test
+  public void testSetCCase2(){
+    ini();
+    assertTrue(Main.getPartie()!=null);
+    assertTrue(Main.getGc()!=null);
+    assertTrue(Main.getCCase(0,2)!=null);
+    Creature g1 = new Insecte(Main.getGc().getCCase(0,0));
+    g1.setCc(Main.getCCase(0,3));
+    assertEquals(Main.getCCase(0,3), g1.getCCase());
+    g1.setCCase(0,2);
+    assertEquals(Main.getCCase(0,2), g1.getCCase());
+    assertEquals(g1, Main.getCCase(0,2).getContent().getGc().getFirst());
+  }
+  @Test
+  public void testSetCCase3(){ //move to the same CCase.
+    ini();
+    assertTrue(Main.getPartie()!=null);
+    assertTrue(Main.getGc()!=null);
+    assertTrue(Main.getCCase(0,2)!=null);
+    Creature g1 = new Insecte(Main.getGc().getCCase(0,0));
+    g1.setCc(Main.getCCase(0,3));
+    assertEquals(Main.getCCase(0,3), g1.getCCase());
+    g1.setCCase(0,3);
+    assertEquals(Main.getCCase(0,3), g1.getCCase());
+    assertEquals(g1, Main.getCCase(0,3).getContent().getGc().getFirst());
+  }
+  @Test
+  public void testSetCCase4(){ //move to the same CCase.
+    ini();
+    assertTrue(Main.getPartie()!=null);
+    assertTrue(Main.getGc()!=null);
+    assertTrue(Main.getCCase(0,2)!=null);
+    Creature g1 = new Insecte(Main.getGc().getCCase(0,0));
+    Creature g2 = new Insecte(Main.getGc().getCCase(0,1));
+    g1.setCc(Main.getCCase(0,3));
+    assertEquals(Main.getCCase(0,3), g1.getCCase());
+    g1.setCCase(0,3);
+    assertEquals(Main.getCCase(0,3), g1.getCCase());
+    assertEquals(g1, Main.getCCase(0,3).getContent().getGc().getFirst());
+    g2.setCCase(0,3);
+    assertEquals(Main.getCCase(0,3), g2.getCCase());
+    assertEquals(g1, Main.getCCase(0,3).getContent().getGc().getFirst());
+    assertEquals(g2, Main.getCCase(0,3).getContent().getGc().getLast());
+  }
+  @Test
+  public void testSetCCase5(){ //move to the same CCase with ant
+    ini();
+    Joueur j = new Joueur(new Fourmiliere(Main.getPartie().getGc().getCCase(0,1),null),"joueurTest",false);
+    j.getFere().setJoueur(j);
+    assertTrue(Main.getPartie().getGc().getCCase(0,1).getContent().getFere().equals(j.getFere()));
+    assertTrue(Main.getPartie().getGc().getCCase(0,0).getContent().getFere()==null);
+    Main.getPartie().getGj().add(j);
+    Fourmi f = new Fourmi(j.getFere(), Main.getEspeceParId(0), (byte) 0, (byte) 0);
+    Fourmi f2 = new Fourmi(f.getFere(), f.getEspece(), (byte)3, (byte)0);
+    f2.setNourritureMax(10);
+    f2.setNourriture(1);
+    // f2.setCCase(Main.getCCase(0,1));
+    f.setNourritureMax(100);
+    f.setNourriture(100);
+    f.setCCase(0,0);
+    assertEquals(Main.getCCase(0,0), f.getCCase());
+    assertEquals(f, Main.getCCase(0,0).getContent().getGc().getFirst());
+    f2.setCCase(0,0);
+    assertEquals(Main.getCCase(0,0), f2.getCCase());
+    assertEquals(f, Main.getCCase(0,0).getContent().getGc().getFirst());
+    assertEquals(f2, Main.getCCase(0,0).getContent().getGc().getLast());
+  }
+  @Test
   public void testSetTransported(){
     ini();
     Creature c = new Insecte(Main.getGc().getCCase(0,0));

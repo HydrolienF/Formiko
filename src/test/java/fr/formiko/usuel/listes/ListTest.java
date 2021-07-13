@@ -3,6 +3,7 @@ package fr.formiko.usuel.listes;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Point;
+import fr.formiko.usuel.exceptions.NullItemException;
 import fr.formiko.usuel.listes.Liste;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
@@ -58,7 +59,10 @@ public class ListTest extends TestCaseMuet{
       l.add(i+" formiko");
     }
     assertEquals(13,l.length());
-    l.add((String)null); //it shouldn't add it.
+    try {
+      l.add((String)null); //it shouldn't add it.
+      assertTrue(false);
+    }catch (NullItemException e) {}
     assertEquals(13,l.length());
   }
   @Test

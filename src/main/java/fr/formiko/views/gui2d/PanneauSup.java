@@ -53,6 +53,7 @@ public class PanneauSup extends Panneau{
             gc = getCase(e).getGc();
           }catch (Exception e2) {}
           if(gc.length()>0){
+            erreur.info("swap ant");//@a
             Fourmi f = gc.getFourmiParFere(Main.getPlayingAnt().getFere());
             if(f!=null && f.getAction()>0){
               getView().getPb().setActionF(-2);

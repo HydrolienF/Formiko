@@ -255,7 +255,7 @@ public class PanneauCarte extends Panneau {
     int xT2 = (x)*getTailleDUneCase(); int yT2 = (y)*getTailleDUneCase();
     if(peintCaseNuageuse(x,y,g,xT,yT)){ return;}//si la case est nuageuse, on n'affichera rien d'autre dessus.
     byte ty = c.getType();
-    CCreature ccrea = c.getGc().getHead();
+    // CCreature ccrea = c.getGc().getHead();
     CGraine ccg = c.getGg().getHead();
     try {
       int tC10 = Main.getData().getTailleDUneCase()/10;int tC4 = Main.getData().getTailleDUneCase()/4;int tC2 = Main.getData().getTailleDUneCase()/2;
@@ -298,8 +298,8 @@ public class PanneauCarte extends Panneau {
         }
         // les créatures.
         //TODO sort by quicksort Creature by size of there futur image.
-        Liste<Creature> gcToPrint = c.getGc().toList();//new Liste<Creature>();
-        // for (Creature cr : c.getGc().toList()) {
+        Liste<Creature> gcToPrint = c.getGc();//new Liste<Creature>();
+        // for (Creature cr : c.getGc()) {
         //   gcToPrint.add(cr, cr.getTaille());
         // }
         // c.setGc(gcToPrint);

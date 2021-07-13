@@ -26,10 +26,17 @@ public class NetoyerFourmi implements Serializable, Netoyer {
    *@return true only if ant realy clean someone.
    *@version 1.3
    */
-  public boolean netoyerIa(Creature c){
-    if(!(c instanceof Fourmi)){ erreur.erreur("Impossible de netoyer en tant que Fourmi avec la créature "+c.getId()); return false;}
-    net = (Fourmi)c;
-    cible = (Fourmi) net.getCCase().getContent().getGc().filtreAlliés(net).getCouvainSale();
+  public boolean netoyerIa(Creature cTemp){
+    if(!(cTemp instanceof Fourmi)){ erreur.erreur("Impossible de netoyer en tant que Fourmi avec la créature "+cTemp.getId()); return false;}
+    net = (Fourmi)cTemp;
+    GCreature gc = net.getCCase().getContent().getGc();
+    for (Creature c : gc ) {
+      if(c.getEstAllié(net) && c.getProprete() < 75){ //if creature need to be clean.
+        if(cible==null || cible.getProprete()>c.getProprete()){ // if creature need more than cible to be clean.
+          cible=(Fourmi)c;
+        }
+      }
+    }
     if (cible == null){ return false;}
     netoyerPrivate();
     return true;

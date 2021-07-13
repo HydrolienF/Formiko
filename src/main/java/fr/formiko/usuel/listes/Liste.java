@@ -1,5 +1,7 @@
 package fr.formiko.usuel.listes;
 
+import fr.formiko.usuel.exceptions.NullItemException;
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Comparator;
@@ -12,7 +14,7 @@ import java.util.ListIterator;
 *@version 1.52
 *@author Hydrolien
 */
-public class Liste<T> implements Iterable<T>, Serializable, List<T> {
+public class Liste<T> implements Iterable<T>, Serializable, List<T>, Cloneable {
   protected Node<T> head, tail;
   // CONSTRUCTORS --------------------------------------------------------------
   public Liste(){}
@@ -29,13 +31,13 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   *content content of the element to add.
   *@version 1.31
   */
-  public void addTail(T content){
-    if(content==null){return;}
+  public synchronized void addTail(T content){
+    if(content==null){throw new NullItemException();}
     //if(contains(content)){return;}
-    Node<T> node = new Node<>(content, null);
-    if (head == null)
+    Node<T> node = new Node<T>(content, null);
+    if (head == null){
       tail = head = node;
-    else {
+    } else {
       tail.setNext(node);
       tail = node;
     }
@@ -46,12 +48,12 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   *@version 1.52
   */
   public void addHead(T content){
-    if(content==null){return;}
+    if(content==null){throw new NullItemException();}
     //if(contains(content)){return;}
-    Node<T> node = new Node<>(content, null);
-    if (head == null)
+    Node<T> node = new Node<T>(content, null);
+    if (head == null){
       tail = head = node;
-    else {
+    } else {
       node.setNext(head);
       head = node;
     }
@@ -77,6 +79,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   @Override
   public void add(int index, T content){
+    if(content==null){throw new NullItemException();}
     if(index<0){throw new IndexOutOfBoundsException();}
     if(index==0){
       addHead(content);
@@ -140,6 +143,23 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
     return getHead().equals(gs.getHead());
   }
   /**
+  *{@summary Standard clone function.}
+  *Null proof.
+  *@version 2.3
+  */
+  @Override
+  public Liste<T> clone(){
+    Liste<T> list = new Liste<T>();
+    for (T t : this) {
+      list.add(t);
+    }
+    //add head & tail will link the 2 lists and modification will be aplly on the 2 lists.
+    // list.addList(this);
+    // list.setHead(getHead().clone());
+    // list.setTail(getTail().clone());
+    return list;
+  }
+  /**
   *{@summary Return true if this contains T content.}<br>
   *@version 2.1
   */
@@ -167,7 +187,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   @Override
   public String toString(){
     String r = "";
-    for (T t : this ) {
+    for (T t : this) {
       r+= t.toString();
       r+= " ";
     }
@@ -179,7 +199,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   */
   public String toStringLong(){
     String r = "";
-    for (T t : this ) {
+    for (T t : this) {
       r+= t.toString();
       r+= "\n";
     }
@@ -192,7 +212,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   @Override
   public T get(int index){
     if(index<0){return null;}
-    for (T item : this ) {
+    for (T item : this) {
       if(index==0){return item;}
       index--;
     }
@@ -207,7 +227,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   public boolean removeDuplicateItem(){
     Liste<T> newList = new Liste<T>();
     boolean flag=false;
-    for (T t : this ) {
+    for (T t : this) {
       if (!newList.contains(t)){
         newList.add(t);
       }else{

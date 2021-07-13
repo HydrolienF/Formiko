@@ -36,6 +36,7 @@ public class GCase implements Serializable{
   // GET SET --------------------------------------------------------------------
   public CCase getHead(){ return début;}
   public String getDim(){ return getWidth()+";"+getHeight();}
+  public Case getFirst(){return getHead().getContent();}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
     if (début==null){erreur.erreur("La carte est vide");return "";}

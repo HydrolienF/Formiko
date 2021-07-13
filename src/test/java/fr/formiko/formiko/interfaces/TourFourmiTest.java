@@ -130,13 +130,33 @@ public class TourFourmiTest extends TestCaseMuet{
   public void testFeedOther(){
     //aNourrir is tested.
     Fourmi f = ini();
-    Fourmi f2 = new Fourmi(f.getFere(),f.getEspece(), (byte) 3, (byte) 0);
+    Fourmi f2 = new Fourmi(f.getFere(), f.getEspece(), (byte)3, (byte)0);
     f2.setNourritureMax(10);
     f2.setNourriture(1);
+    f2.setCCase(Main.getCCase(0,1));
     f.setNourritureMax(100);
     f.setNourriture(100);
-    f2.setCc(Main.getGc().getCCase(0,0));
-    //ici ca coupe sans message d'erreur...
+    assertTrue(Main.getPartie()!=null);
+    assertTrue(Main.getGc()!=null);
+    assertTrue(Main.getCCase(0,0)!=null);
+    System.out.println("--------------------------------------");
+    System.out.println("00 "+Main.getCCase(0,0)+"////////////");
+    System.out.println();
+    assertTrue(Main.getCCase(0,0)!=null);
+    // f2.setCCase(Main.getCCase(0,1));
+    System.out.println("00 "+Main.getCCase(0,0)+"////////////");
+    f2.setCCase(Main.getCCase(0,0));
+    System.out.println("00 "+Main.getCCase(0,0)+"////////////");
+    System.out.println("--------------------------------------");
+    //ici ca coupait sans message d'erreur...
+    System.out.println("f2=========="+f2);//@a
+    System.out.println("f=========="+f);
+    System.out.println();
+    // System.out.println(((TourFourmi)(f.tour)).aNourrir());//@a
+    System.out.println("gc =="+f.getCCase().getContent().getGc());
+    System.out.println("");
+    System.out.println("gc len ini : "+f.getCCase().getContent().getGc().length());//@a
+    System.out.println("gc len : "+f.getCCase().getContent().getGc().filtreAlliés(f).filtreFaimMax().length());//@a
     assertTrue(f2.equals(((TourFourmi)(f.tour)).aNourrir()));
     assertTrue(!(f.trophallaxie instanceof TrophallaxieNull));
     ((TourFourmi)(f.tour)).feedOther(10);

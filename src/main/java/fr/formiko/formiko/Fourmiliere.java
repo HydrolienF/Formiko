@@ -121,7 +121,7 @@ public class Fourmiliere implements Serializable{
   public void setLienFere(){ gc.setLienFere(this);}
   public Pheromone getPh(){
     if(getReine()!=null){return getReine().getPh();}
-    else if(getGc().getHead()!=null){return getGc().getHead().getContent().getPh();}
+    else if(!getGc().isEmpty()){return getGc().getFirst().getPh();}
     else{return new Pheromone(0,0,0);}
   }
   public int getScore(){

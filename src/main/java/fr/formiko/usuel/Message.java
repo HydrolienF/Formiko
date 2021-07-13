@@ -127,7 +127,7 @@ public class Message implements Serializable{
         Fourmi r =null;
         try {
           r = j.getFere().getGc().getReine(); // par défaut la reine sert a identifié si la fourmi est alliées neutre ou énemies.
-          if (r==null){ r= (Fourmi)(j.getFere().getGc().getHead().getContent());}//sinon on prend la 1a fourmi du GCreature.
+          if (r==null){ r= (Fourmi)(j.getFere().getGc().getFirst());}//sinon on prend la 1a fourmi du GCreature.
         }catch (Exception e) {}
         if (r!=null){
           if (((Creature)f).getEstAllié(r)){

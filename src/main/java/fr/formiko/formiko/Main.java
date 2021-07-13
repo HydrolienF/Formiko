@@ -67,14 +67,14 @@ public class Main {
   private static MusicPlayer mp;
 
   /**
-   * {@summary Lauch the game.}<br>
-   * It can have some args to do special thing.<br>
-   * -d - set on the debug mode.<br>
-   * trad make sur that every language file is 100% translated. It can auto translate some texte if the python file and translation api are on the same folder.<br>
-   * op save the Options.txt file<br>
-   * Others args are not fuly usable for now.<br>
-   * @param args[] It can contain -d, trad, son, op, test, supprimer
-   * @version 1.39
+   *{@summary Lauch the game.}<br>
+   *It can have some args to do special thing.<br>
+   *-d - set on the debug mode.<br>
+   *trad make sur that every language file is 100% translated. It can auto translate some texte if the python file and translation api are on the same folder.<br>
+   *op save the Options.txt file<br>
+   *Others args are not fuly usable for now.<br>
+   *@param args[] It can contain -d, trad, son, op, test, supprimer
+   *@version 1.39
    */
   public static void main (String [] args){
     if(args==null || (args.length==1 && args[0]==null)){args = new String[0];}
@@ -122,8 +122,8 @@ public class Main {
     quitter();//en théorie on arrive pas là.
   }
   /**
-   * {@summary pre launch.}<br>
-   * @version 1.44
+   *{@summary pre launch.}<br>
+   *@version 1.44
    */
   public static void iniLaunch(){
     if(getOp()==null){initialisation();}
@@ -133,8 +133,8 @@ public class Main {
     pa = new Partie(0,0,new Carte(new GCase(1,1)),1.0); //new empty game
   }
   /**
-   * {@summary Launch in the void main if there is not other args than -something (ex : -d).}<br>
-   * @version 1.44
+   *{@summary Launch in the void main if there is not other args than -something (ex : -d).}<br>
+   *@version 1.44
    */
   public static boolean launch(){
     iniLaunch();
