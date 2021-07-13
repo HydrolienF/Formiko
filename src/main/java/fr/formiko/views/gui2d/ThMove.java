@@ -34,7 +34,7 @@ public class ThMove extends Thread{
   private boolean lock;
   // private long time;
   private static Comparator<ThMove> comparator = (ThMove e1, ThMove e2) -> (int)(e2.getIdTh() - e1.getIdTh());
-  private static ThMoveManager thMoveManager;
+  // private static ThMoveManager thMoveManager;
   /**
   *{@summary Create Thread for the ObjetSurCarteAId animation.}
   *@param o the Object to animate.
@@ -53,10 +53,10 @@ public class ThMove extends Thread{
     addToQueue(this);
     // time = System.currentTimeMillis();
     // ThMove.updateQueue();
-    if(thMoveManager==null){
-      thMoveManager = new ThMoveManager();
-      thMoveManager.start();
-    }
+    // if(thMoveManager==null){
+    //   thMoveManager = new ThMoveManager();
+    //   thMoveManager.start();
+    // }
   }
   private int getIdMovingObject(){return o.getId();}
   public int getIdTh(){return id;}
@@ -86,6 +86,7 @@ public class ThMove extends Thread{
   *@version 2.4
   */
   static synchronized void updateQueue(){
+    if(queue==null){return;}
     // System.out.println(queue.size()+" in queue");
     for (ThMove th : queue ) {
       //if need to launch : launch
@@ -183,12 +184,12 @@ public class ThMove extends Thread{
 *@version 2.4
 *@author Hydrolien
 */
-class ThMoveManager extends Thread{
-  @Override
-  public void run(){
-    while(true){
-      ThMove.updateQueue();
-      Temps.pause(100);
-    }
-  }
-}
+// class ThMoveManager extends Thread{
+//   @Override
+//   public void run(){
+//     while(true){
+//       ThMove.updateQueue();
+//       Temps.pause(10);
+//     }
+//   }
+// }

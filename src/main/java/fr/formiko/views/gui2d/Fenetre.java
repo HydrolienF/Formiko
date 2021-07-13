@@ -71,6 +71,9 @@ public class Fenetre extends JFrame {
   public static int getDimEcranY(){ return Toolkit.getDefaultToolkit().getScreenSize().height;}
 
   // Fonctions propre -----------------------------------------------------------
+  // public void paintComponent(Graphics g){
+  //
+  // }
   public void setBoutonFermer(){
     this.addWindowListener(new WindowAdapter() {
         @Override // indique au compilateur qu'on écrit sur la méthode windowClosing déjà défini et il est sencé vérifier qu'on a pas fait de bêtise d'écriture.

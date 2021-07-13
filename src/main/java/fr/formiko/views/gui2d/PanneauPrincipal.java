@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 public class PanneauPrincipal extends Panneau {
   private PanneauJeu pj;
@@ -33,6 +34,14 @@ public class PanneauPrincipal extends Panneau {
   public PanneauMenu getPm(){ return pm;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
+    // try {
+    //   SwingUtilities.invokeAndWait(new Runnable() {
+    //     @Override
+    //     public void run() {
+          ThMove.updateQueue();
+    //     }
+    //   });
+    // }catch (Exception e) {}
     if (img!=null){
       g.drawImage(img,0,0,this);
     }

@@ -545,15 +545,15 @@ public class ViewGUI2d implements View {
     int k=0;
     int secToRefresh = 1000/Main.getOp().getFps();
     timer.schedule(new TimerTaskViewGUI2d(this){
-        @Override
-        public void run(){
-          if(getF()!=null && getF().isFocused()){ // isShowing() can also be used, but it can't see it window is fully hide by other 1.
-            if(!paintGUI()){
-              erreur.alerte("can't paint");
-            }
-            view.setCurentFPS(view.getCurentFPS()+1);
+      @Override
+      public void run(){
+        if(getF()!=null && getF().isFocused()){ // isShowing() can also be used, but it can't see it window is fully hide by other 1.
+          if(!paintGUI()){ //try to paint
+            erreur.alerte("can't paint");
           }
+          view.setCurentFPS(view.getCurentFPS()+1);
         }
+      }
     }, 0, secToRefresh);
     if(debug.getAffLesPerformances()){
       timer.schedule(new TimerTaskViewGUI2d(this){
