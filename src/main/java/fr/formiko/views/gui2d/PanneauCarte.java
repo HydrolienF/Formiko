@@ -363,6 +363,15 @@ public class PanneauCarte extends Panneau {
       erreur.erreur("impossible de dessiner l'image de la Case : "+x+" "+y);
     }
   }
+  /**
+  *{@summary add a curent moving object.}
+  *It modify location and rotation of the object.
+  *location and rotation are save in 2 hashmap.
+  *@param id the id of the object
+  *@param location the modification of the location of the object as a Point
+  *@param rotation the modification of the rotation in the x value of a Point
+  *@version 2.4
+  */
   public void addMovingObject(int id, Point location, Point rotation){
     hashMapMovingObjectSurCarteAid.put(id, location);
     hashMapMovingObjectSurCarteAidRotation.put(id, rotation);
