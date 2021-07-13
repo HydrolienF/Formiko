@@ -6,7 +6,9 @@ import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Point;
+import fr.formiko.formiko.interfaces.DeplacementFourmi;
 import fr.formiko.usuel.Temps;
+import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.listes.Liste;
 
 import java.lang.Thread;
@@ -32,7 +34,7 @@ public class ThMove extends Thread{
   private static Liste<ThMove> queue = new Liste<ThMove>();
   private int id; private static int cptId=0;
   private boolean lock;
-  // private long time;
+  private long time;
   private static Comparator<ThMove> comparator = (ThMove e1, ThMove e2) -> (int)(e2.getIdTh() - e1.getIdTh());
   // private static ThMoveManager thMoveManager;
   /**
@@ -51,7 +53,7 @@ public class ThMove extends Thread{
     this.to = Panneau.getView().getPc().getPointFromCase(c.getX(), c.getY(), false);
     curent2 = new Point(0,0);
     addToQueue(this);
-    // time = System.currentTimeMillis();
+    time = System.currentTimeMillis();
     // ThMove.updateQueue();
     // if(thMoveManager==null){
     //   thMoveManager = new ThMoveManager();
@@ -88,14 +90,18 @@ public class ThMove extends Thread{
   static synchronized void updateQueue(){
     if(queue==null){return;}
     // System.out.println(queue.size()+" in queue");
-    for (ThMove th : queue ) {
-      //if need to launch : launch
-      if(Panneau.getView().getPc().getMovingObjectLocation(th.getIdMovingObject())==null){
-        // System.out.println("test ok th "+th.getIdTh()+" for "+th.getIdMovingObject()+" after "+(System.currentTimeMillis()-th.time)+"ms");
-        queue.remove(th);
-        th.iniBeforeStart();
-        th.start();
+    try {
+      for (ThMove th : queue ) {
+        //if need to launch : launch
+        if(Panneau.getView().getPc().getMovingObjectLocation(th.getIdMovingObject())==null){
+          erreur.info("test ok th "+th.getIdTh()+" for "+th.getIdMovingObject()+" after "+(System.currentTimeMillis()-th.time)+"ms");
+          queue.remove(th);
+          th.iniBeforeStart();
+          th.start();
+        }
       }
+    }catch (Exception e) {
+      erreur.alerte("someting whent wrong in updateQueue");
     }
   }
   /**
@@ -134,6 +140,7 @@ public class ThMove extends Thread{
   */
   @Override
   public void run(){
+    o.setDirection(DeplacementFourmi.getDirection(from, to));
     int walkCycle = 2;
     int k=120; //should be a mutiple of 2*walkCycle.
     if(Main.getOp().getQuickMovement()){k=20;}

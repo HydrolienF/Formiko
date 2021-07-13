@@ -84,9 +84,19 @@ public class DeplacementFourmi implements Serializable, Deplacement{
    *@param a Actual Case.
    *@param c Target Case.
    *@return the direction to go to c (from a).
-   *@version 1.3
+   *@version 2.4
    */
-  private int getDirection(Case a, Case c){ // a case actuel / c case cible
+  public static int getDirection(Case a, Case c) {
+    return getDirection(a.getPoint(), c.getPoint());
+  }
+  /**
+   *{@summary getDirection to use to move to c.}<br>
+   *@param a Actual Point.
+   *@param c Target Point.
+   *@return the direction to go to c (from a).
+   *@version 2.4
+   */
+  public static int getDirection(Point a, Point c) {
     if (a.getX()>c.getX()){ // 1,4,7
       if (a.getY()>c.getY()){return 1;}
       if (a.getY()==c.getY()){return 4;}

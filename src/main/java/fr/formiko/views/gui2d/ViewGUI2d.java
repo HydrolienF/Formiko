@@ -588,9 +588,9 @@ public class ViewGUI2d implements View {
     java.util.Enumeration keys = UIManager.getDefaults().keys();
     while (keys.hasMoreElements()) {
       Object key = keys.nextElement();
-      Object value = UIManager.get (key);
+      Object value = UIManager.get(key);
       if (value instanceof javax.swing.plaf.FontUIResource){
-        UIManager.put (key, f);
+        UIManager.put(key, f);
       }
     }
     // UIManager.getLookAndFeelDefaults().put("defaultFont", new Font("Arial", Font.BOLD, 14));
