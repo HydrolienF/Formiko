@@ -101,6 +101,8 @@ public class action{
           Panneau.getView().getPj().removePfp();
           Main.getPartie().setContinuerLeJeu(true);
           Main.repaint();
+        }else if(ac==200){//endTurnButton
+          System.out.println("end turn");
         }else if(ac>=40){
           PanneauBouton pb = Panneau.getView().getPb();
           pb.setChoixId(pb.getPti().getBoutonX(ac-40));

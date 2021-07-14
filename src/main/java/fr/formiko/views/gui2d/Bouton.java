@@ -112,6 +112,7 @@ public class Bouton extends JButton implements MouseListener{
   public FBorder getFBorder(){
     return (FBorder)getBorder();
   }
+  public void setSize(int size){setSize(size,size);}
   // Fonctions propre ----------------------------------------------------------
   /**
   *{@summary To draw component.}<br>
