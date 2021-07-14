@@ -13,12 +13,12 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 public class PanneauChargement extends Panneau {
-  private Bouton b;
+  private FButton b;
   private int tempsTotalDeChargement;
   private Desc message;
   private PanneauInfo conseil;
   private boolean lancer;
-  private Bouton bt;
+  private FButton bt;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauChargement(){
     setLayout(null);
@@ -49,7 +49,7 @@ public class PanneauChargement extends Panneau {
   }
   public void addBt(){
     lancer=false;
-    bt = new Bouton(g.getM("lancerLeJeu"), Panneau.getView().getPj(), 111);
+    bt = new FButton(g.getM("lancerLeJeu"), Panneau.getView().getPj(), 111);
     bt.setFont(Main.getFont2());
     add(bt);
     int xx = Main.getF().getWidth()/5;

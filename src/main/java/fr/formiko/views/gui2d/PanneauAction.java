@@ -26,7 +26,7 @@ public class PanneauAction extends Panneau {
   private int tBoutonActif[];
   private static int bordure=10;
   private static int tailBouton=160;
-  private Bouton tB [];
+  private FButton tB [];
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauAction(int t[]){
     super();
@@ -42,14 +42,14 @@ public class PanneauAction extends Panneau {
     if(nbrDeBouton > nbrDeBoutonMax){ erreur.erreur("impossible d'afficher tant de boutons");}
     Dimension dim = new Dimension(tailleBouton, tailleBouton);
     setLayout(new GridBagLayout());
-    tB = new Bouton [nbrDeBouton]; // pour l'instant le bouton 10 n'as pas d'images.
+    tB = new FButton [nbrDeBouton]; // pour l'instant le bouton 10 n'as pas d'images.
     Main.getData().chargerTIPanneauAction();//ne ce lance que si néssésaire.
     for (int i=0;i<nbrDeBouton ;i++ ) { // seul les bouton mentionné dans t sont créé.
-      tB[i] = new Bouton(g.get("bouton.nom."+(20+tBoutonActif[i])),(Panneau)this,20+tBoutonActif[i],Main.getData().getTImage()[tBoutonActif[i]]);
+      tB[i] = new FButton(g.get("bouton.nom."+(20+tBoutonActif[i])),(Panneau)this,20+tBoutonActif[i],Main.getData().getTImage()[tBoutonActif[i]]);
       tB[i].setBordure(false);
       tB[i].setWithBackground(true);
     }
-    for (Bouton b :tB){b.setPreferredSize(dim);}
+    for (FButton b :tB){b.setPreferredSize(dim);}
     GridBagConstraints gbc = new GridBagConstraints();
     int espaceLibre = Main.getTailleElementGraphique(bordure);
     gbc.insets = new Insets(espaceLibre, espaceLibre, espaceLibre, espaceLibre);
@@ -68,7 +68,7 @@ public class PanneauAction extends Panneau {
   public boolean getEstBoutonActif(int x){return tableau.estDansT(tBoutonActif,x);}
   public int getBordureBouton(){ return Main.getTailleElementGraphique(bordure);}
   public void setEnabled(boolean boo){
-    for (Bouton b : tB ) {
+    for (FButton b : tB ) {
       b.setEnabled(boo);
     }
     super.setEnabled(boo);

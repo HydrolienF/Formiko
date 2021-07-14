@@ -8,10 +8,10 @@ import fr.formiko.usuel.g;
 import java.awt.Graphics;
 
 public class PanneauMiniMap extends Panneau {
-  private Bouton endTurn;
+  private FButton endTurn;
   public PanneauMiniMap() {
     super();
-    endTurn = new Bouton("endTurnButton", Panneau.getView().getPj(), 200);
+    endTurn = new FButton("endTurnButton", Panneau.getView().getPj(), 200);
     add(endTurn);
     endTurn.setSize(Main.getTailleElementGraphique(50));
     endTurn.setLocation(0,0);

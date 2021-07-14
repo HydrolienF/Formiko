@@ -13,8 +13,8 @@ public class PanneauFinPartie extends Panneau {
   private Desc message;
   private GJoueur gj;
   private PanneauInfo pi;
-  private Bouton mp;
-  private Bouton c;
+  private FButton mp;
+  private FButton c;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauFinPartie(){
     setVisible(false);
@@ -59,13 +59,13 @@ public class PanneauFinPartie extends Panneau {
     //pi.setBounds(0,message.getHeight(),pi.getWidth(),pi.getHeight());
   }
   public void addBoutonMenuPrincipal(){
-    mp= new Bouton(g.getM("quitterToMp"),Panneau.getView().getPj(),112);
+    mp= new FButton(g.getM("quitterToMp"),Panneau.getView().getPj(),112);
     mp.setSize(getWidth()/2, Desc.getDimY());
     mp.setLocation(0,getHeight()-mp.getHeight());
     add(mp);
   }
   public void addBoutonContinuer(){
-    c = new Bouton(g.getM("continuerJeu"),Panneau.getView().getPj(),113);
+    c = new FButton(g.getM("continuerJeu"),Panneau.getView().getPj(),113);
     c.setSize(getWidth()/2, Desc.getDimY());
     c.setLocation(getWidth()/2,getHeight()-mp.getHeight());
     add(c);

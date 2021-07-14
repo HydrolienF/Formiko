@@ -17,7 +17,7 @@ import java.awt.Graphics2D;
 *@version 1.41
 */
 public class PanneauEchap extends Panneau{
-  private Bouton tb[];
+  private FButton tb[];
   private boolean visible;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauEchap(){
@@ -34,11 +34,11 @@ public class PanneauEchap extends Panneau{
     getView().getPs().setSize(0,0);
     setSize(Main.getDimX(),Main.getDimY());
     int lentb = 5;
-    tb = new Bouton[lentb];
+    tb = new FButton[lentb];
     for (int i=0;i<lentb ;i++ ) {
       String s ="";
       if(i==1){s=" ("+g.get("bientôt")+")";} //TODO #40 s'assurer que ce n'est plus utile puis le remove.
-      tb[i]=new Bouton(g.getM("bouton.nom."+(-10-i))+s,getView().getPj(),-10-i);
+      tb[i]=new FButton(g.getM("bouton.nom."+(-10-i))+s,getView().getPj(),-10-i);
       if(i==1){tb[i].setEnabled(false);} //TODO s'assurer que ce n'est plus utile puis le remove.
       //tb[i].setBounds(0,Desc.getDimY()*i*2,Main.getDimX()/4,Desc.getDimY());
       // tb[i].setCFond(new Color(55, 255, 0));
@@ -49,7 +49,7 @@ public class PanneauEchap extends Panneau{
     getView().paint();
   }
   // GET SET --------------------------------------------------------------------
-  public void setTb(Bouton tbTemp[]){tb=tbTemp;}
+  public void setTb(FButton tbTemp[]){tb=tbTemp;}
   public boolean getVisible(){return visible;}
   // Fonctions propre -----------------------------------------------------------
   /**
@@ -63,7 +63,7 @@ public class PanneauEchap extends Panneau{
       int lentb = tb.length;
       if(lentb==0){return;}
       int xCentré = (int)(Main.getDimX()*1.5/4);
-      int tailleY =(int)(Bouton.getDimY()*lentb*1.5 - Bouton.getDimY()*0.5);
+      int tailleY =(int)(FButton.getDimY()*lentb*1.5 - FButton.getDimY()*0.5);
       int yCentré = ((Main.getDimY()-tailleY)/2);
       g2d.setColor(new Color(0,250,255));
       int bordure = Main.getTailleElementGraphique(10);
@@ -72,7 +72,7 @@ public class PanneauEchap extends Panneau{
       g2d.setStroke(new BasicStroke(Main.getTailleElementGraphique(3)));
       g2d.drawRect(-bordure+xCentré,-bordure+yCentré,2*bordure+(Main.getDimX()/4),2*bordure+tailleY);
       for (int i=0;i<lentb ;i++ ) {
-        tb[i].setBounds(xCentré,yCentré+(int)(Bouton.getDimY()*i*1.5),Main.getDimX()/4,Bouton.getDimY());
+        tb[i].setBounds(xCentré,yCentré+(int)(FButton.getDimY()*i*1.5),Main.getDimX()/4,FButton.getDimY());
       }
     }catch (Exception e) {
       erreur.alerte("something when wrong when drawing component");

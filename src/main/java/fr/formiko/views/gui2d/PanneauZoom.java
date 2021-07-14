@@ -22,9 +22,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class PanneauZoom extends Panneau {
-  private Bouton bPlus; private Bouton bMoins; private Bouton bc;//bouton de zoom.
-  private Bouton bh; private Bouton bb; private Bouton bd; private Bouton bg; //bouton de déplacements
-  private Bouton bd1; private Bouton bd2;
+  private FButton bPlus; private FButton bMoins; private FButton bc;//bouton de zoom.
+  private FButton bh; private FButton bb; private FButton bd; private FButton bg; //bouton de déplacements
+  private FButton bd1; private FButton bd2;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauZoom(){
     int tailleBouton=Main.getbuttonSizeZoom();
@@ -38,15 +38,15 @@ public class PanneauZoom extends Panneau {
     //else{tIB = chargerTIB2(Main.getPiFond());}
     tIB = Main.getData().chargerTIBZoom();
     Dimension dim = new Dimension(tailleBouton, tailleBouton);
-    bMoins = new Bouton("-",(Panneau)this,0,tIB[0]);
-    bh = new Bouton("haut",(Panneau)this,7,tIB[1]);
-    bPlus = new Bouton("+",(Panneau)this,2,tIB[2]);
-    bd = new Bouton("droite",(Panneau)this,3,tIB[3]);
-    bc = new Bouton("centrer",(Panneau)this,4,tIB[4]);
-    bg = new Bouton("gauche",(Panneau)this,5,tIB[5]);
-    bb = new Bouton("bas",(Panneau)this,1,tIB[6]);
-    bd1 = new Bouton("centrer sur la fourmi",(Panneau)this,6,tIB[7]);
-    bd2 = new Bouton("dézoomer 2",(Panneau)this,8,tIB[8]);
+    bMoins = new FButton("-",(Panneau)this,0,tIB[0]);
+    bh = new FButton("haut",(Panneau)this,7,tIB[1]);
+    bPlus = new FButton("+",(Panneau)this,2,tIB[2]);
+    bd = new FButton("droite",(Panneau)this,3,tIB[3]);
+    bc = new FButton("centrer",(Panneau)this,4,tIB[4]);
+    bg = new FButton("gauche",(Panneau)this,5,tIB[5]);
+    bb = new FButton("bas",(Panneau)this,1,tIB[6]);
+    bd1 = new FButton("centrer sur la fourmi",(Panneau)this,6,tIB[7]);
+    bd2 = new FButton("dézoomer 2",(Panneau)this,8,tIB[8]);
     bPlus.setPreferredSize(dim); bMoins.setPreferredSize(dim); bb.setPreferredSize(dim); bh.setPreferredSize(dim); bd.setPreferredSize(dim); bg.setPreferredSize(dim);bc.setPreferredSize(dim); bd1.setPreferredSize(dim); bd2.setPreferredSize(dim);
     //L'objet servant à positionner les composants
     GridBagConstraints gbc = new GridBagConstraints();

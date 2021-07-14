@@ -33,13 +33,13 @@ public class PanneauTInt extends PanneauTX{
         y=x-1;
       }
       this.setSize(x*tailleBouton,y*tailleBouton);
-      Bouton tB [] = new Bouton [nbrDeCase];
+      FButton tB [] = new FButton [nbrDeCase];
       Dimension dim = new Dimension(tailleBouton,tailleBouton);
       for (int i=0;i<nbrDeCase ;i++ ) {
-        tB[i]=new Bouton(ti[i]+"", getView().getPp().getPj(),40+i);
+        tB[i]=new FButton(ti[i]+"", getView().getPp().getPj(),40+i);
         tB[i].setFont(Main.getFont2());
       }
-      for (Bouton b :tB){b.setPreferredSize(dim);}
+      for (FButton b :tB){b.setPreferredSize(dim);}
       GridBagConstraints gbc = new GridBagConstraints();
       int k=0;
       for (int i=0;i<x ;i++ ) {

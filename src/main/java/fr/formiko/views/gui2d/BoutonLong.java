@@ -10,7 +10,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseListener;
 
-public class BoutonLong extends Bouton implements MouseListener {
+public class BoutonLong extends FButton implements MouseListener {
   private static final long serialVersionUID = 221957878284545578L;
   private static int xBL; private static int yBL;
   //private static Color col = new Color(200,200,200,0);

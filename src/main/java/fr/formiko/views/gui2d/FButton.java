@@ -32,7 +32,7 @@ import javax.swing.JButton;
 *@author Hydrolien
 *@version 1.54
 */
-public class Bouton extends JButton implements MouseListener{
+public class FButton extends JButton implements MouseListener{
   protected final int id; protected static int cpt=1;
   protected Image img;
   protected String nom;
@@ -43,7 +43,7 @@ public class Bouton extends JButton implements MouseListener{
   protected boolean cFondUseAlpha;
   protected boolean withBackground;
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public Bouton(String str, Panneau p, int action, Image imag){
+  public FButton(String str, Panneau p, int action, Image imag){
     super();id=cpt; cpt++;
     // setBorderPainted(false);
     setOpaque(false);
@@ -59,7 +59,7 @@ public class Bouton extends JButton implements MouseListener{
     withBackground=false;
     setBorder(new FBorder());
   }
-  public Bouton(String str, Panneau p, int action){
+  public FButton(String str, Panneau p, int action){
     super(str);id=cpt; cpt++;
     // setBorderPainted(false);
     setOpaque(false);

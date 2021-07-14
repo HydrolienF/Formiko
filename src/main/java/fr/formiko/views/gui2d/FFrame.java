@@ -22,11 +22,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 
-public class Fenetre extends JFrame {
+public class FFrame extends JFrame {
   private PanneauPrincipal pp;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
-  public Fenetre(String titre, int xMax, int yMax){
+  public FFrame(String titre, int xMax, int yMax){
     if(Main.getPleinEcran()){
       //@OS
       if(Main.getOs().getId()==1){
@@ -58,9 +58,9 @@ public class Fenetre extends JFrame {
     super.toFront();
     super.requestFocus();
     super.setAlwaysOnTop(false);
-    debug.g("Fenetre",xMax,yMax);
+    debug.g("FFrame",xMax,yMax);
   }
-  public Fenetre(){
+  public FFrame(){
     this("Formiko",getDimEcranX(),getDimEcranY());
   }
   // GET SET --------------------------------------------------------------------
