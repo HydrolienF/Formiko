@@ -5,17 +5,19 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 
+import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public class PanneauMiniMap extends Panneau {
-  private FButton endTurn;
   public PanneauMiniMap() {
     super();
-    endTurn = new FButton("endTurnButton", Panneau.getView().getPj(), 200);
-    add(endTurn);
-    endTurn.setSize(Main.getTailleElementGraphique(50));
-    endTurn.setLocation(0,0);
-    setSize(Main.getTailleElementGraphiqueX(400), Main.getTailleElementGraphiqueY(260));
-    setLocation(Panneau.getView().getWidth()-getWidth(), Panneau.getView().getHeight()-getHeight());
+    setSize(Main.getTailleElementGraphiqueX(400), Main.getTailleElementGraphiqueY(250));
+    FBorder fBorder = new FBorder();
+    fBorder.setColor(Main.getData().getButonBorderColor());
+    setBorder(fBorder);
+    System.out.println(this);
+
   }
 }

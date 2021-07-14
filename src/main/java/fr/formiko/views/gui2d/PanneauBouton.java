@@ -25,7 +25,7 @@ public class PanneauBouton extends Panneau {
   private PanneauAction pa;
   private PanneauActionSup pas;
   private PanneauActionInf pai;
-  private PanneauMiniMap pmm;
+  private PanneauMiniMapContainer pmmc;
   private PanneauTInt pti;
   private PanneauTBoolean ptb;
   private String descS;
@@ -50,7 +50,7 @@ public class PanneauBouton extends Panneau {
     pa = new PanneauAction();
     pas = new PanneauActionSup();
     pai = new PanneauActionInf();
-    pmm = new PanneauMiniMap();
+    pmmc = new PanneauMiniMapContainer();
     pi = new PanneauInfo();
     pij = new PanneauInfo();
     pz = new PanneauZoom();
@@ -136,8 +136,8 @@ public class PanneauBouton extends Panneau {
     pai = new PanneauActionInf();
     pai.setBounds(0,getHeight()-pai.getHeight(),pai.getWidth(),pai.getHeight());
     getView().getPs().actualiserTaille();
-    pmm = new PanneauMiniMap();
-    add(pmm);
+    pmmc = new PanneauMiniMapContainer();
+    add(pmmc);
     add(pas);
     add(pa);
     add(pai);
@@ -152,13 +152,13 @@ public class PanneauBouton extends Panneau {
     pa.setVisible(b);
     pas.setVisible(b);
     //pai.setVisible(b);
-    pmm.setVisible(b);
+    pmmc.setVisible(b);
   }
   public void removePa(){
     remove(pa);
     remove(pas);
     remove(pai);
-    remove(pmm);
+    remove(pmmc);
   }public void removePA(){removePa();}
   public void addPA(){ int t [] = {0,1,2,3,4,5,6,7}; addPA(t);}
   /*public void modPa(){
