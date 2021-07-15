@@ -408,6 +408,9 @@ public class Partie implements Serializable{
   public boolean setPlayingAnt(Fourmi f){
     if (!Main.getView().getActionGameOn()) {return false;}
     playingAnt=f;
+    try { //udpate playingJoueur if ant is not null.
+      Joueur.setPlayingJoueur(f.getFere().getJoueur());
+    }catch (NullPointerException e) {}
     return true;
   }
   /**
