@@ -195,7 +195,7 @@ public class Main {
   //shortcut
   public static Fourmi getPlayingAnt(){ try {return getPartie().getPlayingAnt();}catch (Exception e) {return null;}}
   public static void setPlayingAnt(Fourmi f){ getPartie().setPlayingAnt(f); getView().setPlayingAnt(f);}
-  public static Joueur getPlayingJoueur(){ try {return getPartie().getPlayingJoueur();}catch (Exception e) {return null;}}
+  public static Joueur getPlayingJoueur(){ try {return Joueur.getPlayingJoueur();}catch (Exception e) {return null;}}
   //view
   public static boolean getActionGameOn(){return getView().getActionGameOn();}
   //other

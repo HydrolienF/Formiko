@@ -25,11 +25,15 @@ public class Joueur implements Serializable{
   private GMessage gm;
   private boolean caseNuageuse [][];
   private boolean caseSombre [][];
+  private boolean isTurnEnded;
+  private static Joueur playingJoueur;
+
   // CONSTRUCTEUR -----------------------------------------------------------------
   //Principal
   public Joueur (Fourmiliere fere, String pseudo, boolean ia){
     id = i; i++; gm = new GMessage();
     this.fere = fere; this.pseudo = pseudo; this.ia = ia;
+    isTurnEnded=false;
   }
   //Auxiliaire
   public Joueur (int nbrDeFourmi, boolean ia, String pseudo, Carte mapo){
@@ -78,6 +82,10 @@ public class Joueur implements Serializable{
   }
   public int getScore(){return fere.getScore();}
   public static void ini(){i=1;}
+  public boolean getIsTurnEnded(){return isTurnEnded;}
+  public void setIsTurnEnded(boolean b){isTurnEnded=b;}
+  public static Joueur getPlayingJoueur(){return playingJoueur;}
+  public static void setPlayingJoueur(Joueur j){playingJoueur=j;}
 // Fonctions propre -----------------------------------------------------------
   public String toString(){
     String s = (ia) ? g.get("laIA") : g.get("laJoueurHumain");
@@ -100,6 +108,7 @@ public class Joueur implements Serializable{
     setPseudo(read.getString("pseudo",pseudo + i,"Rentrez votre nouveau pseudo : "));
   }
   public void jouer(){
+    setPlayingJoueur(this);
     if(!ia){
       Message m = new Message(pseudo+", "+g.get("débutTourJoueur"),id,6);
     }else{
@@ -111,6 +120,7 @@ public class Joueur implements Serializable{
       Main.getView().popUpMessage(pseudo+" "+g.get("débutTourJoueur")+".");
     }
     fere.jouer();
+    setPlayingJoueur(null);
   }
   public void afficheScore(){
     System.out.println(pseudo +" : "+getScore());

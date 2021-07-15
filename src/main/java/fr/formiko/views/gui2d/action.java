@@ -102,7 +102,11 @@ public class action{
           Main.getPartie().setContinuerLeJeu(true);
           Main.repaint();
         }else if(ac==200){//endTurnButton
-          System.out.println("end turn");
+          try {
+            Main.getPlayingJoueur().setIsTurnEnded(true);
+          }catch (Exception e) {
+            erreur.alerte("fail to end turn");
+          }
         }else if(ac>=40){
           PanneauBouton pb = Panneau.getView().getPb();
           pb.setChoixId(pb.getPti().getBoutonX(ac-40));

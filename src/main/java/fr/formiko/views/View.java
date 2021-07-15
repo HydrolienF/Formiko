@@ -2,6 +2,7 @@ package fr.formiko.views;
 
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.ObjetSurCarteAId;
 
@@ -160,4 +161,10 @@ public interface View {
   *@version 2.1
   */
   void move(ObjetSurCarteAId o, CCase from, CCase to);
+  /***
+  *{@summary Wait for end turn if we need.}
+  *@param fere the Fourmiliere that is curently playing.
+  *@version 2.5
+  */
+  default void waitForEndTurn(Fourmiliere fere){}
 }

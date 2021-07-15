@@ -13,11 +13,10 @@ import java.awt.Graphics2D;
 public class PanneauMiniMap extends Panneau {
   public PanneauMiniMap() {
     super();
-    setSize(Main.getTailleElementGraphiqueX(400), Main.getTailleElementGraphiqueY(250));
+    setSize(200,200);
+    // setSize(Main.getTailleElementGraphiqueX(400), Main.getTailleElementGraphiqueY(250));
     FBorder fBorder = new FBorder();
     fBorder.setColor(Main.getData().getButonBorderColor());
     setBorder(fBorder);
-    System.out.println(this);
-
   }
 }

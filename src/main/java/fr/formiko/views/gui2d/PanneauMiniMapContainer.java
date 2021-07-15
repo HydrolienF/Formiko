@@ -24,24 +24,39 @@ public class PanneauMiniMapContainer extends Panneau {
     setSize(pmm.getWidth()+Main.getTailleElementGraphiqueX(BUTTON_RADIUS), pmm.getHeight()+Main.getTailleElementGraphiqueY(BUTTON_RADIUS));
     setLocation(Panneau.getView().getWidth()-getWidth(), Panneau.getView().getHeight()-getHeight());
   }
+  public void setAllActionDone(boolean b){
+    endTurn.setAllActionDone(b);
+  }
 
   class FButtonEndTurn extends FButton {
     private int lineSize;
+    private Color color;
     public FButtonEndTurn() {
       super("", Panneau.getView().getPj(), 200);
       setSize(Main.getTailleElementGraphique(BUTTON_RADIUS*2));
       setLocation(0,0);
       lineSize = Main.getTailleElementGraphique(3);
       setBorderPainted(false);
+      setAllActionDone(false);
     }
+
+    public void setAllActionDone(boolean b){
+      if(b){
+        color = Color.RED;
+      }else{
+        color = Color.GREEN;
+      }
+    }
+
     public void paintComponent(Graphics gTemp){
       Graphics2D g = (Graphics2D)gTemp;
       BasicStroke line = new BasicStroke(lineSize);
       g.setStroke(line);
-      g.setColor(Color.RED);
+      g.setColor(color);
       g.fillOval(lineSize/2,lineSize/2,getWidth()-lineSize,getHeight()-lineSize);
       g.setColor(Color.BLACK);
       g.drawOval(lineSize/2,lineSize/2,getWidth()-lineSize,getHeight()-lineSize);
     }
+    // public void setIsTurnEnded()
   }
 }

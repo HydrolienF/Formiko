@@ -94,7 +94,7 @@ public class ThMove extends Thread{
       for (ThMove th : queue ) {
         //if need to launch : launch
         if(Panneau.getView().getPc().getMovingObjectLocation(th.getIdMovingObject())==null){
-          erreur.info("test ok th "+th.getIdTh()+" for "+th.getIdMovingObject()+" after "+(System.currentTimeMillis()-th.time)+"ms");
+          // erreur.info("test ok th "+th.getIdTh()+" for "+th.getIdMovingObject()+" after "+(System.currentTimeMillis()-th.time)+"ms");
           queue.remove(th);
           th.iniBeforeStart();
           th.start();

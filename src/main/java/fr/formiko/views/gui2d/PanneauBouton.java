@@ -87,6 +87,7 @@ public class PanneauBouton extends Panneau {
   public PanneauInfo getPi(){ return pi;}
   public PanneauInfo getPij(){ return pij;}
   public PanneauTBoolean getPTB(){ return ptb;}
+  public PanneauMiniMapContainer getPmmc(){return pmmc;}
   // Fonctions propre -----------------------------------------------------------
   public void addPz(){
     remove(pz);
@@ -152,7 +153,6 @@ public class PanneauBouton extends Panneau {
     pa.setVisible(b);
     pas.setVisible(b);
     //pai.setVisible(b);
-    pmmc.setVisible(b);
   }
   public void removePa(){
     remove(pa);
@@ -169,6 +169,9 @@ public class PanneauBouton extends Panneau {
     revalidate();
     Main.repaint();
   }*/
+  public void setVisiblePmmc(boolean b){
+    pmmc.setVisible(b);
+  }
   public void addPChamp(String défaut,String message){
     setDescTI(message);
     pchamp = new PanneauChamp(défaut);

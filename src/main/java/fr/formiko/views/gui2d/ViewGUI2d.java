@@ -4,6 +4,7 @@ import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GCreature;
 import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.Joueur;
@@ -73,6 +74,7 @@ public class ViewGUI2d implements View {
   public PanneauEchap getPe(){ return getPj().getPe();}
   public PanneauDialogue getPd(){ try {return getPj().getPd();}catch (NullPointerException e) {return null;}}
   public PanneauDialogueInf getPdi(){ return getPj().getPdi();}
+  public PanneauMiniMapContainer getPmmc(){try {return getPb().getPmmc();}catch(NullPointerException e){return null;}}
   public int getCurentFPS(){return curentFPS;}
   public void setCurentFPS(int x){curentFPS=x;}
   public int getWidth(){try {return getPp().getWidth();}catch (NullPointerException e) {return 0;}}
@@ -460,9 +462,13 @@ public class ViewGUI2d implements View {
   public void setPlayingAnt(Fourmi f){
     if (!actionGameOn) {return;}
     if(f!=null){
+      if(!f.getIa()){
+        getPb().setVisiblePa(true);
+      }
       Panneau.getView().getPb().addPI();
       Panneau.getView().getPb().addPIJ();
     }else{
+      getPb().setVisiblePa(false);
       Panneau.getView().getPs().setIdFourmiAjoué(-1);
     }
     // if (!f.getFere().getJoueur().getIa()) {
@@ -484,6 +490,22 @@ public class ViewGUI2d implements View {
       ThMove th = new ThMove(o, from, to);
       // th.start();
     }
+  }
+  /***
+  *{@summary Wait for end turn if we need.}
+  *@param fere the Fourmiliere that is curently playing.
+  *@version 2.5
+  */
+  public void waitForEndTurn(Fourmiliere fere) {
+    getPmmc().setAllActionDone(true);
+    if(!Main.getOp().getEndTurnAuto() && !fere.getJoueur().getIa()){ // || any ant have action to do.
+      while(!fere.getJoueur().getIsTurnEnded()) {
+        Temps.pause(50);
+      }
+      fere.getJoueur().setIsTurnEnded(false);
+    }
+    getPmmc().setAllActionDone(false);
+    // erreur.info("stop waiting for end turn");//@a
   }
   //private---------------------------------------------------------------------
   /**

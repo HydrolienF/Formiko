@@ -8,43 +8,27 @@ import fr.formiko.usuel.exceptions.NotNullLocationException;
 import fr.formiko.usuel.listes.GGInt;
 import fr.formiko.usuel.listes.GInt;
 import fr.formiko.usuel.maths.allea;
+import fr.formiko.usuel.Temps;
 
 import java.io.Serializable;
 
 public class Fourmiliere implements Serializable{
   //Les données communes a chaque Fourmiliere :
-  /***
-  *Counter of id.
-  */
+  /** Counter of id */
   private static int idCpt;
-  /***
-  *Unic id of the Fourmiliere.
-  */
+  /** Unique id of the Fourmiliere. */
   private final int id;
-  /***
-  *Place on the map
-  */
+  /** Place on the map */
   private CCase ccase;
-  /***
-  *Player that own this.
-  */
+  /** Player that own this */
   private Joueur joueur;
-  /***
-  *Liste of the Creature own by the Fourmiliere
-  */
+  /** Liste of the Creature own by the Fourmiliere */
   private GCreature gc;
-  /***
-  *Liste of the Graine own by the Fourmiliere
-  */
+  /** Liste of the Graine own by the Fourmiliere */
   private GGraine gg;
-  //private byte modeDéfaut;
-  /***
-  *Liste of the Scores turn by turn of the Fourmiliere
-  */
+  /** Liste of the Scores turn by turn of the Fourmiliere */
   private GGInt ggi;
-  /***
-  *Number of died ant.
-  */
+  /** Number of died ant. */
   private int nbrFourmisMorte;
 
   // CONSTRUCTEUR
@@ -172,6 +156,8 @@ public class Fourmiliere implements Serializable{
     do {
       gc.jouer();
     } while (!gc.haveDoneAllActionAviable() && !Main.getRetournerAuMenu());
+    Main.getView().setPlayingAnt(null);
+    Main.getView().waitForEndTurn(this);
     //gc.finTour();
     ggi.add(new GInt(this)); //stats of this turn
   }
