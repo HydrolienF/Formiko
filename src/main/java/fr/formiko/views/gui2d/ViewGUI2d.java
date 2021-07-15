@@ -499,7 +499,7 @@ public class ViewGUI2d implements View {
   public void waitForEndTurn(Fourmiliere fere) {
     getPmmc().setAllActionDone(true);
     if(!Main.getOp().getEndTurnAuto() && !fere.getJoueur().getIa()){ // || any ant have action to do.
-      while(!fere.getJoueur().getIsTurnEnded()) {
+      while(!fere.getJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu()) {
         Temps.pause(50);
       }
       fere.getJoueur().setIsTurnEnded(false);
