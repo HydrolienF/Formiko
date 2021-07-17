@@ -42,13 +42,14 @@ public class sauvegarderUnePartie {
     // setSave(Save.getSave());
     s=nomDuFichier;
     try {
+      //TODO #401 save fail here
       oos = new ObjectOutputStream(new FileOutputStream(getNomDuFichierComplet()));
       oos.writeObject(p);
       oos.flush();
       oos.close();
     }catch (Exception e) {
       erreur.erreur("Impossible de sauvegarder la partie pour une raison inconnue");
-      return;
+      // return;
     }
     getSave().addSave();
   }

@@ -219,11 +219,12 @@ public class PanneauCarte extends Panneau {
   }
   /**
   *{@summary Draw the mark for playingAnt.}<br>
-  *@version 1.x
+  *@version 2.5
   */
   private void drawPlayingAnt(Graphics g){
-    if(Main.getPlayingAnt()!=null){
-      Case c = Main.getPlayingAnt().getCCase().getContent();
+    Fourmi playingAnt = Main.getPlayingAnt();
+    if(playingAnt!=null && !playingAnt.getIa()){
+      Case c = playingAnt.getCCase().getContent();
       g.drawImage(Main.getData().getSelectionnee(),(c.getX())*Main.getData().getTailleDUneCase(),(c.getY())*Main.getData().getTailleDUneCase(),this);
     }
   }

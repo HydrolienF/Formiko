@@ -319,6 +319,7 @@ public class Fourmi extends Creature implements Serializable{
       }
     }else{
       tour = new TourFourmiNonIa();
+      setMode(-1);
     }
   }
   /**
