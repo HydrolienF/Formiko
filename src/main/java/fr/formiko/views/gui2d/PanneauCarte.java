@@ -1,5 +1,6 @@
 package fr.formiko.views.gui2d;
 
+import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.CCreature;
 import fr.formiko.formiko.CGraine;
 import fr.formiko.formiko.Case;
@@ -11,7 +12,6 @@ import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
-import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
@@ -31,6 +31,9 @@ import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -247,16 +250,26 @@ public class PanneauCarte extends Panneau {
       }else{
         // les graines
         int k=0;
-        if(Main.getAffGraine()){
+        boolean seedPrinted = Main.getAffGraine();
+        boolean insectPrinted = true;
+        int cptIcon = 0;
+        int kIcon = 0;
+        if(seedPrinted){
+          cptIcon+=c.getGg().length();
+        }
+        if(insectPrinted){
+          cptIcon+=c.getGc().length();
+        }
+        if(seedPrinted){
           while (ccg!=null){
             calculerXYTemp(xT,yT,k,c);k++;
             int dir = getDir((ObjetSurCarteAId)ccg.getContenu());
             try {
               g.drawImage(Main.getData().getTG()[dir][ccg.getContenu().getType()],xTemp,yTemp,this);
             }catch (Exception e) {}
-            if(ccg.getContenu().getOuverte()){drawIcone(g,5,xT,yT,tC2);}
-            else if(fi==null || ccg.getContenu().getDureté()<=fi.getDuretéMax()){drawIcone(g,4,xT,yT,tC2);}
-            else {drawIcone(g,6,xT,yT,tC2);}
+            if(ccg.getContenu().getOuverte()){drawIcone(g,5,xT,yT,tC2,kIcon++,cptIcon);}
+            else if(fi==null || ccg.getContenu().getDureté()<=fi.getDuretéMax()){drawIcone(g,4,xT,yT,tC2,kIcon++,cptIcon);}
+            else {drawIcone(g,6,xT,yT,tC2,kIcon++,cptIcon);}
             ccg = ccg.getSuivant();
           }
         }
@@ -266,7 +279,7 @@ public class PanneauCarte extends Panneau {
           int dir = getDir((ObjetSurCarteAId)cr);
           boolean insecte = true;
           calculerXYTemp(xT,yT,k,c);k++;
-          try {
+          if(cr instanceof Fourmi){
             //System.out.println(ccrea.getContenu().getClass().equals(new Fourmi().getClass()));
             Fourmi f = ((Fourmi)ccrea.getContenu());
             if(f.getStade()==0){
@@ -279,18 +292,19 @@ public class PanneauCarte extends Panneau {
               g.drawImage(Main.getData().getTF()[dir][0],xTemp,yTemp,this);
             }
             insecte=false;
-          }catch (Exception e) {
-            try {
-              Insecte i = (Insecte)(ccrea.getContenu());
-              g.drawImage(Main.getData().getTII()[dir][math.min(i.getType(),Main.getData().getTII()[dir].length)],xTemp,yTemp,this);
-            }catch (Exception e2) {erreur.erreur("impossible de dessiner l'image de la case : "+x+" "+y);
-            }
+          }else if(cr instanceof Insecte){
+            Insecte i = (Insecte)(ccrea.getContenu());
+            g.drawImage(Main.getData().getTII()[dir][math.min(i.getType(),Main.getData().getTII()[dir].length)],xTemp,yTemp,this);
           }
           //les icone
-          if(cr.getEstMort()){drawIcone(g,3,xT,yT,tC2);}
-          else if(fi!=null && cr.getEstAllié(fi)){drawIcone(g,0,xT,yT,tC2);}
-          else if(fi!=null && cr.getEstEnnemi(fi) && !insecte){drawIcone(g,2,xT,yT,tC2);}
-          else {drawIcone(g,1,xT,yT,tC2);}
+          try {
+            if(cr.getEstMort()){drawIcone(g,3,xT,yT,tC2,kIcon++,cptIcon);}
+            else if(fi!=null && cr.getEstAllié(fi)){drawIcone(g,0,xT,yT,tC2,kIcon++,cptIcon);}
+            else if(fi!=null && cr.getEstEnnemi(fi) && !insecte){drawIcone(g,2,xT,yT,tC2,kIcon++,cptIcon);}
+            else {drawIcone(g,1,xT,yT,tC2,kIcon++,cptIcon);}
+          }catch (Exception e) {
+            erreur.erreur("impossible de dessiner l'icone de la Case : "+x+" "+y);
+          }
           ccrea=ccrea.getSuivant();
         }
       }
@@ -377,9 +391,11 @@ public class PanneauCarte extends Panneau {
   *@param xT x value to use.
   *@param yT y value to use.
   *@param xOffset offset in x.
-  *@version 1.x
+  *@param k the number of the peace of circle.
+  *@param maxIcon the total number of peace of circle.
+  *@version 2.0
   */
-  public void drawIcone(Graphics g, int iconeId, int xT, int yT, int xOffset){
+  public void drawIcone(Graphics g, int iconeId, int xT, int yT, int xOffset, int k, int maxIcon){
     if (!Main.getDessinerIcone()){ return;}
     g.drawImage(Main.getData().getB()[iconeId],xT+xOffset,yT,this);
   }
