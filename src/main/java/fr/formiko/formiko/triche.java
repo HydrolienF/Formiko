@@ -237,6 +237,9 @@ public class triche {
           }catch (Exception e) {
             Fourmi.setUneSeuleAction();
           }
+          if(args.length>2){
+            action.setNeedToSetPaNullWhenActionDone(str.sToB(args[2]));
+          }
           break;
         case 34:
           if(args[2].equalsIgnoreCase("cmd.34.1")){

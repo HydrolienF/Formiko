@@ -11,31 +11,27 @@ setAction 1 1
 setPa 20
 print tuto.4 false
 print tuto.5 true
-setPa 1
+setPa 1 true
 attendre Creature 2 estMort
-setPa 20
 print tuto.6 false
 print tuto.7 false
 print tuto.8 true
-setPa 1
+setPa 1 true
 attendre GInsecte length 0
-setPa 20
 print tuto.9 false
 print tuto.10 false
 print tuto.11 true
 //setPa 0
 attendre Creature 1 getPoint 0,1
 print tuto.12 true
-setPa 2
+setPa 2 true
 attendre Fourmiliere 1 length 2
-setPa 20
 print tuto.13 false
 print tuto.14 false
 print tuto.15 true
-setPa 9
+setPa 9 true
 attendre finDuTour
 evoluer 3
-setPa 20
 print tuto.16 false
 print tuto.17 false
 print tuto.18 true
@@ -45,11 +41,10 @@ setProprete 3 40
 attendre Creature 3 getProprete > 50
 setProprete 3 100
 print tuto.19 true
-setPa 9
+setPa 9 true
 attendre finDuTour
 evoluer 3
 setNourriture 3 1
-setPa 20
 print tuto.20 false
 print tuto.21 false
 print tuto.22 true
@@ -57,16 +52,14 @@ setPa 3
 attendre Creature 3 getNourriture > 1
 setNourriture 3 100
 print tuto.23 true
-setPa 9
+setPa 9 true
 attendre finDuTour
 evoluer 3
 new Insecte 2 2 5
-setPa 20
 print tuto.24 false
 print tuto.25 true
-setPa 7
+setPa 7 true
 attendre Creature 1 getAction < 0
-setPa 20
 new Graine 2 1
 print tuto.26 false
 print tuto.27 false

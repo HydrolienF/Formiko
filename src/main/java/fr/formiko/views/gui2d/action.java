@@ -2,6 +2,7 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
+import fr.formiko.formiko.triche;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
@@ -19,9 +20,11 @@ import javax.swing.JOptionPane;
 */
 public class action{
   private static Partie pa;
+  private static boolean needToSetPaNullWhenActionDone=false;
   // GET SET -------------------------------------------------------------------
   public static Partie getPartie(){ return pa;}
   public static void setPartie(Partie p){pa=p;}
+  public static void setNeedToSetPaNullWhenActionDone(boolean b){needToSetPaNullWhenActionDone=b;}
   // public static Partie getPartie(){return Main.getPartie();}
   // public static void setPartie(Partie p){Main.setPartie(p);}
   // FUNCTIONS -----------------------------------------------------------------
@@ -89,6 +92,10 @@ public class action{
             erreur.erreur("aucune fourmi n'est selectionné pour réaliser l'action voulue.");
           }else{
             debug.débogage("clic qui lance "+(ac-20));
+            if(needToSetPaNullWhenActionDone){
+              triche.commande("setPa 20");
+              setNeedToSetPaNullWhenActionDone(false);
+            }
             Panneau.getView().getPb().setActionF(ac-20);
           }
           Main.repaint();
