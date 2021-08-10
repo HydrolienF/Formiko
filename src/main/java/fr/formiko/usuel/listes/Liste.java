@@ -397,7 +397,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
 *@version 1.31
 *@author Hydrolien
 */
-class ListeIterator<T> implements Iterator<T> {
+class ListeIterator<T> implements Iterator<T>, Serializable {
   private Node<T> current;
 
   /**
@@ -425,7 +425,7 @@ class ListeIterator<T> implements Iterator<T> {
 *@version 1.41
 *@author Hydrolien
 */
-class Node<T> {
+class Node<T> implements Serializable {
   private T content;
   private Node<T> next;
   /**
