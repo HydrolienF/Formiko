@@ -254,7 +254,7 @@ public class PanneauCarte extends Panneau {
     Point point = getPointFromCase(x,y,false);
     int xT = point.getX(); int yT = point.getY();
     int xT2 = (x)*getTailleDUneCase(); int yT2 = (y)*getTailleDUneCase();
-    if(peintCaseNuageuse(x,y,g,xT,yT)){ return;}//si la case est nuageuse, on n'affichera rien d'autre dessus.
+    if(peintCaseNuageuse(x,y,g,xT,yT)){return;}//si la case est nuageuse, on n'affichera rien d'autre dessus.
     byte ty = c.getType();
     CCreature ccrea = c.getGc().getHead();
     CGraine ccg = c.getGg().getHead();
@@ -409,7 +409,7 @@ public class PanneauCarte extends Panneau {
   */
   private boolean isSombre(int x, int y){
     Joueur jo = Main.getPlayingJoueur();
-    return jo==null || (Main.getPartie().getCarte().getCasesSombres() && jo.getCaseSombre(x,y));
+    return jo==null || jo.getIa() || (Main.getPartie().getCarte().getCasesSombres() && jo.getCaseSombre(x,y));
   }
   /**
   *{@summary return true if we need to draw the color of the anthill.}<br>
@@ -592,9 +592,9 @@ public class PanneauCarte extends Panneau {
 //     }
 //   }
 // }
-class GcComparator<Creature> implements Comparator<Creature>{
-  public int compare(Creature c1, Creature c2) {
-    // return c1.getTaille() - c2.getTaille();
-    return 1;
-  }
-}
+// class GcComparator<Creature> implements Comparator<Creature>{
+//   public int compare(Creature c1, Creature c2) {
+//     // return c1.getTaille() - c2.getTaille();
+//     return 1;
+//   }
+// }
