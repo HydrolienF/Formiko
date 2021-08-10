@@ -63,14 +63,11 @@ public class sauvegarderUnePartie {
     Partie pa = null;
     debug.débogage("Chargement de la sauvegarde "+s);
     try {
-      //TODO #401 save fail here
-      System.out.println(getNomDuFichierComplet());//@a
       ois = new ObjectInputStream(new FileInputStream(getNomDuFichierComplet()));
       pa = (Partie) ois.readObject();
       ois.close();
     }catch (Exception e) {
       erreur.erreur("Impossible de charger la partie "+nomDuFichier+" pour une raison inconnue");
-      System.out.println(e);//@a
     }
     return pa;
   }
