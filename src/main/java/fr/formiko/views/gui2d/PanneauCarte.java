@@ -409,7 +409,7 @@ public class PanneauCarte extends Panneau {
   */
   private boolean isSombre(int x, int y){
     Joueur jo = Main.getPlayingJoueur();
-    return jo!=null && Main.getPartie().getCarte().getCasesSombres() && jo.getCaseSombre(x,y);
+    return jo==null || (Main.getPartie().getCarte().getCasesSombres() && jo.getCaseSombre(x,y));
   }
   /**
   *{@summary return true if we need to draw the color of the anthill.}<br>
@@ -417,7 +417,7 @@ public class PanneauCarte extends Panneau {
   */
   private boolean needToDrawAnthillColor(Case c, int x, int y){
     if (drawAllFere) { return true;}
-    if(c.getFere().getId()==idCurentFere && !isSombre(x,y)){return true;}
+    if(c.getFere().getId()==idCurentFere){return true;} // && !isSombre(x,y)
     return (lookedCCase!=null && lookedCCase.getContent() !=null && lookedCCase.getContent().equals(c));
   }
   /**
