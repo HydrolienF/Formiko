@@ -128,24 +128,6 @@ public class GJoueur implements Serializable{
       fin = cj;
     }
   }
-  //TODO #231 should place j depending of it score. (just before the 1a player that have a lower score.)
-  public void addOrdonnée(Joueur j){
-    if(début==null){add(j);}//le cas ou on a 0 éléments dans la liste.
-    else if(début.equals(fin)){//le cas ou on a 1 seul élément dans la liste
-      if(début.getContent().getScore()>=j.getScore()){
-        addFin(j);
-      }else{
-        addDébut(j);
-      }
-    }else{
-      if(début.getContent().getScore()>=j.getScore()){
-        début.addOrdonnée(j);
-      }else{
-        addDébut(j);
-      }
-    }
-    actualiserFin();
-  }
   public void actualiserFin(){
     fin = début;
     while(fin.getSuivant()!=null){

@@ -92,22 +92,6 @@ public class CJoueur implements Serializable{
     }
     return gsr;
   }
-  public void addOrdonnée(Joueur j){
-    CJoueur cj = this;
-    while(cj!=null && cj.getSuivant()!=null){
-      if(cj.getSuivant().getContent().getScore()>j.getScore()){//si on a pas atteint la place voulue.
-        cj=cj.getSuivant();
-      }else{//placé après le 1a joueur qui a un plus mauvais score.
-        CJoueur temp = cj.getSuivant();//l'ancien maillon suivant.
-        cj.setSuivant(new CJoueur(j));
-        cj.getSuivant().setSuivant(temp);
-        return;
-      }
-      if(cj.getSuivant()==null){ // placé en dernière position
-        cj.setSuivant(new CJoueur(j));
-      }
-    }
-  }
   public void remove(Joueur j){
     if (suivant == null){
       erreur.erreur("Le joueur "+j.getId()+" n'as pas pue être retiré");
