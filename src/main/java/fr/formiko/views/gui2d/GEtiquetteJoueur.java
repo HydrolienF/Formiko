@@ -8,8 +8,8 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 
 public class GEtiquetteJoueur {
-  private CEtiquetteJoueur début;
-  private CEtiquetteJoueur fin;
+  private CEtiquetteJoueur head;
+  private CEtiquetteJoueur tail;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public GEtiquetteJoueur(int x){
     String pseudo = Main.getOp().getPseudo();
@@ -22,46 +22,46 @@ public class GEtiquetteJoueur {
   }
   public GEtiquetteJoueur(){}
   // GET SET --------------------------------------------------------------------
-  public CEtiquetteJoueur getHead(){ return début;}
-  public CEtiquetteJoueur getTail(){ return fin;}
+  public CEtiquetteJoueur getHead(){ return head;}
+  public CEtiquetteJoueur getTail(){ return tail;}
   // Fonctions propre -----------------------------------------------------------
   public int length(){
-    if(début==null){ return 0;}
-    return début.length();
+    if(head==null){ return 0;}
+    return head.length();
   }
   public void afficheToi(){
-    if(début==null){System.out.println("le GEtiquetteJoueur est vide");return;}
+    if(head==null){System.out.println("le GEtiquetteJoueur est vide");return;}
     System.out.println("GEtiquetteJoueur de "+length()+" éléments.");
-    début.afficheToi();
+    head.afficheToi();
   }
   public GJoueur getGJoueur(Carte mapo){
-    if (début==null){ return new GJoueur();}
-    this.remove(fin.getContent()); // on retir la fin qui est fermé.
-    return début.getGJoueur(mapo);
+    if (head==null){ return new GJoueur();}
+    this.remove(tail.getContent()); // on retir la tail qui est fermé.
+    return head.getGJoueur(mapo);
   }
   public void add(EtiquetteJoueur ej){
-    if(début==null){ début = new CEtiquetteJoueur(ej); fin = début;}
+    if(head==null){ head = new CEtiquetteJoueur(ej); tail = head;}
     else{
-      fin.setSuivant(new CEtiquetteJoueur(ej));
+      tail.setSuivant(new CEtiquetteJoueur(ej));
     }
     actualiserFin();
   }
   public void remove(int idX){
-    if(début==null){erreur.erreurGXVide("GEtiquetteJoueur");return;}
-    if(début.getContent().getId()==idX){
-      début = début.getSuivant();
+    if(head==null){erreur.erreurGXVide("GEtiquetteJoueur");return;}
+    if(head.getContent().getId()==idX){
+      head = head.getSuivant();
     }else{
-      début.remove(idX);
+      head.remove(idX);
     }
     actualiserFin();
   }public void remove(EtiquetteJoueur ej){remove(ej.getId());}
   public void actualiserFin(){
-    //remettre la fin a la fin.
-    CEtiquetteJoueur cej = début;
-    if(cej==null){fin=null;return;}
+    //remettre la tail a la tail.
+    CEtiquetteJoueur cej = head;
+    if(cej==null){tail=null;return;}
     while(cej.getSuivant()!=null){
       cej=cej.getSuivant();
     }
-    fin = cej;
+    tail = cej;
   }
 }
