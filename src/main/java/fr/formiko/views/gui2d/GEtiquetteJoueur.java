@@ -6,10 +6,11 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.listes.Liste;
+import fr.formiko.formiko.Joueur;
 
-public class GEtiquetteJoueur {
-  private CEtiquetteJoueur head;
-  private CEtiquetteJoueur tail;
+public class GEtiquetteJoueur extends Liste<EtiquetteJoueur> {
+
   // CONSTRUCTEUR ---------------------------------------------------------------
   public GEtiquetteJoueur(int x){
     String pseudo = Main.getOp().getPseudo();
@@ -22,66 +23,64 @@ public class GEtiquetteJoueur {
   }
   public GEtiquetteJoueur(){}
   // GET SET --------------------------------------------------------------------
-  public CEtiquetteJoueur getHead(){ return head;}
-  public CEtiquetteJoueur getTail(){ return tail;}
+
   // Fonctions propre -----------------------------------------------------------
-  public int length(){
-    if(head==null){ return 0;}
-    return head.length();
-  }
-  /**
-  *{@summary Return true is list is empty.}<br>
-  *It's a better function than doing list.length()==0.
-  *@version 2.5
-  */
-  public boolean isEmpty(){
-    return getHead()==null;
-  }
-  public void afficheToi(){
-    if(head==null){System.out.println("le GEtiquetteJoueur est vide");return;}
-    System.out.println("GEtiquetteJoueur de "+length()+" éléments.");
-    head.afficheToi();
-  }
-  public GJoueur getGJoueur(Carte mapo){
-    if (head==null){ return new GJoueur();}
-    this.remove(tail.getContent()); // on retir la tail qui est fermé.
-    return head.getGJoueur(mapo);
-  }
-  public void add(EtiquetteJoueur ej){
-    if(head==null){
-      head = new CEtiquetteJoueur(ej); tail = head;
-    }
-    else{
-      tail.setSuivant(new CEtiquetteJoueur(ej));
-    }
-    actualiserFin();
+  @Override
+  public boolean add(EtiquetteJoueur ej){
+    super.add(ej);
     try {
-      Panneau.getView().getPnp().getLaunchButton().setEnabled(true);
+      enableLaunchButtonIfNeeded();
     }catch (Exception e) {}
+    return true;
   }
-  public void remove(int idX){
-    if(head==null){erreur.erreurGXVide("GEtiquetteJoueur");return;}
-    if(head.getContent().getId()==idX){
-      head = head.getSuivant();
-    }else{
-      head.remove(idX);
+  @Override
+  public boolean remove(Object o){
+    if(super.remove(o)){
+      disableLaunchButtonIfNeeded();
+      return true;
     }
-    actualiserFin();
-    if(length()<2){ //only empty one.
-      try {
-        Panneau.getView().getPnp().getLaunchButton().setEnabled(false);
-      }catch (Exception e) {
-        erreur.alerte("fail to disable launch button with 0 player");
+    return false;
+  }
+
+  public GJoueur getGJoueur(Carte mapo){
+    remove(getLast()); // not realy opti.
+    int nbrDeFourmi=1;
+    GJoueur gj = new GJoueur();
+    for (EtiquetteJoueur ej : this ) {
+      Joueur j = new Joueur(nbrDeFourmi,ej.getIa(),mapo);
+      j.setPseudo(ej.getPseudo());
+      j.setPheromone(ej.getCouleur());
+      gj.add(j);
+      if(!ej.getIa()){ // si c'est un joueur Humain.
+        if (mapo.getCasesNuageuses() || mapo.getCasesSombres()){
+          j.initialisationCaseNS();
+          j.updateCaseSN();
+        }
       }
     }
-  }public void remove(EtiquetteJoueur ej){remove(ej.getId());}
-  public void actualiserFin(){
-    //remettre la tail a la tail.
-    CEtiquetteJoueur cej = head;
-    if(cej==null){tail=null;return;}
-    while(cej.getSuivant()!=null){
-      cej=cej.getSuivant();
+    return gj;
+  }
+
+  public void disableLaunchButtonIfNeeded(){
+    for (EtiquetteJoueur ej : this ) {
+      if(ej.getOuvert() && !ej.getIa()){ //if there is a human player
+        return;
+      }
     }
-    tail = cej;
+    //if there is 0 humain player
+    try {
+      Panneau.getView().getPnp().getLaunchButton().setEnabled(false);
+    }catch (Exception e) {
+      erreur.alerte("fail to disable launch button with 0 player");
+    }
+  }
+
+  public void enableLaunchButtonIfNeeded(){
+    for (EtiquetteJoueur ej : this ) {
+      if(ej.getOuvert() && !ej.getIa()){ //if there is a human player
+        Panneau.getView().getPnp().getLaunchButton().setEnabled(true);
+        return;
+      }
+    }
   }
 }

@@ -13,22 +13,26 @@ public class PanneauGEtiquetteJoueur extends Panneau{
     this.gej=gej;
     this.setLayout(null);
     //int nbrDeJoueur = gej.length();
-    CEtiquetteJoueur cej = gej.getHead();
     int wi2 = Main.getF().getWidth()/2;
     int k=0;
-    while(cej!=null){
-      cej.getContent().setBounds(Desc.getDimY(),k*Desc.getDimY()*3,wi2*gej.length(),Desc.getDimY()*3);
-      add(cej.getContent());
-      cej=cej.getSuivant();k++;
+    for (EtiquetteJoueur ej : gej ) {
+      ej.setBounds(Desc.getDimY(),k*Desc.getDimY()*3,wi2*gej.length(),Desc.getDimY()*3);
+      add(ej);k++;
     }
+    // CEtiquetteJoueur cej = gej.getHead();
+    // while(cej!=null){
+    //   cej.getContent().setBounds(Desc.getDimY(),k*Desc.getDimY()*3,wi2*gej.length(),Desc.getDimY()*3);
+    //   add(cej.getContent());
+    //   cej=cej.getSuivant();k++;
+    // }
   }
   // GET SET --------------------------------------------------------------------
-
+  // public void getGej(){return gej;}
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
-    if(gej!=null && gej.getHead()!=null && gej.getHead().getContent()!=null){
+    if(gej!=null && gej.getHead()!=null && gej.getFirst()!=null){
       g.setColor(Main.getData().getButtonColor());
-      int taille = gej.getHead().getContent().getHeight();
+      int taille = gej.getFirst().getHeight();
       int size = gej.length();
       g.fillRect(0,0,getWidth(),taille*size);
     }

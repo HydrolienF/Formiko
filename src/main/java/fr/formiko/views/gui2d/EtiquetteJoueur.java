@@ -136,22 +136,25 @@ public class EtiquetteJoueur extends Panneau{
           ouvert=true; ia=false; setPseudo(g.getM("joueur")+" "+(id+1));
           //if ((combo.getSelectedItemReminder()).equals(combo.getItemAt(2))){
             iniCouleur();
+            pnp.getGej().enableLaunchButtonIfNeeded();
           //}
         }else if(combo.getItemAt(1).equals(e.getItem())){
           ouvert=true; ia=true; setPseudo(Joueur.get1Pseudo());
           //if ((combo.getSelectedItemReminder()).equals(combo.getItemAt(2))){
             iniCouleur();
+            pnp.getGej().disableLaunchButtonIfNeeded();
           //}
         }else if(combo.getItemAt(2).equals(e.getItem())){
           //if(ej.equals(pnp.getGej().getTail().getContent())){}
           ouvert=false;
           pnp.getGej().remove(ej);
           pnp.rafraichirPgej();
+          pnp.getGej().disableLaunchButtonIfNeeded();
           //on retire l'EtiquetteJoueur.
           //Main.getPnp().get...
         }
       }
-      if(pnp.getGej().getTail().getContent().getOuvert()){ // si la dernière n'est pas fermé.
+      if(pnp.getGej().getLast().getOuvert()){ // si la dernière n'est pas fermé.
         pnp.getGej().add(new EtiquetteJoueur());
         pnp.rafraichirPgej();
       }
