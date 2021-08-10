@@ -29,6 +29,14 @@ public class GEtiquetteJoueur {
     if(head==null){ return 0;}
     return head.length();
   }
+  /**
+  *{@summary Return true is list is empty.}<br>
+  *It's a better function than doing list.length()==0.
+  *@version 2.5
+  */
+  public boolean isEmpty(){
+    return getHead()==null;
+  }
   public void afficheToi(){
     if(head==null){System.out.println("le GEtiquetteJoueur est vide");return;}
     System.out.println("GEtiquetteJoueur de "+length()+" éléments.");
@@ -40,11 +48,16 @@ public class GEtiquetteJoueur {
     return head.getGJoueur(mapo);
   }
   public void add(EtiquetteJoueur ej){
-    if(head==null){ head = new CEtiquetteJoueur(ej); tail = head;}
+    if(head==null){
+      head = new CEtiquetteJoueur(ej); tail = head;
+    }
     else{
       tail.setSuivant(new CEtiquetteJoueur(ej));
     }
     actualiserFin();
+    try {
+      Panneau.getView().getPnp().getLaunchButton().setEnabled(true);
+    }catch (Exception e) {}
   }
   public void remove(int idX){
     if(head==null){erreur.erreurGXVide("GEtiquetteJoueur");return;}
@@ -54,6 +67,13 @@ public class GEtiquetteJoueur {
       head.remove(idX);
     }
     actualiserFin();
+    if(length()<2){ //only empty one.
+      try {
+        Panneau.getView().getPnp().getLaunchButton().setEnabled(false);
+      }catch (Exception e) {
+        erreur.alerte("fail to disable launch button with 0 player");
+      }
+    }
   }public void remove(EtiquetteJoueur ej){remove(ej.getId());}
   public void actualiserFin(){
     //remettre la tail a la tail.

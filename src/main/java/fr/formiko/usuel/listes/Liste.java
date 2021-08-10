@@ -108,11 +108,10 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   /**
   *{@summary Return true is list is empty.}<br>
   *It's a better function than doing list.length()==0.
-  *@version 1.52
+  *@version 2.5
   */
   public boolean isEmpty(){
-    if (getHead() == null){ return true;}
-    return false;
+    return getHead()==null;
   }
   /**
   *{@summary Return the number of element.}<br>
