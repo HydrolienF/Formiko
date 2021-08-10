@@ -109,7 +109,10 @@ public class GInsecte extends Liste<Insecte> implements Serializable{
   */
   public GCreature toGCreature(){
     GCreature gcr = new GCreature();
-    gcr.add(this);
+    // gcr.add(this);
+    for (Insecte in : this ) {
+      gcr.add(in);
+    }
     return gcr;
   }
 }
