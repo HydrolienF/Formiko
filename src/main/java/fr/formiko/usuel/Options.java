@@ -51,6 +51,7 @@ public class Options implements Serializable{
   private boolean debug_message;
   private boolean debug_performance;
   private boolean debug_gui;
+  private boolean debug_paintHitBox;
   private int sizeOfMapLines;
   private byte positionCase;
   private boolean music;
@@ -119,6 +120,8 @@ public class Options implements Serializable{
   public void setAffLesPerformances(boolean b){debug_performance=b;}
   public boolean getAffG(){return debug_gui;}
   public void setAffG(boolean b){debug_gui=b;}
+  public boolean getPaintHitBox(){return debug_paintHitBox;}
+  public void setPaintHitBox(boolean b){debug_paintHitBox=b;}
   public int getDimLigne(){ return sizeOfMapLines;}
   public void setDimLigne(int x){sizeOfMapLines=x;}
   public byte getPositionCase(){return positionCase;}
@@ -270,6 +273,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("debug_message","false");
     defaultProperties.setProperty("debug_performance","false");
     defaultProperties.setProperty("debug_gui","false");
+    defaultProperties.setProperty("debug_paintHitBox","false");
     defaultProperties.setProperty("sizeOfMapLines","2");
     defaultProperties.setProperty("music","false");
     defaultProperties.setProperty("sound","false");
@@ -332,6 +336,7 @@ public class Options implements Serializable{
     debug_message=str.sToB(properties.getProperty("debug_message"));
     debug_performance=str.sToB(properties.getProperty("debug_performance"));
     debug_gui=str.sToB(properties.getProperty("debug_gui"));
+    debug_paintHitBox=str.sToB(properties.getProperty("debug_paintHitBox"));
     sizeOfMapLines=str.sToI(properties.getProperty("sizeOfMapLines"));
     positionCase=str.sToBy(properties.getProperty("positionCase"));
     music=str.sToB(properties.getProperty("music"));
@@ -377,6 +382,7 @@ public class Options implements Serializable{
     properties.setProperty("debug_message",""+debug_message);
     properties.setProperty("debug_performance",""+debug_performance);
     properties.setProperty("debug_gui",""+debug_gui);
+    properties.setProperty("debug_paintHitBox",""+debug_paintHitBox);
     properties.setProperty("sizeOfMapLines",""+sizeOfMapLines);
     properties.setProperty("positionCase",""+positionCase);
     properties.setProperty("music",""+music);

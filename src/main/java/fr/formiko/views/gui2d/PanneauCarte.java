@@ -204,11 +204,11 @@ public class PanneauCarte extends Panneau {
         }
         if (jo!=null){//si on a un joueur sélectionné.
           if (x>=0 && y>=0 && jo.getCaseNuageuse(x,y)){//si la case est invisible (nuageuse.)
-            g.drawImage(Main.getData().getCNuageuse(),xT,yT,this);
+            drawImage(g,Main.getData().getCNuageuse(),xT,yT);
             return true;//on ne dessine rien par dessus.
           }
         }else{//si pas de joueur selcetionné toute les cases sont nuageuse.
-          g.drawImage(Main.getData().getCNuageuse(),xT,yT,this);
+          drawImage(g,Main.getData().getCNuageuse(),xT,yT);
           return true;//on ne dessine rien par dessus.
         }
       }catch (Exception e) {
@@ -225,7 +225,7 @@ public class PanneauCarte extends Panneau {
     Fourmi playingAnt = Main.getPlayingAnt();
     if(playingAnt!=null && !playingAnt.getIa()){
       Case c = playingAnt.getCCase().getContent();
-      g.drawImage(Main.getData().getSelectionnee(),(c.getX())*Main.getData().getTailleDUneCase(),(c.getY())*Main.getData().getTailleDUneCase(),this);
+      drawImage(g,Main.getData().getSelectionnee(),(c.getX())*Main.getData().getTailleDUneCase(),(c.getY())*Main.getData().getTailleDUneCase());
     }
   }
   /**
@@ -262,14 +262,14 @@ public class PanneauCarte extends Panneau {
       int tC10 = Main.getData().getTailleDUneCase()/10;int tC4 = Main.getData().getTailleDUneCase()/4;int tC2 = Main.getData().getTailleDUneCase()/2;
       // anthill
       if (c.getFere()!=null){
-        g.drawImage(Main.getData().getFere(),xT+tC4,yT+tC4,this);
+        drawImage(g,Main.getData().getFere(),xT+tC4,yT+tC4);
         if (needToDrawAnthillColor(c, x, y)) {
           int tailleDuCercle = Main.getTailleElementGraphique(20);
           drawRondOuRect(xT,yT,Main.getData().getTailleDUneCase(),g,c.getFere(),tailleDuCercle);
         }
       }
       if(isSombre(x,y)){
-        g.drawImage(Main.getData().getCSombre(),xT,yT,this); // si les créatures sur la case ne sont pas visible.
+        drawImage(g,Main.getData().getCSombre(),xT,yT); // si les créatures sur la case ne sont pas visible.
       }else{
         int k=0;
         boolean seedPrinted = Main.getAffGraine();
@@ -289,7 +289,7 @@ public class PanneauCarte extends Panneau {
             int dir = getDir((ObjetSurCarteAId)ccg.getContent());
             try {
               BufferedImage bi = Main.getData().getTG()[0][ccg.getContent().getType()];
-              drawImage(g,image.rotateImage(bi,dir),xT,yT);
+              drawImageCentered(g,image.rotateImage(bi,dir),xT,yT);
             }catch (Exception e) {}
             if(ccg.getContent().getOuverte()){drawIcone(g,5,xT,yT,tC2,kIcon++,cptIcon);}
             else if(fi==null || ccg.getContent().getDureté()<=fi.getDuretéMax()){drawIcone(g,4,xT,yT,tC2,kIcon++,cptIcon);}
@@ -328,7 +328,7 @@ public class PanneauCarte extends Panneau {
               int k2=0;
               for (BufferedImage bi : tBi ) {
                 if(bi!=null){
-                  drawImage(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
+                  drawImageCentered(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
                 }
                 k2++;
               }
@@ -343,7 +343,7 @@ public class PanneauCarte extends Panneau {
               BufferedImage bi = Main.getData().getTII()[0][math.min(i.getType(),Main.getData().getTII()[0].length)];
               // BufferedImage bi2 = image.rotateImage(bi,dir);
               // erreur.info("from a "+bi.getWidth()+"x"+bi.getHeight()+" image to a "+bi2.getWidth()+"x"+bi2.getHeight()+" image.");
-              drawImage(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
+              drawImageCentered(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
             }catch (Exception e) {
               erreur.erreur("can't draw insect "+i.getId()+" with type "+i.getType());
             }
@@ -395,13 +395,22 @@ public class PanneauCarte extends Panneau {
   *@param yT the y of the Case were to draw.
   *@version 2.1
   */
-  private void drawImage(Graphics2D g, BufferedImage image, int xT, int yT){
+  private void drawImageCentered(Graphics2D g, BufferedImage image, int xT, int yT){
     int w = image.getWidth();
     int h = image.getHeight();
     int caseSize = getTailleDUneCase();
     int xI = xT+(caseSize-w)/2;
     int yI = yT+(caseSize-h)/2;
-    g.drawImage(image,xI,yI,this);
+    drawImage(g,image,xI,yI);
+  }
+  public void drawImage(Graphics gTemp, BufferedImage im, int x, int y){
+    Graphics2D g = (Graphics2D)gTemp;
+    g.drawImage(im,x,y,this);
+    if(Main.getOp().getPaintHitBox()){
+      g.setColor(Color.RED);
+      g.setStroke(new BasicStroke(math.max(im.getWidth()/100,im.getHeight()/100,1)));
+      g.drawRect(x,y,im.getWidth(),im.getHeight());
+    }
   }
   /**
   *{@summary return true if case in x,y is sombre.}<br>
