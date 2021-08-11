@@ -5,10 +5,10 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 
 /**
- * {@summary Do math operation.}<br>
- * @author Hydrolien
- * @version 1.1
- */
+*{@summary Do math operation.}<br>
+*@author Hydrolien
+*@version 2.5
+*/
 public class math {
   //int
   /**
@@ -22,10 +22,12 @@ public class math {
   }
   /**
   *{@summary return maximum}
+  *Sort cut for as many parameters as we whant.
   *@return maximum of int t []
-  *@version 1.1
+  *@version 2.5
   */
-  public static int max(int t[]){
+  public static int max(int ... t){
+    // return max(values);
     int lent = t.length;
     int xMax = t[0];
     for (int i=0; i<lent-1;i++){
@@ -59,9 +61,9 @@ public class math {
   /**
   *{@summary return minimum}
   *@return minimum of int t []
-  *@version 1.1
+  *@version 2.5
   */
-  public static int min(int t[]){
+  public static int min(int ... t){
     int lent = t.length;
     int xMin = t[0];
     for (int i=0; i<lent-1;i++){
@@ -105,9 +107,9 @@ public class math {
   /**
   *{@summary return maximum}
   *@return maximum of double
-  *@version 1.1
+  *@version 2.5
   */
-  public static double max(double t[]){
+  public static double max(double ... t){
     int lent = t.length;
     double xMax = t[0];
     for (int i=0; i<lent-1;i++){
@@ -127,9 +129,9 @@ public class math {
   /**
   *{@summary return minimum}
   *@return minimum of double
-  *@version 1.1
+  *@version 2.5
   */
-  public static double min(double t[]){
+  public static double min(double ... t){
     int lent = t.length;
     double xMin = t[0];
     for (int i=0; i<lent-1;i++){

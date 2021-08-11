@@ -19,6 +19,23 @@ public class mathTest extends TestCaseMuet{
     assertEquals(1,math.max(1,1));
   }
   @Test
+  public void testMaxInt2(){
+    assertEquals(8,math.max(1,8,3));
+    assertEquals(1,math.max(1,-9,0,-4,-6774,-9));
+    assertEquals(1,math.max(1,1,1,1,1,1,1,1,1));
+  }
+  @Test
+  public void testMaxInt3(){
+    int t [] = {1,2,-1,3,8};
+    assertEquals(8,math.max(t));
+    t = new int[2];
+    t[0]=1; t[1]=-0;
+    assertEquals(1,math.max(t));
+    t = new int[2];
+    t[0]=1; t[1]=1;
+    assertEquals(1,math.max(t));
+  }
+  @Test
   public void testMaxIntT(){
     int t [] = {0,5,190,-45};
     assertEquals(math.max(t),190);
