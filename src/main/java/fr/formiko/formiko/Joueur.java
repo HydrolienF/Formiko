@@ -116,6 +116,7 @@ public class Joueur implements Serializable{
     }
     if(Main.getGj().getJoueurHumain().length()>1 && !ia){
       Main.setPlayingAnt(null);
+      setPlayingJoueur(null);
       if(Main.getRetournerAuMenu()){return;}
       Main.getView().popUpMessage(pseudo+" "+g.get("débutTourJoueur")+".");
     }
