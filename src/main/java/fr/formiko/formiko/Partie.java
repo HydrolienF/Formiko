@@ -91,6 +91,8 @@ public class Partie implements Serializable{
   public static GEspece getGe(){return ge;}
   public int getTour(){ return tour;}
   public void setTour(int x){ tour=x;}
+  public void addTour(int x){tour+=x;}
+  public void addTour(){addTour(1);}
   public int getNbrDeTour(){ return nbrDeTour;}
   public void setNbrDeTour(int x){ nbrDeTour=x;}
   public byte getDifficulté(){return difficulté;}

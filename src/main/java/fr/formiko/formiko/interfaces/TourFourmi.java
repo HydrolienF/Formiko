@@ -154,13 +154,20 @@ public class TourFourmi implements Serializable, Tour{
   }
   /**
   *{@summary End a turn as an Ant.}<br>
+  *If turn have already be end on this turn, it will do nothing.
   *@version 1.30
   */
   public void finTour(){
+    //to avoid to end turn 2 time in the same turn.
+    if(f.getLastTurnEnd()==Main.getPartie().getTour()){
+      return;
+    }else{
+      f.setLastTurnEnd(Main.getPartie().getTour());
+    }
     debug.débogage("Fin du tour de la Fourmi");
     if(f.getAction()>0){f.setAction(0);}//end the turn normaly
     // Un tour ça coute en age et en nourriture;
-    if (!(f.evoluer instanceof EvoluerNull) && f.getStade()<0 && f.getAge()>=f.getAgeMax()){ f.evoluer();}
+    if (f.getStade()<0 && !(f.evoluer instanceof EvoluerNull) && f.getAge()>=f.getAgeMax()){ f.evoluer();}
     f.setAgePlus1();
     if(!f.getEstMort()){
       f.salir();

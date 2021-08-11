@@ -101,7 +101,7 @@ public class keys {
           action.doAction(Panneau.getView().getPnp().getLaunchButton().getActionB());
         }else if(Main.getPlayingAnt()!=null){
           //TODO passer le tour ou a la prochaine Fourmi qui a des actions.
-          // Panneau.getView().getPb().setActionF(-2);
+          Panneau.getView().getPb().setActionF(-2);
         }else{
           try {
             action.doActionPj(200);

@@ -309,6 +309,7 @@ public class TourReineTest extends TestCaseMuet{
 
     f.setAction(0);
     f.setTypeF((byte)0);
+    Main.getPartie().addTour();
     f.tour();
     assertEquals(2,f.getAge());
     assertEquals(0,f.getAction());
