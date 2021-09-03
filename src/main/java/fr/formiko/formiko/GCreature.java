@@ -496,6 +496,17 @@ public class GCreature implements Serializable{//, Iterator{
     return true;
   }
   /**
+  *{@summary Return true if all ant are in autoMode.}
+  *@version 2.5
+  */
+  public boolean isAllInAutoMode(){
+    for (Creature c : toList()) {
+      if(c instanceof Fourmi && !((Fourmi)c).isAutoMode()){return false;}
+    }
+    return true;
+  }
+
+  /**
   *{@summary Force all the GCreature Creature to end there turn.}<br>
   *Ant that still haven't end there turn will have action set to 0 &#38; tour to update age, cleaning etc.
   *@version 1.x

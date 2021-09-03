@@ -498,12 +498,19 @@ public class ViewGUI2d implements View {
   */
   public void waitForEndTurn(Fourmiliere fere) {
     getPmmc().setAllActionDone(true);
-    if(!Main.getOp().getEndTurnAuto() && !fere.getJoueur().getIa()){ // || any ant have action to do.
+    boolean everyoneInAutoMode=false; //au moins 1 fourmi sans auto mode.
+    try {
+      if(Main.getPlayingJoueur().getFere().getGc().isAllInAutoMode()){everyoneInAutoMode=true;}
+    }catch (Exception e) {
+      erreur.alerte("Fail to launch auto end turn.");
+    }
+    if((!Main.getOp().getEndTurnAuto() || everyoneInAutoMode) && !fere.getJoueur().getIa()) { // || any ant have action to do.
       while(!fere.getJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu()) {
         Temps.pause(50);
       }
       fere.getJoueur().setIsTurnEnded(false);
     }
+    // fere.getJoueur().setIsTurnEnded(true);
     getPmmc().setAllActionDone(false);
     // erreur.info("stop waiting for end turn");//@a
   }

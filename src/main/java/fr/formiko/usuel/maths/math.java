@@ -184,7 +184,7 @@ public class math {
   }
   /*public static int factorielle(int k){
     if (k <= 0) {
-      erreur.erreur("Impossible de calculé n! si n n'est pas positif","math.factorielle");
+      erreur.erreur("Impossible de calculer n! si n n'est pas positif","math.factorielle");
       return -1;
     }
     if (k == 1){
@@ -195,7 +195,7 @@ public class math {
   }
   public static int factorielleSwitch(int k){
     if (k <= 0) {
-      erreur.erreur("Impossible de calculé n! si n n'est pas positif","math.factorielleSwitch");
+      erreur.erreur("Impossible de calculer n! si n n'est pas positif","math.factorielleSwitch");
       return -1;
     }
     int mem [] = new int [2];
@@ -220,7 +220,7 @@ public class math {
   public static long factorielle(int k){
     if(k==0){return 0;}
     if (k < 0) {
-      erreur.erreur("Impossible de calculé n! si n n'est pas positif n="+k);
+      erreur.erreur("Impossible de calculer n! si n n'est pas positif n="+k);
       return -1;
     }
     long mem [] = new long [2];
@@ -239,11 +239,11 @@ public class math {
   }
   /*public static long factorielleNMoinsK(int max, int n){
     if (max <= 0 ) {
-      erreur.erreur("Impossible de calculé n! si n n'est pas positif","math.factorielleSwitchLong");
+      erreur.erreur("Impossible de calculer n! si n n'est pas positif","math.factorielleSwitchLong");
       return -1;
     }
     if (n < max){
-      erreur.erreur("Impossible de calculé un un factorielle négatif");
+      erreur.erreur("Impossible de calculer un un factorielle négatif");
     }
     long mem [] = new long [2];
     int ic = 0;
@@ -287,7 +287,7 @@ public class math {
   */
   public static int syracuse(int n){
     if (n <= 0) {
-      erreur.erreur("Impossible de calculé syracuse si n n'est pas positif");
+      erreur.erreur("Impossible de calculer syracuse si n n'est pas positif");
       return -1;
     }
     // u¨0 = n et u¨(i+1) = u¨i/2 si pair
@@ -310,7 +310,7 @@ public class math {
   */
   public static int syracuseSwitch(int n){
     if (n <= 0) {
-      erreur.erreur("Impossible de calculé syracuse si n n'est pas positif");
+      erreur.erreur("Impossible de calculer syracuse si n n'est pas positif");
       return -1;
     }
     int i=0;

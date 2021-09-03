@@ -108,6 +108,7 @@ public class Fourmi extends Creature implements Serializable{
   public byte getTypeF(){return typeF;}
   public void setTypeF(byte s){typeF = s;}public void setTypeF(int x){setTypeF((byte)x);}
   public byte getMode(){return mode;}
+  public boolean isAutoMode(){return (getMode()==0 || getMode()==3);}
   public void setMode(byte x){mode = x;}public void setMode(int x){setMode((byte)x);}
   public void setFourmiliere(Fourmiliere gf){fere = gf;}public void setFere(Fourmiliere fere){setFourmiliere(fere);}
   public Fourmiliere getFourmiliere(){return fere;} public Fourmiliere getFere(){ return getFourmiliere();}

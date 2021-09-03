@@ -60,9 +60,9 @@ public class GInt implements Serializable{
   }
   public int calculerScore(Fourmiliere fere){
     if(début==null){
-      erreur.alerte("le GInt est null, impossible de calculé le score du joueur.");return -1;
+      erreur.alerte("le GInt est null, impossible de calculer le score du joueur.");return -1;
     }else if(length()!=6){
-      erreur.alerte("le GInt ne contient pas le bon nombre de CInt, impossible de calculé le score du joueur.");return -1;
+      erreur.alerte("le GInt ne contient pas le bon nombre de CInt, impossible de calculer le score du joueur.");return -1;
     }else{
       return début.calculerScore(fere);
     }

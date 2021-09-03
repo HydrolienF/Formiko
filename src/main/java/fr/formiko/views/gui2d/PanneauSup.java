@@ -53,11 +53,22 @@ public class PanneauSup extends Panneau{
             gc = getCase(e).getGc();
           }catch (Exception e2) {}
           if(gc.length()>0){
-            Fourmi f = gc.getFourmiParFere(Main.getPlayingAnt().getFere());
-            if(f!=null && f.getAction()>0){
+            Fourmi f = null;
+            try {
+              f = gc.getFourmiParFere(Main.getPlayingJoueur().getFere());
+            }catch (NullPointerException e2) {
+              System.out.println("NO curent player.");//@a
+            }
+            if(f!=null){ // && f.getAction()>0
               getView().getPb().setActionF(-2);
               getView().getPb().removePA();
               setIdFourmiAjoué(f.getId());
+              System.out.println(f.isAutoMode());//@a
+              System.out.println(Main.getOp().getEndTurnAuto());//@a
+              System.out.println(f.getFere().getGc().haveDoneAllActionAviable());//@a
+              if(f.isAutoMode() && Main.getOp().getEndTurnAuto() && f.getFere().getGc().haveDoneAllActionAviable()){ //si fourmi en auto mode, mode fin tour auto & tour fini.
+                erreur.alerte("WAIIIIIIIIITTTTTT for disable end turn");
+              }
             }
           }
         }else if(e.getButton()== MouseEvent.BUTTON3){
@@ -94,7 +105,9 @@ public class PanneauSup extends Panneau{
     setSize(0,0);
   }
   public int getIdFourmiAjoué(){return idFourmiAjoué;}
-  public void setIdFourmiAjoué(int x){idFourmiAjoué=x;}
+  public void setIdFourmiAjoué(int x){idFourmiAjoué=x;
+    erreur.info("lets play "+x);
+  }
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     //do nothing

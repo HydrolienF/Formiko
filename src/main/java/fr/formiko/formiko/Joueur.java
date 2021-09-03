@@ -83,7 +83,9 @@ public class Joueur implements Serializable{
   public int getScore(){return fere.getScore();}
   public static void ini(){i=1;}
   public boolean getIsTurnEnded(){return isTurnEnded;}
-  public void setIsTurnEnded(boolean b){isTurnEnded=b;}
+  public void setIsTurnEnded(boolean b){isTurnEnded=b;
+    erreur.info("setIsTurnEnded to "+b,3);
+  }
   public static Joueur getPlayingJoueur(){return playingJoueur;}
   public static void setPlayingJoueur(Joueur j){playingJoueur=j;}
 // Fonctions propre -----------------------------------------------------------
