@@ -68,8 +68,12 @@ public class Data {
 
   //PanneauMenu
   private Color buttonColor = new Color(81, 252, 0, 100);
-  private Color buttonDisableColor = new Color(56, 56, 56, 100);
+  private Color buttonActivateColor = Color.YELLOW;
   private Color buttonFocusColor = new Color(248, 152, 29, 100);
+  private Color buttonDisableColor = new Color(56, 56, 56, 100);
+
+  private Color tButtonColor[];
+
   private Color buttonColorWithoutAlpha = new Color(81, 252, 0);
   private Color buttonDisableColorWithoutAlpha = new Color(56, 56, 56);
   private Color buttonFocusColorWithoutAlpha = new Color(248, 152, 29);
@@ -110,11 +114,26 @@ public class Data {
   public Color getButtonColor(){return buttonColor;}
   public Color getButtonDisableColor(){return buttonDisableColor;}
   public Color getButtonFocusColor(){return buttonFocusColor;}
+  public Color getButtonActivateColor(){return buttonActivateColor;}
+
   public Color getButtonColorWithoutAlpha(){return buttonColorWithoutAlpha;}
   public Color getButtonDisableColorWithoutAlpha(){return buttonDisableColorWithoutAlpha;}
   public Color getButtonFocusColorWithoutAlpha(){return buttonFocusColorWithoutAlpha;}
   public Color getButonBorderColor() {return butonBorderColor;}
+  public Color getButtonColor(int colorId){
+    if(tButtonColor==null){
+      iniTButtonColor();
+    }
+    return tButtonColor[colorId];
+  }
   // Fonctions propre -----------------------------------------------------------
+  public void iniTButtonColor(){
+    tButtonColor = new Color[4];
+    tButtonColor[0]=new Color(81, 252, 0);
+    tButtonColor[1]=Color.YELLOW;
+    tButtonColor[2]=new Color(248, 152, 29);
+    tButtonColor[3]=new Color(56, 56, 56);
+  }
   /**
   *{@summary Return an array with all images use to draw an ant.}<br>
   *This image are sorted by order to daw.

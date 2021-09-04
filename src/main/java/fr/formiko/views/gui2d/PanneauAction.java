@@ -66,6 +66,9 @@ public class PanneauAction extends Panneau {
       //TODO use FBorder
       // tB[i].getFBorder().setColor(Main.getData().getButonBorderColor());
     }
+    try {
+      paintAutoButton();
+    }catch (NullPointerException e) {}
   }
   // GET SET --------------------------------------------------------------------
   public int getTailleBouton(){ return tailleBouton;}
@@ -84,23 +87,24 @@ public class PanneauAction extends Panneau {
   public void paintComponent(Graphics g){
     if(!Main.getPartie().getEnCours()){return;}
     // debug.g("PanneauAction",this.getWidth(),this.getHeight());
-    try {
-      paintAutoButton();
-    }catch (Exception e) {}
   }
   /**
   *{@summary color in yellow auto mode buttons if they are enabled.}
   *@version 2.5
   */
   public void paintAutoButton(){
-    if(Main.getPlayingAnt().getMode()==0){
-      tAutoB[0].setCFond(Color.YELLOW);
-    }else{
-      tAutoB[0].setCFond(Main.getData().getButtonColor());
-      if(Main.getPlayingAnt().getMode()==3){
-        tAutoB[1].setCFond(Color.YELLOW);
+    if(tAutoB[0].isEnabled()){
+      if(Main.getPlayingAnt().getMode()==0){
+        tAutoB[0].setColor(1);
       }else{
-        tAutoB[1].setCFond(Main.getData().getButtonColor());
+        tAutoB[0].setColor(0);
+      }
+    }
+    if(tAutoB[1].isEnabled()){
+      if(Main.getPlayingAnt().getMode()==3){
+        tAutoB[1].setColor(1);
+      }else{
+        tAutoB[1].setColor(0);
       }
     }
   }

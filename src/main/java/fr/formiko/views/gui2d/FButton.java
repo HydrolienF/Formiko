@@ -39,9 +39,11 @@ public class FButton extends JButton implements MouseListener{
   protected Panneau p;
   protected int action;
   protected boolean bordure=true;
-  protected Color cFond;
   protected boolean cFondUseAlpha;
   protected boolean withBackground;
+  protected int color=0;
+  // protected Color cFond;
+  // protected Color buttonColor;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public FButton(String str, Panneau p, int action, Image imag){
     super();id=cpt; cpt++;
@@ -52,7 +54,6 @@ public class FButton extends JButton implements MouseListener{
     this.nom = str; this.p = p; this.action = action;
     this.addMouseListener(this); //Grâce à cette instruction, notre objet va s'écouter  Dès qu'un événement de la souris sera intercepté, il en sera averti
     // this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.
-    setCFond(Main.getData().getButtonColor());
     setContentAreaFilled(false);
     setFocusPainted(false); //Diasble paint swap to next button when do tab.
     setCFondUseAlpha(false);
@@ -70,9 +71,7 @@ public class FButton extends JButton implements MouseListener{
     //   this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.
     // }
     // this.setFont(Main.getFont1());
-    setCFond(Main.getData().getButtonColor());
     setForeground(Color.BLACK);
-    super.setBackground(cFond);
     setContentAreaFilled(false);
     setFocusPainted(false); //paint swap to next button when do tab disable.
     setCFondUseAlpha(true);
@@ -86,7 +85,12 @@ public class FButton extends JButton implements MouseListener{
   public int getActionB(){ return action;}
   public void setActionB(int x){action =x; }
   public void setBordure(boolean b){bordure=b;}
-  public void setCFond(Color c){cFond=c;}
+  // public void setCFond(Color c){cFond=c;}
+  // public Color getCFont(){
+  //   if(cFont!=null){return cFont;}
+  //   else if(buttonColor!=null){return buttonColor;}
+  //   else{return Main.getData().getButtonColor();}
+  // }
   public static int getDimY(){ return (int)(Main.getOp().getTaillePolice1()*1.4);}
   public void setDesc(String s){
     if(Panneau.getView().getPp().getPj()==null){ erreur.erreur("pj null");}
@@ -101,18 +105,23 @@ public class FButton extends JButton implements MouseListener{
   *@version 1.54
   */
   public Color getBackgroundColor(){
+    //TODO use alpha
+    Color c = Main.getData().getButtonColor(color);
     if(cFondUseAlpha){
-      return cFond;
+      return new Color(c.getRed(), c.getGreen(), c.getBlue(), 100);
     }else{
-      return new Color(cFond.getRed(),cFond.getGreen(),cFond.getBlue(),255);
+      return c;
     }
   }
+  public Color getCFont(){return getBackgroundColor();}
   public boolean getWithBackground(){return withBackground;}
   public void setWithBackground(boolean b){withBackground=b;}
   public FBorder getFBorder(){
     return (FBorder)getBorder();
   }
   public void setSize(int size){setSize(size,size);}
+  // public void setButtonColor(Color c){buttonColor=c;}
+  public void setColor(int x){color=x;}
   // Fonctions propre ----------------------------------------------------------
   /**
   *{@summary To draw component.}<br>
@@ -127,7 +136,7 @@ public class FButton extends JButton implements MouseListener{
       //Rectangle2D rect = fm.getStringBounds(nom,g);
       //new FontRenderContext(null, false, false)
       //le fond
-      if(cFond!=null && !isOpaque()){
+      if(color>-1 && !isOpaque()){
         g2d.setColor(getBackgroundColor());
         g2d.fillRect(0,0,getWidth(),getHeight());
       }
@@ -136,7 +145,7 @@ public class FButton extends JButton implements MouseListener{
     else{g2d.drawImage(this.img,0,0, null);}
     if(bordure){
       try {
-        ((FBorder)getBorder()).setColor(new Color(cFond.getRed(), cFond.getGreen(), cFond.getBlue()));
+        ((FBorder)getBorder()).setColor(new Color(getCFont().getRed(), getCFont().getGreen(), getCFont().getBlue()));
       }catch (Exception e) {
         erreur.alerte("can't set border color");
       }
@@ -151,7 +160,7 @@ public class FButton extends JButton implements MouseListener{
   */
   public void paintBorder(Graphics2D g){
     //TODO #398 move to FBorder.
-    g.setColor(new Color(cFond.getRed(),cFond.getGreen(),cFond.getBlue()));
+    g.setColor(new Color(getCFont().getRed(),getCFont().getGreen(),getCFont().getBlue()));
     byte x = Main.getBordureBouton();
     if(x<1){return;}
     BasicStroke ligne = new BasicStroke(x);
@@ -161,9 +170,11 @@ public class FButton extends JButton implements MouseListener{
   @Override
   public void setEnabled(boolean b){
     if(b){
-      setCFond(Main.getData().getButtonColor());
+      // setCFond(Main.getData().getButtonColor());
+      setColor(0);
     }else{
-      setCFond(Main.getData().getButtonDisableColor());
+      // setCFond(Main.getData().getButtonDisableColor());
+      setColor(3);
     }
     super.setEnabled(b);
   }
@@ -213,10 +224,12 @@ public class FButton extends JButton implements MouseListener{
     if(!isEnabled()){setDesc(""); return;}
     if(selected){
       setDesc(g.get("bouton.desc."+action)+getKeyboardKey());
-      setCFond(Main.getData().getButtonFocusColor());
+      // setCFond(Main.getData().getButtonFocusColor());
+      setColor(2);
     }else{
       setDesc("");
-      setCFond(Main.getData().getButtonColor());
+      // setCFond(buttonColor);
+      setColor(0);
     }
     repaint();
   }
