@@ -37,7 +37,11 @@ public class PanneauMiniMapContainer extends Panneau {
       setLocation(0,0);
       lineSize = Main.getTailleElementGraphique(3);
       setBorderPainted(false);
-      setAllActionDone(false);
+      boolean b = false;
+      try {
+        b=Main.getPlayingJoueur().getFere().getGc().haveDoneAllActionAviable();
+      }catch (NullPointerException e) {}
+      setAllActionDone(b);
     }
 
     public void setAllActionDone(boolean b){
