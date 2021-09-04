@@ -13,6 +13,7 @@ import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.Point;
 import fr.formiko.formiko.ThScript;
+import fr.formiko.formiko.interfaces.TourFourmiNonIa;
 import fr.formiko.formiko.triche;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.Th;
@@ -498,6 +499,7 @@ public class ViewGUI2d implements View {
   */
   public void waitForEndTurn(Fourmiliere fere) {
     getPmmc().setAllActionDone(true);
+    getPs().setIdFourmiAjoué(-1);
     boolean everyoneInAutoMode=false; //au moins 1 fourmi sans auto mode.
     try {
       if(Main.getPlayingJoueur().getFere().getGc().isAllInAutoMode()){everyoneInAutoMode=true;}
@@ -507,7 +509,14 @@ public class ViewGUI2d implements View {
     if((!Main.getOp().getEndTurnAuto() || everyoneInAutoMode) && !fere.getJoueur().getIa()) { // || any ant have action to do.
       while(!fere.getJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu()) {
         Temps.pause(50);
+        //here were waiting for the final clic on the red button.
+        if(getPs().getIdFourmiAjoué()!=-1){
+          erreur.info("action for ant "+getPs().getIdFourmiAjoué());//@a
+          // Main.setPlayingAnt(Main.getPlayingJoueur().getFere().getGc().getFourmiParId(getPs().getIdFourmiAjoué()));
+          ((TourFourmiNonIa) Main.getPlayingJoueur().getFere().getGc().getFourmiParId(getPs().getIdFourmiAjoué()).tour).allowToDisableAutoMode();
+        }
       }
+      getPs().setIdFourmiAjoué(-1);
       fere.getJoueur().setIsTurnEnded(false);
     }
     // fere.getJoueur().setIsTurnEnded(true);

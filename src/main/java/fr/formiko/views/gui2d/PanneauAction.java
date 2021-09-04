@@ -27,6 +27,7 @@ public class PanneauAction extends Panneau {
   private static int bordure=10;
   private static int tailBouton=160;
   private FButton tB [];
+  private FButton tAutoB [] = new FButton[2];
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauAction(int t[]){
     super();
@@ -48,6 +49,11 @@ public class PanneauAction extends Panneau {
       tB[i] = new FButton(g.get("bouton.nom."+(20+tBoutonActif[i])),(Panneau)this,20+tBoutonActif[i],Main.getData().getTImage()[tBoutonActif[i]]);
       tB[i].setBordure(false);
       tB[i].setWithBackground(true);
+      if(tBoutonActif[i]==7){
+        tAutoB[0]=tB[i];
+      }else if(tBoutonActif[i]==8){
+        tAutoB[1]=tB[i];
+      }
     }
     for (FButton b :tB){b.setPreferredSize(dim);}
     GridBagConstraints gbc = new GridBagConstraints();
@@ -77,7 +83,26 @@ public class PanneauAction extends Panneau {
 
   public void paintComponent(Graphics g){
     if(!Main.getPartie().getEnCours()){return;}
-    debug.g("PanneauAction",this.getWidth(),this.getHeight());
+    // debug.g("PanneauAction",this.getWidth(),this.getHeight());
+    try {
+      paintAutoButton();
+    }catch (Exception e) {}
+  }
+  /**
+  *{@summary color in yellow auto mode buttons if they are enabled.}
+  *@version 2.5
+  */
+  public void paintAutoButton(){
+    if(Main.getPlayingAnt().getMode()==0){
+      tAutoB[0].setCFond(Color.YELLOW);
+    }else{
+      tAutoB[0].setCFond(Main.getData().getButtonColor());
+      if(Main.getPlayingAnt().getMode()==3){
+        tAutoB[1].setCFond(Color.YELLOW);
+      }else{
+        tAutoB[1].setCFond(Main.getData().getButtonColor());
+      }
+    }
   }
   public static int [] getTIntDef(){
     int tr[] = new int [nbrDeBoutonMax];

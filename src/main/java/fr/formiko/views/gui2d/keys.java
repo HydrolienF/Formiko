@@ -99,10 +99,11 @@ public class keys {
           action.doAction(Panneau.getView().getPcp().getLaunchButton().getActionB());
         }else if(Panneau.getView().getPnp()!=null && Panneau.getView().getPnp().getLaunchButton()!=null){
           action.doAction(Panneau.getView().getPnp().getLaunchButton().getActionB());
-        }else if(Main.getPlayingAnt()!=null){
-          //TODO passer le tour ou a la prochaine Fourmi qui a des actions.
+        // if ant isn't null and an ant have still action to do
+      }else if(Main.getPlayingAnt()!=null && !Main.getPlayingAnt().getFere().getGc().haveDoneAllActionAviable()){
           Panneau.getView().getPb().setActionF(-2);
         }else{
+        // if we need to play next turn.
           try {
             action.doActionPj(200);
           }catch (Exception e) {}

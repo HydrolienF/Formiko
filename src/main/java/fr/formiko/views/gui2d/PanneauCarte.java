@@ -251,6 +251,11 @@ public class PanneauCarte extends Panneau {
     if(!isCaseVisible(c)){return;}
     Joueur jo = Main.getPlayingJoueur();
     Fourmi fi = Main.getPlayingAnt();
+    if(fi==null){
+      try {
+        fi = (Fourmi)Main.getPlayingJoueur().getFere().getGc().getFirst();
+      }catch (NullPointerException e) {}
+    }
     Point point = getPointFromCase(x,y,false);
     int xT = point.getX(); int yT = point.getY();
     int xT2 = (x)*getTailleDUneCase(); int yT2 = (y)*getTailleDUneCase();

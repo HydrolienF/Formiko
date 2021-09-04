@@ -217,6 +217,12 @@ public class tableau <T>{
     }
     return tr;
   }//public static void retirerX(int t[],int x){return retirerX(t,x);}
+  public static int [] retirerX(int t[], int x[]){
+    for (int y : x) {
+      t = retirerX(t,y);
+    }
+    return t;
+  }
 
 //AJOUTE
   public static int [] ajouteX (int t[], int x, int i){

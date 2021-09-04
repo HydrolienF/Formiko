@@ -1,5 +1,6 @@
 package fr.formiko.formiko;
 
+import fr.formiko.formiko.interfaces.TourFourmiNonIa;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.exceptions.EmptyListException;
@@ -41,6 +42,7 @@ public class GCreature implements Serializable{//, Iterator{
   // GET SET -----------------------------------------------------------------------
   public CCreature getHead(){return début;}
   public CCreature getTail(){return fin;}
+  public Creature getFirst(){return getHead().getContent();}
   public void setDébut(CCreature cc){début = cc;}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
@@ -398,7 +400,14 @@ public class GCreature implements Serializable{//, Iterator{
       for (Creature c : toList()) {
         if(c instanceof Fourmi){
           Fourmi fActuel = (Fourmi)c;
-          fActuel.tour();
+          if(fActuel.getAction()>0){
+            fActuel.tour();
+          }
+          // else{
+          //   if (!fActuel.getFere().getJoueur().getIa()) {
+          //     ((TourFourmiNonIa)fActuel.tour).allowToDisableAutoMode();
+          //   }
+          // }
         }else{
           erreur.erreur("Impossible de faire jouer comme une fourmi la créature "+c.getId()+" qui n'en est pas une.");
         }

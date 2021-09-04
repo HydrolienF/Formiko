@@ -56,8 +56,25 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     }else if(f.getMode() == 3){
       backHomeAndShareFood(); m = "Nourrir et Nétoyer";
     }
+    // if()
+    // while(f.isAutoMode()){
+    //   Temps.pause(50);
+    // }
     Main.setPlayingAnt(null);
     finTour();
+  }
+  public void allowToDisableAutoMode(){
+    erreur.info("allowToDisableAutoMode");
+    if((Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()) || Main.getRetournerAuMenu()){return;}
+    Main.setPlayingAnt(f);
+    byte choix = (byte)(getChoixBouton()-1);
+    if(choix==-2){
+      if(f.getAction()<1){finTour();}
+      return;
+    }
+    erreur.info("faire("+choix+")");
+    faire(choix);
+    Main.setPlayingAnt(null);
   }
 
 
@@ -67,8 +84,10 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     byte choix = -1;
     int t [] = null;
     f.setBActionHaveChange(true);
-    while (choix==-1 && f.getAction()>0) {
+    //la fourmi doit finir son tour si elle n'as plus d'action, sauf si le joueur a spécifiquement cliqué dessus.
+    while (choix==-1 && !f.getFere().getJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu()) { // && f.getAction()>0
       Temps.pause(50);
+      //if tour fini par clic sur Entrer
       if (f.getBActionHaveChange()){
         t = getTActionFourmi();
         f.setBActionHaveChange(false);
@@ -96,12 +115,12 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       }
       GCreature gcCase = f.getCCase().getContent().getGc();
       t=tableau.retirerX(t,0); //TODO #229
-      if(f.getIndividu().getCoutDéplacement() == -1){ t=tableau.retirerX(t,0);}
-      if(f.getIndividu().getCoutChasse() == -1 || gcCase.getGi().length()==0 || !f.chasse.canHuntMore(f)){ t=tableau.retirerX(t,1);}
-      if(!f.canLay()){ t=tableau.retirerX(t,2);}
-      if(f.getIndividu().getCoutTrophallaxie() == -1 || gcCase.filtreAlliés(f).filtreFaimMax().length() < 2 || f.getNourriture()<1){ t=tableau.retirerX(t,3);}
-      if(f.getIndividu().getCoutNétoyer() == -1 ||(f.netoyer.getNombreDeCreatureANetoyer(f))==0){ t=tableau.retirerX(t,4);}
-      if(!f.getEspece().getGranivore()){
+      if(f.getAction()<=0 || f.getIndividu().getCoutDéplacement() == -1){ t=tableau.retirerX(t,0);}
+      if(f.getAction()<=0 || f.getIndividu().getCoutChasse() == -1 || gcCase.getGi().length()==0 || !f.chasse.canHuntMore(f)){ t=tableau.retirerX(t,1);}
+      if(f.getAction()<=0 || !f.canLay()){ t=tableau.retirerX(t,2);}
+      if(f.getAction()<=0 || f.getIndividu().getCoutTrophallaxie() == -1 || gcCase.filtreAlliés(f).filtreFaimMax().length() < 2 || f.getNourriture()<1){ t=tableau.retirerX(t,3);}
+      if(f.getAction()<=0 || f.getIndividu().getCoutNétoyer() == -1 ||(f.netoyer.getNombreDeCreatureANetoyer(f))==0){ t=tableau.retirerX(t,4);}
+      if(f.getAction()<=0 || !f.getEspece().getGranivore()){
         t=tableau.retirerX(t,5);
         t=tableau.retirerX(t,6);
       }
@@ -132,10 +151,18 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         //casserGraine();
         yield "casserGraine";
       case 7 :
-        f.setMode(0);
+        if(f.getMode()!=0){
+          f.setMode(0);
+        }else{
+          f.setMode(-1);
+        }
         yield "setMode0";
       case 8 :
-        f.setMode(3);
+        if(f.getMode()!=3){
+          f.setMode(3);
+        }else{
+          f.setMode(-1);
+        }
         yield "setMode1";
       case 9 :
         f.setAction(0);
