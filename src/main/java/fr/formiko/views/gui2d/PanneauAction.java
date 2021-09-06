@@ -55,7 +55,7 @@ public class PanneauAction extends Panneau {
         tAutoB[1]=tB[i];
       }
     }
-    for (FButton b :tB){b.setPreferredSize(dim);}
+    for (FButton b :tB) {b.setPreferredSize(dim);}
     GridBagConstraints gbc = new GridBagConstraints();
     int espaceLibre = Main.getTailleElementGraphique(bordure);
     gbc.insets = new Insets(espaceLibre, espaceLibre, espaceLibre, espaceLibre);

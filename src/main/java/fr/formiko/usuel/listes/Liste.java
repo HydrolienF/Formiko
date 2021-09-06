@@ -1,5 +1,7 @@
 package fr.formiko.usuel.listes;
 
+import fr.formiko.formiko.ObjetSurCarteAId;
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Comparator;
@@ -168,6 +170,16 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
     String r = "";
     for (T t : this ) {
       r+= t.toString();
+      r+= " ";
+    }
+    return r;
+  }
+  public String toStringId(){
+    String r = "";
+    for (T t : this ) {
+      try {
+        r+= ((ObjetSurCarteAId)t).getId();
+      }catch (Exception e) {}
       r+= " ";
     }
     return r;

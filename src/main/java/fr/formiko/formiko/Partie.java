@@ -48,6 +48,7 @@ public class Partie implements Serializable{
   private boolean appartionGraine;
   private boolean dejaIni=false;
   private Fourmi playingAnt;
+  private int antIdToPlay;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   // nombre de joueur, nombre d'ia, abondance des insectes, niveau de difficulté des ia, les especes autorisé, le nombre de tour.
@@ -68,6 +69,7 @@ public class Partie implements Serializable{
     gi = new GInsecte();
     appartionInsecte=true;
     appartionGraine=true;
+    antIdToPlay=-1;
   }
   /**
   *{@summary Constructor with only minimal initialization.}<br>
@@ -119,6 +121,8 @@ public class Partie implements Serializable{
   public Joueur getPlayingJoueur(){try{return getPlayingAnt().getFere().getJoueur();}catch (Exception e) {return null;}}
   public boolean getCasesSombres(){if(getCarte()==null){ return false;} else {return getCarte().getCasesSombres();}}
   public boolean getCasesNuageuses(){if(getCarte()==null){ return false;} else {return getCarte().getCasesNuageuses();}}
+  public int getAntIdToPlay(){return antIdToPlay;}
+  public void setAntIdToPlay(int x){antIdToPlay=x;}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){
     String r="";

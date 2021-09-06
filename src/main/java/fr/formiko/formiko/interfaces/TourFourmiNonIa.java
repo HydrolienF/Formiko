@@ -14,13 +14,13 @@ import java.io.Serializable;
  * {@summary Ant implementation for real player.<br/>}
  * Allow an ant to play a turn<br/>
  * @author Hydrolien
- * @version 1.54
+ * @version 2.5
  */
 public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   /**
   *{@summary Do turn actions for an ant.}
   *There is no order to do actions because player choose it.
-  *@version 1.54
+  *@version 2.5
   */
   @Override
   public void tour(){
@@ -40,7 +40,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         return;
       }
       m = faire(choix);
-      if(choix==12 || choix==13){ //Main.getPs().setIdFourmiAjoué(-1);
+      if(choix==12 || choix==13){ //Main.getPs().setAntIdToPlay(-1);
         if(f.getAction()<1){finTour();}
         return;
       }else if(choix==14){
@@ -50,19 +50,22 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         return;
       }
     }
+    //if all non automode ant have played.
+    // if(f.getFere().getJoueur().)
     if (f.getMode() == 0){
       m = "chasser / ce déplacer pour chasser (Ou Récolter des graines)";
       f.eat(100);
     }else if(f.getMode() == 3){
       backHomeAndShareFood(); m = "Nourrir et Nétoyer";
     }
-    // if()
-    // while(f.isAutoMode()){
-    //   Temps.pause(50);
-    // }
     Main.setPlayingAnt(null);
     finTour();
   }
+  /**
+  *{@summary Do turn actions that can be done without action.}
+  *There is no order to do actions because player choose it.
+  *@version 2.5
+  */
   public void allowToDisableAutoMode(){
     erreur.info("allowToDisableAutoMode");
     if((Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()) || Main.getRetournerAuMenu()){return;}

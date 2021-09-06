@@ -16,6 +16,7 @@ public class GCreature implements Serializable{//, Iterator{
   protected CCreature début;
   protected CCreature fin;
   //TODO #82 replace début & fin by a protected Liste<Creature>.
+  private byte loopSafety;
   // CONSTRUCTEUR -----------------------------------------------------------------
   public GCreature(CCreature cc){
     début = cc; fin = cc;
@@ -390,24 +391,43 @@ public class GCreature implements Serializable{//, Iterator{
     }catch (EmptyListException e) {}
   }
   /**
-  *Play as an ant.
-  *@version 2.1
+  *{@summary Play as an ant.}
+  *If antIdToPlay have been set, we will play this ant first.
+  *@version 2.5
   */
   private void jouerE() throws EmptyListException{
     if(début == null){
       throw new EmptyListException("GCreature","jouer");
     }else{
       for (Creature c : toList()) {
+        if((Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()) || Main.getRetournerAuMenu()){return;}
         if(c instanceof Fourmi){
           Fourmi fActuel = (Fourmi)c;
-          if(fActuel.getAction()>0){
-            fActuel.tour();
+          if(Main.getPartie().getAntIdToPlay()!=-1){
+            // erreur.info("test de "+Main.getPartie().getAntIdToPlay()+" & "+c.getId()+" sur les "+length()+" fourmis ("+toList().toStringId()+")");
+            //if player have clic on this ant.
+            if(Main.getPartie().getAntIdToPlay()==c.getId()){
+              Main.getPartie().setAntIdToPlay(-1);
+              loopSafety=0;
+              if(fActuel.getAction()>0){
+                fActuel.tour();
+              }else{
+                ((TourFourmiNonIa)fActuel.tour).allowToDisableAutoMode();
+              }
+            }else{
+              loopSafety++;
+              if(loopSafety<0){
+                erreur.erreur("Fail to select ant by id 128 times","A random ant have been chosen");
+                Main.getPartie().setAntIdToPlay(-1);
+                loopSafety=0;
+              }
+            }
+            //if player have clic on an other ant, go to next loop turn.
+          }else{ //if player have press Enter or end an other Ant turn.
+            if(fActuel.getAction()>0){
+              fActuel.tour();
+            }
           }
-          // else{
-          //   if (!fActuel.getFere().getJoueur().getIa()) {
-          //     ((TourFourmiNonIa)fActuel.tour).allowToDisableAutoMode();
-          //   }
-          // }
         }else{
           erreur.erreur("Impossible de faire jouer comme une fourmi la créature "+c.getId()+" qui n'en est pas une.");
         }

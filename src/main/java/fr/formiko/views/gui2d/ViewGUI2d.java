@@ -347,11 +347,11 @@ public class ViewGUI2d implements View {
   public int getAntChoice(int t[]){
     if (!actionGameOn) {return -1;}
     if(t!=null){
-      Panneau.getView().getPb().removePa();
-      Panneau.getView().getPb().addPa(t);
+      getPb().removePa();
+      getPb().addPa(t);
     }
-    int r = Panneau.getView().getPb().getActionF();
-    Panneau.getView().getPb().setActionF(-1);
+    int r = getPb().getActionF();
+    getPb().setActionF(-1);
     return r;
   }
   /**
@@ -466,16 +466,16 @@ public class ViewGUI2d implements View {
       if(!f.getIa()){
         getPb().setVisiblePa(true);
       }
-      Panneau.getView().getPb().addPI();
-      Panneau.getView().getPb().addPIJ();
+      getPb().addPI();
+      getPb().addPIJ();
     }else{
       getPb().setVisiblePa(false);
-      Panneau.getView().getPs().setIdFourmiAjoué(-1);
+      Main.getPartie().setAntIdToPlay(-1);
     }
     // if (!f.getFere().getJoueur().getIa()) {
     //   getPb().setVisiblePa(false);
     // }
-    // getPs().setIdFourmiAjoué(-1);
+    // Main.getPartie().setAntIdToPlay(-1);
   }
   /**
   *{@summary move ObjetSurCarteAId.}<br>
@@ -499,7 +499,7 @@ public class ViewGUI2d implements View {
   */
   public void waitForEndTurn(Fourmiliere fere) {
     getPmmc().setAllActionDone(true);
-    getPs().setIdFourmiAjoué(-1);
+    Main.getPartie().setAntIdToPlay(-1);
     boolean everyoneInAutoMode=false; //au moins 1 fourmi sans auto mode.
     try {
       if(Main.getPlayingJoueur().getFere().getGc().isAllInAutoMode()){everyoneInAutoMode=true;}
@@ -510,13 +510,13 @@ public class ViewGUI2d implements View {
       while(!fere.getJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu()) {
         Temps.pause(50);
         //here were waiting for the final clic on the red button.
-        if(getPs().getIdFourmiAjoué()!=-1){
-          erreur.info("action for ant "+getPs().getIdFourmiAjoué());//@a
-          // Main.setPlayingAnt(Main.getPlayingJoueur().getFere().getGc().getFourmiParId(getPs().getIdFourmiAjoué()));
-          ((TourFourmiNonIa) Main.getPlayingJoueur().getFere().getGc().getFourmiParId(getPs().getIdFourmiAjoué()).tour).allowToDisableAutoMode();
+        if(Main.getPartie().getAntIdToPlay()!=-1){
+          erreur.info("action for ant "+Main.getPartie().getAntIdToPlay());//@a
+          // Main.setPlayingAnt(Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay()));
+          ((TourFourmiNonIa) Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay()).tour).allowToDisableAutoMode();
         }
       }
-      getPs().setIdFourmiAjoué(-1);
+      Main.getPartie().setAntIdToPlay(-1);
       fere.getJoueur().setIsTurnEnded(false);
     }
     // fere.getJoueur().setIsTurnEnded(true);

@@ -19,7 +19,6 @@ import java.awt.event.MouseMotionListener;
 *@version 1.42
 */
 public class PanneauSup extends Panneau{
-  private int idFourmiAjoué=-1;
   private CCase cc2=null;
 
   // CONSTRUCTEUR ---------------------------------------------------------------
@@ -62,7 +61,7 @@ public class PanneauSup extends Panneau{
             if(f!=null){ // && f.getAction()>0
               getView().getPb().setActionF(-2);
               getView().getPb().removePA();
-              setIdFourmiAjoué(f.getId());
+              Main.getPartie().setAntIdToPlay(f.getId());
               System.out.println(f.isAutoMode());//@a
               System.out.println(Main.getOp().getEndTurnAuto());//@a
               System.out.println(f.getFere().getGc().haveDoneAllActionAviable());//@a
@@ -104,10 +103,10 @@ public class PanneauSup extends Panneau{
   public void actualiserTailleMin(){
     setSize(0,0);
   }
-  public int getIdFourmiAjoué(){return idFourmiAjoué;}
-  public void setIdFourmiAjoué(int x){idFourmiAjoué=x;
-    erreur.info("lets play "+x);
-  }
+  // public int getAntIdToPlay(){return antIdToPlay;}
+  // public void setAntIdToPlay(int x){antIdToPlay=x;
+  //   erreur.info("lets play "+x);
+  // }
   // Fonctions propre -----------------------------------------------------------
   public void paintComponent(Graphics g){
     //do nothing
