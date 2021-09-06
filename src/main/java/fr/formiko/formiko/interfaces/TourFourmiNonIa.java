@@ -36,21 +36,21 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       Temps.pause(50);
       choix = (byte)(getChoixBouton()-1);
       if(choix==-2){
-        if(f.getAction()<1){finTour();}
+        if(f.getAction()<1){f.setAction(0);}
         return;
       }
       m = faire(choix);
       if(choix==12 || choix==13){ //Main.getPs().setAntIdToPlay(-1);
-        if(f.getAction()<1){finTour();}
+        if(f.getAction()<1){f.setAction(0);}
         return;
       }else if(choix==14){
         f.setAction(0);
-        finTour();
+        // endTurn();
         Main.getPartie().setContinuerLeJeu(false);
         return;
       }
     }
-    //if all non automode ant have played.
+    // TODO if all non automode ant have played.
     // if(f.getFere().getJoueur().)
     if (f.getMode() == 0){
       m = "chasser / ce déplacer pour chasser (Ou Récolter des graines)";
@@ -59,7 +59,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       backHomeAndShareFood(); m = "Nourrir et Nétoyer";
     }
     Main.setPlayingAnt(null);
-    finTour();
+    setAction(0);
   }
   /**
   *{@summary Do turn actions that can be done without action.}
@@ -72,7 +72,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     Main.setPlayingAnt(f);
     byte choix = (byte)(getChoixBouton()-1);
     if(choix==-2){
-      if(f.getAction()<1){finTour();}
+      if(f.getAction()<1){f.setAction(0);}
       return;
     }
     erreur.info("faire("+choix+")");

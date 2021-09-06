@@ -34,16 +34,35 @@ public class TourCreatureSansAction implements Serializable, Tour{
   *if fourmi : salir<br>
   */
   public void tour(Creature c){
-    // Un tour ça coute en age et en nourriture.
+    endTurn(c);
+  }
+  /**
+  *{@summary End a turn.}<br>
+  *If turn have already be end on this turn, it will do nothing.
+  *@version 2.5
+  */
+  @Override
+  public void endTurn(Creature c){
+    //to avoid to end turn 2 time in the same turn.
+    if(c.getLastTurnEnd()==Main.getPartie().getTour()){
+      return;
+    }else{
+      c.setLastTurnEnd(Main.getPartie().getTour());
+    }
+
     if (c.getAge()>=c.getAgeMax() && !(c.evoluer instanceof EvoluerNull)){ c.evoluer();}
     if(c instanceof Fourmi){
       Fourmi f = (Fourmi) c;
       f.salir();
-      f.setNourritureMoinsConsomNourriture(); //will not ask food is it's an egg.
+      f.setNourritureMoinsConsomNourriture(); //will not consume food if it's an egg.
     }else{
       c.setNourritureMoins1();
     }
     c.setAgePlus1();
+
+    if(c instanceof Fourmi){
+      Main.setPlayingAnt(null);
+    }
   }
 
 }

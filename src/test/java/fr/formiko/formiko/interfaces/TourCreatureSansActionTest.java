@@ -24,6 +24,7 @@ public class TourCreatureSansActionTest extends TestCaseMuet{
     p.setAppartionInsecte(false);
     p.setAppartionGraine(false);
     Creature c = new Insecte(new CCase(p.getGc().getCCase(0,0).getContent()));
+    // c.tour = new TourCreatureSansAction(); It should do the same, insect or not.
     return c;
   }
   @Test
@@ -34,15 +35,19 @@ public class TourCreatureSansActionTest extends TestCaseMuet{
     c.setNourriture(20);
     c.setAge(0);
     c.setAction(0);
+    Main.getPartie().addTour();
     c.tour();
+    c.endTurn();
     //assertEquals(19,c.getNourriture()); //TODO
     assertEquals(1,c.getAge());
 
     c.setNourriture(20);
     c.setAge(0);
     c.setAction(10);
+    Main.getPartie().addTour();
     c.tour = new TourCreatureSansAction();
     c.tour();
+    c.endTurn();
     assertEquals(19,c.getNourriture());
     assertEquals(1,c.getAge());
 
@@ -55,5 +60,35 @@ public class TourCreatureSansActionTest extends TestCaseMuet{
     //test that an ant will grow whitout diing to the last stade: imago.
     //TODO !
 
+  }
+  @Test
+  public void testUnTourWithoutPartieTurnCptUpdate(){
+    Creature c = ini();
+    c.setNourriture(20);
+    c.setAge(0);
+    c.setAction(0);
+    Main.getPartie().addTour();
+    c.tour();
+    c.endTurn();
+    assertEquals(1,c.getAge());
+
+    c.setNourriture(20);
+    c.setAge(0);
+    c.setAction(10);
+    // Main.getPartie().addTour();
+    c.tour = new TourCreatureSansAction();
+    c.tour();
+    c.endTurn();
+    //neither tour() nor endTurn() should change anything because Partie turn cpt haven't been update.
+    assertEquals(20,c.getNourriture());
+    assertEquals(0,c.getAge());
+
+    c.setAction(0); //same as last 1 by only with no action.
+    c.tour = new TourInsecte();
+    c.tour();
+    c.endTurn();
+    //neither tour() nor endTurn() should change anything because Partie turn cpt haven't been update.
+    assertEquals(20,c.getNourriture());
+    assertEquals(0,c.getAge());
   }
 }

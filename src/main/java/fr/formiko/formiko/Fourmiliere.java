@@ -158,7 +158,9 @@ public class Fourmiliere implements Serializable{
     } while (!gc.haveDoneAllActionAviable() && !Main.getRetournerAuMenu());
     Main.getView().setPlayingAnt(null);
     Main.getView().waitForEndTurn(this);
-    //gc.finTour();
+    for (Creature c : gc.toList()) {
+      c.endTurn();
+    }
     ggi.add(new GInt(this)); //stats of this turn
   }
   /*public void faireVarierLesAge(){

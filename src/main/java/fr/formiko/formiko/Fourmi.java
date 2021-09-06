@@ -37,7 +37,6 @@ public class Fourmi extends Creature implements Serializable{
   private static boolean bActionHaveChange=false;
   // private static boolean bActualiserTaille=false;
   protected boolean ailesCoupees=true;
-  private int lastTurnEnd=-1;
 
   // CONSTRUCTORS --------------------------------------------------------------
   /**
@@ -155,8 +154,6 @@ public class Fourmi extends Creature implements Serializable{
     try {return getFere().getJoueur().getIa();}
     catch (NullPointerException e) {return false;}
   }
-  public int getLastTurnEnd(){return lastTurnEnd;}
-  public void setLastTurnEnd(int x){lastTurnEnd=x;}
   // Fonctions propre -----------------------------------------------------------
   public String toString(){return super.toString() +" "+ tableau.tableauToString(descriptionTableau());}
   public void afficheToi (){System.out.println(description());}

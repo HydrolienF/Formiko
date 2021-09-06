@@ -52,8 +52,46 @@ public class TourFourmi implements Serializable, Tour{
     //reproduce();
     backHomeAndShareFood(); //if granivore oppen seed & feedOther.
     f.eat(100);
-    finTour();
+    setAction(0);
   }
+  /**
+  *{@summary End a turn as an Ant.}<br>
+  *If turn have already be end on this turn, it will do nothing.
+  *@version 2.5
+  */
+  @Override
+  public void endTurn(Creature c){
+    if(!(c instanceof Fourmi)){throw new ClassTypeException("Fourmi","Creature");}
+    setF((Fourmi) c);
+    endTurn();
+  }
+  /**
+  *{@summary End a turn as an Ant.}<br>
+  *If turn have already be end on this turn, it will do nothing.
+  *@version 2.5
+  */
+  public void endTurn(){
+    //to avoid to end turn 2 time in the same turn.
+    if(f.getLastTurnEnd()==Main.getPartie().getTour()){
+      return;
+    }else{
+      f.setLastTurnEnd(Main.getPartie().getTour());
+    }
+    debug.débogage("Fin du tour de la Fourmi");
+    if(f.getAction()>0){f.setAction(0);}//end the turn normaly
+    // Un tour ça coute en age et en nourriture;
+    if (f.getStade()<0 && !(f.evoluer instanceof EvoluerNull) && f.getAge()>=f.getAgeMax()){ f.evoluer();}
+    f.setAgePlus1();
+    if(!f.getEstMort()){
+      f.salir();
+      if(!f.getEstMort()){
+        f.setNourritureMoinsConsomNourriture(); //will not need food is it's an egg.
+      }
+    }
+    // if contition de température appartient a l'intervale idéale (et que stade = -1, -2 ou -3) : re setAgePlus1();
+    Main.setPlayingAnt(null);
+  }
+
   /**
   *{@summary To be sur that the ant will be clean.}<br>
   *@version 1.29
@@ -151,31 +189,5 @@ public class TourFourmi implements Serializable, Tour{
       int directionDeLaFourmilière = f.getCCase().getDirection(f.getFourmiliere().getCCase());
       f.ceDeplacer(directionDeLaFourmilière);
     }
-  }
-  /**
-  *{@summary End a turn as an Ant.}<br>
-  *If turn have already be end on this turn, it will do nothing.
-  *@version 1.30
-  */
-  public void finTour(){
-    //to avoid to end turn 2 time in the same turn.
-    if(f.getLastTurnEnd()==Main.getPartie().getTour()){
-      return;
-    }else{
-      f.setLastTurnEnd(Main.getPartie().getTour());
-    }
-    debug.débogage("Fin du tour de la Fourmi");
-    if(f.getAction()>0){f.setAction(0);}//end the turn normaly
-    // Un tour ça coute en age et en nourriture;
-    if (f.getStade()<0 && !(f.evoluer instanceof EvoluerNull) && f.getAge()>=f.getAgeMax()){ f.evoluer();}
-    f.setAgePlus1();
-    if(!f.getEstMort()){
-      f.salir();
-      if(!f.getEstMort()){
-        f.setNourritureMoinsConsomNourriture(); //will not need food is it's an egg.
-      }
-    }
-    // if contition de température appartient a l'intervale idéale (et que stade = -1, -2 ou -3) : re setAgePlus1();
-    Main.setPlayingAnt(null);
   }
 }

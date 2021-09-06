@@ -135,6 +135,7 @@ public class TourReineTest extends TestCaseMuet{
     int nourriture = f.getNourritureMax()/20+1;
     f.setNourriture(nourriture);
     f.tour();
+    f.endTurn();
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,1),f.getCCase());
     assertEquals(nourriture - 3, f.getNourriture());
@@ -154,6 +155,7 @@ public class TourReineTest extends TestCaseMuet{
     int nourriture = f.getNourritureMax()/20+1;
     f.setNourriture(nourriture);
     f.tour();
+    f.endTurn();
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,1),f.getCCase());
     assertEquals(nourriture - 3, f.getNourriture());
@@ -173,6 +175,7 @@ public class TourReineTest extends TestCaseMuet{
     int nourriture = f.getNourritureMax()/20+1;
     f.setNourriture(nourriture);
     f.tour();
+    f.endTurn();
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,1),f.getCCase());
     assertEquals(nourriture - 3 + 300, f.getNourriture());
@@ -192,6 +195,7 @@ public class TourReineTest extends TestCaseMuet{
     int nourriture = f.getNourritureMax()/20+1;
     f.setNourriture(nourriture);
     f.tour();
+    f.endTurn();
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,1),f.getCCase());
     assertEquals(nourriture - 3 + 300, f.getNourriture());
@@ -212,6 +216,7 @@ public class TourReineTest extends TestCaseMuet{
     int nourriture = f.getNourritureMax()/20+1;
     f.setNourriture(nourriture);
     f.tour();
+    f.endTurn();
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
     assertTrue(f.getProprete()>f.getSeuilDeRisqueDInfection());
@@ -237,6 +242,8 @@ public class TourReineTest extends TestCaseMuet{
     f.setNourriture(nourriture);
     f.tour();
     assertEquals(47,f.getAction());
+    f.endTurn();
+    assertEquals(0,f.getAction());
   }
   @Test
   public void TestTour6(){
@@ -253,6 +260,7 @@ public class TourReineTest extends TestCaseMuet{
     int nourriture = 100; //need to hunt if eat(40) but not if eat(5).
     f.setNourriture(nourriture);
     f.tour();
+    f.endTurn();
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
     assertEquals(nourriture - 3, f.getNourriture());
@@ -277,6 +285,7 @@ public class TourReineTest extends TestCaseMuet{
     int nourriture = 200; //need to hunt if eat(40) but not if eat(5).
     f.setNourriture(nourriture);
     f.tour();
+    f.endTurn();
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
     assertEquals(nourriture - 3 - (12*5), f.getNourriture());
@@ -301,6 +310,7 @@ public class TourReineTest extends TestCaseMuet{
     assertEquals(19,f.getNourriture());
     assertEquals(100,f.getProprete());
     f.tour();
+    f.endTurn();
     assertEquals(1,f.getAge());
     assertEquals(0,f.getAction());
     assertEquals(18,f.getNourriture());
@@ -311,6 +321,7 @@ public class TourReineTest extends TestCaseMuet{
     f.setTypeF((byte)0);
     Main.getPartie().addTour();
     f.tour();
+    f.endTurn();
     assertEquals(2,f.getAge());
     assertEquals(0,f.getAction());
     assertEquals(15,f.getNourriture());

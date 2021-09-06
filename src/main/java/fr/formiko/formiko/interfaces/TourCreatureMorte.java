@@ -18,12 +18,24 @@ import java.io.Serializable;
 public class TourCreatureMorte implements Serializable, Tour{
   /**
   *PLay 1 turn with Creature c.
-  *@version 1.24
+  *@version 2.5
   */
   public void unTour(Creature c){
-    debug.débogage("la créature "+c.getId()+" tente de jouer un tour");
-    c.setAgePlus1(); //une fois morte une créature a un délai avant disparition total dans la variable age
-    debug.débogage("fin du tour de la fourmi.");
+    endTurn();
   }
   public void preTour(Creature c){}
+  /**
+  *End 1 turn with Creature c.
+  *@version 2.5
+  */
+  public void endTurn(Creature c){
+    //to avoid to end turn 2 time in the same turn.
+    if(c.getLastTurnEnd()==Main.getPartie().getTour()){
+      return;
+    }else{
+      c.setLastTurnEnd(Main.getPartie().getTour());
+    }
+    
+    c.setAgePlus1();
+  }
 }

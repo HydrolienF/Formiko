@@ -45,6 +45,8 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   protected int nourritureFournie;
   protected Espece e;
   protected ObjetSurCarteAId transported;
+  private int lastTurnEnd=-1;
+
   //TODO #73
   //protected int typeEated [];
   //private int pv; //Point de vie
@@ -154,6 +156,8 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void setEspece(Espece e){ this.e = e;}
   public void setEspece(int e){ setEspece(Main.getEspeceParId(e));}
   public String getNom(){return g.get("creature");}
+  public int getLastTurnEnd(){return lastTurnEnd;}
+  public void setLastTurnEnd(int x){lastTurnEnd=x;}
   /***
   *{@summary Return true if is own by an AI.}<br>
   *@version 1.40
@@ -196,6 +200,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void ceNetoyer(){netoyer.netoyer(this,this);}
   public boolean netoyerIa(){return netoyer.netoyerIa(this);}
   public void tour(){tour.unTour(this);}
+  public void endTurn(){tour.endTurn(this);}
   //public void preTour(){tour.preTour(this);}
   //public void manger (graine pour certaine fourmi, champnons pour d'autre et herbe pour les insectes.)
   // Fonctions propre -----------------------------------------------------------
