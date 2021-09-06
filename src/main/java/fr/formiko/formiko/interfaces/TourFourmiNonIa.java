@@ -7,6 +7,7 @@ import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.tableau;
+import fr.formiko.usuel.exceptions.ClassTypeException;
 
 import java.io.Serializable;
 
@@ -50,16 +51,36 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         return;
       }
     }
-    // TODO if all non automode ant have played.
-    // if(f.getFere().getJoueur().)
+    // TODO #410 move to endTurn.
+    // if(f.isAutoMode() && f.getFere().getGc().isAllInAutoModeOrHaveDoneAllAction()){
+    //   return;
+    // }
     if (f.getMode() == 0){
-      m = "chasser / ce déplacer pour chasser (Ou Récolter des graines)";
+      // m = "chasser / ce déplacer pour chasser (Ou Récolter des graines)";
       f.eat(100);
     }else if(f.getMode() == 3){
-      backHomeAndShareFood(); m = "Nourrir et Nétoyer";
+      // m = "Nourrir et Nétoyer";
+      backHomeAndShareFood();
     }
     Main.setPlayingAnt(null);
-    setAction(0);
+    // TODO #410 if(f.getMode()==-1){
+      f.setAction(0);
+    // }
+  }
+  @Override
+  public void endTurn(Creature c){
+    if(c==null){throw new NullPointerException();}
+    if(!(c instanceof Fourmi)){throw new ClassTypeException("Fourmi","Creature");}
+    setF((Fourmi) c);
+    // TODO #410 if all non automode ant have played.
+    // if (f.getMode() == 0){
+    //   // m = "chasser / ce déplacer pour chasser (Ou Récolter des graines)";
+    //   f.eat(100);
+    // }else if(f.getMode() == 3){
+    //   // m = "Nourrir et Nétoyer";
+    //   backHomeAndShareFood();
+    // }
+    super.endTurn();
   }
   /**
   *{@summary Do turn actions that can be done without action.}

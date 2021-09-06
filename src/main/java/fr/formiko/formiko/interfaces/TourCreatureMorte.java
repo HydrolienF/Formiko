@@ -21,7 +21,7 @@ public class TourCreatureMorte implements Serializable, Tour{
   *@version 2.5
   */
   public void unTour(Creature c){
-    endTurn();
+    endTurn(c);
   }
   public void preTour(Creature c){}
   /**
@@ -35,7 +35,7 @@ public class TourCreatureMorte implements Serializable, Tour{
     }else{
       c.setLastTurnEnd(Main.getPartie().getTour());
     }
-    
+
     c.setAgePlus1();
   }
 }

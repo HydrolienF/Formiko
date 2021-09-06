@@ -521,6 +521,7 @@ public class GCreature implements Serializable{//, Iterator{
   public boolean haveDoneAllActionAviable(){
     for (Creature c : toList()) {
       if(c.getAction()>0){return false;}
+      // TODO #410 if(c.getAction()>0 && (!(c instanceof Fourmi) || ((Fourmi)c).isAutoMode())){return false;}
     }
     return true;
   }
@@ -531,6 +532,16 @@ public class GCreature implements Serializable{//, Iterator{
   public boolean isAllInAutoMode(){
     for (Creature c : toList()) {
       if(c instanceof Fourmi && !((Fourmi)c).isAutoMode()){return false;}
+    }
+    return true;
+  }
+  /**
+  *{@summary Return true if all ant are in autoMode.}
+  *@version 2.5
+  */
+  public boolean isAllInAutoModeOrHaveDoneAllAction(){
+    for (Creature c : toList()) {
+      if(c instanceof Fourmi && !((Fourmi)c).isAutoMode() && c.getAction()>0){return false;}
     }
     return true;
   }

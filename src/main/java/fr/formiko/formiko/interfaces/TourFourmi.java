@@ -52,7 +52,7 @@ public class TourFourmi implements Serializable, Tour{
     //reproduce();
     backHomeAndShareFood(); //if granivore oppen seed & feedOther.
     f.eat(100);
-    setAction(0);
+    f.setAction(0);
   }
   /**
   *{@summary End a turn as an Ant.}<br>
