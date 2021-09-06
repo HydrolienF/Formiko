@@ -33,7 +33,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     }
     String m = "";
     int choix = -1;
-    while(f.getAction()>0 && choix!=-2 && f.getMode()==-1) {
+    while(f.getAction()>0 && !f.getFere().getJoueur().getIsTurnEnded() && choix!=-2 && f.getMode()==-1) {
       Temps.pause(50);
       choix = (byte)(getChoixBouton()-1);
       if(choix==-2){

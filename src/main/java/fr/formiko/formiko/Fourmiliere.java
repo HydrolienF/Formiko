@@ -155,7 +155,7 @@ public class Fourmiliere implements Serializable{
     gc.preTour();
     do {
       gc.jouer();
-    } while (!gc.haveDoneAllActionAviable() && !Main.getRetournerAuMenu());
+    } while (!gc.haveDoneAllActionAviable() && !getJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu());
     Main.getView().setPlayingAnt(null);
     Main.getView().waitForEndTurn(this);
     for (Creature c : gc.toList()) {
