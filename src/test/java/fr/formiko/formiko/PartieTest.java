@@ -35,6 +35,7 @@ public class PartieTest extends TestCaseMuet{
         cpt++;
       }
     }
+    System.out.println(cpt);//@a
     assertTrue(cpt>=nbTryThatWorkMin);
   }
   public void test2LaunchGame(int nbTurn, String mapName, int nbTry, int nbTryThatWorkMin){

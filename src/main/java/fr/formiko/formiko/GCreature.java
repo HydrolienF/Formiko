@@ -403,7 +403,7 @@ public class GCreature implements Serializable{//, Iterator{
         if((Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()) || Main.getRetournerAuMenu()){return;}
         if(c instanceof Fourmi){
           Fourmi fActuel = (Fourmi)c;
-          if(Main.getPartie().getAntIdToPlay()!=-1){
+          if(Main.getPartie().getAntIdToPlay()!=-1 && !fActuel.getIa()){
             // erreur.info("test de "+Main.getPartie().getAntIdToPlay()+" & "+c.getId()+" sur les "+length()+" fourmis ("+toList().toStringId()+")");
             //if player have clic on this ant.
             if(Main.getPartie().getAntIdToPlay()==c.getId()){
