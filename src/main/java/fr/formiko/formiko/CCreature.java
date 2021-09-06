@@ -65,13 +65,13 @@ public class CCreature implements Serializable{
       suivant.getCouvainsSale();
     }
   }
-  public Fourmi getFourmiParFere(Fourmiliere fere){
-    if(getContent().estFourmi()){
-      if(((Fourmi)(getContent())).getFere().equals(fere)){return (Fourmi)contenu;}
-    }
-    if (this.getSuivant()==null){ return null;}
-    return suivant.getFourmiParFere(fere);
-  }
+  // public Fourmi getFourmiParFere(Fourmiliere fere){
+  //   if(getContent().estFourmi()){
+  //     if(((Fourmi)(getContent())).getFere().equals(fere)){return (Fourmi)contenu;}
+  //   }
+  //   if (this.getSuivant()==null){ return null;}
+  //   return suivant.getFourmiParFere(fere);
+  // }
 
   public int [] gcToTInt(){
     int lentr =this.length();

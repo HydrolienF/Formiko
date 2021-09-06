@@ -10,6 +10,7 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.listes.Liste;
 
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.Iterator;
 // extends Liste<Creature>
 public class GCreature implements Serializable{//, Iterator{
@@ -166,13 +167,33 @@ public class GCreature implements Serializable{//, Iterator{
       return null;
     }
   }
-  private Fourmi getFourmiParFereE(Fourmiliere f)throws EmptyListException{
-    if (début==null){ throw new EmptyListException("GCreature","trouver la créature par fere");}
-    return début.getFourmiParFere(f);
+  private Fourmi getFourmiParFereE(Fourmiliere fere)throws EmptyListException{
+    if (getHead()==null){ throw new EmptyListException("GCreature","trouver la créature par fere");}
+    if(fere==null){throw new NullPointerException();}
+    Liste<Fourmi> lc = new Liste<Fourmi>();
+    Comparator<Fourmi> idComparator = (Fourmi p1, Fourmi p2) -> (int)(p2.getId() - p1.getId());
+    for (Creature c : toList()) {
+      if(c instanceof Fourmi){ //an Ant
+        if(((Fourmi)c).getFere().equals(fere)){ //Of the same fere
+          lc.addSorted((Fourmi)c, idComparator);
+        }
+      }
+    }
+    //if playing ant is not from this fere.
+    if(Main.getPlayingAnt()==null || !Main.getPlayingAnt().getFere().equals(fere)){return lc.getFirst();}
+    //else
+    int idPlayingAnt=Main.getPlayingAnt().getId();
+    boolean next=false;
+    for (Fourmi f : lc) { //if playing ant is in this (the GCreature) return next 1.
+      if(next){return f;}
+      if(f.getId()==idPlayingAnt){next=true;}
+    }
+    //else return the 1a.
+    return lc.getFirst();
   }
-  public Fourmi getFourmiParFere(Fourmiliere f){
+  public Fourmi getFourmiParFere(Fourmiliere fere){
     try {
-      return getFourmiParFereE(f);
+      return getFourmiParFereE(fere);
     }catch (Exception e) {
       return null;
     }

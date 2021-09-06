@@ -66,6 +66,7 @@ public class PanneauSup extends Panneau{
               System.out.println(Main.getOp().getEndTurnAuto());//@a
               System.out.println(f.getFere().getGc().haveDoneAllActionAviable());//@a
               if(f.isAutoMode() && Main.getOp().getEndTurnAuto() && f.getFere().getGc().haveDoneAllActionAviable()){ //si fourmi en auto mode, mode fin tour auto & tour fini.
+                //TODO #50
                 erreur.alerte("WAIIIIIIIIITTTTTT for disable end turn");
               }
             }
