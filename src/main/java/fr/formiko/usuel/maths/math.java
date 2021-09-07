@@ -148,6 +148,20 @@ public class math {
     if (x<0) { return x*-1;}
     return x;
   }
+  /**
+  *{@summary return a value in an interval.}<br>
+  *max &#38; min are in the interval.
+  *@param min the minimum value
+  *@param max the maximum value
+  *@param val the value to test
+  *@return val or a bound
+  *@version 2.5
+  */
+  public static int between(int min, int max, int val){
+    if(val<min){return min;}
+    if(val>max){return max;}
+    return val;
+  }
 
   // somme :
   /**

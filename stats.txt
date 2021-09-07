@@ -17,7 +17,7 @@ comment %    cl-pu-po-pr-sh-ln   name of the file
 14%  (2/14)  1  13 0  0  6  132  formiko\GGraine.java
 0%   (0/11)  1  10 0  0  2  95   formiko\GIEspece.java
 100% (5/5)   1  3  0  1  1  92   formiko\GIndividu.java
-111% (10/9)  1  8  0  0  1  118  formiko\GInsecte.java
+100% (9/9)   1  8  0  0  1  118  formiko\GInsecte.java
 12%  (3/25)  1  24 0  0  5  186  formiko\GJoueur.java
 20%  (2/10)  1  9  0  0  9  92   formiko\Graine.java
 20%  (1/5)   1  4  0  0  3  40   formiko\IEspece.java
@@ -68,7 +68,7 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 100% (7/7)   1  6  0  0  6  106  formiko\Point.java
 80%  (4/5)   1  2  0  2  5  91   formiko\Script.java
 100% (5/5)   1  4  0  0  1  55   formiko\ThScript.java
-20%  (3/15)  1  8  0  6  0  497  formiko\triche.java
+20%  (3/15)  1  8  0  6  0  501  formiko\triche.java
 0%   (0/4)   1  3  0  0  0  41   usuel\ascii.java
 100% (4/4)   1  1  0  2  0  63   usuel\chargerCarte.java
 0%   (0/4)   1  2  0  1  0  58   usuel\chargerLesTouches.java
@@ -105,8 +105,8 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 82%  (14/17) 3  13 0  1  9  278  usuel\listes\GString.java
 60%  (27/45) 3  42 0  0  16 528  usuel\listes\Liste.java
 28%  (4/14)  1  13 0  0  2  117  usuel\maths\allea.java
-95%  (19/20) 1  19 0  0  0  330  usuel\maths\math.java
-500% (5/1)   1  0  0  0  1  30   usuel\media\audio\AudioInterface.java
+95%  (20/21) 1  20 0  0  0  344  usuel\maths\math.java
+100% (1/1)   1  0  0  0  1  30   usuel\media\audio\AudioInterface.java
 78%  (15/19) 2  13 0  4  10 220  usuel\media\audio\AudioPlayer.java
 83%  (10/12) 1  9  0  2  0  164  usuel\media\audio\MusicPlayer.java
 null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
@@ -114,7 +114,7 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 7%   (1/13)  1  12 0  0  1  162  usuel\Message.java
 0%   (0/5)   1  3  0  1  0  59   usuel\modificationDeFichier.java
 0%   (0/6)   1  4  0  1  0  46   usuel\opperationSurString.java
-100% (10/10) 1  2  0  7  79 399  usuel\Options.java
+100% (10/10) 1  2  0  7  81 405  usuel\Options.java
 100% (6/6)   1  2  0  3  6  64   usuel\Os.java
 0%   (0/12)  1  10 0  1  0  89   usuel\read.java
 100% (5/5)   1  4  0  0  5  98   usuel\sauvegarderUnePartie.java
@@ -165,7 +165,7 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 0%   (0/2)   1  1  0  0  1  26   views\gui2d\PanneauLanceurPartie.java
 94%  (16/17) 1  11 0  5  7  283  views\gui2d\PanneauMenu.java
 66%  (2/3)   1  2  0  0  0  40   views\gui2d\PanneauMiniMap.java
-100% (9/9)   2  7  0  0  0  126  views\gui2d\PanneauMiniMapContainer.java
+100% (12/12) 3  8  0  1  1  182  views\gui2d\PanneauMiniMapContainer.java
 22%  (2/9)   1  7  0  1  3  215  views\gui2d\PanneauNouvellePartie.java
 0%   (0/7)   1  6  0  0  3  81   views\gui2d\PanneauPrincipal.java
 14%  (2/14)  1  13 0  0  1  146  views\gui2d\PanneauSup.java
@@ -175,9 +175,9 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 0%   (0/6)   1  5  0  0  2  123  views\gui2d\PanneauZoom.java
 0%   (0/2)   1  1  0  0  1  19   views\gui2d\Question.java
 0%   (0/3)   1  2  0  0  0  36   views\gui2d\readG.java
-128% (9/7)   1  3  0  3  4  203  views\gui2d\ThMove.java
-89%  (33/37) 2  28 0  7  25 662  views\gui2d\ViewGUI2d.java
+100% (7/7)   1  3  0  3  4  203  views\gui2d\ThMove.java
+91%  (34/37) 2  28 0  7  25 663  views\gui2d\ViewGUI2d.java
 100% (1/1)   1  0  0  0  1  169  views\View.java
 100% (30/30) 1  21 0  8  2  690  views\ViewCLI.java
 100% (16/16) 1  15 0  0  7  174  views\ViewNull.java
-50,8%(832/1636) 201 1312 2 121 1102  24621 global
+50,6%(830/1640) 202 1314 2 122 1105  24702 global

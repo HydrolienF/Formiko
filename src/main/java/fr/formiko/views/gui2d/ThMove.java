@@ -83,7 +83,7 @@ public class ThMove extends Thread{
   private synchronized static void addToQueue(ThMove th){
     queue.addSorted(th, comparator);
   }
-  /**
+  /***
   *{@summary Update the queue by launching all ThMove that can be launch.}
   *@version 2.4
   */
@@ -186,7 +186,7 @@ public class ThMove extends Thread{
     curentThList.remove(this);
   }
 }
-/**
+/***
 *{@summary A simple Thread extends class to manage ThMove.}<br>
 *It is used only if instantaneousMovement==false.<br>
 *@version 2.4

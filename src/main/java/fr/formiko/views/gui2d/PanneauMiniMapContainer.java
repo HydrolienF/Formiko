@@ -1,9 +1,11 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.maths.math;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -65,7 +67,7 @@ public class PanneauMiniMapContainer extends Panneau {
   class FButtonEndTurn extends FButton {
     private int lineSize;
     private Color color;
-
+    private ThreadColor thCol;
     // CONSTRUCTORS --------------------------------------------------------------
     /**
     *{@summary Main constructor.}<br>
@@ -87,14 +89,33 @@ public class PanneauMiniMapContainer extends Panneau {
     // GET SET -------------------------------------------------------------------
     /**
     *{@summary change color of the button depending of player's actions left.}<br>
-    *Green if player still have action to do otherwise red.
+    *Green if player still have action to do otherwise red.<br>
+    *If animations are enabled it will take 0,255 s to turn red.<br>
     *@version 2.5
     */
     public void setAllActionDone(boolean b){
       if(b){
-        color = Color.RED;
+        if(Main.getOp().getAnimationEnable() && getView().getActionGameOn()){
+          if(!color.equals(Color.GREEN)){return;} //if color is not Green (is red or transforming to red) don't do anything.
+          try {
+            if(thCol==null || thCol.getState()==Thread.State.TERMINATED){
+              thCol = new ThreadColor();
+              thCol.start();
+            }
+          }catch (Exception e) {
+            erreur.alerte("fail to set color as animation");
+            color = Color.RED;
+          }
+        }else{
+          color = Color.RED;
+        }
       }else{
-        color = Color.GREEN;
+        //if is still turning red.
+        if(Main.getOp().getAnimationEnable() && getView().getActionGameOn() && thCol!=null && thCol.getState()!=Thread.State.TERMINATED){
+          thCol.setGreen();
+        }else{
+          color = Color.GREEN;
+        }
       }
     }
     /**
@@ -120,6 +141,42 @@ public class PanneauMiniMapContainer extends Panneau {
       g.fillOval(lineSize/2,lineSize/2,getWidth()-lineSize,getHeight()-lineSize);
       g.setColor(Color.BLACK);
       g.drawOval(lineSize/2,lineSize/2,getWidth()-lineSize,getHeight()-lineSize);
+    }
+    /**
+    *{@summary To change color from green to red.}<br>
+    *@author Hydrolien
+    *@version 2.5
+    */
+    class ThreadColor extends Thread {
+      private boolean bGreen=false;
+      /**
+      *{@summary Main function that call changeColor.}<br>
+      *@version 2.5
+      */
+      @Override
+      public void run(){
+        changeColor();
+      }
+      public void setGreen(){bGreen = true;}
+      /**
+      *{@summary To change color from green to red.}<br>
+      *@version 2.5
+      */
+      private void changeColor(){
+        for (int i=0; i<255; i+=5) {
+          Temps.pause(5);
+          if(bGreen){
+            color=Color.GREEN;
+            bGreen=false;
+            return;
+          }
+          // if(red){
+          color = new Color(math.between(0,255,i),math.between(0,255,255-i),0);
+          // }else{
+          //   color = new Color(math.between(0,255,255-i),math.between(0,255,i),0);
+          // }
+        }
+      }
     }
   }
 }

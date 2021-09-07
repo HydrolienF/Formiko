@@ -60,7 +60,7 @@ public class GInsecte extends Liste<Insecte> implements Serializable{
       add(new Insecte());
     }
   }public void add(){add(1);}
-  /**
+  /***
   *{@summary add nbrOfInsect death insect.}<br>
   *@param nbrOfInsect the number of insect to add.
   *@version 2.2

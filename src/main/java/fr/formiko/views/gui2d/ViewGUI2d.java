@@ -80,7 +80,8 @@ public class ViewGUI2d implements View {
   public void setCurentFPS(int x){curentFPS=x;}
   public int getWidth(){try {return getPp().getWidth();}catch (NullPointerException e) {return 0;}}
   public int getHeight(){try {return getPp().getHeight();}catch (NullPointerException e) {return 0;}}
-  /**  // FUNCTIONS -----------------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
+  /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.42
@@ -492,7 +493,7 @@ public class ViewGUI2d implements View {
       // th.start();
     }
   }
-  /***
+  /**
   *{@summary Wait for end turn if we need.}
   *@param fere the Fourmiliere that is curently playing.
   *@version 2.5
@@ -653,6 +654,10 @@ public class ViewGUI2d implements View {
 */
 class TimerTaskViewGUI2d extends TimerTask{
   protected static ViewGUI2d view;
+  /**
+  *{@summary Main constructor.}
+  *@version 2.5
+  */
   public TimerTaskViewGUI2d(ViewGUI2d view){
     this.view=view;
   }
