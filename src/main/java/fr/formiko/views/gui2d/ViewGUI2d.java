@@ -38,10 +38,10 @@ import javax.swing.RepaintManager;
 import javax.swing.UIManager;
 
 /**
- *{@summary View Graphics User Interface in 2 dimention.}<br>
- *@author Hydrolien
- *@version 1.44
- */
+*{@summary View Graphics User Interface in 2 dimention.}<br>
+*@author Hydrolien
+*@version 1.44
+*/
 public class ViewGUI2d implements View {
   private CCase lookedCCase=null;
   private boolean actionGameOn;

@@ -10,7 +10,18 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+/**
+*{@summary Panel that contain MiniMap.}<br>
+*@author Hydrolien
+*@version 2.5
+*/
 public class PanneauMiniMap extends Panneau {
+
+  // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor.}<br>
+  *@version 2.5
+  */
   public PanneauMiniMap() {
     super();
     setSize(200,200);
@@ -19,4 +30,11 @@ public class PanneauMiniMap extends Panneau {
     fBorder.setColor(Main.getData().getButonBorderColor());
     setBorder(fBorder);
   }
+  // GET SET -------------------------------------------------------------------
+
+  // FUNCTIONS -----------------------------------------------------------------
+  public void paintComponent(Graphics gTemp){
+    //TODO
+  }
+  // SUB-CLASS -----------------------------------------------------------------
 }
