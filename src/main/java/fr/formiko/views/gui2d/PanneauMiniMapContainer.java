@@ -53,6 +53,14 @@ public class PanneauMiniMapContainer extends Panneau {
   public void setFbetEnabled(boolean b){
     fBEndTurn.setEnabled(b);
   }
+  /**
+  *{@summary Shortcut for fBEndTurn.}<br>
+  *@version 2.5
+  */
+  public boolean getFbetEnabled(){
+    return fBEndTurn.isEnabled();
+  }
+
 
   // FUNCTIONS -----------------------------------------------------------------
 

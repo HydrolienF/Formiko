@@ -641,8 +641,7 @@ public class ViewGUI2d implements View {
     }catch (Exception e) {
       erreur.alerte("Fail to launch auto end turn.");
     }
-    //TODO #50 if button have been remove we need to end turn auto.
-    return (!Main.getOp().getEndTurnAuto() || everyoneInAutoMode) && !Main.getPlayingJoueur().getIa();
+    return getPmmc().getFbetEnabled() && (!Main.getOp().getEndTurnAuto() || everyoneInAutoMode) && !Main.getPlayingJoueur().getIa();
   }
 }
 
