@@ -319,6 +319,10 @@ public class triche {
             erreur.alerte("Une action de menu a échouée");
           }
           break;
+        case 43:
+          Panneau.getView().getPmmc().setFbetEnabled(false);
+          break;
+
 
         default:
           erreur.erreur("La commande n'as pas été reconnue.");

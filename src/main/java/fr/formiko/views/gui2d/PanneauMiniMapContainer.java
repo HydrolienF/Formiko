@@ -53,7 +53,6 @@ public class PanneauMiniMapContainer extends Panneau {
   }
 
   // FUNCTIONS -----------------------------------------------------------------
-  //Panneau.getPmmc().setFbetEnabled(false);
 
 
   // SUB-CLASS -----------------------------------------------------------------

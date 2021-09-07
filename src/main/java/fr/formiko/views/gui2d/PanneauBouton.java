@@ -137,7 +137,7 @@ public class PanneauBouton extends Panneau {
     pai = new PanneauActionInf();
     pai.setBounds(0,getHeight()-pai.getHeight(),pai.getWidth(),pai.getHeight());
     getView().getPs().actualiserTaille();
-    pmmc = new PanneauMiniMapContainer();
+    // pmmc = new PanneauMiniMapContainer();
     add(pmmc);
     add(pas);
     add(pa);

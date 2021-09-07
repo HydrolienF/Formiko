@@ -1,5 +1,6 @@
 playMusic Ride of the Valkyries - Wagner
 removePz
+removeEndTurnButton
 setPa 20
 print tuto.0 false
 print tuto.1 false

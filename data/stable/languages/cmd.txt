@@ -50,6 +50,7 @@ cmd.39:menu
 cmd.40:actionGame
 cmd.41:paint
 cmd.42:playMusic
+cmd.43:removeEndTurnButton
 
 cmd.type.1:Creature
 cmd.type.2:Insecte
