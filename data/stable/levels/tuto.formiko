@@ -69,7 +69,7 @@ print tuto.29 false
 print tuto.30 false
 print tuto.31 true
 setPa -1
-attendre finDuTour
+attendre Creature 3 getAction < 1
 print tuto.31.1 true
 setPseudo 1 true
 setPa 20

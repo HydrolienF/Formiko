@@ -641,7 +641,7 @@ public class ViewGUI2d implements View {
     }catch (Exception e) {
       erreur.alerte("Fail to launch auto end turn.");
     }
-    return getPmmc().getFbetEnabled() && (!Main.getOp().getEndTurnAuto() || everyoneInAutoMode) && !Main.getPlayingJoueur().getIa();
+    return ((getPmmc().getFbetEnabled() && !Main.getOp().getEndTurnAuto()) || everyoneInAutoMode) && !Main.getPlayingJoueur().getIa();
   }
 }
 
