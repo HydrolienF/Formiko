@@ -516,9 +516,9 @@ public class ViewGUI2d implements View {
           ((TourFourmiNonIa) Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay()).tour).allowToDisableAutoMode();
         }
       }
-      Main.getPartie().setAntIdToPlay(-1);
-      fere.getJoueur().setIsTurnEnded(false);
     }
+    Main.getPartie().setAntIdToPlay(-1);
+    fere.getJoueur().setIsTurnEnded(false);
     // fere.getJoueur().setIsTurnEnded(true);
     getPmmc().setAllActionDone(false);
     // erreur.info("stop waiting for end turn");//@a

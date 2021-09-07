@@ -202,6 +202,7 @@ public class Data {
       for (int i=0; i<6; i++) {
         try{tBi[k++] = antLeg[idEspece];}catch (Exception e) {antLeg[k++] = tIF[0];}
       }
+      //TODO #246 use a diferent image depending of stade.
       try {tBi[k++] = tIF[idEspece];} catch (Exception e) {tBi[k++] = tIF[0];}
       if(Main.getOp().getAntColorLevel()>0){
         try {imgColor=new Img(antColor[idEspece]);} catch (Exception e) {imgColor=new Img(antColor[0]);}
@@ -214,7 +215,7 @@ public class Data {
       tBi[k++]=changeColor(imgColor, ph);
     }
     if(stade==0){
-      //TODO add wings for queen.
+      //TODO #246 add wings for queen.
       for(int i=0; i<imageNumber; i++){
         if(i<6){
           tBi[i] = image.translateImage(tBi[i], widthImage/2, heightImage/2, widthImage, heightImage);

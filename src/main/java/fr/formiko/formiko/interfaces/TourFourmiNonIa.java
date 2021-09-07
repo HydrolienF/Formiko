@@ -91,7 +91,12 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     erreur.info("allowToDisableAutoMode");
     if((Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()) || Main.getRetournerAuMenu()){return;}
     Main.setPlayingAnt(f);
-    byte choix = (byte)(getChoixBouton()-1);
+    byte choix=-2;
+    try {
+      choix = (byte)(getChoixBouton()-1);
+    }catch (NullPointerException e) {
+      erreur.erreur("can not do ant action because of NullPointerException");
+    }
     if(choix==-2){
       if(f.getAction()<1){f.setAction(0);}
       return;
