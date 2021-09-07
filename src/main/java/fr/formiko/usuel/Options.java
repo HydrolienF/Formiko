@@ -19,7 +19,7 @@ import java.util.Properties;
 *{@summary Options class.}<br>
 *It contain all globals options and can save it.<br>
 *@author Hydrolien
-*@version 1.34
+*@version 2.5
 */
 public class Options implements Serializable{
   private byte language=0; // 0=eo; 1=fr; 2=en;
@@ -64,6 +64,7 @@ public class Options implements Serializable{
   private int fps;
   private byte antColorLevel;
   private boolean endTurnAuto;
+  private boolean animationEnable;
 
   private SortedProperties properties=null;
   // CONSTRUCTEUR ---------------------------------------------------------------
@@ -146,6 +147,8 @@ public class Options implements Serializable{
   public void setAntColorLevel(byte x){antColorLevel=x;}
   public boolean getEndTurnAuto(){return endTurnAuto;}
   public void setEndTurnAuto(boolean b){endTurnAuto=b;}
+  public boolean getAnimationEnable(){return animationEnable;}
+  public void setAnimationEnable(boolean b){animationEnable=b;}
   // Fonctions propre -----------------------------------------------------------
   /**
   *{@summary Initialize Options.}<br>
@@ -167,7 +170,7 @@ public class Options implements Serializable{
       optionToProperties(); // transform Options into properties.
     }
     saveProperties();
-    properties=null;
+    properties=null; //destory properties to save memory.
   }
 
   //private functions ----------------------------------------------------------
@@ -214,7 +217,7 @@ public class Options implements Serializable{
   *{@summary get defaultProperties of the Options.}<br>
   *It can be used to save default Options or to repair Options.md file if something is mising.<br>
   *Value for version, language, fontSize &#38; butonSize depend of the user computer.<br>
-  *@version 1.34
+  *@version 2.5
   */
   private SortedProperties getDefaultProperties(){
     SortedProperties defaultProperties = new SortedProperties(34);
@@ -283,9 +286,10 @@ public class Options implements Serializable{
     defaultProperties.setProperty("autoCleaning","true");
     defaultProperties.setProperty("positionCase","0");
     defaultProperties.setProperty("modeFPS","true");
-    defaultProperties.setProperty("fps","50");
+    defaultProperties.setProperty("fps","60");
     defaultProperties.setProperty("antColorLevel","1");
     defaultProperties.setProperty("endTurnAuto","false");
+    defaultProperties.setProperty("animationEnable","true");
     return defaultProperties;
   }
   /**
@@ -304,7 +308,7 @@ public class Options implements Serializable{
   }
   /**
   *{@summary tranform properties into Options var.}<br>
-  *@version 1.34
+  *@version 2.5
   */
   private void propertiesToOptions(){
     language=str.sToBy(properties.getProperty("language"));
@@ -349,10 +353,11 @@ public class Options implements Serializable{
     fps=str.sToI(properties.getProperty("fps"));
     setAntColorLevel(str.sToBy(properties.getProperty("antColorLevel")));
     setEndTurnAuto(str.sToB(properties.getProperty("endTurnAuto")));
+    setAnimationEnable(str.sToB(properties.getProperty("animationEnable")));
   }
   /**
   *{@summary tranform properties into Options var.}<br>
-  *@version 1.34
+  *@version 2.5
   */
   private void optionToProperties(){
     properties = new SortedProperties(getDefaultProperties());
@@ -395,5 +400,6 @@ public class Options implements Serializable{
     properties.setProperty("fps",""+fps);
     properties.setProperty("antColorLevel", ""+antColorLevel);
     properties.setProperty("endTurnAuto",""+endTurnAuto);
+    properties.setProperty("animationEnable",""+animationEnable);
   }
 }
