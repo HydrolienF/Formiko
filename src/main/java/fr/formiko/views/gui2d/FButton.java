@@ -42,6 +42,7 @@ public class FButton extends JButton implements MouseListener{
   protected boolean cFondUseAlpha;
   protected boolean withBackground;
   protected int color=0;
+  protected boolean isYellow=false;
   // protected Color cFond;
   // protected Color buttonColor;
   // CONSTRUCTEUR ---------------------------------------------------------------
@@ -105,7 +106,6 @@ public class FButton extends JButton implements MouseListener{
   *@version 1.54
   */
   public Color getBackgroundColor(){
-    //TODO use alpha
     Color c = Main.getData().getButtonColor(color);
     if(cFondUseAlpha){
       return new Color(c.getRed(), c.getGreen(), c.getBlue(), 100);
@@ -122,6 +122,18 @@ public class FButton extends JButton implements MouseListener{
   public void setSize(int size){setSize(size,size);}
   // public void setButtonColor(Color c){buttonColor=c;}
   public void setColor(int x){color=x;}
+  /**
+  *{@summary Swap color beween green &#38; yellow.}<br>
+  *@version 2.5
+  */
+  public void setDefaultColor(){
+    if(isYellow){
+      setColor(1);
+    }else{
+      setColor(0);
+    }
+  }
+  public void setIsYellow(boolean b){isYellow=b;}
   // Fonctions propre ----------------------------------------------------------
   /**
   *{@summary To draw component.}<br>
@@ -170,10 +182,8 @@ public class FButton extends JButton implements MouseListener{
   @Override
   public void setEnabled(boolean b){
     if(b){
-      // setCFond(Main.getData().getButtonColor());
-      setColor(0);
+      setDefaultColor();
     }else{
-      // setCFond(Main.getData().getButtonDisableColor());
       setColor(3);
     }
     super.setEnabled(b);
@@ -228,8 +238,7 @@ public class FButton extends JButton implements MouseListener{
       setColor(2);
     }else{
       setDesc("");
-      // setCFond(buttonColor);
-      setColor(0);
+      setDefaultColor();
     }
     repaint();
   }

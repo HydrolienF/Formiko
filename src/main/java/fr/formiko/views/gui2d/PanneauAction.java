@@ -89,23 +89,25 @@ public class PanneauAction extends Panneau {
     // debug.g("PanneauAction",this.getWidth(),this.getHeight());
   }
   /**
-  *{@summary color in yellow auto mode buttons if they are enabled.}
+  *{@summary Change default color for auto mode buttons.}
   *@version 2.5
   */
   public void paintAutoButton(){
+    if(Main.getPlayingAnt().getMode()==0){
+      tAutoB[0].setIsYellow(true);
+    }else{
+      tAutoB[0].setIsYellow(false);
+    }
+    if(Main.getPlayingAnt().getMode()==3){
+      tAutoB[1].setIsYellow(true);
+    }else{
+      tAutoB[1].setIsYellow(false);
+    }
     if(tAutoB[0].isEnabled()){
-      if(Main.getPlayingAnt().getMode()==0){
-        tAutoB[0].setColor(1);
-      }else{
-        tAutoB[0].setColor(0);
-      }
+      tAutoB[0].setDefaultColor();
     }
     if(tAutoB[1].isEnabled()){
-      if(Main.getPlayingAnt().getMode()==3){
-        tAutoB[1].setColor(1);
-      }else{
-        tAutoB[1].setColor(0);
-      }
+      tAutoB[1].setDefaultColor();
     }
   }
   public static int [] getTIntDef(){
