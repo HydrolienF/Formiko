@@ -30,6 +30,7 @@ public class Fourmiliere implements Serializable{
   private GGInt ggi;
   /** Number of died ant. */
   private int nbrFourmisMorte;
+  private boolean waitingForEndTurn;
 
   // CONSTRUCTEUR
   public Fourmiliere(CCase ccase, Joueur j){
@@ -120,6 +121,8 @@ public class Fourmiliere implements Serializable{
   public void setNbrFourmisMorte(int x){nbrFourmisMorte=x;}
   public void nbrFourmisMortePlus1(){setNbrFourmisMorte(getNbrFourmisMorte()+1);}
   public Espece getEspece(){return gc.getEspece();}
+  public boolean getWaitingForEndTurn(){return waitingForEndTurn;}
+  public void setWaitingForEndTurn(boolean b){waitingForEndTurn=b;}
   public static void ini(){idCpt=1;}
   // Fonctions propre -----------------------------------------------------------
   /**
@@ -157,10 +160,12 @@ public class Fourmiliere implements Serializable{
       gc.jouer();
     } while (!gc.haveDoneAllActionAviable() && !getJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu());
     Main.getView().setPlayingAnt(null);
-    Main.getView().waitForEndTurn(this);
+    setWaitingForEndTurn(true);
+    Main.getView().waitForEndTurn();
     for (Creature c : gc.toList()) {
       c.endTurn();
     }
+    setWaitingForEndTurn(false);
     ggi.add(new GInt(this)); //stats of this turn
   }
   /*public void faireVarierLesAge(){

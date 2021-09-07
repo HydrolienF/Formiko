@@ -62,13 +62,9 @@ public class PanneauSup extends Panneau{
               getView().getPb().setActionF(-2);
               getView().getPb().removePA();
               Main.getPartie().setAntIdToPlay(f.getId());
-              System.out.println(f.isAutoMode());//@a
-              System.out.println(Main.getOp().getEndTurnAuto());//@a
-              System.out.println(f.getFere().getGc().haveDoneAllActionAviable());//@a
-              if(f.isAutoMode() && Main.getOp().getEndTurnAuto() && f.getFere().getGc().haveDoneAllActionAviable()){ //si fourmi en auto mode, mode fin tour auto & tour fini.
-                //TODO #50
-                erreur.alerte("WAIIIIIIIIITTTTTT for disable end turn");
-              }
+              // if(f.isAutoMode() && getView().getEndTurnAuto() && f.getFere().getGc().haveDoneAllActionAviable()){ //si fourmi en auto mode, mode fin tour auto & tour fini.
+              //   erreur.alerte("WAIIIIIIIIITTTTTT for disable end turn");
+              // }
             }
           }
         }else if(e.getButton()== MouseEvent.BUTTON3){

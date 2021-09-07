@@ -114,7 +114,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     int t [] = null;
     f.setBActionHaveChange(true);
     //la fourmi doit finir son tour si elle n'as plus d'action, sauf si le joueur a spécifiquement cliqué dessus.
-    while (choix==-1 && !f.getFere().getJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu()) { // && f.getAction()>0
+    while (choix==-1 && !f.getFere().getJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu() && (f.getAction()>0 || f.getFere().getWaitingForEndTurn())) {
       Temps.pause(50);
       //if tour fini par clic sur Entrer
       if (f.getBActionHaveChange()){

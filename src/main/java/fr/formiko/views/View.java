@@ -163,8 +163,7 @@ public interface View {
   void move(ObjetSurCarteAId o, CCase from, CCase to);
   /***
   *{@summary Wait for end turn if we need.}
-  *@param fere the Fourmiliere that is curently playing.
   *@version 2.5
   */
-  default void waitForEndTurn(Fourmiliere fere){}
+  default void waitForEndTurn(){}
 }

@@ -497,31 +497,26 @@ public class ViewGUI2d implements View {
   *@param fere the Fourmiliere that is curently playing.
   *@version 2.5
   */
-  public void waitForEndTurn(Fourmiliere fere) {
+  public void waitForEndTurn() {
     getPmmc().setAllActionDone(true);
     Main.getPartie().setAntIdToPlay(-1);
-    boolean everyoneInAutoMode=false; //au moins 1 fourmi sans auto mode.
-    try {
-      if(Main.getPlayingJoueur().getFere().getGc().isAllInAutoMode()){everyoneInAutoMode=true;}
-    }catch (Exception e) {
-      erreur.alerte("Fail to launch auto end turn.");
-    }
-    if((!Main.getOp().getEndTurnAuto() || everyoneInAutoMode) && !fere.getJoueur().getIa()) { // || any ant have action to do.
-      while(!fere.getJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu()) {
+
+    if(doNotNeedToEndTurnAuto()) { // || any ant have action to do.
+      while(!Main.getPlayingJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu()) {
         Temps.pause(50);
         //here were waiting for the final clic on the red button.
         if(Main.getPartie().getAntIdToPlay()!=-1){
-          erreur.info("action for ant "+Main.getPartie().getAntIdToPlay());//@a
+          // erreur.info("action for ant "+Main.getPartie().getAntIdToPlay());
           // Main.setPlayingAnt(Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay()));
           ((TourFourmiNonIa) Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay()).tour).allowToDisableAutoMode();
         }
       }
     }
     Main.getPartie().setAntIdToPlay(-1);
-    fere.getJoueur().setIsTurnEnded(false);
+    Main.getPlayingJoueur().setIsTurnEnded(false);
     // fere.getJoueur().setIsTurnEnded(true);
     getPmmc().setAllActionDone(false);
-    // erreur.info("stop waiting for end turn");//@a
+    // erreur.info("stop waiting for end turn");
   }
   //private---------------------------------------------------------------------
   /**
@@ -633,6 +628,20 @@ public class ViewGUI2d implements View {
     }
     // UIManager.getLookAndFeelDefaults().put("defaultFont", new Font("Arial", Font.BOLD, 14));
     // setForeground(Color.BLACK);
+  }
+  /**
+  *{@summary return endTurnAuto depending of Options &#38; endTurn button.}<br>
+  *@version 2.5
+  */
+  private boolean doNotNeedToEndTurnAuto(){
+    boolean everyoneInAutoMode=false; //au moins 1 fourmi sans auto mode.
+    try {
+      if(Main.getPlayingJoueur().getFere().getGc().isAllInAutoMode()){everyoneInAutoMode=true;}
+    }catch (Exception e) {
+      erreur.alerte("Fail to launch auto end turn.");
+    }
+    //TODO #50 if button have been remove we need to end turn auto.
+    return (!Main.getOp().getEndTurnAuto() || everyoneInAutoMode) && !Main.getPlayingJoueur().getIa();
   }
 }
 
