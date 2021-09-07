@@ -32,7 +32,7 @@ public class PanneauMiniMapContainer extends Panneau {
     private int lineSize;
     private Color color;
     public FButtonEndTurn() {
-      super("", Panneau.getView().getPj(), 200);
+      super("", Panneau.getView().getPj(), Main.getTailleElementGraphique(200));
       setSize(Main.getTailleElementGraphique(BUTTON_RADIUS*2));
       setLocation(0,0);
       lineSize = Main.getTailleElementGraphique(3);
