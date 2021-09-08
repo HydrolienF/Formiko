@@ -552,7 +552,7 @@ public class GCreature implements Serializable{//, Iterator{
   */
   public boolean isAllInAutoMode(){
     for (Creature c : toList()) {
-      if(c instanceof Fourmi && !((Fourmi)c).isAutoMode()){return false;}
+      if(c instanceof Fourmi && !((Fourmi)c).isAutoMode() && ((Fourmi)c).getStade()==0){return false;}
     }
     return true;
   }
