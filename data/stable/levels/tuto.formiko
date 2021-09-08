@@ -60,7 +60,7 @@ new Insecte 2 2 5
 print tuto.24 false
 print tuto.25 true
 setPa 7 true
-attendre Creature 1 getAction < 0
+attendre Creature 1 getAction < 1
 new Graine 2 1
 print tuto.26 false
 print tuto.27 false
