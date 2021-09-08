@@ -105,7 +105,6 @@ public class GCreatureTest extends TestCaseMuet{
     Joueur.setPlayingJoueur(null);
     assertEquals(f1, gc.getFourmiParFere(j.getFere()));
     Joueur.setPlayingJoueur(j2);
-    System.out.println(f2);//@a
     assertEquals(f2, gc.getFourmiParFere(j2.getFere()));
     Joueur.setPlayingJoueur(j);
     Main.setPlayingAnt(null);

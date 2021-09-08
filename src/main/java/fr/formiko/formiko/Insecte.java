@@ -16,7 +16,7 @@ import java.io.Serializable;
 *Specials insectes extends this class.<br>
 *Almost all the var can be found in Creature.java<br>
 *@author Hydrolien
-*@version 1.13
+*@version 2.6
 */
 public class Insecte extends Creature implements Serializable{
   protected boolean femelle;
