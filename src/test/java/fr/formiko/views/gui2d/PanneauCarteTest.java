@@ -30,4 +30,18 @@ public class PanneauCarteTest extends TestCaseMuet{
     assertEquals((999/12)+1,pc.nbrPrintableCase(true));
     assertEquals((700/12)+1,pc.nbrPrintableCase(false));
   }
+  // @Test
+  // public void testGcSortedByImageSize(){
+  //   Main.getOp().setTailleRealiste(0);
+  //   GCreature gc = new GCreature();
+  //   gc.add(new Fourmi());
+  //   Insecte i0 = new Insecte(null);
+  //   i1.setType(0);
+  //   Insecte i1 = new Insecte(null);
+  //   i1.setType(1);
+  //   Insecte i2 = new Insecte(null);
+  //   i1.setType(2);
+  //   gc.add();
+  //
+  // }
 }

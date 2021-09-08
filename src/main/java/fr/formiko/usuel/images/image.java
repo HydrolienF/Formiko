@@ -239,28 +239,33 @@ public class image{
   }
   //taille d'une image de Creature.
   /**
-   *{@summary Return size of a Creature image.}<br>
-   *@param idEspece id of the Species (size depend of Species)<br>
-   *@param stade stade also infulence size of the Creature
-   *@param taille taille used if it was 0% realistic.
-   *@version 1.3
-   */
-  public static int taille(int idEspece, int stade,int taille){
-    int a = Main.getEspeceParId(idEspece).getTaille(stade);//la taille en fonction du stade (100 en moyenne.)
+  *{@summary Return size of a Creature image.}<br>
+  *@param idEspece id of the Species (size depend of Species)<br>
+  *@param stade stade also infulence size of the Creature
+  *@param taille taille used if it was 0% realistic.
+  *@version 1.3
+  */
+  public static int taille(int idEspece, int stade, int taille){
+    int a = Main.getEspeceParId(idEspece).getTaille(stade);//standard a is 100
     return taille(a,taille);
   }
   /**
-   *{@summary Return size of a Creature image.}<br>
-   *@param a size assumed if it was 100% realistic.
-   *@param taille size used if it was 0% realistic.
-   *@version 1.3
-   */
-  public static int taille(int a,int taille){
+  *{@summary Return size of a Creature image.}<br>
+  *@param a size assumed if it was 100% realistic.
+  *@param taille size used if it was 0% realistic.
+  *@version 1.3
+  */
+  public static int taille(int a, int taille){
     double tailleR = Main.getOp().getTailleRealiste()/100.0;
     double db = ((a*taille*tailleR)/100) + (taille)*(1-tailleR);//en pixel on fait *4.
     return (int)db;
   }
-  public static boolean isImage(File f){//2 possibilité, le fichier ce termine par .pnj ou par .jpg.
+  /**
+  *{@summary True is file is an Image.}<br>
+  *An image end with .png or .jpg
+  *@version 2.5
+  */
+  public static boolean isImage(File f){
     if(f==null){return false;}
     if(str.contient(f.getName(),".png",2)){return true;}
     if(str.contient(f.getName(),".jpg",2)){return true;}

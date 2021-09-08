@@ -8,6 +8,7 @@ import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GCase;
+import fr.formiko.formiko.GCreature;
 import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Joueur;
@@ -24,8 +25,6 @@ import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.listes.Liste;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
-import java.util.Map;
-import java.util.HashMap;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -40,6 +39,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
@@ -62,6 +63,7 @@ public class PanneauCarte extends Panneau {
   private Map<Integer,Point> hashMapMovingObjectSurCarteAid;
   private Map<Integer,Point> hashMapMovingObjectSurCarteAidRotation;
   // private SubPanel subPanel;
+  private static Comparator<Creature> imageSizeComparator = (Creature p1, Creature p2) -> (int)(p1.getEspece().getTaille(p1.getStade()) - p2.getEspece().getTaille(p2.getStade()));
 
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauCarte(){
@@ -287,7 +289,7 @@ public class PanneauCarte extends Panneau {
         if(insectPrinted){
           cptIcon+=c.getGc().length();
         }
-        // les graines
+        //seeds
         if(seedPrinted){
           while (ccg!=null){
             calculerXYTemp(xT,yT,k,c);k++;
@@ -302,16 +304,8 @@ public class PanneauCarte extends Panneau {
             ccg = ccg.getSuivant();
           }
         }
-        // les créatures.
-        //TODO sort by quicksort Creature by size of there futur image.
-        Liste<Creature> gcToPrint = c.getGc().toList();//new Liste<Creature>();
-        // for (Creature cr : c.getGc().toList()) {
-        //   gcToPrint.add(cr, cr.getTaille());
-        // }
-        // c.setGc(gcToPrint);
-        //TODO #82 for GCreature then do #94 with sort.
-        // gcToPrint.sort(new GcComparator<Creature>());
-        // gcToPrint = Collection.sort(gcToPrint, new GcComparator<Creature>());
+        //creatures.
+        Liste<Creature> gcToPrint = gcSortedByImageSize(c.getGc());
         for (Creature cr : gcToPrint) {
           Point p = hashMapMovingObjectSurCarteAid.get(cr.getId());
           int x2,y2;
@@ -370,7 +364,19 @@ public class PanneauCarte extends Panneau {
     }
   }
   /**
-  *{@summary add a curent moving object.}
+  *{@summary Return a Liste<Creature> sorted by image size.}<br>
+  *It is used to print smaler creature on top, so that we can see every Creature.
+  *@version 2.6
+  */
+  //public only for test
+  public static Liste<Creature> gcSortedByImageSize(GCreature gc){
+    Liste<Creature> listToPrint = gc.toList();
+    if(Main.getOp().getTailleRealiste()==0){return listToPrint;}
+    listToPrint.sort(imageSizeComparator);
+    return listToPrint;
+  }
+  /**
+  *{@summary Add a curent moving object.}
   *It modify location and rotation of the object.
   *location and rotation are save in 2 hashmap.
   *@param id the id of the object

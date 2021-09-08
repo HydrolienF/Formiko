@@ -354,17 +354,15 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
     head = null;
     tail = null;
   }
-  // @Override
-  // public void sort​(Comparator<? super T> c){
-  //   Liste<T> newList = new Liste<T>();
-  //   for (T t : this) {
-  //     Node<T> node = newList.getHead();
-  //     while(node=!null){
-  //       // setNext(list.getHead());
-  //       node=node.getNext();
-  //     }
-  //   }
-  // }
+  @Override
+  public void sort​(Comparator<? super T> c){
+    Liste<T> newList = new Liste<T>();
+    for (T t : this) {
+      newList.addSorted(t,c);
+    }
+    head = newList.getHead();
+    tail = newList.getTail();
+  }
   public boolean addSorted(T t, Comparator<? super T> c){
     if(getHead()==null){
       return add(t);
@@ -374,7 +372,6 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
       setHead(newNode);
       return true;
     }else{
-      //TODO
       Node<T> node = getHead();
       Node<T> newNode = new Node<T>(t);
       while(node.getNext()!=null){

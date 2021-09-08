@@ -30,7 +30,7 @@ public class GIEspece implements Serializable{
       return début.getIEspeceParId(id);
     }
   }
-  public byte getTypeInsecte(int typeDeCase){
+  public byte getRandomTypeInsectOnTheCase(int typeDeCase){
     //return (byte) 0; //a continuer
     int total = getTotal(typeDeCase);
     int a = allea.getAlléa(total);
