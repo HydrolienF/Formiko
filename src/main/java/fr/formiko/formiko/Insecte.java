@@ -21,7 +21,6 @@ import java.io.Serializable;
 public class Insecte extends Creature implements Serializable{
   protected boolean femelle;
   protected byte nourritureMangeable;
-  protected byte type;
   protected static GIEspece gie;
   // CONSTRUCTEUR -----------------------------------------------------------------
   /**
@@ -73,13 +72,12 @@ public class Insecte extends Creature implements Serializable{
   public byte getNourritureMangeable(){ return nourritureMangeable;}
   public void setNourritureMangeable(byte x){ nourritureMangeable=x;} public void setNourritureMangeable(int x){ setNourritureMangeable((byte)x);}
   @Override
-  public byte getType(){ return type;}
+  public byte getType(){ return (byte)(getEspece().getId()-100);}
   /**
   *{@summary set type &#38; Espece.}
   *@version 2.6
   */
   public void setType(byte x){
-    type=x;
     super.setEspece(Main.getEspeceParId(100+x));
     if(e==null){erreur.erreur("Une espece d'insecte n'as pas pu etre chargé : "+(100+getType()));}
   }
@@ -92,7 +90,6 @@ public class Insecte extends Creature implements Serializable{
   @Override
   public void setEspece(Espece ex){
     super.setEspece(ex);
-    type=(byte)ex.getId();
   }
   @Override
   public boolean getVole(){if(getStade()!=0){return false;}return e.getVole();}//si c'est un imago ca dépend de l'espece.
