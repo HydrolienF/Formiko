@@ -42,7 +42,7 @@ public class PanneauBouton extends Panneau {
   public void build(){
     setLayout(null);
     descS=""; desc = new Desc(getWidth(),Desc.getDimY());
-    desc.setFondColoré(Main.getData().getButtonColor());
+    desc.setBackground(Main.getData().getButtonColor());
     actionF = -1; choixId = -1;
     int t [] = {0,1,2,3,4,5};
     ptb = new PanneauTBoolean(null);
@@ -56,7 +56,7 @@ public class PanneauBouton extends Panneau {
     pz = new PanneauZoom();
     add(pi);add(pij);
     descTI = new Desc();
-    descTI.setFondColoré(Main.getData().getButtonColor());
+    descTI.setBackground(Main.getData().getButtonColor());
     setDescTI("");
     setDesc("");
     descTI.setBounds(0,0,800);

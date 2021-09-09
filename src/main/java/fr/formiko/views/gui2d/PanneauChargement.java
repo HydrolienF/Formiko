@@ -8,6 +8,7 @@ import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.maths.allea;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -16,7 +17,7 @@ public class PanneauChargement extends Panneau {
   private FButton b;
   private int tempsTotalDeChargement;
   private Desc message;
-  private PanneauInfo conseil;
+  private FTextArea conseil;
   private boolean lancer;
   private FButton bt;
   // CONSTRUCTEUR ---------------------------------------------------------------
@@ -67,13 +68,13 @@ public class PanneauChargement extends Panneau {
   public void addConseil(){
     int x = allea.getAlléa(19)+1;//de 1 a 19.
     String s = g.getM("conseil."+x);
-    GString gs = new GString();
-    gs.addParMorceaux(s,70,true);//ajoute 70 char par 70 char (sans couper les mots) a la GString
-    conseil = new PanneauInfo(gs,(Main.getF().getWidth()*3)/5,false);
+    //TODO #10 fined a way to calculate conseil.y depending of s.
+    conseil = new FTextArea(s);
+    conseil.setMinimumSize(new Dimension((Main.getF().getWidth()*3)/5, Desc.getDimY()));
+    conseil.setSize(new Dimension((Main.getF().getWidth()*3)/5, Desc.getDimY()*4));
     add(conseil);
-    int xx = Main.getF().getWidth()/5;
-    int yy = Main.getF().getHeight()/5;
-    conseil.setLocation(xx,(yy*4)-(2*Main.getTaillePolice1())-conseil.getYPi());
+    conseil.setLocation(Main.getF().getWidth()/5,(Main.getF().getHeight()/5*4)-(2*Main.getTaillePolice1())-conseil.getHeight()-100);
+    erreur.info(""+conseil);//@a
     repaint();
   }
 }

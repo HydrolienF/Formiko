@@ -9,16 +9,19 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
-import javax.swing.JTextPane;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+import javax.swing.JScrollPane;
+import javax.swing.BorderFactory;
 
-public class FTextPane extends JTextPane {
-  public FTextPane(){
-    super();
-    setOpaque(false);
+public class FTextArea extends JTextArea {
+  public FTextArea(String s){
+    super(s);
+    setOpaque(true);
     setForeground(Color.BLACK);
     setBackground(Main.getData().getButtonColorWithoutAlpha());
     setEditable(false);
-    // setLineWrap(true);
+    setLineWrap(true);
+    setWrapStyleWord(true);
   }
 }

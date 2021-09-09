@@ -22,8 +22,7 @@ public class Desc extends JLabel {
       Dimension dim = new Dimension(x,y);
       setPreferredSize(dim);
     }
-    setFondColoré(Main.getData().getButtonColorWithoutAlpha());
-    setPolice();
+    setBackground(Main.getData().getButtonColorWithoutAlpha());
   }
   public Desc(){ this(500,getDimY());}
   public Desc(String s){
@@ -42,9 +41,9 @@ public class Desc extends JLabel {
   public void setTexte(){ setTexte("");}
   @Override
   public void setText(String s){setTexte(s);}//on s'assure que setTexte est la seule méthode autorisé pour modifié du texte.
-  public void setFondColoré(Color col){this.setBackground(col);}
+  // public void setFondColoré(Color col){this.setBackground(col);}
   //public void setFondColoré(){ setFondColoré(Main.getPiFond().piToColor());}
-  public void setFondTransparent(){setFondColoré(new Color(0,0,0,0));}
+  public void setFondTransparent(){setBackground(new Color(0,0,0,0));}
   public void setPolice(Font fon){ setFont(fon);}
   @Override
   public void setFont(Font fon){super.setFont(fon);}
@@ -55,6 +54,7 @@ public class Desc extends JLabel {
   public void setSize(int w){setSize(w,getDimY());}
   // Fonctions propre -----------------------------------------------------------
   public void updateSize(){
+    // getView().pack();
     setSize((int)(getText().length()*Main.getTaillePolice1()*0.6),Desc.getDimY());
   }
   // @Override

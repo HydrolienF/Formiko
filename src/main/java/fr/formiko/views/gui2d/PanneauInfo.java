@@ -37,7 +37,7 @@ public class PanneauInfo extends Panneau {
       gbc.gridy = k;k++;
       Desc desc = new Desc(xD,yD);
       if(withAlpha){
-        desc.setFondColoré(Main.getData().getButtonColor());
+        desc.setBackground(Main.getData().getButtonColor());
       }
       if(font!=null){
         desc.setFont(font);
