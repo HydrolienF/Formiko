@@ -41,7 +41,7 @@ public class PanneauBouton extends Panneau {
   public PanneauBouton(){}
   public void build(){
     setLayout(null);
-    descS=""; desc = new Desc();
+    descS=""; desc = new Desc(getWidth(),Desc.getDimY());
     desc.setFondColoré(Main.getData().getButtonColor());
     actionF = -1; choixId = -1;
     int t [] = {0,1,2,3,4,5};
@@ -217,7 +217,7 @@ public class PanneauBouton extends Panneau {
   //repaint() permet de réactualisé paintComponent()
   @Override
   public void paintComponent(Graphics gr){
-    // pas mal de satBounds pourrait partir si la fenetre avait une taille fixe.
+    // pas mal de setBounds pourrait partir si la fenetre avait une taille fixe.
     try {
       if(!Main.getPartie().getEnCours()){return;}
     }catch (Exception e) {}
@@ -226,8 +226,7 @@ public class PanneauBouton extends Panneau {
       try {
         xxx = pa.getHeight();
       }catch (Exception e) {}
-      desc.setSize((int)(desc.getText().length()*Main.getTaillePolice1()*0.6),Desc.getDimY());
-      desc.setBounds(0,Main.getDimY()-xxx-desc.getHeight(),desc.getWidth(),desc.getHeight());
+      desc.setLocation(0,Main.getDimY()-xxx-Desc.getDimY());//-desc.getHeight()
       descTI.setBounds(0,0,800);
     }catch (Exception e) {
       erreur.erreur("affichage de PanneauBouton");
@@ -235,18 +234,26 @@ public class PanneauBouton extends Panneau {
   }
   public void actualiserDesc(){
     debug.débogage("actualisation de la description");
-    //int xxx = pa.getTailleBouton();
-    //desc.setBounds(0,getHeight()-xxx-Desc.getDimY(),(int)(desc.getText().length()*Main.getTaillePolice1()*0.6),Desc.getDimY());
-    desc.setTexte(descS);
-    try {
-      Main.repaint();
-    }catch (Exception e) {}
+    if(getView().getActionGameOn()){
+      desc.setTexte(descS);
+      desc.updateSize();
+      try {
+        Main.repaint();
+      }catch (Exception e) {}
+    }else{
+      desc.setTexte("");
+    }
   }
   public void actualiserDescTI(String s){
-    debug.débogage("actualisation de la descriptionTI");
-    try {
-      descTI.setTexte(s);
-    }catch (Exception e) {}
+    if(getView().getActionGameOn()){
+      debug.débogage("actualisation de la descriptionTI");
+      try {
+        descTI.setTexte(s);
+        descTI.updateSize();
+      }catch (Exception e) {}
+    }else{
+      desc.setTexte("");
+    }
   }
 
 }

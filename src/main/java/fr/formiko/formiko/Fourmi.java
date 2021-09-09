@@ -1,7 +1,6 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.formiko.Message;
 import fr.formiko.formiko.interfaces.*;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;

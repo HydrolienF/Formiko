@@ -1,7 +1,6 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.formiko.Message;
 import fr.formiko.views.gui2d.Panneau;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;

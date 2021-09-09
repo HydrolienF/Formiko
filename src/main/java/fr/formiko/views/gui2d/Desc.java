@@ -12,7 +12,7 @@ import java.awt.Graphics;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-public class Desc extends JLabel{
+public class Desc extends JLabel {
   // CONSTRUCTEUR ---------------------------------------------------------------
   public Desc(int x, int y){
     super();
@@ -54,6 +54,9 @@ public class Desc extends JLabel{
   public void setCentered(){setHorizontalAlignment(SwingConstants.CENTER);}
   public void setSize(int w){setSize(w,getDimY());}
   // Fonctions propre -----------------------------------------------------------
+  public void updateSize(){
+    setSize((int)(getText().length()*Main.getTaillePolice1()*0.6),Desc.getDimY());
+  }
   // @Override
   // public void paintComponent(Graphics g){
   //
