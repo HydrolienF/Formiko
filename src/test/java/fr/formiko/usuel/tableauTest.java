@@ -13,7 +13,7 @@ import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class tableauTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testSort(){
     String t [] = {"1","a","t","b"};

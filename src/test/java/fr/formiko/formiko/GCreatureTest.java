@@ -10,7 +10,7 @@ import fr.formiko.usuel.tests.TestCaseMuet;
 public class GCreatureTest extends TestCaseMuet{
   private Joueur j,j2,j3;
   private Fourmi f1,f2,f3,f4,f5,f6;
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   private void ini(){
     Main.initialisation();
     Partie p = new Partie(0,100,new Carte(new GCase(2,2),0,0,1,false,false),1);

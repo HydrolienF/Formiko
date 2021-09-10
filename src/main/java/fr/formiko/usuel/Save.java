@@ -19,12 +19,12 @@ public class Save implements Serializable{
   private int idS;
   private static File f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderBin()+".save");
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
 
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public void addSave(){idS++;}
   public int getIdS(){return idS;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary get save informations.}<br>
   *@version 1.14

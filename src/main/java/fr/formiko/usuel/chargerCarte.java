@@ -14,7 +14,7 @@ import fr.formiko.usuel.types.str;
 *@version 1.46
 */
 public class chargerCarte {
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Load a map as a GCase from a .csv file.}
   *Only type of case are saved.

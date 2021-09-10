@@ -24,7 +24,7 @@ public class EtiquetteJoueur extends Panneau{
   private boolean ouvert;
   private FComboBox<String> combo;
   private Champ couleur;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public EtiquetteJoueur(String s, Boolean b){
     id =idCpt; idCpt++;
     setOpaque(false);
@@ -59,7 +59,7 @@ public class EtiquetteJoueur extends Panneau{
     this(Joueur.get1Pseudo(),null);
   }
 
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public int getId(){return id;}
   public String getPseudo(){return dsc.getText();}
   public void setPseudo(String s){dsc.setText(s);}
@@ -68,7 +68,7 @@ public class EtiquetteJoueur extends Panneau{
   public boolean getOuvert(){return ouvert;}
   public void setOuvert(Boolean b){ouvert=b;}
   public Pheromone getCouleur(){return Pheromone.sToPh(couleur.getText());}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     return getPseudo() +" id:"+ id + " ia:"+getIa()+" ouvert:"+getOuvert();
   }

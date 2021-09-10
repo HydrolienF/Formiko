@@ -19,7 +19,7 @@ import java.awt.Graphics2D;
 public class PanneauEchap extends Panneau{
   private FButton tb[];
   private boolean visible;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauEchap(){
     setVisible(false);
   }
@@ -48,10 +48,10 @@ public class PanneauEchap extends Panneau{
     revalidate();
     getView().paint();
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public void setTb(FButton tbTemp[]){tb=tbTemp;}
   public boolean getVisible(){return visible;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary standard paint methode.}
   *@version 1.47

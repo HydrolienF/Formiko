@@ -68,7 +68,7 @@ public class Fourmiliere implements Serializable{
   }
   public Fourmiliere(int taille, Joueur j){ this(taille,j,Main.getCarte());}
   public Fourmiliere() {this(((CCase)(null)),null);} //Only for test
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public int getId(){return id;}
   public Point getP(){return getCCase().getContent().getP();}
   public Point getPoint(){return getP();}
@@ -124,7 +124,7 @@ public class Fourmiliere implements Serializable{
   public boolean getWaitingForEndTurn(){return waitingForEndTurn;}
   public void setWaitingForEndTurn(boolean b){waitingForEndTurn=b;}
   public static void ini(){idCpt=1;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Return a description of the Fourmiliere.}<br>
   *@param b If true we also return all the descriptions of the ants of the Fourmiliere.

@@ -11,7 +11,7 @@ import java.util.TreeMap;
 
 public class gTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   @SuppressWarnings("unchecked")
   public void testSetMap(){

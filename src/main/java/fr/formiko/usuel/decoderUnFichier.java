@@ -5,7 +5,7 @@ import fr.formiko.usuel.types.*;
 import fr.formiko.usuel.types.str;
 
 public class decoderUnFichier {
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   // fonction simple
   public static String getStringDeLaLigne(String s){
     int i=0; int lens = s.length();

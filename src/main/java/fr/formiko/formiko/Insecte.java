@@ -22,7 +22,7 @@ public class Insecte extends Creature implements Serializable{
   protected boolean femelle;
   protected byte nourritureMangeable;
   protected static GIEspece gie;
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   /**
   *{@summary Main constructor for Insecte.}<br>
   *All args are Insecte var.
@@ -66,7 +66,7 @@ public class Insecte extends Creature implements Serializable{
     this(Main.getGc().getCCaseAlléa());
   }
 
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public boolean getFemelle(){return femelle;}
   public void setFemelle(boolean b){femelle=b;}
   public byte getNourritureMangeable(){ return nourritureMangeable;}
@@ -96,7 +96,7 @@ public class Insecte extends Creature implements Serializable{
   public static void setGie(){ gie=new GIEspece();}//initialise le fichier/
   @Override
   public String getNom(){return g.get("I"+getType());}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Print all information about the Insecte.}<br>
   *@version 1.13

@@ -13,7 +13,7 @@ import java.util.Set;
 
 public class ListTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testIsEmpty(){
     Liste<String> list = new Liste<String>();

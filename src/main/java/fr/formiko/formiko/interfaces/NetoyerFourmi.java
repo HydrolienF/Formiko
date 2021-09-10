@@ -19,7 +19,7 @@ import java.io.Serializable;
 public class NetoyerFourmi implements Serializable, Netoyer {
   private Fourmi cible;
   private Fourmi net;
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
    *{@summary An AI ant want to clean.}<br>
    *@param c The cleaning ant.

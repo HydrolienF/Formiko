@@ -10,11 +10,11 @@ import java.io.Serializable;
 public class CIEspece implements Serializable{
   protected IEspece contenu;
   protected CIEspece suivant;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public CIEspece(IEspece ie){
     contenu=ie;
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public IEspece getContent(){return contenu;}
   public void setContenu(IEspece c){contenu = c;}
   public CIEspece getSuivant(){return suivant;}
@@ -37,7 +37,7 @@ public class CIEspece implements Serializable{
     if(suivant==null){erreur.erreur("Sortie du GIEspece non désiré.","l'insecte choisi sera le dernier");return contenu.getId();}
     return suivant.getIEspeceParAllea(a,x);//sinon on passe au suivant.
   }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     if(suivant != null){
       return contenu+"\n"+suivant.toString();

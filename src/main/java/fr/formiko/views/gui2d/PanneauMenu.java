@@ -35,7 +35,7 @@ public class PanneauMenu extends Panneau {
   private Color buttonColor;
   private EtiquetteChoix ecLanguage;
   private FButton validatelanguage;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauMenu(){
     super();
   }
@@ -48,14 +48,14 @@ public class PanneauMenu extends Panneau {
     // setBounds(0,0,Main.getDimX(),Main.getDimY());
     // returnButton=null;
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public byte getMenu(){return menu; }
   public boolean getLancer(){ return lancer;}
   public void setLancer(boolean b){lancer=b;}
   public PanneauNouvellePartie getPnp(){return pnp;}
   public PanneauChoixPartie getPcp(){return pcp;}
   public FButton getReturnButton(){return returnButton;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
 
   /**
   *{@summary Update action of the menu buttons.}<br>

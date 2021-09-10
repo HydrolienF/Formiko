@@ -8,7 +8,7 @@ import java.awt.Graphics;
 
 public class PanneauGEtiquetteJoueur extends Panneau{
   private GEtiquetteJoueur gej;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauGEtiquetteJoueur(GEtiquetteJoueur gej){
     this.gej=gej;
     this.setLayout(null);
@@ -26,9 +26,9 @@ public class PanneauGEtiquetteJoueur extends Panneau{
     //   cej=cej.getSuivant();k++;
     // }
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   // public void getGej(){return gej;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     if(gej!=null && gej.getHead()!=null && gej.getFirst()!=null){
       g.setColor(Main.getData().getButtonColor());

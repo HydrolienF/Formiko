@@ -10,16 +10,16 @@ import java.io.Serializable;
 public class CEspece implements Serializable{
   private Espece contenu;
   protected CEspece suivant;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public CEspece(Espece e){
     contenu = e;
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public Espece getContent(){return contenu;}
   public void setContenu(Espece c){contenu = c;}
   public CEspece getSuivant(){return suivant;}
   public void setSuivant(CEspece ce){ suivant =ce; }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public Espece getEspeceParId(int id){
     if (this.getContent().getId() == id){ return contenu;}
     if (this.getSuivant() != null){

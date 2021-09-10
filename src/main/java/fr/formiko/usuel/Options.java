@@ -67,9 +67,9 @@ public class Options implements Serializable{
   private boolean animationEnable;
 
   private SortedProperties properties=null;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Options(){}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public byte getLanguage(){return language;}
   public void setLangue(byte x){language=x;} public void setLangue(int x){setLangue(str.iToBy(x));}
   public int getbuttonSizeZoom(){ return tailleBouton(buttonSizeZoom);}
@@ -149,7 +149,7 @@ public class Options implements Serializable{
   public void setEndTurnAuto(boolean b){endTurnAuto=b;}
   public boolean getAnimationEnable(){return animationEnable;}
   public void setAnimationEnable(boolean b){animationEnable=b;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize Options.}<br>
   *It load properties from Option.md, transform it to all the Option value &#38; delete properties.

@@ -9,18 +9,18 @@ import java.io.Serializable;
 public class CInt implements Serializable{
   private CInt suivant, précédent;
   private int contenu;
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   public CInt(int contenu){
     this.contenu = contenu;
   }
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public CInt getSuivant(){return suivant;}
   public void setSuivant(CInt cs){suivant = cs;}
   public CInt getPrécédent(){return précédent;}
   public void setPrécédent(CInt cs){précédent = cs;}
   public int getContent(){ return contenu;}
   public void setContenu(int x){contenu=x;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public int length(){
     if(suivant==null){ return 1;}
     return 1+suivant.length();

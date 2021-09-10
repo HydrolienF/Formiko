@@ -11,13 +11,13 @@ import java.io.Serializable;
 public class CGraine implements Serializable{
   protected CGraine suivant;
   protected Graine contenu;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public CGraine(Graine i){contenu=i;}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public CGraine getSuivant(){return suivant;}
   public void setSuivant(CGraine ci){suivant = ci;}
   public Graine getContent(){return contenu;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     if (suivant == null){
       return ", G"+contenu.getId();

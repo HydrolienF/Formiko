@@ -27,14 +27,14 @@ public class Panneau extends JPanel {
   private static int cptId=0;
   private final int id;
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Panneau(){
     super();
     id=cptId++;
     setLayout(null);
     setOpaque(false);
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   //public int getTailleDUneCase(){return tailleDUneCase;}
   //public void setTailleDUneCase(int x){tailleDUneCase = x;}
   //public int getEspaceRéservéBas(){return espaceRéservéBas;}
@@ -44,7 +44,7 @@ public class Panneau extends JPanel {
   public BListener getBListener(){ return new BListener();}
   public Data getData(){return Main.getData();}
   public static ViewGUI2d getView(){return (ViewGUI2d)(Main.getView());}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary paint function with a debug tool.}
   *@version 2.6

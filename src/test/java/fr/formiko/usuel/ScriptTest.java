@@ -12,7 +12,7 @@ import java.io.File;
 
 public class ScriptTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testScript(){
     Folder folder = new Folder();

@@ -14,7 +14,7 @@ import java.util.Iterator;
 public class CCreature implements Serializable{
   protected CCreature suivant, précédente;
   protected Creature contenu;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public CCreature(Creature c, CCreature suivant, CCreature précédente){
     contenu = c;
     this.suivant = suivant;
@@ -23,14 +23,14 @@ public class CCreature implements Serializable{
   public CCreature(Creature c){
     this(c, null, null);
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public CCreature getSuivant(){return suivant;}
   public void setSuivant(CCreature cc){suivant = cc;}
   public CCreature getPrécédent(){return précédente;}
   public void setPrécédent(CCreature cc){précédente = cc;}
   public Creature getContent(){return contenu;}
   public Creature getCreature(){return getContent();}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     if (suivant == null){
       return contenu.toString()+"";

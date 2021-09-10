@@ -9,7 +9,7 @@ import fr.formiko.usuel.tests.TestCaseMuet;
 import fr.formiko.usuel.exceptions.ClassTypeException;
 
 public class ChasseInsectivoreTest extends TestCaseMuet{
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   private Fourmi ini(){
     Main.initialisation();
     Partie p = new Partie(0,100,new Carte(new GCase(1,2),0,0,1,false,false),1);

@@ -7,13 +7,13 @@ import javax.swing.JOptionPane;
 
 public class Question {
   int choix;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Question(String s, String s2){
     String[] options = {g.get("oui"),g.get("non")};
     choix = JOptionPane.showOptionDialog(Main.getF(), g.get(s), g.get(s2)+" ?",JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,null, options, options[0]);
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public boolean getChoix(){return choix==JOptionPane.OK_OPTION;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
 
 }

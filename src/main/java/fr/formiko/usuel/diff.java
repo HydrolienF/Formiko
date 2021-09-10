@@ -10,7 +10,7 @@ import fr.formiko.usuel.lireUnFichier;
  */
 public class diff {
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
    * {@summary Count add or suppress line.}<br>
    * @version 1.0

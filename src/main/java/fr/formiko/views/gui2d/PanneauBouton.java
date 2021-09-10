@@ -37,7 +37,7 @@ public class PanneauBouton extends Panneau {
   private PanneauInfo pi;
   private PanneauInfo pij;
   private Font fontPij;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauBouton(){}
   public void build(){
     setLayout(null);
@@ -88,7 +88,7 @@ public class PanneauBouton extends Panneau {
   public PanneauInfo getPij(){ return pij;}
   public PanneauTBoolean getPTB(){ return ptb;}
   public PanneauMiniMapContainer getPmmc(){return pmmc;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void addPz(){
     remove(pz);
     pz = new PanneauZoom();

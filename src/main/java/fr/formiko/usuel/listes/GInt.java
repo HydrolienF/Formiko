@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 public class GInt implements Serializable{
   private CInt début, fin;
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   public GInt(){}
   public GInt(Fourmiliere fere){
     this();
@@ -22,10 +22,10 @@ public class GInt implements Serializable{
     }
     add(fere.getNbrFourmisMorte());
   }
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public CInt getHead(){ return début;}
   public CInt getTail(){ return fin;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public int length(){
     if(début==null){ return 0;}
     return début.length();

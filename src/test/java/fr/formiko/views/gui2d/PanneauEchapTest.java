@@ -13,7 +13,7 @@ import fr.formiko.views.gui2d.ini;
 
 public class PanneauEchapTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testSetDesc(){
     //TODO refaire ce test lorsqu'on pourra faire des test sur des élément graphiques sans avoir besoin de faire toutes l'initialisation d'1 nouvelle Partie.

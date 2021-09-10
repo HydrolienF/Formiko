@@ -26,7 +26,7 @@ public class ChasseGranivore implements Serializable, Chasse {
 
   public void setC(Creature cTemp){c=cTemp;}
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
    *{@summary collect seeds.}<br>
    *Ant search a seed. If it see a seed on the same Case it take it. If it see a seed on an other Case it goes to the Case.<br>

@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class GEspece implements Serializable{
   protected CEspece début;
   protected CEspece fin;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public GEspece(CEspece d){
     début = d;
   }
@@ -25,7 +25,7 @@ public class GEspece implements Serializable{
     début = null;
     chargerLesEspeces();
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public CEspece getHead(){ return début;}
   public void setDébut(CEspece ce){début = ce; }
   public Espece getEspeceParId(int id){
@@ -35,7 +35,7 @@ public class GEspece implements Serializable{
       return début.getEspeceParId(id);
     }
   }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     if(début == null){ return "GEspece vide";}
     return début.toString();

@@ -10,7 +10,7 @@ import fr.formiko.usuel.ecrireUnFichier;
 
 public class fichierTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testListerLesFichiersDuRep(){
     ecrireUnFichier.ecrireUnFichier(new GString(),"fileFichierTest.ja");

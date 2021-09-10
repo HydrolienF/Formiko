@@ -65,7 +65,7 @@ public class PanneauCarte extends Panneau {
   // private SubPanel subPanel;
   private static Comparator<Creature> imageSizeComparator = (Creature p1, Creature p2) -> (int)(p1.getEspece().getTaille(p1.getStade()) - p2.getEspece().getTaille(p2.getStade()));
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauCarte(){
     // subPanel = new SubPanel(this);
     // add(subPanel);
@@ -83,7 +83,7 @@ public class PanneauCarte extends Panneau {
     hashMapMovingObjectSurCarteAid = new HashMap<Integer,Point>();
     hashMapMovingObjectSurCarteAidRotation = new HashMap<Integer,Point>();
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public int getTailleDUneCase(){return Main.getData().getTailleDUneCase();}
   public void setTailleDUneCase(int x){if(x!=getTailleDUneCase()){Main.getData().setTailleDUneCase(x);actualiserCarte();}}
   public int getXCase(){ return xCase;}

@@ -8,7 +8,7 @@ import fr.formiko.usuel.listes.GInt;
 
 public class GGIntTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testSommeCase(){
     GInt gi = new GInt();

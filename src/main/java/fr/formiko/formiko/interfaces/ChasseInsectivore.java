@@ -27,7 +27,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
 
   public void setC(Creature cTemp){c=cTemp;}
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
    * {@summary try to hunt or moove.}<br>
    * @param c The hunting Creature.

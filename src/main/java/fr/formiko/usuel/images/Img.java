@@ -40,7 +40,7 @@ public class Img implements Cloneable{
   private byte [][] vert;
   private byte [][] bleu;
   private byte [][] alpha;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   /**
   *Constructs a new Img with a BufferedImage.
   */
@@ -71,7 +71,7 @@ public class Img implements Cloneable{
     vert = new byte[width][height];
     bleu = new byte[width][height];
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public BufferedImage getBi(){ return bi;}
   public BufferedImage getImage(){return getBi();}
   public byte[][] getAlpha() { // transparence.
@@ -152,7 +152,7 @@ public class Img implements Cloneable{
     //la il faudrait arriver a compter les pixels a dans un rayon de x.
     return r;
   }public int getNbrDePixel(Pixel a){ return getNbrDePixel(a,10);}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Standard equals function.}
   *Null &#38; other class type proof.

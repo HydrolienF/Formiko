@@ -20,7 +20,7 @@ public class PanneauChargement extends Panneau {
   private FTextArea conseil;
   private boolean lancer;
   private FButton bt;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauChargement(){
     setLayout(null);
     Main.getData().loadImageChargement();
@@ -29,12 +29,12 @@ public class PanneauChargement extends Panneau {
     lancer=false;
     bt=null;
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public void setTexte(String s){ message.setTexte(s);}
   public boolean getLancer(){return lancer;}
   public void setLancer(boolean b){lancer=b;}
   public boolean canBeClose(){return bt!=null;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     try {
       if(!Main.getPartie().getEnCours()){return;}

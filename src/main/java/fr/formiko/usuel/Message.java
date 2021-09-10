@@ -33,7 +33,7 @@ public class Message implements Serializable{
   //d.parler("Bonjour");
 
 
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   public Message(String texte, int idDuJoueurConcerné, int typeDeMessage, String expediteur){
     id = i; i++;
     this.texte = g.getM(texte);
@@ -70,9 +70,9 @@ public class Message implements Serializable{
     this(texte, -1, 0);
   }
 
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public int getId(){ return id;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void afficheToi(){ // idéalement la méthode d'affichage n'affiche que si les paramètres d'affichage du joueur le lui demande.
     //if (Main.getNiveauDeDétailDeLAffichage()>0){
     if (niveauDeDétailDeLAffichage>0){

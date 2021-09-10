@@ -17,7 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 public class Desc extends JLabel {
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Desc(int x, int y){
     super();
     setOpaque(false);
@@ -33,7 +33,7 @@ public class Desc extends JLabel {
     this(-1,-1);
     setText("s");
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public void setTexte(String s){
     if(s.length() > 12 && s.substring(0,12).equals("bouton.desc.")){s="";}
     if (s!=""){
@@ -56,11 +56,7 @@ public class Desc extends JLabel {
   public static int getDimY(){ return (int)(Main.getOp().getTaillePolice1()*1.2);}
   public void setCentered(){setHorizontalAlignment(SwingConstants.CENTER);}
   public void setSize(int w){setSize(w,getDimY());}
-  // Fonctions propre -----------------------------------------------------------
-  public void updateSize(){
-    // getView().pack();
-    setSize((int)(getText().length()*Main.getTaillePolice1()*0.6),Desc.getDimY());
-  }
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary paint function with a debug tool.}
   *@version 2.6
@@ -73,5 +69,9 @@ public class Desc extends JLabel {
       g.setStroke(new BasicStroke(math.max(getWidth()/100,getHeight()/100,1)));
       g.drawRect(0,0,getWidth(),getHeight());
     }
+  }
+  public void updateSize(){
+    // getView().pack();
+    setSize((int)(getText().length()*Main.getTaillePolice1()*0.6),Desc.getDimY());
   }
 }

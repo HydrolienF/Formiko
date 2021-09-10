@@ -13,16 +13,16 @@ import javax.swing.JLabel;
 public class PanneauDialogueInf extends Panneau {
   private static Image fond;
   private Desc b;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauDialogueInf(){
     super();
   }
   public void initialiser(){
     setSize(Main.getDimX(),Main.getTailleElementGraphiqueY(210));
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     g.drawImage(fond,0,0,this);
     super.paintComponent(g);

@@ -11,7 +11,7 @@ import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class mathTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testMaxInt(){
     assertEquals(8,math.max(1,8));

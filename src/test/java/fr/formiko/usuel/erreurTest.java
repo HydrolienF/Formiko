@@ -8,7 +8,7 @@ import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class erreurTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testGetCurentClassAndMethodName(){
     //line number matter for the next assert.

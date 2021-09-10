@@ -20,16 +20,16 @@ public class Script implements Serializable{
   private boolean cmdSuivante;
   private boolean ecouteClic;
   private String name;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Script(String name){
     this.name=name;
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public boolean getCmdSuivante(){return cmdSuivante;}
   public void setCmdSuivante(boolean b){cmdSuivante=b;}
   public boolean getEcouteClic(){return ecouteClic;}
   public void setEcouteClic(boolean b){ecouteClic=b;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Load the script then launch it.}
   *It will test 3 folders : stable then ressourcesPacks then temporary.

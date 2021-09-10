@@ -15,7 +15,7 @@ import java.io.Serializable;
 *@author Hydrolien
 */
 public class GString extends Liste<String> implements Serializable {
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   /**
   *{@summary Constructor from an array.}<br>
   *@version 1.41
@@ -27,9 +27,9 @@ public class GString extends Liste<String> implements Serializable {
   }
   public GString(){}
 
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   //equals is in Liste
   /**
   *{@summary Return a FComboBox with all the String in it.}<br>

@@ -28,7 +28,7 @@ public class Joueur implements Serializable{
   private boolean isTurnEnded;
   private static Joueur playingJoueur;
 
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   //Principal
   public Joueur (Fourmiliere fere, String pseudo, boolean ia){
     id = i; i++; gm = new GMessage();
@@ -50,7 +50,7 @@ public class Joueur implements Serializable{
       }catch (Exception e) {}
     }
   }
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public int getId(){return id;}
   public static int getI(){return i;}
   public String getPseudo(){return pseudo;}
@@ -86,7 +86,7 @@ public class Joueur implements Serializable{
   public void setIsTurnEnded(boolean b){isTurnEnded=b;}
   public static Joueur getPlayingJoueur(){return playingJoueur;}
   public static void setPlayingJoueur(Joueur j){playingJoueur=j;}
-// Fonctions propre -----------------------------------------------------------
+// FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String s = (ia) ? g.get("laIA") : g.get("laJoueurHumain");
     s = pseudo + " est " + s + " " + id;

@@ -79,7 +79,7 @@ public class Data {
   private Color buttonFocusColorWithoutAlpha = new Color(248, 152, 29);
   private Color butonBorderColor = new Color(19, 161, 14);
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   /**
   *Main constructor.
   *@version 1.18
@@ -87,7 +87,7 @@ public class Data {
   public void Data(){
     initialisationFX=false;
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   //ini
   public int getTailleDUneCase(){return tailleDUneCase;}
   public void setTailleDUneCase(int x){tailleDUneCase=x;}
@@ -126,7 +126,7 @@ public class Data {
     }
     return tButtonColor[colorId];
   }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void iniTButtonColor(){
     tButtonColor = new Color[4];
     tButtonColor[0]=new Color(81, 252, 0);

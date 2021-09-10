@@ -14,7 +14,7 @@ import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class CaseTest extends TestCaseMuet{
   private Partie p;
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   private Fourmi ini(){
     Main.initialisation();
     Main.setLangue(0);

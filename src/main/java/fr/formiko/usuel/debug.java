@@ -8,7 +8,7 @@ public class debug{
   private static boolean affLesDescriptionsDesExeptions = true;
   private static boolean affLesPerformances=true;
 
-// GET SET -----------------------------------------------------------------------
+// GET SET ----------------------------------------------------------------------
   public static void setAffLesEtapesDeRésolution (boolean b){affLesEtapesDeRésolution = b;}
   public static void setAffLesDescriptionsDesExeptions (boolean b){affLesDescriptionsDesExeptions = b;}
   public static boolean getAffLesDescriptionsDesExeptions (){return affLesDescriptionsDesExeptions;}

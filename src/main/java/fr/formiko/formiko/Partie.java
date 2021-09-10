@@ -50,7 +50,7 @@ public class Partie implements Serializable{
   private Fourmi playingAnt;
   private int antIdToPlay;
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   // nombre de joueur, nombre d'ia, abondance des insectes, niveau de difficulté des ia, les especes autorisé, le nombre de tour.
   public Partie(int difficulté, int nbrDeTour, Carte mapo, double vitesseDeJeu){
     // script=""; //TODO we don't whant to update it every time.
@@ -80,7 +80,7 @@ public class Partie implements Serializable{
     gj = new GJoueur();
     gi = new GInsecte();
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public static String getScript(){return script;}
   public static void setScript(String s){script=s;}
   public GInsecte getGi(){ return gi;}
@@ -123,7 +123,7 @@ public class Partie implements Serializable{
   public boolean getCasesNuageuses(){if(getCarte()==null){ return false;} else {return getCarte().getCasesNuageuses();}}
   public int getAntIdToPlay(){return antIdToPlay;}
   public void setAntIdToPlay(int x){antIdToPlay=x;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String r="";
     r+= g.get("continerLeJeu")+" : "+continerLeJeu;r+="\n";

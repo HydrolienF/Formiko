@@ -15,7 +15,7 @@ public class CCase implements Serializable{
   private CCase haut, bas, droite, gauche;
   private Case contenu;
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public CCase(Case contenu, CCase haut, CCase bas, CCase droite, CCase gauche){
     this.contenu = contenu;
     this.haut = haut; this.bas = bas; this.droite = droite; this.gauche = gauche;
@@ -26,7 +26,7 @@ public class CCase implements Serializable{
       erreur.erreur("Le contenu est déclaré vide !",true);
     }
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public CCase getHaut(){return haut;}
   public void setHaut(CCase c){haut = c;}
   public CCase getBas(){return bas;}
@@ -38,7 +38,7 @@ public class CCase implements Serializable{
   public Case getContent(){return contenu;}
   public void setContenu(Case c){contenu = c;}
   public GGraine getGg(){return contenu.getGg();}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
       if(bas==null){//la sortie
         return toStringLigne();

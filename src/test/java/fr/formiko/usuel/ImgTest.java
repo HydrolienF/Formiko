@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class ImgTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   //equals() work if tableau.equals(t,t2) work.
   @Test
   public void testClone(){

@@ -8,12 +8,12 @@ import java.io.Serializable;
 
 public class GGInt implements Serializable{
   private CCInt début, fin;
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   public GGInt(){}
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public CCInt getHead(){ return début;}
   public CCInt getTail(){ return fin;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public int length(){
     if(début==null){ return 0;}
     return début.length();

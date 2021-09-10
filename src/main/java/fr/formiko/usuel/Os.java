@@ -14,15 +14,15 @@ public class Os {
   */
   private byte id;
   private static String OS = System.getProperty("os.name").toLowerCase();
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Os(){iniOs();}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public byte getId(){return id;}
   public void setId(byte x){id=x;}
   public boolean isWindows(){return id==1;}
   public boolean isLinux(){return id==0;}
   public boolean isMac(){return id==2;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *Return the name of the OS.
   */

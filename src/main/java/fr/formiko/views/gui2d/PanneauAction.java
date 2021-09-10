@@ -28,7 +28,7 @@ public class PanneauAction extends Panneau {
   private static int tailBouton=160;
   private FButton tB [];
   private FButton tAutoB [] = new FButton[2];
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauAction(int t[]){
     super();
     tailleBouton=Main.getTailleElementGraphique(tailBouton);
@@ -70,7 +70,7 @@ public class PanneauAction extends Panneau {
       paintAutoButton();
     }catch (NullPointerException e) {}
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public int getTailleBouton(){ return tailleBouton;}
   public void setTailleBouton(int x){ tailleBouton=x;}
   public int getNbrBouton(){ return nbrDeBouton;}
@@ -82,7 +82,7 @@ public class PanneauAction extends Panneau {
     }
     super.setEnabled(boo);
   }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
 
   public void paintComponent(Graphics g){
     if(!Main.getPartie().getEnCours()){return;}

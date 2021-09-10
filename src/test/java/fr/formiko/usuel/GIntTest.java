@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 public class GIntTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testGetCase(){
     GInt gi = new GInt();

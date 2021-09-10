@@ -16,7 +16,7 @@ import java.io.Serializable;
 *@author Hydrolien
 */
 public class GInsecte extends Liste<Insecte> implements Serializable{
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   /**
   *{@summary Main constructor with 0 Insect.}<br>
   *@version 2.2
@@ -33,9 +33,9 @@ public class GInsecte extends Liste<Insecte> implements Serializable{
     this();
     add(nbrOfInsect);
   }
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary return the Insecte that can give the most food.}<br>
   *@version 2.2

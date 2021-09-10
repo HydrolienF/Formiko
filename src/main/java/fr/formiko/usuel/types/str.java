@@ -12,7 +12,7 @@ import fr.formiko.usuel.tableau;
 *@version 1.1
 */
 public class str{
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
    *{@summary get the number of char x in a String}
    *@param s String were to search.

@@ -25,7 +25,7 @@ public class Individu implements Serializable{
   protected int tAgeMax[] = new int[4]; // sauf l'age adulte qui vari.
   protected int tNourritureMax[]= new int[4]; // sauf la nourritureMax adulte.
   protected byte tCoutAction[] = new byte[6];
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Individu(int idEsp, byte ty, boolean se,boolean se2, byte né, byte ac, byte ta, String co, byte po, byte te, int tag0, int tag1, int tag2, int tag3, int nm0, int nm1, int nm2, int nm3,byte ca0,byte ca1,byte ca2,byte ca3,byte ca4,byte ca5,int nc){
     e = Main.getGEspece().getEspeceParId(idEsp);
     type = ty; sexué = se; sexe = se2; nétoyage = né; actionMax = ac; taille =ta; couleur = co; poidMax =po; tempsDeRepos = te;
@@ -35,7 +35,7 @@ public class Individu implements Serializable{
     nourritureConso=nc;
     debug.débogage("Fin de la création d'un individu");
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public Espece getEspece(){ return e;}
   public byte getType(){ return type;}
   public byte getActionMax(){ return actionMax;}
@@ -67,7 +67,7 @@ public class Individu implements Serializable{
     if(stade==-3){ return 0;}
     return nourritureConso;
   }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     GString adj = new GString();//♂ ♀
     if(sexué){ String sex = "♀"; if(sexe){ sex = "♂";} adj.add(g.get("sexué")+" ("+sex+")");}

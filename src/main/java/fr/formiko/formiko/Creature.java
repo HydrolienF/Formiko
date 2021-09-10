@@ -52,7 +52,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   //private int pv; //Point de vie
   //private int pa; //Point de dégats
   // point de force.
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   /**
   *{@summary Main constructor for Creature.}<br>
   *All args are Creature var.
@@ -88,7 +88,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public Creature (CCase ccase,int ageMax){this(ccase,0,ageMax);}
   public Creature (CCase ccase){this(ccase,100);}
   public Creature (){this((CCase) null);}
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   //Nourriture
   public int getNourriture(){return nourriture;}
   public int getNourritureMax(){return nourritureMax;}
@@ -203,7 +203,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void endTurn(){tour.endTurn(this);}
   //public void preTour(){tour.preTour(this);}
   //public void manger (graine pour certaine fourmi, champnons pour d'autre et herbe pour les insectes.)
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Override
   public String toString(){
     String r = "";

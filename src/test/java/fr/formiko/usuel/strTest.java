@@ -9,7 +9,7 @@ import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class strTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testNbrDeX(){
     String s = "est un E iueé";//la maj et le 'é' ne doivent pas compter

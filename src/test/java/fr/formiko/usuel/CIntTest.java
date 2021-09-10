@@ -8,5 +8,5 @@ import fr.formiko.usuel.Os;
 
 public class CIntTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
 }

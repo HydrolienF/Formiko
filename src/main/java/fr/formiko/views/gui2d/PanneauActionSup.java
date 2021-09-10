@@ -11,13 +11,13 @@ import java.awt.Image;
 
 public class PanneauActionSup extends Panneau{
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauActionSup(){
     setSize(Panneau.getView().getPa().getWidth(),Panneau.getView().getPa().getHeight());
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     int len = Panneau.getView().getPa().getNbrBouton();
     int dim = Panneau.getView().getPa().getHeight();

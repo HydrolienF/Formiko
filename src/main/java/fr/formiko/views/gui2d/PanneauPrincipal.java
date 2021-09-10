@@ -22,17 +22,17 @@ public class PanneauPrincipal extends Panneau {
   private PanneauJeu pj;
   private PanneauMenu pm;
   private Image img;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauPrincipal(){}
   public void build(){
     this.setLayout(null);
     img = image.getImage("backgroundPP");
     img = img.getScaledInstance(this.getWidth(), this.getHeight(),Image.SCALE_SMOOTH);
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public PanneauJeu getPj(){ return pj;}
   public PanneauMenu getPm(){ return pm;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     // try {
     //   SwingUtilities.invokeAndWait(new Runnable() {

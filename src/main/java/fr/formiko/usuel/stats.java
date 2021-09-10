@@ -24,7 +24,7 @@ public class stats {
   public static int sommeDesFctLPrG;
   public static int sommeDesFctCG;
   public static int sommeNbrDeLigneG;
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *Write the stats of javadoc comments in stats.txt.
   *@version 1.13

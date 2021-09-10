@@ -18,7 +18,7 @@ public class PanneauInfo extends Panneau {
   private int nbrDeDesc;
   private Desc descs [];
   private int xPi; private int yPi;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauInfo(GString gs, int xD, boolean withAlpha, Font font){
     debug.débogage("création d'un panneauInfo avec "+gs.length()+" éléments.");
     this.setLayout(new GridBagLayout());
@@ -62,7 +62,7 @@ public class PanneauInfo extends Panneau {
   public int length(){ return nbrDeDesc;}
   public int getXPi(){ return xPi;}
   public int getYPi(){ return yPi;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     // debug.débogage("actualisation du PanneauInfo avec pour taille : "+this.getWidth()+" "+this.getHeight());
     super.paintComponent(g);

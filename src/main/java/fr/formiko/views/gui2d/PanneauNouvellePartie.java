@@ -32,7 +32,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
   private GString gsClé;
   private EtiquetteChoix eDif;
   private EtiquetteChoix eVitesseDeJeu;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauNouvellePartie(){
     super(100);
     Main.startCh();
@@ -103,11 +103,11 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     add(pgej);
     getView().paint();
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public GEtiquetteJoueur getGej(){ return gej;}
   public int getTaille(){ return taille;}
   public PanneauGEtiquetteJoueur getPGej(){ return pgej;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     int wi = Main.getDimX();
     int he = Main.getDimY();

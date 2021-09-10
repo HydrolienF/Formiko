@@ -21,7 +21,7 @@ import java.awt.event.MouseMotionListener;
 public class PanneauSup extends Panneau{
   private CCase cc2=null;
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauSup(){}
   /**
   *{@summary Build this.}<br>
@@ -87,7 +87,7 @@ public class PanneauSup extends Panneau{
       }
     });
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public void actualiserTaille(){
     if(getView().getPd()!= null && getView().getPd().getNeedToStayMaxSize()){actualiserTailleMax(); return;}
     setSize(Main.getDimX()-getView().getPz().getWidth(), Main.getDimY()-getView().getPa().getHeight());
@@ -104,7 +104,7 @@ public class PanneauSup extends Panneau{
   // public void setAntIdToPlay(int x){antIdToPlay=x;
   //   erreur.info("lets play "+x);
   // }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     //do nothing
   }

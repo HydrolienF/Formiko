@@ -16,7 +16,7 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   private byte type;
   private byte tempsAvantDecomposition;
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Graine(CCase ccase, int nourritureFournie, byte dureté){
     super(ccase); ouverte = false;
     this.nourritureFournie = nourritureFournie; this.dureté = dureté;
@@ -31,7 +31,7 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   public Graine(){
     this(Main.getGc().getCCaseAlléa());
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public int getNourritureFournie(){ return nourritureFournie;}
   public void setNourritureFourie(int x){ nourritureFournie = x;}
   public byte getDureté(){ return dureté;}
@@ -56,7 +56,7 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   }
   public byte getType(){ return type;}
   public byte getTempsAvantDecomposition(){ return tempsAvantDecomposition;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String adjOuverte; if(ouverte){ adjOuverte = "est ouverte"; }else{ adjOuverte = "est fermée";}
     String s = "Graine "+id+", nourritureFournie : "+nourritureFournie+", dureté : "+dureté+", "+adjOuverte;

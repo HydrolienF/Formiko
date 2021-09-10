@@ -16,7 +16,7 @@ public class PanneauChamp extends Panneau {
   private BoutonV b;
   private int tailleBouton=20;
   private boolean validé=false;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauChamp(String défaut){
     this.setLayout(new GridBagLayout());
     GridBagConstraints gbc = new GridBagConstraints();
@@ -31,10 +31,10 @@ public class PanneauChamp extends Panneau {
     this.add(b,gbc);
   }
   public PanneauChamp(){ this("");}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public boolean getValidé(){ return validé;}
   public String getTexte(){ return c.getText();}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
 
 
   class BoutonV extends JButton implements MouseListener{

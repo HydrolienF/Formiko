@@ -13,7 +13,7 @@ import java.io.Serializable;
 */
 public class Point implements Serializable, Cloneable{
   protected int x,y; // pas de byte pour pourvoir utliser de très grande carte !
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   /**
   *{@summary A simple contructor.}<br>
   *@version 1.30
@@ -51,7 +51,7 @@ public class Point implements Serializable, Cloneable{
     }
   }
 
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public int getX(){return x;}
   public int getY(){return y;}
   public void setX(int x){this.x = x;}
@@ -59,7 +59,7 @@ public class Point implements Serializable, Cloneable{
   public void ajouteAX(int a){this.x = this.x + a;}
   public void ajouteAY(int a){this.y = this.y + a;}
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary A simple toString function.}<br>
   *@version 1.30

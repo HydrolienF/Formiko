@@ -23,7 +23,7 @@ import fr.formiko.views.gui2d.action;
 public class triche {
   public static GString gs;
   public static int nbrDeCommande;
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public static void ini(){
     if(gs!=null){return;}
     gs = new GString(); //GString est une liste chainées dont le contenu est une String.

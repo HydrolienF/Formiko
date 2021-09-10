@@ -7,16 +7,16 @@ import java.io.Serializable;
 public class CMessage implements Serializable{
   private CMessage suivant, précédent;
   public Message contenu;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public CMessage(Message m){contenu=m;}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public CMessage getSuivant(){return suivant;}
   public void setSuivant(CMessage cs){suivant = cs;}
   public CMessage getPrécédent(){return précédent;}
   public void setPrécédent(CMessage cs){précédent = cs;}
   public Message getContent(){ return contenu;}
   public void setContenu(Message x){contenu=x;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public int length(){
     if(suivant==null){ return 1;}
     return 1+suivant.length();

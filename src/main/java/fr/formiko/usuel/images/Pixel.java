@@ -66,7 +66,7 @@ public class Pixel {
   public void setG(byte x){ g=x;} public void setV(byte x){ setG(x);}
   public void setB(byte x){ b=x;}
   public void setA(byte x){ a=x;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Standard equals function.}
   *Null &#38; other class type proof.

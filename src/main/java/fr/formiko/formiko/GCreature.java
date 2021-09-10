@@ -18,7 +18,7 @@ public class GCreature implements Serializable{//, Iterator{
   protected CCreature fin;
   //TODO #82 replace début & fin by a protected Liste<Creature>.
   private byte loopSafety;
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   public GCreature(CCreature cc){
     début = cc; fin = cc;
   }
@@ -41,12 +41,12 @@ public class GCreature implements Serializable{//, Iterator{
       addFin(f);
     }
   }
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public CCreature getHead(){return début;}
   public CCreature getTail(){return fin;}
   public Creature getFirst(){return getHead().getContent();}
   public void setDébut(CCreature cc){début = cc;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     if (début==null){ return "";}
     return début.toString();

@@ -102,7 +102,7 @@ public class Fourmi extends Creature implements Serializable{
   *@version 1.39
   */
   public Fourmi(){}//a ne pas utiliser sauf pour les test de class.
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public byte getTypeF(){return typeF;}
   public void setTypeF(byte s){typeF = s;}public void setTypeF(int x){setTypeF((byte)x);}
   public byte getMode(){return mode;}
@@ -153,7 +153,7 @@ public class Fourmi extends Creature implements Serializable{
     try {return getFere().getJoueur().getIa();}
     catch (NullPointerException e) {return false;}
   }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){return super.toString() +" "+ tableau.tableauToString(descriptionTableau());}
   public void afficheToi (){System.out.println(description());}
   public boolean estReine(){return getTypeF()==0;}

@@ -13,7 +13,7 @@ import java.util.Arrays;
 
 public class FolderTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public Folder ini(){
     Folder folder = new Folder();
     //if we need we can change name of sub folder for test.

@@ -15,12 +15,12 @@ public abstract class PanneauTX extends Panneau{
   protected int x;
   protected int y;
   protected String descTI;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauTX(){}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public int getXPi(){ return tailleBouton*x;}
   public int getYPi(){ return tailleBouton*y;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     this.setSize(tailleBouton*x,tailleBouton*y);
     debug.débogage("actualisation du PanneauTX avec pour taille : "+tailleBouton*x+" "+tailleBouton*y);

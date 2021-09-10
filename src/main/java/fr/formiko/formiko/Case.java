@@ -21,7 +21,7 @@ public class Case implements Serializable{
   private byte nourritureInsecteMax;
   private byte nourritureInsecteParTour;
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Case(Point p, Fourmiliere fere, GCreature gc, byte nourritureInsecte, byte nourritureInsecteMax, byte nt){
     this.p =p;
     this.fere = fere;
@@ -39,7 +39,7 @@ public class Case implements Serializable{
   }
   public Case(Point p){this(p,null,new GCreature());}
   public Case(int x, int y){this(new Point(x,y));}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public Point getP(){return p;}
   public Point getPoint(){ return getP();}
   public void setP(Point p){this.p = p;}
@@ -62,7 +62,7 @@ public class Case implements Serializable{
   public byte getType(){ return type;}
   public void setType(byte x){type = x; if(type==3 || type<0){setNourritureInsecteMax((byte)0); setNourritureInsecteParTour((byte)0);}}
   public void setType(int x){setType((byte)x);}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     boolean caseSombre = false;
     if(Main.getPartie()!=null && Main.getPartie().getPlayingJoueur()!=null){

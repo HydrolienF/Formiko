@@ -11,7 +11,7 @@ import java.awt.Graphics;
 public class PanneauDialogue extends Panneau {
   private FTextArea fta;
   private boolean needToStayMaxSize;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauDialogue(){
     super();
     // fta = new PanneauInfo(new GString(),0);
@@ -49,13 +49,13 @@ public class PanneauDialogue extends Panneau {
     }
     setVisible(true);
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public boolean getNeedToStayMaxSize(){return needToStayMaxSize;}
   // public void setVisible(boolean b){
   //   super.setVisible(b);
   //   erreur.info("setVisible "+b,4);
   // }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     super.paintComponent(g);
   }

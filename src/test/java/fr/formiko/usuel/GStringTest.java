@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 public class GStringTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testEquals(){
     GString gs = new GString();

@@ -16,7 +16,7 @@ public class EtiquetteChoix extends Panneau{
   private Desc choixXDesc;
   private int k;
   private Color cFond;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public EtiquetteChoix(int x, String clé, GString gs){
     debug.débogage("Lancement de la création d'une EtiquetteChoix avec "+gs.length()+" éléments");
     this.setLayout(null);
@@ -35,13 +35,13 @@ public class EtiquetteChoix extends Panneau{
     cFond = Main.getData().getButtonColor();
   }
   public EtiquetteChoix(String clé, GString gs){ this(0,clé,gs);}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public String getSelectedItem(){ return choixX.getSelectedItem()+"";}
   public int getSelectedIndex(){ return choixX.getSelectedIndex();}
   public FComboBox getChoixX(){ return choixX;}
   public Desc getChoixXDesc(){ return choixXDesc;}
   public void setCFond(Color c){cFond=c;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     //debug.débogage("Lancement de eDif.paintComponent");
     Graphics2D g2d = (Graphics2D)g;

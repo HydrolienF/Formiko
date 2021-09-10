@@ -8,7 +8,7 @@ import fr.formiko.usuel.listes.GString;
 
 public class modificationDeFichier {
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public static void retirerLesLignesR(String s, String fichier, byte by){
     int x = retirerLesLignes(s,fichier, by);
     System.out.println(x+" lignes ont été supprimées");

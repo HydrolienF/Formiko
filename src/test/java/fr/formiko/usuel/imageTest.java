@@ -19,7 +19,7 @@ import java.io.File;
 
 public class imageTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   private void ini(){
     Folder folder = new Folder();
     folder.ini();

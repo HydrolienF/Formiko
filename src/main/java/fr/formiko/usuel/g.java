@@ -19,7 +19,7 @@ public class g {
   public static HashMap<String, String> getMap(){return map;}
   public static void setMap(HashMap<String, String> m){map=m;}
   public static String getElementMap(String key){ return map.get(key);}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary A get methode.}<br>
   *Difference with main get methode is that key = f+"."+x that's all.<br>

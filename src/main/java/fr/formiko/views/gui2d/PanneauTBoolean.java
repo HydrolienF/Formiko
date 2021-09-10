@@ -14,7 +14,7 @@ import java.awt.GridBagLayout;
 
 public class PanneauTBoolean extends PanneauTX{
   private int choix;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauTBoolean(String desc){super();
     if(desc==null){ return;}
     tailleBouton = Main.getTailleBoutonTX();
@@ -43,8 +43,8 @@ public class PanneauTBoolean extends PanneauTX{
     }
     debug.débogage(k+" boutons ont été ajoutés");
   }
-  // GET SET --------------------------------------------------------------------
-  // Fonctions propre -----------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public static boolean getChoixId(){
     int id2 = -1;
     debug.débogage("lancement d'une boucle de choix.");

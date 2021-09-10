@@ -10,13 +10,13 @@ public class ThImage extends Thread{
   private Img ti[];
   private int i;
   private int lenj;private int leni;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public ThImage(GCase gc,Img ie,int i,Img ti[],int lenj,int leni){
     this.gc=gc;this.ie=ie;this.i=i;this.ti=ti;this.lenj=lenj;this.leni=leni;
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Override
   public void run(){
     for (int j=0;j<lenj;j++ ) {

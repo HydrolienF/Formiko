@@ -14,11 +14,11 @@ import java.io.Serializable;
 public class CJoueur implements Serializable{
   private Joueur contenu;
   private CJoueur suivant;
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   public CJoueur(Joueur j){
     contenu = j;
   }
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public void setSuivant(CJoueur c){suivant = c;}
   public CJoueur getSuivant(){return suivant;}
   public Joueur getJoueur(){return getContent();}
@@ -48,7 +48,7 @@ public class CJoueur implements Serializable{
     }
     return gjr;
   }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     if(suivant==null){return contenu.toString();}
     return contenu.toString() +"\n"+ suivant.toString();

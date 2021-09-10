@@ -11,9 +11,9 @@ import java.io.Serializable;
 public class GGraine implements Serializable{
   //TODO #82
   protected CGraine début;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public void GGraine(){début = null;}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public CGraine getHead(){ return début;}
   public void setDébut(CGraine x){début=x;}
   public CGraine getTail(){
@@ -24,7 +24,7 @@ public class GGraine implements Serializable{
     }
     return fin;
   }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String r = g.get("GGraine")+" : ";
     if (début == null){

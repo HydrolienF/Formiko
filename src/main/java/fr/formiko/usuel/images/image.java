@@ -24,7 +24,7 @@ import java.awt.image.AffineTransformOp;
  */
 public class image{
 
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   /***
   *{@summary The Images directory for extra texture.}<br>
   *You can add new image that will be used as the game texture (as chargement(Max+1)).
@@ -39,7 +39,7 @@ public class image{
    */
   public static String getREP(){ return Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages();}
   public static String getREPTEMPORARY(){ return Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(); }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
    *{@summary Try to read an Image file}<br>
    *Image are File who end with ".png" or ".jpg".<br>

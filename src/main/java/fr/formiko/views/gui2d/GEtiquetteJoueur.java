@@ -17,7 +17,7 @@ import fr.formiko.formiko.Joueur;
 */
 public class GEtiquetteJoueur extends Liste<EtiquetteJoueur> {
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary create a basic GEtiquetteJoueur with x items.}<br>
   *It have 1 humain player &#38; x-1 ia player.
@@ -36,9 +36,9 @@ public class GEtiquetteJoueur extends Liste<EtiquetteJoueur> {
   }
   /** Create a empty GEtiquetteJoueur. */
   public GEtiquetteJoueur(){}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary add an Item &#38; enableLaunchButtonIfNeeded.}
   *@version 2.5

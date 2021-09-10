@@ -7,7 +7,7 @@
 //
 // public class CStringTest extends TestCaseMuet{
 //
-//   // Fonctions propre -----------------------------------------------------------
+//   // FUNCTIONS -----------------------------------------------------------------
 //   @Test
 //   public void testEstCom(){
 //     CString cs = new CString("/*public void trophallaxieIa(Creature c1, Creature c2){");

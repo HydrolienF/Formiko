@@ -16,7 +16,7 @@ import java.io.Serializable;
 public class GCase implements Serializable{
   public CCase début;
   public CCase actuelle;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public GCase(int horizontale, int verticale){
     if(horizontale < 0 || verticale < 0){ erreur.erreur("Impossible de créer une carte si petite","la carte la plus petite possible a été créée."); horizontale = 1; verticale = 1;}
 
@@ -33,10 +33,10 @@ public class GCase implements Serializable{
     this(taille, taille);
   }
   public GCase(){}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public CCase getHead(){ return début;}
   public String getDim(){ return getWidth()+";"+getHeight();}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     if (début==null){erreur.erreur("La carte est vide");return "";}
     return début.toString();

@@ -6,18 +6,18 @@ import java.io.Serializable;
 public class CCInt implements Serializable{
   private CCInt suivant, précédent;
   private GInt contenu;
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   public CCInt(GInt contenu){
     this.contenu = contenu;
   }
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public CCInt getSuivant(){return suivant;}
   public void setSuivant(CCInt cs){suivant = cs;}
   public CCInt getPrécédent(){return précédent;}
   public void setPrécédent(CCInt cs){précédent = cs;}
   public GInt getContent(){ return contenu;}
   public void setContenu(GInt x){contenu=x;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public int length(){
     if(suivant==null){ return 1;}
     return 1+suivant.length();

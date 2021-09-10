@@ -25,7 +25,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertEquals(0,chargerLesTraductions.getMap().size());
   }
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testgetLanguage(){
     String t []= {"en","fr","langueTest"};

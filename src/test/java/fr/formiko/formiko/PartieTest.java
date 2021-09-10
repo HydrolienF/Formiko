@@ -12,7 +12,7 @@ import fr.formiko.usuel.types.str;
 
 public class PartieTest extends TestCaseMuet{
   private Partie p;
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   private void ini(int nbTurn, String mapName){
     Main.initialisation();
     Carte mapo = new Carte(mapName);

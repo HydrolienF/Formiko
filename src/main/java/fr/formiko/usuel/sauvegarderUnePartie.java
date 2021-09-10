@@ -24,13 +24,13 @@ public class sauvegarderUnePartie {
   private static String s="null";
   private static Save save;
 
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public static void setS(String s2){s=s2;}
   public static String getRep(){return REP;}
   public static String getNomDuFichierComplet(){return str.addALaFinSiNecessaire(REP+s,".save");}
   public static Save getSave(){return save;}
   public static void setSave(Save sa){save=sa;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
    *{@summary Save a Partie }<br>
    *It use the java tools to save in byte code a Serializable Object.

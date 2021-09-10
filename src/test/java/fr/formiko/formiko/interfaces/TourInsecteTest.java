@@ -18,7 +18,7 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class TourInsecteTest extends TestCaseMuet{
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testUnTour(){ //to check that an Insect will eat if he is safe and alone.
     Main.initialisation();

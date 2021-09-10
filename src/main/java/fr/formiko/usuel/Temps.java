@@ -38,9 +38,9 @@ public class Temps {
   private String df = "dd/MM/yyyy HH:mm";
 
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Temps(){chargerTemps();}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public long getDate1(){ return date1;}
   public void setDate1(long x){date1=x;}
   public long getDate2(){ return date2;}
@@ -51,7 +51,7 @@ public class Temps {
   public void addTempsEnJeux(long x){ setTempsEnJeux(getTempsEnJeux()+x);}
   public String getDf(){return df;}
   public void setDf(String s){df=s;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String r="";
     SimpleDateFormat sdf = new SimpleDateFormat(df);

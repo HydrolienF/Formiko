@@ -25,7 +25,7 @@ public class PanneauZoom extends Panneau {
   private FButton bPlus; private FButton bMoins; private FButton bc;//bouton de zoom.
   private FButton bh; private FButton bb; private FButton bd; private FButton bg; //bouton de déplacements
   private FButton bd1; private FButton bd2;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauZoom(){
     int tailleBouton=Main.getbuttonSizeZoom();
     setSize(tailleBouton*3,tailleBouton*3);
@@ -92,7 +92,7 @@ public class PanneauZoom extends Panneau {
     // bd2.setBordure(false);
     setEnabled(true);
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public int getTailleBouton(){ return Main.getbuttonSizeZoom();}
   //public void setTailleBouton(int x){ tailleBouton=x;}
   public void setEnabled(boolean boo){
@@ -106,7 +106,7 @@ public class PanneauZoom extends Panneau {
     bd1.setEnabled(boo);bd2.setEnabled(boo);
     super.setEnabled(boo);
   }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     try {
       if(!Main.getPartie().getEnCours()){return;}

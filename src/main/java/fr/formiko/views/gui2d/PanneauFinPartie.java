@@ -15,7 +15,7 @@ public class PanneauFinPartie extends Panneau {
   private PanneauInfo pi;
   private FButton mp;
   private FButton c;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauFinPartie(){
     setVisible(false);
   }
@@ -35,8 +35,8 @@ public class PanneauFinPartie extends Panneau {
     setOpaque(true);
     setVisible(true);
   }
-  // GET SET --------------------------------------------------------------------
-  // Fonctions propre -----------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     // try {
       // message.setBounds(0,0,this.getWidth(),Main.getTaillePolice2()*2);

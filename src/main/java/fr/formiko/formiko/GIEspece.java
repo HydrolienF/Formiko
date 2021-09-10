@@ -15,12 +15,12 @@ import java.io.Serializable;
 public class GIEspece implements Serializable{
   protected CIEspece début;
   protected CIEspece fin;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public GIEspece(){
     début = null;
     chargerLesIEspeces();
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public CIEspece getHead(){ return début;}
   public void setDébut(CIEspece ce){début = ce; }
   public IEspece getIEspeceParId(int id){
@@ -45,7 +45,7 @@ public class GIEspece implements Serializable{
     if(début==null){erreur.erreurGXVide("GIEspece");return 0;}
     return début.getIEspeceParAllea(a,x);
   }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     if(début == null){ erreur.erreurGXVide("GIEspece");return "";}
     return début.toString();

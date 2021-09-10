@@ -15,7 +15,7 @@ import java.awt.GridBagLayout;
 public class PanneauTInt extends PanneauTX{
   private int ti [];
   private int choix;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauTInt(int ti [],String desc){super();
     tailleBouton = Main.getTailleBoutonTX();
     this.descTI = desc;
@@ -56,9 +56,9 @@ public class PanneauTInt extends PanneauTX{
     }
   }
   public PanneauTInt(int t[],PanneauBouton pb){this(t,"null");}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public int getBoutonX(int x){ if(x > -1 && ti!=null && x < ti.length){return ti[x];}return -1;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public static int getChoixId(){
     int id2 = -1;
     debug.débogage("lancement d'une boucle de choix.");

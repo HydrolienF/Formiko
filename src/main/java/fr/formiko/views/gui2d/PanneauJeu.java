@@ -35,7 +35,7 @@ public class PanneauJeu extends Panneau {
   private PanneauSup ps;
   private PanneauDialogue pd;
   private PanneauDialogueInf pdi;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauJeu(){
     setLayout(null);
   }
@@ -53,7 +53,7 @@ public class PanneauJeu extends Panneau {
   public void setDesc(String s){pb.setDesc(s);}
   public void setDescTI(String s){pb.setDescTI(s);}
   public PanneauTInt getPti(){return pb.getPti(); }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Override
   public void paintComponent(Graphics g){
     super.paintComponent(g);

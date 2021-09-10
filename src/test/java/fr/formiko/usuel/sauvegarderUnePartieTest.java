@@ -18,7 +18,7 @@ import java.nio.file.Files;
 
 public class sauvegarderUnePartieTest extends TestCaseMuet{
   private File f=null;
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testGetNomDuFichierComplet(){
     int x = allea.getAllea(10000);

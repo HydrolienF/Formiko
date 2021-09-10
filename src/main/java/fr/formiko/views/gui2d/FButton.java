@@ -45,7 +45,7 @@ public class FButton extends JButton implements MouseListener{
   protected boolean isYellow=false;
   // protected Color cFond;
   // protected Color buttonColor;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public FButton(String str, Panneau p, int action, Image imag){
     super();id=cpt; cpt++;
     // setBorderPainted(false);
@@ -80,7 +80,7 @@ public class FButton extends JButton implements MouseListener{
     withBackground=true;
     setBorder(new FBorder());
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public String getNom(){ return nom;}
   public void setNom(String s){nom=s;debug.débogage("le nom a été changé pour "+s);}
   public int getActionB(){ return action;}

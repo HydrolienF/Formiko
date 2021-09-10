@@ -7,12 +7,12 @@ import java.io.Serializable;
 
 public class GMessage implements Serializable{
   private CMessage début, fin;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public GMessage(){}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public CMessage getHead(){ return début;}
   public CMessage getTail(){ return fin;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public int length(){
     if(début==null){ return 0;}
     return début.length();

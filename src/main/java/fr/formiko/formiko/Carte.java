@@ -21,7 +21,7 @@ public class Carte implements Serializable {
   private byte abondanceInsecte,abondanceGraine,abondanceHerbe;
   private boolean casesNuageuses,casesSombres;
   private String mapName;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
   *@param gc the GCase with the type of Case.
@@ -51,7 +51,7 @@ public class Carte implements Serializable {
   public Carte(String mapName){
     this(chargerCarte.chargerCarte(mapName));
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public GCase getGc(){ return gc;}
   public byte getAbondanceGraine(){ return abondanceGraine;}
   public byte getAbondanceInsecte(){ return abondanceInsecte;}
@@ -62,7 +62,7 @@ public class Carte implements Serializable {
   public boolean getCasesSombres(){return casesSombres;}
   public void setCasesSombres(boolean b){casesSombres=b;}
   public String getMapName(){return mapName;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Standard toString methode.}<br>
   *@version 2.1

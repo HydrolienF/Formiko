@@ -13,9 +13,9 @@ import java.io.File;
 
 public class ini {
 
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   //arboressence des Panneaux
   public static void initialiserToutLesPaneauxVide(){
     PanneauPrincipal pp = Panneau.getView().getPp();

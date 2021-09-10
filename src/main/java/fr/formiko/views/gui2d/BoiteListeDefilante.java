@@ -16,12 +16,12 @@ import javax.swing.JOptionPane;
 public class BoiteListeDefilante {
   private FComboBox<String> jcb;
   //private JOptionPane jop;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public BoiteListeDefilante(){}
   public void initialiser(){}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public int getChoixId(int ti [], String message){
     String ts []= str.iToS(ti);
     return getChoixId(ts,message);

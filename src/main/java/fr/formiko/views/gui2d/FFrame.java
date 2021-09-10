@@ -25,7 +25,7 @@ import javax.swing.SwingUtilities;
 public class FFrame extends JFrame {
   private PanneauPrincipal pp;
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public FFrame(String titre, int xMax, int yMax){
     if(Main.getPleinEcran()){
       //@OS
@@ -63,14 +63,14 @@ public class FFrame extends JFrame {
   public FFrame(){
     this("Formiko",getDimEcranX(),getDimEcranY());
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public int getXMax(){return getWidth();}
   public int getYMax(){return getHeight();}
   public PanneauPrincipal getPp(){ return pp;}
   public static int getDimEcranX(){ return Toolkit.getDefaultToolkit().getScreenSize().width;}
   public static int getDimEcranY(){ return Toolkit.getDefaultToolkit().getScreenSize().height;}
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   // public void paintComponent(Graphics g){
   //
   // }

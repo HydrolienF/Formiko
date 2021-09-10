@@ -13,9 +13,9 @@ import java.util.Comparator;
 
 public class GJoueur implements Serializable{
   private CJoueur début, fin;
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   public GJoueur(){}
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public CJoueur getHead(){return début;}
   public CJoueur getTail(){return fin;}
   public GCreature getGc(){ // renvoie toutes les créatures de tout les joueurs.
@@ -32,7 +32,7 @@ public class GJoueur implements Serializable{
   }
   public int getNbrDeJoueurHumain(){ return getJoueurHumain().length();}
   public int getNbrDIa(){ return length() - getJoueurHumain().length();}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String s = g.get("gj")+" : ";
     if (début == null){ return s+g.get("vide");}
