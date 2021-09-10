@@ -110,10 +110,6 @@ public class FLabel extends JLabel {
   *@version 2.6
   */
   public void updateSize(){
-    // getView().pack();
-    //TODO #10 calculate the real size of this.
-    // javax.swing.text.PlainDocument doc = (javax.swing.text.PlainDocument) this.getDocument();
-    // System.out.println(Math.ceil(this.getFontMetrics(this.getFont()).stringWidth(doc.getText(start, length)));
-    setSize((int)(getText().length()*Main.getTaillePolice1()*0.6),FLabel.getDimY());
+    setSize((int)(Math.ceil(this.getFontMetrics(this.getFont()).stringWidth(getText()))),FLabel.getDimY());
   }
 }
