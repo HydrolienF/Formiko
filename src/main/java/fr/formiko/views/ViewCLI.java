@@ -580,7 +580,7 @@ public class ViewCLI implements View {
   }
   /**
   *{@summary Return the color depending of the status of c for playingAnt.}<br>
-  *param c The Creature to inspect to know if it is ally, enemy or neutral (or equals to playingAnt).<br>
+  *@param c The Creature to inspect to know if it is ally, enemy or neutral (or equals to playingAnt).<br>
   *@version 1.38
   */
   private String getAllyAntInColor(Creature c){

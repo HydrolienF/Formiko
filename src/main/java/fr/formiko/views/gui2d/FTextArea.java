@@ -20,8 +20,22 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.text.View;
 
+/**
+*{@summary Personalized text area.}<br>
+*It use Formiko color &#38; font. It is uneditable.<br>
+*@author Hydrolien
+*@version 2.6
+*/
 public class FTextArea extends JTextArea {
-  public FTextArea(String s, double maxWidth){
+  // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor.}<br>
+  *heigth is defined by counting lines.
+  *@param s the text of the FTextArea
+  *@param width the width used for the FTextArea
+  *@version 2.6
+  */
+  public FTextArea(String s, double width){
     super(s);
     setOpaque(true);
     setForeground(Color.BLACK);
@@ -29,26 +43,35 @@ public class FTextArea extends JTextArea {
     setEditable(false);
     setLineWrap(true);
     setWrapStyleWord(true);
-    int lineCpt = countLines(maxWidth);
-    setSize(new Dimension((int)maxWidth, getDimY()*lineCpt));
+    int lineCpt = countLines(width);
+    setSize(new Dimension((int)width, getDimY()*lineCpt));
   }
-  private int countLines(double maxWidth) {
+  /**
+  *{@summary count line function.}<br>
+  *cf https://stackoverflow.com/questions/22328337/how-can-i-count-lines-in-jtextarea
+  *@param width the width used to count how much line we need.
+  *@version 2.6
+  */
+  private int countLines(double width) {
     javax.swing.text.PlainDocument doc = (javax.swing.text.PlainDocument) this.getDocument();
     double counting = 0;
     int tLen = this.getLineCount(); //number of /n on the text.
-    for (int i = 0; i < tLen; i++) {
+    for (int i = 0; i < tLen; i++) { //for every bloc split by /n
         try {
             int start = this.getLineStartOffset(i);
             int length = this.getLineEndOffset(i) - start; // calculating the length of the line
             // if the width of the line in greater than the max width, the division would return the number of lines
-            counting += Math.ceil(this.getFontMetrics(this.getFont()).stringWidth(doc.getText(start, length)) / maxWidth);
+            counting += Math.ceil(this.getFontMetrics(this.getFont()).stringWidth(doc.getText(start, length)) / width);
         } catch (javax.swing.text.BadLocationException ex) {
             System.err.println("ERROR\n" + ex.getMessage());
         }
     }
     return (int)counting;
   }
+  // GET SET -------------------------------------------------------------------
   public static int getDimY(){ return (int)(Main.getOp().getTaillePolice1()*1.3);}
+
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary paint function with a debug tool.}
   *@version 2.6

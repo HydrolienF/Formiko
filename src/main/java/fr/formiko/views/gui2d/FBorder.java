@@ -30,12 +30,12 @@ public class FBorder extends AbstractBorder {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary main function that paint the border.}
-  *param c the component for which this border is being painted
-  *param g the paint graphics
-  *param x the x position of the painted border
-  *param y the y position of the painted border
-  *param width the width of the painted border
-  *param height the height of the painted border
+  *@param c the component for which this border is being painted
+  *@param g the paint graphics
+  *@param x the x position of the painted border
+  *@param y the y position of the painted border
+  *@param width the width of the painted border
+  *@param height the height of the painted border
   *@version 2.2
   */
   public void paintBorder​(Component c, Graphics g, int x, int y, int width, int height){

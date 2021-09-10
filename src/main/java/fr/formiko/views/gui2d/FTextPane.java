@@ -16,7 +16,18 @@ import java.awt.Graphics2D;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 
+/**
+*{@summary Personalized text pane.}<br>
+*It use Formiko color &#38; font. It is uneditable.
+*@author Hydrolien
+*@version 2.6
+*/
 public class FTextPane extends JTextPane {
+  // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor.}<br>
+  *@version 2.6
+  */
   public FTextPane(){
     super();
     setOpaque(true);
@@ -25,8 +36,11 @@ public class FTextPane extends JTextPane {
     setEditable(false);
     // setLineWrap(true);
   }
+  // GET SET -------------------------------------------------------------------
+  
+  // FUNCTIONS -----------------------------------------------------------------
   /**
-  *{@summary paint function with a debug tool.}
+  *{@summary paint function with a debug tool.}<br>
   *@version 2.6
   */
   public void paintComponent(Graphics gTemp){
