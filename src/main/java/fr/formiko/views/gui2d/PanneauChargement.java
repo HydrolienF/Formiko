@@ -16,7 +16,7 @@ import java.awt.image.BufferedImage;
 public class PanneauChargement extends Panneau {
   private FButton b;
   private int tempsTotalDeChargement;
-  private Desc message;
+  private FLabel message;
   private FTextArea conseil;
   private boolean lancer;
   private FButton bt;
@@ -58,7 +58,7 @@ public class PanneauChargement extends Panneau {
     bt.setBounds((int)(xx*1.5),yy*4+Main.getTaillePolice1(),xx*2,Main.getTaillePolice2());
   }
   public void addMessage(){
-    message = new Desc();
+    message = new FLabel();
     message.setTexte("");
     int xx = Main.getF().getWidth()/5;
     int yy = Main.getF().getHeight()/5;
@@ -69,7 +69,7 @@ public class PanneauChargement extends Panneau {
     int x = allea.getAlléa(19)+1;//de 1 a 19.
     String s = g.getM("conseil."+x);
     conseil = new FTextArea(s,(Main.getF().getWidth()*3)/5);
-    // conseil.setMinimumSize(new Dimension((Main.getF().getWidth()*3)/5, Desc.getDimY()));
+    // conseil.setMinimumSize(new Dimension((Main.getF().getWidth()*3)/5, FLabel.getDimY()));
     add(conseil);
     conseil.setLocation(Main.getF().getWidth()/5,(Main.getF().getHeight()/5*4)-(2*Main.getTaillePolice1())-conseil.getHeight());
     repaint();

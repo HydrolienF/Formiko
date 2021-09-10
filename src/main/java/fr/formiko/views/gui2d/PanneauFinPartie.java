@@ -10,7 +10,7 @@ import fr.formiko.usuel.g;
 import java.awt.Graphics;
 
 public class PanneauFinPartie extends Panneau {
-  private Desc message;
+  private FLabel message;
   private GJoueur gj;
   private PanneauInfo pi;
   private FButton mp;
@@ -29,7 +29,7 @@ public class PanneauFinPartie extends Panneau {
         addBoutonContinuer();
       }
     }
-    message.setBounds(0,0,this.getWidth(),Desc.getDimY());
+    message.setBounds(0,0,this.getWidth(),FLabel.getDimY());
     pi.setBounds(0,message.getHeight(),pi.getWidth(),pi.getHeight());
     setBackground(Main.getData().getButtonColor());
     setOpaque(true);
@@ -48,7 +48,7 @@ public class PanneauFinPartie extends Panneau {
     super.paintComponent(g);
   }
   public void addMessage(String s){
-    message = new Desc(this.getWidth(),(int)(Main.getTaillePolice2()*1.5));
+    message = new FLabel(this.getWidth(),(int)(Main.getTaillePolice2()*1.5));
     message.setText(s);
     add(message);
   }
@@ -60,13 +60,13 @@ public class PanneauFinPartie extends Panneau {
   }
   public void addBoutonMenuPrincipal(){
     mp= new FButton(g.getM("quitterToMp"),Panneau.getView().getPj(),112);
-    mp.setSize(getWidth()/2, Desc.getDimY());
+    mp.setSize(getWidth()/2, FLabel.getDimY());
     mp.setLocation(0,getHeight()-mp.getHeight());
     add(mp);
   }
   public void addBoutonContinuer(){
     c = new FButton(g.getM("continuerJeu"),Panneau.getView().getPj(),113);
-    c.setSize(getWidth()/2, Desc.getDimY());
+    c.setSize(getWidth()/2, FLabel.getDimY());
     c.setLocation(getWidth()/2,getHeight()-mp.getHeight());
     add(c);
   }

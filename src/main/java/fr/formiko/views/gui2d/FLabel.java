@@ -16,7 +16,7 @@ import java.awt.Graphics2D;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-public class Desc extends JLabel {
+public class FLabel extends JLabel {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
@@ -25,7 +25,7 @@ public class Desc extends JLabel {
   *@param y the preferred heigth
   *@version 2.6
   */
-  public Desc(int x, int y){
+  public FLabel(int x, int y){
     super();
     // setOpaque(false);
     setForeground(Color.BLACK);
@@ -40,14 +40,14 @@ public class Desc extends JLabel {
   *It set size to default : 500xgetDimY()
   *@version 2.6
   */
-  public Desc(){ this(500,getDimY());}
+  public FLabel(){ this(500,getDimY());}
   /**
   *{@summary Secondary constructor.}<br>
   *It dont set size, but set text.
   *@param s the text to use.
   *@version 2.6
   */
-  public Desc(String s){
+  public FLabel(String s){
     this(-1,-1);
     setText("s");
   }
@@ -114,6 +114,6 @@ public class Desc extends JLabel {
     //TODO #10 calculate the real size of this.
     // javax.swing.text.PlainDocument doc = (javax.swing.text.PlainDocument) this.getDocument();
     // System.out.println(Math.ceil(this.getFontMetrics(this.getFont()).stringWidth(doc.getText(start, length)));
-    setSize((int)(getText().length()*Main.getTaillePolice1()*0.6),Desc.getDimY());
+    setSize((int)(getText().length()*Main.getTaillePolice1()*0.6),FLabel.getDimY());
   }
 }

@@ -29,8 +29,8 @@ public class PanneauBouton extends Panneau {
   private PanneauTInt pti;
   private PanneauTBoolean ptb;
   private String descS;
-  private Desc desc;
-  private Desc descTI;
+  private FLabel desc;
+  private FLabel descTI;
   private int actionF;
   private int choixId;
   private PanneauChamp pchamp;
@@ -41,7 +41,7 @@ public class PanneauBouton extends Panneau {
   public PanneauBouton(){}
   public void build(){
     setLayout(null);
-    descS=""; desc = new Desc(getWidth(),Desc.getDimY());
+    descS=""; desc = new FLabel(getWidth(),FLabel.getDimY());
     desc.setBackground(Main.getData().getButtonColor());
     actionF = -1; choixId = -1;
     int t [] = {0,1,2,3,4,5};
@@ -55,7 +55,7 @@ public class PanneauBouton extends Panneau {
     pij = new PanneauInfo();
     pz = new PanneauZoom();
     add(pi);add(pij);
-    descTI = new Desc();
+    descTI = new FLabel();
     descTI.setBackground(Main.getData().getButtonColor());
     setDescTI("");
     setDesc("");
@@ -79,7 +79,7 @@ public class PanneauBouton extends Panneau {
   public void setPti(PanneauTInt p){pti=p; }
   public int getChoixId(){ return choixId;}
   public void setChoixId(int x){ choixId=x;}
-  public Desc getDescTI(){ return descTI;}
+  public FLabel getDescTI(){ return descTI;}
   public void setDescTI(String s){descTI.setTexte(s);}
   public PanneauZoom getPz(){ return pz;}
   public PanneauAction getPa(){ return pa;}
@@ -107,7 +107,7 @@ public class PanneauBouton extends Panneau {
   public void addPti(int t[], String s){
     pti=new PanneauTInt(t,s);
     pti.setBounds(Main.getWidth()-pti.getXPi(),Main.getHeight()-pti.getYPi(),pti.getXPi(),pti.getYPi());
-    debug.débogage("le composants pti a été placé en 0 Desc.getDimY() avec pour dimention : "+pti.getXPi()+" "+pti.getYPi());
+    debug.débogage("le composants pti a été placé en 0 FLabel.getDimY() avec pour dimention : "+pti.getXPi()+" "+pti.getYPi());
     add(pti);
   }
   public void removePti(){
@@ -115,7 +115,7 @@ public class PanneauBouton extends Panneau {
   }
   public void addPTB(String message){
     ptb=new PanneauTBoolean(g.get(message));
-    ptb.setBounds(0,Desc.getDimY(),ptb.getXPi(),ptb.getYPi());
+    ptb.setBounds(0,FLabel.getDimY(),ptb.getXPi(),ptb.getYPi());
     add(pti);
   }
   public void removePTB(){
@@ -175,7 +175,7 @@ public class PanneauBouton extends Panneau {
   public void addPChamp(String défaut,String message){
     setDescTI(message);
     pchamp = new PanneauChamp(défaut);
-    pchamp.setBounds(0,Desc.getDimY(),540,Desc.getDimY());
+    pchamp.setBounds(0,FLabel.getDimY(),540,FLabel.getDimY());
     add(pchamp);
     validate();
   }
@@ -226,7 +226,7 @@ public class PanneauBouton extends Panneau {
       try {
         xxx = pa.getHeight();
       }catch (Exception e) {}
-      desc.setLocation(0,Main.getDimY()-xxx-Desc.getDimY());//-desc.getHeight()
+      desc.setLocation(0,Main.getDimY()-xxx-FLabel.getDimY());//-desc.getHeight()
       descTI.setBounds(0,0,800);
     }catch (Exception e) {
       erreur.erreur("affichage de PanneauBouton");

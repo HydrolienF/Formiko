@@ -13,7 +13,7 @@ import java.awt.Graphics2D;
 
 public class EtiquetteChoix extends Panneau{
   private FComboBox<String> choixX;
-  private Desc choixXDesc;
+  private FLabel choixXDesc;
   private int k;
   private Color cFond;
   // CONSTRUCTORS --------------------------------------------------------------
@@ -21,7 +21,7 @@ public class EtiquetteChoix extends Panneau{
     debug.débogage("Lancement de la création d'une EtiquetteChoix avec "+gs.length()+" éléments");
     this.setLayout(null);
     setOpaque(false);
-    choixXDesc = new Desc();
+    choixXDesc = new FLabel();
     choixXDesc.setTexte(g.getM(clé)+" : ");
     choixXDesc.setFondTransparent();
 
@@ -29,9 +29,9 @@ public class EtiquetteChoix extends Panneau{
     choixX.setFont(Main.getFont1(0.9));
     add(choixX);add(choixXDesc);
     int wi2 = Main.getTailleElementGraphiqueX(960);
-    int taille = Desc.getDimY();
-    choixXDesc.setBounds(0,taille*k,wi2/2,Desc.getDimY());
-    choixX.setBounds(wi2/2,taille*k,wi2/3,Desc.getDimY());
+    int taille = FLabel.getDimY();
+    choixXDesc.setBounds(0,taille*k,wi2/2,FLabel.getDimY());
+    choixX.setBounds(wi2/2,taille*k,wi2/3,FLabel.getDimY());
     cFond = Main.getData().getButtonColor();
   }
   public EtiquetteChoix(String clé, GString gs){ this(0,clé,gs);}
@@ -39,7 +39,7 @@ public class EtiquetteChoix extends Panneau{
   public String getSelectedItem(){ return choixX.getSelectedItem()+"";}
   public int getSelectedIndex(){ return choixX.getSelectedIndex();}
   public FComboBox getChoixX(){ return choixX;}
-  public Desc getChoixXDesc(){ return choixXDesc;}
+  public FLabel getChoixXDesc(){ return choixXDesc;}
   public void setCFond(Color c){cFond=c;}
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){

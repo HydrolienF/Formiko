@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 
 public class PanneauDialogueInf extends Panneau {
   private static Image fond;
-  private Desc b;
+  private FLabel b;
   // CONSTRUCTORS --------------------------------------------------------------
   public PanneauDialogueInf(){
     super();
@@ -32,7 +32,7 @@ public class PanneauDialogueInf extends Panneau {
     fond = fond.getScaledInstance(Main.getDimX(), Main.getTailleElementGraphiqueY(210),Image.SCALE_SMOOTH);
   }
   public void addBSuivant(){
-    b = new Desc(Main.getTailleElementGraphiqueX(180),Desc.getDimY());
+    b = new FLabel(Main.getTailleElementGraphiqueX(180),FLabel.getDimY());
     b.setSize(b.getPreferredSize());
     b.setFondTransparent();
     b.setTexte(g.get("suivant"));

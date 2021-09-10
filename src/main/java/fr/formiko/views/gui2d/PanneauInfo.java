@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 
 public class PanneauInfo extends Panneau {
   private int nbrDeDesc;
-  private Desc descs [];
+  private FLabel descs [];
   private int xPi; private int yPi;
   // CONSTRUCTORS --------------------------------------------------------------
   public PanneauInfo(GString gs, int xD, boolean withAlpha, Font font){
@@ -24,7 +24,7 @@ public class PanneauInfo extends Panneau {
     this.setLayout(new GridBagLayout());
     GridBagConstraints gbc = new GridBagConstraints();
     nbrDeDesc=gs.length();
-    int yD = Desc.getDimY();
+    int yD = FLabel.getDimY();
     if(font!=null){
       yD = (int)(font.getSize()*1.2);
     }
@@ -32,10 +32,10 @@ public class PanneauInfo extends Panneau {
     this.setSize(xPi,yPi);
     debug.débogage(getSize()+"");
     gbc.gridx = 0; int k=0;
-    descs = new Desc[gs.length()];
+    descs = new FLabel[gs.length()];
     for (String s : gs ) {
       gbc.gridy = k;k++;
-      Desc desc = new Desc(xD,yD);
+      FLabel desc = new FLabel(xD,yD);
       if(withAlpha){
         desc.setBackground(Main.getData().getButtonColor());
       }
@@ -70,7 +70,7 @@ public class PanneauInfo extends Panneau {
   public String toString(){
     String r = super.toString()+" number of desc "+nbrDeDesc+" ";
     if(descs!=null){
-      for (Desc d : descs ) {
+      for (FLabel d : descs ) {
         try {
           r+=" "+d.getText();
         }catch (Exception e) {

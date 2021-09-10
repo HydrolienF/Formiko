@@ -19,13 +19,13 @@ import javax.swing.JCheckBox;
 import javax.swing.JFormattedTextField;
 
 public class PanneauNouvellePartie extends PanneauLanceurPartie {
-  private Desc jl; private Desc jl2;
+  private FLabel jl; private FLabel jl2;
   private GEtiquetteJoueur gej;
   private PanneauGEtiquetteJoueur pgej;
   private JFormattedTextField jtf;
-  private Desc jtfDesc;
+  private FLabel jtfDesc;
   private FComboBox<String> choixCarte;
-  private Desc choixCarteDesc;
+  private FLabel choixCarteDesc;
   private JCheckBox casesNuageuses;
   private JCheckBox casesSombres;
   private int taille;
@@ -39,15 +39,15 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     this.setLayout(null);
     //setOpaque(false);
     //les entêtes.
-    jl = new Desc(); jl2 = new Desc();
+    jl = new FLabel(); jl2 = new FLabel();
     jl.setTexte(g.getM("paramètreCarte"));
     jl2.setTexte(g.getM("paramètreJeu"));
     jl.setFondTransparent();jl2.setFondTransparent();
     jl.setCentered();jl2.setCentered();
-    jtfDesc = new Desc();
+    jtfDesc = new FLabel();
     jtfDesc.setTexte(g.getM("nbrDeTour")+" : ");
     jtfDesc.setFondTransparent();
-    choixCarteDesc = new Desc();
+    choixCarteDesc = new FLabel();
     choixCarteDesc.setTexte(g.getM("choixCarte")+" : ");
     choixCarteDesc.setFondTransparent();
     this.add(jl);this.add(jl2);this.add(jtfDesc);this.add(choixCarteDesc);
@@ -115,14 +115,14 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     //gauche
     jl.setSize((int)(wi2*0.9));
     int k=1; taille = jl.getHeight()*2;
-    jtfDesc.setBounds(0,taille*k,wi2/2,Desc.getDimY());
-    jtf.setBounds(wi2/2,taille*k,wi2/3,Desc.getDimY());k++;
-    choixCarteDesc.setBounds(0,taille*k,wi2/2,Desc.getDimY());
-    choixCarte.setBounds(wi2/2,taille*k,wi2/3,Desc.getDimY());k++;
-    eDif.setBounds(0,taille*k,1000,Desc.getDimY());k++;
-    eVitesseDeJeu.setBounds(0,taille*k,1000,Desc.getDimY());k++;
-    casesNuageuses.setBounds(0,taille*k,wi2/2,Desc.getDimY());
-    casesSombres.setBounds(wi2/2,taille*k,wi2/3,Desc.getDimY());k++;
+    jtfDesc.setBounds(0,taille*k,wi2/2,FLabel.getDimY());
+    jtf.setBounds(wi2/2,taille*k,wi2/3,FLabel.getDimY());k++;
+    choixCarteDesc.setBounds(0,taille*k,wi2/2,FLabel.getDimY());
+    choixCarte.setBounds(wi2/2,taille*k,wi2/3,FLabel.getDimY());k++;
+    eDif.setBounds(0,taille*k,1000,FLabel.getDimY());k++;
+    eVitesseDeJeu.setBounds(0,taille*k,1000,FLabel.getDimY());k++;
+    casesNuageuses.setBounds(0,taille*k,wi2/2,FLabel.getDimY());
+    casesSombres.setBounds(wi2/2,taille*k,wi2/3,FLabel.getDimY());k++;
     g.setColor(Main.getData().getButtonColor());
     g.fillRect(0,0,wi/2,taille*k);
     g.fillRect(wi/2,0,wi,taille);
@@ -130,7 +130,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     int yDep=0;
     jl2.setBounds(wi2,yDep,(int)(wi2*0.9)); yDep=yDep+jl2.getHeight()*2;
     int tailleMaxY = this.getHeight() - yDep;
-    pgej.setBounds(wi2,yDep,wi2,math.max(Desc.getDimY()*3*gej.length(),tailleMaxY));
+    pgej.setBounds(wi2,yDep,wi2,math.max(FLabel.getDimY()*3*gej.length(),tailleMaxY));
   }
   public Partie getPartie(){
     String nomTraduitDeLaCarte = choixCarte.getSelectedItem()+"";

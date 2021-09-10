@@ -16,12 +16,12 @@ public class PanneauGEtiquetteJoueur extends Panneau{
     int wi2 = Main.getF().getWidth()/2;
     int k=0;
     for (EtiquetteJoueur ej : gej ) {
-      ej.setBounds(Desc.getDimY(),k*Desc.getDimY()*3,wi2*gej.length(),Desc.getDimY()*3);
+      ej.setBounds(FLabel.getDimY(),k*FLabel.getDimY()*3,wi2*gej.length(),FLabel.getDimY()*3);
       add(ej);k++;
     }
     // CEtiquetteJoueur cej = gej.getHead();
     // while(cej!=null){
-    //   cej.getContent().setBounds(Desc.getDimY(),k*Desc.getDimY()*3,wi2*gej.length(),Desc.getDimY()*3);
+    //   cej.getContent().setBounds(FLabel.getDimY(),k*FLabel.getDimY()*3,wi2*gej.length(),FLabel.getDimY()*3);
     //   add(cej.getContent());
     //   cej=cej.getSuivant();k++;
     // }
@@ -40,7 +40,7 @@ public class PanneauGEtiquetteJoueur extends Panneau{
     CEtiquetteJoueur cej = gej.getHead();
     int k=0;
     while(cej!=null){
-      cej.getContent().setBounds(0,k*Desc.getDimY()*3,wi2*gej.length(),Desc.getDimY()*3);
+      cej.getContent().setBounds(0,k*FLabel.getDimY()*3,wi2*gej.length(),FLabel.getDimY()*3);
       cej=cej.getSuivant();k++;
     }*/
   }

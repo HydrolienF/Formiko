@@ -86,7 +86,7 @@ public class EtiquetteJoueur extends Panneau{
   public void paintComponent(Graphics g){
     Graphics2D g2d = (Graphics2D)g;
     int taille = Main.getF().getWidth()/2;
-    int arrondi = Desc.getDimY();
+    int arrondi = FLabel.getDimY();
     Color col;
     if(ouvert){
       Pheromone ph = getCouleur();
@@ -103,10 +103,10 @@ public class EtiquetteJoueur extends Panneau{
     }
     //g2d.setColor(new Color(col.getRed(),col.getGreen(),col.getBlue(),152));
     g2d.setColor(col); // une couleur sans transparence pour évité d'avoir a redessiner toute la fenetre.
-    g2d.fillRoundRect(0,0,taille*7/10+taille/7,Desc.getDimY()*2,arrondi,arrondi);
-    dsc.setBounds(Desc.getDimY()/2,0,taille*5/10-Desc.getDimY()/4);
-    combo.setBounds(taille*5/10,0,taille/7,Desc.getDimY());
-    couleur.setBounds(taille*5/10+taille/7,0,taille/7,Desc.getDimY());
+    g2d.fillRoundRect(0,0,taille*7/10+taille/7,FLabel.getDimY()*2,arrondi,arrondi);
+    dsc.setBounds(FLabel.getDimY()/2,0,taille*5/10-FLabel.getDimY()/4);
+    combo.setBounds(taille*5/10,0,taille/7,FLabel.getDimY());
+    couleur.setBounds(taille*5/10+taille/7,0,taille/7,FLabel.getDimY());
     //add un bouton changer la couleur alléatoirement
     g2d.setColor(new Color(0,0,0));
     paintBorder(g2d,taille,arrondi);
@@ -116,7 +116,7 @@ public class EtiquetteJoueur extends Panneau{
     if(x<1){return;}
     BasicStroke ligne = new BasicStroke(x);
     g.setStroke(ligne);
-    g.drawRoundRect(0,0,taille*7/10+taille/7,Desc.getDimY()*2,arrondi,arrondi);
+    g.drawRoundRect(0,0,taille*7/10+taille/7,FLabel.getDimY()*2,arrondi,arrondi);
   }
   public void afficheToi(){
     System.out.println(this);
