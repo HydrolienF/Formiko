@@ -17,6 +17,10 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.BasicStroke;
+import fr.formiko.usuel.maths.math;
+import java.awt.Graphics2D;
 
 public class Panneau extends JPanel {
   private static final long serialVersionUID = -3227223889149566494L;
@@ -41,11 +45,19 @@ public class Panneau extends JPanel {
   public Data getData(){return Main.getData();}
   public static ViewGUI2d getView(){return (ViewGUI2d)(Main.getView());}
   // Fonctions propre -----------------------------------------------------------
-  //repaint() permet de réactualisé paintComponent()
-  // L'instruction Thread.sleep(x miliseconde) permet d'effectuer une pause dans le programme.
+  /**
+  *{@summary paint function with a debug tool.}
+  *@version 2.6
+  */
   @Override
-  public void paintComponent(Graphics g){
-    super.paintComponent(g);
+  public void paintComponent(Graphics gTemp){
+    super.paintComponent(gTemp);
+    if(Main.getOp().getPaintHitBox()){
+      Graphics2D g = (Graphics2D)gTemp;
+      g.setColor(Color.RED);
+      g.setStroke(new BasicStroke(math.max(getWidth()/100,getHeight()/100,1)));
+      g.drawRect(0,0,getWidth(),getHeight());
+    }
   }
   @Override
   public String toString(){

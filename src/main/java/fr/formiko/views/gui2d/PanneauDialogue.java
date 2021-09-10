@@ -9,18 +9,18 @@ import fr.formiko.usuel.listes.GString;
 import java.awt.Graphics;
 
 public class PanneauDialogue extends Panneau {
-  private PanneauInfo pi;
+  private FTextArea fta;
   private boolean needToStayMaxSize;
   // CONSTRUCTEUR ---------------------------------------------------------------
   public PanneauDialogue(){
     super();
-    // pi = new PanneauInfo(new GString(),0);
-    // pi.setBounds(0,0,0,0);
-    // setSize(pi.getWidth(),pi.getHeight());
+    // fta = new PanneauInfo(new GString(),0);
+    // fta.setBounds(0,0,0,0);
+    // setSize(fta.getWidth(),fta.getHeight());
   }
   public void initialiser(String s, boolean needToStayMaxSize){
     this.needToStayMaxSize=needToStayMaxSize;
-    if(pi!=null){remove(pi);}
+    if(fta!=null){remove(fta);}
     try {
       if(s==null || s.equals("")){
         setVisible(false);
@@ -34,17 +34,16 @@ public class PanneauDialogue extends Panneau {
       erreur.alerte("Le PanneauDialogueInf n'as pas pu être mis visible.");
     }
     try {
-      GString gs = new GString();
-      gs.addParMorceaux(s,80,true);
       int tailleX = Main.getDimX();
       try {
         tailleX = Main.getDimXCarte();
         tailleX=tailleX-Main.getTailleElementGraphiqueX(210);
       }catch (Exception e) {}
-      pi = new PanneauInfo(gs,tailleX+Main.getTailleElementGraphiqueX(200),false);
-      pi.setLocation(Main.getTailleElementGraphiqueX(210),Main.getTailleElementGraphiqueY(15));
-      setSize(pi.getWidth(),pi.getHeight()+Main.getTailleElementGraphiqueX(30));
-      add(pi);
+      fta = new FTextArea(s,tailleX);
+      setLocation(Main.getTailleElementGraphiqueX(210),Main.getTailleElementGraphiqueY(15));
+      setSize(fta.getWidth(),fta.getHeight()+Main.getTailleElementGraphiqueX(30));
+      // setLocation(Main.getTailleElementGraphiqueX(210),Main.getTailleElementGraphiqueY(15));
+      add(fta);
     }catch (Exception e) {
       erreur.alerte("fail to ini PanneauDialogue");
     }

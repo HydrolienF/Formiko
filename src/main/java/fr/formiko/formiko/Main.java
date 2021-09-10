@@ -223,7 +223,7 @@ public class Main {
   public static int getTailleElementGraphiqueX(int x){ return (x*getDimX())/1920;}
   public static int getTailleElementGraphiqueY(int x){ return (x*getDimY())/1080;}
   public static double getRacioEspaceLibre(){return 900.0/1080.0;}
-  public static int getDimXCarte(){System.out.println(getRacioEspaceLibre());return (int)(1920.0*getRacioEspaceLibre());}
+  public static int getDimXCarte(){return (int)(1920.0*getRacioEspaceLibre());}
   //options
   public static byte getLanguage(){ return op.getLanguage();}
   public static void setLangue(int x){ op.setLangue(x);iniLangue();}

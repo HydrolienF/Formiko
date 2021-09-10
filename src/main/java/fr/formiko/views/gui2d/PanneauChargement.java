@@ -68,13 +68,10 @@ public class PanneauChargement extends Panneau {
   public void addConseil(){
     int x = allea.getAlléa(19)+1;//de 1 a 19.
     String s = g.getM("conseil."+x);
-    //TODO #10 fined a way to calculate conseil.y depending of s.
-    conseil = new FTextArea(s);
-    conseil.setMinimumSize(new Dimension((Main.getF().getWidth()*3)/5, Desc.getDimY()));
-    conseil.setSize(new Dimension((Main.getF().getWidth()*3)/5, Desc.getDimY()*4));
+    conseil = new FTextArea(s,(Main.getF().getWidth()*3)/5);
+    // conseil.setMinimumSize(new Dimension((Main.getF().getWidth()*3)/5, Desc.getDimY()));
     add(conseil);
-    conseil.setLocation(Main.getF().getWidth()/5,(Main.getF().getHeight()/5*4)-(2*Main.getTaillePolice1())-conseil.getHeight()-100);
-    erreur.info(""+conseil);//@a
+    conseil.setLocation(Main.getF().getWidth()/5,(Main.getF().getHeight()/5*4)-(2*Main.getTaillePolice1())-conseil.getHeight());
     repaint();
   }
 }

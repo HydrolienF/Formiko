@@ -70,7 +70,7 @@ public class PanneauJeu extends Panneau {
   public void initialiserPd(String s, boolean needToStayMaxSize){
     pd.initialiser(s, needToStayMaxSize);
     pdi.initialiser();
-    pd.setLocation(0,0);
+    // pd.setLocation(0,0);
     revalidate();
   }
   public void removePd(){
