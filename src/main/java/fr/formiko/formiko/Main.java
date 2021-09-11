@@ -301,7 +301,6 @@ public class Main {
     setMessageChargement("chargementDesOptions");startCh();
     chargerLesTraductions.iniTLangue();
     iniOp();
-    sauvegarderUnePartie.setSave(Save.getSave());
     if(!debug.getAffLesEtapesDeRésolution()){//si elle n'ont pas été activé par "-d"
       debug.setAffLesEtapesDeRésolution(op.getAffLesEtapesDeRésolution());
     }
@@ -423,7 +422,6 @@ public class Main {
       long tempsDeFinDeJeu=System.currentTimeMillis();
       long tempsJeuEcoulé = tempsDeFinDeJeu-tempsDeDébutDeJeu;
       tem.addTempsEnJeux(tempsJeuEcoulé);tem.actualiserDate2();tem.sauvegarder();
-      sauvegarderUnePartie.getSave().save();//sauvegarde de l'idS (id de sauvegarde) + de futur valeur importante.
       System.out.println(g.getM("tempsJeuEcoulé")+" : "+Temps.msToTime(tempsJeuEcoulé,2,false));
       System.out.println(g.getM("messageQuitter"));
       System.exit(0);
