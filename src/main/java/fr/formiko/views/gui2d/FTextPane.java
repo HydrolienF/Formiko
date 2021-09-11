@@ -37,10 +37,10 @@ public class FTextPane extends JTextPane {
     // setLineWrap(true);
   }
   // GET SET -------------------------------------------------------------------
-  
+
   // FUNCTIONS -----------------------------------------------------------------
   /**
-  *{@summary paint function with a debug tool.}<br>
+  *{@summary Paint function with a debug tool.}<br>
   *@version 2.6
   */
   public void paintComponent(Graphics gTemp){

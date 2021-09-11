@@ -73,7 +73,7 @@ public class FTextArea extends JTextArea {
 
   // FUNCTIONS -----------------------------------------------------------------
   /**
-  *{@summary paint function with a debug tool.}
+  *{@summary Paint function with a debug tool.}<br>
   *@version 2.6
   */
   public void paintComponent(Graphics gTemp){

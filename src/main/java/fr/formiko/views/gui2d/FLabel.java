@@ -16,6 +16,12 @@ import java.awt.Graphics2D;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+/**
+*{@summary Personalized JLabel.}<br>
+*It use Formiko color &#38; font. It is uneditable.<br>
+*@author Hydrolien
+*@version 2.6
+*/
 public class FLabel extends JLabel {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
@@ -49,7 +55,7 @@ public class FLabel extends JLabel {
   */
   public FLabel(String s){
     this(-1,-1);
-    setText("s");
+    setText(s);
   }
   // GET SET -------------------------------------------------------------------
   /**
@@ -93,7 +99,7 @@ public class FLabel extends JLabel {
   public void setSize(int w){setSize(w,getDimY());}
   // FUNCTIONS -----------------------------------------------------------------
   /**
-  *{@summary paint function with a debug tool.}
+  *{@summary Paint function with a debug tool.}<br>
   *@version 2.6
   */
   public void paintComponent(Graphics gTemp){

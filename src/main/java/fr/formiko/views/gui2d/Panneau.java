@@ -46,7 +46,7 @@ public class Panneau extends JPanel {
   public static ViewGUI2d getView(){return (ViewGUI2d)(Main.getView());}
   // FUNCTIONS -----------------------------------------------------------------
   /**
-  *{@summary paint function with a debug tool.}
+  *{@summary Paint function with a debug tool.}<br>
   *@version 2.6
   */
   @Override
