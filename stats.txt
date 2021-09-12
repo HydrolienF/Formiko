@@ -59,7 +59,7 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 5%   (1/17)  1  16 0  0  23 176  formiko\Joueur.java
 100% (11/11) 1  5  0  5  0  369  formiko\launchOptions.java
 0%   (0/2)   1  1  0  0  0  90   formiko\lireUneSauvegarde.java
-92%  (12/13) 1  12 0  0  109 462  formiko\Main.java
+92%  (12/13) 1  12 0  0  109 460  formiko\Main.java
 66%  (2/3)   1  2  0  0  5  43   formiko\ObjetAId.java
 0%   (0/4)   1  3  0  0  6  41   formiko\ObjetSurCarteAId.java
 47%  (11/23) 1  19 0  3  47 436  formiko\Partie.java
@@ -117,7 +117,7 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 100% (10/10) 1  2  0  7  81 405  usuel\Options.java
 100% (6/6)   1  2  0  3  6  64   usuel\Os.java
 0%   (0/12)  1  10 0  1  0  89   usuel\read.java
-100% (5/5)   1  4  0  0  5  98   usuel\sauvegarderUnePartie.java
+100% (6/6)   1  5  0  0  4  110  usuel\sauvegarderUnePartie.java
 100% (3/3)   1  2  0  0  2  69   usuel\Save.java
 85%  (6/7)   1  6  0  0  1  64   usuel\SortedProperties.java
 100% (6/6)   1  5  0  0  6  166  usuel\stats.java
@@ -128,6 +128,7 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 0%   (0/5)   1  3  0  1  0  61   usuel\ThTrad.java
 0%   (0/2)   1  1  0  0  1  23   usuel\ThTriche.java
 28%  (2/7)   1  6  0  0  0  165  usuel\trad.java
+100% (7/7)   2  5  0  0  6  80   usuel\Tree.java
 0%   (0/8)   1  7  0  0  1  51   usuel\types\ent.java
 80%  (25/31) 1  30 0  0  3  348  usuel\types\str.java
 100% (12/12) 1  9  0  2  2  280  views\cli\CLIMap.java
@@ -135,14 +136,14 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 0%   (0/3)   1  2  0  0  2  49   views\gui2d\BoiteListeDefilante.java
 0%   (0/2)   1  1  0  0  4  32   views\gui2d\BoutonLong.java
 0%   (0/2)   1  1  0  0  6  29   views\gui2d\Champ.java
-91%  (22/24) 1  16 0  7  34 628  views\gui2d\Data.java
-100% (6/6)   1  5  0  0  11 119  views\gui2d\Desc.java
+91%  (22/24) 1  16 0  7  34 630  views\gui2d\Data.java
 0%   (0/6)   1  5  0  0  6  70   views\gui2d\EtiquetteChoix.java
 7%   (1/14)  3  11 0  0  12 174  views\gui2d\EtiquetteJoueur.java
 66%  (2/3)   1  2  0  0  5  50   views\gui2d\FBorder.java
 50%  (8/16)  1  14 0  1  15 258  views\gui2d\FButton.java
 100% (5/5)   1  4  0  0  1  70   views\gui2d\FComboBox.java
 0%   (0/7)   1  6  0  0  5  107  views\gui2d\FFrame.java
+116% (7/6)   1  5  0  0  11 121  views\gui2d\FLabel.java
 100% (4/4)   1  2  0  1  1  88   views\gui2d\FTextArea.java
 100% (3/3)   1  2  0  0  0  55   views\gui2d\FTextPane.java
 100% (7/7)   1  6  0  0  1  119  views\gui2d\GEtiquetteJoueur.java
@@ -158,7 +159,7 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 0%   (0/6)   1  5  0  0  4  77   views\gui2d\PanneauChargement.java
 0%   (0/4)   1  3  0  0  0  53   views\gui2d\PanneauChoixPartie.java
 16%  (1/6)   1  5  0  0  1  90   views\gui2d\PanneauDialogue.java
-0%   (0/7)   1  6  0  0  0  46   views\gui2d\PanneauDialogueInf.java
+100% (7/7)   1  6  0  0  0  73   views\gui2d\PanneauDialogueInf.java
 71%  (5/7)   1  6  0  0  2  130  views\gui2d\PanneauEchap.java
 0%   (0/8)   1  7  0  0  0  73   views\gui2d\PanneauFinPartie.java
 0%   (0/3)   1  2  0  0  0  47   views\gui2d\PanneauGEtiquetteJoueur.java
@@ -182,4 +183,4 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 100% (1/1)   1  0  0  0  1  169  views\View.java
 100% (30/30) 1  21 0  8  2  690  views\ViewCLI.java
 100% (16/16) 1  15 0  0  7  174  views\ViewNull.java
-51,4%(851/1655) 204 1326 2 123 1106  24946 global
+52,1%(867/1663) 206 1332 2 123 1111  25067 global

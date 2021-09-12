@@ -324,6 +324,8 @@ public class Data {
         tFIni = chargerTX("F",3,(byte)0,-3);
         iniAntColorIni();
         antLegIni = image.getImages("FLeg",image.getNbrImages("FLeg"),(byte)0);
+        // antFAFIni = image.getImages("FAF",image.getNbrImages("FAF"),(byte)0);
+        // antFASIni = image.getImages("FAS",image.getNbrImages("FAS"),(byte)0);
         tGIni = chargerTX("seed");
         fereIni = image.getImage("antnest");//.getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
         cNuageuseIni = image.getImage("cNuageuse");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
