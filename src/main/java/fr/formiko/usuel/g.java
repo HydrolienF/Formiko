@@ -39,7 +39,7 @@ public class g {
   *@version 1.39
   */
   public static String get(String key, String sDefault){
-    if(key==null || key.length()<1){if(sDefault==null){sDefault="";}return sDefault;}
+    if(key==null || key.equals("")){if(sDefault==null){sDefault="";}return sDefault;}
     if(str.isMaj(key.substring(0,1))){
       //System.out.println("sToSMin for : "+key);
       return getM(str.sToSMin(key),str.sToSMaj(sDefault));
@@ -49,7 +49,7 @@ public class g {
       if(sr.length()>6 && sr.substring(sr.length()-6).equals("[auto]")){sr=sr.substring(0,sr.length()-6);}//on retir [auto] a la fin de la String si besoin
       else if(sr.length()>2 && sr.substring(sr.length()-2).equals("[]")){sr=sr.substring(0,sr.length()-2);}//on retire les simple crochet aussi.
       if(sr.equals("ø")){return "";}
-      if(sr!=null && sr.length()>0){ return sr;}
+      if(sr!=null && !sr.equals("")){ return sr;}
       return sDefault;
     }catch (Exception e){if(sDefault==null){sDefault="";}return sDefault;}
   }
@@ -97,7 +97,7 @@ public class g {
   *@return value that corresponds to key and key2 or value1/value2 if that's not the same.
   *@version 1.5
   */
-  public static String getOu(String key, String key2){
+  public static String getOr(String key, String key2){
     String value1 = get(key,"");
     String value2 = get(key2,"");
     //si aucune key n'as été trouvé.

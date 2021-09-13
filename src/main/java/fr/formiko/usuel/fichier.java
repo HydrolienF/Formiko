@@ -22,7 +22,7 @@ import java.util.zip.ZipOutputStream;
 *@author Hydrolien Baeldung
 *@version 1.46
 */
-public class fichier{
+public class fichier {
 
   // CONSTRUCTORS ----------------------------------------------------------------
 
@@ -34,7 +34,7 @@ public class fichier{
   *@param f The directory were to search java file.
   *@version 1.13
   */
-  public static GString listerLesFichiersDuRep(File f){
+  public static GString listerLesFichiersDuRep(File f) {
     GString gs = new GString();
     //parcourir les dossiers puis les sous dossiers etc jusqu'a ce que tout les fichiers soit traité,
     //cad sous la forme rep+sousdossier1+sousdossier2+nomDu.java
@@ -71,7 +71,7 @@ public class fichier{
     return directoryToBeDeleted.delete();
   }public static boolean deleteDirectory(String s){try {return deleteDirectory(new File(str.sToDirectoryName(s)));}catch (Exception e){return false;}}
 
-  public static void affichageDesLecteurALaRacine (File f){
+  public static void affichageDesLecteurALaRacine (File f) {
     System.out.println("Affichage des lecteurs à la racine du PC : ");
     for(File file : f.listRoots()){
       System.out.println(file.getAbsolutePath());

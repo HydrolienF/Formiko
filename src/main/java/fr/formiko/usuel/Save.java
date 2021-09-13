@@ -20,10 +20,21 @@ public class Save implements Serializable{
   private static File f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderBin()+".save");
 
   // CONSTRUCTORS --------------------------------------------------------------
+  /** Empty constructor. */
+  public Save(){}
+  /**
+  *{@summary Constructor with a specific file name.}
+  *@param fileName the file name
+  *@version 2.6
+  */
+  public Save(String fileName){
+    f=new File(fileName);
+  }
 
   // GET SET -------------------------------------------------------------------
   public void addSave(){idS++;}
   public int getIdS(){return idS;}
+
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary get save informations.}<br>
@@ -35,6 +46,7 @@ public class Save implements Serializable{
       try {
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f.getPath()+""));
         r = (Save) ois.readObject();
+        ois.close();
       }catch (Exception e) {
         r = new Save();
         r.idS=1;
@@ -62,6 +74,8 @@ public class Save implements Serializable{
     try {
       ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f.getPath()+""));
       oos.writeObject(this);
+      oos.flush();
+      oos.close();
     }catch (Exception e) {
       erreur.erreur("le fichier n'as pas été rempli");
     }

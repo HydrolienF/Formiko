@@ -144,7 +144,7 @@ public class Message implements Serializable{
         }else{
           nom=cr.getNom();
         }
-        String tueur = g.getOu("la","le")+" "+nom;
+        String tueur = g.getOr("la","le")+" "+nom;
         String texte = laNotre +" "+ g.get("fourmi")+" "+status+"("+f.getId()+")"+" "+ g.get("mort"+raison)+" "+tueur+".";
         new Message(texte,cj.getContent().getId());
         cj=cj.getSuivant();

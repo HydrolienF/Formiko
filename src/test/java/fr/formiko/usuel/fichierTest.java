@@ -75,5 +75,16 @@ public class fichierTest extends TestCaseMuet{
     }catch (Exception e) {}
     assertTrue(fichier.deleteDirectory("testDir4"));
   }
+  @Test
+  public void testDeletedDirectoryWithHideFile(){
+    int x = TestCaseMuet.getId();
+    File f = new File("testDir"+x);
+    File f3 = new File("testDir"+x+"/.save");
+    f.mkdir();
+    try {
+      f3.createNewFile();
+    }catch (Exception e) {}
+    assertTrue(fichier.deleteDirectory("testDir"+x));
+  }
 
 }

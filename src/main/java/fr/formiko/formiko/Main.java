@@ -327,7 +327,7 @@ public class Main {
     endCh("chargementDesEspeceDInsecte");
     data = new Data();
     iniCpt();
-  }
+  }public static void ini(){initialisation();}
   /**
    *{@summary Initializes counter cpt of IEspece, Joueur, Fourmiliere ,ObjetAId.}
    *@version 1.7

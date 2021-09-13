@@ -99,7 +99,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
    */
   public boolean tuer(Insecte insecteTue){
     if (!insecteTue.getEstMort()){
-      Message m = new Message(g.getOu("la","le")+" "+c.getNom()+" "+ c.getId()+" "+g.get("chasseInsectivore.2")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
+      Message m = new Message(g.getOr("la","le")+" "+c.getNom()+" "+ c.getId()+" "+g.get("chasseInsectivore.2")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
       if(c instanceof Fourmi){
         Main.setPlayingAnt((Fourmi)(c)); //to refrech playingant info
       }
@@ -118,7 +118,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
    */
   public boolean depecer(Insecte insecteTue){
     if(insecteTue==null){return false;}
-    Message m = new Message(g.getOu("la","le")+" "+c.getNom()+" "+ c.getId()+" "+g.get("chasseInsectivore.3")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
+    Message m = new Message(g.getOr("la","le")+" "+c.getNom()+" "+ c.getId()+" "+g.get("chasseInsectivore.3")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
     if(c instanceof Fourmi){
       Main.setPlayingAnt((Fourmi)(c)); //to refrech playingant info
     }

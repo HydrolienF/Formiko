@@ -207,7 +207,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   @Override
   public String toString(){
     String r = "";
-    r+= g.getOu("le","la")+" "+getNom();
+    r+= g.getOr("le","la")+" "+getNom();
     r+=" ";
     r+=getId();r+=" ";
     if (this.getFemelle()){r+= "♀";}
