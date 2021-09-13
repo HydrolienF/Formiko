@@ -17,7 +17,7 @@ public class Tree<T> implements Serializable{
   *{@summary Main constructor.}
   *@version 2.6
   */
-  public Tree(T rootData) {
+  public Tree() {
     root = new Node<T>();
   }
   // GET SET -------------------------------------------------------------------
@@ -57,6 +57,7 @@ public class Tree<T> implements Serializable{
     public Node<T> getChildren(int index){return children.get(index);}
     public T getData(){return data;}
     public void setData(T data){this.data=data;}
+    public int getChildrenSize(){return children.size();}
 
     // FUNCTIONS -----------------------------------------------------------------
     /**
