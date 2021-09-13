@@ -54,4 +54,24 @@ public class SaveTest extends TestCaseMuet {
     assertTrue(dir.exists());
     assertTrue(fichier.deleteDirectory(dir));
   }
+  @Test
+  public void testSave4(){
+    int x = TestCaseMuet.getId();
+    File dir = new File("testDir"+x);
+    dir.mkdir();
+    new Save("testDir"+x+"/.save");
+    File f3 = new File("testDir"+x+"/.save");
+    try {
+      f3.createNewFile();
+    }catch (Exception e) {}
+    assertTrue(f3.exists());
+    System.out.println("before closing");
+    Save save = Save.getSave();
+    int idS = save.getIdS();
+    assertEquals(1,idS);
+    save.addSave();
+    assertEquals(idS+1,save.getIdS());
+    assertTrue(dir.exists());
+    assertTrue(fichier.deleteDirectory(dir));
+  }
 }

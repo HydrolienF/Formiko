@@ -5,6 +5,7 @@ import fr.formiko.formiko.Main;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -14,7 +15,7 @@ import java.io.Serializable;
 *@author Hydrolien
 *@version 1.14
 */
-public class Save implements Serializable{
+public class Save implements Serializable {
   private static final long serialVersionUID = 42l;
   private int idS;
   private static File f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderBin()+".save");
@@ -38,18 +39,35 @@ public class Save implements Serializable{
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary get save informations.}<br>
-  *@version 1.14
+  *@version 2.6
   */
-  public static Save getSave(){
+  public static Save getSave() {
     Save r;
-    if(f.exists()){
+    if(f.exists()) {
+      ObjectInputStream ois=null;
+      FileInputStream fis=null;
       try {
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f.getPath()+""));
+        fis = new FileInputStream(f.getPath()+"");
+        ois = new ObjectInputStream(fis);
         r = (Save) ois.readObject();
-        ois.close();
-      }catch (Exception e) {
+      } catch (Exception e) {
         r = new Save();
         r.idS=1;
+      } finally {
+        // to be sur that everything is close & can be deleted we need to close ObjectStream & FileStream (if ObjectStream is null we need to close it separatly).
+        if(ois!=null){
+          try {
+            ois.close();
+          }catch (IOException e) {
+            erreur.erreur("fail to close ois");
+          }
+        } else if(fis!=null){
+          try {
+            fis.close();
+          }catch (IOException e) {
+            erreur.erreur("fail to close fis");
+          }
+        }
       }
     }else{
       r = new Save();
@@ -59,25 +77,42 @@ public class Save implements Serializable{
   }
   /**
   *{@summary save idSave as .save in bin/.}<br>
-  *@version 1.14
+  *@version 2.6
   */
-  public void save(){
+  public void save() {
     try {
       if(!f.exists()){
         if(!f.createNewFile()){
-          erreur.erreur("le fichier n'as pas été créer");
+          erreur.erreur("File can't be create");
         }
       }
     }catch (Exception e) {
-      erreur.erreur("le fichier n'as pas été créer");
+      erreur.erreur("File can't be create");
     }
+    ObjectOutputStream oos=null;
+    FileOutputStream fos=null;
     try {
-      ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f.getPath()+""));
+      fos = new FileOutputStream(f.getPath()+"");
+      oos = new ObjectOutputStream(fos);
       oos.writeObject(this);
       oos.flush();
-      oos.close();
     }catch (Exception e) {
-      erreur.erreur("le fichier n'as pas été rempli");
+      erreur.erreur("File can't be write");
+    } finally {
+      // to be sur that everything is close & can be deleted we need to close ObjectStream & FileStream (if ObjectStream is null we need to close it separatly).
+      if(oos!=null){
+        try {
+          oos.close();
+        } catch (IOException e) {
+          erreur.erreur("fail to close oos");
+        }
+      } else if(fos!=null) {
+        try {
+          fos.close();
+        } catch (IOException e) {
+          erreur.erreur("fail to close fos");
+        }
+      }
     }
   }
 }
