@@ -101,7 +101,7 @@ public class Fourmi extends Creature implements Serializable{
   *Use only for test.
   *@version 1.39
   */
-  public Fourmi(){}//a ne pas utiliser sauf pour les test de class.
+  public Fourmi(){}
   // GET SET ----------------------------------------------------------------------
   public byte getTypeF(){return typeF;}
   public void setTypeF(byte s){typeF = s;}public void setTypeF(int x){setTypeF((byte)x);}
