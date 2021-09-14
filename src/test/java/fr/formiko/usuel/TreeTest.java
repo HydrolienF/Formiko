@@ -5,8 +5,9 @@ import org.junit.jupiter.api.Test;
 import fr.formiko.usuel.Tree;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
-
+import javax.imageio.ImageIO;
 
 public class TreeTest extends TestCaseMuet{
 
@@ -107,7 +108,7 @@ public class TreeTest extends TestCaseMuet{
     }catch (Exception e) {
       assertTrue(false);
     }
-    Tree<?> tree = Tree.folderToTree("testDir"+x);
+    Tree<BufferedImage> tree = Tree.folderToTree("testDir"+x);
     assertEquals("0(0(0,1))",tree.toString());
     assertTrue(fichier.deleteDirectory(dirTested));
   }
@@ -124,14 +125,13 @@ public class TreeTest extends TestCaseMuet{
       File file = new File("testDir"+x+"/testDir2/testDir3bis/bka.txt");
       file.createNewFile();
       file = new File("testDir"+x+"/testDir2/testDir3bis/imag.png");
-      file.createNewFile();
+      BufferedImage bi = new BufferedImage(10, 10, BufferedImage.TYPE_INT_ARGB);
+      ImageIO.write(bi, "png", file);
     }catch (Exception e) {
       assertTrue(false);
     }
-    Tree<?> tree = Tree.folderToTree("testDir"+x);
-    System.out.println("containt image");//@a
-    System.out.println();System.out.println();
-    assertEquals("0(0(0,1))",tree.toString());
+    Tree<BufferedImage> tree = Tree.folderToTree("testDir"+x);
+    assertEquals("0(0(0,1I))",tree.toString());
     assertTrue(fichier.deleteDirectory(dirTested));
   }
 

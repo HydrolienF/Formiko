@@ -52,7 +52,7 @@ public class Tree<T> implements Serializable {
   *@param fileName name of the file to Transform
   *@version 2.6
   */
-  public static Tree folderToTree(String fileName) {
+  public static Tree<BufferedImage> folderToTree(String fileName) {
     return folderToTree(new File(fileName));
   }
 
@@ -100,7 +100,8 @@ public class Tree<T> implements Serializable {
       String s = ""+id;
       if(getData()!=null){
         System.out.println("data!=null");//@a
-        s+=getData().toString();
+        // s+=getData().toString();
+        s+="I";
       }
       if(children.isEmpty()){return s;}
       s+="(";
@@ -136,22 +137,19 @@ public class Tree<T> implements Serializable {
     *@param file file to Transform into Node.
     *@version 2.6
     */
+    @SuppressWarnings("unchecked")
     private void addFileAsNode(File file) {
       if(file.isDirectory()) {
-        //add all the sub fodler.
         File allF [] = file.listFiles();
         if (allF != null) {
             for (File subFile : allF) {
-              // addChildren();
               if(subFile.isDirectory()){
                 Node<T> node = new Node<T>(this);
                 children.add(node);
                 node.addFileAsNode(subFile);
               } else if (image.isImage(subFile)) { //  && subFile.getName().contains("full") && T instanceof BufferedImage
                 try {
-                  System.out.println("settting data");
                   setData((T)image.readImage(subFile));
-                  System.out.println("data  set");
                 }catch (Exception e) {}
               }
             }
