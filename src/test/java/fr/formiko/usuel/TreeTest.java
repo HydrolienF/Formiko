@@ -134,5 +134,37 @@ public class TreeTest extends TestCaseMuet{
     assertEquals("0(0(0,1I))",tree.toString());
     assertTrue(fichier.deleteDirectory(dirTested));
   }
+  @Test
+  public void testFore(){
+    Tree<String> tree = new Tree<String>();
+    tree.getRoot().addChildren("1");
+    tree.getRoot().addChildren("1b");
+    tree.getRoot().addChildren("1t");
+    tree.getRoot().getChildren(0).addChildren("2");
+    tree.getRoot().getChildren(0).getChildren(0).addChildren("3");
+    tree.getRoot().getChildren(0).addChildren("2b");
+    tree.getRoot().getChildren(1).addChildren("2t");
+    int k=0;
+    for (String s : tree) {
+      System.out.println(s);
+      k++;
+    }
+    assertEquals(8,k);
+  }
+  @Test
+  public void testFore2(){
+    Tree<String> tree = new Tree<String>();
+    tree.getRoot().addChildren("1");
+    tree.getRoot().addChildren("1b");
+    tree.getRoot().getChildren(0).addChildren("2");
+    tree.getRoot().getChildren(0).getChildren(0).addChildren("3");
+    tree.getRoot().getChildren(0).getChildren(0).getChildren(0).addChildren("4");
+    int k=0;
+    for (String s : tree) {
+      System.out.println(s);
+      k++;
+    }
+    assertEquals(6,k);
+  }
 
 }

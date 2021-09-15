@@ -71,7 +71,6 @@ public class Tree<T> implements Serializable, Iterable<T>{
   *@author Hydrolien
   */
   class TreeIterator<T> implements Iterator<T>, Serializable {
-    // private int childNumber;
     private Node<T> current;
     private Liste<Node<T>> heapNextChild;
 
@@ -81,7 +80,7 @@ public class Tree<T> implements Serializable, Iterable<T>{
     */
     public TreeIterator(Tree<T> tree){
       current = tree.getRoot();
-      // childNumber=-1;
+      heapNextChild = new Liste<Node<T>>();
     }
 
     public boolean hasNext(){return current != null;}
@@ -93,18 +92,8 @@ public class Tree<T> implements Serializable, Iterable<T>{
     */
     public T next(){
       T content = current.getContent();
-      // if(childNumber==-1){
-      //   content = current.getContent();
-      //   childNumber++;
-      // }else if(childNumber>-1 && childNumber<getChildrenSize()){
-      //   content = getChildren(childNumber).getContent();
-      //   childNumber++;
-      // }else{
-      //   current = current.getNext();
-      //   childNumber=-1;
-      // }
       if (current.getChildrenSize()>0){
-        heapNextChild.add(current.getChildren());
+        heapNextChild.push(current.getChildren());
       }
       current=heapNextChild.pop();
       return content;

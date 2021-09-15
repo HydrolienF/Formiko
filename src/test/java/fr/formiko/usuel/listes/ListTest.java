@@ -103,6 +103,45 @@ public class ListTest extends TestCaseMuet{
     assertEquals("Pirpo & kartoĉio La libro , formiko la ludo ",l2.toString());
   }
   @Test
+  public void testAddList2(){
+    Liste<String> l = new Liste<String>();
+    l.addTail(", formiko");
+    l.addTail("la ludo");
+
+    Liste<String> l2 = new Liste<String>();
+    l2.add("Pirpo & kartoĉio");
+    l2.addList(l);
+    assertEquals("Pirpo & kartoĉio , formiko la ludo ",l2.toString());
+  }
+  @Test
+  public void testAddList3(){
+    Liste<String> l = new Liste<String>();
+    l.addTail(", formiko");
+
+    Liste<String> l2 = new Liste<String>();
+    l2.add("Pirpo & kartoĉio");
+    l2.addList(l);
+    assertEquals("Pirpo & kartoĉio , formiko ",l2.toString());
+  }
+  @Test
+  public void testAddList4(){
+    Liste<String> l = new Liste<String>();
+
+    Liste<String> l2 = new Liste<String>();
+    l2.add("Pirpo & kartoĉio");
+    l2.addList(l);
+    assertEquals("Pirpo & kartoĉio ",l2.toString());
+  }
+  @Test
+  public void testAddList5(){
+    Liste<String> l = new Liste<String>();
+    l.addTail(", formiko");
+
+    Liste<String> l2 = new Liste<String>();
+    l2.addList(l);
+    assertEquals(", formiko ",l2.toString());
+  }
+  @Test
   public void testAddAll(){
     Liste<String> l = new Liste<String>();
     l.addTail(", formiko");
@@ -350,10 +389,39 @@ public class ListTest extends TestCaseMuet{
     l2.push(new Point(2,1));
     l2.push(new Point(3,1));
     l.push(l2);
-    System.out.println(l);
     assertEquals(new Point(3,1), l.pop());
     assertEquals(new Point(2,1), l.pop());
     assertEquals(new Point(1,1), l.pop());
     assertTrue(l.isEmpty());
   }
+  @Test
+  public void testPushList2(){
+    Liste<Point> l = new Liste<Point>();
+    Liste<Point> l2 = new Liste<Point>();
+    l2.push(new Point(2,1));
+    l2.push(new Point(3,1));
+    l.push(l2);
+    assertEquals(new Point(3,1), l.pop());
+    assertEquals(new Point(2,1), l.pop());
+    assertTrue(l.isEmpty());
+  }
+  @Test
+  public void testPushList3(){
+    Liste<Point> l = new Liste<Point>();
+    Liste<Point> l2 = new Liste<Point>();
+    l2.push(new Point(3,1));
+    l.push(l2);
+    assertEquals(new Point(3,1), l.pop());
+    assertTrue(l.isEmpty());
+  }
+  @Test
+  public void testPushList4(){
+    Liste<Point> l = new Liste<Point>();
+    l.push(new Point(3,1));
+    Liste<Point> l2 = new Liste<Point>();
+    l.push(l2);
+    assertEquals(new Point(3,1), l.pop());
+    assertTrue(l.isEmpty());
+  }
+
 }

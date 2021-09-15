@@ -102,7 +102,6 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
       tail = list.getTail();
     }else {
       tail.setNext(list.getHead());
-      //list.getHead().add(tail);
       tail = list.getTail();
     }
   }
@@ -120,9 +119,18 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   */
   public void push(Liste<T> list){
     if(list == null || list.getHead() == null){ return;}
-    list.addList(this);
-    head=list.getHead();
-    tail=list.getTail();
+    // list.addList(this);
+    // head=list.getHead();
+    // tail=list.getTail();
+    if (getTail() == null){
+      head = list.getHead();
+      tail = list.getTail();
+    }else {
+      list.getTail().setNext(getHead());
+      head = list.getHead();
+      // tail.setNext(list.getHead());
+      // tail = list.getTail();
+    }
   }
   /**
   *{@summary Pop (return the item &#38; remove it) of the top of the heap (at Head).}<br>
@@ -147,7 +155,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   */
   public int size(){
     int cpt = 0;
-    for (T t : this ) {
+    for (T t : this) {
       cpt++;
     }
     return cpt;
