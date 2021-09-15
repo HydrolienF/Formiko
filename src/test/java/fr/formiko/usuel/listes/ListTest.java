@@ -327,4 +327,33 @@ public class ListTest extends TestCaseMuet{
     assertTrue(l.addSorted(new Point(7,1), comparator));
     assertEquals("(1,5) (2,3) (7,1) ",l.toString());
   }
+  @Test
+  public void testPopPush(){
+    Liste<Point> l = new Liste<Point>();
+    assertEquals(null,l.pop());
+    l.push(new Point(1,1));
+    assertEquals(new Point(1,1), l.pop());
+    l.push(new Point(2,-11));
+    l.push(new Point(2,1));
+    assertEquals(new Point(2,1), l.pop());
+    l.push(new Point(0,0));
+    assertEquals(2,l.size());
+    assertEquals(new Point(0,0), l.pop());
+    assertEquals(new Point(2,-11), l.pop());
+    assertTrue(l.isEmpty());
+  }
+  @Test
+  public void testPushList(){
+    Liste<Point> l = new Liste<Point>();
+    l.push(new Point(1,1));
+    Liste<Point> l2 = new Liste<Point>();
+    l2.push(new Point(2,1));
+    l2.push(new Point(3,1));
+    l.push(l2);
+    System.out.println(l);
+    assertEquals(new Point(3,1), l.pop());
+    assertEquals(new Point(2,1), l.pop());
+    assertEquals(new Point(1,1), l.pop());
+    assertTrue(l.isEmpty());
+  }
 }

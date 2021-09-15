@@ -24,9 +24,9 @@ public class TreeTest extends TestCaseMuet{
     tree.getRoot().addChildren();
     tree.getRoot().addChildren("str");
     tree.getRoot().addChildren("test");
-    assertEquals(null,tree.getRoot().getChildren(0).getData());
-    assertEquals("str",tree.getRoot().getChildren(1).getData());
-    assertEquals("test",tree.getRoot().getChildren(2).getData());
+    assertEquals(null,tree.getRoot().getChildren(0).getContent());
+    assertEquals("str",tree.getRoot().getChildren(1).getContent());
+    assertEquals("test",tree.getRoot().getChildren(2).getContent());
     assertEquals(null,tree.getRoot().getChildren(3));
     assertEquals(null,tree.getRoot().getChildren(-1));
   }
@@ -44,8 +44,8 @@ public class TreeTest extends TestCaseMuet{
     assertEquals(2,tree.getRoot().getChildren(0).getChildren(0).getChildren(0).getChildren(0).getChildren(0).getChildrenSize());
     tree.getRoot().getChildren(0).getChildren(0).getChildren(0).getChildren(0).getChildren(0).addChildren();
     assertEquals(3,tree.getRoot().getChildren(0).getChildren(0).getChildren(0).getChildren(0).getChildren(0).getChildrenSize());
-    tree.getRoot().getChildren(0).getChildren(0).getChildren(0).getChildren(0).getChildren(0).getChildren(2).setData("a string");
-    assertEquals("a string",tree.getRoot().getChildren(0).getChildren(0).getChildren(0).getChildren(0).getChildren(0).getChildren(2).getData());
+    tree.getRoot().getChildren(0).getChildren(0).getChildren(0).getChildren(0).getChildren(0).getChildren(2).setContent("a string");
+    assertEquals("a string",tree.getRoot().getChildren(0).getChildren(0).getChildren(0).getChildren(0).getChildren(0).getChildren(2).getContent());
   }
   @Test
   public void testTree4(){
@@ -53,13 +53,13 @@ public class TreeTest extends TestCaseMuet{
     tree.getRoot().addChildren("1");
     tree.getRoot().getChildren(0).addChildren("2");
     tree.getRoot().getChildren(0).getChildren(0).addChildren("3");
-    assertEquals(null,tree.getRoot().getData());
-    assertEquals("1",tree.getRoot().getChildren(0).getData());
-    assertEquals("2",tree.getRoot().getChildren(0).getChildren(0).getData());
-    assertEquals("3",tree.getRoot().getChildren(0).getChildren(0).getChildren(0).getData());
-    assertEquals("2",tree.getRoot().getChildren(0).getChildren(0).getChildren(0).getParent().getData());
-    assertEquals("2",tree.getRoot().getChildren(0).getParent().getChildren(0).getChildren(0).getData());
-    assertEquals("1",tree.getRoot().getChildren(0).getChildren(0).getChildren(0).getParent().getParent().getData());
+    assertEquals(null,tree.getRoot().getContent());
+    assertEquals("1",tree.getRoot().getChildren(0).getContent());
+    assertEquals("2",tree.getRoot().getChildren(0).getChildren(0).getContent());
+    assertEquals("3",tree.getRoot().getChildren(0).getChildren(0).getChildren(0).getContent());
+    assertEquals("2",tree.getRoot().getChildren(0).getChildren(0).getChildren(0).getParent().getContent());
+    assertEquals("2",tree.getRoot().getChildren(0).getParent().getChildren(0).getChildren(0).getContent());
+    assertEquals("1",tree.getRoot().getChildren(0).getChildren(0).getChildren(0).getParent().getParent().getContent());
   }
   @Test
   public void testFolderToTree(){

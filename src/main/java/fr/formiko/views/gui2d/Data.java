@@ -5,6 +5,8 @@ import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Pheromone;
 import fr.formiko.formiko.Point;
+import fr.formiko.usuel.Folder;
+import fr.formiko.usuel.Tree;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -55,6 +57,9 @@ public class Data {
   private BufferedImage tFIni[][];
   private BufferedImage antColorIni[];
   private BufferedImage antLegIni[];
+  //image data
+  private Tree<BufferedImage> imageTree;
+  private Tree<BufferedImage> imageTreeIni;
   //PanneauAction
   private BufferedImage tImage [];
   //PanneauZoom
@@ -324,6 +329,8 @@ public class Data {
         tFIni = chargerTX("F",3,(byte)0,-3);
         iniAntColorIni();
         antLegIni = image.getImages("FLeg",image.getNbrImages("FLeg"),(byte)0);
+        imageTreeIni = Tree.folderToTree(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");
+        System.out.println(imageTreeIni);//@a
         // antFAFIni = image.getImages("FAF",image.getNbrImages("FAF"),(byte)0);
         // antFASIni = image.getImages("FAS",image.getNbrImages("FAS"),(byte)0);
         tGIni = chargerTX("seed");

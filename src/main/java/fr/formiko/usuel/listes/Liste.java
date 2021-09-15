@@ -108,6 +108,32 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   public void add(Liste<T> list){addList(list);}
   /**
+  *{@summary Push at the top of the heap (at head).}<br>
+  *@version 2.6
+  */
+  public void push(T t){
+    addHead(t);
+  }
+  /**
+  *{@summary Push at the top of the heap list as Head.}<br>
+  *@version 2.6
+  */
+  public void push(Liste<T> list){
+    if(list == null || list.getHead() == null){ return;}
+    list.addList(this);
+    head=list.getHead();
+    tail=list.getTail();
+  }
+  /**
+  *{@summary Pop (return the item &#38; remove it) of the top of the heap (at Head).}<br>
+  *@version 2.6
+  */
+  public T pop(){
+    T t = getFirst();
+    removeItem(0);
+    return t;
+  }
+  /**
   *{@summary Return true is list is empty.}<br>
   *It's a better function than doing list.length()==0.
   *@version 2.5
