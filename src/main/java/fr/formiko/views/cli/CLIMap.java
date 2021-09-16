@@ -15,7 +15,7 @@ import fr.formiko.usuel.ascii;
 import fr.formiko.usuel.color;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 
 /**
 *{@summary Represent the Map in CLI mode.}<br>

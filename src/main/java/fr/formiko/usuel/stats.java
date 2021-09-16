@@ -1,11 +1,11 @@
 package fr.formiko.usuel;
 
 //def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.listes.GGInt;
-import fr.formiko.usuel.listes.CCInt;
-import fr.formiko.usuel.listes.GInt;
-import fr.formiko.usuel.listes.CInt;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GGInt;
+import fr.formiko.usuel.structures.listes.CCInt;
+import fr.formiko.usuel.structures.listes.GInt;
+import fr.formiko.usuel.structures.listes.CInt;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.Chrono;

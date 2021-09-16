@@ -1,7 +1,7 @@
 package fr.formiko.usuel;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 
 import java.io.File;
 

@@ -4,7 +4,7 @@ package fr.formiko.usuel;
 import java.io.File;
 import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.usuel.ecrireUnFichier;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 
 public class modificationDeFichier {
 

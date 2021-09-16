@@ -3,7 +3,7 @@ package fr.formiko.usuel;
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.ecrireUnFichier;
 import fr.formiko.usuel.lireUnFichier;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.types.str;
 
 import java.text.SimpleDateFormat;

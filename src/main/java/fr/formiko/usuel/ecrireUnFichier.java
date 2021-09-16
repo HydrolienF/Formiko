@@ -1,6 +1,6 @@
 package fr.formiko.usuel;
 
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 

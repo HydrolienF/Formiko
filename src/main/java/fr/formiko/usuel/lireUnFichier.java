@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.File;
 import java.util.ArrayList;
 import java.nio.charset.StandardCharsets;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 
 public class lireUnFichier {
 

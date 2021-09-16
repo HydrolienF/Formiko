@@ -15,7 +15,7 @@ import fr.formiko.usuel.color;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.Liste;
+import fr.formiko.usuel.structures.listes.Liste;
 import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;

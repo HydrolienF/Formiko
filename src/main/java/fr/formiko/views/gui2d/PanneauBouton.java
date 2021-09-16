@@ -5,7 +5,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.listes.*;
+import fr.formiko.usuel.structures.listes.*;
 import fr.formiko.usuel.maths.math;
 
 import java.awt.Color;

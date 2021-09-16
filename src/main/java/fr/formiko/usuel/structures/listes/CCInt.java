@@ -1,4 +1,4 @@
-package fr.formiko.usuel.listes;
+package fr.formiko.usuel.structures.listes;
 
 //def par défaut des fichiers depuis 0.79.5
 import java.io.Serializable;

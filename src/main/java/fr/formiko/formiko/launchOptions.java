@@ -12,7 +12,7 @@ import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.media.audio.*;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.trad;

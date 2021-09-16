@@ -1,4 +1,4 @@
-package fr.formiko.usuel.listes;
+package fr.formiko.usuel.structures.listes;
 
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.math;

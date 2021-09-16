@@ -1,9 +1,9 @@
-package fr.formiko.usuel.listes;
+package fr.formiko.usuel.structures.listes;
 
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Point;
-import fr.formiko.usuel.listes.Liste;
+import fr.formiko.usuel.structures.listes.Liste;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
 import java.util.Comparator;

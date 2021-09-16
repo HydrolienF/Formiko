@@ -6,7 +6,7 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.exceptions.ListItemNotFoundException;
 import fr.formiko.usuel.exceptions.EmptyListException;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.Liste;
+import fr.formiko.usuel.structures.listes.Liste;
 
 import java.io.Serializable;
 import java.util.Iterator;

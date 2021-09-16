@@ -9,7 +9,7 @@ import fr.formiko.formiko.Point;
 import fr.formiko.formiko.interfaces.DeplacementFourmi;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.listes.Liste;
+import fr.formiko.usuel.structures.listes.Liste;
 
 import java.lang.Thread;
 import java.util.Comparator;

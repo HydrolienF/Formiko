@@ -2,7 +2,7 @@ package fr.formiko.formiko;
 
 import fr.formiko.usuel.*;
 import fr.formiko.usuel.images.*;
-import fr.formiko.usuel.listes.*;
+import fr.formiko.usuel.structures.listes.*;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.media.audio.MusicPlayer;
 import fr.formiko.usuel.types.str;

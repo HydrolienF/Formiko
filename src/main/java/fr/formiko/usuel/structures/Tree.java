@@ -1,7 +1,7 @@
-package fr.formiko.usuel.structure;
+package fr.formiko.usuel.structures;
 
 import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.listes.Liste;
+import fr.formiko.usuel.structures.listes.Liste;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

@@ -22,7 +22,7 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.Pixel;
 import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.listes.Liste;
+import fr.formiko.usuel.structures.listes.Liste;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
 

@@ -2,7 +2,7 @@ package fr.formiko.usuel.media.audio;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.maths.allea;
 
 import java.io.File;

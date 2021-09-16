@@ -1,4 +1,4 @@
-package fr.formiko.usuel.listes;
+package fr.formiko.usuel.structures.listes;
 
 import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GCreature;

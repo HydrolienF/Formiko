@@ -5,8 +5,8 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.exceptions.NotNullLocationException;
-import fr.formiko.usuel.listes.GGInt;
-import fr.formiko.usuel.listes.GInt;
+import fr.formiko.usuel.structures.listes.GGInt;
+import fr.formiko.usuel.structures.listes.GInt;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.Temps;
 
