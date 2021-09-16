@@ -306,6 +306,7 @@ public class Data {
       tF=getScaledInstance(tFIni, tailleFourmi,1);//les Fourmis au différent stade.
       antColor=getScaledInstance(antColorIni, tailleFourmi,0);//les Fourmis au différent stade.
       antLeg=getScaledInstance(antLegIni, tailleFourmi/2,0);//les Fourmis au différent stade.
+      imageTree = getScaledInstance(imageTreeIni, tailleFourmi);
       tG=getScaledInstance(tGIni, tailleFourmi);
       fere = image.resize(fereIni,tailleDUneCase/2);
       cNuageuse = image.resize(cNuageuseIni,tailleDUneCase);
@@ -330,7 +331,6 @@ public class Data {
         iniAntColorIni();
         antLegIni = image.getImages("FLeg",image.getNbrImages("FLeg"),(byte)0);
         imageTreeIni = Tree.folderToTree(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");
-        System.out.println(imageTreeIni);//@a
         // antFAFIni = image.getImages("FAF",image.getNbrImages("FAF"),(byte)0);
         // antFASIni = image.getImages("FAS",image.getNbrImages("FAS"),(byte)0);
         tGIni = chargerTX("seed");
@@ -442,6 +442,33 @@ public class Data {
     }
 
     //getScaledInstance.
+    public Tree<BufferedImage> getScaledInstance(Tree<BufferedImage> treeIn, int dim){
+      Tree<BufferedImage> treeOut = treeIn.copyStructure();
+    //   //TODO copy structur of treeIn
+    //   //insect
+    //   Liste<Node<BufferedImage>> insectListIn = treeIn.getRoot().getChildren(1).getChildren();
+    //   Liste<Node<BufferedImage>> insectListOut = treeOut.getRoot().getChildren(1).getChildren();
+    //   int idInsect = 0;
+    //   for (Node<BufferedImage> nodeIn : insectListIn) {
+    //     BufferedImage biIn,biOut;
+    //     for (int i=0;i<2 ;i++ ) { //imago ♂ & ♀
+    //       biIn = nodeIn.getChildren(0).getChildren(i).getContent();
+    //       if(biIn!=null){
+    //         biOut = image.resize(biIn,image.taille(idInsect+100,0,dim));
+    //         insectListOut.getChildren(idInsect).getChildren(0).getChildren(i).setContent(biOut);
+    //       }
+    //     }
+    //     for (int i=1;i<3 ;i++ ) { // other stade
+    //       biIn = nodeIn.getChildren(i).getContent();
+    //       if(biIn!=null){
+    //         biOut = image.resize(biIn,image.taille(idInsect+100,i,dim));
+    //         insectListOut.getChildren(idInsect).getChildren(0).getChildren(i).setContent(biOut);
+    //       }
+    //     }
+    //     idInsect++;
+    //   }
+      return treeOut;
+    }
     /**
     *Return a scaled BufferedImage
     *@version 2.1
@@ -482,6 +509,7 @@ public class Data {
         }else if(b==2){//pour les insectes
           int idEspece = i+100;
           int stade = 0;
+          //TODO #421 do the same into the imageTreeIni.
           r[i]=image.resize(ti[i],image.taille(idEspece, stade,dim));
         }
       }

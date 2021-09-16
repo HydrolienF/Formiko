@@ -146,7 +146,6 @@ public class TreeTest extends TestCaseMuet{
     tree.getRoot().getChildren(1).addChildren("2t");
     int k=0;
     for (String s : tree) {
-      System.out.println(s);
       k++;
     }
     assertEquals(8,k);
@@ -161,10 +160,40 @@ public class TreeTest extends TestCaseMuet{
     tree.getRoot().getChildren(0).getChildren(0).getChildren(0).addChildren("4");
     int k=0;
     for (String s : tree) {
-      System.out.println(s);
       k++;
     }
     assertEquals(6,k);
+  }
+  @Test
+  public void testCopyStructure(){
+    Tree<String> tree = new Tree<String>();
+    assertEquals("0",tree.toString());
+    Tree<String> tree2 = tree.copyStructure();
+    assertEquals("0",tree2.toString());
+  }
+  @Test
+  public void testCopyStructure2(){
+    Tree<String> tree = new Tree<String>();
+    tree.getRoot().addChildren();
+    tree.getRoot().addChildren();
+    tree.getRoot().getChildren(0).addChildren();
+    tree.getRoot().getChildren(0).getChildren(0).addChildren();
+    tree.getRoot().getChildren(0).getChildren(0).getChildren(0).addChildren();
+    assertEquals("0(0(0(0(0))),1)",tree.toString());
+    Tree<String> tree2 = tree.copyStructure();
+    assertEquals("0(0(0(0(0))),1)",tree2.toString());
+  }
+  @Test
+  public void testCopyStructure3(){
+    Tree<String> tree = new Tree<String>();
+    tree.getRoot().addChildren("1");
+    tree.getRoot().addChildren("1b");
+    tree.getRoot().getChildren(0).addChildren();
+    tree.getRoot().getChildren(0).getChildren(0).addChildren("3");
+    tree.getRoot().getChildren(0).getChildren(0).getChildren(0).addChildren();
+    assertEquals("0(0I(0(0I(0))),1I)",tree.toString());
+    Tree<String> tree2 = tree.copyStructure();
+    assertEquals("0(0(0(0(0))),1)",tree2.toString());
   }
 
 }

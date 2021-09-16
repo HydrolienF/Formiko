@@ -57,6 +57,17 @@ public class Tree<T> implements Serializable, Iterable<T>{
     return folderToTree(new File(fileName));
   }
   /**
+  *{@summary Copy the structure of a given Tree.}
+  *content of node will not be copy.
+  *@param treeIn tree to copy.
+  *@version 2.6
+  */
+  public Tree<T> copyStructure() {
+    Tree<T> treeOut = new Tree<T>();
+    treeOut.getRoot().copyStructure(this.getRoot());
+    return treeOut;
+  }
+  /**
   *{@summary return the coresponding Iterator}<br>
   *@version 2.6
   */
@@ -176,12 +187,22 @@ class Node<T> {
     children.add(new Node<T>(this));
   }
   /**
+  *{@summary Add x child to the children list.}<br>
+  *@param x the number of children to add
+  *@version 2.6
+  */
+  public void addChildren(int x){
+    for (int i=0;i<x ;i++ ) {
+      addChildren();
+    }
+  }
+  /**
   *{@summary Add a folder (and it's sub folder) at this Node.}
   *@param file file to Transform into Node.
   *@version 2.6
   */
   @SuppressWarnings("unchecked")
-  void addFileAsNode(File file) { //private by aviable on all Tree.java
+  void addFileAsNode(File file) { //private but aviable on all Tree.java
     if(file.isDirectory()) {
       File allF [] = file.listFiles();
       if (allF != null) {
@@ -197,6 +218,20 @@ class Node<T> {
           }
         }
       }
+    }
+  }
+  /**
+  *{@summary Copy the structure of a given Node into this.}
+  *content of node will not be copy.
+  *@param nodeIn Node to copy.
+  *@version 2.6
+  */
+  void copyStructure(Node<T> nodeIn) { //private but aviable on all Tree.java
+    addChildren(nodeIn.getChildrenSize());
+    int k=0;
+    for (Node<T> subNode : getChildren()) {
+      subNode.copyStructure(nodeIn.getChildren(k));
+      k++;
     }
   }
 }
