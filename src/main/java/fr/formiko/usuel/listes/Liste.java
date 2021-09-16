@@ -15,14 +15,14 @@ import java.util.ListIterator;
 *@author Hydrolien
 */
 public class Liste<T> implements Iterable<T>, Serializable, List<T> {
-  protected Node<T> head, tail;
+  protected listNode<T> head, tail;
   // CONSTRUCTORS --------------------------------------------------------------
   public Liste(){}
   // GET SET -------------------------------------------------------------------
-  public Node<T> getHead(){return head;}
-  private void setHead(Node<T> node){head=node;}
-  public Node<T> getTail(){return tail;}
-  private void setTail(Node<T> node){tail=node;}
+  public listNode<T> getHead(){return head;}
+  private void setHead(listNode<T> node){head=node;}
+  public listNode<T> getTail(){return tail;}
+  private void setTail(listNode<T> node){tail=node;}
   public T getFirst(){if(getHead()!=null){return getHead().getContent();}else{return null;}}
   public T getLast(){if(getTail()!=null){return getTail().getContent();}else{return null;}}
   // FUNCTIONS -----------------------------------------------------------------
@@ -34,7 +34,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   public void addTail(T content){
     if(content==null){return;}
     //if(contains(content)){return;}
-    Node<T> node = new Node<>(content, null);
+    listNode<T> node = new listNode<>(content, null);
     if (head == null)
       tail = head = node;
     else {
@@ -50,7 +50,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   public void addHead(T content){
     if(content==null){return;}
     //if(contains(content)){return;}
-    Node<T> node = new Node<>(content, null);
+    listNode<T> node = new listNode<>(content, null);
     if (head == null)
       tail = head = node;
     else {
@@ -63,7 +63,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   *@version 1.41
   */
   public void updateTail(){
-    Node<T> node = getHead();
+    listNode<T> node = getHead();
     while(node.getNext()!=null){
       node=node.getNext();
     }
@@ -401,13 +401,13 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
     if(getHead()==null){
       return add(t);
     }else if(c.compare(t,getHead().getContent())>0){
-      Node<T> newNode = new Node<T>(t);
+      listNode<T> newNode = new listNode<T>(t);
       newNode.setNext(getHead());
       setHead(newNode);
       return true;
     }else{
-      Node<T> node = getHead();
-      Node<T> newNode = new Node<T>(t);
+      listNode<T> node = getHead();
+      listNode<T> newNode = new listNode<T>(t);
       while(node.getNext()!=null){
         if(c.compare(t,node.getNext().getContent())>0){
           //insert beween node & node.next
@@ -419,7 +419,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
       }
     }
     // if(c.compare(t,getTail().getContent())>0){
-      Node<T> newNode = new Node<T>(t);
+      listNode<T> newNode = new listNode<T>(t);
       getTail().setNext(newNode);
       setTail(newNode);
       return true;
@@ -440,7 +440,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
 *@author Hydrolien
 */
 class ListeIterator<T> implements Iterator<T>, Serializable {
-  private Node<T> current;
+  private listNode<T> current;
 
   /**
   *{@summary Initialize pointer to head of the list for iteration.}<br>
@@ -463,33 +463,33 @@ class ListeIterator<T> implements Iterator<T>, Serializable {
   }
 }
 /**
-*{@summary Constituent Node of the Linked Liste}<br>
+*{@summary Constituent listNode of the Linked Liste}<br>
 *@version 1.41
 *@author Hydrolien
 */
-class Node<T> implements Serializable {
+class listNode<T> implements Serializable {
   private T content;
-  private Node<T> next;
+  private listNode<T> next;
   /**
-  *{@summary Main constructor for Node.}<br>
+  *{@summary Main constructor for listNode.}<br>
   *@version 1.31
   */
-  public Node(T content, Node<T> next){
+  public listNode(T content, listNode<T> next){
       this.content = content;
       this.next = next;
   }
   /**
-  *{@summary Secondary constructor for Node with null next item.}<br>
+  *{@summary Secondary constructor for listNode with null next item.}<br>
   *@version 2.1
   */
-  public Node(T content){
+  public listNode(T content){
     this(content, null);
   }
   // GET SET -------------------------------------------------------------------
   public T getContent(){return content;}
   public void setContent(T content){this.content = content;}
-  public Node<T> getNext(){return next;}
-  public void setNext(Node<T> next){this.next = next;}
+  public listNode<T> getNext(){return next;}
+  public void setNext(listNode<T> next){this.next = next;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Equals function that also test next.}<br>
@@ -499,9 +499,9 @@ class Node<T> implements Serializable {
   @SuppressWarnings("unchecked")
   public boolean equals(Object o){
     if(o==null){return false;}
-    if(o instanceof Node){
+    if(o instanceof listNode){
       try {
-        Node<T> node = (Node<T>)o;
+        listNode<T> node = (listNode<T>)o;
         if(getContent().equals(node.getContent())){
           if(getNext()==null && node.getNext()==null){return true;}
           if(getNext()==null || node.getNext()==null){return false;}
@@ -548,7 +548,7 @@ class Node<T> implements Serializable {
   */
   public boolean add(int index, T t){
     if(index==1){
-      Node<T> node = new Node<T>(t);
+      listNode<T> node = new listNode<T>(t);
       node.setNext(getNext());
       setNext(node);
       return true;

@@ -6,7 +6,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Pheromone;
 import fr.formiko.formiko.Point;
 import fr.formiko.usuel.Folder;
-import fr.formiko.usuel.Tree;
+import fr.formiko.usuel.structure.Tree;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -16,6 +16,8 @@ import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.types.str;
+import fr.formiko.usuel.listes.Liste;
+import fr.formiko.usuel.structure.Tree;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -444,29 +446,31 @@ public class Data {
     //getScaledInstance.
     public Tree<BufferedImage> getScaledInstance(Tree<BufferedImage> treeIn, int dim){
       Tree<BufferedImage> treeOut = treeIn.copyStructure();
-    //   //TODO copy structur of treeIn
-    //   //insect
-    //   Liste<Node<BufferedImage>> insectListIn = treeIn.getRoot().getChildren(1).getChildren();
-    //   Liste<Node<BufferedImage>> insectListOut = treeOut.getRoot().getChildren(1).getChildren();
-    //   int idInsect = 0;
-    //   for (Node<BufferedImage> nodeIn : insectListIn) {
-    //     BufferedImage biIn,biOut;
-    //     for (int i=0;i<2 ;i++ ) { //imago ♂ & ♀
-    //       biIn = nodeIn.getChildren(0).getChildren(i).getContent();
-    //       if(biIn!=null){
-    //         biOut = image.resize(biIn,image.taille(idInsect+100,0,dim));
-    //         insectListOut.getChildren(idInsect).getChildren(0).getChildren(i).setContent(biOut);
-    //       }
-    //     }
-    //     for (int i=1;i<3 ;i++ ) { // other stade
-    //       biIn = nodeIn.getChildren(i).getContent();
-    //       if(biIn!=null){
-    //         biOut = image.resize(biIn,image.taille(idInsect+100,i,dim));
-    //         insectListOut.getChildren(idInsect).getChildren(0).getChildren(i).setContent(biOut);
-    //       }
-    //     }
-    //     idInsect++;
-    //   }
+      //TODO copy structur of treeIn
+      //insect
+      // Liste<fr.formiko.usuel.treeNode<BufferedImage>> insectListIn = treeIn.getRoot().getChildren(1).getChildren();
+      // Liste<fr.formiko.usuel.treeNode<BufferedImage>> insectListOut = treeOut.getRoot().getChildren(1).getChildren();
+      // int idInsect = 0;
+      // for (fr.formiko.usuel.treeNode<BufferedImage> nodeIn : insectListIn) {
+      //   BufferedImage biIn,biOut;
+      //   for (int i=0;i<2 ;i++ ) { //imago ♂ & ♀
+      //     biIn = nodeIn.getChildren(0).getChildren(i).getContent();
+      //     if(biIn!=null){
+      //       biOut = image.resize(biIn,image.taille(idInsect+100,0,dim));
+      //       insectListOut.getChildren(idInsect).getChildren(0).getChildren(i).setContent(biOut);
+      //     }
+      //   }
+      //   for (int i=1;i<3 ;i++ ) { // other stade
+      //     biIn = nodeIn.getChildren(i).getContent();
+      //     if(biIn!=null){
+      //       biOut = image.resize(biIn,image.taille(idInsect+100,i,dim));
+      //       insectListOut.getChildren(idInsect).getChildren(0).getChildren(i).setContent(biOut);
+      //     }
+      //   }
+      //   idInsect++;
+      // }
+      System.out.println(treeIn);//@a
+      System.out.println(treeOut);//@a
       return treeOut;
     }
     /**

@@ -1,4 +1,4 @@
-package fr.formiko.usuel;
+package fr.formiko.usuel.structure;
 
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.listes.Liste;
@@ -14,7 +14,7 @@ import java.util.Iterator;
 *@author Hydrolien
 */
 public class Tree<T> implements Serializable, Iterable<T>{
-  private Node<T> root;
+  private treeNode<T> root;
 
   // CONSTRUCTORS --------------------------------------------------------------
   /**
@@ -22,11 +22,12 @@ public class Tree<T> implements Serializable, Iterable<T>{
   *@version 2.6
   */
   public Tree() {
-    root = new Node<T>();
+    root = new treeNode<T>();
+    System.out.println(treeNode.class.getCanonicalName());//@a
   }
 
   // GET SET -------------------------------------------------------------------
-  public Node<T> getRoot(){return root;}
+  public treeNode<T> getRoot(){return root;}
 
   // FUNCTIONS -----------------------------------------------------------------
   /**
@@ -82,8 +83,8 @@ public class Tree<T> implements Serializable, Iterable<T>{
   *@author Hydrolien
   */
   class TreeIterator<T> implements Iterator<T>, Serializable {
-    private Node<T> current;
-    private Liste<Node<T>> heapNextChild;
+    private treeNode<T> current;
+    private Liste<treeNode<T>> heapNextChild;
 
     /**
     *{@summary Initialize pointer to head of the list for iteration.}<br>
@@ -91,14 +92,14 @@ public class Tree<T> implements Serializable, Iterable<T>{
     */
     public TreeIterator(Tree<T> tree){
       current = tree.getRoot();
-      heapNextChild = new Liste<Node<T>>();
+      heapNextChild = new Liste<treeNode<T>>();
     }
 
     public boolean hasNext(){return current != null;}
 
     /**
     *{@summary Return current content and update pointer.}<br>
-    *It save Children in a heap to be sur to check every Node.<br>
+    *It save Children in a heap to be sur to check every treeNode.<br>
     *@version 2.6
     */
     public T next(){
@@ -112,36 +113,36 @@ public class Tree<T> implements Serializable, Iterable<T>{
   }
 }
 /**
-*{@summary Node used by tree.}<br>
+*{@summary treeNode used by tree.}<br>
 *It have a parent, children &#38; content.
 *@version 2.6
 *@author Hydrolien
 */
-class Node<T> {
+class treeNode<T> {
   private T content;
-  private final Node<T> parent;
-  private Liste<Node<T>> children;
+  private final treeNode<T> parent;
+  private Liste<treeNode<T>> children;
 
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}
   *@version 2.6
   */
-  public Node(Node<T> parent){
+  public treeNode(treeNode<T> parent){
     this.parent=parent;
-    children = new Liste<Node<T>>();
+    children = new Liste<treeNode<T>>();
   }
   /**
   *{@summary Secondary constructor used only by the Tree constructor.}
   *@version 2.6
   */
-  public Node(){
+  public treeNode(){
     this(null);
   }
   // GET SET -------------------------------------------------------------------
-  public Node<T> getParent(){return parent;}
-  public Node<T> getChildren(int index){return children.get(index);}
-  public Liste<Node<T>> getChildren(){return children;}
+  public treeNode<T> getParent(){return parent;}
+  public treeNode<T> getChildren(int index){return children.get(index);}
+  public Liste<treeNode<T>> getChildren(){return children;}
   public T getContent(){return content;}
   public void setContent(T content){this.content=content;}
   public int getChildrenSize(){return children.size();}
@@ -160,7 +161,7 @@ class Node<T> {
     if(children.isEmpty()){return s;}
     s+="(";
     int k=0;
-    for (Node<T> node : children) {
+    for (treeNode<T> node : children) {
       if(k>0){s+=",";}
       s+=node.toString(k);
       k++;
@@ -175,7 +176,7 @@ class Node<T> {
   *@version 2.6
   */
   public void addChildren(T childContent){
-    Node<T> node = new Node<T>(this);
+    treeNode<T> node = new treeNode<T>(this);
     node.setContent(childContent);
     children.add(node);
   }
@@ -184,7 +185,7 @@ class Node<T> {
   *@version 2.6
   */
   public void addChildren(){
-    children.add(new Node<T>(this));
+    children.add(new treeNode<T>(this));
   }
   /**
   *{@summary Add x child to the children list.}<br>
@@ -197,8 +198,8 @@ class Node<T> {
     }
   }
   /**
-  *{@summary Add a folder (and it's sub folder) at this Node.}
-  *@param file file to Transform into Node.
+  *{@summary Add a folder (and it's sub folder) at this treeNode.}
+  *@param file file to Transform into treeNode.
   *@version 2.6
   */
   @SuppressWarnings("unchecked")
@@ -208,7 +209,7 @@ class Node<T> {
       if (allF != null) {
         for (File subFile : allF) {
           if(subFile.isDirectory()){
-            Node<T> node = new Node<T>(this);
+            treeNode<T> node = new treeNode<T>(this);
             children.add(node);
             node.addFileAsNode(subFile);
           } else if (image.isImage(subFile)) { //  && subFile.getName().contains("full") && T instanceof BufferedImage
@@ -221,15 +222,15 @@ class Node<T> {
     }
   }
   /**
-  *{@summary Copy the structure of a given Node into this.}
+  *{@summary Copy the structure of a given treeNode into this.}
   *content of node will not be copy.
-  *@param nodeIn Node to copy.
+  *@param nodeIn treeNode to copy.
   *@version 2.6
   */
-  void copyStructure(Node<T> nodeIn) { //private but aviable on all Tree.java
+  void copyStructure(treeNode<T> nodeIn) { //private but aviable on all Tree.java
     addChildren(nodeIn.getChildrenSize());
     int k=0;
-    for (Node<T> subNode : getChildren()) {
+    for (treeNode<T> subNode : getChildren()) {
       subNode.copyStructure(nodeIn.getChildren(k));
       k++;
     }
