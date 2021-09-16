@@ -339,9 +339,8 @@ public class PanneauCarte extends Panneau {
           }else if(cr instanceof Insecte && insectPrinted){
             Insecte i = (Insecte)(cr);
             try {
-              BufferedImage bi = Main.getData().getTII()[0][math.min(i.getType(),Main.getData().getTII()[0].length)];
-              // BufferedImage bi2 = image.rotateImage(bi,dir);
-              // erreur.info("from a "+bi.getWidth()+"x"+bi.getHeight()+" image to a "+bi2.getWidth()+"x"+bi2.getHeight()+" image.");
+              BufferedImage bi = Main.getData().getCreatureImage(cr);
+              // BufferedImage bi = Main.getData().getTII()[0][math.min(i.getType(),Main.getData().getTII()[0].length)];
               drawImageCentered(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
             }catch (Exception e) {
               erreur.erreur("can't draw insect "+i.getId()+" with type "+i.getType());

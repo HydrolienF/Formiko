@@ -1,12 +1,12 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Case;
+import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Pheromone;
 import fr.formiko.formiko.Point;
 import fr.formiko.usuel.Folder;
-import fr.formiko.usuel.structures.Tree;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -15,8 +15,8 @@ import fr.formiko.usuel.images.Pixel;
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.structures.ImageTree;
 import fr.formiko.usuel.types.str;
-import fr.formiko.usuel.structures.Tree;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -40,7 +40,7 @@ public class Data {
   private BufferedImage b[];
   private BufferedImage tICarte[];
   private BufferedImage tIF[];
-  private BufferedImage tII[][];
+  // private BufferedImage tII[][];
   private BufferedImage tG[][];
   private BufferedImage tF[][];
   private BufferedImage antColor[];
@@ -53,14 +53,14 @@ public class Data {
   private BufferedImage bIni[];
   private BufferedImage tICarteIni[];
   private BufferedImage tIFIni[];
-  private BufferedImage tIIIni[][];
+  // private BufferedImage tIIIni[][];
   private BufferedImage tGIni[][];
   private BufferedImage tFIni[][];
   private BufferedImage antColorIni[];
   private BufferedImage antLegIni[];
   //image data
-  private Tree<BufferedImage> imageTree;
-  private Tree<BufferedImage> imageTreeIni;
+  private ImageTree imageTree;
+  private ImageTree imageTreeIni;
   //PanneauAction
   private BufferedImage tImage [];
   //PanneauZoom
@@ -104,7 +104,7 @@ public class Data {
   public BufferedImage getCSombre(){return cSombre;}
   public BufferedImage [] getB(){return b;}
   public BufferedImage [] getTICarte(){return tICarte;}
-  public BufferedImage [][] getTII(){return tII;}
+  // public BufferedImage [][] getTII(){return tII;}
   public BufferedImage [][] getTG(){return tG;}
   public BufferedImage [][] getTF(){return tF;}
   public BufferedImage getMap(){return map;}
@@ -139,6 +139,14 @@ public class Data {
     tButtonColor[1]=Color.YELLOW;
     tButtonColor[2]=new Color(248, 152, 29);
     tButtonColor[3]=new Color(56, 56, 56);
+  }
+  /**
+  *{@summary Return the Image that fit to a Creature.}
+  *@param c the Creature to represent.
+  *@version 2.6
+  */
+  public BufferedImage getCreatureImage(Creature c){
+    return imageTree.getCreatureImage(c);
   }
   /**
   *{@summary Return an array with all images use to draw an ant.}<br>
@@ -303,11 +311,11 @@ public class Data {
       selectionnee = image.resize(selectionneeIni,tailleDUneCase);
       tICarte=getScaledInstance(tICarteIni, tailleDUneCase);
       tIF=getScaledInstance(tIFIni, tailleFourmi);
-      tII=getScaledInstance(tIIIni, tailleFourmi,2);//les insectes
+      // tII=getScaledInstance(tIIIni, tailleFourmi,2);//les insectes
       tF=getScaledInstance(tFIni, tailleFourmi,1);//les Fourmis au différent stade.
       antColor=getScaledInstance(antColorIni, tailleFourmi,0);//les Fourmis au différent stade.
       antLeg=getScaledInstance(antLegIni, tailleFourmi/2,0);//les Fourmis au différent stade.
-      imageTree = Tree.getScaledInstance(imageTreeIni, tailleFourmi);
+      imageTree = ImageTree.getScaledInstanceFromTree(imageTreeIni, tailleFourmi);
       tG=getScaledInstance(tGIni, tailleFourmi);
       fere = image.resize(fereIni,tailleDUneCase/2);
       cNuageuse = image.resize(cNuageuseIni,tailleDUneCase);
@@ -327,11 +335,11 @@ public class Data {
         imgNullIni = image.getImage("null");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         selectionneeIni = image.getImage("selectionnee");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         chargerTI();
-        tIIIni = chargerTX("I");
+        // tIIIni = chargerTX("I");
         tFIni = chargerTX("F",3,(byte)0,-3);
         iniAntColorIni();
         antLegIni = image.getImages("FLeg",image.getNbrImages("FLeg"),(byte)0);
-        imageTreeIni = Tree.folderToTree(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");
+        imageTreeIni = ImageTree.folderToTree(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");
         // antFAFIni = image.getImages("FAF",image.getNbrImages("FAF"),(byte)0);
         // antFASIni = image.getImages("FAS",image.getNbrImages("FAS"),(byte)0);
         tGIni = chargerTX("seed");

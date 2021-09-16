@@ -37,26 +37,6 @@ public class Tree<T> implements Serializable, Iterable<T>{
     return getRoot().toString();
   }
   /**
-  *{@summary Transform a folder tree into a Java Tree.}
-  *@param file file to Transform
-  *@version 2.6
-  */
-  public static Tree<BufferedImage> folderToTree(File file) {
-    Tree<BufferedImage> tree = new Tree<BufferedImage>();
-    if (file.exists() && file.isDirectory()) {
-      tree.getRoot().addFileAsNode(file);
-    }
-    return tree;
-  }
-  /**
-  *{@summary Transform a folder tree into a Java Tree.}
-  *@param fileName name of the file to Transform
-  *@version 2.6
-  */
-  public static Tree<BufferedImage> folderToTree(String fileName) {
-    return folderToTree(new File(fileName));
-  }
-  /**
   *{@summary Copy the structure of a given Tree.}
   *content of node will not be copy.
   *@version 2.6
@@ -64,39 +44,6 @@ public class Tree<T> implements Serializable, Iterable<T>{
   public Tree<T> copyStructure() {
     Tree<T> treeOut = new Tree<T>();
     treeOut.getRoot().copyStructure(this.getRoot());
-    return treeOut;
-  }
-  /**
-  *{@summary Return the scaled instance of this tree.}
-  *content of node will not be copy.
-  *@version 2.6
-  */
-  public static Tree<BufferedImage> getScaledInstance(Tree<BufferedImage> treeIn, int dim){
-    Tree<BufferedImage> treeOut = treeIn.copyStructure();
-    //insect
-    Liste<treeNode<BufferedImage>> insectListIn = treeIn.getRoot().getChildren(1).getChildren();
-    Liste<treeNode<BufferedImage>> insectListOut = treeOut.getRoot().getChildren(1).getChildren();
-    int idInsect = 0;
-    for (treeNode<BufferedImage> nodeIn : insectListIn) {
-      BufferedImage biIn,biOut;
-      for (int i=0;i<2 ;i++ ) { //imago ♂ & ♀
-        biIn = nodeIn.getChildren(0).getChildren(i).getContent();
-        if(biIn!=null){
-          biOut = image.resize(biIn,image.taille(idInsect+100,0,dim));
-          insectListOut.get(idInsect).getChildren(0).getChildren(i).setContent(biOut);
-        }
-      }
-      for (int i=1;i<3 ;i++ ) { // other stade
-        biIn = nodeIn.getChildren(i).getContent();
-        if(biIn!=null){
-          biOut = image.resize(biIn,image.taille(idInsect+100,-i,dim));
-          insectListOut.get(idInsect).getChildren(i).setContent(biOut);
-        }
-      }
-      idInsect++;
-    }
-    System.out.println("treeIn = "+treeIn);//@a
-    System.out.println("treeOut = "+treeOut);//@a
     return treeOut;
   }
   /**
