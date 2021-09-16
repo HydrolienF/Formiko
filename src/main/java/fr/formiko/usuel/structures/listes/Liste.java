@@ -1,6 +1,7 @@
 package fr.formiko.usuel.structures.listes;
 
 import fr.formiko.formiko.ObjetSurCarteAId;
+import fr.formiko.usuel.structures.Node;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -467,7 +468,7 @@ class ListeIterator<T> implements Iterator<T>, Serializable {
 *@version 1.41
 *@author Hydrolien
 */
-class listNode<T> implements Serializable {
+class listNode<T> extends Node implements Serializable {
   private T content;
   private listNode<T> next;
   /**
@@ -486,10 +487,11 @@ class listNode<T> implements Serializable {
     this(content, null);
   }
   // GET SET -------------------------------------------------------------------
-  public T getContent(){return content;}
-  public void setContent(T content){this.content = content;}
+  @Override
   public listNode<T> getNext(){return next;}
   public void setNext(listNode<T> next){this.next = next;}
+  public T getContent(){return content;}
+  public void setContent(T content){this.content=content;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Equals function that also test next.}<br>

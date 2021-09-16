@@ -23,7 +23,6 @@ public class Tree<T> implements Serializable, Iterable<T>{
   */
   public Tree() {
     root = new treeNode<T>();
-    System.out.println(treeNode.class.getCanonicalName());//@a
   }
 
   // GET SET -------------------------------------------------------------------
@@ -118,7 +117,7 @@ public class Tree<T> implements Serializable, Iterable<T>{
 *@version 2.6
 *@author Hydrolien
 */
-class treeNode<T> {
+class treeNode<T> extends Node {
   private T content;
   private final treeNode<T> parent;
   private Liste<treeNode<T>> children;
@@ -139,13 +138,15 @@ class treeNode<T> {
   public treeNode(){
     this(null);
   }
+
   // GET SET -------------------------------------------------------------------
   public treeNode<T> getParent(){return parent;}
+  @Override
   public treeNode<T> getChildren(int index){return children.get(index);}
   public Liste<treeNode<T>> getChildren(){return children;}
+  public int getChildrenSize(){return children.size();}
   public T getContent(){return content;}
   public void setContent(T content){this.content=content;}
-  public int getChildrenSize(){return children.size();}
 
   // FUNCTIONS -----------------------------------------------------------------
   /**

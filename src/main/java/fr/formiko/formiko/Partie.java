@@ -267,7 +267,6 @@ public class Partie implements Serializable{
     System.out.println(getTour()+"/"+getNbrDeTour());
     String victoire = g.get("victoireInconue");
     GJoueur gjSorted = getGj().getGjSorted();
-    System.out.println(gjSorted.length());//@a
     Joueur winner = null;
     String pseudo = "";
     try {

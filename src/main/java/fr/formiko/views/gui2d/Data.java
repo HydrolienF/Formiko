@@ -18,6 +18,7 @@ import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.structures.listes.Liste;
 import fr.formiko.usuel.structures.Tree;
+import fr.formiko.usuel.structures.Node;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -446,12 +447,12 @@ public class Data {
     //getScaledInstance.
     public Tree<BufferedImage> getScaledInstance(Tree<BufferedImage> treeIn, int dim){
       Tree<BufferedImage> treeOut = treeIn.copyStructure();
-      //TODO copy structur of treeIn
+      //TODO copy structure of treeIn
       //insect
-      // Liste<fr.formiko.usuel.treeNode<BufferedImage>> insectListIn = treeIn.getRoot().getChildren(1).getChildren();
-      // Liste<fr.formiko.usuel.treeNode<BufferedImage>> insectListOut = treeOut.getRoot().getChildren(1).getChildren();
+      // Liste<Node<BufferedImage>> insectListIn = treeIn.getRoot().getChildren(1).getChildren();
+      // Liste<Node<BufferedImage>> insectListOut = treeOut.getRoot().getChildren(1).getChildren();
       // int idInsect = 0;
-      // for (fr.formiko.usuel.treeNode<BufferedImage> nodeIn : insectListIn) {
+      // for (Node<BufferedImage> nodeIn : insectListIn) {
       //   BufferedImage biIn,biOut;
       //   for (int i=0;i<2 ;i++ ) { //imago ♂ & ♀
       //     biIn = nodeIn.getChildren(0).getChildren(i).getContent();
