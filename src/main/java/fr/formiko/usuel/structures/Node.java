@@ -18,5 +18,5 @@ public class Node<T> implements Serializable {
   // public void setContent(T content){this.content=content;}
 
   public Node<T> getChildren(int x){throw new UnsupportedOperationException();}
-  public Node<T> getNext(){throw new UnsupportedOperationException();}
+  // public Node<T> getNext(){throw new UnsupportedOperationException();}
 }

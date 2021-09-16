@@ -16,9 +16,7 @@ import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.types.str;
-import fr.formiko.usuel.structures.listes.Liste;
 import fr.formiko.usuel.structures.Tree;
-import fr.formiko.usuel.structures.Node;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -309,7 +307,7 @@ public class Data {
       tF=getScaledInstance(tFIni, tailleFourmi,1);//les Fourmis au différent stade.
       antColor=getScaledInstance(antColorIni, tailleFourmi,0);//les Fourmis au différent stade.
       antLeg=getScaledInstance(antLegIni, tailleFourmi/2,0);//les Fourmis au différent stade.
-      imageTree = getScaledInstance(imageTreeIni, tailleFourmi);
+      imageTree = Tree.getScaledInstance(imageTreeIni, tailleFourmi);
       tG=getScaledInstance(tGIni, tailleFourmi);
       fere = image.resize(fereIni,tailleDUneCase/2);
       cNuageuse = image.resize(cNuageuseIni,tailleDUneCase);
@@ -445,35 +443,6 @@ public class Data {
     }
 
     //getScaledInstance.
-    public Tree<BufferedImage> getScaledInstance(Tree<BufferedImage> treeIn, int dim){
-      Tree<BufferedImage> treeOut = treeIn.copyStructure();
-      //TODO copy structure of treeIn
-      //insect
-      // Liste<Node<BufferedImage>> insectListIn = treeIn.getRoot().getChildren(1).getChildren();
-      // Liste<Node<BufferedImage>> insectListOut = treeOut.getRoot().getChildren(1).getChildren();
-      // int idInsect = 0;
-      // for (Node<BufferedImage> nodeIn : insectListIn) {
-      //   BufferedImage biIn,biOut;
-      //   for (int i=0;i<2 ;i++ ) { //imago ♂ & ♀
-      //     biIn = nodeIn.getChildren(0).getChildren(i).getContent();
-      //     if(biIn!=null){
-      //       biOut = image.resize(biIn,image.taille(idInsect+100,0,dim));
-      //       insectListOut.getChildren(idInsect).getChildren(0).getChildren(i).setContent(biOut);
-      //     }
-      //   }
-      //   for (int i=1;i<3 ;i++ ) { // other stade
-      //     biIn = nodeIn.getChildren(i).getContent();
-      //     if(biIn!=null){
-      //       biOut = image.resize(biIn,image.taille(idInsect+100,i,dim));
-      //       insectListOut.getChildren(idInsect).getChildren(0).getChildren(i).setContent(biOut);
-      //     }
-      //   }
-      //   idInsect++;
-      // }
-      System.out.println(treeIn);//@a
-      System.out.println(treeOut);//@a
-      return treeOut;
-    }
     /**
     *Return a scaled BufferedImage
     *@version 2.1

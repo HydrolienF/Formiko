@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import fr.formiko.usuel.structures.Tree;
 import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.usuel.fichier;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

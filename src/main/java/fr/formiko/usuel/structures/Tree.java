@@ -59,12 +59,44 @@ public class Tree<T> implements Serializable, Iterable<T>{
   /**
   *{@summary Copy the structure of a given Tree.}
   *content of node will not be copy.
-  *@param treeIn tree to copy.
   *@version 2.6
   */
   public Tree<T> copyStructure() {
     Tree<T> treeOut = new Tree<T>();
     treeOut.getRoot().copyStructure(this.getRoot());
+    return treeOut;
+  }
+  /**
+  *{@summary Return the scaled instance of this tree.}
+  *content of node will not be copy.
+  *@version 2.6
+  */
+  public static Tree<BufferedImage> getScaledInstance(Tree<BufferedImage> treeIn, int dim){
+    Tree<BufferedImage> treeOut = treeIn.copyStructure();
+    //insect
+    Liste<treeNode<BufferedImage>> insectListIn = treeIn.getRoot().getChildren(1).getChildren();
+    Liste<treeNode<BufferedImage>> insectListOut = treeOut.getRoot().getChildren(1).getChildren();
+    int idInsect = 0;
+    for (treeNode<BufferedImage> nodeIn : insectListIn) {
+      BufferedImage biIn,biOut;
+      for (int i=0;i<2 ;i++ ) { //imago ♂ & ♀
+        biIn = nodeIn.getChildren(0).getChildren(i).getContent();
+        if(biIn!=null){
+          biOut = image.resize(biIn,image.taille(idInsect+100,0,dim));
+          insectListOut.get(idInsect).getChildren(0).getChildren(i).setContent(biOut);
+        }
+      }
+      for (int i=1;i<3 ;i++ ) { // other stade
+        biIn = nodeIn.getChildren(i).getContent();
+        if(biIn!=null){
+          biOut = image.resize(biIn,image.taille(idInsect+100,-i,dim));
+          insectListOut.get(idInsect).getChildren(i).setContent(biOut);
+        }
+      }
+      idInsect++;
+    }
+    System.out.println("treeIn = "+treeIn);//@a
+    System.out.println("treeOut = "+treeOut);//@a
     return treeOut;
   }
   /**

@@ -487,7 +487,7 @@ class listNode<T> extends Node implements Serializable {
     this(content, null);
   }
   // GET SET -------------------------------------------------------------------
-  @Override
+  // @Override
   public listNode<T> getNext(){return next;}
   public void setNext(listNode<T> next){this.next = next;}
   public T getContent(){return content;}
