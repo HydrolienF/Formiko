@@ -6,6 +6,7 @@ import fr.formiko.usuel.structures.listes.Liste;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.Iterator;
 
 /**
@@ -187,15 +188,20 @@ class treeNode<T> extends Node {
     if(file.isDirectory()) {
       File allF [] = file.listFiles();
       if (allF != null) {
+        // Liste<File> list = new Liste<File>();
+        // Comparator<File> comparator = (File f1, File f2) -> (f1.getName().compareTo(f2.getName()));
+        // for (File subFile : allF) {
+        //   list.addSorted(subFile, comparator);
+        // }
         for (File subFile : allF) {
           if(subFile.isDirectory()){
             treeNode<T> node = new treeNode<T>(this);
             children.add(node);
             node.addFileAsNode(subFile);
           } else if (image.isImage(subFile)) { //  && subFile.getName().contains("full") && T instanceof BufferedImage
-          try {
-            setContent((T)image.readImage(subFile));
-          }catch (Exception e) {}
+            try {
+              setContent((T)image.readImage(subFile));
+            }catch (Exception e) {}
           }
         }
       }
