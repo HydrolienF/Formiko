@@ -84,7 +84,7 @@ public class ImageTree extends Tree<BufferedImage> {
             insectListOut.get(idInsecte).getChildren(0).getChildren(i).setContent(biOut);
           }
         }catch (Exception e) {
-          erreur.alerte("A branch of the tree is cut (imago).");
+          erreur.alerte("A branch of the tree is cut (imago)");
         }
       }
       for (int i=1;i<3 ;i++ ) { // other stade
@@ -95,7 +95,7 @@ public class ImageTree extends Tree<BufferedImage> {
             insectListOut.get(idInsecte).getChildren(i).setContent(biOut);
           }
         }catch (Exception e) {
-          erreur.alerte("A branch of the tree is cut (other stade).");
+          erreur.alerte("A branch of the tree is cut (other stade)");
         }
       }
       idInsecte++;
