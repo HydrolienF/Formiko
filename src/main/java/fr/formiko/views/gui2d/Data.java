@@ -340,8 +340,6 @@ public class Data {
         iniAntColorIni();
         antLegIni = image.getImages("FLeg",image.getNbrImages("FLeg"),(byte)0);
         imageTreeIni = ImageTree.folderToTree(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");
-        System.out.println(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");
-        System.out.println(imageTreeIni);
         // antFAFIni = image.getImages("FAF",image.getNbrImages("FAF"),(byte)0);
         // antFASIni = image.getImages("FAS",image.getNbrImages("FAS"),(byte)0);
         tGIni = chargerTX("seed");

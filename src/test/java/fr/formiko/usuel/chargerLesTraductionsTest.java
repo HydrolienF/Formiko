@@ -19,6 +19,7 @@ import java.util.Map;
 public class chargerLesTraductionsTest extends TestCaseMuet{
 
   // get set -------------------------------------------------------------------
+  @Test
   public void testIniMap(){
     chargerLesTraductions.iniMap();
     assertTrue(chargerLesTraductions.getMap()!=null);
