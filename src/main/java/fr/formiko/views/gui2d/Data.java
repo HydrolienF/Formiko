@@ -300,21 +300,22 @@ public class Data {
     *{@summary Load image in map resolution.}<br>
     *If the original image have'nt been load, it will call chargerImagesIni.<br>
     *The images defined here have the rigth dimention for being used on the map.<br>
-    *@version 1.18
+    *@version 2.6
     */
     public void chargerImages(){
       debug.débogage("chargement des images a la bonne taille.");
       chargerImagesIni();
       Main.startCh();
       int tailleFourmi = (tailleDUneCase*4)/5;
+      erreur.info("Update Image to size "+tailleDUneCase);//@a
       imgNull = image.resize(imgNullIni,tailleDUneCase);
       selectionnee = image.resize(selectionneeIni,tailleDUneCase);
       tICarte=getScaledInstance(tICarteIni, tailleDUneCase);
-      tIF=getScaledInstance(tIFIni, tailleFourmi);
+      // tIF=getScaledInstance(tIFIni, tailleFourmi);
       // tII=getScaledInstance(tIIIni, tailleFourmi,2);//les insectes
-      tF=getScaledInstance(tFIni, tailleFourmi,1);//les Fourmis au différent stade.
+      // tF=getScaledInstance(tFIni, tailleFourmi,1);//les Fourmis au différent stade.
       antColor=getScaledInstance(antColorIni, tailleFourmi,0);//les Fourmis au différent stade.
-      antLeg=getScaledInstance(antLegIni, tailleFourmi/2,0);//les Fourmis au différent stade.
+      // antLeg=getScaledInstance(antLegIni, tailleFourmi/2,0);//les Fourmis au différent stade.
       imageTree = ImageTree.getScaledInstanceFromTree(imageTreeIni, tailleFourmi);
       tG=getScaledInstance(tGIni, tailleFourmi);
       fere = image.resize(fereIni,tailleDUneCase/2);

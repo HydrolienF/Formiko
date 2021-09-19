@@ -322,15 +322,17 @@ public class PanneauCarte extends Panneau {
           if(cr instanceof Fourmi){
             Fourmi f = ((Fourmi)cr);
             try {
-              BufferedImage tBi [] = Main.getData().getAntImage(f);
+              BufferedImage bi = Main.getData().getCreatureImage(f);
+               drawImageCentered(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
               // Point tp [] = Main.getData().getAntImageLocation();
-              int k2=0;
-              for (BufferedImage bi : tBi ) {
-                if(bi!=null){
-                  drawImageCentered(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
-                }
-                k2++;
-              }
+              // BufferedImage tBi [] = Main.getData().getAntImage(f);
+              // int k2=0;
+              // for (BufferedImage bi : tBi ) {
+              //   if(bi!=null){
+              //     drawImageCentered(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
+              //   }
+              //   k2++;
+              // }
             }catch (Exception e) {
               erreur.erreur("can't draw ant "+f.getId()+" at stade "+f.getStade());
               e.printStackTrace();

@@ -16,7 +16,7 @@ public class Individu implements Serializable{
   protected boolean sexe; // false = femmelle; true = Male;
   protected byte nétoyage;
   protected byte actionMax; // dans certaine espèces les larves travaille en créant du fil de soie.
-  protected byte taille;
+  protected int taille;
   protected String couleur;
   protected byte poidMax; //(en gramme) si le poid est supérieur a 10% la fourmi peine et ses déplacements coute plus chere.
   protected byte tempsDeRepos; // en heure (ou en 24a de tour).
@@ -26,7 +26,7 @@ public class Individu implements Serializable{
   protected int tNourritureMax[]= new int[4]; // sauf la nourritureMax adulte.
   protected byte tCoutAction[] = new byte[6];
   // CONSTRUCTORS --------------------------------------------------------------
-  public Individu(int idEsp, byte ty, boolean se,boolean se2, byte né, byte ac, byte ta, String co, byte po, byte te, int tag0, int tag1, int tag2, int tag3, int nm0, int nm1, int nm2, int nm3,byte ca0,byte ca1,byte ca2,byte ca3,byte ca4,byte ca5,int nc){
+  public Individu(int idEsp, byte ty, boolean se,boolean se2, byte né, byte ac, int ta, String co, byte po, byte te, int tag0, int tag1, int tag2, int tag3, int nm0, int nm1, int nm2, int nm3,byte ca0,byte ca1,byte ca2,byte ca3,byte ca4,byte ca5,int nc){
     e = Main.getGEspece().getEspeceParId(idEsp);
     type = ty; sexué = se; sexe = se2; nétoyage = né; actionMax = ac; taille =ta; couleur = co; poidMax =po; tempsDeRepos = te;
     tAgeMax[0] = tag0; tAgeMax[1] = tag1; tAgeMax[2] = tag2; tAgeMax[3] = tag3;
@@ -39,7 +39,7 @@ public class Individu implements Serializable{
   public Espece getEspece(){ return e;}
   public byte getType(){ return type;}
   public byte getActionMax(){ return actionMax;}
-  public byte getTaille(){ return taille;}
+  public int getTaille(){ return taille;}
 
   public int getAgeMax(int i){ return tAgeMax[i]/2;} //to make it shorter
   public int getAgeMax(){ return getAgeMax(3);}

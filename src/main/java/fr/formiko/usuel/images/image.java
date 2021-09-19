@@ -7,6 +7,8 @@ import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.types.str;
+import fr.formiko.formiko.Creature;
+import fr.formiko.formiko.Fourmi;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -238,11 +240,40 @@ public class image{
     }
   }
   //taille d'une image de Creature.
+  /***
+  *{@summary Return size of a Creature image.}<br>
+  *@param c Creature that we need size
+  *@param taille taille used if it was 0% realistic
+  *@version 1.3
+  */
+  // public static int taille(Creature c, int taille){
+  //   int a;
+  //   if(c instanceof Fourmi){
+  //     a = c.getIndividu().getTaille();
+  //   }else{
+  //     a = c.getEspece().getTaille(stade);
+  //   }
+  //   //standard a is 100
+  //   return taille(a,taille);
+  // }
+  /**
+  *{@summary Return size of a Creature image.}<br>
+  *@param idEspece id of the Species (size depend of Species)
+  *@param stade stade also infulence size of the Creature
+  *@param typeF typeF also infulence size of the Ant
+  *@param taille taille used if it was 0% realistic
+  *@version 1.3
+  */
+  public static int tailleFourmi(int idEspece, int typeF, int taille){
+    int a = Main.getEspeceParId(idEspece).getIndividuByType(typeF).getTaille();
+    System.out.println(a);//@a
+    return taille(a,taille);
+  }
   /**
   *{@summary Return size of a Creature image.}<br>
   *@param idEspece id of the Species (size depend of Species)<br>
   *@param stade stade also infulence size of the Creature
-  *@param taille taille used if it was 0% realistic.
+  *@param taille taille used if it was 0% realistic
   *@version 1.3
   */
   public static int taille(int idEspece, int stade, int taille){
@@ -251,8 +282,8 @@ public class image{
   }
   /**
   *{@summary Return size of a Creature image.}<br>
-  *@param a size assumed if it was 100% realistic.
-  *@param taille size used if it was 0% realistic.
+  *@param a size assumed if it was 100% realistic
+  *@param taille size used if it was 0% realistic
   *@version 1.3
   */
   public static int taille(int a, int taille){

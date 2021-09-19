@@ -43,10 +43,16 @@ public class ImageTree extends Tree<BufferedImage> {
     }else{
       return null;
     }
-    node = node.getChildren(c.getEspece().getId()-100).getChildren(math.valAbs(c.getStade()));
+    int x=0;
+    if(c instanceof Insecte){x=100;}
+    node = node.getChildren(c.getEspece().getId()-x).getChildren(math.valAbs(c.getStade()));
     if(c.getStade()==0){
-      //TODO if ♀ ...
-      return node.getChildren(0).getContent();
+      if(c instanceof Fourmi){
+        return node.getChildren(((Fourmi)c).getTypeF()).getContent();
+      }else{
+        //TODO if ♀ ...
+        return node.getChildren(0).getContent();
+      }
     }else{
       return node.getContent();
     }
@@ -62,25 +68,49 @@ public class ImageTree extends Tree<BufferedImage> {
     //insect
     Liste<treeNode<BufferedImage>> insectListIn = treeIn.getRoot().getChildren(1).getChildren();
     Liste<treeNode<BufferedImage>> insectListOut = treeOut.getRoot().getChildren(1).getChildren();
-    int idInsecte = 0;
+    int idSpecies = 0;
     for (treeNode<BufferedImage> nodeIn : insectListIn) {
       BufferedImage biIn,biOut;
       for (int i=0;i<2 ;i++ ) { //imago ♂ & ♀
         biIn = nodeIn.getChildren(0).getChildren(i).getContent();
         if(biIn!=null){
-          biOut = image.resize(biIn,image.taille(idInsecte+100,0,dim));
-          insectListOut.get(idInsecte).getChildren(0).getChildren(i).setContent(biOut);
+          biOut = image.resize(biIn,image.taille(idSpecies+100,0,dim));
+          insectListOut.get(idSpecies).getChildren(0).getChildren(i).setContent(biOut);
         }
       }
       for (int i=1;i<3 ;i++ ) { // other stade
         biIn = nodeIn.getChildren(i).getContent();
         if(biIn!=null){
-          biOut = image.resize(biIn,image.taille(idInsecte+100,-i,dim));
-          insectListOut.get(idInsecte).getChildren(i).setContent(biOut);
+          biOut = image.resize(biIn,image.taille(idSpecies+100,-i,dim));
+          insectListOut.get(idSpecies).getChildren(i).setContent(biOut);
         }
       }
-      idInsecte++;
+      idSpecies++;
     }
+    //ant
+    idSpecies = 0;
+    Liste<treeNode<BufferedImage>> antListIn = treeIn.getRoot().getChildren(0).getChildren();
+    Liste<treeNode<BufferedImage>> antListOut = treeOut.getRoot().getChildren(0).getChildren();
+    for (treeNode<BufferedImage> nodeIn : antListIn) {
+      BufferedImage biIn,biOut;
+      int len = nodeIn.getChildren(0).getChildrenSize();
+      for (int i=0;i<len ;i++ ) { //imago ♂, ♀, minor, media, major, soldier etc
+        biIn = nodeIn.getChildren(0).getChildren(i).getContent();
+        if(biIn!=null){
+          biOut = image.resize(biIn,image.tailleFourmi(idSpecies,i,dim));
+          antListOut.get(idSpecies).getChildren(0).getChildren(i).setContent(biOut);
+        }
+      }
+      for (int i=1;i<3 ;i++ ) { // other stade
+        biIn = nodeIn.getChildren(i).getContent();
+        if(biIn!=null){
+          biOut = image.resize(biIn,image.taille(idSpecies,-i,dim));
+          insectListOut.get(idSpecies).getChildren(i).setContent(biOut);
+        }
+      }
+      idSpecies++;
+    }
+
     System.out.println("treeIn = "+treeIn);//@a
     System.out.println("treeOut = "+treeOut);//@a
     return treeOut;

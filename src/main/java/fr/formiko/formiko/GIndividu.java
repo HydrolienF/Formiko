@@ -60,7 +60,7 @@ public class GIndividu extends Liste<Individu> implements Serializable{
     try {
       td = lireUnFichier.lireUnFichier(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"Individu.csv");
     }catch (Exception e) {
-      erreur.erreur("Le fichier des Individu n'as pas pu être localisé. il devrais y avoir un docier data et celui ci devrait contenir un fichier Individu.txt",true);
+      erreur.erreur("Le fichier des Individu n'as pas pu être localisé. il devrais y avoir un dossier data et celui ci devrait contenir un fichier Individu.txt",true);
     } int lentd = td.length;
     if (lentd < 3){ erreur.erreur("Le fichier des Individu devrais contenir au moins 4 lignes dont 1 Individu",true);}
     String tDefault [] = decoderUnFichier.getTableauString(td[2],',');
@@ -82,7 +82,7 @@ public class GIndividu extends Liste<Individu> implements Serializable{
     String t [] = decoderUnFichier.getTableauString(csvFileLine,',');
     tableau.boucherLesCasesVide(t,tDefault);
     int idEsp = str.sToI(t[0]);
-    byte ty=str.sToBy(t[1]); boolean se=str.sToB(t[2]); boolean se2=str.sToB(t[3]); byte né=str.sToBy(t[4]);  byte ac=str.sToBy(t[5]); byte ta=str.sToBy(t[6]);
+    byte ty=str.sToBy(t[1]); boolean se=str.sToB(t[2]); boolean se2=str.sToB(t[3]); byte né=str.sToBy(t[4]);  byte ac=str.sToBy(t[5]); int ta=str.sToI(t[6]);
     String co=t[7]; byte po=str.sToBy(t[8]); byte te=str.sToBy(t[9]); int tag0=str.sToI(t[10]);  int tag1=str.sToI(t[11]);  int tag2=str.sToI(t[12]);  int tag3=str.sToI(t[13]);
     int nm0=str.sToI(t[14]);  int nm1=str.sToI(t[15]);  int nm2=str.sToI(t[16]);  int nm3=str.sToI(t[17]); byte ca0=str.sToBy(t[18]); byte ca1=str.sToBy(t[19]); byte ca2=str.sToBy(t[20]);
     byte ca3=str.sToBy(t[21]);byte ca4=str.sToBy(t[22]);byte ca5=str.sToBy(t[23]); int nc = str.sToI(t[24]);
