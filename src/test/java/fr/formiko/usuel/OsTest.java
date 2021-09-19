@@ -1,6 +1,7 @@
 package fr.formiko.usuel.types;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterAll;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Os;
@@ -53,14 +54,17 @@ public class OsTest extends TestCaseMuet {
   @Test
   public void testToString(){
     Os os = new OsExtends("win");
-    Main.ini();
-    assertEquals("windows", os.toString());
+    assertTrue(os.toString().equals("os.1") || os.toString().equals("windows"));
   }
-
-  class OsExtends extends Os{
-    public OsExtends(String s){
-      OS=s;
-      iniOs();
-    }
+  @AfterAll
+  public static void resetOs(){
+    System.out.println("clean");
+    Os os = new OsExtends(System.getProperty("os.name").toLowerCase());
+  }
+}
+class OsExtends extends Os{
+  public OsExtends(String s){
+    OS=s;
+    iniOs();
   }
 }

@@ -46,8 +46,7 @@ public class Folder{
     if(Main.getOs().isWindows()){
       setFolderMain(System.getenv("APPDATA")+"/Formiko/");
     }else if(Main.getOs().isLinux()){
-      //TODO test
-      setFolderMain(System.getProperty("user.home")+"/Formiko/");
+      setFolderMain("/"+System.getProperty("user.home")+"/Formiko/");
     }else if(Main.getOs().isMac()){
       //TODO fined & test a good path for mac.
       // setFolderMain(System.getProperty("user.home")+"/Formiko/");

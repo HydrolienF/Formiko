@@ -1,16 +1,18 @@
 package fr.formiko.usuel.structures;
 
-import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.structures.listes.Liste;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Insecte;
+import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.structures.listes.Liste;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.Serializable;
 import java.util.Iterator;
+
 
 /**
 *{@summary Custom Tree class using Generics.}<br>
@@ -35,26 +37,38 @@ public class ImageTree extends Tree<BufferedImage> {
   *@version 2.6
   */
   public BufferedImage getCreatureImage(Creature c){
-    treeNode<BufferedImage> node = getRoot();
-    if(c instanceof Insecte) {
-      node = node.getChildren(1);
-    }else if(c instanceof Fourmi) {
-      node = node.getChildren(0);
-    }else{
-      return null;
-    }
-    int x=0;
-    if(c instanceof Insecte){x=100;}
-    node = node.getChildren(c.getEspece().getId()-x).getChildren(math.valAbs(c.getStade()));
-    if(c.getStade()==0){
-      if(c instanceof Fourmi){
-        return node.getChildren(((Fourmi)c).getTypeF()).getContent();
+    try {
+      treeNode<BufferedImage> node = getRoot();
+      if(c instanceof Insecte) {
+        node = node.getChildren(1);
+      }else if(c instanceof Fourmi) {
+        node = node.getChildren(0);
       }else{
+        return null;
+      }
+      node = node.getChildren(c.getEspece().getId()-100).getChildren(math.valAbs(c.getStade()));
+      if(c.getStade()==0){
         //TODO if ♀ ...
         return node.getChildren(0).getContent();
+      }else{
+        return node.getContent();
       }
-    }else{
-      return node.getContent();
+      int x=0;
+      if(c instanceof Insecte){x=100;}
+      node = node.getChildren(c.getEspece().getId()-x).getChildren(math.valAbs(c.getStade()));
+      if(c.getStade()==0){
+        if(c instanceof Fourmi){
+          return node.getChildren(((Fourmi)c).getTypeF()).getContent();
+        }else{
+          //TODO if ♀ ...
+          return node.getChildren(0).getContent();
+        }
+      }else{
+        return node.getContent();
+      }
+    }catch (Exception e) {
+      erreur.erreur("fail to get Creature Image");
+      return null;
     }
   }
   //static
@@ -64,6 +78,10 @@ public class ImageTree extends Tree<BufferedImage> {
   *@version 2.6
   */
   public static ImageTree getScaledInstanceFromTree(ImageTree treeIn, int dim){
+    if(treeIn.getRoot().getChildrenSize()==0){
+      erreur.erreur("ImageTreeIni is empty");
+      return null;
+    }
     ImageTree treeOut = treeIn.copyStructure();
     //insect
     Liste<treeNode<BufferedImage>> insectListIn = treeIn.getRoot().getChildren(1).getChildren();
@@ -72,17 +90,25 @@ public class ImageTree extends Tree<BufferedImage> {
     for (treeNode<BufferedImage> nodeIn : insectListIn) {
       BufferedImage biIn,biOut;
       for (int i=0;i<2 ;i++ ) { //imago ♂ & ♀
-        biIn = nodeIn.getChildren(0).getChildren(i).getContent();
-        if(biIn!=null){
-          biOut = image.resize(biIn,image.taille(idSpecies+100,0,dim));
-          insectListOut.get(idSpecies).getChildren(0).getChildren(i).setContent(biOut);
+        try {
+          biIn = nodeIn.getChildren(0).getChildren(i).getContent();
+          if(biIn!=null){
+            biOut = image.resize(biIn,image.taille(idSpecies+100,0,dim));
+            insectListOut.get(idSpecies).getChildren(0).getChildren(i).setContent(biOut);
+          }
+        }catch (Exception e) {
+          erreur.alerte("A branch of the tree is cut (imago)");
         }
       }
       for (int i=1;i<3 ;i++ ) { // other stade
-        biIn = nodeIn.getChildren(i).getContent();
-        if(biIn!=null){
-          biOut = image.resize(biIn,image.taille(idSpecies+100,-i,dim));
-          insectListOut.get(idSpecies).getChildren(i).setContent(biOut);
+        try{
+          biIn = nodeIn.getChildren(i).getContent();
+          if(biIn!=null){
+            biOut = image.resize(biIn,image.taille(idSpecies+100,-i,dim));
+            insectListOut.get(idSpecies).getChildren(i).setContent(biOut);
+          }
+        }catch (Exception e) {
+          erreur.alerte("A branch of the tree is cut (other stade)");
         }
       }
       idSpecies++;
