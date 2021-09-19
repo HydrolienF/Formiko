@@ -252,7 +252,7 @@ public class ViewGUI2d implements View {
       Partie.setPartieTutoInMain();
     }
     Main.getPartie().initialisationElément();
-    Main.getData().chargerImages(); //on a besoin du bon zoom pour effectuer cette action.
+    // Main.getData().chargerImages(); //It will be call by the next line "action.doActionPj(8);"
     action.doActionPj(8);
     Main.endCh("chargementImagesDelaCarte");
 

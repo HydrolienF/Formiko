@@ -145,9 +145,6 @@ public class ImageTree extends Tree<BufferedImage> {
       }
       idSpecies++;
     }
-
-    System.out.println("treeIn = "+treeIn);//@a
-    System.out.println("treeOut = "+treeOut);//@a
     return treeOut;
   }
   /**
