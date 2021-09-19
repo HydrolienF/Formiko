@@ -323,7 +323,7 @@ public class PanneauCarte extends Panneau {
             Fourmi f = ((Fourmi)cr);
             try {
               BufferedImage bi = Main.getData().getCreatureImage(f);
-               drawImageCentered(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
+              drawImageCentered(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
               // Point tp [] = Main.getData().getAntImageLocation();
               // BufferedImage tBi [] = Main.getData().getAntImage(f);
               // int k2=0;
