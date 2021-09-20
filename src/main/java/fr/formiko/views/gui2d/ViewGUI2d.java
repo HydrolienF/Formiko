@@ -229,7 +229,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Launch action game part.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.42
+  *@version 2.6
   */
   public boolean actionGame(){
     actionGameOn=true;
@@ -267,7 +267,7 @@ public class ViewGUI2d implements View {
         getPch().addBt();
       }
     }
-    Main.getPartie().jeu(); //lance le jeux.
+    Main.getPartie().jeu(); //launch game
     return true;
   }
 

@@ -1,23 +1,24 @@
 package fr.formiko.usuel.images;
 
+import fr.formiko.formiko.Creature;
+import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.Pheromone;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.types.str;
-import fr.formiko.formiko.Creature;
-import fr.formiko.formiko.Fourmi;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import java.awt.geom.AffineTransform;
-import java.awt.image.AffineTransformOp;
 
 /**
  *{@summary image class that contain a lot of tools to use images. }<br>
@@ -462,5 +463,33 @@ public class image{
       op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
     }
     return op.filter(before, null);
+  }
+  /**
+  *{@summary Change the image color depending of ant Pheromone.}<br>
+  *@param imgColor the image to change.
+  *@param ph the Pheromone to get color from.
+  *@version 2.6
+  */
+  public static BufferedImage changeColor(Img imgColor, Pheromone ph){
+    int w = imgColor.getWidth();
+    int h = imgColor.getHeight();
+    imgColor.setRouge(fullOf(w,h,ph.getR()));
+    imgColor.setVert(fullOf(w,h,ph.getG()));
+    imgColor.setBleu(fullOf(w,h,ph.getB()));
+    imgColor.actualiserImage();
+    return imgColor.getImage();
+  }
+  /**
+  *{@summary Full the color of an array.}<br>
+  *@version 2.1
+  */
+  public static byte [][] fullOf(int x, int y, byte b){
+    byte r [][] = new byte[x][y];
+    for (int i=0; i<x; i++) {
+      for (int j=0; j<y; j++) {
+        r[i][j]=b;
+      }
+    }
+    return r;
   }
 }

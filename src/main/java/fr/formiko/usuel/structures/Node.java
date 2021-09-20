@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.lang.UnsupportedOperationException;
 
 /**
-*{@summary Node Object extends by listeNode &#38; treeNode.}<br>
+*{@summary Node Object extends by listeNode &#38; TreeNode.}<br>
 *It have some getter that can be used only if it's a list node or only if it's a tree node.
 *@author Hydrolien
 *@version 2.6

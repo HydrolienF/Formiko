@@ -43,7 +43,7 @@ public class Data {
   // private BufferedImage tII[][];
   private BufferedImage tG[][];
   private BufferedImage tF[][];
-  private BufferedImage antColor[];
+  // private BufferedImage antColor[];
   private BufferedImage antLeg[];
   private BufferedImage map;
   //ini (this var sould not be modify in an other place than here.)
@@ -56,7 +56,7 @@ public class Data {
   // private BufferedImage tIIIni[][];
   private BufferedImage tGIni[][];
   private BufferedImage tFIni[][];
-  private BufferedImage antColorIni[];
+  // private BufferedImage antColorIni[];
   private BufferedImage antLegIni[];
   //image data
   private ImageTree imageTree;
@@ -218,15 +218,15 @@ public class Data {
       }
       //TODO #246 use a diferent image depending of stade.
       try {tBi[k++] = tIF[idEspece];} catch (Exception e) {tBi[k++] = tIF[0];}
-      if(Main.getOp().getAntColorLevel()>0){
-        try {imgColor=new Img(antColor[idEspece]);} catch (Exception e) {imgColor=new Img(antColor[0]);}
-      }
+      // if(Main.getOp().getAntColorLevel()>0){
+      //   try {imgColor=new Img(antColor[idEspece]);} catch (Exception e) {imgColor=new Img(antColor[0]);}
+      // }
     }else{
       k=6;
       tBi[k++]=getTF()[0][3+stade];
     }
     if(imgColor!=null){
-      tBi[k++]=changeColor(imgColor, ph);
+      tBi[k++]=image.changeColor(imgColor, ph);
     }
     if(stade==0){
       //TODO #246 add wings for queen.
@@ -263,37 +263,7 @@ public class Data {
     }
     return tBi;
   }
-  /**
-  *{@summary Change the image color depending of ant Pheromone.}<br>
-  *@param imgColor the image to change.
-  *@param ph the Pheromone to get color from.
-  *@version 2.1
-  */
-  private BufferedImage changeColor(Img imgColor, Pheromone ph){
-    int w = imgColor.getWidth();
-    int h = imgColor.getHeight();
-    byte r [][] = fullOf(w,h,ph.getR());
-    imgColor.setRouge(r);
-    byte g [][] = fullOf(w,h,ph.getG());
-    imgColor.setVert(g);
-    byte b [][] = fullOf(w,h,ph.getB());
-    imgColor.setBleu(b);
-    imgColor.actualiserImage();
-    return imgColor.getImage();
-  }
-  /**
-  *{@summary Full the color of an array.}<br>
-  *@version 2.1
-  */
-  private byte [][] fullOf(int x, int y, byte b){
-    byte r [][] = new byte[x][y];
-    for (int i=0; i<x; i++) {
-      for (int j=0; j<y; j++) {
-        r[i][j]=b;
-      }
-    }
-    return r;
-  }
+
   //public class Controleur{
     //iniImage etc
     /**
@@ -314,7 +284,7 @@ public class Data {
       // tIF=getScaledInstance(tIFIni, tailleFourmi);
       // tII=getScaledInstance(tIIIni, tailleFourmi,2);//les insectes
       // tF=getScaledInstance(tFIni, tailleFourmi,1);//les Fourmis au différent stade.
-      antColor=getScaledInstance(antColorIni, tailleFourmi,0);//les Fourmis au différent stade.
+      // antColor=getScaledInstance(antColorIni, tailleFourmi,0);//les Fourmis au différent stade.
       // antLeg=getScaledInstance(antLegIni, tailleFourmi/2,0);//les Fourmis au différent stade.
       imageTree = ImageTree.getScaledInstanceFromTree(imageTreeIni, tailleFourmi);
       tG=getScaledInstance(tGIni, tailleFourmi);
@@ -338,7 +308,7 @@ public class Data {
         chargerTI();
         // tIIIni = chargerTX("I");
         tFIni = chargerTX("F",3,(byte)0,-3);
-        iniAntColorIni();
+        // iniAntColorIni();
         antLegIni = image.getImages("FLeg",image.getNbrImages("FLeg"),(byte)0);
         imageTreeIni = ImageTree.folderToTree(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");
         // antFAFIni = image.getImages("FAF",image.getNbrImages("FAF"),(byte)0);
@@ -361,23 +331,23 @@ public class Data {
       }
       imageIniForNewGame=true;
     }
-    /**
+    /***
     *{@summary Load antColorIni.}
     *antColorIni will be set to max in alpha if it need.
     *@version 2.2
     */
-    private void iniAntColorIni(){
-      antColorIni = image.getImages("FCol",image.getNbrImages("FCol"),(byte)0);
-      int len = antColorIni.length;
-      if(Main.getOp().getAntColorLevel()>1){
-        for (int i=0; i<len; i++) {
-          Img img = new Img(antColorIni[i]);
-          img.supprimerLaTransparencePartielle(1);
-          img.actualiserImage();
-          antColorIni[i] = img.getImage();
-        }
-      }
-    }
+    // private void iniAntColorIni(){
+    //   antColorIni = image.getImages("FCol",image.getNbrImages("FCol"),(byte)0);
+    //   int len = antColorIni.length;
+    //   if(Main.getOp().getAntColorLevel()>1){
+    //     for (int i=0; i<len; i++) {
+    //       Img img = new Img(antColorIni[i]);
+    //       img.supprimerLaTransparencePartielle(1);
+    //       img.actualiserImage();
+    //       antColorIni[i] = img.getImage();
+    //     }
+    //   }
+    // }
     /**
     *Load Case image
     *@version 1.18
