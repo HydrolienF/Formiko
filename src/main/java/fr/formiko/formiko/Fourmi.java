@@ -25,7 +25,7 @@ import java.io.Serializable;
 */
 public class Fourmi extends Creature implements Serializable{
   /***
-  *It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  *It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium (☿), 4:Major, 5:soldier 6+:other type.
   */
   protected byte typeF;
   protected byte mode; // Par défaut la fourmi chasse (0)
