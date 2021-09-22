@@ -16,6 +16,10 @@ import java.nio.channels.ReadableByteChannel;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
+import java.net.MalformedURLException;
+import java.net.UnknownHostException;
+import java.net.HttpURLConnection;
+import java.net.URLConnection;
 
 /**
 *{@summary tools about Files.}
@@ -159,21 +163,67 @@ public class fichier {
   }
   /**
    *{@summary download a file from the web.}<br>
-   *@param url the url as a String.
+   *@param urlPath the url as a String.
    *@param fileName the name of the file were to save data from the web.
-   *@version 1.46
+   *@version 2.7
    */
-  public static void download(String url, String fileName){
+  public static boolean download(String urlPath, String fileName){
+    String reason=null;
+    Exception ex=null;
+    DownloadThread downloadThread=null;
     try {
-      ReadableByteChannel readChannel = Channels.newChannel(new URL(url).openStream());
-      FileOutputStream fileOS = new FileOutputStream(fileName);
+      URL url = new URL(urlPath);
+      long fileToDowloadSize = getFileSize(url);
+      erreur.info("Downoading "+urlPath+" of size : "+fileToDowloadSize);
+      ReadableByteChannel readChannel = Channels.newChannel(url.openStream());
+      File fileOut = new File(fileName);
+      FileOutputStream fileOS = new FileOutputStream(fileOut);
       FileChannel writeChannel = fileOS.getChannel();
+      //launch Thread that update %age of download
+      //this thread watch file size & print it / fileSize.
+      downloadThread = new DownloadThread(fileOut, fileToDowloadSize);
+      downloadThread.start();
       writeChannel.transferFrom(readChannel, 0, Long.MAX_VALUE);
-    }catch (Exception e) {
-      erreur.erreur("Fail to download "+fileName+" from "+url);
-      e.printStackTrace();
-      System.out.println(e.getCause());
-      System.out.println("--------------------");
+      return true;
+    } catch (MalformedURLException e) {
+      reason = "URL is malformed";
+    } catch (UnknownHostException e) {
+      reason = "can't resolve host";
+    } catch (FileNotFoundException e) {
+      reason = "file can't be found on the web site";
+      ex=e;
+    } catch (Exception e) {
+      reason = e.toString();
+    } finally {
+      if(downloadThread!=null){
+        downloadThread.stopRuning();
+      }
+      if(reason!=null){
+        erreur.erreur("Fail to download "+fileName+" from "+urlPath+ " because "+reason);
+      }
+      if(ex!=null){
+        ex.printStackTrace();
+      }
+    }
+    return false;
+  }
+  /**
+  *{@summary return the size of the downloaded file.}
+  *@version 2.7
+  */
+  private static long getFileSize(URL url) {
+    HttpURLConnection conn = null;
+    try {
+      conn = (HttpURLConnection) url.openConnection();
+      conn.setRequestMethod("HEAD");
+      return conn.getContentLengthLong();
+    } catch (IOException e) {
+      erreur.erreur("fail to get file size");
+      return -1;
+    } finally { //will be call even if there is return before.
+      if (conn != null) {
+        conn.disconnect();
+      }
     }
   }
   /**
@@ -282,5 +332,50 @@ public class fichier {
           throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
       }
       return destFile;
+  }
+}
+
+/**
+*{@summary Print info about curent download.}<br>
+*@version 2.7
+*@author Hydrolien
+*/
+class DownloadThread extends Thread {
+  private File fileOut;
+  private long fileToDowloadSize;
+  private boolean running;
+  /**
+  *{@summary Main constructor.}<br>
+  *@param fileOut file that we are curently filling by the downoading file
+  *@param fileToDowloadSize size that we should reach when download will end
+  *@version 2.7
+  */
+  public DownloadThread(File fileOut, long fileToDowloadSize){
+    this.fileOut = fileOut;
+    this.fileToDowloadSize = fileToDowloadSize;
+    running=true;
+  }
+
+  public void stopRuning(){running=false;}
+  /**
+  *{@summary Main function that print every second %age of download done.}<br>
+  *@version 2.7
+  */
+  public void run(){
+    long fileOutSize=0;
+    long lastFileOutSize=0;
+    while (fileOutSize < fileToDowloadSize && running) {
+      fileOutSize = fileOut.length();
+      int percent = (int)((100*fileOutSize)/fileToDowloadSize);
+      long speed = fileOutSize-lastFileOutSize;
+      erreur.info(percent+"% dowload : "+fileOutSize+"/"+fileToDowloadSize+" "+speed+" B/s");
+      lastFileOutSize=fileOutSize;
+      try {
+        sleep(1000);
+      } catch (InterruptedException ie) {
+        erreur.erreurPause(1000);
+      }
+    }
+    erreur.info("download done");
   }
 }
