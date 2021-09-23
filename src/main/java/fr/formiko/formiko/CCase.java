@@ -224,7 +224,6 @@ public class CCase implements Serializable{
       erreur.erreurPasEncoreImplemente();
     }
     GInsecte gir = getGi();
-    //if (nbrDeCaseVoisine() != 4){ debug.débogage("La detection des insecte ne marche pas car trop proche de la bordure de la carte");return gir;}
     try {
       gir.addList(droite.getGi());
     }catch (Exception e) {}

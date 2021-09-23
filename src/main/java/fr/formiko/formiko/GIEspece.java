@@ -50,10 +50,6 @@ public class GIEspece implements Serializable{
     if(début == null){ erreur.erreurGXVide("GIEspece");return "";}
     return début.toString();
   }
-  public void afficheToi(){
-    if(début == null){ erreur.erreurGXVide("GIEspece");return;}
-    début.afficheToi();
-  }
   public void chargerLesIEspeces(){
     String td [] = new String [0];
     try {

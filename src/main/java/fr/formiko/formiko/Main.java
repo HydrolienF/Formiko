@@ -269,9 +269,6 @@ public class Main {
   public static Carte getCarte(){ return getMap();}
   public static double getVitesseDeJeu(){return pa.getVitesseDeJeu();}
   public static GEspece getGe(){return pa.getGe();}
-  //ini
-  public static void initialiserElémentTournés(){ ini.initialiserElémentTournés();}
-  public static void initialiserAutreELémentTournés(){ ini.initialiserAutreELémentTournés();}
   // Fonctions propre -------------------------------------------------
   /**
    * Initializes Options, key, language, time data, musique, os value. And check the integrity of the file tree.

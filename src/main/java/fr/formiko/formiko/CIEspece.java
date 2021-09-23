@@ -43,10 +43,4 @@ public class CIEspece implements Serializable{
       return contenu+"\n"+suivant.toString();
     }return contenu+"\n";
   }
-  public void afficheToi(){
-    contenu.afficheToi();
-    if(suivant != null){
-      suivant.afficheToi();
-    }
-  }
 }

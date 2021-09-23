@@ -184,12 +184,7 @@ public class Partie implements Serializable{
       Main.endCh("chargementElementsDeLaCarte");
       Main.setMessageChargement(g.getM("chargementDesGraphismes"));
     }
-    //ce qui arrive même si c'était déja initialisé.
-    Main.startCh();
-    if(Main.getF()!=null){ //TODO move to ViewGUI2d
-      initialiserGraphismePartie();
-    }
-    Main.endCh("chargementGraphismes");
+    // Main.getView().iniGuiData();
     setEnCours(true);
   }
   public void initialisationElément(int a, int b){initialisationElément(a,b,1);}
@@ -300,37 +295,7 @@ public class Partie implements Serializable{
       }
     }
   }
-  public void initialiserGraphismePartie(){
-    initalizeAntsImages(gj.length());
-    Main.initialiserElémentTournés(); //une partie des graphismes tourné est probablement déja faite.
-  }
-  /**
-  *{@summary Initialize Ant images and save it.}<br>
-  *It use GJoueur informations to get Pheromone of every queen &#38; create an image that have the 3 color level of the 3 var of Pheromone.
-  *@version 1.39
-  */
-  public void initalizeAntsImages(int nbrDeJoueur){
-    //nouvelle méthode
-    Pixel pi = new Pixel(255,105,0,255);
-    for (int i=1;i<nbrDeJoueur+1 ;i++ ) {
-      Pheromone ph;
-      try {
-        ph = gj.getJoueurParId(i).getFere().getGc().getHead().getContent().getPh();
-      }catch (Exception e) {
-        erreur.erreur("Les Pheromones de la fourmi n'ont pas put etre récupérer, il sont donc choisi aléatoirement.");
-        ph = new Pheromone(127,127,127); // blanc sinon.
-      }
-      int a = ph.getRc(); int b=ph.getVc(); int c=ph.getBc();
-      Img imgTemp = new Img("F0");
-      Pixel pi2 = new Pixel(ph);
-      imgTemp.changerPixel(pi,pi2);
-      //imgTemp.ombrer(pi2); // met de l'ombre sur le pixel pi2. (en théorie) En pratique on vas plutot déciner moins de couleur sur les bords.
-      imgTemp.sauvegarder("F0&"+i+".png");
-    }
-  }
-  public void enregistrerLesScores(){
-    gj.enregistrerLesScores();
-  }
+  public void enregistrerLesScores(){gj.enregistrerLesScores();}
   //static
   /**
    * Load the GEspece.

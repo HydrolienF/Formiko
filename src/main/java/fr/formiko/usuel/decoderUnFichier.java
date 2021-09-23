@@ -114,7 +114,6 @@ public class decoderUnFichier {
     while (i < lens){
       char c = s.charAt(i);
       if (c == ';'){ // si c'est un séparateur
-        //debug.débogage("On ajoute \"" + sActuel + "\" au tableau de tableau de tableau");
         // Ici il faut add un tableau a un tableau de tableau.
         tr[k] = getTableauString(sActuel,','); k++;
         sActuel = "";
@@ -123,7 +122,6 @@ public class decoderUnFichier {
       }
       i++;
     }
-    //debug.débogage("On ajoute \"" + sActuel + "\" au tableau de tableau");
     tr[k] = getTableauString(sActuel,',');
     //tr = tableau.ajouteX(tr,sActuel); // la dernière String du tableau n'as pas de virgule après elle.
     return tr;

@@ -148,16 +148,6 @@ public class Folder{
         fichier.deleteDirectory(file);
       }
     }
-    // File f = new File(getFolderTemporary());
-    // fichier.deleteDirectory(f);
-    // f = new File(getFolderResourcesPacks());
-    // fichier.deleteDirectory(f);
-    // f = new File(getFolderSaves());
-    // fichier.deleteDirectory(f);
-    // f = new File(getFolderMain()+"Keys.txt");
-    // //f.delete();
-    // f = new File(getFolderMain()+"Options.md");
-    // f.delete();
   }
   /**
   *{@summary Initialize stable missing folder.}<br>

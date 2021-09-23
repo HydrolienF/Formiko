@@ -39,6 +39,7 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   public void setDureté(int x){ if(x<-128 || x>127){ erreur.erreur("byte inoptencible depuis "+x);return;}setDureté((byte)x);}
   public boolean getOuverte(){ return ouverte;}
   public void setOuverte(boolean b){ouverte = b;}
+  public void casser(){setOuverte(true);}
   /**
   *{@summary Move the Graine from a case to an other.}<br>
   *It is used by Deplacement interfaces.<br>
@@ -79,9 +80,6 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
     debug.débogage("Lancement de la mort de la graine.");
     Main.getGc().getCCase(ccase.getContent().getX(),ccase.getContent().getY()).getGg().retirerGraine(this);//on retire la graine de sa liste.
     this.setCCase(null);
-  }
-  public void casser(){
-    ouverte=true;
   }
   public void tour(){
     if(getCCase().getContent().getFere()==null){//si la graine n'est pas dans une fourmiliere :

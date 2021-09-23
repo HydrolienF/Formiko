@@ -1,7 +1,8 @@
 package fr.formiko.usuel;
 
-import fr.formiko.views.gui2d.ini;
+import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Chrono;
+import fr.formiko.views.gui2d.ini;
 
 public class Th extends Thread{
   public int x;
@@ -27,7 +28,7 @@ public class Th extends Thread{
   public synchronized void chargementDesGraphismesAutonomes(){
     Chrono ch2 = new Chrono();
     Chrono.debutCh(ch2);
-    ini.initialiserAutreELémentTournés();//2
+    Main.getData().tournerLesFleches(); //only item that still need to be turn.
     Chrono.endCh(g.get("chargementDesElémentsTourné"),ch2);
   }
 }

@@ -66,7 +66,6 @@ public class GGraine implements Serializable{
   //}
 
   public void afficheToi(){ System.out.println(this);}
-  // public void addGraine(CCase cc){ addGraine(new Graine(cc));}
   /**
   *{@summary Add a seed to this GGraine.}
   *@version 1.40

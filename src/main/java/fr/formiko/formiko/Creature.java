@@ -238,7 +238,6 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     if (stade==-1){ return g.get("nymphe");}
     return g.get("stade")+" "+g.get("inconnu")+" ("+stade+")";
   }
-  //public abstract void afficheToi();
   //... equals(Creature c) // c'est ObjetAId qui compare l'id.
 
   /**

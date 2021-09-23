@@ -8,6 +8,7 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.usuel.types.*;
 
+//old save way that have been replace by Java one.
 public class lireUneSauvegarde {
   public static void lireUneSauvegarde(String nomDuFichier){
     erreur.erreur("Le système de lecture des sauvegardes n'est pas a jour !",true);

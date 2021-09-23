@@ -275,10 +275,6 @@ public class launchOptions {
     AudioPlayer sp2 = new AudioPlayer("C:/Users/lili5/Music/son/pock.mp3",true,2000);
     sp2.play();
   }
-  // private static void zip(){
-  //   fichier.zip("tools/", "tools.zip");
-  //   fichier.unzip("tools.zip", "tools2");
-  // }
   /**
   *{@summary Translate the web site files.}<br>
   *@param pathToWebSiteFile path to acces to web site files.

@@ -24,8 +24,6 @@ public class trad {
     // on récupère les traductions déja effectuée.
     Map<String,String> trad [];
     try {
-      //en faite 1 des 2 avertissements est retiré avec SuppressWarnings mais l'autre est concidéré comme une erreur.
-      //@SuppressWarnings("unchecked")
       trad = new Map[lentl];//un tableau de map
       trad[0] = chargerLesTraductions.chargerLesTraductions(0);
       for (int i=2;i<lentl ;i++ ) {
@@ -47,13 +45,11 @@ public class trad {
     for (String s : t) {
       if(chargerLesTraductions.estLigneDeTrad(s) && !str.contient(s,"[]",2)){//si c'est une ligne de trad qui ne correspond pas a un nom propre.
         if(str.contient(s,"test:",0)){gs.add("test:test"+str.sToSMaj(se));}
-        else{gs.add(ligneTradBase(s,map));}//modifié
+        else{gs.add(ligneTradBase(s,map));}//edited
       }else{
-        gs.add(s);//pas modifié.
+        gs.add(s);//not edited
       }
     }
-    //int k = (k1*100)/(k1+k2);
-    //System.out.println("traduction de "+se+" effectuée a "+k+"%");
     ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages()+se+".txt");
   }
   public static String ligneTradBase(String s, Map<String,String> map){
@@ -63,11 +59,10 @@ public class trad {
       if (s4.equals(s2)){ //si on reconnait la clé dans la map.
         s2 = s2+sep+map.get(s4);
         changé=true; break;
-      }//k1++;
+      }
     }
     //dans ce cas on n'enregistre pas la valeur de la traduction :
-    if(!changé){s2 = s2 +sep;
-    }
+    if(!changé){s2 = s2 +sep;}
     //Si la ligne ce termine par [], on ne le modifie pas car c'est un nom propre.
     return s2;
   }

@@ -130,7 +130,7 @@ public class Case implements Serializable{
     }
   }
   public void actualisationGraine(CCase p){
-    //ici un %age dépendant du type de la Case et de la saison serait bienvenue. (multiplié par l'abondance des graines.)
+    //TODO ici un %age dépendant du type de la Case et de la saison serait bienvenue. (multiplié par l'abondance des graines.)
     int x  = allea.getAlléa(50);
     if(x==0 && this.getFere()==null){ new Graine(p);} // si on a de la chance et que il n'y a pas de fere sur la case.
     gg.tour();

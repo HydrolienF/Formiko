@@ -34,7 +34,4 @@ public class IEspece implements Serializable{
   public String toString(){
     return "IEspece "+getId()+tableau.tableauToString(ct);
   }
-  public void afficheToi(){
-    System.out.println(this);
-  }
 }

@@ -126,17 +126,8 @@ public class ViewGUI2d implements View {
   public boolean paint(){
     if(!Main.getOp().getModeFPS()){
       if(f==null){erreur.alerte("La fenetre est null & ne peu pas être redessinée."); return false;}
-      // erreur.info("repaint.",3);
-      // if(!canRefresh){return false;}
-      // canRefresh=false;
       getF().repaint(10);
-      // canRefresh=true;
     }
-    // System.out.println("test");
-    // getPp().paintImmediately(0,0,getPp().getWidth(),getPp().getHeight());
-    // getPp().printAll(getPp().getGraphics());
-    // getF().paintComponent​s(getF().getGraphics());
-    // getF().paintAll(getF().getGraphics());
     return true;
   }
   /**
@@ -519,22 +510,22 @@ public class ViewGUI2d implements View {
     getPmmc().setAllActionDone(false);
     // erreur.info("stop waiting for end turn");
   }
+  /**
+  *{@summary A loop to wait for game launch.}<br>
+  *@version 1.46
+  */
+  public synchronized void waitForGameLaunch(){
+    // if(!Main.getPremierePartie()){
+    boolean b=false;
+    while(!b){Temps.pause(10);b=getPm().getLancer();}
+    actionGame();
+  }
   //private---------------------------------------------------------------------
   /**
-  *Load graphics.
-  *@version 1.42
+  *Load graphics during menu time.
+  *@version 2.6
   */
   private void loadGraphics(){
-    Main.startCh();
-    if(Main.getChargementPendantLesMenu()){chargementDesGraphismesAutonomes();}
-    else{ini.initialiserPanneauJeuEtDépendance();ini.initialiserAutreELémentTournés();}
-    Main.endCh("chargementDesGraphismesAutonomes");
-  }
-  /**
-  *Load graphics during menu time.
-  *@version 1.1
-  */
-  private void chargementDesGraphismesAutonomes(){
     if(Main.getPremierePartie()){ini.initialiserPanneauJeuEtDépendance();}
     else{
       Th thTemp = new Th(1);
@@ -557,16 +548,6 @@ public class ViewGUI2d implements View {
     }catch (Exception e) {
       erreur.erreur("Impossible de lancer l'écoute des codes triches.");
     }
-  }
-  /**
-  *{@summary A loop to wait for game launch.}<br>
-  *@version 1.46
-  */
-  public synchronized void waitForGameLaunch(){
-    // if(!Main.getPremierePartie()){
-    boolean b=false;
-    while(!b){Temps.pause(10);b=getPm().getLancer();}
-    actionGame();
   }
   /**
   *{@summary Launch refrech of main Frame.}<br>
