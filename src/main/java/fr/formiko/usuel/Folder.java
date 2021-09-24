@@ -1,5 +1,8 @@
 package fr.formiko.usuel;
 
+import com.github.cliftonlabs.json_simple.JsonObject;
+import com.github.cliftonlabs.json_simple.Jsoner;
+
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Chrono;
 import fr.formiko.usuel.exceptions.MissingFolderException;
@@ -7,11 +10,10 @@ import fr.formiko.usuel.types.str;
 
 import java.io.File;
 import java.io.Reader;
+import java.net.URL;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.nio.file.Path;
-import com.github.cliftonlabs.json_simple.JsonObject;
-import com.github.cliftonlabs.json_simple.Jsoner;
+import java.nio.file.Paths;
 
 /**
 *{@summary Class that have all link to all folder of formiko.}<br>
@@ -103,12 +105,15 @@ public class Folder{
   public int ini(boolean allowedDownolad){
     missingFolder=0;
     File f = new File(getFolderMain());
+    if(newVersionAviable()){
+      erreur.info("A new version "+getLastStableVersion()+" is aviable at https://formiko.fr/download/");
+    }
     try{
       if(!f.exists() || f.listFiles().length==0){
         f.mkdirs();
         missingFolder++;
         if(allowedDownolad){throw new MissingFolderException("main");}
-      }else if(needToUpdateVersion()){
+      }else if(needToUpdateDataVersion()){
         erreur.alerte("A compatible data version ("+getWantedDataVersion()+") is downloaded");
         if(allowedDownolad){downloadData();}
       }
@@ -243,11 +248,10 @@ public class Folder{
   /**
   *{@summary Download main data from github release.}<br>
   *It need Main.version to be correct to work.<br>
-  *@version 1.51
+  *@version 2.7
   */
   public void downloadData(){
-    //TODO uncomment next line when #301 (tuto issues) will be fix.
-    // Main.setPremierePartie(true);
+    //TODO #423 #192
     Main.startCh();
     fichier.deleteDirectory(getFolderMain());
     File f = new File(getFolderMain());
@@ -264,52 +268,75 @@ public class Folder{
       erreur.alerte("unable to delete "+getFolderMain()+"data.zip");
     }
   }
-  public boolean needToUpdateVersion(){
+  public boolean needToUpdateDataVersion(){
     String wantedDataVersion = getWantedDataVersion();
     String curentDataVersion = getCurentDataVersion();
     if(wantedDataVersion.equals("null") || curentDataVersion.equals("null")){return false;}
     if(!wantedDataVersion.equals(curentDataVersion)){return true;}
     return false;
   }
+  /**
+  *{@summary Return true if a new version is aviable.}<br>
+  *If last stable version > curent version.<br>
+  *@version 2.7
+  */
+  public boolean newVersionAviable(){
+    return isOver(getLastStableVersion(), getCurentVersion());
+  }
+  /**
+  *{@summary Return true if v1 > v2.}<br>
+  *@version 2.7
+  */
+  public boolean isOver(String v1, String v2){
+    //TODO #compare version #192
+    // String ts1 [] = v1.split(".");
+    // if() {
+    //
+    // }
+    return false;
+  }
+  public String getCurentVersion(){
+    return getXVersion(Paths.get(getFolderMain()+"version.json"), "formiko");
+  }
   public String getCurentDataVersion(){
-    try {
-      // create a reader
-      Reader reader = Files.newBufferedReader(Paths.get(getFolderMain()+"version.json"));
-      // create parser
-      JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
-      // read customer details
-      String version = (String) parser.get("data");
-      return version;
-    }catch (Exception e) {
-      erreur.alerte("can't read data version");
-      return "null";
-    }
+    return getXVersion(Paths.get(getFolderMain()+"version.json"), "data");
+  }
+  public String getCurentMusicVersion(){
+    return getXVersion(Paths.get(getFolderMain()+"version.json"), "music");
   }
   public String getWantedDataVersion(){
-    try {
-      // create a reader
-      Reader reader = Files.newBufferedReader(getVersionJsonPath());
-      // create parser
-      JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
-      // read customer details
-      String version = (String) parser.get("data");
-      return version;
-    }catch (Exception e) {
-      erreur.alerte("can't read data version");
-      return "1.49.12";
-    }
+    return getXVersion(getVersionJsonPath(), "data");
   }
   public String getWantedMusicVersion(){
+    return getXVersion(getVersionJsonPath(), "music");
+  }
+  public String getLastStableVersion(){
+    try {
+      return getXVersion(Paths.get(new URL("https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json").getPath()), "lastStableVersion");
+    }catch (Exception e) {
+      erreur.erreur("Can't read last stable version");
+      return "0.0.0";
+    }
+  }
+  /**
+  *{@summary return the version from path & name of the wanted version.}<br>
+  *If it fail, it will return a defaut version.
+  *@param pathToJson path to the .json file taht containt version
+  *@param nameOfTheVersion name of the version
+  *@return a version String as 1.49.12
+  *@version 2.7
+  */
+  public String getXVersion(Path pathToJson, String nameOfTheVersion){
     try {
       // create a reader
-      Reader reader = Files.newBufferedReader(getVersionJsonPath());
+      Reader reader = Files.newBufferedReader(pathToJson);
       // create parser
       JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
       // read customer details
-      String version = (String) parser.get("music");
+      String version = (String) parser.get(nameOfTheVersion);
       return version;
     }catch (Exception e) {
-      erreur.alerte("can't read data version");
+      erreur.alerte("can't read music version");
       return "1.49.12";
     }
   }
@@ -323,14 +350,6 @@ public class Folder{
     if(f.exists()){
       return Paths.get(f.getPath());
     }
-    // try {
-    //   f = new File(new Main().getClass().getResource("version.json").toURI());
-    // }catch (Exception e) {
-    //   erreur.alerte("Can't fined version.json path in jar file");
-    // }
-    // if(f.exists()){
-    //   return Paths.get(f.getPath());
-    // }
     f = new File("app/version.json");
     if(f.exists()){
       return Paths.get(f.getPath());
@@ -352,6 +371,12 @@ public class Folder{
     th.start();
   }
 }
+/**
+*{@summary Download music data from github release in a Thread.}<br>
+*It need Main.version to be correct to work.<br>
+*@version 1.53
+*@author Hydrolien
+*/
 class ThDownloadMusicData extends Thread {
   private Folder folder;
   public ThDownloadMusicData(Folder f){

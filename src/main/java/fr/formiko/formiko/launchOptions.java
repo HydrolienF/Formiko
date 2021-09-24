@@ -318,15 +318,19 @@ public class launchOptions {
       // Folder f = Main.getFolder();
       Reader reader = Files.newBufferedReader(Folder.getVersionJsonPath());
       JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
+      String formikoVersion="";
+      try {
+        formikoVersion = lireUnFichier.lireUnFichierGs("version.md").getFirst();
+      }catch (Exception e) {}
       String musicVersion="";
       String dataVersion="";
-      if(args[1].equals("1")){
+      if(args.length>1 && args[1].equals("1")){
         erreur.info("Update dataVersion");
         dataVersion = getCurentversion();
       }else{
         dataVersion = (String) parser.get("data");
       }
-      if(args[2].equals("1")){
+      if(args.length>2 && args[2].equals("1")){
         erreur.info("Update musicVersion");
         musicVersion = getCurentversion();
       }else{
@@ -337,6 +341,7 @@ public class launchOptions {
       JsonObject jsr = new JsonObject();
       jsr.put("data",dataVersion);
       jsr.put("music",musicVersion);
+      jsr.put("formiko",formikoVersion);
       // File file = new File(f.getFolderMain()+"version.json");
       // file.delete();
       BufferedWriter writer = Files.newBufferedWriter(Folder.getVersionJsonPath());

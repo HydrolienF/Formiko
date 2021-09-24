@@ -166,4 +166,9 @@ public interface View {
   *@version 2.5
   */
   default void waitForEndTurn(){}
+  /***
+  *{@summary Wait for end turn if we need.}
+  *@version 2.5
+  */
+  // void iniFormikoInstaller();
 }
