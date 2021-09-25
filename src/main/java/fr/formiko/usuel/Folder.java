@@ -22,7 +22,7 @@ import java.nio.file.Paths;
 *@author Hydrolien
 *@version 1.37
 */
-public class Folder{
+public class Folder {
   private String folderMain="data/";
   private String folderStable="stable/";
   private String folderTemporary="temporary/";
@@ -348,14 +348,17 @@ public class Folder{
   *@version 2.7
   */
   public String getLastStableVersion(){
-    // try {
-    //   String fileName = getFolderMain()+"vTemp.json";
-    //   fichier.download("https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json", fileName);
-    //   return getXVersion(Paths.get(fileName), "lastStableVersion");
-    // }catch (Exception e) {
-    //   erreur.alerte("Can't read last stable version");
+    String fileName = getFolderMain()+"vTemp.json";
+    try {
+      fichier.download("https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json", fileName);
+      return getXVersion(Paths.get(fileName), "lastStableVersion");
+    }catch (Exception e) {
+      erreur.alerte("Can't read last stable version");
       return "0.0.0";
-    // }
+    }finally {
+      File f = new File(fileName);
+      if(!fichier.deleteDirectory(f)){}
+    }
   }
   /**
   *{@summary Return the version from path & name of the wanted version.}<br>

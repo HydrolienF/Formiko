@@ -126,6 +126,7 @@ public class fichier {
     String reason=null;
     Exception ex=null;
     DownloadThread downloadThread=null;
+    FileOutputStream fos=null;
     try {
       URL url = new URL(urlPath);
       long fileToDowloadSize = getFileSize(url);
@@ -134,8 +135,8 @@ public class fichier {
       // }
       ReadableByteChannel readChannel = Channels.newChannel(url.openStream());
       File fileOut = new File(fileName);
-      FileOutputStream fileOS = new FileOutputStream(fileOut);
-      FileChannel writeChannel = fileOS.getChannel();
+      fos = new FileOutputStream(fileOut);
+      FileChannel writeChannel = fos.getChannel();
       if (withInfo) {
         //launch Thread that update %age of download
         //this thread watch file size & print it / fileSize.
@@ -154,6 +155,13 @@ public class fichier {
     } catch (Exception e) {
       reason = e.toString();
     } finally {
+      if(fos!=null){
+        try {
+          fos.close();
+        }catch (Exception e) {
+          erreur.alerte("Can't close FileOutputStream");
+        }
+      }
       if(downloadThread!=null){
         downloadThread.stopRuning();
       }
