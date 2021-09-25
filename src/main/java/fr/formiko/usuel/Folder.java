@@ -106,7 +106,7 @@ public class Folder{
     missingFolder=0;
     File f = new File(getFolderMain());
     if(newVersionAviable()){
-      erreur.info("A new version "+getLastStableVersion()+" is aviable at https://formiko.fr/download/");
+      erreur.info("A new version "+getLastStableVersion()+" is aviable at https://formiko.fr/download");
     }
     try{
       if(!f.exists() || f.listFiles().length==0){
@@ -251,7 +251,7 @@ public class Folder{
   *@version 2.7
   */
   public void downloadData(){
-    //TODO #423 #192
+    //TODO #423
     Main.startCh();
     fichier.deleteDirectory(getFolderMain());
     File f = new File(getFolderMain());
@@ -268,6 +268,14 @@ public class Folder{
       erreur.alerte("unable to delete "+getFolderMain()+"data.zip");
     }
   }
+  /**
+  *{@summary Return true if data version is outdated or overdated.}<br>
+  *Each game version have 1 linked data version, so we need to know witch one.
+  *Data don't need to be update as many times as game is,
+  *so when a new version of data is needed it is publish in github action.
+  *A new data version always take curent game version as version number.
+  *@version 2.7
+  */
   public boolean needToUpdateDataVersion(){
     String wantedDataVersion = getWantedDataVersion();
     String curentDataVersion = getCurentDataVersion();
@@ -294,31 +302,57 @@ public class Folder{
   public boolean isOver(String v1, String v2){
     return str.isVersionOver(v1,v2);
   }
+  /**
+  *{@summary Return the version that game have.}<br>
+  *@version 2.7
+  */
   public String getCurentVersion(){
     return getXVersion(Paths.get(getFolderMain()+"version.json"), "formiko");
   }
+  /**
+  *{@summary Return the curent data version that game have.}<br>
+  *@version 2.7
+  */
   public String getCurentDataVersion(){
     return getXVersion(Paths.get(getFolderMain()+"version.json"), "data");
   }
+  /**
+  *{@summary Return the curent music version that game have.}<br>
+  *@version 2.7
+  */
   public String getCurentMusicVersion(){
     return getXVersion(Paths.get(getFolderMain()+"version.json"), "music");
   }
+  /**
+  *{@summary Return the data version that game want to have.}<br>
+  *@version 2.7
+  */
   public String getWantedDataVersion(){
     return getXVersion(getVersionJsonPath(), "data");
   }
+  /**
+  *{@summary Return the music version that game want to have.}<br>
+  *@version 2.7
+  */
   public String getWantedMusicVersion(){
     return getXVersion(getVersionJsonPath(), "music");
   }
+  /**
+  *{@summary Return the last stable version downloadable on the web site.}<br>
+  *@version 2.7
+  */
   public String getLastStableVersion(){
     try {
-      return getXVersion(Paths.get(new URL("https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json").getPath()), "lastStableVersion");
+      String fileName = getFolderMain()+"vTemp.json";
+      fichier.download("https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json", fileName);
+      return getXVersion(Paths.get(fileName), "lastStableVersion");
     }catch (Exception e) {
-      erreur.erreur("Can't read last stable version");
+      erreur.alerte("Can't read last stable version");
       return "0.0.0";
     }
   }
   /**
-  *{@summary return the version from path & name of the wanted version.}<br>
+  *{@summary Return the version from path & name of the wanted version.}<br>
   *If it fail, it will return a defaut version.
   *@param pathToJson path to the .json file taht containt version
   *@param nameOfTheVersion name of the version
@@ -336,7 +370,7 @@ public class Folder{
       return version;
     }catch (Exception e) {
       erreur.alerte("can't read music version");
-      return "1.49.12";
+      return "0.0.0";
     }
   }
   /**
