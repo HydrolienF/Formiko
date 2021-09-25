@@ -167,6 +167,17 @@ public class launchOptions {
     }else if(args[0].equals("updateDataVersion")){
       updateDataVersion(args);
       System.exit(0);
+    }else if(args[0].equals("launcher")){
+      Main.initialisation();
+      Main.getView().iniLauncher();
+      Main.getView().setDownloadingMessage("Dowloading files");
+      int k=0;
+      while (k<10) {
+        Main.getView().setDownloadingValue(k*7);
+        Temps.pause(1000);
+        k++;
+      }
+      // System.exit(0);
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }

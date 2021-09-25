@@ -51,6 +51,7 @@ public class ViewGUI2d implements View {
   *@version 1.1
   */
   private FFrameMain f;
+  private FFrameLauncher fl;
   private boolean needToWaitForGameLaunch=true;
   private Timer timer;
   private boolean canRefresh=true;
@@ -519,6 +520,29 @@ public class ViewGUI2d implements View {
     boolean b=false;
     while(!b){Temps.pause(10);b=getPm().getLancer();}
     actionGame();
+  }
+  /**
+  *{@summary Initialize the game launcher.}
+  *@version 2.7
+  */
+  public void iniLauncher(){
+    fl = new FFrameLauncher();
+  }
+  /**
+  *{@summary Update downloading message.}
+  *@param message the message
+  *@version 2.7
+  */
+  public void setDownloadingMessage(String message){
+    fl.setDownloadingMessage(message);
+  }
+  /**
+  *{@summary Update downloading %age.}
+  *@param state the state as a %age
+  *@version 2.7
+  */
+  public void setDownloadingValue(int state){
+    fl.setDownloadingValue(state);
   }
   //private---------------------------------------------------------------------
   /**

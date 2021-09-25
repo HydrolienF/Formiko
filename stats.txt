@@ -57,7 +57,7 @@ comment %    cl-pu-po-pr-sh-ln   name of the file
 null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 100% (5/5)   1  4  0  0  0  45   formiko\interfaces\TrophallaxieNull.java
 5%   (1/17)  1  16 0  0  23 176  formiko\Joueur.java
-100% (11/11) 1  5  0  5  0  370  formiko\launchOptions.java
+100% (11/11) 1  5  0  5  0  381  formiko\launchOptions.java
 92%  (12/13) 1  12 0  0  108 457  formiko\Main.java
 66%  (2/3)   1  2  0  0  5  43   formiko\ObjetAId.java
 0%   (0/4)   1  3  0  0  6  41   formiko\ObjetSurCarteAId.java
@@ -87,8 +87,8 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 100% (2/2)   1  1  0  0  1  17   usuel\exceptions\MissingFolderException.java
 100% (2/2)   1  1  0  0  1  18   usuel\exceptions\NotNullLocationException.java
 100% (2/2)   1  1  0  0  1  18   usuel\exceptions\NullItemException.java
-75%  (12/16) 2  12 0  2  7  343  usuel\fichier.java
-86%  (20/23) 2  18 0  3  28 444  usuel\Folder.java
+75%  (12/16) 2  12 0  2  7  351  usuel\fichier.java
+86%  (20/23) 2  18 0  3  28 447  usuel\Folder.java
 100% (8/8)   1  7  0  0  4  122  usuel\g.java
 100% (23/23) 1  22 0  0  16 494  usuel\images\image.java
 72%  (29/40) 1  39 0  0  37 677  usuel\images\Img.java
@@ -144,6 +144,7 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 50%  (8/16)  1  14 0  1  15 258  views\gui2d\FButton.java
 100% (5/5)   1  4  0  0  1  70   views\gui2d\FComboBox.java
 85%  (6/7)   1  5  0  1  3  122  views\gui2d\FFrame.java
+100% (5/5)   2  3  0  0  2  74   views\gui2d\FFrameLauncher.java
 100% (2/2)   1  1  0  0  1  30   views\gui2d\FFrameMain.java
 116% (7/6)   1  5  0  0  11 121  views\gui2d\FLabel.java
 100% (4/4)   1  2  0  1  1  88   views\gui2d\FTextArea.java
@@ -181,8 +182,8 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 0%   (0/2)   1  1  0  0  1  19   views\gui2d\Question.java
 0%   (0/3)   1  2  0  0  0  36   views\gui2d\readG.java
 100% (7/7)   1  3  0  3  4  203  views\gui2d\ThMove.java
-94%  (34/36) 2  28 0  6  25 647  views\gui2d\ViewGUI2d.java
-100% (1/1)   1  0  0  0  1  174  views\View.java
-100% (30/30) 1  21 0  8  2  690  views\ViewCLI.java
+94%  (37/39) 2  31 0  6  25 671  views\gui2d\ViewGUI2d.java
+100% (1/1)   1  0  0  0  1  186  views\View.java
+96%  (30/31) 1  22 0  8  2  697  views\ViewCLI.java
 100% (16/16) 1  15 0  0  7  174  views\ViewNull.java
-54,1%(913/1686) 210 1350 2 124 1119  25530 global
+54,3%(921/1695) 212 1357 2 124 1121  25669 global

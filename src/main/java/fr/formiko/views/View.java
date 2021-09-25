@@ -167,8 +167,20 @@ public interface View {
   */
   default void waitForEndTurn(){}
   /***
-  *{@summary Wait for end turn if we need.}
-  *@version 2.5
+  *{@summary Initialize the game launcher.}
+  *@version 2.7
   */
-  // void iniFormikoInstaller();
+  default void iniLauncher(){}
+  /***
+  *{@summary Update downloading message.}
+  *@param message the message
+  *@version 2.7
+  */
+  default void setDownloadingMessage(String message){}
+  /***
+  *{@summary Update downloading %age.}
+  *@param state the state as a %age
+  *@version 2.7
+  */
+  default void setDownloadingValue(int state){}
 }

@@ -498,6 +498,13 @@ public class ViewCLI implements View {
   *@version 2.1
   */
   public void move(ObjetSurCarteAId o, CCase from, CCase to){}
+  /***
+  *{@summary Update downloading message.}
+  *@version 2.7
+  */
+  public void setDownloadingMessage(String message){
+    System.out.println(message);
+  }
 
   //private---------------------------------------------------------------------
   /**

@@ -106,7 +106,7 @@ public class Folder {
     missingFolder=0;
     File f = new File(getFolderMain());
     if(newVersionAviable()){
-      erreur.info("A new version "+getLastStableVersion()+" is aviable at https://formiko.fr/download");
+      erreur.info("A new version, "+getLastStableVersion()+" is aviable at https://formiko.fr/download");
     }
     try{
       if(!f.exists() || f.listFiles().length==0){
