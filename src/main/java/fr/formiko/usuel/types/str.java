@@ -4,15 +4,69 @@ import fr.formiko.usuel.ascii;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.tableau;
 
 /**
 *{@summary Types conversions from String}<br>
 *@author Hydrolien
-*@version 1.1
+*@version 2.7
 */
-public class str{
+public class str {
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Count '.' &#38; throw an exception if String is malformed.}<br>
+  *String is concider malformed if it have other char than "1234567890.".<br>
+  *@version 2.7
+  */
+  private static int countPointAndThrowExecption(String s){
+    int cptPoint=0;
+    for (char c : s.toCharArray()) {
+      if(c<48 || c>57){ //if not a number
+        if(c==46){
+          cptPoint++;
+        }else{
+          throw new IllegalArgumentException();
+        }
+      }
+    }
+    return cptPoint;
+  }
+  /**
+  *{@summary Return true if version1 > version2.}<br>
+  *@version 2.7
+  */
+  public static boolean isVersionOver(String v1, String v2){
+    int cptPoint1 = countPointAndThrowExecption(v1);
+    int cptPoint2 = countPointAndThrowExecption(v2);
+    //if there is more "." in the 1a, return true because version is bigger. (& false if <)
+    if(cptPoint1>cptPoint2){return true;}
+    else if(cptPoint1<cptPoint2){return false;}
+    String s1 = "";
+    String s2 = "";
+    int len1 = v1.length();
+    int len2 = v2.length();
+    while (len1 > 0 && len2 > 0) {
+      //compare next number
+      int k=0;
+      while(k<len1 && v1.charAt(k)!='.'){k++;}
+      s1=v1.substring(0,math.min(k,len1));
+      v1=v1.substring(math.min(k+1,len1),len1);
+      len1 = v1.length();
+      k=0;
+      while(k<len2 && v2.charAt(k)!='.'){k++;}
+      s2=v2.substring(0,math.min(k,len2));
+      v2=v2.substring(math.min(k+1,len2),len2);
+      len2 = v2.length();
+
+      int i1 = sToI(s1);
+      int i2 = sToI(s2);
+      if(i1>i2){return true;}
+      else if(i1<i2){return false;}
+      //else test next number.
+    }
+    return false;
+  }
   /**
    *{@summary get the number of char x in a String}
    *@param s String were to search.

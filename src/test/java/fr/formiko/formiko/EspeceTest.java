@@ -33,7 +33,7 @@ public class EspeceTest extends TestCaseMuet{
     assertEquals(3,f.getIndividu().getNourritureConso(f.getStade()));
 
     f.setTypeF((byte)3);
-    assertEquals(3,(int)(f.getIndividu().getTaille()));
+    assertEquals(80,(int)(f.getIndividu().getTaille()));
     assertEquals(35,f.getIndividu().getActionMax());
     assertEquals(1,f.getIndividu().getNourritureConso(f.getStade()));
   }

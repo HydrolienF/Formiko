@@ -281,19 +281,18 @@ public class Folder{
   *@version 2.7
   */
   public boolean newVersionAviable(){
-    return isOver(getLastStableVersion(), getCurentVersion());
+    try {
+      return isOver(getLastStableVersion(), getCurentVersion());
+    }catch (Exception e) {
+      return false;
+    }
   }
   /**
   *{@summary Return true if v1 > v2.}<br>
   *@version 2.7
   */
   public boolean isOver(String v1, String v2){
-    //TODO #compare version #192
-    // String ts1 [] = v1.split(".");
-    // if() {
-    //
-    // }
-    return false;
+    return str.isVersionOver(v1,v2);
   }
   public String getCurentVersion(){
     return getXVersion(Paths.get(getFolderMain()+"version.json"), "formiko");

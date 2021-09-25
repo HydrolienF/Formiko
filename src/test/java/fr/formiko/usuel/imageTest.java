@@ -81,10 +81,10 @@ public class imageTest extends TestCaseMuet{
     //faute de savoir comment comparé les images sans prendre en compte meur adresse mémoire on supose que la taille est assez propre a chaque image.
     assertTrue(i0!=null);
     assertEquals(nul.getWidth(null),i0.getWidth(null));
-    Image i1 = image.getImage("I0.png");
-    Image i2 = image.getImage("I0");
-    Image i3 = image.getImage("I0",Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages());//si on cherche dans le bon répertoire.
-    Image i4 = image.getImage("I0","./"); //si on cherche dans un mauvais répertoire.
+    Image i1 = image.getImage("b0.png");
+    Image i2 = image.getImage("b0");
+    Image i3 = image.getImage("b0",Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages());//si on cherche dans le bon répertoire.
+    Image i4 = image.getImage("b0","./"); //si on cherche dans un mauvais répertoire.
     assertEquals(i1.getWidth(null),i2.getWidth(null));
     assertEquals(i1.getWidth(null),i3.getWidth(null));
     assertEquals(null,i4);
