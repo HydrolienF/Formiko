@@ -50,7 +50,7 @@ public class ViewGUI2d implements View {
   *Main windows
   *@version 1.1
   */
-  private FFrame f;
+  private FFrameMain f;
   private boolean needToWaitForGameLaunch=true;
   private Timer timer;
   private boolean canRefresh=true;
@@ -58,7 +58,7 @@ public class ViewGUI2d implements View {
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
-  public FFrame getF(){return f;}
+  public FFrameMain getF(){return f;}
   public PanneauPrincipal getPp(){ return getF().getPp();}
   public PanneauJeu getPj(){ return getPp().getPj();}
   public PanneauMenu getPm(){ return getPp().getPm();}
@@ -90,7 +90,7 @@ public class ViewGUI2d implements View {
     actionGameOn=false;
     Main.startCh();
     if(f!=null) {f.dispose();}
-    f = new FFrame();
+    f = new FFrameMain();
     iniFont();
     iniThTriche();
     Main.getData().setImageIniForNewGame(false);//force reload of ant images.

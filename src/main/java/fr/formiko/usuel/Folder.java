@@ -252,18 +252,24 @@ public class Folder{
   */
   public void downloadData(){
     //TODO #423
+    //view.iniDataDownload
     Main.startCh();
+    //view.setdataDownloadMessage("deleting old file");
     fichier.deleteDirectory(getFolderMain());
+    //view.setdataDownloadMessage("creating main Folder");
     File f = new File(getFolderMain());
     f.mkdirs();
     Main.endCh("removeOldData");
     Main.startCh();
-    fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+getWantedDataVersion()+"/data.zip",getFolderMain()+"data.zip");
+    //view.setdataDownloadMessage("downloading game data");
+    fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+getWantedDataVersion()+"/data.zip", getFolderMain()+"data.zip", true);
     Main.endCh("downloadData");
     Main.startCh();
+    //view.setdataDownloadMessage("unziping game data");
     fichier.unzip(getFolderMain()+"data.zip",getFolderMain().substring(0,getFolderMain().length()-5));
     Main.endCh("unzipData");
     System.gc();
+    //view.setdataDownloadMessage("cleaning folders");
     if(!fichier.deleteDirectory(getFolderMain()+"data.zip")){
       erreur.alerte("unable to delete "+getFolderMain()+"data.zip");
     }
@@ -342,14 +348,14 @@ public class Folder{
   *@version 2.7
   */
   public String getLastStableVersion(){
-    try {
-      String fileName = getFolderMain()+"vTemp.json";
-      fichier.download("https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json", fileName);
-      return getXVersion(Paths.get(fileName), "lastStableVersion");
-    }catch (Exception e) {
-      erreur.alerte("Can't read last stable version");
+    // try {
+    //   String fileName = getFolderMain()+"vTemp.json";
+    //   fichier.download("https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json", fileName);
+    //   return getXVersion(Paths.get(fileName), "lastStableVersion");
+    // }catch (Exception e) {
+    //   erreur.alerte("Can't read last stable version");
       return "0.0.0";
-    }
+    // }
   }
   /**
   *{@summary Return the version from path & name of the wanted version.}<br>

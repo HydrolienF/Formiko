@@ -116,27 +116,32 @@ public class fichier {
     }
   }
   /**
-   *{@summary download a file from the web.}<br>
-   *@param urlPath the url as a String.
-   *@param fileName the name of the file were to save data from the web.
-   *@version 2.7
-   */
-  public static boolean download(String urlPath, String fileName){
+  *{@summary Download a file from the web.}<br>
+  *@param urlPath the url as a String
+  *@param fileName the name of the file were to save data from the web
+  *@param withInfo if true launch a thread to have info during download
+  *@version 2.7
+  */
+  public static boolean download(String urlPath, String fileName, boolean withInfo){
     String reason=null;
     Exception ex=null;
     DownloadThread downloadThread=null;
     try {
       URL url = new URL(urlPath);
       long fileToDowloadSize = getFileSize(url);
-      erreur.info("Downoading "+urlPath+" of size : "+fileToDowloadSize);
+      // if(withInfo){
+      //   erreur.info("Downoading "+urlPath+" of size : "+fileToDowloadSize);
+      // }
       ReadableByteChannel readChannel = Channels.newChannel(url.openStream());
       File fileOut = new File(fileName);
       FileOutputStream fileOS = new FileOutputStream(fileOut);
       FileChannel writeChannel = fileOS.getChannel();
-      //launch Thread that update %age of download
-      //this thread watch file size & print it / fileSize.
-      downloadThread = new DownloadThread(fileOut, fileToDowloadSize);
-      downloadThread.start();
+      if (withInfo) {
+        //launch Thread that update %age of download
+        //this thread watch file size & print it / fileSize.
+        downloadThread = new DownloadThread(fileOut, fileToDowloadSize);
+        downloadThread.start();
+      }
       writeChannel.transferFrom(readChannel, 0, Long.MAX_VALUE);
       return true;
     } catch (MalformedURLException e) {
@@ -155,12 +160,13 @@ public class fichier {
       if(reason!=null){
         erreur.erreur("Fail to download "+fileName+" from "+urlPath+ " because "+reason);
       }
-      if(ex!=null){
-        ex.printStackTrace();
-      }
+      // if(ex!=null){
+      //   ex.printStackTrace();
+      // }
     }
     return false;
   }
+  public static boolean download(String urlPath, String fileName){return download(urlPath, fileName, false);}
   /**
   *{@summary return the size of the downloaded file.}
   *@version 2.7
@@ -322,14 +328,16 @@ class DownloadThread extends Thread {
       fileOutSize = fileOut.length();
       int percent = (int)((100*fileOutSize)/fileToDowloadSize);
       long speed = fileOutSize-lastFileOutSize;
+      //TODO replace by
+      //view.setdataDownloadState(percent);
       erreur.info(percent+"% dowload : "+fileOutSize+"/"+fileToDowloadSize+" "+speed+" B/s");
       lastFileOutSize=fileOutSize;
       try {
-        sleep(1000);
+        sleep(100);
       } catch (InterruptedException ie) {
-        erreur.erreurPause(1000);
+        erreur.erreurPause(100);
       }
     }
-    erreur.info("download done");
+    // erreur.info("download done");
   }
 }

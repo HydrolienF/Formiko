@@ -277,7 +277,7 @@ public class Data {
       chargerImagesIni();
       Main.startCh();
       int tailleFourmi = (tailleDUneCase*4)/5;
-      erreur.info("Update Image to size "+tailleDUneCase);//@a
+      erreur.info("Update Image to size "+tailleDUneCase);
       imgNull = image.resize(imgNullIni,tailleDUneCase);
       selectionnee = image.resize(selectionneeIni,tailleDUneCase);
       tICarte=getScaledInstance(tICarteIni, tailleDUneCase);

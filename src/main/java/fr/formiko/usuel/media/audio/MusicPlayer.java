@@ -158,7 +158,7 @@ public class MusicPlayer implements AudioInterface {
       music = availableMusics.getItem(allea.getAllea(len));
       k++;
     } while (curentMusique.equals(music) && len>1 && k<10);
-    erreur.info("music "+i+" :"+music);//@a
+    erreur.info("music "+i+" :"+music);
     return music;
   }
 }

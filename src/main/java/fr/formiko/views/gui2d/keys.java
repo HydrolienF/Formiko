@@ -45,7 +45,7 @@ public class keys {
   *@version 1.40
   */
   private static void addActionToActionMap(){
-    ActionMap actionMap = Main.getF().getPp().getActionMap();
+    ActionMap actionMap = Panneau.getView().getPp().getActionMap();
 
     //globals actions
     Action actionA = new AbstractAction() {

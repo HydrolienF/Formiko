@@ -267,7 +267,6 @@ public class image{
   */
   public static int tailleFourmi(int idEspece, int typeF, int taille){
     int a = Main.getEspeceParId(idEspece).getIndividuByType(typeF).getTaille();
-    System.out.println(a);//@a
     return taille(a,taille);
   }
   /**
