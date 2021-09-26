@@ -52,7 +52,7 @@ public class Panneau extends JPanel {
   @Override
   public void paintComponent(Graphics gTemp){
     super.paintComponent(gTemp);
-    if(Main.getOp()!=null && Main.getOp().getPaintHitBox()){
+    if(Main.getOp().getPaintHitBox()){
       Graphics2D g = (Graphics2D)gTemp;
       g.setColor(Color.RED);
       g.setStroke(new BasicStroke(math.max(getWidth()/100,getHeight()/100,1)));

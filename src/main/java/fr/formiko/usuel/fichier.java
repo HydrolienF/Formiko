@@ -167,7 +167,17 @@ public class fichier {
         downloadThread.stopRuning();
       }
       if(reason!=null){
-        erreur.erreur("Fail to download "+fileName+" from "+urlPath+ " because "+reason);
+        //"Fail to download "+fileName+" from "+urlPath+ " because "+
+        String err = "Download fail: "+reason;
+        try {
+          Main.getView().setDownloadingMessage(err);
+          boolean b=true;
+          while(b){
+            Temps.pause(1000);
+          }
+        }catch (Exception e) {
+          erreur.erreur(err);
+        }
       }
       // if(ex!=null){
       //   ex.printStackTrace();
@@ -337,17 +347,17 @@ class DownloadThread extends Thread {
     while (fileOutSize < fileToDowloadSize && running) {
       fileOutSize = fileOut.length();
       int percent = (int)((100*fileOutSize)/fileToDowloadSize);
-      long speed = fileOutSize-lastFileOutSize;
+      // long speed = fileOutSize-lastFileOutSize;
       try {
         Main.getView().setDownloadingValue(percent);
       }catch (Exception e) {
-        erreur.info(percent+"% dowload : "+fileOutSize+"/"+fileToDowloadSize+" "+speed+" B/s");
+        erreur.info(percent+"% dowload : "+fileOutSize+"/"+fileToDowloadSize);//+" "+speed+" B/s");
       }
       lastFileOutSize=fileOutSize;
       try {
-        sleep(100);
+        sleep(50);
       } catch (InterruptedException ie) {
-        erreur.erreurPause(100);
+        erreur.erreurPause(50);
       }
     }
     // erreur.info("download done");

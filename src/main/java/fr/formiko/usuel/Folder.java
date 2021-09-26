@@ -258,10 +258,12 @@ public class Folder {
     Main.startCh();
     view.setDownloadingMessage("deleting old file");
     fichier.deleteDirectory(getFolderMain());
+    Main.getView().setDownloadingValue(-5);
     view.setDownloadingMessage("creating main Folder");
     File f = new File(getFolderMain());
     f.mkdirs();
     Main.endCh("removeOldData");
+    Main.getView().setDownloadingValue(0);
     Main.startCh();
     view.setDownloadingMessage("downloading game data");
     fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+getWantedDataVersion()+"/data.zip", getFolderMain()+"data.zip", true);
@@ -270,11 +272,13 @@ public class Folder {
     view.setDownloadingMessage("unziping game data");
     fichier.unzip(getFolderMain()+"data.zip",getFolderMain().substring(0,getFolderMain().length()-5));
     Main.endCh("unzipData");
+    Main.getView().setDownloadingValue(105);
     System.gc();
     view.setDownloadingMessage("cleaning folders");
     if(!fichier.deleteDirectory(getFolderMain()+"data.zip")){
       erreur.alerte("unable to delete "+getFolderMain()+"data.zip");
     }
+    Main.getView().setDownloadingValue(110);
     view.closeLauncher();
   }
   /**

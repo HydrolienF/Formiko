@@ -27,7 +27,7 @@ public class FFrameLauncher extends FFrame {
   public FFrameLauncher(){
     super("Formiko Launcher", (int)(getScreenWidth()/2.5), (int)(getScreenHeigth()/2.5), false);
     if(!IS_UIMANAGER_INI){iniUImanager();}
-    pl = new PanneauLauncher(getWidth(), getHeight());
+    pl = new PanneauLauncher(getWidth(), getHeight(),-10, 110);
     setContentPane(pl);
     endIni();
   }
@@ -62,17 +62,18 @@ public class FFrameLauncher extends FFrame {
     *It initialize &#39; place item on the Panel.
     *@version 2.7
     */
-    public PanneauLauncher(int w, int h) {
+    public PanneauLauncher(int w, int h, int minProgressBar, int maxProgressBar) {
       super();
       setSize(w,h);
-      pb = new JProgressBar(0,100);
+      pb = new JProgressBar(minProgressBar, maxProgressBar);
       pb.setSize((int)(getWidth()*0.95), (int)(getHeight()/12));
       pb.setLocation((int)(getWidth()*0.02),getHeight()/2);
-      pb.setValue(0);
+      pb.setValue(minProgressBar);
       add(pb);
       l = new FLabel();
       l.setSize(pb.getSize());
       l.setLocation((int)(getWidth()*0.02),(int)(getHeight()/2-l.getHeight()*1.5));
+      l.setFondTransparent();
       add(l);
     }
   }
