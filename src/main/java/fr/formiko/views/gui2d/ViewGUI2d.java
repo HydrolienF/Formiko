@@ -529,6 +529,14 @@ public class ViewGUI2d implements View {
     fl = new FFrameLauncher();
   }
   /**
+  *{@summary Close the game launcher.}
+  *@version 2.7
+  */
+  public void closeLauncher(){
+    fl.setVisible(false);
+    fl.dispose();
+  }
+  /**
   *{@summary Update downloading message.}
   *@param message the message
   *@version 2.7

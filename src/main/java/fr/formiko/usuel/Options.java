@@ -19,9 +19,10 @@ import java.util.Properties;
 *{@summary Options class.}<br>
 *It contain all globals options and can save it.<br>
 *@author Hydrolien
-*@version 2.5
+*@version 2.7
 */
 public class Options implements Serializable{
+  /** language can be save as byte or String in properties &#39; options file.*/
   private byte language=0; // 0=eo; 1=fr; 2=en;
   private byte buttonSizeZoom=0;
   private byte buttonSizeAction=0;
@@ -69,6 +70,17 @@ public class Options implements Serializable{
   private SortedProperties properties=null;
   // CONSTRUCTORS --------------------------------------------------------------
   public Options(){}
+  /**
+  *{@summary Builder with only default properties.}<br>
+  *@version 2.7
+  */
+  public static Options newDefaultOptions(){
+    Options op = new Options();
+    op.properties = new SortedProperties(op.getDefaultProperties());
+    op.propertiesToOptions();
+    op.properties = null;
+    return op;
+  }
   // GET SET -------------------------------------------------------------------
   public byte getLanguage(){return language;}
   public void setLangue(byte x){language=x;} public void setLangue(int x){setLangue(str.iToBy(x));}
@@ -228,12 +240,6 @@ public class Options implements Serializable{
       erreur.alerte("no screen size found");
     }
     Double racio = (x+0.0)/1920;// si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.
-    if(Main.getFolder()==null){
-      Folder folder = new Folder();
-      folder.ini();
-      Main.setFolder(folder);
-    }
-    chargerLesTraductions.iniTLangue();
     int t[]=new int[2];
     if(x>=1920*2){ //plus de 2*
       t[0]=2;t[1]=2;//t[2]=1;
@@ -248,8 +254,7 @@ public class Options implements Serializable{
     }
     //setDefaultProperties
     defaultProperties.setProperty("version",""+Main.getVersionActuelle());
-    String lang = Locale.getDefault().getLanguage();
-    defaultProperties.setProperty("language",""+chargerLesTraductions.getLanguage(lang));
+    defaultProperties.setProperty("language",Locale.getDefault().getLanguage());
     defaultProperties.setProperty("buttonSizeZoom",""+t[0]);
     defaultProperties.setProperty("buttonSizeAction",""+t[1]);
     defaultProperties.setProperty("buttonSizeTX",""+t[0]);
@@ -308,10 +313,19 @@ public class Options implements Serializable{
   }
   /**
   *{@summary tranform properties into Options var.}<br>
-  *@version 2.5
+  *@version 2.7
   */
   private void propertiesToOptions(){
-    language=str.sToBy(properties.getProperty("language"));
+    try {
+      language=(byte)str.sToLThrows(properties.getProperty("language"));
+    }catch (Exception e) {
+      try {
+        language=str.iToBy(chargerLesTraductions.getLanguage(properties.getProperty("language")));
+      }catch (Exception e2) {
+        erreur.alerte("language can't be laod from properties");
+        language=2;
+      }
+    }
     buttonSizeZoom=str.sToBy(properties.getProperty("buttonSizeZoom"));
     buttonSizeAction=str.sToBy(properties.getProperty("buttonSizeAction"));
     buttonSizeTX=str.sToBy(properties.getProperty("buttonSizeTX"));

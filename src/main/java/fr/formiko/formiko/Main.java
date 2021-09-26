@@ -126,7 +126,7 @@ public class Main {
    * @version 1.44
    */
   public static void iniLaunch(){
-    if(getOp()==null){initialisation();}
+    if(op==null){initialisation();}
     if(premierePartie){Partie.setScript("tuto");}
     else{Partie.setScript("");}
     iniCpt();
@@ -166,7 +166,7 @@ public class Main {
   public static Joueur getJoueurParId(int id){ return Main.getGj().getJoueurParId(id);}
   public static Fourmiliere getFourmiliereParId(int id){ return getJoueurParId(id).getFere();}
   public static FFrame getF(){ try {return ((ViewGUI2d)view).getF();} catch (Exception e) {return null;}}
-  public static Options getOp(){return op;}
+  public static Options getOp(){if(op!=null){return op;}else{return Options.newDefaultOptions();}}
   public static Chrono getCh(){ return ch;}
   public static int getKey(String clé){ return key.get(clé); }
   public static Partie getPartie(){ return pa;}
@@ -277,10 +277,9 @@ public class Main {
   public static void initialisation(){
     tempsDeDébutDeJeu=System.currentTimeMillis();
     os = new Os();
+    data = new Data();
     setPremierePartie(false);
     Fourmi.setUneSeuleAction(-1);
-    folder = new Folder();
-    getFolder().ini();
     if(view==null){
       view = new ViewNull();
     }
@@ -295,6 +294,8 @@ public class Main {
         }
       }
     }
+    folder = new Folder();
+    getFolder().ini();
     setMessageChargement("chargementDesOptions");startCh();
     chargerLesTraductions.iniTLangue();
     iniOp();
@@ -322,7 +323,6 @@ public class Main {
     endCh("chargementDesIndividuDeFourmi");startCh();
     Insecte.setGie(); // chargement des Insectes.
     endCh("chargementDesEspeceDInsecte");
-    data = new Data();
     iniCpt();
   }public static void ini(){initialisation();}
   /**

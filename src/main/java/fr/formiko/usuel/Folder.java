@@ -7,6 +7,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Chrono;
 import fr.formiko.usuel.exceptions.MissingFolderException;
 import fr.formiko.usuel.types.str;
+import fr.formiko.views.View;
 
 import java.io.File;
 import java.io.Reader;
@@ -20,7 +21,7 @@ import java.nio.file.Paths;
 *You can acces to file by using getters.
 *Ex : getFolderStable()+getFolderImages() will return the path to stable images.
 *@author Hydrolien
-*@version 1.37
+*@version 2.7
 */
 public class Folder {
   private String folderMain="data/";
@@ -252,27 +253,29 @@ public class Folder {
   */
   public void downloadData(){
     //TODO #423
-    //view.iniDataDownload
+    View view = Main.getView();
+    view.iniLauncher();
     Main.startCh();
-    //view.setdataDownloadMessage("deleting old file");
+    view.setDownloadingMessage("deleting old file");
     fichier.deleteDirectory(getFolderMain());
-    //view.setdataDownloadMessage("creating main Folder");
+    view.setDownloadingMessage("creating main Folder");
     File f = new File(getFolderMain());
     f.mkdirs();
     Main.endCh("removeOldData");
     Main.startCh();
-    //view.setdataDownloadMessage("downloading game data");
+    view.setDownloadingMessage("downloading game data");
     fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+getWantedDataVersion()+"/data.zip", getFolderMain()+"data.zip", true);
     Main.endCh("downloadData");
     Main.startCh();
-    //view.setdataDownloadMessage("unziping game data");
+    view.setDownloadingMessage("unziping game data");
     fichier.unzip(getFolderMain()+"data.zip",getFolderMain().substring(0,getFolderMain().length()-5));
     Main.endCh("unzipData");
     System.gc();
-    //view.setdataDownloadMessage("cleaning folders");
+    view.setDownloadingMessage("cleaning folders");
     if(!fichier.deleteDirectory(getFolderMain()+"data.zip")){
       erreur.alerte("unable to delete "+getFolderMain()+"data.zip");
     }
+    view.closeLauncher();
   }
   /**
   *{@summary Return true if data version is outdated or overdated.}<br>

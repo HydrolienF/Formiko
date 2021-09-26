@@ -1,28 +1,29 @@
 package fr.formiko.usuel;
 
+import fr.formiko.formiko.Main;
+// import fr.formiko.usuel.read;
 import fr.formiko.usuel.structures.listes.GString;
-import fr.formiko.usuel.read;
 import fr.formiko.usuel.types.str;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
+import java.net.UnknownHostException;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-import java.net.MalformedURLException;
-import java.net.UnknownHostException;
-import java.net.HttpURLConnection;
-import java.net.URLConnection;
 
 /**
 *{@summary tools about Files.}
@@ -305,6 +306,7 @@ public class fichier {
 
 /**
 *{@summary Print info about curent download.}<br>
+*this thread watch file size & print it / fileSize.
 *@version 2.7
 *@author Hydrolien
 */
@@ -336,9 +338,11 @@ class DownloadThread extends Thread {
       fileOutSize = fileOut.length();
       int percent = (int)((100*fileOutSize)/fileToDowloadSize);
       long speed = fileOutSize-lastFileOutSize;
-      //TODO replace by
-      //view.setdataDownloadState(percent);
-      erreur.info(percent+"% dowload : "+fileOutSize+"/"+fileToDowloadSize+" "+speed+" B/s");
+      try {
+        Main.getView().setDownloadingValue(percent);
+      }catch (Exception e) {
+        erreur.info(percent+"% dowload : "+fileOutSize+"/"+fileToDowloadSize+" "+speed+" B/s");
+      }
       lastFileOutSize=fileOutSize;
       try {
         sleep(100);

@@ -172,6 +172,11 @@ public interface View {
   */
   default void iniLauncher(){}
   /***
+  *{@summary Close the game launcher.}
+  *@version 2.7
+  */
+  default void closeLauncher(){}
+  /***
   *{@summary Update downloading message.}
   *@param message the message
   *@version 2.7

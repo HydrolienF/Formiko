@@ -15,7 +15,7 @@ import javax.swing.UIManager;
 */
 public class FFrameLauncher extends FFrame {
   private PanneauLauncher pl;
-  private String downloadingMessage;
+  // private String downloadingMessage;
   private static boolean IS_UIMANAGER_INI;
 
   // CONSTRUCTORS --------------------------------------------------------------
@@ -33,7 +33,7 @@ public class FFrameLauncher extends FFrame {
   }
 
   // GET SET -------------------------------------------------------------------
-  public void setDownloadingMessage(String s){downloadingMessage=s;}
+  public void setDownloadingMessage(String s){pl.l.setTexte(s);}
   public void setDownloadingValue(int x){pl.pb.setValue(x);}
   // FUNCTIONS -----------------------------------------------------------------
   /**
@@ -55,7 +55,8 @@ public class FFrameLauncher extends FFrame {
   *@version 2.7
   */
   class PanneauLauncher extends Panneau {
-    JProgressBar pb;
+    private JProgressBar pb;
+    private FLabel l;
     /**
     *{@summary Main constructor.}<br>
     *It initialize &#39; place item on the Panel.
@@ -69,6 +70,10 @@ public class FFrameLauncher extends FFrame {
       pb.setLocation((int)(getWidth()*0.02),getHeight()/2);
       pb.setValue(0);
       add(pb);
+      l = new FLabel();
+      l.setSize(pb.getSize());
+      l.setLocation((int)(getWidth()*0.02),(int)(getHeight()/2-l.getHeight()*1.5));
+      add(l);
     }
   }
 }
