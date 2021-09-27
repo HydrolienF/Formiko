@@ -9,8 +9,8 @@ import java.awt.Insets;
 
 /**
 *{@summary Frame used for the launcher.}<br>
-*The launcher can be used to show progress of downoad data at 1a launch,
-*or to update game, or to downoad textures packs.<br>
+*The launcher can be used to show progress of download data at 1a launch,
+*or to update game, or to download textures packs.<br>
 *@author Hydrolien
 *@version 2.7
 */

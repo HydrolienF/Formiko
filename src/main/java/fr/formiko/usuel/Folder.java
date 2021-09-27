@@ -255,7 +255,6 @@ public class Folder {
   *@version 2.7
   */
   public void downloadData(){
-    //TODO #423 be able to recall action untill download is done.
     View view = Main.getView();
     view.iniLauncher();
     launchDownload=true;
@@ -277,6 +276,10 @@ public class Folder {
     }
     view.closeLauncher();
   }
+  /**
+  *{@summary Do pre download action.}<br>
+  *@version 2.7
+  */
   private void prepareDownloadData(){
     View view = Main.getView();
     Main.startCh();
@@ -289,6 +292,10 @@ public class Folder {
     Main.endCh("removeOldData");
     Main.getView().setDownloadingValue(0);
   }
+  /**
+  *{@summary Do post download action.}<br>
+  *@version 2.7
+  */
   private boolean unzipAndCleanDownloadData(){
     View view = Main.getView();
     Main.startCh();

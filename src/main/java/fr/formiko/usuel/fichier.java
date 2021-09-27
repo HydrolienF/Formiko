@@ -144,7 +144,13 @@ public class fichier {
       if (withInfo) {
         //launch Thread that update %age of download
         //this thread watch file size & print it / fileSize.
-        downloadThread = new DownloadThread(fileOut, fileToDowloadSize);
+        String downloadName = "x";
+        try {
+          String t [] = fileName.split("/");
+          downloadName = t[t.length-1];
+          downloadName.replace(".zip","");
+        }catch (Exception e) {}
+        downloadThread = new DownloadThread(fileOut, fileToDowloadSize, downloadName);
         downloadThread.start();
       }
       writeChannel.transferFrom(readChannel, 0, Long.MAX_VALUE);
@@ -324,15 +330,17 @@ class DownloadThread extends Thread {
   private File fileOut;
   private long fileToDowloadSize;
   private boolean running;
+  private String downloadName;
   /**
   *{@summary Main constructor.}<br>
-  *@param fileOut file that we are curently filling by the downoading file
+  *@param fileOut file that we are curently filling by the downloading file
   *@param fileToDowloadSize size that we should reach when download will end
   *@version 2.7
   */
-  public DownloadThread(File fileOut, long fileToDowloadSize){
+  public DownloadThread(File fileOut, long fileToDowloadSize, String downloadName){
     this.fileOut = fileOut;
     this.fileToDowloadSize = fileToDowloadSize;
+    this.downloadName=downloadName;
     running=true;
   }
 
@@ -344,15 +352,30 @@ class DownloadThread extends Thread {
   public void run(){
     long fileOutSize=0;
     long lastFileOutSize=0;
+    long timeStart=System.currentTimeMillis();
+    long timeFromLastBitDownload=timeStart;
     while (fileOutSize < fileToDowloadSize && running) {
       fileOutSize = fileOut.length();
-      int percent = (int)((100*fileOutSize)/fileToDowloadSize);
-      // long speed = fileOutSize-lastFileOutSize;
+      double progression = ((double)fileOutSize)/(double)fileToDowloadSize;
+      int percent = (int)(100*progression);
+      long curentTime = System.currentTimeMillis();
+      long timeElapsed = curentTime-timeStart;
+      long timeLeft = (long)((double)((timeElapsed/progression)-timeElapsed));
+      String sTimeLeft = Temps.msToTime(timeLeft)+" left";
       try {
         Main.getView().setDownloadingValue(percent);
+        Main.getView().setDownloadingMessage("Downloading "+downloadName+" - "+percent+"% - "+sTimeLeft);
       }catch (Exception e) {
         erreur.info(percent+"% dowload : "+fileOutSize+"/"+fileToDowloadSize);//+" "+speed+" B/s");
       }
+
+      if(fileOutSize!=lastFileOutSize){//update watcher of working download
+        timeFromLastBitDownload=curentTime;
+      }
+      if(timeFromLastBitDownload+10000<curentTime){
+        erreur.alerte("10s untill a new bit haven't been download");
+      }
+
       lastFileOutSize=fileOutSize;
       try {
         sleep(50);
