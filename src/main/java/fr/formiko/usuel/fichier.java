@@ -129,6 +129,9 @@ public class fichier {
     DownloadThread downloadThread=null;
     FileOutputStream fos=null;
     try {
+      Main.getView().setButtonRetryVisible(false);
+    }catch (NullPointerException e) {}
+    try {
       URL url = new URL(urlPath);
       long fileToDowloadSize = getFileSize(url);
       // if(withInfo){
@@ -171,10 +174,7 @@ public class fichier {
         String err = "Download fail: "+reason;
         try {
           Main.getView().setDownloadingMessage(err);
-          boolean b=true;
-          while(b){
-            Temps.pause(1000);
-          }
+          Main.getView().setButtonRetryVisible(true);
         }catch (Exception e) {
           erreur.erreur(err);
         }

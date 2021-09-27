@@ -33,12 +33,20 @@ public class action{
   *@version 1.41
   */
   public static void doAction(int action){
-    if(Panneau.getView().getPe() != null && Panneau.getView().getPe().getVisible()){
+    if(Panneau.getView().getFl()!=null){
+      doActionPl(action);
+    }else if(Panneau.getView().getPe() != null && Panneau.getView().getPe().getVisible()){
       doActionPe(action);
     }else if(Main.getView().getActionGameOn()){
       doActionPj(action);
     }else{
       doActionPm(action);
+    }
+  }
+  public static void doActionPl(int ac){
+    if(ac==1000){//retry to download data from FFrameLauncher
+      Main.getFolder().setLaunchDownload(true);
+      Panneau.getView().setButtonRetryVisible(false);
     }
   }
   /**

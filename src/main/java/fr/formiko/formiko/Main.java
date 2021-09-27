@@ -225,30 +225,30 @@ public class Main {
   public static double getRacioEspaceLibre(){return 900.0/1080.0;}
   public static int getDimXCarte(){return (int)(1920.0*getRacioEspaceLibre());}
   //options
-  public static byte getLanguage(){ return op.getLanguage();}
-  public static void setLangue(int x){ op.setLangue(x);iniLangue();}
-  public static int getbuttonSizeZoom(){return op.getbuttonSizeZoom();}
-  public static int getTailleBoutonAction(){return op.getTailleBoutonAction();}
-  public static int getTailleBoutonTX(){return op.getTailleBoutonTX();}
-  public static int getNbrMessageAfficher(){ return op.getNbrMessageAfficher();}
-  public static boolean getDessinerGrille(){ return op.getDessinerGrille();}
-  public static boolean getElementSurCarteOrientéAprèsDéplacement(){ return op.getElementSurCarteOrientéAprèsDéplacement();}
-  public static boolean getForcerQuitter(){ return op.getForcerQuitter();}
-  public static byte getBordureBouton(){ return op.getBordureBouton();}
-  public static boolean getDessinerIcone(){return op.getDessinerIcone();}
-  public static Font getFont1(){ return op.getFont1();}
-  public static Font getFont1(double d){ return op.getFont1(d);}
-  public static void setFont1(Font f){ op.setFont1(f);}
-  public static Font getFont2(){ return op.getFont2();}
-  public static void setFont2(Font f){ op.setFont2(f);}
-  public static int getTaillePolice1(){ return op.getTaillePolice1();}
-  public static int getTaillePolice2(){ return op.getTaillePolice2();}
-  public static boolean getPleinEcran(){ return op.getPleinEcran();}
-  public static boolean getChargementPendantLesMenu(){ return op.getChargementPendantLesMenu();}
-  public static boolean getGarderLesGraphismesTourné(){ return op.getGarderLesGraphismesTourné();}
-  public static int getDimLigne(){return op.getDimLigne();}
-  public static int getPositionCase(){return op.getPositionCase();}
-  public static byte getTailleRealiste(){return op.getTailleRealiste();}
+  public static byte getLanguage(){ return getOp().getLanguage();}
+  public static void setLangue(int x){ getOp().setLangue(x);iniLangue();}
+  public static int getbuttonSizeZoom(){return getOp().getbuttonSizeZoom();}
+  public static int getTailleBoutonAction(){return getOp().getTailleBoutonAction();}
+  public static int getTailleBoutonTX(){return getOp().getTailleBoutonTX();}
+  public static int getNbrMessageAfficher(){ return getOp().getNbrMessageAfficher();}
+  public static boolean getDessinerGrille(){ return getOp().getDessinerGrille();}
+  public static boolean getElementSurCarteOrientéAprèsDéplacement(){ return getOp().getElementSurCarteOrientéAprèsDéplacement();}
+  public static boolean getForcerQuitter(){ return getOp().getForcerQuitter();}
+  public static byte getBordureBouton(){ return getOp().getBordureBouton();}
+  public static boolean getDessinerIcone(){return getOp().getDessinerIcone();}
+  public static Font getFont1(){ return getOp().getFont1();}
+  public static Font getFont1(double d){ return getOp().getFont1(d);}
+  public static void setFont1(Font f){ getOp().setFont1(f);}
+  public static Font getFont2(){ return getOp().getFont2();}
+  public static void setFont2(Font f){ getOp().setFont2(f);}
+  public static int getTaillePolice1(){ return getOp().getTaillePolice1();}
+  public static int getTaillePolice2(){ return getOp().getTaillePolice2();}
+  public static boolean getPleinEcran(){ return getOp().getPleinEcran();}
+  public static boolean getChargementPendantLesMenu(){ return getOp().getChargementPendantLesMenu();}
+  public static boolean getGarderLesGraphismesTourné(){ return getOp().getGarderLesGraphismesTourné();}
+  public static int getDimLigne(){return getOp().getDimLigne();}
+  public static int getPositionCase(){return getOp().getPositionCase();}
+  public static byte getTailleRealiste(){return getOp().getTailleRealiste();}
   //partie
   public static GInsecte getGi(){return pa.getGi();}
   public static GJoueur getListeJoueur(){return pa.getGj();}
@@ -300,13 +300,13 @@ public class Main {
     chargerLesTraductions.iniTLangue();
     iniOp();
     if(!debug.getAffLesEtapesDeRésolution()){//si elle n'ont pas été activé par "-d"
-      debug.setAffLesEtapesDeRésolution(op.getAffLesEtapesDeRésolution());
+      debug.setAffLesEtapesDeRésolution(getOp().getAffLesEtapesDeRésolution());
     }
     if(!debug.getAffLesPerformances()){//si elle n'ont pas été activé par "-p"
-      debug.setAffLesPerformances(op.getAffLesPerformances());
+      debug.setAffLesPerformances(getOp().getAffLesPerformances());
     }
     if(!debug.getAffG()){//si elle n'ont pas été activé par "-g"
-      debug.setAffG(op.getAffG());
+      debug.setAffG(getOp().getAffG());
     }
     endCh("chargementDesOptions");
     setMessageChargement("chargementDesTouches");startCh();
@@ -342,7 +342,7 @@ public class Main {
   public static void iniOp(){
     //op = chargerLesOptions.chargerLesOptions(getVersionActuelle());
     op = new Options();
-    op.iniOptions();
+    getOp().iniOptions();
   }
   /**
    *{@summary Load language.}<br>

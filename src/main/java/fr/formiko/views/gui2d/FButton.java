@@ -94,10 +94,12 @@ public class FButton extends JButton implements MouseListener{
   // }
   public static int getDimY(){ return (int)(Main.getOp().getTaillePolice1()*1.4);}
   public void setDesc(String s){
-    if(Panneau.getView().getPp().getPj()==null){ erreur.erreur("pj null");}
+    // if(Panneau.getView().getPp().getPj()==null){ erreur.erreur("pj null");}
     try {
       Panneau.getView().getPp().getPj().getPb().setDesc(s);
-    }catch (Exception e) {erreur.alerte("Impossible de setDesc pour le bouton.");}
+    }catch (Exception e) {
+      // erreur.alerte("Impossible de setDesc pour le bouton.");
+    }
   }
   public void setCFondUseAlpha(boolean b){cFondUseAlpha=b;}
   /**

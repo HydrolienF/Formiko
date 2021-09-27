@@ -60,7 +60,9 @@ public class ViewGUI2d implements View {
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
   public FFrameMain getF(){return f;}
-  public PanneauPrincipal getPp(){ return getF().getPp();}
+  public FFrameLauncher getFl(){return fl;}
+  public PanneauPrincipal getPp(){ try{return getF().getPp();}catch (NullPointerException e) {return null;}}
+
   public PanneauJeu getPj(){ return getPp().getPj();}
   public PanneauMenu getPm(){ return getPp().getPm();}
   public PanneauNouvellePartie getPnp(){ try{return getPm().getPnp();}catch (NullPointerException e){return null;}}
@@ -526,7 +528,9 @@ public class ViewGUI2d implements View {
   *@version 2.7
   */
   public void iniLauncher(){
-    fl = new FFrameLauncher();
+    if(fl==null){
+      fl = new FFrameLauncher();
+    }
   }
   /**
   *{@summary Close the game launcher.}
@@ -535,6 +539,7 @@ public class ViewGUI2d implements View {
   public void closeLauncher(){
     fl.setVisible(false);
     fl.dispose();
+    fl=null;
   }
   /**
   *{@summary Update downloading message.}
@@ -551,6 +556,13 @@ public class ViewGUI2d implements View {
   */
   public void setDownloadingValue(int state){
     fl.setDownloadingValue(state);
+  }
+  /**
+  *{@summary Hide or show buttonRetry of FFrameLauncher.}
+  *@version 2.7
+  */
+  public void setButtonRetryVisible(boolean visible){
+    fl.setButtonRetryVisible(visible);
   }
   //private---------------------------------------------------------------------
   /**

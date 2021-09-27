@@ -188,4 +188,9 @@ public interface View {
   *@version 2.7
   */
   default void setDownloadingValue(int state){}
+  /***
+  *{@summary Hide or show buttonRetry of FFrameLauncher.}
+  *@version 2.7
+  */
+  default void setButtonRetryVisible(boolean visible){}
 }

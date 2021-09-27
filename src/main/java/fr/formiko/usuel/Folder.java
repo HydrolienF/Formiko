@@ -42,6 +42,7 @@ public class Folder {
 
   private int missingFolder;
   private boolean secondTime;
+  private boolean launchDownload;
 
   public Folder(){
     secondTime=false;
@@ -95,6 +96,8 @@ public class Folder {
 	public void setFolderLevels(String folderLevels) {this.folderLevels = str.sToDirectoryName(folderLevels);}
   public String getFolderVideos() {return folderVideos;}
 	public void setFolderVideos(String folderVideos) {this.folderVideos = str.sToDirectoryName(folderVideos);}
+
+  public void setLaunchDownload(boolean b){launchDownload=b;}
 
   /**
   *{@summary Initialize missing folder if some folder are missing.}<br>
@@ -252,9 +255,30 @@ public class Folder {
   *@version 2.7
   */
   public void downloadData(){
-    //TODO #423
+    //TODO #423 be able to recall action untill download is done.
     View view = Main.getView();
     view.iniLauncher();
+    launchDownload=true;
+    boolean needToRetry = true;
+    while(needToRetry){
+      while(!launchDownload){ // while not first time or player haven't clic on retry, wait.
+        Temps.pause(100);
+      }
+      prepareDownloadData();
+      Main.startCh();
+      view.setDownloadingMessage("downloading game data");
+      boolean downloadWork = fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+getWantedDataVersion()+"/data.zip", getFolderMain()+"data.zip", true);
+      Main.endCh("downloadData");
+      if(downloadWork){
+        needToRetry = !unzipAndCleanDownloadData();
+      }
+      launchDownload=false;
+      //if everything has work as intented needToRetry=false here.
+    }
+    view.closeLauncher();
+  }
+  private void prepareDownloadData(){
+    View view = Main.getView();
     Main.startCh();
     view.setDownloadingMessage("deleting old file");
     fichier.deleteDirectory(getFolderMain());
@@ -264,10 +288,9 @@ public class Folder {
     f.mkdirs();
     Main.endCh("removeOldData");
     Main.getView().setDownloadingValue(0);
-    Main.startCh();
-    view.setDownloadingMessage("downloading game data");
-    fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+getWantedDataVersion()+"/data.zip", getFolderMain()+"data.zip", true);
-    Main.endCh("downloadData");
+  }
+  private boolean unzipAndCleanDownloadData(){
+    View view = Main.getView();
     Main.startCh();
     view.setDownloadingMessage("unziping game data");
     fichier.unzip(getFolderMain()+"data.zip",getFolderMain().substring(0,getFolderMain().length()-5));
@@ -277,9 +300,11 @@ public class Folder {
     view.setDownloadingMessage("cleaning folders");
     if(!fichier.deleteDirectory(getFolderMain()+"data.zip")){
       erreur.alerte("unable to delete "+getFolderMain()+"data.zip");
+      return false;
+    }else{
+      return true;
     }
-    Main.getView().setDownloadingValue(110);
-    view.closeLauncher();
+    // Main.getView().setDownloadingValue(110);
   }
   /**
   *{@summary Return true if data version is outdated or overdated.}<br>
