@@ -181,11 +181,12 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   */
   @SuppressWarnings("unchecked")
   public boolean contains(Object o){
-    T content = null;
-    try {
+    T content;
+    if (o instanceof T){
       content = (T)o;
-    }catch (Exception e) {}
-    if(content==null){return false;}
+    }else{
+      return false;
+    }
     for (T t : this ) {
       //TODO #197 it do not use the overriding equals methode (cf ListTest for more information)
       //if(content instanceof T && t instanceof T){

@@ -273,7 +273,7 @@ public class ListTest extends TestCaseMuet{
     l.add(p);
     assertTrue(l.contains(p));
     //TODO #197 it do not use the overriding equals methode.
-    //assertTrue(l.contains(new Point(-1,1)));
+    // assertTrue(l.contains(new Point(-1,1)));
   }
   @Test
   public void testAdd(){
