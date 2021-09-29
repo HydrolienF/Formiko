@@ -181,19 +181,9 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   */
   @SuppressWarnings("unchecked")
   public boolean contains(Object o){
-    T content;
-    if (o instanceof T){
-      content = (T)o;
-    }else{
-      return false;
-    }
+    T content=(T)o;
     for (T t : this ) {
-      //TODO #197 it do not use the overriding equals methode (cf ListTest for more information)
-      //if(content instanceof T && t instanceof T){
-        if(((T)(t)).equals(content)){return true;}
-      /*}else{
-        System.out.println("pas dans le bon if");
-      }*/
+      if(t.equals(content)){return true;}
     }
     return false;
   }
