@@ -43,7 +43,7 @@ public class FFrameLauncher extends FFrame {
   *@version 2.7
   */
   public static void iniUImanager(){
-    // UIManager.put("ProgressBar.background", Main.getData().getButtonColor(2));
+    // UIManager.put("ProgressBar.background", Main.getData().getButtonColor(3));
     UIManager.put("ProgressBar.foreground", Main.getData().getButtonColor(0));
     // UIManager.put("ProgressBar.selectionBackground", Color.RED);
     // UIManager.put("ProgressBar.selectionForeground", Color.GREEN);

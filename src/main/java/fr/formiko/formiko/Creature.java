@@ -19,16 +19,16 @@ import java.io.Serializable;
 *@version 1.13
 */
 public abstract class Creature extends ObjetSurCarteAId implements Serializable{
-  // action
+  // action done with Decorator pattern
   public Deplacement déplacement;
   public Chasse chasse;
   public Pondre pondre;
   public Trophallaxie trophallaxie;
-  // public Collecte collecte;
   public Evoluer evoluer;
   public Mourir mourir;
   public Netoyer netoyer;
   public Tour tour;
+  // public Collecte collecte;
   // variable
   protected int nourriture;
   protected int nourritureMax;

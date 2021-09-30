@@ -59,3 +59,6 @@ En contant les commit de la branche 2.6 et la branch 2.7, on peu savoir combien 
 git symbolic-ref HEAD --short
 git rev-parse --abbrev-ref HEAD
 Les 2 renvoie uniquement la branche git courante.
+
+En c pour vérifier si il y a une erreur mémoire, compiler avec :
+-fsanitize=adress
