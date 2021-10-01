@@ -6,9 +6,18 @@ import fr.formiko.usuel.erreur;
 import java.awt.Color;
 import javax.swing.JProgressBar;
 
+/**
+*{@summary A personalized JProgressBar.}<br>
+*@version 2.7
+*@author Hydrolien
+*/
 public class FProgressBar extends JProgressBar {
 
   // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor.}<br>
+  *@version 2.7
+  */
   public FProgressBar(){
     super();
     setBorderPainted(true);
@@ -17,7 +26,7 @@ public class FProgressBar extends JProgressBar {
 
   // GET SET -------------------------------------------------------------------
   /**
-  *{@summary set state represent by a color.}<br>
+  *{@summary Set state represent by a color.}<br>
   *state can be set to every aviable button color.
   *@version 2.7
   */
