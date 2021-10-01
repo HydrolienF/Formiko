@@ -132,12 +132,12 @@ public class Data {
   *@version 2.7
   */
   public Color getButtonColor(int colorId){
-    if(colorId<0 || colorId>=lenTButtonColor){
-      erreur.alerte("Can't get buttonColor by id "+colorId);
-      return null;
-    }
     if(tButtonColor==null){
       iniTButtonColor();
+    }
+    if(colorId<0 || colorId>=lenTButtonColor){
+      erreur.alerte("Can't get buttonColor by id "+colorId+" in "+lenTButtonColor+" colors aviable");
+      return null;
     }
     return tButtonColor[colorId];
   }
@@ -151,8 +151,8 @@ public class Data {
     tButtonColor = new Color[lenTButtonColor];
     tButtonColor[0]=new Color(81, 252, 0);//green
     tButtonColor[1]=Color.YELLOW;
-    tButtonColor[2]=Color.ORANGE;
-    tButtonColor[3]=new Color(248, 152, 29);//red
+    tButtonColor[2]=new Color(248, 152, 29);//orange
+    tButtonColor[3]=Color.RED;
     tButtonColor[4]=Color.WHITE;
     tButtonColor[5]=new Color(56, 56, 56);//grey
     tButtonColor[6]=Color.BLACK;
