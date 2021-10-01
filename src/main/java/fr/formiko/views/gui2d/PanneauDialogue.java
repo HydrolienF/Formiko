@@ -14,7 +14,7 @@ public class PanneauDialogue extends Panneau {
   // CONSTRUCTORS --------------------------------------------------------------
   public PanneauDialogue(){
     super();
-    // fta = new PanneauInfo(new GString(),0);
+    // fta = new PanneauInfoText(new GString(),0);
     // fta.setBounds(0,0,0,0);
     // setSize(fta.getWidth(),fta.getHeight());
   }
