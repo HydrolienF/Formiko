@@ -19,6 +19,12 @@ public class PanneauInfoCreature extends PanneauInfo {
   // FUNCTIONS -----------------------------------------------------------------
   // @Override
   public static PanneauInfoCreatureBuilder builder(){return new PanneauInfoCreatureBuilder();}
+  @Override
+  public void paintComponent(Graphics g){
+    super.paintComponent(g);
+    System.out.println("PanneauInfoCreature infos :");//@a
+    erreur.info(toString());//@a
+  }
   /**
   *{@summary Standard Builder for this.}<br>
   *@author Hydrolien
@@ -125,5 +131,13 @@ class PanneauProgressBar extends Panneau {
     pb.setSize((int)(x*0.9),y);
     pb.setLocation((int)(x*0.1),0);
     //set size for the Icon
+    erreur.info("size set to "+getSize(),5);//@a
   }
+  // @Override
+  // public void revalidate(){
+  //   System.out.println(getSize());
+  //   System.out.println("revalidate");//@a
+  //   super.revalidate();
+  //   System.out.println(getSize());
+  // }
 }

@@ -30,7 +30,6 @@ public class PanneauInfoText extends Panneau {
     }
     xPi=xD; yPi=(yD+1)*nbrDeDesc;
     this.setSize(xPi,yPi);
-    debug.débogage(getSize()+"");
     gbc.gridx = 0; int k=0;
     descs = new FLabel[gs.length()];
     for (String s : gs ) {

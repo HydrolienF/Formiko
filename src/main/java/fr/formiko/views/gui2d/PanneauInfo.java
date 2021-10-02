@@ -32,9 +32,12 @@ public class PanneauInfo extends Panneau {
   /** Return number of sub Panel. */
   public int length(){ return lp.length();}
   // FUNCTIONS -----------------------------------------------------------------
-//   public void paintComponent(Graphics g){
-//     super.paintComponent(g);
-//   }
+  @Override
+  public void paintComponent(Graphics g){
+    super.paintComponent(g);
+    // System.out.println("PanneauInfo infos :");//@a
+    // erreur.info(toString());//@a
+  }
   /**
   *{@summary Strandard to string function that also print child.}<br>
   *@version 2.7
@@ -89,12 +92,13 @@ public class PanneauInfo extends Panneau {
 
       GridBagConstraints gbc = new GridBagConstraints();
       gbc.gridx = 0;
-      gbc.gridy = 0;
+      int k = 0;
       for (Panneau p : lp ) {
         p.setSize(x,yByElement);
         // if(withAlpha){p.setBackground(Main.getData().getButtonColor());}
         pi.add(p,gbc);
-        gbc.gridy++;
+        // gbc.gridy++;
+        gbc.gridy = k;k++;
       }
       return pi;
     }
