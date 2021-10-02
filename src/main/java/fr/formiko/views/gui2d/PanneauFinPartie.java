@@ -2,7 +2,7 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.Main;
-import fr.formiko.views.gui2d.PanneauInfo;
+import fr.formiko.views.gui2d.PanneauInfoText;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -12,7 +12,7 @@ import java.awt.Graphics;
 public class PanneauFinPartie extends Panneau {
   private FLabel message;
   private GJoueur gj;
-  private PanneauInfo pi;
+  private PanneauInfoText pi;
   private FButton mp;
   private FButton c;
   // CONSTRUCTORS --------------------------------------------------------------
@@ -54,7 +54,7 @@ public class PanneauFinPartie extends Panneau {
   }
   public void addPanneauInfo(GJoueur gj){
     this.gj=gj;
-    pi = new PanneauInfo(gj.scoreToGString());
+    pi = new PanneauInfoText(gj.scoreToGString());
     add(pi);
     //pi.setBounds(0,message.getHeight(),pi.getWidth(),pi.getHeight());
   }

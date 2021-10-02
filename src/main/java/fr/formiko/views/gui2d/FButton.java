@@ -109,6 +109,7 @@ public class FButton extends JButton implements MouseListener{
   */
   public Color getBackgroundColor(){
     Color c = Main.getData().getButtonColor(color);
+    if(c==null){return null;}
     if(cFondUseAlpha){
       return new Color(c.getRed(), c.getGreen(), c.getBlue(), 100);
     }else{
@@ -186,7 +187,7 @@ public class FButton extends JButton implements MouseListener{
     if(b){
       setDefaultColor();
     }else{
-      setColor(3);
+      setColor(5);
     }
     super.setEnabled(b);
   }

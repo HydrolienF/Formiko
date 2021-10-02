@@ -37,7 +37,7 @@ public class FFrame extends JFrame {
   *@param fullScreen true if Frame need to be in full screen
   *@version 2.7
   */
-  public FFrame(String title, int width, int heigth, boolean fullScreen){
+  protected FFrame(String title, int width, int heigth, boolean fullScreen){
     if(fullScreen){
       if(Main.getOs().getId()==1){ //On Windows
         setExtendedState(JFrame.MAXIMIZED_BOTH); //n'as pas l'effet de plein écran sur Linux.
@@ -58,6 +58,11 @@ public class FFrame extends JFrame {
       public void run(){iniCloseButton();}
     });
   }
+  //TODO create a new builder with .setTitle() .setWidth .setHeigth .setFullScreen .setContentPane
+  // public static FFrame newFFrame(){
+  //   FFrameBuilder fb = new FFrameBuilder();
+  // }
+  // TODO class build of FFrame builder call new FFrame with param + setContentPane + endIni.
 
   // GET SET -------------------------------------------------------------------
   public static int getScreenWidth(){ return Toolkit.getDefaultToolkit().getScreenSize().width;}

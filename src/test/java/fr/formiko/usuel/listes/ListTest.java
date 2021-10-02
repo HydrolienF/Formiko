@@ -2,6 +2,11 @@ package fr.formiko.usuel.structures.listes;
 
 import org.junit.jupiter.api.Test;
 
+import fr.formiko.formiko.Creature;
+import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.Insecte;
+import fr.formiko.formiko.Main;
+import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.Point;
 import fr.formiko.usuel.structures.listes.Liste;
 import fr.formiko.usuel.tests.TestCaseMuet;
@@ -267,13 +272,32 @@ public class ListTest extends TestCaseMuet{
     assertTrue(!l.contains(new Point(0,0)));
     l.add(new Point(0,0));
     assertEquals(1,l.length());
-    //assertTrue(l.contains(new Point(0,0)));
+    assertTrue(l.contains(new Point(0,0)));
     assertTrue(!l.contains(new Point(0,1)));
     Point p = new Point(-1,1);
     l.add(p);
     assertTrue(l.contains(p));
-    //TODO #197 it do not use the overriding equals methode.
-    //assertTrue(l.contains(new Point(-1,1)));
+    assertTrue(l.contains(new Point(-1,1)));
+    assertFalse(l.contains("-1,1"));
+    assertTrue(!l.contains("-1,1"));
+  }
+  @Test
+  public void testcontains3(){
+    //Creature have an id to test equals()
+    Main.ini();
+    Main.setPartie(Partie.getDefautlPartie());
+    Liste<Creature> l = new Liste<Creature>();
+    assertTrue(!l.contains(new Point(0,0)));
+    Insecte i = new Insecte();
+    Fourmi f = new Fourmi();
+    l.add(i);
+    l.add(f);
+    Insecte i2 = i;
+    assertTrue(l.contains(i));
+    assertTrue(l.contains(f));
+    assertTrue(l.contains(i2));
+    assertFalse(l.contains(new Fourmi()));
+    assertFalse(l.contains(new Insecte()));
   }
   @Test
   public void testAdd(){

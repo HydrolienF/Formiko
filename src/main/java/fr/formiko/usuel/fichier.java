@@ -374,11 +374,7 @@ class DownloadThread extends Thread {
       }
 
       lastFileOutSize=fileOutSize;
-      try {
-        sleep(50);
-      } catch (InterruptedException ie) {
-        erreur.erreurPause(50);
-      }
+      Temps.pause(50);
     }
     // erreur.info("download done");
   }

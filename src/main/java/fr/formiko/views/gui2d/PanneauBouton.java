@@ -34,8 +34,8 @@ public class PanneauBouton extends Panneau {
   private int actionF;
   private int choixId;
   private PanneauChamp pchamp;
-  private PanneauInfo pi;
-  private PanneauInfo pij;
+  private PanneauInfoText pi;
+  private PanneauInfoText pij;
   private Font fontPij;
   // CONSTRUCTORS --------------------------------------------------------------
   public PanneauBouton(){}
@@ -51,10 +51,10 @@ public class PanneauBouton extends Panneau {
     pas = new PanneauActionSup();
     pai = new PanneauActionInf();
     pmmc = new PanneauMiniMapContainer();
-    pi = new PanneauInfo();
-    pij = new PanneauInfo();
+    // pi = new PanneauInfoText();
+    // pij = new PanneauInfoText();
     pz = new PanneauZoom();
-    add(pi);add(pij);
+    // add(pi);add(pij);
     descTI = new FLabel();
     descTI.setBackground(Main.getData().getButtonColor());
     setDescTI("");
@@ -84,8 +84,8 @@ public class PanneauBouton extends Panneau {
   public PanneauZoom getPz(){ return pz;}
   public PanneauAction getPa(){ return pa;}
   public PanneauChamp getPChamp(){ return pchamp;}
-  public PanneauInfo getPi(){ return pi;}
-  public PanneauInfo getPij(){ return pij;}
+  public PanneauInfoText getPi(){ return pi;}
+  public PanneauInfoText getPij(){ return pij;}
   public PanneauTBoolean getPTB(){ return ptb;}
   public PanneauMiniMapContainer getPmmc(){return pmmc;}
   // FUNCTIONS -----------------------------------------------------------------
@@ -185,10 +185,10 @@ public class PanneauBouton extends Panneau {
       removePi();
     }catch (Exception e) {}
     debug.débogage("addPI()");
-    pi = new PanneauInfo(Main.getPlayingAnt(),Main.getTailleElementGraphiqueX(320));
+    pi = new PanneauInfoText(Main.getPlayingAnt(),Main.getTailleElementGraphiqueX(320));
     int xx2 = pz.getTailleBouton()*3;
-    debug.débogage("initialisation du PanneauInfo en "+(getWidth()-Main.getTailleElementGraphiqueX(320))+" "+Main.getTailleElementGraphiqueX(320));
-    pi.setBounds(getWidth()-Main.getTailleElementGraphiqueX(320),xx2,Main.getTailleElementGraphiqueX(320),pi.getYPi());
+    debug.débogage("initialisation du PanneauInfoText en "+(getWidth()-Main.getTailleElementGraphiqueX(320))+" "+Main.getTailleElementGraphiqueX(320));
+    pi.setLocation(getWidth()-Main.getTailleElementGraphiqueX(320),xx2);
     add(pi);
   }
   public void removePi(){ remove(pi);}
@@ -204,11 +204,9 @@ public class PanneauBouton extends Panneau {
     if (ft==null){ return;}
     GString gs = ft.getFourmiliere().getJoueur().getGm().gmToGs(Main.getNbrMessageAfficher());
     debug.débogage("affichage console du contenu de gs");
-    pij = new PanneauInfo(gs,Main.getTailleElementGraphiqueX(500),true,fontPij);
+    pij = new PanneauInfoText(gs,Main.getTailleElementGraphiqueX(500),true,fontPij);
     int xx = pz.getTailleBouton()*5;
     debug.débogage("initialisation du PanneauInfoJoueur en "+(getWidth()-xx)+" "+(getHeight()-pij.getYPi()));
-    //pij.setBounds(getWidth()-xx,xx+pi.getY()*(pi.length()+1),pij.getX(),pij.getY()*pij.length());
-    // pij.setBounds(getWidth()-xx,getHeight()-pij.getY(),pij.getWidth(),pij.getHeight());
     int x = Main.getTailleElementGraphiqueX(320);
     pij.setBounds((getWidth()-x*2)/2,Main.getTailleElementGraphiqueY(100),x,pij.getYPi());
     add(pij);

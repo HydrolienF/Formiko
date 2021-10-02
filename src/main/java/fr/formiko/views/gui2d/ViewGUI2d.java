@@ -69,8 +69,8 @@ public class ViewGUI2d implements View {
   public PanneauChoixPartie getPcp(){ try{return getPm().getPcp();}catch (NullPointerException e){return null;}}
   public PanneauBouton getPb(){ try{return getPj().getPb();}catch (NullPointerException e){return null;}}
   public PanneauCarte getPc(){ try{return getPj().getPc();}catch (NullPointerException e){return null;}}
-  public PanneauInfo getPi(){ try{return getPb().getPi();}catch (NullPointerException e){return null;}}
-  public PanneauInfo getPij(){ try{return getPb().getPij();}catch (NullPointerException e){return null;}}
+  public PanneauInfoText getPi(){ try{return getPb().getPi();}catch (NullPointerException e){return null;}}
+  public PanneauInfoText getPij(){ try{return getPb().getPij();}catch (NullPointerException e){return null;}}
   public PanneauZoom getPz(){ return getPb().getPz();}
   public PanneauAction getPa(){ return getPb().getPa();}
   public PanneauChargement getPch(){ try {return getPj().getPch();}catch (NullPointerException e) {return null;}}

@@ -12,9 +12,10 @@ import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.media.audio.*;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.tableau;
+// import fr.formiko.usuel.testTryCatchNullPointerException;
 import fr.formiko.usuel.trad;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.ViewNull;
@@ -178,6 +179,9 @@ public class launchOptions {
         k++;
       }
       // System.exit(0);
+    // }else if(args[0].equals("testTryCatchNullPointerException")){
+    //   testTryCatchNullPointerException.doTest();
+    //   System.exit(0);
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }

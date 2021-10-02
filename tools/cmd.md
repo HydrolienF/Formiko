@@ -51,3 +51,14 @@ ctrl alt a (Atom) avec un nom d'objet Java met dans le ctrl-c la ligne d'importe
 
 mvn compile exec:java -Dargs="tws ../HydrolienF.github.io/docs/ -p ../HydrolienF.github.io/docs/data/language"
 Lance la traduction des pages du site sur mon pc.
+
+git rev-list --count 2.6
+renvoie le nombre de commit sur la branche 2.6
+En contant les commit de la branche 2.6 et la branch 2.7, on peu savoir combien on été ajouté dans la 2.7 !
+
+git symbolic-ref HEAD --short
+git rev-parse --abbrev-ref HEAD
+Les 2 renvoie uniquement la branche git courante.
+
+En c pour vérifier si il y a une erreur mémoire, compiler avec :
+-fsanitize=adress

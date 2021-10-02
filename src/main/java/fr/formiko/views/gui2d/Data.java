@@ -79,6 +79,7 @@ public class Data {
   private Color buttonDisableColor = new Color(56, 56, 56, 100);
 
   private Color tButtonColor[];
+  private int lenTButtonColor;
 
   private Color buttonColorWithoutAlpha = new Color(81, 252, 0);
   private Color buttonDisableColorWithoutAlpha = new Color(56, 56, 56);
@@ -126,19 +127,35 @@ public class Data {
   public Color getButtonDisableColorWithoutAlpha(){return buttonDisableColorWithoutAlpha;}
   public Color getButtonFocusColorWithoutAlpha(){return buttonFocusColorWithoutAlpha;}
   public Color getButonBorderColor() {return butonBorderColor;}
+  /**
+  *{@summary Return color used by the buttons.}
+  *@version 2.7
+  */
   public Color getButtonColor(int colorId){
     if(tButtonColor==null){
       iniTButtonColor();
     }
+    if(colorId<0 || colorId>=lenTButtonColor){
+      erreur.alerte("Can't get buttonColor by id "+colorId+" in "+lenTButtonColor+" colors aviable");
+      return null;
+    }
     return tButtonColor[colorId];
   }
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Initialize color used by the buttons.}
+  *@version 2.7
+  */
   public void iniTButtonColor(){
-    tButtonColor = new Color[4];
-    tButtonColor[0]=new Color(81, 252, 0);
+    lenTButtonColor=7;
+    tButtonColor = new Color[lenTButtonColor];
+    tButtonColor[0]=new Color(81, 252, 0);//green
     tButtonColor[1]=Color.YELLOW;
-    tButtonColor[2]=new Color(248, 152, 29);
-    tButtonColor[3]=new Color(56, 56, 56);
+    tButtonColor[2]=new Color(248, 152, 29);//orange
+    tButtonColor[3]=Color.RED;
+    tButtonColor[4]=Color.WHITE;
+    tButtonColor[5]=new Color(56, 56, 56);//grey
+    tButtonColor[6]=Color.BLACK;
   }
   /**
   *{@summary Return the Image that fit to a Creature.}

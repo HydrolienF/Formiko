@@ -65,6 +65,16 @@ public class Insecte extends Creature implements Serializable{
   public Insecte (){ //on place l'insecte alléatoirement. //  en théorie soit il nait et il a la case de ca mere, soit il vient d'autre par et dans ce cas il apparait sur une case en bordure de carte.
     this(Main.getGc().getCCaseAlléa());
   }
+  // private Insecte (boolean b){
+  //   super().newEmptyCreature();
+  // }
+  // /**
+  // *{@summary constructor for test only.}<br>
+  // *@version 2.7
+  // */
+  // public static Insecte newEmptyInsecte(){
+  //   return new Insecte(true);
+  // }
 
   // GET SET ----------------------------------------------------------------------
   public boolean getFemelle(){return femelle;}
