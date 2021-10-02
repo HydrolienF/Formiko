@@ -34,7 +34,7 @@ public class PanneauBouton extends Panneau {
   private int actionF;
   private int choixId;
   private PanneauChamp pchamp;
-  private PanneauInfoText pi;
+  private PanneauInfo pi;
   private PanneauInfoText pij;
   private Font fontPij;
   // CONSTRUCTORS --------------------------------------------------------------
@@ -51,10 +51,7 @@ public class PanneauBouton extends Panneau {
     pas = new PanneauActionSup();
     pai = new PanneauActionInf();
     pmmc = new PanneauMiniMapContainer();
-    // pi = new PanneauInfoText();
-    // pij = new PanneauInfoText();
     pz = new PanneauZoom();
-    // add(pi);add(pij);
     descTI = new FLabel();
     descTI.setBackground(Main.getData().getButtonColor());
     setDescTI("");
@@ -84,7 +81,7 @@ public class PanneauBouton extends Panneau {
   public PanneauZoom getPz(){ return pz;}
   public PanneauAction getPa(){ return pa;}
   public PanneauChamp getPChamp(){ return pchamp;}
-  public PanneauInfoText getPi(){ return pi;}
+  public PanneauInfo getPi(){ return pi;}
   public PanneauInfoText getPij(){ return pij;}
   public PanneauTBoolean getPTB(){ return ptb;}
   public PanneauMiniMapContainer getPmmc(){return pmmc;}
@@ -184,12 +181,17 @@ public class PanneauBouton extends Panneau {
     try {
       removePi();
     }catch (Exception e) {}
-    debug.débogage("addPI()");
-    pi = new PanneauInfoText(Main.getPlayingAnt(),Main.getTailleElementGraphiqueX(320));
-    int xx2 = pz.getTailleBouton()*3;
-    debug.débogage("initialisation du PanneauInfoText en "+(getWidth()-Main.getTailleElementGraphiqueX(320))+" "+Main.getTailleElementGraphiqueX(320));
-    pi.setLocation(getWidth()-Main.getTailleElementGraphiqueX(320),xx2);
-    add(pi);
+    Fourmi playingAnt = Main.getPlayingAnt();
+    if(playingAnt!=null){
+      pi = PanneauInfoCreature.builder().addCreature(playingAnt)
+      .setX(Main.getTailleElementGraphiqueX(320))
+      .setYByElement(Main.getTailleElementGraphiqueY(30))
+      .build();
+      pi.setLocation(getWidth()-pi.getWidth(),pz.getTailleBouton()*3);
+      add(pi);
+    }else{
+      erreur.alerte("PanneauInfoCreature haven't been set because playingAnt is null");
+    }
   }
   public void removePi(){ remove(pi);}
   public void addPIJ(){

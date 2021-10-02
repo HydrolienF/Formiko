@@ -3,13 +3,18 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.*;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
-import fr.formiko.views.gui2d.action;
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.maths.math;
+import fr.formiko.views.gui2d.action;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,10 +22,6 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-import java.awt.Color;
-import java.awt.BasicStroke;
-import fr.formiko.usuel.maths.math;
-import java.awt.Graphics2D;
 
 public class Panneau extends JPanel {
   private static final long serialVersionUID = -3227223889149566494L;
@@ -61,7 +62,13 @@ public class Panneau extends JPanel {
   }
   @Override
   public String toString(){
-    return id+" "+super.toString();
+    String r = id+" "+super.toString();
+    //TODO print sub components to.
+    for (Component c : getComponents()) {
+      r+=c.toString();
+    }
+    return r;
+
   }
   public void doAction(int ac){
     action.doAction(ac);
