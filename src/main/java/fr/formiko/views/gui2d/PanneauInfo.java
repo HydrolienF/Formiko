@@ -19,7 +19,7 @@ public class PanneauInfo extends Panneau {
   protected Liste<Panneau> lp;
   // CONSTRUCTORS --------------------------------------------------------------
   /** Main constructor. */
-  protected PanneauInfo(){}
+  protected PanneauInfo(){super();}
 
   /**
   *{@summary Return a new builder for this.}<br>
@@ -35,8 +35,6 @@ public class PanneauInfo extends Panneau {
   @Override
   public void paintComponent(Graphics g){
     super.paintComponent(g);
-    // System.out.println("PanneauInfo infos :");//@a
-    // erreur.info(toString());//@a
   }
   /**
   *{@summary Strandard to string function that also print child.}<br>
@@ -88,17 +86,20 @@ public class PanneauInfo extends Panneau {
       if(lenLp==0){throw new IllegalArgumentException("lp is empty");}
       int y = yByElement*lenLp;
       pi.setSize(x,y);
-      pi.setLayout(new GridBagLayout());
+      // pi.setLayout(new GridBagLayout());
 
-      GridBagConstraints gbc = new GridBagConstraints();
-      gbc.gridx = 0;
+      // GridBagConstraints gbc = new GridBagConstraints();
+      // gbc.gridx = 0;
       int k = 0;
       for (Panneau p : lp ) {
         p.setSize(x,yByElement);
+        p.setLocation(0,yByElement*k);
         // if(withAlpha){p.setBackground(Main.getData().getButtonColor());}
-        pi.add(p,gbc);
+        pi.add(p);
+        // pi.add(p,gbc);
         // gbc.gridy++;
-        gbc.gridy = k;k++;
+        // gbc.gridy = k;
+        k++;
       }
       return pi;
     }
