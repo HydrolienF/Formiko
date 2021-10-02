@@ -163,6 +163,10 @@ public class Data {
   *@version 2.6
   */
   public BufferedImage getCreatureImage(Creature c){
+    if(imageTree==null){
+      erreur.erreur("imageTree is null");
+      return null;
+    }
     return imageTree.getCreatureImage(c);
   }
   /**

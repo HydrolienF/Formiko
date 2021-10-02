@@ -38,7 +38,12 @@ public class Main {
   *@version 1.1
   */
   private static String versionActuelle = "1.49.9";
+  //null save var
   private static Options op;
+  private static Os os;
+  private static Data data;
+  private static View view;
+
   private static Chrono ch;
   private static long lon;
   private static long lonTotal;
@@ -52,19 +57,18 @@ public class Main {
   private static Temps tem;
   //private static ThGraphisme tg;//actualise la fenetre tt avec 20 seconde de pause entre chaque actualisation.
   private static boolean retournerAuMenu;
-  private static Os os;
   private static Folder folder;
   private static boolean tuto=false;
   private static ThScript ths;
   //private static ThMusique thm;
   private static boolean premierePartie=false;
-  private static Data data;
-  private static View view;
 
   private static boolean modeCLI=false;
 
   private static int cptMessageChargement=0;
   private static MusicPlayer mp;
+
+  private static boolean needToInitialize; //TODO OP use to avoid using op==null
 
   /**
    * {@summary Lauch the game.}<br>
@@ -81,6 +85,11 @@ public class Main {
     debug.setAffLesEtapesDeRésolution(false);
     debug.setAffLesPerformances(false);
     debug.setAffG(false);
+    //iniThings that can't be null :
+    view = new ViewNull();
+    os = new Os();
+    data = new Data();
+    //args part
     if(args.length!=0){
       if(args.length==1 && args[0] != null){
         args = args[0].split(" ");
@@ -199,7 +208,7 @@ public class Main {
   //view
   public static boolean getActionGameOn(){return getView().getActionGameOn();}
   //other
-  public static boolean estWindows(){return os.getId()==1;}
+  public static boolean estWindows(){return getOs().isWindows();}
   public static String get(String clé){ return g.get(clé);}
   public static Script getScript(){if(ths!=null) {return ths.getScript();}else{return null;}}
   public static ThScript getThScript(){return ths;}
@@ -272,17 +281,12 @@ public class Main {
   // Fonctions propre -------------------------------------------------
   /**
    * Initializes Options, key, language, time data, musique, os value. And check the integrity of the file tree.
-   * @version 1.1
+   * @version 2.7
    */
   public static void initialisation(){
     tempsDeDébutDeJeu=System.currentTimeMillis();
-    os = new Os();
-    data = new Data();
     setPremierePartie(false);
     Fourmi.setUneSeuleAction(-1);
-    if(view==null){
-      view = new ViewNull();
-    }
     if(!erreur.getMuet()){ //if not in test.
       if (modeCLI) {
         if (view!=null && !(view instanceof ViewCLI)) {
@@ -369,9 +373,7 @@ public class Main {
     String message = g.getM(key);
     if(percentageDone<100){message+="...";}
     getView().loadingMessage(message, percentageDone);
-    // System.out.println(message+" "+percentageDone+"%");
   }
-  // public static void setMessageChargement(String key){setMessageChargement(key, false);}
   /**
    * Sould transforme a GCase to a Image that can be used for mini-map.<br>
    * @version 1.1
@@ -385,15 +387,12 @@ public class Main {
     endCh("récupérationDeLImage");startCh();
     img.sauvegarder("carte.png");
     endCh("sauvegardeLeLImage");
-    //debug.setAffLesEtapesDeRésolution(false);
   }
   //chrono shortcut
   public static void startCh(){Chrono.debutCh();}
   public static void endCh(String s){lonTotal+=Chrono.endCh(s);}
   public static void startCh(Chrono chTemp){Chrono.debutCh(chTemp);}
-  public static void endCh(String s,Chrono chTemp){ // fin du Chrono.
-    lonTotal+=Chrono.endCh(s,chTemp);
-  }
+  public static void endCh(String s,Chrono chTemp){lonTotal+=Chrono.endCh(s,chTemp);}
   /**
    * {@summary Try to exit normally.}<br>
    * Save score informations.<br>
@@ -452,6 +451,4 @@ public class Main {
       getGi().add(x2/10);
     }
   }
-
-
 }

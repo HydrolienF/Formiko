@@ -134,22 +134,20 @@ public class fichier {
     try {
       URL url = new URL(urlPath);
       long fileToDowloadSize = getFileSize(url);
-      // if(withInfo){
-      //   erreur.info("Downoading "+urlPath+" of size : "+fileToDowloadSize);
-      // }
       ReadableByteChannel readChannel = Channels.newChannel(url.openStream());
       File fileOut = new File(fileName);
       fos = new FileOutputStream(fileOut);
       FileChannel writeChannel = fos.getChannel();
       if (withInfo) {
-        //launch Thread that update %age of download
-        //this thread watch file size & print it / fileSize.
         String downloadName = "x";
-        try {
-          String t [] = fileName.split("/");
-          downloadName = t[t.length-1];
-          downloadName.replace(".zip","");
-        }catch (Exception e) {}
+        String t [] = fileName.split("/");
+        downloadName = t[t.length-1];
+        int downloadNameLen = downloadName.length();
+        System.out.println(downloadName.substring(downloadNameLen-4,downloadNameLen));
+        if(downloadNameLen>4 && ".zip".equals(downloadName.substring(downloadNameLen-4,downloadNameLen))){
+          downloadName = downloadName.substring(0,downloadNameLen-4);
+        }
+        //launch Thread that update %age of download
         downloadThread = new DownloadThread(fileOut, fileToDowloadSize, downloadName);
         downloadThread.start();
       }
@@ -176,7 +174,6 @@ public class fichier {
         downloadThread.stopRuning();
       }
       if(reason!=null){
-        //"Fail to download "+fileName+" from "+urlPath+ " because "+
         String err = "Download fail: "+reason;
         try {
           Main.getView().setDownloadingMessage(err);

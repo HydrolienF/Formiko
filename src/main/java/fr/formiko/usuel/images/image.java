@@ -371,7 +371,8 @@ public class image{
   *@param direction The direction to rotate. Direction are multiplied by 45°.
   *@version 2.1
   */
-  public static BufferedImage rotateImage(BufferedImage before, int direction){
+  public static BufferedImage rotateImage(BufferedImage before, int direction) {
+    if(before==null){return null;}
     direction = (direction+8)%8;
     if(direction==0){return before;}
     int w = before.getWidth();

@@ -335,7 +335,6 @@ public class PanneauCarte extends Panneau {
               // }
             }catch (Exception e) {
               erreur.erreur("can't draw ant "+f.getId()+" at stade "+f.getStade());
-              e.printStackTrace();
             }
             insecte=false;
           }else if(cr instanceof Insecte && insectPrinted){
@@ -408,6 +407,11 @@ public class PanneauCarte extends Panneau {
   *@version 2.1
   */
   private void drawImageCentered(Graphics2D g, BufferedImage image, int xT, int yT){
+    if(image==null){
+      // erreur.alerte("Can't draw a null image");
+      // return;
+      throw new NullPointerException();
+    }
     int w = image.getWidth();
     int h = image.getHeight();
     int caseSize = getTailleDUneCase();

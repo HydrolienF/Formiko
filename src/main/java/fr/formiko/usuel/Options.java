@@ -23,10 +23,10 @@ import java.util.Properties;
 */
 public class Options implements Serializable{
   /** language can be save as byte or String in properties &#39; options file.*/
-  private byte language=0; // 0=eo; 1=fr; 2=en;
-  private byte buttonSizeZoom=0;
-  private byte buttonSizeAction=0;
-  private byte buttonSizeTX=0;
+  private byte language; // 0=eo; 1=fr; 2=en;
+  private byte buttonSizeZoom;
+  private byte buttonSizeAction;
+  private byte buttonSizeTX;
   private boolean quickMovement;
   private boolean instantaneousMovement;
   private boolean orientedObjectOnMap;
