@@ -20,7 +20,12 @@ public class FProgressBar extends JProgressBar {
   */
   public FProgressBar(){
     super();
+    FBorder f = new FBorder();
+    f.setThickness(1);
+    f.setColor(Color.BLACK);
+    setBorder(f);
     setBorderPainted(true);
+    setBackground(Color.WHITE);
     // setBorder(new FBorder());
   }
 
@@ -31,9 +36,9 @@ public class FProgressBar extends JProgressBar {
   *@version 2.7
   */
   public void setState(int state){
-    Color c = Main.getData().getButtonColor();
+    Color c = Main.getData().getButtonColor(state);
     if(c!=null){
-      setBackground(c);
+      setForeground(c);
     }else{
       erreur.alerte("Can't set state of the FProgressBar because color is null");
     }

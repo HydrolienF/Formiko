@@ -138,6 +138,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public boolean getEstMort(){ return estMort;}
   public void setEstMort(boolean b){estMort=b;actionMax=0;action=0;}
   public byte getPropreté(){return getProprete();} public byte getProprete(){return propreté;}
+  public byte getPropreteMax(){return 100;}
   public void setPropreté(int x){setProprete(x);}
   public void setProprete(int x){setPropreté(str.iToBy(x));}
   public void setPropreté(byte x){ propreté = x; if(x<100){x=100;}}
