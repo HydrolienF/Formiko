@@ -460,9 +460,9 @@ public class ViewGUI2d implements View {
     if(f!=null){
       if(!f.getIa()){
         getPb().setVisiblePa(true);
+        getPb().addPI();
+        getPb().addPIJ();
       }
-      getPb().addPI();
-      getPb().addPIJ();
     }else{
       getPb().setVisiblePa(false);
       Main.getPartie().setAntIdToPlay(-1);
