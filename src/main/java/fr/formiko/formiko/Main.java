@@ -40,9 +40,9 @@ public class Main {
   private static String versionActuelle = "1.49.9";
   //null save var
   private static Options op;
-  private static Os os;
-  private static Data data;
-  private static View view;
+  private static Os os=new Os();
+  private static Data data=new Data();
+  private static View view=new ViewNull();
 
   private static Chrono ch;
   private static long lon;
@@ -86,9 +86,9 @@ public class Main {
     debug.setAffLesPerformances(false);
     debug.setAffG(false);
     //iniThings that can't be null :
-    view = new ViewNull();
-    os = new Os();
-    data = new Data();
+    // view = new ViewNull();
+    // os = new Os();
+    // data = new Data();
     //args part
     if(args.length!=0){
       if(args.length==1 && args[0] != null){
