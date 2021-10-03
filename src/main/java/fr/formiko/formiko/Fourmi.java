@@ -284,7 +284,7 @@ public class Fourmi extends Creature implements Serializable{
   */
   public void salir(){
     double chanceDeMort = allea.getRand()*getSeuilDeRisqueDInfection(); // on tire le nombre min pour survivre a ce tour.
-    if (getPropreté()<allea.getRand()*50){mourir(1);}
+    if (getPropreté()<chanceDeMort){mourir(1);}
     setPropreté(getPropreté() - getPropretéPerdu());
   }
   /**
