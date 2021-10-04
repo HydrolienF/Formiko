@@ -72,6 +72,7 @@ public class PanneauZoom extends Panneau {
     gbc.gridx = 2;
     add(bd2,gbc);
     // Color col = new Color(0,0,0,0);
+    //TODO border color should be black.
     bPlus.setColor(-1);
     bMoins.setColor(-1);
     bh.setColor(-1);
@@ -81,15 +82,15 @@ public class PanneauZoom extends Panneau {
     bc.setColor(-1);
     bd1.setColor(-1);
     bd2.setColor(-1);
-    // bPlus.setBordure(false);
-    // bMoins.setBordure(false);
-    // bh.setBordure(false);
-    // bb.setBordure(false);
-    // bd.setBordure(false);
-    // bg.setBordure(false);
-    // bc.setBordure(false);
-    // bd1.setBordure(false);
-    // bd2.setBordure(false);
+    bPlus.setBordure(false);
+    bMoins.setBordure(false);
+    bh.setBordure(false);
+    bb.setBordure(false);
+    bd.setBordure(false);
+    bg.setBordure(false);
+    bc.setBordure(false);
+    bd1.setBordure(false);
+    bd2.setBordure(false);
     setEnabled(true);
   }
   // GET SET -------------------------------------------------------------------
@@ -108,14 +109,10 @@ public class PanneauZoom extends Panneau {
   }
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
-    try {
-      if(!Main.getPartie().getEnCours()){return;}
-    }catch (Exception e) {
-      return;
-    }
+    if(Main.getPartie()==null || !Main.getPartie().getEnCours()){return;}
     int tailleBouton=Main.getbuttonSizeZoom();
     debug.débogage("taille du panneau de zoom : x="+tailleBouton*3+", y="+tailleBouton*3);
-    this.setSize(tailleBouton*3,tailleBouton*3);
+    setSize(tailleBouton*3,tailleBouton*3);
   }
   public void doAction(byte ac){
     Panneau.getView().getPj().doAction(ac);
