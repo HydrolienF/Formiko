@@ -86,13 +86,13 @@ public class PanneauInfoCreature extends PanneauInfo {
       int col=1;
       if(c.getAgeMax()<Main.getPartie().getNbrDeTour()){
         if(c.getAge()>=c.getAgeMax()*0.9){col=2;}
-        addCreatureProgressBar(col, c.getAge(), c.getAgeMax(),null);
+        addCreatureProgressBar(col, c.getAge(), c.getAgeMax(),"age");
       }
       if(c.getNourriture()<0.1*c.getNourritureMax()){col=3;}
       else if(c.getNourriture()<0.2*c.getNourritureMax()){col=2;}
       else if(c.getNourriture()<0.4*c.getNourritureMax()){col=1;}
       else {col=0;}
-      addCreatureProgressBar(col, c.getNourriture(), c.getNourritureMax(),null);
+      addCreatureProgressBar(col, c.getNourriture(), c.getNourritureMax(),"food");
       if(c.getAction()==c.getActionMax()){col=0;}
       else if(c.getAction()<=0){col=3;}
       else{col=1;}
