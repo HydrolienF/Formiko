@@ -21,6 +21,7 @@ import fr.formiko.usuel.types.str;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
 
 /**
 *{@summary Contain all data (images) that will be used by the graphic interface.}
@@ -61,6 +62,8 @@ public class Data {
   //image data
   private ImageTree imageTree;
   private ImageTree imageTreeIni;
+  private HashMap<String, BufferedImage> iconMap;
+  // private map<String,BufferedImage> iconMapIni;
   //PanneauAction
   private BufferedImage tImage [];
   //PanneauZoom
@@ -168,6 +171,16 @@ public class Data {
       return null;
     }
     return imageTree.getCreatureImage(c);
+  }
+  /**
+  *{@summary Return an IconImage.}
+  *@param name the name of the icon, the name of the file without ".png"
+  *@version 2.6
+  */
+  public BufferedImage getIconImage(String name){
+    if(iconMap==null){return null;}
+    if(name==null){return null;}
+    return iconMap.get(name);
   }
   /**
   *{@summary Return an array with all images use to draw an ant.}<br>
@@ -332,6 +345,9 @@ public class Data {
         // iniAntColorIni();
         antLegIni = image.getImages("FLeg",image.getNbrImages("FLeg"),(byte)0);
         imageTreeIni = ImageTree.folderToTree(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");
+        iconMap = image.getImagesAsMap(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"icon/");
+        iconMap = image.getScaledInstanceFromMap(iconMap, Main.getTailleElementGraphiqueY(30));
+        System.out.println("iconMap : "+iconMap);//@a
         // antFAFIni = image.getImages("FAF",image.getNbrImages("FAF"),(byte)0);
         // antFASIni = image.getImages("FAS",image.getNbrImages("FAS"),(byte)0);
         tGIni = chargerTX("seed");

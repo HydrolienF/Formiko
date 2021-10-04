@@ -18,6 +18,7 @@ import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import javax.imageio.ImageIO;
 
 /**
@@ -362,7 +363,7 @@ public class image{
       newH = newHW;
       newW = newHW*bi.getWidth()/bi.getHeight(); //a smaler size.
     }
-    double racioWH = bi.getWidth()/bi.getHeight();
+    // double racioWH = bi.getWidth()/bi.getHeight();
     return resize(bi,newW,newH);
   }
   /**
@@ -491,5 +492,47 @@ public class image{
       }
     }
     return r;
+  }
+
+  //Map
+  /**
+  *{@summary Return a new HashMap<String, BufferedImage>.}<br>
+  *@param folder folder that contain all images
+  *@version 2.7
+  */
+  public static HashMap<String, BufferedImage> getImagesAsMap(File folder){
+    HashMap<String, BufferedImage> map = new HashMap<String, BufferedImage>();
+    if (folder.exists() && folder.isDirectory()) {
+      for (File f : folder.listFiles()) {
+        String s = f.getName();
+        if((str.contient(s,".png",2) || str.contient(s,".jpg",2)) && s.length()>4){s=s.substring(0,s.length()-4);}
+        map.put(s, readImage(f));
+      }
+    }
+    return map;
+  }
+  /**
+  *{@summary Return a new HashMap<String, BufferedImage>.}<br>
+  *@param folderName the name of the folder that contain all images
+  *@version 2.7
+  */
+  public static HashMap<String, BufferedImage> getImagesAsMap(String folderName){
+    return getImagesAsMap(new File(folderName));
+  }
+  /**
+  *{@summary Rezise a HashMap<String, BufferedImage>.}<br>
+  *@param mapIn Map that contains images to rezise
+  *@version 2.7
+  */
+  public static HashMap<String, BufferedImage> getScaledInstanceFromMap(HashMap<String, BufferedImage> mapIn, int size){
+    if(mapIn==null){return null;}
+    HashMap<String, BufferedImage> mapOut = new HashMap<String, BufferedImage>();
+    for (HashMap.Entry<String, BufferedImage> entry : mapIn.entrySet()) {
+      BufferedImage bi = entry.getValue();
+      bi = resize(bi,size);
+      mapOut.put(entry.getKey(), bi);
+      System.out.println("put "+entry.getKey());//@a
+    }
+    return mapOut;
   }
 }

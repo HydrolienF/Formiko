@@ -185,7 +185,7 @@ public class PanneauBouton extends Panneau {
     if(playingAnt!=null){
       pi = PanneauInfoCreature.builder().addCreature(playingAnt)
       .setX(Main.getTailleElementGraphiqueX(320))
-      .setYByElement(Main.getTailleElementGraphiqueY(30))
+      .setYByElement(Main.getTailleElementGraphiqueY(32))
       .build();
       pi.setLocation(getWidth()-pi.getWidth(),pz.getTailleBouton()*3);
       add(pi);

@@ -11,6 +11,7 @@ import fr.formiko.usuel.structures.listes.Liste;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.image.BufferedImage;
 
 /**
 *{@summary Pannel that containt infos about a Creature as a List of Pannel.}<br>
@@ -85,17 +86,17 @@ public class PanneauInfoCreature extends PanneauInfo {
       int col=1;
       if(c.getAgeMax()<Main.getPartie().getNbrDeTour()){
         if(c.getAge()>=c.getAgeMax()*0.9){col=2;}
-        addCreatureProgressBar(col, c.getAge(), c.getAgeMax());
+        addCreatureProgressBar(col, c.getAge(), c.getAgeMax(),null);
       }
       if(c.getNourriture()<0.1*c.getNourritureMax()){col=3;}
       else if(c.getNourriture()<0.2*c.getNourritureMax()){col=2;}
       else if(c.getNourriture()<0.4*c.getNourritureMax()){col=1;}
       else {col=0;}
-      addCreatureProgressBar(col, c.getNourriture(), c.getNourritureMax());
+      addCreatureProgressBar(col, c.getNourriture(), c.getNourritureMax(),null);
       if(c.getAction()==c.getActionMax()){col=0;}
       else if(c.getAction()<=0){col=3;}
       else{col=1;}
-      addCreatureProgressBar(col, c.getAction(), c.getActionMax());
+      addCreatureProgressBar(col, c.getAction(), c.getActionMax(),"move");
       col=0;
       if(c instanceof Fourmi){
         Fourmi f = (Fourmi)c;
@@ -107,7 +108,7 @@ public class PanneauInfoCreature extends PanneauInfo {
           }
         }
       }
-      addCreatureProgressBar(col, math.min(c.getProprete(),c.getPropreteMax()), c.getPropreteMax());
+      addCreatureProgressBar(col, math.min(c.getProprete(),c.getPropreteMax()), c.getPropreteMax(),"heal");
     }
     /**
     *{@summary Add a progress bar.}<br>
@@ -116,7 +117,7 @@ public class PanneauInfoCreature extends PanneauInfo {
     *@param maxValue max value of the bar
     *@version 2.7
     */
-    private void addCreatureProgressBar(int state, int value, int maxValue){
+    private void addCreatureProgressBar(int state, int value, int maxValue, String iconName){
       if (value<0) {
         value=0;
         erreur.alerte("Value is <0");
@@ -129,12 +130,13 @@ public class PanneauInfoCreature extends PanneauInfo {
       pb.setMaximum(maxValue);
       pb.setValue(value);
       pb.setSize(x, yByElement);
-      PanneauProgressBar p = new PanneauProgressBar(pb);
+      PanneauProgressBar p = new PanneauProgressBar(pb, Main.getData().getIconImage(iconName));
       p.setSize(x, yByElement);
       add(p);
     }
   }
 }
+// SUB-CLASS -----------------------------------------------------------------
 /**
 *{@summary Pannel that containt a FProgressBar &#39; an icon.}<br>
 *@author Hydrolien
@@ -142,17 +144,42 @@ public class PanneauInfoCreature extends PanneauInfo {
 */
 class PanneauProgressBar extends Panneau {
   private FProgressBar pb;
-  public PanneauProgressBar(FProgressBar pb){
+  private BufferedImage iconImage;
+  // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor.}<br>
+  *@version 2.7
+  */
+  public PanneauProgressBar(FProgressBar pb, BufferedImage bi){
     super();
     this.pb=pb;
-    add(pb);
+    iconImage=bi;
+    if(this.pb!=null){
+      add(this.pb);
+    }
   }
+
+  // GET SET -------------------------------------------------------------------
+  /**
+  *{@summary Override of set size to also set size of the FProgressBar.}<br>
+  *@version 2.7
+  */
   @Override
   public void setSize(int x, int y){
     super.setSize(x,y);
     pb.setSize((int)(x*0.9), (int)(y*0.8));
     pb.setLocation((int)(x*0.1), (int)(y*0.1));
-    //set size for the Icon
-    // erreur.info("size set to "+getSize(),5);
+  }
+
+  // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Paint component: FProgressBar &#39; icon image.}<br>
+  *@version 2.7
+  */
+  public void paintComponent(Graphics g){
+    super.paintComponent(g);
+    if(iconImage!=null){
+      g.drawImage(iconImage,0,(getHeight()-iconImage.getHeight()+1)/2,this);
+    }
   }
 }

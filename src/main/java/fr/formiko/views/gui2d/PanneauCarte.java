@@ -419,6 +419,14 @@ public class PanneauCarte extends Panneau {
     int yI = yT+(caseSize-h)/2;
     drawImage(g,image,xI,yI);
   }
+  /**
+  *{@summary draw an image.}<br>
+  *@param g Graphics element were to draw.
+  *@param im the image to draw.
+  *@param x the x ere to draw.
+  *@param y the y were to draw.
+  *@version 2.1
+  */
   public void drawImage(Graphics gTemp, BufferedImage im, int x, int y){
     Graphics2D g = (Graphics2D)gTemp;
     g.drawImage(im,x,y,this);
