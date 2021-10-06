@@ -62,3 +62,16 @@ Les 2 renvoie uniquement la branche git courante.
 
 En c pour vérifier si il y a une erreur mémoire, compiler avec :
 -fsanitize=adress
+
+Atom package :
+french-menu
+java-generator (to generate setter / getter)
+java-import-wiz (organize import)
+java-importer (copy name of the class to import)
+
+atom-ide-ui
+ide-java
+formiko.fr
+
+Réglage princpaux a refaire
+2 espace pour 1 tabulation en python.
