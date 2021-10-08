@@ -531,7 +531,7 @@ public class image{
       BufferedImage bi = entry.getValue();
       bi = resize(bi,size);
       mapOut.put(entry.getKey(), bi);
-      System.out.println("put "+entry.getKey());//@a
+      // System.out.println("put "+entry.getKey());
     }
     return mapOut;
   }

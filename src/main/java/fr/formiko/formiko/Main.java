@@ -39,9 +39,15 @@ public class Main {
   */
   private static String versionActuelle = "1.49.9";
   //null save var
+  /** Use only after iniOp(). */
   private static Options op;
+  /** Use only before iniOp() to avoid nullPointerException. */
+  private static Options tempOp;
+  /** Os depending of user OS */
   private static Os os=new Os();
+  /** Data use by GUI */
   private static Data data=new Data();
+  /** View use everywere to update user interface */
   private static View view=new ViewNull();
 
   private static Chrono ch;
@@ -175,7 +181,7 @@ public class Main {
   public static Joueur getJoueurParId(int id){ return Main.getGj().getJoueurParId(id);}
   public static Fourmiliere getFourmiliereParId(int id){ return getJoueurParId(id).getFere();}
   public static FFrame getF(){ try {return ((ViewGUI2d)view).getF();} catch (Exception e) {return null;}}
-  public static Options getOp(){if(op!=null){return op;}else{return Options.newDefaultOptions();}}
+  public static Options getOp(){if(op!=null){return op;}else{if(tempOp==null){tempOp = Options.newDefaultOptions();} return tempOp;}}
   public static Chrono getCh(){ return ch;}
   public static int getKey(String clé){ return key.get(clé); }
   public static Partie getPartie(){ return pa;}
@@ -347,6 +353,7 @@ public class Main {
     //op = chargerLesOptions.chargerLesOptions(getVersionActuelle());
     op = new Options();
     getOp().iniOptions();
+    tempOp=null;
   }
   /**
    *{@summary Load language.}<br>
