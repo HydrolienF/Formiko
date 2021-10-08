@@ -1,5 +1,6 @@
 package fr.formiko.usuel;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -260,5 +261,11 @@ public class FolderTest extends TestCaseMuet {
   public void testGetLastStableVersion(){
     Folder f = new Folder();
     assertTrue(!f.getLastStableVersion().equals("0.0.0"));
+  }
+  @AfterAll
+  public static void clean(){
+    Folder folder = new Folder();
+    Main.setFolder(folder);
+    fichier.deleteDirectory("null");
   }
 }

@@ -1,5 +1,6 @@
 package fr.formiko.usuel.images;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
@@ -458,5 +459,11 @@ public class imageTest extends TestCaseMuet{
     bi=null;
     bi2 = image.resize(bi,5);
     assertEquals(null,bi2);
+  }
+  @AfterAll
+  public static void clean(){
+    Folder folder = new Folder();
+    Main.setFolder(folder);
+    fichier.deleteDirectory("null");
   }
 }

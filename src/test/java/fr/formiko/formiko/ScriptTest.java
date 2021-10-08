@@ -7,6 +7,7 @@ import fr.formiko.usuel.Folder;
 import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.ecrireUnFichier;
+import org.junit.jupiter.api.AfterAll;
 
 import java.io.File;
 
@@ -149,5 +150,11 @@ public class ScriptTest extends TestCaseMuet{
 
     assertTrue(fichier.deleteDirectory(f));
     folder.setFolderMain();
+  }
+  @AfterAll
+  public static void clean(){
+    Folder folder = new Folder();
+    Main.setFolder(folder);
+    fichier.deleteDirectory("null");
   }
 }
