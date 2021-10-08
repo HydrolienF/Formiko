@@ -41,7 +41,7 @@ public class PanneauSup extends Panneau{
     addMouseListener(new MouseAdapter() {
       @Override
       public void mouseExited​(MouseEvent e){
-        getView().getPb().setDesc("");
+        getView().setMessageDesc("");
       }
       @Override
       public void mouseReleased(MouseEvent e) {
@@ -137,7 +137,7 @@ public class PanneauSup extends Panneau{
     }
   }
   public void mouseMovedUpdate(CCase cc){
-    if(cc==null){getView().getPb().setDesc("");cc2=null;return;}
+    if(cc==null){getView().setMessageDesc("");cc2=null;return;}
     if(cc2==null || !cc2.getContent().equals(cc.getContent())){//si la case a changé.
       cc2=new CCase(cc.getContent());
       getView().setLookedCCase(cc);

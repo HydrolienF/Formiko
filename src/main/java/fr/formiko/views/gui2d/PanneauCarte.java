@@ -551,15 +551,6 @@ public class PanneauCarte extends Panneau {
     super.setSize(xTemp,yTemp);
   }
 
-  public void setDesc(String s){
-    if(getView().getPp().getPj()==null){ erreur.erreur("pj null");}
-    try {
-      getView().getPp().getPj().getPb().setDesc(s);
-    }catch (Exception e) {
-      erreur.alerte("Impossible de setDesc pour la carte.");
-    }
-  }
-
   /**
   *{@summary Tool to save performances by drawing only visible Case.}<br>
   *@param c Case to check

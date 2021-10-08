@@ -50,7 +50,6 @@ public class PanneauJeu extends Panneau {
   //get set transmis
   public void addPA(){ pb.addPA();}
   public void addPti(int x [], int y){pb.addPti(x,y);}
-  public void setDesc(String s){pb.setDesc(s);}
   public void setDescTI(String s){pb.setDescTI(s);}
   public PanneauTInt getPti(){return pb.getPti(); }
   // FUNCTIONS -----------------------------------------------------------------

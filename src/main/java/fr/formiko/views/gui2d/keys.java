@@ -58,7 +58,7 @@ public class keys {
           if(Panneau.getView().getPe().getVisible()){
             Panneau.getView().getPe().setVisible(false);
           }else{
-            Panneau.getView().getPj().setDesc("");
+            Panneau.getView().setMessageDesc("");
             Panneau.getView().getPe().setVisible(true);
           }
         }else{

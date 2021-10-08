@@ -307,10 +307,10 @@ public class ViewGUI2d implements View {
   public boolean setLookedCCase(CCase cc){
     if (!actionGameOn) {return false;}
     if(cc==null){
-      getPb().setDesc("");
+      setMessageDesc("");
       getPc().setIdCurentFere(-1);
     }else{
-      getPb().setDesc(cc.getContent().toString());
+      setMessageDesc(cc.getContent().toString());
       GCreature gAnt = cc.getContent().getGc();
       getPc().setIdCurentFere(-1);
       for (Creature f : gAnt.toList() ) {
@@ -419,7 +419,7 @@ public class ViewGUI2d implements View {
     if (getPch()!=null) {return;}
     //Main.getPartie().getPlayingAnt() is null but window didn't clear all data.
     getPb().setVisiblePa(false);
-    getPj().setDesc("");
+    setMessageDesc("");
     // getPb().removePi();
     paint();
     getPj().alerte(message);
@@ -433,7 +433,7 @@ public class ViewGUI2d implements View {
   public String popUpQuestion(String message){
     if (getPch()!=null) {return "";}
     getPb().setVisiblePa(false);
-    getPj().setDesc("");
+    setMessageDesc("");
     // getPb().removePi();
     paint();
     String s = getPj().question(message);
@@ -564,6 +564,17 @@ public class ViewGUI2d implements View {
   public void setButtonRetryVisible(boolean visible){
     fl.setButtonRetryVisible(visible);
   }
+
+  //not in View interface
+  //TODO centralize setMessageDesc to here.
+  public void setMessageDesc(String message, boolean mouseLocated){
+    if(mouseLocated){
+      //TODO print desc on mouse location.
+    }else{
+      getPb().setDesc(message);
+    }
+  }
+  public void setMessageDesc(String message){setMessageDesc(message, false);}
   //private---------------------------------------------------------------------
   /**
   *Load graphics during menu time.

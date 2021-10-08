@@ -93,14 +93,6 @@ public class FButton extends JButton implements MouseListener{
   //   else{return Main.getData().getButtonColor();}
   // }
   public static int getDimY(){ return (int)(Main.getOp().getTaillePolice1()*1.4);}
-  public void setDesc(String s){
-    // if(Panneau.getView().getPp().getPj()==null){ erreur.erreur("pj null");}
-    try {
-      Panneau.getView().getPp().getPj().getPb().setDesc(s);
-    }catch (Exception e) {
-      // erreur.alerte("Impossible de setDesc pour le bouton.");
-    }
-  }
   public void setCFondUseAlpha(boolean b){cFondUseAlpha=b;}
   /**
   *{@summary return background color with or without alpha.}
@@ -234,13 +226,13 @@ public class FButton extends JButton implements MouseListener{
   *@version 2.2
   */
   public void setSelected(boolean selected){
-    if(!isEnabled()){setDesc(""); return;}
+    if(!isEnabled()){Panneau.getView().setMessageDesc(""); return;}
     if(selected){
-      setDesc(g.get("bouton.desc."+action)+getKeyboardKey());
+      Panneau.getView().setMessageDesc(g.get("bouton.desc."+action)+getKeyboardKey());
       // setCFond(Main.getData().getButtonFocusColor());
       setColor(2);
     }else{
-      setDesc("");
+      Panneau.getView().setMessageDesc("");
       setDefaultColor();
     }
     repaint();

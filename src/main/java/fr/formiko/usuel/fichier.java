@@ -360,7 +360,7 @@ class DownloadThread extends Thread {
       long timeElapsed = curentTime-timeStart;
       long timeLeft = (long)((double)((timeElapsed/progression)-timeElapsed));
       String sTimeLeft = Temps.msToTime(timeLeft)+" left";
-      String message = "Downloading "+downloadName+" - "+percent+"% - "+;
+      String message = "Downloading "+downloadName+" - "+percent+"% - ";
       if(fileOutSize!=lastFileOutSize){//update watcher of working download
         timeFromLastBitDownload=curentTime;
       }
