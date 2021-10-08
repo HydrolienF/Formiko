@@ -54,8 +54,9 @@ public class CLIMapTest extends TestCaseMuet{
   }
   @Test
   public void testObjetSurCarteAIdToStringL(){
-    Main.getOs().setId((byte)0);
+    Main.setOs(new Os());
     Main.initialisation();
+    Main.getOs().setId((byte)0);
     Main.setPartie(Partie.getDefautlPartie());
     Main.getPartie().setElément(1,0,0);
     CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
