@@ -347,7 +347,6 @@ public class Data {
         imageTreeIni = ImageTree.folderToTree(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");
         iconMap = image.getImagesAsMap(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"icon/");
         iconMap = image.getScaledInstanceFromMap(iconMap, Main.getTailleElementGraphiqueY(30));
-        System.out.println("iconMap : "+iconMap);//@a
         // antFAFIni = image.getImages("FAF",image.getNbrImages("FAF"),(byte)0);
         // antFASIni = image.getImages("FAS",image.getNbrImages("FAS"),(byte)0);
         tGIni = chargerTX("seed");

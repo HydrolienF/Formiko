@@ -56,7 +56,7 @@ public class PanneauSup extends Panneau{
             try {
               f = gc.getFourmiParFere(Main.getPlayingJoueur().getFere());
             }catch (NullPointerException e2) {
-              System.out.println("NO curent player.");//@a
+              erreur.alerte("No curent player");
             }
             if(f!=null){ // && f.getAction()>0
               getView().getPb().setActionF(-2);
