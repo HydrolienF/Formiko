@@ -44,17 +44,11 @@ public class Folder {
   private boolean secondTime;
   private boolean launchDownload;
 
+  private static boolean newVersionAviableTestDone=false;
+
   public Folder(){
     secondTime=false;
-    setFolderMain();
-    if(Main.getOs().isWindows()){
-      setFolderMain(System.getenv("APPDATA")+"/Formiko/");
-    }else if(Main.getOs().isLinux()){
-      setFolderMain("/"+System.getProperty("user.home")+"/Formiko/");
-    }else if(Main.getOs().isMac()){
-      //TODO fined & test a good path for mac.
-      // setFolderMain(System.getProperty("user.home")+"/Formiko/");
-    }
+    iniFolderMain();
     // setFolderMain("");//always remove after test
     File folderM = new File(getFolderMain());
     if(!folderM.mkdirs() && !folderM.isDirectory()){
@@ -98,7 +92,23 @@ public class Folder {
 	public void setFolderVideos(String folderVideos) {this.folderVideos = str.sToDirectoryName(folderVideos);}
 
   public void setLaunchDownload(boolean b){launchDownload=b;}
-
+  /**
+  *{@summary Initialize the main folder name depending of OS.}<br>
+  *@param os Os to use for name initialisation.
+  *@version 2.7
+  */
+  public void iniFolderMain(Os os){
+    if(os.isWindows()){
+      setFolderMain(System.getenv("APPDATA")+"/Formiko/");
+    }else if(os.isLinux()){
+      setFolderMain("/"+System.getProperty("user.home")+"/Formiko/");
+    }else if(os.isMac()){
+      //TODO fined & test a good path for mac.
+      // setFolderMain(System.getProperty("user.home")+"/Formiko/");
+      setFolderMain("");
+    }
+  }
+  public void iniFolderMain(){iniFolderMain(Main.getOs());}
   /**
   *{@summary Initialize missing folder if some folder are missing.}<br>
   *It will call download if main folder is missing.<br>
@@ -334,6 +344,8 @@ public class Folder {
   *@version 2.7
   */
   public boolean newVersionAviable(){
+    if(newVersionAviableTestDone){return false;}
+    newVersionAviableTestDone=true;
     try {
       return isOver(getLastStableVersion(), getCurentVersion());
     }catch (Exception e) {
