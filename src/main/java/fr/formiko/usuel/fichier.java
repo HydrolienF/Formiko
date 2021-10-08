@@ -359,19 +359,22 @@ class DownloadThread extends Thread {
       long timeElapsed = curentTime-timeStart;
       long timeLeft = (long)((double)((timeElapsed/progression)-timeElapsed));
       String sTimeLeft = Temps.msToTime(timeLeft)+" left";
-      try {
-        Main.getView().setDownloadingValue(percent);
-        Main.getView().setDownloadingMessage("Downloading "+downloadName+" - "+percent+"% - "+sTimeLeft);
-      }catch (Exception e) {
-        erreur.info(percent+"% dowload : "+fileOutSize+"/"+fileToDowloadSize);//+" "+speed+" B/s");
-      }
-
+      String message = "Downloading "+downloadName+" - "+percent+"% - "+;
       if(fileOutSize!=lastFileOutSize){//update watcher of working download
         timeFromLastBitDownload=curentTime;
       }
       if(timeFromLastBitDownload+10000<curentTime){
-        erreur.alerte("10s untill a new bit haven't been download");
+        message+=(((curentTime-timeFromLastBitDownload)/1000)+"s untill a new bit haven't been download");
+        if(timeFromLastBitDownload+60000<curentTime){
+          //TODO stop download.
+          erreur.erreur("STOP download");
+        }
+      }else{
+        message+=sTimeLeft;
       }
+
+      Main.getView().setDownloadingValue(percent);
+      Main.getView().setDownloadingMessage(message);
 
       lastFileOutSize=fileOutSize;
       Temps.pause(50);

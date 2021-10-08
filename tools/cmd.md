@@ -71,7 +71,6 @@ java-importer (copy name of the class to import)
 
 atom-ide-ui
 ide-java
-formiko.fr
 
 Réglage princpaux a refaire
 2 espace pour 1 tabulation en python.
