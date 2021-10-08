@@ -151,6 +151,7 @@ public class fichier {
         downloadThread = new DownloadThread(fileOut, fileToDowloadSize, downloadName);
         downloadThread.start();
       }
+      // TODO #440 stop transferFrom if download take to long
       writeChannel.transferFrom(readChannel, 0, Long.MAX_VALUE);
       return true;
     } catch (MalformedURLException e) {
@@ -366,7 +367,7 @@ class DownloadThread extends Thread {
       if(timeFromLastBitDownload+10000<curentTime){
         message+=(((curentTime-timeFromLastBitDownload)/1000)+"s untill a new bit haven't been download");
         if(timeFromLastBitDownload+60000<curentTime){
-          //TODO stop download.
+          //TODO #440 stop download.
           erreur.erreur("STOP download");
         }
       }else{
