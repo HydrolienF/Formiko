@@ -9,7 +9,6 @@ import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GCase;
-import fr.formiko.views.ViewCLI;
 import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Joueur;
@@ -17,13 +16,16 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.Partie;
+import fr.formiko.usuel.Os;
 import fr.formiko.usuel.color;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.views.ViewCLI;
 
 public class ViewCLITest extends TestCaseMuet{
   private void ini(GCase gc){
+    Main.setOs(new Os());
     Main.initialisation();
     Partie p = new Partie(0,100,new Carte(gc,0,0,1,false,false),1);
     Main.setPartie(p);
