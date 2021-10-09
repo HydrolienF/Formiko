@@ -10,20 +10,24 @@ import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.types.str;
+import fr.formiko.views.gui2d.FLabel;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.MouseInfo;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.awt.geom.AffineTransform;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import java.awt.Component;
 import javax.swing.JScrollPane;
 
 public class PanneauJeu extends Panneau {
@@ -35,9 +39,15 @@ public class PanneauJeu extends Panneau {
   private PanneauSup ps;
   private PanneauDialogue pd;
   private PanneauDialogueInf pdi;
+
+  private FLabel labelMessage;
+  private ThreadMessageDesc th;
+
   // CONSTRUCTORS --------------------------------------------------------------
   public PanneauJeu(){
     setLayout(null);
+    labelMessage = new FLabel("");
+    add(labelMessage);
   }
   // GET SET -------------------------------------------------------------------
   public PanneauBouton getPb(){ return pb;}
@@ -241,4 +251,72 @@ public class PanneauJeu extends Panneau {
     return r;
   }
   public String question(String s){ return question(s,"?");}
+
+  public void launchThreadMessageDesc(String message){
+    if(message==null){message="";}
+    labelMessage.setText(message);
+    labelMessage.updateSize();
+    if(th!=null){
+      th.setMouseOverComponent(false);
+    }
+    if(!message.equals("")){
+      th = new ThreadMessageDesc();
+      th.start();
+      addMouseMotionListener(new MouseMotionAdapter() {
+        public void mouseMoved(MouseEvent me){
+          th.updateTimeFromLastMove();
+        }
+      });
+    }
+  }
+
+  // SUB-CLASS -----------------------------------------------------------------
+  class ThreadMessageDesc extends Thread {
+    private Point lastLocation;
+    private boolean mouseOverComponent;
+    private long timeFromLastMove;
+    private long currentTime;
+    private static final int TIME_BEFORE_PRINT=500;
+
+    public ThreadMessageDesc(){
+      mouseOverComponent = true;
+      timeFromLastMove=System.currentTimeMillis();
+      currentTime=System.currentTimeMillis();
+    }
+
+    public void setMouseOverComponent(boolean b){mouseOverComponent=b;}
+    public void updateTimeFromLastMove(){
+      //TODO #441 FIX updateTimeFromLastMove have no effet on the timeFromLastMove used by run().
+      // System.out.print("updateTimeFromLastMove from "+timeFromLastMove);
+      timeFromLastMove = System.currentTimeMillis();
+      // System.out.println(" to "+timeFromLastMove);
+    }
+
+    @Override
+    public void run(){
+      // Point curentLocation = MouseInfo.getPointerInfo().getLocation();
+      // if(lastLocation==null){lastLocation = new Point();}
+      //TODO update mouseOverComponent
+      // timeFromLastMove = System.currentTimeMillis();
+      while(mouseOverComponent){
+        // lastLocation = curentLocation;
+        currentTime = System.currentTimeMillis();
+        long timeElapsed = currentTime-timeFromLastMove;
+        System.out.print("timeElapsed = "+timeElapsed+"   ");
+        System.out.println(currentTime+" - "+timeFromLastMove);
+        if(timeElapsed < 10){
+          labelMessage.setVisible(false);
+        }else{
+          if(timeElapsed > TIME_BEFORE_PRINT && timeElapsed < TIME_BEFORE_PRINT+60){
+            labelMessage.setVisible(true);
+            System.out.println("setVisible ! for "+labelMessage);//@a
+            //labelMessage.setLocation();
+          }
+        }
+        Temps.pause(50);
+      }
+      // remove(labelMessage);
+      System.out.println("end run");//@a
+    }
+  }
 }
