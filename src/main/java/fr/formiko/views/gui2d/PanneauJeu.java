@@ -47,6 +47,11 @@ public class PanneauJeu extends Panneau {
   public PanneauJeu(){
     setLayout(null);
     labelMessage = new FLabel("");
+    labelMessage.setBackground(new Color(225,225,225));
+    FBorder border = new FBorder();
+    border.setColor(Color.BLACK);
+    border.setThickness(1);
+    labelMessage.setBorder(border);
     add(labelMessage);
   }
   // GET SET -------------------------------------------------------------------
@@ -251,7 +256,7 @@ public class PanneauJeu extends Panneau {
     return r;
   }
   public String question(String s){ return question(s,"?");}
-
+  //TODO comment
   public void launchThreadMessageDesc(String message){
     if(message==null){message="";}
     labelMessage.setText(message);
@@ -294,7 +299,6 @@ public class PanneauJeu extends Panneau {
 
     @Override
     public void run(){
-      // Point curentLocation = MouseInfo.getPointerInfo().getLocation();
       // if(lastLocation==null){lastLocation = new Point();}
       //TODO update mouseOverComponent
       // timeFromLastMove = System.currentTimeMillis();
@@ -302,21 +306,22 @@ public class PanneauJeu extends Panneau {
         // lastLocation = curentLocation;
         currentTime = System.currentTimeMillis();
         long timeElapsed = currentTime-timeFromLastMove;
-        System.out.print("timeElapsed = "+timeElapsed+"   ");
-        System.out.println(currentTime+" - "+timeFromLastMove);
+        // System.out.print("timeElapsed = "+timeElapsed+"   ");
+        // System.out.println(currentTime+" - "+timeFromLastMove);
         if(timeElapsed < 10){
           labelMessage.setVisible(false);
         }else{
           if(timeElapsed > TIME_BEFORE_PRINT && timeElapsed < TIME_BEFORE_PRINT+60){
+            Point curentLocation = MouseInfo.getPointerInfo().getLocation();
             labelMessage.setVisible(true);
-            System.out.println("setVisible ! for "+labelMessage);//@a
-            //labelMessage.setLocation();
+            // System.out.println("setVisible ! for "+labelMessage);//@a
+            labelMessage.setLocation((int)(curentLocation.getX()-labelMessage.getWidth()), (int)(curentLocation.getY()-labelMessage.getHeight()));
           }
         }
         Temps.pause(50);
       }
       // remove(labelMessage);
-      System.out.println("end run");//@a
+      // System.out.println("end run");//@a
     }
   }
 }

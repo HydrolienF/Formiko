@@ -570,8 +570,10 @@ public class ViewGUI2d implements View {
   public void setMessageDesc(String message, boolean mouseLocated){
     if(mouseLocated){
       //TODO print desc on mouse location.
+      if(getPj()!=null){getPj().launchThreadMessageDesc(message);}
+      if(getPb()!=null){getPb().setDesc("");}
     }else{
-      getPb().setDesc(message);
+      if(getPb()!=null){getPb().setDesc(message);}
     }
   }
   public void setMessageDesc(String message){setMessageDesc(message, false);}

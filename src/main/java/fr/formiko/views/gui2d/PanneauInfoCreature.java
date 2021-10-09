@@ -11,6 +11,8 @@ import fr.formiko.usuel.structures.listes.Liste;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 
 /**
@@ -129,9 +131,13 @@ public class PanneauInfoCreature extends PanneauInfo {
       pb.setState(state);
       pb.setMaximum(maxValue);
       pb.setValue(value);
+      pb.setString(value+"/"+maxValue);
+      pb.setStringPainted(true);
       pb.setSize(x, yByElement);
       PanneauProgressBar p = new PanneauProgressBar(pb, Main.getData().getIconImage(iconName));
       p.setSize(x, yByElement);
+      String message = g.getM(iconName)+" : "+value+" / "+maxValue +" ("+g.getM("colorState."+state)+")";
+      p.setMessageDesc(message);
       add(p);
     }
   }
@@ -145,6 +151,7 @@ public class PanneauInfoCreature extends PanneauInfo {
 class PanneauProgressBar extends Panneau {
   private FProgressBar pb;
   private BufferedImage iconImage;
+  private String messageDesc;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
@@ -157,9 +164,11 @@ class PanneauProgressBar extends Panneau {
     if(this.pb!=null){
       add(this.pb);
     }
+    addMouseListener(new PanneauProgressBarMouseListener());
   }
 
   // GET SET -------------------------------------------------------------------
+  public void setMessageDesc(String s){messageDesc=s;}
   /**
   *{@summary Override of set size to also set size of the FProgressBar.}<br>
   *@version 2.7
@@ -181,5 +190,23 @@ class PanneauProgressBar extends Panneau {
     if(iconImage!=null){
       g.drawImage(iconImage,0,(getHeight()-iconImage.getHeight()+1)/2,this);
     }
+  }
+  // SUB-CLASS -----------------------------------------------------------------
+  public class PanneauProgressBarMouseListener implements MouseListener{
+    @Override
+    public void mouseEntered(MouseEvent event) {
+      getView().setMessageDesc(messageDesc, true);
+    }
+    @Override
+    public void mouseExited(MouseEvent event) {
+      getView().setMessageDesc("", true);
+    }
+    @Override
+    public void mouseClicked(MouseEvent event) {}
+    @Override
+    public void mousePressed(MouseEvent event) {}
+    @Override
+    public void mouseReleased(MouseEvent event) {}
+
   }
 }
