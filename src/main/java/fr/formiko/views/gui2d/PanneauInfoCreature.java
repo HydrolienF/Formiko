@@ -5,6 +5,7 @@ import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.structures.listes.Liste;
 
@@ -83,7 +84,14 @@ public class PanneauInfoCreature extends PanneauInfo {
     *@version 2.7
     */
     private void addCreatureIcons(){
-      //TODO
+      PanneauCreatureIcons pci = new PanneauCreatureIcons();
+      pci.setSize(x,yByElement);
+      pci.addIcon(Main.getData().getCreatureImage(c));
+      //TODO add the initial of species
+      //TODO add a death head if is death
+      //TODO add relation with playing ant or queen of playing joueur if Creature is not an ant of curentPlayer
+      //TODO add carriing seed if there is one.
+      add(pci);
     }
     /**
     *{@summary Add the progress bars.}<br>
@@ -240,4 +248,31 @@ class PanneauProgressBar extends Panneau {
     @Override
     public void mouseDragged​(MouseEvent e){}
   }
+}
+/**
+*{@summary Pannel that containt the creature icons.}<br>
+*@author Hydrolien
+*@version 2.7
+*/
+class PanneauCreatureIcons extends Panneau {
+  private Liste<BufferedImage> iconsList;
+  private FLabel label;
+
+  public PanneauCreatureIcons(){
+    iconsList = new Liste<BufferedImage>();
+  }
+  //TODO
+  public void addIcon(BufferedImage bi){
+    iconsList.add(image.resize(bi,getX()));
+  }
+  public void setText(String s){
+    if(label==null){
+      label =new FLabel();
+      add(label);
+    }
+    label.setText(s);
+    label.updateSize();
+  }
+  //TODO paint 1a icon text then all the other icon.
+  //TODO add desc for icons
 }
