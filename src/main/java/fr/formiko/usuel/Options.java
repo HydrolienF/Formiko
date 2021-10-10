@@ -319,6 +319,7 @@ public class Options implements Serializable{
     try {
       language=(byte)str.sToLThrows(properties.getProperty("language"));
     }catch (Exception e) {
+      if(Main.getFolder()==null){return;}
       try {
         language=str.iToBy(chargerLesTraductions.getLanguage(properties.getProperty("language")));
       }catch (Exception e2) {
