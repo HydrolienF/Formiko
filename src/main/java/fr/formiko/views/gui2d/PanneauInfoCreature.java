@@ -25,6 +25,10 @@ public class PanneauInfoCreature extends PanneauInfo {
   // FUNCTIONS -----------------------------------------------------------------
   // @Override
   public static PanneauInfoCreatureBuilder builder(){return new PanneauInfoCreatureBuilder();}
+  /**
+  *{@summary Standard paintComponent.}<br>
+  *@version 2.7
+  */
   @Override
   public void paintComponent(Graphics g){
     super.paintComponent(g);

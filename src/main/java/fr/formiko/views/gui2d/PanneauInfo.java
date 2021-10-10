@@ -32,6 +32,10 @@ public class PanneauInfo extends Panneau {
   /** Return number of sub Panel. */
   public int length(){ return lp.length();}
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Standard paintComponent.}<br>
+  *@version 2.7
+  */
   @Override
   public void paintComponent(Graphics g){
     super.paintComponent(g);

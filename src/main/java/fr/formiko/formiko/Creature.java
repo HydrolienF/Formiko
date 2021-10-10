@@ -205,6 +205,10 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   //public void preTour(){tour.preTour(this);}
   //public void manger (graine pour certaine fourmi, champnons pour d'autre et herbe pour les insectes.)
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Return a description of the creature.}
+  *@version 2.7
+  */
   @Override
   public String toString(){
     String r = "";

@@ -46,7 +46,9 @@ public class FLabel extends JLabel {
   *It set size to default : 500xgetDimY()
   *@version 2.6
   */
-  public FLabel(){ this(500,getDimY());}
+  public FLabel(){
+    this(500,getDimY());
+  }
   /**
   *{@summary Secondary constructor.}<br>
   *It dont set size, but set text.
