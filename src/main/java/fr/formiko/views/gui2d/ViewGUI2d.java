@@ -566,16 +566,32 @@ public class ViewGUI2d implements View {
   }
 
   //not in View interface
-  //TODO centralize setMessageDesc to here.
+  /**
+  *{@summary set the description message.}<br>
+  *Description message can be mouse located or not.
+  *Mouse located message are used when they concerne only small grpahics items.<br>
+  *Null safe.<br>
+  *@param message the message to print as description
+  *@param mouseLocated if true message is print at mouse location, only if mouse don't move
+  *@version 2.7
+  */
   public void setMessageDesc(String message, boolean mouseLocated){
     if(mouseLocated){
-      //TODO print desc on mouse location.
-      if(getPj()!=null){getPj().launchThreadMessageDesc(message);}
+      if(getPj()!=null){getPj().updateThreadMessagesDesc(message);}
       if(getPb()!=null){getPb().setDesc("");}
     }else{
       if(getPb()!=null){getPb().setDesc(message);}
     }
   }
+  /***
+  *{@summary set the description message.}<br>
+  *Description message can be mouse located or not.
+  *Mouse located message are used when they concerne only small grpahics items.<br>
+  *MouseLocated is false.
+  *Null safe.<br>
+  *@param message the message to print as description
+  *@version 2.7
+  */
   public void setMessageDesc(String message){setMessageDesc(message, false);}
   //private---------------------------------------------------------------------
   /**

@@ -13,6 +13,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 
 /**
@@ -152,6 +153,7 @@ class PanneauProgressBar extends Panneau {
   private FProgressBar pb;
   private BufferedImage iconImage;
   private String messageDesc;
+  private PanneauProgressBarMouseListener PPBML = new PanneauProgressBarMouseListener();
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
@@ -164,7 +166,10 @@ class PanneauProgressBar extends Panneau {
     if(this.pb!=null){
       add(this.pb);
     }
-    addMouseListener(new PanneauProgressBarMouseListener());
+    addMouseListener(PPBML);
+    pb.addMouseListener(PPBML);
+    addMouseMotionListener(PPBML);
+    pb.addMouseMotionListener(PPBML);
   }
 
   // GET SET -------------------------------------------------------------------
@@ -192,11 +197,23 @@ class PanneauProgressBar extends Panneau {
     }
   }
   // SUB-CLASS -----------------------------------------------------------------
-  public class PanneauProgressBarMouseListener implements MouseListener{
+  /**
+  *{@summary Listener that update description when it need.}<br>
+  *@version 2.7
+  */
+  public class PanneauProgressBarMouseListener implements MouseListener, MouseMotionListener {
+    /**
+    *{@summary Update message description.}<br>
+    *@version 2.7
+    */
     @Override
     public void mouseEntered(MouseEvent event) {
       getView().setMessageDesc(messageDesc, true);
     }
+    /**
+    *{@summary Remove message description.}<br>
+    *@version 2.7
+    */
     @Override
     public void mouseExited(MouseEvent event) {
       getView().setMessageDesc("", true);
@@ -207,6 +224,16 @@ class PanneauProgressBar extends Panneau {
     public void mousePressed(MouseEvent event) {}
     @Override
     public void mouseReleased(MouseEvent event) {}
-
+    // addMouseMotionListener(new MouseMotionAdapter() {
+    /**
+    *{@summary Update mouse location to hide the message.}<br>
+    *@version 2.7
+    */
+    @Override
+    public void mouseMoved(MouseEvent event){
+      getView().getPj().updateTimeFromLastMove();
+    }
+    @Override
+    public void mouseDragged​(MouseEvent e){}
   }
 }

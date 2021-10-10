@@ -41,7 +41,7 @@ public class PanneauJeu extends Panneau {
   private PanneauDialogueInf pdi;
 
   private FLabel labelMessage;
-  private ThreadMessageDesc th;
+  private ThreadMessagesDesc th;
 
   // CONSTRUCTORS --------------------------------------------------------------
   public PanneauJeu(){
@@ -245,7 +245,7 @@ public class PanneauJeu extends Panneau {
   }
   public void alerte(String s){ alerte(s,g.getM("information"));}
   /**
-  *{@summary print a question box.}
+  *{@summary Print a question box.}
   *@return answer.
   *@version 1.50
   */
@@ -256,72 +256,77 @@ public class PanneauJeu extends Panneau {
     return r;
   }
   public String question(String s){ return question(s,"?");}
-  //TODO comment
-  public void launchThreadMessageDesc(String message){
-    if(message==null){message="";}
-    labelMessage.setText(message);
-    labelMessage.updateSize();
-    if(th!=null){
-      th.setMouseOverComponent(false);
-    }
-    if(!message.equals("")){
-      th = new ThreadMessageDesc();
+
+  /**
+  *{@summary Update time from last move in the Thread.}
+  *@version 2.7
+  */
+  public void updateTimeFromLastMove(){
+    if(th==null){return;}
+    th.updateTimeFromLastMove();
+  }
+  /**
+  *{@summary Update message.}<br>
+  *It will initialize &#39; launch ThreadMessagesDesc if it is null.
+  *@version 2.7
+  */
+  public void updateThreadMessagesDesc(String message){
+    if(th==null){
+      th = new ThreadMessagesDesc();
       th.start();
-      addMouseMotionListener(new MouseMotionAdapter() {
-        public void mouseMoved(MouseEvent me){
-          th.updateTimeFromLastMove();
-        }
-      });
     }
+    th.setMessage(message);
   }
 
   // SUB-CLASS -----------------------------------------------------------------
-  class ThreadMessageDesc extends Thread {
-    private Point lastLocation;
-    private boolean mouseOverComponent;
+  /**
+  *{@summary Thread used to print a description message at mouse location.}<br>
+  *Message is print only after 0.5s if mouse don't move.
+  *@author Hydrolien
+  *@version 2.7
+  */
+  class ThreadMessagesDesc extends Thread {
+    private String message;
     private long timeFromLastMove;
-    private long currentTime;
-    private static final int TIME_BEFORE_PRINT=500;
+    private boolean needToUpdateTimeFromLastMove;
+    public void setMessage(String s){message=s;}
+    public void updateTimeFromLastMove(){needToUpdateTimeFromLastMove=true;}
 
-    public ThreadMessageDesc(){
-      mouseOverComponent = true;
-      timeFromLastMove=System.currentTimeMillis();
-      currentTime=System.currentTimeMillis();
-    }
-
-    public void setMouseOverComponent(boolean b){mouseOverComponent=b;}
-    public void updateTimeFromLastMove(){
-      //TODO #441 FIX updateTimeFromLastMove have no effet on the timeFromLastMove used by run().
-      // System.out.print("updateTimeFromLastMove from "+timeFromLastMove);
-      timeFromLastMove = System.currentTimeMillis();
-      // System.out.println(" to "+timeFromLastMove);
-    }
-
+    /**
+    *{@summary Main function that update message if needed every 50ms.}<br>
+    *@version 2.7
+    */
     @Override
     public void run(){
-      // if(lastLocation==null){lastLocation = new Point();}
-      //TODO update mouseOverComponent
-      // timeFromLastMove = System.currentTimeMillis();
-      while(mouseOverComponent){
-        // lastLocation = curentLocation;
-        currentTime = System.currentTimeMillis();
-        long timeElapsed = currentTime-timeFromLastMove;
-        // System.out.print("timeElapsed = "+timeElapsed+"   ");
-        // System.out.println(currentTime+" - "+timeFromLastMove);
-        if(timeElapsed < 10){
-          labelMessage.setVisible(false);
-        }else{
-          if(timeElapsed > TIME_BEFORE_PRINT && timeElapsed < TIME_BEFORE_PRINT+60){
-            Point curentLocation = MouseInfo.getPointerInfo().getLocation();
-            labelMessage.setVisible(true);
-            // System.out.println("setVisible ! for "+labelMessage);//@a
-            labelMessage.setLocation((int)(curentLocation.getX()-labelMessage.getWidth()), (int)(curentLocation.getY()-labelMessage.getHeight()));
+      needToUpdateTimeFromLastMove=false;
+      while (true) {
+        boolean visible = false;
+        if(message!=null && !message.equals("")){
+          if(needToUpdateTimeFromLastMove){
+            timeFromLastMove = System.currentTimeMillis();
+            needToUpdateTimeFromLastMove=false;
+          }else{
+            long currentTime = System.currentTimeMillis();
+            long timeElapsed = currentTime-timeFromLastMove;
+            if(timeElapsed>500){
+              if(timeElapsed<600){
+                labelMessage.setText(message);
+                labelMessage.updateSize();
+                Point curentLocation = MouseInfo.getPointerInfo().getLocation();
+                labelMessage.setLocation((int)(curentLocation.getX()-labelMessage.getWidth()), (int)(curentLocation.getY()-labelMessage.getHeight()));
+              }
+              visible = true;
+            }
           }
         }
-        Temps.pause(50);
+        labelMessage.setVisible(visible);
+        // Temps.pause(50);
+        try {
+          sleep(50);
+        }catch (InterruptedException e) {
+          erreur.erreur("thread have been interupted");
+        }
       }
-      // remove(labelMessage);
-      // System.out.println("end run");//@a
     }
   }
 }
