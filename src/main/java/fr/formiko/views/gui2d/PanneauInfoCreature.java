@@ -115,7 +115,7 @@ public class PanneauInfoCreature extends PanneauInfo {
           }
         }
       }
-      addCreatureProgressBar(col, math.min(c.getProprete(),c.getPropreteMax()), c.getPropreteMax(),"heal");
+      addCreatureProgressBar(col, math.min(c.getProprete(),c.getPropreteMax()), c.getPropreteMax(),"health");
     }
     /**
     *{@summary Add a progress bar.}<br>
