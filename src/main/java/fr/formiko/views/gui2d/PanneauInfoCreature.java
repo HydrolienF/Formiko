@@ -103,7 +103,7 @@ public class PanneauInfoCreature extends PanneauInfo {
       if(c.getAction()==c.getActionMax()){col=0;}
       else if(c.getAction()<=0){col=3;}
       else{col=1;}
-      addCreatureProgressBar(col, c.getAction(), c.getActionMax(),"move");
+      addCreatureProgressBar(col, c.getAction(), c.getActionMax(),"action");
       col=0;
       if(c instanceof Fourmi){
         Fourmi f = (Fourmi)c;
@@ -141,7 +141,7 @@ public class PanneauInfoCreature extends PanneauInfo {
       pb.setSize(x, yByElement);
       PanneauProgressBar p = new PanneauProgressBar(pb, Main.getData().getIconImage(iconName));
       p.setSize(x, yByElement);
-      String message = g.getM(iconName)+" : "+value+" / "+maxValue +" ("+g.getM("colorState."+state)+")";
+      String message = g.getM("iconName."+iconName)+" : "+value+" / "+maxValue +" ("+g.getM("colorState."+state)+")";
       p.setMessageDesc(message);
       add(p);
     }

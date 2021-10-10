@@ -306,6 +306,16 @@ evoluerFourmi.1:evolve to the next stage
 pondreReine.1:was born
 spawnOf:spawn of
 
+iconName.age:age
+iconName.food:food
+iconName.health:health
+iconName.action:action
+
+colorState.0:good
+colorState.1:medium
+colorState.2:bad
+colorState.3:critical
+
 //objet graphique:
 
 //bouton du PanneauEchap

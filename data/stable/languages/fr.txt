@@ -306,6 +306,16 @@ evoluerFourmi.1:passe au stade suivant
 pondreReine.1:est née
 spawnOf:apparition de
 
+iconName.age:age
+iconName.food:nourriture
+iconName.health:propreté
+iconName.action:action
+
+colorState.0:bon
+colorState.1:moyen
+colorState.2:mauvais
+colorState.3:critique
+
 //graphic item:
 
 //bouton of PanneauEchap

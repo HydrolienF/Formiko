@@ -306,6 +306,16 @@ evoluerFourmi.1:evolui al la sekva fazo
 pondreReine.1:naskiĝis
 spawnOf:generi de
 
+iconName.age:aĝo
+iconName.food:manĝaĵo
+iconName.health:sano
+iconName.action:ago
+
+colorState.0:bona
+colorState.1:meza
+colorState.2:malbona
+colorState.3:kritikaj
+
 //objet graphique:
 
 //bouton du PanneauEchap
