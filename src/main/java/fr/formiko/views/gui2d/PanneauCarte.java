@@ -298,9 +298,9 @@ public class PanneauCarte extends Panneau {
               BufferedImage bi = Main.getData().getTG()[0][ccg.getContent().getType()];
               drawImageCentered(g,image.rotateImage(bi,dir),xT,yT);
             }catch (Exception e) {}
-            if(ccg.getContent().getOuverte()){drawIcone(g,5,xT,yT,tC2,kIcon++,cptIcon);}
-            else if(fi==null || ccg.getContent().getDureté()<=fi.getDuretéMax()){drawIcone(g,4,xT,yT,tC2,kIcon++,cptIcon);}
-            else {drawIcone(g,6,xT,yT,tC2,kIcon++,cptIcon);}
+            if(ccg.getContent().getOuverte()){drawIcone(g,getIconImage(5),xT,yT,tC2,kIcon++,cptIcon);}
+            else if(fi==null || ccg.getContent().getDureté()<=fi.getDuretéMax()){drawIcone(g,getIconImage(4),xT,yT,tC2,kIcon++,cptIcon);}
+            else {drawIcone(g,getIconImage(6),xT,yT,tC2,kIcon++,cptIcon);}
             ccg = ccg.getSuivant();
           }
         }
@@ -348,14 +348,7 @@ public class PanneauCarte extends Panneau {
             }
           }
           //icons
-          try {
-            if(cr.getEstMort()){drawIcone(g,3,xT,yT,tC2,kIcon++,cptIcon);}
-            else if(fi!=null && cr.getEstAllié(fi)){drawIcone(g,0,xT,yT,tC2,kIcon++,cptIcon);}
-            else if(fi!=null && cr.getEstEnnemi(fi) && !insecte){drawIcone(g,2,xT,yT,tC2,kIcon++,cptIcon);}
-            else {drawIcone(g,1,xT,yT,tC2,kIcon++,cptIcon);}
-          }catch (Exception e) {
-            erreur.erreur("impossible de dessiner l'icone de la Case : "+x+" "+y);
-          }
+          drawIcone(g,getIconImage(cr, fi),xT,yT,tC2,kIcon++,cptIcon);
           // ccrea=ccrea.getSuivant();
         }
       }
@@ -511,18 +504,56 @@ public class PanneauCarte extends Panneau {
   }
   /**
   *{@summary Draw an icone.}<br>
-  *@param iconeId the icone id to load the good image.
+  *@param iconImage the icone image to draw.
   *@param xT x value to use.
   *@param yT y value to use.
   *@param xOffset offset in x.
   *@param k the number of the peace of circle.
   *@param maxIcon the total number of peace of circle.
-  *@version 2.0
+  *@version 2.7
   */
-  public void drawIcone(Graphics g, int iconeId, int xT, int yT, int xOffset, int k, int maxIcon){
+  public void drawIcone(Graphics g, BufferedImage iconImage, int xT, int yT, int xOffset, int k, int maxIcon){
     if (!Main.getDessinerIcone()){ return;}
-    g.drawImage(Main.getData().getB()[iconeId],xT+xOffset,yT,this);
+    g.drawImage(iconImage,xT+xOffset,yT,this);
   }
+  /**
+  *{@summary Return an icon id.}<br>
+  *@param cr the Creature that we represent by the icon
+  *@param fr the Creature that whant to know how to see the other Creature
+  *@return the icone id corresponding to the relation from the ant to the Creature.
+  *@version 2.7
+  */
+  public int getIconId(Creature cr, Fourmi fi){
+    if(cr==null){
+      erreur.alerte("Can't get icon from a null Creature");
+      return 0;
+    }
+    if(cr.getEstMort()){return 3;}
+    else if(fi!=null && cr.getEstAllié(fi)){return 0;}
+    else if(fi!=null && cr.getEstEnnemi(fi) && cr instanceof Fourmi){return 2;}
+    else{return 1;}
+  }
+  /**
+  *{@summary Return an icon image.}<br>
+  *@param cr the Creature that we represent by the icon
+  *@param fr the Creature that whant to know how to see the other Creature
+  *@return the icone image corresponding to the relation from the ant to the Creature
+  *@version 2.7
+  */
+  public BufferedImage getIconImage(Creature cr, Fourmi fi){
+    if(Main.getData().getB()==null){return null;}
+    return Main.getData().getB()[getIconId(cr,fi)];
+  }
+  /**
+  *{@summary Return an icon image.}<br>
+  *@param id the id of the icon
+  *@return the icone image corresponding to the id
+  *@version 2.7
+  */
+  public BufferedImage getIconImage(int id){
+    return Main.getData().getB()[id];
+  }
+
   public int getDir(ObjetSurCarteAId obj){
     if (!Main.getElementSurCarteOrientéAprèsDéplacement()){return 0;}// si la direction de l'objet n'est pas prise en compte on cherche dans le tableau 0.
     int x = obj.getDirection();
