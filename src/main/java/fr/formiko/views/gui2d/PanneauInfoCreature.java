@@ -9,7 +9,9 @@ import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.structures.listes.Liste;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
@@ -81,15 +83,19 @@ public class PanneauInfoCreature extends PanneauInfo {
     }
     /**
     *{@summary Add the icons.}<br>
+    *Icon are : the creature itself,
+    *the icon draw on the map if creature is not the playing ant,
+    *seed if there is any.<br>
+    *Specie name is also print.<br>
     *@version 2.7
     */
     private void addCreatureIcons(){
-      PanneauCreatureIcons pci = new PanneauCreatureIcons();
-      pci.setSize(x,yByElement);
+      PanneauCreatureIcons pci = new PanneauCreatureIcons(yByElement);
       pci.addIcon(Main.getData().getCreatureImage(c));
-      //TODO add the initial of species
-      //TODO add a death head if is death
-      //TODO add relation with playing ant or queen of playing joueur if Creature is not an ant of curentPlayer
+      pci.setText(c.getEspece().getNom());
+      if(c!=null && !c.equals(Main.getPlayingAnt())){
+        pci.addIcon(PanneauCarte.getIconImage(c,Main.getPlayingAnt()));
+      }
       //TODO add carriing seed if there is one.
       add(pci);
     }
@@ -257,22 +263,55 @@ class PanneauProgressBar extends Panneau {
 class PanneauCreatureIcons extends Panneau {
   private Liste<BufferedImage> iconsList;
   private FLabel label;
-
-  public PanneauCreatureIcons(){
+  private int xy;
+  /**
+  *{@summary Main constructor.}<br>
+  *@version 2.7
+  */
+  public PanneauCreatureIcons(int xy){
     iconsList = new Liste<BufferedImage>();
+    this.xy=xy;
   }
-  //TODO
+  /**
+  *{@summary Add an icon at the liste of icon to print.}<br>
+  *@version 2.7
+  */
   public void addIcon(BufferedImage bi){
-    iconsList.add(image.resize(bi,getX()));
+    iconsList.add(image.resize(bi,xy));
   }
+  /**
+  *{@summary Aet the text of the FLabel.}<br>
+  *@version 2.7
+  */
   public void setText(String s){
     if(label==null){
       label =new FLabel();
+      label.setFondTransparent();
       add(label);
     }
     label.setText(s);
     label.updateSize();
   }
-  //TODO paint 1a icon text then all the other icon.
+  /**
+  *{@summary Paint every icon & the FLabel.}<br>
+  *@version 2.7
+  */
+  @Override
+  public void paintComponent(Graphics g){
+    super.paintComponent(g);
+    int k=1;
+    int labelSize=0;
+    Graphics2D g2d = (Graphics2D)g;
+    g2d.setColor(new Color(255,255,255,120));
+    g2d.fillRect(xy,0,getWidth(),xy); //xy*iconsList.length()+label.getWidth()+Main.getTailleElementGraphiqueX(5)
+    for (BufferedImage bi : iconsList) {
+      g.drawImage(bi,k*xy+labelSize,0,this);
+      k++;
+      if(k==2){
+        label.setLocation(k*xy,0);
+        labelSize=label.getWidth();
+      }
+    }
+  }
   //TODO add desc for icons
 }

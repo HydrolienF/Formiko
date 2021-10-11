@@ -317,7 +317,6 @@ public class PanneauCarte extends Panneau {
             x2 = y2 = 0;
           }
           int dir = getDir((ObjetSurCarteAId)cr);
-          boolean insecte = true;
           calculerXYTemp(xT,yT,k,c);k++;
           if(cr instanceof Fourmi){
             Fourmi f = ((Fourmi)cr);
@@ -336,7 +335,6 @@ public class PanneauCarte extends Panneau {
             }catch (Exception e) {
               erreur.erreur("can't draw ant "+f.getId()+" at stade "+f.getStade());
             }
-            insecte=false;
           }else if(cr instanceof Insecte && insectPrinted){
             Insecte i = (Insecte)(cr);
             try {
@@ -523,7 +521,7 @@ public class PanneauCarte extends Panneau {
   *@return the icone id corresponding to the relation from the ant to the Creature.
   *@version 2.7
   */
-  public int getIconId(Creature cr, Fourmi fi){
+  public static int getIconId(Creature cr, Fourmi fi){
     if(cr==null){
       erreur.alerte("Can't get icon from a null Creature");
       return 0;
@@ -540,7 +538,7 @@ public class PanneauCarte extends Panneau {
   *@return the icone image corresponding to the relation from the ant to the Creature
   *@version 2.7
   */
-  public BufferedImage getIconImage(Creature cr, Fourmi fi){
+  public static BufferedImage getIconImage(Creature cr, Fourmi fi){
     if(Main.getData().getB()==null){return null;}
     return Main.getData().getB()[getIconId(cr,fi)];
   }
