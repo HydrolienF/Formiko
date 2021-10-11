@@ -80,6 +80,7 @@ public class Insecte extends Creature implements Serializable{
   // GET SET ----------------------------------------------------------------------
   public boolean getFemelle(){return femelle;}
   public void setFemelle(boolean b){femelle=b;}
+  public String getSex(){if(femelle){return "♀";}else{return "♂";}}
   public byte getNourritureMangeable(){ return nourritureMangeable;}
   public void setNourritureMangeable(byte x){ nourritureMangeable=x;} public void setNourritureMangeable(int x){ setNourritureMangeable((byte)x);}
   @Override

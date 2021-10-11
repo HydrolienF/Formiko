@@ -144,6 +144,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void setPropreté(byte x){ propreté = x; if(x<100){x=100;}}
   public abstract boolean getFemelle();
   public abstract void setFemelle(boolean b);
+  public abstract String getSex();
   public byte getStade(){ return stade;}
   public void setStade(byte s){ stade = s;} public void setStade(int x){setStade(str.iToBy(x));}
   public boolean estFourmi(){return (this instanceof Fourmi);}

@@ -92,7 +92,7 @@ public class PanneauInfoCreature extends PanneauInfo {
     private void addCreatureIcons(){
       PanneauCreatureIcons pci = new PanneauCreatureIcons(yByElement);
       pci.addIcon(Main.getData().getCreatureImage(c));
-      pci.setText(c.getEspece().getNom());
+      pci.setText(c.getSex()+" "+c.getEspece().getNom());
       if(c!=null && !c.equals(Main.getPlayingAnt())){
         pci.addIcon(PanneauCarte.getIconImage(c,Main.getPlayingAnt()));
       }

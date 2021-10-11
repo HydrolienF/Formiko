@@ -44,7 +44,7 @@ public class Fourmi extends Creature implements Serializable{
   *Pheromone are set depending of the queen of the anthill.
   *@param fere The anthill of this.
   *@param e The specie of this.
-  *@param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  *@param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium (☿), 4:Major, 5:soldier 6+:other type.
   *@version 1.39
   */
   // /!\ Ant need to be add to the Fourmiliere after that.
@@ -105,6 +105,24 @@ public class Fourmi extends Creature implements Serializable{
   // GET SET ----------------------------------------------------------------------
   public byte getTypeF(){return typeF;}
   public void setTypeF(byte s){typeF = s;}public void setTypeF(int x){setTypeF((byte)x);}
+  public String getSex(){
+    return switch (typeF) {
+      case 0:
+      yield "♀";
+      case 1:
+      yield "♂";
+      case 2:
+      yield "☿m";
+      case 3:
+      yield "☿";
+      case 4:
+      yield "☿M";
+      case 5:
+      yield "☿S";
+      default:
+      yield "?";
+    };
+  }
   public byte getMode(){return mode;}
   public boolean isAutoMode(){return (getMode()==0 || getMode()==3);}
   public void setMode(byte x){mode = x;}public void setMode(int x){setMode((byte)x);}
