@@ -206,6 +206,36 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void endTurn(){tour.endTurn(this);}
   //public void preTour(){tour.preTour(this);}
   //public void manger (graine pour certaine fourmi, champnons pour d'autre et herbe pour les insectes.)
+  /**
+  *{@summary Return the state of the Creature concerning food.}
+  *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
+  *@version 2.8
+  */
+  public int getStateFood(){
+    if(getNourriture()<0.1*getNourritureMax()){return 3;}
+    else if(getNourriture()<0.2*getNourritureMax()){return 2;}
+    else if(getNourriture()<0.4*getNourritureMax()){return 1;}
+    else {return 0;}
+  }
+  /**
+  *{@summary Return the state of the Creature concerning action.}
+  *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
+  *@version 2.8
+  */
+  public int getStateAction(){
+    if(getAction()==getActionMax()){return 0;}
+    else if(getAction()<=0){return 3;}
+    else{return 1;}
+  }
+  /**
+  *{@summary Return the state of the Creature concerning age.}
+  *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
+  *@version 2.8
+  */
+  public int getStateAge(){
+    if(getAge()>=getAgeMax()*0.9){return 2;}
+    return 1;
+  }
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Return a description of the creature.}

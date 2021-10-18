@@ -189,6 +189,22 @@ public class Fourmi extends Creature implements Serializable{
     super.setActionMoins(x);
     if(!getIa()){Main.getView().setPlayingAnt(Main.getPlayingAnt());}
   }
+  /**
+  *{@summary Return the state of the Fourmi concerning health.}
+  *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
+  *@version 2.8
+  */
+  public int getStateHealth(){
+    if(wantClean()){
+      if(getProprete() < getSeuilDeRisqueDInfection()){
+        return 3;
+      }else{
+        return 1;
+      }
+    }else{
+      return 0;
+    }
+  }
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){return super.toString() +" "+ tableau.tableauToString(descriptionTableau());}
   public void afficheToi (){System.out.println(description());}

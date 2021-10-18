@@ -104,30 +104,15 @@ public class PanneauInfoCreature extends PanneauInfo {
     *@version 2.7
     */
     private void addCreatureProgressBars(){
-      int col=1;
       if(c.getAgeMax()<Main.getPartie().getNbrDeTour()){
-        if(c.getAge()>=c.getAgeMax()*0.9){col=2;}
-        addCreatureProgressBar(col, c.getAge(), c.getAgeMax(),"age");
+        addCreatureProgressBar(c.getStateAge(), c.getAge(), c.getAgeMax(),"age");
       }
-      if(c.getNourriture()<0.1*c.getNourritureMax()){col=3;}
-      else if(c.getNourriture()<0.2*c.getNourritureMax()){col=2;}
-      else if(c.getNourriture()<0.4*c.getNourritureMax()){col=1;}
-      else {col=0;}
-      addCreatureProgressBar(col, c.getNourriture(), c.getNourritureMax(),"food");
-      if(c.getAction()==c.getActionMax()){col=0;}
-      else if(c.getAction()<=0){col=3;}
-      else{col=1;}
-      addCreatureProgressBar(col, c.getAction(), c.getActionMax(),"action");
-      col=0;
+      addCreatureProgressBar(c.getStateFood(), c.getNourriture(), c.getNourritureMax(),"food");
+      addCreatureProgressBar(c.getStateAction(), math.max(c.getAction(),0), c.getActionMax(),"action");
+      int col=0;
       if(c instanceof Fourmi){
         Fourmi f = (Fourmi)c;
-        if(f.wantClean()){
-          if(f.getProprete() < f.getSeuilDeRisqueDInfection()){
-            col=3;
-          }else{
-            col=1;
-          }
-        }
+        col = f.getStateHealth();
       }
       addCreatureProgressBar(col, math.min(c.getProprete(),c.getPropreteMax()), c.getPropreteMax(),"health");
     }
