@@ -38,7 +38,7 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
     if(f.getFere().getGc().getNbrOuvriere()==0){feedOther(5);}
     lay();
     //TODO if it still have action it can clean ant that didn't realy need it but that are not at 100/100 of clean.
-    f.setAction(0);
+    f.setActionTo0();
   }
   /**
   *{@summary Wait to be the last ant to play.}<br>

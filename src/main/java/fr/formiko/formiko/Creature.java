@@ -110,6 +110,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   private void setAction(byte x){action = x;}
   public void setAction(int x){setAction(str.iToBy(x));}
   public void setActionMoins(int x){setAction(getAction() - x);}
+  public void setActionTo0(){if(getAction()>0){setAction(0);}}
   public byte getActionMax(){return actionMax;}
   public void setActionMax(byte x){actionMax =x;}
   /**

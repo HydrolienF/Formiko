@@ -52,7 +52,7 @@ public class TourFourmi implements Serializable, Tour{
     //reproduce();
     backHomeAndShareFood(); //if granivore oppen seed & feedOther.
     f.eat(100);
-    f.setAction(0);
+    f.setActionTo0();
   }
   /**
   *{@summary End a turn as an Ant.}<br>
@@ -78,7 +78,7 @@ public class TourFourmi implements Serializable, Tour{
       f.setLastTurnEnd(Main.getPartie().getTour());
     }
     debug.débogage("Fin du tour de la Fourmi");
-    if(f.getAction()>0){f.setAction(0);}//end the turn normaly
+    f.setActionTo0();//end the turn normaly
     // Un tour ça coute en age et en nourriture;
     if (f.getStade()<0 && !(f.evoluer instanceof EvoluerNull) && f.getAge()>=f.getAgeMax()){ f.evoluer();}
     f.setAgePlus1();

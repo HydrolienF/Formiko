@@ -37,15 +37,15 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       Temps.pause(50);
       choix = (byte)(getChoixBouton()-1);
       if(choix==-2){
-        if(f.getAction()<1){f.setAction(0);}
+        f.setActionTo0();
         return;
       }
       m = faire(choix);
       if(choix==12 || choix==13){ //Main.getPs().setAntIdToPlay(-1);
-        if(f.getAction()<1){f.setAction(0);}
+        f.setActionTo0();
         return;
       }else if(choix==14){
-        f.setAction(0);
+        f.setActionTo0();
         // endTurn();
         Main.getPartie().setContinuerLeJeu(false);
         return;
@@ -64,7 +64,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     }
     Main.setPlayingAnt(null);
     // TODO #410 if(f.getMode()==-1){
-      f.setAction(0);
+      f.setActionTo0();
     // }
   }
   @Override
@@ -98,7 +98,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       erreur.erreur("can not do ant action because of NullPointerException");
     }
     if(choix==-2){
-      if(f.getAction()<1){f.setAction(0);}
+      f.setActionTo0();
       return;
     }
     erreur.info("faire("+choix+")");
@@ -125,7 +125,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       }
       choix = (byte) Main.getView().getAntChoice(t);
       if(f.getFere().getJoueur().getIsTurnEnded()){
-        f.setAction(0);
+        f.setActionTo0();
       }
     }choix++;
     return choix;
@@ -194,7 +194,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         }
         yield "setMode1";
       case 9 :
-        f.setAction(0);
+        f.setActionTo0();
         yield "ne rien faire";
       case 10 :
         try {
