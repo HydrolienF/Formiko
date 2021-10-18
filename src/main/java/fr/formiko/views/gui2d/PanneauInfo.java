@@ -80,7 +80,7 @@ public class PanneauInfo extends Panneau {
 
     // FUNCTIONS -----------------------------------------------------------------
     /**
-    *{@summary Main function that build PanneauInfo &#39; return it.}<br>
+    *{@summary Main function that build PanneauInfo &#38; return it.}<br>
     *@version 2.7
     */
     public PanneauInfo build(){

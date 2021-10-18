@@ -22,7 +22,7 @@ import java.util.Properties;
 *@version 2.7
 */
 public class Options implements Serializable{
-  /** language can be save as byte or String in properties &#39; options file.*/
+  /** language can be save as byte or String in properties &#38; options file.*/
   private byte language; // 0=eo; 1=fr; 2=en;
   private byte buttonSizeZoom;
   private byte buttonSizeAction;

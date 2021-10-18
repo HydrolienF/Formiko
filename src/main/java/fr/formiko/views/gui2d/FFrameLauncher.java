@@ -22,7 +22,7 @@ public class FFrameLauncher extends FFrame {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
-  *Frame is centered, small &#39; containt a PanneauLauncher.
+  *Frame is centered, small &#38; containt a PanneauLauncher.
   *@version 2.7
   */
   public FFrameLauncher(){
@@ -62,7 +62,7 @@ public class FFrameLauncher extends FFrame {
     private FButton buttonRetry;
     /**
     *{@summary Main constructor.}<br>
-    *It initialize &#39; place item on the Panel.
+    *It initialize &#38; place item on the Panel.
     *@version 2.7
     */
     public PanneauLauncher(int w, int h, int minProgressBar, int maxProgressBar) {

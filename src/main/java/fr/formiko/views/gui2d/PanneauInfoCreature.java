@@ -163,7 +163,7 @@ public class PanneauInfoCreature extends PanneauInfo {
 }
 // SUB-CLASS -----------------------------------------------------------------
 /**
-*{@summary Pannel that containt a FProgressBar &#39; an icon.}<br>
+*{@summary Pannel that containt a FProgressBar &#38; an icon.}<br>
 *@author Hydrolien
 *@version 2.7
 */
@@ -205,7 +205,7 @@ class PanneauProgressBar extends Panneau {
 
   // FUNCTIONS -----------------------------------------------------------------
   /**
-  *{@summary Paint component: FProgressBar &#39; icon image.}<br>
+  *{@summary Paint component: FProgressBar &#38; icon image.}<br>
   *@version 2.7
   */
   public void paintComponent(Graphics g){

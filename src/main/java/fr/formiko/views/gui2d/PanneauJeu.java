@@ -267,7 +267,7 @@ public class PanneauJeu extends Panneau {
   }
   /**
   *{@summary Update message.}<br>
-  *It will initialize &#39; launch ThreadMessagesDesc if it is null.
+  *It will initialize &#38; launch ThreadMessagesDesc if it is null.
   *@version 2.7
   */
   public void updateThreadMessagesDesc(String message){
