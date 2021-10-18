@@ -462,6 +462,7 @@ public class ViewGUI2d implements View {
         getPb().setVisiblePa(true);
         getPb().addPI();
         getPb().addPIJ();
+        //TODO #45 update icon
       }
     }else{
       getPb().setVisiblePa(false);

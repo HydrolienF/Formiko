@@ -171,6 +171,24 @@ public class Fourmi extends Creature implements Serializable{
     try {return getFere().getJoueur().getIa();}
     catch (NullPointerException e) {return false;}
   }
+  /**
+  *{@summary Update action &#38; update view.}<br>
+  *@version 2.7
+  */
+  @Override
+  public void setAction(int x){
+    super.setAction(x);
+    if(!getIa()){Main.getView().setPlayingAnt(Main.getPlayingAnt());}
+  }
+  /**
+  *{@summary Update action &#38; update view.}<br>
+  *@version 2.7
+  */
+  @Override
+  public void setActionMoins(int x){
+    super.setActionMoins(x);
+    if(!getIa()){Main.getView().setPlayingAnt(Main.getPlayingAnt());}
+  }
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){return super.toString() +" "+ tableau.tableauToString(descriptionTableau());}
   public void afficheToi (){System.out.println(description());}
