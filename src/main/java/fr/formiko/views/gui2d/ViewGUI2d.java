@@ -104,6 +104,7 @@ public class ViewGUI2d implements View {
     // if(Main.getOp().getModeFPS()){
       launchFrameRefresh();
     // }
+    getPp().updateVersionLabel();
     return true;
   }
   /**

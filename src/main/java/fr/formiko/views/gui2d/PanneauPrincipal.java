@@ -22,12 +22,14 @@ public class PanneauPrincipal extends Panneau {
   private PanneauJeu pj;
   private PanneauMenu pm;
   private Image img;
+  private FLabel versionLabel;
   // CONSTRUCTORS --------------------------------------------------------------
   public PanneauPrincipal(){}
   public void build(){
     this.setLayout(null);
     img = image.getImage("backgroundPP");
     img = img.getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
+    addVersionLabel();
   }
   // GET SET -------------------------------------------------------------------
   public PanneauJeu getPj(){ return pj;}
@@ -46,6 +48,24 @@ public class PanneauPrincipal extends Panneau {
       g.drawImage(img,0,0,this);
     }
     debug.débogage("taille du paneau secondaire : x="+this.getWidth()+", y="+this.getHeight());
+  }
+  /**
+  *{@summary Add the curent version on screen.}<br>
+  *@version 2.6
+  */
+  private void addVersionLabel(){
+    versionLabel = new FLabel("");
+    versionLabel.setFont(new Font(versionLabel.getFont().getFontName(),versionLabel.getFont().getStyle(),14));
+    versionLabel.setFondTransparent();
+    // versionLabel.updateSize();
+    add(versionLabel);
+  }
+  public void updateVersionLabel(){
+    String version = Main.getFolder().getCurentVersion();
+    System.out.println(version);
+    if(version==null){return;}
+    versionLabel.setText(version);
+    versionLabel.updateSize();
   }
 
   public void addPm(){

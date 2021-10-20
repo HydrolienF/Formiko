@@ -355,13 +355,8 @@ public class PanneauCarte extends Panneau {
         //draw icons
         //TODO Icon are print in 2 heap next from each other
         if (Main.getDessinerIcone()){
-          try {
-            drawListIcons(g, listIconsRelation, xT, yT, tC2);
-          }catch (Exception e) {
-            erreur.erreur("fail to draw icon");
-            System.out.println(e);//@a
-          }
-          // TODO drawListIcons(g, listIconsState, xT, yT, tC2);
+          drawListIcons(g, listIconsRelation, xT, yT, tC2);
+          drawListIcons(g, listIconsState, xT, yT, 0);
         }
       }
     }catch (Exception e) {

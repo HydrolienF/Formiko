@@ -364,6 +364,7 @@ public class Folder {
   *@version 2.7
   */
   public String getCurentVersion(){
+    //TODO #443 use version from version.md !
     return getXVersion(Paths.get(getFolderMain()+"version.json"), "formiko");
   }
   /**
@@ -427,9 +428,12 @@ public class Folder {
       JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
       // read customer details
       String version = (String) parser.get(nameOfTheVersion);
+      if(version==null){
+        erreur.alerte("can't read "+nameOfTheVersion+" version");
+      }
       return version;
     }catch (Exception e) {
-      erreur.alerte("can't read music version");
+      erreur.alerte("can't read "+nameOfTheVersion+" version");
       return "0.0.0";
     }
   }

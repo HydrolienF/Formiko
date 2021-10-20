@@ -92,8 +92,8 @@ public class FLabel extends JLabel {
   //public void setFondColoré(){ setFondColoré(Main.getPiFond().piToColor());}
   public void setFondTransparent(){setBackground(new Color(0,0,0,0));}
   public void setPolice(Font fon){ setFont(fon);}
-  @Override
-  public void setFont(Font fon){super.setFont(fon);}
+  // @Override
+  // public void setFont(Font fon){super.setFont(fon);}
   public void setPolice(){ setPolice(Main.getFont1());}
   public void setBounds(int a, int b, int c){this.setBounds(a,b,c,getDimY());}
   public static int getDimY(){ return (int)(Main.getOp().getTaillePolice1()*1.2);}
@@ -118,6 +118,6 @@ public class FLabel extends JLabel {
   *@version 2.6
   */
   public void updateSize(){
-    setSize((int)(Math.ceil(this.getFontMetrics(this.getFont()).stringWidth(getText()))),FLabel.getDimY());
+    setSize((int)(Math.ceil(this.getFontMetrics(this.getFont()).stringWidth(getText()))), (int)(getFont().getSize()*1.2));
   }
 }
