@@ -37,7 +37,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       Temps.pause(50);
       choix = (byte)(getChoixBouton()-1);
       if(choix==-2){
-        f.setActionTo0();
+        // f.setActionTo0();
         return;
       }
       m = faire(choix);
