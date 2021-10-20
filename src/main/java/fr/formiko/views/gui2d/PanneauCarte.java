@@ -7,6 +7,7 @@ import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.GCreature;
+import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Joueur;
@@ -251,6 +252,8 @@ public class PanneauCarte extends Panneau {
     if(!isCaseVisible(c)){return;}
     Joueur jo = Main.getPlayingJoueur();
     Fourmi fi = Main.getPlayingAnt();
+    Liste<BufferedImage> listIconsRelation = new Liste<BufferedImage>();
+    Liste<BufferedImage> listIconsState = new Liste<BufferedImage>();
     if(fi==null){
       try {
         fi = (Fourmi)Main.getPlayingJoueur().getFere().getGc().getFirst();
@@ -261,7 +264,7 @@ public class PanneauCarte extends Panneau {
     int xT2 = (x)*getTailleDUneCase(); int yT2 = (y)*getTailleDUneCase();
     if(peintCaseNuageuse(x,y,g,xT,yT)){return;}//si la case est nuageuse, on n'affichera rien d'autre dessus.
     byte ty = c.getType();
-    CCreature ccrea = c.getGc().getHead();
+    // CCreature ccrea = c.getGc().getHead();
     CGraine ccg = c.getGg().getHead();
     try {
       int tC10 = Main.getData().getTailleDUneCase()/10;int tC4 = Main.getData().getTailleDUneCase()/4;int tC2 = Main.getData().getTailleDUneCase()/2;
@@ -279,14 +282,14 @@ public class PanneauCarte extends Panneau {
         int k=0;
         boolean seedPrinted = Main.getAffGraine();
         boolean insectPrinted = true;
-        int cptIcon = 0;
-        int kIcon = 0;
-        if(seedPrinted){
-          cptIcon+=c.getGg().length();
-        }
-        if(insectPrinted){
-          cptIcon+=c.getGc().length();
-        }
+        // int cptIcon = 0;
+        // int kIcon = 0;
+        // if(seedPrinted){
+        //   cptIcon+=c.getGg().length();
+        // }
+        // if(insectPrinted){
+        //   cptIcon+=c.getGc().length();
+        // }
         //seeds
         if(seedPrinted){
           while (ccg!=null){
@@ -296,9 +299,9 @@ public class PanneauCarte extends Panneau {
               BufferedImage bi = Main.getData().getTG()[0][ccg.getContent().getType()];
               drawImageCentered(g,image.rotateImage(bi,dir),xT,yT);
             }catch (Exception e) {}
-            if(ccg.getContent().getOuverte()){drawIcone(g,getIconImage(5),xT,yT,tC2,kIcon++,cptIcon);}
-            else if(fi==null || ccg.getContent().getDureté()<=fi.getDuretéMax()){drawIcone(g,getIconImage(4),xT,yT,tC2,kIcon++,cptIcon);}
-            else {drawIcone(g,getIconImage(6),xT,yT,tC2,kIcon++,cptIcon);}
+            if(ccg.getContent().getOuverte()){listIconsRelation.add(getIconImage(5));}
+            else if(fi==null || ccg.getContent().getDureté()<=fi.getDuretéMax()){listIconsRelation.add(getIconImage(4));}
+            else {listIconsRelation.add(getIconImage(6));}
             ccg = ccg.getSuivant();
           }
         }
@@ -344,12 +347,17 @@ public class PanneauCarte extends Panneau {
             }
           }
           //icons
-          //TODO #43 & #45 do a list of icon & iconState for the Case & print slice of it.
-          //Icon are print in 2 heap next from each other
-          drawIcone(g,getIconImage(cr, fi),xT,yT,tC2,kIcon++,cptIcon);
-          //if (!getIa() && playingJoueur().equals(c.getJoueur()))
-          //drawIconeState()
-          // ccrea=ccrea.getSuivant();
+          //TODO #43 & #45 do a list of iconRelation & iconState for the Case & print slice of it.
+          listIconsRelation.add(getIconImage(cr, fi));
+          // drawIcone(g,getIconImage(cr, fi),xT,yT,tC2,kIcon++,cptIcon);
+          // if (!getIa() && playingJoueur().equals(c.getJoueur()))
+          // listIconsState.add()...
+        }
+        //draw icons
+        //TODO Icon are print in 2 heap next from each other
+        if (Main.getDessinerIcone()){
+          drawListIcons(g, listIconsRelation, xT, yT, tC2);
+          // TODO drawListIcons(g, listIconsState, xT, yT, tC2);
         }
       }
     }catch (Exception e) {
@@ -512,10 +520,15 @@ public class PanneauCarte extends Panneau {
   *@param maxIcon the total number of peace of circle.
   *@version 2.7
   */
-  public void drawIcone(Graphics g, BufferedImage iconImage, int xT, int yT, int xOffset, int k, int maxIcon){
-    if (!Main.getDessinerIcone()){ return;}
+  public void drawIcone(Graphics g, BufferedImage iconImage, int xT, int yT, int xOffset){
     g.drawImage(iconImage,xT+xOffset,yT,this);
   }
+  private void drawListIcons(Graphics g, Liste<BufferedImage> list, int xT, int yT, int xOffset){
+    if(!list.isEmpty()){
+      drawIcone(g,list.getFirst(),xT,yT,xOffset);
+    }
+  }
+
   /**
   *{@summary Return an icon id.}<br>
   *@param cr the Creature that we represent by the icon
