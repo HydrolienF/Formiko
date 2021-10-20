@@ -236,6 +236,15 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     if(getAge()>=getAgeMax()*0.9){return 2;}
     return 1;
   }
+  /**
+  *{@summary Return the state of the Creature concerning health.}
+  *Creature that don't Override getStateHealth() will always be at 0.
+  *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
+  *@version 2.8
+  */
+  public int getStateHealth(){
+    return 0;
+  }
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Return a description of the creature.}

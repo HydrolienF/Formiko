@@ -194,6 +194,7 @@ public class Fourmi extends Creature implements Serializable{
   *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
   *@version 2.8
   */
+  @Override
   public int getStateHealth(){
     if(wantClean()){
       if(getProprete() < getSeuilDeRisqueDInfection()){

@@ -1,10 +1,8 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.CCase;
-import fr.formiko.formiko.CCreature;
 import fr.formiko.formiko.CGraine;
 import fr.formiko.formiko.Case;
-import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GCase;
@@ -22,9 +20,9 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.Pixel;
 import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.structures.listes.Liste;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.structures.listes.Liste;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -346,7 +344,11 @@ public class PanneauCarte extends Panneau {
             }
           }
           //icons
+          //TODO #43 & #45 do a list of icon & iconState for the Case & print slice of it.
+          //Icon are print in 2 heap next from each other
           drawIcone(g,getIconImage(cr, fi),xT,yT,tC2,kIcon++,cptIcon);
+          //if (!getIa() && playingJoueur().equals(c.getJoueur()))
+          //drawIconeState()
           // ccrea=ccrea.getSuivant();
         }
       }

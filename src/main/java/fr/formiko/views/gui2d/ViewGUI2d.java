@@ -462,7 +462,7 @@ public class ViewGUI2d implements View {
         getPb().setVisiblePa(true);
         getPb().addPI();
         getPb().addPIJ();
-        //TODO #45 update icon
+        // updateIcon();
       }
     }else{
       getPb().setVisiblePa(false);
@@ -473,8 +473,35 @@ public class ViewGUI2d implements View {
     // }
     // Main.getPartie().setAntIdToPlay(-1);
   }
+  /***
+  *{@summary Update map icon about need of the playingJoueur Creatures.}<br>
+  *This action can only be run if action game is on.<br>
+  *@version 2.8
+  */
+  // private void updateIcon(){
+  //   // if (!actionGameOn) {return;}
+  //   if(Main.getPlayingJoueur()!=null && Main.getPlayingJoueur().getFere()!=null && Main.getPlayingJoueur().getFere().getGc()!=null){
+  //     for (Creature c : Main.getPlayingJoueur().getFere().getGc().toList()) {
+  //       //TODO #45 (it will be better in PanneauCarte) print icon if needed.
+  //       if(c.getStateHealth()>0){
+  //         if(c.getStateFood()>c.getStateHealth()){
+  //           //print getStateFood
+  //           System.out.println("getStateFood");
+  //         }else{
+  //           //print getStateHealth
+  //           System.out.println("getStateHealth");
+  //         }
+  //       }else if(c.getStateFood()>0){
+  //         //print getStateFood
+  //         System.out.println("getStateFood");
+  //       }
+  //     }
+  //   }else{
+  //     erreur.alerte("can't print icon because player or anthill is null.");
+  //   }
+  // }
   /**
-  *{@summary move ObjetSurCarteAId.}<br>
+  *{@summary Move ObjetSurCarteAId.}<br>
   *This action can only be run if action game is on.<br>
   *@param o object to move.
   *@param from CCase that o leave.
