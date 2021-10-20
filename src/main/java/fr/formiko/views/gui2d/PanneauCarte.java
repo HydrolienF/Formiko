@@ -264,7 +264,6 @@ public class PanneauCarte extends Panneau {
     int xT2 = (x)*getTailleDUneCase(); int yT2 = (y)*getTailleDUneCase();
     if(peintCaseNuageuse(x,y,g,xT,yT)){return;}//si la case est nuageuse, on n'affichera rien d'autre dessus.
     byte ty = c.getType();
-    // CCreature ccrea = c.getGc().getHead();
     CGraine ccg = c.getGg().getHead();
     try {
       int tC10 = Main.getData().getTailleDUneCase()/10;int tC4 = Main.getData().getTailleDUneCase()/4;int tC2 = Main.getData().getTailleDUneCase()/2;
@@ -356,7 +355,12 @@ public class PanneauCarte extends Panneau {
         //draw icons
         //TODO Icon are print in 2 heap next from each other
         if (Main.getDessinerIcone()){
-          drawListIcons(g, listIconsRelation, xT, yT, tC2);
+          try {
+            drawListIcons(g, listIconsRelation, xT, yT, tC2);
+          }catch (Exception e) {
+            erreur.erreur("fail to draw icon");
+            System.out.println(e);//@a
+          }
           // TODO drawListIcons(g, listIconsState, xT, yT, tC2);
         }
       }
@@ -524,8 +528,18 @@ public class PanneauCarte extends Panneau {
     g.drawImage(iconImage,xT+xOffset,yT,this);
   }
   private void drawListIcons(Graphics g, Liste<BufferedImage> list, int xT, int yT, int xOffset){
-    if(!list.isEmpty()){
-      drawIcone(g,list.getFirst(),xT,yT,xOffset);
+    int len = list.length();
+    int k=0;
+    if(len>0){
+      int angle = 360/len;
+      for (BufferedImage biIn : list ) {
+        BufferedImage biOut = new BufferedImage(biIn.getWidth(), biIn.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D gOut = (Graphics2D)biOut.getGraphics();
+        gOut.setColor(new Color(biIn.getRGB(biIn.getWidth()/4,biIn.getHeight()*3/4)));
+        gOut.fillArc(0,0,biOut.getWidth(),biOut.getHeight(),90+k*angle, angle);
+        drawIcone(g,biOut,xT,yT,xOffset);
+        k++;
+      }
     }
   }
 
