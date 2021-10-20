@@ -348,7 +348,7 @@ public class PanneauCarte extends Panneau {
           //icons
           //TODO #43 & #45 do a list of iconRelation & iconState for the Case & print slice of it.
           listIconsRelation.add(getIconImage(cr, fi));
-          // drawIcone(g,getIconImage(cr, fi),xT,yT,tC2,kIcon++,cptIcon);
+          // drawIcon(g,getIconImage(cr, fi),xT,yT,tC2,kIcon++,cptIcon);
           // if (!getIa() && playingJoueur().equals(c.getJoueur()))
           // listIconsState.add()...
         }
@@ -515,32 +515,69 @@ public class PanneauCarte extends Panneau {
     setLigne(g);//retour au paramètres par défaut.
   }
   /**
-  *{@summary Draw an icone.}<br>
-  *@param iconImage the icone image to draw.
-  *@param xT x value to use.
-  *@param yT y value to use.
-  *@param xOffset offset in x.
-  *@param k the number of the peace of circle.
-  *@param maxIcon the total number of peace of circle.
-  *@version 2.7
+  *{@summary Draw an icon.}<br>
+  *@param g the Graphics where to draw
+  *@param iconImage the icon image to draw
+  *@param xT x value to use
+  *@param yT y value to use
+  *@param xOffset offset in x
+  *@version 2.8
   */
-  public void drawIcone(Graphics g, BufferedImage iconImage, int xT, int yT, int xOffset){
+  public void drawIcon(Graphics g, BufferedImage iconImage, int xT, int yT, int xOffset){
     g.drawImage(iconImage,xT+xOffset,yT,this);
   }
+  /**
+  *{@summary Draw an icons list.}<br>
+  *@param g the Graphics where to draw
+  *@param list the list of icon image to draw
+  *@param xT x value to use
+  *@param yT y value to use
+  *@param xOffset offset in x
+  *@version 2.8
+  */
   private void drawListIcons(Graphics g, Liste<BufferedImage> list, int xT, int yT, int xOffset){
     int len = list.length();
     int k=0;
-    if(len>0){
-      int angle = 360/len;
+    if(len>1){
+      int angle = (int)(360.0/(double)(len)+0.99); //to avoid to have smaler angle that don't fill 360°
       for (BufferedImage biIn : list ) {
-        BufferedImage biOut = new BufferedImage(biIn.getWidth(), biIn.getHeight(), BufferedImage.TYPE_INT_ARGB);
-        Graphics2D gOut = (Graphics2D)biOut.getGraphics();
-        gOut.setColor(new Color(biIn.getRGB(biIn.getWidth()/4,biIn.getHeight()*3/4)));
-        gOut.fillArc(0,0,biOut.getWidth(),biOut.getHeight(),90+k*angle, angle);
-        drawIcone(g,biOut,xT,yT,xOffset);
+        //TODO replace true by Main.getOp().getSimplerIcons()
+        BufferedImage biOut = doSlice(angle, biIn, k, true);
+        drawIcon(g,biOut,xT,yT,xOffset);
         k++;
       }
+    }else if(len==1){
+      drawIcon(g,list.getFirst(),xT,yT,xOffset);
     }
+  }
+  /**
+  *{@summary Do a slice of angle from a BufferedImage.}<br>
+  *@param angle the angle of the slice
+  *@param biIn the BufferedImage in
+  *@param k offset in angle (k * the angle)
+  *@param replaceColorByImage if true we replace font color by the image in
+  *@return a slice of the BufferedImage in
+  *@version 2.8
+  */
+  private BufferedImage doSlice(int angle, BufferedImage biIn, int k, boolean replaceColorByImage){
+    BufferedImage biOut = new BufferedImage(biIn.getWidth(), biIn.getHeight(), BufferedImage.TYPE_INT_ARGB);
+    Graphics2D gOut = (Graphics2D)biOut.getGraphics();
+    int colorValue = biIn.getRGB(biIn.getWidth()/4,biIn.getHeight()*3/4);
+    Color fontColor = new Color(colorValue);
+    gOut.setColor(fontColor);
+    gOut.fillArc(0,0,biOut.getWidth(),biOut.getHeight(),90+k*angle, angle);
+    if(replaceColorByImage){
+      int w = biIn.getWidth();
+      int h = biIn.getHeight();
+      for (int i=0;i<w ;i++ ) {
+        for (int j=0;j<h ;j++ ) {
+          if(biOut.getRGB(i,j)==colorValue){
+            biOut.setRGB(i,j,biIn.getRGB(i,j));
+          }
+        }
+      }
+    }
+    return biOut;
   }
 
   /**
