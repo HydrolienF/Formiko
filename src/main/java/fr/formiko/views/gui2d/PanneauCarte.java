@@ -364,7 +364,7 @@ public class PanneauCarte extends Panneau {
     }
   }
   /**
-  *{@summary Return a Liste<Creature> sorted by image size.}<br>
+  *{@summary Return a Liste&lt;Creature&gt; sorted by image size.}<br>
   *It is used to print smaler creature on top, so that we can see every Creature.
   *@version 2.6
   */
@@ -421,7 +421,7 @@ public class PanneauCarte extends Panneau {
   }
   /**
   *{@summary draw an image.}<br>
-  *@param g Graphics element were to draw.
+  *@param gTemp Graphics element were to draw.
   *@param im the image to draw.
   *@param x the x ere to draw.
   *@param y the y were to draw.
@@ -578,7 +578,7 @@ public class PanneauCarte extends Panneau {
   /**
   *{@summary Return an icon id.}<br>
   *@param cr the Creature that we represent by the icon
-  *@param fr the Creature that whant to know how to see the other Creature
+  *@param fi the Creature that whant to know how to see the other Creature
   *@return the icone id corresponding to the relation from the ant to the Creature.
   *@version 2.7
   */
@@ -595,7 +595,7 @@ public class PanneauCarte extends Panneau {
   /**
   *{@summary Return an icon image.}<br>
   *@param cr the Creature that we represent by the icon
-  *@param fr the Creature that whant to know how to see the other Creature
+  *@param fi the Creature that whant to know how to see the other Creature
   *@return the icone image corresponding to the relation from the ant to the Creature
   *@version 2.7
   */

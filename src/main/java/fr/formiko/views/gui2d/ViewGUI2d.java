@@ -518,7 +518,6 @@ public class ViewGUI2d implements View {
   }
   /**
   *{@summary Wait for end turn if we need.}
-  *@param fere the Fourmiliere that is curently playing.
   *@version 2.5
   */
   public void waitForEndTurn() {

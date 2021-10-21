@@ -171,6 +171,9 @@
               &#60;li class="mainButon" id="button-javadoc-page"&#62;&#60;a href="https://formiko.fr/Formiko/javadoc/"&#62;Javadoc&#60;/a&#62;&#60;/li&#62;
             &#60;/ul&#62;
           </header>
+          <additionalparam>-Xdoclint:none</additionalparam>
+          <additionalOptions>-Xdoclint:none</additionalOptions>
+          <additionalJOption>-Xdoclint:none</additionalJOption>
         </configuration>
       </plugin>
     </plugins>

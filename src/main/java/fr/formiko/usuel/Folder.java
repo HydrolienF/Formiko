@@ -423,7 +423,7 @@ public class Folder {
     }
   }
   /**
-  *{@summary Return the version from path & name of the wanted version.}<br>
+  *{@summary Return the version from path &#38; name of the wanted version.}<br>
   *If it fail, it will return a defaut version.
   *@param pathToJson path to the .json file taht containt version
   *@param nameOfTheVersion name of the version

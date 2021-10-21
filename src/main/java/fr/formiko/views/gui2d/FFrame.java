@@ -33,7 +33,7 @@ public class FFrame extends JFrame {
   *{@summary Main constructor.}<br>
   *@param title title of the Frame
   *@param width with of the Frame
-  *@param height height of the Frame
+  *@param heigth heigth of the Frame
   *@param fullScreen true if Frame need to be in full screen
   *@version 2.7
   */
