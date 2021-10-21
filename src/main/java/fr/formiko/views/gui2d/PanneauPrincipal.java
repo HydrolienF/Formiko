@@ -62,7 +62,6 @@ public class PanneauPrincipal extends Panneau {
   }
   public void updateVersionLabel(){
     String version = Main.getFolder().getCurentVersion();
-    System.out.println(version);
     if(version==null){return;}
     versionLabel.setText(version);
     versionLabel.updateSize();

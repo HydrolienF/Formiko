@@ -8,6 +8,7 @@ import fr.formiko.usuel.Chrono;
 import fr.formiko.usuel.exceptions.MissingFolderException;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.View;
+import fr.formiko.usuel.structures.listes.GString;
 
 import java.io.File;
 import java.io.Reader;
@@ -24,6 +25,7 @@ import java.nio.file.Paths;
 *@version 2.7
 */
 public class Folder {
+  private static String DEFAULT_NULL_VERSION="0.0.0";
   private String folderMain="data/";
   private String folderStable="stable/";
   private String folderTemporary="temporary/";
@@ -365,7 +367,13 @@ public class Folder {
   */
   public String getCurentVersion(){
     //TODO #443 use version from version.md !
-    return getXVersion(Paths.get(getFolderMain()+"version.json"), "formiko");
+    // return getXVersion(Paths.get(getFolderMain()+"version.json"), "formiko");
+    GString gs = lireUnFichier.lireUnFichierGs(System.getProperty("user.dir")+"/version.md");
+    if(gs.isEmpty()){
+      erreur.alerte("can't read curent game version");
+      return DEFAULT_NULL_VERSION;
+    }
+    return gs.getFirst();
   }
   /**
   *{@summary Return the curent data version that game have.}<br>
@@ -406,7 +414,7 @@ public class Folder {
       return getXVersion(Paths.get(fileName), "lastStableVersion");
     }catch (Exception e) {
       erreur.alerte("Can't read last stable version");
-      return "0.0.0";
+      return DEFAULT_NULL_VERSION;
     }finally {
       File f = new File(fileName);
       if(!fichier.deleteDirectory(f)){}
