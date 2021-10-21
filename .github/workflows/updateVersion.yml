@@ -3,7 +3,7 @@ name: updateVersion
 on:
   pull_request:
     branches: [ master ]
-    types: [closed]
+    # types: [closed]
 
 jobs:
   releaseJob:
