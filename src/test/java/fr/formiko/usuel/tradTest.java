@@ -1,5 +1,6 @@
 package fr.formiko.usuel;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -10,32 +11,26 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.tests.TestCaseMuet;
 import fr.formiko.views.ViewNull;
 
-public class tradTest extends TestCaseMuet{
+public class tradTest extends TestCaseMuet {
 
   // FUNCTIONS -----------------------------------------------------------------
+  @BeforeAll
+  public static void ini(){
+    Main.ini();
+  }
   @Test
-  @Disabled("TODO #449 fix in github action") //it's working fined on my linux computer.
+  // @Disabled("TODO #449 fix in github action") //it's working fined on my linux computer.
   public void testReplaceTranslation2(){
-    Main.setView(new ViewNull());
-    Main.setOs(new Os());
-    Main.setFolder(new Folder());
-    Main.getFolder().ini(false);
-    Main.iniOp();
     Main.setLangue(2);
-    // Main.iniLangue();
+    Main.iniLangue();
     assertTrue(Main.getLanguage()==2);
     assertEquals("testEn",g.get("test"));
   }
   @Test
-  @Disabled("TODO #449 fix in github action") //it's working fined on my linux computer.
+  // @Disabled("TODO #449 fix in github action") //it's working fined on my linux computer.
   public void testReplaceTranslation(){
-    Main.setView(new ViewNull());
-    Main.setOs(new Os());
-    Main.setFolder(new Folder());
-    Main.getFolder().ini(false);
-    Main.iniOp();
     Main.setLangue(0);
-    // Main.iniLangue();
+    Main.iniLangue();
     assertTrue(Main.getLanguage()==0);
     assertEquals("testEo",g.get("test"));
 

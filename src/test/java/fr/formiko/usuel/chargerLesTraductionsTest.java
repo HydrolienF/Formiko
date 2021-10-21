@@ -1,6 +1,6 @@
 package fr.formiko.usuel;
 
-
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
@@ -16,7 +16,11 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-public class chargerLesTraductionsTest extends TestCaseMuet{
+public class chargerLesTraductionsTest extends TestCaseMuet {
+  @BeforeAll
+  public static void iniMain(){
+    Main.ini();
+  }
 
   // get set -------------------------------------------------------------------
   @Test
@@ -28,7 +32,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
 
   // FUNCTIONS -----------------------------------------------------------------
   @Test
-  public void testgetLanguage(){
+  public void testGetLanguage(){
     String t []= {"en","fr","langueTest"};
     chargerLesTraductions.setTLangue(t);
     assertEquals("en",chargerLesTraductions.getLanguage(0));
@@ -49,7 +53,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     //assertTrue(true);
   }
   @Test
-  public void testgetLanguageS(){
+  public void testGetLanguageS(){
     String t []= {"a","bcd","épit"};
     chargerLesTraductions.setTLangue(t);
     //une langue qui y est

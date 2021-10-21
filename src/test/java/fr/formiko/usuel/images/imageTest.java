@@ -1,6 +1,7 @@
 package fr.formiko.usuel.images;
 
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
@@ -21,6 +22,10 @@ import java.io.File;
 public class imageTest extends TestCaseMuet{
 
   // FUNCTIONS -----------------------------------------------------------------
+  @BeforeAll
+  public static void iniMain(){
+    Main.ini();
+  }
   private void ini(){
     Folder folder = new Folder();
     folder.ini();
