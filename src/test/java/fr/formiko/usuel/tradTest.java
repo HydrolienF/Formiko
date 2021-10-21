@@ -1,5 +1,6 @@
 package fr.formiko.usuel;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
