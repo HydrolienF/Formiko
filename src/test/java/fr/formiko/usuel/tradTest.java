@@ -14,7 +14,7 @@ public class tradTest extends TestCaseMuet{
 
   // FUNCTIONS -----------------------------------------------------------------
   @Test
-  @Disabled("TODO #449 fix in github action") //it's working fined on my linux computer.
+  // @Disabled("TODO #449 fix in github action") //it's working fined on my linux computer.
   public void testReplaceTranslation2(){
     Main.setView(new ViewNull());
     Main.setOs(new Os());
@@ -27,7 +27,7 @@ public class tradTest extends TestCaseMuet{
     assertEquals("testEn",g.get("test"));
   }
   @Test
-  @Disabled("TODO #449 fix in github action") //it's working fined on my linux computer.
+  // @Disabled("TODO #449 fix in github action") //it's working fined on my linux computer.
   public void testReplaceTranslation(){
     Main.setView(new ViewNull());
     Main.setOs(new Os());

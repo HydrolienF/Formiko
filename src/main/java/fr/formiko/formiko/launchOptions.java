@@ -334,20 +334,21 @@ public class launchOptions {
       Reader reader = Files.newBufferedReader(Folder.getVersionJsonPath());
       JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
       String formikoVersion="";
-      try {
-        formikoVersion = lireUnFichier.lireUnFichierGs("version.md").getFirst();
-      }catch (Exception e) {}
+      GString gs = lireUnFichier.lireUnFichierGs("version.md");
+      if(!gs.isEmpty()){
+        formikoVersion=gs.getFirst();
+      }
       String musicVersion="";
       String dataVersion="";
       if(args.length>1 && args[1].equals("1")){
         erreur.info("Update dataVersion");
-        dataVersion = getCurentversion();
+        dataVersion = f.getCurentVersion();
       }else{
         dataVersion = (String) parser.get("data");
       }
       if(args.length>2 && args[2].equals("1")){
         erreur.info("Update musicVersion");
-        musicVersion = getCurentversion();
+        musicVersion = f.getCurentVersion();
       }else{
         musicVersion = (String) parser.get("music");
       }
@@ -368,18 +369,18 @@ public class launchOptions {
       erreur.alerte("can't update data version "+e);
     }
   }
-  /**
-  *{@summary return the curent version.}<br>
-  *Curent version is in version.md.
-  *@version 1.51
-  */
-  public static String getCurentversion(){
-    GString gsIn = lireUnFichier.lireUnFichierGs("version.md");
-    if(gsIn.length()==0){
-      gsIn = lireUnFichier.lireUnFichierGs("app/version.md");
-    }
-    String version = "x.x.x";
-    if(gsIn.length()>0){version = gsIn.getItem(0);}
-    return version;
-  }
+  // /**
+  // *{@summary return the curent version.}<br>
+  // *Curent version is in version.md.
+  // *@version 1.51
+  // */
+  // public static String getCurentVersion(){
+  //   GString gsIn = lireUnFichier.lireUnFichierGs("version.md");
+  //   if(gsIn.length()==0){
+  //     gsIn = lireUnFichier.lireUnFichierGs("app/version.md");
+  //   }
+  //   String version = "x.x.x";
+  //   if(gsIn.length()>0){version = gsIn.getItem(0);}
+  //   return version;
+  // }
 }
