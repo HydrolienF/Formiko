@@ -207,7 +207,7 @@ public class launchOptions {
     if(args.length>1){
       stats.statsJavadoc(args[1]);
     }else{
-      stats.statsJavadoc("src/main/",true);
+      stats.statsJavadoc("src/main/java/",true);
     }
     if(valueToPrint>0){
       String s = switch (valueToPrint) {

@@ -19,7 +19,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-public class imageTest extends TestCaseMuet{
+public class imageTest extends TestCaseMuet {
 
   // FUNCTIONS -----------------------------------------------------------------
   @BeforeAll
