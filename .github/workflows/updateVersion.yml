@@ -1,0 +1,16 @@
+name: updateVersion
+
+on:
+  pull_request:
+    branches: [ master ]
+    types: [closed]
+
+jobs:
+  releaseJob:
+    # if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    # outputs:
+      # output1: ${{ steps.create_release.outputs.upload_url }}
+    steps:
+    - name: updateVersion.sh
+      run: ./updateVersion.sh
