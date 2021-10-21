@@ -3,9 +3,10 @@ fr.formiko.formiko.interfaces
 fr.formiko.usuel
 fr.formiko.usuel.exceptions
 fr.formiko.usuel.images
-fr.formiko.usuel.listes
 fr.formiko.usuel.maths
 fr.formiko.usuel.media.audio
+fr.formiko.usuel.structures
+fr.formiko.usuel.structures.listes
 fr.formiko.usuel.types
 fr.formiko.views
 fr.formiko.views.cli
