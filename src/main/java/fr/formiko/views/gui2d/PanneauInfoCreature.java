@@ -60,7 +60,7 @@ public class PanneauInfoCreature extends PanneauInfo {
     }
     /**
     *{@summary Build including the tranfomation of Creature to Pannel.}<br>
-    *Creature are represent as icon & FProgressBar.
+    *Creature are represent as icon &#38; FProgressBar.
     *@version 2.7
     */
     @Override
@@ -278,7 +278,7 @@ class PanneauCreatureIcons extends Panneau {
     label.updateSize();
   }
   /**
-  *{@summary Paint every icon & the FLabel.}<br>
+  *{@summary Paint every icon &#38; the FLabel.}<br>
   *@version 2.7
   */
   @Override

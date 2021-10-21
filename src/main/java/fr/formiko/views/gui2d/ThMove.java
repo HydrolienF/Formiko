@@ -41,7 +41,7 @@ public class ThMove extends Thread{
   *{@summary Create Thread for the ObjetSurCarteAId animation.}
   *@param o the Object to animate.
   *@param from CCase from where it move.
-  *@param yo CCase to where it move.
+  *@param to CCase where it move.
   *@version 2.4
   */
   public ThMove(ObjetSurCarteAId o, CCase from, CCase to){

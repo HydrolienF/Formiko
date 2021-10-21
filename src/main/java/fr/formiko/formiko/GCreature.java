@@ -199,15 +199,15 @@ public class GCreature implements Serializable{//, Iterator{
     }
   }
   /**
-  *{@summary return the Creatures that are ally with c.}<br>
-  *@param c the tested creature.
-  *@param
+  *{@summary Return the Creatures that are ally with c.}<br>
+  *@param cTested the tested creature
+  *@param differenceTolerated the Pheromone difference that is tolerated
   *@version 2.1
   */
-  private GCreature filtreAlliés(Creature c2, int differenceTolerated){
+  private GCreature filtreAlliés(Creature cTested, int differenceTolerated){
     GCreature gcr = new GCreature();
     for (Creature c : toList()) {
-      if (c2.getPheromone().equals(c.getPheromone(),differenceTolerated)){
+      if (cTested.getPheromone().equals(c.getPheromone(),differenceTolerated)){
         gcr.add(c);
       }
     }

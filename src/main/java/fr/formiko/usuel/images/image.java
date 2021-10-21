@@ -261,7 +261,6 @@ public class image{
   /**
   *{@summary Return size of a Creature image.}<br>
   *@param idEspece id of the Species (size depend of Species)
-  *@param stade stade also infulence size of the Creature
   *@param typeF typeF also infulence size of the Ant
   *@param taille taille used if it was 0% realistic
   *@version 1.3
@@ -496,7 +495,7 @@ public class image{
 
   //Map
   /**
-  *{@summary Return a new HashMap<String, BufferedImage>.}<br>
+  *{@summary Return a new HashMap&lt;String, BufferedImage&gt;.}<br>
   *@param folder folder that contain all images
   *@version 2.7
   */
@@ -512,7 +511,7 @@ public class image{
     return map;
   }
   /**
-  *{@summary Return a new HashMap<String, BufferedImage>.}<br>
+  *{@summary Return a new HashMap&lt;String, BufferedImage&gt;.}<br>
   *@param folderName the name of the folder that contain all images
   *@version 2.7
   */
@@ -520,7 +519,7 @@ public class image{
     return getImagesAsMap(new File(folderName));
   }
   /**
-  *{@summary Rezise a HashMap<String, BufferedImage>.}<br>
+  *{@summary Rezise a HashMap&lt;String, BufferedImage&gt;.}<br>
   *@param mapIn Map that contains images to rezise
   *@version 2.7
   */

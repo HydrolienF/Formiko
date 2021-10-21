@@ -446,7 +446,7 @@ public class triche {
   }
   /**
   *{@summary change pseudo of the player.}<br>
-  *It use parameters : id, pseudo & boolean.
+  *It use parameters : id, pseudo &#38; boolean.
   *Only id is needed.
   */
   private static void pseudo(String args[]){

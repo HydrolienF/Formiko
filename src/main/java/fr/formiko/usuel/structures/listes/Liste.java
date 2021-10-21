@@ -273,7 +273,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   /**
   *{@summary Delete the 1a t element}<br>
-  *@param t the element to remove.
+  *@param o the element to remove.
   *@return true if it have been remove
   *@version 1.52
   */

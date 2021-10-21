@@ -87,13 +87,13 @@ public class Fourmi extends Creature implements Serializable{
   *{@summary Secondary constructor.}<br>
   *@param fere The anthill of this.
   *@param e The specie of this.
-  *@param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  *@param typeF The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
   *@param stade The stade of the ant. It will call evoluer() to be sur that everything it update as if the ant have grow up.
   *@param ph The Pheromone of the ant.
   *@version 1.39
   */
-  public Fourmi(Fourmiliere fere, Espece e, byte ty, byte st, Pheromone ph){
-    this(fere,e,ty,st);
+  public Fourmi(Fourmiliere fere, Espece e, byte typeF, byte stade, Pheromone ph){
+    this(fere,e,typeF,stade);
     this.ph =ph;
   }
   /***
