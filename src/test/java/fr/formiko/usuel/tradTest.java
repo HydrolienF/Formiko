@@ -17,11 +17,12 @@ public class tradTest extends TestCaseMuet{
     Main.setView(new ViewNull());
     Main.setOs(new Os());
     Main.setFolder(new Folder());
+    Main.getFolder().ini(false);
     Main.iniOp();
     Main.setLangue(0);
     // Main.iniLangue();
     assertTrue(Main.getLanguage()==0);
-    assertEquals(g.get("test"),"testEo");
+    assertEquals("testEo",g.get("test"));
 
     String s = "une str normale sans spécial char";
     assertEquals(s,trad.replaceTranslation(s));
