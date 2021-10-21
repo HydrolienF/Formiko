@@ -6,11 +6,15 @@ on:
     # types: [closed]
 
 jobs:
-  releaseJob:
+  updateVersionJob:
     # if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     # outputs:
       # output1: ${{ steps.create_release.outputs.upload_url }}
     steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: ls
+      run: ls
     - name: updateVersion.sh
       run: ./updateVersion.sh
