@@ -108,6 +108,8 @@ public class Folder {
       //TODO fined & test a good path for mac.
       // setFolderMain(System.getProperty("user.home")+"/Formiko/");
       setFolderMain("");
+    }else{
+      setFolderMain("");
     }
   }
   public void iniFolderMain(){iniFolderMain(Main.getOs());}

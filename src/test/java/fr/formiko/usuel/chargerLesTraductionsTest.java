@@ -84,7 +84,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     assertEquals(1,chargerLesTraductions.getTLangue().length);//iniTLangue a dû s'auto corrigé en chargant juste l'anglais.
     chargerLesTraductions.setRep(rep);
     assertTrue(chargerLesTraductions.iniTLangue());
-    assertEquals(105,chargerLesTraductions.getTLangue().length);
+    assertEquals(107,chargerLesTraductions.getTLangue().length);
   }
 
   @Test
@@ -99,7 +99,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet{
     chargerLesTraductions.setRep("testDir"+x);
     assertTrue(chargerLesTraductions.créerLesFichiers());
     String tf [] = f.list();
-    assertEquals(105,tf.length);
+    assertEquals(107,tf.length);
     assertTrue(tableau.contient(tf,"en.txt"));
     assertTrue(tableau.contient(tf,"fr.txt"));
     assertTrue(tableau.contient(tf,"zu.txt"));

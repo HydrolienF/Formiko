@@ -1,0 +1,492 @@
+s:s
+n:ø
+.:.
+,:,
+?: ?
+!: !
+et:&[]
+
+la:la
+le:lo
+l':l'
+notre:noutron/noutra
+votre:voutron/voutra
+oui:oué
+non:nan
+tour:torn
+retour:retorn
+choix:chouéx
+temps:temps
+commencer:comenciér
+raccourci:racorciê
+commande:comanda
+bientôt:bentout
+suivant:siuvent
+avant:devant
+save:sârvar
+validate:validar
+
+set:chouèsir
+where:onte
+
+laIA:l'IA
+laJoueurHumain:lo jouyor humen/la jouyosa humèna
+joueur:jouyor
+case:câsa
+légende:Lègenda
+
+allié:aliâ
+neutre:netro
+ennemi:ènemi
+proie:bétèya
+
+//characteristics :
+taille:talye
+coordonées:cordonâyes
+coordonnées:cordonâyes
+type:tipo
+stade:?
+age:âjo
+nourriture:nurrètura
+action:accion
+propreté:propretât
+mode:modo
+phéromone:fèromono
+transporté:transportâ
+espèce:èspèce
+
+
+//formiko -----------------------------------------------------------------------
+
+//base word :
+fourmi:fromia
+insecte:bétèya
+créature:crèatura
+fourmilière:fromelyére
+graine:grana
+
+imago:imago
+larve:lârva
+oeuf:ôf
+nymphe:nenfa
+
+reine:rêna
+male:mâcllo
+minor:minor
+médias:mèdia
+major:major
+soldate:sordâta
+individu:endividu
+
+assexué:assèxuâ/assèxuâye
+sexué:sèxuâ/sèxuâye
+
+//menu :
+menuP.1:novèla partia
+menuP.2:chargiér na partia
+menuP.3:opcions
+menuP.4:quitar lo juè
+menuN.1:noviô dèpart
+menuN.2:partia personalisâye
+menuN.3:tuto
+menuN.4:retorn
+
+quitterJeu:quitar lo juè
+quitterOuContinuer:Souhètâds-vos continuar la partia ?
+messageQuitter:a bentout sur Formiko !
+validerQuitter:étes vos sûr de volyêr quitar ?
+quitterToMp:revegnir u menu principâl
+continuerJeu:continuar lo juè
+supprimerFourmi.1:suprimar la fromia
+supprimerFourmi.2:volédz-vos verément suprimar la fromia
+choisirPartie:chouèsisséds na partia
+
+affTest:test efectuâ avouéc succès
+
+toutLesJoueurHumainsEliminés:tots los jouyors humens ont étâ èliminâs
+
+nbrDeJoueur:nombro de jouyor(s) humen(s)
+nbrDIa:nombro d'IA
+nbrDeTour:nombro de torn
+dimentionCarteX:dimension de la carta en X
+dimentionCarteY:dimension de la carta en Y
+erreurCarteVide:empossibllo de lançar na partia sen nion jouyor et sen niona IA.
+maxFourmiIa:nombro de fromies maximum por les IA
+nomDuFichier:nom du fichiér
+getFileName:Entrâds la nom de la sârvagouârda que vos volêds chargiér : (Ou retorn por revegnir en dèrriér)
+dernierTourPassé:Lo darriér torn est dès-ora passâ.
+victoireInconue:victouère encognue
+élimination:èliminacion
+victoirePar:a gagnâ par
+pseudo:pseudo
+entrezPseudo:Endiquâds voutron pseudo
+
+nourritureInsecte:nurrètura por les bétèyes
+celluleA:Celula a
+lien:lim
+ChasseNull:Empossibllo de chaciér avouéc la crèatura
+CollecteNull:Empossibllo de colectar avouéc la crèatura
+CJoueur.1:La CJouyor contient lo jouyor
+CJoueur.2:et 1 lim vers lo jouyor
+
+listeCreature:Lista de Crèatura
+
+nétoyage:neteyâjo
+actionMax:accion maximum
+poidsSupportable:pêds maximum suportâbllo
+tAgeMax:tabllô des âjos maximum
+tNourritureMax:tabllô de la quantitât de nurrètura conservâye maximum
+tCoutAction:tabllô du côte des accions
+
+initialisationDesJoueurs:iniciâlisacion des jouyors
+initialisationDesInsectes:iniciâlisacion des bétèyes
+chargementDesGraphismes:iniciâlisacion des grafismes
+
+débutTourJoueur:a vos de jouyér
+débutTourIa:a comenciê son torn
+
+tempsJeuEcoulé:vos avâds jouyiê
+
+diff-2:cher ésiê
+diff-1:ésiê
+diff0:normâl
+diff1:dificilo
+diff2:cher dificilo
+diff3:ultra dificilo
+
+vitesseDeJeu-3:tavan
+vitesseDeJeu-2:libelula
+vitesseDeJeu-1:parpiôla
+vitesseDeJeu0:fromia
+vitesseDeJeu1:avelye
+vitesseDeJeu2:aragne
+vitesseDeJeu3:èscargot
+vitesseDeJeu4:lemace
+
+I0:parpiôla
+I1:scarabê
+I2:pujon orange
+I3:pujon vert
+I4:asticot
+I5:vers
+I6:mouchelyon
+I7:chenelye
+I8:clloporte
+I9:fromialion
+
+choixCarte:chouéx de la carta
+choixDif:chouéx de la dificultât
+choixVitesseDeJeu:chouéx de la vitèsse de juè
+
+aPourCoordonnées:a pour cordonâyes
+contient:contient
+
+paramètreCarte:paramétro de la carta
+paramètreJeu:paramétro du juè
+lancerPartie:lanciér la partia
+
+casesNuageuses:câses enneblles
+casesSombres:cases sombres
+
+chargementFini:chargement fini
+lancerLeJeu:lanciér lo juè
+
+lookedCase:Câsa ziôtâye
+saveName:nom de la sârvagouârda
+saveDone:sârvagouârda efectuâye
+defaultName:nom par dèfôt
+caseUnkwnowed:câsa encognua
+theCaseDoNotExist:la câsa exista pas
+optionsCanBeEditedIn:les opcions pôvont étre changiêes dens
+enterCoordinateAs:entrâds les cordonâyes d'ense
+
+//time
+t.j:j
+t.h:h
+t.min:min
+t.s:s
+t.ms:ms
+t.,:,
+jour:jorn
+heure:hora
+minute:menuta
+seconde:second
+miliseconde:milisecond
+
+date1:dâta de promiéra coneccion
+date2:dâta de darriéra coneccion
+tempsEnJeux:temps de juè totâl
+
+os.0:Linux[]
+os.1:Windows[]
+os.2:Mac[]
+os.-1:OS non recognu
+
+//carta :
+desert:dèsèrt
+garden:cortil
+miniWorld:mini mondo
+flowersPot:pot de fllors
+empty:vouedo
+fixMap:carta rèparâye
+mini:mini
+thirds:tiers
+
+//package usuel ------------------------------------------------------------------
+read.1:entrâds na valor por la variablla
+read.2:(ren entrar modifia pas la valor de la variablla)
+read.3:vos étes blocâ·ye. Tapâd STOP por entèrrompre cél programa.
+read.4:la chêna de caractèros
+read.5:est pas un nombro
+read.6:la valor donnâye est pas enclluâye dens l’entervalo acceptâ
+read.7:Oué ou Nan ?
+read.8:ècrivâd voutra rèponsa sos la forma "o" (por oué) ou "n" (por nan)
+read.9:l'entrâye de l'utilisator a pas étâ recognua.
+
+tableau.1:La posicion
+tableau.2:existe pas dens lo tabllô
+tableau.3:x en posicion finala rapondêsa
+tableau.4:est pas dens lo tabllô
+tableau.5:Lo tabllô est vouedo !
+
+allea.1:Lo tabllô t at pas ôtant de cases que lo tabllô tc
+allea.2:On prend pas en compte tc
+allea.3:Impossibllo de fére fluctuar ôtant na variablla
+allea.4:Pas de fluctuacion por céta variablla
+
+decoderUnFichier.1:La chêna de caractèros
+decoderUnFichier.2:est pas un nombro entier
+decoderUnFichier.3:est pas un boulèen
+decoderUnFichier.4:Lo caractéro
+
+ent.1:La conversion String To int a èchouâ
+
+GString.1:Lo GString est vouedo
+
+lireUnFichier.1:lignes on étâ trovâyes dens lo fichiér
+
+Message.1:consola
+
+erreur:error
+alerte:alerta
+erreur.1:un luè non prècisâ
+erreur.2:Trovar lê-desot la rêson et la lista des fonccions qui étiant en cors pendant l'arrét forciê
+erreur.3:fatala
+erreur.4:Na error
+erreur.5:s'est produéte dens
+erreur.6:Correccion aportâye
+erreur.7:Quârque-ren d'anormâl est arrivâ dens
+erreur.8:Y a pôt-étre pas de rêson de s'enquiètar
+erreur.9:La fonccionnalitât a pas oncora étâ emplèmentâye
+erreur.10:nom encongu
+erreur.11:Lo chargement de l'émâge
+erreur.12:a pas fonccionnâ. Vèrifiâds que lo fichiér data/imageFormiko/ contient ben l'émâge en question.
+erreur.13:La lista
+erreur.14:est vida
+erreur.15:lista encognua
+erreur.16:La tentativa de pousa a èchouâ (durâye de pousa
+erreur.17:La conversion de tipo a èchouâ por lo tipo
+alerteGUI2Dfail:1 accion grafica a pas fonccionâ
+
+str.1:Empossibllo d'efectuar na des conversions
+str.2:corrèctament
+
+ElementListeIntrouvableExeption.1:La/Lo
+ElementListeIntrouvableExeption.2:a pas pu étre retirâ
+
+ListeVideExeption.1:empossibllo de
+
+chasseInsectivore.1:a vu na bétèya en
+chasseInsectivore.2:a tuâ la bétèya
+chasseInsectivore.3:a dèpolyiê la bétèya
+evoluerFourmi.1:passa u stado siuvent
+pondreReine.1:est nèssua
+spawnOf:aparicion de
+
+//graphic item:
+
+//bouton of PanneauEchap
+bouton.nom.-10:sârvagouârdar
+bouton.nom.-11:opcions
+bouton.nom.-12disable:chargiér
+bouton.nom.-12:retorn u menu prencipâl
+bouton.nom.-13:quitar Formiko
+bouton.nom.-14:retorn u juè
+
+languageChoice:chouèsisséds na lengoua
+
+save.message:entrâds lo nom de voutra sârvagouârda
+
+bouton.desc.0:Rètrècir la carta
+bouton.desc.1:Dèplaciér la carta vers lo hôt
+bouton.desc.2:Agrandir la carta
+bouton.desc.3:Dèplaciér la carta vers la gôche
+bouton.desc.4:Centrar la carta
+bouton.desc.5:Dèplaciér la carta vers la drêta
+bouton.desc.6:Centrar la carta sur la fromia que jouye actuelament
+bouton.desc.7:Dèplaciér la carta vers lo bâs
+bouton.desc.8:Zoomar d'ense que totes les cases seyont visiblles
+
+bouton.nom.20:Se dèplaciér
+bouton.nom.21:Chaciér la bétèya sur la casa
+bouton.nom.22:Pondre
+bouton.nom.23:Trofalaxiér
+bouton.nom.24:Se neteyér ou neteyér na fromia aliâye.
+bouton.nom.25:Mangiér na grana
+bouton.nom.26:Cassar na grana
+bouton.nom.27:Chaciér (moda ôto)
+bouton.nom.28:S'occupar des ôtres fromies de la fromelyére (modo ôto)
+bouton.nom.29:Passar lo torn
+bouton.nom.30:Suprimar
+bouton.nom.31:Menu
+
+bouton.desc.20:Dèplaciér la fromia sèleccionâye
+bouton.desc.21:Chaciér la bétèya situâye sur la méma casa que la fromia
+bouton.desc.22:Pondre un ôf
+bouton.desc.23:Trofalaxiér (transmetre de la nurrètura a na ôtra fromia par vie orâla)
+bouton.desc.24:Neteyér na fromia aliâye (ou la fromia sèleccionâye) sur la casa actuèla.
+bouton.desc.25:Mangiér na grana uverta stockâye dens la fromelyére.
+bouton.desc.26:Cassar na grana fèrmâye.
+bouton.desc.27:Dècllenchiér lo modo ôtomatico "Chace"
+bouton.desc.28:Dècllenchiér lo modo ôtomatico "Nurresse"
+bouton.desc.29:Passar lo torn de la fromia
+bouton.desc.30:Suprimar la fromia
+bouton.desc.31:Uvrir lo menu d'opcions en juè
+
+pti.desc.1:Endiquâd l'id de la froma qu'ara la nurrètura.
+pti.desc.2:Endiquâd la quantitât de nurrètura oferta.
+pti.desc.3:Endiquâd lo tipo de l'ôf a pondre : 0=Rêna, 1=Mâcclo, 2=Minor, 3=Medium, 4=Major, 5+=Ôtro.
+pti.desc.4:Endiquâd la direccion à suévre.
+pti.desc.5:Endiquâd l'id de la fromia a neteyér. La fromia la plles sala est la fromia en promiéra posicion.
+
+//cli
+doAntAction:Chouésir na accion de fromia
+selectAnt:sèleccionar na fromia
+endTurn:finir lo torn
+endGame:finir la partia
+pauseActionGame:metre lo juè en pousa
+unaviable:endisponibllo
+setPlayingAnt:chouésir la fromia que jouye
+
+triche.aide.1:benvegnête dens l'enterface de froulye de Formiko. Y'est icé que vos povêds utilisar des comandes de froulye.
+triche.aide.2:les comandes ont la forma "nom : (arguments) descripcion"
+
+//command :
+
+cmd.desc.1:permet de vèrifiar que los codos froulyes sont disponibllos
+cmd.desc.2:afiche les enformacions relatives a na crèatura (si possibllo el afiche issé-ben les variablles de la bétèlye ou de la fromia)
+cmd.desc.3:afiche les enforamcions relatives a un jouyor
+cmd.desc.4:afiche totes les comandes et lor descripcion
+cmd.desc.set:atribue na valor a la variablla
+cmd.desc.25:afiche les enfos de la casa
+cmd.desc.26:afiche la lista des jouyors
+cmd.desc.27:ajout de na crèatura ou de na grana
+cmd.desc.28:fére èvoluar na fromia ou na crèatura que pôt èvoluar.
+cmd.desc.29:afiche lo texto correspondant a la cllâf donâye en entrâye.
+cmd.desc.36:retornar u menu prencipâl.
+
+cmd.args.2:id crèatura
+cmd.args.3:id jouyor
+cmd.args.5:id crèatura, nurrètura
+cmd.args.6:id crèatura, nurrèturaMax
+cmd.args.7:id crèatura, âjo
+cmd.args.8:id crèatura, âjoMax
+cmd.args.9:id crèatura, boolean estMort
+cmd.args.10:id crèatura, accion
+cmd.args.11:id crèatura, accionMax
+cmd.args.12:id crèatura, fèromona vermelya, fèromona vèrta, fèromona bllua
+cmd.args.13:id crèatura, tipo
+cmd.args.14:id crèatura, stado
+cmd.args.15:id crèatura, modo
+cmd.args.16:id crèatura, id fromelyére
+cmd.args.17:id crèatura, èspèce
+cmd.args.18:id crèatura, propretât
+cmd.args.19:id crèatura, quantitât transportâye
+cmd.args.20:id grana, duretâtMax
+cmd.args.21:id bétèlye, nurrèturaFornie
+cmd.args.22:id bétèlye, nurrèturaMejâbla
+cmd.args.23:id jouyor, pseudo
+cmd.args.24:id jouyor, boolean estIa
+cmd.args.25:int x, int y
+cmd.args.27:Fromia ou Bétèlye ou Grana, Si bétèlye : x, y, tipo Si fromia : id Fromelyére Si Grana : x, y.
+cmd.args.28:id crèatura
+cmd.args.29:String cllâf
+
+
+descNull:la descripcion de céta comanda est pas dèfenêta.
+
+
+//conseil:
+conseil.1:Vos avâds trovâ un bug ? Signalâds-y u dèvelopor du juè a hydrolien.lili502@gmail.com.
+conseil.2:Vos voléds participiér u dèvelopament du juè ? Codor, grafisto et traductor sont benvenues (hydrolien.lili502@gmail.com).
+conseil.3:Vos voléds pas plles microg·èstionar voutres fromies ? Utilisâds los 2 modos ôtomaticos a voutra disposicion.
+conseil.4:Porquè pas variar un pou lo stilo de juè ? Chouèsissâds na èspèce que vos cognêssâds pas oncora.
+conseil.5:Cèrtênes èspèces de fromies sont polymorfes. Tot-pariér els ont des ovriéres de talye variablla por povêr fére des opèracions ben diffèrentes.
+conseil.6:Pondéds pas trop d'ôfs d'un côp. Senon vos seréds pas capâbllo d'en prendre souen tant qu'els seront pas devegnues des imagos.
+conseil.7:Les fromies passont par 4 stados de dèvelopement : ôf, lava, ninfa et imago (fromia adulta).
+conseil.8:Les chouéx que vos povéds fére sont indiquâs en hiôt a gôche de voutron ècran.
+conseil.9:Les fromies ont pas de parpiéres por humidifiar lors uelys. Els devont conservar na bona hygiéna de via tot lo temps por povêr comunicar avouéc lors antenes et vêre avouéc lors uelys.
+conseil.10:Les ôfs, laves et ninfes sont pas capâblles de se neteyér totes soles. Els ont besouen d'éde d'un imago senon il risquerêt d'étre enfectâ por na môvése bactèria. Vèrifiâds que voutron coven reste u dessus de 50% de propretât.
+conseil.11:La Rêna pôt pondre que dens la fromelyére.
+conseil.12:Les fromies granivores se nurrèssont unicament de granes. Por gouardar lor nurrètura, els conservont les granes dens des piéces sèche de la fromelyére.
+conseil.13:Les fromies granivores sont pas capâblles de trofalaxiér. Por nurrir lo coven, els devont avêr des granes overtes en stock dens la fromelyére.
+conseil.14:Les vitèsses sont exprimâyes por des bétèlyes. Plles la bétèlye est rapida, plles lo dèrolament du juè est rapido. La vitesse Fromia correspond a la vitèsse standard.
+conseil.15:Lo juè vos semblle trop compliquâ ? Chouésisséds la dificultât ésiêe ou cher ésiêe.
+conseil.16:Lo juè vos semblle trop ésiê ? Èsseyéds de ganar na partia en ultra-dificilo.
+conseil.17:Si vos prèfèrâds explorar la carta par vos-mémo, chouèsisséds l'opcion "cases eneblles"
+conseil.18:Avâds-vos ja essayiê de lanciér na partia personalisâye avouéc unicament des IA ?
+conseil.19:Vos povéds chargiér na partia sârvagouârdâye depués lo menu prencipâl.
+conseil.20:Si y'a que na sola fromia a fourmi a neteyér ou a norrir sur la casa onte est voutra fromia, el sera ôtomaticament selectionâye por étre neteyêe ou nurrêta.
+conseil.21:La lengoua du juè est ôtomaticament cela de voutron ordinator, mas vos pouvâds y modifiér dens les Opcions.
+conseil.22:Cèrtênes èspèces de fromies sont policaliques. Tot-pariér que na rêna de na fromelyére A, pondra des novéles fromies dens sa fromelyére B & les fromies A et B continueront a s'entrédiér come si elle étiant dens la méma fromelyére. Sur na granda carta, y'est utilo de pondre des ôfs de rêna et de mâcclo que porront fondar des novéles fromelyéres aliâyes a l'ôtro bout de la carta.
+
+//message ---------------:
+//mort :
+mort0:est mort(a)
+mort1:a étâ enfectâ(ye) par na bactèria mortela
+mort2:est mort(a) de vielyèce
+mort3:est mort(a) de fam
+mort4:s'est suicidâ(ye)
+mort10:est mort(a) face a la mandibula de
+mort11:a étâ aspèrgiêe d'acido por
+
+//tuto :
+tuto.0:Benvegnête sur Formiko jouena fromia !
+tuto.1:Aprenons ensembllo les bases de cél juè por que tu pouesses t'y amusar.
+tuto.2:Noutra rêna est afamâye, dèpllaciens-y de na casa vers la drêta por qu'el pouesse chaciér na bétèlye.
+tuto.3:Por dèplaciér na fromia, cliquâds-drêt sur la casa de destinacion.
+tuto.4:Ben ! Ora mangens-y !
+tuto.5:Por tuar na bétèlye, cliquâds sur "Chaciér la bétèlye sur la casa" situâye en bas de voutron ècran.
+tuto.6:Noutra rêna fromia a rèussi a tuar la bétèlye mas aviêt plus assèz d'accions pour y mangiér.
+tuto.7:Mais pas de pânica, na bétèlye morta fuéra pas ben luen !
+tuto.8:Utilisâds oncora la toche "Chaciér la bétèlye sur la casa" por mangiér la bétèlye.
+tuto.9:Pèrfèt ! Dès ora vos savéds chaciér.
+tuto.10:Dès ora, fôt fére prosperar la fromelyére.
+tuto.11:Retornâds a la fromelyére. (clic-drêt sur la casa de destinacion.)
+tuto.12:Pondêds un ôf avouéc lo bouton "Pondre" situâ en bas de l'ècran.
+tuto.13:L’ôf ést pondu. Dès ora il fôt en prendre souen, senon il arriverat jamas a l'âjo adulto.
+tuto.14:Atendens un pou qu'il grandésse.
+tuto.15:Vos povéds passar un torn e$en cliquant sur lo bouton "Passar lo torn" situâ en bas de l'ècran.
+tuto.16:Noutron ôf a grandi ! Dès ora y'est na larva !
+tuto.17:Les larves devont être neteyêes frèquement por pas morir de maladie.
+tuto.18:Neteyéds la larva en cliquant sur lo bouton "Neteyér" situâ en bas de l'ècran.
+tuto.19:Noutra larva est propra. Atendens qu'el èvolue u stado supèrior en passant lo torn avouéc lo bouton associê en bas de l'écran.
+tuto.20:La larva a èvoluâ, y'est dès ora na ninfa. Les ninfes ont, come les larves, besouen d'étre neteyêes et nurries.
+tuto.21:Por nurrir lo coven (los ôfs, larves et ninfes, les fromies règurgitont de la nurrètura contegnue dens lor "èstoma sociâl", tot-pariér na trofalaxia.
+tuto.22:Nurressâds la larva avouéc lo bouton "trofalaxia" situâ en bas de l'ècran.
+tuto.23:La ninfa est rassasiêe ! Atendens oncora un pou qu'el grandésse (cliquâds sur lo bouton "passar lo torn" situâ en bas de l'ècran).
+tuto.24:La fromia est enfin adulta (imago) ! El pôt dès-ora efectuar des accions come la rêna.
+tuto.25:D'ôtres bétèlyes vont aparétre avouéc lo temps. Mandens la rêna en tuar yona en cliquant sur lo bouton "chace ôtomatica".
+tuto.26:Avouéc la chace ôtomatica, vos fromies povont chaciér de maniére ôtonoma.
+tuto.27:Il y a issé-ben un modo nurrèssa ôtomatica. Léssiér la rêna a la fromelyére avouéc cél modo activâ est conselyé quand y at des ôfs, des larves ou des ninfes.
+tuto.28:Noutra èspèce est pas granivora (mange pas de granes). Mas y at des fromelyéres vesines que povont colectar des granes por y mangiér.
+tuto.29:L'ovrièra que nos avons pondu pôt efectuar les mémes accions que la rêna, a l'exepcion de pondre.
+tuto.30:Les ovriéres sont plles efficaces sur certines ovrâjes (ço lor demande mens d'accions por y fére). Noutra ovriéra chace plles facilament que la rêna.
+tuto.31:Donons un ovrâjo a acompllir a noutra ovrièra por que lo torn puésse se terminar. (Cliquâds sur un des boutons en bas à drêt de l'ècran, pllesiors côps si besouen.)
+tuto.31.Vê-lê, vos avâds gagnâ ! Ah eh... coment je devo vos apelar ?
+tuto.32:C'étiêt lo darriér torn de cél tutorièl, si vos avâds un dôte, vos povéds refére cél tuto.
+tuto.33:Senon, les descripcions des boutons s'afichont quand vos y survolâds avouéc la rata, tot pariér por les cases de la carta. Les informacions concernant la fromia sèleccionâye sont à drêt de l'ècran.
+tuto.34:Si vos savéds totjorn pas ço que vos avâds besouen, vos povéds demandar sur lo servidor Discord oficièl du juè : http://discord.gg/vqvfGzf
+tuto.35:Por remportar na partia u temps, vos devéds avêr un score plles hôt que célu des IA et des ôtres jouyors.
+tuto.36:Voutron score dèpend de voutron nombre de fromies (les fromies adultes donont un score melyor), de la dificultât de la partia et de la vitèssa du juè.
+tuto.37:Vê-lê, y'est tot por cél tutorièl, vos povéds retornar directament u menu prencipâl yô vos povéds comenciér voutra prochéna partia !

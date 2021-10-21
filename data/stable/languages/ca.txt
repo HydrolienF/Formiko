@@ -1,88 +1,88 @@
 //the 1a line is used only for test.
 test:testCa
 
-s:s[auto]
-n:[auto]
-.:.[auto]
-,:,[auto]
-?:?[auto]
-!:![auto]
+s:s
+n:ø
+.:.
+,:,
+?:?
+!:!
 et:&[]
 
-la:la[auto]
-le:el[auto]
-l':el[auto]
-notre:nostre[auto]
-votre:el vostre[auto]
-oui:sí[auto]
-non:no[auto]
-tour:gira[auto]
-retour:tornar[auto]
-choix:elecció[auto]
-temps:temps[auto]
-commencer:començar[auto]
-raccourci:drecera[auto]
-commande:ordenat[auto]
-bientôt:aviat[auto]
-suivant:seguint[auto]
-avant:abans[auto]
+la:la
+le:el
+l':el
+notre:nostre
+votre:el vostre
+oui:sí
+non:no
+tour:gira
+retour:tornar
+choix:elecció
+temps:temps
+commencer:començar
+raccourci:drecera
+commande:ordenat
+bientôt:aviat
+suivant:seguint
+avant:abans
 save:
 validate:
 
 set:
 where:
 
-laIA:l'IA[auto]
-laJoueurHumain:el jugador humà[auto]
-joueur:jugador[auto]
-case:caixa[auto]
-légende:llegenda[auto]
+laIA:l'IA
+laJoueurHumain:el jugador humà
+joueur:jugador
+case:caixa
+légende:llegenda
 
-allié:aliat[auto]
-neutre:neutre[auto]
-ennemi:enemic[auto]
-proie:presa[auto]
+allié:aliat
+neutre:neutre
+ennemi:enemic
+proie:presa
 
 //caractéristiques :
-taille:tallar[auto]
-coordonées:informació de contacte[auto]
-coordonnées:informació de contacte[auto]
-type:tipus[auto]
-stade:estadi[auto]
-age:edat[auto]
-nourriture:menjar[auto]
-action:acció[auto]
-propreté:neteja[auto]
-mode:mode[auto]
-phéromone:feromona[auto]
-transporté:transportat[auto]
-espèce:espècies[auto]
+taille:tallar
+coordonées:informació de contacte
+coordonnées:informació de contacte
+type:tipus
+stade:estadi
+age:edat
+nourriture:menjar
+action:acció
+propreté:neteja
+mode:mode
+phéromone:feromona
+transporté:transportat
+espèce:espècies
 
 
 //formiko -----------------------------------------------------------------------
 
 //voc de base :
-fourmi:formiga[auto]
-insecte:insectes[auto]
-créature:criatura[auto]
-fourmilière:formiguer[auto]
-graine:llavor[auto]
+fourmi:formiga
+insecte:insectes
+créature:criatura
+fourmilière:formiguer
+graine:llavor
 
-imago:imatge[auto]
+imago:imatge
 larve:larves[auto]
-oeuf:ou[auto]
-nymphe:nimfa[auto]
+oeuf:ou
+nymphe:nimfa
 
-reine:reina[auto]
-male:masculí[auto]
-minor:menor[auto]
-médias:mitjana[auto]
-major:major[auto]
+reine:reina
+male:masculí
+minor:menor
+médias:mitjana
+major:major
 soldate:soldats[auto]
 individu:individual[auto]
 
-assexué:asexual[auto]
-sexué:sexat[auto]
+assexué:asexat
+sexué:sexat
 
 //menu :
 menuP.1:part nova[auto]
