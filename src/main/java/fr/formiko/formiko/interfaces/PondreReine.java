@@ -64,8 +64,8 @@ public class PondreReine implements Serializable, Pondre{
       byte type = 3;
       Fourmi fm = new Fourmi(f.getFourmiliere(),f.getEspece(),type);
       fere.getGc().add(fm); //TODO remove when doing #190
-      fm.setAgeMax((int)((double)(f.getEspece().getIndividuParType(type).getAgeMax(0)*fm.getMultiplicateurDeDiff())));
-      //f.getFourmiliere().getCCase().getContenu().getGc().add(fm);
+      fm.setAgeMax((int)((double)(f.getEspece().getIndividuByType(type).getAgeMax(0)*fm.getMultiplicateurDeDiff())));
+      //f.getFourmiliere().getCCase().getContent().getGc().add(fm);
       //fere.getGc().add(fm); l'ajout a la fourmilière ce fait dans le constructeur de Fourmi.
       f.setNourriture(f.getNourriture() - FOOD_COST_TO_LAY);
       Message m = new Message(g.getM("la")+" "+f.getNom()+" "+fm.getId() + " "+g.get("pondreReine.1")+".", fere.getId(), 3);
@@ -82,13 +82,13 @@ public class PondreReine implements Serializable, Pondre{
   */
   protected byte choixType(){
     if (!f.getFere().getJoueur().getIa()){
-      int ti[] = f.getEspece().getTypeDIndividu();
+      int ti[] = f.getEspece().getAviableType();
       //byte x = (byte) read.getInt(0,10,"type de l'oeuf",3);
       //TODO
       // getView().getPp().getPj().addPti(ti,3);
       tableau.afficher(ti);
       byte x = (byte) PanneauTInt.getChoixId();
-      if(f.getEspece().getGIndividu().getIndividuParType(x) != null){
+      if(f.getEspece().getGIndividu().getIndividuByType(x) != null){
         return x;
       }
       erreur.erreur("Le type spécifié par le joueur n'est pas défini pour cette Espece.","3 est le type choisi a la place.",false,1);

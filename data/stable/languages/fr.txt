@@ -177,9 +177,9 @@ I7:chenille
 I8:cloporte
 I9:fourmilion
 
-choixCarte:choix de la carte
-choixDif:choix de la difficulté
-choixVitesseDeJeu:choix de la vitesse de jeu
+choixCarte:Carte
+choixDif:Difficulté
+choixVitesseDeJeu:Vitesse de jeu
 
 aPourCoordonnées:a pour coordonnées
 contient:contient
@@ -305,6 +305,16 @@ chasseInsectivore.3:a dépecer l'insecte
 evoluerFourmi.1:passe au stade suivant
 pondreReine.1:est née
 spawnOf:apparition de
+
+iconName.age:age
+iconName.food:nourriture
+iconName.health:propreté
+iconName.action:action
+
+colorState.0:bon
+colorState.1:moyen
+colorState.2:mauvais
+colorState.3:critique
 
 //graphic item:
 

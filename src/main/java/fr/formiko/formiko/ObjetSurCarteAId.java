@@ -12,7 +12,7 @@ public class ObjetSurCarteAId extends ObjetAId implements Serializable{
   protected CCase ccase;
   protected byte direction;
 
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   //Principal
   public ObjetSurCarteAId(CCase ccase){
     super();
@@ -23,7 +23,7 @@ public class ObjetSurCarteAId extends ObjetAId implements Serializable{
   public ObjetSurCarteAId(){
     this((CCase) null);
   }
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public CCase getCCase(){return this.ccase;}
   //setCase est Override par Creature & Graine.
   public void setCCase(CCase cc){ this.ccase = cc;}
@@ -31,7 +31,7 @@ public class ObjetSurCarteAId extends ObjetAId implements Serializable{
   public void setCc(CCase cc){setCCase(cc);}
   public byte getDirection(){ return direction;}
   public void setDirection(int x){direction = (byte)x;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public byte getDirAllea(){
     if(!Main.getElementSurCarteOrientéAprèsDéplacement()){return 2;}
     int direction = allea.getAlléa(7)+1;//on a 8 possibilité de 1 a 8.

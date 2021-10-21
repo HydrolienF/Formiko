@@ -1,26 +1,31 @@
 package fr.formiko.usuel;
 
+import com.github.cliftonlabs.json_simple.JsonObject;
+import com.github.cliftonlabs.json_simple.Jsoner;
+
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Chrono;
 import fr.formiko.usuel.exceptions.MissingFolderException;
 import fr.formiko.usuel.types.str;
+import fr.formiko.views.View;
+import fr.formiko.usuel.structures.listes.GString;
 
 import java.io.File;
 import java.io.Reader;
+import java.net.URL;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.nio.file.Path;
-import com.github.cliftonlabs.json_simple.JsonObject;
-import com.github.cliftonlabs.json_simple.Jsoner;
+import java.nio.file.Paths;
 
 /**
 *{@summary Class that have all link to all folder of formiko.}<br>
 *You can acces to file by using getters.
 *Ex : getFolderStable()+getFolderImages() will return the path to stable images.
 *@author Hydrolien
-*@version 1.37
+*@version 2.7
 */
-public class Folder{
+public class Folder {
+  private static String DEFAULT_NULL_VERSION="0.0.0";
   private String folderMain="data/";
   private String folderStable="stable/";
   private String folderTemporary="temporary/";
@@ -39,18 +44,13 @@ public class Folder{
 
   private int missingFolder;
   private boolean secondTime;
+  private boolean launchDownload;
+
+  private static boolean newVersionAviableTestDone=false;
 
   public Folder(){
     secondTime=false;
-    setFolderMain();
-    if(Main.getOs().isWindows()){
-      setFolderMain(System.getenv("APPDATA")+"/Formiko/");
-    }else if(Main.getOs().isLinux()){
-      setFolderMain(System.getProperty("user.home")+"/Formiko/");
-    }else if(Main.getOs().isMac()){
-      //TODO fined & test a good path for mac.
-      // setFolderMain(System.getProperty("user.home")+"/Formiko/");
-    }
+    iniFolderMain();
     // setFolderMain("");//always remove after test
     File folderM = new File(getFolderMain());
     if(!folderM.mkdirs() && !folderM.isDirectory()){
@@ -93,6 +93,26 @@ public class Folder{
   public String getFolderVideos() {return folderVideos;}
 	public void setFolderVideos(String folderVideos) {this.folderVideos = str.sToDirectoryName(folderVideos);}
 
+  public void setLaunchDownload(boolean b){launchDownload=b;}
+  /**
+  *{@summary Initialize the main folder name depending of OS.}<br>
+  *@param os Os to use for name initialisation.
+  *@version 2.7
+  */
+  public void iniFolderMain(Os os){
+    if(os.isWindows()){
+      setFolderMain(System.getenv("APPDATA")+"/Formiko/");
+    }else if(os.isLinux()){
+      setFolderMain("/"+System.getProperty("user.home")+"/Formiko/");
+    }else if(os.isMac()){
+      //TODO fined & test a good path for mac.
+      // setFolderMain(System.getProperty("user.home")+"/Formiko/");
+      setFolderMain("");
+    }else{
+      setFolderMain("");
+    }
+  }
+  public void iniFolderMain(){iniFolderMain(Main.getOs());}
   /**
   *{@summary Initialize missing folder if some folder are missing.}<br>
   *It will call download if main folder is missing.<br>
@@ -103,12 +123,15 @@ public class Folder{
   public int ini(boolean allowedDownolad){
     missingFolder=0;
     File f = new File(getFolderMain());
+    if(newVersionAviable()){
+      erreur.info("A new version, "+getLastStableVersion()+" is aviable at https://formiko.fr/download");
+    }
     try{
       if(!f.exists() || f.listFiles().length==0){
         f.mkdirs();
         missingFolder++;
         if(allowedDownolad){throw new MissingFolderException("main");}
-      }else if(needToUpdateVersion()){
+      }else if(needToUpdateDataVersion()){
         erreur.alerte("A compatible data version ("+getWantedDataVersion()+") is downloaded");
         if(allowedDownolad){downloadData();}
       }
@@ -148,16 +171,6 @@ public class Folder{
         fichier.deleteDirectory(file);
       }
     }
-    // File f = new File(getFolderTemporary());
-    // fichier.deleteDirectory(f);
-    // f = new File(getFolderResourcesPacks());
-    // fichier.deleteDirectory(f);
-    // f = new File(getFolderSaves());
-    // fichier.deleteDirectory(f);
-    // f = new File(getFolderMain()+"Keys.txt");
-    // //f.delete();
-    // f = new File(getFolderMain()+"Options.md");
-    // f.delete();
   }
   /**
   *{@summary Initialize stable missing folder.}<br>
@@ -253,74 +266,185 @@ public class Folder{
   /**
   *{@summary Download main data from github release.}<br>
   *It need Main.version to be correct to work.<br>
-  *@version 1.51
+  *@version 2.7
   */
   public void downloadData(){
-    //TODO uncomment next line when #301 (tuto issues) will be fix.
-    // Main.setPremierePartie(true);
+    View view = Main.getView();
+    view.iniLauncher();
+    launchDownload=true;
+    boolean needToRetry = true;
+    while(needToRetry){
+      while(!launchDownload){ // while not first time or player haven't clic on retry, wait.
+        Temps.pause(100);
+      }
+      prepareDownloadData();
+      Main.startCh();
+      view.setDownloadingMessage("downloading game data");
+      boolean downloadWork = fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+getWantedDataVersion()+"/data.zip", getFolderMain()+"data.zip", true);
+      Main.endCh("downloadData");
+      if(downloadWork){
+        needToRetry = !unzipAndCleanDownloadData();
+      }
+      launchDownload=false;
+      //if everything has work as intented needToRetry=false here.
+    }
+    view.closeLauncher();
+  }
+  /**
+  *{@summary Do pre download action.}<br>
+  *@version 2.7
+  */
+  private void prepareDownloadData(){
+    View view = Main.getView();
     Main.startCh();
+    view.setDownloadingMessage("deleting old file");
     fichier.deleteDirectory(getFolderMain());
+    Main.getView().setDownloadingValue(-5);
+    view.setDownloadingMessage("creating main Folder");
     File f = new File(getFolderMain());
     f.mkdirs();
     Main.endCh("removeOldData");
+    Main.getView().setDownloadingValue(0);
+  }
+  /**
+  *{@summary Do post download action.}<br>
+  *@version 2.7
+  */
+  private boolean unzipAndCleanDownloadData(){
+    View view = Main.getView();
     Main.startCh();
-    fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+getWantedDataVersion()+"/data.zip",getFolderMain()+"data.zip");
-    Main.endCh("downloadData");
-    Main.startCh();
+    view.setDownloadingMessage("unziping game data");
     fichier.unzip(getFolderMain()+"data.zip",getFolderMain().substring(0,getFolderMain().length()-5));
     Main.endCh("unzipData");
+    Main.getView().setDownloadingValue(105);
     System.gc();
+    view.setDownloadingMessage("cleaning folders");
     if(!fichier.deleteDirectory(getFolderMain()+"data.zip")){
       erreur.alerte("unable to delete "+getFolderMain()+"data.zip");
+      return false;
+    }else{
+      return true;
     }
+    // Main.getView().setDownloadingValue(110);
   }
-  public boolean needToUpdateVersion(){
+  /**
+  *{@summary Return true if data version is outdated or overdated.}<br>
+  *Each game version have 1 linked data version, so we need to know witch one.
+  *Data don't need to be update as many times as game is,
+  *so when a new version of data is needed it is publish in github action.
+  *A new data version always take curent game version as version number.
+  *@version 2.7
+  */
+  public boolean needToUpdateDataVersion(){
     String wantedDataVersion = getWantedDataVersion();
     String curentDataVersion = getCurentDataVersion();
     if(wantedDataVersion.equals("null") || curentDataVersion.equals("null")){return false;}
     if(!wantedDataVersion.equals(curentDataVersion)){return true;}
     return false;
   }
+  /**
+  *{@summary Return true if a new version is aviable.}<br>
+  *If last stable version > curent version.<br>
+  *@version 2.7
+  */
+  public boolean newVersionAviable(){
+    if(newVersionAviableTestDone){return false;}
+    newVersionAviableTestDone=true;
+    try {
+      return isOver(getLastStableVersion(), getCurentVersion());
+    }catch (Exception e) {
+      return false;
+    }
+  }
+  /**
+  *{@summary Return true if v1 > v2.}<br>
+  *@version 2.7
+  */
+  public boolean isOver(String v1, String v2){
+    return str.isVersionOver(v1,v2);
+  }
+  /**
+  *{@summary Return the version that game have.}<br>
+  *@version 2.7
+  */
+  public String getCurentVersion(){
+    //TODO #443 use version from version.md !
+    // return getXVersion(Paths.get(getFolderMain()+"version.json"), "formiko");
+    GString gs = lireUnFichier.lireUnFichierGs(System.getProperty("user.dir")+"/version.md");
+    if(gs.isEmpty()){
+      erreur.alerte("can't read curent game version");
+      return DEFAULT_NULL_VERSION;
+    }
+    return gs.getFirst();
+  }
+  /**
+  *{@summary Return the curent data version that game have.}<br>
+  *@version 2.7
+  */
   public String getCurentDataVersion(){
-    try {
-      // create a reader
-      Reader reader = Files.newBufferedReader(Paths.get(getFolderMain()+"version.json"));
-      // create parser
-      JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
-      // read customer details
-      String version = (String) parser.get("data");
-      return version;
-    }catch (Exception e) {
-      erreur.alerte("can't read data version");
-      return "null";
-    }
+    return getXVersion(Paths.get(getFolderMain()+"version.json"), "data");
   }
+  /**
+  *{@summary Return the curent music version that game have.}<br>
+  *@version 2.7
+  */
+  public String getCurentMusicVersion(){
+    return getXVersion(Paths.get(getFolderMain()+"version.json"), "music");
+  }
+  /**
+  *{@summary Return the data version that game want to have.}<br>
+  *@version 2.7
+  */
   public String getWantedDataVersion(){
+    return getXVersion(getVersionJsonPath(), "data");
+  }
+  /**
+  *{@summary Return the music version that game want to have.}<br>
+  *@version 2.7
+  */
+  public String getWantedMusicVersion(){
+    return getXVersion(getVersionJsonPath(), "music");
+  }
+  /**
+  *{@summary Return the last stable version downloadable on the web site.}<br>
+  *@version 2.7
+  */
+  public String getLastStableVersion(){
+    String fileName = getFolderMain()+"vTemp.json";
     try {
-      // create a reader
-      Reader reader = Files.newBufferedReader(getVersionJsonPath());
-      // create parser
-      JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
-      // read customer details
-      String version = (String) parser.get("data");
-      return version;
+      fichier.download("https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json", fileName);
+      return getXVersion(Paths.get(fileName), "lastStableVersion");
     }catch (Exception e) {
-      erreur.alerte("can't read data version");
-      return "1.49.12";
+      erreur.alerte("Can't read last stable version");
+      return DEFAULT_NULL_VERSION;
+    }finally {
+      File f = new File(fileName);
+      if(!fichier.deleteDirectory(f)){}
     }
   }
-  public String getWantedMusicVersion(){
+  /**
+  *{@summary Return the version from path & name of the wanted version.}<br>
+  *If it fail, it will return a defaut version.
+  *@param pathToJson path to the .json file taht containt version
+  *@param nameOfTheVersion name of the version
+  *@return a version String as 1.49.12
+  *@version 2.7
+  */
+  public String getXVersion(Path pathToJson, String nameOfTheVersion){
     try {
       // create a reader
-      Reader reader = Files.newBufferedReader(getVersionJsonPath());
+      Reader reader = Files.newBufferedReader(pathToJson);
       // create parser
       JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
       // read customer details
-      String version = (String) parser.get("music");
+      String version = (String) parser.get(nameOfTheVersion);
+      if(version==null){
+        erreur.alerte("can't read "+nameOfTheVersion+" version");
+      }
       return version;
     }catch (Exception e) {
-      erreur.alerte("can't read data version");
-      return "1.49.12";
+      erreur.alerte("can't read "+nameOfTheVersion+" version");
+      return "0.0.0";
     }
   }
   /**
@@ -333,14 +457,6 @@ public class Folder{
     if(f.exists()){
       return Paths.get(f.getPath());
     }
-    // try {
-    //   f = new File(new Main().getClass().getResource("version.json").toURI());
-    // }catch (Exception e) {
-    //   erreur.alerte("Can't fined version.json path in jar file");
-    // }
-    // if(f.exists()){
-    //   return Paths.get(f.getPath());
-    // }
     f = new File("app/version.json");
     if(f.exists()){
       return Paths.get(f.getPath());
@@ -362,6 +478,12 @@ public class Folder{
     th.start();
   }
 }
+/**
+*{@summary Download music data from github release in a Thread.}<br>
+*It need Main.version to be correct to work.<br>
+*@version 1.53
+*@author Hydrolien
+*/
 class ThDownloadMusicData extends Thread {
   private Folder folder;
   public ThDownloadMusicData(Folder f){

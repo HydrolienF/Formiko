@@ -19,10 +19,9 @@ import java.awt.event.MouseMotionListener;
 *@version 1.42
 */
 public class PanneauSup extends Panneau{
-  private int idFourmiAjoué=-1;
   private CCase cc2=null;
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauSup(){}
   /**
   *{@summary Build this.}<br>
@@ -42,7 +41,7 @@ public class PanneauSup extends Panneau{
     addMouseListener(new MouseAdapter() {
       @Override
       public void mouseExited​(MouseEvent e){
-        getView().getPb().setDesc("");
+        getView().setMessageDesc("");
       }
       @Override
       public void mouseReleased(MouseEvent e) {
@@ -53,11 +52,19 @@ public class PanneauSup extends Panneau{
             gc = getCase(e).getGc();
           }catch (Exception e2) {}
           if(gc.length()>0){
-            Fourmi f = gc.getFourmiParFere(Main.getPlayingAnt().getFere());
-            if(f!=null && f.getAction()>0){
+            Fourmi f = null;
+            try {
+              f = gc.getFourmiParFere(Main.getPlayingJoueur().getFere());
+            }catch (NullPointerException e2) {
+              erreur.alerte("No curent player");
+            }
+            if(f!=null){ // && f.getAction()>0
               getView().getPb().setActionF(-2);
               getView().getPb().removePA();
-              setIdFourmiAjoué(f.getId());
+              Main.getPartie().setAntIdToPlay(f.getId());
+              // if(f.isAutoMode() && getView().getEndTurnAuto() && f.getFere().getGc().haveDoneAllActionAviable()){ //si fourmi en auto mode, mode fin tour auto & tour fini.
+              //   erreur.alerte("WAIIIIIIIIITTTTTT for disable end turn");
+              // }
             }
           }
         }else if(e.getButton()== MouseEvent.BUTTON3){
@@ -75,17 +82,12 @@ public class PanneauSup extends Panneau{
     addMouseMotionListener(new MouseAdapter() {
       @Override
       public void mouseMoved(MouseEvent e) {
-        //Temps.pause(10);
         CCase cc = getCCase(e);
-        if(cc==null){getView().getPb().setDesc("");cc2=null;return;}
-        if(cc2==null || !cc2.getContenu().equals(cc.getContenu())){//si la case a changé.
-          cc2=new CCase(cc.getContenu());
-          getView().setLookedCCase(cc);
-        }
+        mouseMovedUpdate(cc);
       }
     });
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public void actualiserTaille(){
     if(getView().getPd()!= null && getView().getPd().getNeedToStayMaxSize()){actualiserTailleMax(); return;}
     setSize(Main.getDimX()-getView().getPz().getWidth(), Main.getDimY()-getView().getPa().getHeight());
@@ -98,16 +100,21 @@ public class PanneauSup extends Panneau{
   public void actualiserTailleMin(){
     setSize(0,0);
   }
-  public int getIdFourmiAjoué(){return idFourmiAjoué;}
-  public void setIdFourmiAjoué(int x){idFourmiAjoué=x;}
-  // Fonctions propre -----------------------------------------------------------
+  // public int getAntIdToPlay(){return antIdToPlay;}
+  // public void setAntIdToPlay(int x){antIdToPlay=x;
+  //   erreur.info("lets play "+x);
+  // }
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     //do nothing
   }
   public CCase getCCase(MouseEvent e){
+    return getCCase(e.getX(), e.getY());
+  }
+  public CCase getCCase(int x, int y){
     int tc = getView().getPc().getTailleDUneCase();
-    int cx = e.getX()/tc;
-    int cy = e.getY()/tc;
+    int cx = x/tc;
+    int cy = y/tc;
     try {
       return Main.getGc().getCCase(cx+getView().getPc().getPosX(),cy+getView().getPc().getPosY());
     }catch (Exception e2) {
@@ -117,7 +124,7 @@ public class PanneauSup extends Panneau{
   }
   public Case getCase(MouseEvent e){
     try {
-      return getCCase(e).getContenu();
+      return getCCase(e).getContent();
     }catch (Exception e2) {
       return null;
     }
@@ -127,6 +134,13 @@ public class PanneauSup extends Panneau{
       return getView().getPd().clicEn(e.getX(),e.getY());
     }catch (Exception e2) {
       return false;
+    }
+  }
+  public void mouseMovedUpdate(CCase cc){
+    if(cc==null){getView().setMessageDesc("");cc2=null;return;}
+    if(cc2==null || !cc2.getContent().equals(cc.getContent())){//si la case a changé.
+      cc2=new CCase(cc.getContent());
+      getView().setLookedCCase(cc);
     }
   }
 }

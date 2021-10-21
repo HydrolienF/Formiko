@@ -3,12 +3,17 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
-import fr.formiko.formiko.GCreature;
 import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.Fourmiliere;
+import fr.formiko.formiko.GCreature;
+import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
+import fr.formiko.formiko.Point;
 import fr.formiko.formiko.ThScript;
+import fr.formiko.formiko.interfaces.TourFourmiNonIa;
 import fr.formiko.formiko.triche;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.Th;
@@ -16,24 +21,27 @@ import fr.formiko.usuel.ThTriche;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.List;
+import fr.formiko.usuel.structures.listes.Liste;
 import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.View;
-import fr.formiko.formiko.GJoueur;
-import javax.swing.RepaintManager;
+
+import java.awt.Font;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import java.util.LinkedList;
-import java.util.Scanner;
+import javax.swing.RepaintManager;
+import javax.swing.UIManager;
 
 /**
- *{@summary View Graphics User Interface in 2 dimention.}<br>
- *@author Hydrolien
- *@version 1.44
- */
+*{@summary View Graphics User Interface in 2 dimention.}<br>
+*@author Hydrolien
+*@version 1.44
+*/
 public class ViewGUI2d implements View {
   private CCase lookedCCase=null;
   private boolean actionGameOn;
@@ -42,7 +50,8 @@ public class ViewGUI2d implements View {
   *Main windows
   *@version 1.1
   */
-  private Fenetre f;
+  private FFrameMain f;
+  private FFrameLauncher fl;
   private boolean needToWaitForGameLaunch=true;
   private Timer timer;
   private boolean canRefresh=true;
@@ -50,8 +59,10 @@ public class ViewGUI2d implements View {
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
-  public Fenetre getF(){return f;}
-  public PanneauPrincipal getPp(){ return getF().getPp();}
+  public FFrameMain getF(){return f;}
+  public FFrameLauncher getFl(){return fl;}
+  public PanneauPrincipal getPp(){ try{return getF().getPp();}catch (NullPointerException e) {return null;}}
+
   public PanneauJeu getPj(){ return getPp().getPj();}
   public PanneauMenu getPm(){ return getPp().getPm();}
   public PanneauNouvellePartie getPnp(){ try{return getPm().getPnp();}catch (NullPointerException e){return null;}}
@@ -59,7 +70,7 @@ public class ViewGUI2d implements View {
   public PanneauBouton getPb(){ try{return getPj().getPb();}catch (NullPointerException e){return null;}}
   public PanneauCarte getPc(){ try{return getPj().getPc();}catch (NullPointerException e){return null;}}
   public PanneauInfo getPi(){ try{return getPb().getPi();}catch (NullPointerException e){return null;}}
-  public PanneauInfo getPij(){ try{return getPb().getPij();}catch (NullPointerException e){return null;}}
+  public PanneauInfoText getPij(){ try{return getPb().getPij();}catch (NullPointerException e){return null;}}
   public PanneauZoom getPz(){ return getPb().getPz();}
   public PanneauAction getPa(){ return getPb().getPa();}
   public PanneauChargement getPch(){ try {return getPj().getPch();}catch (NullPointerException e) {return null;}}
@@ -67,11 +78,13 @@ public class ViewGUI2d implements View {
   public PanneauEchap getPe(){ return getPj().getPe();}
   public PanneauDialogue getPd(){ try {return getPj().getPd();}catch (NullPointerException e) {return null;}}
   public PanneauDialogueInf getPdi(){ return getPj().getPdi();}
+  public PanneauMiniMapContainer getPmmc(){try {return getPb().getPmmc();}catch(NullPointerException e){return null;}}
   public int getCurentFPS(){return curentFPS;}
   public void setCurentFPS(int x){curentFPS=x;}
   public int getWidth(){try {return getPp().getWidth();}catch (NullPointerException e) {return 0;}}
   public int getHeight(){try {return getPp().getHeight();}catch (NullPointerException e) {return 0;}}
-  /**  // FUNCTIONS -----------------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
+  /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
   *@version 1.42
@@ -80,7 +93,8 @@ public class ViewGUI2d implements View {
     actionGameOn=false;
     Main.startCh();
     if(f!=null) {f.dispose();}
-    f = new Fenetre();
+    f = new FFrameMain();
+    iniFont();
     iniThTriche();
     Main.getData().setImageIniForNewGame(false);//force reload of ant images.
     Main.endCh("iniView");Main.startCh();
@@ -90,6 +104,7 @@ public class ViewGUI2d implements View {
     // if(Main.getOp().getModeFPS()){
       launchFrameRefresh();
     // }
+    getPp().updateVersionLabel();
     return true;
   }
   /**
@@ -115,17 +130,8 @@ public class ViewGUI2d implements View {
   public boolean paint(){
     if(!Main.getOp().getModeFPS()){
       if(f==null){erreur.alerte("La fenetre est null & ne peu pas être redessinée."); return false;}
-      // erreur.info("repaint.",3);
-      // if(!canRefresh){return false;}
-      // canRefresh=false;
       getF().repaint(10);
-      // canRefresh=true;
     }
-    // System.out.println("test");
-    // getPp().paintImmediately(0,0,getPp().getWidth(),getPp().getHeight());
-    // getPp().printAll(getPp().getGraphics());
-    // getF().paintComponent​s(getF().getGraphics());
-    // getF().paintAll(getF().getGraphics());
     return true;
   }
   /**
@@ -218,7 +224,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Launch action game part.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.42
+  *@version 2.6
   */
   public boolean actionGame(){
     actionGameOn=true;
@@ -241,7 +247,7 @@ public class ViewGUI2d implements View {
       Partie.setPartieTutoInMain();
     }
     Main.getPartie().initialisationElément();
-    Main.getData().chargerImages(); //on a besoin du bon zoom pour effectuer cette action.
+    // Main.getData().chargerImages(); //It will be call by the next line "action.doActionPj(8);"
     action.doActionPj(8);
     Main.endCh("chargementImagesDelaCarte");
 
@@ -252,9 +258,11 @@ public class ViewGUI2d implements View {
       closePanneauChargement();
       paint();
     }else{
-      getPch().addBt();
+      if(getPch()!=null){ //it can have been remove by key "enter".
+        getPch().addBt();
+      }
     }
-    Main.getPartie().jeu(); //lance le jeux.
+    Main.getPartie().jeu(); //launch game
     return true;
   }
 
@@ -300,11 +308,11 @@ public class ViewGUI2d implements View {
   public boolean setLookedCCase(CCase cc){
     if (!actionGameOn) {return false;}
     if(cc==null){
-      getPb().setDesc("");
+      setMessageDesc("");
       getPc().setIdCurentFere(-1);
     }else{
-      getPb().setDesc(cc.getContenu().toString());
-      GCreature gAnt = cc.getContenu().getGc();
+      setMessageDesc(cc.getContent().toString());
+      GCreature gAnt = cc.getContent().getGc();
       getPc().setIdCurentFere(-1);
       for (Creature f : gAnt.toList() ) {
         if(f instanceof Fourmi){
@@ -335,11 +343,11 @@ public class ViewGUI2d implements View {
   public int getAntChoice(int t[]){
     if (!actionGameOn) {return -1;}
     if(t!=null){
-      Panneau.getView().getPb().removePa();
-      Panneau.getView().getPb().addPa(t);
+      getPb().removePa();
+      getPb().addPa(t);
     }
-    int r = Panneau.getView().getPb().getActionF();
-    Panneau.getView().getPb().setActionF(-1);
+    int r = getPb().getActionF();
+    getPb().setActionF(-1);
     return r;
   }
   /**
@@ -412,7 +420,7 @@ public class ViewGUI2d implements View {
     if (getPch()!=null) {return;}
     //Main.getPartie().getPlayingAnt() is null but window didn't clear all data.
     getPb().setVisiblePa(false);
-    getPj().setDesc("");
+    setMessageDesc("");
     // getPb().removePi();
     paint();
     getPj().alerte(message);
@@ -426,7 +434,7 @@ public class ViewGUI2d implements View {
   public String popUpQuestion(String message){
     if (getPch()!=null) {return "";}
     getPb().setVisiblePa(false);
-    getPj().setDesc("");
+    setMessageDesc("");
     // getPb().removePi();
     paint();
     String s = getPj().question(message);
@@ -451,32 +459,175 @@ public class ViewGUI2d implements View {
   public void setPlayingAnt(Fourmi f){
     if (!actionGameOn) {return;}
     if(f!=null){
-      Panneau.getView().getPb().addPI();
-      Panneau.getView().getPb().addPIJ();
+      if(!f.getIa()){
+        getPb().setVisiblePa(true);
+        getPb().addPI();
+        getPb().addPIJ();
+        // updateIcon();
+      }
     }else{
-      Panneau.getView().getPs().setIdFourmiAjoué(-1);
+      getPb().setVisiblePa(false);
+      Main.getPartie().setAntIdToPlay(-1);
     }
     // if (!f.getFere().getJoueur().getIa()) {
     //   getPb().setVisiblePa(false);
     // }
-    // getPs().setIdFourmiAjoué(-1);
+    // Main.getPartie().setAntIdToPlay(-1);
   }
+  /***
+  *{@summary Update map icon about need of the playingJoueur Creatures.}<br>
+  *This action can only be run if action game is on.<br>
+  *@version 2.8
+  */
+  // private void updateIcon(){
+  //   // if (!actionGameOn) {return;}
+  //   if(Main.getPlayingJoueur()!=null && Main.getPlayingJoueur().getFere()!=null && Main.getPlayingJoueur().getFere().getGc()!=null){
+  //     for (Creature c : Main.getPlayingJoueur().getFere().getGc().toList()) {
+  //       //TODO #45 (it will be better in PanneauCarte) print icon if needed.
+  //       if(c.getStateHealth()>0){
+  //         if(c.getStateFood()>c.getStateHealth()){
+  //           //print getStateFood
+  //           System.out.println("getStateFood");
+  //         }else{
+  //           //print getStateHealth
+  //           System.out.println("getStateHealth");
+  //         }
+  //       }else if(c.getStateFood()>0){
+  //         //print getStateFood
+  //         System.out.println("getStateFood");
+  //       }
+  //     }
+  //   }else{
+  //     erreur.alerte("can't print icon because player or anthill is null.");
+  //   }
+  // }
+  /**
+  *{@summary Move ObjetSurCarteAId.}<br>
+  *This action can only be run if action game is on.<br>
+  *@param o object to move.
+  *@param from CCase that o leave.
+  *@param to CCase were o is going.
+  *@version 2.1
+  */
+  public void move(ObjetSurCarteAId o, CCase from, CCase to){
+    if(!Main.getOp().getInstantaneousMovement()){
+      ThMove.updateTo(to, o.getId());
+      ThMove th = new ThMove(o, from, to);
+      // th.start();
+    }
+  }
+  /**
+  *{@summary Wait for end turn if we need.}
+  *@param fere the Fourmiliere that is curently playing.
+  *@version 2.5
+  */
+  public void waitForEndTurn() {
+    getPmmc().setAllActionDone(true);
+    Main.getPartie().setAntIdToPlay(-1);
+
+    if(doNotNeedToEndTurnAuto()) { // || any ant have action to do.
+      while(!Main.getPlayingJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu()) {
+        Temps.pause(50);
+        //here were waiting for the final clic on the red button.
+        if(Main.getPartie().getAntIdToPlay()!=-1){
+          // erreur.info("action for ant "+Main.getPartie().getAntIdToPlay());
+          // Main.setPlayingAnt(Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay()));
+          ((TourFourmiNonIa) Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay()).tour).allowToDisableAutoMode();
+        }
+      }
+    }
+    Main.getPartie().setAntIdToPlay(-1);
+    Main.getPlayingJoueur().setIsTurnEnded(false);
+    // fere.getJoueur().setIsTurnEnded(true);
+    getPmmc().setAllActionDone(false);
+    // erreur.info("stop waiting for end turn");
+  }
+  /**
+  *{@summary A loop to wait for game launch.}<br>
+  *@version 1.46
+  */
+  public synchronized void waitForGameLaunch(){
+    // if(!Main.getPremierePartie()){
+    boolean b=false;
+    while(!b){Temps.pause(10);b=getPm().getLancer();}
+    actionGame();
+  }
+  /**
+  *{@summary Initialize the game launcher.}
+  *@version 2.7
+  */
+  public void iniLauncher(){
+    if(fl==null){
+      fl = new FFrameLauncher();
+    }
+  }
+  /**
+  *{@summary Close the game launcher.}
+  *@version 2.7
+  */
+  public void closeLauncher(){
+    fl.setVisible(false);
+    fl.dispose();
+    fl=null;
+  }
+  /**
+  *{@summary Update downloading message.}
+  *@param message the message
+  *@version 2.7
+  */
+  public void setDownloadingMessage(String message){
+    fl.setDownloadingMessage(message);
+  }
+  /**
+  *{@summary Update downloading %age.}
+  *@param state the state as a %age
+  *@version 2.7
+  */
+  public void setDownloadingValue(int state){
+    fl.setDownloadingValue(state);
+  }
+  /**
+  *{@summary Hide or show buttonRetry of FFrameLauncher.}
+  *@version 2.7
+  */
+  public void setButtonRetryVisible(boolean visible){
+    fl.setButtonRetryVisible(visible);
+  }
+
+  //not in View interface
+  /**
+  *{@summary set the description message.}<br>
+  *Description message can be mouse located or not.
+  *Mouse located message are used when they concerne only small grpahics items.<br>
+  *Null safe.<br>
+  *@param message the message to print as description
+  *@param mouseLocated if true message is print at mouse location, only if mouse don't move
+  *@version 2.7
+  */
+  public void setMessageDesc(String message, boolean mouseLocated){
+    if(mouseLocated){
+      if(getPj()!=null){getPj().updateThreadMessagesDesc(message);}
+      if(getPb()!=null){getPb().setDesc("");}
+    }else{
+      if(getPb()!=null){getPb().setDesc(message);}
+    }
+  }
+  /***
+  *{@summary set the description message.}<br>
+  *Description message can be mouse located or not.
+  *Mouse located message are used when they concerne only small grpahics items.<br>
+  *MouseLocated is false.
+  *Null safe.<br>
+  *@param message the message to print as description
+  *@version 2.7
+  */
+  public void setMessageDesc(String message){setMessageDesc(message, false);}
   //private---------------------------------------------------------------------
   /**
-  *Load graphics.
-  *@version 1.42
+  *Load graphics during menu time.
+  *@version 2.6
   */
   private void loadGraphics(){
-    Main.startCh();
-    if(Main.getChargementPendantLesMenu()){chargementDesGraphismesAutonomes();}
-    else{ini.initialiserPanneauJeuEtDépendance();ini.initialiserAutreELémentTournés();}
-    Main.endCh("chargementDesGraphismesAutonomes");
-  }
-  /**
-  *Load graphics during menu time.
-  *@version 1.1
-  */
-  private void chargementDesGraphismesAutonomes(){
     if(Main.getPremierePartie()){ini.initialiserPanneauJeuEtDépendance();}
     else{
       Th thTemp = new Th(1);
@@ -501,16 +652,6 @@ public class ViewGUI2d implements View {
     }
   }
   /**
-  *{@summary A loop to wait for game launch.}<br>
-  *@version 1.46
-  */
-  public synchronized void waitForGameLaunch(){
-    // if(!Main.getPremierePartie()){
-    boolean b=false;
-    while(!b){Temps.pause(10);b=getPm().getLancer();}
-    actionGame();
-  }
-  /**
   *{@summary Launch refrech of main Frame.}<br>
   *It have been add to solve all GUI issues of Java Swing.<br>
   *It use 1 timer and a simple refrech task repeat fps times per second.<br>
@@ -521,15 +662,15 @@ public class ViewGUI2d implements View {
     int k=0;
     int secToRefresh = 1000/Main.getOp().getFps();
     timer.schedule(new TimerTaskViewGUI2d(this){
-        @Override
-        public void run(){
-          if(getF()!=null && getF().isFocused()){ // isShowing() can also be used, but it can't see it window is fully hide by other 1.
-            if(!paintGUI()){
-              erreur.alerte("can't paint");
-            }
-            view.setCurentFPS(view.getCurentFPS()+1);
+      @Override
+      public void run(){
+        if(getF()!=null && getF().isFocused()){ // isShowing() can also be used, but it can't see it window is fully hide by other 1.
+          if(!paintGUI()){ //try to paint
+            erreur.alerte("can't paint");
           }
+          view.setCurentFPS(view.getCurentFPS()+1);
         }
+      }
     }, 0, secToRefresh);
     if(debug.getAffLesPerformances()){
       timer.schedule(new TimerTaskViewGUI2d(this){
@@ -553,18 +694,56 @@ public class ViewGUI2d implements View {
       erreur.info("pb : "+getPb());
     }
   }
+  /**
+  *{@summary ini font at default value for all graphics components.}<br>
+  *@version 2.2
+  */
+  private void iniFont(){
+    // UIManager.getLookAndFeelDefaults().put("defaultFont", Main.getFont1());
+    // public static void setUIFont (javax.swing.plaf.FontUIResource f){
+    Font f = Main.getOp().getFont1();
+    java.util.Enumeration keys = UIManager.getDefaults().keys();
+    while (keys.hasMoreElements()) {
+      Object key = keys.nextElement();
+      Object value = UIManager.get(key);
+      if (value instanceof javax.swing.plaf.FontUIResource){
+        UIManager.put(key, f);
+      }
+    }
+    // UIManager.getLookAndFeelDefaults().put("defaultFont", new Font("Arial", Font.BOLD, 14));
+    // setForeground(Color.BLACK);
+  }
+  /**
+  *{@summary return endTurnAuto depending of Options &#38; endTurn button.}<br>
+  *@version 2.5
+  */
+  private boolean doNotNeedToEndTurnAuto(){
+    boolean everyoneInAutoMode=false; //au moins 1 fourmi sans auto mode.
+    try {
+      if(Main.getPlayingJoueur().getFere().getGc().isAllInAutoMode()){everyoneInAutoMode=true;}
+    }catch (Exception e) {
+      erreur.alerte("Fail to launch auto end turn.");
+    }
+    return ((getPmmc().getFbetEnabled() && !Main.getOp().getEndTurnAuto()) || everyoneInAutoMode) && !Main.getPlayingJoueur().getIa();
+  }
 }
 
 /**
 *{@summary A simple TimerTask extends class with a ViewGUI2d.}<br>
+*run methode is Override depending of the action that we need to do.
 *@version 1.47
 *@author Hydrolien
 */
 class TimerTaskViewGUI2d extends TimerTask{
   protected static ViewGUI2d view;
+  /**
+  *{@summary Main constructor.}
+  *@version 2.5
+  */
   public TimerTaskViewGUI2d(ViewGUI2d view){
     this.view=view;
   }
+  /** Simple run methode that do nothing.*/
   @Override
   public void run(){}
 }

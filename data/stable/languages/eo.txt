@@ -177,9 +177,9 @@ I7:ĉenilo
 I8:onisko
 I9:formiko[auto]
 
-choixCarte:elekto de la mapo
-choixDif:elekto de la malfacilaĵo
-choixVitesseDeJeu:elekto de ludrapideco
+choixCarte:Mapo
+choixDif:Malfacilaĵo
+choixVitesseDeJeu:Ludrapideco
 
 aPourCoordonnées:havas por koordinatoj
 contient:enhavi
@@ -305,6 +305,16 @@ chasseInsectivore.3:senhaŭtigi insekto
 evoluerFourmi.1:evolui al la sekva fazo
 pondreReine.1:naskiĝis
 spawnOf:generi de
+
+iconName.age:aĝo
+iconName.food:manĝaĵo
+iconName.health:sano
+iconName.action:ago
+
+colorState.0:bona
+colorState.1:meza
+colorState.2:malbona
+colorState.3:kritikaj
 
 //objet graphique:
 

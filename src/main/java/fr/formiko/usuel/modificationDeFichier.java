@@ -4,11 +4,11 @@ package fr.formiko.usuel;
 import java.io.File;
 import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.usuel.ecrireUnFichier;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 
 public class modificationDeFichier {
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public static void retirerLesLignesR(String s, String fichier, byte by){
     int x = retirerLesLignes(s,fichier, by);
     System.out.println(x+" lignes ont été supprimées");
@@ -42,7 +42,7 @@ public class modificationDeFichier {
 
   //fonctionnement interne.
   private static int retirerLesLignesDuFichier(String s, String f, int nbrARetire, byte dmft){
-    if(nbrARetire <0){erreur.erreur("Impossible de retirer un nombre négatif de ligne d'un fichier");return 0;}
+    if(nbrARetire <0){erreur.erreur("Impossible de remove un nombre négatif de ligne d'un fichier");return 0;}
     GString gs = lireUnFichier.lireUnFichierGs(f);
     if(nbrARetire==0){nbrARetire=gs.length();}//si c'est 0 on retirera autant de lignes que néssésaire
     int k=0;

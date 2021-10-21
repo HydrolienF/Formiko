@@ -33,7 +33,7 @@ public class Message implements Serializable{
   //d.parler("Bonjour");
 
 
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   public Message(String texte, int idDuJoueurConcerné, int typeDeMessage, String expediteur){
     id = i; i++;
     this.texte = g.getM(texte);
@@ -70,9 +70,9 @@ public class Message implements Serializable{
     this(texte, -1, 0);
   }
 
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public int getId(){ return id;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void afficheToi(){ // idéalement la méthode d'affichage n'affiche que si les paramètres d'affichage du joueur le lui demande.
     //if (Main.getNiveauDeDétailDeLAffichage()>0){
     if (niveauDeDétailDeLAffichage>0){
@@ -119,15 +119,15 @@ public class Message implements Serializable{
       //Ici on doit filtrer les joueurs qui ne vois pas la case ou la fourmi meurt.
 
 
-      CJoueur cj = gj.getDébut();
+      CJoueur cj = gj.getHead();
       String laNotre = g.getM("la");
       while(cj!=null){
-        Joueur j = cj.getContenu();
+        Joueur j = cj.getContent();
         String status = g.get("neutre");
         Fourmi r =null;
         try {
           r = j.getFere().getGc().getReine(); // par défaut la reine sert a identifié si la fourmi est alliées neutre ou énemies.
-          if (r==null){ r= (Fourmi)(j.getFere().getGc().getDébut().getContenu());}//sinon on prend la 1a fourmi du GCreature.
+          if (r==null){ r= (Fourmi)(j.getFere().getGc().getHead().getContent());}//sinon on prend la 1a fourmi du GCreature.
         }catch (Exception e) {}
         if (r!=null){
           if (((Creature)f).getEstAllié(r)){
@@ -144,9 +144,9 @@ public class Message implements Serializable{
         }else{
           nom=cr.getNom();
         }
-        String tueur = g.getOu("la","le")+" "+nom;
+        String tueur = g.getOr("la","le")+" "+nom;
         String texte = laNotre +" "+ g.get("fourmi")+" "+status+"("+f.getId()+")"+" "+ g.get("mort"+raison)+" "+tueur+".";
-        new Message(texte,cj.getContenu().getId());
+        new Message(texte,cj.getContent().getId());
         cj=cj.getSuivant();
       }
     }catch (Exception e2) {

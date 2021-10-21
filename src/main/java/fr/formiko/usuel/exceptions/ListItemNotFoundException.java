@@ -15,7 +15,7 @@ public class ListItemNotFoundException extends RuntimeException {
   *@version 1.31
   */
   public ListItemNotFoundException(String name, int id){
-    //erreur.erreur("aucune créature n'as pu être retiré","CCreature.retirer",true);
+    //erreur.erreur("aucune créature n'as pu être retiré","CCreature.remove",true);
     super(g.get("ListItemNotFoundException",1,"La/Le")+" "+name+" ("+id+") "+g.get("ListItemNotFoundException",2,"n'as pu être retiré"));//,"ListItemNotFoundException",b);
   }
   /**

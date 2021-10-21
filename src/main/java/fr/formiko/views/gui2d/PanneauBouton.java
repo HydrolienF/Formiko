@@ -5,7 +5,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.listes.*;
+import fr.formiko.usuel.structures.listes.*;
 import fr.formiko.usuel.maths.math;
 
 import java.awt.Color;
@@ -25,23 +25,24 @@ public class PanneauBouton extends Panneau {
   private PanneauAction pa;
   private PanneauActionSup pas;
   private PanneauActionInf pai;
+  private PanneauMiniMapContainer pmmc;
   private PanneauTInt pti;
   private PanneauTBoolean ptb;
   private String descS;
-  private Desc desc;
-  private Desc descTI;
+  private FLabel desc;
+  private FLabel descTI;
   private int actionF;
   private int choixId;
   private PanneauChamp pchamp;
   private PanneauInfo pi;
-  private PanneauInfo pij;
+  private PanneauInfoText pij;
   private Font fontPij;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauBouton(){}
   public void build(){
     setLayout(null);
-    descS=""; desc = new Desc();
-    desc.setFondColoré(Main.getData().getButtonColor());
+    descS=""; desc = new FLabel(getWidth(),FLabel.getDimY());
+    desc.setBackground(Main.getData().getButtonColor());
     actionF = -1; choixId = -1;
     int t [] = {0,1,2,3,4,5};
     ptb = new PanneauTBoolean(null);
@@ -49,12 +50,10 @@ public class PanneauBouton extends Panneau {
     pa = new PanneauAction();
     pas = new PanneauActionSup();
     pai = new PanneauActionInf();
-    pi = new PanneauInfo();
-    pij = new PanneauInfo();
+    pmmc = new PanneauMiniMapContainer();
     pz = new PanneauZoom();
-    add(pi);add(pij);
-    descTI = new Desc();
-    descTI.setFondColoré(Main.getData().getButtonColor());
+    descTI = new FLabel();
+    descTI.setBackground(Main.getData().getButtonColor());
     setDescTI("");
     setDesc("");
     descTI.setBounds(0,0,800);
@@ -77,15 +76,16 @@ public class PanneauBouton extends Panneau {
   public void setPti(PanneauTInt p){pti=p; }
   public int getChoixId(){ return choixId;}
   public void setChoixId(int x){ choixId=x;}
-  public Desc getDescTI(){ return descTI;}
+  public FLabel getDescTI(){ return descTI;}
   public void setDescTI(String s){descTI.setTexte(s);}
   public PanneauZoom getPz(){ return pz;}
   public PanneauAction getPa(){ return pa;}
   public PanneauChamp getPChamp(){ return pchamp;}
   public PanneauInfo getPi(){ return pi;}
-  public PanneauInfo getPij(){ return pij;}
+  public PanneauInfoText getPij(){ return pij;}
   public PanneauTBoolean getPTB(){ return ptb;}
-  // Fonctions propre -----------------------------------------------------------
+  public PanneauMiniMapContainer getPmmc(){return pmmc;}
+  // FUNCTIONS -----------------------------------------------------------------
   public void addPz(){
     remove(pz);
     pz = new PanneauZoom();
@@ -104,7 +104,7 @@ public class PanneauBouton extends Panneau {
   public void addPti(int t[], String s){
     pti=new PanneauTInt(t,s);
     pti.setBounds(Main.getWidth()-pti.getXPi(),Main.getHeight()-pti.getYPi(),pti.getXPi(),pti.getYPi());
-    debug.débogage("le composants pti a été placé en 0 Desc.getDimY() avec pour dimention : "+pti.getXPi()+" "+pti.getYPi());
+    debug.débogage("le composants pti a été placé en 0 FLabel.getDimY() avec pour dimention : "+pti.getXPi()+" "+pti.getYPi());
     add(pti);
   }
   public void removePti(){
@@ -112,7 +112,7 @@ public class PanneauBouton extends Panneau {
   }
   public void addPTB(String message){
     ptb=new PanneauTBoolean(g.get(message));
-    ptb.setBounds(0,Desc.getDimY(),ptb.getXPi(),ptb.getYPi());
+    ptb.setBounds(0,FLabel.getDimY(),ptb.getXPi(),ptb.getYPi());
     add(pti);
   }
   public void removePTB(){
@@ -134,6 +134,8 @@ public class PanneauBouton extends Panneau {
     pai = new PanneauActionInf();
     pai.setBounds(0,getHeight()-pai.getHeight(),pai.getWidth(),pai.getHeight());
     getView().getPs().actualiserTaille();
+    // pmmc = new PanneauMiniMapContainer();
+    add(pmmc);
     add(pas);
     add(pa);
     add(pai);
@@ -153,6 +155,7 @@ public class PanneauBouton extends Panneau {
     remove(pa);
     remove(pas);
     remove(pai);
+    remove(pmmc);
   }public void removePA(){removePa();}
   public void addPA(){ int t [] = {0,1,2,3,4,5,6,7}; addPA(t);}
   /*public void modPa(){
@@ -163,10 +166,13 @@ public class PanneauBouton extends Panneau {
     revalidate();
     Main.repaint();
   }*/
+  public void setVisiblePmmc(boolean b){
+    pmmc.setVisible(b);
+  }
   public void addPChamp(String défaut,String message){
     setDescTI(message);
     pchamp = new PanneauChamp(défaut);
-    pchamp.setBounds(0,Desc.getDimY(),540,Desc.getDimY());
+    pchamp.setBounds(0,FLabel.getDimY(),540,FLabel.getDimY());
     add(pchamp);
     validate();
   }
@@ -175,12 +181,17 @@ public class PanneauBouton extends Panneau {
     try {
       removePi();
     }catch (Exception e) {}
-    debug.débogage("addPI()");
-    pi = new PanneauInfo(Main.getPlayingAnt(),Main.getTailleElementGraphiqueX(320));
-    int xx2 = pz.getTailleBouton()*3;
-    debug.débogage("initialisation du PanneauInfo en "+(getWidth()-Main.getTailleElementGraphiqueX(320))+" "+Main.getTailleElementGraphiqueX(320));
-    pi.setBounds(getWidth()-Main.getTailleElementGraphiqueX(320),xx2,Main.getTailleElementGraphiqueX(320),pi.getYPi());
-    add(pi);
+    Fourmi playingAnt = Main.getPlayingAnt();
+    if(playingAnt!=null){
+      pi = PanneauInfoCreature.builder().addCreature(playingAnt)
+      .setX(Main.getTailleElementGraphiqueX(320))
+      .setYByElement(Main.getTailleElementGraphiqueY(32))
+      .build();
+      pi.setLocation(getWidth()-pi.getWidth(),pz.getTailleBouton()*3);
+      add(pi);
+    }else{
+      erreur.alerte("PanneauInfoCreature haven't been set because playingAnt is null");
+    }
   }
   public void removePi(){ remove(pi);}
   public void addPIJ(){
@@ -195,11 +206,9 @@ public class PanneauBouton extends Panneau {
     if (ft==null){ return;}
     GString gs = ft.getFourmiliere().getJoueur().getGm().gmToGs(Main.getNbrMessageAfficher());
     debug.débogage("affichage console du contenu de gs");
-    pij = new PanneauInfo(gs,Main.getTailleElementGraphiqueX(500),true,fontPij);
+    pij = new PanneauInfoText(gs,Main.getTailleElementGraphiqueX(500),true,fontPij);
     int xx = pz.getTailleBouton()*5;
     debug.débogage("initialisation du PanneauInfoJoueur en "+(getWidth()-xx)+" "+(getHeight()-pij.getYPi()));
-    //pij.setBounds(getWidth()-xx,xx+pi.getY()*(pi.length()+1),pij.getX(),pij.getY()*pij.length());
-    // pij.setBounds(getWidth()-xx,getHeight()-pij.getY(),pij.getWidth(),pij.getHeight());
     int x = Main.getTailleElementGraphiqueX(320);
     pij.setBounds((getWidth()-x*2)/2,Main.getTailleElementGraphiqueY(100),x,pij.getYPi());
     add(pij);
@@ -208,7 +217,7 @@ public class PanneauBouton extends Panneau {
   //repaint() permet de réactualisé paintComponent()
   @Override
   public void paintComponent(Graphics gr){
-    // pas mal de satBounds pourrait partir si la fenetre avait une taille fixe.
+    // pas mal de setBounds pourrait partir si la fenetre avait une taille fixe.
     try {
       if(!Main.getPartie().getEnCours()){return;}
     }catch (Exception e) {}
@@ -217,8 +226,7 @@ public class PanneauBouton extends Panneau {
       try {
         xxx = pa.getHeight();
       }catch (Exception e) {}
-      desc.setSize((int)(desc.getText().length()*Main.getTaillePolice1()*0.6),Desc.getDimY());
-      desc.setBounds(0,Main.getDimY()-xxx-desc.getHeight(),desc.getWidth(),desc.getHeight());
+      desc.setLocation(0,Main.getDimY()-xxx-FLabel.getDimY());//-desc.getHeight()
       descTI.setBounds(0,0,800);
     }catch (Exception e) {
       erreur.erreur("affichage de PanneauBouton");
@@ -226,18 +234,26 @@ public class PanneauBouton extends Panneau {
   }
   public void actualiserDesc(){
     debug.débogage("actualisation de la description");
-    //int xxx = pa.getTailleBouton();
-    //desc.setBounds(0,getHeight()-xxx-Desc.getDimY(),(int)(desc.getText().length()*Main.getTaillePolice1()*0.6),Desc.getDimY());
-    desc.setTexte(descS);
-    try {
-      Main.repaint();
-    }catch (Exception e) {}
+    if(getView().getActionGameOn()){
+      desc.setTexte(descS);
+      desc.updateSize();
+      try {
+        Main.repaint();
+      }catch (Exception e) {}
+    }else{
+      desc.setTexte("");
+    }
   }
   public void actualiserDescTI(String s){
-    debug.débogage("actualisation de la descriptionTI");
-    try {
-      descTI.setTexte(s);
-    }catch (Exception e) {}
+    if(getView().getActionGameOn()){
+      debug.débogage("actualisation de la descriptionTI");
+      try {
+        descTI.setTexte(s);
+        descTI.updateSize();
+      }catch (Exception e) {}
+    }else{
+      desc.setTexte("");
+    }
   }
 
 }

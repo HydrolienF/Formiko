@@ -18,15 +18,15 @@ public class Chrono {
   private final int id; private static int idCpt=0;
   private static Chrono ch;
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Chrono(){
     id=idCpt; idCpt++;
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public int getId(){ return id;}
   public long getDuree(){return duree;}
   public long getDureeSec(){return duree/1000;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){return timeToHMS(getDureeSec());}
   /**
   *{@summary Standard equals function.}
@@ -82,7 +82,7 @@ public class Chrono {
   public static String timeToHMS(long tempsS){
     // IN : (long) temps en secondes
     // OUT : (String) temps au format texte : "1 h 26 min 3 s"
-    return Temps.msToHMS(tempsS);
+    return Temps.msToTime(tempsS);
   }
   /**
    *{@summary Initializes Chrono ch.}

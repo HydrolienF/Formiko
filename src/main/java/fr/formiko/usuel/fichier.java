@@ -1,7 +1,8 @@
 package fr.formiko.usuel;
 
-import fr.formiko.usuel.listes.GString;
-import fr.formiko.usuel.read;
+import fr.formiko.formiko.Main;
+// import fr.formiko.usuel.read;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.types.str;
 
 import java.io.File;
@@ -9,10 +10,17 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
+import java.net.UnknownHostException;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -22,19 +30,19 @@ import java.util.zip.ZipOutputStream;
 *@author Hydrolien Baeldung
 *@version 1.46
 */
-public class fichier{
+public class fichier {
 
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
 
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *make a liste of all .java file in the directory f.
   *@param f The directory were to search java file.
   *@version 1.13
   */
-  public static GString listerLesFichiersDuRep(File f){
+  public static GString listerLesFichiersDuRep(File f) {
     GString gs = new GString();
     //parcourir les dossiers puis les sous dossiers etc jusqu'a ce que tout les fichiers soit traité,
     //cad sous la forme rep+sousdossier1+sousdossier2+nomDu.java
@@ -71,7 +79,7 @@ public class fichier{
     return directoryToBeDeleted.delete();
   }public static boolean deleteDirectory(String s){try {return deleteDirectory(new File(str.sToDirectoryName(s)));}catch (Exception e){return false;}}
 
-  public static void affichageDesLecteurALaRacine (File f){
+  public static void affichageDesLecteurALaRacine (File f) {
     System.out.println("Affichage des lecteurs à la racine du PC : ");
     for(File file : f.listRoots()){
       System.out.println(file.getAbsolutePath());
@@ -95,85 +103,110 @@ public class fichier{
     File f = new File(nom);
     //if (f.exists()) { throw new FichierDejaPresentException (nom);}
   }
-  public static void copierUnFichier(String nomDuFichierACopier){
-    String nomDuFichierCible = read.getString("Nom du nouveau fichier","Copie de " + nomDuFichierACopier);
-    copierUnFichier(nomDuFichierACopier, nomDuFichierCible);
+  public static void copierUnFichier(String fileSourceName){
+    String fileTargetName = read.getString("Nom du nouveau fichier","Copie de " + fileSourceName);
+    copierUnFichier(fileSourceName, fileTargetName);
   }
-  public static void copierUnFichier(String nomDuFichierACopier, String nomDuFichierCible){
-    FileInputStream fis = null;
-    FileOutputStream fos = null;
-
+  public static void copierUnFichier(String fileSourceName, String fileTargetName){
     try {
-       fis = new FileInputStream(new File(nomDuFichierACopier));
-       fos = new FileOutputStream(new File(nomDuFichierCible));
-       byte[] buf = new byte[8];
-
-       // On crée une variable de type int pour y affecter le résultat de
-       // la lecture (Vaut -1 quand c'est fini)
-       int n = 0;
-
-       // Tant que l'affectation dans la variable est possible, on boucle
-       // Lorsque la lecture du fichier est terminée l'affectation n'est
-       // plus possible ! On sort donc de la boucle
-       while ((n = fis.read(buf)) >= 0) {
-          // On écrit dans notre 2a fichier avec l'objet adéquat
-          fos.write(buf);
-          if (debug.getAffLesEtapesDeRésolution()){
-          // On affiche ce qu'a lu notre boucle au format byte et au format char
-          for (byte bit : buf) {
-            System.out.print("\t" + bit + "(" + (char) bit + ")");
-          }
-          System.out.println("");
-          }
-          //Nous réinitialisons le buffer à vide
-          //au cas où les derniers byte lus ne soient pas un multiple de 8
-          //Ceci permet d'avoir un buffer vierge à chaque lecture et ne pas avoir de doublon en fin de fichier
-          buf = new byte[8];
-       }
-       debug.débogage("Copie terminée !");
-
-    } catch (FileNotFoundException e) {
-       // Cette exception est levée si l'objet FileInputStream ne trouve aucun fichier
-       e.printStackTrace();
-    } catch (IOException e) {
-       // Celle-ci se produit lors d'une erreur d'écriture ou de lecture
-       e.printStackTrace();
-    } finally {
-       // On ferme nos flux de données dans un bloc finally pour s'assurer
-       // que ces instructions seront exécutées dans tous les cas même si
-       // une exception est levée !
-       try {
-          if (fis != null)
-             fis.close();
-       } catch (IOException e) {
-          e.printStackTrace();
-       }
-
-       try {
-          if (fos != null)
-             fos.close();
-       } catch (IOException e) {
-          e.printStackTrace();
-       }
+      Path source = Paths.get(fileSourceName);
+      Path target = Paths.get(fileTargetName);
+      Files.copy(source, target);
+    }catch (Exception e) {
+      erreur.erreur("fail to copy file from "+fileSourceName+" to "+fileTargetName);
     }
   }
   /**
-   *{@summary download a file from the web.}<br>
-   *@param url the url as a String.
-   *@param fileName the name of the file were to save data from the web.
-   *@version 1.46
-   */
-  public static void download(String url, String fileName){
+  *{@summary Download a file from the web.}<br>
+  *@param urlPath the url as a String
+  *@param fileName the name of the file were to save data from the web
+  *@param withInfo if true launch a thread to have info during download
+  *@version 2.7
+  */
+  public static boolean download(String urlPath, String fileName, boolean withInfo){
+    String reason=null;
+    Exception ex=null;
+    DownloadThread downloadThread=null;
+    FileOutputStream fos=null;
     try {
-      ReadableByteChannel readChannel = Channels.newChannel(new URL(url).openStream());
-      FileOutputStream fileOS = new FileOutputStream(fileName);
-      FileChannel writeChannel = fileOS.getChannel();
+      Main.getView().setButtonRetryVisible(false);
+    }catch (NullPointerException e) {}
+    try {
+      URL url = new URL(urlPath);
+      long fileToDowloadSize = getFileSize(url);
+      ReadableByteChannel readChannel = Channels.newChannel(url.openStream());
+      File fileOut = new File(fileName);
+      fos = new FileOutputStream(fileOut);
+      FileChannel writeChannel = fos.getChannel();
+      if (withInfo) {
+        String downloadName = "x";
+        String t [] = fileName.split("/");
+        downloadName = t[t.length-1];
+        int downloadNameLen = downloadName.length();
+        System.out.println(downloadName.substring(downloadNameLen-4,downloadNameLen));
+        if(downloadNameLen>4 && ".zip".equals(downloadName.substring(downloadNameLen-4,downloadNameLen))){
+          downloadName = downloadName.substring(0,downloadNameLen-4);
+        }
+        //launch Thread that update %age of download
+        downloadThread = new DownloadThread(fileOut, fileToDowloadSize, downloadName);
+        downloadThread.start();
+      }
+      // TODO #440 stop transferFrom if download take to long
       writeChannel.transferFrom(readChannel, 0, Long.MAX_VALUE);
-    }catch (Exception e) {
-      erreur.erreur("Fail to download "+fileName+" from "+url);
-      e.printStackTrace();
-      System.out.println(e.getCause());
-      System.out.println("--------------------");
+      return true;
+    } catch (MalformedURLException e) {
+      reason = "URL is malformed";
+    } catch (UnknownHostException e) {
+      reason = "can't resolve host";
+    } catch (FileNotFoundException e) {
+      reason = "file can't be found on the web site";
+      ex=e;
+    } catch (Exception e) {
+      reason = e.toString();
+    } finally {
+      if(fos!=null){
+        try {
+          fos.close();
+        }catch (Exception e) {
+          erreur.alerte("Can't close FileOutputStream");
+        }
+      }
+      if(downloadThread!=null){
+        downloadThread.stopRuning();
+      }
+      if(reason!=null){
+        String err = "Download fail: "+reason;
+        try {
+          Main.getView().setDownloadingMessage(err);
+          Main.getView().setButtonRetryVisible(true);
+        }catch (Exception e) {
+          erreur.erreur(err);
+        }
+      }
+      // if(ex!=null){
+      //   ex.printStackTrace();
+      // }
+    }
+    return false;
+  }
+  public static boolean download(String urlPath, String fileName){return download(urlPath, fileName, false);}
+  /**
+  *{@summary return the size of the downloaded file.}
+  *@version 2.7
+  */
+  private static long getFileSize(URL url) {
+    HttpURLConnection conn = null;
+    try {
+      conn = (HttpURLConnection) url.openConnection();
+      conn.setRequestMethod("HEAD");
+      return conn.getContentLengthLong();
+    } catch (IOException e) {
+      erreur.erreur("fail to get file size");
+      return -1;
+    } finally { //will be call even if there is return before.
+      if (conn != null) {
+        conn.disconnect();
+      }
     }
   }
   /**
@@ -282,5 +315,71 @@ public class fichier{
           throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
       }
       return destFile;
+  }
+}
+
+/**
+*{@summary Print info about curent download.}<br>
+*this thread watch file size & print it / fileSize.
+*@version 2.7
+*@author Hydrolien
+*/
+class DownloadThread extends Thread {
+  private File fileOut;
+  private long fileToDowloadSize;
+  private boolean running;
+  private String downloadName;
+  /**
+  *{@summary Main constructor.}<br>
+  *@param fileOut file that we are curently filling by the downloading file
+  *@param fileToDowloadSize size that we should reach when download will end
+  *@version 2.7
+  */
+  public DownloadThread(File fileOut, long fileToDowloadSize, String downloadName){
+    this.fileOut = fileOut;
+    this.fileToDowloadSize = fileToDowloadSize;
+    this.downloadName=downloadName;
+    running=true;
+  }
+
+  public void stopRuning(){running=false;}
+  /**
+  *{@summary Main function that print every second %age of download done.}<br>
+  *@version 2.7
+  */
+  public void run(){
+    long fileOutSize=0;
+    long lastFileOutSize=0;
+    long timeStart=System.currentTimeMillis();
+    long timeFromLastBitDownload=timeStart;
+    while (fileOutSize < fileToDowloadSize && running) {
+      fileOutSize = fileOut.length();
+      double progression = ((double)fileOutSize)/(double)fileToDowloadSize;
+      int percent = (int)(100*progression);
+      long curentTime = System.currentTimeMillis();
+      long timeElapsed = curentTime-timeStart;
+      long timeLeft = (long)((double)((timeElapsed/progression)-timeElapsed));
+      String sTimeLeft = Temps.msToTime(timeLeft)+" left";
+      String message = "Downloading "+downloadName+" - "+percent+"% - ";
+      if(fileOutSize!=lastFileOutSize){//update watcher of working download
+        timeFromLastBitDownload=curentTime;
+      }
+      if(timeFromLastBitDownload+10000<curentTime){
+        message+=(((curentTime-timeFromLastBitDownload)/1000)+"s untill a new bit haven't been download");
+        if(timeFromLastBitDownload+60000<curentTime){
+          //TODO #440 stop download.
+          erreur.erreur("STOP download");
+        }
+      }else{
+        message+=sTimeLeft;
+      }
+
+      Main.getView().setDownloadingValue(percent);
+      Main.getView().setDownloadingMessage(message);
+
+      lastFileOutSize=fileOutSize;
+      Temps.pause(50);
+    }
+    // erreur.info("download done");
   }
 }

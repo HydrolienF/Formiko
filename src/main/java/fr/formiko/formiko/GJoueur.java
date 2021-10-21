@@ -5,17 +5,19 @@ import fr.formiko.formiko.Message;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
+import fr.formiko.usuel.structures.listes.Liste;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
 public class GJoueur implements Serializable{
   private CJoueur début, fin;
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   public GJoueur(){}
-  // GET SET -----------------------------------------------------------------------
-  public CJoueur getDébut(){return début;}
-  public CJoueur getFin(){return fin;}
+  // GET SET ----------------------------------------------------------------------
+  public CJoueur getHead(){return début;}
+  public CJoueur getTail(){return fin;}
   public GCreature getGc(){ // renvoie toutes les créatures de tout les joueurs.
     if (début == null){ return new GCreature();}
     return début.getGc();
@@ -30,7 +32,7 @@ public class GJoueur implements Serializable{
   }
   public int getNbrDeJoueurHumain(){ return getJoueurHumain().length();}
   public int getNbrDIa(){ return length() - getJoueurHumain().length();}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String s = g.get("gj")+" : ";
     if (début == null){ return s+g.get("vide");}
@@ -50,9 +52,26 @@ public class GJoueur implements Serializable{
     if(début==null){return true;}
     return début.getPlusDeFourmi();
   }
-  public GJoueur getGjOrdonné(){
-    if(début==null){return new GJoueur();}
-    return début.getGjOrdonné();
+  /**
+  *{@summary Return a sorted GJoueur by score.}
+  *@version 2.2
+  */
+  public GJoueur getGjSorted(){
+    if(getHead()==null){return new GJoueur();}
+    else{
+      //TODO #82 just use addSorted when GJoueur will extends Liste<Joueur>
+      Liste<Joueur> list = new Liste<Joueur>();
+      Comparator<Joueur> scoreComparator = (Joueur p1, Joueur p2) -> (int)(p1.getScore() - p2.getScore());
+      for (Joueur j : toList()) {
+        list.addSorted(j, scoreComparator);
+      }
+      // return list;
+      GJoueur gjr = new GJoueur();
+      for (Joueur j : list) {
+        gjr.add(j);
+      }
+      return gjr;
+    }
   }
   public int getNbrDeJoueurVivant(){
     if (début == null){ return 0;}
@@ -109,36 +128,18 @@ public class GJoueur implements Serializable{
       fin = cj;
     }
   }
-  //TODO #231 should place j depending of it score. (just before the 1a player that have a lower score.)
-  public void addOrdonnée(Joueur j){
-    if(début==null){add(j);}//le cas ou on a 0 éléments dans la liste.
-    else if(début.equals(fin)){//le cas ou on a 1 seul élément dans la liste
-      if(début.getContenu().getScore()>=j.getScore()){
-        addFin(j);
-      }else{
-        addDébut(j);
-      }
-    }else{
-      if(début.getContenu().getScore()>=j.getScore()){
-        début.addOrdonnée(j);
-      }else{
-        addDébut(j);
-      }
-    }
-    actualiserFin();
-  }
   public void actualiserFin(){
     fin = début;
     while(fin.getSuivant()!=null){
       fin = fin.getSuivant();
     }
   }
-  public void retirer(Joueur j){
+  public void remove(Joueur j){
     if (début != null){
-      if(début.getContenu() == j){
+      if(début.getContent() == j){
         début = début.getSuivant();
       }else {
-        début.retirer(j);
+        début.remove(j);
       }
     }
     erreur.erreur("Le joueur "+j.getId()+" n'as pas pue être retiré");
@@ -170,5 +171,16 @@ public class GJoueur implements Serializable{
   public void setAction0AndEndTurn(){
     if(début==null){return;}
     début.setAction0AndEndTurn();
+  }
+  /**
+  *{@summary Transform a GJoueur in Liste&lt;Joueur&gt;.}
+  *@version 2.2
+  */
+  public Liste<Joueur> toList(){
+    if (début==null){
+      Liste<Joueur> lc = new Liste<Joueur>();
+      return lc;
+    }
+    return début.toList();
   }
 }

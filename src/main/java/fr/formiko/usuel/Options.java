@@ -19,13 +19,14 @@ import java.util.Properties;
 *{@summary Options class.}<br>
 *It contain all globals options and can save it.<br>
 *@author Hydrolien
-*@version 1.34
+*@version 2.7
 */
 public class Options implements Serializable{
-  private byte language=0; // 0=eo; 1=fr; 2=en;
-  private byte buttonSizeZoom=0;
-  private byte buttonSizeAction=0;
-  private byte buttonSizeTX=0;
+  /** language can be save as byte or String in properties &#38; options file.*/
+  private byte language; // 0=eo; 1=fr; 2=en;
+  private byte buttonSizeZoom;
+  private byte buttonSizeAction;
+  private byte buttonSizeTX;
   private boolean quickMovement;
   private boolean instantaneousMovement;
   private boolean orientedObjectOnMap;
@@ -51,6 +52,7 @@ public class Options implements Serializable{
   private boolean debug_message;
   private boolean debug_performance;
   private boolean debug_gui;
+  private boolean debug_paintHitBox;
   private int sizeOfMapLines;
   private byte positionCase;
   private boolean music;
@@ -61,11 +63,25 @@ public class Options implements Serializable{
   private boolean autoCleaning;
   private boolean modeFPS;
   private int fps;
+  private byte antColorLevel;
+  private boolean endTurnAuto;
+  private boolean animationEnable;
 
   private SortedProperties properties=null;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Options(){}
-  // GET SET --------------------------------------------------------------------
+  /**
+  *{@summary Builder with only default properties.}<br>
+  *@version 2.7
+  */
+  public static Options newDefaultOptions(){
+    Options op = new Options();
+    op.properties = new SortedProperties(op.getDefaultProperties());
+    op.propertiesToOptions();
+    op.properties = null;
+    return op;
+  }
+  // GET SET -------------------------------------------------------------------
   public byte getLanguage(){return language;}
   public void setLangue(byte x){language=x;} public void setLangue(int x){setLangue(str.iToBy(x));}
   public int getbuttonSizeZoom(){ return tailleBouton(buttonSizeZoom);}
@@ -74,10 +90,10 @@ public class Options implements Serializable{
   public void setTailleBoutonAction(byte x){ buttonSizeAction=x;}
   public int getTailleBoutonTX(){ return tailleBouton(buttonSizeTX);}
   public void setTailleBoutonTX(byte x){ buttonSizeTX=x;}
-  public boolean getMouvementRapide(){ return quickMovement;}
-  public void setMouvementRapide(boolean b){ quickMovement = b;}
-  public boolean getDéplacementInstantané(){return instantaneousMovement;}
-  public void setDéplacementInstantané(boolean b){instantaneousMovement=b;}
+  public boolean getQuickMovement(){ return quickMovement;}
+  public void setQuickMovement(boolean b){ quickMovement = b;}
+  public boolean getInstantaneousMovement(){return instantaneousMovement;}
+  public void setInstantaneousMovement(boolean b){instantaneousMovement=b;}
   public boolean getElementSurCarteOrientéAprèsDéplacement(){ return orientedObjectOnMap;}
   public void setElementSurCarteOrientéAprèsDéplacement(boolean b){orientedObjectOnMap=b;}
   public byte getNbrMessageAfficher(){ return maxMessageDisplay;}
@@ -117,6 +133,8 @@ public class Options implements Serializable{
   public void setAffLesPerformances(boolean b){debug_performance=b;}
   public boolean getAffG(){return debug_gui;}
   public void setAffG(boolean b){debug_gui=b;}
+  public boolean getPaintHitBox(){return debug_paintHitBox;}
+  public void setPaintHitBox(boolean b){debug_paintHitBox=b;}
   public int getDimLigne(){ return sizeOfMapLines;}
   public void setDimLigne(int x){sizeOfMapLines=x;}
   public byte getPositionCase(){return positionCase;}
@@ -137,7 +155,13 @@ public class Options implements Serializable{
   public void setModeFPS(boolean b){modeFPS=b;}
   public int getFps(){return fps;}
   public void setFps(int b){fps=b;}
-  // Fonctions propre -----------------------------------------------------------
+  public byte getAntColorLevel(){return antColorLevel;}
+  public void setAntColorLevel(byte x){antColorLevel=x;}
+  public boolean getEndTurnAuto(){return endTurnAuto;}
+  public void setEndTurnAuto(boolean b){endTurnAuto=b;}
+  public boolean getAnimationEnable(){return animationEnable;}
+  public void setAnimationEnable(boolean b){animationEnable=b;}
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize Options.}<br>
   *It load properties from Option.md, transform it to all the Option value &#38; delete properties.
@@ -158,7 +182,7 @@ public class Options implements Serializable{
       optionToProperties(); // transform Options into properties.
     }
     saveProperties();
-    properties=null;
+    properties=null; //destory properties to save memory.
   }
 
   //private functions ----------------------------------------------------------
@@ -205,7 +229,7 @@ public class Options implements Serializable{
   *{@summary get defaultProperties of the Options.}<br>
   *It can be used to save default Options or to repair Options.md file if something is mising.<br>
   *Value for version, language, fontSize &#38; butonSize depend of the user computer.<br>
-  *@version 1.34
+  *@version 2.5
   */
   private SortedProperties getDefaultProperties(){
     SortedProperties defaultProperties = new SortedProperties(34);
@@ -216,12 +240,6 @@ public class Options implements Serializable{
       erreur.alerte("no screen size found");
     }
     Double racio = (x+0.0)/1920;// si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.
-    if(Main.getFolder()==null){
-      Folder folder = new Folder();
-      folder.ini();
-      Main.setFolder(folder);
-    }
-    chargerLesTraductions.iniTLangue();
     int t[]=new int[2];
     if(x>=1920*2){ //plus de 2*
       t[0]=2;t[1]=2;//t[2]=1;
@@ -236,8 +254,7 @@ public class Options implements Serializable{
     }
     //setDefaultProperties
     defaultProperties.setProperty("version",""+Main.getVersionActuelle());
-    String lang = Locale.getDefault().getLanguage();
-    defaultProperties.setProperty("language",""+chargerLesTraductions.getLanguage(lang));
+    defaultProperties.setProperty("language",Locale.getDefault().getLanguage());
     defaultProperties.setProperty("buttonSizeZoom",""+t[0]);
     defaultProperties.setProperty("buttonSizeAction",""+t[1]);
     defaultProperties.setProperty("buttonSizeTX",""+t[0]);
@@ -264,6 +281,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("debug_message","false");
     defaultProperties.setProperty("debug_performance","false");
     defaultProperties.setProperty("debug_gui","false");
+    defaultProperties.setProperty("debug_paintHitBox","false");
     defaultProperties.setProperty("sizeOfMapLines","2");
     defaultProperties.setProperty("music","false");
     defaultProperties.setProperty("sound","false");
@@ -273,7 +291,10 @@ public class Options implements Serializable{
     defaultProperties.setProperty("autoCleaning","true");
     defaultProperties.setProperty("positionCase","0");
     defaultProperties.setProperty("modeFPS","true");
-    defaultProperties.setProperty("fps","50");
+    defaultProperties.setProperty("fps","60");
+    defaultProperties.setProperty("antColorLevel","1");
+    defaultProperties.setProperty("endTurnAuto","false");
+    defaultProperties.setProperty("animationEnable","true");
     return defaultProperties;
   }
   /**
@@ -292,10 +313,20 @@ public class Options implements Serializable{
   }
   /**
   *{@summary tranform properties into Options var.}<br>
-  *@version 1.34
+  *@version 2.7
   */
   private void propertiesToOptions(){
-    language=str.sToBy(properties.getProperty("language"));
+    try {
+      language=(byte)str.sToLThrows(properties.getProperty("language"));
+    }catch (Exception e) {
+      if(Main.getFolder()==null){return;}
+      try {
+        language=str.iToBy(chargerLesTraductions.getLanguage(properties.getProperty("language")));
+      }catch (Exception e2) {
+        erreur.alerte("language can't be laod from properties");
+        language=2;
+      }
+    }
     buttonSizeZoom=str.sToBy(properties.getProperty("buttonSizeZoom"));
     buttonSizeAction=str.sToBy(properties.getProperty("buttonSizeAction"));
     buttonSizeTX=str.sToBy(properties.getProperty("buttonSizeTX"));
@@ -324,6 +355,7 @@ public class Options implements Serializable{
     debug_message=str.sToB(properties.getProperty("debug_message"));
     debug_performance=str.sToB(properties.getProperty("debug_performance"));
     debug_gui=str.sToB(properties.getProperty("debug_gui"));
+    debug_paintHitBox=str.sToB(properties.getProperty("debug_paintHitBox"));
     sizeOfMapLines=str.sToI(properties.getProperty("sizeOfMapLines"));
     positionCase=str.sToBy(properties.getProperty("positionCase"));
     music=str.sToB(properties.getProperty("music"));
@@ -334,10 +366,13 @@ public class Options implements Serializable{
     autoCleaning=str.sToB(properties.getProperty("autoCleaning"));
     modeFPS=str.sToB(properties.getProperty("modeFPS"));
     fps=str.sToI(properties.getProperty("fps"));
+    setAntColorLevel(str.sToBy(properties.getProperty("antColorLevel")));
+    setEndTurnAuto(str.sToB(properties.getProperty("endTurnAuto")));
+    setAnimationEnable(str.sToB(properties.getProperty("animationEnable")));
   }
   /**
   *{@summary tranform properties into Options var.}<br>
-  *@version 1.34
+  *@version 2.5
   */
   private void optionToProperties(){
     properties = new SortedProperties(getDefaultProperties());
@@ -367,6 +402,7 @@ public class Options implements Serializable{
     properties.setProperty("debug_message",""+debug_message);
     properties.setProperty("debug_performance",""+debug_performance);
     properties.setProperty("debug_gui",""+debug_gui);
+    properties.setProperty("debug_paintHitBox",""+debug_paintHitBox);
     properties.setProperty("sizeOfMapLines",""+sizeOfMapLines);
     properties.setProperty("positionCase",""+positionCase);
     properties.setProperty("music",""+music);
@@ -377,5 +413,8 @@ public class Options implements Serializable{
     properties.setProperty("autoCleaning",""+autoCleaning);
     properties.setProperty("modeFPS",""+modeFPS);
     properties.setProperty("fps",""+fps);
+    properties.setProperty("antColorLevel", ""+antColorLevel);
+    properties.setProperty("endTurnAuto",""+endTurnAuto);
+    properties.setProperty("animationEnable",""+animationEnable);
   }
 }

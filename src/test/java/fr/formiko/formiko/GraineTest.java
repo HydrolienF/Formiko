@@ -10,7 +10,7 @@ import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class GraineTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   private void ini(){
     Main.initialisation();
     Partie p = new Partie(0,100,new Carte(new GCase(1,5),0,0,1,false,false),1);
@@ -40,13 +40,13 @@ public class GraineTest extends TestCaseMuet{
   @Test
   public void testGraine(){
     ini();
-    assertEquals(0,Main.getGc().getCCase(0,0).getContenu().getGg().length());
+    assertEquals(0,Main.getGc().getCCase(0,0).getContent().getGg().length());
     Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
-    assertEquals(1,Main.getGc().getCCase(0,0).getContenu().getGg().length());
-    assertEquals(g1,Main.getGc().getCCase(0,0).getContenu().getGg().getDébut().getContenu());
+    assertEquals(1,Main.getGc().getCCase(0,0).getContent().getGg().length());
+    assertEquals(g1,Main.getGc().getCCase(0,0).getContent().getGg().getHead().getContent());
     Graine g2 = new Graine(Main.getGc().getCCase(0,0),10,(byte)100);
-    assertEquals(2,Main.getGc().getCCase(0,0).getContenu().getGg().length());
-    assertEquals(g2,Main.getGc().getCCase(0,0).getContenu().getGg().getDébut().getContenu());
-    assertEquals(g1,Main.getGc().getCCase(0,0).getContenu().getGg().getDébut().getSuivant().getContenu());
+    assertEquals(2,Main.getGc().getCCase(0,0).getContent().getGg().length());
+    assertEquals(g2,Main.getGc().getCCase(0,0).getContent().getGg().getHead().getContent());
+    assertEquals(g1,Main.getGc().getCCase(0,0).getContent().getGg().getHead().getSuivant().getContent());
   }
 }

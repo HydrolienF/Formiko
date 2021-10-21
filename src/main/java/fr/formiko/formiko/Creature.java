@@ -19,16 +19,16 @@ import java.io.Serializable;
 *@version 1.13
 */
 public abstract class Creature extends ObjetSurCarteAId implements Serializable{
-  // action
+  // action done with Decorator pattern
   public Deplacement déplacement;
   public Chasse chasse;
   public Pondre pondre;
   public Trophallaxie trophallaxie;
-  // public Collecte collecte;
   public Evoluer evoluer;
   public Mourir mourir;
   public Netoyer netoyer;
   public Tour tour;
+  // public Collecte collecte;
   // variable
   protected int nourriture;
   protected int nourritureMax;
@@ -45,12 +45,14 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   protected int nourritureFournie;
   protected Espece e;
   protected ObjetSurCarteAId transported;
+  private int lastTurnEnd=-1;
+
   //TODO #73
   //protected int typeEated [];
   //private int pv; //Point de vie
   //private int pa; //Point de dégats
   // point de force.
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   /**
   *{@summary Main constructor for Creature.}<br>
   *All args are Creature var.
@@ -86,7 +88,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public Creature (CCase ccase,int ageMax){this(ccase,0,ageMax);}
   public Creature (CCase ccase){this(ccase,100);}
   public Creature (){this((CCase) null);}
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   //Nourriture
   public int getNourriture(){return nourriture;}
   public int getNourritureMax(){return nourritureMax;}
@@ -105,9 +107,10 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void setAge(int x){age=x;mourirOuPas(2);}
   public void ajouteAge(int x){age+=x; mourirOuPas(2);}
   public int getAction(){return action;}
-  public void setAction(byte x){action = x;}
+  private void setAction(byte x){action = x;}
   public void setAction(int x){setAction(str.iToBy(x));}
   public void setActionMoins(int x){setAction(getAction() - x);}
+  public void setActionTo0(){if(getAction()>0){setAction(0);}}
   public byte getActionMax(){return actionMax;}
   public void setActionMax(byte x){actionMax =x;}
   /**
@@ -119,11 +122,11 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   @Override
   public void setCCase(CCase newCCase){
     if(this.ccase!=null){
-      this.ccase.getContenu().getGc().retirer(this);
+      this.ccase.getContent().getGc().remove(this);
     }
     this.ccase = newCCase;
     if(newCCase!=null){
-      newCCase.getContenu().getGc().add(this);
+      newCCase.getContent().getGc().add(this);
     }
   }
   //public void setCCase(int x, int y){setCCase(Main.getGc().getCCase(x,y));}
@@ -136,11 +139,13 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public boolean getEstMort(){ return estMort;}
   public void setEstMort(boolean b){estMort=b;actionMax=0;action=0;}
   public byte getPropreté(){return getProprete();} public byte getProprete(){return propreté;}
+  public byte getPropreteMax(){return 100;}
   public void setPropreté(int x){setProprete(x);}
   public void setProprete(int x){setPropreté(str.iToBy(x));}
   public void setPropreté(byte x){ propreté = x; if(x<100){x=100;}}
   public abstract boolean getFemelle();
   public abstract void setFemelle(boolean b);
+  public abstract String getSex();
   public byte getStade(){ return stade;}
   public void setStade(byte s){ stade = s;} public void setStade(int x){setStade(str.iToBy(x));}
   public boolean estFourmi(){return (this instanceof Fourmi);}
@@ -154,6 +159,8 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void setEspece(Espece e){ this.e = e;}
   public void setEspece(int e){ setEspece(Main.getEspeceParId(e));}
   public String getNom(){return g.get("creature");}
+  public int getLastTurnEnd(){return lastTurnEnd;}
+  public void setLastTurnEnd(int x){lastTurnEnd=x;}
   /***
   *{@summary Return true if is own by an AI.}<br>
   *@version 1.40
@@ -171,6 +178,8 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     transported = o;
     if(o!=null){o.setCCase(null);}
   }
+
+  public int getTaille(){if(getEspece()!=null){return getEspece().getTaille(getStade());}return 1;}
 
   //raccourci des actions d'interface
   public void ceDeplacer(boolean bIa){déplacement.unMouvement(this,bIa);}
@@ -194,13 +203,57 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void ceNetoyer(){netoyer.netoyer(this,this);}
   public boolean netoyerIa(){return netoyer.netoyerIa(this);}
   public void tour(){tour.unTour(this);}
+  public void endTurn(){tour.endTurn(this);}
   //public void preTour(){tour.preTour(this);}
   //public void manger (graine pour certaine fourmi, champnons pour d'autre et herbe pour les insectes.)
-  // Fonctions propre -----------------------------------------------------------
+  /**
+  *{@summary Return the state of the Creature concerning food.}
+  *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
+  *@version 2.8
+  */
+  public int getStateFood(){
+    if(getNourriture()<0.1*getNourritureMax()){return 3;}
+    else if(getNourriture()<0.2*getNourritureMax()){return 2;}
+    else if(getNourriture()<0.4*getNourritureMax()){return 1;}
+    else {return 0;}
+  }
+  /**
+  *{@summary Return the state of the Creature concerning action.}
+  *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
+  *@version 2.8
+  */
+  public int getStateAction(){
+    if(getAction()==getActionMax()){return 0;}
+    else if(getAction()<=0){return 3;}
+    else{return 1;}
+  }
+  /**
+  *{@summary Return the state of the Creature concerning age.}
+  *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
+  *@version 2.8
+  */
+  public int getStateAge(){
+    if(getAge()>=getAgeMax()*0.9){return 2;}
+    return 1;
+  }
+  /**
+  *{@summary Return the state of the Creature concerning health.}
+  *Creature that don't Override getStateHealth() will always be at 0.
+  *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
+  *@version 2.8
+  */
+  public int getStateHealth(){
+    return 0;
+  }
+  // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Return a description of the creature.}
+  *@version 2.7
+  */
   @Override
   public String toString(){
     String r = "";
-    r+= g.getOu("le","la")+" "+getNom();
+    r+= g.getOr("le","la")+" "+getNom();
     r+=" ";
     r+=getId();r+=" ";
     if (this.getFemelle()){r+= "♀";}
@@ -231,7 +284,6 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     if (stade==-1){ return g.get("nymphe");}
     return g.get("stade")+" "+g.get("inconnu")+" ("+stade+")";
   }
-  //public abstract void afficheToi();
   //... equals(Creature c) // c'est ObjetAId qui compare l'id.
 
   /**
@@ -262,7 +314,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
    */
   public GCreature getAlliéSurLaCase(){
     //if(!e.getPolycalique()){return new GCreature(this);} //pris en compte par la diff phéromonale tolléré
-    return getCCase().getContenu().getGc().filtreAlliés(this);
+    return getCCase().getContent().getGc().filtreAlliés(this);
   }
   /**
    *{@summary find all allied Creature on the same Case and remove this form the GCreature.}<br>
@@ -272,7 +324,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     //if(!e.getPolycalique()){return new GCreature();}//pris en compte par la diff phéromonale tolléré
     GCreature gc = getAlliéSurLaCase();
     try {
-      gc.retirer(this);
+      gc.remove(this);
     }catch (Exception e) {}
     return gc;
   }

@@ -2,7 +2,9 @@ package fr.formiko.views;
 
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GJoueur;
+import fr.formiko.formiko.ObjetSurCarteAId;
 
 /**
  *{@summary Main view interface.}<br>
@@ -150,4 +152,45 @@ public interface View {
   *@version 1.46
   */
   void setPlayingAnt(Fourmi f);
+  /***
+  *{@summary move ObjetSurCarteAId.}<br>
+  *This action can only be run if action game is on.<br>
+  *@param o object to move.
+  *@param from CCase that o leave.
+  *@param to CCase were o is going.
+  *@version 2.1
+  */
+  void move(ObjetSurCarteAId o, CCase from, CCase to);
+  /***
+  *{@summary Wait for end turn if we need.}
+  *@version 2.5
+  */
+  default void waitForEndTurn(){}
+  /***
+  *{@summary Initialize the game launcher.}
+  *@version 2.7
+  */
+  default void iniLauncher(){}
+  /***
+  *{@summary Close the game launcher.}
+  *@version 2.7
+  */
+  default void closeLauncher(){}
+  /***
+  *{@summary Update downloading message.}
+  *@param message the message
+  *@version 2.7
+  */
+  default void setDownloadingMessage(String message){}
+  /***
+  *{@summary Update downloading %age.}
+  *@param state the state as a %age
+  *@version 2.7
+  */
+  default void setDownloadingValue(int state){}
+  /***
+  *{@summary Hide or show buttonRetry of FFrameLauncher.}
+  *@version 2.7
+  */
+  default void setButtonRetryVisible(boolean visible){}
 }

@@ -6,12 +6,26 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.structures.listes.Liste;
+import fr.formiko.formiko.Joueur;
+/**
+*{@summary Liste of EtiquetteJoueur.}
+*It is used to store &#38; print data to the user,
+*so that he can choose player info before start the game.
+*@version 2.5
+*@author Hydrolien
+*/
+public class GEtiquetteJoueur extends Liste<EtiquetteJoueur> {
 
-public class GEtiquetteJoueur {
-  private CEtiquetteJoueur début;
-  private CEtiquetteJoueur fin;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary create a basic GEtiquetteJoueur with x items.}<br>
+  *It have 1 humain player &#38; x-1 ia player.
+  *@param x number of player.
+  *@version 1.x
+  */
   public GEtiquetteJoueur(int x){
+    if(x<1 || x>1000){throw new IllegalArgumentException();}
     String pseudo = Main.getOp().getPseudo();
     if(pseudo.equals("") || pseudo.equals("-1")){pseudo = g.getM("joueur")+" 1";}
     this.add(new EtiquetteJoueur(pseudo,false));
@@ -20,48 +34,86 @@ public class GEtiquetteJoueur {
     }
     this.add(new EtiquetteJoueur());
   }
+  /** Create a empty GEtiquetteJoueur. */
   public GEtiquetteJoueur(){}
-  // GET SET --------------------------------------------------------------------
-  public CEtiquetteJoueur getDébut(){ return début;}
-  public CEtiquetteJoueur getFin(){ return fin;}
-  // Fonctions propre -----------------------------------------------------------
-  public int length(){
-    if(début==null){ return 0;}
-    return début.length();
+  // GET SET -------------------------------------------------------------------
+
+  // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary add an Item &#38; enableLaunchButtonIfNeeded.}
+  *@version 2.5
+  */
+  @Override
+  public boolean add(EtiquetteJoueur ej){
+    super.add(ej);
+    try {
+      enableLaunchButtonIfNeeded();
+    }catch (Exception e) {}
+    return true;
   }
-  public void afficheToi(){
-    if(début==null){System.out.println("le GEtiquetteJoueur est vide");return;}
-    System.out.println("GEtiquetteJoueur de "+length()+" éléments.");
-    début.afficheToi();
+  /**
+  *{@summary remove an Item &#38; disableLaunchButtonIfNeeded.}
+  *@version 2.5
+  */
+  @Override
+  public boolean remove(Object o){
+    if(super.remove(o)){
+      disableLaunchButtonIfNeeded();
+      return true;
+    }
+    return false;
   }
+  /**
+  *{@summary return this as a fully usable GJoueur.}<br>
+  *It use Pseudo, Pheromone &#38; ia value to create new players.
+  *@version 2.5
+  */
   public GJoueur getGJoueur(Carte mapo){
-    if (début==null){ return new GJoueur();}
-    this.retirer(fin.getContenu()); // on retir la fin qui est fermé.
-    return début.getGJoueur(mapo);
+    int nbrDeFourmi=1;
+    GJoueur gj = new GJoueur();
+    for (EtiquetteJoueur ej : this ) {
+      if(ej.getOuvert()){
+        Joueur j = new Joueur(nbrDeFourmi,ej.getIa(),mapo);
+        j.setPseudo(ej.getPseudo());
+        j.setPheromone(ej.getCouleur());
+        gj.add(j);
+        if(!ej.getIa()){ // si c'est un joueur Humain.
+          if (mapo.getCasesNuageuses() || mapo.getCasesSombres()){
+            j.initialisationCaseNS();
+            j.updateCaseSN();
+          }
+        }
+      }
+    }
+    return gj;
   }
-  public void add(EtiquetteJoueur ej){
-    if(début==null){ début = new CEtiquetteJoueur(ej); fin = début;}
-    else{
-      fin.setSuivant(new CEtiquetteJoueur(ej));
+  /**
+  *{@summary if there is 0 humain player, turn off launch button.}
+  *@version 2.5
+  */
+  public void disableLaunchButtonIfNeeded(){
+    for (EtiquetteJoueur ej : this ) {
+      if(ej.getOuvert() && !ej.getIa()){ //if there is a human player
+        return;
+      }
     }
-    actualiserFin();
+    //if there is 0 humain player
+    try {
+      Panneau.getView().getPnp().getLaunchButton().setEnabled(false);
+    }catch (Exception e) {
+      erreur.alerte("fail to disable launch button with 0 player");
+    }
   }
-  public void retirer(int idX){
-    if(début==null){erreur.erreurGXVide("GEtiquetteJoueur");return;}
-    if(début.getContenu().getId()==idX){
-      début = début.getSuivant();
-    }else{
-      début.retirer(idX);
+  /**
+  *{@summary if there is at least 1 humain player, turn on launch button.}
+  *@version 2.5
+  */
+  public void enableLaunchButtonIfNeeded(){
+    for (EtiquetteJoueur ej : this ) {
+      if(ej.getOuvert() && !ej.getIa()){ //if there is a human player
+        Panneau.getView().getPnp().getLaunchButton().setEnabled(true);
+        return;
+      }
     }
-    actualiserFin();
-  }public void retirer(EtiquetteJoueur ej){retirer(ej.getId());}
-  public void actualiserFin(){
-    //remettre la fin a la fin.
-    CEtiquetteJoueur cej = début;
-    if(cej==null){fin=null;return;}
-    while(cej.getSuivant()!=null){
-      cej=cej.getSuivant();
-    }
-    fin = cej;
   }
 }

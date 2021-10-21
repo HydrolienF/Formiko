@@ -6,35 +6,36 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.ecrireUnFichier;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
+import fr.formiko.usuel.structures.listes.Liste;
 
 import java.io.Serializable;
 
 public class CJoueur implements Serializable{
   private Joueur contenu;
   private CJoueur suivant;
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   public CJoueur(Joueur j){
     contenu = j;
   }
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public void setSuivant(CJoueur c){suivant = c;}
   public CJoueur getSuivant(){return suivant;}
-  public Joueur getJoueur(){return getContenu();}
-  public Joueur getContenu(){return contenu;}
+  public Joueur getJoueur(){return getContent();}
+  public Joueur getContent(){return contenu;}
   public GCreature getGc(){
     CJoueur act = this;
     GCreature gcr = new GCreature();
-    gcr.add(this.getContenu().getFere().getGc().copier());
+    gcr.add(this.getContent().getFere().getGc().copier());
     while(act.getSuivant() != null){
-      GCreature gcr2 = act.getSuivant().getContenu().getFere().getGc().copier();
+      GCreature gcr2 = act.getSuivant().getContent().getFere().getGc().copier();
       gcr.add(gcr2);
       act=act.getSuivant();
     }
     return gcr;
   }
   public Joueur getJoueurParId(int id){
-    if(this.getContenu().getId()==id){ return this.getContenu();}
+    if(this.getContent().getId()==id){ return this.getContent();}
     if(this.getSuivant()==null){return null;}
     return suivant.getJoueurParId(id);
   }
@@ -42,12 +43,12 @@ public class CJoueur implements Serializable{
     GJoueur gjr = new GJoueur();
     CJoueur cj = this;
     while(cj!= null){
-      if(!cj.getContenu().getIa()){ gjr.add(cj.getContenu());}
+      if(!cj.getContent().getIa()){ gjr.add(cj.getContent());}
       cj = cj.getSuivant();
     }
     return gjr;
   }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     if(suivant==null){return contenu.toString();}
     return contenu.toString() +"\n"+ suivant.toString();
@@ -62,20 +63,9 @@ public class CJoueur implements Serializable{
     return getSuivant().getJoueurNonIa(); // on continue les recherches.
   }
   public boolean getPlusDeFourmi(){
-    if(getContenu().getFere().getGc().length()>0){ return false;} //si on a trouvé une fourmi
+    if(getContent().getFere().getGc().length()>0){ return false;} //si on a trouvé une fourmi
     else if(suivant!=null){ return suivant.getPlusDeFourmi();}// sinon on test le joueur suivant.
     return true; //si tout les joueurs on été parcouru
-  }
-  public GJoueur getGjOrdonné(){
-    GJoueur gjr = new GJoueur();
-    CJoueur cj = this;
-    while(cj!=null){
-      Joueur j = cj.getContenu();
-      gjr.add(j);//TODO #231
-      //gjr.addOrdonnée(j); //TODO #231
-      cj=cj.getSuivant();
-    }
-    return gjr;
   }
   public int getNbrDeJoueurVivant(){
     int x = 0; if(contenu.getFere().getGc().length()!=0){x=1;}
@@ -97,34 +87,18 @@ public class CJoueur implements Serializable{
     GString gsr = new GString();
     CJoueur cj = this;
     while(cj!=null){
-      gsr.add(cj.getContenu().scoreToString());
+      gsr.add(cj.getContent().scoreToString());
       cj=cj.getSuivant();
     }
     return gsr;
   }
-  public void addOrdonnée(Joueur j){
-    CJoueur cj = this;
-    while(cj!=null && cj.getSuivant()!=null){
-      if(cj.getSuivant().getContenu().getScore()>j.getScore()){//si on a pas atteint la place voulue.
-        cj=cj.getSuivant();
-      }else{//placé après le 1a joueur qui a un plus mauvais score.
-        CJoueur temp = cj.getSuivant();//l'ancien maillon suivant.
-        cj.setSuivant(new CJoueur(j));
-        cj.getSuivant().setSuivant(temp);
-        return;
-      }
-      if(cj.getSuivant()==null){ // placé en dernière position
-        cj.setSuivant(new CJoueur(j));
-      }
-    }
-  }
-  public void retirer(Joueur j){
+  public void remove(Joueur j){
     if (suivant == null){
       erreur.erreur("Le joueur "+j.getId()+" n'as pas pue être retiré");
-    } else if( suivant.getContenu()==j){
+    } else if( suivant.getContent()==j){
       suivant = suivant.getSuivant();
     }else{
-      suivant.retirer(j);
+      suivant.remove(j);
     }
   }
   public void jouer(){
@@ -139,25 +113,25 @@ public class CJoueur implements Serializable{
     CJoueur cj = this;
     while(cj!=null){
       debug.débogage("Ajout d'1 message");
-      cj.getContenu().addMessage(m);
+      cj.getContent().addMessage(m);
       cj=cj.getSuivant();
     }
   }
   public void initialisationCaseNS(){
     CJoueur cj = this;
     while(cj!=null){
-      cj.getContenu().initialisationCaseNS();
+      cj.getContent().initialisationCaseNS();
       cj=cj.getSuivant();
     }
   }
   public void enregistrerLesScores(){
     GString gs = new GString();
     CJoueur cj = this;
-    gs.add(cj.getContenu().getFere().enregistrerLesScores());
+    gs.add(cj.getContent().getFere().enregistrerLesScores());
     cj=cj.getSuivant();
     //
     while(cj!=null){
-      gs.add(cj.getContenu().getFere().enregistrerLesScores());
+      gs.add(cj.getContent().getFere().enregistrerLesScores());
       cj=cj.getSuivant();
     }
     gs = gs.transformerScore();
@@ -166,15 +140,28 @@ public class CJoueur implements Serializable{
   public void prendreEnCompteLaDifficulté(){
     CJoueur cj = this;
     while(cj!=null){
-      cj.getContenu().prendreEnCompteLaDifficulté();
+      cj.getContent().prendreEnCompteLaDifficulté();
       cj = cj.getSuivant();
     }
   }
   public void setAction0AndEndTurn(){
     CJoueur cj = this;
     while(cj!=null){
-      cj.getContenu().setAction0AndEndTurn();
+      cj.getContent().setAction0AndEndTurn();
       cj = cj.getSuivant();
     }
+  }
+  /**
+  *{@summary Transform a GJoueur in Liste&lt;Joueur&gt;.}
+  *@version 1.38
+  */
+  public Liste<Joueur> toList(){
+    CJoueur cc = this;
+    Liste<Joueur> lc = new Liste<Joueur>();
+    while(cc!= null){
+      lc.add(cc.getContent());
+      cc = cc.getSuivant();
+    }
+    return lc;
   }
 }

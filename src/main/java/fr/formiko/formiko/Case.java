@@ -21,7 +21,7 @@ public class Case implements Serializable{
   private byte nourritureInsecteMax;
   private byte nourritureInsecteParTour;
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Case(Point p, Fourmiliere fere, GCreature gc, byte nourritureInsecte, byte nourritureInsecteMax, byte nt){
     this.p =p;
     this.fere = fere;
@@ -39,7 +39,7 @@ public class Case implements Serializable{
   }
   public Case(Point p){this(p,null,new GCreature());}
   public Case(int x, int y){this(new Point(x,y));}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public Point getP(){return p;}
   public Point getPoint(){ return getP();}
   public void setP(Point p){this.p = p;}
@@ -62,7 +62,7 @@ public class Case implements Serializable{
   public byte getType(){ return type;}
   public void setType(byte x){type = x; if(type==3 || type<0){setNourritureInsecteMax((byte)0); setNourritureInsecteParTour((byte)0);}}
   public void setType(int x){setType((byte)x);}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     boolean caseSombre = false;
     if(Main.getPartie()!=null && Main.getPartie().getPlayingJoueur()!=null){
@@ -79,11 +79,11 @@ public class Case implements Serializable{
       s=s+fere.toString(false);s=s+"\n";
     }
     if (!caseSombre) {
-      if (gc != null && gc.getDébut() != null){
+      if (gc != null && gc.getHead() != null){
         s=s+g.get("creatures")+" : "; s=s+"\n";
         s=s+gc.toString();s=s+"\n";
       }
-      if (gg != null && gg.getDébut() != null){
+      if (gg != null && gg.getHead() != null){
         s=s+g.get("graines")+" : ";s=s+"\n";
         s=s+gg.toString();s=s+"\n";
       }
@@ -130,7 +130,7 @@ public class Case implements Serializable{
     }
   }
   public void actualisationGraine(CCase p){
-    //ici un %age dépendant du type de la Case et de la saison serait bienvenue. (multiplié par l'abondance des graines.)
+    //TODO ici un %age dépendant du type de la Case et de la saison serait bienvenue. (multiplié par l'abondance des graines.)
     int x  = allea.getAlléa(50);
     if(x==0 && this.getFere()==null){ new Graine(p);} // si on a de la chance et que il n'y a pas de fere sur la case.
     gg.tour();

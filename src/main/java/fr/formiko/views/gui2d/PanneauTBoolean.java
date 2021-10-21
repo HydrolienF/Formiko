@@ -14,7 +14,7 @@ import java.awt.GridBagLayout;
 
 public class PanneauTBoolean extends PanneauTX{
   private int choix;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauTBoolean(String desc){super();
     if(desc==null){ return;}
     tailleBouton = Main.getTailleBoutonTX();
@@ -27,13 +27,13 @@ public class PanneauTBoolean extends PanneauTX{
     x = 2;
     y = 1;
     this.setSize(x*tailleBouton,y*tailleBouton);
-    Bouton tB [] = new Bouton [nbrDeCase];
+    FButton tB [] = new FButton [nbrDeCase];
     Dimension dim = new Dimension(tailleBouton,tailleBouton);
-    //tB[0]=new Bouton(g.get("OUI"), getView().getPp().getPj(),40);
-    //tB[1]=new Bouton(g.get("NON"), getView().getPp().getPj(),41);
-    tB[0]=new Bouton("O", getView().getPp().getPj(),40);
-    tB[1]=new Bouton("N", getView().getPp().getPj(),41);
-    for (Bouton b :tB){b.setPreferredSize(dim);}
+    //tB[0]=new FButton(g.get("OUI"), getView().getPp().getPj(),40);
+    //tB[1]=new FButton(g.get("NON"), getView().getPp().getPj(),41);
+    tB[0]=new FButton("O", getView().getPp().getPj(),40);
+    tB[1]=new FButton("N", getView().getPp().getPj(),41);
+    for (FButton b :tB){b.setPreferredSize(dim);}
     GridBagConstraints gbc = new GridBagConstraints();
     int k=0;
     gbc.gridx = 0;
@@ -43,8 +43,8 @@ public class PanneauTBoolean extends PanneauTX{
     }
     debug.débogage(k+" boutons ont été ajoutés");
   }
-  // GET SET --------------------------------------------------------------------
-  // Fonctions propre -----------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public static boolean getChoixId(){
     int id2 = -1;
     debug.débogage("lancement d'une boucle de choix.");

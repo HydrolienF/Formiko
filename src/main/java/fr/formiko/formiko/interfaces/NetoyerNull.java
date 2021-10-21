@@ -14,7 +14,7 @@ import java.io.Serializable;
  */
 public class NetoyerNull implements Serializable, Netoyer {
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *If lauch print an error.
   */

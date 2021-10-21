@@ -11,14 +11,14 @@ import java.io.Serializable;
 *@author Hydrolien
 *@version 1.30
 */
-public class Point implements Serializable{
+public class Point implements Serializable, Cloneable{
   protected int x,y; // pas de byte pour pourvoir utliser de très grande carte !
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   /**
   *{@summary A simple contructor.}<br>
   *@version 1.30
   */
-  public Point (int x,int y){
+  public Point (int x, int y){
     this.x = x;
     this.y = y;
   }
@@ -51,7 +51,7 @@ public class Point implements Serializable{
     }
   }
 
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public int getX(){return x;}
   public int getY(){return y;}
   public void setX(int x){this.x = x;}
@@ -59,7 +59,7 @@ public class Point implements Serializable{
   public void ajouteAX(int a){this.x = this.x + a;}
   public void ajouteAY(int a){this.y = this.y + a;}
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary A simple toString function.}<br>
   *@version 1.30
@@ -94,5 +94,13 @@ public class Point implements Serializable{
   public boolean equals(String s){//sous la forme -51,34
     if(s==null){return false;}
     return equals(new Point(s));
+  }
+  /**
+  *{@summary Standard clone function.}
+  *@version 2.1
+  */
+  @Override
+  public Point clone(){
+    return new Point(x,y);
   }
 }

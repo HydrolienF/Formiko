@@ -2,7 +2,7 @@ package fr.formiko.usuel;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.lireUnFichier;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 
@@ -27,7 +27,7 @@ public class chargerLesTraductions {
   public static void setRep(){setRep(Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages());}
   public static HashMap<String, String> getMap(){return map;}
   public static void iniMap(){map = new HashMap<>();}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary get the int that corresponds to the language String.}<br>
   *@param x language id.

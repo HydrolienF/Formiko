@@ -48,8 +48,9 @@ public class Partie implements Serializable{
   private boolean appartionGraine;
   private boolean dejaIni=false;
   private Fourmi playingAnt;
+  private int antIdToPlay;
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   // nombre de joueur, nombre d'ia, abondance des insectes, niveau de difficulté des ia, les especes autorisé, le nombre de tour.
   public Partie(int difficulté, int nbrDeTour, Carte mapo, double vitesseDeJeu){
     // script=""; //TODO we don't whant to update it every time.
@@ -68,6 +69,7 @@ public class Partie implements Serializable{
     gi = new GInsecte();
     appartionInsecte=true;
     appartionGraine=true;
+    antIdToPlay=-1;
   }
   /**
   *{@summary Constructor with only minimal initialization.}<br>
@@ -78,7 +80,7 @@ public class Partie implements Serializable{
     gj = new GJoueur();
     gi = new GInsecte();
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public static String getScript(){return script;}
   public static void setScript(String s){script=s;}
   public GInsecte getGi(){ return gi;}
@@ -91,6 +93,8 @@ public class Partie implements Serializable{
   public static GEspece getGe(){return ge;}
   public int getTour(){ return tour;}
   public void setTour(int x){ tour=x;}
+  public void addTour(int x){tour+=x;}
+  public void addTour(){addTour(1);}
   public int getNbrDeTour(){ return nbrDeTour;}
   public void setNbrDeTour(int x){ nbrDeTour=x;}
   public byte getDifficulté(){return difficulté;}
@@ -117,7 +121,9 @@ public class Partie implements Serializable{
   public Joueur getPlayingJoueur(){try{return getPlayingAnt().getFere().getJoueur();}catch (Exception e) {return null;}}
   public boolean getCasesSombres(){if(getCarte()==null){ return false;} else {return getCarte().getCasesSombres();}}
   public boolean getCasesNuageuses(){if(getCarte()==null){ return false;} else {return getCarte().getCasesNuageuses();}}
-  // Fonctions propre -----------------------------------------------------------
+  public int getAntIdToPlay(){return antIdToPlay;}
+  public void setAntIdToPlay(int x){antIdToPlay=x;}
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String r="";
     r+= g.get("continerLeJeu")+" : "+continerLeJeu;r+="\n";
@@ -178,12 +184,7 @@ public class Partie implements Serializable{
       Main.endCh("chargementElementsDeLaCarte");
       Main.setMessageChargement(g.getM("chargementDesGraphismes"));
     }
-    //ce qui arrive même si c'était déja initialisé.
-    Main.startCh();
-    if(Main.getF()!=null){ //TODO move to ViewGUI2d
-      initialiserGraphismePartie();
-    }
-    Main.endCh("chargementGraphismes");
+    // Main.getView().iniGuiData();
     setEnCours(true);
   }
   public void initialisationElément(int a, int b){initialisationElément(a,b,1);}
@@ -194,7 +195,7 @@ public class Partie implements Serializable{
       gj.add(j);
       if (mapo.getCasesNuageuses() || mapo.getCasesSombres()){
         j.initialisationCaseNS();
-        j.actualiserCaseSN();
+        j.updateCaseSN();
       }
     }
   }
@@ -260,27 +261,32 @@ public class Partie implements Serializable{
     boolean canResumeGame=true;
     System.out.println(getTour()+"/"+getNbrDeTour());
     String victoire = g.get("victoireInconue");
-    GJoueur gjOrdonné = getGj().getGjOrdonné();
-    Joueur gagnant = gjOrdonné.getDébut().getContenu();
+    GJoueur gjSorted = getGj().getGjSorted();
+    Joueur winner = null;
+    String pseudo = "";
+    try {
+       winner = gjSorted.getHead().getContent();
+       pseudo = winner.getPseudo();
+    }catch (NullPointerException e) {}
     if (x==2){
       victoire = g.get("élimination");
     } else if (x==1){
-      // en théorie ici gagnant = joueur qui a le meilleur score.
+      // en théorie ici winner = joueur qui a le meilleur score.
       victoire =  g.get("temps");
       canResumeGame = false;
     }
     String mess = "";
     if(x!=0){
       //g.getM("le")+" "+g.get("joueur")+" "
-      mess=gagnant.getPseudo()+" "+g.get("victoirePar")+" " + victoire+" !";
+      mess=pseudo+" "+g.get("victoirePar")+" " + victoire+" !";
       new Message(mess);
     }else{
       mess=g.getM("toutLesJoueurHumainsEliminés");
       canResumeGame = false;
       new Message(mess);
     }
-    gjOrdonné.afficheScore();
-    Main.getView().endActionGame(withButton, nextLevel, mess, gjOrdonné, canResumeGame);
+    // gjSorted.afficheScore();
+    Main.getView().endActionGame(withButton, nextLevel, mess, gjSorted, canResumeGame);
     setContinuerLeJeu(false);
     // Main.setRetournerAuMenu(true);//TODO ask & not force.
     if(withButton){
@@ -289,37 +295,7 @@ public class Partie implements Serializable{
       }
     }
   }
-  public void initialiserGraphismePartie(){
-    initalizeAntsImages(gj.length());
-    Main.initialiserElémentTournés(); //une partie des graphismes tourné est probablement déja faite.
-  }
-  /**
-  *{@summary Initialize Ant images and save it.}<br>
-  *It use GJoueur informations to get Pheromone of every queen &#38; create an image that have the 3 color level of the 3 var of Pheromone.
-  *@version 1.39
-  */
-  public void initalizeAntsImages(int nbrDeJoueur){
-    //nouvelle méthode
-    Pixel pi = new Pixel(255,105,0,255);
-    for (int i=1;i<nbrDeJoueur+1 ;i++ ) {
-      Pheromone ph;
-      try {
-        ph = gj.getJoueurParId(i).getFere().getGc().getDébut().getContenu().getPh();
-      }catch (Exception e) {
-        erreur.erreur("Les Pheromones de la fourmi n'ont pas put etre récupérer, il sont donc choisi aléatoirement.");
-        ph = new Pheromone(127,127,127); // blanc sinon.
-      }
-      int a = ph.getRc(); int b=ph.getVc(); int c=ph.getBc();
-      Img imgTemp = new Img("F0");
-      Pixel pi2 = new Pixel(ph);
-      imgTemp.changerPixel(pi,pi2);
-      //imgTemp.ombrer(pi2); // met de l'ombre sur le pixel pi2. (en théorie) En pratique on vas plutot déciner moins de couleur sur les bords.
-      imgTemp.sauvegarder("F0&"+i+".png");
-    }
-  }
-  public void enregistrerLesScores(){
-    gj.enregistrerLesScores();
-  }
+  public void enregistrerLesScores(){gj.enregistrerLesScores();}
   //static
   /**
    * Load the GEspece.
@@ -381,15 +357,15 @@ public class Partie implements Serializable{
    * @version 1.1
    */
   private void iniParametreCarteTuto(){
-    Fourmiliere fere = getGj().getDébut().getContenu().getFere();
+    Fourmiliere fere = getGj().getHead().getContent().getFere();
     CCase ccIni = getGc().getCCase(0,1);
     fere.setCc(ccIni);
-    fere.getGc().getDébut().getContenu().setCCase(ccIni);
+    fere.getGc().getHead().getContent().setCCase(ccIni);
     Insecte i = new Insecte(Main.getPartie().getGc().getCCase(1,1),0,100,0);
     i.setNourritureFournie(200);
     i.setEstMort(false);
     i.setType(8);
-    getGi().addInsecte(i);
+    getGi().add(i);
     // ths.start();
   }
   /**
@@ -402,6 +378,9 @@ public class Partie implements Serializable{
   public boolean setPlayingAnt(Fourmi f){
     if (!Main.getView().getActionGameOn()) {return false;}
     playingAnt=f;
+    try { //udpate playingJoueur if ant is not null.
+      Joueur.setPlayingJoueur(f.getFere().getJoueur());
+    }catch (NullPointerException e) {}
     return true;
   }
   /**

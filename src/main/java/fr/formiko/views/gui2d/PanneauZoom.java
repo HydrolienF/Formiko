@@ -22,10 +22,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class PanneauZoom extends Panneau {
-  private Bouton bPlus; private Bouton bMoins; private Bouton bc;//bouton de zoom.
-  private Bouton bh; private Bouton bb; private Bouton bd; private Bouton bg; //bouton de déplacements
-  private Bouton bd1; private Bouton bd2;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  private FButton bPlus; private FButton bMoins; private FButton bc;//bouton de zoom.
+  private FButton bh; private FButton bb; private FButton bd; private FButton bg; //bouton de déplacements
+  private FButton bd1; private FButton bd2;
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauZoom(){
     int tailleBouton=Main.getbuttonSizeZoom();
     setSize(tailleBouton*3,tailleBouton*3);
@@ -38,15 +38,15 @@ public class PanneauZoom extends Panneau {
     //else{tIB = chargerTIB2(Main.getPiFond());}
     tIB = Main.getData().chargerTIBZoom();
     Dimension dim = new Dimension(tailleBouton, tailleBouton);
-    bMoins = new Bouton("-",(Panneau)this,0,tIB[0]);
-    bh = new Bouton("haut",(Panneau)this,7,tIB[1]);
-    bPlus = new Bouton("+",(Panneau)this,2,tIB[2]);
-    bd = new Bouton("droite",(Panneau)this,3,tIB[3]);
-    bc = new Bouton("centrer",(Panneau)this,4,tIB[4]);
-    bg = new Bouton("gauche",(Panneau)this,5,tIB[5]);
-    bb = new Bouton("bas",(Panneau)this,1,tIB[6]);
-    bd1 = new Bouton("centrer sur la fourmi",(Panneau)this,6,tIB[7]);
-    bd2 = new Bouton("dézoomer 2",(Panneau)this,8,tIB[8]);
+    bMoins = new FButton("-",(Panneau)this,0,tIB[0]);
+    bh = new FButton("haut",(Panneau)this,7,tIB[1]);
+    bPlus = new FButton("+",(Panneau)this,2,tIB[2]);
+    bd = new FButton("droite",(Panneau)this,3,tIB[3]);
+    bc = new FButton("centrer",(Panneau)this,4,tIB[4]);
+    bg = new FButton("gauche",(Panneau)this,5,tIB[5]);
+    bb = new FButton("bas",(Panneau)this,1,tIB[6]);
+    bd1 = new FButton("centrer sur la fourmi",(Panneau)this,6,tIB[7]);
+    bd2 = new FButton("dézoomer 2",(Panneau)this,8,tIB[8]);
     bPlus.setPreferredSize(dim); bMoins.setPreferredSize(dim); bb.setPreferredSize(dim); bh.setPreferredSize(dim); bd.setPreferredSize(dim); bg.setPreferredSize(dim);bc.setPreferredSize(dim); bd1.setPreferredSize(dim); bd2.setPreferredSize(dim);
     //L'objet servant à positionner les composants
     GridBagConstraints gbc = new GridBagConstraints();
@@ -71,28 +71,29 @@ public class PanneauZoom extends Panneau {
     add(bb,gbc);
     gbc.gridx = 2;
     add(bd2,gbc);
-    Color col = new Color(0,0,0,0);
-    bPlus.setCFond(col);
-    bMoins.setCFond(col);
-    bh.setCFond(col);
-    bb.setCFond(col);
-    bd.setCFond(col);
-    bg.setCFond(col);
-    bc.setCFond(col);
-    bd1.setCFond(col);
-    bd2.setCFond(col);
-    // bPlus.setBordure(false);
-    // bMoins.setBordure(false);
-    // bh.setBordure(false);
-    // bb.setBordure(false);
-    // bd.setBordure(false);
-    // bg.setBordure(false);
-    // bc.setBordure(false);
-    // bd1.setBordure(false);
-    // bd2.setBordure(false);
+    // Color col = new Color(0,0,0,0);
+    //TODO border color should be black.
+    bPlus.setColor(-1);
+    bMoins.setColor(-1);
+    bh.setColor(-1);
+    bb.setColor(-1);
+    bd.setColor(-1);
+    bg.setColor(-1);
+    bc.setColor(-1);
+    bd1.setColor(-1);
+    bd2.setColor(-1);
+    bPlus.setBordure(false);
+    bMoins.setBordure(false);
+    bh.setBordure(false);
+    bb.setBordure(false);
+    bd.setBordure(false);
+    bg.setBordure(false);
+    bc.setBordure(false);
+    bd1.setBordure(false);
+    bd2.setBordure(false);
     setEnabled(true);
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public int getTailleBouton(){ return Main.getbuttonSizeZoom();}
   //public void setTailleBouton(int x){ tailleBouton=x;}
   public void setEnabled(boolean boo){
@@ -106,16 +107,12 @@ public class PanneauZoom extends Panneau {
     bd1.setEnabled(boo);bd2.setEnabled(boo);
     super.setEnabled(boo);
   }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
-    try {
-      if(!Main.getPartie().getEnCours()){return;}
-    }catch (Exception e) {
-      return;
-    }
+    if(Main.getPartie()==null || !Main.getPartie().getEnCours()){return;}
     int tailleBouton=Main.getbuttonSizeZoom();
     debug.débogage("taille du panneau de zoom : x="+tailleBouton*3+", y="+tailleBouton*3);
-    this.setSize(tailleBouton*3,tailleBouton*3);
+    setSize(tailleBouton*3,tailleBouton*3);
   }
   public void doAction(byte ac){
     Panneau.getView().getPj().doAction(ac);

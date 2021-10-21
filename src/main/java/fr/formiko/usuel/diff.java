@@ -1,7 +1,7 @@
 package fr.formiko.usuel;
 
 //def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.lireUnFichier;
 /**
  * {@summary Tool to count add or suppress line.}<br>
@@ -10,7 +10,7 @@ import fr.formiko.usuel.lireUnFichier;
  */
 public class diff {
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
    * {@summary Count add or suppress line.}<br>
    * @version 1.0

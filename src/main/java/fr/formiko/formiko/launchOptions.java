@@ -12,9 +12,10 @@ import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.listes.GString;
 import fr.formiko.usuel.media.audio.*;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.tableau;
+// import fr.formiko.usuel.testTryCatchNullPointerException;
 import fr.formiko.usuel.trad;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.ViewNull;
@@ -167,6 +168,20 @@ public class launchOptions {
     }else if(args[0].equals("updateDataVersion")){
       updateDataVersion(args);
       System.exit(0);
+    }else if(args[0].equals("launcher")){
+      Main.initialisation();
+      Main.getView().iniLauncher();
+      Main.getView().setDownloadingMessage("Dowloading files");
+      int k=0;
+      while (k<10) {
+        Main.getView().setDownloadingValue(k*7);
+        Temps.pause(1000);
+        k++;
+      }
+      // System.exit(0);
+    // }else if(args[0].equals("testTryCatchNullPointerException")){
+    //   testTryCatchNullPointerException.doTest();
+    //   System.exit(0);
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }
@@ -275,10 +290,6 @@ public class launchOptions {
     AudioPlayer sp2 = new AudioPlayer("C:/Users/lili5/Music/son/pock.mp3",true,2000);
     sp2.play();
   }
-  // private static void zip(){
-  //   fichier.zip("tools/", "tools.zip");
-  //   fichier.unzip("tools.zip", "tools2");
-  // }
   /**
   *{@summary Translate the web site files.}<br>
   *@param pathToWebSiteFile path to acces to web site files.
@@ -322,15 +333,19 @@ public class launchOptions {
       // Folder f = Main.getFolder();
       Reader reader = Files.newBufferedReader(Folder.getVersionJsonPath());
       JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
+      String formikoVersion="";
+      try {
+        formikoVersion = lireUnFichier.lireUnFichierGs("version.md").getFirst();
+      }catch (Exception e) {}
       String musicVersion="";
       String dataVersion="";
-      if(args[1].equals("1")){
+      if(args.length>1 && args[1].equals("1")){
         erreur.info("Update dataVersion");
         dataVersion = getCurentversion();
       }else{
         dataVersion = (String) parser.get("data");
       }
-      if(args[2].equals("1")){
+      if(args.length>2 && args[2].equals("1")){
         erreur.info("Update musicVersion");
         musicVersion = getCurentversion();
       }else{
@@ -341,6 +356,7 @@ public class launchOptions {
       JsonObject jsr = new JsonObject();
       jsr.put("data",dataVersion);
       jsr.put("music",musicVersion);
+      jsr.put("formiko",formikoVersion);
       // File file = new File(f.getFolderMain()+"version.json");
       // file.delete();
       BufferedWriter writer = Files.newBufferedWriter(Folder.getVersionJsonPath());

@@ -9,7 +9,7 @@ import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class PointTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testEquals(){
     Point p = new Point(0,0);

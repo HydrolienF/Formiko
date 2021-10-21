@@ -11,19 +11,19 @@ import javax.swing.JTextField;
 
 public class Champ extends JTextField{
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Champ(String s){
     super(s);
     setPolice();
   }
   public Champ(){ this("");}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   //setText et getText
-  public void setBounds(int a, int b, int c){setBounds(a,b,c,Desc.getDimY());}
+  public void setBounds(int a, int b, int c){setBounds(a,b,c,FLabel.getDimY());}
   public void setPolice(Font fon){ this.setFont(fon);}
   public void setPolice(){ setPolice(Main.getFont1());}
   public void setFondColoré(Color col){this.setBackground(col);}
   public void setFondTransparent(){setFondColoré(new Color(0,0,0,0));}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
 
 }

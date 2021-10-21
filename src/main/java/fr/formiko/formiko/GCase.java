@@ -16,7 +16,7 @@ import java.io.Serializable;
 public class GCase implements Serializable{
   public CCase début;
   public CCase actuelle;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public GCase(int horizontale, int verticale){
     if(horizontale < 0 || verticale < 0){ erreur.erreur("Impossible de créer une carte si petite","la carte la plus petite possible a été créée."); horizontale = 1; verticale = 1;}
 
@@ -33,10 +33,10 @@ public class GCase implements Serializable{
     this(taille, taille);
   }
   public GCase(){}
-  // GET SET --------------------------------------------------------------------
-  public CCase getDébut(){ return début;}
+  // GET SET -------------------------------------------------------------------
+  public CCase getHead(){ return début;}
   public String getDim(){ return getWidth()+";"+getHeight();}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     if (début==null){erreur.erreur("La carte est vide");return "";}
     return début.toString();
@@ -93,7 +93,7 @@ public class GCase implements Serializable{
       //tth[i].start();
       for (int j=0;j<lenj;j++ ) {
         System.out.println("éléments n°"+(i*lenj+j)+"/"+(leni*lenj));
-        ie.add(i*500,j*500,ti[this.getCCase(i,j).getContenu().getType()]);
+        ie.add(i*500,j*500,ti[this.getCCase(i,j).getContent().getType()]);
       }
     }
     ie.actualiserImage();
@@ -103,7 +103,7 @@ public class GCase implements Serializable{
     debug.débogage("Création d'une ligne");
     int k = 1; CCase temp; actuelle = débutDeLaLigne;
     while (x>0){
-      temp = new CCase(new Case(k,actuelle.getContenu().getPoint().getY())); k++;
+      temp = new CCase(new Case(k,actuelle.getContent().getPoint().getY())); k++;
       actuelle.setDroite(temp);
       temp.setGauche(actuelle);
       actuelle = temp;

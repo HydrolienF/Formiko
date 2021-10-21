@@ -15,7 +15,6 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 public class EtiquetteJoueur extends Panneau{
@@ -23,9 +22,9 @@ public class EtiquetteJoueur extends Panneau{
   private Champ dsc;
   private boolean ia;
   private boolean ouvert;
-  private ComboBox<String> combo;
+  private FComboBox<String> combo;
   private Champ couleur;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public EtiquetteJoueur(String s, Boolean b){
     id =idCpt; idCpt++;
     setOpaque(false);
@@ -38,7 +37,7 @@ public class EtiquetteJoueur extends Panneau{
     is2.setEj(this);
     add(dsc);
     String[] tab = {g.getM("joueur"), g.getM("ia"), g.getM("fermé")};
-    combo = new ComboBox<String>(tab);
+    combo = new FComboBox<String>(tab);
     couleur=new Champ();
     couleur.setFondTransparent();
     couleur.setBorder(null);
@@ -60,7 +59,7 @@ public class EtiquetteJoueur extends Panneau{
     this(Joueur.get1Pseudo(),null);
   }
 
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public int getId(){return id;}
   public String getPseudo(){return dsc.getText();}
   public void setPseudo(String s){dsc.setText(s);}
@@ -69,7 +68,7 @@ public class EtiquetteJoueur extends Panneau{
   public boolean getOuvert(){return ouvert;}
   public void setOuvert(Boolean b){ouvert=b;}
   public Pheromone getCouleur(){return Pheromone.sToPh(couleur.getText());}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     return getPseudo() +" id:"+ id + " ia:"+getIa()+" ouvert:"+getOuvert();
   }
@@ -87,7 +86,7 @@ public class EtiquetteJoueur extends Panneau{
   public void paintComponent(Graphics g){
     Graphics2D g2d = (Graphics2D)g;
     int taille = Main.getF().getWidth()/2;
-    int arrondi = Desc.getDimY();
+    int arrondi = FLabel.getDimY();
     Color col;
     if(ouvert){
       Pheromone ph = getCouleur();
@@ -104,10 +103,10 @@ public class EtiquetteJoueur extends Panneau{
     }
     //g2d.setColor(new Color(col.getRed(),col.getGreen(),col.getBlue(),152));
     g2d.setColor(col); // une couleur sans transparence pour évité d'avoir a redessiner toute la fenetre.
-    g2d.fillRoundRect(0,0,taille*7/10+taille/7,Desc.getDimY()*2,arrondi,arrondi);
-    dsc.setBounds(Desc.getDimY()/2,0,taille*5/10-Desc.getDimY()/4);
-    combo.setBounds(taille*5/10,0,taille/7,Desc.getDimY());
-    couleur.setBounds(taille*5/10+taille/7,0,taille/7,Desc.getDimY());
+    g2d.fillRoundRect(0,0,taille*7/10+taille/7,FLabel.getDimY()*2,arrondi,arrondi);
+    dsc.setBounds(FLabel.getDimY()/2,0,taille*5/10-FLabel.getDimY()/4);
+    combo.setBounds(taille*5/10,0,taille/7,FLabel.getDimY());
+    couleur.setBounds(taille*5/10+taille/7,0,taille/7,FLabel.getDimY());
     //add un bouton changer la couleur alléatoirement
     g2d.setColor(new Color(0,0,0));
     paintBorder(g2d,taille,arrondi);
@@ -117,7 +116,7 @@ public class EtiquetteJoueur extends Panneau{
     if(x<1){return;}
     BasicStroke ligne = new BasicStroke(x);
     g.setStroke(ligne);
-    g.drawRoundRect(0,0,taille*7/10+taille/7,Desc.getDimY()*2,arrondi,arrondi);
+    g.drawRoundRect(0,0,taille*7/10+taille/7,FLabel.getDimY()*2,arrondi,arrondi);
   }
   public void afficheToi(){
     System.out.println(this);
@@ -127,7 +126,7 @@ public class EtiquetteJoueur extends Panneau{
   }
 
   //Classe interne implémentant l'interface ItemListener
-  class ItemState implements ItemListener{
+  class ItemState implements ItemListener {
     public EtiquetteJoueur ej;
     public void itemStateChanged(ItemEvent e) {
       debug.débogage("événement déclenché sur : " + e.getItem());
@@ -137,22 +136,25 @@ public class EtiquetteJoueur extends Panneau{
           ouvert=true; ia=false; setPseudo(g.getM("joueur")+" "+(id+1));
           //if ((combo.getSelectedItemReminder()).equals(combo.getItemAt(2))){
             iniCouleur();
+            pnp.getGej().enableLaunchButtonIfNeeded();
           //}
         }else if(combo.getItemAt(1).equals(e.getItem())){
           ouvert=true; ia=true; setPseudo(Joueur.get1Pseudo());
           //if ((combo.getSelectedItemReminder()).equals(combo.getItemAt(2))){
             iniCouleur();
+            pnp.getGej().disableLaunchButtonIfNeeded();
           //}
         }else if(combo.getItemAt(2).equals(e.getItem())){
-          //if(ej.equals(pnp.getGej().getFin().getContenu())){}
+          //if(ej.equals(pnp.getGej().getTail().getContent())){}
           ouvert=false;
-          pnp.getGej().retirer(ej);
+          pnp.getGej().remove(ej);
           pnp.rafraichirPgej();
+          pnp.getGej().disableLaunchButtonIfNeeded();
           //on retire l'EtiquetteJoueur.
           //Main.getPnp().get...
         }
       }
-      if(pnp.getGej().getFin().getContenu().getOuvert()){ // si la dernière n'est pas fermé.
+      if(pnp.getGej().getLast().getOuvert()){ // si la dernière n'est pas fermé.
         pnp.getGej().add(new EtiquetteJoueur());
         pnp.rafraichirPgej();
       }
@@ -160,7 +162,7 @@ public class EtiquetteJoueur extends Panneau{
     }
     public void setEj(EtiquetteJoueur ejTemp){ ej=ejTemp;}
   }
-  class ItemState2 implements KeyListener{
+  class ItemState2 implements KeyListener {
     public EtiquetteJoueur ej;
     public void keyReleased(KeyEvent e) {
       getView().getPnp().getPGej().repaint();

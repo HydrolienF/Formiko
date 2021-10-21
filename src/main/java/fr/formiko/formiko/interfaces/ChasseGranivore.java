@@ -26,7 +26,7 @@ public class ChasseGranivore implements Serializable, Chasse {
 
   public void setC(Creature cTemp){c=cTemp;}
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
    *{@summary collect seeds.}<br>
    *Ant search a seed. If it see a seed on the same Case it take it. If it see a seed on an other Case it goes to the Case.<br>
@@ -38,12 +38,12 @@ public class ChasseGranivore implements Serializable, Chasse {
     setC(c);
     if(!canHuntMore()){return eatIfNeed();}
     GGraine proieVisible = getProie();
-    if (c.getCCase().getContenu().getGg().getDébut() != null){ // Si il y a une graine sur la même case
-      debug.débogage("la graine "+c.getCCase().getContenu().getGg().getDébut().getContenu().getId()+" a été détecté sur la meme case que la Fourmi.");
-      debug.débogage("la fourmi est en "+c.getCCase().getContenu().description());
+    if (c.getCCase().getContent().getGg().getHead() != null){ // Si il y a une graine sur la même case
+      debug.débogage("la graine "+c.getCCase().getContent().getGg().getHead().getContent().getId()+" a été détecté sur la meme case que la Fourmi.");
+      debug.débogage("la fourmi est en "+c.getCCase().getContent().description());
       return chasse(c);
-    }else if (proieVisible.getDébut() != null){ // Si il y a une graine a coté
-      CCase pointDeLaProie = proieVisible.getDébut().getContenu().getCCase();
+    }else if (proieVisible.getHead() != null){ // Si il y a une graine a coté
+      CCase pointDeLaProie = proieVisible.getHead().getContent().getCCase();
       Graine betterSeed = proieVisible.getGrainePlusDeNourritureFournieSansDureté();
       if ((Main.getDifficulté() >= 1 || !c.getIa()) && betterSeed!= null){
         pointDeLaProie = betterSeed.getCCase();
@@ -66,15 +66,15 @@ public class ChasseGranivore implements Serializable, Chasse {
    public boolean chasse(Creature c){
      setC(c);
      if(!canHuntMore()){return false;}
-     GGraine gg = c.getCCase().getContenu().getGg();
-     if (gg.getDébut() != null){
+     GGraine gg = c.getCCase().getContent().getGg();
+     if (gg.getHead() != null){
        Graine graineCollecté;
        if (Main.getDifficulté() >= 0 || !c.getIa()){
          graineCollecté = gg.getGrainePlusDeNourritureFournieSansDureté();
        }else{
-         graineCollecté = gg.getDébut().getContenu();
+         graineCollecté = gg.getHead().getContent();
        }
-       debug.débogage("Suppression de la graine "+graineCollecté.getId() + " en "+graineCollecté.getCCase().getContenu().description());
+       debug.débogage("Suppression de la graine "+graineCollecté.getId() + " en "+graineCollecté.getCCase().getContent().description());
        c.setTransported(graineCollecté);
        setActionMoins(c);
      }else{

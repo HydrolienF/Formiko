@@ -14,7 +14,7 @@ import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class CaseTest extends TestCaseMuet{
   private Partie p;
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   private Fourmi ini(){
     Main.initialisation();
     Main.setLangue(0);
@@ -35,63 +35,63 @@ public class CaseTest extends TestCaseMuet{
   public void testToString(){
     Fourmi f = ini();
     p.setPlayingAnt(f);
-    Joueur j = Main.getGj().getDébut().getContenu();
+    Joueur j = Main.getGj().getHead().getContent();
     j.initialisationCaseNS();
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     //show everything
-    assertTrue(Main.getGc().getCCase(0,0).getContenu().toString().contains("formikejo"));
-    assertTrue(Main.getGc().getCCase(0,0).getContenu().toString().contains("formiko"));
+    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formikejo"));
+    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formiko"));
     //do not show anything
     j.setCaseNuageuse(0,0,true);
-    // assertTrue("".equals(Main.getGc().getCCase(0,0).getContenu().toString()));
-    assertTrue(!Main.getGc().getCCase(0,0).getContenu().toString().contains("formikejo"));
-    assertTrue(!Main.getGc().getCCase(0,0).getContenu().toString().contains("formiko"));
+    // assertTrue("".equals(Main.getGc().getCCase(0,0).getContent().toString()));
+    assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains("formikejo"));
+    assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains("formiko"));
     //show only stable information (no insecte & no ant.)
     j.setCaseNuageuse(0,0,false);
     j.setCaseSombre(0,0,true);
-    assertTrue(Main.getGc().getCCase(0,0).getContenu().toString().contains("formikejo"));
-    assertTrue(!Main.getGc().getCCase(0,0).getContenu().toString().contains("formiko"));
+    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formikejo"));
+    assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains("formiko"));
   }
   //I can't get why this test exist.
   // @Test
   // public void testToString2(){
   //   Fourmi f = ini();
-  //   Joueur j = Main.getGj().getDébut().getContenu();
+  //   Joueur j = Main.getGj().getHead().getContent();
   //   j.initialisationCaseNS();
-  //   j.actualiserCaseSN();
+  //   j.updateCaseSN();
   //   //show everything
-  //   assertTrue(Main.getGc().getCCase(0,0).getContenu().toString().contains("formikejo"));
-  //   assertTrue(Main.getGc().getCCase(0,0).getContenu().toString().contains("formiko"));
+  //   assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formikejo"));
+  //   assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formiko"));
   //   j.setCaseNuageuse(0,0,true);
-  //   assertTrue(Main.getGc().getCCase(0,0).getContenu().toString().contains("formikejo"));
-  //   assertTrue(Main.getGc().getCCase(0,0).getContenu().toString().contains("formiko"));
+  //   assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formikejo"));
+  //   assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formiko"));
   //   j.setCaseNuageuse(0,0,false);
   //   j.setCaseSombre(0,0,true);
-  //   assertTrue(Main.getGc().getCCase(0,0).getContenu().toString().contains("formikejo"));
-  //   assertTrue(Main.getGc().getCCase(0,0).getContenu().toString().contains("formiko"));
+  //   assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formikejo"));
+  //   assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formiko"));
   // }
   @Test
   public void testToString3(){
     Fourmi f = ini();
-    Joueur j = Main.getGj().getDébut().getContenu();
+    Joueur j = Main.getGj().getHead().getContent();
     p.getCarte().setCasesNuageuses(false);
     p.setPlayingAnt(f);
     j.initialisationCaseNS();
-    j.actualiserCaseSN();
+    j.updateCaseSN();
     //show everything
-    assertTrue(Main.getGc().getCCase(0,0).getContenu().toString().contains("formikejo"));
-    assertTrue(Main.getGc().getCCase(0,0).getContenu().toString().contains("formiko"));
+    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formikejo"));
+    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formiko"));
     j.setCaseNuageuse(0,0,true);
-    assertTrue(Main.getGc().getCCase(0,0).getContenu().toString().contains("formikejo"));
-    assertTrue(Main.getGc().getCCase(0,0).getContenu().toString().contains("formiko"));
+    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formikejo"));
+    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formiko"));
     j.setCaseNuageuse(0,0,true);
     j.setCaseSombre(0,0,true);
-    assertTrue(Main.getGc().getCCase(0,0).getContenu().toString().contains("formikejo"));
-    assertTrue(!Main.getGc().getCCase(0,0).getContenu().toString().contains("formiko"));
+    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formikejo"));
+    assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains("formiko"));
     //show only stable information (no insecte & no ant.)
     j.setCaseNuageuse(0,0,false);
     j.setCaseSombre(0,0,true);
-    assertTrue(Main.getGc().getCCase(0,0).getContenu().toString().contains("formikejo"));
-    assertTrue(!Main.getGc().getCCase(0,0).getContenu().toString().contains("formiko"));
+    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formikejo"));
+    assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains("formiko"));
   }
 }

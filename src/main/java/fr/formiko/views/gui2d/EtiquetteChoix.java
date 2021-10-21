@@ -4,24 +4,24 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import javax.swing.JComboBox;
 
 public class EtiquetteChoix extends Panneau{
-  private JComboBox<String> choixX;
-  private Desc choixXDesc;
+  private FComboBox<String> choixX;
+  private FLabel choixXDesc;
   private int k;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  private Color cFond;
+  // CONSTRUCTORS --------------------------------------------------------------
   public EtiquetteChoix(int x, String clé, GString gs){
     debug.débogage("Lancement de la création d'une EtiquetteChoix avec "+gs.length()+" éléments");
     this.setLayout(null);
     setOpaque(false);
-    choixXDesc = new Desc();
+    choixXDesc = new FLabel();
     choixXDesc.setTexte(g.getM(clé)+" : ");
     choixXDesc.setFondTransparent();
 
@@ -29,21 +29,22 @@ public class EtiquetteChoix extends Panneau{
     choixX.setFont(Main.getFont1(0.9));
     add(choixX);add(choixXDesc);
     int wi2 = Main.getTailleElementGraphiqueX(960);
-    int taille = Desc.getDimY();
-    choixXDesc.setBounds(0,taille*k,wi2/2,Desc.getDimY());
-    choixX.setBounds(wi2/2,taille*k,wi2/3,Desc.getDimY());
+    int taille = FLabel.getDimY();
+    choixXDesc.setBounds(0,taille*k,wi2/2,FLabel.getDimY());
+    choixX.setBounds(wi2/2,taille*k,wi2/3,FLabel.getDimY());
+    cFond = Main.getData().getButtonColor();
   }
   public EtiquetteChoix(String clé, GString gs){ this(0,clé,gs);}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public String getSelectedItem(){ return choixX.getSelectedItem()+"";}
   public int getSelectedIndex(){ return choixX.getSelectedIndex();}
-  public JComboBox getChoixX(){ return choixX;}
-  public Desc getChoixXDesc(){ return choixXDesc;}
-  // Fonctions propre -----------------------------------------------------------
+  public FComboBox getChoixX(){ return choixX;}
+  public FLabel getChoixXDesc(){ return choixXDesc;}
+  public void setCFond(Color c){cFond=c;}
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     //debug.débogage("Lancement de eDif.paintComponent");
     Graphics2D g2d = (Graphics2D)g;
-    Color cFond = Main.getData().getButtonColor();
     boolean cFondUseAlpha = true;
     if(cFond!=null && !isOpaque()){
       if(cFondUseAlpha){

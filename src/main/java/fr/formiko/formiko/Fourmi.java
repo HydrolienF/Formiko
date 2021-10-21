@@ -1,13 +1,12 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.formiko.Message;
 import fr.formiko.formiko.interfaces.*;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.menu;
@@ -26,7 +25,7 @@ import java.io.Serializable;
 */
 public class Fourmi extends Creature implements Serializable{
   /***
-  *It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  *It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium (☿), 4:Major, 5:soldier 6+:other type.
   */
   protected byte typeF;
   protected byte mode; // Par défaut la fourmi chasse (0)
@@ -43,21 +42,21 @@ public class Fourmi extends Creature implements Serializable{
   *{@summary Main constructor.}<br>
   *By default the ant is an egg of 0 years old &#38; 100/100 of cleaning
   *Pheromone are set depending of the queen of the anthill.
-  *param fere The anthill of this.
-  *param e The specie of this.
-  *param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  *@param fere The anthill of this.
+  *@param e The specie of this.
+  *@param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium (☿), 4:Major, 5:soldier 6+:other type.
   *@version 1.39
   */
   // /!\ Ant need to be add to the Fourmiliere after that.
   public Fourmi(Fourmiliere fere, Espece e, byte ty){ // arrivé d'un oeuf.
     // on devrais fixer l'age max en fonction de la difficulté la aussi
-    super(fere.getCc(),0,e.getGIndividu().getIndividuParType(ty).getAgeMax(0),0);
+    super(fere.getCc(),0,e.getGIndividu().getIndividuByType(ty).getAgeMax(0),0);
     typeF = ty; this.e = e; this.fere = fere; stade = (byte)-3; propreté = (byte) 100;
     iniPheromone();
     // a modifier a partir des individus quand duretée sera un paramètre. OU alors on dit que duretéMax est fixe en fonction des individus. Genre les gros casse tout, les moyen jusqu'a 60 et les petit jusqu'a 20.
     duretéMax=0;
     setNourritureFournie(e.getNourritureFournie(getStade()));
-    fere.getCc().getContenu().getGc().add(this);
+    fere.getCc().getContent().getGc().add(this);
     evoluer = new EvoluerFourmi();
     mourir = new MourirFourmi();
     if(e.getPolycalique()){tolerencePheromone=5;}//si c'est une espèce capable de s'endendre avec les fourmilières de la même famille.
@@ -65,18 +64,18 @@ public class Fourmi extends Creature implements Serializable{
   }
   /**
   *{@summary Secondary constructor.}<br>
-  *param fere The anthill of this.
-  *param e The specie of this.
-  *param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  *@param fere The anthill of this.
+  *@param e The specie of this.
+  *@param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
   *@version 1.39
   */
   public Fourmi(Fourmiliere fere, Espece e, int ty){ this(fere,e,(byte)ty);}
   /**
   *{@summary Secondary constructor.}<br>
-  *param fere The anthill of this.
-  *param e The specie of this.
-  *param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
-  *param stade The stade of the ant. It will call evoluer() to be sur that everything it update as if the ant have grow.
+  *@param fere The anthill of this.
+  *@param e The specie of this.
+  *@param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  *@param stade The stade of the ant. It will call evoluer() to be sur that everything it update as if the ant have grow.
   *@version 1.39
   */
   public Fourmi(Fourmiliere fere, Espece e, byte ty, byte stade){
@@ -86,11 +85,11 @@ public class Fourmi extends Creature implements Serializable{
   }
   /**
   *{@summary Secondary constructor.}<br>
-  *param fere The anthill of this.
-  *param e The specie of this.
-  *param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
-  *param stade The stade of the ant. It will call evoluer() to be sur that everything it update as if the ant have grow up.
-  *param ph The Pheromone of the ant.
+  *@param fere The anthill of this.
+  *@param e The specie of this.
+  *@param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
+  *@param stade The stade of the ant. It will call evoluer() to be sur that everything it update as if the ant have grow up.
+  *@param ph The Pheromone of the ant.
   *@version 1.39
   */
   public Fourmi(Fourmiliere fere, Espece e, byte ty, byte st, Pheromone ph){
@@ -102,21 +101,40 @@ public class Fourmi extends Creature implements Serializable{
   *Use only for test.
   *@version 1.39
   */
-  public Fourmi(){}//a ne pas utiliser sauf pour les test de class.
-  // GET SET -----------------------------------------------------------------------
+  public Fourmi(){}
+  // GET SET ----------------------------------------------------------------------
   public byte getTypeF(){return typeF;}
   public void setTypeF(byte s){typeF = s;}public void setTypeF(int x){setTypeF((byte)x);}
+  public String getSex(){
+    return switch (typeF) {
+      case 0:
+      yield "♀";
+      case 1:
+      yield "♂";
+      case 2:
+      yield "☿m";
+      case 3:
+      yield "☿";
+      case 4:
+      yield "☿M";
+      case 5:
+      yield "☿S";
+      default:
+      yield "?";
+    };
+  }
   public byte getMode(){return mode;}
+  public boolean isAutoMode(){return (getMode()==0 || getMode()==3);}
   public void setMode(byte x){mode = x;}public void setMode(int x){setMode((byte)x);}
   public void setFourmiliere(Fourmiliere gf){fere = gf;}public void setFere(Fourmiliere fere){setFourmiliere(fere);}
   public Fourmiliere getFourmiliere(){return fere;} public Fourmiliere getFere(){ return getFourmiliere();}
   public Joueur getJoueur(){ if(getFere()==null){ return null;}return getFere().getJoueur();}
   public byte getDuretéMax(){ return duretéMax;}
   public void setDuretéMax(byte x){ duretéMax=x; }
-  public int getX(){return getCCase().getContenu().getX();}
-  public int getY(){return getCCase().getContenu().getY();}
+  public int getX(){return getCCase().getContent().getX();}
+  public int getY(){return getCCase().getContent().getY();}
   public void setNourritureMoinsConsomNourriture(){ setNourriture(getNourriture()-getNourritureConso());}
-  public Individu getIndividu(){ return e.getIndividuParType(typeF);}
+  public Individu getIndividu(){ return e.getIndividuByType(typeF);}
   public boolean getTropDeNourriture(){if(getNourriture()*1.1>getNourritureMax()){ return true;} return false;}
   @Override
   public boolean getFemelle(){ return typeF!=1;}// c'est une femmelle si ce n'est pas un male.
@@ -153,7 +171,42 @@ public class Fourmi extends Creature implements Serializable{
     try {return getFere().getJoueur().getIa();}
     catch (NullPointerException e) {return false;}
   }
-  // Fonctions propre -----------------------------------------------------------
+  /**
+  *{@summary Update action &#38; update view.}<br>
+  *@version 2.7
+  */
+  @Override
+  public void setAction(int x){
+    super.setAction(x);
+    if(!getIa()){Main.getView().setPlayingAnt(Main.getPlayingAnt());}
+  }
+  /**
+  *{@summary Update action &#38; update view.}<br>
+  *@version 2.7
+  */
+  @Override
+  public void setActionMoins(int x){
+    super.setActionMoins(x);
+    if(!getIa()){Main.getView().setPlayingAnt(Main.getPlayingAnt());}
+  }
+  /**
+  *{@summary Return the state of the Fourmi concerning health.}
+  *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
+  *@version 2.8
+  */
+  @Override
+  public int getStateHealth(){
+    if(wantClean()){
+      if(getProprete() < getSeuilDeRisqueDInfection()){
+        return 3;
+      }else{
+        return 1;
+      }
+    }else{
+      return 0;
+    }
+  }
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){return super.toString() +" "+ tableau.tableauToString(descriptionTableau());}
   public void afficheToi (){System.out.println(description());}
   public boolean estReine(){return getTypeF()==0;}
@@ -168,7 +221,7 @@ public class Fourmi extends Creature implements Serializable{
   public int getAgeMaxIndividu(int especeTempId, int stadeTemp){ // b vas de -3 oeuf a 0 imago
     Individu in2;
     if(especeTempId!=100){
-      in2 = e.getIndividuParType(especeTempId);
+      in2 = e.getIndividuByType(especeTempId);
     }else{
       in2 = getIndividu();
     }
@@ -257,7 +310,7 @@ public class Fourmi extends Creature implements Serializable{
   }
 
   /*public boolean mangerGraine(){
-    //if(fere.getGGraine().getDébut()==null){return false;}
+    //if(fere.getGGraine().getHead()==null){return false;}
     Graine g = fere.getGGraine().getGraineOuverte();
     if(this.getNourriture() < this.getNourritureMax()/2 && g!=null){
       nourriture = nourriture + g.getNourritureFournie();
@@ -284,7 +337,7 @@ public class Fourmi extends Creature implements Serializable{
   */
   public void salir(){
     double chanceDeMort = allea.getRand()*getSeuilDeRisqueDInfection(); // on tire le nombre min pour survivre a ce tour.
-    if (getPropreté()<allea.getRand()*50){mourir(1);}
+    if (getPropreté()<chanceDeMort){mourir(1);}
     setPropreté(getPropreté() - getPropretéPerdu());
   }
   /**
@@ -319,6 +372,7 @@ public class Fourmi extends Creature implements Serializable{
       }
     }else{
       tour = new TourFourmiNonIa();
+      setMode(-1);
     }
   }
   /**
@@ -331,7 +385,7 @@ public class Fourmi extends Creature implements Serializable{
   public void iniPheromone(){
     Fourmi reine = getReine();
     if (reine != null){ e = reine.getEspece(); ph = new Pheromone(reine.getPheromone());}
-    else if (fere.getGc().getDébut() != null){ ph = new Pheromone(fere.getGc().getDébut().getContenu().getPheromone());}
+    else if (fere.getGc().getHead() != null){ ph = new Pheromone(fere.getGc().getHead().getContent().getPheromone());}
     else{ ph = new Pheromone();}
   }
 }

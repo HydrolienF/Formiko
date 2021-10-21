@@ -8,12 +8,25 @@ import fr.formiko.usuel.g;
 
 import java.io.Serializable;
 
+/**
+*{@summary Map class.}<br>
+*Map have a GCase that represent all the Case of the map, a name
+*and some boolean/byte for param of the map.
+*@author Hydrolien
+*@version 2.1
+*/
 public class Carte implements Serializable {
+  /** the GCase with the type of Case. */
   private GCase gc;
   private byte abondanceInsecte,abondanceGraine,abondanceHerbe;
   private boolean casesNuageuses,casesSombres;
   private String mapName;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor.}<br>
+  *@param gc the GCase with the type of Case.
+  *@version 2.1
+  */
   public Carte(GCase gc, byte abondanceInsecte, byte abondanceGraine, byte abondanceHerbe, boolean caseNuageuse, boolean caseSombre){
     if (gc==null){erreur.erreur("impossible d'avoir un GCase null ici");}
     this.gc = gc;
@@ -22,14 +35,23 @@ public class Carte implements Serializable {
     casesSombres=caseSombre; casesNuageuses=caseNuageuse;
     mapName="";
   }public Carte(GCase gc, int a, int b, int c, boolean d, boolean e){ this(gc,(byte) a,(byte) b,(byte) c, d, e);}
+  /**
+  *{@summary Secondary constructor.}<br>
+  *@param gc the GCase with the type of Case.
+  *@version 2.1
+  */
   public Carte(GCase gc){
     this(gc,10,10,10,true,true);
   }
+  /**
+  *{@summary Secondary constructor.}<br>
+  *@param mapName name of the map to load.
+  *@version 2.1
+  */
   public Carte(String mapName){
     this(chargerCarte.chargerCarte(mapName));
-    this.mapName=mapName;
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public GCase getGc(){ return gc;}
   public byte getAbondanceGraine(){ return abondanceGraine;}
   public byte getAbondanceInsecte(){ return abondanceInsecte;}
@@ -40,7 +62,11 @@ public class Carte implements Serializable {
   public boolean getCasesSombres(){return casesSombres;}
   public void setCasesSombres(boolean b){casesSombres=b;}
   public String getMapName(){return mapName;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Standard toString methode.}<br>
+  *@version 2.1
+  */
   public String toString(){
     String sr = "";
     sr+= g.getM("abondanceInsecte")+" : "+abondanceInsecte+", ";
@@ -51,13 +77,19 @@ public class Carte implements Serializable {
     sr+= g.getM("dimention")+" : "+gc.getDim();
     return sr;
   }
-  public void afficheToi(){
-    System.out.println(this);
-  }
+  /***
+  *{@summary return the number of Case.}<br>
+  *@version 2.1
+  */
   public int length(){return gc.length();}
-  public void setMap(String s){
+  /**
+  *{@summary Load GCase from a file.}<br>
+  *@param mapName name of the map to load.
+  *@version 2.1
+  */
+  public void setMap(String mapName){
     try {
-      mapName = s;
+      this.mapName=mapName;
       gc = chargerCarte.chargerCarte(mapName);
     }catch (Exception e) {
       erreur.erreur("impossible de trouvé cette carte");

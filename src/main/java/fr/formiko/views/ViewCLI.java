@@ -4,8 +4,10 @@ import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
 import fr.formiko.usuel.Temps;
@@ -13,12 +15,11 @@ import fr.formiko.usuel.color;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.List;
+import fr.formiko.usuel.structures.listes.Liste;
 import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.cli.*;
-import fr.formiko.formiko.GJoueur;
 
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -487,6 +488,23 @@ public class ViewCLI implements View {
     if (!actionGameOn) {return;}
     //nothing more to do
   }
+  /***
+  *{@summary move ObjetSurCarteAId.}<br>
+  *This action can only be run if action game is on.<br>
+  *This action do noting on view cli.
+  *@param o object to move.
+  *@param from CCase that o leave.
+  *@param to CCase were o is going.
+  *@version 2.1
+  */
+  public void move(ObjetSurCarteAId o, CCase from, CCase to){}
+  /**
+  *{@summary Update downloading message.}
+  *@version 2.7
+  */
+  public void setDownloadingMessage(String message){
+    System.out.println(message);
+  }
 
   //private---------------------------------------------------------------------
   /**
@@ -496,7 +514,7 @@ public class ViewCLI implements View {
   private Fourmi getAntFromFere(){
     int len = Main.getPlayingAnt().getFere().getGc().length();
     String t [] = new String[len];
-    List<Creature> list = Main.getPlayingAnt().getFere().getGc().toList();
+    Liste<Creature> list = Main.getPlayingAnt().getFere().getGc().toList();
     int k=0;
     for (Creature c : list ) {
       t[k]=getAllyAntInColor(c); k++;
@@ -559,7 +577,7 @@ public class ViewCLI implements View {
   private void printFereInColor(){
     if(Main.getPlayingAnt()==null){return;}
     System.out.println(g.getM("fourmilière")+" : ");
-    List<Creature> lgc = Main.getPlayingAnt().getFere().getGc().toList();
+    Liste<Creature> lgc = Main.getPlayingAnt().getFere().getGc().toList();
     for (Creature c : lgc ) {
       if (c.equals(Main.getPlayingAnt())){
         System.out.print("-- ! -- ");
@@ -569,7 +587,7 @@ public class ViewCLI implements View {
   }
   /**
   *{@summary Return the color depending of the status of c for playingAnt.}<br>
-  *param c The Creature to inspect to know if it is ally, enemy or neutral (or equals to playingAnt).<br>
+  *@param c The Creature to inspect to know if it is ally, enemy or neutral (or equals to playingAnt).<br>
   *@version 1.38
   */
   private String getAllyAntInColor(Creature c){

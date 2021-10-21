@@ -4,20 +4,20 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.List;
+import fr.formiko.usuel.structures.listes.Liste;
 
 import java.io.Serializable;
 
 public class CGraine implements Serializable{
   protected CGraine suivant;
   protected Graine contenu;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public CGraine(Graine i){contenu=i;}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public CGraine getSuivant(){return suivant;}
   public void setSuivant(CGraine ci){suivant = ci;}
-  public Graine getContenu(){return contenu;}
-  // Fonctions propre -----------------------------------------------------------
+  public Graine getContent(){return contenu;}
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     if (suivant == null){
       return ", G"+contenu.getId();
@@ -32,8 +32,8 @@ public class CGraine implements Serializable{
     }
   }
   public Graine getGrainePlusDeNourritureFournieSansDureté(Graine gMax){ // si la graine est cassable et que sont contenue est meilleur.
-    if(gMax.getNourritureFournie() < this.getContenu().getNourritureFournie() && !this.getContenu().getOuverte()){
-      gMax = this.getContenu();
+    if(gMax.getNourritureFournie() < this.getContent().getNourritureFournie() && !this.getContent().getOuverte()){
+      gMax = this.getContent();
     }
     if(suivant == null){
       if (!gMax.getOuverte()){ return gMax;}
@@ -43,8 +43,8 @@ public class CGraine implements Serializable{
   }
   public Graine getGrainePlusDeNourritureFournie(Graine gMax,byte duretéMax){
     // si la graine est cassable et que sont contenu est meilleur.
-    if(contenu.getDureté() < duretéMax && gMax.getNourritureFournie() < this.getContenu().getNourritureFournie() && !this.getContenu().getOuverte()){
-      gMax = this.getContenu();
+    if(contenu.getDureté() < duretéMax && gMax.getNourritureFournie() < this.getContent().getNourritureFournie() && !this.getContent().getOuverte()){
+      gMax = this.getContent();
       debug.débogage("changement de gMax pour :");
     }
     if(suivant == null){
@@ -55,7 +55,7 @@ public class CGraine implements Serializable{
   }
   public Graine getGraineOuverte(){
     if(this.getSuivant()==null){ return null;}
-    if(this.getSuivant().getContenu().getOuverte()){ return suivant.getContenu();}
+    if(this.getSuivant().getContent().getOuverte()){ return suivant.getContent();}
     return suivant.getGraineOuverte();
   }
 
@@ -72,13 +72,13 @@ public class CGraine implements Serializable{
   }
   public void retirerGraine(int i){
     if (suivant == null){
-      erreur.alerte("La Graine "+ i +" n'as pas été trouvé et n'as donc pas pu être retirer");
+      erreur.alerte("La Graine "+ i +" n'as pas été trouvé et n'as donc pas pu être remove");
     }else {
       debug.débogage("Test dans CGraine");
-      if(suivant.getContenu().getId()==i){
+      if(suivant.getContent().getId()==i){
         suivant = suivant.getSuivant(); // on saute un maillons.
       }else {
-        debug.débogage("Graine non trouvée "+i+" != "+suivant.getContenu().getId());
+        debug.débogage("Graine non trouvée "+i+" != "+suivant.getContent().getId());
         suivant.retirerGraine(i);
       }
     }
@@ -86,9 +86,9 @@ public class CGraine implements Serializable{
   public void retirerGraine(Graine i){
     debug.débogage("on a fait début.retirerGraine(i);");
     if (suivant == null){
-      erreur.alerte("La Graine "+ i.getId() +" n'as pas été trouvé et n'as donc pas pu être retirer");
+      erreur.alerte("La Graine "+ i.getId() +" n'as pas été trouvé et n'as donc pas pu être remove");
     }else {
-      if(suivant.getContenu().equals(i)){
+      if(suivant.getContent().equals(i)){
         suivant = suivant.getSuivant(); // on saute un maillons.
       }else {
         suivant.retirerGraine(i);
@@ -99,7 +99,7 @@ public class CGraine implements Serializable{
     GGraine ggr = new GGraine();
     CGraine temp = this;
     while(temp != null){
-      ggr.addGraine(temp.getContenu());
+      ggr.addGraine(temp.getContent());
       temp = temp.getSuivant();
     }
     return ggr;
@@ -107,19 +107,19 @@ public class CGraine implements Serializable{
   public void tour(){
     CGraine temp = this;
     while(temp != null){
-      temp.getContenu().tour();
+      temp.getContent().tour();
       temp = temp.getSuivant();
     }
   }
   /**
-  *{@summary Transform a GGraine in List&lt;Graine&gt;.}
+  *{@summary Transform a GGraine in Liste&lt;Graine&gt;.}
   *@version 1.38
   */
-  public List<Graine> toList(){
+  public Liste<Graine> toList(){
     CGraine cc = this;
-    List<Graine> lc = new List<Graine>();
+    Liste<Graine> lc = new Liste<Graine>();
     while(cc!= null){
-      lc.add(cc.getContenu());
+      lc.add(cc.getContent());
       cc = cc.getSuivant();
     }
     return lc;

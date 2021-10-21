@@ -15,7 +15,7 @@ import fr.formiko.usuel.ascii;
 import fr.formiko.usuel.color;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 
 /**
 *{@summary Represent the Map in CLI mode.}<br>
@@ -50,7 +50,7 @@ public class CLIMap{
   */
   public String toString(){
     String sr = "";
-    if(gc==null || gc.getDébut()==null){
+    if(gc==null || gc.getHead()==null){
       erreur.erreur("La carte est vide");
     }else{
       xi = 0; legend = new GString();
@@ -123,7 +123,7 @@ public class CLIMap{
   */
   //public only for test
   public String mapToMapString(){
-    CCase cc = gc.getDébut();
+    CCase cc = gc.getHead();
     String sr = "";
     Joueur j = Main.getPlayingJoueur();
     int xi2=0;
@@ -158,7 +158,7 @@ public class CLIMap{
   */
   //public only for test
   public String mapToString(){
-    CCase cc = gc.getDébut();
+    CCase cc = gc.getHead();
     String sr = "";
     Joueur j = Main.getPlayingJoueur();
     while(cc!=null){
@@ -176,7 +176,7 @@ public class CLIMap{
   public String mapLineToString(CCase cc, Joueur j){
     String sr = "";
     while(cc!=null){
-      if(j==null){sr+=caseToString(cc.getContenu(),false,false);}
+      if(j==null){sr+=caseToString(cc.getContent(),false,false);}
       sr+=caseToString(cc,j);
       cc=cc.getDroite();
     }
@@ -191,7 +191,7 @@ public class CLIMap{
   */
   //public only for test
   public String caseToString(CCase cc, Joueur j){
-    return caseToString(cc.getContenu(),j.isCaseNuageuse(cc),j.isCaseSombre(cc));
+    return caseToString(cc.getContent(),j.isCaseNuageuse(cc),j.isCaseSombre(cc));
   }
   /**
   *{@summary Return a Case as a String.}<br>
@@ -221,10 +221,10 @@ public class CLIMap{
       }else if(nbrDElementSurCase == 1){
         if(contenu.getFere() != null){
           sr = "F"+contenu.getFere().getId();
-        }else if (contenu.getGc().getDébut() != null){
-          sr = sr + objetSurCarteAIdToString(contenu.getGc().getDébut().getContenu());
+        }else if (contenu.getGc().getHead() != null){
+          sr = sr + objetSurCarteAIdToString(contenu.getGc().getHead().getContent());
         }else{
-          sr = sr + objetSurCarteAIdToString(contenu.getGg().getDébut().getContenu());
+          sr = sr + objetSurCarteAIdToString(contenu.getGg().getHead().getContent());
         }
       }else{
         xi++;

@@ -15,13 +15,13 @@ import java.io.Serializable;
 public class GIEspece implements Serializable{
   protected CIEspece début;
   protected CIEspece fin;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public GIEspece(){
     début = null;
     chargerLesIEspeces();
   }
-  // GET SET --------------------------------------------------------------------
-  public CIEspece getDébut(){ return début;}
+  // GET SET -------------------------------------------------------------------
+  public CIEspece getHead(){ return début;}
   public void setDébut(CIEspece ce){début = ce; }
   public IEspece getIEspeceParId(int id){
     if (début == null){
@@ -30,7 +30,7 @@ public class GIEspece implements Serializable{
       return début.getIEspeceParId(id);
     }
   }
-  public byte getTypeInsecte(int typeDeCase){
+  public byte getRandomTypeInsectOnTheCase(int typeDeCase){
     //return (byte) 0; //a continuer
     int total = getTotal(typeDeCase);
     int a = allea.getAlléa(total);
@@ -45,14 +45,10 @@ public class GIEspece implements Serializable{
     if(début==null){erreur.erreurGXVide("GIEspece");return 0;}
     return début.getIEspeceParAllea(a,x);
   }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     if(début == null){ erreur.erreurGXVide("GIEspece");return "";}
     return début.toString();
-  }
-  public void afficheToi(){
-    if(début == null){ erreur.erreurGXVide("GIEspece");return;}
-    début.afficheToi();
   }
   public void chargerLesIEspeces(){
     String td [] = new String [0];

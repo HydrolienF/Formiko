@@ -18,10 +18,10 @@ public class Pixel {
   // CONSTRUCTEUR --------------------------------------------------------------
   /**
   *{@summary Main constructor private. Use the int 1 to create a Pixel.}<br>
-  *param r Red value between -128 &#38; 127.
-  *param g Green value between -128 &#38; 127.
-  *param b Blue value between -128 &#38; 127.
-  *param a Alpha value between -128 &#38; 127.
+  *@param r Red value between -128 &#38; 127.
+  *@param g Green value between -128 &#38; 127.
+  *@param b Blue value between -128 &#38; 127.
+  *@param a Alpha value between -128 &#38; 127.
   *@version 1.39
   */
   private Pixel(byte r, byte g, byte b, byte a){
@@ -29,10 +29,10 @@ public class Pixel {
   }
   /**
   *{@summary Main constructor with int.}<br>
-  *param r Red value between 0 &#38; 255.
-  *param g Green value between 0 &#38; 255.
-  *param b Blue value between 0 &#38; 255.
-  *param a Alpha value between 0 &#38; 255.
+  *@param r Red value between 0 &#38; 255.
+  *@param g Green value between 0 &#38; 255.
+  *@param b Blue value between 0 &#38; 255.
+  *@param a Alpha value between 0 &#38; 255.
   *@version 1.39
   */
   public Pixel(int r, int g, int b, int a){
@@ -41,9 +41,9 @@ public class Pixel {
   /**
   *{@summary Secondary constructor.}<br>
   *It will set Alpha value to 255 (maximum value).
-  *param r Red value between 0 &#38; 255.
-  *param g Green value between 0 &#38; 255.
-  *param b Blue value between 0 &#38; 255.
+  *@param r Red value between 0 &#38; 255.
+  *@param g Green value between 0 &#38; 255.
+  *@param b Blue value between 0 &#38; 255.
   *@version 1.39
   */
   public Pixel(int r, int g, int b){
@@ -51,7 +51,7 @@ public class Pixel {
   }
   /**
   *{@summary Secondary constructor that use Pheromone.}<br>
-  *param ph Pheromone of the Creature to colored. Pheromone have 3 color value: red, green, blue.
+  *@param ph Pheromone of the Creature to colored. Pheromone have 3 color value: red, green, blue.
   *@version 1.39
   */
   public Pixel(Pheromone ph){
@@ -66,7 +66,7 @@ public class Pixel {
   public void setG(byte x){ g=x;} public void setV(byte x){ setG(x);}
   public void setB(byte x){ b=x;}
   public void setA(byte x){ a=x;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Standard equals function.}
   *Null &#38; other class type proof.

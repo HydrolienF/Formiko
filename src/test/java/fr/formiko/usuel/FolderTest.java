@@ -1,19 +1,27 @@
 package fr.formiko.usuel;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
 import java.io.File;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
-public class FolderTest extends TestCaseMuet{
+public class FolderTest extends TestCaseMuet {
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
+  @BeforeAll
+  public static void iniMain(){
+    new TestCaseMuet();
+    Main.setOs(new Os());
+    Main.ini();
+  }
   public Folder ini(){
     Folder folder = new Folder();
     //if we need we can change name of sub folder for test.
@@ -249,5 +257,16 @@ public class FolderTest extends TestCaseMuet{
     assertTrue(fichier.deleteDirectory(rep));
     // assertEquals(Paths.get(""),Folder.getVersionJsonPath()); //formiko may be instal & it can find Program Files rep
     ecrireUnFichier.ecrireUnFichier(gs,"version.json");
+  }
+  @Test
+  public void testGetLastStableVersion(){
+    Folder f = new Folder();
+    assertTrue(!f.getLastStableVersion().equals("0.0.0"));
+  }
+  @AfterAll
+  public static void clean(){
+    Folder folder = new Folder();
+    Main.setFolder(folder);
+    fichier.deleteDirectory("null");
   }
 }

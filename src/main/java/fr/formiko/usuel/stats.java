@@ -1,11 +1,11 @@
 package fr.formiko.usuel;
 
 //def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.listes.GGInt;
-import fr.formiko.usuel.listes.CCInt;
-import fr.formiko.usuel.listes.GInt;
-import fr.formiko.usuel.listes.CInt;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GGInt;
+import fr.formiko.usuel.structures.listes.CCInt;
+import fr.formiko.usuel.structures.listes.GInt;
+import fr.formiko.usuel.structures.listes.CInt;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.Chrono;
@@ -24,7 +24,7 @@ public class stats {
   public static int sommeDesFctLPrG;
   public static int sommeDesFctCG;
   public static int sommeNbrDeLigneG;
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *Write the stats of javadoc comments in stats.txt.
   *@version 1.13
@@ -61,15 +61,15 @@ public class stats {
     //gsr.add(total);
     Chrono.endCh("calcul des valeur et du total");Chrono.debutCh();
     //add tt les autres.
-    CCInt cci = ggi.getDébut();
-    CCInt cci2 = ggi2.getDébut();
-    CInt ci = nbrDeLigne.getDébut();
+    CCInt cci = ggi.getHead();
+    CCInt cci2 = ggi2.getHead();
+    CInt ci = nbrDeLigne.getHead();
     for (String s : gs ) {
       if(cci==null){break;}
       if(raccourcir){
         s = s.substring(25);
       }
-      gsr.add(toStatJd(cci)+toStatInfo(cci2.getContenu(),cci.getContenu())+numberOfLines(ci)+s);
+      gsr.add(toStatJd(cci)+toStatInfo(cci2.getContent(),cci.getContent())+numberOfLines(ci)+s);
       cci=cci.getSuivant();
       cci2=cci2.getSuivant();
       ci=ci.getSuivant();
@@ -83,7 +83,7 @@ public class stats {
     Chrono.endCh("sauvegarde finale");
   }public static void statsJavadoc(String chemin){statsJavadoc(chemin,false);}
 
-  public static String toStatJd(CCInt cci){return toStatJd(cci.getContenu());}
+  public static String toStatJd(CCInt cci){return toStatJd(cci.getContent());}
   /**
   *{@summary calculate the %age of commented fonction in a file.}
   *@version 1.13
@@ -157,8 +157,8 @@ public class stats {
   *@version 1.13
   */
   public static String numberOfLines(CInt ci){
-    sommeNbrDeLigneG+=ci.getContenu();
-    String r=ci.getContenu()+"";
+    sommeNbrDeLigneG+=ci.getContent();
+    String r=ci.getContent()+"";
     while(r.length()<5){r+=" ";}
     return r;
   }

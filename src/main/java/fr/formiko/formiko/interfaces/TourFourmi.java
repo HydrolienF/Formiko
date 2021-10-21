@@ -52,8 +52,46 @@ public class TourFourmi implements Serializable, Tour{
     //reproduce();
     backHomeAndShareFood(); //if granivore oppen seed & feedOther.
     f.eat(100);
-    finTour();
+    f.setActionTo0();
   }
+  /**
+  *{@summary End a turn as an Ant.}<br>
+  *If turn have already be end on this turn, it will do nothing.
+  *@version 2.5
+  */
+  @Override
+  public void endTurn(Creature c){
+    if(!(c instanceof Fourmi)){throw new ClassTypeException("Fourmi","Creature");}
+    setF((Fourmi) c);
+    endTurn();
+  }
+  /**
+  *{@summary End a turn as an Ant.}<br>
+  *If turn have already be end on this turn, it will do nothing.
+  *@version 2.5
+  */
+  public void endTurn(){
+    //to avoid to end turn 2 time in the same turn.
+    if(f.getLastTurnEnd()==Main.getPartie().getTour()){
+      return;
+    }else{
+      f.setLastTurnEnd(Main.getPartie().getTour());
+    }
+    debug.débogage("Fin du tour de la Fourmi");
+    f.setActionTo0();//end the turn normaly
+    // Un tour ça coute en age et en nourriture;
+    if (f.getStade()<0 && !(f.evoluer instanceof EvoluerNull) && f.getAge()>=f.getAgeMax()){ f.evoluer();}
+    f.setAgePlus1();
+    if(!f.getEstMort()){
+      f.salir();
+      if(!f.getEstMort()){
+        f.setNourritureMoinsConsomNourriture(); //will not need food is it's an egg.
+      }
+    }
+    // if contition de température appartient a l'intervale idéale (et que stade = -1, -2 ou -3) : re setAgePlus1();
+    Main.setPlayingAnt(null);
+  }
+
   /**
   *{@summary To be sur that the ant will be clean.}<br>
   *@version 1.29
@@ -84,7 +122,7 @@ public class TourFourmi implements Serializable, Tour{
   *@version 1.29
   */
   public Creature aNourrir(){
-    GCreature gc = f.getCCase().getContenu().getGc().filtreAlliés(f).filtreFaimMax();
+    GCreature gc = f.getCCase().getContent().getGc().filtreAlliés(f).filtreFaimMax();
     try { // the Creature f may not be in it.
       gc.remove(f);
     }catch (ListItemNotFoundException e) {
@@ -94,8 +132,8 @@ public class TourFourmi implements Serializable, Tour{
       return r;
     }
     GCreature gc2 = gc.filtreWantFood();
-    if(gc2.getDébut()!=null){
-      return gc2.getDébut().getContenu();
+    if(gc2.getHead()!=null){
+      return gc2.getHead().getContent();
     }
     return r; //r can be null.
   }
@@ -117,7 +155,7 @@ public class TourFourmi implements Serializable, Tour{
   *@version 1.29
   */
   public Creature aNetoyer(){
-    GCreature gc = f.getCCase().getContenu().getGc().filtreAlliés(f).filtrePropreteMax();
+    GCreature gc = f.getCCase().getContent().getGc().filtreAlliés(f).filtrePropreteMax();
     try { // the Creature f may not be in it.
       gc.remove(f);
     }catch (ListItemNotFoundException e) {
@@ -127,8 +165,8 @@ public class TourFourmi implements Serializable, Tour{
       return r;
     }
     GCreature gc2 = gc.filtreWantClean();
-    if(gc2.getDébut()!=null){
-      return gc2.getDébut().getContenu();
+    if(gc2.getHead()!=null){
+      return gc2.getHead().getContent();
     }
     return null;
   }
@@ -151,24 +189,5 @@ public class TourFourmi implements Serializable, Tour{
       int directionDeLaFourmilière = f.getCCase().getDirection(f.getFourmiliere().getCCase());
       f.ceDeplacer(directionDeLaFourmilière);
     }
-  }
-  /**
-  *{@summary End a turn as an Ant.}<br>
-  *@version 1.30
-  */
-  public void finTour(){
-    debug.débogage("Fin du tour de la Fourmi");
-    if(f.getAction()>0){f.setAction(0);}//end the turn normaly
-    // Un tour ça coute en age et en nourriture;
-    if (!(f.evoluer instanceof EvoluerNull) && f.getStade()<0 && f.getAge()>=f.getAgeMax()){ f.evoluer();}
-    f.setAgePlus1();
-    if(!f.getEstMort()){
-      f.salir();
-      if(!f.getEstMort()){
-        f.setNourritureMoinsConsomNourriture(); //will not need food is it's an egg.
-      }
-    }
-    // if contition de température appartient a l'intervale idéale (et que stade = -1, -2 ou -3) : re setAgePlus1();
-    Main.setPlayingAnt(null);
   }
 }

@@ -1,6 +1,9 @@
 package fr.formiko.usuel.images;
 
+import fr.formiko.formiko.Creature;
+import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.Pheromone;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.fichier;
@@ -10,9 +13,12 @@ import fr.formiko.usuel.types.str;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import javax.imageio.ImageIO;
 
 /**
@@ -22,7 +28,7 @@ import javax.imageio.ImageIO;
  */
 public class image{
 
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   /***
   *{@summary The Images directory for extra texture.}<br>
   *You can add new image that will be used as the game texture (as chargement(Max+1)).
@@ -37,7 +43,7 @@ public class image{
    */
   public static String getREP(){ return Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages();}
   public static String getREPTEMPORARY(){ return Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(); }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
    *{@summary Try to read an Image file}<br>
    *Image are File who end with ".png" or ".jpg".<br>
@@ -176,11 +182,11 @@ public class image{
     BufferedImage tr [][]= new BufferedImage[4][];
     //nom = "temporaire/"+nom;
     tr[0] = getImages(nom,'h',nbr,x);
-    if(Main.getElementSurCarteOrientéAprèsDéplacement()){
-      tr[1] = getImages(nom,'d',nbr,x);
-      tr[2] = getImages(nom,'b',nbr,x);
-      tr[3] = getImages(nom,'g',nbr,x);
-    }
+    // if(Main.getElementSurCarteOrientéAprèsDéplacement()){
+    //   tr[1] = getImages(nom,'d',nbr,x);
+    //   tr[2] = getImages(nom,'b',nbr,x);
+    //   tr[3] = getImages(nom,'g',nbr,x);
+    // }
     return tr; // tr[1] et plus est null si l'orrientation n'est pas prise en compte.
   }
 
@@ -236,29 +242,62 @@ public class image{
     }
   }
   //taille d'une image de Creature.
+  /***
+  *{@summary Return size of a Creature image.}<br>
+  *@param c Creature that we need size
+  *@param taille taille used if it was 0% realistic
+  *@version 1.3
+  */
+  // public static int taille(Creature c, int taille){
+  //   int a;
+  //   if(c instanceof Fourmi){
+  //     a = c.getIndividu().getTaille();
+  //   }else{
+  //     a = c.getEspece().getTaille(stade);
+  //   }
+  //   //standard a is 100
+  //   return taille(a,taille);
+  // }
   /**
-   *{@summary Return size of a Creature image.}<br>
-   *@param idEspece id of the Species (size depend of Species)<br>
-   *@param stade stade also infulence size of the Creature
-   *@param taille taille used if it was 0% realistic.
-   *@version 1.3
-   */
-  public static int taille(int idEspece, int stade,int taille){
-    int a = Main.getEspeceParId(idEspece).getTaille(stade);//la taille en fonction du stade (100 en moyenne.)
+  *{@summary Return size of a Creature image.}<br>
+  *@param idEspece id of the Species (size depend of Species)
+  *@param stade stade also infulence size of the Creature
+  *@param typeF typeF also infulence size of the Ant
+  *@param taille taille used if it was 0% realistic
+  *@version 1.3
+  */
+  public static int tailleFourmi(int idEspece, int typeF, int taille){
+    int a = Main.getEspeceParId(idEspece).getIndividuByType(typeF).getTaille();
     return taille(a,taille);
   }
   /**
-   *{@summary Return size of a Creature image.}<br>
-   *@param a size assumed if it was 100% realistic.
-   *@param taille size used if it was 0% realistic.
-   *@version 1.3
-   */
-  public static int taille(int a,int taille){
+  *{@summary Return size of a Creature image.}<br>
+  *@param idEspece id of the Species (size depend of Species)<br>
+  *@param stade stade also infulence size of the Creature
+  *@param taille taille used if it was 0% realistic
+  *@version 1.3
+  */
+  public static int taille(int idEspece, int stade, int taille){
+    int a = Main.getEspeceParId(idEspece).getTaille(stade);//standard a is 100
+    return taille(a,taille);
+  }
+  /**
+  *{@summary Return size of a Creature image.}<br>
+  *@param a size assumed if it was 100% realistic
+  *@param taille size used if it was 0% realistic
+  *@version 1.3
+  */
+  public static int taille(int a, int taille){
     double tailleR = Main.getOp().getTailleRealiste()/100.0;
     double db = ((a*taille*tailleR)/100) + (taille)*(1-tailleR);//en pixel on fait *4.
     return (int)db;
   }
-  public static boolean isImage(File f){//2 possibilité, le fichier ce termine par .pnj ou par .jpg.
+  /**
+  *{@summary True is file is an Image.}<br>
+  *An image end with .png or .jpg
+  *@version 2.5
+  */
+  public static boolean isImage(File f){
     if(f==null){return false;}
     if(str.contient(f.getName(),".png",2)){return true;}
     if(str.contient(f.getName(),".jpg",2)){return true;}
@@ -324,7 +363,176 @@ public class image{
       newH = newHW;
       newW = newHW*bi.getWidth()/bi.getHeight(); //a smaler size.
     }
-    double racioWH = bi.getWidth()/bi.getHeight();
+    // double racioWH = bi.getWidth()/bi.getHeight();
     return resize(bi,newW,newH);
+  }
+  /**
+  *{@summary A fonction to rotate a BufferedImage.}<br>
+  *@param before The Image to rotate.
+  *@param direction The direction to rotate. Direction are multiplied by 45°.
+  *@version 2.1
+  */
+  public static BufferedImage rotateImage(BufferedImage before, int direction) {
+    if(before==null){return null;}
+    direction = (direction+8)%8;
+    if(direction==0){return before;}
+    int w = before.getWidth();
+    int h = before.getHeight();
+    int max = Math.max(w,h);
+    int min = Math.min(w,h);
+    // BufferedImage after = new BufferedImage(newSize, newSize, BufferedImage.TYPE_INT_ARGB);
+    BufferedImage after = null;//new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+    AffineTransform at = new AffineTransform();
+    if(direction%2==1){ // 1, 3, 5, 7
+      int halfDiagonal = (int)(Math.sqrt(w*w+h*h)/2.0);
+      at.translate(-halfDiagonal + max/2, -halfDiagonal + max/2);
+      at.rotate(direction * Math.PI / 4.0,halfDiagonal,halfDiagonal);
+      // first - center image at the origin so rotate works OK
+      at.translate(halfDiagonal - w/2, halfDiagonal - h/2);
+    }else if((direction+2)%4==0){ //2 & 6
+      int halfDiagonal = (int)(Math.sqrt(w*w+h*h)/2.0);
+      at.translate(-halfDiagonal + h/2, -halfDiagonal + w/2);
+      at.rotate(direction * Math.PI / 4.0,halfDiagonal,halfDiagonal);
+      at.translate(halfDiagonal - w/2, halfDiagonal - h/2);
+    }else{ //4
+      at.translate(w/2,h/2);
+      at.rotate(direction * Math.PI / 4.0);
+      at.translate(-w/2,-h/2);
+    }
+    AffineTransformOp scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_BICUBIC);
+    // AffineTransformOp scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR);
+    after = scaleOp.filter(before, null);
+    // erreur.info("from a "+w+"x"+h+" image to a "+after.getWidth()+"x"+after.getHeight()+" image.");
+    return after;
+  }
+  /**
+  *{@summary A fonction to translate a BufferedImage.}<br>
+  *@param before The Image to translate.
+  *@param xOffset offset in x.
+  *@param yOffset offset in y.
+  *@version 2.1
+  */
+  public static BufferedImage translateImage(BufferedImage before, int xOffset, int yOffset, int width, int height){
+    if(xOffset==0 && yOffset==0){return before;}
+    AffineTransform at = new AffineTransform();
+    at.translate(xOffset, yOffset);
+    AffineTransformOp op = new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR);
+    return op.filter(before, new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB));
+  }
+  /**
+  *{@summary A fonction to rotate a BufferedImage.}<br>
+  *@param before The Image to rotate.
+  *@param direction The direction to rotate. Direction are multiplied by 1°.
+  *@version 2.1
+  */
+  public static BufferedImage rotateImage2(BufferedImage before, int direction, int pivotX, int pivotY){
+    direction = (direction+360)%360;
+    if(direction==0){return before;}
+    int w = before.getWidth();
+    int h = before.getHeight();
+    int max = Math.max(w,h);
+    int min = Math.min(w,h);
+    // BufferedImage after = new BufferedImage(newSize, newSize, BufferedImage.TYPE_INT_ARGB);
+    BufferedImage after = null;//new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+    AffineTransform at = new AffineTransform();
+    // int halfDiagonal = (int)(Math.sqrt(w*w+h*h)/2.0);
+    // at.translate(-halfDiagonal + max/2, -halfDiagonal + max/2);
+    at.rotate(direction * Math.PI / 180, pivotX, pivotY);
+    // at.translate(halfDiagonal - w/2, halfDiagonal - h/2);
+    AffineTransformOp scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_BICUBIC);
+    // AffineTransformOp scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR);
+    after = scaleOp.filter(before, null);
+    // erreur.info("from a "+w+"x"+h+" image to a "+after.getWidth()+"x"+after.getHeight()+" image.");
+    return after;
+  }
+  /**
+  *{@summary A tool to flip a BufferedImage.}<br>
+  *@param before The Image to flip.
+  *@param vertically True, the image will be flip vertically, false it will be flip horizontally.
+  *@version 2.1
+  */
+  public static BufferedImage flipImage(BufferedImage before, boolean vertically){
+    AffineTransform tx;
+    AffineTransformOp op;
+    if(vertically){
+      tx = AffineTransform.getScaleInstance(1, -1);
+      tx.translate(0, -before.getHeight(null));
+      op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
+    }else{
+      tx = AffineTransform.getScaleInstance(-1, 1);
+      tx.translate(-before.getWidth(null), 0);
+      op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
+    }
+    return op.filter(before, null);
+  }
+  /**
+  *{@summary Change the image color depending of ant Pheromone.}<br>
+  *@param imgColor the image to change.
+  *@param ph the Pheromone to get color from.
+  *@version 2.6
+  */
+  public static BufferedImage changeColor(Img imgColor, Pheromone ph){
+    int w = imgColor.getWidth();
+    int h = imgColor.getHeight();
+    imgColor.setRouge(fullOf(w,h,ph.getR()));
+    imgColor.setVert(fullOf(w,h,ph.getG()));
+    imgColor.setBleu(fullOf(w,h,ph.getB()));
+    imgColor.actualiserImage();
+    return imgColor.getImage();
+  }
+  /**
+  *{@summary Full the color of an array.}<br>
+  *@version 2.1
+  */
+  public static byte [][] fullOf(int x, int y, byte b){
+    byte r [][] = new byte[x][y];
+    for (int i=0; i<x; i++) {
+      for (int j=0; j<y; j++) {
+        r[i][j]=b;
+      }
+    }
+    return r;
+  }
+
+  //Map
+  /**
+  *{@summary Return a new HashMap<String, BufferedImage>.}<br>
+  *@param folder folder that contain all images
+  *@version 2.7
+  */
+  public static HashMap<String, BufferedImage> getImagesAsMap(File folder){
+    HashMap<String, BufferedImage> map = new HashMap<String, BufferedImage>();
+    if (folder.exists() && folder.isDirectory()) {
+      for (File f : folder.listFiles()) {
+        String s = f.getName();
+        if((str.contient(s,".png",2) || str.contient(s,".jpg",2)) && s.length()>4){s=s.substring(0,s.length()-4);}
+        map.put(s, readImage(f));
+      }
+    }
+    return map;
+  }
+  /**
+  *{@summary Return a new HashMap<String, BufferedImage>.}<br>
+  *@param folderName the name of the folder that contain all images
+  *@version 2.7
+  */
+  public static HashMap<String, BufferedImage> getImagesAsMap(String folderName){
+    return getImagesAsMap(new File(folderName));
+  }
+  /**
+  *{@summary Rezise a HashMap<String, BufferedImage>.}<br>
+  *@param mapIn Map that contains images to rezise
+  *@version 2.7
+  */
+  public static HashMap<String, BufferedImage> getScaledInstanceFromMap(HashMap<String, BufferedImage> mapIn, int size){
+    if(mapIn==null){return null;}
+    HashMap<String, BufferedImage> mapOut = new HashMap<String, BufferedImage>();
+    for (HashMap.Entry<String, BufferedImage> entry : mapIn.entrySet()) {
+      BufferedImage bi = entry.getValue();
+      bi = resize(bi,size);
+      mapOut.put(entry.getKey(), bi);
+      // System.out.println("put "+entry.getKey());
+    }
+    return mapOut;
   }
 }

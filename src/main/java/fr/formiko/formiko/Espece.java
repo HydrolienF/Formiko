@@ -6,7 +6,7 @@ import fr.formiko.usuel.decoderUnFichier;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.lireUnFichier;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.tableau;
@@ -32,7 +32,7 @@ public class Espece implements Serializable{
   protected GIndividu giu;
   protected boolean vole;
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Espece(int id, String nom, int nbr,boolean polycalique, boolean monogyne, boolean insectivore, boolean granivore, boolean fongivore, boolean herbivore, boolean miellativore, byte tmin, byte tmini, byte tmaxi, byte tmax, byte tnidmin,byte tnidmini, byte tnidmaxi, byte tnidmax, byte humin, byte humax,boolean ha0, boolean ha1, boolean ha2, byte po[], int nf[], int ta[], boolean vole, String note){
     this.id = id;
     this.nom = nom;
@@ -50,7 +50,7 @@ public class Espece implements Serializable{
     this.note = note;
     giu = new GIndividu();
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public int getId(){ return id;}
   public byte getPropretéPerdu(byte stade){ // fluctue en fonction des tour et pas en fonction des individu.
     if(tPropretéPerdu[stade+3]!=0){
@@ -67,8 +67,8 @@ public class Espece implements Serializable{
   public int getNbrDIndividuMax(){ return nbrDIndividuMax;}
   public GIndividu getGIndividu(){ return giu;}
   public void setGIndividu(GIndividu giu){ this.giu = giu;}
-  public int [] getTypeDIndividu(){ return giu.getTypeDIndividu();}
-  public Individu getIndividuParType(int typeF){ return giu.getIndividuParType(typeF);}
+  public int [] getAviableType(){ return giu.getAviableType();}
+  public Individu getIndividuByType(int typeF){ return giu.getIndividuByType(typeF);}
   public String getNom(){
     if(nom.equals("x")){return ""+getId();}
     return nom;
@@ -81,7 +81,7 @@ public class Espece implements Serializable{
   public int getTaille(byte stade){if(stade<-3 || stade > 0){erreur.erreur("getTaille demande un stade entre -3 et 0 hors le stade est de "+stade); return -1;}
     return tTaille[stade+3];}
   public int getTaille(int stade){return getTaille(str.iToBy(stade));}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String r = "";
     String finLigne = "\n";

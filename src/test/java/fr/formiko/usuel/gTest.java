@@ -10,8 +10,13 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class gTest extends TestCaseMuet{
+  //just for test coverage.
+  @Test
+  public void testG(){
+    g c = new g();
+  }
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   @SuppressWarnings("unchecked")
   public void testSetMap(){
@@ -92,29 +97,29 @@ public class gTest extends TestCaseMuet{
 
   }
   @Test
-  public void testGetOu(){
+  public void testGetOr(){
     HashMap<String,String> map = new HashMap<String, String>();
     map.put("la","la");
     map.put("le","le");
     g.setMap(map);
-    assertEquals("la/le",g.getOu("la","le"));
+    assertEquals("la/le",g.getOr("la","le"));
 
     map = new HashMap<String, String>();
     map.put("la","the");
     map.put("le","the");
     g.setMap(map);
-    assertEquals("the",g.getOu("la","le"));
+    assertEquals("the",g.getOr("la","le"));
 
     map = new HashMap<String, String>();
     map.put("la","the");
     map.put("le","ø");
     g.setMap(map);
-    assertEquals("the",g.getOu("la","le"));
+    assertEquals("the",g.getOr("la","le"));
 
     map = new HashMap<String, String>();
     map.put("la","the");
     g.setMap(map);
-    assertEquals("the",g.getOu("la","le"));
+    assertEquals("the",g.getOr("la","le"));
 
   }
   @Test
@@ -136,5 +141,35 @@ public class gTest extends TestCaseMuet{
     assertTrue(g.exist("key"));
     assertTrue(!g.exist("keY"));
     assertTrue(g.exist("clé"));
+  }
+
+  @Test
+  public void testGet4(){
+    assertEquals("",g.get(null, null));
+    assertEquals("",g.get("", null));
+    assertEquals("default",g.get(null, "default"));
+    assertEquals("default",g.get("", "default"));
+  }
+  @Test
+  public void testGet5(){
+    HashMap<String,String> map = new HashMap<String, String>();
+    map.put("key","");
+    g.setMap(map);
+    assertEquals("default",g.get("key", "default"));
+    map.put("key","t");
+    assertEquals("t",g.get("key", "default"));
+    map.put("key",null);
+    assertEquals("default",g.get("key", "default"));
+    assertEquals("",g.get("key",null));
+    assertEquals("key",g.get("key"));
+  }
+  @Test
+  public void testGetOr2(){
+    HashMap<String,String> map = new HashMap<String, String>();
+    map.put("k2","str");
+    g.setMap(map);
+    assertEquals("str", g.getOr("k1","k2"));
+    assertEquals("str", g.getOr("k2","k1"));
+    assertEquals("k1/k3", g.getOr("k1","k3"));
   }
 }

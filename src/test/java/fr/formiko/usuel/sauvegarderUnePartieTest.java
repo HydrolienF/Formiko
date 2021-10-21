@@ -18,7 +18,14 @@ import java.nio.file.Files;
 
 public class sauvegarderUnePartieTest extends TestCaseMuet{
   private File f=null;
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
+  public void ini(){
+    Main.initialisation();
+    int x = allea.getAllea(10000);
+    sauvegarderUnePartie.sauvegarder(new Partie(), "test"+x);
+    String s = sauvegarderUnePartie.getNomDuFichierComplet();
+    f = new File(s);
+  }
   @Test
   public void testGetNomDuFichierComplet(){
     int x = allea.getAllea(10000);
@@ -31,12 +38,6 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
     String s2 = sauvegarderUnePartie.getNomDuFichierComplet();
     assertTrue(s2.contains(".save"));
     assertTrue(s2.contains(sauvegarderUnePartie.getRep()));
-  }
-  public void ini(){
-    int x = allea.getAllea(10000);
-    sauvegarderUnePartie.sauvegarder(new Partie(), "test"+x);
-    String s = sauvegarderUnePartie.getNomDuFichierComplet();
-    f = new File(s);
   }
   @Test
   //@BeforeAll
@@ -82,5 +83,11 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
     assertTrue(f.isFile());//c'est un fichier pas un dossier.
     assertTrue(f.delete());//le fichier ce supprime bien.
   }
-
+  @Test
+  public void testSaveId(){
+    int x = sauvegarderUnePartie.getSave().getIdS()+1;
+    ini();
+    assertEquals(x,sauvegarderUnePartie.getSave().getIdS());
+    assertTrue(f.delete());
+  }
 }

@@ -8,5 +8,5 @@ import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class PheromoneTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
 }

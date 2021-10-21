@@ -7,7 +7,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.lireUnFichier;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.maths.math;
 
 import java.awt.Color;
@@ -31,11 +31,11 @@ public class PanneauMenu extends Panneau {
   private boolean lancer = false;
   private PanneauNouvellePartie pnp;
   private PanneauChoixPartie pcp;
-  private Bouton returnButton;
+  private FButton returnButton;
   private Color buttonColor;
   private EtiquetteChoix ecLanguage;
-  private Bouton validatelanguage;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  private FButton validatelanguage;
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauMenu(){
     super();
   }
@@ -48,14 +48,14 @@ public class PanneauMenu extends Panneau {
     // setBounds(0,0,Main.getDimX(),Main.getDimY());
     // returnButton=null;
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public byte getMenu(){return menu; }
   public boolean getLancer(){ return lancer;}
   public void setLancer(boolean b){lancer=b;}
   public PanneauNouvellePartie getPnp(){return pnp;}
   public PanneauChoixPartie getPcp(){return pcp;}
-  public Bouton getReturnButton(){return returnButton;}
-  // Fonctions propre -----------------------------------------------------------
+  public FButton getReturnButton(){return returnButton;}
+  // FUNCTIONS -----------------------------------------------------------------
 
   /**
   *{@summary Update action of the menu buttons.}<br>
@@ -69,6 +69,9 @@ public class PanneauMenu extends Panneau {
     }else if(x==1){
       b[0].setActionB(4);b[1].setActionB(5);b[2].setActionB(6);
       setReturnButtonAction(0);
+    }
+    for (FButton bouton : b ) { //remove desc & selected if it's need
+      bouton.updateSelected();
     }
   }
   /***
@@ -184,7 +187,7 @@ public class PanneauMenu extends Panneau {
     ecLanguage = new EtiquetteChoix(defaultValue,g.getM("languageChoice"),gs2);
     ecLanguage.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,(int)(Main.getTaillePolice2()*1.2));
     add(ecLanguage);
-    validatelanguage = new Bouton(g.getM("validate"),this,7);
+    validatelanguage = new FButton(g.getM("validate"),this,7);
     validatelanguage.setBounds((getWidth()-Main.getTailleElementGraphiqueX(250))/2,Main.getDimY()-Main.getTailleElementGraphiqueY(10)-Main.getTailleElementGraphiqueY(50),Main.getTailleElementGraphiqueX(250),Main.getTailleElementGraphiqueY(50));
     add(validatelanguage);
   }
@@ -249,7 +252,7 @@ public class PanneauMenu extends Panneau {
   *@version 1.44
   */
   private void createReturnButton(){
-    returnButton = new Bouton("",this,-1);
+    returnButton = new FButton("",this,-1);
     returnButton.setBounds(Main.getTailleElementGraphiqueX(10),Main.getDimY()-Main.getTailleElementGraphiqueY(10)-Main.getTailleElementGraphiqueY(50),Main.getTailleElementGraphiqueX(250),Main.getTailleElementGraphiqueY(50));
   }
   /**

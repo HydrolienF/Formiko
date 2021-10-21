@@ -45,7 +45,7 @@ public class keys {
   *@version 1.40
   */
   private static void addActionToActionMap(){
-    ActionMap actionMap = Main.getF().getPp().getActionMap();
+    ActionMap actionMap = Panneau.getView().getPp().getActionMap();
 
     //globals actions
     Action actionA = new AbstractAction() {
@@ -58,7 +58,7 @@ public class keys {
           if(Panneau.getView().getPe().getVisible()){
             Panneau.getView().getPe().setVisible(false);
           }else{
-            Panneau.getView().getPj().setDesc("");
+            Panneau.getView().setMessageDesc("");
             Panneau.getView().getPe().setVisible(true);
           }
         }else{
@@ -89,18 +89,24 @@ public class keys {
       *@version 1.40
       */
       public void actionPerformed(ActionEvent actionEvent) {
-        // if (Main.getPd()!=null) {
-        //   try {
-        //     Main.getPd().clicEn(0,0);
-        //   }catch (Exception e) {}
-        if (Panneau.getView().getPch()!=null) {
+        if (Panneau.getView().getPch()!=null && Panneau.getView().getPch().canBeClose()) {
           Panneau.getView().closePanneauChargement();
-        }else if(Panneau.getView().getPcp() != null && Panneau.getView().getPcp().getLaunchButton() !=null){
+        }else if (Panneau.getView().getPd()!=null && Panneau.getView().getPd().isVisible()) {
+          try {
+            Panneau.getView().getPd().clicEn(0,0);
+          }catch (Exception e) {}
+        }else if(Panneau.getView().getPcp()!=null && Panneau.getView().getPcp().getLaunchButton()!=null){
           action.doAction(Panneau.getView().getPcp().getLaunchButton().getActionB());
-        }else if(Panneau.getView().getPnp() != null && Panneau.getView().getPnp().getLaunchButton() !=null){
+        }else if(Panneau.getView().getPnp()!=null && Panneau.getView().getPnp().getLaunchButton()!=null){
           action.doAction(Panneau.getView().getPnp().getLaunchButton().getActionB());
-        }else if(Main.getPlayingAnt()!=null){
-          //TODO passer le tour ou a la prochaine Fourmi qui a des actions.
+        // if ant isn't null and an ant have still action to do
+      }else if(Main.getPlayingAnt()!=null && !Main.getPlayingAnt().getFere().getGc().haveDoneAllActionAviable()){
+          Panneau.getView().getPb().setActionF(-2);
+        }else{
+        // if we need to play next turn.
+          try {
+            action.doActionPj(200);
+          }catch (Exception e) {}
         }
       }
     };

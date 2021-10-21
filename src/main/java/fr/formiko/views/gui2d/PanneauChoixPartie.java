@@ -6,7 +6,7 @@ import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.sauvegarderUnePartie;
 
 import java.awt.Graphics;
@@ -15,7 +15,7 @@ import java.io.File;
 public class PanneauChoixPartie extends PanneauLanceurPartie{
   private EtiquetteChoix ePartie;
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauChoixPartie(){
     super(101);
     this.setLayout(null);
@@ -36,9 +36,9 @@ public class PanneauChoixPartie extends PanneauLanceurPartie{
       getLaunchButton().setEnabled(false);
     }
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     ePartie.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,(int)(Main.getTaillePolice2()*1.2));
     // ePartie.setTaille(getWidth()*3/5,(int)(Main.getTaillePolice2()*1.2));

@@ -11,7 +11,7 @@ public class ObjetAId implements Serializable{
   protected static int ic;
   protected final int id;
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   //Principal
   /**
   *{@summary Main constructor.}<br>
@@ -19,12 +19,12 @@ public class ObjetAId implements Serializable{
   public ObjetAId(){
     id = ic; ic++;
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public int getId(){return id;}
   public static int getIc(){return ic;}
   public static int getI(){return getIc();}
   public static void ini(){ic=1;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Standard equals function with id.}
   *Null &#38; other class type proof.

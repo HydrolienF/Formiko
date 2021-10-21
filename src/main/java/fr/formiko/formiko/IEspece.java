@@ -17,12 +17,12 @@ import java.io.Serializable;
 public class IEspece implements Serializable{
   private int ct[];
   protected final int id; protected static int cptid;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public IEspece(int ct []){
     this.id = cptid; cptid++;
     this.ct=ct;
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public int getCt(int i){
     i--;
     if(i<0 || i>=ct.length){erreur.erreur("Impossible de récupéré la valeur de la case "+i);return 0;}
@@ -30,11 +30,8 @@ public class IEspece implements Serializable{
   public int [] getCt(){return ct;}
   public int getId(){ return id;}
   public static void ini(){cptid=0;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     return "IEspece "+getId()+tableau.tableauToString(ct);
-  }
-  public void afficheToi(){
-    System.out.println(this);
   }
 }

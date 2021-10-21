@@ -15,7 +15,7 @@ import java.awt.GridBagLayout;
 public class PanneauTInt extends PanneauTX{
   private int ti [];
   private int choix;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauTInt(int ti [],String desc){super();
     tailleBouton = Main.getTailleBoutonTX();
     this.descTI = desc;
@@ -33,13 +33,13 @@ public class PanneauTInt extends PanneauTX{
         y=x-1;
       }
       this.setSize(x*tailleBouton,y*tailleBouton);
-      Bouton tB [] = new Bouton [nbrDeCase];
+      FButton tB [] = new FButton [nbrDeCase];
       Dimension dim = new Dimension(tailleBouton,tailleBouton);
       for (int i=0;i<nbrDeCase ;i++ ) {
-        tB[i]=new Bouton(ti[i]+"", getView().getPp().getPj(),40+i);
+        tB[i]=new FButton(ti[i]+"", getView().getPp().getPj(),40+i);
         tB[i].setFont(Main.getFont2());
       }
-      for (Bouton b :tB){b.setPreferredSize(dim);}
+      for (FButton b :tB){b.setPreferredSize(dim);}
       GridBagConstraints gbc = new GridBagConstraints();
       int k=0;
       for (int i=0;i<x ;i++ ) {
@@ -56,9 +56,9 @@ public class PanneauTInt extends PanneauTX{
     }
   }
   public PanneauTInt(int t[],PanneauBouton pb){this(t,"null");}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public int getBoutonX(int x){ if(x > -1 && ti!=null && x < ti.length){return ti[x];}return -1;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public static int getChoixId(){
     int id2 = -1;
     debug.débogage("lancement d'une boucle de choix.");

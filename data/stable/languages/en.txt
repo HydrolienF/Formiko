@@ -177,9 +177,9 @@ I7:chenille[auto]
 I8:woodlouse[auto]
 I9:ant[auto]
 
-choixCarte:card choice
-choixDif:difficulty choice
-choixVitesseDeJeu:game speed choice
+choixCarte:map
+choixDif:difficulty
+choixVitesseDeJeu:game speed
 
 aPourCoordonnées:has for coordinates[auto]
 contient:contain
@@ -305,6 +305,16 @@ chasseInsectivore.3:to cut up the insect
 evoluerFourmi.1:evolve to the next stage
 pondreReine.1:was born
 spawnOf:spawn of
+
+iconName.age:age
+iconName.food:food
+iconName.health:health
+iconName.action:action
+
+colorState.0:good
+colorState.1:medium
+colorState.2:bad
+colorState.3:critical
 
 //objet graphique:
 

@@ -27,7 +27,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
 
   public void setC(Creature cTemp){c=cTemp;}
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
    * {@summary try to hunt or moove.}<br>
    * @param c The hunting Creature.
@@ -39,12 +39,12 @@ public class ChasseInsectivore implements Serializable, Chasse {
     setC(c);
     if(!canHuntMore()){return false;}
     GInsecte proieVisible = getProie();
-    if (c.getCCase().getContenu().getGi().getDébut() != null){ // Si il y a un insecte sur la même case
+    if (c.getCCase().getContent().getGi().getHead() != null){ // Si il y a un insecte sur la même case
       chasse(c);
-    }else if (proieVisible.getDébut() != null){ // Si il y a un insecte a coté
-      CCase pointDeLaProie = proieVisible.getDébut().getInsecte().getCCase();
+    }else if (proieVisible.getHead() != null){ // Si il y a un insecte a coté
+      CCase pointDeLaProie = proieVisible.getFirst().getCCase();
       if (Main.getDifficulté() >= 1 || (c instanceof Fourmi && c.getIa()==false)){ // en normal les ia chasse les insectes les plus intéressants sur la case ou elle sont.
-        pointDeLaProie = proieVisible.getDébut().getInsectePlusDeNourritureFournie().getCCase();
+        pointDeLaProie = proieVisible.getInsectePlusDeNourritureFournie().getCCase();
       }
       debug.débogage(g.getM("laFourmi")+" " + c.getId()+ " "+g.get("ChasseInsectivore.1")+" " + pointDeLaProie.getPoint());
       c.ceDeplacer(pointDeLaProie);
@@ -65,15 +65,15 @@ public class ChasseInsectivore implements Serializable, Chasse {
     setC(c);
     if(!canHuntMore()){return false;}
     //chasse
-    Case pointActuel = c.getCCase().getContenu();
+    Case pointActuel = c.getCCase().getContent();
     GInsecte gi = pointActuel.getGi();
     debug.débogage("Chasse : action = "+c.getAction() + "actionMax = "+c.getActionMax());
-    if (gi.getDébut() != null) { // sous forme de str I+id
+    if (gi.getHead() != null) { // sous forme de str I+id
       Insecte insecteTue;
       if (Main.getDifficulté() >= 0 || ((c instanceof Fourmi) && ((Fourmi)c).getFere().getJoueur().getIa()==false)){ // en normal les ia chasse les insectes les plus intéressants sur la case ou elle sont.
         insecteTue = gi.getInsectePlusDeNourritureFournie();
       }else{
-        insecteTue = gi.getDébut().getContenu();
+        insecteTue = gi.getFirst();
       }
       tuer(insecteTue);
       if(!canHuntMore()){return false;}
@@ -88,7 +88,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
    * @version 1.1
    */
   public GInsecte getProie(){
-    //TODO on dervrais plutot faire un GCreature pour pouvoir inclure des Fourmis et potentiellement retirer des insectes.
+    //TODO on dervrais plutot faire un GCreature pour pouvoir inclure des Fourmis et potentiellement remove des insectes.
     return c.getCCase().getGi(1); // 1 est le rayon du cercle de case pris en compte.
   }
   /**
@@ -99,7 +99,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
    */
   public boolean tuer(Insecte insecteTue){
     if (!insecteTue.getEstMort()){
-      Message m = new Message(g.getOu("la","le")+" "+c.getNom()+" "+ c.getId()+" "+g.get("chasseInsectivore.2")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
+      Message m = new Message(g.getOr("la","le")+" "+c.getNom()+" "+ c.getId()+" "+g.get("chasseInsectivore.2")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
       if(c instanceof Fourmi){
         Main.setPlayingAnt((Fourmi)(c)); //to refrech playingant info
       }
@@ -118,7 +118,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
    */
   public boolean depecer(Insecte insecteTue){
     if(insecteTue==null){return false;}
-    Message m = new Message(g.getOu("la","le")+" "+c.getNom()+" "+ c.getId()+" "+g.get("chasseInsectivore.3")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
+    Message m = new Message(g.getOr("la","le")+" "+c.getNom()+" "+ c.getId()+" "+g.get("chasseInsectivore.3")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
     if(c instanceof Fourmi){
       Main.setPlayingAnt((Fourmi)(c)); //to refrech playingant info
     }

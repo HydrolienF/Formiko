@@ -5,7 +5,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.ecrireUnFichier;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.lireUnFichier;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.types.str;
 
 import java.io.File;
@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 public class chargerLesTouches {
   private static HashMap<String, Integer> map;
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public static HashMap<String, Integer> chargerLesTouches(String versionActuelle){
     map = new HashMap<>();
     File f = new File(Main.getFolder().getFolderMain()+"Keys.txt");

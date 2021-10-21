@@ -6,7 +6,7 @@ import fr.formiko.formiko.Partie;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.types.str;
 
@@ -16,38 +16,38 @@ import java.awt.Graphics;
 import java.io.File;
 import java.text.NumberFormat;
 import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 
 public class PanneauNouvellePartie extends PanneauLanceurPartie {
-  private Desc jl; private Desc jl2;
+  private FLabel jl; private FLabel jl2;
   private GEtiquetteJoueur gej;
   private PanneauGEtiquetteJoueur pgej;
   private JFormattedTextField jtf;
-  private Desc jtfDesc;
-  private JComboBox<String> choixCarte;
-  private Desc choixCarteDesc;
+  private FLabel jtfDesc;
+  private FComboBox<String> choixCarte;
+  private FLabel choixCarteDesc;
   private JCheckBox casesNuageuses;
   private JCheckBox casesSombres;
   private int taille;
   private GString gsClé;
   private EtiquetteChoix eDif;
   private EtiquetteChoix eVitesseDeJeu;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauNouvellePartie(){
     super(100);
     Main.startCh();
     this.setLayout(null);
     //setOpaque(false);
     //les entêtes.
-    jl = new Desc(); jl2 = new Desc();
+    jl = new FLabel(); jl2 = new FLabel();
     jl.setTexte(g.getM("paramètreCarte"));
     jl2.setTexte(g.getM("paramètreJeu"));
     jl.setFondTransparent();jl2.setFondTransparent();
-    jtfDesc = new Desc();
+    jl.setCentered();jl2.setCentered();
+    jtfDesc = new FLabel();
     jtfDesc.setTexte(g.getM("nbrDeTour")+" : ");
     jtfDesc.setFondTransparent();
-    choixCarteDesc = new Desc();
+    choixCarteDesc = new FLabel();
     choixCarteDesc.setTexte(g.getM("choixCarte")+" : ");
     choixCarteDesc.setFondTransparent();
     this.add(jl);this.add(jl2);this.add(jtfDesc);this.add(choixCarteDesc);
@@ -58,18 +58,20 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     choixCarte.setFont(Main.getFont1(0.9));
     choixCarte.setSelectedItem(g.get("miniWorld")); // 2 = miniWorld pour l'instant
     add(choixCarte);
-    //nomCarte = nomDesCartes.getDébut().getContenu();
+    //nomCarte = nomDesCartes.getHead().getContent();
     GString gs = new GString();
     for (int i=-2; i<4; i++){ // tout les niveaux de difficulté.
       gs.add(g.getM("diff"+i));
     }
     eDif = new EtiquetteChoix(2,"choixDif",gs);
+    eDif.setCFond(null);
     add(eDif);
     gs = new GString();
     for (int i=-3; i<5; i++){ // tout les niveaux de vitesse.
       gs.add(g.getM("vitesseDeJeu"+i));
     }
     eVitesseDeJeu = new EtiquetteChoix(3,"choixVitesseDeJeu",gs);
+    eVitesseDeJeu.setCFond(null);
     add(eVitesseDeJeu);
     //a droite :
     gej = new GEtiquetteJoueur(3);
@@ -82,8 +84,10 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     add(jtf);
     casesNuageuses = new JCheckBox();
     casesSombres = new JCheckBox();
-    casesNuageuses.setFont(Main.getFont1());
-    casesSombres.setFont(Main.getFont1());
+    // casesNuageuses.setFont(Main.getFont1());
+    // casesSombres.setFont(Main.getFont1());
+    casesNuageuses.setForeground(Color.BLACK);
+    casesSombres.setForeground(Color.BLACK);
     casesNuageuses.setText(g.getM("casesNuageuses"));
     casesSombres.setText(g.getM("casesSombres"));
     casesNuageuses.setBackground(new Color(0,0,0,0));
@@ -99,34 +103,34 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     add(pgej);
     getView().paint();
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public GEtiquetteJoueur getGej(){ return gej;}
   public int getTaille(){ return taille;}
   public PanneauGEtiquetteJoueur getPGej(){ return pgej;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     int wi = Main.getDimX();
     int he = Main.getDimY();
     int wi2 = wi/2;
     //gauche
-    jl.setBounds(0,0,wi2);
+    jl.setSize((int)(wi2*0.9));
     int k=1; taille = jl.getHeight()*2;
-    jtfDesc.setBounds(0,taille*k,wi2/2,Desc.getDimY());
-    jtf.setBounds(wi2/2,taille*k,wi2/3,Desc.getDimY());k++;
-    choixCarteDesc.setBounds(0,taille*k,wi2/2,Desc.getDimY());
-    choixCarte.setBounds(wi2/2,taille*k,wi2/3,Desc.getDimY());k++;
-    eDif.setBounds(0,taille*k,1000,Desc.getDimY());k++;
-    eVitesseDeJeu.setBounds(0,taille*k,1000,Desc.getDimY());k++;
-    casesNuageuses.setBounds(0,taille*k,wi2/2,Desc.getDimY());
-    casesSombres.setBounds(wi2/2,taille*k,wi2/3,Desc.getDimY());k++;
+    jtfDesc.setBounds(0,taille*k,wi2/2,FLabel.getDimY());
+    jtf.setBounds(wi2/2,taille*k,wi2/3,FLabel.getDimY());k++;
+    choixCarteDesc.setBounds(0,taille*k,wi2/2,FLabel.getDimY());
+    choixCarte.setBounds(wi2/2,taille*k,wi2/3,FLabel.getDimY());k++;
+    eDif.setBounds(0,taille*k,1000,FLabel.getDimY());k++;
+    eVitesseDeJeu.setBounds(0,taille*k,1000,FLabel.getDimY());k++;
+    casesNuageuses.setBounds(0,taille*k,wi2/2,FLabel.getDimY());
+    casesSombres.setBounds(wi2/2,taille*k,wi2/3,FLabel.getDimY());k++;
     g.setColor(Main.getData().getButtonColor());
     g.fillRect(0,0,wi/2,taille*k);
     g.fillRect(wi/2,0,wi,taille);
     //droite
     int yDep=0;
-    jl2.setBounds(wi2,yDep,wi2); yDep=yDep+jl2.getHeight()*2;
+    jl2.setBounds(wi2,yDep,(int)(wi2*0.9)); yDep=yDep+jl2.getHeight()*2;
     int tailleMaxY = this.getHeight() - yDep;
-    pgej.setBounds(wi2,yDep,wi2,math.max(Desc.getDimY()*3*gej.length(),tailleMaxY));
+    pgej.setBounds(wi2,yDep,wi2,math.max(FLabel.getDimY()*3*gej.length(),tailleMaxY));
   }
   public Partie getPartie(){
     String nomTraduitDeLaCarte = choixCarte.getSelectedItem()+"";

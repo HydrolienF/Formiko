@@ -7,7 +7,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.decoderUnFichier;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.gui2d.Panneau;
 import fr.formiko.views.gui2d.action;
@@ -23,7 +23,7 @@ import fr.formiko.views.gui2d.action;
 public class triche {
   public static GString gs;
   public static int nbrDeCommande;
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public static void ini(){
     if(gs!=null){return;}
     gs = new GString(); //GString est une liste chainées dont le contenu est une String.
@@ -138,13 +138,13 @@ public class triche {
         case 24:
           getJoueurParId(args[1]).setIa(str.sToB(args[2]));
           try {
-            if (!str.sToB(args[2]) && (Main.getCarte().getCasesNuageuses() || Main.getCarte().getCasesSombres())){getJoueurParId(args[1]).actualiserCaseSN();}
+            if (!str.sToB(args[2]) && (Main.getCarte().getCasesNuageuses() || Main.getCarte().getCasesSombres())){getJoueurParId(args[1]).updateCaseSN();}
           }catch (Exception e) {
             erreur.erreur("Le code triche de changement de jouer n'as pas pu actualiser les cases sombre et nuageuse.");
           }
           break;
         case 25:
-          Main.getGc().getCCase(str.sToI(args[1]),str.sToI(args[2])).getContenu().afficheToi();
+          Main.getGc().getCCase(str.sToI(args[1]),str.sToI(args[2])).getContent().afficheToi();
           break;
         case 26:
           System.out.println(Main.getGj());
@@ -195,7 +195,7 @@ public class triche {
             if(args[1].equalsIgnoreCase(g.get("cmd.type.1"))){// Creature
               Creature c = getCreatureParId(args[2]);
               if(args[3].equalsIgnoreCase(g.get("cmd.31.1"))){//getPoint
-                b = testSupInfEga(args,c.getCCase().getContenu().getPoint());
+                b = testSupInfEga(args,c.getCCase().getContent().getPoint());
               }else if(args[3].equalsIgnoreCase(g.get("cmd.31.2"))){//estMort
                 b = c.getEstMort();
               }else if(args[3].equalsIgnoreCase(g.get("cmd.31.5"))){//getProprete
@@ -236,6 +236,9 @@ public class triche {
             Fourmi.setUneSeuleAction(str.sToI(args[1]));
           }catch (Exception e) {
             Fourmi.setUneSeuleAction();
+          }
+          if(args.length>2){
+            action.setNeedToSetPaNullWhenActionDone(str.sToB(args[2]));
           }
           break;
         case 34:
@@ -316,6 +319,10 @@ public class triche {
             erreur.alerte("Une action de menu a échouée");
           }
           break;
+        case 43:
+          Panneau.getView().getPmmc().setFbetEnabled(false);
+          break;
+
 
         default:
           erreur.erreur("La commande n'as pas été reconnue.");

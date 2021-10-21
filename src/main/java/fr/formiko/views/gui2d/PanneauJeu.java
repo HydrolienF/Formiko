@@ -10,20 +10,24 @@ import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.types.str;
+import fr.formiko.views.gui2d.FLabel;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.MouseInfo;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.awt.geom.AffineTransform;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import java.awt.Component;
 import javax.swing.JScrollPane;
 
 public class PanneauJeu extends Panneau {
@@ -35,9 +39,20 @@ public class PanneauJeu extends Panneau {
   private PanneauSup ps;
   private PanneauDialogue pd;
   private PanneauDialogueInf pdi;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+
+  private FLabel labelMessage;
+  private ThreadMessagesDesc th;
+
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauJeu(){
     setLayout(null);
+    labelMessage = new FLabel("");
+    labelMessage.setBackground(new Color(225,225,225));
+    FBorder border = new FBorder();
+    border.setColor(Color.BLACK);
+    border.setThickness(1);
+    labelMessage.setBorder(border);
+    add(labelMessage);
   }
   // GET SET -------------------------------------------------------------------
   public PanneauBouton getPb(){ return pb;}
@@ -50,28 +65,11 @@ public class PanneauJeu extends Panneau {
   //get set transmis
   public void addPA(){ pb.addPA();}
   public void addPti(int x [], int y){pb.addPti(x,y);}
-  public void setDesc(String s){pb.setDesc(s);}
   public void setDescTI(String s){pb.setDescTI(s);}
   public PanneauTInt getPti(){return pb.getPti(); }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Override
   public void paintComponent(Graphics g){
-    // try {
-    //   pc.updateSize();
-    //   //pc.setBounds(0,0,getWidth(),getHeight());
-    // }catch (Exception e) {}
-    // try {
-    //   pb.setBounds(0,0,getWidth(),getHeight());
-    // }catch (Exception e) {}
-    // try {
-    //   ps.setBounds(0,0,getWidth(),getHeight());
-    // }catch (Exception e) {}
-    // try {
-    //   pe.setBounds(0,0,getWidth(),getHeight());
-    // }catch (Exception e) {}
-    // try {
-    //   pd.setBounds(0,0,pd.getWidth(),pd.getHeight());
-    // }catch (Exception e) {}
     super.paintComponent(g);
   }
   public void addPd(){
@@ -82,13 +80,11 @@ public class PanneauJeu extends Panneau {
     }
     add(pd);
     add(pdi);
-    // pd.setVisible(false);
-    // pdi.setVisible(false);
   }
   public void initialiserPd(String s, boolean needToStayMaxSize){
     pd.initialiser(s, needToStayMaxSize);
     pdi.initialiser();
-    pd.setLocation(0,0);
+    // pd.setLocation(0,0);
     revalidate();
   }
   public void removePd(){
@@ -112,7 +108,6 @@ public class PanneauJeu extends Panneau {
   }
   public void addPb(){
     pb = new PanneauBouton();
-    // pb.setBounds(0,0,0,0);
     pb.setBounds(0,0,getWidth(),getHeight());
     add(pb);
   }
@@ -143,6 +138,7 @@ public class PanneauJeu extends Panneau {
     }
     pc.setVisible(true);
     pb.setVisible(true);
+    action.updateMouseLocation();
   }
   // public void addPfp(){
   //   pfp = new PanneauFinPartie();
@@ -249,7 +245,7 @@ public class PanneauJeu extends Panneau {
   }
   public void alerte(String s){ alerte(s,g.getM("information"));}
   /**
-  *{@summary print a question box.}
+  *{@summary Print a question box.}
   *@return answer.
   *@version 1.50
   */
@@ -260,4 +256,77 @@ public class PanneauJeu extends Panneau {
     return r;
   }
   public String question(String s){ return question(s,"?");}
+
+  /**
+  *{@summary Update time from last move in the Thread.}
+  *@version 2.7
+  */
+  public void updateTimeFromLastMove(){
+    if(th==null){return;}
+    th.updateTimeFromLastMove();
+  }
+  /**
+  *{@summary Update message.}<br>
+  *It will initialize &#38; launch ThreadMessagesDesc if it is null.
+  *@version 2.7
+  */
+  public void updateThreadMessagesDesc(String message){
+    if(th==null){
+      th = new ThreadMessagesDesc();
+      th.start();
+    }
+    th.setMessage(message);
+  }
+
+  // SUB-CLASS -----------------------------------------------------------------
+  /**
+  *{@summary Thread used to print a description message at mouse location.}<br>
+  *Message is print only after 0.5s if mouse don't move.
+  *@author Hydrolien
+  *@version 2.7
+  */
+  class ThreadMessagesDesc extends Thread {
+    private String message;
+    private long timeFromLastMove;
+    private boolean needToUpdateTimeFromLastMove;
+    public void setMessage(String s){message=s;}
+    public void updateTimeFromLastMove(){needToUpdateTimeFromLastMove=true;}
+
+    /**
+    *{@summary Main function that update message if needed every 50ms.}<br>
+    *@version 2.7
+    */
+    @Override
+    public void run(){
+      needToUpdateTimeFromLastMove=false;
+      while (true) {
+        boolean visible = false;
+        if(message!=null && !message.equals("")){
+          if(needToUpdateTimeFromLastMove){
+            timeFromLastMove = System.currentTimeMillis();
+            needToUpdateTimeFromLastMove=false;
+          }else{
+            long currentTime = System.currentTimeMillis();
+            long timeElapsed = currentTime-timeFromLastMove;
+            if(timeElapsed>500){
+              if(timeElapsed<600){
+                labelMessage.setText(message);
+                labelMessage.updateSize();
+                Point curentLocation = MouseInfo.getPointerInfo().getLocation();
+                labelMessage.setLocation((int)(curentLocation.getX()-labelMessage.getWidth()), (int)(curentLocation.getY()-labelMessage.getHeight()));
+              }
+              visible = true;
+            }
+          }
+        }
+        labelMessage.setVisible(visible);
+        // Temps.pause(50);
+        try {
+          sleep(50);
+        }catch (InterruptedException e) {
+          erreur.erreur("thread have been interupted");
+        }
+      }
+    }
+  }
 }

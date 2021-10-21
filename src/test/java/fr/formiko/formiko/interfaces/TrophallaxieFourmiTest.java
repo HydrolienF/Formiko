@@ -13,7 +13,7 @@ import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class TrophallaxieFourmiTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
 
   //trophallaxie
 

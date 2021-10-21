@@ -13,16 +13,16 @@ public class Os {
   *0=linux, 1=Windows, 2=Mac, -1=unknowOS
   */
   private byte id;
-  private static String OS = System.getProperty("os.name").toLowerCase();
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  protected static String OS = System.getProperty("os.name").toLowerCase(); //po for test
+  // CONSTRUCTORS --------------------------------------------------------------
   public Os(){iniOs();}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public byte getId(){return id;}
   public void setId(byte x){id=x;}
-  public boolean isWindows(){return id==1;}
-  public boolean isLinux(){return id==0;}
-  public boolean isMac(){return id==2;}
-  // Fonctions propre -----------------------------------------------------------
+  public boolean isWindows(){return getId()==1;}
+  public boolean isLinux(){return getId()==0;}
+  public boolean isMac(){return getId()==2;}
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *Return the name of the OS.
   */
@@ -45,7 +45,7 @@ public class Os {
   *Check if OS is Unix (linux).
   */
   private static boolean iniIsUnix() {
-    return (OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS.indexOf("aix") > 0 );
+    return (OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS.indexOf("aix") >= 0 );
   }
   /**
   *Save the OS in the int id.

@@ -31,7 +31,7 @@ public class ChasseHerbivore implements Serializable, Chasse {
     this.c=c;
     int nourritureMangeable = 1;
     if(c instanceof Insecte){nourritureMangeable=((Insecte)(c)).getNourritureMangeable();}
-    if(c.getCCase().getContenu().getNourritureInsecte() >= nourritureMangeable){
+    if(c.getCCase().getContent().getNourritureInsecte() >= nourritureMangeable){
       return manger();
     }else{
       //TODO
@@ -48,15 +48,15 @@ public class ChasseHerbivore implements Serializable, Chasse {
   *@version 1.28
   */
   public boolean manger(){
-    byte nourritureSurCase = c.getCCase().getContenu().getNourritureInsecte();
+    byte nourritureSurCase = c.getCCase().getContent().getNourritureInsecte();
     int nourritureMangeable = 1;
     if(c instanceof Insecte){nourritureMangeable=((Insecte)(c)).getNourritureMangeable();}
     if (nourritureSurCase > 0){
       byte nourritureMangé = (byte) math.min(nourritureSurCase,nourritureMangeable);
-      c.getCCase().getContenu().setNourritureInsecte((byte)(nourritureSurCase-nourritureMangé));
+      c.getCCase().getContent().setNourritureInsecte((byte)(nourritureSurCase-nourritureMangé));
       c.setNourriture(c.getNourriture() + nourritureMangé);
       if(c instanceof Fourmi){
-        c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuParType(((Fourmi) c).getTypeF()).getCoutChasse()/2);
+        c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuByType(((Fourmi) c).getTypeF()).getCoutChasse()/2);
       }else{
         c.setActionMoins(1);
       }

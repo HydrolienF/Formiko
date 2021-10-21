@@ -2,6 +2,7 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
+import fr.formiko.formiko.triche;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
@@ -9,7 +10,7 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.types.str;
 
-
+import java.awt.MouseInfo;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,9 +20,11 @@ import javax.swing.JOptionPane;
 */
 public class action{
   private static Partie pa;
+  private static boolean needToSetPaNullWhenActionDone=false;
   // GET SET -------------------------------------------------------------------
   public static Partie getPartie(){ return pa;}
   public static void setPartie(Partie p){pa=p;}
+  public static void setNeedToSetPaNullWhenActionDone(boolean b){needToSetPaNullWhenActionDone=b;}
   // public static Partie getPartie(){return Main.getPartie();}
   // public static void setPartie(Partie p){Main.setPartie(p);}
   // FUNCTIONS -----------------------------------------------------------------
@@ -30,12 +33,20 @@ public class action{
   *@version 1.41
   */
   public static void doAction(int action){
-    if(Panneau.getView().getPe() != null && Panneau.getView().getPe().getVisible()){
+    if(Panneau.getView().getFl()!=null){
+      doActionPl(action);
+    }else if(Panneau.getView().getPe() != null && Panneau.getView().getPe().getVisible()){
       doActionPe(action);
     }else if(Main.getView().getActionGameOn()){
       doActionPj(action);
     }else{
       doActionPm(action);
+    }
+  }
+  public static void doActionPl(int ac){
+    if(ac==1000){//retry to download data from FFrameLauncher
+      Main.getFolder().setLaunchDownload(true);
+      Panneau.getView().setButtonRetryVisible(false);
     }
   }
   /**
@@ -89,6 +100,10 @@ public class action{
             erreur.erreur("aucune fourmi n'est selectionné pour réaliser l'action voulue.");
           }else{
             debug.débogage("clic qui lance "+(ac-20));
+            if(needToSetPaNullWhenActionDone){
+              triche.commande("setPa 20");
+              setNeedToSetPaNullWhenActionDone(false);
+            }
             Panneau.getView().getPb().setActionF(ac-20);
           }
           Main.repaint();
@@ -101,6 +116,12 @@ public class action{
           Panneau.getView().getPj().removePfp();
           Main.getPartie().setContinuerLeJeu(true);
           Main.repaint();
+        }else if(ac==200){//endTurnButton
+          try {
+            Main.getPlayingJoueur().setIsTurnEnded(true);
+          }catch (Exception e) {
+            erreur.alerte("fail to end turn");
+          }
         }else if(ac>=40){
           PanneauBouton pb = Panneau.getView().getPb();
           pb.setChoixId(pb.getPti().getBoutonX(ac-40));
@@ -147,7 +168,7 @@ public class action{
     //d.title = g.get("sauvegarder");
     String saveName = g.getM("sauvegarde")+" "+sauvegarderUnePartie.getSave().getIdS();//donne un identifiant unique au fichier.
     try {
-      //saveName+="  "+Main.getGj().getDébut().getContenu().getPseudo();
+      //saveName+="  "+Main.getGj().getHead().getContent().getPseudo();
       saveName+="  "+Temps.getDatePourSauvegarde();
     }catch (Exception e) {
       erreur.alerte("Un nom de sauvegarde n'a pas pu être choisi.");
@@ -176,5 +197,13 @@ public class action{
     // erreur.info("retournerAuMenu 2");
     // Panneau.getView().getPp().removePj();
     // Panneau.getView().getPp().addPm();
+  }
+  public static void updateMouseLocation(){
+    try {
+      // System.out.println("moved 1");
+      // Panneau.getView().getPs().mouseMovedUpdate(Panneau.getView().getPs().getCCase((int)MouseInfo.getPointerInfo().getLocation().getX(), (int)MouseInfo.getPointerInfo().getLocation().getY()));
+      System.out.println(Panneau.getView().getPs().getCCase((int)MouseInfo.getPointerInfo().getLocation().getX(), (int)MouseInfo.getPointerInfo().getLocation().getY()).getContent());
+      // System.out.println("moved 2");
+    }catch (Exception e) {}
   }
 }

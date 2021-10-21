@@ -16,14 +16,13 @@ import java.io.Serializable;
 *Specials insectes extends this class.<br>
 *Almost all the var can be found in Creature.java<br>
 *@author Hydrolien
-*@version 1.13
+*@version 2.6
 */
 public class Insecte extends Creature implements Serializable{
   protected boolean femelle;
   protected byte nourritureMangeable;
-  protected byte type;
   protected static GIEspece gie;
-  // CONSTRUCTEUR -----------------------------------------------------------------
+  // CONSTRUCTORS ----------------------------------------------------------------
   /**
   *{@summary Main constructor for Insecte.}<br>
   *All args are Insecte var.
@@ -42,12 +41,10 @@ public class Insecte extends Creature implements Serializable{
     this.nourritureMangeable =(byte) (allea.getAllea(3)+2);// de 2 a 5.
     this.déplacement = new DeplacementFourmi();
     this.chasse = new ChasseHerbivore();
-    p.getContenu().getGc().add(this);
-    type = getTypeInsecte();//p.getContenu().getTypeInsecte();
+    p.getContent().getGc().add(this);
+    setType(getRandomTypeInsectOnTheCase());
     stade = (byte)0; // doit apparaitre en -3 pour etre un oeuf.
     mourir = new MourirInsecte();
-    e = Main.getGEspece().getEspeceParId(100+getType());//les Espece d'insectes sont décaler de 100 par rapport au espece de Fourmi.
-    if(e==null){erreur.erreur("Une espece d'insecte n'as pas pu etre chargé : "+(100+getType()));}
     setNourritureFournie(e.getNourritureFournie(getStade()));
     femelle = allea.getBAllea();
     debug.débogage("L'insecte "+ this.id + " a été  créée");
@@ -65,25 +62,53 @@ public class Insecte extends Creature implements Serializable{
   *Here know nothing, the location of the insecte will be shoose randomly on the actual GCase of Main. Random value will be add for ageMax and actionMax.
   *@version 1.13
   */
-  public Insecte (){ //on place l'insecte alléatoirement. //  en théorie soit il nait et il a la case de ca mere, soit il vient d'autre par et dans ce cas il apparait sur une case en bordure de carte.
+  public Insecte (){
+    // TODO en théorie soit il nait et il a la case de ca mere, soit il vient d'autre par et dans ce cas il apparait sur une case en bordure de carte.
     this(Main.getGc().getCCaseAlléa());
   }
+  // private Insecte (boolean b){
+  //   super().newEmptyCreature();
+  // }
+  // /***
+  // *{@summary constructor for test only.}<br>
+  // *@version 2.7
+  // */
+  // public static Insecte newEmptyInsecte(){
+  //   return new Insecte(true);
+  // }
 
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public boolean getFemelle(){return femelle;}
   public void setFemelle(boolean b){femelle=b;}
+  public String getSex(){if(femelle){return "♀";}else{return "♂";}}
   public byte getNourritureMangeable(){ return nourritureMangeable;}
   public void setNourritureMangeable(byte x){ nourritureMangeable=x;} public void setNourritureMangeable(int x){ setNourritureMangeable((byte)x);}
   @Override
-  public byte getType(){ return type;}
-  public void setType(byte x){type=x;}public void setType(int x){setType((byte)x);}
-  public byte getTypeInsecte(){return gie.getTypeInsecte(getCCase().getContenu().getType());}
+  public byte getType(){ return (byte)(getEspece().getId()-100);}
+  /**
+  *{@summary set type &#38; Espece.}
+  *@version 2.6
+  */
+  public void setType(byte x){
+    super.setEspece(Main.getEspeceParId(100+x));
+    if(e==null){erreur.erreur("Une espece d'insecte n'as pas pu etre chargé : "+(100+getType()));}
+  }
+  public void setType(int x){setType((byte)x);}
+  public byte getRandomTypeInsectOnTheCase(){return gie.getRandomTypeInsectOnTheCase(getCCase().getContent().getType());}
+  /**
+  *{@summary set type &#38; Espece.}
+  *@version 2.6
+  */
+  @Override
+  public void setEspece(Espece ex){
+    super.setEspece(ex);
+  }
   @Override
   public boolean getVole(){if(getStade()!=0){return false;}return e.getVole();}//si c'est un imago ca dépend de l'espece.
   public static void setGie(){ gie=new GIEspece();}//initialise le fichier/
   @Override
   public String getNom(){return g.get("I"+getType());}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Print all information about the Insecte.}<br>
   *@version 1.13

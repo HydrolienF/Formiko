@@ -14,7 +14,7 @@ public class Pheromone implements Serializable{
   private byte r;
   private byte v;
   private byte b;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Pheromone(byte r, byte v, byte b){
     this.r = r; this.v = v; this.b = b;
   }
@@ -33,18 +33,18 @@ public class Pheromone implements Serializable{
   public Pheromone(){
     this(allea.getAlléa(256)-128,allea.getAlléa(256)-128,allea.getAlléa(256)-128);
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public byte getR(){ return r;}
-  public byte getV(){ return v;}public byte getG(){ return v;}
+  public byte getG(){ return v;} public byte getV(){ return getG();}
   public byte getB(){ return b;}
   public void setR(byte x){r=x;}
-  public void setV(byte x){r=v;}public void setG(byte x){r=v;}
+  public void setG(byte x){r=v;} public void setV(byte x){setG(x);}
   public void setB(byte x){r=b;}
   public byte getRc(){ return (byte)(r+128);}
   public byte getVc(){ return (byte)(v+128);}
   public byte getBc(){ return (byte)(b+128);}
   public Color getColor(){ return new Color(r+128,v+128,b+128);}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     return r+" "+v+" "+b;
   }

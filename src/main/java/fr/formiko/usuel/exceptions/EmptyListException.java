@@ -19,7 +19,7 @@ public class EmptyListException extends RuntimeException{
   }
   /***
   *{@summary Constructs a new runtime exception with a detail message.}<br>
-  *List name is unknow.
+  *Liste name is unknow.
   *@param action Action that the program were doing.
   *@version 1.39
   */

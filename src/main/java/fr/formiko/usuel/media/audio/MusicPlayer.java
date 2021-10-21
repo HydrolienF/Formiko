@@ -2,7 +2,7 @@ package fr.formiko.usuel.media.audio;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.maths.allea;
 
 import java.io.File;
@@ -158,7 +158,7 @@ public class MusicPlayer implements AudioInterface {
       music = availableMusics.getItem(allea.getAllea(len));
       k++;
     } while (curentMusique.equals(music) && len>1 && k<10);
-    erreur.info("music "+i+" :"+music);//@a
+    erreur.info("music "+i+" :"+music);
     return music;
   }
 }

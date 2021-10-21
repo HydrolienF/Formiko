@@ -15,7 +15,7 @@ import fr.formiko.usuel.g;
 public class ThScript extends Thread{
   private Script scr;
   private boolean needToStop;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main contructor.}<br>
   *@version 1.51
@@ -24,9 +24,9 @@ public class ThScript extends Thread{
     scr = new Script(s);
     needToStop=false;
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public Script getScript(){return scr;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Main methode to launch script.}<br>
   *It is call with Main.launchScript().

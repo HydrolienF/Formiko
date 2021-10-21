@@ -5,10 +5,10 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 
 /**
- * {@summary Do math operation.}<br>
- * @author Hydrolien
- * @version 1.1
- */
+*{@summary Do math operation.}<br>
+*@author Hydrolien
+*@version 2.5
+*/
 public class math {
   //int
   /**
@@ -22,10 +22,12 @@ public class math {
   }
   /**
   *{@summary return maximum}
+  *Sort cut for as many parameters as we whant.
   *@return maximum of int t []
-  *@version 1.1
+  *@version 2.5
   */
-  public static int max(int t[]){
+  public static int max(int ... t){
+    // return max(values);
     int lent = t.length;
     int xMax = t[0];
     for (int i=0; i<lent-1;i++){
@@ -59,9 +61,9 @@ public class math {
   /**
   *{@summary return minimum}
   *@return minimum of int t []
-  *@version 1.1
+  *@version 2.5
   */
-  public static int min(int t[]){
+  public static int min(int ... t){
     int lent = t.length;
     int xMin = t[0];
     for (int i=0; i<lent-1;i++){
@@ -105,9 +107,9 @@ public class math {
   /**
   *{@summary return maximum}
   *@return maximum of double
-  *@version 1.1
+  *@version 2.5
   */
-  public static double max(double t[]){
+  public static double max(double ... t){
     int lent = t.length;
     double xMax = t[0];
     for (int i=0; i<lent-1;i++){
@@ -127,9 +129,9 @@ public class math {
   /**
   *{@summary return minimum}
   *@return minimum of double
-  *@version 1.1
+  *@version 2.5
   */
-  public static double min(double t[]){
+  public static double min(double ... t){
     int lent = t.length;
     double xMin = t[0];
     for (int i=0; i<lent-1;i++){
@@ -145,6 +147,20 @@ public class math {
   public static double valAbs(double x){
     if (x<0) { return x*-1;}
     return x;
+  }
+  /**
+  *{@summary return a value in an interval.}<br>
+  *max &#38; min are in the interval.
+  *@param min the minimum value
+  *@param max the maximum value
+  *@param val the value to test
+  *@return val or a bound
+  *@version 2.5
+  */
+  public static int between(int min, int max, int val){
+    if(val<min){return min;}
+    if(val>max){return max;}
+    return val;
   }
 
   // somme :
@@ -182,7 +198,7 @@ public class math {
   }
   /*public static int factorielle(int k){
     if (k <= 0) {
-      erreur.erreur("Impossible de calculé n! si n n'est pas positif","math.factorielle");
+      erreur.erreur("Impossible de calculer n! si n n'est pas positif","math.factorielle");
       return -1;
     }
     if (k == 1){
@@ -193,7 +209,7 @@ public class math {
   }
   public static int factorielleSwitch(int k){
     if (k <= 0) {
-      erreur.erreur("Impossible de calculé n! si n n'est pas positif","math.factorielleSwitch");
+      erreur.erreur("Impossible de calculer n! si n n'est pas positif","math.factorielleSwitch");
       return -1;
     }
     int mem [] = new int [2];
@@ -218,7 +234,7 @@ public class math {
   public static long factorielle(int k){
     if(k==0){return 0;}
     if (k < 0) {
-      erreur.erreur("Impossible de calculé n! si n n'est pas positif n="+k);
+      erreur.erreur("Impossible de calculer n! si n n'est pas positif n="+k);
       return -1;
     }
     long mem [] = new long [2];
@@ -237,11 +253,11 @@ public class math {
   }
   /*public static long factorielleNMoinsK(int max, int n){
     if (max <= 0 ) {
-      erreur.erreur("Impossible de calculé n! si n n'est pas positif","math.factorielleSwitchLong");
+      erreur.erreur("Impossible de calculer n! si n n'est pas positif","math.factorielleSwitchLong");
       return -1;
     }
     if (n < max){
-      erreur.erreur("Impossible de calculé un un factorielle négatif");
+      erreur.erreur("Impossible de calculer un un factorielle négatif");
     }
     long mem [] = new long [2];
     int ic = 0;
@@ -285,7 +301,7 @@ public class math {
   */
   public static int syracuse(int n){
     if (n <= 0) {
-      erreur.erreur("Impossible de calculé syracuse si n n'est pas positif");
+      erreur.erreur("Impossible de calculer syracuse si n n'est pas positif");
       return -1;
     }
     // u¨0 = n et u¨(i+1) = u¨i/2 si pair
@@ -308,7 +324,7 @@ public class math {
   */
   public static int syracuseSwitch(int n){
     if (n <= 0) {
-      erreur.erreur("Impossible de calculé syracuse si n n'est pas positif");
+      erreur.erreur("Impossible de calculer syracuse si n n'est pas positif");
       return -1;
     }
     int i=0;

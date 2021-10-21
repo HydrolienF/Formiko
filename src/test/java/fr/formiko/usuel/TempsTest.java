@@ -13,7 +13,7 @@ import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class TempsTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testMsToTimeLongArray(){
     //0
@@ -38,6 +38,7 @@ public class TempsTest extends TestCaseMuet{
   }
   @Test
   public void testMsToTime(){
+    Main.setOs(new Os());
     Main.initialisation();
     Main.setLangue(1);
     //0

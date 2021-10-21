@@ -16,27 +16,55 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 public class PanneauPrincipal extends Panneau {
   private PanneauJeu pj;
   private PanneauMenu pm;
   private Image img;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  private FLabel versionLabel;
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauPrincipal(){}
   public void build(){
     this.setLayout(null);
     img = image.getImage("backgroundPP");
-    img = img.getScaledInstance(this.getWidth(), this.getHeight(),Image.SCALE_SMOOTH);
+    img = img.getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
+    addVersionLabel();
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public PanneauJeu getPj(){ return pj;}
   public PanneauMenu getPm(){ return pm;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
+    // try {
+    //   SwingUtilities.invokeAndWait(new Runnable() {
+    //     @Override
+    //     public void run() {
+          ThMove.updateQueue();
+    //     }
+    //   });
+    // }catch (Exception e) {}
     if (img!=null){
       g.drawImage(img,0,0,this);
     }
     debug.débogage("taille du paneau secondaire : x="+this.getWidth()+", y="+this.getHeight());
+  }
+  /**
+  *{@summary Add the curent version on screen.}<br>
+  *@version 2.6
+  */
+  private void addVersionLabel(){
+    versionLabel = new FLabel("");
+    versionLabel.setFont(new Font(versionLabel.getFont().getFontName(),versionLabel.getFont().getStyle(),14));
+    versionLabel.setFondTransparent();
+    // versionLabel.updateSize();
+    add(versionLabel);
+  }
+  public void updateVersionLabel(){
+    String version = Main.getFolder().getCurentVersion();
+    if(version==null){return;}
+    versionLabel.setText(version);
+    versionLabel.updateSize();
   }
 
   public void addPm(){
@@ -57,7 +85,7 @@ public class PanneauPrincipal extends Panneau {
   }
   public synchronized void removePm(){
     // if(pm==null){
-    //   erreur.alerte("Impossible de retirer le PanneauMenu.");
+    //   erreur.alerte("Impossible de remove le PanneauMenu.");
     //   return;
     // }
     pm.setVisible(false);

@@ -9,7 +9,36 @@ import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class strTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
+  @Test
+  public void testIsVersionOver(){
+    assertTrue(str.isVersionOver("1.0.0","0.0.0"));
+    assertTrue(str.isVersionOver("0.1.0","0.0.0"));
+    assertTrue(str.isVersionOver("0.0.1","0.0.0"));
+    assertTrue(str.isVersionOver("1.2.3","0.0.0"));
+    assertTrue(str.isVersionOver("2.10.1","2.10.0"));
+    assertTrue(!str.isVersionOver("0.0.0","1.0.0"));
+    assertTrue(!str.isVersionOver("0.0.0","1.4.67"));
+    assertTrue(!str.isVersionOver("0.0.0","1000000.0.0"));
+    assertTrue(!str.isVersionOver("1.0.0","1.0.1"));
+    assertTrue(!str.isVersionOver("1.0.0","1.0.0"));
+  }
+  @Test
+  public void testIsVersionOver2(){
+    assertTrue(!str.isVersionOver("1.0.0.0.0.0","1.0.0.0.0.0"));
+    assertTrue(!str.isVersionOver("1","1"));
+    assertTrue(str.isVersionOver("4","1"));
+    assertTrue(!str.isVersionOver("10","2.7")); //0.10 < 2.7
+    assertTrue(!str.isVersionOver("1","1.0"));
+    assertTrue(str.isVersionOver("1.0","4"));
+    assertTrue(str.isVersionOver("1.0.0.0.0.0","1.0.0.0.0"));
+  }
+  @Test
+  public void testIsVersionOver3(){
+    assertThrows(IllegalArgumentException.class, () -> str.isVersionOver("A","1"));
+    assertThrows(IllegalArgumentException.class, () -> str.isVersionOver("4","4.0.£"));
+    assertThrows(IllegalArgumentException.class, () -> str.isVersionOver("人1.1","1.1"));
+  }
   @Test
   public void testNbrDeX(){
     String s = "est un E iueé";//la maj et le 'é' ne doivent pas compter

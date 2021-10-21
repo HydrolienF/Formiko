@@ -52,17 +52,27 @@ public class TourInsecte implements Serializable, Tour{
     c.eat(50);
     reproduce();
     c.eat(100);
-    finTour();
+    // finTour();
   }
   /**
   *{@summary End a turn as an Insecte.}<br>
   *@version 1.28
   */
-  public void finTour(){
-    if(c.getAction()>0){c.setAction(0);}//end the turn normaly
-    // Un tour ça coute en age et en nourriture.
-    c.setNourritureMoins1();
-    c.setAgePlus1();
+  public void endTurn(Creature cTemp){
+    if(cTemp instanceof Insecte){
+      //to avoid to end turn 2 time in the same turn.
+      if(c.getLastTurnEnd()==Main.getPartie().getTour()){
+        return;
+      }else{
+        c.setLastTurnEnd(Main.getPartie().getTour());
+      }
+      c = (Insecte) cTemp;
+      if(c.getAction()>0){c.setAction(0);}//end the turn normaly
+      c.setNourritureMoins1();
+      c.setAgePlus1();
+    }else{
+      erreur.erreurType("Insecte");
+    }
   }
 
   /**

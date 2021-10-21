@@ -12,7 +12,7 @@ import fr.formiko.views.gui2d.PanneauTBoolean;
 
 public class readG {
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public static String getString(String variable, String défaut, String message){
     Panneau.getView().getPb().addPChamp(défaut,message);
     boolean b;

@@ -26,8 +26,9 @@ public class PanneauAction extends Panneau {
   private int tBoutonActif[];
   private static int bordure=10;
   private static int tailBouton=160;
-  private Bouton tB [];
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  private FButton tB [];
+  private FButton tAutoB [] = new FButton[2];
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauAction(int t[]){
     super();
     tailleBouton=Main.getTailleElementGraphique(tailBouton);
@@ -41,41 +42,73 @@ public class PanneauAction extends Panneau {
   public void build(){
     if(nbrDeBouton > nbrDeBoutonMax){ erreur.erreur("impossible d'afficher tant de boutons");}
     Dimension dim = new Dimension(tailleBouton, tailleBouton);
-    this.setLayout(new GridBagLayout());
-    tB = new Bouton [nbrDeBouton]; // pour l'instant le bouton 10 n'as pas d'images.
+    setLayout(new GridBagLayout());
+    tB = new FButton [nbrDeBouton]; // pour l'instant le bouton 10 n'as pas d'images.
     Main.getData().chargerTIPanneauAction();//ne ce lance que si néssésaire.
     for (int i=0;i<nbrDeBouton ;i++ ) { // seul les bouton mentionné dans t sont créé.
-      tB[i] = new Bouton(g.get("bouton.nom."+(20+tBoutonActif[i])),(Panneau)this,20+tBoutonActif[i],Main.getData().getTImage()[tBoutonActif[i]]);
+      tB[i] = new FButton(g.get("bouton.nom."+(20+tBoutonActif[i])),(Panneau)this,20+tBoutonActif[i],Main.getData().getTImage()[tBoutonActif[i]]);
       tB[i].setBordure(false);
       tB[i].setWithBackground(true);
+      if(tBoutonActif[i]==7){
+        tAutoB[0]=tB[i];
+      }else if(tBoutonActif[i]==8){
+        tAutoB[1]=tB[i];
+      }
     }
-    for (Bouton b :tB){b.setPreferredSize(dim);}
+    for (FButton b :tB) {b.setPreferredSize(dim);}
     GridBagConstraints gbc = new GridBagConstraints();
     int espaceLibre = Main.getTailleElementGraphique(bordure);
     gbc.insets = new Insets(espaceLibre, espaceLibre, espaceLibre, espaceLibre);
     gbc.gridy = 0;
     for (int i=0;i<nbrDeBouton ;i++ ) {
       gbc.gridx = i;
-      this.add(tB[i],gbc);
+      add(tB[i],gbc);
+      //TODO use FBorder
+      // tB[i].getFBorder().setColor(Main.getData().getButonBorderColor());
     }
+    try {
+      paintAutoButton();
+    }catch (NullPointerException e) {}
   }
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public int getTailleBouton(){ return tailleBouton;}
   public void setTailleBouton(int x){ tailleBouton=x;}
   public int getNbrBouton(){ return nbrDeBouton;}
   public boolean getEstBoutonActif(int x){return tableau.estDansT(tBoutonActif,x);}
   public int getBordureBouton(){ return Main.getTailleElementGraphique(bordure);}
   public void setEnabled(boolean boo){
-    for (Bouton b : tB ) {
+    for (FButton b : tB ) {
       b.setEnabled(boo);
     }
     super.setEnabled(boo);
   }
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
 
   public void paintComponent(Graphics g){
     if(!Main.getPartie().getEnCours()){return;}
-    debug.g("PanneauAction",this.getWidth(),this.getHeight());
+    // debug.g("PanneauAction",this.getWidth(),this.getHeight());
+  }
+  /**
+  *{@summary Change default color for auto mode buttons.}
+  *@version 2.5
+  */
+  public void paintAutoButton(){
+    if(Main.getPlayingAnt().getMode()==0){
+      tAutoB[0].setIsYellow(true);
+    }else{
+      tAutoB[0].setIsYellow(false);
+    }
+    if(Main.getPlayingAnt().getMode()==3){
+      tAutoB[1].setIsYellow(true);
+    }else{
+      tAutoB[1].setIsYellow(false);
+    }
+    if(tAutoB[0].isEnabled()){
+      tAutoB[0].setDefaultColor();
+    }
+    if(tAutoB[1].isEnabled()){
+      tAutoB[1].setDefaultColor();
+    }
   }
   public static int [] getTIntDef(){
     int tr[] = new int [nbrDeBoutonMax];

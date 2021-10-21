@@ -9,7 +9,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
 import java.io.File;
@@ -19,13 +19,14 @@ import java.util.Map;
 public class chargerLesTraductionsTest extends TestCaseMuet{
 
   // get set -------------------------------------------------------------------
+  @Test
   public void testIniMap(){
     chargerLesTraductions.iniMap();
     assertTrue(chargerLesTraductions.getMap()!=null);
     assertEquals(0,chargerLesTraductions.getMap().size());
   }
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testgetLanguage(){
     String t []= {"en","fr","langueTest"};

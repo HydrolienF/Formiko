@@ -8,35 +8,39 @@ import java.awt.Graphics;
 
 public class PanneauGEtiquetteJoueur extends Panneau{
   private GEtiquetteJoueur gej;
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public PanneauGEtiquetteJoueur(GEtiquetteJoueur gej){
     this.gej=gej;
     this.setLayout(null);
     //int nbrDeJoueur = gej.length();
-    CEtiquetteJoueur cej = gej.getDébut();
     int wi2 = Main.getF().getWidth()/2;
     int k=0;
-    while(cej!=null){
-      cej.getContenu().setBounds(Desc.getDimY(),k*Desc.getDimY()*3,wi2*gej.length(),Desc.getDimY()*3);
-      add(cej.getContenu());
-      cej=cej.getSuivant();k++;
+    for (EtiquetteJoueur ej : gej ) {
+      ej.setBounds(FLabel.getDimY(),k*FLabel.getDimY()*3,wi2*gej.length(),FLabel.getDimY()*3);
+      add(ej);k++;
     }
+    // CEtiquetteJoueur cej = gej.getHead();
+    // while(cej!=null){
+    //   cej.getContent().setBounds(FLabel.getDimY(),k*FLabel.getDimY()*3,wi2*gej.length(),FLabel.getDimY()*3);
+    //   add(cej.getContent());
+    //   cej=cej.getSuivant();k++;
+    // }
   }
-  // GET SET --------------------------------------------------------------------
-
-  // Fonctions propre -----------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
+  // public void getGej(){return gej;}
+  // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
-    if(gej!=null && gej.getDébut()!=null && gej.getDébut().getContenu()!=null){
+    if(gej!=null && gej.getHead()!=null && gej.getFirst()!=null){
       g.setColor(Main.getData().getButtonColor());
-      int taille = gej.getDébut().getContenu().getHeight();
+      int taille = gej.getFirst().getHeight();
       int size = gej.length();
       g.fillRect(0,0,getWidth(),taille*size);
     }
     /*int wi2 = Main.getF().getWidth()/2;
-    CEtiquetteJoueur cej = gej.getDébut();
+    CEtiquetteJoueur cej = gej.getHead();
     int k=0;
     while(cej!=null){
-      cej.getContenu().setBounds(0,k*Desc.getDimY()*3,wi2*gej.length(),Desc.getDimY()*3);
+      cej.getContent().setBounds(0,k*FLabel.getDimY()*3,wi2*gej.length(),FLabel.getDimY()*3);
       cej=cej.getSuivant();k++;
     }*/
   }

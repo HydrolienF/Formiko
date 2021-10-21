@@ -5,11 +5,11 @@ import fr.formiko.formiko.triche;
 import java.util.Scanner;
 
 public class ThTriche extends Thread{
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public ThTriche(){}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Override
   public void run(){
     Scanner sc = new Scanner(System.in);

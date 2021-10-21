@@ -8,10 +8,10 @@ package fr.formiko.usuel;
 */
 public class clear {
   private static boolean affClear = true;
-  // GET SET -----------------------------------------------------------------------
+  // GET SET ----------------------------------------------------------------------
   public static boolean getAffClear(){return affClear;}
   public static void setAffClear(boolean b){affClear = b;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *Clear console.
   @version 1.0

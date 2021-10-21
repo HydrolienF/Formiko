@@ -16,10 +16,10 @@ public class Personalite implements Serializable{
 
   private byte reconnaissanceAllié; // les créatures reconnu aurons plus de chance de recevoir une trophalaxie ou une aide au combat.
   private byte reconnaissanceNeutre;// les créatures neutre ne seront pas attaquer et pas aider. (les neutres sont tolléré partout sauf dans la Fourmiliere.)
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
 
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
 
 }

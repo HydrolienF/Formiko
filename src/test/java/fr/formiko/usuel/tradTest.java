@@ -11,7 +11,7 @@ import fr.formiko.views.ViewNull;
 
 public class tradTest extends TestCaseMuet{
 
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testReplaceTranslation(){
     Main.setView(new ViewNull());

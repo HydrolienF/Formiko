@@ -1,6 +1,6 @@
 package fr.formiko.usuel;
 
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 
@@ -22,9 +22,7 @@ public class ecrireUnFichier {
       BufferedWriter ecriteurAvecBuffer = null;
       String ligne;
       File f = new File(nomDuFichier);
-      // if(!f.exists()){
       f.createNewFile(); //it will be crate only if it haven't been yet.
-      // }
       try {
         ecriteurAvecBuffer = new BufferedWriter(new FileWriter(nomDuFichier, StandardCharsets.UTF_8));
       } catch(FileNotFoundException e) {
@@ -35,13 +33,9 @@ public class ecrireUnFichier {
       }
       String contenu = tableauDeLigne.toStringLong();
       ecriteurAvecBuffer.write(contenu);
-      /*for (String s : tableauDeLigne) {
-        ecriteurAvecBuffer.write(s+"\n");
-      }*/
       ecriteurAvecBuffer.close();
     }catch (IOException e) {
       return false;
-      //e.printStackTrace();
     }
     return true;
   }
@@ -60,20 +54,6 @@ public class ecrireUnFichier {
       }
     }
     if (nomDuFichier.length()==0){ nomDuFichier = "sauvegardeEnCasDeNomDeFichierVide";}
-    /*File f = new File (nomDuFichier + ".txt");
-    if (!nomDuFichier.equals("sauvegarde") && f.exists()){
-      erreur.erreur("le nom de la sauvegarde éxiste déjà","ecrireUnFichier.ecrireUnFichier","Le nom du fichier sera sauvegardeX");
-      nomDuFichier = "sauvegarde";
-      f = new File ("sauvegarde/sauvegarde.txt");
-    }
-    int i=2;
-    // test non éfficace pour éviter d'écraser un fichier.
-    if (nomDuFichier.equals("sauvegarde") ){
-      while (f.exists()){
-        nomDuFichier = "sauvegarde/sauvegarde" + i;
-        i++;
-      }
-    }*/
     ecrireUnFichier(tableauDeLigne, "sauvegarde/" + nomDuFichier + ".txt");
   }
 }

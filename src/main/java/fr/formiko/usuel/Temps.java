@@ -3,7 +3,7 @@ package fr.formiko.usuel;
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.ecrireUnFichier;
 import fr.formiko.usuel.lireUnFichier;
-import fr.formiko.usuel.listes.GString;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.types.str;
 
 import java.text.SimpleDateFormat;
@@ -38,9 +38,9 @@ public class Temps {
   private String df = "dd/MM/yyyy HH:mm";
 
 
-  // CONSTRUCTEUR ---------------------------------------------------------------
+  // CONSTRUCTORS --------------------------------------------------------------
   public Temps(){chargerTemps();}
-  // GET SET --------------------------------------------------------------------
+  // GET SET -------------------------------------------------------------------
   public long getDate1(){ return date1;}
   public void setDate1(long x){date1=x;}
   public long getDate2(){ return date2;}
@@ -51,7 +51,7 @@ public class Temps {
   public void addTempsEnJeux(long x){ setTempsEnJeux(getTempsEnJeux()+x);}
   public String getDf(){return df;}
   public void setDf(String s){df=s;}
-  // Fonctions propre -----------------------------------------------------------
+  // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String r="";
     SimpleDateFormat sdf = new SimpleDateFormat(df);
@@ -104,11 +104,12 @@ public class Temps {
   //TODO add une méthode qui return un String de date le plus adapté possible avec un nombre défini d'unité allant de jours a ms.
   //par défaut on a 2 unité. ex : x jours y heures  ex2 : x min y s
   /**
-  *{@summary return time with as specify number of unit.}
+  *{@summary return time with as specify number of unit.}<br>
+  *If language file is not initialize, it will use french letter: 3j 23h 59min 10,1267s
   *@param ms times in ms.
   *@param nbrOfUnit number of units to include in the return string.
   *@param dayOn enable or disable day as a unit.
-  *@version 1.23
+  *@version 2.7
   */
   public static String msToTime(long ms, int nbrOfUnit, boolean dayOn){
     if(nbrOfUnit<1){return "";}
@@ -127,17 +128,17 @@ public class Temps {
           while(s.length() > 1 && s.charAt(s.length()-1)=='0'){
             s=s.substring(0,s.length()-1);
           }
-          r+= tl[i]+g.get("t.,")+s+g.get(ts[i]);
+          r+= tl[i]+g.get("t.,",",")+s+g.get(ts[i],ts[i].substring(2));
           k++;i++;
         }else{
-          r+= tl[i]+g.get(ts[i]);
+          r+= tl[i]+g.get(ts[i],ts[i].substring(2));
         }
         k++;
       }
       i++;//pour ne pas sortir du tableau.
     }
     if(r.equals("")){
-      r = tl[4]+g.get(ts[4]);
+      r = tl[4]+g.get(ts[4],ts[4].substring(2));
     }
     return r;
   }
@@ -211,21 +212,18 @@ public class Temps {
     String sr = x/1000+g.get(",")+x%1000+"s";
     return sr;
   }
-  public static String msToHMS(long ms){
-    long tempsS = ms/1000;
-    //long h = (long) (tempsS / 3600);
-    //long m = (long) ((tempsS % 3600) / 60);
-    //long s = (long) (tempsS % 60);
-    long h = tempsS / 3600;
-    long m = (tempsS % 3600) / 60;
-    long s = tempsS % 60;
-    String r="";
-    if(h>0) {r+=h+" "+g.get("t.h")+" ";}
-    if(m>0) {r+=m+" "+g.get("t.min")+" ";}
-    if(s>0) {r+=s+" "+g.get("t.s");}
-    if(h<=0 && m<=0 && s<=0) {r="0 "+g.get("t.s");}
-    return r;
-  }
+  // public static String msToHMS(long ms){
+  //   long tempsS = ms/1000;
+  //   long h = tempsS / 3600;
+  //   long m = (tempsS % 3600) / 60;
+  //   long s = tempsS % 60;
+  //   String r="";
+  //   if(h>0) {r+=h+" "+g.get("t.h")+" ";}
+  //   if(m>0) {r+=m+" "+g.get("t.min")+" ";}
+  //   if(s>0) {r+=s+" "+g.get("t.s");}
+  //   if(h<=0 && m<=0 && s<=0) {r="0 "+g.get("t.s");}
+  //   return r;
+  // }
   /**
   *{@summary Print current date.}
   *@version 1.23
