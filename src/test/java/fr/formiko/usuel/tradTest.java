@@ -15,10 +15,10 @@ public class tradTest extends TestCaseMuet{
   // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testReplaceTranslation2(){
-    // Main.setView(new ViewNull());
-    // Main.setOs(new Os());
-    // Main.setFolder(new Folder());
-    // Main.getFolder().ini(false);
+    Main.setView(new ViewNull());
+    Main.setOs(new Os());
+    Main.setFolder(new Folder());
+    Main.getFolder().ini(false);
     Main.iniOp();
     Main.setLangue(2);
     // Main.iniLangue();
@@ -28,10 +28,10 @@ public class tradTest extends TestCaseMuet{
   @Test
   @Disabled("TODO fix in github action") //it's working fined on my linux computer.
   public void testReplaceTranslation(){
-    // Main.setView(new ViewNull());
-    // Main.setOs(new Os());
-    // Main.setFolder(new Folder());
-    // Main.getFolder().ini(false);
+    Main.setView(new ViewNull());
+    Main.setOs(new Os());
+    Main.setFolder(new Folder());
+    Main.getFolder().ini(false);
     Main.iniOp();
     Main.setLangue(0);
     // Main.iniLangue();
