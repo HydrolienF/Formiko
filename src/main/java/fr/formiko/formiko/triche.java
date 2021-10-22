@@ -1,6 +1,7 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.usuel.Point;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.chargerLesTraductions;
 import fr.formiko.usuel.debug;

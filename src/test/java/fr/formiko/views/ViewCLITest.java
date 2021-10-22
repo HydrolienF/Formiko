@@ -15,7 +15,6 @@ import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
-import fr.formiko.formiko.Partie;
 import fr.formiko.usuel.Os;
 import fr.formiko.usuel.color;
 import fr.formiko.usuel.g;

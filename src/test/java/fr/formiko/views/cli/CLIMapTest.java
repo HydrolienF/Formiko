@@ -18,8 +18,6 @@ import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
 import fr.formiko.usuel.Os;
 import fr.formiko.usuel.color;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
 public class CLIMapTest extends TestCaseMuet{
@@ -29,13 +27,13 @@ public class CLIMapTest extends TestCaseMuet{
     Main.initialisation();
     Main.getOs().setId((byte)1);
     Main.setPartie(Partie.getDefautlPartie());
-    CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
-    assertEquals("1",cLIMap.objetSurCarteAIdToString(new Fourmi()));
-    assertEquals("G2",cLIMap.objetSurCarteAIdToString(new Graine()));
-    assertEquals("I3",cLIMap.objetSurCarteAIdToString(new Insecte()));
-    assertEquals("G4",cLIMap.objetSurCarteAIdToString(new Graine()));
-    assertEquals("5",cLIMap.objetSurCarteAIdToString(new Fourmi()));
-    assertEquals("C6",cLIMap.objetSurCarteAIdToString(new ObjetSurCarteAId()));
+    // CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
+    assertEquals("1",CLIMap.objetSurCarteAIdToString(new Fourmi()));
+    assertEquals("G2",CLIMap.objetSurCarteAIdToString(new Graine()));
+    assertEquals("I3",CLIMap.objetSurCarteAIdToString(new Insecte()));
+    assertEquals("G4",CLIMap.objetSurCarteAIdToString(new Graine()));
+    assertEquals("5",CLIMap.objetSurCarteAIdToString(new Fourmi()));
+    assertEquals("C6",CLIMap.objetSurCarteAIdToString(new ObjetSurCarteAId()));
   }
   @Test
   public void testObjetSurCarteAIdToStringM(){
@@ -43,14 +41,14 @@ public class CLIMapTest extends TestCaseMuet{
     Main.initialisation();
     Main.getOs().setId((byte)2);
     Main.setPartie(Partie.getDefautlPartie());
-    CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
-    assertEquals("1",cLIMap.objetSurCarteAIdToString(new Fourmi()));
-    assertEquals("G2",cLIMap.objetSurCarteAIdToString(new Graine()));
-    assertEquals("I3",cLIMap.objetSurCarteAIdToString(new Insecte()));
-    assertEquals("G4",cLIMap.objetSurCarteAIdToString(new Graine()));
+    // CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
+    assertEquals("1",CLIMap.objetSurCarteAIdToString(new Fourmi()));
+    assertEquals("G2",CLIMap.objetSurCarteAIdToString(new Graine()));
+    assertEquals("I3",CLIMap.objetSurCarteAIdToString(new Insecte()));
+    assertEquals("G4",CLIMap.objetSurCarteAIdToString(new Graine()));
     Main.getOs().setId((byte)1);
-    assertEquals("5",cLIMap.objetSurCarteAIdToString(new Fourmi()));
-    assertEquals("C6",cLIMap.objetSurCarteAIdToString(new ObjetSurCarteAId()));
+    assertEquals("5",CLIMap.objetSurCarteAIdToString(new Fourmi()));
+    assertEquals("C6",CLIMap.objetSurCarteAIdToString(new ObjetSurCarteAId()));
   }
   @Test
   public void testObjetSurCarteAIdToStringL(){
@@ -59,18 +57,18 @@ public class CLIMapTest extends TestCaseMuet{
     Main.getOs().setId((byte)0);
     Main.setPartie(Partie.getDefautlPartie());
     Main.getPartie().setElément(1,0,0);
-    CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
+    // CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
     Joueur j = new Joueur(1,true,Main.getCarte());
     Fourmi playingAnt = (Fourmi) j.getFere().getGc().getHead().getContent();
     Main.getPartie().setPlayingAnt(playingAnt);
-    assertEquals(color.GREEN_FLASH+"1"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(playingAnt));
-    assertEquals(color.BROWN+"G2"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(new Graine()));
-    assertEquals(color.RED+"I3"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(new Insecte()));
-    assertEquals(color.BROWN+"G4"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(new Graine()));
+    assertEquals(color.GREEN_FLASH+"1"+color.NEUTRAL,CLIMap.objetSurCarteAIdToString(playingAnt));
+    assertEquals(color.BROWN+"G2"+color.NEUTRAL,CLIMap.objetSurCarteAIdToString(new Graine()));
+    assertEquals(color.RED+"I3"+color.NEUTRAL,CLIMap.objetSurCarteAIdToString(new Insecte()));
+    assertEquals(color.BROWN+"G4"+color.NEUTRAL,CLIMap.objetSurCarteAIdToString(new Graine()));
     Fourmi ally = new Fourmi();
     ally.setPheromone(playingAnt.getPheromone());
-    assertEquals(color.GREEN+"5"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(ally));
-    assertEquals(color.BLACK+"C6"+color.NEUTRAL,cLIMap.objetSurCarteAIdToString(new ObjetSurCarteAId()));
+    assertEquals(color.GREEN+"5"+color.NEUTRAL,CLIMap.objetSurCarteAIdToString(ally));
+    assertEquals(color.BLACK+"C6"+color.NEUTRAL,CLIMap.objetSurCarteAIdToString(new ObjetSurCarteAId()));
   }
   @Test
   public void testCaseToStringSombreNuageuse(){

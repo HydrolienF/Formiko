@@ -1,11 +1,12 @@
 package fr.formiko.formiko.interfaces;
 
 import fr.formiko.formiko.*;
-import fr.formiko.views.gui2d.PanneauTInt;
+import fr.formiko.usuel.Point;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.allea;
+import fr.formiko.views.gui2d.PanneauTInt;
 
 import java.io.Serializable;
 

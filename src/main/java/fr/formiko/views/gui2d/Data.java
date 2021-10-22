@@ -5,7 +5,7 @@ import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Pheromone;
-import fr.formiko.formiko.Point;
+import fr.formiko.usuel.Point;
 import fr.formiko.usuel.Folder;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;

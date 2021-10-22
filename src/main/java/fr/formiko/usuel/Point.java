@@ -1,4 +1,4 @@
-package fr.formiko.formiko;
+package fr.formiko.usuel;
 
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.types.str;
