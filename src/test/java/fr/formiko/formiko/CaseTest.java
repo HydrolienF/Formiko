@@ -1,4 +1,4 @@
-package fr.formiko.formiko.interfaces;
+package fr.formiko.formiko;
 
 import org.junit.jupiter.api.Test;
 
