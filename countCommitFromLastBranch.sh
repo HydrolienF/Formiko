@@ -1,5 +1,5 @@
 # branchVersion=$(git symbolic-ref HEAD --short)
-branchVersion=$(git branch | grep 2. | tail -n 1)
+branchVersion=$(git branch | grep 2. | tail -q -n 1)
 branchLastVersion=""
 k=true;
 for i in `echo $branchVersion | tr "." " "`; do
@@ -10,6 +10,7 @@ for i in `echo $branchVersion | tr "." " "`; do
     branchLastVersion=$branchLastVersion"."$(($i-1))
   fi
 done
+echo $branchLastVersion-$branchVersion
 totalCommit=$(git rev-list --count $branchVersion)
 lastBranchTotalCommit=$(git rev-list --count $branchLastVersion)
 curentBranchCommit=$(($totalCommit-$lastBranchTotalCommit))
