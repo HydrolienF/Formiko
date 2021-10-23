@@ -16,7 +16,8 @@ jobs:
       uses: actions/checkout@v2
     - name: ini git
       run: |
-        # git checkout master
+        git checkout master
+        ls
         git checkout $(./getLastBranch.sh)
         git pull
     - name: updateVersion.sh
