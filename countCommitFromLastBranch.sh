@@ -10,7 +10,7 @@ for i in `echo $branchVersion | tr "." " "`; do
     branchLastVersion=$branchLastVersion"."$(($i-1))
   fi
 done
-echo git branch
+echo $(git branch)
 echo ""
 echo $branchLastVersion
 echo $branchVersion
