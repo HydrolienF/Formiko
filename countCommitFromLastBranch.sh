@@ -1,5 +1,5 @@
-# TODO with cmd.md git rev-list --count master
-branchVersion=$(git symbolic-ref HEAD --short)
+# branchVersion=$(git symbolic-ref HEAD --short)
+branchVersion=$(git branch | grep 2. | tail -n 1)
 branchLastVersion=""
 k=true;
 for i in `echo $branchVersion | tr "." " "`; do
