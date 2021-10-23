@@ -16,3 +16,12 @@ jobs:
       uses: actions/checkout@v2
     - name: updateVersion.sh
       run: ./updateVersion.sh
+    - name: commit version.md
+      run: |
+        if [[ `git status --untracked-files=no --porcelain docs/` != "\n" ]]; then
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add version.md
+          git commit -m "Auto version.md update"
+          git push
+        fi
