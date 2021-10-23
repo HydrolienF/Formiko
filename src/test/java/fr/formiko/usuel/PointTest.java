@@ -1,8 +1,8 @@
-package fr.formiko.formiko;
+package fr.formiko.usuel;
 
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.Point;
+import fr.formiko.usuel.Point;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.tests.TestCaseMuet;

@@ -5,6 +5,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.allea;
+import fr.formiko.usuel.Point;
 
 import java.io.Serializable;
 /**

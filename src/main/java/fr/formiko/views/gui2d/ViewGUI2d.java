@@ -1,18 +1,13 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.CCase;
-import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
-import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GCreature;
 import fr.formiko.formiko.GJoueur;
-import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
-import fr.formiko.formiko.Point;
-import fr.formiko.formiko.ThScript;
 import fr.formiko.formiko.interfaces.TourFourmiNonIa;
 import fr.formiko.formiko.triche;
 import fr.formiko.usuel.Temps;
@@ -21,20 +16,11 @@ import fr.formiko.usuel.ThTriche;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.structures.listes.Liste;
-import fr.formiko.usuel.sauvegarderUnePartie;
-import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.types.str;
 import fr.formiko.views.View;
 
 import java.awt.Font;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
-import javax.swing.RepaintManager;
 import javax.swing.UIManager;
 
 /**
@@ -512,7 +498,7 @@ public class ViewGUI2d implements View {
   public void move(ObjetSurCarteAId o, CCase from, CCase to){
     if(!Main.getOp().getInstantaneousMovement()){
       ThMove.updateTo(to, o.getId());
-      ThMove th = new ThMove(o, from, to);
+      // ThMove th = new ThMove(o, from, to);
       // th.start();
     }
   }
@@ -658,7 +644,7 @@ public class ViewGUI2d implements View {
   */
   private void launchFrameRefresh(){
     timer = new Timer();
-    int k=0;
+    // int k=0;
     int secToRefresh = 1000/Main.getOp().getFps();
     timer.schedule(new TimerTaskViewGUI2d(this){
       @Override

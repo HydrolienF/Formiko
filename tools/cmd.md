@@ -74,3 +74,15 @@ ide-java
 
 Réglage princpaux a refaire
 2 espace pour 1 tabulation en python.
+
+choix de la version de Java
+sudo update-alternatives --config java
+
+On peu afficher l'espace mémoire aloué par la JVM comme suis :
+java -XX:+PrintFlagsFinal -version | grep Heap
+La JVM utilise par défaut au maximum 1/4 de la mémoire disponible.
+On peu également définir la mémoire qu'on ne souhaite pas dépasser (ce que Java évite au maximum, jusqu'au moment ou il ne peu pas faire autrement)
+Si le jeu devient trop gourement en mémoire, il faudra lui permettre de prende 90% de la mémoire en essayant de ce limiter a 50% par exemple. (+ laisser ses info dans les réglages que l'utilisateur pourra modifier).
+La mémoire non utilisée (si il y en a beaucoup) pendant plus de 5 min est a nouveau libéré par Java.
+
+"Using -XX:SoftMaxHeapSize=2G -Xmx5G will tell ZGC to keep the max heap usage at 2G, but it’s allowed to grow to 5G if it otherwise would have resulted in an allocation stall or an OutOfMemoryError. This is useful when you want to keep the memory footprint down, while maintaining the capability to handle a temporary increase in heap space requirement."

@@ -3,7 +3,7 @@ package fr.formiko.usuel.images;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.formiko.Point;
+import fr.formiko.usuel.Point;
 import fr.formiko.usuel.tests.TestCaseMuet;
 
 import java.awt.Color;

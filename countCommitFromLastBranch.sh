@@ -1,5 +1,5 @@
-# TODO with cmd.md git rev-list --count master
-branchVersion=$(git symbolic-ref HEAD --short)
+# branchVersion=$(git symbolic-ref HEAD --short)
+branchVersion=$(./getLastBranch.sh)
 branchLastVersion=""
 k=true;
 for i in `echo $branchVersion | tr "." " "`; do
@@ -10,6 +10,8 @@ for i in `echo $branchVersion | tr "." " "`; do
     branchLastVersion=$branchLastVersion"."$(($i-1))
   fi
 done
+echo $branchLastVersion
+echo $branchVersion
 totalCommit=$(git rev-list --count $branchVersion)
 lastBranchTotalCommit=$(git rev-list --count $branchLastVersion)
 curentBranchCommit=$(($totalCommit-$lastBranchTotalCommit))

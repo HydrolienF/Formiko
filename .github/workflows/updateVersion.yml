@@ -3,14 +3,29 @@ name: updateVersion
 on:
   pull_request:
     branches: [ master ]
-    types: [closed]
+    # types: [closed]
 
 jobs:
-  releaseJob:
+  updateVersionJob:
     # if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     # outputs:
       # output1: ${{ steps.create_release.outputs.upload_url }}
     steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: ini git
+      run: |
+        git checkout $(./getLastBranch.sh)
+        git pull
     - name: updateVersion.sh
       run: ./updateVersion.sh
+    - name: commit version.md
+      run: |
+        if [[ `git status --untracked-files=no --porcelain docs/` != "\n" ]]; then
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add version.md
+          git commit -m "Auto version.md update"
+          git push
+        fi

@@ -5,7 +5,7 @@ import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
-import fr.formiko.formiko.Point;
+import fr.formiko.usuel.Point;
 import fr.formiko.formiko.interfaces.DeplacementFourmi;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.erreur;

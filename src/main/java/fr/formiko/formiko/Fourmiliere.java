@@ -1,14 +1,15 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.usuel.Point;
+import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
 import fr.formiko.usuel.exceptions.NotNullLocationException;
+import fr.formiko.usuel.g;
+import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.structures.listes.GGInt;
 import fr.formiko.usuel.structures.listes.GInt;
-import fr.formiko.usuel.maths.allea;
-import fr.formiko.usuel.Temps;
 
 import java.io.Serializable;
 
