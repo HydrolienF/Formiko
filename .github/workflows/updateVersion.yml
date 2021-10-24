@@ -14,9 +14,11 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - name: chmod
+    - name: chmod & update git branch
       run: |
         chmod 700 *.sh
+        echo "-------------"
+        git symbolic-ref HEAD
         echo "-------------"
         echo $(./getLastGitBranch.sh)
         echo "-------------"
