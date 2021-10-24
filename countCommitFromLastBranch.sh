@@ -2,7 +2,7 @@ branchVersion=$(git symbolic-ref HEAD --short)
 # branchVersion=$(./getLastGitBranch.sh)
 branchLastVersion=""
 k=true;
-for i in `echo $branchVersion | tr "." " "`; do
+for i in 'echo $branchVersion | tr "." " "'; do
   if [ $k = true ]; then
     k=false
     branchLastVersion=$i
