@@ -21,10 +21,11 @@ jobs:
       run: |
         echo "-------------"
         git fetch
-        lastBranch=$(./getLastGitBranch.sh)
-        git switch -c $lastBranch origin/$lastBranch
         echo "-------------"
+        lastBranch=$(./getLastGitBranch.sh)
         echo $lastBranch
+        echo "-------------"
+        git switch $lastBranch
         echo "-------------"
         # git branch
         # echo "-------------"
