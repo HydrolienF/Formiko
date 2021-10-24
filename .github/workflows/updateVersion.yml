@@ -16,13 +16,17 @@ jobs:
       uses: actions/checkout@v2
     - name: chmod
       run: |
-        echo $(./getLastGitBranch.sh)
         chmod 700 *.sh
+        echo "-------------"
+        echo $(./getLastGitBranch.sh)
+        echo "-------------"
+        echo $(git branch)
+        echo "-------------"
     - name: ini git
       run: |
         # git checkout master
         ls
-        git checkout $(./getLastGitBranch.sh)
+        git checkout refs/heads/$(./getLastGitBranch.sh)
         git pull
     - name: updateVersion.sh
       run: ./updateVersion.sh
