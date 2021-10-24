@@ -20,7 +20,8 @@ jobs:
     - name: ini git
       run: |
         echo "-------------"
-        git switch 2.9
+        git fetch
+        git switch -c 2.9 origin/2.9
         echo "-------------"
         ./getLastGitBranch.sh
         echo "-------------"
