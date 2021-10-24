@@ -14,20 +14,22 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - name: chmod
+    - name: chmod & update git branch
       run: |
         chmod 700 *.sh
-        echo "-------------"
-        echo $(./getLastGitBranch.sh)
-        echo "-------------"
-        echo $(git branch)
-        echo "-------------"
     - name: ini git
       run: |
+        echo "-------------"
+        git switch 2.9
+        echo "-------------"
+        ./getLastGitBranch.sh
+        echo "-------------"
+        # git branch
+        # echo "-------------"
         # git checkout master
-        ls
-        git checkout refs/heads/$(./getLastGitBranch.sh)
-        git pull
+        # ls
+        # git checkout refs/heads/$(./getLastGitBranch.sh)
+        # git pull
     - name: updateVersion.sh
       run: ./updateVersion.sh
     - name: commit version.md
