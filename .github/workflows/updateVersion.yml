@@ -15,7 +15,9 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
     - name: chmod
-      run: chmod 700 *.sh
+      run: |
+        echo $(./getLastGitBranch.sh)
+        chmod 700 *.sh
     - name: ini git
       run: |
         # git checkout master
