@@ -5,11 +5,14 @@
 [doc-shield]: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/HydrolienF/Formiko/master/.github/badges/json/docBadges.json
 [license]: https://github.com/HydrolienF/Formiko/blob/master/LICENSE.md
 [version]: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/HydrolienF/Formiko/master/.github/badges/json/versionBadges.json
+[lastStableVersion]: https://img.shields.io/github/v/release/HydrolienF/Formiko
+[download]: https://img.shields.io/github/downloads/HydrolienF/Formiko/total
 [discord-shield]: https://discord.com/api/guilds/125227483518861312/widget.png
 [license-shield]: https://img.shields.io/badge/license-custom-49C2E3
 [test-workflow]: https://github.com/HydrolienF/Formiko/blob/master/.github/workflows/test.yml/badge.svg
 [coverage-shield]: https://raw.githubusercontent.com/HydrolienF/Formiko/master/.github/badges/jacoco.svg
-[ ![version][] ][download]
+[ ![lastStableVersion][] ][download]
+[ ![download][] ][download]
 [ ![coverage-shield][] ][main]
 [ ![doc-shield][] ][doc]
 [ ![license-shield][] ][license]
