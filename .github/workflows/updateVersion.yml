@@ -22,7 +22,7 @@ jobs:
         echo "-------------"
         git fetch
         # TODO créer les branches distante en local pour que getLastGitBranch.sh fonctione
-        git switch 2.9
+        # git switch 2.9
         echo "-------------"
         lastBranch=$(./getLastGitBranch.sh)
         echo $lastBranch

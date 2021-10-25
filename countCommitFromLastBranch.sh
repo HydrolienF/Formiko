@@ -1,5 +1,5 @@
-branchVersion=$(git symbolic-ref HEAD --short)
-# branchVersion=$(./getLastGitBranch.sh)
+# branchVersion=$(git symbolic-ref HEAD --short)
+branchVersion=$(./getLastGitBranch.sh)
 branchLastVersion=""
 k=true;
 for i in 'echo $branchVersion | tr "." " "'; do
