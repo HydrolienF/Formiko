@@ -21,16 +21,13 @@ jobs:
       run: |
         echo "-------------"
         git fetch
-        git switch -c 2.9 origin/2.9
         echo "-------------"
-        ./getLastGitBranch.sh
+        # | head -c -2 remove the weard special char at the end of lastBranch.
+        lastBranch=$(./getLastGitBranch.sh)
+        echo $lastBranch | cat -v
         echo "-------------"
-        # git branch
-        # echo "-------------"
-        # git checkout master
-        # ls
-        # git checkout refs/heads/$(./getLastGitBranch.sh)
-        # git pull
+        git switch $lastBranch
+        echo "-------------"
     - name: updateVersion.sh
       run: ./updateVersion.sh
     - name: commit version.md

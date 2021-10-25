@@ -1,1 +1,1 @@
-echo $(git branch --format="%(refname)" | grep 2. | tail -q -n 1 | tail -c +12)
+echo $(git branch -r --format="%(refname)" | grep -F '2.' | awk '{ print length, $0 }' | sort -n -s | cut -d" " -f2- | tail -q -n 1 | tail -c +21)
