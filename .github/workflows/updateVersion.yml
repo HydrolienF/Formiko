@@ -21,20 +21,13 @@ jobs:
       run: |
         echo "-------------"
         git fetch
-        # TODO créer les branches distante en local pour que getLastGitBranch.sh fonctione
-        # git switch 2.9
         echo "-------------"
+        # | head -c -2 remove the weard special char at the end of lastBranch.
         lastBranch=$(./getLastGitBranch.sh)
-        echo $lastBranch
+        echo $lastBranch | cat -v
         echo "-------------"
         git switch $lastBranch
         echo "-------------"
-        # git branch
-        # echo "-------------"
-        # git checkout master
-        # ls
-        # git checkout refs/heads/$(./getLastGitBranch.sh)
-        # git pull
     - name: updateVersion.sh
       run: ./updateVersion.sh
     - name: commit version.md
