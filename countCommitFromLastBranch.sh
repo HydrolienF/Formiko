@@ -11,9 +11,9 @@ for i in `echo $branchVersion | tr "." " "`; do
     branchLastVersion=$branchLastVersion"."$(($i-1))
   fi
 done
-echo $branchLastVersion
-echo $branchVersion
-totalCommit=$(git rev-list --count $branchVersion)
-lastBranchTotalCommit=$(git rev-list --count $branchLastVersion)
+# echo $branchLastVersion
+# echo $branchVersion
+totalCommit=$(git rev-list --count origin/$branchVersion)
+lastBranchTotalCommit=$(git rev-list --count origin/$branchLastVersion)
 curentBranchCommit=$(($totalCommit-$lastBranchTotalCommit))
 echo $curentBranchCommit
