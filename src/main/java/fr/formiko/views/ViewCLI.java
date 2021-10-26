@@ -1,11 +1,9 @@
 package fr.formiko.views;
 
 import fr.formiko.formiko.CCase;
-import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GJoueur;
-import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
@@ -435,7 +433,7 @@ public class ViewCLI implements View {
       if(choice==16){setLookedCCase(getCCase());tToPrint=ts;}
     } while ((choice <12 || choice>14) && !tableau.estDansT(t,choice));
     if(choice==12){Main.setPlayingAnt(getAntFromFere());}
-    Main.getPlayingAnt().setBActionHaveChange(true);
+    Fourmi.setBActionHaveChange(true);
     return choice;
   }
   /**

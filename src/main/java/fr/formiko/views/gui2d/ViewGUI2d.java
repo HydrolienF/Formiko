@@ -29,7 +29,7 @@ import javax.swing.UIManager;
 *@version 1.44
 */
 public class ViewGUI2d implements View {
-  private CCase lookedCCase=null;
+  // private CCase lookedCCase=null;
   private boolean actionGameOn;
   private ThTriche trich; //écoute de commande triche dans le terminal.
   /***
@@ -40,7 +40,7 @@ public class ViewGUI2d implements View {
   private FFrameLauncher fl;
   private boolean needToWaitForGameLaunch=true;
   private Timer timer;
-  private boolean canRefresh=true;
+  // private boolean canRefresh=true;
   private int curentFPS=0;
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
@@ -687,7 +687,7 @@ public class ViewGUI2d implements View {
     // UIManager.getLookAndFeelDefaults().put("defaultFont", Main.getFont1());
     // public static void setUIFont (javax.swing.plaf.FontUIResource f){
     Font f = Main.getOp().getFont1();
-    java.util.Enumeration keys = UIManager.getDefaults().keys();
+    java.util.Enumeration<Object> keys = UIManager.getDefaults().keys();
     while (keys.hasMoreElements()) {
       Object key = keys.nextElement();
       Object value = UIManager.get(key);
@@ -726,7 +726,7 @@ class TimerTaskViewGUI2d extends TimerTask{
   *@version 2.5
   */
   public TimerTaskViewGUI2d(ViewGUI2d view){
-    this.view=view;
+    TimerTaskViewGUI2d.view=view;
   }
   /** Simple run methode that do nothing.*/
   @Override
