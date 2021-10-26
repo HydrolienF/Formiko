@@ -180,12 +180,12 @@ public class ImageTree extends Tree<BufferedImage> {
           //TODO call an other function for wings, legs etc.
           int k=1;
           while(nodeIn.getChildren(0).getChildren(i).getChildren(k)!=null){
-            k++;
             biIn = nodeIn.getChildren(0).getChildren(i).getChildren(k).getContent();
             if(biIn!=null){
               biOut = image.resize(biIn,image.tailleFourmi(idSpecies,i,dim));
               antListOut.get(idSpecies).getChildren(0).getChildren(i).getChildren(k).setContent(biOut);
             }
+            k++;
           }
 
         }catch (NullPointerException e) {
