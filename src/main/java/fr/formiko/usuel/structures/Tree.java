@@ -202,9 +202,14 @@ class TreeNode<T> extends Node {
             children.add(node);
             node.addFileAsNode(subFile);
           } else if (image.isImage(subFile)) { //  && subFile.getName().contains("full") && T instanceof BufferedImage
-            try {
+            // try {
+            if(!subFile.getName().contains("full")){
+              System.out.println(subFile.getName());
+            }
               setContent((T)image.readImage(subFile));
-            }catch (Exception e) {}
+            // }catch (Exception e) {
+            //   erreur
+            // }
           }
         }
       }

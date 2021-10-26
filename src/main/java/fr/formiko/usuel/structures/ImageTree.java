@@ -77,14 +77,26 @@ public class ImageTree extends Tree<BufferedImage> {
   */
   public static BufferedImage createAntImageFromNode(Creature c, TreeNode<BufferedImage> node){
     BufferedImage body = node.getContent();
+    // System.out.println(node);//@a
     if(node.getChildrenSize()>0){
       if(Main.getOp().getAntColorLevel()>0){
         BufferedImage bi = new BufferedImage(body.getWidth(), body.getHeight(), BufferedImage.TYPE_INT_ARGB);
-        BufferedImage color = node.getChildren(0).getContent();
-        color = image.changeColor(new Img(color), c.getPheromone());
         Graphics g = bi.getGraphics();
         g.drawImage(body, 0, 0, null);
-        g.drawImage(color, 0, 0, null);
+        if(node.getChildren(0)!=null){
+          BufferedImage color = node.getChildren(0).getContent();
+          color = image.changeColor(new Img(color), c.getPheromone());
+          g.drawImage(color, 0, 0, null);
+        }
+        if(c.getHaveWings() || true){ //@a
+          if(node.getChildren(1)!=null){
+            BufferedImage wings = node.getChildren(1).getContent();
+            g.drawImage(wings, 0, 0, null);
+            // System.out.println("draw wings : "+wings);//@a
+          }else{
+            erreur.alerte("Can't find wings of an ant specie");
+          }
+        }
         g.dispose();
         body=bi;
       }
@@ -115,7 +127,7 @@ public class ImageTree extends Tree<BufferedImage> {
             biOut = image.resize(biIn,image.taille(idSpecies+100,0,dim));
             insectListOut.get(idSpecies).getChildren(0).getChildren(i).setContent(biOut);
           }
-        }catch (Exception e) {
+        }catch (NullPointerException e) {
           erreur.alerte("A branch of the tree is cut (imago)");
         }
       }
@@ -126,7 +138,7 @@ public class ImageTree extends Tree<BufferedImage> {
             biOut = image.resize(biIn,image.taille(idSpecies+100,-i,dim));
             insectListOut.get(idSpecies).getChildren(i).setContent(biOut);
           }
-        }catch (Exception e) {
+        }catch (NullPointerException e) {
           erreur.alerte("A branch of the tree is cut (other stade)");
         }
       }
@@ -142,25 +154,42 @@ public class ImageTree extends Tree<BufferedImage> {
       for (int i=0;i<len ;i++ ) { //imago ♂, ♀, minor, media, major, soldier etc
         try {
           //ant body
-          biIn = nodeIn.getChildren(0).getChildren(i).getContent();
+          TreeNode<BufferedImage> currentNodeIn = nodeIn.getChildren(0).getChildren(i);
+          TreeNode<BufferedImage> currentNodeOut = antListOut.get(idSpecies).getChildren(0).getChildren(i);
+          biIn = currentNodeIn.getContent();
           if(biIn!=null){
             biOut = image.resize(biIn,image.tailleFourmi(idSpecies,i,dim));
-            antListOut.get(idSpecies).getChildren(0).getChildren(i).setContent(biOut);
+            currentNodeOut.setContent(biOut);
           }
+          //TODO use currentNodeIn & currentNodeOut.
+          //TODO call an other function for color
           //ant Color
-          biIn = nodeIn.getChildren(0).getChildren(i).getChildren(0).getContent();
-          if(Main.getOp().getAntColorLevel()>1){
+          if(nodeIn.getChildren(0).getChildren(i).getChildren(0)!=null){
+            biIn = nodeIn.getChildren(0).getChildren(i).getChildren(0).getContent();
+            if(Main.getOp().getAntColorLevel()>1){
               Img img = new Img(biIn);
               img.supprimerLaTransparencePartielle(1);
               img.actualiserImage();
               biIn = img.getImage();
+            }
+            if(biIn!=null){
+              biOut = image.resize(biIn,image.tailleFourmi(idSpecies,i,dim));
+              antListOut.get(idSpecies).getChildren(0).getChildren(i).getChildren(0).setContent(biOut);
+            }
           }
-          if(biIn!=null){
-            biOut = image.resize(biIn,image.tailleFourmi(idSpecies,i,dim));
-            antListOut.get(idSpecies).getChildren(0).getChildren(i).getChildren(0).setContent(biOut);
+          //TODO call an other function for wings, legs etc.
+          int k=1;
+          while(nodeIn.getChildren(0).getChildren(i).getChildren(k)!=null){
+            k++;
+            biIn = nodeIn.getChildren(0).getChildren(i).getChildren(k).getContent();
+            if(biIn!=null){
+              biOut = image.resize(biIn,image.tailleFourmi(idSpecies,i,dim));
+              antListOut.get(idSpecies).getChildren(0).getChildren(i).getChildren(k).setContent(biOut);
+            }
           }
-        }catch (Exception e) {
-          erreur.alerte("A branch of the tree is cut (Ant)");
+
+        }catch (NullPointerException e) {
+          erreur.alerte("A branch of the tree is cut (Ant imago)");
         }
       }
       for (int i=1;i<4 ;i++ ) { // other stade
@@ -170,7 +199,7 @@ public class ImageTree extends Tree<BufferedImage> {
             biOut = image.resize(biIn,image.taille(idSpecies,-i,dim));
             antListOut.get(idSpecies).getChildren(i).setContent(biOut);
           }
-        }catch (Exception e) {
+        }catch (NullPointerException e) {
           erreur.alerte("A branch of the tree is cut (Ant other stade)");
         }
       }
