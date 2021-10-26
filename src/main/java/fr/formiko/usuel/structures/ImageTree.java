@@ -105,8 +105,8 @@ public class ImageTree extends Tree<BufferedImage> {
   }
   /**
   *{@summary Return the scaled instance of this tree.}
-  *content of node will not be copy.
-  *@version 2.6
+  *content of node that correspond to Creature image will be copy.
+  *@version 2.10
   */
   public static ImageTree getScaledInstanceFromTree(ImageTree treeIn, int dim){
     if(treeIn.getRoot().getChildrenSize()==0){
@@ -117,95 +117,120 @@ public class ImageTree extends Tree<BufferedImage> {
     //insect
     Liste<TreeNode<BufferedImage>> insectListIn = treeIn.getRoot().getChildren(1).getChildren();
     Liste<TreeNode<BufferedImage>> insectListOut = treeOut.getRoot().getChildren(1).getChildren();
+    addScaledInsect(insectListIn, insectListOut, dim);
+    //ant
+    Liste<TreeNode<BufferedImage>> antListIn = treeIn.getRoot().getChildren(0).getChildren();
+    Liste<TreeNode<BufferedImage>> antListOut = treeOut.getRoot().getChildren(0).getChildren();
+    addScaledAnt(antListIn, antListOut, dim);
+    return treeOut;
+  }
+  /**
+  *{@summary Return the scaled instance of the Insect part.}
+  *content of node that correspond to Creature image will be copy.
+  *@version 2.10
+  */
+  private static void addScaledInsect(Liste<TreeNode<BufferedImage>> insectListIn, Liste<TreeNode<BufferedImage>> insectListOut, int dim){
     int idSpecies = 0;
     for (TreeNode<BufferedImage> nodeIn : insectListIn) {
       BufferedImage biIn,biOut;
       for (int i=0;i<2 ;i++ ) { //imago ♂ & ♀
-        try {
+        if(nodeIn.getChildren(0)!=null && nodeIn.getChildren(0).getChildren(i)!=null && nodeIn.getChildren(0).getChildren(i).getContent()!=null){
           biIn = nodeIn.getChildren(0).getChildren(i).getContent();
-          if(biIn!=null){
-            biOut = image.resize(biIn,image.taille(idSpecies+100,0,dim));
-            insectListOut.get(idSpecies).getChildren(0).getChildren(i).setContent(biOut);
-          }
-        }catch (NullPointerException e) {
+          biOut = image.resize(biIn,image.taille(idSpecies+100,0,dim));
+          insectListOut.get(idSpecies).getChildren(0).getChildren(i).setContent(biOut);
+        }else{
           erreur.alerte("A branch of the tree is cut (imago)");
         }
       }
       for (int i=1;i<4 ;i++ ) { // other stade
-        try{
+        if(nodeIn.getChildren(i)!=null && nodeIn.getChildren(i).getContent()!=null){
           biIn = nodeIn.getChildren(i).getContent();
-          if(biIn!=null){
-            biOut = image.resize(biIn,image.taille(idSpecies+100,-i,dim));
-            insectListOut.get(idSpecies).getChildren(i).setContent(biOut);
-          }
-        }catch (NullPointerException e) {
+          biOut = image.resize(biIn,image.taille(idSpecies+100,-i,dim));
+          insectListOut.get(idSpecies).getChildren(i).setContent(biOut);
+        }else{
           erreur.alerte("A branch of the tree is cut (other stade)");
         }
       }
       idSpecies++;
     }
-    //ant
-    idSpecies = 0;
-    Liste<TreeNode<BufferedImage>> antListIn = treeIn.getRoot().getChildren(0).getChildren();
-    Liste<TreeNode<BufferedImage>> antListOut = treeOut.getRoot().getChildren(0).getChildren();
+  }
+  /**
+  *{@summary Return the scaled instance of the Ant part.}
+  *content of node that correspond to Creature image will be copy.
+  *@version 2.10
+  */
+  private static void addScaledAnt(Liste<TreeNode<BufferedImage>> antListIn, Liste<TreeNode<BufferedImage>> antListOut, int dim){
+    int idSpecies = 0;
     for (TreeNode<BufferedImage> nodeIn : antListIn) {
       BufferedImage biIn,biOut;
       int len = nodeIn.getChildren(0).getChildrenSize();
-      for (int i=0;i<len ;i++ ) { //imago ♂, ♀, minor, media, major, soldier etc
-        try {
-          //ant body
+      for (int i=0; i<len; i++ ) { //imago ♂, ♀, minor, media, major, soldier etc
+        //ant body
+        if(nodeIn.getChildren(0)!=null && nodeIn.getChildren(0).getChildren(i)!=null){
+          int size = image.tailleFourmi(idSpecies,i,dim);
           TreeNode<BufferedImage> currentNodeIn = nodeIn.getChildren(0).getChildren(i);
           TreeNode<BufferedImage> currentNodeOut = antListOut.get(idSpecies).getChildren(0).getChildren(i);
           biIn = currentNodeIn.getContent();
           if(biIn!=null){
-            biOut = image.resize(biIn,image.tailleFourmi(idSpecies,i,dim));
+            biOut = image.resize(biIn,size);
             currentNodeOut.setContent(biOut);
           }
-          //TODO use currentNodeIn & currentNodeOut.
-          //TODO call an other function for color
-          //ant Color
-          if(nodeIn.getChildren(0).getChildren(i).getChildren(0)!=null){
-            biIn = nodeIn.getChildren(0).getChildren(i).getChildren(0).getContent();
-            if(Main.getOp().getAntColorLevel()>1){
-              Img img = new Img(biIn);
-              img.supprimerLaTransparencePartielle(1);
-              img.actualiserImage();
-              biIn = img.getImage();
-            }
-            if(biIn!=null){
-              biOut = image.resize(biIn,image.tailleFourmi(idSpecies,i,dim));
-              antListOut.get(idSpecies).getChildren(0).getChildren(i).getChildren(0).setContent(biOut);
-            }
-          }
-          //TODO call an other function for wings, legs etc.
-          int k=1;
-          while(nodeIn.getChildren(0).getChildren(i).getChildren(k)!=null){
-            biIn = nodeIn.getChildren(0).getChildren(i).getChildren(k).getContent();
-            if(biIn!=null){
-              biOut = image.resize(biIn,image.tailleFourmi(idSpecies,i,dim));
-              antListOut.get(idSpecies).getChildren(0).getChildren(i).getChildren(k).setContent(biOut);
-            }
-            k++;
-          }
-
-        }catch (NullPointerException e) {
+          addScaledAntColorPart(currentNodeIn, currentNodeOut, dim, size);
+          addScaledAntOtherPart(currentNodeIn, currentNodeOut, dim, size);
+        }else{
           erreur.alerte("A branch of the tree is cut (Ant imago)");
         }
       }
       for (int i=1;i<4 ;i++ ) { // other stade
-        try{
+        if(nodeIn.getChildren(i)!=null && nodeIn.getChildren(i).getContent()!=null){
           biIn = nodeIn.getChildren(i).getContent();
-          if(biIn!=null){
-            biOut = image.resize(biIn,image.taille(idSpecies,-i,dim));
-            antListOut.get(idSpecies).getChildren(i).setContent(biOut);
-          }
-        }catch (NullPointerException e) {
+          biOut = image.resize(biIn,image.taille(idSpecies,-i,dim));
+          antListOut.get(idSpecies).getChildren(i).setContent(biOut);
+        }else{
           erreur.alerte("A branch of the tree is cut (Ant other stade)");
         }
       }
       idSpecies++;
     }
-    return treeOut;
+  }
+  /**
+  *{@summary Return the scaled color of the Ant.}<br>
+  *It can return null if color is disable in Options.
+  *Color image will be edit to whithout transparency image if Ant color level is 1 in Options.
+  *@version 2.10
+  */
+  private static void addScaledAntColorPart(TreeNode<BufferedImage> currentNodeIn, TreeNode<BufferedImage> currentNodeOut, int dim, int size){
+    if(Main.getOp().getAntColorLevel()==0){return;}
+    BufferedImage biIn,biOut;
+    if(currentNodeIn.getChildren(0)!=null){
+      biIn = currentNodeIn.getChildren(0).getContent();
+      if(Main.getOp().getAntColorLevel()>1){
+        Img img = new Img(biIn);
+        img.supprimerLaTransparencePartielle(1);
+        img.actualiserImage();
+        biIn = img.getImage();
+      }
+      if(biIn!=null){
+        biOut = image.resize(biIn,size);
+        currentNodeOut.getChildren(0).setContent(biOut);
+      }
+    }
+  }
+  /**
+  *{@summary Return the scaled part of the body of the Ant.}<br>
+  *@version 2.10
+  */
+  private static void addScaledAntOtherPart(TreeNode<BufferedImage> currentNodeIn, TreeNode<BufferedImage> currentNodeOut, int dim, int size){
+    BufferedImage biIn,biOut;
+    int k=1;
+    while(currentNodeIn.getChildren(k)!=null){
+      biIn = currentNodeIn.getChildren(k).getContent();
+      if(biIn!=null){
+        biOut = image.resize(biIn,size);
+        currentNodeOut.getChildren(k).setContent(biOut);
+      }
+      k++;
+    }
   }
   /**
   *{@summary Transform a folder tree into a Java ImageTree.}

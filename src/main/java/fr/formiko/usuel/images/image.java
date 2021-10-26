@@ -263,11 +263,16 @@ public class image{
   *@param idEspece id of the Species (size depend of Species)
   *@param typeF typeF also infulence size of the Ant
   *@param taille taille used if it was 0% realistic
-  *@version 1.3
+  *@version 2.10
   */
   public static int tailleFourmi(int idEspece, int typeF, int taille){
-    int a = Main.getEspeceParId(idEspece).getIndividuByType(typeF).getTaille();
-    return taille(a,taille);
+    if(Main.getEspeceParId(idEspece)!=null && Main.getEspeceParId(idEspece).getIndividuByType(typeF)!=null){
+      int a = Main.getEspeceParId(idEspece).getIndividuByType(typeF).getTaille();
+      return taille(a,taille);
+    }else{
+      erreur.alerte("Ant specie "+idEspece+" have no Individu for "+typeF);
+      return taille;
+    }
   }
   /**
   *{@summary Return size of a Creature image.}<br>
