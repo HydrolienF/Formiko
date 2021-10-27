@@ -7,3 +7,8 @@ target/
 # temporary data
 data/temporary/
 data/Options.md
+
+#eclispe
+.classpath
+.project
+.settings/
