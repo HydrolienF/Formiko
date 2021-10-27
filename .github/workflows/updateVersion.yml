@@ -14,28 +14,5 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - name: chmod & update git branch
-      run: |
-        chmod 700 *.sh
-    - name: ini git
-      run: |
-        echo "-------------"
-        git fetch
-        echo "-------------"
-        # | head -c -2 remove the weard special char at the end of lastBranch.
-        lastBranch=$(./getLastGitBranch.sh)
-        echo $lastBranch | cat -v
-        echo "-------------"
-        git switch $lastBranch
-        echo "-------------"
-    - name: updateVersion.sh
-      run: ./updateVersion.sh
-    - name: commit version.md
-      run: |
-        if [[ `git status --untracked-files=no --porcelain docs/` != "\n" ]]; then
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add version.md
-          git commit -m "Auto version.md update"
-          git push
-        fi
+    - name: Version-Tool
+      uses: HydrolienF/Version-Tool@0.4.3
