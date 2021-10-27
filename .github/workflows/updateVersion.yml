@@ -11,6 +11,6 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
     - name: Version-Tool
-      uses: HydrolienF/Version-Tool@0.4.4
+      uses: HydrolienF/Version-Tool@0.4.5
     - name: print
       run: cat version.md
