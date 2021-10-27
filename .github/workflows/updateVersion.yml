@@ -12,11 +12,13 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Version-Tool
-      uses: HydrolienF/Version-Tool@0.5.3
+      uses: HydrolienF/Version-Tool@0.5.4
       id: version
 
     - name: update version.md
-      run: echo ${{ steps.version.outputs.version }} > version.md
+      run: |
+        echo ${{ steps.version.outputs.version }} > version.md
+        echo ${{ steps.version.outputs.version }}
 
     - name: commit version.md
       shell: bash
