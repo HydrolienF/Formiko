@@ -43,6 +43,13 @@
       <artifactId>json-simple</artifactId>
       <version>3.1.0</version>
     </dependency>
+    <!-- To have discord Rich Presence -->
+    <!-- https://mvnrepository.com/artifact/club.minnced/java-discord-rpc -->
+    <!-- <dependency>
+      <groupId>club.minnced</groupId>
+      <artifactId>java-discord-rpc</artifactId>
+      <version>2.0.2</version>
+    </dependency> -->
   </dependencies>
   <build>
     <plugins>
@@ -75,8 +82,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
         <configuration>
-          <source>15</source>
-          <target>15</target>
+          <release>15</release>
           <compilerArgument>-Xlint:all</compilerArgument>
         </configuration>
       </plugin>
@@ -161,7 +167,6 @@
           <destDir>./javadoc/</destDir>
           <doctitle>Javadoc of Formiko</doctitle>
           <windowtitle>Javadoc of Formiko</windowtitle>
-          <!-- TODO fix stylesheetfile -->
           <stylesheetfile>docs/javadoc/styles.css</stylesheetfile>
           <header>
             &#60;ul id="buttons-bar"&#62;
