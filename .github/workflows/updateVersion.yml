@@ -10,7 +10,21 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
+
     - name: Version-Tool
-      uses: HydrolienF/Version-Tool@0.4.6
-    - name: print
-      run: cat version.md
+      uses: HydrolienF/Version-Tool@0.5.1
+      id: version
+
+    - name: update version.md
+      run: echo ${{ steps.version.outputs.version }} > version.md
+
+    - name: commit version.md
+      shell: bash
+      run: |
+        if [[ `git status --untracked-files=no --porcelain docs/` != "\n" ]]; then
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add version.md
+          git commit -m "Auto version.md update"
+          git push
+        fi
