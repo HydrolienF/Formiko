@@ -152,7 +152,12 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public abstract byte getType();//réclame une implémentation de getType.
   public byte getTolerencePheromone(){return tolerencePheromone;}
   public void setTolerencePheromone(byte x){tolerencePheromone=x;}
-  public abstract boolean getVole();
+  /***
+  *{@summary return true if Creature have wings.}
+  *@version 2.10
+  */
+  public abstract boolean getHaveWings();
+  public boolean isFlying(){return false;}
   public abstract boolean wantFood();
   public abstract boolean wantClean();
   public Espece getEspece(){ return e;}

@@ -35,7 +35,9 @@ public class Temps {
    *{@summary DateFormat.}<br>
    *@version 1.4
    */
-  private String df = "dd/MM/yyyy HH:mm";
+  private String df = "yyyy/MM/dd HH:mm"; //international (Especialy Asia Europe)
+  // private String df = "dd/MM/yyyy HH:mm"; // USA
+  // private String df = "MM/dd/yyyy HH:mm"; // Europe, Africa, Asia, Oceania & America
 
 
   // CONSTRUCTORS --------------------------------------------------------------

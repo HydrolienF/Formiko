@@ -23,11 +23,17 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 16
+
+    - name: Version-Tool
+      uses: HydrolienF/Version-Tool@0.5.5
+      id: version
+
+    - name: update version.md
+      run: echo ${{ steps.version.outputs.version }} > version.md
+
     - name: exe.sh
       run: ./exe.sh
-    - name: version
-      run: echo "::set-output name=version::$(cat version.md)"
-      id: version
+
     - name: release
       uses: actions/create-release@v1
       id: create_release
@@ -75,7 +81,7 @@ jobs:
         asset_path: ./out/Formiko${{ steps.version.outputs.version }}.zip
         asset_name: Formiko${{ steps.version.outputs.version }}.zip
         asset_content_type: application/zip
-        
+
     - name: dataVersionChange
       run: echo "::set-output name=dataVersionChangeVal::$(./needToReleaseData.sh)"
       id: dataVersionChange
@@ -118,7 +124,7 @@ jobs:
         asset_path: ./out/music.zip
         asset_name: music.zip
         asset_content_type: application/zip
-        
+
   WindowsArtifact:
     if: github.event.pull_request.merged == true
     needs: releaseJob
@@ -154,8 +160,8 @@ jobs:
         asset_path: ./out/Formiko${{ steps.version.outputs.version }}.msi
         asset_name: Formiko${{ steps.version.outputs.version }}.msi
         asset_content_type: application/msi
-      
-        
+
+
   # Badge part
   badge:
     if: github.event.pull_request.merged == true
@@ -171,7 +177,7 @@ jobs:
     - name: Generate Badges files
       run: mvn -ntp compile test exec:java -Dargs="createBadges"
       id: badgeFile
-    
+
 #     - name: Generate version Badge
 #       uses: popsiclestick/gist-sync-action@v1.2.0
 #       id: sync

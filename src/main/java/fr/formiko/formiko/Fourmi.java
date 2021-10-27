@@ -1,3 +1,4 @@
+
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
@@ -19,7 +20,7 @@ import java.io.Serializable;
 /**
 *{@summary The ant class.}<br>
 *Ant is the creature used by player.<br>
-*Ant aren't different by extends of this class but but Espece &#38; Individu.<br>
+*Ant aren't different by extends of this class but by Espece &#38; Individu.<br>
 *@author Hydrolien
 *@version 1.30
 */
@@ -142,9 +143,13 @@ public class Fourmi extends Creature implements Serializable{
   public void setFemelle(boolean b){erreur.alerte("Le sexe d'une fourmi ne peu pas être modifié, modifiez plutot son type.");}
   @Override
   public byte getType(){return -2;}//Les Fourmis sont toutes identifié comme -2.
+  /**
+  *{@summary return true if Ant still have wings.}
+  *@version 2.10
+  */
   @Override
-  public boolean getVole(){
-    if(!e.getVole() || getTypeF() > 1){return false;}//si l'espece ne vole pas ou si le type n'est pas male ou reine.
+  public boolean getHaveWings(){
+    if(!e.getHaveWings() || getTypeF() > 1){return false;}//si l'espece ne vole pas ou si le type n'est pas male ou reine.
     return !getAilesCoupees();//true si les ailes ne sont pas coupée.
   }
   public boolean getAilesCoupees(){return ailesCoupees;}

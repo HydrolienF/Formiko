@@ -78,6 +78,9 @@ Réglage princpaux a refaire
 choix de la version de Java
 sudo update-alternatives --config java
 
+install java 17 :
+sudo apt install openjdk-17-jdk-headless
+
 On peu afficher l'espace mémoire aloué par la JVM comme suis :
 java -XX:+PrintFlagsFinal -version | grep Heap
 La JVM utilise par défaut au maximum 1/4 de la mémoire disponible.

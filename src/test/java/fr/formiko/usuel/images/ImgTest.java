@@ -218,7 +218,7 @@ public class ImgTest extends TestCaseMuet{
   public void testCompterChaquePixel(){
     Img img = new Img(2,2);
     Pixel p=new Pixel(128,128,128,128);
-    HashMap hm = img.compterChaquePixel();
+    HashMap<?,?> hm = img.compterChaquePixel();
     Object to[] = hm.keySet().toArray();
     Pixel tp[] = new Pixel[to.length];
     for (int i=0;i<to.length ;i++ ) {

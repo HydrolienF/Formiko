@@ -8,12 +8,17 @@ for i in `echo $branchVersion | tr "." " "`; do
     k=false
     branchLastVersion=$i
   else
-    branchLastVersion=$branchLastVersion"."$(($i-1))
+    if [[ $i>0 ]]; then
+      branchLastVersion=$branchLastVersion"."$(($i-1))
+    else
+      branchLastVersion=$(./getLastGitBranchI.sh $(($branchLastVersion-1)))
+
+    fi
   fi
 done
 # echo $branchLastVersion
 # echo $branchVersion
 totalCommit=$(git rev-list --count origin/$branchVersion)
-lastBranchTotalCommit=$(git rev-list --count origin/$branchLastVersion)
+lastBranchTotalCommit=$(git rev-list --count origin/$branchLastVersion) || lastBranchTotalCommit=0
 curentBranchCommit=$(($totalCommit-$lastBranchTotalCommit))
 echo $curentBranchCommit
