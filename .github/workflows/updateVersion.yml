@@ -3,16 +3,14 @@ name: updateVersion
 on:
   pull_request:
     branches: [ master ]
-    # types: [closed]
 
 jobs:
   updateVersionJob:
-    # if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    # outputs:
-      # output1: ${{ steps.create_release.outputs.upload_url }}
     steps:
     - name: checkout
       uses: actions/checkout@v2
     - name: Version-Tool
-      uses: HydrolienF/Version-Tool@0.4.3
+      uses: HydrolienF/Version-Tool@0.4.4
+    - name: print
+      run: cat version.md
