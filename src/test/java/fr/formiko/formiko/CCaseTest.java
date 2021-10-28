@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Case;
-import fr.formiko.formiko.Main;
 import fr.formiko.tests.TestCaseMuet;
 
 public class CCaseTest extends TestCaseMuet{

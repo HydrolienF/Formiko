@@ -2,8 +2,6 @@ package fr.formiko.formiko;
 
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.*;
-import fr.formiko.usuel.g;
 import fr.formiko.tests.TestCaseMuet;
 
 public class EspeceTest extends TestCaseMuet{

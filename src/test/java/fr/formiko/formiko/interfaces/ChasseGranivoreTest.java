@@ -4,9 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.*;
 import fr.formiko.formiko.Main;
-import fr.formiko.formiko.interfaces.TourInsecte;
 import fr.formiko.tests.TestCaseMuet;
-import fr.formiko.usuel.exceptions.ClassTypeException;
 
 public class ChasseGranivoreTest extends TestCaseMuet{
   // FUNCTIONS -----------------------------------------------------------------
@@ -90,7 +88,7 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     Fourmi f = ini();
     f.getFere().getJoueur().setIa(false);
     f.setAction(f.getActionMax());
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
     Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
     assertEquals(2,f.getCCase().getContent().getGg().length());
     f.chasse();
@@ -103,7 +101,7 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.getFere().getJoueur().setIa(false);
     f.setAction(f.getActionMax());
     Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
-    Graine g2 = new Graine(Main.getGc().getCCase(0,0),10,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),10,(byte)10);
     assertEquals(2,f.getCCase().getContent().getGg().length());
     f.chasse();
     assertTrue(f.getAction()<f.getActionMax());
@@ -116,7 +114,7 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     Main.setDifficulté(0);
     f.setAction(f.getActionMax());
     Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
     assertEquals(2,f.getCCase().getContent().getGg().length());
     f.chasse();
     assertTrue(f.getAction()<f.getActionMax());
@@ -128,7 +126,7 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.getFere().getJoueur().setIa(true);
     Main.setDifficulté(-1); //with difficulty < 0 it take the 1a graine and not the better 1.
     f.setAction(f.getActionMax());
-    Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
     Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
     assertEquals(2,f.getCCase().getContent().getGg().length());
     f.chasse();
@@ -141,7 +139,7 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.getFere().getJoueur().setIa(true);
     Main.setDifficulté(-1);
     f.setAction(f.getActionMax());
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
     Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
     assertEquals(2,f.getCCase().getContent().getGg().length());
     f.chasse();
@@ -167,7 +165,7 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.setCCase(0,1);
     f.getFere().getJoueur().setIa(false);
     f.setAction(f.getActionMax());
-    Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
     f.chasser(8);
     assertTrue(f.getAction()<f.getActionMax());
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
@@ -180,8 +178,8 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.setCCase(0,1);
     f.getFere().getJoueur().setIa(false);
     f.setAction(f.getActionMax());
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
-    Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
     f.chasser(8);
     assertTrue(f.getAction()<f.getActionMax());
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
@@ -195,7 +193,7 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.getFere().getJoueur().setIa(false);
     f.setAction(f.getActionMax());
     Graine g1 = new Graine(Main.getGc().getCCase(0,1),100,(byte)10);
-    Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
     f.chasser(8);
     assertTrue(f.getAction()<f.getActionMax());
     assertEquals(Main.getGc().getCCase(0,1),f.getCCase());
@@ -208,8 +206,8 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.setCCase(0,1);
     f.getFere().getJoueur().setIa(false);
     f.setAction(f.getActionMax());
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
-    Graine g2 = new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
     f.chasser(8);
     assertTrue(f.getAction()<f.getActionMax());
     assertEquals(Main.getGc().getCCase(0,2),f.getCCase());
@@ -223,8 +221,8 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.getFere().getJoueur().setIa(true);
     Main.setDifficulté(0);
     f.setAction(f.getActionMax());
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
-    Graine g2 = new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
     f.chasser(8);
     assertTrue(f.getAction()<f.getActionMax());
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
@@ -237,8 +235,8 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.getFere().getJoueur().setIa(true);
     Main.setDifficulté(0);
     f.setAction(f.getActionMax());
-    Graine g2 = new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
     f.chasser(8);
     assertTrue(f.getAction()<f.getActionMax());
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
@@ -251,8 +249,8 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.getFere().getJoueur().setIa(true);
     Main.setDifficulté(0);
     f.setAction(f.getActionMax());
-    Graine g1 = new Graine(Main.getGc().getCCase(1,1),100,(byte)10);
-    Graine g2 = new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
+    new Graine(Main.getGc().getCCase(1,1),100,(byte)10);
+    new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
     f.chasser(8);
     assertTrue(f.getAction()<f.getActionMax());
     assertEquals(Main.getGc().getCCase(1,1),f.getCCase());
@@ -266,8 +264,8 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.getFere().getJoueur().setIa(true);
     Main.setDifficulté(1);
     f.setAction(f.getActionMax());
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
-    Graine g2 = new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
     f.chasser(8);
     assertTrue(f.getAction()<f.getActionMax());
     assertEquals(Main.getGc().getCCase(0,2),f.getCCase());

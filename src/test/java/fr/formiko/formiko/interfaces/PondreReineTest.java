@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.*;
 import fr.formiko.formiko.Main;
-import fr.formiko.formiko.interfaces.TourInsecte;
 import fr.formiko.tests.TestCaseMuet;
 
 public class PondreReineTest extends TestCaseMuet{

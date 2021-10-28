@@ -10,6 +10,6 @@ public class colorTest extends TestCaseMuet{
   //just for test coverage.
   @Test
   public void testColor(){
-    color c = new color();
+    new color();
   }
 }

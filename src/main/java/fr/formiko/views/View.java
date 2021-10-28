@@ -2,7 +2,6 @@ package fr.formiko.views;
 
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Fourmi;
-import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.ObjetSurCarteAId;
 

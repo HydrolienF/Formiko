@@ -4,10 +4,6 @@ package fr.formiko.formiko.interfaces;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.*;
-import fr.formiko.formiko.interfaces.TrophallaxieFourmi;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
 import fr.formiko.usuel.tableau;
 import fr.formiko.tests.TestCaseMuet;
 

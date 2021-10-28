@@ -6,10 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Folder;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.fichier;
-import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.allea;

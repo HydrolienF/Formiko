@@ -1,15 +1,9 @@
 package fr.formiko.views.cli;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.CCase;
-import fr.formiko.formiko.Case;
-import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
-import fr.formiko.formiko.Fourmiliere;
-import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Joueur;

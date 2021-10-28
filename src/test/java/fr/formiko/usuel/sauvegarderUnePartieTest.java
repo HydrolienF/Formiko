@@ -1,20 +1,17 @@
 package fr.formiko.usuel;
 
-import org.junit.jupiter.api.BeforeAll;
+// import org.junit.jupiter.api.BeforeAll;
 
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.tests.TestCaseMuet;
 
 import java.io.File;
-import java.nio.file.Files;
 
 public class sauvegarderUnePartieTest extends TestCaseMuet{
   private File f=null;

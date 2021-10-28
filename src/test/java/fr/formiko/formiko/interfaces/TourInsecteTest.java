@@ -1,20 +1,13 @@
 package fr.formiko.formiko.interfaces;
 
-
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Carte;
-import fr.formiko.formiko.Case;
-import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.interfaces.TourInsecte;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
 import fr.formiko.tests.TestCaseMuet;
 
 public class TourInsecteTest extends TestCaseMuet{

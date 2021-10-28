@@ -2,7 +2,6 @@ package fr.formiko.formiko.interfaces;
 
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Fourmiliere;

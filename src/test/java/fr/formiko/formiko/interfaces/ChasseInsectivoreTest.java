@@ -4,9 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.*;
 import fr.formiko.formiko.Main;
-import fr.formiko.formiko.interfaces.TourInsecte;
 import fr.formiko.tests.TestCaseMuet;
-import fr.formiko.usuel.exceptions.ClassTypeException;
 
 public class ChasseInsectivoreTest extends TestCaseMuet{
   // FUNCTIONS -----------------------------------------------------------------

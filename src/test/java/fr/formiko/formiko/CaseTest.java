@@ -3,7 +3,6 @@ package fr.formiko.formiko;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Carte;
-import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GCase;

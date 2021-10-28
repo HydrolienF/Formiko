@@ -1,11 +1,12 @@
 package fr.formiko.usuel.images;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.images.Img;
-import fr.formiko.tests.TestCaseMuet;
+
 import org.junit.jupiter.api.Test;
-import fr.formiko.usuel.tableau;
+
+import fr.formiko.tests.TestCaseMuet;
+import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.Pixel;
+import fr.formiko.usuel.tableau;
+
 import java.util.HashMap;
 
 public class ImgTest extends TestCaseMuet{
@@ -183,14 +184,14 @@ public class ImgTest extends TestCaseMuet{
   }
   public void testCompterBordTransparent2(){
     //image de 3 sur 4 pixel avec 1 pixel coloré au centre :
-    Img img = new Img(3,4);
+    // Img img = new Img(3,4);
     byte t [][] = new byte[3][4];
     for (byte t2[] : t) {
       for (int i=0;i<t2.length ;i++ ) {
         t2[i]=-128;
       }
     }
-    int tTest [] = null;
+    // int tTest [] = null;
     int rs [] = new int [4];
     t[0][2]=0;
     t[2][0]=0;
@@ -217,7 +218,7 @@ public class ImgTest extends TestCaseMuet{
   }
   public void testCompterChaquePixel(){
     Img img = new Img(2,2);
-    Pixel p=new Pixel(128,128,128,128);
+    // Pixel p=new Pixel(128,128,128,128);
     HashMap<?,?> hm = img.compterChaquePixel();
     Object to[] = hm.keySet().toArray();
     Pixel tp[] = new Pixel[to.length];

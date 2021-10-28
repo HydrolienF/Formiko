@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Os;
-import fr.formiko.usuel.erreur;
 import fr.formiko.tests.TestCaseMuet;
 
 public class strTest extends TestCaseMuet{

@@ -2,23 +2,11 @@ package fr.formiko.views;
 
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Carte;
-import fr.formiko.formiko.Case;
-import fr.formiko.formiko.Creature;
-import fr.formiko.formiko.Fourmi;
-import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GCase;
-import fr.formiko.formiko.Graine;
-import fr.formiko.formiko.Insecte;
-import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
-import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
 import fr.formiko.usuel.Os;
-import fr.formiko.usuel.color;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.tests.TestCaseMuet;
 import fr.formiko.views.ViewCLI;
 

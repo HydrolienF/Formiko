@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 import fr.formiko.formiko.CCase;
-import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Main;
@@ -12,7 +11,6 @@ import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.interfaces.TourCreatureSansAction;
-import fr.formiko.usuel.debug;
 import fr.formiko.tests.TestCaseMuet;
 
 public class TourCreatureSansActionTest extends TestCaseMuet{

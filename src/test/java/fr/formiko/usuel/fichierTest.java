@@ -1,12 +1,13 @@
 package fr.formiko.usuel;
-import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
-//def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.fichier;
-import fr.formiko.tests.TestCaseMuet;
+
 import org.junit.jupiter.api.Test;
-import java.io.File;
-import fr.formiko.usuel.structures.listes.GString;
+
+import fr.formiko.tests.TestCaseMuet;
 import fr.formiko.usuel.ecrireUnFichier;
+import fr.formiko.usuel.fichier;
+import fr.formiko.usuel.structures.listes.GString;
+
+import java.io.File;
 
 public class fichierTest extends TestCaseMuet{
 

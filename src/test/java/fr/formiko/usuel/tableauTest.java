@@ -1,12 +1,7 @@
 package fr.formiko.usuel;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.Main;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
 import fr.formiko.usuel.tableau;
 import fr.formiko.tests.TestCaseMuet;
 

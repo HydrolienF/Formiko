@@ -2,16 +2,12 @@ package fr.formiko.usuel.maths;
 
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.Main;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.tableau;
 import fr.formiko.tests.TestCaseMuet;
 
 public class alleaTest extends TestCaseMuet{
-  
+
   // FUNCTIONS -----------------------------------------------------------------
   @Test
   //@RepeatedTest(10)

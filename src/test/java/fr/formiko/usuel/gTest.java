@@ -6,14 +6,12 @@ import fr.formiko.usuel.g;
 import fr.formiko.tests.TestCaseMuet;
 
 import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
 
 public class gTest extends TestCaseMuet{
   //just for test coverage.
   @Test
   public void testG(){
-    g c = new g();
+    new g();
   }
 
   // FUNCTIONS -----------------------------------------------------------------

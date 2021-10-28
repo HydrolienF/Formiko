@@ -3,11 +3,8 @@ package fr.formiko.usuel;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterAll;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Os;
 import fr.formiko.tests.TestCaseMuet;
-
-import java.io.File;
 
 public class OsTest extends TestCaseMuet {
   @Test
@@ -59,7 +56,7 @@ public class OsTest extends TestCaseMuet {
   @AfterAll
   public static void resetOs(){
     System.out.println("clean");
-    Os os = new OsExtends(System.getProperty("os.name").toLowerCase());
+    new OsExtends(System.getProperty("os.name").toLowerCase());
   }
 }
 class OsExtends extends Os{
