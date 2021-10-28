@@ -359,6 +359,9 @@ public class PanneauCarte extends Panneau {
           //icons
           //TODO #43 & #45 do a list of iconRelation & iconState for the Case & print slice of it.
           listIconsRelation.add(getIconImage(cr, fi));
+          if(cr.getEstAllié(fi)){
+            listIconsState.add(getStatesIconsImages(cr));
+          }
           // drawIcon(g,getIconImage(cr, fi),xT,yT,tC2,kIcon++,cptIcon);
           // if (!getIa() && playingJoueur().equals(c.getJoueur()))
           // listIconsState.add()...
@@ -622,6 +625,20 @@ public class PanneauCarte extends Panneau {
   */
   public BufferedImage getIconImage(int id){
     return Main.getData().getB()[id];
+  }
+  /**
+  *{@summary Return the states icons images.}<br>
+  *@version 2.10
+  */
+  public Liste<BufferedImage> getStatesIconsImages(Creature cr){
+    int minPrintState = 1; // between 1 & 4 (3= only red state).
+    Liste<BufferedImage> list = new Liste<BufferedImage>();
+    int state = cr.getStateFood();
+    if(state>=minPrintState){
+      Color c = Main.getData().getButtonColor(state);
+      //TODO create icon with a full c round + icon corresponding to food
+    }
+    return list;
   }
 
   public int getDir(ObjetSurCarteAId obj){
