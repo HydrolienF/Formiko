@@ -229,7 +229,6 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   *@return a new Liste&lb;T&rb; filtered
   *@version 1.41
   */
-  //TODO #470 to test & to use
   public Liste<T> filter(Predicate<T> predicate){
     Liste<T> newList = new Liste<T>();
     for (T e : this) {
