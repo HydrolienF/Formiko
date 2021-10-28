@@ -246,7 +246,7 @@ public class Img implements Cloneable{
     if(str.contient(filename,"temporaire/",0)){
       filename = filename.substring(11,filename.length());
     }
-    filename = str.filtreCharInterdit(filename);
+    filename = str.filterForbiddenChar(filename);
     debug.débogage("save de "+filename+" dans "+rep);
     try {
       save(rep+filename);

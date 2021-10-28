@@ -319,7 +319,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
    */
   public GCreature getAlliéSurLaCase(){
     //if(!e.getPolycalique()){return new GCreature(this);} //pris en compte par la diff phéromonale tolléré
-    return getCCase().getContent().getGc().filtreAlliés(this);
+    return getCCase().getContent().getGc().filterAlliés(this);
   }
   /**
    *{@summary find all allied Creature on the same Case and remove this form the GCreature.}<br>

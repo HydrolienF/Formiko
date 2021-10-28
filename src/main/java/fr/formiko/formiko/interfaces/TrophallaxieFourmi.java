@@ -76,7 +76,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
   public void trophallaxer(Creature c){
     if(!(c instanceof Fourmi)){erreur.alerte("Impossible de trophallaxer depuis une créature qui n'est pas une Fourmi");return;}
     Fourmi f = (Fourmi)c;
-    GCreature gc = f.getCCase().getContent().getGc().filtreAlliés(f); //ne prend que les allié.
+    GCreature gc = f.getCCase().getContent().getGc().filterAlliés(f); //ne prend que les allié.
     int lengc = gc.length();
     if(lengc < 2){
       erreur.erreurGXVide("GFourmi");

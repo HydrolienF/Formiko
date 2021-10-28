@@ -231,9 +231,9 @@ public class TourFourmiTest extends TestCaseMuet{
     new Insecte(Main.getPartie().getGc().getCCase(0,0),0,100,0);
     assertTrue(((TourFourmi)(f.tour)).aNourrir().equals(i2));
 
-    //not with the same Pheromone : test filtreAlliés.
-    //not hungry : test filtreFaimMax.
-    //wantFood : test filtreWantFood
+    //not with the same Pheromone : test filterAlliés.
+    //not hungry : test filterFaimMax.
+    //wantFood : test filterWantFood
   }
   @Test
   public void testCleanOther(){

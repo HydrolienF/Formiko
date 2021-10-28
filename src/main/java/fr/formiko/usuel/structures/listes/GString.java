@@ -182,7 +182,7 @@ public class GString extends Liste<String> implements Serializable {
     for (String line : this ) {
       if(gs2.contains(line)){
         gs2.remove(line);
-        remove(line);//pour évité les soucis de "c'est la 1a CString on passe par le GString."
+        remove(line);//pour éviter les soucis de "c'est la 1a CString on passe par le GString."
       }//on supprime la line en question dans les 2 fichiers.
     }
   }

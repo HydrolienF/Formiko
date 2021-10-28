@@ -28,7 +28,7 @@ public class CMessage implements Serializable{
   public void afficheToi(){
     contenu.afficheToi();
   }
-  public GMessage filtreDoublon(){
+  public GMessage filterDoublon(){
     GMessage gsr = new GMessage();
     CMessage csTemp = this;
     while(csTemp != null){
