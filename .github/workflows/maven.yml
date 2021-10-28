@@ -31,6 +31,20 @@ jobs:
     - name: update version.md
       run: echo ${{ steps.version.outputs.version }} > version.md
 
+    - name: dataVersionChange
+      run: echo "::set-output name=dataVersionChangeVal::$(./needToReleaseData.sh)"
+      id: dataVersionChange
+    - name: musicVersionChange
+      run: echo "::set-output name=musicVersionChangeVal::$(./needToReleaseMusic.sh)"
+      id: musicVersionChange
+
+    - name: use curent data
+      if: ${{ steps.dataVersionChange.outputs.dataVersionChangeVal == '1' || steps.musicVersionChange.outputs.musicVersionChangeVal == '1'}}
+      run: |
+        mkdir ~/Formiko/
+        mkdir ~/Formiko/data/
+        cp -r data/ ~/Formiko/data/.
+
     - name: exe.sh
       run: ./exe.sh
 
@@ -82,12 +96,6 @@ jobs:
         asset_name: Formiko${{ steps.version.outputs.version }}.zip
         asset_content_type: application/zip
 
-    - name: dataVersionChange
-      run: echo "::set-output name=dataVersionChangeVal::$(./needToReleaseData.sh)"
-      id: dataVersionChange
-    - name: musicVersionChange
-      run: echo "::set-output name=musicVersionChangeVal::$(./needToReleaseMusic.sh)"
-      id: musicVersionChange
     - name: commit version.json
       if: ${{ steps.dataVersionChange.outputs.dataVersionChangeVal == '1' || steps.musicVersionChange.outputs.musicVersionChangeVal == '1'}}
       run: |
