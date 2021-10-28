@@ -23,7 +23,7 @@ public class readG {
   public static boolean getOuiOuNon(String message){
     debug.débogage("demande d'une réponse sous la forme oui ou non");
     Panneau.getView().getPb().addPTB(message);
-    boolean b = Panneau.getView().getPb().getPTB().getChoixId();
+    boolean b = PanneauTBoolean.getChoixId();
     Panneau.getView().getPb().removePTB();
     return b;
   }

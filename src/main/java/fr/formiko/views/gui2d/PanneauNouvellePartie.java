@@ -3,7 +3,6 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
-import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.structures.listes.GString;
@@ -11,7 +10,6 @@ import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.types.str;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.io.File;
 import java.text.NumberFormat;
@@ -110,7 +108,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     int wi = Main.getDimX();
-    int he = Main.getDimY();
+    // int he = Main.getDimY();
     int wi2 = wi/2;
     //gauche
     jl.setSize((int)(wi2*0.9));

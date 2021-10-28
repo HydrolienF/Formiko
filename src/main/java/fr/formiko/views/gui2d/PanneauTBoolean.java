@@ -10,7 +10,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 public class PanneauTBoolean extends PanneauTX{
-  private int choix;
+  // private int choix;
   // CONSTRUCTORS --------------------------------------------------------------
   public PanneauTBoolean(String desc){super();
     if(desc==null){ return;}

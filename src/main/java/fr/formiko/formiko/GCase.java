@@ -1,17 +1,13 @@
 package fr.formiko.formiko;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Point;
-import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.Img;
-import fr.formiko.usuel.images.ThImage;
+// import fr.formiko.usuel.images.ThImage;
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.allea;
 
-import java.awt.Image;
 import java.io.Serializable;
 
 public class GCase implements Serializable{
