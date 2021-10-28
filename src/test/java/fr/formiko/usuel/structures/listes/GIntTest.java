@@ -7,7 +7,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.structures.listes.GInt;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 public class GIntTest extends TestCaseMuet{
 

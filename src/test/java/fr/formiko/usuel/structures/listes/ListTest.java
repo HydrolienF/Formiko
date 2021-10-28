@@ -9,7 +9,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.usuel.Point;
 import fr.formiko.usuel.structures.listes.Liste;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 import java.util.Comparator;
 import java.util.HashSet;

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.AfterAll;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Os;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 import java.io.File;
 

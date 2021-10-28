@@ -3,7 +3,7 @@ package fr.formiko.usuel.structures;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.usuel.structures.ImageTree;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 import fr.formiko.usuel.fichier;
 
 import java.awt.image.BufferedImage;

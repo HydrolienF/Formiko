@@ -18,7 +18,7 @@ import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
 import fr.formiko.usuel.Os;
 import fr.formiko.usuel.color;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 public class CLIMapTest extends TestCaseMuet{
   @Test

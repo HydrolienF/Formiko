@@ -19,7 +19,7 @@ import fr.formiko.usuel.Os;
 import fr.formiko.usuel.color;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.structures.listes.GString;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 import fr.formiko.views.ViewCLI;
 
 public class ViewCLITest extends TestCaseMuet{

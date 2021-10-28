@@ -1,4 +1,4 @@
-package fr.formiko.usuel.tests;
+package fr.formiko.tests;
 
 import org.junit.jupiter.api.Assertions;
 

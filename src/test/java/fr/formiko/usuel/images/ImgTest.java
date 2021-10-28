@@ -2,7 +2,7 @@ package fr.formiko.usuel.images;
 import fr.formiko.usuel.debug; import fr.formiko.usuel.erreur; import fr.formiko.usuel.g; import fr.formiko.formiko.Main;
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.images.Img;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 import org.junit.jupiter.api.Test;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.images.Pixel;

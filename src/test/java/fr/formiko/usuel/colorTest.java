@@ -3,7 +3,7 @@ package fr.formiko.usuel;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.usuel.color;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 
 public class colorTest extends TestCaseMuet{

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.structures.listes.GString;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 import java.io.File;
 import java.nio.file.Paths;

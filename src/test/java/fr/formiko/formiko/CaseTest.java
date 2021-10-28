@@ -10,7 +10,7 @@ import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 public class CaseTest extends TestCaseMuet{
   private Partie p;

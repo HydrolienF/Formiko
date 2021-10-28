@@ -10,7 +10,7 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.structures.listes.GString;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 import java.io.File;
 import java.util.HashMap;

@@ -7,7 +7,7 @@ import fr.formiko.formiko.*;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.interfaces.TourInsecte;
 import fr.formiko.usuel.exceptions.ClassTypeException;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 public class TourFourmiTest extends TestCaseMuet{
   // FUNCTIONS -----------------------------------------------------------------

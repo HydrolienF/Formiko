@@ -13,7 +13,7 @@ import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.interfaces.TourCreatureSansAction;
 import fr.formiko.usuel.debug;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 public class TourCreatureSansActionTest extends TestCaseMuet{
   // FUNCTIONS -----------------------------------------------------------------

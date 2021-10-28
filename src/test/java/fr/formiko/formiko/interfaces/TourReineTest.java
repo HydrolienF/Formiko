@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import fr.formiko.formiko.*;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.interfaces.TourInsecte;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 public class TourReineTest extends TestCaseMuet{
   // FUNCTIONS -----------------------------------------------------------------

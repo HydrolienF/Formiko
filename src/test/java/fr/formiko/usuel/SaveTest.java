@@ -6,7 +6,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Folder;
 import fr.formiko.usuel.Save;
 import fr.formiko.usuel.fichier;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 import java.io.File;
 
