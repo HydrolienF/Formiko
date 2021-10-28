@@ -77,7 +77,6 @@ public class ImageTree extends Tree<BufferedImage> {
   */
   public static BufferedImage createAntImageFromNode(Creature c, TreeNode<BufferedImage> node){
     BufferedImage body = node.getContent();
-    // System.out.println(node);//@a
     if(node.getChildrenSize()>0){
       if(Main.getOp().getAntColorLevel()>0){
         BufferedImage bi = new BufferedImage(body.getWidth(), body.getHeight(), BufferedImage.TYPE_INT_ARGB);
@@ -88,11 +87,10 @@ public class ImageTree extends Tree<BufferedImage> {
           color = image.changeColor(new Img(color), c.getPheromone());
           g.drawImage(color, 0, 0, null);
         }
-        if(c.getHaveWings() || true){ //@a
+        if(c.getHaveWings()){
           if(node.getChildren(1)!=null){
             BufferedImage wings = node.getChildren(1).getContent();
             g.drawImage(wings, 0, 0, null);
-            // System.out.println("draw wings : "+wings);//@a
           }else{
             erreur.alerte("Can't find wings of an ant specie");
           }
