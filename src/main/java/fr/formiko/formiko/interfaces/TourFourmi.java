@@ -79,13 +79,13 @@ public class TourFourmi implements Serializable, Tour{
     }
     debug.débogage("Fin du tour de la Fourmi");
     f.setActionTo0();//end the turn normaly
-    // Un tour ça coute en age et en nourriture;
-    if (f.getStade()<0 && !(f.evoluer instanceof EvoluerNull) && f.getAge()>=f.getAgeMax()){ f.evoluer();}
+    // Un tour ça coute en age et en food;
+    if (f.getStade()<0 && !(f.evoluer instanceof EvoluerNull) && f.getAge()>=f.getMaxAge()){ f.evoluer();}
     f.setAgePlus1();
-    if(!f.getEstMort()){
+    if(!f.getIsDead()){
       f.salir();
-      if(!f.getEstMort()){
-        f.setNourritureMoinsConsomNourriture(); //will not need food is it's an egg.
+      if(!f.getIsDead()){
+        f.setFoodMoinsConsomFood(); //will not need food is it's an egg.
       }
     }
     // if contition de température appartient a l'intervale idéale (et que stade = -1, -2 ou -3) : re setAgePlus1();
@@ -109,7 +109,7 @@ public class TourFourmi implements Serializable, Tour{
     while(f.getAction()>0 && !(f.isHungry(foodToQueep)) && !(f.trophallaxie instanceof TrophallaxieNull)){
       Creature toFeed = aNourrir();
       if(toFeed==null){return;}
-      int givenFood = f.getNourriture()-((f.getNourritureMax()*foodToQueep)/100);
+      int givenFood = f.getFood()-((f.getMaxFood()*foodToQueep)/100);
       if(givenFood<1){return;}
       f.trophallaxie(toFeed,givenFood);
     }
@@ -155,7 +155,7 @@ public class TourFourmi implements Serializable, Tour{
   *@version 1.29
   */
   public Creature aNetoyer(){
-    GCreature gc = f.getCCase().getContent().getGc().filterAlliés(f).filterPropreteMax();
+    GCreature gc = f.getCCase().getContent().getGc().filterAlliés(f).filterHealthMax();
     try { // the Creature f may not be in it.
       gc.remove(f);
     }catch (ListItemNotFoundException e) {

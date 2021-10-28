@@ -68,7 +68,7 @@ public class TourInsecte implements Serializable, Tour{
       }
       c = (Insecte) cTemp;
       if(c.getAction()>0){c.setAction(0);}//end the turn normaly
-      c.setNourritureMoins1();
+      c.setFoodMoins1();
       c.setAgePlus1();
     }else{
       erreur.erreurType("Insecte");

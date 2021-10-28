@@ -24,12 +24,12 @@ public class PondreReineTest extends TestCaseMuet{
   @Test
   public void testCanLay(){
     Fourmi f = ini();
-    f.setNourriture(14);
+    f.setFood(14);
     f.setAction(1);
     assertTrue(f.canLay());
-    f.setNourriture(13);
+    f.setFood(13);
     assertTrue(!f.canLay());
-    f.setNourriture(14);
+    f.setFood(14);
     f.setAction(0);
     assertTrue(!f.canLay());
     f.setAction(-2);
@@ -39,18 +39,18 @@ public class PondreReineTest extends TestCaseMuet{
   public void testCanLay2(){
     Fourmi f = ini();
     f.pondre = new PondreNull();
-    f.setNourriture(14);
+    f.setFood(14);
     f.setAction(1);
     assertTrue(!f.canLay());
   }
   @Test
   public void testCanLay3(){
     Fourmi f = ini();
-    f.setNourriture(f.getNourritureMax());
+    f.setFood(f.getMaxFood());
     f.setAction(1);
     assertTrue(f.canLay());
-    f.setNourriture(14);
-    f.setAction(f.getActionMax());
+    f.setFood(14);
+    f.setAction(f.getMaxAction());
     assertTrue(f.canLay());
   }
   @Test
@@ -58,8 +58,8 @@ public class PondreReineTest extends TestCaseMuet{
     Fourmi f = ini();
     f.getFere().setCCase(Main.getCCase(0,0));
     f.setCCase(Main.getCCase(0,1));
-    f.setNourriture(f.getNourritureMax());
-    f.setAction(f.getActionMax());
+    f.setFood(f.getMaxFood());
+    f.setAction(f.getMaxAction());
     assertTrue(!f.canLay());
   }
   //It should work always but sometimes it fail.
@@ -68,10 +68,10 @@ public class PondreReineTest extends TestCaseMuet{
   //   ini();
   //   Creature f = new Insecte();
   //   ((Insecte)(f)).setType((byte)(0));
-  //   f.setNourritureMax(100);
+  //   f.setMaxFood(100);
   //   assertTrue(!f.canLay());
-  //   f.setNourriture(f.getNourritureMax());
-  //   f.setAction(f.getActionMax());
+  //   f.setFood(f.getMaxFood());
+  //   f.setAction(f.getMaxAction());
   //   assertTrue(!f.canLay());
   //   f.pondre = new PondreReine();
   //   assertTrue(f.canLay());

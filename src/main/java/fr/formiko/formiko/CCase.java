@@ -280,7 +280,7 @@ public class CCase implements Serializable{
     }
   }
   public void tourLigneCases(){
-    contenu.actualisationNourritureInsecte();
+    contenu.actualisationFoodInsecte();
     if(Main.getPartie().getAppartionGraine()){
       contenu.actualisationGraine(this);
     }

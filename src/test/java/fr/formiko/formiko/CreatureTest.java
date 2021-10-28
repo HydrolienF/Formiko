@@ -62,8 +62,8 @@ public class CreatureTest extends TestCaseMuet{
     Main.initialisation();
     GCase gc = new GCase(1,1);
     Insecte i = new Insecte(gc.getCCaseAlléa());
-    i.setNourritureMax(10);
-    i.setNourriture(5);
+    i.setMaxFood(10);
+    i.setFood(5);
     assertTrue(!i.isHungry(0));
     assertTrue(!i.isHungry(20));
     assertTrue(!i.isHungry(40));
@@ -75,20 +75,20 @@ public class CreatureTest extends TestCaseMuet{
     //exception
     assertTrue(!i.isHungry(-20));
     assertTrue(i.isHungry(200));
-    //more than full (should be correct by setNourriture(1) when setNourritureMax(1)).
-    i.setNourriture(5);
-    i.setNourritureMax(1);
+    //more than full (should be correct by setFood(1) when setMaxFood(1)).
+    i.setFood(5);
+    i.setMaxFood(1);
     assertTrue(!i.isHungry(0));
     assertTrue(!i.isHungry(100));
-    i.setNourritureMax(10);
-    i.setNourriture(9);
+    i.setMaxFood(10);
+    i.setFood(9);
     assertTrue(!i.isHungry(89));
     assertTrue(i.isHungry(100));
-    i.setNourritureMax(100);
-    i.setNourriture(2);
+    i.setMaxFood(100);
+    i.setFood(2);
     assertTrue(!i.isHungry(2));
     assertTrue(i.isHungry(3));
-    i.setNourritureMax(101);
+    i.setMaxFood(101);
     assertTrue(!i.isHungry(1));
     assertTrue(i.isHungry(2));
     assertTrue(i.isHungry(3));

@@ -587,7 +587,7 @@ public class PanneauCarte extends Panneau {
       erreur.alerte("Can't get icon from a null Creature");
       return 0;
     }
-    if(cr.getEstMort()){return 3;}
+    if(cr.getIsDead()){return 3;}
     else if(fi!=null && cr.getEstAllié(fi)){return 0;}
     else if(fi!=null && cr.getEstEnnemi(fi) && cr instanceof Fourmi){return 2;}
     else{return 1;}

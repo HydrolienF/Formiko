@@ -74,25 +74,25 @@ public class triche {
           break;
         // pour les créatures
         case 5:
-          getCreatureParId(args[1]).setNourriture(str.sToI(args[2]));
+          getCreatureParId(args[1]).setFood(str.sToI(args[2]));
           break;
         case 6:
-          getCreatureParId(args[1]).setNourritureMax(str.sToI(args[2]));
+          getCreatureParId(args[1]).setMaxFood(str.sToI(args[2]));
           break;
         case 7:
           getCreatureParId(args[1]).setAge(str.sToI(args[2]));
           break;
         case 8:
-          getCreatureParId(args[1]).setAgeMax(str.sToI(args[2]));
+          getCreatureParId(args[1]).setMaxAge(str.sToI(args[2]));
           break;
         case 9:
-          getCreatureParId(args[1]).setEstMort(str.sToB(args[2]));
+          getCreatureParId(args[1]).setIsDead(str.sToB(args[2]));
           break;
         case 10:
           getCreatureParId(args[1]).setAction(str.sToBy(args[2]));
           break;
         case 11:
-          getCreatureParId(args[1]).setActionMax(str.sToBy(args[2]));
+          getCreatureParId(args[1]).setMaxAction(str.sToBy(args[2]));
           break;
         case 12:
           getCreatureParId(args[1]).setPheromone(str.sToBy(args[2]),str.sToBy(args[3]),str.sToBy(args[4]));
@@ -115,7 +115,7 @@ public class triche {
           getFourmiParId(args[1]).setEspece(str.sToI(args[2]));
           break;
         case 18:
-          getFourmiParId(args[1]).setPropreté(str.sToBy(args[2]));
+          getFourmiParId(args[1]).setHealth(str.sToBy(args[2]));
           break;
         case 19:
           //getFourmiParId(args[1]).setTransported(getGraineParId(args[2]));
@@ -126,10 +126,10 @@ public class triche {
           break;
         //pour les insectes
         case 21:
-          getInsecteParId(args[1]).setNourritureFournie(str.sToI(args[2]));
+          getInsecteParId(args[1]).setGivenFood(str.sToI(args[2]));
           break;
         case 22:
-          getInsecteParId(args[1]).setNourritureMangeable(str.sToBy(args[2]));
+          getInsecteParId(args[1]).setFoodMangeable(str.sToBy(args[2]));
           break;
 
         //pour les joueurs
@@ -197,13 +197,13 @@ public class triche {
               Creature c = getCreatureParId(args[2]);
               if(args[3].equalsIgnoreCase(g.get("cmd.31.1"))){//getPoint
                 b = testSupInfEga(args,c.getCCase().getContent().getPoint());
-              }else if(args[3].equalsIgnoreCase(g.get("cmd.31.2"))){//estMort
-                b = c.getEstMort();
-              }else if(args[3].equalsIgnoreCase(g.get("cmd.31.5"))){//getProprete
-                int p = ((Fourmi) (c)).getProprete();
+              }else if(args[3].equalsIgnoreCase(g.get("cmd.31.2"))){//isDead
+                b = c.getIsDead();
+              }else if(args[3].equalsIgnoreCase(g.get("cmd.31.5"))){//getHealth
+                int p = ((Fourmi) (c)).getHealth();
                 if(testSupInfEga(args,p)){b=true;}
-              }else if(args[3].equalsIgnoreCase(g.get("cmd.31.6"))){//getNourriture
-                int p = ((Fourmi) (c)).getNourriture();
+              }else if(args[3].equalsIgnoreCase(g.get("cmd.31.6"))){//getFood
+                int p = ((Fourmi) (c)).getFood();
                 if(testSupInfEga(args,p)){b=true;}
               }else if(args[3].equalsIgnoreCase(g.get("cmd.31.7"))){//getAction
                 int p = c.getAction();

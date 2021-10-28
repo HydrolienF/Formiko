@@ -94,7 +94,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
       for (int i=0;i<lent ;i++ ) {
         Creature c = gc.getCreatureParId(t[i]);
         //a ce stade toutes les fourmis de la liste devrais être sales.
-        s[i]=t[i]+" : "+c.getProprete()+"/"+"100"+" "+g.get("propreté");
+        s[i]=t[i]+" : "+c.getHealth()+"/"+"100"+" "+g.get("health");
       }
       if(s.length==0){
         return false;
@@ -125,7 +125,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
    *@version 1.3
    */
   private void netoyerPrivate(){
-    cible.setPropreté(cible.getPropreté()+net.getIndividu().getNétoyage());
+    cible.setHealth(cible.getHealth()+net.getIndividu().getNétoyage());
     net.setActionMoins(net.getIndividu().getCoutNétoyer());
   }
   /**
@@ -151,7 +151,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
     //on compte le nombre de case.
     for (int i=0;i<lent ;i++ ) {
       Creature c = gc.getCreatureParId(t[i]);
-      if(c.getProprete()<100){
+      if(c.getHealth()<100){
         lentr++;
       }
     }
@@ -159,7 +159,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
     int tr[] = new int[lentr];int k=0;
     for (int i=0;i<lent ;i++ ) {
       Creature c = gc.getCreatureParId(t[i]);
-      if(c.getProprete()<100){
+      if(c.getHealth()<100){
         tr[k] = t[i];k++;
       }
     }

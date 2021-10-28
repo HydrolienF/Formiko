@@ -44,7 +44,7 @@ public class PondreReine implements Serializable, Pondre{
   */
   public boolean canLay(Creature c){
     if(c.getAction()<1){return false;}
-    if(c.getNourriture()<=FOOD_COST_TO_LAY+1){return false;}
+    if(c.getFood()<=FOOD_COST_TO_LAY+1){return false;}
     if (c instanceof Fourmi) {
       return ((Fourmi)c).estALaFere();
     }
@@ -55,8 +55,8 @@ public class PondreReine implements Serializable, Pondre{
   *@version 1.13
   */
   protected void pondre(){
-    // Ne s'execute que si la reine a suffisement de nourriture et qu'elle est a sa fourmilière
-    // diminue la nourriture de la reine.
+    // Ne s'execute que si la reine a suffisement de food et qu'elle est a sa fourmilière
+    // diminue la food de la reine.
     // génère une fourmi avec un age négatif et un mouvement nul jusqu'a sa naissance. (a la fourmilière)
     Fourmiliere fere = f.getFourmiliere();
     if (canLay(f)){ // f.getP().equals(p.getPointDelaFouriliere)
@@ -64,10 +64,10 @@ public class PondreReine implements Serializable, Pondre{
       byte type = 3;
       Fourmi fm = new Fourmi(f.getFourmiliere(),f.getEspece(),type);
       fere.getGc().add(fm); //TODO remove when doing #190
-      fm.setAgeMax((int)((double)(f.getEspece().getIndividuByType(type).getAgeMax(0)*fm.getMultiplicateurDeDiff())));
+      fm.setMaxAge((int)((double)(f.getEspece().getIndividuByType(type).getMaxAge(0)*fm.getMultiplicateurDeDiff())));
       //f.getFourmiliere().getCCase().getContent().getGc().add(fm);
       //fere.getGc().add(fm); l'ajout a la fourmilière ce fait dans le constructeur de Fourmi.
-      f.setNourriture(f.getNourriture() - FOOD_COST_TO_LAY);
+      f.setFood(f.getFood() - FOOD_COST_TO_LAY);
       Message m = new Message(g.getM("la")+" "+f.getNom()+" "+fm.getId() + " "+g.get("pondreReine.1")+".", fere.getId(), 3);
       Main.setPlayingAnt(f); //to refrech playingant info
       f.setActionMoins(f.getIndividu().getCoutPondre());

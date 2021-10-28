@@ -12,8 +12,8 @@ import java.io.Serializable;
  * @version 1.1
  */
 public interface Trophallaxie extends Serializable{
-  void trophallaxie(Creature c1, Creature c2, int nourritureDonnée);
-  void trophallaxie(Creature c, int id, int nourritureDonnée);
+  void trophallaxie(Creature c1, Creature c2, int foodDonnée);
+  void trophallaxie(Creature c, int id, int foodDonnée);
   void trophallaxer(Creature c);
   int [] getCreatureQuiOnFaim(int t[],Creature c);
 }

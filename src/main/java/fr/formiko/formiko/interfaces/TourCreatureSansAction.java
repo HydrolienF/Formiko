@@ -30,7 +30,7 @@ public class TourCreatureSansAction implements Serializable, Tour{
   /**
   *Do turn actions :<br>
   *manger, grandir (age).<br>
-  *if Evoluer != null and age >=ageMax<br>
+  *if Evoluer != null and age >=maxAge<br>
   *if fourmi : salir<br>
   */
   public void tour(Creature c){
@@ -50,13 +50,13 @@ public class TourCreatureSansAction implements Serializable, Tour{
       c.setLastTurnEnd(Main.getPartie().getTour());
     }
 
-    if (c.getAge()>=c.getAgeMax() && !(c.evoluer instanceof EvoluerNull)){ c.evoluer();}
+    if (c.getAge()>=c.getMaxAge() && !(c.evoluer instanceof EvoluerNull)){ c.evoluer();}
     if(c instanceof Fourmi){
       Fourmi f = (Fourmi) c;
       f.salir();
-      f.setNourritureMoinsConsomNourriture(); //will not consume food if it's an egg.
+      f.setFoodMoinsConsomFood(); //will not consume food if it's an egg.
     }else{
-      c.setNourritureMoins1();
+      c.setFoodMoins1();
     }
     c.setAgePlus1();
 

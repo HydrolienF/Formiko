@@ -39,17 +39,17 @@ public class GGraine implements Serializable{
       return début.length();
     }
   }
-  public Graine getGrainePlusDeNourritureFournieSansDureté(){
+  public Graine getGrainePlusDeGivenFoodSansDureté(){
     if (début == null){ erreur.erreur("Impossible de sélectionné la meilleur graine dans une liste vide."); return null;}
     CGraine ci = getHead();
-    return ci.getGrainePlusDeNourritureFournieSansDureté(ci.getContent());
+    return ci.getGrainePlusDeGivenFoodSansDureté(ci.getContent());
   }
-  public Graine getGrainePlusDeNourritureFournie(Fourmi f){
+  public Graine getGrainePlusDeGivenFood(Fourmi f){
     if (début == null){ erreur.erreur("Impossible de sélectionné la meilleur graine dans une liste vide."); return null;}
     byte duretéMax = f.getDuretéMax();
     CGraine ci = getHead();
     //if (ci.getSuivant() != null){
-     return ci.getGrainePlusDeNourritureFournie(ci.getContent(),duretéMax);
+     return ci.getGrainePlusDeGivenFood(ci.getContent(),duretéMax);
     /*}
     if(ci.getContent().getDureté() <  f.getDuretéMax() && !ci.getContent().getOuverte()){ // si elle est fermé et cassable.
       return ci.getContent();
@@ -62,7 +62,7 @@ public class GGraine implements Serializable{
     if (début.getContent().getOuverte()){ return début.getContent();}
     return début.getGraineOuverte();
   }
-    // ici on choisirai la graine avec le plus de nourritureFournie parmi toutes les Graine que la fourmi peut ouvrir.
+    // ici on choisirai la graine avec le plus de givenFood parmi toutes les Graine que la fourmi peut ouvrir.
   //}
 
   public void afficheToi(){ System.out.println(this);}

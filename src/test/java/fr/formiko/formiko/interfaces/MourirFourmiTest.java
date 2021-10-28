@@ -35,7 +35,7 @@ public class MourirFourmiTest extends TestCaseMuet{
     assertEquals(1,fere.getGc().length());
     Main.setPlayingAnt(f);
     f.mourir(0);
-    assertTrue(f.getEstMort());
+    assertTrue(f.getIsDead());
     assertEquals(0,Main.getCCase(0,0).getContent().getGc().length());
     assertEquals(0,fere.getGc().length());
     assertEquals(null,Main.getPlayingAnt());

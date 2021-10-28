@@ -104,17 +104,17 @@ public class PanneauInfoCreature extends PanneauInfo {
     *@version 2.7
     */
     private void addCreatureProgressBars(){
-      if(c.getAgeMax()<Main.getPartie().getNbrDeTour()){
-        addCreatureProgressBar(c.getStateAge(), c.getAge(), c.getAgeMax(),"age");
+      if(c.getMaxAge()<Main.getPartie().getNbrDeTour()){
+        addCreatureProgressBar(c.getStateAge(), c.getAge(), c.getMaxAge(),"age");
       }
-      addCreatureProgressBar(c.getStateFood(), c.getNourriture(), c.getNourritureMax(),"food");
-      addCreatureProgressBar(c.getStateAction(), math.max(c.getAction(),0), c.getActionMax(),"action");
+      addCreatureProgressBar(c.getStateFood(), c.getFood(), c.getMaxFood(),"food");
+      addCreatureProgressBar(c.getStateAction(), math.max(c.getAction(),0), c.getMaxAction(),"action");
       int col=0;
       if(c instanceof Fourmi){
         Fourmi f = (Fourmi)c;
         col = f.getStateHealth();
       }
-      addCreatureProgressBar(col, math.min(c.getProprete(),c.getPropreteMax()), c.getPropreteMax(),"health");
+      addCreatureProgressBar(col, math.min(c.getHealth(),c.getMaxHealth()), c.getMaxHealth(),"health");
     }
     /**
     *{@summary Add a progress bar.}<br>

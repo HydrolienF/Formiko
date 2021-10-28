@@ -30,23 +30,23 @@ public class TourCreatureSansActionTest extends TestCaseMuet{
   public void testUnTour(){
     //creature
     Creature c = ini();
-    c.setNourriture(20);
+    c.setFood(20);
     c.setAge(0);
     c.setAction(0);
     Main.getPartie().addTour();
     c.tour();
     c.endTurn();
-    //assertEquals(19,c.getNourriture()); //TODO
+    //assertEquals(19,c.getFood()); //TODO
     assertEquals(1,c.getAge());
 
-    c.setNourriture(20);
+    c.setFood(20);
     c.setAge(0);
     c.setAction(10);
     Main.getPartie().addTour();
     c.tour = new TourCreatureSansAction();
     c.tour();
     c.endTurn();
-    assertEquals(19,c.getNourriture());
+    assertEquals(19,c.getFood());
     assertEquals(1,c.getAge());
 
     //fourmi
@@ -62,7 +62,7 @@ public class TourCreatureSansActionTest extends TestCaseMuet{
   @Test
   public void testUnTourWithoutPartieTurnCptUpdate(){
     Creature c = ini();
-    c.setNourriture(20);
+    c.setFood(20);
     c.setAge(0);
     c.setAction(0);
     Main.getPartie().addTour();
@@ -70,7 +70,7 @@ public class TourCreatureSansActionTest extends TestCaseMuet{
     c.endTurn();
     assertEquals(1,c.getAge());
 
-    c.setNourriture(20);
+    c.setFood(20);
     c.setAge(0);
     c.setAction(10);
     // Main.getPartie().addTour();
@@ -78,7 +78,7 @@ public class TourCreatureSansActionTest extends TestCaseMuet{
     c.tour();
     c.endTurn();
     //neither tour() nor endTurn() should change anything because Partie turn cpt haven't been update.
-    assertEquals(20,c.getNourriture());
+    assertEquals(20,c.getFood());
     assertEquals(0,c.getAge());
 
     c.setAction(0); //same as last 1 by only with no action.
@@ -86,7 +86,7 @@ public class TourCreatureSansActionTest extends TestCaseMuet{
     c.tour();
     c.endTurn();
     //neither tour() nor endTurn() should change anything because Partie turn cpt haven't been update.
-    assertEquals(20,c.getNourriture());
+    assertEquals(20,c.getFood());
     assertEquals(0,c.getAge());
   }
 }

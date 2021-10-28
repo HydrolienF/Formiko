@@ -32,41 +32,41 @@ public class FourmiTest extends TestCaseMuet{
   @Test
   public void testWantFood(){
     Fourmi f = ini();
-    assertEquals(1,f.getIndividu().getNourritureConso(f.getStade()));
-    f.setNourriture(f.getNourritureMax());
+    assertEquals(1,f.getIndividu().getFoodConso(f.getStade()));
+    f.setFood(f.getMaxFood());
     assertTrue(!f.wantFood());
-    f.setNourriture(f.getNourritureMax()/2);
+    f.setFood(f.getMaxFood()/2);
     assertTrue(!f.wantFood());
     //can't eat for the 2 next turn
-    f.setNourritureMax(10);
-    f.setNourriture(1);
+    f.setMaxFood(10);
+    f.setFood(1);
     assertTrue(f.wantFood());
     //can't eat for the 2 next turn
-    f.setNourritureMax(2);
-    f.setNourriture(1);
+    f.setMaxFood(2);
+    f.setFood(1);
     assertTrue(f.wantFood());
     //can't eat for the 2 next turn but already full.
-    f.setNourritureMax(1);
-    f.setNourriture(1);
+    f.setMaxFood(1);
+    f.setFood(1);
     assertTrue(!f.wantFood());
     //don't have enoth food.
-    f.setNourritureMax(100);
-    f.setNourriture(1);
+    f.setMaxFood(100);
+    f.setFood(1);
     assertTrue(f.wantFood());
-    f.setNourriture(2);
+    f.setFood(2);
     assertTrue(f.wantFood());
-    f.setNourriture(4);
+    f.setFood(4);
     assertTrue(f.wantFood());
-    f.setNourriture(5);
+    f.setFood(5);
     assertTrue(!f.wantFood());
-    f.setNourriture(6);
+    f.setFood(6);
     assertTrue(!f.wantFood());
-    f.setNourriture(10);
+    f.setFood(10);
     assertTrue(!f.wantFood());
     f = ini();
     f.setStade(-3);
     assertTrue(!f.wantFood());
-    f.setNourriture(1);
+    f.setFood(1);
     assertTrue(!f.wantFood());
   }
   @Test
@@ -93,30 +93,30 @@ public class FourmiTest extends TestCaseMuet{
   public void testWantClean(){
     Fourmi f = ini();
     assertTrue(!f.wantClean());
-    f.setProprete(55);
+    f.setHealth(55);
     assertTrue(!f.wantClean());
-    f.setProprete(53);
+    f.setHealth(53);
     assertTrue(!f.wantClean());
-    f.setProprete(52);
+    f.setHealth(52);
     assertTrue(f.wantClean());
-    f.setProprete(50);
+    f.setHealth(50);
     assertTrue(f.wantClean());
-    f.setProprete(0);
+    f.setHealth(0);
     assertTrue(f.wantClean());
 
     Main.getPartie().setDifficulté((byte)1);
     assertTrue(!f.getFere().getJoueur().getIa());
-    f.setProprete(63);
+    f.setHealth(63);
     assertTrue(!f.wantClean());
-    f.setProprete(62);
+    f.setHealth(62);
     assertTrue(f.wantClean());
-    f.setProprete(60);
+    f.setHealth(60);
     assertTrue(f.wantClean());
     f.getFere().getJoueur().setIa(true);
     assertTrue(f.getFere().getJoueur().getIa());
-    f.setProprete(43);
+    f.setHealth(43);
     assertTrue(!f.wantClean());
-    f.setProprete(42);
+    f.setHealth(42);
     assertTrue(f.wantClean());
   }
   @Test

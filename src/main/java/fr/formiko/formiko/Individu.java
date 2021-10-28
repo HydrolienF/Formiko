@@ -15,36 +15,36 @@ public class Individu implements Serializable{
   protected boolean sexué; // false = pas sexué
   protected boolean sexe; // false = femmelle; true = Male;
   protected byte nétoyage;
-  protected byte actionMax; // dans certaine espèces les larves travaille en créant du fil de soie.
+  protected byte maxAction; // dans certaine espèces les larves travaille en créant du fil de soie.
   protected int taille;
   protected String couleur;
   protected byte poidMax; //(en gramme) si le poid est supérieur a 10% la fourmi peine et ses déplacements coute plus chere.
   protected byte tempsDeRepos; // en heure (ou en 24a de tour).
-  protected int nourritureConso;
+  protected int foodConso;
 
-  protected int tAgeMax[] = new int[4]; // sauf l'age adulte qui vari.
-  protected int tNourritureMax[]= new int[4]; // sauf la nourritureMax adulte.
+  protected int tMaxAge[] = new int[4]; // sauf l'age adulte qui vari.
+  protected int tMaxFood[]= new int[4]; // sauf la maxFood adulte.
   protected byte tCoutAction[] = new byte[6];
   // CONSTRUCTORS --------------------------------------------------------------
   public Individu(int idEsp, byte ty, boolean se,boolean se2, byte né, byte ac, int ta, String co, byte po, byte te, int tag0, int tag1, int tag2, int tag3, int nm0, int nm1, int nm2, int nm3,byte ca0,byte ca1,byte ca2,byte ca3,byte ca4,byte ca5,int nc){
     e = Main.getGEspece().getEspeceParId(idEsp);
-    type = ty; sexué = se; sexe = se2; nétoyage = né; actionMax = ac; taille =ta; couleur = co; poidMax =po; tempsDeRepos = te;
-    tAgeMax[0] = tag0; tAgeMax[1] = tag1; tAgeMax[2] = tag2; tAgeMax[3] = tag3;
-    tNourritureMax[0] = nm0; tNourritureMax[1] = nm1; tNourritureMax[2] = nm2; tNourritureMax[3] = nm3;
+    type = ty; sexué = se; sexe = se2; nétoyage = né; maxAction = ac; taille =ta; couleur = co; poidMax =po; tempsDeRepos = te;
+    tMaxAge[0] = tag0; tMaxAge[1] = tag1; tMaxAge[2] = tag2; tMaxAge[3] = tag3;
+    tMaxFood[0] = nm0; tMaxFood[1] = nm1; tMaxFood[2] = nm2; tMaxFood[3] = nm3;
     tCoutAction[0] = ca0; tCoutAction[1] = ca1; tCoutAction[2] = ca2; tCoutAction[3] = ca3; tCoutAction[4] = ca4; tCoutAction[5] = ca5;
-    nourritureConso=nc;
+    foodConso=nc;
     debug.débogage("Fin de la création d'un individu");
   }
   // GET SET -------------------------------------------------------------------
   public Espece getEspece(){ return e;}
   public byte getType(){ return type;}
-  public byte getActionMax(){ return actionMax;}
+  public byte getMaxAction(){ return maxAction;}
   public int getTaille(){ return taille;}
 
-  public int getAgeMax(int i){ return tAgeMax[i]/2;} //to make it shorter
-  public int getAgeMax(){ return getAgeMax(3);}
-  public int getNourritureMax(int i){ return tNourritureMax[i];}
-  public int getNourritureMax(){ return getNourritureMax(3);}
+  public int getMaxAge(int i){ return tMaxAge[i]/2;} //to make it shorter
+  public int getMaxAge(){ return getMaxAge(3);}
+  public int getMaxFood(int i){ return tMaxFood[i];}
+  public int getMaxFood(){ return getMaxFood(3);}
 
   public byte getCoutDéplacement(){ return tCoutAction[0];}
   public byte getCoutChasse(){ return tCoutAction[1];}
@@ -63,9 +63,9 @@ public class Individu implements Serializable{
     else{ ind = g.get("individu")+" "+type;}
     return ind;
   }
-  public int getNourritureConso(int stade){
+  public int getFoodConso(int stade){
     if(stade==-3){ return 0;}
-    return nourritureConso;
+    return foodConso;
   }
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
@@ -77,14 +77,14 @@ public class Individu implements Serializable{
     String s = "";
     s+=ind +" "+ adj.toString();s+="\n";
     s+=g.get("nétoyage")+" : "+nétoyage;s+="\n";
-    s+=g.get("actionMax")+" : "+actionMax;s+="\n";
+    s+=g.get("maxAction")+" : "+maxAction;s+="\n";
     s+=g.get("taille")+" : "+taille;s+="\n";
     s+=g.get("poidsSupportable")+" : "+poidMax;s+="\n";
     //System.out.println("Temps de repos néssésaire (par tour)")+" : "+tempsDeRepos);
-    s+=g.get("tAgeMax")+" : ";
-    s+=tableau.tableauToString(tAgeMax);s+="\n";
-    s+=g.get("tNourritureMax")+" : ";
-    s+=tableau.tableauToString(tNourritureMax);s+="\n";
+    s+=g.get("tMaxAge")+" : ";
+    s+=tableau.tableauToString(tMaxAge);s+="\n";
+    s+=g.get("tMaxFood")+" : ";
+    s+=tableau.tableauToString(tMaxFood);s+="\n";
     s+=g.get("tCoutAction")+" : ";
     s+=tableau.tableauToString(tCoutAction);s+="\n";
     return s;

@@ -30,27 +30,27 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public Tour tour;
   // public Collecte collecte;
   // variable
-  protected int nourriture;
-  protected int nourritureMax;
+  protected int food;
+  protected int maxFood;
+  protected int givenFood;
   protected int age;
-  protected int ageMax;
-  protected boolean estMort;
+  protected int maxAge;
+  protected boolean isDead;
   protected byte action;
-  protected byte actionMax;
+  protected byte maxAction;
   protected Pheromone ph;
-  protected byte propreté;
-  protected byte tolerencePheromone;
+  protected byte health;
+  protected byte pheromoneTolerence;
   /** -3=egg, -2=larva, -1=nymph, 0=imago */
   protected byte stade;
-  protected int nourritureFournie;
   protected Espece e;
   protected ObjetSurCarteAId transported;
   private int lastTurnEnd=-1;
 
   //TODO #73
   //protected int typeEated [];
-  //private int pv; //Point de vie
-  //private int pa; //Point de dégats
+  //private int hp; //Heal point
+  //private int dp; //Damage points
   // point de force.
   // CONSTRUCTORS ----------------------------------------------------------------
   /**
@@ -58,14 +58,14 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *All args are Creature var.
   *@version 1.13
   */
-  public Creature (CCase ccase, int age, int ageMax, byte actionMax, Pheromone ph, int nourriture, int nourritureMax){
+  public Creature (CCase ccase, int age, int maxAge, byte maxAction, Pheromone ph, int food, int maxFood){
     super(ccase);
-    this.age = age; this.ageMax= ageMax; this.estMort = false;
-    this.action = actionMax; this.actionMax = actionMax;
+    this.age = age; this.maxAge= maxAge; this.isDead = false;
+    this.action = maxAction; this.maxAction = maxAction;
     this.ph = ph;
-    this.nourriture = nourriture; this.nourritureMax =nourritureMax;
-    tolerencePheromone=0;
-    nourritureFournie=1;
+    this.food = food; this.maxFood =maxFood;
+    pheromoneTolerence=0;
+    givenFood=1;
     this.déplacement = new DeplacementNull(); this.chasse = new ChasseNull(); this.pondre = new PondreNull(); this.trophallaxie = new TrophallaxieNull(); this.evoluer=new EvoluerNull();this.mourir=new MourirNull();this.netoyer=new NetoyerNull();
     this.tour = new TourCreatureSansAction();
   }
@@ -74,35 +74,35 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *Here we only know some var, but the main constructor will take care of them.
   *@version 1.13
   */
-  public Creature (CCase ccase,int age, int ageMax, byte actionMax){ // Les fourmis utilise ce contructeur.
-    this(ccase,age,ageMax, actionMax, new Pheromone(-128,-128,-128), 10, 100);
-  } public Creature(CCase ccase, int age, int ageMax, int actionMax){ this(ccase,age,ageMax,(byte) actionMax);}
+  public Creature (CCase ccase,int age, int maxAge, byte maxAction){ // Les fourmis utilise ce contructeur.
+    this(ccase,age,maxAge, maxAction, new Pheromone(-128,-128,-128), 10, 100);
+  } public Creature(CCase ccase, int age, int maxAge, int maxAction){ this(ccase,age,maxAge,(byte) maxAction);}
   /**
   *{@summary constructor for Creature.}<br>
   *Here we only know some var, but the main constructor will take care of them.
   *@version 1.13
   */
-  public Creature (CCase ccase,int age, int ageMax){
-    this(ccase,age,ageMax,(byte) 50); // 50 action par défaut.
+  public Creature (CCase ccase,int age, int maxAge){
+    this(ccase,age,maxAge,(byte) 50); // 50 action par défaut.
   }
-  public Creature (CCase ccase,int ageMax){this(ccase,0,ageMax);}
+  public Creature (CCase ccase,int maxAge){this(ccase,0,maxAge);}
   public Creature (CCase ccase){this(ccase,100);}
   public Creature (){this((CCase) null);}
   // GET SET ----------------------------------------------------------------------
-  //Nourriture
-  public int getNourriture(){return nourriture;}
-  public int getNourritureMax(){return nourritureMax;}
-  public void setNourritureMoins1(){nourriture--; mourirOuPas(3);}
-  public void setNourriture(int x){nourriture = x;diminuerOuPasNourriture();mourirOuPas(3);}
-  public void setNourritureMax(int x){ nourritureMax = x;diminuerOuPasNourriture();}
-  public void ajouteNourriture(int x){nourriture += x;diminuerOuPasNourriture();mourirOuPas(3);}
-  public void diminuerOuPasNourriture(){if (nourriture>nourritureMax) {nourriture = nourritureMax;}}
-  public int getNourritureFournie(){return nourritureFournie;}
-  public void setNourritureFournie(int x){nourritureFournie=x;}
+  //Food
+  public int getFood(){return food;}
+  public int getMaxFood(){return maxFood;}
+  public void setFoodMoins1(){food--; mourirOuPas(3);}
+  public void setFood(int x){food = x;diminuerOuPasFood();mourirOuPas(3);}
+  public void setMaxFood(int x){ maxFood = x;diminuerOuPasFood();}
+  public void ajouteFood(int x){food += x;diminuerOuPasFood();mourirOuPas(3);}
+  public void diminuerOuPasFood(){if (food>maxFood) {food = maxFood;}}
+  public int getGivenFood(){return givenFood;}
+  public void setGivenFood(int x){givenFood=x;}
   //Age
   public int getAge(){return age;}
-  public int getAgeMax(){return ageMax;}
-  public void setAgeMax(int x){ageMax = x;}
+  public int getMaxAge(){return maxAge;}
+  public void setMaxAge(int x){maxAge = x;}
   public void setAgePlus1(){age++; mourirOuPas(2);}
   public void setAge(int x){age=x;mourirOuPas(2);}
   public void ajouteAge(int x){age+=x; mourirOuPas(2);}
@@ -111,8 +111,8 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void setAction(int x){setAction(str.iToBy(x));}
   public void setActionMoins(int x){setAction(getAction() - x);}
   public void setActionTo0(){if(getAction()>0){setAction(0);}}
-  public byte getActionMax(){return actionMax;}
-  public void setActionMax(byte x){actionMax =x;}
+  public byte getMaxAction(){return maxAction;}
+  public void setMaxAction(byte x){maxAction =x;}
   /**
   *{@summary Move the Creature from a case to an other.}<br>
   *It is used by Deplacement interfaces.<br>
@@ -136,13 +136,12 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void setPheromone(Pheromone ph){this.ph = ph; }
   public void setPh(Pheromone ph){ setPheromone(ph);}
   public void setPheromone(byte a, byte b, byte c){ph = new Pheromone(a,b,c);}
-  public boolean getEstMort(){ return estMort;}
-  public void setEstMort(boolean b){estMort=b;actionMax=0;action=0;}
-  public byte getPropreté(){return getProprete();} public byte getProprete(){return propreté;}
-  public byte getPropreteMax(){return 100;}
-  public void setPropreté(int x){setProprete(x);}
-  public void setProprete(int x){setPropreté(str.iToBy(x));}
-  public void setPropreté(byte x){ propreté = x; if(x<100){x=100;}}
+  public boolean getIsDead(){ return isDead;}
+  public void setIsDead(boolean b){isDead=b;maxAction=0;action=0;}
+  public byte getHealth(){return health;}
+  public byte getMaxHealth(){return 100;}
+  public void setHealth(int x){setHealth(str.iToBy(x));}
+  public void setHealth(byte x){ health = x; if(x<100){x=100;}}
   public abstract boolean getFemelle();
   public abstract void setFemelle(boolean b);
   public abstract String getSex();
@@ -150,8 +149,8 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void setStade(byte s){ stade = s;} public void setStade(int x){setStade(str.iToBy(x));}
   public boolean estFourmi(){return (this instanceof Fourmi);}
   public abstract byte getType();//réclame une implémentation de getType.
-  public byte getTolerencePheromone(){return tolerencePheromone;}
-  public void setTolerencePheromone(byte x){tolerencePheromone=x;}
+  public byte getPheromoneTolerence(){return pheromoneTolerence;}
+  public void setPheromoneTolerence(byte x){pheromoneTolerence=x;}
   /***
   *{@summary return true if Creature have wings.}
   *@version 2.10
@@ -195,8 +194,8 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public boolean canLay(){return pondre.canLay(this);}
   public boolean chasse(){return chasse.chasse(this);}
   public boolean chasser(int direction){return chasse.chasser(this, direction);}
-  public void trophallaxie(int id, int nourritureDonnée){trophallaxie.trophallaxie(this, id, nourritureDonnée);}
-  public void trophallaxie(Creature c, int nourritureDonnée){trophallaxie.trophallaxie(this,c, nourritureDonnée);}
+  public void trophallaxie(int id, int foodDonnée){trophallaxie.trophallaxie(this, id, foodDonnée);}
+  public void trophallaxie(Creature c, int foodDonnée){trophallaxie.trophallaxie(this,c, foodDonnée);}
   public void trophallaxer(){trophallaxie.trophallaxer(this);}
   // public void collecter(int direction){collecte.collecter((Fourmi) this, (byte) direction);}
   public void evoluer(){evoluer.evoluer(this);}
@@ -217,9 +216,9 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *@version 2.8
   */
   public int getStateFood(){
-    if(getNourriture()<0.1*getNourritureMax()){return 3;}
-    else if(getNourriture()<0.2*getNourritureMax()){return 2;}
-    else if(getNourriture()<0.4*getNourritureMax()){return 1;}
+    if(getFood()<0.1*getMaxFood()){return 3;}
+    else if(getFood()<0.2*getMaxFood()){return 2;}
+    else if(getFood()<0.4*getMaxFood()){return 1;}
     else {return 0;}
   }
   /**
@@ -228,7 +227,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *@version 2.8
   */
   public int getStateAction(){
-    if(getAction()==getActionMax()){return 0;}
+    if(getAction()==getMaxAction()){return 0;}
     else if(getAction()<=0){return 3;}
     else{return 1;}
   }
@@ -238,7 +237,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *@version 2.8
   */
   public int getStateAge(){
-    if(getAge()>=getAgeMax()*0.9){return 2;}
+    if(getAge()>=getMaxAge()*0.9){return 2;}
     return 1;
   }
   /**
@@ -263,16 +262,16 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     r+=getId();r+=" ";
     if (this.getFemelle()){r+= "♀";}
     else {r+= "♂";}r+=" ";
-    if (estMort){r+= "(☠︎)";}
-    else {r+= "("+(ageMax-age)+" "+g.get("avant")+" ☠︎)";}r+=" ";
+    if (isDead){r+= "(☠︎)";}
+    else {r+= "("+(maxAge-age)+" "+g.get("avant")+" ☠︎)";}r+=" ";
     r+=ccase.desc();r+=", ";
     r+=g.get("stade")+" "+getStringStade()+", ";
-    r+=g.get("nourriture")+" "+nourriture+"/"+nourritureMax+" (nf:"+nourritureFournie+")"+", ";
-    r+=g.get("age")+" "+age+"/"+ageMax+", ";
-    r+=g.get("action")+" "+action+"/"+actionMax+", ";
-    r+=g.get("propreté")+" "+propreté+"/"+"100"+", ";
+    r+=g.get("food")+" "+food+"/"+maxFood+" (nf:"+givenFood+")"+", ";
+    r+=g.get("age")+" "+age+"/"+maxAge+", ";
+    r+=g.get("action")+" "+action+"/"+maxAction+", ";
+    r+=g.get("health")+" "+health+"/"+"100"+", ";
     r+=g.get("phéromone")+" "+ph.toString()+", ";
-    r+=g.get("tolerencePheromone")+" "+tolerencePheromone+", ";
+    r+=g.get("pheromoneTolerence")+" "+pheromoneTolerence+", ";
     try {
       r+=g.get("espèce")+" "+e.getNom();
     }catch (Exception e) {}
@@ -297,7 +296,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *@version 1.13
   */
   public boolean getEstAllié(Creature c){ // en théorie la fourmi f reconnait plus ou moins en fonction de ses caractéristique les autre créature.
-    if(this.getPheromone().equals(c.getPheromone(),c.getTolerencePheromone())){return true;}
+    if(this.getPheromone().equals(c.getPheromone(),c.getPheromoneTolerence())){return true;}
     return false;
   }
   /**
@@ -307,10 +306,10 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   */
   //est ce que c nous concidère comme ennemis.
   public boolean getEstEnnemi(Creature c){
-    if(this.getPheromone().equals(c.getPheromone(),c.getTolerencePheromone())){ return false;} //c me voie comme un allié aucune raison de ce méfier de moi
+    if(this.getPheromone().equals(c.getPheromone(),c.getPheromoneTolerence())){ return false;} //c me voie comme un allié aucune raison de ce méfier de moi
     //TODO chercher si dans ma liste des proies de this on trouve c.getType(); si je mange c, c doit ce méfier de moi.
     //if(this.getGiProie().contient(c.getType())){ return true;}
-    if(!this.getPheromone().equals(c.getPheromone(),math.min(127,c.getTolerencePheromone()*6))){ return true;} // c est une fourmi non alliés, et nous n'avons pas de lien de parenté.
+    if(!this.getPheromone().equals(c.getPheromone(),math.min(127,c.getPheromoneTolerence()*6))){ return true;} // c est une fourmi non alliés, et nous n'avons pas de lien de parenté.
     return false; //sinon a priori on est neutre.
   }
   /**
@@ -339,8 +338,8 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *@version 1.20
   */
   public void mourirOuPas(int x){
-    if(x==2 && age>ageMax){mourir(x);return;}
-    if(x==3 && nourriture < 0){mourir(x);return;}
+    if(x==2 && age>maxAge){mourir(x);return;}
+    if(x==3 && food < 0){mourir(x);return;}
   }
   /**
   *{@summary check if this is hungry.}<br>
@@ -351,7 +350,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public boolean isHungry(int percentageOfHungryness){
     if(percentageOfHungryness>100){percentageOfHungryness=100;}
     else if(percentageOfHungryness<0){percentageOfHungryness=0;}
-    if((getNourriture()*100)/getNourritureMax()<percentageOfHungryness){
+    if((getFood()*100)/getMaxFood()<percentageOfHungryness){
       return true;
     }
     return false;
@@ -384,7 +383,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *@version 1.28
   */
   public void preTour(){
-    setAction(math.min(getAction(),0) + getActionMax());//If we have used more action that what we had, we have less this turn.
-    if((evoluer instanceof EvoluerNull) && (getStade()!=0 && getAge()>=getAgeMax())){ evoluer();}
+    setAction(math.min(getAction(),0) + getMaxAction());//If we have used more action that what we had, we have less this turn.
+    if((evoluer instanceof EvoluerNull) && (getStade()!=0 && getAge()>=getMaxAge())){ evoluer();}
   }
 }

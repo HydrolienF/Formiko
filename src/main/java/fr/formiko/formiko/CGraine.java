@@ -31,19 +31,19 @@ public class CGraine implements Serializable{
       return 1+suivant.length();
     }
   }
-  public Graine getGrainePlusDeNourritureFournieSansDureté(Graine gMax){ // si la graine est cassable et que sont contenue est meilleur.
-    if(gMax.getNourritureFournie() < this.getContent().getNourritureFournie() && !this.getContent().getOuverte()){
+  public Graine getGrainePlusDeGivenFoodSansDureté(Graine gMax){ // si la graine est cassable et que sont contenue est meilleur.
+    if(gMax.getGivenFood() < this.getContent().getGivenFood() && !this.getContent().getOuverte()){
       gMax = this.getContent();
     }
     if(suivant == null){
       if (!gMax.getOuverte()){ return gMax;}
       return null;
     }
-    return suivant.getGrainePlusDeNourritureFournieSansDureté(gMax);
+    return suivant.getGrainePlusDeGivenFoodSansDureté(gMax);
   }
-  public Graine getGrainePlusDeNourritureFournie(Graine gMax,byte duretéMax){
+  public Graine getGrainePlusDeGivenFood(Graine gMax,byte duretéMax){
     // si la graine est cassable et que sont contenu est meilleur.
-    if(contenu.getDureté() < duretéMax && gMax.getNourritureFournie() < this.getContent().getNourritureFournie() && !this.getContent().getOuverte()){
+    if(contenu.getDureté() < duretéMax && gMax.getGivenFood() < this.getContent().getGivenFood() && !this.getContent().getOuverte()){
       gMax = this.getContent();
       debug.débogage("changement de gMax pour :");
     }
@@ -51,7 +51,7 @@ public class CGraine implements Serializable{
       if (!gMax.getOuverte() && gMax.getDureté() < duretéMax){ return gMax;}
       return null;
     }
-    return suivant.getGrainePlusDeNourritureFournie(gMax, duretéMax);
+    return suivant.getGrainePlusDeGivenFood(gMax, duretéMax);
   }
   public Graine getGraineOuverte(){
     if(this.getSuivant()==null){ return null;}

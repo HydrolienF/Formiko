@@ -592,7 +592,7 @@ public class ViewCLI implements View {
     String r = "";
     if(Main.getOs().isLinux()){
       if (c.getStade()==0) {
-        if(c.getAction()==c.getActionMax()){
+        if(c.getAction()==c.getMaxAction()){
           r+=color.GREEN;
         }else if (c.getAction()<=0) {
           r+=color.RED;

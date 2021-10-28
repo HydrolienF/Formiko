@@ -33,7 +33,7 @@ public class TourReineTest extends TestCaseMuet{
     assertTrue(!((TourReine)(f.tour)).needToWaitToLetNonQueenAntPlay());
     Fourmi f2 = new Fourmi(f.getFere(),f.getEspece(), (byte) 3, (byte) 0);
     f.getFere().getGc().add(f2);
-    f2.setAction(f2.getActionMax());
+    f2.setAction(f2.getMaxAction());
     assertTrue(((TourReine)(f.tour)).needToWaitToLetNonQueenAntPlay());
     f2.setStade(-2);
     assertTrue(f2.getAction()>0);
@@ -92,14 +92,14 @@ public class TourReineTest extends TestCaseMuet{
     ((TourReine)(f.tour)).lay();
     assertEquals(1,f.getFere().getGc().length());
 
-    f.setAction(f.getActionMax());
-    f.setNourriture(0);
+    f.setAction(f.getMaxAction());
+    f.setFood(0);
     ((TourReine)(f.tour)).lay();
     assertEquals(1,f.getFere().getGc().length());
 
     //if queen alone
-    f.setAction(f.getActionMax());
-    f.setNourriture(f.getNourritureMax());
+    f.setAction(f.getMaxAction());
+    f.setFood(f.getMaxFood());
     assertTrue(!((TourReine)(f.tour)).haveSomeHelp());
     ((TourReine)(f.tour)).lay();
     assertEquals(2,f.getFere().getGc().length());
@@ -108,39 +108,39 @@ public class TourReineTest extends TestCaseMuet{
     f = ini();
     Fourmi f2 = new Fourmi(f.getFere(),f.getEspece(), (byte) 3, (byte) 0);
     f.getFere().getGc().add(f2);
-    f.setAction(f.getActionMax());
-    f.setNourriture(f.getNourritureMax());
+    f.setAction(f.getMaxAction());
+    f.setFood(f.getMaxFood());
     ((TourReine)(f.tour)).lay();
     assertEquals(32,f.getFere().getGc().length());
 
     f = ini();
     f2 = new Fourmi(f.getFere(),f.getEspece(), (byte) 3, (byte) 0);
     f.getFere().getGc().add(f2);
-    f.setAction(f.getActionMax());
-    f.setNourriture(f.getNourritureMax()/3);
+    f.setAction(f.getMaxAction());
+    f.setFood(f.getMaxFood()/3);
     ((TourReine)(f.tour)).lay();
     assertEquals(4,f.getFere().getGc().length());
     assertTrue(f.getAction()>0);
-    assertTrue(f.getNourriture()>(f.getNourritureMax()/5));
+    assertTrue(f.getFood()>(f.getMaxFood()/5));
   }
   @Test
   public void TestTour(){
     Fourmi f = ini();
     f.setCCase(0,1);
     Insecte i = new Insecte(Main.getGc().getCCase(0,1),0,100,1);
-    i.setNourritureFournie(300);
+    i.setGivenFood(300);
     f.setAction(5);
-    f.setProprete(30);
-    assertTrue(f.getProprete()<f.getSeuilDeRisqueDInfection());
-    int nourriture = f.getNourritureMax()/20+1;
-    f.setNourriture(nourriture);
+    f.setHealth(30);
+    assertTrue(f.getHealth()<f.getSeuilDeRisqueDInfection());
+    int food = f.getMaxFood()/20+1;
+    f.setFood(food);
     f.tour();
     f.endTurn();
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,1),f.getCCase());
-    assertEquals(nourriture - 3, f.getNourriture());
-    assertTrue(f.getProprete()>f.getSeuilDeRisqueDInfection());
-    assertTrue(i.getEstMort());
+    assertEquals(food - 3, f.getFood());
+    assertTrue(f.getHealth()>f.getSeuilDeRisqueDInfection());
+    assertTrue(i.getIsDead());
     assertEquals(2,Main.getGc().getCCase(0,1).getContent().getGc().length());
   }
   @Test
@@ -148,19 +148,19 @@ public class TourReineTest extends TestCaseMuet{
     Fourmi f = ini();
     f.setCCase(0,1);
     Insecte i = new Insecte(Main.getGc().getCCase(0,1),0,100,1);
-    i.setNourritureFournie(300);
+    i.setGivenFood(300);
     f.setAction(15);
-    f.setProprete(30);
-    assertTrue(f.getProprete()<f.getSeuilDeRisqueDInfection());
-    int nourriture = f.getNourritureMax()/20+1;
-    f.setNourriture(nourriture);
+    f.setHealth(30);
+    assertTrue(f.getHealth()<f.getSeuilDeRisqueDInfection());
+    int food = f.getMaxFood()/20+1;
+    f.setFood(food);
     f.tour();
     f.endTurn();
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,1),f.getCCase());
-    assertEquals(nourriture - 3, f.getNourriture());
-    assertTrue(f.getProprete()>f.getSeuilDeRisqueDInfection());
-    assertTrue(i.getEstMort());
+    assertEquals(food - 3, f.getFood());
+    assertTrue(f.getHealth()>f.getSeuilDeRisqueDInfection());
+    assertTrue(i.getIsDead());
     assertEquals(2,Main.getGc().getCCase(0,1).getContent().getGc().length());
   }
   @Test
@@ -168,19 +168,19 @@ public class TourReineTest extends TestCaseMuet{
     Fourmi f = ini();
     f.setCCase(0,1);
     Insecte i = new Insecte(Main.getGc().getCCase(0,1),0,100,0);
-    i.setNourritureFournie(300);
+    i.setGivenFood(300);
     f.setAction(15);
-    f.setProprete(30);
-    assertTrue(f.getProprete()<f.getSeuilDeRisqueDInfection());
-    int nourriture = f.getNourritureMax()/20+1;
-    f.setNourriture(nourriture);
+    f.setHealth(30);
+    assertTrue(f.getHealth()<f.getSeuilDeRisqueDInfection());
+    int food = f.getMaxFood()/20+1;
+    f.setFood(food);
     f.tour();
     f.endTurn();
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,1),f.getCCase());
-    assertEquals(nourriture - 3 + 300, f.getNourriture());
-    assertTrue(f.getProprete()>f.getSeuilDeRisqueDInfection());
-    assertTrue(i.getEstMort());
+    assertEquals(food - 3 + 300, f.getFood());
+    assertTrue(f.getHealth()>f.getSeuilDeRisqueDInfection());
+    assertTrue(i.getIsDead());
     assertEquals(1,Main.getGc().getCCase(0,1).getContent().getGc().length());
   }
   @Test
@@ -188,19 +188,19 @@ public class TourReineTest extends TestCaseMuet{
     Fourmi f = ini();
     f.setCCase(0,1);
     Insecte i = new Insecte(Main.getGc().getCCase(0,1),0,100,1);
-    i.setNourritureFournie(300);
+    i.setGivenFood(300);
     f.setAction(30);
-    f.setProprete(30);
-    assertTrue(f.getProprete()<f.getSeuilDeRisqueDInfection());
-    int nourriture = f.getNourritureMax()/20+1;
-    f.setNourriture(nourriture);
+    f.setHealth(30);
+    assertTrue(f.getHealth()<f.getSeuilDeRisqueDInfection());
+    int food = f.getMaxFood()/20+1;
+    f.setFood(food);
     f.tour();
     f.endTurn();
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,1),f.getCCase());
-    assertEquals(nourriture - 3 + 300, f.getNourriture());
-    assertTrue(f.getProprete()>f.getSeuilDeRisqueDInfection());
-    assertTrue(i.getEstMort());
+    assertEquals(food - 3 + 300, f.getFood());
+    assertTrue(f.getHealth()>f.getSeuilDeRisqueDInfection());
+    assertTrue(i.getIsDead());
     assertEquals(1,Main.getGc().getCCase(0,1).getContent().getGc().length());
     assertEquals(0,Main.getGc().getCCase(0,0).getContent().getGc().length());
   }
@@ -209,23 +209,23 @@ public class TourReineTest extends TestCaseMuet{
     Fourmi f = ini();
     f.setCCase(0,1);
     Insecte i = new Insecte(Main.getGc().getCCase(0,1),0,100,1);
-    i.setNourritureFournie(300);
+    i.setGivenFood(300);
     f.setAction(50);
-    f.setProprete(30);
-    assertTrue(f.getProprete()<f.getSeuilDeRisqueDInfection());
-    int nourriture = f.getNourritureMax()/20+1;
-    f.setNourriture(nourriture);
+    f.setHealth(30);
+    assertTrue(f.getHealth()<f.getSeuilDeRisqueDInfection());
+    int food = f.getMaxFood()/20+1;
+    f.setFood(food);
     f.tour();
     f.endTurn();
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
-    assertTrue(f.getProprete()>f.getSeuilDeRisqueDInfection());
-    assertTrue(i.getEstMort());
+    assertTrue(f.getHealth()>f.getSeuilDeRisqueDInfection());
+    assertTrue(i.getIsDead());
     assertEquals(0,Main.getGc().getCCase(0,1).getContent().getGc().length());
     assertEquals(2,Main.getGc().getCCase(0,0).getContent().getGc().length());
     assertEquals(1,Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().length());
-    assertEquals(nourriture - 3 + 300 - 12, f.getNourriture());
-    assertEquals(10, Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().getHead().getContent().getNourriture());
+    assertEquals(food - 3 + 300 - 12, f.getFood());
+    assertEquals(10, Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().getHead().getContent().getFood());
   }
   @Test
   public void TestTour5(){
@@ -234,12 +234,12 @@ public class TourReineTest extends TestCaseMuet{
     Fourmi f2 = new Fourmi(f.getFere(),f.getEspece(), (byte) 3, (byte) 0);
     f.getFere().getGc().add(f2);
     Insecte i = new Insecte(Main.getGc().getCCase(0,1),0,100,1);
-    i.setNourritureFournie(300);
+    i.setGivenFood(300);
     f.setAction(50);
-    f.setProprete(30);
-    assertTrue(f.getProprete()<f.getSeuilDeRisqueDInfection());
-    int nourriture = 100; //need to hunt if eat(40) but not if eat(5).
-    f.setNourriture(nourriture);
+    f.setHealth(30);
+    assertTrue(f.getHealth()<f.getSeuilDeRisqueDInfection());
+    int food = 100; //need to hunt if eat(40) but not if eat(5).
+    f.setFood(food);
     f.tour();
     assertEquals(47,f.getAction());
     f.endTurn();
@@ -253,19 +253,19 @@ public class TourReineTest extends TestCaseMuet{
     f2.setAction(0);
     f.getFere().getGc().add(f2);
     Insecte i = new Insecte(Main.getGc().getCCase(0,1),0,100,1);
-    i.setNourritureFournie(300);
+    i.setGivenFood(300);
     f.setAction(20);
-    f.setProprete(30);
-    assertTrue(f.getProprete()<f.getSeuilDeRisqueDInfection());
-    int nourriture = 100; //need to hunt if eat(40) but not if eat(5).
-    f.setNourriture(nourriture);
+    f.setHealth(30);
+    assertTrue(f.getHealth()<f.getSeuilDeRisqueDInfection());
+    int food = 100; //need to hunt if eat(40) but not if eat(5).
+    f.setFood(food);
     f.tour();
     f.endTurn();
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
-    assertEquals(nourriture - 3, f.getNourriture());
-    assertTrue(f.getProprete()>f.getSeuilDeRisqueDInfection());
-    assertTrue(!i.getEstMort());
+    assertEquals(food - 3, f.getFood());
+    assertTrue(f.getHealth()>f.getSeuilDeRisqueDInfection());
+    assertTrue(!i.getIsDead());
     assertEquals(1,Main.getGc().getCCase(0,1).getContent().getGc().length());
     assertEquals(2,Main.getGc().getCCase(0,0).getContent().getGc().length());
     assertEquals(0,Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().length());
@@ -278,19 +278,19 @@ public class TourReineTest extends TestCaseMuet{
     f2.setAction(0);
     f.getFere().getGc().add(f2);
     Insecte i = new Insecte(Main.getGc().getCCase(0,1),0,100,1);
-    i.setNourritureFournie(300);
+    i.setGivenFood(300);
     f.setAction(50);
-    f.setProprete(30);
-    assertTrue(f.getProprete()<f.getSeuilDeRisqueDInfection());
-    int nourriture = 200; //need to hunt if eat(40) but not if eat(5).
-    f.setNourriture(nourriture);
+    f.setHealth(30);
+    assertTrue(f.getHealth()<f.getSeuilDeRisqueDInfection());
+    int food = 200; //need to hunt if eat(40) but not if eat(5).
+    f.setFood(food);
     f.tour();
     f.endTurn();
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
-    assertEquals(nourriture - 3 - (12*5), f.getNourriture());
-    assertTrue(f.getProprete()>f.getSeuilDeRisqueDInfection());
-    assertTrue(!i.getEstMort());
+    assertEquals(food - 3 - (12*5), f.getFood());
+    assertTrue(f.getHealth()>f.getSeuilDeRisqueDInfection());
+    assertTrue(!i.getIsDead());
     assertEquals(1,Main.getGc().getCCase(0,1).getContent().getGc().length());
     assertEquals(7,Main.getGc().getCCase(0,0).getContent().getGc().length());
     assertEquals(5,Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().length());
@@ -304,18 +304,18 @@ public class TourReineTest extends TestCaseMuet{
     assertEquals(25,f.getIndividu().getNétoyage());
     //without action :
     f.setAction(0);
-    f.setNourriture(19);
+    f.setFood(19);
     assertEquals(0,f.getAge());
     assertEquals(0,f.getAction());
-    assertEquals(19,f.getNourriture());
-    assertEquals(100,f.getProprete());
+    assertEquals(19,f.getFood());
+    assertEquals(100,f.getHealth());
     f.tour();
     f.endTurn();
     assertEquals(1,f.getAge());
     assertEquals(0,f.getAction());
-    assertEquals(18,f.getNourriture());
-    assertTrue(f.getPropretéPerdu()!=0);
-    assertEquals(100-f.getPropretéPerdu(),f.getProprete());
+    assertEquals(18,f.getFood());
+    assertTrue(f.getHealthPerdu()!=0);
+    assertEquals(100-f.getHealthPerdu(),f.getHealth());
 
     f.setAction(0);
     f.setTypeF((byte)0);
@@ -324,6 +324,6 @@ public class TourReineTest extends TestCaseMuet{
     f.endTurn();
     assertEquals(2,f.getAge());
     assertEquals(0,f.getAction());
-    assertEquals(15,f.getNourriture());
+    assertEquals(15,f.getFood());
   }
 }

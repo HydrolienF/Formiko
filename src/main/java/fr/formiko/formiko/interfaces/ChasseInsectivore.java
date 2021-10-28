@@ -44,7 +44,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
     }else if (proieVisible.getHead() != null){ // Si il y a un insecte a coté
       CCase pointDeLaProie = proieVisible.getFirst().getCCase();
       if (Main.getDifficulté() >= 1 || (c instanceof Fourmi && c.getIa()==false)){ // en normal les ia chasse les insectes les plus intéressants sur la case ou elle sont.
-        pointDeLaProie = proieVisible.getInsectePlusDeNourritureFournie().getCCase();
+        pointDeLaProie = proieVisible.getInsectePlusDeGivenFood().getCCase();
       }
       debug.débogage(g.getM("laFourmi")+" " + c.getId()+ " "+g.get("ChasseInsectivore.1")+" " + pointDeLaProie.getPoint());
       c.ceDeplacer(pointDeLaProie);
@@ -67,11 +67,11 @@ public class ChasseInsectivore implements Serializable, Chasse {
     //chasse
     Case pointActuel = c.getCCase().getContent();
     GInsecte gi = pointActuel.getGi();
-    debug.débogage("Chasse : action = "+c.getAction() + "actionMax = "+c.getActionMax());
+    debug.débogage("Chasse : action = "+c.getAction() + "maxAction = "+c.getMaxAction());
     if (gi.getHead() != null) { // sous forme de str I+id
       Insecte insecteTue;
       if (Main.getDifficulté() >= 0 || ((c instanceof Fourmi) && ((Fourmi)c).getFere().getJoueur().getIa()==false)){ // en normal les ia chasse les insectes les plus intéressants sur la case ou elle sont.
-        insecteTue = gi.getInsectePlusDeNourritureFournie();
+        insecteTue = gi.getInsectePlusDeGivenFood();
       }else{
         insecteTue = gi.getFirst();
       }
@@ -98,12 +98,12 @@ public class ChasseInsectivore implements Serializable, Chasse {
    * @version 1.1
    */
   public boolean tuer(Insecte insecteTue){
-    if (!insecteTue.getEstMort()){
+    if (!insecteTue.getIsDead()){
       Message m = new Message(g.getOr("la","le")+" "+c.getNom()+" "+ c.getId()+" "+g.get("chasseInsectivore.2")+" " + insecteTue.getId(), ((Fourmi) c).getFourmiliere().getId(),2);
       if(c instanceof Fourmi){
         Main.setPlayingAnt((Fourmi)(c)); //to refrech playingant info
       }
-      insecteTue.setEstMort(true);
+      insecteTue.setIsDead(true);
       setActionMoins(c);
       return true;
     }else{
@@ -122,13 +122,13 @@ public class ChasseInsectivore implements Serializable, Chasse {
     if(c instanceof Fourmi){
       Main.setPlayingAnt((Fourmi)(c)); //to refrech playingant info
     }
-    int nourriture = math.min(insecteTue.getNourritureFournie(),c.getNourritureMax()-c.getNourriture());
-    if (insecteTue.getNourritureFournie()==nourriture){
+    int food = math.min(insecteTue.getGivenFood(),c.getMaxFood()-c.getFood());
+    if (insecteTue.getGivenFood()==food){
       insecteTue.supprimerDeLaCarte();
     }else{
-      insecteTue.setNourritureFournie(insecteTue.getNourritureFournie()-nourriture);
+      insecteTue.setGivenFood(insecteTue.getGivenFood()-food);
     }
-    c.ajouteNourriture(nourriture);
+    c.ajouteFood(food);
     setActionMoins(c);
     return true;
   }

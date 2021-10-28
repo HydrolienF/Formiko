@@ -40,11 +40,11 @@ public class GInsecte extends Liste<Insecte> implements Serializable{
   *{@summary return the Insecte that can give the most food.}<br>
   *@version 2.2
   */
-  public Insecte getInsectePlusDeNourritureFournie(){
+  public Insecte getInsectePlusDeGivenFood(){
     if(getHead()==null){return null;}
     Insecte inr = getFirst();
     for (Insecte in : this) {
-      if (in.getNourritureFournie() > inr.getNourritureFournie()){
+      if (in.getGivenFood() > inr.getGivenFood()){
         inr = in;
       }
     }
@@ -68,7 +68,7 @@ public class GInsecte extends Liste<Insecte> implements Serializable{
   // public void addM(int nbrOfInsect){
   //   for (int i=0; i<nbrOfInsect; i++) {
   //     Insecte in = new Insecte();
-  //     in.setEstMort(true);
+  //     in.setIsDead(true);
   //     add(in);
   //   }
   // }
@@ -97,7 +97,7 @@ public class GInsecte extends Liste<Insecte> implements Serializable{
   public GInsecte getGiVivant(){
     GInsecte gir = new GInsecte();
     for (Insecte in : this) {
-      if(!in.getEstMort()){
+      if(!in.getIsDead()){
         gir.add(in);
       }
     }

@@ -362,8 +362,8 @@ public class Partie implements Serializable{
     fere.setCc(ccIni);
     fere.getGc().getHead().getContent().setCCase(ccIni);
     Insecte i = new Insecte(Main.getPartie().getGc().getCCase(1,1),0,100,0);
-    i.setNourritureFournie(200);
-    i.setEstMort(false);
+    i.setGivenFood(200);
+    i.setIsDead(false);
     i.setType(8);
     getGi().add(i);
     // ths.start();

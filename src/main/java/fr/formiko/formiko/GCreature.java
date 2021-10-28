@@ -118,7 +118,7 @@ public class GCreature implements Serializable{//, Iterator{
     // on garde le premier sale :
     while (gcr.getHead() != null){
       Fourmi fTest = (Fourmi) gcr.getHead().getContent();
-      if (fTest.getPropreté() < 90) {
+      if (fTest.getHealth() < 90) {
         gcr.remove(gcr.getHead().getContent());
       }else{
         break;
@@ -220,14 +220,14 @@ public class GCreature implements Serializable{//, Iterator{
   *@version 2.10
   */
   public GCreature filterFaimMax(){
-    return new GCreature(toList().filter(c -> c.getNourriture()<c.getNourritureMax()));
+    return new GCreature(toList().filter(c -> c.getFood()<c.getMaxFood()));
   }
   /**
   *{@summary delete Creature that can't be cleaner.}<br>
   *@version 2.10
   */
-  public GCreature filterPropreteMax(){
-    return new GCreature(toList().filter(c -> c.getProprete()<c.getPropreteMax()));
+  public GCreature filterHealthMax(){
+    return new GCreature(toList().filter(c -> c.getHealth()<c.getMaxHealth()));
   }
   /**
   *{@summary delete Creature that didn't whant food.}<br>
@@ -484,7 +484,7 @@ public class GCreature implements Serializable{//, Iterator{
   public void classerPourNetoyage(){
     if (début==null){ return;}
     //TODO
-    //le but est d'habord que personne ne passe en dessous des x de propretée minimum lié au niveau de difficulté.
+    //le but est d'habord que personne ne passe en dessous des x de healthe minimum lié au niveau de difficulté.
     //on met tout ce qui sont en dessous de 50 dans l'ordre d'age/stade.
     //et on ajoute ceux qui sont après dans l'ordre de saleté.
   }

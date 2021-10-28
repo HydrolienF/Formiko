@@ -27,26 +27,26 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
    *If the trophallaxis work well it will cost action to the 2 creatures.
    *@param c The trophallaxing Creature.
    *@param c2 The target of the trophallaxie.
-   *@param nourritureDonnée The amount of food transferred.
+   *@param foodDonnée The amount of food transferred.
    *@version 1.3
    */
-  public void trophallaxie(Creature c, Creature c2, int nourritureDonnée){
+  public void trophallaxie(Creature c, Creature c2, int foodDonnée){
     if (c==null || c2 == null){ erreur.alerte("Une des créatures impliqués dans la Trophalaxie n'as pas pue être trouvé");return;}
-    if (nourritureDonnée < 1){ erreur.alerte("Impossible de trophallaxer une quantité négtive ou nul de nourriture"); return;}
-    debug.débogage("Trophallaxie de "+nourritureDonnée+ " souhaité, de "+c.getId()+" vers "+c2.getId());
-    debug.débogage("Lancement de la trophallaxie de la créature "+c.getId()+" vers la créature "+c2.getId() +" transfère de "+nourritureDonnée +" voulu");
+    if (foodDonnée < 1){ erreur.alerte("Impossible de trophallaxer une quantité négtive ou nul de food"); return;}
+    debug.débogage("Trophallaxie de "+foodDonnée+ " souhaité, de "+c.getId()+" vers "+c2.getId());
+    debug.débogage("Lancement de la trophallaxie de la créature "+c.getId()+" vers la créature "+c2.getId() +" transfère de "+foodDonnée +" voulu");
     if(!(c instanceof Fourmi)){erreur.alerte("Impossible de trophallaxer depuis une créature qui n'est pas une Fourmi");return;}
     Fourmi f1 = (Fourmi) c;
-    if (f1.getNourriture() < nourritureDonnée){ // si f1 donne trop
-      erreur.erreur("Une fourmi a voulu donnée plus de nourriture que ce qu'elle a","Elle ne donnera que la moitié de sa nourriture par mesure de précaution");
-      nourritureDonnée = f1.getNourriture()/2;
+    if (f1.getFood() < foodDonnée){ // si f1 donne trop
+      erreur.erreur("Une fourmi a voulu donnée plus de food que ce qu'elle a","Elle ne donnera que la moitié de sa food par mesure de précaution");
+      foodDonnée = f1.getFood()/2;
     }
-    if ((c2.getNourritureMax() - c2.getNourriture()) < nourritureDonnée){ // si c2 ne peu pas tt recevoir
-      nourritureDonnée = c2.getNourritureMax() - c2.getNourriture();
+    if ((c2.getMaxFood() - c2.getFood()) < foodDonnée){ // si c2 ne peu pas tt recevoir
+      foodDonnée = c2.getMaxFood() - c2.getFood();
     }
-    f1.setNourriture(f1.getNourriture()-nourritureDonnée);
-    c2.setNourriture(c2.getNourriture()+nourritureDonnée);
-    if(nourritureDonnée>0){
+    f1.setFood(f1.getFood()-foodDonnée);
+    c2.setFood(c2.getFood()+foodDonnée);
+    if(foodDonnée>0){
       f1.setActionMoins(f1.getEspece().getGIndividu().getIndividuByType(((Fourmi) c).getTypeF()).getCoutTrophallaxie());
       if(c2 instanceof Fourmi){
         c2.setActionMoins(f1.getEspece().getGIndividu().getIndividuByType(((Fourmi) c).getTypeF()).getCoutTrophallaxie());
@@ -54,16 +54,16 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
         c2.setActionMoins(1);
       }
     }
-    debug.débogage("Trophallaxie de "+nourritureDonnée+ " éffectuée");
+    debug.débogage("Trophallaxie de "+foodDonnée+ " éffectuée");
   }
   /**
    *{@summary do a trophallaxis to an id}<br>
    *@param id The target Creature to fined on the Case.
    *@version 1.3
    */
-  public void trophallaxie(Creature c, int id, int nourritureDonnée){
+  public void trophallaxie(Creature c, int id, int foodDonnée){
     debug.débogage("Recherche de la créature "+id+" sur la case "+c.getCCase().getContent().toString());
-    trophallaxie(c,c.getCCase().getContent().getGc().getCreatureParId(id), nourritureDonnée);
+    trophallaxie(c,c.getCCase().getContent().getGc().getCreatureParId(id), foodDonnée);
   }
   /**
    *{@summary player trophallaxis}<br>
@@ -91,7 +91,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
         String sTemp = "";
         if(cTemp instanceof Fourmi){sTemp = " ("+((Fourmi)(cTemp)).getStringStade()+")";}
         else {sTemp = " ("+cTemp.getNom()+")";}
-        s[i]=t[i]+" : "+cTemp.getNourriture()+"/"+cTemp.getNourritureMax()+" "+g.get("nourriture")+sTemp;
+        s[i]=t[i]+" : "+cTemp.getFood()+"/"+cTemp.getMaxFood()+" "+g.get("food")+sTemp;
       }
       int id2;
       if(t.length==1){
@@ -104,10 +104,10 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
           return;
         }
       }
-      //quantité de nourriture échangé.
+      //quantité de food échangé.
       Creature c2 = f.getCCase().getContent().getGc().getCreatureParId(id2);
-      int nour = math.min(c2.getNourritureMax()-c2.getNourriture(),f.getNourriture());
-      if(nour<1){erreur.alerte("Impossible de donner 0 nourriture");return;}
+      int nour = math.min(c2.getMaxFood()-c2.getFood(),f.getFood());
+      if(nour<1){erreur.alerte("Impossible de donner 0 food");return;}
       t = new int [nour];
       for (int i=0;i<nour ;i++ ) {
         t[i]=i+1;
@@ -132,7 +132,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
     //on compte le nombre de fourmi a nourrir.
     for (int i=0;i<lent ;i++ ) {
       Creature c = gc.getCreatureParId(t[i]);
-      if(c!=null && c.getNourriture()!=c.getNourritureMax()){
+      if(c!=null && c.getFood()!=c.getMaxFood()){
         lentr++;
       }
     }
@@ -140,7 +140,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
     int tr[] = new int[lentr];int k=0;
     for (int i=0;i<lent ;i++ ) {
       Creature c = gc.getCreatureParId(t[i]);
-      if(c!=null && c.getNourriture()!=c.getNourritureMax()){
+      if(c!=null && c.getFood()!=c.getMaxFood()){
         tr[k] = t[i];k++;
       }
     }
