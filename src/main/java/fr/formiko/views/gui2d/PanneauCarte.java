@@ -63,6 +63,7 @@ public class PanneauCarte extends Panneau {
   private Map<Integer,Point> hashMapMovingObjectSurCarteAidRotation;
   // private SubPanel subPanel;
   private static Comparator<Creature> imageSizeComparator = (Creature p1, Creature p2) -> (int)(p1.getEspece().getTaille(p1.getStade()) - p2.getEspece().getTaille(p2.getStade()));
+  private BufferedImage iconImage;
 
   // CONSTRUCTORS --------------------------------------------------------------
   public PanneauCarte(){
@@ -149,9 +150,15 @@ public class PanneauCarte extends Panneau {
         erreur.erreur("impossible d'afficher l'arrière plan de la carte");
       }
       dessinerGrille(g);
-      for (int i=0;i<xCase ;i++ ) {
-        for (int j=0;j<yCase ;j++ ) {
+      iconImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+      for (int i=0; i<xCase; i++) {
+        for (int j=0; j<yCase; j++) {
           peintImagePourCase(gc,i,j,g);
+        }
+      }
+      if (Main.getDessinerIcone()){
+        if(iconImage!=null){
+          drawImage(g, iconImage, 0, 0);
         }
       }
       drawPlayingAnt(g);
@@ -265,6 +272,10 @@ public class PanneauCarte extends Panneau {
     if(peintCaseNuageuse(x,y,g,xT,yT)){return;}//si la case est nuageuse, on n'affichera rien d'autre dessus.
     byte ty = c.getType();
     CGraine ccg = c.getGg().getHead();
+    Graphics gIcon=null;
+    if(iconImage!=null){
+      gIcon = iconImage.getGraphics();
+    }
     try {
       int tC10 = Main.getData().getTailleDUneCase()/10;int tC4 = Main.getData().getTailleDUneCase()/4;int tC2 = Main.getData().getTailleDUneCase()/2;
       // anthill
@@ -348,6 +359,9 @@ public class PanneauCarte extends Panneau {
           //icons
           //TODO #43 & #45 do a list of iconRelation & iconState for the Case & print slice of it.
           listIconsRelation.add(getIconImage(cr, fi));
+          if(cr.getEstAllié(fi)){
+            listIconsState.add(getStatesIconsImages(cr));
+          }
           // drawIcon(g,getIconImage(cr, fi),xT,yT,tC2,kIcon++,cptIcon);
           // if (!getIa() && playingJoueur().equals(c.getJoueur()))
           // listIconsState.add()...
@@ -355,8 +369,8 @@ public class PanneauCarte extends Panneau {
         //draw icons
         //TODO Icon are print in 2 heap next from each other
         if (Main.getDessinerIcone()){
-          drawListIcons(g, listIconsRelation, xT, yT, tC2);
-          drawListIcons(g, listIconsState, xT, yT, 0);
+          drawListIcons(gIcon, listIconsRelation, xT, yT, tC2);
+          drawListIcons(gIcon, listIconsState, xT, yT, 0);
         }
       }
     }catch (Exception e) {
@@ -611,6 +625,20 @@ public class PanneauCarte extends Panneau {
   */
   public BufferedImage getIconImage(int id){
     return Main.getData().getB()[id];
+  }
+  /**
+  *{@summary Return the states icons images.}<br>
+  *@version 2.10
+  */
+  public Liste<BufferedImage> getStatesIconsImages(Creature cr){
+    int minPrintState = 1; // between 1 & 4 (3= only red state).
+    Liste<BufferedImage> list = new Liste<BufferedImage>();
+    int state = cr.getStateFood();
+    if(state>=minPrintState){
+      Color c = Main.getData().getButtonColor(state);
+      //TODO create icon with a full c round + icon corresponding to food
+    }
+    return list;
   }
 
   public int getDir(ObjetSurCarteAId obj){

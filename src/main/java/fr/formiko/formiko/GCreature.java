@@ -213,7 +213,7 @@ public class GCreature implements Serializable{//, Iterator{
   */
   public GCreature filterAlliés(Creature c){
     int x=0; if(c.getEspece()!=null && c.getEspece().getPolycalique()){x=5;}// en théorie 4 suffisent.
-    return filterAlliés(c,x);
+    return filterAlliés(c,c.getPheromoneTolerence());
   }
   /**
   *{@summary delete Creature that can't eat more.}<br>
