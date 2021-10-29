@@ -375,7 +375,6 @@ public class PanneauCarte extends Panneau {
       }
     }catch (Exception e) {
       erreur.erreur("impossible de dessiner l'image de la Case : "+x+" "+y);
-      e.printStackTrace();//@a
     }
   }
   /**
@@ -646,7 +645,6 @@ public class PanneauCarte extends Panneau {
   public Liste<BufferedImage> getStatesIconsImages(Creature cr){
     int minPrintState = 1; // between 1 & 4 (3= only red state).
     Liste<BufferedImage> list = new Liste<BufferedImage>();
-    System.out.println();//@a
     int state = cr.getStateFood();
     if(tBiState==null){iniTBiState();}
     if(state>=minPrintState){
@@ -664,10 +662,8 @@ public class PanneauCarte extends Panneau {
   *@version 2.10
   */
   public BufferedImage getStateIconImage(Color col, BufferedImage icon){
-    System.out.println("col : "+col);//@a
-    int caseSize = getTailleDUneCase();
-    BufferedImage ir = new BufferedImage(caseSize, caseSize, BufferedImage.TYPE_INT_ARGB);
     int iconSize = getTailleIcon();
+    BufferedImage ir = new BufferedImage(iconSize, iconSize, BufferedImage.TYPE_INT_ARGB);
     Graphics g = ir.getGraphics();
     g.setColor(col);
     g.fillOval(0,0,iconSize, iconSize);
