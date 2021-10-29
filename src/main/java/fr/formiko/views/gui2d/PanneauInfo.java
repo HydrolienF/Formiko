@@ -11,7 +11,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 /**
-*{@summary Pannel that containt infos as a List of Pannel.}<br>
+*{@summary Panel that containt infos as a List of Panel.}<br>
 *@author Hydrolien
 *@version 2.7
 */

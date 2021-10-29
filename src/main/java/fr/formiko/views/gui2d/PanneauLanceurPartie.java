@@ -7,9 +7,21 @@ import fr.formiko.usuel.g;
 
 import java.awt.Graphics;
 
+/**
+*{@summary A partie launcher Panel.}<br>
+*It have a big "launch game" button.
+*@author Hydrolien
+*@version 1.x
+*/
 public abstract class PanneauLanceurPartie extends Panneau{
   private BoutonLong launchButton;
   // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor.}<br>
+  *It only build a launch button &#38; place it.
+  *@param ac action of the launch button
+  *@version 1.x
+  */
   public PanneauLanceurPartie(int ac){
     this.setLayout(null);
     launchButton = new BoutonLong(g.getM("lancerPartie"),getView().getPm(),ac);

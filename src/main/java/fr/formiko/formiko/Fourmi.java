@@ -36,7 +36,7 @@ public class Fourmi extends Creature implements Serializable{
   private static byte uneSeuleAction=-1;
   private static boolean bActionHaveChange=false;
   // private static boolean bActualiserTaille=false;
-  protected boolean ailesCoupees=true;
+  protected boolean cutWings=true;
 
   // CONSTRUCTORS --------------------------------------------------------------
   /**
@@ -150,10 +150,10 @@ public class Fourmi extends Creature implements Serializable{
   @Override
   public boolean getHaveWings(){
     if(!e.getHaveWings() || getTypeF() > 1){return false;}//si l'espece ne vole pas ou si le type n'est pas male ou reine.
-    return !getAilesCoupees();//true si les ailes ne sont pas coupée.
+    return !getCutWings();//true si les ailes ne sont pas coupée.
   }
-  public boolean getAilesCoupees(){return ailesCoupees;}
-  public void setAilesCoupees(boolean b){ailesCoupees=b;}
+  public boolean getCutWings(){return cutWings;}
+  public void setCutWings(boolean b){cutWings=b;}
   //static
   public static byte getUneSeuleAction(){return uneSeuleAction;}
   public static void setUneSeuleAction(int x){uneSeuleAction=(byte)x;setBActionHaveChange(true);}public static void setUneSeuleAction(){setUneSeuleAction(-1);}

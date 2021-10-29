@@ -20,7 +20,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 
 /**
-*{@summary Pannel that containt infos about a Creature as a List of Pannel.}<br>
+*{@summary Panel that containt infos about a Creature as a List of Panel.}<br>
 *@author Hydrolien
 *@version 2.7
 */
@@ -59,7 +59,7 @@ public class PanneauInfoCreature extends PanneauInfo {
       return this;
     }
     /**
-    *{@summary Build including the tranfomation of Creature to Pannel.}<br>
+    *{@summary Build including the tranfomation of Creature to Panel.}<br>
     *Creature are represent as icon &#38; FProgressBar.
     *@version 2.7
     */
@@ -148,7 +148,7 @@ public class PanneauInfoCreature extends PanneauInfo {
 }
 // SUB-CLASS -----------------------------------------------------------------
 /**
-*{@summary Pannel that containt a FProgressBar &#38; an icon.}<br>
+*{@summary Panel that containt a FProgressBar &#38; an icon.}<br>
 *@author Hydrolien
 *@version 2.7
 */
@@ -241,7 +241,7 @@ class PanneauProgressBar extends Panneau {
   }
 }
 /**
-*{@summary Pannel that containt the creature icons.}<br>
+*{@summary Panel that containt the creature icons.}<br>
 *@author Hydrolien
 *@version 2.7
 */

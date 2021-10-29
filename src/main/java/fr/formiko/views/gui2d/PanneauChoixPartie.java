@@ -12,7 +12,12 @@ import fr.formiko.usuel.sauvegarderUnePartie;
 import java.awt.Graphics;
 import java.io.File;
 
-public class PanneauChoixPartie extends PanneauLanceurPartie{
+/**
+*{@summary A partie launcher Panel from a save.}<br>
+*@author Hydrolien
+*@version 1.x
+*/
+public class PanneauChoixPartie extends PanneauLanceurPartie {
   private EtiquetteChoix ePartie;
 
   // CONSTRUCTORS --------------------------------------------------------------

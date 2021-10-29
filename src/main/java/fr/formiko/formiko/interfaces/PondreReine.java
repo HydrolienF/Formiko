@@ -71,7 +71,7 @@ public class PondreReine implements Serializable, Pondre{
       Message m = new Message(g.getM("la")+" "+f.getNom()+" "+fm.getId() + " "+g.get("pondreReine.1")+".", fere.getId(), 3);
       Main.setPlayingAnt(f); //to refrech playingant info
       f.setActionMoins(f.getIndividu().getCoutPondre());
-      f.setAilesCoupees(true);//une reine qui pond n'as plus d'ailes.
+      f.setCutWings(true);//une reine qui pond n'as plus d'ailes.
       // Main.getView().; //TODO
     }
   }
