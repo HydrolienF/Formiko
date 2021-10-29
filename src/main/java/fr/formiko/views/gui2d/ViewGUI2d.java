@@ -49,8 +49,8 @@ public class ViewGUI2d implements View {
   public FFrameLauncher getFl(){return fl;}
   public PanneauPrincipal getPp(){ try{return getF().getPp();}catch (NullPointerException e) {return null;}}
 
-  public PanneauJeu getPj(){ return getPp().getPj();}
-  public PanneauMenu getPm(){ return getPp().getPm();}
+  public PanneauJeu getPj(){ if(getPp()!=null){return getPp().getPj();}else{return null;}}
+  public PanneauMenu getPm(){ if(getPp()!=null){return getPp().getPm();}else{return null;}}
   public PanneauNouvellePartie getPnp(){ try{return getPm().getPnp();}catch (NullPointerException e){return null;}}
   public PanneauChoixPartie getPcp(){ try{return getPm().getPcp();}catch (NullPointerException e){return null;}}
   public PanneauBouton getPb(){ try{return getPj().getPb();}catch (NullPointerException e){return null;}}
@@ -144,8 +144,10 @@ public class ViewGUI2d implements View {
     Main.stopScript();
     if(Main.getPremierePartie()){
       getPm().askLanguage();
-    }else{
+    }else if(Main.getOpenMenuFirst()){
       getPm().buildPanneauMenu(3,0);
+    }else{
+      getPm().setLancer(true);
     }
     paint();
     if(needToWaitForGameLaunch){
@@ -240,7 +242,7 @@ public class ViewGUI2d implements View {
     String s = g.get("chargementFini");
     if (debug.getAffLesPerformances()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
     Main.setMessageChargement(s);
-    if(!Main.getOp().getAttendreAprèsLeChargementDeLaCarte() || Main.getPremierePartie()){
+    if(!Main.getOp().getAttendreAprèsLeChargementDeLaCarte() || Main.getPremierePartie() || !Main.getOpenMenuFirst()){
       closePanneauChargement();
       paint();
     }else{
@@ -507,7 +509,10 @@ public class ViewGUI2d implements View {
   public synchronized void waitForGameLaunch(){
     // if(!Main.getPremierePartie()){
     boolean b=false;
-    while(!b){Temps.pause(10);b=getPm().getLancer();}
+    while(!b){
+      Temps.pause(10);
+      b=getPm().getLancer();
+    }
     actionGame();
   }
   /**
@@ -586,7 +591,7 @@ public class ViewGUI2d implements View {
   *@version 2.6
   */
   private void loadGraphics(){
-    if(Main.getPremierePartie()){ini.initialiserPanneauJeuEtDépendance();}
+    if(Main.getPremierePartie() || !Main.getOpenMenuFirst()){ini.initialiserPanneauJeuEtDépendance();}
     else{
       Th thTemp = new Th(1);
       thTemp.start();

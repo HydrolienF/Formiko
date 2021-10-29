@@ -2,9 +2,9 @@ package fr.formiko.formiko;
 
 import fr.formiko.usuel.*;
 import fr.formiko.usuel.images.*;
-import fr.formiko.usuel.structures.listes.*;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.media.audio.MusicPlayer;
+import fr.formiko.usuel.structures.listes.*;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.View;
 import fr.formiko.views.ViewCLI;
@@ -13,6 +13,7 @@ import fr.formiko.views.gui2d.*;
 
 import java.awt.Font;
 import java.io.File;
+// import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
@@ -75,6 +76,9 @@ public class Main {
   private static MusicPlayer mp;
 
   private static boolean needToInitialize; //TODO OP use to avoid using op==null
+  private static boolean openMenuFirst;
+  public static boolean getOpenMenuFirst(){return openMenuFirst;}
+  public static void dontOpenMenuFirst(){openMenuFirst=false;}
 
   /**
    * {@summary Lauch the game.}<br>
@@ -91,6 +95,7 @@ public class Main {
     debug.setAffLesEtapesDeRésolution(false);
     debug.setAffLesPerformances(false);
     debug.setAffG(false);
+    openMenuFirst=true;
     //iniThings that can't be null :
     // view = new ViewNull();
     // os = new Os();
@@ -130,6 +135,7 @@ public class Main {
           erreur.alerte("Window can not be dispose.");
         }
         setRetournerAuMenu(false);
+        openMenuFirst=true;
         op=null;//force la réinitialisation de tout.
         image.clearPartielTemporaire();
       }
