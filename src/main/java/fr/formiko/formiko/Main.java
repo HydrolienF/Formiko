@@ -77,8 +77,6 @@ public class Main {
 
   private static boolean needToInitialize; //TODO OP use to avoid using op==null
   private static boolean openMenuFirst;
-  public static boolean getOpenMenuFirst(){return openMenuFirst;}
-  public static void dontOpenMenuFirst(){openMenuFirst=false;}
 
   /**
    * {@summary Lauch the game.}<br>
@@ -290,6 +288,9 @@ public class Main {
   public static Carte getCarte(){ return getMap();}
   public static double getVitesseDeJeu(){return pa.getVitesseDeJeu();}
   public static GEspece getGe(){return pa.getGe();}
+
+  public static boolean getOpenMenuFirst(){return openMenuFirst;}
+  public static void dontOpenMenuFirst(){openMenuFirst=false;}
   // Fonctions propre -------------------------------------------------
   /**
    * Initializes Options, key, language, time data, musique, os value. And check the integrity of the file tree.
