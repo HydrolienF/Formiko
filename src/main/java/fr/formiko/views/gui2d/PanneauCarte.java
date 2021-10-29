@@ -643,7 +643,7 @@ public class PanneauCarte extends Panneau {
   *@version 2.10
   */
   public Liste<BufferedImage> getStatesIconsImages(Creature cr){
-    int minPrintState = 1; // between 1 & 4 (3= only red state).
+    int minPrintState = 1; // between 0 & 4 (3= only red state, 0=all).
     Liste<BufferedImage> list = new Liste<BufferedImage>();
     int state = cr.getStateFood();
     if(tBiState==null){iniTBiState();}
@@ -653,6 +653,13 @@ public class PanneauCarte extends Panneau {
     state = cr.getStateHealth();
     if(state>=minPrintState){
       list.add(getStateIconImage(Main.getData().getButtonColor(state),tBiState[1]));
+    }
+    if(cr.getAge() >= cr.getMaxAge()){
+      state = 7;
+      if(cr.getStade()==0){state = 3;}
+      if(state%6>=minPrintState){ //state 7 = state 0 in priority.
+        list.add(getStateIconImage(Main.getData().getButtonColor(state),tBiState[2]));
+      }
     }
     return list;
   }
@@ -736,9 +743,10 @@ public class PanneauCarte extends Panneau {
     }
   }
   public void iniTBiState(){
-    tBiState = new BufferedImage[2];
+    tBiState = new BufferedImage[3];
     tBiState[0] = Main.getData().getIconImage("food");
     tBiState[1] = Main.getData().getIconImage("health");
+    tBiState[2] = Main.getData().getIconImage("age");
     int size = (int)(getTailleIcon()*0.8);
     for (int i=0; i<tBiState.length; i++) {
       tBiState[i] = image.resize(tBiState[i],size,size);

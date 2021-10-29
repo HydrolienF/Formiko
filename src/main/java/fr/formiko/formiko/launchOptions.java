@@ -80,7 +80,7 @@ public class launchOptions {
       Main.dontOpenMenuFirst();
       break;
       case "ld":
-      case "launchDefaultGame"
+      case "launchDefaultGame":
       Main.dontOpenMenuFirst();
       break;
       default:

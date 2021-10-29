@@ -151,7 +151,7 @@ public class Data {
   *@version 2.7
   */
   public void iniTButtonColor(){
-    lenTButtonColor=7;
+    lenTButtonColor=8;
     tButtonColor = new Color[lenTButtonColor];
     tButtonColor[0]=new Color(81, 252, 0);//green
     tButtonColor[1]=Color.YELLOW;
@@ -160,6 +160,7 @@ public class Data {
     tButtonColor[4]=Color.WHITE;
     tButtonColor[5]=new Color(56, 56, 56);//grey
     tButtonColor[6]=Color.BLACK;
+    tButtonColor[7]=Color.BLUE;
   }
   /**
   *{@summary Return the Image that fit to a Creature.}
