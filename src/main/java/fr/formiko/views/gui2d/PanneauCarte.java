@@ -578,8 +578,8 @@ public class PanneauCarte extends Panneau {
     if(replaceColorByImage){
       int w = biIn.getWidth();
       int h = biIn.getHeight();
-      for (int i=0;i<w ;i++ ) {
-        for (int j=0;j<h ;j++ ) {
+      for (int i=0; i<w; i++) {
+        for (int j=0; j<h; j++) {
           if(biOut.getRGB(i,j)==colorValue){
             biOut.setRGB(i,j,biIn.getRGB(i,j));
           }
