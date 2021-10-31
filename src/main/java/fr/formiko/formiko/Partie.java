@@ -175,10 +175,10 @@ public class Partie implements Serializable{
       //TODO #473 use fully anthillAlreadySet
       boolean anthillAlreadySet = true;
       if(anthillAlreadySet){
-        for (Joueur j : gj) {
-          for (Fourmi f : j) {
-            if(f.estReine()){
-              f.setCutWings(true);
+        for (Joueur j : gj.toList()) {
+          for (Creature c : j.getFere().getGc().toList()) {
+            if(c instanceof Fourmi || ((Fourmi)(c)).estReine()){
+              ((Fourmi)(c)).setCutWings(true);
             }
           }
         }
