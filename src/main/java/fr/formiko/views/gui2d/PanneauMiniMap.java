@@ -24,8 +24,8 @@ public class PanneauMiniMap extends Panneau {
   */
   public PanneauMiniMap() {
     super();
-    setSize(200,200);
-    // setSize(Main.getTailleElementGraphiqueX(400), Main.getTailleElementGraphiqueY(250));
+    int x=25;
+    setSize(Main.getTailleElementGraphique(16*x),Main.getTailleElementGraphique(9*x));
     FBorder fBorder = new FBorder();
     fBorder.setColor(Main.getData().getButonBorderColor());
     setBorder(fBorder);
