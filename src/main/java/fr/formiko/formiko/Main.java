@@ -250,11 +250,11 @@ public class Main {
   public static int getTailleBoutonAction(){return getOp().getTailleBoutonAction();}
   public static int getTailleBoutonTX(){return getOp().getTailleBoutonTX();}
   public static int getNbrMessageAfficher(){ return getOp().getNbrMessageAfficher();}
-  public static boolean getDessinerGrille(){ return getOp().getDessinerGrille();}
+  public static boolean getDrawGrid(){ return getOp().getDrawGrid();}
   public static boolean getElementSurCarteOrientéAprèsDéplacement(){ return getOp().getElementSurCarteOrientéAprèsDéplacement();}
   public static boolean getForcerQuitter(){ return getOp().getForcerQuitter();}
   public static byte getBordureBouton(){ return getOp().getBordureBouton();}
-  public static boolean getDessinerIcone(){return getOp().getDessinerIcone();}
+  public static boolean getDrawRelationsIcons(){return getOp().getDrawRelationsIcons();}
   public static Font getFont1(){ return getOp().getFont1();}
   public static Font getFont1(double d){ return getOp().getFont1(d);}
   public static void setFont1(Font f){ getOp().setFont1(f);}

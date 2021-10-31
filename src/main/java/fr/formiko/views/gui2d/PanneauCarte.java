@@ -158,7 +158,7 @@ public class PanneauCarte extends Panneau {
           peintImagePourCase(gc,i,j,g);
         }
       }
-      if (Main.getDessinerIcone()){
+      if (Main.getDrawRelationsIcons() || Main.getOp().getDrawStatesIconsLevel()<4){
         if(iconImage!=null){
           drawImage(g, iconImage, 0, 0);
         }
@@ -174,7 +174,7 @@ public class PanneauCarte extends Panneau {
   *@version 1.x
   */
   public void dessinerGrille(Graphics g){
-    if(Main.getDessinerGrille()){
+    if(Main.getDrawGrid()){
       int tailleCase = getTailleDUneCase();
       for (int i=0;i<xCase+1 ;i++ ) {
         int xT = tailleCase*i;
@@ -360,7 +360,7 @@ public class PanneauCarte extends Panneau {
           }
           //icons
           listIconsRelation.add(getIconImage(cr, fi));
-          if(cr.getEstAllié(fi)){
+          if(cr.getEstAllié(fi) && Main.getOp().getDrawStatesIconsLevel()<4){
             listIconsState.add(getStatesIconsImages(cr));
           }
           // drawIcon(g,getIconImage(cr, fi),xT,yT,tC2,kIcon++,cptIcon);
@@ -368,8 +368,10 @@ public class PanneauCarte extends Panneau {
           // listIconsState.add()...
         }
         //draw icons
-        if (Main.getDessinerIcone()){
+        if (Main.getDrawRelationsIcons()){
           drawListIcons(gIcon, listIconsRelation, xT, yT, getTailleDUneCase()-getTailleIcon());
+        }
+        if (Main.getOp().getDrawStatesIconsLevel()<4) {
           drawListIcons(gIcon, listIconsState, xT, yT, 0);
         }
       }
@@ -643,7 +645,7 @@ public class PanneauCarte extends Panneau {
   *@version 2.10
   */
   public Liste<BufferedImage> getStatesIconsImages(Creature cr){
-    int minPrintState = 1; // between 0 & 4 (3= only red state, 0=all).
+    int minPrintState = Main.getOp().getDrawStatesIconsLevel(); // between 0 & 4 (3= only red state, 0=all).
     Liste<BufferedImage> list = new Liste<BufferedImage>();
     int state = cr.getStateFood();
     if(tBiState==null){iniTBiState();}

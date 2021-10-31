@@ -6,11 +6,13 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.structures.listes.Liste;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 
 /**
 *{@summary Panel that contain MiniMap, fBEndTurn button &#38; graphics options buttons.}<br>
@@ -20,6 +22,7 @@ import java.awt.Graphics2D;
 public class PanneauMiniMapContainer extends Panneau {
   private static int BUTTON_RADIUS=18;
   private FButtonEndTurn fBEndTurn;
+  private PanneauGraphicsOptions pgo;
   private PanneauMiniMap pmm;
 
   // CONSTRUCTORS --------------------------------------------------------------
@@ -31,11 +34,16 @@ public class PanneauMiniMapContainer extends Panneau {
     super();
     fBEndTurn = new FButtonEndTurn();
     add(fBEndTurn);
+    pgo = new PanneauGraphicsOptions();
+    add(pgo);
     pmm = new PanneauMiniMap();
     pmm.setLocation(Main.getTailleElementGraphiqueX(BUTTON_RADIUS),Main.getTailleElementGraphiqueY(BUTTON_RADIUS));
     add(pmm);
     setSize(pmm.getWidth()+Main.getTailleElementGraphiqueX(BUTTON_RADIUS), pmm.getHeight()+Main.getTailleElementGraphiqueY(BUTTON_RADIUS));
     setLocation(Panneau.getView().getWidth()-getWidth(), Panneau.getView().getHeight()-getHeight());
+    pgo.setSize(getWidth(),Main.getTailleElementGraphiqueX((int)(BUTTON_RADIUS*1.6)));
+    pgo.setLocation(0,(int)(BUTTON_RADIUS*0.4));
+    pgo.build();
   }
 
   // GET SET -------------------------------------------------------------------
@@ -167,7 +175,7 @@ public class PanneauMiniMapContainer extends Panneau {
       }
       public void setGreen(){bGreen = true;}
       /**
-      *{@summary To change color from green to red.}<br>
+      *{@summary Change color from green to red.}<br>
       *@version 2.5
       */
       private void changeColor(){
@@ -184,6 +192,60 @@ public class PanneauMiniMapContainer extends Panneau {
           //   color = new Color(math.between(0,255,255-i),math.between(0,255,i),0);
           // }
         }
+      }
+    }
+  }
+  /**
+  *{@summary Change map face.}<br>
+  *It can remove/add grid, or icon. Check {@link PanneauCarte#getStatesIconsImages(Creature)} to know the action that can be done from here.
+  *@author Hydrolien
+  *@version 2.10
+  */
+  class PanneauGraphicsOptions extends Panneau {
+    private Liste<FButton> buttonList;
+    /**
+    *{@summary Main constructor.}<br>
+    *This still need to be build after have set size.
+    *@version 2.10
+    */
+    private PanneauGraphicsOptions(){
+      super();
+      setSize(1,1);
+      buttonList = new Liste<FButton>();
+    }
+    /**
+    *{@summary Build function that add all the button.}<br>
+    *@version 2.10
+    */
+    private void build(){
+      if(getWidth()==1){return;}
+      BufferedImage bi = new BufferedImage(getHeight(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+      bi.getGraphics().fillOval(0,0,getHeight(),getHeight());
+      addGraphicOption(350, bi);
+      addGraphicOption(351, bi);
+      addGraphicOption(352, bi);
+      // addGraphicOption(353, bi); etc
+      placeButtons();
+    }
+    /**
+    *{@summary Add a graphic option as a FButton.}<br>
+    *@version 2.10
+    */
+    private void addGraphicOption(int action, BufferedImage icon){
+      buttonList.add(new FButton("X", this, action, icon));
+    }
+    /**
+    *{@summary Place all buttons &#38; add it to this.}<br>
+    *@version 2.10
+    */
+    private void placeButtons(){
+      int len = buttonList.length();
+      int k=1;
+      for (FButton fb : buttonList) {
+        fb.setSize(getHeight(), getHeight());
+        fb.setLocation((k++)*(getWidth()-getHeight())/len,0);
+        fb.setBorderPainted(false);
+        add(fb);
       }
     }
   }

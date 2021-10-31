@@ -34,7 +34,8 @@ public class Options implements Serializable{
   private boolean drawGrid;
   private boolean forceQuit;
   private byte borderButtonSize;
-  private boolean drawIcon;
+  private boolean drawRelationsIcons;
+  private byte drawStatesIconsLevel;
   private int fontSizeText;
   private int fontSizeTitle;
   private String fontText;
@@ -98,14 +99,16 @@ public class Options implements Serializable{
   public void setElementSurCarteOrientéAprèsDéplacement(boolean b){orientedObjectOnMap=b;}
   public byte getNbrMessageAfficher(){ return maxMessageDisplay;}
   public void setNbrMessageAfficher(int x){ maxMessageDisplay=str.iToBy(x);}
-  public boolean getDessinerGrille(){ return drawGrid;}
-  public void setDessinerGrille(boolean b){drawGrid=b; }
+  public boolean getDrawGrid(){ return drawGrid;}
+  public void setDrawGrid(boolean b){drawGrid=b; }
   public boolean getForcerQuitter(){ return forceQuit;}
   public void setForcerQuitter(boolean b){ forceQuit=b;}
   public byte getBordureBouton(){ return borderButtonSize;}
   public void setBordureBouton(int x){borderButtonSize=str.iToBy(x);}
-  public boolean getDessinerIcone(){ return drawIcon;}
-  public void setDessinerIcone(boolean b){drawIcon=b;}
+  public boolean getDrawRelationsIcons(){ return drawRelationsIcons;}
+  public void setDrawRelationsIcons(boolean b){drawRelationsIcons=b;}
+  public byte getDrawStatesIconsLevel(){ return drawStatesIconsLevel;}
+  public void setDrawStatesIconsLevel(byte b){drawStatesIconsLevel=b;}
   public Font getFont1(){ return font1;}
   public Font getFont1(Double d){ Font fTemp = new Font(getPolice(),Font.PLAIN,(int)(getTaillePolice1()*d)); return fTemp;}
   public void setFont1(Font f){ font1=f;}
@@ -265,7 +268,8 @@ public class Options implements Serializable{
     defaultProperties.setProperty("drawGrid","true");
     defaultProperties.setProperty("forceQuit","false");
     defaultProperties.setProperty("borderButtonSize","4");
-    defaultProperties.setProperty("drawIcon","true");
+    defaultProperties.setProperty("drawRelationsIcons","true");
+    defaultProperties.setProperty("drawStatesIconsLevel","1");
     defaultProperties.setProperty("fontSizeText",""+(int)(30*racio));
     defaultProperties.setProperty("fontSizeTitle",""+(int)(60*racio));
     defaultProperties.setProperty("fontText","Default");
@@ -337,7 +341,8 @@ public class Options implements Serializable{
     drawGrid=str.sToB(properties.getProperty("drawGrid"));
     forceQuit=str.sToB(properties.getProperty("forceQuit"));
     borderButtonSize=str.sToBy(properties.getProperty("borderButtonSize"));
-    drawIcon=str.sToB(properties.getProperty("drawIcon"));
+    drawRelationsIcons=str.sToB(properties.getProperty("drawRelationsIcons"));
+    drawStatesIconsLevel=str.sToBy(properties.getProperty("drawStatesIconsLevel"));
     fontSizeText=str.sToI(properties.getProperty("fontSizeText"));
     fontSizeTitle=str.sToI(properties.getProperty("fontSizeTitle"));
     fontText=properties.getProperty("fontText");
@@ -387,7 +392,8 @@ public class Options implements Serializable{
     properties.setProperty("drawGrid",""+drawGrid);
     properties.setProperty("forceQuit",""+forceQuit);
     properties.setProperty("borderButtonSize",""+borderButtonSize);
-    properties.setProperty("drawIcon",""+drawIcon);
+    properties.setProperty("drawRelationsIcons",""+drawRelationsIcons);
+    properties.setProperty("drawStatesIconsLevel",""+drawStatesIconsLevel);
     properties.setProperty("fontSizeText",""+fontSizeText);
     properties.setProperty("fontSizeTitle",""+fontSizeTitle);
     properties.setProperty("fontText",""+fontText);
