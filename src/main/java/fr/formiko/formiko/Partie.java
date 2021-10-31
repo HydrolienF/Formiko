@@ -172,6 +172,17 @@ public class Partie implements Serializable{
       }else{
         iniJoueurEtIa(mapo); gej=null;
       }
+      //TODO #473 use fully anthillAlreadySet
+      boolean anthillAlreadySet = true;
+      if(anthillAlreadySet){
+        for (Joueur j : gj) {
+          for (Fourmi f : j) {
+            if(f.estReine()){
+              f.setCutWings(true);
+            }
+          }
+        }
+      }
       if(nbrDeJoueur==0){partieFinie=true;}//on ne déclanche pas de condition de victoire.
       if (nbrDeJoueurDansLaPartie==1){partieFinie=true;}//on ne déclanche pas les condition de victoire si il y a un seul joueur.
       debug.débogage("Création de 10 insectes programmé.");
