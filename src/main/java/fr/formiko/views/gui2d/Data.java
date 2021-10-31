@@ -100,6 +100,7 @@ public class Data {
   // GET SET -------------------------------------------------------------------
   //ini
   public int getTailleDUneCase(){return tailleDUneCase;}
+  public int getTailleIcon(){return (int)(getTailleDUneCase()/3);}
   public void setTailleDUneCase(int x){tailleDUneCase=x;}
   public BufferedImage getImgNull(){return imgNull;}
   public BufferedImage getSelectionnee(){return selectionnee;}
@@ -150,7 +151,7 @@ public class Data {
   *@version 2.7
   */
   public void iniTButtonColor(){
-    lenTButtonColor=7;
+    lenTButtonColor=8;
     tButtonColor = new Color[lenTButtonColor];
     tButtonColor[0]=new Color(81, 252, 0);//green
     tButtonColor[1]=Color.YELLOW;
@@ -159,6 +160,7 @@ public class Data {
     tButtonColor[4]=Color.WHITE;
     tButtonColor[5]=new Color(56, 56, 56);//grey
     tButtonColor[6]=Color.BLACK;
+    tButtonColor[7]=Color.BLUE;
   }
   /**
   *{@summary Return the Image that fit to a Creature.}
@@ -310,11 +312,11 @@ public class Data {
       debug.débogage("chargement des images a la bonne taille.");
       chargerImagesIni();
       Main.startCh();
-      int tailleFourmi = (tailleDUneCase*4)/5;
-      erreur.info("Update Image to size "+tailleDUneCase);
-      imgNull = image.resize(imgNullIni,tailleDUneCase);
-      selectionnee = image.resize(selectionneeIni,tailleDUneCase);
-      tICarte=getScaledInstance(tICarteIni, tailleDUneCase);
+      int tailleFourmi = (getTailleDUneCase()*4)/5;
+      erreur.info("Update Image to size "+getTailleDUneCase());
+      imgNull = image.resize(imgNullIni,getTailleDUneCase());
+      selectionnee = image.resize(selectionneeIni,getTailleDUneCase());
+      tICarte=getScaledInstance(tICarteIni, getTailleDUneCase());
       // tIF=getScaledInstance(tIFIni, tailleFourmi);
       // tII=getScaledInstance(tIIIni, tailleFourmi,2);//les insectes
       // tF=getScaledInstance(tFIni, tailleFourmi,1);//les Fourmis au différent stade.
@@ -322,11 +324,11 @@ public class Data {
       // antLeg=getScaledInstance(antLegIni, tailleFourmi/2,0);//les Fourmis au différent stade.
       imageTree = ImageTree.getScaledInstanceFromTree(imageTreeIni, tailleFourmi);
       tG=getScaledInstance(tGIni, tailleFourmi);
-      fere = image.resize(fereIni,tailleDUneCase/2);
-      cNuageuse = image.resize(cNuageuseIni,tailleDUneCase);
-      cSombre = image.resize(cSombreIni,tailleDUneCase);
+      fere = image.resize(fereIni,getTailleDUneCase()/2);
+      cNuageuse = image.resize(cNuageuseIni,getTailleDUneCase());
+      cSombre = image.resize(cSombreIni,getTailleDUneCase());
       int lenb = bIni.length;
-      b=getScaledInstance(bIni,tailleDUneCase/2);
+      b=getScaledInstance(bIni,getTailleIcon());
       Main.endCh("chargerImages");
     }
     /**

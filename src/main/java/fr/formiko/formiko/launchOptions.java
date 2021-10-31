@@ -73,6 +73,16 @@ public class launchOptions {
       case "cli":
       Main.setModeCLI(true);
       break;
+      case "lt":
+      case "launchTuto":
+      Main.setTuto(true);
+      // Main.setPremierePartie(true);
+      Main.dontOpenMenuFirst();
+      break;
+      case "ld":
+      case "launchDefaultGame":
+      Main.dontOpenMenuFirst();
+      break;
       default:
       erreur.alerte("Unknow cli options : "+stringOptions);
     }

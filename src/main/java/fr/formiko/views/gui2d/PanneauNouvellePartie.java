@@ -16,6 +16,11 @@ import java.text.NumberFormat;
 import javax.swing.JCheckBox;
 import javax.swing.JFormattedTextField;
 
+/**
+*{@summary A partie launcher Panel that create a new partie.}<br>
+*@author Hydrolien
+*@version 1.x
+*/
 public class PanneauNouvellePartie extends PanneauLanceurPartie {
   private FLabel jl; private FLabel jl2;
   private GEtiquetteJoueur gej;

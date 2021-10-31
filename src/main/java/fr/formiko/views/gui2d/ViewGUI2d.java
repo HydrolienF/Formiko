@@ -49,8 +49,8 @@ public class ViewGUI2d implements View {
   public FFrameLauncher getFl(){return fl;}
   public PanneauPrincipal getPp(){ try{return getF().getPp();}catch (NullPointerException e) {return null;}}
 
-  public PanneauJeu getPj(){ return getPp().getPj();}
-  public PanneauMenu getPm(){ return getPp().getPm();}
+  public PanneauJeu getPj(){ if(getPp()!=null){return getPp().getPj();}else{return null;}}
+  public PanneauMenu getPm(){ if(getPp()!=null){return getPp().getPm();}else{return null;}}
   public PanneauNouvellePartie getPnp(){ try{return getPm().getPnp();}catch (NullPointerException e){return null;}}
   public PanneauChoixPartie getPcp(){ try{return getPm().getPcp();}catch (NullPointerException e){return null;}}
   public PanneauBouton getPb(){ try{return getPj().getPb();}catch (NullPointerException e){return null;}}
@@ -144,8 +144,10 @@ public class ViewGUI2d implements View {
     Main.stopScript();
     if(Main.getPremierePartie()){
       getPm().askLanguage();
-    }else{
+    }else if(Main.getOpenMenuFirst()){
       getPm().buildPanneauMenu(3,0);
+    }else{
+      getPm().setLancer(true);
     }
     paint();
     if(needToWaitForGameLaunch){
@@ -240,7 +242,7 @@ public class ViewGUI2d implements View {
     String s = g.get("chargementFini");
     if (debug.getAffLesPerformances()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
     Main.setMessageChargement(s);
-    if(!Main.getOp().getAttendreAprèsLeChargementDeLaCarte() || Main.getPremierePartie()){
+    if(!Main.getOp().getAttendreAprèsLeChargementDeLaCarte() || Main.getPremierePartie() || !Main.getOpenMenuFirst()){
       closePanneauChargement();
       paint();
     }else{
@@ -460,33 +462,6 @@ public class ViewGUI2d implements View {
     // }
     // Main.getPartie().setAntIdToPlay(-1);
   }
-  /***
-  *{@summary Update map icon about need of the playingJoueur Creatures.}<br>
-  *This action can only be run if action game is on.<br>
-  *@version 2.8
-  */
-  // private void updateIcon(){
-  //   // if (!actionGameOn) {return;}
-  //   if(Main.getPlayingJoueur()!=null && Main.getPlayingJoueur().getFere()!=null && Main.getPlayingJoueur().getFere().getGc()!=null){
-  //     for (Creature c : Main.getPlayingJoueur().getFere().getGc().toList()) {
-  //       //TODO #45 (it will be better in PanneauCarte) print icon if needed.
-  //       if(c.getStateHealth()>0){
-  //         if(c.getStateFood()>c.getStateHealth()){
-  //           //print getStateFood
-  //           System.out.println("getStateFood");
-  //         }else{
-  //           //print getStateHealth
-  //           System.out.println("getStateHealth");
-  //         }
-  //       }else if(c.getStateFood()>0){
-  //         //print getStateFood
-  //         System.out.println("getStateFood");
-  //       }
-  //     }
-  //   }else{
-  //     erreur.alerte("can't print icon because player or anthill is null.");
-  //   }
-  // }
   /**
   *{@summary Move ObjetSurCarteAId.}<br>
   *This action can only be run if action game is on.<br>
@@ -534,7 +509,10 @@ public class ViewGUI2d implements View {
   public synchronized void waitForGameLaunch(){
     // if(!Main.getPremierePartie()){
     boolean b=false;
-    while(!b){Temps.pause(10);b=getPm().getLancer();}
+    while(!b){
+      Temps.pause(10);
+      b=getPm().getLancer();
+    }
     actionGame();
   }
   /**
@@ -613,7 +591,7 @@ public class ViewGUI2d implements View {
   *@version 2.6
   */
   private void loadGraphics(){
-    if(Main.getPremierePartie()){ini.initialiserPanneauJeuEtDépendance();}
+    if(Main.getPremierePartie() || !Main.getOpenMenuFirst()){ini.initialiserPanneauJeuEtDépendance();}
     else{
       Th thTemp = new Th(1);
       thTemp.start();

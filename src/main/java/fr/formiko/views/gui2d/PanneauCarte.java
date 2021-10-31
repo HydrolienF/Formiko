@@ -64,6 +64,7 @@ public class PanneauCarte extends Panneau {
   // private SubPanel subPanel;
   private static Comparator<Creature> imageSizeComparator = (Creature p1, Creature p2) -> (int)(p1.getEspece().getTaille(p1.getStade()) - p2.getEspece().getTaille(p2.getStade()));
   private BufferedImage iconImage;
+  private BufferedImage tBiState []=null;
 
   // CONSTRUCTORS --------------------------------------------------------------
   public PanneauCarte(){
@@ -85,6 +86,7 @@ public class PanneauCarte extends Panneau {
   }
   // GET SET -------------------------------------------------------------------
   public int getTailleDUneCase(){return Main.getData().getTailleDUneCase();}
+  public int getTailleIcon(){return Main.getData().getTailleIcon();}
   public void setTailleDUneCase(int x){if(x!=getTailleDUneCase()){Main.getData().setTailleDUneCase(x);actualiserCarte();}}
   public int getXCase(){ return xCase;}
   public void setXCase(int x){xCase = x;}
@@ -233,7 +235,7 @@ public class PanneauCarte extends Panneau {
     Fourmi playingAnt = Main.getPlayingAnt();
     if(playingAnt!=null && !playingAnt.getIa()){
       Case c = playingAnt.getCCase().getContent();
-      drawImage(g,Main.getData().getSelectionnee(),(c.getX())*Main.getData().getTailleDUneCase(),(c.getY())*Main.getData().getTailleDUneCase());
+      drawImage(g,Main.getData().getSelectionnee(),(c.getX())*getTailleDUneCase(),(c.getY())*getTailleDUneCase());
     }
   }
   /**
@@ -277,13 +279,13 @@ public class PanneauCarte extends Panneau {
       gIcon = iconImage.getGraphics();
     }
     try {
-      int tC10 = Main.getData().getTailleDUneCase()/10;int tC4 = Main.getData().getTailleDUneCase()/4;int tC2 = Main.getData().getTailleDUneCase()/2;
+      int tC10 = getTailleDUneCase()/10;int tC4 = getTailleDUneCase()/4;int tC2 = getTailleDUneCase()/2;
       // anthill
       if (c.getFere()!=null){
         drawImage(g,Main.getData().getFere(),xT+tC4,yT+tC4);
         if (needToDrawAnthillColor(c, x, y)) {
           int tailleDuCercle = Main.getTailleElementGraphique(20);
-          drawRondOuRect(xT,yT,Main.getData().getTailleDUneCase(),g,c.getFere(),tailleDuCercle);
+          drawRondOuRect(xT,yT,getTailleDUneCase(),g,c.getFere(),tailleDuCercle);
         }
       }
       if(isSombre(x,y)){
@@ -357,7 +359,6 @@ public class PanneauCarte extends Panneau {
             }
           }
           //icons
-          //TODO #43 & #45 do a list of iconRelation & iconState for the Case & print slice of it.
           listIconsRelation.add(getIconImage(cr, fi));
           if(cr.getEstAllié(fi)){
             listIconsState.add(getStatesIconsImages(cr));
@@ -367,9 +368,8 @@ public class PanneauCarte extends Panneau {
           // listIconsState.add()...
         }
         //draw icons
-        //TODO Icon are print in 2 heap next from each other
         if (Main.getDessinerIcone()){
-          drawListIcons(gIcon, listIconsRelation, xT, yT, tC2);
+          drawListIcons(gIcon, listIconsRelation, xT, yT, getTailleDUneCase()-getTailleIcon());
           drawListIcons(gIcon, listIconsState, xT, yT, 0);
         }
       }
@@ -413,14 +413,15 @@ public class PanneauCarte extends Panneau {
     hashMapMovingObjectSurCarteAidRotation.remove(id);
   }
   /**
-  *{@summary draw an image centered for a Case.}<br>
+  *{@summary draw an image centered.}<br>
   *@param g Graphics element were to draw.
   *@param image the image to draw.
   *@param xT the x of the Case were to draw.
   *@param yT the y of the Case were to draw.
+  *@param caseSize size of the Case
   *@version 2.1
   */
-  private void drawImageCentered(Graphics2D g, BufferedImage image, int xT, int yT){
+  private void drawImageCentered(Graphics g, BufferedImage image, int xT, int yT, int caseSize){
     if(image==null){
       // erreur.alerte("Can't draw a null image");
       // return;
@@ -428,10 +429,20 @@ public class PanneauCarte extends Panneau {
     }
     int w = image.getWidth();
     int h = image.getHeight();
-    int caseSize = getTailleDUneCase();
     int xI = xT+(caseSize-w)/2;
     int yI = yT+(caseSize-h)/2;
     drawImage(g,image,xI,yI);
+  }
+  /**
+  *{@summary draw an image centered for a Case.}<br>
+  *@param g Graphics element were to draw.
+  *@param image the image to draw.
+  *@param xT the x of the Case were to draw.
+  *@param yT the y of the Case were to draw.
+  *@version 2.1
+  */
+  private void drawImageCentered(Graphics g, BufferedImage image, int xT, int yT){
+    drawImageCentered(g,image,xT,yT,getTailleDUneCase());
   }
   /**
   *{@summary draw an image.}<br>
@@ -476,7 +487,7 @@ public class PanneauCarte extends Panneau {
     int deplacementEnX=0;
     int deplacementEnY=0;
     //deplacement centré.
-    int espaceLibre = Main.getData().getTailleDUneCase()/5;
+    int espaceLibre = getTailleDUneCase()/5;
     if(Main.getPositionCase()==0 || (Main.getPositionCase()==2 && (k>3 || c.getGc().length()+c.getGg().length()==1))){//si on est en mode 2 et que la fourmi est seule ou qu'il y en a plus de 4.
       deplacementEnX=espaceLibre/2;
       deplacementEnY=espaceLibre/2;
@@ -628,17 +639,45 @@ public class PanneauCarte extends Panneau {
   }
   /**
   *{@summary Return the states icons images.}<br>
+  *@param cr the Creature that we whant to print icons states
   *@version 2.10
   */
   public Liste<BufferedImage> getStatesIconsImages(Creature cr){
-    int minPrintState = 1; // between 1 & 4 (3= only red state).
+    int minPrintState = 1; // between 0 & 4 (3= only red state, 0=all).
     Liste<BufferedImage> list = new Liste<BufferedImage>();
     int state = cr.getStateFood();
+    if(tBiState==null){iniTBiState();}
     if(state>=minPrintState){
-      Color c = Main.getData().getButtonColor(state);
-      //TODO create icon with a full c round + icon corresponding to food
+      list.add(getStateIconImage(Main.getData().getButtonColor(state),tBiState[0]));
+    }
+    state = cr.getStateHealth();
+    if(state>=minPrintState){
+      list.add(getStateIconImage(Main.getData().getButtonColor(state),tBiState[1]));
+    }
+    if(cr.getAge() >= cr.getMaxAge()){
+      state = 7;
+      if(cr.getStade()==0){state = 3;}
+      if(state%6>=minPrintState){ //state 7 = state 0 in priority.
+        list.add(getStateIconImage(Main.getData().getButtonColor(state),tBiState[2]));
+      }
     }
     return list;
+  }
+  /**
+  *{@summary Return a state icon image.}<br>
+  *A colored round containing an icon image.
+  *@version 2.10
+  */
+  public BufferedImage getStateIconImage(Color col, BufferedImage icon){
+    int iconSize = getTailleIcon();
+    BufferedImage ir = new BufferedImage(iconSize, iconSize, BufferedImage.TYPE_INT_ARGB);
+    Graphics g = ir.getGraphics();
+    g.setColor(col);
+    g.fillOval(0,0,iconSize, iconSize);
+    if(icon!=null){
+      drawImageCentered(g,icon,0,0,iconSize);
+    }
+    return ir;
   }
 
   public int getDir(ObjetSurCarteAId obj){
@@ -664,9 +703,10 @@ public class PanneauCarte extends Panneau {
     GCase gc = Main.getGc();
     xCase = gc.getNbrX();
     yCase = gc.getNbrY();
-    int xTemp = Main.getData().getTailleDUneCase()*xCase;
-    int yTemp = Main.getData().getTailleDUneCase()*yCase;
+    int xTemp = getTailleDUneCase()*xCase;
+    int yTemp = getTailleDUneCase()*yCase;
     super.setSize(xTemp,yTemp);
+    iniTBiState();
   }
 
   /**
@@ -700,6 +740,16 @@ public class PanneauCarte extends Panneau {
       }catch (Exception e) {}
       if(yTemp==0){yTemp=getHeight();}
       return (int)(yTemp/getTailleDUneCase())+1;
+    }
+  }
+  public void iniTBiState(){
+    tBiState = new BufferedImage[3];
+    tBiState[0] = Main.getData().getIconImage("food");
+    tBiState[1] = Main.getData().getIconImage("health");
+    tBiState[2] = Main.getData().getIconImage("age");
+    int size = (int)(getTailleIcon()*0.8);
+    for (int i=0; i<tBiState.length; i++) {
+      tBiState[i] = image.resize(tBiState[i],size,size);
     }
   }
 }
