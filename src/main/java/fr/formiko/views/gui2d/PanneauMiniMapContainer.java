@@ -220,15 +220,13 @@ public class PanneauMiniMapContainer extends Panneau {
     */
     private void build(){
       if(getWidth()==1){return;}
-      BufferedImage bi = new BufferedImage(getHeight(), getHeight(), BufferedImage.TYPE_INT_ARGB);
-      bi.getGraphics().fillOval(0,0,getHeight(),getHeight());
-      addGraphicOption(350, bi, () -> {
+      addGraphicOption(350, null, () -> {
         return Main.getOp().getDrawGrid();
       });
-      addGraphicOption(351, bi, () -> {
+      addGraphicOption(351, null, () -> {
         return Main.getOp().getDrawRelationsIcons();
       });
-      addGraphicOption(352, bi, () -> {
+      addGraphicOption(352, null, () -> {
         return Main.getOp().getDrawStatesIconsLevel();
       });
       // addGraphicOption(353, bi); etc
