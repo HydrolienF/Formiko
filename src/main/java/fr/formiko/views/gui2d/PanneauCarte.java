@@ -57,7 +57,6 @@ public class PanneauCarte extends Panneau {
   private int posY;
   private int xTemp,yTemp;
   private int idCurentFere=-1;
-  private static boolean drawAllFere;
   private CCase lookedCCase;
   private Map<Integer,Point> hashMapMovingObjectSurCarteAid;
   private Map<Integer,Point> hashMapMovingObjectSurCarteAidRotation;
@@ -476,7 +475,7 @@ public class PanneauCarte extends Panneau {
   *@version 1.46
   */
   private boolean needToDrawAnthillColor(Case c, int x, int y){
-    if (drawAllFere) { return true;}
+    if (Main.getOp().getDrawAllAnthillColor()) { return true;}
     if(c.getFere().getId()==idCurentFere){return true;} // && !isSombre(x,y)
     return (lookedCCase!=null && lookedCCase.getContent() !=null && lookedCCase.getContent().equals(c));
   }

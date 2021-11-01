@@ -229,7 +229,12 @@ public class PanneauMiniMapContainer extends Panneau {
       addGraphicOption(352, null, () -> {
         return Main.getOp().getDrawStatesIconsLevel();
       });
-      // addGraphicOption(353, bi); etc
+      addGraphicOption(353, null, () -> {
+        return Main.getOp().getDrawAllAnthillColor();
+      });
+      addGraphicOption(354, null, () -> {
+        return Main.getOp().getDrawPlayerMessagePanel();
+      });
       placeButtons();
     }
     /**
@@ -247,11 +252,11 @@ public class PanneauMiniMapContainer extends Panneau {
     *@version 2.10
     */
     private void placeButtons(){
-      int len = buttonList.length();
+      int len = buttonList.length()+1;
       int k=1;
       for (FButtonPGO fb : buttonList) {
         fb.setSize(getHeight(), getHeight());
-        fb.setLocation((k++)*(getWidth()-getHeight())/len,0);
+        fb.setLocation((k++)*(getWidth()-(getHeight()/2))/len,0);
         fb.setBorderPainted(false);
         add(fb);
       }

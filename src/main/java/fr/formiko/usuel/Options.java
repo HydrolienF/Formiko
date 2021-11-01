@@ -74,9 +74,11 @@ public class Options implements Serializable{
   private byte gui_partie_realisticSize;
   private boolean gui_hide_modeFPS;
   private int gui_global_fps;
-  private byte gui_pgo_antColorLevel;
   private boolean gui_global_animationEnable;
-  
+  private byte gui_pgo_antColorLevel;
+  private boolean gui_pgo_drawAllAnthillColor;
+  private boolean gui_pgo_drawPlayerMessagePanel;
+
   private Font font1;
   private Font font2;
 
@@ -176,6 +178,10 @@ public class Options implements Serializable{
   public void setFps(int b){gui_global_fps=b;}
   public byte getAntColorLevel(){return gui_pgo_antColorLevel;}
   public void setAntColorLevel(byte x){gui_pgo_antColorLevel=x;}
+  public boolean getDrawAllAnthillColor(){return gui_pgo_drawAllAnthillColor;}
+  public void setDrawAllAnthillColor(boolean x){gui_pgo_drawAllAnthillColor=x;}
+  public boolean getDrawPlayerMessagePanel(){return gui_pgo_drawPlayerMessagePanel;}
+  public void setDrawPlayerMessagePanel(boolean x){gui_pgo_drawPlayerMessagePanel=x;}
   public boolean getEndTurnAuto(){return game_endTurnAuto;}
   public void setEndTurnAuto(boolean b){game_endTurnAuto=b;}
   public boolean getAnimationEnable(){return gui_global_animationEnable;}
@@ -309,6 +315,8 @@ public class Options implements Serializable{
     defaultProperties.setProperty("gui_partie_realisticSize","30");
     defaultProperties.setProperty("gui_partie_sizeOfMapLines","2");
     defaultProperties.setProperty("gui_pgo_antColorLevel","1");
+    defaultProperties.setProperty("gui_pgo_drawAllAnthillColor","false");
+    defaultProperties.setProperty("gui_pgo_drawPlayerMessagePanel","true");
     defaultProperties.setProperty("gui_pgo_drawGrid","true");
     defaultProperties.setProperty("gui_pgo_drawRelationsIcons","true");
     defaultProperties.setProperty("gui_pgo_drawStatesIconsLevel","1");
@@ -384,6 +392,8 @@ public class Options implements Serializable{
     gui_partie_realisticSize=str.sToBy(properties.getProperty("gui_partie_realisticSize"));
     gui_partie_sizeOfMapLines=str.sToI(properties.getProperty("gui_partie_sizeOfMapLines"));
     gui_pgo_antColorLevel=str.sToBy(properties.getProperty("gui_pgo_antColorLevel"));
+    gui_pgo_drawAllAnthillColor=str.sToB(properties.getProperty("gui_pgo_drawAllAnthillColor"));
+    gui_pgo_drawPlayerMessagePanel=str.sToB(properties.getProperty("gui_pgo_drawPlayerMessagePanel"));
     gui_pgo_drawGrid=str.sToB(properties.getProperty("gui_pgo_drawGrid"));
     gui_pgo_drawRelationsIcons=str.sToB(properties.getProperty("gui_pgo_drawRelationsIcons"));
     gui_pgo_drawStatesIconsLevel=str.sToBy(properties.getProperty("gui_pgo_drawStatesIconsLevel"));
@@ -443,6 +453,8 @@ public class Options implements Serializable{
     properties.setProperty("gui_hide_modeFPS",""+gui_hide_modeFPS);
     properties.setProperty("gui_global_fps",""+gui_global_fps);
     properties.setProperty("gui_pgo_antColorLevel", ""+gui_pgo_antColorLevel);
+    properties.setProperty("gui_pgo_drawAllAnthillColor", ""+gui_pgo_drawAllAnthillColor);
+    properties.setProperty("gui_pgo_drawPlayerMessagePanel", ""+gui_pgo_drawPlayerMessagePanel);
     properties.setProperty("game_endTurnAuto",""+game_endTurnAuto);
     properties.setProperty("gui_global_animationEnable",""+gui_global_animationEnable);
   }

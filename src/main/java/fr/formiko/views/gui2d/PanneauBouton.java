@@ -198,6 +198,7 @@ public class PanneauBouton extends Panneau {
     try {
       removePij();
     }catch (Exception e) {}
+    if(!Main.getOp().getDrawPlayerMessagePanel()){return;}
     if(getView().getPd()!=null && getView().getPd().isVisible()){return;}
     if(fontPij==null){
       fontPij = new Font(Main.getOp().getFontText(),Font.PLAIN,(int)(Main.getOp().getFontSizeText()/1.5));
@@ -207,8 +208,8 @@ public class PanneauBouton extends Panneau {
     GString gs = ft.getFourmiliere().getJoueur().getGm().gmToGs(Main.getMaxMessageDisplay());
     debug.débogage("affichage console du contenu de gs");
     pij = new PanneauInfoText(gs,Main.getTailleElementGraphiqueX(500),true,fontPij);
-    int xx = pz.getbuttonSize()*5;
-    debug.débogage("initialisation du PanneauInfoJoueur en "+(getWidth()-xx)+" "+(getHeight()-pij.getYPi()));
+    // int xx = pz.getbuttonSize()*5;
+    // debug.débogage("initialisation du PanneauInfoJoueur en "+(getWidth()-xx)+" "+(getHeight()-pij.getYPi()));
     int x = Main.getTailleElementGraphiqueX(320);
     pij.setBounds((getWidth()-x*2)/2,Main.getTailleElementGraphiqueY(100),x,pij.getYPi());
     add(pij);

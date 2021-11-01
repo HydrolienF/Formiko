@@ -219,6 +219,15 @@ public class action{
       case 352:
       Main.getOp().setDrawStatesIconsLevel((byte)((Main.getOp().getDrawStatesIconsLevel()+1)%5));
       break;
+      case 353:
+      Main.getOp().setDrawAllAnthillColor(!Main.getOp().getDrawAllAnthillColor());
+      break;
+      case 354:
+      Main.getOp().setDrawPlayerMessagePanel(!Main.getOp().getDrawPlayerMessagePanel());
+      if (Panneau.getView().getPb()!=null) {
+        Panneau.getView().getPb().addPIJ();
+      }
+      break;
       default:
       break;
     }
