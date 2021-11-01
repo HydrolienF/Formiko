@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.util.function.Supplier;
 
 /**
 *{@summary Panel that contain MiniMap, fBEndTurn button &#38; graphics options buttons.}<br>
@@ -202,7 +203,7 @@ public class PanneauMiniMapContainer extends Panneau {
   *@version 2.10
   */
   class PanneauGraphicsOptions extends Panneau {
-    private Liste<FButton> buttonList;
+    private Liste<FButtonPGO> buttonList;
     /**
     *{@summary Main constructor.}<br>
     *This still need to be build after have set size.
@@ -211,7 +212,7 @@ public class PanneauMiniMapContainer extends Panneau {
     private PanneauGraphicsOptions(){
       super();
       setSize(1,1);
-      buttonList = new Liste<FButton>();
+      buttonList = new Liste<FButtonPGO>();
     }
     /**
     *{@summary Build function that add all the button.}<br>
@@ -221,18 +222,27 @@ public class PanneauMiniMapContainer extends Panneau {
       if(getWidth()==1){return;}
       BufferedImage bi = new BufferedImage(getHeight(), getHeight(), BufferedImage.TYPE_INT_ARGB);
       bi.getGraphics().fillOval(0,0,getHeight(),getHeight());
-      addGraphicOption(350, bi);
-      addGraphicOption(351, bi);
-      addGraphicOption(352, bi);
+      addGraphicOption(350, bi, () -> {
+        return Main.getOp().getDrawGrid();
+      });
+      addGraphicOption(351, bi, () -> {
+        return Main.getOp().getDrawRelationsIcons();
+      });
+      addGraphicOption(352, bi, () -> {
+        return Main.getOp().getDrawStatesIconsLevel();
+      });
       // addGraphicOption(353, bi); etc
       placeButtons();
     }
     /**
     *{@summary Add a graphic option as a FButton.}<br>
+    *@param action the action of the button (between 350 &#38; 399)
+    *@param icon the image of the button
+    *@param sup a function that return a boolean (is enable), or a int/byte corresponding to a color id
     *@version 2.10
     */
-    private void addGraphicOption(int action, BufferedImage icon){
-      buttonList.add(new FButton("X", this, action, icon));
+    private void addGraphicOption(int action, BufferedImage icon, Supplier sup){
+      buttonList.add(new FButtonPGO(action, icon, sup));
     }
     /**
     *{@summary Place all buttons &#38; add it to this.}<br>
@@ -241,7 +251,7 @@ public class PanneauMiniMapContainer extends Panneau {
     private void placeButtons(){
       int len = buttonList.length();
       int k=1;
-      for (FButton fb : buttonList) {
+      for (FButtonPGO fb : buttonList) {
         fb.setSize(getHeight(), getHeight());
         fb.setLocation((k++)*(getWidth()-getHeight())/len,0);
         fb.setBorderPainted(false);

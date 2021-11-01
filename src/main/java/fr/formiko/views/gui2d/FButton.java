@@ -137,6 +137,7 @@ public class FButton extends JButton implements MouseListener{
   *Draw it there alow to have alpha color.
   *@version 1.54
   */
+  @Override
   public void paintComponent(Graphics g){
     Graphics2D g2d = (Graphics2D)g;
     if(withBackground){
