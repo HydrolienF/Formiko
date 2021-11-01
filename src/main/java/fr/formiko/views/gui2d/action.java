@@ -201,10 +201,7 @@ public class action{
   }
   public static void updateMouseLocation(){
     try {
-      // System.out.println("moved 1");
-      // Panneau.getView().getPs().mouseMovedUpdate(Panneau.getView().getPs().getCCase((int)MouseInfo.getPointerInfo().getLocation().getX(), (int)MouseInfo.getPointerInfo().getLocation().getY()));
       System.out.println(Panneau.getView().getPs().getCCase((int)MouseInfo.getPointerInfo().getLocation().getX(), (int)MouseInfo.getPointerInfo().getLocation().getY()).getContent());
-      // System.out.println("moved 2");
     }catch (Exception e) {}
   }
   /**
