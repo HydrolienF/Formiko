@@ -93,7 +93,7 @@ public class FButton extends JButton implements MouseListener{
   //   else if(buttonColor!=null){return buttonColor;}
   //   else{return Main.getData().getButtonColor();}
   // }
-  public static int getDimY(){ return (int)(Main.getOp().getTaillePolice1()*1.4);}
+  public static int getDimY(){ return (int)(Main.getOp().getFontSizeText()*1.4);}
   public void setCFondUseAlpha(boolean b){cFondUseAlpha=b;}
   /**
   *{@summary return background color with or without alpha.}
@@ -170,7 +170,7 @@ public class FButton extends JButton implements MouseListener{
   public void paintBorder(Graphics2D g){
     //TODO #398 move to FBorder.
     g.setColor(new Color(getCFont().getRed(),getCFont().getGreen(),getCFont().getBlue()));
-    byte x = Main.getBordureBouton();
+    byte x = Main.getBorderButtonSize();
     if(x<1){return;}
     BasicStroke ligne = new BasicStroke(x);
     g.setStroke(ligne);

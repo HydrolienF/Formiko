@@ -89,7 +89,7 @@ public class FFrame extends JFrame {
   public void quit(){
     try {
       boolean needToClose=true;
-      if (!Main.getForcerQuitter()){
+      if (!Main.getForceQuit()){
         Question q = new Question("validerQuitter","quitterJeu");
         needToClose = q.getChoix();
       }

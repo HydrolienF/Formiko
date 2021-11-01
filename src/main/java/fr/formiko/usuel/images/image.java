@@ -182,7 +182,7 @@ public class image{
     BufferedImage tr [][]= new BufferedImage[4][];
     //nom = "temporaire/"+nom;
     tr[0] = getImages(nom,'h',nbr,x);
-    // if(Main.getElementSurCarteOrientéAprèsDéplacement()){
+    // if(Main.getOrientedObjectOnMap()){
     //   tr[1] = getImages(nom,'d',nbr,x);
     //   tr[2] = getImages(nom,'b',nbr,x);
     //   tr[3] = getImages(nom,'g',nbr,x);
@@ -292,7 +292,7 @@ public class image{
   *@version 1.3
   */
   public static int taille(int a, int taille){
-    double tailleR = Main.getOp().getTailleRealiste()/100.0;
+    double tailleR = Main.getOp().getRealisticSize()/100.0;
     double db = ((a*taille*tailleR)/100) + (taille)*(1-tailleR);//en pixel on fait *4.
     return (int)db;
   }

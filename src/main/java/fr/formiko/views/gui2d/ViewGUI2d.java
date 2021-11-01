@@ -240,9 +240,9 @@ public class ViewGUI2d implements View {
     Main.endCh("chargementImagesDelaCarte");
 
     String s = g.get("chargementFini");
-    if (debug.getAffLesPerformances()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
+    if (debug.getPerformance()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
     Main.setMessageChargement(s);
-    if(!Main.getOp().getAttendreAprèsLeChargementDeLaCarte() || Main.getPremierePartie() || !Main.getOpenMenuFirst()){
+    if(!Main.getOp().getWhaitBeforeLaunchGame() || Main.getPremierePartie() || !Main.getOpenMenuFirst()){
       closePanneauChargement();
       paint();
     }else{
@@ -635,7 +635,7 @@ public class ViewGUI2d implements View {
         }
       }
     }, 0, secToRefresh);
-    if(debug.getAffLesPerformances()){
+    if(debug.getPerformance()){
       timer.schedule(new TimerTaskViewGUI2d(this){
         @Override
         public void run(){

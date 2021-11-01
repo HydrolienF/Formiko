@@ -39,7 +39,7 @@ public class PanneauFinPartie extends Panneau {
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     // try {
-      // message.setBounds(0,0,this.getWidth(),Main.getTaillePolice2()*2);
+      // message.setBounds(0,0,this.getWidth(),Main.getFontSizeTitle()*2);
       // pi.setBounds(0,message.getHeight(),pi.getWidth(),pi.getHeight());
       //mp.setBounds()
     // }catch (Exception e) {
@@ -48,7 +48,7 @@ public class PanneauFinPartie extends Panneau {
     super.paintComponent(g);
   }
   public void addMessage(String s){
-    message = new FLabel(this.getWidth(),(int)(Main.getTaillePolice2()*1.5));
+    message = new FLabel(this.getWidth(),(int)(Main.getFontSizeTitle()*1.5));
     message.setText(s);
     add(message);
   }

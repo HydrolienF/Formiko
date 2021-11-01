@@ -95,66 +95,66 @@ public class Options implements Serializable{
   }
   // GET SET -------------------------------------------------------------------
   public byte getLanguage(){return game_language;}
-  public void setLangue(byte x){game_language=x;} public void setLangue(int x){setLangue(str.iToBy(x));}
+  public void setLanguage(byte x){game_language=x;} public void setLanguage(int x){setLanguage(str.iToBy(x));}
   public int getbuttonSizeZoom(){ return tailleBouton(gui_hide_buttonSizeZoom);}
-  public void setTailleBoutonZoom(byte x){ gui_hide_buttonSizeZoom=x;}
-  public int getTailleBoutonAction(){ return tailleBouton(gui_global_buttonSizeAction);}
-  public void setTailleBoutonAction(byte x){ gui_global_buttonSizeAction=x;}
-  public int getTailleBoutonTX(){ return tailleBouton(gui_hide_buttonSizeTX);}
-  public void setTailleBoutonTX(byte x){ gui_hide_buttonSizeTX=x;}
+  public void setbuttonSizeZoom(byte x){ gui_hide_buttonSizeZoom=x;}
+  public int getbuttonSizeAction(){ return tailleBouton(gui_global_buttonSizeAction);}
+  public void setbuttonSizeAction(byte x){ gui_global_buttonSizeAction=x;}
+  public int getbuttonSizeTX(){ return tailleBouton(gui_hide_buttonSizeTX);}
+  public void setbuttonSizeTX(byte x){ gui_hide_buttonSizeTX=x;}
   public boolean getQuickMovement(){ return gui_partie_quickMovement;}
   public void setQuickMovement(boolean b){ gui_partie_quickMovement = b;}
   public boolean getInstantaneousMovement(){return gui_partie_instantaneousMovement;}
   public void setInstantaneousMovement(boolean b){gui_partie_instantaneousMovement=b;}
-  public boolean getElementSurCarteOrientéAprèsDéplacement(){ return gui_partie_orientedObjectOnMap;}
-  public void setElementSurCarteOrientéAprèsDéplacement(boolean b){gui_partie_orientedObjectOnMap=b;}
-  public byte getNbrMessageAfficher(){ return gui_partie_maxMessageDisplay;}
-  public void setNbrMessageAfficher(int x){ gui_partie_maxMessageDisplay=str.iToBy(x);}
+  public boolean getOrientedObjectOnMap(){ return gui_partie_orientedObjectOnMap;}
+  public void setOrientedObjectOnMap(boolean b){gui_partie_orientedObjectOnMap=b;}
+  public byte getMaxMessageDisplay(){ return gui_partie_maxMessageDisplay;}
+  public void setMaxMessageDisplay(int x){ gui_partie_maxMessageDisplay=str.iToBy(x);}
   public boolean getDrawGrid(){ return gui_pgo_drawGrid;}
   public void setDrawGrid(boolean b){gui_pgo_drawGrid=b; }
-  public boolean getForcerQuitter(){ return game_forceQuit;}
-  public void setForcerQuitter(boolean b){ game_forceQuit=b;}
-  public byte getBordureBouton(){ return gui_global_borderButtonSize;}
-  public void setBordureBouton(int x){gui_global_borderButtonSize=str.iToBy(x);}
+  public boolean getForceQuit(){ return game_forceQuit;}
+  public void setForceQuit(boolean b){ game_forceQuit=b;}
+  public byte getBorderButtonSize(){ return gui_global_borderButtonSize;}
+  public void setBorderButtonSize(int x){gui_global_borderButtonSize=str.iToBy(x);}
   public boolean getDrawRelationsIcons(){ return gui_pgo_drawRelationsIcons;}
   public void setDrawRelationsIcons(boolean b){gui_pgo_drawRelationsIcons=b;}
   public byte getDrawStatesIconsLevel(){ return gui_pgo_drawStatesIconsLevel;}
   public void setDrawStatesIconsLevel(byte b){gui_pgo_drawStatesIconsLevel=b;}
   public Font getFont1(){ return font1;}
-  public Font getFont1(Double d){Font fTemp = new Font(getPolice(),Font.PLAIN,(int)(getTaillePolice1()*d)); return fTemp;}
+  public Font getFont1(Double d){Font fTemp = new Font(getFontText(),Font.PLAIN,(int)(getFontSizeText()*d)); return fTemp;}
   public void setFont1(Font f){font1=f;}
   public Font getFont2(){return font2;}
   public void setFont2(Font f){font2=f;}
-  public int getTaillePolice1(){return gui_global_fontSizeText;}
-  public void setTaillePolice1(int x){gui_global_fontSizeText=x;}
-  public int getTaillePolice2(){return gui_global_fontSizeTitle;}
-  public void setTaillePolice2(int x){gui_global_fontSizeTitle=x;}
-  public String getPolice(){ return gui_global_fontText;}
-  public void setPolice(String s){gui_global_fontText=s;}
+  public int getFontSizeText(){return gui_global_fontSizeText;}
+  public void setFontSizeText(int x){gui_global_fontSizeText=x;}
+  public int getFontSizeTitle(){return gui_global_fontSizeTitle;}
+  public void setFontSizeTitle(int x){gui_global_fontSizeTitle=x;}
+  public String getFontText(){ return gui_global_fontText;}
+  public void setFontText(String s){gui_global_fontText=s;}
   public String getPseudo(){ return game_pseudo;}
   public void setPseudo(String s){game_pseudo=s;}
-  public boolean getPleinEcran(){ return gui_global_fullscreen;}
-  public void setPleinEcran(boolean b){ gui_global_fullscreen=b;}
+  public boolean getFullscreen(){ return gui_global_fullscreen;}
+  public void setFullscreen(boolean b){ gui_global_fullscreen=b;}
   public int getFrameWidth(){return gui_global_frameWidth;}
   public void setFrameWidth(int x){gui_global_frameWidth=x;}
   public int getFrameHeight(){return gui_global_frameHeight;}
   public void setFrameHeight(int x){gui_global_frameHeight=x;}
-  public boolean getChargementPendantLesMenu(){ return gui_hide_loadingDuringMenus;}
-  public void setChargementPendantLesMenu(boolean b){gui_hide_loadingDuringMenus=b;}
-  public boolean getGarderLesGraphismesTourné(){ return gui_hide_keepFilesRotated;}
-  public void setGarderLesGraphismesTourné(boolean b){gui_hide_keepFilesRotated=b;}
-  public boolean getAttendreAprèsLeChargementDeLaCarte(){ return game_whaitBeforeLaunchGame;}
-  public void setAttendreAprèsLeChargementDeLaCarte(boolean b){game_whaitBeforeLaunchGame=b;}
-  public boolean getAffLesEtapesDeRésolution(){return debug_message;}
-  public void setAffLesEtapesDeRésolution(boolean b){debug_message=b;}
-  public boolean getAffLesPerformances(){return debug_performance;}
-  public void setAffLesPerformances(boolean b){debug_performance=b;}
+  public boolean getLoadingDuringMenus(){ return gui_hide_loadingDuringMenus;}
+  public void setLoadingDuringMenus(boolean b){gui_hide_loadingDuringMenus=b;}
+  public boolean getKeepFilesRotated(){ return gui_hide_keepFilesRotated;}
+  public void setKeepFilesRotated(boolean b){gui_hide_keepFilesRotated=b;}
+  public boolean getWhaitBeforeLaunchGame(){ return game_whaitBeforeLaunchGame;}
+  public void setWhaitBeforeLaunchGame(boolean b){game_whaitBeforeLaunchGame=b;}
+  public boolean getMessage(){return debug_message;}
+  public void setMessage(boolean b){debug_message=b;}
+  public boolean getPerformance(){return debug_performance;}
+  public void setPerformance(boolean b){debug_performance=b;}
   public boolean getAffG(){return debug_gui;}
   public void setAffG(boolean b){debug_gui=b;}
   public boolean getPaintHitBox(){return debug_paintHitBox;}
   public void setPaintHitBox(boolean b){debug_paintHitBox=b;}
-  public int getDimLigne(){ return gui_partie_sizeOfMapLines;}
-  public void setDimLigne(int x){gui_partie_sizeOfMapLines=x;}
+  public int getSizeOfMapLines(){ return gui_partie_sizeOfMapLines;}
+  public void setSizeOfMapLines(int x){gui_partie_sizeOfMapLines=x;}
   public byte getPositionCase(){return gui_hide_positionCase;}
   public void setPositionCase(byte x){gui_hide_positionCase=x;}
   public boolean getBMusique(){return sounds_music;}
@@ -165,8 +165,8 @@ public class Options implements Serializable{
   public void setVolMusique(byte x){sounds_musicVolume=x;}
   public byte getVolSon(){return sounds_soundVolume;}
   public void setVolSon(byte x){sounds_soundVolume=x;}
-  public byte getTailleRealiste(){return gui_partie_realisticSize;}
-  public void setTailleRealiste(byte x){gui_partie_realisticSize=x;}public void setTailleRealiste(int x){gui_partie_realisticSize=str.iToBy(x);}
+  public byte getRealisticSize(){return gui_partie_realisticSize;}
+  public void setRealisticSize(byte x){gui_partie_realisticSize=x;}public void setRealisticSize(int x){gui_partie_realisticSize=str.iToBy(x);}
   public boolean getAutoCleaning(){return partie_autoCleaning;}
   public void setAutoCleaning(boolean b){partie_autoCleaning=b;}
   public boolean getModeFPS(){return gui_hide_modeFPS;}

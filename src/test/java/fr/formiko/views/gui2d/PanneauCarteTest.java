@@ -46,7 +46,7 @@ public class PanneauCarteTest extends TestCaseMuet{
   @Test
   public void testGcSortedByImageSize(){
     ini();
-    Main.getOp().setTailleRealiste(0);
+    Main.getOp().setRealisticSize(0);
     GCreature gc = new GCreature();
     Insecte i0 = new Insecte();
     i0.setType(0);
@@ -73,7 +73,7 @@ public class PanneauCarteTest extends TestCaseMuet{
       assertEquals(t[k], c.getId());
       k++;
     }
-    Main.getOp().setTailleRealiste(1);
+    Main.getOp().setRealisticSize(1);
     lc = PanneauCarte.gcSortedByImageSize(gc);
     k=0;
     int t2 [] = {2,1,4,5,3}; //scarabé, cocinelle, fourmi imago, fourmi oeuf, puceron.

@@ -12,8 +12,8 @@ public class TestCaseMuet extends Assertions{
   public TestCaseMuet(){
     super();
     erreur.setMuet(true);
-    debug.setAffLesEtapesDeRésolution(false);
-    debug.setAffLesPerformances(false);
+    debug.setMessage(false);
+    debug.setPerformance(false);
     debug.setAffG(false);
   }
 

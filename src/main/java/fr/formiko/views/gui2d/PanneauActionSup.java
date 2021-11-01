@@ -22,7 +22,7 @@ public class PanneauActionSup extends Panneau{
     int len = Panneau.getView().getPa().getNbrBouton();
     int dim = Panneau.getView().getPa().getHeight();
     for (int i=0;i<len ;i++ ) {
-      g.drawImage(getData().getBackgroundPAS(), i*dim+Panneau.getView().getPa().getBordureBouton(),0, this);
+      g.drawImage(getData().getBackgroundPAS(), i*dim+Panneau.getView().getPa().getBorderButtonSize(),0, this);
     }
   }
 }

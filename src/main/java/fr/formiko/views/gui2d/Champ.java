@@ -14,14 +14,14 @@ public class Champ extends JTextField{
   // CONSTRUCTORS --------------------------------------------------------------
   public Champ(String s){
     super(s);
-    setPolice();
+    setFontText();
   }
   public Champ(){ this("");}
   // GET SET -------------------------------------------------------------------
   //setText et getText
   public void setBounds(int a, int b, int c){setBounds(a,b,c,FLabel.getDimY());}
-  public void setPolice(Font fon){ this.setFont(fon);}
-  public void setPolice(){ setPolice(Main.getFont1());}
+  public void setFontText(Font fon){ this.setFont(fon);}
+  public void setFontText(){ setFontText(Main.getFont1());}
   public void setFondColoré(Color col){this.setBackground(col);}
   public void setFondTransparent(){setFondColoré(new Color(0,0,0,0));}
   // FUNCTIONS -----------------------------------------------------------------

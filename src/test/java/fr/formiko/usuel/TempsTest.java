@@ -37,7 +37,7 @@ public class TempsTest extends TestCaseMuet{
   public void testMsToTime(){
     Main.setOs(new Os());
     Main.initialisation();
-    Main.setLangue(1);
+    Main.setLanguage(1);
     //0
     assertEquals("0ms",Temps.msToTime(0));
     //1
@@ -47,7 +47,7 @@ public class TempsTest extends TestCaseMuet{
     //plein
     assertEquals("11j 13h",Temps.msToTime(1000000000));
 
-    Main.setLangue(2);
+    Main.setLanguage(2);
     assertEquals("1.001s",Temps.msToTime(1001));
     assertEquals("1.1s",Temps.msToTime(1100));
 
@@ -57,7 +57,7 @@ public class TempsTest extends TestCaseMuet{
 
     assertEquals("11d",Temps.msToTime(1000000000,1,true));
 
-    Main.setLangue(1);
+    Main.setLanguage(1);
     //test avec différent nombre d'unité / dayOn true or false
     assertEquals("277h",Temps.msToTime(1000000000,1,false));
     assertEquals("",Temps.msToTime(1000000000,0,false));

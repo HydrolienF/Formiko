@@ -82,8 +82,8 @@ public class PanneauZoom extends Panneau {
     setEnabled(true);
   }
   // GET SET -------------------------------------------------------------------
-  public int getTailleBouton(){ return Main.getbuttonSizeZoom();}
-  //public void setTailleBouton(int x){ tailleBouton=x;}
+  public int getbuttonSize(){ return Main.getbuttonSizeZoom();}
+  //public void setbuttonSize(int x){ tailleBouton=x;}
   public void setEnabled(boolean boo){
     bPlus.setEnabled(boo);
     bMoins.setEnabled(boo);

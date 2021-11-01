@@ -100,7 +100,7 @@ public class PanneauCarte extends Panneau {
   public CCase getLookedCCase(){return lookedCCase;}
   public void setLookedCCase(CCase cc){lookedCCase=cc;}
   public void setLigne(Graphics2D g){
-    BasicStroke ligne = new BasicStroke(Main.getDimLigne());
+    BasicStroke ligne = new BasicStroke(Main.getSizeOfMapLines());
     g.setStroke(ligne);
     g.setColor(Color.BLACK);
   }
@@ -387,7 +387,7 @@ public class PanneauCarte extends Panneau {
   //public only for test
   public static Liste<Creature> gcSortedByImageSize(GCreature gc){
     Liste<Creature> listToPrint = gc.toList();
-    if(Main.getOp().getTailleRealiste()==0){return listToPrint;}
+    if(Main.getOp().getRealisticSize()==0){return listToPrint;}
     listToPrint.sort(imageSizeComparator);
     return listToPrint;
   }
@@ -683,7 +683,7 @@ public class PanneauCarte extends Panneau {
   }
 
   public int getDir(ObjetSurCarteAId obj){
-    if (!Main.getElementSurCarteOrientéAprèsDéplacement()){return 0;}// si la direction de l'objet n'est pas prise en compte on cherche dans le tableau 0.
+    if (!Main.getOrientedObjectOnMap()){return 0;}// si la direction de l'objet n'est pas prise en compte on cherche dans le tableau 0.
     int x = obj.getDirection();
     // return x;
     // if(x==1 || x==2){ return 0;}

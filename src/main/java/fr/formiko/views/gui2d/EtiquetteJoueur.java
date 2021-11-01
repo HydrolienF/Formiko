@@ -112,7 +112,7 @@ public class EtiquetteJoueur extends Panneau{
     paintBorder(g2d,taille,arrondi);
   }
   public void paintBorder(Graphics2D g, int taille, int arrondi){
-    byte x = 3;//Main.getBordureBouton();
+    byte x = 3;//Main.getBorderButtonSize();
     if(x<1){return;}
     BasicStroke ligne = new BasicStroke(x);
     g.setStroke(ligne);

@@ -557,7 +557,7 @@ public class Data {
   *@version 1.18
   */
   private void chargerTImage(){
-    int tailleBouton = Panneau.getView().getPa().getTailleBouton();
+    int tailleBouton = Panneau.getView().getPa().getbuttonSize();
     tImage = image.getImages("desc");
     for (int i=0;i<10 ;i++ ) {
       tImage[i] = image.resize(tImage[i],tailleBouton);
@@ -568,7 +568,7 @@ public class Data {
   *@version 1.18
   */
   private void chargerTImageAvecFond(Pixel pi){
-    int tailleBouton = Panneau.getView().getPa().getTailleBouton();
+    int tailleBouton = Panneau.getView().getPa().getbuttonSize();
     for (int k=0;k<10 ;k++) {
       Img img = new Img("desc"+k);
       img.changerPixelTransparent(pi);
@@ -586,7 +586,7 @@ public class Data {
   */
   public Image [] chargerTIBZoom(){
     tIBZoom = new Image[9];
-    if(!initialisationFX && !Main.getGarderLesGraphismesTourné()){tournerLesFleches();}
+    if(!initialisationFX && !Main.getKeepFilesRotated()){tournerLesFleches();}
     int tailleBouton=Main.getbuttonSizeZoom();
     tIBZoom[0] = image.getImage("moins").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
     tIBZoom[1] = image.getImage("fleche").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);

@@ -71,11 +71,11 @@ public class PanneauAction extends Panneau {
     }catch (NullPointerException e) {}
   }
   // GET SET -------------------------------------------------------------------
-  public int getTailleBouton(){ return tailleBouton;}
-  public void setTailleBouton(int x){ tailleBouton=x;}
+  public int getbuttonSize(){ return tailleBouton;}
+  public void setbuttonSize(int x){ tailleBouton=x;}
   public int getNbrBouton(){ return nbrDeBouton;}
   public boolean getEstBoutonActif(int x){return tableau.estDansT(tBoutonActif,x);}
-  public int getBordureBouton(){ return Main.getTailleElementGraphique(bordure);}
+  public int getBorderButtonSize(){ return Main.getTailleElementGraphique(bordure);}
   public void setEnabled(boolean boo){
     for (FButton b : tB ) {
       b.setEnabled(boo);

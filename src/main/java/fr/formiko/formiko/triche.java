@@ -257,10 +257,10 @@ public class triche {
         case 36:
           try {
             long xL = str.sToLThrows(args[1]);
-            Main.setLangue((int)xL);
+            Main.setLanguage((int)xL);
           }catch (Exception e) {
             try {
-              Main.setLangue(chargerLesTraductions.getLanguage(args[1]));
+              Main.setLanguage(chargerLesTraductions.getLanguage(args[1]));
             }catch (Exception e2) {
               erreur.erreur("Impossible de changer la langue");
             }

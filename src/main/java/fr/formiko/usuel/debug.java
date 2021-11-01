@@ -9,15 +9,15 @@ public class debug{
   private static boolean affLesPerformances=true;
 
 // GET SET ----------------------------------------------------------------------
-  public static void setAffLesEtapesDeRésolution (boolean b){affLesEtapesDeRésolution = b;}
+  public static void setMessage (boolean b){affLesEtapesDeRésolution = b;}
   public static void setAffLesDescriptionsDesExeptions (boolean b){affLesDescriptionsDesExeptions = b;}
   public static boolean getAffLesDescriptionsDesExeptions (){return affLesDescriptionsDesExeptions;}
-  public static boolean getAffLesEtapesDeRésolution (){return affLesEtapesDeRésolution;}
-  public static boolean getAffLesPerformances(){ return affLesPerformances;}
-  public static void setAffLesPerformances(boolean b){affLesPerformances=b;}
+  public static boolean getMessage (){return affLesEtapesDeRésolution;}
+  public static boolean getPerformance(){ return affLesPerformances;}
+  public static void setPerformance(boolean b){affLesPerformances=b;}
   public static boolean getAffG(){ return affG;}
   public static void setAffG(boolean b){ affG=b;}
-  public static void setDPG(boolean b){setAffG(b); setAffLesEtapesDeRésolution(b);setAffLesPerformances(b);}
+  public static void setDPG(boolean b){setAffG(b); setMessage(b);setPerformance(b);}
   //fonction propre ----------------------------------------------------------------
   public static void débogage(String s){
     if (affLesEtapesDeRésolution) { System.out.println(s); }

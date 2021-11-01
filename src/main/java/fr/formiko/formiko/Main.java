@@ -90,8 +90,8 @@ public class Main {
    */
   public static void main (String [] args){
     if(args==null || (args.length==1 && args[0]==null)){args = new String[0];}
-    debug.setAffLesEtapesDeRésolution(false);
-    debug.setAffLesPerformances(false);
+    debug.setMessage(false);
+    debug.setPerformance(false);
     debug.setAffG(false);
     openMenuFirst=true;
     //iniThings that can't be null :
@@ -245,29 +245,29 @@ public class Main {
   public static int getDimXCarte(){return (int)(1920.0*getRacioEspaceLibre());}
   //options
   public static byte getLanguage(){ return getOp().getLanguage();}
-  public static void setLangue(int x){ getOp().setLangue(x);iniLangue();}
+  public static void setLanguage(int x){ getOp().setLanguage(x);iniLangue();}
   public static int getbuttonSizeZoom(){return getOp().getbuttonSizeZoom();}
-  public static int getTailleBoutonAction(){return getOp().getTailleBoutonAction();}
-  public static int getTailleBoutonTX(){return getOp().getTailleBoutonTX();}
-  public static int getNbrMessageAfficher(){ return getOp().getNbrMessageAfficher();}
+  public static int getbuttonSizeAction(){return getOp().getbuttonSizeAction();}
+  public static int getbuttonSizeTX(){return getOp().getbuttonSizeTX();}
+  public static int getMaxMessageDisplay(){ return getOp().getMaxMessageDisplay();}
   public static boolean getDrawGrid(){ return getOp().getDrawGrid();}
-  public static boolean getElementSurCarteOrientéAprèsDéplacement(){ return getOp().getElementSurCarteOrientéAprèsDéplacement();}
-  public static boolean getForcerQuitter(){ return getOp().getForcerQuitter();}
-  public static byte getBordureBouton(){ return getOp().getBordureBouton();}
+  public static boolean getOrientedObjectOnMap(){ return getOp().getOrientedObjectOnMap();}
+  public static boolean getForceQuit(){ return getOp().getForceQuit();}
+  public static byte getBorderButtonSize(){ return getOp().getBorderButtonSize();}
   public static boolean getDrawRelationsIcons(){return getOp().getDrawRelationsIcons();}
   public static Font getFont1(){ return getOp().getFont1();}
   public static Font getFont1(double d){ return getOp().getFont1(d);}
   public static void setFont1(Font f){ getOp().setFont1(f);}
   public static Font getFont2(){ return getOp().getFont2();}
   public static void setFont2(Font f){ getOp().setFont2(f);}
-  public static int getTaillePolice1(){ return getOp().getTaillePolice1();}
-  public static int getTaillePolice2(){ return getOp().getTaillePolice2();}
-  public static boolean getPleinEcran(){ return getOp().getPleinEcran();}
-  public static boolean getChargementPendantLesMenu(){ return getOp().getChargementPendantLesMenu();}
-  public static boolean getGarderLesGraphismesTourné(){ return getOp().getGarderLesGraphismesTourné();}
-  public static int getDimLigne(){return getOp().getDimLigne();}
+  public static int getFontSizeText(){ return getOp().getFontSizeText();}
+  public static int getFontSizeTitle(){ return getOp().getFontSizeTitle();}
+  public static boolean getFullscreen(){ return getOp().getFullscreen();}
+  public static boolean getLoadingDuringMenus(){ return getOp().getLoadingDuringMenus();}
+  public static boolean getKeepFilesRotated(){ return getOp().getKeepFilesRotated();}
+  public static int getSizeOfMapLines(){return getOp().getSizeOfMapLines();}
   public static int getPositionCase(){return getOp().getPositionCase();}
-  public static byte getTailleRealiste(){return getOp().getTailleRealiste();}
+  public static byte getRealisticSize(){return getOp().getRealisticSize();}
   //partie
   public static GInsecte getGi(){return pa.getGi();}
   public static GJoueur getListeJoueur(){return pa.getGj();}
@@ -316,11 +316,11 @@ public class Main {
     setMessageChargement("chargementDesOptions");startCh();
     chargerLesTraductions.iniTLangue();
     iniOp();
-    if(!debug.getAffLesEtapesDeRésolution()){//si elle n'ont pas été activé par "-d"
-      debug.setAffLesEtapesDeRésolution(getOp().getAffLesEtapesDeRésolution());
+    if(!debug.getMessage()){//si elle n'ont pas été activé par "-d"
+      debug.setMessage(getOp().getMessage());
     }
-    if(!debug.getAffLesPerformances()){//si elle n'ont pas été activé par "-p"
-      debug.setAffLesPerformances(getOp().getAffLesPerformances());
+    if(!debug.getPerformance()){//si elle n'ont pas été activé par "-p"
+      debug.setPerformance(getOp().getPerformance());
     }
     if(!debug.getAffG()){//si elle n'ont pas été activé par "-g"
       debug.setAffG(getOp().getAffG());
@@ -424,7 +424,7 @@ public class Main {
         endCh("enregistementDesScores");
       }
       startCh();
-      if(getGarderLesGraphismesTourné()){image.clearPartielTemporaire();}
+      if(getKeepFilesRotated()){image.clearPartielTemporaire();}
       else{image.clearTemporaire();}
       endCh("vidageDesFichiersImages");
       String s = "toutes les opérations longues ";

@@ -91,12 +91,12 @@ public class FLabel extends JLabel {
   // public void setFondColoré(Color col){this.setBackground(col);}
   //public void setFondColoré(){ setFondColoré(Main.getPiFond().piToColor());}
   public void setFondTransparent(){setBackground(new Color(0,0,0,0));}
-  public void setPolice(Font fon){ setFont(fon);}
+  public void setFontText(Font fon){ setFont(fon);}
   // @Override
   // public void setFont(Font fon){super.setFont(fon);}
-  public void setPolice(){ setPolice(Main.getFont1());}
+  public void setFontText(){ setFontText(Main.getFont1());}
   public void setBounds(int a, int b, int c){this.setBounds(a,b,c,getDimY());}
-  public static int getDimY(){ return (int)(Main.getOp().getTaillePolice1()*1.2);}
+  public static int getDimY(){ return (int)(Main.getOp().getFontSizeText()*1.2);}
   public void setCentered(){setHorizontalAlignment(SwingConstants.CENTER);}
   public void setSize(int w){setSize(w,getDimY());}
   // FUNCTIONS -----------------------------------------------------------------
