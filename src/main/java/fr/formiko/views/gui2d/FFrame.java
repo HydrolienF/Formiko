@@ -108,7 +108,7 @@ public class FFrame extends JFrame {
   *@version 2.7
   */
   public void endIni(){
-    setResizable(true);
+    setResizable(Main.getOp().getFullscreen());
     setVisible(true);
     toFront();
   }

@@ -64,8 +64,6 @@ public class Options implements Serializable{
   private int gui_global_fontSizeTitle;
   private String gui_global_fontText;
   private String gui_global_fontTitle;
-  private Font font1;
-  private Font font2;
   private boolean gui_global_fullscreen;
   private int gui_global_frameWidth;
   private int gui_global_frameHeight;
@@ -78,6 +76,9 @@ public class Options implements Serializable{
   private int gui_global_fps;
   private byte gui_pgo_antColorLevel;
   private boolean gui_global_animationEnable;
+  
+  private Font font1;
+  private Font font2;
 
   private SortedProperties properties=null;
   // CONSTRUCTORS --------------------------------------------------------------
