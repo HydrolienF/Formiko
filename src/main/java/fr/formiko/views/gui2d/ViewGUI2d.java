@@ -142,6 +142,7 @@ public class ViewGUI2d implements View {
   public boolean menuMain(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
+    DiscordIntegration.updateActivity();
     if(f==null || getPm()==null){ini();}
     Main.stopScript();
     if(Main.getPremierePartie()){
@@ -168,6 +169,7 @@ public class ViewGUI2d implements View {
   public boolean menuNewGame(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
+    DiscordIntegration.updateActivity();
     if(f==null || getPm()==null){ini();}
     getPm().buildPanneauMenu(3,1);
     paint();
@@ -181,6 +183,7 @@ public class ViewGUI2d implements View {
   public boolean menuLoadAGame(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
+    DiscordIntegration.updateActivity();
     if(f==null || getPm()==null){ini();}
     getPm().removeP();
     getPm().addPcp();
@@ -194,6 +197,7 @@ public class ViewGUI2d implements View {
   public boolean menuPersonaliseAGame(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
+    DiscordIntegration.updateActivity();
     if(f==null || getPm()==null){ini();}
     getPm().addPnp();
     paint();
@@ -207,6 +211,7 @@ public class ViewGUI2d implements View {
   public boolean menuOptions(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
+    DiscordIntegration.updateActivity();
     if(f==null || getPm()==null){ini();}
     erreur.erreurPasEncoreImplemente();
     return true;
@@ -229,6 +234,7 @@ public class ViewGUI2d implements View {
     getPp().removePm();//on retire le menu
     Main.endCh("chargementPanneauChargementEtSuppressionMenu");
     getPj().iniPch();//on met le panneau de chargement au 1a plan.
+    DiscordIntegration.updateActivity();
     Main.startCh();
     getPb().addPz();
     Main.endCh("ajoutPanneauZoom");Main.startCh();
