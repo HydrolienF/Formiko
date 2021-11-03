@@ -10,6 +10,7 @@ import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.interfaces.TourFourmiNonIa;
 import fr.formiko.formiko.triche;
+import fr.formiko.usuel.DiscordIntegration;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.Th;
 import fr.formiko.usuel.ThTriche;
@@ -82,6 +83,7 @@ public class ViewGUI2d implements View {
     f = new FFrameMain();
     iniFont();
     iniThTriche();
+    iniDiscordIntergation();
     Main.getData().setImageIniForNewGame(false);//force reload of ant images.
     Main.endCh("iniView");Main.startCh();
     ini.initialiserToutLesPaneauxVide();
@@ -611,7 +613,21 @@ public class ViewGUI2d implements View {
         trich.start();
       }
     }catch (Exception e) {
-      erreur.erreur("Impossible de lancer l'écoute des codes triches.");
+      erreur.erreur("Unable to launch cheat code listening");
+    }
+  }
+  /**
+  *{@summary Initialize the discord integration.}<br>
+  *@version 2.10
+  */
+  private void iniDiscordIntergation(){
+    try {
+      new Thread(() -> {
+        DiscordIntegration.discordRPC();
+      }).start();
+    }catch (Exception e) {
+      erreur.erreur("Unable to launch Discord rich presence");
+      e.printStackTrace();
     }
   }
   /**
