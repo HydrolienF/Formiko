@@ -203,13 +203,10 @@ public class PanneauBouton extends Panneau {
     if(fontPij==null){
       fontPij = new Font(Main.getOp().getFontText(),Font.PLAIN,(int)(Main.getOp().getFontSizeText()/1.5));
     }
-    Fourmi ft = Main.getPlayingAnt();
-    if (ft==null){ return;}
-    GString gs = ft.getFourmiliere().getJoueur().getGm().gmToGs(Main.getMaxMessageDisplay());
-    debug.débogage("affichage console du contenu de gs");
+    Joueur playingPlayer = Main.getPlayingJoueur();
+    if (playingPlayer==null){ return;}
+    GString gs = playingPlayer.getGm().gmToGs(Main.getMaxMessageDisplay());
     pij = new PanneauInfoText(gs,Main.getTailleElementGraphiqueX(500),true,fontPij);
-    // int xx = pz.getbuttonSize()*5;
-    // debug.débogage("initialisation du PanneauInfoJoueur en "+(getWidth()-xx)+" "+(getHeight()-pij.getYPi()));
     int x = Main.getTailleElementGraphiqueX(320);
     pij.setBounds((getWidth()-x*2)/2,Main.getTailleElementGraphiqueY(100),x,pij.getYPi());
     add(pij);
