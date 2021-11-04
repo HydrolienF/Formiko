@@ -197,6 +197,7 @@ public class PanneauJeu extends Panneau {
     if (Main.getPartie().getEnCours()){
       Panneau.getView().getPc().updateSize();
       Main.getData().chargerImages();
+      getView().getPmmc().build();
       Main.getData().iniBackgroundMapImage();
     }
   }

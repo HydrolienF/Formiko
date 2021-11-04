@@ -1,1 +1,3 @@
-doing test
+Add :
+ - discord rich presence
+ - map options

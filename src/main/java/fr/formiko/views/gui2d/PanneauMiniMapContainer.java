@@ -5,6 +5,7 @@ import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.structures.listes.Liste;
 
@@ -44,6 +45,8 @@ public class PanneauMiniMapContainer extends Panneau {
     setLocation(Panneau.getView().getWidth()-getWidth(), Panneau.getView().getHeight()-getHeight());
     pgo.setSize(getWidth(),Main.getTailleElementGraphiqueX((int)(BUTTON_RADIUS*1.6)));
     pgo.setLocation(0,(int)(BUTTON_RADIUS*0.4));
+  }
+  public void build(){
     pgo.build();
   }
 
@@ -214,28 +217,29 @@ public class PanneauMiniMapContainer extends Panneau {
       setSize(1,1);
       buttonList = new Liste<FButtonPGO>();
     }
+    private boolean isIni(){return !buttonList.isEmpty();}
     /**
     *{@summary Build function that add all the button.}<br>
     *@version 2.10
     */
     private void build(){
-      if(getWidth()==1){return;}
-      addGraphicOption(350, null, () -> {
+      if(getWidth()==1 || isIni()){return;}
+      addGraphicOption(350, getGridImage(4), () -> {
         return Main.getOp().getDrawGrid();
       });
-      addGraphicOption(351, null, () -> {
+      addGraphicOption(351, getRelationImage(), () -> {
         return Main.getOp().getDrawRelationsIcons();
       });
-      addGraphicOption(352, null, () -> {
+      addGraphicOption(352, getStateImage(), () -> {
         return Main.getOp().getDrawStatesIconsLevel();
       });
-      addGraphicOption(353, null, () -> {
+      addGraphicOption(353, getColoredRoundImage(), () -> {
         return Main.getOp().getDrawAllAnthillColor();
       });
-      addGraphicOption(354, null, () -> {
+      addGraphicOption(354, getLineImage(), () -> {
         return Main.getOp().getDrawPlayerMessagePanel();
       });
-      addGraphicOption(355, null, () -> {
+      addGraphicOption(355, getSeedNeutralImage(), () -> {
         return Main.getOp().getDrawOnlyEatable();
       });
       placeButtons();
@@ -259,10 +263,111 @@ public class PanneauMiniMapContainer extends Panneau {
       int k=1;
       for (FButtonPGO fb : buttonList) {
         fb.setSize(getHeight(), getHeight());
-        fb.setLocation((k++)*(getWidth()-(getHeight()/2))/len,0);
+        fb.setLocation((k++)*(getWidth()-(getHeight()/2))/len+(getHeight()/2),0);
         fb.setBorderPainted(false);
         add(fb);
       }
+    }
+    /**
+    *{@summary Return a grid image with len line &#38; len column.}<br>
+    *@param len the number of line &#38; column
+    *@version 2.10
+    */
+    private BufferedImage getGridImage(int len){
+      BufferedImage bi = new BufferedImage(getHeight(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+      Graphics g = bi.getGraphics();
+      g.setColor(Color.BLACK);
+      for (int i=0; i<len;i++ ) {
+        int x = (int)((i+0.5)*getHeight()/len);
+        // int disfase = (getHeight()/2) - x;
+        // if(x>getHeight()/2){disfase=x - getHeight();}
+        g.drawLine(x,0,x,getHeight());
+        g.drawLine(0,x,getHeight(),x);
+      }
+      return bi;
+    }
+    /**
+    *{@summary Return a text image.}<br>
+    *@version 2.10
+    */
+    private BufferedImage getLineImage(){
+      BufferedImage bi = new BufferedImage(getHeight(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+      Graphics g = bi.getGraphics();
+      g.setColor(Color.BLACK);
+      if(g instanceof Graphics2D){
+        Graphics2D g2d = (Graphics2D)g;
+        g2d.setStroke(new BasicStroke(3));
+      }
+      int len = 3;
+      for (int i=0; i<len;i++ ) {
+        int x = (int)(((i*0.5)+1)*getHeight()/len);
+        g.drawLine((getHeight())/3,x,(getHeight()*2)/3,x);
+      }
+      return bi;
+    }
+    /**
+    *{@summary Return a colored round image as anthill color are draw.}<br>
+    *@version 2.10
+    */
+    private BufferedImage getColoredRoundImage(){
+      BufferedImage bi = new BufferedImage(getHeight(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+      int size = getHeight()/2;
+      Graphics g = bi.getGraphics();
+      g.setColor(Color.MAGENTA);
+      if(g instanceof Graphics2D){
+        Graphics2D g2d = (Graphics2D)g;
+        g2d.setStroke(new BasicStroke(size/4));
+      }
+      g.drawOval(size/2,size/2,size,size);
+      return bi;
+    }
+    /**
+    *{@summary Return a relation image.}<br>
+    *@version 2.10
+    */
+    private BufferedImage getRelationImage(){
+      Liste<BufferedImage> list = new Liste<BufferedImage>();
+      list.add(getView().getPc().getIconImage(0));
+      list.add(getView().getPc().getIconImage(1));
+      list.add(getView().getPc().getIconImage(2));
+      return getListeImage(list);
+    }
+    /**
+    *{@summary Return a state image.}<br>
+    *@version 2.10
+    */
+    private BufferedImage getStateImage(){
+      Liste<BufferedImage> list = new Liste<BufferedImage>();
+      list.add(getView().getPc().getStateIconImage(Main.getData().getButtonColor(2),getView().getPc().getTBIState()[0]));
+      list.add(getView().getPc().getStateIconImage(Main.getData().getButtonColor(3),getView().getPc().getTBIState()[1]));
+      return getListeImage(list);
+    }
+    /**
+    *{@summary Return a state image.}<br>
+    *@version 2.10
+    */
+    private BufferedImage getSeedNeutralImage(){
+      Liste<BufferedImage> list = new Liste<BufferedImage>();
+      list.add(getView().getPc().getIconImage(1));
+      list.add(getView().getPc().getIconImage(4));
+      return getListeImage(list);
+    }
+    /**
+    *{@summary Return a small image from a list of images.}<br>
+    *@version 2.10
+    */
+    private BufferedImage getListeImage(Liste<BufferedImage> listIn){
+      BufferedImage bi = new BufferedImage(getHeight(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+      Graphics g = bi.getGraphics();
+      int size = getHeight()/2;
+      Liste<BufferedImage> list = new Liste<BufferedImage>();
+      for (BufferedImage biTemp : listIn) {
+        if(biTemp!=null && biTemp.getWidth()>0){
+          list.add(image.resize(biTemp,size,size));
+        }
+      }
+      getView().getPc().drawListIcons(g,list,size/2,size/2,0);
+      return bi;
     }
   }
 }

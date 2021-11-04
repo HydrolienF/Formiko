@@ -120,6 +120,7 @@ public class PanneauCarte extends Panneau {
     //chargerImages();
     Main.getData().iniBackgroundMapImage(); //demande au donnée d'image de rechargé l'image qui représente l'arrière plan de la carte.
   }
+  public BufferedImage[] getTBIState(){if(tBiState==null){iniTBiState();} return tBiState;}
   // Fonctions propre ----------------------------------------------------------
   /**
   *{@summary Main paint function for Map.}<br>
@@ -560,7 +561,7 @@ public class PanneauCarte extends Panneau {
   *@param xOffset offset in x
   *@version 2.8
   */
-  private void drawListIcons(Graphics g, Liste<BufferedImage> list, int xT, int yT, int xOffset){
+  public void drawListIcons(Graphics g, Liste<BufferedImage> list, int xT, int yT, int xOffset){
     int len = list.length();
     int k=0;
     if(len>1){
@@ -640,6 +641,7 @@ public class PanneauCarte extends Panneau {
   *@version 2.7
   */
   public BufferedImage getIconImage(int id){
+    if(Main.getData().getB()==null){return null;}
     return Main.getData().getB()[id];
   }
   /**
@@ -675,6 +677,7 @@ public class PanneauCarte extends Panneau {
   */
   public BufferedImage getStateIconImage(Color col, BufferedImage icon){
     int iconSize = getTailleIcon();
+    if(iconSize<1){return null;}
     BufferedImage ir = new BufferedImage(iconSize, iconSize, BufferedImage.TYPE_INT_ARGB);
     Graphics g = ir.getGraphics();
     g.setColor(col);
