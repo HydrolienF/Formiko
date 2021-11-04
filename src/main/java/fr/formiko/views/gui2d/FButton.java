@@ -32,7 +32,7 @@ import javax.swing.JButton;
 *@author Hydrolien
 *@version 1.54
 */
-public class FButton extends JButton implements MouseListener{
+public class FButton extends JButton implements MouseListener {
   protected final int id; protected static int cpt=1;
   protected Image img;
   protected String nom;
@@ -224,23 +224,31 @@ public class FButton extends JButton implements MouseListener{
   }
   /**
   *{@summary set the button selected or not.}<br>
-  *@param selected true if button is selected.
-  *@version 2.2
+  *@param selected true if button is selected
+  *@param mouseLocated true if desc is mouse located
+  *@version 2.10
   */
-  public void setSelected(boolean selected){
-    if(!isEnabled()){Panneau.getView().setMessageDesc(""); return;}
+  public void setSelected(boolean selected, boolean mouseLocated){
+    if(!isEnabled()){Panneau.getView().setMessageDesc("", mouseLocated); return;}
     if(selected){
-      Panneau.getView().setMessageDesc(g.get("bouton.desc."+action)+getKeyboardKey());
-      // setCFond(Main.getData().getButtonFocusColor());
-      setColor(2);
+      Panneau.getView().setMessageDesc(getDesc(), mouseLocated);
+      if(!mouseLocated){setColor(2);}
     }else{
-      Panneau.getView().setMessageDesc("");
+      Panneau.getView().setMessageDesc("", mouseLocated);
       setDefaultColor();
     }
-    repaint();
   }
   /**
-  *{@summary return the shortcut key as a String.}<br>
+  *{@summary Set the button selected or not.}<br>
+  *By default desc is not mouse located.
+  *@param selected true if button is selected
+  *@version 2.10
+  */
+  public void setSelected(boolean selected){
+    setSelected(selected, false);
+  }
+  /**
+  *{@summary Return the shortcut key as a String.}<br>
   *If key don't exist it will return an empty String.
   *@version 2.2
   */
@@ -251,5 +259,12 @@ public class FButton extends JButton implements MouseListener{
     }catch (Exception e) {}
     if(!key.equals("")){key="("+g.get("raccourci")+" \""+key+"\")";}
     return key;
+  }
+  /**
+  *{@summary Return the description of the button.}<br>
+  *@version 2.10
+  */
+  protected String getDesc(){
+    return g.get("bouton.desc."+action)+getKeyboardKey();
   }
 }

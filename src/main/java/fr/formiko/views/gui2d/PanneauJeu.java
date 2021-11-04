@@ -318,6 +318,8 @@ public class PanneauJeu extends Panneau {
               visible = true;
             }
           }
+        }else{
+          needToUpdateTimeFromLastMove=true;
         }
         labelMessage.setVisible(visible);
         // Temps.pause(50);

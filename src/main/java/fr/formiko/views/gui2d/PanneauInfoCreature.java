@@ -166,8 +166,8 @@ class PanneauProgressBar extends Panneau {
     }
     addMouseListener(PPBML);
     pb.addMouseListener(PPBML);
-    addMouseMotionListener(PPBML);
-    pb.addMouseMotionListener(PPBML);
+    addMouseMotionListener(new DescMouseMotionListener());
+    pb.addMouseMotionListener(new DescMouseMotionListener());
   }
 
   // GET SET -------------------------------------------------------------------
@@ -199,7 +199,7 @@ class PanneauProgressBar extends Panneau {
   *{@summary Listener that update description when it need.}<br>
   *@version 2.7
   */
-  public class PanneauProgressBarMouseListener implements MouseListener, MouseMotionListener {
+  public class PanneauProgressBarMouseListener implements MouseListener {
     /**
     *{@summary Update message description.}<br>
     *@version 2.7
@@ -222,17 +222,6 @@ class PanneauProgressBar extends Panneau {
     public void mousePressed(MouseEvent event) {}
     @Override
     public void mouseReleased(MouseEvent event) {}
-    // addMouseMotionListener(new MouseMotionAdapter() {
-    /**
-    *{@summary Update mouse location to hide the message.}<br>
-    *@version 2.7
-    */
-    @Override
-    public void mouseMoved(MouseEvent event){
-      getView().getPj().updateTimeFromLastMove();
-    }
-    @Override
-    public void mouseDragged​(MouseEvent e){}
   }
 }
 /**

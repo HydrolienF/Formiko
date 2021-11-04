@@ -1,10 +1,13 @@
 package fr.formiko.views.gui2d;
 
+import fr.formiko.usuel.g;
+
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.util.function.Supplier;
-import java.awt.Graphics2D;
-import java.awt.Graphics;
 
 /**
 *{@summary Extends of FButton with some added functions to defined color &#38; draw a circle button.}<br>
@@ -28,6 +31,7 @@ public class FButtonPGO extends FButton {
     setWithBackground(false);
     colId=-1;
     updateColor();
+    addMouseMotionListener(new DescMouseMotionListener());
   }
   /**
   *{@summary Paint function.}<br>
@@ -49,6 +53,8 @@ public class FButtonPGO extends FButton {
   public void mouseReleased(MouseEvent event) {
     super.mouseReleased(event);
     updateColor();
+    setSelected(true);
+    Panneau.getView().getPj().updateTimeFromLastMove();
   }
   /**
   *{@summary Update color depending of supplier return value.}
@@ -72,5 +78,39 @@ public class FButtonPGO extends FButton {
   public void setDefaultColor(){
     if(colId<0){super.setDefaultColor();}
     else{setColor(colId);}
+  }
+  /**
+  *{@summary set the button selected or not.}<br>
+  *Desc are print on the button (mouse located).
+  *@param selected true if button is selected.
+  *@version 2.10
+  */
+  @Override
+  public void setSelected(boolean selected){
+    super.setSelected(selected, true);
+  }
+  /**
+  *{@summary Return a string representing the enabled or not state of the button.}<br>
+  *@version 2.10
+  */
+  public String getDescEnabled(){
+    String sr = "";
+    if(colId!=-1){return "";}
+    if(isYellow){
+      sr=g.get("enabled");
+    }else{
+      sr=g.get("disabled");
+    }
+    return "("+sr+")";
+  }
+  /**
+  *{@summary Return the description of the button.}<br>
+  *@version 2.10
+  */
+  @Override
+  protected String getDesc(){
+    String descEnable = getDescEnabled();
+    if(!descEnable.equals("")){descEnable=" "+descEnable;}
+    return super.getDesc()+descEnable;
   }
 }

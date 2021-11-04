@@ -28,6 +28,8 @@ suivant:suivant
 avant:avant
 save:sauvegarde
 validate:valider
+disabled:désactivé
+enabled:activé
 
 set:choisir
 where:où
@@ -365,6 +367,12 @@ bouton.desc.28:Déclencher le mode automatique "Nourrice"
 bouton.desc.29:Passer le tour de la fourmi
 bouton.desc.30:Supprimer la fourmi
 bouton.desc.31:Ouvrir le menu d'options en jeu
+
+bouton.desc.350:grille
+bouton.desc.351:relations envers les autres Créatures
+bouton.desc.352:états des fourmis alliées
+bouton.desc.353:couleurs des fourmilières
+bouton.desc.354:journal d'informations
 
 pti.desc.1:Indiquez l'id de la fourmi qui recevra la nourriture.
 pti.desc.2:Indiquez la quantité de nourriture offerte.
