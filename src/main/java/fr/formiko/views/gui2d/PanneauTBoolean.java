@@ -10,11 +10,11 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 public class PanneauTBoolean extends PanneauTX{
-  private int choix;
+  // private int choix;
   // CONSTRUCTORS --------------------------------------------------------------
   public PanneauTBoolean(String desc){super();
     if(desc==null){ return;}
-    tailleBouton = Main.getTailleBoutonTX();
+    tailleBouton = Main.getbuttonSizeTX();
     this.descTI = desc;
     debug.débogage("Création d'un PanneauTBoolean");
     this.setLayout(new GridBagLayout());

@@ -77,7 +77,6 @@ public class action{
     }else if(ac==7){
       pm.validatelanguageChoice();
     }else if(ac==100){
-      // Main.getView().menuNewGame();
       setPartie(Panneau.getView().getPnp().getPartie());
       pm.setLancer(true); //TODO to remove
     }else if(ac==101){
@@ -122,6 +121,8 @@ public class action{
           }catch (Exception e) {
             erreur.alerte("fail to end turn");
           }
+        }else if(ac>=350 && ac<400){
+          doGraphicsAction(ac);
         }else if(ac>=40){
           PanneauBouton pb = Panneau.getView().getPb();
           pb.setChoixId(pb.getPti().getBoutonX(ac-40));
@@ -200,10 +201,38 @@ public class action{
   }
   public static void updateMouseLocation(){
     try {
-      // System.out.println("moved 1");
-      // Panneau.getView().getPs().mouseMovedUpdate(Panneau.getView().getPs().getCCase((int)MouseInfo.getPointerInfo().getLocation().getX(), (int)MouseInfo.getPointerInfo().getLocation().getY()));
       System.out.println(Panneau.getView().getPs().getCCase((int)MouseInfo.getPointerInfo().getLocation().getX(), (int)MouseInfo.getPointerInfo().getLocation().getY()).getContent());
-      // System.out.println("moved 2");
     }catch (Exception e) {}
+  }
+  /**
+  *{@summary do a graphic action concerning map aspect.}
+  *@version 2.10
+  */
+  public static void doGraphicsAction(int ac){
+    switch(ac){
+      case 350:
+      Main.getOp().setDrawGrid(!Main.getOp().getDrawGrid());
+      break;
+      case 351:
+      Main.getOp().setDrawRelationsIcons(!Main.getOp().getDrawRelationsIcons());
+      break;
+      case 352:
+      Main.getOp().setDrawStatesIconsLevel((byte)((Main.getOp().getDrawStatesIconsLevel()+1)%5));
+      break;
+      case 353:
+      Main.getOp().setDrawAllAnthillColor(!Main.getOp().getDrawAllAnthillColor());
+      break;
+      case 354:
+      Main.getOp().setDrawPlayerMessagePanel(!Main.getOp().getDrawPlayerMessagePanel());
+      if (Panneau.getView().getPb()!=null) {
+        Panneau.getView().getPb().addPIJ();
+      }
+      break;
+      case 355:
+      Main.getOp().setDrawOnlyEatable(!Main.getOp().getDrawOnlyEatable());
+      break;
+      default:
+      break;
+    }
   }
 }

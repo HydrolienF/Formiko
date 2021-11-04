@@ -29,9 +29,9 @@ public class ChasseHerbivore implements Serializable, Chasse {
   */
   public boolean chasse(Creature c){
     this.c=c;
-    int nourritureMangeable = 1;
-    if(c instanceof Insecte){nourritureMangeable=((Insecte)(c)).getNourritureMangeable();}
-    if(c.getCCase().getContent().getNourritureInsecte() >= nourritureMangeable){
+    int foodMangeable = 1;
+    if(c instanceof Insecte){foodMangeable=((Insecte)(c)).getFoodMangeable();}
+    if(c.getCCase().getContent().getFoodInsecte() >= foodMangeable){
       return manger();
     }else{
       //TODO
@@ -48,13 +48,13 @@ public class ChasseHerbivore implements Serializable, Chasse {
   *@version 1.28
   */
   public boolean manger(){
-    byte nourritureSurCase = c.getCCase().getContent().getNourritureInsecte();
-    int nourritureMangeable = 1;
-    if(c instanceof Insecte){nourritureMangeable=((Insecte)(c)).getNourritureMangeable();}
-    if (nourritureSurCase > 0){
-      byte nourritureMangé = (byte) math.min(nourritureSurCase,nourritureMangeable);
-      c.getCCase().getContent().setNourritureInsecte((byte)(nourritureSurCase-nourritureMangé));
-      c.setNourriture(c.getNourriture() + nourritureMangé);
+    byte foodSurCase = c.getCCase().getContent().getFoodInsecte();
+    int foodMangeable = 1;
+    if(c instanceof Insecte){foodMangeable=((Insecte)(c)).getFoodMangeable();}
+    if (foodSurCase > 0){
+      byte foodMangé = (byte) math.min(foodSurCase,foodMangeable);
+      c.getCCase().getContent().setFoodInsecte((byte)(foodSurCase-foodMangé));
+      c.setFood(c.getFood() + foodMangé);
       if(c instanceof Fourmi){
         c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuByType(((Fourmi) c).getTypeF()).getCoutChasse()/2);
       }else{

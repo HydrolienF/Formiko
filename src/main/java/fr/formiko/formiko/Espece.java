@@ -25,8 +25,8 @@ public class Espece implements Serializable{
   protected byte tTempératureInt[] = new byte[4];
   protected byte tHumidité[] = new byte[2];
   protected boolean tHabitat[] = new boolean[3];
-  protected byte tPropretéPerdu[];
-  protected int tNourritureFournie[];
+  protected byte tHealthPerdu[];
+  protected int tGivenFood[];
   protected int tTaille[];
   protected String note;
   protected GIndividu giu;
@@ -43,8 +43,8 @@ public class Espece implements Serializable{
     tTempératureInt[0] = tnidmin; tTempératureInt[1] = tnidmini; tTempératureInt[2] = tnidmaxi; tTempératureInt[3] = tnidmax;
     tHumidité[0]=humax;tHumidité[1]=humin;
     tHabitat[0]=ha0;tHabitat[1]=ha1;tHabitat[2]=ha2;
-    tPropretéPerdu=po;
-    tNourritureFournie=nf;
+    tHealthPerdu=po;
+    tGivenFood=nf;
     tTaille=ta;
     this.vole =vole;
     this.note = note;
@@ -52,9 +52,9 @@ public class Espece implements Serializable{
   }
   // GET SET -------------------------------------------------------------------
   public int getId(){ return id;}
-  public byte getPropretéPerdu(byte stade){ // fluctue en fonction des tour et pas en fonction des individu.
-    if(tPropretéPerdu[stade+3]!=0){
-      return (byte) allea.fluctuer(tPropretéPerdu[stade+3],20);
+  public byte getHealthPerdu(byte stade){ // fluctue en fonction des tour et pas en fonction des individu.
+    if(tHealthPerdu[stade+3]!=0){
+      return (byte) allea.fluctuer(tHealthPerdu[stade+3],20);
     }else{
       return (byte) 0;
     }
@@ -76,8 +76,8 @@ public class Espece implements Serializable{
   public boolean getPolycalique(){return polycalique;}
   public void setPolycalique(boolean b){polycalique=b;}
   public boolean getHaveWings(){return vole;}//seule les imagos chez les insectes et spécifiquement les individu de type 0 ou 1 chez les fourmi vole.
-  public int getNourritureFournie(byte stade){if(stade<-3 || stade > 0){erreur.erreur("nourritureFournie demande un stade entre -3 et 0 hors le stade est de "+stade); return -1;}
-    return allea.fluctuer(tNourritureFournie[stade+3]);}//-3 = case 0. 0 = case 3.
+  public int getGivenFood(byte stade){if(stade<-3 || stade > 0){erreur.erreur("givenFood demande un stade entre -3 et 0 hors le stade est de "+stade); return -1;}
+    return allea.fluctuer(tGivenFood[stade+3]);}//-3 = case 0. 0 = case 3.
   public int getTaille(byte stade){if(stade<-3 || stade > 0){erreur.erreur("getTaille demande un stade entre -3 et 0 hors le stade est de "+stade); return -1;}
     return tTaille[stade+3];}
   public int getTaille(int stade){return getTaille(str.iToBy(stade));}
@@ -94,10 +94,10 @@ public class Espece implements Serializable{
     r+=tableau.tableauToString(tHumidité,",");r+=finLigne;
     r+="tHabitat : ";
     r+=tableau.tableauToString(tHabitat,",");r+=finLigne;
-    r+="propretéPerdu : ";
-    r+=tableau.tableauToString(tPropretéPerdu,",");r+="\n";
-    r+="nourritureFournie : ";
-    r+=tableau.tableauToString(tNourritureFournie,",");r+="\n";
+    r+="healthPerdu : ";
+    r+=tableau.tableauToString(tHealthPerdu,",");r+="\n";
+    r+="givenFood : ";
+    r+=tableau.tableauToString(tGivenFood,",");r+="\n";
     r+=giu.toString();r+="\n";
     r+="Note : "+note;r+="\n";
     return r;

@@ -50,6 +50,7 @@ public class Carte implements Serializable {
   */
   public Carte(String mapName){
     this(chargerCarte.chargerCarte(mapName));
+    this.mapName=mapName;
   }
   // GET SET -------------------------------------------------------------------
   public GCase getGc(){ return gc;}

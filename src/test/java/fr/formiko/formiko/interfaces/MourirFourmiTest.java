@@ -2,7 +2,6 @@ package fr.formiko.formiko.interfaces;
 
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Fourmiliere;
@@ -10,7 +9,7 @@ import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 public class MourirFourmiTest extends TestCaseMuet{
   private Fourmi ini(){
@@ -36,7 +35,7 @@ public class MourirFourmiTest extends TestCaseMuet{
     assertEquals(1,fere.getGc().length());
     Main.setPlayingAnt(f);
     f.mourir(0);
-    assertTrue(f.getEstMort());
+    assertTrue(f.getIsDead());
     assertEquals(0,Main.getCCase(0,0).getContent().getGc().length());
     assertEquals(0,fere.getGc().length());
     assertEquals(null,Main.getPlayingAnt());

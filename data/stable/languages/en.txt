@@ -28,6 +28,8 @@ suivant:next
 avant:before
 save:save
 validate:validate
+disabled:disabled
+enabled:enabled
 
 set:set
 where:where
@@ -365,6 +367,13 @@ bouton.desc.28:activate automatic Nurse mode
 bouton.desc.29:pass the ant turn
 bouton.desc.30:remove the ant
 bouton.desc.31:open in-game options menu
+
+bouton.desc.350:grid
+bouton.desc.351:relations with other Creatures
+bouton.desc.352:states of the allied ants
+bouton.desc.353:anthills colors
+bouton.desc.354:informations log
+bouton.desc.355:draw only comestible seeds/insects (Or ally / enemy)
 
 pti.desc.1:indicate the id of the ant that will receive the food.
 pti.desc.2:indicate the amount of food offered.

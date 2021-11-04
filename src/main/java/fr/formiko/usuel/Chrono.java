@@ -103,22 +103,22 @@ public class Chrono {
    * @version 1.1
    */
   public static void startCh(Chrono chTemp){
-    if(!debug.getAffLesPerformances()){ return;}
+    if(!debug.getPerformance()){ return;}
     chTemp.start();
   }
   /**
    * {@summary Stop Chrono and print a message about Chrono duration.}<br>
-   * The message will be print in console only if debug.setAffLesPerformances is true.<br>
+   * The message will be print in console only if debug.setPerformance is true.<br>
    * Message will be print only if the do more than 20ms.<br>
    * @return duration time.
    * @version 1.18
    */
   public static int endCh(String s,Chrono chTemp){ // fin du Chrono.
-    if(!debug.getAffLesPerformances()){ return 0;}
+    if(!debug.getPerformance()){ return 0;}
     String s2 = g.getM(s);
     if (s2.length()!=0){ s=s2;}
     chTemp.stop();long lon = chTemp.getDuree();
-    if(!debug.getAffLesEtapesDeRésolution()){return (int)lon;}
+    if(!debug.getMessage()){return (int)lon;}
     String s3 = ""; if(!chTemp.equals(ch)){s3 = " ("+g.get("actionSecondaire")+" "+ch.getId()+")";}
     debug.performances("temps pour "+ s + " : "+lon+" ms"+s3); //affichage du chrono.
     return (int)lon;

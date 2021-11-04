@@ -44,7 +44,7 @@ public class ChasseGranivore implements Serializable, Chasse {
       return chasse(c);
     }else if (proieVisible.getHead() != null){ // Si il y a une graine a coté
       CCase pointDeLaProie = proieVisible.getHead().getContent().getCCase();
-      Graine betterSeed = proieVisible.getGrainePlusDeNourritureFournieSansDureté();
+      Graine betterSeed = proieVisible.getGrainePlusDeGivenFoodSansDureté();
       if ((Main.getDifficulté() >= 1 || !c.getIa()) && betterSeed!= null){
         pointDeLaProie = betterSeed.getCCase();
       }
@@ -70,7 +70,7 @@ public class ChasseGranivore implements Serializable, Chasse {
      if (gg.getHead() != null){
        Graine graineCollecté;
        if (Main.getDifficulté() >= 0 || !c.getIa()){
-         graineCollecté = gg.getGrainePlusDeNourritureFournieSansDureté();
+         graineCollecté = gg.getGrainePlusDeGivenFoodSansDureté();
        }else{
          graineCollecté = gg.getHead().getContent();
        }
@@ -100,7 +100,7 @@ public class ChasseGranivore implements Serializable, Chasse {
   //@Override
   public boolean canHuntMore(Creature c){
     //return c.getTransported()==null && super.canHuntMore(c);
-    return c.getTransported()==null && c.getNourriture()<c.getNourritureMax() && c.getAction()>0;
+    return c.getTransported()==null && c.getFood()<c.getMaxFood() && c.getAction()>0;
   }
   private boolean eatIfNeed(){
     // if(c.isHungry(90)){

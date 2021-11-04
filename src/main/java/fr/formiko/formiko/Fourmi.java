@@ -36,7 +36,7 @@ public class Fourmi extends Creature implements Serializable{
   private static byte uneSeuleAction=-1;
   private static boolean bActionHaveChange=false;
   // private static boolean bActualiserTaille=false;
-  protected boolean ailesCoupees=true;
+  protected boolean cutWings=true;
 
   // CONSTRUCTORS --------------------------------------------------------------
   /**
@@ -51,16 +51,16 @@ public class Fourmi extends Creature implements Serializable{
   // /!\ Ant need to be add to the Fourmiliere after that.
   public Fourmi(Fourmiliere fere, Espece e, byte ty){ // arrivé d'un oeuf.
     // on devrais fixer l'age max en fonction de la difficulté la aussi
-    super(fere.getCc(),0,e.getGIndividu().getIndividuByType(ty).getAgeMax(0),0);
-    typeF = ty; this.e = e; this.fere = fere; stade = (byte)-3; propreté = (byte) 100;
+    super(fere.getCc(),0,e.getGIndividu().getIndividuByType(ty).getMaxAge(0),0);
+    typeF = ty; this.e = e; this.fere = fere; stade = (byte)-3; health = (byte) 100;
     iniPheromone();
     // a modifier a partir des individus quand duretée sera un paramètre. OU alors on dit que duretéMax est fixe en fonction des individus. Genre les gros casse tout, les moyen jusqu'a 60 et les petit jusqu'a 20.
     duretéMax=0;
-    setNourritureFournie(e.getNourritureFournie(getStade()));
+    setGivenFood(e.getGivenFood(getStade()));
     fere.getCc().getContent().getGc().add(this);
     evoluer = new EvoluerFourmi();
     mourir = new MourirFourmi();
-    if(e.getPolycalique()){tolerencePheromone=5;}//si c'est une espèce capable de s'endendre avec les fourmilières de la même famille.
+    if(e.getPolycalique()){pheromoneTolerence=5;}//si c'est une espèce capable de s'endendre avec les fourmilières de la même famille.
     iniTour();
   }
   /**
@@ -82,7 +82,7 @@ public class Fourmi extends Creature implements Serializable{
   public Fourmi(Fourmiliere fere, Espece e, byte ty, byte stade){
     this(fere,e,ty);
     this.stade = (byte)(stade-1); evoluer(); //On simule le fait que la fourmi vien d'éclore.
-    nourriture = 50; // on lui donne un peu de nourriture pour évité qu'elle ne meurt des le début.
+    food = 50; // on lui donne un peu de food pour évité qu'elle ne meurt des le début.
   }
   /**
   *{@summary Secondary constructor.}<br>
@@ -134,9 +134,9 @@ public class Fourmi extends Creature implements Serializable{
   public void setDuretéMax(byte x){ duretéMax=x; }
   public int getX(){return getCCase().getContent().getX();}
   public int getY(){return getCCase().getContent().getY();}
-  public void setNourritureMoinsConsomNourriture(){ setNourriture(getNourriture()-getNourritureConso());}
+  public void setFoodMoinsConsomFood(){ setFood(getFood()-getFoodConso());}
   public Individu getIndividu(){ return e.getIndividuByType(typeF);}
-  public boolean getTropDeNourriture(){if(getNourriture()*1.1>getNourritureMax()){ return true;} return false;}
+  public boolean getTropDeFood(){if(getFood()*1.1>getMaxFood()){ return true;} return false;}
   @Override
   public boolean getFemelle(){ return typeF!=1;}// c'est une femmelle si ce n'est pas un male.
   @Override
@@ -150,10 +150,10 @@ public class Fourmi extends Creature implements Serializable{
   @Override
   public boolean getHaveWings(){
     if(!e.getHaveWings() || getTypeF() > 1){return false;}//si l'espece ne vole pas ou si le type n'est pas male ou reine.
-    return !getAilesCoupees();//true si les ailes ne sont pas coupée.
+    return !getCutWings();//true si les ailes ne sont pas coupée.
   }
-  public boolean getAilesCoupees(){return ailesCoupees;}
-  public void setAilesCoupees(boolean b){ailesCoupees=b;}
+  public boolean getCutWings(){return cutWings;}
+  public void setCutWings(boolean b){cutWings=b;}
   //static
   public static byte getUneSeuleAction(){return uneSeuleAction;}
   public static void setUneSeuleAction(int x){uneSeuleAction=(byte)x;setBActionHaveChange(true);}public static void setUneSeuleAction(){setUneSeuleAction(-1);}
@@ -164,8 +164,8 @@ public class Fourmi extends Creature implements Serializable{
   public String getNom(){return g.get("fourmi");}
   //racourci
   public Fourmi getReine(){ return getFere().getGc().getReine();}
-  public byte getPropretéPerdu(){return e.getPropretéPerdu(stade);}
-  public int getNourritureConso(){return getIndividu().getNourritureConso(getStade());}
+  public byte getHealthPerdu(){return e.getHealthPerdu(stade);}
+  public int getFoodConso(){return getIndividu().getFoodConso(getStade());}
   /**
   *{@summary Return true if is own by an AI.}<br>
   *If it have an anthill that have a player it will return getIa() value of the player.<br>
@@ -202,7 +202,7 @@ public class Fourmi extends Creature implements Serializable{
   @Override
   public int getStateHealth(){
     if(wantClean()){
-      if(getProprete() < getSeuilDeRisqueDInfection()){
+      if(getHealth() < getSeuilDeRisqueDInfection()){
         return 3;
       }else{
         return 1;
@@ -223,7 +223,7 @@ public class Fourmi extends Creature implements Serializable{
   *@param especeTempId Temporary Espece id.
   *@param stadeTemp Temporary stade.
   */
-  public int getAgeMaxIndividu(int especeTempId, int stadeTemp){ // b vas de -3 oeuf a 0 imago
+  public int getMaxAgeIndividu(int especeTempId, int stadeTemp){ // b vas de -3 oeuf a 0 imago
     Individu in2;
     if(especeTempId!=100){
       in2 = e.getIndividuByType(especeTempId);
@@ -231,13 +231,13 @@ public class Fourmi extends Creature implements Serializable{
       in2 = getIndividu();
     }
     if(in2==null){erreur.erreur("L'individu de stade "+especeTempId+" n'as pas été trouvé.");in2 = getIndividu();}
-    return (int)((double)(in2.getAgeMax(stadeTemp+3)*getMultiplicateurDeDiff()));
+    return (int)((double)(in2.getMaxAge(stadeTemp+3)*getMultiplicateurDeDiff()));
   }
   /**
   *{@summary return the max age for an Individu with stade=0 (imago) 	&#38; individu already define.}
   */
-  public int getAgeMaxIndividu(){
-    return getAgeMaxIndividu(100,0);
+  public int getMaxAgeIndividu(){
+    return getMaxAgeIndividu(100,0);
   }
   /**
   *{@summary return the difficulty multiplier.}<br>
@@ -287,10 +287,10 @@ public class Fourmi extends Creature implements Serializable{
     //tr[k]=g.get("coordonnées")+" : "+p.desc();k++;
     tr[k]=g.get("type")+" : "+getIndividu().getStringType();k++;
     //tr[k]=g.get("stade")+" : "+getStringStade();k++;
-    //tr[k]=g.get("age")+" : " + age+ "/"+ageMax;k++;
-    //tr[k]=g.get("nourriture")+" : " + nourriture+ "/"+nourritureMax;k++;
-    //tr[k]=g.get("action")+" : "+action+"/"+actionMax;k++;
-    //tr[k]=g.get("propreté")+" : "+propreté+"/100";k++;
+    //tr[k]=g.get("age")+" : " + age+ "/"+maxAge;k++;
+    //tr[k]=g.get("food")+" : " + food+ "/"+maxFood;k++;
+    //tr[k]=g.get("action")+" : "+action+"/"+maxAction;k++;
+    //tr[k]=g.get("health")+" : "+health+"/100";k++;
     tr[k]=g.get("fourmilière")+" : "+fere.getId();k++;
     tr[k]=g.get("mode")+" : "+mode;k++;
     //tr[k]=g.get("Pheromone")+" : "+ this.getPheromone().toString();k++;
@@ -302,10 +302,10 @@ public class Fourmi extends Creature implements Serializable{
     GString gs = new GString();
     gs.add(g.get("type")+" : "+getIndividu().getStringType());
     gs.add(g.get("stade")+" : "+getStringStade());
-    gs.add(g.get("age")+" : " + age+ "/"+ageMax);
-    gs.add(g.get("nourriture")+" : " + nourriture+ "/"+nourritureMax);
-    gs.add(g.get("action")+" : "+action+"/"+actionMax);
-    gs.add(g.get("propreté")+" : "+propreté+"/100");
+    gs.add(g.get("age")+" : " + age+ "/"+maxAge);
+    gs.add(g.get("food")+" : " + food+ "/"+maxFood);
+    gs.add(g.get("action")+" : "+action+"/"+maxAction);
+    gs.add(g.get("health")+" : "+health+"/100");
     //gs.add(g.get("fourmilière")+" : "+fere.getId());
     //gs.add(g.get("mode")+" : "+mode);
     //gs.add(g.get("Pheromone")+" : "+ ph.description());
@@ -317,8 +317,8 @@ public class Fourmi extends Creature implements Serializable{
   /*public boolean mangerGraine(){
     //if(fere.getGGraine().getHead()==null){return false;}
     Graine g = fere.getGGraine().getGraineOuverte();
-    if(this.getNourriture() < this.getNourritureMax()/2 && g!=null){
-      nourriture = nourriture + g.getNourritureFournie();
+    if(this.getFood() < this.getMaxFood()/2 && g!=null){
+      food = food + g.getGivenFood();
       fere.getGGraine().retirerGraine(g); return true;
     }return false;
   }*/
@@ -326,10 +326,10 @@ public class Fourmi extends Creature implements Serializable{
     debug.débogage("tentative de cassage de graine");
     try {
       debug.débogage("Etape 1");
-      System.out.println(fere.getGg().getGrainePlusDeNourritureFournie(this));
-      if (fere.getGg().getGrainePlusDeNourritureFournie(this).getDureté() < this.getDuretéMax()){
+      System.out.println(fere.getGg().getGrainePlusDeGivenFood(this));
+      if (fere.getGg().getGrainePlusDeGivenFood(this).getDureté() < this.getDuretéMax()){
         debug.débogage("Etape 2");
-        fere.getGg().getGrainePlusDeNourritureFournie(this).casser();return true;
+        fere.getGg().getGrainePlusDeGivenFood(this).casser();return true;
       }return false;
     }catch (Exception e) {
       return false;
@@ -342,8 +342,8 @@ public class Fourmi extends Creature implements Serializable{
   */
   public void salir(){
     double chanceDeMort = allea.getRand()*getSeuilDeRisqueDInfection(); // on tire le nombre min pour survivre a ce tour.
-    if (getPropreté()<chanceDeMort){mourir(1);}
-    setPropreté(getPropreté() - getPropretéPerdu());
+    if (getHealth()<chanceDeMort){mourir(1);}
+    setHealth(getHealth() - getHealthPerdu());
   }
   /**
   *{@summary return true if this whant some food.}
@@ -352,7 +352,7 @@ public class Fourmi extends Creature implements Serializable{
   */
   public boolean wantFood(){
     if(stade==-3){return false;}
-    return isHungry(5) || (getNourriture() < math.min(getNourritureConso()*2,getNourritureMax()));
+    return isHungry(5) || (getFood() < math.min(getFoodConso()*2,getMaxFood()));
   }
   /**
   *{@summary return true if this whant to be clean.}
@@ -360,8 +360,8 @@ public class Fourmi extends Creature implements Serializable{
   *@version 1.29
   */
   public boolean wantClean(){
-    if(getProprete()>99){return false;}
-    return getProprete() - (getPropretéPerdu()*2) <= getSeuilDeRisqueDInfection();
+    if(getHealth()>99){return false;}
+    return getHealth() - (getHealthPerdu()*2) <= getSeuilDeRisqueDInfection();
   }
   /**
   *{@summary initialize tour value for an ant.}<br>

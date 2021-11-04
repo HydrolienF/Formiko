@@ -14,6 +14,7 @@ public class Os {
   */
   private byte id;
   protected static String OS = System.getProperty("os.name").toLowerCase(); //po for test
+  private static String ARCH = System.getProperty("os.arch").toLowerCase();
   // CONSTRUCTORS --------------------------------------------------------------
   public Os(){iniOs();}
   // GET SET -------------------------------------------------------------------
@@ -22,6 +23,7 @@ public class Os {
   public boolean isWindows(){return getId()==1;}
   public boolean isLinux(){return getId()==0;}
   public boolean isMac(){return getId()==2;}
+  public String getARCH(){return ARCH;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *Return the name of the OS.
@@ -51,6 +53,9 @@ public class Os {
   *Save the OS in the int id.
   */
   public void iniOs(){
+    if(ARCH.equals("amd64")){
+      ARCH = "x86_64";
+    }
     if(iniIsWindows()){
       setId((byte)1);
     }else if(iniIsUnix()){

@@ -172,6 +172,17 @@ public class Partie implements Serializable{
       }else{
         iniJoueurEtIa(mapo); gej=null;
       }
+      //TODO #473 use fully anthillAlreadySet
+      boolean anthillAlreadySet = true;
+      if(anthillAlreadySet){
+        for (Joueur j : gj.toList()) {
+          for (Creature c : j.getFere().getGc().toList()) {
+            if(c instanceof Fourmi || ((Fourmi)(c)).estReine()){
+              ((Fourmi)(c)).setCutWings(true);
+            }
+          }
+        }
+      }
       if(nbrDeJoueur==0){partieFinie=true;}//on ne déclanche pas de condition de victoire.
       if (nbrDeJoueurDansLaPartie==1){partieFinie=true;}//on ne déclanche pas les condition de victoire si il y a un seul joueur.
       debug.débogage("Création de 10 insectes programmé.");
@@ -362,8 +373,8 @@ public class Partie implements Serializable{
     fere.setCc(ccIni);
     fere.getGc().getHead().getContent().setCCase(ccIni);
     Insecte i = new Insecte(Main.getPartie().getGc().getCCase(1,1),0,100,0);
-    i.setNourritureFournie(200);
-    i.setEstMort(false);
+    i.setGivenFood(200);
+    i.setIsDead(false);
     i.setType(8);
     getGi().add(i);
     // ths.start();

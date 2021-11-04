@@ -42,7 +42,7 @@ public class Data {
   private BufferedImage tICarte[];
   private BufferedImage tIF[];
   // private BufferedImage tII[][];
-  private BufferedImage tG[][];
+  private BufferedImage tG[];
   private BufferedImage tF[][];
   // private BufferedImage antColor[];
   private BufferedImage antLeg[];
@@ -55,7 +55,7 @@ public class Data {
   private BufferedImage tICarteIni[];
   private BufferedImage tIFIni[];
   // private BufferedImage tIIIni[][];
-  private BufferedImage tGIni[][];
+  private BufferedImage tGIni[];
   private BufferedImage tFIni[][];
   // private BufferedImage antColorIni[];
   private BufferedImage antLegIni[];
@@ -100,6 +100,7 @@ public class Data {
   // GET SET -------------------------------------------------------------------
   //ini
   public int getTailleDUneCase(){return tailleDUneCase;}
+  public int getTailleIcon(){return (int)(getTailleDUneCase()/3);}
   public void setTailleDUneCase(int x){tailleDUneCase=x;}
   public BufferedImage getImgNull(){return imgNull;}
   public BufferedImage getSelectionnee(){return selectionnee;}
@@ -109,7 +110,7 @@ public class Data {
   public BufferedImage [] getB(){return b;}
   public BufferedImage [] getTICarte(){return tICarte;}
   // public BufferedImage [][] getTII(){return tII;}
-  public BufferedImage [][] getTG(){return tG;}
+  public BufferedImage [] getTG(){return tG;}
   public BufferedImage [][] getTF(){return tF;}
   public BufferedImage getMap(){return map;}
   //PanneauAction
@@ -150,7 +151,7 @@ public class Data {
   *@version 2.7
   */
   public void iniTButtonColor(){
-    lenTButtonColor=7;
+    lenTButtonColor=8;
     tButtonColor = new Color[lenTButtonColor];
     tButtonColor[0]=new Color(81, 252, 0);//green
     tButtonColor[1]=Color.YELLOW;
@@ -159,6 +160,7 @@ public class Data {
     tButtonColor[4]=Color.WHITE;
     tButtonColor[5]=new Color(56, 56, 56);//grey
     tButtonColor[6]=Color.BLACK;
+    tButtonColor[7]=Color.BLUE;
   }
   /**
   *{@summary Return the Image that fit to a Creature.}
@@ -310,11 +312,11 @@ public class Data {
       debug.débogage("chargement des images a la bonne taille.");
       chargerImagesIni();
       Main.startCh();
-      int tailleFourmi = (tailleDUneCase*4)/5;
-      erreur.info("Update Image to size "+tailleDUneCase);
-      imgNull = image.resize(imgNullIni,tailleDUneCase);
-      selectionnee = image.resize(selectionneeIni,tailleDUneCase);
-      tICarte=getScaledInstance(tICarteIni, tailleDUneCase);
+      int tailleFourmi = (getTailleDUneCase()*4)/5;
+      erreur.info("Update Image to size "+getTailleDUneCase());
+      imgNull = image.resize(imgNullIni,getTailleDUneCase());
+      selectionnee = image.resize(selectionneeIni,getTailleDUneCase());
+      tICarte=getScaledInstance(tICarteIni, getTailleDUneCase());
       // tIF=getScaledInstance(tIFIni, tailleFourmi);
       // tII=getScaledInstance(tIIIni, tailleFourmi,2);//les insectes
       // tF=getScaledInstance(tFIni, tailleFourmi,1);//les Fourmis au différent stade.
@@ -322,11 +324,11 @@ public class Data {
       // antLeg=getScaledInstance(antLegIni, tailleFourmi/2,0);//les Fourmis au différent stade.
       imageTree = ImageTree.getScaledInstanceFromTree(imageTreeIni, tailleFourmi);
       tG=getScaledInstance(tGIni, tailleFourmi);
-      fere = image.resize(fereIni,tailleDUneCase/2);
-      cNuageuse = image.resize(cNuageuseIni,tailleDUneCase);
-      cSombre = image.resize(cSombreIni,tailleDUneCase);
+      fere = image.resize(fereIni,getTailleDUneCase()/2);
+      cNuageuse = image.resize(cNuageuseIni,getTailleDUneCase());
+      cSombre = image.resize(cSombreIni,getTailleDUneCase());
       int lenb = bIni.length;
-      b=getScaledInstance(bIni,tailleDUneCase/2);
+      b=getScaledInstance(bIni,getTailleIcon());
       Main.endCh("chargerImages");
     }
     /**
@@ -349,7 +351,7 @@ public class Data {
         iconMap = image.getScaledInstanceFromMap(iconMap, Main.getTailleElementGraphiqueY(30));
         // antFAFIni = image.getImages("FAF",image.getNbrImages("FAF"),(byte)0);
         // antFASIni = image.getImages("FAS",image.getNbrImages("FAS"),(byte)0);
-        tGIni = chargerTX("seed");
+        tGIni = image.getImages("seed",image.getNbrImages("seed"),(byte)0);
         fereIni = image.getImage("antnest");//.getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
         cNuageuseIni = image.getImage("cNuageuse");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         cSombreIni = image.getImage("cSombre");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
@@ -555,7 +557,7 @@ public class Data {
   *@version 1.18
   */
   private void chargerTImage(){
-    int tailleBouton = Panneau.getView().getPa().getTailleBouton();
+    int tailleBouton = Panneau.getView().getPa().getbuttonSize();
     tImage = image.getImages("desc");
     for (int i=0;i<10 ;i++ ) {
       tImage[i] = image.resize(tImage[i],tailleBouton);
@@ -566,7 +568,7 @@ public class Data {
   *@version 1.18
   */
   private void chargerTImageAvecFond(Pixel pi){
-    int tailleBouton = Panneau.getView().getPa().getTailleBouton();
+    int tailleBouton = Panneau.getView().getPa().getbuttonSize();
     for (int k=0;k<10 ;k++) {
       Img img = new Img("desc"+k);
       img.changerPixelTransparent(pi);
@@ -584,7 +586,7 @@ public class Data {
   */
   public Image [] chargerTIBZoom(){
     tIBZoom = new Image[9];
-    if(!initialisationFX && !Main.getGarderLesGraphismesTourné()){tournerLesFleches();}
+    if(!initialisationFX && !Main.getKeepFilesRotated()){tournerLesFleches();}
     int tailleBouton=Main.getbuttonSizeZoom();
     tIBZoom[0] = image.getImage("moins").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
     tIBZoom[1] = image.getImage("fleche").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);

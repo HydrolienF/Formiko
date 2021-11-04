@@ -20,7 +20,7 @@ import java.io.Serializable;
 */
 public class Insecte extends Creature implements Serializable{
   protected boolean femelle;
-  protected byte nourritureMangeable;
+  protected byte foodMangeable;
   protected static GIEspece gie;
   // CONSTRUCTORS ----------------------------------------------------------------
   /**
@@ -28,30 +28,30 @@ public class Insecte extends Creature implements Serializable{
   *All args are Insecte var.
   *@version 1.13
   */
-  public Insecte (CCase p, int age, int ageMax, int actionMax){
+  public Insecte (CCase p, int age, int maxAge, int maxAction){
     // Soit l'insecte est terrestre et vien de naitre, soit il est volant et il est mort.
-    super(p,age,ageMax, actionMax);
+    super(p,age,maxAge, maxAction);
     if (action == 0){
-      estMort = true;
-      age = ageMax;
+      isDead = true;
+      age = maxAge;
       tour = new TourCreatureMorte();
     }else{
       tour = new TourInsecte();
     }
-    this.nourritureMangeable =(byte) (allea.getAllea(3)+2);// de 2 a 5.
+    this.foodMangeable =(byte) (allea.getAllea(3)+2);// de 2 a 5.
     this.déplacement = new DeplacementFourmi();
     this.chasse = new ChasseHerbivore();
     p.getContent().getGc().add(this);
     setType(getRandomTypeInsectOnTheCase());
     stade = (byte)0; // doit apparaitre en -3 pour etre un oeuf.
     mourir = new MourirInsecte();
-    setNourritureFournie(e.getNourritureFournie(getStade()));
+    setGivenFood(e.getGivenFood(getStade()));
     femelle = allea.getBAllea();
     debug.débogage("L'insecte "+ this.id + " a été  créée");
   }
   /**
   *{@summary constructor for Insecte.}<br>
-  *Here we only know the location of the insecte, random value will be add for ageMax and actionMax.
+  *Here we only know the location of the insecte, random value will be add for maxAge and maxAction.
   *@version 1.13
   */
   public Insecte (CCase p){
@@ -59,7 +59,7 @@ public class Insecte extends Creature implements Serializable{
   }
   /**
   *{@summary constructor for Insecte.}<br>
-  *Here know nothing, the location of the insecte will be shoose randomly on the actual GCase of Main. Random value will be add for ageMax and actionMax.
+  *Here know nothing, the location of the insecte will be shoose randomly on the actual GCase of Main. Random value will be add for maxAge and maxAction.
   *@version 1.13
   */
   public Insecte (){
@@ -81,8 +81,8 @@ public class Insecte extends Creature implements Serializable{
   public boolean getFemelle(){return femelle;}
   public void setFemelle(boolean b){femelle=b;}
   public String getSex(){if(femelle){return "♀";}else{return "♂";}}
-  public byte getNourritureMangeable(){ return nourritureMangeable;}
-  public void setNourritureMangeable(byte x){ nourritureMangeable=x;} public void setNourritureMangeable(int x){ setNourritureMangeable((byte)x);}
+  public byte getFoodMangeable(){ return foodMangeable;}
+  public void setFoodMangeable(byte x){ foodMangeable=x;} public void setFoodMangeable(int x){ setFoodMangeable((byte)x);}
   @Override
   public byte getType(){ return (byte)(getEspece().getId()-100);}
   /**
@@ -116,7 +116,7 @@ public class Insecte extends Creature implements Serializable{
   @Override
   public String toString(){
     String sr = super.toString();sr+=", ";
-    sr+= " "+g.get("nourritureMangeable")+" "+nourritureMangeable;
+    sr+= " "+g.get("foodMangeable")+" "+foodMangeable;
     return sr;
   }
 
@@ -126,14 +126,14 @@ public class Insecte extends Creature implements Serializable{
   *@version 1.29
   */
   public boolean wantFood(){
-    return getNourriture()<getNourritureMax();
+    return getFood()<getMaxFood();
   }
   /**
   *{@summary return true if this whant to be clean.}
   *@version 1.29
   */
   public boolean wantClean(){
-    if(propreté>99){return false;}
+    if(health>99){return false;}
     return true;
   }
 

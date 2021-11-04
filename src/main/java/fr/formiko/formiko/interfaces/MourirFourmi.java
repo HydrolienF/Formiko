@@ -26,7 +26,7 @@ public class MourirFourmi implements Serializable, Mourir {
    */
   public void mourir(Creature c, int r){
     if(c==null){return;}
-    c.setEstMort(true);
+    c.setIsDead(true);
     if(c instanceof Fourmi){
       Fourmi f = (Fourmi)c;
       Message.messageMort(f,r);
@@ -36,7 +36,7 @@ public class MourirFourmi implements Serializable, Mourir {
       deleteFromGame(f);
       if (f.getStade() != 0){
         // TODO les oeuf ou les larves (ou les nymphes) sont mangeable par les autres fourmis.
-        //f.getCCase().getContent().getGc().add(new Insecte(f.getCCase(),10 + (int) getNourriture()/3,0,0,0));
+        //f.getCCase().getContent().getGc().add(new Insecte(f.getCCase(),10 + (int) getFood()/3,0,0,0));
       }
     }else{
       erreur.erreurType("Fourmi");

@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Os;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 public class strTest extends TestCaseMuet{
 
@@ -106,50 +105,50 @@ public class strTest extends TestCaseMuet{
     }catch (Exception e) {assertTrue(false);}
   }
   @Test
-  public void testFiltreCharInterdit(){
+  public void testfilterForbiddenChar(){
     String s = null;
     char t [] = {'é'};
-    assertEquals(null,str.filtreCharInterdit(s,t));
+    assertEquals(null,str.filterForbiddenChar(s,t));
     s = "wexrtcyuié&'-\\^é&('-è')'*$\"";
-    assertEquals("wexrtcyui&'-\\^&('-è')'*$\"",str.filtreCharInterdit(s,t));
+    assertEquals("wexrtcyui&'-\\^&('-è')'*$\"",str.filterForbiddenChar(s,t));
     char t2 [] = {'\"'};
-    assertEquals("wexrtcyuié&'-\\^é&('-è')'*$",str.filtreCharInterdit(s,t2));
+    assertEquals("wexrtcyuié&'-\\^é&('-è')'*$",str.filterForbiddenChar(s,t2));
     char t3 [] = {};
-    assertEquals("wexrtcyuié&'-\\^é&('-è')'*$\"",str.filtreCharInterdit(s,t3));
+    assertEquals("wexrtcyuié&'-\\^é&('-è')'*$\"",str.filterForbiddenChar(s,t3));
     char t4 [] = {'w','x'};
-    assertEquals("ertcyuié&'-\\^é&('-è')'*$\"",str.filtreCharInterdit(s,t4));
+    assertEquals("ertcyuié&'-\\^é&('-è')'*$\"",str.filterForbiddenChar(s,t4));
   }
   @Test
-  public void testFiltreCharInterditInFile(){
+  public void testfilterForbiddenCharInFile(){
     Main.setOs(new Os());
     String s = "unNomDeFichier";
     Main.getOs().setId((byte)0);
-    assertEquals("unNomDeFichier",str.filtreCharInterdit(s));
+    assertEquals("unNomDeFichier",str.filterForbiddenChar(s));
     Main.getOs().setId((byte)1);
-    assertEquals("unNomDeFichier",str.filtreCharInterdit(s));
+    assertEquals("unNomDeFichier",str.filterForbiddenChar(s));
     Main.getOs().setId((byte)2);
-    assertEquals("unNomDeFichier",str.filtreCharInterdit(s));
+    assertEquals("unNomDeFichier",str.filterForbiddenChar(s));
     Main.getOs().setId((byte)-1);
-    assertEquals("unNomDeFichier",str.filtreCharInterdit(s));
+    assertEquals("unNomDeFichier",str.filterForbiddenChar(s));
 
     s = "unNomDeFichier?";
     //os don't have an impact anymore.
     //Main.getOs().setId((byte)0);
-    //assertEquals("unNomDeFichier?",str.filtreCharInterdit(s));
+    //assertEquals("unNomDeFichier?",str.filterForbiddenChar(s));
     Main.getOs().setId((byte)1);
-    assertEquals("unNomDeFichier",str.filtreCharInterdit(s));
+    assertEquals("unNomDeFichier",str.filterForbiddenChar(s));
 
     s = "unNomDe/Fichier";
     Main.getOs().setId((byte)0);
-    assertEquals("unNomDeFichier",str.filtreCharInterdit(s));
+    assertEquals("unNomDeFichier",str.filterForbiddenChar(s));
     Main.getOs().setId((byte)1);
-    assertEquals("unNomDeFichier",str.filtreCharInterdit(s));
+    assertEquals("unNomDeFichier",str.filterForbiddenChar(s));
 
     s = "unNomDe/F*^ich|er";
     //Main.getOs().setId((byte)0);
-    //assertEquals("unNomDeF*^ich|er",str.filtreCharInterdit(s));
+    //assertEquals("unNomDeF*^ich|er",str.filterForbiddenChar(s));
     Main.getOs().setId((byte)1);
-    assertEquals("unNomDeF^icher",str.filtreCharInterdit(s));
+    assertEquals("unNomDeF^icher",str.filterForbiddenChar(s));
 
   }
 

@@ -1,21 +1,14 @@
 package fr.formiko.formiko.interfaces;
 
-
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Carte;
-import fr.formiko.formiko.Case;
-import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.interfaces.TourInsecte;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 public class TourInsecteTest extends TestCaseMuet{
   // FUNCTIONS -----------------------------------------------------------------
@@ -32,51 +25,51 @@ public class TourInsecteTest extends TestCaseMuet{
     i.supprimerDeLaCarte();
     //with a alive insect
     i = new Insecte(p.getGc().getCCase(0,0),0,100,1);
-    i.setNourriture(10);
-    i.setNourritureMax(100);
-    i.setNourritureMangeable(2);
-    p.getGc().getCCase(0,0).getContent().setNourritureInsecteMax((byte)50);
-    p.getGc().getCCase(0,0).getContent().setNourritureInsecte((byte)10);
-    p.getGc().getCCase(0,0).getContent().setNourritureInsecteParTour((byte)1);
-    p.getGc().getCCase(0,1).getContent().setNourritureInsecteMax((byte)50);
-    p.getGc().getCCase(0,1).getContent().setNourritureInsecte((byte)4);
-    p.getGc().getCCase(0,1).getContent().setNourritureInsecteParTour((byte)1);
+    i.setFood(10);
+    i.setMaxFood(100);
+    i.setFoodMangeable(2);
+    p.getGc().getCCase(0,0).getContent().setFoodInsecteMax((byte)50);
+    p.getGc().getCCase(0,0).getContent().setFoodInsecte((byte)10);
+    p.getGc().getCCase(0,0).getContent().setFoodInsecteParTour((byte)1);
+    p.getGc().getCCase(0,1).getContent().setFoodInsecteMax((byte)50);
+    p.getGc().getCCase(0,1).getContent().setFoodInsecte((byte)4);
+    p.getGc().getCCase(0,1).getContent().setFoodInsecteParTour((byte)1);
     //everything is ok in initialisation :
     int x=10;
-    assertEquals(x,p.getGc().getCCase(0,0).getContent().getNourritureInsecte());
+    assertEquals(x,p.getGc().getCCase(0,0).getContent().getFoodInsecte());
     assertTrue(p.getGc().getCCase(0,0).getContent().getGc().getHead().getContent().getId()==i.getId());
     assertTrue(i.tour instanceof TourInsecte);
 
     //if insect hungry.
     i.preTour();i.tour();
     x+=-2;
-    assertEquals(x,p.getGc().getCCase(0,0).getContent().getNourritureInsecte());
-    p.getGc().getCCase(0,0).getContent().actualisationNourritureInsecte();
+    assertEquals(x,p.getGc().getCCase(0,0).getContent().getFoodInsecte());
+    p.getGc().getCCase(0,0).getContent().actualisationFoodInsecte();
     x+=1;
-    assertEquals(x,p.getGc().getCCase(0,0).getContent().getNourritureInsecte());
+    assertEquals(x,p.getGc().getCCase(0,0).getContent().getFoodInsecte());
     i.preTour();i.tour();
     x+=-2;
-    assertEquals(x,p.getGc().getCCase(0,0).getContent().getNourritureInsecte());
+    assertEquals(x,p.getGc().getCCase(0,0).getContent().getFoodInsecte());
     i.preTour();i.tour();
     x+=-2;
-    assertEquals(x,p.getGc().getCCase(0,0).getContent().getNourritureInsecte());
+    assertEquals(x,p.getGc().getCCase(0,0).getContent().getFoodInsecte());
     i.preTour();i.tour();
     x+=-2;
-    assertEquals(x,p.getGc().getCCase(0,0).getContent().getNourritureInsecte());
+    assertEquals(x,p.getGc().getCCase(0,0).getContent().getFoodInsecte());
     i.preTour();i.tour();
     x+=-2;
     //x=1 1<2 so he move to the other Case.
-    assertEquals(x,p.getGc().getCCase(0,0).getContent().getNourritureInsecte());
+    assertEquals(x,p.getGc().getCCase(0,0).getContent().getFoodInsecte());
     i.preTour();i.tour();
     assertTrue(p.getGc().getCCase(0,1).equals(i.getCCase()));
-    assertEquals(4,p.getGc().getCCase(0,1).getContent().getNourritureInsecte());
-    p.getGc().getCCase(0,0).getContent().actualisationNourritureInsecte();//+1 case 0,0
+    assertEquals(4,p.getGc().getCCase(0,1).getContent().getFoodInsecte());
+    p.getGc().getCCase(0,0).getContent().actualisationFoodInsecte();//+1 case 0,0
     i.setAction(0);
     i.preTour();i.tour();
-    assertEquals(2,p.getGc().getCCase(0,1).getContent().getNourritureInsecte());
-    p.getGc().getCCase(0,0).getContent().actualisationNourritureInsecte();//+1 case 0,0
+    assertEquals(2,p.getGc().getCCase(0,1).getContent().getFoodInsecte());
+    p.getGc().getCCase(0,0).getContent().actualisationFoodInsecte();//+1 case 0,0
     i.preTour();i.tour();
-    assertEquals(0,p.getGc().getCCase(0,1).getContent().getNourritureInsecte());
+    assertEquals(0,p.getGc().getCCase(0,1).getContent().getFoodInsecte());
     //no more food so he re-move.
     i.preTour();i.tour();
     assertTrue(p.getGc().getCCase(0,0).equals(i.getCCase()));
@@ -86,13 +79,13 @@ public class TourInsecteTest extends TestCaseMuet{
 
     //if insect not hungry anymore.
     x=10;
-    p.getGc().getCCase(0,0).getContent().setNourritureInsecte((byte)x);
-    p.getGc().getCCase(0,0).getContent().actualisationNourritureInsecte();
+    p.getGc().getCCase(0,0).getContent().setFoodInsecte((byte)x);
+    p.getGc().getCCase(0,0).getContent().actualisationFoodInsecte();
     x+=1;
-    assertEquals(x,p.getGc().getCCase(0,0).getContent().getNourritureInsecte());
-    i.setNourriture(i.getNourritureMax());
+    assertEquals(x,p.getGc().getCCase(0,0).getContent().getFoodInsecte());
+    i.setFood(i.getMaxFood());
     i.preTour();i.tour();
-    assertEquals(x,p.getGc().getCCase(0,0).getContent().getNourritureInsecte());
+    assertEquals(x,p.getGc().getCCase(0,0).getContent().getFoodInsecte());
   }
   @Test
   public void testUnTour2(){ //to check that an Insect will eat if he is safe and alone.
@@ -102,18 +95,18 @@ public class TourInsecteTest extends TestCaseMuet{
     p.setAppartionGraine(false);
     //with a alive insect 4 actions/turn
     Insecte i = new Insecte(p.getGc().getCCase(0,0),0,100,4);
-    i.setNourriture(10);
-    i.setNourritureMax(100);
-    i.setNourritureMangeable(2);
-    p.getGc().getCCase(0,0).getContent().setNourritureInsecteMax((byte)50);
-    p.getGc().getCCase(0,0).getContent().setNourritureInsecte((byte)50);
-    p.getGc().getCCase(0,0).getContent().setNourritureInsecteParTour((byte)1);
+    i.setFood(10);
+    i.setMaxFood(100);
+    i.setFoodMangeable(2);
+    p.getGc().getCCase(0,0).getContent().setFoodInsecteMax((byte)50);
+    p.getGc().getCCase(0,0).getContent().setFoodInsecte((byte)50);
+    p.getGc().getCCase(0,0).getContent().setFoodInsecteParTour((byte)1);
     int x=50;
-    assertEquals(x,p.getGc().getCCase(0,0).getContent().getNourritureInsecte());
+    assertEquals(x,p.getGc().getCCase(0,0).getContent().getFoodInsecte());
     i.preTour();i.tour();
     x-=8;
-    assertEquals(x,p.getGc().getCCase(0,0).getContent().getNourritureInsecte());
+    assertEquals(x,p.getGc().getCCase(0,0).getContent().getFoodInsecte());
 
   }
-  //TODO test that if i.getNourriture() * 2 > i.getNourritureMax() insecte try to fined a partner. so that i.getFemelle()!=partner.getFemelle();
+  //TODO test that if i.getFood() * 2 > i.getMaxFood() insecte try to fined a partner. so that i.getFemelle()!=partner.getFemelle();
 }

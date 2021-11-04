@@ -49,7 +49,7 @@ public class CCreature implements Serializable{
   public Creature getCouvainSale(){
     if (suivant == null){ return null;}
     Fourmi f = (Fourmi) suivant.getContent();
-    if (f.getPropreté() < 75){
+    if (f.getHealth() < 75){
       return f;
     }else{
       return suivant.getCouvainSale();
@@ -58,7 +58,7 @@ public class CCreature implements Serializable{
   public void getCouvainsSale(){
     if (suivant == null){ return;}
     Fourmi f = (Fourmi) suivant.getContent();
-    if (f.getPropreté() > 75){
+    if (f.getHealth() > 75){
       suivant = suivant.getSuivant();
       this.getCouvainsSale();
     }else{

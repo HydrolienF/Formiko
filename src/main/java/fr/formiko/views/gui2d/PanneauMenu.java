@@ -185,7 +185,7 @@ public class PanneauMenu extends Panneau {
     }
     int defaultValue = Main.getOp().getLanguage();
     ecLanguage = new EtiquetteChoix(defaultValue,g.getM("languageChoice"),gs2);
-    ecLanguage.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,(int)(Main.getTaillePolice2()*1.2));
+    ecLanguage.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,(int)(Main.getFontSizeTitle()*1.2));
     add(ecLanguage);
     validatelanguage = new FButton(g.getM("validate"),this,7);
     validatelanguage.setBounds((getWidth()-Main.getTailleElementGraphiqueX(250))/2,Main.getDimY()-Main.getTailleElementGraphiqueY(10)-Main.getTailleElementGraphiqueY(50),Main.getTailleElementGraphiqueX(250),Main.getTailleElementGraphiqueY(50));
@@ -200,7 +200,7 @@ public class PanneauMenu extends Panneau {
     int index = ecLanguage.getSelectedIndex();
     boolean changed = !(Main.getLanguage()==(byte)(index));
     if(changed){
-      Main.getOp().setLangue(index);
+      Main.getOp().setLanguage(index);
       Main.iniLangue();
     }
     remove(ecLanguage);

@@ -12,7 +12,12 @@ import fr.formiko.usuel.sauvegarderUnePartie;
 import java.awt.Graphics;
 import java.io.File;
 
-public class PanneauChoixPartie extends PanneauLanceurPartie{
+/**
+*{@summary A partie launcher Panel from a save.}<br>
+*@author Hydrolien
+*@version 1.x
+*/
+public class PanneauChoixPartie extends PanneauLanceurPartie {
   private EtiquetteChoix ePartie;
 
   // CONSTRUCTORS --------------------------------------------------------------
@@ -40,9 +45,9 @@ public class PanneauChoixPartie extends PanneauLanceurPartie{
 
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
-    ePartie.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,(int)(Main.getTaillePolice2()*1.2));
-    // ePartie.setTaille(getWidth()*3/5,(int)(Main.getTaillePolice2()*1.2));
-    //ePartie.setPolice(Main.getFont2());
+    ePartie.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,(int)(Main.getFontSizeTitle()*1.2));
+    // ePartie.setTaille(getWidth()*3/5,(int)(Main.getFontSizeTitle()*1.2));
+    //ePartie.setFontText(Main.getFont2());
   }
   public Partie getPartie(){
     String partieName = ePartie.getSelectedItem()+"";

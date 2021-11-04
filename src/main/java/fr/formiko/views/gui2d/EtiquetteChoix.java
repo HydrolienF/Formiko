@@ -63,7 +63,7 @@ public class EtiquetteChoix extends Panneau{
     choixX.setSize(x/2,y);
     choixXDesc.setSize(x/2,y);
   }
-  public void setPolice(Font font){
+  public void setFontText(Font font){
     choixX.setFont(font);
     choixXDesc.setFont(font);
   }

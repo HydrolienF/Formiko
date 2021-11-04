@@ -45,8 +45,8 @@ public class PanneauChargement extends Panneau {
     }catch (Exception e) {}
     // int xx = Main.getF().getWidth()/5;
     // int yy = Main.getF().getHeight()/5;
-    // message.setBounds(xx,yy*4-Main.getTaillePolice1(),xx*3);
-    // conseil.setLocation(xx,(yy*4)-(2*Main.getTaillePolice1())-conseil.getYPi());
+    // message.setBounds(xx,yy*4-Main.getFontSizeText(),xx*3);
+    // conseil.setLocation(xx,(yy*4)-(2*Main.getFontSizeText())-conseil.getYPi());
   }
   public void addBt(){
     lancer=false;
@@ -55,14 +55,14 @@ public class PanneauChargement extends Panneau {
     add(bt);
     int xx = Main.getF().getWidth()/5;
     int yy = Main.getF().getHeight()/5;
-    bt.setBounds((int)(xx*1.5),yy*4+Main.getTaillePolice1(),xx*2,Main.getTaillePolice2());
+    bt.setBounds((int)(xx*1.5),yy*4+Main.getFontSizeText(),xx*2,Main.getFontSizeTitle());
   }
   public void addMessage(){
     message = new FLabel();
     message.setTexte("");
     int xx = Main.getF().getWidth()/5;
     int yy = Main.getF().getHeight()/5;
-    message.setBounds(xx,yy*4-Main.getTaillePolice1(),xx*3);
+    message.setBounds(xx,yy*4-Main.getFontSizeText(),xx*3);
     add(message);
   }
   public void addConseil(){
@@ -71,7 +71,7 @@ public class PanneauChargement extends Panneau {
     conseil = new FTextArea(s,(Main.getF().getWidth()*3)/5);
     // conseil.setMinimumSize(new Dimension((Main.getF().getWidth()*3)/5, FLabel.getDimY()));
     add(conseil);
-    conseil.setLocation(Main.getF().getWidth()/5,(Main.getF().getHeight()/5*4)-(2*Main.getTaillePolice1())-conseil.getHeight());
+    conseil.setLocation(Main.getF().getWidth()/5,(Main.getF().getHeight()/5*4)-(2*Main.getFontSizeText())-conseil.getHeight());
     repaint();
   }
 }

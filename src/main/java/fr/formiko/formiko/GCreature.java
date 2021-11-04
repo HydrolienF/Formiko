@@ -9,9 +9,11 @@ import fr.formiko.usuel.exceptions.NullItemException;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.structures.listes.Liste;
 
+import java.util.List;
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Iterator;
+
 // extends Liste<Creature>
 public class GCreature implements Serializable{//, Iterator{
   protected CCreature début;
@@ -27,6 +29,12 @@ public class GCreature implements Serializable{//, Iterator{
   }
   public GCreature(){
     this((CCreature) null);
+  }
+  public GCreature(List<Creature> list){
+    this();
+    for (Creature c : list) {
+      add(c);
+    }
   }
 
   public GCreature(int nbrDeCreature, Fourmiliere fere, Espece e, CCase cc){
@@ -75,35 +83,26 @@ public class GCreature implements Serializable{//, Iterator{
   }
   /**
   *{summary Return all the Creature at a specific stade.}
-  *@param stade The specific stade to fined.
-  *@version 2.1
+  *@param stade the specific stade to fined
+  *@version 2.10
   */
   public GCreature getGcStade(int stade){
-    GCreature gcr = new GCreature();
-    for (Creature c : toList()) {
-      if(c.getStade() == stade){
-        gcr.add(c);
-      }
-    }
-    return gcr;
+    return new GCreature(toList().filter(c -> c.getStade()==stade));
   }
+  /**
+  *{summary Return all the Ant at a specific typeF.}
+  *@param typeF the specific typeF to fined
+  *@version 2.10
+  */
   public GCreature getGcType(int typeF){
-    GCreature gcr = new GCreature();
-    for (Creature c : toList()) {
-      if (c instanceof Fourmi && ((Fourmi)c).getTypeF()==typeF){
-        gcr.add((Fourmi)c);
-      }
-    }
-    return gcr;
+    return new GCreature(toList().filter(c -> c instanceof Fourmi && ((Fourmi)c).getTypeF()==typeF));
   }
+  /**
+  *{summary Return all the Creature at an other stade than 0.}
+  *@version 2.10
+  */
   public GCreature getCouvain(){ // on renvoie d'habord les plus proches de la transformation en Fourmi adulte.
-    GCreature gcr = new GCreature();
-    for (Creature c : toList()) {
-      if(c.getStade() != 0){
-        gcr.add(c);
-      }
-    }
-    return gcr;
+    return new GCreature(toList().filter(c -> c.getStade()!=0));
   }
   public Creature getCouvainSaleE()throws EmptyListException{
     if (début==null){ throw new EmptyListException("GCreature","trouver la créature sale du couvain");}
@@ -119,13 +118,13 @@ public class GCreature implements Serializable{//, Iterator{
     // on garde le premier sale :
     while (gcr.getHead() != null){
       Fourmi fTest = (Fourmi) gcr.getHead().getContent();
-      if (fTest.getPropreté() < 90) {
+      if (fTest.getHealth() < 90) {
         gcr.remove(gcr.getHead().getContent());
       }else{
         break;
       }
     }if (gcr.getHead() == null){ return new GCreature();}
-    gcr.getHead().getCouvainsSale(); // on filtre les propre dans la suite de la liste.
+    gcr.getHead().getCouvainsSale(); // on filter les propre dans la suite de la liste.
     return gcr;
   }
   // a add :
@@ -202,77 +201,47 @@ public class GCreature implements Serializable{//, Iterator{
   *{@summary Return the Creatures that are ally with c.}<br>
   *@param cTested the tested creature
   *@param differenceTolerated the Pheromone difference that is tolerated
-  *@version 2.1
+  *@version 2.10
   */
-  private GCreature filtreAlliés(Creature cTested, int differenceTolerated){
-    GCreature gcr = new GCreature();
-    for (Creature c : toList()) {
-      if (cTested.getPheromone().equals(c.getPheromone(),differenceTolerated)){
-        gcr.add(c);
-      }
-    }
-    return gcr;
+  private GCreature filterAlliés(Creature cTested, int differenceTolerated){
+    return new GCreature(toList().filter(c -> cTested.getPheromone().equals(c.getPheromone(),differenceTolerated)));
   }
   /**
   *{@summary return the Creatures that are ally with c.}<br>
   *@param c the tested creature.
-  *@version 2.1
+  *@version 2.10
   */
-  public GCreature filtreAlliés(Creature c){
+  public GCreature filterAlliés(Creature c){
     int x=0; if(c.getEspece()!=null && c.getEspece().getPolycalique()){x=5;}// en théorie 4 suffisent.
-    return filtreAlliés(c,x);
+    return filterAlliés(c,c.getPheromoneTolerence());
   }
   /**
   *{@summary delete Creature that can't eat more.}<br>
-  *@version 2.1
+  *@version 2.10
   */
-  public GCreature filtreFaimMax(){
-    GCreature gcr = new GCreature();
-    for (Creature c : toList()) {
-      if (c.getNourriture()<c.getNourritureMax()){
-        gcr.add(c);
-      }
-    }
-    return gcr;
+  public GCreature filterFaimMax(){
+    return new GCreature(toList().filter(c -> c.getFood()<c.getMaxFood()));
   }
   /**
   *{@summary delete Creature that can't be cleaner.}<br>
-  *@version 2.1
+  *@version 2.10
   */
-  public GCreature filtrePropreteMax(){
-    GCreature gcr = new GCreature();
-    for (Creature c : toList()) {
-      if (c.getProprete()<100){
-        gcr.add(c);
-      }
-    }
-    return gcr;
+  public GCreature filterHealthMax(){
+    return new GCreature(toList().filter(c -> c.getHealth()<c.getMaxHealth()));
   }
   /**
   *{@summary delete Creature that didn't whant food.}<br>
-  *@version 2.1
+  *@version 2.10
   */
-  public GCreature filtreWantFood(){
-    GCreature gcr = new GCreature();
-    for (Creature c : toList()) {
-      if (c.wantFood()){
-        gcr.add(c);
-      }
-    }
-    return gcr;
+  public GCreature filterWantFood(){
+    return new GCreature(toList().filter(c -> c.wantFood()));
   }
   /**
   *{@summary delete Creature that didn't whant clean.}<br>
   *@version 2.1
   */
-  public GCreature filtreWantClean(){
-    GCreature gcr = new GCreature();
-    for (Creature c : toList()) {
-      if (c.wantClean()){
-        gcr.add(c);
-      }
-    }
-    return gcr;
+  public GCreature filterWantClean(){
+    return new GCreature(toList().filter(c -> c.wantClean()));
   }
   public void setLienFere(Fourmiliere fere){
     GCreature gcr = new GCreature();
@@ -515,7 +484,7 @@ public class GCreature implements Serializable{//, Iterator{
   public void classerPourNetoyage(){
     if (début==null){ return;}
     //TODO
-    //le but est d'habord que personne ne passe en dessous des x de propretée minimum lié au niveau de difficulté.
+    //le but est d'habord que personne ne passe en dessous des x de healthe minimum lié au niveau de difficulté.
     //on met tout ce qui sont en dessous de 50 dans l'ordre d'age/stade.
     //et on ajoute ceux qui sont après dans l'ordre de saleté.
   }

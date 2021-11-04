@@ -3,9 +3,7 @@ package fr.formiko.usuel;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.usuel.Point;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 public class PointTest extends TestCaseMuet{
 

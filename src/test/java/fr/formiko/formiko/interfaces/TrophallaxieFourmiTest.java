@@ -4,12 +4,8 @@ package fr.formiko.formiko.interfaces;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.*;
-import fr.formiko.formiko.interfaces.TrophallaxieFourmi;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
 import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 public class TrophallaxieFourmiTest extends TestCaseMuet{
 
@@ -44,25 +40,25 @@ public class TrophallaxieFourmiTest extends TestCaseMuet{
     assertEquals(2,nbrDeCreature);
     Fourmi f2 = fere.getGc().getFourmiParId(2);
     assertTrue(f2!=null);
-    f2.setNourriture(f2.getNourritureMax()-1);
+    f2.setFood(f2.getMaxFood()-1);
     int r [] = f.trophallaxie.getCreatureQuiOnFaim(t,f);
     assertEquals(1,r.length);
-    f2.setNourriture(f2.getNourritureMax());
+    f2.setFood(f2.getMaxFood());
     r = f.trophallaxie.getCreatureQuiOnFaim(t,f);
     assertEquals(0,r.length);
-    f2.setNourriture(0);
+    f2.setFood(0);
     r = f.trophallaxie.getCreatureQuiOnFaim(t,f);
     assertEquals(1,r.length);
     fere.getGc().add(new Fourmi(fere,e,3));
-    f2.setNourriture(0);
-    fere.getGc().getFourmiParId(3).setNourriture(0);
+    f2.setFood(0);
+    fere.getGc().getFourmiParId(3).setFood(0);
     t = f.getAlliéSurLaCaseSansThis().toTId();
     r = f.trophallaxie.getCreatureQuiOnFaim(t,f);
     assertEquals(2,r.length);
 
     //avec 1 insecte sans Pheromone proche
     Insecte i1 = new Insecte();
-    i1.setNourriture(0);
+    i1.setFood(0);
     i1.setPheromone(new Pheromone(-100,10,30));
     //gi.add(i1);
     t = f.getAlliéSurLaCaseSansThis().toTId();
@@ -70,7 +66,7 @@ public class TrophallaxieFourmiTest extends TestCaseMuet{
     assertEquals(2,r.length);
     //avec 1 insecte avec Pheromone proche
     Insecte i2 = new Insecte();
-    i2.setNourriture(0);
+    i2.setFood(0);
     i2.setPheromone(new Pheromone(0,0,0));
     //gi.add(i2);
     t = f.getAlliéSurLaCaseSansThis().toTId();

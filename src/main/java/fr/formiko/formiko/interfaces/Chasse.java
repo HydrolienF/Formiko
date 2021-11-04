@@ -23,7 +23,7 @@ public interface Chasse extends Serializable{
    * @version 1.31
    */
   public default boolean canHuntMore(Creature c){
-    return c.getNourriture()<c.getNourritureMax() && c.getAction()>0;
+    return c.getFood()<c.getMaxFood() && c.getAction()>0;
   }
   /**
    * {@summary Lower creature actions count.}<br>

@@ -10,6 +10,7 @@ import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.interfaces.TourFourmiNonIa;
 import fr.formiko.formiko.triche;
+import fr.formiko.usuel.DiscordIntegration;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.Th;
 import fr.formiko.usuel.ThTriche;
@@ -49,8 +50,8 @@ public class ViewGUI2d implements View {
   public FFrameLauncher getFl(){return fl;}
   public PanneauPrincipal getPp(){ try{return getF().getPp();}catch (NullPointerException e) {return null;}}
 
-  public PanneauJeu getPj(){ return getPp().getPj();}
-  public PanneauMenu getPm(){ return getPp().getPm();}
+  public PanneauJeu getPj(){ if(getPp()!=null){return getPp().getPj();}else{return null;}}
+  public PanneauMenu getPm(){ if(getPp()!=null){return getPp().getPm();}else{return null;}}
   public PanneauNouvellePartie getPnp(){ try{return getPm().getPnp();}catch (NullPointerException e){return null;}}
   public PanneauChoixPartie getPcp(){ try{return getPm().getPcp();}catch (NullPointerException e){return null;}}
   public PanneauBouton getPb(){ try{return getPj().getPb();}catch (NullPointerException e){return null;}}
@@ -82,6 +83,7 @@ public class ViewGUI2d implements View {
     f = new FFrameMain();
     iniFont();
     iniThTriche();
+    iniDiscordIntergation();
     Main.getData().setImageIniForNewGame(false);//force reload of ant images.
     Main.endCh("iniView");Main.startCh();
     ini.initialiserToutLesPaneauxVide();
@@ -140,12 +142,15 @@ public class ViewGUI2d implements View {
   public boolean menuMain(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
+    DiscordIntegration.updateActivity();
     if(f==null || getPm()==null){ini();}
     Main.stopScript();
     if(Main.getPremierePartie()){
       getPm().askLanguage();
-    }else{
+    }else if(Main.getOpenMenuFirst()){
       getPm().buildPanneauMenu(3,0);
+    }else{
+      getPm().setLancer(true);
     }
     paint();
     if(needToWaitForGameLaunch){
@@ -164,6 +169,7 @@ public class ViewGUI2d implements View {
   public boolean menuNewGame(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
+    DiscordIntegration.updateActivity();
     if(f==null || getPm()==null){ini();}
     getPm().buildPanneauMenu(3,1);
     paint();
@@ -177,6 +183,7 @@ public class ViewGUI2d implements View {
   public boolean menuLoadAGame(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
+    DiscordIntegration.updateActivity();
     if(f==null || getPm()==null){ini();}
     getPm().removeP();
     getPm().addPcp();
@@ -190,6 +197,7 @@ public class ViewGUI2d implements View {
   public boolean menuPersonaliseAGame(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
+    DiscordIntegration.updateActivity();
     if(f==null || getPm()==null){ini();}
     getPm().addPnp();
     paint();
@@ -203,6 +211,7 @@ public class ViewGUI2d implements View {
   public boolean menuOptions(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
+    DiscordIntegration.updateActivity();
     if(f==null || getPm()==null){ini();}
     erreur.erreurPasEncoreImplemente();
     return true;
@@ -225,6 +234,7 @@ public class ViewGUI2d implements View {
     getPp().removePm();//on retire le menu
     Main.endCh("chargementPanneauChargementEtSuppressionMenu");
     getPj().iniPch();//on met le panneau de chargement au 1a plan.
+    DiscordIntegration.updateActivity();
     Main.startCh();
     getPb().addPz();
     Main.endCh("ajoutPanneauZoom");Main.startCh();
@@ -238,9 +248,9 @@ public class ViewGUI2d implements View {
     Main.endCh("chargementImagesDelaCarte");
 
     String s = g.get("chargementFini");
-    if (debug.getAffLesPerformances()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
+    if (debug.getPerformance()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
     Main.setMessageChargement(s);
-    if(!Main.getOp().getAttendreAprèsLeChargementDeLaCarte() || Main.getPremierePartie()){
+    if(!Main.getOp().getWhaitBeforeLaunchGame() || Main.getPremierePartie() || !Main.getOpenMenuFirst()){
       closePanneauChargement();
       paint();
     }else{
@@ -460,33 +470,6 @@ public class ViewGUI2d implements View {
     // }
     // Main.getPartie().setAntIdToPlay(-1);
   }
-  /***
-  *{@summary Update map icon about need of the playingJoueur Creatures.}<br>
-  *This action can only be run if action game is on.<br>
-  *@version 2.8
-  */
-  // private void updateIcon(){
-  //   // if (!actionGameOn) {return;}
-  //   if(Main.getPlayingJoueur()!=null && Main.getPlayingJoueur().getFere()!=null && Main.getPlayingJoueur().getFere().getGc()!=null){
-  //     for (Creature c : Main.getPlayingJoueur().getFere().getGc().toList()) {
-  //       //TODO #45 (it will be better in PanneauCarte) print icon if needed.
-  //       if(c.getStateHealth()>0){
-  //         if(c.getStateFood()>c.getStateHealth()){
-  //           //print getStateFood
-  //           System.out.println("getStateFood");
-  //         }else{
-  //           //print getStateHealth
-  //           System.out.println("getStateHealth");
-  //         }
-  //       }else if(c.getStateFood()>0){
-  //         //print getStateFood
-  //         System.out.println("getStateFood");
-  //       }
-  //     }
-  //   }else{
-  //     erreur.alerte("can't print icon because player or anthill is null.");
-  //   }
-  // }
   /**
   *{@summary Move ObjetSurCarteAId.}<br>
   *This action can only be run if action game is on.<br>
@@ -534,7 +517,10 @@ public class ViewGUI2d implements View {
   public synchronized void waitForGameLaunch(){
     // if(!Main.getPremierePartie()){
     boolean b=false;
-    while(!b){Temps.pause(10);b=getPm().getLancer();}
+    while(!b){
+      Temps.pause(10);
+      b=getPm().getLancer();
+    }
     actionGame();
   }
   /**
@@ -613,7 +599,7 @@ public class ViewGUI2d implements View {
   *@version 2.6
   */
   private void loadGraphics(){
-    if(Main.getPremierePartie()){ini.initialiserPanneauJeuEtDépendance();}
+    if(Main.getPremierePartie() || !Main.getOpenMenuFirst()){ini.initialiserPanneauJeuEtDépendance();}
     else{
       Th thTemp = new Th(1);
       thTemp.start();
@@ -633,7 +619,21 @@ public class ViewGUI2d implements View {
         trich.start();
       }
     }catch (Exception e) {
-      erreur.erreur("Impossible de lancer l'écoute des codes triches.");
+      erreur.erreur("Unable to launch cheat code listening");
+    }
+  }
+  /**
+  *{@summary Initialize the discord integration.}<br>
+  *@version 2.10
+  */
+  private void iniDiscordIntergation(){
+    try {
+      new Thread(() -> {
+        DiscordIntegration.discordRPC();
+      }).start();
+    }catch (Exception e) {
+      erreur.erreur("Unable to launch Discord rich presence");
+      e.printStackTrace();
     }
   }
   /**
@@ -657,7 +657,7 @@ public class ViewGUI2d implements View {
         }
       }
     }, 0, secToRefresh);
-    if(debug.getAffLesPerformances()){
+    if(debug.getPerformance()){
       timer.schedule(new TimerTaskViewGUI2d(this){
         @Override
         public void run(){

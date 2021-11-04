@@ -86,6 +86,7 @@ public class Joueur implements Serializable{
   public void setIsTurnEnded(boolean b){isTurnEnded=b;}
   public static Joueur getPlayingJoueur(){return playingJoueur;}
   public static void setPlayingJoueur(Joueur j){playingJoueur=j;}
+  public Espece getEspece(){return getFere().getEspece();}
 // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String s = (ia) ? g.get("laIA") : g.get("laJoueurHumain");
@@ -164,7 +165,7 @@ public class Joueur implements Serializable{
     try {
       int x = (Main.getDifficulté()+3)*10;
       if(!ia){ x= 60-x;}
-      this.fere.getGc().getReine().setNourriture(math.max(x,10));//10 minimum. (60 max en théorie.)
+      this.fere.getGc().getReine().setFood(math.max(x,10));//10 minimum. (60 max en théorie.)
     }catch (Exception e) {erreur.alerte("Impossible de prendre en compte la difficulté");}
   }
   public String scoreToString(){

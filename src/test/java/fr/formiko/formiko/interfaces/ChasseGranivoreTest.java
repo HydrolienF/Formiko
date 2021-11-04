@@ -4,9 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.*;
 import fr.formiko.formiko.Main;
-import fr.formiko.formiko.interfaces.TourInsecte;
-import fr.formiko.usuel.tests.TestCaseMuet;
-import fr.formiko.usuel.exceptions.ClassTypeException;
+import fr.formiko.tests.TestCaseMuet;
 
 public class ChasseGranivoreTest extends TestCaseMuet{
   // FUNCTIONS -----------------------------------------------------------------
@@ -31,7 +29,7 @@ public class ChasseGranivoreTest extends TestCaseMuet{
   public void testCanHuntMore(){
     Fourmi f = ini();
     assertTrue(((ChasseGranivore)(f.chasse)).canHuntMore());
-    f.setAction(f.getActionMax()-1);
+    f.setAction(f.getMaxAction()-1);
     assertTrue(((ChasseGranivore)(f.chasse)).canHuntMore());
     f.setAction(1);
     assertTrue(((ChasseGranivore)(f.chasse)).canHuntMore());
@@ -39,13 +37,13 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     assertTrue(!((ChasseGranivore)(f.chasse)).canHuntMore());
     f.setAction(-3);
     assertTrue(!((ChasseGranivore)(f.chasse)).canHuntMore());
-    f.setAction(f.getActionMax()-1);
-    f.setNourriture(f.getNourritureMax()-1);
+    f.setAction(f.getMaxAction()-1);
+    f.setFood(f.getMaxFood()-1);
     assertTrue(((ChasseGranivore)(f.chasse)).canHuntMore());
-    f.setNourriture(f.getNourritureMax());
+    f.setFood(f.getMaxFood());
     assertTrue(!((ChasseGranivore)(f.chasse)).canHuntMore());
 
-    f.setNourriture(f.getNourritureMax()-1);
+    f.setFood(f.getMaxFood()-1);
     f.setTransported(new Graine());
     assertTrue(!((ChasseGranivore)(f.chasse)).canHuntMore());
     f.setTransported(null);
@@ -54,18 +52,18 @@ public class ChasseGranivoreTest extends TestCaseMuet{
   @Test
   public void testChasse(){
     Fourmi f = ini();
-    f.setAction(f.getActionMax());
+    f.setAction(f.getMaxAction());
     Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
     Graine g2 = new Graine(null,10,(byte)20);
     f.setTransported(g2);
     assertTrue(!f.chasse());
 
     f = ini();
-    f.setAction(f.getActionMax());
+    f.setAction(f.getMaxAction());
     g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
     assertEquals(1,f.getCCase().getContent().getGg().length());
     f.chasse();
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(g1,f.getTransported());
     assertEquals(null,g1.getCCase());
 
@@ -89,24 +87,24 @@ public class ChasseGranivoreTest extends TestCaseMuet{
   public void testChasse2(){
     Fourmi f = ini();
     f.getFere().getJoueur().setIa(false);
-    f.setAction(f.getActionMax());
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    f.setAction(f.getMaxAction());
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
     Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
     assertEquals(2,f.getCCase().getContent().getGg().length());
     f.chasse();
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(g2,f.getTransported());
   }
   @Test
   public void testChasse3(){
     Fourmi f = ini();
     f.getFere().getJoueur().setIa(false);
-    f.setAction(f.getActionMax());
+    f.setAction(f.getMaxAction());
     Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
-    Graine g2 = new Graine(Main.getGc().getCCase(0,0),10,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),10,(byte)10);
     assertEquals(2,f.getCCase().getContent().getGg().length());
     f.chasse();
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(g1,f.getTransported());
   }
   @Test
@@ -114,12 +112,12 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     Fourmi f = ini();
     f.getFere().getJoueur().setIa(true);
     Main.setDifficulté(0);
-    f.setAction(f.getActionMax());
+    f.setAction(f.getMaxAction());
     Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
     assertEquals(2,f.getCCase().getContent().getGg().length());
     f.chasse();
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(g2,f.getTransported());
   }
   @Test
@@ -127,12 +125,12 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     Fourmi f = ini();
     f.getFere().getJoueur().setIa(true);
     Main.setDifficulté(-1); //with difficulty < 0 it take the 1a graine and not the better 1.
-    f.setAction(f.getActionMax());
-    Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    f.setAction(f.getMaxAction());
+    new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
     Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
     assertEquals(2,f.getCCase().getContent().getGg().length());
     f.chasse();
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(g1,f.getTransported());
   }
   @Test
@@ -140,12 +138,12 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     Fourmi f = ini();
     f.getFere().getJoueur().setIa(true);
     Main.setDifficulté(-1);
-    f.setAction(f.getActionMax());
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    f.setAction(f.getMaxAction());
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
     Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
     assertEquals(2,f.getCCase().getContent().getGg().length());
     f.chasse();
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(g2,f.getTransported());
   }
 
@@ -154,10 +152,10 @@ public class ChasseGranivoreTest extends TestCaseMuet{
   public void testChasser(){
     Fourmi f = ini();
     f.getFere().getJoueur().setIa(false);
-    f.setAction(f.getActionMax());
+    f.setAction(f.getMaxAction());
     Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
     f.chasser(8);
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(g2,f.getTransported());
   }
   // 1 seed to get on an other Case.
@@ -166,10 +164,10 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     Fourmi f = ini();
     f.setCCase(0,1);
     f.getFere().getJoueur().setIa(false);
-    f.setAction(f.getActionMax());
-    Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    f.setAction(f.getMaxAction());
+    new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
     f.chasser(8);
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
     assertEquals(null,f.getTransported());
   }
@@ -179,11 +177,11 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     Fourmi f = ini();
     f.setCCase(0,1);
     f.getFere().getJoueur().setIa(false);
-    f.setAction(f.getActionMax());
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
-    Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    f.setAction(f.getMaxAction());
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
     f.chasser(8);
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
     assertEquals(null,f.getTransported());
   }
@@ -193,11 +191,11 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     Fourmi f = ini();
     f.setCCase(0,1);
     f.getFere().getJoueur().setIa(false);
-    f.setAction(f.getActionMax());
+    f.setAction(f.getMaxAction());
     Graine g1 = new Graine(Main.getGc().getCCase(0,1),100,(byte)10);
-    Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
     f.chasser(8);
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(Main.getGc().getCCase(0,1),f.getCCase());
     assertEquals(g1,f.getTransported());
   }
@@ -207,11 +205,11 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     Fourmi f = ini();
     f.setCCase(0,1);
     f.getFere().getJoueur().setIa(false);
-    f.setAction(f.getActionMax());
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
-    Graine g2 = new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
+    f.setAction(f.getMaxAction());
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
     f.chasser(8);
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(Main.getGc().getCCase(0,2),f.getCCase());
     assertEquals(null,f.getTransported());
   }
@@ -222,11 +220,11 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.setCCase(0,1);
     f.getFere().getJoueur().setIa(true);
     Main.setDifficulté(0);
-    f.setAction(f.getActionMax());
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
-    Graine g2 = new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
+    f.setAction(f.getMaxAction());
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
     f.chasser(8);
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
     assertEquals(null,f.getTransported());
   }
@@ -236,11 +234,11 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.setCCase(0,1);
     f.getFere().getJoueur().setIa(true);
     Main.setDifficulté(0);
-    f.setAction(f.getActionMax());
-    Graine g2 = new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    f.setAction(f.getMaxAction());
+    new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
     f.chasser(8);
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
     assertEquals(null,f.getTransported());
   }
@@ -250,11 +248,11 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.setCCase(0,1);
     f.getFere().getJoueur().setIa(true);
     Main.setDifficulté(0);
-    f.setAction(f.getActionMax());
-    Graine g1 = new Graine(Main.getGc().getCCase(1,1),100,(byte)10);
-    Graine g2 = new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
+    f.setAction(f.getMaxAction());
+    new Graine(Main.getGc().getCCase(1,1),100,(byte)10);
+    new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
     f.chasser(8);
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(Main.getGc().getCCase(1,1),f.getCCase());
     assertEquals(null,f.getTransported());
   }
@@ -265,11 +263,11 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.setCCase(0,1);
     f.getFere().getJoueur().setIa(true);
     Main.setDifficulté(1);
-    f.setAction(f.getActionMax());
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
-    Graine g2 = new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
+    f.setAction(f.getMaxAction());
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
     f.chasser(8);
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(Main.getGc().getCCase(0,2),f.getCCase());
     assertEquals(null,f.getTransported());
   }
@@ -280,9 +278,9 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.setCCase(0,1);
     f.getFere().getJoueur().setIa(true);
     Main.setDifficulté(1);
-    f.setAction(f.getActionMax());
+    f.setAction(f.getMaxAction());
     f.chasser(6);
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(Main.getGc().getCCase(1,1),f.getCCase());
     assertEquals(null,f.getTransported());
   }
@@ -292,9 +290,9 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.setCCase(0,1);
     f.getFere().getJoueur().setIa(true);
     Main.setDifficulté(1);
-    f.setAction(f.getActionMax());
+    f.setAction(f.getMaxAction());
     f.chasser(9);
-    assertTrue(f.getAction()<f.getActionMax());
+    assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(Main.getGc().getCCase(1,2),f.getCCase());
     assertEquals(null,f.getTransported());
   }

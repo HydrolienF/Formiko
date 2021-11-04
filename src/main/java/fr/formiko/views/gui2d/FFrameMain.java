@@ -17,7 +17,7 @@ public class FFrameMain extends FFrame {
   *@version 2.7
   */
   public FFrameMain(){
-    super("Formiko", getScreenWidth(), getScreenHeigth(), Main.getPleinEcran());
+    super("Formiko", Main.getOp().getFrameWidth(), Main.getOp().getFrameHeight(), Main.getFullscreen());
     pp = new PanneauPrincipal();
     this.setContentPane(pp);
     endIni();

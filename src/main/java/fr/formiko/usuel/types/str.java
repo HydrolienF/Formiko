@@ -127,7 +127,7 @@ public class str {
   *@param t the array were forbidden char are.
   *@version 1.3
   */
-  public static String filtreCharInterdit(String s, char t[]){
+  public static String filterForbiddenChar(String s, char t[]){
     if(s==null){return null;}
     String r = "";
     int len = s.length();
@@ -143,15 +143,15 @@ public class str {
   *@param s the String were to delete forbidden char.
   *@version 1.3
   */
-  public static String filtreCharInterdit(String s){
+  public static String filterForbiddenChar(String s){
     if(s==null){return null;}
     char w [] = {'<', '>', ':', '\"', '/', '\\', '|', '?', '*'};
     //char ml [] = {':','/','\\'};
     //if(Main.getOs()==null || Main.getOs().isWindows()){
-      return filtreCharInterdit(s,w);
+      return filterForbiddenChar(s,w);
     //}
-    //return filtreCharInterdit(s,ml);
-  }public static String sToFileName(String s){ return filtreCharInterdit(s);}
+    //return filterForbiddenChar(s,ml);
+  }public static String sToFileName(String s){ return filterForbiddenChar(s);}
   /**
   *{@summary Transform a String to a directory name aviable on every os.}<br>
   *If last / is missing it will be add.
@@ -166,7 +166,7 @@ public class str {
     if(s.equals("")){return "";}
     char w [] = {'<', '>', '\"', '|', '?', '*'};//, ':', '\\'
     s = s.replace('\\','/');
-    s = filtreCharInterdit(s,w);
+    s = filterForbiddenChar(s,w);
     // if(s.charAt(0)=='/'){s=s.substring(1);} //To avoid for Linux canonicalPath
     s = addALaFinSiNecessaire(s,"/");
     return s;

@@ -13,7 +13,7 @@ public class PanneauTInt extends PanneauTX{
   private int choix;
   // CONSTRUCTORS --------------------------------------------------------------
   public PanneauTInt(int ti [],String desc){super();
-    tailleBouton = Main.getTailleBoutonTX();
+    tailleBouton = Main.getbuttonSizeTX();
     this.descTI = desc;
     debug.débogage("Création d'un PanneauTInt");
     this.setLayout(new GridBagLayout());

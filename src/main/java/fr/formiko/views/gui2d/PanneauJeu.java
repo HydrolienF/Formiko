@@ -197,6 +197,7 @@ public class PanneauJeu extends Panneau {
     if (Main.getPartie().getEnCours()){
       Panneau.getView().getPc().updateSize();
       Main.getData().chargerImages();
+      getView().getPmmc().build();
       Main.getData().iniBackgroundMapImage();
     }
   }
@@ -318,6 +319,8 @@ public class PanneauJeu extends Panneau {
               visible = true;
             }
           }
+        }else{
+          needToUpdateTimeFromLastMove=true;
         }
         labelMessage.setVisible(visible);
         // Temps.pause(50);

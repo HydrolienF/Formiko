@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 import fr.formiko.formiko.CCase;
-import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Main;
@@ -12,8 +11,7 @@ import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.interfaces.TourCreatureSansAction;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 public class TourCreatureSansActionTest extends TestCaseMuet{
   // FUNCTIONS -----------------------------------------------------------------
@@ -32,23 +30,23 @@ public class TourCreatureSansActionTest extends TestCaseMuet{
   public void testUnTour(){
     //creature
     Creature c = ini();
-    c.setNourriture(20);
+    c.setFood(20);
     c.setAge(0);
     c.setAction(0);
     Main.getPartie().addTour();
     c.tour();
     c.endTurn();
-    //assertEquals(19,c.getNourriture()); //TODO
+    //assertEquals(19,c.getFood()); //TODO
     assertEquals(1,c.getAge());
 
-    c.setNourriture(20);
+    c.setFood(20);
     c.setAge(0);
     c.setAction(10);
     Main.getPartie().addTour();
     c.tour = new TourCreatureSansAction();
     c.tour();
     c.endTurn();
-    assertEquals(19,c.getNourriture());
+    assertEquals(19,c.getFood());
     assertEquals(1,c.getAge());
 
     //fourmi
@@ -64,7 +62,7 @@ public class TourCreatureSansActionTest extends TestCaseMuet{
   @Test
   public void testUnTourWithoutPartieTurnCptUpdate(){
     Creature c = ini();
-    c.setNourriture(20);
+    c.setFood(20);
     c.setAge(0);
     c.setAction(0);
     Main.getPartie().addTour();
@@ -72,7 +70,7 @@ public class TourCreatureSansActionTest extends TestCaseMuet{
     c.endTurn();
     assertEquals(1,c.getAge());
 
-    c.setNourriture(20);
+    c.setFood(20);
     c.setAge(0);
     c.setAction(10);
     // Main.getPartie().addTour();
@@ -80,7 +78,7 @@ public class TourCreatureSansActionTest extends TestCaseMuet{
     c.tour();
     c.endTurn();
     //neither tour() nor endTurn() should change anything because Partie turn cpt haven't been update.
-    assertEquals(20,c.getNourriture());
+    assertEquals(20,c.getFood());
     assertEquals(0,c.getAge());
 
     c.setAction(0); //same as last 1 by only with no action.
@@ -88,7 +86,7 @@ public class TourCreatureSansActionTest extends TestCaseMuet{
     c.tour();
     c.endTurn();
     //neither tour() nor endTurn() should change anything because Partie turn cpt haven't been update.
-    assertEquals(20,c.getNourriture());
+    assertEquals(20,c.getFood());
     assertEquals(0,c.getAge());
   }
 }

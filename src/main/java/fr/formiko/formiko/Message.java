@@ -116,7 +116,7 @@ public class Message implements Serializable{
         Main.setPlayingAnt(f); //to refrech playingant info
         return;
       }
-      //Ici on doit filtrer les joueurs qui ne vois pas la case ou la fourmi meurt.
+      //Ici on doit filterr les joueurs qui ne vois pas la case ou la fourmi meurt.
 
 
       CJoueur cj = gj.getHead();

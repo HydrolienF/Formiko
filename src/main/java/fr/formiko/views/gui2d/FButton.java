@@ -32,7 +32,7 @@ import javax.swing.JButton;
 *@author Hydrolien
 *@version 1.54
 */
-public class FButton extends JButton implements MouseListener{
+public class FButton extends JButton implements MouseListener {
   protected final int id; protected static int cpt=1;
   protected Image img;
   protected String nom;
@@ -50,8 +50,9 @@ public class FButton extends JButton implements MouseListener{
     super();id=cpt; cpt++;
     // setBorderPainted(false);
     setOpaque(false);
-    img = imag; String s = "non null"; if(imag==null){ s="null";}
-    debug.débogage("Création du bouton "+str+" avec une image "+s);
+    img = imag;
+    // String s = "non null"; if(imag==null){ s="null";}
+    // debug.débogage("Création du bouton "+str+" avec une image "+s);
     this.nom = str; this.p = p; this.action = action;
     this.addMouseListener(this); //Grâce à cette instruction, notre objet va s'écouter  Dès qu'un événement de la souris sera intercepté, il en sera averti
     // this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.
@@ -92,7 +93,7 @@ public class FButton extends JButton implements MouseListener{
   //   else if(buttonColor!=null){return buttonColor;}
   //   else{return Main.getData().getButtonColor();}
   // }
-  public static int getDimY(){ return (int)(Main.getOp().getTaillePolice1()*1.4);}
+  public static int getDimY(){ return (int)(Main.getOp().getFontSizeText()*1.4);}
   public void setCFondUseAlpha(boolean b){cFondUseAlpha=b;}
   /**
   *{@summary return background color with or without alpha.}
@@ -136,6 +137,7 @@ public class FButton extends JButton implements MouseListener{
   *Draw it there alow to have alpha color.
   *@version 1.54
   */
+  @Override
   public void paintComponent(Graphics g){
     Graphics2D g2d = (Graphics2D)g;
     if(withBackground){
@@ -168,7 +170,7 @@ public class FButton extends JButton implements MouseListener{
   public void paintBorder(Graphics2D g){
     //TODO #398 move to FBorder.
     g.setColor(new Color(getCFont().getRed(),getCFont().getGreen(),getCFont().getBlue()));
-    byte x = Main.getBordureBouton();
+    byte x = Main.getBorderButtonSize();
     if(x<1){return;}
     BasicStroke ligne = new BasicStroke(x);
     g.setStroke(ligne);
@@ -222,23 +224,31 @@ public class FButton extends JButton implements MouseListener{
   }
   /**
   *{@summary set the button selected or not.}<br>
-  *@param selected true if button is selected.
-  *@version 2.2
+  *@param selected true if button is selected
+  *@param mouseLocated true if desc is mouse located
+  *@version 2.10
   */
-  public void setSelected(boolean selected){
-    if(!isEnabled()){Panneau.getView().setMessageDesc(""); return;}
+  public void setSelected(boolean selected, boolean mouseLocated){
+    if(!isEnabled()){Panneau.getView().setMessageDesc("", mouseLocated); return;}
     if(selected){
-      Panneau.getView().setMessageDesc(g.get("bouton.desc."+action)+getKeyboardKey());
-      // setCFond(Main.getData().getButtonFocusColor());
-      setColor(2);
+      Panneau.getView().setMessageDesc(getDesc(), mouseLocated);
+      if(!mouseLocated){setColor(2);}
     }else{
-      Panneau.getView().setMessageDesc("");
+      Panneau.getView().setMessageDesc("", mouseLocated);
       setDefaultColor();
     }
-    repaint();
   }
   /**
-  *{@summary return the shortcut key as a String.}<br>
+  *{@summary Set the button selected or not.}<br>
+  *By default desc is not mouse located.
+  *@param selected true if button is selected
+  *@version 2.10
+  */
+  public void setSelected(boolean selected){
+    setSelected(selected, false);
+  }
+  /**
+  *{@summary Return the shortcut key as a String.}<br>
   *If key don't exist it will return an empty String.
   *@version 2.2
   */
@@ -249,5 +259,12 @@ public class FButton extends JButton implements MouseListener{
     }catch (Exception e) {}
     if(!key.equals("")){key="("+g.get("raccourci")+" \""+key+"\")";}
     return key;
+  }
+  /**
+  *{@summary Return the description of the button.}<br>
+  *@version 2.10
+  */
+  protected String getDesc(){
+    return g.get("bouton.desc."+action)+getKeyboardKey();
   }
 }

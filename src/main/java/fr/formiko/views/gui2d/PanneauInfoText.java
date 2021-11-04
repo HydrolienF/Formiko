@@ -48,7 +48,7 @@ public class PanneauInfoText extends Panneau {
   }
   public PanneauInfoText(GString gs, int xD, boolean withAlpha){this(gs,xD,withAlpha,null);}
   public PanneauInfoText(GString gs){
-    this(gs, getView().getPz().getTailleBouton()*5,false);
+    this(gs, getView().getPz().getbuttonSize()*5,false);
   }
   public PanneauInfoText(Fourmi f,int xD){
     this(f.descriptionGString(),xD,false);

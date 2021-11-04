@@ -10,6 +10,14 @@
   <version>1.53.0</version>
   <name>Formiko</name>
   <url>http://maven.apache.org</url>
+
+  <repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+  </repositories>
+
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -17,11 +25,6 @@
       <version>5.7.0</version>
       <scope>test</scope>
     </dependency>
-    <!-- <dependency>
-      <groupId>com.google.inject</groupId>
-      <artifactId>guice</artifactId>
-      <version>5.0.1</version>
-    </dependency> -->
     <!--3 next to support mp3 files.-->
     <dependency>
       <groupId>com.googlecode.soundlibs</groupId>
@@ -43,7 +46,14 @@
       <artifactId>json-simple</artifactId>
       <version>3.1.0</version>
     </dependency>
+    <!-- To have discord Rich Presence -->
+    <dependency>
+	    <groupId>com.github.JnCrMx</groupId>
+	    <artifactId>discord-game-sdk4j</artifactId>
+	    <version>0.5.4</version>
+  	</dependency>
   </dependencies>
+
   <build>
     <plugins>
       <plugin>
@@ -75,8 +85,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
         <configuration>
-          <source>15</source>
-          <target>15</target>
+          <release>15</release>
           <compilerArgument>-Xlint:all</compilerArgument>
         </configuration>
       </plugin>
@@ -161,7 +170,6 @@
           <destDir>./javadoc/</destDir>
           <doctitle>Javadoc of Formiko</doctitle>
           <windowtitle>Javadoc of Formiko</windowtitle>
-          <!-- TODO fix stylesheetfile -->
           <stylesheetfile>docs/javadoc/styles.css</stylesheetfile>
           <header>
             &#60;ul id="buttons-bar"&#62;

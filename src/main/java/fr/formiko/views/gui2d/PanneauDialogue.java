@@ -34,11 +34,7 @@ public class PanneauDialogue extends Panneau {
       erreur.alerte("Le PanneauDialogueInf n'as pas pu être mis visible.");
     }
     try {
-      int tailleX = Main.getDimX();
-      try {
-        tailleX = Main.getDimXCarte();
-        tailleX=tailleX-Main.getTailleElementGraphiqueX(210);
-      }catch (Exception e) {}
+      int tailleX = Main.getDimX()-Main.getTailleElementGraphiqueX(550);
       fta = new FTextArea(s,tailleX);
       setLocation(Main.getTailleElementGraphiqueX(210),Main.getTailleElementGraphiqueY(15));
       setSize(fta.getWidth(),fta.getHeight()+Main.getTailleElementGraphiqueX(30));

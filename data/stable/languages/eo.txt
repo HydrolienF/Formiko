@@ -28,6 +28,8 @@ suivant:sekvante[auto]
 avant:antaŭe[auto]
 save:savo
 validate:validigi
+disabled:malaktiva
+enabled:aktiva
 
 set:elektas
 where:kie
@@ -365,6 +367,13 @@ bouton.desc.28:komenci varti (aŭtomate)
 bouton.desc.29:fini la turo de la formiko
 bouton.desc.30:malaperigi la formiko
 bouton.desc.31:malfermi la opcian menuon
+
+bouton.desc.350:krado
+bouton.desc.351:rilatoj kun aliaj kreitoj
+bouton.desc.352:statoj de la amikojn formikojn
+bouton.desc.353:formikejoj coloroj
+bouton.desc.354:komunikada ĵurnalo
+bouton.desc.355:desegni nur manĝeblajn semojn/insektojn (Aŭ aliancanon/malamikon)[auto]
 
 pti.desc.1:indiki la kodo de la formiko ke ricevos la manĝaĵon.
 pti.desc.2:indiki la kvanto de dona manĝaĵo.

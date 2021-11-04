@@ -29,7 +29,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
   public boolean netoyerIa(Creature c){
     if(!(c instanceof Fourmi)){ erreur.erreur("Impossible de netoyer en tant que Fourmi avec la créature "+c.getId()); return false;}
     net = (Fourmi)c;
-    cible = (Fourmi) net.getCCase().getContent().getGc().filtreAlliés(net).getCouvainSale();
+    cible = (Fourmi) net.getCCase().getContent().getGc().filterAlliés(net).getCouvainSale();
     if (cible == null){ return false;}
     netoyerPrivate();
     return true;
@@ -83,7 +83,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
   private boolean netoyerChoix(){  // permet de définir cible.
     GCreature gc = net.getCCase().getContent().getGc();
     int lengc = gc.length();
-    //TODO filtrer les fourmi déja propre.
+    //TODO filterr les fourmi déja propre.
     if(lengc<2){ cible = net;
       //System.out.println("1 seule fourmi.");
     }
@@ -94,7 +94,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
       for (int i=0;i<lent ;i++ ) {
         Creature c = gc.getCreatureParId(t[i]);
         //a ce stade toutes les fourmis de la liste devrais être sales.
-        s[i]=t[i]+" : "+c.getProprete()+"/"+"100"+" "+g.get("propreté");
+        s[i]=t[i]+" : "+c.getHealth()+"/"+"100"+" "+g.get("health");
       }
       if(s.length==0){
         return false;
@@ -125,7 +125,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
    *@version 1.3
    */
   private void netoyerPrivate(){
-    cible.setPropreté(cible.getPropreté()+net.getIndividu().getNétoyage());
+    cible.setHealth(cible.getHealth()+net.getIndividu().getNétoyage());
     net.setActionMoins(net.getIndividu().getCoutNétoyer());
   }
   /**
@@ -134,7 +134,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
    *@version 1.3
    */
   private int [] getFourmiParOrdreDeSaletéSurLaCase(){
-    GCreature gcTemp = net.getCCase().getContent().getGc().filtreAlliés(net);
+    GCreature gcTemp = net.getCCase().getContent().getGc().filterAlliés(net);
     gcTemp.classerPourNetoyage(); // on récupère l'ordre définie dans CCreature pour le netoyage.
     int lentr = gcTemp.length();
     return gcTemp.gcToTInt();
@@ -151,7 +151,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
     //on compte le nombre de case.
     for (int i=0;i<lent ;i++ ) {
       Creature c = gc.getCreatureParId(t[i]);
-      if(c.getProprete()<100){
+      if(c.getHealth()<100){
         lentr++;
       }
     }
@@ -159,7 +159,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
     int tr[] = new int[lentr];int k=0;
     for (int i=0;i<lent ;i++ ) {
       Creature c = gc.getCreatureParId(t[i]);
-      if(c.getProprete()<100){
+      if(c.getHealth()<100){
         tr[k] = t[i];k++;
       }
     }

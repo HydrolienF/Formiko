@@ -9,14 +9,14 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.usuel.Point;
 import fr.formiko.usuel.structures.listes.Liste;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class ListTest extends TestCaseMuet{
+public class ListeTest extends TestCaseMuet{
 
   // FUNCTIONS -----------------------------------------------------------------
   @Test
@@ -446,6 +446,37 @@ public class ListTest extends TestCaseMuet{
     l.push(l2);
     assertEquals(new Point(3,1), l.pop());
     assertTrue(l.isEmpty());
+  }
+  @Test
+  public void testFilter(){
+    Liste<Point> l = new Liste<Point>();
+    l.add(new Point(3,1));
+    l.add(new Point(2,2));
+    l.add(new Point(-1,4));
+    l.add(new Point(-2000000000,1));
+    assertEquals(new Liste<Point>(),l.filter(p -> p.getY()==0));
+
+    Liste<Point> l2 = new Liste<Point>();
+    l2.add(new Point(3,1));
+    l2.add(new Point(-2000000000,1));
+    assertEquals(l2,l.filter(p -> p.getY()==1));
+
+    l2 = new Liste<Point>();
+    l2.add(new Point(3,1));
+    l2.add(new Point(2,2));
+    assertEquals(l2,l.filter(p -> p.getX()>0));
+  }
+  @Test
+  public void testFilter2(){
+    Liste<String> l = new Liste<String>();
+    l.add("1");
+    l.add("un");
+    l.add("unu");
+    l.add("one");
+    Liste<String> l2 = new Liste<String>();
+    l2.add("un");
+    l2.add("unu");
+    assertEquals(l2,l.filter(str -> str.contains("u")));
   }
 
 }

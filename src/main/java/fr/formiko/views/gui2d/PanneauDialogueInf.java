@@ -11,7 +11,7 @@ import java.awt.Image;
 import javax.swing.JLabel;
 
 /**
-*{@summary Dialogue backgroud pannel.}<br>
+*{@summary Dialogue backgroud panel.}<br>
 *@author Hydrolien
 *@version 2.6
 */

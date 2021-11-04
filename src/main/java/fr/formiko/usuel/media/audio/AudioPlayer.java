@@ -185,7 +185,8 @@ class AudioThread extends Thread{
         }
       }
     } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
-      throw new IllegalStateException(e);
+      // throw new IllegalStateException(e);
+      erreur.erreur("Can't do sound");
     }
   }
   /**

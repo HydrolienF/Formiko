@@ -6,14 +6,11 @@ import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Folder;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.fichier;
-import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.allea;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -127,7 +124,7 @@ public class imageTest extends TestCaseMuet {
   // @Test
   // public void testGetImagess(){
   //   Main.iniOp();
-  //   Main.getOp().setElementSurCarteOrientéAprèsDéplacement(true);
+  //   Main.getOp().setOrientedObjectOnMap(true);
   //   Folder folder = new Folder();
   //   folder.setFolderMain("testDirIT"+getId());
   //   folder.ini(false);
@@ -159,7 +156,7 @@ public class imageTest extends TestCaseMuet {
   //     }
   //   }
   //   assertEquals(12,k);
-  //   Main.getOp().setElementSurCarteOrientéAprèsDéplacement(false);
+  //   Main.getOp().setOrientedObjectOnMap(false);
   //   t = image.getImagess("testImage");
   //   k=0;
   //   for(Image ti []: t){
@@ -350,17 +347,17 @@ public class imageTest extends TestCaseMuet {
   public void testTaille(){
     Main.iniOp();//on initialise les Options.
     //image.taille(taille de l'espece, taille voulu avec le niveau de grossicement)
-    Main.getOp().setTailleRealiste(100);//un paramètre utilisé par image.taille
+    Main.getOp().setRealisticSize(100);//un paramètre utilisé par image.taille
     assertEquals(100,image.taille(100,100));//normale.
 
     //si la taille n'est pas réaliste on prend a 100% la taille de la case.
-    Main.getOp().setTailleRealiste(0);//un paramètre utilisé par image.taille
+    Main.getOp().setRealisticSize(0);//un paramètre utilisé par image.taille
     assertEquals(100,image.taille(20,100));
     assertEquals(140,image.taille(20,140));
     assertEquals(10,image.taille(20,10));
 
     //si la taille est réaliste a 100% on ne dépend plus que de taille de l'espece * tailleVOulue/100
-    Main.getOp().setTailleRealiste(100);
+    Main.getOp().setRealisticSize(100);
     assertEquals(20,image.taille(20,100));
     assertEquals(30,image.taille(20,150));
     assertEquals(10,image.taille(20,50));
@@ -374,17 +371,17 @@ public class imageTest extends TestCaseMuet {
   @Test
   public void testTaillePartiellementRealiste(){
     Main.iniOp();//on initialise les Options.
-    Main.getOp().setTailleRealiste(50);
+    Main.getOp().setRealisticSize(50);
     //si la taille est partielement réaliste.
     assertEquals(75,image.taille(50,100));//100% réaliste ca donne 100 0% réaliste ca donne 50, on veut que ce soit au milieux.
     assertEquals(60,image.taille(50,80));
     assertEquals(150,image.taille(50,200));
     assertEquals(72,image.taille(20,120));
 
-    Main.getOp().setTailleRealiste(10);
+    Main.getOp().setRealisticSize(10);
     assertEquals(95,image.taille(50,100));
     assertEquals(47,image.taille(50,50));
-    Main.getOp().setTailleRealiste(63);
+    Main.getOp().setRealisticSize(63);
     assertEquals(82,image.taille(50,120));
     assertEquals(59,image.taille(20,120));
   }

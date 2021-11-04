@@ -57,10 +57,10 @@ public class launchOptions {
       erreur.setMuet(true);
       break;
       case "d":
-      debug.setAffLesEtapesDeRésolution(true);
+      debug.setMessage(true);
       break;
       case "p":
-      debug.setAffLesPerformances(true);
+      debug.setPerformance(true);
       break;
       case "g":
       debug.setAffG(true);
@@ -68,10 +68,20 @@ public class launchOptions {
       case "rg":
       case "reload--graphics":
       Main.initialisation();
-      Main.getOp().setGarderLesGraphismesTourné(false);
+      Main.getOp().setKeepFilesRotated(false);
       break;
       case "cli":
       Main.setModeCLI(true);
+      break;
+      case "lt":
+      case "launchTuto":
+      Main.setTuto(true);
+      // Main.setPremierePartie(true);
+      Main.dontOpenMenuFirst();
+      break;
+      case "ld":
+      case "launchDefaultGame":
+      Main.dontOpenMenuFirst();
       break;
       default:
       erreur.alerte("Unknow cli options : "+stringOptions);
@@ -304,13 +314,13 @@ public class launchOptions {
     chargerLesTraductions.setRep(pathToWebSiteTranslation);
     // Chrono ch = new Chrono();
     // Main.startCh(ch);
-    Main.getOp().setLangue(0);
+    Main.getOp().setLanguage(0);
     Main.iniLangue();
     trad.translateWebSiteFiles(pathToWebSiteFile);
-    Main.getOp().setLangue(1);
+    Main.getOp().setLanguage(1);
     Main.iniLangue();
     trad.translateWebSiteFiles(pathToWebSiteFile);
-    Main.getOp().setLangue(2);
+    Main.getOp().setLanguage(2);
     Main.iniLangue();
     trad.translateWebSiteFiles(pathToWebSiteFile);
     // Main.endCh("translateWebSite",ch);

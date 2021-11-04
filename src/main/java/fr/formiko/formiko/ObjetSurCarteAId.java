@@ -33,7 +33,7 @@ public class ObjetSurCarteAId extends ObjetAId implements Serializable{
   public void setDirection(int x){direction = (byte)x;}
   // FUNCTIONS -----------------------------------------------------------------
   public byte getDirAllea(){
-    if(!Main.getElementSurCarteOrientéAprèsDéplacement()){return 2;}
+    if(!Main.getOrientedObjectOnMap()){return 2;}
     int direction = allea.getAlléa(7)+1;//on a 8 possibilité de 1 a 8.
     if (direction>=5){direction++;}
     return (byte)direction;

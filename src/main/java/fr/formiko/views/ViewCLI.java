@@ -282,7 +282,7 @@ public class ViewCLI implements View {
     tab[3]=g.get("pauseActionGame");
     tToPrint = tab;
     String s = g.get("chargementFini");
-    if (debug.getAffLesPerformances()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
+    if (debug.getPerformance()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
     Main.setMessageChargement(s);
     Main.getPartie().launchGame(); //MAIN GAME PART
     //after a game :
@@ -592,7 +592,7 @@ public class ViewCLI implements View {
     String r = "";
     if(Main.getOs().isLinux()){
       if (c.getStade()==0) {
-        if(c.getAction()==c.getActionMax()){
+        if(c.getAction()==c.getMaxAction()){
           r+=color.GREEN;
         }else if (c.getAction()<=0) {
           r+=color.RED;

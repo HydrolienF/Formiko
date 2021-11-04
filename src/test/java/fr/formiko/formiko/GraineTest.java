@@ -2,11 +2,9 @@ package fr.formiko.formiko;
 
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.GCase;
-import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 public class GraineTest extends TestCaseMuet{
 

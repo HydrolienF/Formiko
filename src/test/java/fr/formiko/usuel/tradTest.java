@@ -1,15 +1,12 @@
 package fr.formiko.usuel;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
+// import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.tests.TestCaseMuet;
-import fr.formiko.views.ViewNull;
+import fr.formiko.tests.TestCaseMuet;
 
 public class tradTest extends TestCaseMuet {
 
@@ -21,7 +18,7 @@ public class tradTest extends TestCaseMuet {
   @Test
   // @Disabled("TODO #449 fix in github action") //it's working fined on my linux computer.
   public void testReplaceTranslation2(){
-    Main.setLangue(2);
+    Main.setLanguage(2);
     Main.iniLangue();
     assertTrue(Main.getLanguage()==2);
     assertEquals("testEn",g.get("test"));
@@ -29,7 +26,7 @@ public class tradTest extends TestCaseMuet {
   @Test
   // @Disabled("TODO #449 fix in github action") //it's working fined on my linux computer.
   public void testReplaceTranslation(){
-    Main.setLangue(0);
+    Main.setLanguage(0);
     Main.iniLangue();
     assertTrue(Main.getLanguage()==0);
     assertEquals("testEo",g.get("test"));
@@ -44,7 +41,7 @@ public class tradTest extends TestCaseMuet {
     assertTrue(!s.equals(trad.replaceTranslation(s)));
     s = "€{test}";
     assertEquals("testEo",trad.replaceTranslation(s));
-    Main.getOp().setLangue(2);
+    Main.getOp().setLanguage(2);
     Main.iniLangue();
     assertEquals("testEn",trad.replaceTranslation(s));
     s = "zavs[6+=§]€{bonvenon}~~^^ماò返€{test}€{fourmi}";

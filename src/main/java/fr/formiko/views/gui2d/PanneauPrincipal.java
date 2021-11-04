@@ -2,31 +2,36 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.images.image;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.Toolkit;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
+/**
+*{@summary the main Panel.}<br>
+*@author Hydrolien
+*@version 1.x
+*/
 public class PanneauPrincipal extends Panneau {
   private PanneauJeu pj;
   private PanneauMenu pm;
   private Image img;
   private FLabel versionLabel;
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauPrincipal(){}
+  /**
+  *{@summary Main constructor.}<br>
+  *@version 1.x
+  */
+  public PanneauPrincipal(){
+    super();
+    setOpaque(true);
+  }
+  /**
+  *{@summary Add background image &#38; version label.}<br>
+  *@version 1.x
+  */
   public void build(){
-    this.setLayout(null);
     img = image.getImage("backgroundPP");
     img = img.getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
     addVersionLabel();
@@ -36,14 +41,7 @@ public class PanneauPrincipal extends Panneau {
   public PanneauMenu getPm(){ return pm;}
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
-    // try {
-    //   SwingUtilities.invokeAndWait(new Runnable() {
-    //     @Override
-    //     public void run() {
-          ThMove.updateQueue();
-    //     }
-    //   });
-    // }catch (Exception e) {}
+    ThMove.updateQueue();
     if (img!=null){
       g.drawImage(img,0,0,this);
     }
@@ -60,6 +58,10 @@ public class PanneauPrincipal extends Panneau {
     // versionLabel.updateSize();
     add(versionLabel);
   }
+  /**
+  *{@summary Update the curent version print on screen.}<br>
+  *@version 2.6
+  */
   public void updateVersionLabel(){
     String version = Main.getFolder().getCurentVersion();
     if(version==null){return;}

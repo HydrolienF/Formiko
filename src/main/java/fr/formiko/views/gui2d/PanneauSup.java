@@ -18,7 +18,7 @@ import java.awt.event.MouseMotionListener;
 *@author Hydrolien
 *@version 1.42
 */
-public class PanneauSup extends Panneau{
+public class PanneauSup extends Panneau {
   private CCase cc2=null;
 
   // CONSTRUCTORS --------------------------------------------------------------

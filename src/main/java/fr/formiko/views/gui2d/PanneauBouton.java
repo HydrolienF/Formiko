@@ -90,7 +90,7 @@ public class PanneauBouton extends Panneau {
     remove(pz);
     pz = new PanneauZoom();
     pz.build();
-    int x = pz.getTailleBouton()*3;
+    int x = pz.getbuttonSize()*3;
     pz.setBounds(getWidth()-x,0,x,x);
     pz.setOpaque(false);
     add(pz);
@@ -126,7 +126,7 @@ public class PanneauBouton extends Panneau {
     }catch (Exception e) {}
     pa = new PanneauAction(t);
     pa.build();
-    int xxx = pa.getTailleBouton();
+    int xxx = pa.getbuttonSize();
     pa.setBounds(0,getHeight()-pa.getHeight(),pa.getWidth(),pa.getHeight());
     pas = new PanneauActionSup();
     pas.setBounds(0,getHeight()-pas.getHeight(),pas.getWidth(),pas.getHeight());
@@ -187,7 +187,7 @@ public class PanneauBouton extends Panneau {
       .setX(Main.getTailleElementGraphiqueX(320))
       .setYByElement(Main.getTailleElementGraphiqueY(32))
       .build();
-      pi.setLocation(getWidth()-pi.getWidth(),pz.getTailleBouton()*3);
+      pi.setLocation(getWidth()-pi.getWidth(),pz.getbuttonSize()*3);
       add(pi);
     }else{
       erreur.alerte("PanneauInfoCreature haven't been set because playingAnt is null");
@@ -198,17 +198,15 @@ public class PanneauBouton extends Panneau {
     try {
       removePij();
     }catch (Exception e) {}
+    if(!Main.getOp().getDrawPlayerMessagePanel()){return;}
     if(getView().getPd()!=null && getView().getPd().isVisible()){return;}
     if(fontPij==null){
-      fontPij = new Font(Main.getOp().getPolice(),Font.PLAIN,(int)(Main.getOp().getTaillePolice1()/1.5));
+      fontPij = new Font(Main.getOp().getFontText(),Font.PLAIN,(int)(Main.getOp().getFontSizeText()/1.5));
     }
-    Fourmi ft = Main.getPlayingAnt();
-    if (ft==null){ return;}
-    GString gs = ft.getFourmiliere().getJoueur().getGm().gmToGs(Main.getNbrMessageAfficher());
-    debug.débogage("affichage console du contenu de gs");
+    Joueur playingPlayer = Main.getPlayingJoueur();
+    if (playingPlayer==null){ return;}
+    GString gs = playingPlayer.getGm().gmToGs(Main.getMaxMessageDisplay());
     pij = new PanneauInfoText(gs,Main.getTailleElementGraphiqueX(500),true,fontPij);
-    int xx = pz.getTailleBouton()*5;
-    debug.débogage("initialisation du PanneauInfoJoueur en "+(getWidth()-xx)+" "+(getHeight()-pij.getYPi()));
     int x = Main.getTailleElementGraphiqueX(320);
     pij.setBounds((getWidth()-x*2)/2,Main.getTailleElementGraphiqueY(100),x,pij.getYPi());
     add(pij);

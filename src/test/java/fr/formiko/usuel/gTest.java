@@ -3,17 +3,15 @@ package fr.formiko.usuel;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
 
 public class gTest extends TestCaseMuet{
   //just for test coverage.
   @Test
   public void testG(){
-    g c = new g();
+    new g();
   }
 
   // FUNCTIONS -----------------------------------------------------------------

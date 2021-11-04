@@ -69,7 +69,7 @@ public class FTextArea extends JTextArea {
     return (int)counting;
   }
   // GET SET -------------------------------------------------------------------
-  public static int getDimY(){ return (int)(Main.getOp().getTaillePolice1()*1.3);}
+  public static int getDimY(){ return (int)(Main.getOp().getFontSizeText()*1.3);}
 
   // FUNCTIONS -----------------------------------------------------------------
   /**

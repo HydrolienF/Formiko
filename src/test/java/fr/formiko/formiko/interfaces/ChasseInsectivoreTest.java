@@ -4,9 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.*;
 import fr.formiko.formiko.Main;
-import fr.formiko.formiko.interfaces.TourInsecte;
-import fr.formiko.usuel.tests.TestCaseMuet;
-import fr.formiko.usuel.exceptions.ClassTypeException;
+import fr.formiko.tests.TestCaseMuet;
 
 public class ChasseInsectivoreTest extends TestCaseMuet{
   // FUNCTIONS -----------------------------------------------------------------
@@ -32,7 +30,7 @@ public class ChasseInsectivoreTest extends TestCaseMuet{
   public void testCanHuntMore(){
     Fourmi f = ini();
     assertTrue(((ChasseInsectivore)(f.chasse)).canHuntMore());
-    f.setAction(f.getActionMax()-1);
+    f.setAction(f.getMaxAction()-1);
     assertTrue(((ChasseInsectivore)(f.chasse)).canHuntMore());
     f.setAction(1);
     assertTrue(((ChasseInsectivore)(f.chasse)).canHuntMore());
@@ -40,10 +38,10 @@ public class ChasseInsectivoreTest extends TestCaseMuet{
     assertTrue(!((ChasseInsectivore)(f.chasse)).canHuntMore());
     f.setAction(-3);
     assertTrue(!((ChasseInsectivore)(f.chasse)).canHuntMore());
-    f.setAction(f.getActionMax()-1);
-    f.setNourriture(f.getNourritureMax()-1);
+    f.setAction(f.getMaxAction()-1);
+    f.setFood(f.getMaxFood()-1);
     assertTrue(((ChasseInsectivore)(f.chasse)).canHuntMore());
-    f.setNourriture(f.getNourritureMax());
+    f.setFood(f.getMaxFood());
     assertTrue(!((ChasseInsectivore)(f.chasse)).canHuntMore());
   }
   /*@Test

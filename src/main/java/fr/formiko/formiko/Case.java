@@ -18,25 +18,25 @@ public class Case implements Serializable{
   private byte type; //0 = herbe ...
   private Fourmiliere fere;
   private GCreature gc; private GGraine gg;
-  private byte nourritureInsecte;
-  private byte nourritureInsecteMax;
-  private byte nourritureInsecteParTour;
+  private byte foodInsecte;
+  private byte foodInsecteMax;
+  private byte foodInsecteParTour;
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public Case(Point p, Fourmiliere fere, GCreature gc, byte nourritureInsecte, byte nourritureInsecteMax, byte nt){
+  public Case(Point p, Fourmiliere fere, GCreature gc, byte foodInsecte, byte foodInsecteMax, byte nt){
     this.p =p;
     this.fere = fere;
     this.gc = gc;
     if(this.gc == null){ this.gc = new GCreature();}
-    this.nourritureInsecte = nourritureInsecte;
-    this.nourritureInsecteMax = nourritureInsecteMax;
-    nourritureInsecteParTour = nt;
+    this.foodInsecte = foodInsecte;
+    this.foodInsecteMax = foodInsecteMax;
+    foodInsecteParTour = nt;
     gg = new GGraine(); type = 1;
   }
   public Case(Point p, Fourmiliere fere, GCreature gc){
     this(p,fere,gc,(byte) allea.getAlléa(3),(byte)(allea.getAlléa(100)+2),(byte) allea.getAlléa(3));
-    // si la nourriture de départ n'est pas réduite :
-    nourritureInsecte = (byte) allea.getAlléa(nourritureInsecteMax);
+    // si la food de départ n'est pas réduite :
+    foodInsecte = (byte) allea.getAlléa(foodInsecteMax);
   }
   public Case(Point p){this(p,null,new GCreature());}
   public Case(int x, int y){this(new Point(x,y));}
@@ -51,17 +51,17 @@ public class Case implements Serializable{
   public GCreature getGc(){return gc;}
   public void setGc(GCreature gc){this.gc = gc;}
   public GInsecte getGi(){return gc.getGi();}
-  public byte getNourritureInsecte(){return nourritureInsecte;}
-  public void setNourritureInsecte(byte x){nourritureInsecte=x;}
-  public byte getNourritureInsecteMax(){return nourritureInsecteMax;}
-  public void setNourritureInsecteMax(byte x){nourritureInsecteMax =x;}
-  public byte getNourritureInsecteParTour(){return nourritureInsecteParTour;}
-  public void setNourritureInsecteParTour(byte x){nourritureInsecteParTour=x;}
+  public byte getFoodInsecte(){return foodInsecte;}
+  public void setFoodInsecte(byte x){foodInsecte=x;}
+  public byte getFoodInsecteMax(){return foodInsecteMax;}
+  public void setFoodInsecteMax(byte x){foodInsecteMax =x;}
+  public byte getFoodInsecteParTour(){return foodInsecteParTour;}
+  public void setFoodInsecteParTour(byte x){foodInsecteParTour=x;}
   public GGraine getGGraineCopier(){return gg.copierGGraine();}
   public GGraine getGGraine(){return gg;}
   public GGraine getGg(){ return getGGraine();}
   public byte getType(){ return type;}
-  public void setType(byte x){type = x; if(type==3 || type<0){setNourritureInsecteMax((byte)0); setNourritureInsecteParTour((byte)0);}}
+  public void setType(byte x){type = x; if(type==3 || type<0){setFoodInsecteMax((byte)0); setFoodInsecteParTour((byte)0);}}
   public void setType(int x){setType((byte)x);}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
@@ -73,7 +73,7 @@ public class Case implements Serializable{
         caseSombre=true;
       }
     }
-    String s = g.get("case")+" : ("+g.get("nourritureInsecte")+" :"+nourritureInsecte+"/"+nourritureInsecteMax+" (+"+nourritureInsecteParTour+"))";
+    String s = g.get("case")+" : ("+g.get("foodInsecte")+" :"+foodInsecte+"/"+foodInsecteMax+" (+"+foodInsecteParTour+"))";
     s=s+ p.toString();s=s+"\n";
     if (fere != null){
       s=s+g.get("fourmilière")+" :";s=s+"\n";
@@ -124,10 +124,10 @@ public class Case implements Serializable{
   public String description(){
     return p.toString();
   }
-  public void actualisationNourritureInsecte(){
-    setNourritureInsecte((byte) (getNourritureInsecte()+getNourritureInsecteParTour()));
-    if(nourritureInsecte > nourritureInsecteMax){
-      nourritureInsecte=nourritureInsecteMax;
+  public void actualisationFoodInsecte(){
+    setFoodInsecte((byte) (getFoodInsecte()+getFoodInsecteParTour()));
+    if(foodInsecte > foodInsecteMax){
+      foodInsecte=foodInsecteMax;
     }
   }
   public void actualisationGraine(CCase p){

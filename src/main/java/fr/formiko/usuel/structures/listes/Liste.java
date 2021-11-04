@@ -9,6 +9,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.function.Predicate;
 
 /**
 *{@summary Custom Linked Liste class using Generics.}<br>
@@ -221,6 +222,21 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
       r+= "\n";
     }
     return r;
+  }
+  /**
+  *{@summary Return a new Liste with only item that match with predicate.}<br>
+  *@param predicate a predicate that is used for the filter
+  *@return a new Liste&lb;T&rb; filtered
+  *@version 1.41
+  */
+  public Liste<T> filter(Predicate<T> predicate){
+    Liste<T> newList = new Liste<T>();
+    for (T e : this) {
+      if(predicate.test(e)){
+        newList.add(e);
+      }
+    }
+    return newList;
   }
   /**
   *{@summary return the xa item}<br>

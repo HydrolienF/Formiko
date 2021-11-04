@@ -24,10 +24,10 @@ public class MourirInsecte implements Serializable, Mourir {
    */
   public void mourir(Creature c, int r){
     // System.out.println(c);
-    c.setEstMort(true);
+    c.setIsDead(true);
     if(c instanceof Insecte){
       Insecte i= (Insecte)c;
-      if(i.getEstMort() && i.getAge()>i.getAgeMax()){
+      if(i.getIsDead() && i.getAge()>i.getMaxAge()){
         supprimerDeLaCarte(i);
       }else{
         devenirUnCadavre(i);
@@ -65,7 +65,7 @@ public class MourirInsecte implements Serializable, Mourir {
    */
   public void devenirUnCadavre(Insecte i){
     i.setAge(0);//temps de putréfaction.
-    i.setAgeMax(i.getAgeMax()/5);
+    i.setMaxAge(i.getMaxAge()/5);
     i.tour = new TourCreatureMorte();
   }
 }

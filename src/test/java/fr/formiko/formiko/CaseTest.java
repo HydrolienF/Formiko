@@ -3,21 +3,20 @@ package fr.formiko.formiko;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Carte;
-import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
-import fr.formiko.usuel.tests.TestCaseMuet;
+import fr.formiko.tests.TestCaseMuet;
 
 public class CaseTest extends TestCaseMuet{
   private Partie p;
   // FUNCTIONS -----------------------------------------------------------------
   private Fourmi ini(){
     Main.initialisation();
-    Main.setLangue(0);
+    Main.setLanguage(0);
     p = new Partie(0,100,new Carte(new GCase(1,2),0,0,1,false,false),1);
     Main.setPartie(p);
     p.setAppartionInsecte(false);
