@@ -373,6 +373,7 @@ bouton.desc.351:rilatoj kun aliaj kreitoj
 bouton.desc.352:statoj de la amikojn formikojn
 bouton.desc.353:formikejoj coloroj
 bouton.desc.354:komunikada ĵurnalo
+bouton.desc.354:desegni nur manĝeblajn semojn/insektojn (Aŭ aliancanon/malamikon)[auto]
 
 pti.desc.1:indiki la kodo de la formiko ke ricevos la manĝaĵon.
 pti.desc.2:indiki la kvanto de dona manĝaĵo.

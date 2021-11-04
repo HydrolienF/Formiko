@@ -305,6 +305,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *@version 1.13
   */
   //est ce que c nous concidère comme ennemis.
+  //TODO Neutral insect should not be seen as Enemy.
   public boolean getEstEnnemi(Creature c){
     if(this.getPheromone().equals(c.getPheromone(),c.getPheromoneTolerence())){ return false;} //c me voie comme un allié aucune raison de ce méfier de moi
     //TODO chercher si dans ma liste des proies de this on trouve c.getType(); si je mange c, c doit ce méfier de moi.
@@ -312,6 +313,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     if(!this.getPheromone().equals(c.getPheromone(),math.min(127,c.getPheromoneTolerence()*6))){ return true;} // c est une fourmi non alliés, et nous n'avons pas de lien de parenté.
     return false; //sinon a priori on est neutre.
   }
+  public boolean getIsNeutral(Creature c){return !getEstAllié(c) && !getEstEnnemi(c);}
   /**
    *{@summary find all allied Creature on the same Case.}<br>
    *@version 1.7

@@ -86,6 +86,7 @@ public class Joueur implements Serializable{
   public void setIsTurnEnded(boolean b){isTurnEnded=b;}
   public static Joueur getPlayingJoueur(){return playingJoueur;}
   public static void setPlayingJoueur(Joueur j){playingJoueur=j;}
+  public Espece getEspece(){return getFere().getEspece();}
 // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String s = (ia) ? g.get("laIA") : g.get("laJoueurHumain");

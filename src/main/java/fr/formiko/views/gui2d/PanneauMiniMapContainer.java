@@ -235,6 +235,9 @@ public class PanneauMiniMapContainer extends Panneau {
       addGraphicOption(354, null, () -> {
         return Main.getOp().getDrawPlayerMessagePanel();
       });
+      addGraphicOption(355, null, () -> {
+        return Main.getOp().getDrawOnlyEatable();
+      });
       placeButtons();
     }
     /**

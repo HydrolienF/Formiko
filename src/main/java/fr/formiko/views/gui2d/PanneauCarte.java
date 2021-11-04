@@ -291,23 +291,13 @@ public class PanneauCarte extends Panneau {
         drawImage(g,Main.getData().getCSombre(),xT,yT); // si les créatures sur la case ne sont pas visible.
       }else{
         int k=0;
-        boolean seedPrinted = Main.getAffGraine();
-        boolean insectPrinted = true;
-        // int cptIcon = 0;
-        // int kIcon = 0;
-        // if(seedPrinted){
-        //   cptIcon+=c.getGg().length();
-        // }
-        // if(insectPrinted){
-        //   cptIcon+=c.getGc().length();
-        // }
         //seeds
-        if(seedPrinted){
+        if(Main.getOp().getDrawSeeds() && (!Main.getOp().getDrawOnlyEatable() || Main.getPlayingJoueur().getEspece().getGranivore())){
           while (ccg!=null){
             calculerXYTemp(xT,yT,k,c);k++;
             int dir = getDir((ObjetSurCarteAId)ccg.getContent());
             try {
-              BufferedImage bi = Main.getData().getTG()[0][ccg.getContent().getType()];
+              BufferedImage bi = Main.getData().getTG()[ccg.getContent().getType()];
               drawImageCentered(g,image.rotateImage(bi,dir),xT,yT);
             }catch (Exception e) {}
             if(ccg.getContent().getOuverte()){listIconsRelation.add(getIconImage(5));}
@@ -330,7 +320,7 @@ public class PanneauCarte extends Panneau {
           }
           int dir = getDir((ObjetSurCarteAId)cr);
           calculerXYTemp(xT,yT,k,c);k++;
-          if(cr instanceof Fourmi){
+          if(cr instanceof Fourmi && needToDraw(cr)){
             Fourmi f = ((Fourmi)cr);
             try {
               BufferedImage bi = Main.getData().getCreatureImage(f);
@@ -347,7 +337,7 @@ public class PanneauCarte extends Panneau {
             }catch (Exception e) {
               erreur.erreur("can't draw ant "+f.getId()+" at stade "+f.getStade());
             }
-          }else if(cr instanceof Insecte && insectPrinted){
+          }else if(cr instanceof Insecte && needToDraw(cr)){
             Insecte i = (Insecte)(cr);
             try {
               BufferedImage bi = Main.getData().getCreatureImage(cr);
@@ -377,6 +367,20 @@ public class PanneauCarte extends Panneau {
     }catch (Exception e) {
       erreur.erreur("impossible de dessiner l'image de la Case : "+x+" "+y);
     }
+  }
+  /**
+  *{@summary Return true if we need to draw Creature depending of the Options.}<br>
+  *@version 2.10
+  */
+  public boolean needToDraw(Creature cr){
+    boolean friendlyInsectPrinted = Main.getOp().getDrawAllyCreatures();
+    boolean neutralInsectPrinted = Main.getOp().getDrawNeutralCreatures();
+    boolean enemyInsectPrinted = Main.getOp().getDrawEnemyCreatures();
+    if(friendlyInsectPrinted && neutralInsectPrinted && enemyInsectPrinted && !Main.getOp().getDrawOnlyEatable()){return true;}
+    else if(cr.getEstEnnemi(Main.getPlayingAnt()) && enemyInsectPrinted){return true;}
+    else if(cr.getEstAllié(Main.getPlayingAnt()) && friendlyInsectPrinted){return true;}
+    else if(cr.getIsNeutral(Main.getPlayingAnt()) && neutralInsectPrinted && (!Main.getOp().getDrawOnlyEatable() || Main.getPlayingJoueur().getEspece().getInsectivore())){return true;}
+    else{return false;}
   }
   /**
   *{@summary Return a Liste&lt;Creature&gt; sorted by image size.}<br>

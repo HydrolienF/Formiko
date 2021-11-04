@@ -60,7 +60,6 @@ public class Main {
   private static Pixel pi;
   private static HashMap<String, Integer> key; //keyboard key.
   private static int avancementChargement;
-  private static boolean affGraine=false;//tant que les espece granivore ne sont pas pleinement opérationelle.
   private static Temps tem;
   //private static ThGraphisme tg;//actualise la fenetre tt avec 20 seconde de pause entre chaque actualisation.
   private static boolean retournerAuMenu;
@@ -193,7 +192,6 @@ public class Main {
   public static Pixel getPiFond(){ return pi;}
   public static int getAvancementChargement(){ return avancementChargement;}
   public static void setAvancementChargement(int x){avancementChargement=x;}
-  public static boolean getAffGraine(){return affGraine;}
   public static Temps getTemps(){ return tem;}
   public static boolean getRetournerAuMenu(){return retournerAuMenu;}
   public static void setRetournerAuMenu(boolean b){retournerAuMenu=b;}

@@ -56,6 +56,11 @@ public class Options implements Serializable{
   private boolean gui_partie_instantaneousMovement;
   private boolean gui_partie_orientedObjectOnMap;
   private byte gui_partie_maxMessageDisplay;
+  private boolean gui_partie_drawSeeds;
+  private boolean gui_partie_drawAllyCreatures;
+  private boolean gui_partie_drawNeutralCreatures;
+  private boolean gui_partie_drawEnemyCreatures;
+  private boolean gui_partie_drawOnlyEatable;
   private boolean gui_pgo_drawGrid;
   private byte gui_global_borderButtonSize;
   private boolean gui_pgo_drawRelationsIcons;
@@ -107,6 +112,18 @@ public class Options implements Serializable{
   public void setbuttonSizeTX(byte x){ gui_hide_buttonSizeTX=x;}
   public boolean getQuickMovement(){ return gui_partie_quickMovement;}
   public void setQuickMovement(boolean b){ gui_partie_quickMovement = b;}
+
+  public boolean getDrawSeeds(){ return gui_partie_drawSeeds;}
+  public void setDrawSeeds(boolean b){ gui_partie_drawSeeds = b;}
+  public boolean getDrawOnlyEatable(){ return gui_partie_drawOnlyEatable;}
+  public void setDrawOnlyEatable(boolean b){ gui_partie_drawOnlyEatable = b;}
+  public boolean getDrawEnemyCreatures(){ return gui_partie_drawEnemyCreatures;}
+  public void setDrawEnemyCreatures(boolean b){ gui_partie_drawEnemyCreatures = b;}
+  public boolean getDrawNeutralCreatures(){ return gui_partie_drawNeutralCreatures;}
+  public void setDrawNeutralCreatures(boolean b){ gui_partie_drawNeutralCreatures = b;}
+  public boolean getDrawAllyCreatures(){ return gui_partie_drawAllyCreatures;}
+  public void setDrawAllyCreatures(boolean b){ gui_partie_drawAllyCreatures = b;}
+
   public boolean getInstantaneousMovement(){return gui_partie_instantaneousMovement;}
   public void setInstantaneousMovement(boolean b){gui_partie_instantaneousMovement=b;}
   public boolean getOrientedObjectOnMap(){ return gui_partie_orientedObjectOnMap;}
@@ -312,6 +329,13 @@ public class Options implements Serializable{
     defaultProperties.setProperty("gui_partie_maxMessageDisplay","10");
     defaultProperties.setProperty("gui_partie_orientedObjectOnMap","true");
     defaultProperties.setProperty("gui_partie_quickMovement","true");
+
+    defaultProperties.setProperty("gui_partie_drawSeeds","true");
+    defaultProperties.setProperty("gui_partie_drawOnlyEatable","true");
+    defaultProperties.setProperty("gui_partie_drawAllyCreatures","true");
+    defaultProperties.setProperty("gui_partie_drawEnemyCreatures","true");
+    defaultProperties.setProperty("gui_partie_drawNeutralCreatures","true");
+
     defaultProperties.setProperty("gui_partie_realisticSize","30");
     defaultProperties.setProperty("gui_partie_sizeOfMapLines","2");
     defaultProperties.setProperty("gui_pgo_antColorLevel","1");
@@ -389,6 +413,11 @@ public class Options implements Serializable{
     gui_partie_maxMessageDisplay=str.sToBy(properties.getProperty("gui_partie_maxMessageDisplay"));
     gui_partie_orientedObjectOnMap=str.sToB(properties.getProperty("gui_partie_orientedObjectOnMap"));
     gui_partie_quickMovement=str.sToB(properties.getProperty("gui_partie_quickMovement"));
+    gui_partie_drawSeeds=str.sToB(properties.getProperty("gui_partie_drawSeeds"));
+    gui_partie_drawOnlyEatable=str.sToB(properties.getProperty("gui_partie_drawOnlyEatable"));
+    gui_partie_drawAllyCreatures=str.sToB(properties.getProperty("gui_partie_drawAllyCreatures"));
+    gui_partie_drawEnemyCreatures=str.sToB(properties.getProperty("gui_partie_drawEnemyCreatures"));
+    gui_partie_drawNeutralCreatures=str.sToB(properties.getProperty("gui_partie_drawNeutralCreatures"));
     gui_partie_realisticSize=str.sToBy(properties.getProperty("gui_partie_realisticSize"));
     gui_partie_sizeOfMapLines=str.sToI(properties.getProperty("gui_partie_sizeOfMapLines"));
     gui_pgo_antColorLevel=str.sToBy(properties.getProperty("gui_pgo_antColorLevel"));
@@ -417,6 +446,11 @@ public class Options implements Serializable{
     properties.setProperty("gui_global_buttonSizeAction",""+gui_global_buttonSizeAction);
     properties.setProperty("gui_hide_buttonSizeTX",""+gui_hide_buttonSizeTX);
     properties.setProperty("gui_partie_quickMovement",""+gui_partie_quickMovement);
+    properties.setProperty("gui_partie_drawSeeds",""+gui_partie_drawSeeds);
+    properties.setProperty("gui_partie_drawOnlyEatable",""+gui_partie_drawOnlyEatable);
+    properties.setProperty("gui_partie_drawAllyCreatures",""+gui_partie_drawAllyCreatures);
+    properties.setProperty("gui_partie_drawEnemyCreatures",""+gui_partie_drawEnemyCreatures);
+    properties.setProperty("gui_partie_drawNeutralCreatures",""+gui_partie_drawNeutralCreatures);
     properties.setProperty("gui_partie_instantaneousMovement",""+gui_partie_instantaneousMovement);
     properties.setProperty("gui_partie_orientedObjectOnMap",""+gui_partie_orientedObjectOnMap);
     properties.setProperty("gui_partie_maxMessageDisplay",""+gui_partie_maxMessageDisplay);

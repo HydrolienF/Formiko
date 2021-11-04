@@ -42,7 +42,7 @@ public class Data {
   private BufferedImage tICarte[];
   private BufferedImage tIF[];
   // private BufferedImage tII[][];
-  private BufferedImage tG[][];
+  private BufferedImage tG[];
   private BufferedImage tF[][];
   // private BufferedImage antColor[];
   private BufferedImage antLeg[];
@@ -55,7 +55,7 @@ public class Data {
   private BufferedImage tICarteIni[];
   private BufferedImage tIFIni[];
   // private BufferedImage tIIIni[][];
-  private BufferedImage tGIni[][];
+  private BufferedImage tGIni[];
   private BufferedImage tFIni[][];
   // private BufferedImage antColorIni[];
   private BufferedImage antLegIni[];
@@ -110,7 +110,7 @@ public class Data {
   public BufferedImage [] getB(){return b;}
   public BufferedImage [] getTICarte(){return tICarte;}
   // public BufferedImage [][] getTII(){return tII;}
-  public BufferedImage [][] getTG(){return tG;}
+  public BufferedImage [] getTG(){return tG;}
   public BufferedImage [][] getTF(){return tF;}
   public BufferedImage getMap(){return map;}
   //PanneauAction
@@ -351,7 +351,7 @@ public class Data {
         iconMap = image.getScaledInstanceFromMap(iconMap, Main.getTailleElementGraphiqueY(30));
         // antFAFIni = image.getImages("FAF",image.getNbrImages("FAF"),(byte)0);
         // antFASIni = image.getImages("FAS",image.getNbrImages("FAS"),(byte)0);
-        tGIni = chargerTX("seed");
+        tGIni = image.getImages("seed",image.getNbrImages("seed"),(byte)0);
         fereIni = image.getImage("antnest");//.getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
         cNuageuseIni = image.getImage("cNuageuse");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         cSombreIni = image.getImage("cSombre");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);

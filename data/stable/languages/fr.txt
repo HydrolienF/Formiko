@@ -373,6 +373,7 @@ bouton.desc.351:relations envers les autres Créatures
 bouton.desc.352:états des fourmis alliées
 bouton.desc.353:couleurs des fourmilières
 bouton.desc.354:journal d'informations
+bouton.desc.354:dessiner seulement les graines/insectes commestible (Ou alliés / énemies)
 
 pti.desc.1:Indiquez l'id de la fourmi qui recevra la nourriture.
 pti.desc.2:Indiquez la quantité de nourriture offerte.

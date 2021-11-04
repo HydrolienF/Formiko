@@ -228,6 +228,9 @@ public class action{
         Panneau.getView().getPb().addPIJ();
       }
       break;
+      case 355:
+      Main.getOp().setDrawOnlyEatable(!Main.getOp().getDrawOnlyEatable());
+      break;
       default:
       break;
     }
