@@ -368,9 +368,7 @@ public class Folder {
   *@version 2.7
   */
   public String getCurentVersion(){
-    //TODO #443 use version from version.md !
-    // return getXVersion(Paths.get(getFolderMain()+"version.json"), "formiko");
-    GString gs = lireUnFichier.lireUnFichierGs(System.getProperty("user.dir")+"/version.md");
+    GString gs = lireUnFichier.lireUnFichierGs(getVersionMdPath());
     if(gs.isEmpty()){
       erreur.alerte("can't read curent game version");
       return DEFAULT_NULL_VERSION;
@@ -448,25 +446,39 @@ public class Folder {
     }
   }
   /**
-  *{@summary return the path to version.json.}<br>
+  *{@summary return the path to version.x.}<br>
+  *@version 2.10
+  */
+  public static Path getVersionPath(String fileName){
+    File f = new File(fileName);
+    if(f.exists()){
+      return Paths.get(f.getPath());
+    }
+    f = new File("app/"+fileName);
+    if(f.exists()){
+      return Paths.get(f.getPath());
+    }
+    f = new File(System.getenv("ProgramFiles")+"/Formiko/app/"+fileName);
+    if(f.exists()){
+      return Paths.get(f.getPath());
+    }
+    erreur.alerte("Can't fined "+fileName+" path");
+    return Paths.get("");
+  }
+  /**
+  *{@summary return the path to version.md.}<br>
   *Curent version is in version.md.
-  *@version 1.51
+  *@version 2.10
+  */
+  public static Path getVersionMdPath(){
+    return getVersionPath("version.md");
+  }
+  /**
+  *{@summary return the path to version.json.}<br>
+  *@version 2.10
   */
   public static Path getVersionJsonPath(){
-    File f = new File("version.json");
-    if(f.exists()){
-      return Paths.get(f.getPath());
-    }
-    f = new File("app/version.json");
-    if(f.exists()){
-      return Paths.get(f.getPath());
-    }
-    f = new File(System.getenv("ProgramFiles")+"/Formiko/app/version.json");
-    if(f.exists()){
-      return Paths.get(f.getPath());
-    }
-    erreur.alerte("Can't fined version.json path");
-    return Paths.get("");
+    return getVersionPath("version.json");
   }
   /**
   *{@summary Download music data from github release.}<br>
