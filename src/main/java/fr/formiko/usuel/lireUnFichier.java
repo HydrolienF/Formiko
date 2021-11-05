@@ -1,15 +1,16 @@
 package fr.formiko.usuel;
 
-//def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.tableau;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.File;
-import java.util.ArrayList;
-import java.nio.charset.StandardCharsets;
 import fr.formiko.usuel.structures.listes.GString;
+import fr.formiko.usuel.tableau;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.util.ArrayList;
 
 public class lireUnFichier {
 
@@ -62,5 +63,6 @@ public class lireUnFichier {
     return gs;
   }
   public static GString lireUnFichierGs(File f){return lireUnFichierGs(f.getAbsolutePath());}
+  public static GString lireUnFichierGsFromPath(Path path){return lireUnFichierGs(path.toString());}
 
 }
