@@ -368,9 +368,9 @@ public class Folder {
   *@version 2.7
   */
   public String getCurentVersion(){
-    //TODO #443 use version from version.md !
-    // return getXVersion(Paths.get(getFolderMain()+"version.json"), "formiko");
-    GString gs = lireUnFichier.lireUnFichierGs(System.getProperty("user.dir")+"/version.md");
+    String path = "version.md";
+    if(Main.getOs().isWindows()){path=System.getProperty("user.dir")+"Formiko/app/"+path;}
+    GString gs = lireUnFichier.lireUnFichierGs(path);
     if(gs.isEmpty()){
       erreur.alerte("can't read curent game version");
       return DEFAULT_NULL_VERSION;
