@@ -144,8 +144,11 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 16
-    - name: version
-      run: echo "::set-output name=version::$(cat version.md)"
+    - name: Version-Tool
+      uses: HydrolienF/Version-Tool@0.5.5
+      id: version
+    - name: update version.md
+      run: echo ${{ steps.version.outputs.version }} > version.md
       id: version
     - name: jlink
       run: |
