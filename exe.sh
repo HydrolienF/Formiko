@@ -8,7 +8,7 @@ echo "to .jar"
 #jarsigner -keystore monStore -signedjar FormikoTemp.jar Formiko.jar signature
 #nom = name + version
 echo "choose name"
-# ./updateVersion.sh
+# ./updateVersion.sh > version.md
 nom=Formiko$(cat version.md)
 nomL=$nom"Linux"
 nomM=$nom"Mac"
