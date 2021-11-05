@@ -131,7 +131,7 @@ public class Options implements Serializable{
   public byte getMaxMessageDisplay(){ return gui_partie_maxMessageDisplay;}
   public void setMaxMessageDisplay(int x){ gui_partie_maxMessageDisplay=str.iToBy(x);}
   public boolean getDrawGrid(){ return gui_pgo_drawGrid;}
-  public void setDrawGrid(boolean b){gui_pgo_drawGrid=b; }
+  public void setDrawGrid(boolean b){gui_pgo_drawGrid=b;}
   public boolean getForceQuit(){ return game_forceQuit;}
   public void setForceQuit(boolean b){ game_forceQuit=b;}
   public byte getBorderButtonSize(){ return gui_global_borderButtonSize;}
@@ -220,11 +220,11 @@ public class Options implements Serializable{
   *@version 1.34
   */
   public void saveOptions(){
-    if(properties==null){
+    new Thread(() -> {
       optionToProperties(); // transform Options into properties.
-    }
-    saveProperties();
-    properties=null; //destory properties to save memory.
+      saveProperties();
+      properties=null; //destory properties to save memory.
+    }).start();
   }
 
   //private functions ----------------------------------------------------------
@@ -454,9 +454,9 @@ public class Options implements Serializable{
     properties.setProperty("gui_partie_instantaneousMovement",""+gui_partie_instantaneousMovement);
     properties.setProperty("gui_partie_orientedObjectOnMap",""+gui_partie_orientedObjectOnMap);
     properties.setProperty("gui_partie_maxMessageDisplay",""+gui_partie_maxMessageDisplay);
-    properties.setProperty("gui_pgo_drawGrid",""+gui_pgo_drawGrid);
     properties.setProperty("game_forceQuit",""+game_forceQuit);
     properties.setProperty("gui_global_borderButtonSize",""+gui_global_borderButtonSize);
+    properties.setProperty("gui_pgo_drawGrid",""+gui_pgo_drawGrid);
     properties.setProperty("gui_pgo_drawRelationsIcons",""+gui_pgo_drawRelationsIcons);
     properties.setProperty("gui_pgo_drawStatesIconsLevel",""+gui_pgo_drawStatesIconsLevel);
     properties.setProperty("gui_global_fontSizeText",""+gui_global_fontSizeText);

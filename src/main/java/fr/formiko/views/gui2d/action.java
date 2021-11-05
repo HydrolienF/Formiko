@@ -58,7 +58,7 @@ public class action{
     if(ac==-1){
       Panneau.getView().close();
     }if(ac==0){
-      System.out.println("back to main menu");
+      // System.out.println("back to main menu");
       Panneau.getView().menuMain();
     }else if(ac==1){
       Panneau.getView().menuNewGame();
