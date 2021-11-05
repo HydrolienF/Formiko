@@ -149,7 +149,7 @@ jobs:
       id: version
     - name: update version.md
       run: echo ${{ steps.version.outputs.version }} > version.md
-      id: version
+      
     - name: jlink
       run: |
         mvn -ntp compile
