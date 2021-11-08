@@ -325,7 +325,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("gui_hide_loadingDuringMenus","true");
     defaultProperties.setProperty("gui_hide_modeFPS","true");
     defaultProperties.setProperty("gui_hide_positionCase","0");
-    defaultProperties.setProperty("gui_partie_instantaneousMovement","true");
+    defaultProperties.setProperty("gui_partie_instantaneousMovement","false");
     defaultProperties.setProperty("gui_partie_maxMessageDisplay","10");
     defaultProperties.setProperty("gui_partie_orientedObjectOnMap","true");
     defaultProperties.setProperty("gui_partie_quickMovement","true");
