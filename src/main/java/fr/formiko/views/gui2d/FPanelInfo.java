@@ -15,18 +15,18 @@ import java.awt.GridBagLayout;
 *@author Hydrolien
 *@version 2.7
 */
-public class PanneauInfo extends Panneau {
-  protected Liste<Panneau> lp;
+public class FPanelInfo extends FPanel {
+  protected Liste<FPanel> lp;
   // CONSTRUCTORS --------------------------------------------------------------
   /** Main constructor. */
-  protected PanneauInfo(){super();}
+  protected FPanelInfo(){super();}
 
   /**
   *{@summary Return a new builder for this.}<br>
   *@version 2.7
   */
-  public static PanneauInfoBuilder builder(){
-    return new PanneauInfoBuilder();
+  public static FPanelInfoBuilder builder(){
+    return new FPanelInfoBuilder();
   }
   // GET SET -------------------------------------------------------------------
   /** Return number of sub Panel. */
@@ -47,7 +47,7 @@ public class PanneauInfo extends Panneau {
   public String toString(){
     String r = super.toString()+"\n";//+" number of desc "+nbrDeDesc+" ";
     if(lp!=null){
-      for (Panneau p : lp ) {
+      for (FPanel p : lp ) {
         r+=" "+p.toString();
       }
     }
@@ -59,8 +59,8 @@ public class PanneauInfo extends Panneau {
   *@author Hydrolien
   *@version 2.7
   */
-  static class PanneauInfoBuilder {
-    protected Liste<Panneau> lp;
+  static class FPanelInfoBuilder {
+    protected Liste<FPanel> lp;
     protected int x=-1;
     protected int yByElement=-1;
     // CONSTRUCTORS --------------------------------------------------------------
@@ -69,22 +69,22 @@ public class PanneauInfo extends Panneau {
     $It only initialize List.
     *@version 2.7
     */
-    protected PanneauInfoBuilder(){
-      lp = new Liste<Panneau>();
+    protected FPanelInfoBuilder(){
+      lp = new Liste<FPanel>();
     }
 
     // GET SET -------------------------------------------------------------------
-    public PanneauInfoBuilder setX(int x){this.x = x; return this;}
-    public PanneauInfoBuilder setYByElement(int y){this.yByElement = y; return this;}
-    public PanneauInfoBuilder add(Panneau p){lp.addTail(p); return this;}
+    public FPanelInfoBuilder setX(int x){this.x = x; return this;}
+    public FPanelInfoBuilder setYByElement(int y){this.yByElement = y; return this;}
+    public FPanelInfoBuilder add(FPanel p){lp.addTail(p); return this;}
 
     // FUNCTIONS -----------------------------------------------------------------
     /**
-    *{@summary Main function that build PanneauInfo &#38; return it.}<br>
+    *{@summary Main function that build FPanelInfo &#38; return it.}<br>
     *@version 2.7
     */
-    public PanneauInfo build(){
-      PanneauInfo pi = new PanneauInfo();
+    public FPanelInfo build(){
+      FPanelInfo pi = new FPanelInfo();
       if(x<1 || yByElement<1){throw new IllegalArgumentException("x or y is <1");}
       int lenLp = lp.length();
       if(lenLp==0){throw new IllegalArgumentException("lp is empty");}
@@ -95,7 +95,7 @@ public class PanneauInfo extends Panneau {
       // GridBagConstraints gbc = new GridBagConstraints();
       // gbc.gridx = 0;
       int k = 0;
-      for (Panneau p : lp ) {
+      for (FPanel p : lp ) {
         p.setSize(x,yByElement);
         p.setLocation(0,yByElement*k);
         // if(withAlpha){p.setBackground(Main.getData().getButtonColor());}

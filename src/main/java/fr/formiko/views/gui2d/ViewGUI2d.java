@@ -48,24 +48,24 @@ public class ViewGUI2d implements View {
   //Graphics components.
   public FFrameMain getF(){return f;}
   public FFrameLauncher getFl(){return fl;}
-  public PanneauPrincipal getPp(){ try{return getF().getPp();}catch (NullPointerException e) {return null;}}
+  public FPanelPrincipal getPp(){ try{return getF().getPp();}catch (NullPointerException e) {return null;}}
 
-  public PanneauJeu getPj(){ if(getPp()!=null){return getPp().getPj();}else{return null;}}
-  public PanneauMenu getPm(){ if(getPp()!=null){return getPp().getPm();}else{return null;}}
-  public PanneauNouvellePartie getPnp(){ try{return getPm().getPnp();}catch (NullPointerException e){return null;}}
-  public PanneauChoixPartie getPcp(){ try{return getPm().getPcp();}catch (NullPointerException e){return null;}}
-  public PanneauBouton getPb(){ try{return getPj().getPb();}catch (NullPointerException e){return null;}}
-  public PanneauCarte getPc(){ try{return getPj().getPc();}catch (NullPointerException e){return null;}}
-  public PanneauInfo getPi(){ try{return getPb().getPi();}catch (NullPointerException e){return null;}}
-  public PanneauInfoText getPij(){ try{return getPb().getPij();}catch (NullPointerException e){return null;}}
-  public PanneauZoom getPz(){ return getPb().getPz();}
-  public PanneauAction getPa(){ return getPb().getPa();}
-  public PanneauChargement getPch(){ try {return getPj().getPch();}catch (NullPointerException e) {return null;}}
-  public PanneauSup getPs(){ try {return getPj().getPs();}catch (NullPointerException e) {return null;}}
-  public PanneauEchap getPe(){ return getPj().getPe();}
-  public PanneauDialogue getPd(){ try {return getPj().getPd();}catch (NullPointerException e) {return null;}}
-  public PanneauDialogueInf getPdi(){ return getPj().getPdi();}
-  public PanneauMiniMapContainer getPmmc(){try {return getPb().getPmmc();}catch(NullPointerException e){return null;}}
+  public FPanelJeu getPj(){ if(getPp()!=null){return getPp().getPj();}else{return null;}}
+  public FPanelMenu getPm(){ if(getPp()!=null){return getPp().getPm();}else{return null;}}
+  public FPanelNouvellePartie getPnp(){ try{return getPm().getPnp();}catch (NullPointerException e){return null;}}
+  public FPanelChoixPartie getPcp(){ try{return getPm().getPcp();}catch (NullPointerException e){return null;}}
+  public FPanelBouton getPb(){ try{return getPj().getPb();}catch (NullPointerException e){return null;}}
+  public FPanelCarte getPc(){ try{return getPj().getPc();}catch (NullPointerException e){return null;}}
+  public FPanelInfo getPi(){ try{return getPb().getPi();}catch (NullPointerException e){return null;}}
+  public FPanelInfoText getPij(){ try{return getPb().getPij();}catch (NullPointerException e){return null;}}
+  public FPanelZoom getPz(){ return getPb().getPz();}
+  public FPanelAction getPa(){ return getPb().getPa();}
+  public FPanelChargement getPch(){ try {return getPj().getPch();}catch (NullPointerException e) {return null;}}
+  public FPanelSup getPs(){ try {return getPj().getPs();}catch (NullPointerException e) {return null;}}
+  public FPanelEchap getPe(){ return getPj().getPe();}
+  public FPanelDialogue getPd(){ try {return getPj().getPd();}catch (NullPointerException e) {return null;}}
+  public FPanelDialogueInf getPdi(){ return getPj().getPdi();}
+  public FPanelMiniMapContainer getPmmc(){try {return getPb().getPmmc();}catch(NullPointerException e){return null;}}
   public int getCurentFPS(){return curentFPS;}
   public void setCurentFPS(int x){curentFPS=x;}
   public int getWidth(){try {return getPp().getWidth();}catch (NullPointerException e) {return 0;}}
@@ -87,7 +87,7 @@ public class ViewGUI2d implements View {
     Main.getData().setImageIniForNewGame(false);//force reload of ant images.
     Main.endCh("iniView");Main.startCh();
     ini.initialiserToutLesPaneauxVide();
-    Main.endCh("chargementPanneauVide");
+    Main.endCh("chargementFPanelVide");
     loadGraphics();
     // if(Main.getOp().getModeFPS()){
       launchFrameRefresh();
@@ -148,7 +148,7 @@ public class ViewGUI2d implements View {
     if(Main.getPremierePartie()){
       getPm().askLanguage();
     }else if(Main.getOpenMenuFirst()){
-      getPm().buildPanneauMenu(3,0);
+      getPm().buildFPanelMenu(3,0);
     }else{
       getPm().setLancer(true);
     }
@@ -171,7 +171,7 @@ public class ViewGUI2d implements View {
     actionGameOn=false;
     DiscordIntegration.updateActivity();
     if(f==null || getPm()==null){ini();}
-    getPm().buildPanneauMenu(3,1);
+    getPm().buildFPanelMenu(3,1);
     paint();
     return true;
   }
@@ -232,12 +232,12 @@ public class ViewGUI2d implements View {
     }//partie can still be null here if script!=""
     Main.startCh();
     getPp().removePm();//on retire le menu
-    Main.endCh("chargementPanneauChargementEtSuppressionMenu");
+    Main.endCh("chargementFPanelChargementEtSuppressionMenu");
     getPj().iniPch();//on met le panneau de chargement au 1a plan.
     DiscordIntegration.updateActivity();
     Main.startCh();
     getPb().addPz();
-    Main.endCh("ajoutPanneauZoom");Main.startCh();
+    Main.endCh("ajoutFPanelZoom");Main.startCh();
     if(Partie.getScript().equals("tuto")){
       Main.iniCpt();
       Partie.setPartieTutoInMain();
@@ -251,7 +251,7 @@ public class ViewGUI2d implements View {
     if (debug.getPerformance()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
     Main.setMessageChargement(s);
     if(!Main.getOp().getWhaitBeforeLaunchGame() || Main.getPremierePartie() || !Main.getOpenMenuFirst()){
-      closePanneauChargement();
+      closeFPanelChargement();
       paint();
     }else{
       if(getPch()!=null){ //it can have been remove by key "enter".
@@ -289,7 +289,7 @@ public class ViewGUI2d implements View {
       //TODO add withButton & next level
       getPj().addPfp(message, gj, withButton, canResumeGame);
     }catch (Exception e) {
-      erreur.alerte("can't print PanneauFinPartie.");
+      erreur.alerte("can't print FPanelFinPartie.");
       return false;
     }
     return true;
@@ -439,10 +439,10 @@ public class ViewGUI2d implements View {
   }
 
   /**
-  *{@summary remove PanneauChargement &#38; listen mouse clic on the map.}<br>
+  *{@summary remove FPanelChargement &#38; listen mouse clic on the map.}<br>
   *@version 1.44
   */
-  public void closePanneauChargement(){
+  public void closeFPanelChargement(){
     if (!actionGameOn) {return;}
     getPj().removePch();
     getPs().build();
@@ -599,7 +599,7 @@ public class ViewGUI2d implements View {
   *@version 2.6
   */
   private void loadGraphics(){
-    if(Main.getPremierePartie() || !Main.getOpenMenuFirst()){ini.initialiserPanneauJeuEtDépendance();}
+    if(Main.getPremierePartie() || !Main.getOpenMenuFirst()){ini.initialiserFPanelJeuEtDépendance();}
     else{
       Th thTemp = new Th(1);
       thTemp.start();
@@ -668,7 +668,7 @@ public class ViewGUI2d implements View {
     }
   }
   /**
-  *{@summary Tool to print mains Panneaux infos.}<br>
+  *{@summary Tool to print mains FPanelx infos.}<br>
   *@version 1.47
   */
   private void printPanelInfo(){

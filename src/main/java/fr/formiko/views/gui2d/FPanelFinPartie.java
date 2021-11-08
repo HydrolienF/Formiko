@@ -2,27 +2,27 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.Main;
-import fr.formiko.views.gui2d.PanneauInfoText;
+import fr.formiko.views.gui2d.FPanelInfoText;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 
 import java.awt.Graphics;
 
-public class PanneauFinPartie extends Panneau {
+public class FPanelFinPartie extends FPanel {
   private FLabel message;
   private GJoueur gj;
-  private PanneauInfoText pi;
+  private FPanelInfoText pi;
   private FButton mp;
   private FButton c;
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauFinPartie(){
+  public FPanelFinPartie(){
     setVisible(false);
   }
   public void ini(String s, GJoueur gj, boolean withButton, boolean canResumeGame){
     this.setLayout(null);
     addMessage(s);
-    addPanneauInfo(gj);
+    addFPanelInfo(gj);
     if(withButton){
       addBoutonMenuPrincipal();
       if(canResumeGame){
@@ -43,7 +43,7 @@ public class PanneauFinPartie extends Panneau {
       // pi.setBounds(0,message.getHeight(),pi.getWidth(),pi.getHeight());
       //mp.setBounds()
     // }catch (Exception e) {
-    //   erreur.erreur("certain élément graphique de PanneauFinPartie ne sont pas affichable.");
+    //   erreur.erreur("certain élément graphique de FPanelFinPartie ne sont pas affichable.");
     // }
     super.paintComponent(g);
   }
@@ -52,20 +52,20 @@ public class PanneauFinPartie extends Panneau {
     message.setText(s);
     add(message);
   }
-  public void addPanneauInfo(GJoueur gj){
+  public void addFPanelInfo(GJoueur gj){
     this.gj=gj;
-    pi = new PanneauInfoText(gj.scoreToGString());
+    pi = new FPanelInfoText(gj.scoreToGString());
     add(pi);
     //pi.setBounds(0,message.getHeight(),pi.getWidth(),pi.getHeight());
   }
   public void addBoutonMenuPrincipal(){
-    mp= new FButton(g.getM("quitterToMp"),Panneau.getView().getPj(),112);
+    mp= new FButton(g.getM("quitterToMp"),FPanel.getView().getPj(),112);
     mp.setSize(getWidth()/2, FLabel.getDimY());
     mp.setLocation(0,getHeight()-mp.getHeight());
     add(mp);
   }
   public void addBoutonContinuer(){
-    c = new FButton(g.getM("continuerJeu"),Panneau.getView().getPj(),113);
+    c = new FButton(g.getM("continuerJeu"),FPanel.getView().getPj(),113);
     c.setSize(getWidth()/2, FLabel.getDimY());
     c.setLocation(getWidth()/2,getHeight()-mp.getHeight());
     add(c);

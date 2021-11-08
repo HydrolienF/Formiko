@@ -11,13 +11,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
 
-public class PanneauChamp extends Panneau {
+public class FPanelChamp extends FPanel {
   private Champ c;
   private BoutonV b;
   private int tailleBouton=20;
   private boolean validé=false;
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauChamp(String défaut){
+  public FPanelChamp(String défaut){
     this.setLayout(new GridBagLayout());
     GridBagConstraints gbc = new GridBagConstraints();
     Dimension dimC = new Dimension(500,tailleBouton);
@@ -30,7 +30,7 @@ public class PanneauChamp extends Panneau {
     gbc.gridx = 1;
     this.add(b,gbc);
   }
-  public PanneauChamp(){ this("");}
+  public FPanelChamp(){ this("");}
   // GET SET -------------------------------------------------------------------
   public boolean getValidé(){ return validé;}
   public String getTexte(){ return c.getText();}

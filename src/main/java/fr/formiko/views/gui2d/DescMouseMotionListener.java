@@ -14,7 +14,7 @@ public class DescMouseMotionListener implements MouseMotionListener {
   */
   @Override
   public void mouseMoved(MouseEvent event){
-    Panneau.getView().getPj().updateTimeFromLastMove();
+    FPanel.getView().getPj().updateTimeFromLastMove();
   }
   @Override
   public void mouseDragged​(MouseEvent e){}

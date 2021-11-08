@@ -15,14 +15,14 @@ import java.awt.Graphics2D;
 *@author Hydrolien
 *@version 2.5
 */
-public class PanneauMiniMap extends Panneau {
+public class FPanelMiniMap extends FPanel {
 
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
   *@version 2.5
   */
-  public PanneauMiniMap() {
+  public FPanelMiniMap() {
     super();
     int x=25;
     setSize(Main.getTailleElementGraphique(16*x),Main.getTailleElementGraphique(9*x));

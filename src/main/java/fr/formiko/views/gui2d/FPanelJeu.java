@@ -30,21 +30,21 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-public class PanneauJeu extends Panneau {
-  private PanneauCarte pc;
-  private PanneauBouton pb;
-  private PanneauChargement pch;
-  private PanneauFinPartie pfp;
-  private PanneauEchap pe;
-  private PanneauSup ps;
-  private PanneauDialogue pd;
-  private PanneauDialogueInf pdi;
+public class FPanelJeu extends FPanel {
+  private FPanelCarte pc;
+  private FPanelBouton pb;
+  private FPanelChargement pch;
+  private FPanelFinPartie pfp;
+  private FPanelEchap pe;
+  private FPanelSup ps;
+  private FPanelDialogue pd;
+  private FPanelDialogueInf pdi;
 
   private FLabel labelMessage;
   private ThreadMessagesDesc th;
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauJeu(){
+  public FPanelJeu(){
     setLayout(null);
     labelMessage = new FLabel("");
     labelMessage.setBackground(new Color(225,225,225));
@@ -55,28 +55,28 @@ public class PanneauJeu extends Panneau {
     add(labelMessage);
   }
   // GET SET -------------------------------------------------------------------
-  public PanneauBouton getPb(){ return pb;}
-  public PanneauCarte getPc(){ return pc;}
-  public PanneauChargement getPch(){ return pch;}
-  public PanneauSup getPs(){return ps;}
-  public PanneauEchap getPe(){return pe;}
-  public PanneauDialogue getPd(){return pd;}
-  public PanneauDialogueInf getPdi(){return pdi;}
+  public FPanelBouton getPb(){ return pb;}
+  public FPanelCarte getPc(){ return pc;}
+  public FPanelChargement getPch(){ return pch;}
+  public FPanelSup getPs(){return ps;}
+  public FPanelEchap getPe(){return pe;}
+  public FPanelDialogue getPd(){return pd;}
+  public FPanelDialogueInf getPdi(){return pdi;}
   //get set transmis
   public void addPA(){ pb.addPA();}
   public void addPti(int x [], int y){pb.addPti(x,y);}
   public void setDescTI(String s){pb.setDescTI(s);}
-  public PanneauTInt getPti(){return pb.getPti(); }
+  public FPanelTInt getPti(){return pb.getPti(); }
   // FUNCTIONS -----------------------------------------------------------------
   @Override
   public void paintComponent(Graphics g){
     super.paintComponent(g);
   }
   public void addPd(){
-    if(pd==null){pd = new PanneauDialogue();}
+    if(pd==null){pd = new FPanelDialogue();}
     if(pdi==null){
-      PanneauDialogueInf.chargerFond();
-      pdi = new PanneauDialogueInf();
+      FPanelDialogueInf.chargerFond();
+      pdi = new FPanelDialogueInf();
     }
     add(pd);
     add(pdi);
@@ -92,27 +92,27 @@ public class PanneauJeu extends Panneau {
     remove(pdi);
   }
   public void addPe(){
-    pe=new PanneauEchap();
+    pe=new FPanelEchap();
     pe.setBounds(0,0,getWidth(),getHeight());
     add(pe);
   }
   public void addPs(){
-    ps=new PanneauSup();
+    ps=new FPanelSup();
     ps.setBounds(0,0,getWidth(),getHeight());
     add(ps);
   }
   public void addPc(){
-    pc = new PanneauCarte();
+    pc = new FPanelCarte();
     pc.updateSize();
     add(pc);
   }
   public void addPb(){
-    pb = new PanneauBouton();
+    pb = new FPanelBouton();
     pb.setBounds(0,0,getWidth(),getHeight());
     add(pb);
   }
   public void addPch(){
-    pch = new PanneauChargement();
+    pch = new FPanelChargement();
     add(pch);
     pch.setVisible(false);
   }
@@ -141,7 +141,7 @@ public class PanneauJeu extends Panneau {
     action.updateMouseLocation();
   }
   // public void addPfp(){
-  //   pfp = new PanneauFinPartie();
+  //   pfp = new FPanelFinPartie();
   //   add(pfp);
   // }
   public void addPfp(){
@@ -149,7 +149,7 @@ public class PanneauJeu extends Panneau {
       erreur.alerte("Pfp already add");
       return;
     }
-    pfp = new PanneauFinPartie();
+    pfp = new FPanelFinPartie();
     add(pfp);
   }
   public void addPfp(String mess, GJoueur gj, boolean withButton, boolean canResumeGame){
@@ -184,7 +184,7 @@ public class PanneauJeu extends Panneau {
   }
   public void dézoomer(byte x){
     int y1 = Main.getDimX()/Main.getGc().getNbrX();
-    int pah = Panneau.getView().getPa().getHeight();
+    int pah = FPanel.getView().getPa().getHeight();
     if(pah==0){pah=Main.getTailleElementGraphique(180);}
     int y2 = (Main.getDimY()-pah)/Main.getGc().getNbrY();
     int y=0;
@@ -195,7 +195,7 @@ public class PanneauJeu extends Panneau {
   }
   public void actionAFaireSiTailleD1CaseChange(){
     if (Main.getPartie().getEnCours()){
-      Panneau.getView().getPc().updateSize();
+      FPanel.getView().getPc().updateSize();
       Main.getData().chargerImages();
       getView().getPmmc().build();
       Main.getData().iniBackgroundMapImage();

@@ -21,28 +21,28 @@ import java.util.function.Supplier;
 *@author Hydrolien
 *@version 2.5
 */
-public class PanneauMiniMapContainer extends Panneau {
+public class FPanelMiniMapContainer extends FPanel {
   private static int BUTTON_RADIUS=18;
   private FButtonEndTurn fBEndTurn;
-  private PanneauGraphicsOptions pgo;
-  private PanneauMiniMap pmm;
+  private FPanelGraphicsOptions pgo;
+  private FPanelMiniMap pmm;
 
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
   *@version 2.5
   */
-  public PanneauMiniMapContainer() {
+  public FPanelMiniMapContainer() {
     super();
     fBEndTurn = new FButtonEndTurn();
     add(fBEndTurn);
-    pgo = new PanneauGraphicsOptions();
+    pgo = new FPanelGraphicsOptions();
     add(pgo);
-    pmm = new PanneauMiniMap();
+    pmm = new FPanelMiniMap();
     pmm.setLocation(Main.getTailleElementGraphiqueX(BUTTON_RADIUS),Main.getTailleElementGraphiqueY(BUTTON_RADIUS));
     add(pmm);
     setSize(pmm.getWidth()+Main.getTailleElementGraphiqueX(BUTTON_RADIUS), pmm.getHeight()+Main.getTailleElementGraphiqueY(BUTTON_RADIUS));
-    setLocation(Panneau.getView().getWidth()-getWidth(), Panneau.getView().getHeight()-getHeight());
+    setLocation(FPanel.getView().getWidth()-getWidth(), FPanel.getView().getHeight()-getHeight());
     pgo.setSize(getWidth(),Main.getTailleElementGraphiqueX((int)(BUTTON_RADIUS*1.6)));
     pgo.setLocation(0,(int)(BUTTON_RADIUS*0.4));
   }
@@ -94,7 +94,7 @@ public class PanneauMiniMapContainer extends Panneau {
     *@version 2.5
     */
     public FButtonEndTurn() {
-      super("", Panneau.getView().getPj(), Main.getTailleElementGraphique(200));
+      super("", FPanel.getView().getPj(), Main.getTailleElementGraphique(200));
       setSize(Main.getTailleElementGraphique(BUTTON_RADIUS*2));
       setLocation(0,0);
       lineSize = Main.getTailleElementGraphique(3);
@@ -201,18 +201,18 @@ public class PanneauMiniMapContainer extends Panneau {
   }
   /**
   *{@summary Change map face.}<br>
-  *It can remove/add grid, or icon. Check {@link PanneauCarte#getStatesIconsImages(Creature)} to know the action that can be done from here.
+  *It can remove/add grid, or icon. Check {@link FPanelCarte#getStatesIconsImages(Creature)} to know the action that can be done from here.
   *@author Hydrolien
   *@version 2.10
   */
-  class PanneauGraphicsOptions extends Panneau {
+  class FPanelGraphicsOptions extends FPanel {
     private Liste<FButtonPGO> buttonList;
     /**
     *{@summary Main constructor.}<br>
     *This still need to be build after have set size.
     *@version 2.10
     */
-    private PanneauGraphicsOptions(){
+    private FPanelGraphicsOptions(){
       super();
       setSize(1,1);
       buttonList = new Liste<FButtonPGO>();

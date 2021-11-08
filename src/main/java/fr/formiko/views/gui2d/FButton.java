@@ -36,7 +36,7 @@ public class FButton extends JButton implements MouseListener {
   protected final int id; protected static int cpt=1;
   protected Image img;
   protected String nom;
-  protected Panneau p;
+  protected FPanel p;
   protected int action;
   protected boolean bordure=true;
   protected boolean cFondUseAlpha;
@@ -46,7 +46,7 @@ public class FButton extends JButton implements MouseListener {
   // protected Color cFond;
   // protected Color buttonColor;
   // CONSTRUCTORS --------------------------------------------------------------
-  public FButton(String str, Panneau p, int action, Image imag){
+  public FButton(String str, FPanel p, int action, Image imag){
     super();id=cpt; cpt++;
     // setBorderPainted(false);
     setOpaque(false);
@@ -62,7 +62,7 @@ public class FButton extends JButton implements MouseListener {
     withBackground=false;
     setBorder(new FBorder());
   }
-  public FButton(String str, Panneau p, int action){
+  public FButton(String str, FPanel p, int action){
     super(str);id=cpt; cpt++;
     // setBorderPainted(false);
     setOpaque(false);
@@ -229,12 +229,12 @@ public class FButton extends JButton implements MouseListener {
   *@version 2.10
   */
   public void setSelected(boolean selected, boolean mouseLocated){
-    if(!isEnabled()){Panneau.getView().setMessageDesc("", mouseLocated); return;}
+    if(!isEnabled()){FPanel.getView().setMessageDesc("", mouseLocated); return;}
     if(selected){
-      Panneau.getView().setMessageDesc(getDesc(), mouseLocated);
+      FPanel.getView().setMessageDesc(getDesc(), mouseLocated);
       if(!mouseLocated){setColor(2);}
     }else{
-      Panneau.getView().setMessageDesc("", mouseLocated);
+      FPanel.getView().setMessageDesc("", mouseLocated);
       setDefaultColor();
     }
   }

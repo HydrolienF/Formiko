@@ -46,11 +46,11 @@ import javax.swing.JPanel;
 /**
 *{@summary Map panel.}<br>
 *It can draw map.<br>
-*Mouse listener part is in PanneauSup.java.<br>
+*Mouse listener part is in FPanelSup.java.<br>
 *@author Hydrolien
 *@version 1.42
 */
-public class PanneauCarte extends Panneau {
+public class FPanelCarte extends FPanel {
   private int xCase; // nombre de case en X
   private int yCase; // nombre de case en Y
   private int posX; // position de la 1a case.
@@ -66,7 +66,7 @@ public class PanneauCarte extends Panneau {
   private BufferedImage tBiState []=null;
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauCarte(){
+  public FPanelCarte(){
     // subPanel = new SubPanel(this);
     // add(subPanel);
   }
@@ -112,11 +112,11 @@ public class PanneauCarte extends Panneau {
     erreur.alerte("Not alowed to setSize here ! (Nothing have been done.)");
   }
   /**
-  *Do the 3 steps that are need to set PanneauCarte to a new size.
+  *Do the 3 steps that are need to set FPanelCarte to a new size.
   *@version 1.x
   */
   public void actualiserCarte(){
-    updateSize();//actualise la taille du PanneauCarte a la bonne dimention.
+    updateSize();//actualise la taille du FPanelCarte a la bonne dimention.
     //chargerImages();
     Main.getData().iniBackgroundMapImage(); //demande au donnée d'image de rechargé l'image qui représente l'arrière plan de la carte.
   }
@@ -143,7 +143,7 @@ public class PanneauCarte extends Panneau {
     try {
       GCase gc = Main.getGc();
       updateSize();
-      debug.débogage("Dimention du PanneauCarte en case : x="+xCase+" y="+yCase);
+      debug.débogage("Dimention du FPanelCarte en case : x="+xCase+" y="+yCase);
       debug.débogage("taille réèle du panneau de la carte : x="+this.getWidth()+", y="+this.getHeight());
       try {
         if(Main.getData().getMap()==null){Main.getData().iniBackgroundMapImage();}
@@ -165,7 +165,7 @@ public class PanneauCarte extends Panneau {
       }
       drawPlayingAnt(g);
     }catch (Exception e) {
-      erreur.erreur("Quelque chose d'imprévu est arrivé lors de l'affichage de PanneauCarte");
+      erreur.erreur("Quelque chose d'imprévu est arrivé lors de l'affichage de FPanelCarte");
     }
     Main.endCh("repaintDeLaCarte");
   }
@@ -492,7 +492,7 @@ public class PanneauCarte extends Panneau {
   }
   /**
   *{@summary fonction that place ObjetSurCarteAId on the same Case.}<br>
-  *It modify PanneauCarte value xTemp and yTemp.
+  *It modify FPanelCarte value xTemp and yTemp.
   *@version 1.x
   */
   public void calculerXYTemp(int xT, int yT, int k, Case c){
@@ -767,9 +767,9 @@ public class PanneauCarte extends Panneau {
     }
   }
 }
-// class SubPanel extends Panneau{
-//   PanneauCarte pc;
-//   public SubPanel(PanneauCarte pc) {
+// class SubPanel extends FPanel{
+//   FPanelCarte pc;
+//   public SubPanel(FPanelCarte pc) {
 //     this.pc = pc;
 //   }
 //   public void paintComponent(Graphics g2){
@@ -778,7 +778,7 @@ public class PanneauCarte extends Panneau {
 //     try {
 //       GCase gc = Main.getGc();
 //       updateSize();
-//       debug.débogage("Dimention du PanneauCarte en case : x="+xCase+" y="+yCase);
+//       debug.débogage("Dimention du FPanelCarte en case : x="+xCase+" y="+yCase);
 //       debug.débogage("taille réèle du panneau de la carte : x="+this.getWidth()+", y="+this.getHeight());
 //       try {
 //         if(Main.getData().getMap()==null){Main.getData().iniBackgroundMapImage();}
@@ -794,7 +794,7 @@ public class PanneauCarte extends Panneau {
 //       }
 //       drawPlayingAnt(g);
 //     }catch (Exception e) {
-//       erreur.erreur("Quelque chose d'imprévu est arrivé lors de l'affichage de PanneauCarte");
+//       erreur.erreur("Quelque chose d'imprévu est arrivé lors de l'affichage de FPanelCarte");
 //     }
 //   }
 // }

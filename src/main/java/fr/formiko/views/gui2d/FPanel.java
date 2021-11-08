@@ -23,13 +23,13 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-public class Panneau extends JPanel {
+public class FPanel extends JPanel {
   private static final long serialVersionUID = -3227223889149566494L;
   private static int cptId=0;
   private final int id;
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public Panneau(){
+  public FPanel(){
     super();
     id=cptId++;
     setLayout(null);

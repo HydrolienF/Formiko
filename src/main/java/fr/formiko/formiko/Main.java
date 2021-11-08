@@ -378,7 +378,7 @@ public class Main {
   }
   /**
    * {@summary Print on the window a message about game loading.}<br>
-   * If you tried to use it before the creating of a new PanneauChargement, message will not appear on the window.
+   * If you tried to use it before the creating of a new FPanelChargement, message will not appear on the window.
    * @version 1.46
    */
   public static void setMessageChargement(String key){

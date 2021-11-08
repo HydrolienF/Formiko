@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import fr.formiko.tests.TestCaseMuet;
 
-public class PanneauEchapTest extends TestCaseMuet{
+public class FPanelEchapTest extends TestCaseMuet{
 
   // FUNCTIONS -----------------------------------------------------------------
   @Test
@@ -13,8 +13,8 @@ public class PanneauEchapTest extends TestCaseMuet{
     /*Main.initialisation();
     //ini.initialiserToutLesPaneauxVide();
     Main.launch();
-    PanneauEchap pe = getView().getPe();
-    PanneauBouton pb = Main.getPb();
+    FPanelEchap pe = getView().getPe();
+    FPanelBouton pb = Main.getPb();
     pe.setVisible(false);
     pb.setDesc("testDesc");
     assertEquals("testDesc",pb.getDesc());

@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import fr.formiko.formiko.*;
 import fr.formiko.usuel.structures.listes.Liste;
 import fr.formiko.tests.TestCaseMuet;
-import fr.formiko.views.gui2d.PanneauCarte;
+import fr.formiko.views.gui2d.FPanelCarte;
 
-public class PanneauCarteTest extends TestCaseMuet{
+public class FPanelCarteTest extends TestCaseMuet{
   private Joueur j;
   private void ini(){
     Main.initialisation();
@@ -25,7 +25,7 @@ public class PanneauCarteTest extends TestCaseMuet{
 
   @Test
   public void testNbrPrintableCase(){
-    PanneauCarte pc = new PanneauCarte();
+    FPanelCarte pc = new FPanelCarte();
     pc.setBounds(0,0,1000,200);
     Main.setData(new Data());
     Main.getData().setTailleDUneCase(100);
@@ -67,14 +67,14 @@ public class PanneauCarteTest extends TestCaseMuet{
       assertEquals(t[k], c.getId());
       k++;
     }
-    Liste<Creature> lc = PanneauCarte.gcSortedByImageSize(gc);
+    Liste<Creature> lc = FPanelCarte.gcSortedByImageSize(gc);
     k=0;
     for (Creature c : lc) {
       assertEquals(t[k], c.getId());
       k++;
     }
     Main.getOp().setRealisticSize(1);
-    lc = PanneauCarte.gcSortedByImageSize(gc);
+    lc = FPanelCarte.gcSortedByImageSize(gc);
     k=0;
     int t2 [] = {2,1,4,5,3}; //scarabé, cocinelle, fourmi imago, fourmi oeuf, puceron.
     for (Creature c : lc) {

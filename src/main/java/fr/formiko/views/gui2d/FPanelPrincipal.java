@@ -13,9 +13,9 @@ import java.awt.Image;
 *@author Hydrolien
 *@version 1.x
 */
-public class PanneauPrincipal extends Panneau {
-  private PanneauJeu pj;
-  private PanneauMenu pm;
+public class FPanelPrincipal extends FPanel {
+  private FPanelJeu pj;
+  private FPanelMenu pm;
   private Image img;
   private FLabel versionLabel;
   // CONSTRUCTORS --------------------------------------------------------------
@@ -23,7 +23,7 @@ public class PanneauPrincipal extends Panneau {
   *{@summary Main constructor.}<br>
   *@version 1.x
   */
-  public PanneauPrincipal(){
+  public FPanelPrincipal(){
     super();
     setOpaque(true);
   }
@@ -37,8 +37,8 @@ public class PanneauPrincipal extends Panneau {
     addVersionLabel();
   }
   // GET SET -------------------------------------------------------------------
-  public PanneauJeu getPj(){ return pj;}
-  public PanneauMenu getPm(){ return pm;}
+  public FPanelJeu getPj(){ return pj;}
+  public FPanelMenu getPm(){ return pm;}
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     ThMove.updateQueue();
@@ -71,7 +71,7 @@ public class PanneauPrincipal extends Panneau {
 
   public void addPm(){
     if(pm==null){
-      pm = new PanneauMenu();
+      pm = new FPanelMenu();
       this.add(pm);
     }
     pm.setOpaque(false);
@@ -79,7 +79,7 @@ public class PanneauPrincipal extends Panneau {
   }
   public void addPj(){
     if(pj==null){
-      pj = new PanneauJeu();
+      pj = new FPanelJeu();
       this.add(pj);
     }
     pj.setOpaque(false);
@@ -87,7 +87,7 @@ public class PanneauPrincipal extends Panneau {
   }
   public synchronized void removePm(){
     // if(pm==null){
-    //   erreur.alerte("Impossible de remove le PanneauMenu.");
+    //   erreur.alerte("Impossible de remove le FPanelMenu.");
     //   return;
     // }
     pm.setVisible(false);

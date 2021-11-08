@@ -15,7 +15,7 @@ public class BoutonLong extends FButton implements MouseListener {
   private static int xBL; private static int yBL;
   //private static Color col = new Color(200,200,200,0);
   // CONSTRUCTORS --------------------------------------------------------------
-  public BoutonLong(String str, Panneau p, int action){
+  public BoutonLong(String str, FPanel p, int action){
     super(str,p,action);
     this.setPreferredSize(new Dimension(xBL,yBL));
     this.setFont(Main.getFont2());

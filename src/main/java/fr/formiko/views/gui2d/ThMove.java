@@ -52,9 +52,9 @@ public class ThMove {
     id=cptId++;
     this.o=o;
     Case c = from.getContent();
-    this.from = Panneau.getView().getPc().getPointFromCase(c.getX(), c.getY(), false);
+    this.from = FPanel.getView().getPc().getPointFromCase(c.getX(), c.getY(), false);
     c = to.getContent();
-    this.to = Panneau.getView().getPc().getPointFromCase(c.getX(), c.getY(), false);
+    this.to = FPanel.getView().getPc().getPointFromCase(c.getX(), c.getY(), false);
     curent2 = new Point(0,0);
     addToQueue(this);
     time = System.currentTimeMillis();
@@ -76,7 +76,7 @@ public class ThMove {
     curent = new Point(-1,-1);
     rotate = new Point(0,0);
     try {
-      Panneau.getView().getPc().addMovingObject(o.getId(), curent, rotate);
+      FPanel.getView().getPc().addMovingObject(o.getId(), curent, rotate);
     }catch (NullPointerException e) {} //getPc return null if we move creature by script before graphics are ini.
     runIni();
   }
@@ -98,7 +98,7 @@ public class ThMove {
     try {
       for (ThMove th : queue) {
         //if need to launch : launch
-        if(Panneau.getView().getPc().getMovingObjectLocation(th.getIdMovingObject())==null){
+        if(FPanel.getView().getPc().getMovingObjectLocation(th.getIdMovingObject())==null){
           // erreur.info("test ok th "+th.getIdTh()+" for "+th.getIdMovingObject()+" after "+(System.currentTimeMillis()-th.time)+"ms");
           queue.remove(th);
           th.iniBeforeStart();
@@ -131,12 +131,12 @@ public class ThMove {
     Case c = to.getContent();
     for (ThMove th : curentThList ) {
       if(th.getIdMovingObject()==id){
-        th.updateTo(Panneau.getView().getPc().getPointFromCase(c.getX(), c.getY(), false));
+        th.updateTo(FPanel.getView().getPc().getPointFromCase(c.getX(), c.getY(), false));
       }
     }
     for (ThMove th: queue) {
       if(th.getIdMovingObject()==id){
-        th.updateTo(Panneau.getView().getPc().getPointFromCase(c.getX(), c.getY(), false));
+        th.updateTo(FPanel.getView().getPc().getPointFromCase(c.getX(), c.getY(), false));
       }
     }
   }
@@ -192,7 +192,7 @@ public class ThMove {
   }
   public void runEnd(){
     try {
-      Panneau.getView().getPc().removeMovingObject(o.getId());
+      FPanel.getView().getPc().removeMovingObject(o.getId());
     }catch (NullPointerException e) {}
     curentThList.remove(this);
     thMoveManager.remove(this);

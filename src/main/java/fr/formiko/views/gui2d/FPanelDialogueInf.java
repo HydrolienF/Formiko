@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 *@author Hydrolien
 *@version 2.6
 */
-public class PanneauDialogueInf extends Panneau {
+public class FPanelDialogueInf extends FPanel {
   private static Image fond;
   private FLabel b;
   // CONSTRUCTORS --------------------------------------------------------------
@@ -23,7 +23,7 @@ public class PanneauDialogueInf extends Panneau {
   *{@summary Empty main constructor.}<br>
   *@version 2.6
   */
-  public PanneauDialogueInf(){
+  public FPanelDialogueInf(){
     super();
   }
   /**

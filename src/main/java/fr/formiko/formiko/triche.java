@@ -10,7 +10,7 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.types.str;
-import fr.formiko.views.gui2d.Panneau;
+import fr.formiko.views.gui2d.FPanel;
 import fr.formiko.views.gui2d.action;
 
 /**
@@ -229,7 +229,7 @@ public class triche {
           break;
         case 32:
           if(!Main.isCLI()){
-            Panneau.getView().getPb().removePz();
+            FPanel.getView().getPb().removePz();
           }
           break;
         case 33:
@@ -244,11 +244,11 @@ public class triche {
           break;
         case 34:
           if(args[2].equalsIgnoreCase("cmd.34.1")){
-            Panneau.getView().getPs().actualiserTaille();
+            FPanel.getView().getPs().actualiserTaille();
           }else if(args[2].equalsIgnoreCase("cmd.34.2")){
-            Panneau.getView().getPs().actualiserTailleMax();
+            FPanel.getView().getPs().actualiserTailleMax();
           }else if(args[2].equalsIgnoreCase("cmd.34.3")){
-            Panneau.getView().getPs().actualiserTailleMin();
+            FPanel.getView().getPs().actualiserTailleMin();
           }
           break;
         case 35:
@@ -321,7 +321,7 @@ public class triche {
           }
           break;
         case 43:
-          Panneau.getView().getPmmc().setFbetEnabled(false);
+          FPanel.getView().getPmmc().setFbetEnabled(false);
           break;
 
 
@@ -468,7 +468,7 @@ public class triche {
 
     if(pseudo.equals("")){
       try {
-        pseudo = Panneau.getView().popUpQuestion("entrezPseudo");
+        pseudo = FPanel.getView().popUpQuestion("entrezPseudo");
       }catch (Exception e) {
         erreur.alerte("Une action de menu a échouée");
       }

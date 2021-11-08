@@ -6,10 +6,10 @@ import fr.formiko.usuel.g;
 
 import java.awt.Graphics;
 
-public class PanneauGEtiquetteJoueur extends Panneau{
+public class FPanelGEtiquetteJoueur extends FPanel{
   private GEtiquetteJoueur gej;
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauGEtiquetteJoueur(GEtiquetteJoueur gej){
+  public FPanelGEtiquetteJoueur(GEtiquetteJoueur gej){
     this.gej=gej;
     this.setLayout(null);
     //int nbrDeJoueur = gej.length();

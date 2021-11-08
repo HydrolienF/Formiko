@@ -8,13 +8,13 @@ import fr.formiko.usuel.structures.listes.GString;
 
 import java.awt.Graphics;
 
-public class PanneauDialogue extends Panneau {
+public class FPanelDialogue extends FPanel {
   private FTextArea fta;
   private boolean needToStayMaxSize;
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauDialogue(){
+  public FPanelDialogue(){
     super();
-    // fta = new PanneauInfoText(new GString(),0);
+    // fta = new FPanelInfoText(new GString(),0);
     // fta.setBounds(0,0,0,0);
     // setSize(fta.getWidth(),fta.getHeight());
   }
@@ -31,7 +31,7 @@ public class PanneauDialogue extends Panneau {
         getView().getPj().getPdi().setVisible(false);
       }
     }catch (Exception e) {
-      erreur.alerte("Le PanneauDialogueInf n'as pas pu être mis visible.");
+      erreur.alerte("Le FPanelDialogueInf n'as pas pu être mis visible.");
     }
     try {
       int tailleX = Main.getDimX()-Main.getTailleElementGraphiqueX(550);
@@ -41,7 +41,7 @@ public class PanneauDialogue extends Panneau {
       // setLocation(Main.getTailleElementGraphiqueX(210),Main.getTailleElementGraphiqueY(15));
       add(fta);
     }catch (Exception e) {
-      erreur.alerte("fail to ini PanneauDialogue");
+      erreur.alerte("fail to ini FPanelDialogue");
     }
     setVisible(true);
   }
@@ -67,8 +67,8 @@ public class PanneauDialogue extends Panneau {
     //return false;
   }
   /**
-  *{@summary Override setVisible to also setVisible dependent Panneau.}
-  *Dependent Panneau are pdi &#38; pij.
+  *{@summary Override setVisible to also setVisible dependent FPanel.}
+  *Dependent FPanel are pdi &#38; pij.
   *@param visible true if need to be visible.
   *@version 2.0
   */
@@ -79,7 +79,7 @@ public class PanneauDialogue extends Panneau {
     try {
       getView().getPij().setVisible(!visible);
       if(!visible){
-        Panneau.getView().getPb().addPIJ();
+        FPanel.getView().getPb().addPIJ();
       }
     }catch (Exception e) {}
   }

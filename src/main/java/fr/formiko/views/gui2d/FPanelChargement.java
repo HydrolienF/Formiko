@@ -13,7 +13,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 
-public class PanneauChargement extends Panneau {
+public class FPanelChargement extends FPanel {
   private FButton b;
   private int tempsTotalDeChargement;
   private FLabel message;
@@ -21,7 +21,7 @@ public class PanneauChargement extends Panneau {
   private boolean lancer;
   private FButton bt;
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauChargement(){
+  public FPanelChargement(){
     setLayout(null);
     Main.getData().loadImageChargement();
     addMessage();
@@ -39,7 +39,7 @@ public class PanneauChargement extends Panneau {
     try {
       if(!Main.getPartie().getEnCours()){return;}
     }catch (Exception e) {}
-    debug.g("PanneauChargement",this.getWidth(),this.getHeight());
+    debug.g("FPanelChargement",this.getWidth(),this.getHeight());
     try {
       g.drawImage(Main.getData().getImageChargement(),0,0,this);
     }catch (Exception e) {}
@@ -50,7 +50,7 @@ public class PanneauChargement extends Panneau {
   }
   public void addBt(){
     lancer=false;
-    bt = new FButton(g.getM("lancerLeJeu"), Panneau.getView().getPj(), 111);
+    bt = new FButton(g.getM("lancerLeJeu"), FPanel.getView().getPj(), 111);
     bt.setFont(Main.getFont2());
     add(bt);
     int xx = Main.getF().getWidth()/5;

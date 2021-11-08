@@ -5,7 +5,7 @@ import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
-import fr.formiko.views.gui2d.PanneauTInt;
+import fr.formiko.views.gui2d.FPanelTInt;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -87,7 +87,7 @@ public class PondreReine implements Serializable, Pondre{
       //TODO
       // getView().getPp().getPj().addPti(ti,3);
       tableau.afficher(ti);
-      byte x = (byte) PanneauTInt.getChoixId();
+      byte x = (byte) FPanelTInt.getChoixId();
       if(f.getEspece().getGIndividu().getIndividuByType(x) != null){
         return x;
       }

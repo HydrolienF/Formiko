@@ -99,7 +99,7 @@ public class GEtiquetteJoueur extends Liste<EtiquetteJoueur> {
     }
     //if there is 0 humain player
     try {
-      Panneau.getView().getPnp().getLaunchButton().setEnabled(false);
+      FPanel.getView().getPnp().getLaunchButton().setEnabled(false);
     }catch (Exception e) {
       erreur.alerte("fail to disable launch button with 0 player");
     }
@@ -111,7 +111,7 @@ public class GEtiquetteJoueur extends Liste<EtiquetteJoueur> {
   public void enableLaunchButtonIfNeeded(){
     for (EtiquetteJoueur ej : this ) {
       if(ej.getOuvert() && !ej.getIa()){ //if there is a human player
-        Panneau.getView().getPnp().getLaunchButton().setEnabled(true);
+        FPanel.getView().getPnp().getLaunchButton().setEnabled(true);
         return;
       }
     }

@@ -8,20 +8,20 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
-public class PanneauTInt extends PanneauTX{
+public class FPanelTInt extends FPanelTX{
   private int ti [];
   private int choix;
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauTInt(int ti [],String desc){super();
+  public FPanelTInt(int ti [],String desc){super();
     tailleBouton = Main.getbuttonSizeTX();
     this.descTI = desc;
-    debug.débogage("Création d'un PanneauTInt");
+    debug.débogage("Création d'un FPanelTInt");
     this.setLayout(new GridBagLayout());
     this.ti=ti;
     if(ti!=null){
       int nbrDeCase = ti.length;
       if (nbrDeCase > 0){getView().getPb().setDescTI(descTI);}
-      else{((PanneauBouton) pb).setDescTI("");}
+      else{((FPanelBouton) pb).setDescTI("");}
       x = ((int) (Math.sqrt(nbrDeCase)))+1;
       y = x;
       //if (nbrDeCase==9 || nbrDeCase==4 || nbrDeCase==16 || nbrDeCase==25){x--;} // petite correction de la ligne 2 au dessus qui ne prend pas ses cas en compte.
@@ -51,7 +51,7 @@ public class PanneauTInt extends PanneauTX{
       debug.débogage("initialisation null de pti.");
     }
   }
-  public PanneauTInt(int t[],PanneauBouton pb){this(t,"null");}
+  public FPanelTInt(int t[],FPanelBouton pb){this(t,"null");}
   // GET SET -------------------------------------------------------------------
   public int getBoutonX(int x){ if(x > -1 && ti!=null && x < ti.length){return ti[x];}return -1;}
   // FUNCTIONS -----------------------------------------------------------------

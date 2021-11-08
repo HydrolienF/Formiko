@@ -9,18 +9,18 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
-public class PanneauTBoolean extends PanneauTX{
+public class FPanelTBoolean extends FPanelTX{
   // private int choix;
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauTBoolean(String desc){super();
+  public FPanelTBoolean(String desc){super();
     if(desc==null){ return;}
     tailleBouton = Main.getbuttonSizeTX();
     this.descTI = desc;
-    debug.débogage("Création d'un PanneauTBoolean");
+    debug.débogage("Création d'un FPanelTBoolean");
     this.setLayout(new GridBagLayout());
     int nbrDeCase = 2;
     if (nbrDeCase > 0){getView().getPb().setDescTI(descTI);}
-    else{((PanneauBouton) pb).setDescTI("");}
+    else{((FPanelBouton) pb).setDescTI("");}
     x = 2;
     y = 1;
     this.setSize(x*tailleBouton,y*tailleBouton);
@@ -45,7 +45,7 @@ public class PanneauTBoolean extends PanneauTX{
   public static boolean getChoixId(){
     int id2 = -1;
     debug.débogage("lancement d'une boucle de choix.");
-    //Panneau.getView().getPj().repaint();
+    //FPanel.getView().getPj().repaint();
     while(id2==-1){
       id2 = getView().getPp().getPj().getPb().getChoixId();
       Temps.pause(10);

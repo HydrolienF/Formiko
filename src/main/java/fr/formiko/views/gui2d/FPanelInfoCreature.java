@@ -24,10 +24,10 @@ import java.awt.image.BufferedImage;
 *@author Hydrolien
 *@version 2.7
 */
-public class PanneauInfoCreature extends PanneauInfo {
+public class FPanelInfoCreature extends FPanelInfo {
   // FUNCTIONS -----------------------------------------------------------------
   // @Override
-  public static PanneauInfoCreatureBuilder builder(){return new PanneauInfoCreatureBuilder();}
+  public static FPanelInfoCreatureBuilder builder(){return new FPanelInfoCreatureBuilder();}
   /**
   *{@summary Standard paintComponent.}<br>
   *@version 2.7
@@ -42,7 +42,7 @@ public class PanneauInfoCreature extends PanneauInfo {
   *@version 2.7
   */
   // SUB-CLASS -----------------------------------------------------------------
-  static class PanneauInfoCreatureBuilder extends PanneauInfoBuilder {
+  static class FPanelInfoCreatureBuilder extends FPanelInfoBuilder {
     private Creature c;
     // CONSTRUCTORS --------------------------------------------------------------
 
@@ -54,7 +54,7 @@ public class PanneauInfoCreature extends PanneauInfo {
     *{@summary Standard Builder for this.}<br>
     *@version 2.7
     */
-    public PanneauInfoBuilder addCreature(Creature c){
+    public FPanelInfoBuilder addCreature(Creature c){
       this.c=c;
       return this;
     }
@@ -64,11 +64,11 @@ public class PanneauInfoCreature extends PanneauInfo {
     *@version 2.7
     */
     @Override
-    public PanneauInfo build(){
+    public FPanelInfo build(){
       if(c!=null){
         addCreatureInfo();
       }else{
-        erreur.alerte("PanneauInfoCreature don't have a Creature and will be build as a PanneauInfo");
+        erreur.alerte("FPanelInfoCreature don't have a Creature and will be build as a FPanelInfo");
       }
       return super.build();
     }
@@ -90,11 +90,11 @@ public class PanneauInfoCreature extends PanneauInfo {
     *@version 2.7
     */
     private void addCreatureIcons(){
-      PanneauCreatureIcons pci = new PanneauCreatureIcons(yByElement);
+      FPanelCreatureIcons pci = new FPanelCreatureIcons(yByElement);
       pci.addIcon(Main.getData().getCreatureImage(c));
       pci.setText(c.getSex()+" "+c.getEspece().getNom());
       if(c!=null && !c.equals(Main.getPlayingAnt())){
-        pci.addIcon(PanneauCarte.getIconImage(c,Main.getPlayingAnt()));
+        pci.addIcon(FPanelCarte.getIconImage(c,Main.getPlayingAnt()));
       }
       //TODO add carriing seed if there is one.
       add(pci);
@@ -133,7 +133,7 @@ public class PanneauInfoCreature extends PanneauInfo {
       pb.setString(value+"/"+maxValue);
       pb.setStringPainted(true);
       pb.setSize(x, yByElement);
-      PanneauProgressBar p = new PanneauProgressBar(pb, Main.getData().getIconImage(iconName));
+      FPanelProgressBar p = new FPanelProgressBar(pb, Main.getData().getIconImage(iconName));
       p.setSize(x, yByElement);
       String message = g.getM("iconName."+iconName)+" : "+value+" / "+maxValue +" ("+g.getM("colorState."+state)+")";
       p.setMessageDesc(message);
@@ -147,17 +147,17 @@ public class PanneauInfoCreature extends PanneauInfo {
 *@author Hydrolien
 *@version 2.7
 */
-class PanneauProgressBar extends Panneau {
+class FPanelProgressBar extends FPanel {
   private FProgressBar pb;
   private BufferedImage iconImage;
   private String messageDesc;
-  private PanneauProgressBarMouseListener PPBML = new PanneauProgressBarMouseListener();
+  private FPanelProgressBarMouseListener PPBML = new FPanelProgressBarMouseListener();
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
   *@version 2.7
   */
-  public PanneauProgressBar(FProgressBar pb, BufferedImage bi){
+  public FPanelProgressBar(FProgressBar pb, BufferedImage bi){
     super();
     this.pb=pb;
     iconImage=bi;
@@ -199,7 +199,7 @@ class PanneauProgressBar extends Panneau {
   *{@summary Listener that update description when it need.}<br>
   *@version 2.7
   */
-  public class PanneauProgressBarMouseListener implements MouseListener {
+  public class FPanelProgressBarMouseListener implements MouseListener {
     /**
     *{@summary Update message description.}<br>
     *@version 2.7
@@ -229,7 +229,7 @@ class PanneauProgressBar extends Panneau {
 *@author Hydrolien
 *@version 2.7
 */
-class PanneauCreatureIcons extends Panneau {
+class FPanelCreatureIcons extends FPanel {
   private Liste<BufferedImage> iconsList;
   private FLabel label;
   private int xy;
@@ -237,7 +237,7 @@ class PanneauCreatureIcons extends Panneau {
   *{@summary Main constructor.}<br>
   *@version 2.7
   */
-  public PanneauCreatureIcons(int xy){
+  public FPanelCreatureIcons(int xy){
     iconsList = new Liste<BufferedImage>();
     this.xy=xy;
   }

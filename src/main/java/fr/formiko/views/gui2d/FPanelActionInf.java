@@ -9,11 +9,11 @@ import fr.formiko.usuel.images.image;
 import java.awt.Graphics;
 import java.awt.Image;
 
-public class PanneauActionInf extends Panneau{
+public class FPanelActionInf extends FPanel{
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauActionInf(){
-    setSize(Main.getDimX(),Panneau.getView().getPa().getHeight());
+  public FPanelActionInf(){
+    setSize(Main.getDimX(),FPanel.getView().getPa().getHeight());
   }
   // GET SET -------------------------------------------------------------------
 

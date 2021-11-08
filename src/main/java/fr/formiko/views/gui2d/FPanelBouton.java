@@ -20,38 +20,38 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-public class PanneauBouton extends Panneau {
-  private PanneauZoom pz;
-  private PanneauAction pa;
-  private PanneauActionSup pas;
-  private PanneauActionInf pai;
-  private PanneauMiniMapContainer pmmc;
-  private PanneauTInt pti;
-  private PanneauTBoolean ptb;
+public class FPanelBouton extends FPanel {
+  private FPanelZoom pz;
+  private FPanelAction pa;
+  private FPanelActionSup pas;
+  private FPanelActionInf pai;
+  private FPanelMiniMapContainer pmmc;
+  private FPanelTInt pti;
+  private FPanelTBoolean ptb;
   private String descS;
   private FLabel desc;
   private FLabel descTI;
   private int actionF;
   private int choixId;
-  private PanneauChamp pchamp;
-  private PanneauInfo pi;
-  private PanneauInfoText pij;
+  private FPanelChamp pchamp;
+  private FPanelInfo pi;
+  private FPanelInfoText pij;
   private Font fontPij;
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauBouton(){}
+  public FPanelBouton(){}
   public void build(){
     setLayout(null);
     descS=""; desc = new FLabel(getWidth(),FLabel.getDimY());
     desc.setBackground(Main.getData().getButtonColor());
     actionF = -1; choixId = -1;
     int t [] = {0,1,2,3,4,5};
-    ptb = new PanneauTBoolean(null);
-    pti = new PanneauTInt(null,this);
-    pa = new PanneauAction();
-    pas = new PanneauActionSup();
-    pai = new PanneauActionInf();
-    pmmc = new PanneauMiniMapContainer();
-    pz = new PanneauZoom();
+    ptb = new FPanelTBoolean(null);
+    pti = new FPanelTInt(null,this);
+    pa = new FPanelAction();
+    pas = new FPanelActionSup();
+    pai = new FPanelActionInf();
+    pmmc = new FPanelMiniMapContainer();
+    pz = new FPanelZoom();
     descTI = new FLabel();
     descTI.setBackground(Main.getData().getButtonColor());
     setDescTI("");
@@ -72,23 +72,23 @@ public class PanneauBouton extends Panneau {
   }
   public int getActionF(){ return actionF;}
   public void setActionF(int x){ actionF=x;}
-  public PanneauTInt getPti(){ return pti;}
-  public void setPti(PanneauTInt p){pti=p; }
+  public FPanelTInt getPti(){ return pti;}
+  public void setPti(FPanelTInt p){pti=p; }
   public int getChoixId(){ return choixId;}
   public void setChoixId(int x){ choixId=x;}
   public FLabel getDescTI(){ return descTI;}
   public void setDescTI(String s){descTI.setTexte(s);}
-  public PanneauZoom getPz(){ return pz;}
-  public PanneauAction getPa(){ return pa;}
-  public PanneauChamp getPChamp(){ return pchamp;}
-  public PanneauInfo getPi(){ return pi;}
-  public PanneauInfoText getPij(){ return pij;}
-  public PanneauTBoolean getPTB(){ return ptb;}
-  public PanneauMiniMapContainer getPmmc(){return pmmc;}
+  public FPanelZoom getPz(){ return pz;}
+  public FPanelAction getPa(){ return pa;}
+  public FPanelChamp getPChamp(){ return pchamp;}
+  public FPanelInfo getPi(){ return pi;}
+  public FPanelInfoText getPij(){ return pij;}
+  public FPanelTBoolean getPTB(){ return ptb;}
+  public FPanelMiniMapContainer getPmmc(){return pmmc;}
   // FUNCTIONS -----------------------------------------------------------------
   public void addPz(){
     remove(pz);
-    pz = new PanneauZoom();
+    pz = new FPanelZoom();
     pz.build();
     int x = pz.getbuttonSize()*3;
     pz.setBounds(getWidth()-x,0,x,x);
@@ -102,7 +102,7 @@ public class PanneauBouton extends Panneau {
     addPti(t,g.get("pti.desc."+x));
   }
   public void addPti(int t[], String s){
-    pti=new PanneauTInt(t,s);
+    pti=new FPanelTInt(t,s);
     pti.setBounds(Main.getWidth()-pti.getXPi(),Main.getHeight()-pti.getYPi(),pti.getXPi(),pti.getYPi());
     debug.débogage("le composants pti a été placé en 0 FLabel.getDimY() avec pour dimention : "+pti.getXPi()+" "+pti.getYPi());
     add(pti);
@@ -111,7 +111,7 @@ public class PanneauBouton extends Panneau {
     remove(pti);
   }
   public void addPTB(String message){
-    ptb=new PanneauTBoolean(g.get(message));
+    ptb=new FPanelTBoolean(g.get(message));
     ptb.setBounds(0,FLabel.getDimY(),ptb.getXPi(),ptb.getYPi());
     add(pti);
   }
@@ -124,17 +124,17 @@ public class PanneauBouton extends Panneau {
       remove(pa);
       remove(pas);
     }catch (Exception e) {}
-    pa = new PanneauAction(t);
+    pa = new FPanelAction(t);
     pa.build();
     int xxx = pa.getbuttonSize();
     pa.setBounds(0,getHeight()-pa.getHeight(),pa.getWidth(),pa.getHeight());
-    pas = new PanneauActionSup();
+    pas = new FPanelActionSup();
     pas.setBounds(0,getHeight()-pas.getHeight(),pas.getWidth(),pas.getHeight());
-    //PanneauActionInf paiPrécédent = pai;
-    pai = new PanneauActionInf();
+    //FPanelActionInf paiPrécédent = pai;
+    pai = new FPanelActionInf();
     pai.setBounds(0,getHeight()-pai.getHeight(),pai.getWidth(),pai.getHeight());
     getView().getPs().actualiserTaille();
-    // pmmc = new PanneauMiniMapContainer();
+    // pmmc = new FPanelMiniMapContainer();
     add(pmmc);
     add(pas);
     add(pa);
@@ -160,7 +160,7 @@ public class PanneauBouton extends Panneau {
   public void addPA(){ int t [] = {0,1,2,3,4,5,6,7}; addPA(t);}
   /*public void modPa(){
     remove(pa);
-    pa = new PanneauAction(Main.getPlayingAnt().getTActionFourmi());
+    pa = new FPanelAction(Main.getPlayingAnt().getTActionFourmi());
     pa.build();
     add(pa);
     revalidate();
@@ -171,7 +171,7 @@ public class PanneauBouton extends Panneau {
   }
   public void addPChamp(String défaut,String message){
     setDescTI(message);
-    pchamp = new PanneauChamp(défaut);
+    pchamp = new FPanelChamp(défaut);
     pchamp.setBounds(0,FLabel.getDimY(),540,FLabel.getDimY());
     add(pchamp);
     validate();
@@ -183,14 +183,14 @@ public class PanneauBouton extends Panneau {
     }catch (Exception e) {}
     Fourmi playingAnt = Main.getPlayingAnt();
     if(playingAnt!=null){
-      pi = PanneauInfoCreature.builder().addCreature(playingAnt)
+      pi = FPanelInfoCreature.builder().addCreature(playingAnt)
       .setX(Main.getTailleElementGraphiqueX(320))
       .setYByElement(Main.getTailleElementGraphiqueY(32))
       .build();
       pi.setLocation(getWidth()-pi.getWidth(),pz.getbuttonSize()*3);
       add(pi);
     }else{
-      erreur.alerte("PanneauInfoCreature haven't been set because playingAnt is null");
+      erreur.alerte("FPanelInfoCreature haven't been set because playingAnt is null");
     }
   }
   public void removePi(){ remove(pi);}
@@ -206,7 +206,7 @@ public class PanneauBouton extends Panneau {
     Joueur playingPlayer = Main.getPlayingJoueur();
     if (playingPlayer==null){ return;}
     GString gs = playingPlayer.getGm().gmToGs(Main.getMaxMessageDisplay());
-    pij = new PanneauInfoText(gs,Main.getTailleElementGraphiqueX(500),true,fontPij);
+    pij = new FPanelInfoText(gs,Main.getTailleElementGraphiqueX(500),true,fontPij);
     int x = Main.getTailleElementGraphiqueX(320);
     pij.setBounds((getWidth()-x*2)/2,Main.getTailleElementGraphiqueY(100),x,pij.getYPi());
     add(pij);
@@ -227,7 +227,7 @@ public class PanneauBouton extends Panneau {
       desc.setLocation(0,Main.getDimY()-xxx-FLabel.getDimY());//-desc.getHeight()
       descTI.setBounds(0,0,800);
     }catch (Exception e) {
-      erreur.erreur("affichage de PanneauBouton");
+      erreur.erreur("affichage de FPanelBouton");
     }
   }
   public void actualiserDesc(){

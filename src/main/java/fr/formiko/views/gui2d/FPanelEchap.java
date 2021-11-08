@@ -16,11 +16,11 @@ import java.awt.Graphics2D;
 *@author Hydrolien
 *@version 1.41
 */
-public class PanneauEchap extends Panneau{
+public class FPanelEchap extends FPanel{
   private FButton tb[];
   private boolean visible;
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauEchap(){
+  public FPanelEchap(){
     setVisible(false);
   }
   /**
@@ -79,8 +79,8 @@ public class PanneauEchap extends Panneau{
     }
   }
   /**
-  *{@summary Set PanneauEchap visible.}<br>
-  *It Override Component.setVisible() but also build panel if needed &#38; update PanneauSup size.<br>
+  *{@summary Set FPanelEchap visible.}<br>
+  *It Override Component.setVisible() but also build panel if needed &#38; update FPanelSup size.<br>
   *@version 1.47
   */
   @Override
@@ -111,7 +111,7 @@ public class PanneauEchap extends Panneau{
     }
   }
   /**
-  *{@summary return true if only PanneauEchap button sould be enable.}
+  *{@summary return true if only FPanelEchap button sould be enable.}
   *@version 1.41
   */
   public boolean estContruit(){

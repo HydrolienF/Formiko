@@ -15,20 +15,20 @@ import java.awt.Insets;
 *@version 2.7
 */
 public class FFrameLauncher extends FFrame {
-  private PanneauLauncher pl;
+  private FPanelLauncher pl;
   // private String downloadingMessage;
   private static boolean IS_UIMANAGER_INI;
 
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
-  *Frame is centered, small &#38; containt a PanneauLauncher.
+  *Frame is centered, small &#38; containt a FPanelLauncher.
   *@version 2.7
   */
   public FFrameLauncher(){
     super("Formiko Launcher", (int)(getScreenWidth()/2.5), (int)(getScreenHeigth()/2.5), false);
     if(!IS_UIMANAGER_INI){iniUImanager();}
-    pl = new PanneauLauncher(getWidth(), getHeight()-40,-10, 110);
+    pl = new FPanelLauncher(getWidth(), getHeight()-40,-10, 110);
     setContentPane(pl);
     endIni();
   }
@@ -56,7 +56,7 @@ public class FFrameLauncher extends FFrame {
   *@author Hydrolien
   *@version 2.7
   */
-  class PanneauLauncher extends Panneau {
+  class FPanelLauncher extends FPanel {
     private JProgressBar pb;
     private FLabel l;
     private FButton buttonRetry;
@@ -65,7 +65,7 @@ public class FFrameLauncher extends FFrame {
     *It initialize &#38; place item on the Panel.
     *@version 2.7
     */
-    public PanneauLauncher(int w, int h, int minProgressBar, int maxProgressBar) {
+    public FPanelLauncher(int w, int h, int minProgressBar, int maxProgressBar) {
       super();
       setSize(w,h);
       pb = new JProgressBar(minProgressBar, maxProgressBar);

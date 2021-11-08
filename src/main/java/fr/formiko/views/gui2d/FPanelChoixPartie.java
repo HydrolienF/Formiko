@@ -17,11 +17,11 @@ import java.io.File;
 *@author Hydrolien
 *@version 1.x
 */
-public class PanneauChoixPartie extends PanneauLanceurPartie {
+public class FPanelChoixPartie extends FPanelLanceurPartie {
   private EtiquetteChoix ePartie;
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauChoixPartie(){
+  public FPanelChoixPartie(){
     super(101);
     this.setLayout(null);
     GString gs = new GString(sauvegarderUnePartie.listSave());

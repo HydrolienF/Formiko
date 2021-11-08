@@ -19,7 +19,7 @@ import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
 
-public class PanneauAction extends Panneau {
+public class FPanelAction extends FPanel {
   private int tailleBouton;
   private int nbrDeBouton;
   private static final int nbrDeBoutonMax=10;
@@ -29,7 +29,7 @@ public class PanneauAction extends Panneau {
   private FButton tB [];
   private FButton tAutoB [] = new FButton[2];
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauAction(int t[]){
+  public FPanelAction(int t[]){
     super();
     tailleBouton=Main.getTailleElementGraphique(tailBouton);
     tBoutonActif=t;
@@ -38,15 +38,15 @@ public class PanneauAction extends Panneau {
     setSize((nbrDeBouton*espaceRéservéAuBouton+Main.getTailleElementGraphique(2*bordure)),espaceRéservéAuBouton);
     //setBackground(new Color(0,0,0,0));// du transparent en arrière plan.
   }
-  public PanneauAction(){}
+  public FPanelAction(){}
   public void build(){
     if(nbrDeBouton > nbrDeBoutonMax){ erreur.erreur("impossible d'afficher tant de boutons");}
     Dimension dim = new Dimension(tailleBouton, tailleBouton);
     setLayout(new GridBagLayout());
     tB = new FButton [nbrDeBouton]; // pour l'instant le bouton 10 n'as pas d'images.
-    Main.getData().chargerTIPanneauAction();//ne ce lance que si néssésaire.
+    Main.getData().chargerTIFPanelAction();//ne ce lance que si néssésaire.
     for (int i=0;i<nbrDeBouton ;i++ ) { // seul les bouton mentionné dans t sont créé.
-      tB[i] = new FButton(g.get("bouton.nom."+(20+tBoutonActif[i])),(Panneau)this,20+tBoutonActif[i],Main.getData().getTImage()[tBoutonActif[i]]);
+      tB[i] = new FButton(g.get("bouton.nom."+(20+tBoutonActif[i])),(FPanel)this,20+tBoutonActif[i],Main.getData().getTImage()[tBoutonActif[i]]);
       tB[i].setBordure(false);
       tB[i].setWithBackground(true);
       if(tBoutonActif[i]==7){
@@ -86,7 +86,7 @@ public class PanneauAction extends Panneau {
 
   public void paintComponent(Graphics g){
     if(!Main.getPartie().getEnCours()){return;}
-    // debug.g("PanneauAction",this.getWidth(),this.getHeight());
+    // debug.g("FPanelAction",this.getWidth(),this.getHeight());
   }
   /**
   *{@summary Change default color for auto mode buttons.}

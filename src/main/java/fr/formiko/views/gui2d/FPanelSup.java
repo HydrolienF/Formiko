@@ -18,11 +18,11 @@ import java.awt.event.MouseMotionListener;
 *@author Hydrolien
 *@version 1.42
 */
-public class PanneauSup extends Panneau {
+public class FPanelSup extends FPanel {
   private CCase cc2=null;
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauSup(){}
+  public FPanelSup(){}
   /**
   *{@summary Build this.}<br>
   *It add 2 mouse listener to update map description with case data, to move playingAnt &#38; to swap playing ant.<br>
@@ -46,7 +46,7 @@ public class PanneauSup extends Panneau {
       @Override
       public void mouseReleased(MouseEvent e) {
         if(e.getButton()== MouseEvent.BUTTON1){
-          if(vérifierPanneauDialogue(e)){return;}
+          if(vérifierFPanelDialogue(e)){return;}
           GCreature gc = new GCreature();
           try {
             gc = getCase(e).getGc();
@@ -129,7 +129,7 @@ public class PanneauSup extends Panneau {
       return null;
     }
   }
-  public boolean vérifierPanneauDialogue(MouseEvent e){
+  public boolean vérifierFPanelDialogue(MouseEvent e){
     try {
       return getView().getPd().clicEn(e.getX(),e.getY());
     }catch (Exception e2) {

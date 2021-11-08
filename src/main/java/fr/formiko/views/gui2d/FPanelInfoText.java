@@ -14,12 +14,12 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 
-public class PanneauInfoText extends Panneau {
+public class FPanelInfoText extends FPanel {
   private int nbrDeDesc;
   private FLabel descs [];
   private int xPi; private int yPi;
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauInfoText(GString gs, int xD, boolean withAlpha, Font font){
+  public FPanelInfoText(GString gs, int xD, boolean withAlpha, Font font){
     debug.débogage("création d'un panneauInfo avec "+gs.length()+" éléments.");
     this.setLayout(new GridBagLayout());
     GridBagConstraints gbc = new GridBagConstraints();
@@ -46,24 +46,24 @@ public class PanneauInfoText extends Panneau {
       descs[k-1]=desc;
     }
   }
-  public PanneauInfoText(GString gs, int xD, boolean withAlpha){this(gs,xD,withAlpha,null);}
-  public PanneauInfoText(GString gs){
+  public FPanelInfoText(GString gs, int xD, boolean withAlpha){this(gs,xD,withAlpha,null);}
+  public FPanelInfoText(GString gs){
     this(gs, getView().getPz().getbuttonSize()*5,false);
   }
-  public PanneauInfoText(Fourmi f,int xD){
+  public FPanelInfoText(Fourmi f,int xD){
     this(f.descriptionGString(),xD,false);
   }
-  public PanneauInfoText(Fourmi f){
+  public FPanelInfoText(Fourmi f){
     this(f.descriptionGString());
   }
-  public PanneauInfoText(){}
+  public FPanelInfoText(){}
   // GET SET -------- ------------------------------------------------------------
   public int length(){ return nbrDeDesc;}
   public int getXPi(){ return xPi;}
   public int getYPi(){ return yPi;}
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
-    // debug.débogage("actualisation du PanneauInfoText avec pour taille : "+this.getWidth()+" "+this.getHeight());
+    // debug.débogage("actualisation du FPanelInfoText avec pour taille : "+this.getWidth()+" "+this.getHeight());
     super.paintComponent(g);
   }
   public String toString(){

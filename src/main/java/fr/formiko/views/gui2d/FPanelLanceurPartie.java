@@ -13,7 +13,7 @@ import java.awt.Graphics;
 *@author Hydrolien
 *@version 1.x
 */
-public abstract class PanneauLanceurPartie extends Panneau{
+public abstract class FPanelLanceurPartie extends FPanel{
   private BoutonLong launchButton;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
@@ -22,7 +22,7 @@ public abstract class PanneauLanceurPartie extends Panneau{
   *@param ac action of the launch button
   *@version 1.x
   */
-  public PanneauLanceurPartie(int ac){
+  public FPanelLanceurPartie(int ac){
     this.setLayout(null);
     launchButton = new BoutonLong(g.getM("lancerPartie"),getView().getPm(),ac);
     add(launchButton);

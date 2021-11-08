@@ -4,20 +4,20 @@ import fr.formiko.usuel.debug;
 
 import java.awt.Graphics;
 
-public abstract class PanneauTX extends Panneau{
+public abstract class FPanelTX extends FPanel{
   protected int tailleBouton;
-  protected PanneauBouton pb;
+  protected FPanelBouton pb;
   protected int x;
   protected int y;
   protected String descTI;
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauTX(){}
+  public FPanelTX(){}
   // GET SET -------------------------------------------------------------------
   public int getXPi(){ return tailleBouton*x;}
   public int getYPi(){ return tailleBouton*y;}
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     this.setSize(tailleBouton*x,tailleBouton*y);
-    debug.débogage("actualisation du PanneauTX avec pour taille : "+tailleBouton*x+" "+tailleBouton*y);
+    debug.débogage("actualisation du FPanelTX avec pour taille : "+tailleBouton*x+" "+tailleBouton*y);
   }
 }

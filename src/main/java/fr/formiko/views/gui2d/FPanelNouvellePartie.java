@@ -21,10 +21,10 @@ import javax.swing.JFormattedTextField;
 *@author Hydrolien
 *@version 1.x
 */
-public class PanneauNouvellePartie extends PanneauLanceurPartie {
+public class FPanelNouvellePartie extends FPanelLanceurPartie {
   private FLabel jl; private FLabel jl2;
   private GEtiquetteJoueur gej;
-  private PanneauGEtiquetteJoueur pgej;
+  private FPanelGEtiquetteJoueur pgej;
   private JFormattedTextField jtf;
   private FLabel jtfDesc;
   private FComboBox<String> choixCarte;
@@ -36,7 +36,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
   private EtiquetteChoix eDif;
   private EtiquetteChoix eVitesseDeJeu;
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauNouvellePartie(){
+  public FPanelNouvellePartie(){
     super(100);
     Main.startCh();
     this.setLayout(null);
@@ -79,7 +79,7 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     //a droite :
     gej = new GEtiquetteJoueur(3);
 
-    pgej = new PanneauGEtiquetteJoueur(gej);
+    pgej = new FPanelGEtiquetteJoueur(gej);
     add(pgej);
     jtf = new JFormattedTextField(NumberFormat.getIntegerInstance());
     jtf.setText("100");
@@ -98,18 +98,18 @@ public class PanneauNouvellePartie extends PanneauLanceurPartie {
     casesNuageuses.setSelected(true);
     casesSombres.setSelected(true);
     add(casesNuageuses);add(casesSombres);
-    Main.endCh("chargementPanneauNouvellePartie");
+    Main.endCh("chargementFPanelNouvellePartie");
   }
   public void rafraichirPgej(){
     remove(pgej);
-    pgej = new PanneauGEtiquetteJoueur(gej);
+    pgej = new FPanelGEtiquetteJoueur(gej);
     add(pgej);
     getView().paint();
   }
   // GET SET -------------------------------------------------------------------
   public GEtiquetteJoueur getGej(){ return gej;}
   public int getTaille(){ return taille;}
-  public PanneauGEtiquetteJoueur getPGej(){ return pgej;}
+  public FPanelGEtiquetteJoueur getPGej(){ return pgej;}
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     int wi = Main.getDimX();

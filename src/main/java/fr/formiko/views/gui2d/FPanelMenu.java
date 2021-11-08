@@ -21,22 +21,22 @@ import javax.swing.JPanel;
 
 /**
 *{@summary menu JPanel use to launch game.}<br>
-*It contain all sub menu Panel as PanneauNouvellePartie or PanneauChoixPartie.<br>
+*It contain all sub menu Panel as FPanelNouvellePartie or FPanelChoixPartie.<br>
 *@author Hydrolien
 *@version 1.44
 */
-public class PanneauMenu extends Panneau {
+public class FPanelMenu extends FPanel {
   private BoutonLong b[]=null;
   private byte menu;
   private boolean lancer = false;
-  private PanneauNouvellePartie pnp;
-  private PanneauChoixPartie pcp;
+  private FPanelNouvellePartie pnp;
+  private FPanelChoixPartie pcp;
   private FButton returnButton;
   private Color buttonColor;
   private EtiquetteChoix ecLanguage;
   private FButton validatelanguage;
   // CONSTRUCTORS --------------------------------------------------------------
-  public PanneauMenu(){
+  public FPanelMenu(){
     super();
   }
   /**
@@ -52,8 +52,8 @@ public class PanneauMenu extends Panneau {
   public byte getMenu(){return menu; }
   public boolean getLancer(){ return lancer;}
   public void setLancer(boolean b){lancer=b;}
-  public PanneauNouvellePartie getPnp(){return pnp;}
-  public PanneauChoixPartie getPcp(){return pcp;}
+  public FPanelNouvellePartie getPnp(){return pnp;}
+  public FPanelChoixPartie getPcp(){return pcp;}
   public FButton getReturnButton(){return returnButton;}
   // FUNCTIONS -----------------------------------------------------------------
 
@@ -100,10 +100,10 @@ public class PanneauMenu extends Panneau {
   *@param nbrOfButtons the number of buttons.
   *@version 1.44
   */
-  public void buildPanneauMenu(int nbrOfButtons, int menu){
+  public void buildFPanelMenu(int nbrOfButtons, int menu){
     removeP();
     if(b==null || b[0]==null){
-      debug.débogage("construitPanneauMenu");
+      debug.débogage("construitFPanelMenu");
       setSize(Main.getDimX(),Main.getDimY());
       createButton(nbrOfButtons);
     }
@@ -116,7 +116,7 @@ public class PanneauMenu extends Panneau {
     actualiserText();
   }
   /**
-  *{@summary Add PanneauNouvellePartie.}<br>
+  *{@summary Add FPanelNouvellePartie.}<br>
   *It remove all button or other panel if needed.<br>
   *@version 1.44
   */
@@ -124,13 +124,13 @@ public class PanneauMenu extends Panneau {
     retirerBouton();
     removeP();
     setReturnButtonAction(1);
-    pnp = new PanneauNouvellePartie();
+    pnp = new FPanelNouvellePartie();
     pnp.setSize(this.getWidth(),this.getHeight());
     this.add(pnp);
     getView().paint();
   }
   /**
-  *{@summary Add PanneauChoixPartie.}<br>
+  *{@summary Add FPanelChoixPartie.}<br>
   *It remove all button or other panel if needed.<br>
   *@version 1.44
   */
@@ -138,13 +138,13 @@ public class PanneauMenu extends Panneau {
     retirerBouton();
     removeP();
     setReturnButtonAction(0);
-    pcp = new PanneauChoixPartie();
+    pcp = new FPanelChoixPartie();
     pcp.setSize(this.getWidth(),this.getHeight());
     this.add(pcp);
     repaint();
   }
   /**
-  *{@summary Remove PanneauNouvellePartie &#38; set it to null.}<br>
+  *{@summary Remove FPanelNouvellePartie &#38; set it to null.}<br>
   *@version 1.44
   */
   public void removePnp(){
@@ -152,7 +152,7 @@ public class PanneauMenu extends Panneau {
     pnp=null;
   }
   /**
-  *{@summary Remove PanneauChoixPartie &#38; set it to null.}<br>
+  *{@summary Remove FPanelChoixPartie &#38; set it to null.}<br>
   *@version 1.44
   */
   public void removePcp(){
@@ -160,7 +160,7 @@ public class PanneauMenu extends Panneau {
     pcp=null;
   }
   /**
-  *{@summary Remove PanneauNouvellePartie &#38; PanneauChoixPartie.}<br>
+  *{@summary Remove FPanelNouvellePartie &#38; FPanelChoixPartie.}<br>
   *@version 1.44
   */
   public void removeP(){
