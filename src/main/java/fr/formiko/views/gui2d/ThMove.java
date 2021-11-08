@@ -49,7 +49,7 @@ public class ThMove {
   *@version 2.4
   */
   public ThMove(ObjetSurCarteAId o, CCase from, CCase to){
-    erreur.info("new ThMove");
+    erreur.info("new ThMove");//@a
     id=cptId++;
     this.o=o;
     Case c = from.getContent();
@@ -207,12 +207,13 @@ public class ThMove {
 */
 class ThMoveManager extends Thread {
   private Liste<ThMove> list;
-  public ThMoveManager(){}
+  public ThMoveManager(){
+    list = new Liste<ThMove>();
+  }
   public void add(ThMove move){list.add(move);}
   public void remove(ThMove move){list.remove(move);}
   @Override
   public void run(){
-    System.out.println("------------------------");
     erreur.info("start runing ThMoveManager");
     while(true){
       ThMove.updateQueue();

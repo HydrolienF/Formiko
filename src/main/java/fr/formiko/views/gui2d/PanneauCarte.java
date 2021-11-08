@@ -337,6 +337,7 @@ public class PanneauCarte extends Panneau {
               // }
             }catch (Exception e) {
               erreur.erreur("can't draw ant "+f.getId()+" at stade "+f.getStade());
+              e.printStackTrace();///@a
             }
           }else if(cr instanceof Insecte && needToDraw(cr)){
             Insecte i = (Insecte)(cr);
@@ -366,7 +367,7 @@ public class PanneauCarte extends Panneau {
         }
       }
     }catch (Exception e) {
-      erreur.erreur("impossible de dessiner l'image de la Case : "+x+" "+y);
+      erreur.erreur("Fail to draw Case: "+x+" "+y);
     }
   }
   /**
@@ -374,13 +375,19 @@ public class PanneauCarte extends Panneau {
   *@version 2.10
   */
   public boolean needToDraw(Creature cr){
+    if(cr==null){return false;}
+    Fourmi playingAntOrPlayingPlayerAnt = Main.getPlayingAnt();
+    if(playingAntOrPlayingPlayerAnt==null){
+      playingAntOrPlayingPlayerAnt=(Fourmi)Main.getPlayingJoueur().getFere().getGc().getFirst();
+    }
+    if(playingAntOrPlayingPlayerAnt==null){return true;}
     boolean friendlyInsectPrinted = Main.getOp().getDrawAllyCreatures();
     boolean neutralInsectPrinted = Main.getOp().getDrawNeutralCreatures();
     boolean enemyInsectPrinted = Main.getOp().getDrawEnemyCreatures();
     if(friendlyInsectPrinted && neutralInsectPrinted && enemyInsectPrinted && !Main.getOp().getDrawOnlyEatable()){return true;}
-    else if(cr.getEstEnnemi(Main.getPlayingAnt()) && enemyInsectPrinted){return true;}
-    else if(cr.getEstAllié(Main.getPlayingAnt()) && friendlyInsectPrinted){return true;}
-    else if(cr.getIsNeutral(Main.getPlayingAnt()) && neutralInsectPrinted && (!Main.getOp().getDrawOnlyEatable() || Main.getPlayingJoueur().getEspece().getInsectivore())){return true;}
+    else if(cr.getEstEnnemi(playingAntOrPlayingPlayerAnt) && enemyInsectPrinted){return true;}
+    else if(cr.getEstAllié(playingAntOrPlayingPlayerAnt) && friendlyInsectPrinted){return true;}
+    else if(cr.getIsNeutral(playingAntOrPlayingPlayerAnt) && neutralInsectPrinted && (!Main.getOp().getDrawOnlyEatable() || Main.getPlayingJoueur().getEspece().getInsectivore())){return true;}
     else{return false;}
   }
   /**

@@ -481,7 +481,7 @@ public class ViewGUI2d implements View {
   public void move(ObjetSurCarteAId o, CCase from, CCase to){
     if(!Main.getOp().getInstantaneousMovement()){
       ThMove.updateTo(to, o.getId());
-      // ThMove th = new ThMove(o, from, to);
+      ThMove th = new ThMove(o, from, to);
       // th.start();
     }
   }
@@ -719,7 +719,7 @@ public class ViewGUI2d implements View {
 *@version 1.47
 *@author Hydrolien
 */
-class TimerTaskViewGUI2d extends TimerTask{
+class TimerTaskViewGUI2d extends TimerTask {
   protected static ViewGUI2d view;
   /**
   *{@summary Main constructor.}

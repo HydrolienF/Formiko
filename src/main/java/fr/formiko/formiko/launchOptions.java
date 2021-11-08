@@ -75,6 +75,7 @@ public class launchOptions {
       break;
       case "lt":
       case "launchTuto":
+      //TODO TOFIX
       Main.setTuto(true);
       Main.setPremierePartie(true);
       Main.dontOpenMenuFirst();
