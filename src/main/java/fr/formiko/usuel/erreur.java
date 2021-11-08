@@ -8,15 +8,10 @@ import java.io.IOException;
 /**
 *{@summary Error class call to print error message.}<br>
 *@author Hydrolien
-*@version 1.41
+*@version 2.11
 */
 public class erreur {
   public static boolean muet=false;
-  //colors
-  private static String yellow = (char)27+"[1;33m";
-  private static String red = (char)27+"[1;31m";
-  private static String neutral = (char)27+"[0;m";
-  private static String blue = (char)27+"[1;34m";
 
   public static boolean getMuet(){return muet;}
   public static void setMuet(boolean b){muet=b;}
@@ -92,8 +87,7 @@ public class erreur {
     }
     String preMessage = "";
     try {
-      if(Main.getOs().isLinux()){preMessage = "["+red+g.get("erreur").toUpperCase()+neutral+"] ";}
-      else{preMessage=g.get("erreur").toUpperCase();}
+      preMessage = "["+color.RED+g.get("erreur").toUpperCase()+color.NEUTRAL+"] ";
     }catch (Exception e) {
       preMessage=g.get("erreur").toUpperCase();
     }
@@ -124,8 +118,7 @@ public class erreur {
   public static void alerte(String message, String correction){
     String preMessage = "";
     try {
-      if(Main.getOs().isLinux()){preMessage = "["+yellow+g.get("alerte").toUpperCase()+neutral+"] ";}
-      else{preMessage=g.get("alerte").toUpperCase();}
+      preMessage = "["+color.YELLOW+g.get("alerte").toUpperCase()+color.NEUTRAL+"] ";
     }catch (Exception e) {
       preMessage=g.get("alerte").toUpperCase();
     }
@@ -143,13 +136,12 @@ public class erreur {
   }
   /**
   *{@summary Print info about important thing that are not important as alerte or error.}<br>
-  *@version 1.37
+  *@version 2.11
   */
   public static void info(String message, int classDepth){
     String preMessage = "";
     try {
-      if(Main.getOs().isLinux()){preMessage = "["+blue+g.get("info").toUpperCase()+neutral+"] ";}
-      else{preMessage=g.get("info").toUpperCase();}
+      preMessage = "["+color.BLUE+g.get("info").toUpperCase()+color.NEUTRAL+"] ";
     }catch (Exception e) {
       preMessage=g.get("info").toUpperCase();
     }

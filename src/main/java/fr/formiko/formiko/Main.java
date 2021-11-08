@@ -93,6 +93,7 @@ public class Main {
     debug.setPerformance(false);
     debug.setAffG(false);
     openMenuFirst=true;
+    color.iniColor();
     //iniThings that can't be null :
     // view = new ViewNull();
     // os = new Os();

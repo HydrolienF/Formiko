@@ -76,7 +76,7 @@ public class launchOptions {
       case "lt":
       case "launchTuto":
       Main.setTuto(true);
-      // Main.setPremierePartie(true);
+      Main.setPremierePartie(true);
       Main.dontOpenMenuFirst();
       break;
       case "ld":

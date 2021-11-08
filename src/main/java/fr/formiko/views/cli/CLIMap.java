@@ -90,7 +90,7 @@ public class CLIMap{
   //public only for test
   public static String objetSurCarteAIdToString(ObjetSurCarteAId o){
     String s="";
-    boolean b = Main.getOs().isLinux();
+    boolean b = true;
     if(o instanceof Insecte){
       if(b){s+=getColorAllyStatus((Creature)o);} s+="I"; s+=o.getId(); if(b){s+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();}
     }else if(o instanceof Graine){
@@ -128,8 +128,8 @@ public class CLIMap{
     Joueur j = Main.getPlayingJoueur();
     int xi2=0;
     sr+=" ";
-    if(Main.getOs().isLinux()){sr+=color.UNDERLINE;}
-    if(Main.getOs().isLinux()){sr+=color.BLUE;}
+    sr+=color.UNDERLINE;
+    sr+=color.BLUE;
     sr+=" ";
     int len = gc.getWidth();
     for (int i=0;i<len ;i++ ) {
@@ -139,13 +139,13 @@ public class CLIMap{
       }
       sr+=sTemp;
     }
-    if(Main.getOs().isLinux()){sr+=color.NEUTRAL;}
+    sr+=color.NEUTRAL;
     sr+="\n";
     while(cc!=null){
       xi2++;
-      if(Main.getOs().isLinux()){sr+=color.BLUE;}
+      sr+=color.BLUE;
       sr+=ascii.getNuméroationEnAbcd(xi2)+"|";
-      if(Main.getOs().isLinux()){sr+=color.NEUTRAL;}
+      sr+=color.NEUTRAL;
       sr+=mapLineToString(cc,j)+"\n";
       cc=cc.getBas();
     }
@@ -217,7 +217,7 @@ public class CLIMap{
       while (sr.length()<sizeCase+unseeableChar){sr = sr + "□";}
     }else{
       if (nbrDElementSurCase == 0){
-        if(!Main.getOs().isLinux()){sr = "-";}
+        // if(!Main.getOs().isLinux()){sr = "-";}
       }else if(nbrDElementSurCase == 1){
         if(contenu.getFere() != null){
           sr = "F"+contenu.getFere().getId();
@@ -247,7 +247,7 @@ public class CLIMap{
     }
     sr+=caseColor(contenu);
     while (sr.length()<sizeCase+unseeableChar){sr = sr + " ";}
-    if(Main.getOs().isLinux()){sr+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();}
+    sr+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();
     return sr;
   }
   /**
@@ -257,7 +257,6 @@ public class CLIMap{
   */
   //public only for test
   public String caseColor(Case c){
-    if(!Main.getOs().isLinux()){return "";}
     String sr="";
     switch (c.getType()) {
       case 0 :
