@@ -337,7 +337,6 @@ public class PanneauCarte extends Panneau {
               // }
             }catch (Exception e) {
               erreur.erreur("can't draw ant "+f.getId()+" at stade "+f.getStade());
-              e.printStackTrace();///@a
             }
           }else if(cr instanceof Insecte && needToDraw(cr)){
             Insecte i = (Insecte)(cr);
