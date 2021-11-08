@@ -25,6 +25,7 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
   private FLabel jl; private FLabel jl2;
   private GEtiquetteJoueur gej;
   private FPanelGEtiquetteJoueur pgej;
+  private FPanelScrollBar pgejContainer;
   private JFormattedTextField jtf;
   private FLabel jtfDesc;
   private FComboBox<String> choixCarte;
@@ -80,7 +81,8 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
     gej = new GEtiquetteJoueur(3);
 
     pgej = new FPanelGEtiquetteJoueur(gej);
-    add(pgej);
+    pgejContainer = new FPanelScrollBar(pgej);
+    add(pgejContainer);
     jtf = new JFormattedTextField(NumberFormat.getIntegerInstance());
     jtf.setText("100");
     jtf.setFont(Main.getFont1(0.9));
@@ -101,10 +103,10 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
     Main.endCh("chargementFPanelNouvellePartie");
   }
   public void rafraichirPgej(){
-    remove(pgej);
+    remove(pgejContainer);
     pgej = new FPanelGEtiquetteJoueur(gej);
-    add(pgej);
-    getView().paint();
+    pgejContainer = new FPanelScrollBar(pgej);
+    add(pgejContainer);
   }
   // GET SET -------------------------------------------------------------------
   public GEtiquetteJoueur getGej(){ return gej;}
@@ -132,8 +134,10 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
     //droite
     int yDep=0;
     jl2.setBounds(wi2,yDep,(int)(wi2*0.9)); yDep=yDep+jl2.getHeight()*2;
-    int tailleMaxY = this.getHeight() - yDep;
-    pgej.setBounds(wi2,yDep,wi2,math.max(FLabel.getDimY()*3*gej.length(),tailleMaxY));
+    int tailleMaxY = this.getHeight() - yDep - getLaunchButton().getHeight();
+    pgejContainer.setLocation(wi2,yDep);
+    pgejContainer.setSize(wi2-FPanelScrollBar.SCROLL_BAR_SIZE, FLabel.getDimY()*3*gej.length());
+    pgejContainer.setMaxVisibleHeigth(tailleMaxY);
   }
   public Partie getPartie(){
     String nomTraduitDeLaCarte = choixCarte.getSelectedItem()+"";

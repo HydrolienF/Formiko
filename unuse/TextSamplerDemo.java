@@ -341,9 +341,9 @@ public class TextSamplerDemo extends JPanel
         //creating and showing this application's GUI.
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                 //Turn off metal's use of bold fonts
-		UIManager.put("swing.boldMetal", Boolean.FALSE);
-		createAndShowGUI();
+                //Turn off metal's use of bold fonts
+                UIManager.put("swing.boldMetal", Boolean.FALSE);
+                createAndShowGUI();
             }
         });
     }
