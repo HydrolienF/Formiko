@@ -103,10 +103,8 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
     Main.endCh("chargementFPanelNouvellePartie");
   }
   public void rafraichirPgej(){
-    remove(pgejContainer);
     pgej = new FPanelGEtiquetteJoueur(gej);
     pgejContainer.setSubPanel(pgej);
-    add(pgejContainer);
   }
   // GET SET -------------------------------------------------------------------
   public GEtiquetteJoueur getGej(){ return gej;}

@@ -10,16 +10,27 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import javax.swing.JScrollBar;
 
+/**
+*{@summary A Jpanel with a JScrollBar.}<br>
+*@version 2.11
+*/
 public class FPanelScrollBar extends FPanel {
   public static int SCROLL_BAR_SIZE = 20;
+  private static int SCROLL_BAR_MAX = 1000;
   private FPanel subPanel;
   private JScrollBar scrollBar;
   private int maxVisibleHeigth;
 
   // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor.}<br>
+  *Scrool bar stay hiden if we don't need it.
+  *@version 2.11
+  *@author Hydrolien
+  */
   public FPanelScrollBar(FPanel subPanel){
     super();
-    scrollBar = new JScrollBar(JScrollBar.VERTICAL, 0, 1000, 0, 1000);
+    scrollBar = new JScrollBar(JScrollBar.VERTICAL, 0, SCROLL_BAR_MAX, 0, SCROLL_BAR_MAX);
     scrollBar.setVisible(true);
     scrollBar.addAdjustmentListener(new BarAdjustmentListener());
     addMouseWheelListener(new FMouseWheelListener());
@@ -30,6 +41,13 @@ public class FPanelScrollBar extends FPanel {
   // GET SET -------------------------------------------------------------------
   public void setMaxVisibleHeigth(int mvh){maxVisibleHeigth=mvh;}
   @Override
+  /**
+  *{@summary Set the size of this panel, the scrollBar &#38; the sub panel.}<br>
+  *Scrool bar stay hiden if h is lower than maxVisibleHeigth.
+  *@param w the new wigth
+  *@param h the new heigth
+  *@version 2.11
+  */
   public void setSize(int w, int h){
     super.setSize(w+SCROLL_BAR_SIZE, Math.min(h,maxVisibleHeigth));
     if(h>maxVisibleHeigth){
@@ -38,39 +56,97 @@ public class FPanelScrollBar extends FPanel {
       scrollBar.setSize(SCROLL_BAR_SIZE, getHeight());
       scrollBar.setVisible(true);
       if(h==0){h=1;}
-      scrollBar.setVisibleAmount((int)((maxVisibleHeigth*1000)/h));
+      scrollBar.setVisibleAmount((int)((maxVisibleHeigth*SCROLL_BAR_MAX)/h));
     }else{
       subPanel.setSize(w+SCROLL_BAR_SIZE, h);
       scrollBar.setVisible(false);
     }
   }
+  /**
+  *{@summary Set the sub panel &#38; refresh location.}<br>
+  *@version 2.11
+  */
   public void setSubPanel(FPanel p){
-    if(subPanel!=null){remove(subPanel);}
+    int oldSubPanelHeight=1;
+    boolean wasAtTheEnd = false;
+    if(subPanel!=null){
+      oldSubPanelHeight=subPanel.getHeight();
+      wasAtTheEnd = (scrollBar.getValue() + scrollBar.getVisibleAmount()) >= SCROLL_BAR_MAX;
+      remove(subPanel);
+    }
     subPanel=p;
     if(subPanel==null){return;}
     add(subPanel);
     subPanel.setLocation(0,0);
     setSize(subPanel.getWidth(), subPanel.getHeight());
     //TODO update srcoll bar location when subPanel.getHeight change.
+    // double racio = oldSubPanelHeight;
+    // if(racio!=1){racio/=(double)subPanel.getHeight();}
+    // if(wasAtTheEnd){
+    //   System.out.println("set to the end");
+    //   setScrollBarValue(SCROLL_BAR_MAX);
+    //   System.out.println(scrollBar.getValue() +" "+ scrollBar.getVisibleAmount());
+    //   System.out.println(scrollBar);
+    // }
+    // else{
+    //   setScrollBarValue((int)((double)(scrollBar.getValue())*racio));
+    // }
+    // updatePanelLoactionFromBar();
+  }
+  /**
+  *{@summary Update scrollBar value with only possible value.}<br>
+  *@version 2.11
+  */
+  public void setScrollBarValue(int x){
+    if(x<0){x=0;}
+    else if(x+scrollBar.getVisibleAmount() > SCROLL_BAR_MAX){x=SCROLL_BAR_MAX-scrollBar.getVisibleAmount();}
+    scrollBar.setValue(x);
+  }
+  /**
+  *{@summary Update panel location depending of bar value.}<br>
+  *@version 2.11
+  */
+  public void updatePanelLoactionFromBar(){
+    int gap = (int)((scrollBar.getValue()*subPanel.getHeight())/SCROLL_BAR_MAX);
+    subPanel.setLocation(0,-gap);
   }
   // FUNCTIONS -----------------------------------------------------------------
 
   // SUB-CLASS -----------------------------------------------------------------
+  /**
+  *{@summary An AdjustmentListener that update panel location.}<br>
+  *@version 2.11
+  *@author Hydrolien
+  */
   class BarAdjustmentListener implements AdjustmentListener {
+    /**
+    *{@summary Function call when bar value change.}<br>
+    *It update panel location.
+    *@version 2.11
+    */
     @Override
     public void adjustmentValueChanged​(AdjustmentEvent e){
-      int gap = (int)((scrollBar.getValue()*subPanel.getHeight())/1000);
-      subPanel.setLocation(0,-gap);
+      updatePanelLoactionFromBar();
     }
   }
+  /**
+  *{@summary A MouseWheelListener that update scroll bar value.}<br>
+  *@version 2.11
+  *@author Hydrolien
+  */
   class FMouseWheelListener implements MouseWheelListener {
+    /**
+    *{@summary Function call when mouse wheel is moved.}<br>
+    *It update scroll bar value.
+    *@version 2.11
+    */
     @Override
     public void mouseWheelMoved​(MouseWheelEvent e){
       int unitIncrement = e.getUnitsToScroll();
       double increment = (unitIncrement*0.03*scrollBar.getVisibleAmount());
       if(increment<1 && increment>0){increment=1;}
       else if(increment>-1 && increment<0){increment=-1;}
-      scrollBar.setValue(scrollBar.getValue() + (int)increment);
+      setScrollBarValue(scrollBar.getValue() + (int)increment);
     }
   }
 }
