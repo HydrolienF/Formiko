@@ -27,6 +27,7 @@ public class DiscordIntegration {
       discordLibrary = downloadDiscordLibrary();
     }catch (IOException e) {}
 		if(discordLibrary == null){
+      if(Main.getOs().isLinux()){return;} //TODO remove when #484 will be fix.
 			erreur.erreur("Error downloading Discord SDK");
 			return;
 		}
@@ -95,6 +96,8 @@ public class DiscordIntegration {
       suffix = ".dll";
     }else if(os.isLinux()){
       suffix = ".so";
+      //TODO #484 fix Error with discordRPC
+      return null;
     }else if(os.isMac()){
       suffix = ".dylib";
     }else{
@@ -125,11 +128,10 @@ public class DiscordIntegration {
         if(os.isLinux()){
           //TODO #484 fix Error gio: discord:///library/826437546024108077/launch: L’emplacement indiqué n’est pas pris en charge
           //https://github.com/NathaanTFM/discord-game-sdk-python/issues/3
-          return null;
-          // File f2 = new File(Main.getFolder().getFolderTemporary()+name);
-          // Files.copy(discordLibFile.toPath(), new FileOutputStream(f2));
-          // discordLibFile.delete();
-          // discordLibFile = f2;
+          File f2 = new File(Main.getFolder().getFolderTemporary()+name);
+          Files.copy(discordLibFile.toPath(), new FileOutputStream(f2));
+          discordLibFile.delete();
+          discordLibFile = f2;
         }
         return discordLibFile;
       }
