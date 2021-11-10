@@ -105,7 +105,7 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
   public void rafraichirPgej(){
     remove(pgejContainer);
     pgej = new FPanelGEtiquetteJoueur(gej);
-    pgejContainer = new FPanelScrollBar(pgej);
+    pgejContainer.setSubPanel(pgej);
     add(pgejContainer);
   }
   // GET SET -------------------------------------------------------------------
