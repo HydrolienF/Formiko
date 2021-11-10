@@ -5,8 +5,10 @@ import de.jcm.discordgamesdk.CreateParams;
 import de.jcm.discordgamesdk.activity.Activity;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.usuel.erreur;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -25,7 +27,7 @@ public class DiscordIntegration {
       discordLibrary = downloadDiscordLibrary();
     }catch (IOException e) {}
 		if(discordLibrary == null){
-			System.err.println("Error downloading Discord SDK.");
+			erreur.erreur("Error downloading Discord SDK");
 			return;
 		}
 		// Initialize the Core
@@ -111,6 +113,7 @@ public class DiscordIntegration {
 
     // Search for the right file inside the ZIP
     ZipEntry entry;
+    erreur.info("downloading Discord Intergration file");
     while((entry = zin.getNextEntry())!=null){
       if(entry.getName().equals(zipPath)){
         // Copy the file in the ZIP to our temporary file
@@ -119,6 +122,15 @@ public class DiscordIntegration {
         zin.close();
         // Return our temporary file
         erreur.info("download Discord Intergration file done");
+        if(os.isLinux()){
+          //TODO #484 fix Error gio: discord:///library/826437546024108077/launch: L’emplacement indiqué n’est pas pris en charge
+          //https://github.com/NathaanTFM/discord-game-sdk-python/issues/3
+          return null;
+          // File f2 = new File(Main.getFolder().getFolderTemporary()+name);
+          // Files.copy(discordLibFile.toPath(), new FileOutputStream(f2));
+          // discordLibFile.delete();
+          // discordLibFile = f2;
+        }
         return discordLibFile;
       }
       // next entry
@@ -126,6 +138,7 @@ public class DiscordIntegration {
     }
     zin.close();
     // We couldn't find the library inside the ZIP
+    erreur.alerte("download Discord Intergration faild");
     return null;
   }
 }
