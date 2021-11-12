@@ -18,8 +18,8 @@ public class BoutonLong extends FButton implements MouseListener {
   // CONSTRUCTORS --------------------------------------------------------------
   public BoutonLong(String nameTemp, FPanel p, int action){
     super(stripAccentIfNeed(nameTemp),p,action);
-    this.setPreferredSize(new Dimension(xBL,yBL));
-    this.setFont(Main.getFont2());
+    setPreferredSize(new Dimension(xBL,yBL));
+    setFont(Main.getFont2());
     //this.setBackground(Color.BLUE); //couleur non visible.
     //this.setForeground(Color.RED); //couleur du texte et des contours
   }
@@ -34,8 +34,7 @@ public class BoutonLong extends FButton implements MouseListener {
   private static String stripAccentIfNeed(String nameTemp){
     if(Main.getOp().getFontTitlePersonalised()){
       return str.stripAccents(nameTemp);
-    }else{
-      return nameTemp;
     }
+    return nameTemp;
   }
 }
