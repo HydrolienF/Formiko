@@ -41,6 +41,9 @@
 import javax.swing.*;
 import javax.swing.text.*;
 
+import java.io.File;
+import java.text.Normalizer;
+
 import java.awt.*;              //for layout managers and more
 import java.awt.event.*;        //for action events
 
@@ -109,13 +112,31 @@ public class TextSamplerDemo extends JPanel
                                 BorderFactory.createEmptyBorder(5,5,5,5)));
 
         //Create a text area.
-        JTextArea textArea = new JTextArea(
-                "This is an editable JTextArea. " +
-                "A text area is a \"plain\" text component, " +
-                "which means that although it can display text " +
-                "in any font, all of the text is in the same font."
-        );
-        textArea.setFont(new Font("Serif", Font.ITALIC, 16));
+        String s = "This is an editable JTextAréa. " +
+        "A text area is a \"plain\" text component, " +
+        "which means that although it can display text " +
+        "in any font, all of the text is in the same font." +
+        "âàùĉ. ";
+        s=stripAccents(s);
+        JTextArea textArea = new JTextArea(s);
+        // textArea.setFont(new Font("Serif", Font.ITALIC, 16));
+        Font font = null;
+        try {
+          GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+          font = Font.createFont(Font.TRUETYPE_FONT, new File("Insektofobiya/Insektofobiya.otf"));
+          ge.registerFont(font);
+          textArea.setFont(font);
+          font = new Font("Insektofobiya", Font.PLAIN, 16);
+          // System.out.println(font);
+          // Font font2 = new Font("Serif", Font.PLAIN, 16);
+          // font2 = font2.deriveFont(font.getAttributes());
+          // font = font2;
+        }catch (Exception e) {
+          System.out.println("fail");
+          e.printStackTrace();
+          font = new Font("Serif", Font.ITALIC, 16);
+        }
+        textArea.setFont(font);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
         JScrollPane areaScrollPane = new JScrollPane(textArea);
@@ -346,5 +367,12 @@ public class TextSamplerDemo extends JPanel
                 createAndShowGUI();
             }
         });
+    }
+
+
+    public static String stripAccents(String s) {
+      s = Normalizer.normalize(s, Normalizer.Form.NFD);
+      s = s.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+      return s;
     }
 }
