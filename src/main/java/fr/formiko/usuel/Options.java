@@ -4,6 +4,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.types.str;
 
 import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
@@ -69,6 +70,7 @@ public class Options implements Serializable{
   private int gui_global_fontSizeTitle;
   private String gui_global_fontText;
   private String gui_global_fontTitle;
+  private boolean gui_global_fontTitlePersonalised;
   private boolean gui_global_fullscreen;
   private int gui_global_frameWidth;
   private int gui_global_frameHeight;
@@ -203,6 +205,8 @@ public class Options implements Serializable{
   public void setEndTurnAuto(boolean b){game_endTurnAuto=b;}
   public boolean getAnimationEnable(){return gui_global_animationEnable;}
   public void setAnimationEnable(boolean b){gui_global_animationEnable=b;}
+  public boolean getFontTitlePersonalised(){return gui_global_fontTitlePersonalised;}
+  public void setFontTitlePersonalised(boolean b){gui_global_fontTitlePersonalised=b;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize Options.}<br>
@@ -217,14 +221,27 @@ public class Options implements Serializable{
   /**
   *{@summary Save Options.}<br>
   *It load properties from data of Options.java, transform it to properties &#38; then destory properties.
-  *@version 1.34
+  *@param threaded true if we can do the save in an other tread
+  *@version 2.11
   */
-  public void saveOptions(){
-    new Thread(() -> {
-      optionToProperties(); // transform Options into properties.
-      saveProperties();
-      properties=null; //destory properties to save memory.
-    }).start();
+  public void saveOptions(boolean threaded){
+    if(threaded){
+      new Thread(() -> {
+        saveOp();
+      }).start();
+    }else{
+      saveOp();
+    }
+  }
+  public void saveOptions(){saveOptions(true);}
+  /**
+  *{@summary Save Options.}<br>
+  *@version 2.11
+  */
+  private void saveOp(){
+    optionToProperties(); // transform Options into properties.
+    saveProperties();
+    properties=null; //destory properties to save memory.
   }
 
   //private functions ----------------------------------------------------------
@@ -314,7 +331,8 @@ public class Options implements Serializable{
     defaultProperties.setProperty("gui_global_fontSizeText",""+(int)(30*racio));
     defaultProperties.setProperty("gui_global_fontSizeTitle",""+(int)(60*racio));
     defaultProperties.setProperty("gui_global_fontText","Default");
-    defaultProperties.setProperty("gui_global_fontTitle","Default");
+    defaultProperties.setProperty("gui_global_fontTitle","Insektofobiya");
+    defaultProperties.setProperty("gui_global_fontTitlePersonalised","true");
     defaultProperties.setProperty("gui_global_fps","60");
     defaultProperties.setProperty("gui_global_frameHeight",""+he);
     defaultProperties.setProperty("gui_global_frameWidth",""+wi);
@@ -397,6 +415,7 @@ public class Options implements Serializable{
     gui_global_fontSizeTitle=str.sToI(properties.getProperty("gui_global_fontSizeTitle"));
     gui_global_fontText=properties.getProperty("gui_global_fontText");
     gui_global_fontTitle=properties.getProperty("gui_global_fontTitle");
+    gui_global_fontTitlePersonalised=str.sToB(properties.getProperty("gui_global_fontTitlePersonalised"));
     gui_global_fps=str.sToI(properties.getProperty("gui_global_fps"));
     gui_global_frameHeight=str.sToI(properties.getProperty("gui_global_frameHeight"));
     gui_global_frameWidth=str.sToI(properties.getProperty("gui_global_frameWidth"));
@@ -431,7 +450,18 @@ public class Options implements Serializable{
     sounds_soundVolume=str.sToBy(properties.getProperty("sounds_soundVolume"));
 
     font1=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeText);
-    font2=new Font(gui_global_fontTitle, Font.BOLD, gui_global_fontSizeTitle);
+    if (gui_global_fontTitlePersonalised) {
+      try {
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        Font fontTemp = Font.createFont(Font.TRUETYPE_FONT, new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"Insektofobiya/Insektofobiya.otf"));
+        ge.registerFont(fontTemp);
+        font2=new Font(gui_global_fontTitle, Font.BOLD, gui_global_fontSizeTitle);
+      }catch (Exception e) {
+        erreur.alerte("fail to set font for title");
+        e.printStackTrace();
+        font2=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeTitle);
+      }
+    }
   }
   /**
   *{@summary tranform properties into Options var.}<br>
@@ -456,7 +486,8 @@ public class Options implements Serializable{
     properties.setProperty("gui_global_fontSizeText",""+gui_global_fontSizeText);
     properties.setProperty("gui_global_fontSizeTitle",""+gui_global_fontSizeTitle);
     properties.setProperty("gui_global_fontText",""+gui_global_fontText);
-    properties.setProperty("gui_global_fontTitle",""+gui_global_fontTitle);
+    properties.setProperty("gui_global_fontTitle",gui_global_fontTitle);
+    properties.setProperty("gui_global_fontTitlePersonalised",""+gui_global_fontTitlePersonalised);
     properties.setProperty("gui_global_fps",""+gui_global_fps);
     properties.setProperty("gui_global_frameHeight",""+gui_global_frameHeight);
     properties.setProperty("gui_global_frameWidth",""+gui_global_frameWidth);

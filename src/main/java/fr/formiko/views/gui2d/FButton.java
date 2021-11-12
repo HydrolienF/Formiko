@@ -83,7 +83,7 @@ public class FButton extends JButton implements MouseListener {
   }
   // GET SET -------------------------------------------------------------------
   public String getNom(){ return nom;}
-  public void setNom(String s){nom=s;debug.débogage("le nom a été changé pour "+s);}
+  public void setNom(String s){nom=s;}
   public int getActionB(){ return action;}
   public void setActionB(int x){action =x; }
   public void setBordure(boolean b){bordure=b;}

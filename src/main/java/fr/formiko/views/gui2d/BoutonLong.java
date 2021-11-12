@@ -4,6 +4,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.types.str;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -15,8 +16,8 @@ public class BoutonLong extends FButton implements MouseListener {
   private static int xBL; private static int yBL;
   //private static Color col = new Color(200,200,200,0);
   // CONSTRUCTORS --------------------------------------------------------------
-  public BoutonLong(String str, FPanel p, int action){
-    super(str,p,action);
+  public BoutonLong(String nameTemp, FPanel p, int action){
+    super(stripAccentIfNeed(nameTemp),p,action);
     this.setPreferredSize(new Dimension(xBL,yBL));
     this.setFont(Main.getFont2());
     //this.setBackground(Color.BLUE); //couleur non visible.
@@ -27,6 +28,14 @@ public class BoutonLong extends FButton implements MouseListener {
   public static void setXBL(int x){xBL=x;}
   public static int getYBL(){ return yBL;}
   public static void setYBL(int y){yBL=y;}
+  @Override
+  public void setNom(String s){super.setNom(stripAccentIfNeed(s));}
   // FUNCTIONS -----------------------------------------------------------------
-
+  private static String stripAccentIfNeed(String nameTemp){
+    if(Main.getOp().getFontTitlePersonalised()){
+      return str.stripAccents(nameTemp);
+    }else{
+      return nameTemp;
+    }
+  }
 }
