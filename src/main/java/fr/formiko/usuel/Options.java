@@ -477,7 +477,7 @@ public class Options implements Serializable{
     properties.setProperty("debug_performance",""+debug_performance);
     properties.setProperty("game_endTurnAuto",""+game_endTurnAuto);
     properties.setProperty("game_forceQuit",""+game_forceQuit);
-    properties.setProperty("game_language",""+game_language);
+    properties.setProperty("game_language",chargerLesTraductions.getLanguageAsString(game_language));
     properties.setProperty("game_pseudo",""+game_pseudo);
     properties.setProperty("game_whaitBeforeLaunchGame",""+game_whaitBeforeLaunchGame);
     properties.setProperty("gui_global_animationEnable",""+gui_global_animationEnable);

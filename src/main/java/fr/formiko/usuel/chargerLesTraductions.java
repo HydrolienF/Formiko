@@ -59,6 +59,8 @@ public class chargerLesTraductions {
     }
     return getDefautlLanguage();
   }
+  public static String getLanguageAsString(int x){return getLanguage(x);}
+  public static String getLanguageAsString(String x){return x;}
   /**
   *Return defaultLanguage if it is aviable or -1.
   *@version 1.37
