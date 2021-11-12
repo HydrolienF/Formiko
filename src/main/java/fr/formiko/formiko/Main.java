@@ -186,7 +186,7 @@ public class Main {
   public static Fourmiliere getFourmiliereParId(int id){ return getJoueurParId(id).getFere();}
   public static FFrame getF(){ try {return ((ViewGUI2d)view).getF();} catch (Exception e) {return null;}}
   public static Options getOp(){if(op!=null){return op;}else{if(tempOp==null){tempOp = Options.newDefaultOptions();} return tempOp;}}
-  public static void saveOp(){if(op!=null){op.saveOptions();}}
+  public static void saveOp(boolean threaded){if(op!=null){op.saveOptions(threaded);}}
   public static Chrono getCh(){ return ch;}
   public static int getKey(String clé){ return key.get(clé); }
   public static Partie getPartie(){ return pa;}
@@ -426,7 +426,7 @@ public class Main {
       startCh();
       if(getKeepFilesRotated()){image.clearPartielTemporaire();}
       else{image.clearTemporaire();}
-      saveOp();
+      saveOp(false);
       endCh("vidageDesFichiersImages");
       String s = "toutes les opérations longues ";
       debug.performances("temps pour "+ s + " : "+lonTotal+" ms");
