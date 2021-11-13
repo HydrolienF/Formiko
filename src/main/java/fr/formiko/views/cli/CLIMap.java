@@ -88,9 +88,9 @@ public class CLIMap{
   *@version 1.38
   */
   //public only for test
-  public static String objetSurCarteAIdToString(ObjetSurCarteAId o){
+  public static String objetSurCarteAIdToString(ObjetSurCarteAId o, boolean colored){
     String s="";
-    boolean b = true;
+    boolean b = colored;
     if(o instanceof Insecte){
       if(b){s+=getColorAllyStatus((Creature)o);} s+="I"; s+=o.getId(); if(b){s+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();}
     }else if(o instanceof Graine){
@@ -104,6 +104,7 @@ public class CLIMap{
     }
     return s;
   }
+  public static String objetSurCarteAIdToString(ObjetSurCarteAId o){return objetSurCarteAIdToString(o,true);}
   /**
   *{@summary Return the legend as a String.}<br>
   *Legend can be empty or can have line that look like this "A : F1, 5, G12 \n B : 8, 3 etc."<br>
@@ -209,6 +210,7 @@ public class CLIMap{
     //if case need to be hide :
     if(Main.getPartie().getCarte().getCasesNuageuses()==true && caseNuageuse){
       while (sr.length()<sizeCase+unseeableChar){sr = sr + "■";}
+      return sr;
     }else if(Main.getPartie().getCarte().getCasesSombres()==true && caseSombre){
       if(contenu.getFere() != null){
         sr = "F"+contenu.getFere().getId();
@@ -245,7 +247,9 @@ public class CLIMap{
         unseeableChar=0;
       }
     }
-    sr+=caseColor(contenu);
+    if(sr.length()<sizeCase+unseeableChar){
+      sr+=caseColor(contenu);
+    }
     while (sr.length()<sizeCase+unseeableChar){sr = sr + " ";}
     sr+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();
     return sr;

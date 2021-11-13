@@ -3,10 +3,6 @@ package fr.formiko.usuel;
 import fr.formiko.usuel.types.str;
 
 public class ascii{
-  /*public static int ascii(char c){
-    int x = Character.toInt(c);
-    return x;
-  }*/
   public static char asciiToA(int x){
     char c = (char) x;
     return c;
@@ -37,5 +33,17 @@ public class ascii{
       }*/
     }
     return  sr;
+  }
+  /**
+  *{@summary Transform into an ascii String.}
+  *@version 2.11
+  */
+  public static String stringToAscii(String s){
+    String sr="";
+    for (char c : s.toCharArray()) {
+      sr+=aToAscii(c)+" ";
+    }
+    sr+="/n";
+    return sr;
   }
 }

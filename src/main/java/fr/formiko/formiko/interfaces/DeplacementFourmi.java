@@ -46,7 +46,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
   public void unMouvement(Creature c, CCase p){
     debug.débogage("Le déplacement de la Creature "+c.getId()+" vien de DeplacementDUneFourmi avec CCase");
     this.c = c;
-    int direction = getDirection(c.getCCase().getContent(),p.getContent());
+    int direction = MapPath.getDirection(c.getCCase().getContent(),p.getContent());
     unMouvementVolontaire(direction);
   }
   /**
@@ -80,38 +80,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
 
 
   // COMMENT SONT EXECUTE LES MOUVEMENTS :
-  /**
-   *{@summary getDirection to use to move to c.}<br>
-   *@param a Actual Case.
-   *@param c Target Case.
-   *@return the direction to go to c (from a).
-   *@version 2.4
-   */
-  public static int getDirection(Case a, Case c) {
-    return getDirection(a.getPoint(), c.getPoint());
-  }
-  /**
-   *{@summary getDirection to use to move to c.}<br>
-   *@param a Actual Point.
-   *@param c Target Point.
-   *@return the direction to go to c (from a).
-   *@version 2.4
-   */
-  public static int getDirection(Point a, Point c) {
-    if (a.getX()>c.getX()){ // 1,4,7
-      if (a.getY()>c.getY()){return 1;}
-      if (a.getY()==c.getY()){return 4;}
-      return 7;
-    }else if(a.getX()<c.getX()){//3,6,9
-      if (a.getY()>c.getY()){return 3;}
-      if (a.getY()==c.getY()){return 6;}
-      return 9;
-    }else{//2,5,8
-      if (a.getY()>c.getY()){return 2;}
-      if (a.getY()==c.getY()){return 5;}
-      return 8;
-    }
-  }
+
   /**
    *{@summary make a random moove.}<br>
    *@version 1.3
@@ -137,7 +106,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     if (unPas(direction)){ // si on a bien bougé
       debug.débogage("La Fourmie " + c.getId() +" a fait un mouvement volontaire dans la direction "+ direction);
     } else { // Sinon
-      //erreur.alerte("La Fourmie " + id +" n'as pas réussi a faire un unMouvementVolontaire vers" + p.getPoint(),"Fourmi.unMouvementVolontaire");
+      //erreur.alerte("La Fourmi " + id +" n'as pas réussi a faire un unMouvementVolontaire vers" + p.getPoint(),"Fourmi.unMouvementVolontaire");
       unMouvementAlléa();
     }
     setActionMoinsDéplacement();

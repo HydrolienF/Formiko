@@ -63,6 +63,7 @@ public class Case implements Serializable{
   public byte getType(){ return type;}
   public void setType(byte x){type = x; if(type==3 || type<0){setFoodInsecteMax((byte)0); setFoodInsecteParTour((byte)0);}}
   public void setType(int x){setType((byte)x);}
+  public boolean canReachCase(){return getType()>-1;}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     boolean caseSombre = false;
