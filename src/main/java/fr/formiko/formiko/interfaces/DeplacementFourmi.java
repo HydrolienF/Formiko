@@ -119,8 +119,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
    *@version 1.3
    */
   private void setActionMoinsDéplacement(){
-    if(!(c instanceof Fourmi)){ c.setActionMoins(10); return;}
-    c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuByType(((Fourmi) c).getTypeF()).getCoutDéplacement());
+    c.setActionMoins(c.getMovingCost());
   }
   /**
    *{@summary Move to a next Case.}<br>

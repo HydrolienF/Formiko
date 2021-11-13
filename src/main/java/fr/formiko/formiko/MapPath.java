@@ -19,6 +19,7 @@ public class MapPath {
   */
   public MapPath(CCase from, CCase to){
     path = new Liste<CCase>();
+    movingCaseByTurn = new Liste<Integer>();
     addPath(from,to);
   }
   // GET SET -------------------------------------------------------------------
@@ -34,6 +35,12 @@ public class MapPath {
     for (CCase cc : path) {
       if(!s.equals("")){s+=" ";}
       s+=cc.getContent().getPoint().toString();
+    }
+    if(!movingCaseByTurn.isEmpty()){
+      s+=" ";
+      for (Integer i : movingCaseByTurn) {
+        s+=" "+i;
+      }
     }
     return s;
   }
@@ -60,6 +67,25 @@ public class MapPath {
   public void addToPath(CCase cc){
     if(path.isEmpty() || !path.getLast().equals(cc)){ //to avoid to add an element that is already the last one in path.
       path.addTail(cc);
+    }
+  }
+  public void updateMovingCaseByTurn(Creature c){
+    movingCaseByTurn = new Liste<Integer>();
+    int action = c.getAction();
+    int addAction = c.getMaxAction();
+    int costAction = c.getMovingCost();
+    int k=0;
+    for (CCase cc : path) {
+      action-=costAction;
+      k++;
+      if(action<1){
+        movingCaseByTurn.add(k);
+        action+=addAction;
+        k=0;
+      }
+    }
+    if(k!=0){
+      movingCaseByTurn.add(k);
     }
   }
 

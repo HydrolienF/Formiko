@@ -249,6 +249,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public int getStateHealth(){
     return 0;
   }
+  public int getMovingCost(){return 10;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Return a description of the creature.}

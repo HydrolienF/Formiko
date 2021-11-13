@@ -46,7 +46,7 @@ public class Individu implements Serializable{
   public int getMaxFood(int i){ return tMaxFood[i];}
   public int getMaxFood(){ return getMaxFood(3);}
 
-  public byte getCoutDéplacement(){ return tCoutAction[0];}
+  public byte getMovingCost(){ return tCoutAction[0];}
   public byte getCoutChasse(){ return tCoutAction[1];}
   public byte getCoutPondre(){ return tCoutAction[2];}
   public byte getCoutNétoyer(){ return tCoutAction[3];}
