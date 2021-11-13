@@ -30,6 +30,7 @@ public class Options implements Serializable{
   private byte game_language; // 0=eo; 1=fr; 2=en;
   private String game_pseudo;
   private boolean game_whaitBeforeLaunchGame;
+  private boolean game_discordRP;
 
   //partie options
   private boolean partie_autoCleaning;
@@ -167,6 +168,8 @@ public class Options implements Serializable{
   public void setKeepFilesRotated(boolean b){gui_hide_keepFilesRotated=b;}
   public boolean getWhaitBeforeLaunchGame(){ return game_whaitBeforeLaunchGame;}
   public void setWhaitBeforeLaunchGame(boolean b){game_whaitBeforeLaunchGame=b;}
+  public boolean getDiscordRP(){ return game_discordRP;}
+  public void setDiscordRP(boolean b){game_discordRP=b;}
   public boolean getMessage(){return debug_message;}
   public void setMessage(boolean b){debug_message=b;}
   public boolean getPerformance(){return debug_performance;}
@@ -325,6 +328,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("game_language",Locale.getDefault().getLanguage());
     defaultProperties.setProperty("game_pseudo","");
     defaultProperties.setProperty("game_whaitBeforeLaunchGame","true");
+    defaultProperties.setProperty("game_discordRP","false");
     defaultProperties.setProperty("gui_global_animationEnable","true");
     defaultProperties.setProperty("gui_global_borderButtonSize","4");
     defaultProperties.setProperty("gui_global_buttonSizeAction",""+t[1]);
@@ -408,6 +412,7 @@ public class Options implements Serializable{
     game_forceQuit=str.sToB(properties.getProperty("game_forceQuit"));
     game_pseudo=properties.getProperty("game_pseudo");
     game_whaitBeforeLaunchGame=str.sToB(properties.getProperty("game_whaitBeforeLaunchGame"));
+    game_discordRP=str.sToB(properties.getProperty("game_discordRP"));
     gui_global_animationEnable=str.sToB(properties.getProperty("gui_global_animationEnable"));
     gui_global_borderButtonSize=str.sToBy(properties.getProperty("gui_global_borderButtonSize"));
     gui_global_buttonSizeAction=str.sToBy(properties.getProperty("gui_global_buttonSizeAction"));
@@ -480,6 +485,7 @@ public class Options implements Serializable{
     properties.setProperty("game_language",chargerLesTraductions.getLanguageAsString(game_language));
     properties.setProperty("game_pseudo",""+game_pseudo);
     properties.setProperty("game_whaitBeforeLaunchGame",""+game_whaitBeforeLaunchGame);
+    properties.setProperty("game_discordRP",""+game_discordRP);
     properties.setProperty("gui_global_animationEnable",""+gui_global_animationEnable);
     properties.setProperty("gui_global_borderButtonSize",""+gui_global_borderButtonSize);
     properties.setProperty("gui_global_buttonSizeAction",""+gui_global_buttonSizeAction);
