@@ -1,6 +1,7 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.usuel.Point;
 import fr.formiko.usuel.ascii;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.decoderUnFichier;
@@ -159,10 +160,30 @@ public class CCase implements Serializable{
     }catch (Exception e) {}
     return gir;
   }
-  public int getDirection(CCase cc){
-    if (cc==null){ return 5;}
-    int x = this.getContent().getX() - cc.getContent().getX();
-    int y = this.getContent().getY() - cc.getContent().getY();
+  /**
+  *{@summary return a direction by using this &#38; an other CCase to reach.}
+  *@version 2.11
+  */
+  public int getDirection(CCase to){
+    if (to==null){ return 5;}
+    int x = this.getContent().getX() - to.getContent().getX();
+    int y = this.getContent().getY() - to.getContent().getY();
+    return getDirectionFromXY(x,y);
+  }
+  /**
+  *{@summary return a direction by using 2 Point.}
+  *@version 2.11
+  */
+  public static int getDirection(Point from, Point to){
+    int x = from.getX() - to.getX();
+    int y = from.getY() - to.getY();
+    return getDirectionFromXY(x,y);
+  }
+  /**
+  *{@summary return a direction by using difference in x &#38; in y.}
+  *@version 2.11
+  */
+  private static int getDirectionFromXY(int x, int y){
     //int xabs = valAbs(x); int yabs = valAbs(y); on pourrait utiliser ces données pour aller parfois juste en x parfois juste en y lorsque le trajet n'est pas conplètement en diagonale. (cad lorsque xabs == yabs)
     // x est négatif si le point ou l'on veux ce rendre est plus a droite.
     // y est négatif si le point ou l'on veux ce rendre est plus bas.
@@ -267,7 +288,7 @@ public class CCase implements Serializable{
     }
   }
   public void afficheLigne(){
-    contenu.afficheToi();
+    System.out.println(contenu);
     if (droite != null){
       droite.afficheLigne();
     }

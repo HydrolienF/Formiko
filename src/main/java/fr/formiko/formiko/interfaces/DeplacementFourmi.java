@@ -46,7 +46,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
   public void unMouvement(Creature c, CCase p){
     debug.débogage("Le déplacement de la Creature "+c.getId()+" vien de DeplacementDUneFourmi avec CCase");
     this.c = c;
-    int direction = MapPath.getDirection(c.getCCase().getContent(),p.getContent());
+    int direction = c.getCCase().getDirection(p);
     unMouvementVolontaire(direction);
   }
   /**
@@ -128,24 +128,8 @@ public class DeplacementFourmi implements Serializable, Deplacement{
    */
   private boolean unPas(int d){
     c.setDirection(d);
-    if(d==5){ return true;}
-    if(d==2){ return unPas(c.getCCase().getHaut());}
-    if(d==6){ return unPas(c.getCCase().getDroite());}
-    if(d==8){ return unPas(c.getCCase().getBas());}
-    if(d==4){ return unPas(c.getCCase().getGauche());}
-    // les plus compliqué :
-    if (d==1){ CCase cc = c.getCCase().getHaut();
-      if(cc != null){ return unPas(cc.getGauche());} return false;
-    }
-    if (d==3){ CCase cc = c.getCCase().getHaut();
-      if(cc != null){ return unPas(cc.getDroite());} return false;
-    }
-    if (d==7){ CCase cc = c.getCCase().getBas();
-      if(cc != null){ return unPas(cc.getGauche());} return false;
-    }
-    if (d==9){ CCase cc = c.getCCase().getBas();
-      if(cc != null){ return unPas(cc.getDroite());} return false;
-    }
+    CCase cc = MapPath.getNextCCase(c.getCCase(),d);
+    if(cc!=null){return unPas(cc);}
     return false; // le nombre n'était pas correcte
   }
   /**

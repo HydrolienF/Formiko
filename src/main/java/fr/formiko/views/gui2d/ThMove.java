@@ -147,7 +147,7 @@ public class ThMove {
   */
   // @Override
   public void runIni(){
-    o.setDirection(MapPath.getDirection(from, to));
+    o.setDirection(CCase.getDirection(from, to));
     int walkCycle = 2;
     k=120; //should be a mutiple of 2*walkCycle.
     if(Main.getOp().getQuickMovement()){k=20;}

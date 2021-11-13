@@ -93,9 +93,6 @@ public class Case implements Serializable{
     return s;
   }
   public String desc(){return p.toString();}
-  public void afficheToi(){
-    System.out.println(this);
-  }
   public int getNbrDElementSurCase(){
     int xr = 0;
     if (fere != null){ xr=1;}

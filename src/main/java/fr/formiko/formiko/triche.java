@@ -145,7 +145,7 @@ public class triche {
           }
           break;
         case 25:
-          Main.getGc().getCCase(str.sToI(args[1]),str.sToI(args[2])).getContent().afficheToi();
+          System.out.println(Main.getGc().getCCase(str.sToI(args[1]),str.sToI(args[2])).getContent());
           break;
         case 26:
           System.out.println(Main.getGj());

@@ -2,49 +2,110 @@ package fr.formiko.formiko;
 
 import fr.formiko.usuel.Point;
 import fr.formiko.usuel.structures.listes.Liste;
-
+/**
+*{@summary Path for map move.}<br>
+*@version 2.11
+*@author Hydrolien
+*/
 public class MapPath {
   private Liste<CCase> path;
+  private Liste<Integer> movingCaseByTurn; //TODO #229
+  // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor that build the path.}<br>
+  *@param from starting CCase
+  *@param to ending CCase
+  *@version 2.11
+  */
   public MapPath(CCase from, CCase to){
     path = new Liste<CCase>();
     addPath(from,to);
   }
+  // GET SET -------------------------------------------------------------------
+  //public only for test
+  public Liste<CCase> getList(){return path;}
+  // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Strandard toString function.}<br>
+  *@version 2.11
+  */
+  public String toString(){
+    String s="";
+    for (CCase cc : path) {
+      if(!s.equals("")){s+=" ";}
+      s+=cc.getContent().getPoint().toString();
+    }
+    return s;
+  }
+  /**
+  *{@summary Add path CCase by CCase.}<br>
+  *@param from starting CCase
+  *@param to ending CCase
+  *@version 2.11
+  */
   public void addPath(CCase from, CCase to){
     CCase temp = from;
-    path.add(temp);
-
-  }
-
-  /**
-   *{@summary getDirection to use to move to c.}<br>
-   *@param a Actual Case.
-   *@param c Target Case.
-   *@return the direction to go to c (from a).
-   *@version 2.4
-   */
-  public static int getDirection(Case a, Case c) {
-    return getDirection(a.getPoint(), c.getPoint());
-  }
-  /**
-   *{@summary getDirection to use to move to c.}<br>
-   *@param a Actual Point.
-   *@param c Target Point.
-   *@return the direction to go to c (from a).
-   *@version 2.4
-   */
-  public static int getDirection(Point a, Point c) {
-    if (a.getX()>c.getX()){ // 1,4,7
-      if (a.getY()>c.getY()){return 1;}
-      if (a.getY()==c.getY()){return 4;}
-      return 7;
-    }else if(a.getX()<c.getX()){//3,6,9
-      if (a.getY()>c.getY()){return 3;}
-      if (a.getY()==c.getY()){return 6;}
-      return 9;
-    }else{//2,5,8
-      if (a.getY()>c.getY()){return 2;}
-      if (a.getY()==c.getY()){return 5;}
-      return 8;
+    addToPath(temp);
+    while(!temp.equals(to)){
+      temp = getNextCCase(temp,to);
+      addToPath(temp);
     }
+  }
+  /**
+  *{@summary Add a single CCase to the path.}<br>
+  *If CCase is already the last one, it don't add it.
+  *@param cc CCase to add
+  *@version 2.11
+  */
+  public void addToPath(CCase cc){
+    if(path.isEmpty() || !path.getLast().equals(cc)){ //to avoid to add an element that is already the last one in path.
+      path.addTail(cc);
+    }
+  }
+
+
+  //static ---
+  /**
+  *{@summary get the next CCase to go to reach last Case "to".}<br>
+  *@param from starting CCase
+  *@param to target CCase
+  *@version 2.11
+  */
+  public static CCase getNextCCase(CCase from, CCase to){
+    int d = from.getDirection(to);
+    return getNextCCase(from, d);
+  }
+  /**
+  *{@summary get the next CCase to go to reach last Case "to".}<br>
+  *@param from starting CCase
+  *@param d direction where to go
+  *@version 2.11
+  */
+  public static CCase getNextCCase(CCase from, int d){
+    // switch (d) {
+    //   case 5:
+    //   return from;
+    //   case 2:
+    // ...
+    // }
+    if(d==5){ return from;}
+    if(d==2){ return from.getHaut();}
+    if(d==6){ return from.getDroite();}
+    if(d==8){ return from.getBas();}
+    if(d==4){ return from.getGauche();}
+    // more complicated
+    if (d==1){ CCase cc = from.getHaut();
+      if(cc != null){ return cc.getGauche();} return null;
+    }
+    if (d==3){ CCase cc = from.getHaut();
+      if(cc != null){ return cc.getDroite();} return null;
+    }
+    if (d==7){ CCase cc = from.getBas();
+      if(cc != null){ return cc.getGauche();} return null;
+    }
+    if (d==9){ CCase cc = from.getBas();
+      if(cc != null){ return cc.getDroite();} return null;
+    }
+    return null;
   }
 }
