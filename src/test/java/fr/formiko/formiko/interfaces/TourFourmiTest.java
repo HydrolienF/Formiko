@@ -274,12 +274,12 @@ public class TourFourmiTest extends TestCaseMuet{
     assertTrue(f.getAction()<1);
 
     f.setCc(Main.getGc().getCCase(0,0));
-    f.setAction(f.getIndividu().getCoutDéplacement()*2);
+    f.setAction(f.getIndividu().getMovingCost()*2);
     ((TourFourmi)(f.tour)).backHome();
     assertTrue(f.getCCase().equals(Main.getGc().getCCase(2,2)));
 
     f.setCc(Main.getGc().getCCase(0,0));
-    f.setAction(f.getIndividu().getCoutDéplacement()*5);
+    f.setAction(f.getIndividu().getMovingCost()*5);
     ((TourFourmi)(f.tour)).backHome();
     assertTrue(f.getCCase().equals(Main.getGc().getCCase(4,4)));
   }

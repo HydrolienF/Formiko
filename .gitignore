@@ -7,6 +7,7 @@ target/
 # temporary data
 data/temporary/
 data/Options.md
+updateTempData.sh
 
 #eclispe
 .classpath

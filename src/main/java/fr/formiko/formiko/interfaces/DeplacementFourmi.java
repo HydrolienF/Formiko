@@ -29,7 +29,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     this.c = c;
     if (bIa) {
       unMouvementAlléa();
-    } else { // SI c'est un joueur
+    } else { // if it's a player
       CCase cc = Main.getView().getCCase();
       if(cc==null){return;}
       plusieurMouvement(c,cc);
@@ -40,14 +40,25 @@ public class DeplacementFourmi implements Serializable, Deplacement{
    *c will move 1 Case closer to p but maybe p is more than 1 Case longer to c.getCCase()<br>
    *c will move by the unMouvement(c,direction) methode.
    *@param c the moving Creature.
+   *@param p the Case were c want to go.
+   *@version 1.3
+   */
+  public void unMouvement(Creature c, Case p){
+    // debug.débogage("Le déplacement de la Creature "+c.getId()+" vien de DeplacementDUneFourmi avec CCase");
+    this.c = c;
+    int direction = c.getCCase().getDirection(p);
+    unMouvementVolontaire(direction);
+  }
+  /**
+   *{@summary make a move to a defined Case.}<br>
+   *c will move 1 Case closer to p but maybe p is more than 1 Case longer to c.getCCase()<br>
+   *c will move by the unMouvement(c,direction) methode.
+   *@param c the moving Creature.
    *@param p the CCase were c want to go.
    *@version 1.3
    */
-  public void unMouvement(Creature c, CCase p){
-    debug.débogage("Le déplacement de la Creature "+c.getId()+" vien de DeplacementDUneFourmi avec CCase");
-    this.c = c;
-    int direction = getDirection(c.getCCase().getContent(),p.getContent());
-    unMouvementVolontaire(direction);
+  public void unMouvement(Creature c, CCase cc){
+    unMouvement(c, cc.getContent());
   }
   /**
    *{@summary make a moove in a defined direction.}<br>
@@ -80,38 +91,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
 
 
   // COMMENT SONT EXECUTE LES MOUVEMENTS :
-  /**
-   *{@summary getDirection to use to move to c.}<br>
-   *@param a Actual Case.
-   *@param c Target Case.
-   *@return the direction to go to c (from a).
-   *@version 2.4
-   */
-  public static int getDirection(Case a, Case c) {
-    return getDirection(a.getPoint(), c.getPoint());
-  }
-  /**
-   *{@summary getDirection to use to move to c.}<br>
-   *@param a Actual Point.
-   *@param c Target Point.
-   *@return the direction to go to c (from a).
-   *@version 2.4
-   */
-  public static int getDirection(Point a, Point c) {
-    if (a.getX()>c.getX()){ // 1,4,7
-      if (a.getY()>c.getY()){return 1;}
-      if (a.getY()==c.getY()){return 4;}
-      return 7;
-    }else if(a.getX()<c.getX()){//3,6,9
-      if (a.getY()>c.getY()){return 3;}
-      if (a.getY()==c.getY()){return 6;}
-      return 9;
-    }else{//2,5,8
-      if (a.getY()>c.getY()){return 2;}
-      if (a.getY()==c.getY()){return 5;}
-      return 8;
-    }
-  }
+
   /**
    *{@summary make a random moove.}<br>
    *@version 1.3
@@ -137,7 +117,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     if (unPas(direction)){ // si on a bien bougé
       debug.débogage("La Fourmie " + c.getId() +" a fait un mouvement volontaire dans la direction "+ direction);
     } else { // Sinon
-      //erreur.alerte("La Fourmie " + id +" n'as pas réussi a faire un unMouvementVolontaire vers" + p.getPoint(),"Fourmi.unMouvementVolontaire");
+      //erreur.alerte("La Fourmi " + id +" n'as pas réussi a faire un unMouvementVolontaire vers" + p.getPoint(),"Fourmi.unMouvementVolontaire");
       unMouvementAlléa();
     }
     setActionMoinsDéplacement();
@@ -150,8 +130,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
    *@version 1.3
    */
   private void setActionMoinsDéplacement(){
-    if(!(c instanceof Fourmi)){ c.setActionMoins(10); return;}
-    c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuByType(((Fourmi) c).getTypeF()).getCoutDéplacement());
+    c.setActionMoins(c.getMovingCost());
   }
   /**
    *{@summary Move to a next Case.}<br>
@@ -159,24 +138,8 @@ public class DeplacementFourmi implements Serializable, Deplacement{
    */
   private boolean unPas(int d){
     c.setDirection(d);
-    if(d==5){ return true;}
-    if(d==2){ return unPas(c.getCCase().getHaut());}
-    if(d==6){ return unPas(c.getCCase().getDroite());}
-    if(d==8){ return unPas(c.getCCase().getBas());}
-    if(d==4){ return unPas(c.getCCase().getGauche());}
-    // les plus compliqué :
-    if (d==1){ CCase cc = c.getCCase().getHaut();
-      if(cc != null){ return unPas(cc.getGauche());} return false;
-    }
-    if (d==3){ CCase cc = c.getCCase().getHaut();
-      if(cc != null){ return unPas(cc.getDroite());} return false;
-    }
-    if (d==7){ CCase cc = c.getCCase().getBas();
-      if(cc != null){ return unPas(cc.getGauche());} return false;
-    }
-    if (d==9){ CCase cc = c.getCCase().getBas();
-      if(cc != null){ return unPas(cc.getDroite());} return false;
-    }
+    CCase cc = MapPath.getNextCCase(c.getCCase(),d);
+    if(cc!=null){return unPas(cc);}
     return false; // le nombre n'était pas correcte
   }
   /**

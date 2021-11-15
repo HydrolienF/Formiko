@@ -47,7 +47,7 @@ public class EvoluerFourmi implements Serializable, Evoluer{
       if(f.getTypeF()<2){f.setCutWings(false);}//si c'est une fourmi ailé qui est désormais imago.
       //TODO add la capacité de voler
       if (in.getCoutPondre() != -1) { f.pondre = new PondreReine(); }
-      if (in.getCoutDéplacement() != -1) { f.déplacement = new DeplacementFourmi();}
+      if (in.getMovingCost() != -1) { f.déplacement = new DeplacementFourmi();}
       if (in.getCoutChasse()!=-1) {
         if(f.getEspece().getInsectivore()){
           f.chasse = new ChasseInsectivore();

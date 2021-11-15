@@ -17,11 +17,24 @@ import java.util.Locale;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+/**
+*{@summary A discord intergration to have rich presence on discord app.}
+*@version 2.10
+*@author Hydrolien
+*/
 public class DiscordIntegration {
   private static Activity activity;
   private static Core core;
   private static CreateParams params;
+  private static boolean needToUpdateActivity=false;
+
+  public static void setNeedToUpdateActivity(boolean b){needToUpdateActivity=b;}
+  /**
+  *{@summary Main function to launch the discord rich presence.}
+  *@version 2.10
+  */
   public static void discordRPC() {
+    if(!Main.getOp().getDiscordRP()){return;}
     File discordLibrary = null;
     try {
       discordLibrary = downloadDiscordLibrary();
@@ -55,16 +68,19 @@ public class DiscordIntegration {
     // activity.secrets().setJoinSecret("Join!");
 
 		// Finally, update the current activity to our activity
+
     updateActivity();
 
 		// Run callbacks forever
     while(true){
       core.runCallbacks();
       Temps.pause(100);
+      if(needToUpdateActivity){updateActivity();}
     }
 	}
 
-  public static void updateActivity(){
+  private static void updateActivity(){
+    needToUpdateActivity=false;
     if(activity!=null){
       try {
         activity.setState(Main.getFolder().getCurentVersion());
@@ -85,7 +101,10 @@ public class DiscordIntegration {
       }
     }
   }
-
+  /**
+  *{@summary Dowload library depending of the OS.}
+  *@version 2.10
+  */
   public static File downloadDiscordLibrary() throws IOException {
     // Find out which name Discord's library has (.dll for Windows, .so for Linux, .dylib for mac)
     String name = "discord_game_sdk";

@@ -3,15 +3,16 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.CGraine;
 import fr.formiko.formiko.Case;
+import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.GCreature;
-import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.MapPath;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.usuel.Point;
 import fr.formiko.usuel.Point;
@@ -64,6 +65,7 @@ public class FPanelCarte extends FPanel {
   private static Comparator<Creature> imageSizeComparator = (Creature p1, Creature p2) -> (int)(p1.getEspece().getTaille(p1.getStade()) - p2.getEspece().getTaille(p2.getStade()));
   private BufferedImage iconImage;
   private BufferedImage tBiState []=null;
+  private int TRANSPARENCY = 180;
 
   // CONSTRUCTORS --------------------------------------------------------------
   public FPanelCarte(){
@@ -164,6 +166,9 @@ public class FPanelCarte extends FPanel {
         }
       }
       drawPlayingAnt(g);
+      if(getView().getMoveMode()){
+        drawMovingPath(g);
+      }
     }catch (Exception e) {
       erreur.erreur("Quelque chose d'imprévu est arrivé lors de l'affichage de FPanelCarte");
     }
@@ -234,9 +239,142 @@ public class FPanelCarte extends FPanel {
   private void drawPlayingAnt(Graphics g){
     Fourmi playingAnt = Main.getPlayingAnt();
     if(playingAnt!=null && !playingAnt.getIa()){
-      Case c = playingAnt.getCCase().getContent();
-      drawImage(g,Main.getData().getSelectionnee(),(c.getX())*getTailleDUneCase(),(c.getY())*getTailleDUneCase());
+      CCase cc = playingAnt.getCCase();
+      drawCircle(g, cc, Main.getData().getButtonColor(0));
+      // drawImage(g,Main.getData().getSelectionnee(),(c.getX())*getTailleDUneCase(),(c.getY())*getTailleDUneCase());
     }
+  }
+  /**
+  *{@summary Draw the path from playingAnt to the looked case.}<br>
+  *@version 2.11
+  */
+  private void drawMovingPath(Graphics g){
+    CCase to = getLookedCCase();
+    CCase from = Main.getPlayingAnt().getCCase();
+    if(from.equals(to)){return;}
+    MapPath mp = new MapPath(from, to);
+    mp.updateMovingCaseByTurn(Main.getPlayingAnt());
+    Liste<Integer> li = mp.getMovingCaseByTurn();
+    int k=li.pop();
+    int turnCount=0;
+    CCase last=null;
+    boolean drawOnLast = false;
+    for (CCase cc : mp.getList()) {
+      if(k<1){
+        if(!li.isEmpty()){
+          turnCount++;
+          k=li.pop();
+          drawWhiteLine(g, last, cc, true, false);
+          drawWhiteCircle(g, cc, turnCount);
+        }
+        drawOnLast=false;
+      }else{
+        if(cc.equals(to)){
+          turnCount++;
+          drawWhiteLine(g, last, cc, drawOnLast, false);
+          drawWhiteCircle(g, cc, turnCount);
+        }else{
+          if(last!=null){
+            drawWhiteLine(g, last, cc, drawOnLast, true);
+          }
+        }
+        if(last!=null){
+          drawOnLast=true;
+        }
+      }
+      last=cc;
+      k--;
+    }
+  }
+  /**
+  *{@summary Draw a white circle on giving Case.}<br>
+  *@param g graphics where to draw
+  *@param cc CCase where to draw
+  *@version 2.11
+  */
+  private void drawWhiteCircle(Graphics g, CCase cc, int toPrint){
+    drawCircle(g, cc, Color.WHITE);
+    int tc=getTailleDUneCase();
+    g.setFont(g.getFont().deriveFont((float)(tc*0.8)));
+    g.drawString(""+toPrint, (int)((cc.getX()+0.25)*tc),(int)((cc.getY()+0.75)*tc));
+    // g.drawString(""+toPrint, cc.getX()*tc,cc.getY()*tc);
+  }
+  /**
+  *{@summary Draw a colored circle on a giving Case.}<br>
+  *@param g graphics where to draw
+  *@param cc CCase where to draw
+  *@param col Color to use
+  *@version 2.11
+  */
+  private void drawCircle(Graphics g, CCase cc, Color col){
+    int tc=getTailleDUneCase();
+    int x=cc.getX()*tc;
+    int y=cc.getY()*tc;
+    col = new Color(col.getRed(), col.getGreen(), col.getBlue(), TRANSPARENCY);
+    if(g instanceof Graphics2D){
+      Graphics2D g2d = (Graphics2D)g;
+      g2d.setColor(col);
+      BasicStroke line = new BasicStroke(math.min(Main.getTailleElementGraphique(15),tc/2));
+      g2d.setStroke(line);
+      g2d.drawOval(x,y,tc,tc);
+    }
+  }
+  /**
+  *{@summary Draw a white line on giving Case.}<br>
+  *@param g graphics where to draw
+  *@param from CCase where to start draw
+  *@param to CCase where to end draw
+  *@version 2.11
+  */
+  private void drawWhiteLine(Graphics g, CCase from, CCase to, boolean drawOnFrom, boolean drawOnTo){
+    drawLine(g, from, to, Color.WHITE, drawOnFrom, drawOnTo);
+  }
+  /**
+  *{@summary Draw a colored line on a giving Case.}<br>
+  *@param g graphics where to draw
+  *@param from CCase where to start draw
+  *@param to CCase where to end draw
+  *@param col Color to use
+  *@version 2.11
+  */
+  private void drawLine(Graphics g, CCase from, CCase to, Color col, boolean drawOnFrom, boolean drawOnTo){
+    int tc=getTailleDUneCase();
+    int lineStroke = math.min(Main.getTailleElementGraphique(10),tc/4);
+    int x1=(int)(((double)from.getX()+0.5)*tc);
+    int y1=(int)(((double)from.getY()+0.5)*tc);
+    int x2=(int)(((double)to.getX()+0.5)*tc);
+    int y2=(int)(((double)to.getY()+0.5)*tc);
+    if(!drawOnFrom){
+      if(x2 < x1){x1-=(int)(0.5*tc);}
+      else if(x2 > x1){x1+=(int)(0.5*tc);}
+      if(y2 < y1){y1-=(int)(0.5*tc);}
+      else if(y2 > y1){y1+=(int)(0.5*tc);}
+    }
+    if(!drawOnTo){
+      if(x2 > x1){x2-=(int)(0.5*tc);}
+      else if(x2 < x1){x2+=(int)(0.5*tc);}
+      if(y2 > y1){y2-=(int)(0.5*tc);}
+      else if(y2 < y1){y2+=(int)(0.5*tc);}
+    }
+    col = new Color(col.getRed(), col.getGreen(), col.getBlue(), TRANSPARENCY);
+    if(g instanceof Graphics2D){
+      Graphics2D g2d = (Graphics2D)g;
+      g2d.setColor(col);
+      BasicStroke line = new BasicStroke(lineStroke);
+      g2d.setStroke(line);
+      g2d.drawLine(x1,y1,x2,y2);
+    }
+  }
+  /**
+  *{@summary Draw a colored line on a giving Case.}<br>
+  *@param g graphics where to draw
+  *@param from CCase where to start draw
+  *@param to CCase where to end draw
+  *@param col Color to use
+  *@version 2.11
+  */
+  private void drawLine(Graphics g, CCase from, CCase to, Color col){
+    drawLine(g,from,to,col,true,true);
   }
   /**
   *{@summary Return the coordinates on screen for Case with x &#38; y.}<br>

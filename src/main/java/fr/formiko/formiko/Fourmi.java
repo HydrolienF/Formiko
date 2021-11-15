@@ -211,6 +211,7 @@ public class Fourmi extends Creature implements Serializable{
       return 0;
     }
   }
+  public int getMovingCost(){return getIndividu().getMovingCost();}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){return super.toString() +" "+ tableau.tableauToString(descriptionTableau());}
   public void afficheToi (){System.out.println(description());}

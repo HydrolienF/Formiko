@@ -1,6 +1,7 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GCreature;
@@ -43,6 +44,8 @@ public class ViewGUI2d implements View {
   private Timer timer;
   // private boolean canRefresh=true;
   private int curentFPS=0;
+  private CCase ccaseClicked;
+  private boolean moveMode=false;
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
@@ -70,6 +73,8 @@ public class ViewGUI2d implements View {
   public void setCurentFPS(int x){curentFPS=x;}
   public int getWidth(){try {return getPp().getWidth();}catch (NullPointerException e) {return 0;}}
   public int getHeight(){try {return getPp().getHeight();}catch (NullPointerException e) {return 0;}}
+  // public Case getCaseClicked(){return caseClicked;}
+  // public void setCaseClicked(Case c){caseClicked=c;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
@@ -142,7 +147,7 @@ public class ViewGUI2d implements View {
   public boolean menuMain(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
-    DiscordIntegration.updateActivity();
+    DiscordIntegration.setNeedToUpdateActivity(true);
     if(f==null || getPm()==null){ini();}
     Main.stopScript();
     if(Main.getPremierePartie()){
@@ -169,7 +174,7 @@ public class ViewGUI2d implements View {
   public boolean menuNewGame(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
-    DiscordIntegration.updateActivity();
+    DiscordIntegration.setNeedToUpdateActivity(true);
     if(f==null || getPm()==null){ini();}
     getPm().buildFPanelMenu(3,1);
     paint();
@@ -183,7 +188,7 @@ public class ViewGUI2d implements View {
   public boolean menuLoadAGame(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
-    DiscordIntegration.updateActivity();
+    DiscordIntegration.setNeedToUpdateActivity(true);
     if(f==null || getPm()==null){ini();}
     getPm().removeP();
     getPm().addPcp();
@@ -197,7 +202,7 @@ public class ViewGUI2d implements View {
   public boolean menuPersonaliseAGame(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
-    DiscordIntegration.updateActivity();
+    DiscordIntegration.setNeedToUpdateActivity(true);
     if(f==null || getPm()==null){ini();}
     getPm().addPnp();
     paint();
@@ -211,7 +216,7 @@ public class ViewGUI2d implements View {
   public boolean menuOptions(){
     // if(actionGameOn){action.retournerAuMenu();}
     actionGameOn=false;
-    DiscordIntegration.updateActivity();
+    DiscordIntegration.setNeedToUpdateActivity(true);
     if(f==null || getPm()==null){ini();}
     erreur.erreurPasEncoreImplemente();
     return true;
@@ -234,7 +239,7 @@ public class ViewGUI2d implements View {
     getPp().removePm();//on retire le menu
     Main.endCh("chargementFPanelChargementEtSuppressionMenu");
     getPj().iniPch();//on met le panneau de chargement au 1a plan.
-    DiscordIntegration.updateActivity();
+    DiscordIntegration.setNeedToUpdateActivity(true);
     Main.startCh();
     getPb().addPz();
     Main.endCh("ajoutFPanelZoom");Main.startCh();
@@ -349,12 +354,20 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Return the chosen CCase.}<br>
   *It is used to move ant.
-  *@version 1.42
+  *@version 2.11
   */
   public CCase getCCase(){
     if (!actionGameOn) {return null;}
-    return null;
+    moveMode=true;
+    while(ccaseClicked==null){
+      Temps.pause(10);
+    }
+    moveMode=false;
+    CCase tempCCase = ccaseClicked;
+    ccaseClicked=null;
+    return tempCCase;
   }
+  public void setCCase(CCase cc){ccaseClicked=cc;}
   /**
   *{@summary Print a message.}<br>
   *If message.equals("") we may need to delete last message, but we don't need to print a new message.<br>
@@ -593,6 +606,13 @@ public class ViewGUI2d implements View {
   *@version 2.7
   */
   public void setMessageDesc(String message){setMessageDesc(message, false);}
+  /***
+  *{@summary True if in moveMode.}
+  *@version 2.11
+  */
+  public boolean getMoveMode(){return moveMode;}
+  public void setMoveMode(boolean b){moveMode=b;}
+
   //private---------------------------------------------------------------------
   /**
   *Load graphics during menu time.
