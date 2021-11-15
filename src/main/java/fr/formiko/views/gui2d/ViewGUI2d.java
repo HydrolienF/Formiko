@@ -358,7 +358,6 @@ public class ViewGUI2d implements View {
   */
   public CCase getCCase(){
     if (!actionGameOn) {return null;}
-    // return null;
     moveMode=true;
     while(ccaseClicked==null){
       Temps.pause(10);
