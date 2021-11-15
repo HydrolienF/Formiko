@@ -29,7 +29,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     this.c = c;
     if (bIa) {
       unMouvementAlléa();
-    } else { // SI c'est un joueur
+    } else { // if it's a player
       CCase cc = Main.getView().getCCase();
       if(cc==null){return;}
       plusieurMouvement(c,cc);

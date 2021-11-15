@@ -44,7 +44,7 @@ public class ViewGUI2d implements View {
   private Timer timer;
   // private boolean canRefresh=true;
   private int curentFPS=0;
-  private Case caseClicked;
+  private CCase ccaseClicked;
   private boolean moveMode=false;
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
@@ -73,8 +73,8 @@ public class ViewGUI2d implements View {
   public void setCurentFPS(int x){curentFPS=x;}
   public int getWidth(){try {return getPp().getWidth();}catch (NullPointerException e) {return 0;}}
   public int getHeight(){try {return getPp().getHeight();}catch (NullPointerException e) {return 0;}}
-  public Case getCaseClicked(){return caseClicked;}
-  public void setCaseClicked(Case c){caseClicked=c;}
+  // public Case getCaseClicked(){return caseClicked;}
+  // public void setCaseClicked(Case c){caseClicked=c;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
@@ -358,14 +358,17 @@ public class ViewGUI2d implements View {
   */
   public CCase getCCase(){
     if (!actionGameOn) {return null;}
-    caseClicked=null;
+    // return null;
     moveMode=true;
-    while(caseClicked==null){
+    while(ccaseClicked==null){
       Temps.pause(10);
     }
     moveMode=false;
-    return new CCase(caseClicked);
+    CCase tempCCase = ccaseClicked;
+    ccaseClicked=null;
+    return tempCCase;
   }
+  public void setCCase(CCase cc){ccaseClicked=cc;}
   /**
   *{@summary Print a message.}<br>
   *If message.equals("") we may need to delete last message, but we don't need to print a new message.<br>
@@ -609,6 +612,7 @@ public class ViewGUI2d implements View {
   *@version 2.11
   */
   public boolean getMoveMode(){return moveMode;}
+  public void setMoveMode(boolean b){moveMode=b;}
 
   //private---------------------------------------------------------------------
   /**

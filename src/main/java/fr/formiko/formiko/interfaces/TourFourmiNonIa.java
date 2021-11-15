@@ -159,6 +159,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   private String faire(int choix){
     String m = switch(choix){
       case 0 :
+        // Main.getView().setMoveMode(true);
         f.ceDeplacer(f.getFere().getJoueur().getIa());
         yield "ceDeplacer";
       case 1 :

@@ -23,8 +23,8 @@ public class MapPath {
     addPath(from,to);
   }
   // GET SET -------------------------------------------------------------------
-  //public only for test
   public Liste<CCase> getList(){return path;}
+  public  Liste<Integer> getMovingCaseByTurn(){return movingCaseByTurn;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Strandard toString function.}<br>
@@ -51,6 +51,7 @@ public class MapPath {
   *@version 2.11
   */
   public void addPath(CCase from, CCase to){
+    if(from==null || to==null){return;}
     CCase temp = from;
     addToPath(temp);
     while(!temp.equals(to)){

@@ -3,15 +3,16 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.CGraine;
 import fr.formiko.formiko.Case;
+import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.GCreature;
-import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.MapPath;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.usuel.Point;
 import fr.formiko.usuel.Point;
@@ -248,9 +249,31 @@ public class FPanelCarte extends FPanel {
   */
   private void drawMovingPath(Graphics g){
     CCase to = getLookedCCase();
-    if(to!=null){
-      drawWhiteCircle(g,to);
-      //TODO draw path
+    CCase from = Main.getPlayingAnt().getCCase();
+    MapPath mp = new MapPath(from, to);
+    mp.updateMovingCaseByTurn(Main.getPlayingAnt());
+    Liste<Integer> li = mp.getMovingCaseByTurn();
+    int k=li.pop();
+    int turnCount=0;
+    CCase last=from;
+    for (CCase cc : mp.getList()) {
+      if(k<1){
+        if(!li.isEmpty()){
+          turnCount++;
+          k=li.pop();
+          drawWhiteCircle(g, cc);
+          //TODO draw turnCount in the circle.
+        }
+      }else{
+        if(cc.equals(to)){
+          drawWhiteCircle(g, cc);
+        }else{
+          // drawLine(); from the center of last to the center of cc
+        }
+        //TODO draw -
+      }
+      k--;
+      last=cc;
     }
   }
   /**

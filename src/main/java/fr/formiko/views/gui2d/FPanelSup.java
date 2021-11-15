@@ -47,11 +47,12 @@ public class FPanelSup extends FPanel {
       public void mouseReleased(MouseEvent e) {
         if(e.getButton()== MouseEvent.BUTTON1){
           if(vérifierFPanelDialogue(e)){return;}
-          Case c = getCase(e);
           if(getView().getMoveMode()){
-            getView().setCaseClicked(c);
+            // movePlayingAnt(e);
+            FPanel.getView().setCCase(getCCase(e));
             return;
           }
+          Case c = getCase(e);
           if(c==null){return;}
           GCreature gc = c.getGc();
           if(gc.length()>0){
@@ -71,14 +72,7 @@ public class FPanelSup extends FPanel {
             }
           }
         }else if(e.getButton()== MouseEvent.BUTTON3){
-          Fourmi f = Main.getPlayingAnt();
-          if(f!=null){//si une fourmi est séléctionné.
-            CCase cc = getCCase(e);
-            if(cc!=null){
-              f.ceDeplacerPlusieurCase(cc);
-              f.setBActionHaveChange(true);
-            }
-          }
+          movePlayingAnt(e);
         }
       }
     });
@@ -144,6 +138,20 @@ public class FPanelSup extends FPanel {
     if(cc2==null || !cc2.getContent().equals(cc.getContent())){//si la case a changé.
       cc2=new CCase(cc.getContent());
       getView().setLookedCCase(cc);
+    }
+  }
+  /**
+  *{@summary Move the playing ant to selected Case.}<br>
+  *@version 2.11
+  */
+  private void movePlayingAnt(MouseEvent e){
+    Fourmi f = Main.getPlayingAnt();
+    if(f!=null){//si une fourmi est séléctionné.
+      CCase cc = getCCase(e);
+      if(cc!=null){
+        f.ceDeplacerPlusieurCase(cc);
+        f.setBActionHaveChange(true);
+      }
     }
   }
 }
