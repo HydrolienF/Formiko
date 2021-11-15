@@ -40,14 +40,25 @@ public class DeplacementFourmi implements Serializable, Deplacement{
    *c will move 1 Case closer to p but maybe p is more than 1 Case longer to c.getCCase()<br>
    *c will move by the unMouvement(c,direction) methode.
    *@param c the moving Creature.
-   *@param p the CCase were c want to go.
+   *@param p the Case were c want to go.
    *@version 1.3
    */
-  public void unMouvement(Creature c, CCase p){
-    debug.débogage("Le déplacement de la Creature "+c.getId()+" vien de DeplacementDUneFourmi avec CCase");
+  public void unMouvement(Creature c, Case p){
+    // debug.débogage("Le déplacement de la Creature "+c.getId()+" vien de DeplacementDUneFourmi avec CCase");
     this.c = c;
     int direction = c.getCCase().getDirection(p);
     unMouvementVolontaire(direction);
+  }
+  /**
+   *{@summary make a move to a defined Case.}<br>
+   *c will move 1 Case closer to p but maybe p is more than 1 Case longer to c.getCCase()<br>
+   *c will move by the unMouvement(c,direction) methode.
+   *@param c the moving Creature.
+   *@param p the CCase were c want to go.
+   *@version 1.3
+   */
+  public void unMouvement(Creature c, CCase cc){
+    unMouvement(c, cc.getContent());
   }
   /**
    *{@summary make a moove in a defined direction.}<br>

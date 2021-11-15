@@ -1,6 +1,7 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GCreature;
@@ -43,6 +44,8 @@ public class ViewGUI2d implements View {
   private Timer timer;
   // private boolean canRefresh=true;
   private int curentFPS=0;
+  private Case caseClicked;
+  private boolean moveMode=false;
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
@@ -70,6 +73,8 @@ public class ViewGUI2d implements View {
   public void setCurentFPS(int x){curentFPS=x;}
   public int getWidth(){try {return getPp().getWidth();}catch (NullPointerException e) {return 0;}}
   public int getHeight(){try {return getPp().getHeight();}catch (NullPointerException e) {return 0;}}
+  public boolean getMoveMode(){return moveMode;}
+  public void setCaseClicked(Case cc){caseClicked=cc;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
@@ -349,11 +354,17 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Return the chosen CCase.}<br>
   *It is used to move ant.
-  *@version 1.42
+  *@version 2.11
   */
   public CCase getCCase(){
     if (!actionGameOn) {return null;}
-    return null;
+    caseClicked=null;
+    moveMode=true;
+    while(caseClicked==null){
+      Temps.pause(10);
+    }
+    moveMode=false;
+    return new CCase(caseClicked);
   }
   /**
   *{@summary Print a message.}<br>

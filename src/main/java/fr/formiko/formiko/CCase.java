@@ -171,6 +171,16 @@ public class CCase implements Serializable{
     return getDirectionFromXY(x,y);
   }
   /**
+  *{@summary return a direction by using this &#38; a Case to reach.}
+  *@version 2.11
+  */
+  public int getDirection(Case to){
+    if (to==null){ return 5;}
+    int x = this.getContent().getX() - to.getX();
+    int y = this.getContent().getY() - to.getY();
+    return getDirectionFromXY(x,y);
+  }
+  /**
   *{@summary return a direction by using 2 Point.}
   *@version 2.11
   */

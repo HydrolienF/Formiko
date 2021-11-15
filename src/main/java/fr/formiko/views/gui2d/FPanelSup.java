@@ -47,10 +47,13 @@ public class FPanelSup extends FPanel {
       public void mouseReleased(MouseEvent e) {
         if(e.getButton()== MouseEvent.BUTTON1){
           if(vérifierFPanelDialogue(e)){return;}
-          GCreature gc = new GCreature();
-          try {
-            gc = getCase(e).getGc();
-          }catch (Exception e2) {}
+          Case c = getCase(e);
+          if(getView().getMoveMode()){
+            getView().setCaseClicked(c);
+            return;
+          }
+          if(c==null){return;}
+          GCreature gc = c.getGc();
           if(gc.length()>0){
             Fourmi f = null;
             try {
