@@ -73,8 +73,8 @@ public class ViewGUI2d implements View {
   public void setCurentFPS(int x){curentFPS=x;}
   public int getWidth(){try {return getPp().getWidth();}catch (NullPointerException e) {return 0;}}
   public int getHeight(){try {return getPp().getHeight();}catch (NullPointerException e) {return 0;}}
-  public boolean getMoveMode(){return moveMode;}
-  public void setCaseClicked(Case cc){caseClicked=cc;}
+  public Case getCaseClicked(){return caseClicked;}
+  public void setCaseClicked(Case c){caseClicked=c;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
@@ -604,6 +604,12 @@ public class ViewGUI2d implements View {
   *@version 2.7
   */
   public void setMessageDesc(String message){setMessageDesc(message, false);}
+  /***
+  *{@summary True if in moveMode.}
+  *@version 2.11
+  */
+  public boolean getMoveMode(){return moveMode;}
+
   //private---------------------------------------------------------------------
   /**
   *Load graphics during menu time.

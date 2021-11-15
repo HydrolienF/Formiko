@@ -192,4 +192,9 @@ public interface View {
   *@version 2.7
   */
   default void setButtonRetryVisible(boolean visible){}
+  /***
+  *{@summary True if in moveMode.}
+  *@version 2.11
+  */
+  default boolean getMoveMode(){return false;}
 }

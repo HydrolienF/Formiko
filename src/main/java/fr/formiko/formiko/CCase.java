@@ -39,6 +39,8 @@ public class CCase implements Serializable{
   public Case getContent(){return contenu;}
   public void setContenu(Case c){contenu = c;}
   public GGraine getGg(){return contenu.getGg();}
+  public int getX(){return getContent().getX();}
+  public int getY(){return getContent().getY();}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
       if(bas==null){//la sortie

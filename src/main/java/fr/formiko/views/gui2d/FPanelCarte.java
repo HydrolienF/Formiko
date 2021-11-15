@@ -164,6 +164,9 @@ public class FPanelCarte extends FPanel {
         }
       }
       drawPlayingAnt(g);
+      if(getView().getMoveMode()){
+        drawMovingPath(g);
+      }
     }catch (Exception e) {
       erreur.erreur("Quelque chose d'imprévu est arrivé lors de l'affichage de FPanelCarte");
     }
@@ -234,8 +237,49 @@ public class FPanelCarte extends FPanel {
   private void drawPlayingAnt(Graphics g){
     Fourmi playingAnt = Main.getPlayingAnt();
     if(playingAnt!=null && !playingAnt.getIa()){
-      Case c = playingAnt.getCCase().getContent();
-      drawImage(g,Main.getData().getSelectionnee(),(c.getX())*getTailleDUneCase(),(c.getY())*getTailleDUneCase());
+      CCase cc = playingAnt.getCCase();
+      drawCircle(g, cc, Main.getData().getButtonColor(0));
+      // drawImage(g,Main.getData().getSelectionnee(),(c.getX())*getTailleDUneCase(),(c.getY())*getTailleDUneCase());
+    }
+  }
+  /**
+  *{@summary Draw the path from playingAnt to the looked case.}<br>
+  *@version 2.11
+  */
+  private void drawMovingPath(Graphics g){
+    CCase to = getLookedCCase();
+    if(to!=null){
+      drawWhiteCircle(g,to);
+      //TODO draw path
+    }
+  }
+  /**
+  *{@summary Draw a white circle on giving Case.}<br>
+  *@param g graphics where to draw
+  *@param cc CCase where to draw
+  *@version 2.11
+  */
+  private void drawWhiteCircle(Graphics g, CCase cc){
+    drawCircle(g, cc, Color.WHITE);
+  }
+  /**
+  *{@summary Draw a colored circle on a giving Case.}<br>
+  *@param g graphics where to draw
+  *@param cc CCase where to draw
+  *@param col Color to use
+  *@version 2.11
+  */
+  private void drawCircle(Graphics g, CCase cc, Color col){
+    int tc=getTailleDUneCase();
+    int x=cc.getX()*tc;
+    int y=cc.getY()*tc;
+    col = new Color(col.getRed(), col.getGreen(), col.getBlue(), 180);
+    if(g instanceof Graphics2D){
+      Graphics2D g2d = (Graphics2D)g;
+      g2d.setColor(col);
+      BasicStroke line = new BasicStroke(math.min(Main.getTailleElementGraphique(15),tc/2));
+      g2d.setStroke(line);
+      g2d.drawOval(x,y,tc,tc);
     }
   }
   /**
