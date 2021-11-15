@@ -453,12 +453,16 @@ public class Options implements Serializable{
     if (gui_global_fontTitlePersonalised) {
       try {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        Font fontTemp = Font.createFont(Font.TRUETYPE_FONT, new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"Insektofobiya/Insektofobiya.otf"));
+        File file = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"font/"+gui_global_fontTitle+".otf");
+        if(!file.exists()){
+          file = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"font/"+gui_global_fontTitle+".ttf");
+        }
+        Font fontTemp = Font.createFont(Font.TRUETYPE_FONT,file);
+        // System.out.println(fontTemp);
         ge.registerFont(fontTemp);
-        font2=new Font(gui_global_fontTitle, Font.BOLD, gui_global_fontSizeTitle);
+        font2=new Font(gui_global_fontTitle, Font.PLAIN, gui_global_fontSizeTitle);
       }catch (Exception e) {
         erreur.alerte("fail to set font for title");
-        e.printStackTrace();
         font2=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeTitle);
       }
     }
