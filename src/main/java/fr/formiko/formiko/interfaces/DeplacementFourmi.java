@@ -81,7 +81,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
    *@version 1.3
    */
   public void plusieurMouvement(Creature c, CCase cc){
-    erreur.info("plusieurMouvement for "+c.getId());
+    // erreur.info("plusieurMouvement for "+c.getId());
     CCase ccAct = c.getCCase();
     while(!ccAct.equals(cc) && c.getAction()>0){//tant qu'on est pas arrivé a la case et qu'on a encore des actions.
       unMouvement(c,cc);
@@ -152,6 +152,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     if (p==null){ return false;}
     Main.getView().move(c,c.getCCase(),p);
     c.setCCase(p);
+    // erreur.info("unPas for "+c.getId());
     return true;
   }
 }

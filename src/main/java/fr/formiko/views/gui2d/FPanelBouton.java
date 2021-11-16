@@ -5,10 +5,11 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.structures.listes.*;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.structures.listes.*;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -37,6 +38,7 @@ public class FPanelBouton extends FPanel {
   private FPanelInfo pi;
   private FPanelInfoText pij;
   private Font fontPij;
+  private Liste<Component> lToRemove;
   // CONSTRUCTORS --------------------------------------------------------------
   public FPanelBouton(){}
   public void build(){
@@ -61,6 +63,7 @@ public class FPanelBouton extends FPanel {
     add(descTI);
     add(desc);
     add(pz);
+    lToRemove = new Liste<Component>();
   }
   // GET SET -------------------------------------------------------------------
   public String getDesc(){return descS;}
@@ -86,6 +89,11 @@ public class FPanelBouton extends FPanel {
   public FPanelTBoolean getPTB(){ return ptb;}
   public FPanelMiniMapContainer getPmmc(){return pmmc;}
   // FUNCTIONS -----------------------------------------------------------------
+  public void removes(){
+    while(!lToRemove.isEmpty()){
+      remove(lToRemove.pop());
+    }
+  }
   public void addPz(){
     remove(pz);
     pz = new FPanelZoom();
@@ -119,11 +127,10 @@ public class FPanelBouton extends FPanel {
     remove(ptb);
   }
   public synchronized void addPa(int t[]){
-    try {
-      //remove(pai);
-      remove(pa);
-      remove(pas);
-    }catch (Exception e) {}
+    lToRemove.add(pa);
+    lToRemove.add(pas);
+    lToRemove.add(pai);
+    // lToRemove.add(pmmc);
     pa = new FPanelAction(t);
     pa.build();
     int xxx = pa.getbuttonSize();
@@ -139,12 +146,13 @@ public class FPanelBouton extends FPanel {
     add(pas);
     add(pa);
     add(pai);
+    removes();
     setVisiblePa(true);
     /*try {
       remove(paiPrécédent);
     }catch (Exception e) {}*/
     revalidate();
-    Main.repaint();
+    // Main.repaint();
   }public void addPA(int t[]){addPa(t);}
   public void setVisiblePa(boolean b){
     pa.setVisible(b);
@@ -152,6 +160,7 @@ public class FPanelBouton extends FPanel {
     //pai.setVisible(b);
   }
   public void removePa(){
+    // erreur.info("removePA",3);
     remove(pa);
     remove(pas);
     remove(pai);
@@ -178,7 +187,7 @@ public class FPanelBouton extends FPanel {
   }
   public void removePChamp(){ remove(pchamp);setDescTI("");}
   public void addPI(){
-    removePi();
+    lToRemove.add(pi);
     Fourmi playingAnt = Main.getPlayingAnt();
     if(playingAnt!=null){
       pi = FPanelInfoCreature.builder().addCreature(playingAnt)
@@ -186,12 +195,13 @@ public class FPanelBouton extends FPanel {
       .setYByElement(Main.getTailleElementGraphiqueY(32))
       .build();
       pi.setLocation(getWidth()-pi.getWidth(),pz.getbuttonSize()*3);
+      removes();
       add(pi);
     }else{
       erreur.alerte("FPanelInfoCreature haven't been set because playingAnt is null");
     }
   }
-  public void removePi(){if(pi!=null){remove(pi);}}
+  public void removePi(){remove(pi);}
   public void addPIJ(){
     try {
       removePij();

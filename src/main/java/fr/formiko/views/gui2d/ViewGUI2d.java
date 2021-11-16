@@ -344,7 +344,7 @@ public class ViewGUI2d implements View {
   public int getAntChoice(int t[]){
     if (!actionGameOn) {return -1;}
     if(t!=null){
-      getPb().removePa();
+      // getPb().removePa();
       getPb().addPa(t);
     }
     int r = getPb().getActionF();

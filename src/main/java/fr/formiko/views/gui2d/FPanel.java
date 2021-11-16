@@ -68,7 +68,17 @@ public class FPanel extends JPanel {
       r+=c.toString();
     }
     return r;
-
+  }
+  /**
+  *{@summary Remove a component if not null.}<br>
+  *@param c component to remove
+  *@version 2.7
+  */
+  @Override
+  public void remove(Component c){
+    if(c!=null){
+      super.remove(c);
+    }
   }
   public void doAction(int ac){
     action.doAction(ac);
