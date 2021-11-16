@@ -147,6 +147,19 @@ public class Options implements Serializable{
   public Font getFont1(Double d){Font fTemp = new Font(getFontText(),Font.PLAIN,(int)(getFontSizeText()*d)); return fTemp;}
   public void setFont1(Font f){font1=f;}
   public Font getFont2(){return font2;}
+  /**
+  *{@summary Return a font that can display given String.}
+  *@param s String to test displayability.
+  *@version 2.11
+  */
+  public Font getFontTitle(String s){
+    if(getFont2()==null){return getFont1();}
+    if(s==null){return getFont2();}
+    for (char c : s.toCharArray()) {
+      if(!getFont2().canDisplay(c)){return getFont1();}
+    }
+    return getFont2();
+  }
   public void setFont2(Font f){font2=f;}
   public int getFontSizeText(){return gui_global_fontSizeText;}
   public void setFontSizeText(int x){gui_global_fontSizeText=x;}
@@ -154,6 +167,8 @@ public class Options implements Serializable{
   public void setFontSizeTitle(int x){gui_global_fontSizeTitle=x;}
   public String getFontText(){ return gui_global_fontText;}
   public void setFontText(String s){gui_global_fontText=s;}
+  public String getFontTitle(){ return gui_global_fontTitle;}
+  public void setFontTitle(String s){gui_global_fontTitle=s;}
   public String getPseudo(){ return game_pseudo;}
   public void setPseudo(String s){game_pseudo=s;}
   public boolean getFullscreen(){ return gui_global_fullscreen;}
@@ -454,6 +469,13 @@ public class Options implements Serializable{
     sounds_sound=str.sToB(properties.getProperty("sounds_sound"));
     sounds_soundVolume=str.sToBy(properties.getProperty("sounds_soundVolume"));
 
+    updateFont();
+  }
+  /**
+  *{@summary update the 2 font.}<br>
+  *@version 2.5
+  */
+  public void updateFont(){
     font1=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeText);
     if (gui_global_fontTitlePersonalised) {
       try {
@@ -466,10 +488,13 @@ public class Options implements Serializable{
         // System.out.println(fontTemp);
         ge.registerFont(fontTemp);
         font2=new Font(gui_global_fontTitle, Font.PLAIN, gui_global_fontSizeTitle);
+        if(font2==null){throw new NullPointerException();}
       }catch (Exception e) {
         erreur.alerte("fail to set font for title");
         font2=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeTitle);
       }
+    }else{
+      font2=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeTitle);
     }
   }
   /**
