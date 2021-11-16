@@ -62,10 +62,10 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       // m = "Nourrir et Nétoyer";
       backHomeAndShareFood();
     }
-    Main.setPlayingAnt(null);
     // TODO #410 if(f.getMode()==-1){
     f.setActionTo0();
     // }
+    Main.setPlayingAnt(null);
   }
   @Override
   public void endTurn(Creature c){

@@ -178,9 +178,7 @@ public class FPanelBouton extends FPanel {
   }
   public void removePChamp(){ remove(pchamp);setDescTI("");}
   public void addPI(){
-    try {
-      removePi();
-    }catch (Exception e) {}
+    removePi();
     Fourmi playingAnt = Main.getPlayingAnt();
     if(playingAnt!=null){
       pi = FPanelInfoCreature.builder().addCreature(playingAnt)
@@ -193,7 +191,7 @@ public class FPanelBouton extends FPanel {
       erreur.alerte("FPanelInfoCreature haven't been set because playingAnt is null");
     }
   }
-  public void removePi(){ remove(pi);}
+  public void removePi(){if(pi!=null){remove(pi);}}
   public void addPIJ(){
     try {
       removePij();

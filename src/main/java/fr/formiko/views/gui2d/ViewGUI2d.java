@@ -475,6 +475,7 @@ public class ViewGUI2d implements View {
         // updateIcon();
       }
     }else{
+      getPb().removePi();
       getPb().setVisiblePa(false);
       Main.getPartie().setAntIdToPlay(-1);
     }
