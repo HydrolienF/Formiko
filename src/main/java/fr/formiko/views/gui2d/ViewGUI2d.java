@@ -467,8 +467,6 @@ public class ViewGUI2d implements View {
   */
   public void setPlayingAnt(Fourmi f){
     if (!actionGameOn) {return;}
-    int id=-1; if(f!=null){id=f.getId();}//@a
-    erreur.info("setPlayingAnt to "+id,3);//@a
     if(f!=null){
       if(!f.getIa()){
         getPb().setVisiblePa(true);

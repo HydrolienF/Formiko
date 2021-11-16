@@ -48,8 +48,10 @@ public class FPanelSup extends FPanel {
         if(e.getButton()== MouseEvent.BUTTON1){
           if(vérifierFPanelDialogue(e)){return;}
           if(getView().getMoveMode()){
-            // movePlayingAnt(e);
-            FPanel.getView().setCCase(getCCase(e));
+            // getView().setCCase(getCCase(e));
+            movePlayingAnt(e);
+            getView().setMoveMode(false);
+            // f.ceDeplacer(f.getFere().getJoueur().getIa());
             return;
           }
           Case c = getCase(e);
@@ -72,7 +74,11 @@ public class FPanelSup extends FPanel {
             }
           }
         }else if(e.getButton()== MouseEvent.BUTTON3){
-          movePlayingAnt(e);
+          if(getView().getMoveMode()){
+            getView().setMoveMode(false);
+          }else{
+            movePlayingAnt(e);
+          }
         }
       }
     });

@@ -503,6 +503,17 @@ public class ViewCLI implements View {
   public void setDownloadingMessage(String message){
     System.out.println(message);
   }
+  /**
+  *{@summary Default fontion to move.}
+  *@version 2.11
+  */
+  public void setMoveMode(boolean b){
+    if(b){
+      Fourmi f = Main.getPlayingAnt();
+      if(f==null){return;}
+      f.ceDeplacer(f.getFere().getJoueur().getIa());
+    }
+  }
 
   //private---------------------------------------------------------------------
   /**
