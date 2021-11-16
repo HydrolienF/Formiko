@@ -186,15 +186,6 @@ public class Fourmi extends Creature implements Serializable{
     if(!getIa()){Main.getView().setPlayingAnt(Main.getPlayingAnt());}
   }
   /**
-  *{@summary Update action &#38; update view.}<br>
-  *@version 2.7
-  */
-  @Override
-  public void setActionMoins(int x){
-    super.setActionMoins(x);
-    if(!getIa()){Main.getView().setPlayingAnt(Main.getPlayingAnt());}
-  }
-  /**
   *{@summary Return the state of the Fourmi concerning health.}
   *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
   *@version 2.8

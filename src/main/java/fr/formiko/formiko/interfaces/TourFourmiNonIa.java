@@ -64,7 +64,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     }
     Main.setPlayingAnt(null);
     // TODO #410 if(f.getMode()==-1){
-      f.setActionTo0();
+    f.setActionTo0();
     // }
   }
   @Override
