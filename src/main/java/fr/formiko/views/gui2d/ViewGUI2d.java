@@ -469,9 +469,9 @@ public class ViewGUI2d implements View {
     if (!actionGameOn) {return;}
     if(f!=null){
       if(!f.getIa()){
-        getPb().setVisiblePa(true);
         getPb().addPI();
         getPb().addPIJ();
+        // getPb().setVisiblePa(true);
         // updateIcon();
       }
     }else{
