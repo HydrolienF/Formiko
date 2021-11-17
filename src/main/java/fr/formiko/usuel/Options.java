@@ -476,7 +476,7 @@ public class Options implements Serializable{
   *@version 2.5
   */
   public void updateFont(){
-    font1=new Font(gui_global_fontText, Font.PLAIN, gui_global_fontSizeText);
+    font1=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeText);
     if (gui_global_fontTitlePersonalised) {
       try {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();

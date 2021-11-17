@@ -101,12 +101,12 @@ public class Folder {
   */
   public void iniFolderMain(Os os){
     if(os.isWindows()){
-      setFolderMain(System.getenv("APPDATA")+"/Formiko/");
+      setFolderMain(System.getenv("APPDATA")+"/.formiko/");
     }else if(os.isLinux()){
-      setFolderMain("/"+System.getProperty("user.home")+"/Formiko/");
+      setFolderMain("/"+System.getProperty("user.home")+"/.formiko/");
     }else if(os.isMac()){
       //TODO fined & test a good path for mac.
-      // setFolderMain(System.getProperty("user.home")+"/Formiko/");
+      // setFolderMain(System.getProperty("user.home")+"/.formiko/");
       setFolderMain("");
     }else{
       setFolderMain("");
