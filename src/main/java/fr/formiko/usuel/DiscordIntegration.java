@@ -5,8 +5,10 @@ import de.jcm.discordgamesdk.CreateParams;
 import de.jcm.discordgamesdk.activity.Activity;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.usuel.erreur;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -15,17 +17,31 @@ import java.util.Locale;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+/**
+*{@summary A discord intergration to have rich presence on discord app.}
+*@version 2.10
+*@author Hydrolien
+*/
 public class DiscordIntegration {
   private static Activity activity;
   private static Core core;
   private static CreateParams params;
+  private static boolean needToUpdateActivity=false;
+
+  public static void setNeedToUpdateActivity(boolean b){needToUpdateActivity=b;}
+  /**
+  *{@summary Main function to launch the discord rich presence.}
+  *@version 2.10
+  */
   public static void discordRPC() {
+    if(!Main.getOp().getDiscordRP()){return;}
     File discordLibrary = null;
     try {
       discordLibrary = downloadDiscordLibrary();
     }catch (IOException e) {}
 		if(discordLibrary == null){
-			System.err.println("Error downloading Discord SDK.");
+      if(Main.getOs().isLinux()){return;} //TODO remove when #484 will be fix.
+			erreur.erreur("Error downloading Discord SDK");
 			return;
 		}
 		// Initialize the Core
@@ -52,16 +68,19 @@ public class DiscordIntegration {
     // activity.secrets().setJoinSecret("Join!");
 
 		// Finally, update the current activity to our activity
+
     updateActivity();
 
 		// Run callbacks forever
     while(true){
       core.runCallbacks();
       Temps.pause(100);
+      if(needToUpdateActivity){updateActivity();}
     }
 	}
 
-  public static void updateActivity(){
+  private static void updateActivity(){
+    needToUpdateActivity=false;
     if(activity!=null){
       try {
         activity.setState(Main.getFolder().getCurentVersion());
@@ -82,7 +101,10 @@ public class DiscordIntegration {
       }
     }
   }
-
+  /**
+  *{@summary Dowload library depending of the OS.}
+  *@version 2.10
+  */
   public static File downloadDiscordLibrary() throws IOException {
     // Find out which name Discord's library has (.dll for Windows, .so for Linux, .dylib for mac)
     String name = "discord_game_sdk";
@@ -93,6 +115,8 @@ public class DiscordIntegration {
       suffix = ".dll";
     }else if(os.isLinux()){
       suffix = ".so";
+      //TODO #484 fix Error with discordRPC
+      return null;
     }else if(os.isMac()){
       suffix = ".dylib";
     }else{
@@ -111,6 +135,7 @@ public class DiscordIntegration {
 
     // Search for the right file inside the ZIP
     ZipEntry entry;
+    erreur.info("downloading Discord Intergration file");
     while((entry = zin.getNextEntry())!=null){
       if(entry.getName().equals(zipPath)){
         // Copy the file in the ZIP to our temporary file
@@ -119,6 +144,14 @@ public class DiscordIntegration {
         zin.close();
         // Return our temporary file
         erreur.info("download Discord Intergration file done");
+        if(os.isLinux()){
+          //TODO #484 fix Error gio: discord:///library/826437546024108077/launch: L’emplacement indiqué n’est pas pris en charge
+          //https://github.com/NathaanTFM/discord-game-sdk-python/issues/3
+          File f2 = new File(Main.getFolder().getFolderTemporary()+name);
+          Files.copy(discordLibFile.toPath(), new FileOutputStream(f2));
+          discordLibFile.delete();
+          discordLibFile = f2;
+        }
         return discordLibFile;
       }
       // next entry
@@ -126,6 +159,7 @@ public class DiscordIntegration {
     }
     zin.close();
     // We couldn't find the library inside the ZIP
+    erreur.alerte("download Discord Intergration faild");
     return null;
   }
 }

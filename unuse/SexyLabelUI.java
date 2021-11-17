@@ -14,7 +14,7 @@
  *     limitations under the License.
  */
 
-package fr.formiko.views.gui2d;
+// package fr.formiko.views.gui2d;
 
 import java.awt.Color;
 import java.awt.Dimension;

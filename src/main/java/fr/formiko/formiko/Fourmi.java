@@ -183,16 +183,10 @@ public class Fourmi extends Creature implements Serializable{
   @Override
   public void setAction(int x){
     super.setAction(x);
-    if(!getIa()){Main.getView().setPlayingAnt(Main.getPlayingAnt());}
-  }
-  /**
-  *{@summary Update action &#38; update view.}<br>
-  *@version 2.7
-  */
-  @Override
-  public void setActionMoins(int x){
-    super.setActionMoins(x);
-    if(!getIa()){Main.getView().setPlayingAnt(Main.getPlayingAnt());}
+    if(!getIa()){
+      if(x>0){Main.setPlayingAnt(Main.getPlayingAnt());}
+      // else{Main.getView().setPlayingAnt(null);}
+    }
   }
   /**
   *{@summary Return the state of the Fourmi concerning health.}
@@ -211,6 +205,7 @@ public class Fourmi extends Creature implements Serializable{
       return 0;
     }
   }
+  public int getMovingCost(){return getIndividu().getMovingCost();}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){return super.toString() +" "+ tableau.tableauToString(descriptionTableau());}
   public void afficheToi (){System.out.println(description());}

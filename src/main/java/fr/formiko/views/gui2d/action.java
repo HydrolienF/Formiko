@@ -33,9 +33,9 @@ public class action{
   *@version 1.41
   */
   public static void doAction(int action){
-    if(Panneau.getView().getFl()!=null){
+    if(FPanel.getView().getFl()!=null){
       doActionPl(action);
-    }else if(Panneau.getView().getPe() != null && Panneau.getView().getPe().getVisible()){
+    }else if(FPanel.getView().getPe() != null && FPanel.getView().getPe().getVisible()){
       doActionPe(action);
     }else if(Main.getView().getActionGameOn()){
       doActionPj(action);
@@ -46,7 +46,7 @@ public class action{
   public static void doActionPl(int ac){
     if(ac==1000){//retry to download data from FFrameLauncher
       Main.getFolder().setLaunchDownload(true);
-      Panneau.getView().setButtonRetryVisible(false);
+      FPanel.getView().setButtonRetryVisible(false);
     }
   }
   /**
@@ -54,30 +54,30 @@ public class action{
   *@version 1.41
   */
   public static void doActionPm(int ac){//TODO passer dans une autre class Controleur ?
-    PanneauMenu pm = Panneau.getView().getPm();
+    FPanelMenu pm = FPanel.getView().getPm();
     if(ac==-1){
-      Panneau.getView().close();
+      FPanel.getView().close();
     }if(ac==0){
-      System.out.println("back to main menu");
-      Panneau.getView().menuMain();
+      // System.out.println("back to main menu");
+      FPanel.getView().menuMain();
     }else if(ac==1){
-      Panneau.getView().menuNewGame();
+      FPanel.getView().menuNewGame();
     }else if(ac==2){
-      Panneau.getView().menuLoadAGame();
+      FPanel.getView().menuLoadAGame();
     }else if(ac==3){
-      Panneau.getView().menuOptions();
+      FPanel.getView().menuOptions();
     }else if(ac==4){
       debug.débogage("lancementNouvellePartie");
       pm.setLancer(true); //TODO to remove
     }else if(ac==5){
-      Panneau.getView().menuPersonaliseAGame();
+      FPanel.getView().menuPersonaliseAGame();
     }else if(ac==6){
       Partie.setScript("tuto");
       pm.setLancer(true); //TODO to remove
     }else if(ac==7){
       pm.validatelanguageChoice();
     }else if(ac==100){
-      setPartie(Panneau.getView().getPnp().getPartie());
+      setPartie(FPanel.getView().getPnp().getPartie());
       pm.setLancer(true); //TODO to remove
     }else if(ac==101){
       setPartie(pm.getPcp().getPartie());
@@ -91,9 +91,9 @@ public class action{
   public static void doActionPj(int ac){
     debug.débogage("action pj : "+ac);
     try {
-      if(Panneau.getView().getPe()==null || !Panneau.getView().getPe().getVisible()){
+      if(FPanel.getView().getPe()==null || !FPanel.getView().getPe().getVisible()){
         if(ac < 9 && ac > -1){
-          Panneau.getView().getPj().actionZoom((byte)ac);
+          FPanel.getView().getPj().actionZoom((byte)ac);
         }else if(ac>=20 && ac<=31){
           if(Main.getPlayingAnt()==null){
             erreur.erreur("aucune fourmi n'est selectionné pour réaliser l'action voulue.");
@@ -103,16 +103,16 @@ public class action{
               triche.commande("setPa 20");
               setNeedToSetPaNullWhenActionDone(false);
             }
-            Panneau.getView().getPb().setActionF(ac-20);
+            FPanel.getView().getPb().setActionF(ac-20);
           }
           Main.repaint();
         }else if(ac==111){
-          ((ViewGUI2d)(Panneau.getView())).closePanneauChargement();
+          ((ViewGUI2d)(FPanel.getView())).closeFPanelChargement();
         }else if(ac==112){//retour au menu
           // Main.setRetournerAuMenu(true);
           retournerAuMenu();
         }else if(ac==113){//retour au jeu
-          Panneau.getView().getPj().removePfp();
+          FPanel.getView().getPj().removePfp();
           Main.getPartie().setContinuerLeJeu(true);
           Main.repaint();
         }else if(ac==200){//endTurnButton
@@ -124,10 +124,10 @@ public class action{
         }else if(ac>=350 && ac<400){
           doGraphicsAction(ac);
         }else if(ac>=40){
-          PanneauBouton pb = Panneau.getView().getPb();
+          FPanelBouton pb = FPanel.getView().getPb();
           pb.setChoixId(pb.getPti().getBoutonX(ac-40));
           pb.remove(pb.getPti());
-          pb.setPti(new PanneauTInt(null,pb));
+          pb.setPti(new FPanelTInt(null,pb));
           Main.repaint();
         }
       }
@@ -145,7 +145,7 @@ public class action{
     }else if(ac==-10){
       String s = getSaveName();
       sauvegarderUnePartie.sauvegarder(Main.getPartie(),s+".save");
-      Panneau.getView().getPe().setVisible(false);
+      FPanel.getView().getPe().setVisible(false);
     }else if(ac==-11){
 
     }else if(ac==-12){
@@ -153,7 +153,7 @@ public class action{
     }else if(ac==-13){
       Main.getF().quit();
     }else if(ac==-14){
-      Panneau.getView().getPe().setVisible(false);
+      FPanel.getView().getPe().setVisible(false);
     }
   }
   /**
@@ -193,15 +193,15 @@ public class action{
     Main.setRetournerAuMenu(true);//ne prend effet dans la void main que lorsque le tour est fini.
     try {
       Main.getGj().setAction0AndEndTurn();//empèche une autre fourmi de jouer
-      Panneau.getView().getPb().setActionF(9);//empèche la fourmi actuel de jouer.
+      FPanel.getView().getPb().setActionF(9);//empèche la fourmi actuel de jouer.
     }catch (Exception e) {}
     // erreur.info("retournerAuMenu 2");
-    // Panneau.getView().getPp().removePj();
-    // Panneau.getView().getPp().addPm();
+    // FPanel.getView().getPp().removePj();
+    // FPanel.getView().getPp().addPm();
   }
   public static void updateMouseLocation(){
     try {
-      System.out.println(Panneau.getView().getPs().getCCase((int)MouseInfo.getPointerInfo().getLocation().getX(), (int)MouseInfo.getPointerInfo().getLocation().getY()).getContent());
+      System.out.println(FPanel.getView().getPs().getCCase((int)MouseInfo.getPointerInfo().getLocation().getX(), (int)MouseInfo.getPointerInfo().getLocation().getY()).getContent());
     }catch (Exception e) {}
   }
   /**
@@ -224,8 +224,8 @@ public class action{
       break;
       case 354:
       Main.getOp().setDrawPlayerMessagePanel(!Main.getOp().getDrawPlayerMessagePanel());
-      if (Panneau.getView().getPb()!=null) {
-        Panneau.getView().getPb().addPIJ();
+      if (FPanel.getView().getPb()!=null) {
+        FPanel.getView().getPb().addPIJ();
       }
       break;
       case 355:

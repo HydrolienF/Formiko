@@ -93,6 +93,7 @@ public class Main {
     debug.setPerformance(false);
     debug.setAffG(false);
     openMenuFirst=true;
+    color.iniColor();
     //iniThings that can't be null :
     // view = new ViewNull();
     // os = new Os();
@@ -127,13 +128,13 @@ public class Main {
         debug.débogage("ReLancement du jeu");
         try {
           getF().dispose();
-          // getView().close();
         }catch (Exception e) {
           erreur.alerte("Window can not be dispose.");
         }
+        premierePartie=false;
         setRetournerAuMenu(false);
         openMenuFirst=true;
-        op=null;//force la réinitialisation de tout.
+        // op=null;//force la réinitialisation de tout.
         image.clearPartielTemporaire();
       }
     }
@@ -185,6 +186,7 @@ public class Main {
   public static Fourmiliere getFourmiliereParId(int id){ return getJoueurParId(id).getFere();}
   public static FFrame getF(){ try {return ((ViewGUI2d)view).getF();} catch (Exception e) {return null;}}
   public static Options getOp(){if(op!=null){return op;}else{if(tempOp==null){tempOp = Options.newDefaultOptions();} return tempOp;}}
+  public static void saveOp(boolean threaded){if(op!=null){op.saveOptions(threaded);}}
   public static Chrono getCh(){ return ch;}
   public static int getKey(String clé){ return key.get(clé); }
   public static Partie getPartie(){ return pa;}
@@ -313,7 +315,7 @@ public class Main {
     getFolder().ini();
     setMessageChargement("chargementDesOptions");startCh();
     chargerLesTraductions.iniTLangue();
-    iniOp();
+    if(op==null){iniOp();}
     if(!debug.getMessage()){//si elle n'ont pas été activé par "-d"
       debug.setMessage(getOp().getMessage());
     }
@@ -376,7 +378,7 @@ public class Main {
   }
   /**
    * {@summary Print on the window a message about game loading.}<br>
-   * If you tried to use it before the creating of a new PanneauChargement, message will not appear on the window.
+   * If you tried to use it before the creating of a new FPanelChargement, message will not appear on the window.
    * @version 1.46
    */
   public static void setMessageChargement(String key){
@@ -424,6 +426,7 @@ public class Main {
       startCh();
       if(getKeepFilesRotated()){image.clearPartielTemporaire();}
       else{image.clearTemporaire();}
+      saveOp(false);
       endCh("vidageDesFichiersImages");
       String s = "toutes les opérations longues ";
       debug.performances("temps pour "+ s + " : "+lonTotal+" ms");

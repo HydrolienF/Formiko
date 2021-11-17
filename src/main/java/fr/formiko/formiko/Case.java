@@ -63,6 +63,7 @@ public class Case implements Serializable{
   public byte getType(){ return type;}
   public void setType(byte x){type = x; if(type==3 || type<0){setFoodInsecteMax((byte)0); setFoodInsecteParTour((byte)0);}}
   public void setType(int x){setType((byte)x);}
+  public boolean canReachCase(){return getType()>-1;}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     boolean caseSombre = false;
@@ -92,9 +93,6 @@ public class Case implements Serializable{
     return s;
   }
   public String desc(){return p.toString();}
-  public void afficheToi(){
-    System.out.println(this);
-  }
   public int getNbrDElementSurCase(){
     int xr = 0;
     if (fere != null){ xr=1;}

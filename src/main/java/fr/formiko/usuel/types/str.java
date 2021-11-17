@@ -7,6 +7,8 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.tableau;
 
+import java.text.Normalizer;
+
 /**
 *{@summary Types conversions from String}<br>
 *@author Hydrolien
@@ -14,6 +16,15 @@ import fr.formiko.usuel.tableau;
 */
 public class str {
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Remove all accent &#38; replace special char by latin one.}<br>
+  *@version 2.11
+  */
+  public static String stripAccents(String s) {
+    s = Normalizer.normalize(s, Normalizer.Form.NFD);
+    s = s.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+    return s;
+  }
   /**
   *{@summary Count '.' &#38; throw an exception if String is malformed.}<br>
   *String is concider malformed if it have other char than "1234567890.".<br>

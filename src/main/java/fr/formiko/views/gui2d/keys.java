@@ -30,7 +30,7 @@ public class keys {
   */
   public static void addBindings(){
     addActionToActionMap();
-    InputMap inputMap = Panneau.getView().getPp().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+    InputMap inputMap = FPanel.getView().getPp().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
 
     inputMap.put(KeyStroke.getKeyStroke((char)27),"escape");
     inputMap.put(KeyStroke.getKeyStroke('\n'), "enter");
@@ -45,7 +45,7 @@ public class keys {
   *@version 1.40
   */
   private static void addActionToActionMap(){
-    ActionMap actionMap = Panneau.getView().getPp().getActionMap();
+    ActionMap actionMap = FPanel.getView().getPp().getActionMap();
 
     //globals actions
     Action actionA = new AbstractAction() {
@@ -54,17 +54,17 @@ public class keys {
       *@version 1.49
       */
       public void actionPerformed(ActionEvent actionEvent) {
-        if(Panneau.getView().getActionGameOn()){
-          if(Panneau.getView().getPe().getVisible()){
-            Panneau.getView().getPe().setVisible(false);
+        if(FPanel.getView().getActionGameOn()){
+          if(FPanel.getView().getPe().getVisible()){
+            FPanel.getView().getPe().setVisible(false);
           }else{
-            Panneau.getView().setMessageDesc("");
-            Panneau.getView().getPe().setVisible(true);
+            FPanel.getView().setMessageDesc("");
+            FPanel.getView().getPe().setVisible(true);
           }
         }else{
-          // Panneau.getView().getPm().getReturnButton().doClick();
-          // Panneau.getView().getPm().getReturnButton().processMouseEvent​(new MouseEvent());
-          action.doAction(Panneau.getView().getPm().getReturnButton().getActionB());
+          // FPanel.getView().getPm().getReturnButton().doClick();
+          // FPanel.getView().getPm().getReturnButton().processMouseEvent​(new MouseEvent());
+          action.doAction(FPanel.getView().getPm().getReturnButton().getActionB());
         }
       }
     };
@@ -72,12 +72,12 @@ public class keys {
 
     actionA = new AbstractAction() {
       /**
-      *{@summary Try to go to next PanneauDialogue.}
+      *{@summary Try to go to next FPanelDialogue.}
       *@version 1.40
       */
       public void actionPerformed(ActionEvent actionEvent) {
         try {
-          Panneau.getView().getPd().clicEn(0,0);
+          FPanel.getView().getPd().clicEn(0,0);
         }catch (Exception e) {}
       }
     };
@@ -89,19 +89,19 @@ public class keys {
       *@version 1.40
       */
       public void actionPerformed(ActionEvent actionEvent) {
-        if (Panneau.getView().getPch()!=null && Panneau.getView().getPch().canBeClose()) {
-          Panneau.getView().closePanneauChargement();
-        }else if (Panneau.getView().getPd()!=null && Panneau.getView().getPd().isVisible()) {
+        if (FPanel.getView().getPch()!=null && FPanel.getView().getPch().canBeClose()) {
+          FPanel.getView().closeFPanelChargement();
+        }else if (FPanel.getView().getPd()!=null && FPanel.getView().getPd().isVisible()) {
           try {
-            Panneau.getView().getPd().clicEn(0,0);
+            FPanel.getView().getPd().clicEn(0,0);
           }catch (Exception e) {}
-        }else if(Panneau.getView().getPcp()!=null && Panneau.getView().getPcp().getLaunchButton()!=null){
-          action.doAction(Panneau.getView().getPcp().getLaunchButton().getActionB());
-        }else if(Panneau.getView().getPnp()!=null && Panneau.getView().getPnp().getLaunchButton()!=null){
-          action.doAction(Panneau.getView().getPnp().getLaunchButton().getActionB());
+        }else if(FPanel.getView().getPcp()!=null && FPanel.getView().getPcp().getLaunchButton()!=null){
+          action.doAction(FPanel.getView().getPcp().getLaunchButton().getActionB());
+        }else if(FPanel.getView().getPnp()!=null && FPanel.getView().getPnp().getLaunchButton()!=null){
+          action.doAction(FPanel.getView().getPnp().getLaunchButton().getActionB());
         // if ant isn't null and an ant have still action to do
       }else if(Main.getPlayingAnt()!=null && !Main.getPlayingAnt().getFere().getGc().haveDoneAllActionAviable()){
-          Panneau.getView().getPb().setActionF(-2);
+          FPanel.getView().getPb().setActionF(-2);
         }else{
         // if we need to play next turn.
           try {
@@ -125,7 +125,7 @@ public class keys {
           try {
             debug.débogage("comparaisons de la clé avec "+Main.getKey(i+""));
             if(c==Main.getKey(i+"")){ // les actions des fourmis
-              Panneau.getView().getPb().setActionF(i-20);return;
+              FPanel.getView().getPb().setActionF(i-20);return;
             }
           }catch (Exception e) {
             erreur.erreur("la clé d'action de fourmi "+i+" n'as pas été trouvée.");

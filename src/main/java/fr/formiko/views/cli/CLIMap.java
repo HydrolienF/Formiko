@@ -88,9 +88,9 @@ public class CLIMap{
   *@version 1.38
   */
   //public only for test
-  public static String objetSurCarteAIdToString(ObjetSurCarteAId o){
+  public static String objetSurCarteAIdToString(ObjetSurCarteAId o, boolean colored){
     String s="";
-    boolean b = Main.getOs().isLinux();
+    boolean b = colored;
     if(o instanceof Insecte){
       if(b){s+=getColorAllyStatus((Creature)o);} s+="I"; s+=o.getId(); if(b){s+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();}
     }else if(o instanceof Graine){
@@ -104,6 +104,7 @@ public class CLIMap{
     }
     return s;
   }
+  public static String objetSurCarteAIdToString(ObjetSurCarteAId o){return objetSurCarteAIdToString(o,true);}
   /**
   *{@summary Return the legend as a String.}<br>
   *Legend can be empty or can have line that look like this "A : F1, 5, G12 \n B : 8, 3 etc."<br>
@@ -128,8 +129,8 @@ public class CLIMap{
     Joueur j = Main.getPlayingJoueur();
     int xi2=0;
     sr+=" ";
-    if(Main.getOs().isLinux()){sr+=color.UNDERLINE;}
-    if(Main.getOs().isLinux()){sr+=color.BLUE;}
+    sr+=color.UNDERLINE;
+    sr+=color.BLUE;
     sr+=" ";
     int len = gc.getWidth();
     for (int i=0;i<len ;i++ ) {
@@ -139,13 +140,13 @@ public class CLIMap{
       }
       sr+=sTemp;
     }
-    if(Main.getOs().isLinux()){sr+=color.NEUTRAL;}
+    sr+=color.NEUTRAL;
     sr+="\n";
     while(cc!=null){
       xi2++;
-      if(Main.getOs().isLinux()){sr+=color.BLUE;}
+      sr+=color.BLUE;
       sr+=ascii.getNuméroationEnAbcd(xi2)+"|";
-      if(Main.getOs().isLinux()){sr+=color.NEUTRAL;}
+      sr+=color.NEUTRAL;
       sr+=mapLineToString(cc,j)+"\n";
       cc=cc.getBas();
     }
@@ -209,6 +210,7 @@ public class CLIMap{
     //if case need to be hide :
     if(Main.getPartie().getCarte().getCasesNuageuses()==true && caseNuageuse){
       while (sr.length()<sizeCase+unseeableChar){sr = sr + "■";}
+      return sr;
     }else if(Main.getPartie().getCarte().getCasesSombres()==true && caseSombre){
       if(contenu.getFere() != null){
         sr = "F"+contenu.getFere().getId();
@@ -217,7 +219,7 @@ public class CLIMap{
       while (sr.length()<sizeCase+unseeableChar){sr = sr + "□";}
     }else{
       if (nbrDElementSurCase == 0){
-        if(!Main.getOs().isLinux()){sr = "-";}
+        // if(!Main.getOs().isLinux()){sr = "-";}
       }else if(nbrDElementSurCase == 1){
         if(contenu.getFere() != null){
           sr = "F"+contenu.getFere().getId();
@@ -245,9 +247,11 @@ public class CLIMap{
         unseeableChar=0;
       }
     }
-    sr+=caseColor(contenu);
+    if(sr.length()<sizeCase+unseeableChar){
+      sr+=caseColor(contenu);
+    }
     while (sr.length()<sizeCase+unseeableChar){sr = sr + " ";}
-    if(Main.getOs().isLinux()){sr+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();}
+    sr+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();
     return sr;
   }
   /**
@@ -257,7 +261,6 @@ public class CLIMap{
   */
   //public only for test
   public String caseColor(Case c){
-    if(!Main.getOs().isLinux()){return "";}
     String sr="";
     switch (c.getType()) {
       case 0 :

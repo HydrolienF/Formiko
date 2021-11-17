@@ -62,10 +62,10 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       // m = "Nourrir et Nétoyer";
       backHomeAndShareFood();
     }
-    Main.setPlayingAnt(null);
     // TODO #410 if(f.getMode()==-1){
-      f.setActionTo0();
+    f.setActionTo0();
     // }
+    Main.setPlayingAnt(null);
   }
   @Override
   public void endTurn(Creature c){
@@ -143,8 +143,8 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         t[i]=i;
       }
       GCreature gcCase = f.getCCase().getContent().getGc();
-      t=tableau.retirerX(t,0); //TODO #229
-      if(f.getAction()<=0 || f.getIndividu().getCoutDéplacement() == -1){ t=tableau.retirerX(t,0);}
+      // t=tableau.retirerX(t,0); //TODO #229
+      if(f.getAction()<=0 || f.getIndividu().getMovingCost() == -1){ t=tableau.retirerX(t,0);}
       if(f.getAction()<=0 || f.getIndividu().getCoutChasse() == -1 || gcCase.getGi().length()==0 || !f.chasse.canHuntMore(f)){ t=tableau.retirerX(t,1);}
       if(f.getAction()<=0 || !f.canLay()){ t=tableau.retirerX(t,2);}
       if(f.getAction()<=0 || f.getIndividu().getCoutTrophallaxie() == -1 || gcCase.filterAlliés(f).filterFaimMax().length() < 2 || f.getFood()<1){ t=tableau.retirerX(t,3);}
@@ -159,7 +159,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   private String faire(int choix){
     String m = switch(choix){
       case 0 :
-        f.ceDeplacer(f.getFere().getJoueur().getIa());
+        Main.getView().setMoveMode(true);
         yield "ceDeplacer";
       case 1 :
         f.chasse();

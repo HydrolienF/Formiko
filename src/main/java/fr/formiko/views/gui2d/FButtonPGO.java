@@ -57,7 +57,7 @@ public class FButtonPGO extends FButton {
     super.mouseReleased(event);
     updateColor();
     setSelected(true);
-    Panneau.getView().getPj().updateTimeFromLastMove();
+    FPanel.getView().getPj().updateTimeFromLastMove();
   }
   /**
   *{@summary Update color depending of supplier return value.}

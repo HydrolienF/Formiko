@@ -5,7 +5,7 @@ import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GCreature;
 import fr.formiko.formiko.Main;
 import fr.formiko.views.gui2d.BoiteListeDefilante;
-import fr.formiko.views.gui2d.PanneauTInt;
+import fr.formiko.views.gui2d.FPanelTInt;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;

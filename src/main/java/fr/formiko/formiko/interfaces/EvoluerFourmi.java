@@ -37,7 +37,6 @@ public class EvoluerFourmi implements Serializable, Evoluer{
     if(f.getStade()==0){return;}
     Individu in = f.getIndividu();
     if(Main.getTour()>1){new Message(g.getM("la")+" "+f.getNom()+" "+f.getId()+" "+g.get("evoluerFourmi.1"));}
-    Main.setPlayingAnt(f); //to refrech playingant info
     //-2 et -1 = facile = temps plus court pour passer au stade suivant pour les joueurs.
     double diff = f.getMultiplicateurDeDiff();
     f.setStade(f.getStade()+1); f.setAge(0);
@@ -47,7 +46,7 @@ public class EvoluerFourmi implements Serializable, Evoluer{
       if(f.getTypeF()<2){f.setCutWings(false);}//si c'est une fourmi ailé qui est désormais imago.
       //TODO add la capacité de voler
       if (in.getCoutPondre() != -1) { f.pondre = new PondreReine(); }
-      if (in.getCoutDéplacement() != -1) { f.déplacement = new DeplacementFourmi();}
+      if (in.getMovingCost() != -1) { f.déplacement = new DeplacementFourmi();}
       if (in.getCoutChasse()!=-1) {
         if(f.getEspece().getInsectivore()){
           f.chasse = new ChasseInsectivore();

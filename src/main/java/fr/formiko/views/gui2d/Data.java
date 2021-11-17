@@ -64,18 +64,18 @@ public class Data {
   private ImageTree imageTreeIni;
   private HashMap<String, BufferedImage> iconMap;
   // private map<String,BufferedImage> iconMapIni;
-  //PanneauAction
+  //FPanelAction
   private BufferedImage tImage [];
-  //PanneauZoom
+  //FPanelZoom
   private Image [] tIBZoom;
   private boolean initialisationFX;
-  //PanneauChargement
+  //FPanelChargement
   private BufferedImage imageChargement;
-  //PanneauActionInf / Sup
+  //FPanelActionInf / Sup
   private Image backgroundPAI;
   private Image backgroundPAS;
 
-  //PanneauMenu
+  //FPanelMenu
   private Color buttonColor = new Color(81, 252, 0, 100);
   private Color buttonActivateColor = Color.YELLOW;
   private Color buttonFocusColor = new Color(248, 152, 29, 100);
@@ -113,13 +113,13 @@ public class Data {
   public BufferedImage [] getTG(){return tG;}
   public BufferedImage [][] getTF(){return tF;}
   public BufferedImage getMap(){return map;}
-  //PanneauAction
+  //FPanelAction
   public BufferedImage [] getTImage(){return tImage;}
-  //PanneauChargement
+  //FPanelChargement
   public BufferedImage getImageChargement(){return imageChargement;}
   //imageIni
   public void setImageIniForNewGame(boolean b){imageIniForNewGame=b;}
-  //PanneauActionInf / Sup
+  //FPanelActionInf / Sup
   public Image getBackgroundPAI(){return backgroundPAI;}
   public Image getBackgroundPAS(){return backgroundPAS;}
   public Color getButtonColor(){return buttonColor;}
@@ -239,7 +239,7 @@ public class Data {
         }
       }
       try {
-        Point rotate = Panneau.getView().getPc().getMovingObjectRotation(f.getId());
+        Point rotate = FPanel.getView().getPc().getMovingObjectRotation(f.getId());
         for (int i=0; i<6; i+=2) {
           tRotation[i] += rotate.getX();
         }
@@ -416,13 +416,13 @@ public class Data {
     public void iniBackgroundMapImage(){
       if(!Main.getView().getActionGameOn()){return;}
       Main.startCh();
-      // if(Panneau.getView().getPc()==null){erreur.erreur("Map panel is null");}
-      Panneau.getView().getPc().updateSize();
-      Img img = new Img(Panneau.getView().getPc().getWidth(),Panneau.getView().getPc().getHeight());
+      // if(FPanel.getView().getPc()==null){erreur.erreur("Map panel is null");}
+      FPanel.getView().getPc().updateSize();
+      Img img = new Img(FPanel.getView().getPc().getWidth(),FPanel.getView().getPc().getHeight());
       //if(img.)
       Img img2 = null;
-      int xCase = Panneau.getView().getPc().getXCase();
-      int yCase = Panneau.getView().getPc().getYCase();
+      int xCase = FPanel.getView().getPc().getXCase();
+      int yCase = FPanel.getView().getPc().getYCase();
       try {
         // if(getTailleDUneCase()<1){erreur.erreur("Case size is <1");}
         for (int i=0;i<xCase ;i++ ) {
@@ -430,7 +430,7 @@ public class Data {
             int xT = i*getTailleDUneCase(); int yT = j*getTailleDUneCase();
             Case c=null;
             try {
-              c = Main.getGc().getCCase(i+Panneau.getView().getPc().getPosX(),j+Panneau.getView().getPc().getPosY()).getContent();
+              c = Main.getGc().getCCase(i+FPanel.getView().getPc().getPosX(),j+FPanel.getView().getPc().getPosY()).getContent();
             }catch (Exception e) {erreur.erreur("case is null");}
             try {
               img2 = new Img(tICarte[c.getType()-1]);
@@ -520,12 +520,12 @@ public class Data {
     }public BufferedImage [][] getScaledInstance(BufferedImage ti[][],int dim){return getScaledInstance(ti,dim,0);}
 
   //}
-  //PanneauAction
+  //FPanelAction
   /**
-  *Load graphics for PanneauAction
+  *Load graphics for FPanelAction
   *@version 1.18
   */
-  public synchronized void chargerTIPanneauAction(){
+  public synchronized void chargerTIFPanelAction(){
     if (tImage==null){
       if(Main.getPiFond()!=null){
         chargerTImageAvecFond(Main.getPiFond());
@@ -542,7 +542,7 @@ public class Data {
   */
   private void loadBackgroundPAI(){
     backgroundPAI = image.getImage("backgroundPAI");
-    backgroundPAI = backgroundPAI.getScaledInstance(Main.getDimX(), Panneau.getView().getPa().getHeight(),Image.SCALE_SMOOTH);
+    backgroundPAI = backgroundPAI.getScaledInstance(Main.getDimX(), FPanel.getView().getPa().getHeight(),Image.SCALE_SMOOTH);
   }
   /**
   *Load backgroundPAS
@@ -550,25 +550,25 @@ public class Data {
   */
   private void loadBackgroundPAS(){
     backgroundPAS = image.getImage("backgroundPAS");
-    backgroundPAS = backgroundPAS.getScaledInstance(Panneau.getView().getPa().getHeight(), Panneau.getView().getPa().getHeight(),Image.SCALE_SMOOTH);
+    backgroundPAS = backgroundPAS.getScaledInstance(FPanel.getView().getPa().getHeight(), FPanel.getView().getPa().getHeight(),Image.SCALE_SMOOTH);
   }
   /**
-  *Load images for PanneauAction without background
+  *Load images for FPanelAction without background
   *@version 1.18
   */
   private void chargerTImage(){
-    int tailleBouton = Panneau.getView().getPa().getbuttonSize();
+    int tailleBouton = FPanel.getView().getPa().getbuttonSize();
     tImage = image.getImages("desc");
     for (int i=0;i<10 ;i++ ) {
       tImage[i] = image.resize(tImage[i],tailleBouton);
     }
   }
   /**
-  *Load images for PanneauAction with background
+  *Load images for FPanelAction with background
   *@version 1.18
   */
   private void chargerTImageAvecFond(Pixel pi){
-    int tailleBouton = Panneau.getView().getPa().getbuttonSize();
+    int tailleBouton = FPanel.getView().getPa().getbuttonSize();
     for (int k=0;k<10 ;k++) {
       Img img = new Img("desc"+k);
       img.changerPixelTransparent(pi);
@@ -579,9 +579,9 @@ public class Data {
       tImage[i] = image.resize(tImage[i],tailleBouton);
     }
   }
-  //PanneauZoom
+  //FPanelZoom
   /**
-  *Load images for PanneauZoom
+  *Load images for FPanelZoom
   *@version 1.18
   */
   public Image [] chargerTIBZoom(){
@@ -603,7 +603,7 @@ public class Data {
     return tIBZoom;
   }
   /**
-  *{@summary Turn the arrow for PanneauZoom.}<br>
+  *{@summary Turn the arrow for FPanelZoom.}<br>
   *@version 1.18
   */
   public void tournerLesFleches(String nom){
@@ -621,7 +621,7 @@ public class Data {
   }public void tournerLesFleches(){ tournerLesFleches("fleche");}
 
   /**
-  *{@summary Load a loading image for PanneauChargement.}<br>
+  *{@summary Load a loading image for FPanelChargement.}<br>
   *@version 1.32
   */
   public boolean loadImageChargement(){

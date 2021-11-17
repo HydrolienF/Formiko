@@ -9,7 +9,7 @@ import fr.formiko.formiko.Main;
 *@version 2.7
 */
 public class FFrameMain extends FFrame {
-  private PanneauPrincipal pp;
+  private FPanelPrincipal pp;
 
   // CONSTRUCTORS --------------------------------------------------------------
   /**
@@ -18,13 +18,13 @@ public class FFrameMain extends FFrame {
   */
   public FFrameMain(){
     super("Formiko", Main.getOp().getFrameWidth(), Main.getOp().getFrameHeight(), Main.getFullscreen());
-    pp = new PanneauPrincipal();
+    pp = new FPanelPrincipal();
     this.setContentPane(pp);
     endIni();
   }
 
   // GET SET -------------------------------------------------------------------
-  public PanneauPrincipal getPp(){ return pp;}
+  public FPanelPrincipal getPp(){ return pp;}
 
   // FUNCTIONS -----------------------------------------------------------------
 }

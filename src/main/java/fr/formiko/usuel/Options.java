@@ -4,6 +4,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.types.str;
 
 import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
@@ -29,6 +30,7 @@ public class Options implements Serializable{
   private byte game_language; // 0=eo; 1=fr; 2=en;
   private String game_pseudo;
   private boolean game_whaitBeforeLaunchGame;
+  private boolean game_discordRP;
 
   //partie options
   private boolean partie_autoCleaning;
@@ -69,6 +71,7 @@ public class Options implements Serializable{
   private int gui_global_fontSizeTitle;
   private String gui_global_fontText;
   private String gui_global_fontTitle;
+  private boolean gui_global_fontTitlePersonalised;
   private boolean gui_global_fullscreen;
   private int gui_global_frameWidth;
   private int gui_global_frameHeight;
@@ -131,7 +134,7 @@ public class Options implements Serializable{
   public byte getMaxMessageDisplay(){ return gui_partie_maxMessageDisplay;}
   public void setMaxMessageDisplay(int x){ gui_partie_maxMessageDisplay=str.iToBy(x);}
   public boolean getDrawGrid(){ return gui_pgo_drawGrid;}
-  public void setDrawGrid(boolean b){gui_pgo_drawGrid=b; }
+  public void setDrawGrid(boolean b){gui_pgo_drawGrid=b;}
   public boolean getForceQuit(){ return game_forceQuit;}
   public void setForceQuit(boolean b){ game_forceQuit=b;}
   public byte getBorderButtonSize(){ return gui_global_borderButtonSize;}
@@ -144,6 +147,19 @@ public class Options implements Serializable{
   public Font getFont1(Double d){Font fTemp = new Font(getFontText(),Font.PLAIN,(int)(getFontSizeText()*d)); return fTemp;}
   public void setFont1(Font f){font1=f;}
   public Font getFont2(){return font2;}
+  /**
+  *{@summary Return a font that can display given String.}
+  *@param s String to test displayability.
+  *@version 2.11
+  */
+  public Font getFontTitle(String s){
+    if(getFont2()==null){return getFont1();}
+    if(s==null){return getFont2();}
+    for (char c : s.toCharArray()) {
+      if(!getFont2().canDisplay(c)){return getFont1().deriveFont((float)getFontSizeTitle());}
+    }
+    return getFont2();
+  }
   public void setFont2(Font f){font2=f;}
   public int getFontSizeText(){return gui_global_fontSizeText;}
   public void setFontSizeText(int x){gui_global_fontSizeText=x;}
@@ -151,6 +167,8 @@ public class Options implements Serializable{
   public void setFontSizeTitle(int x){gui_global_fontSizeTitle=x;}
   public String getFontText(){ return gui_global_fontText;}
   public void setFontText(String s){gui_global_fontText=s;}
+  public String getFontTitle(){ return gui_global_fontTitle;}
+  public void setFontTitle(String s){gui_global_fontTitle=s;}
   public String getPseudo(){ return game_pseudo;}
   public void setPseudo(String s){game_pseudo=s;}
   public boolean getFullscreen(){ return gui_global_fullscreen;}
@@ -165,6 +183,8 @@ public class Options implements Serializable{
   public void setKeepFilesRotated(boolean b){gui_hide_keepFilesRotated=b;}
   public boolean getWhaitBeforeLaunchGame(){ return game_whaitBeforeLaunchGame;}
   public void setWhaitBeforeLaunchGame(boolean b){game_whaitBeforeLaunchGame=b;}
+  public boolean getDiscordRP(){ return game_discordRP;}
+  public void setDiscordRP(boolean b){game_discordRP=b;}
   public boolean getMessage(){return debug_message;}
   public void setMessage(boolean b){debug_message=b;}
   public boolean getPerformance(){return debug_performance;}
@@ -203,6 +223,8 @@ public class Options implements Serializable{
   public void setEndTurnAuto(boolean b){game_endTurnAuto=b;}
   public boolean getAnimationEnable(){return gui_global_animationEnable;}
   public void setAnimationEnable(boolean b){gui_global_animationEnable=b;}
+  public boolean getFontTitlePersonalised(){return gui_global_fontTitlePersonalised;}
+  public void setFontTitlePersonalised(boolean b){gui_global_fontTitlePersonalised=b;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize Options.}<br>
@@ -217,12 +239,25 @@ public class Options implements Serializable{
   /**
   *{@summary Save Options.}<br>
   *It load properties from data of Options.java, transform it to properties &#38; then destory properties.
-  *@version 1.34
+  *@param threaded true if we can do the save in an other tread
+  *@version 2.11
   */
-  public void saveOptions(){
-    if(properties==null){
-      optionToProperties(); // transform Options into properties.
+  public void saveOptions(boolean threaded){
+    if(threaded){
+      new Thread(() -> {
+        saveOp();
+      }).start();
+    }else{
+      saveOp();
     }
+  }
+  public void saveOptions(){saveOptions(true);}
+  /**
+  *{@summary Save Options.}<br>
+  *@version 2.11
+  */
+  private void saveOp(){
+    optionToProperties(); // transform Options into properties.
     saveProperties();
     properties=null; //destory properties to save memory.
   }
@@ -308,13 +343,15 @@ public class Options implements Serializable{
     defaultProperties.setProperty("game_language",Locale.getDefault().getLanguage());
     defaultProperties.setProperty("game_pseudo","");
     defaultProperties.setProperty("game_whaitBeforeLaunchGame","true");
+    defaultProperties.setProperty("game_discordRP","false");
     defaultProperties.setProperty("gui_global_animationEnable","true");
     defaultProperties.setProperty("gui_global_borderButtonSize","4");
     defaultProperties.setProperty("gui_global_buttonSizeAction",""+t[1]);
     defaultProperties.setProperty("gui_global_fontSizeText",""+(int)(30*racio));
     defaultProperties.setProperty("gui_global_fontSizeTitle",""+(int)(60*racio));
     defaultProperties.setProperty("gui_global_fontText","Default");
-    defaultProperties.setProperty("gui_global_fontTitle","Default");
+    defaultProperties.setProperty("gui_global_fontTitle","Insektofobiya");
+    defaultProperties.setProperty("gui_global_fontTitlePersonalised","true");
     defaultProperties.setProperty("gui_global_fps","60");
     defaultProperties.setProperty("gui_global_frameHeight",""+he);
     defaultProperties.setProperty("gui_global_frameWidth",""+wi);
@@ -325,23 +362,21 @@ public class Options implements Serializable{
     defaultProperties.setProperty("gui_hide_loadingDuringMenus","true");
     defaultProperties.setProperty("gui_hide_modeFPS","true");
     defaultProperties.setProperty("gui_hide_positionCase","0");
-    defaultProperties.setProperty("gui_partie_instantaneousMovement","true");
-    defaultProperties.setProperty("gui_partie_maxMessageDisplay","10");
-    defaultProperties.setProperty("gui_partie_orientedObjectOnMap","true");
-    defaultProperties.setProperty("gui_partie_quickMovement","true");
-
-    defaultProperties.setProperty("gui_partie_drawSeeds","true");
-    defaultProperties.setProperty("gui_partie_drawOnlyEatable","true");
     defaultProperties.setProperty("gui_partie_drawAllyCreatures","true");
     defaultProperties.setProperty("gui_partie_drawEnemyCreatures","true");
     defaultProperties.setProperty("gui_partie_drawNeutralCreatures","true");
-
+    defaultProperties.setProperty("gui_partie_drawOnlyEatable","true");
+    defaultProperties.setProperty("gui_partie_drawSeeds","true");
+    defaultProperties.setProperty("gui_partie_instantaneousMovement","false");
+    defaultProperties.setProperty("gui_partie_maxMessageDisplay","10");
+    defaultProperties.setProperty("gui_partie_orientedObjectOnMap","true");
+    defaultProperties.setProperty("gui_partie_quickMovement","true");
     defaultProperties.setProperty("gui_partie_realisticSize","30");
     defaultProperties.setProperty("gui_partie_sizeOfMapLines","2");
     defaultProperties.setProperty("gui_pgo_antColorLevel","1");
     defaultProperties.setProperty("gui_pgo_drawAllAnthillColor","false");
-    defaultProperties.setProperty("gui_pgo_drawPlayerMessagePanel","true");
     defaultProperties.setProperty("gui_pgo_drawGrid","true");
+    defaultProperties.setProperty("gui_pgo_drawPlayerMessagePanel","true");
     defaultProperties.setProperty("gui_pgo_drawRelationsIcons","true");
     defaultProperties.setProperty("gui_pgo_drawStatesIconsLevel","1");
     defaultProperties.setProperty("partie_autoCleaning","true");
@@ -392,6 +427,7 @@ public class Options implements Serializable{
     game_forceQuit=str.sToB(properties.getProperty("game_forceQuit"));
     game_pseudo=properties.getProperty("game_pseudo");
     game_whaitBeforeLaunchGame=str.sToB(properties.getProperty("game_whaitBeforeLaunchGame"));
+    game_discordRP=str.sToB(properties.getProperty("game_discordRP"));
     gui_global_animationEnable=str.sToB(properties.getProperty("gui_global_animationEnable"));
     gui_global_borderButtonSize=str.sToBy(properties.getProperty("gui_global_borderButtonSize"));
     gui_global_buttonSizeAction=str.sToBy(properties.getProperty("gui_global_buttonSizeAction"));
@@ -399,6 +435,7 @@ public class Options implements Serializable{
     gui_global_fontSizeTitle=str.sToI(properties.getProperty("gui_global_fontSizeTitle"));
     gui_global_fontText=properties.getProperty("gui_global_fontText");
     gui_global_fontTitle=properties.getProperty("gui_global_fontTitle");
+    gui_global_fontTitlePersonalised=str.sToB(properties.getProperty("gui_global_fontTitlePersonalised"));
     gui_global_fps=str.sToI(properties.getProperty("gui_global_fps"));
     gui_global_frameHeight=str.sToI(properties.getProperty("gui_global_frameHeight"));
     gui_global_frameWidth=str.sToI(properties.getProperty("gui_global_frameWidth"));
@@ -409,21 +446,21 @@ public class Options implements Serializable{
     gui_hide_loadingDuringMenus=str.sToB(properties.getProperty("gui_hide_loadingDuringMenus"));
     gui_hide_modeFPS=str.sToB(properties.getProperty("gui_hide_modeFPS"));
     gui_hide_positionCase=str.sToBy(properties.getProperty("gui_hide_positionCase"));
+    gui_partie_drawAllyCreatures=str.sToB(properties.getProperty("gui_partie_drawAllyCreatures"));
+    gui_partie_drawEnemyCreatures=str.sToB(properties.getProperty("gui_partie_drawEnemyCreatures"));
+    gui_partie_drawNeutralCreatures=str.sToB(properties.getProperty("gui_partie_drawNeutralCreatures"));
+    gui_partie_drawOnlyEatable=str.sToB(properties.getProperty("gui_partie_drawOnlyEatable"));
+    gui_partie_drawSeeds=str.sToB(properties.getProperty("gui_partie_drawSeeds"));
     gui_partie_instantaneousMovement=str.sToB(properties.getProperty("gui_partie_instantaneousMovement"));
     gui_partie_maxMessageDisplay=str.sToBy(properties.getProperty("gui_partie_maxMessageDisplay"));
     gui_partie_orientedObjectOnMap=str.sToB(properties.getProperty("gui_partie_orientedObjectOnMap"));
     gui_partie_quickMovement=str.sToB(properties.getProperty("gui_partie_quickMovement"));
-    gui_partie_drawSeeds=str.sToB(properties.getProperty("gui_partie_drawSeeds"));
-    gui_partie_drawOnlyEatable=str.sToB(properties.getProperty("gui_partie_drawOnlyEatable"));
-    gui_partie_drawAllyCreatures=str.sToB(properties.getProperty("gui_partie_drawAllyCreatures"));
-    gui_partie_drawEnemyCreatures=str.sToB(properties.getProperty("gui_partie_drawEnemyCreatures"));
-    gui_partie_drawNeutralCreatures=str.sToB(properties.getProperty("gui_partie_drawNeutralCreatures"));
     gui_partie_realisticSize=str.sToBy(properties.getProperty("gui_partie_realisticSize"));
     gui_partie_sizeOfMapLines=str.sToI(properties.getProperty("gui_partie_sizeOfMapLines"));
     gui_pgo_antColorLevel=str.sToBy(properties.getProperty("gui_pgo_antColorLevel"));
     gui_pgo_drawAllAnthillColor=str.sToB(properties.getProperty("gui_pgo_drawAllAnthillColor"));
-    gui_pgo_drawPlayerMessagePanel=str.sToB(properties.getProperty("gui_pgo_drawPlayerMessagePanel"));
     gui_pgo_drawGrid=str.sToB(properties.getProperty("gui_pgo_drawGrid"));
+    gui_pgo_drawPlayerMessagePanel=str.sToB(properties.getProperty("gui_pgo_drawPlayerMessagePanel"));
     gui_pgo_drawRelationsIcons=str.sToB(properties.getProperty("gui_pgo_drawRelationsIcons"));
     gui_pgo_drawStatesIconsLevel=str.sToBy(properties.getProperty("gui_pgo_drawStatesIconsLevel"));
     partie_autoCleaning=str.sToB(properties.getProperty("partie_autoCleaning"));
@@ -432,8 +469,33 @@ public class Options implements Serializable{
     sounds_sound=str.sToB(properties.getProperty("sounds_sound"));
     sounds_soundVolume=str.sToBy(properties.getProperty("sounds_soundVolume"));
 
+    updateFont();
+  }
+  /**
+  *{@summary update the 2 font.}<br>
+  *@version 2.5
+  */
+  public void updateFont(){
     font1=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeText);
-    font2=new Font(gui_global_fontTitle, Font.BOLD, gui_global_fontSizeTitle);
+    if (gui_global_fontTitlePersonalised) {
+      try {
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        File file = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"font/"+gui_global_fontTitle+".otf");
+        if(!file.exists()){
+          file = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"font/"+gui_global_fontTitle+".ttf");
+        }
+        Font fontTemp = Font.createFont(Font.TRUETYPE_FONT,file);
+        // System.out.println(fontTemp);
+        ge.registerFont(fontTemp);
+        font2=new Font(gui_global_fontTitle, Font.PLAIN, gui_global_fontSizeTitle);
+        if(font2==null){throw new NullPointerException();}
+      }catch (Exception e) {
+        erreur.alerte("fail to set font for title");
+        font2=new Font(gui_global_fontText, Font.PLAIN, gui_global_fontSizeTitle);
+      }
+    }else{
+      font2=new Font(gui_global_fontText, Font.PLAIN, gui_global_fontSizeTitle);
+    }
   }
   /**
   *{@summary tranform properties into Options var.}<br>
@@ -441,55 +503,57 @@ public class Options implements Serializable{
   */
   private void optionToProperties(){
     properties = new SortedProperties(getDefaultProperties());
-    properties.setProperty("game_language",""+game_language);
-    properties.setProperty("gui_hide_buttonSizeZoom",""+gui_hide_buttonSizeZoom);
-    properties.setProperty("gui_global_buttonSizeAction",""+gui_global_buttonSizeAction);
-    properties.setProperty("gui_hide_buttonSizeTX",""+gui_hide_buttonSizeTX);
-    properties.setProperty("gui_partie_quickMovement",""+gui_partie_quickMovement);
-    properties.setProperty("gui_partie_drawSeeds",""+gui_partie_drawSeeds);
-    properties.setProperty("gui_partie_drawOnlyEatable",""+gui_partie_drawOnlyEatable);
-    properties.setProperty("gui_partie_drawAllyCreatures",""+gui_partie_drawAllyCreatures);
-    properties.setProperty("gui_partie_drawEnemyCreatures",""+gui_partie_drawEnemyCreatures);
-    properties.setProperty("gui_partie_drawNeutralCreatures",""+gui_partie_drawNeutralCreatures);
-    properties.setProperty("gui_partie_instantaneousMovement",""+gui_partie_instantaneousMovement);
-    properties.setProperty("gui_partie_orientedObjectOnMap",""+gui_partie_orientedObjectOnMap);
-    properties.setProperty("gui_partie_maxMessageDisplay",""+gui_partie_maxMessageDisplay);
-    properties.setProperty("gui_pgo_drawGrid",""+gui_pgo_drawGrid);
+    properties.setProperty("debug_alerte",""+debug_alerte);
+    properties.setProperty("debug_error",""+debug_error);
+    properties.setProperty("debug_gui",""+debug_gui);
+    properties.setProperty("debug_message",""+debug_message);
+    properties.setProperty("debug_paintHitBox",""+debug_paintHitBox);
+    properties.setProperty("debug_performance",""+debug_performance);
+    properties.setProperty("game_endTurnAuto",""+game_endTurnAuto);
     properties.setProperty("game_forceQuit",""+game_forceQuit);
+    properties.setProperty("game_language",chargerLesTraductions.getLanguageAsString(game_language));
+    properties.setProperty("game_pseudo",""+game_pseudo);
+    properties.setProperty("game_whaitBeforeLaunchGame",""+game_whaitBeforeLaunchGame);
+    properties.setProperty("game_discordRP",""+game_discordRP);
+    properties.setProperty("gui_global_animationEnable",""+gui_global_animationEnable);
     properties.setProperty("gui_global_borderButtonSize",""+gui_global_borderButtonSize);
-    properties.setProperty("gui_pgo_drawRelationsIcons",""+gui_pgo_drawRelationsIcons);
-    properties.setProperty("gui_pgo_drawStatesIconsLevel",""+gui_pgo_drawStatesIconsLevel);
+    properties.setProperty("gui_global_buttonSizeAction",""+gui_global_buttonSizeAction);
     properties.setProperty("gui_global_fontSizeText",""+gui_global_fontSizeText);
     properties.setProperty("gui_global_fontSizeTitle",""+gui_global_fontSizeTitle);
     properties.setProperty("gui_global_fontText",""+gui_global_fontText);
-    properties.setProperty("gui_global_fontTitle",""+gui_global_fontTitle);
-    properties.setProperty("game_pseudo",""+game_pseudo);
-    properties.setProperty("gui_global_fullscreen",""+gui_global_fullscreen);
-    properties.setProperty("gui_global_frameWidth",""+gui_global_frameWidth);
-    properties.setProperty("gui_global_frameHeight",""+gui_global_frameHeight);
-    properties.setProperty("gui_hide_loadingDuringMenus",""+gui_hide_loadingDuringMenus);
-    properties.setProperty("gui_hide_keepFilesRotated",""+gui_hide_keepFilesRotated);
-    properties.setProperty("game_whaitBeforeLaunchGame",""+game_whaitBeforeLaunchGame);
-    properties.setProperty("debug_error",""+debug_error);
-    properties.setProperty("debug_alerte",""+debug_alerte);
-    properties.setProperty("debug_message",""+debug_message);
-    properties.setProperty("debug_performance",""+debug_performance);
-    properties.setProperty("debug_gui",""+debug_gui);
-    properties.setProperty("debug_paintHitBox",""+debug_paintHitBox);
-    properties.setProperty("gui_partie_sizeOfMapLines",""+gui_partie_sizeOfMapLines);
-    properties.setProperty("gui_hide_positionCase",""+gui_hide_positionCase);
-    properties.setProperty("sounds_music",""+sounds_music);
-    properties.setProperty("sounds_sound",""+sounds_sound);
-    properties.setProperty("sounds_musicVolume",""+sounds_musicVolume);
-    properties.setProperty("sounds_soundVolume",""+sounds_soundVolume);
-    properties.setProperty("gui_partie_realisticSize",""+gui_partie_realisticSize);
-    properties.setProperty("partie_autoCleaning",""+partie_autoCleaning);
-    properties.setProperty("gui_hide_modeFPS",""+gui_hide_modeFPS);
+    properties.setProperty("gui_global_fontTitle",gui_global_fontTitle);
+    properties.setProperty("gui_global_fontTitlePersonalised",""+gui_global_fontTitlePersonalised);
     properties.setProperty("gui_global_fps",""+gui_global_fps);
+    properties.setProperty("gui_global_frameHeight",""+gui_global_frameHeight);
+    properties.setProperty("gui_global_frameWidth",""+gui_global_frameWidth);
+    properties.setProperty("gui_global_fullscreen",""+gui_global_fullscreen);
+    properties.setProperty("gui_hide_buttonSizeTX",""+gui_hide_buttonSizeTX);
+    properties.setProperty("gui_hide_buttonSizeZoom",""+gui_hide_buttonSizeZoom);
+    properties.setProperty("gui_hide_keepFilesRotated",""+gui_hide_keepFilesRotated);
+    properties.setProperty("gui_hide_loadingDuringMenus",""+gui_hide_loadingDuringMenus);
+    properties.setProperty("gui_hide_modeFPS",""+gui_hide_modeFPS);
+    properties.setProperty("gui_hide_positionCase",""+gui_hide_positionCase);
+    properties.setProperty("gui_partie_drawAllyCreatures",""+gui_partie_drawAllyCreatures);
+    properties.setProperty("gui_partie_drawEnemyCreatures",""+gui_partie_drawEnemyCreatures);
+    properties.setProperty("gui_partie_drawNeutralCreatures",""+gui_partie_drawNeutralCreatures);
+    properties.setProperty("gui_partie_drawOnlyEatable",""+gui_partie_drawOnlyEatable);
+    properties.setProperty("gui_partie_drawSeeds",""+gui_partie_drawSeeds);
+    properties.setProperty("gui_partie_instantaneousMovement",""+gui_partie_instantaneousMovement);
+    properties.setProperty("gui_partie_maxMessageDisplay",""+gui_partie_maxMessageDisplay);
+    properties.setProperty("gui_partie_orientedObjectOnMap",""+gui_partie_orientedObjectOnMap);
+    properties.setProperty("gui_partie_quickMovement",""+gui_partie_quickMovement);
+    properties.setProperty("gui_partie_realisticSize",""+gui_partie_realisticSize);
+    properties.setProperty("gui_partie_sizeOfMapLines",""+gui_partie_sizeOfMapLines);
     properties.setProperty("gui_pgo_antColorLevel", ""+gui_pgo_antColorLevel);
     properties.setProperty("gui_pgo_drawAllAnthillColor", ""+gui_pgo_drawAllAnthillColor);
+    properties.setProperty("gui_pgo_drawGrid",""+gui_pgo_drawGrid);
     properties.setProperty("gui_pgo_drawPlayerMessagePanel", ""+gui_pgo_drawPlayerMessagePanel);
-    properties.setProperty("game_endTurnAuto",""+game_endTurnAuto);
-    properties.setProperty("gui_global_animationEnable",""+gui_global_animationEnable);
+    properties.setProperty("gui_pgo_drawRelationsIcons",""+gui_pgo_drawRelationsIcons);
+    properties.setProperty("gui_pgo_drawStatesIconsLevel",""+gui_pgo_drawStatesIconsLevel);
+    properties.setProperty("partie_autoCleaning",""+partie_autoCleaning);
+    properties.setProperty("sounds_music",""+sounds_music);
+    properties.setProperty("sounds_musicVolume",""+sounds_musicVolume);
+    properties.setProperty("sounds_sound",""+sounds_sound);
+    properties.setProperty("sounds_soundVolume",""+sounds_soundVolume);
   }
 }

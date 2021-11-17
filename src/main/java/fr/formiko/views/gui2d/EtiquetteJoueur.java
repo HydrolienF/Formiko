@@ -17,7 +17,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JTextField;
 
-public class EtiquetteJoueur extends Panneau{
+public class EtiquetteJoueur extends FPanel{
   private static int idCpt; private final int id;
   private Champ dsc;
   private boolean ia;
@@ -130,7 +130,7 @@ public class EtiquetteJoueur extends Panneau{
     public EtiquetteJoueur ej;
     public void itemStateChanged(ItemEvent e) {
       debug.débogage("événement déclenché sur : " + e.getItem());
-      PanneauNouvellePartie pnp = getView().getPnp();
+      FPanelNouvellePartie pnp = getView().getPnp();
       if(e.getStateChange()==1){ // si l'action est bien sélectionner.
         if(combo.getItemAt(0).equals(e.getItem())){
           ouvert=true; ia=false; setPseudo(g.getM("joueur")+" "+(id+1));

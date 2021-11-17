@@ -11,7 +11,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
-public class EtiquetteChoix extends Panneau{
+public class EtiquetteChoix extends FPanel{
   private FComboBox<String> choixX;
   private FLabel choixXDesc;
   private int k;

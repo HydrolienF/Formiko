@@ -5,7 +5,7 @@ import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
-import fr.formiko.views.gui2d.PanneauTInt;
+import fr.formiko.views.gui2d.FPanelTInt;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -69,7 +69,6 @@ public class PondreReine implements Serializable, Pondre{
       //fere.getGc().add(fm); l'ajout a la fourmilière ce fait dans le constructeur de Fourmi.
       f.setFood(f.getFood() - FOOD_COST_TO_LAY);
       Message m = new Message(g.getM("la")+" "+f.getNom()+" "+fm.getId() + " "+g.get("pondreReine.1")+".", fere.getId(), 3);
-      Main.setPlayingAnt(f); //to refrech playingant info
       f.setActionMoins(f.getIndividu().getCoutPondre());
       f.setCutWings(true);//une reine qui pond n'as plus d'ailes.
       // Main.getView().; //TODO
@@ -87,7 +86,7 @@ public class PondreReine implements Serializable, Pondre{
       //TODO
       // getView().getPp().getPj().addPti(ti,3);
       tableau.afficher(ti);
-      byte x = (byte) PanneauTInt.getChoixId();
+      byte x = (byte) FPanelTInt.getChoixId();
       if(f.getEspece().getGIndividu().getIndividuByType(x) != null){
         return x;
       }

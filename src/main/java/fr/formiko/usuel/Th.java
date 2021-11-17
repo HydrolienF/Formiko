@@ -21,8 +21,8 @@ public class Th extends Thread{
     }else if(x==2){
       Chrono ch2 = new Chrono();
       Chrono.debutCh(ch2);
-      ini.initialiserPanneauJeuEtDépendance();
-      Chrono.endCh(g.get("chargementPanneauJeuEtDépendance"),ch2);
+      ini.initialiserFPanelJeuEtDépendance();
+      Chrono.endCh(g.get("chargementFPanelJeuEtDépendance"),ch2);
     }
   }
   public synchronized void chargementDesGraphismesAutonomes(){
