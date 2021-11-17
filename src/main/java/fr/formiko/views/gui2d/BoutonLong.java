@@ -32,9 +32,6 @@ public class BoutonLong extends FButton implements MouseListener {
   public void setNom(String s){super.setNom(stripAccentIfNeed(s));}
   // FUNCTIONS -----------------------------------------------------------------
   private static String stripAccentIfNeed(String nameTemp){
-    if(Main.getOp().getFontTitlePersonalised()){
-      return str.stripAccents(nameTemp);
-    }
     return nameTemp;
   }
 }
