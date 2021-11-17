@@ -41,9 +41,9 @@ jobs:
     - name: use curent data
       if: ${{ steps.dataVersionChange.outputs.dataVersionChangeVal == '1' || steps.musicVersionChange.outputs.musicVersionChangeVal == '1'}}
       run: |
-        mkdir ~/Formiko/
-        mkdir ~/Formiko/data/
-        cp -r data/ ~/Formiko/data/.
+        mkdir ~/.formiko/
+        rm -fr ~/.formiko/data/
+        cp -r data/ ~/.formiko/data/
 
     - name: exe.sh
       run: ./exe.sh
