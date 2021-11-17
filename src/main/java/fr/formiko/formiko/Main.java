@@ -38,7 +38,6 @@ public class Main {
   *{@summary The compatible version for the options file, keys and backups.}
   *@version 1.1
   */
-  private static String versionActuelle = "1.49.9";
   //null save var
   /** Use only after iniOp(). */
   private static Options op;
@@ -178,7 +177,6 @@ public class Main {
   // GET SET ----------------------------------------------------------
   public static boolean isCLI(){return modeCLI;}
   public static byte getNiveauDeDétailDeLAffichage(){return niveauDeDétailDeLAffichage;}
-  public static String getVersionActuelle(){return versionActuelle;}
   public static Espece getEspece(){return getEspeceParId(0);}
   public static Espece getEspeceParId(int id){ return getGe().getEspeceParId(id);}
   public static GEspece getGEspece(){ return getGe();}
@@ -327,7 +325,7 @@ public class Main {
     }
     endCh("chargementDesOptions");
     setMessageChargement("chargementDesTouches");startCh();
-    key = chargerLesTouches.chargerLesTouches(getVersionActuelle());
+    key = chargerLesTouches.chargerLesTouches("1.49.9");
     endCh("chargementDesTouches");
     setMessageChargement("chargementDesLangues");
     iniLangue();
@@ -357,7 +355,6 @@ public class Main {
    * @version 1.1
    */
   public static void iniOp(){
-    //op = chargerLesOptions.chargerLesOptions(getVersionActuelle());
     op = new Options();
     getOp().iniOptions();
     tempOp=null;
