@@ -20,11 +20,11 @@ public class OptionsTest extends TestCaseMuet {
     Font font1 = op.getFont1();
     Font font2 = op.getFont2();
     assertTrue(!font1.equals(font2));
-    assertEquals(font2, op.getFontTitle(null));
-    assertEquals(font2, op.getFontTitle(""));
-    assertEquals(font2, op.getFontTitle("A"));
-    assertEquals(font2, op.getFontTitle("a test with only standard char"));
-    assertEquals(font1, op.getFontTitle("|"));
-    assertEquals(font1, op.getFontTitle("a string with an un suported café."));
+    assertEquals(font2.getName(), op.getFontTitle(null).getName());
+    assertEquals(font2.getName(), op.getFontTitle("").getName());
+    assertEquals(font2.getName(), op.getFontTitle("A").getName());
+    assertEquals(font2.getName(), op.getFontTitle("a test with only standard char").getName());
+    assertEquals(font1.getName(), op.getFontTitle("|").getName());
+    assertEquals(font1.getName(), op.getFontTitle("a string with an un suported café.").getName());
   }
 }
