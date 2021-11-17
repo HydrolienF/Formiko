@@ -1,3 +1,6 @@
-Add :
+To fix :
  - discord rich presence
- - map options
+
+Add :
+ - path when moving with 1a button
+ - new font
