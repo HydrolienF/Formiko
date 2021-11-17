@@ -17,8 +17,8 @@ public class CaseTest extends TestCaseMuet{
   // FUNCTIONS -----------------------------------------------------------------
   private Fourmi ini(){
     Main.setOs(new Os());
+    Main.setOp(null);
     Main.initialisation();
-    Main.iniOp();
     Main.setLanguage(0);
     p = new Partie(0,100,new Carte(new GCase(1,2),0,0,1,false,false),1);
     Main.setPartie(p);
@@ -40,6 +40,7 @@ public class CaseTest extends TestCaseMuet{
     Joueur j = Main.getGj().getHead().getContent();
     j.initialisationCaseNS();
     j.updateCaseSN();
+    assertEquals(0,Main.getOp().getLanguage());
     //show everything
     assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formikejo"));
     assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains("formiko"));
