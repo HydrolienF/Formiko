@@ -1,13 +1,13 @@
 package fr.formiko.formiko;
 
-// import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Disabled;
 
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
-import fr.formiko.usuel.Point;
 import fr.formiko.tests.TestCaseMuet;
+import fr.formiko.usuel.Point;
 import fr.formiko.usuel.types.str;
 
 public class PartieTest extends TestCaseMuet{
@@ -46,10 +46,11 @@ public class PartieTest extends TestCaseMuet{
         cpt++;
       }
     }
+    //TOFIX can fail some time
     assertTrue(cpt>=nbTryThatWorkMin);
   }
   @Test
-  // @Disabled("Tooo long for standard test")
+  @Disabled("Tooo long for standard test")
   public void testLaunchGame(){
     //test1LaunchGame(100,"miniWorld",10,9);
     //test1LaunchGame(80,"miniWorld",10,9);
