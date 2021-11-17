@@ -62,10 +62,10 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       // m = "Nourrir et Nétoyer";
       backHomeAndShareFood();
     }
-    Main.setPlayingAnt(null);
     // TODO #410 if(f.getMode()==-1){
-      f.setActionTo0();
+    f.setActionTo0();
     // }
+    Main.setPlayingAnt(null);
   }
   @Override
   public void endTurn(Creature c){
@@ -159,8 +159,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   private String faire(int choix){
     String m = switch(choix){
       case 0 :
-        // Main.getView().setMoveMode(true);
-        f.ceDeplacer(f.getFere().getJoueur().getIa());
+        Main.getView().setMoveMode(true);
         yield "ceDeplacer";
       case 1 :
         f.chasse();

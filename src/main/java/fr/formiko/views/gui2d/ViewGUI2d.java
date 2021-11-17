@@ -344,7 +344,7 @@ public class ViewGUI2d implements View {
   public int getAntChoice(int t[]){
     if (!actionGameOn) {return -1;}
     if(t!=null){
-      getPb().removePa();
+      // getPb().removePa();
       getPb().addPa(t);
     }
     int r = getPb().getActionF();
@@ -469,12 +469,13 @@ public class ViewGUI2d implements View {
     if (!actionGameOn) {return;}
     if(f!=null){
       if(!f.getIa()){
-        getPb().setVisiblePa(true);
         getPb().addPI();
         getPb().addPIJ();
+        // getPb().setVisiblePa(true);
         // updateIcon();
       }
     }else{
+      getPb().removePi();
       getPb().setVisiblePa(false);
       Main.getPartie().setAntIdToPlay(-1);
     }

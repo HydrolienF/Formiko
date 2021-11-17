@@ -51,7 +51,7 @@ public class FPanelChargement extends FPanel {
   public void addBt(){
     lancer=false;
     bt = new FButton(g.getM("lancerLeJeu"), FPanel.getView().getPj(), 111);
-    bt.setFont(Main.getFont2());
+    // bt.setFont(Main.getFont2());
     add(bt);
     int xx = Main.getF().getWidth()/5;
     int yy = Main.getF().getHeight()/5;

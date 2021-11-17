@@ -69,7 +69,6 @@ public class PondreReine implements Serializable, Pondre{
       //fere.getGc().add(fm); l'ajout a la fourmilière ce fait dans le constructeur de Fourmi.
       f.setFood(f.getFood() - FOOD_COST_TO_LAY);
       Message m = new Message(g.getM("la")+" "+f.getNom()+" "+fm.getId() + " "+g.get("pondreReine.1")+".", fere.getId(), 3);
-      Main.setPlayingAnt(f); //to refrech playingant info
       f.setActionMoins(f.getIndividu().getCoutPondre());
       f.setCutWings(true);//une reine qui pond n'as plus d'ailes.
       // Main.getView().; //TODO
