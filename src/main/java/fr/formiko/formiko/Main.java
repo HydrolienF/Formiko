@@ -128,10 +128,10 @@ public class Main {
         debug.débogage("ReLancement du jeu");
         try {
           getF().dispose();
-          // getView().close();
         }catch (Exception e) {
           erreur.alerte("Window can not be dispose.");
         }
+        premierePartie=false;
         setRetournerAuMenu(false);
         openMenuFirst=true;
         // op=null;//force la réinitialisation de tout.
