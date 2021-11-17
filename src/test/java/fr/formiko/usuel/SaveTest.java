@@ -65,7 +65,6 @@ public class SaveTest extends TestCaseMuet {
       f3.createNewFile();
     }catch (Exception e) {}
     assertTrue(f3.exists());
-    System.out.println("before closing");
     Save save = Save.getSave();
     int idS = save.getIdS();
     assertEquals(1,idS);
