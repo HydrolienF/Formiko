@@ -156,7 +156,7 @@ public class Options implements Serializable{
     if(getFont2()==null){return getFont1();}
     if(s==null){return getFont2();}
     for (char c : s.toCharArray()) {
-      if(!getFont2().canDisplay(c)){return getFont1();}
+      if(!getFont2().canDisplay(c)){return getFont1().deriveFont((float)getFontSizeTitle());}
     }
     return getFont2();
   }
@@ -476,7 +476,7 @@ public class Options implements Serializable{
   *@version 2.5
   */
   public void updateFont(){
-    font1=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeText);
+    font1=new Font(gui_global_fontText, Font.PLAIN, gui_global_fontSizeText);
     if (gui_global_fontTitlePersonalised) {
       try {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -491,10 +491,10 @@ public class Options implements Serializable{
         if(font2==null){throw new NullPointerException();}
       }catch (Exception e) {
         erreur.alerte("fail to set font for title");
-        font2=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeTitle);
+        font2=new Font(gui_global_fontText, Font.PLAIN, gui_global_fontSizeTitle);
       }
     }else{
-      font2=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeTitle);
+      font2=new Font(gui_global_fontText, Font.PLAIN, gui_global_fontSizeTitle);
     }
   }
   /**
