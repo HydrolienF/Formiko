@@ -100,6 +100,13 @@ public class launchOptions {
       }else{
         tradCmd();
       }
+    }else if(args[0].equals("tradChar")){
+      Main.initialisation();
+      // if(args.length>1){
+      //   tradCmd(args[1]);
+      // }else{
+        tradCharCmd(str.sToI(args[1]));
+      // }
     }else if(args[0].equals("son")){
       music();
     }else if(args[0].equals("op")){
@@ -289,6 +296,19 @@ public class launchOptions {
     Main.endCh("addTradAuto");Main.startCh();
     chargerLesTraductions.affPourcentageTraduit();
     Main.endCh("affPourcentageTraduit");*/
+  }
+  public static void tradCharCmd(int id){
+    // Main.startCh();
+    chargerLesTraductions.iniTLangue();
+    System.out.println(trad.countCharUsedInTranslation(id));
+    // chargerLesTraductions.créerLesFichiers();
+    // Main.endCh("créerLesFichiers");Main.startCh();
+    // g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
+    // Main.endCh("chargerLesTraductions");Main.startCh();
+    // trad.copieTrads();
+    // Main.endCh("copieTrads");Main.startCh();
+    // chargerLesTraductions.affPourcentageTraduit();
+    // Main.endCh("affPourcentageTraduit");
   }
   /**
   *{@summary Do sounds or music test.}<br>

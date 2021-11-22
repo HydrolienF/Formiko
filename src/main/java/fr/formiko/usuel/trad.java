@@ -119,7 +119,7 @@ public class trad {
   }
   /**
   *{@summary Translate a String by replacing €{key} by the translation of key.}<br>
-  *@param s the String to translate.
+  *@param s the String to translate
   *@version 1.48
   */
   //TODO test
@@ -156,5 +156,32 @@ public class trad {
       }
     }
     return sr;
+  }
+  /**
+  *{@summary Translate a String by replacing €{key} by the translation of key.}<br>
+  *@param translationMap the Map to use to count char
+  *@version 2.11
+  */
+  public static Map<Character,Integer> countCharUsedInTranslation(Map<String,String> translationMap){
+    Map<Character,Integer> map = new HashMap<Character,Integer>();
+    int total=0;
+    for (var entry : translationMap.entrySet()) {
+      for (char c : entry.getValue().toCharArray()) {
+        int x=1;
+        if(map.get(c)!=null){x+=map.get(c);}
+        map.put(Character.valueOf(c), Integer.valueOf(x));
+        total++;
+      }
+    }
+    map.put(Character.valueOf('§'),total);
+    return map;
+  }
+  /**
+  *{@summary Translate a String by replacing €{key} by the translation of key.}<br>
+  *@param id id of the language to count char
+  *@version 2.11
+  */
+  public static Map<Character,Integer> countCharUsedInTranslation(int id){
+    return countCharUsedInTranslation(chargerLesTraductions.chargerLesTraductions(id));
   }
 }

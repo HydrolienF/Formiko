@@ -179,7 +179,7 @@ public class chargerLesTraductions {
     debug.débogage("Chargement des textes");//on lit le fichier de langue
     map = chargerLesTraductionsSansCommande(langue);
     String t2[] = getTableauDesCmd();
-    for (String s : t2) {//on ajoute toutes les commande qu'on peu add.
+    for (String s : t2) {//on ajoute toutes les commandes qu'on peu add.
       addObjetMap(s);
     }
     return map;
