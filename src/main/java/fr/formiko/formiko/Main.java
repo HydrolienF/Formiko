@@ -103,7 +103,7 @@ public class Main {
         args = args[0].split(" ");
       }
       int k=0;
-      while(args.length > k){//si il y a des options a "-"
+      while(args.length > k){// if there is options starting with "-"
         if(args[k] != null && args[k].length()>1 && args[k].substring(0,1).equals("-")){
           launchOptions.launchOptionsMinor(args[k].substring(1));
           args = tableau.remove(args, k);
