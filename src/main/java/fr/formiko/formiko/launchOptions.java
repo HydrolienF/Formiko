@@ -15,11 +15,12 @@ import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.media.audio.*;
 import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.tableau;
-// import fr.formiko.usuel.testTryCatchNullPointerException;
 import fr.formiko.usuel.trad;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.ViewNull;
 
+import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.Reader;
@@ -101,12 +102,37 @@ public class launchOptions {
         tradCmd();
       }
     }else if(args[0].equals("tradChar")){
+      if(args.length<3){return;}
       Main.initialisation();
-      // if(args.length>1){
-      //   tradCmd(args[1]);
-      // }else{
-        tradCharCmd(str.sToI(args[1]));
-      // }
+      chargerLesTraductions.iniTLangue();
+      boolean b=true;
+      if(args.length>3){b=str.sToB(args[3]);}
+      if(args[1].equals("all")){
+        int len = chargerLesTraductions.getTLangue().length;
+        for (int i=0; i<len; i++) {
+          tradCharCmd(i, args[2], b);
+        }
+      }else{
+        int id = str.sToI(args[1]); //TODO remove ERROR print if it fail.
+        if(id==-1){id=chargerLesTraductions.getLanguage(args[1]);}
+        tradCharCmd(id, args[2], b);
+      }
+    }else if(args[0].equals("testFont")){
+      if(args.length<2){
+        args=new String[2];
+        args[1]="all";
+      }
+      Main.initialisation();
+      chargerLesTraductions.iniTLangue();
+      if(args[1].equals("all")){
+        // String fonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+        Font fonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts();
+        for (int i = 0; i < fonts.length; i++) {
+          canDisplayLanguages(fonts[i].getName());
+          }
+      }else{
+        canDisplayLanguages(args[1]);
+      }
     }else if(args[0].equals("son")){
       music();
     }else if(args[0].equals("op")){
@@ -297,10 +323,9 @@ public class launchOptions {
     chargerLesTraductions.affPourcentageTraduit();
     Main.endCh("affPourcentageTraduit");*/
   }
-  public static void tradCharCmd(int id){
+  public static void tradCharCmd(int id, String fontName, boolean b){
     // Main.startCh();
-    chargerLesTraductions.iniTLangue();
-    System.out.println(trad.countCharUsedInTranslation(id));
+    System.out.println(trad.partOfPrintableChar(id, fontName, b));
     // chargerLesTraductions.créerLesFichiers();
     // Main.endCh("créerLesFichiers");Main.startCh();
     // g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
@@ -309,6 +334,22 @@ public class launchOptions {
     // Main.endCh("copieTrads");Main.startCh();
     // chargerLesTraductions.affPourcentageTraduit();
     // Main.endCh("affPourcentageTraduit");
+  }
+  public static void canDisplayLanguages(String fontName){
+    int cpt=0;
+    int len = chargerLesTraductions.getTLangue().length;
+    for (int i=0; i<len; i++) {
+      if(trad.canDisplayLanguage(i, fontName)){cpt++;}
+    }
+    String col = null;
+    if(cpt==0){
+      col = color.RED;
+    }else if(cpt==len){
+      col = color.GREEN;
+    }else{
+      col = color.YELLOW;
+    }
+    System.out.println(col+fontName+" "+cpt+"/"+len+color.NEUTRAL);
   }
   /**
   *{@summary Do sounds or music test.}<br>
