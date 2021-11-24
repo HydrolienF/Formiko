@@ -91,7 +91,7 @@ public class ViewGUI2d implements View {
     iniDiscordIntergation();
     Main.getData().setImageIniForNewGame(false);//force reload of ant images.
     Main.endCh("iniView");Main.startCh();
-    ini.initialiserToutLesPaneauxVide();
+    ini.initializeEmptyFPanel();
     Main.endCh("chargementFPanelVide");
     loadGraphics();
     // if(Main.getOp().getModeFPS()){
@@ -620,7 +620,7 @@ public class ViewGUI2d implements View {
   *@version 2.6
   */
   private void loadGraphics(){
-    if(Main.getPremierePartie() || !Main.getOpenMenuFirst()){ini.initialiserFPanelJeuEtDépendance();}
+    if(Main.getPremierePartie() || !Main.getOpenMenuFirst()){ini.initializeFPanelJeuAndSubpanel();}
     else{
       Th thTemp = new Th(1);
       thTemp.start();

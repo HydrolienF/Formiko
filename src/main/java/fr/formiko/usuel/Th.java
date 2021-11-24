@@ -21,7 +21,7 @@ public class Th extends Thread{
     }else if(x==2){
       Chrono ch2 = new Chrono();
       Chrono.debutCh(ch2);
-      ini.initialiserFPanelJeuEtDépendance();
+      ini.initializeFPanelJeuAndSubpanel();
       Chrono.endCh(g.get("chargementFPanelJeuEtDépendance"),ch2);
     }
   }
