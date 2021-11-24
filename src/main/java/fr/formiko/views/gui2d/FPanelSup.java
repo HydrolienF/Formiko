@@ -5,6 +5,7 @@ import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.maths.math;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -93,7 +94,8 @@ public class FPanelSup extends FPanel {
   // GET SET -------------------------------------------------------------------
   public void actualiserTaille(){
     if(getView().getPd()!= null && getView().getPd().getNeedToStayMaxSize()){actualiserTailleMax(); return;}
-    setSize(Main.getDimX()-getView().getPz().getWidth(), Main.getDimY()-getView().getPa().getHeight());
+    // setSize(Main.getDimX()-getView().getPz().getWidth(), Main.getDimY()-getView().getPa().getHeight());
+    setSize(math.min(Main.getDimX(), getView().getPc().getWidth()-getView().getPc().getX()), Main.getDimY()-getView().getPa().getHeight());
     //la 2a version est mieux pour prendre en compte les déplacements.
     //setSize(Main.getDimX()-Main.getPz().getWidth(), Main.getDimY()-math.max(getView().getPa().getHeight(),Main.getPTInt().getHeight()));
   }
