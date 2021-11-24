@@ -349,7 +349,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("gui_global_buttonSizeAction",""+t[1]);
     defaultProperties.setProperty("gui_global_fontSizeText",""+(int)(30*racio));
     defaultProperties.setProperty("gui_global_fontSizeTitle",""+(int)(60*racio));
-    defaultProperties.setProperty("gui_global_fontText","Default");
+    defaultProperties.setProperty("gui_global_fontText","DejaVu Sans");
     defaultProperties.setProperty("gui_global_fontTitle","Insektofobiya");
     defaultProperties.setProperty("gui_global_fontTitlePersonalised","true");
     defaultProperties.setProperty("gui_global_fps","60");
@@ -476,25 +476,17 @@ public class Options implements Serializable{
   *@version 2.5
   */
   public void updateFont(){
-    font1=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeText);
-    if (gui_global_fontTitlePersonalised) {
-      try {
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        File file = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"font/"+gui_global_fontTitle+".otf");
-        if(!file.exists()){
-          file = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"font/"+gui_global_fontTitle+".ttf");
-        }
-        Font fontTemp = Font.createFont(Font.TRUETYPE_FONT,file);
-        // System.out.println(fontTemp);
-        ge.registerFont(fontTemp);
-        font2=new Font(gui_global_fontTitle, Font.PLAIN, gui_global_fontSizeTitle);
-        if(font2==null){throw new NullPointerException();}
-      }catch (Exception e) {
-        erreur.alerte("fail to set font for title");
-        font2=new Font(gui_global_fontText, Font.PLAIN, gui_global_fontSizeTitle);
-      }
+    if(!Fonts.createFonts(gui_global_fontText)){
+      erreur.alerte("fail to set font for text");
+      font1=new Font("Default", Font.BOLD, gui_global_fontSizeText);
     }else{
+      font1=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeText);
+    }
+    if(!Fonts.createFonts(gui_global_fontTitle)){
+      erreur.alerte("fail to set font for title");
       font2=new Font(gui_global_fontText, Font.PLAIN, gui_global_fontSizeTitle);
+    }else{
+      font2=new Font(gui_global_fontTitle, Font.PLAIN, gui_global_fontSizeTitle);
     }
   }
   /**
