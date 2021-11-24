@@ -554,12 +554,13 @@ public class Data {
   }
   /**
   *Load images for FPanelAction without background
-  *@version 1.18
+  *@version 2.12
   */
   private void chargerTImage(){
     int tailleBouton = FPanel.getView().getPa().getbuttonSize();
     tImage = image.getImages("desc");
-    for (int i=0;i<10 ;i++ ) {
+    int len = tImage.length;
+    for (int i=0; i<len; i++) {
       tImage[i] = image.resize(tImage[i],tailleBouton);
     }
   }
