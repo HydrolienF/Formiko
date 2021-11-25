@@ -675,7 +675,6 @@ public class ViewGUI2d implements View {
           if(!paintGUI()){ //try to paint
             erreur.alerte("can't paint");
           }
-          view.setCurentFPS(view.getCurentFPS()+1);
         }
       }
     }, 0, secToRefresh);

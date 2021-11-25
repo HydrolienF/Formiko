@@ -2,6 +2,7 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
+import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.images.image;
 
 import java.awt.Font;
@@ -18,6 +19,7 @@ public class FPanelPrincipal extends FPanel {
   private FPanelMenu pm;
   private Image img;
   private FLabel versionLabel;
+  private long timeFromLastRefresh;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
@@ -46,6 +48,18 @@ public class FPanelPrincipal extends FPanel {
       g.drawImage(img,0,0,this);
     }
     debug.débogage("taille du paneau secondaire : x="+this.getWidth()+", y="+this.getHeight());
+    if(debug.getPerformance()){
+      getView().setCurentFPS(getView().getCurentFPS()+1);
+      long time = System.currentTimeMillis();
+      long timeElapsed = time-timeFromLastRefresh;
+      int supposedTime = 1000/Main.getOp().getFps();
+      if(timeElapsed>supposedTime*4 &&  getView().getF()!=null && getView().getF().isFocused()){
+        erreur.alerte("Time bewteen 2 frame: "+timeElapsed+" (supposed to be "+supposedTime+")");
+      }else{
+        // erreur.info("Time bewteen 2 frame: "+timeElapsed,0);
+      }
+      timeFromLastRefresh=time;
+    }
   }
   /**
   *{@summary Add the curent version on screen.}<br>
