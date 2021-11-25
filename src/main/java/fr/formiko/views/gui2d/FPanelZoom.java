@@ -15,7 +15,7 @@ public class FPanelZoom extends FPanel {
   // CONSTRUCTORS --------------------------------------------------------------
   public FPanelZoom(){
     int tailleBouton=Main.getbuttonSizeZoom();
-    setSize(tailleBouton*3,tailleBouton*3);
+    setSize(tailleBouton*3,tailleBouton);
   }
   public void build(){
     int tailleBouton=Main.getbuttonSizeZoom();
@@ -76,7 +76,7 @@ public class FPanelZoom extends FPanel {
     if(Main.getPartie()==null || !Main.getPartie().getEnCours()){return;}
     int tailleBouton=Main.getbuttonSizeZoom();
     debug.débogage("taille du panneau de zoom : x="+tailleBouton*3+", y="+tailleBouton*3);
-    setSize(tailleBouton*3,tailleBouton*3);
+    setSize(tailleBouton*3,tailleBouton);
   }
   public void doAction(byte ac){
     FPanel.getView().getPj().doAction(ac);

@@ -13,6 +13,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.lang.Thread;
 import java.util.List;
 
@@ -59,24 +60,14 @@ public class FPanelMapMove extends FPanel {
     th = new ThMove();
     th.start();
   }
-  public void setOver(boolean inX, boolean up, boolean start){
+  public void setOver(boolean inX, boolean up, double speed){
     if(!getView().getActionGameOn() || getView().getPch()!=null){return;}
-    if(start){
-      int stepValue=thickness/8;
-      final int step;
-      if(up){step=-stepValue;}
-      else{step=stepValue;}
-      if(inX){
-        th.setStepInX(step);
-      }else{
-        th.setStepInY(step);
-      }
+    int step=(int)((double)thickness*speed)/8;
+    if(up){step=-step;}
+    if(inX){
+      th.setStepInX(step);
     }else{
-      if(inX){
-        th.setStepInX(0);
-      }else{
-        th.setStepInY(0);
-      }
+      th.setStepInY(step);
     }
   }
 
@@ -90,11 +81,11 @@ public class FPanelMapMove extends FPanel {
       addMouseListener(new MouseListener(){
         @Override
         public void mouseEntered(MouseEvent event) {
-          setOver(inX, up, true);
+          setOver(inX, up, 1.0);
         }
         @Override
         public void mouseExited(MouseEvent event) {
-          setOver(inX, up, false);
+          setOver(inX, up, 0);
         }
         @Override
         public void mouseClicked(MouseEvent event) {}
@@ -102,6 +93,29 @@ public class FPanelMapMove extends FPanel {
         public void mousePressed(MouseEvent event) {}
         @Override
         public void mouseReleased(MouseEvent event) {}
+      });
+      addMouseMotionListener(new MouseMotionListener(){
+        @Override
+        public void mouseMoved(MouseEvent event) {
+          double speed=1.0;
+          int val=0;
+          if(inX){
+            val=event.getX();
+            if(up){val=val-getWidth()+thickness;}
+          }else{
+            val=event.getY();
+            if(up){val=val-getHeight()+thickness;}
+          }
+          if(up){
+            speed = (double)(val)/(double)(thickness);
+          }else{
+            speed = 1 - (double)(val)/(double)(thickness);
+          }
+          // if(val==0 || val==getWidth()-1 || val==getHeight()-1){speed*=1.5;}
+          setOver(inX, up, speed);
+        }
+        @Override
+        public void mouseDragged(MouseEvent event) {}
       });
     }
   }
