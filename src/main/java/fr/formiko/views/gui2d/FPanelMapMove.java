@@ -77,6 +77,14 @@ public class FPanelMapMove extends FPanel {
       th.setStepInY(step);
     }
   }
+  public void moveAllSubPanel(int stepInX, int stepInY){
+    for (FPanel panelToMove : lPanelToMove) {
+      int maxX = math.max(panelToMove.getWidth()-spaceInX,0);
+      int maxY = math.max(panelToMove.getHeight()-spaceInY, 0);
+      panelToMove.setLocation(math.between(-maxX, 0, panelToMove.getX()+stepInX),
+            math.between(-maxY, 0, panelToMove.getY()+stepInY));
+    }
+  }
 
   // SUB-CLASS -----------------------------------------------------------------
   class FPanelListenMove extends FPanel {
@@ -138,12 +146,7 @@ public class FPanelMapMove extends FPanel {
     @Override
     public void run(){
       while(true){
-        for (FPanel panelToMove : lPanelToMove) {
-          int maxX = math.max(panelToMove.getWidth()-spaceInX,0);
-          int maxY = math.max(panelToMove.getHeight()-spaceInY, 0);
-          panelToMove.setLocation(math.between(-maxX, 0, panelToMove.getX()+stepInX),
-                math.between(-maxY, 0, panelToMove.getY()+stepInY));
-        }
+        moveAllSubPanel(stepInX, stepInY);
         Temps.pause(10, this);
       }
     }
