@@ -138,7 +138,7 @@ public class FPanelCarte extends FPanel {
     }
     Main.startCh();
 
-    setLocation(-getPosX()*getTailleDUneCase(),-getPosY()*getTailleDUneCase());
+    // setLocation(-getPosX()*getTailleDUneCase(),-getPosY()*getTailleDUneCase());
 
     Graphics2D g = (Graphics2D)g2;
     setLigne(g);

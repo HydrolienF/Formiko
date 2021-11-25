@@ -200,9 +200,23 @@ public class Temps {
   public static void pause(int ms){
     if(ms<1){erreur.erreurPause(ms);}
     try {
-        Thread.sleep(ms);
+      Thread.sleep(ms);
     } catch (InterruptedException ie) {
-        erreur.erreurPause(ms);
+      erreur.erreurPause(ms);
+    }
+  }
+  /**
+  *{@summary Try to stop execution of the thread during some ms.}
+  *@param ms number of ms to wait before continue.
+  *@param th the thread to stop.
+  *@version 2.13
+  */
+  public static void pause(int ms, Thread th){
+    if(ms<1){erreur.erreurPause(ms);}
+    try {
+      th.sleep(ms);
+    } catch (InterruptedException ie) {
+      erreur.erreurPause(ms);
     }
   }
   public static String msToS(int x){return msToS((long)x);}

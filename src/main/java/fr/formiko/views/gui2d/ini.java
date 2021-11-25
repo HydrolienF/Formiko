@@ -47,12 +47,15 @@ public class ini {
     FPanel.getView().getPj().addPch();
     FPanel.getView().getPj().addPfp();//add empty panel.
     FPanel.getView().getPj().addPd();
+    FPanel.getView().getPj().addPmmo();
     FPanel.getView().getPj().addPb();
     FPanel.getView().getPj().addPs();
     FPanel.getView().getPj().addPc();
     //pj have all his subpanel
     FPanel.getView().getPb().build();//many unseable element are initialize here
     FPanel.getView().getPc().build();
+    FPanel.getView().getPmmo().setSubPanel(FPanel.getView().getPc());
+    FPanel.getView().getPmmo().build();
     keys.addBindings();
   }
 }
