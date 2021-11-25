@@ -100,7 +100,7 @@ public class FPanelJeu extends FPanel {
   }
   public void addPs(){
     ps=new FPanelSup();
-    ps.setBounds(0,0,getWidth(),getHeight());
+    ps.setSize(getWidth(),getHeight());
     add(ps);
   }
   public void addPc(){

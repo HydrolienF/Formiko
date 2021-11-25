@@ -62,8 +62,7 @@ public class FPanel extends JPanel {
   }
   @Override
   public String toString(){
-    String r = id+" "+super.toString();
-    //TODO print sub components to.
+    String r = id+" "+super.toString()+" components: \n";
     for (Component c : getComponents()) {
       r+=c.toString();
     }
