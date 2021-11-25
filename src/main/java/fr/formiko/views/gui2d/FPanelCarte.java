@@ -94,9 +94,9 @@ public class FPanelCarte extends FPanel {
   public int getYCase(){ return yCase;}
   public void setYCase(int y){yCase = y;}
   public int getPosX(){ return posX;}
-  public void setPosX(int x){posX=x; }
+  // public void setPosX(int x){posX=x; }
   public int getPosY(){ return posY;}
-  public void setPosY(int x){posY=x; }
+  // public void setPosY(int x){posY=x; }
   public void setIdCurentFere(int x){idCurentFere=x;}
   public CCase getLookedCCase(){return lookedCCase;}
   public void setLookedCCase(CCase cc){lookedCCase=cc;}
@@ -858,6 +858,7 @@ public class FPanelCarte extends FPanel {
     int xTemp = getTailleDUneCase()*xCase;
     int yTemp = getTailleDUneCase()*yCase;
     super.setSize(xTemp,yTemp);
+    getView().getPs().setSize(xTemp, yTemp);
     iniTBiState();
   }
 

@@ -178,11 +178,11 @@ public class FPanelJeu extends FPanel {
     if(x<taille){ return x;}
     return x/2-(taille);
   }*/
-  public void centrerLaCarte(){
-    GCase gc = Main.getGc();
-    pc.setPosX(math.max(gc.getNbrX()/2 - nbrDeCaseAffichableX(),0));
-    pc.setPosY(math.max(gc.getNbrY()/2 - nbrDeCaseAffichableY(),0));
-  }
+  // public void centrerLaCarte(){
+  //   GCase gc = Main.getGc();
+  //   pc.setPosX(math.max(gc.getNbrX()/2 - nbrDeCaseAffichableX(),0));
+  //   pc.setPosY(math.max(gc.getNbrY()/2 - nbrDeCaseAffichableY(),0));
+  // }
   public int nbrDeCaseAffichableX(){
     return (getWidth()/pc.getTailleDUneCase())+1;
   }
@@ -208,15 +208,15 @@ public class FPanelJeu extends FPanel {
       Main.getData().iniBackgroundMapImage();
     }
   }
-  public void centrerSurLaFourmi(){
-    if (Main.getPlayingAnt()==null){erreur.alerte("Impossible de centrer sur une fourmi si aucune fourmi n'est selectionné."); return;}
-    int x = nbrDeCaseAffichableX();
-    int y = nbrDeCaseAffichableY();
-    int posX = Main.getPlayingAnt().getX();
-    int posY = Main.getPlayingAnt().getX();
-    pc.setPosX(posX + x/2);
-    pc.setPosY(posY + y/2);
-  }
+  // public void centrerSurLaFourmi(){
+  //   if (Main.getPlayingAnt()==null){erreur.alerte("Impossible de centrer sur une fourmi si aucune fourmi n'est selectionné."); return;}
+  //   int x = nbrDeCaseAffichableX();
+  //   int y = nbrDeCaseAffichableY();
+  //   int posX = Main.getPlayingAnt().getX();
+  //   int posY = Main.getPlayingAnt().getX();
+  //   // pc.setPosX(posX + x/2);
+  //   // pc.setPosY(posY + y/2);
+  // }
   public void actionZoom(byte ac){
     if (ac==2) { // zoom
       pc.setTailleDUneCase(math.min((pc.getTailleDUneCase()*4)/3,500));
@@ -225,17 +225,17 @@ public class FPanelJeu extends FPanel {
       pc.setTailleDUneCase(math.max((pc.getTailleDUneCase()*3)/4,10));
       actionAFaireSiTailleD1CaseChange();
     }else if(ac==1){
-      pc.setPosY(math.max(pc.getPosY()-1,0));
+      // pc.setPosY(math.max(pc.getPosY()-1,0));
     }else if(ac==7){
-      GCase gc = Main.getGc();
-      pc.setPosY(math.min(pc.getPosY()+1,gc.getNbrY()-1));
+      // GCase gc = Main.getGc();
+      // pc.setPosY(math.min(pc.getPosY()+1,gc.getNbrY()-1));
     }else if(ac==5){
-      GCase gc = Main.getGc();
-      pc.setPosX(math.min(pc.getPosX()+1,gc.getNbrX()-1));
+      // GCase gc = Main.getGc();
+      // pc.setPosX(math.min(pc.getPosX()+1,gc.getNbrX()-1));
     }else if(ac==3){
-      pc.setPosX(math.max(pc.getPosX()-1,0));
+      // pc.setPosX(math.max(pc.getPosX()-1,0));
     }else if(ac==4){
-      centrerLaCarte();
+      // centrerLaCarte();
     }else if(ac==6){
       //centrerSurLaFourmi(); //pour l'instant ca fait pas ce qu'il faut.
     }else if(ac==8){
