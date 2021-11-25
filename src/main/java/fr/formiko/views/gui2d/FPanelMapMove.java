@@ -4,6 +4,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.structures.listes.Liste;
 import fr.formiko.views.gui2d.FPanel;
 
 import java.awt.BasicStroke;
@@ -21,26 +22,27 @@ import java.util.List;
 *@version 2.12
 */
 public class FPanelMapMove extends FPanel {
-  private FPanel panelToMove;
+  private Liste<FPanel> lPanelToMove;
   // private ThMove thMove;
   private Thread th;
   private boolean runningInX;
   private boolean runningInY;
+  private int thickness;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main empty constructor.}<br>
   *@version 2.12
   */
   public FPanelMapMove(){
-
+    lPanelToMove = new Liste<FPanel>();
   }
 
-  public void setSubPanel(FPanel panelToMove){
-    this.panelToMove=panelToMove;
+  public void addSubPanel(FPanel panelToMove){
+    lPanelToMove.add(panelToMove);
   }
 
   public void build(){
-    int thickness = Main.getTailleElementGraphique(50);
+    thickness = Main.getTailleElementGraphique(50);
     int pjw = FPanel.getView().getPj().getWidth();
     int pjh = FPanel.getView().getPj().getHeight();
     FPanel plm = new FPanelListenMove(false, false);
@@ -57,8 +59,9 @@ public class FPanelMapMove extends FPanel {
     add(plm);
   }
   public void setOver(boolean inX, boolean up, boolean start){
+    if(!getView().getActionGameOn() || getView().getPch()!=null){return;}
     if(start){
-      int stepValue=1;
+      int stepValue=thickness/8;
       final int step;
       if(up){step=-stepValue;}
       else{step=stepValue;}
@@ -68,7 +71,9 @@ public class FPanelMapMove extends FPanel {
           public void run(){
             runningInX=true;
             while(runningInX){
-              panelToMove.setLocation(panelToMove.getX()+step, panelToMove.getY());
+              for (FPanel panelToMove : lPanelToMove) {
+                panelToMove.setLocation(panelToMove.getX()+step, panelToMove.getY());
+              }
               Temps.pause(10, this);
             }
           }
@@ -79,7 +84,9 @@ public class FPanelMapMove extends FPanel {
           public void run(){
             runningInY=true;
             while(runningInY){
-              panelToMove.setLocation(panelToMove.getX(), panelToMove.getY()+step);
+              for (FPanel panelToMove : lPanelToMove) {
+                panelToMove.setLocation(panelToMove.getX(), panelToMove.getY()+step);
+              }
               Temps.pause(10, this);
             }
           }

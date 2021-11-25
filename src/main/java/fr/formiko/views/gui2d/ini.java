@@ -54,7 +54,8 @@ public class ini {
     //pj have all his subpanel
     FPanel.getView().getPb().build();//many unseable element are initialize here
     FPanel.getView().getPc().build();
-    FPanel.getView().getPmmo().setSubPanel(FPanel.getView().getPc());
+    FPanel.getView().getPmmo().addSubPanel(FPanel.getView().getPc());
+    FPanel.getView().getPmmo().addSubPanel(FPanel.getView().getPs());
     FPanel.getView().getPmmo().build();
     keys.addBindings();
   }
