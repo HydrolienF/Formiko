@@ -75,7 +75,6 @@ public class FPanelZoom extends FPanel {
   public void paintComponent(Graphics g){
     if(Main.getPartie()==null || !Main.getPartie().getEnCours()){return;}
     int tailleBouton=Main.getbuttonSizeZoom();
-    debug.débogage("taille du panneau de zoom : x="+tailleBouton*3+", y="+tailleBouton*3);
     setSize(tailleBouton*3,tailleBouton);
   }
   public void doAction(byte ac){

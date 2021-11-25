@@ -6,6 +6,7 @@ import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.structures.listes.Liste;
 import fr.formiko.views.gui2d.FPanel;
+import fr.formiko.usuel.maths.math;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -25,8 +26,8 @@ import java.util.List;
 public class FPanelMapMove extends FPanel {
   private Liste<FPanel> lPanelToMove;
   private ThMove th;
-  // private boolean runningInX;
-  // private boolean runningInY;
+  private int spaceInX;
+  private int spaceInY;
   private int thickness;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
@@ -39,6 +40,10 @@ public class FPanelMapMove extends FPanel {
 
   // GET SET -------------------------------------------------------------------
   public void addSubPanel(FPanel panelToMove){lPanelToMove.add(panelToMove);}
+  public int getSpaceInX(){return spaceInX;}
+  public void setSpaceInX(int x){spaceInX=x;}
+  public int getSpaceInY(){return spaceInY;}
+  public void setSpaceInY(int x){spaceInY=x;}
 
   // FUNCTIONS -----------------------------------------------------------------
   public void build(){
@@ -57,6 +62,8 @@ public class FPanelMapMove extends FPanel {
     plm = new FPanelListenMove(false, true);
     plm.setBounds(0, pjh-thickness, pjw, thickness);
     add(plm);
+    spaceInX=getView().getPj().getWidth();
+    spaceInY=getView().getPj().getHeight();
     th = new ThMove();
     th.start();
   }
@@ -132,7 +139,10 @@ public class FPanelMapMove extends FPanel {
     public void run(){
       while(true){
         for (FPanel panelToMove : lPanelToMove) {
-          panelToMove.setLocation(panelToMove.getX()+stepInX, panelToMove.getY()+stepInY);
+          int maxX = math.max(panelToMove.getWidth()-spaceInX,0);
+          int maxY = math.max(panelToMove.getHeight()-spaceInY, 0);
+          panelToMove.setLocation(math.between(-maxX, 0, panelToMove.getX()+stepInX),
+                math.between(-maxY, 0, panelToMove.getY()+stepInY));
         }
         Temps.pause(10, this);
       }

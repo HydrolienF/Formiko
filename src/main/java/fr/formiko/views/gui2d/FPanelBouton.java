@@ -135,6 +135,7 @@ public class FPanelBouton extends FPanel {
     pa.build();
     int xxx = pa.getbuttonSize();
     pa.setBounds(0,getHeight()-pa.getHeight(),pa.getWidth(),pa.getHeight());
+    FPanel.getView().getPmmo().setSpaceInY(getView().getPj().getHeight()-getView().getPa().getHeight());
     pas = new FPanelActionSup();
     pas.setBounds(0,getHeight()-pas.getHeight(),pas.getWidth(),pas.getHeight());
     //FPanelActionInf paiPrécédent = pai;
