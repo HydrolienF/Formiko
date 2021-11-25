@@ -23,10 +23,9 @@ import java.util.List;
 */
 public class FPanelMapMove extends FPanel {
   private Liste<FPanel> lPanelToMove;
-  // private ThMove thMove;
-  private Thread th;
-  private boolean runningInX;
-  private boolean runningInY;
+  private ThMove th;
+  // private boolean runningInX;
+  // private boolean runningInY;
   private int thickness;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
@@ -37,10 +36,10 @@ public class FPanelMapMove extends FPanel {
     lPanelToMove = new Liste<FPanel>();
   }
 
-  public void addSubPanel(FPanel panelToMove){
-    lPanelToMove.add(panelToMove);
-  }
+  // GET SET -------------------------------------------------------------------
+  public void addSubPanel(FPanel panelToMove){lPanelToMove.add(panelToMove);}
 
+  // FUNCTIONS -----------------------------------------------------------------
   public void build(){
     thickness = Main.getTailleElementGraphique(50);
     int pjw = FPanel.getView().getPj().getWidth();
@@ -57,6 +56,8 @@ public class FPanelMapMove extends FPanel {
     plm = new FPanelListenMove(false, true);
     plm.setBounds(0, pjh-thickness, pjw, thickness);
     add(plm);
+    th = new ThMove();
+    th.start();
   }
   public void setOver(boolean inX, boolean up, boolean start){
     if(!getView().getActionGameOn() || getView().getPch()!=null){return;}
@@ -66,38 +67,15 @@ public class FPanelMapMove extends FPanel {
       if(up){step=-stepValue;}
       else{step=stepValue;}
       if(inX){
-        th = new Thread(){
-          @Override
-          public void run(){
-            runningInX=true;
-            while(runningInX){
-              for (FPanel panelToMove : lPanelToMove) {
-                panelToMove.setLocation(panelToMove.getX()+step, panelToMove.getY());
-              }
-              Temps.pause(10, this);
-            }
-          }
-        };
+        th.setStepInX(step);
       }else{
-        th = new Thread(){
-          @Override
-          public void run(){
-            runningInY=true;
-            while(runningInY){
-              for (FPanel panelToMove : lPanelToMove) {
-                panelToMove.setLocation(panelToMove.getX(), panelToMove.getY()+step);
-              }
-              Temps.pause(10, this);
-            }
-          }
-        };
+        th.setStepInY(step);
       }
-      th.start();
     }else{
       if(inX){
-        runningInX=false;
+        th.setStepInX(0);
       }else{
-        runningInY=false;
+        th.setStepInY(0);
       }
     }
   }
@@ -127,15 +105,23 @@ public class FPanelMapMove extends FPanel {
       });
     }
   }
-  //TODO #430 be able to update x or y down or up from 1 pixel
-  // class ThMove extends Thread {
-  //   private List<Consumer> list;
-  //   @Override
-  //   public void run(){
-  //     for (Function f : list) {
-  //       f.apply();
-  //     }
-  //     Temps.pause(20);
-  //   }
-  // }
+  class ThMove extends Thread {
+    private int stepInX;
+    private int stepInY;
+    public void setStepInX(int x){stepInX=x;}
+    public void setStepInY(int x){stepInY=x;}
+    public ThMove(){
+      stepInX=0;
+      stepInY=0;
+    }
+    @Override
+    public void run(){
+      while(true){
+        for (FPanel panelToMove : lPanelToMove) {
+          panelToMove.setLocation(panelToMove.getX()+stepInX, panelToMove.getY()+stepInY);
+        }
+        Temps.pause(10, this);
+      }
+    }
+  }
 }
