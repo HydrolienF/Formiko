@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 
-public class TestCaseMuet extends Assertions{
+public class TestCaseMuet extends Assertions {
 
   private static int idCpt=0;
 

@@ -147,7 +147,9 @@ public class FPanelMapMove extends FPanel {
     public void run(){
       while(true){
         moveAllSubPanel(stepInX, stepInY);
-        Temps.pause(10, this);
+        try {
+          wait();
+        }catch (Exception e) {}
       }
     }
   }

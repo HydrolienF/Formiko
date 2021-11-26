@@ -28,7 +28,7 @@ import javax.swing.JPanel;
 public class FPanelMenu extends FPanel {
   private BoutonLong b[]=null;
   private byte menu;
-  private boolean lancer = false;
+  // private boolean lancer = false;
   private FPanelNouvellePartie pnp;
   private FPanelChoixPartie pcp;
   private FButton returnButton;
@@ -50,8 +50,8 @@ public class FPanelMenu extends FPanel {
   }
   // GET SET -------------------------------------------------------------------
   public byte getMenu(){return menu; }
-  public boolean getLancer(){ return lancer;}
-  public void setLancer(boolean b){lancer=b;}
+  // public boolean getLancer(){ return lancer;}
+  public void setLancer(boolean b){getView().setLaunchFromPm(b);}
   public FPanelNouvellePartie getPnp(){return pnp;}
   public FPanelChoixPartie getPcp(){return pcp;}
   public FButton getReturnButton(){return returnButton;}

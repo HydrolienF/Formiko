@@ -46,6 +46,7 @@ public class ViewGUI2d implements View {
   private int curentFPS=0;
   private CCase ccaseClicked;
   private boolean moveMode=false;
+  private boolean launchFromPm;
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
@@ -76,6 +77,7 @@ public class ViewGUI2d implements View {
   public int getHeight(){try {return getPp().getHeight();}catch (NullPointerException e) {return 0;}}
   // public Case getCaseClicked(){return caseClicked;}
   // public void setCaseClicked(Case c){caseClicked=c;}
+  public void setLaunchFromPm(boolean b){launchFromPm=b;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
@@ -151,7 +153,7 @@ public class ViewGUI2d implements View {
     DiscordIntegration.setNeedToUpdateActivity(true);
     if(f==null || getPm()==null){ini();}
     Main.stopScript();
-    if(Main.getPremierePartie()){
+    if(Main.getPremierePartie()){//@a true
       getPm().askLanguage();
     }else if(Main.getOpenMenuFirst()){
       getPm().buildFPanelMenu(3,0);
@@ -361,7 +363,9 @@ public class ViewGUI2d implements View {
     if (!actionGameOn) {return null;}
     moveMode=true;
     while(ccaseClicked==null){
-      Temps.pause(10);
+      try {
+        wait();
+      }catch (Exception e) {}
     }
     moveMode=false;
     CCase tempCCase = ccaseClicked;
@@ -529,12 +533,13 @@ public class ViewGUI2d implements View {
   *{@summary A loop to wait for game launch.}<br>
   *@version 1.46
   */
-  public synchronized void waitForGameLaunch(){
+  public void waitForGameLaunch(){
     // if(!Main.getPremierePartie()){
-    boolean b=false;
-    while(!b){
-      Temps.pause(10);
-      b=getPm().getLancer();
+    launchFromPm=false;
+    while(!launchFromPm){
+      try {
+        wait();
+      }catch (Exception e) {}
     }
     actionGame();
   }

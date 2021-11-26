@@ -221,7 +221,10 @@ class ThMoveManager extends Thread {
       for (ThMove move : list) {
         move.run1();
       }
-      Temps.pause(10);
+      // Temps.pause(10);
+      try {
+        wait();
+      }catch (InterruptedException e) {}
     }
   }
 }

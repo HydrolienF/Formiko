@@ -301,7 +301,7 @@ public class FPanelJeu extends FPanel {
     public void updateTimeFromLastMove(){needToUpdateTimeFromLastMove=true;}
 
     /**
-    *{@summary Main function that update message if needed every 50ms.}<br>
+    *{@summary Main function that update message if needed.}<br>
     *@version 2.7
     */
     @Override
@@ -332,7 +332,8 @@ public class FPanelJeu extends FPanel {
         labelMessage.setVisible(visible);
         // Temps.pause(50);
         try {
-          sleep(50);
+          // sleep(50);
+          wait();
         }catch (InterruptedException e) {
           erreur.erreur("thread have been interupted");
         }
