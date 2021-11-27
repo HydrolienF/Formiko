@@ -213,7 +213,6 @@ public class FPanelMapMove extends FPanel {
         needToWait=(stepInX==0 && stepInY==0);
         moveAllSubPanel(stepInX, stepInY);
         Temps.pause(10);
-        System.out.println("pause 10 ms");
       }
     }
   }

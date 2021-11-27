@@ -46,7 +46,7 @@ public class ViewGUI2d implements View {
   private int curentFPS=0;
   private CCase ccaseClicked;
   private boolean moveMode=false;
-  private boolean launchFromPm;
+  private volatile boolean launchFromPm;
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
@@ -360,13 +360,16 @@ public class ViewGUI2d implements View {
   */
   public CCase getCCase(){
     if (!actionGameOn) {return null;}
+    // System.out.println("getCCase");
     moveMode=true;
     while(ccaseClicked==null){
-      // try {
-      //   wait();
-      // }catch (Exception e) {}
       Temps.sleep();
+      // System.out.println("cpu use");
     }
+    // while(ccaseClicked==null){
+    //   Thread.onSpinWait();
+    //   System.out.println("cpu use");
+    // }
     moveMode=false;
     CCase tempCCase = ccaseClicked;
     ccaseClicked=null;
@@ -541,6 +544,8 @@ public class ViewGUI2d implements View {
       //   wait();
       // }catch (Exception e) {}
       Temps.sleep();
+      // Thread.onSpinWait(); //don't stop the thread, probably because it's the main tread
+      // System.out.println("CPU USE");
     }
     actionGame();
   }
