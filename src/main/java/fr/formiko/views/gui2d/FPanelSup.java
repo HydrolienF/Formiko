@@ -121,7 +121,7 @@ public class FPanelSup extends FPanel {
     int cx = x/tc;
     int cy = y/tc;
     try {
-      return Main.getGc().getCCase(cx+getView().getPc().getPosX(),cy+getView().getPc().getPosY());
+      return Main.getGc().getCCase(cx,cy);
     }catch (Exception e2) {
       erreur.erreur("aucune case n'est sélectionné avec les coordonées : "+cx+" "+cy);
       return null;

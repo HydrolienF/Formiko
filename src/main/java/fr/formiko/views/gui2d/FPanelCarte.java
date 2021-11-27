@@ -54,8 +54,8 @@ import javax.swing.JPanel;
 public class FPanelCarte extends FPanel {
   private int xCase; // nombre de case en X
   private int yCase; // nombre de case en Y
-  private int posX; // position de la 1a case.
-  private int posY;
+  // private int posX; // position de la 1a case.
+  // private int posY;
   private int xTemp,yTemp;
   private int idCurentFere=-1;
   private CCase lookedCCase;
@@ -78,7 +78,7 @@ public class FPanelCarte extends FPanel {
   */
   public void build(){
     Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(100));
-    posX = 0; posY = 0;
+    // posX = 0; posY = 0;
     GCase gc = new GCase(1,1);
     xCase = gc.getNbrX();
     yCase = gc.getNbrY();
@@ -93,9 +93,9 @@ public class FPanelCarte extends FPanel {
   public void setXCase(int x){xCase = x;}
   public int getYCase(){ return yCase;}
   public void setYCase(int y){yCase = y;}
-  public int getPosX(){ return posX;}
+  // public int getPosX(){ return posX;}
   // public void setPosX(int x){posX=x; }
-  public int getPosY(){ return posY;}
+  // public int getPosY(){ return posY;}
   // public void setPosY(int x){posY=x; }
   public void setIdCurentFere(int x){idCurentFere=x;}
   public CCase getLookedCCase(){return lookedCCase;}
@@ -868,8 +868,8 @@ public class FPanelCarte extends FPanel {
   *return true if case is visible
   */
   public boolean isCaseVisible(Case c){
-    if(c.getX()<getPosX() || c.getY()<getPosY()){return false;}
-    if(c.getX()>nbrPrintableCase(true)-getPosX() || c.getY()>nbrPrintableCase(false)-getPosY()){return false;}
+    // if(c.getX()<getPosX() || c.getY()<getPosY()){return false;}
+    // if(c.getX()>nbrPrintableCase(true)-getPosX() || c.getY()>nbrPrintableCase(false)-getPosY()){return false;}
     return true;
   }
   /**
