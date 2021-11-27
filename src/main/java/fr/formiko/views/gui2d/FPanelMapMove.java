@@ -51,7 +51,7 @@ public class FPanelMapMove extends FPanel {
   *@version 2.13
   */
   public void build(){
-    thickness = Main.getTailleElementGraphique(50);
+    thickness = Main.getTailleElementGraphique(10);
     int pjw = FPanel.getView().getPj().getWidth();
     int pjh = FPanel.getView().getPj().getHeight();
     FPanel plm = new FPanelListenMove(false, false);
@@ -80,7 +80,7 @@ public class FPanelMapMove extends FPanel {
   */
   public void setOver(boolean inX, boolean up, double speed){
     if(!getView().getActionGameOn() || getView().getPch()!=null){return;}
-    int step=(int)((double)thickness*speed)/8;
+    int step=(int)((double)thickness*speed);
     if(up){step=-step;}
     if(inX){
       th.setStepInX(step);
@@ -118,7 +118,7 @@ public class FPanelMapMove extends FPanel {
     private boolean up;
     /**
     *{@summary Main constructor with mouse listeners.}<br>
-    *The mouse listeners will update speed depending of how close of the border we are.
+    *If this is big enoth, the mouse listeners will update speed depending of how close of the border we are.
     *Or stop it if we leave the panel.
     *@version 2.13
     */
@@ -149,33 +149,35 @@ public class FPanelMapMove extends FPanel {
         @Override
         public void mouseReleased(MouseEvent event) {}
       });
-      addMouseMotionListener(new MouseMotionListener(){
-        /**
-        *{@summary Update speed depending of how close of the border we are.}<br>
-        *@version 2.13
-        */
-        @Override
-        public void mouseMoved(MouseEvent event) {
-          double speed=1.0;
-          int val=0;
-          if(inX){
-            val=event.getX();
-            if(up){val=val-getWidth()+thickness;}
-          }else{
-            val=event.getY();
-            if(up){val=val-getHeight()+thickness;}
+      if(thickness>Main.getTailleElementGraphique(10)){
+        addMouseMotionListener(new MouseMotionListener(){
+          /**
+          *{@summary Update speed depending of how close of the border we are.}<br>
+          *@version 2.13
+          */
+          @Override
+          public void mouseMoved(MouseEvent event) {
+            double speed=1.0;
+            int val=0;
+            if(inX){
+              val=event.getX();
+              if(up){val=val-getWidth()+thickness;}
+            }else{
+              val=event.getY();
+              if(up){val=val-getHeight()+thickness;}
+            }
+            if(up){
+              speed = (double)(val)/(double)(thickness);
+            }else{
+              speed = 1 - (double)(val)/(double)(thickness);
+            }
+            // if(val==0 || val==getWidth()-1 || val==getHeight()-1){speed*=1.5;}
+            setOver(inX, up, speed);
           }
-          if(up){
-            speed = (double)(val)/(double)(thickness);
-          }else{
-            speed = 1 - (double)(val)/(double)(thickness);
-          }
-          // if(val==0 || val==getWidth()-1 || val==getHeight()-1){speed*=1.5;}
-          setOver(inX, up, speed);
-        }
-        @Override
-        public void mouseDragged(MouseEvent event) {}
-      });
+          @Override
+          public void mouseDragged(MouseEvent event) {}
+        });
+      }
     }
   }
   /**
