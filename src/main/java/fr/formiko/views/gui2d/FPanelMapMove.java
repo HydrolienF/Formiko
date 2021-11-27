@@ -202,15 +202,13 @@ public class FPanelMapMove extends FPanel {
     @Override
     public void run(){
       while(true){
-        if(stepInX==0 && stepInY==0){
-          try {
-            wait();
-          }catch (InterruptedException e) {}
-        }
+        // if(stepInX==0 && stepInY==0){
+        //   try {
+        //     wait();
+        //   }catch (InterruptedException e) {}
+        // }
         moveAllSubPanel(stepInX, stepInY);
-        try {
-          wait();
-        }catch (Exception e) {}
+        Temps.pause(10);
       }
     }
   }

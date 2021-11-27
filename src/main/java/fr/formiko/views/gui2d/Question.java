@@ -26,14 +26,5 @@ public class Question {
   // GET SET -------------------------------------------------------------------
   public boolean getChoix(){return choix==JOptionPane.OK_OPTION;}
   // FUNCTIONS -----------------------------------------------------------------
-  /**
-  *{@summary Static methode to get a String answer.}
-  *@param popUpName name of the popUp
-  *@param popUpMessage message of the popUp
-  *@version 2.13
-  */
-  public static QuestionString(String popUpName, String popUpMessage){
-    return JOptionPane.showInputDialog (Main.getF(), g.getM(s), s2, JOptionPane.QUESTION_MESSAGE);
-  }
 
 }

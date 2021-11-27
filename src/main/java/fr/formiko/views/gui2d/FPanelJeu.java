@@ -254,13 +254,22 @@ public class FPanelJeu extends FPanel {
   public void alerte(String s){ alerte(s,g.getM("information"));}
   /**
   *{@summary Print a question box.}
+  *@param popUpName name of the popUp
+  *@param popUpMessage message of the popUp
   *@return answer.
   *@version 1.50
   */
   public String question(String popUpName, String popUpMessage){
-    return Question.QuestionString(popUpName, popUpMessage);
+    String r = JOptionPane.showInputDialog (Main.getF(), g.getM(popUpName), popUpMessage, JOptionPane.QUESTION_MESSAGE);
+    return r;
   }
-  public String question(String popUpName){ return question(s,"?");}
+  /***
+  *{@summary Print a question box.}
+  *@param popUpName name of the popUp
+  *@return answer.
+  *@version 1.50
+  */
+  public String question(String popUpName){ return question(popUpName,"?");}
 
   /**
   *{@summary Update time from last move in the Thread.}
@@ -298,7 +307,7 @@ public class FPanelJeu extends FPanel {
     public void updateTimeFromLastMove(){needToUpdateTimeFromLastMove=true;}
 
     /**
-    *{@summary Main function that update message if needed.}<br>
+    *{@summary Main function that update message if needed every 50ms.}<br>
     *@version 2.7
     */
     @Override
@@ -329,8 +338,7 @@ public class FPanelJeu extends FPanel {
         labelMessage.setVisible(visible);
         // Temps.pause(50);
         try {
-          // sleep(50);
-          wait();
+          sleep(50);
         }catch (InterruptedException e) {
           erreur.erreur("thread have been interupted");
         }

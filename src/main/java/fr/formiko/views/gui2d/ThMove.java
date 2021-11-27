@@ -230,10 +230,10 @@ class ThMoveManager extends Thread {
       for (ThMove move : list) {
         move.oneStep();
       }
-      // Temps.pause(10);
-      try {
-        wait();
-      }catch (InterruptedException e) {}
+      Temps.pause(10);
+      // try {
+      //   wait();
+      // }catch (InterruptedException e) {}
     }
   }
 }
