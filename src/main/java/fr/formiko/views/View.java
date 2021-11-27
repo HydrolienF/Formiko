@@ -197,7 +197,7 @@ public interface View {
   *@version 2.11
   */
   default boolean getMoveMode(){return false;}
-  /**
+  /***
   *{@summary Default fontion to move.}
   *@version 2.11
   */

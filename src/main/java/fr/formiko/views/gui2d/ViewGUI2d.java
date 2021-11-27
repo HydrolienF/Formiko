@@ -159,7 +159,6 @@ public class ViewGUI2d implements View {
     }
     paint();
     if(needToWaitForGameLaunch){
-      // waitForGameLaunch();
       needToWaitForGameLaunch=false;
     }else{
       erreur.info("don't need to wait for game launch");
@@ -669,6 +668,9 @@ public class ViewGUI2d implements View {
     int secToRefresh = 1000/Main.getOp().getFps();
     timer.schedule(new TimerTaskViewGUI2d(this){
       @Override
+      /**
+      *{@summary Repaint if Frame is not null & showing in screen.}
+      */
       public void run(){
         if(getF()!=null && getF().isFocused()){ // isShowing() can also be used, but it can't see it window is fully hide by other 1.
           if(!paintGUI()){ //try to paint
@@ -681,6 +683,9 @@ public class ViewGUI2d implements View {
     if(debug.getPerformance()){
       timer.schedule(new TimerTaskViewGUI2d(this){
         @Override
+        /**
+        *{@summary Print curent fps.}
+        */
         public void run(){
           erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()/10));
           view.setCurentFPS(0);

@@ -19,16 +19,16 @@ import javax.swing.JTextField;
 
 public class EtiquetteJoueur extends FPanel{
   private static int idCpt; private final int id;
-  private Champ dsc;
+  private FTextField dsc;
   private boolean ia;
   private boolean ouvert;
   private FComboBox<String> combo;
-  private Champ couleur;
+  private FTextField couleur;
   // CONSTRUCTORS --------------------------------------------------------------
   public EtiquetteJoueur(String s, Boolean b){
     id =idCpt; idCpt++;
     setOpaque(false);
-    dsc = new Champ();
+    dsc = new FTextField();
     if(b!=null){ dsc.setText(s);}
     else{dsc.setText("");}
     dsc.setFondTransparent();
@@ -38,7 +38,7 @@ public class EtiquetteJoueur extends FPanel{
     add(dsc);
     String[] tab = {g.getM("joueur"), g.getM("ia"), g.getM("fermé")};
     combo = new FComboBox<String>(tab);
-    couleur=new Champ();
+    couleur=new FTextField();
     couleur.setFondTransparent();
     couleur.setBorder(null);
     if(b==null){ ouvert=false; combo.setSelectedIndex(2);}

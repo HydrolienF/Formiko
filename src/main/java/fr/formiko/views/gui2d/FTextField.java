@@ -9,14 +9,14 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextField;
 
-public class Champ extends JTextField{
+public class FTextField extends JTextField{
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public Champ(String s){
+  public FTextField(String s){
     super(s);
     setFontText();
   }
-  public Champ(){ this("");}
+  public FTextField(){ this("");}
   // GET SET -------------------------------------------------------------------
   //setText et getText
   public void setBounds(int a, int b, int c){setBounds(a,b,c,FLabel.getDimY());}

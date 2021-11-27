@@ -12,7 +12,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 
 public class FPanelChamp extends FPanel {
-  private Champ c;
+  private FTextField c;
   private BoutonV b;
   private int tailleBouton=20;
   private boolean validé=false;
@@ -22,7 +22,7 @@ public class FPanelChamp extends FPanel {
     GridBagConstraints gbc = new GridBagConstraints();
     Dimension dimC = new Dimension(500,tailleBouton);
     Dimension dimB = new Dimension(tailleBouton*2,tailleBouton);
-    c = new Champ(défaut);
+    c = new FTextField(défaut);
     b = new BoutonV();
     c.setPreferredSize(dimC); b.setPreferredSize(dimB);
     gbc.gridy = 0; gbc.gridx = 0;
