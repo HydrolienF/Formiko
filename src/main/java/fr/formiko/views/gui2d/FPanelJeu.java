@@ -250,13 +250,10 @@ public class FPanelJeu extends FPanel {
   *@return answer.
   *@version 1.50
   */
-  public String question(String s, String s2){
-    // String[] options = {g.get("oui"),g.get("non")};
-    // String r = JOptionPane.showOptionDialog(Main.getF(), g.get(s), g.get(s2)+" ?",JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE);
-    String r = JOptionPane.showInputDialog (Main.getF(), g.getM(s), s2, JOptionPane.QUESTION_MESSAGE);
-    return r;
+  public String question(String popUpName, String popUpMessage){
+    return Question.QuestionString(popUpName, popUpMessage);
   }
-  public String question(String s){ return question(s,"?");}
+  public String question(String popUpName){ return question(s,"?");}
 
   /**
   *{@summary Update time from last move in the Thread.}
