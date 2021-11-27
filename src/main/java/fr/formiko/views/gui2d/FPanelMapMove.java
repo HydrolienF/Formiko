@@ -21,7 +21,7 @@ import java.util.List;
 /**
 *{@summary Panel that make map move.}<br>
 *@author Hydrolien
-*@version 2.12
+*@version 2.13
 */
 public class FPanelMapMove extends FPanel {
   private Liste<FPanel> lPanelToMove;
@@ -32,7 +32,7 @@ public class FPanelMapMove extends FPanel {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main empty constructor.}<br>
-  *@version 2.12
+  *@version 2.13
   */
   public FPanelMapMove(){
     lPanelToMove = new Liste<FPanel>();
@@ -46,6 +46,10 @@ public class FPanelMapMove extends FPanel {
   public void setSpaceInY(int x){spaceInY=x;}
 
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Initialize all sub components &#38; variables.}<br>
+  *@version 2.13
+  */
   public void build(){
     thickness = Main.getTailleElementGraphique(50);
     int pjw = FPanel.getView().getPj().getWidth();
@@ -67,6 +71,13 @@ public class FPanelMapMove extends FPanel {
     th = new ThMove();
     th.start();
   }
+  /**
+  *{@summary Launch or stop move in thread.}<br>
+  *@param inX true if were moving in x, false if were moving in y
+  *@param up true if windows should up in X or in Y
+  *@param speed moving speed in [0;2]
+  *@version 2.13
+  */
   public void setOver(boolean inX, boolean up, double speed){
     if(!getView().getActionGameOn() || getView().getPch()!=null){return;}
     int step=(int)((double)thickness*speed)/8;
@@ -77,6 +88,12 @@ public class FPanelMapMove extends FPanel {
       th.setStepInY(step);
     }
   }
+  /**
+  *{@summary Move all sub panel in x &#38; y.}<br>
+  *@param stepInX moving speed in x
+  *@param stepInY moving speed in y
+  *@version 2.13
+  */
   public void moveAllSubPanel(int stepInX, int stepInY){
     for (FPanel panelToMove : lPanelToMove) {
       int maxX = math.max(panelToMove.getWidth()-spaceInX,0);
@@ -87,17 +104,37 @@ public class FPanelMapMove extends FPanel {
   }
 
   // SUB-CLASS -----------------------------------------------------------------
+  /**
+  *{@summary Panel used to listen mouse move.}<br>
+  *The mouse listeners will update speed depending of how close of the border we are.
+  *@author Hydrolien
+  *@version 2.13
+  */
   class FPanelListenMove extends FPanel {
     private boolean inX;
     private boolean up;
+    /**
+    *{@summary Main constructor with mouse listeners.}<br>
+    *The mouse listeners will update speed depending of how close of the border we are.
+    *Or stop it if we leave the panel.
+    *@version 2.13
+    */
     public FPanelListenMove(boolean inX, boolean up){
       this.inX=inX;
       this.up=up;
       addMouseListener(new MouseListener(){
+        /**
+        *{@summary Start moving.}<br>
+        *@version 2.13
+        */
         @Override
         public void mouseEntered(MouseEvent event) {
           setOver(inX, up, 1.0);
         }
+        /**
+        *{@summary Stop moving.}<br>
+        *@version 2.13
+        */
         @Override
         public void mouseExited(MouseEvent event) {
           setOver(inX, up, 0);
@@ -110,6 +147,10 @@ public class FPanelMapMove extends FPanel {
         public void mouseReleased(MouseEvent event) {}
       });
       addMouseMotionListener(new MouseMotionListener(){
+        /**
+        *{@summary Update speed depending of how close of the border we are.}<br>
+        *@version 2.13
+        */
         @Override
         public void mouseMoved(MouseEvent event) {
           double speed=1.0;
@@ -134,18 +175,38 @@ public class FPanelMapMove extends FPanel {
       });
     }
   }
+  /**
+  *{@summary Thread used to do the move.}<br>
+  *@author Hydrolien
+  *@version 2.13
+  */
   class ThMove extends Thread {
     private int stepInX;
     private int stepInY;
     public void setStepInX(int x){stepInX=x;}
     public void setStepInY(int x){stepInY=x;}
+    /**
+    *{@summary Main constructor.}<br>
+    *@version 2.13
+    */
     public ThMove(){
       stepInX=0;
       stepInY=0;
     }
+    /**
+    *{@summary Main methode that make sub panel move.}<br>
+    *It will wait untill a stepInX or stepInY is not 0
+    * &#38; then move every 10 ms.
+    *@version 2.13
+    */
     @Override
     public void run(){
       while(true){
+        if(stepInX==0 && stepInY==0){
+          try {
+            wait();
+          }catch (InterruptedException e) {}
+        }
         moveAllSubPanel(stepInX, stepInY);
         Temps.pause(10, this);
       }

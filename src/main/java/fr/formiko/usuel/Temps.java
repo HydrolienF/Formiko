@@ -54,6 +54,10 @@ public class Temps {
   public String getDf(){return df;}
   public void setDf(String s){df=s;}
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Return a string representing time as in date format df.}
+  *@version 1.23
+  */
   public String toString(){
     String r="";
     SimpleDateFormat sdf = new SimpleDateFormat(df);
@@ -95,6 +99,10 @@ public class Temps {
       tempsEnJeux = 0;
     }
   }
+  /**
+  *{@summary Save time information in Temps.txt.}
+  *@version 1.23
+  */
   public void sauvegarder(){
     GString gs = new GString();
     gs.add(""+date1);
