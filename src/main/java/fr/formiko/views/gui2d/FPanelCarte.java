@@ -866,10 +866,25 @@ public class FPanelCarte extends FPanel {
   *{@summary Tool to save performances by drawing only visible Case.}<br>
   *@param c Case to check
   *return true if case is visible
+  *@version 2.13
   */
   public boolean isCaseVisible(Case c){
-    // if(c.getX()<getPosX() || c.getY()<getPosY()){return false;}
-    // if(c.getX()>nbrPrintableCase(true)-getPosX() || c.getY()>nbrPrintableCase(false)-getPosY()){return false;}
+    FPanel p = getView().getPmmo();
+    return isCaseVisible(c, -getX(), -getY(), p.getWidth()-getX(), p.getHeight()-getY(), getTailleDUneCase());
+  }
+  /**
+  *{@summary Tool to save performances by drawing only visible Case.}<br>
+  *@param c Case to check
+  *return true if case is visible
+  *@version 2.13
+  */
+  public static boolean isCaseVisible(Case c, int minX, int minY, int maxX, int maxY, int caseSize){
+    int x = c.getX()*caseSize;
+    minX-=caseSize;
+    if(x<minX || x>maxX){return false;}
+    int y = c.getY()*caseSize;
+    minY-=caseSize;
+    if(y<minY || y>maxY){return false;}
     return true;
   }
   /**
