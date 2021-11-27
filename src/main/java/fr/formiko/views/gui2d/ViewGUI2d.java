@@ -46,6 +46,7 @@ public class ViewGUI2d implements View {
   private int curentFPS=0;
   private CCase ccaseClicked;
   private boolean moveMode=false;
+  private boolean launchFromPm;
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
@@ -76,6 +77,7 @@ public class ViewGUI2d implements View {
   public int getHeight(){try {return getPp().getHeight();}catch (NullPointerException e) {return 0;}}
   // public Case getCaseClicked(){return caseClicked;}
   // public void setCaseClicked(Case c){caseClicked=c;}
+  public void setLaunchFromPm(boolean b){launchFromPm=b;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
@@ -151,7 +153,7 @@ public class ViewGUI2d implements View {
     DiscordIntegration.setNeedToUpdateActivity(true);
     if(f==null || getPm()==null){ini();}
     Main.stopScript();
-    if(Main.getPremierePartie()){
+    if(Main.getPremierePartie()){//@a true
       getPm().askLanguage();
     }else if(Main.getOpenMenuFirst()){
       getPm().buildFPanelMenu(3,0);
@@ -160,7 +162,6 @@ public class ViewGUI2d implements View {
     }
     paint();
     if(needToWaitForGameLaunch){
-      // waitForGameLaunch();
       needToWaitForGameLaunch=false;
     }else{
       erreur.info("don't need to wait for game launch");
@@ -361,7 +362,9 @@ public class ViewGUI2d implements View {
     if (!actionGameOn) {return null;}
     moveMode=true;
     while(ccaseClicked==null){
-      Temps.pause(10);
+      try {
+        wait();
+      }catch (Exception e) {}
     }
     moveMode=false;
     CCase tempCCase = ccaseClicked;
@@ -529,12 +532,13 @@ public class ViewGUI2d implements View {
   *{@summary A loop to wait for game launch.}<br>
   *@version 1.46
   */
-  public synchronized void waitForGameLaunch(){
+  public void waitForGameLaunch(){
     // if(!Main.getPremierePartie()){
-    boolean b=false;
-    while(!b){
-      Temps.pause(10);
-      b=getPm().getLancer();
+    launchFromPm=false;
+    while(!launchFromPm){
+      try {
+        wait();
+      }catch (Exception e) {}
     }
     actionGame();
   }
@@ -670,6 +674,9 @@ public class ViewGUI2d implements View {
     int secToRefresh = 1000/Main.getOp().getFps();
     timer.schedule(new TimerTaskViewGUI2d(this){
       @Override
+      /**
+      *{@summary Repaint if Frame is not null & showing in screen.}
+      */
       public void run(){
         if(getF()!=null && getF().isFocused()){ // isShowing() can also be used, but it can't see it window is fully hide by other 1.
           if(!paintGUI()){ //try to paint
@@ -681,6 +688,9 @@ public class ViewGUI2d implements View {
     if(debug.getPerformance()){
       timer.schedule(new TimerTaskViewGUI2d(this){
         @Override
+        /**
+        *{@summary Print curent fps.}
+        */
         public void run(){
           erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()/10));
           view.setCurentFPS(0);

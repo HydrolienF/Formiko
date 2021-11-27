@@ -74,7 +74,10 @@ public class DiscordIntegration {
 		// Run callbacks forever
     while(true){
       core.runCallbacks();
-      Temps.pause(100);
+      // Temps.pause(100);
+      try {
+        wait();
+      }catch (InterruptedException e) {}
       if(needToUpdateActivity){updateActivity();}
     }
 	}

@@ -208,7 +208,9 @@ public class FPanelMapMove extends FPanel {
           }catch (InterruptedException e) {}
         }
         moveAllSubPanel(stepInX, stepInY);
-        Temps.pause(10, this);
+        try {
+          wait();
+        }catch (Exception e) {}
       }
     }
   }

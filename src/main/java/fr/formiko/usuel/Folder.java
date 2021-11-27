@@ -275,7 +275,9 @@ public class Folder {
     boolean needToRetry = true;
     while(needToRetry){
       while(!launchDownload){ // while not first time or player haven't clic on retry, wait.
-        Temps.pause(100);
+        try {
+          wait();
+        }catch (InterruptedException e) {}
       }
       prepareDownloadData();
       Main.startCh();

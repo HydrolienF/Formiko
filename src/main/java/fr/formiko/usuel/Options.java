@@ -476,7 +476,8 @@ public class Options implements Serializable{
   *@version 2.5
   */
   public void updateFont(){
-    if(!Fonts.createFonts(gui_global_fontText)){
+    // if(!Fonts.createFonts(gui_global_fontText)){
+    if (false) { //@a
       erreur.alerte("fail to set font for text");
       font1=new Font("Default", Font.BOLD, gui_global_fontSizeText);
     }else{
@@ -488,6 +489,7 @@ public class Options implements Serializable{
     }else{
       font2=new Font(gui_global_fontTitle, Font.PLAIN, gui_global_fontSizeTitle);
     }
+    System.out.println(font1);//@a
   }
   /**
   *{@summary tranform properties into Options var.}<br>
