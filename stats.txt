@@ -48,7 +48,7 @@ comment %    cl-pu-po-pr-sh-ln   name of the file
 100% (3/3)   1  2  0  0  1  41   formiko\interfaces\TourCreatureMorte.java
 100% (4/4)   1  3  0  0  1  68   formiko\interfaces\TourCreatureSansAction.java
 100% (12/12) 1  11 0  0  1  193  formiko\interfaces\TourFourmi.java
-42%  (3/7)   1  4  0  2  0  227  formiko\interfaces\TourFourmiNonIa.java
+42%  (3/7)   1  4  0  2  0  239  formiko\interfaces\TourFourmiNonIa.java
 100% (5/5)   1  3  0  1  0  87   formiko\interfaces\TourInsecte.java
 100% (4/4)   1  3  0  0  0  34   formiko\interfaces\TourNull.java
 100% (6/6)   1  5  0  0  0  82   formiko\interfaces\TourReine.java
@@ -63,7 +63,7 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 7%   (1/13)  1  12 0  0  1  162  formiko\Message.java
 66%  (2/3)   1  2  0  0  5  43   formiko\ObjetAId.java
 0%   (0/4)   1  3  0  0  6  41   formiko\ObjetSurCarteAId.java
-50%  (10/20) 1  16 0  3  48 413  formiko\Partie.java
+50%  (10/20) 1  16 0  3  48 414  formiko\Partie.java
 0%   (0/1)   1  0  0  0  0  25   formiko\Personalite.java
 11%  (2/18)  1  17 0  0  11 127  formiko\Pheromone.java
 80%  (4/5)   1  2  0  2  5  93   formiko\Script.java
@@ -127,7 +127,7 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 100% (1/1)   1  0  0  0  1  22   usuel\structures\Node.java
 100% (17/17) 3  12 0  2  10 225  usuel\structures\Tree.java
 24%  (15/61) 1  55 0  5  8  665  usuel\tableau.java
-100% (12/12) 1  11 0  0  14 261  usuel\Temps.java
+100% (14/14) 1  13 0  0  14 276  usuel\Temps.java
 0%   (0/4)   1  3  0  0  0  34   usuel\Th.java
 0%   (0/5)   1  3  0  1  0  61   usuel\ThTrad.java
 0%   (0/2)   1  1  0  0  1  23   usuel\ThTriche.java
@@ -189,9 +189,9 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 100% (3/3)   1  2  0  0  1  62   views\gui2d\ini.java
 100% (7/7)   1  5  0  1  0  138  views\gui2d\keys.java
 100% (2/2)   1  1  0  0  2  30   views\gui2d\Question.java
-91%  (11/12) 2  7  0  3  6  239  views\gui2d\ThMove.java
-100% (43/43) 2  34 0  7  32 765  views\gui2d\ViewGUI2d.java
+91%  (11/12) 2  7  0  3  6  241  views\gui2d\ThMove.java
+100% (43/43) 2  34 0  7  32 767  views\gui2d\ViewGUI2d.java
 100% (1/1)   1  0  0  0  1  205  views\View.java
 100% (32/32) 1  23 0  8  2  706  views\ViewCLI.java
 100% (16/16) 1  15 0  0  7  174  views\ViewNull.java
-59,8%(1110/1856) 231 1460 6 159 1204  28599 global
+59,8%(1112/1858) 231 1462 6 159 1204  28631 global

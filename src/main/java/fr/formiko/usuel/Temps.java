@@ -203,6 +203,21 @@ public class Temps {
   /**
   *{@summary Try to stop execution of the programme during some ms.}
   *@param ms number of ms to wait before continue.
+  *@version 2.13
+  */
+  public static void sleep(int ms){
+    pause(ms);
+  }
+  /**
+  *{@summary Try to stop execution of the programme during 50 ms.}
+  *@version 2.13
+  */
+  public static void sleep(){
+    pause(50);
+  }
+  /**
+  *{@summary Try to stop execution of the programme during some ms.}
+  *@param ms number of ms to wait before continue.
   *@version 1.23
   */
   public static void pause(int ms){

@@ -302,9 +302,10 @@ public class Partie implements Serializable{
     // Main.setRetournerAuMenu(true);//TODO ask & not force.
     if(withButton){
       while(!getContinuerLeJeu() && !Main.getRetournerAuMenu()){//on attend la validation que la partie continue.
-        try {
-          wait();
-        }catch (Exception e) {}
+        // try {
+        //   wait();
+        // }catch (Exception e) {}
+        Temps.sleep();
       }
     }
   }

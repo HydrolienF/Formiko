@@ -25,7 +25,7 @@ import java.util.List;
 */
 public class FPanelMapMove extends FPanel {
   private Liste<FPanel> lPanelToMove;
-  private ThMove th;
+  private ThMoveSubPanel th;
   private int spaceInX;
   private int spaceInY;
   private int thickness;
@@ -68,7 +68,7 @@ public class FPanelMapMove extends FPanel {
     add(plm);
     spaceInX=getView().getPj().getWidth();
     spaceInY=getView().getPj().getHeight();
-    th = new ThMove();
+    th = new ThMoveSubPanel();
     th.start();
   }
   /**
@@ -180,16 +180,16 @@ public class FPanelMapMove extends FPanel {
   *@author Hydrolien
   *@version 2.13
   */
-  class ThMove extends Thread {
-    private int stepInX;
-    private int stepInY;
+  class ThMoveSubPanel extends Thread {
+    private volatile int stepInX;
+    private volatile int stepInY;
     public void setStepInX(int x){stepInX=x;}
     public void setStepInY(int x){stepInY=x;}
     /**
     *{@summary Main constructor.}<br>
     *@version 2.13
     */
-    public ThMove(){
+    public ThMoveSubPanel(){
       stepInX=0;
       stepInY=0;
     }
@@ -202,7 +202,7 @@ public class FPanelMapMove extends FPanel {
     @Override
     public void run(){
       while(true){
-        // if(stepInX==0 && stepInY==0){
+        // while(stepInX==0 && stepInY==0){
         //   try {
         //     wait();
         //   }catch (InterruptedException e) {}

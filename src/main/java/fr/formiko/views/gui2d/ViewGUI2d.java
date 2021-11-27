@@ -362,9 +362,10 @@ public class ViewGUI2d implements View {
     if (!actionGameOn) {return null;}
     moveMode=true;
     while(ccaseClicked==null){
-      try {
-        wait();
-      }catch (Exception e) {}
+      // try {
+      //   wait();
+      // }catch (Exception e) {}
+      Temps.sleep();
     }
     moveMode=false;
     CCase tempCCase = ccaseClicked;
@@ -536,9 +537,10 @@ public class ViewGUI2d implements View {
     // if(!Main.getPremierePartie()){
     launchFromPm=false;
     while(!launchFromPm){
-      try {
-        wait();
-      }catch (Exception e) {}
+      // try {
+      //   wait();
+      // }catch (Exception e) {}
+      Temps.sleep();
     }
     actionGame();
   }

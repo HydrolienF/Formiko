@@ -231,9 +231,11 @@ class ThMoveManager extends Thread {
         move.oneStep();
       }
       Temps.pause(10);
-      // try {
-      //   wait();
-      // }catch (InterruptedException e) {}
+      // if(list.isEmpty()){
+      //   try {
+      //     wait();
+      //   }catch (InterruptedException e) {}
+      // }
     }
   }
 }
