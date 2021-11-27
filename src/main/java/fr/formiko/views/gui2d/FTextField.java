@@ -9,21 +9,29 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextField;
 
-public class Champ extends JTextField{
+/**
+*{@summary Standard TextField for Formiko.}
+*@author Hydrolien
+*@version 1.x
+*/
+public class FTextField extends JTextField {
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public Champ(String s){
+  /**
+  *{@summary Main constructor with a string &#38; default font.}
+  *@version 1.x
+  */
+  public FTextField(String s){
     super(s);
-    setFontText();
+    // setFontText(); //no need because it have been set as default font for all graphics components
   }
-  public Champ(){ this("");}
+  public FTextField(){ this("");}
   // GET SET -------------------------------------------------------------------
   //setText et getText
   public void setBounds(int a, int b, int c){setBounds(a,b,c,FLabel.getDimY());}
   public void setFontText(Font fon){ this.setFont(fon);}
   public void setFontText(){ setFontText(Main.getFont1());}
-  public void setFondColoré(Color col){this.setBackground(col);}
-  public void setFondTransparent(){setFondColoré(new Color(0,0,0,0));}
+  public void setFondTransparent(){setBackground(new Color(0,0,0,0));}
   // FUNCTIONS -----------------------------------------------------------------
 
 }
