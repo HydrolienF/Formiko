@@ -87,6 +87,9 @@ public class FPanelMapMove extends FPanel {
     }else{
       th.setStepInY(step);
     }
+    if(speed!=0){
+      th.needToWait=false;
+    }
   }
   /**
   *{@summary Move all sub panel in x &#38; y.}<br>
@@ -181,8 +184,9 @@ public class FPanelMapMove extends FPanel {
   *@version 2.13
   */
   class ThMoveSubPanel extends Thread {
-    private volatile int stepInX;
-    private volatile int stepInY;
+    private int stepInX;
+    private int stepInY;
+    private volatile boolean needToWait;
     public void setStepInX(int x){stepInX=x;}
     public void setStepInY(int x){stepInY=x;}
     /**
@@ -201,14 +205,15 @@ public class FPanelMapMove extends FPanel {
     */
     @Override
     public void run(){
+      needToWait=false;
       while(true){
-        // while(stepInX==0 && stepInY==0){
-        //   try {
-        //     wait();
-        //   }catch (InterruptedException e) {}
-        // }
+        while(needToWait){
+          Thread.onSpinWait();
+        }
+        needToWait=(stepInX==0 && stepInY==0);
         moveAllSubPanel(stepInX, stepInY);
         Temps.pause(10);
+        System.out.println("pause 10 ms");
       }
     }
   }
