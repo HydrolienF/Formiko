@@ -94,3 +94,8 @@ La mémoire non utilisée (si il y en a beaucoup) pendant plus de 5 min est a no
 
 fc-list
 fc-match fontName
+
+Pour ce connecter via ssh
+ssh machineName
+Pour transférer un fichier via ssh
+scp path/to/file/File identifiant@machineName:path/to/file/
