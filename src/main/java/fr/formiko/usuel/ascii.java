@@ -2,15 +2,31 @@ package fr.formiko.usuel;
 
 import fr.formiko.usuel.types.str;
 
-public class ascii{
+/**
+*{@summary ASCII functions.}
+*@version 2.14
+*/
+public class Ascii {
+  /**
+  *{@summary Transform int into ascii char.}
+  *@version 2.14
+  */
   public static char asciiToA(int x){
     char c = (char) x;
     return c;
   }
+  /**
+  *{@summary Transform char into ascii int.}
+  *@version 2.14
+  */
   public static int aToAscii(char a){
     int r = (int) a;
     return r;
   }
+  /**
+  *{@summary Transform char into 1 or 2 letter that represent it.}
+  *@version 2.14
+  */
   public static String getNuméroationEnAbcd(int i){
     String sr ="";
     i--;
@@ -36,7 +52,7 @@ public class ascii{
   }
   /**
   *{@summary Transform into an ascii String.}
-  *@version 2.11
+  *@version 2.14
   */
   public static String stringToAscii(String s){
     String sr="";

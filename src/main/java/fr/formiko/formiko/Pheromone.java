@@ -1,7 +1,7 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.ascii;
+import fr.formiko.usuel.Ascii;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -106,7 +106,7 @@ public class Pheromone implements Serializable{
   public static String nbrToChiffre(int x){ //10 devient ascci(41) (cad A).
     if (x<10){return x+"";}
     int y = x-10;
-    return ascii.asciiToA(y+65)+"";
+    return Ascii.asciiToA(y+65)+"";
   }
   public static int b16ToB10(char c){
     if (c>=65 && c<=90){ return c-55;}

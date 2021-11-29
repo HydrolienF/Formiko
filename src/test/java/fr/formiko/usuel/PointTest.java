@@ -2,10 +2,9 @@ package fr.formiko.usuel;
 
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.usuel.Point;
 import fr.formiko.tests.TestCaseMuet;
 
-public class PointTest extends TestCaseMuet{
+public class PointTest extends TestCaseMuet {
 
   // FUNCTIONS -----------------------------------------------------------------
   @Test

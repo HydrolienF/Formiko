@@ -11,7 +11,7 @@ import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
-import fr.formiko.usuel.ascii;
+import fr.formiko.usuel.Ascii;
 import fr.formiko.usuel.color;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -145,7 +145,7 @@ public class CLIMap{
     while(cc!=null){
       xi2++;
       sr+=color.BLUE;
-      sr+=ascii.getNuméroationEnAbcd(xi2)+"|";
+      sr+=Ascii.getNuméroationEnAbcd(xi2)+"|";
       sr+=color.NEUTRAL;
       sr+=mapLineToString(cc,j)+"\n";
       cc=cc.getBas();
@@ -230,7 +230,7 @@ public class CLIMap{
         }
       }else{
         xi++;
-        sr = ascii.getNuméroationEnAbcd(xi);
+        sr = Ascii.getNuméroationEnAbcd(xi);
         // ajout dans la legend.
         String s = sr +" : ";
         if(contenu.getFere() != null){
