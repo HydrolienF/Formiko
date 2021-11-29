@@ -13,7 +13,6 @@ import fr.formiko.views.gui2d.*;
 
 import java.awt.Font;
 import java.io.File;
-// import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
@@ -384,20 +383,6 @@ public class Main {
     String message = g.getM(key);
     if(percentageDone<100){message+="...";}
     getView().loadingMessage(message, percentageDone);
-  }
-  /**
-   * Sould transforme a GCase to a Image that can be used for mini-map.<br>
-   * @version 1.1
-   */
-  public static void gcToImage(){
-    startCh();
-    Carte mapo = new Carte("miniWorld");
-    GCase gc = mapo.getGc();
-    endCh("chargementCarteEtGc");startCh();
-    Img img = gc.getImg();
-    endCh("récupérationDeLImage");startCh();
-    img.sauvegarder("carte.png");
-    endCh("sauvegardeLeLImage");
   }
   //chrono shortcut
   public static void startCh(){Chrono.debutCh();}

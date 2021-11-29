@@ -70,32 +70,6 @@ public class GCase implements Serializable{
     if (début== null){ erreur.erreurGXVide("GCase"); return;}
     début.setTypes(t);
   }
-  public Img getImg(){
-    Img herbe = new Img(image.getImage("herbe"));
-    Img mousse = new Img(image.getImage("mousse"));
-    Img sab = new Img(image.getImage("sable"));
-    Img terre = new Img(image.getImage("terre"));
-    mousse.changerPixelTransparent(terre.getPixel(0,0));
-    Img sable = new Img(500,500);
-    sable.changerPixel(sable.getPixel(0,0),sab.getPixel(0,0));//tt les pixel deviènnent des pixel de la couleur de sable.
-    int leni=getWidth(); int lenj=getHeight();
-    Img ie = new Img(leni*500,lenj*500);
-    System.out.println(ie.getWidth()+"   "+ie.getHeight());
-    Img ti[] = new Img[4];
-    ti[1]=herbe;ti[2]=mousse;ti[3]=sable;
-    debug.débogage("add de "+(leni*lenj)+" éléments");
-    //ThImage tth[] = new ThImage[leni];
-    for(int i=0;i<leni;i++){
-      //tth[i] = new ThImage(this,ie,i,ti,lenj,leni);
-      //tth[i].start();
-      for (int j=0;j<lenj;j++ ) {
-        System.out.println("éléments n°"+(i*lenj+j)+"/"+(leni*lenj));
-        ie.add(i*500,j*500,ti[this.getCCase(i,j).getContent().getType()]);
-      }
-    }
-    ie.actualiserImage();
-    return ie;
-  }
   public void addDroite(int x, CCase débutDeLaLigne){
     debug.débogage("Création d'une ligne");
     int k = 1; CCase temp; actuelle = débutDeLaLigne;

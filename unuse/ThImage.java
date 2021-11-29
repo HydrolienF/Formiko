@@ -1,10 +1,10 @@
-package fr.formiko.usuel.images;
+  package fr.formiko.usuel.images;
 
 import fr.formiko.formiko.GCase;
 import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.image;
 
-public class ThImage extends Thread{
+public class ThImage extends Thread {
   private GCase gc;
   private Img ie;
   private Img ti[];
