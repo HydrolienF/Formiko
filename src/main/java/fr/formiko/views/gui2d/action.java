@@ -68,20 +68,20 @@ public class action {
       FPanel.getView().menuOptions();
     }else if(ac==4){
       debug.débogage("lancementNouvellePartie");
-      FPanel.getView().setLaunchFromPm();
+      FPanel.getView().setLaunchFromPm(true);
     }else if(ac==5){
       FPanel.getView().menuPersonaliseAGame();
     }else if(ac==6){
       Partie.setScript("tuto");
-      FPanel.getView().setLaunchFromPm();
+      FPanel.getView().setLaunchFromPm(true);
     }else if(ac==7){
       pm.validatelanguageChoice();
     }else if(ac==100){
       setPartie(FPanel.getView().getPnp().getPartie());
-      FPanel.getView().setLaunchFromPm();
+      FPanel.getView().setLaunchFromPm(true);
     }else if(ac==101){
       setPartie(pm.getPcp().getPartie());
-      FPanel.getView().setLaunchFromPm();
+      FPanel.getView().setLaunchFromPm(true);
     }
   }
   /**
