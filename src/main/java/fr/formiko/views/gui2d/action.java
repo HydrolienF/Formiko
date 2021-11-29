@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 *@author Hydrolien
 *@version 1.41
 */
-public class action{
+public class action {
   private static Partie pa;
   private static boolean needToSetPaNullWhenActionDone=false;
   // GET SET -------------------------------------------------------------------
@@ -68,20 +68,20 @@ public class action{
       FPanel.getView().menuOptions();
     }else if(ac==4){
       debug.débogage("lancementNouvellePartie");
-      pm.setLancer(true); //TODO to remove
+      FPanel.getView().setLaunchFromPm();
     }else if(ac==5){
       FPanel.getView().menuPersonaliseAGame();
     }else if(ac==6){
       Partie.setScript("tuto");
-      pm.setLancer(true); //TODO to remove
+      FPanel.getView().setLaunchFromPm();
     }else if(ac==7){
       pm.validatelanguageChoice();
     }else if(ac==100){
       setPartie(FPanel.getView().getPnp().getPartie());
-      pm.setLancer(true); //TODO to remove
+      FPanel.getView().setLaunchFromPm();
     }else if(ac==101){
       setPartie(pm.getPcp().getPartie());
-      pm.setLancer(true); //TODO to remove
+      FPanel.getView().setLaunchFromPm();
     }
   }
   /**

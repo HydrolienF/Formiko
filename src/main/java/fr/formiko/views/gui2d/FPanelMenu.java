@@ -50,8 +50,6 @@ public class FPanelMenu extends FPanel {
   }
   // GET SET -------------------------------------------------------------------
   public byte getMenu(){return menu; }
-  // public boolean getLancer(){ return lancer;}
-  public void setLancer(boolean b){getView().setLaunchFromPm(b);}
   public FPanelNouvellePartie getPnp(){return pnp;}
   public FPanelChoixPartie getPcp(){return pcp;}
   public FButton getReturnButton(){return returnButton;}
@@ -210,7 +208,7 @@ public class FPanelMenu extends FPanel {
       Main.getOp().saveOptions();
     }
     // TODO play launching video
-    setLancer(true);
+    getView().setLaunchFromPm(true);
   }
 
   //private---------------------------------------------------------------------

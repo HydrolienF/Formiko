@@ -158,7 +158,7 @@ public class ViewGUI2d implements View {
     }else if(Main.getOpenMenuFirst()){
       getPm().buildFPanelMenu(3,0);
     }else{
-      getPm().setLancer(true);
+      setLaunchFromPm(true);
     }
     paint();
     if(needToWaitForGameLaunch){
@@ -538,7 +538,6 @@ public class ViewGUI2d implements View {
   */
   public void waitForGameLaunch(){
     // if(!Main.getPremierePartie()){
-    launchFromPm=false;
     while(!launchFromPm){
       // try {
       //   wait();
@@ -547,6 +546,7 @@ public class ViewGUI2d implements View {
       // Thread.onSpinWait(); //don't stop the thread, probably because it's the main tread
       // System.out.println("CPU USE");
     }
+    launchFromPm=false;
     actionGame();
   }
   /**
