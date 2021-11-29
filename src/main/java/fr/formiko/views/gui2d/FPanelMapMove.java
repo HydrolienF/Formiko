@@ -51,21 +51,35 @@ public class FPanelMapMove extends FPanel {
   *@version 2.13
   */
   public void build(){
-    thickness = Main.getTailleElementGraphique(10);
+    thickness = Main.getTailleElementGraphique(10); //thin moving area are a bit hard to use without fullscreen.
     int pjw = FPanel.getView().getPj().getWidth();
     int pjh = FPanel.getView().getPj().getHeight();
-    FPanel plm = new FPanelListenMove(false, false);
-    plm.setSize(pjw, thickness);
+    FPanel plm = new FPanelListenMove(false, false); //top
+    plm.setBounds(thickness, 0, pjw-(2*thickness), thickness);
     add(plm);
     plm = new FPanelListenMove(true, false);
-    plm.setSize(thickness, pjh);
+    plm.setBounds(0, thickness, thickness, pjh-(2*thickness));
     add(plm);
     plm = new FPanelListenMove(true, true);
-    plm.setBounds(pjw-thickness, 0, thickness, pjh);
+    plm.setBounds(pjw-thickness, thickness, thickness, pjh-(2*thickness));
     add(plm);
-    plm = new FPanelListenMove(false, true);
-    plm.setBounds(0, pjh-thickness, pjw, thickness);
+    plm = new FPanelListenMove(false, true); //bottom
+    plm.setBounds(thickness, pjh-thickness, pjw-(2*thickness), thickness);
     add(plm);
+
+    plm = new FPanelListenMove(false, false, true, false);
+    plm.setBounds(0, 0, thickness, thickness);
+    add(plm);
+    plm = new FPanelListenMove(false, false, true, true);
+    plm.setBounds(pjw-thickness, 0, thickness, thickness);
+    add(plm);
+    plm = new FPanelListenMove(true, true, true, true);
+    plm.setBounds(pjw-thickness, pjh-thickness, thickness, thickness);
+    add(plm);
+    plm = new FPanelListenMove(false, true, true, false);
+    plm.setBounds(0, pjh-thickness, thickness, thickness);
+    add(plm);
+
     spaceInX=getView().getPj().getWidth();
     spaceInY=getView().getPj().getHeight();
     th = new ThMoveSubPanel();
@@ -73,7 +87,7 @@ public class FPanelMapMove extends FPanel {
   }
   /**
   *{@summary Launch or stop move in thread.}<br>
-  *@param inX true if were moving in x, false if were moving in y
+  *@param inX true if we are moving in x, false if we are moving in y
   *@param up true if windows should up in X or in Y
   *@param speed moving speed in [0;2]
   *@version 2.13
@@ -118,11 +132,15 @@ public class FPanelMapMove extends FPanel {
     private boolean up;
     /**
     *{@summary Main constructor with mouse listeners.}<br>
+    *@param inX true if we are moving in x
+    *@param up true if we are moving up
+    *@param both true if we are moving in x & in y
+    *@param up true if we are moving up for the 2a direction
     *If this is big enoth, the mouse listeners will update speed depending of how close of the border we are.
-    *Or stop it if we leave the panel.
+    * Or stop it if we leave the panel.
     *@version 2.13
     */
-    public FPanelListenMove(boolean inX, boolean up){
+    public FPanelListenMove(boolean inX, boolean up, boolean both, boolean up2){
       this.inX=inX;
       this.up=up;
       addMouseListener(new MouseListener(){
@@ -132,6 +150,9 @@ public class FPanelMapMove extends FPanel {
         */
         @Override
         public void mouseEntered(MouseEvent event) {
+          if(both){
+            setOver(!inX, up2, 1.0);
+          }
           setOver(inX, up, 1.0);
         }
         /**
@@ -140,6 +161,9 @@ public class FPanelMapMove extends FPanel {
         */
         @Override
         public void mouseExited(MouseEvent event) {
+          if(both){
+            setOver(!inX, up2, 0);
+          }
           setOver(inX, up, 0);
         }
         @Override
@@ -149,7 +173,7 @@ public class FPanelMapMove extends FPanel {
         @Override
         public void mouseReleased(MouseEvent event) {}
       });
-      if(thickness>Main.getTailleElementGraphique(10)){
+      if(thickness>Main.getTailleElementGraphique(20)){
         addMouseMotionListener(new MouseMotionListener(){
           /**
           *{@summary Update speed depending of how close of the border we are.}<br>
@@ -172,12 +196,26 @@ public class FPanelMapMove extends FPanel {
               speed = 1 - (double)(val)/(double)(thickness);
             }
             // if(val==0 || val==getWidth()-1 || val==getHeight()-1){speed*=1.5;}
+            if(both){ //TODO speed used is or X or Y, it should be a different 1 for x & y.
+              setOver(!inX, up2, speed);
+            }
             setOver(inX, up, speed);
           }
           @Override
           public void mouseDragged(MouseEvent event) {}
         });
       }
+    }
+    /**
+    *{@summary Main constructor with mouse listeners.}<br>
+    *@param inX true if we are moving in x
+    *@param up true if we are moving up
+    *If this is big enoth, the mouse listeners will update speed depending of how close of the border we are.
+    * Or stop it if we leave the panel.
+    *@version 2.13
+    */
+    public FPanelListenMove(boolean inX, boolean up){
+      this(inX, up, false, false);
     }
   }
   /**
@@ -201,7 +239,7 @@ public class FPanelMapMove extends FPanel {
     }
     /**
     *{@summary Main methode that make sub panel move.}<br>
-    *It will wait untill a stepInX or stepInY is not 0
+    * It will wait untill a stepInX or stepInY is not 0
     * &#38; then move every 10 ms.
     *@version 2.13
     */
