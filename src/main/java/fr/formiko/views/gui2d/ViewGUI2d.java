@@ -161,11 +161,11 @@ public class ViewGUI2d implements View {
       setLaunchFromPm(true);
     }
     paint();
-    if(needToWaitForGameLaunch){
-      needToWaitForGameLaunch=false;
-    }else{
-      erreur.info("don't need to wait for game launch");
-    }
+    // if(needToWaitForGameLaunch){
+    //   needToWaitForGameLaunch=false;
+    // }else{
+    //   erreur.info("don't need to wait for game launch");
+    // }
     return true;
   }
   /**
