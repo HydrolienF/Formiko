@@ -56,8 +56,8 @@ public class Point implements Serializable, Cloneable{
   public int getY(){return y;}
   public void setX(int x){this.x = x;}
   public void setY(int y){this.y = y;}
-  public void ajouteAX(int a){this.x = this.x + a;}
-  public void ajouteAY(int a){this.y = this.y + a;}
+  public void addX(int a){this.x = this.x + a;}
+  public void addY(int a){this.y = this.y + a;}
 
   // FUNCTIONS -----------------------------------------------------------------
   /**

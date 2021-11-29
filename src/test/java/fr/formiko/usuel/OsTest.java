@@ -53,6 +53,11 @@ public class OsTest extends TestCaseMuet {
     Os os = new OsExtends("win");
     assertTrue(os.toString().equals("os.1") || os.toString().equals("windows"));
   }
+  @Test
+  public void testGetARCH(){
+    Os os = new Os();
+    assertTrue(os.getARCH()!=null);
+  }
   @AfterAll
   public static void resetOs(){
     System.out.println("clean");
