@@ -55,15 +55,15 @@ public class Pixel {
   *@version 1.39
   */
   public Pixel(Pheromone ph){
-    this((byte)ph.getR(),(byte)ph.getV(),(byte)ph.getB(),(byte)127);
+    this((byte)ph.getR(),(byte)ph.getG(),(byte)ph.getB(),(byte)127);
   }
   // GET SET -------------------------------------------------------------------
   public byte getR(){return r;}
-  public byte getG(){return g;} public byte getV(){return getG();}
+  public byte getG(){return g;}
   public byte getB(){return b;}
   public byte getA(){return a;}
   public void setR(byte x){ r=x;}
-  public void setG(byte x){ g=x;} public void setV(byte x){ setG(x);}
+  public void setG(byte x){ g=x;}
   public void setB(byte x){ b=x;}
   public void setA(byte x){ a=x;}
   // FUNCTIONS -----------------------------------------------------------------
@@ -105,7 +105,8 @@ public class Pixel {
   *@version 1.54
   */
   public static Color colorToGrey(Color c){
-    int g = (int)(0.2989*c.getRed() + 0.5870*c.getGreen() + 0.1140*c.getBlue());
+    if(c==null){return null;}
+    int g = (int)(0.2989*((double)c.getRed()) + 0.5870*((double)c.getGreen()) + 0.1140*((double)c.getBlue()));
     return new Color(g,g,g, c.getAlpha());
   }
 }

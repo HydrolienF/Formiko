@@ -345,6 +345,8 @@ public class imageTest extends TestCaseMuet {
   //taille
   @Test
   public void testTaille(){
+    Main.setFolder(new Folder());
+    Main.getFolder().ini();
     Main.iniOp();//on initialise les Options.
     //image.taille(taille de l'espece, taille voulu avec le niveau de grossicement)
     Main.getOp().setRealisticSize(100);//un paramètre utilisé par image.taille

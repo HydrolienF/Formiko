@@ -104,15 +104,14 @@ public class Img implements Cloneable{
     if (vert != null) return vert;
     else setVert(); return vert;
   }public byte [][] getG(){ return getVert();}
-  public byte [][] getV(){ return getVert();}
-  public byte getV(int i, int j){ return vert[i][j];}
+  public byte getG(int i, int j){ return vert[i][j];}
   public void setVert(){
     vert = new byte[width][height];
     for (int i = 0 ; i < width; i++)
       for (int j = 0; j < height; j++)
         vert[i][j] = (byte)(((bi.getRGB(i,j)>>8)&255) -128);
   }public void setVert(int i,int j, byte x){ vert[i][j]=x;}
-  public void setV(int i,int j, byte x){setVert(i,i,x);}
+  public void setG(int i,int j, byte x){setVert(i,i,x);}
 
   public byte[][] getBleu() {
     if (bleu != null) return bleu;
@@ -145,8 +144,8 @@ public class Img implements Cloneable{
   public int getWidth(){return width;}
   public int getHeight(){return height;}
   public void setARVB(int i, int j, int x){setARVB(i,j,(byte)x);}
-  public void setARVB(int i, int j, byte x){setA(i,j,x);setR(i,j,x);setV(i,j,x);setB(i,j,x);}
-  public Pixel getPixel(int i, int j){ return new Pixel(getR(i,j),getV(i,j),getB(i,j),getA(i,j));}
+  public void setARVB(int i, int j, byte x){setA(i,j,x);setR(i,j,x);setG(i,j,x);setB(i,j,x);}
+  public Pixel getPixel(int i, int j){ return new Pixel(getR(i,j),getG(i,j),getB(i,j),getA(i,j));}
   public int getNbrDePixel(Pixel a, int x){
     int r = 0;
     //la il faudrait arriver a compter les pixels a dans un rayon de x.
@@ -220,7 +219,7 @@ public class Img implements Cloneable{
       for (int j=0; j<yTemp; j++){
         //on remplace le pixel de l'image par celui de i au mêm e endrois
         rouge[i+x][j+y]=ie.getR(i,j);
-        vert[i+x][j+y]=ie.getV(i,j);
+        vert[i+x][j+y]=ie.getG(i,j);
         bleu[i+x][j+y]=ie.getB(i,j);
         alpha[i+x][j+y]=ie.getA(i,j);
       }
@@ -408,7 +407,7 @@ public class Img implements Cloneable{
       for (int j = 0; j < height; j++){
         if(a.getR()==rouge[i][j] && a.getG()==vert[i][j] && a.getB()==bleu[i][j] && a.getA()==alpha[i][j]){
           rouge[i][j]=b.getR();
-          vert[i][j]=b.getV();
+          vert[i][j]=b.getG();
           bleu[i][j]=b.getB();
           alpha[i][j]=b.getA();
           x++;
@@ -434,7 +433,7 @@ public class Img implements Cloneable{
       for (int j = 0; j < height; j++){
         if(alpha[i][j]==-128){
           rouge[i][j]=b.getR();
-          vert[i][j]=b.getV();
+          vert[i][j]=b.getG();
           bleu[i][j]=b.getB();
           alpha[i][j]=b.getA();
           x++;

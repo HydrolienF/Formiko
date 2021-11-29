@@ -24,10 +24,10 @@ public class Ascii {
     return r;
   }
   /**
-  *{@summary Transform char into 1 or 2 letter that represent it.}
+  *{@summary Transform int into 1 or 2 letter that represent it.}
   *@version 2.14
   */
-  public static String getNuméroationEnAbcd(int i){
+  public static String intToLetterCode(int i){
     String sr ="";
     i--;
     if (i<=25){
@@ -36,7 +36,7 @@ public class Ascii {
       int q = i/26;
       int r = i%26;
       sr = str.str(asciiToA(64+q)) + str.str(asciiToA(64+r+1));
-    /*}else{ // A continué si on souhaite affiché des liste de plus de 26*26 éléments.
+    /*}else{ // To continue if we want to print list of more than 26*26 elements.
       int k=1; int i2 = i;
       while (i2>26){ // on compte combien de caractère il nous faut dans la légende "AAY".
         i2=i2/26; k++;
@@ -55,9 +55,13 @@ public class Ascii {
   *@version 2.14
   */
   public static String stringToAscii(String s){
+    if(s==null){s="";}
     String sr="";
+    boolean first=true;
     for (char c : s.toCharArray()) {
-      sr+=aToAscii(c)+" ";
+      if(!first){sr+=" ";}
+      else{first=false;}
+      sr+=aToAscii(c);
     }
     sr+="/n";
     return sr;

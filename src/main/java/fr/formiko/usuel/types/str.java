@@ -155,13 +155,12 @@ public class str {
   *@version 1.3
   */
   public static String filterForbiddenChar(String s){
-    if(s==null){return null;}
     char w [] = {'<', '>', ':', '\"', '/', '\\', '|', '?', '*'};
     //char ml [] = {':','/','\\'};
     //if(Main.getOs()==null || Main.getOs().isWindows()){
-      return filterForbiddenChar(s,w);
     //}
     //return filterForbiddenChar(s,ml);
+    return filterForbiddenChar(s,w);
   }public static String sToFileName(String s){ return filterForbiddenChar(s);}
   /**
   *{@summary Transform a String to a directory name aviable on every os.}<br>

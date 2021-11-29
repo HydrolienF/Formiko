@@ -145,7 +145,7 @@ public class CLIMap{
     while(cc!=null){
       xi2++;
       sr+=color.BLUE;
-      sr+=Ascii.getNuméroationEnAbcd(xi2)+"|";
+      sr+=Ascii.intToLetterCode(xi2)+"|";
       sr+=color.NEUTRAL;
       sr+=mapLineToString(cc,j)+"\n";
       cc=cc.getBas();
@@ -230,7 +230,7 @@ public class CLIMap{
         }
       }else{
         xi++;
-        sr = Ascii.getNuméroationEnAbcd(xi);
+        sr = Ascii.intToLetterCode(xi);
         // ajout dans la legend.
         String s = sr +" : ";
         if(contenu.getFere() != null){

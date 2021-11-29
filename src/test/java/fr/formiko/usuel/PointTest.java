@@ -30,7 +30,7 @@ public class PointTest extends TestCaseMuet {
     assertFalse(p.equals(s));
     Integer i=null;
     assertFalse(p.equals(i));
-    i=new Integer(2);
+    i=2;
     assertFalse(p.equals(i));
     assertTrue(p.equals("0;0"));
     assertTrue(p.equals("0,0"));

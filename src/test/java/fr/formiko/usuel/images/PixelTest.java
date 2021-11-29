@@ -3,6 +3,7 @@ package fr.formiko.usuel.images;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.usuel.Point;
+import fr.formiko.formiko.Pheromone;
 import fr.formiko.tests.TestCaseMuet;
 
 import java.awt.Color;
@@ -60,11 +61,15 @@ public class PixelTest extends TestCaseMuet{
     assertTrue(p.equals(p2));
     assertTrue(p2.equals(p));
     assertTrue(p.equals(p));
-    assertTrue(!p.equals(null));
+    assertTrue(!p.equals((Pixel)null));
+    assertTrue(!p.equals((String)null));
     assertTrue(!p.equals(p3));
     assertTrue(!p.equals(new Point(1,1)));
     p3 = new Pixel(0,0,256);
     assertTrue(!p.equals(p3));
+    assertNotEquals(new Pixel(1,2,3,4), new Pixel(1,2,3,5));
+    assertEquals(new Pixel(1,2,3,4), new Pixel(1,2,3,4));
+    assertNotEquals(new Pixel(1,3,3), new Pixel(1,2,3));
   }
   @Test
   public void testPiToColor(){
@@ -79,6 +84,26 @@ public class PixelTest extends TestCaseMuet{
     assertEquals(30,c.getRed());
     assertEquals(100,c.getGreen());
     assertEquals(0,c.getBlue());
+  }
+  @Test
+  public void testColorToGrey(){
+    assertEquals(null, Pixel.colorToGrey(null));
+    assertEquals(new Color(0,0,0), Pixel.colorToGrey(new Color(0,0,0)));
+    assertEquals(new Color(254,254,254), Pixel.colorToGrey(new Color(255,255,255)));
+    assertEquals(new Color(71,71,71), Pixel.colorToGrey(new Color(20,70,210)));
+  }
+  @Test
+  public void testSetters(){
+    Pixel p = new Pixel(1,2,3,4);
+    p.setR((byte)(5-128));
+    p.setG((byte)(6-128));
+    p.setB((byte)(7-128));
+    p.setA((byte)(8-128));
+    assertEquals(new Pixel(5,6,7,8), p);
+  }
+  @Test
+  public void testPixelFromPheromone(){
+    assertEquals(new Pixel(5,6,7), new Pixel(new Pheromone(-128+5,-128+6,-128+7)));
   }
 
 }

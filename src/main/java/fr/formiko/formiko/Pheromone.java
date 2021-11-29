@@ -22,7 +22,7 @@ public class Pheromone implements Serializable{
     this((byte)r,(byte)v,(byte)b);
   }
   public Pheromone(Pheromone fo, byte x){
-    this(allea.fluctuerBrute(fo.getR(),x),allea.fluctuerBrute(fo.getV(),x),allea.fluctuerBrute(fo.getB(),x));
+    this(allea.fluctuerBrute(fo.getR(),x),allea.fluctuerBrute(fo.getG(),x),allea.fluctuerBrute(fo.getB(),x));
   }
   public Pheromone(Pheromone fo){
     this(fo,(byte)2); // par défaut les Pheromones fluctuent de 2 maximum.(6 pour une Reine fille).
@@ -35,10 +35,10 @@ public class Pheromone implements Serializable{
   }
   // GET SET -------------------------------------------------------------------
   public byte getR(){ return r;}
-  public byte getG(){ return v;} public byte getV(){ return getG();}
+  public byte getG(){ return v;}
   public byte getB(){ return b;}
   public void setR(byte x){r=x;}
-  public void setG(byte x){r=v;} public void setV(byte x){setG(x);}
+  public void setG(byte x){r=v;}
   public void setB(byte x){r=b;}
   public byte getRc(){ return (byte)(r+128);}
   public byte getVc(){ return (byte)(v+128);}
@@ -77,8 +77,8 @@ public class Pheromone implements Serializable{
     if (this.getR() >= ph.getR() + ndifferenceTollere){ return false;}
     if (this.getB() <= ph.getB() - ndifferenceTollere){ return false;}
     if (this.getB() >= ph.getB() + ndifferenceTollere){ return false;}
-    if (this.getV() <= ph.getV() - ndifferenceTollere){ return false;}
-    if (this.getV() >= ph.getV() + ndifferenceTollere){ return false;}
+    if (this.getG() <= ph.getG() - ndifferenceTollere){ return false;}
+    if (this.getG() >= ph.getG() + ndifferenceTollere){ return false;}
     return true;
   }
   public static int getXFromS(String s){
