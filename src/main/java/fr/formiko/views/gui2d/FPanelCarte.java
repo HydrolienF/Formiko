@@ -54,8 +54,6 @@ import javax.swing.JPanel;
 public class FPanelCarte extends FPanel {
   private int xCase; // nombre de case en X
   private int yCase; // nombre de case en Y
-  // private int posX; // position de la 1a case.
-  // private int posY;
   private int xTemp,yTemp;
   private int idCurentFere=-1;
   private CCase lookedCCase;
@@ -68,17 +66,13 @@ public class FPanelCarte extends FPanel {
   private int TRANSPARENCY = 180;
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public FPanelCarte(){
-    // subPanel = new SubPanel(this);
-    // add(subPanel);
-  }
+  public FPanelCarte(){}
   /**
   *{@summary Build methode.}<br>
   *@version 1.x
   */
   public void build(){
     Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(100));
-    // posX = 0; posY = 0;
     GCase gc = new GCase(1,1);
     xCase = gc.getNbrX();
     yCase = gc.getNbrY();
@@ -93,10 +87,6 @@ public class FPanelCarte extends FPanel {
   public void setXCase(int x){xCase = x;}
   public int getYCase(){ return yCase;}
   public void setYCase(int y){yCase = y;}
-  // public int getPosX(){ return posX;}
-  // public void setPosX(int x){posX=x; }
-  // public int getPosY(){ return posY;}
-  // public void setPosY(int x){posY=x; }
   public void setIdCurentFere(int x){idCurentFere=x;}
   public CCase getLookedCCase(){return lookedCCase;}
   public void setLookedCCase(CCase cc){lookedCCase=cc;}
@@ -137,8 +127,6 @@ public class FPanelCarte extends FPanel {
       erreur.alerte("la partie est null");
     }
     Main.startCh();
-
-    // setLocation(-getPosX()*getTailleDUneCase(),-getPosY()*getTailleDUneCase());
 
     Graphics2D g = (Graphics2D)g2;
     setLigne(g);
@@ -835,11 +823,6 @@ public class FPanelCarte extends FPanel {
   public int getDir(ObjetSurCarteAId obj){
     if (!Main.getOrientedObjectOnMap()){return 0;}// si la direction de l'objet n'est pas prise en compte on cherche dans le tableau 0.
     int x = obj.getDirection();
-    // return x;
-    // if(x==1 || x==2){ return 0;}
-    // if(x==3 || x==6){ return 1;}
-    // if(x==9 || x==8){ return 2;}
-    // return 3;
     if(x==2){return 0;}
     if(x==3){return 1;}
     if(x==6){return 2;}
@@ -921,40 +904,3 @@ public class FPanelCarte extends FPanel {
     }
   }
 }
-// class SubPanel extends FPanel{
-//   FPanelCarte pc;
-//   public SubPanel(FPanelCarte pc) {
-//     this.pc = pc;
-//   }
-//   public void paintComponent(Graphics g2){
-//     Graphics2D g = (Graphics2D)g2;
-//     setLigne(g);
-//     try {
-//       GCase gc = Main.getGc();
-//       updateSize();
-//       debug.débogage("Dimention du FPanelCarte en case : x="+xCase+" y="+yCase);
-//       debug.débogage("taille réèle du panneau de la carte : x="+this.getWidth()+", y="+this.getHeight());
-//       try {
-//         if(Main.getData().getMap()==null){Main.getData().iniBackgroundMapImage();}
-//         g.drawImage(Main.getData().getMap(),0-posX*getTailleDUneCase(),0-posY*getTailleDUneCase(),this);
-//       }catch (Exception e) {
-//         erreur.erreur("impossible d'afficher l'arrière plan de la carte");
-//       }
-//       dessinerGrille(g);
-//       for (int i=0;i<xCase ;i++ ) {
-//         for (int j=0;j<yCase ;j++ ) {
-//           peintImagePourCase(gc,i,j,g);
-//         }
-//       }
-//       drawPlayingAnt(g);
-//     }catch (Exception e) {
-//       erreur.erreur("Quelque chose d'imprévu est arrivé lors de l'affichage de FPanelCarte");
-//     }
-//   }
-// }
-// class GcComparator<Creature> implements Comparator<Creature>{
-//   public int compare(Creature c1, Creature c2) {
-//     // return c1.getTaille() - c2.getTaille();
-//     return 1;
-//   }
-// }
