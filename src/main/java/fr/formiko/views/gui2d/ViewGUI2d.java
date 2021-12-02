@@ -70,7 +70,7 @@ public class ViewGUI2d implements View {
   public FPanelDialogue getPd(){ try {return getPj().getPd();}catch (NullPointerException e) {return null;}}
   public FPanelDialogueInf getPdi(){ return getPj().getPdi();}
   public FPanelMiniMapContainer getPmmc(){try {return getPb().getPmmc();}catch(NullPointerException e){return null;}}
-  public FPanelMapMove getPmmo(){if(getPj()!=null){return getPj().getPmmo();}else{return null;}}
+  public FPanelPanelMove getPmmo(){if(getPj()!=null){return getPj().getPmmo();}else{return null;}}
   public int getCurentFPS(){return curentFPS;}
   public void setCurentFPS(int x){curentFPS=x;}
   public int getWidth(){try {return getPp().getWidth();}catch (NullPointerException e) {return 0;}}
