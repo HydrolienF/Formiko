@@ -115,8 +115,8 @@ public class FPanelMapMove extends FPanel {
     for (FPanel panelToMove : lPanelToMove) {
       int maxX = math.max(panelToMove.getWidth()-spaceInX,0);
       int maxY = math.max(panelToMove.getHeight()-spaceInY, 0);
-      panelToMove.setLocation(math.between(-maxX, 0, panelToMove.getX()+stepInX),
-            math.between(-maxY, 0, panelToMove.getY()+stepInY));
+      panelToMove.setLocation(math.between(-maxX, 0, panelToMove.getX()+stepInX*2),
+            math.between(-maxY, 0, panelToMove.getY()+stepInY*2));
     }
   }
 

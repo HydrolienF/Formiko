@@ -34,6 +34,14 @@ public class keys {
 
     inputMap.put(KeyStroke.getKeyStroke((char)27),"escape");
     inputMap.put(KeyStroke.getKeyStroke('\n'), "enter");
+    inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, true), "upArrowT");
+    inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0, true), "downArrowT");
+    inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, true), "leftArrowT");
+    inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, true), "rightArrowT");
+    inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, false), "upArrowF");
+    inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0, false), "downArrowF");
+    inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, false), "leftArrowF");
+    inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, false), "rightArrowF");
     for (int i=20; i<31; i++ ) {
       inputMap.put(KeyStroke.getKeyStroke((char)Main.getKey(i+"")), "antAction");
     }
@@ -134,5 +142,57 @@ public class keys {
       }
     };
     actionMap.put("antAction",actionA);
+    //map move actions
+    actionMap.put("upArrowT", new arrowAction(false, false, true));
+    actionMap.put("downArrowT", new arrowAction(false, true, true));
+    actionMap.put("rightArrowT", new arrowAction(true, true, true));
+    actionMap.put("leftArrowT", new arrowAction(true, false, true));
+    actionMap.put("upArrowF", new arrowAction(false, false, false));
+    actionMap.put("downArrowF", new arrowAction(false, true, false));
+    actionMap.put("rightArrowF", new arrowAction(true, true, false));
+    actionMap.put("leftArrowF", new arrowAction(true, false, false));
+  }
+}
+/**
+*{@summary Do a map move as an arrow action.}<br>
+*@author Hydrolien
+*@version 2.14
+*/
+class arrowAction extends AbstractAction {
+  private boolean inX;
+  private boolean up;
+  private double speed;
+  /**
+  *{@summary Main constructor.}<br>
+  *@param inX true if we are moving in x, false if we are moving in y
+  *@param up true if windows should up in X or in Y
+  *@param keyRelease if true speed is set to 0 else speed is set to 1
+  *@version 2.14
+  */
+  public arrowAction(boolean inX, boolean up, boolean keyRelease){
+    this.inX=inX;
+    this.up=up;
+    if(keyRelease){
+      speed=0;
+    }else{
+      speed=1;
+    }
+  }
+  /**
+  *{@summary Strandard to string.}
+  *@version 2.14
+  */
+  public String toString(){
+    return "inX: "+inX+" up: "+up+" speed: "+speed;
+  }
+  /**
+  *{@summary Do a map move action.}
+  *@version 2.14
+  */
+  @Override
+  public void actionPerformed(ActionEvent actionEvent) {
+    if(FPanel.getView().getActionGameOn() && FPanel.getView().getPmmo()!=null){
+      FPanel.getView().getPmmo().setOver(inX, up, speed);
+    }
   }
 }
