@@ -39,7 +39,7 @@ public class FPanelJeu extends FPanel {
   private FPanelSup ps;
   private FPanelDialogue pd;
   private FPanelDialogueInf pdi;
-  private FPanelMapMove pmmo;
+  private FPanelPanelMove pmmo;
 
   private FLabel labelMessage;
   private ThreadMessagesDesc th;
@@ -63,7 +63,7 @@ public class FPanelJeu extends FPanel {
   public FPanelEchap getPe(){return pe;}
   public FPanelDialogue getPd(){return pd;}
   public FPanelDialogueInf getPdi(){return pdi;}
-  public FPanelMapMove getPmmo(){return pmmo;}
+  public FPanelPanelMove getPmmo(){return pmmo;}
   //get set transmis
   public void addPA(){ pb.addPA();}
   public void addPti(int x [], int y){pb.addPti(x,y);}
@@ -170,7 +170,7 @@ public class FPanelJeu extends FPanel {
     ps.actualiserTaille();
   }
   public void addPmmo(){
-    pmmo = new FPanelMapMove();
+    pmmo = new FPanelPanelMove();
     pmmo.setSize(getWidth(), getHeight());
     add(pmmo);
   }

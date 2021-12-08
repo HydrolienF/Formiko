@@ -63,9 +63,9 @@ public class FPanel extends JPanel {
   @Override
   public String toString(){
     String r = id+" "+super.toString()+" components: \n";
-    for (Component c : getComponents()) {
-      r+=c.toString();
-    }
+    // for (Component c : getComponents()) {
+    //   r+=c.toString();
+    // }
     return r;
   }
   /**

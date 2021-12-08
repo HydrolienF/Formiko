@@ -23,7 +23,7 @@ import java.util.List;
 *@author Hydrolien
 *@version 2.13
 */
-public class FPanelMapMove extends FPanel {
+public class FPanelPanelMove extends FPanel {
   private Liste<FPanel> lPanelToMove;
   private ThMoveSubPanel th;
   private int spaceInX;
@@ -34,7 +34,7 @@ public class FPanelMapMove extends FPanel {
   *{@summary Main empty constructor.}<br>
   *@version 2.13
   */
-  public FPanelMapMove(){
+  public FPanelPanelMove(){
     lPanelToMove = new Liste<FPanel>();
   }
 
@@ -113,7 +113,7 @@ public class FPanelMapMove extends FPanel {
   */
   public void moveAllSubPanel(int stepInX, int stepInY){
     for (FPanel panelToMove : lPanelToMove) {
-      setLocationSubPanel(panelToMove, panelToMove.getX()+stepInX, panelToMove.getY()+stepInY);
+      setLocationSubPanel(panelToMove, panelToMove.getX()+stepInX*2, panelToMove.getY()+stepInY*2);
     }
   }
   /**
