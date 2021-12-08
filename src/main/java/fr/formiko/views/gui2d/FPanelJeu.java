@@ -236,6 +236,9 @@ public class FPanelJeu extends FPanel {
       // pc.setPosX(math.max(pc.getPosX()-1,0));
     }else if(ac==4){
       // centrerLaCarte();
+      if(Main.getPlayingJoueur()==null || Main.getPlayingJoueur().getFere()==null){return;}
+      Case c = Main.getPlayingJoueur().getFere().getCCase().getContent();
+      getView().getPmmo().centerOver((int)((c.getX()+0.5)*getView().getPc().getTailleDUneCase()), (int)((c.getY()+0.5)*getView().getPc().getTailleDUneCase()));
     }else if(ac==6){
       //centrerSurLaFourmi(); //pour l'instant ca fait pas ce qu'il faut.
     }else if(ac==8){

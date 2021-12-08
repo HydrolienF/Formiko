@@ -11,7 +11,7 @@ comment %    cl-pu-po-pr-sh-ln   name of the file
 0%   (0/6)   1  5  0  0  17 122  formiko\Espece.java
 81%  (18/22) 1  21 0  0  35 391  formiko\Fourmi.java
 41%  (5/12)  1  11 0  0  27 184  formiko\Fourmiliere.java
-0%   (0/16)  1  15 0  0  6  135  formiko\GCase.java
+0%   (0/15)  1  14 0  0  6  109  formiko\GCase.java
 46%  (25/54) 2  47 0  5  9  553  formiko\GCreature.java
 0%   (0/9)   1  8  0  0  2  84   formiko\GEspece.java
 14%  (2/14)  1  13 0  0  6  131  formiko\GGraine.java
@@ -58,7 +58,7 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 100% (5/5)   1  4  0  0  0  45   formiko\interfaces\TrophallaxieNull.java
 5%   (1/17)  1  16 0  0  24 176  formiko\Joueur.java
 91%  (11/12) 1  6  0  5  0  458  formiko\launchOptions.java
-100% (12/12) 1  11 0  0  110 466  formiko\Main.java
+100% (11/11) 1  10 0  0  110 451  formiko\Main.java
 87%  (7/8)   1  7  0  0  2  138  formiko\MapPath.java
 7%   (1/13)  1  12 0  0  1  162  formiko\Message.java
 66%  (2/3)   1  2  0  0  5  43   formiko\ObjetAId.java
@@ -69,7 +69,7 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 80%  (4/5)   1  2  0  2  5  93   formiko\Script.java
 100% (5/5)   1  4  0  0  1  55   formiko\ThScript.java
 20%  (3/15)  1  8  0  6  0  502  formiko\triche.java
-20%  (1/5)   1  4  0  0  0  49   usuel\ascii.java
+100% (5/5)   1  4  0  0  0  65   usuel\Ascii.java
 100% (4/4)   1  1  0  2  0  63   usuel\chargerCarte.java
 0%   (0/4)   1  2  0  1  0  58   usuel\chargerLesTouches.java
 100% (19/19) 1  18 0  0  11 328  usuel\chargerLesTraductions.java
@@ -96,7 +96,6 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 100% (26/26) 1  25 0  0  16 542  usuel\images\image.java
 72%  (29/40) 1  39 0  0  37 677  usuel\images\Img.java
 100% (9/9)   1  7  0  1  10 111  usuel\images\Pixel.java
-0%   (0/3)   1  2  0  0  0  27   usuel\images\ThImage.java
 0%   (0/3)   1  2  0  0  2  68   usuel\lireUnFichier.java
 28%  (4/14)  1  13 0  0  2  117  usuel\maths\allea.java
 95%  (20/21) 1  20 0  0  0  344  usuel\maths\math.java
@@ -107,11 +106,11 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 0%   (0/3)   1  2  0  0  1  31   usuel\menu.java
 0%   (0/5)   1  3  0  1  0  59   usuel\modificationDeFichier.java
 0%   (0/6)   1  4  0  1  0  46   usuel\opperationSurString.java
-100% (14/14) 1  5  0  8  108 553  usuel\Options.java
+100% (14/14) 1  5  0  8  108 552  usuel\Options.java
 100% (6/6)   1  2  0  3  7  69   usuel\Os.java
 100% (7/7)   1  6  0  0  6  106  usuel\Point.java
 0%   (0/12)  1  10 0  1  0  89   usuel\read.java
-100% (6/6)   1  5  0  0  4  110  usuel\sauvegarderUnePartie.java
+100% (6/6)   1  5  0  0  4  130  usuel\sauvegarderUnePartie.java
 100% (4/4)   1  3  0  0  3  118  usuel\Save.java
 85%  (6/7)   1  6  0  0  1  64   usuel\SortedProperties.java
 100% (6/6)   1  5  0  0  6  166  usuel\stats.java
@@ -155,7 +154,7 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 0%   (0/3)   1  2  0  0  0  24   views\gui2d\FPanelActionInf.java
 0%   (0/3)   1  2  0  0  0  28   views\gui2d\FPanelActionSup.java
 0%   (0/21)  1  20 0  0  23 266  views\gui2d\FPanelBouton.java
-78%  (37/47) 1  34 0  12 13 945  views\gui2d\FPanelCarte.java
+80%  (38/47) 1  34 0  12 12 906  views\gui2d\FPanelCarte.java
 0%   (0/5)   2  3  0  0  7  63   views\gui2d\FPanelChamp.java
 0%   (0/6)   1  5  0  0  4  77   views\gui2d\FPanelChargement.java
 25%  (1/4)   1  3  0  0  0  58   views\gui2d\FPanelChoixPartie.java
@@ -169,8 +168,8 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 0%   (0/7)   1  6  0  0  5  82   views\gui2d\FPanelInfoText.java
 21%  (6/28)  2  26 0  0  16 348  views\gui2d\FPanelJeu.java
 100% (2/2)   1  1  0  0  1  38   views\gui2d\FPanelLanceurPartie.java
-100% (13/13) 3  10 0  0  11 215  views\gui2d\FPanelMapMove.java
-94%  (16/17) 1  11 0  5  6  283  views\gui2d\FPanelMenu.java
+100% (14/14) 3  11 0  0  11 259  views\gui2d\FPanelMapMove.java
+94%  (16/17) 1  11 0  5  5  281  views\gui2d\FPanelMenu.java
 66%  (2/3)   1  2  0  0  0  40   views\gui2d\FPanelMiniMap.java
 96%  (25/26) 4  10 0  12 2  373  views\gui2d\FPanelMiniMapContainer.java
 33%  (3/9)   1  7  0  1  3  220  views\gui2d\FPanelNouvellePartie.java
@@ -190,8 +189,8 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 100% (7/7)   1  5  0  1  0  138  views\gui2d\keys.java
 100% (2/2)   1  1  0  0  2  30   views\gui2d\Question.java
 91%  (11/12) 2  7  0  3  6  241  views\gui2d\ThMove.java
-100% (43/43) 2  34 0  7  32 767  views\gui2d\ViewGUI2d.java
+100% (43/43) 2  34 0  7  32 772  views\gui2d\ViewGUI2d.java
 100% (1/1)   1  0  0  0  1  205  views\View.java
 100% (32/32) 1  23 0  8  2  706  views\ViewCLI.java
 100% (16/16) 1  15 0  0  7  174  views\ViewNull.java
-59,8%(1112/1858) 231 1462 6 159 1204  28631 global
+60,2%(1117/1854) 230 1459 6 159 1202  28606 global

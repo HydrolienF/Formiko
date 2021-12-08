@@ -113,11 +113,33 @@ public class FPanelMapMove extends FPanel {
   */
   public void moveAllSubPanel(int stepInX, int stepInY){
     for (FPanel panelToMove : lPanelToMove) {
-      int maxX = math.max(panelToMove.getWidth()-spaceInX,0);
-      int maxY = math.max(panelToMove.getHeight()-spaceInY, 0);
-      panelToMove.setLocation(math.between(-maxX, 0, panelToMove.getX()+stepInX),
-            math.between(-maxY, 0, panelToMove.getY()+stepInY));
+      setLocationSubPanel(panelToMove, panelToMove.getX()+stepInX, panelToMove.getY()+stepInY);
     }
+  }
+  /**
+  *{@summary Center all sub panel in x &#38; y.}<br>
+  *@param x x that need to be on the center
+  *@param y y that need to be on the center
+  *@version 2.14
+  */
+  public void centerOver(int x, int y){
+    x-=getWidth()/2;
+    y-=getHeight()/2;
+    for (FPanel panelToMove : lPanelToMove) {
+      setLocationSubPanel(panelToMove,-x,-y);
+    }
+  }
+  /**
+  *{@summary Set location of a sub panel in x &#38; y.}<br>
+  *@param panelToMove panel to move
+  *@param x new x
+  *@param y new y
+  *@version 2.14
+  */
+  public void setLocationSubPanel(FPanel panelToMove, int x, int y){
+    int maxX = math.max(panelToMove.getWidth()-spaceInX,0);
+    int maxY = math.max(panelToMove.getHeight()-spaceInY, 0);
+    panelToMove.setLocation(math.between(-maxX, 0, x), math.between(-maxY, 0, y));
   }
 
   // SUB-CLASS -----------------------------------------------------------------
