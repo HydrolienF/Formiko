@@ -178,11 +178,6 @@ public class FPanelJeu extends FPanel {
     if(x<taille){ return x;}
     return x/2-(taille);
   }*/
-  // public void centrerLaCarte(){
-  //   GCase gc = Main.getGc();
-  //   pc.setPosX(math.max(gc.getNbrX()/2 - nbrDeCaseAffichableX(),0));
-  //   pc.setPosY(math.max(gc.getNbrY()/2 - nbrDeCaseAffichableY(),0));
-  // }
   public int nbrDeCaseAffichableX(){
     return (getWidth()/pc.getTailleDUneCase())+1;
   }
@@ -208,15 +203,6 @@ public class FPanelJeu extends FPanel {
       Main.getData().iniBackgroundMapImage();
     }
   }
-  // public void centrerSurLaFourmi(){
-  //   if (Main.getPlayingAnt()==null){erreur.alerte("Impossible de centrer sur une fourmi si aucune fourmi n'est selectionné."); return;}
-  //   int x = nbrDeCaseAffichableX();
-  //   int y = nbrDeCaseAffichableY();
-  //   int posX = Main.getPlayingAnt().getX();
-  //   int posY = Main.getPlayingAnt().getX();
-  //   // pc.setPosX(posX + x/2);
-  //   // pc.setPosY(posY + y/2);
-  // }
   public void actionZoom(byte ac){
     if (ac==2) { // zoom
       pc.setTailleDUneCase(math.min((pc.getTailleDUneCase()*4)/3,500));
@@ -234,17 +220,22 @@ public class FPanelJeu extends FPanel {
       // pc.setPosX(math.min(pc.getPosX()+1,gc.getNbrX()-1));
     }else if(ac==3){
       // pc.setPosX(math.max(pc.getPosX()-1,0));
-    }else if(ac==4){
-      // centrerLaCarte();
+    }else if(ac==4){ //center over anthill
       if(Main.getPlayingJoueur()==null || Main.getPlayingJoueur().getFere()==null){return;}
-      Case c = Main.getPlayingJoueur().getFere().getCCase().getContent();
-      getView().getPmmo().centerOver((int)((c.getX()+0.5)*getView().getPc().getTailleDUneCase()), (int)((c.getY()+0.5)*getView().getPc().getTailleDUneCase()));
-    }else if(ac==6){
-      //centrerSurLaFourmi(); //pour l'instant ca fait pas ce qu'il faut.
+      centerOverCase(Main.getPlayingJoueur().getFere().getCCase().getContent());
+    }else if(ac==6){ //center over playing ant
+      if(Main.getPlayingAnt()==null){return;}
+      centerOverCase(Main.getPlayingAnt().getCCase().getContent());
     }else if(ac==8){
       dézoomer((byte)2);
     }
     Main.repaint();
+  }
+  /**
+  *{@summary Center map panel over a Case.}<br>
+  */
+  public void centerOverCase(Case c){
+    getView().getPmmo().centerOver((int)((c.getX()+0.5)*getView().getPc().getTailleDUneCase()), (int)((c.getY()+0.5)*getView().getPc().getTailleDUneCase()));
   }
   /**
   *{@summary print an alerte box.}

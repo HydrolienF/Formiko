@@ -336,7 +336,7 @@ bouton.desc.0:shrink the map
 bouton.desc.1:move the map up
 bouton.desc.2:enlarge the map
 bouton.desc.3:move the map left
-bouton.desc.4:center the map
+bouton.desc.4:center the map on your anthill
 bouton.desc.5:move the map right
 bouton.desc.6:center the map on the playing ant
 bouton.desc.7:move the map down

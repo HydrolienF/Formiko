@@ -98,8 +98,8 @@ public class FPanelBouton extends FPanel {
     remove(pz);
     pz = new FPanelZoom();
     pz.build();
-    int x = pz.getbuttonSize()*3;
-    pz.setBounds(getWidth()-x,0,x,x);
+    int x = pz.getbuttonSize()*4;
+    pz.setLocation(getWidth()-x,0);
     pz.setOpaque(false);
     add(pz);
   }

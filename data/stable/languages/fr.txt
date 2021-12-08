@@ -336,7 +336,7 @@ bouton.desc.0:Rétrécir la carte
 bouton.desc.1:Déplacer la carte vers le haut
 bouton.desc.2:Agrandir la carte
 bouton.desc.3:Déplacer la carte vers la gauche
-bouton.desc.4:Centrer la carte
+bouton.desc.4:Centrer la carte sur votre fourmilière
 bouton.desc.5:Déplacer la carte vers la droite
 bouton.desc.6:Centrer la carte sur la fourmi qui joue actuellement
 bouton.desc.7:Déplacer la carte vers le bas

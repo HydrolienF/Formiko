@@ -336,7 +336,7 @@ bouton.desc.0:malvastifi la mapo
 bouton.desc.1:movi la mapo alte
 bouton.desc.2:vastifi la mapo
 bouton.desc.3:movi la mapo maldekstre
-bouton.desc.4:centri la mapo
+bouton.desc.4:centri la mapo en via formikejo
 bouton.desc.5:movi la mapo dekstre
 bouton.desc.6:centri la mapo en la luda formiko
 bouton.desc.7:movi la mapo malalte
