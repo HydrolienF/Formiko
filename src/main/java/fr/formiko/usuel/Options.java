@@ -107,7 +107,15 @@ public class Options implements Serializable{
   }
   // GET SET -------------------------------------------------------------------
   public byte getLanguage(){return game_language;}
-  public void setLanguage(byte x){game_language=x;} public void setLanguage(int x){setLanguage(str.iToBy(x));}
+  /**
+  *{@summary Set language of Options & Locale.}
+  */
+  public void setLanguage(byte x){
+    game_language=x;
+    String languageCode = chargerLesTraductions.getLanguage(x);
+    Locale.setDefault(new Locale(languageCode));
+  }
+  public void setLanguage(int x){setLanguage(str.iToBy(x));}
   public int getbuttonSizeZoom(){ return tailleBouton(gui_hide_buttonSizeZoom);}
   public void setbuttonSizeZoom(byte x){ gui_hide_buttonSizeZoom=x;}
   public int getbuttonSizeAction(){ return tailleBouton(gui_global_buttonSizeAction);}
@@ -410,14 +418,14 @@ public class Options implements Serializable{
   */
   private void propertiesToOptions(){
     try {
-      game_language=(byte)str.sToLThrows(properties.getProperty("game_language"));
+      setLanguage((byte)str.sToLThrows(properties.getProperty("game_language")));
     }catch (Exception e) {
       if(Main.getFolder()==null){return;}
       try {
-        game_language=str.iToBy(chargerLesTraductions.getLanguage(properties.getProperty("game_language")));
+        setLanguage(str.iToBy(chargerLesTraductions.getLanguage(properties.getProperty("game_language"))));
       }catch (Exception e2) {
         erreur.alerte("game_language can't be laod from properties");
-        game_language=2;
+        setLanguage(2);
       }
     }
     debug_alerte=str.sToB(properties.getProperty("debug_alerte"));
