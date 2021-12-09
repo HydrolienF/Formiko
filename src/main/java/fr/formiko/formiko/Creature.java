@@ -169,7 +169,8 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *{@summary Return true if is own by an AI.}<br>
   *@version 1.40
   */
-  public boolean getIa(){return true;}
+  public boolean isAI(){return true;}
+  public boolean getIa(){return isAI();}
   public ObjetSurCarteAId getTransported(){ return transported;}
   /**
   *{@summary Set as transported item o.}<br>

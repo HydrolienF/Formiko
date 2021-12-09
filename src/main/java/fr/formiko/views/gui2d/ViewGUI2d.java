@@ -252,8 +252,6 @@ public class ViewGUI2d implements View {
     Main.getPartie().initialisationElément();
     // Main.getData().chargerImages(); //It will be call by the next line "action.doActionPj(8);"
     action.doActionPj(8); //unzoom
-    //TODO #430 Don't work
-    action.doActionPj(4); //centered on anthill
     Main.endCh("chargementImagesDelaCarte");
 
     String s = g.get("chargementFini");
@@ -627,6 +625,14 @@ public class ViewGUI2d implements View {
   */
   public boolean getMoveMode(){return moveMode;}
   public void setMoveMode(boolean b){moveMode=b;}
+  /**
+  *{@summary Center map panel over a Case.}
+  *@param c case to center over
+  *@version 2.14
+  */
+  public void centerOverCase(Case c){
+    getPmmo().centerOver((int)((c.getX()+0.5)*getPc().getTailleDUneCase()), (int)((c.getY()+0.5)*getPc().getTailleDUneCase()));
+  }
 
   //private---------------------------------------------------------------------
   /**

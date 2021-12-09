@@ -172,7 +172,7 @@ public class Fourmi extends Creature implements Serializable{
   *@version 1.40
   */
   @Override
-  public boolean getIa(){
+  public boolean isAI(){
     try {return getFere().getJoueur().getIa();}
     catch (NullPointerException e) {return false;}
   }

@@ -400,6 +400,9 @@ public class GCreature implements Serializable{//, Iterator{
               Main.getPartie().setAntIdToPlay(-1);
               loopSafety=0;
               if(fActuel.getAction()>0){
+                if(!fActuel.isAI()){
+                  Main.getView().centerOverCase(fActuel.getCCase().getContent());
+                }
                 fActuel.tour();
               }else{
                 ((TourFourmiNonIa)fActuel.tour).allowToDisableAutoMode();
@@ -415,6 +418,9 @@ public class GCreature implements Serializable{//, Iterator{
             //if player have clic on an other ant, go to next loop turn.
           }else{ //if player have press Enter or end an other Ant turn.
             if(fActuel.getAction()>0){
+              if(!fActuel.isAI()){
+                Main.getView().centerOverCase(fActuel.getCCase().getContent());
+              }
               fActuel.tour();
             }
           }

@@ -1,6 +1,7 @@
 package fr.formiko.views;
 
 import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.ObjetSurCarteAId;
@@ -202,4 +203,10 @@ public interface View {
   *@version 2.11
   */
   default void setMoveMode(boolean b){}
+  /***
+  *{@summary Center map over a Case.}
+  *@param c case to center over
+  *@version 2.14
+  */
+  default void centerOverCase(Case c){}
 }

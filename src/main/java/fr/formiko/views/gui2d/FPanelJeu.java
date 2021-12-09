@@ -223,21 +223,16 @@ public class FPanelJeu extends FPanel {
       // pc.setPosX(math.max(pc.getPosX()-1,0));
     }else if(ac==4){ //center over anthill
       if(Main.getPlayingJoueur()==null || Main.getPlayingJoueur().getFere()==null){return;}
-      centerOverCase(Main.getPlayingJoueur().getFere().getCCase().getContent());
+      getView().centerOverCase(Main.getPlayingJoueur().getFere().getCCase().getContent());
     }else if(ac==6){ //center over playing ant
       if(Main.getPlayingAnt()==null){return;}
-      centerOverCase(Main.getPlayingAnt().getCCase().getContent());
+      getView().centerOverCase(Main.getPlayingAnt().getCCase().getContent());
     }else if(ac==8){
       dézoomer((byte)2);
     }
     Main.repaint();
   }
-  /**
-  *{@summary Center map panel over a Case.}<br>
-  */
-  public void centerOverCase(Case c){
-    getView().getPmmo().centerOver((int)((c.getX()+0.5)*getView().getPc().getTailleDUneCase()), (int)((c.getY()+0.5)*getView().getPc().getTailleDUneCase()));
-  }
+
   /**
   *{@summary print an alerte box.}
   *@version 1.49
