@@ -480,6 +480,7 @@ public class Options implements Serializable{
       erreur.alerte("fail to set font for text");
       font1=new Font("Default", Font.BOLD, gui_global_fontSizeText);
     }else{
+      //TODO #149 create a font & check that it's not default 1
       font1=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeText);
     }
     if(!Fonts.createFonts(gui_global_fontTitle)){
