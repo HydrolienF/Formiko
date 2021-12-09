@@ -78,6 +78,7 @@ public class Options implements Serializable{
   private boolean gui_hide_loadingDuringMenus;
   private boolean gui_hide_keepFilesRotated;
   private int gui_partie_sizeOfMapLines;
+  private boolean gui_partie_followAntAtStartTurn;
   private byte gui_hide_positionCase;
   private byte gui_partie_realisticSize;
   private boolean gui_hide_modeFPS;
@@ -195,6 +196,8 @@ public class Options implements Serializable{
   public void setPaintHitBox(boolean b){debug_paintHitBox=b;}
   public int getSizeOfMapLines(){ return gui_partie_sizeOfMapLines;}
   public void setSizeOfMapLines(int x){gui_partie_sizeOfMapLines=x;}
+  public boolean getFollowAntAtStartTurn(){return gui_partie_followAntAtStartTurn;}
+  public void setFollowAntAtStartTurn(boolean b){gui_partie_followAntAtStartTurn=b;}
   public byte getPositionCase(){return gui_hide_positionCase;}
   public void setPositionCase(byte x){gui_hide_positionCase=x;}
   public boolean getBMusique(){return sounds_music;}
@@ -373,6 +376,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("gui_partie_quickMovement","true");
     defaultProperties.setProperty("gui_partie_realisticSize","30");
     defaultProperties.setProperty("gui_partie_sizeOfMapLines","2");
+    defaultProperties.setProperty("gui_partie_followAntAtStartTurn","true");
     defaultProperties.setProperty("gui_pgo_antColorLevel","1");
     defaultProperties.setProperty("gui_pgo_drawAllAnthillColor","false");
     defaultProperties.setProperty("gui_pgo_drawGrid","true");
@@ -457,6 +461,7 @@ public class Options implements Serializable{
     gui_partie_quickMovement=str.sToB(properties.getProperty("gui_partie_quickMovement"));
     gui_partie_realisticSize=str.sToBy(properties.getProperty("gui_partie_realisticSize"));
     gui_partie_sizeOfMapLines=str.sToI(properties.getProperty("gui_partie_sizeOfMapLines"));
+    gui_partie_followAntAtStartTurn=str.sToB(properties.getProperty("gui_partie_followAntAtStartTurn"));
     gui_pgo_antColorLevel=str.sToBy(properties.getProperty("gui_pgo_antColorLevel"));
     gui_pgo_drawAllAnthillColor=str.sToB(properties.getProperty("gui_pgo_drawAllAnthillColor"));
     gui_pgo_drawGrid=str.sToB(properties.getProperty("gui_pgo_drawGrid"));
@@ -538,6 +543,7 @@ public class Options implements Serializable{
     properties.setProperty("gui_partie_quickMovement",""+gui_partie_quickMovement);
     properties.setProperty("gui_partie_realisticSize",""+gui_partie_realisticSize);
     properties.setProperty("gui_partie_sizeOfMapLines",""+gui_partie_sizeOfMapLines);
+    properties.setProperty("gui_partie_followAntAtStartTurn",""+gui_partie_followAntAtStartTurn);
     properties.setProperty("gui_pgo_antColorLevel", ""+gui_pgo_antColorLevel);
     properties.setProperty("gui_pgo_drawAllAnthillColor", ""+gui_pgo_drawAllAnthillColor);
     properties.setProperty("gui_pgo_drawGrid",""+gui_pgo_drawGrid);
