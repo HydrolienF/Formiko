@@ -43,6 +43,7 @@ public class MusicPlayer implements AudioInterface {
       return;
     }
     audioPlayer = new AudioPlayer(true, curentMusic);
+    audioPlayer.setVolume(Main.getOp().getVolMusic());
     audioPlayer.play();
     musicPaused=false;
   }

@@ -149,7 +149,7 @@ public class math {
     return x;
   }
   /**
-  *{@summary return a value in an interval.}<br>
+  *{@summary Return a value in an interval.}<br>
   *max &#38; min are in the interval.
   *@param min the minimum value
   *@param max the maximum value
@@ -158,6 +158,34 @@ public class math {
   *@version 2.5
   */
   public static int between(int min, int max, int val){
+    if(val<min){return min;}
+    if(val>max){return max;}
+    return val;
+  }
+  /**
+  *{@summary Return a value in an interval.}<br>
+  *max &#38; min are in the interval.
+  *@param min the minimum value
+  *@param max the maximum value
+  *@param val the value to test
+  *@return val or a bound
+  *@version 2.5
+  */
+  public static float between(float min, float max, float val){
+    if(val<min){return min;}
+    if(val>max){return max;}
+    return val;
+  }
+  /**
+  *{@summary Return a value in an interval.}<br>
+  *max &#38; min are in the interval.
+  *@param min the minimum value
+  *@param max the maximum value
+  *@param val the value to test
+  *@return val or a bound
+  *@version 2.5
+  */
+  public static double between(double min, double max, double val){
     if(val<min){return min;}
     if(val>max){return max;}
     return val;
