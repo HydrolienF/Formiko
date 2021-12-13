@@ -36,7 +36,7 @@ public class Data {
   private boolean imageIniForNewGame;
   //image
   private BufferedImage imgNull;
-  private BufferedImage selectionnee; private BufferedImage fere;
+  private BufferedImage fere;
   private BufferedImage cNuageuse,cSombre;
   private BufferedImage b[];
   private BufferedImage tICarte[];
@@ -49,7 +49,7 @@ public class Data {
   private BufferedImage map;
   //ini (this var sould not be modify in an other place than here.)
   private BufferedImage imgNullIni;
-  private BufferedImage selectionneeIni; private BufferedImage fereIni;
+  private BufferedImage fereIni;
   private BufferedImage cNuageuseIni,cSombreIni;
   private BufferedImage bIni[];
   private BufferedImage tICarteIni[];
@@ -103,7 +103,6 @@ public class Data {
   public int getTailleIcon(){return (int)(getTailleDUneCase()/3);}
   public void setTailleDUneCase(int x){tailleDUneCase=x;}
   public BufferedImage getImgNull(){return imgNull;}
-  public BufferedImage getSelectionnee(){return selectionnee;}
   public BufferedImage getFere(){return fere;}
   public BufferedImage getCNuageuse(){return cNuageuse;}
   public BufferedImage getCSombre(){return cSombre;}
@@ -315,7 +314,6 @@ public class Data {
       int tailleFourmi = (getTailleDUneCase()*4)/5;
       erreur.info("Update Image to size "+getTailleDUneCase());
       imgNull = image.resize(imgNullIni,getTailleDUneCase());
-      selectionnee = image.resize(selectionneeIni,getTailleDUneCase());
       tICarte=getScaledInstance(tICarteIni, getTailleDUneCase());
       // tIF=getScaledInstance(tIFIni, tailleFourmi);
       // tII=getScaledInstance(tIIIni, tailleFourmi,2);//les insectes
@@ -340,7 +338,6 @@ public class Data {
       if(!imageIni){
         Main.startCh();
         imgNullIni = image.getImage("null");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
-        selectionneeIni = image.getImage("selectionnee");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         chargerTI();
         // tIIIni = chargerTX("I");
         tFIni = chargerTX("F",3,(byte)0,-3);

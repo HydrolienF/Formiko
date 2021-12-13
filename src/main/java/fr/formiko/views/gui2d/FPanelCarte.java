@@ -229,7 +229,6 @@ public class FPanelCarte extends FPanel {
     if(playingAnt!=null && !playingAnt.getIa()){
       CCase cc = playingAnt.getCCase();
       drawCircle(g, cc, Main.getData().getButtonColor(0));
-      // drawImage(g,Main.getData().getSelectionnee(),(c.getX())*getTailleDUneCase(),(c.getY())*getTailleDUneCase());
     }
   }
   /**
