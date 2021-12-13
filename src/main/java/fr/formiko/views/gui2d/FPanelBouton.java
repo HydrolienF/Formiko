@@ -241,6 +241,7 @@ public class FPanelBouton extends FPanel {
   }
   public void actualiserDesc(){
     debug.débogage("actualisation de la description");
+    if(desc==null){return;}
     if(getView().getActionGameOn()){
       desc.setTexte(descS);
       desc.updateSize();
@@ -252,6 +253,7 @@ public class FPanelBouton extends FPanel {
     }
   }
   public void actualiserDescTI(String s){
+    if(descTI==null){return;}
     if(getView().getActionGameOn()){
       debug.débogage("actualisation de la descriptionTI");
       try {
