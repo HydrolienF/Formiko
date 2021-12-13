@@ -84,7 +84,11 @@ public class ImageTree extends Tree<BufferedImage> {
         g.drawImage(body, 0, 0, null);
         if(node.getChildren(0)!=null){
           BufferedImage color = node.getChildren(0).getContent();
-          color = image.changeColor(new Img(color), c.getPheromone());
+          Img img = new Img(color);
+          if(Main.getOp().getAntColorLevel()>1){
+            img.supprimerLaTransparencePartielle(1);
+          }
+          color = image.changeColor(img, c.getPheromone());
           g.drawImage(color, 0, 0, null);
         }
         if(c.getHaveWings()){
@@ -202,16 +206,17 @@ public class ImageTree extends Tree<BufferedImage> {
   *@version 2.10
   */
   private static void addScaledAntColorPart(TreeNode<BufferedImage> currentNodeIn, TreeNode<BufferedImage> currentNodeOut, int dim, int size){
-    if(Main.getOp().getAntColorLevel()==0){return;}
+    // if(Main.getOp().getAntColorLevel()==0){return;} //done during game time.
     BufferedImage biIn,biOut;
     if(currentNodeIn.getChildren(0)!=null){
       biIn = currentNodeIn.getChildren(0).getContent();
-      if(Main.getOp().getAntColorLevel()>1){
-        Img img = new Img(biIn);
-        img.supprimerLaTransparencePartielle(1);
-        img.actualiserImage();
-        biIn = img.getImage();
-      }
+      //done during game time.
+      // if(Main.getOp().getAntColorLevel()>1){
+      //   Img img = new Img(biIn);
+      //   img.supprimerLaTransparencePartielle(1);
+      //   img.actualiserImage();
+      //   biIn = img.getImage();
+      // }
       if(biIn!=null){
         biOut = image.resize(biIn,size);
         currentNodeOut.getChildren(0).setContent(biOut);

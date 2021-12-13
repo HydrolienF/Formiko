@@ -233,7 +233,7 @@ public class FPanelMiniMapContainer extends FPanel {
       addGraphicOption(352, getStateImage(), () -> {
         return Main.getOp().getDrawStatesIconsLevel();
       });
-      addGraphicOption(353, getColoredRoundImage(), () -> {
+      addGraphicOption(353, getColoredRoundImage(false), () -> {
         return Main.getOp().getDrawAllAnthillColor();
       });
       addGraphicOption(354, getLineImage(), () -> {
@@ -241,6 +241,9 @@ public class FPanelMiniMapContainer extends FPanel {
       });
       addGraphicOption(355, getSeedNeutralImage(), () -> {
         return Main.getOp().getDrawOnlyEatable();
+      });
+      addGraphicOption(356, getColoredRoundImage(true), () -> {
+        return Main.getOp().getAntColorLevel();
       });
       placeButtons();
     }
@@ -309,16 +312,27 @@ public class FPanelMiniMapContainer extends FPanel {
     *{@summary Return a colored round image as anthill color are draw.}<br>
     *@version 2.10
     */
-    private BufferedImage getColoredRoundImage(){
+    private BufferedImage getColoredRoundImage(boolean small){
       BufferedImage bi = new BufferedImage(getHeight(), getHeight(), BufferedImage.TYPE_INT_ARGB);
       int size = getHeight()/2;
       Graphics g = bi.getGraphics();
-      g.setColor(Color.MAGENTA);
+      if(small){
+        g.setColor(new Color(255,0,0,255));
+      }else{
+        g.setColor(Color.MAGENTA);
+      }
       if(g instanceof Graphics2D){
         Graphics2D g2d = (Graphics2D)g;
         g2d.setStroke(new BasicStroke(size/4));
       }
-      g.drawOval(size/2,size/2,size,size);
+      if(small){
+        g.fillOval(size*2/3+1,size/2,size/2,size*2/3);
+        g.setColor(Color.BLACK);
+        g.fillOval(size*2/3+1,1,size/2,size/2);
+        g.fillOval(size*2/3+1,size,size/2,size);
+      }else{
+        g.drawOval(size/2,size/2,size,size);
+      }
       return bi;
     }
     /**
