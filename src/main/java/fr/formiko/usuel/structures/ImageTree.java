@@ -132,19 +132,23 @@ public class ImageTree extends Tree<BufferedImage> {
     for (TreeNode<BufferedImage> nodeIn : insectListIn) {
       BufferedImage biIn,biOut;
       for (int i=0;i<2 ;i++ ) { //imago ♂ & ♀
-        if(nodeIn.getChildren(0)!=null && nodeIn.getChildren(0).getChildren(i)!=null && nodeIn.getChildren(0).getChildren(i).getContent()!=null){
-          biIn = nodeIn.getChildren(0).getChildren(i).getContent();
-          biOut = image.resize(biIn,image.taille(idSpecies+100,0,dim));
-          insectListOut.get(idSpecies).getChildren(0).getChildren(i).setContent(biOut);
+        if(nodeIn.getChildren(0)!=null && nodeIn.getChildren(0).getChildren(i)!=null){
+          if (nodeIn.getChildren(0).getChildren(i).getContent()!=null) {
+            biIn = nodeIn.getChildren(0).getChildren(i).getContent();
+            biOut = image.resize(biIn,image.taille(idSpecies+100,0,dim));
+            insectListOut.get(idSpecies).getChildren(0).getChildren(i).setContent(biOut);
+          } //else erreur.alerte("A branch of the tree is empty (imago)");
         }else{
           erreur.alerte("A branch of the tree is cut (imago)");
         }
       }
       for (int i=1;i<4 ;i++ ) { // other stade
-        if(nodeIn.getChildren(i)!=null && nodeIn.getChildren(i).getContent()!=null){
-          biIn = nodeIn.getChildren(i).getContent();
-          biOut = image.resize(biIn,image.taille(idSpecies+100,-i,dim));
-          insectListOut.get(idSpecies).getChildren(i).setContent(biOut);
+        if(nodeIn.getChildren(i)!=null){
+          if (nodeIn.getChildren(i).getContent()!=null) {
+            biIn = nodeIn.getChildren(i).getContent();
+            biOut = image.resize(biIn,image.taille(idSpecies+100,-i,dim));
+            insectListOut.get(idSpecies).getChildren(i).setContent(biOut);
+          } //else erreur.alerte("A branch of the tree is empty (other stade)");
         }else{
           erreur.alerte("A branch of the tree is cut (other stade)");
         }
