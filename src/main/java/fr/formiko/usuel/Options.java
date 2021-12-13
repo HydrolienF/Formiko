@@ -208,12 +208,12 @@ public class Options implements Serializable{
   public void setFollowAntAtStartTurn(boolean b){gui_partie_followAntAtStartTurn=b;}
   public byte getPositionCase(){return gui_hide_positionCase;}
   public void setPositionCase(byte x){gui_hide_positionCase=x;}
-  public boolean getBMusique(){return sounds_music;}
-  public void setBMusique(boolean b){sounds_music=b;}
+  public boolean getBMusic(){return sounds_music;}
+  public void setBMusic(boolean b){sounds_music=b;}
   public boolean getBSon(){return sounds_sound;}
   public void setBSon(boolean b){sounds_sound=b;}
-  public byte getVolMusique(){return sounds_musicVolume;}
-  public void setVolMusique(byte x){sounds_musicVolume=x;}
+  public byte getVolMusic(){return sounds_musicVolume;}
+  public void setVolMusic(byte x){sounds_musicVolume=x;}
   public byte getVolSon(){return sounds_soundVolume;}
   public void setVolSon(byte x){sounds_soundVolume=x;}
   public byte getRealisticSize(){return gui_partie_realisticSize;}

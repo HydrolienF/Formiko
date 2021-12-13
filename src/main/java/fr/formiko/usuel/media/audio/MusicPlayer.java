@@ -19,7 +19,7 @@ public class MusicPlayer implements AudioInterface {
   private boolean musicPaused;
   private GString nextMusics;
   private GString availableMusics;
-  private String curentMusique;
+  private String curentMusic;
   // CONSTRUCTORS --------------------------------------------------------------
   public MusicPlayer(){
     nextMusics = new GString();
@@ -35,13 +35,14 @@ public class MusicPlayer implements AudioInterface {
   */
   public synchronized void play(){
     // erreur.info("Play",4);
+    if(!Main.getOp().getBMusic()){return;}
     if(audioPlayer!=null){audioPlayer.stop();}
-    curentMusique = getNextMusique();
-    if(curentMusique==null || curentMusique.equals("")){
+    curentMusic = getNextMusic();
+    if(curentMusic==null || curentMusic.equals("")){
       erreur.alerte("Can't play music because music is null or empty");
       return;
     }
-    audioPlayer = new AudioPlayer(true, curentMusique);
+    audioPlayer = new AudioPlayer(true, curentMusic);
     audioPlayer.play();
     musicPaused=false;
   }
@@ -126,18 +127,18 @@ public class MusicPlayer implements AudioInterface {
   //private --------------------------------------------------------------------
   /**
   *{@summary return a music.}<br>
-  *If there is a next music, it return next musique.
+  *If there is a next music, it return next Music.
   *If next music list is empty, it return a random music.<br>
   *@version 1.52
   */
-  private String getNextMusique(){
+  private String getNextMusic(){
     if(nextMusics.isEmpty()){
-      curentMusique = getRandomMusic();
+      curentMusic = getRandomMusic();
     }else{
-      curentMusique = nextMusics.getItem(0);
+      curentMusic = nextMusics.getItem(0);
       nextMusics.removeItem(0);
     }
-    return getPath()+curentMusique;
+    return getPath()+curentMusic;
   }
   /**
   *{@summary return a random music.}<br>
@@ -157,7 +158,7 @@ public class MusicPlayer implements AudioInterface {
       i = allea.getAllea(len);
       music = availableMusics.getItem(allea.getAllea(len));
       k++;
-    } while (curentMusique.equals(music) && len>1 && k<10);
+    } while (curentMusic.equals(music) && len>1 && k<10);
     erreur.info("music "+i+" :"+music);
     return music;
   }
