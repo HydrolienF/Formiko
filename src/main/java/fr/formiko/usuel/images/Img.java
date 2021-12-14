@@ -74,6 +74,7 @@ public class Img implements Cloneable{
   // GET SET -------------------------------------------------------------------
   public BufferedImage getBi(){ return bi;}
   public BufferedImage getImage(){return getBi();}
+  public BufferedImage toBufferedImage(){return getBi();}
   public byte[][] getAlpha() { // transparence.
     if (alpha != null){ return alpha;}
     else { setAlpha(); return alpha;}
@@ -525,7 +526,12 @@ public class Img implements Cloneable{
     setVert(vertT);
     setBleu(bleuT);
     setAlpha(alphaT);
-    actualiserImage();
+    // actualiserImage();
+    int temp = width;
+    if(x%2==1){
+      width=height;
+      height=temp;
+    }
     //return ir;
   }public void tourner(int x){ tourner((byte) x);}
   public void tourner(){ tourner(1);}
