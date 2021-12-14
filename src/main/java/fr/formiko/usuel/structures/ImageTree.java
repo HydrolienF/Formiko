@@ -35,10 +35,23 @@ public class ImageTree extends Tree<BufferedImage> {
   }
   /**
   *{@summary Return the Image that fit to a Creature.}
+  * It center the Creature on the image.
+  *@param c the Creature to represent.
+  *@version 2.14
+  */
+  public BufferedImage getCreatureImage(Creature c){
+    BufferedImage bi = getCreatureImageNotCentered(c);
+    Img img = new Img(bi);
+    img.rognerBordTransparent();
+    img.actualiserImage();
+    return img.toBufferedImage();
+  }
+  /**
+  *{@summary Return the Image that fit to a Creature.}
   *@param c the Creature to represent.
   *@version 2.6
   */
-  public BufferedImage getCreatureImage(Creature c){
+  private BufferedImage getCreatureImageNotCentered(Creature c){
     try {
       TreeNode<BufferedImage> node = getRoot();
       if(c instanceof Insecte) {
