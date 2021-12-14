@@ -208,7 +208,6 @@ public class AudioPlayer implements AudioInterface {
     private void updateVolume(){
       float decibels;
       float vol = (float)Math.sqrt(Math.sqrt(volume));
-      System.out.print(vol+" ");
       decibels = (vol*gainControl.getMaximum()) + ((1-vol)*gainControl.getMinimum());
       decibels = math.between(gainControl.getMinimum(), gainControl.getMaximum(), decibels);
       if(gainControl!=null){
@@ -216,7 +215,6 @@ public class AudioPlayer implements AudioInterface {
       }else{
         erreur.alerte("Volume can't be modify");
       }
-      System.out.println(gainControl.getValue());
     }
     /**
     *{@summary get audio format.}<br>
