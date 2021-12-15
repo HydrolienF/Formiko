@@ -95,6 +95,9 @@ public class Pheromone implements Serializable{
   public Color phToColor(){
     return new Color(r+128,v+128,b+128,255);
   }
+  public static Pheromone colorToPh(Color col){
+    return new Pheromone(col.getRed()-128,col.getGreen()-128,col.getBlue()-128);
+  }
 
 
   public static String b10ToB16(int x){

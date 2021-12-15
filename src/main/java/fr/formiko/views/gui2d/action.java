@@ -55,9 +55,11 @@ public class action {
   */
   public static void doActionPm(int ac){//TODO passer dans une autre class Controleur ?
     FPanelMenu pm = FPanel.getView().getPm();
-    if(ac==-1){
+    if(ac==-2){
+      return; //don't do anything
+    }else if(ac==-1){
       FPanel.getView().close();
-    }if(ac==0){
+    }else if(ac==0){
       // System.out.println("back to main menu");
       FPanel.getView().menuMain();
     }else if(ac==1){

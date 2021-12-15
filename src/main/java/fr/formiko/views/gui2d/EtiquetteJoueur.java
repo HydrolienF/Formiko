@@ -23,7 +23,7 @@ public class EtiquetteJoueur extends FPanel{
   private boolean ia;
   private boolean ouvert;
   private FComboBox<String> combo;
-  private FTextField couleur;
+  private FPanelColorChooser couleur;
   // CONSTRUCTORS --------------------------------------------------------------
   public EtiquetteJoueur(String s, Boolean b){
     id =idCpt; idCpt++;
@@ -38,9 +38,9 @@ public class EtiquetteJoueur extends FPanel{
     add(dsc);
     String[] tab = {g.getM("joueur"), g.getM("ia"), g.getM("fermé")};
     combo = new FComboBox<String>(tab);
-    couleur=new FTextField();
-    couleur.setFondTransparent();
-    couleur.setBorder(null);
+    couleur=new FPanelColorChooser(40, 40, this);
+    // couleur.setFondTransparent();
+    // couleur.setBorder(null);
     if(b==null){ ouvert=false; combo.setSelectedIndex(2);}
     else{ouvert=true;ia=b;iniCouleur();}
     if(ia){combo.setSelectedIndex(1);}
@@ -67,7 +67,7 @@ public class EtiquetteJoueur extends FPanel{
   public void setIa(boolean b){ia=b;}
   public boolean getOuvert(){return ouvert;}
   public void setOuvert(Boolean b){ouvert=b;}
-  public Pheromone getCouleur(){return Pheromone.sToPh(couleur.getText());}
+  public Pheromone getCouleur(){return Pheromone.colorToPh(couleur.getColor());}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     return getPseudo() +" id:"+ id + " ia:"+getIa()+" ouvert:"+getOuvert();
@@ -96,17 +96,18 @@ public class EtiquetteJoueur extends FPanel{
     }
     if(col.getRed()+col.getGreen()+col.getBlue() < 400){
       dsc.setForeground(Color.WHITE);
-      couleur.setForeground(Color.WHITE);
+      // couleur.setForeground(Color.WHITE);
     }else{
       dsc.setForeground(Color.BLACK);
-      couleur.setForeground(Color.BLACK);
+      // couleur.setForeground(Color.BLACK);
     }
     //g2d.setColor(new Color(col.getRed(),col.getGreen(),col.getBlue(),152));
     g2d.setColor(col); // une couleur sans transparence pour évité d'avoir a redessiner toute la fenetre.
     g2d.fillRoundRect(0,0,taille*7/10+taille/7,FLabel.getDimY()*2,arrondi,arrondi);
     dsc.setBounds(FLabel.getDimY()/2,0,taille*5/10-FLabel.getDimY()/4);
     combo.setBounds(taille*5/10,0,taille/7,FLabel.getDimY());
-    couleur.setBounds(taille*5/10+taille/7,0,taille/7,FLabel.getDimY());
+    couleur.setLocation(taille*5/10+taille/7,0);
+    // couleur.setBounds(taille*5/10+taille/7,0,taille/7,FLabel.getDimY());
     //add un bouton changer la couleur alléatoirement
     g2d.setColor(new Color(0,0,0));
     paintBorder(g2d,taille,arrondi);
@@ -122,7 +123,7 @@ public class EtiquetteJoueur extends FPanel{
     System.out.println(this);
   }
   public void iniCouleur(){
-    couleur.setText(new Pheromone().phToS());
+    couleur.setColor(new Pheromone().phToColor());
   }
 
   //Classe interne implémentant l'interface ItemListener
