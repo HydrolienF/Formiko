@@ -38,7 +38,8 @@ public class EtiquetteJoueur extends FPanel{
     add(dsc);
     String[] tab = {g.getM("joueur"), g.getM("ia"), g.getM("fermé")};
     combo = new FComboBox<String>(tab);
-    couleur=new FPanelColorChooser(40, 40, this);
+    // couleur=new FPanelColorChooser(40, 40, this, getView().getPnp());
+    couleur=new FPanelColorChooser(40, 40, this, getView().getPm());
     // couleur.setFondTransparent();
     // couleur.setBorder(null);
     if(b==null){ ouvert=false; combo.setSelectedIndex(2);}
