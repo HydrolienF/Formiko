@@ -450,7 +450,7 @@ public class FPanelCarte extends FPanel {
             Fourmi f = ((Fourmi)cr);
             try {
               BufferedImage bi = Main.getData().getCreatureImage(f);
-              drawImageCentered(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
+              drawImageCentered(g,image.rotateAndCenterImage(bi, dir),xT+x2,yT+y2);
               // Point tp [] = Main.getData().getAntImageLocation();
               // BufferedImage tBi [] = Main.getData().getAntImage(f);
               // int k2=0;
@@ -468,7 +468,7 @@ public class FPanelCarte extends FPanel {
             try {
               BufferedImage bi = Main.getData().getCreatureImage(cr);
               // BufferedImage bi = Main.getData().getTII()[0][math.min(i.getType(),Main.getData().getTII()[0].length)];
-              drawImageCentered(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
+              drawImageCentered(g,image.rotateAndCenterImage(bi,dir),xT+x2,yT+y2);
             }catch (Exception e) {
               erreur.erreur("can't draw insect "+i.getId()+" with type "+i.getType());
             }

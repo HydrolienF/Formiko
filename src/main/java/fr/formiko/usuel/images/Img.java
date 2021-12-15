@@ -481,9 +481,7 @@ public class Img implements Cloneable{
       int wTemp = width;
       width = height;
       height = wTemp;
-      System.out.print("   "+width+" "+height);
     }
-    System.out.println();
     byte [][] rougeT = new byte[width][height];
     byte [][] vertT = new byte[width][height];
     byte [][] bleuT = new byte[width][height];
@@ -632,7 +630,7 @@ public class Img implements Cloneable{
       d++;
     }
     int b=0;
-    while(b<width && tableau.contientUniquement(imgTemp.getAlpha()[width-b-1],(byte)-128)){//tant qu'il n'y a que des pixels transparent.
+    while(b<width && tableau.contientUniquement(imgTemp.getAlpha()[imgTemp.width-b-1],(byte)-128)){//tant qu'il n'y a que des pixels transparent.
       b++;
     }
     t[0]=a;t[1]=b;t[2]=c;t[3]=d;

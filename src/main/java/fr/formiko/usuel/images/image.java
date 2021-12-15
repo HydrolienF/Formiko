@@ -371,9 +371,22 @@ public class image{
     return resize(bi,newW,newH);
   }
   /**
+  *{@summary A fonction to rotate &#38 center a BufferedImage.}<br>
+  *@param bi The Image to rotate &#38 center
+  *@param direction The direction to rotate. Direction are multiplied by 45°
+  *@version 2.1
+  */
+  public static BufferedImage rotateAndCenterImage(BufferedImage bi, int dir){
+    bi = rotateImage(bi,dir);
+    Img img = new Img(bi);
+    img.rognerBordTransparent();
+    img.actualiserImage();
+    return img.toBufferedImage();
+  }
+  /**
   *{@summary A fonction to rotate a BufferedImage.}<br>
-  *@param before The Image to rotate.
-  *@param direction The direction to rotate. Direction are multiplied by 45°.
+  *@param before The Image to rotate
+  *@param direction The direction to rotate. Direction are multiplied by 45°
   *@version 2.1
   */
   public static BufferedImage rotateImage(BufferedImage before, int direction) {
