@@ -476,12 +476,14 @@ public class Img implements Cloneable{
   public void tourner(byte x){ // on tourne de 90° a chaque fois.
     x=(byte)(x+4); // pour pouvoir utiliser des angles négatifs.
     //if(width!=height){ return null;}
-    Img ir = new Img(width,height);
+    // Img ir = new Img(width,height);
     if (x%2==1){ //si la largeur et la hauteur sont échangée.
       int wTemp = width;
       width = height;
       height = wTemp;
+      System.out.print("   "+width+" "+height);
     }
+    System.out.println();
     byte [][] rougeT = new byte[width][height];
     byte [][] vertT = new byte[width][height];
     byte [][] bleuT = new byte[width][height];
@@ -527,11 +529,6 @@ public class Img implements Cloneable{
     setBleu(bleuT);
     setAlpha(alphaT);
     // actualiserImage();
-    int temp = width;
-    if(x%2==1){
-      width=height;
-      height=temp;
-    }
     //return ir;
   }public void tourner(int x){ tourner((byte) x);}
   public void tourner(){ tourner(1);}
