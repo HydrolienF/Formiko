@@ -122,8 +122,8 @@ public class FPanelMenu extends FPanel {
     retirerBouton();
     removeP();
     setReturnButtonAction(1);
-    pnp = new FPanelNouvellePartie();
-    pnp.setSize(this.getWidth(),this.getHeight());
+    pnp = new FPanelNouvellePartie(getWidth(), getHeight());
+    getView().getPGej().addColorChooser();
     this.add(pnp);
     getView().paint();
   }

@@ -23,6 +23,7 @@ import fr.formiko.views.View;
 import java.awt.Font;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.swing.JColorChooser;
 import javax.swing.UIManager;
 
 /**
@@ -57,6 +58,8 @@ public class ViewGUI2d implements View {
   public FPanelJeu getPj(){ if(getPp()!=null){return getPp().getPj();}else{return null;}}
   public FPanelMenu getPm(){ if(getPp()!=null){return getPp().getPm();}else{return null;}}
   public FPanelNouvellePartie getPnp(){ try{return getPm().getPnp();}catch (NullPointerException e){return null;}}
+  public FPanelGEtiquetteJoueur getPGej(){ try{return getPnp().getPGej();}catch (NullPointerException e){return null;}}
+  public JColorChooser getJcc(){ try{return getPnp().getJcc();}catch (NullPointerException e){return null;}}
   public FPanelChoixPartie getPcp(){ try{return getPm().getPcp();}catch (NullPointerException e){return null;}}
   public FPanelBouton getPb(){ try{return getPj().getPb();}catch (NullPointerException e){return null;}}
   public FPanelCarte getPc(){ try{return getPj().getPc();}catch (NullPointerException e){return null;}}

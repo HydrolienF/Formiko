@@ -11,10 +11,14 @@ import fr.formiko.usuel.types.str;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import javax.swing.UIManager;
+import java.awt.Dimension;
 import java.io.File;
 import java.text.NumberFormat;
 import javax.swing.JCheckBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JColorChooser;
+import javax.swing.JPanel;
 
 /**
 *{@summary A partie launcher Panel that create a new partie.}<br>
@@ -36,12 +40,15 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
   private GString gsClé;
   private EtiquetteChoix eDif;
   private EtiquetteChoix eVitesseDeJeu;
+  private JColorChooser jcc;
   // CONSTRUCTORS --------------------------------------------------------------
-  public FPanelNouvellePartie(){
+  public FPanelNouvellePartie(int w, int h){
     super(100);
     Main.startCh();
     this.setLayout(null);
-    //setOpaque(false);
+    setSize(w,h);
+    addJcc();
+
     //les entêtes.
     jl = new FLabel(); jl2 = new FLabel();
     jl.setTexte(g.getM("paramètreCarte"));
@@ -110,6 +117,7 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
   public GEtiquetteJoueur getGej(){ return gej;}
   public int getTaille(){ return taille;}
   public FPanelGEtiquetteJoueur getPGej(){ return pgej;}
+  public JColorChooser getJcc(){return jcc;}
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     int wi = Main.getDimX();
@@ -216,5 +224,22 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
     }
     if (!b){ erreur.erreur("La difficulté n'as pas pue être reconnue au lancement de la partie","difficulté déffinie a 0 (normale)");}
     return dif;
+  }
+  /**
+  *{@summary Initialize a JColorChooser that will be used by every FPanelColorChooser.}
+  *@version 2.15
+  */
+  private void addJcc(){
+    //update UIManager for ColorChooser
+    int lenJccb = 20;
+    UIManager.put("ColorChooser.swatchesRecentSwatchSize", new Dimension(lenJccb, lenJccb));
+    UIManager.put("ColorChooser.swatchesSwatchSize", new Dimension(lenJccb, lenJccb));
+    //create JColorChooser
+    jcc = new JColorChooser();
+    jcc.setVisible(false);
+    jcc.setSize(getWidth()/2, getHeight()*2/3);
+    jcc.setPreviewPanel(null);
+    jcc.setPreviewPanel(new JPanel());
+    add(jcc);
   }
 }
