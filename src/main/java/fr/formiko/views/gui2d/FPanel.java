@@ -26,7 +26,7 @@ import javax.swing.JPanel;
 public class FPanel extends JPanel {
   private static final long serialVersionUID = -3227223889149566494L;
   private static int cptId=0;
-  private final int id;
+  protected final int id;
 
   // CONSTRUCTORS --------------------------------------------------------------
   public FPanel(){
@@ -42,7 +42,7 @@ public class FPanel extends JPanel {
   //public void setEspaceRéservéBas(int x){espaceRéservéBas = x;}
   //public void setXCase(int x){xCase = x;}
   //public void setYCase(int y){yCase = y;}
-  public BListener getBListener(){ return new BListener();}
+  public BListener getBListener(){return new BListener();}
   public Data getData(){return Main.getData();}
   public static ViewGUI2d getView(){return (ViewGUI2d)(Main.getView());}
   // FUNCTIONS -----------------------------------------------------------------

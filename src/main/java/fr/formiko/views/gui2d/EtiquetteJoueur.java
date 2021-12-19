@@ -66,6 +66,7 @@ public class EtiquetteJoueur extends FPanel{
   public boolean getOuvert(){return ouvert;}
   public void setOuvert(Boolean b){ouvert=b;}
   public Pheromone getCouleur(){if(couleur==null){return null;}return Pheromone.colorToPh(couleur.getColor());}
+  public FPanelColorChooser getColorChooser(){return couleur;}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     return getPseudo() +" id:"+ id + " ia:"+getIa()+" ouvert:"+getOuvert();

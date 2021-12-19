@@ -5,25 +5,28 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.types.str;
 
 import java.awt.Color;
-import java.awt.Graphics;
-import javax.swing.UIManager;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.io.File;
 import java.text.NumberFormat;
 import javax.swing.JCheckBox;
-import javax.swing.JFormattedTextField;
 import javax.swing.JColorChooser;
+import javax.swing.JComponent;
+import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.UIManager;
 
 /**
 *{@summary A partie launcher Panel that create a new partie.}<br>
 *@author Hydrolien
-*@version 1.x
+*@version 2.15
 */
 public class FPanelNouvellePartie extends FPanelLanceurPartie {
   private FLabel jl; private FLabel jl2;
@@ -240,6 +243,9 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
     jcc.setSize(getWidth()/2, getHeight()*2/3);
     jcc.setPreviewPanel(null);
     jcc.setPreviewPanel(new JPanel());
+    Color alpha0 = new Color(0,0,0,0);
+    jcc.setBackground(alpha0);
+    jcc.setOpaque(false);
     add(jcc);
   }
 }
