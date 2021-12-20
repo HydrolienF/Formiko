@@ -25,8 +25,8 @@ public class FPanelColorChooser extends FPanel implements ChangeListener {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Standard constructor with width, heigth &#38; the component to color.}<br>
-  *@param w width
-  *@param h heigth
+  *@param w buttons width
+  *@param h buttons heigth
   *@param comp JComponent to paint background
   *@version 2.15
   */

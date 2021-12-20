@@ -24,6 +24,7 @@ public class EtiquetteJoueur extends FPanel{
   private boolean ouvert;
   private FComboBox<String> combo;
   private FPanelColorChooser couleur;
+  private int borderSize;
   // CONSTRUCTORS --------------------------------------------------------------
   public EtiquetteJoueur(String s, Boolean b){
     id =idCpt; idCpt++;
@@ -49,6 +50,7 @@ public class EtiquetteJoueur extends FPanel{
     combo.setFont(Main.getFont1(0.9));
     is.setEj(this);
     add(combo);
+    borderSize=3;
   }
   public EtiquetteJoueur(boolean b){
     this(Joueur.get1Pseudo(),b);
@@ -107,29 +109,37 @@ public class EtiquetteJoueur extends FPanel{
     //g2d.setColor(new Color(col.getRed(),col.getGreen(),col.getBlue(),152));
     g2d.setColor(col); // une couleur sans transparence pour évité d'avoir a redessiner toute la fenetre.
     g2d.fillRoundRect(0,0,taille*7/10+taille/7,FLabel.getDimY()*2,arrondi,arrondi);
-    dsc.setBounds(FLabel.getDimY()/2,0,taille*5/10-FLabel.getDimY()/4);
-    combo.setBounds(taille*5/10,0,taille/7,FLabel.getDimY());
+    dsc.setBounds(FLabel.getDimY()/2+borderSize,borderSize,taille*5/10-FLabel.getDimY()/4);
+    combo.setBounds(taille*5/10+borderSize,borderSize,taille/7,FLabel.getDimY());
     // couleur.setBounds(taille*5/10+taille/7,0,taille/7,FLabel.getDimY());
     //add un bouton changer la couleur alléatoirement
     g2d.setColor(new Color(0,0,0));
     paintBorder(g2d,taille,arrondi);
   }
   public void paintBorder(Graphics2D g, int taille, int arrondi){
-    byte x = 3;//Main.getBorderButtonSize();
-    if(x<1){return;}
-    BasicStroke ligne = new BasicStroke(x);
+    BasicStroke ligne = new BasicStroke(borderSize);
     g.setStroke(ligne);
     g.drawRoundRect(0,0,taille*7/10+taille/7,FLabel.getDimY()*2,arrondi,arrondi);
   }
+  /**
+  *{@summary Initialize color chooser if it's needed.}
+  *@version 2.15
+  */
   public void iniCouleur(){
     if(couleur!=null){
       int taille = Main.getF().getWidth()/2;
       couleur.setColor(new Pheromone().phToColor());
-      couleur.setLocation(taille*5/10+taille/7,0);
+      int x = taille*5/10+taille/7;
+      int place = taille*2/10-couleur.getWidth();
+      couleur.setLocation(x+place/2+borderSize,borderSize);
     }
   }
+  /**
+  *{@summary Add a color chooser for this player.}
+  *@version 2.15
+  */
   public void addColorChooser(){
-    int buttonSize=getHeight()/2;
+    int buttonSize=getHeight()/3;
     couleur=new FPanelColorChooser(buttonSize, buttonSize, this);
     add(couleur);
     iniCouleur();
