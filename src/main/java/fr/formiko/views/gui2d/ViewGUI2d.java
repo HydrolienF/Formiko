@@ -637,6 +637,8 @@ public class ViewGUI2d implements View {
     getPmmo().centerOver((int)((c.getX()+0.5)*getPc().getTailleDUneCase()), (int)((c.getY()+0.5)*getPc().getTailleDUneCase()));
   }
 
+  public Data getData(){return Main.getData();}
+
   //private---------------------------------------------------------------------
   /**
   *Load graphics during menu time.

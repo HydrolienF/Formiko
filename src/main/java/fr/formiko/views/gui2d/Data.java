@@ -47,6 +47,8 @@ public class Data {
   // private BufferedImage antColor[];
   private BufferedImage antLeg[];
   private BufferedImage map;
+  private BufferedImage loopArrow;
+  private BufferedImage pick;
   //ini (this var sould not be modify in an other place than here.)
   private BufferedImage imgNullIni;
   private BufferedImage fereIni;
@@ -58,7 +60,7 @@ public class Data {
   private BufferedImage tGIni[];
   private BufferedImage tFIni[][];
   // private BufferedImage antColorIni[];
-  private BufferedImage antLegIni[];
+  // private BufferedImage antLegIni[];
   //image data
   private ImageTree imageTree;
   private ImageTree imageTreeIni;
@@ -112,6 +114,8 @@ public class Data {
   public BufferedImage [] getTG(){return tG;}
   public BufferedImage [][] getTF(){return tF;}
   public BufferedImage getMap(){return map;}
+  public BufferedImage getLoopArrow(){return loopArrow;}
+  public BufferedImage getPick(){return pick;}
   //FPanelAction
   public BufferedImage [] getTImage(){return tImage;}
   //FPanelChargement
@@ -248,9 +252,9 @@ public class Data {
       }catch (Exception e) {}
 
       //get images
-      for (int i=0; i<6; i++) {
-        try{tBi[k++] = antLeg[idEspece];}catch (Exception e) {antLeg[k++] = tIF[0];}
-      }
+      // for (int i=0; i<6; i++) {
+      //   try{tBi[k++] = antLeg[idEspece];}catch (Exception e) {antLeg[k++] = tIF[0];}
+      // }
       //TODO #246 use a diferent image depending of stade.
       try {tBi[k++] = tIF[idEspece];} catch (Exception e) {tBi[k++] = tIF[0];}
       // if(Main.getOp().getAntColorLevel()>0){
@@ -342,7 +346,7 @@ public class Data {
         // tIIIni = chargerTX("I");
         tFIni = chargerTX("F",3,(byte)0,-3);
         // iniAntColorIni();
-        antLegIni = image.getImages("FLeg",image.getNbrImages("FLeg"),(byte)0);
+        // antLegIni = image.getImages("FLeg",image.getNbrImages("FLeg"),(byte)0);
         imageTreeIni = ImageTree.folderToTree(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");
         iconMap = image.getImagesAsMap(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"icon/");
         iconMap = image.getScaledInstanceFromMap(iconMap, Main.getTailleElementGraphiqueY(30));
@@ -365,6 +369,18 @@ public class Data {
         tIFIni[0] = image.getImage("F0");
       }
       imageIniForNewGame=true;
+    }
+    /**
+    *{@summary Load the FPanelNouvellePartie images if they aren't load yet.}
+    * If size is different, image will be reload with the greate size.
+    *@param buttonSize size of the 2 image to load. 
+    *@version 2.15
+    */
+    public void loadPnpImage(int buttonSize){
+      if(loopArrow==null || loopArrow.getWidth()!=buttonSize){
+        loopArrow = image.resize(image.getImage("loop arrow"), buttonSize);
+        pick = image.resize(image.getImage("pick"), buttonSize);
+      }
     }
     /***
     *{@summary Load antColorIni.}

@@ -129,7 +129,8 @@ public class EtiquetteJoueur extends FPanel{
     }
   }
   public void addColorChooser(){
-    couleur=new FPanelColorChooser(40, 40, this);
+    int buttonSize=getHeight()/2;
+    couleur=new FPanelColorChooser(buttonSize, buttonSize, this);
     add(couleur);
     iniCouleur();
   }
