@@ -38,6 +38,10 @@ public class FPanelColorChooser extends FPanel implements ChangeListener {
     deployButton = new FButton("X", getView().getPm(), -2, getView().getData().getPick());
     deployButton.setSize(w,h);
     deployButton.addMouseListener(new MouseListenerEmpty(){
+      /**
+      *{@summary Link action deploy to user clic.}<br>
+      *@version 2.15
+      */
       @Override
       public void mouseReleased(MouseEvent event) {
         deploy();
@@ -45,6 +49,10 @@ public class FPanelColorChooser extends FPanel implements ChangeListener {
     });
     randomColorButton = new FButton("R", getView().getPm(), -2, getView().getData().getLoopArrow());
     randomColorButton.addMouseListener(new MouseListenerEmpty(){
+      /**
+      *{@summary Link action setRandomColor to user clic.}<br>
+      *@version 2.15
+      */
       @Override
       public void mouseReleased(MouseEvent event) {
         setRandomColor();
