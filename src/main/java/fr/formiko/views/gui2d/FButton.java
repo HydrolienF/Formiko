@@ -153,12 +153,9 @@ public class FButton extends JButton implements MouseListener {
     if(img==null){setText(nom);}
     else{g2d.drawImage(this.img,0,0, null);}
     if(bordure){
-      try {
+      if(getBorder()!=null && getBorder() instanceof FBorder){
         ((FBorder)getBorder()).setColor(new Color(getCFont().getRed(), getCFont().getGreen(), getCFont().getBlue()));
-      }catch (Exception e) {
-        erreur.alerte("can't set border color");
       }
-      // paintBorder(g2d);
     }
     super.paintComponent(g);
   }
