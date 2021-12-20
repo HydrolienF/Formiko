@@ -153,15 +153,15 @@ public class EtiquetteJoueur extends FPanel{
       FPanelNouvellePartie pnp = getView().getPnp();
       if(e.getStateChange()==1){ // si l'action est bien sélectionner.
         if(combo.getItemAt(0).equals(e.getItem())){
+          if(!ouvert){addColorChooser();}
           ouvert=true; ia=false; setPseudo(g.getM("joueur")+" "+(id+1));
           //if ((combo.getSelectedItemReminder()).equals(combo.getItemAt(2))){
-            iniCouleur();
             pnp.getGej().enableLaunchButtonIfNeeded();
           //}
         }else if(combo.getItemAt(1).equals(e.getItem())){
+          if(!ouvert){addColorChooser();}
           ouvert=true; ia=true; setPseudo(Joueur.get1Pseudo());
           //if ((combo.getSelectedItemReminder()).equals(combo.getItemAt(2))){
-            iniCouleur();
             pnp.getGej().disableLaunchButtonIfNeeded();
           //}
         }else if(combo.getItemAt(2).equals(e.getItem())){
