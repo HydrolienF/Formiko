@@ -1,15 +1,15 @@
 package fr.formiko.views.gui2d;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.MouseEvent;
+import java.util.Random;
 import javax.swing.JColorChooser;
 import javax.swing.JComponent;
+import javax.swing.JTabbedPane;
 import javax.swing.colorchooser.DefaultColorSelectionModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.Component;
-import javax.swing.JTabbedPane;
-import java.util.Random;
 
 /**
 *{@summary A color chooser Panel that can let user pick a specify color or a random one.}<br>

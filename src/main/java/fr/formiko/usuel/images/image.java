@@ -303,8 +303,8 @@ public class image{
   */
   public static boolean isImage(File f){
     if(f==null){return false;}
-    if(str.contient(f.getName(),".png",2)){return true;}
-    if(str.contient(f.getName(),".jpg",2)){return true;}
+    if(f.getName().endsWith(".png")){return true;}
+    if(f.getName().endsWith(".jpg")){return true;}
     return false;
   }
   /*public BufferedImage rognerImage(BufferedImage i){
@@ -352,23 +352,22 @@ public class image{
   *{@summary A fonction to getScaledInstance and return a BufferedImage.}<br>
   *This function use resize(bufferedImage, width, height).<br>
   *This function resize the biger side to newHW &#38; the other size to keep the proportions.<br>
-  *@param bi The Image to resize.
+  *@param in The Image to resize.
   *@param newHW The new height or width (biger side).
-  *@version 1.31
+  *@param 1.31;
   */
-  public static BufferedImage resize(BufferedImage bi, int newHW){
-    if(bi==null){return null;}
+  public static BufferedImage resize(BufferedImage in, int newHW){
+    if(in==null){return null;}
     int newW;
     int newH;
-    if(bi.getWidth()>bi.getHeight()){
+    if(in.getWidth()>in.getHeight()){
       newW = newHW;
-      newH = newHW*bi.getHeight()/bi.getWidth(); //a smaler size.
+      newH = newHW*in.getHeight()/in.getWidth(); //a smaler size.
     }else{
       newH = newHW;
-      newW = newHW*bi.getWidth()/bi.getHeight(); //a smaler size.
+      newW = newHW*in.getWidth()/in.getHeight(); //a smaler size.
     }
-    // double racioWH = bi.getWidth()/bi.getHeight();
-    return resize(bi,newW,newH);
+    return resize(in,newW,newH);
   }
   /**
   *{@summary A fonction to rotate &#38 center a BufferedImage.}<br>
@@ -378,10 +377,75 @@ public class image{
   */
   public static BufferedImage rotateAndCenterImage(BufferedImage bi, int dir){
     bi = rotateImage(bi,dir);
+    //TODO fix lenJ & lenI inversion in trimTransparentBorder & use it.
+    // try {
+    //   BufferedImage out = trimTransparentBorder(bi);
+    //   if(out==null){erreur.erreur("out null",3);}
+    //   // return bi;
+    // }catch (Exception e) {
+    //   e.printStackTrace();
+    // }
     Img img = new Img(bi);
     img.rognerBordTransparent();
     img.actualiserImage();
     return img.toBufferedImage();
+  }
+  /**
+  *{@summary A fonction to trim a BufferedImage.}<br>
+  *This function use countTransparentBorders(bufferedImage).<br>
+  *@param in The Image to trim
+  *@version 2.15
+  */
+  public static BufferedImage trimTransparentBorder(BufferedImage in){
+    int t[] = countTransparentBorders(in);
+    // erreur.info("trimed : "+t[0]+" "+t[1]+" "+t[2]+" "+t[3]);
+    return in.getSubimage(t[0], t[1], in.getWidth()-t[0]-t[2], in.getHeight()-t[1]-t[3]);
+  }
+  /**
+  *{@summary A fonction to count transparent borders of a BufferedImage.}<br>
+  *A border is transparent if alpha=0 on all the pixel line.
+  *@param in The Image to count transparent borders
+  *@version 2.15
+  */
+  public static int [] countTransparentBorders(BufferedImage in){
+    int t[]={0,0,0,0};
+    int lenI = in.getHeight();
+    int lenJ = in.getWidth();
+    t[0]=countTransparentBorder(in, lenI, lenJ, false, false);
+    t[1]=countTransparentBorder(in, lenI, lenJ, true, false);
+    t[2]=countTransparentBorder(in, lenI, lenJ, false, true);
+    t[3]=countTransparentBorder(in, lenI, lenJ, true, true);
+    return t;
+  }
+  /**
+  *{@summary A fonction to count a transparent border of a BufferedImage.}<br>
+  *A border is transparent if alpha=0 on all the pixel line.
+  *@param in The Image to count transparent borders
+  *@param lenI width or heigth depending of revers
+  *@param lenJ width or heigth depending of revers
+  *@param revers True: revers width &#38; height
+  *@param fromTheEnd True: start from the end of the image (width or heigth)
+  *@version 2.15
+  */
+  public static int countTransparentBorder(BufferedImage in, int lenI, int lenJ, boolean revers, boolean fromTheEnd){
+    int r=0;
+    for (int i=0; i<lenI; i++) {
+      for (int j=0; j<lenJ; j++) {
+        int x,y;
+        if(revers){
+          if(fromTheEnd){x=lenJ-j-1; y=lenI-i-1;}
+          else{x=j; y=i;}
+        }else{
+          if(fromTheEnd){x=lenI-i-1; y=lenJ-j-1;}
+          else{x=i; y=j;}
+        }
+        if(((in.getRGB(x,y)>>24)&255)!=0){ //if it's not a full alpha pixel, we stop.
+          return r;
+        }
+      }
+      r++;
+    }
+    return r;
   }
   /**
   *{@summary A fonction to rotate a BufferedImage.}<br>
