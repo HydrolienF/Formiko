@@ -128,7 +128,7 @@ public class EtiquetteJoueur extends FPanel{
   public void iniCouleur(){
     if(couleur!=null){
       int taille = Main.getF().getWidth()/2;
-      couleur.setColor(new Pheromone().phToColor());
+      couleur.setRandomColor();
       int x = taille*5/10+taille/7;
       int place = taille*2/10-couleur.getWidth();
       couleur.setLocation(x+place/2+borderSize,borderSize);
