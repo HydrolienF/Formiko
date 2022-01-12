@@ -99,7 +99,11 @@ public class FPanelColorChooser extends FPanel implements ChangeListener {
   */
   public void setRandomColor(){
     if(rand==null){rand = new Random();}
-    setColor(new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat()));
+    if(id==idDeployed){
+      setColor(new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat()));
+    }else{
+      comp.setForeground(new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat()));
+    }
   }
   // FUNCTIONS -----------------------------------------------------------------
   /**
