@@ -5,13 +5,15 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.tests.TestCaseMuet;
 import fr.formiko.usuel.Folder;
 import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.images.Img;
 import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.allea;
-import fr.formiko.tests.TestCaseMuet;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -21,6 +23,7 @@ public class imageTest extends TestCaseMuet {
   // FUNCTIONS -----------------------------------------------------------------
   @BeforeAll
   public static void iniMain(){
+    new imageTest();
     Main.ini();
   }
   private void ini(){
@@ -464,6 +467,70 @@ public class imageTest extends TestCaseMuet {
     bi2 = image.resize(bi,5);
     assertEquals(null,bi2);
   }
+  @Test
+  public void countTransparentBordersTest(){
+    Color colFull = new Color(25,255,255,255);
+    Color colEmpty = new Color(0,0,0,0);
+    int t[]={0,0,0,0};
+    assertArrayEquals(t, image.countTransparentBorders(null));
+    BufferedImage bi = new BufferedImage(3, 4, BufferedImage.TYPE_INT_ARGB);
+    Graphics g = bi.getGraphics();
+    g.setColor(colFull);
+    g.fillRect(0,0,3,4);
+    assertArrayEquals(t, image.countTransparentBorders(bi));
+
+    image.replaceRectColor(bi,colEmpty,0,0,1,1);
+    assertArrayEquals(t, image.countTransparentBorders(bi));
+
+    image.replaceRectColor(bi,colEmpty,0,0,1,4);
+    int t2[]={1,0,0,0};
+    assertArrayEquals(t2, image.countTransparentBorders(bi));
+
+    g.setColor(colEmpty);
+    image.replaceRectColor(bi,colEmpty,0,0,3,4);
+    int t3[]={3,4,3,4};
+    assertArrayEquals(t3, image.countTransparentBorders(bi));
+  }
+
+  @Test
+  public void countTransparentBordersTest2(){
+    Color colFull = new Color(25,255,255,255);
+    Color colEmpty = new Color(0,0,0,0);
+    int t[]={0,0,0,0};
+    assertArrayEquals(t, image.countTransparentBorders(null));
+    BufferedImage bi = new BufferedImage(3, 4, BufferedImage.TYPE_INT_ARGB);
+    Graphics g = bi.getGraphics();
+    g.setColor(colFull);
+    g.fillRect(0,0,3,4);
+
+    image.replaceRectColor(bi,colEmpty,1,0,1,4);
+    int t2[]={0,0,0,0};
+    assertArrayEquals(t2, image.countTransparentBorders(bi));
+
+    g.fillRect(0,0,3,4);
+    image.replaceRectColor(bi,colEmpty,2,0,1,4);
+    image.replaceRectColor(bi,colEmpty,0,0,1,3); // should not change anything
+    int t3[]={0,0,1,0};
+    assertArrayEquals(t3, image.countTransparentBorders(bi));
+
+    g.fillRect(0,0,3,4);
+    image.replaceRectColor(bi,colEmpty,2,0,1,4);
+    image.replaceRectColor(bi,colEmpty,0,0,1,3);
+    image.replaceRectColor(bi,colEmpty,1,0,1,1);
+    int t4[]={0,1,1,0};
+    assertArrayEquals(t4, image.countTransparentBorders(bi));
+
+    g.fillRect(0,0,3,4);
+    image.replaceRectColor(bi,colEmpty,2,0,1,4);
+    image.replaceRectColor(bi,colEmpty,0,0,1,3);
+    image.replaceRectColor(bi,colEmpty,1,0,1,1);
+    image.replaceRectColor(bi,colEmpty,1,2,1,1);
+    int t5[]={0,1,1,0};
+    assertArrayEquals(t5, image.countTransparentBorders(bi));
+  }
+
+
+
   @AfterAll
   public static void clean(){
     Folder folder = new Folder();

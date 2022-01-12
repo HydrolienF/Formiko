@@ -11,6 +11,7 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.types.str;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.geom.AffineTransform;
@@ -370,25 +371,18 @@ public class image{
     return resize(in,newW,newH);
   }
   /**
-  *{@summary A fonction to rotate &#38 center a BufferedImage.}<br>
-  *@param bi The Image to rotate &#38 center
+  *{@summary A fonction to rotate &#38; center a BufferedImage.}<br>
+  *@param bi The Image to rotate &#38; center
   *@param direction The direction to rotate. Direction are multiplied by 45°
-  *@version 2.1
+  *@version 2.16
   */
   public static BufferedImage rotateAndCenterImage(BufferedImage bi, int dir){
     bi = rotateImage(bi,dir);
-    //TODO fix lenJ & lenI inversion in trimTransparentBorder & use it.
-    // try {
-    //   BufferedImage out = trimTransparentBorder(bi);
-    //   if(out==null){erreur.erreur("out null",3);}
-    //   // return bi;
-    // }catch (Exception e) {
-    //   e.printStackTrace();
-    // }
-    Img img = new Img(bi);
-    img.rognerBordTransparent();
-    img.actualiserImage();
-    return img.toBufferedImage();
+    return trimTransparentBorder(bi);
+    // Img img = new Img(bi);
+    // img.rognerBordTransparent();
+    // img.actualiserImage();
+    // return img.toBufferedImage();
   }
   /**
   *{@summary A fonction to trim a BufferedImage.}<br>
@@ -405,15 +399,16 @@ public class image{
   *{@summary A fonction to count transparent borders of a BufferedImage.}<br>
   *A border is transparent if alpha=0 on all the pixel line.
   *@param in The Image to count transparent borders
-  *@version 2.15
+  *@version 2.16
   */
   public static int [] countTransparentBorders(BufferedImage in){
     int t[]={0,0,0,0};
+    if(in==null){return t;}
     int lenI = in.getHeight();
     int lenJ = in.getWidth();
-    t[0]=countTransparentBorder(in, lenI, lenJ, false, false);
+    t[0]=countTransparentBorder(in, lenJ, lenI, false, false);
     t[1]=countTransparentBorder(in, lenI, lenJ, true, false);
-    t[2]=countTransparentBorder(in, lenI, lenJ, false, true);
+    t[2]=countTransparentBorder(in, lenJ, lenI, false, true);
     t[3]=countTransparentBorder(in, lenI, lenJ, true, true);
     return t;
   }
@@ -615,5 +610,40 @@ public class image{
       // System.out.println("put "+entry.getKey());
     }
     return mapOut;
+  }
+
+  /**
+  *{@summary Print a BufferedImage color.}
+  *@param bi the bufferedImage to print.
+  *@version 2.16
+  */
+  public static void printBufferedImageColor(BufferedImage bi){
+    for (int i=0; i<bi.getWidth(); i++) {
+      for (int j=0; j<bi.getHeight(); j++) {
+        System.out.print(bi.getRGB(i,j)+" ");
+      }
+      System.out.println("");
+    }
+    System.out.println();
+  }
+  /**
+  *{@summary Replace a specified rect by given color.}
+  *@param bi the bufferedImage to use
+  *@param col the color to draw
+  *@param x x of the rectangle
+  *@param y y of the rectangle
+  *@param width width of the rectangle
+  *@param height height of the rectangle
+  *@version 2.16
+  */
+  public static void replaceRectColor(BufferedImage bi, Color col, int x, int y, int width, int height){
+    int colInt = col.getRGB();
+    int lenI = width+x;
+    int lenJ = height+y;
+    for (int i=x; i<lenI; i++) {
+      for (int j=y; j<lenJ; j++) {
+        bi.setRGB(i,j, colInt);
+      }
+    }
   }
 }
