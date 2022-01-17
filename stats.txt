@@ -93,7 +93,7 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 89%  (25/28) 2  21 0  5  30 526  usuel\Folder.java
 100% (3/3)   1  2  0  0  0  70   usuel\Fonts.java
 100% (8/8)   1  7  0  0  4  122  usuel\g.java
-100% (27/27) 1  26 0  0  16 555  usuel\images\image.java
+100% (32/32) 1  31 0  0  16 649  usuel\images\image.java
 72%  (29/40) 1  39 0  0  37 677  usuel\images\Img.java
 100% (9/9)   1  7  0  1  10 112  usuel\images\Pixel.java
 0%   (0/3)   1  2  0  0  2  68   usuel\lireUnFichier.java
@@ -142,7 +142,7 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 0%   (0/6)   1  5  0  0  6  70   views\gui2d\EtiquetteChoix.java
 21%  (3/14)  3  11 0  0  13 194  views\gui2d\EtiquetteJoueur.java
 66%  (2/3)   1  2  0  0  5  50   views\gui2d\FBorder.java
-58%  (10/17) 1  14 1  1  15 270  views\gui2d\FButton.java
+58%  (10/17) 1  14 1  1  15 267  views\gui2d\FButton.java
 100% (9/9)   1  7  1  0  0  119  views\gui2d\FButtonPGO.java
 100% (5/5)   1  4  0  0  1  70   views\gui2d\FComboBox.java
 85%  (6/7)   1  4  1  1  3  127  views\gui2d\FFrame.java
@@ -158,7 +158,7 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 0%   (0/5)   2  3  0  0  7  63   views\gui2d\FPanelChamp.java
 0%   (0/6)   1  5  0  0  4  77   views\gui2d\FPanelChargement.java
 25%  (1/4)   1  3  0  0  0  58   views\gui2d\FPanelChoixPartie.java
-100% (8/8)   1  7  0  0  2  125  views\gui2d\FPanelColorChooser.java
+100% (8/8)   1  7  0  0  2  131  views\gui2d\FPanelColorChooser.java
 16%  (1/6)   1  5  0  0  1  86   views\gui2d\FPanelDialogue.java
 100% (7/7)   1  6  0  0  0  73   views\gui2d\FPanelDialogueInf.java
 71%  (5/7)   1  6  0  0  2  130  views\gui2d\FPanelEchap.java
@@ -196,4 +196,4 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 100% (1/1)   1  0  0  0  1  212  views\View.java
 100% (32/32) 1  23 0  8  2  706  views\ViewCLI.java
 100% (16/16) 1  15 0  0  7  174  views\ViewNull.java
-61,1%(1159/1896) 236 1493 6 161 1229  29333 global
+61,2%(1164/1901) 236 1498 6 161 1229  29430 global
