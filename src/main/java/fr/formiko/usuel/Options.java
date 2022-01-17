@@ -360,7 +360,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("gui_global_buttonSizeAction",""+t[1]);
     defaultProperties.setProperty("gui_global_fontSizeText",""+(int)(30*racio));
     defaultProperties.setProperty("gui_global_fontSizeTitle",""+(int)(60*racio));
-    defaultProperties.setProperty("gui_global_fontText","DejaVu Sans");
+    defaultProperties.setProperty("gui_global_fontText","Default");
     defaultProperties.setProperty("gui_global_fontTitle","Insektofobiya");
     defaultProperties.setProperty("gui_global_fontTitlePersonalised","true");
     defaultProperties.setProperty("gui_global_fps","60");
@@ -486,15 +486,18 @@ public class Options implements Serializable{
   }
   /**
   *{@summary update the 2 font.}<br>
-  *@version 2.5
+  *@version 2.16
   */
   public void updateFont(){
-    if(!Fonts.createFonts(gui_global_fontText)){
-      erreur.alerte("fail to set font for text");
+    if(gui_global_fontText.equals("Default")){
       font1=new Font("Default", Font.BOLD, gui_global_fontSizeText);
     }else{
-      //TODO #149 create a font & check that it's not default 1
-      font1=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeText);
+      if(!Fonts.createFonts(gui_global_fontText)){
+        erreur.alerte("fail to set font for text");
+        font1=new Font("Default", Font.BOLD, gui_global_fontSizeText);
+      }else{
+        font1=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeText);
+      }
     }
     if(!Fonts.createFonts(gui_global_fontTitle)){
       erreur.alerte("fail to set font for title");
@@ -502,7 +505,6 @@ public class Options implements Serializable{
     }else{
       font2=new Font(gui_global_fontTitle, Font.PLAIN, gui_global_fontSizeTitle);
     }
-    // System.out.println(font1);
   }
   /**
   *{@summary tranform properties into Options var.}<br>
