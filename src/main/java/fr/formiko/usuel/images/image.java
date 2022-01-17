@@ -261,10 +261,12 @@ public class image{
   // }
   /**
   *{@summary Return size of a Creature image.}<br>
+  *If ant is not found it will just return taille.
   *@param idEspece id of the Species (size depend of Species)
   *@param typeF typeF also infulence size of the Ant
   *@param taille taille used if it was 0% realistic
-  *@version 2.10
+  *return Size with a part of realistic
+  *@version 2.16
   */
   public static int tailleFourmi(int idEspece, int typeF, int taille){
     if(Main.getEspeceParId(idEspece)!=null && Main.getEspeceParId(idEspece).getIndividuByType(typeF)!=null){
@@ -273,6 +275,7 @@ public class image{
     }else{
       erreur.alerte("Ant specie "+idEspece+" have no Individu for "+typeF);
       return taille;
+      // return -1.
     }
   }
   /**

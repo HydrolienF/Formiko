@@ -173,16 +173,16 @@ public class ImageTree extends Tree<BufferedImage> {
       for (int i=0; i<len; i++ ) { //imago ♂, ♀, minor, media, major, soldier etc
         //ant body
         if(nodeIn.getChildren(0)!=null && nodeIn.getChildren(0).getChildren(i)!=null){
-          int size = image.tailleFourmi(idSpecies,i,dim);
           TreeNode<BufferedImage> currentNodeIn = nodeIn.getChildren(0).getChildren(i);
           TreeNode<BufferedImage> currentNodeOut = antListOut.get(idSpecies).getChildren(0).getChildren(i);
           biIn = currentNodeIn.getContent();
-          if(biIn!=null){
+          if(biIn!=null){ //if there is an ant
+            int size = image.tailleFourmi(idSpecies,i,dim);
             biOut = image.resize(biIn,size);
             currentNodeOut.setContent(biOut);
+            addScaledAntColorPart(currentNodeIn, currentNodeOut, dim, size);
+            addScaledAntOtherPart(currentNodeIn, currentNodeOut, dim, size);
           }
-          addScaledAntColorPart(currentNodeIn, currentNodeOut, dim, size);
-          addScaledAntOtherPart(currentNodeIn, currentNodeOut, dim, size);
         }else{
           erreur.alerte("A branch of the tree is cut (Ant imago)");
         }
