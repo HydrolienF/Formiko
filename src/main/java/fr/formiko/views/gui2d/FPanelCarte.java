@@ -1,5 +1,6 @@
 package fr.formiko.views.gui2d;
 
+import fr.formiko.formiko.Blade;
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.CGraine;
 import fr.formiko.formiko.Case;
@@ -412,6 +413,9 @@ public class FPanelCarte extends FPanel {
           int tailleDuCercle = Main.getTailleElementGraphique(20);
           drawRondOuRect(xT,yT,getTailleDUneCase(),g,c.getFere(),tailleDuCercle);
         }
+      }
+      for (Blade b : c.getGb()) {
+        b.draw(g, xT, yT);
       }
       if(isSombre(x,y)){
         drawImage(g,Main.getData().getCSombre(),xT,yT); // si les créatures sur la case ne sont pas visible.

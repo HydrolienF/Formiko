@@ -373,7 +373,7 @@ public class Data {
     /**
     *{@summary Load the FPanelNouvellePartie images if they aren't load yet.}
     * If size is different, image will be reload with the greate size.
-    *@param buttonSize size of the 2 image to load. 
+    *@param buttonSize size of the 2 image to load.
     *@version 2.15
     */
     public void loadPnpImage(int buttonSize){
@@ -405,8 +405,10 @@ public class Data {
     */
     public void chargerTI(){
       tICarteIni = new BufferedImage [3];
-      tICarteIni[0]=image.getImage("herbe");
-      tICarteIni[1]=image.getImage("mousse");
+      // tICarteIni[0]=image.getImage("herbe");
+      // tICarteIni[1]=image.getImage("mousse");
+      tICarteIni[0]=image.getImage("terre");
+      tICarteIni[1]=image.getImage("terre");
       tICarteIni[2]=image.getImage("sable");
     }
     /**

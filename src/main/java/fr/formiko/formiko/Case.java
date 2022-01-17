@@ -17,7 +17,9 @@ public class Case implements Serializable{
   private Point p;
   private byte type; //0 = herbe ...
   private Fourmiliere fere;
-  private GCreature gc; private GGraine gg;
+  private GCreature gc;
+  private GGraine gg;
+  private GBlade gb;
   private byte foodInsecte;
   private byte foodInsecteMax;
   private byte foodInsecteParTour;
@@ -29,6 +31,7 @@ public class Case implements Serializable{
     this.gc = gc;
     if(this.gc == null){ this.gc = new GCreature();}
     this.foodInsecte = foodInsecte;
+    this.gb = new GBlade(foodInsecte);
     this.foodInsecteMax = foodInsecteMax;
     foodInsecteParTour = nt;
     gg = new GGraine(); type = 1;
@@ -60,6 +63,7 @@ public class Case implements Serializable{
   public GGraine getGGraineCopier(){return gg.copierGGraine();}
   public GGraine getGGraine(){return gg;}
   public GGraine getGg(){ return getGGraine();}
+  public GBlade getGb(){ return gb;}
   public byte getType(){ return type;}
   public void setType(byte x){type = x; if(type==3 || type<0){setFoodInsecteMax((byte)0); setFoodInsecteParTour((byte)0);}}
   public void setType(int x){setType((byte)x);}
