@@ -11,30 +11,47 @@ import java.io.Serializable;
 import java.util.Random;
 
 /**
-*{@summary Grass blade is used to represent grass on map.}<br>
+*{@summary Vegetal blade is used to represent grass &#38; moss on map.}<br>
 *@author Hydrolien
 *@version 2.16
 */
-public class Blade extends Point implements Serializable {
+public abstract class Blade extends Point implements Serializable {
   private double angle;
   // private byte direction; //0 to 90
   // private byte length; //0 to 100
   private static Random rand;
-  private static Color col = new Color(0,142,14);
+  private final static int avoidBorder=10;
+  // private static Color col = new Color(14,138,22);
+  // private static Color col = new Color(11,93,16); //moss
+  /**
+  *{@summary Return a new Blade of given type.}<br>
+  *@version 2.16
+  */
+  public static Blade newBlade(byte type){
+    switch(type){
+      case 2:
+        return new BladeMoss();
+      case 3:
+        return new BladeSand();
+      default :
+        return new BladeGrass();
+    }
+  }
   /**
   *{@summary Main contructor with random direction &#38; random location.}<br>
   *@version 2.16
   */
-  public Blade(){
+  protected Blade(){
     super(0,0); //TODO avoid double init°.
     if(rand==null){rand=new Random();}
     // direction = (byte)rand.nextInt(91);
-    angle = Math.toRadians(45+rand.nextInt(90));
-    x = rand.nextInt(100);
-    y = rand.nextInt(100);
+    angle = Math.toRadians(-90-45+rand.nextInt(90));
+    x = rand.nextInt(100-(2*avoidBorder))+avoidBorder;
+    y = rand.nextInt(100-(2*avoidBorder))+avoidBorder;
   }
   // public byte getDirection(){return direction;}
-  private byte getLength(){return 20;}
+  abstract byte getLength();
+  abstract Color getColor();
 
   /**
   *{@summary Main function that draw this on g.}<br>
@@ -47,7 +64,7 @@ public class Blade extends Point implements Serializable {
     int xT = xOffset+x;
     int yT = yOffset+y;
     int bLen = getLength()*Main.getData().getTailleDUneCase()/100;
-    g.setColor(col);
+    g.setColor(getColor());
     ((Graphics2D)g).setStroke(new BasicStroke(1));
     g.drawLine(xT, yT, xT+(int)(bLen*Math.cos(angle)), yT+(int)(bLen*Math.sin(angle)));
   }

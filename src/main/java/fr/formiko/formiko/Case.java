@@ -15,7 +15,8 @@ import java.io.Serializable;
 */
 public class Case implements Serializable{
   private Point p;
-  private byte type; //0 = herbe ...
+  /** 1=grass, 2=moss, 3=sand */
+  private byte type;
   private Fourmiliere fere;
   private GCreature gc;
   private GGraine gg;
@@ -31,11 +32,10 @@ public class Case implements Serializable{
     this.gc = gc;
     if(this.gc == null){ this.gc = new GCreature();}
     this.foodInsecte = 0;
-    this.gb = new GBlade();
-    addFoodInsecte(foodInsecte);
     this.foodInsecteMax = foodInsecteMax;
     foodInsecteParTour = nt;
-    gg = new GGraine(); type = 1;
+    gg = new GGraine();
+    setType(1);
   }
   public Case(Point p, Fourmiliere fere, GCreature gc){
     this(p,fere,gc,(byte) allea.getAlléa(3),(byte)(allea.getAlléa(100)+2),(byte) allea.getAlléa(3));
@@ -124,7 +124,17 @@ public class Case implements Serializable{
   public GGraine getGg(){ return getGGraine();}
   public GBlade getGb(){ return gb;}
   public byte getType(){ return type;}
-  public void setType(byte x){type = x; if(type==3 || type<0){setFoodInsecteMax((byte)0); setFoodInsecteParTour((byte)0);}}
+  /**
+  *{@summary Update type &#38; GBlade depending of type.}
+  *@param type the type to set
+  *@version 2.16
+  */
+  public void setType(byte type){
+    this.type = type;
+    gb = new GBlade(type);
+    addFoodInsecte(foodInsecte);
+    if(type==3 || type<0){setFoodInsecteMax((byte)0); setFoodInsecteParTour((byte)0);}
+  }
   public void setType(int x){setType((byte)x);}
   public boolean canReachCase(){return getType()>-1;}
   // FUNCTIONS -----------------------------------------------------------------
