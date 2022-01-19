@@ -38,9 +38,9 @@ public class Case implements Serializable{
     setType(1);
   }
   public Case(Point p, Fourmiliere fere, GCreature gc){
-    this(p,fere,gc,(byte) allea.getAlléa(3),(byte)(allea.getAlléa(100)+2),(byte) allea.getAlléa(3));
+    this(p,fere,gc,(byte) allea.getAllea(3),(byte)(allea.getAllea(100)+2),(byte) allea.getAllea(3));
     // si la food de départ n'est pas réduite :
-    setFoodInsecte((byte) allea.getAlléa(foodInsecteMax));
+    setFoodInsecte((byte) allea.getAllea(foodInsecteMax));
   }
   public Case(Point p){this(p,null,new GCreature());}
   public Case(int x, int y){this(new Point(x,y));}
@@ -131,9 +131,28 @@ public class Case implements Serializable{
   */
   public void setType(byte type){
     this.type = type;
+    // int foodInsecteMaxTemp;
+    int foodInsecteParTourTemp;
+    // int foodInsecteTemp;
+    switch(type){
+      case 1: //grass
+      case 2: //moss
+      foodInsecteParTourTemp=1+allea.getAllea(4);
+      break;
+      case 3: //sand
+      foodInsecteParTourTemp=allea.getAllea(2);
+      break;
+      default:
+      // foodInsecteMaxTemp=0;
+      foodInsecteParTourTemp=0;
+      break;
+    }
+    setFoodInsecteMax((byte)(foodInsecteParTourTemp*20));
+    setFoodInsecteParTour((byte)foodInsecteParTourTemp);
     gb = new GBlade(type);
-    addFoodInsecte(foodInsecte);
-    if(type==3 || type<0){setFoodInsecteMax((byte)0); setFoodInsecteParTour((byte)0);}
+    if(getFoodInsecteMax()>0){
+      setFoodInsecte(allea.getAllea(getFoodInsecteMax()));
+    }
   }
   public void setType(int x){setType((byte)x);}
   public boolean canReachCase(){return getType()>-1;}
@@ -209,7 +228,7 @@ public class Case implements Serializable{
   }
   public void actualisationGraine(CCase p){
     //TODO ici un %age dépendant du type de la Case et de la saison serait bienvenue. (multiplié par l'abondance des graines.)
-    int x  = allea.getAlléa(50);
+    int x  = allea.getAllea(50);
     if(x==0 && this.getFere()==null){ new Graine(p);} // si on a de la chance et que il n'y a pas de fere sur la case.
     gg.tour();
   }
