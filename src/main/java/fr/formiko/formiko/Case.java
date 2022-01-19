@@ -30,8 +30,9 @@ public class Case implements Serializable{
     this.fere = fere;
     this.gc = gc;
     if(this.gc == null){ this.gc = new GCreature();}
-    this.foodInsecte = foodInsecte;
-    this.gb = new GBlade(foodInsecte);
+    this.foodInsecte = 0;
+    this.gb = new GBlade();
+    addFoodInsecte(foodInsecte);
     this.foodInsecteMax = foodInsecteMax;
     foodInsecteParTour = nt;
     gg = new GGraine(); type = 1;
@@ -39,7 +40,7 @@ public class Case implements Serializable{
   public Case(Point p, Fourmiliere fere, GCreature gc){
     this(p,fere,gc,(byte) allea.getAlléa(3),(byte)(allea.getAlléa(100)+2),(byte) allea.getAlléa(3));
     // si la food de départ n'est pas réduite :
-    foodInsecte = (byte) allea.getAlléa(foodInsecteMax);
+    setFoodInsecte((byte) allea.getAlléa(foodInsecteMax));
   }
   public Case(Point p){this(p,null,new GCreature());}
   public Case(int x, int y){this(new Point(x,y));}
@@ -55,7 +56,65 @@ public class Case implements Serializable{
   public void setGc(GCreature gc){this.gc = gc;}
   public GInsecte getGi(){return gc.getGi();}
   public byte getFoodInsecte(){return foodInsecte;}
-  public void setFoodInsecte(byte x){foodInsecte=x;}
+  /**
+  *{@summary Update to x foodInsecte.}
+  * It also update GBlade if needed.
+  *@param x new foodInsecte
+  *@version 2.16
+  */
+  public void setFoodInsecte(byte x){
+    if(x>foodInsecte){
+      addFoodInsecte((byte)(x-foodInsecte));
+    }else if(x<foodInsecte){
+      removeFoodInsecte((byte)(-x+foodInsecte));
+    }
+  }
+  public void setFoodInsecte(int x){setFoodInsecte((byte)x);}
+  /**
+  *{@summary Add x foodInsecte.}
+  * It also update GBlade if needed.
+  *@param x foodInsecte to add
+  *@version 2.16
+  */
+  public void addFoodInsecte(byte x){
+    if(x<1){
+      if(x<0){
+        erreur.alerte("Trying to add "+x+" foodInsecte on Case "+p);
+      }
+      return;
+    }
+    int x2 = foodInsecte+x;
+    if(x2>getFoodInsecteMax()){
+      erreur.alerte("Trying to add more foodInsecte than max on Case "+p);
+      x2=getFoodInsecteMax();
+    }
+    gb.addBlades(x2 - foodInsecte);
+    foodInsecte=(byte)x2;
+  }
+  public void addFoodInsecte(int x){addFoodInsecte((byte)x);}
+  /**
+  *{@summary remove x foodInsecte.}
+  * It also update GBlade if needed.
+  *@param x foodInsecte to remove
+  *@version 2.16
+  */
+  public void removeFoodInsecte(byte x){
+    if(x<1){
+      if(x<0){
+        erreur.alerte("Trying to remove "+x+" foodInsecte on Case "+p);
+      }
+      return;
+    }
+    int x2 = foodInsecte-x;
+    if(x2<0){
+      // System.out.println("Trying to remove more foodInsecte than aviable on Case "+p);
+      erreur.alerte("Trying to remove more foodInsecte than aviable on Case "+p);
+      x2=0;
+    }
+    gb.removeBlades(foodInsecte-x2);
+    foodInsecte=(byte)x2;
+  }
+  public void removeFoodInsecte(int x){removeFoodInsecte((byte)x);}
   public byte getFoodInsecteMax(){return foodInsecteMax;}
   public void setFoodInsecteMax(byte x){foodInsecteMax =x;}
   public byte getFoodInsecteParTour(){return foodInsecteParTour;}
@@ -126,11 +185,17 @@ public class Case implements Serializable{
   public String description(){
     return p.toString();
   }
-  public void actualisationFoodInsecte(){
-    setFoodInsecte((byte) (getFoodInsecte()+getFoodInsecteParTour()));
-    if(foodInsecte > foodInsecteMax){
-      foodInsecte=foodInsecteMax;
+  /**
+  *{@summary Update foodInsecte.}
+  * It also update GBlade if needed.
+  *@version 2.16
+  */
+  public void updateFoodInsecte(){
+    int toAdd = getFoodInsecteParTour();
+    if(foodInsecte+toAdd > foodInsecteMax){
+      toAdd=foodInsecteMax-foodInsecte;
     }
+    addFoodInsecte((byte)toAdd);
   }
   public void actualisationGraine(CCase p){
     //TODO ici un %age dépendant du type de la Case et de la saison serait bienvenue. (multiplié par l'abondance des graines.)

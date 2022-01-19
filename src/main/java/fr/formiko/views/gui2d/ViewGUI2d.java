@@ -637,6 +637,14 @@ public class ViewGUI2d implements View {
     getPmmo().centerOver((int)((c.getX()+0.5)*getPc().getTailleDUneCase()), (int)((c.getY()+0.5)*getPc().getTailleDUneCase()));
   }
 
+  /**
+  *{@summary True if grass blades are enable.}
+  *@version 2.16
+  */
+  public boolean isBladesEnable(){
+    return true;
+  }
+
   public Data getData(){return Main.getData();}
 
   //private---------------------------------------------------------------------

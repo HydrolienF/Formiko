@@ -13,6 +13,7 @@ import fr.formiko.tests.TestCaseMuet;
 import fr.formiko.usuel.Folder;
 import fr.formiko.usuel.Os;
 import fr.formiko.usuel.g;
+import fr.formiko.views.ViewNull;
 
 public class CaseTest extends TestCaseMuet{
   private Partie p;
@@ -100,5 +101,83 @@ public class CaseTest extends TestCaseMuet{
     j.setCaseSombre(0,0,true);
     assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
     assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
+  }
+  @Test
+  public void testSetFoodInsecte(){
+    Fourmi f = ini();
+    Case c = f.getCase();
+    int x = c.getFoodInsecte();
+    c.setFoodInsecteMax((byte)50);
+    c.setFoodInsecte(0);
+    assertEquals(0, c.getFoodInsecte());
+    c.setFoodInsecte(10);
+    assertEquals(10, c.getFoodInsecte());
+    c.setFoodInsecte(8);
+    assertEquals(8, c.getFoodInsecte());
+    c.setFoodInsecte(13);
+    assertEquals(13, c.getFoodInsecte());
+    c.setFoodInsecte(50);
+    assertEquals(50, c.getFoodInsecte());
+    c.setFoodInsecte(51);
+    assertEquals(50, c.getFoodInsecte());
+    c.setFoodInsecte(-1);
+    assertEquals(0, c.getFoodInsecte());
+  }
+  @Test
+  public void testAddFoodInsecte(){
+    Fourmi f = ini();
+    Case c = f.getCase();
+    int x = c.getFoodInsecte();
+    c.setFoodInsecteMax((byte)50);
+    c.setFoodInsecte(0);
+    c.addFoodInsecte(10);
+    assertEquals(10, c.getFoodInsecte());
+    c.addFoodInsecte(10);
+    assertEquals(20, c.getFoodInsecte());
+    c.addFoodInsecte(1);
+    assertEquals(21, c.getFoodInsecte());
+    c.addFoodInsecte(-2);
+    assertEquals(21, c.getFoodInsecte());
+  }
+  @Test
+  public void testRemoveFoodInsecte(){
+    Fourmi f = ini();
+    Case c = f.getCase();
+    int x = c.getFoodInsecte();
+    c.setFoodInsecteMax((byte)50);
+    c.setFoodInsecte(50);
+    assertEquals(50, c.getFoodInsecte());
+    c.removeFoodInsecte(10);
+    assertEquals(40, c.getFoodInsecte());
+    c.removeFoodInsecte(10);
+    assertEquals(30, c.getFoodInsecte());
+    c.removeFoodInsecte(1);
+    assertEquals(29, c.getFoodInsecte());
+    c.removeFoodInsecte(-1);
+    assertEquals(29, c.getFoodInsecte());
+  }
+  @Test
+  public void testFoodInsecteWithView(){
+    Fourmi f = ini();
+    Case c = f.getCase();
+    int x = c.getFoodInsecte();
+    c.setFoodInsecteMax((byte)50);
+    Main.setView(new ViewNull(){
+      @Override
+      public boolean isBladesEnable(){return true;}
+    });
+    c.setFoodInsecteMax((byte)100);
+    c.setFoodInsecte(0);
+    assertEquals(0,c.getGb().length());
+    c.setFoodInsecte(23);
+    assertEquals(23,c.getGb().length());
+    c.removeFoodInsecte(3);
+    assertEquals(20,c.getGb().length());
+    c.addFoodInsecte(10);
+    assertEquals(30,c.getGb().length());
+    c.removeFoodInsecte(3);
+    assertEquals(27,c.getGb().length());
+    c.removeFoodInsecte(3);
+    assertEquals(24,c.getGb().length());
   }
 }

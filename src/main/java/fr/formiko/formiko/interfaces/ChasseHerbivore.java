@@ -53,7 +53,7 @@ public class ChasseHerbivore implements Serializable, Chasse {
     if(c instanceof Insecte){foodMangeable=((Insecte)(c)).getFoodMangeable();}
     if (foodSurCase > 0){
       byte foodMangé = (byte) math.min(foodSurCase,foodMangeable);
-      c.getCCase().getContent().setFoodInsecte((byte)(foodSurCase-foodMangé));
+      c.getCCase().getContent().removeFoodInsecte(foodMangé);
       c.setFood(c.getFood() + foodMangé);
       if(c instanceof Fourmi){
         c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuByType(((Fourmi) c).getTypeF()).getCoutChasse()/2);

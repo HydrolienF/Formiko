@@ -209,4 +209,9 @@ public interface View {
   *@version 2.14
   */
   default void centerOverCase(Case c){}
+  /***
+  *{@summary True if grass blades are enable.}
+  *@version 2.16
+  */
+  default boolean isBladesEnable(){return false;}
 }

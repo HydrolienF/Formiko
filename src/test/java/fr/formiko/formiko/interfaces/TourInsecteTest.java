@@ -44,7 +44,7 @@ public class TourInsecteTest extends TestCaseMuet{
     i.preTour();i.tour();
     x+=-2;
     assertEquals(x,p.getGc().getCCase(0,0).getContent().getFoodInsecte());
-    p.getGc().getCCase(0,0).getContent().actualisationFoodInsecte();
+    p.getGc().getCCase(0,0).getContent().updateFoodInsecte();
     x+=1;
     assertEquals(x,p.getGc().getCCase(0,0).getContent().getFoodInsecte());
     i.preTour();i.tour();
@@ -63,11 +63,11 @@ public class TourInsecteTest extends TestCaseMuet{
     i.preTour();i.tour();
     assertTrue(p.getGc().getCCase(0,1).equals(i.getCCase()));
     assertEquals(4,p.getGc().getCCase(0,1).getContent().getFoodInsecte());
-    p.getGc().getCCase(0,0).getContent().actualisationFoodInsecte();//+1 case 0,0
+    p.getGc().getCCase(0,0).getContent().updateFoodInsecte();//+1 case 0,0
     i.setAction(0);
     i.preTour();i.tour();
     assertEquals(2,p.getGc().getCCase(0,1).getContent().getFoodInsecte());
-    p.getGc().getCCase(0,0).getContent().actualisationFoodInsecte();//+1 case 0,0
+    p.getGc().getCCase(0,0).getContent().updateFoodInsecte();//+1 case 0,0
     i.preTour();i.tour();
     assertEquals(0,p.getGc().getCCase(0,1).getContent().getFoodInsecte());
     //no more food so he re-move.
@@ -80,7 +80,7 @@ public class TourInsecteTest extends TestCaseMuet{
     //if insect not hungry anymore.
     x=10;
     p.getGc().getCCase(0,0).getContent().setFoodInsecte((byte)x);
-    p.getGc().getCCase(0,0).getContent().actualisationFoodInsecte();
+    p.getGc().getCCase(0,0).getContent().updateFoodInsecte();
     x+=1;
     assertEquals(x,p.getGc().getCCase(0,0).getContent().getFoodInsecte());
     i.setFood(i.getMaxFood());
