@@ -45,7 +45,8 @@ public abstract class Blade extends Point implements Serializable {
     super(0,0); //TODO avoid double init°.
     if(rand==null){rand=new Random();}
     // direction = (byte)rand.nextInt(91);
-    angle = Math.toRadians(-90-45+rand.nextInt(90));
+    int angleToRotate = 30;
+    angle = Math.toRadians(-90-(angleToRotate/2)+rand.nextInt(angleToRotate));
     x = rand.nextInt(100-(2*avoidBorder))+avoidBorder;
     y = rand.nextInt(100-(2*avoidBorder))+avoidBorder;
   }
