@@ -8,6 +8,11 @@ import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.tableau;
 
 import java.text.Normalizer;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+import java.util.stream.IntStream;
+import java.nio.CharBuffer;
 
 /**
 *{@summary Types conversions from String}<br>
@@ -16,6 +21,47 @@ import java.text.Normalizer;
 */
 public class str {
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Split a string in an array.}<br>
+  *@param toSplit String to split
+  *@param splitChar Array of char used to split
+  *@param strLimiterChar char that define the start or the end of a unsecable string
+  *@version 2.16
+  */
+  public static String[] split(String toSplit, char [] splitChar, char strLimiterChar){
+    try {
+    int len=0;
+    boolean haveReachStrLimiterChar=false;
+    char tc [] = toSplit.toCharArray();
+    for (char c : tc) {
+      if(c==strLimiterChar){haveReachStrLimiterChar=!haveReachStrLimiterChar;}
+      else if(!haveReachStrLimiterChar && contains(splitChar, c)){
+        len++;
+      }
+    }
+    haveReachStrLimiterChar=false;
+    String [] t = new String[len+1];
+    for (int i=0; i<len+1; i++) {
+      t[i]="";
+    }
+    int k=0;
+    for (char c : tc) {
+      if(c==strLimiterChar){haveReachStrLimiterChar=!haveReachStrLimiterChar;}
+      else if(!haveReachStrLimiterChar && contains(splitChar, c)){
+          k++;
+      }else{
+        t[k]+=c;
+      }
+    }
+    return t;
+    }catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
+  }
+  private static boolean contains(final char[] array, final char v) {
+    return CharBuffer.wrap(array).chars().anyMatch(x -> x == v);
+  }
   /**
   *{@summary Remove all accent &#38; replace special char by latin one.}<br>
   *@version 2.11

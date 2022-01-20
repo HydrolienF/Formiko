@@ -15,6 +15,16 @@ public class strTest extends TestCaseMuet{
     new str();
   }
   @Test
+  public void testSplit(){
+    char tSplit[] = {',',';'};
+    String t[] = {"123","456","789"};
+    assertArrayEquals(t,str.split("123,456;789",tSplit,'"'));
+    String t2[] = {"123","456","789"};
+    assertArrayEquals(t2,str.split("\"123\",\"456\";\"789\"",tSplit,'"'));
+    String t3[] = {"1,;23","456","7,**89"};
+    assertArrayEquals(t3,str.split("\"1,;23\",\"456\";\"7,**89\"",tSplit,'"'));
+  }
+  @Test
   public void testStr(){
     assertEquals("1.3", str.str(1.3));
     assertEquals("1.3", str.str(1.3f));
