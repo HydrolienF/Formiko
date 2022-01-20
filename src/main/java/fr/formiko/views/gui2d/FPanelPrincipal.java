@@ -7,7 +7,9 @@ import fr.formiko.usuel.images.image;
 
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.RenderingHints;
 
 /**
 *{@summary the main Panel.}<br>
@@ -43,6 +45,9 @@ public class FPanelPrincipal extends FPanel {
   public FPanelMenu getPm(){ return pm;}
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
+    Graphics2D g2d = (Graphics2D)g;
+    g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); //good for all drawLine, drawCircle etc.
+    // g2d.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE); //not good for straight line
     ThMove.updateQueue();
     if (img!=null){
       g.drawImage(img,0,0,this);
