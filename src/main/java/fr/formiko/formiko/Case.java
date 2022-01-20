@@ -132,12 +132,13 @@ public class Case implements Serializable{
   */
   public void setType(byte type){
     this.type = type;
-    //TODO
-    // int abondanceHerbe = Main.getPartie().getCarte().getAbondanceHerbe();
-    int abondanceHerbe =10;
-    // int foodInsecteMaxTemp;
+    int abondanceHerbe;
+    if(Main.getPartie()!=null && Main.getPartie().getCarte()!=null){
+      abondanceHerbe = Main.getPartie().getCarte().getAbondanceHerbe();
+    }else{
+      abondanceHerbe = 8;
+    }
     int foodInsecteParTourTemp;
-    // int foodInsecteTemp;
     switch(type){
       case 1: //grass
       case 2: //moss
@@ -147,7 +148,6 @@ public class Case implements Serializable{
       foodInsecteParTourTemp=allea.getAllea(1+abondanceHerbe/5);
       break;
       default:
-      // foodInsecteMaxTemp=0;
       foodInsecteParTourTemp=0;
       break;
     }
