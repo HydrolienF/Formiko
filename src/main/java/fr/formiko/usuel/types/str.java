@@ -35,7 +35,7 @@ public class str {
     char tc [] = toSplit.toCharArray();
     for (char c : tc) {
       if(c==strLimiterChar){haveReachStrLimiterChar=!haveReachStrLimiterChar;}
-      else if(!haveReachStrLimiterChar && contains(splitChar, c)){
+      else if(!haveReachStrLimiterChar && CharBuffer.wrap(splitChar).chars().anyMatch(x -> x==c)){
         len++;
       }
     }
@@ -47,7 +47,7 @@ public class str {
     int k=0;
     for (char c : tc) {
       if(c==strLimiterChar){haveReachStrLimiterChar=!haveReachStrLimiterChar;}
-      else if(!haveReachStrLimiterChar && contains(splitChar, c)){
+      else if(!haveReachStrLimiterChar && CharBuffer.wrap(splitChar).chars().anyMatch(x -> x==c)){
           k++;
       }else{
         t[k]+=c;
@@ -58,9 +58,6 @@ public class str {
       e.printStackTrace();
       return null;
     }
-  }
-  private static boolean contains(final char[] array, final char v) {
-    return CharBuffer.wrap(array).chars().anyMatch(x -> x == v);
   }
   /**
   *{@summary Remove all accent &#38; replace special char by latin one.}<br>
