@@ -2,6 +2,7 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.usuel.g;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -43,9 +44,10 @@ public class FButtonPGO extends FButton {
   public void paintComponent(Graphics g){
     Graphics2D g2d = (Graphics2D)g;
     g2d.setColor(getBackgroundColor());
-    g2d.fillOval(0,0,getWidth(),getHeight());
+    g2d.fillOval(0,0,getWidth()-1,getHeight()-1);
+    g2d.setStroke(new BasicStroke(1));
     g2d.setColor(Color.BLACK);
-    g2d.drawOval(0,0,getWidth(),getHeight());
+    g2d.drawOval(0,0,getWidth()-1,getHeight()-1);
     super.paintComponent(g);
   }
   /**

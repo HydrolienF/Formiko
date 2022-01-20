@@ -108,7 +108,7 @@ public class EtiquetteJoueur extends FPanel{
     }
     //g2d.setColor(new Color(col.getRed(),col.getGreen(),col.getBlue(),152));
     g2d.setColor(col); // une couleur sans transparence pour évité d'avoir a redessiner toute la fenetre.
-    g2d.fillRoundRect(0,0,taille*7/10+taille/7,FLabel.getDimY()*2,arrondi,arrondi);
+    g2d.fillRoundRect(borderSize/2,borderSize/2,taille*7/10+taille/7,FLabel.getDimY()*2,arrondi,arrondi);
     dsc.setBounds(FLabel.getDimY()/2+borderSize,borderSize,taille*5/10-FLabel.getDimY()/4);
     combo.setBounds(taille*5/10+borderSize,borderSize,taille/7,FLabel.getDimY());
     // couleur.setBounds(taille*5/10+taille/7,0,taille/7,FLabel.getDimY());
@@ -119,7 +119,7 @@ public class EtiquetteJoueur extends FPanel{
   public void paintBorder(Graphics2D g, int taille, int arrondi){
     BasicStroke ligne = new BasicStroke(borderSize);
     g.setStroke(ligne);
-    g.drawRoundRect(0,0,taille*7/10+taille/7,FLabel.getDimY()*2,arrondi,arrondi);
+    g.drawRoundRect(borderSize/2,borderSize/2,taille*7/10+taille/7,FLabel.getDimY()*2,arrondi,arrondi);
   }
   /**
   *{@summary Initialize color chooser if it's needed.}
