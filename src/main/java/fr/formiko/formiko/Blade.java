@@ -2,6 +2,7 @@ package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Point;
+import fr.formiko.usuel.maths.math;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -53,6 +54,7 @@ public abstract class Blade extends Point implements Serializable {
   // public byte getDirection(){return direction;}
   abstract byte getLength();
   abstract Color getColor();
+  public static int getThikness(){return 2;}
 
   /**
   *{@summary Main function that draw this on g.}<br>
@@ -62,11 +64,12 @@ public abstract class Blade extends Point implements Serializable {
   *@version 2.16
   */
   public void draw(Graphics g, int xOffset, int yOffset){
-    int xT = xOffset+x;
-    int yT = yOffset+y;
+    Graphics2D g2 = (Graphics2D) g;
+    g2.setStroke(new BasicStroke(math.max(getThikness()*Main.getData().getTailleDUneCase()/100,1), BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+    int xT = xOffset+x*Main.getData().getTailleDUneCase()/100;
+    int yT = yOffset+y*Main.getData().getTailleDUneCase()/100;
     int bLen = getLength()*Main.getData().getTailleDUneCase()/100;
     g.setColor(getColor());
-    ((Graphics2D)g).setStroke(new BasicStroke(1));
     g.drawLine(xT, yT, xT+(int)(bLen*Math.cos(angle)), yT+(int)(bLen*Math.sin(angle)));
   }
 }
