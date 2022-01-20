@@ -19,7 +19,7 @@ import java.util.Random;
 public abstract class Blade extends Point implements Serializable {
   private double angle;
   // private byte direction; //0 to 90
-  // private byte length; //0 to 100
+  private byte length; //0 to 100
   private static Random rand;
   private final static int avoidBorder=10;
   // private static Color col = new Color(14,138,22);
@@ -42,8 +42,9 @@ public abstract class Blade extends Point implements Serializable {
   *{@summary Main contructor with random direction &#38; random location.}<br>
   *@version 2.16
   */
-  protected Blade(){
+  protected Blade(int len){
     super(0,0); //TODO avoid double init°.
+    length=(byte)len;
     if(rand==null){rand=new Random();}
     // direction = (byte)rand.nextInt(91);
     int angleToRotate = 30;
@@ -52,7 +53,8 @@ public abstract class Blade extends Point implements Serializable {
     y = rand.nextInt(100-(2*avoidBorder))+avoidBorder/2;
   }
   // public byte getDirection(){return direction;}
-  abstract byte getLength();
+  public byte getLength(){return length;}
+  public void setLength(byte l){length=l;}
   abstract Color getColor();
   public static int getThikness(){return 2;}
 
@@ -64,6 +66,7 @@ public abstract class Blade extends Point implements Serializable {
   *@version 2.16
   */
   public void draw(Graphics g, int xOffset, int yOffset){
+    if(!Main.getOp().getDrawBlades()){return;}
     Graphics2D g2 = (Graphics2D) g;
     g2.setStroke(new BasicStroke(math.max(getThikness()*Main.getData().getTailleDUneCase()/100,1), BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
     int xT = xOffset+x*Main.getData().getTailleDUneCase()/100;

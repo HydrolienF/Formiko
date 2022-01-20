@@ -107,7 +107,7 @@ public class EtiquetteJoueur extends FPanel{
       // couleur.setForeground(Color.BLACK);
     }
     //g2d.setColor(new Color(col.getRed(),col.getGreen(),col.getBlue(),152));
-    g2d.setColor(col); // une couleur sans transparence pour évité d'avoir a redessiner toute la fenetre.
+    g2d.setColor(col);
     g2d.fillRoundRect(borderSize/2,borderSize/2,taille*7/10+taille/7,FLabel.getDimY()*2,arrondi,arrondi);
     dsc.setBounds(FLabel.getDimY()/2+borderSize,borderSize,taille*5/10-FLabel.getDimY()/4);
     combo.setBounds(taille*5/10+borderSize,borderSize,taille/7,FLabel.getDimY());

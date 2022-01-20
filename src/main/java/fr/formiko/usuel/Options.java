@@ -63,6 +63,7 @@ public class Options implements Serializable{
   private boolean gui_partie_drawNeutralCreatures;
   private boolean gui_partie_drawEnemyCreatures;
   private boolean gui_partie_drawOnlyEatable;
+  private boolean gui_partie_drawBlades;
   private boolean gui_pgo_drawGrid;
   private byte gui_global_borderButtonSize;
   private boolean gui_pgo_drawRelationsIcons;
@@ -129,6 +130,8 @@ public class Options implements Serializable{
   public void setDrawSeeds(boolean b){ gui_partie_drawSeeds = b;}
   public boolean getDrawOnlyEatable(){ return gui_partie_drawOnlyEatable;}
   public void setDrawOnlyEatable(boolean b){ gui_partie_drawOnlyEatable = b;}
+  public boolean getDrawBlades(){ return gui_partie_drawBlades;}
+  public void setDrawDrawBlades(boolean b){ gui_partie_drawBlades = b;}
   public boolean getDrawEnemyCreatures(){ return gui_partie_drawEnemyCreatures;}
   public void setDrawEnemyCreatures(boolean b){ gui_partie_drawEnemyCreatures = b;}
   public boolean getDrawNeutralCreatures(){ return gui_partie_drawNeutralCreatures;}
@@ -377,6 +380,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("gui_partie_drawEnemyCreatures","true");
     defaultProperties.setProperty("gui_partie_drawNeutralCreatures","true");
     defaultProperties.setProperty("gui_partie_drawOnlyEatable","true");
+    defaultProperties.setProperty("gui_partie_drawBlades","true");
     defaultProperties.setProperty("gui_partie_drawSeeds","true");
     defaultProperties.setProperty("gui_partie_instantaneousMovement","false");
     defaultProperties.setProperty("gui_partie_maxMessageDisplay","10");
@@ -462,6 +466,7 @@ public class Options implements Serializable{
     gui_partie_drawEnemyCreatures=str.sToB(properties.getProperty("gui_partie_drawEnemyCreatures"));
     gui_partie_drawNeutralCreatures=str.sToB(properties.getProperty("gui_partie_drawNeutralCreatures"));
     gui_partie_drawOnlyEatable=str.sToB(properties.getProperty("gui_partie_drawOnlyEatable"));
+    gui_partie_drawBlades=str.sToB(properties.getProperty("gui_partie_drawBlades"));
     gui_partie_drawSeeds=str.sToB(properties.getProperty("gui_partie_drawSeeds"));
     gui_partie_instantaneousMovement=str.sToB(properties.getProperty("gui_partie_instantaneousMovement"));
     gui_partie_maxMessageDisplay=str.sToBy(properties.getProperty("gui_partie_maxMessageDisplay"));
@@ -546,6 +551,7 @@ public class Options implements Serializable{
     properties.setProperty("gui_partie_drawEnemyCreatures",""+gui_partie_drawEnemyCreatures);
     properties.setProperty("gui_partie_drawNeutralCreatures",""+gui_partie_drawNeutralCreatures);
     properties.setProperty("gui_partie_drawOnlyEatable",""+gui_partie_drawOnlyEatable);
+    properties.setProperty("gui_partie_drawBlades",""+gui_partie_drawBlades);
     properties.setProperty("gui_partie_drawSeeds",""+gui_partie_drawSeeds);
     properties.setProperty("gui_partie_instantaneousMovement",""+gui_partie_instantaneousMovement);
     properties.setProperty("gui_partie_maxMessageDisplay",""+gui_partie_maxMessageDisplay);

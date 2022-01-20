@@ -236,6 +236,9 @@ public class action {
       case 356:
       Main.getOp().setAntColorLevel((byte)((Main.getOp().getAntColorLevel()+1)%3));
       break;
+      case 357:
+      Main.getOp().setDrawDrawBlades(!Main.getOp().getDrawBlades());
+      break;
       default:
       break;
     }

@@ -11,10 +11,8 @@ import java.awt.Color;
 public class BladeSand extends Blade implements Serializable {
   private static Color col = new Color(182,140,0);
 
-  public BladeSand(){super();}
+  public BladeSand(){super(25);}
 
-  @Override
-  public byte getLength(){return 25;}
   @Override
   public Color getColor(){return col;}
 }

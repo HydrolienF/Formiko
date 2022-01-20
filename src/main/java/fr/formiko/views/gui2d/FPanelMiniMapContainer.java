@@ -14,6 +14,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import fr.formiko.formiko.Blade;
+import fr.formiko.formiko.BladeGrass;
 import java.util.function.Supplier;
 
 /**
@@ -220,7 +222,7 @@ public class FPanelMiniMapContainer extends FPanel {
     private boolean isIni(){return !buttonList.isEmpty();}
     /**
     *{@summary Build function that add all the button.}<br>
-    *@version 2.10
+    *@version 2.16
     */
     private void build(){
       if(getWidth()==1 || isIni()){return;}
@@ -244,6 +246,9 @@ public class FPanelMiniMapContainer extends FPanel {
       });
       addGraphicOption(356, getColoredRoundImage(true), () -> {
         return Main.getOp().getAntColorLevel();
+      });
+      addGraphicOption(357, getBladesImage(), () -> {
+        return Main.getOp().getDrawBlades();
       });
       placeButtons();
     }
@@ -306,6 +311,25 @@ public class FPanelMiniMapContainer extends FPanel {
         int x = (int)(((i*0.5)+1)*getHeight()/len);
         g.drawLine((getHeight())/3,x,(getHeight()*2)/3,x);
       }
+      return bi;
+    }
+    /**
+    *{@summary Return a grass blade image.}<br>
+    *@version 2.16
+    */
+    private BufferedImage getBladesImage(){
+      BufferedImage bi = new BufferedImage(getHeight(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+      Graphics g = bi.getGraphics();
+      g.setColor(new Color(11,93,16));
+      g.drawLine(getHeight()*2/6, getHeight()/3, (int)(getHeight()*2.5/6), getHeight()*2/3);
+      g.drawLine(getHeight()*3/6, getHeight()/3, getHeight()*3/6, getHeight()*2/3);
+      g.drawLine(getHeight()*4/6, getHeight()/3, (int)(getHeight()*3.5/6), getHeight()*2/3);
+      // Blade b = new BladeGrass();
+      // b.setLength((byte)(getHeight()/3));
+      // b.draw(g,getHeight()/3,getHeight()*2/3);
+      // b = new BladeGrass();
+      // b.setLength((byte)(getHeight()/3));
+      // b.draw(g,getHeight()*2/3,getHeight()*2/3);
       return bi;
     }
     /**

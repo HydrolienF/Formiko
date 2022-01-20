@@ -11,10 +11,8 @@ import java.awt.Color;
 public class BladeMoss extends Blade implements Serializable {
   private static Color col = new Color(11,93,16); //moss
 
-  public BladeMoss(){super();}
+  public BladeMoss(){super(10);}
 
-  @Override
-  public byte getLength(){return 10;}
   @Override
   public Color getColor(){return col;}
 }
