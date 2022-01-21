@@ -42,7 +42,7 @@ public class ecrireUnFichier {
   public static void ecrireUnFichier(GString tableauDeLigne){
     String pseudo = "X";
     LocalDateTime date = LocalDateTime.now();
-    String dateFr = date.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH;mm;ss"));
+    String dateFr = date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH;mm;ss"));
     String nomDuFichier = read.getString("nomDuFichier"," ");
     if (nomDuFichier.equals(" ")){
       nomDuFichier = pseudo + " "+ dateFr;

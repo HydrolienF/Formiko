@@ -183,7 +183,6 @@ public class FPanelCarte extends FPanel {
     }
   }
   public void drawBlades(Graphics g, GCase gc){
-    // if(!Main.getOp().getDrawBlades()){return;}
     if(getView().getBladeChanged()){
       getView().setBladeChanged(false);
       bladeImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
