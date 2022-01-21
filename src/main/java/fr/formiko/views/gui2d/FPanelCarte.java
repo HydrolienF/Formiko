@@ -63,6 +63,7 @@ public class FPanelCarte extends FPanel {
   // private SubPanel subPanel;
   private static Comparator<Creature> imageSizeComparator = (Creature p1, Creature p2) -> (int)(p1.getEspece().getTaille(p1.getStade()) - p2.getEspece().getTaille(p2.getStade()));
   private BufferedImage iconImage;
+  private BufferedImage bladeImage;
   private BufferedImage tBiState []=null;
   private int TRANSPARENCY = 180;
 
@@ -144,6 +145,7 @@ public class FPanelCarte extends FPanel {
       }
       dessinerGrille(g);
       iconImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+      drawBlades(g, gc);
       for (int i=0; i<xCase; i++) {
         for (int j=0; j<yCase; j++) {
           peintImagePourCase(gc,i,j,g);
@@ -179,6 +181,25 @@ public class FPanelCarte extends FPanel {
         g.drawLine(0,xT,tailleCase*xCase,xT);
       }
     }
+  }
+  public void drawBlades(Graphics g, GCase gc){
+    if(!Main.getOp().getDrawBlades()){return;}
+    if(getView().getBladeChanged()){
+      System.out.println("chnagder");//@a
+      getView().setBladeChanged(false);
+      bladeImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+      Graphics gBlade = bladeImage.getGraphics();
+      for (int i=0; i<xCase; i++) {
+        for (int j=0; j<yCase; j++) {
+          Point point = getPointFromCase(i,j,false);
+          int xT = point.getX(); int yT = point.getY();
+          for (Blade b : gc.getCCase(i,j).getContent().getGb()) {
+            b.draw(gBlade, xT, yT);
+          }
+        }
+      }
+    }
+    drawImage(g, bladeImage, 0, 0);
   }
   /*public void repaintParciel(Case c){
     peintImagePourCase(c,(Graphics2D) this.getGraphics());
@@ -413,9 +434,6 @@ public class FPanelCarte extends FPanel {
           int tailleDuCercle = Main.getTailleElementGraphique(20);
           drawRondOuRect(xT,yT,getTailleDUneCase(),g,c.getFere(),tailleDuCercle);
         }
-      }
-      for (Blade b : c.getGb()) {
-        b.draw(g, xT, yT);
       }
       if(isSombre(x,y)){
         drawImage(g,Main.getData().getCSombre(),xT,yT); // si les créatures sur la case ne sont pas visible.

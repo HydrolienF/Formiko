@@ -202,6 +202,7 @@ public class FPanelJeu extends FPanel {
       Main.getData().chargerImages();
       getView().getPmmc().build();
       Main.getData().iniBackgroundMapImage();
+      getView().setBladeChanged(true);
     }
   }
   public void actionZoom(byte ac){

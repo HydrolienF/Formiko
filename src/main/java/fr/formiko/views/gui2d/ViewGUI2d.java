@@ -48,6 +48,7 @@ public class ViewGUI2d implements View {
   private CCase ccaseClicked;
   private boolean moveMode=false;
   private volatile boolean launchFromPm;
+  private boolean bladeChanged;
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
@@ -81,6 +82,8 @@ public class ViewGUI2d implements View {
   // public Case getCaseClicked(){return caseClicked;}
   // public void setCaseClicked(Case c){caseClicked=c;}
   public void setLaunchFromPm(boolean b){launchFromPm=b;}
+  public boolean getBladeChanged(){return bladeChanged;}
+  public void setBladeChanged(boolean b){bladeChanged=b;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
@@ -642,6 +645,7 @@ public class ViewGUI2d implements View {
   *@version 2.16
   */
   public boolean isBladesEnable(){
+    setBladeChanged(true);
     return true;
   }
 
