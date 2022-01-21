@@ -11,6 +11,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  *{@summary Save a game.}<br>
@@ -118,13 +120,27 @@ public class sauvegarderUnePartie {
   /**
   *{@summary make a list with all save in a [] and return it.}<br>
   *return An array of every file aviable in REPSAVE sort in non-ascending order.<br>
-  *@version 1.33
+  *@version 2.16
   */
   public static String [] listSave(){
-    File f = new File(REP);
-    String r [] = f.list();
-    int lenr = r.length;
-    tableau.sort(r,false);
+    File[] files = new File(REP).listFiles();
+    Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+    int len = files.length;
+    String r [] = new String[len];
+    for (int i=0; i<len;i++ ) {
+      String s=files[i].getName();
+      int lenS = s.length();
+      if(lenS>5){
+        r[i]=s.substring(0,lenS-5);
+      }else{
+        r[i]="";
+        erreur.alerte("A file name in save are to short to be concidered as a save: "+s);
+      }
+    }
+    // File f = new File(REP);
+    // String r [] = f.list();
+    // int lenr = r.length;
+    // tableau.sort(r,false);
     return r;
   }
 }

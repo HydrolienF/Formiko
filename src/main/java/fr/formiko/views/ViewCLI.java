@@ -154,7 +154,7 @@ public class ViewCLI implements View {
   /**
   *{@summary Load the game load menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
+  *@version 2.16
   */
   public boolean menuLoadAGame(){
     actionGameOn=false;
@@ -169,7 +169,7 @@ public class ViewCLI implements View {
     if(choice==tToPrint.length){
       menuMain();
     }else{
-      Partie pa = Partie.getPartieSave(tToPrint[choice-1]);
+      Partie pa = Partie.getPartieSave(tToPrint[choice-1]+".save");
       Main.setPartie(pa);
       actionGame();
     }

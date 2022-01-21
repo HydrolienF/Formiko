@@ -24,20 +24,10 @@ public class FPanelChoixPartie extends FPanelLanceurPartie {
   public FPanelChoixPartie(){
     super(101);
     this.setLayout(null);
-    GString gs = new GString(sauvegarderUnePartie.listSave());
-    GString gs2 = new GString();
-    boolean emptyList = true;
-    for (String s : gs) {
-      try {
-        gs2.add(s.substring(0,s.length()-5));
-        emptyList = false;
-      }catch (Exception e) {}
-    }
+    GString gs2 = new GString(sauvegarderUnePartie.listSave());
     ePartie = new EtiquetteChoix("choisirPartie",gs2);
-    //ePartie.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,getHeight()*3/5);
-    //ePartie.setTaille(getWidth()*1/5,getHeight()*1/5);
     add(ePartie);
-    if (emptyList) {
+    if (gs2.isEmpty()) {
       getLaunchButton().setEnabled(false);
     }
   }
@@ -51,7 +41,7 @@ public class FPanelChoixPartie extends FPanelLanceurPartie {
   }
   public Partie getPartie(){
     String partieName = ePartie.getSelectedItem()+"";
-    str.addALaFinSiNecessaire(partieName,".save");
+    partieName = str.addALaFinSiNecessaire(partieName,".save");
     Partie pa = sauvegarderUnePartie.charger(partieName);
     return pa;
   }
