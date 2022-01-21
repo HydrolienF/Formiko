@@ -35,7 +35,7 @@ public class Temps {
    *{@summary DateFormat.}<br>
    *@version 1.4
    */
-  private String df = "yyyy/MM/dd HH:mm"; //international (Especialy Asia Europe)
+  // private String df = "yyyy/MM/dd HH:mm"; //international (Especialy Asia Europe)
   // private String df = "dd/MM/yyyy HH:mm"; // USA
   // private String df = "MM/dd/yyyy HH:mm"; // Europe, Africa, Asia, Oceania & America
 
@@ -51,16 +51,14 @@ public class Temps {
   public long getTempsEnJeux(){ return tempsEnJeux;}
   public void setTempsEnJeux(long x){tempsEnJeux=x;}
   public void addTempsEnJeux(long x){ setTempsEnJeux(getTempsEnJeux()+x);}
-  public String getDf(){return df;}
-  public void setDf(String s){df=s;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
-  *{@summary Return a string representing time as in date format df.}
+  *{@summary Return a string representing time as in Options date format.}
   *@version 1.23
   */
   public String toString(){
     String r="";
-    SimpleDateFormat sdf = new SimpleDateFormat(df);
+    SimpleDateFormat sdf = new SimpleDateFormat(Main.getOp().getDateFormat());
     r+=g.getM("date1") + " : ";
     Date date1b = new Date(date1);
     r+=sdf.format(date1b);r+="\n";
@@ -182,12 +180,11 @@ public class Temps {
   }
   /**
   *{@summary return current date + current hours.}
-  *@version 1.23
+  *@version 2.16
   */
   public static String getDatePourSauvegarde(){
-    String df2 = "yyyy-MM-dd HH;mm;ss";
-    SimpleDateFormat sdf = new SimpleDateFormat(df2);
-    return sdf.format(System.currentTimeMillis());
+    String dateStr = Main.getOp().getDateFormat().replace('/','-').replace(':','-');
+    return new SimpleDateFormat(dateStr).format(System.currentTimeMillis());
   }
   /**
   *{@summary Initialize time file.}

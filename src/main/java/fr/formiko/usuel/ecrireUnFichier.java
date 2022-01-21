@@ -1,5 +1,6 @@
 package fr.formiko.usuel;
 
+import fr.formiko.formiko.Main;
 import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
@@ -41,11 +42,9 @@ public class ecrireUnFichier {
   }
   public static void ecrireUnFichier(GString tableauDeLigne){
     String pseudo = "X";
-    LocalDateTime date = LocalDateTime.now();
-    String dateFr = date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH;mm;ss"));
     String nomDuFichier = read.getString("nomDuFichier"," ");
-    if (nomDuFichier.equals(" ")){
-      nomDuFichier = pseudo + " "+ dateFr;
+    if (nomDuFichier.equals("") || nomDuFichier.equals(" ")){//use default name
+      nomDuFichier = pseudo + " "+ Temps.getDatePourSauvegarde();
     }else{
       char charInterdit [] = {'/','\\',':','*','?','"','<','>','|'};
       if(opperationSurString.contientChar(nomDuFichier,charInterdit)){

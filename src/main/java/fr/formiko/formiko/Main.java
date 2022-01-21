@@ -330,6 +330,7 @@ public class Main {
     iniLangue();
     startCh();
     tem = new Temps();
+    erreur.info(tem.toString());
     endCh("chargementDesDonnéesTemporelles");
     setMessageChargement("chargementDesEspeceDeFourmi");startCh();
     Partie.iniGe(); // chargement des Especes.

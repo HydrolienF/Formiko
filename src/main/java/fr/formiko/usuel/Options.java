@@ -85,6 +85,7 @@ public class Options implements Serializable{
   private boolean gui_hide_modeFPS;
   private int gui_global_fps;
   private boolean gui_global_animationEnable;
+  private String gui_global_dateFormat;
   private byte gui_pgo_antColorLevel;
   private boolean gui_pgo_drawAllAnthillColor;
   private boolean gui_pgo_drawPlayerMessagePanel;
@@ -239,6 +240,8 @@ public class Options implements Serializable{
   public void setAnimationEnable(boolean b){gui_global_animationEnable=b;}
   public boolean getFontTitlePersonalised(){return gui_global_fontTitlePersonalised;}
   public void setFontTitlePersonalised(boolean b){gui_global_fontTitlePersonalised=b;}
+  public String getDateFormat(){return gui_global_dateFormat;}
+  public void setDateFormat(String s){gui_global_dateFormat=s;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize Options.}<br>
@@ -320,7 +323,7 @@ public class Options implements Serializable{
   *{@summary get defaultProperties of the Options.}<br>
   *It can be used to save default Options or to repair Options.md file if something is mising.<br>
   *Value for version, language, fontSize &#38; butonSize depend of the user computer.<br>
-  *@version 2.5
+  *@version 2.16
   */
   private SortedProperties getDefaultProperties(){
     SortedProperties defaultProperties = new SortedProperties(34);
@@ -359,6 +362,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("game_whaitBeforeLaunchGame","true");
     defaultProperties.setProperty("game_discordRP","false");
     defaultProperties.setProperty("gui_global_animationEnable","true");
+    defaultProperties.setProperty("gui_global_dateFormat","yyyy/MM/dd HH:mm:ss");
     defaultProperties.setProperty("gui_global_borderButtonSize","4");
     defaultProperties.setProperty("gui_global_buttonSizeAction",""+t[1]);
     defaultProperties.setProperty("gui_global_fontSizeText",""+(int)(30*racio));
@@ -445,6 +449,7 @@ public class Options implements Serializable{
     game_whaitBeforeLaunchGame=str.sToB(properties.getProperty("game_whaitBeforeLaunchGame"));
     game_discordRP=str.sToB(properties.getProperty("game_discordRP"));
     gui_global_animationEnable=str.sToB(properties.getProperty("gui_global_animationEnable"));
+    gui_global_dateFormat=properties.getProperty("gui_global_dateFormat");
     gui_global_borderButtonSize=str.sToBy(properties.getProperty("gui_global_borderButtonSize"));
     gui_global_buttonSizeAction=str.sToBy(properties.getProperty("gui_global_buttonSizeAction"));
     gui_global_fontSizeText=str.sToI(properties.getProperty("gui_global_fontSizeText"));
@@ -530,6 +535,7 @@ public class Options implements Serializable{
     properties.setProperty("game_whaitBeforeLaunchGame",""+game_whaitBeforeLaunchGame);
     properties.setProperty("game_discordRP",""+game_discordRP);
     properties.setProperty("gui_global_animationEnable",""+gui_global_animationEnable);
+    properties.setProperty("gui_global_dateFormat",gui_global_dateFormat);
     properties.setProperty("gui_global_borderButtonSize",""+gui_global_borderButtonSize);
     properties.setProperty("gui_global_buttonSizeAction",""+gui_global_buttonSizeAction);
     properties.setProperty("gui_global_fontSizeText",""+gui_global_fontSizeText);
