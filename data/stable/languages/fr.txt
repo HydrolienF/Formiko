@@ -450,7 +450,7 @@ conseil.6:Ne pondez pas trop d’œuf a la fois. Sinon vous ne serez plus capabl
 conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Les choix que vous avez à faire sont indiqué en haut a gauche de votre écran.
 conseil.9:Les fourmi ne possèdent pas de paupière pour humidifier leur yeux. Elles doivent constamment conserver une bonne hygiène de vie afin de pouvoir communiquer avec leur antennes et voir avec leur yeux.
-conseil.10:Les œux, lave et nymphe ne sont pas capable de ce nettoyer tout seuls. Il leur faut nécessairement l'aide d'un imago sinon il risquerait d'être infecter par une mauvaise bactérie. veillez a ce que votre couvain reste au dessus de 50% de propreté.
+conseil.10:Les œux, lave et nymphe ne sont pas capable de ce nettoyer tout seuls. Il leur faut nécessairement l'aide d'un imago sinon il risquerait d'être infecté par une mauvaise bactérie. veillez a ce que votre couvain reste au dessus de 50% de propreté.
 conseil.11:La Reine ne peut pondre que lorsqu'elle est dans la fourmilière.
 conseil.12:Les fourmis granivore ce nourrissent exclusivement de graine. Pour stocker leur nourriture elles conservent les graines dans des pièces sèche de la fourmilière.
 conseil.13:Les fourmis granivore ne sont pas capable de trophallaxer. Pour nourrir le couvain elles doivent nécessairement avoir des graines ouverte en stock dans la fourmilière.
@@ -492,10 +492,10 @@ tuto.13:l’œuf est pondu. Maintenant il faut en prendre soin, sinon il n'arriv
 tuto.14:attendons un peu qu'il grandisse.
 tuto.15:attendez un tour en cliquant sur le bouton "Passer le tour" situé en bas de votre écran.
 tuto.16:Notre œuf a grandi ! C'est désormais une larve !
-tuto.17:Les larves ont besoin d'être nettoyer fréquemment pour ne pas mourir de maladie.
+tuto.17:Les larves ont besoin d'être nettoyées fréquemment pour ne pas mourir de maladie.
 tuto.18:Nettoyez la larve en cliquant sur le bouton "Nettoyer" situé en bas de votre écran.
 tuto.19:Notre larve est propre. Attendons qu'elle évolue au stade supérieur en passant le tour avec le bouton associé en bas de votre écran.
-tuto.20:La larve a évoluée, c'est désormais une nymphe. Les nymphe ont, comme les larves, besoins d'être nettoyé et nourrie.
+tuto.20:La larve a évoluée, c'est désormais une nymphe. Les nymphe ont, comme les larves, besoins d'être nettoyées et nourries.
 tuto.21:Pour nourrir le couvains (les œuf, larves et nymphes), les fourmis régurgite de la nourriture contenu dans leur "estomac sociale". On appelle cela une trophallaxie.
 tuto.22:nourrissez la larve avec le bouton "Trophallaxie" situé en bas de votre écran.
 tuto.23:La nymphe est rassasié ! Attendons encore un peu qu'elle grandisse. (cliquer sur le bouton "Passer le tour" situé en bas de votre écran.)
