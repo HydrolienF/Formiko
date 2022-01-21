@@ -183,9 +183,9 @@ public class FPanelCarte extends FPanel {
     }
   }
   public void drawBlades(Graphics g, GCase gc){
-    if(!Main.getOp().getDrawBlades()){return;}
+    // if(!Main.getOp().getDrawBlades()){return;}
     if(getView().getBladeChanged()){
-      System.out.println("chnagder");//@a
+    // if(true){
       getView().setBladeChanged(false);
       bladeImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
       Graphics gBlade = bladeImage.getGraphics();
@@ -193,12 +193,18 @@ public class FPanelCarte extends FPanel {
         for (int j=0; j<yCase; j++) {
           Point point = getPointFromCase(i,j,false);
           int xT = point.getX(); int yT = point.getY();
-          for (Blade b : gc.getCCase(i,j).getContent().getGb()) {
-            b.draw(gBlade, xT, yT);
+          if(Main.getOp().getDrawBlades()){
+            for (Blade b : gc.getCCase(i,j).getContent().getGb()) {
+              b.draw(gBlade, xT, yT);
+            }
+          }else{
+            gBlade.setColor(new Color(0,180,0, math.min(255,gc.getCCase(i,j).getContent().getFoodInsecte()*2)));
+            gBlade.fillRect(xT+1, yT+1, getTailleDUneCase()-2, getTailleDUneCase()-2);
           }
         }
       }
     }
+    //TOFIX it don't draw all time greeen part.
     drawImage(g, bladeImage, 0, 0);
   }
   /*public void repaintParciel(Case c){

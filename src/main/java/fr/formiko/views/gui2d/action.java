@@ -238,6 +238,7 @@ public class action {
       break;
       case 357:
       Main.getOp().setDrawDrawBlades(!Main.getOp().getDrawBlades());
+      FPanel.getView().setBladeChanged(true);
       break;
       default:
       break;
