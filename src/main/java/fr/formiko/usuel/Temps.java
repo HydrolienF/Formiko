@@ -185,7 +185,7 @@ public class Temps {
   *@version 1.23
   */
   public static String getDatePourSauvegarde(){
-    String df2 = "dd-MM-yyyy HH-mm-ss";
+    String df2 = "yyyy-MM-dd HH;mm;ss";
     SimpleDateFormat sdf = new SimpleDateFormat(df2);
     return sdf.format(System.currentTimeMillis());
   }
