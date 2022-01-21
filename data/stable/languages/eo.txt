@@ -374,6 +374,8 @@ bouton.desc.352:statoj de la amikojn formikojn
 bouton.desc.353:formikejoj coloroj
 bouton.desc.354:komunikada ĵurnalo
 bouton.desc.355:desegni nur manĝeblajn semojn/insektojn (Aŭ aliancanon/malamikon)[auto]
+bouton.desc.356:desegni formikojn koloron
+bouton.desc.357:desegni herbero 1 post 1
 
 pti.desc.1:indiki la kodo de la formiko ke ricevos la manĝaĵon.
 pti.desc.2:indiki la kvanto de dona manĝaĵo.
@@ -457,7 +459,7 @@ conseil.15:ĉu la ludo ŝajnas al vi tro komplika? Elektu facilan aŭ tre facila
 conseil.16:ĉu la ludo ŝajnas tro facila? Do provu gajni tre malfacilan ludon.[auto]
 conseil.17:se vi preferas mem esplori la mapon, marku la opcion nubaj skatoloj.[auto]
 conseil.18:ĉu vi iam provis lanĉi kutimon kun nur AI?[auto]
-conseil.19:se vi rigardas atente la teksturon de la herbo, vi eble rimarkos, ke ĝi enhavas nur 3 malsamajn herboklingojn.[auto]
+conseil.19:se vi rigardas atente la teksturon de la herbo, vi eble rimarkos, ke ĝi enhavas nur 3 malsamajn herbero.[auto]
 conseil.20:se estas nur unu formiko por purigi aŭ nutriĝi per la spaco, kie via formiko estas, ĝi estos aŭtomate elektita por esti viŝita aŭ manĝita.[auto]
 conseil.21:la ludo-lingvo estas aŭtomate tiu de via komputilo, sed vi povas ŝanĝi ĝin en la Opcioj.[auto]
 conseil.22:iuj specioj de formikoj estas policalaj. Tio signifas, ke reĝino de formikejo A metos novajn formikojn en ŝia formikejo B & la formikoj A kaj B daŭre helpos unu la alian kvazaŭ ĝi estus nur unu granda formikejo. Sur granda mapo utilas demeti reĝinajn kaj virajn ovojn, kiuj povas trovi novajn aliancitajn formikejojn ĉe la alia fino de la mapo.[auto]
