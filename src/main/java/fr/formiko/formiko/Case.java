@@ -4,6 +4,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Point;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
+import fr.formiko.usuel.Info;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
@@ -41,6 +42,7 @@ public class Case implements Serializable{
   public Case(Point p, Fourmiliere fere, GCreature gc){
     this(p,fere,gc,(byte) allea.getAllea(3),(byte)(allea.getAllea(100)+2),(byte) allea.getAllea(3));
     // si la food de départ n'est pas réduite :
+    // new Info().setContent("ini food insecte to a random value from 0 to "+foodInsecteMax).print();
     setFoodInsecte((byte) allea.getAllea(foodInsecteMax));
   }
   public Case(Point p){this(p,null,new GCreature());}
@@ -80,7 +82,7 @@ public class Case implements Serializable{
   public void addFoodInsecte(byte x){
     if(x<1){
       if(x<0){
-        erreur.alerte("Trying to add "+x+" foodInsecte on Case "+p);
+        new Info().setType(1).setClassDepth(1).setContent("Trying to add "+x+" foodInsecte on Case "+p).print();
       }
       return;
     }
@@ -154,8 +156,12 @@ public class Case implements Serializable{
     setFoodInsecteMax((byte)math.min(foodInsecteParTourTemp*20,127));
     setFoodInsecteParTour((byte)math.min(foodInsecteParTourTemp,127));
     gb = new GBlade(type);
+    if(getFoodInsecte()>0){
+      // new Info().setContent("remove "+getFoodInsecte()).print();
+      removeFoodInsecte(getFoodInsecte()); // if there was already some food insect
+    }
     if(getFoodInsecteMax()>0){
-      setFoodInsecte(allea.getAllea(getFoodInsecteMax()));
+      addFoodInsecte(allea.getAllea(getFoodInsecteMax()));
     }
   }
   public void setType(int x){setType((byte)x);}
@@ -228,6 +234,7 @@ public class Case implements Serializable{
     if(foodInsecte+toAdd > foodInsecteMax){
       toAdd=foodInsecteMax-foodInsecte;
     }
+    if(toAdd>127){toAdd=127;}
     addFoodInsecte((byte)toAdd);
   }
   public void actualisationGraine(CCase p){

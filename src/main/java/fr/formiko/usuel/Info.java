@@ -74,7 +74,7 @@ public class Info {
         break;
         case INFO:
         col=color.BLUE;
-        if(!Main.getOp().getMessage()){return;}
+        if(!Main.getOp().getWarning()){return;} //TODO have its own one as getInfo()
         m=g.get("info");
         break;
       }
