@@ -58,24 +58,27 @@ public class Info {
   public void print(){
     if(erreur.getMuet()){return;}
     if(type==null){type=InfoType.INFO;}
-    if(fix==null){fix="";}
     String m = "";
+    String col="";
     try {
       switch (type){
         case ERROR:
         if(!Main.getOp().getError()){return;}
-        m=color.RED+g.get("erreur");
+        col=color.RED;
+        m=g.get("erreur");
         break;
         case WARNING:
         if(!Main.getOp().getWarning()){return;}
-        m=color.YELLOW+g.get("alerte");
+        col=color.YELLOW;
+        m=g.get("alerte");
         break;
         case INFO:
+        col=color.BLUE;
         if(!Main.getOp().getMessage()){return;}
-        m=color.BLUE+g.get("info");
+        m=g.get("info");
         break;
       }
-      m="["+m.toUpperCase()+color.NEUTRAL+"] ";
+      m="["+col+m.toUpperCase()+color.NEUTRAL+"] ";
       if(classDepth>0){
         m+="("+erreur.getCurentClassAndMethodName(classDepth)+") ";
       }
@@ -83,12 +86,12 @@ public class Info {
         m+=str.sToSMaj(content)+".";
       }
       if(fix!=null){
-        m+=g.get("erreur.6")+" : "+str.sToSMaj(fix)+".";
+        m+=" "+g.get("erreur.6")+" : "+str.sToSMaj(fix)+".";
       }
     }catch (Exception e) {
       m="[null] ";
     }
-
+    System.out.println(m);
     if(fatal){erreur.forceStop();}
   }
 }

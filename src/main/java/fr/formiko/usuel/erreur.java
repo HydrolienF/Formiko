@@ -39,7 +39,7 @@ public class erreur {
       try {
         className = className.substring(0,className.length()-5);
       }catch (Exception e) {}
-    } while (k<lenst && (className.equals("erreur")));
+    } while (k<lenst && (className.equals("erreur") || className.equals("Info")));
     String cmName = "";
     for (int i=0;i<classDepth ; i++) {
       if(i>0){ cmName+=" - ";}
