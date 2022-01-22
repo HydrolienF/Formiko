@@ -23,7 +23,6 @@ public class MourirInsecte implements Serializable, Mourir {
    * @version 1.1
    */
   public void mourir(Creature c, int r){
-    // System.out.println(c);
     c.setIsDead(true);
     if(c instanceof Insecte){
       Insecte i= (Insecte)c;

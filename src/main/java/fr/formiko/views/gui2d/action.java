@@ -1,5 +1,6 @@
 package fr.formiko.views.gui2d;
 
+import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
@@ -201,10 +202,16 @@ public class action {
     // FPanel.getView().getPp().removePj();
     // FPanel.getView().getPp().addPm();
   }
+  /**
+  *{@summary Do as if mouse have been update.}
+  *@version 2.17
+  */
   public static void updateMouseLocation(){
-    try {
-      System.out.println(FPanel.getView().getPs().getCCase((int)MouseInfo.getPointerInfo().getLocation().getX(), (int)MouseInfo.getPointerInfo().getLocation().getY()).getContent());
-    }catch (Exception e) {}
+    if(FPanel.getView().getPs()==null){return;}
+    CCase cc = FPanel.getView().getPs().getCCase((int)MouseInfo.getPointerInfo().getLocation().getX(), (int)MouseInfo.getPointerInfo().getLocation().getY());
+    if(cc!=null){
+      FPanel.getView().getPs().mouseMovedUpdate(cc, true);
+    }
   }
   /**
   *{@summary do a graphic action concerning map aspect.}

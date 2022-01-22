@@ -26,6 +26,10 @@ public class Info {
   public Info(){
     classDepth=1;
   }
+  public Info(String content){
+    super();
+    setContent(content);
+  }
   /**
   *{@summary Set type from an int.}<br>
   *0=info, 1=warning, 2=error.
