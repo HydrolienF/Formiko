@@ -198,12 +198,19 @@ public class Options implements Serializable{
   public void setWhaitBeforeLaunchGame(boolean b){game_whaitBeforeLaunchGame=b;}
   public boolean getDiscordRP(){ return game_discordRP;}
   public void setDiscordRP(boolean b){game_discordRP=b;}
+
   public boolean getMessage(){return debug_message;}
   public void setMessage(boolean b){debug_message=b;}
+  public boolean getError(){return debug_error;}
+  public void setError(boolean b){debug_error=b;}
+  public boolean getWarning(){return debug_alerte;}
+  public void setWaring(boolean b){debug_alerte=b;}
+  
   public boolean getPerformance(){return debug_performance;}
   public void setPerformance(boolean b){debug_performance=b;}
   public boolean getAffG(){return debug_gui;}
   public void setAffG(boolean b){debug_gui=b;}
+
   public boolean getPaintHitBox(){return debug_paintHitBox;}
   public void setPaintHitBox(boolean b){debug_paintHitBox=b;}
   public int getSizeOfMapLines(){ return gui_partie_sizeOfMapLines;}

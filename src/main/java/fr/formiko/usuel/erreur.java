@@ -28,7 +28,6 @@ public class erreur {
   *It will be like this "className.functionName llineNumber".<br>
   *@version 1.41
   */
-  //public only for test
   public static String getCurentClassAndMethodName(int classDepth){
     StackTraceElement[] stackTrace = new Throwable().getStackTrace();
     int lenst = stackTrace.length;
