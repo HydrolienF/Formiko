@@ -4,6 +4,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.structures.listes.GString;
 
 import java.awt.Color;
@@ -31,7 +32,9 @@ public class EtiquetteChoix extends FPanel{
     int wi2 = Main.getTailleElementGraphiqueX(960);
     int taille = FLabel.getDimY();
     choixXDesc.setBounds(0,taille*k,wi2/2,FLabel.getDimY());
-    choixX.setBounds(wi2/2,taille*k,wi2/3,FLabel.getDimY());
+    // choixX.setBounds(wi2/2,taille*k,wi2/3,FLabel.getDimY());
+    int choixXWidth = math.max(wi2/3, (int)choixX.getPreferredSize().getWidth());
+    choixX.setBounds(wi2/2,taille*k,choixXWidth,FLabel.getDimY());
     cFond = Main.getData().getButtonColor();
   }
   public EtiquetteChoix(String clé, GString gs){ this(0,clé,gs);}
