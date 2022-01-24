@@ -1,9 +1,10 @@
 package fr.formiko.views.gui2d;
 
-import fr.formiko.formiko.*;
+import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.types.str;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -11,7 +12,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 /**
-*{@summary Escap panel }<br>
+*{@summary Escap panel.}<br>
 *Used to pause game.
 *@author Hydrolien
 *@version 1.41
@@ -111,20 +112,23 @@ public class FPanelEchap extends FPanel{
     }
   }
   /**
-  *{@summary return true if only FPanelEchap button sould be enable.}
+  *{@summary Return true if only FPanelEchap button sould be enable.}
   *@version 1.41
   */
   public boolean estContruit(){
     return tb!=null;
   }
-  /*
-  public void miseALaMemeTaille(int lentb){
-    int xMax = 0;
-    for (int i=0;i<lentb ;i++ ) {
-      if(tb[i].getWidth()>xMax){xMax = tb[i].getWidth();}
-    }
-    for (int i=0;i<lentb ;i++ ) {
-      tb[i].setSize(xMax,getHeight());
-    }
-  }*/
+  /**
+  *{@summary Ask save name in gui.}
+  *@param defaultName the default save name
+  *@version 2.17
+  */
+  public String getSaveName(String defaultName){
+    setVisible(false);
+    FOptionPane opane = new FOptionPane(Main.getF()); //, g.get("sauvegarder")
+    opane.addField(defaultName);
+    opane.build();
+    String s=opane.getContent();
+    return str.sToFileName(s);
+  }
 }
