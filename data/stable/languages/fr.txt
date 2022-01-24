@@ -236,6 +236,8 @@ empty:vide
 fixMap:carte réparée
 mini:mini
 thirds:tiers
+sandBox:bac a sable
+underTheTree:sous l'arbre
 
 //package usuel ------------------------------------------------------------------
 read.1:veuillez entrer une valeur pour la variable

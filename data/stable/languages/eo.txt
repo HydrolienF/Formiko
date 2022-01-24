@@ -228,14 +228,16 @@ os.2:Mac[]
 os.-1:oS ne rekonita
 
 //carte :
-desert:dezerto[auto]
+desert:dezerto
 garden:ĝardeno
-miniWorld:mini mondo[auto]
-flowersPot:florpoto[auto]
+miniWorld:mini mondo
+flowersPot:florpoto
 empty:malplena
-fixMap:riparita karto[auto]
-mini:mini[auto]
-thirds:tria[auto]
+fixMap:riparita karto
+mini:mini
+thirds:tria
+sandBox:sabla kesto
+underTheTree:sub la arbo
 
 //package usuel ------------------------------------------------------------------
 read.1:skribu 1 valoro por la variablo

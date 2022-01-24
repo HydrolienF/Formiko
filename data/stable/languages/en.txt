@@ -236,6 +236,8 @@ empty:empty
 fixMap:repaired card
 mini:mini[auto]
 thirds:third
+sandBox:sand box
+underTheTree:under the tree
 
 //package usuel ------------------------------------------------------------------
 read.1:please enter a value for the variable
