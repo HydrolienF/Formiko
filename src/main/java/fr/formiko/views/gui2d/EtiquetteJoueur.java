@@ -15,7 +15,6 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import javax.swing.JTextField;
 
 public class EtiquetteJoueur extends FPanel{
   private static int idCpt; private final int id;

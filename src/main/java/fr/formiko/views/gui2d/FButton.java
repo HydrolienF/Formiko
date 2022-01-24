@@ -87,6 +87,7 @@ public class FButton extends JButton implements MouseListener {
   public int getActionB(){ return action;}
   public void setActionB(int x){action =x; }
   public void setBordure(boolean b){bordure=b;}
+  // public FPanel getP(){return p;}
   // public void setCFond(Color c){cFond=c;}
   // public Color getCFont(){
   //   if(cFont!=null){return cFont;}

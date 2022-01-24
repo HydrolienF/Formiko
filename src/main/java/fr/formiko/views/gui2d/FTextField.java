@@ -23,6 +23,7 @@ public class FTextField extends JTextField {
   */
   public FTextField(String s){
     super(s);
+    setBorder(null);
     // setFontText(); //no need because it have been set as default font for all graphics components
   }
   public FTextField(){ this("");}

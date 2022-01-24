@@ -13,6 +13,13 @@ import fr.formiko.usuel.types.str;
 
 import java.awt.MouseInfo;
 import javax.swing.JOptionPane;
+import javax.swing.JDialog;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Frame;
+import java.awt.Dialog;
+import java.awt.FlowLayout;
+import java.awt.Color;
 
 /**
 *{@summary All the gui action are launch here.}
@@ -164,12 +171,13 @@ public class action {
   *@version 1.41
   */
   private static String getSaveName(){
-    String s = "null";
-    JOptionPane d = new JOptionPane(g.get("sauvegarder"));
-    d.setMessageType(JOptionPane.QUESTION_MESSAGE);
-    //d.setInitialSelectionValue(Temps.getDatePourSauvegarde());
-    Object[] options = {g.get("ok")};
-    //d.title = g.get("sauvegarder");
+    String s = null;
+    // JOptionPane d = new JOptionPane(g.get("sauvegarder"));
+    // // d.setUndecorated(true);
+    // d.setMessageType(JOptionPane.QUESTION_MESSAGE);
+    // //d.setInitialSelectionValue(Temps.getDatePourSauvegarde());
+    // Object[] options = {g.get("ok")};
+    // //d.title = g.get("sauvegarder");
     String saveName = g.getM("sauvegarde")+" "+sauvegarderUnePartie.getSave().getIdS();//donne un identifiant unique au fichier.
     try {
       //saveName+="  "+Main.getGj().getHead().getContent().getPseudo();
@@ -177,16 +185,58 @@ public class action {
     }catch (Exception e) {
       erreur.alerte("Un nom de sauvegarde n'a pas pu être choisi.");
     }
-    saveName = str.sToFileName(saveName);//le pseudo pourrai contenir des char interdits sur des fichiers.
-    s = d.showInputDialog(Main.getF(),g.get("save.message"),saveName);
-    s = str.sToFileName(s);
-    //s = d.showInputDialog(Main.getF(),g.get("save.message"),g.get("sauvegarder"),JOptionPane.QUESTION_MESSAGE);
-    Object o = g.get("save.message");
-    Object oNull = null;
+    saveName = str.sToFileName(saveName);//le pseudo pourrait contenir des char interdits sur des fichiers.
+    // // while(s==null || s.equals("")){ //if we want to bloc untill we get a save name.
+    //   s = d.showInputDialog(Main.getF(),g.get("save.message"),saveName);
+    // // }
+    // s = str.sToFileName(s);
+    // //s = d.showInputDialog(Main.getF(),g.get("save.message"),g.get("sauvegarder"),JOptionPane.QUESTION_MESSAGE);
+    // Object o = g.get("save.message");
+    // Object oNull = null;
     //TODO s'arranger pour conserver ce qu'on a mais avoir 1 seul bouton g.get("ok") & on veut le titre et la valeur préremplie.
     //javadoc showInputDialog(Component parentComponent, Object message, String title, int messageType, Icon icon, Object[] selectionValues, Object initialSelectionValue)
     //s = d.showInputDialog(Main.getF(),o,g.get("sauvegarder"),JOptionPane.QUESTION_MESSAGE,new ImageIcon(),options,oNull);
-    return s;
+    FPanel.getView().getPe().setVisible(false);
+    FOptionPane opane = new FOptionPane(Main.getF(), g.get("sauvegarder"));
+    opane.addField(saveName);
+    opane.build();
+    s=opane.getContent();
+    return str.sToFileName(s);
+  }
+  //TODO move to an external class & use at several places.
+  static class FOptionPane extends JDialog {
+    private FTextField c;
+    public FOptionPane(Frame owner, String title){
+      super(owner, title);
+      setModalityType(Dialog.ModalityType.APPLICATION_MODAL); //https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Dialog.ModalityType.html
+      setUndecorated(true); //Remove the frame
+      setVisible(false);
+      setLayout(new FlowLayout());
+      setBackground(new Color(0,0,0,0));
+    }
+    public void build(){
+      FButton b = new FButton(" ✔ ", null, -1);
+      b.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent e) {
+          disposeFOptionPane();
+        }
+      });
+      add(b);
+      pack();
+      setLocationRelativeTo(null);
+      setVisible(true);
+    }
+    public void disposeFOptionPane(){
+      setVisible(false);
+      dispose();
+    }
+    public void addField(String content){
+      c = new FTextField(content);
+      add(c);
+    }
+    public String getContent(){
+      return c.getText();
+    }
   }
   /**
   *{@summary go back to main menu.}
