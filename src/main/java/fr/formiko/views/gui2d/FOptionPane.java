@@ -1,5 +1,7 @@
 package fr.formiko.views.gui2d;
 
+import fr.formiko.views.gui2d.FComboBox;
+
 import java.awt.Color;
 import java.awt.Dialog;
 import java.awt.FlowLayout;
@@ -16,7 +18,8 @@ import javax.swing.JOptionPane;
 *@version 2.17
 */
 public class FOptionPane extends JDialog {
-  private FTextField c;
+  private FTextField textField;
+  private FComboBox<String> comboBox;
   /**
   *{@summary Main constructor.}<br>
   *@param owner Frame that own this
@@ -66,15 +69,25 @@ public class FOptionPane extends JDialog {
   *@version 2.17
   */
   public void addField(String content){
-    c = new FTextField(content);
-    add(c);
+    textField = new FTextField(content);
+    add(textField);
+  }
+  /**
+  *{@summary Add a combo box.}<br>
+  *@param content content of the combo box
+  *@version 2.17
+  */
+  public void addComboBox(String content []){
+    comboBox = new FComboBox<String>(content);
+    add(comboBox);
   }
   /**
   *{@summary Return the content of the text field.}<br>
   *@version 2.17
   */
   public String getContent(){
-    if(c==null){return null;}
-    return c.getText();
+    if(textField!=null){return textField.getText();}
+    else if(comboBox!=null){return (String)comboBox.getSelectedItem();}
+    else{return null;}
   }
 }

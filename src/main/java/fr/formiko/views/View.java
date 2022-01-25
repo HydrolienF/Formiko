@@ -214,4 +214,11 @@ public interface View {
   *@version 2.16
   */
   default boolean isBladesEnable(){return false;}
+  /***
+  *{@summary Make user choose in a String array.}
+  *@param array the array where to choose
+  *@version 2.18=7
+  */
+  //TODO for viewcli
+  default String makeUserChooseOnArray(String array[]){return "";}
 }

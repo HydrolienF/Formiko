@@ -14,6 +14,9 @@ import fr.formiko.usuel.tableau;
 
 import java.io.Serializable;
 
+import fr.formiko.views.gui2d.FOptionPane;
+import fr.formiko.usuel.types.str;
+
 /**
  * {@summary Ant implementation.}<br>
  * Allow an ant to do a trophallaxis<br>
@@ -85,35 +88,34 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
       int t [] = f.getAlliéSurLaCaseSansThis().toTId(); //ne prend que les alliées.
       t = getCreatureQuiOnFaim(t,c);
       int lent = t.length;
-      String s[] = new String[lent];
+      String ts[] = new String[lent];
       for (int i=0;i<lent ;i++ ) {
         Creature cTemp = gc.getCreatureParId(t[i]);
         String sTemp = "";
         if(cTemp instanceof Fourmi){sTemp = " ("+((Fourmi)(cTemp)).getStringStade()+")";}
         else {sTemp = " ("+cTemp.getNom()+")";}
-        s[i]=t[i]+" : "+cTemp.getFood()+"/"+cTemp.getMaxFood()+" "+g.get("food")+sTemp;
+        ts[i]=t[i]+" : "+cTemp.getFood()+"/"+cTemp.getMaxFood()+" "+g.get("food")+sTemp;
       }
-      int id2;
+      int id2=-1;
       if(t.length==1){
         id2=t[0];
       }else{
-        BoiteListeDefilante bld = new BoiteListeDefilante();
-        id2 = bld.getChoixId(s,g.get("pti.desc.1"));
-        if(id2==-1){
-          erreur.erreur("Impossible de trophallaxer");
-          return;
-        }
+        String id2s = Main.getView().makeUserChooseOnArray(ts);
+        id2=str.sToI(id2s.split(" ")[0]);
+      }
+      if(id2==-1){
+        erreur.erreur("Impossible de trophallaxer");
+        return;
       }
       //quantité de food échangé.
       Creature c2 = f.getCCase().getContent().getGc().getCreatureParId(id2);
       int nour = math.min(c2.getMaxFood()-c2.getFood(),f.getFood());
       if(nour<1){erreur.alerte("Impossible de donner 0 food");return;}
-      t = new int [nour];
+      ts = new String[nour];
       for (int i=0;i<nour ;i++ ) {
-        t[i]=i+1;
+        ts[i]=(i+1)+"";
       }
-      BoiteListeDefilante bld = new BoiteListeDefilante();
-      int n = bld.getChoixId(t,g.get("pti.desc.2"));
+      int n=str.sToI(Main.getView().makeUserChooseOnArray(ts));
       trophallaxie(c,c2,n);
     }
   }

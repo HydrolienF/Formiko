@@ -648,6 +648,17 @@ public class ViewGUI2d implements View {
     setBladeChanged(true);
     return true;
   }
+  /**
+  *{@summary Make user choose in a String array.}
+  *@param array the array where to choose
+  *@version 2.17
+  */
+  public String makeUserChooseOnArray(String array[]){
+    FOptionPane opane = new FOptionPane(getF());
+    opane.addComboBox(array);
+    opane.build();
+    return opane.getContent();
+  }
 
   public Data getData(){return Main.getData();}
 

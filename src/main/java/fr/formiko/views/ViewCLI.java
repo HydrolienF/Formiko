@@ -703,4 +703,19 @@ public class ViewCLI implements View {
     }
     return cc;
   }
+  /**
+  *{@summary Make user choose in a String array.}
+  *@param array the array where to choose
+  *@version 2.17
+  */
+  public String makeUserChooseOnArray(String array[]){
+    int len = array.length;
+    tToPrint = new String[len];
+    for (int i=0; i<len; i++) {
+      tToPrint[i]=array[i];
+    }
+    paint();
+    int id = getActionMenu(len);
+    return array[id-1];
+  }
 }
