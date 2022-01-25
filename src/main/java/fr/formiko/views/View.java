@@ -219,6 +219,5 @@ public interface View {
   *@param array the array where to choose
   *@version 2.18=7
   */
-  //TODO for viewcli
   default String makeUserChooseOnArray(String array[]){return "";}
 }

@@ -659,6 +659,7 @@ public class ViewGUI2d implements View {
     opane.build();
     return opane.getContent();
   }
+  //TODO #514 makeUserChooseAnInt(int min, int max)
 
   public Data getData(){return Main.getData();}
 
