@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 public class FOptionPane extends JDialog {
   private FTextField textField;
   private FComboBox<String> comboBox;
+  private FSlider slider;
   /**
   *{@summary Main constructor.}<br>
   *@param owner Frame that own this
@@ -92,12 +93,24 @@ public class FOptionPane extends JDialog {
     add(comboBox);
   }
   /**
+  *{@summary Add a slider.}<br>
+  *@param min the min value
+  *@param max the max value
+  *@param value the curent value
+  *@version 2.17
+  */
+  public void addSlider(int min, int max, int value){
+    slider = new FSlider(min, max, value);
+    add(slider);
+  }
+  /**
   *{@summary Return the content of the text field.}<br>
   *@version 2.17
   */
   public String getContent(){
     if(textField!=null){return textField.getText();}
     else if(comboBox!=null){return (String)comboBox.getSelectedItem();}
+    else if(slider!=null){return ""+slider.getValue();}
     else{return null;}
   }
 }

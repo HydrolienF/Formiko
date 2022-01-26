@@ -100,7 +100,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
       if(t.length==1){
         id2=t[0];
       }else{
-        String id2s = Main.getView().makeUserChooseOnArray(ts,g.get("créature"));
+        String id2s = Main.getView().makeUserChooseOnArray(ts,g.get("Pti.desc.1"));
         id2=str.sToI(id2s.split(" ")[0]);
       }
       if(id2==-1){
@@ -111,11 +111,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
       Creature c2 = f.getCCase().getContent().getGc().getCreatureParId(id2);
       int nour = math.min(c2.getMaxFood()-c2.getFood(),f.getFood());
       if(nour<1){erreur.alerte("Impossible de donner 0 food");return;}
-      ts = new String[nour];
-      for (int i=0;i<nour ;i++ ) {
-        ts[i]=(i+1)+"";
-      }
-      int n=str.sToI(Main.getView().makeUserChooseOnArray(ts,null));
+      int n=Main.getView().makeUserChooseInt(1, nour, g.get("Pti.desc.2"));
       trophallaxie(c,c2,n);
     }
   }

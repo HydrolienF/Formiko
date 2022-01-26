@@ -673,8 +673,14 @@ public class ViewGUI2d implements View {
   */
   @Override
   public int makeUserChooseInt(int min, int max, String varName){
-    //TODO #514
-    return min;
+    FOptionPane opane = new FOptionPane(getF());
+    if(varName!=null){
+      opane.addText(varName+" : ");
+    }
+    // opane.addIntField();
+    opane.addSlider(min, max, max/2);
+    opane.build();
+    return str.sToI(opane.getContent());
   }
 
   public Data getData(){return Main.getData();}

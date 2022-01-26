@@ -379,8 +379,8 @@ bouton.desc.355:dessiner seulement les graines/insectes commestible (Ou alliés 
 bouton.desc.356:dessiner la couleur des fourmis
 bouton.desc.357:dessiner les brins d'herbe 1 par 1
 
-pti.desc.1:Indiquez l'id de la fourmi qui recevra la nourriture.
-pti.desc.2:Indiquez la quantité de nourriture offerte.
+pti.desc.1:Indiquez l'id de la fourmi qui recevra la nourriture
+pti.desc.2:Indiquez la quantité de nourriture offerte
 pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Indiquez la direction à suivre.
 pti.desc.5:Indiquez l'id de la fourmi a nettoyer. La fourmi la plus sale est la fourmi en position 1.

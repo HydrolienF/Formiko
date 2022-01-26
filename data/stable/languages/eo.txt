@@ -379,8 +379,8 @@ bouton.desc.355:desegni nur manĝeblajn semojn/insektojn (Aŭ aliancanon/malamik
 bouton.desc.356:desegni formikojn koloron
 bouton.desc.357:desegni herbero 1 post 1
 
-pti.desc.1:indiki la kodo de la formiko ke ricevos la manĝaĵon.
-pti.desc.2:indiki la kvanto de dona manĝaĵo.
+pti.desc.1:indiki la kodo de la formiko ke ricevos la manĝaĵon
+pti.desc.2:indiki la kvanto de dona manĝaĵo
 pti.desc.3:indiku la ovodemetotan ovon: 0 = Reĝino, 1 = Maskla, 2 = Malgranda, 3 = Meza, 4 = Plej granda, 5 + = Alia.[auto]
 pti.desc.4:indiki la direkto a sekvi.
 pti.desc.5:indiki la kodo de la formiko a puri.

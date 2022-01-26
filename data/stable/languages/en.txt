@@ -379,8 +379,8 @@ bouton.desc.355:draw only comestible seeds/insects (Or ally / enemy)
 bouton.desc.356:draw ants color
 bouton.desc.357:draw grass blades 1 by 1
 
-pti.desc.1:indicate the id of the ant that will receive the food.
-pti.desc.2:indicate the amount of food offered.
+pti.desc.1:indicate the id of the ant that will receive the food
+pti.desc.2:indicate the amount of food offered
 pti.desc.3:indicate the type of egg to lay: 0 = Queen, 1 = Male, 2 = Minor, 3 = Medium, 4 = Major, 5 + = Other.[auto]
 pti.desc.4:indicate the direction to follow.
 pti.desc.5:indicate the id of the ant to be cleaned. The dirtiest ant is the ant in position 1.
