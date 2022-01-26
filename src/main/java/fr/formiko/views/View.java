@@ -5,6 +5,7 @@ import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.ObjetSurCarteAId;
+import fr.formiko.usuel.types.str;
 
 /**
  *{@summary Main view interface.}<br>
@@ -221,12 +222,21 @@ public interface View {
   *@version 2.17
   */
   default String makeUserChooseOnArray(String array[], String varName){return "";}
-  /***
-  *{@summary Make user choose an int in [min, max].}
+  /**
+  *{@summary Make user choose an int in [min, max].}<br>
+  *Default use makeUserChooseOnArray() to let user choose.
   *@param min the min value
   *@param max the max value
   *@param varName the name of the variable tp choose
   *@version 2.17
   */
-  default int makeUserChooseInt(int min, int max, String varName){return min;}
+  default int makeUserChooseInt(int min, int max, String varName){
+    int k=0;
+    String tr[] = new String[max-min];
+    for (int i=min; i<max; i++) {
+      tr[k]=i+"";
+      k++;
+    }
+    return str.sToI(makeUserChooseOnArray(tr, varName));
+  }
 }
