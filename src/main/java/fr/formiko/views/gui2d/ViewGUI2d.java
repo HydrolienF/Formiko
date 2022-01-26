@@ -18,6 +18,7 @@ import fr.formiko.usuel.ThTriche;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.types.str;
 import fr.formiko.views.View;
 
 import java.awt.Font;
@@ -653,13 +654,28 @@ public class ViewGUI2d implements View {
   *@param array the array where to choose
   *@version 2.17
   */
-  public String makeUserChooseOnArray(String array[]){
+  @Override
+  public String makeUserChooseOnArray(String array[], String varName){
     FOptionPane opane = new FOptionPane(getF());
+    if(varName!=null){
+      opane.addText(str.toMaj(varName)+" : ");
+    }
     opane.addComboBox(array);
     opane.build();
     return opane.getContent();
   }
-  //TODO #514 makeUserChooseAnInt(int min, int max)
+  /**
+  *{@summary Make user choose an int in [min, max].}
+  *@param min the min value
+  *@param max the max value
+  *@param varName the name of the variable tp choose
+  *@version 2.17
+  */
+  @Override
+  public int makeUserChooseInt(int min, int max, String varName){
+    //TODO #514
+    return min;
+  }
 
   public Data getData(){return Main.getData();}
 

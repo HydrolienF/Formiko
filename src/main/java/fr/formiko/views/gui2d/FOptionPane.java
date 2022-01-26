@@ -64,6 +64,16 @@ public class FOptionPane extends JDialog {
     dispose();
   }
   /**
+  *{@summary Add an non-editable text field.}<br>
+  *@param content default content
+  *@version 2.17
+  */
+  public void addText(String content){
+    if(content==null || content.equals("")){return;}
+    FLabel fl = new FLabel(content);
+    add(fl);
+  }
+  /**
   *{@summary Add an editable text field.}<br>
   *@param content default content
   *@version 2.17

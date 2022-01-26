@@ -28,7 +28,7 @@ public class read {
     return s;
   }
 
-  public static int getInt(int min,int max,String nomDeLaVariable, int laVariable, String message){
+  public static int getInt(int min, int max, String nomDeLaVariable, int laVariable, String message){
     int x = min-1; int k=0;
     while (x==min-1 && k<13){ // tant que le nombre qu'on veut n'est pas reconnu comme un nombre dans le bon intervale.
       if(k>10){System.out.println(g.get("read",3,"Il semblerai que vous soyez bloqué. Tapper STOP pour interompre ce programme."));}

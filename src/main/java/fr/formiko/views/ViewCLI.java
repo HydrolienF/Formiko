@@ -708,12 +708,15 @@ public class ViewCLI implements View {
   *@param array the array where to choose
   *@version 2.17
   */
-  public String makeUserChooseOnArray(String array[]){
+  @Override
+  public String makeUserChooseOnArray(String array[], String varName){
     int len = array.length;
     tToPrint = new String[len];
     for (int i=0; i<len; i++) {
       tToPrint[i]=array[i];
     }
+    System.out.println(g.getM("set")+" "+g.get("le")+" "+g.get(varName)+".");
+    menuName="";
     paint();
     int id = getActionMenu(len);
     return array[id-1];

@@ -100,7 +100,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
       if(t.length==1){
         id2=t[0];
       }else{
-        String id2s = Main.getView().makeUserChooseOnArray(ts);
+        String id2s = Main.getView().makeUserChooseOnArray(ts,g.get("créature"));
         id2=str.sToI(id2s.split(" ")[0]);
       }
       if(id2==-1){
@@ -115,7 +115,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
       for (int i=0;i<nour ;i++ ) {
         ts[i]=(i+1)+"";
       }
-      int n=str.sToI(Main.getView().makeUserChooseOnArray(ts));
+      int n=str.sToI(Main.getView().makeUserChooseOnArray(ts,null));
       trophallaxie(c,c2,n);
     }
   }

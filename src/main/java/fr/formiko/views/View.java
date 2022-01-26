@@ -217,7 +217,16 @@ public interface View {
   /***
   *{@summary Make user choose in a String array.}
   *@param array the array where to choose
-  *@version 2.18=7
+  *@param varName the name of the variable tp choose
+  *@version 2.17
   */
-  default String makeUserChooseOnArray(String array[]){return "";}
+  default String makeUserChooseOnArray(String array[], String varName){return "";}
+  /***
+  *{@summary Make user choose an int in [min, max].}
+  *@param min the min value
+  *@param max the max value
+  *@param varName the name of the variable tp choose
+  *@version 2.17
+  */
+  default int makeUserChooseInt(int min, int max, String varName){return min;}
 }

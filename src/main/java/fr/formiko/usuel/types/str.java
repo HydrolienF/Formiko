@@ -240,6 +240,13 @@ public class str {
       return s;
     }
   }
+  /***
+  *{@summary Transform the first char of a String to the toUpperCase char.}<br>
+  *if s is "" or null nothing will be done.
+  *@param s the String to transform.
+  *@version 2.17
+  */
+  public static String toMaj(String s){return sToSMaj(s);}
   /**
   *{@summary Transform the first char of a String to the toLowerCase char.}<br>
   *if s is "" or null nothing will be done.
