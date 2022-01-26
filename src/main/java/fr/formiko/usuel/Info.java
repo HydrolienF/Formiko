@@ -26,6 +26,11 @@ public class Info {
   public Info(){
     classDepth=1;
   }
+  /**
+  *{@summary Secondary contructor.}<br>
+  *@param content content of the Info
+  *@version 2.17
+  */
   public Info(String content){
     super();
     setContent(content);
@@ -52,6 +57,9 @@ public class Info {
 	public Info setContent(String content) {this.content=content; return this;}
 	public Info setFix(String fix) {this.fix=fix; return this;}
 	public Info setFatal(boolean fatal) {this.fatal=fatal; return this;}
+  /**
+  *to fix a stats.txt issue with public [...] cla ss [...]
+  */
   public Info setClassDepth(int classDepth) {this.classDepth=classDepth; return this;}
   /**
   *{@summary Main function that print this.}<br>

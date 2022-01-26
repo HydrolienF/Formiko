@@ -1,5 +1,6 @@
 package fr.formiko.views.gui2d;
 
+import fr.formiko.usuel.types.str;
 import fr.formiko.views.gui2d.FComboBox;
 
 import java.awt.Color;
@@ -10,6 +11,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
 
 /**
 *{@summary Personalised JDialog.}<br>
@@ -86,8 +91,8 @@ public class FOptionPane extends JDialog {
   }
   /**
   *{@summary Add an editable int field.}<br>
-  *@param min min value
-  *@param max max value
+  *@param min the min value
+  *@param max the max value
   *@param value default value
   *@version 2.17
   */
@@ -114,6 +119,42 @@ public class FOptionPane extends JDialog {
   public void addSlider(int min, int max, int value){
     slider = new FSlider(min, max, value);
     add(slider);
+  }
+  /**
+  *{@summary Add a slider &#38; an int field.}<br>
+  *The 2 are connected.
+  *@param min the min value
+  *@param max the max value
+  *@param value the curent value
+  *@version 2.17
+  */
+  public void addSliderAndIntField(int min, int max, int value){
+    addSlider(min, max, value);
+    addIntField(min, max, value);
+    slider.addChangeListener(new ChangeListener() {
+      /**
+      *{@summary Update intField to.}<br>
+      *@version 2.17
+      */
+      @Override
+      public void stateChanged(ChangeEvent event) {
+        intField.setValue(slider.getValue());
+      }
+    });
+    intField.addPropertyChangeListener(new PropertyChangeListener() {
+      /**
+      *{@summary Update slider to.}<br>
+      *@version 2.17
+      */
+      @Override
+      public void propertyChange(PropertyChangeEvent event) {
+        if(intField.getValue()==null){
+          slider.setValue(0);
+        }else{
+          slider.setValue(str.sToI(intField.getValue().toString()));
+        }
+      }
+    });
   }
   /**
   *{@summary Return the content of the text field.}<br>

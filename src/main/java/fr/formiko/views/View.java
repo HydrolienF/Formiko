@@ -222,7 +222,7 @@ public interface View {
   *@version 2.17
   */
   default String makeUserChooseOnArray(String array[], String varName){return "";}
-  /**
+  /***
   *{@summary Make user choose an int in [min, max].}<br>
   *Default use makeUserChooseOnArray() to let user choose.
   *@param min the min value
