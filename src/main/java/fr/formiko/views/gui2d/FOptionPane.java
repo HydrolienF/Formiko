@@ -21,6 +21,7 @@ public class FOptionPane extends JDialog {
   private FTextField textField;
   private FComboBox<String> comboBox;
   private FSlider slider;
+  private FIntField intField;
   /**
   *{@summary Main constructor.}<br>
   *@param owner Frame that own this
@@ -82,6 +83,17 @@ public class FOptionPane extends JDialog {
   public void addField(String content){
     textField = new FTextField(content);
     add(textField);
+  }
+  /**
+  *{@summary Add an editable int field.}<br>
+  *@param min min value
+  *@param max max value
+  *@param value default value
+  *@version 2.17
+  */
+  public void addIntField(int min, int max, int value){
+    intField = FIntField.newFIntField(min, max, value);
+    add(intField);
   }
   /**
   *{@summary Add a combo box.}<br>

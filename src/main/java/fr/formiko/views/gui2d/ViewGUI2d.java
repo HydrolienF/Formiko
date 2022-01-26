@@ -677,7 +677,7 @@ public class ViewGUI2d implements View {
     if(varName!=null){
       opane.addText(varName+" : ");
     }
-    // opane.addIntField();
+    opane.addIntField(min, max, max/2);
     opane.addSlider(min, max, max/2);
     opane.build();
     return str.sToI(opane.getContent());
