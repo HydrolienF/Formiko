@@ -484,7 +484,32 @@ public class Data {
     */
     private void iniCloudMapImage(){
       if(!Main.getView().getActionGameOn()){return;}
-      cloudMap = image.toBlackAndWhite(image.resize(loadingImage, map.getWidth(), map.getHeight()));
+      BufferedImage could = image.resize(image.getImage("cloud"), map.getWidth(), map.getHeight());
+      cloudMap=image.resize(loadingImage, map.getWidth(), map.getHeight());
+      for (int i=0; i<cloudMap.getWidth(); i++) {
+        for (int j=0; j<cloudMap.getHeight(); j++) {
+          int red = ((cloudMap.getRGB(i,j)>>16)&255);
+          int green = ((cloudMap.getRGB(i,j)>>8)&255);
+          int blue = (cloudMap.getRGB(i,j)&255);
+          int redC = ((could.getRGB(i,j)>>16)&255);
+          int greenC = ((could.getRGB(i,j)>>8)&255);
+          int blueC = (could.getRGB(i,j)&255);
+          // int added=60;
+          // added+=allea.getAllea(20)-9;
+          // red+=added;
+          // green+=added;
+          // blue+=added;
+          red=(red+redC/2)*2/3;
+          green=(green+greenC/2)*2/3;
+          blue=(blue+blueC/2)*2/3;
+          if(red>255){red=255;}
+          if(green>255){green=255;}
+          if(blue>255){blue=255;}
+          int x = ((255<<24)|(red<<16)|(green<<8)|(blue));
+          cloudMap.setRGB(i,j,x);
+        }
+      }
+      cloudMap = image.toBlackAndWhite(cloudMap);
     }
 
     //getScaledInstance.
