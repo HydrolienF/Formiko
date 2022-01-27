@@ -52,7 +52,7 @@ coordonnées:contact information[auto]
 type:type
 stade:stage
 age:age
-nourriture:food
+food:food
 action:action
 propreté:cleanliness
 mode:mode
@@ -126,7 +126,7 @@ victoirePar:win by
 pseudo:username
 entrezPseudo:please enter your username
 
-nourritureInsecte:food for insects
+foodInsecte:food for insects
 celluleA:cell a
 lien:link
 ChasseNull:can't hunt with creature

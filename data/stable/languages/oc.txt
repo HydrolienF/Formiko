@@ -50,7 +50,7 @@ coordonnées:coordonnées
 type:type
 stade:stade
 age:age
-nourriture:nourriture
+food:nourriture
 action:action
 propreté:propreté
 mode:mode
@@ -124,7 +124,7 @@ victoirePar:a gagné par
 pseudo:pseudo
 entrezPseudo:Veuillez entrer votre pseudo
 
-nourritureInsecte:nourriture pour les insectes
+foodInsecte:nourriture pour les insectes
 celluleA:Cellule a
 lien:lien
 ChasseNull:Impossible de chasser avec la créature

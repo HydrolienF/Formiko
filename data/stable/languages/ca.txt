@@ -50,7 +50,7 @@ coordonnées:informació de contacte
 type:tipus
 stade:estadi
 age:edat
-nourriture:menjar
+food:menjar
 action:acció
 propreté:neteja
 mode:mode
@@ -124,7 +124,7 @@ victoirePar:guanyat per[auto]
 pseudo:pseudo[auto]
 entrezPseudo:introduïu el vostre nom d'usuari[auto]
 
-nourritureInsecte:aliment per als insectes[auto]
+foodInsecte:aliment per als insectes[auto]
 celluleA:cel·la a[auto]
 lien:enllaç[auto]
 ChasseNull:no es pot caçar amb la criatura[auto]

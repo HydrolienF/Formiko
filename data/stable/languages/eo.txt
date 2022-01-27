@@ -52,7 +52,7 @@ coordonnées:kontakt-informoj[auto]
 type:tipo
 stade:fazo
 age:aĝo
-nourriture:manĝaĵo
+food:manĝaĵo
 action:faro
 propreté:pureco
 mode:vivmaniero
@@ -126,7 +126,7 @@ victoirePar:havas gajni per
 pseudo:kaŝnomo
 entrezPseudo:skribu via kaŝnomo
 
-nourritureInsecte:insekta manĝaĵo
+foodInsecte:insekta manĝaĵo
 celluleA:ĉelo A
 lien:ligo
 ChasseNull:neeble ĉasi kun la creito

@@ -47,7 +47,7 @@ coordonnées:cordonâyes
 type:tipo
 stade:?
 age:âjo
-nourriture:nurrètura
+food:nurrètura
 action:accion
 propreté:propretât
 mode:modo
@@ -121,7 +121,7 @@ victoirePar:a gagnâ par
 pseudo:pseudo
 entrezPseudo:Endiquâds voutron pseudo
 
-nourritureInsecte:nurrètura por les bétèyes
+foodInsecte:nurrètura por les bétèyes
 celluleA:Celula a
 lien:lim
 ChasseNull:Empossibllo de chaciér avouéc la crèatura
