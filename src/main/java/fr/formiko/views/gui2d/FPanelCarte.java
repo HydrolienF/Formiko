@@ -15,6 +15,7 @@ import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.MapPath;
 import fr.formiko.formiko.ObjetSurCarteAId;
+import fr.formiko.usuel.Info;
 import fr.formiko.usuel.Point;
 import fr.formiko.usuel.Point;
 import fr.formiko.usuel.debug;
@@ -161,7 +162,7 @@ public class FPanelCarte extends FPanel {
         drawMovingPath(g);
       }
     }catch (Exception e) {
-      erreur.erreur("Quelque chose d'imprévu est arrivé lors de l'affichage de FPanelCarte");
+      new Info("Quelque chose d'imprévu est arrivé lors de l'affichage de FPanelCarte").setClassDepth(10);
     }
     Main.endCh("repaintDeLaCarte");
   }

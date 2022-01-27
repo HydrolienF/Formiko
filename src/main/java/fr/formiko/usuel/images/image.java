@@ -358,7 +358,7 @@ public class image{
   *This function resize the biger side to newHW &#38; the other size to keep the proportions.<br>
   *@param in The Image to resize.
   *@param newHW The new height or width (biger side).
-  *@param 1.31;
+  *@param 1.31
   */
   public static BufferedImage resize(BufferedImage in, int newHW){
     if(in==null){return null;}
@@ -648,5 +648,16 @@ public class image{
         bi.setRGB(i,j, colInt);
       }
     }
+  }
+  /**
+  *{@summary Replace color by black &#38; white shade.}
+  *@param bi the bufferedImage to use
+  *@version 2.16
+  */
+  public static BufferedImage toBlackAndWhite(BufferedImage bi){
+    BufferedImage gray = new BufferedImage(bi.getWidth(), bi.getHeight(), BufferedImage.TYPE_BYTE_GRAY);
+    Graphics2D g = gray.createGraphics();
+    g.drawImage(bi, 0, 0, null);
+    return gray;
   }
 }

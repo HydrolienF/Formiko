@@ -10,6 +10,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
 
 /**
 *{@summary the main Panel.}<br>
@@ -19,7 +20,7 @@ import java.awt.RenderingHints;
 public class FPanelPrincipal extends FPanel {
   private FPanelJeu pj;
   private FPanelMenu pm;
-  private Image img;
+  private BufferedImage img;
   private FLabel versionLabel;
   private long timeFromLastRefresh;
   // CONSTRUCTORS --------------------------------------------------------------
@@ -37,7 +38,7 @@ public class FPanelPrincipal extends FPanel {
   */
   public void build(){
     img = image.getImage("backgroundPP");
-    img = img.getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
+    img = image.resize(img, this.getWidth(), this.getHeight());
     addVersionLabel();
   }
   // GET SET -------------------------------------------------------------------
