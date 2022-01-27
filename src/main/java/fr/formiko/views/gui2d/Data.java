@@ -47,6 +47,7 @@ public class Data {
   // private BufferedImage antColor[];
   private BufferedImage antLeg[];
   private BufferedImage map;
+  private BufferedImage cloudMap;
   private BufferedImage loopArrow;
   private BufferedImage pick;
   //ini (this var sould not be modify in an other place than here.)
@@ -72,7 +73,7 @@ public class Data {
   private Image [] tIBZoom;
   private boolean initialisationFX;
   //FPanelChargement
-  private BufferedImage imageChargement;
+  private BufferedImage loadingImage;
   //FPanelActionInf / Sup
   private Image backgroundPAI;
   private Image backgroundPAS;
@@ -114,12 +115,13 @@ public class Data {
   public BufferedImage [] getTG(){return tG;}
   public BufferedImage [][] getTF(){return tF;}
   public BufferedImage getMap(){return map;}
+  public BufferedImage getCloudMap(){return cloudMap;}
   public BufferedImage getLoopArrow(){return loopArrow;}
   public BufferedImage getPick(){return pick;}
   //FPanelAction
   public BufferedImage [] getTImage(){return tImage;}
   //FPanelChargement
-  public BufferedImage getImageChargement(){return imageChargement;}
+  public BufferedImage getImageChargement(){return loadingImage;}
   //imageIni
   public void setImageIniForNewGame(boolean b){imageIniForNewGame=b;}
   //FPanelActionInf / Sup
@@ -472,6 +474,17 @@ public class Data {
         map=null;
       }
       Main.endCh("iniBackgroundMapImage");
+      if(Main.getPartie()!=null && Main.getPartie().getCarte()!=null && Main.getPartie().getCarte().getCasesNuageuses()==true){
+        iniCloudMapImage();
+      }
+    }
+    /**
+    *Create a cloud image from loading image.
+    *@version 1.42
+    */
+    private void iniCloudMapImage(){
+      if(!Main.getView().getActionGameOn()){return;}
+      cloudMap = image.toBlackAndWhite(image.resize(loadingImage, map.getWidth(), map.getHeight()));
     }
 
     //getScaledInstance.
@@ -643,18 +656,18 @@ public class Data {
   public boolean loadImageChargement(){
     String mapName = Main.getMap().getMapName();
     mapName = str.sToSMaj(mapName);
-    imageChargement=null;
+    loadingImage=null;
     if(mapName!=null && !mapName.equals("")){
-      imageChargement=image.getImage("loading"+mapName,false);
-      if(imageChargement!=null){
-        imageChargement=image.resize(imageChargement,Main.getDimX(),Main.getDimY());
+      loadingImage=image.getImage("loading"+mapName,false);
+      if(loadingImage!=null){
+        loadingImage=image.resize(loadingImage,Main.getDimX(),Main.getDimY());
       }
     }
     //if it haven't been load yet we try to load any image name chargementi.png or .jpj.
-    if(imageChargement==null){
+    if(loadingImage==null){
       int x = allea.getAlléa(image.getNbrImages("loading"));
-      imageChargement=image.getImage("loading"+x);
-      imageChargement=image.resize(imageChargement,Main.getDimX(),Main.getDimY());
+      loadingImage=image.getImage("loading"+x);
+      loadingImage=image.resize(loadingImage,Main.getDimX(),Main.getDimY());
       return true;
     }
     return false;

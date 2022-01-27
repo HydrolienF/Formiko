@@ -223,26 +223,22 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Draw cloud Case.}<br>
-  *@version 1.x
+  *@version 2.17
   */
-  public boolean peintCaseNuageuse(int x, int y,Graphics g,int xT, int yT){
+  public boolean peintCaseNuageuse(int x, int y, Graphics g, int xT, int yT){
     Joueur jo = Main.getPlayingJoueur();
     if(Main.getPartie().getCarte().getCasesNuageuses()==true){ //si il y a des cases nuageuses
       try {
         if(Main.getPartie().getGj().getNbrDeJoueurHumain()==1){//si il ya moins de 2 joueurs, on peu afficher les cases que le joueur voie.
           jo = Main.getPartie().getGj().getJoueurHumain().getHead().getContent();
         }
-        if (jo!=null){//si on a un joueur sélectionné.
-          if (x>=0 && y>=0 && jo.getCaseNuageuse(x,y)){//si la case est invisible (nuageuse.)
-            drawImage(g,Main.getData().getCNuageuse(),xT,yT);
-            return true;//on ne dessine rien par dessus.
-          }
-        }else{//si pas de joueur selcetionné toute les cases sont nuageuse.
-          drawImage(g,Main.getData().getCNuageuse(),xT,yT);
-          return true;//on ne dessine rien par dessus.
+        if (jo==null || (x>=0 && y>=0 && jo.getCaseNuageuse(x,y))){//0 playing player or caseNuageuse for the playing player.
+          // drawImage(g,Main.getData().getCloudMap(),xT,yT);
+          g.drawImage(Main.getData().getCloudMap(), xT, yT, xT+getTailleDUneCase(), yT+getTailleDUneCase(), xT, yT, xT+getTailleDUneCase(), yT+getTailleDUneCase(), null);
+          return true;//nothing more to draw on this Case
         }
       }catch (Exception e) {
-        erreur.erreur("Une case possiblement nuageuse n'as pas pue atre affiché");
+        erreur.erreur("Une case possiblement nuageuse n'as pas pue être affiché");
       }
     }
     return false;
