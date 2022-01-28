@@ -499,9 +499,9 @@ public class Data {
           // red+=added;
           // green+=added;
           // blue+=added;
-          red=(red+redC/2)*2/3;
-          green=(green+greenC/2)*2/3;
-          blue=(blue+blueC/2)*2/3;
+          red=(red+redC)/2;
+          green=(green+greenC)/2;
+          blue=(blue+blueC)/2;
           if(red>255){red=255;}
           if(green>255){green=255;}
           if(blue>255){blue=255;}
