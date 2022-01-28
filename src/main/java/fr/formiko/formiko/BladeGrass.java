@@ -7,7 +7,7 @@ import java.awt.Color;
 *{@summary Grass blade.}<br>
 * Bigger that moss blade.
 *@author Hydrolien
-*@version 2.16
+*@lastEditedVersion 2.16
 */
 public class BladeGrass extends Blade implements Serializable {
   private static Color col = new Color(0,142,14);

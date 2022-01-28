@@ -13,21 +13,21 @@ import java.io.Serializable;
  * {@summary hunt.}<br>
  * Allow a Creature to hunt other creature<br>
  * @author Hydrolien
- * @version 1.1
+ * @lastEditedVersion 1.1
  */
 public interface Chasse extends Serializable{
   boolean chasse(Creature c);//ni public ni private indique que c'est dispo seulement dans le package fr.formiko.formiko.
   boolean chasser(Creature c, int directionSiPasDeProie);
   /**
    * {@summary check if can hunt.}<br>
-   * @version 1.31
+   * @lastEditedVersion 1.31
    */
   public default boolean canHuntMore(Creature c){
     return c.getFood()<c.getMaxFood() && c.getAction()>0;
   }
   /**
    * {@summary Lower creature actions count.}<br>
-   * @version 1.40
+   * @lastEditedVersion 1.40
    */
   public default void setActionMoins(Creature c){
     if(c instanceof Fourmi){

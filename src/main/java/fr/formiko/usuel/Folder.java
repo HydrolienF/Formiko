@@ -22,7 +22,7 @@ import java.nio.file.Paths;
 *You can acces to file by using getters.
 *Ex : getFolderStable()+getFolderImages() will return the path to stable images.
 *@author Hydrolien
-*@version 2.7
+*@lastEditedVersion 2.7
 */
 public class Folder {
   private static String DEFAULT_NULL_VERSION="0.0.0";
@@ -97,7 +97,7 @@ public class Folder {
   /**
   *{@summary Initialize the main folder name depending of OS.}<br>
   *@param os Os to use for name initialisation.
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void iniFolderMain(Os os){
     if(os.isWindows()){
@@ -118,7 +118,7 @@ public class Folder {
   *It will call download if main folder is missing.<br>
   *It will send an info if some were missing and an error if some unfixable folder were missing.
   *@param allowedDownolad true if we can download files.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public int ini(boolean allowedDownolad){
     missingFolder=0;
@@ -162,7 +162,7 @@ public class Folder {
   public int ini(){return ini(true);}
   /**
   *{@summary Delete all unnecesary folders and files.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public void cleanFolder(){
     File folder = new File(getFolderMain());
@@ -175,7 +175,7 @@ public class Folder {
   /**
   *{@summary Initialize stable missing folder.}<br>
   *@param allowedDownolad true if we can download files.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private void iniStable(boolean allowedDownolad){
     File f = new File(getFolderStable());
@@ -217,7 +217,7 @@ public class Folder {
   }
   /**
   *{@summary Initialize temporary missing folder.}<br>
-  *@version 1.37
+  *@lastEditedVersion 1.37
   */
   private void iniTemporary(){
     File f = new File(getFolderTemporary());
@@ -241,7 +241,7 @@ public class Folder {
   }
   /**
   *{@summary Initialize resourcesPacks missing folder.}<br>
-  *@version 1.37
+  *@lastEditedVersion 1.37
   */
   private void iniRessourcesPacks(){
     File f = new File(getFolderResourcesPacks());
@@ -266,7 +266,7 @@ public class Folder {
   /**
   *{@summary Download main data from github release.}<br>
   *It need Main.version to be correct to work.<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void downloadData(){
     View view = Main.getView();
@@ -294,7 +294,7 @@ public class Folder {
   }
   /**
   *{@summary Do pre download action.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   private void prepareDownloadData(){
     View view = Main.getView();
@@ -310,7 +310,7 @@ public class Folder {
   }
   /**
   *{@summary Do post download action.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   private boolean unzipAndCleanDownloadData(){
     View view = Main.getView();
@@ -335,7 +335,7 @@ public class Folder {
   *Data don't need to be update as many times as game is,
   *so when a new version of data is needed it is publish in github action.
   *A new data version always take curent game version as version number.
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public boolean needToUpdateDataVersion(){
     String wantedDataVersion = getWantedDataVersion();
@@ -347,7 +347,7 @@ public class Folder {
   /**
   *{@summary Return true if a new version is aviable.}<br>
   *If last stable version > curent version.<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public boolean newVersionAviable(){
     if(newVersionAviableTestDone){return false;}
@@ -360,14 +360,14 @@ public class Folder {
   }
   /**
   *{@summary Return true if v1 > v2.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public boolean isOver(String v1, String v2){
     return str.isVersionOver(v1,v2);
   }
   /**
   *{@summary Return the version that game have.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public String getCurentVersion(){
     GString gs = lireUnFichier.lireUnFichierGsFromPath(getVersionMdPath());
@@ -379,35 +379,35 @@ public class Folder {
   }
   /**
   *{@summary Return the curent data version that game have.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public String getCurentDataVersion(){
     return getXVersion(Paths.get(getFolderMain()+"version.json"), "data");
   }
   /**
   *{@summary Return the curent music version that game have.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public String getCurentMusicVersion(){
     return getXVersion(Paths.get(getFolderMain()+"version.json"), "music");
   }
   /**
   *{@summary Return the data version that game want to have.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public String getWantedDataVersion(){
     return getXVersion(getVersionJsonPath(), "data");
   }
   /**
   *{@summary Return the music version that game want to have.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public String getWantedMusicVersion(){
     return getXVersion(getVersionJsonPath(), "music");
   }
   /**
   *{@summary Return the last stable version downloadable on the web site.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public String getLastStableVersion(){
     String fileName = getFolderMain()+"vTemp.json";
@@ -428,7 +428,7 @@ public class Folder {
   *@param pathToJson path to the .json file taht containt version
   *@param nameOfTheVersion name of the version
   *@return a version String as 1.49.12
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public String getXVersion(Path pathToJson, String nameOfTheVersion){
     try {
@@ -449,7 +449,7 @@ public class Folder {
   }
   /**
   *{@summary return the path to version.x.}<br>
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public static Path getVersionPath(String fileName){
     File f = new File(fileName);
@@ -470,14 +470,14 @@ public class Folder {
   /**
   *{@summary return the path to version.md.}<br>
   *Curent version is in version.md.
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public static Path getVersionMdPath(){
     return getVersionPath("version.md");
   }
   /**
   *{@summary return the path to version.json.}<br>
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public static Path getVersionJsonPath(){
     return getVersionPath("version.json");
@@ -485,7 +485,7 @@ public class Folder {
   /**
   *{@summary Download music data from github release.}<br>
   *It need Main.version to be correct to work.<br>
-  *@version 1.53
+  *@lastEditedVersion 1.53
   */
   public void downloadMusicData(){
     Thread th = new ThDownloadMusicData(this);
@@ -495,7 +495,7 @@ public class Folder {
 /**
 *{@summary Download music data from github release in a Thread.}<br>
 *It need Main.version to be correct to work.<br>
-*@version 1.53
+*@lastEditedVersion 1.53
 *@author Hydrolien
 */
 class ThDownloadMusicData extends Thread {

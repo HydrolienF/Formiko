@@ -5,14 +5,14 @@ import fr.formiko.usuel.g;
 /**
 *{@summary exceptions class for a list item not found.}<br>
 *@author Hydrolien
-*@version 1.31
+*@lastEditedVersion 1.31
 */
 public class ListItemNotFoundException extends RuntimeException {
   /**
   *{@summary Constructs a new runtime exception with a detail message.}<br>
   *@param name Name of the thing that haven't been found.
   *@param id Id of the thing that haven't been found.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public ListItemNotFoundException(String name, int id){
     //erreur.erreur("aucune créature n'as pu être retiré","CCreature.remove",true);
@@ -21,7 +21,7 @@ public class ListItemNotFoundException extends RuntimeException {
   /**
   *{@summary Constructs a new runtime exception with a detail message.}<br>
   *@param name Name of the thing that haven't been found.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public ListItemNotFoundException(String name){
     this(name,-1);

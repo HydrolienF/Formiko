@@ -17,7 +17,7 @@ import java.util.Comparator;
 /**
  *{@summary Save a game.}<br>
  *@author Hydrolien
- *@version 2.13
+ *@lastEditedVersion 2.13
  */
 public class sauvegarderUnePartie {
   private static ObjectOutputStream oos = null;
@@ -32,7 +32,7 @@ public class sauvegarderUnePartie {
   public static String getNomDuFichierComplet(){return str.addALaFinSiNecessaire(REP+fileName,".save");}
   /**
   *{@summary Save getter that is able to load Save from the file if null.}
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public static Save getSave(){
     if(save==null){setSave(Save.getSave());}
@@ -44,8 +44,8 @@ public class sauvegarderUnePartie {
    *{@summary Save a Partie }<br>
    *It use the java tools to save in byte code a Serializable Object.
    *@param p The Partie to save
-   *@param fileName The name of the output File (It will be place in REP/fileName.save)
-   *@version 2.13
+   *@param fn The name of the output File (It will be place in REP/fileName.save)
+   *@lastEditedVersion 2.13
    */
   public static void sauvegarder(Partie p, String fn){
     if(p==null){
@@ -81,7 +81,7 @@ public class sauvegarderUnePartie {
    *{@summary Load a Partie }<br>
    *It use the java tools to load in byte code a Serializable Object.
    *@param fn The name of the input File (File will be REP/fileName.save)
-   *@version 2.13
+   *@lastEditedVersion 2.13
    */
   public static Partie charger(String fn){
     long time = System.currentTimeMillis();
@@ -109,7 +109,7 @@ public class sauvegarderUnePartie {
   /**
   *{@summary Delete a save.}
   *@param fn The name of the file to delete
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static boolean supprimer(String fn){
     fileName=fn;
@@ -120,7 +120,7 @@ public class sauvegarderUnePartie {
   /**
   *{@summary make a list with all save in a [] and return it.}<br>
   *return An array of every file aviable in REPSAVE sort in non-ascending order.<br>
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   public static String [] listSave(){
     File[] files = new File(REP).listFiles();

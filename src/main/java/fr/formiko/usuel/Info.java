@@ -9,7 +9,7 @@ import fr.formiko.usuel.types.str;
 *Example:<br>
 *<code>new Info().setType(2).setClassDepth(3).setContent("wrong name").setFix("set to \" \"")</code><br>
 *@author Hydrolien
-*@version 2.17
+*@lastEditedVersion 2.17
 */
 public class Info {
   enum InfoType {INFO, WARNING, ERROR;}
@@ -21,7 +21,7 @@ public class Info {
   /**
   *{@summary Main contructor.}<br>
   *All variables should be set with setter or will stay at default value.
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public Info(){
     classDepth=1;
@@ -29,7 +29,7 @@ public class Info {
   /**
   *{@summary Secondary contructor.}<br>
   *@param content content of the Info
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public Info(String content){
     super();
@@ -38,7 +38,7 @@ public class Info {
   /**
   *{@summary Set type from an int.}<br>
   *0=info, 1=warning, 2=error.
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public Info setType(int i){
     switch(i){
@@ -65,7 +65,7 @@ public class Info {
   *{@summary Main function that print this.}<br>
   *Print will be colored &#38; look like this:<br>
   *[INFO] $content. Fixed by : $fix
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public void print(){
     if(erreur.getMuet()){return;}

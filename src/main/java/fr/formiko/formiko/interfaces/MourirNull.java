@@ -10,7 +10,7 @@ import java.io.Serializable;
  * It print an error for all the methode of implemented class.<br>
  * It allow to avoid error of null implementation.<br>
  * @author Hydrolien
- * @version 1.1
+ * @lastEditedVersion 1.1
  */
 public class MourirNull implements Serializable, Mourir {
   /**

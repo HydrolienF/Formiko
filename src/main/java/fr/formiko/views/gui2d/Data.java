@@ -26,7 +26,7 @@ import java.util.HashMap;
 /**
 *{@summary Contain all data (images) that will be used by the graphic interface.}
 *@author Hydrolien
-*@version 1.18
+*@lastEditedVersion 1.18
 */
 public class Data {
   private int tailleDUneCase; // entre 10 et 500.
@@ -95,7 +95,7 @@ public class Data {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *Main constructor.
-  *@version 1.18
+  *@lastEditedVersion 1.18
   */
   public void Data(){
     initialisationFX=false;
@@ -138,7 +138,7 @@ public class Data {
   public Color getButonBorderColor() {return butonBorderColor;}
   /**
   *{@summary Return color used by the buttons.}
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public Color getButtonColor(int colorId){
     if(tButtonColor==null){
@@ -153,7 +153,7 @@ public class Data {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize color used by the buttons.}
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void iniTButtonColor(){
     lenTButtonColor=8;
@@ -170,7 +170,7 @@ public class Data {
   /**
   *{@summary Return the Image that fit to a Creature.}
   *@param c the Creature to represent.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public BufferedImage getCreatureImage(Creature c){
     if(imageTree==null){
@@ -182,7 +182,7 @@ public class Data {
   /**
   *{@summary Return an IconImage.}
   *@param name the name of the icon, the name of the file without ".png"
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public BufferedImage getIconImage(String name){
     if(iconMap==null){return null;}
@@ -198,7 +198,7 @@ public class Data {
   *<li>Color of the thorax
   *<li>Wings
   *</ul>
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public BufferedImage [] getAntImage(Fourmi f){
     int idEspece = f.getEspece().getId();
@@ -311,7 +311,7 @@ public class Data {
     *{@summary Load image in map resolution.}<br>
     *If the original image have'nt been load, it will call chargerImagesIni.<br>
     *The images defined here have the rigth dimention for being used on the map.<br>
-    *@version 2.6
+    *@lastEditedVersion 2.6
     */
     public void chargerImages(){
       debug.débogage("chargement des images a la bonne taille.");
@@ -338,7 +338,7 @@ public class Data {
     /**
     *{@summary Load image in full resolution.}<br>
     *Image need to be load in full resolution 1 time only. If it have alredy be done the function will do nothing.
-    *@version 1.33
+    *@lastEditedVersion 1.33
     */
     public void chargerImagesIni(){
       if(!imageIni){
@@ -376,7 +376,7 @@ public class Data {
     *{@summary Load the FPanelNouvellePartie images if they aren't load yet.}
     * If size is different, image will be reload with the greate size.
     *@param buttonSize size of the 2 image to load.
-    *@version 2.15
+    *@lastEditedVersion 2.15
     */
     public void loadPnpImage(int buttonSize){
       if(loopArrow==null || loopArrow.getWidth()!=buttonSize){
@@ -387,7 +387,7 @@ public class Data {
     /***
     *{@summary Load antColorIni.}
     *antColorIni will be set to max in alpha if it need.
-    *@version 2.2
+    *@lastEditedVersion 2.2
     */
     // private void iniAntColorIni(){
     //   antColorIni = image.getImages("FCol",image.getNbrImages("FCol"),(byte)0);
@@ -403,7 +403,7 @@ public class Data {
     // }
     /**
     *Load Case image
-    *@version 1.18
+    *@lastEditedVersion 1.18
     */
     public void chargerTI(){
       tICarteIni = new BufferedImage [3];
@@ -417,7 +417,7 @@ public class Data {
     *{@summary Load a group of BufferedImage that starts with a similar name.}<br>
     *see image.getImagess() for more informations.
     @param name Name of de group. Every image will start by this name.
-    *@version 1.18
+    *@lastEditedVersion 1.18
     */
     public BufferedImage [][] chargerTX(String name, int x, byte y, int début){
       return image.getImagess(name,x,(byte)début);
@@ -428,7 +428,7 @@ public class Data {
 
     /**
     *Create a background image from tI1 and tI2 images.
-    *@version 1.42
+    *@lastEditedVersion 1.42
     */
     public void iniBackgroundMapImage(){
       if(!Main.getView().getActionGameOn()){return;}
@@ -480,7 +480,7 @@ public class Data {
     }
     /**
     *Create a cloud image from loading image.
-    *@version 1.42
+    *@lastEditedVersion 1.42
     */
     private void iniCloudMapImage(){
       if(!Main.getView().getActionGameOn()){return;}
@@ -515,7 +515,7 @@ public class Data {
     //getScaledInstance.
     /**
     *Return a scaled BufferedImage
-    *@version 2.1
+    *@lastEditedVersion 2.1
     */
     public BufferedImage getScaledInstance(BufferedImage bi, int dim, int b){
       BufferedImage r = null;
@@ -535,7 +535,7 @@ public class Data {
     }public BufferedImage getScaledInstance(BufferedImage bi, int dim){return getScaledInstance(bi,dim,0);}
     /**
     *Return a scaled BufferedImage []
-    *@version 1.18
+    *@lastEditedVersion 1.18
     */
     public BufferedImage [] getScaledInstance(BufferedImage ti[], int dim, int b){
       int lenr = 0;
@@ -561,7 +561,7 @@ public class Data {
     }public BufferedImage [] getScaledInstance(BufferedImage ti[],int dim){return getScaledInstance(ti,dim,0);}
     /**
     *Return a scaled BufferedImage [][]
-    *@version 1.18
+    *@lastEditedVersion 1.18
     */
     public BufferedImage [][] getScaledInstance(BufferedImage ti[][],int dim, int b){
       int lenr = ti.length;
@@ -576,7 +576,7 @@ public class Data {
   //FPanelAction
   /**
   *Load graphics for FPanelAction
-  *@version 1.18
+  *@lastEditedVersion 1.18
   */
   public synchronized void chargerTIFPanelAction(){
     if (tImage==null){
@@ -591,7 +591,7 @@ public class Data {
   }
   /**
   *Load backgroundPAI
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private void loadBackgroundPAI(){
     backgroundPAI = image.getImage("backgroundPAI");
@@ -599,7 +599,7 @@ public class Data {
   }
   /**
   *Load backgroundPAS
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private void loadBackgroundPAS(){
     backgroundPAS = image.getImage("backgroundPAS");
@@ -607,7 +607,7 @@ public class Data {
   }
   /**
   *Load images for FPanelAction without background
-  *@version 2.12
+  *@lastEditedVersion 2.12
   */
   private void chargerTImage(){
     int tailleBouton = FPanel.getView().getPa().getbuttonSize();
@@ -619,7 +619,7 @@ public class Data {
   }
   /**
   *Load images for FPanelAction with background
-  *@version 1.18
+  *@lastEditedVersion 1.18
   */
   private void chargerTImageAvecFond(Pixel pi){
     int tailleBouton = FPanel.getView().getPa().getbuttonSize();
@@ -636,7 +636,7 @@ public class Data {
   //FPanelZoom
   /**
   *Load images for FPanelZoom
-  *@version 1.18
+  *@lastEditedVersion 1.18
   */
   public Image [] chargerTIBZoom(){
     tIBZoom = new Image[9];
@@ -658,7 +658,7 @@ public class Data {
   }
   /**
   *{@summary Turn the arrow for FPanelZoom.}<br>
-  *@version 1.18
+  *@lastEditedVersion 1.18
   */
   public void tournerLesFleches(String nom){
     initialisationFX=true;
@@ -676,7 +676,7 @@ public class Data {
 
   /**
   *{@summary Load a loading image for FPanelChargement.}<br>
-  *@version 1.32
+  *@lastEditedVersion 1.32
   */
   public boolean loadImageChargement(){
     String mapName = Main.getMap().getMapName();

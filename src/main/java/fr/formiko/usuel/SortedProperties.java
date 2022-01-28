@@ -9,27 +9,27 @@ import java.util.*;
 /**
 *{@summary An extends class from Properties that is used to save Options in Formiko.}<br>
 *Cf: https://stackoverflow.com/questions/10275862/how-to-sort-properties-in-java <br>
-*@version 1.34
+*@lastEditedVersion 1.34
 *@author Stéphane Millien
 */
 public class SortedProperties extends Properties {
   /**
   *{@summary A simple extends for constructor with a default properties a args.}
-  *@version 1.34
+  *@lastEditedVersion 1.34
   */
   public SortedProperties(Properties p){
     super(p);
   }
   /**
   *{@summary A simple extends for constructor with a default number of properties as args.}
-  *@version 1.34
+  *@lastEditedVersion 1.34
   */
   public SortedProperties(int x){
     super(x);
   }
   /**
   *{@summary Set a sortable Set.}
-  *@version 1.34
+  *@lastEditedVersion 1.34
   */
   @Override
   public Set<Object> keySet() {
@@ -37,7 +37,7 @@ public class SortedProperties extends Properties {
   }
   /**
   *{@summary Function to force sorting.}
-  *@version 1.34
+  *@lastEditedVersion 1.34
   */
   @Override
   public Set<Map.Entry<Object, Object>> entrySet() {
@@ -55,7 +55,7 @@ public class SortedProperties extends Properties {
   }
   /**
   *{@summary to get the sorted keySet.}
-  *@version 1.34
+  *@lastEditedVersion 1.34
   */
   @Override
   public synchronized Enumeration<Object> keys() {

@@ -21,7 +21,7 @@ import fr.formiko.usuel.types.str;
  * {@summary Ant implementation.}<br>
  * Allow an ant to do a trophallaxis<br>
  * @author Hydrolien
- * @version 1.1
+ * @lastEditedVersion 1.1
  */
 public class TrophallaxieFourmi implements Serializable, Trophallaxie {
   /**
@@ -31,7 +31,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
    *@param c The trophallaxing Creature.
    *@param c2 The target of the trophallaxie.
    *@param foodDonnée The amount of food transferred.
-   *@version 1.3
+   *@lastEditedVersion 1.3
    */
   public void trophallaxie(Creature c, Creature c2, int foodDonnée){
     if (c==null || c2 == null){ erreur.alerte("Une des créatures impliqués dans la Trophalaxie n'as pas pue être trouvé");return;}
@@ -62,7 +62,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
   /**
    *{@summary do a trophallaxis to an id}<br>
    *@param id The target Creature to fined on the Case.
-   *@version 1.3
+   *@lastEditedVersion 1.3
    */
   public void trophallaxie(Creature c, int id, int foodDonnée){
     debug.débogage("Recherche de la créature "+id+" sur la case "+c.getCCase().getContent().toString());
@@ -74,7 +74,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
    *2a ask the amount of food transferred by the player.<br>
    *3a do the trophallaxis.<br>
    *@param c The creature who whant to give food.
-   *@version 1.3
+   *@lastEditedVersion 1.3
    */
   public void trophallaxer(Creature c){
     if(!(c instanceof Fourmi)){erreur.alerte("Impossible de trophallaxer depuis une créature qui n'est pas une Fourmi");return;}
@@ -119,7 +119,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
    *{@summary find hungry ant.}<br>
    *@param t The id list of the ant.
    *@param net The creature who whant to give food.
-   *@version 1.7
+   *@lastEditedVersion 1.7
    */
   public int [] getCreatureQuiOnFaim(int t[],Creature net){
     if(!(net instanceof Fourmi)){erreur.alerte("Impossible de trophallaxer depuis une créature qui n'est pas une Fourmi");return new int[0];}

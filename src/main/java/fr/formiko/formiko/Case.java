@@ -12,7 +12,7 @@ import fr.formiko.usuel.maths.math;
 import java.io.Serializable;
 /**
 *{@summary Square objects use to represent the map.}<br>
-*@version 1.39
+*@lastEditedVersion 1.39
 *@author Hydrolien
 */
 public class Case implements Serializable{
@@ -63,7 +63,7 @@ public class Case implements Serializable{
   *{@summary Update to x foodInsecte.}
   * It also update GBlade if needed.
   *@param x new foodInsecte
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   public void setFoodInsecte(byte x){
     if(x>foodInsecte){
@@ -77,7 +77,7 @@ public class Case implements Serializable{
   *{@summary Add x foodInsecte.}
   * It also update GBlade if needed.
   *@param x foodInsecte to add
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   public void addFoodInsecte(byte x){
     if(x<1){
@@ -99,7 +99,7 @@ public class Case implements Serializable{
   *{@summary remove x foodInsecte.}
   * It also update GBlade if needed.
   *@param x foodInsecte to remove
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   public void removeFoodInsecte(byte x){
     if(x<1){
@@ -130,7 +130,7 @@ public class Case implements Serializable{
   /**
   *{@summary Update type &#38; GBlade depending of type.}
   *@param type the type to set
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   public void setType(byte type){
     this.type = type;
@@ -207,7 +207,7 @@ public class Case implements Serializable{
   *{@summary Standard equals function.}
   *Null &#38; other class type proof.
   *@param o o is the Object to test. It can be null or something else than this class.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   @Override
   public boolean equals(Object o){
@@ -227,7 +227,7 @@ public class Case implements Serializable{
   /**
   *{@summary Update foodInsecte.}
   * It also update GBlade if needed.
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   public void updateFoodInsecte(){
     int toAdd = getFoodInsecteParTour();

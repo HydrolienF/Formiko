@@ -20,13 +20,13 @@ import javax.swing.SwingConstants;
 *{@summary Personalized text pane.}<br>
 *It use Formiko color &#38; font. It is uneditable.
 *@author Hydrolien
-*@version 2.6
+*@lastEditedVersion 2.6
 */
 public class FTextPane extends JTextPane {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public FTextPane(){
     super();
@@ -41,7 +41,7 @@ public class FTextPane extends JTextPane {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Paint function with a debug tool.}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void paintComponent(Graphics gTemp){
     super.paintComponent(gTemp);

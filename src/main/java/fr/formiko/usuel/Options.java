@@ -20,7 +20,7 @@ import java.util.Properties;
 *{@summary Options class.}<br>
 *It contain all globals options and can save it.<br>
 *@author Hydrolien
-*@version 2.10
+*@lastEditedVersion 2.10
 */
 public class Options implements Serializable{
   //game options
@@ -98,7 +98,7 @@ public class Options implements Serializable{
   public Options(){}
   /**
   *{@summary Builder with only default properties.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public static Options newDefaultOptions(){
     Options op = new Options();
@@ -110,7 +110,7 @@ public class Options implements Serializable{
   // GET SET -------------------------------------------------------------------
   public byte getLanguage(){return game_language;}
   /**
-  *{@summary Set language of Options & Locale.}
+  *{@summary Set language of Options &#38; Locale.}
   */
   public void setLanguage(byte x){
     game_language=x;
@@ -163,7 +163,7 @@ public class Options implements Serializable{
   /**
   *{@summary Return a font that can display given String.}
   *@param s String to test displayability.
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public Font getFontTitle(String s){
     if(getFont2()==null){return getFont1();}
@@ -205,7 +205,7 @@ public class Options implements Serializable{
   public void setError(boolean b){debug_error=b;}
   public boolean getWarning(){return debug_alerte;}
   public void setWaring(boolean b){debug_alerte=b;}
-  
+
   public boolean getPerformance(){return debug_performance;}
   public void setPerformance(boolean b){debug_performance=b;}
   public boolean getAffG(){return debug_gui;}
@@ -253,7 +253,7 @@ public class Options implements Serializable{
   /**
   *{@summary Initialize Options.}<br>
   *It load properties from Option.md, transform it to all the Option value &#38; delete properties.
-  *@version 1.34
+  *@lastEditedVersion 1.34
   */
   public void iniOptions(){
     iniProperties();
@@ -264,7 +264,7 @@ public class Options implements Serializable{
   *{@summary Save Options.}<br>
   *It load properties from data of Options.java, transform it to properties &#38; then destory properties.
   *@param threaded true if we can do the save in an other tread
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public void saveOptions(boolean threaded){
     if(threaded){
@@ -278,7 +278,7 @@ public class Options implements Serializable{
   public void saveOptions(){saveOptions(true);}
   /**
   *{@summary Save Options.}<br>
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   private void saveOp(){
     optionToProperties(); // transform Options into properties.
@@ -289,7 +289,7 @@ public class Options implements Serializable{
   //private functions ----------------------------------------------------------
   /**
   *{@summary Initialize properties of the Options.}<br>
-  *@version 1.34
+  *@lastEditedVersion 1.34
   */
   private void iniProperties(){
     properties = new SortedProperties(getDefaultProperties());
@@ -303,7 +303,7 @@ public class Options implements Serializable{
   }
   /**
   *{@summary Save properties of the Options.}<br>
-  *@version 1.34
+  *@lastEditedVersion 1.34
   */
   private void saveProperties(){
     try {
@@ -315,7 +315,7 @@ public class Options implements Serializable{
   }
   /**
   *{@summary Save default properties.}<br>
-  *@version 1.34
+  *@lastEditedVersion 1.34
   */
   private void saveDeflautProperties(){
     Properties properties = getDefaultProperties();
@@ -330,7 +330,7 @@ public class Options implements Serializable{
   *{@summary get defaultProperties of the Options.}<br>
   *It can be used to save default Options or to repair Options.md file if something is mising.<br>
   *Value for version, language, fontSize &#38; butonSize depend of the user computer.<br>
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   private SortedProperties getDefaultProperties(){
     SortedProperties defaultProperties = new SortedProperties(34);
@@ -415,7 +415,7 @@ public class Options implements Serializable{
   }
   /**
   *{@summary tranform a byte into a button size.}<br>
-  *@version 1.20
+  *@lastEditedVersion 1.20
   */
   private int tailleBouton(byte x){
     if(x>2 && x%20==0){return x;}
@@ -429,7 +429,7 @@ public class Options implements Serializable{
   }
   /**
   *{@summary tranform properties into Options var.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   private void propertiesToOptions(){
     try {
@@ -503,7 +503,7 @@ public class Options implements Serializable{
   }
   /**
   *{@summary update the 2 font.}<br>
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   public void updateFont(){
     if(gui_global_fontText.equals("Default")){
@@ -525,7 +525,7 @@ public class Options implements Serializable{
   }
   /**
   *{@summary tranform properties into Options var.}<br>
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   private void optionToProperties(){
     properties = new SortedProperties(getDefaultProperties());

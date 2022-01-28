@@ -5,7 +5,7 @@ package fr.formiko.usuel;
 *{@summary Do OS search.}<br>
 *id (var that represent OS) can be used to do special actions like graphics action that are need to work on a specific OS as Windows that do weard thing with java Panel.<br>
 *@author Hydrolien
-*@version 0.91
+*@lastEditedVersion 0.91
 */
 public class Os {
   /***

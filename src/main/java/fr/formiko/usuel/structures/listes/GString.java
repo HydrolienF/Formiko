@@ -11,14 +11,14 @@ import java.io.Serializable;
 /**
 *{@summary Custom String Linked Liste class.}<br>
 *It have a lot of useful function that use fore() loop.<br>
-*@version 1.41
+*@lastEditedVersion 1.41
 *@author Hydrolien
 */
 public class GString extends Liste<String> implements Serializable {
   // CONSTRUCTORS ----------------------------------------------------------------
   /**
   *{@summary Constructor from an array.}<br>
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public GString(String t[]){
     for (String s : t ) {
@@ -34,7 +34,7 @@ public class GString extends Liste<String> implements Serializable {
   /**
   *{@summary Return a FComboBox with all the String in it.}<br>
   *@param x the default select item.
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public FComboBox<String> getComboBox(int x){
     FComboBox<String> cb = new FComboBox<String>();
@@ -53,14 +53,14 @@ public class GString extends Liste<String> implements Serializable {
   /***
   *{@summary Return a FComboBox with all the String in it.}<br>
   *1a item is selected.
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public FComboBox<String> getComboBox(){ return getComboBox(0);}
   /**
   *{@summary Return the translation key for s.}<br>
   *If it fail it return null.<br>
   *@param s the string give by the key.
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public String getKey(String s){
     for (String key : this ) {
@@ -73,7 +73,7 @@ public class GString extends Liste<String> implements Serializable {
   *@param s the String to split.
   *@param maxLen the max length for a line.
   *@param doNotCutWord if true word will not be cut. (If a word is too long for being in 1 line it will be cut.)
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public void addParMorceaux(String s, int maxLen, boolean doNotCutWord){
     int k=0; int lens = s.length();
@@ -102,13 +102,13 @@ public class GString extends Liste<String> implements Serializable {
   *{@summary Add item peace by peace.}<br>
   *@param s the String to split.
   *@param maxLen the max length for a line.
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public void addParMorceaux(String s, int maxLen){addParMorceaux(s,maxLen,false);}
   /**
   *{@summary Print this.}<br>
   *If is empty it will print a special mail.
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public void afficheToi(){
     if(getHead()==null){
@@ -124,7 +124,7 @@ public class GString extends Liste<String> implements Serializable {
   // }
   /**
   *{@summary Do a transformation for score.}<br>
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public GString transformerScore(){
     if (getHead()==null){ return null;}
@@ -165,7 +165,7 @@ public class GString extends Liste<String> implements Serializable {
   }
   /**
   *{@summary Count different line between this &#38; gs2.}<br>
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public int compterlineDifferenteDe(GString gs2){
     int cpt=0;
@@ -176,7 +176,7 @@ public class GString extends Liste<String> implements Serializable {
   }
   /**
   *{@summary Remove different line between this &#38; gs2.}<br>
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public void supprimerLesLignesCommunesAvec(GString gs2){
     for (String line : this ) {
@@ -198,7 +198,7 @@ public class GString extends Liste<String> implements Serializable {
   }*/
   /**
   *{@summary count how much fonction and class (short or long) a GString have.}
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public GInt compterFct(){
     if (getHead()==null){ GInt gi = new GInt(); gi.add(0);gi.add(0); return gi;}
@@ -218,7 +218,7 @@ public class GString extends Liste<String> implements Serializable {
   }
   /**
   *{@summary count how much javadoc commentary a GString have.}
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public int compterComJavadoc(){
     int c=0;
@@ -231,7 +231,7 @@ public class GString extends Liste<String> implements Serializable {
   }
   /**
   *{@summary count how much javadoc commentary and fonction and class (short or long) a GString have.}
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   public GInt compterFctEtComJavadoc(){
     GInt gi = compterFct();
@@ -240,7 +240,7 @@ public class GString extends Liste<String> implements Serializable {
   }
   /**
   *{@summary count how much class and long fonction (public, ø, protected, private) a GString have.}
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public GInt compterFctEnDetail(){
     if (getHead()==null){ GInt gi = new GInt(); gi.add(0);gi.add(0);gi.add(0);gi.add(0);gi.add(0); return gi;}
@@ -268,7 +268,7 @@ public class GString extends Liste<String> implements Serializable {
   /**
   *{@summary Return true if is a java commentary line.}<br>
   *Line can have a comment at the end of the line &#38; be concidered as a non-comment line if comment start after char 20 &#38; midle of the line.<br>
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   private boolean estCom(String line){
     if(str.contient(line.substring(0,math.min(line.length()/2,20)),"/*")){return true;}

@@ -11,7 +11,7 @@ import fr.formiko.usuel.types.str;
 /**
 *{@summary To load a map as a GCase from a .csv file.}
 *@author Hydrolien
-*@version 1.46
+*@lastEditedVersion 1.46
 */
 public class chargerCarte {
   // FUNCTIONS -----------------------------------------------------------------
@@ -20,7 +20,7 @@ public class chargerCarte {
   *Only type of case are saved.
   *They are saved as int split by ",".
   *Lines are split by "\n".
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public static GCase chargerCarte(String fichier){
     String s [] = null;
@@ -44,7 +44,7 @@ public class chargerCarte {
   }
   /**
   *{@summary return the number of lines in a Sring [] from a .csv file.}
-  *@version 1.32
+  *@lastEditedVersion 1.32
   */
   private static int nbLineNonEmpty(String s[]){
     int xr=0;
@@ -54,7 +54,7 @@ public class chargerCarte {
   }
   /**
   *{@summary return the number of items per line in a String [] from a .csv file.}
-  *@version 1.32
+  *@lastEditedVersion 1.32
   */
   private static int nbItemPerLine(String s){
     // c'est le nombre de ',' +1.

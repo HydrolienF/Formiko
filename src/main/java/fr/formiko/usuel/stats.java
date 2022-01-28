@@ -13,7 +13,7 @@ import fr.formiko.usuel.Chrono;
 /**
 *{@summary A tool class about statistic.}<br>
 *@author Hydrolien
-*@version 1.13
+*@lastEditedVersion 1.13
 */
 public class stats {
   public static int sommeDesComG;
@@ -27,7 +27,7 @@ public class stats {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *Write the stats of javadoc comments in stats.txt.
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   public static void statsJavadoc(String chemin, boolean raccourcir){
     Chrono.debutCh();
@@ -86,7 +86,7 @@ public class stats {
   public static String toStatJd(CCInt cci){return toStatJd(cci.getContent());}
   /**
   *{@summary calculate the %age of commented fonction in a file.}
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   public static String toStatJd(GInt gi, boolean addToGlobal){
     int sommeDesCom = gi.getCase(2);
@@ -108,7 +108,7 @@ public class stats {
   }public static String toStatJd(GInt gi){return toStatJd(gi,true);}
   /**
   *{@summary calculate the %age of tested fonction in a file.}
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   //TODO adapter au test (les tests sont dans un autre fichier).
   public static String toStatTst(GInt gi){
@@ -124,7 +124,7 @@ public class stats {
   }
   /**
   *{@summary calculate the number of class, public, ø, protected, private longue fonction.}
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   public static String toStatInfo(GInt gi,GInt gi2, boolean addToGlobal){
     int sommeDesClass = gi.getCase(0);
@@ -154,7 +154,7 @@ public class stats {
   }public static String toStatInfo(GInt gi, GInt gi2){return toStatInfo(gi,gi2,true);}
   /**
   *Count the number of ligne in a file an add it to the statistic info.
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   public static String numberOfLines(CInt ci){
     sommeNbrDeLigneG+=ci.getContent();

@@ -113,7 +113,7 @@ public class CGraine implements Serializable{
   }
   /**
   *{@summary Transform a GGraine in Liste&lt;Graine&gt;.}
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   public Liste<Graine> toList(){
     CGraine cc = this;

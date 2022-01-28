@@ -25,7 +25,7 @@ import javax.imageio.ImageIO;
 /**
  *{@summary image class that contain a lot of tools to use images. }<br>
  *@author Hydrolien
- *@version 1.4
+ *@lastEditedVersion 1.4
  */
 public class image{
 
@@ -34,13 +34,13 @@ public class image{
   *{@summary The Images directory for extra texture.}<br>
   *You can add new image that will be used as the game texture (as chargement(Max+1)).
   *Or You can replace some images by puting an image with the same name than an actual image in getREP() or REP_TEMPORARY.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public static String getREPTEXTUREPACK(){return Main.getFolder().getFolderResourcesPacks()+Main.getFolder().getFolderImages();}
   public static void setREPTEXTUREPACK(String s){Main.getFolder().setFolderResourcesPacks(s);}
   /***
    *{@summary The Images directory.}<br>
-   *@version 1.33
+   *@lastEditedVersion 1.33
    */
   public static String getREP(){ return Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages();}
   public static String getREPTEMPORARY(){ return Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(); }
@@ -50,7 +50,7 @@ public class image{
    *Image are File who end with ".png" or ".jpg".<br>
    *@param f File that sould contain the Image.
    *@return Image on the file or null if something went wrong.
-   *@version 1.3
+   *@lastEditedVersion 1.3
    */
   public static BufferedImage readImage(File f){
     if(!isImage(f)){erreur.erreur("L'Image sencé être dans le fichier suivant n'as pas été reconnue en temps qu'image. "+f.toString());return null;}
@@ -69,7 +69,7 @@ public class image{
    *.png or .jpg do not need to be precised on the name.<br>
    *@param nom Name of the file without getREP() part.
    *@param returnImageNull If true it will return an error image insted of null.
-   *@version 1.32
+   *@lastEditedVersion 1.32
    */
   public static BufferedImage getImage(String nom, boolean returnImageNull){
     BufferedImage imgr = null;
@@ -86,7 +86,7 @@ public class image{
    *.png or .jpg do not need to be precised on the name.<br>
    *@param nom Name of the file without getREP() part.
    *@param repTemp directory were to search.
-   *@version 1.3
+   *@lastEditedVersion 1.3
    */
   public static BufferedImage getImage(String nom, String repTemp){
     BufferedImage imgr = null;
@@ -118,7 +118,7 @@ public class image{
    *@param nbr Number of image that we want.
    *@param lettre A letter that can be after the number on rotated image file. ' ' or 'ø' if there is no letter after the number.
    *@param k Needed only if k!=0. k is the 1a number of the numbering.
-   *@version 1.3
+   *@lastEditedVersion 1.3
    */
   public static BufferedImage [] getImages(String nom, char lettre, int nbr, byte k){
     debug.débogage("getImagess "+nom+" from "+k+" to "+(nbr+k));
@@ -137,7 +137,7 @@ public class image{
    *Image are File who end with ".png" or ".jpg"
    *@param nom Name of the file without getREP() part and number and .png or .jpg part of it.
    *@param x Needed only if x!=0. x is the 1a number of the numbering.
-   *@version 1.3
+   *@lastEditedVersion 1.3
    */
   public static int getNbrImages(String nom, byte x){
     int t [] = new int [5];
@@ -154,7 +154,7 @@ public class image{
    *@param nom Name of the file without repStable part and number and .png or .jpg part of it.
    *@param repStable Directory name.
    *@param x Needed only if x!=0. x is the 1a number of the numbering.
-   *@version 1.3
+   *@lastEditedVersion 1.3
    */
   public static int getNbrImages(String nom, String repStable, byte x){
     int nbr = x;
@@ -177,7 +177,7 @@ public class image{
    *@param nom Name of the file without getREP() part and number and .png or .jpg part of it.
    *@param nbr Number of image that we want.
    *@param x Needed only if x!=0. x is the 1a number of the numbering.
-   *@version 1.3
+   *@lastEditedVersion 1.3
    */
   public static BufferedImage[][] getImagess(String nom, int nbr, byte x){
     BufferedImage tr [][]= new BufferedImage[4][];
@@ -199,7 +199,7 @@ public class image{
    *@param width the width to which to scale the image.
    *@param heigth the height to which to scale the image.
    *@param hints flags to indicate the type of algorithm to use for image resampling.
-   *@version 1.3
+   *@lastEditedVersion 1.3
    */
   public static BufferedImage [] getScaledInstance(BufferedImage img [],int width, int heigth, int hints){
     int len = img.length;
@@ -210,7 +210,7 @@ public class image{
   }
   /**
    *{@summary delete every file in REP_TEMPORARY.}<br>
-   *@version 1.3
+   *@lastEditedVersion 1.3
    */
   public static void clearTemporaire(){
     File folder = new File(getREPTEMPORARY());
@@ -225,7 +225,7 @@ public class image{
   }
   /**
    *{@summary delete every FSomething file in REP_TEMPORARY.}<br>
-   *@version 1.3
+   *@lastEditedVersion 1.3
    */
   public static void clearPartielTemporaire(){
     //TODO #248 remove all this function that isn't need anymore.
@@ -247,7 +247,7 @@ public class image{
   *{@summary Return size of a Creature image.}<br>
   *@param c Creature that we need size
   *@param taille taille used if it was 0% realistic
-  *@version 1.3
+  *@lastEditedVersion 1.3
   */
   // public static int taille(Creature c, int taille){
   //   int a;
@@ -266,7 +266,7 @@ public class image{
   *@param typeF typeF also infulence size of the Ant
   *@param taille taille used if it was 0% realistic
   *return Size with a part of realistic
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   public static int tailleFourmi(int idEspece, int typeF, int taille){
     if(Main.getEspeceParId(idEspece)!=null && Main.getEspeceParId(idEspece).getIndividuByType(typeF)!=null){
@@ -283,7 +283,7 @@ public class image{
   *@param idEspece id of the Species (size depend of Species)<br>
   *@param stade stade also infulence size of the Creature
   *@param taille taille used if it was 0% realistic
-  *@version 1.3
+  *@lastEditedVersion 1.3
   */
   public static int taille(int idEspece, int stade, int taille){
     int a = Main.getEspeceParId(idEspece).getTaille(stade);//standard a is 100
@@ -293,7 +293,7 @@ public class image{
   *{@summary Return size of a Creature image.}<br>
   *@param a size assumed if it was 100% realistic
   *@param taille size used if it was 0% realistic
-  *@version 1.3
+  *@lastEditedVersion 1.3
   */
   public static int taille(int a, int taille){
     double tailleR = Main.getOp().getRealisticSize()/100.0;
@@ -303,7 +303,7 @@ public class image{
   /**
   *{@summary True is file is an Image.}<br>
   *An image end with .png or .jpg
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public static boolean isImage(File f){
     if(f==null){return false;}
@@ -336,7 +336,7 @@ public class image{
   *@param bi The Image to resize.
   *@param newW The new width.
   *@param newH The new height.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public static BufferedImage resize(BufferedImage bi, int newW, int newH) {
     if(bi==null){return null;}
@@ -377,10 +377,10 @@ public class image{
   *{@summary A fonction to rotate &#38; center a BufferedImage.}<br>
   *@param bi The Image to rotate &#38; center
   *@param direction The direction to rotate. Direction are multiplied by 45°
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
-  public static BufferedImage rotateAndCenterImage(BufferedImage bi, int dir){
-    bi = rotateImage(bi,dir);
+  public static BufferedImage rotateAndCenterImage(BufferedImage bi, int direction){
+    bi = rotateImage(bi,direction);
     return trimTransparentBorder(bi);
     // Img img = new Img(bi);
     // img.rognerBordTransparent();
@@ -391,7 +391,7 @@ public class image{
   *{@summary A fonction to trim a BufferedImage.}<br>
   *This function use countTransparentBorders(bufferedImage).<br>
   *@param in The Image to trim
-  *@version 2.15
+  *@lastEditedVersion 2.15
   */
   public static BufferedImage trimTransparentBorder(BufferedImage in){
     int t[] = countTransparentBorders(in);
@@ -402,7 +402,7 @@ public class image{
   *{@summary A fonction to count transparent borders of a BufferedImage.}<br>
   *A border is transparent if alpha=0 on all the pixel line.
   *@param in The Image to count transparent borders
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   public static int [] countTransparentBorders(BufferedImage in){
     int t[]={0,0,0,0};
@@ -423,7 +423,7 @@ public class image{
   *@param lenJ width or heigth depending of revers
   *@param revers True: revers width &#38; height
   *@param fromTheEnd True: start from the end of the image (width or heigth)
-  *@version 2.15
+  *@lastEditedVersion 2.15
   */
   public static int countTransparentBorder(BufferedImage in, int lenI, int lenJ, boolean revers, boolean fromTheEnd){
     int r=0;
@@ -449,7 +449,7 @@ public class image{
   *{@summary A fonction to rotate a BufferedImage.}<br>
   *@param before The Image to rotate
   *@param direction The direction to rotate. Direction are multiplied by 45°
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public static BufferedImage rotateImage(BufferedImage before, int direction) {
     if(before==null){return null;}
@@ -489,7 +489,7 @@ public class image{
   *@param before The Image to translate.
   *@param xOffset offset in x.
   *@param yOffset offset in y.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public static BufferedImage translateImage(BufferedImage before, int xOffset, int yOffset, int width, int height){
     if(xOffset==0 && yOffset==0){return before;}
@@ -502,7 +502,7 @@ public class image{
   *{@summary A fonction to rotate a BufferedImage.}<br>
   *@param before The Image to rotate.
   *@param direction The direction to rotate. Direction are multiplied by 1°.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public static BufferedImage rotateImage2(BufferedImage before, int direction, int pivotX, int pivotY){
     direction = (direction+360)%360;
@@ -528,7 +528,7 @@ public class image{
   *{@summary A tool to flip a BufferedImage.}<br>
   *@param before The Image to flip.
   *@param vertically True, the image will be flip vertically, false it will be flip horizontally.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public static BufferedImage flipImage(BufferedImage before, boolean vertically){
     AffineTransform tx;
@@ -548,7 +548,7 @@ public class image{
   *{@summary Change the image color depending of ant Pheromone.}<br>
   *@param imgColor the image to change.
   *@param ph the Pheromone to get color from.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public static BufferedImage changeColor(Img imgColor, Pheromone ph){
     int w = imgColor.getWidth();
@@ -561,7 +561,7 @@ public class image{
   }
   /**
   *{@summary Full the color of an array.}<br>
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public static byte [][] fullOf(int x, int y, byte b){
     byte r [][] = new byte[x][y];
@@ -577,7 +577,7 @@ public class image{
   /**
   *{@summary Return a new HashMap&lt;String, BufferedImage&gt;.}<br>
   *@param folder folder that contain all images
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public static HashMap<String, BufferedImage> getImagesAsMap(File folder){
     HashMap<String, BufferedImage> map = new HashMap<String, BufferedImage>();
@@ -593,7 +593,7 @@ public class image{
   /**
   *{@summary Return a new HashMap&lt;String, BufferedImage&gt;.}<br>
   *@param folderName the name of the folder that contain all images
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public static HashMap<String, BufferedImage> getImagesAsMap(String folderName){
     return getImagesAsMap(new File(folderName));
@@ -601,7 +601,7 @@ public class image{
   /**
   *{@summary Rezise a HashMap&lt;String, BufferedImage&gt;.}<br>
   *@param mapIn Map that contains images to rezise
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public static HashMap<String, BufferedImage> getScaledInstanceFromMap(HashMap<String, BufferedImage> mapIn, int size){
     if(mapIn==null){return null;}
@@ -618,7 +618,7 @@ public class image{
   /**
   *{@summary Print a BufferedImage color.}
   *@param bi the bufferedImage to print.
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   public static void printBufferedImageColor(BufferedImage bi){
     for (int i=0; i<bi.getWidth(); i++) {
@@ -637,7 +637,7 @@ public class image{
   *@param y y of the rectangle
   *@param width width of the rectangle
   *@param height height of the rectangle
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   public static void replaceRectColor(BufferedImage bi, Color col, int x, int y, int width, int height){
     int colInt = col.getRGB();
@@ -652,7 +652,7 @@ public class image{
   /**
   *{@summary Replace color by black &#38; white shade.}
   *@param bi the bufferedImage to use
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   public static BufferedImage toBlackAndWhite(BufferedImage bi){
     BufferedImage gray = new BufferedImage(bi.getWidth(), bi.getHeight(), BufferedImage.TYPE_BYTE_GRAY);

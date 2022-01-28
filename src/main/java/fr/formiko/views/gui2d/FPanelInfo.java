@@ -13,7 +13,7 @@ import java.awt.GridBagLayout;
 /**
 *{@summary Panel that containt infos as a List of Panel.}<br>
 *@author Hydrolien
-*@version 2.7
+*@lastEditedVersion 2.7
 */
 public class FPanelInfo extends FPanel {
   protected Liste<FPanel> lp;
@@ -23,7 +23,7 @@ public class FPanelInfo extends FPanel {
 
   /**
   *{@summary Return a new builder for this.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public static FPanelInfoBuilder builder(){
     return new FPanelInfoBuilder();
@@ -34,7 +34,7 @@ public class FPanelInfo extends FPanel {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Standard paintComponent.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   @Override
   public void paintComponent(Graphics g){
@@ -42,7 +42,7 @@ public class FPanelInfo extends FPanel {
   }
   /**
   *{@summary Strandard to string function that also print child.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public String toString(){
     String r = super.toString()+"\n";//+" number of desc "+nbrDeDesc+" ";
@@ -57,7 +57,7 @@ public class FPanelInfo extends FPanel {
   /**
   *{@summary Standard Builder for this.}<br>
   *@author Hydrolien
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   static class FPanelInfoBuilder {
     protected Liste<FPanel> lp;
@@ -67,7 +67,7 @@ public class FPanelInfo extends FPanel {
     /**
     *{@summary Main constructor.}<br>
     $It only initialize List.
-    *@version 2.7
+    *@lastEditedVersion 2.7
     */
     protected FPanelInfoBuilder(){
       lp = new Liste<FPanel>();
@@ -81,7 +81,7 @@ public class FPanelInfo extends FPanel {
     // FUNCTIONS -----------------------------------------------------------------
     /**
     *{@summary Main function that build FPanelInfo &#38; return it.}<br>
-    *@version 2.7
+    *@lastEditedVersion 2.7
     */
     public FPanelInfo build(){
       FPanelInfo pi = new FPanelInfo();

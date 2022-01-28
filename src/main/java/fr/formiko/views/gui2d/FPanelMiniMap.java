@@ -13,14 +13,14 @@ import java.awt.Graphics2D;
 /**
 *{@summary Panel that contain MiniMap.}<br>
 *@author Hydrolien
-*@version 2.5
+*@lastEditedVersion 2.5
 */
 public class FPanelMiniMap extends FPanel {
 
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public FPanelMiniMap() {
     super();

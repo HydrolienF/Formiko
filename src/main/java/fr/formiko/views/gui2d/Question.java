@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 /**
 *{@summary Question class to get GUI answer.}<br>
 *@author Hydrolien
-*@version 2.13
+*@lastEditedVersion 2.13
 */
 public class Question {
   private int choix;
@@ -17,7 +17,7 @@ public class Question {
   *{@summary constructor to get a boolean answer.}
   *@param popUpName name of the popUp
   *@param popUpMessage message of the popUp
-  *@version 2.13
+  *@lastEditedVersion 2.13
   */
   public Question(String popUpName, String popUpMessage){
     String[] options = {g.get("oui"),g.get("non")};

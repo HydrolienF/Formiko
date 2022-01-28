@@ -236,7 +236,7 @@ public class FPanelJeu extends FPanel {
 
   /**
   *{@summary print an alerte box.}
-  *@version 1.49
+  *@lastEditedVersion 1.49
   */
   public void alerte(String s, String s2){
     JOptionPane jop1 = new JOptionPane();
@@ -248,7 +248,7 @@ public class FPanelJeu extends FPanel {
   *@param popUpName name of the popUp
   *@param popUpMessage message of the popUp
   *@return answer.
-  *@version 1.50
+  *@lastEditedVersion 1.50
   */
   public String question(String popUpName, String popUpMessage){
     String r = JOptionPane.showInputDialog (Main.getF(), g.getM(popUpName), popUpMessage, JOptionPane.QUESTION_MESSAGE);
@@ -258,13 +258,13 @@ public class FPanelJeu extends FPanel {
   *{@summary Print a question box.}
   *@param popUpName name of the popUp
   *@return answer.
-  *@version 1.50
+  *@lastEditedVersion 1.50
   */
   public String question(String popUpName){ return question(popUpName,"?");}
 
   /**
   *{@summary Update time from last move in the Thread.}
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void updateTimeFromLastMove(){
     if(th==null){return;}
@@ -273,7 +273,7 @@ public class FPanelJeu extends FPanel {
   /**
   *{@summary Update message.}<br>
   *It will initialize &#38; launch ThreadMessagesDesc if it is null.
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void updateThreadMessagesDesc(String message){
     if(th==null){
@@ -288,7 +288,7 @@ public class FPanelJeu extends FPanel {
   *{@summary Thread used to print a description message at mouse location.}<br>
   *Message is print only after 0.5s if mouse don't move.
   *@author Hydrolien
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   class ThreadMessagesDesc extends Thread {
     private String message;
@@ -299,7 +299,7 @@ public class FPanelJeu extends FPanel {
 
     /**
     *{@summary Main function that update message if needed every 50ms.}<br>
-    *@version 2.7
+    *@lastEditedVersion 2.7
     */
     @Override
     public void run(){

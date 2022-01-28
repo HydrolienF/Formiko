@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 /**
 *{@summary List of Individu.}<br>
-*@version 2.2
+*@lastEditedVersion 2.2
 *@author Hydrolien
 */
 public class GIndividu extends Liste<Individu> implements Serializable{
@@ -27,7 +27,7 @@ public class GIndividu extends Liste<Individu> implements Serializable{
   *{@summary Return the individu corresponding to type.}<br>
   *There is only 1 (or 0) individu for every type.
   *@param type type of the searched Individu.
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public Individu getIndividuByType(byte type){
     for (Individu in : this ) {
@@ -38,7 +38,7 @@ public class GIndividu extends Liste<Individu> implements Serializable{
   /**
   *{@summary Return all the aviable type in this GIndividu.}<br>
   *@return an array of int that contain all avaible type.
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public int [] getAviableType(){
     int lentr = this.length();
@@ -53,7 +53,7 @@ public class GIndividu extends Liste<Individu> implements Serializable{
   /**
   *{@summary Load the individu from a File.}<br>
   *File is .../stable/bin/Individu.csv
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public static void loadIndividus(){
     String td [] = new String [0];
@@ -74,7 +74,7 @@ public class GIndividu extends Liste<Individu> implements Serializable{
   *tDefault is used to fill empty cell.<br>
   *@param csvFileLine a scv file line sorted for Individu constructor.
   *@param tDefault default value for the array.
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   private static Individu createIndividu(String csvFileLine, String [] tDefault){
     debug.débogage("Création d'un nouvel Individu");

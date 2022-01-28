@@ -13,7 +13,7 @@ import java.io.Serializable;
 /**
 *Save all importants informations about game as what's the id of save.
 *@author Hydrolien
-*@version 1.14
+*@lastEditedVersion 1.14
 */
 public class Save implements Serializable {
   private static final long serialVersionUID = 42l;
@@ -26,7 +26,7 @@ public class Save implements Serializable {
   /**
   *{@summary Constructor with a specific file name.}
   *@param fileName the file name
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public Save(String fileName){
     f=new File(fileName);
@@ -39,7 +39,7 @@ public class Save implements Serializable {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary get save informations.}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public static Save getSave() {
     Save r;
@@ -77,7 +77,7 @@ public class Save implements Serializable {
   }
   /**
   *{@summary save idSave as .save in bin/.}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void save() {
     try {

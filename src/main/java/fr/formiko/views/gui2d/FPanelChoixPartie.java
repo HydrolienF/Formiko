@@ -15,7 +15,7 @@ import java.io.File;
 /**
 *{@summary A partie launcher Panel from a save.}<br>
 *@author Hydrolien
-*@version 1.x
+*@lastEditedVersion 1.x
 */
 public class FPanelChoixPartie extends FPanelLanceurPartie {
   private EtiquetteChoix ePartie;

@@ -12,14 +12,14 @@ import java.io.Serializable;
 
 /**
 *{@summary List of Insecte.}<br>
-*@version 2.2
+*@lastEditedVersion 2.2
 *@author Hydrolien
 */
 public class GInsecte extends Liste<Insecte> implements Serializable{
   // CONSTRUCTORS ----------------------------------------------------------------
   /**
   *{@summary Main constructor with 0 Insect.}<br>
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public GInsecte(){
     super();
@@ -27,7 +27,7 @@ public class GInsecte extends Liste<Insecte> implements Serializable{
   /**
   *{@summary Secondary constructor with nbrOfInsect Insect.}<br>
   *@param nbrOfInsect the number of insect to add.
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public GInsecte(int nbrOfInsect){
     this();
@@ -38,7 +38,7 @@ public class GInsecte extends Liste<Insecte> implements Serializable{
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary return the Insecte that can give the most food.}<br>
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public Insecte getInsectePlusDeGivenFood(){
     if(getHead()==null){return null;}
@@ -53,7 +53,7 @@ public class GInsecte extends Liste<Insecte> implements Serializable{
   /**
   *{@summary add nbrOfInsect insect.}<br>
   *@param nbrOfInsect the number of insect to add.
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public void add(int nbrOfInsect){
     for (int i=0; i<nbrOfInsect; i++) {
@@ -63,7 +63,7 @@ public class GInsecte extends Liste<Insecte> implements Serializable{
   /***
   *{@summary add nbrOfInsect death insect.}<br>
   *@param nbrOfInsect the number of insect to add.
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   // public void addM(int nbrOfInsect){
   //   for (int i=0; i<nbrOfInsect; i++) {
@@ -74,7 +74,7 @@ public class GInsecte extends Liste<Insecte> implements Serializable{
   // }
   /**
   *{@summary Play turn of insects.}<br>
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public void tourInsecte(){
     for (Insecte i : this) {
@@ -83,7 +83,7 @@ public class GInsecte extends Liste<Insecte> implements Serializable{
   }
   /**
   *{@summary Play pre-turn of insects.}<br>
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public void preTour(){
     for (Insecte i : this) {
@@ -92,7 +92,7 @@ public class GInsecte extends Liste<Insecte> implements Serializable{
   }
   /**
   *{@summary retrun a new GInsecte with only alive insects.}<br>
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public GInsecte getGiVivant(){
     GInsecte gir = new GInsecte();
@@ -105,7 +105,7 @@ public class GInsecte extends Liste<Insecte> implements Serializable{
   }
   /**
   *{@summary retrun this as a GCreature.}<br>
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public GCreature toGCreature(){
     GCreature gcr = new GCreature();

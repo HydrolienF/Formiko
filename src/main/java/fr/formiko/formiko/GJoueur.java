@@ -54,7 +54,7 @@ public class GJoueur implements Serializable{
   }
   /**
   *{@summary Return a sorted GJoueur by score.}
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public GJoueur getGjSorted(){
     if(getHead()==null){return new GJoueur();}
@@ -110,7 +110,7 @@ public class GJoueur implements Serializable{
   }
   /**
   *{@summary Add a player to the GJoueur.}
-  *@version 1.29
+  *@lastEditedVersion 1.29
   */
   public void add(Joueur j){
     addFin(j);
@@ -174,7 +174,7 @@ public class GJoueur implements Serializable{
   }
   /**
   *{@summary Transform a GJoueur in Liste&lt;Joueur&gt;.}
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public Liste<Joueur> toList(){
     if (début==null){

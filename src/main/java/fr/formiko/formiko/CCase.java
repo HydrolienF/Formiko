@@ -59,7 +59,7 @@ public class CCase implements Serializable{
   *{@summary Standard equals function.}<br>
   *Null &#38; other class type proof.<br>
   *@param o o is the Object to test. It can be null or something else than this class.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   @Override
   public boolean equals(Object o){ // on ne peu pas tt férifié facilement alors on ce contente de vérifié les co X Y du point et le nbr de connection.
@@ -73,7 +73,7 @@ public class CCase implements Serializable{
   *Null proof.<br>
   *@param x The x of the searched CCase.
   *@param y The y of the searched CCase.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public CCase getCCase(int x, int y){
     // Si le x n'est pas encore bon.
@@ -164,7 +164,7 @@ public class CCase implements Serializable{
   }
   /**
   *{@summary return a direction by using this &#38; an other CCase to reach.}
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public int getDirection(CCase to){
     if (to==null){ return 5;}
@@ -174,7 +174,7 @@ public class CCase implements Serializable{
   }
   /**
   *{@summary return a direction by using this &#38; a Case to reach.}
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public int getDirection(Case to){
     if (to==null){ return 5;}
@@ -184,7 +184,7 @@ public class CCase implements Serializable{
   }
   /**
   *{@summary return a direction by using 2 Point.}
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public static int getDirection(Point from, Point to){
     int x = from.getX() - to.getX();
@@ -193,7 +193,7 @@ public class CCase implements Serializable{
   }
   /**
   *{@summary return a direction by using difference in x &#38; in y.}
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   private static int getDirectionFromXY(int x, int y){
     //int xabs = valAbs(x); int yabs = valAbs(y); on pourrait utiliser ces données pour aller parfois juste en x parfois juste en y lorsque le trajet n'est pas conplètement en diagonale. (cad lorsque xabs == yabs)

@@ -10,7 +10,7 @@ import java.io.Serializable;
  * {@summary Ant implementation.}<br>
  * Allow an ant to play a turn<br>
  * @author Hydrolien
- * @version 1.24
+ * @lastEditedVersion 1.24
  */
 public class TourReine extends TourFourmi implements Serializable, Tour{
   /**
@@ -23,7 +23,7 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
   *<li>Then it help any friendly ant in the anthill place.
   *<li>Finaly it lay more egg.
   *</ul>
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   @Override
   public void tour(){
@@ -43,7 +43,7 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
   /**
   *{@summary Wait to be the last ant to play.}<br>
   *The queen whait util all the ant that did'nt have this implementation have played
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public boolean needToWaitToLetNonQueenAntPlay(){
     for (Creature c : f.getFere().getGc().toList() ) {
@@ -53,14 +53,14 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
   }
   /**
   *{@summary Check if this ant have some help from other ant of the same anthill.}<br>
-  *@version 1.32
+  *@lastEditedVersion 1.32
   */
   public boolean haveSomeHelp(){
     return f.getFere().getGc().getNbrOuvriere()!=0;
   }
   /**
   *{@summary Check if this ant need to feed/protect/clean some egg, larva or nympha.}<br>
-  *@version 1.32
+  *@lastEditedVersion 1.32
   */
   public boolean needToTakeCareOfCouvain(){
     return f.getFere().getGc().getCouvain().length()>0;
@@ -68,7 +68,7 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
   /**
   *{@summary Lay egg as a queen ant.}<br>
   *If the queen have no help from al list 1 ally imago ant, it don't lay more than 1 egg.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public void lay(){
     while(f.getAction()>0 && !f.isHungry(30)){ //Maybe we sould set the isHungry limite to a higer value if the anthill is big enough.

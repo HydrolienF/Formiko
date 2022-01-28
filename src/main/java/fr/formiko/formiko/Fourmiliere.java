@@ -79,7 +79,7 @@ public class Fourmiliere implements Serializable{
   *{@summary Move the anthill from a case to an other.}<br>
   *It will not add a Fourmiliere to a case that already have 1 but throw an Exception.
   *It will try to remove from old CCase and add to new CCase.<br>
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public void setCc(CCase newCCase){
     if(newCCase!=null && newCCase.getContent()!=null){
@@ -129,7 +129,7 @@ public class Fourmiliere implements Serializable{
   /**
   *{@summary Return a description of the Fourmiliere.}<br>
   *@param b If true we also return all the descriptions of the ants of the Fourmiliere.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public String toString(boolean b){
     int leng = length();
@@ -141,7 +141,7 @@ public class Fourmiliere implements Serializable{
   }
   /**
   *{@summary Return a description of the Fourmiliere.}<br>
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public String toString(){
     return toString(true);
@@ -151,7 +151,7 @@ public class Fourmiliere implements Serializable{
   *Before that ants play they all have a pre-turn update (gc.preTour()).<br>
   *Ants do not necessarily play in order so we way for haveDoneAllActionAviable() to end turn.<br>
   *At the end of the Fourmiliere turn we add a line to there stats (How many ant are alive and what stade).
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public void jouer(){
     if(gc.length()==0){return;}
@@ -176,7 +176,7 @@ public class Fourmiliere implements Serializable{
   public void déposer(Graine g){gg.add(g); }
   /**
   *{@summary Save stats/score in the GGInt.}<br>
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public String enregistrerLesScores(){
     return ggi.toString();

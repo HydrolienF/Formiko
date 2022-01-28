@@ -33,7 +33,7 @@ public class FPanelGEtiquetteJoueur extends FPanel {
   }
   /**
   *{@summary Add all colorChooser to every open EtiquetteJoueur.}
-  *@version 2.15
+  *@lastEditedVersion 2.15
   */
   public void addColorChooser(){
     for (EtiquetteJoueur ej : gej ) {

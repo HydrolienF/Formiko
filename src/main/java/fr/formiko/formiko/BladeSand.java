@@ -6,7 +6,7 @@ import java.awt.Color;
 /**
 *{@summary Vegetal blade on sand.}<br>
 *@author Hydrolien
-*@version 2.16
+*@lastEditedVersion 2.16
 */
 public class BladeSand extends Blade implements Serializable {
   private static Color col = new Color(182,140,0);

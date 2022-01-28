@@ -5,12 +5,12 @@ import java.awt.event.MouseMotionListener;
 
 /**
 *{@summary Listener that update description when it need.}<br>
-*@version 2.10
+*@lastEditedVersion 2.10
 */
 public class DescMouseMotionListener implements MouseMotionListener {
   /**
   *{@summary Update mouse location to hide the message.}<br>
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   @Override
   public void mouseMoved(MouseEvent event){

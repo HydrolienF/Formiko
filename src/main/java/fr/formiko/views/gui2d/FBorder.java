@@ -13,7 +13,7 @@ import javax.swing.border.Border;
 /**
 *{@summary the Border class for Formiko.}
 *@author Hydrolien
-*@version 2.2
+*@lastEditedVersion 2.2
 */
 public class FBorder extends AbstractBorder {
   private Color color;
@@ -36,7 +36,7 @@ public class FBorder extends AbstractBorder {
   *@param y the y position of the painted border
   *@param width the width of the painted border
   *@param height the height of the painted border
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public void paintBorder​(Component c, Graphics g, int x, int y, int width, int height){
     Graphics2D g2d = (Graphics2D)g;

@@ -16,7 +16,7 @@ import java.io.Serializable;
 *Most of the common var between Fourmi and Insecte can be found here.<br>
 *Creature have a lot of interfaces. They can be used to do every action that a creature can do. If a creature can not do an action as lay (pondre) and try to do it, an error message will appear. This actions can all be call by a short cut here (to be able to do creature.action() and not ActionFourmi.action(creature)).<br>
 *@author Hydrolien
-*@version 1.13
+*@lastEditedVersion 1.13
 */
 public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   // action done with Decorator pattern
@@ -56,7 +56,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   /**
   *{@summary Main constructor for Creature.}<br>
   *All args are Creature var.
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   public Creature (CCase ccase, int age, int maxAge, byte maxAction, Pheromone ph, int food, int maxFood){
     super(ccase);
@@ -72,7 +72,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   /**
   *{@summary constructor for Creature.}<br>
   *Here we only know some var, but the main constructor will take care of them.
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   public Creature (CCase ccase,int age, int maxAge, byte maxAction){ // Les fourmis utilise ce contructeur.
     this(ccase,age,maxAge, maxAction, new Pheromone(-128,-128,-128), 10, 100);
@@ -80,7 +80,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   /**
   *{@summary constructor for Creature.}<br>
   *Here we only know some var, but the main constructor will take care of them.
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   public Creature (CCase ccase,int age, int maxAge){
     this(ccase,age,maxAge,(byte) 50); // 50 action par défaut.
@@ -117,7 +117,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *{@summary Move the Creature from a case to an other.}<br>
   *It is used by Deplacement interfaces.<br>
   *It wil try to remove from old CCase and add to new CCase.<br>
-  *@version 1.40
+  *@lastEditedVersion 1.40
   */
   @Override
   public void setCCase(CCase newCCase){
@@ -153,7 +153,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void setPheromoneTolerence(byte x){pheromoneTolerence=x;}
   /***
   *{@summary return true if Creature have wings.}
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public abstract boolean getHaveWings();
   public boolean isFlying(){return false;}
@@ -167,7 +167,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void setLastTurnEnd(int x){lastTurnEnd=x;}
   /***
   *{@summary Return true if is own by an AI.}<br>
-  *@version 1.40
+  *@lastEditedVersion 1.40
   */
   public boolean isAI(){return true;}
   public boolean getIa(){return isAI();}
@@ -176,7 +176,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *{@summary Set as transported item o.}<br>
   *If item is no null it will be remove from the CCase.<br>
   *If item is not null &#38; it already have an item it will throw an exception.<br>
-  *@version 1.40
+  *@lastEditedVersion 1.40
   */
   public void setTransported(ObjetSurCarteAId o){
     if(o!=null && getTransported()!=null){throw new NotNullLocationException();}
@@ -214,7 +214,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   /**
   *{@summary Return the state of the Creature concerning food.}
   *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
-  *@version 2.8
+  *@lastEditedVersion 2.8
   */
   public int getStateFood(){
     if(getFood()<0.1*getMaxFood()){return 3;}
@@ -225,7 +225,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   /**
   *{@summary Return the state of the Creature concerning action.}
   *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
-  *@version 2.8
+  *@lastEditedVersion 2.8
   */
   public int getStateAction(){
     if(getAction()==getMaxAction()){return 0;}
@@ -235,7 +235,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   /**
   *{@summary Return the state of the Creature concerning age.}
   *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
-  *@version 2.8
+  *@lastEditedVersion 2.8
   */
   public int getStateAge(){
     if(getAge()>=getMaxAge()*0.9){return 2;}
@@ -245,7 +245,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *{@summary Return the state of the Creature concerning health.}
   *Creature that don't Override getStateHealth() will always be at 0.
   *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
-  *@version 2.8
+  *@lastEditedVersion 2.8
   */
   public int getStateHealth(){
     return 0;
@@ -254,7 +254,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Return a description of the creature.}
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   @Override
   public String toString(){
@@ -281,7 +281,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   }
   /**
   *return stade as a string in the good language.
-  *@version 1.29
+  *@lastEditedVersion 1.29
   */
   public String getStringStade(){
     if (stade==0){ return g.get("imago");}
@@ -295,7 +295,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   /**
   *{@summary is this consider as an enemy of c ? }<br>
   *@param c A Creature that whant to know if we are ally.
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   public boolean getEstAllié(Creature c){ // en théorie la fourmi f reconnait plus ou moins en fonction de ses caractéristique les autre créature.
     if(this.getPheromone().equals(c.getPheromone(),c.getPheromoneTolerence())){return true;}
@@ -304,7 +304,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   /**
   *{@summary is this consider as an enemy of c ? }<br>
   *@param c A Creature that whant to know if we are enemy.
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   //est ce que c nous concidère comme ennemis.
   //TODO Neutral insect should not be seen as Enemy.
@@ -318,7 +318,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public boolean getIsNeutral(Creature c){return !getEstAllié(c) && !getEstEnnemi(c);}
   /**
    *{@summary find all allied Creature on the same Case.}<br>
-   *@version 1.7
+   *@lastEditedVersion 1.7
    */
   public GCreature getAlliéSurLaCase(){
     //if(!e.getPolycalique()){return new GCreature(this);} //pris en compte par la diff phéromonale tolléré
@@ -326,7 +326,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   }
   /**
    *{@summary find all allied Creature on the same Case and remove this form the GCreature.}<br>
-   *@version 1.7
+   *@lastEditedVersion 1.7
    */
   public GCreature getAlliéSurLaCaseSansThis(){
     //if(!e.getPolycalique()){return new GCreature();}//pris en compte par la diff phéromonale tolléré
@@ -339,7 +339,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   /**
   *{@summary check if this should died of reason x. }<br>
   *@param x Reason to died or not.
-  *@version 1.20
+  *@lastEditedVersion 1.20
   */
   public void mourirOuPas(int x){
     if(x==2 && age>maxAge){mourir(x);return;}
@@ -349,7 +349,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *{@summary check if this is hungry.}<br>
   *@param percentageOfHungryness 0=are you starving to death, 40=are you hungry, 90=can you eat something more.<br>
   *return true if actual %age of food is 	&#60; than percentageOfHungryness.<br>
-  *@version 1.28
+  *@lastEditedVersion 1.28
   */
   public boolean isHungry(int percentageOfHungryness){
     if(percentageOfHungryness>100){percentageOfHungryness=100;}
@@ -365,7 +365,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *{@summary Eat with the interface Chasse.}<br>
   *It will stop eating only if action &#60;&#61; 0 or is not hungry or chasse have returned false (creature haven't eat the last time he try).<br>
   *return true if the Creature have eat.
-  *@version 1.30
+  *@lastEditedVersion 1.30
   */
   public void eat(int percentageOfHungryness){
     int direction=getDirAllea();
@@ -374,7 +374,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
 
   /**
   *{@summary Run away if a predator is next to you.}<br>
-  *@version 1.28
+  *@lastEditedVersion 1.28
   */
   public void runAway(){ //TODO
     //an ant do now run away if in his anthill.
@@ -384,7 +384,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
 
   /**
   *Actualise Creature c before the turn.
-  *@version 1.28
+  *@lastEditedVersion 1.28
   */
   public void preTour(){
     setAction(math.min(getAction(),0) + getMaxAction());//If we have used more action that what we had, we have less this turn.

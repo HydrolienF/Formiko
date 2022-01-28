@@ -24,7 +24,7 @@ import javax.swing.text.View;
 *{@summary Personalized text area.}<br>
 *It use Formiko color &#38; font. It is uneditable.<br>
 *@author Hydrolien
-*@version 2.6
+*@lastEditedVersion 2.6
 */
 public class FTextArea extends JTextArea {
   // CONSTRUCTORS --------------------------------------------------------------
@@ -33,7 +33,7 @@ public class FTextArea extends JTextArea {
   *heigth is defined by counting lines.
   *@param s the text of the FTextArea
   *@param width the width used for the FTextArea
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public FTextArea(String s, double width){
     super(s);
@@ -50,7 +50,7 @@ public class FTextArea extends JTextArea {
   *{@summary count line function.}<br>
   *cf https://stackoverflow.com/questions/22328337/how-can-i-count-lines-in-jtextarea
   *@param width the width used to count how much line we need.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   private int countLines(double width) {
     javax.swing.text.PlainDocument doc = (javax.swing.text.PlainDocument) this.getDocument();
@@ -74,7 +74,7 @@ public class FTextArea extends JTextArea {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Paint function with a debug tool.}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void paintComponent(Graphics gTemp){
     super.paintComponent(gTemp);

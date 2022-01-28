@@ -14,7 +14,7 @@ import java.io.Serializable;
  * {@summary Ant implementation.}<br>
  * Allow an ant to died<br>
  * @author Hydrolien
- * @version 1.41
+ * @lastEditedVersion 1.41
  */
 public class MourirFourmi implements Serializable, Mourir {
   /**
@@ -22,7 +22,7 @@ public class MourirFourmi implements Serializable, Mourir {
    *We need to remove it from the map, from it anthill and from playing ant if it was playing.
    *@param c ant who is diing.
    *@param r reason of death.
-   *@version 1.41
+   *@lastEditedVersion 1.41
    */
   public void mourir(Creature c, int r){
     if(c==null){return;}
@@ -45,7 +45,7 @@ public class MourirFourmi implements Serializable, Mourir {
   /**
    *{@summary Delete the ant from the map.}<br>
    *@param c Creature who is diing.
-   *@version 1.13
+   *@lastEditedVersion 1.13
    */
   public void supprimerDeLaCarte(Creature c){
     if(c instanceof Fourmi){
@@ -58,7 +58,7 @@ public class MourirFourmi implements Serializable, Mourir {
   /**
    *{@summary Delete the ant from the map and the anthill.}<br>
    *@param f ant who is diing.
-   *@version 1.41
+   *@lastEditedVersion 1.41
    */
   private void deleteFromGame(Fourmi f){
     f.getFere().nbrFourmisMortePlus1();

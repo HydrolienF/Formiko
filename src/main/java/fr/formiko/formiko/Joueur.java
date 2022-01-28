@@ -72,7 +72,7 @@ public class Joueur implements Serializable{
   public boolean isCaseNuageuse(CCase cc){return getCaseNuageuse(cc.getContent().getPoint().getX(),cc.getContent().getPoint().getY());}
   /**
   *{@summary Set Pheromone for all the Ants of the player.}
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public void setPheromone(Pheromone ph){
     for (Creature c : fere.getGc().toList()) {

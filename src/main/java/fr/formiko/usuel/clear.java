@@ -4,7 +4,7 @@ package fr.formiko.usuel;
 /**
 *Clear console.
 *@author Hydrolien
-*@version 1.0
+*@lastEditedVersion 1.0
 */
 public class clear {
   private static boolean affClear = true;
@@ -14,7 +14,7 @@ public class clear {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *Clear console.
-  @version 1.0
+  @lastEditedVersion 1.0
   */
   public static void clear(){
     if (affClear) { System.out.print("\033[H\033[2J"); } //permet d'éffacer la console.

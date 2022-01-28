@@ -153,7 +153,7 @@ public class CJoueur implements Serializable{
   }
   /**
   *{@summary Transform a GJoueur in Liste&lt;Joueur&gt;.}
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   public Liste<Joueur> toList(){
     CJoueur cc = this;
