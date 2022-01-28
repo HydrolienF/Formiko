@@ -14,7 +14,7 @@ import java.io.File;
 /**
 *{@summary Static class to initialize FPanel.}<br>
 *@author Hydrolien
-*@version 2.12
+*@lastEditedVersion 2.12
 */
 public class ini {
 
@@ -23,7 +23,7 @@ public class ini {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize empty FPanel of the Menu.}<br>
-  *@version 2.12
+  *@lastEditedVersion 2.12
   */
   public static void initializeEmptyFPanel(){
     FPanelPrincipal pp = FPanel.getView().getPp();
@@ -34,7 +34,7 @@ public class ini {
   }
   /**
   *{@summary Initialize empty FPanel of the Action game &#39; sub panel.}<br>
-  *@version 2.12
+  *@lastEditedVersion 2.12
   */
   public static void initializeFPanelJeuAndSubpanel(){
     if(FPanel.getView().getPj()!=null){

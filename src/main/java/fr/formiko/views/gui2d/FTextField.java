@@ -12,14 +12,14 @@ import javax.swing.JTextField;
 /**
 *{@summary Standard TextField for Formiko.}
 *@author Hydrolien
-*@version 1.x
+*@lastEditedVersion 1.x
 */
 public class FTextField extends JTextField {
 
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor with a string &#38; default font.}
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public FTextField(String s){
     super(s);

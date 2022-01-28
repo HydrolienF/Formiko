@@ -12,7 +12,7 @@ import java.util.HashMap;
 /**
 *{@summary Loard translation file class.}<br>
 *@author Hydrolien
-*@version 1.5
+*@lastEditedVersion 1.5
 */
 public class chargerLesTraductions {
   private static HashMap<String, String> map;
@@ -32,7 +32,7 @@ public class chargerLesTraductions {
   *{@summary get the int that corresponds to the language String.}<br>
   *@param x language id.
   *@return language String in ISO code 639-1 if tLangue is correct.
-  *@version 1.5
+  *@lastEditedVersion 1.5
   */
   public static String getLanguage(int x){
     if(tLangue == null || x<0 || x>=tLangue.length){
@@ -47,7 +47,7 @@ public class chargerLesTraductions {
   *{@summary get the String that corresponds to the language int.}<br>
   *An error will return 2, the id of "en" (english) (except if tLangue isn't correctly loard (return -1;))
   *@param s language String in ISO code 639-1.
-  *@version 1.37
+  *@lastEditedVersion 1.37
   */
   public static int getLanguage(String s){
     if(tLangue == null){ return -1;}
@@ -63,7 +63,7 @@ public class chargerLesTraductions {
   public static String getLanguageAsString(String x){return x;}
   /**
   *Return defaultLanguage if it is aviable or -1.
-  *@version 1.37
+  *@lastEditedVersion 1.37
   */
   public static int getDefautlLanguage(){
     if(tLangue.length<defaultLanguage+1){return -1;}
@@ -72,7 +72,7 @@ public class chargerLesTraductions {
   /**
   *{@summary Loard language file "langue.csv".}<br>
   *If it fail only "en" will be aviable.
-  *@version 1.5
+  *@lastEditedVersion 1.5
   */
   public static boolean iniTLangue(){
     try {
@@ -93,7 +93,7 @@ public class chargerLesTraductions {
   }
   /**
   *{@summary Check that every language file exists and create is if it's need.}<br>
-  *@version 1.5
+  *@lastEditedVersion 1.5
   */
   public static boolean créerLesFichiers(){
     for (String s :tLangue ) {
@@ -110,7 +110,7 @@ public class chargerLesTraductions {
   /**
   *{@summary Check that the line is a translation line.}<br>
   *@param s line to check
-  *@version 1.5
+  *@lastEditedVersion 1.5
   */
   public static boolean estLigneDeTrad(String s){
     if(s==null){return false;}
@@ -128,7 +128,7 @@ public class chargerLesTraductions {
   /**
   *{@summary get an array of translation for a given language.}<br>
   *@param langue id if the language
-  *@version 1.7
+  *@lastEditedVersion 1.7
   */
   public static String [] getTableauDesTrad(int langue){
     //String tDéfaut [] = lireUnFichier.lireUnFichier(rep+"fr.txt");
@@ -144,7 +144,7 @@ public class chargerLesTraductions {
   }
   /**
   *{@summary Load translation for nation name.}<br>
-  *@version 1.26
+  *@lastEditedVersion 1.26
   */
   public static String []getTableauDesNationsName(){
     String t [] = new String[0];
@@ -157,7 +157,7 @@ public class chargerLesTraductions {
   }
   /**
   *{@summary get an array of command.}<br>
-  *@version 1.7
+  *@lastEditedVersion 1.7
   */
   public static String [] getTableauDesCmd(){
     String t [] = new String[0];
@@ -173,7 +173,7 @@ public class chargerLesTraductions {
   *{@summary Load translation for a given language.}<br>
   *It included command.
   *@param langue id if the language
-  *@version 1.7
+  *@lastEditedVersion 1.7
   */
   public static HashMap<String, String> chargerLesTraductions(int langue){
     debug.débogage("Chargement des textes");//on lit le fichier de langue
@@ -188,7 +188,7 @@ public class chargerLesTraductions {
   *{@summary Load translation for a given language.}<br>
   *It don't included command.
   *@param langue id if the language
-  *@version 1.7
+  *@lastEditedVersion 1.7
   */
   public static HashMap<String, String> chargerLesTraductionsSansCommande(int langue){
     iniMap();
@@ -200,7 +200,7 @@ public class chargerLesTraductions {
   }
   /**
   *{@summary Load translation for nation name.}<br>
-  *@version 1.26
+  *@lastEditedVersion 1.26
   */
   public static HashMap<String, String> chargerLesNationsName(){
     iniMap();
@@ -213,7 +213,7 @@ public class chargerLesTraductions {
   /**
   *{@summary Add a translated line on the actual map.}<br>
   *@param s Translated line.
-  *@version 1.7
+  *@lastEditedVersion 1.7
   */
   public static void addObjetMap(String s){
     if(!estLigneDeTrad(s)){return;}
@@ -245,7 +245,7 @@ public class chargerLesTraductions {
   /**
   *{@summary Add auto translation for every languages.}<br>
   *Please refert to ThTrad to have more informations
-  *@version 1.7
+  *@lastEditedVersion 1.7
   */
   public static void addTradAuto(){
     if(tLangue==null){iniTLangue();}
@@ -259,7 +259,7 @@ public class chargerLesTraductions {
   *{@summary Count the %age translated.}<br>
   *It don't included command (that are not translate).
   *@param langue id if the language
-  *@version 1.7
+  *@lastEditedVersion 1.7
   */
   public static int getPourcentageTraduit(int langue){
     int x = 0;
@@ -280,7 +280,7 @@ public class chargerLesTraductions {
   *{@summary Count the %age translated automatically.}<br>
   *It don't included command (that are not translate).
   *@param langue id if the language
-  *@version 1.7
+  *@lastEditedVersion 1.7
   */
   public static int getPourcentageTraduitAutomatiquement(int langue){
     int x = 0;
@@ -298,7 +298,7 @@ public class chargerLesTraductions {
   }
   /**
   *{@summary Print getPourcentageTraduitAutomatiquement and getPourcentageTraduit data for every languages.}<br>
-  *@version 1.7
+  *@lastEditedVersion 1.7
   */
   public static void affPourcentageTraduit(){
     if(tLangue==null){iniTLangue();}
@@ -315,7 +315,7 @@ public class chargerLesTraductions {
   /**
   *{@summary Add untranslated key to the actual Map.}<br>
   *For all key in english map, if key isn't in g.getMap() we add it.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public static void completMapWithFullTranslatedLanguage(){
     HashMap<String,String> hm = chargerLesTraductions(getLanguage("en"));

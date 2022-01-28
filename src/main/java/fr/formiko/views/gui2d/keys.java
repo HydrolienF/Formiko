@@ -21,12 +21,12 @@ import javax.swing.KeyStroke;
 /**
 *{@summary Key file that will launch all keys commands in gui2d.}<br>
 *@author Hydrolien
-*@version 1.40
+*@lastEditedVersion 1.40
 */
 public class keys {
   /**
   *{@summary Add keys listeners for all gui part.}
-  *@version 1.40
+  *@lastEditedVersion 1.40
   */
   public static void addBindings(){
     addActionToActionMap();
@@ -50,7 +50,7 @@ public class keys {
   }
   /**
   *{@summary Add actions to use with listeners for all gui part.}
-  *@version 1.40
+  *@lastEditedVersion 1.40
   */
   private static void addActionToActionMap(){
     ActionMap actionMap = FPanel.getView().getPp().getActionMap();
@@ -59,7 +59,7 @@ public class keys {
     Action actionA = new AbstractAction() {
       /**
       *{@summary Show or hide escape panel or do return action.}
-      *@version 1.49
+      *@lastEditedVersion 1.49
       */
       public void actionPerformed(ActionEvent actionEvent) {
         if(FPanel.getView().getActionGameOn()){
@@ -81,7 +81,7 @@ public class keys {
     actionA = new AbstractAction() {
       /**
       *{@summary Try to go to next FPanelDialogue.}
-      *@version 1.40
+      *@lastEditedVersion 1.40
       */
       public void actionPerformed(ActionEvent actionEvent) {
         try {
@@ -94,7 +94,7 @@ public class keys {
     actionA = new AbstractAction() {
       /**
       *{@summary Launch game or swap plaing ant or end turn.}
-      *@version 1.40
+      *@lastEditedVersion 1.40
       */
       public void actionPerformed(ActionEvent actionEvent) {
         if (FPanel.getView().getPch()!=null && FPanel.getView().getPch().canBeClose()) {
@@ -124,7 +124,7 @@ public class keys {
     actionA = new AbstractAction() {
       /**
       *{@summary Do an ant action.}
-      *@version 1.40
+      *@lastEditedVersion 1.40
       */
       public void actionPerformed(ActionEvent actionEvent) {
         if(Main.getPlayingAnt()==null){return;}
@@ -156,7 +156,7 @@ public class keys {
 /**
 *{@summary Do a map move as an arrow action.}<br>
 *@author Hydrolien
-*@version 2.14
+*@lastEditedVersion 2.14
 */
 class arrowAction extends AbstractAction {
   private boolean inX;
@@ -167,7 +167,7 @@ class arrowAction extends AbstractAction {
   *@param inX true if we are moving in x, false if we are moving in y
   *@param up true if windows should up in X or in Y
   *@param keyRelease if true speed is set to 0 else speed is set to 1
-  *@version 2.14
+  *@lastEditedVersion 2.14
   */
   public arrowAction(boolean inX, boolean up, boolean keyRelease){
     this.inX=inX;
@@ -180,14 +180,14 @@ class arrowAction extends AbstractAction {
   }
   /**
   *{@summary Strandard to string.}
-  *@version 2.14
+  *@lastEditedVersion 2.14
   */
   public String toString(){
     return "inX: "+inX+" up: "+up+" speed: "+speed;
   }
   /**
   *{@summary Do a map move action.}
-  *@version 2.14
+  *@lastEditedVersion 2.14
   */
   @Override
   public void actionPerformed(ActionEvent actionEvent) {

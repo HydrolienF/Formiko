@@ -6,7 +6,7 @@ import java.awt.Color;
 /**
 *{@summary small moss blade.}<br>
 *@author Hydrolien
-*@version 2.16
+*@lastEditedVersion 2.16
 */
 public class BladeMoss extends Blade implements Serializable {
   private static Color col = new Color(11,93,16); //moss

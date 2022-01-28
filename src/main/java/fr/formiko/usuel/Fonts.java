@@ -13,14 +13,14 @@ import java.io.IOException;
 /**
 *{@summary Fonts tools.}
 *@author Hydrolien
-*@version 2.12
+*@lastEditedVersion 2.12
 */
 public class Fonts {
   /**
   *{@summary Create a font located in game data.}<br>
   *@param fontName the font name to create
   *@return true if it work else false
-  *@version 2.12
+  *@lastEditedVersion 2.12
   */
   public static boolean createFont(String fontName){
     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -43,7 +43,7 @@ public class Fonts {
   *{@summary Create a font located in game data.}<br>
   *@param familyFontName the family font name to create
   *@return true if we add at least 1 font
-  *@version 2.12
+  *@lastEditedVersion 2.12
   */
   public static boolean createFonts(String familyFontName){
     String familyFontNameWithoutSpace = familyFontName.replaceAll(" ","");

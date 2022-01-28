@@ -18,7 +18,7 @@ import java.util.Comparator;
 /**
 *{@summary A simple Thread extends class to move ObjetSurCarteAId.}<br>
 *It modify only rotation &#38; position so it won't break any game mechanic.
-*@version 2.4
+*@lastEditedVersion 2.4
 *@author Hydrolien
 */
 public class ThMove {
@@ -47,7 +47,7 @@ public class ThMove {
   *@param o the Object to animate.
   *@param from CCase from where it move.
   *@param to CCase where it move.
-  *@version 2.4
+  *@lastEditedVersion 2.4
   */
   public ThMove(ObjetSurCarteAId o, CCase from, CCase to){
     id=cptId++;
@@ -70,7 +70,7 @@ public class ThMove {
   /**
   *{@summary Initialize before launch start function.}
   *It Initialize Point and add to the 2 curent list.
-  *@version 2.4
+  *@lastEditedVersion 2.4
   */
   private void iniBeforeStart(){
     curentThList.add(this);
@@ -84,7 +84,7 @@ public class ThMove {
   /**
   *{@summary add an item to the queue.}
   *Item are sorted in queue so that they will be launch in the creation order.
-  *@version 2.4
+  *@lastEditedVersion 2.4
   */
   private static void addToQueue(ThMove th){
     synchronized (queue) {
@@ -93,7 +93,7 @@ public class ThMove {
   }
   /***
   *{@summary Update the queue by launching all ThMove that can be launch.}
-  *@version 2.4
+  *@lastEditedVersion 2.4
   */
   static void updateQueue(){
     if(queue==null){return;}
@@ -118,7 +118,7 @@ public class ThMove {
   /**
   *{@summary Update the destination Point.}
   *@param to the new destination.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   private void updateTo(Point to){
     curent2.setX(curent2.getX() + this.to.getX() - to.getX());
@@ -130,7 +130,7 @@ public class ThMove {
   *It will update all ThMove that haven't been done &#38; that are about ObjetSurCarteAId with given id.
   *@param to new CCase were to go.
   *@param id id of the concerned ObjetSurCarteAId.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public static void updateTo(CCase to, int id){
     Case c = to.getContent();
@@ -147,7 +147,7 @@ public class ThMove {
   }
   /**
   *{@summary Initialize the ObjetSurCarteAId animation.}
-  *@version 2.1O
+  *@lastEditedVersion 2.1O
   */
   // @Override
   public void iniRun(){
@@ -178,7 +178,7 @@ public class ThMove {
   /**
   *{@summary Do a step of the ObjetSurCarteAId animation.}
   *Call end run if it's over.
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public void oneStep(){
     curent.setX((int)((-k)*(vectX/kIni))+curent2.getX());
@@ -195,7 +195,7 @@ public class ThMove {
   }
   /**
   *{@summary End the ObjetSurCarteAId animation by removing this from the 2 thread.}
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public void endRun(){
     if(FPanel.getView().getPc()!=null){
@@ -208,7 +208,7 @@ public class ThMove {
 /**
 *{@summary A simple Thread extends class to manage ThMove.}<br>
 *It is used only if instantaneousMovement==false.<br>
-*@version 2.10
+*@lastEditedVersion 2.10
 *@author Hydrolien
 */
 class ThMoveManager extends Thread {
@@ -220,7 +220,7 @@ class ThMoveManager extends Thread {
   public void remove(ThMove move){list.remove(move);}
   /**
   *{@summary Do all the moving animation.}
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   @Override
   public void run(){

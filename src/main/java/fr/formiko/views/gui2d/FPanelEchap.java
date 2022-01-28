@@ -15,7 +15,7 @@ import java.awt.Graphics2D;
 *{@summary Escap panel.}<br>
 *Used to pause game.
 *@author Hydrolien
-*@version 1.41
+*@lastEditedVersion 1.41
 */
 public class FPanelEchap extends FPanel{
   private FButton tb[];
@@ -27,7 +27,7 @@ public class FPanelEchap extends FPanel{
   /**
   *{@summary standard build methode.}
   *Disable all other panel #38; print this one with the 5 button.
-  *@version 1.49
+  *@lastEditedVersion 1.49
   */
   public void build(){
     if(estContruit()){return;}
@@ -55,7 +55,7 @@ public class FPanelEchap extends FPanel{
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary standard paint methode.}
-  *@version 1.47
+  *@lastEditedVersion 1.47
   */
   @Override
   public void paintComponent(Graphics g){
@@ -82,7 +82,7 @@ public class FPanelEchap extends FPanel{
   /**
   *{@summary Set FPanelEchap visible.}<br>
   *It Override Component.setVisible() but also build panel if needed &#38; update FPanelSup size.<br>
-  *@version 1.47
+  *@lastEditedVersion 1.47
   */
   @Override
   public void setVisible(boolean b){
@@ -113,7 +113,7 @@ public class FPanelEchap extends FPanel{
   }
   /**
   *{@summary Return true if only FPanelEchap button sould be enable.}
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public boolean estContruit(){
     return tb!=null;
@@ -121,7 +121,7 @@ public class FPanelEchap extends FPanel{
   /**
   *{@summary Ask save name in gui.}
   *@param defaultName the default save name
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public String getSaveName(String defaultName){
     setVisible(false);

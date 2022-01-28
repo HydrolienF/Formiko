@@ -55,7 +55,7 @@ public class Pheromone implements Serializable{
   *{@summary Standard equals function.}
   *Null &#38; other class type proof.
   *@param o o is the Object to test. It can be null or something else than this class.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   @Override
   public boolean equals(Object o){
@@ -67,7 +67,7 @@ public class Pheromone implements Serializable{
   public int hashCode(){return getR()+getG()*1000+getB()*1000000;}
   /**
   *{@summary special equals function.}
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public boolean equals(Pheromone ph, int ndifferenceTollere){
     if(ndifferenceTollere<1){return false;}

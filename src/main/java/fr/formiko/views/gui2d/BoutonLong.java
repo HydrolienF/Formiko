@@ -30,7 +30,7 @@ public class BoutonLong extends FButton implements MouseListener {
   public static void setYBL(int y){yBL=y;}
   /**
   *{@summary set nom &#38; update font if it can't print all the char.}
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   @Override
   public void setNom(String s){

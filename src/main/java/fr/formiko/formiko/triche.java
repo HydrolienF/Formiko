@@ -18,7 +18,7 @@ import fr.formiko.views.gui2d.action;
 *This class is used to launch cheat code for debug, test, script or fun.<br>
 *Every commande can be found in data/stable/language/cmd.txt.<br>
 *@author Hydrolien
-*@version 1.44
+*@lastEditedVersion 1.44
 */
 
 public class triche {
@@ -334,7 +334,7 @@ public class triche {
 
   /**
   *{@summary set a new Menu as curent menu.}
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   private static void setMenu(String s){
     int x=0;

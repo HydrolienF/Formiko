@@ -15,7 +15,7 @@ import java.io.Serializable;
  * {@summary Ant implementation.}<br>
  * Allow an ant to do grow up passing through stages egg, larva, nymph, imago.<br>
  * @author Hydrolien
- * @version 1.1
+ * @lastEditedVersion 1.1
  */
 public class EvoluerFourmi implements Serializable, Evoluer{
   /**
@@ -24,7 +24,7 @@ public class EvoluerFourmi implements Serializable, Evoluer{
    *The last grow up is a bit special bexause il allow ant to do new action as PondreReine or TrophallaxieFourmi if getStade is ok &#38; ant species is able to do it.<br>
    *Every grow up put age before next stade or death to 0. Change maxAge (max age). Change maxAction if ant is now able to do action. Change maxFood (max food).
    *@param c The growing up ant.
-   *@version 1.3
+   *@lastEditedVersion 1.3
    */
   public void evoluer(Creature c){
     Fourmi f;

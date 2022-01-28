@@ -11,12 +11,12 @@ import javax.swing.text.NumberFormatter;
 /**
 *{@summary Standard int field for Formiko.}
 *@author Hydrolien
-*@version 2.17
+*@lastEditedVersion 2.17
 */
 public class FIntField extends JFormattedTextField {
   /**
   *{@summary Main constructor.}
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   private FIntField(NumberFormatter formatter){
     super(formatter);
@@ -28,14 +28,14 @@ public class FIntField extends JFormattedTextField {
   *@param min the min value (should be > -1)
   *@param max the max value (should be > -1)
   *@param value default value
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public static FIntField newFIntField(int min, int max, int value){
     NumberFormat format = NumberFormat.getInstance();
     NumberFormatter formatter = new NumberFormatter(format){
       /**
       *{@summary Allow to have 0 char on field.}<br>
-      *@version 2.17
+      *@lastEditedVersion 2.17
       */
       @Override
       public Object stringToValue(String text) throws ParseException {

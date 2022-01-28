@@ -48,7 +48,7 @@ public class FPanel extends JPanel {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Paint function with a debug tool.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   @Override
   public void paintComponent(Graphics gTemp){
@@ -71,7 +71,7 @@ public class FPanel extends JPanel {
   /**
   *{@summary Remove a component if not null.}<br>
   *@param c component to remove
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   @Override
   public void remove(Component c){

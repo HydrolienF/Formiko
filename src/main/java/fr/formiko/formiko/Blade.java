@@ -14,7 +14,7 @@ import java.util.Random;
 /**
 *{@summary Vegetal blade is used to represent grass &#38; moss on map.}<br>
 *@author Hydrolien
-*@version 2.16
+*@lastEditedVersion 2.16
 */
 public abstract class Blade extends Point implements Serializable {
   private double angle;
@@ -26,7 +26,7 @@ public abstract class Blade extends Point implements Serializable {
   // private static Color col = new Color(11,93,16); //moss
   /**
   *{@summary Return a new Blade of given type.}<br>
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   public static Blade newBlade(byte type){
     switch(type){
@@ -40,7 +40,7 @@ public abstract class Blade extends Point implements Serializable {
   }
   /**
   *{@summary Main contructor with random direction &#38; random location.}<br>
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   protected Blade(int len){
     super(0,0); //TODO avoid double init°.
@@ -63,7 +63,7 @@ public abstract class Blade extends Point implements Serializable {
   *@param g Graphics where to draw
   *@param xOffset Case offset in x
   *@param yOffset Case offset in y
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   public void draw(Graphics g, int xOffset, int yOffset){
     if(!Main.getOp().getDrawBlades()){return;}

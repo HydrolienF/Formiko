@@ -12,7 +12,7 @@ import java.io.IOException;
 *{@summary to listen music.}<br>
 *It use audioPlayer &#38; make sur than only 1 is running at the same time.
 *@author Hydrolien
-*@version 1.52
+*@lastEditedVersion 1.52
 */
 public class MusicPlayer implements AudioInterface {
   private AudioPlayer audioPlayer;
@@ -31,7 +31,7 @@ public class MusicPlayer implements AudioInterface {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Play next music.}<br>
-  *@version 1.52
+  *@lastEditedVersion 1.52
   */
   public synchronized void play(){
     // erreur.info("Play",4);
@@ -50,7 +50,7 @@ public class MusicPlayer implements AudioInterface {
   /**
   *{@summary Pause curent music.}<br>
   *@see MusicPlayer#resume()
-  *@version 1.52
+  *@lastEditedVersion 1.52
   */
   public synchronized void pause(){
     if(audioPlayer!=null && !musicPaused){
@@ -61,7 +61,7 @@ public class MusicPlayer implements AudioInterface {
   /**
   *{@summary Resume curent music.}<br>
   *@see MusicPlayer#pause()
-  *@version 1.52
+  *@lastEditedVersion 1.52
   */
   public synchronized void resume(){
     if(audioPlayer!=null && musicPaused){
@@ -72,7 +72,7 @@ public class MusicPlayer implements AudioInterface {
   /**
   *{@summary Stop curent music.}<br>
   *We need play() to start music again.<br>
-  *@version 1.52
+  *@lastEditedVersion 1.52
   */
   public synchronized void stop(){
     if(audioPlayer!=null){
@@ -85,7 +85,7 @@ public class MusicPlayer implements AudioInterface {
   *{@summary Add next music to list of music to play.}<br>
   *@param music name of the music.
   *@param first If true add music at the head of the list. Else add at the end.
-  *@version 1.52
+  *@lastEditedVersion 1.52
   */
   public synchronized void addNextMusic(String music, boolean first){
     if(first){
@@ -96,14 +96,14 @@ public class MusicPlayer implements AudioInterface {
   }
   /**
   *{@summary Play next music.}<br>
-  *@version 1.52
+  *@lastEditedVersion 1.52
   */
   public void next(){
     play();
   }
   /**
   *{@summary Initialize availables musics list.}<br>
-  *@version 1.52
+  *@lastEditedVersion 1.52
   */
   public void iniAvailableMusics(){
     File dir = new File(getPath());
@@ -130,7 +130,7 @@ public class MusicPlayer implements AudioInterface {
   *{@summary return a music.}<br>
   *If there is a next music, it return next Music.
   *If next music list is empty, it return a random music.<br>
-  *@version 1.52
+  *@lastEditedVersion 1.52
   */
   private String getNextMusic(){
     if(nextMusics.isEmpty()){
@@ -145,7 +145,7 @@ public class MusicPlayer implements AudioInterface {
   *{@summary return a random music.}<br>
   *If the list of availableMusics is null, it create it.<br>
   *It should avoid to play same music than curent one by gettin a new random 1 (10 try).
-  *@version 1.52
+  *@lastEditedVersion 1.52
   */
   private String getRandomMusic(){
     if(availableMusics==null){iniAvailableMusics();}

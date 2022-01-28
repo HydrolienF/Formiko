@@ -24,7 +24,7 @@ import static javax.sound.sampled.AudioSystem.getAudioInputStream;
 *{@summary to read and launch audio file.}<br>
 *cf https://odoepner.wordpress.com/2013/07/19/play-mp3-or-ogg-using-javax-sound-sampled-mp3spi-vorbisspi/
 *@author Hydrolien, Oliver Doepner
-*@version 1.46
+*@lastEditedVersion 1.46
 */
 public class AudioPlayer implements AudioInterface {
   private File file;
@@ -41,7 +41,7 @@ public class AudioPlayer implements AudioInterface {
   *@param loop if true, we will loop when audio end.
   *@param maxTime time to stop.
   *@param isMusique true if this audio player is for a music (That's meen that MusicPlayer need to play next after this).
-  *@version 1.52
+  *@lastEditedVersion 1.52
   */
   public AudioPlayer(String fileName, boolean loop, int maxTime, boolean isMusique){
     file = new File(fileName);
@@ -56,7 +56,7 @@ public class AudioPlayer implements AudioInterface {
   *@param fileName name of the file.
   *@param loop if true, we will loop when audio end.
   *@param maxTime time to stop.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public AudioPlayer(String fileName, boolean loop, int maxTime){
     this(fileName, loop, maxTime, false);
@@ -65,7 +65,7 @@ public class AudioPlayer implements AudioInterface {
   *{@summary secondary constructor}<br>
   *@param fileName name of the file.
   *@param loop if true, we will loop when audio end.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public AudioPlayer(String fileName, boolean loop){
     this(fileName,loop,Integer.MAX_VALUE, false);
@@ -74,7 +74,7 @@ public class AudioPlayer implements AudioInterface {
   *{@summary secondary constructor}<br>
   *@param fileName name of the file.
   *@param isMusique true if this audio player is for a music (That's meen that MusicPlayer need to play next after this).
-  *@version 1.52
+  *@lastEditedVersion 1.52
   */
   public AudioPlayer(boolean isMusique, String fileName){
     this(fileName,false,Integer.MAX_VALUE,isMusique);
@@ -83,7 +83,7 @@ public class AudioPlayer implements AudioInterface {
   *{@summary secondary constructor}<br>
   *@param fileName name of the file.
   *@param maxTime time to stop.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public AudioPlayer(String fileName, int maxTime){
     this(fileName,false,maxTime);
@@ -91,7 +91,7 @@ public class AudioPlayer implements AudioInterface {
   /**
   *{@summary secondary constructor}<br>
   *@param fileName name of the file.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public AudioPlayer(String fileName){
     this(fileName,false);
@@ -110,7 +110,7 @@ public class AudioPlayer implements AudioInterface {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary play audio &#38; launch time}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public void play() {
     chrono.start();
@@ -125,7 +125,7 @@ public class AudioPlayer implements AudioInterface {
   }
   /**
   *{@summary pause audio &#38; time}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public void pause(){
     //TODO pause audio
@@ -133,7 +133,7 @@ public class AudioPlayer implements AudioInterface {
   }
   /**
   *{@summary Resume audio &#38; time.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public void resume(){
     //TODO resume audio
@@ -141,7 +141,7 @@ public class AudioPlayer implements AudioInterface {
   }
   /**
   *{@summary Stop audio &#38; time.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public void stop(){
     maxTime=0;
@@ -152,7 +152,7 @@ public class AudioPlayer implements AudioInterface {
   /**
   *{@summary Modify volume.}<br>
   *@param vol volume in %
-  *@version 2.14
+  *@lastEditedVersion 2.14
   */
   public void setVolume(int vol){
     volume = (float)math.between(0, 100, vol)/100f;
@@ -183,7 +183,7 @@ public class AudioPlayer implements AudioInterface {
     }
     /**
     *{@summary open file &#38; do sounds.}<br>
-    *@version 1.46
+    *@lastEditedVersion 1.46
     */
     private void doSounds(){
       try (final AudioInputStream in = getAudioInputStream(ap.getFile())) {
@@ -218,7 +218,7 @@ public class AudioPlayer implements AudioInterface {
     }
     /**
     *{@summary get audio format.}<br>
-    *@version 1.46
+    *@lastEditedVersion 1.46
     */
     private AudioFormat getOutFormat(AudioFormat inFormat) {
       final int ch = inFormat.getChannels();
@@ -227,7 +227,7 @@ public class AudioPlayer implements AudioInterface {
     }
     /**
     *{@summary do sounds by reading line by line.}<br>
-    *@version 1.46
+    *@lastEditedVersion 1.46
     */
     private void stream(AudioInputStream in, SourceDataLine line) throws IOException {
       final byte[] buffer = new byte[4096];
@@ -238,7 +238,7 @@ public class AudioPlayer implements AudioInterface {
     }
     /**
     *{@summary interrupt game &#38; don't launch next music.}<br>
-    *@version 1.52
+    *@lastEditedVersion 1.52
     */
     @Override
     public void interrupt(){

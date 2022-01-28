@@ -22,7 +22,7 @@ import java.io.Serializable;
 *Ant is the creature used by player.<br>
 *Ant aren't different by extends of this class but by Espece &#38; Individu.<br>
 *@author Hydrolien
-*@version 1.30
+*@lastEditedVersion 1.30
 */
 public class Fourmi extends Creature implements Serializable{
   /***
@@ -46,7 +46,7 @@ public class Fourmi extends Creature implements Serializable{
   *@param fere The anthill of this.
   *@param e The specie of this.
   *@param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium (☿), 4:Major, 5:soldier 6+:other type.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   // /!\ Ant need to be add to the Fourmiliere after that.
   public Fourmi(Fourmiliere fere, Espece e, byte ty){ // arrivé d'un oeuf.
@@ -68,7 +68,7 @@ public class Fourmi extends Creature implements Serializable{
   *@param fere The anthill of this.
   *@param e The specie of this.
   *@param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public Fourmi(Fourmiliere fere, Espece e, int ty){ this(fere,e,(byte)ty);}
   /**
@@ -77,7 +77,7 @@ public class Fourmi extends Creature implements Serializable{
   *@param e The specie of this.
   *@param ty The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
   *@param stade The stade of the ant. It will call evoluer() to be sur that everything it update as if the ant have grow.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public Fourmi(Fourmiliere fere, Espece e, byte ty, byte stade){
     this(fere,e,ty);
@@ -91,7 +91,7 @@ public class Fourmi extends Creature implements Serializable{
   *@param typeF The typeF of this. It can be 0: ♀, 1: ♂, 2: Minor, 3: Medium, 4:Major, 5:soldier 6+:other type.
   *@param stade The stade of the ant. It will call evoluer() to be sur that everything it update as if the ant have grow up.
   *@param ph The Pheromone of the ant.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public Fourmi(Fourmiliere fere, Espece e, byte typeF, byte stade, Pheromone ph){
     this(fere,e,typeF,stade);
@@ -100,7 +100,7 @@ public class Fourmi extends Creature implements Serializable{
   /***
   *{@summary Null constructor.}<br>
   *Use only for test.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public Fourmi(){}
   // GET SET ----------------------------------------------------------------------
@@ -145,7 +145,7 @@ public class Fourmi extends Creature implements Serializable{
   public byte getType(){return -2;}//Les Fourmis sont toutes identifié comme -2.
   /**
   *{@summary return true if Ant still have wings.}
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   @Override
   public boolean getHaveWings(){
@@ -169,7 +169,7 @@ public class Fourmi extends Creature implements Serializable{
   /**
   *{@summary Return true if is own by an AI.}<br>
   *If it have an anthill that have a player it will return getIa() value of the player.<br>
-  *@version 1.40
+  *@lastEditedVersion 1.40
   */
   @Override
   public boolean isAI(){
@@ -178,7 +178,7 @@ public class Fourmi extends Creature implements Serializable{
   }
   /**
   *{@summary Update action &#38; update view.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   @Override
   public void setAction(int x){
@@ -191,7 +191,7 @@ public class Fourmi extends Creature implements Serializable{
   /**
   *{@summary Return the state of the Fourmi concerning health.}
   *@return an int from 0 to 3 (0=OK, 1=medium, 2=bad, 3=critical)
-  *@version 2.8
+  *@lastEditedVersion 2.8
   */
   @Override
   public int getStateHealth(){
@@ -262,7 +262,7 @@ public class Fourmi extends Creature implements Serializable{
   }
   /**
   *{@summary True if the ant is at its anthill.}<br>
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public boolean estALaFere(){
     try {
@@ -333,7 +333,7 @@ public class Fourmi extends Creature implements Serializable{
   /**
   *{@summary un-clean this.}
   *It also let this died if it is under the seuilDeRisqueDInfection 	&#38; that this have bad luck.
-  *@version 1.29
+  *@lastEditedVersion 1.29
   */
   public void salir(){
     double chanceDeMort = allea.getRand()*getSeuilDeRisqueDInfection(); // on tire le nombre min pour survivre a ce tour.
@@ -343,7 +343,7 @@ public class Fourmi extends Creature implements Serializable{
   /**
   *{@summary return true if this whant some food.}
   *This ask for food if it is hungry at 5% or if food is &#60; at what we need for 2 days.
-  *@version 1.29
+  *@lastEditedVersion 1.29
   */
   public boolean wantFood(){
     if(stade==-3){return false;}
@@ -352,7 +352,7 @@ public class Fourmi extends Creature implements Serializable{
   /**
   *{@summary return true if this whant to be clean.}
   *This want to le clean if in 2 turns it will be under the seuilDeRisqueDInfection.
-  *@version 1.29
+  *@lastEditedVersion 1.29
   */
   public boolean wantClean(){
     if(getHealth()>99){return false;}
@@ -361,7 +361,7 @@ public class Fourmi extends Creature implements Serializable{
   /**
   *{@summary initialize tour value for an ant.}<br>
   *If that's a non-ai player it will have TourFourmiNonIa else it will have TourReine or TourFourmi depending of getReine().
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public void iniTour(){
     if(getFere().getJoueur().getIa()){
@@ -380,7 +380,7 @@ public class Fourmi extends Creature implements Serializable{
   *It take similar pheromone to the 1 of the queen.
   *If the queen is death it take ph from the 1a an of the anthill.
   *If there is not more and it take a random pheromone.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public void iniPheromone(){
     Fourmi reine = getReine();

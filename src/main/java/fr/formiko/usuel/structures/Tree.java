@@ -11,7 +11,7 @@ import java.util.Iterator;
 
 /**
 *{@summary Custom Tree class using Generics.}<br>
-*@version 2.6
+*@lastEditedVersion 2.6
 *@author Hydrolien
 */
 public class Tree<T> implements Serializable, Iterable<T>{
@@ -20,7 +20,7 @@ public class Tree<T> implements Serializable, Iterable<T>{
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public Tree() {
     root = new TreeNode<T>();
@@ -32,7 +32,7 @@ public class Tree<T> implements Serializable, Iterable<T>{
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Compact toString function.}
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public String toString(){
     return getRoot().toString();
@@ -40,7 +40,7 @@ public class Tree<T> implements Serializable, Iterable<T>{
   /**
   *{@summary Copy the structure of a given Tree.}
   *content of node will not be copy.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public Tree<T> copyStructure() {
     Tree<T> treeOut = new Tree<T>();
@@ -49,7 +49,7 @@ public class Tree<T> implements Serializable, Iterable<T>{
   }
   /**
   *{@summary return the coresponding Iterator}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public Iterator<T> iterator(){
     return new TreeIterator<T>(this);
@@ -58,7 +58,7 @@ public class Tree<T> implements Serializable, Iterable<T>{
   // SUB-CLASS -----------------------------------------------------------------
   /**
   *{@summary Iterator of the Tree}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   *@author Hydrolien
   */
   class TreeIterator<T> implements Iterator<T>, Serializable {
@@ -67,7 +67,7 @@ public class Tree<T> implements Serializable, Iterable<T>{
 
     /**
     *{@summary Initialize pointer to head of the list for iteration.}<br>
-    *@version 2.6
+    *@lastEditedVersion 2.6
     */
     public TreeIterator(Tree<T> tree){
       current = tree.getRoot();
@@ -79,7 +79,7 @@ public class Tree<T> implements Serializable, Iterable<T>{
     /**
     *{@summary Return current content and update pointer.}<br>
     *It save Children in a heap to be sur to check every TreeNode.<br>
-    *@version 2.6
+    *@lastEditedVersion 2.6
     */
     public T next(){
       T content = current.getContent();
@@ -94,7 +94,7 @@ public class Tree<T> implements Serializable, Iterable<T>{
 /**
 *{@summary TreeNode used by tree.}<br>
 *It have a parent, children &#38; content.
-*@version 2.6
+*@lastEditedVersion 2.6
 *@author Hydrolien
 */
 class TreeNode<T> extends Node {
@@ -105,7 +105,7 @@ class TreeNode<T> extends Node {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public TreeNode(TreeNode<T> parent){
     this.parent=parent;
@@ -113,7 +113,7 @@ class TreeNode<T> extends Node {
   }
   /**
   *{@summary Secondary constructor used only by the Tree constructor.}
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public TreeNode(){
     this(null);
@@ -131,7 +131,7 @@ class TreeNode<T> extends Node {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Compact toString function.}
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public String toString(int id){
     String s = ""+id;
@@ -154,7 +154,7 @@ class TreeNode<T> extends Node {
   /**
   *{@summary Add a child to the children list.}
   *@param childContent the content of the child.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void addChildren(T childContent){
     TreeNode<T> node = new TreeNode<T>(this);
@@ -163,7 +163,7 @@ class TreeNode<T> extends Node {
   }
   /**
   *{@summary Add a child to the children list.}
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void addChildren(){
     children.add(new TreeNode<T>(this));
@@ -171,7 +171,7 @@ class TreeNode<T> extends Node {
   /**
   *{@summary Add x child to the children list.}<br>
   *@param x the number of children to add
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void addChildren(int x){
     for (int i=0;i<x ;i++ ) {
@@ -183,7 +183,7 @@ class TreeNode<T> extends Node {
   *It sort file name to be sur to get it in the same order in Windows &#38; Linux.
   *(Linux don't give us file in alphabetic order)<br>
   *@param file file to Transform into TreeNode.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   @SuppressWarnings("unchecked")
   void addFileAsNode(File file) { //private but aviable on all Tree.java
@@ -212,7 +212,7 @@ class TreeNode<T> extends Node {
   *{@summary Copy the structure of a given TreeNode into this.}
   *content of node will not be copy.
   *@param nodeIn TreeNode to copy.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   void copyStructure(TreeNode<T> nodeIn) { //private but aviable on all Tree.java
     addChildren(nodeIn.getChildrenSize());

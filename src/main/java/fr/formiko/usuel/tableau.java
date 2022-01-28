@@ -43,7 +43,7 @@ public class tableau <T>{
   /**
   *{@summary A selection sorting algo.}
   *@param ascendingOrder true → the smaler element will be the 1a.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public static void sort(String[] tab, boolean ascendingOrder){
     for (int i = 0; i < tab.length - 1; i++) {
@@ -70,7 +70,7 @@ public class tableau <T>{
   *@param s1 1a String.
   *@param s2 2a String.
   *return s1&#60;s2 depending of char value.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   private static boolean isCharSmallerInString1(String s1, String s2){
     //if s1 < s2 return true;
@@ -87,7 +87,7 @@ public class tableau <T>{
   /**
   *{@summary A selection sorting algo.}
   *@param ascendingOrder true → the smaler element will be the 1a.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public static void sort(int[] tab, boolean ascendingOrder){
     for (int i = 0; i < tab.length - 1; i++) {

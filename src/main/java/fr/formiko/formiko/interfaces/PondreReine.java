@@ -19,14 +19,14 @@ import java.io.Serializable;
  * {@summary Ant queen implementation.}<br>
  * Allow an ant queen to lay<br>
  * @author Hydrolien
- * @version 1.1
+ * @lastEditedVersion 1.1
  */
 public class PondreReine implements Serializable, Pondre{
   private static int FOOD_COST_TO_LAY = 12;
   private Fourmi f;
   /**
   *Lay an egg with Creature c
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   public void unePonte(Creature c){
     debug.débogage("la créature "+c.getId()+" tente de pondre");
@@ -40,7 +40,7 @@ public class PondreReine implements Serializable, Pondre{
   }
   /**
   *{@summary Return true if can lay an egg.}
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public boolean canLay(Creature c){
     if(c.getAction()<1){return false;}
@@ -52,7 +52,7 @@ public class PondreReine implements Serializable, Pondre{
   }
   /**
   *Lay an egg.
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   protected void pondre(){
     // Ne s'execute que si la reine a suffisement de food et qu'elle est a sa fourmilière
@@ -77,7 +77,7 @@ public class PondreReine implements Serializable, Pondre{
   //TODO #131
   /**
   *Choose a typeF for the egg.
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   protected byte choixType(){
     if (!f.getFere().getJoueur().getIa()){

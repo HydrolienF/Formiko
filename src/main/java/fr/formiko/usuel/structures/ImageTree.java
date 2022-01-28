@@ -18,14 +18,14 @@ import java.util.Iterator;
 
 /**
 *{@summary Custom Tree class using Generics.}<br>
-*@version 2.6
+*@lastEditedVersion 2.6
 *@author Hydrolien
 */
 public class ImageTree extends Tree<BufferedImage> {
   /**
   *{@summary Copy the structure of a given Tree.}
   *content of node will not be copy.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   @Override
   public ImageTree copyStructure() {
@@ -36,7 +36,7 @@ public class ImageTree extends Tree<BufferedImage> {
   /**
   *{@summary Return the Image that fit to a Creature.}
   *@param c the Creature to represent.
-  *@version 2.14
+  *@lastEditedVersion 2.14
   */
   public BufferedImage getCreatureImage(Creature c){
     try {
@@ -73,7 +73,7 @@ public class ImageTree extends Tree<BufferedImage> {
   *{@summary Create an ant Image from the coresponding node, with the Creature color.}<br>
   *@param c Creature that will be used for color
   *@param node
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public static BufferedImage createAntImageFromNode(Creature c, TreeNode<BufferedImage> node){
     BufferedImage body = node.getContent();
@@ -108,7 +108,7 @@ public class ImageTree extends Tree<BufferedImage> {
   /**
   *{@summary Return the scaled instance of this tree.}
   *content of node that correspond to Creature image will be copy.
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public static ImageTree getScaledInstanceFromTree(ImageTree treeIn, int dim){
     if(treeIn.getRoot().getChildrenSize()==0){
@@ -129,7 +129,7 @@ public class ImageTree extends Tree<BufferedImage> {
   /**
   *{@summary Return the scaled instance of the Insect part.}
   *content of node that correspond to Creature image will be copy.
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   private static void addScaledInsect(Liste<TreeNode<BufferedImage>> insectListIn, Liste<TreeNode<BufferedImage>> insectListOut, int dim){
     int idSpecies = 0;
@@ -163,7 +163,7 @@ public class ImageTree extends Tree<BufferedImage> {
   /**
   *{@summary Return the scaled instance of the Ant part.}
   *content of node that correspond to Creature image will be copy.
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   private static void addScaledAnt(Liste<TreeNode<BufferedImage>> antListIn, Liste<TreeNode<BufferedImage>> antListOut, int dim){
     int idSpecies = 0;
@@ -203,7 +203,7 @@ public class ImageTree extends Tree<BufferedImage> {
   *{@summary Return the scaled color of the Ant.}<br>
   *It can return null if color is disable in Options.
   *Color image will be edit to whithout transparency image if Ant color level is 1 in Options.
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   private static void addScaledAntColorPart(TreeNode<BufferedImage> currentNodeIn, TreeNode<BufferedImage> currentNodeOut, int dim, int size){
     // if(Main.getOp().getAntColorLevel()==0){return;} //done during game time.
@@ -225,7 +225,7 @@ public class ImageTree extends Tree<BufferedImage> {
   }
   /**
   *{@summary Return the scaled part of the body of the Ant.}<br>
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   private static void addScaledAntOtherPart(TreeNode<BufferedImage> currentNodeIn, TreeNode<BufferedImage> currentNodeOut, int dim, int size){
     BufferedImage biIn,biOut;
@@ -242,7 +242,7 @@ public class ImageTree extends Tree<BufferedImage> {
   /**
   *{@summary Transform a folder tree into a Java ImageTree.}
   *@param file file to Transform
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public static ImageTree folderToTree(File file) {
     ImageTree tree = new ImageTree();
@@ -254,7 +254,7 @@ public class ImageTree extends Tree<BufferedImage> {
   /**
   *{@summary Transform a folder tree into a Java ImageTree.}
   *@param fileName name of the file to Transform
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public static ImageTree folderToTree(String fileName) {
     return folderToTree(new File(fileName));

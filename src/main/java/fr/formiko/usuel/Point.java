@@ -9,14 +9,14 @@ import java.io.Serializable;
 *{@summary Point is a basic geometic shape.}<br>
 *In Formiko, it is used to store an x and an y in a single object.<br>
 *@author Hydrolien
-*@version 1.30
+*@lastEditedVersion 1.30
 */
 public class Point implements Serializable, Cloneable{
   protected int x,y; // pas de byte pour pourvoir utliser de très grande carte !
   // CONSTRUCTORS ----------------------------------------------------------------
   /**
   *{@summary A simple contructor.}<br>
-  *@version 1.30
+  *@lastEditedVersion 1.30
   */
   public Point (int x, int y){
     this.x = x;
@@ -30,7 +30,7 @@ public class Point implements Serializable, Cloneable{
   *<li>78 -90
   *<li>+467;+100
   *</ul>
-  *@version 1.30
+  *@lastEditedVersion 1.30
   */
   public Point(String s){//sous la forme -51,34
     x=-1; y=-1;
@@ -62,7 +62,7 @@ public class Point implements Serializable, Cloneable{
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary A simple toString function.}<br>
-  *@version 1.30
+  *@lastEditedVersion 1.30
   */
   public String toString(){
     return "("+x+","+y+")";
@@ -71,7 +71,7 @@ public class Point implements Serializable, Cloneable{
   *{@summary Standard equals function.}
   *Null &#38; other class type proof.
   *@param obj o is the Object to test. It can be null or something else than this class.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   @Override
   public boolean equals(Object obj){
@@ -89,7 +89,7 @@ public class Point implements Serializable, Cloneable{
   *<li>78 -90
   *<li>+467;+100
   *</ul>
-  *@version 1.30
+  *@lastEditedVersion 1.30
   */
   public boolean equals(String s){//sous la forme -51,34
     if(s==null){return false;}
@@ -97,7 +97,7 @@ public class Point implements Serializable, Cloneable{
   }
   /**
   *{@summary Standard clone function.}
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   @Override
   public Point clone(){

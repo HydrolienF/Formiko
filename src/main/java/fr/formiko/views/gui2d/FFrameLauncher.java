@@ -12,7 +12,7 @@ import java.awt.Insets;
 *The launcher can be used to show progress of download data at 1a launch,
 *or to update game, or to download textures packs.<br>
 *@author Hydrolien
-*@version 2.7
+*@lastEditedVersion 2.7
 */
 public class FFrameLauncher extends FFrame {
   private FPanelLauncher pl;
@@ -23,7 +23,7 @@ public class FFrameLauncher extends FFrame {
   /**
   *{@summary Main constructor.}<br>
   *Frame is centered, small &#38; containt a FPanelLauncher.
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public FFrameLauncher(){
     super("Formiko Launcher", (int)(getScreenWidth()/2.5), (int)(getScreenHeigth()/2.5), false);
@@ -40,7 +40,7 @@ public class FFrameLauncher extends FFrame {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary initialize the UImanager for all ProgressBar.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public static void iniUImanager(){
     // UIManager.put("ProgressBar.background", Main.getData().getButtonColor(3));
@@ -54,7 +54,7 @@ public class FFrameLauncher extends FFrame {
   *{@summary Main panel used for the launcher.}<br>
   *It containt a message, a progress bar, maybe an error message, maybe a button to try again.
   *@author Hydrolien
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   class FPanelLauncher extends FPanel {
     private JProgressBar pb;
@@ -63,7 +63,7 @@ public class FFrameLauncher extends FFrame {
     /**
     *{@summary Main constructor.}<br>
     *It initialize &#38; place item on the Panel.
-    *@version 2.7
+    *@lastEditedVersion 2.7
     */
     public FPanelLauncher(int w, int h, int minProgressBar, int maxProgressBar) {
       super();

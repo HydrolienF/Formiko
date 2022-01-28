@@ -17,7 +17,7 @@ import java.awt.event.MouseMotionListener;
 /**
 *{@summary Map mouse listener panel.}<br>
 *@author Hydrolien
-*@version 1.42
+*@lastEditedVersion 1.42
 */
 public class FPanelSup extends FPanel {
   private CCase cc2=null;
@@ -36,7 +36,7 @@ public class FPanelSup extends FPanel {
   *</ul>
   *<li>If moved on an other Case, it update desc to newCase.toString().
   *</ul>
-  *@version 1.42
+  *@lastEditedVersion 1.42
   */
   public void build(){
     addMouseListener(new MouseAdapter() {
@@ -152,7 +152,7 @@ public class FPanelSup extends FPanel {
   public void mouseMovedUpdate(CCase cc){mouseMovedUpdate(cc, false);}
   /**
   *{@summary Move the playing ant to selected Case.}<br>
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   private void movePlayingAnt(MouseEvent e){
     Fourmi f = Main.getPlayingAnt();

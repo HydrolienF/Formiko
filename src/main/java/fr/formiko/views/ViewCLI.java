@@ -25,7 +25,7 @@ import java.util.Scanner;
 /**
  *{@summary View Console Line Interface.}<br>
  *@author Hydrolien
- *@version 1.33
+ *@lastEditedVersion 1.33
  */
 public class ViewCLI implements View {
   private Scanner scannerAnswer;
@@ -39,7 +39,7 @@ public class ViewCLI implements View {
   /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean ini(){
     actionGameOn=false;
@@ -56,7 +56,7 @@ public class ViewCLI implements View {
   /**
   *{@summary close all the thing that need to be close after using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean close(){
     actionGameOn=false;
@@ -70,7 +70,7 @@ public class ViewCLI implements View {
   /**
   *{@summary Refrech actual view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean paint(){
     if(scannerAnswer==null){return false;}
@@ -94,7 +94,7 @@ public class ViewCLI implements View {
   /**
   *{@summary Load main menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean menuMain(){
     actionGameOn=false;
@@ -124,7 +124,7 @@ public class ViewCLI implements View {
   /**
   *{@summary Load new game menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.34
+  *@lastEditedVersion 1.34
   */
   public boolean menuNewGame(){
     actionGameOn=false;
@@ -154,7 +154,7 @@ public class ViewCLI implements View {
   /**
   *{@summary Load the game load menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   public boolean menuLoadAGame(){
     actionGameOn=false;
@@ -178,7 +178,7 @@ public class ViewCLI implements View {
   /**
   *{@summary personalise a game menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.35
+  *@lastEditedVersion 1.35
   */
   public boolean menuPersonaliseAGame(){
     actionGameOn=false;
@@ -248,7 +248,7 @@ public class ViewCLI implements View {
   /**
   *{@summary Load the options menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean menuOptions(){
     actionGameOn=false;
@@ -266,7 +266,7 @@ public class ViewCLI implements View {
   /**
   *{@summary Launch action game part.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean actionGame(){
     actionGameOn=true;
@@ -306,7 +306,7 @@ public class ViewCLI implements View {
   *{@summary Stop game and print the escape menu.}<br>
   *This action can only be run if action game is on.<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public int pauseActionGame(){
     if (!actionGameOn) {return -1;}
@@ -353,7 +353,7 @@ public class ViewCLI implements View {
   *@param message message to print.
   *@param gj sorted player list to print.
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj, boolean canResumeGame){
     erreur.info("message");
@@ -368,7 +368,7 @@ public class ViewCLI implements View {
   *We need to repaint the information about this Case.<br>
   *This action can only be run if action game is on.<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public boolean setLookedCCase(CCase cc){
     if (!actionGameOn || cLIMap==null) {return false;}
@@ -379,7 +379,7 @@ public class ViewCLI implements View {
   *{@summary Return the value of the looked CCase.}<br>
   *This action can only be run if action game is on and cLIMap have been created.<br>
   *@return lookedCCase.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public CCase getLookedCCase(){
     if (!actionGameOn || cLIMap==null) {return null;}
@@ -390,7 +390,7 @@ public class ViewCLI implements View {
   *It read Strings like this: "b13", "2c"<br>
   *This action can only be run if action game is on.<br>
   *@return Selected CCase or null if it fail.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public CCase getCCase(){
     String s = popUpQuestion(g.getM("were")+" ? ("+g.get("enterCoordinateAs")+" G12)");
@@ -400,7 +400,7 @@ public class ViewCLI implements View {
   *{@summary Return the chosen value for ant action.}<br>
   *This action can only be run if action game is on.<br>
   *@return Return ant choice.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public int getAntChoice(int t[]){
     if (!actionGameOn) {return -1;}
@@ -441,7 +441,7 @@ public class ViewCLI implements View {
   *If message.equals("") we may need to delete last message, but we don't need to print a new message.<br>
   *@param message the message to print
   *@param doWeNeedToDoNextCmdNow true if we need to do next commande now.
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public void message(String message, boolean doWeNeedToDoNextCmdNow){
     //TODO print it at a special location when printing all game info.
@@ -451,7 +451,7 @@ public class ViewCLI implements View {
   *{@summary Print a loading message.}<br>
   *@param message the message to print.
   *@param percentageDone the percentage of loading curently done.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public void loadingMessage(String message, int percentageDone){
     erreur.info(message+" "+percentageDone+"%");
@@ -459,7 +459,7 @@ public class ViewCLI implements View {
   /**
   *{@summary Print a message in a new window.}<br>
   *@param message the message to print.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public void popUpMessage(String message){
     System.out.println(sep);
@@ -469,7 +469,7 @@ public class ViewCLI implements View {
   *{@summary Print a question in a new window.}<br>
   *@param message the message to print.
   *@return the answer.
-  *@version 1.50
+  *@lastEditedVersion 1.50
   */
   public String popUpQuestion(String message){
     System.out.println(sep);
@@ -480,7 +480,7 @@ public class ViewCLI implements View {
   /**
   *{@summary set playing ant.}<br>
   *This action can only be run if action game is on.<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public void setPlayingAnt(Fourmi f){
     if (!actionGameOn) {return;}
@@ -493,19 +493,19 @@ public class ViewCLI implements View {
   *@param o object to move.
   *@param from CCase that o leave.
   *@param to CCase were o is going.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public void move(ObjetSurCarteAId o, CCase from, CCase to){}
   /**
   *{@summary Update downloading message.}
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void setDownloadingMessage(String message){
     System.out.println(message);
   }
   /**
   *{@summary Default fontion to move.}
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public void setMoveMode(boolean b){
     if(b){
@@ -518,7 +518,7 @@ public class ViewCLI implements View {
   //private---------------------------------------------------------------------
   /**
   *{@summary Select an ant from playingAnt anthill.}<br>
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   private Fourmi getAntFromFere(){
     int len = Main.getPlayingAnt().getFere().getGc().length();
@@ -542,7 +542,7 @@ public class ViewCLI implements View {
   //private functions
   /**
   *{@summary Print all action aviable in a menu.}<br>
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   private void printActionMenu(){
     LinkedList<String> list = new LinkedList<String>();
@@ -559,7 +559,7 @@ public class ViewCLI implements View {
   }
   /**
   *{@summary Print tToPrint.}<br>
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   private void printArray(){
     if(tToPrint==null){return;}
@@ -571,7 +571,7 @@ public class ViewCLI implements View {
   }
   /**
   *{@summary Print map of the actual Partie.}<br>
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   private void printMap(){
     if(cLIMap==null){
@@ -581,7 +581,7 @@ public class ViewCLI implements View {
   }
   /**
   *{@summary Print anthill of the playing ant.}<br>
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   private void printFereInColor(){
     if(Main.getPlayingAnt()==null){return;}
@@ -597,7 +597,7 @@ public class ViewCLI implements View {
   /**
   *{@summary Return the color depending of the status of c for playingAnt.}<br>
   *@param c The Creature to inspect to know if it is ally, enemy or neutral (or equals to playingAnt).<br>
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   private String getAllyAntInColor(Creature c){
     String r = "";
@@ -622,7 +622,7 @@ public class ViewCLI implements View {
   *{@summary Return an aviable action in a menu.}<br>
   *stop stop the game.
   *cheat alowed to write 1 cheat code.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   private int getActionMenu(int maxValue){
     int returnValue = -1;
@@ -646,7 +646,7 @@ public class ViewCLI implements View {
   *{@summary Ask a save name to the user.}<br>
   *If nothing is choose, save will have defaultName.<br>
   *Save name will be file save for every os.<br>
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   private String getSaveName(){
     String saveName = g.getM("sauvegarde")+" "+sauvegarderUnePartie.getSave().getIdS();
@@ -667,7 +667,7 @@ public class ViewCLI implements View {
   *This action can only be run if action game is on.<br>
   *@param s String like this: "b13", "2c"<br>
   *@return Selected CCase or null if it fail.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   //public only for test
   public CCase getCCaseFromString(String s){
@@ -706,7 +706,7 @@ public class ViewCLI implements View {
   /**
   *{@summary Make user choose in a String array.}
   *@param array the array where to choose
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   @Override
   public String makeUserChooseOnArray(String array[], String varName){

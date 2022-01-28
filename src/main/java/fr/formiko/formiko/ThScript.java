@@ -10,7 +10,7 @@ import fr.formiko.usuel.g;
 *{@summary To run a level.}<br>
 *It launch a script of cheat code.
 *@author Hydrolien
-*@version 1.51
+*@lastEditedVersion 1.51
 */
 public class ThScript extends Thread{
   private Script scr;
@@ -18,7 +18,7 @@ public class ThScript extends Thread{
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main contructor.}<br>
-  *@version 1.51
+  *@lastEditedVersion 1.51
   */
   public ThScript(String s){
     scr = new Script(s);
@@ -30,7 +30,7 @@ public class ThScript extends Thread{
   /**
   *{@summary Main methode to launch script.}<br>
   *It is call with Main.launchScript().
-  *@version 1.51
+  *@lastEditedVersion 1.51
   */
   @Override
   public void run(){
@@ -38,7 +38,7 @@ public class ThScript extends Thread{
   }
   /**
   *{@summary To stop thread.}<br>
-  *@version 1.51
+  *@lastEditedVersion 1.51
   */
   @Override
   public void interrupt(){
@@ -46,7 +46,7 @@ public class ThScript extends Thread{
   }
   /**
   *{@summary Used by the script to know if it should stop himself.}<br>
-  *@version 1.51
+  *@lastEditedVersion 1.51
   */
   @Override
   public boolean isInterrupted(){

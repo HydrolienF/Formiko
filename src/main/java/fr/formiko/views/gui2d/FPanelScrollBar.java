@@ -12,7 +12,7 @@ import javax.swing.JScrollBar;
 
 /**
 *{@summary A Jpanel with a JScrollBar.}<br>
-*@version 2.11
+*@lastEditedVersion 2.11
 */
 public class FPanelScrollBar extends FPanel {
   public static int SCROLL_BAR_SIZE = 20;
@@ -25,8 +25,7 @@ public class FPanelScrollBar extends FPanel {
   /**
   *{@summary Main constructor.}<br>
   *Scrool bar stay hiden if we don't need it.
-  *@version 2.11
-  *@author Hydrolien
+  *@lastEditedVersion 2.11
   */
   public FPanelScrollBar(FPanel subPanel){
     super();
@@ -46,7 +45,7 @@ public class FPanelScrollBar extends FPanel {
   *Scrool bar stay hiden if h is lower than maxVisibleHeigth.
   *@param w the new wigth
   *@param h the new heigth
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public void setSize(int w, int h){
     super.setSize(w+SCROLL_BAR_SIZE, Math.min(h,maxVisibleHeigth));
@@ -64,7 +63,7 @@ public class FPanelScrollBar extends FPanel {
   }
   /**
   *{@summary Set the sub panel &#38; refresh location.}<br>
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public void setSubPanel(FPanel p){
     int oldSubPanelHeight=1;
@@ -95,7 +94,7 @@ public class FPanelScrollBar extends FPanel {
   }
   /**
   *{@summary Update scrollBar value with only possible value.}<br>
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public void setScrollBarValue(int x){
     if(x<0){x=0;}
@@ -104,7 +103,7 @@ public class FPanelScrollBar extends FPanel {
   }
   /**
   *{@summary Update panel location depending of bar value.}<br>
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public void updatePanelLoactionFromBar(){
     int gap = (int)((scrollBar.getValue()*subPanel.getHeight())/SCROLL_BAR_MAX);
@@ -115,14 +114,14 @@ public class FPanelScrollBar extends FPanel {
   // SUB-CLASS -----------------------------------------------------------------
   /**
   *{@summary An AdjustmentListener that update panel location.}<br>
-  *@version 2.11
+  *@lastEditedVersion 2.11
   *@author Hydrolien
   */
   class BarAdjustmentListener implements AdjustmentListener {
     /**
     *{@summary Function call when bar value change.}<br>
     *It update panel location.
-    *@version 2.11
+    *@lastEditedVersion 2.11
     */
     @Override
     public void adjustmentValueChanged​(AdjustmentEvent e){
@@ -131,14 +130,14 @@ public class FPanelScrollBar extends FPanel {
   }
   /**
   *{@summary A MouseWheelListener that update scroll bar value.}<br>
-  *@version 2.11
+  *@lastEditedVersion 2.11
   *@author Hydrolien
   */
   class FMouseWheelListener implements MouseWheelListener {
     /**
     *{@summary Function call when mouse wheel is moved.}<br>
     *It update scroll bar value.
-    *@version 2.11
+    *@lastEditedVersion 2.11
     */
     @Override
     public void mouseWheelMoved​(MouseWheelEvent e){

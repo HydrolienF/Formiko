@@ -81,7 +81,7 @@ public class trad {
   /**
   *{@summary Translate all web site file for curent language.}<br>
   *It need to have the good path to web site file.
-  *@version 1.48
+  *@lastEditedVersion 1.48
   */
   public static void translateWebSiteFiles(String pathToWebSiteFile){
     // String pathToWebSiteFile = "../HydrolienF.github.io/docs/";
@@ -121,7 +121,7 @@ public class trad {
   /**
   *{@summary Translate a String by replacing €{key} by the translation of key.}<br>
   *@param s the String to translate
-  *@version 1.48
+  *@lastEditedVersion 1.48
   */
   //TODO test
   public static String replaceTranslation(String s){
@@ -161,7 +161,7 @@ public class trad {
   /**
   *{@summary Count how many time every char is used in a language map.}<br>
   *@param translationMap the Map to use to count char
-  *@version 2.12
+  *@lastEditedVersion 2.12
   */
   public static Map<Character,Integer> countCharUsedInTranslation(Map<String,String> translationMap){
     Map<Character,Integer> map = new HashMap<Character,Integer>();
@@ -180,7 +180,7 @@ public class trad {
   /**
   *{@summary Count how many time every char is used in a language map.}<br>
   *@param id id of the language to count char
-  *@version 2.12
+  *@lastEditedVersion 2.12
   */
   public static Map<Character,Integer> countCharUsedInTranslation(int id){
     return countCharUsedInTranslation(chargerLesTraductions.chargerLesTraductions(id));
@@ -190,7 +190,7 @@ public class trad {
   *@param id id of the language to count char
   *@param font font to test language printability
   *@param charWeigth more used char will have a higer weigth in the result
-  *@version 2.12
+  *@lastEditedVersion 2.12
   */
   public static double partOfPrintableChar(int id, Font font, boolean charWeigth){
     Map<Character,Integer> map = countCharUsedInTranslation(id);
@@ -213,7 +213,7 @@ public class trad {
   *@param id id of the language to count char
   *@param fontName name of the font to test language printability
   *@param charWeigth more used char will have a higer weigth in the result
-  *@version 2.12
+  *@lastEditedVersion 2.12
   */
   public static double partOfPrintableChar(int id, String fontName, boolean charWeigth){
     return partOfPrintableChar(id, new Font(fontName, Font.PLAIN, 1), charWeigth);
@@ -222,7 +222,7 @@ public class trad {
   *{@summary True if all char can be draw in a language map.}<br>
   *@param id id of the language to count char
   *@param font font to test language printability
-  *@version 2.12
+  *@lastEditedVersion 2.12
   */
   public static boolean canDisplayLanguage(int id, Font font){
     Map<Character,Integer> map = countCharUsedInTranslation(id);
@@ -237,7 +237,7 @@ public class trad {
   *{@summary True if all char can be draw in a language map.}<br>
   *@param id id of the language to count char
   *@param fontName name of the font to test language printability
-  *@version 2.12
+  *@lastEditedVersion 2.12
   */
   public static boolean canDisplayLanguage(int id, String fontName){
     return canDisplayLanguage(id, new Font(fontName, Font.PLAIN, 1));

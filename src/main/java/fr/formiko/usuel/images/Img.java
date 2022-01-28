@@ -30,7 +30,7 @@ import javax.swing.JPanel;
 /**
 *{@summary Img is a BufferedImage where you can edit pixel value, then save it on a local file or draw it.}<br>
 *@author Hydrolien
-*@version 1.11
+*@lastEditedVersion 1.11
 */
 public class Img implements Cloneable{
   private Random rand = new Random();
@@ -157,7 +157,7 @@ public class Img implements Cloneable{
   *{@summary Standard equals function.}
   *Null &#38; other class type proof.
   *@param o o is the Object to test. It can be null or something else than this class.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   @Override
   public boolean equals(Object o){

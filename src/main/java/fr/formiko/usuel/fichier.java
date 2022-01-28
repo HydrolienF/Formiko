@@ -28,7 +28,7 @@ import java.util.zip.ZipOutputStream;
 /**
 *{@summary tools about Files.}
 *@author Hydrolien Baeldung
-*@version 1.46
+*@lastEditedVersion 1.46
 */
 public class fichier {
 
@@ -40,7 +40,7 @@ public class fichier {
   /**
   *make a liste of all .java file in the directory f.
   *@param f The directory were to search java file.
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   public static GString listerLesFichiersDuRep(File f) {
     GString gs = new GString();
@@ -66,7 +66,7 @@ public class fichier {
    *{@summary Delete a directory and all his content.}<br>
    *If it's a folder it will call deleteDirectory on all sub file/folder and then destroy itself.
    *If it's a file it will destroy itself.
-   *@version 1.13
+   *@lastEditedVersion 1.13
    */
   public static boolean deleteDirectory(File directoryToBeDeleted) {
     if(directoryToBeDeleted==null){return false;}
@@ -121,7 +121,7 @@ public class fichier {
   *@param urlPath the url as a String
   *@param fileName the name of the file were to save data from the web
   *@param withInfo if true launch a thread to have info during download
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public static boolean download(String urlPath, String fileName, boolean withInfo){
     String reason=null;
@@ -192,7 +192,7 @@ public class fichier {
   public static boolean download(String urlPath, String fileName){return download(urlPath, fileName, false);}
   /**
   *{@summary return the size of the downloaded file.}
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   private static long getFileSize(URL url) {
     HttpURLConnection conn = null;
@@ -212,7 +212,7 @@ public class fichier {
   /**
   *{@summary a class to zip file.}<br>
   *cf https://www.baeldung.com/java-compress-and-uncompress
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public static void zip(String sourceFolder, String outputFile){
     try {
@@ -230,7 +230,7 @@ public class fichier {
   /**
   *{@summary a class to do main part of ziping a file.}<br>
   *cf https://www.baeldung.com/java-compress-and-uncompress
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private static void zipFile(File fileToZip, String fileName, ZipOutputStream zipOut, String outputFile) {
     try {
@@ -265,7 +265,7 @@ public class fichier {
   *cf https://www.baeldung.com/java-compress-and-uncompress
   *@param fileName the name of the .zip file.
   *@param folderName the name of the folder were to save data from the .zip.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public static void unzip(String fileName, final String folderName){
     fileName = str.addALaFinSiNecessaire(fileName,".zip");
@@ -305,7 +305,7 @@ public class fichier {
     *{@summary a safe way to create a File from a zip file to avoid Zip Slip.}<br>
     *@param destinationDir File that we whant to create in the zipEntry folder.
     *@param zipEntry the ZipEntry.
-    *@version 1.46
+    *@lastEditedVersion 1.46
     */
   public static File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
       File destFile = new File(destinationDir, zipEntry.getName());
@@ -320,8 +320,8 @@ public class fichier {
 
 /**
 *{@summary Print info about curent download.}<br>
-*this thread watch file size & print it / fileSize.
-*@version 2.7
+*this thread watch file size &#38; print it / fileSize.
+*@lastEditedVersion 2.7
 *@author Hydrolien
 */
 class DownloadThread extends Thread {
@@ -333,7 +333,7 @@ class DownloadThread extends Thread {
   *{@summary Main constructor.}<br>
   *@param fileOut file that we are curently filling by the downloading file
   *@param fileToDowloadSize size that we should reach when download will end
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public DownloadThread(File fileOut, long fileToDowloadSize, String downloadName){
     this.fileOut = fileOut;
@@ -345,7 +345,7 @@ class DownloadThread extends Thread {
   public void stopRuning(){running=false;}
   /**
   *{@summary Main function that print every second %age of download done.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void run(){
     long fileOutSize=0;

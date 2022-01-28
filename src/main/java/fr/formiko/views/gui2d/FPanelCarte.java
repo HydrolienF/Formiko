@@ -51,7 +51,7 @@ import javax.swing.JPanel;
 *It can draw map.<br>
 *Mouse listener part is in FPanelSup.java.<br>
 *@author Hydrolien
-*@version 1.42
+*@lastEditedVersion 1.42
 */
 public class FPanelCarte extends FPanel {
   private int xCase; // nombre de case en X
@@ -72,7 +72,7 @@ public class FPanelCarte extends FPanel {
   public FPanelCarte(){}
   /**
   *{@summary Build methode.}<br>
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public void build(){
     Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(100));
@@ -100,7 +100,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *setSize sould never be used. Use updateSize insted.
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   @Override
   public void setSize(int x, int y){
@@ -108,7 +108,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *Do the 3 steps that are need to set FPanelCarte to a new size.
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public void actualiserCarte(){
     updateSize();//actualise la taille du FPanelCarte a la bonne dimention.
@@ -120,7 +120,7 @@ public class FPanelCarte extends FPanel {
   /**
   *{@summary Main paint function for Map.}<br>
   *It print 1 by 1: map with only Case, grids, all map element Case by Case, the mark for all game as playingAnt mark.
-  *@version 1.42
+  *@lastEditedVersion 1.42
   */
   public void paintComponent(Graphics g2){
     if(!Main.getActionGameOn()){return;}
@@ -168,7 +168,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Draw grid.}<br>
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public void dessinerGrille(Graphics g){
     if(Main.getDrawGrid()){
@@ -223,7 +223,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Draw cloud Case.}<br>
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public boolean peintCaseNuageuse(int x, int y, Graphics g, int xT, int yT){
     Joueur jo = Main.getPlayingJoueur();
@@ -245,7 +245,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Draw the mark for playingAnt.}<br>
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   private void drawPlayingAnt(Graphics g){
     Fourmi playingAnt = Main.getPlayingAnt();
@@ -256,7 +256,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Draw the path from playingAnt to the looked case.}<br>
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   private void drawMovingPath(Graphics g){
     CCase to = getLookedCCase();
@@ -300,7 +300,7 @@ public class FPanelCarte extends FPanel {
   *{@summary Draw a white circle on giving Case.}<br>
   *@param g graphics where to draw
   *@param cc CCase where to draw
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   private void drawWhiteCircle(Graphics g, CCase cc, int toPrint){
     drawCircle(g, cc, Color.WHITE);
@@ -314,7 +314,7 @@ public class FPanelCarte extends FPanel {
   *@param g graphics where to draw
   *@param cc CCase where to draw
   *@param col Color to use
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   private void drawCircle(Graphics g, CCase cc, Color col){
     int tc=getTailleDUneCase();
@@ -334,7 +334,7 @@ public class FPanelCarte extends FPanel {
   *@param g graphics where to draw
   *@param from CCase where to start draw
   *@param to CCase where to end draw
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   private void drawWhiteLine(Graphics g, CCase from, CCase to, boolean drawOnFrom, boolean drawOnTo){
     drawLine(g, from, to, Color.WHITE, drawOnFrom, drawOnTo);
@@ -345,7 +345,7 @@ public class FPanelCarte extends FPanel {
   *@param from CCase where to start draw
   *@param to CCase where to end draw
   *@param col Color to use
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   private void drawLine(Graphics g, CCase from, CCase to, Color col, boolean drawOnFrom, boolean drawOnTo){
     int tc=getTailleDUneCase();
@@ -381,7 +381,7 @@ public class FPanelCarte extends FPanel {
   *@param from CCase where to start draw
   *@param to CCase where to end draw
   *@param col Color to use
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   private void drawLine(Graphics g, CCase from, CCase to, Color col){
     drawLine(g,from,to,col,true,true);
@@ -391,7 +391,7 @@ public class FPanelCarte extends FPanel {
   *@param x the x of the Case.
   *@param y the y of the Case.
   *@param centered True return the coordinates of the center of the case. False return left top coordinates.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public Point getPointFromCase(int x, int y, boolean centered){
     Point p = new Point(x*getTailleDUneCase(),y*getTailleDUneCase());
@@ -403,7 +403,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Draw a Case.}<br>
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public void peintImagePourCase(Case c, int x, int y,Graphics2D g){
     if(!isCaseVisible(c)){return;}
@@ -519,7 +519,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Return true if we need to draw Creature depending of the Options.}<br>
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public boolean needToDraw(Creature cr){
     if(cr==null){return false;}
@@ -540,7 +540,7 @@ public class FPanelCarte extends FPanel {
   /**
   *{@summary Return a Liste&lt;Creature&gt; sorted by image size.}<br>
   *It is used to print smaler creature on top, so that we can see every Creature.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   //public only for test
   public static Liste<Creature> gcSortedByImageSize(GCreature gc){
@@ -556,7 +556,7 @@ public class FPanelCarte extends FPanel {
   *@param id the id of the object
   *@param location the modification of the location of the object as a Point
   *@param rotation the modification of the rotation in the x value of a Point
-  *@version 2.4
+  *@lastEditedVersion 2.4
   */
   public void addMovingObject(int id, Point location, Point rotation){
     hashMapMovingObjectSurCarteAid.put(id, location);
@@ -579,7 +579,7 @@ public class FPanelCarte extends FPanel {
   *@param xT the x of the Case were to draw.
   *@param yT the y of the Case were to draw.
   *@param caseSize size of the Case
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   private void drawImageCentered(Graphics g, BufferedImage image, int xT, int yT, int caseSize){
     if(image==null){
@@ -599,7 +599,7 @@ public class FPanelCarte extends FPanel {
   *@param image the image to draw.
   *@param xT the x of the Case were to draw.
   *@param yT the y of the Case were to draw.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   private void drawImageCentered(Graphics g, BufferedImage image, int xT, int yT){
     drawImageCentered(g,image,xT,yT,getTailleDUneCase());
@@ -610,7 +610,7 @@ public class FPanelCarte extends FPanel {
   *@param im the image to draw.
   *@param x the x ere to draw.
   *@param y the y were to draw.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public void drawImage(Graphics gTemp, BufferedImage im, int x, int y){
     Graphics2D g = (Graphics2D)gTemp;
@@ -623,7 +623,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary return true if case in x,y is sombre.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private boolean isSombre(int x, int y){
     Joueur jo = Main.getPlayingJoueur();
@@ -631,7 +631,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary return true if we need to draw the color of the anthill.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private boolean needToDrawAnthillColor(Case c, int x, int y){
     if (Main.getOp().getDrawAllAnthillColor()) { return true;}
@@ -641,7 +641,7 @@ public class FPanelCarte extends FPanel {
   /**
   *{@summary fonction that place ObjetSurCarteAId on the same Case.}<br>
   *It modify FPanelCarte value xTemp and yTemp.
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public void calculerXYTemp(int xT, int yT, int k, Case c){
     int deplacementEnX=0;
@@ -672,7 +672,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Draw an anthill mark.}<br>
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public void drawRondOuRect(int x, int y, int tailleDUneCase, Graphics2D g, Fourmiliere fere, int tailleDuCercle){
     if(tailleDuCercle<tailleDUneCase/2){
@@ -685,7 +685,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Draw a circle as an anthill mark.}<br>
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public void drawRond(int x, int y, int r, Graphics2D g, Fourmiliere fere, int tailleDuCercle){
     g.setColor(fere.getPh().getColor());
@@ -701,7 +701,7 @@ public class FPanelCarte extends FPanel {
   *@param xT x value to use
   *@param yT y value to use
   *@param xOffset offset in x
-  *@version 2.8
+  *@lastEditedVersion 2.8
   */
   public void drawIcon(Graphics g, BufferedImage iconImage, int xT, int yT, int xOffset){
     g.drawImage(iconImage,xT+xOffset,yT,this);
@@ -713,7 +713,7 @@ public class FPanelCarte extends FPanel {
   *@param xT x value to use
   *@param yT y value to use
   *@param xOffset offset in x
-  *@version 2.8
+  *@lastEditedVersion 2.8
   */
   public void drawListIcons(Graphics g, Liste<BufferedImage> list, int xT, int yT, int xOffset){
     int len = list.length();
@@ -737,7 +737,7 @@ public class FPanelCarte extends FPanel {
   *@param k offset in angle (k * the angle)
   *@param replaceColorByImage if true we replace font color by the image in
   *@return a slice of the BufferedImage in
-  *@version 2.8
+  *@lastEditedVersion 2.8
   */
   private BufferedImage doSlice(int angle, BufferedImage biIn, int k, boolean replaceColorByImage){
     BufferedImage biOut = new BufferedImage(biIn.getWidth(), biIn.getHeight(), BufferedImage.TYPE_INT_ARGB);
@@ -765,7 +765,7 @@ public class FPanelCarte extends FPanel {
   *@param cr the Creature that we represent by the icon
   *@param fi the Creature that whant to know how to see the other Creature
   *@return the icone id corresponding to the relation from the ant to the Creature.
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public static int getIconId(Creature cr, Fourmi fi){
     if(cr==null){
@@ -782,7 +782,7 @@ public class FPanelCarte extends FPanel {
   *@param cr the Creature that we represent by the icon
   *@param fi the Creature that whant to know how to see the other Creature
   *@return the icone image corresponding to the relation from the ant to the Creature
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public static BufferedImage getIconImage(Creature cr, Fourmi fi){
     if(Main.getData().getB()==null){return null;}
@@ -792,7 +792,7 @@ public class FPanelCarte extends FPanel {
   *{@summary Return an icon image.}<br>
   *@param id the id of the icon
   *@return the icone image corresponding to the id
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public BufferedImage getIconImage(int id){
     if(Main.getData().getB()==null){return null;}
@@ -801,7 +801,7 @@ public class FPanelCarte extends FPanel {
   /**
   *{@summary Return the states icons images.}<br>
   *@param cr the Creature that we whant to print icons states
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public Liste<BufferedImage> getStatesIconsImages(Creature cr){
     int minPrintState = Main.getOp().getDrawStatesIconsLevel(); // between 0 & 4 (3= only red state, 0=all).
@@ -827,7 +827,7 @@ public class FPanelCarte extends FPanel {
   /**
   *{@summary Return a state icon image.}<br>
   *A colored round containing an icon image.
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public BufferedImage getStateIconImage(Color col, BufferedImage icon){
     int iconSize = getTailleIcon();
@@ -871,7 +871,7 @@ public class FPanelCarte extends FPanel {
   *{@summary Tool to save performances by drawing only visible Case.}<br>
   *@param c Case to check
   *return true if case is visible
-  *@version 2.13
+  *@lastEditedVersion 2.13
   */
   public boolean isCaseVisible(Case c){
     FPanel p = getView().getPmmo();
@@ -881,7 +881,7 @@ public class FPanelCarte extends FPanel {
   *{@summary Tool to save performances by drawing only visible Case.}<br>
   *@param c Case to check
   *return true if case is visible
-  *@version 2.13
+  *@lastEditedVersion 2.13
   */
   public static boolean isCaseVisible(Case c, int minX, int minY, int maxX, int maxY, int caseSize){
     int x = c.getX()*caseSize;

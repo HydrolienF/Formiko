@@ -14,13 +14,13 @@ import java.io.Serializable;
  * Allow an insect to play a turn.<br>
  * All insects can extends this class to modify runAway(), eat() or reproduce()<br>
  * @author Hydrolien
- * @version 1.28
+ * @lastEditedVersion 1.28
  */
 public class TourInsecte implements Serializable, Tour{
   private Insecte c;
   /**
   *PLay 1 turn with Creature c.
-  *@version 1.24
+  *@lastEditedVersion 1.24
   */
   public void unTour(Creature c){
     debug.débogage("la créature "+c.getId()+" tente de jouer un tour");
@@ -44,7 +44,7 @@ public class TourInsecte implements Serializable, Tour{
   *<li>Eat if the creature is not full.
   *<li>End turn.
   *</ul>
-  *@version 1.28
+  *@lastEditedVersion 1.28
   */
   public void tour(){
     c.eat(5);
@@ -56,7 +56,7 @@ public class TourInsecte implements Serializable, Tour{
   }
   /**
   *{@summary End a turn as an Insecte.}<br>
-  *@version 1.28
+  *@lastEditedVersion 1.28
   */
   public void endTurn(Creature cTemp){
     if(cTemp instanceof Insecte){
@@ -77,7 +77,7 @@ public class TourInsecte implements Serializable, Tour{
 
   /**
   *{@summary reproduce.}<br>
-  *@version 1.28
+  *@lastEditedVersion 1.28
   */
   private void reproduce(){ //TODO
     //while(c.getAction()>0  && c.ceReproduire()){

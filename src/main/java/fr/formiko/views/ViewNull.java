@@ -8,7 +8,7 @@ import fr.formiko.formiko.ObjetSurCarteAId;
 /**
  *{@summary Null view. A simple view who do nothing when a view action is launch.}<br>
  *@author Hydrolien
- *@version 1.33
+ *@lastEditedVersion 1.33
  */
 public class ViewNull implements View {
   private boolean actionGameOn=true;
@@ -16,7 +16,7 @@ public class ViewNull implements View {
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return true if nothing have been print or paint.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean ini(){
     actionGameOn=false;
@@ -25,7 +25,7 @@ public class ViewNull implements View {
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return true if nothing have been print or paint.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean close(){
     actionGameOn=false;
@@ -34,7 +34,7 @@ public class ViewNull implements View {
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return true if nothing have been print or paint.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean paint(){
     return true;
@@ -42,7 +42,7 @@ public class ViewNull implements View {
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return true if nothing have been print or paint.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean menuMain(){
     actionGameOn=false;
@@ -51,7 +51,7 @@ public class ViewNull implements View {
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return true if nothing have been print or paint.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean menuNewGame(){
     actionGameOn=false;
@@ -60,7 +60,7 @@ public class ViewNull implements View {
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return true if nothing have been print or paint.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean menuLoadAGame(){
     actionGameOn=false;
@@ -69,7 +69,7 @@ public class ViewNull implements View {
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return true if nothing have been print or paint.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean menuPersonaliseAGame(){
     actionGameOn=false;
@@ -78,7 +78,7 @@ public class ViewNull implements View {
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return true if nothing have been print or paint.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean menuOptions(){
     actionGameOn=false;
@@ -87,7 +87,7 @@ public class ViewNull implements View {
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return true if nothing have been print or paint.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean actionGame(){
     actionGameOn=true;
@@ -96,7 +96,7 @@ public class ViewNull implements View {
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return true if nothing have been print or paint.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public int pauseActionGame(){
     return 0;
@@ -104,7 +104,7 @@ public class ViewNull implements View {
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return true if nothing have been print or paint.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj, boolean canResumeGame){
     return true;
@@ -112,7 +112,7 @@ public class ViewNull implements View {
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return true if nothing have been print or paint.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean setLookedCCase(CCase cc){
     return true;
@@ -120,7 +120,7 @@ public class ViewNull implements View {
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return true if nothing have been print or paint.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public CCase getLookedCCase(){
     return null;
@@ -128,7 +128,7 @@ public class ViewNull implements View {
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return -1;
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public int getAntChoice(int t[]){
     return -1;
@@ -136,39 +136,39 @@ public class ViewNull implements View {
   /**
   *{@summary A null view action that do nothing.}<br>
   *@return Return null;
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public CCase getCCase(){
     return null;
   }
   /***
   *{@summary A null view action that do nothing.}<br>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public void message(String message, boolean doWeNeedToDoNextCmdNow){}
   /***
   *{@summary A null view action that do nothing.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public void loadingMessage(String message, int percentageDone){}
   /***
   *{@summary A null view action that do nothing.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public void popUpMessage(String message){}
   /***
   *{@summary A null view action that do nothing.}<br>
-  *@version 1.50
+  *@lastEditedVersion 1.50
   */
   public String popUpQuestion(String message){return "";}
   /***
   *{@summary A null view action that do nothing.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public void setPlayingAnt(Fourmi f){}
   /***
   *{@summary A null view action that do nothing.}<br>
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public void move(ObjetSurCarteAId o, CCase from, CCase to){}
 }

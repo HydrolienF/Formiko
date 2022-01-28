@@ -68,7 +68,7 @@ public class GGraine implements Serializable {
   public void afficheToi(){ System.out.println(this);}
   /**
   *{@summary Add a seed to this GGraine.}
-  *@version 1.40
+  *@lastEditedVersion 1.40
   */
   public void add(Graine i){
     if (i != null){
@@ -119,7 +119,7 @@ public class GGraine implements Serializable {
 
   /**
   *{@summary Transform a GGraine in Liste&lt;Graine&gt;.}
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   public Liste<Graine> toList(){
     if (début==null){

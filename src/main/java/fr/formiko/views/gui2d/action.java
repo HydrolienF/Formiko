@@ -16,7 +16,7 @@ import java.awt.MouseInfo;
 /**
 *{@summary All the gui action are launch here.}
 *@author Hydrolien
-*@version 1.41
+*@lastEditedVersion 1.41
 */
 public class action {
   private static Partie pa;
@@ -30,7 +30,7 @@ public class action {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Launch an action on gui mode.}
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public static void doAction(int action){
     if(FPanel.getView().getFl()!=null){
@@ -51,7 +51,7 @@ public class action {
   }
   /**
   *{@summary Launch an action on menu.}
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public static void doActionPm(int ac){//TODO passer dans une autre class Controleur ?
     FPanelMenu pm = FPanel.getView().getPm();
@@ -88,7 +88,7 @@ public class action {
   }
   /**
   *{@summary Launch an action on action game.}
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public static void doActionPj(int ac){
     debug.débogage("action pj : "+ac);
@@ -139,7 +139,7 @@ public class action {
   }
   /**
   *{@summary Launch an escape panel action.}
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   private static void doActionPe(int ac){
     if(ac==-9){
@@ -160,7 +160,7 @@ public class action {
   }
   /**
   *{@summary Ask save name in gui.}
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   private static String getSaveName(){
     String saveName = g.getM("sauvegarde")+" "+sauvegarderUnePartie.getSave().getIdS();//donne un identifiant unique au fichier.
@@ -179,7 +179,7 @@ public class action {
   }
   /**
   *{@summary go back to main menu.}
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public static void retournerAuMenu(){
     Main.setRetournerAuMenu(true);//ne prend effet dans la void main que lorsque le tour est fini.
@@ -193,7 +193,7 @@ public class action {
   }
   /**
   *{@summary Do as if mouse have been update.}
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public static void updateMouseLocation(){
     if(FPanel.getView().getPs()==null){return;}
@@ -204,7 +204,7 @@ public class action {
   }
   /**
   *{@summary do a graphic action concerning map aspect.}
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public static void doGraphicsAction(int ac){
     switch(ac){

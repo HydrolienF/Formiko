@@ -35,7 +35,7 @@ import java.util.HashMap;
 *"-" options are launch with normal game when other options are launch alone (Game is never start).<br>
 *For exemple ./run.sh -cli will launch the game in cli mode when ./run.sh stats will never launch game but update statistique value on a file.<br>
 *@author Hydrolien
-*@version 1.44
+*@lastEditedVersion 1.44
 */
 public class launchOptions {
   // FUNCTIONS -----------------------------------------------------------------
@@ -50,7 +50,7 @@ public class launchOptions {
   *<li>-rg Reload all the graphics saved in data/temporary/images.
   *<li>-cli Launch game but in Console Line Interface.
   *</ul>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public static void launchOptionsMinor(String stringOptions){
     switch(stringOptions){
@@ -91,7 +91,7 @@ public class launchOptions {
   }
   /**
   *{@summary Launch a major options without launching game.}
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public static void launchOptionsMajor(String args[]){
     if(args[0].equals("trad")){
@@ -241,7 +241,7 @@ public class launchOptions {
   *<li>2: number of long functions.
   *<li>2: number of short functions.
   *</ul>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   private static void stats(String args[]){
     int valueToPrint = 0;
@@ -271,7 +271,7 @@ public class launchOptions {
   }
   /**
   *{@summary trim the image from args.}<br>
-  *@version 1.21
+  *@lastEditedVersion 1.21
   */
   private static void rbtCmd(String args[]){
     String name = "";
@@ -294,7 +294,7 @@ public class launchOptions {
   }
   /**
   *{@summary Update 1 translation &#38; print it's &#37;age of translation.}<br>
-  *@version 1.42
+  *@lastEditedVersion 1.42
   */
   private static void tradCmd(String language){
     // Main.startCh();
@@ -305,7 +305,7 @@ public class launchOptions {
   }
   /**
   *{@summary Update translation.}<br>
-  *@version 1.21
+  *@lastEditedVersion 1.21
   */
   public static void tradCmd(){
     Main.startCh();
@@ -353,7 +353,7 @@ public class launchOptions {
   }
   /**
   *{@summary Do sounds or music test.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private static void music(){
     Main.initialisation(); //for color & language
@@ -366,7 +366,7 @@ public class launchOptions {
   *{@summary Translate the web site files.}<br>
   *@param pathToWebSiteFile path to acces to web site files.
   *@param pathToWebSiteTranslation path to acces to translation files.
-  *@version 1.49
+  *@lastEditedVersion 1.49
   */
   private static void translateWebSite(String pathToWebSiteFile, String pathToWebSiteTranslation){
     Main.setView(new ViewNull());
@@ -391,7 +391,7 @@ public class launchOptions {
   *{@summary Set value of data to last version in version.json.}<br>
   *It is need to help the game to choose the data version that it need.
   *Data version aren't allaws the same that game version because data don't change all time that game is update.
-  *@version 1.51
+  *@lastEditedVersion 1.51
   */
   public static void updateDataVersion(String args[]){
     try {
@@ -444,7 +444,7 @@ public class launchOptions {
   // /**
   // *{@summary return the curent version.}<br>
   // *Curent version is in version.md.
-  // *@version 1.51
+  // *@lastEditedVersion 1.51
   // */
   // public static String getCurentVersion(){
   //   GString gsIn = lireUnFichier.lireUnFichierGs("version.md");

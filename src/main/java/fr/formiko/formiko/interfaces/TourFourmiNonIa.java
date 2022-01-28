@@ -15,13 +15,13 @@ import java.io.Serializable;
  * {@summary Ant implementation for real player.<br/>}
  * Allow an ant to play a turn<br/>
  * @author Hydrolien
- * @version 2.5
+ * @lastEditedVersion 2.5
  */
 public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   /**
   *{@summary Do turn actions for an ant.}
   *There is no order to do actions because player choose it.
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   @Override
   public void tour(){
@@ -92,7 +92,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   /**
   *{@summary Do turn actions that can be done without action.}
   *There is no order to do actions because player choose it.
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public void allowToDisableAutoMode(){
     erreur.info("allowToDisableAutoMode");

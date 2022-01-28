@@ -15,7 +15,7 @@ import java.awt.image.BufferedImage;
 /**
 *{@summary the main Panel.}<br>
 *@author Hydrolien
-*@version 1.x
+*@lastEditedVersion 1.x
 */
 public class FPanelPrincipal extends FPanel {
   private FPanelJeu pj;
@@ -26,7 +26,7 @@ public class FPanelPrincipal extends FPanel {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public FPanelPrincipal(){
     super();
@@ -34,7 +34,7 @@ public class FPanelPrincipal extends FPanel {
   }
   /**
   *{@summary Add background image &#38; version label.}<br>
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public void build(){
     img = image.getImage("backgroundPP");
@@ -69,7 +69,7 @@ public class FPanelPrincipal extends FPanel {
   }
   /**
   *{@summary Add the curent version on screen.}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   private void addVersionLabel(){
     versionLabel = new FLabel("");
@@ -80,7 +80,7 @@ public class FPanelPrincipal extends FPanel {
   }
   /**
   *{@summary Update the curent version print on screen.}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void updateVersionLabel(){
     String version = Main.getFolder().getCurentVersion();

@@ -26,7 +26,7 @@ import javax.swing.UIManager;
 /**
 *{@summary A partie launcher Panel that create a new partie.}<br>
 *@author Hydrolien
-*@version 2.15
+*@lastEditedVersion 2.15
 */
 public class FPanelNouvellePartie extends FPanelLanceurPartie {
   private FLabel jl; private FLabel jl2;
@@ -165,7 +165,7 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
   /**
   *{@summary Do a list of the maps.}<br>
   *@return a list of all aviable map in all possible path.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public GString mapList(){
     GString gsr = new GString();
@@ -178,7 +178,7 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
   /**
   *{@summary add all .csv file from path folder.}<br>
   *Path with &#126; are not accepted because they are probably some lock file create by LibreOffice.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   //*@return a list of all aviable map in this path.
   private void addMapList(String path, GString gsr){
@@ -230,7 +230,7 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
   }
   /**
   *{@summary Initialize a JColorChooser that will be used by every FPanelColorChooser.}
-  *@version 2.15
+  *@lastEditedVersion 2.15
   */
   private void addJcc(){
     //update UIManager for ColorChooser

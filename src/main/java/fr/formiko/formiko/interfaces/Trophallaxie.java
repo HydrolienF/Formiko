@@ -9,7 +9,7 @@ import java.io.Serializable;
  * {@summary trophallaxis.}<br>
  * Allow a Creature to do a trophallaxis<br>
  * @author Hydrolien
- * @version 1.1
+ * @lastEditedVersion 1.1
  */
 public interface Trophallaxie extends Serializable{
   void trophallaxie(Creature c1, Creature c2, int foodDonnée);

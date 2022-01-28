@@ -19,7 +19,7 @@ import java.io.Serializable;
  * Allow an ant to do hunt<br>
  * Ant are able to see other ObjetSurCarteAId as Creature at 1 Case of distance.
  * @author Hydrolien
- * @version 1.40
+ * @lastEditedVersion 1.40
  */
 public class ChasseGranivore implements Serializable, Chasse {
   private Creature c;
@@ -32,7 +32,7 @@ public class ChasseGranivore implements Serializable, Chasse {
    *Ant search a seed. If it see a seed on the same Case it take it. If it see a seed on an other Case it goes to the Case.<br>
    *It can choose the first 1 or the better 1 depending on the difficulty.<br>
    *@param c The collecting ant.
-   *@version 1.40
+   *@lastEditedVersion 1.40
    */
   public boolean chasser(Creature c, int direction){
     setC(c);
@@ -61,7 +61,7 @@ public class ChasseGranivore implements Serializable, Chasse {
    * It can choose the first 1 or the better 1 depending on the difficulty.<br>
    * @param c The hunting Creature.
    * return true if c can hunt more.
-   * @version 1.40
+   * @lastEditedVersion 1.40
    */
    public boolean chasse(Creature c){
      setC(c);
@@ -86,7 +86,7 @@ public class ChasseGranivore implements Serializable, Chasse {
   //COMMENT FONCTIONNE LA CHASSE
   /**
    * {@summary fined a prey.}<br>
-   * @version 1.40
+   * @lastEditedVersion 1.40
    */
   private GGraine getProie(){
     return c.getCCase().getGg(1); // 1 est le rayon du cercle de case pris en compte.
@@ -95,7 +95,7 @@ public class ChasseGranivore implements Serializable, Chasse {
   /**
    * {@summary Check if can hunt.}<br>
    * It should use Chasse.canHuntMore &#38; specifics conditions for granivore species.<br>
-   * @version 1.40
+   * @lastEditedVersion 1.40
    */
   //@Override
   public boolean canHuntMore(Creature c){

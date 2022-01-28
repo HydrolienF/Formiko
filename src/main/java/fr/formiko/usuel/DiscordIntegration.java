@@ -19,7 +19,7 @@ import java.util.zip.ZipInputStream;
 
 /**
 *{@summary A discord intergration to have rich presence on discord app.}
-*@version 2.10
+*@lastEditedVersion 2.10
 *@author Hydrolien
 */
 public class DiscordIntegration {
@@ -31,7 +31,7 @@ public class DiscordIntegration {
   public static void setNeedToUpdateActivity(boolean b){needToUpdateActivity=b;}
   /**
   *{@summary Main function to launch the discord rich presence.}
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public static void discordRPC() {
     if(!Main.getOp().getDiscordRP()){return;}
@@ -106,7 +106,7 @@ public class DiscordIntegration {
   }
   /**
   *{@summary Dowload library depending of the OS.}
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public static File downloadDiscordLibrary() throws IOException {
     // Find out which name Discord's library has (.dll for Windows, .so for Linux, .dylib for mac)

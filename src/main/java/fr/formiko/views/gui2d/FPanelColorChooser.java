@@ -14,7 +14,7 @@ import javax.swing.event.ChangeListener;
 /**
 *{@summary A color chooser Panel that can let user pick a specify color or a random one.}<br>
 *@author Hydrolien
-*@version 2.15
+*@lastEditedVersion 2.15
 */
 public class FPanelColorChooser extends FPanel implements ChangeListener {
   private static Random rand;
@@ -28,7 +28,7 @@ public class FPanelColorChooser extends FPanel implements ChangeListener {
   *@param w buttons width
   *@param h buttons heigth
   *@param comp JComponent to paint background
-  *@version 2.15
+  *@lastEditedVersion 2.15
   */
   public FPanelColorChooser(int w, int h, JComponent comp){
     super();
@@ -40,7 +40,7 @@ public class FPanelColorChooser extends FPanel implements ChangeListener {
     deployButton.addMouseListener(new MouseListenerEmpty(){
       /**
       *{@summary Link action deploy to user clic.}<br>
-      *@version 2.15
+      *@lastEditedVersion 2.15
       */
       @Override
       public void mouseReleased(MouseEvent event) {
@@ -51,7 +51,7 @@ public class FPanelColorChooser extends FPanel implements ChangeListener {
     randomColorButton.addMouseListener(new MouseListenerEmpty(){
       /**
       *{@summary Link action setRandomColor to user clic.}<br>
-      *@version 2.15
+      *@lastEditedVersion 2.15
       */
       @Override
       public void mouseReleased(MouseEvent event) {
@@ -68,7 +68,7 @@ public class FPanelColorChooser extends FPanel implements ChangeListener {
   public JColorChooser getJcc(){return getView().getJcc();}
   /**
   *{@summary Deploy the ColorChooser to pick a color.}<br>
-  *@version 2.15
+  *@lastEditedVersion 2.15
   */
   public void deploy(){
     boolean b = idDeployed!=id;
@@ -87,7 +87,7 @@ public class FPanelColorChooser extends FPanel implements ChangeListener {
   public Color getColor(){return comp.getForeground();}
   /**
   *{@summary Set color &#38; update color dependent component.}<br>
-  *@version 2.15
+  *@lastEditedVersion 2.15
   */
   public void setColor(Color col){
     getJcc().setColor(col);
@@ -95,7 +95,7 @@ public class FPanelColorChooser extends FPanel implements ChangeListener {
   }
   /**
   *{@summary Set color to a random color.}<br>
-  *@version 2.15
+  *@lastEditedVersion 2.15
   */
   public void setRandomColor(){
     if(rand==null){rand = new Random();}
@@ -108,7 +108,7 @@ public class FPanelColorChooser extends FPanel implements ChangeListener {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Update dependent component &#38; color chooser panel.}<br>
-  *@version 2.15
+  *@lastEditedVersion 2.15
   */
   public void stateChanged(ChangeEvent e) {
     JColorChooser jcc = getJcc();

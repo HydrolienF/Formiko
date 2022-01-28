@@ -6,7 +6,7 @@ package fr.formiko.usuel;
 *{@summary Time counter}<br>
 *cf https://fr.jeffprod.com/blog/2015/un-chronometre-en-java/
 *@author Hydrolien, JeffProd
-*@version 1.46
+*@lastEditedVersion 1.46
 */
 public class Chrono {
 
@@ -32,7 +32,7 @@ public class Chrono {
   *{@summary Standard equals function.}
   *Null &#38; other class type proof.
   *@param o o is the Object to test. It can be null or something else than this class.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   @Override
   public boolean equals(Object o){
@@ -72,7 +72,7 @@ public class Chrono {
   }
   /**
   *{@summary update duree to be able to read it.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public void updateDuree(){
     duree=(System.currentTimeMillis()-tempsDepart) - (pauseFin-pauseDepart);
@@ -86,7 +86,7 @@ public class Chrono {
   }
   /**
    *{@summary Initializes Chrono ch.}
-   *@version 1.23
+   *@lastEditedVersion 1.23
    */
   public static void iniCh(){
     ch = new Chrono();
@@ -100,7 +100,7 @@ public class Chrono {
   public static void debutCh(Chrono chTemp){startCh(chTemp);}
   /**
    * Start Chrono
-   * @version 1.1
+   * @lastEditedVersion 1.1
    */
   public static void startCh(Chrono chTemp){
     if(!debug.getPerformance()){ return;}
@@ -111,7 +111,7 @@ public class Chrono {
    * The message will be print in console only if debug.setPerformance is true.<br>
    * Message will be print only if the do more than 20ms.<br>
    * @return duration time.
-   * @version 1.18
+   * @lastEditedVersion 1.18
    */
   public static int endCh(String s,Chrono chTemp){ // fin du Chrono.
     if(!debug.getPerformance()){ return 0;}

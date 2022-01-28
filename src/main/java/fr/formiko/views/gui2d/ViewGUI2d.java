@@ -30,7 +30,7 @@ import javax.swing.UIManager;
 /**
 *{@summary View Graphics User Interface in 2 dimention.}<br>
 *@author Hydrolien
-*@version 1.44
+*@lastEditedVersion 1.44
 */
 public class ViewGUI2d implements View {
   // private CCase lookedCCase=null;
@@ -38,7 +38,7 @@ public class ViewGUI2d implements View {
   private ThTriche trich; //écoute de commande triche dans le terminal.
   /***
   *Main windows
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   private FFrameMain f;
   private FFrameLauncher fl;
@@ -89,7 +89,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.42
+  *@lastEditedVersion 1.42
   */
   public boolean ini(){
     actionGameOn=false;
@@ -113,7 +113,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary close all the thing that need to be close after using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public boolean close(){
     actionGameOn=false;
@@ -128,7 +128,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Refrech actual view without constant fps.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.47
+  *@lastEditedVersion 1.47
   */
   public boolean paint(){
     if(!Main.getOp().getModeFPS()){
@@ -141,7 +141,7 @@ public class ViewGUI2d implements View {
   *{@summary Refrech actual view with constant fps.}<br>
   *It use timer &#38; patch all Java swing issues.
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.47
+  *@lastEditedVersion 1.47
   */
   public boolean paintGUI(){
     if(f==null){erreur.alerte("La fenetre est null & ne peu pas être redessinée."); return false;}
@@ -152,7 +152,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Load main menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public boolean menuMain(){
     // if(actionGameOn){action.retournerAuMenu();}
@@ -178,7 +178,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Load new game menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public boolean menuNewGame(){
     // if(actionGameOn){action.retournerAuMenu();}
@@ -192,7 +192,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Load the save load menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public boolean menuLoadAGame(){
     // if(actionGameOn){action.retournerAuMenu();}
@@ -206,7 +206,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary personalise a game menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.47
+  *@lastEditedVersion 1.47
   */
   public boolean menuPersonaliseAGame(){
     // if(actionGameOn){action.retournerAuMenu();}
@@ -220,7 +220,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary options menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public boolean menuOptions(){
     // if(actionGameOn){action.retournerAuMenu();}
@@ -233,7 +233,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Launch action game part.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public boolean actionGame(){
     actionGameOn=true;
@@ -282,7 +282,7 @@ public class ViewGUI2d implements View {
   *{@summary Stop game and print the escape menu.}<br>
   *This action can only be run if action game is on.<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.42
+  *@lastEditedVersion 1.42
   */
   public int pauseActionGame(){
     if (!actionGameOn) {return -1;}
@@ -296,7 +296,7 @@ public class ViewGUI2d implements View {
   *@param message message to print.
   *@param gj sorted player list to print.
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj, boolean canResumeGame){
     try {
@@ -313,7 +313,7 @@ public class ViewGUI2d implements View {
   *We need to repaint the information about this Case.<br>
   *This action can only be run if action game is on.<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public boolean setLookedCCase(CCase cc){
     if (!actionGameOn) {return false;}
@@ -338,7 +338,7 @@ public class ViewGUI2d implements View {
   *{@summary Return the value of the looked CCase.}<br>
   *This action can only be run if action game is on.<br>
   *@return lookedCCase.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public CCase getLookedCCase(){
     if (!actionGameOn) {return null;}
@@ -348,7 +348,7 @@ public class ViewGUI2d implements View {
   *{@summary Return the chosen value for ant action.}<br>
   *This action can only be run if action game is on.<br>
   *@return Return ant choice.
-  *@version 1.42
+  *@lastEditedVersion 1.42
   */
   public int getAntChoice(int t[]){
     if (!actionGameOn) {return -1;}
@@ -363,7 +363,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Return the chosen CCase.}<br>
   *It is used to move ant.
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public CCase getCCase(){
     if (!actionGameOn) {return null;}
@@ -388,7 +388,7 @@ public class ViewGUI2d implements View {
   *If message.equals("") we may need to delete last message, but we don't need to print a new message.<br>
   *@param message the message to print.
   *@param doWeNeedToDoNextCmdNow true if we need to do next commande now.
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public void message(String message, boolean doWeNeedToDoNextCmdNow){
     if (!actionGameOn) {return;}
@@ -424,7 +424,7 @@ public class ViewGUI2d implements View {
   *{@summary Print a loading message.}<br>
   *@param message the message to print.
   *@param percentageDone the percentage of loading curently done.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public void loadingMessage(String message, int percentageDone){
     if (getPch()==null) {return;}
@@ -438,7 +438,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Print a message in a new window.}<br>
   *@param message the message to print.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public void popUpMessage(String message){
     if (getPch()!=null) {return;}
@@ -453,7 +453,7 @@ public class ViewGUI2d implements View {
   *{@summary Print a question in a new window.}<br>
   *@param message the message to print.
   *@return the answer.
-  *@version 1.50
+  *@lastEditedVersion 1.50
   */
   public String popUpQuestion(String message){
     if (getPch()!=null) {return "";}
@@ -468,7 +468,7 @@ public class ViewGUI2d implements View {
 
   /**
   *{@summary remove FPanelChargement &#38; listen mouse clic on the map.}<br>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public void closeFPanelChargement(){
     if (!actionGameOn) {return;}
@@ -478,7 +478,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary set playing ant.}<br>
   *This action can only be run if action game is on.<br>
-  *@version 1.54
+  *@lastEditedVersion 1.54
   */
   public void setPlayingAnt(Fourmi f){
     if (!actionGameOn) {return;}
@@ -505,7 +505,7 @@ public class ViewGUI2d implements View {
   *@param o object to move.
   *@param from CCase that o leave.
   *@param to CCase were o is going.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public void move(ObjetSurCarteAId o, CCase from, CCase to){
     if(!Main.getOp().getInstantaneousMovement()){
@@ -516,7 +516,7 @@ public class ViewGUI2d implements View {
   }
   /**
   *{@summary Wait for end turn if we need.}
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public void waitForEndTurn() {
     getPmmc().setAllActionDone(true);
@@ -541,7 +541,7 @@ public class ViewGUI2d implements View {
   }
   /**
   *{@summary A loop to wait for game launch.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public void waitForGameLaunch(){
     // if(!Main.getPremierePartie()){
@@ -558,7 +558,7 @@ public class ViewGUI2d implements View {
   }
   /**
   *{@summary Initialize the game launcher.}
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void iniLauncher(){
     if(fl==null){
@@ -567,7 +567,7 @@ public class ViewGUI2d implements View {
   }
   /**
   *{@summary Close the game launcher.}
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void closeLauncher(){
     fl.setVisible(false);
@@ -577,7 +577,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Update downloading message.}
   *@param message the message
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void setDownloadingMessage(String message){
     fl.setDownloadingMessage(message);
@@ -585,14 +585,14 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Update downloading %age.}
   *@param state the state as a %age
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void setDownloadingValue(int state){
     fl.setDownloadingValue(state);
   }
   /**
   *{@summary Hide or show buttonRetry of FFrameLauncher.}
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void setButtonRetryVisible(boolean visible){
     fl.setButtonRetryVisible(visible);
@@ -606,7 +606,7 @@ public class ViewGUI2d implements View {
   *Null safe.<br>
   *@param message the message to print as description
   *@param mouseLocated if true message is print at mouse location, only if mouse don't move
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void setMessageDesc(String message, boolean mouseLocated){
     if(mouseLocated){
@@ -623,19 +623,19 @@ public class ViewGUI2d implements View {
   *MouseLocated is false.
   *Null safe.<br>
   *@param message the message to print as description
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void setMessageDesc(String message){setMessageDesc(message, false);}
   /***
   *{@summary True if in moveMode.}
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public boolean getMoveMode(){return moveMode;}
   public void setMoveMode(boolean b){moveMode=b;}
   /**
   *{@summary Center map panel over a Case.}
   *@param c case to center over
-  *@version 2.14
+  *@lastEditedVersion 2.14
   */
   public void centerOverCase(Case c){
     getPmmo().centerOver((int)((c.getX()+0.5)*getPc().getTailleDUneCase()), (int)((c.getY()+0.5)*getPc().getTailleDUneCase()));
@@ -643,7 +643,7 @@ public class ViewGUI2d implements View {
 
   /**
   *{@summary True if grass blades are enable.}
-  *@version 2.16
+  *@lastEditedVersion 2.16
   */
   public boolean isBladesEnable(){
     setBladeChanged(true);
@@ -652,7 +652,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Make user choose in a String array.}
   *@param array the array where to choose
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   @Override
   public String makeUserChooseOnArray(String array[], String varName){
@@ -669,7 +669,7 @@ public class ViewGUI2d implements View {
   *@param min the min value
   *@param max the max value
   *@param varName the name of the variable tp choose
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   @Override
   public int makeUserChooseInt(int min, int max, String varName){
@@ -687,7 +687,7 @@ public class ViewGUI2d implements View {
   //private---------------------------------------------------------------------
   /**
   *Load graphics during menu time.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   private void loadGraphics(){
     if(Main.getPremierePartie() || !Main.getOpenMenuFirst()){ini.initializeFPanelJeuAndSubpanel();}
@@ -700,7 +700,7 @@ public class ViewGUI2d implements View {
   }
   /**
   *{@summary Initialize cheat code listener if it haven't been yet.}<br>
-  *@version 1.42
+  *@lastEditedVersion 1.42
   */
   private void iniThTriche(){
     try {
@@ -715,7 +715,7 @@ public class ViewGUI2d implements View {
   }
   /**
   *{@summary Initialize the discord integration.}<br>
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   private void iniDiscordIntergation(){
     try {
@@ -731,7 +731,7 @@ public class ViewGUI2d implements View {
   *{@summary Launch refrech of main Frame.}<br>
   *It have been add to solve all GUI issues of Java Swing.<br>
   *It use 1 timer and a simple refrech task repeat fps times per second.<br>
-  *@version 1.47
+  *@lastEditedVersion 1.47
   */
   private void launchFrameRefresh(){
     timer = new Timer();
@@ -765,7 +765,7 @@ public class ViewGUI2d implements View {
   }
   /**
   *{@summary Tool to print mains FPanelx infos.}<br>
-  *@version 1.47
+  *@lastEditedVersion 1.47
   */
   private void printPanelInfo(){
     erreur.info("pp : "+getPp());
@@ -777,7 +777,7 @@ public class ViewGUI2d implements View {
   }
   /**
   *{@summary ini font at default value for all graphics components.}<br>
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   private void iniFont(){
     // UIManager.getLookAndFeelDefaults().put("defaultFont", Main.getFont1());
@@ -796,7 +796,7 @@ public class ViewGUI2d implements View {
   }
   /**
   *{@summary return endTurnAuto depending of Options &#38; endTurn button.}<br>
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   private boolean doNotNeedToEndTurnAuto(){
     boolean everyoneInAutoMode=false; //au moins 1 fourmi sans auto mode.
@@ -812,14 +812,14 @@ public class ViewGUI2d implements View {
 /**
 *{@summary A simple TimerTask extends class with a ViewGUI2d.}<br>
 *run methode is Override depending of the action that we need to do.
-*@version 1.47
+*@lastEditedVersion 1.47
 *@author Hydrolien
 */
 class TimerTaskViewGUI2d extends TimerTask {
   protected static ViewGUI2d view;
   /**
   *{@summary Main constructor.}
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public TimerTaskViewGUI2d(ViewGUI2d view){
     TimerTaskViewGUI2d.view=view;

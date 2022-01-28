@@ -12,13 +12,13 @@ import javax.swing.plaf.basic.BasicComboPopup;
 /**
 *{@summary extends of JComboBox<T> with Formiko colors.}
 *@author Hydrolien
-*@version 2.2
+*@lastEditedVersion 2.2
 */
 public class FComboBox<T> extends JComboBox<T> {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Constructors that use personalised color.}
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public FComboBox(){
     super();
@@ -26,7 +26,7 @@ public class FComboBox<T> extends JComboBox<T> {
   }
   /**
   *{@summary Constructors that use personalised color.}
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public FComboBox(T t []){
     super(t);
@@ -37,7 +37,7 @@ public class FComboBox<T> extends JComboBox<T> {
   /**
   *{@summary setSelectionBackground to sub component of this FComboBox.}
   *return true if it work without catching Exception.
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public boolean setSelectionBackground(Color color){
     try {
@@ -53,7 +53,7 @@ public class FComboBox<T> extends JComboBox<T> {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary personalise colors.}
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public void personalise(){
     setForeground(Color.BLACK);

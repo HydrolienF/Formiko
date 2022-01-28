@@ -13,7 +13,7 @@ import java.io.Serializable;
 *Map have a GCase that represent all the Case of the map, a name
 *and some boolean/byte for param of the map.
 *@author Hydrolien
-*@version 2.1
+*@lastEditedVersion 2.1
 */
 public class Carte implements Serializable {
   /** the GCase with the type of Case. */
@@ -25,7 +25,7 @@ public class Carte implements Serializable {
   /**
   *{@summary Main constructor.}<br>
   *@param gc the GCase with the type of Case.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public Carte(GCase gc, byte abondanceInsecte, byte abondanceGraine, byte abondanceHerbe, boolean caseNuageuse, boolean caseSombre){
     if (gc==null){erreur.erreur("impossible d'avoir un GCase null ici");}
@@ -38,7 +38,7 @@ public class Carte implements Serializable {
   /**
   *{@summary Secondary constructor.}<br>
   *@param gc the GCase with the type of Case.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public Carte(GCase gc){
     this(gc,10,10,10,true,true);
@@ -46,7 +46,7 @@ public class Carte implements Serializable {
   /**
   *{@summary Secondary constructor.}<br>
   *@param mapName name of the map to load.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public Carte(String mapName){
     this(chargerCarte.chargerCarte(mapName));
@@ -66,7 +66,7 @@ public class Carte implements Serializable {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Standard toString methode.}<br>
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public String toString(){
     String sr = "";
@@ -80,13 +80,13 @@ public class Carte implements Serializable {
   }
   /***
   *{@summary return the number of Case.}<br>
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public int length(){return gc.length();}
   /**
   *{@summary Load GCase from a file.}<br>
   *@param mapName name of the map to load.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public void setMap(String mapName){
     try {

@@ -11,7 +11,7 @@ import java.awt.Graphics;
 *{@summary A partie launcher Panel.}<br>
 *It have a big "launch game" button.
 *@author Hydrolien
-*@version 1.x
+*@lastEditedVersion 1.x
 */
 public abstract class FPanelLanceurPartie extends FPanel{
   private BoutonLong launchButton;
@@ -20,7 +20,7 @@ public abstract class FPanelLanceurPartie extends FPanel{
   *{@summary Main constructor.}<br>
   *It only build a launch button &#38; place it.
   *@param ac action of the launch button
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public FPanelLanceurPartie(int ac){
     this.setLayout(null);

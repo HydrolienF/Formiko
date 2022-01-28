@@ -76,7 +76,7 @@ public class EtiquetteJoueur extends FPanel{
   *{@summary Standard equals function with id.}
   *Null &#38; other class type proof.
   *@param o o is the Object to test. It can be null or something else than this class.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   @Override
   public boolean equals(Object o){
@@ -122,7 +122,7 @@ public class EtiquetteJoueur extends FPanel{
   }
   /**
   *{@summary Initialize color chooser if it's needed.}
-  *@version 2.15
+  *@lastEditedVersion 2.15
   */
   public void iniCouleur(){
     if(couleur!=null){
@@ -135,7 +135,7 @@ public class EtiquetteJoueur extends FPanel{
   }
   /**
   *{@summary Add a color chooser for this player.}
-  *@version 2.15
+  *@lastEditedVersion 2.15
   */
   public void addColorChooser(){
     int buttonSize=getHeight()/3;

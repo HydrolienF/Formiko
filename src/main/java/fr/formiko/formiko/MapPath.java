@@ -4,7 +4,7 @@ import fr.formiko.usuel.Point;
 import fr.formiko.usuel.structures.listes.Liste;
 /**
 *{@summary Path for map move.}<br>
-*@version 2.11
+*@lastEditedVersion 2.11
 *@author Hydrolien
 */
 public class MapPath {
@@ -15,7 +15,7 @@ public class MapPath {
   *{@summary Main constructor that build the path.}<br>
   *@param from starting CCase
   *@param to ending CCase
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public MapPath(CCase from, CCase to){
     path = new Liste<CCase>();
@@ -28,7 +28,7 @@ public class MapPath {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Strandard toString function.}<br>
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public String toString(){
     String s="";
@@ -48,7 +48,7 @@ public class MapPath {
   *{@summary Add path CCase by CCase.}<br>
   *@param from starting CCase
   *@param to ending CCase
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public void addPath(CCase from, CCase to){
     if(from==null || to==null){return;}
@@ -63,7 +63,7 @@ public class MapPath {
   *{@summary Add a single CCase to the path.}<br>
   *If CCase is already the last one, it don't add it.
   *@param cc CCase to add
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public void addToPath(CCase cc){
     if(path.isEmpty() || !path.getLast().equals(cc)){ //to avoid to add an element that is already the last one in path.
@@ -96,7 +96,7 @@ public class MapPath {
   *{@summary get the next CCase to go to reach last Case "to".}<br>
   *@param from starting CCase
   *@param to target CCase
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public static CCase getNextCCase(CCase from, CCase to){
     int d = from.getDirection(to);
@@ -106,7 +106,7 @@ public class MapPath {
   *{@summary get the next CCase to go to reach last Case "to".}<br>
   *@param from starting CCase
   *@param d direction where to go
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public static CCase getNextCCase(CCase from, int d){
     // switch (d) {

@@ -20,7 +20,7 @@ import java.beans.PropertyChangeEvent;
 *{@summary Personalised JDialog.}<br>
 *Used to get a save name, get a creature id, get a food quantity.
 *@author Hydrolien
-*@version 2.17
+*@lastEditedVersion 2.17
 */
 public class FOptionPane extends JDialog {
   private FTextField textField;
@@ -30,7 +30,7 @@ public class FOptionPane extends JDialog {
   /**
   *{@summary Main constructor.}<br>
   *@param owner Frame that own this
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public FOptionPane(Frame owner){
     super(owner, (String)null);
@@ -42,14 +42,14 @@ public class FOptionPane extends JDialog {
   }
   /**
   *{@summary After have use all setter, create the last button &#38; set visible.}<br>
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public void build(){
     FButton b = new FButton(" ✔ ", null, -1);
     b.addActionListener(new ActionListener(){
       /**
       *{@summary Close the FOptionPane.}<br>
-      *@version 2.17
+      *@lastEditedVersion 2.17
       */
       public void actionPerformed(ActionEvent e) {
         disposeFOptionPane();
@@ -64,7 +64,7 @@ public class FOptionPane extends JDialog {
   }
   /**
   *{@summary Close the FOptionPane.}<br>
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public void disposeFOptionPane(){
     setVisible(false);
@@ -73,7 +73,7 @@ public class FOptionPane extends JDialog {
   /**
   *{@summary Add an non-editable text field.}<br>
   *@param content default content
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public void addText(String content){
     if(content==null || content.equals("")){return;}
@@ -83,7 +83,7 @@ public class FOptionPane extends JDialog {
   /**
   *{@summary Add an editable text field.}<br>
   *@param content default content
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public void addField(String content){
     textField = new FTextField(content);
@@ -94,7 +94,7 @@ public class FOptionPane extends JDialog {
   *@param min the min value
   *@param max the max value
   *@param value default value
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public void addIntField(int min, int max, int value){
     intField = FIntField.newFIntField(min, max, value);
@@ -103,7 +103,7 @@ public class FOptionPane extends JDialog {
   /**
   *{@summary Add a combo box.}<br>
   *@param content content of the combo box
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public void addComboBox(String content []){
     comboBox = new FComboBox<String>(content);
@@ -114,7 +114,7 @@ public class FOptionPane extends JDialog {
   *@param min the min value
   *@param max the max value
   *@param value the curent value
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public void addSlider(int min, int max, int value){
     slider = new FSlider(min, max, value);
@@ -126,7 +126,7 @@ public class FOptionPane extends JDialog {
   *@param min the min value
   *@param max the max value
   *@param value the curent value
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public void addSliderAndIntField(int min, int max, int value){
     addSlider(min, max, value);
@@ -134,7 +134,7 @@ public class FOptionPane extends JDialog {
     slider.addChangeListener(new ChangeListener() {
       /**
       *{@summary Update intField to.}<br>
-      *@version 2.17
+      *@lastEditedVersion 2.17
       */
       @Override
       public void stateChanged(ChangeEvent event) {
@@ -144,7 +144,7 @@ public class FOptionPane extends JDialog {
     intField.addPropertyChangeListener(new PropertyChangeListener() {
       /**
       *{@summary Update slider to.}<br>
-      *@version 2.17
+      *@lastEditedVersion 2.17
       */
       @Override
       public void propertyChange(PropertyChangeEvent event) {
@@ -158,7 +158,7 @@ public class FOptionPane extends JDialog {
   }
   /**
   *{@summary Return the content of the text field.}<br>
-  *@version 2.17
+  *@lastEditedVersion 2.17
   */
   public String getContent(){
     if(textField!=null){return textField.getText();}

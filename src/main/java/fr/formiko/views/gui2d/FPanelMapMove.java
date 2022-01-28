@@ -21,7 +21,7 @@ import java.util.List;
 /**
 *{@summary Panel that make map move.}<br>
 *@author Hydrolien
-*@version 2.13
+*@lastEditedVersion 2.13
 */
 public class FPanelMapMove extends FPanel {
   private Liste<FPanel> lPanelToMove;
@@ -32,7 +32,7 @@ public class FPanelMapMove extends FPanel {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main empty constructor.}<br>
-  *@version 2.13
+  *@lastEditedVersion 2.13
   */
   public FPanelMapMove(){
     lPanelToMove = new Liste<FPanel>();
@@ -48,7 +48,7 @@ public class FPanelMapMove extends FPanel {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize all sub components &#38; variables.}<br>
-  *@version 2.13
+  *@lastEditedVersion 2.13
   */
   public void build(){
     thickness = Main.getTailleElementGraphique(10); //thin moving area are a bit hard to use without fullscreen.
@@ -90,7 +90,7 @@ public class FPanelMapMove extends FPanel {
   *@param inX true if we are moving in x, false if we are moving in y
   *@param up true if windows should up in X or in Y
   *@param speed moving speed in [0;2]
-  *@version 2.13
+  *@lastEditedVersion 2.13
   */
   public void setOver(boolean inX, boolean up, double speed){
     if(!getView().getActionGameOn() || getView().getPch()!=null){return;}
@@ -109,7 +109,7 @@ public class FPanelMapMove extends FPanel {
   *{@summary Move all sub panel in x &#38; y.}<br>
   *@param stepInX moving speed in x
   *@param stepInY moving speed in y
-  *@version 2.13
+  *@lastEditedVersion 2.13
   */
   public void moveAllSubPanel(int stepInX, int stepInY){
     for (FPanel panelToMove : lPanelToMove) {
@@ -120,7 +120,7 @@ public class FPanelMapMove extends FPanel {
   *{@summary Center all sub panel in x &#38; y.}<br>
   *@param x x that need to be on the center
   *@param y y that need to be on the center
-  *@version 2.14
+  *@lastEditedVersion 2.14
   */
   public void centerOver(int x, int y){
     x-=getWidth()/2;
@@ -134,7 +134,7 @@ public class FPanelMapMove extends FPanel {
   *@param panelToMove panel to move
   *@param x new x
   *@param y new y
-  *@version 2.14
+  *@lastEditedVersion 2.14
   */
   public void setLocationSubPanel(FPanel panelToMove, int x, int y){
     int maxX = math.max(panelToMove.getWidth()-spaceInX,0);
@@ -147,7 +147,7 @@ public class FPanelMapMove extends FPanel {
   *{@summary Panel used to listen mouse move.}<br>
   *The mouse listeners will update speed depending of how close of the border we are.
   *@author Hydrolien
-  *@version 2.13
+  *@lastEditedVersion 2.13
   */
   class FPanelListenMove extends FPanel {
     private boolean inX;
@@ -156,11 +156,11 @@ public class FPanelMapMove extends FPanel {
     *{@summary Main constructor with mouse listeners.}<br>
     *@param inX true if we are moving in x
     *@param up true if we are moving up
-    *@param both true if we are moving in x & in y
-    *@param up true if we are moving up for the 2a direction
+    *@param both true if we are moving in x &#38; in y
+    *@param up2 true if we are moving up for the 2a direction
     *If this is big enoth, the mouse listeners will update speed depending of how close of the border we are.
     * Or stop it if we leave the panel.
-    *@version 2.13
+    *@lastEditedVersion 2.13
     */
     public FPanelListenMove(boolean inX, boolean up, boolean both, boolean up2){
       this.inX=inX;
@@ -168,7 +168,7 @@ public class FPanelMapMove extends FPanel {
       addMouseListener(new MouseListener(){
         /**
         *{@summary Start moving.}<br>
-        *@version 2.13
+        *@lastEditedVersion 2.13
         */
         @Override
         public void mouseEntered(MouseEvent event) {
@@ -179,7 +179,7 @@ public class FPanelMapMove extends FPanel {
         }
         /**
         *{@summary Stop moving.}<br>
-        *@version 2.13
+        *@lastEditedVersion 2.13
         */
         @Override
         public void mouseExited(MouseEvent event) {
@@ -199,7 +199,7 @@ public class FPanelMapMove extends FPanel {
         addMouseMotionListener(new MouseMotionListener(){
           /**
           *{@summary Update speed depending of how close of the border we are.}<br>
-          *@version 2.13
+          *@lastEditedVersion 2.13
           */
           @Override
           public void mouseMoved(MouseEvent event) {
@@ -234,7 +234,7 @@ public class FPanelMapMove extends FPanel {
     *@param up true if we are moving up
     *If this is big enoth, the mouse listeners will update speed depending of how close of the border we are.
     * Or stop it if we leave the panel.
-    *@version 2.13
+    *@lastEditedVersion 2.13
     */
     public FPanelListenMove(boolean inX, boolean up){
       this(inX, up, false, false);
@@ -243,7 +243,7 @@ public class FPanelMapMove extends FPanel {
   /**
   *{@summary Thread used to do the move.}<br>
   *@author Hydrolien
-  *@version 2.13
+  *@lastEditedVersion 2.13
   */
   class ThMoveSubPanel extends Thread {
     private int stepInX;
@@ -253,7 +253,7 @@ public class FPanelMapMove extends FPanel {
     public void setStepInY(int x){stepInY=x;}
     /**
     *{@summary Main constructor.}<br>
-    *@version 2.13
+    *@lastEditedVersion 2.13
     */
     public ThMoveSubPanel(){
       stepInX=0;
@@ -263,7 +263,7 @@ public class FPanelMapMove extends FPanel {
     *{@summary Main methode that make sub panel move.}<br>
     * It will wait untill a stepInX or stepInY is not 0
     * &#38; then move every 10 ms.
-    *@version 2.13
+    *@lastEditedVersion 2.13
     */
     @Override
     public void run(){

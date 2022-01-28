@@ -12,7 +12,7 @@ import java.io.Serializable;
  *{@summary Save the pop probability of an Insecte.}<br>
  *The pop probability depend of the Case were the Insecte will pop.
  *@author Hydrolien
- *@version 1.1
+ *@lastEditedVersion 1.1
  */
 public class IEspece implements Serializable{
   private int ct[];
