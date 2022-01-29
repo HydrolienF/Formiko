@@ -136,6 +136,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public void setPheromone(Pheromone ph){this.ph = ph; }
   public void setPh(Pheromone ph){ setPheromone(ph);}
   public void setPheromone(byte a, byte b, byte c){ph = new Pheromone(a,b,c);}
+  public void setPheromone(int a, int b, int c){setPheromone((byte)a,(byte)b,(byte)c);}
   public boolean getIsDead(){ return isDead;}
   public void setIsDead(boolean b){isDead=b;maxAction=0;action=0;}
   public byte getHealth(){return health;}

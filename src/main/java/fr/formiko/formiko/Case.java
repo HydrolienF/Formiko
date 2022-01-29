@@ -222,11 +222,13 @@ public class Case implements Serializable{
     else{
       Liste<Creature> list = new Liste<Creature>();
       for (Creature c : getGc().toList()) {
-        list.addSorted(c, (c1, c2) -> c2.friendlyLevel(f) - c1.friendlyLevel(f));
+        list.addSorted(c, (c1, c2) -> c1.friendlyLevel(f) - c2.friendlyLevel(f));
       }
       GCreature gcr = new GCreature();
       for (Creature c : list) {
-        gcr.addFin(c);
+        if(!c.equals(f)){
+          gcr.addFin(c);
+        }
       }
       return gcr;
     }

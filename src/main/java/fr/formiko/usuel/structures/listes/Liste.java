@@ -346,7 +346,13 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   @Override
   public Object[] toArray(){
-    throw new UnsupportedOperationException();
+    Object array [] = new Object[length()];
+    int k=0;
+    for (T t : this) {
+      array[k]=t;
+      k++;
+    }
+    return array;
   }
   @Override
   @SuppressWarnings("unchecked")
