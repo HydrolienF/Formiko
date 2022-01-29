@@ -293,7 +293,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   //... equals(Creature c) // c'est ObjetAId qui compare l'id.
 
   /**
-  *{@summary is this consider as an enemy of c ? }<br>
+  *{@summary Is this consider as an ally of c ?}<br>
   *@param c A Creature that whant to know if we are ally.
   *@lastEditedVersion 1.13
   */
@@ -302,7 +302,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     return false;
   }
   /**
-  *{@summary is this consider as an enemy of c ? }<br>
+  *{@summary Is this consider as an enemy of c ?}<br>
   *@param c A Creature that whant to know if we are enemy.
   *@lastEditedVersion 1.13
   */
@@ -315,7 +315,22 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     if(!this.getPheromone().equals(c.getPheromone(),math.min(127,c.getPheromoneTolerence()*6))){ return true;} // c est une fourmi non alliés, et nous n'avons pas de lien de parenté.
     return false; //sinon a priori on est neutre.
   }
+  /**
+  *{@summary Is this consider as neutral for c ?}<br>
+  *@param c A Creature that whant to know if we are neutral.
+  *@lastEditedVersion 1.13
+  */
   public boolean getIsNeutral(Creature c){return !getEstAllié(c) && !getEstEnnemi(c);}
+  /**
+  *{@summary Return a friendly level. Higer is more frienly.}<br>
+  *@param c A Creature to test friendly level.
+  *@lastEditedVersion 2.18
+  */
+  public int friendlyLevel(Creature c){
+    if(c.getEstAllié(this)){return 1;}
+    else if(c.getEstEnnemi(this)){return -1;}
+    return 0;
+  }
   /**
    *{@summary find all allied Creature on the same Case.}<br>
    *@lastEditedVersion 1.7

@@ -1,13 +1,14 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.usuel.Info;
 import fr.formiko.usuel.Point;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.Info;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.structures.listes.Liste;
 
 import java.io.Serializable;
 /**
@@ -195,13 +196,43 @@ public class Case implements Serializable{
     return s;
   }
   public String desc(){return p.toString();}
+  /**
+  *{@return The number of element on this.}
+  *@lastEditedVersion 1.x
+  */
   public int getNbrDElementSurCase(){
     int xr = 0;
     if (fere != null){ xr=1;}
     return xr + gc.length() + gg.length();
   }
+  /**
+  *{@return The number of element on this.}
+  *@lastEditedVersion 1.x
+  */
   public int length(){
     return getNbrDElementSurCase();
+  }
+  /**
+  *{@return The GCreature sorted by friendly level with an ant.}
+  *@param f the ant to compare
+  *@lastEditedVersion 2.18
+  */
+  public GCreature getSortedGc(Fourmi f){
+    if(f==null){return gc;}
+    else{
+      Liste<Creature> list = new Liste<Creature>();
+      for (Creature c : getGc().toList()) {
+        list.addSorted(c, (c1, c2) -> c2.friendlyLevel(f) - c1.friendlyLevel(f));
+      }
+      GCreature gcr = new GCreature();
+      for (Creature c : list) {
+        gcr.addFin(c);
+      }
+      return gcr;
+    }
+  }
+  public GCreature getSortedGc(){
+    return getSortedGc(Main.getPlayingAnt());
   }
   /**
   *{@summary Standard equals function.}
