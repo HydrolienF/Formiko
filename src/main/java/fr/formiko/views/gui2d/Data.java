@@ -3,10 +3,11 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Pheromone;
-import fr.formiko.usuel.Point;
 import fr.formiko.usuel.Folder;
+import fr.formiko.usuel.Point;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -178,6 +179,17 @@ public class Data {
       return null;
     }
     return imageTree.getCreatureImage(c);
+  }
+  /**
+  *{@summary Return the Image that fit to a Seed.}
+  *@param s the Seed to represent
+  *@lastEditedVersion 2.18
+  */
+  public BufferedImage getGraineImage(Graine s){
+    if(s==null){return null;}
+    else{
+      return getTG()[s.getType()];
+    }
   }
   /**
   *{@summary Return an IconImage.}

@@ -209,7 +209,6 @@ public class FPanelBouton extends FPanel {
       removes();
       add(pi);
       if(piGc!=null){
-        erreur.info("new FPanelInfoGCreature");
         add(piGc);
       }
     }else{

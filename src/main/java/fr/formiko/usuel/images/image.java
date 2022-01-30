@@ -20,6 +20,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.function.Function;
 import javax.imageio.ImageIO;
 
 /**
@@ -659,5 +660,18 @@ public class image{
     Graphics2D g = gray.createGraphics();
     g.drawImage(bi, 0, 0, null);
     return gray;
+  }
+  /**
+  *{@summary Edit all pixels of a BufferedImage.}
+  *@param bi the bufferedImage to edit
+  *@param fct the function to apply
+  *@lastEditedVersion 2.16
+  */
+  public static void editAllPixels(BufferedImage bi, Function<Integer, Integer> fct) {
+    for (int i=0; i<bi.getWidth(); i++) {
+      for (int j=0; j<bi.getHeight(); j++) {
+        bi.setRGB(i,j,fct.apply(bi.getRGB(i,j)));
+      }
+    }
   }
 }

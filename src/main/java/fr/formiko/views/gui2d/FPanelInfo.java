@@ -95,8 +95,6 @@ public class FPanelInfo extends FPanel {
       pi.setSize(x,y);
       // pi.setLayout(new GridBagLayout());
 
-      // GridBagConstraints gbc = new GridBagConstraints();
-      // gbc.gridx = 0;
       //TODO other methode if(allowPanelsOnSameLine==true)
       int k = 0;
       for (FPanel p : lp ) {
@@ -104,9 +102,6 @@ public class FPanelInfo extends FPanel {
         p.setLocation(0,yByElement*k);
         // if(withAlpha){p.setBackground(Main.getData().getButtonColor());}
         pi.add(p);
-        // pi.add(p,gbc);
-        // gbc.gridy++;
-        // gbc.gridy = k;
         k++;
       }
       return pi;

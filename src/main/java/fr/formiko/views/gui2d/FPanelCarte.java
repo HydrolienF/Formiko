@@ -446,7 +446,7 @@ public class FPanelCarte extends FPanel {
             calculerXYTemp(xT,yT,k,c);k++;
             int dir = getDir((ObjetSurCarteAId)ccg.getContent());
             try {
-              BufferedImage bi = Main.getData().getTG()[ccg.getContent().getType()];
+              BufferedImage bi = Main.getData().getGraineImage(ccg.getContent());
               drawImageCentered(g,image.rotateImage(bi,dir),xT,yT);
             }catch (Exception e) {}
             if(ccg.getContent().getOuverte()){listIconsRelation.add(getIconImage(5));}

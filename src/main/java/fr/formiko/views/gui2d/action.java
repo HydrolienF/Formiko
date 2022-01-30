@@ -228,9 +228,11 @@ public class action {
       break;
       case 355:
       Main.getOp().setDrawOnlyEatable(!Main.getOp().getDrawOnlyEatable());
+      Main.getView().setPlayingAnt(Main.getPartie().getPlayingAnt());//update list of seed/creature on the case of playingAnt.
       break;
       case 356:
       Main.getOp().setAntColorLevel((byte)((Main.getOp().getAntColorLevel()+1)%3));
+      Main.getView().setPlayingAnt(Main.getPartie().getPlayingAnt());//update list of seed/creature on the case of playingAnt.
       break;
       case 357:
       Main.getOp().setDrawDrawBlades(!Main.getOp().getDrawBlades());
