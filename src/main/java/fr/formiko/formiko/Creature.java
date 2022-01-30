@@ -321,7 +321,9 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *@param c A Creature that whant to know if we are neutral.
   *@lastEditedVersion 1.13
   */
-  public boolean getIsNeutral(Creature c){return !getEstAllié(c) && !getEstEnnemi(c);}
+  public boolean getIsNeutral(Creature c){
+    return !getEstAllié(c) && !getEstEnnemi(c);
+  }
   /**
   *{@summary Return a friendly level. Higer is more frienly.}<br>
   *@param c A Creature to test friendly level.
