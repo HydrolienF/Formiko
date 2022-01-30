@@ -36,6 +36,7 @@ public class FPanelBouton extends FPanel {
   private int choixId;
   private FPanelChamp pchamp;
   private FPanelInfo pi;
+  private FPanelInfo piGc;
   private FPanelInfoText pij;
   private Font fontPij;
   private Liste<Component> lToRemove;
@@ -189,6 +190,7 @@ public class FPanelBouton extends FPanel {
   public void removePChamp(){ remove(pchamp);setDescTI("");}
   public void addPI(){
     lToRemove.add(pi);
+    lToRemove.add(piGc);
     Fourmi playingAnt = Main.getPlayingAnt();
     if(playingAnt!=null){
       pi = FPanelInfoCreature.builder().addCreature(playingAnt)
@@ -196,13 +198,31 @@ public class FPanelBouton extends FPanel {
       .setYByElement(Main.getTailleElementGraphiqueY(32))
       .build();
       pi.setLocation(getWidth()-pi.getWidth(),pz.getbuttonSize()*3);
+      piGc = FPanelInfoGCreature.builder().addCreaturesOnSameCase(playingAnt)
+      .setX(Main.getTailleElementGraphiqueX(320))
+      .setYByElement(Main.getTailleElementGraphiqueY(32))
+      .setAllowPanelsOnSameLine(true)
+      .build();
+      if(piGc!=null){
+        piGc.setLocation(getWidth()-piGc.getWidth(),pz.getbuttonSize()*3+pi.getHeight());
+      }
       removes();
       add(pi);
+      if(piGc!=null){
+        erreur.info("new FPanelInfoGCreature");
+        add(piGc);
+      }
     }else{
+      removes();
       erreur.alerte("FPanelInfoCreature haven't been set because playingAnt is null");
     }
   }
-  public void removePi(){remove(pi);}
+  public void removePi(){
+    remove(pi);
+    if(piGc!=null){
+      remove(piGc);
+    }
+  }
   public void addPIJ(){
     try {
       removePij();

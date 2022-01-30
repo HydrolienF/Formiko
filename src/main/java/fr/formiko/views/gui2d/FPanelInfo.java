@@ -63,6 +63,7 @@ public class FPanelInfo extends FPanel {
     protected Liste<FPanel> lp;
     protected int x=-1;
     protected int yByElement=-1;
+    protected boolean allowPanelsOnSameLine;
     // CONSTRUCTORS --------------------------------------------------------------
     /**
     *{@summary Main constructor.}<br>
@@ -71,12 +72,14 @@ public class FPanelInfo extends FPanel {
     */
     protected FPanelInfoBuilder(){
       lp = new Liste<FPanel>();
+      allowPanelsOnSameLine=false;
     }
 
     // GET SET -------------------------------------------------------------------
     public FPanelInfoBuilder setX(int x){this.x = x; return this;}
     public FPanelInfoBuilder setYByElement(int y){this.yByElement = y; return this;}
     public FPanelInfoBuilder add(FPanel p){lp.addTail(p); return this;}
+    public FPanelInfoBuilder setAllowPanelsOnSameLine(boolean b){allowPanelsOnSameLine=b; return this;}
 
     // FUNCTIONS -----------------------------------------------------------------
     /**
@@ -94,6 +97,7 @@ public class FPanelInfo extends FPanel {
 
       // GridBagConstraints gbc = new GridBagConstraints();
       // gbc.gridx = 0;
+      //TODO other methode if(allowPanelsOnSameLine==true)
       int k = 0;
       for (FPanel p : lp ) {
         p.setSize(x,yByElement);
