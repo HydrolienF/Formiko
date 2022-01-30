@@ -95,14 +95,24 @@ public class FPanelInfo extends FPanel {
       pi.setSize(x,y);
       // pi.setLayout(new GridBagLayout());
 
-      //TODO other methode if(allowPanelsOnSameLine==true)
       int k = 0;
+      int ac=0;
       for (FPanel p : lp ) {
-        p.setSize(x,yByElement);
-        p.setLocation(0,yByElement*k);
+        if(allowPanelsOnSameLine){
+          int lastAc=ac;
+          ac+=p.getWidth();
+          if(ac>x){
+            k++;
+            ac=0;
+          }
+          p.setLocation(lastAc,yByElement*k);
+        }else{
+          p.setSize(x,yByElement);
+          p.setLocation(0,yByElement*k);
+          k++;
+        }
         // if(withAlpha){p.setBackground(Main.getData().getButtonColor());}
         pi.add(p);
-        k++;
       }
       return pi;
     }

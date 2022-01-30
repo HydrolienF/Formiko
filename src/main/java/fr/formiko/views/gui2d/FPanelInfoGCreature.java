@@ -114,6 +114,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
       public FPanelObjetAId(ObjetAId o, BufferedImage bi){
         this.o=o;
         this.bi=bi;
+        setSize(bi.getWidth(), bi.getHeight());
       }
       public void paintComponent(Graphics g){
         super.paintComponent(g);
