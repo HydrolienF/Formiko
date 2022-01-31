@@ -91,8 +91,6 @@ public class FPanelInfo extends FPanel {
       if(x<1 || yByElement<1){throw new IllegalArgumentException("x or y is <1");}
       int lenLp = lp.length();
       if(lenLp==0){throw new IllegalArgumentException("lp is empty");}
-      int y = yByElement*lenLp;
-      pi.setSize(x,y);
       // pi.setLayout(new GridBagLayout());
 
       int k = 0;
@@ -114,6 +112,9 @@ public class FPanelInfo extends FPanel {
         // if(withAlpha){p.setBackground(Main.getData().getButtonColor());}
         pi.add(p);
       }
+      k++;
+      int y = yByElement*k;
+      pi.setSize(x,y);
       return pi;
     }
   }

@@ -12,6 +12,7 @@ import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.structures.listes.Liste;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -48,6 +49,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
   // SUB-CLASS -----------------------------------------------------------------
   static class FPanelInfoGCreatureBuilder extends FPanelInfoBuilder {
     private Creature c;
+    private static int boderFPanelObjetAId;
     // CONSTRUCTORS --------------------------------------------------------------
 
     // GET SET -------------------------------------------------------------------
@@ -78,12 +80,14 @@ public class FPanelInfoGCreature extends FPanelInfo {
     }
     //private
     private void addGCreatureInfo(){
+      boderFPanelObjetAId=Main.getTailleElementGraphique(4);
       if(!(c instanceof Fourmi)){
         erreur.alerte("Can not build FPanelInfoGCreature without an ant");
         return;
       }
       Fourmi f = (Fourmi)c;
       GCreature gc = c.getCase().getSortedGc(f);
+      gc.add(f);//TODO add head
       Function<Integer, Integer> fctAlpha = (color) -> {
         int alpha = (color >> 24) & 0xff;
         alpha=alpha*2/3;
@@ -92,7 +96,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
       };
       for (Creature ct : gc.toList()) {
         BufferedImage bi = Main.getData().getCreatureImage(ct);
-        bi = image.resize(bi, yByElement);
+        bi = image.resize(bi, yByElement-boderFPanelObjetAId*2);
         if(!(ct instanceof Fourmi) || (c instanceof Fourmi && !((Fourmi)(ct)).getFere().getJoueur().equals(f.getFere().getJoueur()))){
           image.editAllPixels(bi, fctAlpha);
         }
@@ -101,7 +105,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
       if(Main.getOp().getDrawSeeds() && (!Main.getOp().getDrawOnlyEatable() || Main.getPlayingJoueur().getEspece().getGranivore())){
         for (Graine s : c.getCase().getGg().toList()) {
           BufferedImage bi = Main.getData().getGraineImage(s);
-          bi = image.resize(bi, yByElement);
+          bi = image.resize(bi, yByElement-boderFPanelObjetAId*2);
           image.editAllPixels(bi, fctAlpha);
           lp.add(new FPanelObjetAId(s, bi));
         }
@@ -114,12 +118,40 @@ public class FPanelInfoGCreature extends FPanelInfo {
       public FPanelObjetAId(ObjetAId o, BufferedImage bi){
         this.o=o;
         this.bi=bi;
-        setSize(bi.getWidth(), bi.getHeight());
+        int size = math.max(bi.getWidth(), bi.getHeight())+boderFPanelObjetAId*2;
+        setSize(size,size);
       }
       public void paintComponent(Graphics g){
         super.paintComponent(g);
-        g.drawImage(bi, 0, 0, this);
+        g.drawImage(bi, (getWidth()-bi.getWidth())/2, (getHeight()-bi.getHeight())/2, this);
+        g.setColor(Color.BLACK);
+        int border = Main.getTailleElementGraphique(2);
+        if(!o.equals(Main.getPlayingAnt())){
+          g.drawRoundRect(border/2, border/2, getWidth()-border, getHeight()-border, Main.getTailleElementGraphique(8), Main.getTailleElementGraphique(8));
+        }
+        ((Graphics2D)g).setStroke(new BasicStroke(border));
         if(o instanceof Creature){
+          if(o instanceof Fourmi){
+            Fourmi f = (Fourmi)o;
+            if(f.getFere().getJoueur().equals(Main.getPlayingJoueur())){
+              if(f.equals(Main.getPlayingAnt())){
+                g.setColor(getData().getButtonColor(2));
+                border = Main.getTailleElementGraphique(3);
+                ((Graphics2D)g).setStroke(new BasicStroke(border));
+                g.drawRoundRect(border/2, border/2, getWidth()-border, getHeight()-border, Main.getTailleElementGraphique(8), Main.getTailleElementGraphique(8));
+              }
+              if(f.getMaxAction()==0){
+                g.setColor(getData().getButtonColor(6));
+              }else if(f.getAction()==f.getMaxAction()){
+                g.setColor(getData().getButtonColor(0));
+              }else if (f.getAction()<1){
+                g.setColor(getData().getButtonColor(3));
+              }else{
+                g.setColor(getData().getButtonColor(1));
+              }
+              g.fillOval(getHeight() - boderFPanelObjetAId*2, 0, boderFPanelObjetAId*2, boderFPanelObjetAId*2);
+            }
+          }
           //TODO draw more info depending of o
         }else if(o instanceof Graine){
           //TODO draw more info depending of o

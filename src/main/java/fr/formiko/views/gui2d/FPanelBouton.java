@@ -201,6 +201,7 @@ public class FPanelBouton extends FPanel {
       piGc = FPanelInfoGCreature.builder().addCreaturesOnSameCase(playingAnt)
       .setX(Main.getTailleElementGraphiqueX(320))
       .setYByElement(Main.getTailleElementGraphiqueY(32))
+      // .setYByElement(Main.getTailleElementGraphiqueY(40))
       .setAllowPanelsOnSameLine(true)
       .build();
       if(piGc!=null){
