@@ -7,7 +7,12 @@ import fr.formiko.usuel.g;
 
 import java.io.Serializable;
 
-public class ObjetAId implements Serializable{
+/**
+*{@summary Basic class for all Object with an id.}<br>
+*@lastEditedVersion 2.18
+*@author Hydrolien
+*/
+public class ObjetAId implements Serializable {
   protected static int ic;
   protected final int id;
 
@@ -15,6 +20,7 @@ public class ObjetAId implements Serializable{
   //Principal
   /**
   *{@summary Main constructor.}<br>
+  *@lastEditedVersion 1.x
   */
   public ObjetAId(){
     id = ic; ic++;
@@ -40,4 +46,19 @@ public class ObjetAId implements Serializable{
   }
   @Override
   public int hashCode(){return getId();}
+  /**
+  *{@summary Return a small string that describe this.}<br>
+  *@lastEditedVersion 2.18
+  */
+  public String toStringSmall(){
+    return toString(); // toString is small enoth.
+  }
+  /**
+  *{@summary Return a string that describe this.}<br>
+  *@lastEditedVersion 2.18
+  */
+  @Override
+  public String toString(){
+    return id+"";
+  }
 }

@@ -79,6 +79,11 @@ public class FPanelInfoGCreature extends FPanelInfo {
       return super.build();
     }
     //private
+    /**
+    *{@summary Add all info from the Creatre.}<br>
+    *Info are mostly the other Creature on the same Case.
+    *@lastEditedVersion 2.18
+    */
     private void addGCreatureInfo(){
       boderFPanelObjetAId=Main.getTailleElementGraphique(4);
       if(!(c instanceof Fourmi)){
@@ -112,15 +117,67 @@ public class FPanelInfoGCreature extends FPanelInfo {
       }
     }
     // SUB-CLASS -----------------------------------------------------------------
+    /**
+    *{@summary Small panel that represent a creature.}<br>
+    *@lastEditedVersion 2.18
+    *@author Hydrolien
+    */
     class FPanelObjetAId extends FPanel {
       private ObjetAId o;
       private BufferedImage bi;
+      /**
+      *{@summary Main constructor.}<br>
+      *It add a MouseListener for description.
+      *@lastEditedVersion 2.18
+      */
       public FPanelObjetAId(ObjetAId o, BufferedImage bi){
         this.o=o;
         this.bi=bi;
         int size = math.max(bi.getWidth(), bi.getHeight())+boderFPanelObjetAId*2;
         setSize(size,size);
+        addMouseListener(new MouseListenerEmpty(){
+          /**
+          *{@summary Update message description.}<br>
+          *@lastEditedVersion 2.18
+          */
+          @Override
+          public void mouseEntered(MouseEvent event) {
+            getView().setMessageDesc(getDesc(), true);
+          }
+          /**
+          *{@summary Remove message description.}<br>
+          *@lastEditedVersion 2.18
+          */
+          @Override
+          public void mouseExited(MouseEvent event) {
+            getView().setMessageDesc("", true);
+          }
+          /**
+          *{@summary Change playing ant.}<br>
+          *@lastEditedVersion 2.18
+          */
+          @Override
+          public void mouseReleased(MouseEvent event) {
+            if(o instanceof Fourmi && ((Fourmi)o).getFere().getJoueur().equals(Main.getPlayingJoueur())){
+              getView().getPb().setActionF(-2);
+              getView().getPb().removePA();
+              Main.getPartie().setAntIdToPlay(o.getId());
+            }
+          }
+        });
+        addMouseMotionListener(new DescMouseMotionListener());
       }
+      /**
+      *{@summary Return a description of this.}<br>
+      *@lastEditedVersion 2.18
+      */
+      public String getDesc(){
+        return o.toStringSmall();
+      }
+      /**
+      *{@summary Paint this with a border, a centered image &#38; a small colored round.}<br>
+      *@lastEditedVersion 2.18
+      */
       public void paintComponent(Graphics g){
         super.paintComponent(g);
         g.drawImage(bi, (getWidth()-bi.getWidth())/2, (getHeight()-bi.getHeight())/2, this);
@@ -157,7 +214,6 @@ public class FPanelInfoGCreature extends FPanelInfo {
           //TODO draw more info depending of o
         }
       }
-      //TODO add mouse listener for description of Creature.
     }
   }
 }
