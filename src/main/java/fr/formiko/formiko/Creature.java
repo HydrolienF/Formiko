@@ -280,6 +280,10 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     }catch (Exception e) {}
     return r;
   }
+  /**
+  *{@summary Return a small string that describe this.}<br>
+  *@lastEditedVersion 2.18
+  */
   public String toStringSmall(){
     //TODO
     return toString();

@@ -43,6 +43,10 @@ public class action {
       doActionPm(action);
     }
   }
+  /**
+  *{@summary Launch an action on gui mode on the Panel launcher.}
+  *@lastEditedVersion 2.x
+  */
   public static void doActionPl(int ac){
     if(ac==1000){//retry to download data from FFrameLauncher
       Main.getFolder().setLaunchDownload(true);
