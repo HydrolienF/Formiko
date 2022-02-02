@@ -44,6 +44,7 @@ public class FPanelPrincipal extends FPanel {
   // GET SET -------------------------------------------------------------------
   public FPanelJeu getPj(){ return pj;}
   public FPanelMenu getPm(){ return pm;}
+  public void updateTimeFromLastRefresh(){timeFromLastRefresh=System.currentTimeMillis();}
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     Graphics2D g2d = (Graphics2D)g;

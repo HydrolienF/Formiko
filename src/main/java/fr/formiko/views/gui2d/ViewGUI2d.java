@@ -747,6 +747,8 @@ public class ViewGUI2d implements View {
           if(!paintGUI()){ //try to paint
             erreur.alerte("can't paint");
           }
+        }else{
+          getPp().updateTimeFromLastRefresh();
         }
       }
     }, 0, secToRefresh);

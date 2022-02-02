@@ -70,7 +70,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
     @Override
     public FPanelInfo build(){
       if(c!=null){
-        addGCreatureInfo();
+        // addGCreatureInfo();
       }else{
         erreur.alerte("FPanelInfoGCreature don't have a Creature and will be build as a FPanelInfo");
       }
