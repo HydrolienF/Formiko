@@ -533,7 +533,7 @@ public class FPanelCarte extends FPanel {
   *{@summary Return true if we need to draw Creature depending of the Options.}<br>
   *@lastEditedVersion 2.10
   */
-  public boolean needToDraw(Creature cr){
+  public static boolean needToDraw(Creature cr){
     if(cr==null){return false;}
     Fourmi playingAntOrPlayingPlayerAnt = Main.getPlayingAnt();
     if(playingAntOrPlayingPlayerAnt==null){

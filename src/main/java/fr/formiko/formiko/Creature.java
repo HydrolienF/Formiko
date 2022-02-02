@@ -291,14 +291,12 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     r+=" ";
     r+=getId();r+=" ";
     if (this.getFemelle()){r+= "♀";}
-    else {r+= "♂";}r+=" ";
-    if (isDead){r+= "(☠︎)";}
-    else {r+= "("+(maxAge-age)+" "+g.get("avant")+" ☠︎)";}r+=" ";
+    else {r+= "♂";}
+    if (isDead){r+= " (☠︎)";}
+    else{r+=", "+g.get("age")+" "+age+"/"+maxAge+", ";}
     r+=ccase.desc();r+=", ";
     r+=getStringStade()+", ";
-    // r+=g.get("stade")+" "+getStringStade()+", ";
     r+=g.get("food")+" "+food+"/"+maxFood+" (✝:"+givenFood+")"+", ";
-    r+=g.get("age")+" "+age+"/"+maxAge+", ";
     r+=g.get("action")+" "+action+"/"+maxAction+", ";
     r+=g.get("health")+" "+health+"/"+"100"+", ";
     r+=g.get("phéromone")+" "+ph.toHex()+" (±"+pheromoneTolerence+")"+", ";
