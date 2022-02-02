@@ -226,9 +226,9 @@ public class Case implements Serializable{
       }
       GCreature gcr = new GCreature();
       for (Creature c : list) {
-        if(!c.equals(f)){
+        // if(!c.equals(f)){
           gcr.addFin(c);
-        }
+        // }
       }
       return gcr;
     }

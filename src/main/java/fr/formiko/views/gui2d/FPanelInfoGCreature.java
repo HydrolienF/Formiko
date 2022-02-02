@@ -103,7 +103,6 @@ public class FPanelInfoGCreature extends FPanelInfo {
       }
       Fourmi f = (Fourmi)c;
       GCreature gc = c.getCase().getSortedGc(f);
-      gc.add(f);//TODO add head
       for (Creature ct : gc.toList()) {
         BufferedImage bi = Main.getData().getCreatureImage(ct);
         bi = image.resize(bi, yByElement-boderFPanelObjetAId*2);
