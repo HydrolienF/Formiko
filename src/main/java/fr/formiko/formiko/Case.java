@@ -216,7 +216,7 @@ public class Case implements Serializable{
     s=s+ p.toString();s=s+"\n";
     if (fere != null){
       // s=s+g.get("fourmilière")+" :";s=s+"\n";
-      s=s+fere.toString(false);s=s+"\n";
+      s=s+fere.toStringShort();s=s+"\n";
     }
     if (!caseSombre) {
       GCreature gc = getSortedGc();

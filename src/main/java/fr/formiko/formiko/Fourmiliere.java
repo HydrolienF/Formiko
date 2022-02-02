@@ -147,6 +147,20 @@ public class Fourmiliere implements Serializable{
     return toString(true);
   }
   /**
+  *{@summary Return a short description of the Fourmiliere.}<br>
+  *@lastEditedVersion 2.18
+  */
+  public String toStringShort(){
+    int leng = length();
+    String s = (joueur.getIa()) ? "IA" : "Joueur";
+    String sr = g.getM("fourmilière")+" "+ id +" ("+s+") : "+ getP().toString() +" "+g.get("et")+" "+g.get("contient")+" "+leng+" "+g.get("fourmis");
+    if(gg.length()>0){
+      sr+=" "+g.get("et")+" "+gg.length()+" "+g.get("graine");
+    }
+    sr+=".";
+    return sr;
+  }
+  /**
   *{@summary Let all ant play.}<br>
   *Before that ants play they all have a pre-turn update (gc.preTour()).<br>
   *Ants do not necessarily play in order so we way for haveDoneAllActionAviable() to end turn.<br>
