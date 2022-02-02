@@ -8,14 +8,12 @@ import fr.formiko.usuel.maths.math;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.BorderFactory;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.text.View;

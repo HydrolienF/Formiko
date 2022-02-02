@@ -113,6 +113,8 @@ public class FPanelSup extends FPanel {
   @Override
   public void paintComponent(Graphics g){
     //do nothing
+    // g.setColor(new Color(100,100,100,100));
+    // g.fillRect(0,0,getWidth(),getHeight());
   }
   public CCase getCCase(MouseEvent e){
     return getCCase(e.getX(), e.getY());
