@@ -47,10 +47,10 @@ public class ObjetAId implements Serializable {
   @Override
   public int hashCode(){return getId();}
   /**
-  *{@summary Return a small string that describe this.}<br>
+  *{@summary Return a short string that describe this.}<br>
   *@lastEditedVersion 2.18
   */
-  public String toStringSmall(){
+  public String toStringShort(){
     return toString(); // toString is small enoth.
   }
   /**

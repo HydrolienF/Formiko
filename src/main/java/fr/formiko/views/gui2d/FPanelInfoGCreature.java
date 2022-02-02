@@ -176,7 +176,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
       *@lastEditedVersion 2.18
       */
       public String getDesc(){
-        return o.toStringSmall();
+        return o.toStringShort();
       }
       /**
       *{@summary Paint this with a border, a centered image &#38; a small colored round.}<br>

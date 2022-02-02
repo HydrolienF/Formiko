@@ -59,6 +59,8 @@ mode:mode
 phéromone:phéromone
 transporté:transporté
 espèce:espèce
+health:santé
+pheromoneTolerence:différence de phéromone toléré
 
 
 //formiko -----------------------------------------------------------------------

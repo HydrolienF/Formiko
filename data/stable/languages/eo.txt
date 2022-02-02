@@ -59,6 +59,8 @@ mode:vivmaniero
 phéromone:feromono
 transporté:transporti
 espèce:speco
+health:sano
+pheromoneTolerence:toleri feromona diferencon
 
 
 //formiko -----------------------------------------------------------------------
