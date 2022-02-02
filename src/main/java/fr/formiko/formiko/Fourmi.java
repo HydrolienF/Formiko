@@ -293,6 +293,19 @@ public class Fourmi extends Creature implements Serializable{
     //tr[k]=g.get("espèce")+" : "+this.getEspece().getNom();k++;
     return tr;
   }
+  /**
+  *{@summary Return a short string that describe this.}<br>
+  *@lastEditedVersion 2.18
+  */
+  public String toStringShort(){
+    String s = super.toStringShort()+", ";
+    s+=getIndividu().getStringType()+", ";
+    s+=g.get("fourmilière")+" "+fere.getId();
+    if(transported != null){
+      s+=", "+g.get("transported")+" "+transported.getId();
+    }
+    return s;
+  }
   public GString descriptionGString(){
     GString gs = new GString();
     gs.add(g.get("type")+" : "+getIndividu().getStringType());

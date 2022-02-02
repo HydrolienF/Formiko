@@ -45,8 +45,30 @@ public class Pheromone implements Serializable{
   public byte getBc(){ return (byte)(b+128);}
   public Color getColor(){ return new Color(r+128,v+128,b+128);}
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Return a string that describe this.}<br>
+  *@lastEditedVersion 2.18
+  */
   public String toString(){
     return r+" "+v+" "+b;
+  }
+  /**
+  *{@summary Return the hexadecimal code that describe this.}<br>
+  *@lastEditedVersion 2.18
+  */
+  public String toHex(){
+    return toHex(r+128)+toHex(v+128)+toHex(b+128);
+  }
+  /**
+  *{@summary Return the hexadecimal code of an int.}<br>
+  *@lastEditedVersion 2.18
+  */
+  private String toHex(int x){
+    String s = Integer.toHexString(x).toUpperCase();
+    if(s.length()==1){
+      s="0"+s;
+    }
+    return s;
   }
   public void afficheToi(){
     System.out.println(this);

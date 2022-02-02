@@ -75,7 +75,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *@lastEditedVersion 1.13
   */
   public Creature (CCase ccase,int age, int maxAge, byte maxAction){ // Les fourmis utilise ce contructeur.
-    this(ccase,age,maxAge, maxAction, new Pheromone(-128,-128,-128), 10, 100);
+    this(ccase,age,maxAge, maxAction, new Pheromone(), 10, 100);
   } public Creature(CCase ccase, int age, int maxAge, int maxAction){ this(ccase,age,maxAge,(byte) maxAction);}
   /**
   *{@summary constructor for Creature.}<br>
@@ -286,8 +286,26 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *@lastEditedVersion 2.18
   */
   public String toStringShort(){
-    //TODO
-    return toString();
+    String r = "";
+    r+=str.toMaj(getNom());
+    r+=" ";
+    r+=getId();r+=" ";
+    if (this.getFemelle()){r+= "♀";}
+    else {r+= "♂";}r+=" ";
+    if (isDead){r+= "(☠︎)";}
+    else {r+= "("+(maxAge-age)+" "+g.get("avant")+" ☠︎)";}r+=" ";
+    r+=ccase.desc();r+=", ";
+    r+=getStringStade()+", ";
+    // r+=g.get("stade")+" "+getStringStade()+", ";
+    r+=g.get("food")+" "+food+"/"+maxFood+" (✝:"+givenFood+")"+", ";
+    r+=g.get("age")+" "+age+"/"+maxAge+", ";
+    r+=g.get("action")+" "+action+"/"+maxAction+", ";
+    r+=g.get("health")+" "+health+"/"+"100"+", ";
+    r+=g.get("phéromone")+" "+ph.toHex()+" (±"+pheromoneTolerence+")"+", ";
+    try {
+      r+=e.getNom();
+    }catch (Exception e) {}
+    return r;
   }
   /**
   *return stade as a string in the good language.

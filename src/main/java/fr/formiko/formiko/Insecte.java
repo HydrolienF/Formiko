@@ -110,12 +110,22 @@ public class Insecte extends Creature implements Serializable{
   public String getNom(){return g.get("I"+getType());}
   // FUNCTIONS -----------------------------------------------------------------
   /**
-  *{@summary Print all information about the Insecte.}<br>
-  *@lastEditedVersion 1.13
+  *{@summary Return a string that describe this.}<br>
+  *@lastEditedVersion 2.18
   */
   @Override
   public String toString(){
     String sr = super.toString();sr+=", ";
+    sr+= " "+g.get("foodMangeable")+" "+foodMangeable;
+    return sr;
+  }
+  /**
+  *{@summary Return a short string that describe this.}<br>
+  *@lastEditedVersion 2.18
+  */
+  @Override
+  public String toStringShort(){
+    String sr = super.toStringShort();sr+=", ";
     sr+= " "+g.get("foodMangeable")+" "+foodMangeable;
     return sr;
   }
