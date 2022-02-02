@@ -70,6 +70,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
     @Override
     public FPanelInfo build(){
       if(c!=null){
+        //it add 7s for a Frame refrech from 20s (with 40 ants.) (7s where add only for drawing Carte)
         // addGCreatureInfo();
       }else{
         erreur.alerte("FPanelInfoGCreature don't have a Creature and will be build as a FPanelInfo");

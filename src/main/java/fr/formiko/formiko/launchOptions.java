@@ -53,6 +53,10 @@ public class launchOptions {
   *@lastEditedVersion 1.44
   */
   public static void launchOptionsMinor(String stringOptions){
+    String t [] = stringOptions.split("=");
+    stringOptions=t[0];
+    String opArg="";
+    if(t.length>1){opArg=t[1];}
     switch(stringOptions){
       case "q":
       erreur.setMuet(true);
@@ -84,6 +88,10 @@ public class launchOptions {
       case "ld":
       case "launchDefaultGame":
       Main.dontOpenMenuFirst();
+      break;
+      case "ls":
+      case "launchScript":
+      Partie.setScript(opArg);
       break;
       default:
       erreur.alerte("Unknow cli options : "+stringOptions);

@@ -244,6 +244,9 @@ public class ViewGUI2d implements View {
     }else if(Partie.getScript()==null || Partie.getScript().equals("")){
       Main.setPartie(Partie.getDefautlPartie());
     }//partie can still be null here if script!=""
+    else{
+      Main.setPartie(Partie.getDefautlPartie());//TODO checkout if Partie is set in scriptX.formiko
+    }
     Main.startCh();
     getPp().removePm();//on retire le menu
     Main.endCh("chargementFPanelChargementEtSuppressionMenu");

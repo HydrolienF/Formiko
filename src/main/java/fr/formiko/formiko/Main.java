@@ -144,8 +144,10 @@ public class Main {
    */
   public static void iniLaunch(){
     if(op==null){initialisation();}
-    if(premierePartie){Partie.setScript("tuto");}
-    else{Partie.setScript("");}
+    if(Partie.getScript()==null){
+      if(premierePartie){Partie.setScript("tuto");}
+      else{Partie.setScript("");}
+    }
     iniCpt();
     pa = new Partie(0,0,new Carte(new GCase(1,1)),1.0); //new empty game
   }

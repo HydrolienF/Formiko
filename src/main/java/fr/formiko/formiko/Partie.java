@@ -349,9 +349,9 @@ public class Partie implements Serializable{
     // Main.launchScript();
   }
   /**
-   * {@summary create a new Partie to launch Tuto.}<br>
-   * @lastEditedVersion 1.1.
-   */
+  *{@summary create a new Partie to launch Tuto.}<br>
+  *@lastEditedVersion 1.1.
+  */
   private static Partie getPartieTuto(){
     Main.startCh();
     String nomCarte = "tuto";
