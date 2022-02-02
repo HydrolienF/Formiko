@@ -215,18 +215,18 @@ public class Case implements Serializable{
     String s = g.get("case")+" : ("+g.get("foodInsecte")+" :"+foodInsecte+"/"+foodInsecteMax+" (+"+foodInsecteParTour+"))";
     s=s+ p.toString();s=s+"\n";
     if (fere != null){
-      s=s+g.get("fourmilière")+" :";s=s+"\n";
+      // s=s+g.get("fourmilière")+" :";s=s+"\n";
       s=s+fere.toString(false);s=s+"\n";
     }
     if (!caseSombre) {
       GCreature gc = getSortedGc();
-      if (gc != null && gc.getHead() != null && gc.length()>0){
+      if (gc != null && gc.getHead() != null){
         s=s+g.get("creatures")+" : "; s=s+"\n";
         for (Creature c : gc.toList()) {
           s+=c.toStringShort()+"\n";
         }
       }
-      if (gg != null && gg.getHead() != null && gg.length()>0){
+      if (gg != null && gg.getHead() != null){
         s=s+g.get("graines")+" : ";s=s+"\n";
         for (Graine g : gg.toList()) {
           s+=g.toStringShort()+"\n";

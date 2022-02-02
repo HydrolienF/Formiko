@@ -47,7 +47,7 @@ public class FTextArea extends JTextArea {
     updateSize();
   }
   // GET SET -------------------------------------------------------------------
-  public static int getDimY(){ return (int)(Main.getOp().getFontSizeText()*1.3);}
+  public static int getDimY(){ return (int)(Main.getOp().getFontSizeText()*1.4);}
 
   // FUNCTIONS -----------------------------------------------------------------
   /**
@@ -70,12 +70,20 @@ public class FTextArea extends JTextArea {
   */
   public void updateSize(){
     int lineCpt = countLines(getWidth());
-    setSize(new Dimension((int)getWidth(), getDimY()*lineCpt));
+    // setSize((int)(Math.ceil(this.getFontMetrics(this.getFont()).stringWidth(getText()))), (int)(getFont().getSize()*1.2));
+    // String text = "";
+    // for (String s : getText().split("\n")) {
+    //   if(s.length()>text.length()){
+    //     text=s;
+    //   }
+    // }
+    // setSize(new Dimension((int)(Math.ceil(this.getFontMetrics(this.getFont()).stringWidth(text))+1), getDimY()*lineCpt));
+    setSize(new Dimension(getWidth(), getDimY()*lineCpt));
   }
   /**
   *{@summary Count line function.}<br>
   *cf https://stackoverflow.com/questions/22328337/how-can-i-count-lines-in-jtextarea
-  *@param width the width used to count how much line we need.
+  *@param width the width used to count how much line we need
   *@lastEditedVersion 2.6
   */
   private int countLines(double width) {

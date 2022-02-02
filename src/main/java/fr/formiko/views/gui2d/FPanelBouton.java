@@ -44,8 +44,7 @@ public class FPanelBouton extends FPanel {
   public FPanelBouton(){}
   public void build(){
     setLayout(null);
-    descS=""; desc = new FTextArea("",getWidth());
-    desc.setBackground(Main.getData().getButtonColor());
+    descS="";
     actionF = -1; choixId = -1;
     int t [] = {0,1,2,3,4,5};
     ptb = new FPanelTBoolean(null);
@@ -58,6 +57,8 @@ public class FPanelBouton extends FPanel {
     descTI = new FLabel();
     descTI.setBackground(Main.getData().getButtonColor());
     setDescTI("");
+    desc = new FTextArea("",getWidth()-pmmc.getWidth());
+    desc.setBackground(Main.getData().getButtonColor());
     setDesc("");
     descTI.setBounds(0,0,800);
     // on ajoute les éléments non visible. Les éléments visible sont add 1 a 1 quand le besoin ce fait sentir.
@@ -265,6 +266,7 @@ public class FPanelBouton extends FPanel {
       desc.setText(descS);
       desc.updateSize();
       desc.setLocation(0,Main.getDimY()-pa.getHeight()-desc.getHeight());
+      // desc.setLocation(0,0);
       try {
         Main.repaint();
       }catch (Exception e) {}
