@@ -18,6 +18,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.RenderingHints;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -129,6 +130,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
     class FPanelObjetAId extends FPanel {
       private ObjetAId o;
       private BufferedImage bi;
+      private BufferedImage biFull;
       /**
       *{@summary Main constructor.}<br>
       *It add a MouseListener for description.
@@ -181,10 +183,23 @@ public class FPanelInfoGCreature extends FPanelInfo {
       }
       /**
       *{@summary Paint this with a border, a centered image &#38; a small colored round.}<br>
+      *It don't refrech o data.
       *@lastEditedVersion 2.18
       */
       public void paintComponent(Graphics g){
         super.paintComponent(g);
+        if(biFull==null){
+          biFull=new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+          paintOnG(biFull.getGraphics());
+        }
+        g.drawImage(biFull,0,0,this);
+      }
+      /**
+      *{@summary Paint this with a border, a centered image &#38; a small colored round.}<br>
+      *@lastEditedVersion 2.18
+      */
+      public void paintOnG(Graphics g){
+        ((Graphics2D)g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); //good for all drawLine, drawCircle etc.
         g.drawImage(bi, (getWidth()-bi.getWidth())/2, (getHeight()-bi.getHeight())/2, this);
         g.setColor(Color.BLACK);
         int border = Main.getTailleElementGraphique(2);
