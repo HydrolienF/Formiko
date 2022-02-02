@@ -171,16 +171,16 @@ vitesseDeJeu2:spider
 vitesseDeJeu3:snail
 vitesseDeJeu4:slug
 
-I0:ladybug[auto]
-I1:beetle[auto]
-I2:orange aphid[auto]
-I3:green aphid[auto]
-I4:asticot[auto]
-I5:towards[auto]
-I6:gnat[auto]
-I7:chenille[auto]
-I8:woodlouse[auto]
-I9:ant[auto]
+i0:ladybug[auto]
+i1:beetle[auto]
+i2:orange aphid[auto]
+i3:green aphid[auto]
+i4:asticot[auto]
+i5:towards[auto]
+i6:gnat[auto]
+i7:chenille[auto]
+i8:woodlouse[auto]
+i9:ant[auto]
 
 choixCarte:map
 choixDif:difficulty

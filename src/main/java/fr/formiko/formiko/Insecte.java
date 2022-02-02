@@ -107,7 +107,7 @@ public class Insecte extends Creature implements Serializable{
   public boolean getHaveWings(){if(getStade()!=0){return false;}return e.getHaveWings();}//si c'est un imago ca dépend de l'espece.
   public static void setGie(){ gie=new GIEspece();}//initialise le fichier/
   @Override
-  public String getNom(){return g.get("I"+getType());}
+  public String getNom(){return g.get("i"+getType());}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Return a string that describe this.}<br>

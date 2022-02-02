@@ -171,16 +171,16 @@ vitesseDeJeu2:araneo
 vitesseDeJeu3:heliko
 vitesseDeJeu4:limako
 
-I0:kokcinelo
-I1:skarabo
-I2:oranĝa afido
-I3:verda afido
-I4:larvo
-I5:lumbrikoj
-I6:kulo
-I7:ĉenilo
-I8:onisko
-I9:formiko[auto]
+i0:kokcinelo
+i1:skarabo
+i2:oranĝa afido
+i3:verda afido
+i4:larvo
+i5:lumbrikoj
+i6:kulo
+i7:ĉenilo
+i8:onisko
+i9:formiko[auto]
 
 choixCarte:Mapo
 choixDif:Malfacilaĵo

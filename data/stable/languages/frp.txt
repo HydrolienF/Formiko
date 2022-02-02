@@ -163,16 +163,16 @@ vitesseDeJeu2:aragne
 vitesseDeJeu3:èscargot
 vitesseDeJeu4:lemace
 
-I0:parpiôla
-I1:scarabê
-I2:pujon orange
-I3:pujon vert
-I4:asticot
-I5:vers
-I6:mouchelyon
-I7:chenelye
-I8:clloporte
-I9:fromialion
+i0:parpiôla
+i1:scarabê
+i2:pujon orange
+i3:pujon vert
+i4:asticot
+i5:vers
+i6:mouchelyon
+i7:chenelye
+i8:clloporte
+i9:fromialion
 
 choixCarte:chouéx de la carta
 choixDif:chouéx de la dificultât
