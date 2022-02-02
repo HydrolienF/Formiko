@@ -64,7 +64,7 @@ public class FPanelPrincipal extends FPanel {
       if(timeElapsed>supposedTime*4 &&  getView().getF()!=null && getView().getF().isFocused()){
         erreur.alerte("Time bewteen 2 frame: "+timeElapsed+" (supposed to be "+supposedTime+")");
       }else{
-        // erreur.info("Time bewteen 2 frame: "+timeElapsed,0);
+        erreur.info("Time bewteen 2 frame: "+timeElapsed,0);
       }
       timeFromLastRefresh=time;
     }
