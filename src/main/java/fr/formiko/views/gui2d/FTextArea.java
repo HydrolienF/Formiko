@@ -27,6 +27,8 @@ import javax.swing.text.View;
 *@lastEditedVersion 2.6
 */
 public class FTextArea extends JTextArea {
+  // private int maxLineWidth;
+  // private int maxWidth;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
@@ -37,6 +39,7 @@ public class FTextArea extends JTextArea {
   */
   public FTextArea(String s, double width){
     super(s);
+    // maxWidth=(int)width;
     setOpaque(true);
     setForeground(Color.BLACK);
     setBackground(Main.getData().getButtonColorWithoutAlpha());
@@ -60,7 +63,7 @@ public class FTextArea extends JTextArea {
       Graphics2D g = (Graphics2D)gTemp;
       g.setColor(Color.RED);
       g.setStroke(new BasicStroke(math.max(getWidth()/100,getHeight()/100,1)));
-      g.drawRect(0,0,getWidth(),getHeight());
+      g.drawRect(0, 0, getWidth(), getHeight());
     }
   }
   /**
@@ -78,7 +81,11 @@ public class FTextArea extends JTextArea {
     //   }
     // }
     // setSize(new Dimension((int)(Math.ceil(this.getFontMetrics(this.getFont()).stringWidth(text))+1), getDimY()*lineCpt));
-    setSize(new Dimension(getWidth(), getDimY()*lineCpt));
+    // int w;
+    // if(maxLineWidth==0){w=maxWidth;}
+    // else{w=math.min(maxWidth,maxLineWidth);}
+    int w=getWidth();
+    setSize(new Dimension(w, getDimY()*lineCpt));
   }
   /**
   *{@summary Count line function.}<br>
@@ -90,16 +97,21 @@ public class FTextArea extends JTextArea {
     javax.swing.text.PlainDocument doc = (javax.swing.text.PlainDocument) this.getDocument();
     double counting = 0;
     int tLen = this.getLineCount(); //number of /n on the text.
+    // maxLineWidth=0;
     for (int i = 0; i < tLen; i++) { //for every bloc split by /n
       try {
         int start = this.getLineStartOffset(i);
         int length = this.getLineEndOffset(i) - start; // calculating the length of the line
         // if the width of the line in greater than the max width, the division would return the number of lines
+        // double fullLineWidth = Math.ceil(this.getFontMetrics(this.getFont()).stringWidth(doc.getText(start, length)));
+        // double lineWidth = fullLineWidth / width;
         counting += Math.ceil(this.getFontMetrics(this.getFont()).stringWidth(doc.getText(start, length)) / width);
+        // if(maxLineWidth<fullLineWidth){maxLineWidth=(int)fullLineWidth+1;}
       } catch (javax.swing.text.BadLocationException ex) {
         System.err.println("ERROR\n" + ex.getMessage());
       }
     }
+    // System.out.println(maxLineWidth);
     return (int)counting;
   }
 }
