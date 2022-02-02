@@ -31,6 +31,7 @@ public class FPanelPrincipal extends FPanel {
   public FPanelPrincipal(){
     super();
     setOpaque(true);
+    updateTimeFromLastRefresh();
   }
   /**
   *{@summary Add background image &#38; version label.}<br>
