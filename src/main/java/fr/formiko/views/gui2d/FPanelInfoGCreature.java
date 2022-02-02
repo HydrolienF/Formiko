@@ -213,7 +213,6 @@ public class FPanelInfoGCreature extends FPanelInfo {
               g.fillOval(getHeight() - boderFPanelObjetAId*2, 0, boderFPanelObjetAId*2, boderFPanelObjetAId*2);
             }
           }
-          //TODO draw more info depending of o
           Creature c = (Creature)o;
           if(c.isDead()){
             BufferedImage biD = getData().getImage("deadHead");
@@ -222,7 +221,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
             g.drawImage(biD, boderFPanelObjetAId, boderFPanelObjetAId, this);
           }
         }else if(o instanceof Graine){
-          //TODO draw more info depending of o
+          //Draw more info depending of o ? (open, openable)
         }
       }
     }

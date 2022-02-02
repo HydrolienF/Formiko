@@ -79,6 +79,7 @@ public class Data {
   //FPanelActionInf / Sup
   private Image backgroundPAI;
   private Image backgroundPAS;
+  /** Contains all not resize image. */
   private HashMap<String, BufferedImage> otherImages;
 
   //FPanelMenu
