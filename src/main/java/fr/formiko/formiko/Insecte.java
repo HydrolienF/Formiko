@@ -115,9 +115,9 @@ public class Insecte extends Creature implements Serializable{
   */
   @Override
   public String toString(){
-    String sr = super.toString();sr+=", ";
-    sr+= " "+g.get("foodMangeable")+" "+foodMangeable;
-    return sr;
+    // String sr = super.toString();sr+=", ";
+    // sr+= " "+g.get("foodMangeable")+" "+foodMangeable;
+    return super.toString();
   }
   /**
   *{@summary Return a short string that describe this.}<br>

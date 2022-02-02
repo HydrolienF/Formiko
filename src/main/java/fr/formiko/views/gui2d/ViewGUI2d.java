@@ -324,7 +324,7 @@ public class ViewGUI2d implements View {
       setMessageDesc("");
       getPc().setIdCurentFere(-1);
     }else{
-      setMessageDesc(cc.getContent().toString());
+      setMessageDesc(cc.getContent().toStringShort());
       GCreature gAnt = cc.getContent().getGc();
       getPc().setIdCurentFere(-1);
       for (Creature f : gAnt.toList() ) {

@@ -61,6 +61,7 @@ transporté:transporté
 espèce:espèce
 health:santé
 pheromoneTolerence:différence de phéromone toléré
+foodEatable:nourriture mangeable
 
 
 //formiko -----------------------------------------------------------------------

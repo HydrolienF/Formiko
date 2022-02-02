@@ -296,7 +296,9 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     else{r+=", "+g.get("age")+" "+age+"/"+maxAge+", ";}
     r+=ccase.desc();r+=", ";
     r+=getStringStade()+", ";
-    r+=g.get("food")+" "+food+"/"+maxFood+" (✝:"+givenFood+")"+", ";
+    r+=g.get("food")+" "+food+"/"+maxFood+" (✝:"+givenFood;
+    if(this instanceof Insecte){r+=" +"+((Insecte)this).foodMangeable;}
+    r+=")"+", ";
     r+=g.get("action")+" "+action+"/"+maxAction+", ";
     r+=g.get("health")+" "+health+"/"+"100"+", ";
     r+=g.get("phéromone")+" "+ph.toHex()+" (±"+pheromoneTolerence+")"+", ";

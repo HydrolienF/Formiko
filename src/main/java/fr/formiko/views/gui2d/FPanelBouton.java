@@ -30,7 +30,7 @@ public class FPanelBouton extends FPanel {
   private FPanelTInt pti;
   private FPanelTBoolean ptb;
   private String descS;
-  private FLabel desc;
+  private FTextArea desc;
   private FLabel descTI;
   private int actionF;
   private int choixId;
@@ -44,7 +44,7 @@ public class FPanelBouton extends FPanel {
   public FPanelBouton(){}
   public void build(){
     setLayout(null);
-    descS=""; desc = new FLabel(getWidth(),FLabel.getDimY());
+    descS=""; desc = new FTextArea("",getWidth());
     desc.setBackground(Main.getData().getButtonColor());
     actionF = -1; choixId = -1;
     int t [] = {0,1,2,3,4,5};
@@ -253,7 +253,6 @@ public class FPanelBouton extends FPanel {
       try {
         xxx = pa.getHeight();
       }catch (Exception e) {}
-      desc.setLocation(0,Main.getDimY()-xxx-FLabel.getDimY());//-desc.getHeight()
       descTI.setBounds(0,0,800);
     }catch (Exception e) {
       erreur.erreur("affichage de FPanelBouton");
@@ -263,13 +262,14 @@ public class FPanelBouton extends FPanel {
     debug.débogage("actualisation de la description");
     if(desc==null){return;}
     if(getView().getActionGameOn()){
-      desc.setTexte(descS);
+      desc.setText(descS);
       desc.updateSize();
+      desc.setLocation(0,Main.getDimY()-pa.getHeight()-desc.getHeight());
       try {
         Main.repaint();
       }catch (Exception e) {}
     }else{
-      desc.setTexte("");
+      desc.setText("");
     }
   }
   public void actualiserDescTI(String s){
@@ -281,7 +281,7 @@ public class FPanelBouton extends FPanel {
         descTI.updateSize();
       }catch (Exception e) {}
     }else{
-      desc.setTexte("");
+      descTI.setTexte("");
     }
   }
 

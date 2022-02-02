@@ -43,30 +43,8 @@ public class FTextArea extends JTextArea {
     setEditable(false);
     setLineWrap(true);
     setWrapStyleWord(true);
-    int lineCpt = countLines(width);
-    setSize(new Dimension((int)width, getDimY()*lineCpt));
-  }
-  /**
-  *{@summary count line function.}<br>
-  *cf https://stackoverflow.com/questions/22328337/how-can-i-count-lines-in-jtextarea
-  *@param width the width used to count how much line we need.
-  *@lastEditedVersion 2.6
-  */
-  private int countLines(double width) {
-    javax.swing.text.PlainDocument doc = (javax.swing.text.PlainDocument) this.getDocument();
-    double counting = 0;
-    int tLen = this.getLineCount(); //number of /n on the text.
-    for (int i = 0; i < tLen; i++) { //for every bloc split by /n
-        try {
-            int start = this.getLineStartOffset(i);
-            int length = this.getLineEndOffset(i) - start; // calculating the length of the line
-            // if the width of the line in greater than the max width, the division would return the number of lines
-            counting += Math.ceil(this.getFontMetrics(this.getFont()).stringWidth(doc.getText(start, length)) / width);
-        } catch (javax.swing.text.BadLocationException ex) {
-            System.err.println("ERROR\n" + ex.getMessage());
-        }
-    }
-    return (int)counting;
+    setSize((int)width,1);
+    updateSize();
   }
   // GET SET -------------------------------------------------------------------
   public static int getDimY(){ return (int)(Main.getOp().getFontSizeText()*1.3);}
@@ -84,5 +62,36 @@ public class FTextArea extends JTextArea {
       g.setStroke(new BasicStroke(math.max(getWidth()/100,getHeight()/100,1)));
       g.drawRect(0,0,getWidth(),getHeight());
     }
+  }
+  /**
+  *{@summary Update size of this depending of text.}<br>
+  *@param width the width used to count how much line we need.
+  *@lastEditedVersion 2.6
+  */
+  public void updateSize(){
+    int lineCpt = countLines(getWidth());
+    setSize(new Dimension((int)getWidth(), getDimY()*lineCpt));
+  }
+  /**
+  *{@summary Count line function.}<br>
+  *cf https://stackoverflow.com/questions/22328337/how-can-i-count-lines-in-jtextarea
+  *@param width the width used to count how much line we need.
+  *@lastEditedVersion 2.6
+  */
+  private int countLines(double width) {
+    javax.swing.text.PlainDocument doc = (javax.swing.text.PlainDocument) this.getDocument();
+    double counting = 0;
+    int tLen = this.getLineCount(); //number of /n on the text.
+    for (int i = 0; i < tLen; i++) { //for every bloc split by /n
+      try {
+        int start = this.getLineStartOffset(i);
+        int length = this.getLineEndOffset(i) - start; // calculating the length of the line
+        // if the width of the line in greater than the max width, the division would return the number of lines
+        counting += Math.ceil(this.getFontMetrics(this.getFont()).stringWidth(doc.getText(start, length)) / width);
+      } catch (javax.swing.text.BadLocationException ex) {
+        System.err.println("ERROR\n" + ex.getMessage());
+      }
+    }
+    return (int)counting;
   }
 }

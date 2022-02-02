@@ -61,6 +61,7 @@ transporté:transporti
 espèce:speco
 health:sano
 pheromoneTolerence:toleri feromona diferencon
+foodEatable:nutraĵoj manaĝebla
 
 
 //formiko -----------------------------------------------------------------------

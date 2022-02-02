@@ -168,6 +168,10 @@ public class Case implements Serializable{
   public void setType(int x){setType((byte)x);}
   public boolean canReachCase(){return getType()>-1;}
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Return a string that describe this.}<br>
+  *@lastEditedVersion 2.18
+  */
   public String toString(){
     boolean caseSombre = false;
     if(Main.getPartie()!=null && Main.getPartie().getPlayingJoueur()!=null){
@@ -191,6 +195,42 @@ public class Case implements Serializable{
       if (gg != null && gg.getHead() != null){
         s=s+g.get("graines")+" : ";s=s+"\n";
         s=s+gg.toString();s=s+"\n";
+      }
+    }
+    return s;
+  }
+  /**
+  *{@summary Return a short string that describe this.}<br>
+  *@lastEditedVersion 2.18
+  */
+  public String toStringShort(){
+    boolean caseSombre = false;
+    if(Main.getPartie()!=null && Main.getPartie().getPlayingJoueur()!=null){
+      if(Main.getPartie().getCasesNuageuses() && Main.getPartie().getPlayingJoueur().getCaseNuageuse(p.getX(),p.getY())){
+        return "";
+      }else if(Main.getPartie().getCasesSombres() && Main.getPartie().getPlayingJoueur().getCaseSombre(p.getX(),p.getY())){
+        caseSombre=true;
+      }
+    }
+    String s = g.get("case")+" : ("+g.get("foodInsecte")+" :"+foodInsecte+"/"+foodInsecteMax+" (+"+foodInsecteParTour+"))";
+    s=s+ p.toString();s=s+"\n";
+    if (fere != null){
+      s=s+g.get("fourmilière")+" :";s=s+"\n";
+      s=s+fere.toString(false);s=s+"\n";
+    }
+    if (!caseSombre) {
+      GCreature gc = getSortedGc();
+      if (gc != null && gc.getHead() != null && gc.length()>0){
+        s=s+g.get("creatures")+" : "; s=s+"\n";
+        for (Creature c : gc.toList()) {
+          s+=c.toStringShort()+"\n";
+        }
+      }
+      if (gg != null && gg.getHead() != null && gg.length()>0){
+        s=s+g.get("graines")+" : ";s=s+"\n";
+        for (Graine g : gg.toList()) {
+          s+=g.toStringShort()+"\n";
+        }
       }
     }
     return s;
