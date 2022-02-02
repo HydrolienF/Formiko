@@ -49,6 +49,16 @@ public class FPanelInfoGCreature extends FPanelInfo {
   static class FPanelInfoGCreatureBuilder extends FPanelInfoBuilder {
     private Creature c;
     private static int boderFPanelObjetAId;
+    /**
+    *{@summary Function that change alpha.}<br>
+    *@lastEditedVersion 2.18
+    */
+    private static Function<Integer, Integer> fctAlpha = (color) -> {
+      int alpha = (color >> 24) & 0xff;
+      alpha=alpha*2/3;
+      int mc = (alpha << 24) | 0x00ffffff;
+      return (color | 0xff000000) & mc;
+    };
     // CONSTRUCTORS --------------------------------------------------------------
 
     // GET SET -------------------------------------------------------------------
@@ -71,7 +81,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
     public FPanelInfo build(){
       if(c!=null){
         //it add 7s for a Frame refrech from 20s (with 40 ants.) (7s where add only for drawing Carte)
-        // addGCreatureInfo();
+        addGCreatureInfo();
       }else{
         erreur.alerte("FPanelInfoGCreature don't have a Creature and will be build as a FPanelInfo");
       }
@@ -93,12 +103,6 @@ public class FPanelInfoGCreature extends FPanelInfo {
       Fourmi f = (Fourmi)c;
       GCreature gc = c.getCase().getSortedGc(f);
       gc.add(f);//TODO add head
-      Function<Integer, Integer> fctAlpha = (color) -> {
-        int alpha = (color >> 24) & 0xff;
-        alpha=alpha*2/3;
-        int mc = (alpha << 24) | 0x00ffffff;
-        return (color | 0xff000000) & mc;
-      };
       for (Creature ct : gc.toList()) {
         BufferedImage bi = Main.getData().getCreatureImage(ct);
         bi = image.resize(bi, yByElement-boderFPanelObjetAId*2);
@@ -210,6 +214,13 @@ public class FPanelInfoGCreature extends FPanelInfo {
             }
           }
           //TODO draw more info depending of o
+          Creature c = (Creature)o;
+          if(c.isDead()){
+            BufferedImage biD = getData().getImage("deadHead");
+            biD=image.resize(biD, (yByElement-boderFPanelObjetAId*2)*2/3);
+            image.editAllPixels(biD, fctAlpha);
+            g.drawImage(biD, boderFPanelObjetAId, boderFPanelObjetAId, this);
+          }
         }else if(o instanceof Graine){
           //TODO draw more info depending of o
         }

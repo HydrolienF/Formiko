@@ -18,6 +18,7 @@ import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.structures.ImageTree;
 import fr.formiko.usuel.types.str;
+import java.io.File;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -78,6 +79,7 @@ public class Data {
   //FPanelActionInf / Sup
   private Image backgroundPAI;
   private Image backgroundPAS;
+  private HashMap<String, BufferedImage> otherImages;
 
   //FPanelMenu
   private Color buttonColor = new Color(81, 252, 0, 100);
@@ -167,6 +169,9 @@ public class Data {
     tButtonColor[5]=new Color(56, 56, 56);//grey
     tButtonColor[6]=Color.BLACK;
     tButtonColor[7]=Color.BLUE;
+  }
+  public BufferedImage getImage(String name){
+    return otherImages.get(name);
   }
   /**
   *{@summary Return the Image that fit to a Creature.}
@@ -374,6 +379,11 @@ public class Data {
         /*for (int i=0;i<lenb ;i++ ) {
           bIni[i]=bIni[i].getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
         }*/
+        try {
+          iniOtherImages();
+        }catch (Exception e) {
+
+        }
         Main.endCh("chargerImagesIni");
       }
       imageIni=true;
@@ -383,6 +393,13 @@ public class Data {
         tIFIni[0] = image.getImage("F0");
       }
       imageIniForNewGame=true;
+    }
+    public void iniOtherImages(){
+      otherImages =  new HashMap<String, BufferedImage>();
+      File dir = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"other/");
+      for (File f : dir.listFiles()) {
+        otherImages.put(f.getName().substring(0,f.getName().length()-4),image.getImage("other/"+f.getName()));
+      }
     }
     /**
     *{@summary Load the FPanelNouvellePartie images if they aren't load yet.}
