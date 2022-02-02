@@ -166,6 +166,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
               getView().getPb().setActionF(-2);
               getView().getPb().removePA();
               Main.getPartie().setAntIdToPlay(o.getId());
+              getView().setMessageDesc("", true);
             }
           }
         });
