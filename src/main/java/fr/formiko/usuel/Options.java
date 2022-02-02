@@ -372,7 +372,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("gui_global_dateFormat","yyyy/MM/dd HH:mm:ss");
     defaultProperties.setProperty("gui_global_borderButtonSize","4");
     defaultProperties.setProperty("gui_global_buttonSizeAction",""+t[1]);
-    defaultProperties.setProperty("gui_global_fontSizeText",""+(int)(30*racio));
+    defaultProperties.setProperty("gui_global_fontSizeText",""+(int)(20*racio));
     defaultProperties.setProperty("gui_global_fontSizeTitle",""+(int)(60*racio));
     defaultProperties.setProperty("gui_global_fontText","Default");
     defaultProperties.setProperty("gui_global_fontTitle","Insektofobiya");
