@@ -143,7 +143,7 @@ public class fichier {
         String t [] = fileName.split("/");
         downloadName = t[t.length-1];
         int downloadNameLen = downloadName.length();
-        System.out.println(downloadName.substring(downloadNameLen-4,downloadNameLen));
+        // System.out.println(downloadName.substring(downloadNameLen-4,downloadNameLen));
         if(downloadNameLen>4 && ".zip".equals(downloadName.substring(downloadNameLen-4,downloadNameLen))){
           downloadName = downloadName.substring(0,downloadNameLen-4);
         }
