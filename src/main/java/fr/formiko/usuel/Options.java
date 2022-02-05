@@ -111,11 +111,15 @@ public class Options implements Serializable{
   public byte getLanguage(){return game_language;}
   /**
   *{@summary Set language of Options &#38; Locale.}
+  *@lastEditedVersion 2.19
   */
   public void setLanguage(byte x){
     game_language=x;
     String languageCode = chargerLesTraductions.getLanguage(x);
-    // Locale.setDefault(new Locale(languageCode));
+    System.out.println(Locale.getDefault().toString());
+    if(x>-1 && !str.contient(Locale.getDefault().toString(),languageCode,0)) {
+      Locale.setDefault(new Locale(languageCode));
+    }
   }
   public void setLanguage(int x){setLanguage(str.iToBy(x));}
   public int getbuttonSizeZoom(){ return tailleBouton(gui_hide_buttonSizeZoom);}
