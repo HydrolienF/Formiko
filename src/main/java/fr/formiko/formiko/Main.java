@@ -332,6 +332,8 @@ public class Main {
     iniLangue();
     startCh();
     tem = new Temps();
+    erreur.info("OS: "+getOs());
+    erreur.info("language: "+chargerLesTraductions.getLanguageAsString(getOp().getLanguage()));
     erreur.info(tem.toString());
     endCh("chargementDesDonnéesTemporelles");
     setMessageChargement("chargementDesEspeceDeFourmi");startCh();

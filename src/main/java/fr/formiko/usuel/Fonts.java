@@ -23,6 +23,7 @@ public class Fonts {
   *@lastEditedVersion 2.12
   */
   public static boolean createFont(String fontName){
+    if(Main.getFolder()==null){return false;}
     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
     File file = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"font/"+fontName+".otf");
     if(!file.exists()){
@@ -46,9 +47,11 @@ public class Fonts {
   *@lastEditedVersion 2.12
   */
   public static boolean createFonts(String familyFontName){
+    if(Main.getFolder()==null){return false;}
     String familyFontNameWithoutSpace = familyFontName.replaceAll(" ","");
     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
     File directory = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"font/");
+    if(directory==null || directory.listFiles()==null){return false;}
     boolean flag=false;
     for (File f : directory.listFiles()) {
       if((str.contient(f.getName(),familyFontName, 1) || str.contient(f.getName(),familyFontNameWithoutSpace, 1)) && (str.contient(f.getName(),".ttf", 2) || str.contient(f.getName(),".otf", 2))){

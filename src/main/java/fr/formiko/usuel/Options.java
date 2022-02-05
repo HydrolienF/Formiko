@@ -115,7 +115,7 @@ public class Options implements Serializable{
   public void setLanguage(byte x){
     game_language=x;
     String languageCode = chargerLesTraductions.getLanguage(x);
-    Locale.setDefault(new Locale(languageCode));
+    // Locale.setDefault(new Locale(languageCode));
   }
   public void setLanguage(int x){setLanguage(str.iToBy(x));}
   public int getbuttonSizeZoom(){ return tailleBouton(gui_hide_buttonSizeZoom);}
@@ -297,7 +297,7 @@ public class Options implements Serializable{
       InputStream is = Files.newInputStream(Path.of(Main.getFolder().getFolderMain()+"Options.md"));
       properties.load(is);
     }catch (IOException e) {
-      erreur.erreur("Impossible de charger les options.","Options par défaut choisie.");
+      erreur.erreur("Impossible de charger les options","Options par défaut choisie");
       saveDeflautProperties();
     }
   }
@@ -310,7 +310,7 @@ public class Options implements Serializable{
       OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+"Options.md"));
       properties.store(os,"**Options file**\nEvery value can be edit here but variable have specific type. For example gui_partie_instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as sounds_musicVolume that should be in [0,100]. Most value should be out of interval save. But you may need to reset Options to default value by deleting this file if something goes wrong.");
     }catch (IOException e) {
-      erreur.erreur("Impossible de sauvegarder les options.","Options par défaut choisie.");
+      erreur.erreur("Impossible de sauvegarder les options","Options par défaut choisie");
     }
   }
   /**
@@ -439,7 +439,7 @@ public class Options implements Serializable{
       try {
         setLanguage(str.iToBy(chargerLesTraductions.getLanguage(properties.getProperty("game_language"))));
       }catch (Exception e2) {
-        erreur.alerte("game_language can't be laod from properties");
+        erreur.alerte("game_language can't be load from properties");
         setLanguage(2);
       }
     }

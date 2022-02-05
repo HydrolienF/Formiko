@@ -5,6 +5,7 @@ import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
+import fr.formiko.usuel.Info;
 
 import java.io.File;
 import java.util.HashMap;
@@ -38,7 +39,8 @@ public class chargerLesTraductions {
     if(tLangue == null || x<0 || x>=tLangue.length){
       int l = 0;
       if(tLangue!=null){l=tLangue.length;}
-      erreur.erreur("langue non reconnu parmi les "+l+" langue(s) disponible(s).","\"en\" retourné");
+      erreur.erreur("langue "+x+" non reconnu parmi les "+l+" langue(s) disponible(s).",10);
+      // new Info("langue non reconnu parmi les "+l+" langue(s) disponible(s).").setType(2).setFix("\"en\" retourné").setClassDepth(2).print();
       return "en";
     }
     return tLangue[x];

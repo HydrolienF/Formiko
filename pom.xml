@@ -77,9 +77,9 @@
             <args>${args}</args>
             <!-- <argument>myproject:dist</argument> -->
           </arguments>
-          <environmentVariables>
+          <!-- <environmentVariables>
             <LANG>en_US</LANG>
-          </environmentVariables>
+          </environmentVariables> -->
         </configuration>
       </plugin>
       <plugin>

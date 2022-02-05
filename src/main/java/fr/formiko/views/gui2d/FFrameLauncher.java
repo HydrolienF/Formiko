@@ -34,7 +34,7 @@ public class FFrameLauncher extends FFrame {
   }
 
   // GET SET -------------------------------------------------------------------
-  public void setDownloadingMessage(String s){pl.l.setTexte(s);}
+  public void setDownloadingMessage(String s){if(pl.l!=null){pl.l.setTexte(s);}}
   public void setDownloadingValue(int x){pl.pb.setValue(x);}
   public void setButtonRetryVisible(boolean b){pl.buttonRetry.setVisible(b);}
   // FUNCTIONS -----------------------------------------------------------------
