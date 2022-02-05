@@ -116,7 +116,7 @@ public class Options implements Serializable{
   public void setLanguage(byte x){
     game_language=x;
     String languageCode = chargerLesTraductions.getLanguage(x);
-    if(x>-1 && !str.contient(Locale.getDefault().toString(),languageCode,0)) {
+    if(x>-1 && !str.equals(Locale.getDefault().getLanguage())) {
       Locale.setDefault(new Locale(languageCode));
     }
   }
