@@ -79,8 +79,3 @@ cd ..
 echo "-----------------------"
 ls -l out/
 echo "-----------------------"
-
-#echo "setVersion for the web site"
-#cd ~/Formiko/HydrolienF.github.io/docs
-#./authentification.sh
-#./setVersion.sh \"$(echo `expr substr $nom 8 20`)\"
