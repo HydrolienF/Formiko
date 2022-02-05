@@ -7,7 +7,7 @@ import fr.formiko.formiko.Main;
 *All String can be call by color.NAME.<br>
 *To set back to normal color use color.NEUTRAL.<br>
 *@author Hydrolien
-*@version 2.11
+*@lastEditedVersion 2.11
 */
 public class color {
   public static String NEUTRAL;
@@ -37,7 +37,7 @@ public class color {
 
   /**
   *{@summary Initialize color depending of os.}<br>
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public static void iniColor(){
     char beginChar;

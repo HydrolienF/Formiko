@@ -3,10 +3,11 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
+import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Pheromone;
-import fr.formiko.usuel.Point;
 import fr.formiko.usuel.Folder;
+import fr.formiko.usuel.Point;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -17,6 +18,7 @@ import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.structures.ImageTree;
 import fr.formiko.usuel.types.str;
+import java.io.File;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -26,7 +28,7 @@ import java.util.HashMap;
 /**
 *{@summary Contain all data (images) that will be used by the graphic interface.}
 *@author Hydrolien
-*@version 1.18
+*@lastEditedVersion 1.18
 */
 public class Data {
   private int tailleDUneCase; // entre 10 et 500.
@@ -36,7 +38,7 @@ public class Data {
   private boolean imageIniForNewGame;
   //image
   private BufferedImage imgNull;
-  private BufferedImage selectionnee; private BufferedImage fere;
+  private BufferedImage fere;
   private BufferedImage cNuageuse,cSombre;
   private BufferedImage b[];
   private BufferedImage tICarte[];
@@ -47,9 +49,12 @@ public class Data {
   // private BufferedImage antColor[];
   private BufferedImage antLeg[];
   private BufferedImage map;
+  private BufferedImage cloudMap;
+  private BufferedImage loopArrow;
+  private BufferedImage pick;
   //ini (this var sould not be modify in an other place than here.)
   private BufferedImage imgNullIni;
-  private BufferedImage selectionneeIni; private BufferedImage fereIni;
+  private BufferedImage fereIni;
   private BufferedImage cNuageuseIni,cSombreIni;
   private BufferedImage bIni[];
   private BufferedImage tICarteIni[];
@@ -58,7 +63,7 @@ public class Data {
   private BufferedImage tGIni[];
   private BufferedImage tFIni[][];
   // private BufferedImage antColorIni[];
-  private BufferedImage antLegIni[];
+  // private BufferedImage antLegIni[];
   //image data
   private ImageTree imageTree;
   private ImageTree imageTreeIni;
@@ -70,10 +75,12 @@ public class Data {
   private Image [] tIBZoom;
   private boolean initialisationFX;
   //FPanelChargement
-  private BufferedImage imageChargement;
+  private BufferedImage loadingImage;
   //FPanelActionInf / Sup
   private Image backgroundPAI;
   private Image backgroundPAS;
+  /** Contains all not resize image. */
+  private HashMap<String, BufferedImage> otherImages;
 
   //FPanelMenu
   private Color buttonColor = new Color(81, 252, 0, 100);
@@ -92,7 +99,7 @@ public class Data {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *Main constructor.
-  *@version 1.18
+  *@lastEditedVersion 1.18
   */
   public void Data(){
     initialisationFX=false;
@@ -103,7 +110,6 @@ public class Data {
   public int getTailleIcon(){return (int)(getTailleDUneCase()/3);}
   public void setTailleDUneCase(int x){tailleDUneCase=x;}
   public BufferedImage getImgNull(){return imgNull;}
-  public BufferedImage getSelectionnee(){return selectionnee;}
   public BufferedImage getFere(){return fere;}
   public BufferedImage getCNuageuse(){return cNuageuse;}
   public BufferedImage getCSombre(){return cSombre;}
@@ -113,10 +119,13 @@ public class Data {
   public BufferedImage [] getTG(){return tG;}
   public BufferedImage [][] getTF(){return tF;}
   public BufferedImage getMap(){return map;}
+  public BufferedImage getCloudMap(){return cloudMap;}
+  public BufferedImage getLoopArrow(){return loopArrow;}
+  public BufferedImage getPick(){return pick;}
   //FPanelAction
   public BufferedImage [] getTImage(){return tImage;}
   //FPanelChargement
-  public BufferedImage getImageChargement(){return imageChargement;}
+  public BufferedImage getImageChargement(){return loadingImage;}
   //imageIni
   public void setImageIniForNewGame(boolean b){imageIniForNewGame=b;}
   //FPanelActionInf / Sup
@@ -133,7 +142,7 @@ public class Data {
   public Color getButonBorderColor() {return butonBorderColor;}
   /**
   *{@summary Return color used by the buttons.}
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public Color getButtonColor(int colorId){
     if(tButtonColor==null){
@@ -148,7 +157,7 @@ public class Data {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize color used by the buttons.}
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void iniTButtonColor(){
     lenTButtonColor=8;
@@ -162,10 +171,13 @@ public class Data {
     tButtonColor[6]=Color.BLACK;
     tButtonColor[7]=Color.BLUE;
   }
+  public BufferedImage getImage(String name){
+    return otherImages.get(name);
+  }
   /**
   *{@summary Return the Image that fit to a Creature.}
   *@param c the Creature to represent.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public BufferedImage getCreatureImage(Creature c){
     if(imageTree==null){
@@ -175,9 +187,20 @@ public class Data {
     return imageTree.getCreatureImage(c);
   }
   /**
+  *{@summary Return the Image that fit to a Seed.}
+  *@param s the Seed to represent
+  *@lastEditedVersion 2.18
+  */
+  public BufferedImage getGraineImage(Graine s){
+    if(s==null){return null;}
+    else{
+      return getTG()[s.getType()];
+    }
+  }
+  /**
   *{@summary Return an IconImage.}
   *@param name the name of the icon, the name of the file without ".png"
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public BufferedImage getIconImage(String name){
     if(iconMap==null){return null;}
@@ -193,7 +216,7 @@ public class Data {
   *<li>Color of the thorax
   *<li>Wings
   *</ul>
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public BufferedImage [] getAntImage(Fourmi f){
     int idEspece = f.getEspece().getId();
@@ -249,9 +272,9 @@ public class Data {
       }catch (Exception e) {}
 
       //get images
-      for (int i=0; i<6; i++) {
-        try{tBi[k++] = antLeg[idEspece];}catch (Exception e) {antLeg[k++] = tIF[0];}
-      }
+      // for (int i=0; i<6; i++) {
+      //   try{tBi[k++] = antLeg[idEspece];}catch (Exception e) {antLeg[k++] = tIF[0];}
+      // }
       //TODO #246 use a diferent image depending of stade.
       try {tBi[k++] = tIF[idEspece];} catch (Exception e) {tBi[k++] = tIF[0];}
       // if(Main.getOp().getAntColorLevel()>0){
@@ -306,7 +329,7 @@ public class Data {
     *{@summary Load image in map resolution.}<br>
     *If the original image have'nt been load, it will call chargerImagesIni.<br>
     *The images defined here have the rigth dimention for being used on the map.<br>
-    *@version 2.6
+    *@lastEditedVersion 2.6
     */
     public void chargerImages(){
       debug.débogage("chargement des images a la bonne taille.");
@@ -315,7 +338,6 @@ public class Data {
       int tailleFourmi = (getTailleDUneCase()*4)/5;
       erreur.info("Update Image to size "+getTailleDUneCase());
       imgNull = image.resize(imgNullIni,getTailleDUneCase());
-      selectionnee = image.resize(selectionneeIni,getTailleDUneCase());
       tICarte=getScaledInstance(tICarteIni, getTailleDUneCase());
       // tIF=getScaledInstance(tIFIni, tailleFourmi);
       // tII=getScaledInstance(tIIIni, tailleFourmi,2);//les insectes
@@ -334,18 +356,17 @@ public class Data {
     /**
     *{@summary Load image in full resolution.}<br>
     *Image need to be load in full resolution 1 time only. If it have alredy be done the function will do nothing.
-    *@version 1.33
+    *@lastEditedVersion 1.33
     */
     public void chargerImagesIni(){
       if(!imageIni){
         Main.startCh();
         imgNullIni = image.getImage("null");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
-        selectionneeIni = image.getImage("selectionnee");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         chargerTI();
         // tIIIni = chargerTX("I");
         tFIni = chargerTX("F",3,(byte)0,-3);
         // iniAntColorIni();
-        antLegIni = image.getImages("FLeg",image.getNbrImages("FLeg"),(byte)0);
+        // antLegIni = image.getImages("FLeg",image.getNbrImages("FLeg"),(byte)0);
         imageTreeIni = ImageTree.folderToTree(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");
         iconMap = image.getImagesAsMap(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"icon/");
         iconMap = image.getScaledInstanceFromMap(iconMap, Main.getTailleElementGraphiqueY(30));
@@ -359,6 +380,11 @@ public class Data {
         /*for (int i=0;i<lenb ;i++ ) {
           bIni[i]=bIni[i].getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
         }*/
+        try {
+          iniOtherImages();
+        }catch (Exception e) {
+
+        }
         Main.endCh("chargerImagesIni");
       }
       imageIni=true;
@@ -369,10 +395,29 @@ public class Data {
       }
       imageIniForNewGame=true;
     }
+    public void iniOtherImages(){
+      otherImages =  new HashMap<String, BufferedImage>();
+      File dir = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"other/");
+      for (File f : dir.listFiles()) {
+        otherImages.put(f.getName().substring(0,f.getName().length()-4),image.getImage("other/"+f.getName()));
+      }
+    }
+    /**
+    *{@summary Load the FPanelNouvellePartie images if they aren't load yet.}
+    * If size is different, image will be reload with the greate size.
+    *@param buttonSize size of the 2 image to load.
+    *@lastEditedVersion 2.15
+    */
+    public void loadPnpImage(int buttonSize){
+      if(loopArrow==null || loopArrow.getWidth()!=buttonSize){
+        loopArrow = image.resize(image.getImage("loop arrow"), buttonSize);
+        pick = image.resize(image.getImage("pick"), buttonSize);
+      }
+    }
     /***
     *{@summary Load antColorIni.}
     *antColorIni will be set to max in alpha if it need.
-    *@version 2.2
+    *@lastEditedVersion 2.2
     */
     // private void iniAntColorIni(){
     //   antColorIni = image.getImages("FCol",image.getNbrImages("FCol"),(byte)0);
@@ -388,19 +433,21 @@ public class Data {
     // }
     /**
     *Load Case image
-    *@version 1.18
+    *@lastEditedVersion 1.18
     */
     public void chargerTI(){
       tICarteIni = new BufferedImage [3];
-      tICarteIni[0]=image.getImage("herbe");
-      tICarteIni[1]=image.getImage("mousse");
+      // tICarteIni[0]=image.getImage("herbe");
+      // tICarteIni[1]=image.getImage("mousse");
+      tICarteIni[0]=image.getImage("terre");
+      tICarteIni[1]=image.getImage("terre");
       tICarteIni[2]=image.getImage("sable");
     }
     /**
     *{@summary Load a group of BufferedImage that starts with a similar name.}<br>
     *see image.getImagess() for more informations.
     @param name Name of de group. Every image will start by this name.
-    *@version 1.18
+    *@lastEditedVersion 1.18
     */
     public BufferedImage [][] chargerTX(String name, int x, byte y, int début){
       return image.getImagess(name,x,(byte)début);
@@ -411,7 +458,7 @@ public class Data {
 
     /**
     *Create a background image from tI1 and tI2 images.
-    *@version 1.42
+    *@lastEditedVersion 1.42
     */
     public void iniBackgroundMapImage(){
       if(!Main.getView().getActionGameOn()){return;}
@@ -430,7 +477,7 @@ public class Data {
             int xT = i*getTailleDUneCase(); int yT = j*getTailleDUneCase();
             Case c=null;
             try {
-              c = Main.getGc().getCCase(i+FPanel.getView().getPc().getPosX(),j+FPanel.getView().getPc().getPosY()).getContent();
+              c = Main.getGc().getCCase(i,j).getContent();
             }catch (Exception e) {erreur.erreur("case is null");}
             try {
               img2 = new Img(tICarte[c.getType()-1]);
@@ -457,12 +504,48 @@ public class Data {
         map=null;
       }
       Main.endCh("iniBackgroundMapImage");
+      if(Main.getPartie()!=null && Main.getPartie().getCarte()!=null && Main.getPartie().getCarte().getCasesNuageuses()==true){
+        iniCloudMapImage();
+      }
+    }
+    /**
+    *Create a cloud image from loading image.
+    *@lastEditedVersion 1.42
+    */
+    private void iniCloudMapImage(){
+      if(!Main.getView().getActionGameOn()){return;}
+      BufferedImage could = image.resize(image.getImage("cloud"), map.getWidth(), map.getHeight());
+      cloudMap=image.resize(loadingImage, map.getWidth(), map.getHeight());
+      for (int i=0; i<cloudMap.getWidth(); i++) {
+        for (int j=0; j<cloudMap.getHeight(); j++) {
+          int red = ((cloudMap.getRGB(i,j)>>16)&255);
+          int green = ((cloudMap.getRGB(i,j)>>8)&255);
+          int blue = (cloudMap.getRGB(i,j)&255);
+          int redC = ((could.getRGB(i,j)>>16)&255);
+          int greenC = ((could.getRGB(i,j)>>8)&255);
+          int blueC = (could.getRGB(i,j)&255);
+          // int added=60;
+          // added+=allea.getAllea(20)-9;
+          // red+=added;
+          // green+=added;
+          // blue+=added;
+          red=(red+redC)/2;
+          green=(green+greenC)/2;
+          blue=(blue+blueC)/2;
+          if(red>255){red=255;}
+          if(green>255){green=255;}
+          if(blue>255){blue=255;}
+          int x = ((255<<24)|(red<<16)|(green<<8)|(blue));
+          cloudMap.setRGB(i,j,x);
+        }
+      }
+      cloudMap = image.toBlackAndWhite(cloudMap);
     }
 
     //getScaledInstance.
     /**
     *Return a scaled BufferedImage
-    *@version 2.1
+    *@lastEditedVersion 2.1
     */
     public BufferedImage getScaledInstance(BufferedImage bi, int dim, int b){
       BufferedImage r = null;
@@ -482,7 +565,7 @@ public class Data {
     }public BufferedImage getScaledInstance(BufferedImage bi, int dim){return getScaledInstance(bi,dim,0);}
     /**
     *Return a scaled BufferedImage []
-    *@version 1.18
+    *@lastEditedVersion 1.18
     */
     public BufferedImage [] getScaledInstance(BufferedImage ti[], int dim, int b){
       int lenr = 0;
@@ -508,7 +591,7 @@ public class Data {
     }public BufferedImage [] getScaledInstance(BufferedImage ti[],int dim){return getScaledInstance(ti,dim,0);}
     /**
     *Return a scaled BufferedImage [][]
-    *@version 1.18
+    *@lastEditedVersion 1.18
     */
     public BufferedImage [][] getScaledInstance(BufferedImage ti[][],int dim, int b){
       int lenr = ti.length;
@@ -523,7 +606,7 @@ public class Data {
   //FPanelAction
   /**
   *Load graphics for FPanelAction
-  *@version 1.18
+  *@lastEditedVersion 1.18
   */
   public synchronized void chargerTIFPanelAction(){
     if (tImage==null){
@@ -538,7 +621,7 @@ public class Data {
   }
   /**
   *Load backgroundPAI
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private void loadBackgroundPAI(){
     backgroundPAI = image.getImage("backgroundPAI");
@@ -546,7 +629,7 @@ public class Data {
   }
   /**
   *Load backgroundPAS
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private void loadBackgroundPAS(){
     backgroundPAS = image.getImage("backgroundPAS");
@@ -554,18 +637,19 @@ public class Data {
   }
   /**
   *Load images for FPanelAction without background
-  *@version 1.18
+  *@lastEditedVersion 2.12
   */
   private void chargerTImage(){
     int tailleBouton = FPanel.getView().getPa().getbuttonSize();
     tImage = image.getImages("desc");
-    for (int i=0;i<10 ;i++ ) {
+    int len = tImage.length;
+    for (int i=0; i<len; i++) {
       tImage[i] = image.resize(tImage[i],tailleBouton);
     }
   }
   /**
   *Load images for FPanelAction with background
-  *@version 1.18
+  *@lastEditedVersion 1.18
   */
   private void chargerTImageAvecFond(Pixel pi){
     int tailleBouton = FPanel.getView().getPa().getbuttonSize();
@@ -582,7 +666,7 @@ public class Data {
   //FPanelZoom
   /**
   *Load images for FPanelZoom
-  *@version 1.18
+  *@lastEditedVersion 1.18
   */
   public Image [] chargerTIBZoom(){
     tIBZoom = new Image[9];
@@ -604,7 +688,7 @@ public class Data {
   }
   /**
   *{@summary Turn the arrow for FPanelZoom.}<br>
-  *@version 1.18
+  *@lastEditedVersion 1.18
   */
   public void tournerLesFleches(String nom){
     initialisationFX=true;
@@ -622,23 +706,23 @@ public class Data {
 
   /**
   *{@summary Load a loading image for FPanelChargement.}<br>
-  *@version 1.32
+  *@lastEditedVersion 1.32
   */
   public boolean loadImageChargement(){
     String mapName = Main.getMap().getMapName();
     mapName = str.sToSMaj(mapName);
-    imageChargement=null;
+    loadingImage=null;
     if(mapName!=null && !mapName.equals("")){
-      imageChargement=image.getImage("loading"+mapName,false);
-      if(imageChargement!=null){
-        imageChargement=image.resize(imageChargement,Main.getDimX(),Main.getDimY());
+      loadingImage=image.getImage("loading"+mapName,false);
+      if(loadingImage!=null){
+        loadingImage=image.resize(loadingImage,Main.getDimX(),Main.getDimY());
       }
     }
     //if it haven't been load yet we try to load any image name chargementi.png or .jpj.
-    if(imageChargement==null){
+    if(loadingImage==null){
       int x = allea.getAlléa(image.getNbrImages("loading"));
-      imageChargement=image.getImage("loading"+x);
-      imageChargement=image.resize(imageChargement,Main.getDimX(),Main.getDimY());
+      loadingImage=image.getImage("loading"+x);
+      loadingImage=image.resize(loadingImage,Main.getDimX(),Main.getDimY());
       return true;
     }
     return false;

@@ -14,12 +14,14 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import fr.formiko.formiko.Blade;
+import fr.formiko.formiko.BladeGrass;
 import java.util.function.Supplier;
 
 /**
 *{@summary Panel that contain MiniMap, fBEndTurn button &#38; graphics options buttons.}<br>
 *@author Hydrolien
-*@version 2.5
+*@lastEditedVersion 2.5
 */
 public class FPanelMiniMapContainer extends FPanel {
   private static int BUTTON_RADIUS=18;
@@ -30,7 +32,7 @@ public class FPanelMiniMapContainer extends FPanel {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public FPanelMiniMapContainer() {
     super();
@@ -53,21 +55,21 @@ public class FPanelMiniMapContainer extends FPanel {
   // GET SET -------------------------------------------------------------------
   /**
   *{@summary Shortcut for fBEndTurn.}<br>
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public void setAllActionDone(boolean b){
     fBEndTurn.setAllActionDone(b);
   }
   /**
   *{@summary Shortcut for fBEndTurn.}<br>
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public void setFbetEnabled(boolean b){
     fBEndTurn.setEnabled(b);
   }
   /**
   *{@summary Shortcut for fBEndTurn.}<br>
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public boolean getFbetEnabled(){
     return fBEndTurn.isEnabled();
@@ -82,7 +84,7 @@ public class FPanelMiniMapContainer extends FPanel {
   *{@summary FButton to end turn.}<br>
   *This button is green when player still have action to do otherwise red.
   *@author Hydrolien
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   class FButtonEndTurn extends FButton {
     private int lineSize;
@@ -91,7 +93,7 @@ public class FPanelMiniMapContainer extends FPanel {
     // CONSTRUCTORS --------------------------------------------------------------
     /**
     *{@summary Main constructor.}<br>
-    *@version 2.5
+    *@lastEditedVersion 2.5
     */
     public FButtonEndTurn() {
       super("", FPanel.getView().getPj(), Main.getTailleElementGraphique(200));
@@ -111,7 +113,7 @@ public class FPanelMiniMapContainer extends FPanel {
     *{@summary change color of the button depending of player's actions left.}<br>
     *Green if player still have action to do otherwise red.<br>
     *If animations are enabled it will take 0,255 s to turn red.<br>
-    *@version 2.5
+    *@lastEditedVersion 2.5
     */
     public void setAllActionDone(boolean b){
       if(b){
@@ -140,7 +142,7 @@ public class FPanelMiniMapContainer extends FPanel {
     }
     /**
     *{@summary setEnabled that also hide button if disable.}<br>
-    *@version 2.5
+    *@lastEditedVersion 2.5
     */
     @Override
     public void setEnabled(boolean b){
@@ -151,7 +153,7 @@ public class FPanelMiniMapContainer extends FPanel {
     // FUNCTIONS -----------------------------------------------------------------
     /**
     *{@summary Draw function for the FButton.}<br>
-    *@version 2.5
+    *@lastEditedVersion 2.5
     */
     public void paintComponent(Graphics gTemp){
       Graphics2D g = (Graphics2D)gTemp;
@@ -165,13 +167,13 @@ public class FPanelMiniMapContainer extends FPanel {
     /**
     *{@summary To change color from green to red.}<br>
     *@author Hydrolien
-    *@version 2.5
+    *@lastEditedVersion 2.5
     */
     class ThreadColor extends Thread {
       private boolean bGreen=false;
       /**
       *{@summary Main function that call changeColor.}<br>
-      *@version 2.5
+      *@lastEditedVersion 2.5
       */
       @Override
       public void run(){
@@ -180,7 +182,7 @@ public class FPanelMiniMapContainer extends FPanel {
       public void setGreen(){bGreen = true;}
       /**
       *{@summary Change color from green to red.}<br>
-      *@version 2.5
+      *@lastEditedVersion 2.5
       */
       private void changeColor(){
         for (int i=0; i<255; i+=5) {
@@ -203,14 +205,14 @@ public class FPanelMiniMapContainer extends FPanel {
   *{@summary Change map face.}<br>
   *It can remove/add grid, or icon. Check {@link FPanelCarte#getStatesIconsImages(Creature)} to know the action that can be done from here.
   *@author Hydrolien
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   class FPanelGraphicsOptions extends FPanel {
     private Liste<FButtonPGO> buttonList;
     /**
     *{@summary Main constructor.}<br>
     *This still need to be build after have set size.
-    *@version 2.10
+    *@lastEditedVersion 2.10
     */
     private FPanelGraphicsOptions(){
       super();
@@ -220,7 +222,7 @@ public class FPanelMiniMapContainer extends FPanel {
     private boolean isIni(){return !buttonList.isEmpty();}
     /**
     *{@summary Build function that add all the button.}<br>
-    *@version 2.10
+    *@lastEditedVersion 2.16
     */
     private void build(){
       if(getWidth()==1 || isIni()){return;}
@@ -233,7 +235,7 @@ public class FPanelMiniMapContainer extends FPanel {
       addGraphicOption(352, getStateImage(), () -> {
         return Main.getOp().getDrawStatesIconsLevel();
       });
-      addGraphicOption(353, getColoredRoundImage(), () -> {
+      addGraphicOption(353, getColoredRoundImage(false), () -> {
         return Main.getOp().getDrawAllAnthillColor();
       });
       addGraphicOption(354, getLineImage(), () -> {
@@ -242,6 +244,12 @@ public class FPanelMiniMapContainer extends FPanel {
       addGraphicOption(355, getSeedNeutralImage(), () -> {
         return Main.getOp().getDrawOnlyEatable();
       });
+      addGraphicOption(356, getColoredRoundImage(true), () -> {
+        return Main.getOp().getAntColorLevel();
+      });
+      addGraphicOption(357, getBladesImage(), () -> {
+        return Main.getOp().getDrawBlades();
+      });
       placeButtons();
     }
     /**
@@ -249,14 +257,14 @@ public class FPanelMiniMapContainer extends FPanel {
     *@param action the action of the button (between 350 &#38; 399)
     *@param icon the image of the button
     *@param sup a function that return a boolean (is enable), or a int/byte corresponding to a color id
-    *@version 2.10
+    *@lastEditedVersion 2.10
     */
     private void addGraphicOption(int action, BufferedImage icon, Supplier sup){
       buttonList.add(new FButtonPGO(action, icon, sup));
     }
     /**
     *{@summary Place all buttons &#38; add it to this.}<br>
-    *@version 2.10
+    *@lastEditedVersion 2.10
     */
     private void placeButtons(){
       int len = buttonList.length()+1;
@@ -271,7 +279,7 @@ public class FPanelMiniMapContainer extends FPanel {
     /**
     *{@summary Return a grid image with len line &#38; len column.}<br>
     *@param len the number of line &#38; column
-    *@version 2.10
+    *@lastEditedVersion 2.10
     */
     private BufferedImage getGridImage(int len){
       BufferedImage bi = new BufferedImage(getHeight(), getHeight(), BufferedImage.TYPE_INT_ARGB);
@@ -288,7 +296,7 @@ public class FPanelMiniMapContainer extends FPanel {
     }
     /**
     *{@summary Return a text image.}<br>
-    *@version 2.10
+    *@lastEditedVersion 2.10
     */
     private BufferedImage getLineImage(){
       BufferedImage bi = new BufferedImage(getHeight(), getHeight(), BufferedImage.TYPE_INT_ARGB);
@@ -306,24 +314,54 @@ public class FPanelMiniMapContainer extends FPanel {
       return bi;
     }
     /**
-    *{@summary Return a colored round image as anthill color are draw.}<br>
-    *@version 2.10
+    *{@summary Return a grass blade image.}<br>
+    *@lastEditedVersion 2.16
     */
-    private BufferedImage getColoredRoundImage(){
+    private BufferedImage getBladesImage(){
+      BufferedImage bi = new BufferedImage(getHeight(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+      Graphics g = bi.getGraphics();
+      g.setColor(new Color(11,93,16));
+      g.drawLine(getHeight()*2/6, getHeight()/3, (int)(getHeight()*2.5/6), getHeight()*2/3);
+      g.drawLine(getHeight()*3/6, getHeight()/3, getHeight()*3/6, getHeight()*2/3);
+      g.drawLine(getHeight()*4/6, getHeight()/3, (int)(getHeight()*3.5/6), getHeight()*2/3);
+      // Blade b = new BladeGrass();
+      // b.setLength((byte)(getHeight()/3));
+      // b.draw(g,getHeight()/3,getHeight()*2/3);
+      // b = new BladeGrass();
+      // b.setLength((byte)(getHeight()/3));
+      // b.draw(g,getHeight()*2/3,getHeight()*2/3);
+      return bi;
+    }
+    /**
+    *{@summary Return a colored round image as anthill color are draw.}<br>
+    *@lastEditedVersion 2.10
+    */
+    private BufferedImage getColoredRoundImage(boolean small){
       BufferedImage bi = new BufferedImage(getHeight(), getHeight(), BufferedImage.TYPE_INT_ARGB);
       int size = getHeight()/2;
       Graphics g = bi.getGraphics();
-      g.setColor(Color.MAGENTA);
+      if(small){
+        g.setColor(new Color(255,0,0,255));
+      }else{
+        g.setColor(Color.MAGENTA);
+      }
       if(g instanceof Graphics2D){
         Graphics2D g2d = (Graphics2D)g;
         g2d.setStroke(new BasicStroke(size/4));
       }
-      g.drawOval(size/2,size/2,size,size);
+      if(small){
+        g.fillOval(size*2/3+1,size/2,size/2,size*2/3);
+        g.setColor(Color.BLACK);
+        g.fillOval(size*2/3+1,1,size/2,size/2);
+        g.fillOval(size*2/3+1,size,size/2,size);
+      }else{
+        g.drawOval(size/2,size/2,size,size);
+      }
       return bi;
     }
     /**
     *{@summary Return a relation image.}<br>
-    *@version 2.10
+    *@lastEditedVersion 2.10
     */
     private BufferedImage getRelationImage(){
       Liste<BufferedImage> list = new Liste<BufferedImage>();
@@ -334,7 +372,7 @@ public class FPanelMiniMapContainer extends FPanel {
     }
     /**
     *{@summary Return a state image.}<br>
-    *@version 2.10
+    *@lastEditedVersion 2.10
     */
     private BufferedImage getStateImage(){
       Liste<BufferedImage> list = new Liste<BufferedImage>();
@@ -344,7 +382,7 @@ public class FPanelMiniMapContainer extends FPanel {
     }
     /**
     *{@summary Return a state image.}<br>
-    *@version 2.10
+    *@lastEditedVersion 2.10
     */
     private BufferedImage getSeedNeutralImage(){
       Liste<BufferedImage> list = new Liste<BufferedImage>();
@@ -354,7 +392,7 @@ public class FPanelMiniMapContainer extends FPanel {
     }
     /**
     *{@summary Return a small image from a list of images.}<br>
-    *@version 2.10
+    *@lastEditedVersion 2.10
     */
     private BufferedImage getListeImage(Liste<BufferedImage> listIn){
       BufferedImage bi = new BufferedImage(getHeight(), getHeight(), BufferedImage.TYPE_INT_ARGB);

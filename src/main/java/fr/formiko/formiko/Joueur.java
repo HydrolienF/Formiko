@@ -2,7 +2,6 @@ package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
-import fr.formiko.views.gui2d.readG;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -73,7 +72,7 @@ public class Joueur implements Serializable{
   public boolean isCaseNuageuse(CCase cc){return getCaseNuageuse(cc.getContent().getPoint().getX(),cc.getContent().getPoint().getY());}
   /**
   *{@summary Set Pheromone for all the Ants of the player.}
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public void setPheromone(Pheromone ph){
     for (Creature c : fere.getGc().toList()) {

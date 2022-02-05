@@ -25,6 +25,7 @@ public class ObjetSurCarteAId extends ObjetAId implements Serializable{
   }
   // GET SET ----------------------------------------------------------------------
   public CCase getCCase(){return this.ccase;}
+  public Case getCase(){return getCCase().getContent();}
   //setCase est Override par Creature & Graine.
   public void setCCase(CCase cc){ this.ccase = cc;}
   public void setCCase(int x, int y){setCCase(Main.getGc().getCCase(x,y));}

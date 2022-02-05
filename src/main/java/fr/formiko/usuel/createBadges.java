@@ -7,14 +7,14 @@ import java.io.File;
 
 /**
 *{@summary Create badges for github readme.}<br>
-*@version 1.46
+*@lastEditedVersion 1.46
 *@author Hydrolien
 */
 public class createBadges{
   private static String PATH_TO_JSON = ".github/badges/json/";
   /**
   *{@summary Create badges for github readme.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public static void createBadges(){
     Main.initialisation();
@@ -29,7 +29,7 @@ public class createBadges{
   *@param label the 1a text part.
   *@param message the 2a text part.
   *@param color the color of the 2a part.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private static GString createBadge(String label, String message, String color){
     GString gs = new GString();
@@ -47,7 +47,7 @@ public class createBadges{
   *@param label the 1a text part.
   *@param value the 2a text part.
   *@param color the color of the 2a part.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private static GString createBadge(String label, int value, String color){
     GString gs = new GString();
@@ -61,7 +61,7 @@ public class createBadges{
   }
   /**
   *{@summary Create version badges for github readme.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private static void createVersionsBadges(){
     GString gsIn = lireUnFichier.lireUnFichierGs("version.md");
@@ -73,7 +73,7 @@ public class createBadges{
   //TODO update the versions use by web site.
   /**
   *{@summary Create doc badges for github readme.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private static void createDocBadges(){
     stats.statsJavadoc("src/main/",true);
@@ -87,7 +87,7 @@ public class createBadges{
   }
   /**
   *{@summary Create language badges for github readme.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private static void createLanguagesBadges(){
     chargerLesTraductions.iniTLangue();
@@ -107,7 +107,7 @@ public class createBadges{
   *{@summary return a color depending of percentage.}<br>
   *@param percentage the percentage to choose the color.
   *@return a color from red to green.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private static String getColor(int percentage){
     String color;

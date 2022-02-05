@@ -6,13 +6,13 @@ import java.io.Serializable;
 /**
  * {@summary play a turn.}<br>
  * @author Hydrolien
- * @version 1.24
+ * @lastEditedVersion 1.24
  */
 public interface Tour extends Serializable{
   /***
   *{@summary play a turn.}<br>
   *@param c The Creature that need to play a turn.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   void unTour(Creature c);
   //void preTour(Creature c);
@@ -20,7 +20,7 @@ public interface Tour extends Serializable{
   *{@summary end a turn.}<br>
   *Turn can be end only 1 times per turn.
   *@param c The Creature that need to end a turn.
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   default void endTurn(Creature c){}
 }

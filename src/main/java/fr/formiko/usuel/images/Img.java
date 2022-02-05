@@ -30,7 +30,7 @@ import javax.swing.JPanel;
 /**
 *{@summary Img is a BufferedImage where you can edit pixel value, then save it on a local file or draw it.}<br>
 *@author Hydrolien
-*@version 1.11
+*@lastEditedVersion 1.11
 */
 public class Img implements Cloneable{
   private Random rand = new Random();
@@ -74,6 +74,7 @@ public class Img implements Cloneable{
   // GET SET -------------------------------------------------------------------
   public BufferedImage getBi(){ return bi;}
   public BufferedImage getImage(){return getBi();}
+  public BufferedImage toBufferedImage(){return getBi();}
   public byte[][] getAlpha() { // transparence.
     if (alpha != null){ return alpha;}
     else { setAlpha(); return alpha;}
@@ -104,15 +105,14 @@ public class Img implements Cloneable{
     if (vert != null) return vert;
     else setVert(); return vert;
   }public byte [][] getG(){ return getVert();}
-  public byte [][] getV(){ return getVert();}
-  public byte getV(int i, int j){ return vert[i][j];}
+  public byte getG(int i, int j){ return vert[i][j];}
   public void setVert(){
     vert = new byte[width][height];
     for (int i = 0 ; i < width; i++)
       for (int j = 0; j < height; j++)
         vert[i][j] = (byte)(((bi.getRGB(i,j)>>8)&255) -128);
   }public void setVert(int i,int j, byte x){ vert[i][j]=x;}
-  public void setV(int i,int j, byte x){setVert(i,i,x);}
+  public void setG(int i,int j, byte x){setVert(i,i,x);}
 
   public byte[][] getBleu() {
     if (bleu != null) return bleu;
@@ -145,8 +145,8 @@ public class Img implements Cloneable{
   public int getWidth(){return width;}
   public int getHeight(){return height;}
   public void setARVB(int i, int j, int x){setARVB(i,j,(byte)x);}
-  public void setARVB(int i, int j, byte x){setA(i,j,x);setR(i,j,x);setV(i,j,x);setB(i,j,x);}
-  public Pixel getPixel(int i, int j){ return new Pixel(getR(i,j),getV(i,j),getB(i,j),getA(i,j));}
+  public void setARVB(int i, int j, byte x){setA(i,j,x);setR(i,j,x);setG(i,j,x);setB(i,j,x);}
+  public Pixel getPixel(int i, int j){ return new Pixel(getR(i,j),getG(i,j),getB(i,j),getA(i,j));}
   public int getNbrDePixel(Pixel a, int x){
     int r = 0;
     //la il faudrait arriver a compter les pixels a dans un rayon de x.
@@ -157,7 +157,7 @@ public class Img implements Cloneable{
   *{@summary Standard equals function.}
   *Null &#38; other class type proof.
   *@param o o is the Object to test. It can be null or something else than this class.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   @Override
   public boolean equals(Object o){
@@ -220,7 +220,7 @@ public class Img implements Cloneable{
       for (int j=0; j<yTemp; j++){
         //on remplace le pixel de l'image par celui de i au mêm e endrois
         rouge[i+x][j+y]=ie.getR(i,j);
-        vert[i+x][j+y]=ie.getV(i,j);
+        vert[i+x][j+y]=ie.getG(i,j);
         bleu[i+x][j+y]=ie.getB(i,j);
         alpha[i+x][j+y]=ie.getA(i,j);
       }
@@ -408,7 +408,7 @@ public class Img implements Cloneable{
       for (int j = 0; j < height; j++){
         if(a.getR()==rouge[i][j] && a.getG()==vert[i][j] && a.getB()==bleu[i][j] && a.getA()==alpha[i][j]){
           rouge[i][j]=b.getR();
-          vert[i][j]=b.getV();
+          vert[i][j]=b.getG();
           bleu[i][j]=b.getB();
           alpha[i][j]=b.getA();
           x++;
@@ -434,7 +434,7 @@ public class Img implements Cloneable{
       for (int j = 0; j < height; j++){
         if(alpha[i][j]==-128){
           rouge[i][j]=b.getR();
-          vert[i][j]=b.getV();
+          vert[i][j]=b.getG();
           bleu[i][j]=b.getB();
           alpha[i][j]=b.getA();
           x++;
@@ -476,7 +476,7 @@ public class Img implements Cloneable{
   public void tourner(byte x){ // on tourne de 90° a chaque fois.
     x=(byte)(x+4); // pour pouvoir utiliser des angles négatifs.
     //if(width!=height){ return null;}
-    Img ir = new Img(width,height);
+    // Img ir = new Img(width,height);
     if (x%2==1){ //si la largeur et la hauteur sont échangée.
       int wTemp = width;
       width = height;
@@ -526,7 +526,7 @@ public class Img implements Cloneable{
     setVert(vertT);
     setBleu(bleuT);
     setAlpha(alphaT);
-    actualiserImage();
+    // actualiserImage();
     //return ir;
   }public void tourner(int x){ tourner((byte) x);}
   public void tourner(){ tourner(1);}
@@ -630,7 +630,7 @@ public class Img implements Cloneable{
       d++;
     }
     int b=0;
-    while(b<width && tableau.contientUniquement(imgTemp.getAlpha()[width-b-1],(byte)-128)){//tant qu'il n'y a que des pixels transparent.
+    while(b<width && tableau.contientUniquement(imgTemp.getAlpha()[imgTemp.width-b-1],(byte)-128)){//tant qu'il n'y a que des pixels transparent.
       b++;
     }
     t[0]=a;t[1]=b;t[2]=c;t[3]=d;

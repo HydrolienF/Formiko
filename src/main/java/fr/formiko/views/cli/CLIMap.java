@@ -11,7 +11,7 @@ import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
-import fr.formiko.usuel.ascii;
+import fr.formiko.usuel.Ascii;
 import fr.formiko.usuel.color;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -20,7 +20,7 @@ import fr.formiko.usuel.structures.listes.GString;
 /**
 *{@summary Represent the Map in CLI mode.}<br>
 *CLI = Console Line Interface.
-*@version 1.39
+*@lastEditedVersion 1.39
 *@author Hydrolien
 */
 public class CLIMap{
@@ -33,7 +33,7 @@ public class CLIMap{
   /**
   *{@summary Main contructor.}<br>
   *@param gc The GCase to print.<br>
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   public CLIMap(GCase gc){
     this.gc=gc;
@@ -46,7 +46,7 @@ public class CLIMap{
   *{@summary Main function of CLIMap.}<br>
   *If on linux it will use color for the map.
   *@return Printable String that represent GString.<br>
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   public String toString(){
     String sr = "";
@@ -65,7 +65,7 @@ public class CLIMap{
   //private
   /**
   *{@summary Return a color String to represent the ally status of Creature c with the playingAnt.}
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   private static String getColorAllyStatus(Creature c){
     Fourmi f = Main.getPlayingAnt();
@@ -85,7 +85,7 @@ public class CLIMap{
   /**
   *{@summary Return a String representing the ObjetSurCarteAId in param.}
   *@param o The Object to represent.
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   //public only for test
   public static String objetSurCarteAIdToString(ObjetSurCarteAId o, boolean colored){
@@ -108,7 +108,7 @@ public class CLIMap{
   /**
   *{@summary Return the legend as a String.}<br>
   *Legend can be empty or can have line that look like this "A : F1, 5, G12 \n B : 8, 3 etc."<br>
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   private String legendToString(){
     String sr="";
@@ -120,7 +120,7 @@ public class CLIMap{
   }
   /**
   *{@summary Return the map as a String easy to use.}<br>
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   //public only for test
   public String mapToMapString(){
@@ -145,7 +145,7 @@ public class CLIMap{
     while(cc!=null){
       xi2++;
       sr+=color.BLUE;
-      sr+=ascii.getNuméroationEnAbcd(xi2)+"|";
+      sr+=Ascii.intToLetterCode(xi2)+"|";
       sr+=color.NEUTRAL;
       sr+=mapLineToString(cc,j)+"\n";
       cc=cc.getBas();
@@ -155,7 +155,7 @@ public class CLIMap{
   /**
   *{@summary Return the map as a String.}<br>
   *All map infos are stored in a GCase, this.gc.
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   //public only for test
   public String mapToString(){
@@ -171,7 +171,7 @@ public class CLIMap{
   /**
   *{@summary Return a line of a map as a String.}<br>
   *@param cc The 1a CCase of the line.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   //public only for test
   public String mapLineToString(CCase cc, Joueur j){
@@ -188,7 +188,7 @@ public class CLIMap{
   *This string have a fix length.<br>
   *@param cc CCase that contain Case to print.
   *@param j Player that will be used to know if cases need to be nuageuse or sombre.
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   //public only for test
   public String caseToString(CCase cc, Joueur j){
@@ -200,7 +200,7 @@ public class CLIMap{
   *@param contenu Case to print.
   *@param caseNuageuse Boolean to know if player have explored the Case.
   *@param caseSombre Boolean to know if player is curently seeing the Case.
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   //public only for test
   public String caseToString(Case contenu, boolean caseNuageuse, boolean caseSombre){
@@ -230,7 +230,7 @@ public class CLIMap{
         }
       }else{
         xi++;
-        sr = ascii.getNuméroationEnAbcd(xi);
+        sr = Ascii.intToLetterCode(xi);
         // ajout dans la legend.
         String s = sr +" : ";
         if(contenu.getFere() != null){
@@ -257,7 +257,7 @@ public class CLIMap{
   /**
   *{@summary Return the backgroud color of a Case.}<br>
   *@param c Case to print.
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   //public only for test
   public String caseColor(Case c){

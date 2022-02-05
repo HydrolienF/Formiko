@@ -1,7 +1,7 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.ascii;
+import fr.formiko.usuel.Ascii;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -22,7 +22,7 @@ public class Pheromone implements Serializable{
     this((byte)r,(byte)v,(byte)b);
   }
   public Pheromone(Pheromone fo, byte x){
-    this(allea.fluctuerBrute(fo.getR(),x),allea.fluctuerBrute(fo.getV(),x),allea.fluctuerBrute(fo.getB(),x));
+    this(allea.fluctuerBrute(fo.getR(),x),allea.fluctuerBrute(fo.getG(),x),allea.fluctuerBrute(fo.getB(),x));
   }
   public Pheromone(Pheromone fo){
     this(fo,(byte)2); // par défaut les Pheromones fluctuent de 2 maximum.(6 pour une Reine fille).
@@ -35,18 +35,40 @@ public class Pheromone implements Serializable{
   }
   // GET SET -------------------------------------------------------------------
   public byte getR(){ return r;}
-  public byte getG(){ return v;} public byte getV(){ return getG();}
+  public byte getG(){ return v;}
   public byte getB(){ return b;}
   public void setR(byte x){r=x;}
-  public void setG(byte x){r=v;} public void setV(byte x){setG(x);}
+  public void setG(byte x){r=v;}
   public void setB(byte x){r=b;}
   public byte getRc(){ return (byte)(r+128);}
   public byte getVc(){ return (byte)(v+128);}
   public byte getBc(){ return (byte)(b+128);}
   public Color getColor(){ return new Color(r+128,v+128,b+128);}
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Return a string that describe this.}<br>
+  *@lastEditedVersion 2.18
+  */
   public String toString(){
     return r+" "+v+" "+b;
+  }
+  /**
+  *{@summary Return the hexadecimal code that describe this.}<br>
+  *@lastEditedVersion 2.18
+  */
+  public String toHex(){
+    return toHex(r+128)+toHex(v+128)+toHex(b+128);
+  }
+  /**
+  *{@summary Return the hexadecimal code of an int.}<br>
+  *@lastEditedVersion 2.18
+  */
+  private String toHex(int x){
+    String s = Integer.toHexString(x).toUpperCase();
+    if(s.length()==1){
+      s="0"+s;
+    }
+    return s;
   }
   public void afficheToi(){
     System.out.println(this);
@@ -55,7 +77,7 @@ public class Pheromone implements Serializable{
   *{@summary Standard equals function.}
   *Null &#38; other class type proof.
   *@param o o is the Object to test. It can be null or something else than this class.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   @Override
   public boolean equals(Object o){
@@ -67,7 +89,7 @@ public class Pheromone implements Serializable{
   public int hashCode(){return getR()+getG()*1000+getB()*1000000;}
   /**
   *{@summary special equals function.}
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public boolean equals(Pheromone ph, int ndifferenceTollere){
     if(ndifferenceTollere<1){return false;}
@@ -77,8 +99,8 @@ public class Pheromone implements Serializable{
     if (this.getR() >= ph.getR() + ndifferenceTollere){ return false;}
     if (this.getB() <= ph.getB() - ndifferenceTollere){ return false;}
     if (this.getB() >= ph.getB() + ndifferenceTollere){ return false;}
-    if (this.getV() <= ph.getV() - ndifferenceTollere){ return false;}
-    if (this.getV() >= ph.getV() + ndifferenceTollere){ return false;}
+    if (this.getG() <= ph.getG() - ndifferenceTollere){ return false;}
+    if (this.getG() >= ph.getG() + ndifferenceTollere){ return false;}
     return true;
   }
   public static int getXFromS(String s){
@@ -95,6 +117,9 @@ public class Pheromone implements Serializable{
   public Color phToColor(){
     return new Color(r+128,v+128,b+128,255);
   }
+  public static Pheromone colorToPh(Color col){
+    return new Pheromone(col.getRed()-128,col.getGreen()-128,col.getBlue()-128);
+  }
 
 
   public static String b10ToB16(int x){
@@ -106,7 +131,7 @@ public class Pheromone implements Serializable{
   public static String nbrToChiffre(int x){ //10 devient ascci(41) (cad A).
     if (x<10){return x+"";}
     int y = x-10;
-    return ascii.asciiToA(y+65)+"";
+    return Ascii.asciiToA(y+65)+"";
   }
   public static int b16ToB10(char c){
     if (c>=65 && c<=90){ return c-55;}

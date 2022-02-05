@@ -30,7 +30,7 @@ import javax.swing.JButton;
 *There is a default color for normal button, focus button &#38; disable button.<br>
 *Defaults colors are in Data.<br>
 *@author Hydrolien
-*@version 1.54
+*@lastEditedVersion 1.54
 */
 public class FButton extends JButton implements MouseListener {
   protected final int id; protected static int cpt=1;
@@ -87,6 +87,7 @@ public class FButton extends JButton implements MouseListener {
   public int getActionB(){ return action;}
   public void setActionB(int x){action =x; }
   public void setBordure(boolean b){bordure=b;}
+  // public FPanel getP(){return p;}
   // public void setCFond(Color c){cFond=c;}
   // public Color getCFont(){
   //   if(cFont!=null){return cFont;}
@@ -98,7 +99,7 @@ public class FButton extends JButton implements MouseListener {
   /**
   *{@summary return background color with or without alpha.}
   *With alpha if cFondUseAlpha==True;
-  *@version 1.54
+  *@lastEditedVersion 1.54
   */
   public Color getBackgroundColor(){
     Color c = Main.getData().getButtonColor(color);
@@ -120,7 +121,7 @@ public class FButton extends JButton implements MouseListener {
   public void setColor(int x){color=x;}
   /**
   *{@summary Swap color beween green &#38; yellow.}<br>
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public void setDefaultColor(){
     if(isYellow){
@@ -135,7 +136,7 @@ public class FButton extends JButton implements MouseListener {
   *{@summary To draw component.}<br>
   *It draw a fill rectangle as background color.
   *Draw it there alow to have alpha color.
-  *@version 1.54
+  *@lastEditedVersion 1.54
   */
   @Override
   public void paintComponent(Graphics g){
@@ -153,19 +154,15 @@ public class FButton extends JButton implements MouseListener {
     if(img==null){setText(nom);}
     else{g2d.drawImage(this.img,0,0, null);}
     if(bordure){
-      try {
+      if(getBorder()!=null && getBorder() instanceof FBorder){
         ((FBorder)getBorder()).setColor(new Color(getCFont().getRed(), getCFont().getGreen(), getCFont().getBlue()));
-      }catch (Exception e) {
-        erreur.alerte("can't set border color");
       }
-      // paintBorder(g2d);
     }
     super.paintComponent(g);
   }
   /**
   *{@summary Draw border.}<br>
-  *@author Hydrolien
-  *@version 1.54
+  *@lastEditedVersion 1.54
   */
   public void paintBorder(Graphics2D g){
     //TODO #398 move to FBorder.
@@ -215,7 +212,7 @@ public class FButton extends JButton implements MouseListener {
   }
   /**
   *{@summary set the button selected or not depending of mouse x,y.}<br>
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   public void updateSelected(){
     int mouseX = (int)MouseInfo.getPointerInfo().getLocation().getX();
@@ -226,7 +223,7 @@ public class FButton extends JButton implements MouseListener {
   *{@summary set the button selected or not.}<br>
   *@param selected true if button is selected
   *@param mouseLocated true if desc is mouse located
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public void setSelected(boolean selected, boolean mouseLocated){
     if(!isEnabled()){FPanel.getView().setMessageDesc("", mouseLocated); return;}
@@ -242,7 +239,7 @@ public class FButton extends JButton implements MouseListener {
   *{@summary Set the button selected or not.}<br>
   *By default desc is not mouse located.
   *@param selected true if button is selected
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public void setSelected(boolean selected){
     setSelected(selected, false);
@@ -250,7 +247,7 @@ public class FButton extends JButton implements MouseListener {
   /**
   *{@summary Return the shortcut key as a String.}<br>
   *If key don't exist it will return an empty String.
-  *@version 2.2
+  *@lastEditedVersion 2.2
   */
   private String getKeyboardKey(){
     String key = "";
@@ -262,7 +259,7 @@ public class FButton extends JButton implements MouseListener {
   }
   /**
   *{@summary Return the description of the button.}<br>
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   protected String getDesc(){
     return g.get("bouton.desc."+action)+getKeyboardKey();

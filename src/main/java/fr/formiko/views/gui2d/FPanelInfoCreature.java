@@ -22,7 +22,7 @@ import java.awt.image.BufferedImage;
 /**
 *{@summary Panel that containt infos about a Creature as a List of Panel.}<br>
 *@author Hydrolien
-*@version 2.7
+*@lastEditedVersion 2.7
 */
 public class FPanelInfoCreature extends FPanelInfo {
   // FUNCTIONS -----------------------------------------------------------------
@@ -30,7 +30,7 @@ public class FPanelInfoCreature extends FPanelInfo {
   public static FPanelInfoCreatureBuilder builder(){return new FPanelInfoCreatureBuilder();}
   /**
   *{@summary Standard paintComponent.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   @Override
   public void paintComponent(Graphics g){
@@ -39,7 +39,7 @@ public class FPanelInfoCreature extends FPanelInfo {
   /**
   *{@summary Standard Builder for this.}<br>
   *@author Hydrolien
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   // SUB-CLASS -----------------------------------------------------------------
   static class FPanelInfoCreatureBuilder extends FPanelInfoBuilder {
@@ -52,7 +52,7 @@ public class FPanelInfoCreature extends FPanelInfo {
     //public
     /**
     *{@summary Standard Builder for this.}<br>
-    *@version 2.7
+    *@lastEditedVersion 2.7
     */
     public FPanelInfoBuilder addCreature(Creature c){
       this.c=c;
@@ -61,7 +61,7 @@ public class FPanelInfoCreature extends FPanelInfo {
     /**
     *{@summary Build including the tranfomation of Creature to Panel.}<br>
     *Creature are represent as icon &#38; FProgressBar.
-    *@version 2.7
+    *@lastEditedVersion 2.7
     */
     @Override
     public FPanelInfo build(){
@@ -75,7 +75,7 @@ public class FPanelInfoCreature extends FPanelInfo {
     //private
     /**
     *{@summary Add the icons then the progress bar with there icon.}<br>
-    *@version 2.7
+    *@lastEditedVersion 2.7
     */
     private void addCreatureInfo(){
       addCreatureIcons();
@@ -87,12 +87,13 @@ public class FPanelInfoCreature extends FPanelInfo {
     *the icon draw on the map if creature is not the playing ant,
     *seed if there is any.<br>
     *Specie name is also print.<br>
-    *@version 2.7
+    *@lastEditedVersion 2.7
     */
     private void addCreatureIcons(){
       FPanelCreatureIcons pci = new FPanelCreatureIcons(yByElement);
       pci.addIcon(Main.getData().getCreatureImage(c));
       pci.setText(c.getSex()+" "+c.getEspece().getNom());
+      // pci.setFont(Main.getOp().getFont1());
       if(c!=null && !c.equals(Main.getPlayingAnt())){
         pci.addIcon(FPanelCarte.getIconImage(c,Main.getPlayingAnt()));
       }
@@ -101,7 +102,7 @@ public class FPanelInfoCreature extends FPanelInfo {
     }
     /**
     *{@summary Add the progress bars.}<br>
-    *@version 2.7
+    *@lastEditedVersion 2.7
     */
     private void addCreatureProgressBars(){
       if(c.getMaxAge()<Main.getPartie().getNbrDeTour()){
@@ -116,7 +117,7 @@ public class FPanelInfoCreature extends FPanelInfo {
     *@param state state that define color of the bar
     *@param value curent value of the bar
     *@param maxValue max value of the bar
-    *@version 2.7
+    *@lastEditedVersion 2.7
     */
     private void addCreatureProgressBar(int state, int value, int maxValue, String iconName){
       if (value<0) {
@@ -145,7 +146,7 @@ public class FPanelInfoCreature extends FPanelInfo {
 /**
 *{@summary Panel that containt a FProgressBar &#38; an icon.}<br>
 *@author Hydrolien
-*@version 2.7
+*@lastEditedVersion 2.7
 */
 class FPanelProgressBar extends FPanel {
   private FProgressBar pb;
@@ -155,7 +156,7 @@ class FPanelProgressBar extends FPanel {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public FPanelProgressBar(FProgressBar pb, BufferedImage bi){
     super();
@@ -174,7 +175,7 @@ class FPanelProgressBar extends FPanel {
   public void setMessageDesc(String s){messageDesc=s;}
   /**
   *{@summary Override of set size to also set size of the FProgressBar.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   @Override
   public void setSize(int x, int y){
@@ -186,7 +187,7 @@ class FPanelProgressBar extends FPanel {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Paint component: FProgressBar &#38; icon image.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void paintComponent(Graphics g){
     super.paintComponent(g);
@@ -197,12 +198,12 @@ class FPanelProgressBar extends FPanel {
   // SUB-CLASS -----------------------------------------------------------------
   /**
   *{@summary Listener that update description when it need.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public class FPanelProgressBarMouseListener implements MouseListener {
     /**
     *{@summary Update message description.}<br>
-    *@version 2.7
+    *@lastEditedVersion 2.7
     */
     @Override
     public void mouseEntered(MouseEvent event) {
@@ -210,7 +211,7 @@ class FPanelProgressBar extends FPanel {
     }
     /**
     *{@summary Remove message description.}<br>
-    *@version 2.7
+    *@lastEditedVersion 2.7
     */
     @Override
     public void mouseExited(MouseEvent event) {
@@ -227,7 +228,7 @@ class FPanelProgressBar extends FPanel {
 /**
 *{@summary Panel that containt the creature icons.}<br>
 *@author Hydrolien
-*@version 2.7
+*@lastEditedVersion 2.7
 */
 class FPanelCreatureIcons extends FPanel {
   private Liste<BufferedImage> iconsList;
@@ -235,7 +236,7 @@ class FPanelCreatureIcons extends FPanel {
   private int xy;
   /**
   *{@summary Main constructor.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public FPanelCreatureIcons(int xy){
     iconsList = new Liste<BufferedImage>();
@@ -243,14 +244,14 @@ class FPanelCreatureIcons extends FPanel {
   }
   /**
   *{@summary Add an icon at the liste of icon to print.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void addIcon(BufferedImage bi){
     iconsList.add(image.resize(bi,xy));
   }
   /**
   *{@summary Aet the text of the FLabel.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void setText(String s){
     if(label==null){
@@ -263,7 +264,7 @@ class FPanelCreatureIcons extends FPanel {
   }
   /**
   *{@summary Paint every icon &#38; the FLabel.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   @Override
   public void paintComponent(Graphics g){

@@ -39,6 +39,7 @@ public class FPanelJeu extends FPanel {
   private FPanelSup ps;
   private FPanelDialogue pd;
   private FPanelDialogueInf pdi;
+  private FPanelPanelMove pmmo;
 
   private FLabel labelMessage;
   private ThreadMessagesDesc th;
@@ -62,6 +63,7 @@ public class FPanelJeu extends FPanel {
   public FPanelEchap getPe(){return pe;}
   public FPanelDialogue getPd(){return pd;}
   public FPanelDialogueInf getPdi(){return pdi;}
+  public FPanelPanelMove getPmmo(){return pmmo;}
   //get set transmis
   public void addPA(){ pb.addPA();}
   public void addPti(int x [], int y){pb.addPti(x,y);}
@@ -98,7 +100,7 @@ public class FPanelJeu extends FPanel {
   }
   public void addPs(){
     ps=new FPanelSup();
-    ps.setBounds(0,0,getWidth(),getHeight());
+    ps.setSize(getWidth(),getHeight());
     add(ps);
   }
   public void addPc(){
@@ -167,15 +169,15 @@ public class FPanelJeu extends FPanel {
     pb.setVisible(true);
     ps.actualiserTaille();
   }
+  public void addPmmo(){
+    pmmo = new FPanelPanelMove();
+    pmmo.setSize(getWidth(), getHeight());
+    add(pmmo);
+  }
   /*public int getXPourCentré(int x, int taille){
     if(x<taille){ return x;}
     return x/2-(taille);
   }*/
-  public void centrerLaCarte(){
-    GCase gc = Main.getGc();
-    pc.setPosX(math.max(gc.getNbrX()/2 - nbrDeCaseAffichableX(),0));
-    pc.setPosY(math.max(gc.getNbrY()/2 - nbrDeCaseAffichableY(),0));
-  }
   public int nbrDeCaseAffichableX(){
     return (getWidth()/pc.getTailleDUneCase())+1;
   }
@@ -190,6 +192,7 @@ public class FPanelJeu extends FPanel {
     int y=0;
     if(x==1){ y=math.max(y1,y2);}
     else if(x==2){ y=math.min(y1,y2);}
+    y = math.between(Main.getTailleElementGraphique(100), Main.getTailleElementGraphique(500), y);
     pc.setTailleDUneCase(y);
     actionAFaireSiTailleD1CaseChange();
   }
@@ -199,16 +202,8 @@ public class FPanelJeu extends FPanel {
       Main.getData().chargerImages();
       getView().getPmmc().build();
       Main.getData().iniBackgroundMapImage();
+      getView().setBladeChanged(true);
     }
-  }
-  public void centrerSurLaFourmi(){
-    if (Main.getPlayingAnt()==null){erreur.alerte("Impossible de centrer sur une fourmi si aucune fourmi n'est selectionné."); return;}
-    int x = nbrDeCaseAffichableX();
-    int y = nbrDeCaseAffichableY();
-    int posX = Main.getPlayingAnt().getX();
-    int posY = Main.getPlayingAnt().getX();
-    pc.setPosX(posX + x/2);
-    pc.setPosY(posY + y/2);
   }
   public void actionZoom(byte ac){
     if (ac==2) { // zoom
@@ -218,27 +213,30 @@ public class FPanelJeu extends FPanel {
       pc.setTailleDUneCase(math.max((pc.getTailleDUneCase()*3)/4,10));
       actionAFaireSiTailleD1CaseChange();
     }else if(ac==1){
-      pc.setPosY(math.max(pc.getPosY()-1,0));
+      // pc.setPosY(math.max(pc.getPosY()-1,0));
     }else if(ac==7){
-      GCase gc = Main.getGc();
-      pc.setPosY(math.min(pc.getPosY()+1,gc.getNbrY()-1));
+      // GCase gc = Main.getGc();
+      // pc.setPosY(math.min(pc.getPosY()+1,gc.getNbrY()-1));
     }else if(ac==5){
-      GCase gc = Main.getGc();
-      pc.setPosX(math.min(pc.getPosX()+1,gc.getNbrX()-1));
+      // GCase gc = Main.getGc();
+      // pc.setPosX(math.min(pc.getPosX()+1,gc.getNbrX()-1));
     }else if(ac==3){
-      pc.setPosX(math.max(pc.getPosX()-1,0));
-    }else if(ac==4){
-      centrerLaCarte();
-    }else if(ac==6){
-      //centrerSurLaFourmi(); //pour l'instant ca fait pas ce qu'il faut.
+      // pc.setPosX(math.max(pc.getPosX()-1,0));
+    }else if(ac==4){ //center over anthill
+      if(Main.getPlayingJoueur()==null || Main.getPlayingJoueur().getFere()==null){return;}
+      getView().centerOverCase(Main.getPlayingJoueur().getFere().getCCase().getContent());
+    }else if(ac==6){ //center over playing ant
+      if(Main.getPlayingAnt()==null){return;}
+      getView().centerOverCase(Main.getPlayingAnt().getCCase().getContent());
     }else if(ac==8){
       dézoomer((byte)2);
     }
     Main.repaint();
   }
+
   /**
   *{@summary print an alerte box.}
-  *@version 1.49
+  *@lastEditedVersion 1.49
   */
   public void alerte(String s, String s2){
     JOptionPane jop1 = new JOptionPane();
@@ -247,20 +245,26 @@ public class FPanelJeu extends FPanel {
   public void alerte(String s){ alerte(s,g.getM("information"));}
   /**
   *{@summary Print a question box.}
+  *@param popUpName name of the popUp
+  *@param popUpMessage message of the popUp
   *@return answer.
-  *@version 1.50
+  *@lastEditedVersion 1.50
   */
-  public String question(String s, String s2){
-    // String[] options = {g.get("oui"),g.get("non")};
-    // String r = JOptionPane.showOptionDialog(Main.getF(), g.get(s), g.get(s2)+" ?",JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE);
-    String r = JOptionPane.showInputDialog (Main.getF(), g.getM(s), s2, JOptionPane.QUESTION_MESSAGE);
+  public String question(String popUpName, String popUpMessage){
+    String r = JOptionPane.showInputDialog (Main.getF(), g.getM(popUpName), popUpMessage, JOptionPane.QUESTION_MESSAGE);
     return r;
   }
-  public String question(String s){ return question(s,"?");}
+  /***
+  *{@summary Print a question box.}
+  *@param popUpName name of the popUp
+  *@return answer.
+  *@lastEditedVersion 1.50
+  */
+  public String question(String popUpName){ return question(popUpName,"?");}
 
   /**
   *{@summary Update time from last move in the Thread.}
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void updateTimeFromLastMove(){
     if(th==null){return;}
@@ -269,7 +273,7 @@ public class FPanelJeu extends FPanel {
   /**
   *{@summary Update message.}<br>
   *It will initialize &#38; launch ThreadMessagesDesc if it is null.
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void updateThreadMessagesDesc(String message){
     if(th==null){
@@ -284,7 +288,7 @@ public class FPanelJeu extends FPanel {
   *{@summary Thread used to print a description message at mouse location.}<br>
   *Message is print only after 0.5s if mouse don't move.
   *@author Hydrolien
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   class ThreadMessagesDesc extends Thread {
     private String message;
@@ -295,7 +299,7 @@ public class FPanelJeu extends FPanel {
 
     /**
     *{@summary Main function that update message if needed every 50ms.}<br>
-    *@version 2.7
+    *@lastEditedVersion 2.7
     */
     @Override
     public void run(){

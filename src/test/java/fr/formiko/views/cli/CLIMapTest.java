@@ -12,7 +12,7 @@ import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
 import fr.formiko.tests.TestCaseMuet;
 import fr.formiko.usuel.Os;
-import fr.formiko.usuel.ascii;
+import fr.formiko.usuel.Ascii;
 import fr.formiko.usuel.color;
 
 public class CLIMapTest extends TestCaseMuet{

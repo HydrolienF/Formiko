@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 /**
 *{@summary Dialogue backgroud panel.}<br>
 *@author Hydrolien
-*@version 2.6
+*@lastEditedVersion 2.6
 */
 public class FPanelDialogueInf extends FPanel {
   private static Image fond;
@@ -21,14 +21,14 @@ public class FPanelDialogueInf extends FPanel {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Empty main constructor.}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public FPanelDialogueInf(){
     super();
   }
   /**
   *{@summary Build function.}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void initialiser(){
     setSize(Main.getDimX(),Main.getTailleElementGraphiqueY(210));
@@ -38,7 +38,7 @@ public class FPanelDialogueInf extends FPanel {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Paint function.}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void paintComponent(Graphics g){
     g.drawImage(fond,0,0,this);
@@ -46,7 +46,7 @@ public class FPanelDialogueInf extends FPanel {
   }
   /**
   *{@summary Load the backgrounf image.}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public static void chargerFond(){
     fond = image.getImage("hautDeLaFenetre");
@@ -55,7 +55,7 @@ public class FPanelDialogueInf extends FPanel {
   /**
   *{@summary Add the FButton "next".}<br>
   *It choose best size #38; fix location.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void addBSuivant(){
     b = new FLabel(g.get("suivant"));
@@ -65,7 +65,7 @@ public class FPanelDialogueInf extends FPanel {
   }
   /**
   *{@summary remove the FButton "next".}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void removeBSuivant(){
     remove(b);

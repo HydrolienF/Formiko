@@ -10,6 +10,7 @@ import fr.formiko.usuel.lireUnFichier;
 import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.types.str;
 
+import java.awt.Font;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -80,7 +81,7 @@ public class trad {
   /**
   *{@summary Translate all web site file for curent language.}<br>
   *It need to have the good path to web site file.
-  *@version 1.48
+  *@lastEditedVersion 1.48
   */
   public static void translateWebSiteFiles(String pathToWebSiteFile){
     // String pathToWebSiteFile = "../HydrolienF.github.io/docs/";
@@ -119,8 +120,8 @@ public class trad {
   }
   /**
   *{@summary Translate a String by replacing €{key} by the translation of key.}<br>
-  *@param s the String to translate.
-  *@version 1.48
+  *@param s the String to translate
+  *@lastEditedVersion 1.48
   */
   //TODO test
   public static String replaceTranslation(String s){
@@ -156,5 +157,89 @@ public class trad {
       }
     }
     return sr;
+  }
+  /**
+  *{@summary Count how many time every char is used in a language map.}<br>
+  *@param translationMap the Map to use to count char
+  *@lastEditedVersion 2.12
+  */
+  public static Map<Character,Integer> countCharUsedInTranslation(Map<String,String> translationMap){
+    Map<Character,Integer> map = new HashMap<Character,Integer>();
+    // int total=0;
+    for (var entry : translationMap.entrySet()) {
+      for (char c : entry.getValue().toCharArray()) {
+        int x=1;
+        if(map.get(c)!=null){x+=map.get(c);}
+        map.put(Character.valueOf(c), Integer.valueOf(x));
+        // total++;
+      }
+    }
+    // map.put(Character.valueOf('§'),total);
+    return map;
+  }
+  /**
+  *{@summary Count how many time every char is used in a language map.}<br>
+  *@param id id of the language to count char
+  *@lastEditedVersion 2.12
+  */
+  public static Map<Character,Integer> countCharUsedInTranslation(int id){
+    return countCharUsedInTranslation(chargerLesTraductions.chargerLesTraductions(id));
+  }
+  /**
+  *{@summary Count how many char can be draw in a language map.}<br>
+  *@param id id of the language to count char
+  *@param font font to test language printability
+  *@param charWeigth more used char will have a higer weigth in the result
+  *@lastEditedVersion 2.12
+  */
+  public static double partOfPrintableChar(int id, Font font, boolean charWeigth){
+    Map<Character,Integer> map = countCharUsedInTranslation(id);
+    int printable=0;
+    int nonPrintable=0;
+    for (var entry : map.entrySet()) {
+      if(font.canDisplay(entry.getKey())){
+        if(charWeigth){printable+=entry.getValue();}
+        else{printable+=1;}
+      }else{
+        System.out.print(entry.getKey()+" ");
+        if(charWeigth){nonPrintable+=entry.getValue();}
+        else{nonPrintable+=1;}
+      }
+    }
+    return (double)printable/(double)(printable+nonPrintable);
+  }
+  /**
+  *{@summary Count how many char can be draw in a language map.}<br>
+  *@param id id of the language to count char
+  *@param fontName name of the font to test language printability
+  *@param charWeigth more used char will have a higer weigth in the result
+  *@lastEditedVersion 2.12
+  */
+  public static double partOfPrintableChar(int id, String fontName, boolean charWeigth){
+    return partOfPrintableChar(id, new Font(fontName, Font.PLAIN, 1), charWeigth);
+  }
+  /**
+  *{@summary True if all char can be draw in a language map.}<br>
+  *@param id id of the language to count char
+  *@param font font to test language printability
+  *@lastEditedVersion 2.12
+  */
+  public static boolean canDisplayLanguage(int id, Font font){
+    Map<Character,Integer> map = countCharUsedInTranslation(id);
+    for (var entry : map.entrySet()) {
+      if(!font.canDisplay(entry.getKey())){
+        return false;
+      }
+    }
+    return true;
+  }
+  /**
+  *{@summary True if all char can be draw in a language map.}<br>
+  *@param id id of the language to count char
+  *@param fontName name of the font to test language printability
+  *@lastEditedVersion 2.12
+  */
+  public static boolean canDisplayLanguage(int id, String fontName){
+    return canDisplayLanguage(id, new Font(fontName, Font.PLAIN, 1));
   }
 }

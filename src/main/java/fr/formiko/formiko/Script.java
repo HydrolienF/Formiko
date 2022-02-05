@@ -13,7 +13,7 @@ import java.io.Serializable;
 /**
 *{@summary Script class used to do levels.}<br>
 *All script use cheat code of triche.java.
-*@version 1.38
+*@lastEditedVersion 1.38
 *@author Hydrolien
 */
 public class Script implements Serializable{
@@ -36,7 +36,7 @@ public class Script implements Serializable{
   *All default script will be in stable.
   *A player can add levels in ressourcesPacks.
   *A player can create new levels in temporary.
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   public boolean script(){
     String t [] = loadScript(Main.getFolder().getFolderStable());
@@ -55,7 +55,7 @@ public class Script implements Serializable{
   /**
   *{@summary Load the script if it is in rep/levels/.}
   *@param rep The folder where to search.
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   private String [] loadScript(String rep){
     rep+=Main.getFolder().getFolderLevels();
@@ -66,7 +66,7 @@ public class Script implements Serializable{
   /**
   *{@summary Execute the script line by line.}
   *@param t the [] with all script lines.
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   private void executeScript(String t[]){
     debug.débogage("Lancement d'1 script a "+t.length+" commandes");
@@ -77,7 +77,9 @@ public class Script implements Serializable{
         if(Main.getThScript().isInterrupted()){
           return;
         }
-        Temps.pause(50);
+        try {
+          wait();
+        }catch (Exception e) {}
       }
       setEcouteClic(true);//au cas ou la commande juste avant ai désactivé l'écoute clic.
       debug.débogage("Commande : "+s);

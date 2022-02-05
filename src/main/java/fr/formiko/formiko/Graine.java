@@ -44,7 +44,7 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   *{@summary Move the Graine from a case to an other.}<br>
   *It is used by Deplacement interfaces.<br>
   *It wil try to remove from old CCase and add to new CCase.<br>
-  *@version 1.40
+  *@lastEditedVersion 1.40
   */
   public void setCCase(CCase newCCase){
     if(this.ccase!=null){
@@ -67,7 +67,7 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   *{@summary Standard equals function.}
   *Null &#38; other class type proof.
   *@param o o is the Object to test. It can be null or something else than this class.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   @Override
   public boolean equals(Object o){

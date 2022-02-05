@@ -13,6 +13,7 @@ import fr.formiko.tests.TestCaseMuet;
 import fr.formiko.usuel.Folder;
 import fr.formiko.usuel.Os;
 import fr.formiko.usuel.g;
+import fr.formiko.views.ViewNull;
 
 public class CaseTest extends TestCaseMuet{
   private Partie p;
@@ -100,5 +101,207 @@ public class CaseTest extends TestCaseMuet{
     j.setCaseSombre(0,0,true);
     assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
     assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
+  }
+  @Test
+  public void testSetFoodInsecte(){
+    Fourmi f = ini();
+    Case c = f.getCase();
+    int x = c.getFoodInsecte();
+    c.setFoodInsecteMax((byte)50);
+    c.setFoodInsecte(0);
+    assertEquals(0, c.getFoodInsecte());
+    c.setFoodInsecte(10);
+    assertEquals(10, c.getFoodInsecte());
+    c.setFoodInsecte(8);
+    assertEquals(8, c.getFoodInsecte());
+    c.setFoodInsecte(13);
+    assertEquals(13, c.getFoodInsecte());
+    c.setFoodInsecte(50);
+    assertEquals(50, c.getFoodInsecte());
+    c.setFoodInsecte(51);
+    assertEquals(50, c.getFoodInsecte());
+    c.setFoodInsecte(-1);
+    assertEquals(0, c.getFoodInsecte());
+  }
+  @Test
+  public void testAddFoodInsecte(){
+    Fourmi f = ini();
+    Case c = f.getCase();
+    int x = c.getFoodInsecte();
+    c.setFoodInsecteMax((byte)50);
+    c.setFoodInsecte(0);
+    c.addFoodInsecte(10);
+    assertEquals(10, c.getFoodInsecte());
+    c.addFoodInsecte(10);
+    assertEquals(20, c.getFoodInsecte());
+    c.addFoodInsecte(1);
+    assertEquals(21, c.getFoodInsecte());
+    c.addFoodInsecte(-2);
+    assertEquals(21, c.getFoodInsecte());
+  }
+  @Test
+  public void testRemoveFoodInsecte(){
+    Fourmi f = ini();
+    Case c = f.getCase();
+    int x = c.getFoodInsecte();
+    c.setFoodInsecteMax((byte)50);
+    c.setFoodInsecte(50);
+    assertEquals(50, c.getFoodInsecte());
+    c.removeFoodInsecte(10);
+    assertEquals(40, c.getFoodInsecte());
+    c.removeFoodInsecte(10);
+    assertEquals(30, c.getFoodInsecte());
+    c.removeFoodInsecte(1);
+    assertEquals(29, c.getFoodInsecte());
+    c.removeFoodInsecte(-1);
+    assertEquals(29, c.getFoodInsecte());
+  }
+  @Test
+  public void testFoodInsecteWithView(){
+    Fourmi f = ini();
+    Case c = f.getCase();
+    int x = c.getFoodInsecte();
+    c.setFoodInsecteMax((byte)50);
+    Main.setView(new ViewNull(){
+      @Override
+      public boolean isBladesEnable(){return true;}
+    });
+    c.setFoodInsecteMax((byte)100);
+    c.setFoodInsecte(0);
+    assertEquals(0,c.getGb().length());
+    c.setFoodInsecte(23);
+    assertEquals(23,c.getGb().length());
+    c.removeFoodInsecte(3);
+    assertEquals(20,c.getGb().length());
+    c.addFoodInsecte(10);
+    assertEquals(30,c.getGb().length());
+    c.removeFoodInsecte(3);
+    assertEquals(27,c.getGb().length());
+    c.removeFoodInsecte(3);
+    assertEquals(24,c.getGb().length());
+  }
+  @Test
+  public void testGetSortedGc(){
+    Fourmi f = ini();
+    f.setPheromone(10,10,10);
+    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    f3.setPheromone(0,0,100);
+    f2.setCCase(f.getCCase());
+    f3.setCCase(f.getCCase());
+    GCreature gc = f.getCCase().getContent().getSortedGc(f);
+    Creature tc [] = new Creature[2];
+    tc[0]=f2;
+    tc[1]=f3;
+    assertArrayEquals(tc,gc.toList().toArray());
+  }
+  @Test
+  public void testGetSortedGc2(){
+    Fourmi f = ini();
+    f.setPheromone(10,10,10);
+    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    f2.setPheromone(0,0,100);
+    f2.setCCase(f.getCCase());
+    f3.setCCase(f.getCCase());
+    GCreature gc = f.getCCase().getContent().getSortedGc(f);
+    Creature tc [] = new Creature[2];
+    tc[0]=f3;
+    tc[1]=f2;
+    assertArrayEquals(tc,gc.toList().toArray());
+  }
+  @Test
+  public void testGetSortedGcB(){
+    Fourmi f = ini();
+    f.setPheromone(10,10,10);
+    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    f2.setPheromone(0,0,100);
+    f3.setCCase(f.getCCase());
+    f2.setCCase(f.getCCase());
+    GCreature gc = f.getCCase().getContent().getSortedGc(f);
+    Creature tc [] = new Creature[2];
+    tc[0]=f3;
+    tc[1]=f2;
+    assertArrayEquals(tc,gc.toList().toArray());
+  }
+  @Test
+  public void testGetSortedGc2B(){
+    Fourmi f = ini();
+    f.setPheromone(10,10,10);
+    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    // f3.setPheromone(0,0,100);
+    f3.setCCase(f.getCCase());
+    f2.setCCase(f.getCCase());
+    GCreature gc = f.getCCase().getContent().getSortedGc(f);
+    Creature tc [] = new Creature[2];
+    tc[0]=f3;
+    tc[1]=f2;
+    assertArrayEquals(tc,gc.toList().toArray());
+  }
+  @Test
+  public void testGetSortedGc3(){
+    Fourmi f = ini();
+    f.setPheromone(10,10,10);
+    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f4 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    f3.setPheromone(0,0,100);
+    f2.setCCase(f.getCCase());
+    f3.setCCase(f.getCCase());
+    f4.setCCase(f.getCCase());
+    GCreature gc = f.getCCase().getContent().getSortedGc(f);
+    Creature tc [] = new Creature[gc.length()];
+    tc[0]=f2;
+    tc[1]=f4;
+    tc[2]=f3;
+    assertArrayEquals(tc,gc.toList().toArray());
+  }
+  @Test
+  public void testGetSortedGc4(){
+    Fourmi f = ini();
+    f.setPheromone(10,10,10);
+    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f4 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Insecte i = new Insecte();
+    i.setType(2);
+    i.setPheromone(100,100,67);
+    f3.setPheromone(0,0,100);
+    f2.setCCase(f.getCCase());
+    f3.setCCase(f.getCCase());
+    f4.setCCase(f.getCCase());
+    i.setCCase(f.getCCase());
+    GCreature gc = f.getCCase().getContent().getSortedGc(f);
+    Creature tc [] = new Creature[gc.length()];
+    tc[0]=f2;
+    tc[1]=f4;
+    tc[2]=f3;
+    tc[3]=i;
+    assertArrayEquals(tc,gc.toList().toArray());
+  }
+  @Test
+  public void testGetSortedGc5(){
+    Fourmi f = ini();
+    f.setPheromone(10,10,10);
+    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f4 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Insecte i = new Insecte();
+    i.setType(2);
+    i.setPheromone(100,100,67);
+    f3.setPheromone(0,0,100);
+    f4.setCCase(f.getCCase());
+    f2.setCCase(f.getCCase());
+    i.setCCase(f.getCCase());
+    f3.setCCase(f.getCCase());
+    GCreature gc = f.getCCase().getContent().getSortedGc(f);
+    Creature tc [] = new Creature[gc.length()];
+    tc[0]=f4;
+    tc[1]=f2;
+    tc[2]=i;
+    tc[3]=f3;
+    assertArrayEquals(tc,gc.toList().toArray());
   }
 }

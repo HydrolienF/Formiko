@@ -82,4 +82,29 @@ public class FPanelCarteTest extends TestCaseMuet{
       k++;
     }
   }
+  @Test
+  public void testIsCaseVisible(){
+    Case c = new Case(0,0);
+    assertTrue(FPanelCarte.isCaseVisible(c, 0, 0, 1, 1, 1));
+    c = new Case(2,2);
+    assertFalse(FPanelCarte.isCaseVisible(c, 0, 0, 1, 1, 1));
+    c = new Case(1,1);
+    assertTrue(FPanelCarte.isCaseVisible(c, 0, 0, 1, 1, 1));
+    c = new Case(1,1);
+    assertFalse(FPanelCarte.isCaseVisible(c, -1, -1, 0, 0, 1));
+  }
+  @Test
+  public void testIsCaseVisible2(){
+    Case c = new Case(0,0);
+    assertTrue(FPanelCarte.isCaseVisible(c, 1, 1, 3, 3, 1));
+    assertFalse(FPanelCarte.isCaseVisible(c, 2, 2, 3, 3, 1));
+  }
+  @Test
+  public void testIsCaseVisible3(){
+    Case c = new Case(0,0);
+    assertTrue(FPanelCarte.isCaseVisible(c, 0, -10, 400, 300, 10));
+    assertTrue(FPanelCarte.isCaseVisible(c, 10, 10, 400, 300, 10));
+    assertFalse(FPanelCarte.isCaseVisible(c, 11, 10, 400, 300, 10));
+    assertFalse(FPanelCarte.isCaseVisible(c, 10, 11, 400, 300, 10));
+  }
 }

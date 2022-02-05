@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
 *{@summary Error class call to print error message.}<br>
 *@author Hydrolien
-*@version 2.11
+*@lastEditedVersion 2.11
 */
 public class erreur {
   public static boolean muet=false;
@@ -26,9 +26,8 @@ public class erreur {
   /**
   *{@summary Return last method &#38; class that was runing before this class.}<br>
   *It will be like this "className.functionName llineNumber".<br>
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
-  //public only for test
   public static String getCurentClassAndMethodName(int classDepth){
     StackTraceElement[] stackTrace = new Throwable().getStackTrace();
     int lenst = stackTrace.length;
@@ -40,7 +39,7 @@ public class erreur {
       try {
         className = className.substring(0,className.length()-5);
       }catch (Exception e) {}
-    } while (k<lenst && (className.equals("erreur")));
+    } while (k<lenst && (className.equals("erreur") || className.equals("Info")));
     String cmName = "";
     for (int i=0;i<classDepth ; i++) {
       if(i>0){ cmName+=" - ";}
@@ -59,7 +58,7 @@ public class erreur {
   public static String getCurentClassAndMethodName(){return getCurentClassAndMethodName(1);}
   /**
   *{@summary Show curent stack trace without error file part &#38; stop game.}<br>
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public static void forceStop(){
     if(muet){return;}
@@ -136,7 +135,7 @@ public class erreur {
   }
   /**
   *{@summary Print info about important thing that are not important as alerte or error.}<br>
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public static void info(String message, int classDepth){
     String preMessage = "";

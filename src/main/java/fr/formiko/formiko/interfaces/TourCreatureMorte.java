@@ -13,12 +13,12 @@ import java.io.Serializable;
  * {@summary Ant implementation.}<br>
  * Allow an ant to play a turn<br>
  * @author Hydrolien
- * @version 1.24
+ * @lastEditedVersion 1.24
  */
 public class TourCreatureMorte implements Serializable, Tour{
   /**
   *PLay 1 turn with Creature c.
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public void unTour(Creature c){
     endTurn(c);
@@ -26,7 +26,7 @@ public class TourCreatureMorte implements Serializable, Tour{
   public void preTour(Creature c){}
   /**
   *End 1 turn with Creature c.
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public void endTurn(Creature c){
     //to avoid to end turn 2 time in the same turn.

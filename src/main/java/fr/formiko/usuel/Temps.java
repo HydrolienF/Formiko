@@ -13,29 +13,29 @@ import java.util.Date;
  *{@summary Time information about game.}<br>
  *It contain date of 1a launch. Date of last launch and time played.
  *@author Hydrolien
- *@version 1.4
+ *@lastEditedVersion 1.4
  */
 public class Temps {
   /***
    *{@summary Date of 1a lauch.}<br>
-   *@version 1.4
+   *@lastEditedVersion 1.4
    */
   private long date1;
   /***
    *{@summary Date of last lauch.}<br>
-   *@version 1.4
+   *@lastEditedVersion 1.4
    */
   private long date2;
   /***
    *{@summary Time played.}<br>
-   *@version 1.4
+   *@lastEditedVersion 1.4
    */
   private long tempsEnJeux;
   /***
    *{@summary DateFormat.}<br>
-   *@version 1.4
+   *@lastEditedVersion 1.4
    */
-  private String df = "yyyy/MM/dd HH:mm"; //international (Especialy Asia Europe)
+  // private String df = "yyyy/MM/dd HH:mm"; //international (Especialy Asia Europe)
   // private String df = "dd/MM/yyyy HH:mm"; // USA
   // private String df = "MM/dd/yyyy HH:mm"; // Europe, Africa, Asia, Oceania & America
 
@@ -51,12 +51,14 @@ public class Temps {
   public long getTempsEnJeux(){ return tempsEnJeux;}
   public void setTempsEnJeux(long x){tempsEnJeux=x;}
   public void addTempsEnJeux(long x){ setTempsEnJeux(getTempsEnJeux()+x);}
-  public String getDf(){return df;}
-  public void setDf(String s){df=s;}
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Return a string representing time as in Options date format.}
+  *@lastEditedVersion 1.23
+  */
   public String toString(){
     String r="";
-    SimpleDateFormat sdf = new SimpleDateFormat(df);
+    SimpleDateFormat sdf = new SimpleDateFormat(Main.getOp().getDateFormat());
     r+=g.getM("date1") + " : ";
     Date date1b = new Date(date1);
     r+=sdf.format(date1b);r+="\n";
@@ -74,7 +76,7 @@ public class Temps {
   }
   /**
   *{@summary Load all time informations save in Temps.txt.}
-  *@version 1.23
+  *@lastEditedVersion 1.23
   */
   public void chargerTemps(){
     //lecture du fichier Temps.txt
@@ -95,6 +97,10 @@ public class Temps {
       tempsEnJeux = 0;
     }
   }
+  /**
+  *{@summary Save time information in Temps.txt.}
+  *@lastEditedVersion 1.23
+  */
   public void sauvegarder(){
     GString gs = new GString();
     gs.add(""+date1);
@@ -111,7 +117,7 @@ public class Temps {
   *@param ms times in ms.
   *@param nbrOfUnit number of units to include in the return string.
   *@param dayOn enable or disable day as a unit.
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public static String msToTime(long ms, int nbrOfUnit, boolean dayOn){
     if(nbrOfUnit<1){return "";}
@@ -149,7 +155,7 @@ public class Temps {
   *{@summary return time on a long [].}
   *@param ms times in ms.
   *@param dayOn enable or disable day as a unit.
-  *@version 1.23
+  *@lastEditedVersion 1.23
   */
   public static long [] msToTimeLongArray(long ms, boolean dayOn){
     long tr [] = new long[5];
@@ -174,16 +180,15 @@ public class Temps {
   }
   /**
   *{@summary return current date + current hours.}
-  *@version 1.23
+  *@lastEditedVersion 2.16
   */
   public static String getDatePourSauvegarde(){
-    String df2 = "dd-MM-yyyy HH-mm-ss";
-    SimpleDateFormat sdf = new SimpleDateFormat(df2);
-    return sdf.format(System.currentTimeMillis());
+    String dateStr = Main.getOp().getDateFormat().replace('/','-').replace(':','-');
+    return new SimpleDateFormat(dateStr).format(System.currentTimeMillis());
   }
   /**
   *{@summary Initialize time file.}
-  *@version 1.23
+  *@lastEditedVersion 1.23
   */
   public static void initialiserFichierTemps(){
     GString gs = new GString();
@@ -195,20 +200,49 @@ public class Temps {
   /**
   *{@summary Try to stop execution of the programme during some ms.}
   *@param ms number of ms to wait before continue.
-  *@version 1.23
+  *@lastEditedVersion 2.13
+  */
+  public static void sleep(int ms){
+    pause(ms);
+  }
+  /**
+  *{@summary Try to stop execution of the programme during 50 ms.}
+  *@lastEditedVersion 2.13
+  */
+  public static void sleep(){
+    pause(50);
+  }
+  /**
+  *{@summary Try to stop execution of the programme during some ms.}
+  *@param ms number of ms to wait before continue.
+  *@lastEditedVersion 1.23
   */
   public static void pause(int ms){
     if(ms<1){erreur.erreurPause(ms);}
     try {
-        Thread.sleep(ms);
+      Thread.sleep(ms);
     } catch (InterruptedException ie) {
-        erreur.erreurPause(ms);
+      erreur.erreurPause(ms);
+    }
+  }
+  /**
+  *{@summary Try to stop execution of the thread during some ms.}
+  *@param ms number of ms to wait before continue.
+  *@param th the thread to stop.
+  *@lastEditedVersion 2.13
+  */
+  public static void pause(int ms, Thread th){
+    if(ms<1){erreur.erreurPause(ms);}
+    try {
+      th.sleep(ms);
+    } catch (InterruptedException ie) {
+      erreur.erreurPause(ms);
     }
   }
   public static String msToS(int x){return msToS((long)x);}
   /**
   *{@summary Transform ms to s.}
-  *@version 1.23
+  *@lastEditedVersion 1.23
   */
   public static String msToS(long x){
     String sr = x/1000+g.get(",")+x%1000+"s";
@@ -228,7 +262,7 @@ public class Temps {
   // }
   /**
   *{@summary Print current date.}
-  *@version 1.23
+  *@lastEditedVersion 1.23
   */
   public static void affDateDuJour(String format){
     SimpleDateFormat sdf = new SimpleDateFormat(format);

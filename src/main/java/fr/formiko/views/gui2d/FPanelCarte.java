@@ -1,5 +1,6 @@
 package fr.formiko.views.gui2d;
 
+import fr.formiko.formiko.Blade;
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.CGraine;
 import fr.formiko.formiko.Case;
@@ -14,6 +15,7 @@ import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.MapPath;
 import fr.formiko.formiko.ObjetSurCarteAId;
+import fr.formiko.usuel.Info;
 import fr.formiko.usuel.Point;
 import fr.formiko.usuel.Point;
 import fr.formiko.usuel.debug;
@@ -49,13 +51,11 @@ import javax.swing.JPanel;
 *It can draw map.<br>
 *Mouse listener part is in FPanelSup.java.<br>
 *@author Hydrolien
-*@version 1.42
+*@lastEditedVersion 1.42
 */
 public class FPanelCarte extends FPanel {
   private int xCase; // nombre de case en X
   private int yCase; // nombre de case en Y
-  private int posX; // position de la 1a case.
-  private int posY;
   private int xTemp,yTemp;
   private int idCurentFere=-1;
   private CCase lookedCCase;
@@ -64,21 +64,18 @@ public class FPanelCarte extends FPanel {
   // private SubPanel subPanel;
   private static Comparator<Creature> imageSizeComparator = (Creature p1, Creature p2) -> (int)(p1.getEspece().getTaille(p1.getStade()) - p2.getEspece().getTaille(p2.getStade()));
   private BufferedImage iconImage;
+  private BufferedImage bladeImage;
   private BufferedImage tBiState []=null;
   private int TRANSPARENCY = 180;
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public FPanelCarte(){
-    // subPanel = new SubPanel(this);
-    // add(subPanel);
-  }
+  public FPanelCarte(){}
   /**
   *{@summary Build methode.}<br>
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public void build(){
     Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(100));
-    posX = 0; posY = 0;
     GCase gc = new GCase(1,1);
     xCase = gc.getNbrX();
     yCase = gc.getNbrY();
@@ -93,10 +90,6 @@ public class FPanelCarte extends FPanel {
   public void setXCase(int x){xCase = x;}
   public int getYCase(){ return yCase;}
   public void setYCase(int y){yCase = y;}
-  public int getPosX(){ return posX;}
-  public void setPosX(int x){posX=x; }
-  public int getPosY(){ return posY;}
-  public void setPosY(int x){posY=x; }
   public void setIdCurentFere(int x){idCurentFere=x;}
   public CCase getLookedCCase(){return lookedCCase;}
   public void setLookedCCase(CCase cc){lookedCCase=cc;}
@@ -107,7 +100,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *setSize sould never be used. Use updateSize insted.
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   @Override
   public void setSize(int x, int y){
@@ -115,7 +108,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *Do the 3 steps that are need to set FPanelCarte to a new size.
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public void actualiserCarte(){
     updateSize();//actualise la taille du FPanelCarte a la bonne dimention.
@@ -127,7 +120,7 @@ public class FPanelCarte extends FPanel {
   /**
   *{@summary Main paint function for Map.}<br>
   *It print 1 by 1: map with only Case, grids, all map element Case by Case, the mark for all game as playingAnt mark.
-  *@version 1.42
+  *@lastEditedVersion 1.42
   */
   public void paintComponent(Graphics g2){
     if(!Main.getActionGameOn()){return;}
@@ -138,13 +131,12 @@ public class FPanelCarte extends FPanel {
     }
     Main.startCh();
 
-    setLocation(-getPosX()*getTailleDUneCase(),-getPosY()*getTailleDUneCase());
-
     Graphics2D g = (Graphics2D)g2;
     setLigne(g);
     try {
       GCase gc = Main.getGc();
       updateSize();
+      long time = System.currentTimeMillis();
       debug.débogage("Dimention du FPanelCarte en case : x="+xCase+" y="+yCase);
       debug.débogage("taille réèle du panneau de la carte : x="+this.getWidth()+", y="+this.getHeight());
       try {
@@ -155,10 +147,22 @@ public class FPanelCarte extends FPanel {
       }
       dessinerGrille(g);
       iconImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+      if(debug.getPerformance()){
+        erreur.info("Time for grid & backgroundImage: "+(System.currentTimeMillis()-time),0);
+      }
+      time = System.currentTimeMillis();
+      drawBlades(g, gc);
+      if(debug.getPerformance()){
+        erreur.info("Time for draw blade: "+(System.currentTimeMillis()-time),0);
+      }
+      time = System.currentTimeMillis();
       for (int i=0; i<xCase; i++) {
         for (int j=0; j<yCase; j++) {
           peintImagePourCase(gc,i,j,g);
         }
+      }
+      if(debug.getPerformance()){
+        erreur.info("Time for refrech all Map Case: "+(System.currentTimeMillis()-time),0);
       }
       if (Main.getDrawRelationsIcons() || Main.getOp().getDrawStatesIconsLevel()<4){
         if(iconImage!=null){
@@ -170,13 +174,13 @@ public class FPanelCarte extends FPanel {
         drawMovingPath(g);
       }
     }catch (Exception e) {
-      erreur.erreur("Quelque chose d'imprévu est arrivé lors de l'affichage de FPanelCarte");
+      new Info("Quelque chose d'imprévu est arrivé lors de l'affichage de FPanelCarte").setClassDepth(10);
     }
     Main.endCh("repaintDeLaCarte");
   }
   /**
   *{@summary Draw grid.}<br>
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public void dessinerGrille(Graphics g){
     if(Main.getDrawGrid()){
@@ -190,6 +194,29 @@ public class FPanelCarte extends FPanel {
         g.drawLine(0,xT,tailleCase*xCase,xT);
       }
     }
+  }
+  public void drawBlades(Graphics g, GCase gc){
+    if(getView().getBladeChanged()){
+      getView().setBladeChanged(false);
+      bladeImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+      Graphics gBlade = bladeImage.getGraphics();
+      for (int i=0; i<xCase; i++) {
+        for (int j=0; j<yCase; j++) {
+          Point point = getPointFromCase(i,j,false);
+          int xT = point.getX(); int yT = point.getY();
+          if(Main.getOp().getDrawBlades()){
+            for (Blade b : gc.getCCase(i,j).getContent().getGb()) {
+              b.draw(gBlade, xT, yT);
+            }
+          }else{
+            gBlade.setColor(new Color(0,180,0, math.min(255,gc.getCCase(i,j).getContent().getFoodInsecte()*2)));
+            gBlade.fillRect(xT+1, yT+1, getTailleDUneCase()-2, getTailleDUneCase()-2);
+          }
+        }
+      }
+    }
+    //TOFIX it don't draw all time greeen part.
+    drawImage(g, bladeImage, 0, 0);
   }
   /*public void repaintParciel(Case c){
     peintImagePourCase(c,(Graphics2D) this.getGraphics());
@@ -208,45 +235,40 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Draw cloud Case.}<br>
-  *@version 1.x
+  *@lastEditedVersion 2.17
   */
-  public boolean peintCaseNuageuse(int x, int y,Graphics g,int xT, int yT){
+  public boolean peintCaseNuageuse(int x, int y, Graphics g, int xT, int yT){
     Joueur jo = Main.getPlayingJoueur();
     if(Main.getPartie().getCarte().getCasesNuageuses()==true){ //si il y a des cases nuageuses
       try {
         if(Main.getPartie().getGj().getNbrDeJoueurHumain()==1){//si il ya moins de 2 joueurs, on peu afficher les cases que le joueur voie.
           jo = Main.getPartie().getGj().getJoueurHumain().getHead().getContent();
         }
-        if (jo!=null){//si on a un joueur sélectionné.
-          if (x>=0 && y>=0 && jo.getCaseNuageuse(x,y)){//si la case est invisible (nuageuse.)
-            drawImage(g,Main.getData().getCNuageuse(),xT,yT);
-            return true;//on ne dessine rien par dessus.
-          }
-        }else{//si pas de joueur selcetionné toute les cases sont nuageuse.
-          drawImage(g,Main.getData().getCNuageuse(),xT,yT);
-          return true;//on ne dessine rien par dessus.
+        if (jo==null || (x>=0 && y>=0 && jo.getCaseNuageuse(x,y))){//0 playing player or caseNuageuse for the playing player.
+          // drawImage(g,Main.getData().getCloudMap(),xT,yT);
+          g.drawImage(Main.getData().getCloudMap(), xT, yT, xT+getTailleDUneCase(), yT+getTailleDUneCase(), xT, yT, xT+getTailleDUneCase(), yT+getTailleDUneCase(), null);
+          return true;//nothing more to draw on this Case
         }
       }catch (Exception e) {
-        erreur.erreur("Une case possiblement nuageuse n'as pas pue atre affiché");
+        erreur.erreur("Une case possiblement nuageuse n'as pas pue être affiché");
       }
     }
     return false;
   }
   /**
   *{@summary Draw the mark for playingAnt.}<br>
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   private void drawPlayingAnt(Graphics g){
     Fourmi playingAnt = Main.getPlayingAnt();
     if(playingAnt!=null && !playingAnt.getIa()){
       CCase cc = playingAnt.getCCase();
       drawCircle(g, cc, Main.getData().getButtonColor(0));
-      // drawImage(g,Main.getData().getSelectionnee(),(c.getX())*getTailleDUneCase(),(c.getY())*getTailleDUneCase());
     }
   }
   /**
   *{@summary Draw the path from playingAnt to the looked case.}<br>
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   private void drawMovingPath(Graphics g){
     CCase to = getLookedCCase();
@@ -290,7 +312,7 @@ public class FPanelCarte extends FPanel {
   *{@summary Draw a white circle on giving Case.}<br>
   *@param g graphics where to draw
   *@param cc CCase where to draw
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   private void drawWhiteCircle(Graphics g, CCase cc, int toPrint){
     drawCircle(g, cc, Color.WHITE);
@@ -304,7 +326,7 @@ public class FPanelCarte extends FPanel {
   *@param g graphics where to draw
   *@param cc CCase where to draw
   *@param col Color to use
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   private void drawCircle(Graphics g, CCase cc, Color col){
     int tc=getTailleDUneCase();
@@ -324,7 +346,7 @@ public class FPanelCarte extends FPanel {
   *@param g graphics where to draw
   *@param from CCase where to start draw
   *@param to CCase where to end draw
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   private void drawWhiteLine(Graphics g, CCase from, CCase to, boolean drawOnFrom, boolean drawOnTo){
     drawLine(g, from, to, Color.WHITE, drawOnFrom, drawOnTo);
@@ -335,7 +357,7 @@ public class FPanelCarte extends FPanel {
   *@param from CCase where to start draw
   *@param to CCase where to end draw
   *@param col Color to use
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   private void drawLine(Graphics g, CCase from, CCase to, Color col, boolean drawOnFrom, boolean drawOnTo){
     int tc=getTailleDUneCase();
@@ -371,7 +393,7 @@ public class FPanelCarte extends FPanel {
   *@param from CCase where to start draw
   *@param to CCase where to end draw
   *@param col Color to use
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   private void drawLine(Graphics g, CCase from, CCase to, Color col){
     drawLine(g,from,to,col,true,true);
@@ -381,7 +403,7 @@ public class FPanelCarte extends FPanel {
   *@param x the x of the Case.
   *@param y the y of the Case.
   *@param centered True return the coordinates of the center of the case. False return left top coordinates.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public Point getPointFromCase(int x, int y, boolean centered){
     Point p = new Point(x*getTailleDUneCase(),y*getTailleDUneCase());
@@ -393,7 +415,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Draw a Case.}<br>
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public void peintImagePourCase(Case c, int x, int y,Graphics2D g){
     if(!isCaseVisible(c)){return;}
@@ -436,7 +458,7 @@ public class FPanelCarte extends FPanel {
             calculerXYTemp(xT,yT,k,c);k++;
             int dir = getDir((ObjetSurCarteAId)ccg.getContent());
             try {
-              BufferedImage bi = Main.getData().getTG()[ccg.getContent().getType()];
+              BufferedImage bi = Main.getData().getGraineImage(ccg.getContent());
               drawImageCentered(g,image.rotateImage(bi,dir),xT,yT);
             }catch (Exception e) {}
             if(ccg.getContent().getOuverte()){listIconsRelation.add(getIconImage(5));}
@@ -463,7 +485,7 @@ public class FPanelCarte extends FPanel {
             Fourmi f = ((Fourmi)cr);
             try {
               BufferedImage bi = Main.getData().getCreatureImage(f);
-              drawImageCentered(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
+              drawImageCentered(g,image.rotateAndCenterImage(bi, dir),xT+x2,yT+y2);
               // Point tp [] = Main.getData().getAntImageLocation();
               // BufferedImage tBi [] = Main.getData().getAntImage(f);
               // int k2=0;
@@ -481,7 +503,7 @@ public class FPanelCarte extends FPanel {
             try {
               BufferedImage bi = Main.getData().getCreatureImage(cr);
               // BufferedImage bi = Main.getData().getTII()[0][math.min(i.getType(),Main.getData().getTII()[0].length)];
-              drawImageCentered(g,image.rotateImage(bi,dir),xT+x2,yT+y2);
+              drawImageCentered(g,image.rotateAndCenterImage(bi,dir),xT+x2,yT+y2);
             }catch (Exception e) {
               erreur.erreur("can't draw insect "+i.getId()+" with type "+i.getType());
             }
@@ -509,9 +531,9 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Return true if we need to draw Creature depending of the Options.}<br>
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
-  public boolean needToDraw(Creature cr){
+  public static boolean needToDraw(Creature cr){
     if(cr==null){return false;}
     Fourmi playingAntOrPlayingPlayerAnt = Main.getPlayingAnt();
     if(playingAntOrPlayingPlayerAnt==null){
@@ -530,7 +552,7 @@ public class FPanelCarte extends FPanel {
   /**
   *{@summary Return a Liste&lt;Creature&gt; sorted by image size.}<br>
   *It is used to print smaler creature on top, so that we can see every Creature.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   //public only for test
   public static Liste<Creature> gcSortedByImageSize(GCreature gc){
@@ -546,7 +568,7 @@ public class FPanelCarte extends FPanel {
   *@param id the id of the object
   *@param location the modification of the location of the object as a Point
   *@param rotation the modification of the rotation in the x value of a Point
-  *@version 2.4
+  *@lastEditedVersion 2.4
   */
   public void addMovingObject(int id, Point location, Point rotation){
     hashMapMovingObjectSurCarteAid.put(id, location);
@@ -569,7 +591,7 @@ public class FPanelCarte extends FPanel {
   *@param xT the x of the Case were to draw.
   *@param yT the y of the Case were to draw.
   *@param caseSize size of the Case
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   private void drawImageCentered(Graphics g, BufferedImage image, int xT, int yT, int caseSize){
     if(image==null){
@@ -589,7 +611,7 @@ public class FPanelCarte extends FPanel {
   *@param image the image to draw.
   *@param xT the x of the Case were to draw.
   *@param yT the y of the Case were to draw.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   private void drawImageCentered(Graphics g, BufferedImage image, int xT, int yT){
     drawImageCentered(g,image,xT,yT,getTailleDUneCase());
@@ -600,7 +622,7 @@ public class FPanelCarte extends FPanel {
   *@param im the image to draw.
   *@param x the x ere to draw.
   *@param y the y were to draw.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public void drawImage(Graphics gTemp, BufferedImage im, int x, int y){
     Graphics2D g = (Graphics2D)gTemp;
@@ -613,7 +635,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary return true if case in x,y is sombre.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private boolean isSombre(int x, int y){
     Joueur jo = Main.getPlayingJoueur();
@@ -621,7 +643,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary return true if we need to draw the color of the anthill.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private boolean needToDrawAnthillColor(Case c, int x, int y){
     if (Main.getOp().getDrawAllAnthillColor()) { return true;}
@@ -631,7 +653,7 @@ public class FPanelCarte extends FPanel {
   /**
   *{@summary fonction that place ObjetSurCarteAId on the same Case.}<br>
   *It modify FPanelCarte value xTemp and yTemp.
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public void calculerXYTemp(int xT, int yT, int k, Case c){
     int deplacementEnX=0;
@@ -662,7 +684,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Draw an anthill mark.}<br>
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public void drawRondOuRect(int x, int y, int tailleDUneCase, Graphics2D g, Fourmiliere fere, int tailleDuCercle){
     if(tailleDuCercle<tailleDUneCase/2){
@@ -675,7 +697,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Draw a circle as an anthill mark.}<br>
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public void drawRond(int x, int y, int r, Graphics2D g, Fourmiliere fere, int tailleDuCercle){
     g.setColor(fere.getPh().getColor());
@@ -691,7 +713,7 @@ public class FPanelCarte extends FPanel {
   *@param xT x value to use
   *@param yT y value to use
   *@param xOffset offset in x
-  *@version 2.8
+  *@lastEditedVersion 2.8
   */
   public void drawIcon(Graphics g, BufferedImage iconImage, int xT, int yT, int xOffset){
     g.drawImage(iconImage,xT+xOffset,yT,this);
@@ -703,7 +725,7 @@ public class FPanelCarte extends FPanel {
   *@param xT x value to use
   *@param yT y value to use
   *@param xOffset offset in x
-  *@version 2.8
+  *@lastEditedVersion 2.8
   */
   public void drawListIcons(Graphics g, Liste<BufferedImage> list, int xT, int yT, int xOffset){
     int len = list.length();
@@ -727,7 +749,7 @@ public class FPanelCarte extends FPanel {
   *@param k offset in angle (k * the angle)
   *@param replaceColorByImage if true we replace font color by the image in
   *@return a slice of the BufferedImage in
-  *@version 2.8
+  *@lastEditedVersion 2.8
   */
   private BufferedImage doSlice(int angle, BufferedImage biIn, int k, boolean replaceColorByImage){
     BufferedImage biOut = new BufferedImage(biIn.getWidth(), biIn.getHeight(), BufferedImage.TYPE_INT_ARGB);
@@ -755,7 +777,7 @@ public class FPanelCarte extends FPanel {
   *@param cr the Creature that we represent by the icon
   *@param fi the Creature that whant to know how to see the other Creature
   *@return the icone id corresponding to the relation from the ant to the Creature.
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public static int getIconId(Creature cr, Fourmi fi){
     if(cr==null){
@@ -772,7 +794,7 @@ public class FPanelCarte extends FPanel {
   *@param cr the Creature that we represent by the icon
   *@param fi the Creature that whant to know how to see the other Creature
   *@return the icone image corresponding to the relation from the ant to the Creature
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public static BufferedImage getIconImage(Creature cr, Fourmi fi){
     if(Main.getData().getB()==null){return null;}
@@ -782,7 +804,7 @@ public class FPanelCarte extends FPanel {
   *{@summary Return an icon image.}<br>
   *@param id the id of the icon
   *@return the icone image corresponding to the id
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public BufferedImage getIconImage(int id){
     if(Main.getData().getB()==null){return null;}
@@ -791,7 +813,7 @@ public class FPanelCarte extends FPanel {
   /**
   *{@summary Return the states icons images.}<br>
   *@param cr the Creature that we whant to print icons states
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public Liste<BufferedImage> getStatesIconsImages(Creature cr){
     int minPrintState = Main.getOp().getDrawStatesIconsLevel(); // between 0 & 4 (3= only red state, 0=all).
@@ -817,7 +839,7 @@ public class FPanelCarte extends FPanel {
   /**
   *{@summary Return a state icon image.}<br>
   *A colored round containing an icon image.
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public BufferedImage getStateIconImage(Color col, BufferedImage icon){
     int iconSize = getTailleIcon();
@@ -835,11 +857,6 @@ public class FPanelCarte extends FPanel {
   public int getDir(ObjetSurCarteAId obj){
     if (!Main.getOrientedObjectOnMap()){return 0;}// si la direction de l'objet n'est pas prise en compte on cherche dans le tableau 0.
     int x = obj.getDirection();
-    // return x;
-    // if(x==1 || x==2){ return 0;}
-    // if(x==3 || x==6){ return 1;}
-    // if(x==9 || x==8){ return 2;}
-    // return 3;
     if(x==2){return 0;}
     if(x==3){return 1;}
     if(x==6){return 2;}
@@ -858,6 +875,7 @@ public class FPanelCarte extends FPanel {
     int xTemp = getTailleDUneCase()*xCase;
     int yTemp = getTailleDUneCase()*yCase;
     super.setSize(xTemp,yTemp);
+    getView().getPs().setSize(xTemp, yTemp);
     iniTBiState();
   }
 
@@ -865,10 +883,25 @@ public class FPanelCarte extends FPanel {
   *{@summary Tool to save performances by drawing only visible Case.}<br>
   *@param c Case to check
   *return true if case is visible
+  *@lastEditedVersion 2.13
   */
   public boolean isCaseVisible(Case c){
-    if(c.getX()<getPosX() || c.getY()<getPosY()){return false;}
-    if(c.getX()>nbrPrintableCase(true)-getPosX() || c.getY()>nbrPrintableCase(false)-getPosY()){return false;}
+    FPanel p = getView().getPmmo();
+    return isCaseVisible(c, -getX(), -getY(), p.getWidth()-getX(), p.getHeight()-getY(), getTailleDUneCase());
+  }
+  /**
+  *{@summary Tool to save performances by drawing only visible Case.}<br>
+  *@param c Case to check
+  *return true if case is visible
+  *@lastEditedVersion 2.13
+  */
+  public static boolean isCaseVisible(Case c, int minX, int minY, int maxX, int maxY, int caseSize){
+    int x = c.getX()*caseSize;
+    minX-=caseSize;
+    if(x<minX || x>maxX){return false;}
+    int y = c.getY()*caseSize;
+    minY-=caseSize;
+    if(y<minY || y>maxY){return false;}
     return true;
   }
   /**
@@ -905,40 +938,3 @@ public class FPanelCarte extends FPanel {
     }
   }
 }
-// class SubPanel extends FPanel{
-//   FPanelCarte pc;
-//   public SubPanel(FPanelCarte pc) {
-//     this.pc = pc;
-//   }
-//   public void paintComponent(Graphics g2){
-//     Graphics2D g = (Graphics2D)g2;
-//     setLigne(g);
-//     try {
-//       GCase gc = Main.getGc();
-//       updateSize();
-//       debug.débogage("Dimention du FPanelCarte en case : x="+xCase+" y="+yCase);
-//       debug.débogage("taille réèle du panneau de la carte : x="+this.getWidth()+", y="+this.getHeight());
-//       try {
-//         if(Main.getData().getMap()==null){Main.getData().iniBackgroundMapImage();}
-//         g.drawImage(Main.getData().getMap(),0-posX*getTailleDUneCase(),0-posY*getTailleDUneCase(),this);
-//       }catch (Exception e) {
-//         erreur.erreur("impossible d'afficher l'arrière plan de la carte");
-//       }
-//       dessinerGrille(g);
-//       for (int i=0;i<xCase ;i++ ) {
-//         for (int j=0;j<yCase ;j++ ) {
-//           peintImagePourCase(gc,i,j,g);
-//         }
-//       }
-//       drawPlayingAnt(g);
-//     }catch (Exception e) {
-//       erreur.erreur("Quelque chose d'imprévu est arrivé lors de l'affichage de FPanelCarte");
-//     }
-//   }
-// }
-// class GcComparator<Creature> implements Comparator<Creature>{
-//   public int compare(Creature c1, Creature c2) {
-//     // return c1.getTaille() - c2.getTaille();
-//     return 1;
-//   }
-// }

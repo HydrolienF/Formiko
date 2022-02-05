@@ -70,7 +70,7 @@ public class FPanelDialogue extends FPanel {
   *{@summary Override setVisible to also setVisible dependent FPanel.}
   *Dependent FPanel are pdi &#38; pij.
   *@param visible true if need to be visible.
-  *@version 2.0
+  *@lastEditedVersion 2.0
   */
   @Override
   public void setVisible(boolean visible){

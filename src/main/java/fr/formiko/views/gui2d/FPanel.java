@@ -26,7 +26,7 @@ import javax.swing.JPanel;
 public class FPanel extends JPanel {
   private static final long serialVersionUID = -3227223889149566494L;
   private static int cptId=0;
-  private final int id;
+  protected final int id;
 
   // CONSTRUCTORS --------------------------------------------------------------
   public FPanel(){
@@ -42,13 +42,13 @@ public class FPanel extends JPanel {
   //public void setEspaceRéservéBas(int x){espaceRéservéBas = x;}
   //public void setXCase(int x){xCase = x;}
   //public void setYCase(int y){yCase = y;}
-  public BListener getBListener(){ return new BListener();}
+  public BListener getBListener(){return new BListener();}
   public Data getData(){return Main.getData();}
   public static ViewGUI2d getView(){return (ViewGUI2d)(Main.getView());}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Paint function with a debug tool.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   @Override
   public void paintComponent(Graphics gTemp){
@@ -62,17 +62,16 @@ public class FPanel extends JPanel {
   }
   @Override
   public String toString(){
-    String r = id+" "+super.toString();
-    //TODO print sub components to.
-    for (Component c : getComponents()) {
-      r+=c.toString();
-    }
+    String r = id+" "+super.toString()+" components: \n";
+    // for (Component c : getComponents()) {
+    //   r+=c.toString();
+    // }
     return r;
   }
   /**
   *{@summary Remove a component if not null.}<br>
   *@param c component to remove
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   @Override
   public void remove(Component c){

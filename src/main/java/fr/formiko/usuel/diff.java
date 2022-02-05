@@ -6,14 +6,14 @@ import fr.formiko.usuel.lireUnFichier;
 /**
  * {@summary Tool to count add or suppress line.}<br>
  * @author Hydrolien
- * @version 1.0
+ * @lastEditedVersion 1.0
  */
 public class diff {
 
   // FUNCTIONS -----------------------------------------------------------------
   /**
    * {@summary Count add or suppress line.}<br>
-   * @version 1.0
+   * @lastEditedVersion 1.0
    */
   public static int nbrDeLigneDiff(String nouveauFichier, String ancienFichier){
     //on charge les 2 fichiers dans 2 liste chainé de String.

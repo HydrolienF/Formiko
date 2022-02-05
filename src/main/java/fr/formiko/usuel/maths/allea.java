@@ -9,14 +9,14 @@ import java.util.Random;
 /**
 *{@summary Random Class.}<br>
 *@author Hydrolien
-*@version 1.0
+*@lastEditedVersion 1.0
 */
 public class allea {
   private static Random rand = new Random();
   /**
   *{@summary get a random int in [0;x[.}<br>
   *@return a random boolean.
-  *@version 1.0
+  *@lastEditedVersion 1.0
   */
   public static int getAllea(int x){
     if (x <= 0) { erreur.erreur("On ne peu tirer un nombre alléatoire qu'entre 2 borne positive, "+x+" ne convient pas","On revoie -1"); return -1;}
@@ -28,7 +28,7 @@ public class allea {
   /**
   *{@summary get a random boolean.}<br>
   *@return a random boolean.
-  *@version 1.20
+  *@lastEditedVersion 1.20
   */
   public static boolean getBAllea(){
     if(getAllea(2)==0){return false;}//1 chance sur 2.
@@ -37,7 +37,7 @@ public class allea {
   /**
   *{@summary get a random int in [].}<br>
   *@return a random int.
-  *@version 1.0
+  *@lastEditedVersion 1.0
   */
   public static int getAlléaDansTableau(int t []){
 		return t[getAllea(t.length)];

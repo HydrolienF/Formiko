@@ -20,7 +20,7 @@ import javax.swing.SwingConstants;
 *{@summary Personalized JLabel.}<br>
 *It use Formiko color &#38; font. It is uneditable.<br>
 *@author Hydrolien
-*@version 2.6
+*@lastEditedVersion 2.6
 */
 public class FLabel extends JLabel {
   // CONSTRUCTORS --------------------------------------------------------------
@@ -29,7 +29,7 @@ public class FLabel extends JLabel {
   *It use Formiko color &#38; font.
   *@param x the preferred width
   *@param y the preferred heigth
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public FLabel(int x, int y){
     super();
@@ -44,7 +44,7 @@ public class FLabel extends JLabel {
   /**
   *{@summary Secondary constructor.}<br>
   *It set size to default : 500xgetDimY()
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public FLabel(){
     this(500,getDimY());
@@ -53,7 +53,7 @@ public class FLabel extends JLabel {
   *{@summary Secondary constructor.}<br>
   *It dont set size, but set text.
   *@param s the text to use.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public FLabel(String s){
     this(-1,-1);
@@ -64,7 +64,7 @@ public class FLabel extends JLabel {
   *{@summary set text or hide this.}<br>
   *It will hide this if text is "" or the description of an empty FButton.
   *@param s the text to use.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void setTexte(String s){
     if(s.length() > 12 && s.substring(0,12).equals("bouton.desc.")){s="";}
@@ -85,7 +85,7 @@ public class FLabel extends JLabel {
   *{@summary set text or hide this.}<br>
   *It will hide this if text is "" or the description of an empty FButton.
   *@param s the text to use.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void setText(String s){setTexte(s);}//on s'assure que setTexte est la seule méthode autorisé pour modifié du texte.
   // public void setFondColoré(Color col){this.setBackground(col);}
@@ -102,7 +102,7 @@ public class FLabel extends JLabel {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Paint function with a debug tool.}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void paintComponent(Graphics gTemp){
     super.paintComponent(gTemp);
@@ -115,7 +115,7 @@ public class FLabel extends JLabel {
   }
   /**
   *{@summary Update the size of this depending of text.}
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void updateSize(){
     setSize((int)(Math.ceil(this.getFontMetrics(this.getFont()).stringWidth(getText()))), (int)(getFont().getSize()*1.2));

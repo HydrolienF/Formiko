@@ -52,13 +52,16 @@ coordonnées:coordonnées
 type:type
 stade:stade
 age:age
-nourriture:nourriture
+food:nourriture
 action:action
 propreté:propreté
 mode:mode
 phéromone:phéromone
 transporté:transporté
 espèce:espèce
+health:santé
+pheromoneTolerence:différence de phéromone toléré
+foodEatable:nourriture mangeable
 
 
 //formiko -----------------------------------------------------------------------
@@ -126,7 +129,7 @@ victoirePar:a gagné par
 pseudo:pseudo
 entrezPseudo:Veuillez entrer votre pseudo
 
-nourritureInsecte:nourriture pour les insectes
+foodInsecte:nourriture pour les insectes
 celluleA:Cellule a
 lien:lien
 ChasseNull:Impossible de chasser avec la créature
@@ -168,16 +171,16 @@ vitesseDeJeu2:araignée
 vitesseDeJeu3:escargot
 vitesseDeJeu4:limace
 
-I0:coccinelle
-I1:scarabée
-I2:puceron orrange
-I3:puceron vert
-I4:asticot
-I5:vers
-I6:moucheron
-I7:chenille
-I8:cloporte
-I9:fourmilion
+i0:coccinelle
+i1:scarabée
+i2:puceron orrange
+i3:puceron vert
+i4:asticot
+i5:vers
+i6:moucheron
+i7:chenille
+i8:cloporte
+i9:fourmilion
 
 choixCarte:Carte
 choixDif:Difficulté
@@ -236,6 +239,8 @@ empty:vide
 fixMap:carte réparée
 mini:mini
 thirds:tiers
+sandBox:bac a sable
+underTheTree:sous l'arbre
 
 //package usuel ------------------------------------------------------------------
 read.1:veuillez entrer une valeur pour la variable
@@ -336,7 +341,7 @@ bouton.desc.0:Rétrécir la carte
 bouton.desc.1:Déplacer la carte vers le haut
 bouton.desc.2:Agrandir la carte
 bouton.desc.3:Déplacer la carte vers la gauche
-bouton.desc.4:Centrer la carte
+bouton.desc.4:Centrer la carte sur votre fourmilière
 bouton.desc.5:Déplacer la carte vers la droite
 bouton.desc.6:Centrer la carte sur la fourmi qui joue actuellement
 bouton.desc.7:Déplacer la carte vers le bas
@@ -374,9 +379,11 @@ bouton.desc.352:états des fourmis alliées
 bouton.desc.353:couleurs des fourmilières
 bouton.desc.354:journal d'informations
 bouton.desc.355:dessiner seulement les graines/insectes commestible (Ou alliés / énemies)
+bouton.desc.356:dessiner la couleur des fourmis
+bouton.desc.357:dessiner les brins d'herbe 1 par 1
 
-pti.desc.1:Indiquez l'id de la fourmi qui recevra la nourriture.
-pti.desc.2:Indiquez la quantité de nourriture offerte.
+pti.desc.1:Indiquez l'id de la fourmi qui recevra la nourriture
+pti.desc.2:Indiquez la quantité de nourriture offerte
 pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
 pti.desc.4:Indiquez la direction à suivre.
 pti.desc.5:Indiquez l'id de la fourmi a nettoyer. La fourmi la plus sale est la fourmi en position 1.
@@ -448,7 +455,7 @@ conseil.6:Ne pondez pas trop d’œuf a la fois. Sinon vous ne serez plus capabl
 conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Les choix que vous avez à faire sont indiqué en haut a gauche de votre écran.
 conseil.9:Les fourmi ne possèdent pas de paupière pour humidifier leur yeux. Elles doivent constamment conserver une bonne hygiène de vie afin de pouvoir communiquer avec leur antennes et voir avec leur yeux.
-conseil.10:Les œux, lave et nymphe ne sont pas capable de ce nettoyer tout seuls. Il leur faut nécessairement l'aide d'un imago sinon il risquerait d'être infecter par une mauvaise bactérie. veillez a ce que votre couvain reste au dessus de 50% de propreté.
+conseil.10:Les œux, lave et nymphe ne sont pas capable de ce nettoyer tout seuls. Il leur faut nécessairement l'aide d'un imago sinon il risquerait d'être infecté par une mauvaise bactérie. veillez a ce que votre couvain reste au dessus de 50% de propreté.
 conseil.11:La Reine ne peut pondre que lorsqu'elle est dans la fourmilière.
 conseil.12:Les fourmis granivore ce nourrissent exclusivement de graine. Pour stocker leur nourriture elles conservent les graines dans des pièces sèche de la fourmilière.
 conseil.13:Les fourmis granivore ne sont pas capable de trophallaxer. Pour nourrir le couvain elles doivent nécessairement avoir des graines ouverte en stock dans la fourmilière.
@@ -490,10 +497,10 @@ tuto.13:l’œuf est pondu. Maintenant il faut en prendre soin, sinon il n'arriv
 tuto.14:attendons un peu qu'il grandisse.
 tuto.15:attendez un tour en cliquant sur le bouton "Passer le tour" situé en bas de votre écran.
 tuto.16:Notre œuf a grandi ! C'est désormais une larve !
-tuto.17:Les larves ont besoin d'être nettoyer fréquemment pour ne pas mourir de maladie.
+tuto.17:Les larves ont besoin d'être nettoyées fréquemment pour ne pas mourir de maladie.
 tuto.18:Nettoyez la larve en cliquant sur le bouton "Nettoyer" situé en bas de votre écran.
 tuto.19:Notre larve est propre. Attendons qu'elle évolue au stade supérieur en passant le tour avec le bouton associé en bas de votre écran.
-tuto.20:La larve a évoluée, c'est désormais une nymphe. Les nymphe ont, comme les larves, besoins d'être nettoyé et nourrie.
+tuto.20:La larve a évoluée, c'est désormais une nymphe. Les nymphe ont, comme les larves, besoins d'être nettoyées et nourries.
 tuto.21:Pour nourrir le couvains (les œuf, larves et nymphes), les fourmis régurgite de la nourriture contenu dans leur "estomac sociale". On appelle cela une trophallaxie.
 tuto.22:nourrissez la larve avec le bouton "Trophallaxie" situé en bas de votre écran.
 tuto.23:La nymphe est rassasié ! Attendons encore un peu qu'elle grandisse. (cliquer sur le bouton "Passer le tour" situé en bas de votre écran.)

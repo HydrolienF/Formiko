@@ -50,7 +50,7 @@ coordonnées:coordonnées
 type:type
 stade:stade
 age:age
-nourriture:nourriture
+food:nourriture
 action:action
 propreté:propreté
 mode:mode
@@ -124,7 +124,7 @@ victoirePar:a gagné par
 pseudo:pseudo
 entrezPseudo:Veuillez entrer votre pseudo
 
-nourritureInsecte:nourriture pour les insectes
+foodInsecte:nourriture pour les insectes
 celluleA:Cellule a
 lien:lien
 ChasseNull:Impossible de chasser avec la créature
@@ -166,16 +166,16 @@ vitesseDeJeu2:araignée
 vitesseDeJeu3:escargot
 vitesseDeJeu4:limace
 
-I0:coccinelle
-I1:scarabée
-I2:puceron orrange
-I3:puceron vert
-I4:asticot
-I5:vers
-I6:moucheron
-I7:chenille
-I8:cloporte
-I9:fourmilion
+i0:coccinelle
+i1:scarabée
+i2:puceron orrange
+i3:puceron vert
+i4:asticot
+i5:vers
+i6:moucheron
+i7:chenille
+i8:cloporte
+i9:fourmilion
 
 choixCarte:choix de la carte
 choixDif:choix de la difficulté

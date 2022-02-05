@@ -1,5 +1,6 @@
 package fr.formiko.views.gui2d;
 
+import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
@@ -11,14 +12,13 @@ import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.usuel.types.str;
 
 import java.awt.MouseInfo;
-import javax.swing.JOptionPane;
 
 /**
 *{@summary All the gui action are launch here.}
 *@author Hydrolien
-*@version 1.41
+*@lastEditedVersion 1.41
 */
-public class action{
+public class action {
   private static Partie pa;
   private static boolean needToSetPaNullWhenActionDone=false;
   // GET SET -------------------------------------------------------------------
@@ -30,7 +30,7 @@ public class action{
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Launch an action on gui mode.}
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public static void doAction(int action){
     if(FPanel.getView().getFl()!=null){
@@ -43,6 +43,10 @@ public class action{
       doActionPm(action);
     }
   }
+  /**
+  *{@summary Launch an action on gui mode on the Panel launcher.}
+  *@lastEditedVersion 2.x
+  */
   public static void doActionPl(int ac){
     if(ac==1000){//retry to download data from FFrameLauncher
       Main.getFolder().setLaunchDownload(true);
@@ -51,13 +55,15 @@ public class action{
   }
   /**
   *{@summary Launch an action on menu.}
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public static void doActionPm(int ac){//TODO passer dans une autre class Controleur ?
     FPanelMenu pm = FPanel.getView().getPm();
-    if(ac==-1){
+    if(ac==-2){
+      return; //don't do anything
+    }else if(ac==-1){
       FPanel.getView().close();
-    }if(ac==0){
+    }else if(ac==0){
       // System.out.println("back to main menu");
       FPanel.getView().menuMain();
     }else if(ac==1){
@@ -68,25 +74,25 @@ public class action{
       FPanel.getView().menuOptions();
     }else if(ac==4){
       debug.débogage("lancementNouvellePartie");
-      pm.setLancer(true); //TODO to remove
+      FPanel.getView().setLaunchFromPm(true);
     }else if(ac==5){
       FPanel.getView().menuPersonaliseAGame();
     }else if(ac==6){
       Partie.setScript("tuto");
-      pm.setLancer(true); //TODO to remove
+      FPanel.getView().setLaunchFromPm(true);
     }else if(ac==7){
       pm.validatelanguageChoice();
     }else if(ac==100){
       setPartie(FPanel.getView().getPnp().getPartie());
-      pm.setLancer(true); //TODO to remove
+      FPanel.getView().setLaunchFromPm(true);
     }else if(ac==101){
       setPartie(pm.getPcp().getPartie());
-      pm.setLancer(true); //TODO to remove
+      FPanel.getView().setLaunchFromPm(true);
     }
   }
   /**
   *{@summary Launch an action on action game.}
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public static void doActionPj(int ac){
     debug.débogage("action pj : "+ac);
@@ -137,7 +143,7 @@ public class action{
   }
   /**
   *{@summary Launch an escape panel action.}
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   private static void doActionPe(int ac){
     if(ac==-9){
@@ -145,7 +151,7 @@ public class action{
     }else if(ac==-10){
       String s = getSaveName();
       sauvegarderUnePartie.sauvegarder(Main.getPartie(),s+".save");
-      FPanel.getView().getPe().setVisible(false);
+      // FPanel.getView().getPe().setVisible(false); //done in getSaveName()
     }else if(ac==-11){
 
     }else if(ac==-12){
@@ -158,15 +164,9 @@ public class action{
   }
   /**
   *{@summary Ask save name in gui.}
-  *@version 1.41
+  *@lastEditedVersion 2.17
   */
   private static String getSaveName(){
-    String s = "null";
-    JOptionPane d = new JOptionPane(g.get("sauvegarder"));
-    d.setMessageType(JOptionPane.QUESTION_MESSAGE);
-    //d.setInitialSelectionValue(Temps.getDatePourSauvegarde());
-    Object[] options = {g.get("ok")};
-    //d.title = g.get("sauvegarder");
     String saveName = g.getM("sauvegarde")+" "+sauvegarderUnePartie.getSave().getIdS();//donne un identifiant unique au fichier.
     try {
       //saveName+="  "+Main.getGj().getHead().getContent().getPseudo();
@@ -174,20 +174,16 @@ public class action{
     }catch (Exception e) {
       erreur.alerte("Un nom de sauvegarde n'a pas pu être choisi.");
     }
-    saveName = str.sToFileName(saveName);//le pseudo pourrai contenir des char interdits sur des fichiers.
-    s = d.showInputDialog(Main.getF(),g.get("save.message"),saveName);
-    s = str.sToFileName(s);
-    //s = d.showInputDialog(Main.getF(),g.get("save.message"),g.get("sauvegarder"),JOptionPane.QUESTION_MESSAGE);
-    Object o = g.get("save.message");
-    Object oNull = null;
-    //TODO s'arranger pour conserver ce qu'on a mais avoir 1 seul bouton g.get("ok") & on veut le titre et la valeur préremplie.
-    //javadoc showInputDialog(Component parentComponent, Object message, String title, int messageType, Icon icon, Object[] selectionValues, Object initialSelectionValue)
-    //s = d.showInputDialog(Main.getF(),o,g.get("sauvegarder"),JOptionPane.QUESTION_MESSAGE,new ImageIcon(),options,oNull);
-    return s;
+    // saveName = str.sToFileName(saveName);//le pseudo pourrait contenir des char interdits sur des fichiers.
+    if(FPanel.getView().getPe()!=null){
+      return FPanel.getView().getPe().getSaveName(saveName);
+    }else{
+      return saveName;
+    }
   }
   /**
   *{@summary go back to main menu.}
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public static void retournerAuMenu(){
     Main.setRetournerAuMenu(true);//ne prend effet dans la void main que lorsque le tour est fini.
@@ -199,14 +195,20 @@ public class action{
     // FPanel.getView().getPp().removePj();
     // FPanel.getView().getPp().addPm();
   }
+  /**
+  *{@summary Do as if mouse have been update.}
+  *@lastEditedVersion 2.17
+  */
   public static void updateMouseLocation(){
-    try {
-      System.out.println(FPanel.getView().getPs().getCCase((int)MouseInfo.getPointerInfo().getLocation().getX(), (int)MouseInfo.getPointerInfo().getLocation().getY()).getContent());
-    }catch (Exception e) {}
+    if(FPanel.getView().getPs()==null){return;}
+    CCase cc = FPanel.getView().getPs().getCCase((int)MouseInfo.getPointerInfo().getLocation().getX(), (int)MouseInfo.getPointerInfo().getLocation().getY());
+    if(cc!=null){
+      FPanel.getView().getPs().mouseMovedUpdate(cc, true);
+    }
   }
   /**
   *{@summary do a graphic action concerning map aspect.}
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public static void doGraphicsAction(int ac){
     switch(ac){
@@ -230,6 +232,15 @@ public class action{
       break;
       case 355:
       Main.getOp().setDrawOnlyEatable(!Main.getOp().getDrawOnlyEatable());
+      Main.getView().setPlayingAnt(Main.getPartie().getPlayingAnt());//update list of seed/creature on the case of playingAnt.
+      break;
+      case 356:
+      Main.getOp().setAntColorLevel((byte)((Main.getOp().getAntColorLevel()+1)%3));
+      Main.getView().setPlayingAnt(Main.getPartie().getPlayingAnt());//update list of seed/creature on the case of playingAnt.
+      break;
+      case 357:
+      Main.getOp().setDrawDrawBlades(!Main.getOp().getDrawBlades());
+      FPanel.getView().setBladeChanged(true);
       break;
       default:
       break;

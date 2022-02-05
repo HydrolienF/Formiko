@@ -30,12 +30,13 @@ public class FPanelBouton extends FPanel {
   private FPanelTInt pti;
   private FPanelTBoolean ptb;
   private String descS;
-  private FLabel desc;
+  private FTextArea desc;
   private FLabel descTI;
   private int actionF;
   private int choixId;
   private FPanelChamp pchamp;
   private FPanelInfo pi;
+  private FPanelInfo piGc;
   private FPanelInfoText pij;
   private Font fontPij;
   private Liste<Component> lToRemove;
@@ -43,8 +44,7 @@ public class FPanelBouton extends FPanel {
   public FPanelBouton(){}
   public void build(){
     setLayout(null);
-    descS=""; desc = new FLabel(getWidth(),FLabel.getDimY());
-    desc.setBackground(Main.getData().getButtonColor());
+    descS="";
     actionF = -1; choixId = -1;
     int t [] = {0,1,2,3,4,5};
     ptb = new FPanelTBoolean(null);
@@ -57,11 +57,14 @@ public class FPanelBouton extends FPanel {
     descTI = new FLabel();
     descTI.setBackground(Main.getData().getButtonColor());
     setDescTI("");
+    desc = new FTextArea("",getWidth()-pmmc.getWidth());
+    desc.setBackground(Main.getData().getButtonColor());
     setDesc("");
     descTI.setBounds(0,0,800);
     // on ajoute les éléments non visible. Les éléments visible sont add 1 a 1 quand le besoin ce fait sentir.
     add(descTI);
-    add(desc);
+    // Add desc to FPanelCarte make it not-mouse listener because it's under FPanelSup. That's was we need to print desc of Case even id there are under desc.
+    getView().getPc().add(desc);
     add(pz);
     lToRemove = new Liste<Component>();
   }
@@ -98,8 +101,8 @@ public class FPanelBouton extends FPanel {
     remove(pz);
     pz = new FPanelZoom();
     pz.build();
-    int x = pz.getbuttonSize()*3;
-    pz.setBounds(getWidth()-x,0,x,x);
+    int x = pz.getbuttonSize()*4;
+    pz.setLocation(getWidth()-x,0);
     pz.setOpaque(false);
     add(pz);
   }
@@ -135,6 +138,7 @@ public class FPanelBouton extends FPanel {
     pa.build();
     int xxx = pa.getbuttonSize();
     pa.setBounds(0,getHeight()-pa.getHeight(),pa.getWidth(),pa.getHeight());
+    FPanel.getView().getPmmo().setSpaceInY(getView().getPj().getHeight()-getView().getPa().getHeight());
     pas = new FPanelActionSup();
     pas.setBounds(0,getHeight()-pas.getHeight(),pas.getWidth(),pas.getHeight());
     //FPanelActionInf paiPrécédent = pai;
@@ -188,6 +192,7 @@ public class FPanelBouton extends FPanel {
   public void removePChamp(){ remove(pchamp);setDescTI("");}
   public void addPI(){
     lToRemove.add(pi);
+    lToRemove.add(piGc);
     Fourmi playingAnt = Main.getPlayingAnt();
     if(playingAnt!=null){
       pi = FPanelInfoCreature.builder().addCreature(playingAnt)
@@ -195,13 +200,31 @@ public class FPanelBouton extends FPanel {
       .setYByElement(Main.getTailleElementGraphiqueY(32))
       .build();
       pi.setLocation(getWidth()-pi.getWidth(),pz.getbuttonSize()*3);
+      piGc = FPanelInfoGCreature.builder().addCreaturesOnSameCase(playingAnt)
+      .setX(Main.getTailleElementGraphiqueX(320))
+      .setYByElement(Main.getTailleElementGraphiqueY(32))
+      // .setYByElement(Main.getTailleElementGraphiqueY(40))
+      .setAllowPanelsOnSameLine(true)
+      .build();
+      if(piGc!=null){
+        piGc.setLocation(getWidth()-piGc.getWidth(),pz.getbuttonSize()*3+pi.getHeight());
+      }
       removes();
       add(pi);
+      if(piGc!=null){
+        add(piGc);
+      }
     }else{
+      removes();
       erreur.alerte("FPanelInfoCreature haven't been set because playingAnt is null");
     }
   }
-  public void removePi(){remove(pi);}
+  public void removePi(){
+    remove(pi);
+    if(piGc!=null){
+      remove(piGc);
+    }
+  }
   public void addPIJ(){
     try {
       removePij();
@@ -232,7 +255,6 @@ public class FPanelBouton extends FPanel {
       try {
         xxx = pa.getHeight();
       }catch (Exception e) {}
-      desc.setLocation(0,Main.getDimY()-xxx-FLabel.getDimY());//-desc.getHeight()
       descTI.setBounds(0,0,800);
     }catch (Exception e) {
       erreur.erreur("affichage de FPanelBouton");
@@ -240,17 +262,21 @@ public class FPanelBouton extends FPanel {
   }
   public void actualiserDesc(){
     debug.débogage("actualisation de la description");
+    if(desc==null){return;}
     if(getView().getActionGameOn()){
-      desc.setTexte(descS);
+      desc.setText(descS);
       desc.updateSize();
+      desc.setLocation(0,Main.getDimY()-pa.getHeight()-desc.getHeight());
+      // desc.setLocation(0,0);
       try {
         Main.repaint();
       }catch (Exception e) {}
     }else{
-      desc.setTexte("");
+      desc.setText("");
     }
   }
   public void actualiserDescTI(String s){
+    if(descTI==null){return;}
     if(getView().getActionGameOn()){
       debug.débogage("actualisation de la descriptionTI");
       try {
@@ -258,7 +284,7 @@ public class FPanelBouton extends FPanel {
         descTI.updateSize();
       }catch (Exception e) {}
     }else{
-      desc.setTexte("");
+      descTI.setTexte("");
     }
   }
 

@@ -16,7 +16,7 @@ import java.io.Serializable;
 *Specials insectes extends this class.<br>
 *Almost all the var can be found in Creature.java<br>
 *@author Hydrolien
-*@version 2.6
+*@lastEditedVersion 2.6
 */
 public class Insecte extends Creature implements Serializable{
   protected boolean femelle;
@@ -26,7 +26,7 @@ public class Insecte extends Creature implements Serializable{
   /**
   *{@summary Main constructor for Insecte.}<br>
   *All args are Insecte var.
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   public Insecte (CCase p, int age, int maxAge, int maxAction){
     // Soit l'insecte est terrestre et vien de naitre, soit il est volant et il est mort.
@@ -52,7 +52,7 @@ public class Insecte extends Creature implements Serializable{
   /**
   *{@summary constructor for Insecte.}<br>
   *Here we only know the location of the insecte, random value will be add for maxAge and maxAction.
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   public Insecte (CCase p){
     this(p, 0,10 + allea.getAlléa(101), allea.getAlléa(21));//action entre 0 et 20.
@@ -60,7 +60,7 @@ public class Insecte extends Creature implements Serializable{
   /**
   *{@summary constructor for Insecte.}<br>
   *Here know nothing, the location of the insecte will be shoose randomly on the actual GCase of Main. Random value will be add for maxAge and maxAction.
-  *@version 1.13
+  *@lastEditedVersion 1.13
   */
   public Insecte (){
     // TODO en théorie soit il nait et il a la case de ca mere, soit il vient d'autre par et dans ce cas il apparait sur une case en bordure de carte.
@@ -71,7 +71,7 @@ public class Insecte extends Creature implements Serializable{
   // }
   // /***
   // *{@summary constructor for test only.}<br>
-  // *@version 2.7
+  // *@lastEditedVersion 2.7
   // */
   // public static Insecte newEmptyInsecte(){
   //   return new Insecte(true);
@@ -87,7 +87,7 @@ public class Insecte extends Creature implements Serializable{
   public byte getType(){ return (byte)(getEspece().getId()-100);}
   /**
   *{@summary set type &#38; Espece.}
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void setType(byte x){
     super.setEspece(Main.getEspeceParId(100+x));
@@ -97,7 +97,7 @@ public class Insecte extends Creature implements Serializable{
   public byte getRandomTypeInsectOnTheCase(){return gie.getRandomTypeInsectOnTheCase(getCCase().getContent().getType());}
   /**
   *{@summary set type &#38; Espece.}
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   @Override
   public void setEspece(Espece ex){
@@ -107,15 +107,25 @@ public class Insecte extends Creature implements Serializable{
   public boolean getHaveWings(){if(getStade()!=0){return false;}return e.getHaveWings();}//si c'est un imago ca dépend de l'espece.
   public static void setGie(){ gie=new GIEspece();}//initialise le fichier/
   @Override
-  public String getNom(){return g.get("I"+getType());}
+  public String getNom(){return g.get("i"+getType());}
   // FUNCTIONS -----------------------------------------------------------------
   /**
-  *{@summary Print all information about the Insecte.}<br>
-  *@version 1.13
+  *{@summary Return a string that describe this.}<br>
+  *@lastEditedVersion 2.18
   */
   @Override
   public String toString(){
-    String sr = super.toString();sr+=", ";
+    // String sr = super.toString();sr+=", ";
+    // sr+= " "+g.get("foodMangeable")+" "+foodMangeable;
+    return super.toString();
+  }
+  /**
+  *{@summary Return a short string that describe this.}<br>
+  *@lastEditedVersion 2.18
+  */
+  @Override
+  public String toStringShort(){
+    String sr = super.toStringShort();sr+=", ";
     sr+= " "+g.get("foodMangeable")+" "+foodMangeable;
     return sr;
   }
@@ -123,14 +133,14 @@ public class Insecte extends Creature implements Serializable{
   /**
   *{@summary return true if this whant some food.}
   *Insecte alway whant food from ant exept if they can eat it.
-  *@version 1.29
+  *@lastEditedVersion 1.29
   */
   public boolean wantFood(){
     return getFood()<getMaxFood();
   }
   /**
   *{@summary return true if this whant to be clean.}
-  *@version 1.29
+  *@lastEditedVersion 1.29
   */
   public boolean wantClean(){
     if(health>99){return false;}

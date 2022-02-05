@@ -7,7 +7,12 @@ import fr.formiko.usuel.g;
 
 import java.io.Serializable;
 
-public class ObjetAId implements Serializable{
+/**
+*{@summary Basic class for all Object with an id.}<br>
+*@lastEditedVersion 2.18
+*@author Hydrolien
+*/
+public class ObjetAId implements Serializable {
   protected static int ic;
   protected final int id;
 
@@ -15,6 +20,7 @@ public class ObjetAId implements Serializable{
   //Principal
   /**
   *{@summary Main constructor.}<br>
+  *@lastEditedVersion 1.x
   */
   public ObjetAId(){
     id = ic; ic++;
@@ -29,7 +35,7 @@ public class ObjetAId implements Serializable{
   *{@summary Standard equals function with id.}
   *Null &#38; other class type proof.
   *@param o o is the Object to test. It can be null or something else than this class.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   @Override
   public boolean equals(Object o){
@@ -40,4 +46,19 @@ public class ObjetAId implements Serializable{
   }
   @Override
   public int hashCode(){return getId();}
+  /**
+  *{@summary Return a short string that describe this.}<br>
+  *@lastEditedVersion 2.18
+  */
+  public String toStringShort(){
+    return toString(); // toString is small enoth.
+  }
+  /**
+  *{@summary Return a string that describe this.}<br>
+  *@lastEditedVersion 2.18
+  */
+  @Override
+  public String toString(){
+    return id+"";
+  }
 }

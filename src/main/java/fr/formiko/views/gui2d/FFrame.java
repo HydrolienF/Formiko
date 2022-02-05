@@ -24,7 +24,7 @@ import javax.swing.SwingUtilities;
 /**
 *{@summary Main container in GUI.}<br>
 *@author Hydrolien
-*@version 2.7
+*@lastEditedVersion 2.7
 */
 public class FFrame extends JFrame {
 
@@ -35,7 +35,7 @@ public class FFrame extends JFrame {
   *@param width with of the Frame
   *@param heigth heigth of the Frame
   *@param fullScreen true if Frame need to be in full screen
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   protected FFrame(String title, int width, int heigth, boolean fullScreen){
     if(fullScreen){
@@ -71,7 +71,7 @@ public class FFrame extends JFrame {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Personalise our close button to end game properly.}
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   private void iniCloseButton(){
     addWindowListener(new WindowAdapter() {
@@ -79,12 +79,18 @@ public class FFrame extends JFrame {
         public void windowClosing(WindowEvent e) {
           Main.getView().close();
         }
+        // @Override
+        // public void windowStateChanged(WindowEvent e) {
+        //   if (e.getNewState() == WindowEvent.WINDOW_LOST_FOCUS) {
+        //     e.getWindow().setVisible(false);
+        //   }
+        // }
     });
   }
   /**
   *{@summary Function to end game properly.}
   *If the Options is enable, we ask a validation to end game.
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void quit(){
     try {
@@ -105,7 +111,7 @@ public class FFrame extends JFrame {
   }
   /**
   *{@summary Function to end ini by setting resizable, visible &#38; on top.}
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public void endIni(){
     setResizable(Main.getOp().getFullscreen());
@@ -115,7 +121,7 @@ public class FFrame extends JFrame {
   /**
   *{@summary Function to set window in first plan.}<br>
   *Default toFront don't work on Windows, but this one is working.
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   @Override
   public void toFront(){

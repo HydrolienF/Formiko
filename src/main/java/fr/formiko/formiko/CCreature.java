@@ -143,7 +143,7 @@ public class CCreature implements Serializable{
   }
   /**
   *{@summary Transform a GCreature in Liste&lt;Creature&gt;.}
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   public Liste<Creature> toList(){
     CCreature cc = this;

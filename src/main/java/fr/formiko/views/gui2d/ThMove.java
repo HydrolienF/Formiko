@@ -18,7 +18,7 @@ import java.util.Comparator;
 /**
 *{@summary A simple Thread extends class to move ObjetSurCarteAId.}<br>
 *It modify only rotation &#38; position so it won't break any game mechanic.
-*@version 2.4
+*@lastEditedVersion 2.4
 *@author Hydrolien
 */
 public class ThMove {
@@ -47,7 +47,7 @@ public class ThMove {
   *@param o the Object to animate.
   *@param from CCase from where it move.
   *@param to CCase where it move.
-  *@version 2.4
+  *@lastEditedVersion 2.4
   */
   public ThMove(ObjetSurCarteAId o, CCase from, CCase to){
     id=cptId++;
@@ -70,7 +70,7 @@ public class ThMove {
   /**
   *{@summary Initialize before launch start function.}
   *It Initialize Point and add to the 2 curent list.
-  *@version 2.4
+  *@lastEditedVersion 2.4
   */
   private void iniBeforeStart(){
     curentThList.add(this);
@@ -79,32 +79,36 @@ public class ThMove {
     try {
       FPanel.getView().getPc().addMovingObject(o.getId(), curent, rotate);
     }catch (NullPointerException e) {} //getPc return null if we move creature by script before graphics are ini.
-    runIni();
+    iniRun();
   }
   /**
   *{@summary add an item to the queue.}
   *Item are sorted in queue so that they will be launch in the creation order.
-  *@version 2.4
+  *@lastEditedVersion 2.4
   */
-  private synchronized static void addToQueue(ThMove th){
-    queue.addSorted(th, comparator);
+  private static void addToQueue(ThMove th){
+    synchronized (queue) {
+      queue.addSorted(th, comparator);
+    }
   }
   /***
   *{@summary Update the queue by launching all ThMove that can be launch.}
-  *@version 2.4
+  *@lastEditedVersion 2.4
   */
-  static synchronized void updateQueue(){
+  static void updateQueue(){
     if(queue==null){return;}
     // System.out.println(queue.size()+" in queue");
     try {
-      for (ThMove th : queue) {
-        //if need to launch : launch
-        if(FPanel.getView().getPc().getMovingObjectLocation(th.getIdMovingObject())==null){
-          // erreur.info("test ok th "+th.getIdTh()+" for "+th.getIdMovingObject()+" after "+(System.currentTimeMillis()-th.time)+"ms");
-          queue.remove(th);
-          th.iniBeforeStart();
-          // th.start();
-          thMoveManager.add(th);
+      synchronized (queue) {
+        for (ThMove th : queue) {
+          //if need to launch : launch
+          if(FPanel.getView().getPc().getMovingObjectLocation(th.getIdMovingObject())==null){
+            // erreur.info("test ok th "+th.getIdTh()+" for "+th.getIdMovingObject()+" after "+(System.currentTimeMillis()-th.time)+"ms");
+            queue.remove(th);
+            th.iniBeforeStart();
+            // th.start();
+            thMoveManager.add(th);
+          }
         }
       }
     }catch (Exception e) {
@@ -114,7 +118,7 @@ public class ThMove {
   /**
   *{@summary Update the destination Point.}
   *@param to the new destination.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   private void updateTo(Point to){
     curent2.setX(curent2.getX() + this.to.getX() - to.getX());
@@ -126,7 +130,7 @@ public class ThMove {
   *It will update all ThMove that haven't been done &#38; that are about ObjetSurCarteAId with given id.
   *@param to new CCase were to go.
   *@param id id of the concerned ObjetSurCarteAId.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public static void updateTo(CCase to, int id){
     Case c = to.getContent();
@@ -142,11 +146,11 @@ public class ThMove {
     }
   }
   /**
-  *{@summary Do the ObjetSurCarteAId animation.}
-  *@version 2.1
+  *{@summary Initialize the ObjetSurCarteAId animation.}
+  *@lastEditedVersion 2.1O
   */
   // @Override
-  public void runIni(){
+  public void iniRun(){
     o.setDirection(CCase.getDirection(from, to));
     int walkCycle = 2;
     k=120; //should be a mutiple of 2*walkCycle.
@@ -171,38 +175,40 @@ public class ThMove {
     vectRotate=-40;
     vectRotate/=numberOfTic;
   }
-  public void run1(){
-    // while(k>0){
-      curent.setX((int)((-k)*(vectX/kIni))+curent2.getX());
-      curent.setY((int)((-k)*(vectY/kIni))+curent2.getY());
-      if (o instanceof Fourmi && ((Fourmi)o).getStade()==0){
-        if ((k+(numberOfTic/2))%numberOfTic==0) { //4 changement = 6 cycle de marche.
-          vectRotate=-vectRotate;
-        }
-        rotateAngle+=vectRotate;
-        rotate.setX((int)rotateAngle);
+  /**
+  *{@summary Do a step of the ObjetSurCarteAId animation.}
+  *Call end run if it's over.
+  *@lastEditedVersion 2.10
+  */
+  public void oneStep(){
+    curent.setX((int)((-k)*(vectX/kIni))+curent2.getX());
+    curent.setY((int)((-k)*(vectY/kIni))+curent2.getY());
+    if (o instanceof Fourmi && ((Fourmi)o).getStade()==0){
+      if ((k+(numberOfTic/2))%numberOfTic==0) { //4 changement = 6 cycle de marche.
+        vectRotate=-vectRotate;
       }
-      k--;
-      // if(vectX!=0 && vectY!=0){
-      //   Temps.pause(8);
-      // }else{
-      //   Temps.pause(6);
-      // }
-    // }
-    if(k<1){runEnd();}
+      rotateAngle+=vectRotate;
+      rotate.setX((int)rotateAngle);
+    }
+    k--;
+    if(k<1){endRun();}
   }
-  public void runEnd(){
-    try {
+  /**
+  *{@summary End the ObjetSurCarteAId animation by removing this from the 2 thread.}
+  *@lastEditedVersion 2.10
+  */
+  public void endRun(){
+    if(FPanel.getView().getPc()!=null){
       FPanel.getView().getPc().removeMovingObject(o.getId());
-    }catch (NullPointerException e) {}
+    }
     curentThList.remove(this);
     thMoveManager.remove(this);
   }
 }
-/***
+/**
 *{@summary A simple Thread extends class to manage ThMove.}<br>
 *It is used only if instantaneousMovement==false.<br>
-*@version 2.10
+*@lastEditedVersion 2.10
 *@author Hydrolien
 */
 class ThMoveManager extends Thread {
@@ -212,16 +218,24 @@ class ThMoveManager extends Thread {
   }
   public void add(ThMove move){list.add(move);}
   public void remove(ThMove move){list.remove(move);}
+  /**
+  *{@summary Do all the moving animation.}
+  *@lastEditedVersion 2.10
+  */
   @Override
   public void run(){
     if(Main.getOp().getInstantaneousMovement()){return;}
-    // erreur.info("start runing ThMoveManager");
     while(true){
       ThMove.updateQueue();
       for (ThMove move : list) {
-        move.run1();
+        move.oneStep();
       }
       Temps.pause(10);
+      // if(list.isEmpty()){
+      //   try {
+      //     wait();
+      //   }catch (InterruptedException e) {}
+      // }
     }
   }
 }

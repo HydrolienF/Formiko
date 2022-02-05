@@ -15,11 +15,12 @@ import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.media.audio.*;
 import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.tableau;
-// import fr.formiko.usuel.testTryCatchNullPointerException;
 import fr.formiko.usuel.trad;
 import fr.formiko.usuel.types.str;
 import fr.formiko.views.ViewNull;
 
+import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.Reader;
@@ -34,7 +35,7 @@ import java.util.HashMap;
 *"-" options are launch with normal game when other options are launch alone (Game is never start).<br>
 *For exemple ./run.sh -cli will launch the game in cli mode when ./run.sh stats will never launch game but update statistique value on a file.<br>
 *@author Hydrolien
-*@version 1.44
+*@lastEditedVersion 1.44
 */
 public class launchOptions {
   // FUNCTIONS -----------------------------------------------------------------
@@ -49,9 +50,13 @@ public class launchOptions {
   *<li>-rg Reload all the graphics saved in data/temporary/images.
   *<li>-cli Launch game but in Console Line Interface.
   *</ul>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public static void launchOptionsMinor(String stringOptions){
+    String t [] = stringOptions.split("=");
+    stringOptions=t[0];
+    String opArg="";
+    if(t.length>1){opArg=t[1];}
     switch(stringOptions){
       case "q":
       erreur.setMuet(true);
@@ -84,13 +89,17 @@ public class launchOptions {
       case "launchDefaultGame":
       Main.dontOpenMenuFirst();
       break;
+      case "ls":
+      case "launchScript":
+      Partie.setScript(opArg);
+      break;
       default:
       erreur.alerte("Unknow cli options : "+stringOptions);
     }
   }
   /**
   *{@summary Launch a major options without launching game.}
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public static void launchOptionsMajor(String args[]){
     if(args[0].equals("trad")){
@@ -99,6 +108,38 @@ public class launchOptions {
         tradCmd(args[1]);
       }else{
         tradCmd();
+      }
+    }else if(args[0].equals("tradChar")){
+      if(args.length<3){return;}
+      Main.initialisation();
+      chargerLesTraductions.iniTLangue();
+      boolean b=true;
+      if(args.length>3){b=str.sToB(args[3]);}
+      if(args[1].equals("all")){
+        int len = chargerLesTraductions.getTLangue().length;
+        for (int i=0; i<len; i++) {
+          tradCharCmd(i, args[2], b);
+        }
+      }else{
+        int id = str.sToI(args[1]); //TODO remove ERROR print if it fail.
+        if(id==-1){id=chargerLesTraductions.getLanguage(args[1]);}
+        tradCharCmd(id, args[2], b);
+      }
+    }else if(args[0].equals("testFont")){
+      if(args.length<2){
+        args=new String[2];
+        args[1]="all";
+      }
+      Main.initialisation();
+      chargerLesTraductions.iniTLangue();
+      if(args[1].equals("all")){
+        // String fonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+        Font fonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts();
+        for (int i = 0; i < fonts.length; i++) {
+          canDisplayLanguages(fonts[i].getName());
+          }
+      }else{
+        canDisplayLanguages(args[1]);
       }
     }else if(args[0].equals("son")){
       music();
@@ -208,7 +249,7 @@ public class launchOptions {
   *<li>2: number of long functions.
   *<li>2: number of short functions.
   *</ul>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   private static void stats(String args[]){
     int valueToPrint = 0;
@@ -238,7 +279,7 @@ public class launchOptions {
   }
   /**
   *{@summary trim the image from args.}<br>
-  *@version 1.21
+  *@lastEditedVersion 1.21
   */
   private static void rbtCmd(String args[]){
     String name = "";
@@ -261,7 +302,7 @@ public class launchOptions {
   }
   /**
   *{@summary Update 1 translation &#38; print it's &#37;age of translation.}<br>
-  *@version 1.42
+  *@lastEditedVersion 1.42
   */
   private static void tradCmd(String language){
     // Main.startCh();
@@ -272,7 +313,7 @@ public class launchOptions {
   }
   /**
   *{@summary Update translation.}<br>
-  *@version 1.21
+  *@lastEditedVersion 1.21
   */
   public static void tradCmd(){
     Main.startCh();
@@ -290,9 +331,37 @@ public class launchOptions {
     chargerLesTraductions.affPourcentageTraduit();
     Main.endCh("affPourcentageTraduit");*/
   }
+  public static void tradCharCmd(int id, String fontName, boolean b){
+    // Main.startCh();
+    System.out.println(trad.partOfPrintableChar(id, fontName, b));
+    // chargerLesTraductions.créerLesFichiers();
+    // Main.endCh("créerLesFichiers");Main.startCh();
+    // g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
+    // Main.endCh("chargerLesTraductions");Main.startCh();
+    // trad.copieTrads();
+    // Main.endCh("copieTrads");Main.startCh();
+    // chargerLesTraductions.affPourcentageTraduit();
+    // Main.endCh("affPourcentageTraduit");
+  }
+  public static void canDisplayLanguages(String fontName){
+    int cpt=0;
+    int len = chargerLesTraductions.getTLangue().length;
+    for (int i=0; i<len; i++) {
+      if(trad.canDisplayLanguage(i, fontName)){cpt++;}
+    }
+    String col = null;
+    if(cpt==0){
+      col = color.RED;
+    }else if(cpt==len){
+      col = color.GREEN;
+    }else{
+      col = color.YELLOW;
+    }
+    System.out.println(col+fontName+" "+cpt+"/"+len+color.NEUTRAL);
+  }
   /**
   *{@summary Do sounds or music test.}<br>
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   private static void music(){
     Main.initialisation(); //for color & language
@@ -305,7 +374,7 @@ public class launchOptions {
   *{@summary Translate the web site files.}<br>
   *@param pathToWebSiteFile path to acces to web site files.
   *@param pathToWebSiteTranslation path to acces to translation files.
-  *@version 1.49
+  *@lastEditedVersion 1.49
   */
   private static void translateWebSite(String pathToWebSiteFile, String pathToWebSiteTranslation){
     Main.setView(new ViewNull());
@@ -330,7 +399,7 @@ public class launchOptions {
   *{@summary Set value of data to last version in version.json.}<br>
   *It is need to help the game to choose the data version that it need.
   *Data version aren't allaws the same that game version because data don't change all time that game is update.
-  *@version 1.51
+  *@lastEditedVersion 1.51
   */
   public static void updateDataVersion(String args[]){
     try {
@@ -383,7 +452,7 @@ public class launchOptions {
   // /**
   // *{@summary return the curent version.}<br>
   // *Curent version is in version.md.
-  // *@version 1.51
+  // *@lastEditedVersion 1.51
   // */
   // public static String getCurentVersion(){
   //   GString gsIn = lireUnFichier.lireUnFichierGs("version.md");

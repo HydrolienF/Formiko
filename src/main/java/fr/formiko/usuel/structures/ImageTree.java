@@ -18,14 +18,14 @@ import java.util.Iterator;
 
 /**
 *{@summary Custom Tree class using Generics.}<br>
-*@version 2.6
+*@lastEditedVersion 2.6
 *@author Hydrolien
 */
 public class ImageTree extends Tree<BufferedImage> {
   /**
   *{@summary Copy the structure of a given Tree.}
   *content of node will not be copy.
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   @Override
   public ImageTree copyStructure() {
@@ -36,7 +36,7 @@ public class ImageTree extends Tree<BufferedImage> {
   /**
   *{@summary Return the Image that fit to a Creature.}
   *@param c the Creature to represent.
-  *@version 2.6
+  *@lastEditedVersion 2.14
   */
   public BufferedImage getCreatureImage(Creature c){
     try {
@@ -73,7 +73,7 @@ public class ImageTree extends Tree<BufferedImage> {
   *{@summary Create an ant Image from the coresponding node, with the Creature color.}<br>
   *@param c Creature that will be used for color
   *@param node
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public static BufferedImage createAntImageFromNode(Creature c, TreeNode<BufferedImage> node){
     BufferedImage body = node.getContent();
@@ -84,7 +84,11 @@ public class ImageTree extends Tree<BufferedImage> {
         g.drawImage(body, 0, 0, null);
         if(node.getChildren(0)!=null){
           BufferedImage color = node.getChildren(0).getContent();
-          color = image.changeColor(new Img(color), c.getPheromone());
+          Img img = new Img(color);
+          if(Main.getOp().getAntColorLevel()>1){
+            img.supprimerLaTransparencePartielle(1);
+          }
+          color = image.changeColor(img, c.getPheromone());
           g.drawImage(color, 0, 0, null);
         }
         if(c.getHaveWings()){
@@ -104,7 +108,7 @@ public class ImageTree extends Tree<BufferedImage> {
   /**
   *{@summary Return the scaled instance of this tree.}
   *content of node that correspond to Creature image will be copy.
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   public static ImageTree getScaledInstanceFromTree(ImageTree treeIn, int dim){
     if(treeIn.getRoot().getChildrenSize()==0){
@@ -125,26 +129,30 @@ public class ImageTree extends Tree<BufferedImage> {
   /**
   *{@summary Return the scaled instance of the Insect part.}
   *content of node that correspond to Creature image will be copy.
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   private static void addScaledInsect(Liste<TreeNode<BufferedImage>> insectListIn, Liste<TreeNode<BufferedImage>> insectListOut, int dim){
     int idSpecies = 0;
     for (TreeNode<BufferedImage> nodeIn : insectListIn) {
       BufferedImage biIn,biOut;
       for (int i=0;i<2 ;i++ ) { //imago ♂ & ♀
-        if(nodeIn.getChildren(0)!=null && nodeIn.getChildren(0).getChildren(i)!=null && nodeIn.getChildren(0).getChildren(i).getContent()!=null){
-          biIn = nodeIn.getChildren(0).getChildren(i).getContent();
-          biOut = image.resize(biIn,image.taille(idSpecies+100,0,dim));
-          insectListOut.get(idSpecies).getChildren(0).getChildren(i).setContent(biOut);
+        if(nodeIn.getChildren(0)!=null && nodeIn.getChildren(0).getChildren(i)!=null){
+          if (nodeIn.getChildren(0).getChildren(i).getContent()!=null) {
+            biIn = nodeIn.getChildren(0).getChildren(i).getContent();
+            biOut = image.resize(biIn,image.taille(idSpecies+100,0,dim));
+            insectListOut.get(idSpecies).getChildren(0).getChildren(i).setContent(biOut);
+          } //else erreur.alerte("A branch of the tree is empty (imago)");
         }else{
           erreur.alerte("A branch of the tree is cut (imago)");
         }
       }
       for (int i=1;i<4 ;i++ ) { // other stade
-        if(nodeIn.getChildren(i)!=null && nodeIn.getChildren(i).getContent()!=null){
-          biIn = nodeIn.getChildren(i).getContent();
-          biOut = image.resize(biIn,image.taille(idSpecies+100,-i,dim));
-          insectListOut.get(idSpecies).getChildren(i).setContent(biOut);
+        if(nodeIn.getChildren(i)!=null){
+          if (nodeIn.getChildren(i).getContent()!=null) {
+            biIn = nodeIn.getChildren(i).getContent();
+            biOut = image.resize(biIn,image.taille(idSpecies+100,-i,dim));
+            insectListOut.get(idSpecies).getChildren(i).setContent(biOut);
+          } //else erreur.alerte("A branch of the tree is empty (other stade)");
         }else{
           erreur.alerte("A branch of the tree is cut (other stade)");
         }
@@ -155,7 +163,7 @@ public class ImageTree extends Tree<BufferedImage> {
   /**
   *{@summary Return the scaled instance of the Ant part.}
   *content of node that correspond to Creature image will be copy.
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   private static void addScaledAnt(Liste<TreeNode<BufferedImage>> antListIn, Liste<TreeNode<BufferedImage>> antListOut, int dim){
     int idSpecies = 0;
@@ -165,16 +173,16 @@ public class ImageTree extends Tree<BufferedImage> {
       for (int i=0; i<len; i++ ) { //imago ♂, ♀, minor, media, major, soldier etc
         //ant body
         if(nodeIn.getChildren(0)!=null && nodeIn.getChildren(0).getChildren(i)!=null){
-          int size = image.tailleFourmi(idSpecies,i,dim);
           TreeNode<BufferedImage> currentNodeIn = nodeIn.getChildren(0).getChildren(i);
           TreeNode<BufferedImage> currentNodeOut = antListOut.get(idSpecies).getChildren(0).getChildren(i);
           biIn = currentNodeIn.getContent();
-          if(biIn!=null){
+          if(biIn!=null){ //if there is an ant
+            int size = image.tailleFourmi(idSpecies,i,dim);
             biOut = image.resize(biIn,size);
             currentNodeOut.setContent(biOut);
+            addScaledAntColorPart(currentNodeIn, currentNodeOut, dim, size);
+            addScaledAntOtherPart(currentNodeIn, currentNodeOut, dim, size);
           }
-          addScaledAntColorPart(currentNodeIn, currentNodeOut, dim, size);
-          addScaledAntOtherPart(currentNodeIn, currentNodeOut, dim, size);
         }else{
           erreur.alerte("A branch of the tree is cut (Ant imago)");
         }
@@ -195,19 +203,20 @@ public class ImageTree extends Tree<BufferedImage> {
   *{@summary Return the scaled color of the Ant.}<br>
   *It can return null if color is disable in Options.
   *Color image will be edit to whithout transparency image if Ant color level is 1 in Options.
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   private static void addScaledAntColorPart(TreeNode<BufferedImage> currentNodeIn, TreeNode<BufferedImage> currentNodeOut, int dim, int size){
-    if(Main.getOp().getAntColorLevel()==0){return;}
+    // if(Main.getOp().getAntColorLevel()==0){return;} //done during game time.
     BufferedImage biIn,biOut;
     if(currentNodeIn.getChildren(0)!=null){
       biIn = currentNodeIn.getChildren(0).getContent();
-      if(Main.getOp().getAntColorLevel()>1){
-        Img img = new Img(biIn);
-        img.supprimerLaTransparencePartielle(1);
-        img.actualiserImage();
-        biIn = img.getImage();
-      }
+      //done during game time.
+      // if(Main.getOp().getAntColorLevel()>1){
+      //   Img img = new Img(biIn);
+      //   img.supprimerLaTransparencePartielle(1);
+      //   img.actualiserImage();
+      //   biIn = img.getImage();
+      // }
       if(biIn!=null){
         biOut = image.resize(biIn,size);
         currentNodeOut.getChildren(0).setContent(biOut);
@@ -216,7 +225,7 @@ public class ImageTree extends Tree<BufferedImage> {
   }
   /**
   *{@summary Return the scaled part of the body of the Ant.}<br>
-  *@version 2.10
+  *@lastEditedVersion 2.10
   */
   private static void addScaledAntOtherPart(TreeNode<BufferedImage> currentNodeIn, TreeNode<BufferedImage> currentNodeOut, int dim, int size){
     BufferedImage biIn,biOut;
@@ -233,7 +242,7 @@ public class ImageTree extends Tree<BufferedImage> {
   /**
   *{@summary Transform a folder tree into a Java ImageTree.}
   *@param file file to Transform
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public static ImageTree folderToTree(File file) {
     ImageTree tree = new ImageTree();
@@ -245,7 +254,7 @@ public class ImageTree extends Tree<BufferedImage> {
   /**
   *{@summary Transform a folder tree into a Java ImageTree.}
   *@param fileName name of the file to Transform
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public static ImageTree folderToTree(String fileName) {
     return folderToTree(new File(fileName));

@@ -7,14 +7,14 @@ import fr.formiko.usuel.g;
 /**
 *{@summary Do math operation.}<br>
 *@author Hydrolien
-*@version 2.5
+*@lastEditedVersion 2.5
 */
 public class math {
   //int
   /**
   *{@summary return maximum}
   *@return maximum of 2 int
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static int max(int x, int y){
     if (y>x){ return y;}
@@ -24,7 +24,7 @@ public class math {
   *{@summary return maximum}
   *Sort cut for as many parameters as we whant.
   *@return maximum of int t []
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public static int max(int ... t){
     // return max(values);
@@ -38,7 +38,7 @@ public class math {
   /**
   *{@summary return maximum}
   *@return maximum of int t [][]
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static int max(int t[][]){
     int lent = t.length;
@@ -52,7 +52,7 @@ public class math {
   /**
   *{@summary return minimum}
   *@return minimum of 2 int
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static int min(int x, int y){
     if (y<x){ return y;}
@@ -61,7 +61,7 @@ public class math {
   /**
   *{@summary return minimum}
   *@return minimum of int t []
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public static int min(int ... t){
     int lent = t.length;
@@ -74,7 +74,7 @@ public class math {
   /**
   *{@summary return minimum}
   *@return minimum of int t [][]
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static int min(int t[][]){
     int lent = t.length;
@@ -88,7 +88,7 @@ public class math {
   /**
   *{@summary return absolute value}
   *@return absolute value of an int.
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static int valAbs(int x){
     if (x<0) { return x*-1;}
@@ -98,7 +98,7 @@ public class math {
   /**
   *{@summary return maximum}
   *@return maximum of double
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static double max(double x, double y){
     if (y>x){ return y;}
@@ -107,7 +107,7 @@ public class math {
   /**
   *{@summary return maximum}
   *@return maximum of double
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public static double max(double ... t){
     int lent = t.length;
@@ -120,7 +120,7 @@ public class math {
   /**
   *{@summary return minimum}
   *@return minimum of double
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static double min(double x, double y){
     if (y<x){ return y;}
@@ -129,7 +129,7 @@ public class math {
   /**
   *{@summary return minimum}
   *@return minimum of double
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public static double min(double ... t){
     int lent = t.length;
@@ -142,22 +142,50 @@ public class math {
   /**
   *{@summary return absolute value}
   *@return absolute value of double
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static double valAbs(double x){
     if (x<0) { return x*-1;}
     return x;
   }
   /**
-  *{@summary return a value in an interval.}<br>
+  *{@summary Return a value in an interval.}<br>
   *max &#38; min are in the interval.
   *@param min the minimum value
   *@param max the maximum value
   *@param val the value to test
   *@return val or a bound
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public static int between(int min, int max, int val){
+    if(val<min){return min;}
+    if(val>max){return max;}
+    return val;
+  }
+  /**
+  *{@summary Return a value in an interval.}<br>
+  *max &#38; min are in the interval.
+  *@param min the minimum value
+  *@param max the maximum value
+  *@param val the value to test
+  *@return val or a bound
+  *@lastEditedVersion 2.5
+  */
+  public static float between(float min, float max, float val){
+    if(val<min){return min;}
+    if(val>max){return max;}
+    return val;
+  }
+  /**
+  *{@summary Return a value in an interval.}<br>
+  *max &#38; min are in the interval.
+  *@param min the minimum value
+  *@param max the maximum value
+  *@param val the value to test
+  *@return val or a bound
+  *@lastEditedVersion 2.5
+  */
+  public static double between(double min, double max, double val){
     if(val<min){return min;}
     if(val>max){return max;}
     return val;
@@ -167,7 +195,7 @@ public class math {
   /**
   *{@summary return the sum from 0 to k }
   *@return sum from 0 to k
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static int sommeDe0AXSwitch(int k){
     int mem [] = new int [2];
@@ -187,7 +215,7 @@ public class math {
   /**
   *{@summary return the sum from 0 to k }
   *@return sum from 0 to k or -1 if k &lt; 0
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static int sommeDe0AX(int k){
     int somme = 0;
@@ -229,7 +257,7 @@ public class math {
   /**
   *{@summary return k! }
   *@return k! or -1 if k &lt; 0
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static long factorielle(int k){
     if(k==0){return 0;}
@@ -276,7 +304,7 @@ public class math {
   /**
   *{@summary n choose k}
   *@return n choose k
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static int kParmiN(int k, int n){
     // k parmi n = n!/(k! * (n-k)!) c'est la formule simple.
@@ -297,7 +325,7 @@ public class math {
   /**
   *{@summary Syracuse suite}
   *@return Syracuse suite
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static int syracuse(int n){
     if (n <= 0) {
@@ -320,7 +348,7 @@ public class math {
   /**
   *{@summary Syracuse suite}
   *@return Syracuse suite
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static int syracuseSwitch(int n){
     if (n <= 0) {

@@ -7,12 +7,12 @@ import java.util.HashMap;
 /**
 *{@summary Get a translation class.}<br>
 *@author Hydrolien
-*@version 1.39
+*@lastEditedVersion 1.39
 */
 public class g {
   /***
    *Contain the Strings in the chosen language.
-   *@version 1.1
+   *@lastEditedVersion 1.1
    */
   private static HashMap<String, String> map = new HashMap<String, String>(); // g.get(key) permet d'obtenir le texte associé.
   // GET SET ----------------------------------------------------------
@@ -25,7 +25,7 @@ public class g {
   *Difference with main get methode is that key = f+"."+x that's all.<br>
   *@param s String return if key is not found.
   *@return value that corresponds to key or s if there is no value fo key.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public static String get(String f, int x,String s){
     return get(f+"."+x,s);
@@ -36,7 +36,7 @@ public class g {
   *@param key Map key.<br>
   *@param sDefault String return if key is not found.
   *@return value that corresponds to key or s if there is no value fo key.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public static String get(String key, String sDefault){
     if(key==null || key.equals("")){if(sDefault==null){sDefault="";}return sDefault;}
@@ -58,7 +58,7 @@ public class g {
   *the String return if key is not found will be key.<br>
   *@param key Map key.
   *@return value that corresponds to key or key if there is no value fo key.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public static String get(String key){
     //if(key.equals("n")){return get(key,"");} // le fait qu'un mots subisse l'action n'as d'impacte qu'en eo.
@@ -70,7 +70,7 @@ public class g {
   *the String return if key is not found will be key.<br>
   *@param key Map key.
   *@return value that corresponds to key or s if there is no value fo key.
-  *@version 1.5
+  *@lastEditedVersion 1.5
   */
   public static String getM(String key){
     String s = get(key);
@@ -83,7 +83,7 @@ public class g {
   *@param key Map key.
   *@param sDefault String return if key is not found.
   *@return value that corresponds to key or s if there is no value fo key.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public static String getM(String key, String sDefault){
     String s = get(key,sDefault);
@@ -95,7 +95,7 @@ public class g {
   *@param key Map key1.
   *@param key2 Map key2.
   *@return value that corresponds to key and key2 or value1/value2 if that's not the same.
-  *@version 1.5
+  *@lastEditedVersion 1.5
   */
   public static String getOr(String key, String key2){
     String value1 = get(key,"");
@@ -114,7 +114,7 @@ public class g {
   *{@summary test if key is in the HashMap.}
   *@param key key to test.
   *@return try if it exist.
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public static boolean exist(String key){
     return getElementMap(key)!=null && !getElementMap(key).equals("");

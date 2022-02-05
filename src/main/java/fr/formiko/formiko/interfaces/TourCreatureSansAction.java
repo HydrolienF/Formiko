@@ -14,12 +14,12 @@ import java.io.Serializable;
  * Allow a creature without any action aviable to play a turn<br>
  * Maybe that's not usefull because if action &#60; 0 creature will already end there turn.
  * @author Hydrolien
- * @version 1.24
+ * @lastEditedVersion 1.24
  */
 public class TourCreatureSansAction implements Serializable, Tour{
   /**
   *PLay 1 turn with Creature c.
-  *@version 1.24
+  *@lastEditedVersion 1.24
   */
   public void unTour(Creature c){
     debug.débogage("la créature "+c.getId()+" tente de jouer un tour");
@@ -39,7 +39,7 @@ public class TourCreatureSansAction implements Serializable, Tour{
   /**
   *{@summary End a turn.}<br>
   *If turn have already be end on this turn, it will do nothing.
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   @Override
   public void endTurn(Creature c){

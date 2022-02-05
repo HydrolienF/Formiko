@@ -5,6 +5,7 @@ import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.maths.math;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -16,7 +17,7 @@ import java.awt.event.MouseMotionListener;
 /**
 *{@summary Map mouse listener panel.}<br>
 *@author Hydrolien
-*@version 1.42
+*@lastEditedVersion 1.42
 */
 public class FPanelSup extends FPanel {
   private CCase cc2=null;
@@ -35,7 +36,7 @@ public class FPanelSup extends FPanel {
   *</ul>
   *<li>If moved on an other Case, it update desc to newCase.toString().
   *</ul>
-  *@version 1.42
+  *@lastEditedVersion 1.42
   */
   public void build(){
     addMouseListener(new MouseAdapter() {
@@ -93,7 +94,8 @@ public class FPanelSup extends FPanel {
   // GET SET -------------------------------------------------------------------
   public void actualiserTaille(){
     if(getView().getPd()!= null && getView().getPd().getNeedToStayMaxSize()){actualiserTailleMax(); return;}
-    setSize(Main.getDimX()-getView().getPz().getWidth(), Main.getDimY()-getView().getPa().getHeight());
+    // setSize(Main.getDimX()-getView().getPz().getWidth(), Main.getDimY()-getView().getPa().getHeight());
+    setSize(math.min(Main.getDimX(), getView().getPc().getWidth()-getView().getPc().getX()), Main.getDimY()-getView().getPa().getHeight());
     //la 2a version est mieux pour prendre en compte les déplacements.
     //setSize(Main.getDimX()-Main.getPz().getWidth(), Main.getDimY()-math.max(getView().getPa().getHeight(),Main.getPTInt().getHeight()));
   }
@@ -108,8 +110,11 @@ public class FPanelSup extends FPanel {
   //   erreur.info("lets play "+x);
   // }
   // FUNCTIONS -----------------------------------------------------------------
+  @Override
   public void paintComponent(Graphics g){
     //do nothing
+    // g.setColor(new Color(100,100,100,100));
+    // g.fillRect(0,0,getWidth(),getHeight());
   }
   public CCase getCCase(MouseEvent e){
     return getCCase(e.getX(), e.getY());
@@ -119,7 +124,7 @@ public class FPanelSup extends FPanel {
     int cx = x/tc;
     int cy = y/tc;
     try {
-      return Main.getGc().getCCase(cx+getView().getPc().getPosX(),cy+getView().getPc().getPosY());
+      return Main.getGc().getCCase(cx,cy);
     }catch (Exception e2) {
       erreur.erreur("aucune case n'est sélectionné avec les coordonées : "+cx+" "+cy);
       return null;
@@ -139,16 +144,17 @@ public class FPanelSup extends FPanel {
       return false;
     }
   }
-  public void mouseMovedUpdate(CCase cc){
+  public void mouseMovedUpdate(CCase cc, boolean force){
     if(cc==null){getView().setMessageDesc("");cc2=null;return;}
-    if(cc2==null || !cc2.getContent().equals(cc.getContent())){//si la case a changé.
+    if(force || cc2==null || !cc2.getContent().equals(cc.getContent())){//si la case a changé.
       cc2=new CCase(cc.getContent());
       getView().setLookedCCase(cc);
     }
   }
+  public void mouseMovedUpdate(CCase cc){mouseMovedUpdate(cc, false);}
   /**
   *{@summary Move the playing ant to selected Case.}<br>
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   private void movePlayingAnt(MouseEvent e){
     Fourmi f = Main.getPlayingAnt();

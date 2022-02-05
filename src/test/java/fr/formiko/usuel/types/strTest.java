@@ -9,6 +9,27 @@ import fr.formiko.tests.TestCaseMuet;
 public class strTest extends TestCaseMuet{
 
   // FUNCTIONS -----------------------------------------------------------------
+  //just for test coverage.
+  @Test
+  public void testStrConstructor(){
+    new str();
+  }
+  @Test
+  public void testSplit(){
+    final char tSplit[] = {',',';'};
+    final String t[] = {"123","456","789"};
+    assertArrayEquals(t,str.split("123,456;789",tSplit,'"'));
+    final String t2[] = {"123","456","789"};
+    assertArrayEquals(t2,str.split("\"123\",\"456\";\"789\"",tSplit,'"'));
+    final String t3[] = {"1,;23","456","7,**89"};
+    assertArrayEquals(t3,str.split("\"1,;23\",\"456\";\"7,**89\"",tSplit,'"'));
+  }
+  @Test
+  public void testStr(){
+    assertEquals("1.3", str.str(1.3));
+    assertEquals("1.3", str.str(1.3f));
+    assertEquals("13", str.str(13));
+  }
   @Test
   public void testIsVersionOver(){
     assertTrue(str.isVersionOver("1.0.0","0.0.0"));
@@ -130,6 +151,7 @@ public class strTest extends TestCaseMuet{
     assertEquals("unNomDeFichier",str.filterForbiddenChar(s));
     Main.getOs().setId((byte)-1);
     assertEquals("unNomDeFichier",str.filterForbiddenChar(s));
+    assertEquals("unNomDeFichier",str.sToFileName(s));
 
     s = "unNomDeFichier?";
     //os don't have an impact anymore.
@@ -218,5 +240,12 @@ public class strTest extends TestCaseMuet{
     assertTrue(str.isMaj("Ok"));
     assertTrue(str.isMaj("OK c'est bon"));
     assertTrue(!str.isMaj("Ĉ"));//only A-Z without accent char are ok.
+  }
+  @Test
+  public void testStripAccents(){
+    assertEquals("est tu desolee ?", str.stripAccents("est tu désolée ?"));
+    assertEquals("sparvojo baldau", str.stripAccents("ŝparvojo baldaŭ"));
+    assertEquals("sparvojo baldau", str.stripAccents("sparvojo baldau"));
+    assertEquals("sparvojo 返回 t", str.stripAccents("sparvojo 返回 t"));
   }
 }

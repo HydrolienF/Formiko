@@ -5,21 +5,28 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.types.str;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.io.File;
 import java.text.NumberFormat;
 import javax.swing.JCheckBox;
+import javax.swing.JColorChooser;
+import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.UIManager;
 
 /**
 *{@summary A partie launcher Panel that create a new partie.}<br>
 *@author Hydrolien
-*@version 1.x
+*@lastEditedVersion 2.15
 */
 public class FPanelNouvellePartie extends FPanelLanceurPartie {
   private FLabel jl; private FLabel jl2;
@@ -36,12 +43,15 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
   private GString gsClé;
   private EtiquetteChoix eDif;
   private EtiquetteChoix eVitesseDeJeu;
+  private JColorChooser jcc;
   // CONSTRUCTORS --------------------------------------------------------------
-  public FPanelNouvellePartie(){
+  public FPanelNouvellePartie(int w, int h){
     super(100);
     Main.startCh();
     this.setLayout(null);
-    //setOpaque(false);
+    setSize(w,h);
+    addJcc();
+
     //les entêtes.
     jl = new FLabel(); jl2 = new FLabel();
     jl.setTexte(g.getM("paramètreCarte"));
@@ -110,6 +120,7 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
   public GEtiquetteJoueur getGej(){ return gej;}
   public int getTaille(){ return taille;}
   public FPanelGEtiquetteJoueur getPGej(){ return pgej;}
+  public JColorChooser getJcc(){return jcc;}
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     int wi = Main.getDimX();
@@ -154,7 +165,7 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
   /**
   *{@summary Do a list of the maps.}<br>
   *@return a list of all aviable map in all possible path.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   public GString mapList(){
     GString gsr = new GString();
@@ -167,7 +178,7 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
   /**
   *{@summary add all .csv file from path folder.}<br>
   *Path with &#126; are not accepted because they are probably some lock file create by LibreOffice.
-  *@version 1.46
+  *@lastEditedVersion 1.46
   */
   //*@return a list of all aviable map in this path.
   private void addMapList(String path, GString gsr){
@@ -216,5 +227,25 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
     }
     if (!b){ erreur.erreur("La difficulté n'as pas pue être reconnue au lancement de la partie","difficulté déffinie a 0 (normale)");}
     return dif;
+  }
+  /**
+  *{@summary Initialize a JColorChooser that will be used by every FPanelColorChooser.}
+  *@lastEditedVersion 2.15
+  */
+  private void addJcc(){
+    //update UIManager for ColorChooser
+    int lenJccb = 20;
+    UIManager.put("ColorChooser.swatchesRecentSwatchSize", new Dimension(lenJccb, lenJccb));
+    UIManager.put("ColorChooser.swatchesSwatchSize", new Dimension(lenJccb, lenJccb));
+    //create JColorChooser
+    jcc = new JColorChooser();
+    jcc.setVisible(false);
+    jcc.setSize(getWidth()/2, getHeight()*2/3);
+    jcc.setPreviewPanel(null);
+    jcc.setPreviewPanel(new JPanel());
+    Color alpha0 = new Color(0,0,0,0);
+    jcc.setBackground(alpha0);
+    jcc.setOpaque(false);
+    add(jcc);
   }
 }

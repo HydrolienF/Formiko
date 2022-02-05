@@ -20,7 +20,7 @@ import java.io.Serializable;
  * Allow an ant to do hunt<br>
  * Ant are able to see other ObjetSurCarteAId as Creature at 1 Case of distance.
  * @author Hydrolien
- * @version 1.1
+ * @lastEditedVersion 1.1
  */
 public class ChasseInsectivore implements Serializable, Chasse {
   private Creature c;
@@ -33,7 +33,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
    * @param c The hunting Creature.
    * @param direction The direction were the Creature will go if any Prey is visible.
    * return true if c can hunt more.
-   * @version 1.28
+   * @lastEditedVersion 1.28
    */
   public boolean chasser(Creature c, int direction){
     setC(c);
@@ -59,7 +59,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
    * It can choose the first 1 or the better 1 depending on the difficulty.<br>
    * @param c The hunting Creature.
    * return true if c can hunt more.
-   * @version 1.1
+   * @lastEditedVersion 1.1
    */
   public boolean chasse(Creature c){
     setC(c);
@@ -85,7 +85,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
   //COMMENT FONCTIONNE LA CHASSE
   /**
    * {@summary fined a prey.}<br>
-   * @version 1.1
+   * @lastEditedVersion 1.1
    */
   public GInsecte getProie(){
     //TODO on dervrais plutot faire un GCreature pour pouvoir inclure des Fourmis et potentiellement remove des insectes.
@@ -95,7 +95,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
    * {@summary kill during hunt.}<br>
    * An Ant kill an Insect<br>
    * @param insecteTue The insect that will die.
-   * @version 1.1
+   * @lastEditedVersion 1.1
    */
   public boolean tuer(Insecte insecteTue){
     if (!insecteTue.getIsDead()){
@@ -111,7 +111,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
    * {@summary Butcher during hunt.}<br>
    * An Ant kill an Insect<br>
    * @param insecteTue The died Insect.
-   * @version 1.1
+   * @lastEditedVersion 1.1
    */
   public boolean depecer(Insecte insecteTue){
     if(insecteTue==null){return false;}

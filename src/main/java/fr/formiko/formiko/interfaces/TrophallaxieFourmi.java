@@ -14,11 +14,14 @@ import fr.formiko.usuel.tableau;
 
 import java.io.Serializable;
 
+import fr.formiko.views.gui2d.FOptionPane;
+import fr.formiko.usuel.types.str;
+
 /**
  * {@summary Ant implementation.}<br>
  * Allow an ant to do a trophallaxis<br>
  * @author Hydrolien
- * @version 1.1
+ * @lastEditedVersion 1.1
  */
 public class TrophallaxieFourmi implements Serializable, Trophallaxie {
   /**
@@ -28,7 +31,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
    *@param c The trophallaxing Creature.
    *@param c2 The target of the trophallaxie.
    *@param foodDonnée The amount of food transferred.
-   *@version 1.3
+   *@lastEditedVersion 1.3
    */
   public void trophallaxie(Creature c, Creature c2, int foodDonnée){
     if (c==null || c2 == null){ erreur.alerte("Une des créatures impliqués dans la Trophalaxie n'as pas pue être trouvé");return;}
@@ -59,7 +62,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
   /**
    *{@summary do a trophallaxis to an id}<br>
    *@param id The target Creature to fined on the Case.
-   *@version 1.3
+   *@lastEditedVersion 1.3
    */
   public void trophallaxie(Creature c, int id, int foodDonnée){
     debug.débogage("Recherche de la créature "+id+" sur la case "+c.getCCase().getContent().toString());
@@ -71,7 +74,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
    *2a ask the amount of food transferred by the player.<br>
    *3a do the trophallaxis.<br>
    *@param c The creature who whant to give food.
-   *@version 1.3
+   *@lastEditedVersion 1.3
    */
   public void trophallaxer(Creature c){
     if(!(c instanceof Fourmi)){erreur.alerte("Impossible de trophallaxer depuis une créature qui n'est pas une Fourmi");return;}
@@ -85,35 +88,30 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
       int t [] = f.getAlliéSurLaCaseSansThis().toTId(); //ne prend que les alliées.
       t = getCreatureQuiOnFaim(t,c);
       int lent = t.length;
-      String s[] = new String[lent];
+      String ts[] = new String[lent];
       for (int i=0;i<lent ;i++ ) {
         Creature cTemp = gc.getCreatureParId(t[i]);
         String sTemp = "";
         if(cTemp instanceof Fourmi){sTemp = " ("+((Fourmi)(cTemp)).getStringStade()+")";}
         else {sTemp = " ("+cTemp.getNom()+")";}
-        s[i]=t[i]+" : "+cTemp.getFood()+"/"+cTemp.getMaxFood()+" "+g.get("food")+sTemp;
+        ts[i]=t[i]+" : "+cTemp.getFood()+"/"+cTemp.getMaxFood()+" "+g.get("food")+sTemp;
       }
-      int id2;
+      int id2=-1;
       if(t.length==1){
         id2=t[0];
       }else{
-        BoiteListeDefilante bld = new BoiteListeDefilante();
-        id2 = bld.getChoixId(s,g.get("pti.desc.1"));
-        if(id2==-1){
-          erreur.erreur("Impossible de trophallaxer");
-          return;
-        }
+        String id2s = Main.getView().makeUserChooseOnArray(ts,g.get("Pti.desc.1"));
+        id2=str.sToI(id2s.split(" ")[0]);
+      }
+      if(id2==-1){
+        erreur.erreur("Impossible de trophallaxer");
+        return;
       }
       //quantité de food échangé.
       Creature c2 = f.getCCase().getContent().getGc().getCreatureParId(id2);
       int nour = math.min(c2.getMaxFood()-c2.getFood(),f.getFood());
       if(nour<1){erreur.alerte("Impossible de donner 0 food");return;}
-      t = new int [nour];
-      for (int i=0;i<nour ;i++ ) {
-        t[i]=i+1;
-      }
-      BoiteListeDefilante bld = new BoiteListeDefilante();
-      int n = bld.getChoixId(t,g.get("pti.desc.2"));
+      int n=Main.getView().makeUserChooseInt(1, nour, g.get("Pti.desc.2"));
       trophallaxie(c,c2,n);
     }
   }
@@ -121,7 +119,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
    *{@summary find hungry ant.}<br>
    *@param t The id list of the ant.
    *@param net The creature who whant to give food.
-   *@version 1.7
+   *@lastEditedVersion 1.7
    */
   public int [] getCreatureQuiOnFaim(int t[],Creature net){
     if(!(net instanceof Fourmi)){erreur.alerte("Impossible de trophallaxer depuis une créature qui n'est pas une Fourmi");return new int[0];}

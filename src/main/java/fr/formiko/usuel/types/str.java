@@ -1,6 +1,6 @@
 package fr.formiko.usuel.types;
 
-import fr.formiko.usuel.ascii;
+import fr.formiko.usuel.Ascii;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -8,17 +8,60 @@ import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.tableau;
 
 import java.text.Normalizer;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+import java.util.stream.IntStream;
+import java.nio.CharBuffer;
 
 /**
 *{@summary Types conversions from String}<br>
 *@author Hydrolien
-*@version 2.7
+*@lastEditedVersion 2.7
 */
 public class str {
   // FUNCTIONS -----------------------------------------------------------------
   /**
+  *{@summary Split a string in an array.}<br>
+  *@param toSplit String to split
+  *@param splitChar Array of char used to split
+  *@param strLimiterChar char that define the start or the end of a unsecable string
+  *@lastEditedVersion 2.16
+  */
+  public static String[] split(String toSplit, char [] splitChar, char strLimiterChar){
+    try {
+    int len=0;
+    boolean haveReachStrLimiterChar=false;
+    char tc [] = toSplit.toCharArray();
+    for (char c : tc) {
+      if(c==strLimiterChar){haveReachStrLimiterChar=!haveReachStrLimiterChar;}
+      else if(!haveReachStrLimiterChar && CharBuffer.wrap(splitChar).chars().anyMatch(x -> x==c)){
+        len++;
+      }
+    }
+    haveReachStrLimiterChar=false;
+    String [] t = new String[len+1];
+    for (int i=0; i<len+1; i++) {
+      t[i]="";
+    }
+    int k=0;
+    for (char c : tc) {
+      if(c==strLimiterChar){haveReachStrLimiterChar=!haveReachStrLimiterChar;}
+      else if(!haveReachStrLimiterChar && CharBuffer.wrap(splitChar).chars().anyMatch(x -> x==c)){
+          k++;
+      }else{
+        t[k]+=c;
+      }
+    }
+    return t;
+    }catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
+  }
+  /**
   *{@summary Remove all accent &#38; replace special char by latin one.}<br>
-  *@version 2.11
+  *@lastEditedVersion 2.11
   */
   public static String stripAccents(String s) {
     s = Normalizer.normalize(s, Normalizer.Form.NFD);
@@ -28,7 +71,7 @@ public class str {
   /**
   *{@summary Count '.' &#38; throw an exception if String is malformed.}<br>
   *String is concider malformed if it have other char than "1234567890.".<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   private static int countPointAndThrowExecption(String s){
     int cptPoint=0;
@@ -45,7 +88,7 @@ public class str {
   }
   /**
   *{@summary Return true if version1 > version2.}<br>
-  *@version 2.7
+  *@lastEditedVersion 2.7
   */
   public static boolean isVersionOver(String v1, String v2){
     int cptPoint1 = countPointAndThrowExecption(v1);
@@ -83,7 +126,7 @@ public class str {
    *@param s String were to search.
    *@param x char to search on s.
    *@return number of char x in s.
-   *@version 1.1
+   *@lastEditedVersion 1.1
    */
   public static int nbrDeX(String s,char x){
     int xr=0;
@@ -98,7 +141,7 @@ public class str {
    *@param subS String to search on s.
    *@param x 0=s should starts with subS, 1=s should contain subS, 2=s should end with subsS, 3=s should be equals to subS.
    *@return true if it contain subS
-   *@version 1.2
+   *@lastEditedVersion 1.2
    */
   public static boolean contient(String s,String subS, byte x){
     //les cas d'erreur.
@@ -125,7 +168,7 @@ public class str {
    *@param s main String.
    *@param fin String to add on s.
    *@return s with fin at the end.
-   *@version 1.2
+   *@lastEditedVersion 1.2
    */
   public static String addALaFinSiNecessaire(String s, String fin){
     if(!contient(s,fin,2)){s+=fin;}
@@ -136,7 +179,7 @@ public class str {
   *{@summary Delete forbidden char in the array t.}<br>
   *@param s the String were to delete forbidden char.
   *@param t the array were forbidden char are.
-  *@version 1.3
+  *@lastEditedVersion 1.3
   */
   public static String filterForbiddenChar(String s, char t[]){
     if(s==null){return null;}
@@ -152,16 +195,15 @@ public class str {
   *{@summary Delete forbidden char depending of the os.}<br>
   *if os is not define windows char will be deleted.
   *@param s the String were to delete forbidden char.
-  *@version 1.3
+  *@lastEditedVersion 1.3
   */
   public static String filterForbiddenChar(String s){
-    if(s==null){return null;}
     char w [] = {'<', '>', ':', '\"', '/', '\\', '|', '?', '*'};
     //char ml [] = {':','/','\\'};
     //if(Main.getOs()==null || Main.getOs().isWindows()){
-      return filterForbiddenChar(s,w);
     //}
     //return filterForbiddenChar(s,ml);
+    return filterForbiddenChar(s,w);
   }public static String sToFileName(String s){ return filterForbiddenChar(s);}
   /**
   *{@summary Transform a String to a directory name aviable on every os.}<br>
@@ -169,7 +211,7 @@ public class str {
   *If there is a 1a / it will be delete.
   *If there is \ they will be transform by /.
   *@param s the String to transform to a directory name.
-  *@version 1.38
+  *@lastEditedVersion 1.38
   */
   public static String sToDirectoryName(String s){
     //TODO test
@@ -186,7 +228,7 @@ public class str {
   *{@summary Transform the first char of a String to the toUpperCase char.}<br>
   *if s is "" or null nothing will be done.
   *@param s the String to transform.
-  *@version 1.7
+  *@lastEditedVersion 1.7
   */
   public static String sToSMaj(String s){
     if(s==null){return null;}
@@ -198,11 +240,18 @@ public class str {
       return s;
     }
   }
+  /***
+  *{@summary Transform the first char of a String to the toUpperCase char.}<br>
+  *if s is "" or null nothing will be done.
+  *@param s the String to transform.
+  *@lastEditedVersion 2.17
+  */
+  public static String toMaj(String s){return sToSMaj(s);}
   /**
   *{@summary Transform the first char of a String to the toLowerCase char.}<br>
   *if s is "" or null nothing will be done.
   *@param s the String to transform.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public static String sToSMin(String s){
     if(s==null){return null;}
@@ -218,7 +267,7 @@ public class str {
   *{@summary Return true if 1a char is an english maj char.}<br>
   *only A to Z without accent char are ok.
   *@param s the String to test.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public static boolean isMaj(String s){
     if(s==null || s.length()<1){return false;}
@@ -231,7 +280,7 @@ public class str {
   /**
   *{@summary From String to int}
   *return -1 if conversion fail.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public static int sToI(String s){
     return sToI(s,-1);
@@ -239,7 +288,7 @@ public class str {
   /**
   *{@summary From String to int}
   *return Default value if conversion fail.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public static int sToI(String s, int iDefault){
     try {
@@ -252,7 +301,7 @@ public class str {
   /**
   *{@summary From String to double}
   *return -1 if conversion fail.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public static double sToD(String s){
     return sToD(s,-1.0);
@@ -260,7 +309,7 @@ public class str {
   /**
   *{@summary From String to double}
   *return Default value if conversion fail.
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public static double sToD(String s, Double dDefault){
     try {
@@ -273,13 +322,13 @@ public class str {
   /**
   *{@summary From String to int}
   *Throw a Exception trows if conversion fail.
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static long sToLThrows(String s) throws Exception {//on ne tolère que les espace les chiffres et les moins.
     int lens = s.length();String s2="";
     if(nbrDeX(s,' ')>0){
       for(int i=0;i<lens;i++){
-        int asci = ascii.aToAscii(s.charAt(i));
+        int asci = Ascii.aToAscii(s.charAt(i));
         if((asci>=48 && asci<=57) || asci==45){// si c'est un - ou un chiffre on le garde.
           s2 = s2 + s.charAt(i);
         }else if(asci!=32){;throw new Exception();}//au 1 a char nom autorisé. //TODO change exeption to a special exeption.
@@ -291,7 +340,7 @@ public class str {
   /**
   *{@summary From String to long}
   *return -1 if conversion fail.
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static long sToL(String s){
     try {
@@ -304,7 +353,7 @@ public class str {
 
   /**
   *{@summary From int to String}
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static String iToS(int x){
     return ""+x;
@@ -312,7 +361,7 @@ public class str {
   /**
   *{@summary From int to byte}
   *return the max or the min if conversion fail.
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static byte iToBy(int x){
     if(x>127){ erreurConversion("int To byte",x+"");x=127;}
@@ -322,7 +371,7 @@ public class str {
   /**
   *{@summary From int to boolean}
   *return true if conversion fail.
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static boolean iToB(int b){
     if (b==0){ return false;}
@@ -333,7 +382,7 @@ public class str {
   /**
   *{@summary From String to boolean}
   *boolean can be "true", "false" or "1", "0".
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static boolean sToB(String s){
     if("true".equals(s)){ return true;}
@@ -342,14 +391,14 @@ public class str {
   }
   /**
   *{@summary From String to byte}
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public static byte sToBy(String s, int iDefault){
     return iToBy(sToI(s));
   }
   /**
   *{@summary From String to byte}
-  *@version 1.39
+  *@lastEditedVersion 1.39
   */
   public static byte sToBy(String s){
     return sToBy(s,-1);
@@ -357,7 +406,7 @@ public class str {
   /**
   *{@summary special error for conversion}
   *return -1 if conversion fail.
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static void erreurConversion(String xToY, String s){
     erreur.erreur(g.get("str",1,"Impossible d'effectuer une des conversions") +" "+ xToY +" "+g.get("str",2,"correctement")+" : "+s,5);
@@ -365,7 +414,7 @@ public class str {
   //tableaux
   /**
   *{@summary From int to String}
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static int[] sToI(String ts[]){
     int lents=ts.length;
@@ -378,7 +427,7 @@ public class str {
   /**
   *{@summary From String to int}
   *file a case with -1 if conversion fail.
-  *@version 1.1
+  *@lastEditedVersion 1.1
   */
   public static String[] iToS(int ts[]){
     int lents=ts.length;

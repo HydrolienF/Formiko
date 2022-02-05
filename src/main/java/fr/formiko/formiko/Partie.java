@@ -23,7 +23,7 @@ import java.util.Map;
 *There is no word for "a game in the Game Formiko" in english so I use the french word Partie.<br>
 *All map value are in Carte var.<br>
 *@author Hydrolien
-*@version 1.39
+*@lastEditedVersion 1.39
 */
 public class Partie implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -73,7 +73,7 @@ public class Partie implements Serializable{
   }
   /**
   *{@summary Constructor with only minimal initialization.}<br>
-  *@version 1.2
+  *@lastEditedVersion 1.2
   */
   public Partie(){
     this(0,0,new Carte(new GCase(1,1)),1.0);//initialisation "null"
@@ -149,7 +149,7 @@ public class Partie implements Serializable{
   *{@summary Standard equals function.}
   *Null &#38; other class type proof.
   *@param o o is the Object to test. It can be null or something else than this class.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   @Override
   public boolean equals(Object o){
@@ -302,7 +302,10 @@ public class Partie implements Serializable{
     // Main.setRetournerAuMenu(true);//TODO ask & not force.
     if(withButton){
       while(!getContinuerLeJeu() && !Main.getRetournerAuMenu()){//on attend la validation que la partie continue.
-        Temps.pause(10);
+        // try {
+        //   wait();
+        // }catch (Exception e) {}
+        Temps.sleep();
       }
     }
   }
@@ -310,14 +313,14 @@ public class Partie implements Serializable{
   //static
   /**
    * Load the GEspece.
-   * @version 1.33
+   * @lastEditedVersion 1.33
    */
   public static void iniGe(){
     ge = new GEspece();
   }
   /**
    * Load the default Partie.
-   * @version 1.33
+   * @lastEditedVersion 1.33
    */
   public static Partie getDefautlPartie(){
     Main.startCh();
@@ -332,7 +335,7 @@ public class Partie implements Serializable{
   }
   /**
    * Load the default Partie.
-   * @version 1.14
+   * @lastEditedVersion 1.14
    */
   public static Partie getPartieSave(String nom){
     Main.startCh();
@@ -346,9 +349,9 @@ public class Partie implements Serializable{
     // Main.launchScript();
   }
   /**
-   * {@summary create a new Partie to launch Tuto.}<br>
-   * @version 1.1.
-   */
+  *{@summary create a new Partie to launch Tuto.}<br>
+  *@lastEditedVersion 1.1.
+  */
   private static Partie getPartieTuto(){
     Main.startCh();
     String nomCarte = "tuto";
@@ -365,7 +368,7 @@ public class Partie implements Serializable{
   }
   /**
    * {@summary Initializes the tutorial parameters.}<br>
-   * @version 1.1
+   * @lastEditedVersion 1.1
    */
   private void iniParametreCarteTuto(){
     Fourmiliere fere = getGj().getHead().getContent().getFere();
@@ -384,7 +387,7 @@ public class Partie implements Serializable{
   *We need to repaint the information about this playingAnt.<br>
   *This action can only be run if action game is on.<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   public boolean setPlayingAnt(Fourmi f){
     if (!Main.getView().getActionGameOn()) {return false;}
@@ -398,7 +401,7 @@ public class Partie implements Serializable{
   *{@summary change the value of the playing ant with and id.}<br>
   *This action can only be run if action game is on.<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@version 1.33
+  *@lastEditedVersion 1.33
   */
   private boolean setPlayingAnt(int id){
     try {

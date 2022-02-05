@@ -13,7 +13,7 @@ import java.util.function.Predicate;
 
 /**
 *{@summary Custom Linked Liste class using Generics.}<br>
-*@version 1.52
+*@lastEditedVersion 1.52
 *@author Hydrolien
 */
 public class Liste<T> implements Iterable<T>, Serializable, List<T> {
@@ -31,7 +31,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   /**
   *{@summary add new Element at tail of the linked list}<br>
   *content content of the element to add.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public void addTail(T content){
     if(content==null){return;}
@@ -47,7 +47,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   /**
   *{@summary add new Element at head of the linked list}<br>
   *content content of the element to add.
-  *@version 1.52
+  *@lastEditedVersion 1.52
   */
   public void addHead(T content){
     if(content==null){return;}
@@ -62,7 +62,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   /**
   *{@summary Update tail element.}<br>
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public void updateTail(){
     ListeNode<T> node = getHead();
@@ -73,7 +73,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   /**
   *{@summary add new Element at the default place. At the tail of the linked list}<br>
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public boolean add(T content){
     addTail(content);
@@ -95,7 +95,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   /**
   *{@summary add an other linked list at tail of the linked list}<br>
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public void addList(Liste<T> list){
     if(list == null || list.getHead() == null){ return;}
@@ -110,14 +110,14 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   public void add(Liste<T> list){addList(list);}
   /**
   *{@summary Push at the top of the heap (at head).}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void push(T t){
     addHead(t);
   }
   /**
   *{@summary Push at the top of the heap list as Head.}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public void push(Liste<T> list){
     if(list == null || list.getHead() == null){ return;}
@@ -136,7 +136,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   /**
   *{@summary Pop (return the item &#38; remove it) of the top of the heap (at Head).}<br>
-  *@version 2.6
+  *@lastEditedVersion 2.6
   */
   public T pop(){
     T t = getFirst();
@@ -146,14 +146,14 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   /**
   *{@summary Return true is list is empty.}<br>
   *It's a better function than doing list.length()==0.
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public boolean isEmpty(){
     return getHead()==null;
   }
   /**
   *{@summary Return the number of element.}<br>
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public int size(){
     int cpt = 0;
@@ -166,7 +166,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   *{@summary Standard equals function.}
   *Null &#38; other class type proof.
   *@param o o is the Object to test. It can be null or something else than this class.
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   @Override
   public boolean equals(Object o){
@@ -178,7 +178,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   /**
   *{@summary Return true if this contains T content.}<br>
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   @SuppressWarnings("unchecked")
   public boolean contains(Object o){
@@ -190,7 +190,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   /**
   *{@summary Return a long string with all the list value split by ' '.}<br>
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   @Override
   public String toString(){
@@ -213,7 +213,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   /**
   *{@summary Return a long string with all the list value split by '\n'.}<br>
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public String toStringLong(){
     String r = "";
@@ -227,7 +227,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   *{@summary Return a new Liste with only item that match with predicate.}<br>
   *@param predicate a predicate that is used for the filter
   *@return a new Liste&lb;T&rb; filtered
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public Liste<T> filter(Predicate<T> predicate){
     Liste<T> newList = new Liste<T>();
@@ -240,7 +240,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   /**
   *{@summary return the xa item}<br>
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   @Override
   public T get(int index){
@@ -255,7 +255,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
 
   /**
   *{@summary copy only different item.}<br>
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public boolean removeDuplicateItem(){
     Liste<T> newList = new Liste<T>();
@@ -275,7 +275,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   *{@summary Delete the xa element}<br>
   *@param i the number of the element to remove.
   *@return true if it have been remove
-  *@version 1.52
+  *@lastEditedVersion 1.52
   */
   public boolean removeItem(int i){
     if(getHead()==null || i<0){return false;}
@@ -291,7 +291,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   *{@summary Delete the 1a t element}<br>
   *@param o the element to remove.
   *@return true if it have been remove
-  *@version 1.52
+  *@lastEditedVersion 1.52
   */
   @Override
   @SuppressWarnings("unchecked")
@@ -346,7 +346,13 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   @Override
   public Object[] toArray(){
-    throw new UnsupportedOperationException();
+    Object array [] = new Object[length()];
+    int k=0;
+    for (T t : this) {
+      array[k]=t;
+      k++;
+    }
+    return array;
   }
   @Override
   @SuppressWarnings("unchecked")
@@ -436,7 +442,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   /**
   *{@summary return the coresponding Iterator}<br>
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public Iterator<T> iterator(){
     return new ListeIterator<T>(this);
@@ -444,7 +450,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
 }
 /**
 *{@summary Iterator of the Linked Liste}<br>
-*@version 1.31
+*@lastEditedVersion 1.31
 *@author Hydrolien
 */
 class ListeIterator<T> implements Iterator<T>, Serializable {
@@ -452,7 +458,7 @@ class ListeIterator<T> implements Iterator<T>, Serializable {
 
   /**
   *{@summary Initialize pointer to head of the list for iteration.}<br>
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public ListeIterator(Liste<T> list){
     current = list.getHead();
@@ -462,7 +468,7 @@ class ListeIterator<T> implements Iterator<T>, Serializable {
 
   /**
   *{@summary Return current content and update pointer.}<br>
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public T next(){
     T content = current.getContent();
@@ -472,7 +478,7 @@ class ListeIterator<T> implements Iterator<T>, Serializable {
 }
 /**
 *{@summary Constituent ListeNode of the Linked Liste}<br>
-*@version 1.41
+*@lastEditedVersion 1.41
 *@author Hydrolien
 */
 class ListeNode<T> extends Node implements Serializable {
@@ -480,7 +486,7 @@ class ListeNode<T> extends Node implements Serializable {
   private ListeNode<T> next;
   /**
   *{@summary Main constructor for ListeNode.}<br>
-  *@version 1.31
+  *@lastEditedVersion 1.31
   */
   public ListeNode(T content, ListeNode<T> next){
       this.content = content;
@@ -488,7 +494,7 @@ class ListeNode<T> extends Node implements Serializable {
   }
   /**
   *{@summary Secondary constructor for ListeNode with null next item.}<br>
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public ListeNode(T content){
     this(content, null);
@@ -502,7 +508,7 @@ class ListeNode<T> extends Node implements Serializable {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Equals function that also test next.}<br>
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   @Override
   @SuppressWarnings("unchecked")
@@ -524,7 +530,7 @@ class ListeNode<T> extends Node implements Serializable {
   *{@summary Delete the xa element}<br>
   *@param i the number of the element to remove.
   *@return true if it have been remove
-  *@version 1.52
+  *@lastEditedVersion 1.52
   */
   public boolean removeItem(int i){
     if(getNext() == null){return false;}
@@ -539,7 +545,7 @@ class ListeNode<T> extends Node implements Serializable {
   *{@summary Delete the 1a t element}<br>
   *@param t the element to remove.
   *@return true if it have been remove
-  *@version 1.41
+  *@lastEditedVersion 1.41
   */
   public boolean remove(T t){
     if(getNext() == null){return false;}
@@ -553,7 +559,7 @@ class ListeNode<T> extends Node implements Serializable {
   *{@summary Add the t element}<br>
   *@param t the element to add.
   *@return true if it have been add.
-  *@version 2.1
+  *@lastEditedVersion 2.1
   */
   public boolean add(int index, T t){
     if(index==1){

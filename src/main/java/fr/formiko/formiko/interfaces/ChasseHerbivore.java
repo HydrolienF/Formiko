@@ -14,7 +14,7 @@ import java.io.Serializable;
  * {@summary Chasse implementation.}<br>
  * Allow a creature to do hunt as an herbivore.<br>
  * @author Hydrolien
- * @version 1.28
+ * @lastEditedVersion 1.28
  */
 public class ChasseHerbivore implements Serializable, Chasse {
   Creature c;
@@ -25,7 +25,7 @@ public class ChasseHerbivore implements Serializable, Chasse {
   /**
   *{@summary Hunt as an herbivore.}<br>
   *return true if Insecte have eat or moove.
-  *@version 1.28
+  *@lastEditedVersion 1.28
   */
   public boolean chasse(Creature c){
     this.c=c;
@@ -45,7 +45,7 @@ public class ChasseHerbivore implements Serializable, Chasse {
   /**
   *{@summary Eat as an herbivore.}<br>
   *return true if Insecte have eat.
-  *@version 1.28
+  *@lastEditedVersion 1.28
   */
   public boolean manger(){
     byte foodSurCase = c.getCCase().getContent().getFoodInsecte();
@@ -53,7 +53,7 @@ public class ChasseHerbivore implements Serializable, Chasse {
     if(c instanceof Insecte){foodMangeable=((Insecte)(c)).getFoodMangeable();}
     if (foodSurCase > 0){
       byte foodMangé = (byte) math.min(foodSurCase,foodMangeable);
-      c.getCCase().getContent().setFoodInsecte((byte)(foodSurCase-foodMangé));
+      c.getCCase().getContent().removeFoodInsecte(foodMangé);
       c.setFood(c.getFood() + foodMangé);
       if(c instanceof Fourmi){
         c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuByType(((Fourmi) c).getTypeF()).getCoutChasse()/2);

@@ -23,12 +23,12 @@ import javax.swing.JPanel;
 *{@summary menu JPanel use to launch game.}<br>
 *It contain all sub menu Panel as FPanelNouvellePartie or FPanelChoixPartie.<br>
 *@author Hydrolien
-*@version 1.44
+*@lastEditedVersion 1.44
 */
 public class FPanelMenu extends FPanel {
   private BoutonLong b[]=null;
   private byte menu;
-  private boolean lancer = false;
+  // private boolean lancer = false;
   private FPanelNouvellePartie pnp;
   private FPanelChoixPartie pcp;
   private FButton returnButton;
@@ -41,7 +41,7 @@ public class FPanelMenu extends FPanel {
   }
   /**
   *{@summary Create the Panel empty.}<br>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public void build(){
     // this.setLayout(null);
@@ -50,8 +50,6 @@ public class FPanelMenu extends FPanel {
   }
   // GET SET -------------------------------------------------------------------
   public byte getMenu(){return menu; }
-  public boolean getLancer(){ return lancer;}
-  public void setLancer(boolean b){lancer=b;}
   public FPanelNouvellePartie getPnp(){return pnp;}
   public FPanelChoixPartie getPcp(){return pcp;}
   public FButton getReturnButton(){return returnButton;}
@@ -59,7 +57,7 @@ public class FPanelMenu extends FPanel {
 
   /**
   *{@summary Update action of the menu buttons.}<br>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   private void setMenu(byte x){
     menu=x;
@@ -76,12 +74,12 @@ public class FPanelMenu extends FPanel {
   }
   /***
   *{@summary Update action of the menu buttons.}<br>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public void setMenu(int x){ setMenu((byte)x);}
   /**
   *{@summary Update text value of the menu buttons.}<br>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public void actualiserText(){
     char c = 'P'; if(menu==1){c='N';}if(menu==2){c='M';}
@@ -98,7 +96,7 @@ public class FPanelMenu extends FPanel {
   *If it have already been build it will only update text.<br>
   *If buttons have been remove it will add them back.<br>
   *@param nbrOfButtons the number of buttons.
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public void buildFPanelMenu(int nbrOfButtons, int menu){
     removeP();
@@ -118,21 +116,21 @@ public class FPanelMenu extends FPanel {
   /**
   *{@summary Add FPanelNouvellePartie.}<br>
   *It remove all button or other panel if needed.<br>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public void addPnp(){
     retirerBouton();
     removeP();
     setReturnButtonAction(1);
-    pnp = new FPanelNouvellePartie();
-    pnp.setSize(this.getWidth(),this.getHeight());
+    pnp = new FPanelNouvellePartie(getWidth(), getHeight());
+    getView().getPGej().addColorChooser();
     this.add(pnp);
     getView().paint();
   }
   /**
   *{@summary Add FPanelChoixPartie.}<br>
   *It remove all button or other panel if needed.<br>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public void addPcp(){
     retirerBouton();
@@ -145,7 +143,7 @@ public class FPanelMenu extends FPanel {
   }
   /**
   *{@summary Remove FPanelNouvellePartie &#38; set it to null.}<br>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public void removePnp(){
     remove(pnp);
@@ -153,7 +151,7 @@ public class FPanelMenu extends FPanel {
   }
   /**
   *{@summary Remove FPanelChoixPartie &#38; set it to null.}<br>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public void removePcp(){
     remove(pcp);
@@ -161,7 +159,7 @@ public class FPanelMenu extends FPanel {
   }
   /**
   *{@summary Remove FPanelNouvellePartie &#38; FPanelChoixPartie.}<br>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   public void removeP(){
     try {
@@ -173,7 +171,7 @@ public class FPanelMenu extends FPanel {
   }
   /**
   *{@summary Tool to ask language to the user.}<br>
-  *@version 1.54
+  *@lastEditedVersion 1.54
   */
   public void askLanguage(){
     removeP();
@@ -194,7 +192,7 @@ public class FPanelMenu extends FPanel {
   /**
   *{@summary Tool to validate language to the user.}<br>
   *It save language in curent Options, save curent Options and reload language with new language (if language have been changed only).<br>
-  *@version 1.54
+  *@lastEditedVersion 1.54
   */
   public void validatelanguageChoice(){
     int index = ecLanguage.getSelectedIndex();
@@ -210,13 +208,13 @@ public class FPanelMenu extends FPanel {
       Main.getOp().saveOptions();
     }
     // TODO play launching video
-    setLancer(true);
+    getView().setLaunchFromPm(true);
   }
 
   //private---------------------------------------------------------------------
   /**
   *{@summary Remove all button.}<br>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   private void retirerBouton(){
     int lenb = b.length;
@@ -227,7 +225,7 @@ public class FPanelMenu extends FPanel {
   /**
   *{@summary Update returnButton with a new action.}<br>
   *It may change text of the button.
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   private void setReturnButtonAction(int ac){
     if(returnButton==null){
@@ -249,7 +247,7 @@ public class FPanelMenu extends FPanel {
   }
   /**
   *{@summary Create the returnButton.}<br>
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   private void createReturnButton(){
     returnButton = new FButton("",this,-1);
@@ -258,7 +256,7 @@ public class FPanelMenu extends FPanel {
   /**
   *{@summary Create the main buttons of the panel.}<br>
   *@param nbrOfButtons the number of buttons.
-  *@version 1.44
+  *@lastEditedVersion 1.44
   */
   private void createButton(int nbrOfButtons){
     int xT = Main.getDimX(); int yT = Main.getDimY();

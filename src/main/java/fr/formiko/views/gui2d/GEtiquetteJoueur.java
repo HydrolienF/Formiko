@@ -12,7 +12,7 @@ import fr.formiko.formiko.Joueur;
 *{@summary Liste of EtiquetteJoueur.}
 *It is used to store &#38; print data to the user,
 *so that he can choose player info before start the game.
-*@version 2.5
+*@lastEditedVersion 2.5
 *@author Hydrolien
 */
 public class GEtiquetteJoueur extends Liste<EtiquetteJoueur> {
@@ -22,7 +22,7 @@ public class GEtiquetteJoueur extends Liste<EtiquetteJoueur> {
   *{@summary create a basic GEtiquetteJoueur with x items.}<br>
   *It have 1 humain player &#38; x-1 ia player.
   *@param x number of player.
-  *@version 1.x
+  *@lastEditedVersion 1.x
   */
   public GEtiquetteJoueur(int x){
     if(x<1 || x>1000){throw new IllegalArgumentException();}
@@ -41,7 +41,7 @@ public class GEtiquetteJoueur extends Liste<EtiquetteJoueur> {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary add an Item &#38; enableLaunchButtonIfNeeded.}
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   @Override
   public boolean add(EtiquetteJoueur ej){
@@ -53,7 +53,7 @@ public class GEtiquetteJoueur extends Liste<EtiquetteJoueur> {
   }
   /**
   *{@summary remove an Item &#38; disableLaunchButtonIfNeeded.}
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   @Override
   public boolean remove(Object o){
@@ -66,7 +66,7 @@ public class GEtiquetteJoueur extends Liste<EtiquetteJoueur> {
   /**
   *{@summary return this as a fully usable GJoueur.}<br>
   *It use Pseudo, Pheromone &#38; ia value to create new players.
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public GJoueur getGJoueur(Carte mapo){
     int nbrDeFourmi=1;
@@ -89,7 +89,7 @@ public class GEtiquetteJoueur extends Liste<EtiquetteJoueur> {
   }
   /**
   *{@summary if there is 0 humain player, turn off launch button.}
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public void disableLaunchButtonIfNeeded(){
     for (EtiquetteJoueur ej : this ) {
@@ -106,7 +106,7 @@ public class GEtiquetteJoueur extends Liste<EtiquetteJoueur> {
   }
   /**
   *{@summary if there is at least 1 humain player, turn on launch button.}
-  *@version 2.5
+  *@lastEditedVersion 2.5
   */
   public void enableLaunchButtonIfNeeded(){
     for (EtiquetteJoueur ej : this ) {
