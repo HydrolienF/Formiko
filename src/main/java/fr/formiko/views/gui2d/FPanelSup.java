@@ -47,7 +47,6 @@ public class FPanelSup extends FPanel {
       @Override
       public void mouseReleased(MouseEvent e) {
         if(e.getButton()== MouseEvent.BUTTON1){
-          if(vérifierFPanelDialogue(e)){return;}
           if(getView().getMoveMode()){
             // getView().setCCase(getCCase(e));
             movePlayingAnt(e);
@@ -99,9 +98,17 @@ public class FPanelSup extends FPanel {
     //la 2a version est mieux pour prendre en compte les déplacements.
     //setSize(Main.getDimX()-Main.getPz().getWidth(), Main.getDimY()-math.max(getView().getPa().getHeight(),Main.getPTInt().getHeight()));
   }
+  /**
+  *{@summary Update size to max one.}<br>
+  *@lastEditedVersion 2.19
+  */
   public void actualiserTailleMax(){
     setSize(Main.getDimX(), Main.getDimY());
   }
+  /**
+  *{@summary Update size to 0,0.}<br>
+  *@lastEditedVersion 2.19
+  */
   public void actualiserTailleMin(){
     setSize(0,0);
   }
@@ -110,6 +117,10 @@ public class FPanelSup extends FPanel {
   //   erreur.info("lets play "+x);
   // }
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Paint nothing.}<br>
+  *@lastEditedVersion 2.19
+  */
   @Override
   public void paintComponent(Graphics g){
     //do nothing
@@ -135,13 +146,6 @@ public class FPanelSup extends FPanel {
       return getCCase(e).getContent();
     }catch (Exception e2) {
       return null;
-    }
-  }
-  public boolean vérifierFPanelDialogue(MouseEvent e){
-    try {
-      return getView().getPd().clicEn(e.getX(),e.getY());
-    }catch (Exception e2) {
-      return false;
     }
   }
   public void mouseMovedUpdate(CCase cc, boolean force){

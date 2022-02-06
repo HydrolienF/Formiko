@@ -30,6 +30,10 @@ public class FPanelSupDialog extends FPanel {
   */
   public void build(){
     addMouseListener(new MouseListenerEmpty() {
+      /**
+      *{@summary Check if FPanelDialogue is waiting to go to next dialog.}<br>
+      *@lastEditedVersion 2.19
+      */
       @Override
       public void mouseReleased(MouseEvent e) {
         vérifierFPanelDialogue(e);
@@ -37,19 +41,35 @@ public class FPanelSupDialog extends FPanel {
     });
   }
   // GET SET -------------------------------------------------------------------
+  /**
+  *{@summary Update size to max one.}<br>
+  *@lastEditedVersion 2.19
+  */
   public void actualiserTailleMax(){
     setSize(Main.getDimX(), Main.getDimY());
   }
+  /**
+  *{@summary Update size to 0,0.}<br>
+  *@lastEditedVersion 2.19
+  */
   public void actualiserTailleMin(){
     setSize(0,0);
   }
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Paint nothing.}<br>
+  *@lastEditedVersion 2.19
+  */
   @Override
   public void paintComponent(Graphics g){
     //do nothing
     // g.setColor(new Color(100,0,0,100));
     // g.fillRect(0,0,getWidth(),getHeight());
   }
+  /**
+  *{@summary Check if FPanelDialogue is waiting to go to next dialog.}<br>
+  *@lastEditedVersion 2.19
+  */
   public boolean vérifierFPanelDialogue(MouseEvent e){
     try {
       boolean b = getView().getPd().clicEn(e.getX(),e.getY());
