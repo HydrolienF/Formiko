@@ -215,6 +215,10 @@ public class ThMove {
 */
 class ThMoveManager extends Thread {
   private Liste<ThMove> list;
+  /**
+  *{@summary Main constructor that initialize list.}<br>
+  *@lastEditedVersion 2.10
+  */
   public ThMoveManager(){
     list = new Liste<ThMove>();
   }

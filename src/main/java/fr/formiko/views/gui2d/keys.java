@@ -21,7 +21,7 @@ import javax.swing.KeyStroke;
 /**
 *{@summary Key file that will launch all keys commands in gui2d.}<br>
 *@author Hydrolien
-*@lastEditedVersion 1.40
+*@lastEditedVersion 2.19
 */
 public class keys {
   /**
