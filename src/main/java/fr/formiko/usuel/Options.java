@@ -300,7 +300,11 @@ public class Options implements Serializable{
       InputStream is = Files.newInputStream(Path.of(Main.getFolder().getFolderMain()+"Options.md"));
       properties.load(is);
     }catch (IOException e) {
-      erreur.erreur("Impossible de charger les options","Options par défaut choisie");
+      if(!Main.getPremierePartie()){
+        erreur.erreur("Impossible de charger les options","Options par défaut choisie");
+      }else{
+        erreur.info("Options par défaut choisie");
+      }
       saveDeflautProperties();
     }
   }
@@ -513,14 +517,18 @@ public class Options implements Serializable{
       font1=new Font("Default", Font.BOLD, gui_global_fontSizeText);
     }else{
       if(!Fonts.createFonts(gui_global_fontText)){
-        erreur.alerte("fail to set font for text");
+        if(!Main.getPremierePartie()){
+          erreur.alerte("fail to set font for text");
+        }
         font1=new Font("Default", Font.BOLD, gui_global_fontSizeText);
       }else{
         font1=new Font(gui_global_fontText, Font.BOLD, gui_global_fontSizeText);
       }
     }
     if(!Fonts.createFonts(gui_global_fontTitle)){
-      erreur.alerte("fail to set font for title");
+      if(!Main.getPremierePartie()){
+        erreur.alerte("fail to set font for title");
+      }
       font2=new Font(gui_global_fontText, Font.PLAIN, gui_global_fontSizeTitle);
     }else{
       font2=new Font(gui_global_fontTitle, Font.PLAIN, gui_global_fontSizeTitle);

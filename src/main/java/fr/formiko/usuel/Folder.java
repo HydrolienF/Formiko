@@ -128,6 +128,7 @@ public class Folder {
     }
     try{
       if(!f.exists() || f.listFiles().length==0){
+        Main.setPremierePartie(true);
         f.mkdirs();
         missingFolder++;
         if(allowedDownolad){throw new MissingFolderException("main");}
@@ -147,7 +148,11 @@ public class Folder {
       iniTemporary();
       iniRessourcesPacks();
     }catch (MissingFolderException e) {
-      erreur.erreur("an error occured when fixing file : "+e,"Download file from main repository");
+      if(!Main.getPremierePartie()){
+        erreur.erreur("an error occured when fixing file : "+e,"Download file from main repository");
+      }else{
+        erreur.info("Download file from main repository");
+      }
       if(allowedDownolad){downloadData();}
       if(!secondTime){
         secondTime=true;

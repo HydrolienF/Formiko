@@ -12,6 +12,7 @@ import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.interfaces.TourFourmiNonIa;
 import fr.formiko.formiko.triche;
 import fr.formiko.usuel.DiscordIntegration;
+import fr.formiko.usuel.Info;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.Th;
 import fr.formiko.usuel.ThTriche;
