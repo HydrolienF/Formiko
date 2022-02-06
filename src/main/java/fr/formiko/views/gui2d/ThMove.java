@@ -112,7 +112,9 @@ public class ThMove {
         }
       }
     }catch (Exception e) {
-      erreur.alerte("someting whent wrong in updateQueue");
+      if(FPanel.getView().getActionGameOn()){
+        erreur.alerte("someting whent wrong in updateQueue");
+      }
     }
   }
   /**
