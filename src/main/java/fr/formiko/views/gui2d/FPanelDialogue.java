@@ -14,11 +14,8 @@ public class FPanelDialogue extends FPanel {
   // CONSTRUCTORS --------------------------------------------------------------
   public FPanelDialogue(){
     super();
-    // fta = new FPanelInfoText(new GString(),0);
-    // fta.setBounds(0,0,0,0);
-    // setSize(fta.getWidth(),fta.getHeight());
   }
-  public void initialiser(String s, boolean needToStayMaxSize){
+  public void ini(String s, boolean needToStayMaxSize){
     this.needToStayMaxSize=needToStayMaxSize;
     if(fta!=null){remove(fta);}
     try {
@@ -47,26 +44,21 @@ public class FPanelDialogue extends FPanel {
   }
   // GET SET -------------------------------------------------------------------
   public boolean getNeedToStayMaxSize(){return needToStayMaxSize;}
-  // public void setVisible(boolean b){
-  //   super.setVisible(b);
-  //   erreur.info("setVisible "+b,4);
-  // }
   // FUNCTIONS -----------------------------------------------------------------
-  public void paintComponent(Graphics g){
-    super.paintComponent(g);
-  }
+  // public void paintComponent(Graphics g){
+  //   super.paintComponent(g);
+  // }
+  /**
+  *{@summary If we are waiting for going to next commande, launch it.}
+  *@return true if we have launch next commande.
+  *@lastEditedVersion 2.19
+  */
   public synchronized boolean clicEn(int x, int y){
-    erreur.info("clic catch in "+x+" "+y,5);//@a
-    //on écoute toute la fenetre si un panneau de dialogue est afficher et qu'on peu le passer.
-    //if(x<Main.getPdi().getWidth() && y<Main.getPdi().getHeight()){
-      if (Main.getScript().getEcouteClic()) {//si on écoute la fenetre.
-        Main.getScript().setCmdSuivante(true);// le joueur a cliqué pour passer a la commande suivante.
-        return true;
-      }
-      //return true;
-      return false; //si on écoute pas la fenetre.
-    //}
-    //return false;
+    if (Main.getScript().getEcouteClic()) {//si on écoute la fenetre.
+      Main.getScript().setCmdSuivante(true);// le joueur a cliqué pour passer a la commande suivante.
+      return true;
+    }
+    return false;
   }
   /**
   *{@summary Override setVisible to also setVisible dependent FPanel.}

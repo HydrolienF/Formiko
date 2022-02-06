@@ -148,12 +148,12 @@ public class FPanelCarte extends FPanel {
       dessinerGrille(g);
       iconImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
       if(debug.getPerformance()){
-        erreur.info("Time for grid & backgroundImage: "+(System.currentTimeMillis()-time),0);
+        // erreur.info("Time for grid & backgroundImage: "+(System.currentTimeMillis()-time),0);
       }
       time = System.currentTimeMillis();
       drawBlades(g, gc);
       if(debug.getPerformance()){
-        erreur.info("Time for draw blade: "+(System.currentTimeMillis()-time),0);
+        // erreur.info("Time for draw blade: "+(System.currentTimeMillis()-time),0);
       }
       time = System.currentTimeMillis();
       for (int i=0; i<xCase; i++) {
@@ -162,7 +162,7 @@ public class FPanelCarte extends FPanel {
         }
       }
       if(debug.getPerformance()){
-        erreur.info("Time for refrech all Map Case: "+(System.currentTimeMillis()-time),0);
+        // erreur.info("Time for refrech all Map Case: "+(System.currentTimeMillis()-time),0);
       }
       if (Main.getDrawRelationsIcons() || Main.getOp().getDrawStatesIconsLevel()<4){
         if(iconImage!=null){

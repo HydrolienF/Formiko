@@ -20,6 +20,8 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.types.str;
+import java.awt.Window;
+import javax.swing.FocusManager;
 import fr.formiko.views.View;
 
 import java.awt.Font;
@@ -766,10 +768,14 @@ public class ViewGUI2d implements View {
         *{@summary Print curent fps.}
         */
         public void run(){
-          erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()/10));
+          Window activeWindow = javax.swing.FocusManager.getCurrentManager().getActiveWindow();
+          System.out.println(getF().equals(activeWindow));
+          erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()));
+          // erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()/10));
           view.setCurentFPS(0);
         }
-      }, 0, 10000);
+      }, 0, 1000);
+      // }, 0, 10000);
     }
   }
   /**

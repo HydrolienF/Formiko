@@ -86,8 +86,8 @@ public class FPanelJeu extends FPanel {
     add(pdi);
   }
   public void initialiserPd(String s, boolean needToStayMaxSize){
-    pd.initialiser(s, needToStayMaxSize);
-    pdi.initialiser();
+    pd.ini(s, needToStayMaxSize);
+    pdi.ini();
     // pd.setLocation(0,0);
     revalidate();
   }
