@@ -171,6 +171,11 @@ public class Data {
     tButtonColor[6]=Color.BLACK;
     tButtonColor[7]=Color.BLUE;
   }
+  /**
+  *{@summary Return an image from otherImages.}
+  *Image from otherImages can be acces by there name.
+  *@lastEditedVersion 2.18
+  */
   public BufferedImage getImage(String name){
     return otherImages.get(name);
   }
@@ -395,6 +400,11 @@ public class Data {
       }
       imageIniForNewGame=true;
     }
+    /**
+    *{@summary Initialize all images that don't need to be resize.}
+    *Image from otherImages can be acces by there name.
+    *@lastEditedVersion 2.18
+    */
     public void iniOtherImages(){
       otherImages =  new HashMap<String, BufferedImage>();
       File dir = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"other/");
