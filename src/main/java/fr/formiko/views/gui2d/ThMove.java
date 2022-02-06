@@ -112,7 +112,9 @@ public class ThMove {
         }
       }
     }catch (Exception e) {
-      erreur.alerte("someting whent wrong in updateQueue");
+      if(FPanel.getView().getActionGameOn()){
+        erreur.alerte("someting whent wrong in updateQueue");
+      }
     }
   }
   /**
@@ -213,6 +215,10 @@ public class ThMove {
 */
 class ThMoveManager extends Thread {
   private Liste<ThMove> list;
+  /**
+  *{@summary Main constructor that initialize list.}<br>
+  *@lastEditedVersion 2.10
+  */
   public ThMoveManager(){
     list = new Liste<ThMove>();
   }

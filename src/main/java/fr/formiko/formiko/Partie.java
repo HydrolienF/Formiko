@@ -70,6 +70,7 @@ public class Partie implements Serializable{
     appartionInsecte=true;
     appartionGraine=true;
     antIdToPlay=-1;
+    Fourmi.setUneSeuleAction(-1);//reini avaiable action if it have been edit by a script.
   }
   /**
   *{@summary Constructor with only minimal initialization.}<br>

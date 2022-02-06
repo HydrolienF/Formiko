@@ -244,11 +244,11 @@ public class triche {
           break;
         case 34:
           if(args[2].equalsIgnoreCase("cmd.34.1")){
-            FPanel.getView().getPs().actualiserTaille();
+            FPanel.getView().getPs().updateSize();
           }else if(args[2].equalsIgnoreCase("cmd.34.2")){
-            FPanel.getView().getPs().actualiserTailleMax();
+            FPanel.getView().getPs().updateSizeMax();
           }else if(args[2].equalsIgnoreCase("cmd.34.3")){
-            FPanel.getView().getPs().actualiserTailleMin();
+            FPanel.getView().getPs().updateSizeMin();
           }
           break;
         case 35:

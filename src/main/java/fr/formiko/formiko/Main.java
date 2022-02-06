@@ -65,7 +65,7 @@ public class Main {
   private static boolean tuto=false;
   private static ThScript ths;
   //private static ThMusique thm;
-  private static boolean premierePartie=false;
+  private static boolean premierePartie;
 
   private static boolean modeCLI=false;
 
@@ -129,7 +129,8 @@ public class Main {
         }catch (Exception e) {
           erreur.alerte("Window can not be dispose.");
         }
-        premierePartie=false;
+        setPremierePartie(false);
+        Partie.setScript(null);
         setRetournerAuMenu(false);
         openMenuFirst=true;
         // op=null;//force la réinitialisation de tout.
@@ -144,7 +145,7 @@ public class Main {
    */
   public static void iniLaunch(){
     if(op==null){initialisation();}
-    if(Partie.getScript()==null){
+    if(Partie.getScript()==null || Partie.getScript().equals("")){
       if(premierePartie){Partie.setScript("tuto");}
       else{Partie.setScript("");}
     }

@@ -21,19 +21,21 @@ import javax.swing.KeyStroke;
 /**
 *{@summary Key file that will launch all keys commands in gui2d.}<br>
 *@author Hydrolien
-*@lastEditedVersion 1.40
+*@lastEditedVersion 2.19
 */
 public class keys {
   /**
   *{@summary Add keys listeners for all gui part.}
-  *@lastEditedVersion 1.40
+  *@lastEditedVersion 2.19
   */
   public static void addBindings(){
     addActionToActionMap();
     InputMap inputMap = FPanel.getView().getPp().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
 
-    inputMap.put(KeyStroke.getKeyStroke((char)27),"escape");
-    inputMap.put(KeyStroke.getKeyStroke('\n'), "enter");
+    // inputMap.put(KeyStroke.getKeyStroke((char)27),"escape");
+    inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0, true),"escape");
+    inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true), "enter");
+    inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, true), "space");
     inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, true), "upArrowT");
     inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0, true), "downArrowT");
     inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, true), "leftArrowT");
@@ -42,8 +44,9 @@ public class keys {
     inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0, false), "downArrowF");
     inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, false), "leftArrowF");
     inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, false), "rightArrowF");
-    for (int i=20; i<31; i++ ) {
+    for (int i=20; i<31; i++ ) { // getKeyStroke(char) may not work, KeyEvent are working better.
       inputMap.put(KeyStroke.getKeyStroke((char)Main.getKey(i+"")), "antAction");
+      // inputMap.put(KeyStroke.getKeyStroke(Main.getKey(i+""), 0, true), "antAction");
     }
 
     // inputMap.put(KeyStroke.getKeyStroke('S',InputEvent.CTRL_DOWN_MASK), "save");
@@ -81,12 +84,12 @@ public class keys {
     actionA = new AbstractAction() {
       /**
       *{@summary Try to go to next FPanelDialogue.}
-      *@lastEditedVersion 1.40
+      *@lastEditedVersion 2.19
       */
       public void actionPerformed(ActionEvent actionEvent) {
-        try {
-          FPanel.getView().getPd().clicEn(0,0);
-        }catch (Exception e) {}
+        if(FPanel.getView().getPsd()!=null){
+          FPanel.getView().getPsd().checkFPanelDialogue(0,0);
+        }
       }
     };
     actionMap.put("space",actionA);

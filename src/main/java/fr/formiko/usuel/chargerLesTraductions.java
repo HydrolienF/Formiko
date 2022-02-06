@@ -39,7 +39,9 @@ public class chargerLesTraductions {
     if(tLangue == null || x<0 || x>=tLangue.length){
       int l = 0;
       if(tLangue!=null){l=tLangue.length;}
-      erreur.erreur("langue "+x+" non reconnu parmi les "+l+" langue(s) disponible(s).",10);
+      if(!Main.getPremierePartie()){
+        erreur.erreur("langue "+x+" non reconnu parmi les "+l+" langue(s) disponible(s).",10);
+      }
       // new Info("langue non reconnu parmi les "+l+" langue(s) disponible(s).").setType(2).setFix("\"en\" retourné").setClassDepth(2).print();
       return "en";
     }

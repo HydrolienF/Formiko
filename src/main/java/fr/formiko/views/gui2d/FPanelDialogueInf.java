@@ -30,7 +30,7 @@ public class FPanelDialogueInf extends FPanel {
   *{@summary Build function.}<br>
   *@lastEditedVersion 2.6
   */
-  public void initialiser(){
+  public void ini(){
     setSize(Main.getDimX(),Main.getTailleElementGraphiqueY(210));
   }
   // GET SET -------------------------------------------------------------------

@@ -12,6 +12,7 @@ import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.interfaces.TourFourmiNonIa;
 import fr.formiko.formiko.triche;
 import fr.formiko.usuel.DiscordIntegration;
+import fr.formiko.usuel.Info;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.Th;
 import fr.formiko.usuel.ThTriche;
@@ -19,6 +20,8 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.types.str;
+import java.awt.Window;
+import javax.swing.FocusManager;
 import fr.formiko.views.View;
 
 import java.awt.Font;
@@ -70,7 +73,8 @@ public class ViewGUI2d implements View {
   public FPanelZoom getPz(){ return getPb().getPz();}
   public FPanelAction getPa(){ return getPb().getPa();}
   public FPanelChargement getPch(){ try {return getPj().getPch();}catch (NullPointerException e) {return null;}}
-  public FPanelSup getPs(){ try {return getPj().getPs();}catch (NullPointerException e) {return null;}}
+  public FPanelSup getPs(){ if(getPj()!=null){return getPj().getPs();}else{return null;}}
+  public FPanelSupDialog getPsd(){ if(getPj()!=null){return getPj().getPsd();}else{return null;}}
   public FPanelEchap getPe(){ return getPj().getPe();}
   public FPanelDialogue getPd(){ try {return getPj().getPd();}catch (NullPointerException e) {return null;}}
   public FPanelDialogueInf getPdi(){ return getPj().getPdi();}
@@ -249,6 +253,7 @@ public class ViewGUI2d implements View {
     }
     Main.startCh();
     getPp().removePm();//on retire le menu
+    getPs().updateSize();//update Ps just in case it was to big from an other script.
     Main.endCh("chargementFPanelChargementEtSuppressionMenu");
     getPj().iniPch();//on met le panneau de chargement au 1a plan.
     DiscordIntegration.setNeedToUpdateActivity(true);
@@ -414,8 +419,9 @@ public class ViewGUI2d implements View {
       }
       if(!doWeNeedToDoNextCmdNow){
         getPdi().addBSuivant();
+        getPj().getPsd().updateSizeMax();
       }else{
-        getPs().actualiserTaille();//écoute normale
+        getPs().updateSize();//écoute normale
       }
     }catch (Exception e) {//par défaut on attend avant de passer a la commande suivante.
       erreur.alerte("can't print message : "+message);
@@ -762,10 +768,14 @@ public class ViewGUI2d implements View {
         *{@summary Print curent fps.}
         */
         public void run(){
-          erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()/10));
+          Window activeWindow = javax.swing.FocusManager.getCurrentManager().getActiveWindow();
+          System.out.println(getF().equals(activeWindow));
+          erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()));
+          // erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()/10));
           view.setCurentFPS(0);
         }
-      }, 0, 10000);
+      }, 0, 1000);
+      // }, 0, 10000);
     }
   }
   /**

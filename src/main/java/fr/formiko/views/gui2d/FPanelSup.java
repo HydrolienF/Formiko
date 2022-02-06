@@ -47,7 +47,6 @@ public class FPanelSup extends FPanel {
       @Override
       public void mouseReleased(MouseEvent e) {
         if(e.getButton()== MouseEvent.BUTTON1){
-          if(vérifierFPanelDialogue(e)){return;}
           if(getView().getMoveMode()){
             // getView().setCCase(getCCase(e));
             movePlayingAnt(e);
@@ -65,7 +64,7 @@ public class FPanelSup extends FPanel {
             }catch (NullPointerException e2) {
               erreur.alerte("No curent player");
             }
-            if(f!=null){ // && f.getAction()>0
+            if(f!=null && !f.equals(Main.getPlayingAnt())){ // && f.getAction()>0
               getView().getPb().setActionF(-2);
               getView().getPb().removePA();
               Main.getPartie().setAntIdToPlay(f.getId());
@@ -92,17 +91,29 @@ public class FPanelSup extends FPanel {
     });
   }
   // GET SET -------------------------------------------------------------------
-  public void actualiserTaille(){
-    if(getView().getPd()!= null && getView().getPd().getNeedToStayMaxSize()){actualiserTailleMax(); return;}
+  /**
+  *{@summary Update size to fit FPanelCarte.}<br>
+  *@lastEditedVersion 2.19
+  */
+  public void updateSize(){
+    if(getView().getPd()!= null && getView().getPd().getNeedToStayMaxSize()){updateSizeMax(); return;}
     // setSize(Main.getDimX()-getView().getPz().getWidth(), Main.getDimY()-getView().getPa().getHeight());
     setSize(math.min(Main.getDimX(), getView().getPc().getWidth()-getView().getPc().getX()), Main.getDimY()-getView().getPa().getHeight());
     //la 2a version est mieux pour prendre en compte les déplacements.
     //setSize(Main.getDimX()-Main.getPz().getWidth(), Main.getDimY()-math.max(getView().getPa().getHeight(),Main.getPTInt().getHeight()));
   }
-  public void actualiserTailleMax(){
+  /**
+  *{@summary Update size to max one.}<br>
+  *@lastEditedVersion 2.19
+  */
+  public void updateSizeMax(){
     setSize(Main.getDimX(), Main.getDimY());
   }
-  public void actualiserTailleMin(){
+  /**
+  *{@summary Update size to 0,0.}<br>
+  *@lastEditedVersion 2.19
+  */
+  public void updateSizeMin(){
     setSize(0,0);
   }
   // public int getAntIdToPlay(){return antIdToPlay;}
@@ -110,10 +121,14 @@ public class FPanelSup extends FPanel {
   //   erreur.info("lets play "+x);
   // }
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Paint nothing.}<br>
+  *@lastEditedVersion 2.19
+  */
   @Override
   public void paintComponent(Graphics g){
     //do nothing
-    // g.setColor(new Color(100,100,100,100));
+    // g.setColor(new Color(0,0,100,200));
     // g.fillRect(0,0,getWidth(),getHeight());
   }
   public CCase getCCase(MouseEvent e){
@@ -135,13 +150,6 @@ public class FPanelSup extends FPanel {
       return getCCase(e).getContent();
     }catch (Exception e2) {
       return null;
-    }
-  }
-  public boolean vérifierFPanelDialogue(MouseEvent e){
-    try {
-      return getView().getPd().clicEn(e.getX(),e.getY());
-    }catch (Exception e2) {
-      return false;
     }
   }
   public void mouseMovedUpdate(CCase cc, boolean force){

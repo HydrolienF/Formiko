@@ -18,7 +18,7 @@ public class BoiteListeDefilante {
   //private JOptionPane jop;
   // CONSTRUCTORS --------------------------------------------------------------
   public BoiteListeDefilante(){}
-  public void initialiser(){}
+  public void ini(){}
   // GET SET -------------------------------------------------------------------
 
   // FUNCTIONS -----------------------------------------------------------------

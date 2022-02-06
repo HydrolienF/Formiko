@@ -45,6 +45,7 @@ public class ini {
     //pp have it's 2 subpanel
     FPanel.getView().getPj().addPe();//add empty panel at 1a plan.
     FPanel.getView().getPj().addPch();
+    FPanel.getView().getPj().addPsd();
     FPanel.getView().getPj().addPfp();//add empty panel.
     FPanel.getView().getPj().addPd();
     FPanel.getView().getPj().addPmmo();

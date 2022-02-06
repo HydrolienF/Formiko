@@ -89,7 +89,7 @@ public class FPanelEchap extends FPanel{
     if(b){build();getView().getPs().setSize(0,0);}
     else{
       try {
-        getView().getPs().actualiserTaille();
+        getView().getPs().updateSize();
       }catch (Exception e) {
         if(estContruit()){
           erreur.alerte("Can't update size of Ps.");
