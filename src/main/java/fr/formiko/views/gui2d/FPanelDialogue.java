@@ -56,10 +56,12 @@ public class FPanelDialogue extends FPanel {
     super.paintComponent(g);
   }
   public synchronized boolean clicEn(int x, int y){
+    erreur.info("clic catch in "+x+" "+y,5);//@a
     //on écoute toute la fenetre si un panneau de dialogue est afficher et qu'on peu le passer.
     //if(x<Main.getPdi().getWidth() && y<Main.getPdi().getHeight()){
       if (Main.getScript().getEcouteClic()) {//si on écoute la fenetre.
         Main.getScript().setCmdSuivante(true);// le joueur a cliqué pour passer a la commande suivante.
+        return true;
       }
       //return true;
       return false; //si on écoute pas la fenetre.

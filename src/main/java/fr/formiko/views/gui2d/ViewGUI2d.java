@@ -416,6 +416,7 @@ public class ViewGUI2d implements View {
       }
       if(!doWeNeedToDoNextCmdNow){
         getPdi().addBSuivant();
+        getPj().getPsd().actualiserTailleMax();
       }else{
         getPs().actualiserTaille();//écoute normale
       }
