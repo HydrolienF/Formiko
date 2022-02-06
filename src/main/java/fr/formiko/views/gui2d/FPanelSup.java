@@ -65,7 +65,7 @@ public class FPanelSup extends FPanel {
             }catch (NullPointerException e2) {
               erreur.alerte("No curent player");
             }
-            if(f!=null){ // && f.getAction()>0
+            if(f!=null && !f.equals(Main.getPlayingAnt())){ // && f.getAction()>0
               getView().getPb().setActionF(-2);
               getView().getPb().removePA();
               Main.getPartie().setAntIdToPlay(f.getId());
