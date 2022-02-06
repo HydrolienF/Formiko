@@ -144,7 +144,7 @@ public class FPanelBouton extends FPanel {
     //FPanelActionInf paiPrécédent = pai;
     pai = new FPanelActionInf();
     pai.setBounds(0,getHeight()-pai.getHeight(),pai.getWidth(),pai.getHeight());
-    getView().getPs().actualiserTaille();
+    getView().getPs().updateSize();
     // pmmc = new FPanelMiniMapContainer();
     add(pmmc);
     add(pas);

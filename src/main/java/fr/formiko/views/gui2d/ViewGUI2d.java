@@ -250,7 +250,7 @@ public class ViewGUI2d implements View {
     }
     Main.startCh();
     getPp().removePm();//on retire le menu
-    getPs().actualiserTaille();//update Ps just in case it was to big from an other script.
+    getPs().updateSize();//update Ps just in case it was to big from an other script.
     Main.endCh("chargementFPanelChargementEtSuppressionMenu");
     getPj().iniPch();//on met le panneau de chargement au 1a plan.
     DiscordIntegration.setNeedToUpdateActivity(true);
@@ -416,9 +416,9 @@ public class ViewGUI2d implements View {
       }
       if(!doWeNeedToDoNextCmdNow){
         getPdi().addBSuivant();
-        getPj().getPsd().actualiserTailleMax();
+        getPj().getPsd().updateSizeMax();
       }else{
-        getPs().actualiserTaille();//écoute normale
+        getPs().updateSize();//écoute normale
       }
     }catch (Exception e) {//par défaut on attend avant de passer a la commande suivante.
       erreur.alerte("can't print message : "+message);

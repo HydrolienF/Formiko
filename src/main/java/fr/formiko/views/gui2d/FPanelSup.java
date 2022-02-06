@@ -91,8 +91,12 @@ public class FPanelSup extends FPanel {
     });
   }
   // GET SET -------------------------------------------------------------------
-  public void actualiserTaille(){
-    if(getView().getPd()!= null && getView().getPd().getNeedToStayMaxSize()){actualiserTailleMax(); return;}
+  /**
+  *{@summary Update size to fit FPanelCarte.}<br>
+  *@lastEditedVersion 2.19
+  */
+  public void updateSize(){
+    if(getView().getPd()!= null && getView().getPd().getNeedToStayMaxSize()){updateSizeMax(); return;}
     // setSize(Main.getDimX()-getView().getPz().getWidth(), Main.getDimY()-getView().getPa().getHeight());
     setSize(math.min(Main.getDimX(), getView().getPc().getWidth()-getView().getPc().getX()), Main.getDimY()-getView().getPa().getHeight());
     //la 2a version est mieux pour prendre en compte les déplacements.
@@ -102,14 +106,14 @@ public class FPanelSup extends FPanel {
   *{@summary Update size to max one.}<br>
   *@lastEditedVersion 2.19
   */
-  public void actualiserTailleMax(){
+  public void updateSizeMax(){
     setSize(Main.getDimX(), Main.getDimY());
   }
   /**
   *{@summary Update size to 0,0.}<br>
   *@lastEditedVersion 2.19
   */
-  public void actualiserTailleMin(){
+  public void updateSizeMin(){
     setSize(0,0);
   }
   // public int getAntIdToPlay(){return antIdToPlay;}

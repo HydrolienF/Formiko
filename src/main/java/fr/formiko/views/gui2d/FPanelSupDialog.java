@@ -45,14 +45,14 @@ public class FPanelSupDialog extends FPanel {
   *{@summary Update size to max one.}<br>
   *@lastEditedVersion 2.19
   */
-  public void actualiserTailleMax(){
+  public void updateSizeMax(){
     setSize(Main.getDimX(), Main.getDimY());
   }
   /**
   *{@summary Update size to 0,0.}<br>
   *@lastEditedVersion 2.19
   */
-  public void actualiserTailleMin(){
+  public void updateSizeMin(){
     setSize(0,0);
   }
   // FUNCTIONS -----------------------------------------------------------------
@@ -74,7 +74,7 @@ public class FPanelSupDialog extends FPanel {
     try {
       boolean b = getView().getPd().clicEn(e.getX(),e.getY());
       if(b){
-        actualiserTailleMin();
+        updateSizeMin();
       }
       return b;
     }catch (Exception e2) {

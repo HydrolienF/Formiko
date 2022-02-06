@@ -175,7 +175,7 @@ public class FPanelJeu extends FPanel {
     pfp = null;
     pc.setVisible(true);
     pb.setVisible(true);
-    ps.actualiserTaille();
+    ps.updateSize();
   }
   public void addPmmo(){
     pmmo = new FPanelPanelMove();
