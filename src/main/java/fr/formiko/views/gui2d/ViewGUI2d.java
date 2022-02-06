@@ -71,7 +71,8 @@ public class ViewGUI2d implements View {
   public FPanelZoom getPz(){ return getPb().getPz();}
   public FPanelAction getPa(){ return getPb().getPa();}
   public FPanelChargement getPch(){ try {return getPj().getPch();}catch (NullPointerException e) {return null;}}
-  public FPanelSup getPs(){ try {return getPj().getPs();}catch (NullPointerException e) {return null;}}
+  public FPanelSup getPs(){ if(getPj()!=null){return getPj().getPs();}else{return null;}}
+  public FPanelSupDialog getPsd(){ if(getPj()!=null){return getPj().getPsd();}else{return null;}}
   public FPanelEchap getPe(){ return getPj().getPe();}
   public FPanelDialogue getPd(){ try {return getPj().getPd();}catch (NullPointerException e) {return null;}}
   public FPanelDialogueInf getPdi(){ return getPj().getPdi();}

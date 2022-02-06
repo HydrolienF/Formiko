@@ -36,7 +36,7 @@ public class FPanelSupDialog extends FPanel {
       */
       @Override
       public void mouseReleased(MouseEvent e) {
-        vérifierFPanelDialogue(e);
+        checkFPanelDialogue(e);
       }
     });
   }
@@ -70,9 +70,16 @@ public class FPanelSupDialog extends FPanel {
   *{@summary Check if FPanelDialogue is waiting to go to next dialog.}<br>
   *@lastEditedVersion 2.19
   */
-  public boolean vérifierFPanelDialogue(MouseEvent e){
+  public boolean checkFPanelDialogue(MouseEvent e){
+    return checkFPanelDialogue(e.getX(), e.getY());
+  }
+  /**
+  *{@summary Check if FPanelDialogue is waiting to go to next dialog.}<br>
+  *@lastEditedVersion 2.19
+  */
+  public boolean checkFPanelDialogue(int x, int y){
     try {
-      boolean b = getView().getPd().clicEn(e.getX(),e.getY());
+      boolean b = getView().getPd().clicEn(x,y);
       if(b){
         updateSizeMin();
       }

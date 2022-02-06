@@ -34,6 +34,7 @@ public class keys {
 
     inputMap.put(KeyStroke.getKeyStroke((char)27),"escape");
     inputMap.put(KeyStroke.getKeyStroke('\n'), "enter");
+    inputMap.put(KeyStroke.getKeyStroke(' '), "space");
     inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, true), "upArrowT");
     inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0, true), "downArrowT");
     inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, true), "leftArrowT");
@@ -62,6 +63,7 @@ public class keys {
       *@lastEditedVersion 1.49
       */
       public void actionPerformed(ActionEvent actionEvent) {
+        System.out.println("escape");//@a
         if(FPanel.getView().getActionGameOn()){
           if(FPanel.getView().getPe().getVisible()){
             FPanel.getView().getPe().setVisible(false);
@@ -81,12 +83,12 @@ public class keys {
     actionA = new AbstractAction() {
       /**
       *{@summary Try to go to next FPanelDialogue.}
-      *@lastEditedVersion 1.40
+      *@lastEditedVersion 2.19
       */
       public void actionPerformed(ActionEvent actionEvent) {
-        try {
-          FPanel.getView().getPd().clicEn(0,0);
-        }catch (Exception e) {}
+        if(FPanel.getView().getPsd()!=null){
+          FPanel.getView().getPsd().checkFPanelDialogue(0,0);
+        }
       }
     };
     actionMap.put("space",actionA);
