@@ -414,7 +414,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("gui_pgo_drawRelationsIcons","true");
     defaultProperties.setProperty("gui_pgo_drawStatesIconsLevel","1");
     defaultProperties.setProperty("partie_autoCleaning","true");
-    defaultProperties.setProperty("sounds_music","false");
+    defaultProperties.setProperty("sounds_music","true");
     defaultProperties.setProperty("sounds_musicVolume","50");
     defaultProperties.setProperty("sounds_sound","false");
     defaultProperties.setProperty("sounds_soundVolume","50");
