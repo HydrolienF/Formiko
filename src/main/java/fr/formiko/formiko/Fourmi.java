@@ -33,7 +33,7 @@ public class Fourmi extends Creature implements Serializable{
   // Elle peut aussi défendre la fourmilière (1) ou aider a la création de nouvelles fourmis (3)
   protected Fourmiliere fere;
   protected byte duretéMax;
-  private static byte uneSeuleAction=-1;
+  private static byte uneSeuleAction;
   private static boolean bActionHaveChange=false;
   // private static boolean bActualiserTaille=false;
   protected boolean cutWings=true;

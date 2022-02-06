@@ -250,6 +250,7 @@ public class ViewGUI2d implements View {
     }
     Main.startCh();
     getPp().removePm();//on retire le menu
+    getPs().actualiserTaille();//update Ps just in case it was to big from an other script.
     Main.endCh("chargementFPanelChargementEtSuppressionMenu");
     getPj().iniPch();//on met le panneau de chargement au 1a plan.
     DiscordIntegration.setNeedToUpdateActivity(true);
