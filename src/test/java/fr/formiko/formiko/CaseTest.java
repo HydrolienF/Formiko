@@ -190,9 +190,10 @@ public class CaseTest extends TestCaseMuet{
     f2.setCCase(f.getCCase());
     f3.setCCase(f.getCCase());
     GCreature gc = f.getCCase().getContent().getSortedGc(f);
-    Creature tc [] = new Creature[2];
-    tc[0]=f2;
-    tc[1]=f3;
+    Creature tc [] = new Creature[gc.length()];
+    tc[0]=f;
+    tc[1]=f2;
+    tc[2]=f3;
     assertArrayEquals(tc,gc.toList().toArray());
   }
   @Test
@@ -205,9 +206,10 @@ public class CaseTest extends TestCaseMuet{
     f2.setCCase(f.getCCase());
     f3.setCCase(f.getCCase());
     GCreature gc = f.getCCase().getContent().getSortedGc(f);
-    Creature tc [] = new Creature[2];
-    tc[0]=f3;
-    tc[1]=f2;
+    Creature tc [] = new Creature[gc.length()];
+    tc[0]=f;
+    tc[1]=f3;
+    tc[2]=f2;
     assertArrayEquals(tc,gc.toList().toArray());
   }
   @Test
@@ -220,9 +222,10 @@ public class CaseTest extends TestCaseMuet{
     f3.setCCase(f.getCCase());
     f2.setCCase(f.getCCase());
     GCreature gc = f.getCCase().getContent().getSortedGc(f);
-    Creature tc [] = new Creature[2];
-    tc[0]=f3;
-    tc[1]=f2;
+    Creature tc [] = new Creature[gc.length()];
+    tc[0]=f;
+    tc[1]=f3;
+    tc[2]=f2;
     assertArrayEquals(tc,gc.toList().toArray());
   }
   @Test
@@ -235,9 +238,10 @@ public class CaseTest extends TestCaseMuet{
     f3.setCCase(f.getCCase());
     f2.setCCase(f.getCCase());
     GCreature gc = f.getCCase().getContent().getSortedGc(f);
-    Creature tc [] = new Creature[2];
-    tc[0]=f3;
-    tc[1]=f2;
+    Creature tc [] = new Creature[gc.length()];
+    tc[0]=f;
+    tc[1]=f3;
+    tc[2]=f2;
     assertArrayEquals(tc,gc.toList().toArray());
   }
   @Test
@@ -253,9 +257,10 @@ public class CaseTest extends TestCaseMuet{
     f4.setCCase(f.getCCase());
     GCreature gc = f.getCCase().getContent().getSortedGc(f);
     Creature tc [] = new Creature[gc.length()];
-    tc[0]=f2;
-    tc[1]=f4;
-    tc[2]=f3;
+    tc[0]=f;
+    tc[1]=f2;
+    tc[2]=f4;
+    tc[3]=f3;
     assertArrayEquals(tc,gc.toList().toArray());
   }
   @Test
@@ -275,10 +280,11 @@ public class CaseTest extends TestCaseMuet{
     i.setCCase(f.getCCase());
     GCreature gc = f.getCCase().getContent().getSortedGc(f);
     Creature tc [] = new Creature[gc.length()];
-    tc[0]=f2;
-    tc[1]=f4;
-    tc[2]=f3;
-    tc[3]=i;
+    tc[0]=f;
+    tc[1]=f2;
+    tc[2]=f4;
+    tc[3]=f3;
+    tc[4]=i;
     assertArrayEquals(tc,gc.toList().toArray());
   }
   @Test
@@ -298,10 +304,11 @@ public class CaseTest extends TestCaseMuet{
     f3.setCCase(f.getCCase());
     GCreature gc = f.getCCase().getContent().getSortedGc(f);
     Creature tc [] = new Creature[gc.length()];
-    tc[0]=f4;
-    tc[1]=f2;
-    tc[2]=i;
-    tc[3]=f3;
+    tc[0]=f;
+    tc[1]=f4;
+    tc[2]=f2;
+    tc[3]=i;
+    tc[4]=f3;
     assertArrayEquals(tc,gc.toList().toArray());
   }
 }
