@@ -83,10 +83,11 @@ public class FOptionPane extends JDialog {
   /**
   *{@summary Add an editable text field.}<br>
   *@param content default content
-  *@lastEditedVersion 2.17
+  *@lastEditedVersion 2.19
   */
   public void addField(String content){
     textField = new FTextField(content);
+    textField.addSizeUpdater();
     add(textField);
   }
   /**
@@ -94,10 +95,11 @@ public class FOptionPane extends JDialog {
   *@param min the min value
   *@param max the max value
   *@param value default value
-  *@lastEditedVersion 2.17
+  *@lastEditedVersion 2.19
   */
   public void addIntField(int min, int max, int value){
     intField = FIntField.newFIntField(min, max, value);
+    intField.addSizeUpdater();
     add(intField);
   }
   /**
