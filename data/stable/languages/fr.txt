@@ -450,7 +450,7 @@ conseil.1:Vous avez trouvez un bogue ? Signalez le au développeur du jeu a hydr
 conseil.2:Envie de participer au développement du jeu ? Codeur, graphiste et traducteur sont les bienvenus (hydrolien.lili502@gmail.com).
 conseil.3:Mare de microgérer vos fourmis ? Utilisez les 2 modes automatique a votre disposition.
 conseil.4:Envie de varier un peu le style de jeu ? choisissez une espèce avec laquelle vous n'avez pas encore jouer.
-conseil.5:Certaines espèce de fourmi sont polymorphe. C'est a dire qu'elle ont des ouvrières de taille variable afin de pouvoir réalisé des taches assez différente.
+conseil.5:Certaines espèce de fourmi sont polymorphe. C'est a dire qu'elle ont des ouvrières de taille variable afin de pouvoir réaliser des taches assez différente.
 conseil.6:Ne pondez pas trop d’œuf a la fois. Sinon vous ne serez plus capable d'en prendre soin jusqu'à ce qu'ils deviennent des imagos.
 conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
 conseil.8:Les choix que vous avez à faire sont indiqué en haut a gauche de votre écran.

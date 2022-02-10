@@ -2,6 +2,10 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.usuel.maths.math;
 
+import java.awt.Component;
+import java.awt.Window;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import javax.swing.JFormattedTextField;
@@ -50,6 +54,24 @@ public class FIntField extends JFormattedTextField {
     formatter.setCommitsOnValidEdit(true);
     FIntField field = new FIntField(formatter);
     field.setValue(value);
+    // if(field.getParent() instanceof Window){ //at this moment it haven't been add to a parent yet.
+      field.addPropertyChangeListener(new PropertyChangeListener() {
+        /**
+        *{@summary Update size.}<br>
+        *@lastEditedVersion 2.17
+        */
+        @Override
+        public void propertyChange(PropertyChangeEvent event) {
+          Component parent = field.getParent();
+          while(parent.getParent()!=null && !(parent instanceof Window)){
+            parent=parent.getParent();
+          }
+          if(parent instanceof Window && !(parent.equals(FPanel.getView().getF()))){
+            ((Window)parent).pack();
+          }
+        }
+      });
+    // }
     return field;
   }
 }
