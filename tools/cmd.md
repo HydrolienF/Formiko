@@ -104,3 +104,7 @@ scp path/to/file/File identifiant@machineName:path/to/file/
 #vlc
 Download a video from cmd line :
 vlc -I dummy --sout file/mp4:v.mp4 https://youtu.be/Yao568U_tmU vlc://quit
+
+
+#sql postgresql
+cf ~/cours/s6/bdd/README.md
