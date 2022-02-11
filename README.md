@@ -33,7 +33,9 @@ Project in version 1.30.0 or later work with Maven 3.6.3 be sur that you have Ma
 *Test code:*
 `mvn test`
 *Launch game*
-`./run.sh` (OR `./run.bat` in Windows)
+`mvn -ntp exec:java -Dargs="$args1 $args2"`
+Or (Linux only):
+`./run.sh args1 args2`
 
 *Update:* https://formiko.fr/download.html
 
