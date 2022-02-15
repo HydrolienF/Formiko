@@ -20,4 +20,5 @@ cp README.md in/
 cp version.md in/
 cp version.json in/
 # End of common part with toMsi
-jpackage --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version $(cat version.md) --description "Formiko, a game about ant." --icon tools/icon.png --runtime-image jlink/jLinux --license-file LICENSE.md --vendor Hydrolien -t deb --linux-package-name formiko --linux-shortcut
+jpackage --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version $(cat version.md) --description "Formiko, a game about ant." --icon tools/icon.png --runtime-image jlink/jLinux --license-file LICENSE.md --vendor Hydrolien -t deb --linux-package-name formiko --linux-shortcut --linux-deb-maintainer hydrolien.f@gmail.com --linux-menu-group "Game;StrategyGame"
+# --linux-package-deps can call vlc
