@@ -1,6 +1,7 @@
 # sudo apt-get install ./formiko_2.19.39-1_amd64.deb
 # sudo apt-get install ./out/formiko_2.19.46-1_amd64.deb
 # sudo apt remove formiko
+# dpkg-deb -I file.deb print info about a .deb
 # cd /opt/formiko/bin/
 # ./Formiko
 ./updateVersion.sh > version.md
