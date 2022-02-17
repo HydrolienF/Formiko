@@ -21,8 +21,9 @@ cp README.md in/
 cp version.md in/
 cp version.json in/
 # End of common part with toMsi
-# TODO add an action that call that as toMsi.
-# TOFIX icon and shortcut don't seem's to work
+# TODO add a Github action that call that as toMsi.
+# TOFIX shortcut don't seem's to work neether in menu, nor in terminal.
+# TOFIX icon is not used on tab screen or in menu screen
 jpackage --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version $(cat version.md) --description "Formiko, a game about ant." --icon tools/icon.png --runtime-image jlink/jLinux --license-file LICENSE.md --vendor Hydrolien -t deb --linux-package-name formiko --linux-shortcut --linux-deb-maintainer hydrolien.f@gmail.com --linux-menu-group "Game;StrategyGame" --linux-app-category games
 # TODO create toRmp.sh with same jpackage line exept "deb" option replace by --linux-app-category category string --linux-rpm-license-type type string
 # --linux-package-deps can call vlc
