@@ -1,8 +1,8 @@
 #set-executionpolicy remotesigned to alow powershell script
 
 mvn -ntp versions:set -DnewVersion="$(cat version.md)"
-rm src/main/resources/res/version.json
-cp version.json src/main/resources/res/
+#rm src/main/resources/res/version.json
+#cp version.json src/main/resources/res/
 mvn -ntp compile
 mvn -ntp package
 mv target/Formiko-$(cat version.md)-jar-with-dependencies.jar Formiko.jar
