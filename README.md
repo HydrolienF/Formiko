@@ -28,6 +28,8 @@
 `Formiko is a game where you play as a ant queen who develops its anthill.`
 
 Project in version 1.30.0 or later work with Maven 3.6.3 be sur that you have Maven 3.6.3 (or more) on your computer.
+You need to have Java 17 or more and JAVA_HOME set on your computer. On linux you can set JAVA_HOME by adding on ~/.bashrc
+`export JAVA_HOME=/usr/lib/jvm/java-17-oracle` (path can be a bit different if you use openjdk.)
 *Compile code:*
 `mvn compile`
 *Test code:*
