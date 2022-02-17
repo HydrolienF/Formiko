@@ -27,24 +27,30 @@
 
 `Formiko is a game where you play as a ant queen who develops its anthill.`
 
-Project in version 1.30.0 or later work with Maven 3.6.3 be sur that you have Maven 3.6.3 (or more) on your computer.
-You need to have Java 17 or more and JAVA_HOME set on your computer. On linux you can set JAVA_HOME by adding on ~/.bashrc
-`export JAVA_HOME=/usr/lib/jvm/java-17-oracle` (path can be a bit different if you use openjdk.)
-*Compile code:*
-`mvn compile`
-*Test code:*
-`mvn test`
-*Launch game*
-`mvn -ntp exec:java -Dargs="$args1 $args2"`
-Or (Linux only):
-`./run.sh args1 args2`
-
 *Update:* https://formiko.fr/download.html
 
 *Support & community channel:* https://discord.gg/9uHXJ9K
 
 *How to play:* https://formiko.fr
 
+*How to contribute:*
+You will need Java (JDK) 17 (or more) and Maven 3.8.4 (or more).
+You need to have JAVA_HOME set on your computer. On linux you can set JAVA_HOME by adding on ~/.bashrc
+`export JAVA_HOME=/usr/lib/jvm/java-17-oracle` (path can be a bit different if you use openjdk.)
+JAVA_HOME need to be set on PATH for Windows.
+Maven also need to be on path.
+ps : some IDE provide Java & Maven.
+*Compile code:*
+`mvn compile`
+*Test code:*
+`mvn test`
+*Launch game*
+`mvn exec:java -Dargs="$args1 $args2"`
+Or (Linux only):
+`./run.sh args1 args2`
+*Usefull links:*
+Install maven on Ubuntu:
+https://github.com/m-thirumal/installation_guide/blob/master/maven/upgrade_maven.md
 
 *how can I help in the development of the game*
 `We need graphic designers, translators, developers & above all beta testers. Contact us via the discord link to find out more.
