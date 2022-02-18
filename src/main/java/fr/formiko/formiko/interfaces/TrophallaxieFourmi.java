@@ -100,7 +100,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
       if(t.length==0){
         erreur.alerte("Impossible de trophallaxer");
         return;
-      if(t.length==1){
+      }else if(t.length==1){
         id2=t[0];
       }else{
         String id2s = Main.getView().makeUserChooseOnArray(ts,g.get("Pti.desc.1"));
