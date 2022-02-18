@@ -6,7 +6,8 @@ mvn -ntp compile
 mvn -ntp package
 mv target/Formiko-$(cat version.md)-jar-with-dependencies.jar Formiko.jar
 
-rm -fr in
+# no -f here
+rm -r in
 mkdir in
 mv Formiko.jar in/
 cp LICENSE.md in/
