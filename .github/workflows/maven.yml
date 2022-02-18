@@ -260,7 +260,7 @@ jobs:
 
     - name: Commit the badges (if it changed)
       run: |
-        if [[ `git status --untracked-files=no --porcelain .github/badges/` != "\n" ]]; then
+        if [[ `git status --untracked-files=no --porcelain .github/badges/` != "" ]]; then
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .github/badges/*
