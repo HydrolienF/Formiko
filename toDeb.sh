@@ -22,6 +22,7 @@ cp version.md in/
 cp version.json in/
 # End of common part with toMsi
 # TODO add a Github action that call that as toMsi.
+# TOFIX our java version fail to launch game without any error message but Formiko.jar can be launch with full jdk 17.0.2
 # TOFIX shortcut don't seem's to work neether in menu, nor in terminal.
 # TOFIX icon is not used on tab screen or in menu screen
 jpackage --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version $(cat version.md) --description "Formiko, a game about ant." --icon tools/icon.png --runtime-image jlink/jLinux --license-file LICENSE.md --vendor Hydrolien -t deb --linux-package-name formiko --linux-shortcut --linux-deb-maintainer hydrolien.f@gmail.com --linux-menu-group "Game;StrategyGame" --linux-app-category games
