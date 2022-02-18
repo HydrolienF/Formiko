@@ -97,6 +97,9 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
         ts[i]=t[i]+" : "+cTemp.getFood()+"/"+cTemp.getMaxFood()+" "+g.get("food")+sTemp;
       }
       int id2=-1;
+      if(t.length==0){
+        erreur.alerte("Impossible de trophallaxer");
+        return;
       if(t.length==1){
         id2=t[0];
       }else{
