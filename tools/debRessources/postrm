@@ -1,1 +1,8 @@
+echo "remove launcher"
 sudo rm /bin/formiko
+read -p "Do you whant to also remove temporary data as Options & saves? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    rm ~/.formiko -fr
+fi

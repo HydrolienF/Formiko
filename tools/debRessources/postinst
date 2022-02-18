@@ -1,1 +1,5 @@
+echo "Create shortcut. You can launch Formiko in cmd line with:"
+echo "formiko"
 sudo ln -s /opt/formiko/bin/Formiko /bin/formiko
+echo "Install done. Launching game"
+formiko
