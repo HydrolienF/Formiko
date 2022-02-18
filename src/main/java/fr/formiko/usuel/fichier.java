@@ -270,6 +270,7 @@ public class fichier {
   public static void unzip(String fileName, final String folderName){
     fileName = str.addALaFinSiNecessaire(fileName,".zip");
     final File destDir = new File(folderName);
+    destDir.mkdirs(); //add folder if needed.
     final byte[] buffer = new byte[1024];
     try {
       final ZipInputStream zis = new ZipInputStream(new FileInputStream(fileName));
