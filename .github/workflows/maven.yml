@@ -175,6 +175,48 @@ jobs:
         asset_name: Formiko${{ steps.version.outputs.version }}.msi
         asset_content_type: application/msi
 
+  DebArtifact:
+    if: github.event.pull_request.merged == true
+    needs: releaseJob
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: Set up JDK 16
+      uses: actions/setup-java@v1
+      with:
+        java-version: 16
+    - name: Version-Tool
+      uses: HydrolienF/Version-Tool@0.5.7
+      id: version
+    - name: update version.md
+      run: echo ${{ steps.version.outputs.version }} > version.md
+
+    - name: jlink
+      run: |
+        mvn -ntp compile
+        echo "download jlink/"
+        mvn -ntp exec:java -Dargs='download "https://github.com/HydrolienF/JRE/releases/download/1.0.3/jlink.zip" jlink.zip'
+        mvn -ntp exec:java -Dargs='unzip jlink.zip jlink/'
+        dir jlink/
+    - name: Pull
+      run: |
+        git config pull.rebase false
+        git pull
+    - name: build
+      run: |
+        ./toDeb.sh
+        mv ./out/Formiko-${{ steps.version.outputs.version }}.deb ./out/Formiko${{ steps.version.outputs.version }}.deb
+    - name: upload .deb artifact
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      with:
+        upload_url: ${{needs.releaseJob.outputs.output1}}
+        asset_path: ./out/Formiko${{ steps.version.outputs.version }}.deb
+        asset_name: Formiko${{ steps.version.outputs.version }}.deb
+        asset_content_type: application/deb
+
 
   # Badge part
   badge:

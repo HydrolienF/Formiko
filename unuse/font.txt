@@ -1,0 +1,375 @@
+[1;33mAbyssinica SIL 43/107[0;m
+[1;33mAni 10/107[0;m
+[1;33mAnjaliOldLipi Regular 42/107[0;m
+[1;33mBitstream Charter 42/107[0;m
+[1;33mBitstream Charter Bold 42/107[0;m
+[1;33mBitstream Charter Bold Italic 42/107[0;m
+[1;33mBitstream Charter Italic 42/107[0;m
+[1;33mBitstream Vera Sans 46/107[0;m
+[1;33mBitstream Vera Sans Bold 46/107[0;m
+[1;33mBitstream Vera Sans Bold Oblique 46/107[0;m
+[1;33mBitstream Vera Sans Mono 46/107[0;m
+[1;33mBitstream Vera Sans Mono Bold 46/107[0;m
+[1;33mBitstream Vera Sans Mono Bold Oblique 46/107[0;m
+[1;33mBitstream Vera Sans Mono Oblique 46/107[0;m
+[1;33mBitstream Vera Sans Oblique 46/107[0;m
+[1;33mBitstream Vera Serif 46/107[0;m
+[1;33mBitstream Vera Serif Bold 46/107[0;m
+[1;33mC059-BdIta 71/107[0;m
+[1;33mC059-Bold 71/107[0;m
+[1;33mC059-Italic 71/107[0;m
+[1;33mC059-Roman 71/107[0;m
+[1;33mCantarell Bold 75/107[0;m
+[1;33mCantarell Extra Bold 75/107[0;m
+[1;33mCantarell Light 75/107[0;m
+[1;33mCantarell Regular 75/107[0;m
+[1;33mCantarell Thin 75/107[0;m
+[1;33mCentury Schoolbook L Bold 70/107[0;m
+[1;33mCentury Schoolbook L Bold Italic 70/107[0;m
+[1;33mCentury Schoolbook L Italic 70/107[0;m
+[1;33mCentury Schoolbook L Roman 70/107[0;m
+[1;33mChandas 15/107[0;m
+[1;33mChilanka Regular 42/107[0;m
+[1;33mCourier 10 Pitch 42/107[0;m
+[1;33mCourier 10 Pitch Bold 42/107[0;m
+[1;33mCourier 10 Pitch Bold Italic 42/107[0;m
+[1;33mCourier 10 Pitch Italic 42/107[0;m
+[1;33mD050000L 31/107[0;m
+[1;33mDejaVu Sans 86/107[0;m
+[1;33mDejaVu Sans Bold 86/107[0;m
+[1;33mDejaVu Sans Bold Oblique 83/107[0;m
+[1;33mDejaVu Sans Condensed 86/107[0;m
+[1;33mDejaVu Sans Condensed Bold 86/107[0;m
+[1;33mDejaVu Sans Condensed Bold Oblique 83/107[0;m
+[1;33mDejaVu Sans Condensed Oblique 83/107[0;m
+[1;33mDejaVu Sans ExtraLight 76/107[0;m
+[1;33mDejaVu Sans Mono 80/107[0;m
+[1;33mDejaVu Sans Mono Bold 80/107[0;m
+[1;33mDejaVu Sans Mono Bold Oblique 78/107[0;m
+[1;33mDejaVu Sans Mono Oblique 78/107[0;m
+[1;33mDejaVu Sans Oblique 83/107[0;m
+[1;33mDejaVu Serif 80/107[0;m
+[1;33mDejaVu Serif Bold 80/107[0;m
+[1;33mDejaVu Serif Bold Italic 80/107[0;m
+[1;33mDejaVu Serif Condensed 80/107[0;m
+[1;33mDejaVu Serif Condensed Bold 80/107[0;m
+[1;33mDejaVu Serif Condensed Bold Italic 80/107[0;m
+[1;33mDejaVu Serif Condensed Italic 80/107[0;m
+[1;33mDejaVu Serif Italic 80/107[0;m
+[1;33mDejaVuMathTeXGyre-Regular 59/107[0;m
+[1;32mDialog.bold 107/107[0;m
+[1;32mDialog.bolditalic 107/107[0;m
+[1;32mDialog.italic 107/107[0;m
+[1;32mDialog.plain 107/107[0;m
+[1;32mDialogInput.bold 107/107[0;m
+[1;32mDialogInput.bolditalic 107/107[0;m
+[1;32mDialogInput.italic 107/107[0;m
+[1;32mDialogInput.plain 107/107[0;m
+[1;31mDingbats  0/107[0;m
+[1;31mDroid Sans Fallback 0/107[0;m
+[1;33mDyuthi Regular 42/107[0;m
+[1;33mFreeMono 88/107[0;m
+[1;33mFreeMono Bold 81/107[0;m
+[1;33mFreeMono Bold Oblique 81/107[0;m
+[1;33mFreeMono Oblique 82/107[0;m
+[1;33mFreeSans 88/107[0;m
+[1;33mFreeSans Bold 86/107[0;m
+[1;33mFreeSans Bold Oblique 82/107[0;m
+[1;33mFreeSans Oblique 82/107[0;m
+[1;33mFreeSerif 99/107[0;m
+[1;33mFreeSerif Bold 94/107[0;m
+[1;33mFreeSerif Bold Italic 83/107[0;m
+[1;33mFreeSerif Italic 83/107[0;m
+[1;33mGargi 15/107[0;m
+[1;33mGaruda 42/107[0;m
+[1;33mGaruda Bold 42/107[0;m
+[1;33mGaruda Bold Oblique 42/107[0;m
+[1;33mGaruda Oblique 42/107[0;m
+[1;33mGayathri Bold 45/107[0;m
+[1;33mGayathri Regular 45/107[0;m
+[1;33mGayathri Thin 45/107[0;m
+[1;31mGubbi 0/107[0;m
+[1;33mInconsolata 52/107[0;m
+[1;31mInsektofobiya 0/107[0;m
+[1;33mJamrul 12/107[0;m
+[1;31mKacstArt 0/107[0;m
+[1;31mKacstBook 0/107[0;m
+[1;31mKacstDecorative 0/107[0;m
+[1;31mKacstDigital 0/107[0;m
+[1;31mKacstFarsi 0/107[0;m
+[1;31mKacstLetter 0/107[0;m
+[1;31mKacstNaskh 0/107[0;m
+[1;31mKacstOffice 0/107[0;m
+[1;31mKacstOne 0/107[0;m
+[1;31mKacstOne Bold 0/107[0;m
+[1;31mKacstPen 0/107[0;m
+[1;31mKacstPoster 0/107[0;m
+[1;31mKacstQurn 0/107[0;m
+[1;31mKacstScreen 0/107[0;m
+[1;31mKacstTitle 0/107[0;m
+[1;31mKacstTitleL 0/107[0;m
+[1;31mKalapi 0/107[0;m
+[1;33mKalimati 14/107[0;m
+[1;33mKarumbi Regular 42/107[0;m
+[1;33mKeraleeyam Regular 42/107[0;m
+[1;33mKhmer OS 45/107[0;m
+[1;33mKhmer OS System 45/107[0;m
+[1;33mKinnari 42/107[0;m
+[1;33mKinnari Bold 42/107[0;m
+[1;33mKinnari Bold Italic 42/107[0;m
+[1;33mKinnari Bold Oblique 42/107[0;m
+[1;33mKinnari Italic 42/107[0;m
+[1;33mKinnari Oblique 42/107[0;m
+[1;31mLKLUG 0/107[0;m
+[1;33mLaksaman 49/107[0;m
+[1;33mLaksaman Bold 49/107[0;m
+[1;33mLaksaman Bold Italic 49/107[0;m
+[1;33mLaksaman Italic 49/107[0;m
+[1;33mLiberation Mono 80/107[0;m
+[1;33mLiberation Mono Bold 80/107[0;m
+[1;33mLiberation Mono Bold Italic 80/107[0;m
+[1;33mLiberation Mono Italic 80/107[0;m
+[1;33mLiberation Sans 80/107[0;m
+[1;33mLiberation Sans Bold 80/107[0;m
+[1;33mLiberation Sans Bold Italic 80/107[0;m
+[1;33mLiberation Sans Italic 80/107[0;m
+[1;33mLiberation Sans Narrow 66/107[0;m
+[1;33mLiberation Sans Narrow Bold 66/107[0;m
+[1;33mLiberation Sans Narrow Bold Italic 66/107[0;m
+[1;33mLiberation Sans Narrow Italic 66/107[0;m
+[1;33mLiberation Serif 80/107[0;m
+[1;33mLiberation Serif Bold 80/107[0;m
+[1;33mLiberation Serif Bold Italic 80/107[0;m
+[1;33mLiberation Serif Italic 80/107[0;m
+[1;33mLikhan 12/107[0;m
+[1;31mLohit Assamese 0/107[0;m
+[1;31mLohit Bengali 0/107[0;m
+[1;33mLohit Devanagari 52/107[0;m
+[1;31mLohit Gujarati 0/107[0;m
+[1;31mLohit Gurmukhi 0/107[0;m
+[1;31mLohit Kannada 0/107[0;m
+[1;31mLohit Malayalam 0/107[0;m
+[1;31mLohit Odia 0/107[0;m
+[1;31mLohit Tamil 0/107[0;m
+[1;31mLohit Tamil Classical 0/107[0;m
+[1;33mLohit Telugu 40/107[0;m
+[1;33mLoma 42/107[0;m
+[1;33mLoma Bold 42/107[0;m
+[1;33mLoma Bold Oblique 42/107[0;m
+[1;33mLoma Oblique 42/107[0;m
+[1;33mManjari Bold 45/107[0;m
+[1;33mManjari Regular 45/107[0;m
+[1;33mManjari Thin 45/107[0;m
+[1;33mMeera Regular 42/107[0;m
+[1;33mMitra Mono 16/107[0;m
+[1;32mMonospaced.bold 107/107[0;m
+[1;32mMonospaced.bolditalic 107/107[0;m
+[1;32mMonospaced.italic 107/107[0;m
+[1;32mMonospaced.plain 107/107[0;m
+[1;33mMukti Narrow 10/107[0;m
+[1;33mMukti Narrow Bold 10/107[0;m
+[1;33mNakula 68/107[0;m
+[1;31mNavilu 0/107[0;m
+[1;33mNimbus Mono L Bold 70/107[0;m
+[1;33mNimbus Mono L Bold Oblique 68/107[0;m
+[1;33mNimbus Mono L Regular 70/107[0;m
+[1;33mNimbus Mono L Regular Oblique 68/107[0;m
+[1;33mNimbus Roman No9 L Medium 70/107[0;m
+[1;33mNimbus Roman No9 L Medium Italic 70/107[0;m
+[1;33mNimbus Roman No9 L Regular 70/107[0;m
+[1;33mNimbus Roman No9 L Regular Italic 70/107[0;m
+[1;33mNimbus Sans L Bold 70/107[0;m
+[1;33mNimbus Sans L Bold Condensed 70/107[0;m
+[1;33mNimbus Sans L Bold Condensed Italic 70/107[0;m
+[1;33mNimbus Sans L Bold Italic 70/107[0;m
+[1;33mNimbus Sans L Regular 70/107[0;m
+[1;33mNimbus Sans L Regular Condensed 70/107[0;m
+[1;33mNimbus Sans L Regular Condensed Italic 70/107[0;m
+[1;33mNimbus Sans L Regular Italic 70/107[0;m
+[1;33mNimbusMonoPS-Bold 71/107[0;m
+[1;33mNimbusMonoPS-BoldItalic 71/107[0;m
+[1;33mNimbusMonoPS-Italic 71/107[0;m
+[1;33mNimbusMonoPS-Regular 71/107[0;m
+[1;33mNimbusRoman-Bold 71/107[0;m
+[1;33mNimbusRoman-BoldItalic 71/107[0;m
+[1;33mNimbusRoman-Italic 71/107[0;m
+[1;33mNimbusRoman-Regular 71/107[0;m
+[1;33mNimbusSans-Bold 71/107[0;m
+[1;33mNimbusSans-BoldItalic 71/107[0;m
+[1;33mNimbusSans-Italic 71/107[0;m
+[1;33mNimbusSans-Regular 71/107[0;m
+[1;33mNimbusSansNarrow-Bold 71/107[0;m
+[1;33mNimbusSansNarrow-BoldOblique 71/107[0;m
+[1;33mNimbusSansNarrow-Oblique 71/107[0;m
+[1;33mNimbusSansNarrow-Regular 71/107[0;m
+[1;33mNorasi 42/107[0;m
+[1;33mNorasi Bold 42/107[0;m
+[1;33mNorasi Bold Italic 42/107[0;m
+[1;33mNorasi Bold Oblique 42/107[0;m
+[1;33mNorasi Italic 42/107[0;m
+[1;33mNorasi Oblique 42/107[0;m
+[1;31mNoto Color Emoji 0/107[0;m
+[1;33mNoto Mono 73/107[0;m
+[1;33mNoto Sans CJK HK 49/107[0;m
+[1;33mNoto Sans CJK HK Bold 49/107[0;m
+[1;33mNoto Sans CJK JP 49/107[0;m
+[1;33mNoto Sans CJK JP Bold 49/107[0;m
+[1;33mNoto Sans CJK KR 49/107[0;m
+[1;33mNoto Sans CJK KR Bold 49/107[0;m
+[1;33mNoto Sans CJK SC 49/107[0;m
+[1;33mNoto Sans CJK SC Bold 49/107[0;m
+[1;33mNoto Sans CJK TC 49/107[0;m
+[1;33mNoto Sans CJK TC Bold 49/107[0;m
+[1;33mNoto Sans Mono CJK HK 49/107[0;m
+[1;33mNoto Sans Mono CJK HK Bold 49/107[0;m
+[1;33mNoto Sans Mono CJK JP 49/107[0;m
+[1;33mNoto Sans Mono CJK JP Bold 49/107[0;m
+[1;33mNoto Sans Mono CJK KR 49/107[0;m
+[1;33mNoto Sans Mono CJK KR Bold 49/107[0;m
+[1;33mNoto Sans Mono CJK SC 49/107[0;m
+[1;33mNoto Sans Mono CJK SC Bold 49/107[0;m
+[1;33mNoto Sans Mono CJK TC 49/107[0;m
+[1;33mNoto Sans Mono CJK TC Bold 49/107[0;m
+[1;33mNoto Serif CJK JP 48/107[0;m
+[1;33mNoto Serif CJK JP Bold 48/107[0;m
+[1;33mNoto Serif CJK KR 48/107[0;m
+[1;33mNoto Serif CJK KR Bold 48/107[0;m
+[1;33mNoto Serif CJK SC 48/107[0;m
+[1;33mNoto Serif CJK SC Bold 48/107[0;m
+[1;33mNoto Serif CJK TC 48/107[0;m
+[1;33mNoto Serif CJK TC Bold 48/107[0;m
+[1;31mOpenSymbol 0/107[0;m
+[1;33mP052-Bold 71/107[0;m
+[1;33mP052-BoldItalic 71/107[0;m
+[1;33mP052-Italic 71/107[0;m
+[1;33mP052-Roman 71/107[0;m
+[1;33mPadauk 43/107[0;m
+[1;33mPadauk Bold 43/107[0;m
+[1;33mPadauk Book 43/107[0;m
+[1;33mPadauk Book Bold 43/107[0;m
+[1;33mPagul 12/107[0;m
+[1;33mPhetsarath OT 44/107[0;m
+[1;31mPothana2000 0/107[0;m
+[1;33mPurisa 50/107[0;m
+[1;33mPurisa Bold 50/107[0;m
+[1;33mPurisa Bold Oblique 50/107[0;m
+[1;33mPurisa Oblique 50/107[0;m
+[1;33mRachana Bold 18/107[0;m
+[1;33mRachana Regular 42/107[0;m
+[1;31mRaghuMalayalamSans Regular 0/107[0;m
+[1;33mRasa 61/107[0;m
+[1;33mRasa Bold 61/107[0;m
+[1;33mRasa Light 61/107[0;m
+[1;33mRasa Medium 61/107[0;m
+[1;33mRasa SemiBold 61/107[0;m
+[1;33mRekha 12/107[0;m
+[1;31mSaab 0/107[0;m
+[1;33mSahadeva 68/107[0;m
+[1;33mSamanata 15/107[0;m
+[1;31mSamyak Devanagari 0/107[0;m
+[1;31mSamyak Gujarati 0/107[0;m
+[1;31mSamyak Malayalam 0/107[0;m
+[1;31mSamyak Tamil 0/107[0;m
+[1;32mSansSerif.bold 107/107[0;m
+[1;32mSansSerif.bolditalic 107/107[0;m
+[1;32mSansSerif.italic 107/107[0;m
+[1;32mSansSerif.plain 107/107[0;m
+[1;33mSarai 15/107[0;m
+[1;33mSawasdee 43/107[0;m
+[1;33mSawasdee Bold 43/107[0;m
+[1;33mSawasdee Bold Oblique 43/107[0;m
+[1;33mSawasdee Oblique 43/107[0;m
+[1;32mSerif.bold 107/107[0;m
+[1;32mSerif.bolditalic 107/107[0;m
+[1;32mSerif.italic 107/107[0;m
+[1;32mSerif.plain 107/107[0;m
+[1;31mStandard Symbols L 0/107[0;m
+[1;33mStandard Symbols PS 31/107[0;m
+[1;33mSuruma 10/107[0;m
+[1;33mTibetan_Machine_Uni 57/107[0;m
+[1;33mTlwg Mono 42/107[0;m
+[1;33mTlwg Mono Bold 42/107[0;m
+[1;33mTlwg Mono Bold Oblique 42/107[0;m
+[1;33mTlwg Mono Oblique 42/107[0;m
+[1;33mTlwg Typewriter 42/107[0;m
+[1;33mTlwg Typewriter Bold 42/107[0;m
+[1;33mTlwg Typewriter Bold Oblique 42/107[0;m
+[1;33mTlwg Typewriter Oblique 42/107[0;m
+[1;33mTlwg Typist 42/107[0;m
+[1;33mTlwg Typist Bold 42/107[0;m
+[1;33mTlwg Typist Bold Oblique 42/107[0;m
+[1;33mTlwg Typist Oblique 42/107[0;m
+[1;33mTlwg Typo 42/107[0;m
+[1;33mTlwg Typo Bold 42/107[0;m
+[1;33mTlwg Typo Bold Oblique 42/107[0;m
+[1;33mTlwg Typo Oblique 42/107[0;m
+[1;33mURW Bookman L Demi Bold 66/107[0;m
+[1;33mURW Bookman L Demi Bold Italic 65/107[0;m
+[1;33mURW Bookman L Light 68/107[0;m
+[1;33mURW Bookman L Light Italic 66/107[0;m
+[1;33mURW Chancery L Medium Italic 65/107[0;m
+[1;33mURW Gothic L Book 70/107[0;m
+[1;33mURW Gothic L Book Oblique 70/107[0;m
+[1;33mURW Gothic L Demi 70/107[0;m
+[1;33mURW Gothic L Demi Oblique 70/107[0;m
+[1;33mURW Palladio L Bold 65/107[0;m
+[1;33mURW Palladio L Bold Italic 66/107[0;m
+[1;33mURW Palladio L Italic 66/107[0;m
+[1;33mURW Palladio L Roman 66/107[0;m
+[1;33mURWBookman-Demi 71/107[0;m
+[1;33mURWBookman-DemiItalic 71/107[0;m
+[1;33mURWBookman-Light 71/107[0;m
+[1;33mURWBookman-LightItalic 71/107[0;m
+[1;33mURWGothic-Book 71/107[0;m
+[1;33mURWGothic-BookOblique 71/107[0;m
+[1;33mURWGothic-Demi 71/107[0;m
+[1;33mURWGothic-DemiOblique 71/107[0;m
+[1;33mUbuntu 71/107[0;m
+[1;33mUbuntu Bold 71/107[0;m
+[1;33mUbuntu Bold Italic 71/107[0;m
+[1;33mUbuntu Condensed 71/107[0;m
+[1;33mUbuntu Italic 71/107[0;m
+[1;33mUbuntu Light 71/107[0;m
+[1;33mUbuntu Light Italic 71/107[0;m
+[1;33mUbuntu Medium 71/107[0;m
+[1;33mUbuntu Medium Italic 71/107[0;m
+[1;33mUbuntu Mono 71/107[0;m
+[1;33mUbuntu Mono Bold 71/107[0;m
+[1;33mUbuntu Mono Bold Italic 71/107[0;m
+[1;33mUbuntu Mono Italic 71/107[0;m
+[1;33mUbuntu Thin 71/107[0;m
+[1;33mUmpush 42/107[0;m
+[1;33mUmpush Bold 42/107[0;m
+[1;33mUmpush Bold Oblique 42/107[0;m
+[1;33mUmpush Light 42/107[0;m
+[1;33mUmpush Light Oblique 42/107[0;m
+[1;33mUmpush Oblique 42/107[0;m
+[1;33mUroob Regular 42/107[0;m
+[1;31mVemana2000 0/107[0;m
+[1;33mWaree 47/107[0;m
+[1;33mWaree Bold 47/107[0;m
+[1;33mWaree Bold Oblique 47/107[0;m
+[1;33mWaree Oblique 47/107[0;m
+[1;33mYrsa 61/107[0;m
+[1;33mYrsa Bold 61/107[0;m
+[1;33mYrsa Light 61/107[0;m
+[1;33mYrsa Medium 61/107[0;m
+[1;33mYrsa SemiBold 61/107[0;m
+[1;33mZ003-MediumItalic 71/107[0;m
+[1;33maakar 12/107[0;m
+[1;33mcmex10 10/107[0;m
+[1;33mcmmi10 10/107[0;m
+[1;33mcmr10 10/107[0;m
+[1;33mcmsy10 10/107[0;m
+[1;33mesint10 31/107[0;m
+[1;31meufm10 0/107[0;m
+[1;31mmry_KacstQurn 0/107[0;m
+[1;33mmsam10 10/107[0;m
+[1;31mmsbm10 0/107[0;m
+[1;31mpadmaa 0/107[0;m
+[1;33mpadmaa-Bold.1.1 39/107[0;m
+[1;31mpadmaa-normal-indictrans 0/107[0;m
+[1;31mrsfs10 0/107[0;m
+[1;33mstmary10 10/107[0;m
+[1;31mutkal medium 0/107[0;m
+[1;31mwasy10 0/107[0;m

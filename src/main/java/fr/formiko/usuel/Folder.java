@@ -469,6 +469,10 @@ public class Folder {
     if(f.exists()){
       return Paths.get(f.getPath());
     }
+    f = new File("/opt/formiko/lib/app/"+fileName);
+    if(f.exists()){
+      return Paths.get(f.getPath());
+    }
     erreur.alerte("Can't fined "+fileName+" path");
     return Paths.get("");
   }
