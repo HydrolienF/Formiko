@@ -154,7 +154,7 @@ jobs:
       run: |
         mvn -ntp compile
         echo "download jlink/"
-        mvn -ntp exec:java -Dargs='download "https://github.com/HydrolienF/JRE/releases/download/1.1.0/jlink.zip" jlink.zip'
+        mvn -ntp exec:java -Dargs='download "https://github.com/HydrolienF/JRE/releases/download/1.0.3/jlink.zip" jlink.zip'
         mvn -ntp exec:java -Dargs='unzip jlink.zip jlink/'
         dir jlink/
     - name: Pull
