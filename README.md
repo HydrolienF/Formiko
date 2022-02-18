@@ -34,9 +34,9 @@
 *How to play:* https://formiko.fr
 
 *How to contribute:*
-You will need Java (JDK) 17 (or more) and Maven 3.8.4 (or more).
+You will need Java (JDK) 16 (or more) and Maven 3.6.3 (or more).
 You need to have JAVA_HOME set on your computer. On linux you can set JAVA_HOME by adding on ~/.bashrc
-`export JAVA_HOME=/usr/lib/jvm/java-17-oracle` (path can be a bit different if you use openjdk.)
+`export JAVA_HOME=/usr/lib/jvm/java-16-...`
 JAVA_HOME need to be set on PATH for Windows.
 Maven also need to be on path.
 ps : some IDE provide Java & Maven.
@@ -45,12 +45,15 @@ ps : some IDE provide Java & Maven.
 *Test code:*
 `mvn test`
 *Launch game*
+`mvn exec:java`
+*Launch game with args*
 `mvn exec:java -Dargs="$args1 $args2"`
-Or (Linux only):
-`./run.sh args1 args2`
 *Usefull links:*
+Install Java 16 on Ubuntu:
+sudo apt install openjdk-16-jkd
 Install maven on Ubuntu:
-https://github.com/m-thirumal/installation_guide/blob/master/maven/upgrade_maven.md
+3.6.3: `sudo apt install maven`
+3.8.4: https://github.com/m-thirumal/installation_guide/blob/master/maven/upgrade_maven.md
 
 *how can I help in the development of the game*
 `We need graphic designers, translators, developers & above all beta testers. Contact us via the discord link to find out more.
