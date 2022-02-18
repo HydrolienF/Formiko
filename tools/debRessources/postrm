@@ -1,0 +1,11 @@
+echo "remove shortcut"
+sudo rm /bin/formiko
+# read -p "Do you whant to also remove temporary data as Options & saves? [y/n]" -n 1 -r
+# echo    # (optional) move to a new line
+# if [[ $REPLY =~ ^[Yy]$ ]]
+# then
+#   rm ~/.formiko -fr
+#   echo "Temporary data remove."
+# else
+#   echo "Temporary data keep."
+# fi
