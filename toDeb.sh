@@ -1,14 +1,14 @@
-# sudo apt-get install ./formiko_2.19.39-1_amd64.deb
-# sudo apt-get install ./out/formiko_2.19.46-1_amd64.deb
+# install, remove
+# sudo apt-get install ./formiko_($version)-1_amd64.deb
 # sudo apt remove formiko
-# dpkg-deb -I file.deb print info about a .deb
+# print info
+# dpkg-deb -I file.deb
 # cd /opt/formiko/bin/
 # ./Formiko
-./updateVersion.sh > version.md
-# Start of common part with toMsi
+
+# ./updateVersion.sh > version.md
+# Start of common part with toX
 mvn -ntp versions:set -DnewVersion="$(cat version.md)"
-# rm src/main/resources/res/version.json
-# cp version.json src/main/resources/res/
 mvn -ntp compile
 mvn -ntp package
 mv target/Formiko-$(cat version.md)-jar-with-dependencies.jar Formiko.jar
@@ -20,9 +20,9 @@ cp LICENSE.md in/
 cp README.md in/
 cp version.md in/
 cp version.json in/
-# End of common part with toMsi
+# End of common part with toX
+
 # TODO add a Github action that call that as toMsi.
-# TOFIX our java version fail to launch game without any error message but Formiko.jar can be launch with full jdk 17.0.2
 # TOFIX shortcut don't seem's to work neether in menu, nor in terminal.
 # TOFIX icon is not used on tab screen or in menu screen
 jpackage --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version $(cat version.md) --description "Formiko, a game about ant." --icon tools/icon.png --runtime-image jlink/jLinux --license-file LICENSE.md --vendor Hydrolien -t deb --linux-package-name formiko --linux-shortcut --linux-deb-maintainer hydrolien.f@gmail.com --linux-menu-group "Game;StrategyGame" --linux-app-category games
