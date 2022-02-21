@@ -30,5 +30,8 @@ public class Th extends Thread{
     Chrono.debutCh(ch2);
     Main.getData().tournerLesFleches(); //only item that still need to be turn.
     Chrono.endCh(g.get("chargementDesElémentsTourné"),ch2);
+    Chrono.debutCh(ch2);
+    Main.getData().chargerImagesIni();
+    Chrono.endCh("Load default size images",ch2);
   }
 }
