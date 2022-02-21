@@ -58,7 +58,7 @@ comment %    cl-pu-po-pr-sh-ln   name of the file
 100% (4/4)   1  3  0  0  0  34   formiko\interfaces\TourNull.java
 100% (6/6)   1  5  0  0  0  82   formiko\interfaces\TourReine.java
 100% (1/1)   1  0  0  0  0  19   formiko\interfaces\Trophallaxie.java
-100% (5/5)   1  4  0  0  0  147  formiko\interfaces\TrophallaxieFourmi.java
+100% (5/5)   1  4  0  0  0  150  formiko\interfaces\TrophallaxieFourmi.java
 null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 100% (5/5)   1  4  0  0  0  45   formiko\interfaces\TrophallaxieNull.java
 5%   (1/17)  1  16 0  0  24 176  formiko\Joueur.java
@@ -94,8 +94,8 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 100% (2/2)   1  1  0  0  1  17   usuel\exceptions\MissingFolderException.java
 100% (2/2)   1  1  0  0  1  18   usuel\exceptions\NotNullLocationException.java
 100% (2/2)   1  1  0  0  1  18   usuel\exceptions\NullItemException.java
-75%  (12/16) 2  12 0  2  7  385  usuel\fichier.java
-89%  (25/28) 2  21 0  5  30 531  usuel\Folder.java
+75%  (12/16) 2  12 0  2  7  386  usuel\fichier.java
+89%  (25/28) 2  21 0  5  30 535  usuel\Folder.java
 100% (3/3)   1  2  0  0  0  73   usuel\Fonts.java
 100% (8/8)   1  7  0  0  4  122  usuel\g.java
 100% (34/34) 1  33 0  0  16 677  usuel\images\image.java
@@ -133,7 +133,7 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 100% (17/17) 3  12 0  2  10 225  usuel\structures\Tree.java
 24%  (15/61) 1  55 0  5  8  665  usuel\tableau.java
 100% (14/14) 1  13 0  0  12 273  usuel\Temps.java
-0%   (0/4)   1  3  0  0  0  34   usuel\Th.java
+0%   (0/4)   1  3  0  0  0  37   usuel\Th.java
 0%   (0/5)   1  3  0  1  0  61   usuel\ThTrad.java
 0%   (0/2)   1  1  0  0  1  23   usuel\ThTriche.java
 61%  (8/13)  1  12 0  0  0  245  usuel\trad.java
@@ -143,7 +143,7 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 100% (10/10) 2  6  0  2  3  249  views\gui2d\action.java
 0%   (0/3)   1  2  0  0  2  49   views\gui2d\BoiteListeDefilante.java
 33%  (1/3)   1  2  0  0  4  47   views\gui2d\BoutonLong.java
-100% (28/28) 1  22 0  5  36 750  views\gui2d\Data.java
+100% (28/28) 1  22 0  5  36 751  views\gui2d\Data.java
 100% (2/2)   1  1  0  0  1  21   views\gui2d\DescMouseMotionListener.java
 0%   (0/6)   1  5  0  0  6  73   views\gui2d\EtiquetteChoix.java
 21%  (3/14)  3  11 0  0  13 193  views\gui2d\EtiquetteJoueur.java
@@ -154,9 +154,9 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 85%  (6/7)   1  4  1  1  3  133  views\gui2d\FFrame.java
 100% (5/5)   2  3  0  0  3  90   views\gui2d\FFrameLauncher.java
 100% (2/2)   1  1  0  0  1  30   views\gui2d\FFrameMain.java
-100% (4/4)   1  2  0  1  0  55   views\gui2d\FIntField.java
+100% (7/7)   1  4  0  2  0  87   views\gui2d\FIntField.java
 100% (7/7)   1  6  0  0  9  123  views\gui2d\FLabel.java
-100% (14/14) 1  13 0  0  0  169  views\gui2d\FOptionPane.java
+100% (14/14) 1  13 0  0  0  171  views\gui2d\FOptionPane.java
 25%  (2/8)   2  6  0  0  3  94   views\gui2d\FPanel.java
 14%  (1/7)   1  6  0  0  6  119  views\gui2d\FPanelAction.java
 0%   (0/3)   1  2  0  0  0  24   views\gui2d\FPanelActionInf.java
@@ -179,7 +179,7 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 20%  (6/29)  2  27 0  0  17 347  views\gui2d\FPanelJeu.java
 100% (2/2)   1  1  0  0  1  38   views\gui2d\FPanelLanceurPartie.java
 100% (16/16) 3  13 0  0  11 281  views\gui2d\FPanelMapMove.java
-94%  (16/17) 1  11 0  5  5  281  views\gui2d\FPanelMenu.java
+100% (24/24) 2  14 0  8  6  397  views\gui2d\FPanelMenu.java
 66%  (2/3)   1  2  0  0  0  40   views\gui2d\FPanelMiniMap.java
 96%  (26/27) 4  10 0  13 2  411  views\gui2d\FPanelMiniMapContainer.java
 40%  (4/10)  1  7  0  2  4  251  views\gui2d\FPanelNouvellePartie.java
@@ -195,7 +195,7 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 100% (3/3)   1  2  0  0  0  50   views\gui2d\FProgressBar.java
 100% (2/2)   1  1  0  0  0  25   views\gui2d\FSlider.java
 100% (5/5)   1  3  0  1  1  115  views\gui2d\FTextArea.java
-100% (2/2)   1  1  0  0  5  38   views\gui2d\FTextField.java
+100% (9/9)   1  6  0  2  5  104  views\gui2d\FTextField.java
 100% (3/3)   1  2  0  0  0  55   views\gui2d\FTextPane.java
 100% (7/7)   1  6  0  0  1  119  views\gui2d\GEtiquetteJoueur.java
 100% (3/3)   1  2  0  0  1  63   views\gui2d\ini.java
@@ -207,4 +207,4 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 100% (1/1)   1  0  0  0  1  242  views\View.java
 100% (33/33) 1  24 0  8  2  724  views\ViewCLI.java
 100% (16/16) 1  15 0  0  7  174  views\ViewNull.java
-63,6%(1268/1992) 250 1568 7 167 1265  31116 global
+64,0%(1286/2009) 251 1578 7 173 1266  31344 global

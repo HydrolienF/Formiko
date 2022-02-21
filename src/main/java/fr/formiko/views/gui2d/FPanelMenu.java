@@ -3,19 +3,24 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
+import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.lireUnFichier;
-import fr.formiko.usuel.structures.listes.GString;
+import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.structures.listes.GString;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.image.BufferedImage;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -35,7 +40,12 @@ public class FPanelMenu extends FPanel {
   private Color buttonColor;
   private EtiquetteChoix ecLanguage;
   private FButton validatelanguage;
+  private ThreadMenu th;
   // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Empty main constructor.}<br>
+  *@lastEditedVersion 2.20
+  */
   public FPanelMenu(){
     super();
   }
@@ -54,7 +64,11 @@ public class FPanelMenu extends FPanel {
   public FPanelChoixPartie getPcp(){return pcp;}
   public FButton getReturnButton(){return returnButton;}
   // FUNCTIONS -----------------------------------------------------------------
-
+  // @Override
+  // public void remove(){
+  //   // super.remove();
+  //   th.setRunning(false);
+  // }
   /**
   *{@summary Update action of the menu buttons.}<br>
   *@lastEditedVersion 1.44
@@ -112,6 +126,10 @@ public class FPanelMenu extends FPanel {
     }
     setMenu(menu);
     actualiserText();
+    if(th==null){
+      th = new ThreadMenu(this);
+      th.start();
+    }
   }
   /**
   *{@summary Add FPanelNouvellePartie.}<br>
@@ -276,6 +294,104 @@ public class FPanelMenu extends FPanel {
     for (int i=0;i<nbrOfButtons ;i++ ) {
       b[i] = new BoutonLong(g.get("menu"+c+"."+i+1),this,i+1);
       b[i].setBounds(posX,posY+(int)(i*tailleBoutonY*1.5),(int)dim.getWidth(),(int)dim.getHeight());
+    }
+  }
+
+  /**
+  *{@summary Update the position of animate item on the menu screen.}<br>
+  *@lastEditedVersion 2.20
+  *@Author Hydrolien
+  */
+  class ThreadMenu extends Thread {
+    private boolean running;
+    private BufferedImage flyingCreature;
+    private double x;
+    private double y;
+    private FPanel p;
+    private FPanel container;
+    private static int maxY;
+    /**
+    *{@summary Main constructor.}<br>
+    *@param container the container of the Panel were the image is draw
+    *@lastEditedVersion 2.20
+    */
+    public ThreadMenu(FPanel container){
+      this.container=container;
+      maxY=container.getWidth()/6;
+    }
+    private void setRunning(boolean b){running=b;}
+    /**
+    *{@summary Update the position of animate item on the menu screen.}<br>
+    *It initialize the panel &#38; then move the images
+    *@lastEditedVersion 2.20
+    */
+    @Override
+    public void run(){
+      // System.out.println("running");
+      running=true;
+      while(running){
+        if(getData().getImage("I0 flying side view")!=null){
+          // System.out.println("iniPanel");
+          iniPanel();
+          break;
+        }else{
+          Temps.pause(50);
+        }
+      }
+      // erreur.info("started with "+flyingCreature+" "+p);
+      iniXY();
+      x = -flyingCreature.getWidth();
+      while(running){
+        updateLocation();
+        Temps.pause(10);
+      }
+    }
+    /**
+    *{@summary Initialize x &#38; y.}<br>
+    *x is before the left of the screen.
+    *y is random in [0;maxY].
+    *@lastEditedVersion 2.20
+    */
+    private void iniXY(){
+      x=-Main.getTailleElementGraphique(1000);
+      y=allea.getAllea(maxY+1);
+    }
+    /**
+    *{@summary Update the position of animate item for 1 step.}<br>
+    *@lastEditedVersion 2.20
+    */
+    private void updateLocation(){
+      if(x>getWidth()){
+        iniXY();
+      }
+      x+=(double)Main.getTailleElementGraphique(12)/10.0;
+      if(allea.getAllea(3)==0){ //randomly at 1/3 chance
+        y+=(double)allea.getAllea(5)-2;
+      }
+      if(y>maxY){y=maxY;}
+      else if(y<0){y=0;}
+      p.setLocation((int)x,(int)y);
+    }
+    /**
+    *{@summary It initialize the panel.}<br>
+    *@lastEditedVersion 2.20
+    */
+    private void iniPanel(){
+      flyingCreature = image.resize(getData().getImage("I0 flying side view"), Main.getTailleElementGraphique(50));
+      p=new FPanel(){
+        /**
+        *{@summary Paint the image.}<br>
+        *@lastEditedVersion 2.20
+        */
+        @Override
+        public void paintComponent(Graphics	g){
+          super.paintComponent(g);
+          g.drawImage(flyingCreature,0,0, this);
+          // erreur.info("Draw "+flyingCreature+" "+p);
+        }
+      };
+      p.setSize(flyingCreature.getWidth(), flyingCreature.getHeight());
+      container.add(p);
     }
   }
 }
