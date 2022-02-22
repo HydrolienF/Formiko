@@ -83,7 +83,7 @@ public class stats {
     GInt gi = new GInt(); gi.add(sommeDesFctCG); gi.add(sommeDesFctLG); gi.add(sommeDesComG);
     GInt gi2 = new GInt(); gi2.add(sommeDesClassG);gi2.add(sommeDesFctLPuG);gi2.add(sommeDesFctLPoG);gi2.add(sommeDesFctLPrG);
     String s="global";
-    gsr.add(toStatJd(gi,false)+" "+toStatInfo(gi2,gi,false)+" "+sommeNbrDeLigneG+" "+s);
+    gsr.add(""+toStatJd(gi,false)+spliter+toStatInfo(gi2,gi,false)+spliter+sommeNbrDeLigneG+spliter+s);
     Chrono.endCh("traitement du GString");
     return gsr;
   }
@@ -118,7 +118,9 @@ public class stats {
     }
     r=completToK(r,5);
     r=r+"("+sommeDesCom+"/"+sommeDesFctL+")";
-    r=completToK(r,5+8);
+    if(spliter==' '){
+      r=completToK(r,5+8);
+    }
     return r;
   }public static String toStatJd(GInt gi){return toStatJd(gi,true);}
   /**
@@ -134,7 +136,9 @@ public class stats {
     String r = ((sommeDesCom*100)/sommeDesFctL)+"%";
     r=completToK(r,5);
     r=r+"("+sommeDesCom+"/"+sommeDesFctL+")";
-    r=completToK(r,5+8);
+    if(spliter==' '){
+      r=completToK(r,5+8);
+    }
     return r;
   }
   /**
@@ -154,21 +158,23 @@ public class stats {
       sommeDesFctLPrG+=sommeDesFctLPr;
       sommeDesFctCG+=sommeDesFctC;
     }
-    String r = sommeDesClass+" "; int k=3;
+    String r = sommeDesClass+""; int k=3;
     r=completToK(r,k);
     k+=3;
-    r+=sommeDesFctLPu+" ";
+    r+=sommeDesFctLPu;
     r=completToK(r,k);
     k+=3;
-    r+=sommeDesFctLPo+" ";
+    r+=sommeDesFctLPo;
     r=completToK(r,k);
     k+=3;
-    r+=sommeDesFctLPr+" ";
+    r+=sommeDesFctLPr;
     r=completToK(r,k);
     k+=3;
-    r+=sommeDesFctC+" ";
+    r+=sommeDesFctC;
     //k++;
-    r=completToK(r,k);
+    if(spliter==' '){
+      r=completToK(r,k);
+    }
     return r;
   }public static String toStatInfo(GInt gi, GInt gi2){return toStatInfo(gi,gi2,true);}
   /**
@@ -183,8 +189,11 @@ public class stats {
   }
 
   private static String completToK(String toComplet, int k){
-    for (int i=toComplet.length(); i<k; i++) {
-      toComplet+=" ";
+    toComplet+=spliter; //at least 1.
+    if(spliter==' '){ //more if it's the space spliter to form similar collums
+      for (int i=toComplet.length(); i<k; i++) {
+        toComplet+=spliter;
+      }
     }
     return toComplet;
   }

@@ -185,7 +185,7 @@ public class launchOptions {
       stats(args);
     }else if(args[0].equals("statsG")){
       stats.setOnlyLastLine(true);
-      stats.setSpliter(',');
+      stats.setSpliter(';');
       stats2(args);
     }else if(args[0].equals("cptPixels")){
       if(args.length>1){
