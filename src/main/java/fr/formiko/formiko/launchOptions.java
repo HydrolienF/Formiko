@@ -183,6 +183,10 @@ public class launchOptions {
       }
     }else if(args[0].equals("stats")){
       stats(args);
+    }else if(args[0].equals("statsG")){
+      stats.setOnlyLastLine(true);
+      stats.setSpliter(',');
+      stats2(args);
     }else if(args[0].equals("cptPixels")){
       if(args.length>1){
         //image.setREPTEXTUREPACK("docs/cc/images");
@@ -241,6 +245,7 @@ public class launchOptions {
   }
   /**
   *{@summary update stats in stats.txt.}<br>
+  *@param onlyLastLine True if we only need to print the last line of the stats.txt file
   *It can also print a value if it have a 2a args that is an integer.
   *It always print a global value for every file:
   *<ul>
@@ -249,7 +254,7 @@ public class launchOptions {
   *<li>2: number of long functions.
   *<li>2: number of short functions.
   *</ul>
-  *@lastEditedVersion 1.44
+  *@lastEditedVersion 2.20
   */
   private static void stats(String args[]){
     int valueToPrint = 0;
@@ -257,9 +262,9 @@ public class launchOptions {
       valueToPrint=str.sToI(args[2]);
     }
     if(args.length>1){
-      stats.statsJavadoc(args[1]);
+      stats.statsJavadoc(args[1], false);
     }else{
-      stats.statsJavadoc("src/main/java/",true);
+      stats.statsJavadoc("src/main/java/", true);
     }
     if(valueToPrint>0){
       String s = switch (valueToPrint) {
@@ -276,6 +281,15 @@ public class launchOptions {
       };
       System.out.println(s);
     }
+  }
+  private static void stats2(String args[]){
+    String result="";
+    if(args.length>1){
+      result+=stats.getStats(args[1], false).toString();
+    }else{
+      result+=stats.getStats("src/main/java/", true).toString();
+    }
+    System.out.println(result);
   }
   /**
   *{@summary trim the image from args.}<br>

@@ -24,14 +24,15 @@ public class stats {
   public static int sommeDesFctLPrG;
   public static int sommeDesFctCG;
   public static int sommeNbrDeLigneG;
+  private static boolean onlyLastLine=false;
+  private static char spliter=' ';
+
+  public static void setSpliter(char c){spliter=c;}
+  public static void setOnlyLastLine(boolean b){onlyLastLine=b;}
   // FUNCTIONS -----------------------------------------------------------------
-  /**
-  *Write the stats of javadoc comments in stats.txt.
-  *@lastEditedVersion 1.13
-  */
-  public static void statsJavadoc(String chemin, boolean raccourcir){
+  public static GString getStats(String filePath, boolean raccourcir){
     Chrono.debutCh();
-    GString gs = fichier.listerLesFichiersDuRep(chemin);
+    GString gs = fichier.listerLesFichiersDuRep(filePath);
     Chrono.endCh("listage des fichiers");Chrono.debutCh();
     //gs = la liste des fichiers.
 
@@ -57,7 +58,9 @@ public class stats {
     //String total = "total : ";
     //if(sommeDesFctL>0){total+=((sommeDesCom*100)/sommeDesFctL)+"% ("+sommeDesCom+"/"+sommeDesFctL+")";}
     GString gsr = new GString();
-    gsr.add("comment %    cl-pu-po-pr-sh-ln   name of the file");
+    if(!onlyLastLine){
+      gsr.add("comment %    cl-pu-po-pr-sh-ln   name of the file");
+    }
     //gsr.add(total);
     Chrono.endCh("calcul des valeur et du total");Chrono.debutCh();
     //add tt les autres.
@@ -69,7 +72,10 @@ public class stats {
       if(raccourcir){
         s = s.substring(25);
       }
-      gsr.add(toStatJd(cci)+toStatInfo(cci2.getContent(),cci.getContent())+numberOfLines(ci)+s);
+      String sTemp = toStatJd(cci)+toStatInfo(cci2.getContent(),cci.getContent())+numberOfLines(ci)+s;
+      if(!onlyLastLine){
+        gsr.add(sTemp);
+      }
       cci=cci.getSuivant();
       cci2=cci2.getSuivant();
       ci=ci.getSuivant();
@@ -78,11 +84,20 @@ public class stats {
     GInt gi2 = new GInt(); gi2.add(sommeDesClassG);gi2.add(sommeDesFctLPuG);gi2.add(sommeDesFctLPoG);gi2.add(sommeDesFctLPrG);
     String s="global";
     gsr.add(toStatJd(gi,false)+" "+toStatInfo(gi2,gi,false)+" "+sommeNbrDeLigneG+" "+s);
-    Chrono.endCh("traitement du GString");Chrono.debutCh();
-    ecrireUnFichier.ecrireUnFichier(gsr,"stats.txt");
+    Chrono.endCh("traitement du GString");
+    return gsr;
+  }
+  /**
+  *{@summary Write the stats of javadoc comments in stats.txt.}
+  *@lastEditedVersion 2.20
+  */
+  public static void statsJavadoc(String filePath, boolean raccourcir){
+    Chrono.debutCh();
+    ecrireUnFichier.ecrireUnFichier(getStats(filePath, raccourcir),"stats.txt");
     Chrono.endCh("sauvegarde finale");
-  }public static void statsJavadoc(String chemin){statsJavadoc(chemin,false);}
-
+  }
+  // public static void statsJavadoc(String filePath, boolean raccourcir){statsJavadoc(filePath,raccourcir,false);}
+  public static void statsJavadoc(String filePath){statsJavadoc(filePath,false);}
   public static String toStatJd(CCInt cci){return toStatJd(cci.getContent());}
   /**
   *{@summary calculate the %age of commented fonction in a file.}
@@ -101,9 +116,9 @@ public class stats {
     }else{
       r = ((sommeDesCom*100)/sommeDesFctL)+","+(((sommeDesCom*1000)/sommeDesFctL)%10)+"%";
     }
-    while(r.length()<5){r+=" ";}
+    r=completToK(r,5);
     r=r+"("+sommeDesCom+"/"+sommeDesFctL+")";
-    while(r.length()<5+8){r+=" ";}
+    r=completToK(r,5+8);
     return r;
   }public static String toStatJd(GInt gi){return toStatJd(gi,true);}
   /**
@@ -117,9 +132,9 @@ public class stats {
     sommeDesComG+=sommeDesCom;sommeDesFctLG+=sommeDesFctL;
     if(sommeDesFctL==0){return "null%";}
     String r = ((sommeDesCom*100)/sommeDesFctL)+"%";
-    while(r.length()<5){r+=" ";}
+    r=completToK(r,5);
     r=r+"("+sommeDesCom+"/"+sommeDesFctL+")";
-    while(r.length()<5+8){r+=" ";}
+    r=completToK(r,5+8);
     return r;
   }
   /**
@@ -140,16 +155,20 @@ public class stats {
       sommeDesFctCG+=sommeDesFctC;
     }
     String r = sommeDesClass+" "; int k=3;
-    while(r.length()<k){r+=" ";}k+=3;
+    r=completToK(r,k);
+    k+=3;
     r+=sommeDesFctLPu+" ";
-    while(r.length()<k){r+=" ";}k+=3;
+    r=completToK(r,k);
+    k+=3;
     r+=sommeDesFctLPo+" ";
-    while(r.length()<k){r+=" ";}k+=3;
+    r=completToK(r,k);
+    k+=3;
     r+=sommeDesFctLPr+" ";
-    while(r.length()<k){r+=" ";}k+=3;
+    r=completToK(r,k);
+    k+=3;
     r+=sommeDesFctC+" ";
     //k++;
-    while(r.length()<k){r+=" ";}
+    r=completToK(r,k);
     return r;
   }public static String toStatInfo(GInt gi, GInt gi2){return toStatInfo(gi,gi2,true);}
   /**
@@ -159,8 +178,15 @@ public class stats {
   public static String numberOfLines(CInt ci){
     sommeNbrDeLigneG+=ci.getContent();
     String r=ci.getContent()+"";
-    while(r.length()<5){r+=" ";}
+    r=completToK(r,5);
     return r;
+  }
+
+  private static String completToK(String toComplet, int k){
+    for (int i=toComplet.length(); i<k; i++) {
+      toComplet+=" ";
+    }
+    return toComplet;
   }
 
 }
