@@ -245,14 +245,13 @@ public class launchOptions {
   }
   /**
   *{@summary update stats in stats.txt.}<br>
-  *@param onlyLastLine True if we only need to print the last line of the stats.txt file
   *It can also print a value if it have a 2a args that is an integer.
   *It always print a global value for every file:
   *<ul>
   *<li>1: number of lines.
   *<li>2: number of classes.
-  *<li>2: number of long functions.
-  *<li>2: number of short functions.
+  *<li>3: number of long functions.
+  *<li>4: number of short functions.
   *</ul>
   *@lastEditedVersion 2.20
   */
@@ -282,6 +281,10 @@ public class launchOptions {
       System.out.println(s);
     }
   }
+  /**
+  *{@summary Print global stats about the current state of the projet.}<br>
+  *@lastEditedVersion 2.20
+  */
   private static void stats2(String args[]){
     String result="";
     if(args.length>1){
