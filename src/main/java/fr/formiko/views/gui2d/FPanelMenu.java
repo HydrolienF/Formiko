@@ -372,17 +372,38 @@ public class FPanelMenu extends FPanel {
       x=-Main.getTailleElementGraphique(1000);
       y=allea.getAllea(MAX_STARTING_Y+1);
     }
+    /**
+    *{@summary Move closer to the mouse at max speed.}<br>
+    *@lastEditedVersion 2.20
+    */
     private void mooveToMouse(){
+      if(getDistance() < 2){return;}
       Point p = MouseInfo.getPointerInfo().getLocation();
-      double xCentered = getXCentered();
-      double yCentered = getYCentered();
-      if(p.getX()-MAX_MOVING_SPEED>xCentered){x+=MAX_MOVING_SPEED;}
-      else if(p.getX()+MAX_MOVING_SPEED<xCentered){x-=MAX_MOVING_SPEED;}
-      if(p.getY()-MAX_MOVING_SPEED>yCentered){y+=MAX_MOVING_SPEED;}
-      else if(p.getY()+MAX_MOVING_SPEED<yCentered){y-=MAX_MOVING_SPEED;}
+      double angle = Math.atan2(p.getY() - getYCentered(), p.getX() - getXCentered());
+      double dx = (double) (Math.cos(angle) * MAX_MOVING_SPEED);
+      double dy = (double) (Math.sin(angle) * MAX_MOVING_SPEED);
+      x += dx;
+      y += dy;
+      // double xCentered = getXCentered();
+      // double yCentered = getYCentered();
+      // if(p.getX()-MAX_MOVING_SPEED>xCentered){x+=MAX_MOVING_SPEED;}
+      // else if(p.getX()+MAX_MOVING_SPEED<xCentered){x-=MAX_MOVING_SPEED;}
+      // if(p.getY()-MAX_MOVING_SPEED>yCentered){y+=MAX_MOVING_SPEED;}
+      // else if(p.getY()+MAX_MOVING_SPEED<yCentered){y-=MAX_MOVING_SPEED;}
     }
+    /**
+    *{@summary Return the distance between the mouse location &#38; the Creature location.}<br>
+    *@lastEditedVersion 2.20
+    */
+    private double getDistance(){
+      return MouseInfo.getPointerInfo().getLocation().distance(getXCentered(), getYCentered());
+    }
+    /**
+    *{@summary Test if Creature is close enoth of mouse.}<br>
+    *@lastEditedVersion 2.20
+    */
     private boolean isCloseToMouse(){
-      return MouseInfo.getPointerInfo().getLocation().distance(getXCentered(), getYCentered()) < (getWatchingCircle()/2);
+      return getDistance() < (getWatchingCircle()/2);
     }
     /**
     *{@summary Update the position of animate item for 1 step.}<br>
