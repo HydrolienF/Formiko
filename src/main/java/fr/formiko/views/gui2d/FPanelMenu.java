@@ -44,6 +44,7 @@ public class FPanelMenu extends FPanel {
   private EtiquetteChoix ecLanguage;
   private FButton validatelanguage;
   private ThreadMenu th;
+  private FPanel containerMovingPanel;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Empty main constructor.}<br>
@@ -51,15 +52,6 @@ public class FPanelMenu extends FPanel {
   */
   public FPanelMenu(){
     super();
-  }
-  /**
-  *{@summary Create the Panel empty.}<br>
-  *@lastEditedVersion 1.44
-  */
-  public void build(){
-    // this.setLayout(null);
-    // setBounds(0,0,Main.getDimX(),Main.getDimY());
-    // returnButton=null;
   }
   // GET SET -------------------------------------------------------------------
   public byte getMenu(){return menu; }
@@ -113,13 +105,14 @@ public class FPanelMenu extends FPanel {
   *If it have already been build it will only update text.<br>
   *If buttons have been remove it will add them back.<br>
   *@param nbrOfButtons the number of buttons.
-  *@lastEditedVersion 1.44
+  *@lastEditedVersion 2.20
   */
   public void buildFPanelMenu(int nbrOfButtons, int menu){
     removeP();
     if(b==null || b[0]==null){
       debug.débogage("construitFPanelMenu");
       setSize(Main.getDimX(),Main.getDimY());
+      buildContainerMovingPanel();
       createButton(nbrOfButtons);
     }
     if(b[0].getParent()==null){
@@ -130,9 +123,19 @@ public class FPanelMenu extends FPanel {
     setMenu(menu);
     actualiserText();
     if(th==null){
-      th = new ThreadMenu(this);
+      th = new ThreadMenu(containerMovingPanel);
       th.start();
     }
+  }
+  /**
+  *{@summary Create the containerMovingPanel.}<br>
+  *@lastEditedVersion 2.20
+  */
+  private void buildContainerMovingPanel(){
+    containerMovingPanel = new FPanel();
+    containerMovingPanel.setSize(getWidth(), getHeight());
+    containerMovingPanel.setLayout(null);
+    add(containerMovingPanel);
   }
   /**
   *{@summary Add FPanelNouvellePartie.}<br>

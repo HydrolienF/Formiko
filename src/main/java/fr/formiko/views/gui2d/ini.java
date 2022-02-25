@@ -29,7 +29,7 @@ public class ini {
     FPanelPrincipal pp = FPanel.getView().getPp();
     pp.build();
     pp.addPm();
-    pp.getPm().build();
+    // pp.getPm().build();
     //le Menu est fonctionnel ici.
   }
   /**
