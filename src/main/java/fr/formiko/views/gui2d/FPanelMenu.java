@@ -20,6 +20,8 @@ import java.awt.Graphics;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.MouseInfo;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -310,6 +312,7 @@ public class FPanelMenu extends FPanel {
     private FPanel p;
     private FPanel container;
     private static int maxY;
+    private static int MAX_MOVING_SPEED=3;
     /**
     *{@summary Main constructor.}<br>
     *@param container the container of the Panel were the image is draw
@@ -318,6 +321,7 @@ public class FPanelMenu extends FPanel {
     public ThreadMenu(FPanel container){
       this.container=container;
       maxY=container.getWidth()/6;
+      // maxY=container.getWidth();
     }
     private void setRunning(boolean b){running=b;}
     /**
@@ -338,7 +342,7 @@ public class FPanelMenu extends FPanel {
           Temps.pause(50);
         }
       }
-      // erreur.info("started with "+flyingCreature+" "+p);
+      erreur.info("started with "+flyingCreature+" "+p);
       iniXY();
       x = -flyingCreature.getWidth();
       while(running){
@@ -356,6 +360,18 @@ public class FPanelMenu extends FPanel {
       x=-Main.getTailleElementGraphique(1000);
       y=allea.getAllea(maxY+1);
     }
+    private void mooveToMouse(){
+      Point p = MouseInfo.getPointerInfo().getLocation();
+      double xCentered = x+flyingCreature.getWidth()/2;
+      double yCentered = y+flyingCreature.getHeight()/2;
+      if(p.getX()-MAX_MOVING_SPEED>xCentered){x+=MAX_MOVING_SPEED;}
+      else if(p.getX()+MAX_MOVING_SPEED<xCentered){x-=MAX_MOVING_SPEED;}
+      if(p.getY()-MAX_MOVING_SPEED>yCentered){y+=MAX_MOVING_SPEED;}
+      else if(p.getY()+MAX_MOVING_SPEED<yCentered){y-=MAX_MOVING_SPEED;}
+    }
+    private boolean isCloseToMouse(){
+      return MouseInfo.getPointerInfo().getLocation().distance((double)x, (double)y) < (getWidth()*0.2);
+    }
     /**
     *{@summary Update the position of animate item for 1 step.}<br>
     *@lastEditedVersion 2.20
@@ -364,9 +380,13 @@ public class FPanelMenu extends FPanel {
       if(x>getWidth()){
         iniXY();
       }
-      x+=(double)Main.getTailleElementGraphique(12)/10.0;
-      if(allea.getAllea(3)==0){ //randomly at 1/3 chance
-        y+=(double)allea.getAllea(5)-2;
+      if(isCloseToMouse()){
+        mooveToMouse();
+      }else{
+        x+=(double)Main.getTailleElementGraphique(12)/10.0;
+        if(allea.getAllea(3)==0){ //randomly at 1/3 chance
+          y+=(double)allea.getAllea(MAX_MOVING_SPEED+2)-2;
+        }
       }
       if(y>maxY){y=maxY;}
       else if(y<0){y=0;}
