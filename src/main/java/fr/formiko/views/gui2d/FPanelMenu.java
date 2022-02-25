@@ -3,19 +3,27 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
+import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
+import fr.formiko.usuel.images.image;
 import fr.formiko.usuel.lireUnFichier;
-import fr.formiko.usuel.structures.listes.GString;
+import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.structures.listes.GString;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.MouseInfo;
+import java.awt.Point;
+import java.awt.image.BufferedImage;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -35,18 +43,15 @@ public class FPanelMenu extends FPanel {
   private Color buttonColor;
   private EtiquetteChoix ecLanguage;
   private FButton validatelanguage;
+  private ThreadMenu th;
+  private FPanel containerMovingPanel;
   // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Empty main constructor.}<br>
+  *@lastEditedVersion 2.20
+  */
   public FPanelMenu(){
     super();
-  }
-  /**
-  *{@summary Create the Panel empty.}<br>
-  *@lastEditedVersion 1.44
-  */
-  public void build(){
-    // this.setLayout(null);
-    // setBounds(0,0,Main.getDimX(),Main.getDimY());
-    // returnButton=null;
   }
   // GET SET -------------------------------------------------------------------
   public byte getMenu(){return menu; }
@@ -54,7 +59,11 @@ public class FPanelMenu extends FPanel {
   public FPanelChoixPartie getPcp(){return pcp;}
   public FButton getReturnButton(){return returnButton;}
   // FUNCTIONS -----------------------------------------------------------------
-
+  // @Override
+  // public void remove(){
+  //   // super.remove();
+  //   th.setRunning(false);
+  // }
   /**
   *{@summary Update action of the menu buttons.}<br>
   *@lastEditedVersion 1.44
@@ -96,13 +105,14 @@ public class FPanelMenu extends FPanel {
   *If it have already been build it will only update text.<br>
   *If buttons have been remove it will add them back.<br>
   *@param nbrOfButtons the number of buttons.
-  *@lastEditedVersion 1.44
+  *@lastEditedVersion 2.20
   */
   public void buildFPanelMenu(int nbrOfButtons, int menu){
     removeP();
     if(b==null || b[0]==null){
       debug.débogage("construitFPanelMenu");
       setSize(Main.getDimX(),Main.getDimY());
+      buildContainerMovingPanel();
       createButton(nbrOfButtons);
     }
     if(b[0].getParent()==null){
@@ -112,6 +122,20 @@ public class FPanelMenu extends FPanel {
     }
     setMenu(menu);
     actualiserText();
+    if(th==null){
+      th = new ThreadMenu(containerMovingPanel);
+      th.start();
+    }
+  }
+  /**
+  *{@summary Create the containerMovingPanel.}<br>
+  *@lastEditedVersion 2.20
+  */
+  private void buildContainerMovingPanel(){
+    containerMovingPanel = new FPanel();
+    containerMovingPanel.setSize(getWidth(), getHeight());
+    containerMovingPanel.setLayout(null);
+    add(containerMovingPanel);
   }
   /**
   *{@summary Add FPanelNouvellePartie.}<br>
@@ -276,6 +300,185 @@ public class FPanelMenu extends FPanel {
     for (int i=0;i<nbrOfButtons ;i++ ) {
       b[i] = new BoutonLong(g.get("menu"+c+"."+i+1),this,i+1);
       b[i].setBounds(posX,posY+(int)(i*tailleBoutonY*1.5),(int)dim.getWidth(),(int)dim.getHeight());
+    }
+  }
+
+  /**
+  *{@summary Update the position of animate item on the menu screen.}<br>
+  *@lastEditedVersion 2.20
+  *@Author Hydrolien
+  */
+  class ThreadMenu extends Thread {
+    private boolean running;
+    private BufferedImage flyingCreature;
+    private double x;
+    private double y;
+    private double angle;
+    private double watchingCircle;
+    private FPanel p;
+    private FPanel container;
+    private static int MAX_STARTING_Y;
+    private static int MAX_Y;
+    private static int MIN_Y;
+    private static int MAX_MOVING_SPEED=3;
+    /**
+    *{@summary Main constructor.}<br>
+    *@param container the container of the Panel were the image is draw
+    *@lastEditedVersion 2.20
+    */
+    public ThreadMenu(FPanel container){
+      this.container=container;
+      MAX_STARTING_Y=container.getWidth()/6;
+      watchingCircle=getWidth()*0.2;
+    }
+    private void setRunning(boolean b){running=b;}
+    private double getX(){return x;}
+    private double getY(){return y;}
+    private double getXCentered(){return x+flyingCreature.getWidth()/2;}
+    private double getYCentered(){return y+flyingCreature.getHeight()/2;}
+    private double getWatchingCircle(){return watchingCircle;}
+    /**
+    *{@summary Update the position of animate item on the menu screen.}<br>
+    *It initialize the panel &#38; then move the images
+    *@lastEditedVersion 2.20
+    */
+    @Override
+    public void run(){
+      // System.out.println("running");
+      running=true;
+      while(running){
+        if(getData().getImage("I0 flying side view")!=null){
+          // System.out.println("iniPanel");
+          iniPanel();
+          break;
+        }else{
+          Temps.pause(50);
+        }
+      }
+      // erreur.info("started with "+flyingCreature+" "+p);
+      iniXY();
+      x = -flyingCreature.getWidth();
+      while(running){
+        updateLocation();
+        Temps.pause(10);
+      }
+    }
+    /**
+    *{@summary Initialize x &#38; y.}<br>
+    *x is before the left of the screen.
+    *y is random in [0;MAX_STARTING_Y].
+    *@lastEditedVersion 2.20
+    */
+    private void iniXY(){
+      x=-Main.getTailleElementGraphique(1000);
+      y=allea.getAllea(MAX_STARTING_Y+1);
+    }
+    /**
+    *{@summary Move angle to the new angle value, but slowly.}<br>
+    *@lastEditedVersion 2.20
+    */
+    private void moveAngleTo(double newAngle){
+      while(newAngle<0){
+        newAngle=(newAngle+(2*Math.PI))%(2*Math.PI);
+      }
+      while(angle<0){
+        angle=(angle+(2*Math.PI))%(2*Math.PI);
+      }
+      double dif=0;
+      do {
+        dif = Math.abs(angle-newAngle);
+        if(angle<newAngle){
+          angle+=2*Math.PI;
+        }else{
+          newAngle+=2*Math.PI;
+        }
+      } while (dif>Math.PI);
+      double maxAngleMoving=0.1;
+      if(angle<newAngle){
+        angle-=Math.min(maxAngleMoving,dif);
+      }else{
+        angle+=Math.min(maxAngleMoving,dif);
+      }
+    }
+    /**
+    *{@summary Move closer to the mouse at max speed.}<br>
+    *@lastEditedVersion 2.20
+    */
+    private void mooveToMouse(){
+      if(getDistance() < 2){
+        moveAngleTo(0);
+        return;
+      }
+      Point p = MouseInfo.getPointerInfo().getLocation();
+      double angleTemp = Math.atan2(p.getY() - getYCentered(), p.getX() - getXCentered());
+      moveAngleTo(angleTemp);
+      double dx = (double) (Math.cos(angleTemp) * MAX_MOVING_SPEED);
+      double dy = (double) (Math.sin(angleTemp) * MAX_MOVING_SPEED);
+      x += dx;
+      y += dy;
+    }
+    /**
+    *{@summary Return the distance between the mouse location &#38; the Creature location.}<br>
+    *@lastEditedVersion 2.20
+    */
+    private double getDistance(){
+      return MouseInfo.getPointerInfo().getLocation().distance(getXCentered(), getYCentered());
+    }
+    /**
+    *{@summary Test if Creature is close enoth of mouse.}<br>
+    *@lastEditedVersion 2.20
+    */
+    private boolean isCloseToMouse(){
+      return getDistance() < (getWatchingCircle()/2);
+    }
+    /**
+    *{@summary Update the position of animate item for 1 step.}<br>
+    *@lastEditedVersion 2.20
+    */
+    private void updateLocation(){
+      if(x>getWidth()){
+        iniXY();
+      }
+      if(isCloseToMouse()){
+        mooveToMouse();
+      }else{
+        moveAngleTo(0);
+        x+=(double)Main.getTailleElementGraphique(12)/10.0;
+        if(allea.getAllea(3)==0){ //randomly at 1/3 chance
+          y+=(double)allea.getAllea(MAX_MOVING_SPEED+2)-2;
+        }
+      }
+      if(y>MAX_Y){y=MAX_Y;}
+      else if(y<MIN_Y){y=MIN_Y;}
+      p.setLocation((int)x,(int)y);
+    }
+    /**
+    *{@summary It initialize the panel.}<br>
+    *@lastEditedVersion 2.20
+    */
+    private void iniPanel(){
+      flyingCreature = image.resize(getData().getImage("I0 flying side view"), Main.getTailleElementGraphique(50));
+      MAX_Y=container.getWidth()-flyingCreature.getWidth()/2;
+      MIN_Y=-flyingCreature.getWidth()/2;
+      p=new FPanel(){
+        /**
+        *{@summary Paint the image.}<br>
+        *@lastEditedVersion 2.20
+        */
+        @Override
+        public void paintComponent(Graphics	g){
+          super.paintComponent(g);
+          g.drawImage(image.rotateImage(flyingCreature,angle),0,0, this);
+          if(Main.getOp().getPaintHitBox()){
+            Graphics2D g2d = (Graphics2D)container.getGraphics();
+            g2d.setColor(Color.RED);
+            g2d.drawOval((int)(getXCentered()-(getWatchingCircle()/2)),(int)(getYCentered()-(getWatchingCircle()/2)),(int)getWatchingCircle(),(int)getWatchingCircle());
+          }
+          // erreur.info("Draw "+flyingCreature+" "+p);
+        }
+      };
+      p.setSize(flyingCreature.getWidth(), flyingCreature.getHeight());
+      container.add(p);
     }
   }
 }

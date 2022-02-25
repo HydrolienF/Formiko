@@ -486,6 +486,23 @@ public class image{
     return after;
   }
   /**
+  *{@summary A fonction to rotate a BufferedImage.}<br>
+  *@param before The Image to rotate
+  *@param angle The angle to rotate
+  *@lastEditedVersion 2.20
+  */
+  public static BufferedImage rotateImage(BufferedImage before, double angle) {
+    if(before==null){return null;}
+    int w = before.getWidth();
+    int h = before.getHeight();
+    AffineTransform at = new AffineTransform();
+    at.translate(w/2,h/2);
+    at.rotate(angle);
+    at.translate(-w/2,-h/2);
+    AffineTransformOp scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_BICUBIC);
+    return scaleOp.filter(before, null);
+  }
+  /**
   *{@summary A fonction to translate a BufferedImage.}<br>
   *@param before The Image to translate.
   *@param xOffset offset in x.

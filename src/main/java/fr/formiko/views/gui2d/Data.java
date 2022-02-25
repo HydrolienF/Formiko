@@ -177,6 +177,7 @@ public class Data {
   *@lastEditedVersion 2.18
   */
   public BufferedImage getImage(String name){
+    if(otherImages==null){return null;}
     return otherImages.get(name);
   }
   /**
@@ -385,11 +386,11 @@ public class Data {
         /*for (int i=0;i<lenb ;i++ ) {
           bIni[i]=bIni[i].getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
         }*/
-        try {
+        // try {
           iniOtherImages();
-        }catch (Exception e) {
-
-        }
+        // }catch (Exception e) {
+        //
+        // }
         Main.endCh("chargerImagesIni");
       }
       imageIni=true;
