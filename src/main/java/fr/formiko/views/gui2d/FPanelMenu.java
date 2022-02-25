@@ -313,6 +313,7 @@ public class FPanelMenu extends FPanel {
     private BufferedImage flyingCreature;
     private double x;
     private double y;
+    private double angle;
     private double watchingCircle;
     private FPanel p;
     private FPanel container;
@@ -354,7 +355,7 @@ public class FPanelMenu extends FPanel {
           Temps.pause(50);
         }
       }
-      erreur.info("started with "+flyingCreature+" "+p);
+      // erreur.info("started with "+flyingCreature+" "+p);
       iniXY();
       x = -flyingCreature.getWidth();
       while(running){
@@ -373,23 +374,48 @@ public class FPanelMenu extends FPanel {
       y=allea.getAllea(MAX_STARTING_Y+1);
     }
     /**
+    *{@summary Move angle to the new angle value, but slowly.}<br>
+    *@lastEditedVersion 2.20
+    */
+    private void moveAngleTo(double newAngle){
+      while(newAngle<0){
+        newAngle=(newAngle+(2*Math.PI))%(2*Math.PI);
+      }
+      while(angle<0){
+        angle=(angle+(2*Math.PI))%(2*Math.PI);
+      }
+      double dif=0;
+      do {
+        dif = Math.abs(angle-newAngle);
+        if(angle<newAngle){
+          angle+=2*Math.PI;
+        }else{
+          newAngle+=2*Math.PI;
+        }
+      } while (dif>Math.PI);
+      double maxAngleMoving=0.1;
+      if(angle<newAngle){
+        angle-=Math.min(maxAngleMoving,dif);
+      }else{
+        angle+=Math.min(maxAngleMoving,dif);
+      }
+    }
+    /**
     *{@summary Move closer to the mouse at max speed.}<br>
     *@lastEditedVersion 2.20
     */
     private void mooveToMouse(){
-      if(getDistance() < 2){return;}
+      if(getDistance() < 2){
+        moveAngleTo(0);
+        return;
+      }
       Point p = MouseInfo.getPointerInfo().getLocation();
-      double angle = Math.atan2(p.getY() - getYCentered(), p.getX() - getXCentered());
-      double dx = (double) (Math.cos(angle) * MAX_MOVING_SPEED);
-      double dy = (double) (Math.sin(angle) * MAX_MOVING_SPEED);
+      double angleTemp = Math.atan2(p.getY() - getYCentered(), p.getX() - getXCentered());
+      moveAngleTo(angleTemp);
+      double dx = (double) (Math.cos(angleTemp) * MAX_MOVING_SPEED);
+      double dy = (double) (Math.sin(angleTemp) * MAX_MOVING_SPEED);
       x += dx;
       y += dy;
-      // double xCentered = getXCentered();
-      // double yCentered = getYCentered();
-      // if(p.getX()-MAX_MOVING_SPEED>xCentered){x+=MAX_MOVING_SPEED;}
-      // else if(p.getX()+MAX_MOVING_SPEED<xCentered){x-=MAX_MOVING_SPEED;}
-      // if(p.getY()-MAX_MOVING_SPEED>yCentered){y+=MAX_MOVING_SPEED;}
-      // else if(p.getY()+MAX_MOVING_SPEED<yCentered){y-=MAX_MOVING_SPEED;}
     }
     /**
     *{@summary Return the distance between the mouse location &#38; the Creature location.}<br>
@@ -416,6 +442,7 @@ public class FPanelMenu extends FPanel {
       if(isCloseToMouse()){
         mooveToMouse();
       }else{
+        moveAngleTo(0);
         x+=(double)Main.getTailleElementGraphique(12)/10.0;
         if(allea.getAllea(3)==0){ //randomly at 1/3 chance
           y+=(double)allea.getAllea(MAX_MOVING_SPEED+2)-2;
@@ -441,7 +468,7 @@ public class FPanelMenu extends FPanel {
         @Override
         public void paintComponent(Graphics	g){
           super.paintComponent(g);
-          g.drawImage(flyingCreature,0,0, this);
+          g.drawImage(image.rotateImage(flyingCreature,angle),0,0, this);
           if(Main.getOp().getPaintHitBox()){
             Graphics2D g2d = (Graphics2D)container.getGraphics();
             g2d.setColor(Color.RED);
