@@ -18,6 +18,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.MouseInfo;
@@ -309,9 +310,12 @@ public class FPanelMenu extends FPanel {
     private BufferedImage flyingCreature;
     private double x;
     private double y;
+    private double watchingCircle;
     private FPanel p;
     private FPanel container;
-    private static int maxY;
+    private static int MAX_STARTING_Y;
+    private static int MAX_Y;
+    private static int MIN_Y;
     private static int MAX_MOVING_SPEED=3;
     /**
     *{@summary Main constructor.}<br>
@@ -320,10 +324,15 @@ public class FPanelMenu extends FPanel {
     */
     public ThreadMenu(FPanel container){
       this.container=container;
-      maxY=container.getWidth()/6;
-      // maxY=container.getWidth();
+      MAX_STARTING_Y=container.getWidth()/6;
+      watchingCircle=getWidth()*0.2;
     }
     private void setRunning(boolean b){running=b;}
+    private double getX(){return x;}
+    private double getY(){return y;}
+    private double getXCentered(){return x+flyingCreature.getWidth()/2;}
+    private double getYCentered(){return y+flyingCreature.getHeight()/2;}
+    private double getWatchingCircle(){return watchingCircle;}
     /**
     *{@summary Update the position of animate item on the menu screen.}<br>
     *It initialize the panel &#38; then move the images
@@ -353,24 +362,24 @@ public class FPanelMenu extends FPanel {
     /**
     *{@summary Initialize x &#38; y.}<br>
     *x is before the left of the screen.
-    *y is random in [0;maxY].
+    *y is random in [0;MAX_STARTING_Y].
     *@lastEditedVersion 2.20
     */
     private void iniXY(){
       x=-Main.getTailleElementGraphique(1000);
-      y=allea.getAllea(maxY+1);
+      y=allea.getAllea(MAX_STARTING_Y+1);
     }
     private void mooveToMouse(){
       Point p = MouseInfo.getPointerInfo().getLocation();
-      double xCentered = x+flyingCreature.getWidth()/2;
-      double yCentered = y+flyingCreature.getHeight()/2;
+      double xCentered = getXCentered();
+      double yCentered = getYCentered();
       if(p.getX()-MAX_MOVING_SPEED>xCentered){x+=MAX_MOVING_SPEED;}
       else if(p.getX()+MAX_MOVING_SPEED<xCentered){x-=MAX_MOVING_SPEED;}
       if(p.getY()-MAX_MOVING_SPEED>yCentered){y+=MAX_MOVING_SPEED;}
       else if(p.getY()+MAX_MOVING_SPEED<yCentered){y-=MAX_MOVING_SPEED;}
     }
     private boolean isCloseToMouse(){
-      return MouseInfo.getPointerInfo().getLocation().distance((double)x, (double)y) < (getWidth()*0.2);
+      return MouseInfo.getPointerInfo().getLocation().distance(getXCentered(), getYCentered()) < (getWatchingCircle()/2);
     }
     /**
     *{@summary Update the position of animate item for 1 step.}<br>
@@ -388,8 +397,8 @@ public class FPanelMenu extends FPanel {
           y+=(double)allea.getAllea(MAX_MOVING_SPEED+2)-2;
         }
       }
-      if(y>maxY){y=maxY;}
-      else if(y<0){y=0;}
+      if(y>MAX_Y){y=MAX_Y;}
+      else if(y<MIN_Y){y=MIN_Y;}
       p.setLocation((int)x,(int)y);
     }
     /**
@@ -398,6 +407,8 @@ public class FPanelMenu extends FPanel {
     */
     private void iniPanel(){
       flyingCreature = image.resize(getData().getImage("I0 flying side view"), Main.getTailleElementGraphique(50));
+      MAX_Y=container.getWidth()-flyingCreature.getWidth()/2;
+      MIN_Y=-flyingCreature.getWidth()/2;
       p=new FPanel(){
         /**
         *{@summary Paint the image.}<br>
@@ -407,6 +418,11 @@ public class FPanelMenu extends FPanel {
         public void paintComponent(Graphics	g){
           super.paintComponent(g);
           g.drawImage(flyingCreature,0,0, this);
+          if(Main.getOp().getPaintHitBox()){
+            Graphics2D g2d = (Graphics2D)container.getGraphics();
+            g2d.setColor(Color.RED);
+            g2d.drawOval((int)(getXCentered()-(getWatchingCircle()/2)),(int)(getYCentered()-(getWatchingCircle()/2)),(int)getWatchingCircle(),(int)getWatchingCircle());
+          }
           // erreur.info("Draw "+flyingCreature+" "+p);
         }
       };
