@@ -67,4 +67,5 @@ class C {
   function1(){
     System.out.println("Formiko !");
   }
-}```
+}
+```
