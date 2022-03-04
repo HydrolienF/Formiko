@@ -34,7 +34,7 @@
 *How to play:* https://formiko.fr
 
 *How to contribute:*
-cf CONTRIBUTING.md
+https://github.com/HydrolienF/Formiko/blob/master/CONTRIBUTING.md
 
 *how can I help in the development of the game*
 `We need graphic designers, translators, developers & above all beta testers. Contact us via the discord link to find out more.
