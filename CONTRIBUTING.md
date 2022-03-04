@@ -7,13 +7,24 @@ If you haven't test the game yet, you can try it [there](https://formiko.fr/down
 
 ## Setup project
 
-You will need Java (JDK) 16 (or more) and Maven 3.6.3 (or more).
+You need git, Java (JDK) 16 (or more) and Maven 3.6.3 (or more).
 
-You need to have JAVA_HOME set on your computer:
-  * On linux you can set JAVA_HOME by adding on ~/.bashrc `export JAVA_HOME=/usr/lib/jvm/java-16-...`
-  * JAVA_HOME & Maven need to be set on PATH for Windows.
+For apt package manager OS as Ubuntu or Debian:
+`sudo apt -y install git`
+`sudo apt -y install maven`
+`sudo apt -y install openjdk-17-jdk`
 
-ps : some IDE provide Java & Maven.
+For other OS, you will have some similar simple way to download this 3 tools (as .exe on Windows)
+
+You can check your git, mvn, java & javac version by using :
+`git --version; java --version; javac --version; mvn --version`
+
+ps: some IDE provide git, Java & Maven.
+
+Then you will need to clone the project:
+`git clone git@github.com:HydrolienF/Formiko.git`
+
+ps: If you haven't configure a key to connect your github account follow [this tutorial](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
 ## Compile & Run project
 
