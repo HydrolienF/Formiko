@@ -34,31 +34,19 @@
 *How to play:* https://formiko.fr
 
 *How to contribute:*
-You will need Java (JDK) 16 (or more) and Maven 3.6.3 (or more).
-You need to have JAVA_HOME set on your computer. On linux you can set JAVA_HOME by adding on ~/.bashrc
-`export JAVA_HOME=/usr/lib/jvm/java-16-...`
-JAVA_HOME need to be set on PATH for Windows.
-Maven also need to be on path.
-ps : some IDE provide Java & Maven.
-*Compile code:*
-`mvn compile`
-*Test code:*
-`mvn test`
-*Launch game*
-`mvn exec:java`
-*Launch game with args*
-`mvn exec:java -Dargs="$args1 $args2"`
-*Usefull links:*
+cf CONTRIBUTING.md
+
+<!-- *Usefull links:*
 Install Java 16 on Ubuntu:
 sudo apt install openjdk-16-jkd
 Install maven on Ubuntu:
 3.6.3: `sudo apt install maven`
-3.8.4: https://github.com/m-thirumal/installation_guide/blob/master/maven/upgrade_maven.md
+3.8.4: https://github.com/m-thirumal/installation_guide/blob/master/maven/upgrade_maven.md -->
 
 *how can I help in the development of the game*
 `We need graphic designers, translators, developers & above all beta testers. Contact us via the discord link to find out more.
 Graphic designers can send some graphics to hydrolien.lili502@gmail.com.
-Developers need to read standardFile.java to respect standard of the Formiko projet.
+Developers need to read standardFile.java to respect standard of the Formiko project.
 Beta testers only need to play & share there experiment.`
 
 *how to solve errors*
@@ -74,7 +62,7 @@ If an action is not performed correctly an error message will be displayed in th
 
 If the game window does not close try the alt f4 command.
 If the console is open a Ctrl-c or Ctrl-Shift-c in the console should force the game to close.
-If that doesn't change anything, start the task manager & force the java shutdown.
+If that doesn't change anything, start the task manager & force the Java shutdown.
 If none of the above solutions have effected shut down your computer, restarting the game will no longer cause you any problems.`
 
 *Creator:*
@@ -102,5 +90,5 @@ Bidulman
 Jerryh
 Arc en Ciel
 
-license: Full license aviable on LICENSE.md
+license: Full license available on LICENSE.md
 To make it shorter, it allowed you to use, or modify the game but you need to merge modification on this repository to have it on the game.
