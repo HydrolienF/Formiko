@@ -10,18 +10,23 @@ If you haven't test the game yet, you can try it [there](https://formiko.fr/down
 You need git, Java (JDK) 16 (or more) and Maven 3.6.3 (or more).
 
 For apt package manager OS as Ubuntu or Debian:
-`sudo apt -y install git`
-`sudo apt -y install maven`
-`sudo apt -y install openjdk-17-jdk`
+
+```sudo apt -y install git```
+
+```sudo apt -y install maven```
+
+```sudo apt -y install openjdk-17-jdk```
 
 For other OS, you will have some similar simple way to download this 3 tools (as .exe on Windows)
 
 You can check your git, mvn, java & javac version by using :
+
 `git --version; java --version; javac --version; mvn --version`
 
 ps: some IDE provide git, Java & Maven.
 
 Then you will need to clone the project:
+
 `git clone git@github.com:HydrolienF/Formiko.git`
 
 ps: If you haven't configure a key to connect your github account follow [this tutorial](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
@@ -54,9 +59,12 @@ Java basic naming conventions that you probably already know can be found [here]
 
 In this project we have few more rules to shorter a bit code:
   * `{` Are at the end of the line. `public static void function(String arg1){`
-  * tab are 2 spaces. `class C {
-      function1(){
-        System.out.println("Formiko !");
-      }
-    }`
   * getters & setters are write in 1 line. `public static int getMax(){return max;}`
+  * tab are 2 spaces.
+
+```Java
+class C {
+  function1(){
+    System.out.println("Formiko !");
+  }
+}```
