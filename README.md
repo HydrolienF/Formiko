@@ -36,13 +36,6 @@
 *How to contribute:*
 cf CONTRIBUTING.md
 
-<!-- *Usefull links:*
-Install Java 16 on Ubuntu:
-sudo apt install openjdk-16-jkd
-Install maven on Ubuntu:
-3.6.3: `sudo apt install maven`
-3.8.4: https://github.com/m-thirumal/installation_guide/blob/master/maven/upgrade_maven.md -->
-
 *how can I help in the development of the game*
 `We need graphic designers, translators, developers & above all beta testers. Contact us via the discord link to find out more.
 Graphic designers can send some graphics to hydrolien.lili502@gmail.com.
