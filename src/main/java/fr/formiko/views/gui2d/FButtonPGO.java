@@ -76,7 +76,7 @@ public class FButtonPGO extends FButton {
     setDefaultColor();
   }
   /**
-  *{@summary Swap color beween green &#38; yellow or other one if colorId have been set.}<br>
+  *{@summary Swap color between green &#38; yellow or other one if colorId have been set.}<br>
   *@lastEditedVersion 2.10
   */
   @Override

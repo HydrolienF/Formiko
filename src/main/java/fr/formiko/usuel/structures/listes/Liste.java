@@ -424,7 +424,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
       ListeNode<T> newNode = new ListeNode<T>(t);
       while(node.getNext()!=null){
         if(c.compare(t,node.getNext().getContent())>0){
-          //insert beween node & node.next
+          //insert between node & node.next
           newNode.setNext(node.getNext());
           node.setNext(newNode);
           return true;
