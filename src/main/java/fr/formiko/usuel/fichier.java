@@ -1,10 +1,11 @@
 package fr.formiko.usuel;
 
 import fr.formiko.formiko.Main;
-// import fr.formiko.usuel.read;
+import fr.formiko.usuel.read;
 import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.types.str;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.UnknownHostException;
@@ -302,20 +304,47 @@ public class fichier {
       erreur.erreur("Fail to unzip "+fileName+" in "+folderName);
     }
   }
-    /**
-    *{@summary a safe way to create a File from a zip file to avoid Zip Slip.}<br>
-    *@param destinationDir File that we whant to create in the zipEntry folder.
-    *@param zipEntry the ZipEntry.
-    *@lastEditedVersion 1.46
-    */
+  /**
+  *{@summary a safe way to create a File from a zip file to avoid Zip Slip.}<br>
+  *@param destinationDir File that we whant to create in the zipEntry folder.
+  *@param zipEntry the ZipEntry.
+  *@lastEditedVersion 1.46
+  */
   public static File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
-      File destFile = new File(destinationDir, zipEntry.getName());
-      String destDirPath = destinationDir.getCanonicalPath();
-      String destFilePath = destFile.getCanonicalPath();
-      if (!destFilePath.startsWith(destDirPath + File.separator)) {
-          throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
-      }
-      return destFile;
+    File destFile = new File(destinationDir, zipEntry.getName());
+    String destDirPath = destinationDir.getCanonicalPath();
+    String destFilePath = destFile.getCanonicalPath();
+    if (!destFilePath.startsWith(destDirPath + File.separator)) {
+      throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
+    }
+    return destFile;
+  }
+  /**
+  *{@summary a safe way to launch a web page.}<br>
+  *@param url the URL to open
+  *@lastEditedVersion 2.21
+  */
+  public static boolean openWebLink(String url){
+    try {
+      return openURI(new URI("https://www.formiko.fr"));
+    }catch (java.net.URISyntaxException e) {
+      erreur.alerte("Fail to open malformed URI "+url);
+      return false;
+    }
+  }
+  /**
+  *{@summary a safe way to open an URI.}<br>
+  *@param uri the URI to open
+  *@lastEditedVersion 2.21
+  */
+  public static boolean openURI(URI uri){
+    try {
+      Desktop.getDesktop().browse(uri);
+      return true;
+    }catch (Exception e) {
+      erreur.alerte("Fail to open URI "+uri);
+      return false;
+    }
   }
 }
 
