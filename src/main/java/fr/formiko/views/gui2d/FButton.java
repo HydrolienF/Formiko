@@ -37,7 +37,7 @@ public class FButton extends JButton implements MouseListener {
   protected Image img;
   protected String nom;
   protected FPanel p;
-  protected int action;
+  protected int action; // -2 = do nothing.
   protected boolean bordure=true;
   protected boolean cFondUseAlpha;
   protected boolean withBackground;
