@@ -45,6 +45,7 @@ public class FPanelMenu extends FPanel {
   private FButton validatelanguage;
   private ThreadMenu th;
   private FPanel containerMovingPanel;
+  private FPanelLinks pl;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Empty main constructor.}<br>
@@ -73,6 +74,7 @@ public class FPanelMenu extends FPanel {
     if(x==0){
       b[0].setActionB(1);b[1].setActionB(2);b[2].setActionB(3);
       setReturnButtonAction(-1);
+      addFPanelLinks();
     }else if(x==1){
       b[0].setActionB(4);b[1].setActionB(5);b[2].setActionB(6);
       setReturnButtonAction(0);
@@ -301,6 +303,20 @@ public class FPanelMenu extends FPanel {
       b[i] = new BoutonLong(g.get("menu"+c+"."+i+1),this,i+1);
       b[i].setBounds(posX,posY+(int)(i*tailleBoutonY*1.5),(int)dim.getWidth(),(int)dim.getHeight());
     }
+  }
+  /**
+  *{@summary A.}<br>
+  *@lastEditedVersion 2.21
+  */
+  private void addFPanelLinks(){
+    pl = new FPanelLinks(Main.getTailleElementGraphique(80), Main.getTailleElementGraphique(5));
+    pl.setLocation(getWidth()/2, getHeight()-Main.getTailleElementGraphique(100));
+    pl.addButton("homeWebSite", "https://formiko.fr");
+    pl.addButton("discordLink", "https://discord.gg/vqvfGzf");
+    pl.addButton("reportBug", "https://github.com/HydrolienF/Formiko/issues/new?assignees=&labels=bug&template=bug_report.md&title=");
+    pl.addButton("supportGame", "https://tipeee.com/formiko");
+    System.out.println(pl);
+    add(pl);
   }
 
   /**

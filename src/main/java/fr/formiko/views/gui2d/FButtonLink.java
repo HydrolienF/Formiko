@@ -23,6 +23,9 @@ public class FButtonLink extends FButton {
     super(name, p, -2, image);
     this.url=url;
   }
+  public String toString(){
+    return super.toString()+" "+url;
+  }
   /**
   *{@summary Open the corresponding URL.}<br>
   *@lastEditedVersion 2.21

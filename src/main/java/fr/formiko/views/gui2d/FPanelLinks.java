@@ -31,11 +31,11 @@ public class FPanelLinks extends FPanel {
   */
   public void addButton(String buttonCodeName, String url){
     FButtonLink bl = new FButtonLink(g.get(buttonCodeName), this, url, fr.formiko.usuel.images.image.resize(fr.formiko.usuel.images.image.getImage(buttonCodeName), buttonSize, buttonSize));
-    bl.setBounds(0, getHeight(), buttonSize, buttonSize);
+    bl.setBounds(getWidth(), 0, buttonSize, buttonSize);
     add(bl);
-    int addHeigth = spaceBetweenButton+buttonSize;
-    setSize(buttonSize, getHeight()+addHeigth); //add space for the button.
-    setLocation(getX(), getY()-addHeigth/2); //center
+    int addWidth = spaceBetweenButton+buttonSize;
+    setSize(getWidth()+addWidth, buttonSize); //add space for the button.
+    setLocation(getX()-addWidth/2, getY()); //center
   }
 
 }
