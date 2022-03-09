@@ -81,7 +81,6 @@ public class FPanelMenu extends FPanel {
     for (FButton bouton : b) { //remove desc & selected if it's need
       bouton.updateSelected();
     }
-    addFPanelLinks();
   }
   /***
   *{@summary Update action of the menu buttons.}<br>
@@ -124,6 +123,7 @@ public class FPanelMenu extends FPanel {
     }
     setMenu(menu);
     actualiserText();
+    addFPanelLinks();
     if(th==null){
       th = new ThreadMenu(containerMovingPanel);
       th.start();

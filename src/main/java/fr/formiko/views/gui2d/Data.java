@@ -337,7 +337,7 @@ public class Data {
     *The images defined here have the rigth dimention for being used on the map.<br>
     *@lastEditedVersion 2.6
     */
-    public void chargerImages(){
+    public synchronized void chargerImages(){
       debug.débogage("chargement des images a la bonne taille.");
       chargerImagesIni();
       Main.startCh();
@@ -364,7 +364,7 @@ public class Data {
     *Image need to be load in full resolution 1 time only. If it have alredy be done the function will do nothing.
     *@lastEditedVersion 1.33
     */
-    public void chargerImagesIni(){
+    public synchronized void chargerImagesIni(){
       if(!imageIni){
         Main.startCh();
         imgNullIni = image.getImage("null");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
@@ -406,7 +406,7 @@ public class Data {
     *Image from otherImages can be acces by there name.
     *@lastEditedVersion 2.21
     */
-    public void iniOtherImages(){
+    public synchronized void iniOtherImages(){
       if(otherImages!=null){return;}
       otherImages =  new HashMap<String, BufferedImage>();
       File dir = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"other/");
