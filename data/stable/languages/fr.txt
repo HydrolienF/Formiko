@@ -325,6 +325,11 @@ colorState.3:critique
 
 //graphic item:
 
+homeWebSiteLink:site web
+discordLink:Discord officiel
+reportBugLink:signalez un bogue
+supportGameLink:soutenir Formiko
+
 //bouton of PanneauEchap
 bouton.nom.-10:sauvegarder
 bouton.nom.-11:options

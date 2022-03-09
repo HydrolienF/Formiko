@@ -619,7 +619,7 @@ public class ViewGUI2d implements View {
   */
   public void setMessageDesc(String message, boolean mouseLocated){
     if(mouseLocated){
-      if(getPj()!=null){getPj().updateThreadMessagesDesc(message);}
+      if(getPp()!=null){getPp().updateThreadMessagesDesc(message);}
       if(getPb()!=null){getPb().setDesc("");}
     }else{
       if(getPb()!=null){getPb().setDesc(message);}

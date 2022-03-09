@@ -42,19 +42,9 @@ public class FPanelJeu extends FPanel {
   private FPanelDialogueInf pdi;
   private FPanelPanelMove pmmo;
 
-  private FLabel labelMessage;
-  private ThreadMessagesDesc th;
-
   // CONSTRUCTORS --------------------------------------------------------------
   public FPanelJeu(){
     setLayout(null);
-    labelMessage = new FLabel("");
-    labelMessage.setBackground(new Color(225,225,225));
-    FBorder border = new FBorder();
-    border.setColor(Color.BLACK);
-    border.setThickness(1);
-    labelMessage.setBorder(border);
-    add(labelMessage);
   }
   // GET SET -------------------------------------------------------------------
   public FPanelBouton getPb(){ return pb;}
@@ -270,78 +260,4 @@ public class FPanelJeu extends FPanel {
   */
   public String question(String popUpName){ return question(popUpName,"?");}
 
-  /**
-  *{@summary Update time from last move in the Thread.}
-  *@lastEditedVersion 2.7
-  */
-  public void updateTimeFromLastMove(){
-    if(th==null){return;}
-    th.updateTimeFromLastMove();
-  }
-  /**
-  *{@summary Update message.}<br>
-  *It will initialize &#38; launch ThreadMessagesDesc if it is null.
-  *@lastEditedVersion 2.7
-  */
-  public void updateThreadMessagesDesc(String message){
-    if(th==null){
-      th = new ThreadMessagesDesc();
-      th.start();
-    }
-    th.setMessage(message);
-  }
-
-  // SUB-CLASS -----------------------------------------------------------------
-  /**
-  *{@summary Thread used to print a description message at mouse location.}<br>
-  *Message is print only after 0.5s if mouse don't move.
-  *@author Hydrolien
-  *@lastEditedVersion 2.7
-  */
-  class ThreadMessagesDesc extends Thread {
-    private String message;
-    private long timeFromLastMove;
-    private boolean needToUpdateTimeFromLastMove;
-    public void setMessage(String s){message=s;}
-    public void updateTimeFromLastMove(){needToUpdateTimeFromLastMove=true;}
-
-    /**
-    *{@summary Main function that update message if needed every 50ms.}<br>
-    *@lastEditedVersion 2.7
-    */
-    @Override
-    public void run(){
-      needToUpdateTimeFromLastMove=false;
-      while (true) {
-        boolean visible = false;
-        if(message!=null && !message.equals("")){
-          if(needToUpdateTimeFromLastMove){
-            timeFromLastMove = System.currentTimeMillis();
-            needToUpdateTimeFromLastMove=false;
-          }else{
-            long currentTime = System.currentTimeMillis();
-            long timeElapsed = currentTime-timeFromLastMove;
-            if(timeElapsed>500){
-              if(timeElapsed<600){
-                labelMessage.setText(message);
-                labelMessage.updateSize();
-                Point curentLocation = MouseInfo.getPointerInfo().getLocation();
-                labelMessage.setLocation((int)(curentLocation.getX()-labelMessage.getWidth()), (int)(curentLocation.getY()-labelMessage.getHeight()));
-              }
-              visible = true;
-            }
-          }
-        }else{
-          needToUpdateTimeFromLastMove=true;
-        }
-        labelMessage.setVisible(visible);
-        // Temps.pause(50);
-        try {
-          sleep(50);
-        }catch (InterruptedException e) {
-          erreur.erreur("thread have been interupted");
-        }
-      }
-    }
-  }
 }

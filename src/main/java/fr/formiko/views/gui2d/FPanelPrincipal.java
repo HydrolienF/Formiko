@@ -5,17 +5,20 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.images.image;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.MouseInfo;
+import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
 /**
 *{@summary the main Panel.}<br>
 *@author Hydrolien
-*@lastEditedVersion 1.x
+*@lastEditedVersion 2.21
 */
 public class FPanelPrincipal extends FPanel {
   private FPanelJeu pj;
@@ -23,6 +26,10 @@ public class FPanelPrincipal extends FPanel {
   private BufferedImage img;
   private FLabel versionLabel;
   private long timeFromLastRefresh;
+
+  private ThreadMessagesDesc th;
+  private FLabel labelMessage;
+
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
@@ -32,6 +39,7 @@ public class FPanelPrincipal extends FPanel {
     super();
     setOpaque(true);
     updateTimeFromLastRefresh();
+    iniLabelMessage();
   }
   /**
   *{@summary Add background image &#38; version label.}<br>
@@ -120,5 +128,95 @@ public class FPanelPrincipal extends FPanel {
     pj.setVisible(false);
     remove(pj);
     pj=null;
+  }
+
+
+  //Message part
+  /**
+  *{@summary Initialize the label message.}<br>
+  *@lastEditedVersion 2.21
+  */
+  public void iniLabelMessage(){
+    labelMessage = new FLabel("");
+    labelMessage.setBackground(new Color(225,225,225));
+    FBorder border = new FBorder();
+    border.setColor(Color.BLACK);
+    border.setThickness(1);
+    labelMessage.setBorder(border);
+    add(labelMessage);
+  }
+  /**
+  *{@summary Update time from last move in the Thread.}
+  *@lastEditedVersion 2.7
+  */
+  public void updateTimeFromLastMove(){
+    if(th==null){return;}
+    th.updateTimeFromLastMove();
+  }
+  /**
+  *{@summary Update message.}<br>
+  *It will initialize &#38; launch ThreadMessagesDesc if it is null.
+  *@lastEditedVersion 2.7
+  */
+  public void updateThreadMessagesDesc(String message){
+    if(th==null){
+      th = new ThreadMessagesDesc();
+      th.start();
+    }
+    // erreur.info("New message "+message);
+    th.setMessage(message);
+  }
+  // SUB-CLASS -----------------------------------------------------------------
+  /**
+  *{@summary Thread used to print a description message at mouse location.}<br>
+  *Message is print only after 0.5s if mouse don't move.
+  *@author Hydrolien
+  *@lastEditedVersion 2.7
+  */
+  class ThreadMessagesDesc extends Thread {
+    private String message;
+    private long timeFromLastMove;
+    private boolean needToUpdateTimeFromLastMove;
+    public void setMessage(String s){message=s;}
+    public void updateTimeFromLastMove(){needToUpdateTimeFromLastMove=true;}
+
+    /**
+    *{@summary Main function that update message if needed every 50ms.}<br>
+    *@lastEditedVersion 2.7
+    */
+    @Override
+    public void run(){
+      needToUpdateTimeFromLastMove=false;
+      while (true) {
+        boolean visible = false;
+        if(message!=null && !message.equals("")){
+          if(needToUpdateTimeFromLastMove){
+            timeFromLastMove = System.currentTimeMillis();
+            needToUpdateTimeFromLastMove=false;
+          }else{
+            long currentTime = System.currentTimeMillis();
+            long timeElapsed = currentTime-timeFromLastMove;
+            if(timeElapsed>500){
+              if(timeElapsed<600){
+                labelMessage.setText(message);
+                labelMessage.updateSize();
+                Point curentLocation = MouseInfo.getPointerInfo().getLocation();
+                labelMessage.setLocation((int)(curentLocation.getX()-labelMessage.getWidth()), (int)(curentLocation.getY()-labelMessage.getHeight()));
+              }
+              visible = true;
+            }
+          }
+        }else{
+          needToUpdateTimeFromLastMove=true;
+        }
+        labelMessage.setVisible(visible);
+        // Temps.pause(50);
+        try {
+          sleep(50);
+        }catch (InterruptedException e) {
+          erreur.erreur("thread have been interupted");
+        }
+      }
+    }
   }
 }
