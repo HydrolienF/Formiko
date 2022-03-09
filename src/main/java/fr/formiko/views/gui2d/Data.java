@@ -404,9 +404,10 @@ public class Data {
     /**
     *{@summary Initialize all images that don't need to be resize.}
     *Image from otherImages can be acces by there name.
-    *@lastEditedVersion 2.18
+    *@lastEditedVersion 2.21
     */
     public void iniOtherImages(){
+      if(otherImages!=null){return;}
       otherImages =  new HashMap<String, BufferedImage>();
       File dir = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"other/");
       for (File f : dir.listFiles()) {

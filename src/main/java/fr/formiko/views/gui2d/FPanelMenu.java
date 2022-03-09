@@ -67,21 +67,21 @@ public class FPanelMenu extends FPanel {
   // }
   /**
   *{@summary Update action of the menu buttons.}<br>
-  *@lastEditedVersion 1.44
+  *@lastEditedVersion 2.21
   */
   private void setMenu(byte x){
     menu=x;
     if(x==0){
       b[0].setActionB(1);b[1].setActionB(2);b[2].setActionB(3);
       setReturnButtonAction(-1);
-      addFPanelLinks();
     }else if(x==1){
       b[0].setActionB(4);b[1].setActionB(5);b[2].setActionB(6);
       setReturnButtonAction(0);
     }
-    for (FButton bouton : b ) { //remove desc & selected if it's need
+    for (FButton bouton : b) { //remove desc & selected if it's need
       bouton.updateSelected();
     }
+    addFPanelLinks();
   }
   /***
   *{@summary Update action of the menu buttons.}<br>
@@ -305,17 +305,17 @@ public class FPanelMenu extends FPanel {
     }
   }
   /**
-  *{@summary A.}<br>
+  *{@summary Add a links panel to web site, Discord, Github &#38; Tipeee.}<br>
   *@lastEditedVersion 2.21
   */
   private void addFPanelLinks(){
-    pl = new FPanelLinks(Main.getTailleElementGraphique(80), Main.getTailleElementGraphique(5));
-    pl.setLocation(getWidth()/2, getHeight()-Main.getTailleElementGraphique(100));
-    pl.addButton("homeWebSite", "https://formiko.fr");
+    if(pl!=null){return;}
+    pl = new FPanelLinks(Main.getTailleElementGraphique(60), Main.getTailleElementGraphique(5));
+    pl.setLocation(getWidth()*7/8, getHeight()-Main.getTailleElementGraphique(100));
+    pl.addButton("homeWebSiteLink", "https://formiko.fr");
     pl.addButton("discordLink", "https://discord.gg/vqvfGzf");
-    pl.addButton("reportBug", "https://github.com/HydrolienF/Formiko/issues/new?assignees=&labels=bug&template=bug_report.md&title=");
-    pl.addButton("supportGame", "https://tipeee.com/formiko");
-    System.out.println(pl);
+    pl.addButton("reportBugLink", "https://github.com/HydrolienF/Formiko/issues/new?assignees=&labels=bug&template=bug_report.md&title=");
+    pl.addButton("supportGameLink", "https://tipeee.com/formiko");
     add(pl);
   }
 
