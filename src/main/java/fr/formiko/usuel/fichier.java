@@ -326,7 +326,7 @@ public class fichier {
   */
   public static boolean openWebLink(String url){
     try {
-      return openURI(new URI("https://www.formiko.fr"));
+      return openURI(new URI(url));
     }catch (java.net.URISyntaxException e) {
       erreur.alerte("Fail to open malformed URI "+url);
       return false;
