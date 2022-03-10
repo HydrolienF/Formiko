@@ -97,7 +97,7 @@
         <version>3.0.0-M5</version>
         <configuration>
           <runOrder>alphabetical</runOrder>
-          <argLine>-XX:+UseZGC -XX:SoftMaxHeapSize=2G -XX:MaxRAMPercentage=90</argLine>
+          <argLine>-XX:+UseZGC -XX:MinHeapSize=512m -XX:SoftMaxHeapSize=2G -XX:MaxRAMPercentage=90</argLine>
         </configuration>
       </plugin>
       <plugin>
