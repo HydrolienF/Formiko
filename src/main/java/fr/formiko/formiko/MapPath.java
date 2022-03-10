@@ -9,7 +9,7 @@ import fr.formiko.usuel.structures.listes.Liste;
 */
 public class MapPath {
   private Liste<CCase> path;
-  private Liste<Integer> movingCaseByTurn; //TODO #229
+  private Liste<Integer> movingCaseByTurn;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor that build the path.}<br>
