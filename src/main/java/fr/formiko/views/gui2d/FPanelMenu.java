@@ -45,6 +45,7 @@ public class FPanelMenu extends FPanel {
   private FButton validatelanguage;
   private ThreadMenu th;
   private FPanel containerMovingPanel;
+  private FPanelLinks pl;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Empty main constructor.}<br>
@@ -66,7 +67,7 @@ public class FPanelMenu extends FPanel {
   // }
   /**
   *{@summary Update action of the menu buttons.}<br>
-  *@lastEditedVersion 1.44
+  *@lastEditedVersion 2.21
   */
   private void setMenu(byte x){
     menu=x;
@@ -77,7 +78,7 @@ public class FPanelMenu extends FPanel {
       b[0].setActionB(4);b[1].setActionB(5);b[2].setActionB(6);
       setReturnButtonAction(0);
     }
-    for (FButton bouton : b ) { //remove desc & selected if it's need
+    for (FButton bouton : b) { //remove desc & selected if it's need
       bouton.updateSelected();
     }
   }
@@ -122,6 +123,7 @@ public class FPanelMenu extends FPanel {
     }
     setMenu(menu);
     actualiserText();
+    addFPanelLinks();
     if(th==null){
       th = new ThreadMenu(containerMovingPanel);
       th.start();
@@ -301,6 +303,20 @@ public class FPanelMenu extends FPanel {
       b[i] = new BoutonLong(g.get("menu"+c+"."+i+1),this,i+1);
       b[i].setBounds(posX,posY+(int)(i*tailleBoutonY*1.5),(int)dim.getWidth(),(int)dim.getHeight());
     }
+  }
+  /**
+  *{@summary Add a links panel to web site, Discord, Github &#38; Tipeee.}<br>
+  *@lastEditedVersion 2.21
+  */
+  private void addFPanelLinks(){
+    if(pl!=null){return;}
+    pl = new FPanelLinks(Main.getTailleElementGraphique(60), Main.getTailleElementGraphique(5));
+    pl.setLocation(getWidth()*7/8, getHeight()-Main.getTailleElementGraphique(100));
+    pl.addButton("homeWebSiteLink", "https://formiko.fr");
+    pl.addButton("discordLink", "https://discord.gg/vqvfGzf");
+    pl.addButton("reportBugLink", "https://github.com/HydrolienF/Formiko/issues/new?assignees=&labels=bug&template=bug_report.md&title=");
+    pl.addButton("supportGameLink", "https://tipeee.com/formiko");
+    add(pl);
   }
 
   /**

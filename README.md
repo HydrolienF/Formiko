@@ -1,7 +1,7 @@
 [main]: https://formiko.fr
 [download]: https://formiko.fr/download.html
 [doc]: https://formiko.fr/Formiko/javadoc/index.html
-[discord-invite]: https://discord.gg/FuaaD8fEXn
+[discord-invite]: https://discord.gg/vqvfGzf
 [doc-shield]: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/HydrolienF/Formiko/master/.github/badges/json/docBadges.json
 [license]: https://github.com/HydrolienF/Formiko/blob/master/LICENSE.md
 [version]: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/HydrolienF/Formiko/master/.github/badges/json/versionBadges.json
@@ -29,7 +29,7 @@
 
 *Update:* https://formiko.fr/download.html
 
-*Support & community channel:* https://discord.gg/9uHXJ9K
+*Support & community channel:* https://discord.gg/vqvfGzf
 
 *How to play:* https://formiko.fr
 

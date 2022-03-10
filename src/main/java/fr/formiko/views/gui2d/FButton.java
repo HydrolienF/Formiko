@@ -37,7 +37,7 @@ public class FButton extends JButton implements MouseListener {
   protected Image img;
   protected String nom;
   protected FPanel p;
-  protected int action;
+  protected int action; // -2 = do nothing.
   protected boolean bordure=true;
   protected boolean cFondUseAlpha;
   protected boolean withBackground;
@@ -46,14 +46,22 @@ public class FButton extends JButton implements MouseListener {
   // protected Color cFond;
   // protected Color buttonColor;
   // CONSTRUCTORS --------------------------------------------------------------
-  public FButton(String str, FPanel p, int action, Image imag){
+  /**
+  *{@summary Create a new FButton.}
+  *@param name the name of the button
+  *@param p panel that contain this
+  *@param action action to do. -2 = no action to do.
+  *@param imag image to represent the button
+  *@lastEditedVersion 2.21
+  */
+  public FButton(String name, FPanel p, int action, Image imag){
     super();id=cpt; cpt++;
     // setBorderPainted(false);
     setOpaque(false);
     img = imag;
     // String s = "non null"; if(imag==null){ s="null";}
     // debug.débogage("Création du bouton "+str+" avec une image "+s);
-    this.nom = str; this.p = p; this.action = action;
+    this.nom = name; this.p = p; this.action = action;
     this.addMouseListener(this); //Grâce à cette instruction, notre objet va s'écouter  Dès qu'un événement de la souris sera intercepté, il en sera averti
     // this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.
     setContentAreaFilled(false);
@@ -62,6 +70,13 @@ public class FButton extends JButton implements MouseListener {
     withBackground=false;
     setBorder(new FBorder());
   }
+  /**
+  *{@summary Create a new FButton without image.}
+  *@param name the name of the button
+  *@param p panel that contain this
+  *@param action action to do. -2 = no action to do.
+  *@lastEditedVersion 2.21
+  */
   public FButton(String str, FPanel p, int action){
     super(str);id=cpt; cpt++;
     // setBorderPainted(false);
@@ -120,7 +135,7 @@ public class FButton extends JButton implements MouseListener {
   // public void setButtonColor(Color c){buttonColor=c;}
   public void setColor(int x){color=x;}
   /**
-  *{@summary Swap color beween green &#38; yellow.}<br>
+  *{@summary Swap color between green &#38; yellow.}<br>
   *@lastEditedVersion 2.5
   */
   public void setDefaultColor(){

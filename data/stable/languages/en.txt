@@ -325,6 +325,11 @@ colorState.3:critical
 
 //objet graphique:
 
+homeWebSiteLink:web site
+discordLink:official Discord
+reportBugLink:report a bug
+supportGameLink:support Formiko
+
 //bouton du PanneauEchap
 bouton.nom.-10:save
 bouton.nom.-11:options

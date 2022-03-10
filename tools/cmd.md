@@ -89,6 +89,7 @@ Si le jeu devient trop gourement en mémoire, il faudra lui permettre de prende 
 La mémoire non utilisée (si il y en a beaucoup) pendant plus de 5 min est a nouveau libéré par Java.
 
 "Using -XX:SoftMaxHeapSize=2G -Xmx5G will tell ZGC to keep the max heap usage at 2G, but it’s allowed to grow to 5G if it otherwise would have resulted in an allocation stall or an OutOfMemoryError. This is useful when you want to keep the memory footprint down, while maintaining the capability to handle a temporary increase in heap space requirement."
+All java memory info can be find with "java -X"
 
 #Font
 

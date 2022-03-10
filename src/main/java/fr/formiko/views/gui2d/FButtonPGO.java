@@ -59,7 +59,7 @@ public class FButtonPGO extends FButton {
     super.mouseReleased(event);
     updateColor();
     setSelected(true);
-    FPanel.getView().getPj().updateTimeFromLastMove();
+    FPanel.getView().getPp().updateTimeFromLastMove();
   }
   /**
   *{@summary Update color depending of supplier return value.}
@@ -76,7 +76,7 @@ public class FButtonPGO extends FButton {
     setDefaultColor();
   }
   /**
-  *{@summary Swap color beween green &#38; yellow or other one if colorId have been set.}<br>
+  *{@summary Swap color between green &#38; yellow or other one if colorId have been set.}<br>
   *@lastEditedVersion 2.10
   */
   @Override
