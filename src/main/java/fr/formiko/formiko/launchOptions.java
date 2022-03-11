@@ -489,9 +489,9 @@ public class launchOptions {
   public static void printMemUse(){
     int dataSize = 1024 * 1024;
     Runtime runtime = Runtime.getRuntime();
-    System.out.println ("Memory max: " + runtime.maxMemory() / dataSize + "MB");
-    System.out.println ("Memory total: " + runtime.totalMemory() / dataSize + "MB");
-    System.out.println ("Memory free: " + runtime.freeMemory() / dataSize + "MB");
-    System.out.println ("Memory used: " + (runtime.totalMemory() - runtime.freeMemory()) / dataSize + "MB");
+    erreur.info ("Memory max: " + runtime.maxMemory() / dataSize + "MB");
+    erreur.info ("Memory total: " + runtime.totalMemory() / dataSize + "MB",0);
+    erreur.info ("Memory free: " + runtime.freeMemory() / dataSize + "MB",0);
+    erreur.info ("Memory used: " + (runtime.totalMemory() - runtime.freeMemory()) / dataSize + "MB",0);
   }
 }
