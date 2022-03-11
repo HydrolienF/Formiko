@@ -9,7 +9,7 @@
   <groupId>fr.formiko</groupId>
   <artifactId>Formiko</artifactId>
   <packaging>jar</packaging>
-  <version>2.21.57</version>
+  <version>2.21.63</version>
   <name>Formiko</name>
   <url>https://formiko.fr</url>
 
@@ -97,7 +97,6 @@
         <version>3.0.0-M5</version>
         <configuration>
           <runOrder>alphabetical</runOrder>
-          <argLine>-XX:+UseZGC -XX:MinHeapSize=512m -XX:SoftMaxHeapSize=2G -XX:MaxRAMPercentage=90</argLine>
         </configuration>
       </plugin>
       <plugin>

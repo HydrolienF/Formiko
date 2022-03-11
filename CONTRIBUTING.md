@@ -33,6 +33,9 @@ Then you will need to clone the project:
 
 ps: If you haven't configure a key to connect your github account follow [this tutorial](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
+If you define MAVEN_OPTS somewere (.bashrc, .profile or else) you may need to remove it so that jvm.config can be used when launching projet.
+Execute 'export MAVEN_OPTS=""', to remove it temporary.
+
 ## Compile & Run project
 
 *Compile code:*
