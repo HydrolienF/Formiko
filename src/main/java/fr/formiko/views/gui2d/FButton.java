@@ -244,7 +244,7 @@ public class FButton extends JButton implements MouseListener {
     if(!isEnabled()){FPanel.getView().setMessageDesc("", mouseLocated); return;}
     if(selected){
       FPanel.getView().setMessageDesc(getDesc(), mouseLocated);
-      if(!mouseLocated){setColor(2);}
+      setColor(2);
     }else{
       FPanel.getView().setMessageDesc("", mouseLocated);
       setDefaultColor();

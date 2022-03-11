@@ -24,6 +24,8 @@ public class FButtonLink extends FButton {
     super(name, p, -2, image);
     this.url=url;
     addMouseMotionListener(new DescMouseMotionListener());
+    // setColor(8);
+    // setCFondUseAlpha(true);
   }
   public String toString(){
     return super.toString()+" "+url;
@@ -38,7 +40,7 @@ public class FButtonLink extends FButton {
     fichier.openWebLink(url);
   }
   /**
-  *{@summary set the button selected or not.}<br>
+  *{@summary Set the button selected or not.}<br>
   *Desc are print on the button (mouse located).
   *@param selected true if button is selected.
   *@lastEditedVersion 2.21
@@ -47,6 +49,10 @@ public class FButtonLink extends FButton {
   public void setSelected(boolean selected){
     super.setSelected(selected, true);
   }
+  /**
+  *{@summary Return a description of the button.}<br>
+  *@lastEditedVersion 2.21
+  */
   @Override
   public String getDesc(){
     return g.getM(nom);
