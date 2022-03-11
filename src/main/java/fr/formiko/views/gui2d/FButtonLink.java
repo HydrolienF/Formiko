@@ -1,8 +1,10 @@
 package fr.formiko.views.gui2d;
 
+import fr.formiko.formiko.Main;
 import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.g;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 
@@ -24,8 +26,7 @@ public class FButtonLink extends FButton {
     super(name, p, -2, image);
     this.url=url;
     addMouseMotionListener(new DescMouseMotionListener());
-    // setColor(8);
-    // setCFondUseAlpha(true);
+    drawOnlySelectedBorder=true;
   }
   public String toString(){
     return super.toString()+" "+url;

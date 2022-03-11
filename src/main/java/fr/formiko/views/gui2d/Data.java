@@ -160,7 +160,7 @@ public class Data {
   *@lastEditedVersion 2.7
   */
   public void iniTButtonColor(){
-    lenTButtonColor=8;
+    lenTButtonColor=9;
     tButtonColor = new Color[lenTButtonColor];
     tButtonColor[0]=new Color(81, 252, 0);//green
     tButtonColor[1]=Color.YELLOW;
@@ -170,6 +170,7 @@ public class Data {
     tButtonColor[5]=new Color(56, 56, 56);//grey
     tButtonColor[6]=Color.BLACK;
     tButtonColor[7]=Color.BLUE;
+    tButtonColor[8]=new Color(0,0,0,0);//nothing.
   }
   /**
   *{@summary Return an image from otherImages.}
