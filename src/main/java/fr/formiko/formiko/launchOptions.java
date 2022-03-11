@@ -482,6 +482,10 @@ public class launchOptions {
   //   if(gsIn.length()>0){version = gsIn.getItem(0);}
   //   return version;
   // }
+  /**
+  *{@summary print data about memory use.}<br>
+  *@lastEditedVersion 2.21
+  */
   public static void printMemUse(){
     int dataSize = 1024 * 1024;
     Runtime runtime = Runtime.getRuntime();
