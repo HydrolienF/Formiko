@@ -58,6 +58,9 @@ public class sauvegarderUnePartie {
     try {
       oos = new ObjectOutputStream(new FileOutputStream(s));
       oos.writeObject(p);
+    }catch(StackOverflowError e){
+      erreur.erreur("To many item to save: StackOverflowError");
+      return;
     }catch (Exception e) {
       erreur.erreur("Impossible de sauvegarder la partie pour une raison inconnue");
       return;
@@ -90,6 +93,8 @@ public class sauvegarderUnePartie {
     try {
       ois = new ObjectInputStream(new FileInputStream(getNomDuFichierComplet()));
       pa = (Partie) ois.readObject();
+    }catch(StackOverflowError e){
+      erreur.erreur("To many item to load: StackOverflowError");
     }catch (Exception e) {
       erreur.erreur("Impossible de charger la partie "+fileName+" pour une raison inconnue");
     }finally {
