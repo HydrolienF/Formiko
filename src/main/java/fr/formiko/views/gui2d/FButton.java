@@ -43,6 +43,7 @@ public class FButton extends JButton implements MouseListener {
   protected boolean withBackground;
   protected int color=0;
   protected boolean isYellow=false;
+  protected boolean drawOnlySelectedBorder;
   // protected Color cFond;
   // protected Color buttonColor;
   // CONSTRUCTORS --------------------------------------------------------------
@@ -170,10 +171,21 @@ public class FButton extends JButton implements MouseListener {
     else{g2d.drawImage(this.img,0,0, null);}
     if(bordure){
       if(getBorder()!=null && getBorder() instanceof FBorder){
-        ((FBorder)getBorder()).setColor(new Color(getCFont().getRed(), getCFont().getGreen(), getCFont().getBlue()));
+        updateBorderColor();
       }
     }
     super.paintComponent(g);
+  }
+  /**
+  *{@summary Update the border color.}<br>
+  *@lastEditedVersion 2.21
+  */
+  protected void updateBorderColor(){
+    if (drawOnlySelectedBorder && color!=2) {
+      ((FBorder)getBorder()).setColor(new Color(0,0,0,0));
+    }else{
+      ((FBorder)getBorder()).setColor(new Color(getCFont().getRed(), getCFont().getGreen(), getCFont().getBlue()));
+    }
   }
   /**
   *{@summary Draw border.}<br>
@@ -244,7 +256,7 @@ public class FButton extends JButton implements MouseListener {
     if(!isEnabled()){FPanel.getView().setMessageDesc("", mouseLocated); return;}
     if(selected){
       FPanel.getView().setMessageDesc(getDesc(), mouseLocated);
-      if(!mouseLocated){setColor(2);}
+      setColor(2);
     }else{
       FPanel.getView().setMessageDesc("", mouseLocated);
       setDefaultColor();

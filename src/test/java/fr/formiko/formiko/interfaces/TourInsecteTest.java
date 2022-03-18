@@ -27,7 +27,7 @@ public class TourInsecteTest extends TestCaseMuet{
     i = new Insecte(p.getGc().getCCase(0,0),0,100,1);
     i.setFood(10);
     i.setMaxFood(100);
-    i.setFoodMangeable(2);
+    i.setfoodEatable(2);
     p.getGc().getCCase(0,0).getContent().setFoodInsecteMax((byte)50);
     p.getGc().getCCase(0,0).getContent().setFoodInsecte((byte)10);
     p.getGc().getCCase(0,0).getContent().setFoodInsecteParTour((byte)1);
@@ -97,7 +97,7 @@ public class TourInsecteTest extends TestCaseMuet{
     Insecte i = new Insecte(p.getGc().getCCase(0,0),0,100,4);
     i.setFood(10);
     i.setMaxFood(100);
-    i.setFoodMangeable(2);
+    i.setfoodEatable(2);
     p.getGc().getCCase(0,0).getContent().setFoodInsecteMax((byte)50);
     p.getGc().getCCase(0,0).getContent().setFoodInsecte((byte)50);
     p.getGc().getCCase(0,0).getContent().setFoodInsecteParTour((byte)1);

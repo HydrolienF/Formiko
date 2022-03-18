@@ -1,8 +1,10 @@
 package fr.formiko.views.gui2d;
 
+import fr.formiko.formiko.Main;
 import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.g;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 
@@ -24,6 +26,7 @@ public class FButtonLink extends FButton {
     super(name, p, -2, image);
     this.url=url;
     addMouseMotionListener(new DescMouseMotionListener());
+    drawOnlySelectedBorder=true;
   }
   public String toString(){
     return super.toString()+" "+url;
@@ -38,7 +41,7 @@ public class FButtonLink extends FButton {
     fichier.openWebLink(url);
   }
   /**
-  *{@summary set the button selected or not.}<br>
+  *{@summary Set the button selected or not.}<br>
   *Desc are print on the button (mouse located).
   *@param selected true if button is selected.
   *@lastEditedVersion 2.21
@@ -47,6 +50,10 @@ public class FButtonLink extends FButton {
   public void setSelected(boolean selected){
     super.setSelected(selected, true);
   }
+  /**
+  *{@summary Return a description of the button.}<br>
+  *@lastEditedVersion 2.21
+  */
   @Override
   public String getDesc(){
     return g.getM(nom);
