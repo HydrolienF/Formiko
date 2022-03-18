@@ -51,6 +51,7 @@ public class Carte implements Serializable {
   public Carte(String mapName){
     this(chargerCarte.chargerCarte(mapName));
     this.mapName=mapName;
+    erreur.info("New map with name "+mapName);
   }
   // GET SET -------------------------------------------------------------------
   public GCase getGc(){ return gc;}
