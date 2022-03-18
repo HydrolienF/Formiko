@@ -207,7 +207,7 @@ jobs:
       run: |
         ./toDeb.sh
         ls out/
-        mv out/formiko_${{ steps.version.outputs.version }}-1_amd64.deb out/Formiko${{ steps.version.outputs.version }}.deb
+        mv out/formikoludo_${{ steps.version.outputs.version }}-1_amd64.deb out/Formiko${{ steps.version.outputs.version }}.deb
     - name: upload .deb artifact
       uses: actions/upload-release-asset@v1
       env:
