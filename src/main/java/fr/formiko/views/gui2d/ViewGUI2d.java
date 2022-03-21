@@ -10,6 +10,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.interfaces.TourFourmiNonIa;
+import fr.formiko.formiko.launchOptions;
 import fr.formiko.formiko.triche;
 import fr.formiko.usuel.DiscordIntegration;
 import fr.formiko.usuel.Info;
@@ -20,13 +21,13 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.types.str;
-import java.awt.Window;
-import javax.swing.FocusManager;
 import fr.formiko.views.View;
 
 import java.awt.Font;
+import java.awt.Window;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.swing.FocusManager;
 import javax.swing.JColorChooser;
 import javax.swing.UIManager;
 
@@ -619,7 +620,7 @@ public class ViewGUI2d implements View {
   */
   public void setMessageDesc(String message, boolean mouseLocated){
     if(mouseLocated){
-      if(getPj()!=null){getPj().updateThreadMessagesDesc(message);}
+      if(getPp()!=null){getPp().updateThreadMessagesDesc(message);}
       if(getPb()!=null){getPb().setDesc("");}
     }else{
       if(getPb()!=null){getPb().setDesc(message);}
@@ -770,8 +771,9 @@ public class ViewGUI2d implements View {
         public void run(){
           Window activeWindow = javax.swing.FocusManager.getCurrentManager().getActiveWindow();
           // System.out.println(getF().equals(activeWindow));
-          // erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()));
+          erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()));
           // erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()/10));
+          launchOptions.printMemUse();
           view.setCurentFPS(0);
         }
       }, 0, 1000);

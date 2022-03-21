@@ -129,7 +129,7 @@ public class triche {
           getInsecteParId(args[1]).setGivenFood(str.sToI(args[2]));
           break;
         case 22:
-          getInsecteParId(args[1]).setFoodMangeable(str.sToBy(args[2]));
+          getInsecteParId(args[1]).setfoodEatable(str.sToBy(args[2]));
           break;
 
         //pour les joueurs

@@ -325,6 +325,11 @@ colorState.3:kritikaj
 
 //objet graphique:
 
+homeWebSiteLink:retejo
+discordLink:oficiala Discord
+reportBugLink:signali 1 cimo
+supportGameLink:subteni Formiko
+
 //bouton du PanneauEchap
 bouton.nom.-10:savi
 bouton.nom.-11:opcio

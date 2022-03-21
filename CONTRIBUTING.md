@@ -23,6 +23,8 @@ You can check your git, mvn, java & javac version by using :
 
 `git --version; java --version; javac --version; mvn --version`
 
+If maven is in version 3.6.3, you will need Java 16 insted of Java 17.
+
 ps: some IDE provide git, Java & Maven.
 
 Then you will need to clone the project:
@@ -30,6 +32,9 @@ Then you will need to clone the project:
 `git clone git@github.com:HydrolienF/Formiko.git`
 
 ps: If you haven't configure a key to connect your github account follow [this tutorial](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+
+If you define MAVEN_OPTS somewere (.bashrc, .profile or else) you may need to remove it so that jvm.config can be used when launching projet.
+Execute 'export MAVEN_OPTS=""', to remove it temporary.
 
 ## Compile & Run project
 

@@ -160,7 +160,7 @@ public class Data {
   *@lastEditedVersion 2.7
   */
   public void iniTButtonColor(){
-    lenTButtonColor=8;
+    lenTButtonColor=9;
     tButtonColor = new Color[lenTButtonColor];
     tButtonColor[0]=new Color(81, 252, 0);//green
     tButtonColor[1]=Color.YELLOW;
@@ -170,6 +170,7 @@ public class Data {
     tButtonColor[5]=new Color(56, 56, 56);//grey
     tButtonColor[6]=Color.BLACK;
     tButtonColor[7]=Color.BLUE;
+    tButtonColor[8]=new Color(0,0,0,0);//nothing.
   }
   /**
   *{@summary Return an image from otherImages.}
@@ -337,7 +338,7 @@ public class Data {
     *The images defined here have the rigth dimention for being used on the map.<br>
     *@lastEditedVersion 2.6
     */
-    public void chargerImages(){
+    public synchronized void chargerImages(){
       debug.débogage("chargement des images a la bonne taille.");
       chargerImagesIni();
       Main.startCh();
@@ -364,7 +365,7 @@ public class Data {
     *Image need to be load in full resolution 1 time only. If it have alredy be done the function will do nothing.
     *@lastEditedVersion 1.33
     */
-    public void chargerImagesIni(){
+    public synchronized void chargerImagesIni(){
       if(!imageIni){
         Main.startCh();
         imgNullIni = image.getImage("null");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
@@ -404,9 +405,10 @@ public class Data {
     /**
     *{@summary Initialize all images that don't need to be resize.}
     *Image from otherImages can be acces by there name.
-    *@lastEditedVersion 2.18
+    *@lastEditedVersion 2.21
     */
-    public void iniOtherImages(){
+    public synchronized void iniOtherImages(){
+      if(otherImages!=null){return;}
       otherImages =  new HashMap<String, BufferedImage>();
       File dir = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"other/");
       for (File f : dir.listFiles()) {

@@ -238,6 +238,8 @@ public class launchOptions {
     // }else if(args[0].equals("testTryCatchNullPointerException")){
     //   testTryCatchNullPointerException.doTest();
     //   System.exit(0);
+    }else if(args[0].equals("mem")){
+      printMemUse();
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }
@@ -480,4 +482,16 @@ public class launchOptions {
   //   if(gsIn.length()>0){version = gsIn.getItem(0);}
   //   return version;
   // }
+  /**
+  *{@summary print data about memory use.}<br>
+  *@lastEditedVersion 2.21
+  */
+  public static void printMemUse(){
+    int dataSize = 1024 * 1024;
+    Runtime runtime = Runtime.getRuntime();
+    erreur.info ("Memory max: " + runtime.maxMemory() / dataSize + "MB");
+    erreur.info ("Memory total: " + runtime.totalMemory() / dataSize + "MB",0);
+    erreur.info ("Memory free: " + runtime.freeMemory() / dataSize + "MB",0);
+    erreur.info ("Memory used: " + (runtime.totalMemory() - runtime.freeMemory()) / dataSize + "MB",0);
+  }
 }

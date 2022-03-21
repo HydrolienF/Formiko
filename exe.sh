@@ -60,6 +60,14 @@ cp -r jlink/jMac/* out/$nomM/java/
 cp launcher/formiko.bat out/$nomW/.
 cp launcher/formiko.sh out/$nomL/.
 cp launcher/formiko.command out/$nomM/.
+echo "add jvm.config to launcher"
+search="-jar"
+replace=$(cat .mvn/jvm.config)" -jar"
+echo $search" to "$replace
+./tools/sh/replace.sh "$search" "$replace" out/$nomW/formiko.bat
+./tools/sh/replace.sh "$search" "$replace" out/$nomL/formiko.sh
+./tools/sh/replace.sh "$search" "$replace" out/$nomM/formiko.command
+cat out/$nomL/formiko.sh
 
 echo "zip part"
 cd out/

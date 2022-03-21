@@ -16,7 +16,7 @@ cp version.md in/
 cp version.json in/
 # End of common part with toX
 
-jpackage --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version $(cat version.md) --description "Formiko, a game about ant." --icon tools/icon.ico --runtime-image jlink/jWindows --win-shortcut --win-menu --win-console --license-file LICENSE.md --vendor Hydrolien -t msi --win-upgrade-uuid "1468751e-078f-4fab-80e4-fa15e9b364b3"
+jpackage --java-options "$(cat .mvn/jvm.config)" --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version $(cat version.md) --description "Formiko, a game about ant." --icon tools/icon.ico --runtime-image jlink/jWindows --win-shortcut --win-menu --win-console --license-file LICENSE.md --vendor Hydrolien -t msi --win-upgrade-uuid "1468751e-078f-4fab-80e4-fa15e9b364b3"
 rm -r in
 
 $version = cat .\version.md

@@ -20,7 +20,7 @@ import java.io.Serializable;
 */
 public class Insecte extends Creature implements Serializable{
   protected boolean femelle;
-  protected byte foodMangeable;
+  protected byte foodEatable;
   protected static GIEspece gie;
   // CONSTRUCTORS ----------------------------------------------------------------
   /**
@@ -38,7 +38,7 @@ public class Insecte extends Creature implements Serializable{
     }else{
       tour = new TourInsecte();
     }
-    this.foodMangeable =(byte) (allea.getAllea(3)+2);// de 2 a 5.
+    this.foodEatable =(byte) (allea.getAllea(3)+2);// de 2 a 5.
     this.déplacement = new DeplacementFourmi();
     this.chasse = new ChasseHerbivore();
     p.getContent().getGc().add(this);
@@ -81,8 +81,8 @@ public class Insecte extends Creature implements Serializable{
   public boolean getFemelle(){return femelle;}
   public void setFemelle(boolean b){femelle=b;}
   public String getSex(){if(femelle){return "♀";}else{return "♂";}}
-  public byte getFoodMangeable(){ return foodMangeable;}
-  public void setFoodMangeable(byte x){ foodMangeable=x;} public void setFoodMangeable(int x){ setFoodMangeable((byte)x);}
+  public byte getfoodEatable(){ return foodEatable;}
+  public void setfoodEatable(byte x){ foodEatable=x;} public void setfoodEatable(int x){ setfoodEatable((byte)x);}
   @Override
   public byte getType(){ return (byte)(getEspece().getId()-100);}
   /**
@@ -116,7 +116,7 @@ public class Insecte extends Creature implements Serializable{
   @Override
   public String toString(){
     // String sr = super.toString();sr+=", ";
-    // sr+= " "+g.get("foodMangeable")+" "+foodMangeable;
+    // sr+= " "+g.get("foodEatable")+" "+foodEatable;
     return super.toString();
   }
   /**
@@ -126,7 +126,7 @@ public class Insecte extends Creature implements Serializable{
   @Override
   public String toStringShort(){
     String sr = super.toStringShort();sr+=", ";
-    sr+= " "+g.get("foodMangeable")+" "+foodMangeable;
+    sr+= " "+g.get("foodEatable")+" "+foodEatable;
     return sr;
   }
 
