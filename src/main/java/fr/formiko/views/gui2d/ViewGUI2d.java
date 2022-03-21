@@ -496,18 +496,12 @@ public class ViewGUI2d implements View {
       if(!f.getIa()){
         getPb().addPI();
         getPb().addPIJ();
-        // getPb().setVisiblePa(true);
-        // updateIcon();
       }
     }else{
       getPb().removePi();
       getPb().setVisiblePa(false);
       Main.getPartie().setAntIdToPlay(-1);
     }
-    // if (!f.getFere().getJoueur().getIa()) {
-    //   getPb().setVisiblePa(false);
-    // }
-    // Main.getPartie().setAntIdToPlay(-1);
   }
   /**
   *{@summary Move ObjetSurCarteAId.}<br>
@@ -539,7 +533,13 @@ public class ViewGUI2d implements View {
         if(Main.getPartie().getAntIdToPlay()!=-1){
           // erreur.info("action for ant "+Main.getPartie().getAntIdToPlay());
           // Main.setPlayingAnt(Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay()));
-          ((TourFourmiNonIa) Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay()).tour).allowToDisableAutoMode();
+          Fourmi fToSelect = Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay());
+          if(fToSelect.getMaxAction()>0){
+            ((TourFourmiNonIa) fToSelect.tour).allowToDisableAutoMode();
+          }else{
+            Main.getPartie().setAntIdToPlay(-1);
+            Main.setPlayingAnt(null);
+          }
         }
       }
     }
@@ -693,6 +693,19 @@ public class ViewGUI2d implements View {
   }
 
   public Data getData(){return Main.getData();}
+
+  /**
+  *{@summary Define this as the next playing ant.}<br>
+  *@lastEditedVersion 2.22
+  */
+  public void setNextPlayingAnt(Fourmi f){
+    if(f!=null && f.getFere().getJoueur().equals(Main.getPlayingJoueur()) && !f.equals(Main.getPlayingAnt()) && f.getMaxAction()>0) {
+      getPb().setActionF(-2);
+      getPb().removePA();
+      Main.getPartie().setAntIdToPlay(f.getId());
+      setMessageDesc("", true);
+    }
+  }
 
   //private---------------------------------------------------------------------
   /**

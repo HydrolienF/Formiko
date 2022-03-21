@@ -64,13 +64,8 @@ public class FPanelSup extends FPanel {
             }catch (NullPointerException e2) {
               erreur.alerte("No curent player");
             }
-            if(f!=null && !f.equals(Main.getPlayingAnt())){ // && f.getAction()>0
-              getView().getPb().setActionF(-2);
-              getView().getPb().removePA();
-              Main.getPartie().setAntIdToPlay(f.getId());
-              // if(f.isAutoMode() && getView().getEndTurnAuto() && f.getFere().getGc().haveDoneAllActionAviable()){ //si fourmi en auto mode, mode fin tour auto & tour fini.
-              //   erreur.alerte("WAIIIIIIIIITTTTTT for disable end turn");
-              // }
+            if(f!=null){
+              getView().setNextPlayingAnt(f);
             }
           }
         }else if(e.getButton()== MouseEvent.BUTTON3){

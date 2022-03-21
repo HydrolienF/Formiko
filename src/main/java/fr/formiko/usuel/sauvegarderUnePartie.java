@@ -59,7 +59,7 @@ public class sauvegarderUnePartie {
       erreur.erreur("To many item to save: StackOverflowError");
       return;
     }catch (Exception e) {
-      erreur.erreur("Unable to save current Partie because of "+e)
+      erreur.erreur("Unable to save current Partie because of "+e);
       return;
     }
     getSave().addSave();
