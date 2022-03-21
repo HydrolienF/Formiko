@@ -15,7 +15,7 @@ public interface Tour extends Serializable{
   *@lastEditedVersion 1.33
   */
   void unTour(Creature c);
-  //void preTour(Creature c);
+  //void preTurn(Creature c);
   /***
   *{@summary end a turn.}<br>
   *Turn can be end only 1 times per turn.

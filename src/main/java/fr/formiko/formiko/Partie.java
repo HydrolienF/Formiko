@@ -49,6 +49,7 @@ public class Partie implements Serializable{
   private boolean dejaIni=false;
   private Fourmi playingAnt;
   private int antIdToPlay;
+  private boolean launchingFromSave;
 
   // CONSTRUCTORS --------------------------------------------------------------
   // nombre de joueur, nombre d'ia, abondance des insectes, niveau de difficulté des ia, les especes autorisé, le nombre de tour.
@@ -124,6 +125,8 @@ public class Partie implements Serializable{
   public boolean getCasesNuageuses(){if(getCarte()==null){ return false;} else {return getCarte().getCasesNuageuses();}}
   public int getAntIdToPlay(){return antIdToPlay;}
   public void setAntIdToPlay(int x){antIdToPlay=x;}
+  public boolean getLaunchingFromSave(){return launchingFromSave;}
+  public void setLaunchingFromSave(boolean launchingFromSave){this.launchingFromSave=launchingFromSave;}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String r="";
@@ -221,21 +224,23 @@ public class Partie implements Serializable{
     gj = gej.getGJoueur(mapo);
   }
   public boolean launchGame(){
-    Main.getPartie().getGj().prendreEnCompteLaDifficulté();//setFood acording to difficutly.
-    Main.stopScript();
-    if(!Partie.getScript().equals("")){
-      ThScript ths = new ThScript(Partie.getScript()+".formiko");
-      Main.setScript(ths);
-      Main.launchScript();
-    }
-    //lancement du jeux
-    setContinuerLeJeu(true);
-    if(Main.getGj().length()==1){setPartieFinie(true);}
-    else{setPartieFinie(false);}
-    try {
-      Main.getMp().play();
-    }catch (Exception e) {
-      erreur.alerte("Music can't be played next");
+    if(!getLaunchingFromSave()){
+      Main.getPartie().getGj().prendreEnCompteLaDifficulté();//setFood acording to difficutly.
+      Main.stopScript();
+      if(!Partie.getScript().equals("")){
+        ThScript ths = new ThScript(Partie.getScript()+".formiko");
+        Main.setScript(ths);
+        Main.launchScript();
+      }
+      //lancement du jeux
+      setContinuerLeJeu(true);
+      if(Main.getGj().length()==1){setPartieFinie(true);}
+      else{setPartieFinie(false);}
+      try {
+        Main.getMp().play();
+      }catch (Exception e) {
+        erreur.alerte("Music can't be played next");
+      }
     }
     for(tour=1; tour<=nbrDeTour; tour++){
       new Message("\n"+g.get("tour")+" "+ tour +" :");

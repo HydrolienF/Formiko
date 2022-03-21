@@ -50,6 +50,7 @@ public class sauvegarderUnePartie {
       erreur.erreur("Can't save a null Partie.");
       return;
     }
+    p.setLaunchingFromSave(true);
     long time = System.currentTimeMillis();
     fileName=fn;
     String s=getNomDuFichierComplet();

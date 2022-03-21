@@ -211,7 +211,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public boolean netoyerIa(){return netoyer.netoyerIa(this);}
   public void tour(){tour.unTour(this);}
   public void endTurn(){tour.endTurn(this);}
-  //public void preTour(){tour.preTour(this);}
+  //public void preTurn(){tour.preTurn(this);}
   //public void manger (graine pour certaine fourmi, champnons pour d'autre et herbe pour les insectes.)
   /**
   *{@summary Return the state of the Creature concerning food.}
@@ -431,7 +431,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *Actualise Creature c before the turn.
   *@lastEditedVersion 1.28
   */
-  public void preTour(){
+  public void preTurn(){
     setAction(math.min(getAction(),0) + getMaxAction());//If we have used more action that what we had, we have less this turn.
     if((evoluer instanceof EvoluerNull) && (getStade()!=0 && getAge()>=getMaxAge())){ evoluer();}
   }

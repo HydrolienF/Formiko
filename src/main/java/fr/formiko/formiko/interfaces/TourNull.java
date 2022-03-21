@@ -22,7 +22,7 @@ public class TourNull implements Serializable, Tour {
   /**
   *If lauch print an error.
   */
-  public void preTour(Creature c){
+  public void preTurn(Creature c){
     erreur.erreur("Impossible de jouer un tour avec la créature " + c.getId());
   }
   /**

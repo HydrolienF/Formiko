@@ -21,6 +21,11 @@ public class FPanelChoixPartie extends FPanelLanceurPartie {
   private EtiquetteChoix ePartie;
 
   // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Create a new Panel that can launch a game.}
+  * Action to launch game is 101.
+  *@lastEditedVersion 2.22
+  */
   public FPanelChoixPartie(){
     super(101);
     this.setLayout(null);
@@ -38,8 +43,10 @@ public class FPanelChoixPartie extends FPanelLanceurPartie {
     ePartie.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,(int)(Main.getFontSizeTitle()*1.2));
     // ePartie.setTaille(getWidth()*3/5,(int)(Main.getFontSizeTitle()*1.2));
     //ePartie.setFontText(Main.getFont2());
+    super.paintComponent(g);
   }
   public Partie getPartie(){
+    erreur.info("getPartie",20);
     String partieName = ePartie.getSelectedItem()+"";
     partieName = str.addALaFinSiNecessaire(partieName,".save");
     Partie pa = sauvegarderUnePartie.charger(partieName);
