@@ -323,6 +323,9 @@ colorState.1:medium
 colorState.2:bad
 colorState.3:critical
 
+messageSaveFail:game fail to be save
+messageSaveWork:game saved
+
 //objet graphique:
 
 homeWebSiteLink:web site

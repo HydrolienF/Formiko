@@ -784,9 +784,9 @@ public class ViewGUI2d implements View {
         public void run(){
           Window activeWindow = javax.swing.FocusManager.getCurrentManager().getActiveWindow();
           // System.out.println(getF().equals(activeWindow));
-          erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()));
           // erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()/10));
-          launchOptions.printMemUse();
+          // erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()));
+          // launchOptions.printMemUse();
           view.setCurentFPS(0);
         }
       }, 0, 1000);

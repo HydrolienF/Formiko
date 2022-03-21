@@ -323,6 +323,9 @@ colorState.1:meza
 colorState.2:malbona
 colorState.3:kritikaj
 
+messageSaveFail:partio malsavis
+messageSaveWork:partio savis
+
 //objet graphique:
 
 homeWebSiteLink:retejo

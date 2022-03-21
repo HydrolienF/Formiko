@@ -323,6 +323,9 @@ colorState.1:moyen
 colorState.2:mauvais
 colorState.3:critique
 
+messageSaveFail:la sauvegarde de la partie a échouée
+messageSaveWork:partie sauvegardée
+
 //graphic item:
 
 homeWebSiteLink:site web

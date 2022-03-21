@@ -1,6 +1,7 @@
 package fr.formiko.usuel;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.Message;
 import fr.formiko.formiko.ObjetAId;
 import fr.formiko.formiko.Partie;
 import fr.formiko.usuel.types.str;
@@ -50,6 +51,11 @@ public class sauvegarderUnePartie {
       erreur.erreur("Can't save a null Partie.");
       return;
     }
+    if(p.getPlayingJoueur()==null){
+      erreur.alerte("Unable to save while there is no current player");
+      sendMessageSaveFail();
+      return;
+    }
     p.setLaunchingFromSave(true);
     long time = System.currentTimeMillis();
     fileName=fn;
@@ -57,10 +63,12 @@ public class sauvegarderUnePartie {
     try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(s))){
       oos.writeObject(p);
     }catch(StackOverflowError e){
-      erreur.erreur("To many item to save: StackOverflowError");
+      erreur.erreur("To many item relation to save: StackOverflowError");
+      sendMessageSaveFail();
       return;
     }catch (Exception e) {
       erreur.erreur("Unable to save current Partie because of "+e);
+      sendMessageSaveFail();
       return;
     }
     getSave().addSave();
@@ -68,6 +76,13 @@ public class sauvegarderUnePartie {
     if(debug.getPerformance()){
       erreur.info("Save done in "+(System.currentTimeMillis()-time)+" ms");
     }
+    sendMessageSaveWork();
+  }
+  private static void sendMessageSaveFail(){
+    new Message("messageSaveFail");
+  }
+  private static void sendMessageSaveWork(){
+    new Message("messageSaveWork");
   }
   /**
    *{@summary Load a Partie.}<br>
