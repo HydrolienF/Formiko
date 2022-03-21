@@ -20,8 +20,6 @@ import java.util.Comparator;
  *@lastEditedVersion 2.13
  */
 public class sauvegarderUnePartie {
-  private static ObjectOutputStream oos = null;
-  private static ObjectInputStream ois = null;
   private static final String REP = Main.getFolder().getFolderSaves();
   private static String fileName=".null"; //to create a hiden file if it fail.
   private static Save save;
@@ -41,11 +39,11 @@ public class sauvegarderUnePartie {
   public static void setSave(Save sa){save=sa;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
-   *{@summary Save a Partie }<br>
+   *{@summary Save a Partie.}<br>
    *It use the java tools to save in byte code a Serializable Object.
    *@param p The Partie to save
    *@param fn The name of the output File (It will be place in REP/fileName.save)
-   *@lastEditedVersion 2.13
+   *@lastEditedVersion 2.22
    */
   public static void sauvegarder(Partie p, String fn){
     if(p==null){
@@ -55,21 +53,14 @@ public class sauvegarderUnePartie {
     long time = System.currentTimeMillis();
     fileName=fn;
     String s=getNomDuFichierComplet();
-    try {
-      oos = new ObjectOutputStream(new FileOutputStream(s));
+    try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(s))){
       oos.writeObject(p);
-    }catch (Exception e) {
-      erreur.erreur("Impossible de sauvegarder la partie pour une raison inconnue");
+    }catch(StackOverflowError e){
+      erreur.erreur("To many item to save: StackOverflowError");
       return;
-    }finally {
-      if(oos!=null){
-        try {
-          oos.flush();
-          oos.close();
-        }catch (Exception e) {
-          erreur.erreur("can't close OOS");
-        }
-      }
+    }catch (Exception e) {
+      erreur.erreur("Unable to save current Partie because of "+e)
+      return;
     }
     getSave().addSave();
     getSave().save();// save saveId now to avoid issue if game is not normally close.
@@ -78,28 +69,21 @@ public class sauvegarderUnePartie {
     }
   }
   /**
-   *{@summary Load a Partie }<br>
+   *{@summary Load a Partie.}<br>
    *It use the java tools to load in byte code a Serializable Object.
    *@param fn The name of the input File (File will be REP/fileName.save)
-   *@lastEditedVersion 2.13
+   *@lastEditedVersion 2.22
    */
   public static Partie charger(String fn){
     long time = System.currentTimeMillis();
     fileName=fn;
     Partie pa = null;
-    try {
-      ois = new ObjectInputStream(new FileInputStream(getNomDuFichierComplet()));
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(getNomDuFichierComplet()))) {
       pa = (Partie) ois.readObject();
+    }catch(StackOverflowError e){
+      erreur.erreur("To many item to load: StackOverflowError");
     }catch (Exception e) {
-      erreur.erreur("Impossible de charger la partie "+fileName+" pour une raison inconnue");
-    }finally {
-      if(ois!=null){
-        try {
-          ois.close();
-        }catch (Exception e) {
-          erreur.erreur("can't close OIS");
-        }
-      }
+      erreur.erreur("Unable to load Partie from "+fileName+" because of "+e);
     }
     if(debug.getPerformance()){
       erreur.info("Save load in "+(System.currentTimeMillis()-time)+" ms");
