@@ -64,5 +64,36 @@ public class lireUnFichier {
   }
   public static GString lireUnFichierGs(File f){return lireUnFichierGs(f.getAbsolutePath());}
   public static GString lireUnFichierGsFromPath(Path path){return lireUnFichierGs(path.toString());}
+  /**
+  *{@summary Read a file &#38; return it as a single String.}<br>
+  *@param f file to read
+  *@lastEditedVersion 2.22
+  */
+  public static String readFile(File f){
+    String s="";
+    try {
+      BufferedReader br = null;
+      String line;
+      try {
+        br = new BufferedReader(new FileReader(f, StandardCharsets.UTF_8));
+      } catch(FileNotFoundException e) {
+        erreur.erreur("Le chargement du fichier "+f+" a échoué.");
+        e.printStackTrace();
+      }
+      while ((line = br.readLine()) != null){
+        s+=line+'\n';
+      }
+      br.close();
+    }catch (IOException e) {
+      e.printStackTrace();
+    }
+    return s;
+  }
+  /***
+  *{@summary Read a file &#38; return it as a single String.}<br>
+  *@param fileName name of the file to read
+  *@lastEditedVersion 2.22
+  */
+  public static String readFile(String fileName){return readFile(new File(fileName));}
 
 }
