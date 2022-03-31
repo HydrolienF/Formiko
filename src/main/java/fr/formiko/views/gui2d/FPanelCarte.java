@@ -85,7 +85,14 @@ public class FPanelCarte extends FPanel {
   // GET SET -------------------------------------------------------------------
   public int getTailleDUneCase(){return Main.getData().getTailleDUneCase();}
   public int getTailleIcon(){return Main.getData().getTailleIcon();}
-  public void setTailleDUneCase(int x){if(x!=getTailleDUneCase()){Main.getData().setTailleDUneCase(x);actualiserCarte();}}
+  // TODO comment
+  public void setTailleDUneCase(int x, boolean b){
+    if(x!=getTailleDUneCase()){Main.getData().setTailleDUneCase(x);
+      if(b){
+        actualiserCarte();
+      }
+    }
+  }public void setTailleDUneCase(int x){setTailleDUneCase(x, true);}
   public int getXCase(){ return xCase;}
   public void setXCase(int x){xCase = x;}
   public int getYCase(){ return yCase;}

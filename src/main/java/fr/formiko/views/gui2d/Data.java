@@ -514,6 +514,8 @@ public class Data {
         }
       }catch (Exception e) {
         erreur.erreur("iniBackgroundMapImage fail");
+        System.out.println(e);
+        e.printStackTrace();
         map=null;
       }
       Main.endCh("iniBackgroundMapImage");
