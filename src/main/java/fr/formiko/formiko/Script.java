@@ -6,7 +6,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.types.str;
-import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.ReadFile;
 
 import java.io.Serializable;
 
@@ -60,7 +60,7 @@ public class Script implements Serializable{
   private String [] loadScript(String rep){
     rep+=Main.getFolder().getFolderLevels();
     name = str.addALaFinSiNecessaire(name,".formiko");
-    String ts [] = lireUnFichier.readFileArray(rep+name);
+    String ts [] = ReadFile.readFileArray(rep+name);
     return ts;
   }
   /**

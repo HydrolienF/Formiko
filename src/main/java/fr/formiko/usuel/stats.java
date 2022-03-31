@@ -41,7 +41,7 @@ public class stats {
     GInt nbrDeLigne = new GInt();
     for (String s : gs ) { //pour chaque fichier on récupère le comtenu et on compte les Commentaire et les fonction longue et courte.
       if(str.contient(s,".java",2)){ //on lit tt les .java
-        GString contenuDuFichier = lireUnFichier.readFileGs(s);
+        GString contenuDuFichier = ReadFile.readFileGs(s);
         ggi.add(contenuDuFichier.compterFctEtComJavadoc());
         ggi2.add(contenuDuFichier.compterFctEnDetail());
         nbrDeLigne.add(contenuDuFichier.length());

@@ -4,7 +4,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.ecrireUnFichier;
 import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.ReadFile;
 import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.types.str;
 
@@ -21,7 +21,7 @@ public class chargerLesTouches {
       chargerLesTouchesDe0(versionActuelle);
     }
     String t [] = new String[0];
-    t=lireUnFichier.readFileArray(Main.getFolder().getFolderMain()+"Keys.txt");
+    t=ReadFile.readFileArray(Main.getFolder().getFolderMain()+"Keys.txt");
     // if(!decoderUnFichier.getStringDeLaLigne(t[0]).equals(versionActuelle)){ erreur.erreur("Le fichier des touches n'est pas compatible avec la version "+versionActuelle,true);return map;}
     int lent = t.length;
     for (int i=1; i<lent;i++) {

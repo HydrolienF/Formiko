@@ -19,7 +19,7 @@ import java.util.List;
 *@lastEditedVersion 2.22
 *@author Hydrolien
 */
-public class lireUnFichier {
+public class ReadFile {
 
   /**
   *{@summary Read a file &#38; return it as a String.}<br>

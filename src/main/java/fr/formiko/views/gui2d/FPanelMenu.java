@@ -8,7 +8,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.ReadFile;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.structures.listes.GString;
@@ -202,7 +202,7 @@ public class FPanelMenu extends FPanel {
   public void askLanguage(){
     removeP();
     setSize(Main.getDimX(),Main.getDimY());
-    GString gs = lireUnFichier.readFileGs(Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages()+"langue.csv");
+    GString gs = ReadFile.readFileGs(Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages()+"langue.csv");
     GString gs2 = new GString();
     for (String s : gs) {
       gs2.add(s.split(",")[1]);

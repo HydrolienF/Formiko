@@ -2,7 +2,7 @@ package fr.formiko.usuel;
 
 //def par défaut des fichiers depuis 0.79.5
 import java.io.File;
-import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.ReadFile;
 import fr.formiko.usuel.ecrireUnFichier;
 import fr.formiko.usuel.structures.listes.GString;
 
@@ -43,7 +43,7 @@ public class modificationDeFichier {
   //fonctionnement interne.
   private static int retirerLesLignesDuFichier(String s, String f, int nbrARetire, byte dmft){
     if(nbrARetire <0){erreur.erreur("Impossible de remove un nombre négatif de ligne d'un fichier");return 0;}
-    GString gs = lireUnFichier.readFileGs(f);
+    GString gs = ReadFile.readFileGs(f);
     if(nbrARetire==0){nbrARetire=gs.length();}//si c'est 0 on retirera autant de lignes que néssésaire
     int k=0;
     boolean b;

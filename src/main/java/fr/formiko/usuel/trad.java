@@ -6,7 +6,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.ecrireUnFichier;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.ReadFile;
 import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.types.str;
 
@@ -41,7 +41,7 @@ public class trad {
     }
   }
   public static void copieTradBase(String se, Map<String,String> map){
-    String t [] = lireUnFichier.readFileArray(Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages()+"fr.txt");
+    String t [] = ReadFile.readFileArray(Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages()+"fr.txt");
     GString gs = new GString();
     for (String s : t) {
       if(chargerLesTraductions.estLigneDeTrad(s) && !str.contient(s,"[]",2)){//si c'est une ligne de trad qui ne correspond pas a un nom propre.
@@ -89,7 +89,7 @@ public class trad {
     File index = new File(pathToWebSiteFile+"Newindex.html");
     GString gsr = new GString();
     if(index.exists()){
-      GString gs = lireUnFichier.readFileGs(index);
+      GString gs = ReadFile.readFileGs(index);
       for (String s : gs ) {
         gsr.add(replaceTranslation(s));
       }
@@ -105,7 +105,7 @@ public class trad {
     File download = new File(pathToWebSiteFile+"Newdownload.html");
     gsr = new GString();
     if(index.exists()){
-      GString gs = lireUnFichier.readFileGs(download);
+      GString gs = ReadFile.readFileGs(download);
       for (String s : gs ) {
         gsr.add(replaceTranslation(s));
       }

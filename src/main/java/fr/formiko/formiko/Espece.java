@@ -5,7 +5,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.decoderUnFichier;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.ReadFile;
 import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
