@@ -17,8 +17,8 @@ public class diff {
    */
   public static int nbrDeLigneDiff(String nouveauFichier, String ancienFichier){
     //on charge les 2 fichiers dans 2 liste chainé de String.
-    GString gs1 = lireUnFichier.lireUnFichierGs(nouveauFichier);
-    GString gs2 = lireUnFichier.lireUnFichierGs(ancienFichier);
+    GString gs1 = lireUnFichier.readFileGs(nouveauFichier);
+    GString gs2 = lireUnFichier.readFileGs(ancienFichier);
     //on compte la différence de ligne entre les 2 fichiers.
     int ligneAjoute = gs1.length() - gs2.length();
     //on parcours le nouveau fichier en cherchant si la ligne existe déjà dans l'ancien fichier.

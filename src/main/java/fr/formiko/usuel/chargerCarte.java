@@ -25,14 +25,14 @@ public class chargerCarte {
   public static GCase chargerCarte(String fichier){
     String s [] = null;
     String fullName = Main.getFolder().getFolderStable()+Main.getFolder().getFolderMaps()+fichier+".csv";
-    s = lireUnFichier.lireUnFichier(fullName);
+    s = lireUnFichier.readFileArray(fullName);
     if(s==null || s.length==0){
       fullName = Main.getFolder().getFolderResourcesPacks()+Main.getFolder().getFolderMaps()+fichier+".csv";
-      s = lireUnFichier.lireUnFichier(fullName);
+      s = lireUnFichier.readFileArray(fullName);
     }
     if(s==null || s.length==0){
       fullName = Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderMaps()+fichier+".csv";
-      s = lireUnFichier.lireUnFichier(fullName);
+      s = lireUnFichier.readFileArray(fullName);
     }
     if (s == null || s.length==0){ erreur.erreur("Le chargement de la carte "+fichier+" a échoué.");return null;}
     int x = nbItemPerLine(s[0]);

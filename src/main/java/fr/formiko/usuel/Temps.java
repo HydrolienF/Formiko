@@ -80,10 +80,10 @@ public class Temps {
   */
   public void chargerTemps(){
     //lecture du fichier Temps.txt
-    String t [] = lireUnFichier.lireUnFichier(Main.getFolder().getFolderTemporary()+"Temps.txt");
+    String t [] = lireUnFichier.readFileArray(Main.getFolder().getFolderTemporary()+"Temps.txt");
     if(t.length<3){
       initialiserFichierTemps();
-      t = lireUnFichier.lireUnFichier(Main.getFolder().getFolderTemporary()+"Temps.txt");
+      t = lireUnFichier.readFileArray(Main.getFolder().getFolderTemporary()+"Temps.txt");
     } //normalement a ce stade la initialiserFichierTemps a déja réparer le fichier temps mais au cas ou on vérifi que tout est bon.
     if(t.length>=3){
       date1 = str.sToL(t[0]);

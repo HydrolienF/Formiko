@@ -202,7 +202,7 @@ public class FPanelMenu extends FPanel {
   public void askLanguage(){
     removeP();
     setSize(Main.getDimX(),Main.getDimY());
-    GString gs = lireUnFichier.lireUnFichierGs(Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages()+"langue.csv");
+    GString gs = lireUnFichier.readFileGs(Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages()+"langue.csv");
     GString gs2 = new GString();
     for (String s : gs) {
       gs2.add(s.split(",")[1]);

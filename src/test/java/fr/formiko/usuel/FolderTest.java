@@ -235,7 +235,7 @@ public class FolderTest extends TestCaseMuet {
   @Test
   @Disabled("Some changes have been done")
   public void testGetVersionJsonPath(){
-    GString gs = lireUnFichier.lireUnFichierGs("version.json");
+    GString gs = lireUnFichier.readFileGs("version.json");
     assertTrue(gs.length()>0);
     fichier.deleteDirectory("version.json");
     // assertEquals(Paths.get(""),Folder.getVersionJsonPath()); //formiko may be instal & it can find Program Files rep

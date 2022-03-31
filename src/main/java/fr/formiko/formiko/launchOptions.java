@@ -433,7 +433,7 @@ public class launchOptions {
       Reader reader = Files.newBufferedReader(Folder.getVersionJsonPath());
       JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
       String formikoVersion="";
-      GString gs = lireUnFichier.lireUnFichierGs("version.md");
+      GString gs = lireUnFichier.readFileGs("version.md");
       if(!gs.isEmpty()){
         formikoVersion=gs.getFirst();
       }
@@ -474,9 +474,9 @@ public class launchOptions {
   // *@lastEditedVersion 1.51
   // */
   // public static String getCurentVersion(){
-  //   GString gsIn = lireUnFichier.lireUnFichierGs("version.md");
+  //   GString gsIn = lireUnFichier.readFileGs("version.md");
   //   if(gsIn.length()==0){
-  //     gsIn = lireUnFichier.lireUnFichierGs("app/version.md");
+  //     gsIn = lireUnFichier.readFileGs("app/version.md");
   //   }
   //   String version = "x.x.x";
   //   if(gsIn.length()>0){version = gsIn.getItem(0);}

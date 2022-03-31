@@ -375,7 +375,7 @@ public class Folder {
   *@lastEditedVersion 2.7
   */
   public String getCurentVersion(){
-    GString gs = lireUnFichier.lireUnFichierGsFromPath(getVersionMdPath());
+    GString gs = lireUnFichier.readFileGs(getVersionMdPath());
     if(gs.isEmpty()){
       erreur.alerte("can't read curent game version");
       return DEFAULT_NULL_VERSION;

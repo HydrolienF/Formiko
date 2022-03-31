@@ -41,7 +41,7 @@ public class trad {
     }
   }
   public static void copieTradBase(String se, Map<String,String> map){
-    String t [] = lireUnFichier.lireUnFichier(Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages()+"fr.txt");
+    String t [] = lireUnFichier.readFileArray(Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages()+"fr.txt");
     GString gs = new GString();
     for (String s : t) {
       if(chargerLesTraductions.estLigneDeTrad(s) && !str.contient(s,"[]",2)){//si c'est une ligne de trad qui ne correspond pas a un nom propre.
@@ -89,7 +89,7 @@ public class trad {
     File index = new File(pathToWebSiteFile+"Newindex.html");
     GString gsr = new GString();
     if(index.exists()){
-      GString gs = lireUnFichier.lireUnFichierGs(index);
+      GString gs = lireUnFichier.readFileGs(index);
       for (String s : gs ) {
         gsr.add(replaceTranslation(s));
       }
@@ -105,7 +105,7 @@ public class trad {
     File download = new File(pathToWebSiteFile+"Newdownload.html");
     gsr = new GString();
     if(index.exists()){
-      GString gs = lireUnFichier.lireUnFichierGs(download);
+      GString gs = lireUnFichier.readFileGs(download);
       for (String s : gs ) {
         gsr.add(replaceTranslation(s));
       }

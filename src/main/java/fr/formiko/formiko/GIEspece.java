@@ -53,7 +53,7 @@ public class GIEspece implements Serializable{
   public void chargerLesIEspeces(){
     String td [] = new String [0];
     try {
-      td = lireUnFichier.lireUnFichier(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"IEspece.csv");
+      td = lireUnFichier.readFileArray(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"IEspece.csv");
     }catch (Exception e) {
       erreur.erreur("Le fichier des IEspece n'as pas pu être localisé. il devrais y avoir un docier data et celui ci devrait contenir un fichier IEspece.txt",true);
     } int lentd = td.length;
