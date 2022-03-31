@@ -24,6 +24,7 @@ public class Th extends Thread{
       ini.initializeFPanelJeuAndSubpanel();
       Chrono.endCh(g.get("chargementFPanelJeuEtDépendance"),ch2);
     }
+    erreur.info("th"+x+" over");
   }
   public synchronized void chargementDesGraphismesAutonomes(){
     Chrono ch2 = new Chrono();
