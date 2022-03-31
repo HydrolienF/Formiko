@@ -39,6 +39,7 @@ laJoueurHumain:la homa ludanto
 joueur:ludanto
 case:fako
 légende:mapklarigo
+currentPlayer:kurenta ludanto
 
 allié:amiko
 neutre:neŭtralo

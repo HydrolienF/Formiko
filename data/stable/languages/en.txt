@@ -39,6 +39,7 @@ laJoueurHumain:the human player[auto]
 joueur:player
 case:square
 légende:legend
+currentPlayer:current player
 
 allié:ally
 neutre:neutral

@@ -136,6 +136,9 @@ public class Partie implements Serializable{
     r+= g.get("vitesseDeJeu")+" : "+vitesseDeJeu;r+="\n";
     r+= g.get("enCours")+" : "+enCours;r+="\n";
     r+= g.get("nbrDeJoueurDansLaPartie")+" : "+nbrDeJoueurDansLaPartie;r+="\n";
+    int id=-1;
+    if(getPlayingJoueur()!=null){id=getPlayingJoueur().getId();}
+    r+= g.get("currentPlayer")+" : "+id;r+="\n";
     r+= g.get("partieFinie")+" : "+partieFinie;r+="\n";
     r+= g.get("dateDeCréation")+" : "+dateDeCréation;r+="\n";
     r+= g.get("difficulté")+" : "+difficulté;r+="\n";

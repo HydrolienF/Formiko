@@ -39,6 +39,7 @@ laJoueurHumain:le joueur humain
 joueur:joueur
 case:case
 légende:Légende
+currentPlayer:joueur qui joue
 
 allié:allié
 neutre:neutre
