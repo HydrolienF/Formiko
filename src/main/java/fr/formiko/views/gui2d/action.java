@@ -64,7 +64,6 @@ public class action {
     }else if(ac==-1){
       FPanel.getView().close();
     }else if(ac==0){
-      // System.out.println("back to main menu");
       FPanel.getView().menuMain();
     }else if(ac==1){
       FPanel.getView().menuNewGame();
