@@ -8,17 +8,14 @@ import java.io.Serializable;
 public class GMessage extends Liste<Message> implements Serializable {
   // FUNCTIONS -----------------------------------------------------------------
   public GString gmToGs(int x){
-    //TODO
-    return null;
-    // if (début==null){ return new GString();}
-    // return fin.gmToGs(x);
-    // while(x>0 && csTemp != null){
-    //   gs.add(csTemp.getContent().description());
-    //   csTemp = csTemp.getPrécédent();
-    //   x--;
-    //   if(x==0){
-    //     gs.addTail("...");
-    //   }
-    // }
+    GString gs = new GString();
+    for (Message m : this) {
+      gs.add(m.description());
+      x--;
+      if(x==0){
+        gs.addTail("...");
+      }
+    }
+    return gs;
   }
 }
