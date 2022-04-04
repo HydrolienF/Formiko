@@ -5,7 +5,6 @@ import fr.formiko.formiko.Message;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.structures.listes.CMessage;
 import fr.formiko.usuel.structures.listes.GMessage;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;

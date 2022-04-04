@@ -25,6 +25,7 @@ import fr.formiko.views.View;
 
 import java.awt.Font;
 import java.awt.Window;
+import java.lang.InterruptedException;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.FocusManager;
@@ -54,6 +55,8 @@ public class ViewGUI2d implements View {
   private boolean moveMode=false;
   private volatile boolean launchFromPm;
   private boolean bladeChanged;
+  private Th thTemp1;
+  private Th thTemp2;
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
@@ -76,7 +79,7 @@ public class ViewGUI2d implements View {
   public FPanelChargement getPch(){ try {return getPj().getPch();}catch (NullPointerException e) {return null;}}
   public FPanelSup getPs(){ if(getPj()!=null){return getPj().getPs();}else{return null;}}
   public FPanelSupDialog getPsd(){ if(getPj()!=null){return getPj().getPsd();}else{return null;}}
-  public FPanelEchap getPe(){ return getPj().getPe();}
+  public FPanelEchap getPe(){ if(getPj()!=null){return getPj().getPe();}else{return null;}}
   public FPanelDialogue getPd(){ try {return getPj().getPd();}catch (NullPointerException e) {return null;}}
   public FPanelDialogueInf getPdi(){ return getPj().getPdi();}
   public FPanelMiniMapContainer getPmmc(){try {return getPb().getPmmc();}catch(NullPointerException e){return null;}}
@@ -238,9 +241,10 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Launch action game part.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@lastEditedVersion 2.6
+  *@lastEditedVersion 2.22
   */
   public boolean actionGame(){
+    waitForGraphicsLoadDone();
     actionGameOn=true;
     if(f==null){ini();}
     if(action.getPartie()!=null){
@@ -496,18 +500,12 @@ public class ViewGUI2d implements View {
       if(!f.getIa()){
         getPb().addPI();
         getPb().addPIJ();
-        // getPb().setVisiblePa(true);
-        // updateIcon();
       }
     }else{
       getPb().removePi();
       getPb().setVisiblePa(false);
       Main.getPartie().setAntIdToPlay(-1);
     }
-    // if (!f.getFere().getJoueur().getIa()) {
-    //   getPb().setVisiblePa(false);
-    // }
-    // Main.getPartie().setAntIdToPlay(-1);
   }
   /**
   *{@summary Move ObjetSurCarteAId.}<br>
@@ -539,7 +537,13 @@ public class ViewGUI2d implements View {
         if(Main.getPartie().getAntIdToPlay()!=-1){
           // erreur.info("action for ant "+Main.getPartie().getAntIdToPlay());
           // Main.setPlayingAnt(Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay()));
-          ((TourFourmiNonIa) Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay()).tour).allowToDisableAutoMode();
+          Fourmi fToSelect = Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay());
+          if(fToSelect.getMaxAction()>0){
+            ((TourFourmiNonIa) fToSelect.tour).allowToDisableAutoMode();
+          }else{
+            Main.getPartie().setAntIdToPlay(-1);
+            Main.setPlayingAnt(null);
+          }
         }
       }
     }
@@ -694,18 +698,43 @@ public class ViewGUI2d implements View {
 
   public Data getData(){return Main.getData();}
 
+  /**
+  *{@summary Define this as the next playing ant.}<br>
+  *@lastEditedVersion 2.22
+  */
+  public void setNextPlayingAnt(Fourmi f){
+    if(f!=null && f.getFere().getJoueur().equals(Main.getPlayingJoueur()) && !f.equals(Main.getPlayingAnt()) && f.getMaxAction()>0) {
+      getPb().setActionF(-2);
+      getPb().removePA();
+      Main.getPartie().setAntIdToPlay(f.getId());
+      setMessageDesc("", true);
+    }
+  }
+
   //private---------------------------------------------------------------------
   /**
   *Load graphics during menu time.
   *@lastEditedVersion 2.6
   */
   private void loadGraphics(){
-    if(Main.getPremierePartie() || !Main.getOpenMenuFirst()){ini.initializeFPanelJeuAndSubpanel();}
-    else{
-      Th thTemp = new Th(1);
-      thTemp.start();
-      Th thTemp2 = new Th(2);
-      thTemp2.start();
+    thTemp1 = new Th(1);
+    thTemp2 = new Th(2);
+    thTemp1.start();
+    thTemp2.start();
+  }
+  /**
+  *{@summary Wait that all Thread that we need to launch game are OK.}<br>
+  *@lastEditedVersion 2.22
+  */
+  private void waitForGraphicsLoadDone(){
+    // no need to wait for th1, it will be call when image will be resize.
+    if(thTemp2!=null && thTemp2.isAlive()){
+      erreur.info("waiting for thTemp2");
+      try {
+        thTemp2.join();
+      }catch (InterruptedException e) {
+        erreur.erreur("thTemp1 can't be waiting");
+      }
     }
   }
   /**
@@ -771,9 +800,9 @@ public class ViewGUI2d implements View {
         public void run(){
           Window activeWindow = javax.swing.FocusManager.getCurrentManager().getActiveWindow();
           // System.out.println(getF().equals(activeWindow));
-          erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()));
           // erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()/10));
-          launchOptions.printMemUse();
+          // erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()));
+          // launchOptions.printMemUse();
           view.setCurentFPS(0);
         }
       }, 0, 1000);

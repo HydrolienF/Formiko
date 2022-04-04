@@ -105,9 +105,6 @@ public class Folder {
     }else if(os.isLinux()){
       setFolderMain("/"+System.getProperty("user.home")+"/.formiko/");
     }else if(os.isMac()){
-      //TODO fined & test a good path for mac.
-      // setFolderMain(System.getProperty("user.home")+"/.formiko/");
-      // setFolderMain("");
       setFolderMain("/"+System.getProperty("user.home")+"/.formiko/");
     }else{
       setFolderMain("");
@@ -376,7 +373,7 @@ public class Folder {
   *@lastEditedVersion 2.7
   */
   public String getCurentVersion(){
-    GString gs = lireUnFichier.lireUnFichierGsFromPath(getVersionMdPath());
+    GString gs = ReadFile.readFileGs(getVersionMdPath());
     if(gs.isEmpty()){
       erreur.alerte("can't read curent game version");
       return DEFAULT_NULL_VERSION;

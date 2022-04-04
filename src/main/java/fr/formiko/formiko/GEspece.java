@@ -5,7 +5,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.decoderUnFichier;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.ReadFile;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 
@@ -43,7 +43,7 @@ public class GEspece implements Serializable{
   public void chargerLesEspeces(){
     String td [] = new String [0];
     try {
-      td = lireUnFichier.lireUnFichier(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"Espece.csv");
+      td = ReadFile.readFileArray(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"Espece.csv");
     }catch (Exception e) {
       erreur.erreur("Le fichier des Espece n'as pas pu être localisé. il devrais y avoir un docier data et celui ci devrait contenir un fichier Espece.txt",true);
     } int lentd = td.length;

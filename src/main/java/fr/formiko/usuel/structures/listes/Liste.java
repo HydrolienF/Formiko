@@ -212,6 +212,17 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
     return r;
   }
   /**
+  *{@summary Return this as a GString.}<br>
+  *@lastEditedVersion 2.22
+  */
+  public GString toGString(){
+    GString r = new GString();
+    for (T t : this ) {
+      r.add(t.toString());
+    }
+    return r;
+  }
+  /**
   *{@summary Return a long string with all the list value split by '\n'.}<br>
   *@lastEditedVersion 1.41
   */

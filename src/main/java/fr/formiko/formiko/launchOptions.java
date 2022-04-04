@@ -21,6 +21,7 @@ import fr.formiko.views.ViewNull;
 
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.Reader;
@@ -92,6 +93,12 @@ public class launchOptions {
       case "ls":
       case "launchScript":
       Partie.setScript(opArg);
+      break;
+      case "v":
+      case "version":
+      case "-version":
+      printVersion();
+      System.exit(0);
       break;
       default:
       erreur.alerte("Unknow cli options : "+stringOptions);
@@ -240,6 +247,10 @@ public class launchOptions {
     //   System.exit(0);
     }else if(args[0].equals("mem")){
       printMemUse();
+    }else if(args[0].equals("ss")){
+      printScreenSize();
+    }else if(args[0].equals("version")){
+      printVersion();
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }
@@ -433,7 +444,7 @@ public class launchOptions {
       Reader reader = Files.newBufferedReader(Folder.getVersionJsonPath());
       JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
       String formikoVersion="";
-      GString gs = lireUnFichier.lireUnFichierGs("version.md");
+      GString gs = ReadFile.readFileGs("version.md");
       if(!gs.isEmpty()){
         formikoVersion=gs.getFirst();
       }
@@ -474,16 +485,16 @@ public class launchOptions {
   // *@lastEditedVersion 1.51
   // */
   // public static String getCurentVersion(){
-  //   GString gsIn = lireUnFichier.lireUnFichierGs("version.md");
+  //   GString gsIn = ReadFile.readFileGs("version.md");
   //   if(gsIn.length()==0){
-  //     gsIn = lireUnFichier.lireUnFichierGs("app/version.md");
+  //     gsIn = ReadFile.readFileGs("app/version.md");
   //   }
   //   String version = "x.x.x";
   //   if(gsIn.length()>0){version = gsIn.getItem(0);}
   //   return version;
   // }
   /**
-  *{@summary print data about memory use.}<br>
+  *{@summary Print data about memory use.}<br>
   *@lastEditedVersion 2.21
   */
   public static void printMemUse(){
@@ -493,5 +504,29 @@ public class launchOptions {
     erreur.info ("Memory total: " + runtime.totalMemory() / dataSize + "MB",0);
     erreur.info ("Memory free: " + runtime.freeMemory() / dataSize + "MB",0);
     erreur.info ("Memory used: " + (runtime.totalMemory() - runtime.freeMemory()) / dataSize + "MB",0);
+  }
+  /**
+  *{@summary Print available screen size.}<br>
+  *@lastEditedVersion 2.22
+  */
+  public static void printScreenSize(){
+    int wi=0; int he=0;
+    try {
+      Rectangle rec = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
+      wi = rec.width;
+      he = rec.height;
+    }catch (Exception e) {
+      erreur.alerte("no screen size found");
+    }
+    erreur.info("Screen size:"+wi+" "+he);
+  }
+  /**
+  *{@summary Print game, data, music versions.}<br>
+  *@lastEditedVersion 2.22
+  */
+  public static void printVersion(){
+    Folder folder = new Folder();
+    folder.ini(false); //don't download anything
+    erreur.info("Formiko "+folder.getCurentVersion()+"   data version: "+folder.getCurentDataVersion()+"   music version: "+folder.getCurentMusicVersion());
   }
 }

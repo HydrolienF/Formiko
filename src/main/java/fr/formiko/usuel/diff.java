@@ -2,7 +2,7 @@ package fr.formiko.usuel;
 
 //def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usuel.structures.listes.GString;
-import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.ReadFile;
 /**
  * {@summary Tool to count add or suppress line.}<br>
  * @author Hydrolien
@@ -17,8 +17,8 @@ public class diff {
    */
   public static int nbrDeLigneDiff(String nouveauFichier, String ancienFichier){
     //on charge les 2 fichiers dans 2 liste chainé de String.
-    GString gs1 = lireUnFichier.lireUnFichierGs(nouveauFichier);
-    GString gs2 = lireUnFichier.lireUnFichierGs(ancienFichier);
+    GString gs1 = ReadFile.readFileGs(nouveauFichier);
+    GString gs2 = ReadFile.readFileGs(ancienFichier);
     //on compte la différence de ligne entre les 2 fichiers.
     int ligneAjoute = gs1.length() - gs2.length();
     //on parcours le nouveau fichier en cherchant si la ligne existe déjà dans l'ancien fichier.

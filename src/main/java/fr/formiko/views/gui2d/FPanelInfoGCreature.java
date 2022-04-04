@@ -165,11 +165,8 @@ public class FPanelInfoGCreature extends FPanelInfo {
           */
           @Override
           public void mouseReleased(MouseEvent event) {
-            if(o instanceof Fourmi && ((Fourmi)o).getFere().getJoueur().equals(Main.getPlayingJoueur())){
-              getView().getPb().setActionF(-2);
-              getView().getPb().removePA();
-              Main.getPartie().setAntIdToPlay(o.getId());
-              getView().setMessageDesc("", true);
+            if(o!=null && o instanceof Fourmi){
+              getView().setNextPlayingAnt(((Fourmi)o));
             }
           }
         });

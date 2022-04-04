@@ -26,7 +26,7 @@ public class TourCreatureSansAction implements Serializable, Tour{
     tour(c);
     debug.débogage("fin du tour de la fourmi.");
   }
-  public void preTour(Creature c){}
+  public void preTurn(Creature c){}
   /**
   *Do turn actions :<br>
   *manger, grandir (age).<br>

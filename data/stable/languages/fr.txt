@@ -39,6 +39,7 @@ laJoueurHumain:le joueur humain
 joueur:joueur
 case:case
 légende:Légende
+currentPlayer:joueur qui joue
 
 allié:allié
 neutre:neutre
@@ -322,6 +323,9 @@ colorState.0:bon
 colorState.1:moyen
 colorState.2:mauvais
 colorState.3:critique
+
+messageSaveFail:la sauvegarde de la partie a échouée
+messageSaveWork:partie sauvegardée
 
 //graphic item:
 

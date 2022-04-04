@@ -162,15 +162,14 @@ public class Fourmiliere implements Serializable{
   }
   /**
   *{@summary Let all ant play.}<br>
-  *Before that ants play they all have a pre-turn update (gc.preTour()).<br>
+  *Before that ants play they all need to have a pre-turn update (this.preTurn()).<br>
   *Ants do not necessarily play in order so we way for haveDoneAllActionAviable() to end turn.<br>
   *At the end of the Fourmiliere turn we add a line to there stats (How many ant are alive and what stade).
-  *@lastEditedVersion 1.31
+  *@lastEditedVersion 2.22
   */
   public void jouer(){
     if(gc.length()==0){return;}
     //this.setModeDéfaut(3); //tant que tous le couvains n'aura pas été dorloté.
-    gc.preTour();
     do {
       gc.jouer();
     } while (!gc.haveDoneAllActionAviable() && !getJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu());
@@ -182,6 +181,13 @@ public class Fourmiliere implements Serializable{
     }
     setWaitingForEndTurn(false);
     ggi.add(new GInt(this)); //stats of this turn
+  }
+  /**
+  *{@summary Before that ants play they all have a pre-turn update (gc.preTurn()).}<br>
+  *@lastEditedVersion 2.22
+  */
+  public void preTurn(){
+    gc.preTurn();
   }
   /*public void faireVarierLesAge(){
   }

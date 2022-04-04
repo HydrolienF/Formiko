@@ -10,6 +10,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.sauvegarderUnePartie;
 import fr.formiko.tests.TestCaseMuet;
+import fr.formiko.formiko.triche;
 
 import java.io.File;
 
@@ -86,5 +87,30 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
     ini();
     assertEquals(x,sauvegarderUnePartie.getSave().getIdS());
     assertTrue(f.delete());
+  }
+  @Test
+  public void testSaveWithPLayerSelected(){
+    Main.setPartie(new Partie()); //nouvelle partie vide.
+    debug.setDPG(false);
+    Main.initialisation();
+    Main.setPartie(Partie.getDefautlPartie());
+    Main.getPartie().initialisationElément();
+    assertTrue(Main.getPartie().setPlayingAnt(triche.getFourmiParId("1")));
+    sauvegarderUnePartie.sauvegarder(Main.getPartie(), "testVraisPartie");
+    Partie p = sauvegarderUnePartie.charger("testVraisPartie");
+    assertTrue(Main.getPartie().equals(p));
+    assertTrue(sauvegarderUnePartie.supprimer("testVraisPartie"));
+    assertTrue(!sauvegarderUnePartie.supprimer("testVraisPartie"));//le fichier n'existe déja plus.
+  }
+  @Test
+  public void testSaveWithoutPLayerSelected(){
+    Main.setPartie(new Partie()); //nouvelle partie vide.
+    debug.setDPG(false);
+    Main.initialisation();
+    Main.setPartie(Partie.getDefautlPartie());
+    Main.getPartie().initialisationElément();
+    sauvegarderUnePartie.sauvegarder(Main.getPartie(), "testVraisPartie");
+    Partie p = sauvegarderUnePartie.charger("testVraisPartie");
+    assertEquals(p, null);
   }
 }

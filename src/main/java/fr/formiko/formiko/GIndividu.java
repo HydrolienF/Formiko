@@ -5,7 +5,7 @@ import fr.formiko.usuel.debug;
 import fr.formiko.usuel.decoderUnFichier;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.ReadFile;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.structures.listes.Liste;
@@ -58,7 +58,7 @@ public class GIndividu extends Liste<Individu> implements Serializable{
   public static void loadIndividus(){
     String td [] = new String [0];
     try {
-      td = lireUnFichier.lireUnFichier(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"Individu.csv");
+      td = ReadFile.readFileArray(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"Individu.csv");
     }catch (Exception e) {
       erreur.erreur("Le fichier des Individu n'as pas pu être localisé. il devrais y avoir un dossier data et celui ci devrait contenir un fichier Individu.txt",true);
     } int lentd = td.length;

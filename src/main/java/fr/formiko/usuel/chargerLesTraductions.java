@@ -1,7 +1,7 @@
 package fr.formiko.usuel;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.ReadFile;
 import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
@@ -80,7 +80,7 @@ public class chargerLesTraductions {
   */
   public static boolean iniTLangue(){
     try {
-      String t []=lireUnFichier.lireUnFichier(rep+"langue.csv");
+      String t []=ReadFile.readFileArray(rep+"langue.csv");
       if(t==null){throw new NullPointerException();}//on passe dans le catch.
       if(t.length==0){throw new Exception();}//TODO find a better Exception
       tLangue=new String[t.length];int k=0;
@@ -135,14 +135,14 @@ public class chargerLesTraductions {
   *@lastEditedVersion 1.7
   */
   public static String [] getTableauDesTrad(int langue){
-    //String tDéfaut [] = lireUnFichier.lireUnFichier(rep+"fr.txt");
+    //String tDéfaut [] = ReadFile.readFileArray(rep+"fr.txt");
     String t [] = new String[0];
     try{
       debug.débogage("chargement de la langue "+getLanguage(langue));
-      t=lireUnFichier.lireUnFichier(rep+getLanguage(langue)+".txt");
+      t=ReadFile.readFileArray(rep+getLanguage(langue)+".txt");
     }catch (Exception e) {
       erreur.erreur("Echec du chargement de la langue spécifiée","en choisi par défaut");
-      t=lireUnFichier.lireUnFichier(rep+"en.txt");
+      t=ReadFile.readFileArray(rep+"en.txt");
     }
     return t;
   }
@@ -153,7 +153,7 @@ public class chargerLesTraductions {
   public static String []getTableauDesNationsName(){
     String t [] = new String[0];
     try{
-      t=lireUnFichier.lireUnFichier("docs/cc/"+"nationsName"+".csv");
+      t=ReadFile.readFileArray("docs/cc/"+"nationsName"+".csv");
     }catch (Exception e) {
       erreur.erreur("Echec du chargement de nationsName");
     }
@@ -167,7 +167,7 @@ public class chargerLesTraductions {
     String t [] = new String[0];
     try{
       debug.débogage("chargement des commandes");
-      t=lireUnFichier.lireUnFichier(rep+"cmd"+".txt");
+      t=ReadFile.readFileArray(rep+"cmd"+".txt");
     }catch (Exception e) {
       erreur.erreur("Echec du chargement des commandes");
     }
@@ -269,7 +269,7 @@ public class chargerLesTraductions {
     int x = 0;
     String [] t= new String [0];
     try {
-      t=lireUnFichier.lireUnFichier(rep+getLanguage(langue)+".txt");
+      t=ReadFile.readFileArray(rep+getLanguage(langue)+".txt");
     }catch (Exception e) {}
       for (String s : t ) {
         if(estLigneDeTrad(s)){
@@ -290,7 +290,7 @@ public class chargerLesTraductions {
     int x = 0;
     String [] t= new String [0];
     try {
-      t=lireUnFichier.lireUnFichier(rep+getLanguage(langue)+".txt");
+      t=ReadFile.readFileArray(rep+getLanguage(langue)+".txt");
     }catch (Exception e) {}
       for (String s : t ) {
         if(s.length()>6 && s.substring(s.length()-6).equals("[auto]")){

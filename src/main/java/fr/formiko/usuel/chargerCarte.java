@@ -4,7 +4,7 @@ import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Case;
 import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.lireUnFichier;
+import fr.formiko.usuel.ReadFile;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 
@@ -25,14 +25,14 @@ public class chargerCarte {
   public static GCase chargerCarte(String fichier){
     String s [] = null;
     String fullName = Main.getFolder().getFolderStable()+Main.getFolder().getFolderMaps()+fichier+".csv";
-    s = lireUnFichier.lireUnFichier(fullName);
+    s = ReadFile.readFileArray(fullName);
     if(s==null || s.length==0){
       fullName = Main.getFolder().getFolderResourcesPacks()+Main.getFolder().getFolderMaps()+fichier+".csv";
-      s = lireUnFichier.lireUnFichier(fullName);
+      s = ReadFile.readFileArray(fullName);
     }
     if(s==null || s.length==0){
       fullName = Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderMaps()+fichier+".csv";
-      s = lireUnFichier.lireUnFichier(fullName);
+      s = ReadFile.readFileArray(fullName);
     }
     if (s == null || s.length==0){ erreur.erreur("Le chargement de la carte "+fichier+" a échoué.");return null;}
     int x = nbItemPerLine(s[0]);

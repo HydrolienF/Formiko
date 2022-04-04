@@ -85,9 +85,9 @@ public class GInsecte extends Liste<Insecte> implements Serializable{
   *{@summary Play pre-turn of insects.}<br>
   *@lastEditedVersion 2.2
   */
-  public void preTour(){
+  public void preTurn(){
     for (Insecte i : this) {
-      i.preTour();
+      i.preTurn();
     }
   }
   /**

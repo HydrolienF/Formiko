@@ -447,16 +447,16 @@ public class GCreature implements Serializable{//, Iterator{
   *reset action before the turn of all the ant.
   *@lastEditedVersion 2.1
   */
-  private void preTourE() throws EmptyListException{
+  private void preTurnE() throws EmptyListException{
     if(début == null){
-      throw new EmptyListException("GCreature","preTour");
+      throw new EmptyListException("GCreature","preTurn");
     }else{
       for (Creature c : toList() ) {
         if(c instanceof Fourmi){
           Fourmi fActuel = (Fourmi)c;
-          fActuel.preTour();
+          fActuel.preTurn();
         }else{
-          erreur.erreur("Impossible de faire preTour comme une fourmi la créature "+c.getId()+" qui n'en est pas une.");
+          erreur.erreur("Impossible de faire preTurn comme une fourmi la créature "+c.getId()+" qui n'en est pas une.");
         }
       }
     }
@@ -465,9 +465,9 @@ public class GCreature implements Serializable{//, Iterator{
   *{@summary reset action before the turn of all the ant.}
   *@lastEditedVersion 1.30
   */
-  public void preTour(){
+  public void preTurn(){
     try{
-      preTourE();
+      preTurnE();
     }catch (EmptyListException e) {}
   }
   /**

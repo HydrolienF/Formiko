@@ -39,6 +39,7 @@ laJoueurHumain:la homa ludanto
 joueur:ludanto
 case:fako
 légende:mapklarigo
+currentPlayer:kurenta ludanto
 
 allié:amiko
 neutre:neŭtralo
@@ -90,21 +91,21 @@ assexué:malseksula
 sexué:seksula
 
 //menu :
-menuP.1:nova ludo
-menuP.2:ŝargi 1 ludo
+menuP.1:nova partio
+menuP.2:ŝargi 1 partio
 menuP.3:optioj
 menuP.4:foriri
 menuN.1:nova foriro
-menuN.2:personeciga ludo
+menuN.2:personeciga partio
 menuN.3:lernilo
 menuN.4:reveni
 
 quitterJeu:deiri la ludo
-quitterOuContinuer:ĉu vi deziri malhalti la ludo ?
+quitterOuContinuer:ĉu vi deziri malhalti la partio ?
 messageQuitter:a baldaŭ en Formiko !
-validerQuitter:ĉu vi efektive deziri malhalti la ludo ?
+validerQuitter:ĉu vi efektive deziri malhalti ?
 quitterToMp:revenu al la ĉefa menuo
-continuerJeu:daŭrigu la ludon
+continuerJeu:daŭrigu la partion
 supprimerFourmi.1:forigu la formikon
 supprimerFourmi.2:ĉu vi vere volas forigi la formikon
 choisirPartie:elekti parton[auto]
@@ -118,7 +119,7 @@ nbrDIa:nombro de malhoma(j) ludanto(j)
 nbrDeTour:nombro de vico
 dimentionCarteX:dimensio de la mapo en "X"
 dimentionCarteY:dimensio de la mapo en "Y"
-erreurCarteVide:neeble de impulsi la ludo kun 0 homa (aŭ malhoma) ludanto.
+erreurCarteVide:neeble de impulsi la partio kun 0 homa (aŭ malhoma) ludanto.
 maxFourmiIa:nombro maksimuma de formiko por la malhoma ludanto
 nomDuFichier:nomo de la dosiero
 getFileName:enigu la nomon de la konservota aro, kiun vi volas ŝargi: (Aŭ reen por reiri)[auto]
@@ -146,7 +147,7 @@ tAgeMax:tabelo de maksimuma aĝo
 tNourritureMax:tableo de maksimuma manĝaĵo
 tCoutAction:tableo de fara kosto
 
-initialisationDesJoueurs:krei de la ludoj
+initialisationDesJoueurs:krei de la ludantoj
 initialisationDesInsectes:krei de la insektoj
 chargementDesGraphismes:ŝarĝi de la grafikoj
 
@@ -191,13 +192,13 @@ contient:enhavi
 
 paramètreCarte:parametro de la mapo
 paramètreJeu:parametro de la ludo
-lancerPartie:lanĉi la ludo
+lancerPartie:lanĉi la partio
 
 casesNuageuses:nubaj fako
 casesSombres:malhelaj fako
 
 chargementFini:finita ŝarĝo
-lancerLeJeu:komencante la ludon[auto]
+lancerLeJeu:komencante la partion[auto]
 
 lookedCase:aspektis fako
 saveName:nomo de la savo
@@ -323,6 +324,9 @@ colorState.1:meza
 colorState.2:malbona
 colorState.3:kritikaj
 
+messageSaveFail:partio malsavis
+messageSaveWork:partio savis
+
 //objet graphique:
 
 homeWebSiteLink:retejo
@@ -336,7 +340,7 @@ bouton.nom.-11:opcio
 bouton.nom.-12disable:ŝargi
 bouton.nom.-12:reiri al ĉefa menuo
 bouton.nom.-13:deiri Formiko
-bouton.nom.-14:reiri a la ludo
+bouton.nom.-14:reiri a la partio
 
 languageChoice:elekti lingvon
 
@@ -397,8 +401,8 @@ pti.desc.5:indiki la kodo de la formiko a puri.
 doAntAction:faru formikon fari
 selectAnt:elektu formikon
 endTurn:finu vico
-endGame:finu ludo
-pauseActionGame:paŭza ludo
+endGame:finu partio
+pauseActionGame:paŭzu partio
 unaviable:neatingebla
 setPlayingAnt:elektu ludantan formikon
 
@@ -464,9 +468,9 @@ conseil.10:la ovoj, lafo kaj nimfo ne kapablas purigi sola. Ili nepre bezonas he
 conseil.11:la reĝino povas kuŝu ovojn nur kiam ŝi estas en la formiko.
 conseil.12:la granivaj formikoj nutras ekskluzive semojn. Por stoki ĝian manĝaĵon ili tenas la semojn en sekaj ĉambroj de la formiko.
 conseil.13:formikoj kun manĝeblaj grajnoj ne kapablas trofalaksi. Por nutri la bredadon, ili devas nepre havi semojn malfermitajn en provizo.
-conseil.14:la rapidoj estas esprimitaj de insektoj. Ju pli rapida estas la insekto, des pli rapide disvolviĝos la ludo. La Ant-rapido respondas al la norma rapido.[auto]
+conseil.14:la rapidoj estas esprimitaj de insektoj. Ju pli rapida estas la insekto, des pli rapide disvolviĝos la partio. La Ant-rapido respondas al la norma rapido.[auto]
 conseil.15:ĉu la ludo ŝajnas al vi tro komplika? Elektu facilan aŭ tre facilan malfacilaĵon.[auto]
-conseil.16:ĉu la ludo ŝajnas tro facila? Do provu gajni tre malfacilan ludon.[auto]
+conseil.16:ĉu la ludo ŝajnas tro facila? Do provu gajni tre malfacilan partio.[auto]
 conseil.17:se vi preferas mem esplori la mapon, marku la opcion nubaj skatoloj.[auto]
 conseil.18:ĉu vi iam provis lanĉi kutimon kun nur AI?[auto]
 conseil.19:se vi rigardas atente la teksturon de la herbo, vi eble rimarkos, ke ĝi enhavas nur 3 malsamajn herbero.[auto]
@@ -521,6 +525,6 @@ tuto.31.1:jen vi havas gajni ! Sed efektive, kiel mi povas nomu vin ?
 tuto.32:ĝi estis la lasta raŭndo de ĉi tiu lernilo, se vi havas dubon, vi povas refari ĉi tiun lernilon.[auto]
 tuto.33:alie la butonaj priskriboj montriĝas kiam vi ŝvebas super ilin, same por la kestoj sur la mapo. Informoj pri la elektita formiko estas dekstre de via ekrano.[auto]
 tuto.34:se malgraŭ tio vi ne trovas tion, kion vi bezonas, vi povas peti konsilon ĉe la oficiala malkonkorda servilo de la ludo: http://discord.gg/vqvfGzf[auto]
-tuto.35:por gajni ludon ĝustatempe, vi devas havi pli altan poentaron ol AI kaj aliaj ludantoj.[auto]
-tuto.36:via poentaro dependas de via nombro da formikoj, (plenkreskaj formikoj donas pli bonan poentaron), same kiel la malfacilecon de la ludo kaj la rapidecon de la ludo.[auto]
-tuto.37:tio estos ĉio por ĉi tiu lernilo, mi sendas vin al la ĉefa menuo, kie vi povas komenci vian sekvan ludon!
+tuto.35:por gajni partion ĝustatempe, vi devas havi pli altan poentaron ol AI kaj aliaj ludantoj.[auto]
+tuto.36:via poentaro dependas de via nombro da formikoj, (plenkreskaj formikoj donas pli bonan poentaron), same kiel la malfacilecon de la partio kaj la rapidecon de la ludo.[auto]
+tuto.37:tio estos ĉio por ĉi tiu lernilo, mi sendas vin al la ĉefa menuo, kie vi povas komenci vian sekvan partion!

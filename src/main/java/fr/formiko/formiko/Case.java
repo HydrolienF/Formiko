@@ -23,7 +23,7 @@ public class Case implements Serializable{
   private Fourmiliere fere;
   private GCreature gc;
   private GGraine gg;
-  private GBlade gb;
+  private transient GBlade gb;
   private byte foodInsecte;
   private byte foodInsecteMax;
   private byte foodInsecteParTour;
@@ -92,7 +92,7 @@ public class Case implements Serializable{
       erreur.alerte("Trying to add more foodInsecte than max on Case "+p);
       x2=getFoodInsecteMax();
     }
-    gb.addBlades(x2 - foodInsecte);
+    addBlades(x2 - foodInsecte);
     foodInsecte=(byte)x2;
   }
   public void addFoodInsecte(int x){addFoodInsecte((byte)x);}
@@ -115,7 +115,7 @@ public class Case implements Serializable{
       erreur.alerte("Trying to remove more foodInsecte than aviable on Case "+p);
       x2=0;
     }
-    gb.removeBlades(foodInsecte-x2);
+    removeBlades(foodInsecte-x2);
     foodInsecte=(byte)x2;
   }
   public void removeFoodInsecte(int x){removeFoodInsecte((byte)x);}
@@ -126,7 +126,7 @@ public class Case implements Serializable{
   public GGraine getGGraineCopier(){return gg.copierGGraine();}
   public GGraine getGGraine(){return gg;}
   public GGraine getGg(){ return getGGraine();}
-  public GBlade getGb(){ return gb;}
+  public GBlade getGb(){if(gb==null){iniGBlade();} return gb;}
   public byte getType(){ return type;}
   /**
   *{@summary Update type &#38; GBlade depending of type.}
@@ -315,5 +315,29 @@ public class Case implements Serializable{
     int x  = allea.getAllea(50);
     if(x==0 && this.getFere()==null){ new Graine(p);} // si on a de la chance et que il n'y a pas de fere sur la case.
     gg.tour();
+  }
+  /**
+  *{@summary Initialize GBlade back.}<br>
+  *@lastEditedVersion 2.22
+  */
+  private void iniGBlade(){
+    gb = new GBlade(type);
+    gb.addBlades(getFoodInsecte());
+  }
+  /**
+  *{@summary Initialize GBlade back.}<br>
+  *@lastEditedVersion 2.22
+  */
+  private void addBlades(int nbrBlades){
+    if(gb==null){iniGBlade();return;}
+    gb.addBlades(nbrBlades);
+  }
+  /**
+  *{@summary Initialize GBlade back.}<br>
+  *@lastEditedVersion 2.22
+  */
+  private void removeBlades(int nbrBlades){
+    if(gb==null){iniGBlade();return;}
+    gb.removeBlades(nbrBlades);
   }
 }

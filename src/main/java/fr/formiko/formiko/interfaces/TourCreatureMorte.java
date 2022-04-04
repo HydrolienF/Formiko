@@ -23,7 +23,7 @@ public class TourCreatureMorte implements Serializable, Tour{
   public void unTour(Creature c){
     endTurn(c);
   }
-  public void preTour(Creature c){}
+  public void preTurn(Creature c){}
   /**
   *End 1 turn with Creature c.
   *@lastEditedVersion 2.5

@@ -64,7 +64,7 @@ public class createBadges{
   *@lastEditedVersion 1.46
   */
   private static void createVersionsBadges(){
-    GString gsIn = lireUnFichier.lireUnFichierGs("version.md");
+    GString gsIn = ReadFile.readFileGs("version.md");
     String version = "x.x.x";
     if(gsIn.length()>0){version = gsIn.getItem(0);}
     GString gsOut = createBadge("Version", version,"blue");

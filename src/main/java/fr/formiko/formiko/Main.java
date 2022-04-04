@@ -441,10 +441,18 @@ public class Main {
     if(!getPartie().getContinuerLeJeu()){
       return;
     }
-    getGc().tourCases(); //actualisation des ressources sur les cases.
-    getGi().preTour(); //actualisation des actions des insectes
+    if(!getPartie().getLaunchingFromSave()){
+      getGc().tourCases(); //actualisation des ressources sur les cases.
+      getGi().preTurn(); //actualisation des actions des insectes
+      for (Joueur j : getGj().toList()) {
+        j.getFere().preTurn();
+      }
+    }else{
+      getPartie().setLaunchingFromSave(false);
+    }
     getGj().jouer();
     getGi().tourInsecte();
+
     if(Main.getPartie().getAppartionInsecte()){
       int nbrDInsecteRestant = math.max( getGc().getNbrDeCase()/5 -  getGi().getGiVivant().length(),0);
       int x2 = math.min( getGc().getNbrDeCase()/20, nbrDInsecteRestant);

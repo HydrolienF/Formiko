@@ -162,9 +162,10 @@ public class Fourmi extends Creature implements Serializable{
   // public static void setBupdateSize(boolean b){bupdateSize=b;}
   @Override
   public String getNom(){return g.get("fourmi");}
+  public boolean isImago(){return getStade()==0;}
   //racourci
   public Fourmi getReine(){ return getFere().getGc().getReine();}
-  public byte getHealthPerdu(){return e.getHealthPerdu(stade);}
+  public byte getHealthPerdu(){return e.getHealthPerdu(getStade());}
   public int getFoodConso(){return getIndividu().getFoodConso(getStade());}
   /**
   *{@summary Return true if is own by an AI.}<br>
@@ -389,7 +390,7 @@ public class Fourmi extends Creature implements Serializable{
     }
   }
   /**
-  *{@summary initialize ph value for an ant.}<br>
+  *{@summary Initialize ph value for an ant.}<br>
   *It take similar pheromone to the 1 of the queen.
   *If the queen is death it take ph from the 1a an of the anthill.
   *If there is not more and it take a random pheromone.
