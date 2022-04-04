@@ -63,14 +63,17 @@ All new classes names, functions names, vars names need to be in English.
 Java basic naming conventions that you probably already know can be found [here](https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html)
 
 In this project we have few more rules to shorter a bit code:
-  * `{` Are at the end of the line. `public static void function(String arg1){`
-  * getters & setters are write in 1 line. `public static int getMax(){return max;}`
+  * `{` Are at the end of the line.
+  * getters & setters are write in 1 line.
   * tab are 2 spaces.
 
 ```Java
 class C {
-  function1(){
+  private int max;
+  public void function1(){
     System.out.println("Formiko !");
+    max=10;
   }
+  public int getMax(){return max;}
 }
 ```

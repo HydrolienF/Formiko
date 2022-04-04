@@ -94,6 +94,12 @@ public class launchOptions {
       case "launchScript":
       Partie.setScript(opArg);
       break;
+      case "v":
+      case "version":
+      case "-version":
+      printVersion();
+      System.exit(0);
+      break;
       default:
       erreur.alerte("Unknow cli options : "+stringOptions);
     }
@@ -243,6 +249,8 @@ public class launchOptions {
       printMemUse();
     }else if(args[0].equals("ss")){
       printScreenSize();
+    }else if(args[0].equals("version")){
+      printVersion();
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }
@@ -511,5 +519,14 @@ public class launchOptions {
       erreur.alerte("no screen size found");
     }
     erreur.info("Screen size:"+wi+" "+he);
+  }
+  /**
+  *{@summary Print game, data, music versions.}<br>
+  *@lastEditedVersion 2.22
+  */
+  public static void printVersion(){
+    Folder folder = new Folder();
+    folder.ini(false); //don't download anything
+    erreur.info("Formiko "+folder.getCurentVersion()+"   data version: "+folder.getCurentDataVersion()+"   music version: "+folder.getCurentMusicVersion());
   }
 }
