@@ -5,6 +5,7 @@ import fr.formiko.usuel.types.str;
 
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
@@ -343,8 +344,9 @@ public class Options implements Serializable{
     SortedProperties defaultProperties = new SortedProperties(34);
     int wi=0; int he=0;
     try {
-      wi = Toolkit.getDefaultToolkit().getScreenSize().width;
-      he = Toolkit.getDefaultToolkit().getScreenSize().height;
+      Rectangle rec = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
+      wi = rec.width;
+      he = rec.height;
     }catch (Exception e) {
       erreur.alerte("no screen size found");
     }

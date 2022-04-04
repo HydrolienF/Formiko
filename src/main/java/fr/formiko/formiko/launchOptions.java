@@ -21,6 +21,7 @@ import fr.formiko.views.ViewNull;
 
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.Reader;
@@ -240,6 +241,8 @@ public class launchOptions {
     //   System.exit(0);
     }else if(args[0].equals("mem")){
       printMemUse();
+    }else if(args[0].equals("ss")){
+      printScreenSize();
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }
@@ -483,7 +486,7 @@ public class launchOptions {
   //   return version;
   // }
   /**
-  *{@summary print data about memory use.}<br>
+  *{@summary Print data about memory use.}<br>
   *@lastEditedVersion 2.21
   */
   public static void printMemUse(){
@@ -493,5 +496,20 @@ public class launchOptions {
     erreur.info ("Memory total: " + runtime.totalMemory() / dataSize + "MB",0);
     erreur.info ("Memory free: " + runtime.freeMemory() / dataSize + "MB",0);
     erreur.info ("Memory used: " + (runtime.totalMemory() - runtime.freeMemory()) / dataSize + "MB",0);
+  }
+  /**
+  *{@summary Print available screen size.}<br>
+  *@lastEditedVersion 2.22
+  */
+  public static void printScreenSize(){
+    int wi=0; int he=0;
+    try {
+      Rectangle rec = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
+      wi = rec.width;
+      he = rec.height;
+    }catch (Exception e) {
+      erreur.alerte("no screen size found");
+    }
+    erreur.info("Screen size:"+wi+" "+he);
   }
 }
