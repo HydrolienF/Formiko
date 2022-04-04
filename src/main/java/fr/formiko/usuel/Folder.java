@@ -107,7 +107,8 @@ public class Folder {
     }else if(os.isMac()){
       //TODO fined & test a good path for mac.
       // setFolderMain(System.getProperty("user.home")+"/.formiko/");
-      setFolderMain("");
+      // setFolderMain("");
+      setFolderMain("/"+System.getProperty("user.home")+"/.formiko/");
     }else{
       setFolderMain("");
     }
