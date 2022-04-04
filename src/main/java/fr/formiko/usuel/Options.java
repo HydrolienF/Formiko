@@ -389,7 +389,11 @@ public class Options implements Serializable{
     defaultProperties.setProperty("gui_global_fps","60");
     defaultProperties.setProperty("gui_global_frameHeight",""+he);
     defaultProperties.setProperty("gui_global_frameWidth",""+wi);
-    defaultProperties.setProperty("gui_global_fullscreen","true");
+    if(Main.getOs().isMac()){
+      defaultProperties.setProperty("gui_global_fullscreen","false");
+    }else{
+      defaultProperties.setProperty("gui_global_fullscreen","true");
+    }
     defaultProperties.setProperty("gui_hide_buttonSizeTX",""+t[0]);
     defaultProperties.setProperty("gui_hide_buttonSizeZoom",""+t[0]);
     defaultProperties.setProperty("gui_hide_keepFilesRotated","true");

@@ -96,7 +96,7 @@ public class FPanelMiniMapContainer extends FPanel {
     *@lastEditedVersion 2.5
     */
     public FButtonEndTurn() {
-      super("", FPanel.getView().getPj(), Main.getTailleElementGraphique(200));
+      super("", FPanel.getView().getPj(), 200);
       setSize(Main.getTailleElementGraphique(BUTTON_RADIUS*2));
       setLocation(0,0);
       lineSize = Main.getTailleElementGraphique(3);

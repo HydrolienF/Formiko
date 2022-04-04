@@ -455,19 +455,30 @@ public class Folder {
   *@lastEditedVersion 2.10
   */
   public static Path getVersionPath(String fileName){
+    //if in curent folder because running with maven
     File f = new File(fileName);
     if(f.exists()){
       return Paths.get(f.getPath());
     }
+    //else search depending of OS
+    if(Main.getOs().isWindows()){
+      f = new File(System.getenv("ProgramFiles")+"/Formiko/app/"+fileName);
+      if(f.exists()){
+        return Paths.get(f.getPath());
+      }
+    }else if(Main.getOs().isMac()){
+      f = new File("/Applications/Formiko.app/Contents/app/"+fileName);
+      if(f.exists()){
+        return Paths.get(f.getPath());
+      }
+    }else{
+      f = new File("/opt/formiko/lib/app/"+fileName);
+      if(f.exists()){
+        return Paths.get(f.getPath());
+      }
+    }
+    //last try just in case
     f = new File("app/"+fileName);
-    if(f.exists()){
-      return Paths.get(f.getPath());
-    }
-    f = new File(System.getenv("ProgramFiles")+"/Formiko/app/"+fileName);
-    if(f.exists()){
-      return Paths.get(f.getPath());
-    }
-    f = new File("/opt/formiko/lib/app/"+fileName);
     if(f.exists()){
       return Paths.get(f.getPath());
     }
