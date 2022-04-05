@@ -23,10 +23,10 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
- *{@summary View Console Line Interface.}<br>
- *@author Hydrolien
- *@lastEditedVersion 1.33
- */
+*{@summary View Console Line Interface.}<br>
+*@author Hydrolien
+*@lastEditedVersion 1.33
+*/
 public class ViewCLI implements View {
   private Scanner scannerAnswer;
   private String menuName;
@@ -622,11 +622,20 @@ public class ViewCLI implements View {
   *{@summary Return an aviable action in a menu.}<br>
   *stop stop the game.
   *cheat alowed to write 1 cheat code.
-  *@lastEditedVersion 1.33
+  *@lastEditedVersion 2.22
   */
   private int getActionMenu(int maxValue){
-    int returnValue = -1;
-    while(returnValue < 1 || returnValue > maxValue){
+    return getIntBetween(1, maxValue);
+  }
+  /**
+  *{@summary Return an int between minValue &#38; maxValue.}<br>
+  *stop stop the game.
+  *cheat alowed to write 1 cheat code.
+  *@lastEditedVersion 2.22
+  */
+  private int getIntBetween(int minValue, int maxValue){
+    int returnValue = minValue-1;
+    while(returnValue < minValue || returnValue > maxValue){
       System.out.println(g.get("choix")+" : ");
       String input = scannerAnswer.nextLine();
       try {
