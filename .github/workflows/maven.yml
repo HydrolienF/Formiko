@@ -250,7 +250,7 @@ jobs:
       run: |
         ./toDmg.sh
         ls out/
-        #mv out/formiko_${{ steps.version.outputs.version }}-1_amd64.deb out/Formiko${{ steps.version.outputs.version }}.deb
+        mv out/formiko-${{ steps.version.outputs.version }}.dmg out/Formiko${{ steps.version.outputs.version }}.dmg
     - name: upload .deb artifact
       uses: actions/upload-release-asset@v1
       env:
