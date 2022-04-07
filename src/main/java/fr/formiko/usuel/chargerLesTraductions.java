@@ -135,7 +135,7 @@ public class chargerLesTraductions {
   *@lastEditedVersion 1.7
   */
   public static String [] getTableauDesTrad(int langue){
-    //String tDéfaut [] = ReadFile.readFileArray(rep+"fr.txt");
+    //String tdefault [] = ReadFile.readFileArray(rep+"fr.txt");
     String t [] = new String[0];
     try{
       debug.débogage("chargement de la langue "+getLanguage(langue));

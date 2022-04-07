@@ -44,7 +44,7 @@ public class GEspece extends Liste<Espece> implements Serializable {
   *{@summary Load all species from game data.}<br>
   *@lastEditedVersion 2.23
   */
-  public void loadEspeces(){
+  private void loadEspeces(){
     String td [] = new String [0];
     try {
       td = ReadFile.readFileArray(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"Espece.csv");
@@ -65,7 +65,7 @@ public class GEspece extends Liste<Espece> implements Serializable {
   *@return the created species
   *@lastEditedVersion 2.23
   */
-  public Espece createEspece(String s, String [] tdefault){
+  private Espece createEspece(String s, String [] tdefault){
     debug.débogage("Création d'une nouvelle Espece");
     String t [] = decoderUnFichier.getTableauString(s,',');
     tableau.boucherLesCasesVide(t,tdefault);

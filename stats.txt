@@ -132,10 +132,9 @@ null%0  0  0  0  0  0    formiko/interfaces/TrophallaxieGranivore.java
 82%  (19/23) 1  22 0  0  36 405  formiko/Fourmi.java
 87%  (7/8)   1  7  0  0  2  138  formiko/MapPath.java
 100% (5/5)   1  4  0  0  1  55   formiko/ThScript.java
-100% (5/5)   1  4  0  0  0  84   formiko/GEspece.java
+100% (5/5)   1  2  0  2  0  84   formiko/GEspece.java
 100% (1/1)   1  0  0  0  2  18   formiko/BladeSand.java
-0%   (0/10)  1  9  0  0  2  91   formiko/GIEspece.java
-0%   (0/6)   1  5  0  0  4  46   formiko/CIEspece.java
+100% (8/8)   1  3  0  4  0  118  formiko/GIEspece.java
 80%  (4/5)   1  2  0  2  5  93   formiko/Script.java
 100% (4/4)   1  2  1  0  3  78   formiko/Blade.java
 100% (6/6)   1  5  0  0  13 100  formiko/Carte.java
@@ -207,4 +206,4 @@ null%0  0  0  0  0  7    usuel/media/audio/SoundsPlayer.java
 100% (7/7)   1  6  0  0  6  106  usuel/Point.java
 0%   (0/3)   1  2  0  0  0  58   usuel/ecrireUnFichier.java
 100% (2/2)   1  1  0  0  2  22   usuel/clear.java
-65,9% (1337/2028)  251 1579 8 190 1265  31834 global
+66,5% (1345/2020)  250 1566 8 196 1259  31815 global
