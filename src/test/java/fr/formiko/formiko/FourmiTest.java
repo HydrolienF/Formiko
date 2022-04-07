@@ -23,7 +23,7 @@ public class FourmiTest extends TestCaseMuet{
     assertTrue(p.getGc().getCCase(0,0).getContent().getFere().equals(j.getFere()));
     assertTrue(p.getGc().getCCase(0,1).getContent().getFere()==null);
     p.getGj().add(j);
-    Fourmi f = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f = new Fourmi(j.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     j.getFere().getGc().add(f);
     assertEquals(1,j.getFere().getGc().length());
     return f;
@@ -86,7 +86,7 @@ public class FourmiTest extends TestCaseMuet{
     c = new Fourmi(f.getFere(),f.getEspece(),3);
     assertTrue(c.getFemelle());
     //with an other specie.
-    c = new Fourmi(f.getFere(),Main.getEspeceParId(1),4);
+    c = new Fourmi(f.getFere(),Main.getEspeceById(1),4);
     assertTrue(c.getFemelle());
   }
   @Test
@@ -127,11 +127,11 @@ public class FourmiTest extends TestCaseMuet{
     Joueur j2 = new Joueur(new Fourmiliere(Main.getPartie().getGc().getCCase(0,0),null),"joueurTest",true);
     j2.getFere().setJoueur(j2);
     Main.getPartie().getGj().add(j2);
-    Fourmi f2 = new Fourmi(j2.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f2 = new Fourmi(j2.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     j2.getFere().getGc().add(f2);
     assertTrue(f2.getFere().getJoueur().getIa());
     assertTrue(f2.tour instanceof TourFourmi);
-    f2 = new Fourmi(j2.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
+    f2 = new Fourmi(j2.getFere(),Main.getEspeceById(0), (byte) 0, (byte) 0);
     j2.getFere().getGc().add(f2);
     assertTrue(f2.getFere().getJoueur().getIa());
     assertTrue(f2.tour instanceof TourReine);
@@ -158,20 +158,20 @@ public class FourmiTest extends TestCaseMuet{
     Joueur j = new Joueur(new Fourmiliere(p.getGc().getCCase(0,0),null),"joueurTest",false);
     j.getFere().setJoueur(j); p.getGj().add(j);
     f.setPheromone((byte)0,(byte)0,(byte)0);
-    Fourmi fTest = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi fTest = new Fourmi(j.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     fTest.setCCase(f.getCCase());
     fTest.setFere(f.getFere());
     fTest.iniPheromone();
     assertTrue(f.getEstAllié(fTest));
     assertTrue(fTest.getEstAllié(f));
-    fTest = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    fTest = new Fourmi(j.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     do { //it can be the same pheromone randomly, but it shouldn't work all the time.
       fTest.iniPheromone();
     } while (f.getEstAllié(fTest));
     assertTrue(!f.getEstAllié(fTest));
     assertTrue(!fTest.getEstAllié(f));
 
-    Fourmi fQueen = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
+    Fourmi fQueen = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 0, (byte) 0);
     assertTrue(fQueen.estReine());
     f.getFere().getGc().add(fQueen);
     assertTrue(f.getEstAllié(fQueen));
@@ -182,7 +182,7 @@ public class FourmiTest extends TestCaseMuet{
     } while (f.getEstAllié(fQueen));
     assertTrue(!fQueen.getEstAllié(f));
 
-    fTest = new Fourmi(fQueen.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    fTest = new Fourmi(fQueen.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     assertTrue(fQueen.estReine());
     assertTrue(fQueen.getFere().equals(fTest.getFere()));
     assertTrue(fQueen.equals(fQueen.getReine()));

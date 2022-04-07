@@ -25,18 +25,18 @@ public class GCreatureTest extends TestCaseMuet{
     p.getGj().add(j);
     p.getGj().add(j2);
     p.getGj().add(j3);
-    f1 = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
+    f1 = new Fourmi(j.getFere(),Main.getEspeceById(0), (byte) 0, (byte) 0);
     j.getFere().getGc().add(f1);
-    f2 = new Fourmi(j2.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
+    f2 = new Fourmi(j2.getFere(),Main.getEspeceById(0), (byte) 0, (byte) 0);
     j2.getFere().getGc().add(f2);
-    f3 = new Fourmi(j3.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
+    f3 = new Fourmi(j3.getFere(),Main.getEspeceById(0), (byte) 0, (byte) 0);
     j3.getFere().getGc().add(f3);
     f3.setPheromone(f1.getPheromone());
-    f4 = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
+    f4 = new Fourmi(j.getFere(),Main.getEspeceById(0), (byte) 0, (byte) 0);
     j.getFere().getGc().add(f4);
-    f5 = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
+    f5 = new Fourmi(j.getFere(),Main.getEspeceById(0), (byte) 0, (byte) 0);
     j.getFere().getGc().add(f5);
-    f6 = new Fourmi(j3.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
+    f6 = new Fourmi(j3.getFere(),Main.getEspeceById(0), (byte) 0, (byte) 0);
     j3.getFere().getGc().add(f6);
   }
   @Test

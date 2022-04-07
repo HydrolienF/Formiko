@@ -32,7 +32,7 @@ public class CaseTest extends TestCaseMuet{
     Joueur j = new Joueur(new Fourmiliere(p.getGc().getCCase(0,0),null),"joueurTest",false);
     j.getFere().setJoueur(j);
     p.getGj().add(j);
-    Fourmi f = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f = new Fourmi(j.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     j.getFere().getGc().add(f);
     p.getCarte().setCasesSombres(true);
     p.getCarte().setCasesNuageuses(true);
@@ -184,8 +184,8 @@ public class CaseTest extends TestCaseMuet{
   public void testGetSortedGc(){
     Fourmi f = ini();
     f.setPheromone(10,10,10);
-    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
-    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
+    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     f3.setPheromone(0,0,100);
     f2.setCCase(f.getCCase());
     f3.setCCase(f.getCCase());
@@ -200,8 +200,8 @@ public class CaseTest extends TestCaseMuet{
   public void testGetSortedGc2(){
     Fourmi f = ini();
     f.setPheromone(10,10,10);
-    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
-    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
+    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     f2.setPheromone(0,0,100);
     f2.setCCase(f.getCCase());
     f3.setCCase(f.getCCase());
@@ -216,8 +216,8 @@ public class CaseTest extends TestCaseMuet{
   public void testGetSortedGcB(){
     Fourmi f = ini();
     f.setPheromone(10,10,10);
-    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
-    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
+    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     f2.setPheromone(0,0,100);
     f3.setCCase(f.getCCase());
     f2.setCCase(f.getCCase());
@@ -232,8 +232,8 @@ public class CaseTest extends TestCaseMuet{
   public void testGetSortedGc2B(){
     Fourmi f = ini();
     f.setPheromone(10,10,10);
-    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
-    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
+    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     // f3.setPheromone(0,0,100);
     f3.setCCase(f.getCCase());
     f2.setCCase(f.getCCase());
@@ -248,9 +248,9 @@ public class CaseTest extends TestCaseMuet{
   public void testGetSortedGc3(){
     Fourmi f = ini();
     f.setPheromone(10,10,10);
-    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
-    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
-    Fourmi f4 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
+    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
+    Fourmi f4 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     f3.setPheromone(0,0,100);
     f2.setCCase(f.getCCase());
     f3.setCCase(f.getCCase());
@@ -267,9 +267,9 @@ public class CaseTest extends TestCaseMuet{
   public void testGetSortedGc4(){
     Fourmi f = ini();
     f.setPheromone(10,10,10);
-    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
-    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
-    Fourmi f4 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
+    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
+    Fourmi f4 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     Insecte i = new Insecte();
     i.setType(2);
     i.setPheromone(100,100,67);
@@ -291,9 +291,9 @@ public class CaseTest extends TestCaseMuet{
   public void testGetSortedGc5(){
     Fourmi f = ini();
     f.setPheromone(10,10,10);
-    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
-    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
-    Fourmi f4 = new Fourmi(f.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
+    Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
+    Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
+    Fourmi f4 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     Insecte i = new Insecte();
     i.setType(2);
     i.setPheromone(100,100,67);

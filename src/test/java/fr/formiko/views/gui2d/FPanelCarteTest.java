@@ -54,8 +54,8 @@ public class FPanelCarteTest extends TestCaseMuet{
     i1.setType(1);
     Insecte i2 = new Insecte();
     i2.setType(2);
-    Fourmi f = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) 0);
-    Fourmi f2 = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 3, (byte) -3);
+    Fourmi f = new Fourmi(j.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
+    Fourmi f2 = new Fourmi(j.getFere(),Main.getEspeceById(0), (byte) 3, (byte) -3);
     gc.add(i0);
     gc.add(i1);
     gc.add(f);

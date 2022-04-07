@@ -270,8 +270,8 @@ public class image{
   *@lastEditedVersion 2.16
   */
   public static int tailleFourmi(int idEspece, int typeF, int taille){
-    if(Main.getEspeceParId(idEspece)!=null && Main.getEspeceParId(idEspece).getIndividuByType(typeF)!=null){
-      int a = Main.getEspeceParId(idEspece).getIndividuByType(typeF).getTaille();
+    if(Main.getEspeceById(idEspece)!=null && Main.getEspeceById(idEspece).getIndividuByType(typeF)!=null){
+      int a = Main.getEspeceById(idEspece).getIndividuByType(typeF).getTaille();
       return taille(a,taille);
     }else{
       erreur.alerte("Ant specie "+idEspece+" have no Individu for "+typeF);
@@ -287,7 +287,7 @@ public class image{
   *@lastEditedVersion 1.3
   */
   public static int taille(int idEspece, int stade, int taille){
-    int a = Main.getEspeceParId(idEspece).getTaille(stade);//standard a is 100
+    int a = Main.getEspeceById(idEspece).getTaille(stade);//standard a is 100
     return taille(a,taille);
   }
   /**

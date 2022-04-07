@@ -17,7 +17,7 @@ public class EspeceTest extends TestCaseMuet{
     assertTrue(p.getGc().getCCase(0,0).getContent().getFere().equals(j.getFere()));
     assertTrue(p.getGc().getCCase(0,1).getContent().getFere()==null);
     p.getGj().add(j);
-    Fourmi f = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
+    Fourmi f = new Fourmi(j.getFere(),Main.getEspeceById(0), (byte) 0, (byte) 0);
     j.getFere().getGc().add(f);
     assertEquals(1,j.getFere().getGc().length());
     return f;

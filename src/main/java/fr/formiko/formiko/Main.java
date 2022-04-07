@@ -179,8 +179,8 @@ public class Main {
   // GET SET ----------------------------------------------------------
   public static boolean isCLI(){return modeCLI;}
   public static byte getNiveauDeDétailDeLAffichage(){return niveauDeDétailDeLAffichage;}
-  public static Espece getEspece(){return getEspeceParId(0);}
-  public static Espece getEspeceParId(int id){ return getGe().getEspeceParId(id);}
+  public static Espece getEspece(){return getEspeceById(0);}
+  public static Espece getEspeceById(int id){ return getGe().getEspeceById(id);}
   public static GEspece getGEspece(){ return getGe();}
   public static Joueur getJoueurParId(int id){ return Main.getGj().getJoueurParId(id);}
   public static Fourmiliere getFourmiliereParId(int id){ return getJoueurParId(id).getFere();}
