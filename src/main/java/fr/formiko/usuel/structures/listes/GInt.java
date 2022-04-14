@@ -50,14 +50,6 @@ public class GInt implements Serializable{
     // on change la fin actuelle.
     this.fin = gs.getTail();
   }
-  public void afficheToi(){
-    if(début==null){
-      System.out.println(g.get("GInt",1,"Le GInt est vide"));
-    }else{
-      début.afficheTout();
-      System.out.println();
-    }
-  }
   public int calculerScore(Fourmiliere fere){
     if(début==null){
       erreur.alerte("le GInt est null, impossible de calculer le score du joueur.");return -1;

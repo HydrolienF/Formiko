@@ -112,10 +112,10 @@ public class Fourmiliere implements Serializable{
   }
   public int getScore(){
     try {
-      return ggi.getTail().getContent().calculerScore(this);
+      return ggi.getLast().calculerScore(this);
     }catch (NullPointerException e) {
       ggi.add(new GInt(this));
-      return ggi.getTail().getContent().calculerScore(this);
+      return ggi.getLast().calculerScore(this);
     }
   }
   public int getNbrFourmisMorte(){return nbrFourmisMorte;}
