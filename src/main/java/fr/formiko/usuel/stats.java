@@ -2,7 +2,6 @@ package fr.formiko.usuel;
 
 import fr.formiko.usuel.Chrono;
 import fr.formiko.usuel.fichier;
-import fr.formiko.usuel.structures.listes.CInt;
 import fr.formiko.usuel.structures.listes.GGInt;
 import fr.formiko.usuel.structures.listes.GInt;
 import fr.formiko.usuel.structures.listes.GString;
@@ -201,7 +200,13 @@ public class stats {
     r=completToK(r,5);
     return r;
   }
-
+  /**
+  *{@summary Add enoth space to have a String length of k, or add the spliter.}
+  *We need to add several ' ' or 1 spliter.
+  *@param toComplet String to complet
+  *@param k max char
+  *@lastEditedVersion 1.13
+  */
   private static String completToK(String toComplet, int k){
     toComplet+=spliter; //at least 1.
     if(spliter==' '){ //more if it's the space spliter to form similar collums

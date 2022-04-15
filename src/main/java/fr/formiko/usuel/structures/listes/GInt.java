@@ -20,7 +20,9 @@ public class GInt extends Liste<Integer> implements Serializable{
   *{@summary Create an empty int list.}
   *@lastEditedVersion 2.23
   */
-  public GInt(){super();}
+  public GInt(){
+    super();
+  }
   /**
   *{@summary Create a score GInt from an anthill.}
   *@param fere the anthill that we want the score
