@@ -35,9 +35,9 @@ public class CCreature implements Serializable{
     if (suivant == null){
       return contenu.toString()+"";
     }else{
-      return contenu.toString()+ "\n"+suivant.gcToString();
+      return contenu.toString()+ "\n"+suivant.toString();
     }
-  }public String gcToString(){return toString();}
+  }
   public int length(){
     if (suivant == null){
       return 1;

@@ -58,7 +58,7 @@ public class GCreature implements Serializable{//, Iterator{
   public String toString(){
     if (début==null){ return "";}
     return début.toString();
-  }public String gcToString(){return gcToString();}
+  }
   public int length(){
     if (début==null){
       return 0;
