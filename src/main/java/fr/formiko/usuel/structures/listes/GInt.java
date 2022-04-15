@@ -14,7 +14,7 @@ import java.io.Serializable;
 *@lastEditedVersion 2.23
 */
 public class GInt extends Liste<Integer> implements Serializable{
-  // private CInt début, fin;
+
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Create an empty int list.}
@@ -38,33 +38,8 @@ public class GInt extends Liste<Integer> implements Serializable{
     add(fere.getNbrFourmisMorte());
   }
   // GET SET ----------------------------------------------------------------------
-  // public CInt getHead(){ return début;}
-  // public CInt getTail(){ return fin;}
+
   // FUNCTIONS -----------------------------------------------------------------
-  // public int length(){
-  //   if(début==null){ return 0;}
-  //   return début.length();
-  // }
-  // public void add(int s){ // On ajoute a la fin par défaut.
-  //   CInt c = new CInt(s);
-  //   if (fin == null){ // si la liste est complètement vide.
-  //     fin = c;
-  //     début = c;
-  //   } else {
-  //     fin.setSuivant(c);
-  //     c.setPrécédent(fin);
-  //     fin = c;
-  //   }
-  // }
-  // public void add(GInt gs){
-  //   if(gs==null){ return;}
-  //   if(this.getHead()==null){début = gs.getHead();return;}
-  //   //on lie l'anciène fin au début de gs.
-  //   this.fin.setSuivant(gs.getHead());
-  //   this.fin.getSuivant().setPrécédent(fin);
-  //   // on change la fin actuelle.
-  //   this.fin = gs.getTail();
-  // }
   /**
   *{@summary Return score of an anthill from this.}
   *We assume that this have been created with an anthill as parameter
@@ -94,25 +69,8 @@ public class GInt extends Liste<Integer> implements Serializable{
         total=(int)(total*((Fourmi) (fere.getGc().toList().getFirst())).getMultiplicateurDeDiff());
       }
       return total;
-      // int x=0;
-      // x=contenu*50 + suivant.getContent()*20 + suivant.getSuivant().getContent()*9 + suivant.getSuivant().getSuivant().getContent()*6 + suivant.getSuivant().getSuivant().getSuivant().getContent()*3 + suivant.getSuivant().getSuivant().getSuivant().getSuivant().getContent()*(-1);
-      // try {
-      //   if(!fere.getJoueur().getIa()){
-      //     x=(int)(x*((Fourmi) (fere.getGc().getHead().getContent())).getMultiplicateurDeDiff());
-      //   }
-      // }catch (Exception e) {
-      //   erreur.erreurGXVide("GCreature");
-      // }
-      // return x;
-      // return début.computeScore(fere);
     }
   }
-  // public String toString(){
-  //   if(début==null){return "";}
-  //   else{
-  //     return début.toString()+"\n";
-  //   }
-  // }
   /**
   *{@summary Return an element of this.}
   *@param ca id of the element
@@ -126,12 +84,5 @@ public class GInt extends Liste<Integer> implements Serializable{
     }catch (Exception e) {
       return 0;
     }
-    // if(début==null){return 0;}
-    // else{return début.getCase(ca);}
-    /*
-    if(ca==0){return contenu;}
-    if(suivant==null){return 0;}
-    else{return suivant.getCase(ca-1);}
-    */
   }
 }
