@@ -152,6 +152,7 @@ public class FPanelSup extends FPanel {
     if(force || cc2==null || !cc2.getContent().equals(cc.getContent())){//si la case a changé.
       cc2=new CCase(cc.getContent());
       getView().setLookedCCase(cc);
+      erreur.info("Looking case "+cc);//@a
     }
   }
   public void mouseMovedUpdate(CCase cc){mouseMovedUpdate(cc, false);}

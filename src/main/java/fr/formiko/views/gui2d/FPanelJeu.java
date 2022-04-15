@@ -140,10 +140,6 @@ public class FPanelJeu extends FPanel {
     pb.setVisible(true);
     action.updateMouseLocation();
   }
-  // public void addPfp(){
-  //   pfp = new FPanelFinPartie();
-  //   add(pfp);
-  // }
   public void addPfp(){
     if(pfp!=null){
       erreur.alerte("Pfp already add");
@@ -157,8 +153,8 @@ public class FPanelJeu extends FPanel {
     pfp.ini(mess,gj,withButton,canResumeGame);
     if(withButton){
       pb.setVisible(false);
-      ps.setSize(0,0);
     }
+    ps.updateSizeMin();
   }
   public void removePfp(){
     remove(pfp);

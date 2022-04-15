@@ -17,7 +17,6 @@ import fr.formiko.formiko.MapPath;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.usuel.Info;
 import fr.formiko.usuel.Point;
-import fr.formiko.usuel.Point;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -666,7 +665,7 @@ public class FPanelCarte extends FPanel {
   private boolean needToDrawAnthillColor(Case c, int x, int y){
     if (Main.getOp().getDrawAllAnthillColor()) { return true;}
     if(c.getFere().getId()==idCurentFere){return true;} // && !isSombre(x,y)
-    return (lookedCCase!=null && lookedCCase.getContent() !=null && lookedCCase.getContent().equals(c));
+    return (getLookedCCase()!=null && getLookedCCase().getContent() !=null && getLookedCCase().getContent().equals(c));
   }
   /**
   *{@summary fonction that place ObjetSurCarteAId on the same Case.}<br>
@@ -893,7 +892,9 @@ public class FPanelCarte extends FPanel {
     int xTemp = getTailleDUneCase()*xCase;
     int yTemp = getTailleDUneCase()*yCase;
     super.setSize(xTemp,yTemp);
-    getView().getPs().setSize(xTemp, yTemp);
+    if(Main.getPlayingJoueur()!=null && !Main.getPlayingJoueur().isIa()){
+      getView().getPs().setSize(xTemp, yTemp);
+    }
     iniTBiState();
   }
 
