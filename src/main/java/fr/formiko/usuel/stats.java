@@ -72,7 +72,9 @@ public class stats {
     Iterator<GInt> iggi2 = ggi2.iterator();
     GInt ccic=iggi.next();
     GInt cci2c=iggi2.next();
-    CInt ci = nbrDeLigne.getHead();
+    Iterator<Integer> iNbOfLine = nbrDeLigne.iterator();
+    int ci=iNbOfLine.next();
+    // CInt ci = nbrDeLigne.getHead();
     for (String s : gs ) {
       if(ccic==null){break;}
       if(raccourcir){
@@ -87,7 +89,7 @@ public class stats {
       try{
         ccic=iggi.next();
         cci2c=iggi2.next();
-        ci=ci.getSuivant();
+        ci=iNbOfLine.next();
       }catch (Exception e) {
         // erreur.alerte("igg don't have next");
       }
@@ -193,9 +195,9 @@ public class stats {
   *Count the number of ligne in a file an add it to the statistic info.
   *@lastEditedVersion 1.13
   */
-  public static String numberOfLines(CInt ci){
-    sommeNbrDeLigneG+=ci.getContent();
-    String r=ci.getContent()+"";
+  public static String numberOfLines(int nbrOfLine){
+    sommeNbrDeLigneG+=nbrOfLine;
+    String r=nbrOfLine+"";
     r=completToK(r,5);
     return r;
   }

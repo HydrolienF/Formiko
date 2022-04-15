@@ -32,7 +32,7 @@ public class CInt implements Serializable{
   public void afficheToi(){
     System.out.print(contenu);
   }
-  public int calculerScore(Fourmiliere fere){
+  public int computeScore(Fourmiliere fere){
     int x=0;
     x=contenu*50 + suivant.getContent()*20 + suivant.getSuivant().getContent()*9 + suivant.getSuivant().getSuivant().getContent()*6 + suivant.getSuivant().getSuivant().getSuivant().getContent()*3 + suivant.getSuivant().getSuivant().getSuivant().getSuivant().getContent()*(-1);
     try {
