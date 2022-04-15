@@ -35,9 +35,9 @@ public class CCreature implements Serializable{
     if (suivant == null){
       return contenu.toString()+"";
     }else{
-      return contenu.toString()+ "\n"+suivant.toString();
+      return contenu.toString()+ "\n"+suivant.gcToString();
     }
-  }
+  }public String gcToString(){return toString();}
   public int length(){
     if (suivant == null){
       return 1;
@@ -131,16 +131,16 @@ public class CCreature implements Serializable{
     }
   }
 
-  public int [] toTId(){
-    int tr []= new int[this.length()];
-    CCreature cc = this;
-    int k=0;
-    while(cc!= null){
-      tr[k]=cc.getContent().getId();k++;
-      cc = cc.getSuivant();
-    }
-    return tr;
-  }
+  // public int [] toTId(){
+  //   int tr []= new int[this.length()];
+  //   CCreature cc = this;
+  //   int k=0;
+  //   while(cc!= null){
+  //     tr[k]=cc.getContent().getId();k++;
+  //     cc = cc.getSuivant();
+  //   }
+  //   return tr;
+  // }
   /**
   *{@summary Transform a GCreature in Liste&lt;Creature&gt;.}
   *@lastEditedVersion 1.38

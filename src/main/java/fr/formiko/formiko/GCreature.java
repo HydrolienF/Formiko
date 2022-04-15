@@ -56,17 +56,10 @@ public class GCreature implements Serializable{//, Iterator{
   public void setDébut(CCreature cc){début = cc;}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
-    if (début==null){ return "";}
-    return début.toString();
+    return toList().toString();
   }
   public int length(){
-    if (début==null){
-      return 0;
-    }else if(début.getContent().equals(fin.getContent())){
-      return 1;
-    }else {
-      return début.length();
-    }
+    return toList().length();
   }
   /**
   *{summary Return the 1a queen of the anthill}
@@ -105,7 +98,7 @@ public class GCreature implements Serializable{//, Iterator{
     return new GCreature(toList().filter(c -> c.getStade()!=0));
   }
   public Creature getCouvainSaleE()throws EmptyListException{
-    if (début==null){ throw new EmptyListException("GCreature","trouver la créature sale du couvain");}
+    if(toList().isEmpty()){throw new EmptyListException("GCreature","trouver la créature sale du couvain");}
     return début.getCouvainSale();
   }
   public Creature getCouvainSale(){
@@ -135,7 +128,7 @@ public class GCreature implements Serializable{//, Iterator{
   *@lastEditedVersion 2.1
   */
   private Creature getCreatureParIdE(int id) throws EmptyListException {
-    if (début==null){ throw new EmptyListException("GCreature","trouver la créature "+id);}
+    if(toList().isEmpty()){ throw new EmptyListException("GCreature","trouver la créature "+id);}
     for (Creature c : toList() ) {
       if(c.getId()==id){return c;}
     }
@@ -368,7 +361,7 @@ public class GCreature implements Serializable{//, Iterator{
     }catch (EmptyListException e) {}
   }
   public void afficheToiRéduitE() throws EmptyListException{
-    if(début==null){
+    if(toList().isEmpty()){
       throw new EmptyListException("GCreature","tout afficher");
     }else{
       System.out.print(g.get("listeCreature")+" : ");
@@ -386,7 +379,7 @@ public class GCreature implements Serializable{//, Iterator{
   *@lastEditedVersion 2.5
   */
   private void jouerE() throws EmptyListException{
-    if(début == null){
+    if(toList().isEmpty()){
       throw new EmptyListException("GCreature","jouer");
     }else{
       for (Creature c : toList()) {
@@ -448,7 +441,7 @@ public class GCreature implements Serializable{//, Iterator{
   *@lastEditedVersion 2.1
   */
   private void preTurnE() throws EmptyListException{
-    if(début == null){
+    if(toList().isEmpty()){
       throw new EmptyListException("GCreature","preTurn");
     }else{
       for (Creature c : toList() ) {
@@ -492,15 +485,19 @@ public class GCreature implements Serializable{//, Iterator{
   }
 
   public void classerPourNetoyage(){
-    if (début==null){ return;}
+    if(toList().isEmpty()){return;}
     //TODO
     //le but est d'habord que personne ne passe en dessous des x de healthe minimum lié au niveau de difficulté.
     //on met tout ce qui sont en dessous de 50 dans l'ordre d'age/stade.
     //et on ajoute ceux qui sont après dans l'ordre de saleté.
   }
   public int [] toTId(){
-    if (début==null){ return new int[0];}
-    return début.toTId();
+    int tr []= new int[this.length()];
+    int k=0;
+    for (Creature c : toList()) {
+      tr[k]=c.getId();k++;
+    }
+    return tr;
   }
   /**
   *{@summary Transform a GCreature in Liste&lt;Creature&gt;.}
