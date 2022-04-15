@@ -289,6 +289,10 @@ public class FButton extends JButton implements MouseListener {
   *@lastEditedVersion 2.10
   */
   protected String getDesc(){
-    return g.get("bouton.desc."+action)+getKeyboardKey();
+    String desc = g.get("bouton.desc."+action);
+    if(desc.equals("bouton.desc."+action)){
+      return "";
+    }
+    return desc+getKeyboardKey();
   }
 }
