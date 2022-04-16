@@ -190,6 +190,8 @@ public class FPanelJeu extends FPanel {
     if(getPc().getTailleDUneCase()!=y){
       getPc().setTailleDUneCase(y, false);
       actionAFaireSiTailleD1CaseChange();
+    }else{
+      Main.getData().iniBackgroundMapImage();
     }
   }
   public void actionAFaireSiTailleD1CaseChange(){
