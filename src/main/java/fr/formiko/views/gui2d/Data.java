@@ -103,6 +103,7 @@ public class Data {
   */
   public void Data(){
     initialisationFX=false;
+    setTailleDUneCase(1);
   }
   // GET SET -------------------------------------------------------------------
   //ini
@@ -339,11 +340,10 @@ public class Data {
     *@lastEditedVersion 2.6
     */
     public synchronized void chargerImages(){
-      debug.débogage("chargement des images a la bonne taille.");
       chargerImagesIni();
       Main.startCh();
       int tailleFourmi = (getTailleDUneCase()*4)/5;
-      erreur.info("Update Image to size "+getTailleDUneCase());
+      erreur.info("Update Image to size "+getTailleDUneCase(),8);
       imgNull = image.resize(imgNullIni,getTailleDUneCase());
       tICarte=getScaledInstance(tICarteIni, getTailleDUneCase());
       // tIF=getScaledInstance(tIFIni, tailleFourmi);
@@ -367,6 +367,7 @@ public class Data {
     */
     public synchronized void chargerImagesIni(){
       if(!imageIni){
+        erreur.info("load images from files");
         Main.startCh();
         imgNullIni = image.getImage("null");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         chargerTI();

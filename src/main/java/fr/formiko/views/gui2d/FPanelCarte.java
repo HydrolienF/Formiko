@@ -74,7 +74,8 @@ public class FPanelCarte extends FPanel {
   *@lastEditedVersion 1.x
   */
   public void build(){
-    Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(100));
+    // Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(100));
+    // Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(1));
     GCase gc = new GCase(1,1);
     xCase = gc.getNbrX();
     yCase = gc.getNbrY();

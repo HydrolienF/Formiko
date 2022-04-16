@@ -187,8 +187,10 @@ public class FPanelJeu extends FPanel {
     if(x==1){ y=math.max(y1,y2);}
     else if(x==2){ y=math.min(y1,y2);}
     y = math.between(Main.getTailleElementGraphique(100), Main.getTailleElementGraphique(500), y);
-    pc.setTailleDUneCase(y, false);
-    actionAFaireSiTailleD1CaseChange();
+    if(getPc().getTailleDUneCase()!=y){
+      getPc().setTailleDUneCase(y, false);
+      actionAFaireSiTailleD1CaseChange();
+    }
   }
   public void actionAFaireSiTailleD1CaseChange(){
     if (Main.getPartie().getEnCours()){
