@@ -12,6 +12,7 @@ import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.interfaces.TourFourmiNonIa;
 import fr.formiko.formiko.launchOptions;
 import fr.formiko.formiko.triche;
+import fr.formiko.usuel.Chrono;
 import fr.formiko.usuel.DiscordIntegration;
 import fr.formiko.usuel.Info;
 import fr.formiko.usuel.Temps;
@@ -244,6 +245,8 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 2.22
   */
   public boolean actionGame(){
+    Chrono chLoading=new Chrono();
+    chLoading.start();
     waitForPanelLoadDone();
     actionGameOn=true;
     if(f==null){ini();}
@@ -275,7 +278,9 @@ public class ViewGUI2d implements View {
     Main.endCh("chargementImagesDelaCarte");
 
     String s = g.get("chargementFini");
-    if (debug.getPerformance()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
+    // if (debug.getPerformance()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
+    chLoading.stop();
+    s=s +" "+ "("+Temps.msToS(chLoading.getDuree())+")";
     Main.setMessageChargement(s);
     if(!Main.getOp().getWhaitBeforeLaunchGame() || Main.getPremierePartie() || !Main.getOpenMenuFirst()){
       closeFPanelChargement();
