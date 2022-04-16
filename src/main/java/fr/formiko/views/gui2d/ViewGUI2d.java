@@ -244,7 +244,7 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 2.22
   */
   public boolean actionGame(){
-    waitForGraphicsLoadDone();
+    waitForPanelLoadDone();
     actionGameOn=true;
     if(f==null){ini();}
     if(action.getPartie()!=null){
@@ -726,7 +726,7 @@ public class ViewGUI2d implements View {
   *{@summary Wait that all Thread that we need to launch game are OK.}<br>
   *@lastEditedVersion 2.22
   */
-  private void waitForGraphicsLoadDone(){
+  private void waitForPanelLoadDone(){
     // no need to wait for th1, it will be call when image will be resize.
     if(thTemp2!=null && thTemp2.isAlive()){
       erreur.info("waiting for thTemp2");
