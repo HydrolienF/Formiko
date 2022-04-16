@@ -7,11 +7,12 @@ import fr.formiko.usuel.exceptions.ListItemNotFoundException;
 import fr.formiko.usuel.exceptions.EmptyListException;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.structures.listes.Liste;
+import java.lang.Cloneable;
 
 import java.io.Serializable;
 import java.util.Iterator;
 
-public class CCreature implements Serializable{
+public class CCreature implements Serializable, Cloneable {
   protected CCreature suivant, précédente;
   protected Creature contenu;
   // CONSTRUCTORS --------------------------------------------------------------
@@ -73,16 +74,16 @@ public class CCreature implements Serializable{
   //   return suivant.getFourmiParFere(fere);
   // }
 
-  public int [] gcToTInt(){
-    int lentr =this.length();
-    int tr[]=new int [lentr];int k=0;
-    CCreature cc = this;
-    while(k<lentr && cc!= null){
-      tr[k]=cc.getContent().getId();k++;
-      cc=cc.getSuivant();
-    }
-    return tr;
-  }
+  // public int [] gcToTInt(){
+  //   int lentr =this.length();
+  //   int tr[]=new int [lentr];int k=0;
+  //   CCreature cc = this;
+  //   while(k<lentr && cc!= null){
+  //     tr[k]=cc.getContent().getId();k++;
+  //     cc=cc.getSuivant();
+  //   }
+  //   return tr;
+  // }
   public GCreature copier(){
     CCreature cc = this;
     GCreature gcr = new GCreature();

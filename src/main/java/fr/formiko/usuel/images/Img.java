@@ -32,7 +32,7 @@ import javax.swing.JPanel;
 *@author Hydrolien
 *@lastEditedVersion 1.11
 */
-public class Img implements Cloneable{
+public class Img implements Cloneable {
   private Random rand = new Random();
   private BufferedImage bi;
   private int width, height;

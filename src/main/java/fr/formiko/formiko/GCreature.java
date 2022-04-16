@@ -9,13 +9,14 @@ import fr.formiko.usuel.exceptions.NullItemException;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.structures.listes.Liste;
 
-import java.util.List;
 import java.io.Serializable;
+import java.lang.Cloneable;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 
 // extends Liste<Creature>
-public class GCreature implements Serializable{//, Iterator{
+public class GCreature implements Serializable, Cloneable {//, Iterator{
   protected CCreature début;
   protected CCreature fin;
   //TODO #82 replace début & fin by a protected Liste<Creature>.
@@ -264,17 +265,27 @@ public class GCreature implements Serializable{//, Iterator{
   public Espece getEspece(){
     Fourmi c = this.getReine();
     if(c!=null){return c.getEspece();}
-    if(début!=null){return ((Fourmi)début.getContent()).getEspece();}
+    if(getFirst()!=null){return ((Fourmi)getFirst()).getEspece();}
     return null;
   }
 
   public int [] gcToTInt(){
-    if (début==null){ return null;}
-    return début.gcToTInt();
+    int lentr=length();
+    int tr[]=new int [lentr];int k=0;
+    for (Creature c : toList()) {
+      tr[k]=c.getId();k++;
+    }
+    return tr;
   }
   public GCreature copier(){
     if(début==null){ return new GCreature();}
     return début.copier();
+    // try {
+    //   return (GCreature)clone();
+    // }catch (CloneNotSupportedException e) {
+    //   erreur.erreur("Fail to clone");
+    //   return null;
+    // }
   }
   public void actualiserFin(){
     CCreature cc = début;
@@ -285,11 +296,8 @@ public class GCreature implements Serializable{//, Iterator{
   }
   public GInsecte getGi(){
     GInsecte gi = new GInsecte();
-    CCreature cc = début;
-    while(cc != null){
-      Creature c = cc.getContent();
-      if(c instanceof Insecte){gi.add((Insecte) cc.getContent());}
-      cc = cc.getSuivant();
+    for (Creature c : toList()) {
+      if(c instanceof Insecte){gi.add((Insecte)c);}
     }
     return gi;
   }
@@ -348,31 +356,31 @@ public class GCreature implements Serializable{//, Iterator{
   }
   // public void remove(Creature c){remove(c);}
   public void delete(Creature c){remove(c);}
-  public void afficheToiE() throws EmptyListException{
-    if(début==null){
-      throw new EmptyListException("GCreature","tout afficher");
-    }else{
-      début.afficheTout();
-    }
-  }
-  public void afficheToi(){
-    try {
-      afficheToiE();
-    }catch (EmptyListException e) {}
-  }
-  public void afficheToiRéduitE() throws EmptyListException{
-    if(toList().isEmpty()){
-      throw new EmptyListException("GCreature","tout afficher");
-    }else{
-      System.out.print(g.get("listeCreature")+" : ");
-      début.afficheToutRéduit();
-    }
-  }
-  public void afficheToiRéduit(){
-    try {
-      afficheToiRéduitE();
-    }catch (EmptyListException e) {}
-  }
+  // public void afficheToiE() throws EmptyListException{
+  //   if(début==null){
+  //     throw new EmptyListException("GCreature","tout afficher");
+  //   }else{
+  //     début.afficheTout();
+  //   }
+  // }
+  // public void afficheToi(){
+  //   try {
+  //     afficheToiE();
+  //   }catch (EmptyListException e) {}
+  // }
+  // public void afficheToiRéduitE() throws EmptyListException{
+  //   if(toList().isEmpty()){
+  //     throw new EmptyListException("GCreature","tout afficher");
+  //   }else{
+  //     System.out.print(g.get("listeCreature")+" : ");
+  //     début.afficheToutRéduit();
+  //   }
+  // }
+  // public void afficheToiRéduit(){
+  //   try {
+  //     afficheToiRéduitE();
+  //   }catch (EmptyListException e) {}
+  // }
   /**
   *{@summary Play as an ant.}
   *If antIdToPlay have been set, we will play this ant first.
