@@ -62,7 +62,7 @@ public class Joueur implements Serializable{
   public boolean getIa(){return isIa();}
   public boolean isIa(){return ia;}
   public void setIa(boolean b){ia = b; }
-  public void addMessage(Message m){ gm.add(m);}
+  public void addMessage(Message m){ gm.addHead(m);}
   public GMessage getGm(){ return gm;}
   public boolean getCaseSombre(int x, int y){ try {return caseSombre[x][y];}catch (Exception e) {return false;}}
   public void setCaseSombre(int x, int y, boolean b){ caseSombre[x][y]=b;}
