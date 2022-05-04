@@ -111,7 +111,6 @@ public class Case implements Serializable{
     }
     int x2 = foodInsecte-x;
     if(x2<0){
-      // System.out.println("Trying to remove more foodInsecte than aviable on Case "+p);
       erreur.alerte("Trying to remove more foodInsecte than aviable on Case "+p);
       x2=0;
     }

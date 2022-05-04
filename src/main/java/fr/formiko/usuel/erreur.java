@@ -15,12 +15,14 @@ public class erreur {
 
   public static boolean getMuet(){return muet;}
   public static void setMuet(boolean b){muet=b;}
-  private static void println(String s){
+  public static void println(String s){
     print(s+"\n");
   }
-  private static void print(String s){
+  public static void print(String s){
     if(!muet){
-      System.out.print(s);
+      synchronized (System.out) {
+        System.out.print(s);
+      }
     }
   }
   /**
@@ -73,7 +75,7 @@ public class erreur {
         className = className.substring(0,className.length()-5);
       }catch (Exception e) {}
       if(!className.equals("erreur")){
-        System.out.println("\t"+st);
+        println("\t"+st+"\n");
       }
     }
     System.exit(-1);
