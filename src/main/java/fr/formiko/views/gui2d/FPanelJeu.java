@@ -33,6 +33,7 @@ import javax.swing.JScrollPane;
 public class FPanelJeu extends FPanel {
   private FPanelCarte pc;
   private FPanelBouton pb;
+  private FPanel pText;
   private FPanelChargement pch;
   private FPanelFinPartie pfp;
   private FPanelEchap pe;
@@ -48,6 +49,7 @@ public class FPanelJeu extends FPanel {
   }
   // GET SET -------------------------------------------------------------------
   public FPanelBouton getPb(){ return pb;}
+  public FPanel getPText(){ return pText;}
   public FPanelCarte getPc(){ return pc;}
   public FPanelChargement getPch(){ return pch;}
   public FPanelSup getPs(){return ps;}
@@ -110,6 +112,11 @@ public class FPanelJeu extends FPanel {
     pb = new FPanelBouton();
     pb.setBounds(0,0,getWidth(),getHeight());
     add(pb);
+  }
+  public void addPText(){
+    pText = new FPanel();
+    pText.setBounds(0,0,getWidth(),getHeight());
+    add(pText);
   }
   public void addPch(){
     pch = new FPanelChargement();

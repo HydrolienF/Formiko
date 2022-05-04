@@ -64,7 +64,7 @@ public class FPanelBouton extends FPanel {
     // on ajoute les éléments non visible. Les éléments visible sont add 1 a 1 quand le besoin ce fait sentir.
     add(descTI);
     // Add desc to FPanelCarte make it not-mouse listener because it's under FPanelSup. That's was we need to print desc of Case even id there are under desc.
-    getView().getPc().add(desc);
+    getView().getPText().add(desc);
     add(pz);
     lToRemove = new Liste<Component>();
   }

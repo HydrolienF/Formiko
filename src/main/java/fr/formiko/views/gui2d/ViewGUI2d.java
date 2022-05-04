@@ -72,6 +72,7 @@ public class ViewGUI2d implements View {
   public JColorChooser getJcc(){ try{return getPnp().getJcc();}catch (NullPointerException e){return null;}}
   public FPanelChoixPartie getPcp(){ try{return getPm().getPcp();}catch (NullPointerException e){return null;}}
   public FPanelBouton getPb(){ try{return getPj().getPb();}catch (NullPointerException e){return null;}}
+  public FPanel getPText(){ try{return getPj().getPText();}catch (NullPointerException e){return null;}}
   public FPanelCarte getPc(){ try{return getPj().getPc();}catch (NullPointerException e){return null;}}
   public FPanelInfo getPi(){ try{return getPb().getPi();}catch (NullPointerException e){return null;}}
   public FPanelInfoText getPij(){ try{return getPb().getPij();}catch (NullPointerException e){return null;}}
