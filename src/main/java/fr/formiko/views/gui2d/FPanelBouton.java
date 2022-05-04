@@ -53,6 +53,8 @@ public class FPanelBouton extends FPanel {
     pas = new FPanelActionSup();
     pai = new FPanelActionInf();
     pmmc = new FPanelMiniMapContainer();
+    pmmc.build();
+    setVisiblePmmc(false);
     pz = new FPanelZoom();
     descTI = new FLabel();
     descTI.setBackground(Main.getData().getButtonColor());
@@ -66,6 +68,7 @@ public class FPanelBouton extends FPanel {
     // Add desc to FPanelCarte make it not-mouse listener because it's under FPanelSup. That's was we need to print desc of Case even id there are under desc.
     getView().getPText().add(desc);
     add(pz);
+    add(pmmc);
     lToRemove = new Liste<Component>();
   }
   // GET SET -------------------------------------------------------------------
@@ -133,7 +136,6 @@ public class FPanelBouton extends FPanel {
     lToRemove.add(pa);
     lToRemove.add(pas);
     lToRemove.add(pai);
-    // lToRemove.add(pmmc);
     pa = new FPanelAction(t);
     pa.build();
     int xxx = pa.getbuttonSize();
@@ -145,16 +147,12 @@ public class FPanelBouton extends FPanel {
     pai = new FPanelActionInf();
     pai.setBounds(0,getHeight()-pai.getHeight(),pai.getWidth(),pai.getHeight());
     getView().getPs().updateSize();
-    // pmmc = new FPanelMiniMapContainer();
-    add(pmmc);
+    setVisiblePmmc(true);
     add(pas);
     add(pa);
     add(pai);
     removes();
     setVisiblePa(true);
-    /*try {
-      remove(paiPrécédent);
-    }catch (Exception e) {}*/
     revalidate();
     // Main.repaint();
   }public void addPA(int t[]){addPa(t);}
@@ -171,7 +169,6 @@ public class FPanelBouton extends FPanel {
     remove(pa);
     remove(pas);
     remove(pai);
-    remove(pmmc); //TODO #498 hide but don't remove
   }public void removePA(){removePa();}
   public void addPA(){
     int t [] = {0,1,2,3,4,5,6,7};
@@ -186,7 +183,7 @@ public class FPanelBouton extends FPanel {
     Main.repaint();
   }*/
   public void setVisiblePmmc(boolean b){
-    pmmc.setVisible(b);
+    getPmmc().setVisible(b);
   }
   public void addPChamp(String défaut,String message){
     setDescTI(message);

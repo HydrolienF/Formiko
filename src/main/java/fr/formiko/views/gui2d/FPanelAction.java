@@ -28,6 +28,8 @@ public class FPanelAction extends FPanel {
   private static int tailBouton=160;
   private FButton tB [];
   private FButton tAutoB [] = new FButton[2];
+  //TODO #498 the only thing that we need to do everytime is to setVisible button that have changed & to setLocation().
+  // We can create all button 1 time only.
   // CONSTRUCTORS --------------------------------------------------------------
   public FPanelAction(int t[]){
     super();

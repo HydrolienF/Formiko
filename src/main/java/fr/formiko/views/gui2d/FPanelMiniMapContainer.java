@@ -75,15 +75,15 @@ public class FPanelMiniMapContainer extends FPanel {
   public boolean getFbetEnabled(){
     return fBEndTurn.isEnabled();
   }
-  /**
-  *{@summary Enable or disable this &#38; all sub component.}
-  *@lastEditedVersion 2.23
-  */
-  @Override
-  public void setEnabled(boolean boo){
-    pgo.setEnabled(boo);
-    super.setEnabled(boo);
-  }
+  // /**
+  // *{@summary Enable or disable this &#38; all sub component.}
+  // *@lastEditedVersion 2.23
+  // */
+  // @Override
+  // public void setEnabled(boolean boo){
+  //   pgo.setEnabled(boo);
+  //   super.setEnabled(boo);
+  // }
 
   // FUNCTIONS -----------------------------------------------------------------
 

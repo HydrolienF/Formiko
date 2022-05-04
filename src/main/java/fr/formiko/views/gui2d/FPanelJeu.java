@@ -198,14 +198,15 @@ public class FPanelJeu extends FPanel {
       getPc().setTailleDUneCase(y, false);
       actionAFaireSiTailleD1CaseChange();
     }else{
-      Main.getData().iniBackgroundMapImage();
+      if (Main.getPartie().getEnCours()){
+        Main.getData().iniBackgroundMapImage();
+      }
     }
   }
   public void actionAFaireSiTailleD1CaseChange(){
     if (Main.getPartie().getEnCours()){
       FPanel.getView().getPc().updateSize();
       Main.getData().chargerImages();
-      getView().getPmmc().build();
       Main.getData().iniBackgroundMapImage();
       getView().setBladeChanged(true);
     }
