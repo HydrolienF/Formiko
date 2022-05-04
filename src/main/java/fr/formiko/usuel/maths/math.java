@@ -314,11 +314,11 @@ public class math {
     if(n==0){return 0;}
     long xr;
     xr = factorielle(n)/(factorielle(k)*factorielle(n-k));
-    /*System.out.println("xr = "+xr);
+    /*erreur.println("xr = "+xr);
     int max = max(k,n-k);
     int min = min(k,n-k);
-    System.out.println("fact min = " + factorielle(min));
-    System.out.println("factorielleNMoinsK = " + factorielleNMoinsK(max,n));
+    erreur.println("fact min = " + factorielle(min));
+    erreur.println("factorielleNMoinsK = " + factorielleNMoinsK(max,n));
     xr = (factorielleNMoinsK(max,n)) / factorielle(min);*/
     return (int) xr;
   }
@@ -364,7 +364,7 @@ public class math {
         case 2 : if(n%2 == 0) {n = n/2; ic-=2; i++; } break;
         case 3 : n = 3*n+1; ic-=3; i++; break;
         case 4 : return i;
-        default : System.out.println("Sortie en cours de boucle");return i;
+        default : erreur.println("Sortie en cours de boucle");return i;
       }
     }
   }

@@ -27,7 +27,7 @@ public class PartieTest extends TestCaseMuet{
       try {
         p.launchGame();
       }catch (Exception e) {
-        System.out.println(e);
+        erreur.println(e);
         e.getStackTrace();
         assertTrue(false);
       }

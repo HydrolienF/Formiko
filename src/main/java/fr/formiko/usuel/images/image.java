@@ -628,7 +628,7 @@ public class image{
       BufferedImage bi = entry.getValue();
       bi = resize(bi,size);
       mapOut.put(entry.getKey(), bi);
-      // System.out.println("put "+entry.getKey());
+      // erreur.println("put "+entry.getKey());
     }
     return mapOut;
   }
@@ -641,11 +641,11 @@ public class image{
   public static void printBufferedImageColor(BufferedImage bi){
     for (int i=0; i<bi.getWidth(); i++) {
       for (int j=0; j<bi.getHeight(); j++) {
-        System.out.print(bi.getRGB(i,j)+" ");
+        erreur.print(bi.getRGB(i,j)+" ");
       }
-      System.out.println("");
+      erreur.println("");
     }
-    System.out.println();
+    erreur.println();
   }
   /**
   *{@summary Replace a specified rect by given color.}

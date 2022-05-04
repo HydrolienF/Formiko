@@ -61,7 +61,7 @@ public class triche {
       }catch (Exception e) {}
       switch(x){
         case 1:
-          System.out.println(g.getM("affTest")+".");
+          erreur.println(g.getM("affTest")+".");
           break;
         case 2:
           aff(args[1]);
@@ -145,10 +145,10 @@ public class triche {
           }
           break;
         case 25:
-          System.out.println(Main.getGc().getCCase(str.sToI(args[1]),str.sToI(args[2])).getContent());
+          erreur.println(Main.getGc().getCCase(str.sToI(args[1]),str.sToI(args[2])).getContent());
           break;
         case 26:
-          System.out.println(Main.getGj());
+          erreur.println(Main.getGj());
           break;
         case 27:
           if(args[1].equalsIgnoreCase(g.get("cmd.type.2"))){
@@ -252,7 +252,7 @@ public class triche {
           }
           break;
         case 35:
-          System.out.println(Main.getTemps());
+          erreur.println(Main.getTemps());
           break;
         case 36:
           try {
@@ -484,19 +484,19 @@ public class triche {
   private static void aff(String s){
     try {
       Creature c = getCreatureParId(s);
-      System.out.println(c);//si c est une fourmi ou un insecte s'est leur implémentation de toString qui sera appellée.
+      erreur.println(c);//si c est une fourmi ou un insecte s'est leur implémentation de toString qui sera appellée.
     }catch (Exception e3) {
       erreur.alerte("la créature "+s+" n'as pas été trouvée.");
     }
   }
   private static void affJ(String s){
     try {
-      System.out.println(getJoueurParId(s));
+      erreur.println(getJoueurParId(s));
     }catch (Exception e) {}
   }
   private static void affAide(){
-    System.out.println(g.getM("triche.aide.1"));
-    System.out.println(g.getM("commande")+" : "+"("+g.get("triche.aide.2")+")");
+    erreur.println(g.getM("triche.aide.1"));
+    erreur.println(g.getM("commande")+" : "+"("+g.get("triche.aide.2")+")");
     gs.afficheToi();
   }
 }

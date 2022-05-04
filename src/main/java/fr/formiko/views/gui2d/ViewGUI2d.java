@@ -386,15 +386,15 @@ public class ViewGUI2d implements View {
   */
   public CCase getCCase(){
     if (!actionGameOn) {return null;}
-    // System.out.println("getCCase");
+    // erreur.println("getCCase");
     moveMode=true;
     while(ccaseClicked==null){
       Temps.sleep();
-      // System.out.println("cpu use");
+      // erreur.println("cpu use");
     }
     // while(ccaseClicked==null){
     //   Thread.onSpinWait();
-    //   System.out.println("cpu use");
+    //   erreur.println("cpu use");
     // }
     moveMode=false;
     CCase tempCCase = ccaseClicked;
@@ -571,7 +571,7 @@ public class ViewGUI2d implements View {
       // }catch (Exception e) {}
       Temps.sleep();
       // Thread.onSpinWait(); //don't stop the thread, probably because it's the main tread
-      // System.out.println("CPU USE");
+      // erreur.println("CPU USE");
     }
     launchFromPm=false;
     actionGame();
@@ -806,7 +806,7 @@ public class ViewGUI2d implements View {
         */
         public void run(){
           Window activeWindow = javax.swing.FocusManager.getCurrentManager().getActiveWindow();
-          // System.out.println(getF().equals(activeWindow));
+          // erreur.println(getF().equals(activeWindow));
           // erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()/10));
           // erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()));
           // launchOptions.printMemUse();

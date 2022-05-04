@@ -372,7 +372,7 @@ public class GCreature implements Serializable, Cloneable {//, Iterator{
   //   if(toList().isEmpty()){
   //     throw new EmptyListException("GCreature","tout afficher");
   //   }else{
-  //     System.out.print(g.get("listeCreature")+" : ");
+  //     erreur.print(g.get("listeCreature")+" : ");
   //     début.afficheToutRéduit();
   //   }
   // }

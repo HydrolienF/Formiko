@@ -362,11 +362,11 @@ public class FPanelMenu extends FPanel {
     */
     @Override
     public void run(){
-      // System.out.println("running");
+      // erreur.println("running");
       running=true;
       while(running){
         if(getData().getImage("I0 flying side view")!=null){
-          // System.out.println("iniPanel");
+          // erreur.println("iniPanel");
           iniPanel();
           break;
         }else{

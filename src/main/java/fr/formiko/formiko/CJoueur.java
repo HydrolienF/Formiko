@@ -75,10 +75,10 @@ public class CJoueur implements Serializable{
   public void afficheToiParciel(){
     String m = "";
     if (suivant != null ){ m = " "+g.get("CJoueur.2")+" "+ this.getSuivant().getJoueur().getId();}
-    System.out.println(g.get("CJoueur.1")+" " + this.contenu.getId() + m);
+    erreur.println(g.get("CJoueur.1")+" " + this.contenu.getId() + m);
   }
   public void afficheTout(){
-    System.out.println(this);
+    erreur.println(this);
     if (suivant != null){
       suivant.afficheTout();
     }

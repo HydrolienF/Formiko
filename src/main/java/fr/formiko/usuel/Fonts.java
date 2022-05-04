@@ -65,7 +65,7 @@ public class Fonts {
             erreur.info("Font "+font.getName()+" alredy exist on the OS");
           }
         }
-        // System.out.println(f+" "+font);
+        // erreur.println(f+" "+font);
       }
     }
     return flag;

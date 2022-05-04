@@ -29,7 +29,7 @@ public class Message implements Serializable{
   // 6 déroulement du jeux
 
   // piste de simplification pas forcément adaptée :
-  //Dialoguer d = (s) -> System.out.println("Tu as dis : " + s);
+  //Dialoguer d = (s) -> erreur.println("Tu as dis : " + s);
   //d.parler("Bonjour");
 
 
@@ -76,7 +76,7 @@ public class Message implements Serializable{
   public void afficheToi(){ // idéalement la méthode d'affichage n'affiche que si les paramètres d'affichage du joueur le lui demande.
     //if (Main.getNiveauDeDétailDeLAffichage()>0){
     if (niveauDeDétailDeLAffichage>0){
-      System.out.println(description());
+      erreur.println(description());
     }
   }
   public String description(){

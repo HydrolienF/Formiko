@@ -75,14 +75,14 @@ public class ViewCLI implements View {
   public boolean paint(){
     if(scannerAnswer==null){return false;}
     if(actionGameOn){
-      System.out.println(sep);
+      erreur.println(sep);
       printMap();
-      System.out.println(sep);
+      erreur.println(sep);
       printFereInColor();
-      System.out.println(sep);
+      erreur.println(sep);
       printArray();
     }else{
-      System.out.println(sep);
+      erreur.println(sep);
       if(menuName.equals("")){
         printArray();
       }else{
@@ -323,7 +323,7 @@ public class ViewCLI implements View {
       switch (choice) {
         case 1 :
         sauvegarderUnePartie.sauvegarder(Main.getPartie(),getSaveName()+".save");
-        System.out.println("saveDone");
+        erreur.println("saveDone");
         return 1;
         case 2 :
         menuOptions();
@@ -338,7 +338,7 @@ public class ViewCLI implements View {
         Main.quitter();
         return 5;
         default :
-        System.out.println("return O");
+        erreur.println("return O");
         return 0;
       }
     }
@@ -357,7 +357,7 @@ public class ViewCLI implements View {
   */
   public boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj, boolean canResumeGame){
     erreur.info("message");
-    System.out.println(gj);
+    erreur.println(gj);
     //TODO to update.
     menuMain();
     return true;
@@ -445,7 +445,7 @@ public class ViewCLI implements View {
   */
   public void message(String message, boolean doWeNeedToDoNextCmdNow){
     //TODO print it at a special location when printing all game info.
-    System.out.println(message);
+    erreur.println(message);
   }
   /**
   *{@summary Print a loading message.}<br>
@@ -462,7 +462,7 @@ public class ViewCLI implements View {
   *@lastEditedVersion 1.46
   */
   public void popUpMessage(String message){
-    System.out.println(sep);
+    erreur.println(sep);
     message(message, false);
   }
   /**
@@ -472,7 +472,7 @@ public class ViewCLI implements View {
   *@lastEditedVersion 1.50
   */
   public String popUpQuestion(String message){
-    System.out.println(sep);
+    erreur.println(sep);
     message(message,false);
     String s = scannerAnswer.nextLine();
     return s;
@@ -501,7 +501,7 @@ public class ViewCLI implements View {
   *@lastEditedVersion 2.7
   */
   public void setDownloadingMessage(String message){
-    System.out.println(message);
+    erreur.println(message);
   }
   /**
   *{@summary Default fontion to move.}
@@ -553,7 +553,7 @@ public class ViewCLI implements View {
     }
     i=1;
     for (String s : list ) {
-      System.out.println(i+" : "+s);
+      erreur.println(i+" : "+s);
       i++;
     }
   }
@@ -565,7 +565,7 @@ public class ViewCLI implements View {
     if(tToPrint==null){return;}
     int i=1;
     for (String s : tToPrint ) {
-      System.out.println(i+" : "+s);
+      erreur.println(i+" : "+s);
       i++;
     }
   }
@@ -577,7 +577,7 @@ public class ViewCLI implements View {
     if(cLIMap==null){
       cLIMap = new CLIMap(Main.getPartie().getGc());
     }
-    System.out.println(cLIMap);
+    erreur.println(cLIMap);
   }
   /**
   *{@summary Print anthill of the playing ant.}<br>
@@ -585,13 +585,13 @@ public class ViewCLI implements View {
   */
   private void printFereInColor(){
     if(Main.getPlayingAnt()==null){return;}
-    System.out.println(g.getM("fourmilière")+" : ");
+    erreur.println(g.getM("fourmilière")+" : ");
     Liste<Creature> lgc = Main.getPlayingAnt().getFere().getGc().toList();
     for (Creature c : lgc ) {
       if (c.equals(Main.getPlayingAnt())){
-        System.out.print("-- ! -- ");
+        erreur.print("-- ! -- ");
       }
-      System.out.println(getAllyAntInColor(c));
+      erreur.println(getAllyAntInColor(c));
     }
   }
   /**
@@ -636,7 +636,7 @@ public class ViewCLI implements View {
   private int getIntBetween(int minValue, int maxValue){
     int returnValue = minValue-1;
     while(returnValue < minValue || returnValue > maxValue){
-      System.out.println(g.get("choix")+" : ");
+      erreur.println(g.get("choix")+" : ");
       String input = scannerAnswer.nextLine();
       try {
         returnValue = (int) str.sToLThrows(input);
@@ -662,9 +662,9 @@ public class ViewCLI implements View {
     saveName+="  "+Temps.getDatePourSauvegarde();
     saveName = str.sToFileName(saveName);//le pseudo pourrai contenir des char interdits sur des fichiers.
     String t [] = new String[2];
-    System.out.println(sep);
-    System.out.println(g.getM("set")+" "+g.get("le")+" "+g.get("saveName")+".");
-    System.out.println(t[1]=g.getM("defaultName")+" : "+saveName);
+    erreur.println(sep);
+    erreur.println(g.getM("set")+" "+g.get("le")+" "+g.get("saveName")+".");
+    erreur.println(t[1]=g.getM("defaultName")+" : "+saveName);
     String input = scannerAnswer.nextLine();
     if(!input.equals("")){
       saveName = str.sToFileName(input);
@@ -724,7 +724,7 @@ public class ViewCLI implements View {
     for (int i=0; i<len; i++) {
       tToPrint[i]=array[i];
     }
-    System.out.println(g.getM("set")+" "+g.get("le")+" "+g.get(varName)+".");
+    erreur.println(g.getM("set")+" "+g.get("le")+" "+g.get(varName)+".");
     menuName="";
     paint();
     int id = getActionMenu(len);

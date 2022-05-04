@@ -112,10 +112,10 @@ public class GString extends Liste<String> implements Serializable {
   */
   public void afficheToi(){
     if(getHead()==null){
-      System.out.println(g.get("GString",1,"Le GString est vide"));
+      erreur.println(g.get("GString",1,"Le GString est vide"));
     }else{
       //getHead().afficheTout();
-      System.out.println(toStringLong());
+      erreur.println(toStringLong());
     }
   }
   // public void classer(){
@@ -193,7 +193,7 @@ public class GString extends Liste<String> implements Serializable {
     }
     int b = getHead().supprimer(s);
     actualiserFin();
-    if(!b){System.out.println("la suppression de la line qui suis n'as pas pu etre éffectuée"+s);}
+    if(!b){erreur.println("la suppression de la line qui suis n'as pas pu etre éffectuée"+s);}
     return b;
   }*/
   /**

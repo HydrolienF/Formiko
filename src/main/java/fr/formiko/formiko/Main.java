@@ -421,8 +421,8 @@ public class Main {
       long tempsDeFinDeJeu=System.currentTimeMillis();
       long tempsJeuEcoulé = tempsDeFinDeJeu-tempsDeDébutDeJeu;
       tem.addTempsEnJeux(tempsJeuEcoulé);tem.actualiserDate2();tem.sauvegarder();
-      System.out.println(g.getM("tempsJeuEcoulé")+" : "+Temps.msToTime(tempsJeuEcoulé,2,false));
-      System.out.println(g.getM("messageQuitter"));
+      erreur.println(g.getM("tempsJeuEcoulé")+" : "+Temps.msToTime(tempsJeuEcoulé,2,false));
+      erreur.println(g.getM("messageQuitter"));
       System.exit(0);
     }catch (Exception e) {
       erreur.alerte("Game fail to close normally.");

@@ -305,7 +305,7 @@ public class Data {
         //   tBi[i] = image.translateImage(tBi[i], 0, 0, widthImage, heightImage);
         // }
         if(tRotation[i]!=0){
-          // System.out.println((diffX+(widthImage/2))+" "+ (diffY+(heightImage/2)) +"     "+ tRotation[i]);
+          // erreur.println((diffX+(widthImage/2))+" "+ (diffY+(heightImage/2)) +"     "+ tRotation[i]);
           tBi[i] = image.rotateImage2(tBi[i], tRotation[i], (int)(diffX+(widthImage/2)), (int)(diffY+(heightImage/2)));
         }
         if(tp[i]!=null){
@@ -317,7 +317,7 @@ public class Data {
       //     tBi[i] = image.translateImage(tBi[i], (int)(widthImage/2.4), (int)(heightImage/2.4), widthImage, heightImage);
       //   }
       //   if(tRotation[i]!=0){
-      //     // System.out.println((diffX+(widthImage/2))+" "+ (diffY+(heightImage/2)) +"     "+ tRotation[i]);
+      //     // erreur.println((diffX+(widthImage/2))+" "+ (diffY+(heightImage/2)) +"     "+ tRotation[i]);
       //     tBi[i] = image.rotateImage2(tBi[i], tRotation[i], diffX+((int)(widthImage/2.4)), diffY+((int)(heightImage/2.4)));
       //   }
       //   if(tp[i]!=null){
@@ -515,7 +515,7 @@ public class Data {
         }
       }catch (Exception e) {
         erreur.erreur("iniBackgroundMapImage fail");
-        System.out.println(e);
+        erreur.println(e);
         e.printStackTrace();
         map=null;
       }

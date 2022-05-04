@@ -279,7 +279,7 @@ public class Partie implements Serializable{
     if (partieFinie) {return;}//on n'affiche pas plusieur fois les info de fin de partie.
     setPartieFinie(true);
     boolean canResumeGame=true;
-    System.out.println(getTour()+"/"+getNbrDeTour());
+    erreur.println(getTour()+"/"+getNbrDeTour());
     String victoire = g.get("victoireInconue");
     GJoueur gjSorted = getGj().getGjSorted();
     Joueur winner = null;

@@ -17,6 +17,6 @@ public class clear {
   @lastEditedVersion 1.0
   */
   public static void clear(){
-    if (affClear) { System.out.print("\033[H\033[2J"); } //permet d'éffacer la console.
+    if (affClear) { erreur.print("\033[H\033[2J"); } //permet d'éffacer la console.
   }
 }

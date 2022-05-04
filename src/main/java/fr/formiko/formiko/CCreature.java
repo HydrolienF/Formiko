@@ -104,14 +104,14 @@ public class CCreature implements Serializable, Cloneable {
     int x = 0;
     if(suivant!=null){ x++;}
     if(précédente!=null){ x++;}
-    System.out.print(g.get("celluleA")+" "+ x+" "+g.get("lien")+" : ");
-    System.out.println(contenu);
+    erreur.print(g.get("celluleA")+" "+ x+" "+g.get("lien")+" : ");
+    erreur.println(contenu);
   }
   public void afficheToiRéduit(){
     int x = 0;
     if(suivant!=null){ x++;}
     if(précédente!=null){ x++;}
-    System.out.print(contenu.getId());
+    erreur.print(contenu.getId());
   }
   public void afficheTout(){
     afficheToi();
@@ -128,7 +128,7 @@ public class CCreature implements Serializable, Cloneable {
     if (suivant!=null){
       suivant.afficheToutRéduit();
     }else{
-      System.out.println();
+      erreur.println();
     }
   }
 

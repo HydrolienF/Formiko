@@ -209,7 +209,7 @@ public class Fourmi extends Creature implements Serializable{
   public int getMovingCost(){return getIndividu().getMovingCost();}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){return super.toString() +" "+ tableau.tableauToString(descriptionTableau());}
-  public void afficheToi (){System.out.println(description());}
+  public void afficheToi (){erreur.println(description());}
   public boolean estReine(){return getTypeF()==0;}
   public String description(){
     return toString();
@@ -335,7 +335,7 @@ public class Fourmi extends Creature implements Serializable{
     debug.débogage("tentative de cassage de graine");
     try {
       debug.débogage("Etape 1");
-      System.out.println(fere.getGg().getGrainePlusDeGivenFood(this));
+      erreur.println(fere.getGg().getGrainePlusDeGivenFood(this));
       if (fere.getGg().getGrainePlusDeGivenFood(this).getDureté() < this.getDuretéMax()){
         debug.débogage("Etape 2");
         fere.getGg().getGrainePlusDeGivenFood(this).casser();return true;

@@ -65,7 +65,7 @@ public class GGraine implements Serializable {
     // ici on choisirai la graine avec le plus de givenFood parmi toutes les Graine que la fourmi peut ouvrir.
   //}
 
-  public void afficheToi(){ System.out.println(this);}
+  public void afficheToi(){ erreur.println(this);}
   /**
   *{@summary Add a seed to this GGraine.}
   *@lastEditedVersion 1.40

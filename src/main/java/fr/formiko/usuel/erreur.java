@@ -8,17 +8,32 @@ import java.io.IOException;
 /**
 *{@summary Error class call to print error message.}<br>
 *@author Hydrolien
-*@lastEditedVersion 2.11
+*@lastEditedVersion 2.23
 */
 public class erreur {
   public static boolean muet=false;
 
   public static boolean getMuet(){return muet;}
   public static void setMuet(boolean b){muet=b;}
-  public static void println(String s){
+  /**
+  *{@summary A synchronized print that call print(Object o).}<br>
+  *@lastEditedVersion 2.23
+  */
+  public static void println(Object s){
     print(s+"\n");
   }
-  public static void print(String s){
+  /**
+  *{@summary A synchronized print that call print(Object o).}<br>
+  *@lastEditedVersion 2.23
+  */
+  public static void println(){
+    println("");
+  }
+  /**
+  *{@summary A synchronized print to avoid multithread issues.}<br>
+  *@lastEditedVersion 2.23
+  */
+  public static void print(Object s){
     if(!muet){
       synchronized (System.out) {
         System.out.print(s);

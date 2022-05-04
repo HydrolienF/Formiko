@@ -300,7 +300,7 @@ public class CCase implements Serializable{
     }
   }
   public void afficheLigne(){
-    System.out.println(contenu);
+    erreur.println(contenu);
     if (droite != null){
       droite.afficheLigne();
     }

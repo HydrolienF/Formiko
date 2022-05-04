@@ -7,7 +7,7 @@ public class menu {
     // Idéalement on affiche les info dans une mini fenêtre ou après avoir nétoyé le terminal.
     int lent = t.length;
     for (int i=0; i<lent; i++){
-      System.out.println((i+1) + " : " + t[i]);
+      erreur.println((i+1) + " : " + t[i]);
     }
     byte j=-1;
     while (j==-1){
@@ -20,7 +20,7 @@ public class menu {
     // Idéalement on affiche les info dans une mini fenêtre ou après avoir nétoyé le terminal.
     int lent = t.length;
     for (int i=0; i<lent; i++){
-      System.out.println((i+1) + " : " + t[i]);
+      erreur.println((i+1) + " : " + t[i]);
     }
     int j=-1;
     while (j==-1){

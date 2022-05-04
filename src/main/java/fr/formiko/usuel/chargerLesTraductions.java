@@ -311,7 +311,7 @@ public class chargerLesTraductions {
       String s = "";int x=getPourcentageTraduitAutomatiquement(i); if(x>0){s=" ("+x+"% traduit automatiquement)";}
       int y = getPourcentageTraduit(i);
       if(x>0){
-        System.out.println(getLanguage(i)+" : "+y+"%"+s);
+        erreur.println(getLanguage(i)+" : "+y+"%"+s);
       }
     }
   }

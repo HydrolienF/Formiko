@@ -80,7 +80,7 @@ public class Individu implements Serializable{
     s+=g.get("maxAction")+" : "+maxAction;s+="\n";
     s+=g.get("taille")+" : "+taille;s+="\n";
     s+=g.get("poidsSupportable")+" : "+poidMax;s+="\n";
-    //System.out.println("Temps de repos néssésaire (par tour)")+" : "+tempsDeRepos);
+    //erreur.println("Temps de repos néssésaire (par tour)")+" : "+tempsDeRepos);
     s+=g.get("tMaxAge")+" : ";
     s+=tableau.tableauToString(tMaxAge);s+="\n";
     s+=g.get("tMaxFood")+" : ";

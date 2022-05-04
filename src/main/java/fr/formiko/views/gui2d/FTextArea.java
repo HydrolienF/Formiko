@@ -109,7 +109,7 @@ public class FTextArea extends JTextArea {
         System.err.println("ERROR\n" + ex.getMessage());
       }
     }
-    // System.out.println(maxLineWidth);
+    // erreur.println(maxLineWidth);
     return (int)counting;
   }
 }

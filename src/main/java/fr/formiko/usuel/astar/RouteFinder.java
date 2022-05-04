@@ -50,11 +50,11 @@ public class RouteFinder<T extends GraphNode> {
     openSet.add(start);
 
     while (!openSet.isEmpty()) {
-      //System.out.println("Open Set contains: " + openSet.stream().map(RouteNode::getCurrent).collect(Collectors.toSet()));
+      //erreur.println("Open Set contains: " + openSet.stream().map(RouteNode::getCurrent).collect(Collectors.toSet()));
       RouteNode<T> next = openSet.poll();
-      //System.out.println("Looking at node: " + next);
+      //erreur.println("Looking at node: " + next);
       if (next.getCurrent().equals(to)) {
-        //System.out.println("Found our destination!");
+        //erreur.println("Found our destination!");
 
         List<T> route = new ArrayList<>();
         RouteNode<T> current = next;
@@ -63,7 +63,7 @@ public class RouteFinder<T extends GraphNode> {
           current = allNodes.get(current.getPrevious());
         } while (current != null);
 
-        //System.out.println("Route: " + route);
+        //erreur.println("Route: " + route);
         return route;
       }
 
@@ -77,7 +77,7 @@ public class RouteFinder<T extends GraphNode> {
           nextNode.setRouteScore(newScore);
           nextNode.setEstimatedScore(newScore + targetScorer.computeCost(connection, to));
           openSet.add(nextNode);
-          //System.out.println("Found a better route to node: " + nextNode);
+          //erreur.println("Found a better route to node: " + nextNode);
         }
       });
     }

@@ -124,7 +124,7 @@ public class Joueur implements Serializable{
     setPlayingJoueur(null);
   }
   public void afficheScore(){
-    System.out.println(pseudo +" : "+getScore());
+    erreur.println(pseudo +" : "+getScore());
   }
   public void initialisationCaseNS(){
     int x = Main.getGc().getNbrX();
@@ -154,10 +154,10 @@ public class Joueur implements Serializable{
     //affichecaseSN();
   }
   public void affichecaseSN(){
-    System.out.println("Les tableaux s'affiche en inversé par rapport a la carte !");
-    System.out.println("caseNuageuse");
+    erreur.println("Les tableaux s'affiche en inversé par rapport a la carte !");
+    erreur.println("caseNuageuse");
     tableau.afficher(caseNuageuse);
-    System.out.println("caseSombre");
+    erreur.println("caseSombre");
     tableau.afficher(caseSombre);
   }
   public void prendreEnCompteLaDifficulté(){

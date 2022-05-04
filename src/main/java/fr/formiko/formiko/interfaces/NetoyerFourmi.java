@@ -85,7 +85,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
     int lengc = gc.length();
     //TODO filterr les fourmi déja propre.
     if(lengc<2){ cible = net;
-      //System.out.println("1 seule fourmi.");
+      //erreur.println("1 seule fourmi.");
     }
     else{
       int t[] = getFourmiPasPropre();

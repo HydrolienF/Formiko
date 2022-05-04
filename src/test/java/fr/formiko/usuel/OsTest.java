@@ -60,7 +60,7 @@ public class OsTest extends TestCaseMuet {
   }
   @AfterAll
   public static void resetOs(){
-    System.out.println("clean");
+    erreur.println("clean");
     new OsExtends(System.getProperty("os.name").toLowerCase());
   }
 }

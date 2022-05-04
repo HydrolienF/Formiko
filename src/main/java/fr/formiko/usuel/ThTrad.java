@@ -21,7 +21,7 @@ public class ThTrad extends Thread{
   }
   public void addTradAuto(){
     String sLangue=chargerLesTraductions.getLanguage(langue);
-    System.out.println("Ajout de la langue : "+sLangue);
+    erreur.println("Ajout de la langue : "+sLangue);
     GString gs = new GString();
     String t[] = chargerLesTraductions.getTableauDesTrad(langue);
     for (String s : t) {

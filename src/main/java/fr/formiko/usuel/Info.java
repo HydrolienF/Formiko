@@ -103,7 +103,7 @@ public class Info {
     }catch (Exception e) {
       m="[null] ";
     }
-    System.out.println(m);
+    erreur.println(m);
     if(fatal){erreur.forceStop();}
   }
 }

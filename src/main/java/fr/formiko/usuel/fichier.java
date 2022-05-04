@@ -82,22 +82,22 @@ public class fichier {
   }public static boolean deleteDirectory(String s){try {return deleteDirectory(new File(str.sToDirectoryName(s)));}catch (Exception e){return false;}}
 
   public static void affichageDesLecteurALaRacine (File f) {
-    System.out.println("Affichage des lecteurs à la racine du PC : ");
+    erreur.println("Affichage des lecteurs à la racine du PC : ");
     for(File file : f.listRoots()){
-      System.out.println(file.getAbsolutePath());
+      erreur.println(file.getAbsolutePath());
       try {
         int i = 1;
         //On parcourt la liste des fichiers et répertoires
         for(File nom : file.listFiles()){
           //S'il s'agit d'un dossier, on ajoute un "/"
-          System.out.print("\t\t" + ((nom.isDirectory()) ? nom.getName()+"/" : nom.getName()));
+          erreur.print("\t\t" + ((nom.isDirectory()) ? nom.getName()+"/" : nom.getName()));
 
           if((i%4) == 0){
-            System.out.print("\n");
+            erreur.print("\n");
           }
           i++;
         }
-        System.out.println("\n");
+        erreur.println("\n");
       } catch (NullPointerException e) {} //can be throw if there is no file.
     }
   }
@@ -145,7 +145,7 @@ public class fichier {
         String t [] = fileName.split("/");
         downloadName = t[t.length-1];
         int downloadNameLen = downloadName.length();
-        // System.out.println(downloadName.substring(downloadNameLen-4,downloadNameLen));
+        // erreur.println(downloadName.substring(downloadNameLen-4,downloadNameLen));
         if(downloadNameLen>4 && ".zip".equals(downloadName.substring(downloadNameLen-4,downloadNameLen))){
           downloadName = downloadName.substring(0,downloadNameLen-4);
         }
