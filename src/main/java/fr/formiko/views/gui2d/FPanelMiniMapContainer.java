@@ -74,10 +74,17 @@ public class FPanelMiniMapContainer extends FPanel {
   public boolean getFbetEnabled(){
     return fBEndTurn.isEnabled();
   }
-
+  /**
+  *{@summary Enable or disable this &#38; all sub component.}
+  *@lastEditedVersion 2.23
+  */
+  @Override
+  public void setEnabled(boolean boo){
+    pgo.setEnabled(boo);
+    super.setEnabled(boo);
+  }
 
   // FUNCTIONS -----------------------------------------------------------------
-
 
   // SUB-CLASS -----------------------------------------------------------------
   /**
@@ -406,6 +413,17 @@ public class FPanelMiniMapContainer extends FPanel {
       }
       getView().getPc().drawListIcons(g,list,size/2,size/2,0);
       return bi;
+    }
+    /**
+    *{@summary Enable or disable this &#38; all sub component.}
+    *@lastEditedVersion 2.23
+    */
+    @Override
+    public void setEnabled(boolean boo){
+      for (FButtonPGO b : buttonList) {
+        b.setEnabled(boo);
+      }
+      super.setEnabled(boo);
     }
   }
 }

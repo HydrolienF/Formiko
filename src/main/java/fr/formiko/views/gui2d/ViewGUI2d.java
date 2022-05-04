@@ -708,6 +708,7 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 2.22
   */
   public void setNextPlayingAnt(Fourmi f){
+    if(getPe().isOn()){return;}
     if(f!=null && f.getFere().getJoueur().equals(Main.getPlayingJoueur()) && !f.equals(Main.getPlayingAnt()) && f.getMaxAction()>0) {
       getPb().setActionF(-2);
       getPb().removePA();

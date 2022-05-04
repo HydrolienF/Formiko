@@ -30,6 +30,7 @@ public class FPanelInfoText extends FPanel {
   public FPanelInfoText(List<String> gs, int width, boolean withAlpha, Font font){
     setLayout(null);
     nbrDeDesc=gs.size();
+    // erreur.info("New FPanelInfoText with "+nbrDeDesc+" items.");
     int yD = FLabel.getDimY();
     if(font!=null){
       yD = (int)(font.getSize()*1.2);

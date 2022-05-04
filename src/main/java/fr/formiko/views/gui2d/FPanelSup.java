@@ -46,6 +46,7 @@ public class FPanelSup extends FPanel {
       }
       @Override
       public void mouseReleased(MouseEvent e) {
+        if(getView().getPe().isOn()){return;}
         if(e.getButton()== MouseEvent.BUTTON1){
           if(getView().getMoveMode()){
             // getView().setCCase(getCCase(e));
@@ -80,6 +81,7 @@ public class FPanelSup extends FPanel {
     addMouseMotionListener(new MouseAdapter() {
       @Override
       public void mouseMoved(MouseEvent e) {
+        if(getView().getPe().isOn()){return;}
         CCase cc = getCCase(e);
         mouseMovedUpdate(cc);
       }
@@ -148,6 +150,7 @@ public class FPanelSup extends FPanel {
     }
   }
   public void mouseMovedUpdate(CCase cc, boolean force){
+    if(getView().getPe().isOn()){return;}
     if(cc==null){getView().setMessageDesc("");cc2=null;return;}
     if(force || cc2==null || !cc2.getContent().equals(cc.getContent())){//si la case a changé.
       cc2=new CCase(cc.getContent());
