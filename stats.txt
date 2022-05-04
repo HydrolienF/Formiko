@@ -126,7 +126,7 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 100% (11/11) 1  6  0  4  1  262  usuel\structures\ImageTree.java
 100% (2/2)   1  1  0  0  0  34   usuel\structures\listes\GGInt.java
 100% (5/5)   1  4  0  0  0  90   usuel\structures\listes\GInt.java
-0%   (0/2)   1  1  0  0  0  21   usuel\structures\listes\GMessage.java
+0%   (0/2)   1  1  0  0  0  22   usuel\structures\listes\GMessage.java
 82%  (14/17) 3  13 0  1  9  278  usuel\structures\listes\GString.java
 62%  (32/51) 3  48 0  0  16 585  usuel\structures\listes\Liste.java
 100% (1/1)   1  0  0  0  1  22   usuel\structures\Node.java
@@ -176,7 +176,7 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 100% (7/7)   2  4  1  0  6  121  views\gui2d\FPanelInfo.java
 100% (21/21) 5  12 0  4  5  287  views\gui2d\FPanelInfoCreature.java
 100% (15/15) 3  10 0  2  1  243  views\gui2d\FPanelInfoGCreature.java
-0%   (0/7)   1  6  0  0  5  82   views\gui2d\FPanelInfoText.java
+100% (7/7)   1  6  0  0  3  119  views\gui2d\FPanelInfoText.java
 8%   (2/25)  1  24 0  0  15 263  views\gui2d\FPanelJeu.java
 100% (2/2)   1  1  0  0  1  38   views\gui2d\FPanelLanceurPartie.java
 100% (3/3)   1  2  0  0  0  43   views\gui2d\FPanelLinks.java
@@ -209,4 +209,4 @@ null%0  0  0  0  0  7    usuel\media\audio\SoundsPlayer.java
 100% (1/1)   1  0  0  0  1  242  views\View.java
 100% (34/34) 1  24 0  9  2  733  views\ViewCLI.java
 100% (16/16) 1  15 0  0  7  174  views\ViewNull.java
-68,1% (1365/2003)  253 1546 8 196 1240  31987 global
+68,4% (1372/2003)  253 1546 8 196 1238  32025 global

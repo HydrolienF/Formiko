@@ -36,6 +36,7 @@ public class FPanelMiniMapContainer extends FPanel {
   */
   public FPanelMiniMapContainer() {
     super();
+    erreur.info("new FPanelMiniMapContainer");
     fBEndTurn = new FButtonEndTurn();
     add(fBEndTurn);
     pgo = new FPanelGraphicsOptions();

@@ -95,7 +95,11 @@ public class FPanelSup extends FPanel {
   public void updateSize(){
     if(getView().getPd()!= null && getView().getPd().getNeedToStayMaxSize()){updateSizeMax(); return;}
     // setSize(Main.getDimX()-getView().getPz().getWidth(), Main.getDimY()-getView().getPa().getHeight());
-    setSize(math.min(Main.getDimX(), getView().getPc().getWidth()-getView().getPc().getX()), Main.getDimY()-getView().getPa().getHeight());
+    int paWidth=0;
+    if(getView().getPa()!=null){
+      paWidth=Main.getDimY()-getView().getPa().getHeight();
+    }
+    setSize(math.min(Main.getDimX(), getView().getPc().getWidth()-getView().getPc().getX()), paWidth);
     //la 2a version est mieux pour prendre en compte les déplacements.
     //setSize(Main.getDimX()-Main.getPz().getWidth(), Main.getDimY()-math.max(getView().getPa().getHeight(),Main.getPTInt().getHeight()));
   }

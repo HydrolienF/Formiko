@@ -163,14 +163,20 @@ public class FPanelBouton extends FPanel {
     pas.setVisible(b);
     //pai.setVisible(b);
   }
+  public void hidePa(){
+    removePa();
+  }
   public void removePa(){
     // erreur.info("removePA",3);
     remove(pa);
     remove(pas);
     remove(pai);
-    remove(pmmc);
+    remove(pmmc); //TODO #498 hide but don't remove
   }public void removePA(){removePa();}
-  public void addPA(){ int t [] = {0,1,2,3,4,5,6,7}; addPA(t);}
+  public void addPA(){
+    int t [] = {0,1,2,3,4,5,6,7};
+    addPA(t);
+  }
   /*public void modPa(){
     remove(pa);
     pa = new FPanelAction(Main.getPlayingAnt().getTActionFourmi());
