@@ -238,8 +238,8 @@ public class FPanelBouton extends FPanel {
     if (playingPlayer==null){ return;}
     GString gs = playingPlayer.getGm().gmToGs(Main.getMaxMessageDisplay());
     pij = new FPanelInfoText(gs,Main.getTailleElementGraphiqueX(500),true,fontPij);
-    int x = Main.getTailleElementGraphiqueX(320);
-    pij.setBounds((getWidth()-x*2)/2,Main.getTailleElementGraphiqueY(100),x,pij.getYPi());
+    //center with aviable space for map.
+    pij.setLocation((getWidth()-getView().getPz().getWidth()-pij.getWidth())/2,Main.getTailleElementGraphiqueY(100));
     add(pij);
   }
   public void removePij(){ remove(pij);}
