@@ -75,16 +75,16 @@ public class FFrame extends JFrame {
   */
   private void iniCloseButton(){
     addWindowListener(new WindowAdapter() {
-        @Override
-        public void windowClosing(WindowEvent e) {
-          Main.getView().close();
-        }
-        // @Override
-        // public void windowStateChanged(WindowEvent e) {
-        //   if (e.getNewState() == WindowEvent.WINDOW_LOST_FOCUS) {
-        //     e.getWindow().setVisible(false);
-        //   }
-        // }
+      @Override
+      public void windowClosing(WindowEvent e) {
+        Main.getView().close();
+      }
+      // @Override
+      // public void windowStateChanged(WindowEvent e) {
+      //   if (e.getNewState() == WindowEvent.WINDOW_LOST_FOCUS) {
+      //     e.getWindow().setVisible(false);
+      //   }
+      // }
     });
   }
   /**

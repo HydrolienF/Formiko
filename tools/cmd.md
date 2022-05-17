@@ -112,3 +112,9 @@ cf ~/cours/s6/bdd/README.md
 
 #download a full web site
 wget -r https://...
+
+List of the console color depending of OS & consol.
+https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
+
+See all cmd that we launch on a session
+ps -u [username]
