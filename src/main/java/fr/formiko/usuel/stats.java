@@ -36,6 +36,8 @@ public class stats {
   public static GString getStats(String filePath, boolean raccourcir){
     Chrono.debutCh();
     GString gs = fichier.listerLesFichiersDuRep(filePath);
+    erreur.info(gs.length()+" files to parse in "+filePath);
+    if(gs.length()==0){return new GString();}
     Chrono.endCh("listage des fichiers");Chrono.debutCh();
     //gs = la liste des fichiers.
 

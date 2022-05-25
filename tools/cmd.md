@@ -104,7 +104,7 @@ scp path/to/file/File identifiant@machineName:path/to/file/
 
 #vlc
 Download a video from cmd line :
-vlc -I dummy --sout file/mp4:v.mp4 https://youtu.be/Yao568U_tmU vlc://quit
+vlc -I dummy --sout file/mp4:v.mp4 https://youtu.be/oiWqhZJvqME vlc://quit
 
 
 #sql postgresql
@@ -118,3 +118,8 @@ https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
 
 See all cmd that we launch on a session
 ps -u [username]
+
+
+stop / start postgresql (psql) on Windows : (to run in admin mode)
+pg_ctl stop -D "C:\Program Files\PostgreSQL\14\data"
+pg_ctl start -D "C:\Program Files\PostgreSQL\14\data"
