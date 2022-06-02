@@ -52,7 +52,7 @@ public class color {
     YELLOW = beginChar+"[1;33m";
     GREEN = beginChar+"[1;32m";
     WHITE = beginChar+"[1;37m";
-    BROWN = beginChar+"[0;m";
+    BROWN = beginChar+"[1;m";
     BLACK = beginChar+"[1;30m";
     BLUE = beginChar+"[1;34m";
     PURPLE = beginChar+"[1;35m";
