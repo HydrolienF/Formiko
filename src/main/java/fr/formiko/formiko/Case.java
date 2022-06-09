@@ -257,19 +257,25 @@ public class Case implements Serializable{
   *@lastEditedVersion 2.18
   */
   public GCreature getSortedGc(Fourmi f){
+    //TODO may need a fix
     if(f==null){return gc;}
     else{
-      Liste<Creature> list = new Liste<Creature>();
-      for (Creature c : getGc().toList()) {
-        list.addSorted(c, (c1, c2) -> c1.friendlyLevel(f) - c2.friendlyLevel(f));
+      GCreature gcout = new GCreature();
+      for (Creature c : getGc()) {
+        gcout.addSorted(c, (c1, c2) -> c1.friendlyLevel(f) - c2.friendlyLevel(f));
       }
-      GCreature gcr = new GCreature();
-      for (Creature c : list) {
-        // if(!c.equals(f)){
-          gcr.addFin(c);
-        // }
-      }
-      return gcr;
+      return new GCreature(gcout);
+      // Liste<Creature> list = new Liste<Creature>();
+      // for (Creature c : getGc().toList()) {
+      //   list.addSorted(c, (c1, c2) -> c1.friendlyLevel(f) - c2.friendlyLevel(f));
+      // }
+      // GCreature gcr = new GCreature();
+      // for (Creature c : list) {
+      //   // if(!c.equals(f)){
+      //     gcr.addTail(c);
+      //   // }
+      // }
+      // return gcr;
     }
   }
   public GCreature getSortedGc(){

@@ -62,10 +62,11 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   /**
   *{@summary Update tail element.}<br>
-  *@lastEditedVersion 1.41
+  *@lastEditedVersion 2.23
   */
   public void updateTail(){
     ListeNode<T> node = getHead();
+    if(node==null){return;}
     while(node.getNext()!=null){
       node=node.getNext();
     }
@@ -289,6 +290,11 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   *@lastEditedVersion 1.52
   */
   public boolean removeItem(int i){
+    boolean b=removeItemBeforeUpdateTail(i);
+    updateTail();
+    return b;
+  }
+  private boolean removeItemBeforeUpdateTail(int i){
     if(getHead()==null || i<0){return false;}
     if(i==0){head=getHead().getNext(); return true;}
     return getHead().removeItem(i);
@@ -311,7 +317,9 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
       T t = (T)o;
       if(getHead()==null || t==null){return false;}
       if(getHead().getContent().equals(t)){head=getHead().getNext(); return true;}
-      return getHead().remove(t);
+      boolean b=getHead().remove(t);
+      updateTail();
+      return b;
     }catch (Exception e) {
       return false;
     }

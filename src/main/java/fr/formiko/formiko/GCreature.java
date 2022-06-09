@@ -15,21 +15,11 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-// extends Liste<Creature>
-public class GCreature implements Serializable, Cloneable {//, Iterator{
-  protected CCreature début;
-  protected CCreature fin;
-  //TODO #82 replace début & fin by a protected Liste<Creature>.
+public class GCreature extends Liste<Creature> implements Serializable, Cloneable {//, Iterator{
   private byte loopSafety;
   // CONSTRUCTORS ----------------------------------------------------------------
-  public GCreature(CCreature cc){
-    début = cc; fin = cc;
-  }
-  public GCreature(Creature c){
-    this(new CCreature(c));
-  }
   public GCreature(){
-    this((CCreature) null);
+    super();
   }
   public GCreature(List<Creature> list){
     this();
@@ -43,25 +33,16 @@ public class GCreature implements Serializable, Cloneable {//, Iterator{
     debug.débogage("Création d'un groupe de Fourmi avec au moins 1 fourmis.");
     Fourmi reine = new Fourmi(fere,e, (byte) 0,(byte) 0);
     //reine.setCCase(cc);
-    addFin(reine);
+    addTail(reine);
     for (int i =1 ;i < nbrDeCreature ;i++ ) {
       Fourmi f = new Fourmi(fere,e,(byte) 3,(byte) 0,reine.getPheromone());
       //f.setCCase(cc);
-      addFin(f);
+      addTail(f);
     }
   }
   // GET SET ----------------------------------------------------------------------
-  public CCreature getHead(){return début;}
-  public CCreature getTail(){return fin;}
-  public Creature getFirst(){return getHead().getContent();}
-  public void setDébut(CCreature cc){début = cc;}
+
   // FUNCTIONS -----------------------------------------------------------------
-  public String toString(){
-    return toList().toString();
-  }
-  public int length(){
-    return toList().length();
-  }
   /**
   *{summary Return the 1a queen of the anthill}
   *,or null if there is no qeen.
@@ -100,7 +81,7 @@ public class GCreature implements Serializable, Cloneable {//, Iterator{
   }
   public Creature getCouvainSaleE()throws EmptyListException{
     if(toList().isEmpty()){throw new EmptyListException("GCreature","trouver la créature sale du couvain");}
-    return début.getCouvainSale();
+    return new GCreature(toList().filter(c -> c.getStade()!=0).filter(c -> c.getHealth()<90)).getFirst();
   }
   public Creature getCouvainSale(){
     try {
@@ -267,21 +248,7 @@ public class GCreature implements Serializable, Cloneable {//, Iterator{
     return tr;
   }
   public GCreature copier(){
-    if(début==null){ return new GCreature();}
-    return début.copier();
-    // try {
-    //   return (GCreature)clone();
-    // }catch (CloneNotSupportedException e) {
-    //   erreur.erreur("Fail to clone");
-    //   return null;
-    // }
-  }
-  public void actualiserFin(){
-    CCreature cc = début;
-    while(cc!=null){
-      cc=cc.getSuivant();
-    }
-    fin = cc;
+    return new GCreature(this);
   }
   public GInsecte getGi(){
     GInsecte gi = new GInsecte();
@@ -290,86 +257,10 @@ public class GCreature implements Serializable, Cloneable {//, Iterator{
     }
     return gi;
   }
-  public void add(Creature c){
-    addFin(c);
-  }
-  public void addFin(Creature c){
-    if(c==null){throw new NullItemException();}
-    CCreature cc = new CCreature(c);
-    if (fin ==  null){
-      début = cc;
-      fin = cc;
-    }else {
-      fin.setSuivant(cc);
-      cc.setPrécédent(fin);
-      fin = cc;
-    }
-  }
-  public void add(GCreature gc){
-    if(gc == null || gc.getHead() == null){ return;}
-    if (fin == null){
-      début = gc.getHead();
-      fin = gc.getTail();
-    }else {
-      fin.setSuivant(gc.getHead());
-      gc.getHead().setPrécédent(fin);
-      fin = gc.getTail();
-    }
-  }
   public void add(GInsecte gi ){
     GCreature gc = gi.toGCreature();
     add(gc);
   }
-  /**
-  *{@summary remove an item from the list.} <br>
-  *if list is empty or element fail to be remove an Exception will be throw.<br>
-  *@lastEditedVersion 1.31
-  */
-  public void remove(Creature c) {
-    if(c==null){ throw new NullItemException();}
-    if(début == null){ throw new EmptyListException("GCreature","remove la Creature "+c.getId());}//erreur.erreur("Aucune créature n'as pu être remove car GCreature est vide","GCreature.remove",true); return;}
-    if(début.getContent().equals(c)){
-      if(fin.getContent().equals(c)){
-        début = null; fin = null; // on retire la seule créature
-      }else{
-        début = début.getSuivant(); // on retire la 1a créature.
-      }
-      return;
-    }
-    début.remove(c);
-    fin = début;
-    while(fin.getSuivant() != null){
-      fin = fin.getSuivant();
-    }
-    // actualiserFin();
-  }
-  // public void remove(Creature c){remove(c);}
-  public void delete(Creature c){remove(c);}
-  // public void afficheToiE() throws EmptyListException{
-  //   if(début==null){
-  //     throw new EmptyListException("GCreature","tout afficher");
-  //   }else{
-  //     début.afficheTout();
-  //   }
-  // }
-  // public void afficheToi(){
-  //   try {
-  //     afficheToiE();
-  //   }catch (EmptyListException e) {}
-  // }
-  // public void afficheToiRéduitE() throws EmptyListException{
-  //   if(toList().isEmpty()){
-  //     throw new EmptyListException("GCreature","tout afficher");
-  //   }else{
-  //     erreur.print(g.get("listeCreature")+" : ");
-  //     début.afficheToutRéduit();
-  //   }
-  // }
-  // public void afficheToiRéduit(){
-  //   try {
-  //     afficheToiRéduitE();
-  //   }catch (EmptyListException e) {}
-  // }
   /**
   *{@summary Play as an ant.}
   *If antIdToPlay have been set, we will play this ant first.
@@ -441,7 +332,7 @@ public class GCreature implements Serializable, Cloneable {//, Iterator{
     if(toList().isEmpty()){
       throw new EmptyListException("GCreature","preTurn");
     }else{
-      for (Creature c : toList() ) {
+      for (Creature c : toList()) {
         if(c instanceof Fourmi){
           Fourmi fActuel = (Fourmi)c;
           fActuel.preTurn();
@@ -501,11 +392,12 @@ public class GCreature implements Serializable, Cloneable {//, Iterator{
   *@lastEditedVersion 1.38
   */
   public Liste<Creature> toList(){
-    if (début==null){
-      Liste<Creature> lc = new Liste<Creature>();
-      return lc;
-    }
-    return début.toList();
+    // if (début==null){
+    //   Liste<Creature> lc = new Liste<Creature>();
+    //   return lc;
+    // }
+    // return début.toList();
+    return new GCreature(this);
   }
   /**
   *{@summary Return true if all Creature have played to there last action.}

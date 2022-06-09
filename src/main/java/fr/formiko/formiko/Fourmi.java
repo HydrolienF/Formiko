@@ -1,4 +1,3 @@
-
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
@@ -7,11 +6,11 @@ import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.menu;
 import fr.formiko.usuel.read;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 
@@ -399,7 +398,7 @@ public class Fourmi extends Creature implements Serializable{
   public void iniPheromone(){
     Fourmi reine = getReine();
     if (reine != null){ e = reine.getEspece(); ph = new Pheromone(reine.getPheromone());}
-    else if (fere.getGc().getHead() != null){ ph = new Pheromone(fere.getGc().getHead().getContent().getPheromone());}
+    else if (fere.getGc().getHead() != null){ ph = new Pheromone(fere.getGc().getFirst().getPheromone());}
     else{ ph = new Pheromone();}
   }
 }

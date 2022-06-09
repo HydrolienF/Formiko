@@ -88,7 +88,7 @@ public class CCreature implements Serializable, Cloneable {
     CCreature cc = this;
     GCreature gcr = new GCreature();
     while(cc!=null){
-      gcr.addFin(cc.getContent());//on ajoute seulement le contenu a chaque fois.
+      gcr.addTail(cc.getContent());//on ajoute seulement le contenu a chaque fois.
       cc=cc.getSuivant();
     }
     return gcr;

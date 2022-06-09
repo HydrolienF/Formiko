@@ -383,7 +383,7 @@ public class Partie implements Serializable{
     Fourmiliere fere = getGj().getHead().getContent().getFere();
     CCase ccIni = getGc().getCCase(0,1);
     fere.setCc(ccIni);
-    fere.getGc().getHead().getContent().setCCase(ccIni);
+    fere.getGc().getFirst().setCCase(ccIni);
     Insecte i = new Insecte(Main.getPartie().getGc().getCCase(1,1),0,100,0);
     i.setGivenFood(200);
     i.setIsDead(false);

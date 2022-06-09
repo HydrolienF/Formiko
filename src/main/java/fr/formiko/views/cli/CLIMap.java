@@ -224,7 +224,7 @@ public class CLIMap{
         if(contenu.getFere() != null){
           sr = "F"+contenu.getFere().getId();
         }else if (contenu.getGc().getHead() != null){
-          sr = sr + objetSurCarteAIdToString(contenu.getGc().getHead().getContent());
+          sr = sr + objetSurCarteAIdToString(contenu.getGc().getFirst());
         }else{
           sr = sr + objetSurCarteAIdToString(contenu.getGg().getHead().getContent());
         }

@@ -65,12 +65,10 @@ public class sauvegarderUnePartie {
       oos.writeObject(p);
     }catch(StackOverflowError e){
       erreur.erreur("To many item relation to save: StackOverflowError");
-      erreur.println("To many item relation to save: StackOverflowError");//@a
       sendMessageSaveFail();
       return;
     }catch (Exception e) {
       erreur.erreur("Unable to save current Partie because of "+e);
-      erreur.println("Unable to save current Partie because of "+e);//@a
       sendMessageSaveFail();
       return;
     }
