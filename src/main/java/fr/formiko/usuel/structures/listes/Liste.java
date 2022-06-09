@@ -297,7 +297,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   private boolean removeItemBeforeUpdateTail(int i){
     if(getHead()==null || i<0){return false;}
     if(i==0){head=getHead().getNext(); return true;}
-    return getHead().removeItem(i);
+    return getHead().removeItem(i-1);
   }
   @Override
   public T remove(int i){

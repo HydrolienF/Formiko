@@ -307,6 +307,7 @@ public class ListeTest extends TestCaseMuet{
     assertEquals(1,list.length());
     assertEquals("test string",list.getItem(0));
   }
+  @Test
   public void testRemove(){
     Liste<String> list = new Liste<String>();
     String s = "test string";
@@ -314,12 +315,14 @@ public class ListeTest extends TestCaseMuet{
     assertEquals(1,list.length());
     list.remove(s);
   }
+  @Test
   public void testRemove2(){
     Liste<String> list = new Liste<String>();
     list.add("test string");
     assertEquals(1,list.length());
     list.remove("test string");
   }
+  @Test
   public void testRemoveItem(){
     Liste<String> list = new Liste<String>();
     list.add("test string");
@@ -329,44 +332,45 @@ public class ListeTest extends TestCaseMuet{
     assertTrue(!list.removeItem(0));
     assertTrue(!list.removeItem(3));
   }
+  @Test
   public void testRemoveItem2(){
     Liste<String> list = new Liste<String>();
-    list.add("0");
-    list.add("1");
-    list.add("2");
-    list.add("3");
+    list.add("0c");
+    list.add("1c");
+    list.add("2c");
+    list.add("3c");
     assertEquals(4,list.length());
     assertTrue(list.removeItem(1));
     Liste<String> list2 = new Liste<String>();
-    list.add("0");
-    list.add("2");
-    list.add("3");
+    list2.add("0c");
+    list2.add("2c");
+    list2.add("3c");
     assertEquals(list2, list);
     assertTrue(list.removeItem(1));
     list2 = new Liste<String>();
-    list.add("0");
-    list.add("3");
+    list2.add("0c");
+    list2.add("3c");
     assertEquals(list2, list);
     assertTrue(list.removeItem(0));
     list2 = new Liste<String>();
-    list.add("3");
+    list2.add("3c");
     assertEquals(list2, list);
   }
+  @Test
   public void testRemoveDuplicateItem(){
     Liste<String> list = new Liste<String>();
     list.add("0");
     list.add("1");
-    list.add("2");
     list.add("0");
     list.add("0");
     list.add("4");
+    list.add("2");
     assertTrue(list.removeDuplicateItem());
     Liste<String> list2 = new Liste<String>();
     list2.add("0");
     list2.add("1");
-    list2.add("2");
-    list2.add("3");
     list2.add("4");
+    list2.add("2");
     assertEquals(list2, list);
   }
   @Test
@@ -379,6 +383,34 @@ public class ListeTest extends TestCaseMuet{
     l.add(1,"c");
     l.add(1,"d");
     assertEquals("a d c ",l.toString());
+  }
+  @Test
+  public void testAddRemoveAdd(){
+    Liste<String> l = new Liste<String>();
+    l.add("A");
+    l.addTail("B");
+    l.remove("B");
+    l.add("C");
+    assertEquals("A C ",l.toString());
+  }
+  @Test
+  public void testAddRemoveAdd2(){
+    Liste<String> l = new Liste<String>();
+    l.add("A");
+    l.addTail("B");
+    l.addTail("C");
+    l.addTail("D");
+    l.removeItem(1);
+    assertEquals("A C D ",l.toString());
+  }
+  @Test
+  public void testAddRemoveAdd3(){
+    Liste<String> l = new Liste<String>();
+    l.add("A");
+    l.addTail("B");
+    l.removeItem(1);
+    l.addTail("C");
+    assertEquals("A C ",l.toString());
   }
   @Test
   public void testAddSorted(){
