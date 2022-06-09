@@ -108,18 +108,7 @@ public class GCreature implements Serializable, Cloneable {//, Iterator{
     }catch (EmptyListException e){return null;}
   }
   public GCreature getCouvainsSale(){
-    GCreature gcr = getCouvain();
-    // on garde le premier sale :
-    while (gcr.getHead() != null){
-      Fourmi fTest = (Fourmi) gcr.getHead().getContent();
-      if (fTest.getHealth() < 90) {
-        gcr.remove(gcr.getHead().getContent());
-      }else{
-        break;
-      }
-    }if (gcr.getHead() == null){ return new GCreature();}
-    gcr.getHead().getCouvainsSale(); // on filter les propre dans la suite de la liste.
-    return gcr;
+    return new GCreature(toList().filter(c -> c.getStade()!=0).filter(c -> c.getHealth()<90));
   }
   // a add :
   // public GCreature getGcSiMemeFere(Fourmiliere fere){}
