@@ -28,6 +28,7 @@ public class FPanelMiniMapContainer extends FPanel {
   private FButtonEndTurn fBEndTurn;
   private FPanelGraphicsOptions pgo;
   private FPanelMiniMap pmm;
+  private boolean needToBeBuild;
 
   // CONSTRUCTORS --------------------------------------------------------------
   /**
@@ -48,9 +49,13 @@ public class FPanelMiniMapContainer extends FPanel {
     setLocation(FPanel.getView().getWidth()-getWidth(), FPanel.getView().getHeight()-getHeight());
     pgo.setSize(getWidth(),Main.getTailleElementGraphiqueX((int)(BUTTON_RADIUS*1.6)));
     pgo.setLocation(0,(int)(BUTTON_RADIUS*0.4));
+    needToBeBuild=true;
   }
   public void build(){
-    pgo.build();
+    if(needToBeBuild){
+      needToBeBuild=false;
+      pgo.build();
+    }
   }
 
   // GET SET -------------------------------------------------------------------

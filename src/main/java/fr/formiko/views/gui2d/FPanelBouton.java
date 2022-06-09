@@ -53,7 +53,7 @@ public class FPanelBouton extends FPanel {
     pas = new FPanelActionSup();
     pai = new FPanelActionInf();
     pmmc = new FPanelMiniMapContainer();
-    pmmc.build();
+    // pmmc.build(); //is build after FPanelCarte
     setVisiblePmmc(false);
     pz = new FPanelZoom();
     descTI = new FLabel();

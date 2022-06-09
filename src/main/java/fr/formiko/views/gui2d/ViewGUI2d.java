@@ -276,6 +276,7 @@ public class ViewGUI2d implements View {
     Main.getPartie().initialisationElément();
     // Main.getData().chargerImages(); //It will be call by the next line "action.doActionPj(8);"
     action.doActionPj(8); //unzoom
+    getPmmc().build();
     Main.endCh("chargementImagesDelaCarte");
 
     String s = g.get("chargementFini");
