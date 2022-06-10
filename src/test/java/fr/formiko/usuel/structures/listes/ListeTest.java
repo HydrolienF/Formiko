@@ -510,5 +510,16 @@ public class ListeTest extends TestCaseMuet{
     l2.add("unu");
     assertEquals(l2,l.filter(str -> str.contains("u")));
   }
+  @Test
+  public void testGetMost(){
+    GPoint l = new GPoint();
+    l.add(new Point(0,-1));
+    l.add(new Point(2,5));
+    l.add(new Point(5,1));
+    l.add(new Point(0,0));
+    assertEquals(l.get(1),l.getMost((Point p1, Point p2) -> (int)((p2.getX()+p2.getY()) - (p1.getX()+p1.getY()))));
+  }
+
+  class GPoint extends Liste<Point>{}
 
 }

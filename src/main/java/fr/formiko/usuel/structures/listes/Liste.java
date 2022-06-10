@@ -421,6 +421,15 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
     head = null;
     tail = null;
   }
+  public T getMost(Comparator<? super T> c){
+    T tMax=null;
+    for (T t : this) {
+      if(tMax==null || c.compare(tMax,t)>0){
+        tMax=t;
+      }
+    }
+    return tMax;
+  }
   @Override
   public void sort​(Comparator<? super T> c){
     Liste<T> newList = new Liste<T>();
