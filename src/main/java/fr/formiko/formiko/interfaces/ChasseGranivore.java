@@ -44,7 +44,7 @@ public class ChasseGranivore implements Serializable, Chasse {
       return chasse(c);
     }else if (proieVisible.getHead() != null){ // Si il y a une graine a coté
       CCase pointDeLaProie = proieVisible.getFirst().getCCase();
-      Graine betterSeed = proieVisible.getGrainePlusDeGivenFoodSansDureté();
+      Graine betterSeed = proieVisible.getBetterSeed();
       if ((Main.getDifficulté() >= 1 || !c.getIa()) && betterSeed!= null){
         pointDeLaProie = betterSeed.getCCase();
       }
@@ -67,14 +67,14 @@ public class ChasseGranivore implements Serializable, Chasse {
      setC(c);
      if(!canHuntMore()){return false;}
      GGraine gg = c.getCCase().getContent().getGg();
-     if (gg.getHead() != null){
+     if (!gg.isEmpty()){
        Graine graineCollecté;
        if (Main.getDifficulté() >= 0 || !c.getIa()){
-         graineCollecté = gg.getGrainePlusDeGivenFoodSansDureté();
+         graineCollecté = gg.getBetterSeed();
        }else{
          graineCollecté = gg.getFirst();
        }
-       debug.débogage("Suppression de la graine "+graineCollecté.getId() + " en "+graineCollecté.getCCase().getContent().description());
+       // debug.débogage("Suppression de la graine "+graineCollecté.getId() + " en "+graineCollecté.getCCase().getContent().description());
        c.setTransported(graineCollecté);
        setActionMoins(c);
      }else{

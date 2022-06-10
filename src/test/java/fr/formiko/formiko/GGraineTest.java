@@ -19,7 +19,6 @@ public class GGraineTest extends TestCaseMuet {
       g.casser();
     }
     gg.toList().get(4).setOuverte(false);
-    System.out.println(gg);
     Graine max=gg.toList().filter(g -> g.getOuverte()).getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
     assertEquals(gg.toList().get(3),max);
   }

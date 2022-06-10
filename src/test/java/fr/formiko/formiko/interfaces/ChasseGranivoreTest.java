@@ -127,24 +127,30 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     Main.setDifficulté(-1); //with difficulty < 0 it take the 1a graine and not the better 1.
     f.setAction(f.getMaxAction());
     new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
-    Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
     assertEquals(2,f.getCCase().getContent().getGg().length());
+    Graine col = f.getCCase().getContent().getGg().getFirst();
     f.chasse();
     assertTrue(f.getAction()<f.getMaxAction());
-    assertEquals(g1,f.getTransported());
+    assertEquals(col,f.getTransported());
+    assertEquals(1,f.getCCase().getContent().getGg().length());
+    assertTrue(!f.getCCase().getContent().getGg().contains(col));
   }
   @Test
   public void testChasse6(){
     Fourmi f = ini();
     f.getFere().getJoueur().setIa(true);
-    Main.setDifficulté(-1);
+    Main.setDifficulté(-1); //with difficulty < 0 it take the 1a graine and not the better 1.
     f.setAction(f.getMaxAction());
     new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
-    Graine g2 = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
     assertEquals(2,f.getCCase().getContent().getGg().length());
+    Graine col = f.getCCase().getContent().getGg().getFirst();
     f.chasse();
     assertTrue(f.getAction()<f.getMaxAction());
-    assertEquals(g2,f.getTransported());
+    assertEquals(col,f.getTransported());
+    assertEquals(1,f.getCCase().getContent().getGg().length());
+    assertTrue(!f.getCCase().getContent().getGg().contains(col));
   }
 
   // 1 seed to get on the same Case.

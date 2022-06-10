@@ -31,18 +31,23 @@ public class GGraine extends Liste<Graine> implements Serializable {
     if (getHead() == null){
       return r+"ø";
     }
-    return r+toList().toString();
+    return r+super.toString();
   }
-  // public int length(){
-  //   return toList().length();
+  // /**
+  // *{@summary return the seed that have the most givenFood & that is open}
+  // *lastEditedVersion 2.23
+  // */
+  // public Graine getGrainePlusDeGivenFoodSansDureté(){
+  //   return toList()
+  //       .filter(g -> g.getOuverte())
+  //       .getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
   // }
   /**
-  *{@summary return the seed that have the most givenFood & that is open}
+  *{@summary return the seed that have the most givenFood}
   *lastEditedVersion 2.23
   */
-  public Graine getGrainePlusDeGivenFoodSansDureté(){
+  public Graine getBetterSeed(){
     return toList()
-        .filter(g -> g.getOuverte())
         .getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
   }
   public Graine getGrainePlusDeGivenFood(int duretéMax){
