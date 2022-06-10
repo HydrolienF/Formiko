@@ -13,7 +13,7 @@ import java.util.function.Predicate;
 
 /**
 *{@summary Custom Linked Liste class using Generics.}<br>
-*@lastEditedVersion 1.52
+*@lastEditedVersion 2.23
 *@author Hydrolien
 */
 public class Liste<T> implements Iterable<T>, Serializable, List<T> {
@@ -287,18 +287,29 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   *{@summary Delete the xa element}<br>
   *@param i the number of the element to remove.
   *@return true if it have been remove
-  *@lastEditedVersion 1.52
+  *@lastEditedVersion 2.23
   */
   public boolean removeItem(int i){
     boolean b=removeItemBeforeUpdateTail(i);
     updateTail();
     return b;
   }
+  /**
+  *{@summary Private function to remove item}<br>
+  *@param i the number of the element to remove.
+  *@return true if it have been remove
+  *@lastEditedVersion 2.23
+  */
   private boolean removeItemBeforeUpdateTail(int i){
     if(getHead()==null || i<0){return false;}
     if(i==0){head=getHead().getNext(); return true;}
-    return getHead().removeItem(i-1);
+    return getHead().removeItemBeforeUpdateTail(i-1);
   }
+  /**
+  *{@summary Delete the xa element}<br>
+  *@param i the number of the element to remove.
+  *@lastEditedVersion 2.23
+  */
   @Override
   public T remove(int i){
     removeItem(i);
@@ -421,6 +432,12 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
     head = null;
     tail = null;
   }
+  /*
+  *{@summary Select the most from the list according to the Comparator.}
+  *@param c the Comparator to use
+  *@return the most X according to the Comparator
+  *@lastEditedVersion 2.23
+  */
   public T getMost(Comparator<? super T> c){
     T tMax=null;
     for (T t : this) {
@@ -430,6 +447,12 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
     }
     return tMax;
   }
+  /*
+  *{@summary Sort the list.}
+  *@param c the Comparator to use
+  *@return list sorted
+  *@lastEditedVersion 2.23
+  */
   @Override
   public void sort​(Comparator<? super T> c){
     Liste<T> newList = new Liste<T>();
@@ -439,6 +462,13 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
     head = newList.getHead();
     tail = newList.getTail();
   }
+  /*
+  *{@summary Add an item to the list &#38; keep it sorted.}
+  *@param t the item to add
+  *@param c the Comparator to use
+  *@return true if it have been add
+  *@lastEditedVersion 2.23
+  */
   public boolean addSorted(T t, Comparator<? super T> c){
     if(getHead()==null){
       return add(t);

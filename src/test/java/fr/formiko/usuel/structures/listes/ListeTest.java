@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class ListeTest extends TestCaseMuet{
+public class ListeTest extends TestCaseMuet {
 
   // FUNCTIONS -----------------------------------------------------------------
   @Test
@@ -519,7 +519,6 @@ public class ListeTest extends TestCaseMuet{
     l.add(new Point(0,0));
     assertEquals(l.get(1),l.getMost((Point p1, Point p2) -> (int)((p2.getX()+p2.getY()) - (p1.getX()+p1.getY()))));
   }
-
   class GPoint extends Liste<Point>{}
 
 }
