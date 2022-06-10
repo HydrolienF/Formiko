@@ -22,7 +22,7 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
     this.givenFood = givenFood; this.dureté = dureté;
     type = (byte) allea.getAlléa(4);//0,1 ou 2.
     tempsAvantDecomposition = (byte)(20 + allea.getAlléa(100));// de 19 a 119
-    if(ccase!=null){ccase.getGg().addGraine(this);}
+    if(ccase!=null){ccase.getGg().add(this);}
   }
   public Graine(CCase ccase){
     this(ccase,allea.getAlléa(400)+10,(byte) 0);
@@ -78,7 +78,7 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   }
   public void mourrir(){
     debug.débogage("Lancement de la mort de la graine.");
-    Main.getGc().getCCase(ccase.getContent().getX(),ccase.getContent().getY()).getGg().retirerGraine(this);//on retire la graine de sa liste.
+    Main.getGc().getCCase(ccase.getContent().getX(),ccase.getContent().getY()).getGg().remove(this);//on retire la graine de sa liste.
     this.setCCase(null);
   }
   public void tour(){

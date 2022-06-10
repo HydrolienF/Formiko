@@ -81,7 +81,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   }
   public Creature getCouvainSaleE()throws EmptyListException{
     if(toList().isEmpty()){throw new EmptyListException("GCreature","trouver la créature sale du couvain");}
-    return new GCreature(toList().filter(c -> c.getStade()!=0).filter(c -> c.getHealth()<90)).getFirst();
+    return toList().filter(c -> c.getStade()!=0 && c.getHealth()<90).getFirst();
   }
   public Creature getCouvainSale(){
     try {
@@ -89,7 +89,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
     }catch (EmptyListException e){return null;}
   }
   public GCreature getCouvainsSale(){
-    return new GCreature(toList().filter(c -> c.getStade()!=0).filter(c -> c.getHealth()<90));
+    return new GCreature(toList().filter(c -> c.getStade()!=0 && c.getHealth()<90));
   }
   // a add :
   // public GCreature getGcSiMemeFere(Fourmiliere fere){}

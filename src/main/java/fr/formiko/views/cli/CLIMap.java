@@ -226,7 +226,7 @@ public class CLIMap{
         }else if (contenu.getGc().getHead() != null){
           sr = sr + objetSurCarteAIdToString(contenu.getGc().getFirst());
         }else{
-          sr = sr + objetSurCarteAIdToString(contenu.getGg().getHead().getContent());
+          sr = sr + objetSurCarteAIdToString(contenu.getGg().getFirst());
         }
       }else{
         xi++;

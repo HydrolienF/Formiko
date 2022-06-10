@@ -95,7 +95,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
     // return true;
   }
   /**
-  *{@summary add an other linked list at tail of the linked list}<br>
+  *{@summary Add an other linked list at tail of the linked list.}<br>
   *@lastEditedVersion 1.31
   */
   public void addList(Liste<T> list){
@@ -303,7 +303,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   private boolean removeItemBeforeUpdateTail(int i){
     if(getHead()==null || i<0){return false;}
     if(i==0){head=getHead().getNext(); return true;}
-    return getHead().removeItemBeforeUpdateTail(i-1);
+    return getHead().removeItem(i-1);
   }
   /**
   *{@summary Delete the xa element}<br>

@@ -8,113 +8,111 @@ import fr.formiko.usuel.structures.listes.Liste;
 
 import java.io.Serializable;
 //extends Liste<Graine>
-public class GGraine implements Serializable {
-  //TODO #82
-  protected CGraine début;
+public class GGraine extends Liste<Graine> implements Serializable {
+  // protected CGraine début;
   // CONSTRUCTORS --------------------------------------------------------------
-  public void GGraine(){début = null;}
-  // GET SET -------------------------------------------------------------------
-  public CGraine getHead(){ return début;}
-  public void setDébut(CGraine x){début=x;}
-  public CGraine getTail(){
-    if (début == null ){ return null;}
-    CGraine fin = début;
-    while (fin.getSuivant() != null){
-      fin = fin.getSuivant();
-    }
-    return fin;
+  public GGraine(){
+    super();
   }
+  // GET SET -------------------------------------------------------------------
+  // public CGraine getHead(){ return début;}
+  // public void setDébut(CGraine x){début=x;}
+  // public CGraine getTail(){
+  //   if (début == null ){ return null;}
+  //   CGraine fin = début;
+  //   while (fin.getSuivant() != null){
+  //     fin = fin.getSuivant();
+  //   }
+  //   return fin;
+  // }
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String r = g.get("GGraine")+" : ";
-    if (début == null){
+    if (getHead() == null){
       return r+"ø";
     }
-    return r+début.toString();
+    return r+toList().toString();
   }
-  public int length(){
-    if(début==null){
-      return 0;
-    }else {
-      return début.length();
-    }
-  }
+  // public int length(){
+  //   return toList().length();
+  // }
+  /**
+  *{@summary return the seed that have the most givenFood & that is open}
+  *lastEditedVersion 2.23
+  */
   public Graine getGrainePlusDeGivenFoodSansDureté(){
-    if (début == null){ erreur.erreur("Impossible de sélectionné la meilleur graine dans une liste vide."); return null;}
-    CGraine ci = getHead();
-    return ci.getGrainePlusDeGivenFoodSansDureté(ci.getContent());
+    return toList()
+        .filter(g -> g.getOuverte())
+        .getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
+  }
+  public Graine getGrainePlusDeGivenFood(int duretéMax){
+    return toList()
+        .filter(g -> g.getOuverte() && g.getDureté()<duretéMax)
+        .getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
   }
   public Graine getGrainePlusDeGivenFood(Fourmi f){
-    if (début == null){ erreur.erreur("Impossible de sélectionné la meilleur graine dans une liste vide."); return null;}
-    byte duretéMax = f.getDuretéMax();
-    CGraine ci = getHead();
-    //if (ci.getSuivant() != null){
-     return ci.getGrainePlusDeGivenFood(ci.getContent(),duretéMax);
-    /*}
-    if(ci.getContent().getDureté() <  f.getDuretéMax() && !ci.getContent().getOuverte()){ // si elle est fermé et cassable.
-      return ci.getContent();
-    }else{
-      return null;
-    }*/
+    return getGrainePlusDeGivenFood(f.getDuretéMax());
   }
   public Graine getGraineOuverte(){
-    if (début == null){ erreur.erreur("Impossible de sélectionné 1 graine ouverte dans une liste vide."); return null;}
-    if (début.getContent().getOuverte()){ return début.getContent();}
-    return début.getGraineOuverte();
-  }
-    // ici on choisirai la graine avec le plus de givenFood parmi toutes les Graine que la fourmi peut ouvrir.
-  //}
-
-  public void afficheToi(){ erreur.println(this);}
-  /**
-  *{@summary Add a seed to this GGraine.}
-  *@lastEditedVersion 1.40
-  */
-  public void add(Graine i){
-    if (i != null){
-      CGraine ci = new CGraine(i);
-      ci.setSuivant(début);
-      début = ci;
+    for (Graine g : toList()) {
+      if(g.getOuverte()){
+        return g;
+      }
     }
+    return null;
   }
-  public void addGraine(Graine i){add(i);}
-  public void addGg(GGraine giTemp){
-    if (this.début == null){
-      this.début = giTemp.getHead();
-    }else{
-      this.getTail().setSuivant(giTemp.getHead()); // On raccroche les 2 bouts.
+  // /**
+  // *{@summary Add a seed to this GGraine.}
+  // *@lastEditedVersion 1.40
+  // */
+  // public void add(Graine i){
+  //   if (i != null){
+  //     CGraine ci = new CGraine(i);
+  //     ci.setSuivant(début);
+  //     début = ci;
+  //   }
+  // }
+  // public void addGraine(Graine i){add(i);}
+  public void addGg(GGraine gg){
+    for (Graine g : gg) {
+      add(g);
     }
   }
-  public void retirerGraine(int i){
-    if (this.début == null){ erreur.alerte("Impossible de remove i d'un groupe de Graine null"); return;}
-    if(début.getContent().getId()==i){
-      retirerGraine(début.getContent());
-    }else{
-      début.retirerGraine(i);
-    }
-  }
-  public void retirerGraine(Graine i){
-    debug.débogage("Suppression de : "+i.getId());
-    if (i == null){
-      erreur.alerte("Impossible de remove null d'un groupe de Graine");
-    }
-    if (début == null){
-      erreur.alerte("Impossible de remove une Graine d'un groupe vide.");
-    }else if (début.getContent().equals(i)){ // Si c'est le 1a
-      début = début.getSuivant(); // On en retir 1.
-      debug.débogage("début = début.getSuivant();");
-    } else if(début.getSuivant() != null && début.getSuivant().getContent().equals(i)){ // Si c'est le 2a
-      début.setSuivant(début.getSuivant().getSuivant());
-    }else {
-      début.retirerGraine(i);
-    }
-  }public void remove(Graine i){ retirerGraine(i);}
+  // public void retirerGraine(int i){
+  //   if (this.début == null){ erreur.alerte("Impossible de remove i d'un groupe de Graine null"); return;}
+  //   if(début.getContent().getId()==i){
+  //     retirerGraine(début.getContent());
+  //   }else{
+  //     début.retirerGraine(i);
+  //   }
+  // }
+  // public void retirerGraine(Graine i){
+  //   debug.débogage("Suppression de : "+i.getId());
+  //   if (i == null){
+  //     erreur.alerte("Impossible de remove null d'un groupe de Graine");
+  //   }
+  //   if (début == null){
+  //     erreur.alerte("Impossible de remove une Graine d'un groupe vide.");
+  //   }else if (début.getContent().equals(i)){ // Si c'est le 1a
+  //     début = début.getSuivant(); // On en retir 1.
+  //     debug.débogage("début = début.getSuivant();");
+  //   } else if(début.getSuivant() != null && début.getSuivant().getContent().equals(i)){ // Si c'est le 2a
+  //     début.setSuivant(début.getSuivant().getSuivant());
+  //   }else {
+  //     début.retirerGraine(i);
+  //   }
+  // }public void remove(Graine i){ retirerGraine(i);}
   public GGraine copierGGraine(){
-    if(début==null){ return new GGraine();}
-    return début.copierGGraine();
+    GGraine gg = new GGraine();
+    for (Graine g : toList()) {
+      gg.add(g);
+    }
+    return gg;
   }
   public void tour(){
-    if(début!=null){ début.tour();}
+    for (Graine g : toList()) {
+      g.tour();
+    }
   }
 
   /**
@@ -122,10 +120,11 @@ public class GGraine implements Serializable {
   *@lastEditedVersion 1.38
   */
   public Liste<Graine> toList(){
-    if (début==null){
-      Liste<Graine> lc = new Liste<Graine>();
-      return lc;
-    }
-    return début.toList();
+    return this;
+    // if (début==null){
+    //   Liste<Graine> lc = new Liste<Graine>();
+    //   return lc;
+    // }
+    // return début.toList();
   }
 }

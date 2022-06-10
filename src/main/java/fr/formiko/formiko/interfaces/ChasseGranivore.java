@@ -39,11 +39,11 @@ public class ChasseGranivore implements Serializable, Chasse {
     if(!canHuntMore()){return eatIfNeed();}
     GGraine proieVisible = getProie();
     if (c.getCCase().getContent().getGg().getHead() != null){ // Si il y a une graine sur la même case
-      debug.débogage("la graine "+c.getCCase().getContent().getGg().getHead().getContent().getId()+" a été détecté sur la meme case que la Fourmi.");
+      debug.débogage("la graine "+c.getCCase().getContent().getGg().getFirst().getId()+" a été détecté sur la meme case que la Fourmi.");
       debug.débogage("la fourmi est en "+c.getCCase().getContent().description());
       return chasse(c);
     }else if (proieVisible.getHead() != null){ // Si il y a une graine a coté
-      CCase pointDeLaProie = proieVisible.getHead().getContent().getCCase();
+      CCase pointDeLaProie = proieVisible.getFirst().getCCase();
       Graine betterSeed = proieVisible.getGrainePlusDeGivenFoodSansDureté();
       if ((Main.getDifficulté() >= 1 || !c.getIa()) && betterSeed!= null){
         pointDeLaProie = betterSeed.getCCase();
@@ -72,7 +72,7 @@ public class ChasseGranivore implements Serializable, Chasse {
        if (Main.getDifficulté() >= 0 || !c.getIa()){
          graineCollecté = gg.getGrainePlusDeGivenFoodSansDureté();
        }else{
-         graineCollecté = gg.getHead().getContent();
+         graineCollecté = gg.getFirst();
        }
        debug.débogage("Suppression de la graine "+graineCollecté.getId() + " en "+graineCollecté.getCCase().getContent().description());
        c.setTransported(graineCollecté);

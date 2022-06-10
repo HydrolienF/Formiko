@@ -2,7 +2,7 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Blade;
 import fr.formiko.formiko.CCase;
-import fr.formiko.formiko.CGraine;
+import fr.formiko.formiko.GGraine;
 import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
@@ -433,7 +433,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Draw a Case.}<br>
-  *@lastEditedVersion 2.1
+  *@lastEditedVersion 2.23
   */
   public void peintImagePourCase(Case c, int x, int y,Graphics2D g){
     if(!isCaseVisible(c)){return;}
@@ -451,7 +451,7 @@ public class FPanelCarte extends FPanel {
     int xT2 = (x)*getTailleDUneCase(); int yT2 = (y)*getTailleDUneCase();
     if(peintCaseNuageuse(x,y,g,xT,yT)){return;}//si la case est nuageuse, on n'affichera rien d'autre dessus.
     byte ty = c.getType();
-    CGraine ccg = c.getGg().getHead();
+    GGraine gg = c.getGg();
     Graphics gIcon=null;
     if(iconImage!=null){
       gIcon = iconImage.getGraphics();
@@ -472,17 +472,16 @@ public class FPanelCarte extends FPanel {
         int k=0;
         //seeds
         if(Main.getOp().getDrawSeeds() && (!Main.getOp().getDrawOnlyEatable() || Main.getPlayingJoueur().getEspece().getGranivore())){
-          while (ccg!=null){
+          for (Graine gr : gg) {
             calculerXYTemp(xT,yT,k,c);k++;
-            int dir = getDir((ObjetSurCarteAId)ccg.getContent());
+            int dir = getDir((ObjetSurCarteAId)gr);
             try {
-              BufferedImage bi = Main.getData().getGraineImage(ccg.getContent());
+              BufferedImage bi = Main.getData().getGraineImage(gr);
               drawImageCentered(g,image.rotateImage(bi,dir),xT,yT);
             }catch (Exception e) {}
-            if(ccg.getContent().getOuverte()){listIconsRelation.add(getIconImage(5));}
-            else if(fi==null || ccg.getContent().getDureté()<=fi.getDuretéMax()){listIconsRelation.add(getIconImage(4));}
+            if(gr.getOuverte()){listIconsRelation.add(getIconImage(5));}
+            else if(fi==null || gr.getDureté()<=fi.getDuretéMax()){listIconsRelation.add(getIconImage(4));}
             else {listIconsRelation.add(getIconImage(6));}
-            ccg = ccg.getSuivant();
           }
         }
         //creatures.
