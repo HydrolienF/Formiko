@@ -16,6 +16,10 @@ import java.io.Serializable;
 public class GGraine extends Liste<Graine> implements Serializable {
 
   // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor.}
+  *@lastEditedVersion 2.23
+  */
   public GGraine(){
     super();
   }
@@ -55,7 +59,7 @@ public class GGraine extends Liste<Graine> implements Serializable {
     }
     return null;
   }
-  
+
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Return a list with all this class functions.}

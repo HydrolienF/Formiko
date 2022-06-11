@@ -21,6 +21,10 @@ public class FPanelEchap extends FPanel{
   private FButton tb[];
   private boolean visible;
   // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor that set not visible.}
+  *@lastEditedVersion 2.23
+  */
   public FPanelEchap(){
     setVisible(false);
   }
