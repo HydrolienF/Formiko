@@ -9,72 +9,49 @@ import fr.formiko.usuel.exceptions.NullItemException;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.structures.listes.Liste;
 
-import java.util.List;
 import java.io.Serializable;
+import java.lang.Cloneable;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 
-// extends Liste<Creature>
-public class GCreature implements Serializable{//, Iterator{
-  protected CCreature début;
-  protected CCreature fin;
-  //TODO #82 replace début & fin by a protected Liste<Creature>.
+/**
+*{@summary List of creatures.}
+*lastEditedVersion 2.23
+*@author Hydrolien
+*/
+public class GCreature extends Liste<Creature> implements Serializable, Cloneable {//, Iterator{
   private byte loopSafety;
   // CONSTRUCTORS ----------------------------------------------------------------
-  public GCreature(CCreature cc){
-    début = cc; fin = cc;
-  }
-  public GCreature(Creature c){
-    this(new CCreature(c));
-  }
+  /**
+  *{@summary Main constructor.}
+  *@lastEditedVersion 2.23
+  */
   public GCreature(){
-    this((CCreature) null);
+    super();
   }
-  public GCreature(List<Creature> list){
-    this();
-    for (Creature c : list) {
-      add(c);
-    }
-  }
-
+  /**
+  *{@summary Constructor that create an empty GCreature and then fill it as a Fourmiliere.}
+  *@lastEditedVersion 2.23
+  */
   public GCreature(int nbrDeCreature, Fourmiliere fere, Espece e, CCase cc){
     this();
     debug.débogage("Création d'un groupe de Fourmi avec au moins 1 fourmis.");
     Fourmi reine = new Fourmi(fere,e, (byte) 0,(byte) 0);
-    //reine.setCCase(cc);
-    addFin(reine);
+    add(reine);
     for (int i =1 ;i < nbrDeCreature ;i++ ) {
       Fourmi f = new Fourmi(fere,e,(byte) 3,(byte) 0,reine.getPheromone());
-      //f.setCCase(cc);
-      addFin(f);
+      add(f);
     }
   }
   // GET SET ----------------------------------------------------------------------
-  public CCreature getHead(){return début;}
-  public CCreature getTail(){return fin;}
-  public Creature getFirst(){return getHead().getContent();}
-  public void setDébut(CCreature cc){début = cc;}
-  // FUNCTIONS -----------------------------------------------------------------
-  public String toString(){
-    if (début==null){ return "";}
-    return début.toString();
-  }public String gcToString(){return gcToString();}
-  public int length(){
-    if (début==null){
-      return 0;
-    }else if(début.getContent().equals(fin.getContent())){
-      return 1;
-    }else {
-      return début.length();
-    }
-  }
   /**
   *{summary Return the 1a queen of the anthill}
   *,or null if there is no qeen.
   *@lastEditedVersion 2.1
   */
   public Fourmi getReine(){
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       if (c instanceof Fourmi && ((Fourmi)c).estReine()){
         return ((Fourmi)c);
       }
@@ -84,48 +61,37 @@ public class GCreature implements Serializable{//, Iterator{
   /**
   *{summary Return all the Creature at a specific stade.}
   *@param stade the specific stade to fined
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
   public GCreature getGcStade(int stade){
-    return new GCreature(toList().filter(c -> c.getStade()==stade));
+    return toGc(filter(c -> c.getStade()==stade));
   }
   /**
   *{summary Return all the Ant at a specific typeF.}
   *@param typeF the specific typeF to fined
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
   public GCreature getGcType(int typeF){
-    return new GCreature(toList().filter(c -> c instanceof Fourmi && ((Fourmi)c).getTypeF()==typeF));
+    return toGc(filter(c -> c instanceof Fourmi && ((Fourmi)c).getTypeF()==typeF));
   }
   /**
   *{summary Return all the Creature at an other stade than 0.}
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
-  public GCreature getCouvain(){ // on renvoie d'habord les plus proches de la transformation en Fourmi adulte.
-    return new GCreature(toList().filter(c -> c.getStade()!=0));
+  public GCreature getBrood(){ // on renvoie d'habord les plus proches de la transformation en Fourmi adulte.
+    return toGc(filter(c -> c.getStade()!=0));
   }
-  public Creature getCouvainSaleE()throws EmptyListException{
-    if (début==null){ throw new EmptyListException("GCreature","trouver la créature sale du couvain");}
-    return début.getCouvainSale();
+  public Creature getBroodSaleE() throws EmptyListException {
+    if(isEmpty()){throw new EmptyListException("GCreature","trouver la créature sale du brood");}
+    return filter(c -> c.getStade()!=0 && c.getHealth()<90).getFirst();
   }
-  public Creature getCouvainSale(){
+  public Creature getBroodSale(){
     try {
-      return getCouvainSaleE();
+      return getBroodSaleE();
     }catch (EmptyListException e){return null;}
   }
-  public GCreature getCouvainsSale(){
-    GCreature gcr = getCouvain();
-    // on garde le premier sale :
-    while (gcr.getHead() != null){
-      Fourmi fTest = (Fourmi) gcr.getHead().getContent();
-      if (fTest.getHealth() < 90) {
-        gcr.remove(gcr.getHead().getContent());
-      }else{
-        break;
-      }
-    }if (gcr.getHead() == null){ return new GCreature();}
-    gcr.getHead().getCouvainsSale(); // on filter les propre dans la suite de la liste.
-    return gcr;
+  public GCreature getBroodsSale(){
+    return toGc(filter(c -> c.getStade()!=0 && c.getHealth()<90));
   }
   // a add :
   // public GCreature getGcSiMemeFere(Fourmiliere fere){}
@@ -134,9 +100,9 @@ public class GCreature implements Serializable{//, Iterator{
   *@param id the id of the creature
   *@lastEditedVersion 2.1
   */
-  private Creature getCreatureParIdE(int id) throws EmptyListException {
-    if (début==null){ throw new EmptyListException("GCreature","trouver la créature "+id);}
-    for (Creature c : toList() ) {
+  private Creature getCreatureByIdE(int id) throws EmptyListException {
+    if(isEmpty()){ throw new EmptyListException("GCreature","trouver la créature "+id);}
+    for (Creature c : this ) {
       if(c.getId()==id){return c;}
     }
     return null;
@@ -146,9 +112,9 @@ public class GCreature implements Serializable{//, Iterator{
   *@param id the id of the creature
   *@lastEditedVersion 2.1
   */
-  public Creature getCreatureParId(int id){
+  public Creature getCreatureById(int id){
     try {
-      return getCreatureParIdE(id);
+      return getCreatureByIdE(id);
     }catch (EmptyListException e) {return null;}
   }
   /**
@@ -157,8 +123,8 @@ public class GCreature implements Serializable{//, Iterator{
   *@param id the id of the Fourmi.
   *@lastEditedVersion 2.1
   */
-  public Fourmi getFourmiParId(int id){
-    Creature c = getCreatureParId(id);
+  public Fourmi getFourmiById(int id){
+    Creature c = getCreatureById(id);
     if(c instanceof Fourmi){
       return (Fourmi)c;
     }else{
@@ -166,12 +132,12 @@ public class GCreature implements Serializable{//, Iterator{
       return null;
     }
   }
-  private Fourmi getFourmiParFereE(Fourmiliere fere)throws EmptyListException{
+  private Fourmi getFourmiParFereE(Fourmiliere fere) throws EmptyListException {
     if (getHead()==null){ throw new EmptyListException("GCreature","trouver la créature par fere");}
     if(fere==null){throw new NullPointerException();}
     Liste<Fourmi> lc = new Liste<Fourmi>();
     Comparator<Fourmi> idComparator = (Fourmi p1, Fourmi p2) -> (int)(p2.getId() - p1.getId());
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       if(c instanceof Fourmi){ //an Ant
         if(((Fourmi)c).getFere().equals(fere)){ //Of the same fere
           lc.addSorted((Fourmi)c, idComparator);
@@ -197,19 +163,30 @@ public class GCreature implements Serializable{//, Iterator{
       return null;
     }
   }
+  // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Return a list with all this class functions.}
+  *@lastEditedVersion 2.23
+  */
+  private static GCreature toGc(Liste<Creature> l){
+    GCreature gc = new GCreature();
+    gc.setHead(l.getHead());
+    gc.setTail(l.getTail());
+    return gc;
+  }
   /**
   *{@summary Return the Creatures that are ally with c.}<br>
   *@param cTested the tested creature
   *@param differenceTolerated the Pheromone difference that is tolerated
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
   private GCreature filterAlliés(Creature cTested, int differenceTolerated){
-    return new GCreature(toList().filter(c -> cTested.getPheromone().equals(c.getPheromone(),differenceTolerated)));
+    return toGc(filter(c -> cTested.getPheromone().equals(c.getPheromone(),differenceTolerated)));
   }
   /**
   *{@summary return the Creatures that are ally with c.}<br>
   *@param c the tested creature.
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
   public GCreature filterAlliés(Creature c){
     int x=0; if(c.getEspece()!=null && c.getEspece().getPolycalique()){x=5;}// en théorie 4 suffisent.
@@ -217,35 +194,35 @@ public class GCreature implements Serializable{//, Iterator{
   }
   /**
   *{@summary delete Creature that can't eat more.}<br>
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
   public GCreature filterFaimMax(){
-    return new GCreature(toList().filter(c -> c.getFood()<c.getMaxFood()));
+    return toGc(filter(c -> c.getFood()<c.getMaxFood()));
   }
   /**
   *{@summary delete Creature that can't be cleaner.}<br>
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
   public GCreature filterHealthMax(){
-    return new GCreature(toList().filter(c -> c.getHealth()<c.getMaxHealth()));
+    return toGc(filter(c -> c.getHealth()<c.getMaxHealth()));
   }
   /**
   *{@summary delete Creature that didn't whant food.}<br>
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
   public GCreature filterWantFood(){
-    return new GCreature(toList().filter(c -> c.wantFood()));
+    return toGc(filter(c -> c.wantFood()));
   }
   /**
   *{@summary delete Creature that didn't whant clean.}<br>
-  *@lastEditedVersion 2.1
+  *@lastEditedVersion 2.23
   */
   public GCreature filterWantClean(){
-    return new GCreature(toList().filter(c -> c.wantClean()));
+    return toGc(filter(c -> c.wantClean()));
   }
   public void setLienFere(Fourmiliere fere){
     GCreature gcr = new GCreature();
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       if(c instanceof Fourmi){
         Fourmi fTest = (Fourmi)(c);
         fTest.setFere(fere);
@@ -258,127 +235,48 @@ public class GCreature implements Serializable{//, Iterator{
   /**
   *{@summary Count worker imago.}
   *Worker imago are at stade 0 and type 3, 4 or 5.
-  *@lastEditedVersion 2.1
+  *@lastEditedVersion 2.23
   */
   public int getNbrOuvriere(){
-    try {
-      return getGcStade(0).getGcType(3).length() + getGcStade(0).getGcType(4).length() + getGcStade(0).getGcType(5).length();
-    }catch (Exception e) {
-      erreur.erreur("Impossible de prende en compte les type major et minor dans les ouvrières.");
-      return getGcStade(0).getGcType(3).length();
-    }
+    return filter(c -> c.getStade()==0 && (((Fourmi)c).getTypeF()==3 || ((Fourmi)c).getTypeF()==4 || ((Fourmi)c).getTypeF()==5)).length();
   }
+  /**
+  *{@summary Return species of this GCreature as if it was the gc of an anthill.}
+  *@lastEditedVersion 2.23
+  */
   public Espece getEspece(){
     Fourmi c = this.getReine();
     if(c!=null){return c.getEspece();}
-    if(début!=null){return ((Fourmi)début.getContent()).getEspece();}
+    if(getFirst()!=null){return ((Fourmi)getFirst()).getEspece();}
     return null;
   }
-
+  /**
+  *{@summary Return an array of id.}
+  *@lastEditedVersion 2.23
+  */
   public int [] gcToTInt(){
-    if (début==null){ return null;}
-    return début.gcToTInt();
+    int lentr=length();
+    int tr[]=new int [lentr];int k=0;
+    for (Creature c : this) {
+      tr[k]=c.getId();k++;
+    }
+    return tr;
   }
   public GCreature copier(){
-    if(début==null){ return new GCreature();}
-    return début.copier();
-  }
-  public void actualiserFin(){
-    CCreature cc = début;
-    while(cc!=null){
-      cc=cc.getSuivant();
-    }
-    fin = cc;
-  }
-  public GInsecte getGi(){
-    GInsecte gi = new GInsecte();
-    CCreature cc = début;
-    while(cc != null){
-      Creature c = cc.getContent();
-      if(c instanceof Insecte){gi.add((Insecte) cc.getContent());}
-      cc = cc.getSuivant();
-    }
-    return gi;
-  }
-  public void add(Creature c){
-    addFin(c);
-  }
-  public void addFin(Creature c){
-    if(c==null){throw new NullItemException();}
-    CCreature cc = new CCreature(c);
-    if (fin ==  null){
-      début = cc;
-      fin = cc;
-    }else {
-      fin.setSuivant(cc);
-      cc.setPrécédent(fin);
-      fin = cc;
-    }
-  }
-  public void add(GCreature gc){
-    if(gc == null || gc.getHead() == null){ return;}
-    if (fin == null){
-      début = gc.getHead();
-      fin = gc.getTail();
-    }else {
-      fin.setSuivant(gc.getHead());
-      gc.getHead().setPrécédent(fin);
-      fin = gc.getTail();
-    }
-  }
-  public void add(GInsecte gi ){
-    GCreature gc = gi.toGCreature();
-    add(gc);
+    GCreature gc=new GCreature();
+    gc.add(this);
+    return gc;
   }
   /**
-  *{@summary remove an item from the list.} <br>
-  *if list is empty or element fail to be remove an Exception will be throw.<br>
-  *@lastEditedVersion 1.31
+  *{@summary Return all Insecte from this.}
+  *@lastEditedVersion 2.23
   */
-  public void remove(Creature c) {
-    if(c==null){ throw new NullItemException();}
-    if(début == null){ throw new EmptyListException("GCreature","remove la Creature "+c.getId());}//erreur.erreur("Aucune créature n'as pu être remove car GCreature est vide","GCreature.remove",true); return;}
-    if(début.getContent().equals(c)){
-      if(fin.getContent().equals(c)){
-        début = null; fin = null; // on retire la seule créature
-      }else{
-        début = début.getSuivant(); // on retire la 1a créature.
-      }
-      return;
+  public GInsecte getGi(){
+    GInsecte gi = new GInsecte();
+    for (Creature c : this) {
+      if(c instanceof Insecte){gi.add((Insecte)c);}
     }
-    début.remove(c);
-    fin = début;
-    while(fin.getSuivant() != null){
-      fin = fin.getSuivant();
-    }
-    // actualiserFin();
-  }
-  // public void remove(Creature c){remove(c);}
-  public void delete(Creature c){remove(c);}
-  public void afficheToiE() throws EmptyListException{
-    if(début==null){
-      throw new EmptyListException("GCreature","tout afficher");
-    }else{
-      début.afficheTout();
-    }
-  }
-  public void afficheToi(){
-    try {
-      afficheToiE();
-    }catch (EmptyListException e) {}
-  }
-  public void afficheToiRéduitE() throws EmptyListException{
-    if(début==null){
-      throw new EmptyListException("GCreature","tout afficher");
-    }else{
-      System.out.print(g.get("listeCreature")+" : ");
-      début.afficheToutRéduit();
-    }
-  }
-  public void afficheToiRéduit(){
-    try {
-      afficheToiRéduitE();
-    }catch (EmptyListException e) {}
+    return gi;
   }
   /**
   *{@summary Play as an ant.}
@@ -386,10 +284,10 @@ public class GCreature implements Serializable{//, Iterator{
   *@lastEditedVersion 2.5
   */
   private void jouerE() throws EmptyListException{
-    if(début == null){
+    if(isEmpty()){
       throw new EmptyListException("GCreature","jouer");
     }else{
-      for (Creature c : toList()) {
+      for (Creature c : this) {
         if((Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()) || Main.getRetournerAuMenu()){return;}
         if(c instanceof Fourmi){
           Fourmi fActuel = (Fourmi)c;
@@ -398,7 +296,7 @@ public class GCreature implements Serializable{//, Iterator{
             continue;
           }
           if(Main.getPartie().getAntIdToPlay()!=-1 && !fActuel.getIa()){
-            // erreur.info("test de "+Main.getPartie().getAntIdToPlay()+" & "+c.getId()+" sur les "+length()+" fourmis ("+toList().toStringId()+")");
+            // erreur.info("test de "+Main.getPartie().getAntIdToPlay()+" & "+c.getId()+" sur les "+length()+" fourmis ("+toStringId()+")");
             //if player have clic on this ant.
             if(Main.getPartie().getAntIdToPlay()==c.getId()){
               Main.getPartie().setAntIdToPlay(-1);
@@ -448,10 +346,10 @@ public class GCreature implements Serializable{//, Iterator{
   *@lastEditedVersion 2.1
   */
   private void preTurnE() throws EmptyListException{
-    if(début == null){
+    if(isEmpty()){
       throw new EmptyListException("GCreature","preTurn");
     }else{
-      for (Creature c : toList() ) {
+      for (Creature c : this) {
         if(c instanceof Fourmi){
           Fourmi fActuel = (Fourmi)c;
           fActuel.preTurn();
@@ -475,7 +373,7 @@ public class GCreature implements Serializable{//, Iterator{
   *@lastEditedVersion 2.1
   */
   public void updateCaseSN(){
-    for (Creature c : toList() ) {
+    for (Creature c : this ) {
       if(c instanceof Fourmi){
         Fourmi f = (Fourmi)(c);
         Joueur j = f.getJoueur();
@@ -490,28 +388,25 @@ public class GCreature implements Serializable{//, Iterator{
       }
     }
   }
-
-  public void classerPourNetoyage(){
-    if (début==null){ return;}
+  /**
+  *{@summary Sort this depending of health.}
+  *@lastEditedVersion 2.23
+  */
+  public void classerPourNetoyage(Fourmi f){
+    sort((Creature c1, Creature c2) -> c2.getHealth()-c1.getHealth());
+    // pour l'instant on tri juste en fct de health
     //TODO
-    //le but est d'habord que personne ne passe en dessous des x de healthe minimum lié au niveau de difficulté.
-    //on met tout ce qui sont en dessous de 50 dans l'ordre d'age/stade.
+    //le but est d'habord que personne ne passe en dessous des x de health minimum lié au niveau de difficulté.
+    //on met tout ceux qui sont en dessous de 50 dans l'ordre d'age/stade.
     //et on ajoute ceux qui sont après dans l'ordre de saleté.
   }
   public int [] toTId(){
-    if (début==null){ return new int[0];}
-    return début.toTId();
-  }
-  /**
-  *{@summary Transform a GCreature in Liste&lt;Creature&gt;.}
-  *@lastEditedVersion 1.38
-  */
-  public Liste<Creature> toList(){
-    if (début==null){
-      Liste<Creature> lc = new Liste<Creature>();
-      return lc;
+    int tr []= new int[this.length()];
+    int k=0;
+    for (Creature c : this) {
+      tr[k]=c.getId();k++;
     }
-    return début.toList();
+    return tr;
   }
   /**
   *{@summary Return true if all Creature have played to there last action.}
@@ -519,7 +414,7 @@ public class GCreature implements Serializable{//, Iterator{
   *@lastEditedVersion 2.1
   */
   public boolean haveDoneAllActionAviable(){
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       if(c.getAction()>0){return false;}
       // TODO #410 if(c.getAction()>0 && (!(c instanceof Fourmi) || ((Fourmi)c).isAutoMode())){return false;}
     }
@@ -530,7 +425,7 @@ public class GCreature implements Serializable{//, Iterator{
   *@lastEditedVersion 2.5
   */
   public boolean isAllInAutoMode(){
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       if(c instanceof Fourmi && !((Fourmi)c).isAutoMode() && ((Fourmi)c).getStade()==0){return false;}
     }
     return true;
@@ -540,7 +435,7 @@ public class GCreature implements Serializable{//, Iterator{
   *@lastEditedVersion 2.5
   */
   public boolean isAllInAutoModeOrHaveDoneAllAction(){
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       if(c instanceof Fourmi && !((Fourmi)c).isAutoMode() && c.getAction()>0){return false;}
     }
     return true;
@@ -552,7 +447,7 @@ public class GCreature implements Serializable{//, Iterator{
   *@lastEditedVersion 1.x
   */
   public boolean setAction0AndEndTurn(){
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       if(c.getAction()>0){
         c.setAction(0);
         c.tour();//force to do finTour() without any action ant will do nothing.

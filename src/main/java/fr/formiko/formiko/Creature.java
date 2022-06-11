@@ -163,7 +163,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public abstract boolean wantClean();
   public Espece getEspece(){ return e;}
   public void setEspece(Espece e){ this.e = e;}
-  public void setEspece(int e){ setEspece(Main.getEspeceParId(e));}
+  public void setEspece(int e){ setEspece(Main.getEspeceById(e));}
   public String getNom(){return g.get("creature");}
   public int getLastTurnEnd(){return lastTurnEnd;}
   public void setLastTurnEnd(int x){lastTurnEnd=x;}

@@ -179,11 +179,11 @@ public class Main {
   // GET SET ----------------------------------------------------------
   public static boolean isCLI(){return modeCLI;}
   public static byte getNiveauDeDétailDeLAffichage(){return niveauDeDétailDeLAffichage;}
-  public static Espece getEspece(){return getEspeceParId(0);}
-  public static Espece getEspeceParId(int id){ return getGe().getEspeceParId(id);}
+  public static Espece getEspece(){return getEspeceById(0);}
+  public static Espece getEspeceById(int id){ return getGe().getEspeceById(id);}
   public static GEspece getGEspece(){ return getGe();}
-  public static Joueur getJoueurParId(int id){ return Main.getGj().getJoueurParId(id);}
-  public static Fourmiliere getFourmiliereParId(int id){ return getJoueurParId(id).getFere();}
+  public static Joueur getJoueurById(int id){ return Main.getGj().getJoueurById(id);}
+  public static Fourmiliere getFourmiliereById(int id){ return getJoueurById(id).getFere();}
   public static FFrame getF(){ try {return ((ViewGUI2d)view).getF();} catch (Exception e) {return null;}}
   public static Options getOp(){if(op!=null){return op;}else{if(tempOp==null){tempOp = Options.newDefaultOptions();} return tempOp;}}
   public static void saveOp(boolean threaded){if(op!=null){op.saveOptions(threaded);}}
@@ -406,11 +406,11 @@ public class Main {
    */
   public static void quitter(){
     try {
-      if(pa!=null){
-        startCh();
-        pa.enregistrerLesScores();
-        endCh("enregistementDesScores");
-      }
+      // if(pa!=null){
+      //   startCh();
+      //   pa.enregistrerLesScores();
+      //   endCh("enregistementDesScores");
+      // }
       startCh();
       if(getKeepFilesRotated()){image.clearPartielTemporaire();}
       else{image.clearTemporaire();}
@@ -421,8 +421,8 @@ public class Main {
       long tempsDeFinDeJeu=System.currentTimeMillis();
       long tempsJeuEcoulé = tempsDeFinDeJeu-tempsDeDébutDeJeu;
       tem.addTempsEnJeux(tempsJeuEcoulé);tem.actualiserDate2();tem.sauvegarder();
-      System.out.println(g.getM("tempsJeuEcoulé")+" : "+Temps.msToTime(tempsJeuEcoulé,2,false));
-      System.out.println(g.getM("messageQuitter"));
+      erreur.println(g.getM("tempsJeuEcoulé")+" : "+Temps.msToTime(tempsJeuEcoulé,2,false));
+      erreur.println(g.getM("messageQuitter"));
       System.exit(0);
     }catch (Exception e) {
       erreur.alerte("Game fail to close normally.");
@@ -444,7 +444,7 @@ public class Main {
     if(!getPartie().getLaunchingFromSave()){
       getGc().tourCases(); //actualisation des ressources sur les cases.
       getGi().preTurn(); //actualisation des actions des insectes
-      for (Joueur j : getGj().toList()) {
+      for (Joueur j : getGj()) {
         j.getFere().preTurn();
       }
     }else{

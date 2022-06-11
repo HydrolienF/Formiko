@@ -52,10 +52,11 @@ public class FButtonPGO extends FButton {
   }
   /**
   *{@summary Update color at every clics.}<br>
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
   @Override
   public void mouseReleased(MouseEvent event) {
+    if(FPanel.getView().getPe().isOn()){return;}
     super.mouseReleased(event);
     updateColor();
     setSelected(true);
@@ -92,6 +93,7 @@ public class FButtonPGO extends FButton {
   */
   @Override
   public void setSelected(boolean selected){
+    if(FPanel.getView().getPe().isOn()){return;}
     super.setSelected(selected, true);
   }
   /**

@@ -61,7 +61,7 @@ public class triche {
       }catch (Exception e) {}
       switch(x){
         case 1:
-          System.out.println(g.getM("affTest")+".");
+          erreur.println(g.getM("affTest")+".");
           break;
         case 2:
           aff(args[1]);
@@ -74,62 +74,62 @@ public class triche {
           break;
         // pour les créatures
         case 5:
-          getCreatureParId(args[1]).setFood(str.sToI(args[2]));
+          getCreatureById(args[1]).setFood(str.sToI(args[2]));
           break;
         case 6:
-          getCreatureParId(args[1]).setMaxFood(str.sToI(args[2]));
+          getCreatureById(args[1]).setMaxFood(str.sToI(args[2]));
           break;
         case 7:
-          getCreatureParId(args[1]).setAge(str.sToI(args[2]));
+          getCreatureById(args[1]).setAge(str.sToI(args[2]));
           break;
         case 8:
-          getCreatureParId(args[1]).setMaxAge(str.sToI(args[2]));
+          getCreatureById(args[1]).setMaxAge(str.sToI(args[2]));
           break;
         case 9:
-          getCreatureParId(args[1]).setIsDead(str.sToB(args[2]));
+          getCreatureById(args[1]).setIsDead(str.sToB(args[2]));
           break;
         case 10:
-          getCreatureParId(args[1]).setAction(str.sToBy(args[2]));
+          getCreatureById(args[1]).setAction(str.sToBy(args[2]));
           break;
         case 11:
-          getCreatureParId(args[1]).setMaxAction(str.sToBy(args[2]));
+          getCreatureById(args[1]).setMaxAction(str.sToBy(args[2]));
           break;
         case 12:
-          getCreatureParId(args[1]).setPheromone(str.sToBy(args[2]),str.sToBy(args[3]),str.sToBy(args[4]));
+          getCreatureById(args[1]).setPheromone(str.sToBy(args[2]),str.sToBy(args[3]),str.sToBy(args[4]));
           break;
         //pour les fourmis
         case 13:
-          getFourmiParId(args[1]).setTypeF(str.sToBy(args[2]));
+          getFourmiById(args[1]).setTypeF(str.sToBy(args[2]));
           break;
         case 14:
-          getFourmiParId(args[1]).setStade(str.sToBy(args[2]));
+          getFourmiById(args[1]).setStade(str.sToBy(args[2]));
           break;
         case 15:
-          getFourmiParId(args[1]).setMode(str.sToBy(args[2]));
+          getFourmiById(args[1]).setMode(str.sToBy(args[2]));
           break;
         case 16:
-          getFourmiParId(args[1]).setFourmiliere(getFourmiliereParId(args[2]));
-          getFourmiliereParId(args[2]).getGc().add(getFourmiParId(args[1]));
+          getFourmiById(args[1]).setFourmiliere(getFourmiliereById(args[2]));
+          getFourmiliereById(args[2]).getGc().add(getFourmiById(args[1]));
           break;
         case 17:
-          getFourmiParId(args[1]).setEspece(str.sToI(args[2]));
+          getFourmiById(args[1]).setEspece(str.sToI(args[2]));
           break;
         case 18:
-          getFourmiParId(args[1]).setHealth(str.sToBy(args[2]));
+          getFourmiById(args[1]).setHealth(str.sToBy(args[2]));
           break;
         case 19:
-          //getFourmiParId(args[1]).setTransported(getGraineParId(args[2]));
+          //getFourmiById(args[1]).setTransported(getGraineById(args[2]));
           break;
         // pour les graines
         case 20:
-          getFourmiParId(args[1]).setDuretéMax(str.sToBy(args[2]));
+          getFourmiById(args[1]).setHardnessMax(str.sToBy(args[2]));
           break;
         //pour les insectes
         case 21:
-          getInsecteParId(args[1]).setGivenFood(str.sToI(args[2]));
+          getInsecteById(args[1]).setGivenFood(str.sToI(args[2]));
           break;
         case 22:
-          getInsecteParId(args[1]).setfoodEatable(str.sToBy(args[2]));
+          getInsecteById(args[1]).setfoodEatable(str.sToBy(args[2]));
           break;
 
         //pour les joueurs
@@ -137,18 +137,18 @@ public class triche {
           pseudo(args);
           break;
         case 24:
-          getJoueurParId(args[1]).setIa(str.sToB(args[2]));
+          getJoueurById(args[1]).setIa(str.sToB(args[2]));
           try {
-            if (!str.sToB(args[2]) && (Main.getCarte().getCasesNuageuses() || Main.getCarte().getCasesSombres())){getJoueurParId(args[1]).updateCaseSN();}
+            if (!str.sToB(args[2]) && (Main.getCarte().getCasesNuageuses() || Main.getCarte().getCasesSombres())){getJoueurById(args[1]).updateCaseSN();}
           }catch (Exception e) {
             erreur.erreur("Le code triche de changement de jouer n'as pas pu actualiser les cases sombre et nuageuse.");
           }
           break;
         case 25:
-          System.out.println(Main.getGc().getCCase(str.sToI(args[1]),str.sToI(args[2])).getContent());
+          erreur.println(Main.getGc().getCCase(str.sToI(args[1]),str.sToI(args[2])).getContent());
           break;
         case 26:
-          System.out.println(Main.getGj());
+          erreur.println(Main.getGj());
           break;
         case 27:
           if(args[1].equalsIgnoreCase(g.get("cmd.type.2"))){
@@ -156,7 +156,7 @@ public class triche {
             in.setType(str.sToI(args[4]));
             Main.getGi().add(in);
           }else if(args[1].equalsIgnoreCase(g.get("cmd.type.3"))){
-            Fourmiliere fere = getFourmiliereParId(args[2]);
+            Fourmiliere fere = getFourmiliereById(args[2]);
             Fourmi fm = new Fourmi(fere,fere.getEspece(),3);
             fm.setStade((byte)-1);
             fm.evoluer();
@@ -167,7 +167,7 @@ public class triche {
           }
           break;
         case 28:
-          getFourmiParId(args[1]).evoluer();
+          getFourmiById(args[1]).evoluer();
           break;
         case 29://print
           String s2 = "";
@@ -194,7 +194,7 @@ public class triche {
           while(!b){
             Main.getScript().setEcouteClic(false);//on n'écoute plus les clic de l'utilisateur.
             if(args[1].equalsIgnoreCase(g.get("cmd.type.1"))){// Creature
-              Creature c = getCreatureParId(args[2]);
+              Creature c = getCreatureById(args[2]);
               if(args[3].equalsIgnoreCase(g.get("cmd.31.1"))){//getPoint
                 b = testSupInfEga(args,c.getCCase().getContent().getPoint());
               }else if(args[3].equalsIgnoreCase(g.get("cmd.31.2"))){//isDead
@@ -214,7 +214,7 @@ public class triche {
                 b = Main.getGi().length()==str.sToI(args[3]);
               }
             }else if(args[1].equalsIgnoreCase(g.get("cmd.type.5"))){//fourmilière
-              Fourmiliere fe = Main.getGj().getJoueurParId(str.sToI(args[2])).getFere();
+              Fourmiliere fe = Main.getGj().getJoueurById(str.sToI(args[2])).getFere();
               if(args[3].equalsIgnoreCase(g.get("cmd.31.3"))){//length
                 b = fe.length()==str.sToI(args[4]);
               }
@@ -252,7 +252,7 @@ public class triche {
           }
           break;
         case 35:
-          System.out.println(Main.getTemps());
+          erreur.println(Main.getTemps());
           break;
         case 36:
           try {
@@ -397,11 +397,13 @@ public class triche {
     return b;
   }
 
-  public static Creature getCreatureParId(String id){
+  public static Creature getCreatureById(String id){
       try {
         GCreature gc = Main.getGj().getGc();
-        gc.add(Main.getGi());
-        Creature c = gc.getCreatureParId(str.sToI(id));
+        for (Insecte i : Main.getGi()) {
+          gc.add(i);
+        }
+        Creature c = gc.getCreatureById(str.sToI(id));
         if(c!=null){return c;}
         else{
           throw new Exception();
@@ -411,8 +413,8 @@ public class triche {
         return null;
       }
   }
-  public static Fourmi getFourmiParId(String id){
-    Creature c = getCreatureParId(id);
+  public static Fourmi getFourmiById(String id){
+    Creature c = getCreatureById(id);
     if (c instanceof Fourmi){
       return (Fourmi) c;
     }else{
@@ -420,8 +422,8 @@ public class triche {
       return null;
     }
   }
-  public static Insecte getInsecteParId(String id){
-    Creature c = getCreatureParId(id);
+  public static Insecte getInsecteById(String id){
+    Creature c = getCreatureById(id);
     if (c instanceof Insecte){
       return (Insecte) c;
     }else{
@@ -429,17 +431,17 @@ public class triche {
       return null;
     }
   }
-  public static Fourmiliere getFourmiliereParId(String id){
+  public static Fourmiliere getFourmiliereById(String id){
     try {
-      return Main.getFourmiliereParId(str.sToI(id));
+      return Main.getFourmiliereById(str.sToI(id));
     }catch (Exception e) {
       erreur.erreur("La fourmilière associé a l'id "+id+" n'as pas été trouvée.");
       return null;
     }
   }
-  private static Joueur getJoueurParId(String id){
+  private static Joueur getJoueurById(String id){
     try {
-      return Main.getJoueurParId(str.sToI(id));
+      return Main.getJoueurById(str.sToI(id));
     }catch (Exception e) {
       erreur.erreur("Le joueur associé a l'id "+id+" n'as pas été trouvée.");
       return null;
@@ -452,7 +454,7 @@ public class triche {
   */
   private static void pseudo(String args[]){
     //setPseudo id boolean pseudo
-    Joueur j = getJoueurParId(args[1]);
+    Joueur j = getJoueurById(args[1]);
     boolean permanent = false;
     String pseudo = "";
     // try {
@@ -483,20 +485,20 @@ public class triche {
   }
   private static void aff(String s){
     try {
-      Creature c = getCreatureParId(s);
-      System.out.println(c);//si c est une fourmi ou un insecte s'est leur implémentation de toString qui sera appellée.
+      Creature c = getCreatureById(s);
+      erreur.println(c);//si c est une fourmi ou un insecte s'est leur implémentation de toString qui sera appellée.
     }catch (Exception e3) {
       erreur.alerte("la créature "+s+" n'as pas été trouvée.");
     }
   }
   private static void affJ(String s){
     try {
-      System.out.println(getJoueurParId(s));
+      erreur.println(getJoueurById(s));
     }catch (Exception e) {}
   }
   private static void affAide(){
-    System.out.println(g.getM("triche.aide.1"));
-    System.out.println(g.getM("commande")+" : "+"("+g.get("triche.aide.2")+")");
+    erreur.println(g.getM("triche.aide.1"));
+    erreur.println(g.getM("commande")+" : "+"("+g.get("triche.aide.2")+")");
     gs.afficheToi();
   }
 }

@@ -26,9 +26,9 @@ public class diff {
     //autre méthode qui prend compte le fait que certaine ligne comme } sont suceptible d'extisté dans le fichier de base et de pourtant compter comme une ligne ajouté.
     gs1.supprimerLesLignesCommunesAvec(gs2);
     int ligneModifieOuAjoute = gs1.length();
-    System.out.println("ligne ajouté : "+ligneAjoute);
-    System.out.println("ligne modifié : "+(gs1.length()-ligneAjoute));
-    System.out.println("ligne modifié ou ajouté : "+ligneModifieOuAjoute);
+    erreur.println("ligne ajouté : "+ligneAjoute);
+    erreur.println("ligne modifié : "+(gs1.length()-ligneAjoute));
+    erreur.println("ligne modifié ou ajouté : "+ligneModifieOuAjoute);
     return ligneModifieOuAjoute;
   }
 }

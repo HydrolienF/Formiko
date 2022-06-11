@@ -135,7 +135,7 @@ public class chargerLesTraductions {
   *@lastEditedVersion 1.7
   */
   public static String [] getTableauDesTrad(int langue){
-    //String tDéfaut [] = ReadFile.readFileArray(rep+"fr.txt");
+    //String tdefault [] = ReadFile.readFileArray(rep+"fr.txt");
     String t [] = new String[0];
     try{
       debug.débogage("chargement de la langue "+getLanguage(langue));
@@ -311,7 +311,7 @@ public class chargerLesTraductions {
       String s = "";int x=getPourcentageTraduitAutomatiquement(i); if(x>0){s=" ("+x+"% traduit automatiquement)";}
       int y = getPourcentageTraduit(i);
       if(x>0){
-        System.out.println(getLanguage(i)+" : "+y+"%"+s);
+        erreur.println(getLanguage(i)+" : "+y+"%"+s);
       }
     }
   }

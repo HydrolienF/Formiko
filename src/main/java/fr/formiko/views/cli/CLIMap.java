@@ -224,9 +224,9 @@ public class CLIMap{
         if(contenu.getFere() != null){
           sr = "F"+contenu.getFere().getId();
         }else if (contenu.getGc().getHead() != null){
-          sr = sr + objetSurCarteAIdToString(contenu.getGc().getHead().getContent());
+          sr = sr + objetSurCarteAIdToString(contenu.getGc().getFirst());
         }else{
-          sr = sr + objetSurCarteAIdToString(contenu.getGg().getHead().getContent());
+          sr = sr + objetSurCarteAIdToString(contenu.getGg().getFirst());
         }
       }else{
         xi++;
@@ -236,10 +236,10 @@ public class CLIMap{
         if(contenu.getFere() != null){
           s = s + "F"+contenu.getFere().getId()+", ";
         }
-        for (Creature c : contenu.getGc().toList()) {
+        for (Creature c : contenu.getGc()) {
           s+=objetSurCarteAIdToString(c)+", ";
         }
-        for (Graine g : contenu.getGg().toList()) {
+        for (Graine g : contenu.getGg()) {
           s+=objetSurCarteAIdToString(g)+", ";
         }
         s = s.substring(0,s.length()-2);

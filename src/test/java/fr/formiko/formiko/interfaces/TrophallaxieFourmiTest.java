@@ -29,7 +29,7 @@ public class TrophallaxieFourmiTest extends TestCaseMuet{
     Main.getPartie().setGj(gj);
 
     Fourmiliere fere = j.getFere();
-    Fourmi f = fere.getGc().getFourmiParId(1);
+    Fourmi f = fere.getGc().getFourmiById(1);
     f.setPheromone(new Pheromone(0,0,0));
     assertTrue(f!=null);
     assertTrue(f.getEspece()!=null);
@@ -38,7 +38,7 @@ public class TrophallaxieFourmiTest extends TestCaseMuet{
     int nbrDeCreature = f.getAlliéSurLaCase().length();
     int t [] = f.getAlliéSurLaCaseSansThis().toTId();
     assertEquals(2,nbrDeCreature);
-    Fourmi f2 = fere.getGc().getFourmiParId(2);
+    Fourmi f2 = fere.getGc().getFourmiById(2);
     assertTrue(f2!=null);
     f2.setFood(f2.getMaxFood()-1);
     int r [] = f.trophallaxie.getCreatureQuiOnFaim(t,f);
@@ -51,7 +51,7 @@ public class TrophallaxieFourmiTest extends TestCaseMuet{
     assertEquals(1,r.length);
     fere.getGc().add(new Fourmi(fere,e,3));
     f2.setFood(0);
-    fere.getGc().getFourmiParId(3).setFood(0);
+    fere.getGc().getFourmiById(3).setFood(0);
     t = f.getAlliéSurLaCaseSansThis().toTId();
     r = f.trophallaxie.getCreatureQuiOnFaim(t,f);
     assertEquals(2,r.length);

@@ -111,7 +111,6 @@ public class Case implements Serializable{
     }
     int x2 = foodInsecte-x;
     if(x2<0){
-      // System.out.println("Trying to remove more foodInsecte than aviable on Case "+p);
       erreur.alerte("Trying to remove more foodInsecte than aviable on Case "+p);
       x2=0;
     }
@@ -222,13 +221,13 @@ public class Case implements Serializable{
       GCreature gc = getSortedGc();
       if (gc != null && gc.getHead() != null){
         s=s+g.get("creatures")+" : "; s=s+"\n";
-        for (Creature c : gc.toList()) {
+        for (Creature c : gc) {
           s+=c.toStringShort()+"\n";
         }
       }
       if (gg != null && gg.getHead() != null){
         s=s+g.get("graines")+" : ";s=s+"\n";
-        for (Graine g : gg.toList()) {
+        for (Graine g : gg) {
           s+=g.toStringShort()+"\n";
         }
       }
@@ -260,17 +259,11 @@ public class Case implements Serializable{
   public GCreature getSortedGc(Fourmi f){
     if(f==null){return gc;}
     else{
-      Liste<Creature> list = new Liste<Creature>();
-      for (Creature c : getGc().toList()) {
-        list.addSorted(c, (c1, c2) -> c1.friendlyLevel(f) - c2.friendlyLevel(f));
+      GCreature gcout = new GCreature();
+      for (Creature c : getGc()) {
+        gcout.addSorted(c, (c1, c2) -> c1.friendlyLevel(f) - c2.friendlyLevel(f));
       }
-      GCreature gcr = new GCreature();
-      for (Creature c : list) {
-        // if(!c.equals(f)){
-          gcr.addFin(c);
-        // }
-      }
-      return gcr;
+      return gcout;
     }
   }
   public GCreature getSortedGc(){

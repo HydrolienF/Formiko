@@ -172,7 +172,7 @@ public class launchOptions {
         erreur.alerte("arguments de supprimer incorecte");
       }
     }else if(args[0].equals("test")){
-      System.out.println("test");
+      erreur.println("test");
     }else if(args[0].equals("trad2")){
       Main.initialisation();
       chargerLesTraductions.iniTLangue();
@@ -291,7 +291,7 @@ public class launchOptions {
         default:
         yield "";
       };
-      System.out.println(s);
+      erreur.println(s);
     }
   }
   /**
@@ -305,7 +305,7 @@ public class launchOptions {
     }else{
       result+=stats.getStats("src/main/java/", true).toString();
     }
-    System.out.println(result);
+    erreur.println(result);
   }
   /**
   *{@summary trim the image from args.}<br>
@@ -339,7 +339,7 @@ public class launchOptions {
     chargerLesTraductions.iniTLangue();
     chargerLesTraductions.créerLesFichiers();
     g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
-    System.out.print(chargerLesTraductions.getPourcentageTraduit(chargerLesTraductions.getLanguage(language)));
+    erreur.print(chargerLesTraductions.getPourcentageTraduit(chargerLesTraductions.getLanguage(language)));
   }
   /**
   *{@summary Update translation.}<br>
@@ -363,7 +363,7 @@ public class launchOptions {
   }
   public static void tradCharCmd(int id, String fontName, boolean b){
     // Main.startCh();
-    System.out.println(trad.partOfPrintableChar(id, fontName, b));
+    erreur.println(trad.partOfPrintableChar(id, fontName, b));
     // chargerLesTraductions.créerLesFichiers();
     // Main.endCh("créerLesFichiers");Main.startCh();
     // g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
@@ -387,7 +387,7 @@ public class launchOptions {
     }else{
       col = color.YELLOW;
     }
-    System.out.println(col+fontName+" "+cpt+"/"+len+color.NEUTRAL);
+    erreur.println(col+fontName+" "+cpt+"/"+len+color.NEUTRAL);
   }
   /**
   *{@summary Do sounds or music test.}<br>
@@ -472,7 +472,7 @@ public class launchOptions {
       // file.delete();
       BufferedWriter writer = Files.newBufferedWriter(Folder.getVersionJsonPath());
       Jsoner.serialize(jsr, writer);
-      // System.out.println(jsr);
+      // erreur.println(jsr);
       // writer.write(jsr.toString());
       writer.close();
     }catch (Exception e) {

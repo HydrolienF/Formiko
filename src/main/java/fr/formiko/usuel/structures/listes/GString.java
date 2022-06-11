@@ -112,10 +112,10 @@ public class GString extends Liste<String> implements Serializable {
   */
   public void afficheToi(){
     if(getHead()==null){
-      System.out.println(g.get("GString",1,"Le GString est vide"));
+      erreur.println(g.get("GString",1,"Le GString est vide"));
     }else{
       //getHead().afficheTout();
-      System.out.println(toStringLong());
+      erreur.println(toStringLong());
     }
   }
   // public void classer(){
@@ -141,7 +141,7 @@ public class GString extends Liste<String> implements Serializable {
       */
       //phase 1 on cré un tableau avec tout les éléments de début.
       //String t [] = {"Reine..."}
-      String t [] = getHead().getContent().split("\n");int lent = t.length;
+      String t [] = getFirst().split("\n");int lent = t.length;
       //phase 2 on add a la fin de chaque line les éléments de chaque CString.
       for (String s : this ) {
         String tTemp [] = s.split("\n");
@@ -188,12 +188,12 @@ public class GString extends Liste<String> implements Serializable {
   }
   /*public boolean supprimer(String s, int max){
     if (getHead()==null){ return 0;}
-    if(getHead().getContent().equals(s)){//on teste la 1a CString car après on vérifira seulement la suivante. (puis la suivante et ainsi de suite).
+    if(getFirst().equals(s)){//on teste la 1a CString car après on vérifira seulement la suivante. (puis la suivante et ainsi de suite).
       getHead() = getHead().getNext(); return true;
     }
     int b = getHead().supprimer(s);
     actualiserFin();
-    if(!b){System.out.println("la suppression de la line qui suis n'as pas pu etre éffectuée"+s);}
+    if(!b){erreur.println("la suppression de la line qui suis n'as pas pu etre éffectuée"+s);}
     return b;
   }*/
   /**

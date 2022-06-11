@@ -7,125 +7,88 @@ import fr.formiko.usuel.g;
 import fr.formiko.usuel.structures.listes.Liste;
 
 import java.io.Serializable;
-//extends Liste<Graine>
-public class GGraine implements Serializable {
-  //TODO #82
-  protected CGraine début;
+
+/**
+*{@summary List of seeds.}
+*lastEditedVersion 2.23
+*@author Hydrolien
+*/
+public class GGraine extends Liste<Graine> implements Serializable {
+
   // CONSTRUCTORS --------------------------------------------------------------
-  public void GGraine(){début = null;}
+  /**
+  *{@summary Main constructor.}
+  *@lastEditedVersion 2.23
+  */
+  public GGraine(){
+    super();
+  }
+
   // GET SET -------------------------------------------------------------------
-  public CGraine getHead(){ return début;}
-  public void setDébut(CGraine x){début=x;}
-  public CGraine getTail(){
-    if (début == null ){ return null;}
-    CGraine fin = début;
-    while (fin.getSuivant() != null){
-      fin = fin.getSuivant();
-    }
-    return fin;
+  /**
+  *{@summary Return the seed that have the most givenFood.}
+  *lastEditedVersion 2.23
+  */
+  public Graine getBetterSeed(){
+    return getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
   }
-  // FUNCTIONS -----------------------------------------------------------------
-  public String toString(){
-    String r = g.get("GGraine")+" : ";
-    if (début == null){
-      return r+"ø";
-    }
-    return r+début.toString();
+  /**
+  *{@summary Return the seed that have the most givenFood &38; with hardness &lb; hardnessMax.}
+  *lastEditedVersion 2.23
+  */
+  public Graine getGrainePlusDeGivenFood(int hardnessMax){
+    return filter(g -> g.getOuverte() && g.getHardness()<hardnessMax)
+        .getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
   }
-  public int length(){
-    if(début==null){
-      return 0;
-    }else {
-      return début.length();
-    }
-  }
-  public Graine getGrainePlusDeGivenFoodSansDureté(){
-    if (début == null){ erreur.erreur("Impossible de sélectionné la meilleur graine dans une liste vide."); return null;}
-    CGraine ci = getHead();
-    return ci.getGrainePlusDeGivenFoodSansDureté(ci.getContent());
-  }
+  /**
+  *{@summary Return the seed that have the most givenFood &38; with hardness &lb; ant max hardness.}
+  *lastEditedVersion 2.23
+  */
   public Graine getGrainePlusDeGivenFood(Fourmi f){
-    if (début == null){ erreur.erreur("Impossible de sélectionné la meilleur graine dans une liste vide."); return null;}
-    byte duretéMax = f.getDuretéMax();
-    CGraine ci = getHead();
-    //if (ci.getSuivant() != null){
-     return ci.getGrainePlusDeGivenFood(ci.getContent(),duretéMax);
-    /*}
-    if(ci.getContent().getDureté() <  f.getDuretéMax() && !ci.getContent().getOuverte()){ // si elle est fermé et cassable.
-      return ci.getContent();
-    }else{
-      return null;
-    }*/
+    return getGrainePlusDeGivenFood(f.getHardnessMax());
   }
+  /**
+  *{@summary Return the first oppen seed.}
+  *lastEditedVersion 2.23
+  */
   public Graine getGraineOuverte(){
-    if (début == null){ erreur.erreur("Impossible de sélectionné 1 graine ouverte dans une liste vide."); return null;}
-    if (début.getContent().getOuverte()){ return début.getContent();}
-    return début.getGraineOuverte();
+    for (Graine g : this) {
+      if(g.getOuverte()){
+        return g;
+      }
+    }
+    return null;
   }
-    // ici on choisirai la graine avec le plus de givenFood parmi toutes les Graine que la fourmi peut ouvrir.
-  //}
 
-  public void afficheToi(){ System.out.println(this);}
+  // FUNCTIONS -----------------------------------------------------------------
   /**
-  *{@summary Add a seed to this GGraine.}
-  *@lastEditedVersion 1.40
+  *{@summary Return a list with all this class functions.}
+  *@lastEditedVersion 2.23
   */
-  public void add(Graine i){
-    if (i != null){
-      CGraine ci = new CGraine(i);
-      ci.setSuivant(début);
-      début = ci;
-    }
+  private static GGraine toGg(Liste<Graine> l){
+    GGraine g = new GGraine();
+    g.setHead(l.getHead());
+    g.setTail(l.getTail());
+    return g;
   }
-  public void addGraine(Graine i){add(i);}
-  public void addGg(GGraine giTemp){
-    if (this.début == null){
-      this.début = giTemp.getHead();
-    }else{
-      this.getTail().setSuivant(giTemp.getHead()); // On raccroche les 2 bouts.
-    }
-  }
-  public void retirerGraine(int i){
-    if (this.début == null){ erreur.alerte("Impossible de remove i d'un groupe de Graine null"); return;}
-    if(début.getContent().getId()==i){
-      retirerGraine(début.getContent());
-    }else{
-      début.retirerGraine(i);
-    }
-  }
-  public void retirerGraine(Graine i){
-    debug.débogage("Suppression de : "+i.getId());
-    if (i == null){
-      erreur.alerte("Impossible de remove null d'un groupe de Graine");
-    }
-    if (début == null){
-      erreur.alerte("Impossible de remove une Graine d'un groupe vide.");
-    }else if (début.getContent().equals(i)){ // Si c'est le 1a
-      début = début.getSuivant(); // On en retir 1.
-      debug.débogage("début = début.getSuivant();");
-    } else if(début.getSuivant() != null && début.getSuivant().getContent().equals(i)){ // Si c'est le 2a
-      début.setSuivant(début.getSuivant().getSuivant());
-    }else {
-      début.retirerGraine(i);
-    }
-  }public void remove(Graine i){ retirerGraine(i);}
+  /**
+  *{@summary make a copy.}
+  *lastEditedVersion 2.23
+  */
   public GGraine copierGGraine(){
-    if(début==null){ return new GGraine();}
-    return début.copierGGraine();
-  }
-  public void tour(){
-    if(début!=null){ début.tour();}
-  }
-
-  /**
-  *{@summary Transform a GGraine in Liste&lt;Graine&gt;.}
-  *@lastEditedVersion 1.38
-  */
-  public Liste<Graine> toList(){
-    if (début==null){
-      Liste<Graine> lc = new Liste<Graine>();
-      return lc;
+    GGraine gg = new GGraine();
+    for (Graine g : this) {
+      gg.add(g);
     }
-    return début.toList();
+    return gg;
+  }
+  /**
+  *{@summary Apply tour() over every seed.}
+  *lastEditedVersion 2.23
+  */
+  public void tour(){
+    for (Graine g : this) {
+      g.tour();
+    }
   }
 }

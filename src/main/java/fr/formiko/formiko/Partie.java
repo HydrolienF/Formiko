@@ -182,8 +182,8 @@ public class Partie implements Serializable{
       //TODO #473 use fully anthillAlreadySet
       boolean anthillAlreadySet = true;
       if(anthillAlreadySet){
-        for (Joueur j : gj.toList()) {
-          for (Creature c : j.getFere().getGc().toList()) {
+        for (Joueur j : gj) {
+          for (Creature c : j.getFere().getGc()) {
             if(c instanceof Fourmi || ((Fourmi)(c)).estReine()){
               ((Fourmi)(c)).setCutWings(true);
             }
@@ -268,7 +268,8 @@ public class Partie implements Serializable{
     if(getGj().plusQu1Joueur()){
       finDePartie(2);
     }
-    if(Main.getGj().getJoueurHumain().getPlusDeFourmi()){//si aucun joueur humain n'as de fourmi :
+    //si aucun joueur humain n'as de fourmi :
+    if(Main.getGj().filter(j -> j.getFere().getGc().length()!=0 && !j.isAI()).length()==0){
       finDePartie(0); //0=défaite
     }
     //afichage
@@ -279,13 +280,13 @@ public class Partie implements Serializable{
     if (partieFinie) {return;}//on n'affiche pas plusieur fois les info de fin de partie.
     setPartieFinie(true);
     boolean canResumeGame=true;
-    System.out.println(getTour()+"/"+getNbrDeTour());
+    erreur.println(getTour()+"/"+getNbrDeTour());
     String victoire = g.get("victoireInconue");
     GJoueur gjSorted = getGj().getGjSorted();
     Joueur winner = null;
     String pseudo = "";
     try {
-       winner = gjSorted.getHead().getContent();
+       winner = gjSorted.getFirst();
        pseudo = winner.getPseudo();
     }catch (NullPointerException e) {}
     if (x==2){
@@ -318,7 +319,7 @@ public class Partie implements Serializable{
       }
     }
   }
-  public void enregistrerLesScores(){gj.enregistrerLesScores();}
+  // public void enregistrerLesScores(){gj.enregistrerLesScores();}
   //static
   /**
    * Load the GEspece.
@@ -380,10 +381,10 @@ public class Partie implements Serializable{
    * @lastEditedVersion 1.1
    */
   private void iniParametreCarteTuto(){
-    Fourmiliere fere = getGj().getHead().getContent().getFere();
+    Fourmiliere fere = getGj().getFirst().getFere();
     CCase ccIni = getGc().getCCase(0,1);
     fere.setCc(ccIni);
-    fere.getGc().getHead().getContent().setCCase(ccIni);
+    fere.getGc().getFirst().setCCase(ccIni);
     Insecte i = new Insecte(Main.getPartie().getGc().getCCase(1,1),0,100,0);
     i.setGivenFood(200);
     i.setIsDead(false);
@@ -414,7 +415,7 @@ public class Partie implements Serializable{
   */
   private boolean setPlayingAnt(int id){
     try {
-      return setPlayingAnt(triche.getFourmiParId(id+""));
+      return setPlayingAnt(triche.getFourmiById(id+""));
     }catch (Exception e) {
       erreur.erreur("the ant "+id+" can't be used to play.");
       return false;

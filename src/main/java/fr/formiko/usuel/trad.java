@@ -201,7 +201,7 @@ public class trad {
         if(charWeigth){printable+=entry.getValue();}
         else{printable+=1;}
       }else{
-        System.out.print(entry.getKey()+" ");
+        erreur.print(entry.getKey()+" ");
         if(charWeigth){nonPrintable+=entry.getValue();}
         else{nonPrintable+=1;}
       }

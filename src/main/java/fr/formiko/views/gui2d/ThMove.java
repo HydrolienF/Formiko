@@ -97,7 +97,7 @@ public class ThMove {
   */
   static void updateQueue(){
     if(queue==null){return;}
-    // System.out.println(queue.size()+" in queue");
+    // erreur.println(queue.size()+" in queue");
     try {
       synchronized (queue) {
         for (ThMove th : queue) {

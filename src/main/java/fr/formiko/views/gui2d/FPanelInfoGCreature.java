@@ -103,7 +103,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
       }
       Fourmi f = (Fourmi)c;
       GCreature gc = c.getCase().getSortedGc(f);
-      for (Creature ct : gc.toList()) {
+      for (Creature ct : gc) {
         if(FPanelCarte.needToDraw(c)){
           BufferedImage bi = Main.getData().getCreatureImage(ct);
           bi = image.resize(bi, yByElement-boderFPanelObjetAId*2);
@@ -114,7 +114,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
         }
       }
       if(Main.getOp().getDrawSeeds() && (!Main.getOp().getDrawOnlyEatable() || Main.getPlayingJoueur().getEspece().getGranivore())){
-        for (Graine s : c.getCase().getGg().toList()) {
+        for (Graine s : c.getCase().getGg()) {
           BufferedImage bi = Main.getData().getGraineImage(s);
           bi = image.resize(bi, yByElement-boderFPanelObjetAId*2);
           image.editAllPixels(bi, fctAlpha);

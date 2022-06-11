@@ -12,6 +12,7 @@ import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.interfaces.TourFourmiNonIa;
 import fr.formiko.formiko.launchOptions;
 import fr.formiko.formiko.triche;
+import fr.formiko.usuel.Chrono;
 import fr.formiko.usuel.DiscordIntegration;
 import fr.formiko.usuel.Info;
 import fr.formiko.usuel.Temps;
@@ -71,6 +72,7 @@ public class ViewGUI2d implements View {
   public JColorChooser getJcc(){ try{return getPnp().getJcc();}catch (NullPointerException e){return null;}}
   public FPanelChoixPartie getPcp(){ try{return getPm().getPcp();}catch (NullPointerException e){return null;}}
   public FPanelBouton getPb(){ try{return getPj().getPb();}catch (NullPointerException e){return null;}}
+  public FPanel getPText(){ try{return getPj().getPText();}catch (NullPointerException e){return null;}}
   public FPanelCarte getPc(){ try{return getPj().getPc();}catch (NullPointerException e){return null;}}
   public FPanelInfo getPi(){ try{return getPb().getPi();}catch (NullPointerException e){return null;}}
   public FPanelInfoText getPij(){ try{return getPb().getPij();}catch (NullPointerException e){return null;}}
@@ -244,7 +246,9 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 2.22
   */
   public boolean actionGame(){
-    waitForGraphicsLoadDone();
+    Chrono chLoading=new Chrono();
+    chLoading.start();
+    waitForPanelLoadDone();
     actionGameOn=true;
     if(f==null){ini();}
     if(action.getPartie()!=null){
@@ -272,10 +276,13 @@ public class ViewGUI2d implements View {
     Main.getPartie().initialisationElément();
     // Main.getData().chargerImages(); //It will be call by the next line "action.doActionPj(8);"
     action.doActionPj(8); //unzoom
+    getPmmc().build();
     Main.endCh("chargementImagesDelaCarte");
 
     String s = g.get("chargementFini");
-    if (debug.getPerformance()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
+    // if (debug.getPerformance()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
+    chLoading.stop();
+    s=s +" "+ "("+Temps.msToS(chLoading.getDuree())+")";
     Main.setMessageChargement(s);
     if(!Main.getOp().getWhaitBeforeLaunchGame() || Main.getPremierePartie() || !Main.getOpenMenuFirst()){
       closeFPanelChargement();
@@ -337,7 +344,7 @@ public class ViewGUI2d implements View {
       setMessageDesc(cc.getContent().toStringShort());
       GCreature gAnt = cc.getContent().getGc();
       getPc().setIdCurentFere(-1);
-      for (Creature f : gAnt.toList() ) {
+      for (Creature f : gAnt) {
         if(f instanceof Fourmi){
           getPc().setIdCurentFere(((Fourmi)(f)).getFere().getId());
           break;
@@ -380,15 +387,15 @@ public class ViewGUI2d implements View {
   */
   public CCase getCCase(){
     if (!actionGameOn) {return null;}
-    // System.out.println("getCCase");
+    // erreur.println("getCCase");
     moveMode=true;
     while(ccaseClicked==null){
       Temps.sleep();
-      // System.out.println("cpu use");
+      // erreur.println("cpu use");
     }
     // while(ccaseClicked==null){
     //   Thread.onSpinWait();
-    //   System.out.println("cpu use");
+    //   erreur.println("cpu use");
     // }
     moveMode=false;
     CCase tempCCase = ccaseClicked;
@@ -536,8 +543,8 @@ public class ViewGUI2d implements View {
         //here were waiting for the final clic on the red button.
         if(Main.getPartie().getAntIdToPlay()!=-1){
           // erreur.info("action for ant "+Main.getPartie().getAntIdToPlay());
-          // Main.setPlayingAnt(Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay()));
-          Fourmi fToSelect = Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay());
+          // Main.setPlayingAnt(Main.getPlayingJoueur().getFere().getGc().getFourmiById(Main.getPartie().getAntIdToPlay()));
+          Fourmi fToSelect = Main.getPlayingJoueur().getFere().getGc().getFourmiById(Main.getPartie().getAntIdToPlay());
           if(fToSelect.getMaxAction()>0){
             ((TourFourmiNonIa) fToSelect.tour).allowToDisableAutoMode();
           }else{
@@ -565,7 +572,7 @@ public class ViewGUI2d implements View {
       // }catch (Exception e) {}
       Temps.sleep();
       // Thread.onSpinWait(); //don't stop the thread, probably because it's the main tread
-      // System.out.println("CPU USE");
+      // erreur.println("CPU USE");
     }
     launchFromPm=false;
     actionGame();
@@ -703,9 +710,10 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 2.22
   */
   public void setNextPlayingAnt(Fourmi f){
+    if(getPe().isOn()){return;}
     if(f!=null && f.getFere().getJoueur().equals(Main.getPlayingJoueur()) && !f.equals(Main.getPlayingAnt()) && f.getMaxAction()>0) {
       getPb().setActionF(-2);
-      getPb().removePA();
+      getPb().hidePa();
       Main.getPartie().setAntIdToPlay(f.getId());
       setMessageDesc("", true);
     }
@@ -726,7 +734,7 @@ public class ViewGUI2d implements View {
   *{@summary Wait that all Thread that we need to launch game are OK.}<br>
   *@lastEditedVersion 2.22
   */
-  private void waitForGraphicsLoadDone(){
+  private void waitForPanelLoadDone(){
     // no need to wait for th1, it will be call when image will be resize.
     if(thTemp2!=null && thTemp2.isAlive()){
       erreur.info("waiting for thTemp2");
@@ -799,7 +807,7 @@ public class ViewGUI2d implements View {
         */
         public void run(){
           Window activeWindow = javax.swing.FocusManager.getCurrentManager().getActiveWindow();
-          // System.out.println(getF().equals(activeWindow));
+          // erreur.println(getF().equals(activeWindow));
           // erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()/10));
           // erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()));
           // launchOptions.printMemUse();

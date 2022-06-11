@@ -1,14 +1,13 @@
 package fr.formiko.usuel;
 
-//def par défaut des fichiers depuis 0.79.5
-import fr.formiko.usuel.structures.listes.GGInt;
-import fr.formiko.usuel.structures.listes.CCInt;
-import fr.formiko.usuel.structures.listes.GInt;
-import fr.formiko.usuel.structures.listes.CInt;
-import fr.formiko.usuel.structures.listes.GString;
-import fr.formiko.usuel.fichier;
-import fr.formiko.usuel.types.str;
 import fr.formiko.usuel.Chrono;
+import fr.formiko.usuel.fichier;
+import fr.formiko.usuel.structures.listes.GGInt;
+import fr.formiko.usuel.structures.listes.GInt;
+import fr.formiko.usuel.structures.listes.GString;
+import fr.formiko.usuel.types.str;
+
+import java.util.Iterator;
 
 /**
 *{@summary A tool class about statistic.}<br>
@@ -30,9 +29,15 @@ public class stats {
   public static void setSpliter(char c){spliter=c;}
   public static void setOnlyLastLine(boolean b){onlyLastLine=b;}
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Get all code stats as a GString.}<br>
+  *@lastEditedVersion 2.23
+  */
   public static GString getStats(String filePath, boolean raccourcir){
     Chrono.debutCh();
     GString gs = fichier.listerLesFichiersDuRep(filePath);
+    erreur.info(gs.length()+" files to parse in "+filePath);
+    if(gs.length()==0){return new GString();}
     Chrono.endCh("listage des fichiers");Chrono.debutCh();
     //gs = la liste des fichiers.
 
@@ -64,21 +69,31 @@ public class stats {
     //gsr.add(total);
     Chrono.endCh("calcul des valeur et du total");Chrono.debutCh();
     //add tt les autres.
-    CCInt cci = ggi.getHead();
-    CCInt cci2 = ggi2.getHead();
-    CInt ci = nbrDeLigne.getHead();
+    Iterator<GInt> iggi = ggi.iterator();
+    Iterator<GInt> iggi2 = ggi2.iterator();
+    GInt ccic=iggi.next();
+    GInt cci2c=iggi2.next();
+    Iterator<Integer> iNbOfLine = nbrDeLigne.iterator();
+    int ci=iNbOfLine.next();
+    // CInt ci = nbrDeLigne.getHead();
     for (String s : gs ) {
-      if(cci==null){break;}
+      if(ccic==null){break;}
       if(raccourcir){
         s = s.substring(25);
       }
-      String sTemp = toStatJd(cci)+toStatInfo(cci2.getContent(),cci.getContent())+numberOfLines(ci)+s;
+      String sTemp = toStatJd(ccic)+toStatInfo(cci2c,ccic)+numberOfLines(ci)+s;
       if(!onlyLastLine){
         gsr.add(sTemp);
       }
-      cci=cci.getSuivant();
-      cci2=cci2.getSuivant();
-      ci=ci.getSuivant();
+      // cci=cci.getSuivant();
+      // cci2=cci2.getSuivant();
+      try{
+        ccic=iggi.next();
+        cci2c=iggi2.next();
+        ci=iNbOfLine.next();
+      }catch (Exception e) {
+        // erreur.alerte("igg don't have next");
+      }
     }
     GInt gi = new GInt(); gi.add(sommeDesFctCG); gi.add(sommeDesFctLG); gi.add(sommeDesComG);
     GInt gi2 = new GInt(); gi2.add(sommeDesClassG);gi2.add(sommeDesFctLPuG);gi2.add(sommeDesFctLPoG);gi2.add(sommeDesFctLPrG);
@@ -98,7 +113,7 @@ public class stats {
   }
   // public static void statsJavadoc(String filePath, boolean raccourcir){statsJavadoc(filePath,raccourcir,false);}
   public static void statsJavadoc(String filePath){statsJavadoc(filePath,false);}
-  public static String toStatJd(CCInt cci){return toStatJd(cci.getContent());}
+  // public static String toStatJd(CCInt cci){return toStatJd(cci.getContent());}
   /**
   *{@summary calculate the %age of commented fonction in a file.}
   *@lastEditedVersion 1.13
@@ -181,13 +196,19 @@ public class stats {
   *Count the number of ligne in a file an add it to the statistic info.
   *@lastEditedVersion 1.13
   */
-  public static String numberOfLines(CInt ci){
-    sommeNbrDeLigneG+=ci.getContent();
-    String r=ci.getContent()+"";
+  public static String numberOfLines(int nbrOfLine){
+    sommeNbrDeLigneG+=nbrOfLine;
+    String r=nbrOfLine+"";
     r=completToK(r,5);
     return r;
   }
-
+  /**
+  *{@summary Add enoth space to have a String length of k, or add the spliter.}
+  *We need to add several ' ' or 1 spliter.
+  *@param toComplet String to complet
+  *@param k max char
+  *@lastEditedVersion 1.13
+  */
   private static String completToK(String toComplet, int k){
     toComplet+=spliter; //at least 1.
     if(spliter==' '){ //more if it's the space spliter to form similar collums

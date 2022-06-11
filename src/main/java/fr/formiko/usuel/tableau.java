@@ -118,11 +118,11 @@ public class tableau <T>{
     String tr [] = new String [lentr];
     for (int j=0;j<i; j++){
       tr[j]=t[j];
-      //System.out.println("On garde " + tr[j]);
+      //erreur.println("On garde " + tr[j]);
     }
     for (int j=i+1; j<lentr+1; j++){
       tr[j-1]=t[j];
-      //System.out.println("On garde " + tr[j-1]);
+      //erreur.println("On garde " + tr[j-1]);
     }
     return tr;
   }//public static String [] retire(String t[], int i){remove(t,i);}
@@ -190,11 +190,11 @@ public class tableau <T>{
     int tr [] = new int [lentr];
     for (int j=0;j<i; j++){
       tr[j]=t[j];
-      //System.out.println("On garde " + tr[j]);
+      //erreur.println("On garde " + tr[j]);
     }
     for (int j=i+1; j<lentr+1; j++){
       tr[j-1]=t[j];
-      //System.out.println("On garde " + tr[j-1]);
+      //erreur.println("On garde " + tr[j-1]);
     }
     return tr;
   }
@@ -269,11 +269,11 @@ public class tableau <T>{
     byte tr [] = new byte [lentr];
     for (int j=0;j<i; j++){
       tr[j]=t[j];
-      //System.out.println("On garde " + tr[j]);
+      //erreur.println("On garde " + tr[j]);
     }
     for (int j=i+1; j<lentr+1; j++){
       tr[j-1]=t[j];
-      //System.out.println("On garde " + tr[j-1]);
+      //erreur.println("On garde " + tr[j-1]);
     }
 
     return tr;
@@ -344,9 +344,9 @@ public class tableau <T>{
     int lent =t.length;
     if (lent==0) { erreur.alerte("Le tableau a afficher est vide.","tableau.affiche");}
     for(int i=0;i<lent;i++){
-      System.out.println(t[i] + separateur); // ca marche mal pour les objet mais il ont pas tous une class afficheToi() ;(
+      erreur.println(t[i] + separateur); // ca marche mal pour les objet mais il ont pas tous une class afficheToi() ;(
     }
-    System.out.println();
+    erreur.println();
   }
   public static void affiche (Object t[]){
     affiche(t," ");
@@ -357,9 +357,9 @@ public class tableau <T>{
     int lent =t.length;
     if (lent==0) { erreurVide();}
     for(int i=0;i<lent;i++){
-      System.out.print(t[i] + separateur);
+      erreur.print(t[i] + separateur);
     }
-    System.out.println();
+    erreur.println();
   }
   public static void afficher (String t[]){
     afficher(t," ");
@@ -375,9 +375,9 @@ public class tableau <T>{
     int lent =t.length;
     if (lent==0) { erreurVide();}
     for(int i=0;i<lent;i++){
-      System.out.print(t[i] + separateur);
+      erreur.print(t[i] + separateur);
     }
-    System.out.println();
+    erreur.println();
   }
   public static <T> void afficher (T t[]){
     afficher(t," ");
@@ -393,9 +393,9 @@ public class tableau <T>{
     int lent =t.length;
     if (lent==0) { erreurVide();}
     for(int i=0;i<lent;i++){
-      System.out.print(t[i] + separateur);
+      erreur.print(t[i] + separateur);
     }
-    System.out.println();
+    erreur.println();
   }
   public static void afficher (int t[]){
     afficher(t," ");
@@ -411,9 +411,9 @@ public class tableau <T>{
     int lent =t.length;
     if (lent==0) { erreurVide();}
     for(int i=0;i<lent;i++){
-      System.out.print(t[i] + separateur);
+      erreur.print(t[i] + separateur);
     }
-    System.out.println();
+    erreur.println();
   }
   public static void afficher (byte t[]){
     afficher(t," ");
@@ -429,9 +429,9 @@ public class tableau <T>{
     int lent =t.length;
     if (lent==0) { erreurVide();}
     for(int i=0;i<lent;i++){
-      System.out.print(t[i] + separateur);
+      erreur.print(t[i] + separateur);
     }
-    System.out.println();
+    erreur.println();
   }
   public static void afficher(boolean t[][], String s){
     for (int i=0;i<t.length ;i++ ) {

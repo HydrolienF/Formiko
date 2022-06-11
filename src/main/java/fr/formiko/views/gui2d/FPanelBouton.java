@@ -53,6 +53,8 @@ public class FPanelBouton extends FPanel {
     pas = new FPanelActionSup();
     pai = new FPanelActionInf();
     pmmc = new FPanelMiniMapContainer();
+    // pmmc.build(); //is build after FPanelCarte
+    setVisiblePmmc(false);
     pz = new FPanelZoom();
     descTI = new FLabel();
     descTI.setBackground(Main.getData().getButtonColor());
@@ -64,8 +66,9 @@ public class FPanelBouton extends FPanel {
     // on ajoute les éléments non visible. Les éléments visible sont add 1 a 1 quand le besoin ce fait sentir.
     add(descTI);
     // Add desc to FPanelCarte make it not-mouse listener because it's under FPanelSup. That's was we need to print desc of Case even id there are under desc.
-    getView().getPc().add(desc);
+    getView().getPText().add(desc);
     add(pz);
+    add(pmmc);
     lToRemove = new Liste<Component>();
   }
   // GET SET -------------------------------------------------------------------
@@ -133,7 +136,6 @@ public class FPanelBouton extends FPanel {
     lToRemove.add(pa);
     lToRemove.add(pas);
     lToRemove.add(pai);
-    // lToRemove.add(pmmc);
     pa = new FPanelAction(t);
     pa.build();
     int xxx = pa.getbuttonSize();
@@ -145,16 +147,12 @@ public class FPanelBouton extends FPanel {
     pai = new FPanelActionInf();
     pai.setBounds(0,getHeight()-pai.getHeight(),pai.getWidth(),pai.getHeight());
     getView().getPs().updateSize();
-    // pmmc = new FPanelMiniMapContainer();
-    add(pmmc);
+    setVisiblePmmc(true);
     add(pas);
     add(pa);
     add(pai);
     removes();
     setVisiblePa(true);
-    /*try {
-      remove(paiPrécédent);
-    }catch (Exception e) {}*/
     revalidate();
     // Main.repaint();
   }public void addPA(int t[]){addPa(t);}
@@ -163,14 +161,19 @@ public class FPanelBouton extends FPanel {
     pas.setVisible(b);
     //pai.setVisible(b);
   }
+  public void hidePa(){
+    removePa();
+  }
   public void removePa(){
     // erreur.info("removePA",3);
     remove(pa);
     remove(pas);
     remove(pai);
-    remove(pmmc);
   }public void removePA(){removePa();}
-  public void addPA(){ int t [] = {0,1,2,3,4,5,6,7}; addPA(t);}
+  public void addPA(){
+    int t [] = {0,1,2,3,4,5,6,7};
+    addPA(t);
+  }
   /*public void modPa(){
     remove(pa);
     pa = new FPanelAction(Main.getPlayingAnt().getTActionFourmi());
@@ -180,7 +183,7 @@ public class FPanelBouton extends FPanel {
     Main.repaint();
   }*/
   public void setVisiblePmmc(boolean b){
-    pmmc.setVisible(b);
+    getPmmc().setVisible(b);
   }
   public void addPChamp(String défaut,String message){
     setDescTI(message);
@@ -238,8 +241,8 @@ public class FPanelBouton extends FPanel {
     if (playingPlayer==null){ return;}
     GString gs = playingPlayer.getGm().gmToGs(Main.getMaxMessageDisplay());
     pij = new FPanelInfoText(gs,Main.getTailleElementGraphiqueX(500),true,fontPij);
-    int x = Main.getTailleElementGraphiqueX(320);
-    pij.setBounds((getWidth()-x*2)/2,Main.getTailleElementGraphiqueY(100),x,pij.getYPi());
+    //center with aviable space for map.
+    pij.setLocation((getWidth()-getView().getPz().getWidth()-pij.getWidth())/2,Main.getTailleElementGraphiqueY(100));
     add(pij);
   }
   public void removePij(){ remove(pij);}

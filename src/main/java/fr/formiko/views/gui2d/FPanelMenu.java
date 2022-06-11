@@ -3,12 +3,12 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
+import fr.formiko.usuel.ReadFile;
 import fr.formiko.usuel.Temps;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
 import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.ReadFile;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
 import fr.formiko.usuel.structures.listes.GString;
@@ -23,9 +23,11 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.MouseInfo;
 import java.awt.Point;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 /**
 *{@summary menu JPanel use to launch game.}<br>
@@ -360,11 +362,11 @@ public class FPanelMenu extends FPanel {
     */
     @Override
     public void run(){
-      // System.out.println("running");
+      // erreur.println("running");
       running=true;
       while(running){
         if(getData().getImage("I0 flying side view")!=null){
-          // System.out.println("iniPanel");
+          // erreur.println("iniPanel");
           iniPanel();
           break;
         }else{
@@ -418,7 +420,7 @@ public class FPanelMenu extends FPanel {
     }
     /**
     *{@summary Move closer to the mouse at max speed.}<br>
-    *@lastEditedVersion 2.20
+    *@lastEditedVersion 2.23
     */
     private void mooveToMouse(){
       if(getDistance() < 2){
@@ -426,6 +428,7 @@ public class FPanelMenu extends FPanel {
         return;
       }
       Point p = MouseInfo.getPointerInfo().getLocation();
+      SwingUtilities.convertPointFromScreen(p, container);
       double angleTemp = Math.atan2(p.getY() - getYCentered(), p.getX() - getXCentered());
       moveAngleTo(angleTemp);
       double dx = (double) (Math.cos(angleTemp) * MAX_MOVING_SPEED);
@@ -435,10 +438,12 @@ public class FPanelMenu extends FPanel {
     }
     /**
     *{@summary Return the distance between the mouse location &#38; the Creature location.}<br>
-    *@lastEditedVersion 2.20
+    *@lastEditedVersion 2.23
     */
     private double getDistance(){
-      return MouseInfo.getPointerInfo().getLocation().distance(getXCentered(), getYCentered());
+      Point p = MouseInfo.getPointerInfo().getLocation();
+      SwingUtilities.convertPointFromScreen(p, container);
+      return p.distance(getXCentered(), getYCentered());
     }
     /**
     *{@summary Test if Creature is close enoth of mouse.}<br>

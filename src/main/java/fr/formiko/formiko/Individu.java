@@ -27,7 +27,7 @@ public class Individu implements Serializable{
   protected byte tCoutAction[] = new byte[6];
   // CONSTRUCTORS --------------------------------------------------------------
   public Individu(int idEsp, byte ty, boolean se,boolean se2, byte né, byte ac, int ta, String co, byte po, byte te, int tag0, int tag1, int tag2, int tag3, int nm0, int nm1, int nm2, int nm3,byte ca0,byte ca1,byte ca2,byte ca3,byte ca4,byte ca5,int nc){
-    e = Main.getGEspece().getEspeceParId(idEsp);
+    e = Main.getGEspece().getEspeceById(idEsp);
     type = ty; sexué = se; sexe = se2; nétoyage = né; maxAction = ac; taille =ta; couleur = co; poidMax =po; tempsDeRepos = te;
     tMaxAge[0] = tag0; tMaxAge[1] = tag1; tMaxAge[2] = tag2; tMaxAge[3] = tag3;
     tMaxFood[0] = nm0; tMaxFood[1] = nm1; tMaxFood[2] = nm2; tMaxFood[3] = nm3;
@@ -80,7 +80,7 @@ public class Individu implements Serializable{
     s+=g.get("maxAction")+" : "+maxAction;s+="\n";
     s+=g.get("taille")+" : "+taille;s+="\n";
     s+=g.get("poidsSupportable")+" : "+poidMax;s+="\n";
-    //System.out.println("Temps de repos néssésaire (par tour)")+" : "+tempsDeRepos);
+    //erreur.println("Temps de repos néssésaire (par tour)")+" : "+tempsDeRepos);
     s+=g.get("tMaxAge")+" : ";
     s+=tableau.tableauToString(tMaxAge);s+="\n";
     s+=g.get("tMaxFood")+" : ";

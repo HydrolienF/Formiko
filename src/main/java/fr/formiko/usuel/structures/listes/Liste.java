@@ -13,7 +13,7 @@ import java.util.function.Predicate;
 
 /**
 *{@summary Custom Linked Liste class using Generics.}<br>
-*@lastEditedVersion 1.52
+*@lastEditedVersion 2.23
 *@author Hydrolien
 */
 public class Liste<T> implements Iterable<T>, Serializable, List<T> {
@@ -22,9 +22,9 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   public Liste(){}
   // GET SET -------------------------------------------------------------------
   public ListeNode<T> getHead(){return head;}
-  private void setHead(ListeNode<T> node){head=node;}
+  protected void setHead(ListeNode<T> node){head=node;}
   public ListeNode<T> getTail(){return tail;}
-  private void setTail(ListeNode<T> node){tail=node;}
+  protected void setTail(ListeNode<T> node){tail=node;}
   public T getFirst(){if(getHead()!=null){return getHead().getContent();}else{return null;}}
   public T getLast(){if(getTail()!=null){return getTail().getContent();}else{return null;}}
   // FUNCTIONS -----------------------------------------------------------------
@@ -62,10 +62,11 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   /**
   *{@summary Update tail element.}<br>
-  *@lastEditedVersion 1.41
+  *@lastEditedVersion 2.23
   */
   public void updateTail(){
     ListeNode<T> node = getHead();
+    if(node==null){return;}
     while(node.getNext()!=null){
       node=node.getNext();
     }
@@ -94,17 +95,21 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
     // return true;
   }
   /**
-  *{@summary add an other linked list at tail of the linked list}<br>
-  *@lastEditedVersion 1.31
+  *{@summary Add an other linked list at tail of the linked list.}<br>
+  *@lastEditedVersion 2.23
   */
   public void addList(Liste<T> list){
     if(list == null || list.getHead() == null){ return;}
-    if (getTail() == null){
-      head = list.getHead();
-      tail = list.getTail();
-    }else {
-      tail.setNext(list.getHead());
-      tail = list.getTail();
+    //this way to do may link still used list
+    // if (getTail() == null){
+    //   head = list.getHead();
+    //   tail = list.getTail();
+    // }else {
+    //   tail.setNext(list.getHead());
+    //   tail = list.getTail();
+    // }
+    for (T t : list) {
+      add(t);
     }
   }
   public void add(Liste<T> list){addList(list);}
@@ -286,13 +291,29 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   *{@summary Delete the xa element}<br>
   *@param i the number of the element to remove.
   *@return true if it have been remove
-  *@lastEditedVersion 1.52
+  *@lastEditedVersion 2.23
   */
   public boolean removeItem(int i){
+    boolean b=removeItemBeforeUpdateTail(i);
+    updateTail();
+    return b;
+  }
+  /**
+  *{@summary Private function to remove item}<br>
+  *@param i the number of the element to remove.
+  *@return true if it have been remove
+  *@lastEditedVersion 2.23
+  */
+  private boolean removeItemBeforeUpdateTail(int i){
     if(getHead()==null || i<0){return false;}
     if(i==0){head=getHead().getNext(); return true;}
-    return getHead().removeItem(i);
+    return getHead().removeItem(i-1);
   }
+  /**
+  *{@summary Delete the xa element}<br>
+  *@param i the number of the element to remove.
+  *@lastEditedVersion 2.23
+  */
   @Override
   public T remove(int i){
     removeItem(i);
@@ -310,8 +331,10 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
     try {
       T t = (T)o;
       if(getHead()==null || t==null){return false;}
-      if(getHead().getContent().equals(t)){head=getHead().getNext(); return true;}
-      return getHead().remove(t);
+      if(getFirst().equals(t)){head=getHead().getNext(); return true;}
+      boolean b=getHead().remove(t);
+      updateTail();
+      return b;
     }catch (Exception e) {
       return false;
     }
@@ -413,6 +436,27 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
     head = null;
     tail = null;
   }
+  /*
+  *{@summary Select the most from the list according to the Comparator.}
+  *@param c the Comparator to use
+  *@return the most X according to the Comparator
+  *@lastEditedVersion 2.23
+  */
+  public T getMost(Comparator<? super T> c){
+    T tMax=null;
+    for (T t : this) {
+      if(tMax==null || c.compare(tMax,t)>0){
+        tMax=t;
+      }
+    }
+    return tMax;
+  }
+  /*
+  *{@summary Sort the list.}
+  *@param c the Comparator to use
+  *@return list sorted
+  *@lastEditedVersion 2.23
+  */
   @Override
   public void sort​(Comparator<? super T> c){
     Liste<T> newList = new Liste<T>();
@@ -422,10 +466,17 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
     head = newList.getHead();
     tail = newList.getTail();
   }
+  /*
+  *{@summary Add an item to the list &#38; keep it sorted.}
+  *@param t the item to add
+  *@param c the Comparator to use
+  *@return true if it have been add
+  *@lastEditedVersion 2.23
+  */
   public boolean addSorted(T t, Comparator<? super T> c){
     if(getHead()==null){
       return add(t);
-    }else if(c.compare(t,getHead().getContent())>0){
+    }else if(c.compare(t,getFirst())>0){
       ListeNode<T> newNode = new ListeNode<T>(t);
       newNode.setNext(getHead());
       setHead(newNode);

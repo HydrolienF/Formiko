@@ -20,7 +20,7 @@ public class TourReineTest extends TestCaseMuet{
     assertTrue(p.getGc().getCCase(0,0).getContent().getFere().equals(j.getFere()));
     assertTrue(p.getGc().getCCase(0,1).getContent().getFere()==null);
     p.getGj().add(j);
-    Fourmi f = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
+    Fourmi f = new Fourmi(j.getFere(),Main.getEspeceById(0), (byte) 0, (byte) 0);
     j.getFere().getGc().add(f);
     assertEquals(1,j.getFere().getGc().length());
     //f.tour = new TourReine();
@@ -223,9 +223,9 @@ public class TourReineTest extends TestCaseMuet{
     assertTrue(i.getIsDead());
     assertEquals(0,Main.getGc().getCCase(0,1).getContent().getGc().length());
     assertEquals(2,Main.getGc().getCCase(0,0).getContent().getGc().length());
-    assertEquals(1,Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().length());
+    assertEquals(1,Main.getGc().getCCase(0,0).getContent().getGc().getBrood().length());
     assertEquals(food - 3 + 300 - 12, f.getFood());
-    assertEquals(10, Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().getHead().getContent().getFood());
+    assertEquals(10, Main.getGc().getCCase(0,0).getContent().getGc().getBrood().getFirst().getFood());
   }
   @Test
   public void TestTour5(){
@@ -268,7 +268,7 @@ public class TourReineTest extends TestCaseMuet{
     assertTrue(!i.getIsDead());
     assertEquals(1,Main.getGc().getCCase(0,1).getContent().getGc().length());
     assertEquals(2,Main.getGc().getCCase(0,0).getContent().getGc().length());
-    assertEquals(0,Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().length());
+    assertEquals(0,Main.getGc().getCCase(0,0).getContent().getGc().getBrood().length());
   }
   @Test
   public void TestTour7(){
@@ -293,7 +293,7 @@ public class TourReineTest extends TestCaseMuet{
     assertTrue(!i.getIsDead());
     assertEquals(1,Main.getGc().getCCase(0,1).getContent().getGc().length());
     assertEquals(7,Main.getGc().getCCase(0,0).getContent().getGc().length());
-    assertEquals(5,Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().length());
+    assertEquals(5,Main.getGc().getCCase(0,0).getContent().getGc().getBrood().length());
   }
 
   @Test

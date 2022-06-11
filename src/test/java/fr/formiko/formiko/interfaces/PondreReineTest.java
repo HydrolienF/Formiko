@@ -16,7 +16,7 @@ public class PondreReineTest extends TestCaseMuet{
     Joueur j = new Joueur(new Fourmiliere(p.getGc().getCCase(0,0),null),"joueurTest",true);
     j.getFere().setJoueur(j);
     p.getGj().add(j);
-    Fourmi f = new Fourmi(j.getFere(),Main.getEspeceParId(0), (byte) 0, (byte) 0);
+    Fourmi f = new Fourmi(j.getFere(),Main.getEspeceById(0), (byte) 0, (byte) 0);
     j.getFere().getGc().add(f);
     f.tour = new TourReine();
     return f;

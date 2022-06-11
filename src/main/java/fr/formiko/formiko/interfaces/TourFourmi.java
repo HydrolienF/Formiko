@@ -10,11 +10,11 @@ import fr.formiko.usuel.exceptions.EmptyListException;
 import java.io.Serializable;
 
 /**
- * {@summary Ant implementation.<br/>}
- * Allow an ant to play a turn<br/>
- * @author Hydrolien
- * @lastEditedVersion 1.30
- */
+* {@summary Ant implementation.<br/>}
+* Allow an ant to play a turn<br/>
+* @author Hydrolien
+* @lastEditedVersion 1.30
+*/
 public class TourFourmi implements Serializable, Tour{
   protected Fourmi f;
   public void setF(Fourmi fTemp){f=fTemp;}
@@ -123,17 +123,24 @@ public class TourFourmi implements Serializable, Tour{
   */
   public Creature aNourrir(){
     GCreature gc = f.getCCase().getContent().getGc().filterAlliés(f).filterFaimMax();
+    // erreur.setMuet(false);
+    // erreur.info("aNourrir",5);
+    // erreur.setMuet(true);
+    // System.out.println("initgc:"+f.getCCase().getContent().getGc().length());
+    // System.out.println("gc:"+gc.length());//@a
     try { // the Creature f may not be in it.
       gc.remove(f);
     }catch (ListItemNotFoundException e) {
     }catch (EmptyListException e) {}
+    // System.out.println("gc without f:"+gc);//@a
     Creature r = gc.getReine();
     if (r!=null && r.wantFood()) {
       return r;
     }
     GCreature gc2 = gc.filterWantFood();
-    if(gc2.getHead()!=null){
-      return gc2.getHead().getContent();
+    // System.out.println("gc2:"+gc2);//@a
+    if(gc2.getFirst()!=null){
+      return gc2.getFirst();
     }
     return r; //r can be null.
   }
@@ -166,7 +173,7 @@ public class TourFourmi implements Serializable, Tour{
     }
     GCreature gc2 = gc.filterWantClean();
     if(gc2.getHead()!=null){
-      return gc2.getHead().getContent();
+      return gc2.getFirst();
     }
     return null;
   }

@@ -32,7 +32,7 @@ import javax.swing.JPanel;
 *@author Hydrolien
 *@lastEditedVersion 1.11
 */
-public class Img implements Cloneable{
+public class Img implements Cloneable {
   private Random rand = new Random();
   private BufferedImage bi;
   private int width, height;
@@ -196,13 +196,13 @@ public class Img implements Cloneable{
   *{@summary Print the ARGB level.}<br>
   */
   public void afficherLesTableaux(){
-    System.out.println("transparence :");
+    erreur.println("transparence :");
     tableau.afficher(this.compterNiveauDeAlpha());
-    System.out.println("rouge");
+    erreur.println("rouge");
     tableau.afficher(this.compterNiveauDeRouge());
-    System.out.println("vert");
+    erreur.println("vert");
     tableau.afficher(this.compterNiveauDeVert());
-    System.out.println("bleu");
+    erreur.println("bleu");
     tableau.afficher(this.compterNiveauDeBleu());
   }
   /**
@@ -228,13 +228,13 @@ public class Img implements Cloneable{
     //actualiserImage(); Trop consomateur a faire a la fin
   }
   /*public void afficheToi(){
-    System.out.println("ROUGE :");
+    erreur.println("ROUGE :");
     tableau.afficher(getRouge());
-    System.out.println("VERT :");
+    erreur.println("VERT :");
     tableau.afficher(getVert());
-    System.out.println("BLEU :");
+    erreur.println("BLEU :");
     tableau.afficher(getBleu());
-    System.out.println("TRANSPARENCE :");
+    erreur.println("TRANSPARENCE :");
     tableau.afficher(getAlpha());
   }*/
   /**
@@ -394,7 +394,7 @@ public class Img implements Cloneable{
       sr+="{label:'"+g.get(tp[i].toString())+"', y:"+hm.get(tp[i])+"},\n";
     }
     Chrono.endCh("compterChaquePixelToHtml");
-    System.out.println(getResultAsHtmlDiv(sr));
+    erreur.println(getResultAsHtmlDiv(sr));
   }
   /**
   *{@summary Replace pixel a by pixel b.}<br>
@@ -462,7 +462,7 @@ public class Img implements Cloneable{
         int x = ((alpha[i][j]+128<<24)|(rouge[i][j]+128<<16)|(vert[i][j]+128<<8)|(bleu[i][j]+128)); //on transforme les donnée des tableaux en 1 int qui représente les niveaux de couleur. (Exactement comme color ferait sauf que ca demande probablement un peu moins de temps de ne pas avoir a passer par le constructeur.)
         //bi.setRGB(i,j,cl.getRGB());
         bi.setRGB(i,j,x);
-        //if(x!=0){System.out.println(x+ " "+rouge[i][j]+" "+vert[i][j]+" "+bleu[i][j]); }
+        //if(x!=0){erreur.println(x+ " "+rouge[i][j]+" "+vert[i][j]+" "+bleu[i][j]); }
         //pixelActualisé++;
       }
     }

@@ -50,7 +50,7 @@ public class ImageTree extends Tree<BufferedImage> {
       }
       int x=0;
       if(c instanceof Insecte){x=100;}
-      // System.out.println("0 "+ (c.getEspece().getId()-x)+" "+math.valAbs(c.getStade()));
+      // erreur.println("0 "+ (c.getEspece().getId()-x)+" "+math.valAbs(c.getStade()));
       node = node.getChildren(c.getEspece().getId()-x).getChildren(math.valAbs(c.getStade()));
       if(c.getStade()==0){
         if(c instanceof Fourmi){

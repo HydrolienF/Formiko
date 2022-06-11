@@ -67,6 +67,11 @@ public class FPanelZoom extends FPanel {
   // GET SET -------------------------------------------------------------------
   public int getbuttonSize(){ return Main.getbuttonSizeZoom();}
   //public void setbuttonSize(int x){ tailleBouton=x;}
+  /**
+  *{@summary Enable or disable this &#38; all sub component.}
+  *@lastEditedVersion 2.23
+  */
+  @Override
   public void setEnabled(boolean boo){
     bPlus.setEnabled(boo);
     bMoins.setEnabled(boo);

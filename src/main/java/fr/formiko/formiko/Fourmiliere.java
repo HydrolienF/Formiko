@@ -65,7 +65,7 @@ public class Fourmiliere implements Serializable{
     this(j, mapo);
     int x = allea.getAlléaDansTableau(Main.getTableauDesEspecesAutorisée());
     if(!j.getIa()){x=0;}//les joueurs ne joue que des Lasius Niger
-    gc = new GCreature(taille, this,Main.getGEspece().getEspeceParId(x),getCCase());
+    gc = new GCreature(taille, this,Main.getGEspece().getEspeceById(x),getCCase());
   }
   public Fourmiliere(int taille, Joueur j){ this(taille,j,Main.getCarte());}
   public Fourmiliere() {this(((CCase)(null)),null);} //Only for test
@@ -107,15 +107,15 @@ public class Fourmiliere implements Serializable{
   public void setLienFere(){ gc.setLienFere(this);}
   public Pheromone getPh(){
     if(getReine()!=null){return getReine().getPh();}
-    else if(getGc().getHead()!=null){return getGc().getHead().getContent().getPh();}
+    else if(getGc()!=null){return getGc().getFirst().getPh();}
     else{return new Pheromone(0,0,0);}
   }
   public int getScore(){
     try {
-      return ggi.getTail().getContent().calculerScore(this);
+      return ggi.getLast().computeScore(this);
     }catch (NullPointerException e) {
       ggi.add(new GInt(this));
-      return ggi.getTail().getContent().calculerScore(this);
+      return ggi.getLast().computeScore(this);
     }
   }
   public int getNbrFourmisMorte(){return nbrFourmisMorte;}
@@ -169,14 +169,14 @@ public class Fourmiliere implements Serializable{
   */
   public void jouer(){
     if(gc.length()==0){return;}
-    //this.setModeDéfaut(3); //tant que tous le couvains n'aura pas été dorloté.
+    //this.setModeDéfaut(3); //tant que tous le broods n'aura pas été dorloté.
     do {
       gc.jouer();
     } while (!gc.haveDoneAllActionAviable() && !getJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu());
     Main.getView().setPlayingAnt(null);
     setWaitingForEndTurn(true);
     Main.getView().waitForEndTurn();
-    for (Creature c : gc.toList()) {
+    for (Creature c : gc) {
       c.endTurn();
     }
     setWaitingForEndTurn(false);

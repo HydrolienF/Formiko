@@ -111,10 +111,12 @@ public class keys {
         }else if(FPanel.getView().getPnp()!=null && FPanel.getView().getPnp().getLaunchButton()!=null){
           action.doAction(FPanel.getView().getPnp().getLaunchButton().getActionB());
         // if ant isn't null and an ant have still action to do
-      }else if(Main.getPlayingAnt()!=null && !Main.getPlayingAnt().getFere().getGc().haveDoneAllActionAviable()){
+        }else if(Main.getPlayingAnt()!=null && !Main.getPlayingAnt().getFere().getGc().haveDoneAllActionAviable()){
+          if(FPanel.getView().getPe().isOn()){return;}
           FPanel.getView().getPb().setActionF(-2);
         }else{
-        // if we need to play next turn.
+          if(FPanel.getView().getPe().isOn()){return;}
+          // if we need to play next turn.
           try {
             action.doActionPj(200);
           }catch (Exception e) {}

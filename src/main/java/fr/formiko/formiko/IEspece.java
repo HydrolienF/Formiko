@@ -9,14 +9,14 @@ import fr.formiko.usuel.tableau;
 import java.io.Serializable;
 
 /**
- *{@summary Save the pop probability of an Insecte.}<br>
- *The pop probability depend of the Case were the Insecte will pop.
- *@author Hydrolien
- *@lastEditedVersion 1.1
- */
-public class IEspece implements Serializable{
-  private int ct[];
+*{@summary Save the pop probability of an Insecte.}<br>
+*The pop probability depend of the Case were the Insecte will pop.
+*@author Hydrolien
+*@lastEditedVersion 1.1
+*/
+public class IEspece implements Serializable {
   protected final int id; protected static int cptid;
+  private int ct[];
   // CONSTRUCTORS --------------------------------------------------------------
   public IEspece(int ct []){
     this.id = cptid; cptid++;

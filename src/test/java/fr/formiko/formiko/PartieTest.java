@@ -1,13 +1,14 @@
 package fr.formiko.formiko;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.tests.TestCaseMuet;
 import fr.formiko.usuel.Point;
+import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.types.str;
 
 public class PartieTest extends TestCaseMuet{
@@ -27,11 +28,11 @@ public class PartieTest extends TestCaseMuet{
       try {
         p.launchGame();
       }catch (Exception e) {
-        System.out.println(e);
+        erreur.println(e);
         e.getStackTrace();
         assertTrue(false);
       }
-      if(p.getGj().getJoueurParId(1).getFere().getGc().getGcStade(0).length()>1){
+      if(p.getGj().getJoueurById(1).getFere().getGc().getGcStade(0).length()>1){
         cpt++;
       }
     }
@@ -42,7 +43,7 @@ public class PartieTest extends TestCaseMuet{
     for (int i=0;i<nbTry ;i++ ) {
       ini(nbTurn,mapName);
       Main.getPartie().launchGame();
-      if(p.getGj().getJoueurParId(1).getFere().getGc().getGcStade(0).length()>5){
+      if(p.getGj().getJoueurById(1).getFere().getGc().getGcStade(0).length()>5){
         cpt++;
       }
     }

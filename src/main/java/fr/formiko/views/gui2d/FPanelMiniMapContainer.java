@@ -28,6 +28,7 @@ public class FPanelMiniMapContainer extends FPanel {
   private FButtonEndTurn fBEndTurn;
   private FPanelGraphicsOptions pgo;
   private FPanelMiniMap pmm;
+  private boolean needToBeBuild;
 
   // CONSTRUCTORS --------------------------------------------------------------
   /**
@@ -36,6 +37,7 @@ public class FPanelMiniMapContainer extends FPanel {
   */
   public FPanelMiniMapContainer() {
     super();
+    erreur.info("new FPanelMiniMapContainer");
     fBEndTurn = new FButtonEndTurn();
     add(fBEndTurn);
     pgo = new FPanelGraphicsOptions();
@@ -47,9 +49,13 @@ public class FPanelMiniMapContainer extends FPanel {
     setLocation(FPanel.getView().getWidth()-getWidth(), FPanel.getView().getHeight()-getHeight());
     pgo.setSize(getWidth(),Main.getTailleElementGraphiqueX((int)(BUTTON_RADIUS*1.6)));
     pgo.setLocation(0,(int)(BUTTON_RADIUS*0.4));
+    needToBeBuild=true;
   }
   public void build(){
-    pgo.build();
+    if(needToBeBuild){
+      needToBeBuild=false;
+      pgo.build();
+    }
   }
 
   // GET SET -------------------------------------------------------------------
@@ -74,10 +80,17 @@ public class FPanelMiniMapContainer extends FPanel {
   public boolean getFbetEnabled(){
     return fBEndTurn.isEnabled();
   }
-
+  // /**
+  // *{@summary Enable or disable this &#38; all sub component.}
+  // *@lastEditedVersion 2.23
+  // */
+  // @Override
+  // public void setEnabled(boolean boo){
+  //   pgo.setEnabled(boo);
+  //   super.setEnabled(boo);
+  // }
 
   // FUNCTIONS -----------------------------------------------------------------
-
 
   // SUB-CLASS -----------------------------------------------------------------
   /**
@@ -406,6 +419,17 @@ public class FPanelMiniMapContainer extends FPanel {
       }
       getView().getPc().drawListIcons(g,list,size/2,size/2,0);
       return bi;
+    }
+    /**
+    *{@summary Enable or disable this &#38; all sub component.}
+    *@lastEditedVersion 2.23
+    */
+    @Override
+    public void setEnabled(boolean boo){
+      for (FButtonPGO b : buttonList) {
+        b.setEnabled(boo);
+      }
+      super.setEnabled(boo);
     }
   }
 }

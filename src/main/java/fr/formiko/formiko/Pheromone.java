@@ -71,7 +71,7 @@ public class Pheromone implements Serializable{
     return s;
   }
   public void afficheToi(){
-    System.out.println(this);
+    erreur.println(this);
   }
   /**
   *{@summary Standard equals function.}

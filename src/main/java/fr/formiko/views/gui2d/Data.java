@@ -103,6 +103,7 @@ public class Data {
   */
   public void Data(){
     initialisationFX=false;
+    setTailleDUneCase(1);
   }
   // GET SET -------------------------------------------------------------------
   //ini
@@ -304,7 +305,7 @@ public class Data {
         //   tBi[i] = image.translateImage(tBi[i], 0, 0, widthImage, heightImage);
         // }
         if(tRotation[i]!=0){
-          // System.out.println((diffX+(widthImage/2))+" "+ (diffY+(heightImage/2)) +"     "+ tRotation[i]);
+          // erreur.println((diffX+(widthImage/2))+" "+ (diffY+(heightImage/2)) +"     "+ tRotation[i]);
           tBi[i] = image.rotateImage2(tBi[i], tRotation[i], (int)(diffX+(widthImage/2)), (int)(diffY+(heightImage/2)));
         }
         if(tp[i]!=null){
@@ -316,7 +317,7 @@ public class Data {
       //     tBi[i] = image.translateImage(tBi[i], (int)(widthImage/2.4), (int)(heightImage/2.4), widthImage, heightImage);
       //   }
       //   if(tRotation[i]!=0){
-      //     // System.out.println((diffX+(widthImage/2))+" "+ (diffY+(heightImage/2)) +"     "+ tRotation[i]);
+      //     // erreur.println((diffX+(widthImage/2))+" "+ (diffY+(heightImage/2)) +"     "+ tRotation[i]);
       //     tBi[i] = image.rotateImage2(tBi[i], tRotation[i], diffX+((int)(widthImage/2.4)), diffY+((int)(heightImage/2.4)));
       //   }
       //   if(tp[i]!=null){
@@ -339,11 +340,10 @@ public class Data {
     *@lastEditedVersion 2.6
     */
     public synchronized void chargerImages(){
-      debug.débogage("chargement des images a la bonne taille.");
       chargerImagesIni();
       Main.startCh();
       int tailleFourmi = (getTailleDUneCase()*4)/5;
-      erreur.info("Update Image to size "+getTailleDUneCase());
+      erreur.info("Update Image to size "+getTailleDUneCase(),8);
       imgNull = image.resize(imgNullIni,getTailleDUneCase());
       tICarte=getScaledInstance(tICarteIni, getTailleDUneCase());
       // tIF=getScaledInstance(tIFIni, tailleFourmi);
@@ -367,6 +367,7 @@ public class Data {
     */
     public synchronized void chargerImagesIni(){
       if(!imageIni){
+        erreur.info("load images from files");
         Main.startCh();
         imgNullIni = image.getImage("null");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         chargerTI();
@@ -514,7 +515,7 @@ public class Data {
         }
       }catch (Exception e) {
         erreur.erreur("iniBackgroundMapImage fail");
-        System.out.println(e);
+        erreur.println(e);
         e.printStackTrace();
         map=null;
       }

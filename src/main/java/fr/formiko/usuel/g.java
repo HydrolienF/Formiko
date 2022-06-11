@@ -41,7 +41,7 @@ public class g {
   public static String get(String key, String sDefault){
     if(key==null || key.equals("")){if(sDefault==null){sDefault="";}return sDefault;}
     if(str.isMaj(key.substring(0,1))){
-      //System.out.println("sToSMin for : "+key);
+      //erreur.println("sToSMin for : "+key);
       return getM(str.sToSMin(key),str.sToSMaj(sDefault));
     }
     try {

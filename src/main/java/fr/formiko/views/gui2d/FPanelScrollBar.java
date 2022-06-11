@@ -82,10 +82,10 @@ public class FPanelScrollBar extends FPanel {
     // double racio = oldSubPanelHeight;
     // if(racio!=1){racio/=(double)subPanel.getHeight();}
     // if(wasAtTheEnd){
-    //   System.out.println("set to the end");
+    //   erreur.println("set to the end");
     //   setScrollBarValue(SCROLL_BAR_MAX);
-    //   System.out.println(scrollBar.getValue() +" "+ scrollBar.getVisibleAmount());
-    //   System.out.println(scrollBar);
+    //   erreur.println(scrollBar.getValue() +" "+ scrollBar.getVisibleAmount());
+    //   erreur.println(scrollBar);
     // }
     // else{
     //   setScrollBarValue((int)((double)(scrollBar.getValue())*racio));

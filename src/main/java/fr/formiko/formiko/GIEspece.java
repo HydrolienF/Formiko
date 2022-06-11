@@ -1,73 +1,111 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.debug;
+import fr.formiko.usuel.ReadFile;
 import fr.formiko.usuel.decoderUnFichier;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.ReadFile;
 import fr.formiko.usuel.maths.allea;
+import fr.formiko.usuel.structures.listes.Liste;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 
 import java.io.Serializable;
 
-public class GIEspece implements Serializable{
-  protected CIEspece début;
-  protected CIEspece fin;
+/**
+*{@summary List of IEspece.}<br>
+*@author Hydrolien
+*@lastEditedVersion 2.23
+*/
+public class GIEspece extends Liste<IEspece> implements Serializable {
   // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Create a new list of species from game data.}<br>
+  *@lastEditedVersion 2.23
+  */
   public GIEspece(){
-    début = null;
-    chargerLesIEspeces();
+    super();
+    loadIEspeces();
   }
   // GET SET -------------------------------------------------------------------
-  public CIEspece getHead(){ return début;}
-  public void setDébut(CIEspece ce){début = ce; }
-  public IEspece getIEspeceParId(int id){
-    if (début == null){
-      return null;
-    }else {
-      return début.getIEspeceParId(id);
+  /**
+  *{@summary Return a species.}<br>
+  *@param id id of the species
+  *@lastEditedVersion 2.23
+  */
+  public IEspece getIEspeceById(int id){
+    for (IEspece e : this) {
+      if (e.getId()==id){ return e;}
     }
+    return null;
   }
-  public byte getRandomTypeInsectOnTheCase(int typeDeCase){
-    //return (byte) 0; //a continuer
-    int total = getTotal(typeDeCase);
-    int a = allea.getAlléa(total);
-    byte r = (byte) getIEspeceParAllea(a,typeDeCase);
+  /**
+  *{@summary Return a random insect species id.}<br>
+  *@param typeOfCase id of the Case
+  *@lastEditedVersion 2.23
+  */
+  public byte getRandomTypeInsectOnTheCase(int typeOfCase){
+    int a = allea.getAlléa(getTotal(typeOfCase));
+    byte r = (byte) getIEspeceParAllea(a,typeOfCase);
     return r;
   }
-  public int getTotal(int x){
-    if(début==null){erreur.erreurGXVide("GIEspece");return 0;}
-    return début.getTotal(x);
+  /**
+  *{@summary get total score for a typeOfCase.}<br>
+  *@param typeOfCase id of the Case
+  *@lastEditedVersion 2.23
+  */
+  private int getTotal(int typeOfCase){
+    int total=0;
+    for (IEspece e : this) {
+      total+=e.getCt(typeOfCase);
+    }
+    return total;
   }
-  public int getIEspeceParAllea(int a, int x){
-    if(début==null){erreur.erreurGXVide("GIEspece");return 0;}
-    return début.getIEspeceParAllea(a,x);
+  /**
+  *{@summary Return a random insect species id from a random number.}<br>
+  *@param a random that have been chossen
+  *@param typeOfCase id of the Case
+  *@lastEditedVersion 2.23
+  */
+  private int getIEspeceParAllea(int a, int typeOfCase){
+    for (IEspece e : this) {
+      a-=e.getCt(typeOfCase);
+      if(a<0){
+        return e.getId();
+      }
+    }
+    erreur.erreur("Wrong way to choose IEspece","Chosen insect will be last 1");
+    return getLast().getId();
   }
   // FUNCTIONS -----------------------------------------------------------------
-  public String toString(){
-    if(début == null){ erreur.erreurGXVide("GIEspece");return "";}
-    return début.toString();
-  }
-  public void chargerLesIEspeces(){
+  /**
+  *{@summary Load all IEspece from game data.}<br>
+  *@lastEditedVersion 2.23
+  */
+  private void loadIEspeces(){
     String td [] = new String [0];
     try {
       td = ReadFile.readFileArray(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"IEspece.csv");
     }catch (Exception e) {
-      erreur.erreur("Le fichier des IEspece n'as pas pu être localisé. il devrais y avoir un docier data et celui ci devrait contenir un fichier IEspece.txt",true);
-    } int lentd = td.length;
-    //if (lentd < 3){ erreur.erreur("Le fichier des IEspece devrais contenir au moins 4 lignes dont 1 IEspece","GIEspece.chargerLesIEspeces",true);}
-    String tDéfaut [] = {"5","5","5"};
+      erreur.erreur("Species file fail to be found");
+    }
+    int lentd = td.length;
+    String tdefault [] = {"5","5","5"};
     for (int i=1;i<lentd; i++) {
-      this.add(créerUneIEspece(td[i],tDéfaut));
+      this.add(createIEspece(td[i],tdefault));
     }
   }
-  public IEspece créerUneIEspece(String s, String [] tDéfaut){
-    debug.débogage("Création d'une nouvelle IEspece");
-    // test ici
+  /**
+  *{@summary Load a IEspece from game data.}<br>
+  *Empty cells will be fullfill by default value.
+  *@param s line to use to get sepcies data.
+  *@param tdefault default sepcies data.
+  *@return the created IEspece
+  *@lastEditedVersion 2.23
+  */
+  private IEspece createIEspece(String s, String [] tdefault){
     String t [] = decoderUnFichier.getTableauString(s,',');
-    tableau.boucherLesCasesVide(t,tDéfaut); // on remplace d'éventuelle case vide par les paramètres par défaut.
+    tableau.boucherLesCasesVide(t,tdefault);
     int tInt[];
     try {
       tInt = str.sToI(t);
@@ -76,16 +114,5 @@ public class GIEspece implements Serializable{
       tInt[0]=0;tInt[1]=0;tInt[2]=0;
     }
     return new IEspece(tInt);
-  }
-
-  public void add(IEspece e){
-    if(début == null){
-      début = new CIEspece(e);
-      fin =  début;
-    }else{
-      CIEspece temp = new CIEspece(e);
-      fin.setSuivant(temp);
-      fin = temp;
-    }
   }
 }

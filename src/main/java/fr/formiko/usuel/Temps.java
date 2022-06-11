@@ -267,7 +267,7 @@ public class Temps {
   public static void affDateDuJour(String format){
     SimpleDateFormat sdf = new SimpleDateFormat(format);
     Date date2b = new Date(System.currentTimeMillis());
-    System.out.println(sdf.format(date2b));
+    erreur.println(sdf.format(date2b));
   }
   public static void affDateDuJour(){affDateDuJour("dd/MM/yyyy");}
 }

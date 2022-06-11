@@ -11,7 +11,7 @@ public class modificationDeFichier {
   // FUNCTIONS -----------------------------------------------------------------
   public static void retirerLesLignesR(String s, String fichier, byte by){
     int x = retirerLesLignes(s,fichier, by);
-    System.out.println(x+" lignes ont été supprimées");
+    erreur.println(x+" lignes ont été supprimées");
   }
 
 

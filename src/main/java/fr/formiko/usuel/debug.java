@@ -20,15 +20,15 @@ public class debug{
   public static void setDPG(boolean b){setAffG(b); setMessage(b);setPerformance(b);}
   //fonction propre ----------------------------------------------------------------
   public static void débogage(String s){
-    if (affLesEtapesDeRésolution) { System.out.println(s); }
+    if (affLesEtapesDeRésolution) { erreur.println(s); }
   }
   public static void débogage(int s){ débogage(s+"");}
   public static void debug(String s){débogage(s);}
   public static void performances(String s){
-    if (affLesPerformances){ System.out.println(s);}
+    if (affLesPerformances){ erreur.println(s);}
   }
   public static void g(String s){
-    if (affG){ System.out.println(s);}
+    if (affG){ erreur.println(s);}
   }
   public static void g(String s, int x, int y){
     g(s+" : x="+x+", y="+y);

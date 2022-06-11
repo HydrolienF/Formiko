@@ -28,6 +28,8 @@ public class FPanelAction extends FPanel {
   private static int tailBouton=160;
   private FButton tB [];
   private FButton tAutoB [] = new FButton[2];
+  //TODO #498 the only thing that we need to do everytime is to setVisible button that have changed & to setLocation().
+  // We can create all button 1 time only.
   // CONSTRUCTORS --------------------------------------------------------------
   public FPanelAction(int t[]){
     super();
@@ -76,6 +78,11 @@ public class FPanelAction extends FPanel {
   public int getNbrBouton(){ return nbrDeBouton;}
   public boolean getEstBoutonActif(int x){return tableau.estDansT(tBoutonActif,x);}
   public int getBorderButtonSize(){ return Main.getTailleElementGraphique(bordure);}
+  /**
+  *{@summary Enable or disable this &#38; all sub component.}
+  *@lastEditedVersion 2.23
+  */
+  @Override
   public void setEnabled(boolean boo){
     for (FButton b : tB ) {
       b.setEnabled(boo);

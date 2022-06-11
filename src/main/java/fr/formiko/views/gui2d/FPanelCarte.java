@@ -2,7 +2,7 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Blade;
 import fr.formiko.formiko.CCase;
-import fr.formiko.formiko.CGraine;
+import fr.formiko.formiko.GGraine;
 import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
@@ -16,7 +16,6 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.MapPath;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.usuel.Info;
-import fr.formiko.usuel.Point;
 import fr.formiko.usuel.Point;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
@@ -75,7 +74,8 @@ public class FPanelCarte extends FPanel {
   *@lastEditedVersion 1.x
   */
   public void build(){
-    Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(100));
+    // Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(100));
+    // Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(1));
     GCase gc = new GCase(1,1);
     xCase = gc.getNbrX();
     yCase = gc.getNbrY();
@@ -260,7 +260,7 @@ public class FPanelCarte extends FPanel {
     if(Main.getPartie().getCarte().getCasesNuageuses()==true){ //si il y a des cases nuageuses
       try {
         if(Main.getPartie().getGj().getNbrDeJoueurHumain()==1){//si il ya moins de 2 joueurs, on peu afficher les cases que le joueur voie.
-          jo = Main.getPartie().getGj().getJoueurHumain().getHead().getContent();
+          jo = Main.getPartie().getGj().getJoueurHumain().getFirst();
         }
         if (jo==null || (x>=0 && y>=0 && jo.getCaseNuageuse(x,y))){//0 playing player or caseNuageuse for the playing player.
           // drawImage(g,Main.getData().getCloudMap(),xT,yT);
@@ -433,7 +433,7 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Draw a Case.}<br>
-  *@lastEditedVersion 2.1
+  *@lastEditedVersion 2.23
   */
   public void peintImagePourCase(Case c, int x, int y,Graphics2D g){
     if(!isCaseVisible(c)){return;}
@@ -451,7 +451,7 @@ public class FPanelCarte extends FPanel {
     int xT2 = (x)*getTailleDUneCase(); int yT2 = (y)*getTailleDUneCase();
     if(peintCaseNuageuse(x,y,g,xT,yT)){return;}//si la case est nuageuse, on n'affichera rien d'autre dessus.
     byte ty = c.getType();
-    CGraine ccg = c.getGg().getHead();
+    GGraine gg = c.getGg();
     Graphics gIcon=null;
     if(iconImage!=null){
       gIcon = iconImage.getGraphics();
@@ -472,17 +472,16 @@ public class FPanelCarte extends FPanel {
         int k=0;
         //seeds
         if(Main.getOp().getDrawSeeds() && (!Main.getOp().getDrawOnlyEatable() || Main.getPlayingJoueur().getEspece().getGranivore())){
-          while (ccg!=null){
+          for (Graine gr : gg) {
             calculerXYTemp(xT,yT,k,c);k++;
-            int dir = getDir((ObjetSurCarteAId)ccg.getContent());
+            int dir = getDir((ObjetSurCarteAId)gr);
             try {
-              BufferedImage bi = Main.getData().getGraineImage(ccg.getContent());
+              BufferedImage bi = Main.getData().getGraineImage(gr);
               drawImageCentered(g,image.rotateImage(bi,dir),xT,yT);
             }catch (Exception e) {}
-            if(ccg.getContent().getOuverte()){listIconsRelation.add(getIconImage(5));}
-            else if(fi==null || ccg.getContent().getDureté()<=fi.getDuretéMax()){listIconsRelation.add(getIconImage(4));}
+            if(gr.getOuverte()){listIconsRelation.add(getIconImage(5));}
+            else if(fi==null || gr.getHardness()<=fi.getHardnessMax()){listIconsRelation.add(getIconImage(4));}
             else {listIconsRelation.add(getIconImage(6));}
-            ccg = ccg.getSuivant();
           }
         }
         //creatures.
@@ -574,7 +573,7 @@ public class FPanelCarte extends FPanel {
   */
   //public only for test
   public static Liste<Creature> gcSortedByImageSize(GCreature gc){
-    Liste<Creature> listToPrint = gc.toList();
+    Liste<Creature> listToPrint = gc;
     if(Main.getOp().getRealisticSize()==0){return listToPrint;}
     listToPrint.sort(imageSizeComparator);
     return listToPrint;
@@ -666,7 +665,7 @@ public class FPanelCarte extends FPanel {
   private boolean needToDrawAnthillColor(Case c, int x, int y){
     if (Main.getOp().getDrawAllAnthillColor()) { return true;}
     if(c.getFere().getId()==idCurentFere){return true;} // && !isSombre(x,y)
-    return (lookedCCase!=null && lookedCCase.getContent() !=null && lookedCCase.getContent().equals(c));
+    return (getLookedCCase()!=null && getLookedCCase().getContent() !=null && getLookedCCase().getContent().equals(c));
   }
   /**
   *{@summary fonction that place ObjetSurCarteAId on the same Case.}<br>
@@ -893,7 +892,9 @@ public class FPanelCarte extends FPanel {
     int xTemp = getTailleDUneCase()*xCase;
     int yTemp = getTailleDUneCase()*yCase;
     super.setSize(xTemp,yTemp);
-    getView().getPs().setSize(xTemp, yTemp);
+    if(Main.getPlayingJoueur()!=null && !Main.getPlayingJoueur().isIa()){
+      getView().getPs().setSize(xTemp, yTemp);
+    }
     iniTBiState();
   }
 

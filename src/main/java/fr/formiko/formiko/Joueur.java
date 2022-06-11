@@ -59,9 +59,11 @@ public class Joueur implements Serializable{
     fere = nouvelleFourmiliere;
     nouvelleFourmiliere.setJoueur(this);
   }
-  public boolean getIa(){ return ia;}
+  public boolean getIa(){return isAI();}
+  public boolean isIa(){return isAI();}
+  public boolean isAI(){return ia;}
   public void setIa(boolean b){ia = b; }
-  public void addMessage(Message m){ gm.add(m);}
+  public void addMessage(Message m){ gm.addHead(m);}
   public GMessage getGm(){ return gm;}
   public boolean getCaseSombre(int x, int y){ try {return caseSombre[x][y];}catch (Exception e) {return false;}}
   public void setCaseSombre(int x, int y, boolean b){ caseSombre[x][y]=b;}
@@ -74,7 +76,7 @@ public class Joueur implements Serializable{
   *@lastEditedVersion 2.1
   */
   public void setPheromone(Pheromone ph){
-    for (Creature c : fere.getGc().toList()) {
+    for (Creature c : fere.getGc()) {
       c.setPheromone(ph);
     }
   }
@@ -123,7 +125,7 @@ public class Joueur implements Serializable{
     setPlayingJoueur(null);
   }
   public void afficheScore(){
-    System.out.println(pseudo +" : "+getScore());
+    erreur.println(pseudo +" : "+getScore());
   }
   public void initialisationCaseNS(){
     int x = Main.getGc().getNbrX();
@@ -153,10 +155,10 @@ public class Joueur implements Serializable{
     //affichecaseSN();
   }
   public void affichecaseSN(){
-    System.out.println("Les tableaux s'affiche en inversé par rapport a la carte !");
-    System.out.println("caseNuageuse");
+    erreur.println("Les tableaux s'affiche en inversé par rapport a la carte !");
+    erreur.println("caseNuageuse");
     tableau.afficher(caseNuageuse);
-    System.out.println("caseSombre");
+    erreur.println("caseSombre");
     tableau.afficher(caseSombre);
   }
   public void prendreEnCompteLaDifficulté(){

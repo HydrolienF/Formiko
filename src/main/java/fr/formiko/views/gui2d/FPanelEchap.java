@@ -21,6 +21,10 @@ public class FPanelEchap extends FPanel{
   private FButton tb[];
   private boolean visible;
   // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor that set not visible.}
+  *@lastEditedVersion 2.23
+  */
   public FPanelEchap(){
     setVisible(false);
   }
@@ -52,6 +56,7 @@ public class FPanelEchap extends FPanel{
   // GET SET -------------------------------------------------------------------
   public void setTb(FButton tbTemp[]){tb=tbTemp;}
   public boolean getVisible(){return visible;}
+  public boolean isOn(){return getVisible();}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary standard paint methode.}
@@ -86,6 +91,7 @@ public class FPanelEchap extends FPanel{
   */
   @Override
   public void setVisible(boolean b){
+    erreur.info("Set Pe visibility to "+b);
     if(b){build();getView().getPs().setSize(0,0);}
     else{
       try {
@@ -103,9 +109,15 @@ public class FPanelEchap extends FPanel{
     try {
       getView().getPc().setEnabled(!visible);
     }catch (Exception e) {}
+    // try{
+    //   getView().getPs().setEnabled(!visible);
+    // }catch (Exception e) {}
     try{
       getView().getPa().setEnabled(!visible);
     }catch (Exception e) {}
+    // try{
+    //   getView().getPmmc().setEnabled(!visible);
+    // }catch (Exception e) {}
     super.setVisible(b);
     if(!b){
       action.updateMouseLocation();

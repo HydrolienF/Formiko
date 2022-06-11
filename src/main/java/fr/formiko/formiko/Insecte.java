@@ -90,7 +90,7 @@ public class Insecte extends Creature implements Serializable{
   *@lastEditedVersion 2.6
   */
   public void setType(byte x){
-    super.setEspece(Main.getEspeceParId(100+x));
+    super.setEspece(Main.getEspeceById(100+x));
     if(e==null){erreur.erreur("Une espece d'insecte n'as pas pu etre chargé : "+(100+getType()));}
   }
   public void setType(int x){setType((byte)x);}

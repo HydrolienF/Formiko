@@ -8,19 +8,36 @@ import java.io.IOException;
 /**
 *{@summary Error class call to print error message.}<br>
 *@author Hydrolien
-*@lastEditedVersion 2.11
+*@lastEditedVersion 2.23
 */
 public class erreur {
   public static boolean muet=false;
 
   public static boolean getMuet(){return muet;}
   public static void setMuet(boolean b){muet=b;}
-  private static void println(String s){
+  /**
+  *{@summary A synchronized print that call print(Object o).}<br>
+  *@lastEditedVersion 2.23
+  */
+  public static void println(Object s){
     print(s+"\n");
   }
-  private static void print(String s){
+  /**
+  *{@summary A synchronized print that call print(Object o).}<br>
+  *@lastEditedVersion 2.23
+  */
+  public static void println(){
+    println("");
+  }
+  /**
+  *{@summary A synchronized print to avoid multithread issues.}<br>
+  *@lastEditedVersion 2.23
+  */
+  public static void print(Object s){
     if(!muet){
-      System.out.print(s);
+      synchronized (System.out) {
+        System.out.print(s);
+      }
     }
   }
   /**
@@ -73,7 +90,7 @@ public class erreur {
         className = className.substring(0,className.length()-5);
       }catch (Exception e) {}
       if(!className.equals("erreur")){
-        System.out.println("\t"+st);
+        println("\t"+st+"\n");
       }
     }
     System.exit(-1);

@@ -270,8 +270,8 @@ public class image{
   *@lastEditedVersion 2.16
   */
   public static int tailleFourmi(int idEspece, int typeF, int taille){
-    if(Main.getEspeceParId(idEspece)!=null && Main.getEspeceParId(idEspece).getIndividuByType(typeF)!=null){
-      int a = Main.getEspeceParId(idEspece).getIndividuByType(typeF).getTaille();
+    if(Main.getEspeceById(idEspece)!=null && Main.getEspeceById(idEspece).getIndividuByType(typeF)!=null){
+      int a = Main.getEspeceById(idEspece).getIndividuByType(typeF).getTaille();
       return taille(a,taille);
     }else{
       erreur.alerte("Ant specie "+idEspece+" have no Individu for "+typeF);
@@ -287,7 +287,7 @@ public class image{
   *@lastEditedVersion 1.3
   */
   public static int taille(int idEspece, int stade, int taille){
-    int a = Main.getEspeceParId(idEspece).getTaille(stade);//standard a is 100
+    int a = Main.getEspeceById(idEspece).getTaille(stade);//standard a is 100
     return taille(a,taille);
   }
   /**
@@ -628,7 +628,7 @@ public class image{
       BufferedImage bi = entry.getValue();
       bi = resize(bi,size);
       mapOut.put(entry.getKey(), bi);
-      // System.out.println("put "+entry.getKey());
+      // erreur.println("put "+entry.getKey());
     }
     return mapOut;
   }
@@ -641,11 +641,11 @@ public class image{
   public static void printBufferedImageColor(BufferedImage bi){
     for (int i=0; i<bi.getWidth(); i++) {
       for (int j=0; j<bi.getHeight(); j++) {
-        System.out.print(bi.getRGB(i,j)+" ");
+        erreur.print(bi.getRGB(i,j)+" ");
       }
-      System.out.println("");
+      erreur.println("");
     }
-    System.out.println();
+    erreur.println();
   }
   /**
   *{@summary Replace a specified rect by given color.}

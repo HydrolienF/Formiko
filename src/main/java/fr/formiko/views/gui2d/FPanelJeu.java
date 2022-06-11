@@ -33,6 +33,7 @@ import javax.swing.JScrollPane;
 public class FPanelJeu extends FPanel {
   private FPanelCarte pc;
   private FPanelBouton pb;
+  private FPanel pText;
   private FPanelChargement pch;
   private FPanelFinPartie pfp;
   private FPanelEchap pe;
@@ -48,6 +49,7 @@ public class FPanelJeu extends FPanel {
   }
   // GET SET -------------------------------------------------------------------
   public FPanelBouton getPb(){ return pb;}
+  public FPanel getPText(){ return pText;}
   public FPanelCarte getPc(){ return pc;}
   public FPanelChargement getPch(){ return pch;}
   public FPanelSup getPs(){return ps;}
@@ -111,6 +113,11 @@ public class FPanelJeu extends FPanel {
     pb.setBounds(0,0,getWidth(),getHeight());
     add(pb);
   }
+  public void addPText(){
+    pText = new FPanel();
+    pText.setBounds(0,0,getWidth(),getHeight());
+    add(pText);
+  }
   public void addPch(){
     pch = new FPanelChargement();
     add(pch);
@@ -140,10 +147,6 @@ public class FPanelJeu extends FPanel {
     pb.setVisible(true);
     action.updateMouseLocation();
   }
-  // public void addPfp(){
-  //   pfp = new FPanelFinPartie();
-  //   add(pfp);
-  // }
   public void addPfp(){
     if(pfp!=null){
       erreur.alerte("Pfp already add");
@@ -157,8 +160,8 @@ public class FPanelJeu extends FPanel {
     pfp.ini(mess,gj,withButton,canResumeGame);
     if(withButton){
       pb.setVisible(false);
-      ps.setSize(0,0);
     }
+    ps.updateSizeMin();
   }
   public void removePfp(){
     remove(pfp);
@@ -191,14 +194,19 @@ public class FPanelJeu extends FPanel {
     if(x==1){ y=math.max(y1,y2);}
     else if(x==2){ y=math.min(y1,y2);}
     y = math.between(Main.getTailleElementGraphique(100), Main.getTailleElementGraphique(500), y);
-    pc.setTailleDUneCase(y, false);
-    actionAFaireSiTailleD1CaseChange();
+    if(getPc().getTailleDUneCase()!=y){
+      getPc().setTailleDUneCase(y, false);
+      actionAFaireSiTailleD1CaseChange();
+    }else{
+      if (Main.getPartie().getEnCours()){
+        Main.getData().iniBackgroundMapImage();
+      }
+    }
   }
   public void actionAFaireSiTailleD1CaseChange(){
     if (Main.getPartie().getEnCours()){
       FPanel.getView().getPc().updateSize();
       Main.getData().chargerImages();
-      getView().getPmmc().build();
       Main.getData().iniBackgroundMapImage();
       getView().setBladeChanged(true);
     }

@@ -29,7 +29,7 @@ public class Message implements Serializable{
   // 6 déroulement du jeux
 
   // piste de simplification pas forcément adaptée :
-  //Dialoguer d = (s) -> System.out.println("Tu as dis : " + s);
+  //Dialoguer d = (s) -> erreur.println("Tu as dis : " + s);
   //d.parler("Bonjour");
 
 
@@ -47,7 +47,7 @@ public class Message implements Serializable{
         // debug.débogage(gj.length()+" joueurs on été detecté comme humain");
         gj.addMessage(this);
       }else if(idDuJoueurConcerné>0){
-        Main.getJoueurParId(idDuJoueurConcerné).addMessage(this);
+        Main.getJoueurById(idDuJoueurConcerné).addMessage(this);
       }
     }catch (Exception e) {}
   }
@@ -76,7 +76,7 @@ public class Message implements Serializable{
   public void afficheToi(){ // idéalement la méthode d'affichage n'affiche que si les paramètres d'affichage du joueur le lui demande.
     //if (Main.getNiveauDeDétailDeLAffichage()>0){
     if (niveauDeDétailDeLAffichage>0){
-      System.out.println(description());
+      erreur.println(description());
     }
   }
   public String description(){
@@ -119,15 +119,13 @@ public class Message implements Serializable{
       //Ici on doit filterr les joueurs qui ne vois pas la case ou la fourmi meurt.
 
 
-      CJoueur cj = gj.getHead();
       String laNotre = g.getM("la");
-      while(cj!=null){
-        Joueur j = cj.getContent();
+      for (Joueur j : gj) {
         String status = g.get("neutre");
         Fourmi r =null;
         try {
           r = j.getFere().getGc().getReine(); // par défaut la reine sert a identifié si la fourmi est alliées neutre ou énemies.
-          if (r==null){ r= (Fourmi)(j.getFere().getGc().getHead().getContent());}//sinon on prend la 1a fourmi du GCreature.
+          if (r==null){ r= (Fourmi)(j.getFere().getGc().getFirst());}//sinon on prend la 1a fourmi du GCreature.
         }catch (Exception e) {}
         if (r!=null){
           if (((Creature)f).getEstAllié(r)){
@@ -146,8 +144,7 @@ public class Message implements Serializable{
         }
         String tueur = g.getOr("la","le")+" "+nom;
         String texte = laNotre +" "+ g.get("fourmi")+" "+status+"("+f.getId()+")"+" "+ g.get("mort"+raison)+" "+tueur+".";
-        new Message(texte,cj.getContent().getId());
-        cj=cj.getSuivant();
+        new Message(texte,j.getId());
       }
     }catch (Exception e2) {
       erreur.alerte("death message fail.");

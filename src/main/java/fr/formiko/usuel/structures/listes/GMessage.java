@@ -14,6 +14,7 @@ public class GMessage extends Liste<Message> implements Serializable {
       x--;
       if(x==0){
         gs.addTail("...");
+        return gs;
       }
     }
     return gs;
