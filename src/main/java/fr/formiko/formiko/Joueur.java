@@ -59,8 +59,9 @@ public class Joueur implements Serializable{
     fere = nouvelleFourmiliere;
     nouvelleFourmiliere.setJoueur(this);
   }
-  public boolean getIa(){return isIa();}
-  public boolean isIa(){return ia;}
+  public boolean getIa(){return isAI();}
+  public boolean isIa(){return isAI();}
+  public boolean isAI(){return ia;}
   public void setIa(boolean b){ia = b; }
   public void addMessage(Message m){ gm.addHead(m);}
   public GMessage getGm(){ return gm;}

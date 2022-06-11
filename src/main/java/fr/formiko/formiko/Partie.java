@@ -268,7 +268,8 @@ public class Partie implements Serializable{
     if(getGj().plusQu1Joueur()){
       finDePartie(2);
     }
-    if(Main.getGj().getJoueurHumain().getPlusDeFourmi()){//si aucun joueur humain n'as de fourmi :
+    //si aucun joueur humain n'as de fourmi :
+    if(Main.getGj().toList().filter(j -> j.getFere().getGc().length()!=0 && !j.isAI()).length()==0){
       finDePartie(0); //0=défaite
     }
     //afichage

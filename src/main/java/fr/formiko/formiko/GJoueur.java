@@ -48,10 +48,6 @@ public class GJoueur implements Serializable{
     if(début.getJoueur().getIa() == false){ return début.getJoueur();}
     return début.getJoueurNonIa();
   }
-  public boolean getPlusDeFourmi(){
-    if(début==null){return true;}
-    return début.getPlusDeFourmi();
-  }
   /**
   *{@summary Return a sorted GJoueur by score.}
   *@lastEditedVersion 2.2

@@ -62,11 +62,6 @@ public class CJoueur implements Serializable{
     if(getSuivant().getJoueur().getIa() == false){ return getSuivant().getJoueur();} // on a trouvé
     return getSuivant().getJoueurNonIa(); // on continue les recherches.
   }
-  public boolean getPlusDeFourmi(){
-    if(getContent().getFere().getGc().length()>0){ return false;} //si on a trouvé une fourmi
-    else if(suivant!=null){ return suivant.getPlusDeFourmi();}// sinon on test le joueur suivant.
-    return true; //si tout les joueurs on été parcouru
-  }
   public int getNbrDeJoueurVivant(){
     int x = 0; if(contenu.getFere().getGc().length()!=0){x=1;}
     if (suivant!=null){return x+suivant.getNbrDeJoueurVivant();}
