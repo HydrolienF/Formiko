@@ -318,7 +318,7 @@ public class Partie implements Serializable{
       }
     }
   }
-  public void enregistrerLesScores(){gj.enregistrerLesScores();}
+  // public void enregistrerLesScores(){gj.enregistrerLesScores();}
   //static
   /**
    * Load the GEspece.

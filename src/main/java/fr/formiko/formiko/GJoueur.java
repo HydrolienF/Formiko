@@ -73,23 +73,24 @@ public class GJoueur implements Serializable{
       return gjr;
     }
   }
+  /**
+  *{@summary Return the number of player still alive.}
+  *An alive player still have at lease 1 Ant.
+  *@lastEditedVersion 2.23
+  */
   public int getNbrDeJoueurVivant(){
-    if (début == null){ return 0;}
-    return début.getNbrDeJoueurVivant();
+    return toList().filter(j -> j.getFere().getGc().length()!=0).length();
   }
   public boolean plusQu1Joueur(){
     if(getNbrDeJoueurVivant()<2){return true;}
     return false;
   }
-  public void afficheScore(){
-    if(début!=null){
-      GString gs = scoreToGString();
-      gs.afficheToi();
-    }
-  }
   public GString scoreToGString(){
-    if (début == null){ return new GString();}
-    return début.scoreToGString();
+    GString gsr = new GString();
+    for (Joueur j : toList()) {
+      gsr.add(j.scoreToString());
+    }
+    return gsr;
   }
   public void addDébut(Joueur j){
     CJoueur cj = new CJoueur(j);
@@ -144,33 +145,58 @@ public class GJoueur implements Serializable{
     }
     erreur.erreur("Le joueur "+j.getId()+" n'as pas pue être retiré");
   }
+  /**
+  *{@summary Play for every players.}
+  *@lastEditedVersion 2.23
+  */
   public void jouer(){
-    if(début == null){
-      erreur.erreur("Impossible de faire jouer un groupe de joueur vide !");
-    }else{
-      if(Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()){return;}
-      début.jouer();
+    if(Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()){return;}
+    if(toList().isEmpty()){
+      erreur.erreur("Unable to play for an empty player list");
+    }
+    for (Joueur j : toList()) {
+      j.jouer();
     }
   }
+  /**
+  *{@summary Add a message for every players.}
+  *@lastEditedVersion 2.23
+  */
   public void addMessage(Message m){
-    if(début==null){return;}
-    début.addMessage(m);
+    for (Joueur j : toList()) {
+      j.addMessage(m);
+    }
   }
+  /**
+  *{@summary Initialize dark &#38; cloudy squares for every players.}
+  *@lastEditedVersion 2.23
+  */
   public void initialisationCaseNS(){
-    if(début==null){return;}
-    début.initialisationCaseNS();
+    for (Joueur j : toList()) {
+      j.initialisationCaseNS();
+    }
   }
-  public void enregistrerLesScores(){
-    if(début==null){return;}
-    début.enregistrerLesScores();
-  }
+  // public void enregistrerLesScores(){
+  //   if(début==null){return;}
+  //   début.enregistrerLesScores();
+  // }
+  /**
+  *{@summary Initialize difficulty initial concequence for every players.}
+  *@lastEditedVersion 2.23
+  */
   public void prendreEnCompteLaDifficulté(){
-    if(début==null){return;}
-    début.prendreEnCompteLaDifficulté();
+    for (Joueur j : toList()) {
+      j.prendreEnCompteLaDifficulté();
+    }
   }
+  /**
+  *{@summary end turn of every players.}
+  *@lastEditedVersion 2.23
+  */
   public void setAction0AndEndTurn(){
-    if(début==null){return;}
-    début.setAction0AndEndTurn();
+    for (Joueur j : toList()) {
+      j.setAction0AndEndTurn();
+    }
   }
   /**
   *{@summary Transform a GJoueur in Liste&lt;Joueur&gt;.}

@@ -2,11 +2,9 @@ package fr.formiko.formiko;
 
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.GCreature;
-import fr.formiko.formiko.Main;
 import fr.formiko.tests.TestCaseMuet;
 
-public class GCreatureTest extends TestCaseMuet{
+public class GCreatureTest extends TestCaseMuet {
   private Joueur j,j2,j3;
   private Fourmi f1,f2,f3,f4,f5,f6;
   // FUNCTIONS -----------------------------------------------------------------

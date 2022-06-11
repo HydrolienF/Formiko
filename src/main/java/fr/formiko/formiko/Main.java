@@ -406,11 +406,11 @@ public class Main {
    */
   public static void quitter(){
     try {
-      if(pa!=null){
-        startCh();
-        pa.enregistrerLesScores();
-        endCh("enregistementDesScores");
-      }
+      // if(pa!=null){
+      //   startCh();
+      //   pa.enregistrerLesScores();
+      //   endCh("enregistementDesScores");
+      // }
       startCh();
       if(getKeepFilesRotated()){image.clearPartielTemporaire();}
       else{image.clearTemporaire();}
