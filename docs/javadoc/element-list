@@ -1,6 +1,7 @@
 fr.formiko.formiko
 fr.formiko.formiko.interfaces
 fr.formiko.usuel
+fr.formiko.usuel.astar
 fr.formiko.usuel.exceptions
 fr.formiko.usuel.images
 fr.formiko.usuel.maths
