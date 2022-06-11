@@ -15,40 +15,36 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+*{@summary List of creatures.}
+*lastEditedVersion 2.23
+*@author Hydrolien
+*/
 public class GCreature extends Liste<Creature> implements Serializable, Cloneable {//, Iterator{
   private byte loopSafety;
   // CONSTRUCTORS ----------------------------------------------------------------
+  /**
+  *{@summary Main constructor.}
+  *@lastEditedVersion 2.23
+  */
   public GCreature(){
     super();
   }
-  public GCreature(List<Creature> list){
-    this();
-    for (Creature c : list) {
-      add(c);
-    }
-  }
-
+  /**
+  *{@summary Constructor that create an empty GCreature and then fill it as a Fourmiliere.}
+  *@lastEditedVersion 2.23
+  */
   public GCreature(int nbrDeCreature, Fourmiliere fere, Espece e, CCase cc){
     this();
     debug.débogage("Création d'un groupe de Fourmi avec au moins 1 fourmis.");
     Fourmi reine = new Fourmi(fere,e, (byte) 0,(byte) 0);
-    //reine.setCCase(cc);
-    addTail(reine);
+    add(reine);
     for (int i =1 ;i < nbrDeCreature ;i++ ) {
       Fourmi f = new Fourmi(fere,e,(byte) 3,(byte) 0,reine.getPheromone());
-      //f.setCCase(cc);
-      addTail(f);
+      add(f);
     }
   }
   // GET SET ----------------------------------------------------------------------
-
-  // FUNCTIONS -----------------------------------------------------------------
-  private static GCreature toGc(Liste<Creature> l){
-    GCreature gc = new GCreature();
-    gc.setHead(l.getHead());
-    gc.setTail(l.getTail());
-    return gc;
-  }
   /**
   *{summary Return the 1a queen of the anthill}
   *,or null if there is no qeen.
@@ -65,7 +61,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   /**
   *{summary Return all the Creature at a specific stade.}
   *@param stade the specific stade to fined
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
   public GCreature getGcStade(int stade){
     return toGc(filter(c -> c.getStade()==stade));
@@ -73,28 +69,28 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   /**
   *{summary Return all the Ant at a specific typeF.}
   *@param typeF the specific typeF to fined
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
   public GCreature getGcType(int typeF){
     return toGc(filter(c -> c instanceof Fourmi && ((Fourmi)c).getTypeF()==typeF));
   }
   /**
   *{summary Return all the Creature at an other stade than 0.}
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
-  public GCreature getCouvain(){ // on renvoie d'habord les plus proches de la transformation en Fourmi adulte.
+  public GCreature getBrood(){ // on renvoie d'habord les plus proches de la transformation en Fourmi adulte.
     return toGc(filter(c -> c.getStade()!=0));
   }
-  public Creature getCouvainSaleE()throws EmptyListException{
-    if(isEmpty()){throw new EmptyListException("GCreature","trouver la créature sale du couvain");}
+  public Creature getBroodSaleE() throws EmptyListException {
+    if(isEmpty()){throw new EmptyListException("GCreature","trouver la créature sale du brood");}
     return filter(c -> c.getStade()!=0 && c.getHealth()<90).getFirst();
   }
-  public Creature getCouvainSale(){
+  public Creature getBroodSale(){
     try {
-      return getCouvainSaleE();
+      return getBroodSaleE();
     }catch (EmptyListException e){return null;}
   }
-  public GCreature getCouvainsSale(){
+  public GCreature getBroodsSale(){
     return toGc(filter(c -> c.getStade()!=0 && c.getHealth()<90));
   }
   // a add :
@@ -104,7 +100,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@param id the id of the creature
   *@lastEditedVersion 2.1
   */
-  private Creature getCreatureParIdE(int id) throws EmptyListException {
+  private Creature getCreatureByIdE(int id) throws EmptyListException {
     if(isEmpty()){ throw new EmptyListException("GCreature","trouver la créature "+id);}
     for (Creature c : this ) {
       if(c.getId()==id){return c;}
@@ -116,9 +112,9 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@param id the id of the creature
   *@lastEditedVersion 2.1
   */
-  public Creature getCreatureParId(int id){
+  public Creature getCreatureById(int id){
     try {
-      return getCreatureParIdE(id);
+      return getCreatureByIdE(id);
     }catch (EmptyListException e) {return null;}
   }
   /**
@@ -127,8 +123,8 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@param id the id of the Fourmi.
   *@lastEditedVersion 2.1
   */
-  public Fourmi getFourmiParId(int id){
-    Creature c = getCreatureParId(id);
+  public Fourmi getFourmiById(int id){
+    Creature c = getCreatureById(id);
     if(c instanceof Fourmi){
       return (Fourmi)c;
     }else{
@@ -136,7 +132,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
       return null;
     }
   }
-  private Fourmi getFourmiParFereE(Fourmiliere fere)throws EmptyListException{
+  private Fourmi getFourmiParFereE(Fourmiliere fere) throws EmptyListException {
     if (getHead()==null){ throw new EmptyListException("GCreature","trouver la créature par fere");}
     if(fere==null){throw new NullPointerException();}
     Liste<Fourmi> lc = new Liste<Fourmi>();
@@ -167,11 +163,22 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
       return null;
     }
   }
+  // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Return a list with all this class functions.}
+  *@lastEditedVersion 2.23
+  */
+  private static GCreature toGc(Liste<Creature> l){
+    GCreature gc = new GCreature();
+    gc.setHead(l.getHead());
+    gc.setTail(l.getTail());
+    return gc;
+  }
   /**
   *{@summary Return the Creatures that are ally with c.}<br>
   *@param cTested the tested creature
   *@param differenceTolerated the Pheromone difference that is tolerated
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
   private GCreature filterAlliés(Creature cTested, int differenceTolerated){
     return toGc(filter(c -> cTested.getPheromone().equals(c.getPheromone(),differenceTolerated)));
@@ -179,7 +186,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   /**
   *{@summary return the Creatures that are ally with c.}<br>
   *@param c the tested creature.
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
   public GCreature filterAlliés(Creature c){
     int x=0; if(c.getEspece()!=null && c.getEspece().getPolycalique()){x=5;}// en théorie 4 suffisent.
@@ -187,28 +194,28 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   }
   /**
   *{@summary delete Creature that can't eat more.}<br>
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
   public GCreature filterFaimMax(){
     return toGc(filter(c -> c.getFood()<c.getMaxFood()));
   }
   /**
   *{@summary delete Creature that can't be cleaner.}<br>
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
   public GCreature filterHealthMax(){
     return toGc(filter(c -> c.getHealth()<c.getMaxHealth()));
   }
   /**
   *{@summary delete Creature that didn't whant food.}<br>
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.23
   */
   public GCreature filterWantFood(){
     return toGc(filter(c -> c.wantFood()));
   }
   /**
   *{@summary delete Creature that didn't whant clean.}<br>
-  *@lastEditedVersion 2.1
+  *@lastEditedVersion 2.23
   */
   public GCreature filterWantClean(){
     return toGc(filter(c -> c.wantClean()));
@@ -228,23 +235,25 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   /**
   *{@summary Count worker imago.}
   *Worker imago are at stade 0 and type 3, 4 or 5.
-  *@lastEditedVersion 2.1
+  *@lastEditedVersion 2.23
   */
   public int getNbrOuvriere(){
-    try {
-      return getGcStade(0).getGcType(3).length() + getGcStade(0).getGcType(4).length() + getGcStade(0).getGcType(5).length();
-    }catch (Exception e) {
-      erreur.erreur("Impossible de prende en compte les type major et minor dans les ouvrières.");
-      return getGcStade(0).getGcType(3).length();
-    }
+    return filter(c -> c.getStade()==0 && (((Fourmi)c).getTypeF()==3 || ((Fourmi)c).getTypeF()==4 || ((Fourmi)c).getTypeF()==5)).length();
   }
+  /**
+  *{@summary Return species of this GCreature as if it was the gc of an anthill.}
+  *@lastEditedVersion 2.23
+  */
   public Espece getEspece(){
     Fourmi c = this.getReine();
     if(c!=null){return c.getEspece();}
     if(getFirst()!=null){return ((Fourmi)getFirst()).getEspece();}
     return null;
   }
-
+  /**
+  *{@summary Return an array of id.}
+  *@lastEditedVersion 2.23
+  */
   public int [] gcToTInt(){
     int lentr=length();
     int tr[]=new int [lentr];int k=0;
@@ -254,18 +263,20 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
     return tr;
   }
   public GCreature copier(){
-    return new GCreature(this);
+    GCreature gc=new GCreature();
+    gc.add(this);
+    return gc;
   }
+  /**
+  *{@summary Return all Insecte from this.}
+  *@lastEditedVersion 2.23
+  */
   public GInsecte getGi(){
     GInsecte gi = new GInsecte();
     for (Creature c : this) {
       if(c instanceof Insecte){gi.add((Insecte)c);}
     }
     return gi;
-  }
-  public void add(GInsecte gi ){
-    GCreature gc = gi.toGCreature();
-    add(gc);
   }
   /**
   *{@summary Play as an ant.}
@@ -377,12 +388,16 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
       }
     }
   }
-
-  public void classerPourNetoyage(){
-    if(isEmpty()){return;}
+  /**
+  *{@summary Sort this depending of health.}
+  *@lastEditedVersion 2.23
+  */
+  public void classerPourNetoyage(Fourmi f){
+    sort((Creature c1, Creature c2) -> c2.getHealth()-c1.getHealth());
+    // pour l'instant on tri juste en fct de health
     //TODO
-    //le but est d'habord que personne ne passe en dessous des x de healthe minimum lié au niveau de difficulté.
-    //on met tout ce qui sont en dessous de 50 dans l'ordre d'age/stade.
+    //le but est d'habord que personne ne passe en dessous des x de health minimum lié au niveau de difficulté.
+    //on met tout ceux qui sont en dessous de 50 dans l'ordre d'age/stade.
     //et on ajoute ceux qui sont après dans l'ordre de saleté.
   }
   public int [] toTId(){

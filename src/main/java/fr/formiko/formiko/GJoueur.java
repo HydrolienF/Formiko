@@ -10,20 +10,19 @@ import java.io.Serializable;
 import java.util.Comparator;
 
 /**
-*{@summary Return all the Creatures of all the players.}
-*@lastEditedVersion 2.23
+*{@summary List of players.}
+*lastEditedVersion 2.23
+*@author Hydrolien
 */
 public class GJoueur extends Liste<Joueur> implements Serializable {
 
   // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor.}
+  *@lastEditedVersion 2.23
+  */
   public GJoueur(){
     super();
-  }
-  public GJoueur(Liste<Joueur> list){
-    this();
-    for (Joueur c : list) {
-      add(c);
-    }
   }
   // GET SET -------------------------------------------------------------------
   /**
@@ -40,7 +39,12 @@ public class GJoueur extends Liste<Joueur> implements Serializable {
     }
     return gcGlobal;
   }
-  public Joueur getJoueurParId(int id){
+  /**
+  *{@summary Return the player that match this id.}
+  *@param id id to match
+  *@lastEditedVersion 2.23
+  */
+  public Joueur getJoueurById(int id){
     for (Joueur j : this) {
       if(j.getId()==id){
         return j;
@@ -48,18 +52,26 @@ public class GJoueur extends Liste<Joueur> implements Serializable {
     }
     return null;
   }
+  /**
+  *{@summary Return non AI player.}
+  *@lastEditedVersion 2.23
+  */
   public GJoueur getJoueurHumain(){
-    //TODO we should avoid using new when we can (same for GCreature)
-    return new GJoueur(filter(j -> !j.isAI()));
+    return toGj(filter(j -> !j.isAI()));
   }
   public int getNbrDeJoueurHumain(){ return getJoueurHumain().length();}
   public int getNbrDIa(){ return length() - getJoueurHumain().length();}
   // FUNCTIONS -----------------------------------------------------------------
-  // public String toString(){
-  //   String s = g.get("gj")+" : ";
-  //   if (début == null){ return s+g.get("vide");}
-  //   return s+début.toString();
-  // }
+  /**
+  *{@summary Return a list with all this class functions.}
+  *@lastEditedVersion 2.23
+  */
+  private static GJoueur toGj(Liste<Joueur> l){
+    GJoueur g = new GJoueur();
+    g.setHead(l.getHead());
+    g.setTail(l.getTail());
+    return g;
+  }
   /**
   *{@summary Return a sorted GJoueur by score.}
   *@lastEditedVersion 2.2
@@ -81,10 +93,19 @@ public class GJoueur extends Liste<Joueur> implements Serializable {
   public int getNbrDeJoueurVivant(){
     return filter(j -> j.getFere().getGc().length()!=0).length();
   }
+  /**
+  *{@summary Return true if there is less that 2 player alive.}
+  *An alive player still have at lease 1 Ant.
+  *@lastEditedVersion 2.23
+  */
   public boolean plusQu1Joueur(){
     if(getNbrDeJoueurVivant()<2){return true;}
     return false;
   }
+  /**
+  *{@summary Return score of every player as a GString.}
+  *@lastEditedVersion 2.23
+  */
   public GString scoreToGString(){
     GString gsr = new GString();
     for (Joueur j : this) {

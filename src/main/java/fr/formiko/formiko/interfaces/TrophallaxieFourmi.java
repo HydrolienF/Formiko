@@ -66,7 +66,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
    */
   public void trophallaxie(Creature c, int id, int foodDonnée){
     debug.débogage("Recherche de la créature "+id+" sur la case "+c.getCCase().getContent().toString());
-    trophallaxie(c,c.getCCase().getContent().getGc().getCreatureParId(id), foodDonnée);
+    trophallaxie(c,c.getCCase().getContent().getGc().getCreatureById(id), foodDonnée);
   }
   /**
    *{@summary player trophallaxis}<br>
@@ -90,7 +90,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
       int lent = t.length;
       String ts[] = new String[lent];
       for (int i=0;i<lent ;i++ ) {
-        Creature cTemp = gc.getCreatureParId(t[i]);
+        Creature cTemp = gc.getCreatureById(t[i]);
         String sTemp = "";
         if(cTemp instanceof Fourmi){sTemp = " ("+((Fourmi)(cTemp)).getStringStade()+")";}
         else {sTemp = " ("+cTemp.getNom()+")";}
@@ -111,7 +111,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
         return;
       }
       //quantité de food échangé.
-      Creature c2 = f.getCCase().getContent().getGc().getCreatureParId(id2);
+      Creature c2 = f.getCCase().getContent().getGc().getCreatureById(id2);
       int nour = math.min(c2.getMaxFood()-c2.getFood(),f.getFood());
       if(nour<1){erreur.alerte("Impossible de donner 0 food");return;}
       int n=Main.getView().makeUserChooseInt(1, nour, g.get("Pti.desc.2"));
@@ -132,7 +132,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
     int lentr = 0;
     //on compte le nombre de fourmi a nourrir.
     for (int i=0;i<lent ;i++ ) {
-      Creature c = gc.getCreatureParId(t[i]);
+      Creature c = gc.getCreatureById(t[i]);
       if(c!=null && c.getFood()!=c.getMaxFood()){
         lentr++;
       }
@@ -140,7 +140,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
     //on ajoute seuelement les fourmis qui on faim.
     int tr[] = new int[lentr];int k=0;
     for (int i=0;i<lent ;i++ ) {
-      Creature c = gc.getCreatureParId(t[i]);
+      Creature c = gc.getCreatureById(t[i]);
       if(c!=null && c.getFood()!=c.getMaxFood()){
         tr[k] = t[i];k++;
       }

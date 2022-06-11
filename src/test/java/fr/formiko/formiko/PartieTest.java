@@ -32,7 +32,7 @@ public class PartieTest extends TestCaseMuet{
         e.getStackTrace();
         assertTrue(false);
       }
-      if(p.getGj().getJoueurParId(1).getFere().getGc().getGcStade(0).length()>1){
+      if(p.getGj().getJoueurById(1).getFere().getGc().getGcStade(0).length()>1){
         cpt++;
       }
     }
@@ -43,7 +43,7 @@ public class PartieTest extends TestCaseMuet{
     for (int i=0;i<nbTry ;i++ ) {
       ini(nbTurn,mapName);
       Main.getPartie().launchGame();
-      if(p.getGj().getJoueurParId(1).getFere().getGc().getGcStade(0).length()>5){
+      if(p.getGj().getJoueurById(1).getFere().getGc().getGcStade(0).length()>5){
         cpt++;
       }
     }

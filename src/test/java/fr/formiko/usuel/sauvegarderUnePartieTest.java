@@ -95,7 +95,7 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
     Main.initialisation();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getPartie().initialisationElément();
-    assertTrue(Main.getPartie().setPlayingAnt(triche.getFourmiParId("1")));
+    assertTrue(Main.getPartie().setPlayingAnt(triche.getFourmiById("1")));
     sauvegarderUnePartie.sauvegarder(Main.getPartie(), "testVraisPartie");
     Partie p = sauvegarderUnePartie.charger("testVraisPartie");
     assertTrue(Main.getPartie().equals(p));

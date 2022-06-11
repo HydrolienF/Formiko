@@ -223,9 +223,9 @@ public class TourReineTest extends TestCaseMuet{
     assertTrue(i.getIsDead());
     assertEquals(0,Main.getGc().getCCase(0,1).getContent().getGc().length());
     assertEquals(2,Main.getGc().getCCase(0,0).getContent().getGc().length());
-    assertEquals(1,Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().length());
+    assertEquals(1,Main.getGc().getCCase(0,0).getContent().getGc().getBrood().length());
     assertEquals(food - 3 + 300 - 12, f.getFood());
-    assertEquals(10, Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().getFirst().getFood());
+    assertEquals(10, Main.getGc().getCCase(0,0).getContent().getGc().getBrood().getFirst().getFood());
   }
   @Test
   public void TestTour5(){
@@ -268,7 +268,7 @@ public class TourReineTest extends TestCaseMuet{
     assertTrue(!i.getIsDead());
     assertEquals(1,Main.getGc().getCCase(0,1).getContent().getGc().length());
     assertEquals(2,Main.getGc().getCCase(0,0).getContent().getGc().length());
-    assertEquals(0,Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().length());
+    assertEquals(0,Main.getGc().getCCase(0,0).getContent().getGc().getBrood().length());
   }
   @Test
   public void TestTour7(){
@@ -293,7 +293,7 @@ public class TourReineTest extends TestCaseMuet{
     assertTrue(!i.getIsDead());
     assertEquals(1,Main.getGc().getCCase(0,1).getContent().getGc().length());
     assertEquals(7,Main.getGc().getCCase(0,0).getContent().getGc().length());
-    assertEquals(5,Main.getGc().getCCase(0,0).getContent().getGc().getCouvain().length());
+    assertEquals(5,Main.getGc().getCCase(0,0).getContent().getGc().getBrood().length());
   }
 
   @Test

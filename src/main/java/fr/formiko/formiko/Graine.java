@@ -11,22 +11,22 @@ import java.io.Serializable;
 // TODO Les graines apparaissent surtout en automne (80%) (saison encore a créer.)
 public class Graine extends ObjetSurCarteAId implements Serializable{
   private int givenFood;
-  private byte dureté; // il faut de bonne mandibule pour pouvoir ouvrir des graines de grande dureté, mais celle si contiène souvent plus de food !
+  private byte hardness; // il faut de bonne mandibule pour pouvoir ouvrir des graines de grande hardness, mais celle si contiène souvent plus de food !
   private boolean ouverte; // une graine ouverte est mangeable.
   private byte type;
   private byte tempsAvantDecomposition;
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public Graine(CCase ccase, int givenFood, byte dureté){
+  public Graine(CCase ccase, int givenFood, byte hardness){
     super(ccase); ouverte = false;
-    this.givenFood = givenFood; this.dureté = dureté;
+    this.givenFood = givenFood; this.hardness = hardness;
     type = (byte) allea.getAlléa(4);//0,1 ou 2.
     tempsAvantDecomposition = (byte)(20 + allea.getAlléa(100));// de 19 a 119
     if(ccase!=null){ccase.getGg().add(this);}
   }
   public Graine(CCase ccase){
     this(ccase,allea.getAlléa(400)+10,(byte) 0);
-    setDureté(getGivenFood()/10 + allea.getAlléa(80)); // de 1 a 41 + de 0 a 80.
+    setHardness(getGivenFood()/10 + allea.getAlléa(80)); // de 1 a 41 + de 0 a 80.
   }
   public Graine(){
     this(Main.getGc().getCCaseAlléa());
@@ -34,9 +34,9 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   // GET SET -------------------------------------------------------------------
   public int getGivenFood(){ return givenFood;}
   public void setFoodFourie(int x){ givenFood = x;}
-  public byte getDureté(){ return dureté;}
-  public void setDureté(byte x){ dureté = x;}
-  public void setDureté(int x){ if(x<-128 || x>127){ erreur.erreur("byte inoptencible depuis "+x);return;}setDureté((byte)x);}
+  public byte getHardness(){ return hardness;}
+  public void setHardness(byte x){ hardness = x;}
+  public void setHardness(int x){ if(x<-128 || x>127){ erreur.erreur("byte inoptencible depuis "+x);return;}setHardness((byte)x);}
   public boolean getOuverte(){ return ouverte;}
   public void setOuverte(boolean b){ouverte = b;}
   public void casser(){setOuverte(true);}
@@ -60,7 +60,7 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String adjOuverte; if(ouverte){ adjOuverte = "est ouverte"; }else{ adjOuverte = "est fermée";}
-    String s = "Graine "+id+", givenFood : "+givenFood+", dureté : "+dureté+", "+adjOuverte;
+    String s = "Graine "+id+", givenFood : "+givenFood+", hardness : "+hardness+", "+adjOuverte;
     return s;
   }
   /**

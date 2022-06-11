@@ -480,7 +480,7 @@ public class FPanelCarte extends FPanel {
               drawImageCentered(g,image.rotateImage(bi,dir),xT,yT);
             }catch (Exception e) {}
             if(gr.getOuverte()){listIconsRelation.add(getIconImage(5));}
-            else if(fi==null || gr.getDureté()<=fi.getDuretéMax()){listIconsRelation.add(getIconImage(4));}
+            else if(fi==null || gr.getHardness()<=fi.getHardnessMax()){listIconsRelation.add(getIconImage(4));}
             else {listIconsRelation.add(getIconImage(6));}
           }
         }

@@ -8,21 +8,19 @@ import fr.formiko.usuel.structures.listes.Liste;
 
 import java.io.Serializable;
 
+/**
+*{@summary List of seeds.}
+*lastEditedVersion 2.23
+*@author Hydrolien
+*/
 public class GGraine extends Liste<Graine> implements Serializable {
+
   // CONSTRUCTORS --------------------------------------------------------------
   public GGraine(){
     super();
   }
-  // GET SET -------------------------------------------------------------------
 
-  // FUNCTIONS -----------------------------------------------------------------
-  public String toString(){
-    String r = g.get("GGraine")+" : ";
-    if (getHead() == null){
-      return r+"ø";
-    }
-    return r+super.toString();
-  }
+  // GET SET -------------------------------------------------------------------
   /**
   *{@summary Return the seed that have the most givenFood.}
   *lastEditedVersion 2.23
@@ -31,16 +29,24 @@ public class GGraine extends Liste<Graine> implements Serializable {
     return getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
   }
   /**
-  *{@summary return the seed that have the most givenFood}
+  *{@summary Return the seed that have the most givenFood &38; with hardness &lb; hardnessMax.}
   *lastEditedVersion 2.23
   */
-  public Graine getGrainePlusDeGivenFood(int duretéMax){
-    return filter(g -> g.getOuverte() && g.getDureté()<duretéMax)
+  public Graine getGrainePlusDeGivenFood(int hardnessMax){
+    return filter(g -> g.getOuverte() && g.getHardness()<hardnessMax)
         .getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
   }
+  /**
+  *{@summary Return the seed that have the most givenFood &38; with hardness &lb; ant max hardness.}
+  *lastEditedVersion 2.23
+  */
   public Graine getGrainePlusDeGivenFood(Fourmi f){
-    return getGrainePlusDeGivenFood(f.getDuretéMax());
+    return getGrainePlusDeGivenFood(f.getHardnessMax());
   }
+  /**
+  *{@summary Return the first oppen seed.}
+  *lastEditedVersion 2.23
+  */
   public Graine getGraineOuverte(){
     for (Graine g : this) {
       if(g.getOuverte()){
@@ -49,11 +55,22 @@ public class GGraine extends Liste<Graine> implements Serializable {
     }
     return null;
   }
-  public void addGg(GGraine gg){
-    for (Graine g : gg) {
-      add(g);
-    }
+  
+  // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Return a list with all this class functions.}
+  *@lastEditedVersion 2.23
+  */
+  private static GGraine toGg(Liste<Graine> l){
+    GGraine g = new GGraine();
+    g.setHead(l.getHead());
+    g.setTail(l.getTail());
+    return g;
   }
+  /**
+  *{@summary make a copy.}
+  *lastEditedVersion 2.23
+  */
   public GGraine copierGGraine(){
     GGraine gg = new GGraine();
     for (Graine g : this) {
@@ -61,6 +78,10 @@ public class GGraine extends Liste<Graine> implements Serializable {
     }
     return gg;
   }
+  /**
+  *{@summary Apply tour() over every seed.}
+  *lastEditedVersion 2.23
+  */
   public void tour(){
     for (Graine g : this) {
       g.tour();

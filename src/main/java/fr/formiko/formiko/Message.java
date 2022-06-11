@@ -47,7 +47,7 @@ public class Message implements Serializable{
         // debug.débogage(gj.length()+" joueurs on été detecté comme humain");
         gj.addMessage(this);
       }else if(idDuJoueurConcerné>0){
-        Main.getJoueurParId(idDuJoueurConcerné).addMessage(this);
+        Main.getJoueurById(idDuJoueurConcerné).addMessage(this);
       }
     }catch (Exception e) {}
   }

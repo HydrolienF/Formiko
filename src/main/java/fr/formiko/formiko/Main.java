@@ -182,8 +182,8 @@ public class Main {
   public static Espece getEspece(){return getEspeceById(0);}
   public static Espece getEspeceById(int id){ return getGe().getEspeceById(id);}
   public static GEspece getGEspece(){ return getGe();}
-  public static Joueur getJoueurParId(int id){ return Main.getGj().getJoueurParId(id);}
-  public static Fourmiliere getFourmiliereParId(int id){ return getJoueurParId(id).getFere();}
+  public static Joueur getJoueurById(int id){ return Main.getGj().getJoueurById(id);}
+  public static Fourmiliere getFourmiliereById(int id){ return getJoueurById(id).getFere();}
   public static FFrame getF(){ try {return ((ViewGUI2d)view).getF();} catch (Exception e) {return null;}}
   public static Options getOp(){if(op!=null){return op;}else{if(tempOp==null){tempOp = Options.newDefaultOptions();} return tempOp;}}
   public static void saveOp(boolean threaded){if(op!=null){op.saveOptions(threaded);}}

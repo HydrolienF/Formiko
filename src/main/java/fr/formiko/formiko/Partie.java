@@ -415,7 +415,7 @@ public class Partie implements Serializable{
   */
   private boolean setPlayingAnt(int id){
     try {
-      return setPlayingAnt(triche.getFourmiParId(id+""));
+      return setPlayingAnt(triche.getFourmiById(id+""));
     }catch (Exception e) {
       erreur.erreur("the ant "+id+" can't be used to play.");
       return false;

@@ -543,8 +543,8 @@ public class ViewGUI2d implements View {
         //here were waiting for the final clic on the red button.
         if(Main.getPartie().getAntIdToPlay()!=-1){
           // erreur.info("action for ant "+Main.getPartie().getAntIdToPlay());
-          // Main.setPlayingAnt(Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay()));
-          Fourmi fToSelect = Main.getPlayingJoueur().getFere().getGc().getFourmiParId(Main.getPartie().getAntIdToPlay());
+          // Main.setPlayingAnt(Main.getPlayingJoueur().getFere().getGc().getFourmiById(Main.getPartie().getAntIdToPlay()));
+          Fourmi fToSelect = Main.getPlayingJoueur().getFere().getGc().getFourmiById(Main.getPartie().getAntIdToPlay());
           if(fToSelect.getMaxAction()>0){
             ((TourFourmiNonIa) fToSelect.tour).allowToDisableAutoMode();
           }else{

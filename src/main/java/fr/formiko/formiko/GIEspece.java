@@ -33,7 +33,7 @@ public class GIEspece extends Liste<IEspece> implements Serializable {
   *@param id id of the species
   *@lastEditedVersion 2.23
   */
-  public IEspece getIEspeceParId(int id){
+  public IEspece getIEspeceById(int id){
     for (IEspece e : this) {
       if (e.getId()==id){ return e;}
     }

@@ -105,28 +105,28 @@ public class CCase implements Serializable{
     GGraine gir = contenu.getGGraineCopier(); // ici on ne veut pas modifier le groupe originale alors on en fait une copie.
     //if (nbrDeCaseVoisine() != 4){ debug.débogage("La détection des graine ne marche pas car trop proche de la bordure de la carte");return gir;}
     try {
-      gir.addGg(droite.getContent().getGGraineCopier());
+      gir.add(droite.getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.addGg(haut.getContent().getGGraineCopier());
+      gir.add(haut.getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.addGg(bas.getContent().getGGraineCopier());
+      gir.add(bas.getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.addGg(gauche.getContent().getGGraineCopier());
+      gir.add(gauche.getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.addGg(gauche.getHaut().getContent().getGGraineCopier());
+      gir.add(gauche.getHaut().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.addGg(gauche.getBas().getContent().getGGraineCopier());
+      gir.add(gauche.getBas().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.addGg(droite.getHaut().getContent().getGGraineCopier());
+      gir.add(droite.getHaut().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.addGg(droite.getBas().getContent().getGGraineCopier());
+      gir.add(droite.getBas().getContent().getGGraineCopier());
     }catch (Exception e) {}
     return gir;
   }

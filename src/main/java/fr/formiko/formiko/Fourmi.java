@@ -31,7 +31,7 @@ public class Fourmi extends Creature implements Serializable{
   protected byte mode; // Par défaut la fourmi chasse (0)
   // Elle peut aussi défendre la fourmilière (1) ou aider a la création de nouvelles fourmis (3)
   protected Fourmiliere fere;
-  protected byte duretéMax;
+  protected byte hardnessMax;
   private static byte uneSeuleAction;
   private static boolean bActionHaveChange=false;
   // private static boolean bupdateSize=false;
@@ -53,8 +53,8 @@ public class Fourmi extends Creature implements Serializable{
     super(fere.getCc(),0,e.getGIndividu().getIndividuByType(ty).getMaxAge(0),0);
     typeF = ty; this.e = e; this.fere = fere; stade = (byte)-3; health = (byte) 100;
     iniPheromone();
-    // a modifier a partir des individus quand duretée sera un paramètre. OU alors on dit que duretéMax est fixe en fonction des individus. Genre les gros casse tout, les moyen jusqu'a 60 et les petit jusqu'a 20.
-    duretéMax=0;
+    // a modifier a partir des individus quand hardnesse sera un paramètre. OU alors on dit que hardnessMax est fixe en fonction des individus. Genre les gros casse tout, les moyen jusqu'a 60 et les petit jusqu'a 20.
+    hardnessMax=0;
     setGivenFood(e.getGivenFood(getStade()));
     fere.getCc().getContent().getGc().add(this);
     evoluer = new EvoluerFourmi();
@@ -129,8 +129,8 @@ public class Fourmi extends Creature implements Serializable{
   public void setFourmiliere(Fourmiliere gf){fere = gf;}public void setFere(Fourmiliere fere){setFourmiliere(fere);}
   public Fourmiliere getFourmiliere(){return fere;} public Fourmiliere getFere(){ return getFourmiliere();}
   public Joueur getJoueur(){ if(getFere()==null){ return null;}return getFere().getJoueur();}
-  public byte getDuretéMax(){ return duretéMax;}
-  public void setDuretéMax(byte x){ duretéMax=x; }
+  public byte getHardnessMax(){ return hardnessMax;}
+  public void setHardnessMax(byte x){ hardnessMax=x; }
   public int getX(){return getCCase().getContent().getX();}
   public int getY(){return getCCase().getContent().getY();}
   public void setFoodMoinsConsomFood(){ setFood(getFood()-getFoodConso());}
@@ -335,7 +335,7 @@ public class Fourmi extends Creature implements Serializable{
     try {
       debug.débogage("Etape 1");
       erreur.println(fere.getGg().getGrainePlusDeGivenFood(this));
-      if (fere.getGg().getGrainePlusDeGivenFood(this).getDureté() < this.getDuretéMax()){
+      if (fere.getGg().getGrainePlusDeGivenFood(this).getHardness() < this.getHardnessMax()){
         debug.débogage("Etape 2");
         fere.getGg().getGrainePlusDeGivenFood(this).casser();return true;
       }return false;
