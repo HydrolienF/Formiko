@@ -96,16 +96,20 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   }
   /**
   *{@summary Add an other linked list at tail of the linked list.}<br>
-  *@lastEditedVersion 1.31
+  *@lastEditedVersion 2.23
   */
   public void addList(Liste<T> list){
     if(list == null || list.getHead() == null){ return;}
-    if (getTail() == null){
-      head = list.getHead();
-      tail = list.getTail();
-    }else {
-      tail.setNext(list.getHead());
-      tail = list.getTail();
+    //this way to do may link still used list
+    // if (getTail() == null){
+    //   head = list.getHead();
+    //   tail = list.getTail();
+    // }else {
+    //   tail.setNext(list.getHead());
+    //   tail = list.getTail();
+    // }
+    for (T t : list) {
+      add(t);
     }
   }
   public void add(Liste<T> list){addList(list);}
