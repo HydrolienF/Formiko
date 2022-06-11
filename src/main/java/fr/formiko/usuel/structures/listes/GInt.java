@@ -67,8 +67,8 @@ public class GInt extends Liste<Integer> implements Serializable{
         total+=val*multiscore[k];
         k++;
       }
-      if(fere.getJoueur()!=null && !fere.getJoueur().getIa() && fere.getGc()!=null && fere.getGc().toList().getFirst()!=null){
-        total=(int)(total*((Fourmi) (fere.getGc().toList().getFirst())).getMultiplicateurDeDiff());
+      if(fere.getJoueur()!=null && !fere.getJoueur().getIa() && fere.getGc()!=null && fere.getGc().getFirst()!=null){
+        total=(int)(total*((Fourmi) (fere.getGc().getFirst())).getMultiplicateurDeDiff());
       }
       return total;
     }

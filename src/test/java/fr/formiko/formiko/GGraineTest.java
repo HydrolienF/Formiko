@@ -15,25 +15,25 @@ public class GGraineTest extends TestCaseMuet {
     gg.addTail(new Graine(null, 40, (byte)0));
     gg.addTail(new Graine(null, 120, (byte)0));
     gg.addTail(new Graine(null, 150, (byte)0));
-    for (Graine g : gg.toList()) {
+    for (Graine g : gg) {
       g.casser();
     }
-    gg.toList().get(4).setOuverte(false);
-    Graine max=gg.toList().filter(g -> g.getOuverte()).getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
-    assertEquals(gg.toList().get(3),max);
+    gg.get(4).setOuverte(false);
+    Graine max=gg.filter(g -> g.getOuverte()).getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
+    assertEquals(gg.get(3),max);
   }
   @Test
   public void testFilterAndGetMost2(){
     GGraine gg = new GGraine();
-    Graine max=gg.toList().filter(g -> g.getOuverte()).getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
+    Graine max=gg.filter(g -> g.getOuverte()).getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
     assertEquals(null,max);
 
     gg.add(new Graine(null, 100, (byte)1));
-    max=gg.toList().filter(g -> g.getOuverte()).getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
+    max=gg.filter(g -> g.getOuverte()).getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
     assertEquals(null,max);
 
-    gg.toList().get(0).setOuverte(true);
-    max=gg.toList().filter(g -> g.getOuverte()).getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
-    assertEquals(gg.toList().get(0),max);
+    gg.get(0).setOuverte(true);
+    max=gg.filter(g -> g.getOuverte()).getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
+    assertEquals(gg.get(0),max);
   }
 }

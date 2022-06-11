@@ -9,6 +9,10 @@ import fr.formiko.usuel.structures.listes.Liste;
 import java.io.Serializable;
 import java.util.Comparator;
 
+/**
+*{@summary Return all the Creatures of all the players.}
+*@lastEditedVersion 2.23
+*/
 public class GJoueur extends Liste<Joueur> implements Serializable {
 
   // CONSTRUCTORS --------------------------------------------------------------

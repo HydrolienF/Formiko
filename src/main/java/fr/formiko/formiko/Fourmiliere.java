@@ -176,7 +176,7 @@ public class Fourmiliere implements Serializable{
     Main.getView().setPlayingAnt(null);
     setWaitingForEndTurn(true);
     Main.getView().waitForEndTurn();
-    for (Creature c : gc.toList()) {
+    for (Creature c : gc) {
       c.endTurn();
     }
     setWaitingForEndTurn(false);

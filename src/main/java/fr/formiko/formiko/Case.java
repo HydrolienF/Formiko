@@ -221,13 +221,13 @@ public class Case implements Serializable{
       GCreature gc = getSortedGc();
       if (gc != null && gc.getHead() != null){
         s=s+g.get("creatures")+" : "; s=s+"\n";
-        for (Creature c : gc.toList()) {
+        for (Creature c : gc) {
           s+=c.toStringShort()+"\n";
         }
       }
       if (gg != null && gg.getHead() != null){
         s=s+g.get("graines")+" : ";s=s+"\n";
-        for (Graine g : gg.toList()) {
+        for (Graine g : gg) {
           s+=g.toStringShort()+"\n";
         }
       }
@@ -266,7 +266,7 @@ public class Case implements Serializable{
       }
       return new GCreature(gcout);
       // Liste<Creature> list = new Liste<Creature>();
-      // for (Creature c : getGc().toList()) {
+      // for (Creature c : getGc()) {
       //   list.addSorted(c, (c1, c2) -> c1.friendlyLevel(f) - c2.friendlyLevel(f));
       // }
       // GCreature gcr = new GCreature();

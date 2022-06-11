@@ -194,7 +194,7 @@ public class CaseTest extends TestCaseMuet{
     tc[0]=f;
     tc[1]=f2;
     tc[2]=f3;
-    assertArrayEquals(tc,gc.toList().toArray());
+    assertArrayEquals(tc,gc.toArray());
   }
   @Test
   public void testGetSortedGc2(){
@@ -210,7 +210,7 @@ public class CaseTest extends TestCaseMuet{
     tc[0]=f;
     tc[1]=f3;
     tc[2]=f2;
-    assertArrayEquals(tc,gc.toList().toArray());
+    assertArrayEquals(tc,gc.toArray());
   }
   @Test
   public void testGetSortedGcB(){
@@ -226,7 +226,7 @@ public class CaseTest extends TestCaseMuet{
     tc[0]=f;
     tc[1]=f3;
     tc[2]=f2;
-    assertArrayEquals(tc,gc.toList().toArray());
+    assertArrayEquals(tc,gc.toArray());
   }
   @Test
   public void testGetSortedGc2B(){
@@ -242,7 +242,7 @@ public class CaseTest extends TestCaseMuet{
     tc[0]=f;
     tc[1]=f3;
     tc[2]=f2;
-    assertArrayEquals(tc,gc.toList().toArray());
+    assertArrayEquals(tc,gc.toArray());
   }
   @Test
   public void testGetSortedGc3(){
@@ -261,7 +261,7 @@ public class CaseTest extends TestCaseMuet{
     tc[1]=f2;
     tc[2]=f4;
     tc[3]=f3;
-    assertArrayEquals(tc,gc.toList().toArray());
+    assertArrayEquals(tc,gc.toArray());
   }
   @Test
   public void testGetSortedGc4(){
@@ -285,7 +285,7 @@ public class CaseTest extends TestCaseMuet{
     tc[2]=f4;
     tc[3]=f3;
     tc[4]=i;
-    assertArrayEquals(tc,gc.toList().toArray());
+    assertArrayEquals(tc,gc.toArray());
   }
   @Test
   public void testGetSortedGc5(){
@@ -309,6 +309,6 @@ public class CaseTest extends TestCaseMuet{
     tc[2]=f2;
     tc[3]=i;
     tc[4]=f3;
-    assertArrayEquals(tc,gc.toList().toArray());
+    assertArrayEquals(tc,gc.toArray());
   }
 }

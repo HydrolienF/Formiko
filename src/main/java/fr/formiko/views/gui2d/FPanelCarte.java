@@ -573,7 +573,7 @@ public class FPanelCarte extends FPanel {
   */
   //public only for test
   public static Liste<Creature> gcSortedByImageSize(GCreature gc){
-    Liste<Creature> listToPrint = gc.toList();
+    Liste<Creature> listToPrint = gc;
     if(Main.getOp().getRealisticSize()==0){return listToPrint;}
     listToPrint.sort(imageSizeComparator);
     return listToPrint;

@@ -43,13 +43,19 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   // GET SET ----------------------------------------------------------------------
 
   // FUNCTIONS -----------------------------------------------------------------
+  private static GCreature toGc(Liste<Creature> l){
+    GCreature gc = new GCreature();
+    gc.setHead(l.getHead());
+    gc.setTail(l.getTail());
+    return gc;
+  }
   /**
   *{summary Return the 1a queen of the anthill}
   *,or null if there is no qeen.
   *@lastEditedVersion 2.1
   */
   public Fourmi getReine(){
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       if (c instanceof Fourmi && ((Fourmi)c).estReine()){
         return ((Fourmi)c);
       }
@@ -62,7 +68,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@lastEditedVersion 2.10
   */
   public GCreature getGcStade(int stade){
-    return new GCreature(filter(c -> c.getStade()==stade));
+    return toGc(filter(c -> c.getStade()==stade));
   }
   /**
   *{summary Return all the Ant at a specific typeF.}
@@ -70,18 +76,18 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@lastEditedVersion 2.10
   */
   public GCreature getGcType(int typeF){
-    return new GCreature(filter(c -> c instanceof Fourmi && ((Fourmi)c).getTypeF()==typeF));
+    return toGc(filter(c -> c instanceof Fourmi && ((Fourmi)c).getTypeF()==typeF));
   }
   /**
   *{summary Return all the Creature at an other stade than 0.}
   *@lastEditedVersion 2.10
   */
   public GCreature getCouvain(){ // on renvoie d'habord les plus proches de la transformation en Fourmi adulte.
-    return new GCreature(toList().filter(c -> c.getStade()!=0));
+    return toGc(filter(c -> c.getStade()!=0));
   }
   public Creature getCouvainSaleE()throws EmptyListException{
-    if(toList().isEmpty()){throw new EmptyListException("GCreature","trouver la créature sale du couvain");}
-    return toList().filter(c -> c.getStade()!=0 && c.getHealth()<90).getFirst();
+    if(isEmpty()){throw new EmptyListException("GCreature","trouver la créature sale du couvain");}
+    return filter(c -> c.getStade()!=0 && c.getHealth()<90).getFirst();
   }
   public Creature getCouvainSale(){
     try {
@@ -89,7 +95,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
     }catch (EmptyListException e){return null;}
   }
   public GCreature getCouvainsSale(){
-    return new GCreature(toList().filter(c -> c.getStade()!=0 && c.getHealth()<90));
+    return toGc(filter(c -> c.getStade()!=0 && c.getHealth()<90));
   }
   // a add :
   // public GCreature getGcSiMemeFere(Fourmiliere fere){}
@@ -99,8 +105,8 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@lastEditedVersion 2.1
   */
   private Creature getCreatureParIdE(int id) throws EmptyListException {
-    if(toList().isEmpty()){ throw new EmptyListException("GCreature","trouver la créature "+id);}
-    for (Creature c : toList() ) {
+    if(isEmpty()){ throw new EmptyListException("GCreature","trouver la créature "+id);}
+    for (Creature c : this ) {
       if(c.getId()==id){return c;}
     }
     return null;
@@ -135,7 +141,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
     if(fere==null){throw new NullPointerException();}
     Liste<Fourmi> lc = new Liste<Fourmi>();
     Comparator<Fourmi> idComparator = (Fourmi p1, Fourmi p2) -> (int)(p2.getId() - p1.getId());
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       if(c instanceof Fourmi){ //an Ant
         if(((Fourmi)c).getFere().equals(fere)){ //Of the same fere
           lc.addSorted((Fourmi)c, idComparator);
@@ -168,7 +174,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@lastEditedVersion 2.10
   */
   private GCreature filterAlliés(Creature cTested, int differenceTolerated){
-    return new GCreature(toList().filter(c -> cTested.getPheromone().equals(c.getPheromone(),differenceTolerated)));
+    return toGc(filter(c -> cTested.getPheromone().equals(c.getPheromone(),differenceTolerated)));
   }
   /**
   *{@summary return the Creatures that are ally with c.}<br>
@@ -184,32 +190,32 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@lastEditedVersion 2.10
   */
   public GCreature filterFaimMax(){
-    return new GCreature(toList().filter(c -> c.getFood()<c.getMaxFood()));
+    return toGc(filter(c -> c.getFood()<c.getMaxFood()));
   }
   /**
   *{@summary delete Creature that can't be cleaner.}<br>
   *@lastEditedVersion 2.10
   */
   public GCreature filterHealthMax(){
-    return new GCreature(toList().filter(c -> c.getHealth()<c.getMaxHealth()));
+    return toGc(filter(c -> c.getHealth()<c.getMaxHealth()));
   }
   /**
   *{@summary delete Creature that didn't whant food.}<br>
   *@lastEditedVersion 2.10
   */
   public GCreature filterWantFood(){
-    return new GCreature(toList().filter(c -> c.wantFood()));
+    return toGc(filter(c -> c.wantFood()));
   }
   /**
   *{@summary delete Creature that didn't whant clean.}<br>
   *@lastEditedVersion 2.1
   */
   public GCreature filterWantClean(){
-    return new GCreature(toList().filter(c -> c.wantClean()));
+    return toGc(filter(c -> c.wantClean()));
   }
   public void setLienFere(Fourmiliere fere){
     GCreature gcr = new GCreature();
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       if(c instanceof Fourmi){
         Fourmi fTest = (Fourmi)(c);
         fTest.setFere(fere);
@@ -242,7 +248,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   public int [] gcToTInt(){
     int lentr=length();
     int tr[]=new int [lentr];int k=0;
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       tr[k]=c.getId();k++;
     }
     return tr;
@@ -252,7 +258,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   }
   public GInsecte getGi(){
     GInsecte gi = new GInsecte();
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       if(c instanceof Insecte){gi.add((Insecte)c);}
     }
     return gi;
@@ -267,10 +273,10 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@lastEditedVersion 2.5
   */
   private void jouerE() throws EmptyListException{
-    if(toList().isEmpty()){
+    if(isEmpty()){
       throw new EmptyListException("GCreature","jouer");
     }else{
-      for (Creature c : toList()) {
+      for (Creature c : this) {
         if((Main.getPartie()!=null && !Main.getPartie().getContinuerLeJeu()) || Main.getRetournerAuMenu()){return;}
         if(c instanceof Fourmi){
           Fourmi fActuel = (Fourmi)c;
@@ -279,7 +285,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
             continue;
           }
           if(Main.getPartie().getAntIdToPlay()!=-1 && !fActuel.getIa()){
-            // erreur.info("test de "+Main.getPartie().getAntIdToPlay()+" & "+c.getId()+" sur les "+length()+" fourmis ("+toList().toStringId()+")");
+            // erreur.info("test de "+Main.getPartie().getAntIdToPlay()+" & "+c.getId()+" sur les "+length()+" fourmis ("+toStringId()+")");
             //if player have clic on this ant.
             if(Main.getPartie().getAntIdToPlay()==c.getId()){
               Main.getPartie().setAntIdToPlay(-1);
@@ -329,10 +335,10 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@lastEditedVersion 2.1
   */
   private void preTurnE() throws EmptyListException{
-    if(toList().isEmpty()){
+    if(isEmpty()){
       throw new EmptyListException("GCreature","preTurn");
     }else{
-      for (Creature c : toList()) {
+      for (Creature c : this) {
         if(c instanceof Fourmi){
           Fourmi fActuel = (Fourmi)c;
           fActuel.preTurn();
@@ -356,7 +362,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@lastEditedVersion 2.1
   */
   public void updateCaseSN(){
-    for (Creature c : toList() ) {
+    for (Creature c : this ) {
       if(c instanceof Fourmi){
         Fourmi f = (Fourmi)(c);
         Joueur j = f.getJoueur();
@@ -373,7 +379,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   }
 
   public void classerPourNetoyage(){
-    if(toList().isEmpty()){return;}
+    if(isEmpty()){return;}
     //TODO
     //le but est d'habord que personne ne passe en dessous des x de healthe minimum lié au niveau de difficulté.
     //on met tout ce qui sont en dessous de 50 dans l'ordre d'age/stade.
@@ -382,22 +388,10 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   public int [] toTId(){
     int tr []= new int[this.length()];
     int k=0;
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       tr[k]=c.getId();k++;
     }
     return tr;
-  }
-  /**
-  *{@summary Transform a GCreature in Liste&lt;Creature&gt;.}
-  *@lastEditedVersion 1.38
-  */
-  public Liste<Creature> toList(){
-    // if (début==null){
-    //   Liste<Creature> lc = new Liste<Creature>();
-    //   return lc;
-    // }
-    // return début.toList();
-    return new GCreature(this);
   }
   /**
   *{@summary Return true if all Creature have played to there last action.}
@@ -405,7 +399,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@lastEditedVersion 2.1
   */
   public boolean haveDoneAllActionAviable(){
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       if(c.getAction()>0){return false;}
       // TODO #410 if(c.getAction()>0 && (!(c instanceof Fourmi) || ((Fourmi)c).isAutoMode())){return false;}
     }
@@ -416,7 +410,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@lastEditedVersion 2.5
   */
   public boolean isAllInAutoMode(){
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       if(c instanceof Fourmi && !((Fourmi)c).isAutoMode() && ((Fourmi)c).getStade()==0){return false;}
     }
     return true;
@@ -426,7 +420,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@lastEditedVersion 2.5
   */
   public boolean isAllInAutoModeOrHaveDoneAllAction(){
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       if(c instanceof Fourmi && !((Fourmi)c).isAutoMode() && c.getAction()>0){return false;}
     }
     return true;
@@ -438,7 +432,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@lastEditedVersion 1.x
   */
   public boolean setAction0AndEndTurn(){
-    for (Creature c : toList()) {
+    for (Creature c : this) {
       if(c.getAction()>0){
         c.setAction(0);
         c.tour();//force to do finTour() without any action ant will do nothing.

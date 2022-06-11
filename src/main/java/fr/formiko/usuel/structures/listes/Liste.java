@@ -22,9 +22,9 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   public Liste(){}
   // GET SET -------------------------------------------------------------------
   public ListeNode<T> getHead(){return head;}
-  private void setHead(ListeNode<T> node){head=node;}
+  protected void setHead(ListeNode<T> node){head=node;}
   public ListeNode<T> getTail(){return tail;}
-  private void setTail(ListeNode<T> node){tail=node;}
+  protected void setTail(ListeNode<T> node){tail=node;}
   public T getFirst(){if(getHead()!=null){return getHead().getContent();}else{return null;}}
   public T getLast(){if(getTail()!=null){return getTail().getContent();}else{return null;}}
   // FUNCTIONS -----------------------------------------------------------------

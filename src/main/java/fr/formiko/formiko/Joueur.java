@@ -76,7 +76,7 @@ public class Joueur implements Serializable{
   *@lastEditedVersion 2.1
   */
   public void setPheromone(Pheromone ph){
-    for (Creature c : fere.getGc().toList()) {
+    for (Creature c : fere.getGc()) {
       c.setPheromone(ph);
     }
   }

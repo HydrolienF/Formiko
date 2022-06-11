@@ -63,7 +63,7 @@ public class FPanelCarteTest extends TestCaseMuet{
     gc.add(f2);
     int t [] = {1,2,4,3,5};
     int k=0;
-    for (Creature c : gc.toList()) {
+    for (Creature c : gc) {
       assertEquals(t[k], c.getId());
       k++;
     }
