@@ -42,7 +42,7 @@ public class CaseTest extends TestCaseMuet{
   public void testToString(){
     Fourmi f = ini();
     p.setPlayingAnt(f);
-    Joueur j = Main.getGj().getHead().getContent();
+    Joueur j = Main.getGj().getFirst();
     j.initialisationCaseNS();
     j.updateCaseSN();
     assertEquals(0,Main.getOp().getLanguage());
@@ -64,7 +64,7 @@ public class CaseTest extends TestCaseMuet{
   // @Test
   // public void testToString2(){
   //   Fourmi f = ini();
-  //   Joueur j = Main.getGj().getHead().getContent();
+  //   Joueur j = Main.getGj().getFirst();
   //   j.initialisationCaseNS();
   //   j.updateCaseSN();
   //   //show everything
@@ -81,7 +81,7 @@ public class CaseTest extends TestCaseMuet{
   @Test
   public void testToString3(){
     Fourmi f = ini();
-    Joueur j = Main.getGj().getHead().getContent();
+    Joueur j = Main.getGj().getFirst();
     p.getCarte().setCasesNuageuses(false);
     p.setPlayingAnt(f);
     j.initialisationCaseNS();

@@ -141,7 +141,7 @@ public class GString extends Liste<String> implements Serializable {
       */
       //phase 1 on cré un tableau avec tout les éléments de début.
       //String t [] = {"Reine..."}
-      String t [] = getHead().getContent().split("\n");int lent = t.length;
+      String t [] = getFirst().split("\n");int lent = t.length;
       //phase 2 on add a la fin de chaque line les éléments de chaque CString.
       for (String s : this ) {
         String tTemp [] = s.split("\n");
@@ -188,7 +188,7 @@ public class GString extends Liste<String> implements Serializable {
   }
   /*public boolean supprimer(String s, int max){
     if (getHead()==null){ return 0;}
-    if(getHead().getContent().equals(s)){//on teste la 1a CString car après on vérifira seulement la suivante. (puis la suivante et ainsi de suite).
+    if(getFirst().equals(s)){//on teste la 1a CString car après on vérifira seulement la suivante. (puis la suivante et ainsi de suite).
       getHead() = getHead().getNext(); return true;
     }
     int b = getHead().supprimer(s);

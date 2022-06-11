@@ -62,7 +62,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@lastEditedVersion 2.10
   */
   public GCreature getGcStade(int stade){
-    return new GCreature(toList().filter(c -> c.getStade()==stade));
+    return new GCreature(filter(c -> c.getStade()==stade));
   }
   /**
   *{summary Return all the Ant at a specific typeF.}
@@ -70,7 +70,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *@lastEditedVersion 2.10
   */
   public GCreature getGcType(int typeF){
-    return new GCreature(toList().filter(c -> c instanceof Fourmi && ((Fourmi)c).getTypeF()==typeF));
+    return new GCreature(filter(c -> c instanceof Fourmi && ((Fourmi)c).getTypeF()==typeF));
   }
   /**
   *{summary Return all the Creature at an other stade than 0.}

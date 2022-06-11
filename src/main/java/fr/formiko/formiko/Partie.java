@@ -182,8 +182,8 @@ public class Partie implements Serializable{
       //TODO #473 use fully anthillAlreadySet
       boolean anthillAlreadySet = true;
       if(anthillAlreadySet){
-        for (Joueur j : gj.toList()) {
-          for (Creature c : j.getFere().getGc().toList()) {
+        for (Joueur j : gj) {
+          for (Creature c : j.getFere().getGc()) {
             if(c instanceof Fourmi || ((Fourmi)(c)).estReine()){
               ((Fourmi)(c)).setCutWings(true);
             }
@@ -269,7 +269,7 @@ public class Partie implements Serializable{
       finDePartie(2);
     }
     //si aucun joueur humain n'as de fourmi :
-    if(Main.getGj().toList().filter(j -> j.getFere().getGc().length()!=0 && !j.isAI()).length()==0){
+    if(Main.getGj().filter(j -> j.getFere().getGc().length()!=0 && !j.isAI()).length()==0){
       finDePartie(0); //0=défaite
     }
     //afichage
@@ -286,7 +286,7 @@ public class Partie implements Serializable{
     Joueur winner = null;
     String pseudo = "";
     try {
-       winner = gjSorted.getHead().getContent();
+       winner = gjSorted.getFirst();
        pseudo = winner.getPseudo();
     }catch (NullPointerException e) {}
     if (x==2){
@@ -381,7 +381,7 @@ public class Partie implements Serializable{
    * @lastEditedVersion 1.1
    */
   private void iniParametreCarteTuto(){
-    Fourmiliere fere = getGj().getHead().getContent().getFere();
+    Fourmiliere fere = getGj().getFirst().getFere();
     CCase ccIni = getGc().getCCase(0,1);
     fere.setCc(ccIni);
     fere.getGc().getFirst().setCCase(ccIni);

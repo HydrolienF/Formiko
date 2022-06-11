@@ -168,7 +168,7 @@ public class action {
   private static String getSaveName(){
     String saveName = g.getM("sauvegarde")+" "+sauvegarderUnePartie.getSave().getIdS();//donne un identifiant unique au fichier.
     try {
-      //saveName+="  "+Main.getGj().getHead().getContent().getPseudo();
+      //saveName+="  "+Main.getGj().getFirst().getPseudo();
       saveName+="  "+Temps.getDatePourSauvegarde();
     }catch (Exception e) {
       erreur.alerte("Un nom de sauvegarde n'a pas pu être choisi.");

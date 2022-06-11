@@ -331,7 +331,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
     try {
       T t = (T)o;
       if(getHead()==null || t==null){return false;}
-      if(getHead().getContent().equals(t)){head=getHead().getNext(); return true;}
+      if(getFirst().equals(t)){head=getHead().getNext(); return true;}
       boolean b=getHead().remove(t);
       updateTail();
       return b;
@@ -476,7 +476,7 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   public boolean addSorted(T t, Comparator<? super T> c){
     if(getHead()==null){
       return add(t);
-    }else if(c.compare(t,getHead().getContent())>0){
+    }else if(c.compare(t,getFirst())>0){
       ListeNode<T> newNode = new ListeNode<T>(t);
       newNode.setNext(getHead());
       setHead(newNode);

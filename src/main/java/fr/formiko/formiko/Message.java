@@ -119,10 +119,8 @@ public class Message implements Serializable{
       //Ici on doit filterr les joueurs qui ne vois pas la case ou la fourmi meurt.
 
 
-      CJoueur cj = gj.getHead();
       String laNotre = g.getM("la");
-      while(cj!=null){
-        Joueur j = cj.getContent();
+      for (Joueur j : gj) {
         String status = g.get("neutre");
         Fourmi r =null;
         try {
@@ -146,8 +144,7 @@ public class Message implements Serializable{
         }
         String tueur = g.getOr("la","le")+" "+nom;
         String texte = laNotre +" "+ g.get("fourmi")+" "+status+"("+f.getId()+")"+" "+ g.get("mort"+raison)+" "+tueur+".";
-        new Message(texte,cj.getContent().getId());
-        cj=cj.getSuivant();
+        new Message(texte,j.getId());
       }
     }catch (Exception e2) {
       erreur.alerte("death message fail.");

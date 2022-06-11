@@ -444,7 +444,7 @@ public class Main {
     if(!getPartie().getLaunchingFromSave()){
       getGc().tourCases(); //actualisation des ressources sur les cases.
       getGi().preTurn(); //actualisation des actions des insectes
-      for (Joueur j : getGj().toList()) {
+      for (Joueur j : getGj()) {
         j.getFere().preTurn();
       }
     }else{

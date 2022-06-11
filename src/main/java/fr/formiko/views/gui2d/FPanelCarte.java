@@ -260,7 +260,7 @@ public class FPanelCarte extends FPanel {
     if(Main.getPartie().getCarte().getCasesNuageuses()==true){ //si il y a des cases nuageuses
       try {
         if(Main.getPartie().getGj().getNbrDeJoueurHumain()==1){//si il ya moins de 2 joueurs, on peu afficher les cases que le joueur voie.
-          jo = Main.getPartie().getGj().getJoueurHumain().getHead().getContent();
+          jo = Main.getPartie().getGj().getJoueurHumain().getFirst();
         }
         if (jo==null || (x>=0 && y>=0 && jo.getCaseNuageuse(x,y))){//0 playing player or caseNuageuse for the playing player.
           // drawImage(g,Main.getData().getCloudMap(),xT,yT);
