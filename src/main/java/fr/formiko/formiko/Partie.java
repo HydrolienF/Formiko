@@ -25,12 +25,12 @@ import java.util.Map;
 *@author Hydrolien
 *@lastEditedVersion 1.39
 */
-public class Partie implements Serializable{
+public class Partie implements Serializable {
   private static final long serialVersionUID = 1L;
   private static String script="";
   private GInsecte gi;
   private GJoueur gj;
-  private static GEspece ge;
+  private static transient GEspece ge;
   private Carte mapo;
   private int nbrDeTour, tour;
   private int niveauDeLimitationDesinsectes = 4;
