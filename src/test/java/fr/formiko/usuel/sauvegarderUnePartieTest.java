@@ -19,7 +19,7 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
   // FUNCTIONS -----------------------------------------------------------------
   public void ini(){
     Main.initialisation();
-    int x = allea.getAllea(10000);
+    int x = getId();
     sauvegarderUnePartie.sauvegarder(new Partie(), "test"+x);
     String s = sauvegarderUnePartie.getNomDuFichierComplet();
     f = new File(s);
@@ -112,5 +112,25 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
     sauvegarderUnePartie.sauvegarder(Main.getPartie(), "testVraisPartie");
     Partie p = sauvegarderUnePartie.charger("testVraisPartie");
     assertEquals(p, null);
+  }
+  @Test
+  public void testSaveManyCreatures(){
+    Main.setPartie(new Partie()); //nouvelle partie vide.
+    debug.setDPG(false);
+    Main.initialisation();
+    Main.setPartie(Partie.getDefautlPartie());
+    Main.getPartie().initialisationElément();
+    triche.ini();
+    // Create 10k insecte take ~ 0.4s
+    for (int i=0; i<10000; i++) {
+      triche.commande("new Insecte 0 0 1");
+    }
+    // Save & load 10k insecte take ~ 8s but, it work when default function to save fail
+    assertTrue(Main.getPartie().setPlayingAnt(triche.getFourmiById("1")));
+    sauvegarderUnePartie.sauvegarder(Main.getPartie(), "testVraisPartie");
+    Partie p = sauvegarderUnePartie.charger("testVraisPartie");
+    assertTrue(Main.getPartie().equals(p));
+    assertTrue(sauvegarderUnePartie.supprimer("testVraisPartie"));
+    assertTrue(!sauvegarderUnePartie.supprimer("testVraisPartie"));//le fichier n'existe déja plus.
   }
 }

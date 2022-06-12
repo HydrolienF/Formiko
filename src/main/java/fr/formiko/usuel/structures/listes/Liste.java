@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.function.Predicate;
+import java.io.IOException;
 
 /**
 *{@summary Custom Linked Liste class using Generics.}<br>
@@ -508,6 +509,29 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
   */
   public Iterator<T> iterator(){
     return new ListeIterator<T>(this);
+  }
+  /**
+  *{@summary Save Serializable list with a iterative implementation.}<br>
+  *This is used to avoid save issues with big saves.
+  *@lastEditedVersion 2.24
+  */
+  private void writeObject(java.io.ObjectOutputStream stream) throws IOException {
+    stream.writeInt(length());
+    for (T t : this) {
+      stream.writeObject(t);
+    }
+  }
+  /**
+  *{@summary Load Serializable list with a iterative implementation.}<br>
+  *This is used to avoid save issues with big saves.
+  *@lastEditedVersion 2.24
+  */
+  @SuppressWarnings("unchecked")
+  private void readObject(java.io.ObjectInputStream stream) throws IOException, ClassNotFoundException {
+    int len=stream.readInt();
+    for (int i=0; i<len; i++) {
+      add((T)stream.readObject());
+    }
   }
 }
 /**
