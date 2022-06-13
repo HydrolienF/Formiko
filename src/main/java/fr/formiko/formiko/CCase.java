@@ -14,16 +14,24 @@ import java.io.Serializable;
 public class CCase implements Serializable{
   private CCase haut, bas, droite, gauche;
   private Case contenu;
+  private GCase gc;
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public CCase(Case contenu){
-    this.contenu = contenu;
+  public CCase(Case contenu, GCase gc){
+    this.contenu=contenu;
+    this.gc=gc;
     if(contenu==null){
       erreur.erreur("Le contenu est déclaré vide !",true);
     }
   }
+  public CCase(int x, int y, GCase gc){
+    this(new Case(x,y), gc);
+  }
+  public CCase(Case contenu){
+    this(contenu,null);
+  }
   public CCase(int x, int y){
-    this(new Case(x,y));
+    this(x, y, null);
   }
   // GET SET -------------------------------------------------------------------
   public CCase getUp(){return haut;}
@@ -39,6 +47,8 @@ public class CCase implements Serializable{
   public GGraine getGg(){return contenu.getGg();}
   public int getX(){return getContent().getX();}
   public int getY(){return getContent().getY();}
+  public GCase getGc() {return gc;}
+	// public void setGc(GCase gc) {this.gc=gc;}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     return getContent().toString();
@@ -288,6 +298,6 @@ public class CCase implements Serializable{
     while (cc.getRigth() != null){
       cc = cc.getRigth();
     }
-    cc.setRigth(new CCase(c));
+    cc.setRigth(new CCase(c,gc));
   }
 }

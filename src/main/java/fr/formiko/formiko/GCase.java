@@ -25,7 +25,7 @@ public class GCase implements Serializable{
     ccases = new CCase[width][height];
     for (int x=0; x<width; x++) {
       for (int y=0; y<height; y++) {
-        ccases[x][y]=new CCase(x,y);
+        ccases[x][y]=new CCase(x,y,this);
       }
     }
 
