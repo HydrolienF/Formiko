@@ -255,11 +255,11 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     f.getFere().getJoueur().setIa(true);
     Main.setDifficulté(0);
     f.setAction(f.getMaxAction());
-    new Graine(Main.getGc().getCCase(1,1),100,(byte)10);
-    new Graine(Main.getGc().getCCase(0,2),105,(byte)10);
+    new Graine(Main.getGc().getCCase(1,1),105,(byte)10);
+    new Graine(Main.getGc().getCCase(0,2),100,(byte)10);
     f.chasser(8);
     assertTrue(f.getAction()<f.getMaxAction());
-    assertEquals(Main.getGc().getCCase(1,1),f.getCCase());
+    assertEquals(Main.getGc().getCCase(0,2),f.getCCase()); //0,2 is before in GGraine
     assertEquals(null,f.getTransported());
   }
   //if it choose best seed.

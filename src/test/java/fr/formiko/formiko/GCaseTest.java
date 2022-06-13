@@ -2,14 +2,8 @@ package fr.formiko.formiko;
 
 import org.junit.jupiter.api.Test;
 
-// import fr.formiko.formiko.Carte;
-// import fr.formiko.formiko.Fourmi;
-// import fr.formiko.formiko.Fourmiliere;
-// import fr.formiko.formiko.GCase;
-// import fr.formiko.formiko.Joueur;
-// import fr.formiko.formiko.Main;
-// import fr.formiko.formiko.Partie;
 import fr.formiko.tests.TestCaseMuet;
+import fr.formiko.usuel.structures.listes.Liste;
 
 public class GCaseTest extends TestCaseMuet {
   @Test
@@ -24,5 +18,35 @@ public class GCaseTest extends TestCaseMuet {
     GCase gca = new GCase(3,5);
     assertEquals(null, gca.getCCase(4,1));
     assertEquals(2, gca.getCCase(2,3).getX());
+  }
+  @Test
+  public void testGetCasesBetween1(){
+    GCase gca = new GCase(10,5);
+    assertEquals(gca.getCCase(0,0).getContent(),gca.getCasesBetween(gca.getCCase(0,0),gca.getCCase(0,0)).getFirst());
+    assertEquals(gca.getCCase(2,3).getContent(),gca.getCasesBetween(2,3,2,3).getFirst());
+    assertEquals(gca.getCCase(2,3).getContent(),gca.getCasesBetween(gca.getCCase(2,3),0).getFirst());
+  }
+  @Test
+  public void testGetCasesBetween0(){
+    GCase gca = new GCase(10,5);
+    assertTrue(gca.getCasesBetween(gca.getCCase(2,3),-1).isEmpty());
+  }
+  @Test
+  public void testGetCasesBetweenMoreThan1(){
+    GCase gca = new GCase(10,5);
+    assertEquals(2,gca.getCasesBetween(2,3,2,4).length());
+    assertEquals(9,gca.getCasesBetween(gca.getCCase(2,3),1).length());
+    assertEquals(4,gca.getCasesBetween(gca.getCCase(0,0),1).length());
+    assertEquals(6,gca.getCasesBetween(gca.getCCase(0,2),1).length());
+  }
+  @Test
+  public void testGetCasesBetweenMoreThan1b(){
+    GCase gca = new GCase(10,6);
+    Liste<Case> l = gca.getCasesBetween(gca.getCCase(3,3),2);
+    assertEquals(25,l.length());
+    assertTrue(l.contains(gca.getCCase(1,1).getContent()));
+    assertFalse(l.contains(gca.getCCase(0,3).getContent()));
+    assertTrue(l.contains(gca.getCCase(3,3).getContent()));
+    assertTrue(l.contains(gca.getCCase(4,5).getContent()));
   }
 }

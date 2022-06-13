@@ -2,26 +2,21 @@ package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usuel.Point;
-import fr.formiko.usuel.Ascii;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.decoderUnFichier;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.structures.listes.Liste;
-import fr.formiko.usuel.types.str;
 
 import java.io.Serializable;
 
 public class CCase implements Serializable{
   private Case contenu;
-  private GCase gc; //TODO check that it don't cause more lag when saving / loading Partie.
+  private GCase gc;
 
   // CONSTRUCTORS --------------------------------------------------------------
   public CCase(Case contenu, GCase gc){
+    if(contenu==null){erreur.erreur("content is empty !");}
+    if(gc==null){erreur.erreur("gc is empty !");}
     this.contenu=contenu;
     this.gc=gc;
-    if(contenu==null){
-      erreur.erreur("Le contenu est déclaré vide !",true);
-    }
   }
   public CCase(int x, int y, GCase gc){
     this(new Case(x,y), gc);
@@ -62,69 +57,15 @@ public class CCase implements Serializable{
     if (cc.nbrDeCaseVoisine() != this.nbrDeCaseVoisine()){ return false;}
     return cc.getContent().equals(this.getContent());
   }
-  public GGraine getGg(int x){
-    if (x != 1){
-      erreur.erreurPasEncoreImplemente();
+  public GGraine getGg(int radius){
+    GGraine gir = new GGraine();
+    for (Case c : getGc().getCasesBetween(this, radius)) {
+      gir.add(c.getGg());
     }
-    GGraine gir = contenu.getGGraineCopier(); // ici on ne veut pas modifier le groupe originale alors on en fait une copie.
-    try {
-      gir.add(getRigth().getContent().getGGraineCopier());
-    }catch (Exception e) {}
-    try {
-      gir.add(getUp().getContent().getGGraineCopier());
-    }catch (Exception e) {}
-    try {
-      gir.add(getDown().getContent().getGGraineCopier());
-    }catch (Exception e) {}
-    try {
-      gir.add(getLeft().getContent().getGGraineCopier());
-    }catch (Exception e) {}
-    try {
-      gir.add(getLeft().getUp().getContent().getGGraineCopier());
-    }catch (Exception e) {}
-    try {
-      gir.add(getLeft().getDown().getContent().getGGraineCopier());
-    }catch (Exception e) {}
-    try {
-      gir.add(getRigth().getUp().getContent().getGGraineCopier());
-    }catch (Exception e) {}
-    try {
-      gir.add(getRigth().getDown().getContent().getGGraineCopier());
-    }catch (Exception e) {}
     return gir;
   }
-  public Liste<Case> getGca(int x){
-    if (x != 1){
-      erreur.erreurPasEncoreImplemente();
-    }
-    // ici on ne veut pas modifier le groupe originale alors on en fait une copie.
-    Liste<Case> gir = new Liste<Case>();
-    gir.add(this.getContent());
-    try {
-      gir.add(getRigth().getContent());
-    }catch (Exception e) {}
-    try {
-      gir.add(getUp().getContent());
-    }catch (Exception e) {}
-    try {
-      gir.add(getDown().getContent());
-    }catch (Exception e) {}
-    try {
-      gir.add(getLeft().getContent());
-    }catch (Exception e) {}
-    try {
-      gir.add(getLeft().getUp().getContent());
-    }catch (Exception e) {}
-    try {
-      gir.add(getLeft().getDown().getContent());
-    }catch (Exception e) {}
-    try {
-      gir.add(getRigth().getUp().getContent());
-    }catch (Exception e) {}
-    try {
-      gir.add(getRigth().getDown().getContent());
-    }catch (Exception e) {}
-    return gir;
+  public Liste<Case> getGca(int radius){
+    return getGc().getCasesBetween(this, radius);
   }
   /**
   *{@summary return a direction by using this &#38; an other CCase to reach.}
@@ -189,59 +130,17 @@ public class CCase implements Serializable{
       }
     }
   }
-  public void setTypes(String t[]){
-    CCase cc = this;int lent = t.length;
-    for (int i=0;i<lent  && cc != null ;i++ ) {
-      cc.setTypesLigne(t[i]);
-      cc = cc.getDown();
-    }
-  }
-  public void setTypesLigne(String s){
-    String t [] = decoderUnFichier.getTableauString(s,',');
-    CCase cc = this;int lent = t.length;
-    for (int i=0;i<lent  && cc != null ;i++ ) {
-      cc.getContent().setType(str.sToI(t[i]));
-      cc = cc.getRigth();
-    }
-  }
   public String getPoint(){
     return contenu.description();
   }
-  // TODO #503 create a function that give all CCase in a radius as a list.
-  // GCase.getCCases(CCase from, CCase to)
-  public GInsecte getGi(){return contenu.getGi();}
-  public GInsecte getGi(int x){
-    if (x != 1){
-      erreur.erreurPasEncoreImplemente();
+  public GInsecte getGi(){return getGi(0);}
+  public GInsecte getGi(int radius){
+    GInsecte gir = new GInsecte();
+    for (Case c : getGc().getCasesBetween(this, radius)) {
+      gir.add(c.getGi());
     }
-    GInsecte gir = getGi();
-    try {
-      gir.addList(getRigth().getGi());
-    }catch (Exception e) {}
-    try {
-      gir.addList(getUp().getGi());
-    }catch (Exception e) {}
-    try {
-      gir.addList(getDown().getGi());
-    }catch (Exception e) {}
-    try {
-      gir.addList(getLeft().getGi());
-    }catch (Exception e) {}
-    try {
-      gir.addList(getLeft().getUp().getGi());
-    }catch (Exception e) {}
-    try {
-      gir.addList(getLeft().getDown().getGi());
-    }catch (Exception e) {}
-    try {
-      gir.addList(getRigth().getUp().getGi());
-    }catch (Exception e) {}
-    try {
-      gir.addList(getRigth().getDown().getGi());
-    }catch (Exception e) {}
     return gir;
   }
-
 
   public byte nbrDeCaseVoisine(){
     if(getGc()==null){return 0;}
@@ -251,33 +150,5 @@ public class CCase implements Serializable{
     if (getRigth()!= null){xr++;}
     if (getLeft()!= null){xr++;}
     return xr;
-  }
-  public void afficheTout(){
-    this.afficheLigne();
-    if(getDown() != null){
-      getDown().afficheTout();
-    }
-  }
-  public void afficheLigne(){
-    erreur.println(contenu);
-    if (getRigth() != null){
-      getRigth().afficheLigne();
-    }
-  }
-
-  public void tourCases(){
-    tourLigneCases();
-    if(getDown() != null){
-      getDown().tourCases();
-    }
-  }
-  public void tourLigneCases(){
-    contenu.updateFoodInsecte();
-    if(Main.getPartie().getAppartionGraine()){
-      contenu.actualisationGraine(this);
-    }
-    if (getRigth() != null){
-      getRigth().tourLigneCases();
-    }
   }
 }
