@@ -39,9 +39,7 @@ public class GCase implements Serializable{
   public GCase(int taille){
     this(taille, taille);
   }
-  public GCase(){
-    this(0);
-  }
+  public GCase(){} //only for test
   // GET SET -------------------------------------------------------------------
   public CCase getHead(){ return début;}
   public Case getFirst(){ return getHead().getContent();}
@@ -64,20 +62,12 @@ public class GCase implements Serializable{
   public CCase getCCase(Point p){
     return getCCase(p.getX(),p.getY());
   }
-  public int getNbrX(){
-    if (début== null){ return 0;}
-    return début.getNbrX();
-  }public int getWidth(){return getNbrX();}
-  public int getNbrY(){
-    if (début== null){ return 0;}
-    return début.getNbrY();
-  }public int getHeight(){return getNbrY();}
-  public int getNbrDeCase(){
-    return getNbrX()*getNbrY();
-  }public int length(){ return getNbrDeCase();}
+  public int getWidth(){return width;}
+  public int getHeight(){return height;}
+  public int length(){ return getWidth()*getHeight();}
   public CCase getCCaseAlléa(){
     if (début== null){ erreur.erreurGXVide("GCase"); return null;}
-    return getCCase(allea.getAlléa(this.getNbrX()), allea.getAlléa(this.getNbrY()));
+    return getCCase(allea.getAlléa(this.getWidth()), allea.getAlléa(this.getHeight()));
   }
   public void setTypes(String t[]){
     if (début== null){ erreur.erreurGXVide("GCase"); return;}

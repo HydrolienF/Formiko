@@ -243,13 +243,13 @@ public class CCase implements Serializable{
       cc = cc.getDroite();
     }
   }
-  public int getNbrX(){
+  public int getWidth(){
     if (droite ==  null){ return 1;}
-    return 1 + droite.getNbrX();
+    return 1 + droite.getWidth();
   }
-  public int getNbrY(){
+  public int getHeight(){
     if (bas ==  null){ return 1;}
-    return 1 + bas.getNbrY();
+    return 1 + bas.getHeight();
   }
   public String getPoint(){
     return contenu.description();

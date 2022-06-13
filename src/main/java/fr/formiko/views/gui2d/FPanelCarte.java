@@ -77,8 +77,8 @@ public class FPanelCarte extends FPanel {
     // Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(100));
     // Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(1));
     GCase gc = new GCase(1,1);
-    xCase = gc.getNbrX();
-    yCase = gc.getNbrY();
+    xCase = gc.getWidth();
+    yCase = gc.getHeight();
     hashMapMovingObjectSurCarteAid = new HashMap<Integer,Point>();
     hashMapMovingObjectSurCarteAidRotation = new HashMap<Integer,Point>();
   }
@@ -887,8 +887,8 @@ public class FPanelCarte extends FPanel {
 
   public void updateSize(){
     GCase gc = Main.getGc();
-    xCase = gc.getNbrX();
-    yCase = gc.getNbrY();
+    xCase = gc.getWidth();
+    yCase = gc.getHeight();
     int xTemp = getTailleDUneCase()*xCase;
     int yTemp = getTailleDUneCase()*yCase;
     super.setSize(xTemp,yTemp);

@@ -186,10 +186,10 @@ public class FPanelJeu extends FPanel {
     return (getHeight()/pc.getTailleDUneCase())+1;
   }
   public void dézoomer(byte x){
-    int y1 = Main.getDimX()/Main.getGc().getNbrX();
+    int y1 = Main.getDimX()/Main.getGc().getWidth();
     int pah = FPanel.getView().getPa().getHeight();
     if(pah==0){pah=Main.getTailleElementGraphique(180);}
-    int y2 = (Main.getDimY()-pah)/Main.getGc().getNbrY();
+    int y2 = (Main.getDimY()-pah)/Main.getGc().getHeight();
     int y=0;
     if(x==1){ y=math.max(y1,y2);}
     else if(x==2){ y=math.min(y1,y2);}
@@ -222,10 +222,10 @@ public class FPanelJeu extends FPanel {
       // pc.setPosY(math.max(pc.getPosY()-1,0));
     }else if(ac==7){
       // GCase gc = Main.getGc();
-      // pc.setPosY(math.min(pc.getPosY()+1,gc.getNbrY()-1));
+      // pc.setPosY(math.min(pc.getPosY()+1,gc.getHeight()-1));
     }else if(ac==5){
       // GCase gc = Main.getGc();
-      // pc.setPosX(math.min(pc.getPosX()+1,gc.getNbrX()-1));
+      // pc.setPosX(math.min(pc.getPosX()+1,gc.getWidth()-1));
     }else if(ac==3){
       // pc.setPosX(math.max(pc.getPosX()-1,0));
     }else if(ac==4){ //center over anthill
