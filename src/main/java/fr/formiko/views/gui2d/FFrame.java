@@ -33,11 +33,11 @@ public class FFrame extends JFrame {
   *{@summary Main constructor.}<br>
   *@param title title of the Frame
   *@param width with of the Frame
-  *@param heigth heigth of the Frame
+  *@param height height of the Frame
   *@param fullScreen true if Frame need to be in full screen
   *@lastEditedVersion 2.7
   */
-  protected FFrame(String title, int width, int heigth, boolean fullScreen){
+  protected FFrame(String title, int width, int height, boolean fullScreen){
     if(fullScreen){
       if(Main.getOs().getId()==1){ //On Windows
         setExtendedState(JFrame.MAXIMIZED_BOTH); //n'as pas l'effet de plein écran sur Linux.
@@ -48,7 +48,7 @@ public class FFrame extends JFrame {
       }
     }
     setTitle(title);
-    setSize(width,heigth);// (x,y) en pixel
+    setSize(width,height);// (x,y) en pixel
     setLocationRelativeTo(null); // fenetre centrée
     //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // default action
     //Our default close action to end game properly
@@ -58,7 +58,7 @@ public class FFrame extends JFrame {
       public void run(){iniCloseButton();}
     });
   }
-  //TODO create a new builder with .setTitle() .setWidth .setHeigth .setFullScreen .setContentPane
+  //TODO create a new builder with .setTitle() .setWidth .setHeight .setFullScreen .setContentPane
   // public static FFrame newFFrame(){
   //   FFrameBuilder fb = new FFrameBuilder();
   // }
@@ -66,7 +66,7 @@ public class FFrame extends JFrame {
 
   // GET SET -------------------------------------------------------------------
   public static int getScreenWidth(){ return Toolkit.getDefaultToolkit().getScreenSize().width;}
-  public static int getScreenHeigth(){ return Toolkit.getDefaultToolkit().getScreenSize().height;}
+  public static int getScreenHeight(){ return Toolkit.getDefaultToolkit().getScreenSize().height;}
 
   // FUNCTIONS -----------------------------------------------------------------
   /**

@@ -24,9 +24,9 @@ public class FPanelColorChooser extends FPanel implements ChangeListener {
   private FButton randomColorButton;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
-  *{@summary Standard constructor with width, heigth &#38; the component to color.}<br>
+  *{@summary Standard constructor with width, height &#38; the component to color.}<br>
   *@param w buttons width
-  *@param h buttons heigth
+  *@param h buttons height
   *@param comp JComponent to paint background
   *@lastEditedVersion 2.15
   */

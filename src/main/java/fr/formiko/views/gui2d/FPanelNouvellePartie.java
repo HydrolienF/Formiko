@@ -146,7 +146,7 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
     int tailleMaxY = this.getHeight() - yDep - getLaunchButton().getHeight();
     pgejContainer.setLocation(wi2,yDep);
     pgejContainer.setSize(wi2-FPanelScrollBar.SCROLL_BAR_SIZE, FLabel.getDimY()*3*gej.length());
-    pgejContainer.setMaxVisibleHeigth(tailleMaxY);
+    pgejContainer.setMaxVisibleHeight(tailleMaxY);
   }
   public Partie getPartie(){
     String nomTraduitDeLaCarte = choixCarte.getSelectedItem()+"";

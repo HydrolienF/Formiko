@@ -19,7 +19,7 @@ public class FPanelScrollBar extends FPanel {
   private static int SCROLL_BAR_MAX = 1000;
   private FPanel subPanel;
   private JScrollBar scrollBar;
-  private int maxVisibleHeigth;
+  private int maxVisibleHeight;
 
   // CONSTRUCTORS --------------------------------------------------------------
   /**
@@ -38,24 +38,24 @@ public class FPanelScrollBar extends FPanel {
   }
 
   // GET SET -------------------------------------------------------------------
-  public void setMaxVisibleHeigth(int mvh){maxVisibleHeigth=mvh;}
+  public void setMaxVisibleHeight(int mvh){maxVisibleHeight=mvh;}
   @Override
   /**
   *{@summary Set the size of this panel, the scrollBar &#38; the sub panel.}<br>
-  *Scrool bar stay hiden if h is lower than maxVisibleHeigth.
+  *Scrool bar stay hiden if h is lower than maxVisibleHeight.
   *@param w the new wigth
-  *@param h the new heigth
+  *@param h the new height
   *@lastEditedVersion 2.11
   */
   public void setSize(int w, int h){
-    super.setSize(w+SCROLL_BAR_SIZE, Math.min(h,maxVisibleHeigth));
-    if(h>maxVisibleHeigth){
+    super.setSize(w+SCROLL_BAR_SIZE, Math.min(h,maxVisibleHeight));
+    if(h>maxVisibleHeight){
       subPanel.setSize(w, h);
       scrollBar.setLocation(getWidth()-SCROLL_BAR_SIZE,0);
       scrollBar.setSize(SCROLL_BAR_SIZE, getHeight());
       scrollBar.setVisible(true);
       if(h==0){h=1;}
-      scrollBar.setVisibleAmount((int)((maxVisibleHeigth*SCROLL_BAR_MAX)/h));
+      scrollBar.setVisibleAmount((int)((maxVisibleHeight*SCROLL_BAR_MAX)/h));
     }else{
       subPanel.setSize(w+SCROLL_BAR_SIZE, h);
       scrollBar.setVisible(false);

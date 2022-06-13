@@ -27,6 +27,9 @@ public class CCase implements Serializable{
       erreur.erreur("Le contenu est déclaré vide !",true);
     }
   }
+  public CCase(int x, int y){
+    this(new Case(x,y));
+  }
   // GET SET -------------------------------------------------------------------
   public CCase getHaut(){return haut;}
   public void setHaut(CCase c){haut = c;}

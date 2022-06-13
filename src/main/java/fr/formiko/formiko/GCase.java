@@ -11,25 +11,37 @@ import fr.formiko.usuel.maths.allea;
 import java.io.Serializable;
 
 public class GCase implements Serializable{
-  public CCase début;
-  public CCase actuelle;
+  private CCase début;
+  private CCase actuelle;
+  private CCase ccases[][];
+  private int width;
+  private int height;
   // CONSTRUCTORS --------------------------------------------------------------
-  public GCase(int horizontale, int verticale){
-    if(horizontale < 0 || verticale < 0){ erreur.erreur("Impossible de créer une carte si petite","la carte la plus petite possible a été créée."); horizontale = 1; verticale = 1;}
-
+  public GCase(int width, int height){
+    if(width < 0 || height < 0){ erreur.erreur("Impossible de créer une carte si petite","la carte la plus petite possible a été créée."); width = 1; height = 1;}
+    this.width=width;
+    this.height=height;
     début = new CCase(new Case(0,0));
-    addDroite(horizontale-1, début);
+    addDroite(width-1, début);
     int d = 1; CCase début2;
-    while (d < verticale){
+    while (d < height){
       début2 = new CCase(new Case(0,d)); d++;
-      addDroite(horizontale-1, début2);
+      addDroite(width-1, début2);
       fusionnnerLigne(début2);
+    }
+    ccases = new CCase[width][height];
+    for (int x=0; x<width; x++) {
+      for (int y=0; y<height; y++) {
+        ccases[x][y]=new CCase(x,y);
+      }
     }
   }
   public GCase(int taille){
     this(taille, taille);
   }
-  public GCase(){}
+  public GCase(){
+    this(0);
+  }
   // GET SET -------------------------------------------------------------------
   public CCase getHead(){ return début;}
   public Case getFirst(){ return getHead().getContent();}

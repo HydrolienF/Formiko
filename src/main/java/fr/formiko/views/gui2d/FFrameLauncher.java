@@ -26,7 +26,7 @@ public class FFrameLauncher extends FFrame {
   *@lastEditedVersion 2.7
   */
   public FFrameLauncher(){
-    super("Formiko Launcher", (int)(getScreenWidth()/2.5), (int)(getScreenHeigth()/2.5), false);
+    super("Formiko Launcher", (int)(getScreenWidth()/2.5), (int)(getScreenHeight()/2.5), false);
     if(!IS_UIMANAGER_INI){iniUImanager();}
     pl = new FPanelLauncher(getWidth(), getHeight()-40,-10, 110);
     setContentPane(pl);

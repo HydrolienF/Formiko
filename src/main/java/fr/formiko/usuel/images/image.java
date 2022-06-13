@@ -198,14 +198,14 @@ public class image{
   /**
    *{@summary transforme to Scaled instance a Image []}<br>
    *@param width the width to which to scale the image.
-   *@param heigth the height to which to scale the image.
+   *@param height the height to which to scale the image.
    *@param hints flags to indicate the type of algorithm to use for image resampling.
    *@lastEditedVersion 1.3
    */
-  public static BufferedImage [] getScaledInstance(BufferedImage img [],int width, int heigth, int hints){
+  public static BufferedImage [] getScaledInstance(BufferedImage img [],int width, int height, int hints){
     int len = img.length;
     for (int i=0;i<len ;i++ ) {
-      img[i].getScaledInstance(width,heigth,hints);
+      img[i].getScaledInstance(width,height,hints);
     }
     return img;
   }
@@ -420,10 +420,10 @@ public class image{
   *{@summary A fonction to count a transparent border of a BufferedImage.}<br>
   *A border is transparent if alpha=0 on all the pixel line.
   *@param in The Image to count transparent borders
-  *@param lenI width or heigth depending of revers
-  *@param lenJ width or heigth depending of revers
+  *@param lenI width or height depending of revers
+  *@param lenJ width or height depending of revers
   *@param revers True: revers width &#38; height
-  *@param fromTheEnd True: start from the end of the image (width or heigth)
+  *@param fromTheEnd True: start from the end of the image (width or height)
   *@lastEditedVersion 2.15
   */
   public static int countTransparentBorder(BufferedImage in, int lenI, int lenJ, boolean revers, boolean fromTheEnd){
