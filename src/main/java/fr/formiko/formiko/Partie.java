@@ -228,6 +228,7 @@ public class Partie implements Serializable {
   }
   public boolean launchGame(){
     if(!getLaunchingFromSave()){
+      tour=1;
       Main.getPartie().getGj().prendreEnCompteLaDifficulté();//setFood acording to difficutly.
       Main.stopScript();
       if(!Partie.getScript().equals("")){
@@ -245,7 +246,7 @@ public class Partie implements Serializable {
         erreur.alerte("Music can't be played next");
       }
     }
-    for(tour=1; tour<=nbrDeTour; tour++){
+    for(; tour<=nbrDeTour; tour++){
       new Message("\n"+g.get("tour")+" "+ tour +" :");
       //Main.repaint();
       //La joue toutes les ia et les joueurs
