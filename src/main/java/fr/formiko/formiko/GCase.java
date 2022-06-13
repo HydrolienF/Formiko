@@ -83,24 +83,24 @@ public class GCase implements Serializable{
     int k = 1; CCase temp; actuelle = débutDeLaLigne;
     while (x>0){
       temp = getCCase(k,actuelle.getContent().getPoint().getY()); k++;
-      actuelle.setDroite(temp);
-      temp.setGauche(actuelle);
+      actuelle.setRigth(temp);
+      temp.setLeft(actuelle);
       actuelle = temp;
       x--;
     }
   }
   public void fusionnnerLigne(CCase débutDeLaLigne2){
     CCase débutDeLaLigne = getHead();
-    while (débutDeLaLigne.getBas() != null){
-      débutDeLaLigne = débutDeLaLigne.getBas();
+    while (débutDeLaLigne.getDown() != null){
+      débutDeLaLigne = débutDeLaLigne.getDown();
     }
     CCase tempHaut = débutDeLaLigne;
     CCase tempBas = débutDeLaLigne2;
     while(tempHaut != null && tempBas != null){
-      tempHaut.setBas(tempBas);
-      tempBas.setHaut(tempHaut);
-      tempHaut = tempHaut.getDroite();
-      tempBas = tempBas.getDroite();
+      tempHaut.setDown(tempBas);
+      tempBas.setUp(tempHaut);
+      tempHaut = tempHaut.getRigth();
+      tempBas = tempBas.getRigth();
     }
   }
   public void tourCases(){

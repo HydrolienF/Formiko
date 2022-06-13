@@ -18,23 +18,22 @@ public class CCase implements Serializable{
   // CONSTRUCTORS --------------------------------------------------------------
   public CCase(Case contenu){
     this.contenu = contenu;
-    // this(contenu, null, null, null, null);
-    // if(contenu==null){
-    //   erreur.erreur("Le contenu est déclaré vide !",true);
-    // }
+    if(contenu==null){
+      erreur.erreur("Le contenu est déclaré vide !",true);
+    }
   }
   public CCase(int x, int y){
     this(new Case(x,y));
   }
   // GET SET -------------------------------------------------------------------
-  public CCase getHaut(){return haut;}
-  public void setHaut(CCase c){haut = c;}
-  public CCase getBas(){return bas;}
-  public void setBas(CCase c){bas = c;}
-  public CCase getDroite(){return droite;}
-  public void setDroite(CCase c){droite = c;}
-  public CCase getGauche(){return gauche;}
-  public void setGauche(CCase c){gauche = c;}
+  public CCase getUp(){return haut;}
+  public void setUp(CCase c){haut = c;}
+  public CCase getDown(){return bas;}
+  public void setDown(CCase c){bas = c;}
+  public CCase getRigth(){return droite;}
+  public void setRigth(CCase c){droite = c;}
+  public CCase getLeft(){return gauche;}
+  public void setLeft(CCase c){gauche = c;}
   public Case getContent(){return contenu;}
   public void setContenu(Case c){contenu = c;}
   public GGraine getGg(){return contenu.getGg();}
@@ -43,17 +42,17 @@ public class CCase implements Serializable{
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     return getContent().toString();
-    // if(getBas()==null){//la sortie
+    // if(getDown()==null){//la sortie
     //   return toStringLigne();
     // }//passage a la ligne suivante
-    // return toStringLigne()+"\n"+getBas().toString();
+    // return toStringLigne()+"\n"+getDown().toString();
   }
   public String desc(){ return contenu.desc();}
   // public String toStringLigne(){
-  //   if(getDroite()==null){//si c'est le dernier de la ligne
+  //   if(getRigth()==null){//si c'est le dernier de la ligne
   //     return getContent().toString();
   //   }//passage a la case suivante.
-  //   return getContent().toString()+"\n"+getDroite().toStringLigne();
+  //   return getContent().toString()+"\n"+getRigth().toStringLigne();
   // }
   /**
   *{@summary Standard equals function.}<br>
@@ -75,28 +74,28 @@ public class CCase implements Serializable{
     GGraine gir = contenu.getGGraineCopier(); // ici on ne veut pas modifier le groupe originale alors on en fait une copie.
     //if (nbrDeCaseVoisine() != 4){ debug.débogage("La détection des graine ne marche pas car trop proche de la bordure de la carte");return gir;}
     try {
-      gir.add(getDroite().getContent().getGGraineCopier());
+      gir.add(getRigth().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.add(getHaut().getContent().getGGraineCopier());
+      gir.add(getUp().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.add(getBas().getContent().getGGraineCopier());
+      gir.add(getDown().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.add(getGauche().getContent().getGGraineCopier());
+      gir.add(getLeft().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.add(getGauche().getHaut().getContent().getGGraineCopier());
+      gir.add(getLeft().getUp().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.add(getGauche().getBas().getContent().getGGraineCopier());
+      gir.add(getLeft().getDown().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.add(getDroite().getHaut().getContent().getGGraineCopier());
+      gir.add(getRigth().getUp().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.add(getDroite().getBas().getContent().getGGraineCopier());
+      gir.add(getRigth().getDown().getContent().getGGraineCopier());
     }catch (Exception e) {}
     return gir;
   }
@@ -108,28 +107,28 @@ public class CCase implements Serializable{
     Liste<Case> gir = new Liste<Case>();
     gir.add(this.getContent());
     try {
-      gir.add(getDroite().getContent());
+      gir.add(getRigth().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(getHaut().getContent());
+      gir.add(getUp().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(getBas().getContent());
+      gir.add(getDown().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(getGauche().getContent());
+      gir.add(getLeft().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(getGauche().getHaut().getContent());
+      gir.add(getLeft().getUp().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(getGauche().getBas().getContent());
+      gir.add(getLeft().getDown().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(getDroite().getHaut().getContent());
+      gir.add(getRigth().getUp().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(getDroite().getBas().getContent());
+      gir.add(getRigth().getDown().getContent());
     }catch (Exception e) {}
     return gir;
   }
@@ -200,7 +199,7 @@ public class CCase implements Serializable{
     CCase cc = this;int lent = t.length;
     for (int i=0;i<lent  && cc != null ;i++ ) {
       cc.setTypesLigne(t[i]);
-      cc = cc.getBas();
+      cc = cc.getDown();
     }
   }
   public void setTypesLigne(String s){
@@ -208,7 +207,7 @@ public class CCase implements Serializable{
     CCase cc = this;int lent = t.length;
     for (int i=0;i<lent  && cc != null ;i++ ) {
       cc.getContent().setType(str.sToI(t[i]));
-      cc = cc.getDroite();
+      cc = cc.getRigth();
     }
   }
   public String getPoint(){
@@ -221,28 +220,28 @@ public class CCase implements Serializable{
     }
     GInsecte gir = getGi();
     try {
-      gir.addList(getDroite().getGi());
+      gir.addList(getRigth().getGi());
     }catch (Exception e) {}
     try {
-      gir.addList(getHaut().getGi());
+      gir.addList(getUp().getGi());
     }catch (Exception e) {}
     try {
-      gir.addList(getBas().getGi());
+      gir.addList(getDown().getGi());
     }catch (Exception e) {}
     try {
-      gir.addList(getGauche().getGi());
+      gir.addList(getLeft().getGi());
     }catch (Exception e) {}
     try {
-      gir.addList(getGauche().getHaut().getGi());
+      gir.addList(getLeft().getUp().getGi());
     }catch (Exception e) {}
     try {
-      gir.addList(getGauche().getBas().getGi());
+      gir.addList(getLeft().getDown().getGi());
     }catch (Exception e) {}
     try {
-      gir.addList(getDroite().getHaut().getGi());
+      gir.addList(getRigth().getUp().getGi());
     }catch (Exception e) {}
     try {
-      gir.addList(getDroite().getBas().getGi());
+      gir.addList(getRigth().getDown().getGi());
     }catch (Exception e) {}
     return gir;
   }
@@ -250,29 +249,29 @@ public class CCase implements Serializable{
 
   public byte nbrDeCaseVoisine(){
     byte xr = 0;
-    if (getHaut()!= null){xr++;}
-    if (getBas()!= null){xr++;}
-    if (getDroite()!= null){xr++;}
-    if (getGauche()!= null){xr++;}
+    if (getUp()!= null){xr++;}
+    if (getDown()!= null){xr++;}
+    if (getRigth()!= null){xr++;}
+    if (getLeft()!= null){xr++;}
     return xr;
   }
   public void afficheTout(){
     this.afficheLigne();
-    if(getBas() != null){
-      getBas().afficheTout();
+    if(getDown() != null){
+      getDown().afficheTout();
     }
   }
   public void afficheLigne(){
     erreur.println(contenu);
-    if (getDroite() != null){
-      getDroite().afficheLigne();
+    if (getRigth() != null){
+      getRigth().afficheLigne();
     }
   }
 
   public void tourCases(){
     tourLigneCases();
-    if(getBas() != null){
-      getBas().tourCases();
+    if(getDown() != null){
+      getDown().tourCases();
     }
   }
   public void tourLigneCases(){
@@ -280,15 +279,15 @@ public class CCase implements Serializable{
     if(Main.getPartie().getAppartionGraine()){
       contenu.actualisationGraine(this);
     }
-    if (getDroite() != null){
-      getDroite().tourLigneCases();
+    if (getRigth() != null){
+      getRigth().tourLigneCases();
     }
   }
   public void add(Case c){
     CCase cc = this;
-    while (cc.getDroite() != null){
-      cc = cc.getDroite();
+    while (cc.getRigth() != null){
+      cc = cc.getRigth();
     }
-    cc.setDroite(new CCase(c));
+    cc.setRigth(new CCase(c));
   }
 }

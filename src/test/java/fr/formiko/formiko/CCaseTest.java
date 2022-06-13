@@ -50,11 +50,11 @@ public class CCaseTest extends TestCaseMuet{
     // assertEquals(2,cc4.nbrDeCaseVoisine());
     // cc4 = new CCase(new Case(1,0),cc,cc2,cc3,cc);
     // assertEquals(4,cc4.nbrDeCaseVoisine());
-    // cc4.setHaut(null);
+    // cc4.setUp(null);
     // assertEquals(3,cc4.nbrDeCaseVoisine());
-    // cc4.setBas(cc);
+    // cc4.setDown(cc);
     // assertEquals(3,cc4.nbrDeCaseVoisine());
-    // cc4.setHaut(cc2);
+    // cc4.setUp(cc2);
     // assertEquals(4,cc4.nbrDeCaseVoisine());
   }
 }
