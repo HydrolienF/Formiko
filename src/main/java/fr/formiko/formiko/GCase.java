@@ -29,13 +29,13 @@ public class GCase implements Serializable{
       }
     }
 
-    début = new CCase(new Case(0,0));
-    // début = getCCase(0,0);
+    // début = new CCase(new Case(0,0));
+    début = getCCase(0,0);
     addDroite(width-1, getHead());
     int d = 1; CCase début2;
     while (d < height){
-      début2 = new CCase(new Case(0,d));
-      // début2 = getCCase(0,d);
+      // début2 = new CCase(new Case(0,d));
+      début2 = getCCase(0,d);
       d++;
       addDroite(width-1, début2);
       fusionnnerLigne(début2);
@@ -51,20 +51,28 @@ public class GCase implements Serializable{
   public String getDim(){ return getWidth()+";"+getHeight();}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
-    if (getHead()==null){erreur.erreur("La carte est vide");return "";}
-    return getHead().toString();
+    String s = "";
+    for (int x=0; x<width; x++) {
+      for (int y=0; y<height; y++) {
+        s+=ccases[x][y];
+      }
+      s+='\n';
+    }
+    return s;
+    // if (getHead()==null){erreur.erreur("La carte est vide");return "";}
+    // return getHead().toString();
   }
   public CCase getCCase(int x, int y){
     if(x<0 || y<0 || x>=getWidth() || y>=getHeight()){return null;}
-    // return ccases[x][y];
-    if(getHead()==null){
-      return null;
-    }else{
-      if (x==0 && y==0){
-        return getHead();
-      }
-    }
-    return getHead().getCCase(x,y);
+    return ccases[x][y];
+    // if(getHead()==null){
+    //   return null;
+    // }else{
+    //   if (x==0 && y==0){
+    //     return getHead();
+    //   }
+    // }
+    // return getHead().getCCase(x,y);
   }
   public CCase getCCase(Point p){
     return getCCase(p.getX(),p.getY());
@@ -84,7 +92,7 @@ public class GCase implements Serializable{
     debug.débogage("Création d'une ligne");
     int k = 1; CCase temp; actuelle = débutDeLaLigne;
     while (x>0){
-      temp = new CCase(new Case(k,actuelle.getContent().getPoint().getY())); k++;
+      temp = getCCase(k,actuelle.getContent().getPoint().getY()); k++;
       actuelle.setDroite(temp);
       temp.setGauche(actuelle);
       actuelle = temp;

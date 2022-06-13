@@ -38,6 +38,8 @@ public class MapPathTest extends TestCaseMuet {
     GCase gc = new GCase(3,4);
     CCase from = gc.getCCase(1,0);
     CCase to = gc.getCCase(2,2);
+    assertNotNull(from);
+    assertNotNull(to);
     MapPath mp = new MapPath(from, to);
     assertEquals(3,mp.getList().length());
     assertEquals(from,mp.getList().getFirst());
@@ -50,6 +52,8 @@ public class MapPathTest extends TestCaseMuet {
     GCase gc = new GCase(3,4);
     CCase from = gc.getCCase(1,0);
     CCase to = gc.getCCase(2,0);
+    assertNotNull(from);
+    assertNotNull(to);
     MapPath mp = new MapPath(from, from);
     assertEquals(1,mp.getList().length());
     assertEquals(from,mp.getList().getFirst());
@@ -69,6 +73,8 @@ public class MapPathTest extends TestCaseMuet {
     GCase gc = new GCase(3,4);
     CCase from = gc.getCCase(1,0);
     CCase to = gc.getCCase(2,2);
+    assertNotNull(from);
+    assertNotNull(to);
     MapPath mp = new MapPath(from, to);
     assertEquals(3,mp.getList().length());
     assertEquals("(1,0) (2,1) (2,2)",mp.toString());

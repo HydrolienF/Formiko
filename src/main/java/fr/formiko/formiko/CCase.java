@@ -6,8 +6,7 @@ import fr.formiko.usuel.Ascii;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.decoderUnFichier;
 import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.structures.listes.*;
+import fr.formiko.usuel.structures.listes.Liste;
 import fr.formiko.usuel.types.str;
 
 import java.io.Serializable;
@@ -46,18 +45,19 @@ public class CCase implements Serializable{
   public int getY(){return getContent().getY();}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
-      if(bas==null){//la sortie
-        return toStringLigne();
-      }//passage a la ligne suivante
-      return toStringLigne()+"\n"+bas.toString();
+    return getContent().toString();
+    // if(bas==null){//la sortie
+    //   return toStringLigne();
+    // }//passage a la ligne suivante
+    // return toStringLigne()+"\n"+bas.toString();
   }
   public String desc(){ return contenu.desc();}
-  public String toStringLigne(){
-    if(droite==null){//si c'est le dernier de la ligne
-      return getContent().toString();
-    }//passage a la case suivante.
-    return getContent().toString()+"\n"+droite.toStringLigne();
-  }
+  // public String toStringLigne(){
+  //   if(droite==null){//si c'est le dernier de la ligne
+  //     return getContent().toString();
+  //   }//passage a la case suivante.
+  //   return getContent().toString()+"\n"+droite.toStringLigne();
+  // }
   /**
   *{@summary Standard equals function.}<br>
   *Null &#38; other class type proof.<br>
@@ -65,7 +65,7 @@ public class CCase implements Serializable{
   *@lastEditedVersion 1.31
   */
   @Override
-  public boolean equals(Object o){ // on ne peu pas tt férifié facilement alors on ce contente de vérifié les co X Y du point et le nbr de connection.
+  public boolean equals(Object o){ // on ne peu pas tt vérifié facilement alors on ce contente de vérifié les co X Y du point et le nbr de connection.
     if(o==null || !(o instanceof CCase)){return false;}
     CCase cc = (CCase)o;
     if (cc.nbrDeCaseVoisine() != this.nbrDeCaseVoisine()){ return false;}
