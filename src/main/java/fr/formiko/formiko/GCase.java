@@ -11,7 +11,6 @@ import fr.formiko.usuel.maths.allea;
 import java.io.Serializable;
 
 public class GCase implements Serializable{
-  private CCase début;
   private CCase actuelle;
   private CCase ccases[][];
   private int width;
@@ -28,25 +27,13 @@ public class GCase implements Serializable{
         ccases[x][y]=new CCase(x,y,this);
       }
     }
-
-    // début = new CCase(new Case(0,0));
-    début = getCCase(0,0);
-    addDroite(width-1, getHead());
-    int d = 1; CCase début2;
-    while (d < height){
-      // début2 = new CCase(new Case(0,d));
-      début2 = getCCase(0,d);
-      d++;
-      addDroite(width-1, début2);
-      fusionnnerLigne(début2);
-    }
   }
   public GCase(int taille){
     this(taille, taille);
   }
   public GCase(){} //only for test
   // GET SET -------------------------------------------------------------------
-  public CCase getHead(){ return début;}
+  public CCase getHead(){ return getCCase(0,0);}
   public Case getFirst(){ return getHead().getContent();}
   public String getDim(){ return getWidth()+";"+getHeight();}
   // FUNCTIONS -----------------------------------------------------------------
@@ -78,31 +65,6 @@ public class GCase implements Serializable{
     if (getHead()== null){ erreur.erreurGXVide("GCase"); return;}
     getHead().setTypes(t);
   }
-  public void addDroite(int x, CCase débutDeLaLigne){
-    debug.débogage("Création d'une ligne");
-    int k = 1; CCase temp; actuelle = débutDeLaLigne;
-    while (x>0){
-      temp = getCCase(k,actuelle.getContent().getPoint().getY()); k++;
-      actuelle.setRigth(temp);
-      temp.setLeft(actuelle);
-      actuelle = temp;
-      x--;
-    }
-  }
-  public void fusionnnerLigne(CCase débutDeLaLigne2){
-    CCase débutDeLaLigne = getHead();
-    while (débutDeLaLigne.getDown() != null){
-      débutDeLaLigne = débutDeLaLigne.getDown();
-    }
-    CCase tempHaut = débutDeLaLigne;
-    CCase tempBas = débutDeLaLigne2;
-    while(tempHaut != null && tempBas != null){
-      tempHaut.setDown(tempBas);
-      tempBas.setUp(tempHaut);
-      tempHaut = tempHaut.getRigth();
-      tempBas = tempBas.getRigth();
-    }
-  }
   public void tourCases(){
     if (getHead()==null){
       erreur.erreur("La carte est vide");
@@ -110,8 +72,4 @@ public class GCase implements Serializable{
       getHead().tourCases();
     }
   }
-  // public void add(Case c){
-  //   if (getHead()==null){début = new CCase(c);return;}
-  //   getHead().add(c);
-  // }
 }

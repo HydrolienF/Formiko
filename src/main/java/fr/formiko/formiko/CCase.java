@@ -12,9 +12,8 @@ import fr.formiko.usuel.types.str;
 import java.io.Serializable;
 
 public class CCase implements Serializable{
-  private CCase haut, bas, droite, gauche;
   private Case contenu;
-  private GCase gc;
+  private GCase gc; //TODO check that it don't cause more lag when saving / loading Partie.
 
   // CONSTRUCTORS --------------------------------------------------------------
   public CCase(Case contenu, GCase gc){
@@ -34,14 +33,10 @@ public class CCase implements Serializable{
     this(x, y, null);
   }
   // GET SET -------------------------------------------------------------------
-  public CCase getUp(){return haut;}
-  public void setUp(CCase c){haut = c;}
-  public CCase getDown(){return bas;}
-  public void setDown(CCase c){bas = c;}
-  public CCase getRigth(){return droite;}
-  public void setRigth(CCase c){droite = c;}
-  public CCase getLeft(){return gauche;}
-  public void setLeft(CCase c){gauche = c;}
+  public CCase getUp(){return getGc().getCCase(getX(),getY()-1);}
+  public CCase getDown(){return getGc().getCCase(getX(),getY()+1);}
+  public CCase getRigth(){return getGc().getCCase(getX()+1,getY());}
+  public CCase getLeft(){return getGc().getCCase(getX()-1,getY());}
   public Case getContent(){return contenu;}
   public void setContenu(Case c){contenu = c;}
   public GGraine getGg(){return contenu.getGg();}
@@ -52,18 +47,8 @@ public class CCase implements Serializable{
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     return getContent().toString();
-    // if(getDown()==null){//la sortie
-    //   return toStringLigne();
-    // }//passage a la ligne suivante
-    // return toStringLigne()+"\n"+getDown().toString();
   }
   public String desc(){ return contenu.desc();}
-  // public String toStringLigne(){
-  //   if(getRigth()==null){//si c'est le dernier de la ligne
-  //     return getContent().toString();
-  //   }//passage a la case suivante.
-  //   return getContent().toString()+"\n"+getRigth().toStringLigne();
-  // }
   /**
   *{@summary Standard equals function.}<br>
   *Null &#38; other class type proof.<br>
@@ -82,7 +67,6 @@ public class CCase implements Serializable{
       erreur.erreurPasEncoreImplemente();
     }
     GGraine gir = contenu.getGGraineCopier(); // ici on ne veut pas modifier le groupe originale alors on en fait une copie.
-    //if (nbrDeCaseVoisine() != 4){ debug.débogage("La détection des graine ne marche pas car trop proche de la bordure de la carte");return gir;}
     try {
       gir.add(getRigth().getContent().getGGraineCopier());
     }catch (Exception e) {}
@@ -223,6 +207,8 @@ public class CCase implements Serializable{
   public String getPoint(){
     return contenu.description();
   }
+  // TODO #503 create a function that give all CCase in a radius as a list.
+  // GCase.getCCases(CCase from, CCase to)
   public GInsecte getGi(){return contenu.getGi();}
   public GInsecte getGi(int x){
     if (x != 1){
@@ -258,6 +244,7 @@ public class CCase implements Serializable{
 
 
   public byte nbrDeCaseVoisine(){
+    if(getGc()==null){return 0;}
     byte xr = 0;
     if (getUp()!= null){xr++;}
     if (getDown()!= null){xr++;}
@@ -292,12 +279,5 @@ public class CCase implements Serializable{
     if (getRigth() != null){
       getRigth().tourLigneCases();
     }
-  }
-  public void add(Case c){
-    CCase cc = this;
-    while (cc.getRigth() != null){
-      cc = cc.getRigth();
-    }
-    cc.setRigth(new CCase(c,gc));
   }
 }
