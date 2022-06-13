@@ -16,15 +16,12 @@ public class CCase implements Serializable{
   private Case contenu;
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public CCase(Case contenu, CCase haut, CCase bas, CCase droite, CCase gauche){
-    this.contenu = contenu;
-    this.haut = haut; this.bas = bas; this.droite = droite; this.gauche = gauche;
-  }
   public CCase(Case contenu){
-    this(contenu, null, null, null, null);
-    if(contenu==null){
-      erreur.erreur("Le contenu est déclaré vide !",true);
-    }
+    this.contenu = contenu;
+    // this(contenu, null, null, null, null);
+    // if(contenu==null){
+    //   erreur.erreur("Le contenu est déclaré vide !",true);
+    // }
   }
   public CCase(int x, int y){
     this(new Case(x,y));
@@ -46,17 +43,17 @@ public class CCase implements Serializable{
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     return getContent().toString();
-    // if(bas==null){//la sortie
+    // if(getBas()==null){//la sortie
     //   return toStringLigne();
     // }//passage a la ligne suivante
-    // return toStringLigne()+"\n"+bas.toString();
+    // return toStringLigne()+"\n"+getBas().toString();
   }
   public String desc(){ return contenu.desc();}
   // public String toStringLigne(){
-  //   if(droite==null){//si c'est le dernier de la ligne
+  //   if(getDroite()==null){//si c'est le dernier de la ligne
   //     return getContent().toString();
   //   }//passage a la case suivante.
-  //   return getContent().toString()+"\n"+droite.toStringLigne();
+  //   return getContent().toString()+"\n"+getDroite().toStringLigne();
   // }
   /**
   *{@summary Standard equals function.}<br>
@@ -71,36 +68,6 @@ public class CCase implements Serializable{
     if (cc.nbrDeCaseVoisine() != this.nbrDeCaseVoisine()){ return false;}
     return cc.getContent().equals(this.getContent());
   }
-  /**
-  *{@summary Get CCase with position x,y.}<br>
-  *Null proof.<br>
-  *@param x The x of the searched CCase.
-  *@param y The y of the searched CCase.
-  *@lastEditedVersion 1.39
-  */
-  public CCase getCCase(int x, int y){
-    // Si le x n'est pas encore bon.
-    if (contenu.getP().getX() != x ){
-      if (contenu.getP().getX() < x){
-        if(droite==null){ return null;}
-        return droite.getCCase(x,y);
-      }else{
-        if(gauche==null){ return null;}
-        return gauche.getCCase(x,y);
-      }
-    }
-    // Si le y n'est pas encore bon.
-    if (contenu.getP().getY() != y ){
-      if (contenu.getP().getY() < y){
-        if(bas==null){ return null;}
-        return bas.getCCase(x,y);
-      }else{
-        if(haut==null){ return null;}
-        return haut.getCCase(x,y);
-      }
-    }
-    return this;
-  }
   public GGraine getGg(int x){
     if (x != 1){
       erreur.erreurPasEncoreImplemente();
@@ -108,28 +75,28 @@ public class CCase implements Serializable{
     GGraine gir = contenu.getGGraineCopier(); // ici on ne veut pas modifier le groupe originale alors on en fait une copie.
     //if (nbrDeCaseVoisine() != 4){ debug.débogage("La détection des graine ne marche pas car trop proche de la bordure de la carte");return gir;}
     try {
-      gir.add(droite.getContent().getGGraineCopier());
+      gir.add(getDroite().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.add(haut.getContent().getGGraineCopier());
+      gir.add(getHaut().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.add(bas.getContent().getGGraineCopier());
+      gir.add(getBas().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.add(gauche.getContent().getGGraineCopier());
+      gir.add(getGauche().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.add(gauche.getHaut().getContent().getGGraineCopier());
+      gir.add(getGauche().getHaut().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.add(gauche.getBas().getContent().getGGraineCopier());
+      gir.add(getGauche().getBas().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.add(droite.getHaut().getContent().getGGraineCopier());
+      gir.add(getDroite().getHaut().getContent().getGGraineCopier());
     }catch (Exception e) {}
     try {
-      gir.add(droite.getBas().getContent().getGGraineCopier());
+      gir.add(getDroite().getBas().getContent().getGGraineCopier());
     }catch (Exception e) {}
     return gir;
   }
@@ -141,28 +108,28 @@ public class CCase implements Serializable{
     Liste<Case> gir = new Liste<Case>();
     gir.add(this.getContent());
     try {
-      gir.add(droite.getContent());
+      gir.add(getDroite().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(haut.getContent());
+      gir.add(getHaut().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(bas.getContent());
+      gir.add(getBas().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(gauche.getContent());
+      gir.add(getGauche().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(gauche.getHaut().getContent());
+      gir.add(getGauche().getHaut().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(gauche.getBas().getContent());
+      gir.add(getGauche().getBas().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(droite.getHaut().getContent());
+      gir.add(getDroite().getHaut().getContent());
     }catch (Exception e) {}
     try {
-      gir.add(droite.getBas().getContent());
+      gir.add(getDroite().getBas().getContent());
     }catch (Exception e) {}
     return gir;
   }
@@ -254,28 +221,28 @@ public class CCase implements Serializable{
     }
     GInsecte gir = getGi();
     try {
-      gir.addList(droite.getGi());
+      gir.addList(getDroite().getGi());
     }catch (Exception e) {}
     try {
-      gir.addList(haut.getGi());
+      gir.addList(getHaut().getGi());
     }catch (Exception e) {}
     try {
-      gir.addList(bas.getGi());
+      gir.addList(getBas().getGi());
     }catch (Exception e) {}
     try {
-      gir.addList(gauche.getGi());
+      gir.addList(getGauche().getGi());
     }catch (Exception e) {}
     try {
-      gir.addList(gauche.getHaut().getGi());
+      gir.addList(getGauche().getHaut().getGi());
     }catch (Exception e) {}
     try {
-      gir.addList(gauche.getBas().getGi());
+      gir.addList(getGauche().getBas().getGi());
     }catch (Exception e) {}
     try {
-      gir.addList(droite.getHaut().getGi());
+      gir.addList(getDroite().getHaut().getGi());
     }catch (Exception e) {}
     try {
-      gir.addList(droite.getBas().getGi());
+      gir.addList(getDroite().getBas().getGi());
     }catch (Exception e) {}
     return gir;
   }
@@ -283,29 +250,29 @@ public class CCase implements Serializable{
 
   public byte nbrDeCaseVoisine(){
     byte xr = 0;
-    if (haut!= null){xr++;}
-    if (bas!= null){xr++;}
-    if (droite!= null){xr++;}
-    if (gauche!= null){xr++;}
+    if (getHaut()!= null){xr++;}
+    if (getBas()!= null){xr++;}
+    if (getDroite()!= null){xr++;}
+    if (getGauche()!= null){xr++;}
     return xr;
   }
   public void afficheTout(){
     this.afficheLigne();
-    if(bas != null){
-      bas.afficheTout();
+    if(getBas() != null){
+      getBas().afficheTout();
     }
   }
   public void afficheLigne(){
     erreur.println(contenu);
-    if (droite != null){
-      droite.afficheLigne();
+    if (getDroite() != null){
+      getDroite().afficheLigne();
     }
   }
 
   public void tourCases(){
     tourLigneCases();
-    if(bas != null){
-      bas.tourCases();
+    if(getBas() != null){
+      getBas().tourCases();
     }
   }
   public void tourLigneCases(){
@@ -313,8 +280,8 @@ public class CCase implements Serializable{
     if(Main.getPartie().getAppartionGraine()){
       contenu.actualisationGraine(this);
     }
-    if (droite != null){
-      droite.tourLigneCases();
+    if (getDroite() != null){
+      getDroite().tourLigneCases();
     }
   }
   public void add(Case c){

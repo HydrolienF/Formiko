@@ -59,20 +59,10 @@ public class GCase implements Serializable{
       s+='\n';
     }
     return s;
-    // if (getHead()==null){erreur.erreur("La carte est vide");return "";}
-    // return getHead().toString();
   }
   public CCase getCCase(int x, int y){
     if(x<0 || y<0 || x>=getWidth() || y>=getHeight()){return null;}
     return ccases[x][y];
-    // if(getHead()==null){
-    //   return null;
-    // }else{
-    //   if (x==0 && y==0){
-    //     return getHead();
-    //   }
-    // }
-    // return getHead().getCCase(x,y);
   }
   public CCase getCCase(Point p){
     return getCCase(p.getX(),p.getY());
@@ -120,8 +110,8 @@ public class GCase implements Serializable{
       getHead().tourCases();
     }
   }
-  public void add(Case c){
-    if (getHead()==null){début = new CCase(c);return;}
-    getHead().add(c);
-  }
+  // public void add(Case c){
+  //   if (getHead()==null){début = new CCase(c);return;}
+  //   getHead().add(c);
+  // }
 }
