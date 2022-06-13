@@ -9,12 +9,13 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.tests.TestCaseMuet;
 import fr.formiko.usuel.Point;
+import fr.formiko.usuel.fichier;
 import fr.formiko.usuel.structures.listes.Liste;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -547,6 +548,8 @@ public class ListeTest extends TestCaseMuet {
       assertTrue(false);
     }catch (Exception e) {
       assertTrue(false);
+    }finally {
+      fichier.deleteDirectory(fileName);
     }
     assertEquals(l,loadL);
   }
