@@ -120,7 +120,7 @@ public class Partie implements Serializable {
   public boolean getAppartionGraine(){return appartionGraine;}
   public void setAppartionGraine(boolean b){appartionGraine=b;}
   public Fourmi getPlayingAnt(){return playingAnt;}
-  public Joueur getPlayingJoueur(){try{return getPlayingAnt().getFere().getJoueur();}catch (Exception e) {return null;}}
+  public Joueur getPlayingJoueur(){return Main.getPlayingJoueur();}
   public boolean getCasesSombres(){if(getCarte()==null){ return false;} else {return getCarte().getCasesSombres();}}
   public boolean getCasesNuageuses(){if(getCarte()==null){ return false;} else {return getCarte().getCasesNuageuses();}}
   public int getAntIdToPlay(){return antIdToPlay;}
