@@ -21,19 +21,24 @@ public class GCase implements Serializable{
     if(width < 0 || height < 0){ erreur.erreur("Impossible de créer une carte si petite","la carte la plus petite possible a été créée."); width = 1; height = 1;}
     this.width=width;
     this.height=height;
-    début = new CCase(new Case(0,0));
-    addDroite(width-1, début);
-    int d = 1; CCase début2;
-    while (d < height){
-      début2 = new CCase(new Case(0,d)); d++;
-      addDroite(width-1, début2);
-      fusionnnerLigne(début2);
-    }
+
     ccases = new CCase[width][height];
     for (int x=0; x<width; x++) {
       for (int y=0; y<height; y++) {
         ccases[x][y]=new CCase(x,y);
       }
+    }
+
+    début = new CCase(new Case(0,0));
+    // début = getCCase(0,0);
+    addDroite(width-1, getHead());
+    int d = 1; CCase début2;
+    while (d < height){
+      début2 = new CCase(new Case(0,d));
+      // début2 = getCCase(0,d);
+      d++;
+      addDroite(width-1, début2);
+      fusionnnerLigne(début2);
     }
   }
   public GCase(int taille){
@@ -46,18 +51,20 @@ public class GCase implements Serializable{
   public String getDim(){ return getWidth()+";"+getHeight();}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
-    if (début==null){erreur.erreur("La carte est vide");return "";}
-    return début.toString();
+    if (getHead()==null){erreur.erreur("La carte est vide");return "";}
+    return getHead().toString();
   }
   public CCase getCCase(int x, int y){
-    if(début==null){
+    if(x<0 || y<0 || x>=getWidth() || y>=getHeight()){return null;}
+    // return ccases[x][y];
+    if(getHead()==null){
       return null;
     }else{
       if (x==0 && y==0){
-        return début;
+        return getHead();
       }
     }
-    return début.getCCase(x,y);
+    return getHead().getCCase(x,y);
   }
   public CCase getCCase(Point p){
     return getCCase(p.getX(),p.getY());
@@ -66,12 +73,12 @@ public class GCase implements Serializable{
   public int getHeight(){return height;}
   public int length(){ return getWidth()*getHeight();}
   public CCase getCCaseAlléa(){
-    if (début== null){ erreur.erreurGXVide("GCase"); return null;}
+    if (getHead()== null){ erreur.erreurGXVide("GCase"); return null;}
     return getCCase(allea.getAlléa(this.getWidth()), allea.getAlléa(this.getHeight()));
   }
   public void setTypes(String t[]){
-    if (début== null){ erreur.erreurGXVide("GCase"); return;}
-    début.setTypes(t);
+    if (getHead()== null){ erreur.erreurGXVide("GCase"); return;}
+    getHead().setTypes(t);
   }
   public void addDroite(int x, CCase débutDeLaLigne){
     debug.débogage("Création d'une ligne");
@@ -85,7 +92,7 @@ public class GCase implements Serializable{
     }
   }
   public void fusionnnerLigne(CCase débutDeLaLigne2){
-    CCase débutDeLaLigne = début;
+    CCase débutDeLaLigne = getHead();
     while (débutDeLaLigne.getBas() != null){
       débutDeLaLigne = débutDeLaLigne.getBas();
     }
@@ -99,14 +106,14 @@ public class GCase implements Serializable{
     }
   }
   public void tourCases(){
-    if (début==null){
+    if (getHead()==null){
       erreur.erreur("La carte est vide");
     }else{
-      début.tourCases();
+      getHead().tourCases();
     }
   }
   public void add(Case c){
-    if (début==null){début = new CCase(c);return;}
-    début.add(c);
+    if (getHead()==null){début = new CCase(c);return;}
+    getHead().add(c);
   }
 }

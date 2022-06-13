@@ -133,11 +133,12 @@ public class CCase implements Serializable{
     }catch (Exception e) {}
     return gir;
   }
-  public GCase getGca(int x){
+  public Liste<Case> getGca(int x){
     if (x != 1){
       erreur.erreurPasEncoreImplemente();
     }
-    GCase gir = new GCase(); // ici on ne veut pas modifier le groupe originale alors on en fait une copie.
+    // ici on ne veut pas modifier le groupe originale alors on en fait une copie.
+    Liste<Case> gir = new Liste<Case>();
     gir.add(this.getContent());
     try {
       gir.add(droite.getContent());
@@ -242,14 +243,6 @@ public class CCase implements Serializable{
       cc.getContent().setType(str.sToI(t[i]));
       cc = cc.getDroite();
     }
-  }
-  public int getWidth(){
-    if (droite ==  null){ return 1;}
-    return 1 + droite.getWidth();
-  }
-  public int getHeight(){
-    if (bas ==  null){ return 1;}
-    return 1 + bas.getHeight();
   }
   public String getPoint(){
     return contenu.description();

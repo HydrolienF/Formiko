@@ -15,7 +15,7 @@ import fr.formiko.usuel.Os;
 import fr.formiko.usuel.g;
 import fr.formiko.views.ViewNull;
 
-public class CaseTest extends TestCaseMuet{
+public class CaseTest extends TestCaseMuet {
   private Partie p;
   // FUNCTIONS -----------------------------------------------------------------
   private Fourmi ini(){
