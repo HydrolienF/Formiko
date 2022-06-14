@@ -4,6 +4,7 @@ import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Main;
+import fr.formiko.formiko.Case;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
@@ -34,10 +35,7 @@ public class ChasseHerbivore implements Serializable, Chasse {
     if(c.getCCase().getContent().getFoodInsecte() >= foodEatable){
       return manger();
     }else{
-      //TODO
-      //l'insecte doit choisir la case la plus interessante pour lui cad :
-      //scoreDeLaCase = herbe/(1+nombre d'insecte déja la)
-      c.ceDeplacer(true); // ce déplacer de façon alléatoire.
+      c.ceDeplacer(c.getCCase().getGca(1).getMost((Case c1, Case c2) -> c2.interestForHerbivore()-c1.interestForHerbivore()));
       return true;
     }
   }

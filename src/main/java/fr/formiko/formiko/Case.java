@@ -333,4 +333,12 @@ public class Case implements Serializable{
     if(gb==null){iniGBlade();return;}
     gb.removeBlades(nbrBlades);
   }
+  /**
+  *{@summary Give a score about herbivore interest for this square.}<br>
+  *It use 2 parameters, foodInsecte &#38; number of other insect already in it.
+  *@lastEditedVersion 2.24
+  */
+  public int interestForHerbivore(){
+    return getFoodInsecte()-(3*getGc().length());
+  }
 }

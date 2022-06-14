@@ -191,6 +191,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   //raccourci des actions d'interface
   public void ceDeplacer(boolean bIa){déplacement.unMouvement(this,bIa);}
   public void ceDeplacer(CCase ccase){déplacement.unMouvement(this,ccase);}
+  public void ceDeplacer(Case ca){déplacement.unMouvement(this,ca);}
   public void ceDeplacer(int direction){déplacement.unMouvement(this,direction);}
   public void ceDeplacerPlusieurCase(CCase cc){déplacement.plusieurMouvement(this,cc);}
   public void pondre(){pondre.unePonte(this);}
