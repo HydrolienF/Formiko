@@ -287,7 +287,7 @@ public class Main {
   public static Carte getMap(){ return pa.getCarte();}
   public static Carte getCarte(){ return getMap();}
   public static double getVitesseDeJeu(){return pa.getVitesseDeJeu();}
-  public static GEspece getGe(){return pa.getGe();}
+  public static GEspece getGe(){return Partie.getGe();}
 
   public static boolean getOpenMenuFirst(){return openMenuFirst;}
   public static void dontOpenMenuFirst(){openMenuFirst=false;}

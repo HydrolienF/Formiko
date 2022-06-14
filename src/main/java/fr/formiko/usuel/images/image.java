@@ -253,9 +253,9 @@ public class image{
   // public static int taille(Creature c, int taille){
   //   int a;
   //   if(c instanceof Fourmi){
-  //     a = c.getIndividu().getTaille();
+  //     a = c.getIndividu().getSize();
   //   }else{
-  //     a = c.getEspece().getTaille(stade);
+  //     a = c.getEspece().getSize(stade);
   //   }
   //   //standard a is 100
   //   return taille(a,taille);
@@ -271,7 +271,7 @@ public class image{
   */
   public static int tailleFourmi(int idEspece, int typeF, int taille){
     if(Main.getEspeceById(idEspece)!=null && Main.getEspeceById(idEspece).getIndividuByType(typeF)!=null){
-      int a = Main.getEspeceById(idEspece).getIndividuByType(typeF).getTaille();
+      int a = Main.getEspeceById(idEspece).getIndividuByType(typeF).getSize();
       return taille(a,taille);
     }else{
       erreur.alerte("Ant specie "+idEspece+" have no Individu for "+typeF);
@@ -287,7 +287,7 @@ public class image{
   *@lastEditedVersion 1.3
   */
   public static int taille(int idEspece, int stade, int taille){
-    int a = Main.getEspeceById(idEspece).getTaille(stade);//standard a is 100
+    int a = Main.getEspeceById(idEspece).getSize(stade);//standard a is 100
     return taille(a,taille);
   }
   /**

@@ -61,7 +61,7 @@ public class FPanelCarte extends FPanel {
   private Map<Integer,Point> hashMapMovingObjectSurCarteAid;
   private Map<Integer,Point> hashMapMovingObjectSurCarteAidRotation;
   // private SubPanel subPanel;
-  private static Comparator<Creature> imageSizeComparator = (Creature p1, Creature p2) -> (int)(p1.getEspece().getTaille(p1.getStade()) - p2.getEspece().getTaille(p2.getStade()));
+  private static Comparator<Creature> imageSizeComparator = (Creature p1, Creature p2) -> (int)(p1.getEspece().getSize(p1.getStade()) - p2.getEspece().getSize(p2.getStade()));
   private BufferedImage iconImage;
   private BufferedImage bladeImage;
   private BufferedImage tBiState []=null;

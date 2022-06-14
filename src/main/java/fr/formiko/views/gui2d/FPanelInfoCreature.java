@@ -92,7 +92,7 @@ public class FPanelInfoCreature extends FPanelInfo {
     private void addCreatureIcons(){
       FPanelCreatureIcons pci = new FPanelCreatureIcons(yByElement);
       pci.addIcon(Main.getData().getCreatureImage(c));
-      pci.setText(c.getSex()+" "+c.getEspece().getNom());
+      pci.setText(c.getSex()+" "+c.getEspece().getName());
       // pci.setFont(Main.getOp().getFont1());
       if(c!=null && !c.equals(Main.getPlayingAnt())){
         pci.addIcon(FPanelCarte.getIconImage(c,Main.getPlayingAnt()));

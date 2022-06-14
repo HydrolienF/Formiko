@@ -26,12 +26,12 @@ public class EspeceTest extends TestCaseMuet{
   public void testgetIndividuByType(){
     Fourmi f = ini();
     assertEquals(0,f.getTypeF());
-    assertEquals(250,(int)(f.getIndividu().getTaille()));
+    assertEquals(250,(int)(f.getIndividu().getSize()));
     assertEquals(50,f.getIndividu().getMaxAction());
     assertEquals(3,f.getIndividu().getFoodConso(f.getStade()));
 
     f.setTypeF((byte)3);
-    assertEquals(80,(int)(f.getIndividu().getTaille()));
+    assertEquals(80,(int)(f.getIndividu().getSize()));
     assertEquals(35,f.getIndividu().getMaxAction());
     assertEquals(1,f.getIndividu().getFoodConso(f.getStade()));
   }

@@ -160,11 +160,11 @@ public class Fourmi extends Creature implements Serializable{
   public static void setBActionHaveChange(boolean b){bActionHaveChange=b;}
   // public static void setBupdateSize(boolean b){bupdateSize=b;}
   @Override
-  public String getNom(){return g.get("fourmi");}
+  public String getName(){return g.get("fourmi");}
   public boolean isImago(){return getStade()==0;}
   //racourci
   public Fourmi getReine(){ return getFere().getGc().getReine();}
-  public byte getHealthPerdu(){return e.getHealthPerdu(getStade());}
+  public byte getHealthLost(){return e.getHealthLost(getStade());}
   public int getFoodConso(){return getIndividu().getFoodConso(getStade());}
   /**
   *{@summary Return true if is own by an AI.}<br>
@@ -278,7 +278,7 @@ public class Fourmi extends Creature implements Serializable{
     String tr [] = new String [4];
     String idTrans = "Rien"; if(transported != null){ idTrans = ""+transported.getId();}
     int k=0;
-    //tr[k]=g.get("la")+" "+getNom()+" "+getId();k++;
+    //tr[k]=g.get("la")+" "+getName()+" "+getId();k++;
     //tr[k]=g.get("coordonnées")+" : "+p.desc();k++;
     tr[k]=g.get("type")+" : "+getIndividu().getStringType();k++;
     //tr[k]=g.get("stade")+" : "+getStringStade();k++;
@@ -290,7 +290,7 @@ public class Fourmi extends Creature implements Serializable{
     tr[k]=g.get("mode")+" : "+mode;k++;
     //tr[k]=g.get("Pheromone")+" : "+ this.getPheromone().toString();k++;
     tr[k]=g.get("transported")+" : "+idTrans;k++;
-    //tr[k]=g.get("espèce")+" : "+this.getEspece().getNom();k++;
+    //tr[k]=g.get("espèce")+" : "+this.getEspece().getName();k++;
     return tr;
   }
   /**
@@ -318,7 +318,7 @@ public class Fourmi extends Creature implements Serializable{
     //gs.add(g.get("mode")+" : "+mode);
     //gs.add(g.get("Pheromone")+" : "+ ph.description());
     if(transported != null){ gs.add(g.get("transported")+" : "+""+transported.getId());}
-    gs.add(g.get("espèce")+" : "+e.getNom());
+    gs.add(g.get("espèce")+" : "+e.getName());
     return gs;
   }
 
@@ -351,7 +351,7 @@ public class Fourmi extends Creature implements Serializable{
   public void salir(){
     double chanceDeMort = allea.getRand()*getSeuilDeRisqueDInfection(); // on tire le nombre min pour survivre a ce tour.
     if (getHealth()<chanceDeMort){mourir(1);}
-    setHealth(getHealth() - getHealthPerdu());
+    setHealth(getHealth() - getHealthLost());
   }
   /**
   *{@summary return true if this whant some food.}
@@ -369,7 +369,7 @@ public class Fourmi extends Creature implements Serializable{
   */
   public boolean wantClean(){
     if(getHealth()>99){return false;}
-    return getHealth() - (getHealthPerdu()*2) <= getSeuilDeRisqueDInfection();
+    return getHealth() - (getHealthLost()*2) <= getSeuilDeRisqueDInfection();
   }
   /**
   *{@summary initialize tour value for an ant.}<br>

@@ -98,7 +98,7 @@ public class FButton extends JButton implements MouseListener {
     setBorder(new FBorder());
   }
   // GET SET -------------------------------------------------------------------
-  public String getNom(){ return nom;}
+  public String getName(){ return nom;}
   public void setNom(String s){nom=s;}
   public int getActionB(){ return action;}
   public void setActionB(int x){action =x; }

@@ -1,0 +1,14 @@
+{
+  "id" : 0,
+  "nom" : "Lasius Niger",
+  "nbrDIndividuMax" : 40000,
+  "polycalique" : true,
+  "insectivore" : true,
+  "granivore" : false,
+  "fongivore" : false,
+  "herbivore" : false,
+  "miellativore" : true,
+  "gindividu" : [ ],
+  "aviableType" : [ ],
+  "haveWings" : true
+}
