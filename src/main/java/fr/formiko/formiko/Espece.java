@@ -1,26 +1,30 @@
 package fr.formiko.formiko;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import fr.formiko.formiko.Main;
+import fr.formiko.usuel.ReadFile;
 import fr.formiko.usuel.debug;
 import fr.formiko.usuel.decoderUnFichier;
 import fr.formiko.usuel.erreur;
 import fr.formiko.usuel.g;
-import fr.formiko.usuel.ReadFile;
-import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.maths.allea;
 import fr.formiko.usuel.maths.math;
+import fr.formiko.usuel.structures.listes.GString;
 import fr.formiko.usuel.tableau;
 import fr.formiko.usuel.types.str;
 
 import java.io.Serializable;
 
-public class Espece implements Serializable{
-  protected static int racioTourParJour = 24; // le fichier Espece.csv contient les temps en jours. (En plus de ce racio un développement lent sera 2 fois plus long (*2 par défaut.) Un dévelloppement rapide grace a une temperature idéale permettra au fourmi de passer 2 tour de vie d'un seul coup.)
+public class Espece implements Serializable {
+  /** To avoid too long parties, there is x day passing in 1 turn concidering realistic values. */
+  protected static int racioTourParJour = 24;
   protected final int id;
   protected String name;
   protected int maxIndividus;
   protected boolean polycalic; protected boolean monogyne;
-  protected boolean insectivore; protected boolean granivore; protected boolean fongivore; protected boolean herbivore; protected boolean miellativore;
+  protected boolean insectivore; protected boolean granivore; protected boolean fongivore;
+  protected boolean herbivore; protected boolean miellativore;
   protected byte tTemperatureExt[] = new byte[4];
   protected byte tTemperatureInt[] = new byte[4];
   protected byte tHumidity[] = new byte[2];
@@ -50,14 +54,6 @@ public class Espece implements Serializable{
     this.note = note;
     giu = new GIndividu();
   }
-  // public Espece(int id, String name, int maxIndividus, boolean polycalic,
-  //     boolean monogyne, boolean insectivore, boolean granivore, boolean fongivore,
-  //     boolean herbivore, boolean miellativore, byte tTemperatureExt[],
-  //     byte tTemperatureInt[], byte tHumidity[], boolean tHabitat[],
-  //     byte tHealthLost[], int tGivenFood[], int tSize[], String note,
-  //     GIndividu giu, boolean vole
-  //     ){
-  // }
   /**
 	* Default Espece constructor
 	*/
@@ -87,12 +83,9 @@ public class Espece implements Serializable{
 		this.giu = giu;
 		this.vole = vole;
 	}
-
-  // public Espece(int id){
-  //   this.id = id;
-  // } //For jackson only
   // GET SET -------------------------------------------------------------------
   public int getId(){ return id;}
+  @JsonIgnore
   public byte getHealthLost(byte stade){ // fluctue en fonction des tour et pas en fonction des individu.
     if(tHealthLost[stade+3]!=0){
       return (byte) allea.fluctuer(tHealthLost[stade+3],20);
@@ -108,7 +101,9 @@ public class Espece implements Serializable{
   public int getNbrDIndividuMax(){ return maxIndividus;}
   public GIndividu getGIndividu(){ return giu;}
   public void setGIndividu(GIndividu giu){ this.giu = giu;}
+  @JsonIgnore
   public int [] getAviableType(){ return giu.getAviableType();}
+  @JsonIgnore
   public Individu getIndividuByType(int typeF){ return giu.getIndividuByType(typeF);}
   public String getName(){
     if(name.equals("x")){return ""+getId();}
@@ -116,12 +111,19 @@ public class Espece implements Serializable{
   }
   public boolean getPolycalique(){return polycalic;}
   public void setPolycalique(boolean b){polycalic=b;}
-  public boolean getHaveWings(){return vole;}//seule les imagos chez les insectes et spécifiquement les individu de type 0 ou 1 chez les fourmi vole.
+  /** Only insectes imagos &#38; ant imagos of type 0 or 1 can have wings. */
+  public boolean getHaveWings(){return vole;}
+  @JsonIgnore
   public int getGivenFood(byte stade){if(stade<-3 || stade > 0){erreur.erreur("givenFood demande un stade entre -3 et 0 hors le stade est de "+stade); return -1;}
     return allea.fluctuer(tGivenFood[stade+3]);}//-3 = case 0. 0 = case 3.
+  @JsonIgnore
   public int getSize(byte stade){if(stade<-3 || stade > 0){erreur.erreur("getSize demande un stade entre -3 et 0 hors le stade est de "+stade); return -1;}
     return tSize[stade+3];}
+  @JsonIgnore
   public int getSize(int stade){return getSize(str.iToBy(stade));}
+
+  // For json only
+  public byte[] getTHealthLost(){return tHealthLost;}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String r = "";
