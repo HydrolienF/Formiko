@@ -1,0 +1,7 @@
+Ants = {
+  0: {
+    species:Lasius Niger
+    polycalic:true
+    monogyne:true
+  }
+}
