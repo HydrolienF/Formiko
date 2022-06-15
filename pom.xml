@@ -9,7 +9,7 @@
   <groupId>fr.formiko</groupId>
   <artifactId>Formiko</artifactId>
   <packaging>jar</packaging>
-  <version>2.21.63</version>
+  <version>2.25.7</version>
   <name>Formiko</name>
   <url>https://formiko.fr</url>
 
@@ -58,17 +58,17 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
-      <version>2.13.0</version>
+      <version>2.13.2.1</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-annotations</artifactId>
-      <version>2.13.0</version>
+      <version>2.13.2.1</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>2.13.0</version>
+      <version>2.13.2.1</version>
     </dependency>
   </dependencies>
 
