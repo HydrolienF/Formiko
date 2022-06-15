@@ -133,7 +133,7 @@ public class FPanelBouton extends FPanel {
     remove(ptb);
   }
   public synchronized void addPa(int t[]){
-    // TODO #498 change value insted of deleting & creating back.
+    Main.startCh();
     lToRemove.add(pa);
     lToRemove.add(pas);
     lToRemove.add(pai);
@@ -155,7 +155,7 @@ public class FPanelBouton extends FPanel {
     removes();
     setVisiblePa(true);
     revalidate();
-    // Main.repaint();
+    Main.endCh("Update FPanelInfo");
   }public void addPA(int t[]){addPa(t);}
   public void setVisiblePa(boolean b){
     pa.setVisible(b);
@@ -195,7 +195,7 @@ public class FPanelBouton extends FPanel {
   }
   public void removePChamp(){ remove(pchamp);setDescTI("");}
   public void addPI(){
-    // TODO #498 change value insted of deleting & creating back.
+    Main.startCh();
     lToRemove.add(pi);
     lToRemove.add(piGc);
     Fourmi playingAnt = Main.getPlayingAnt();
@@ -223,6 +223,7 @@ public class FPanelBouton extends FPanel {
       removes();
       erreur.alerte("FPanelInfoCreature haven't been set because playingAnt is null");
     }
+    Main.endCh("Update FPanelAction");
   }
   public void removePi(){
     remove(pi);

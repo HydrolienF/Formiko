@@ -120,7 +120,7 @@ public class Chrono {
     chTemp.stop();long lon = chTemp.getDuree();
     if(lon<20){return (int)lon;}
     String s3 = ""; if(!chTemp.equals(ch)){s3 = " ("+g.get("actionSecondaire")+" "+ch.getId()+")";}
-    debug.performances("temps pour "+ s + " : "+lon+" ms"+s3); //affichage du chrono.
+    erreur.info("time for "+ s + " : "+lon+" ms"+s3); //affichage du chrono.
     return (int)lon;
   }
 }

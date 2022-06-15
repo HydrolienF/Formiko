@@ -113,7 +113,7 @@ public class Main {
     }
     if(args.length>0 && args[0] != null){
       launchOptions.launchOptionsMajor(args);
-      quitter();
+      quit();
     }else{ // si il n'y a pas d'options ou que des options a "-".
       // LE JEU -------------------------------------------------------------------
       boolean continuerJeu=true;
@@ -137,7 +137,7 @@ public class Main {
         image.clearPartielTemporaire();
       }
     }
-    quitter();//en théorie on arrive pas là.
+    quit();//en théorie on arrive pas là.
   }
   /**
    * {@summary pre launch.}<br>
@@ -392,9 +392,25 @@ public class Main {
   }
   //chrono shortcut
   public static void startCh(){Chrono.debutCh();}
-  public static void endCh(String s){lonTotal+=Chrono.endCh(s);}
+  /**
+  *{@summary End the Chrono &#38; return the time.}
+  *@lastEditedVersion 2.24
+  */
+  public static int endCh(String s){
+    int time=Chrono.endCh(s);
+    lonTotal+=time;
+    return time;
+  }
   public static void startCh(Chrono chTemp){Chrono.debutCh(chTemp);}
-  public static void endCh(String s,Chrono chTemp){lonTotal+=Chrono.endCh(s,chTemp);}
+  /**
+  *{@summary End the Chrono &#38; return the time.}
+  *@lastEditedVersion 2.24
+  */
+  public static int endCh(String s,Chrono chTemp){
+    int time=Chrono.endCh(s,chTemp);
+    lonTotal+=time;
+    return time;
+  }
   /**
    * {@summary Try to exit normally.}<br>
    * Save score informations.<br>
@@ -404,7 +420,7 @@ public class Main {
    * If something went wrong stop java with code 1.<br>
    * @lastEditedVersion 1.1
    */
-  public static void quitter(){
+  public static void quit(){
     try {
       // if(pa!=null){
       //   startCh();
@@ -429,6 +445,7 @@ public class Main {
       System.exit(1); //une erreur a la fermeture.
     }
   }
+  public static void quitter(){quit();}
   /**
    * {@summary Play a turn.}<br>
    * 1a updating Case resources.<br>
