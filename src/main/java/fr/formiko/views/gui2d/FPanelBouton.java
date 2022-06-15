@@ -133,6 +133,7 @@ public class FPanelBouton extends FPanel {
     remove(ptb);
   }
   public synchronized void addPa(int t[]){
+    // TODO #498 change value insted of deleting & creating back.
     lToRemove.add(pa);
     lToRemove.add(pas);
     lToRemove.add(pai);
@@ -194,6 +195,7 @@ public class FPanelBouton extends FPanel {
   }
   public void removePChamp(){ remove(pchamp);setDescTI("");}
   public void addPI(){
+    // TODO #498 change value insted of deleting & creating back.
     lToRemove.add(pi);
     lToRemove.add(piGc);
     Fourmi playingAnt = Main.getPlayingAnt();
