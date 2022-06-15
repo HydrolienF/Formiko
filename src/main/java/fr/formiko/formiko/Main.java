@@ -74,6 +74,7 @@ public class Main {
 
   private static boolean needToInitialize; //TODO OP use to avoid using op==null
   private static boolean openMenuFirst;
+  private static boolean wantToQuit;
 
   /**
    * {@summary Lauch the game.}<br>
@@ -92,6 +93,8 @@ public class Main {
     debug.setAffG(false);
     openMenuFirst=true;
     color.iniColor();
+    wantToQuit=false;
+    // handleQuit(); //Do some weard thing so it's disable for now.
     //iniThings that can't be null :
     // view = new ViewNull();
     // os = new Os();
@@ -421,6 +424,7 @@ public class Main {
    * @lastEditedVersion 1.1
    */
   public static void quit(){
+    wantToQuit=true;
     try {
       // if(pa!=null){
       //   startCh();
@@ -446,6 +450,22 @@ public class Main {
     }
   }
   public static void quitter(){quit();}
+  /**
+  *{@summary Launch normal exit on shutDown.}
+  *From ctr-c for exemple.<br>
+  *@lastEditedVersion 1.25
+  */
+  public static void handleQuit(){
+    Runtime.getRuntime().addShutdownHook(new Thread() {
+      /** This handler will be called on Control-C pressed */
+      @Override
+      public void run() {
+        if(!wantToQuit){
+          quit();
+        }
+      }
+    });
+  }
   /**
    * {@summary Play a turn.}<br>
    * 1a updating Case resources.<br>
