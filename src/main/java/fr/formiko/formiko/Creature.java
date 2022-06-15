@@ -164,7 +164,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public Espece getEspece(){ return e;}
   public void setEspece(Espece e){ this.e = e;}
   public void setEspece(int e){ setEspece(Main.getEspeceById(e));}
-  public String getNom(){return g.get("creature");}
+  public String getName(){return g.get("creature");}
   public int getLastTurnEnd(){return lastTurnEnd;}
   public void setLastTurnEnd(int x){lastTurnEnd=x;}
   /***
@@ -186,11 +186,12 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     if(o!=null){o.setCCase(null);}
   }
 
-  public int getTaille(){if(getEspece()!=null){return getEspece().getTaille(getStade());}return 1;}
+  public int getSize(){if(getEspece()!=null){return getEspece().getSize(getStade());}return 1;}
 
   //raccourci des actions d'interface
   public void ceDeplacer(boolean bIa){déplacement.unMouvement(this,bIa);}
   public void ceDeplacer(CCase ccase){déplacement.unMouvement(this,ccase);}
+  public void ceDeplacer(Case ca){déplacement.unMouvement(this,ca);}
   public void ceDeplacer(int direction){déplacement.unMouvement(this,direction);}
   public void ceDeplacerPlusieurCase(CCase cc){déplacement.plusieurMouvement(this,cc);}
   public void pondre(){pondre.unePonte(this);}
@@ -261,7 +262,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   @Override
   public String toString(){
     String r = "";
-    r+= g.getOr("le","la")+" "+getNom();
+    r+= g.getOr("le","la")+" "+getName();
     r+=" ";
     r+=getId();r+=" ";
     if (this.getFemelle()){r+= "♀";}
@@ -277,7 +278,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     r+=g.get("phéromone")+" "+ph.toString()+", ";
     r+=g.get("pheromoneTolerence")+" "+pheromoneTolerence+", ";
     try {
-      r+=g.get("espèce")+" "+e.getNom();
+      r+=g.get("espèce")+" "+e.getName();
     }catch (Exception e) {}
     return r;
   }
@@ -287,7 +288,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   */
   public String toStringShort(){
     String r = "";
-    r+=str.toMaj(getNom());
+    r+=str.toMaj(getName());
     r+=" ";
     r+=getId();r+=" ";
     if (this.getFemelle()){r+= "♀";}
@@ -303,7 +304,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     r+=g.get("health")+" "+health+"/"+"100"+", ";
     r+=g.get("phéromone")+" "+ph.toHex()+" (±"+pheromoneTolerence+")"+", ";
     try {
-      r+=e.getNom();
+      r+=e.getName();
     }catch (Exception e) {}
     return r;
   }

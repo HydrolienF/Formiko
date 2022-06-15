@@ -116,22 +116,22 @@ public class MapPath {
     // ...
     // }
     if(d==5){ return from;}
-    if(d==2){ return from.getHaut();}
-    if(d==6){ return from.getDroite();}
-    if(d==8){ return from.getBas();}
-    if(d==4){ return from.getGauche();}
+    if(d==2){ return from.getUp();}
+    if(d==6){ return from.getRigth();}
+    if(d==8){ return from.getDown();}
+    if(d==4){ return from.getLeft();}
     // more complicated
-    if (d==1){ CCase cc = from.getHaut();
-      if(cc != null){ return cc.getGauche();} return null;
+    if (d==1){ CCase cc = from.getUp();
+      if(cc != null){ return cc.getLeft();} return null;
     }
-    if (d==3){ CCase cc = from.getHaut();
-      if(cc != null){ return cc.getDroite();} return null;
+    if (d==3){ CCase cc = from.getUp();
+      if(cc != null){ return cc.getRigth();} return null;
     }
-    if (d==7){ CCase cc = from.getBas();
-      if(cc != null){ return cc.getGauche();} return null;
+    if (d==7){ CCase cc = from.getDown();
+      if(cc != null){ return cc.getLeft();} return null;
     }
-    if (d==9){ CCase cc = from.getBas();
-      if(cc != null){ return cc.getDroite();} return null;
+    if (d==9){ CCase cc = from.getDown();
+      if(cc != null){ return cc.getRigth();} return null;
     }
     return null;
   }

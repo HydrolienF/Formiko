@@ -25,12 +25,12 @@ import java.util.Map;
 *@author Hydrolien
 *@lastEditedVersion 1.39
 */
-public class Partie implements Serializable{
+public class Partie implements Serializable {
   private static final long serialVersionUID = 1L;
   private static String script="";
   private GInsecte gi;
   private GJoueur gj;
-  private static GEspece ge;
+  private static transient GEspece ge;
   private Carte mapo;
   private int nbrDeTour, tour;
   private int niveauDeLimitationDesinsectes = 4;
@@ -120,7 +120,7 @@ public class Partie implements Serializable{
   public boolean getAppartionGraine(){return appartionGraine;}
   public void setAppartionGraine(boolean b){appartionGraine=b;}
   public Fourmi getPlayingAnt(){return playingAnt;}
-  public Joueur getPlayingJoueur(){try{return getPlayingAnt().getFere().getJoueur();}catch (Exception e) {return null;}}
+  public Joueur getPlayingJoueur(){return Main.getPlayingJoueur();}
   public boolean getCasesSombres(){if(getCarte()==null){ return false;} else {return getCarte().getCasesSombres();}}
   public boolean getCasesNuageuses(){if(getCarte()==null){ return false;} else {return getCarte().getCasesNuageuses();}}
   public int getAntIdToPlay(){return antIdToPlay;}
@@ -228,6 +228,7 @@ public class Partie implements Serializable{
   }
   public boolean launchGame(){
     if(!getLaunchingFromSave()){
+      tour=1;
       Main.getPartie().getGj().prendreEnCompteLaDifficulté();//setFood acording to difficutly.
       Main.stopScript();
       if(!Partie.getScript().equals("")){
@@ -245,7 +246,7 @@ public class Partie implements Serializable{
         erreur.alerte("Music can't be played next");
       }
     }
-    for(tour=1; tour<=nbrDeTour; tour++){
+    for(; tour<=nbrDeTour; tour++){
       new Message("\n"+g.get("tour")+" "+ tour +" :");
       //Main.repaint();
       //La joue toutes les ia et les joueurs

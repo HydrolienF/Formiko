@@ -314,8 +314,8 @@ public class TourReineTest extends TestCaseMuet{
     assertEquals(1,f.getAge());
     assertEquals(0,f.getAction());
     assertEquals(18,f.getFood());
-    assertTrue(f.getHealthPerdu()!=0);
-    assertEquals(100-f.getHealthPerdu(),f.getHealth());
+    assertTrue(f.getHealthLost()!=0);
+    assertEquals(100-f.getHealthLost(),f.getHealth());
 
     f.setAction(0);
     f.setTypeF((byte)0);

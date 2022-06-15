@@ -1,6 +1,7 @@
 package fr.formiko.formiko.interfaces;
 
 import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
 import fr.formiko.usuel.erreur;
 
@@ -11,7 +12,7 @@ import java.io.Serializable;
  * It print an error for all the methode of implemented class.<br>
  * It allow to avoid error of null implementation.<br>
  * @author Hydrolien
- * @lastEditedVersion 1.1
+ * @lastEditedVersion 1.24
  */
 public class DeplacementNull implements Serializable, Deplacement {
   /**
@@ -36,6 +37,13 @@ public class DeplacementNull implements Serializable, Deplacement {
   *If lauch print an error.
   */
   public void plusieurMouvement(Creature c, CCase cc){
+    erreur.erreur("Impossible de déplacer avec la créature " + c.getId());
+  }
+  /**
+  *If lauch print an error.
+  * @lastEditedVersion 1.24
+  */
+  public void unMouvement(Creature c, Case p){
     erreur.erreur("Impossible de déplacer avec la créature " + c.getId());
   }
 

@@ -148,7 +148,7 @@ public class CLIMap{
       sr+=Ascii.intToLetterCode(xi2)+"|";
       sr+=color.NEUTRAL;
       sr+=mapLineToString(cc,j)+"\n";
-      cc=cc.getBas();
+      cc=cc.getDown();
     }
     return sr;
   }
@@ -164,7 +164,7 @@ public class CLIMap{
     Joueur j = Main.getPlayingJoueur();
     while(cc!=null){
       sr+=mapLineToString(cc,j)+"\n";
-      cc=cc.getBas();
+      cc=cc.getDown();
     }
     return sr;
   }
@@ -179,7 +179,7 @@ public class CLIMap{
     while(cc!=null){
       if(j==null){sr+=caseToString(cc.getContent(),false,false);}
       sr+=caseToString(cc,j);
-      cc=cc.getDroite();
+      cc=cc.getRigth();
     }
     return sr;
   }

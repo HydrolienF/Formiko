@@ -84,7 +84,12 @@ public class Joueur implements Serializable{
   public static void ini(){i=1;}
   public boolean getIsTurnEnded(){return isTurnEnded;}
   public void setIsTurnEnded(boolean b){isTurnEnded=b;}
-  public static Joueur getPlayingJoueur(){return playingJoueur;}
+  public static Joueur getPlayingJoueur(){
+    if(playingJoueur==null && Main.getPartie().getPlayingAnt()!=null){
+      return Main.getPartie().getPlayingAnt().getFere().getJoueur();
+    }
+    return playingJoueur;
+  }
   public static void setPlayingJoueur(Joueur j){playingJoueur=j;}
   public Espece getEspece(){return getFere().getEspece();}
 // FUNCTIONS -----------------------------------------------------------------
@@ -128,8 +133,8 @@ public class Joueur implements Serializable{
     erreur.println(pseudo +" : "+getScore());
   }
   public void initialisationCaseNS(){
-    int x = Main.getGc().getNbrX();
-    int y = Main.getGc().getNbrY();
+    int x = Main.getGc().getWidth();
+    int y = Main.getGc().getHeight();
     caseNuageuse = new boolean[x][y];
     caseSombre = new boolean[x][y];
     for (int i=0;i<x ;i++ ) {
@@ -144,8 +149,8 @@ public class Joueur implements Serializable{
     }
   }
   public void updateCaseSN(){
-    int x = Main.getGc().getNbrX();
-    int y = Main.getGc().getNbrY();
+    int x = Main.getGc().getWidth();
+    int y = Main.getGc().getHeight();
     for (int i=0;i<x ;i++ ) {
       for (int j=0;j<y ;j++ ) {
         caseSombre[i][j]=true;

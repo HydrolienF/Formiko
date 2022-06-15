@@ -377,13 +377,10 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
       if(c instanceof Fourmi){
         Fourmi f = (Fourmi)(c);
         Joueur j = f.getJoueur();
-        GCase gc = f.getCCase().getGca(1); //ensemble des case vue par la créature.
-        CCase cca = gc.getHead();
-        while(cca!=null){
-          int x = cca.getContent().getX(); int y = cca.getContent().getY();
+        for (Case ca : f.getCCase().getGca(1)) {
+          int x = ca.getX(); int y = ca.getY();
           j.setCaseSombre(x,y,false);
           j.setCaseNuageuse(x,y,false);
-          cca=cca.getDroite();
         }
       }
     }

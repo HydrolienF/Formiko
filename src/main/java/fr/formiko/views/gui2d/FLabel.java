@@ -28,7 +28,7 @@ public class FLabel extends JLabel {
   *{@summary Main constructor.}<br>
   *It use Formiko color &#38; font.
   *@param x the preferred width
-  *@param y the preferred heigth
+  *@param y the preferred height
   *@lastEditedVersion 2.6
   */
   public FLabel(int x, int y){

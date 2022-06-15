@@ -261,7 +261,7 @@ public class FPanelMenu extends FPanel {
       add(returnButton);
     }
     returnButton.setActionB(ac);
-    String oldName = returnButton.getNom();
+    String oldName = returnButton.getName();
     String newName = "";
     if(ac==-1){
       newName = g.get("menuP.4");

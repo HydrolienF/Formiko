@@ -108,7 +108,7 @@ public class Message implements Serializable{
       if(gj.length()==0){
         String nom;
         if (f!=null) {
-          nom = f.getNom();
+          nom = f.getName();
         }else{
           nom = g.get("creature");
         }
@@ -140,7 +140,7 @@ public class Message implements Serializable{
         if(cr==null){
           nom="null";
         }else{
-          nom=cr.getNom();
+          nom=cr.getName();
         }
         String tueur = g.getOr("la","le")+" "+nom;
         String texte = laNotre +" "+ g.get("fourmi")+" "+status+"("+f.getId()+")"+" "+ g.get("mort"+raison)+" "+tueur+".";

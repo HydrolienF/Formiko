@@ -53,7 +53,6 @@ public class sauvegarderUnePartie {
     }
     if(p.getPlayingJoueur()==null && p.getGj().length()>1){
       erreur.alerte("Unable to save while there is no current player");
-      erreur.println("Unable to save while there is no current player");
       sendMessageSaveFail();
       return;
     }
@@ -65,6 +64,7 @@ public class sauvegarderUnePartie {
       oos.writeObject(p);
     }catch(StackOverflowError e){
       erreur.erreur("To many item relation to save: StackOverflowError");
+      System.out.println("To many item relation to save: StackOverflowError");//@a
       sendMessageSaveFail();
       return;
     }catch (Exception e) {

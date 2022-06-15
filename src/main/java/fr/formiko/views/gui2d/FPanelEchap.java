@@ -91,7 +91,7 @@ public class FPanelEchap extends FPanel{
   */
   @Override
   public void setVisible(boolean b){
-    erreur.info("Set Pe visibility to "+b);
+    // erreur.info("Set Pe visibility to "+b);
     if(b){build();getView().getPs().setSize(0,0);}
     else{
       try {

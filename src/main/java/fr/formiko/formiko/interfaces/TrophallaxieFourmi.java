@@ -93,7 +93,7 @@ public class TrophallaxieFourmi implements Serializable, Trophallaxie {
         Creature cTemp = gc.getCreatureById(t[i]);
         String sTemp = "";
         if(cTemp instanceof Fourmi){sTemp = " ("+((Fourmi)(cTemp)).getStringStade()+")";}
-        else {sTemp = " ("+cTemp.getNom()+")";}
+        else {sTemp = " ("+cTemp.getName()+")";}
         ts[i]=t[i]+" : "+cTemp.getFood()+"/"+cTemp.getMaxFood()+" "+g.get("food")+sTemp;
       }
       int id2=-1;

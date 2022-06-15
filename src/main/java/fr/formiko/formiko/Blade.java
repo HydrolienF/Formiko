@@ -53,7 +53,7 @@ public abstract class Blade extends Point implements Serializable {
     y = rand.nextInt(100-(2*avoidBorder))+avoidBorder/2;
   }
   // public byte getDirection(){return direction;}
-  public byte getLength(){return length;}
+  public byte length(){return length;}
   public void setLength(byte l){length=l;}
   abstract Color getColor();
   public static int getThikness(){return 2;}
@@ -71,7 +71,7 @@ public abstract class Blade extends Point implements Serializable {
     g2.setStroke(new BasicStroke(math.max(getThikness()*Main.getData().getTailleDUneCase()/100,1), BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
     int xT = xOffset+x*Main.getData().getTailleDUneCase()/100;
     int yT = yOffset+y*Main.getData().getTailleDUneCase()/100;
-    int bLen = getLength()*Main.getData().getTailleDUneCase()/100;
+    int bLen = length()*Main.getData().getTailleDUneCase()/100;
     g.setColor(getColor());
     g.drawLine(xT, yT, xT+(int)(bLen*Math.cos(angle)), yT+(int)(bLen*Math.sin(angle)));
   }

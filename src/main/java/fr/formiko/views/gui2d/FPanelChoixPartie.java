@@ -46,7 +46,7 @@ public class FPanelChoixPartie extends FPanelLanceurPartie {
     super.paintComponent(g);
   }
   public Partie getPartie(){
-    erreur.info("getPartie",20);
+    // erreur.info("getPartie",20);
     String partieName = ePartie.getSelectedItem()+"";
     partieName = str.addALaFinSiNecessaire(partieName,".save");
     Partie pa = sauvegarderUnePartie.charger(partieName);

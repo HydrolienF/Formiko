@@ -30,7 +30,7 @@ public class FTextArea extends JTextArea {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
-  *heigth is defined by counting lines.
+  *height is defined by counting lines.
   *@param s the text of the FTextArea
   *@param width the width used for the FTextArea
   *@lastEditedVersion 2.6

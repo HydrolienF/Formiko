@@ -1,5 +1,7 @@
 package fr.formiko.formiko;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsoner;
 
@@ -24,6 +26,7 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -251,6 +254,8 @@ public class launchOptions {
       printScreenSize();
     }else if(args[0].equals("version")){
       printVersion();
+    }else if(args[0].equals("testjson")){
+      testJson();
     }else{
       erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
     }
@@ -528,5 +533,19 @@ public class launchOptions {
     Folder folder = new Folder();
     folder.ini(false); //don't download anything
     erreur.info("Formiko "+folder.getCurentVersion()+"   data version: "+folder.getCurentDataVersion()+"   music version: "+folder.getCurentMusicVersion());
+  }
+  // TODO #574
+  private static void testJson(){
+    Main.initialisation();
+    File f = new File("test.json");
+    ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
+    System.out.println(Main.getGe().getFirst());
+    try {
+      mapper.writeValue(f, Main.getGe().getFirst());
+      Espece e = mapper.readValue(f, Espece.class);
+      System.out.println(e);
+    }catch (IOException e) {
+      erreur.erreur("Fail to save as .json "+e);
+    }
   }
 }

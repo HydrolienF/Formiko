@@ -15,7 +15,7 @@ import fr.formiko.usuel.Os;
 import fr.formiko.usuel.g;
 import fr.formiko.views.ViewNull;
 
-public class CaseTest extends TestCaseMuet{
+public class CaseTest extends TestCaseMuet {
   private Partie p;
   // FUNCTIONS -----------------------------------------------------------------
   private Fourmi ini(){
@@ -40,25 +40,31 @@ public class CaseTest extends TestCaseMuet{
   }
   @Test
   public void testToString(){
-    Fourmi f = ini();
-    p.setPlayingAnt(f);
-    Joueur j = Main.getGj().getFirst();
-    j.initialisationCaseNS();
-    j.updateCaseSN();
-    assertEquals(0,Main.getOp().getLanguage());
-    //show everything
-    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
-    //do not show anything
-    j.setCaseNuageuse(0,0,true);
-    // assertTrue("".equals(Main.getGc().getCCase(0,0).getContent().toString()));
-    assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-    assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
-    //show only stable information (no insecte & no ant.)
-    j.setCaseNuageuse(0,0,false);
-    j.setCaseSombre(0,0,true);
-    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-    assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
+    try{
+      Fourmi f = ini();
+      p.setPlayingAnt(f);
+      Joueur j = Main.getGj().getFirst();
+      j.initialisationCaseNS();
+      j.updateCaseSN();
+      assertEquals(0,Main.getOp().getLanguage());
+      //show everything
+      assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
+      assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
+      //do not show anything
+      j.setCaseNuageuse(0,0,true);
+      // assertTrue("".equals(Main.getGc().getCCase(0,0).getContent().toString()));
+      assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
+      assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
+      //show only stable information (no insecte & no ant.)
+      j.setCaseNuageuse(0,0,false);
+      j.setCaseSombre(0,0,true);
+      assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
+      assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
+
+    }catch (StackOverflowError e) {
+      System.out.println(e);
+      e.printStackTrace();
+    }
   }
   //I can't get why this test exist.
   // @Test

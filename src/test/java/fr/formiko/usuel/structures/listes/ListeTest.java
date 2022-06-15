@@ -7,10 +7,15 @@ import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
-import fr.formiko.usuel.Point;
-import fr.formiko.usuel.structures.listes.Liste;
 import fr.formiko.tests.TestCaseMuet;
+import fr.formiko.usuel.Point;
+import fr.formiko.usuel.fichier;
+import fr.formiko.usuel.structures.listes.Liste;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -520,5 +525,32 @@ public class ListeTest extends TestCaseMuet {
     assertEquals(l.get(1),l.getMost((Point p1, Point p2) -> (int)((p2.getX()+p2.getY()) - (p1.getX()+p1.getY()))));
   }
   class GPoint extends Liste<Point>{}
-
+  @Test
+  @SuppressWarnings("unchecked")
+  public void testSerialisation(){
+    Liste<String> l = new Liste<String>();
+    l.add("1");
+    l.add("un");
+    l.add("unu");
+    l.add("one");
+    String fileName="save"+getId();
+    try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))){
+      oos.writeObject(l);
+    }catch(StackOverflowError e){
+      assertTrue(false);
+    }catch (Exception e) {
+      assertTrue(false);
+    }
+    Liste loadL = null;
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
+      loadL = (Liste<String>) ois.readObject();
+    }catch(StackOverflowError e){
+      assertTrue(false);
+    }catch (Exception e) {
+      assertTrue(false);
+    }finally {
+      fichier.deleteDirectory(fileName);
+    }
+    assertEquals(l,loadL);
+  }
 }

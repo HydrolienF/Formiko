@@ -17,7 +17,7 @@ import java.io.Serializable;
 *@lastEditedVersion 2.2
 *@author Hydrolien
 */
-public class GIndividu extends Liste<Individu> implements Serializable{
+public class GIndividu extends Liste<Individu> implements Serializable {
   // CONSTRUCTEUR --------------------------------------------------------------
 
   // GET SET -------------------------------------------------------------------

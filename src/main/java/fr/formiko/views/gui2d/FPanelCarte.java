@@ -61,7 +61,7 @@ public class FPanelCarte extends FPanel {
   private Map<Integer,Point> hashMapMovingObjectSurCarteAid;
   private Map<Integer,Point> hashMapMovingObjectSurCarteAidRotation;
   // private SubPanel subPanel;
-  private static Comparator<Creature> imageSizeComparator = (Creature p1, Creature p2) -> (int)(p1.getEspece().getTaille(p1.getStade()) - p2.getEspece().getTaille(p2.getStade()));
+  private static Comparator<Creature> imageSizeComparator = (Creature p1, Creature p2) -> (int)(p1.getEspece().getSize(p1.getStade()) - p2.getEspece().getSize(p2.getStade()));
   private BufferedImage iconImage;
   private BufferedImage bladeImage;
   private BufferedImage tBiState []=null;
@@ -77,8 +77,8 @@ public class FPanelCarte extends FPanel {
     // Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(100));
     // Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(1));
     GCase gc = new GCase(1,1);
-    xCase = gc.getNbrX();
-    yCase = gc.getNbrY();
+    xCase = gc.getWidth();
+    yCase = gc.getHeight();
     hashMapMovingObjectSurCarteAid = new HashMap<Integer,Point>();
     hashMapMovingObjectSurCarteAidRotation = new HashMap<Integer,Point>();
   }
@@ -887,8 +887,8 @@ public class FPanelCarte extends FPanel {
 
   public void updateSize(){
     GCase gc = Main.getGc();
-    xCase = gc.getNbrX();
-    yCase = gc.getNbrY();
+    xCase = gc.getWidth();
+    yCase = gc.getHeight();
     int xTemp = getTailleDUneCase()*xCase;
     int yTemp = getTailleDUneCase()*yCase;
     super.setSize(xTemp,yTemp);

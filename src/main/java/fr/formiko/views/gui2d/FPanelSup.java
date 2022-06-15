@@ -157,7 +157,7 @@ public class FPanelSup extends FPanel {
     if(getView().getPe().isOn()){return;}
     if(cc==null){getView().setMessageDesc("");cc2=null;return;}
     if(force || cc2==null || !cc2.getContent().equals(cc.getContent())){//si la case a changé.
-      cc2=new CCase(cc.getContent());
+      cc2=new CCase(cc.getContent(), cc.getGc());
       getView().setLookedCCase(cc);
     }
   }
