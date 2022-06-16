@@ -1,6 +1,5 @@
 package fr.formiko.usual;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usual.ReadFile;
 import fr.formiko.usual.structures.listes.GString;
 import fr.formiko.usual.tableau;
@@ -13,11 +12,11 @@ import java.util.HashMap;
 /**
 *{@summary Loard translation file class.}<br>
 *@author Hydrolien
-*@lastEditedVersion 1.5
+*@lastEditedVersion 2.25
 */
 public class chargerLesTraductions {
   private static HashMap<String, String> map;
-  private static String rep=Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages();
+  private static String rep;
   private static String tLangue[]=null;
   private static int defaultLanguage=2;
   // get set -------------------------------------------------------------------
@@ -25,27 +24,36 @@ public class chargerLesTraductions {
   public static void setTLangue(String t []){tLangue=t;}
   public static String getRep(){return rep;}
   public static void setRep(String s){rep = str.sToDirectoryName(s);}
-  public static void setRep(){setRep(Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages());}
   public static HashMap<String, String> getMap(){return map;}
   public static void iniMap(){map = new HashMap<>();}
   // FUNCTIONS -----------------------------------------------------------------
   /**
-  *{@summary get the int that corresponds to the language String.}<br>
-  *@param x language id.
+  *{@summary Get the int that corresponds to the language String.}<br>
+  *@param id language id
+  *@param fisrtPartie if true don't print error concerning missing data
   *@return language String in ISO code 639-1 if tLangue is correct.
-  *@lastEditedVersion 1.5
+  *@lastEditedVersion 2.25
   */
-  public static String getLanguage(int x){
-    if(tLangue == null || x<0 || x>=tLangue.length){
+  public static String getLanguage(int id, boolean firstPartie){
+    if(tLangue == null || id<0 || id>=tLangue.length){
       int l = 0;
       if(tLangue!=null){l=tLangue.length;}
-      if(!Main.getPremierePartie()){
-        erreur.erreur("langue "+x+" non reconnu parmi les "+l+" langue(s) disponible(s).",10);
+      if(!firstPartie){
+        erreur.erreur("langue "+id+" non reconnu parmi les "+l+" langue(s) disponible(s).",10);
       }
       // new Info("langue non reconnu parmi les "+l+" langue(s) disponible(s).").setType(2).setFix("\"en\" retourné").setClassDepth(2).print();
       return "en";
     }
-    return tLangue[x];
+    return tLangue[id];
+  }
+  /**
+  *{@summary Get the int that corresponds to the language String.}<br>
+  *@param id language id
+  *@return language String in ISO code 639-1 if tLangue is correct.
+  *@lastEditedVersion 2.25
+  */
+  public static String getLanguage(int id){
+    return getLanguage(id, false);
   }
   /**
   *{@summary get the String that corresponds to the language int.}<br>

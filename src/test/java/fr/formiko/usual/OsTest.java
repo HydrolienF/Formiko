@@ -66,7 +66,7 @@ public class OsTest extends TestCaseMuet {
 }
 class OsExtends extends Os{
   public OsExtends(String s){
-    OS=s;
+    osName=s;
     iniOs();
   }
 }

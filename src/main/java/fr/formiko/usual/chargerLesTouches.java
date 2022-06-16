@@ -1,6 +1,5 @@
 package fr.formiko.usual;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.ecrireUnFichier;
 import fr.formiko.usual.erreur;
@@ -14,14 +13,14 @@ import java.util.HashMap;
 public class chargerLesTouches {
   private static HashMap<String, Integer> map;
   // FUNCTIONS -----------------------------------------------------------------
-  public static HashMap<String, Integer> chargerLesTouches(String versionActuelle){
+  public static HashMap<String, Integer> chargerLesTouches(String versionActuelle, String folderMain){
     map = new HashMap<>();
-    File f = new File(Main.getFolder().getFolderMain()+"Keys.txt");
+    File f = new File(folderMain+"Keys.txt");
     if (!f.exists()){ // si le fichier d'options n'existe pas.
-      chargerLesTouchesDe0(versionActuelle);
+      chargerLesTouchesDe0(versionActuelle, folderMain);
     }
     String t [] = new String[0];
-    t=ReadFile.readFileArray(Main.getFolder().getFolderMain()+"Keys.txt");
+    t=ReadFile.readFileArray(folderMain+"Keys.txt");
     // if(!decoderUnFichier.getStringDeLaLigne(t[0]).equals(versionActuelle)){ erreur.erreur("Le fichier des touches n'est pas compatible avec la version "+versionActuelle,true);return map;}
     int lent = t.length;
     for (int i=1; i<lent;i++) {
@@ -30,11 +29,11 @@ public class chargerLesTouches {
     return map;
   }
 
-  public static void chargerLesTouchesDe0(String versionActuelle){
+  public static void chargerLesTouchesDe0(String versionActuelle, String folderMain){
     //TODO #230
     GString gs = new GString();
     gs.add("version compatible:"+versionActuelle);
-    ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderMain()+"Keys.txt");
+    ecrireUnFichier.ecrireUnFichier(gs,folderMain+"Keys.txt");
   }
 
   private static void addObjetMap(String s){

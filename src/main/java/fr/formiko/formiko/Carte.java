@@ -1,7 +1,6 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usual.chargerCarte;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;

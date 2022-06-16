@@ -42,12 +42,12 @@ public class Main {
   private static Options op;
   /** Use only before iniOp() to avoid nullPointerException. */
   private static Options tempOp;
-  /** Os depending of user OS */
-  private static Os os=new Os();
   /** Data use by GUI */
   private static Data data=new Data();
   /** View use everywere to update user interface */
   private static View view=new ViewNull();
+
+  // private static Os os;
 
   private static Chrono ch;
   private static long lon;
@@ -200,8 +200,8 @@ public class Main {
   public static Temps getTemps(){ return tem;}
   public static boolean getRetournerAuMenu(){return retournerAuMenu;}
   public static void setRetournerAuMenu(boolean b){retournerAuMenu=b;}
-  public static Os getOs(){return os;}
-  public static void setOs(Os o){os=o;}
+  public static Os getOs(){return Os.getOs();}
+  public static void setOs(Os o){Os.setOs(o);}
   public static Folder getFolder(){return folder;}
   public static void setFolder(Folder f){folder=f;}
   public static void setTuto(boolean b){tuto=b;}
@@ -317,6 +317,7 @@ public class Main {
     folder = new Folder();
     getFolder().ini();
     setMessageChargement("chargementDesOptions");startCh();
+    IniTranslationRep();
     chargerLesTraductions.iniTLangue();
     if(op==null){iniOp();}
     if(!debug.getMessage()){//si elle n'ont pas été activé par "-d"
@@ -330,7 +331,7 @@ public class Main {
     }
     endCh("chargementDesOptions");
     setMessageChargement("chargementDesTouches");startCh();
-    key = chargerLesTouches.chargerLesTouches("1.49.9");
+    key = chargerLesTouches.chargerLesTouches("1.49.9", getFolder().getFolderMain());
     endCh("chargementDesTouches");
     setMessageChargement("chargementDesLangues");
     iniLangue();
@@ -348,6 +349,9 @@ public class Main {
     endCh("chargementDesEspeceDInsecte");
     iniCpt();
   }public static void ini(){initialisation();}
+  public static void IniTranslationRep(){
+    chargerLesTraductions.setRep(getFolder().getFolderStable()+getFolder().getFolderLanguages());
+  }
   /**
    *{@summary Initializes counter cpt of IEspece, Joueur, Fourmiliere ,ObjetAId.}
    *@lastEditedVersion 1.7

@@ -1,7 +1,5 @@
 package fr.formiko.usual;
 
-//def par défaut des fichiers depuis 0.79.5
-
 /**
 *{@summary Time counter}<br>
 *cf https://fr.jeffprod.com/blog/2015/un-chronometre-en-java/

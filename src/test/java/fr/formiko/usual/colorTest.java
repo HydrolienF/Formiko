@@ -15,18 +15,18 @@ public class colorTest extends TestCaseMuet{
   @Test
   public void testIniColor(){
     color col = new color();
-    Os os = Main.getOs();
+    Os os = Os.getOs();
     Main.setOs(new Os());
-    Main.getOs().setId((byte)0);
+    Os.getOs().setId((byte)0);
     col.iniColor();
     assertTrue(col.RED.charAt(0)==(char)27);
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     col.iniColor();
     assertTrue(col.RED.charAt(0)=='\033');
-    Main.getOs().setId((byte)2);
+    Os.getOs().setId((byte)2);
     col.iniColor();
     assertTrue(col.RED.charAt(0)==(char)27);
-    Main.getOs().setId((byte)3);
+    Os.getOs().setId((byte)3);
     col.iniColor();
     assertTrue(col.RED.charAt(0)==(char)27);
     Main.setOs(os);

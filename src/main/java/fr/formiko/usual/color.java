@@ -41,7 +41,7 @@ public class color {
   */
   public static void iniColor(){
     char beginChar;
-    if(Main.getOs().isWindows()){
+    if(Os.getOs().isWindows()){
       beginChar='\033';
     }else{
       beginChar=(char)27;

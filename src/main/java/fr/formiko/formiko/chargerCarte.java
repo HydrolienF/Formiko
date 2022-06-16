@@ -1,10 +1,11 @@
-package fr.formiko.usual;
+package fr.formiko.formiko;
 
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Case;
 import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.Main;
 import fr.formiko.usual.ReadFile;
+import fr.formiko.usual.erreur;
 import fr.formiko.usual.tableau;
 import fr.formiko.usual.types.str;
 
@@ -37,7 +38,7 @@ public class chargerCarte {
     if (s == null || s.length==0){ erreur.erreur("Le chargement de la carte "+fichier+" a échoué.");return null;}
     int x = nbItemPerLine(s[0]);
     int y = nbLineNonEmpty(s);
-    debug.débogage("Création d'un GCase a partir d'un fichier. x="+x+" y="+y);
+    // erreur.info("Création d'un GCase a partir d'un fichier. x="+x+" y="+y);
     GCase gcr = new GCase(x,y);
     gcr.setTypes(s);
     return gcr;

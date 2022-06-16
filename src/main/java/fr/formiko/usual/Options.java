@@ -116,7 +116,7 @@ public class Options implements Serializable{
   */
   public void setLanguage(byte x){
     game_language=x;
-    String languageCode = chargerLesTraductions.getLanguage(x);
+    String languageCode = chargerLesTraductions.getLanguage(x, Main.getPremierePartie());
     if(x>-1 && !languageCode.equals(Locale.getDefault().getLanguage())) {
       Locale.setDefault(new Locale(languageCode));
     }
@@ -389,7 +389,7 @@ public class Options implements Serializable{
     defaultProperties.setProperty("gui_global_fps","60");
     defaultProperties.setProperty("gui_global_frameHeight",""+he);
     defaultProperties.setProperty("gui_global_frameWidth",""+wi);
-    if(Main.getOs().isMac()){
+    if(Os.getOs().isMac()){
       defaultProperties.setProperty("gui_global_fullscreen","false");
     }else{
       defaultProperties.setProperty("gui_global_fullscreen","true");

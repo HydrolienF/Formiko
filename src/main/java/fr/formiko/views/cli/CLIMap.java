@@ -219,7 +219,7 @@ public class CLIMap{
       while (sr.length()<sizeCase+unseeableChar){sr = sr + "□";}
     }else{
       if (nbrDElementSurCase == 0){
-        // if(!Main.getOs().isLinux()){sr = "-";}
+        // if(!Os.getOs().isLinux()){sr = "-";}
       }else if(nbrDElementSurCase == 1){
         if(contenu.getFere() != null){
           sr = "F"+contenu.getFere().getId();

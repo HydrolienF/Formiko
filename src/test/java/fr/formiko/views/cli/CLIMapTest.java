@@ -20,7 +20,7 @@ public class CLIMapTest extends TestCaseMuet{
   public void testObjetSurCarteAIdToStringW(){
     Main.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     // CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
@@ -35,7 +35,7 @@ public class CLIMapTest extends TestCaseMuet{
   public void testObjetSurCarteAIdToStringM(){
     Main.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)2);
+    Os.getOs().setId((byte)2);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     // CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
@@ -43,7 +43,7 @@ public class CLIMapTest extends TestCaseMuet{
     assertEquals("G2",CLIMap.objetSurCarteAIdToString(new Graine(),false));
     assertEquals("I3",CLIMap.objetSurCarteAIdToString(new Insecte(),false));
     assertEquals("G4",CLIMap.objetSurCarteAIdToString(new Graine(),false));
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     assertEquals("5",CLIMap.objetSurCarteAIdToString(new Fourmi(),false));
     assertEquals("C6",CLIMap.objetSurCarteAIdToString(new ObjetSurCarteAId(),false));
   }
@@ -51,7 +51,7 @@ public class CLIMapTest extends TestCaseMuet{
   public void testObjetSurCarteAIdToStringL(){
     Main.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)0);
+    Os.getOs().setId((byte)0);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getPartie().setElément(1,0,0);
@@ -72,7 +72,7 @@ public class CLIMapTest extends TestCaseMuet{
   public void testCaseToStringSombreNuageuse(){
     Main.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getMap().setCasesSombres(false);
@@ -89,7 +89,7 @@ public class CLIMapTest extends TestCaseMuet{
   public void testCaseToStringSombreNuageuse2(){
     Main.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getMap().setCasesSombres(true);
@@ -107,7 +107,7 @@ public class CLIMapTest extends TestCaseMuet{
   public void testCaseToStringSombreNuageuse3(){
     Main.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getMap().setCasesSombres(true);
@@ -125,7 +125,7 @@ public class CLIMapTest extends TestCaseMuet{
   public void testCaseToStringSombreNuageuse4(){
     Main.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getMap().setCasesSombres(true);
@@ -163,7 +163,7 @@ public class CLIMapTest extends TestCaseMuet{
   public void testCaseToStringNuageuse(){
     Main.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getMap().setCasesSombres(false);
@@ -201,7 +201,7 @@ public class CLIMapTest extends TestCaseMuet{
   public void testCaseToStringSombre(){
     Main.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getMap().setCasesSombres(true);
@@ -240,7 +240,7 @@ public class CLIMapTest extends TestCaseMuet{
   public void testMapToString(){
     Main.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getMap().setCasesSombres(true);

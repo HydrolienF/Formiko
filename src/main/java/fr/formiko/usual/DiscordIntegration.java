@@ -40,7 +40,7 @@ public class DiscordIntegration {
       discordLibrary = downloadDiscordLibrary();
     }catch (IOException e) {}
 		if(discordLibrary == null){
-      if(Main.getOs().isLinux()){return;} //TODO remove when #484 will be fix.
+      if(Os.getOs().isLinux()){return;} //TODO remove when #484 will be fix.
 			erreur.erreur("Error downloading Discord SDK");
 			return;
 		}
@@ -113,7 +113,7 @@ public class DiscordIntegration {
     String name = "discord_game_sdk";
 
     String suffix = "";
-    Os os = Main.getOs();
+    Os os = Os.getOs();
     if(os.isWindows()){
       suffix = ".dll";
     }else if(os.isLinux()){

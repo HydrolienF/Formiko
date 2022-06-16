@@ -143,33 +143,33 @@ public class strTest extends TestCaseMuet{
   public void testfilterForbiddenCharInFile(){
     Main.setOs(new Os());
     String s = "unNomDeFichier";
-    Main.getOs().setId((byte)0);
+    Os.getOs().setId((byte)0);
     assertEquals("unNomDeFichier",str.filterForbiddenChar(s));
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     assertEquals("unNomDeFichier",str.filterForbiddenChar(s));
-    Main.getOs().setId((byte)2);
+    Os.getOs().setId((byte)2);
     assertEquals("unNomDeFichier",str.filterForbiddenChar(s));
-    Main.getOs().setId((byte)-1);
+    Os.getOs().setId((byte)-1);
     assertEquals("unNomDeFichier",str.filterForbiddenChar(s));
     assertEquals("unNomDeFichier",str.sToFileName(s));
 
     s = "unNomDeFichier?";
     //os don't have an impact anymore.
-    //Main.getOs().setId((byte)0);
+    //Os.getOs().setId((byte)0);
     //assertEquals("unNomDeFichier?",str.filterForbiddenChar(s));
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     assertEquals("unNomDeFichier",str.filterForbiddenChar(s));
 
     s = "unNomDe/Fichier";
-    Main.getOs().setId((byte)0);
+    Os.getOs().setId((byte)0);
     assertEquals("unNomDeFichier",str.filterForbiddenChar(s));
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     assertEquals("unNomDeFichier",str.filterForbiddenChar(s));
 
     s = "unNomDe/F*^ich|er";
-    //Main.getOs().setId((byte)0);
+    //Os.getOs().setId((byte)0);
     //assertEquals("unNomDeF*^ich|er",str.filterForbiddenChar(s));
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     assertEquals("unNomDeF^icher",str.filterForbiddenChar(s));
 
   }

@@ -199,7 +199,7 @@ public class str {
   public static String filterForbiddenChar(String s){
     char w [] = {'<', '>', ':', '\"', '/', '\\', '|', '?', '*'};
     //char ml [] = {':','/','\\'};
-    //if(Main.getOs()==null || Main.getOs().isWindows()){
+    //if(Os.getOs()==null || Os.getOs().isWindows()){
     //}
     //return filterForbiddenChar(s,ml);
     return filterForbiddenChar(s,w);
