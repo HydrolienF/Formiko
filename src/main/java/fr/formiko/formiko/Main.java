@@ -317,7 +317,7 @@ public class Main {
     folder = new Folder();
     getFolder().ini();
     setMessageChargement("chargementDesOptions");startCh();
-    IniTranslationRep();
+    iniTranslationFolder();
     chargerLesTraductions.iniTLangue();
     if(op==null){iniOp();}
     if(!debug.getMessage()){//si elle n'ont pas été activé par "-d"
@@ -349,8 +349,12 @@ public class Main {
     endCh("chargementDesEspeceDInsecte");
     iniCpt();
   }public static void ini(){initialisation();}
-  public static void IniTranslationRep(){
+  // ini folders
+  public static void iniTranslationFolder(){
     chargerLesTraductions.setRep(getFolder().getFolderStable()+getFolder().getFolderLanguages());
+  }
+  public static void iniFontFolder(){
+    Fonts.setFolderFont(getFolder().getFolderStable()+getFolder().getFolderBin()+"font/");
   }
   /**
    *{@summary Initializes counter cpt of IEspece, Joueur, Fourmiliere ,ObjetAId.}

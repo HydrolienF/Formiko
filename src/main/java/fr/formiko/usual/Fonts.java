@@ -1,6 +1,5 @@
 package fr.formiko.usual;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.types.str;
 
@@ -13,21 +12,26 @@ import java.io.IOException;
 /**
 *{@summary Fonts tools.}
 *@author Hydrolien
-*@lastEditedVersion 2.12
+*@lastEditedVersion 2.25
 */
 public class Fonts {
+  private static String folderFont;
+  // GET SET -------------------------------------------------------------------
+  private static String getFolderFont(){return folderFont;}
+  public static void setFolderFont(String s){folderFont=s;}
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Create a font located in game data.}<br>
   *@param fontName the font name to create
   *@return true if it work else false
-  *@lastEditedVersion 2.12
+  *@lastEditedVersion 2.25
   */
   public static boolean createFont(String fontName){
-    if(Main.getFolder()==null){return false;}
+    if(getFolderFont()==null){return false;}
     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-    File file = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"font/"+fontName+".otf");
+    File file = new File(getFolderFont()+fontName+".otf");
     if(!file.exists()){
-      file = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"font/"+fontName+".ttf");
+      file = new File(getFolderFont()+fontName+".ttf");
     }
     if(!file.exists()){return false;}
     Font font=null;
@@ -44,13 +48,13 @@ public class Fonts {
   *{@summary Create a font located in game data.}<br>
   *@param familyFontName the family font name to create
   *@return true if we add at least 1 font
-  *@lastEditedVersion 2.12
+  *@lastEditedVersion 2.25
   */
   public static boolean createFonts(String familyFontName){
-    if(Main.getFolder()==null){return false;}
+    if(getFolderFont()==null){return false;}
     String familyFontNameWithoutSpace = familyFontName.replaceAll(" ","");
     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-    File directory = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"font/");
+    File directory = new File(getFolderFont());
     if(directory==null || directory.listFiles()==null){return false;}
     boolean flag=false;
     for (File f : directory.listFiles()) {

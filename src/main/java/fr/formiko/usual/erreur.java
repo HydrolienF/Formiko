@@ -94,6 +94,7 @@ public class erreur {
   }
 
   public static void erreur(String message, String correction, boolean fatale, int classDepth){
+    if(!Info.PRINT_ERROR){return;}
     String m = "";
     if (fatale){
       m = g.get("erreur",3,"fatale")+" ";
@@ -129,6 +130,7 @@ public class erreur {
     erreur(message, 1);
   }
   public static void alerte(String message, String correction){
+    if(!Info.PRINT_WARNING){return;}
     String preMessage = "";
     try {
       preMessage = "["+color.YELLOW+g.get("alerte").toUpperCase()+color.NEUTRAL+"] ";
@@ -152,6 +154,7 @@ public class erreur {
   *@lastEditedVersion 2.11
   */
   public static void info(String message, int classDepth){
+    if(!Info.PRINT_INFO){return;}
     String preMessage = "";
     try {
       preMessage = "["+color.BLUE+g.get("info").toUpperCase()+color.NEUTRAL+"] ";

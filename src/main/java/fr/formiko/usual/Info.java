@@ -1,6 +1,5 @@
 package fr.formiko.usual;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usual.types.str;
 
 /**
@@ -18,6 +17,9 @@ public class Info {
   private String fix;
   private boolean fatal;
   private int classDepth;
+  public static boolean PRINT_WARNING=true;
+  public static boolean PRINT_ERROR=true;
+  public static boolean PRINT_INFO=true;
   /**
   *{@summary Main contructor.}<br>
   *All variables should be set with setter or will stay at default value.
@@ -75,18 +77,18 @@ public class Info {
     try {
       switch (type){
         case ERROR:
-        if(!Main.getOp().getError()){return;}
+        if(!PRINT_ERROR){return;}
         col=color.RED;
         m=g.get("erreur");
         break;
         case WARNING:
-        if(!Main.getOp().getWarning()){return;}
+        if(!PRINT_WARNING){return;}
         col=color.YELLOW;
         m=g.get("alerte");
         break;
         case INFO:
         col=color.BLUE;
-        if(!Main.getOp().getWarning()){return;} //TODO have its own one as getInfo()
+        if(!PRINT_INFO){return;} //TODO have its own one as getInfo()
         m=g.get("info");
         break;
       }

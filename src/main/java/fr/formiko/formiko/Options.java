@@ -1,7 +1,8 @@
-package fr.formiko.usual;
+package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usual.types.str;
+import fr.formiko.usual.*;
 
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
@@ -23,7 +24,7 @@ import java.util.Properties;
 *@author Hydrolien
 *@lastEditedVersion 2.10
 */
-public class Options implements Serializable{
+public class Options implements Serializable {
   //game options
   private boolean game_endTurnAuto;
   private boolean game_forceQuit;
@@ -37,9 +38,9 @@ public class Options implements Serializable{
   private boolean partie_autoCleaning;
 
   //debug options
-  private boolean debug_error;
-  private boolean debug_alerte;
-  private boolean debug_info;
+  // private boolean debug_error;
+  // private boolean debug_alerte;
+  // private boolean debug_info;
   private boolean debug_message;
   private boolean debug_performance;
   private boolean debug_gui;
@@ -205,10 +206,12 @@ public class Options implements Serializable{
 
   public boolean getMessage(){return debug_message;}
   public void setMessage(boolean b){debug_message=b;}
-  public boolean getError(){return debug_error;}
-  public void setError(boolean b){debug_error=b;}
-  public boolean getWarning(){return debug_alerte;}
-  public void setWaring(boolean b){debug_alerte=b;}
+  public boolean getError(){return Info.PRINT_ERROR;}
+  public void setError(boolean b){Info.PRINT_ERROR=b;}
+  public boolean getWarning(){return Info.PRINT_WARNING;}
+  public void setWarning(boolean b){Info.PRINT_WARNING=b;}
+  public boolean getInfo(){return Info.PRINT_INFO;}
+  public void setInfo(boolean b){Info.PRINT_INFO=b;}
 
   public boolean getPerformance(){return debug_performance;}
   public void setPerformance(boolean b){debug_performance=b;}
@@ -456,10 +459,10 @@ public class Options implements Serializable{
         setLanguage(2);
       }
     }
-    debug_alerte=str.sToB(properties.getProperty("debug_alerte"));
-    debug_error=str.sToB(properties.getProperty("debug_error"));
+    setWarning(str.sToB(properties.getProperty("debug_alerte")));
+    setError(str.sToB(properties.getProperty("debug_error")));
     debug_gui=str.sToB(properties.getProperty("debug_gui"));
-    debug_info=str.sToB(properties.getProperty("debug_info"));
+    setInfo(str.sToB(properties.getProperty("debug_info")));
     debug_message=str.sToB(properties.getProperty("debug_message"));
     debug_paintHitBox=str.sToB(properties.getProperty("debug_paintHitBox"));
     debug_performance=str.sToB(properties.getProperty("debug_performance"));
@@ -519,6 +522,7 @@ public class Options implements Serializable{
   *@lastEditedVersion 2.16
   */
   public void updateFont(){
+    Main.iniFontFolder();
     if(gui_global_fontText.equals("Default")){
       font1=new Font("Default", Font.BOLD, gui_global_fontSizeText);
     }else{
@@ -546,8 +550,9 @@ public class Options implements Serializable{
   */
   private void optionToProperties(){
     properties = new SortedProperties(getDefaultProperties());
-    properties.setProperty("debug_alerte",""+debug_alerte);
-    properties.setProperty("debug_error",""+debug_error);
+    properties.setProperty("debug_alerte",""+getWarning());
+    properties.setProperty("debug_error",""+getError());
+    properties.setProperty("debug_info",""+getInfo());
     properties.setProperty("debug_gui",""+debug_gui);
     properties.setProperty("debug_message",""+debug_message);
     properties.setProperty("debug_paintHitBox",""+debug_paintHitBox);
