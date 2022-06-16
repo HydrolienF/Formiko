@@ -1,9 +1,9 @@
-package fr.formiko.usual;
+package fr.formiko.formiko;
 
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.tests.TestCaseMuet;
-import fr.formiko.usual.Options;
+import fr.formiko.usual.Folder;
 import fr.formiko.formiko.Main;
 
 import java.awt.Font;

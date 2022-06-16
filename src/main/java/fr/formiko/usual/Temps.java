@@ -1,6 +1,5 @@
 package fr.formiko.usual;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usual.ecrireUnFichier;
 import fr.formiko.usual.ReadFile;
 import fr.formiko.usual.structures.listes.GString;
@@ -10,38 +9,49 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *{@summary Time information about game.}<br>
- *It contain date of 1a launch. Date of last launch and time played.
- *@author Hydrolien
- *@lastEditedVersion 1.4
- */
+*{@summary Time information about game.}<br>
+*It contain date of 1a launch. Date of last launch and time played.
+*@author Hydrolien
+*@lastEditedVersion 2.25
+*/
 public class Temps {
   /***
-   *{@summary Date of 1a lauch.}<br>
-   *@lastEditedVersion 1.4
-   */
+  *{@summary Date of 1a lauch.}<br>
+  *@lastEditedVersion 1.4
+  */
   private long date1;
   /***
-   *{@summary Date of last lauch.}<br>
-   *@lastEditedVersion 1.4
-   */
+  *{@summary Date of last lauch.}<br>
+  *@lastEditedVersion 1.4
+  */
   private long date2;
   /***
-   *{@summary Time played.}<br>
-   *@lastEditedVersion 1.4
-   */
+  *{@summary Time played.}<br>
+  *@lastEditedVersion 1.4
+  */
   private long tempsEnJeux;
   /***
-   *{@summary DateFormat.}<br>
-   *@lastEditedVersion 1.4
-   */
+  *{@summary DateFormat.}<br>
+  *@lastEditedVersion 1.4
+  */
   // private String df = "yyyy/MM/dd HH:mm"; //international (Especialy Asia Europe)
   // private String df = "dd/MM/yyyy HH:mm"; // USA
   // private String df = "MM/dd/yyyy HH:mm"; // Europe, Africa, Asia, Oceania & America
-
+  /** Date format used to print any date value */
+  private static String DATE_FORMAT;
+  /** Time file contains first launch date, last launch date &#38; time played. */
+  private static String TIME_FILE;
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public Temps(){chargerTemps();}
+  /**
+  *{@summary Main constructor.}<br>
+  *@param timeFilePath path to the time file
+  *@lastEditedVersion 2.25
+  */
+  public Temps(String timeFilePath){
+    TIME_FILE=timeFilePath;
+    chargerTemps();
+  }
   // GET SET -------------------------------------------------------------------
   public long getDate1(){ return date1;}
   public void setDate1(long x){date1=x;}
@@ -51,6 +61,10 @@ public class Temps {
   public long getTempsEnJeux(){ return tempsEnJeux;}
   public void setTempsEnJeux(long x){tempsEnJeux=x;}
   public void addTempsEnJeux(long x){ setTempsEnJeux(getTempsEnJeux()+x);}
+  public static String getTimeFile(){return TIME_FILE;}
+  public static void setTimeFile(String tf){TIME_FILE=tf;}
+  public static String getDateFormat(){return DATE_FORMAT;}
+  public static void setDateFormat(String df){DATE_FORMAT=df;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Return a string representing time as in Options date format.}
@@ -58,7 +72,7 @@ public class Temps {
   */
   public String toString(){
     String r="";
-    SimpleDateFormat sdf = new SimpleDateFormat(Main.getOp().getDateFormat());
+    SimpleDateFormat sdf = new SimpleDateFormat(getDateFormat());
     r+=g.getM("date1") + " : ";
     Date date1b = new Date(date1);
     r+=sdf.format(date1b);r+="\n";
@@ -67,7 +81,7 @@ public class Temps {
     r+=sdf.format(date2b);r+="\n";
     r+=g.getM("tempsEnJeux") + " : ";
     r+=msToTime(tempsEnJeux);r+="\n";
-    /*En français ca donne :
+    /*In french it print:
     Date de 1ère connection : 02/09/2020 19:41
     Date de dernière connection : 02/09/2020 20:19
     Temps en jeux total : 3 min 46 s
@@ -76,14 +90,14 @@ public class Temps {
   }
   /**
   *{@summary Load all time informations save in Temps.txt.}
-  *@lastEditedVersion 1.23
+  *@lastEditedVersion 1.25
   */
   public void chargerTemps(){
     //lecture du fichier Temps.txt
-    String t [] = ReadFile.readFileArray(Main.getFolder().getFolderTemporary()+"Temps.txt");
+    String t [] = ReadFile.readFileArray(getTimeFile());
     if(t.length<3){
       initialiserFichierTemps();
-      t = ReadFile.readFileArray(Main.getFolder().getFolderTemporary()+"Temps.txt");
+      t = ReadFile.readFileArray(getTimeFile());
     } //normalement a ce stade la initialiserFichierTemps a déja réparer le fichier temps mais au cas ou on vérifi que tout est bon.
     if(t.length>=3){
       date1 = str.sToL(t[0]);
@@ -99,14 +113,14 @@ public class Temps {
   }
   /**
   *{@summary Save time information in Temps.txt.}
-  *@lastEditedVersion 1.23
+  *@lastEditedVersion 1.25
   */
   public void sauvegarder(){
     GString gs = new GString();
     gs.add(""+date1);
     gs.add(""+date2);
     gs.add(""+tempsEnJeux);
-    ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderTemporary()+"Temps.txt");
+    ecrireUnFichier.ecrireUnFichier(gs,getTimeFile());
   }
   //static ---------------------------------------------------------------------------
   //TODO add une méthode qui return un String de date le plus adapté possible avec un nombre défini d'unité allant de jours a ms.
@@ -183,7 +197,7 @@ public class Temps {
   *@lastEditedVersion 2.16
   */
   public static String getDatePourSauvegarde(){
-    String dateStr = Main.getOp().getDateFormat().replace('/','-').replace(':','-');
+    String dateStr = getDateFormat().replace('/','-').replace(':','-');
     return new SimpleDateFormat(dateStr).format(System.currentTimeMillis());
   }
   /**
@@ -195,7 +209,7 @@ public class Temps {
     gs.add(""+System.currentTimeMillis());
     gs.add(""+System.currentTimeMillis());
     gs.add("0");
-    ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderTemporary()+"Temps.txt");
+    ecrireUnFichier.ecrireUnFichier(gs,getTimeFile());
   }
   /**
   *{@summary Try to stop execution of the programme during some ms.}
@@ -260,14 +274,14 @@ public class Temps {
   //   if(h<=0 && m<=0 && s<=0) {r="0 "+g.get("t.s");}
   //   return r;
   // }
-  /**
-  *{@summary Print current date.}
-  *@lastEditedVersion 1.23
-  */
-  public static void affDateDuJour(String format){
-    SimpleDateFormat sdf = new SimpleDateFormat(format);
-    Date date2b = new Date(System.currentTimeMillis());
-    erreur.println(sdf.format(date2b));
-  }
-  public static void affDateDuJour(){affDateDuJour("dd/MM/yyyy");}
+  // /***
+  // *{@summary Print current date.}
+  // *@lastEditedVersion 1.23
+  // */
+  // public static void affDateDuJour(String format){
+  //   SimpleDateFormat sdf = new SimpleDateFormat(format);
+  //   Date date2b = new Date(System.currentTimeMillis());
+  //   erreur.println(sdf.format(date2b));
+  // }
+  // public static void affDateDuJour(){affDateDuJour("dd/MM/yyyy");}
 }
