@@ -7,7 +7,7 @@ import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
 import fr.formiko.usual.structures.listes.GString;
-import fr.formiko.usual.sauvegarderUnePartie;
+import fr.formiko.formiko.sauvegarderUnePartie;
 
 import java.awt.Graphics;
 import java.io.File;

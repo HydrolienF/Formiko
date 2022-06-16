@@ -9,7 +9,7 @@ import fr.formiko.formiko.triche;
 import fr.formiko.tests.TestCaseMuet;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.maths.allea;
-import fr.formiko.usual.sauvegarderUnePartie;
+import fr.formiko.formiko.sauvegarderUnePartie;
 
 import java.io.File;
 

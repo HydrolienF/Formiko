@@ -1,10 +1,10 @@
 package fr.formiko.usual;
 
-//def par défaut des fichiers depuis 0.79.5
-import java.io.File;
 import fr.formiko.usual.ReadFile;
 import fr.formiko.usual.ecrireUnFichier;
 import fr.formiko.usual.structures.listes.GString;
+
+import java.io.File;
 
 public class modificationDeFichier {
 

@@ -420,13 +420,13 @@ public class launchOptions {
     // Main.startCh(ch);
     Main.getOp().setLanguage(0);
     Main.iniLangue();
-    trad.translateWebSiteFiles(pathToWebSiteFile);
+    trad.translateWebSiteFiles(pathToWebSiteFile, 0);
     Main.getOp().setLanguage(1);
     Main.iniLangue();
-    trad.translateWebSiteFiles(pathToWebSiteFile);
+    trad.translateWebSiteFiles(pathToWebSiteFile, 1);
     Main.getOp().setLanguage(2);
     Main.iniLangue();
-    trad.translateWebSiteFiles(pathToWebSiteFile);
+    trad.translateWebSiteFiles(pathToWebSiteFile, 2);
     // Main.endCh("translateWebSite",ch);
   }
   /**

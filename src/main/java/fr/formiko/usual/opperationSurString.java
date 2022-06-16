@@ -1,7 +1,5 @@
 package fr.formiko.usual;
 
-//def par défaut des fichiers depuis 0.79.5
-
 public class opperationSurString{
   public static boolean contientChar(String s, char c){
     int lens = s.length();

@@ -1,10 +1,11 @@
-package fr.formiko.usual;
+package fr.formiko.formiko;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usual.Chrono;
 import fr.formiko.views.gui2d.ini;
+import fr.formiko.usual.g;
+import fr.formiko.usual.erreur;
 
-public class Th extends Thread{
+public class Th extends Thread {
   public int x;
   public Th(int x){
     this.x=x;

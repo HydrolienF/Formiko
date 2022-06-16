@@ -1,7 +1,5 @@
 package fr.formiko.usual;
 
-//def par défaut des fichiers depuis 0.79.5
-
 public class menu {
   public static byte menu (String t [],String s){
     // Idéalement on affiche les info dans une mini fenêtre ou après avoir nétoyé le terminal.

@@ -1,10 +1,13 @@
-package fr.formiko.usual;
+package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
 import fr.formiko.formiko.ObjetAId;
 import fr.formiko.formiko.Partie;
 import fr.formiko.usual.types.str;
+import fr.formiko.usual.Save;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.debug;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -1,11 +1,12 @@
 package fr.formiko.usual;
 
 import java.io.FileOutputStream;
+import java.util.*;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Properties;
 import java.util.Vector;
-import java.util.*;
+
 /**
 *{@summary An extends class from Properties that is used to save Options in Formiko.}<br>
 *Cf: https://stackoverflow.com/questions/10275862/how-to-sort-properties-in-java <br>

@@ -1,6 +1,5 @@
 package fr.formiko.usual;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usual.chargerLesTraductions;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.ecrireUnFichier;
@@ -18,6 +17,9 @@ import java.util.Map;
 public class trad {
   private static String sep = ":";
   // FUNCTIONS -----------------------------------------------------------------
+  private static String getFolderTrad(){
+    return chargerLesTraductions.getRep();
+  }
   @SuppressWarnings("unchecked")
   public static void copieTrads(){
     String tLangue[] = chargerLesTraductions.getTLangue();
@@ -41,7 +43,7 @@ public class trad {
     }
   }
   public static void copieTradBase(String se, Map<String,String> map){
-    String t [] = ReadFile.readFileArray(Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages()+"fr.txt");
+    String t [] = ReadFile.readFileArray(getFolderTrad()+"fr.txt");
     GString gs = new GString();
     for (String s : t) {
       if(chargerLesTraductions.estLigneDeTrad(s) && !str.contient(s,"[]",2)){//si c'est une ligne de trad qui ne correspond pas a un nom propre.
@@ -51,7 +53,7 @@ public class trad {
         gs.add(s);//not edited
       }
     }
-    ecrireUnFichier.ecrireUnFichier(gs,Main.getFolder().getFolderStable()+Main.getFolder().getFolderLanguages()+se+".txt");
+    ecrireUnFichier.ecrireUnFichier(gs,getFolderTrad()+se+".txt");
   }
   public static String ligneTradBase(String s, Map<String,String> map){
     String s2 = debutDeLigne(s);
@@ -83,9 +85,9 @@ public class trad {
   *It need to have the good path to web site file.
   *@lastEditedVersion 1.48
   */
-  public static void translateWebSiteFiles(String pathToWebSiteFile){
+  public static void translateWebSiteFiles(String pathToWebSiteFile, int languageId){
     // String pathToWebSiteFile = "../HydrolienF.github.io/docs/";
-    String language = chargerLesTraductions.getLanguage(Main.getLanguage());
+    String language = chargerLesTraductions.getLanguage(languageId);
     File index = new File(pathToWebSiteFile+"Newindex.html");
     GString gsr = new GString();
     if(index.exists()){

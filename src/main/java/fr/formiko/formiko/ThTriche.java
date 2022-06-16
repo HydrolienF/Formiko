@@ -1,4 +1,4 @@
-package fr.formiko.usual;
+package fr.formiko.formiko;
 
 import fr.formiko.formiko.triche;
 
@@ -15,9 +15,7 @@ public class ThTriche extends Thread{
     Scanner sc = new Scanner(System.in);
     while(sc.hasNext()){
       String s = sc.nextLine();//le reste du programme tourne pendant l'attente d'une commande.
-      debug.débogage("Commande : "+s);
       triche.commande(s);
-      debug.débogage("fin de la commande");
     }
   }
 }

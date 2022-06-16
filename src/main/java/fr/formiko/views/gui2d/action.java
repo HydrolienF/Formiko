@@ -8,7 +8,7 @@ import fr.formiko.usual.Temps;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
-import fr.formiko.usual.sauvegarderUnePartie;
+import fr.formiko.formiko.sauvegarderUnePartie;
 import fr.formiko.usual.types.str;
 
 import java.awt.MouseInfo;

@@ -1,8 +1,8 @@
 package fr.formiko.usual;
 
-//def par défaut des fichiers depuis 0.79.5
-import java.util.Scanner;
 import fr.formiko.usual.types.str;
+
+import java.util.Scanner;
 
 public class read {
   private static String message = "";
