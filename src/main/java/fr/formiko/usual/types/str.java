@@ -1,7 +1,6 @@
 package fr.formiko.usual.types;
 
 import fr.formiko.usual.Ascii;
-import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
 import fr.formiko.usual.maths.math;

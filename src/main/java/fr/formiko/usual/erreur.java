@@ -1,8 +1,5 @@
 package fr.formiko.usual;
 
-import fr.formiko.formiko.Main;
-import fr.formiko.usual.types.str;
-
 import java.io.IOException;
 
 /**
@@ -108,7 +105,7 @@ public class erreur {
       preMessage=g.get("erreur").toUpperCase();
     }
     print(preMessage + "("+getCurentClassAndMethodName(classDepth)+") ");
-    println(str.sToSMaj(message)+".");
+    println(sToSentences(message));
     if (!correction.equals("")){
       println(g.get("erreur",6,"Correction apportée")+" : " + correction);
     }
@@ -139,7 +136,7 @@ public class erreur {
       preMessage=g.get("alerte").toUpperCase();
     }
     print(preMessage+"("+getCurentClassAndMethodName()+") ");
-    if (!message.equals("")) {println(str.sToSMaj(message)+".");}
+    if (!message.equals("")) {println(sToSentences(message));}
     if (correction != null && !correction.equals("")){
       println(g.get("erreur",6,"Correction apportée")+" : " + correction);
     }
@@ -162,7 +159,7 @@ public class erreur {
       preMessage=g.get("info").toUpperCase();
     }
     print(preMessage + "("+getCurentClassAndMethodName(classDepth)+") ");
-    println(message);
+    println(sToSentences(message));
   }
   public static void info(String message){info(message,1);}
 
@@ -185,5 +182,24 @@ public class erreur {
   }
   public static void alerteGUI2Dfail(String cause){
     alerte(g.getM("alerteGUI2Dfail"));
+  }
+
+  /**
+  *{@summary Transform the first char of a String to the toUpperCase char.}<br>
+  *if s is "" or null nothing will be done.
+  *@param s the String to transform.
+  *@lastEditedVersion 2.25
+  */
+  public static String sToSentences(String s){
+    if(s==null){return null;}
+    if(s.length()>1){
+      s=s.substring(0,1).toUpperCase()+s.substring(1); // 1a char en majuscule.
+    }else if(s.length()==1){
+      s=s.substring(0,1).toUpperCase();
+    }
+    if(!s.endsWith(".") && !s.endsWith("!") && !s.endsWith("?") && !s.endsWith(":")){
+      s+=".";
+    }
+    return s;
   }
 }
