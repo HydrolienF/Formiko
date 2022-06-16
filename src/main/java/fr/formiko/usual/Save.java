@@ -1,7 +1,5 @@
 package fr.formiko.usual;
 
-import fr.formiko.formiko.Main;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -18,7 +16,7 @@ import java.io.Serializable;
 public class Save implements Serializable {
   private static final long serialVersionUID = 42l;
   private int idS;
-  private static File f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderBin()+".save");
+  private static File f;
 
   // CONSTRUCTORS --------------------------------------------------------------
   /** Empty constructor. */
@@ -35,6 +33,9 @@ public class Save implements Serializable {
   // GET SET -------------------------------------------------------------------
   public void addSave(){idS++;}
   public int getIdS(){return idS;}
+  public static void setSaveName(String sn){
+    f = new File(sn);
+  }
 
   // FUNCTIONS -----------------------------------------------------------------
   /**

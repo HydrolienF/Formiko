@@ -318,6 +318,7 @@ public class Main {
     getFolder().ini();
     setMessageChargement("chargementDesOptions");startCh();
     iniTranslationFolder();
+    Save.setSaveName(getFolder().getFolderTemporary()+getFolder().getFolderBin()+".save");
     chargerLesTraductions.iniTLangue();
     if(op==null){iniOp();}
     if(!debug.getMessage()){//si elle n'ont pas été activé par "-d"
