@@ -1,6 +1,5 @@
 package fr.formiko.usual;
 
-//def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usual.types.*;
 import fr.formiko.usual.types.str;
 

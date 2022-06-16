@@ -13,7 +13,7 @@ import fr.formiko.formiko.interfaces.TourFourmiNonIa;
 import fr.formiko.formiko.launchOptions;
 import fr.formiko.formiko.triche;
 import fr.formiko.usual.Chrono;
-import fr.formiko.usual.DiscordIntegration;
+import fr.formiko.formiko.DiscordIntegration;
 import fr.formiko.usual.Info;
 import fr.formiko.usual.Temps;
 import fr.formiko.usual.Th;

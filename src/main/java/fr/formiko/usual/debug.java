@@ -1,6 +1,6 @@
 package fr.formiko.usual;
-import fr.formiko.usual.erreur; import fr.formiko.usual.g;
-//def par défaut des fichiers depuis 0.79.5
+
+import fr.formiko.usual.erreur;
 
 public class debug{
   private static boolean affLesEtapesDeRésolution = true;

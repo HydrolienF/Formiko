@@ -1,6 +1,5 @@
 package fr.formiko.usual;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usual.structures.listes.GString;
 import fr.formiko.usual.tableau;
 import fr.formiko.usual.types.str;

@@ -7,7 +7,6 @@ import com.github.cliftonlabs.json_simple.Jsoner;
 
 import fr.formiko.usual.*;
 import fr.formiko.usual.Folder;
-import fr.formiko.usual.createBadges;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.fichier;

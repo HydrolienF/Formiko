@@ -1,11 +1,11 @@
-package fr.formiko.usual;
+package fr.formiko.formiko;
 
 import de.jcm.discordgamesdk.Core;
 import de.jcm.discordgamesdk.CreateParams;
 import de.jcm.discordgamesdk.activity.Activity;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usual.erreur;
+import fr.formiko.usual.*;
 
 import java.io.File;
 import java.io.FileOutputStream;

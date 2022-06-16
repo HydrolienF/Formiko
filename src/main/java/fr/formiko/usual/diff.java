@@ -1,20 +1,20 @@
 package fr.formiko.usual;
 
-//def par défaut des fichiers depuis 0.79.5
 import fr.formiko.usual.structures.listes.GString;
 import fr.formiko.usual.ReadFile;
+
 /**
- * {@summary Tool to count add or suppress line.}<br>
- * @author Hydrolien
- * @lastEditedVersion 1.0
- */
+*{@summary Tool to count add or suppress line.}<br>
+*@author Hydrolien
+*@lastEditedVersion 1.0
+*/
 public class diff {
 
   // FUNCTIONS -----------------------------------------------------------------
   /**
-   * {@summary Count add or suppress line.}<br>
-   * @lastEditedVersion 1.0
-   */
+  *{@summary Count add or suppress line.}<br>
+  *@lastEditedVersion 1.0
+  */
   public static int nbrDeLigneDiff(String nouveauFichier, String ancienFichier){
     //on charge les 2 fichiers dans 2 liste chainé de String.
     GString gs1 = ReadFile.readFileGs(nouveauFichier);
