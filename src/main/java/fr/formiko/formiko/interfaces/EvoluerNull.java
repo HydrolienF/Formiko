@@ -1,8 +1,8 @@
 package fr.formiko.formiko.interfaces;
 
 import fr.formiko.formiko.Creature;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
 
 import java.io.Serializable;
 

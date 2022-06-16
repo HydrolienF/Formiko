@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.*;
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.exceptions.ClassTypeException;
+import fr.formiko.usual.exceptions.ClassTypeException;
 import fr.formiko.tests.TestCaseMuet;
 
 public class TourFourmiTest extends TestCaseMuet{

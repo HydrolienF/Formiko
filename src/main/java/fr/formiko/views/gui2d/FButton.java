@@ -1,11 +1,11 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.images.Pixel;
-import fr.formiko.usuel.images.image;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.images.Pixel;
+import fr.formiko.usual.images.image;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

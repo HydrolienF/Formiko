@@ -1,7 +1,7 @@
 package fr.formiko.formiko;
 
-import fr.formiko.usuel.Point;
-import fr.formiko.usuel.structures.listes.Liste;
+import fr.formiko.usual.Point;
+import fr.formiko.usual.structures.listes.Liste;
 /**
 *{@summary Path for map move.}<br>
 *@lastEditedVersion 2.11

@@ -4,12 +4,12 @@ import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
-import fr.formiko.usuel.Temps;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.sauvegarderUnePartie;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.Temps;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.sauvegarderUnePartie;
+import fr.formiko.usual.types.str;
 
 import java.awt.MouseInfo;
 

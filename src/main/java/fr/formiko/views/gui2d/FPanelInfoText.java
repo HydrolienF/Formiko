@@ -2,8 +2,8 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
 
 import java.awt.Font;
 import java.util.List;

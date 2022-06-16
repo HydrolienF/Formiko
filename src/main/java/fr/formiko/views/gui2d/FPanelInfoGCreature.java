@@ -6,11 +6,11 @@ import fr.formiko.formiko.GCreature;
 import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetAId;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.maths.math;
-import fr.formiko.usuel.structures.listes.Liste;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.images.image;
+import fr.formiko.usual.maths.math;
+import fr.formiko.usual.structures.listes.Liste;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

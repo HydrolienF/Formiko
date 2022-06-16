@@ -2,11 +2,11 @@ package fr.formiko.formiko.interfaces;
 
 import fr.formiko.formiko.*;
 import fr.formiko.views.gui2d.BoiteListeDefilante;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.tableau;
+import fr.formiko.usual.types.str;
 
 import java.io.Serializable;
 

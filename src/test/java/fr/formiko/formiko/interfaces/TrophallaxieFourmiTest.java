@@ -4,7 +4,7 @@ package fr.formiko.formiko.interfaces;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.*;
-import fr.formiko.usuel.tableau;
+import fr.formiko.usual.tableau;
 import fr.formiko.tests.TestCaseMuet;
 
 public class TrophallaxieFourmiTest extends TestCaseMuet{

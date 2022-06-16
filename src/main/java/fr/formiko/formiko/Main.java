@@ -1,11 +1,11 @@
 package fr.formiko.formiko;
 
-import fr.formiko.usuel.*;
-import fr.formiko.usuel.images.*;
-import fr.formiko.usuel.maths.math;
-import fr.formiko.usuel.media.audio.MusicPlayer;
-import fr.formiko.usuel.structures.listes.*;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.*;
+import fr.formiko.usual.images.*;
+import fr.formiko.usual.maths.math;
+import fr.formiko.usual.media.audio.MusicPlayer;
+import fr.formiko.usual.structures.listes.*;
+import fr.formiko.usual.types.str;
 import fr.formiko.views.View;
 import fr.formiko.views.ViewCLI;
 import fr.formiko.views.ViewNull;

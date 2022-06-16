@@ -3,7 +3,7 @@ package fr.formiko.formiko;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.tests.TestCaseMuet;
-import fr.formiko.usuel.structures.listes.Liste;
+import fr.formiko.usual.structures.listes.Liste;
 
 public class GCaseTest extends TestCaseMuet {
   @Test

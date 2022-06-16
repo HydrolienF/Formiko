@@ -1,8 +1,8 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.Point;
-import fr.formiko.usuel.maths.math;
+import fr.formiko.usual.Point;
+import fr.formiko.usual.maths.math;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

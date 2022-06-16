@@ -5,7 +5,7 @@ import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.ObjetSurCarteAId;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.types.str;
 
 /**
  *{@summary Main view interface.}<br>

@@ -2,8 +2,8 @@ package fr.formiko.tests;
 
 import org.junit.jupiter.api.Assertions;
 
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
 
 public class TestCaseMuet extends Assertions {
 

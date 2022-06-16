@@ -6,7 +6,7 @@ import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.exceptions.NotNullLocationException;
+import fr.formiko.usual.exceptions.NotNullLocationException;
 import fr.formiko.tests.TestCaseMuet;
 
 public class CreatureTest extends TestCaseMuet{

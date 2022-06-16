@@ -1,9 +1,9 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.Point;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.structures.listes.Liste;
+import fr.formiko.usual.Point;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.structures.listes.Liste;
 
 import java.io.Serializable;
 

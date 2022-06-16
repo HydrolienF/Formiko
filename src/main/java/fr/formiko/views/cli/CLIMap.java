@@ -11,11 +11,11 @@ import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
-import fr.formiko.usuel.Ascii;
-import fr.formiko.usuel.color;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.structures.listes.GString;
+import fr.formiko.usual.Ascii;
+import fr.formiko.usual.color;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.structures.listes.GString;
 
 /**
 *{@summary Represent the Map in CLI mode.}<br>

@@ -6,7 +6,7 @@ import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
-import fr.formiko.usuel.Os;
+import fr.formiko.usual.Os;
 import fr.formiko.tests.TestCaseMuet;
 import fr.formiko.views.ViewCLI;
 

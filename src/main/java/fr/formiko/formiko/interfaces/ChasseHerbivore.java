@@ -5,10 +5,10 @@ import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Case;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.maths.math;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.maths.math;
 
 import java.io.Serializable;
 /**

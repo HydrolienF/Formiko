@@ -3,10 +3,10 @@ package fr.formiko.formiko;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.tests.TestCaseMuet;
-import fr.formiko.usuel.Folder;
-import fr.formiko.usuel.fichier;
-import fr.formiko.usuel.structures.listes.GString;
-import fr.formiko.usuel.ecrireUnFichier;
+import fr.formiko.usual.Folder;
+import fr.formiko.usual.fichier;
+import fr.formiko.usual.structures.listes.GString;
+import fr.formiko.usual.ecrireUnFichier;
 import org.junit.jupiter.api.AfterAll;
 
 import java.io.File;

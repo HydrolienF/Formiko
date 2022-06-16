@@ -5,20 +5,20 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsoner;
 
-import fr.formiko.usuel.*;
-import fr.formiko.usuel.Folder;
-import fr.formiko.usuel.createBadges;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.fichier;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.images.Img;
-import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.media.audio.*;
-import fr.formiko.usuel.structures.listes.GString;
-import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.trad;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.*;
+import fr.formiko.usual.Folder;
+import fr.formiko.usual.createBadges;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.fichier;
+import fr.formiko.usual.g;
+import fr.formiko.usual.images.Img;
+import fr.formiko.usual.images.image;
+import fr.formiko.usual.media.audio.*;
+import fr.formiko.usual.structures.listes.GString;
+import fr.formiko.usual.tableau;
+import fr.formiko.usual.trad;
+import fr.formiko.usual.types.str;
 import fr.formiko.views.ViewNull;
 
 import java.awt.Font;
@@ -161,7 +161,7 @@ public class launchOptions {
       Main.getOp().saveOptions();
     }else if(args[0].equals("supprimer")){
       Main.initialisation();
-      //diff.nbrDeLigneDiff("usuel/GString.java","../Formiko108/usuel/GString.java");
+      //diff.nbrDeLigneDiff("usual/GString.java","../Formiko108/usual/GString.java");
       if(args.length == 4){
         String s = args[1];
         //c'est pas nésséssaire sur le terminal linux mais au cas ou

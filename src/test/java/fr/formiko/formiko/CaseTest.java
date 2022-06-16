@@ -10,9 +10,9 @@ import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.tests.TestCaseMuet;
-import fr.formiko.usuel.Folder;
-import fr.formiko.usuel.Os;
-import fr.formiko.usuel.g;
+import fr.formiko.usual.Folder;
+import fr.formiko.usual.Os;
+import fr.formiko.usual.g;
 import fr.formiko.views.ViewNull;
 
 public class CaseTest extends TestCaseMuet {

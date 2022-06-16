@@ -1,9 +1,9 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.Temps;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.Temps;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.types.str;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;

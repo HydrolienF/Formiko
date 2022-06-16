@@ -1,6 +1,6 @@
 package fr.formiko.views.gui2d;
 
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.types.str;
 import fr.formiko.views.gui2d.FComboBox;
 
 import java.awt.Color;

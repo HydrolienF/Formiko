@@ -3,11 +3,11 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.maths.math;
-import fr.formiko.usuel.structures.listes.GString;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.maths.math;
+import fr.formiko.usual.structures.listes.GString;
+import fr.formiko.usual.types.str;
 
 import java.awt.Color;
 import java.awt.Component;

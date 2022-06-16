@@ -1,6 +1,6 @@
 package fr.formiko.formiko;
 
-import fr.formiko.usuel.structures.listes.Liste;
+import fr.formiko.usual.structures.listes.Liste;
 
 import java.io.Serializable;
 

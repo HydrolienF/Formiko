@@ -7,10 +7,10 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.MapPath;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.interfaces.DeplacementFourmi;
-import fr.formiko.usuel.Point;
-import fr.formiko.usuel.Temps;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.structures.listes.Liste;
+import fr.formiko.usual.Point;
+import fr.formiko.usual.Temps;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.structures.listes.Liste;
 
 import java.lang.Thread;
 import java.util.Comparator;

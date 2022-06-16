@@ -1,10 +1,10 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.*;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.images.image;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.images.image;
 
 import java.awt.Graphics;
 import java.awt.Image;
