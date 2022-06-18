@@ -1,7 +1,5 @@
 package fr.formiko.usual.structures;
 
-import fr.formiko.formiko.Creature;
-
 import java.io.Serializable;
 import java.lang.UnsupportedOperationException;
 

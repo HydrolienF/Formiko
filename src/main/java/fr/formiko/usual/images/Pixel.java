@@ -1,6 +1,5 @@
 package fr.formiko.usual.images;
 
-import fr.formiko.formiko.Pheromone;
 import fr.formiko.usual.types.str;
 
 import java.awt.Color;
@@ -54,9 +53,9 @@ public class Pixel {
   *@param ph Pheromone of the Creature to colored. Pheromone have 3 color value: red, green, blue.
   *@lastEditedVersion 1.39
   */
-  public Pixel(Pheromone ph){
-    this((byte)ph.getR(),(byte)ph.getG(),(byte)ph.getB(),(byte)127);
-  }
+  // public Pixel(Pheromone ph){
+  //   this((byte)ph.getR(),(byte)ph.getG(),(byte)ph.getB(),(byte)127);
+  // }
   // GET SET -------------------------------------------------------------------
   public byte getR(){return r;}
   public byte getG(){return g;}

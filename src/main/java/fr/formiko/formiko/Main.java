@@ -161,7 +161,7 @@ public class Main {
   public static boolean launch(){
     iniLaunch();
     if(mp==null){
-      mp = new MusicPlayer();
+      mp = new MusicPlayer(getFolder(), getOp().getBMusic(), getOp().getVolMusic());
       if(getFirstGame()){
         getFolder().downloadMusicData(mp);
         mp.addNextMusic("Ride of the Valkyries - Wagner.mp3", true);

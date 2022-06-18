@@ -1,7 +1,9 @@
-package fr.formiko.usual.structures.listes;
+package fr.formiko.formiko;
 
 import fr.formiko.formiko.Message;
 import fr.formiko.usual.g;
+import fr.formiko.usual.structures.listes.GString;
+import fr.formiko.usual.structures.listes.Liste;
 
 import java.io.Serializable;
 

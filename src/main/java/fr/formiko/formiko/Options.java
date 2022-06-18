@@ -226,11 +226,29 @@ public class Options implements Serializable {
   public byte getPositionCase(){return gui_hide_positionCase;}
   public void setPositionCase(byte x){gui_hide_positionCase=x;}
   public boolean getBMusic(){return sounds_music;}
-  public void setBMusic(boolean b){sounds_music=b;}
+  /**
+  *{@summary Update this value &#38; MusicPlayer one.}
+  *@lastEditedVersion 2.25
+  */
+  public void setBMusic(boolean b){
+    sounds_music=b;
+    if(Main.getMp()!=null){
+      Main.getMp().setBMusic(b);
+    }
+  }
   public boolean getBSon(){return sounds_sound;}
   public void setBSon(boolean b){sounds_sound=b;}
   public byte getVolMusic(){return sounds_musicVolume;}
-  public void setVolMusic(byte x){sounds_musicVolume=x;}
+  /**
+  *{@summary Update this value &#38; MusicPlayer one.}
+  *@lastEditedVersion 2.25
+  */
+  public void setVolMusic(byte x){
+    sounds_musicVolume=x;
+    if(Main.getMp()!=null){
+      Main.getMp().setVolMusic((int)x);
+    }
+  }
   public byte getVolSon(){return sounds_soundVolume;}
   public void setVolSon(byte x){sounds_soundVolume=x;}
   public byte getRealisticSize(){return gui_partie_realisticSize;}

@@ -1,6 +1,5 @@
 package fr.formiko.usual.structures.listes;
 
-import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.usual.structures.Node;
 
 import java.io.Serializable;
@@ -207,16 +206,16 @@ public class Liste<T> implements Iterable<T>, Serializable, List<T> {
     }
     return r;
   }
-  public String toStringId(){
-    String r = "";
-    for (T t : this ) {
-      try {
-        r+= ((ObjetSurCarteAId)t).getId();
-      }catch (Exception e) {}
-      r+= " ";
-    }
-    return r;
-  }
+  // public String toStringId(){
+  //   String r = "";
+  //   for (T t : this ) {
+  //     try {
+  //       r+= ((ObjetSurCarteAId)t).getId();
+  //     }catch (Exception e) {}
+  //     r+= " ";
+  //   }
+  //   return r;
+  // }
   /**
   *{@summary Return this as a GString.}<br>
   *@lastEditedVersion 2.22

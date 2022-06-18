@@ -3,7 +3,7 @@ package fr.formiko.usual.images;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.usual.Point;
-import fr.formiko.formiko.Pheromone;
+// import fr.formiko.formiko.Pheromone;
 import fr.formiko.tests.TestCaseMuet;
 
 import java.awt.Color;
@@ -101,9 +101,9 @@ public class PixelTest extends TestCaseMuet{
     p.setA((byte)(8-128));
     assertEquals(new Pixel(5,6,7,8), p);
   }
-  @Test
-  public void testPixelFromPheromone(){
-    assertEquals(new Pixel(5,6,7), new Pixel(new Pheromone(-128+5,-128+6,-128+7)));
-  }
+  // @Test
+  // public void testPixelFromPheromone(){
+  //   assertEquals(new Pixel(5,6,7), new Pixel(new Pheromone(-128+5,-128+6,-128+7)));
+  // }
 
 }

@@ -1,6 +1,6 @@
 package fr.formiko.usual.media.audio;
 
-import fr.formiko.formiko.Main;
+import fr.formiko.usual.Folder;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.maths.allea;
 import fr.formiko.usual.structures.listes.GString;
@@ -12,7 +12,7 @@ import java.io.IOException;
 *{@summary to listen music.}<br>
 *It use audioPlayer &#38; make sur than only 1 is running at the same time.
 *@author Hydrolien
-*@lastEditedVersion 1.52
+*@lastEditedVersion 2.25
 */
 public class MusicPlayer implements AudioInterface {
   private AudioPlayer audioPlayer;
@@ -20,22 +20,34 @@ public class MusicPlayer implements AudioInterface {
   private GString nextMusics;
   private GString availableMusics;
   private String curentMusic;
+  private Folder folder;
+  private boolean bMusic;
+  private int volMusic;
   // CONSTRUCTORS --------------------------------------------------------------
-  public MusicPlayer(){
+  /**
+  *{@summary Main constructor.}<br>
+  *@lastEditedVersion 2.25
+  */
+  public MusicPlayer(Folder folder, boolean bMusic, int volMusic){
     nextMusics = new GString();
+    this.folder=folder;
+    this.bMusic=bMusic;
+    this.volMusic=volMusic;
   }
   // GET SET -------------------------------------------------------------------
-  public String getPath(){
-    return Main.getFolder().getFolderStable()+Main.getFolder().getFolderMusiques();
-  }
+  public String getPath(){return folder.getFolderStable()+folder.getFolderMusiques();}
+  public boolean isBMusic() {return bMusic;}
+	public void setBMusic(boolean bMusic) {this.bMusic=bMusic;}
+	public int getVolMusic() {return volMusic;}
+	public void setVolMusic(int volMusic) {this.volMusic=volMusic;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Play next music.}<br>
-  *@lastEditedVersion 1.52
+  *@lastEditedVersion 2.25
   */
   public synchronized void play(){
     // erreur.info("Play",4);
-    if(!Main.getOp().getBMusic()){return;}
+    if(!bMusic){return;}
     if(audioPlayer!=null){audioPlayer.stop();}
     curentMusic = getNextMusic();
     if(curentMusic==null || curentMusic.equals("")){
@@ -44,7 +56,7 @@ public class MusicPlayer implements AudioInterface {
     }
     audioPlayer = new AudioPlayer(true, curentMusic);
     audioPlayer.setMp(this);
-    audioPlayer.setVolume(Main.getOp().getVolMusic());
+    audioPlayer.setVolume(volMusic);
     audioPlayer.play();
     musicPaused=false;
   }
