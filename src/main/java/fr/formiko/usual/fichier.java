@@ -1,6 +1,5 @@
 package fr.formiko.usual;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usual.read;
 import fr.formiko.usual.structures.listes.GString;
 import fr.formiko.usual.types.str;
@@ -125,14 +124,11 @@ public class fichier {
   *@param withInfo if true launch a thread to have info during download
   *@lastEditedVersion 2.7
   */
-  public static boolean download(String urlPath, String fileName, boolean withInfo){
-    String reason=null;
+  public static boolean download2(String urlPath, String fileName, boolean withInfo, Progression progression) throws Exception {
+    // String reason=null;
     Exception ex=null;
     DownloadThread downloadThread=null;
     FileOutputStream fos=null;
-    try {
-      Main.getView().setButtonRetryVisible(false);
-    }catch (NullPointerException e) {}
     try {
       URL url = new URL(urlPath);
       long fileToDowloadSize = getFileSize(url);
@@ -150,21 +146,31 @@ public class fichier {
           downloadName = downloadName.substring(0,downloadNameLen-4);
         }
         //launch Thread that update %age of download
-        downloadThread = new DownloadThread(fileOut, fileToDowloadSize, downloadName);
+        downloadThread = new DownloadThread(fileOut, fileToDowloadSize, downloadName, progression);
         downloadThread.start();
       }
       // TODO #440 stop transferFrom if download take to long
       writeChannel.transferFrom(readChannel, 0, Long.MAX_VALUE);
-      return true;
-    } catch (MalformedURLException e) {
-      reason = "URL is malformed";
-    } catch (UnknownHostException e) {
-      reason = "can't resolve host";
-    } catch (FileNotFoundException e) {
-      reason = "file can't be found on the web site";
-      ex=e;
+      boolean completed = false;
+      // try { //from javadoc to stop a transferFrom.
+      //   begin();
+      //   completed = ...;    // Perform blocking I/O operation
+      //   return ...;         // Return result
+      // } finally {
+      //   end(completed);
+      // }
+      completed=true;
+      return completed;
+    // } catch (MalformedURLException e) {
+    //   reason = "URL is malformed";
+    // } catch (UnknownHostException e) {
+    //   reason = "can't resolve host";
+    // } catch (FileNotFoundException e) {
+    //   reason = "file can't be found on the web site";
+    //   ex=e;
     } catch (Exception e) {
-      reason = e.toString();
+      // reason = e.toString();
+      throw e;
     } finally {
       if(fos!=null){
         try {
@@ -176,22 +182,9 @@ public class fichier {
       if(downloadThread!=null){
         downloadThread.stopRuning();
       }
-      if(reason!=null){
-        String err = "Download fail: "+reason;
-        try {
-          Main.getView().setDownloadingMessage(err);
-          Main.getView().setButtonRetryVisible(true);
-        }catch (Exception e) {
-          erreur.erreur(err);
-        }
-      }
-      // if(ex!=null){
-      //   ex.printStackTrace();
-      // }
     }
-    return false;
   }
-  public static boolean download(String urlPath, String fileName){return download(urlPath, fileName, false);}
+  // public static boolean download(String urlPath, String fileName){return download(urlPath, fileName, false);}
   /**
   *{@summary return the size of the downloaded file.}
   *@lastEditedVersion 2.7
@@ -359,16 +352,18 @@ class DownloadThread extends Thread {
   private long fileToDowloadSize;
   private boolean running;
   private String downloadName;
+  private Progression progressionInstance;
   /**
   *{@summary Main constructor.}<br>
   *@param fileOut file that we are curently filling by the downloading file
   *@param fileToDowloadSize size that we should reach when download will end
   *@lastEditedVersion 2.7
   */
-  public DownloadThread(File fileOut, long fileToDowloadSize, String downloadName){
+  public DownloadThread(File fileOut, long fileToDowloadSize, String downloadName, Progression progressionInstance){
     this.fileOut = fileOut;
     this.fileToDowloadSize = fileToDowloadSize;
     this.downloadName=downloadName;
+    this.progressionInstance=progressionInstance;
     running=true;
   }
 
@@ -397,15 +392,15 @@ class DownloadThread extends Thread {
       if(timeFromLastBitDownload+10000<curentTime){
         message+=(((curentTime-timeFromLastBitDownload)/1000)+"s untill a new bit haven't been download");
         if(timeFromLastBitDownload+60000<curentTime){
-          //TODO #440 stop download.
           erreur.erreur("STOP download");
+          stopRuning();
+          //TODO #440 stop download.
         }
       }else{
         message+=sTimeLeft;
       }
-
-      Main.getView().setDownloadingValue(percent);
-      Main.getView().setDownloadingMessage(message);
+      progressionInstance.setDownloadingValue(percent);
+      progressionInstance.setDownloadingMessage(message);
 
       lastFileOutSize=fileOutSize;
       Temps.pause(50);

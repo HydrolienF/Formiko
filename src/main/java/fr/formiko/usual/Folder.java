@@ -285,7 +285,7 @@ public class Folder {
       prepareDownloadData();
       Main.startCh();
       view.setDownloadingMessage("downloading game data");
-      boolean downloadWork = fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+getWantedDataVersion()+"/data.zip", getFolderMain()+"data.zip", true);
+      boolean downloadWork = download("https://github.com/HydrolienF/Formiko/releases/download/"+getWantedDataVersion()+"/data.zip", getFolderMain()+"data.zip", true);
       Main.endCh("downloadData");
       if(downloadWork){
         needToRetry = !unzipAndCleanDownloadData();
@@ -415,7 +415,7 @@ public class Folder {
   public String getLastStableVersion(){
     String fileName = getFolderMain()+"vTemp.json";
     try {
-      fichier.download("https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json", fileName);
+      download("https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json", fileName);
       return getXVersion(Paths.get(fileName), "lastStableVersion");
     }catch (Exception e) {
       erreur.alerte("Can't read last stable version");
@@ -509,6 +509,33 @@ public class Folder {
     Thread th = new ThDownloadMusicData(this);
     th.start();
   }
+  /**
+  *{@summary Download a file from the web.}<br>
+  * It also update view.
+  *@param urlPath the url as a String
+  *@param fileName the name of the file were to save data from the web
+  *@param withInfo if true launch a thread to have info during download
+  *@lastEditedVersion 2.25
+  */
+  public static boolean download(String urlPath, String fileName, boolean withInfo){
+    try {
+      Main.getView().setButtonRetryVisible(false);
+    }catch (NullPointerException e) {}
+    try {
+      fichier.download2(urlPath,fileName,withInfo, Main.getView());
+    }catch (Exception e) {
+      String err = "Download fail: "+e;
+      try {
+        Main.getView().setDownloadingMessage(err);
+        Main.getView().setButtonRetryVisible(true);
+      }catch (Exception e2) {
+        erreur.erreur(err);
+      }
+      return false;
+    }
+    return true;
+  }
+  public static boolean download(String urlPath, String fileName){return download(urlPath, fileName, false);}
 }
 /**
 *{@summary Download music data from github release in a Thread.}<br>
@@ -525,7 +552,7 @@ class ThDownloadMusicData extends Thread {
   public void run(){
     erreur.info("downloadMusicData");
     Main.startCh();
-    fichier.download("https://github.com/HydrolienF/Formiko/releases/download/"+folder.getWantedMusicVersion()+"/music.zip",folder.getFolderMain()+"music.zip");
+    Folder.download("https://github.com/HydrolienF/Formiko/releases/download/"+folder.getWantedMusicVersion()+"/music.zip",folder.getFolderMain()+"music.zip");
     Main.endCh("downloadMusicData");
     erreur.info("downloadMusicData done");
     Main.startCh();

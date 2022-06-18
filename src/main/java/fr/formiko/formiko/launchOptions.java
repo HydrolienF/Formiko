@@ -222,7 +222,7 @@ public class launchOptions {
       fichier.unzip(args[1],args[2]);
       System.exit(0);
     }else if(args[0].equals("download")){
-      fichier.download(args[1],args[2]);
+      Folder.download(args[1],args[2]);
       System.exit(0);
     }else if(args[0].equals("createBadges")){
       createBadges.createBadges();
