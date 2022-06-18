@@ -337,7 +337,7 @@ public class Main {
     setMessageChargement("chargementDesLangues");
     iniLangue();
     startCh();
-    tem = new Temps(getFolder().getFolderTemporary()+"Temps.txt");
+    tem = new Temps(getFolder().getFolderTemporary()+"Temps.txt", getPremierePartie());
     erreur.info("OS: "+getOs());
     erreur.info("language: "+chargerLesTraductions.getLanguageAsString(getOp().getLanguage()));
     erreur.info(tem.toString());

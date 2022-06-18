@@ -48,8 +48,11 @@ public class Temps {
   *@param timeFilePath path to the time file
   *@lastEditedVersion 2.25
   */
-  public Temps(String timeFilePath){
+  public Temps(String timeFilePath, boolean toInitialize){
     TIME_FILE=timeFilePath;
+    if(toInitialize){
+      initialiserFichierTemps();
+    }
     chargerTemps();
   }
   // GET SET -------------------------------------------------------------------
