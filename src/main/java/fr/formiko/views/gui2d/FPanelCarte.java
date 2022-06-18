@@ -15,6 +15,7 @@ import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.MapPath;
 import fr.formiko.formiko.ObjetSurCarteAId;
+import java.awt.RenderingHints;
 import fr.formiko.usual.Info;
 import fr.formiko.usual.Point;
 import fr.formiko.usual.debug;
@@ -218,6 +219,10 @@ public class FPanelCarte extends FPanel {
       getView().setBladeChanged(false);
       bladeImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
       Graphics gBlade = bladeImage.getGraphics();
+      // TODO if (op.getGraphicsLevel()>medium){
+        Graphics2D g2d = (Graphics2D)gBlade;
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); //good for all drawLine, drawCircle etc.
+      // }
       for (int i=0; i<xCase; i++) {
         for (int j=0; j<yCase; j++) {
           Point point = getPointFromCase(i,j,false);
