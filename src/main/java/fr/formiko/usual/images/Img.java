@@ -49,7 +49,7 @@ public class Img implements Cloneable {
     bi = i;
     width = bi.getWidth();
     height = bi.getHeight();
-    debug.débogage("Initialisation des 4 tableaux.");Chrono.debutCh();
+    debug.débogage("Initialisation des 4 tableaux.");Chrono.startCh();
     setRouge(); setVert(); setBleu(); setAlpha();
     Chrono.endCh("4 tableaux de pixel ini");
   }
@@ -350,7 +350,7 @@ public class Img implements Cloneable {
   *{@summary Count how much of eatch pixel there is on the image.}<br>
   */
   public HashMap<Pixel, Integer> compterChaquePixel(){
-    Chrono.debutCh();
+    Chrono.startCh();
     //faire une liste de tt les pixels différents
     //compter le nombre de pixel identique pour chaque pixel dans la liste.
     HashMap<Pixel, Integer> hm = new HashMap<Pixel, Integer>();
@@ -383,7 +383,7 @@ public class Img implements Cloneable {
     HashMap hm = compterChaquePixel();
     g.setMap(chargerLesTraductions.chargerLesNationsName());
     String sr = "";
-    Chrono.debutCh();
+    Chrono.startCh();
     //for (var item : hm.entrySet()) {
     Object to[] = hm.keySet().toArray();
     Pixel tp[] = new Pixel[to.length];
@@ -451,7 +451,7 @@ public class Img implements Cloneable {
   *{@summary Use to refresh the BufferedImage before draw it or save it.}<br>
   */
   public void actualiserImage(){
-    Chrono.debutCh();
+    Chrono.startCh();
     iniWH();
     //néssésaire si l'image n'as plus les mêmes dimentions.
     bi = new BufferedImage(width,height,java.awt.image.BufferedImage.TYPE_INT_ARGB);

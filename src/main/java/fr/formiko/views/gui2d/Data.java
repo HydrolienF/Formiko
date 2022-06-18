@@ -192,7 +192,7 @@ public class Data {
       erreur.erreur("imageTree is null");
       return null;
     }
-    return imageTree.getCreatureImage(c);
+    return imageTree.getCreatureImage(c, Main.getOp().getAntColorLevel());
   }
   /**
   *{@summary Return the Image that fit to a Seed.}

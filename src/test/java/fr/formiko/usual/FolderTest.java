@@ -23,7 +23,7 @@ public class FolderTest extends TestCaseMuet {
     Main.ini();
   }
   public Folder ini(){
-    Folder folder = new Folder();
+    Folder folder = new Folder(Main.getView());
     //if we need we can change name of sub folder for test.
     return folder;
   }
@@ -117,7 +117,7 @@ public class FolderTest extends TestCaseMuet {
   /*
   @Test
   public void testIni3(){
-    Folder folder = new Folder();
+    Folder folder = new Folder(Main.getView());
     String fullFolderList = folder.getFolderLanguages()+" "+folder.getFolderLevels()+" "+folder.getFolderMaps()+" "+folder.getFolderVideos()+" "+folder.getFolderSounds()+" "+folder.getFolderBin()+" "+folder.getFoldermusics()+" "+folder.getFolderImages();
     File f = new File("testMain/");
     fichier.deleteDirectory(f);
@@ -143,7 +143,7 @@ public class FolderTest extends TestCaseMuet {
 
   @Test
   public void testCleanFolder(){
-    Folder f = new Folder();
+    Folder f = new Folder(Main.getView());
     int x = getId();
     f.setFolderMain("data"+x+"/");
     f.ini(false);
@@ -167,7 +167,7 @@ public class FolderTest extends TestCaseMuet {
   }
   @Test
   public void testCleanFolder2(){
-    Folder f = new Folder();
+    Folder f = new Folder(Main.getView());
     int x = getId();
     f.setFolderMain("data"+x+"/");
     File fileToRemove = new File("data"+x+"/");
@@ -192,7 +192,7 @@ public class FolderTest extends TestCaseMuet {
   @Test
   @Disabled("Tooo long for standard test")
   public void testDownloadData(){
-    Folder folder = new Folder();
+    Folder folder = new Folder(Main.getView());
     int x = getId();
     folder.setFolderMain("data"+x+"/");
     File fileToRemove = new File("data"+x+"/");
@@ -207,7 +207,7 @@ public class FolderTest extends TestCaseMuet {
   @Test
   @Disabled("Tooo long for standard test")
   public void testDownloadData2(){
-    Folder folder = new Folder();
+    Folder folder = new Folder(Main.getView());
     int x = getId();
     folder.setFolderMain("data"+x+"/");
     File fileToRemove = new File("data"+x+"/");
@@ -260,12 +260,12 @@ public class FolderTest extends TestCaseMuet {
   }
   @Test
   public void testGetLastStableVersion(){
-    Folder f = new Folder();
+    Folder f = new Folder(Main.getView());
     assertTrue(!f.getLastStableVersion().equals("0.0.0"));
   }
   @AfterAll
   public static void clean(){
-    Folder folder = new Folder();
+    Folder folder = new Folder(Main.getView());
     Main.setFolder(folder);
     fichier.deleteDirectory("null");
   }

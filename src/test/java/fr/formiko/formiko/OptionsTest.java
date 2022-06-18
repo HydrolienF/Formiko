@@ -11,7 +11,7 @@ import java.awt.Font;
 public class OptionsTest extends TestCaseMuet {
   @Test
   public void testGetFontTitle(){
-    Main.setFolder(new Folder());
+    Main.setFolder(new Folder(Main.getView()));
     Main.getFolder().ini();
     Options op = Options.newDefaultOptions();
     op.setFontText("Default");

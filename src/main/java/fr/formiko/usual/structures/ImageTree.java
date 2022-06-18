@@ -3,7 +3,6 @@ package fr.formiko.usual.structures;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Insecte;
-import fr.formiko.formiko.Main;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.images.Img;
 import fr.formiko.usual.images.image;
@@ -38,7 +37,7 @@ public class ImageTree extends Tree<BufferedImage> {
   *@param c the Creature to represent.
   *@lastEditedVersion 2.14
   */
-  public BufferedImage getCreatureImage(Creature c){
+  public BufferedImage getCreatureImage(Creature c, int antColorLevel){
     try {
       TreeNode<BufferedImage> node = getRoot();
       if(c instanceof Insecte) {
@@ -54,7 +53,7 @@ public class ImageTree extends Tree<BufferedImage> {
       node = node.getChildren(c.getEspece().getId()-x).getChildren(math.valAbs(c.getStade()));
       if(c.getStade()==0){
         if(c instanceof Fourmi){
-          return createAntImageFromNode(c, node.getChildren(((Fourmi)c).getTypeF()));
+          return createAntImageFromNode(c, node.getChildren(((Fourmi)c).getTypeF()), antColorLevel);
           // return node.getChildren(((Fourmi)c).getTypeF()).getContent();
         }else{
           //TODO if ♀ ...
@@ -75,17 +74,17 @@ public class ImageTree extends Tree<BufferedImage> {
   *@param node
   *@lastEditedVersion 2.6
   */
-  public static BufferedImage createAntImageFromNode(Creature c, TreeNode<BufferedImage> node){
+  public static BufferedImage createAntImageFromNode(Creature c, TreeNode<BufferedImage> node, int antColorLevel){
     BufferedImage body = node.getContent();
     if(node.getChildrenSize()>0){
-      if(Main.getOp().getAntColorLevel()>0){
+      if(antColorLevel>0){
         BufferedImage bi = new BufferedImage(body.getWidth(), body.getHeight(), BufferedImage.TYPE_INT_ARGB);
         Graphics g = bi.getGraphics();
         g.drawImage(body, 0, 0, null);
         if(node.getChildren(0)!=null){
           BufferedImage color = node.getChildren(0).getContent();
           Img img = new Img(color);
-          if(Main.getOp().getAntColorLevel()>1){
+          if(antColorLevel>1){
             img.supprimerLaTransparencePartielle(1);
           }
           color = image.changeColor(img, c.getPheromone());
@@ -206,17 +205,9 @@ public class ImageTree extends Tree<BufferedImage> {
   *@lastEditedVersion 2.10
   */
   private static void addScaledAntColorPart(TreeNode<BufferedImage> currentNodeIn, TreeNode<BufferedImage> currentNodeOut, int dim, int size){
-    // if(Main.getOp().getAntColorLevel()==0){return;} //done during game time.
     BufferedImage biIn,biOut;
     if(currentNodeIn.getChildren(0)!=null){
       biIn = currentNodeIn.getChildren(0).getContent();
-      //done during game time.
-      // if(Main.getOp().getAntColorLevel()>1){
-      //   Img img = new Img(biIn);
-      //   img.supprimerLaTransparencePartielle(1);
-      //   img.actualiserImage();
-      //   biIn = img.getImage();
-      // }
       if(biIn!=null){
         biOut = image.resize(biIn,size);
         currentNodeOut.getChildren(0).setContent(biOut);

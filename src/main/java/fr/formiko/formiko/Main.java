@@ -65,7 +65,6 @@ public class Main {
   private static boolean tuto=false;
   private static ThScript ths;
   //private static ThMusique thm;
-  private static boolean premierePartie;
 
   private static boolean modeCLI=false;
 
@@ -132,7 +131,7 @@ public class Main {
         }catch (Exception e) {
           erreur.alerte("Window can not be dispose.");
         }
-        setPremierePartie(false);
+        setFirstGame(false);
         Partie.setScript(null);
         setRetournerAuMenu(false);
         openMenuFirst=true;
@@ -149,7 +148,7 @@ public class Main {
   public static void iniLaunch(){
     if(op==null){initialisation();}
     if(Partie.getScript()==null || Partie.getScript().equals("")){
-      if(premierePartie){Partie.setScript("tuto");}
+      if(getFirstGame()){Partie.setScript("tuto");}
       else{Partie.setScript("");}
     }
     iniCpt();
@@ -163,12 +162,12 @@ public class Main {
     iniLaunch();
     if(mp==null){
       mp = new MusicPlayer();
-      if(premierePartie){
-        getFolder().downloadMusicData();
+      if(getFirstGame()){
+        getFolder().downloadMusicData(mp);
         mp.addNextMusic("Ride of the Valkyries - Wagner.mp3", true);
       }
     }
-    if(!premierePartie){
+    if(!getFirstGame()){
       mp.addNextMusic("Beyond The Warriors - Guifrog.mp3", true);
       mp.play();
     }
@@ -185,7 +184,7 @@ public class Main {
   public static Espece getEspece(){return getEspeceById(0);}
   public static Espece getEspeceById(int id){ return getGe().getEspeceById(id);}
   public static GEspece getGEspece(){ return getGe();}
-  public static Joueur getJoueurById(int id){ return Main.getGj().getJoueurById(id);}
+  public static Joueur getJoueurById(int id){ return getGj().getJoueurById(id);}
   public static Fourmiliere getFourmiliereById(int id){ return getJoueurById(id).getFere();}
   public static FFrame getF(){ try {return ((ViewGUI2d)view).getF();} catch (Exception e) {return null;}}
   public static Options getOp(){if(op!=null){return op;}else{if(tempOp==null){tempOp = Options.newDefaultOptions();} return tempOp;}}
@@ -205,8 +204,8 @@ public class Main {
   public static Folder getFolder(){return folder;}
   public static void setFolder(Folder f){folder=f;}
   public static void setTuto(boolean b){tuto=b;}
-  public static boolean getPremierePartie(){return premierePartie;}
-  public static void setPremierePartie(boolean b){premierePartie=b;}
+  public static boolean getFirstGame(){return Folder.getFirstGame();}
+  public static void setFirstGame(boolean b){Folder.setFirstGame(b);}
   public static Data getData(){return data;}
   public static void setData(Data d){data=d;}
   public static View getView(){return view;}
@@ -301,7 +300,7 @@ public class Main {
    */
   public static void initialisation(){
     tempsDeDébutDeJeu=System.currentTimeMillis();
-    setPremierePartie(false);
+    setFirstGame(false);
     Fourmi.setUneSeuleAction(-1);
     if(!erreur.getMuet()){ //if not in test.
       if (modeCLI) {
@@ -314,7 +313,7 @@ public class Main {
         }
       }
     }
-    folder = new Folder();
+    folder = new Folder(Main.getView());
     getFolder().ini();
     setMessageChargement("chargementDesOptions");startCh();
     iniTranslationFolder();
@@ -337,7 +336,7 @@ public class Main {
     setMessageChargement("chargementDesLangues");
     iniLangue();
     startCh();
-    tem = new Temps(getFolder().getFolderTemporary()+"Temps.txt", getPremierePartie());
+    tem = new Temps(getFolder().getFolderTemporary()+"Temps.txt", getFirstGame());
     erreur.info("OS: "+getOs());
     erreur.info("language: "+chargerLesTraductions.getLanguageAsString(getOp().getLanguage()));
     erreur.info(tem.toString());
@@ -403,7 +402,7 @@ public class Main {
     getView().loadingMessage(message, percentageDone);
   }
   //chrono shortcut
-  public static void startCh(){Chrono.debutCh();}
+  public static void startCh(){Chrono.startCh();}
   /**
   *{@summary End the Chrono &#38; return the time.}
   *@lastEditedVersion 2.24
@@ -413,7 +412,7 @@ public class Main {
     lonTotal+=time;
     return time;
   }
-  public static void startCh(Chrono chTemp){Chrono.debutCh(chTemp);}
+  public static void startCh(Chrono chTemp){Chrono.startCh(chTemp);}
   /**
   *{@summary End the Chrono &#38; return the time.}
   *@lastEditedVersion 2.24
@@ -499,7 +498,7 @@ public class Main {
     getGj().jouer();
     getGi().tourInsecte();
 
-    if(Main.getPartie().getAppartionInsecte()){
+    if(getPartie().getAppartionInsecte()){
       int nbrDInsecteRestant = math.max( getGc().length()/5 -  getGi().getGiVivant().length(),0);
       int x2 = math.min( getGc().length()/20, nbrDInsecteRestant);
       String s = g.get("SpawnOf")+" "+x2+" "+g.get("insecte")+g.get("s");

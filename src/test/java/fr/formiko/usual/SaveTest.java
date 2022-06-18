@@ -14,7 +14,7 @@ public class SaveTest extends TestCaseMuet {
   private Folder f;
   @Test
   public void testSave(){
-    f = new Folder();
+    f = new Folder(Main.getView());
     Main.setFolder(f);
     Save save = Save.getSave();
     int idS = save.getIdS();
@@ -24,7 +24,7 @@ public class SaveTest extends TestCaseMuet {
   }
   @Test
   public void testSave2(){
-    // f = new Folder();
+    // f = new Folder(Main.getView());
     // f.setFolderMain("unexistingFolder8747");
     new Save("unexistingFolder8747/.save");
     // Main.setFolder(f);

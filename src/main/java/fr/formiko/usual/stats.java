@@ -34,11 +34,11 @@ public class stats {
   *@lastEditedVersion 2.23
   */
   public static GString getStats(String filePath, boolean raccourcir){
-    Chrono.debutCh();
+    Chrono.startCh();
     GString gs = fichier.listerLesFichiersDuRep(filePath);
     erreur.info(gs.length()+" files to parse in "+filePath);
     if(gs.length()==0){return new GString();}
-    Chrono.endCh("listage des fichiers");Chrono.debutCh();
+    Chrono.endCh("listage des fichiers");Chrono.startCh();
     //gs = la liste des fichiers.
 
     GGInt ggi = new GGInt();
@@ -52,7 +52,7 @@ public class stats {
         nbrDeLigne.add(contenuDuFichier.length());
       }
     }
-    Chrono.endCh("récupération des data");Chrono.debutCh();
+    Chrono.endCh("récupération des data");Chrono.startCh();
 
     //GGInt = la liste de toutes les données.
     sommeDesComG=0;sommeDesFctLG=0;
@@ -67,7 +67,7 @@ public class stats {
       gsr.add("comment %    cl-pu-po-pr-sh-ln   name of the file");
     }
     //gsr.add(total);
-    Chrono.endCh("calcul des valeur et du total");Chrono.debutCh();
+    Chrono.endCh("calcul des valeur et du total");Chrono.startCh();
     //add tt les autres.
     Iterator<GInt> iggi = ggi.iterator();
     Iterator<GInt> iggi2 = ggi2.iterator();
@@ -107,7 +107,7 @@ public class stats {
   *@lastEditedVersion 2.20
   */
   public static void statsJavadoc(String filePath, boolean raccourcir){
-    Chrono.debutCh();
+    Chrono.startCh();
     ecrireUnFichier.ecrireUnFichier(getStats(filePath, raccourcir),"stats.txt");
     Chrono.endCh("sauvegarde finale");
   }

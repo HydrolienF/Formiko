@@ -2,8 +2,8 @@ package fr.formiko.usual.media.audio;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usual.erreur;
-import fr.formiko.usual.structures.listes.GString;
 import fr.formiko.usual.maths.allea;
+import fr.formiko.usual.structures.listes.GString;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,6 +43,7 @@ public class MusicPlayer implements AudioInterface {
       return;
     }
     audioPlayer = new AudioPlayer(true, curentMusic);
+    audioPlayer.setMp(this);
     audioPlayer.setVolume(Main.getOp().getVolMusic());
     audioPlayer.play();
     musicPaused=false;

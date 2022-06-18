@@ -3,12 +3,11 @@ package fr.formiko.usual;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsoner;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usual.Chrono;
 import fr.formiko.usual.exceptions.MissingFolderException;
 import fr.formiko.usual.types.str;
-import fr.formiko.views.View;
 import fr.formiko.usual.structures.listes.GString;
+import fr.formiko.usual.media.audio.MusicPlayer;
 
 import java.io.File;
 import java.io.Reader;
@@ -22,7 +21,7 @@ import java.nio.file.Paths;
 *You can acces to file by using getters.
 *Ex : getFolderStable()+getFolderImages() will return the path to stable images.
 *@author Hydrolien
-*@lastEditedVersion 2.7
+*@lastEditedVersion 2.25
 */
 public class Folder {
   private static String DEFAULT_NULL_VERSION="0.0.0";
@@ -47,9 +46,12 @@ public class Folder {
   private boolean launchDownload;
 
   private static boolean newVersionAviableTestDone=false;
+  private Progression progression;
+  private static boolean firstGame;
 
-  public Folder(){
+  public Folder(Progression progression){
     secondTime=false;
+    this.progression=progression;
     iniFolderMain();
     // setFolderMain("");//always remove after test
     File folderM = new File(getFolderMain());
@@ -94,6 +96,11 @@ public class Folder {
 	public void setFolderVideos(String folderVideos) {this.folderVideos = str.sToDirectoryName(folderVideos);}
 
   public void setLaunchDownload(boolean b){launchDownload=b;}
+  public Progression getProgression(){return progression;}
+
+  public static boolean getFirstGame(){return firstGame;}
+  public static void setFirstGame(boolean b){firstGame=b;}
+
   /**
   *{@summary Initialize the main folder name depending of OS.}<br>
   *@param os Os to use for name initialisation.
@@ -126,7 +133,7 @@ public class Folder {
     }
     try{
       if(!f.exists() || f.listFiles().length==0){
-        Main.setPremierePartie(true);
+        setFirstGame(true);
         f.mkdirs();
         missingFolder++;
         if(allowedDownolad){throw new MissingFolderException("main");}
@@ -137,7 +144,7 @@ public class Folder {
 
       f = new File(getFolderMain()+"Options.md");
       if(!f.exists() || f.isDirectory()){
-        Main.setPremierePartie(true);
+        setFirstGame(true);
       }
 
       f = new File(getFolderSaves());
@@ -146,7 +153,7 @@ public class Folder {
       iniTemporary();
       iniRessourcesPacks();
     }catch (MissingFolderException e) {
-      if(!Main.getPremierePartie()){
+      if(!getFirstGame()){
         erreur.erreur("an error occured when fixing file : "+e,"Download file from main repository");
       }else{
         erreur.info("Download file from main repository");
@@ -272,8 +279,7 @@ public class Folder {
   *@lastEditedVersion 2.7
   */
   public void downloadData(){
-    View view = Main.getView();
-    view.iniLauncher();
+    getProgression().iniLauncher();
     launchDownload=true;
     boolean needToRetry = true;
     while(needToRetry){
@@ -283,54 +289,52 @@ public class Folder {
         }catch (InterruptedException e) {}
       }
       prepareDownloadData();
-      Main.startCh();
-      view.setDownloadingMessage("downloading game data");
-      boolean downloadWork = download("https://github.com/HydrolienF/Formiko/releases/download/"+getWantedDataVersion()+"/data.zip", getFolderMain()+"data.zip", true);
-      Main.endCh("downloadData");
+      Chrono.startCh();
+      getProgression().setDownloadingMessage("downloading game data");
+      boolean downloadWork = download("https://github.com/HydrolienF/Formiko/releases/download/"+getWantedDataVersion()+"/data.zip", getFolderMain()+"data.zip", true, getProgression());
+      Chrono.endCh("downloadData");
       if(downloadWork){
         needToRetry = !unzipAndCleanDownloadData();
       }
       launchDownload=false;
       //if everything has work as intented needToRetry=false here.
     }
-    view.closeLauncher();
+    getProgression().closeLauncher();
   }
   /**
   *{@summary Do pre download action.}<br>
   *@lastEditedVersion 2.7
   */
   private void prepareDownloadData(){
-    View view = Main.getView();
-    Main.startCh();
-    view.setDownloadingMessage("deleting old file");
+    Chrono.startCh();
+    getProgression().setDownloadingMessage("deleting old file");
     fichier.deleteDirectory(getFolderMain());
-    Main.getView().setDownloadingValue(-5);
-    view.setDownloadingMessage("creating main Folder");
+    getProgression().setDownloadingValue(-5);
+    getProgression().setDownloadingMessage("creating main Folder");
     File f = new File(getFolderMain());
     f.mkdirs();
-    Main.endCh("removeOldData");
-    Main.getView().setDownloadingValue(0);
+    Chrono.endCh("removeOldData");
+    getProgression().setDownloadingValue(0);
   }
   /**
   *{@summary Do post download action.}<br>
   *@lastEditedVersion 2.7
   */
   private boolean unzipAndCleanDownloadData(){
-    View view = Main.getView();
-    Main.startCh();
-    view.setDownloadingMessage("unziping game data");
+    Chrono.startCh();
+    getProgression().setDownloadingMessage("unziping game data");
     fichier.unzip(getFolderMain()+"data.zip",getFolderMain().substring(0,getFolderMain().length()-5));
-    Main.endCh("unzipData");
-    Main.getView().setDownloadingValue(105);
+    Chrono.endCh("unzipData");
+    getProgression().setDownloadingValue(105);
     System.gc();
-    view.setDownloadingMessage("cleaning folders");
+    getProgression().setDownloadingMessage("cleaning folders");
     if(!fichier.deleteDirectory(getFolderMain()+"data.zip")){
       erreur.alerte("unable to delete "+getFolderMain()+"data.zip");
       return false;
     }else{
       return true;
     }
-    // Main.getView().setDownloadingValue(110);
+    // getProgression().setDownloadingValue(110);
   }
   /**
   *{@summary Return true if data version is outdated or overdated.}<br>
@@ -415,7 +419,7 @@ public class Folder {
   public String getLastStableVersion(){
     String fileName = getFolderMain()+"vTemp.json";
     try {
-      download("https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json", fileName);
+      download("https://gist.githubusercontent.com/HydrolienF/c7dbc5d2d61b749ff6878e93afdaf53e/raw/version.json", fileName, getProgression());
       return getXVersion(Paths.get(fileName), "lastStableVersion");
     }catch (Exception e) {
       erreur.alerte("Can't read last stable version");
@@ -505,29 +509,30 @@ public class Folder {
   *It need Main.version to be correct to work.<br>
   *@lastEditedVersion 1.53
   */
-  public void downloadMusicData(){
-    Thread th = new ThDownloadMusicData(this);
+  public void downloadMusicData(MusicPlayer mp){
+    Thread th = new ThDownloadMusicData(this, mp, getProgression());
     th.start();
   }
   /**
   *{@summary Download a file from the web.}<br>
-  * It also update view.
+  * It also update progression.
   *@param urlPath the url as a String
   *@param fileName the name of the file were to save data from the web
   *@param withInfo if true launch a thread to have info during download
+  *@param progression the primitive view to update progression
   *@lastEditedVersion 2.25
   */
-  public static boolean download(String urlPath, String fileName, boolean withInfo){
+  public static boolean download(String urlPath, String fileName, boolean withInfo, Progression progression){
     try {
-      Main.getView().setButtonRetryVisible(false);
+      progression.setButtonRetryVisible(false);
     }catch (NullPointerException e) {}
     try {
-      fichier.download2(urlPath,fileName,withInfo, Main.getView());
+      fichier.download2(urlPath,fileName,withInfo,progression);
     }catch (Exception e) {
       String err = "Download fail: "+e;
       try {
-        Main.getView().setDownloadingMessage(err);
-        Main.getView().setButtonRetryVisible(true);
+        progression.setDownloadingMessage(err);
+        progression.setButtonRetryVisible(true);
       }catch (Exception e2) {
         erreur.erreur(err);
       }
@@ -535,7 +540,15 @@ public class Folder {
     }
     return true;
   }
-  public static boolean download(String urlPath, String fileName){return download(urlPath, fileName, false);}
+  /***
+  *{@summary Download a file from the web.}<br>
+  * It also update progression.
+  *@param urlPath the url as a String
+  *@param fileName the name of the file were to save data from the web
+  *@param progression the primitive view to update progression
+  *@lastEditedVersion 2.25
+  */
+  public static boolean download(String urlPath, String fileName, Progression progression){return download(urlPath, fileName, false, progression);}
 }
 /**
 *{@summary Download music data from github release in a Thread.}<br>
@@ -545,27 +558,27 @@ public class Folder {
 */
 class ThDownloadMusicData extends Thread {
   private Folder folder;
-  public ThDownloadMusicData(Folder f){
-    folder=f;
+  private MusicPlayer mp;
+  private Progression progression;
+  public ThDownloadMusicData(Folder f, MusicPlayer mp, Progression progression){
+    this.mp=mp;
+    this.folder=f;
+    this.progression=progression;
   }
   @Override
   public void run(){
     erreur.info("downloadMusicData");
-    Main.startCh();
-    Folder.download("https://github.com/HydrolienF/Formiko/releases/download/"+folder.getWantedMusicVersion()+"/music.zip",folder.getFolderMain()+"music.zip");
-    Main.endCh("downloadMusicData");
+    Chrono.startCh();
+    Folder.download("https://github.com/HydrolienF/Formiko/releases/download/"+folder.getWantedMusicVersion()+"/music.zip",folder.getFolderMain()+"music.zip", progression);
+    Chrono.endCh("downloadMusicData");
     erreur.info("downloadMusicData done");
-    Main.startCh();
+    Chrono.startCh();
     fichier.unzip(folder.getFolderMain()+"music.zip",folder.getFolderStable());
-    Main.endCh("unzipMusicData");
+    Chrono.endCh("unzipMusicData");
     System.gc();
     if(!fichier.deleteDirectory(folder.getFolderMain()+"music.zip")){
       erreur.alerte("unable to delete "+folder.getFolderMain()+"music.zip");
     }
-    try {
-      Main.getMp().iniAvailableMusics();
-    }catch (Exception e) {
-      erreur.alerte("Can't refresh availableMusics");
-    }
+    mp.iniAvailableMusics();
   }
 }

@@ -169,21 +169,6 @@ public interface View extends Progression {
   */
   default void waitForEndTurn(){}
   /***
-  *{@summary Initialize the game launcher.}
-  *@lastEditedVersion 2.7
-  */
-  default void iniLauncher(){}
-  /***
-  *{@summary Close the game launcher.}
-  *@lastEditedVersion 2.7
-  */
-  default void closeLauncher(){}
-  /***
-  *{@summary Hide or show buttonRetry of FFrameLauncher.}
-  *@lastEditedVersion 2.7
-  */
-  default void setButtonRetryVisible(boolean visible){}
-  /***
   *{@summary True if in moveMode.}
   *@lastEditedVersion 2.11
   */

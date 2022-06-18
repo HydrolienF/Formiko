@@ -116,7 +116,7 @@ public class Options implements Serializable {
   */
   public void setLanguage(byte x){
     game_language=x;
-    String languageCode = chargerLesTraductions.getLanguage(x, Main.getPremierePartie());
+    String languageCode = chargerLesTraductions.getLanguage(x, Main.getFirstGame());
     if(x>-1 && !languageCode.equals(Locale.getDefault().getLanguage())) {
       Locale.setDefault(new Locale(languageCode));
     }
@@ -303,7 +303,7 @@ public class Options implements Serializable {
       InputStream is = Files.newInputStream(Path.of(Main.getFolder().getFolderMain()+"Options.md"));
       properties.load(is);
     }catch (IOException e) {
-      if(!Main.getPremierePartie()){
+      if(!Main.getFirstGame()){
         erreur.erreur("Impossible de charger les options","Options par défaut choisie");
       }else{
         erreur.info("Options par défaut choisie");
@@ -526,7 +526,7 @@ public class Options implements Serializable {
       font1=new Font("Default", Font.BOLD, gui_global_fontSizeText);
     }else{
       if(!Fonts.createFonts(gui_global_fontText)){
-        if(!Main.getPremierePartie()){
+        if(!Main.getFirstGame()){
           erreur.alerte("fail to set font for text");
         }
         font1=new Font("Default", Font.BOLD, gui_global_fontSizeText);
@@ -535,7 +535,7 @@ public class Options implements Serializable {
       }
     }
     if(!Fonts.createFonts(gui_global_fontTitle)){
-      if(!Main.getPremierePartie()){
+      if(!Main.getFirstGame()){
         erreur.alerte("fail to set font for title");
       }
       font2=new Font(gui_global_fontText, Font.PLAIN, gui_global_fontSizeTitle);

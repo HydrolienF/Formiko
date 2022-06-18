@@ -170,7 +170,7 @@ public class ViewGUI2d implements View {
     DiscordIntegration.setNeedToUpdateActivity(true);
     if(f==null || getPm()==null){ini();}
     Main.stopScript();
-    if(Main.getPremierePartie()){
+    if(Main.getFirstGame()){
       getPm().askLanguage();
     }else if(Main.getOpenMenuFirst()){
       getPm().buildFPanelMenu(3,0);
@@ -284,7 +284,7 @@ public class ViewGUI2d implements View {
     chLoading.stop();
     s=s +" "+ "("+Temps.msToS(chLoading.getDuree())+")";
     Main.setMessageChargement(s);
-    if(!Main.getOp().getWhaitBeforeLaunchGame() || Main.getPremierePartie() || !Main.getOpenMenuFirst()){
+    if(!Main.getOp().getWhaitBeforeLaunchGame() || Main.getFirstGame() || !Main.getOpenMenuFirst()){
       closeFPanelChargement();
       paint();
     }else{
@@ -565,7 +565,7 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 1.46
   */
   public void waitForGameLaunch(){
-    // if(!Main.getPremierePartie()){
+    // if(!Main.getFirstGame()){
     while(!launchFromPm){
       // try {
       //   wait();

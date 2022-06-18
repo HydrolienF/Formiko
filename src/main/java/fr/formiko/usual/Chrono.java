@@ -89,13 +89,12 @@ public class Chrono {
   public static void iniCh(){
     ch = new Chrono();
   }
-  public static void debutCh(){
+  public static void startCh(){
     if(ch==null){iniCh();}
-    debutCh(ch);
+    startCh(ch);
   }
   public static int endCh(String s){return endCh(s,ch);}
 
-  public static void debutCh(Chrono chTemp){startCh(chTemp);}
   /**
    * Start Chrono
    * @lastEditedVersion 1.1

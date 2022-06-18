@@ -85,7 +85,7 @@ public class launchOptions {
       case "launchTuto":
       //TODO TOFIX
       Main.setTuto(true);
-      Main.setPremierePartie(true);
+      Main.setFirstGame(true);
       Main.dontOpenMenuFirst();
       break;
       case "ld":
@@ -155,7 +155,7 @@ public class launchOptions {
     }else if(args[0].equals("op")){
       //Main.initialisation();
       Main.setOs(new Os());
-      Main.setFolder(new Folder());
+      Main.setFolder(new Folder(Main.getView()));
       Main.iniOp();
       Main.getOp().saveOptions();
     }else if(args[0].equals("supprimer")){
@@ -208,7 +208,7 @@ public class launchOptions {
       }
     }else if(args[0].equals("cleanFolder")){
       Main.setOs(new Os());
-      Folder folder = new Folder();
+      Folder folder = new Folder(Main.getView());
       if(args.length>1){
         folder.setFolderMain(args[1]);
       }
@@ -222,7 +222,7 @@ public class launchOptions {
       fichier.unzip(args[1],args[2]);
       System.exit(0);
     }else if(args[0].equals("download")){
-      Folder.download(args[1],args[2]);
+      Folder.download(args[1],args[2],Main.getView());
       System.exit(0);
     }else if(args[0].equals("createBadges")){
       createBadges.createBadges();
@@ -413,7 +413,7 @@ public class launchOptions {
   private static void translateWebSite(String pathToWebSiteFile, String pathToWebSiteTranslation){
     Main.setView(new ViewNull());
     Main.setOs(new Os());
-    Main.setFolder(new Folder());
+    Main.setFolder(new Folder(Main.getView()));
     Main.iniOp();
     chargerLesTraductions.setRep(pathToWebSiteTranslation);
     // Chrono ch = new Chrono();
@@ -440,7 +440,7 @@ public class launchOptions {
       // Main.initialisation();
       Main.setView(new ViewNull());
       Main.setOs(new Os());
-      Folder f = new Folder();
+      Folder f = new Folder(Main.getView());
       f.setFolderMain();
       Main.setFolder(f);
       Main.iniOp();
@@ -529,7 +529,7 @@ public class launchOptions {
   *@lastEditedVersion 2.22
   */
   public static void printVersion(){
-    Folder folder = new Folder();
+    Folder folder = new Folder(Main.getView());
     folder.ini(false); //don't download anything
     erreur.info("Formiko "+folder.getCurentVersion()+"   data version: "+folder.getCurentDataVersion()+"   music version: "+folder.getCurentMusicVersion());
   }

@@ -1,6 +1,5 @@
 package fr.formiko.usual.media.audio;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usual.Chrono;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.maths.math;
@@ -34,6 +33,7 @@ public class AudioPlayer implements AudioInterface {
   private AudioThread at;
   private boolean isMusique;
   private float volume;
+  private MusicPlayer mp;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary main constructor}<br>
@@ -107,6 +107,8 @@ public class AudioPlayer implements AudioInterface {
   public void setChrono(Chrono f){chrono=f;}
   public boolean getIsMusique(){return isMusique;}
   public void setIsMusique(boolean f){isMusique=f;}
+  public MusicPlayer getMp(){return mp;}
+  public void setMp(MusicPlayer mp){this.mp=mp;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary play audio &#38; launch time}<br>
@@ -178,7 +180,7 @@ public class AudioPlayer implements AudioInterface {
       normallyEnded=true;
       doSounds();
       if(ap.getIsMusique() && normallyEnded){
-        Main.getMp().next();
+        getMp().next();
       }
     }
     /**

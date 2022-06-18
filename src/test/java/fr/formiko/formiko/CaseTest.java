@@ -20,7 +20,7 @@ public class CaseTest extends TestCaseMuet {
   // FUNCTIONS -----------------------------------------------------------------
   private Fourmi ini(){
     Main.setOs(new Os());
-    Main.setFolder(new Folder());
+    Main.setFolder(new Folder(Main.getView()));
     Main.getFolder().ini();
     Main.iniOp();
     Main.initialisation();

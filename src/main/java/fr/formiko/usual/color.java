@@ -1,7 +1,5 @@
 package fr.formiko.usual;
 
-import fr.formiko.formiko.Main;
-
 /**
 *{@summary Color used by Linux Mac &#38; Windows console.}<br>
 *All String can be call by color.NAME.<br>

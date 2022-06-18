@@ -27,7 +27,7 @@ public class imageTest extends TestCaseMuet {
     Main.ini();
   }
   private void ini(){
-    Folder folder = new Folder();
+    Folder folder = new Folder(Main.getView());
     folder.ini();
     Main.setFolder(folder);
   }
@@ -39,7 +39,7 @@ public class imageTest extends TestCaseMuet {
     assertTrue(f.isFile());//il n'as pas été supprimé lors de la lecture
 
     //répertoire d'image.
-    Folder folder = new Folder();
+    Folder folder = new Folder(Main.getView());
     folder.ini(false);
     Main.setFolder(folder);
     int x = allea.getAllea(1000)+100;
@@ -99,7 +99,7 @@ public class imageTest extends TestCaseMuet {
   //getImages
   @Test
   public void testGetImages(){
-    Folder folder = new Folder();
+    Folder folder = new Folder(Main.getView());
     folder.setFolderMain("imassertTrue(fichier.deleteDirectory(new File(folder.getFolderMain().substring(0,folder.getFolderMain().length()-5))));lsSPEC"+getId());
     folder.ini(false);
     Main.setFolder(folder);
@@ -128,7 +128,7 @@ public class imageTest extends TestCaseMuet {
   // public void testGetImagess(){
   //   Main.iniOp();
   //   Main.getOp().setOrientedObjectOnMap(true);
-  //   Folder folder = new Folder();
+  //   Folder folder = new Folder(Main.getView());
   //   folder.setFolderMain("testDirIT"+getId());
   //   folder.ini(false);
   //   Main.setFolder(folder);
@@ -221,7 +221,7 @@ public class imageTest extends TestCaseMuet {
   @Test
   public void testGetNbrImagesREP3(){
     //on vérifie que d'éventuelles images complémentaire présente dans REPTEXTUREPACK seront bien chargée.
-    Folder folder = new Folder();
+    Folder folder = new Folder(Main.getView());
     folder.setFolderMain("testDirIT"+getId());
     folder.ini(false);
     Main.setFolder(folder);
@@ -252,7 +252,7 @@ public class imageTest extends TestCaseMuet {
   @Test
   public void testClearTemporaire(){
     File f = null;
-    Folder folder = new Folder();
+    Folder folder = new Folder(Main.getView());
     folder.setFolderMain("imageTestFodler"+getId());
     folder.ini(false);
     Main.setFolder(folder);
@@ -348,7 +348,7 @@ public class imageTest extends TestCaseMuet {
   //taille
   @Test
   public void testTaille(){
-    Main.setFolder(new Folder());
+    Main.setFolder(new Folder(Main.getView()));
     Main.getFolder().ini();
     Main.iniOp();//on initialise les Options.
     //image.taille(taille de l'espece, taille voulu avec le niveau de grossicement)
@@ -533,7 +533,7 @@ public class imageTest extends TestCaseMuet {
 
   @AfterAll
   public static void clean(){
-    Folder folder = new Folder();
+    Folder folder = new Folder(Main.getView());
     Main.setFolder(folder);
     fichier.deleteDirectory("null");
   }
