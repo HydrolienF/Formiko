@@ -5,7 +5,7 @@ import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
 import fr.formiko.usual.images.Pixel;
-import fr.formiko.usual.images.image;
+import fr.formiko.usual.images.Images;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

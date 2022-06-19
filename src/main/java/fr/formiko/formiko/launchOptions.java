@@ -12,7 +12,7 @@ import fr.formiko.usual.erreur;
 import fr.formiko.usual.fichier;
 import fr.formiko.usual.g;
 import fr.formiko.usual.images.Img;
-import fr.formiko.usual.images.image;
+import fr.formiko.usual.images.Images;
 import fr.formiko.usual.media.audio.*;
 import fr.formiko.usual.structures.listes.GString;
 import fr.formiko.usual.tableau;
@@ -200,7 +200,7 @@ public class launchOptions {
       if(args.length>1){
         //image.setREPTEXTUREPACK("docs/cc/images");
         debug.débogage("chargement de l'image");
-        Img img = new Img(image.getImage(args[1],"docs/cc/images/"));
+        Img img = new Img(Images.getImage(args[1],"docs/cc/images/"));
         debug.débogage("Image chargée");
         img.compterChaquePixelToHtml();
       }else{
@@ -320,13 +320,13 @@ public class launchOptions {
     name = args[1];int k=2;
     while(name!=null){
       debug.débogage("=============================Chargement de l'image "+name);
-      //Image i = image.getImage(nom,image.getREP());
-      Img img = new Img(image.getImage(name,image.getREP()));
+      //Image i = Images.getImage(nom,Images.getREP());
+      Img img = new Img(Images.getImage(name,Images.getREP()));
       debug.débogage("=============================Ronage de l'image "+name);
       img.rognerBordTransparent();
       img.actualiserImage();
       debug.débogage("=============================Sauvegarde de l'image "+name);
-      img.sauvegarder(image.getREP(),name+".png");
+      img.sauvegarder(Images.getREP(),name+".png");
       try {
         name=args[k++];
       }catch (Exception e) {

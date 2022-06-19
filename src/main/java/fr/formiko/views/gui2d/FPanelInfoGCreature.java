@@ -8,7 +8,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetAId;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
-import fr.formiko.usual.images.image;
+import fr.formiko.usual.images.Images;
 import fr.formiko.usual.maths.math;
 import fr.formiko.usual.structures.listes.Liste;
 
@@ -106,9 +106,9 @@ public class FPanelInfoGCreature extends FPanelInfo {
       for (Creature ct : gc) {
         if(FPanelCarte.needToDraw(c)){
           BufferedImage bi = Main.getData().getCreatureImage(ct);
-          bi = image.resize(bi, yByElement-boderFPanelObjetAId*2);
+          bi = Images.resize(bi, yByElement-boderFPanelObjetAId*2);
           if(!(ct instanceof Fourmi) || (c instanceof Fourmi && !((Fourmi)(ct)).getFere().getJoueur().equals(f.getFere().getJoueur()))){
-            image.editAllPixels(bi, fctAlpha);
+            Images.editAllPixels(bi, fctAlpha);
           }
           lp.add(new FPanelObjetAId(ct, bi));
         }
@@ -116,8 +116,8 @@ public class FPanelInfoGCreature extends FPanelInfo {
       if(Main.getOp().getDrawSeeds() && (!Main.getOp().getDrawOnlyEatable() || Main.getPlayingJoueur().getEspece().getGranivore())){
         for (Graine s : c.getCase().getGg()) {
           BufferedImage bi = Main.getData().getGraineImage(s);
-          bi = image.resize(bi, yByElement-boderFPanelObjetAId*2);
-          image.editAllPixels(bi, fctAlpha);
+          bi = Images.resize(bi, yByElement-boderFPanelObjetAId*2);
+          Images.editAllPixels(bi, fctAlpha);
           lp.add(new FPanelObjetAId(s, bi));
         }
       }
@@ -230,8 +230,8 @@ public class FPanelInfoGCreature extends FPanelInfo {
           Creature c = (Creature)o;
           if(c.isDead()){
             BufferedImage biD = getData().getImage("deadHead");
-            biD=image.resize(biD, (yByElement-boderFPanelObjetAId*2)*2/3);
-            image.editAllPixels(biD, fctAlpha);
+            biD=Images.resize(biD, (yByElement-boderFPanelObjetAId*2)*2/3);
+            Images.editAllPixels(biD, fctAlpha);
             g.drawImage(biD, boderFPanelObjetAId, boderFPanelObjetAId, this);
           }
         }else if(o instanceof Graine){

@@ -2,7 +2,7 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usual.g;
-import fr.formiko.usual.images.image;
+import fr.formiko.usual.images.Images;
 
 /**
 *{@summary Panel with buttons able to launch an URL.}<br>
@@ -32,7 +32,7 @@ public class FPanelLinks extends FPanel {
   */
   public void addButton(String buttonCodeName, String url){
     Main.getData().iniOtherImages();
-    FButtonLink bl = new FButtonLink(g.get(buttonCodeName), this, url, fr.formiko.usual.images.image.resize(Main.getData().getImage(buttonCodeName), buttonSize, buttonSize));
+    FButtonLink bl = new FButtonLink(g.get(buttonCodeName), this, url, fr.formiko.usual.images.Images.resize(Main.getData().getImage(buttonCodeName), buttonSize, buttonSize));
     bl.setBounds(getWidth(), 0, buttonSize, buttonSize);
     add(bl);
     int addWidth = spaceBetweenButton+buttonSize;

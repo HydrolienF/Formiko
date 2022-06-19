@@ -4,7 +4,7 @@ import fr.formiko.usual.Point;
 import fr.formiko.usual.decoderUnFichier;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.images.Img;
-import fr.formiko.usual.images.image;
+import fr.formiko.usual.images.Images;
 import fr.formiko.usual.maths.allea;
 import fr.formiko.usual.structures.listes.Liste;
 import fr.formiko.usual.types.str;

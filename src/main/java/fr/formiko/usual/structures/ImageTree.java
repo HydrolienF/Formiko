@@ -5,7 +5,7 @@ import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.images.Img;
-import fr.formiko.usual.images.image;
+import fr.formiko.usual.images.Images;
 import fr.formiko.usual.maths.math;
 import fr.formiko.usual.structures.listes.Liste;
 
@@ -87,7 +87,7 @@ public class ImageTree extends Tree<BufferedImage> {
           if(antColorLevel>1){
             img.supprimerLaTransparencePartielle(1);
           }
-          color = image.changeColor(img, c.getPheromone());
+          color = Images.changeColor(img, c.getPheromone());
           g.drawImage(color, 0, 0, null);
         }
         if(c.getHaveWings()){
@@ -138,7 +138,7 @@ public class ImageTree extends Tree<BufferedImage> {
         if(nodeIn.getChildren(0)!=null && nodeIn.getChildren(0).getChildren(i)!=null){
           if (nodeIn.getChildren(0).getChildren(i).getContent()!=null) {
             biIn = nodeIn.getChildren(0).getChildren(i).getContent();
-            biOut = image.resize(biIn,image.taille(idSpecies+100,0,dim));
+            biOut = Images.resize(biIn,Images.taille(idSpecies+100,0,dim));
             insectListOut.get(idSpecies).getChildren(0).getChildren(i).setContent(biOut);
           } //else erreur.alerte("A branch of the tree is empty (imago)");
         }else{
@@ -149,7 +149,7 @@ public class ImageTree extends Tree<BufferedImage> {
         if(nodeIn.getChildren(i)!=null){
           if (nodeIn.getChildren(i).getContent()!=null) {
             biIn = nodeIn.getChildren(i).getContent();
-            biOut = image.resize(biIn,image.taille(idSpecies+100,-i,dim));
+            biOut = Images.resize(biIn,Images.taille(idSpecies+100,-i,dim));
             insectListOut.get(idSpecies).getChildren(i).setContent(biOut);
           } //else erreur.alerte("A branch of the tree is empty (other stade)");
         }else{
@@ -176,8 +176,8 @@ public class ImageTree extends Tree<BufferedImage> {
           TreeNode<BufferedImage> currentNodeOut = antListOut.get(idSpecies).getChildren(0).getChildren(i);
           biIn = currentNodeIn.getContent();
           if(biIn!=null){ //if there is an ant
-            int size = image.tailleFourmi(idSpecies,i,dim);
-            biOut = image.resize(biIn,size);
+            int size = Images.tailleFourmi(idSpecies,i,dim);
+            biOut = Images.resize(biIn,size);
             currentNodeOut.setContent(biOut);
             addScaledAntColorPart(currentNodeIn, currentNodeOut, dim, size);
             addScaledAntOtherPart(currentNodeIn, currentNodeOut, dim, size);
@@ -189,7 +189,7 @@ public class ImageTree extends Tree<BufferedImage> {
       for (int i=1;i<4 ;i++ ) { // other stade
         if(nodeIn.getChildren(i)!=null && nodeIn.getChildren(i).getContent()!=null){
           biIn = nodeIn.getChildren(i).getContent();
-          biOut = image.resize(biIn,image.taille(idSpecies,-i,dim));
+          biOut = Images.resize(biIn,Images.taille(idSpecies,-i,dim));
           antListOut.get(idSpecies).getChildren(i).setContent(biOut);
         }else{
           erreur.alerte("A branch of the tree is cut (Ant other stade)");
@@ -209,7 +209,7 @@ public class ImageTree extends Tree<BufferedImage> {
     if(currentNodeIn.getChildren(0)!=null){
       biIn = currentNodeIn.getChildren(0).getContent();
       if(biIn!=null){
-        biOut = image.resize(biIn,size);
+        biOut = Images.resize(biIn,size);
         currentNodeOut.getChildren(0).setContent(biOut);
       }
     }
@@ -224,7 +224,7 @@ public class ImageTree extends Tree<BufferedImage> {
     while(currentNodeIn.getChildren(k)!=null){
       biIn = currentNodeIn.getChildren(k).getContent();
       if(biIn!=null){
-        biOut = image.resize(biIn,size);
+        biOut = Images.resize(biIn,size);
         currentNodeOut.getChildren(k).setContent(biOut);
       }
       k++;

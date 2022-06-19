@@ -5,7 +5,7 @@ import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Main;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
-import fr.formiko.usual.images.image;
+import fr.formiko.usual.images.Images;
 import fr.formiko.usual.maths.math;
 import fr.formiko.usual.structures.listes.Liste;
 
@@ -247,7 +247,7 @@ class FPanelCreatureIcons extends FPanel {
   *@lastEditedVersion 2.7
   */
   public void addIcon(BufferedImage bi){
-    iconsList.add(image.resize(bi,xy));
+    iconsList.add(Images.resize(bi,xy));
   }
   /**
   *{@summary Aet the text of the FLabel.}<br>

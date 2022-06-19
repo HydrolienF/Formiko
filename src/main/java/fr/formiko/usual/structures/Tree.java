@@ -1,6 +1,6 @@
 package fr.formiko.usual.structures;
 
-import fr.formiko.usual.images.image;
+import fr.formiko.usual.images.Images;
 import fr.formiko.usual.structures.listes.Liste;
 
 import java.awt.image.BufferedImage;
@@ -201,8 +201,8 @@ class TreeNode<T> extends Node {
             TreeNode<T> node = new TreeNode<T>(this);
             children.add(node);
             node.addFileAsNode(subFile);
-          } else if (image.isImage(subFile)) { //  && subFile.getName().contains("full") && T instanceof BufferedImage
-            setContent((T)image.readImage(subFile));
+          } else if (Images.isImage(subFile)) { //  && subFile.getName().contains("full") && T instanceof BufferedImage
+            setContent((T)Images.readImage(subFile));
           }
         }
       }

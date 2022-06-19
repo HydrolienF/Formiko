@@ -4,7 +4,7 @@ import fr.formiko.formiko.*;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
-import fr.formiko.usual.images.image;
+import fr.formiko.usual.images.Images;
 
 import java.awt.Graphics;
 import java.awt.Image;

@@ -8,7 +8,7 @@ import fr.formiko.usual.Temps;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
-import fr.formiko.usual.images.image;
+import fr.formiko.usual.images.Images;
 import fr.formiko.usual.maths.allea;
 import fr.formiko.usual.maths.math;
 import fr.formiko.usual.structures.listes.GString;
@@ -478,7 +478,7 @@ public class FPanelMenu extends FPanel {
     *@lastEditedVersion 2.20
     */
     private void iniPanel(){
-      flyingCreature = image.resize(getData().getImage("I0 flying side view"), Main.getTailleElementGraphique(50));
+      flyingCreature = Images.resize(getData().getImage("I0 flying side view"), Main.getTailleElementGraphique(50));
       MAX_Y=container.getWidth()-flyingCreature.getWidth()/2;
       MIN_Y=-flyingCreature.getWidth()/2;
       p=new FPanel(){
@@ -489,7 +489,7 @@ public class FPanelMenu extends FPanel {
         @Override
         public void paintComponent(Graphics	g){
           super.paintComponent(g);
-          g.drawImage(image.rotateImage(flyingCreature,angle),0,0, this);
+          g.drawImage(Images.rotateImage(flyingCreature,angle),0,0, this);
           if(Main.getOp().getPaintHitBox()){
             Graphics2D g2d = (Graphics2D)container.getGraphics();
             g2d.setColor(Color.RED);

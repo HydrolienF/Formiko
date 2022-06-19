@@ -28,7 +28,7 @@ import javax.imageio.ImageIO;
  *@author Hydrolien
  *@lastEditedVersion 1.4
  */
-public class image{
+public class Images {
 
   // GET SET -------------------------------------------------------------------
   /***

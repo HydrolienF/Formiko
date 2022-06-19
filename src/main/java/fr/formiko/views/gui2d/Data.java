@@ -13,7 +13,7 @@ import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
 import fr.formiko.usual.images.Img;
 import fr.formiko.usual.images.Pixel;
-import fr.formiko.usual.images.image;
+import fr.formiko.usual.images.Images;
 import fr.formiko.usual.maths.allea;
 import fr.formiko.usual.maths.math;
 import fr.formiko.usual.structures.ImageTree;
@@ -293,39 +293,39 @@ public class Data {
       tBi[k++]=getTF()[0][3+stade];
     }
     if(imgColor!=null){
-      tBi[k++]=image.changeColor(imgColor, ph);
+      tBi[k++]=Images.changeColor(imgColor, ph);
     }
     if(stade==0){
       //TODO #246 add wings for queen.
       for(int i=0; i<imageNumber; i++){
         if(i<6){
-          tBi[i] = image.translateImage(tBi[i], widthImage/2, heightImage/2, widthImage, heightImage);
+          tBi[i] = Images.translateImage(tBi[i], widthImage/2, heightImage/2, widthImage, heightImage);
         }
         // else{
-        //   tBi[i] = image.translateImage(tBi[i], 0, 0, widthImage, heightImage);
+        //   tBi[i] = Images.translateImage(tBi[i], 0, 0, widthImage, heightImage);
         // }
         if(tRotation[i]!=0){
           // erreur.println((diffX+(widthImage/2))+" "+ (diffY+(heightImage/2)) +"     "+ tRotation[i]);
-          tBi[i] = image.rotateImage2(tBi[i], tRotation[i], (int)(diffX+(widthImage/2)), (int)(diffY+(heightImage/2)));
+          tBi[i] = Images.rotateImage2(tBi[i], tRotation[i], (int)(diffX+(widthImage/2)), (int)(diffY+(heightImage/2)));
         }
         if(tp[i]!=null){
-          tBi[i] = image.translateImage(tBi[i], tp[i].getX()-(widthImage/2), tp[i].getY()-(heightImage/2), widthImage, heightImage);
+          tBi[i] = Images.translateImage(tBi[i], tp[i].getX()-(widthImage/2), tp[i].getY()-(heightImage/2), widthImage, heightImage);
         }
       }
       // for(int i=0; i<imageNumber; i++){
       //   if(i<6){
-      //     tBi[i] = image.translateImage(tBi[i], (int)(widthImage/2.4), (int)(heightImage/2.4), widthImage, heightImage);
+      //     tBi[i] = Images.translateImage(tBi[i], (int)(widthImage/2.4), (int)(heightImage/2.4), widthImage, heightImage);
       //   }
       //   if(tRotation[i]!=0){
       //     // erreur.println((diffX+(widthImage/2))+" "+ (diffY+(heightImage/2)) +"     "+ tRotation[i]);
       //     tBi[i] = image.rotateImage2(tBi[i], tRotation[i], diffX+((int)(widthImage/2.4)), diffY+((int)(heightImage/2.4)));
       //   }
       //   if(tp[i]!=null){
-      //     tBi[i] = image.translateImage(tBi[i], tp[i].getX()-((int)(widthImage/2.4)), tp[i].getY()-((int)(heightImage/2.4)), widthImage, heightImage);
+      //     tBi[i] = Images.translateImage(tBi[i], tp[i].getX()-((int)(widthImage/2.4)), tp[i].getY()-((int)(heightImage/2.4)), widthImage, heightImage);
       //   }
       // }
       for (int i=3; i<6; i++) {
-        tBi[i] = image.flipImage(tBi[i], false);
+        tBi[i] = Images.flipImage(tBi[i], false);
       }
     }
     return tBi;
@@ -344,7 +344,7 @@ public class Data {
       Main.startCh();
       int tailleFourmi = (getTailleDUneCase()*4)/5;
       erreur.info("Update Image to size "+getTailleDUneCase(),8);
-      imgNull = image.resize(imgNullIni,getTailleDUneCase());
+      imgNull = Images.resize(imgNullIni,getTailleDUneCase());
       tICarte=getScaledInstance(tICarteIni, getTailleDUneCase());
       // tIF=getScaledInstance(tIFIni, tailleFourmi);
       // tII=getScaledInstance(tIIIni, tailleFourmi,2);//les insectes
@@ -353,9 +353,9 @@ public class Data {
       // antLeg=getScaledInstance(antLegIni, tailleFourmi/2,0);//les Fourmis au différent stade.
       imageTree = ImageTree.getScaledInstanceFromTree(imageTreeIni, tailleFourmi);
       tG=getScaledInstance(tGIni, tailleFourmi);
-      fere = image.resize(fereIni,getTailleDUneCase()/2);
-      cNuageuse = image.resize(cNuageuseIni,getTailleDUneCase());
-      cSombre = image.resize(cSombreIni,getTailleDUneCase());
+      fere = Images.resize(fereIni,getTailleDUneCase()/2);
+      cNuageuse = Images.resize(cNuageuseIni,getTailleDUneCase());
+      cSombre = Images.resize(cSombreIni,getTailleDUneCase());
       int lenb = bIni.length;
       b=getScaledInstance(bIni,getTailleIcon());
       Main.endCh("chargerImages");
@@ -369,22 +369,22 @@ public class Data {
       if(!imageIni){
         erreur.info("load images from files");
         Main.startCh();
-        imgNullIni = image.getImage("null");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
+        imgNullIni = Images.getImage("null");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         chargerTI();
         // tIIIni = chargerTX("I");
         tFIni = chargerTX("F",3,(byte)0,-3);
         // iniAntColorIni();
-        // antLegIni = image.getImages("FLeg",image.getNbrImages("FLeg"),(byte)0);
+        // antLegIni = Images.getImages("FLeg",Images.getNbrImages("FLeg"),(byte)0);
         imageTreeIni = ImageTree.folderToTree(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");
-        iconMap = image.getImagesAsMap(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"icon/");
-        iconMap = image.getScaledInstanceFromMap(iconMap, Main.getTailleElementGraphiqueY(30));
-        // antFAFIni = image.getImages("FAF",image.getNbrImages("FAF"),(byte)0);
-        // antFASIni = image.getImages("FAS",image.getNbrImages("FAS"),(byte)0);
-        tGIni = image.getImages("seed",image.getNbrImages("seed"),(byte)0);
-        fereIni = image.getImage("antnest");//.getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
-        cNuageuseIni = image.getImage("cNuageuse");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
-        cSombreIni = image.getImage("cSombre");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
-        bIni = image.getImages("b"); int lenb = bIni.length;
+        iconMap = Images.getImagesAsMap(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"icon/");
+        iconMap = Images.getScaledInstanceFromMap(iconMap, Main.getTailleElementGraphiqueY(30));
+        // antFAFIni = Images.getImages("FAF",Images.getNbrImages("FAF"),(byte)0);
+        // antFASIni = Images.getImages("FAS",Images.getNbrImages("FAS"),(byte)0);
+        tGIni = Images.getImages("seed",Images.getNbrImages("seed"),(byte)0);
+        fereIni = Images.getImage("antnest");//.getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
+        cNuageuseIni = Images.getImage("cNuageuse");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
+        cSombreIni = Images.getImage("cSombre");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
+        bIni = Images.getImages("b"); int lenb = bIni.length;
         /*for (int i=0;i<lenb ;i++ ) {
           bIni[i]=bIni[i].getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
         }*/
@@ -399,7 +399,7 @@ public class Data {
       if(!imageIniForNewGame){
         //TODO #246 & #247 add various image for every species.
         tIFIni = new BufferedImage[1];
-        tIFIni[0] = image.getImage("F0");
+        tIFIni[0] = Images.getImage("F0");
       }
       imageIniForNewGame=true;
     }
@@ -413,7 +413,7 @@ public class Data {
       otherImages =  new HashMap<String, BufferedImage>();
       File dir = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"other/");
       for (File f : dir.listFiles()) {
-        otherImages.put(f.getName().substring(0,f.getName().length()-4),image.getImage("other/"+f.getName()));
+        otherImages.put(f.getName().substring(0,f.getName().length()-4),Images.getImage("other/"+f.getName()));
       }
     }
     /**
@@ -424,8 +424,8 @@ public class Data {
     */
     public void loadPnpImage(int buttonSize){
       if(loopArrow==null || loopArrow.getWidth()!=buttonSize){
-        loopArrow = image.resize(image.getImage("loop arrow"), buttonSize);
-        pick = image.resize(image.getImage("pick"), buttonSize);
+        loopArrow = Images.resize(Images.getImage("loop arrow"), buttonSize);
+        pick = Images.resize(Images.getImage("pick"), buttonSize);
       }
     }
     /***
@@ -434,7 +434,7 @@ public class Data {
     *@lastEditedVersion 2.2
     */
     // private void iniAntColorIni(){
-    //   antColorIni = image.getImages("FCol",image.getNbrImages("FCol"),(byte)0);
+    //   antColorIni = Images.getImages("FCol",Images.getNbrImages("FCol"),(byte)0);
     //   int len = antColorIni.length;
     //   if(Main.getOp().getAntColorLevel()>1){
     //     for (int i=0; i<len; i++) {
@@ -451,24 +451,24 @@ public class Data {
     */
     public void chargerTI(){
       tICarteIni = new BufferedImage [3];
-      // tICarteIni[0]=image.getImage("herbe");
-      // tICarteIni[1]=image.getImage("mousse");
-      tICarteIni[0]=image.getImage("terre");
-      tICarteIni[1]=image.getImage("terre");
-      tICarteIni[2]=image.getImage("sable");
+      // tICarteIni[0]=Images.getImage("herbe");
+      // tICarteIni[1]=Images.getImage("mousse");
+      tICarteIni[0]=Images.getImage("terre");
+      tICarteIni[1]=Images.getImage("terre");
+      tICarteIni[2]=Images.getImage("sable");
     }
     /**
     *{@summary Load a group of BufferedImage that starts with a similar name.}<br>
-    *see image.getImagess() for more informations.
+    *see Images.getImagess() for more informations.
     @param name Name of de group. Every image will start by this name.
     *@lastEditedVersion 1.18
     */
     public BufferedImage [][] chargerTX(String name, int x, byte y, int début){
-      return image.getImagess(name,x,(byte)début);
+      return Images.getImagess(name,x,(byte)début);
     }
     public BufferedImage [][] chargerTX(String name, int x, byte y){ return chargerTX(name,x,y,0);}
     public BufferedImage [][] chargerTX(String name, int x){ return chargerTX(name,x,(byte)0);}
-    public BufferedImage [][] chargerTX(String name){return chargerTX(name,image.getNbrImages(name));}
+    public BufferedImage [][] chargerTX(String name){return chargerTX(name,Images.getNbrImages(name));}
 
     /**
     *Create a background image from tI1 and tI2 images.
@@ -530,8 +530,8 @@ public class Data {
     */
     private void iniCloudMapImage(){
       if(!Main.getView().getActionGameOn()){return;}
-      BufferedImage could = image.resize(image.getImage("cloud"), map.getWidth(), map.getHeight());
-      cloudMap=image.resize(loadingImage, map.getWidth(), map.getHeight());
+      BufferedImage could = Images.resize(Images.getImage("cloud"), map.getWidth(), map.getHeight());
+      cloudMap=Images.resize(loadingImage, map.getWidth(), map.getHeight());
       for (int i=0; i<cloudMap.getWidth(); i++) {
         for (int j=0; j<cloudMap.getHeight(); j++) {
           int red = ((cloudMap.getRGB(i,j)>>16)&255);
@@ -555,7 +555,7 @@ public class Data {
           cloudMap.setRGB(i,j,x);
         }
       }
-      cloudMap = image.toBlackAndWhite(cloudMap);
+      cloudMap = Images.toBlackAndWhite(cloudMap);
     }
 
     //getScaledInstance.
@@ -566,16 +566,16 @@ public class Data {
     public BufferedImage getScaledInstance(BufferedImage bi, int dim, int b){
       BufferedImage r = null;
       if(b==0){//par défaut
-        r=image.resize(bi,dim);
+        r=Images.resize(bi,dim);
       }
       // else if(b==1){//pour les fourmis.
       //   int idEspece = 0;
       //   // int stade = i-3;
-      //   r=image.resize(bi,image.taille(idEspece, stade,dim));
+      //   r=Images.resize(bi,Images.taille(idEspece, stade,dim));
       // }else if(b==2){//pour les insectes
       //   // int idEspece = i+100;
       //   int stade = 0;
-      //   r=image.resize(bi,image.taille(idEspece, stade,dim));
+      //   r=Images.resize(bi,Images.taille(idEspece, stade,dim));
       // }
       return r;
     }public BufferedImage getScaledInstance(BufferedImage bi, int dim){return getScaledInstance(bi,dim,0);}
@@ -591,16 +591,16 @@ public class Data {
       BufferedImage r [] = new BufferedImage[lenr];
       for (int i=0;i<lenr ;i++ ) {
         if(b==0){//par défaut
-          r[i]=image.resize(ti[i],dim);
+          r[i]=Images.resize(ti[i],dim);
         }else if(b==1){//pour les fourmis.
           int idEspece = 0;
           int stade = i-3;
-          r[i]=image.resize(ti[i],image.taille(idEspece, stade,dim));
+          r[i]=Images.resize(ti[i],Images.taille(idEspece, stade,dim));
         }else if(b==2){//pour les insectes
           int idEspece = i+100;
           int stade = 0;
           //TODO #421 do the same into the imageTreeIni.
-          r[i]=image.resize(ti[i],image.taille(idEspece, stade,dim));
+          r[i]=Images.resize(ti[i],Images.taille(idEspece, stade,dim));
         }
       }
       return r;
@@ -640,7 +640,7 @@ public class Data {
   *@lastEditedVersion 1.46
   */
   private void loadBackgroundPAI(){
-    backgroundPAI = image.getImage("backgroundPAI");
+    backgroundPAI = Images.getImage("backgroundPAI");
     backgroundPAI = backgroundPAI.getScaledInstance(Main.getDimX(), FPanel.getView().getPa().getHeight(),Image.SCALE_SMOOTH);
   }
   /**
@@ -648,7 +648,7 @@ public class Data {
   *@lastEditedVersion 1.46
   */
   private void loadBackgroundPAS(){
-    backgroundPAS = image.getImage("backgroundPAS");
+    backgroundPAS = Images.getImage("backgroundPAS");
     backgroundPAS = backgroundPAS.getScaledInstance(FPanel.getView().getPa().getHeight(), FPanel.getView().getPa().getHeight(),Image.SCALE_SMOOTH);
   }
   /**
@@ -657,10 +657,10 @@ public class Data {
   */
   private void chargerTImage(){
     int tailleBouton = FPanel.getView().getPa().getbuttonSize();
-    tImage = image.getImages("desc");
+    tImage = Images.getImages("desc");
     int len = tImage.length;
     for (int i=0; i<len; i++) {
-      tImage[i] = image.resize(tImage[i],tailleBouton);
+      tImage[i] = Images.resize(tImage[i],tailleBouton);
     }
   }
   /**
@@ -674,9 +674,9 @@ public class Data {
       img.changerPixelTransparent(pi);
       img.sauvegarder("temporaire/desc"+k+".png");
     }
-    tImage = image.getImages("temporaire/desc");
+    tImage = Images.getImages("temporaire/desc");
     for (int i=0;i<10 ;i++ ) {
-      tImage[i] = image.resize(tImage[i],tailleBouton);
+      tImage[i] = Images.resize(tImage[i],tailleBouton);
     }
   }
   //FPanelZoom
@@ -688,18 +688,18 @@ public class Data {
     tIBZoom = new Image[9];
     if(!initialisationFX && !Main.getKeepFilesRotated()){tournerLesFleches();}
     int tailleBouton=Main.getbuttonSizeZoom();
-    tIBZoom[0] = image.getImage("moins").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    tIBZoom[1] = image.getImage("fleche").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    tIBZoom[2] = image.getImage("plus").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    tIBZoom[3] = image.getImage("fleche1").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
+    tIBZoom[0] = Images.getImage("moins").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
+    tIBZoom[1] = Images.getImage("fleche").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
+    tIBZoom[2] = Images.getImage("plus").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
+    tIBZoom[3] = Images.getImage("fleche1").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
     //tourner +90°
-    tIBZoom[4] = image.getImage("centrer").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    tIBZoom[5] = image.getImage("fleche2").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
+    tIBZoom[4] = Images.getImage("centrer").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
+    tIBZoom[5] = Images.getImage("fleche2").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
     //tourner -90°
-    tIBZoom[6] = image.getImage("fleche3").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
+    tIBZoom[6] = Images.getImage("fleche3").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
     //tourner +180°
-    tIBZoom[7] = image.getImage("centrer").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
-    tIBZoom[8] = image.getImage("centrer").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
+    tIBZoom[7] = Images.getImage("centrer").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
+    tIBZoom[8] = Images.getImage("centrer").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
     return tIBZoom;
   }
   /**
@@ -729,16 +729,16 @@ public class Data {
     mapName = str.sToSMaj(mapName);
     loadingImage=null;
     if(mapName!=null && !mapName.equals("")){
-      loadingImage=image.getImage("loading"+mapName,false);
+      loadingImage=Images.getImage("loading"+mapName,false);
       if(loadingImage!=null){
-        loadingImage=image.resize(loadingImage,Main.getDimX(),Main.getDimY());
+        loadingImage=Images.resize(loadingImage,Main.getDimX(),Main.getDimY());
       }
     }
     //if it haven't been load yet we try to load any image name chargementi.png or .jpj.
     if(loadingImage==null){
-      int x = allea.getAlléa(image.getNbrImages("loading"));
-      loadingImage=image.getImage("loading"+x);
-      loadingImage=image.resize(loadingImage,Main.getDimX(),Main.getDimY());
+      int x = allea.getAlléa(Images.getNbrImages("loading"));
+      loadingImage=Images.getImage("loading"+x);
+      loadingImage=Images.resize(loadingImage,Main.getDimX(),Main.getDimY());
       return true;
     }
     return false;

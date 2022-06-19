@@ -57,7 +57,7 @@ public class Img implements Cloneable {
   *Constructs a new Img with a fileName.
   */
   public Img(String nom){
-    this(image.getImage(nom));
+    this(Images.getImage(nom));
   }
   /**
   *Constructs a new grey 50% alpha Img whose width and height are specified by the arguments of the same name.
@@ -136,7 +136,7 @@ public class Img implements Cloneable {
   }
   /*public Image getImage(){
     sauvegarde("img.png");
-    return image.getImage("img.png");
+    return Images.getImage("img.png");
   }*/
   public void setRouge(byte [][] x){rouge=x;}
   public void setVert(byte [][] x){vert=x;}

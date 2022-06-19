@@ -3,7 +3,7 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.Main;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
-import fr.formiko.usual.images.image;
+import fr.formiko.usual.images.Images;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -46,8 +46,8 @@ public class FPanelPrincipal extends FPanel {
   *@lastEditedVersion 1.x
   */
   public void build(){
-    img = image.getImage("backgroundPP");
-    img = image.resize(img, this.getWidth(), this.getHeight());
+    img = Images.getImage("backgroundPP");
+    img = Images.resize(img, this.getWidth(), this.getHeight());
     addVersionLabel();
   }
   // GET SET -------------------------------------------------------------------

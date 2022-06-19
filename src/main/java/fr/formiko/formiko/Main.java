@@ -136,7 +136,7 @@ public class Main {
         setRetournerAuMenu(false);
         openMenuFirst=true;
         // op=null;//force la réinitialisation de tout.
-        image.clearPartielTemporaire();
+        Images.clearPartielTemporaire();
       }
     }
     quit();//en théorie on arrive pas là.
@@ -440,8 +440,8 @@ public class Main {
       //   endCh("enregistementDesScores");
       // }
       startCh();
-      if(getKeepFilesRotated()){image.clearPartielTemporaire();}
-      else{image.clearTemporaire();}
+      if(getKeepFilesRotated()){Images.clearPartielTemporaire();}
+      else{Images.clearTemporaire();}
       saveOp(false);
       endCh("vidageDesFichiersImages");
       String s = "toutes les opérations longues ";

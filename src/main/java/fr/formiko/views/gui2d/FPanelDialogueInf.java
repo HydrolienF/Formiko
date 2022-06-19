@@ -4,7 +4,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
-import fr.formiko.usual.images.image;
+import fr.formiko.usual.images.Images;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -49,7 +49,7 @@ public class FPanelDialogueInf extends FPanel {
   *@lastEditedVersion 2.6
   */
   public static void chargerFond(){
-    fond = image.getImage("hautDeLaFenetre");
+    fond = Images.getImage("hautDeLaFenetre");
     fond = fond.getScaledInstance(Main.getDimX(), Main.getTailleElementGraphiqueY(210),Image.SCALE_SMOOTH);
   }
   /**

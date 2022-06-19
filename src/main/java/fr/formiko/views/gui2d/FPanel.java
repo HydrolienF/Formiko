@@ -3,7 +3,7 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.*;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
-import fr.formiko.usual.images.image;
+import fr.formiko.usual.images.Images;
 import fr.formiko.usual.maths.math;
 import fr.formiko.usual.maths.math;
 import fr.formiko.views.gui2d.action;

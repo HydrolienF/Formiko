@@ -4,7 +4,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
-import fr.formiko.usual.images.image;
+import fr.formiko.usual.images.Images;
 import fr.formiko.usual.structures.listes.GString;
 import fr.formiko.usual.maths.allea;
 
