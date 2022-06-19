@@ -2,7 +2,6 @@ package fr.formiko.usual.types;
 
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usual.Os;
 import fr.formiko.tests.TestCaseMuet;
 
@@ -141,7 +140,7 @@ public class strTest extends TestCaseMuet{
   }
   @Test
   public void testfilterForbiddenCharInFile(){
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     String s = "unNomDeFichier";
     Os.getOs().setId((byte)0);
     assertEquals("unNomDeFichier",str.filterForbiddenChar(s));

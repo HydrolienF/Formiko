@@ -12,7 +12,7 @@ import fr.formiko.views.ViewCLI;
 
 public class ViewCLITest extends TestCaseMuet{
   private void ini(GCase gc){
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     Main.initialisation();
     Partie p = new Partie(0,100,new Carte(gc,0,0,1,false,false),1);
     Main.setPartie(p);

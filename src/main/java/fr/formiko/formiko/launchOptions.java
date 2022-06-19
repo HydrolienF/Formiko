@@ -154,7 +154,7 @@ public class launchOptions {
       music();
     }else if(args[0].equals("op")){
       //Main.initialisation();
-      Main.setOs(new Os());
+      Os.setOs(new Os());
       Main.setFolder(new Folder(Main.getView()));
       Main.iniOp();
       Main.getOp().saveOptions();
@@ -207,7 +207,7 @@ public class launchOptions {
         erreur.alerte("arguments de cptPixels incorecte");
       }
     }else if(args[0].equals("cleanFolder")){
-      Main.setOs(new Os());
+      Os.setOs(new Os());
       Folder folder = new Folder(Main.getView());
       if(args.length>1){
         folder.setFolderMain(args[1]);
@@ -412,7 +412,7 @@ public class launchOptions {
   */
   private static void translateWebSite(String pathToWebSiteFile, String pathToWebSiteTranslation){
     Main.setView(new ViewNull());
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     Main.setFolder(new Folder(Main.getView()));
     Main.iniOp();
     chargerLesTraductions.setRep(pathToWebSiteTranslation);
@@ -439,7 +439,7 @@ public class launchOptions {
     try {
       // Main.initialisation();
       Main.setView(new ViewNull());
-      Main.setOs(new Os());
+      Os.setOs(new Os());
       Folder f = new Folder(Main.getView());
       f.setFolderMain();
       Main.setFolder(f);

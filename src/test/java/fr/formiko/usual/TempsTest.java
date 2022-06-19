@@ -35,7 +35,7 @@ public class TempsTest extends TestCaseMuet{
   }
   @Test
   public void testMsToTime(){
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     Main.initialisation();
     Main.setLanguage(1);
     //0

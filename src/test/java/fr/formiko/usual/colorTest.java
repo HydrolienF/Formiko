@@ -16,7 +16,7 @@ public class colorTest extends TestCaseMuet{
   public void testIniColor(){
     color col = new color();
     Os os = Os.getOs();
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     Os.getOs().setId((byte)0);
     col.iniColor();
     assertTrue(col.RED.charAt(0)==(char)27);
@@ -29,6 +29,6 @@ public class colorTest extends TestCaseMuet{
     Os.getOs().setId((byte)3);
     col.iniColor();
     assertTrue(col.RED.charAt(0)==(char)27);
-    Main.setOs(os);
+    Os.setOs(os);
   }
 }

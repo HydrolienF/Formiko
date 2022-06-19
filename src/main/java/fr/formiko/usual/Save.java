@@ -14,7 +14,7 @@ import java.io.Serializable;
 *@lastEditedVersion 1.14
 */
 public class Save implements Serializable {
-  private static final long serialVersionUID = 42l;
+  private static final long serialVersionUID = 43l;
   private int idS;
   private static File f;
 

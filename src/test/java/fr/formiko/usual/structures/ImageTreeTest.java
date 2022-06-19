@@ -2,9 +2,9 @@ package fr.formiko.usual.structures;
 
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.usual.structures.ImageTree;
 import fr.formiko.tests.TestCaseMuet;
 import fr.formiko.usual.fichier;
+import fr.formiko.usual.structures.ImageTree;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -21,15 +21,18 @@ public class ImageTreeTest extends TestCaseMuet {
     dir = new File("testDir"+x+"/testDir2/testDir3bis/");
     dir.mkdirs();
     File dirTested = new File("testDir"+x);
-    ImageTree tree = ImageTree.folderToTree(dirTested);
+    ImageTree tree = new ImageTree();
+    tree.folderToTree(dirTested);
     assertEquals("0(0(0,1))",tree.toString());
     dir = new File("testDir"+x+"/testDir2/testDir3ter/");
     dir.mkdirs();
-    tree = ImageTree.folderToTree(dirTested);
+    tree = new ImageTree();
+    tree.folderToTree(dirTested);
     assertEquals("0(0(0,1,2))",tree.toString());
     dir = new File("testDir"+x+"/testDir2bis/");
     dir.mkdirs();
-    tree = ImageTree.folderToTree(dirTested);
+    tree = new ImageTree();
+    tree.folderToTree(dirTested);
     assertEquals("0(0(0,1,2),1)",tree.toString());
     assertTrue(fichier.deleteDirectory(dirTested));
   }
@@ -41,7 +44,8 @@ public class ImageTreeTest extends TestCaseMuet {
     dir = new File("testDir"+x+"/testDir2/testDir3bis/");
     dir.mkdirs();
     File dirTested = new File("testDir"+x);
-    ImageTree tree = ImageTree.folderToTree("testDir"+x);
+    ImageTree tree = new ImageTree();
+    tree.folderToTree("testDir"+x);
     assertEquals("0(0(0,1))",tree.toString());
     assertTrue(fichier.deleteDirectory(dirTested));
   }
@@ -60,7 +64,8 @@ public class ImageTreeTest extends TestCaseMuet {
     }catch (Exception e) {
       assertTrue(false);
     }
-    ImageTree tree = ImageTree.folderToTree("testDir"+x);
+    ImageTree tree = new ImageTree();
+    tree.folderToTree("testDir"+x);
     assertEquals("0(0(0,1))",tree.toString());
     assertTrue(fichier.deleteDirectory(dirTested));
   }
@@ -82,7 +87,8 @@ public class ImageTreeTest extends TestCaseMuet {
     }catch (Exception e) {
       assertTrue(false);
     }
-    ImageTree tree = ImageTree.folderToTree("testDir"+x);
+    ImageTree tree = new ImageTree();
+    tree.folderToTree("testDir"+x);
     assertEquals("0(0(0,1I))",tree.toString());
     assertTrue(fichier.deleteDirectory(dirTested));
   }
@@ -104,7 +110,8 @@ public class ImageTreeTest extends TestCaseMuet {
     }catch (Exception e) {
       assertTrue(false);
     }
-    ImageTree tree = ImageTree.folderToTree("testDir"+x);
+    ImageTree tree = new ImageTree();
+    tree.folderToTree("testDir"+x);
     assertEquals("0(0(0,1I,2))",tree.toString());
     assertTrue(fichier.deleteDirectory(dirTested));
   }

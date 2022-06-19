@@ -24,10 +24,7 @@ public class SaveTest extends TestCaseMuet {
   }
   @Test
   public void testSave2(){
-    // f = new Folder(Main.getView());
-    // f.setFolderMain("unexistingFolder8747");
     new Save("unexistingFolder8747/.save");
-    // Main.setFolder(f);
     Save save = Save.getSave();
     int idS = save.getIdS();
     assertEquals(1,idS);

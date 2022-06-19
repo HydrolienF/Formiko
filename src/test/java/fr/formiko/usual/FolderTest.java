@@ -19,7 +19,7 @@ public class FolderTest extends TestCaseMuet {
   @BeforeAll
   public static void iniMain(){
     new TestCaseMuet();
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     Main.ini();
   }
   public Folder ini(){
