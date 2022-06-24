@@ -14,7 +14,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-public class trad {
+public class Translation {
   private static String sep = ":";
   // FUNCTIONS -----------------------------------------------------------------
   private static String getFolderTrad(){

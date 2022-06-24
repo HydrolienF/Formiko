@@ -16,7 +16,7 @@ import fr.formiko.usual.images.Images;
 import fr.formiko.usual.media.audio.*;
 import fr.formiko.usual.structures.listes.GString;
 import fr.formiko.usual.tableau;
-import fr.formiko.usual.trad;
+import fr.formiko.usual.Translation;
 import fr.formiko.usual.types.str;
 import fr.formiko.views.ViewNull;
 
@@ -181,7 +181,7 @@ public class launchOptions {
       chargerLesTraductions.créerLesFichiers();
       g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
       HashMap<String, String> mapEo = chargerLesTraductions.chargerLesTraductions(0);//chargement des langues.
-      trad.copieTradBase("eo",mapEo);
+      Translation.copieTradBase("eo",mapEo);
       //chargerLesTraductions.addTradAuto();
     }else if (args[0].equals("rbt") || args[0].equals("rognerBordTransparent")){
       Main.initialisation();
@@ -356,7 +356,7 @@ public class launchOptions {
     Main.endCh("créerLesFichiers");Main.startCh();
     g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
     Main.endCh("chargerLesTraductions");Main.startCh();
-    trad.copieTrads();
+    Translation.copieTrads();
     Main.endCh("copieTrads");Main.startCh();
     chargerLesTraductions.affPourcentageTraduit();
     Main.endCh("affPourcentageTraduit");//Main.startCh();
@@ -367,12 +367,12 @@ public class launchOptions {
   }
   public static void tradCharCmd(int id, String fontName, boolean b){
     // Main.startCh();
-    erreur.println(trad.partOfPrintableChar(id, fontName, b));
+    erreur.println(Translation.partOfPrintableChar(id, fontName, b));
     // chargerLesTraductions.créerLesFichiers();
     // Main.endCh("créerLesFichiers");Main.startCh();
     // g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
     // Main.endCh("chargerLesTraductions");Main.startCh();
-    // trad.copieTrads();
+    // Translation.copieTrads();
     // Main.endCh("copieTrads");Main.startCh();
     // chargerLesTraductions.affPourcentageTraduit();
     // Main.endCh("affPourcentageTraduit");
@@ -381,7 +381,7 @@ public class launchOptions {
     int cpt=0;
     int len = chargerLesTraductions.getTLangue().length;
     for (int i=0; i<len; i++) {
-      if(trad.canDisplayLanguage(i, fontName)){cpt++;}
+      if(Translation.canDisplayLanguage(i, fontName)){cpt++;}
     }
     String col = null;
     if(cpt==0){
@@ -420,13 +420,13 @@ public class launchOptions {
     // Main.startCh(ch);
     Main.getOp().setLanguage(0);
     Main.iniLangue();
-    trad.translateWebSiteFiles(pathToWebSiteFile, 0);
+    Translation.translateWebSiteFiles(pathToWebSiteFile, 0);
     Main.getOp().setLanguage(1);
     Main.iniLangue();
-    trad.translateWebSiteFiles(pathToWebSiteFile, 1);
+    Translation.translateWebSiteFiles(pathToWebSiteFile, 1);
     Main.getOp().setLanguage(2);
     Main.iniLangue();
-    trad.translateWebSiteFiles(pathToWebSiteFile, 2);
+    Translation.translateWebSiteFiles(pathToWebSiteFile, 2);
     // Main.endCh("translateWebSite",ch);
     // chargerLesTraductions.setRep(null);
   }

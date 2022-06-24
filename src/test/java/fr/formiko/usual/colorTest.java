@@ -2,7 +2,6 @@ package fr.formiko.usual;
 
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.tests.TestCaseMuet;
 
 

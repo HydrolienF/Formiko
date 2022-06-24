@@ -2,7 +2,6 @@ package fr.formiko.usual;
 
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usual.Folder;
 import fr.formiko.usual.Save;
 import fr.formiko.usual.fichier;
@@ -14,8 +13,8 @@ public class SaveTest extends TestCaseMuet {
   private Folder f;
   @Test
   public void testSave(){
-    f = new Folder(Main.getView());
-    Main.setFolder(f);
+    f = new Folder(new ProgressionNull());
+    Folder.setFolder(f);
     Save save = Save.getSave();
     int idS = save.getIdS();
     assertTrue(idS>-1);

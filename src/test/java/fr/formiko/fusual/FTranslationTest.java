@@ -1,14 +1,13 @@
-package fr.formiko.usual;
+package fr.formiko.fusual;
 
 import org.junit.jupiter.api.BeforeAll;
-// import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usual.g;
 import fr.formiko.tests.TestCaseMuet;
 
-public class tradTest extends TestCaseMuet {
+public class FTranslationTest extends TestCaseMuet {
 
   // FUNCTIONS -----------------------------------------------------------------
   @BeforeAll
@@ -16,7 +15,6 @@ public class tradTest extends TestCaseMuet {
     Main.ini();
   }
   @Test
-  // @Disabled("TODO #449 fix in github action") //it's working fined on my linux computer.
   public void testReplaceTranslation2(){
     Main.setLanguage(2);
     Main.iniLangue();
@@ -24,7 +22,6 @@ public class tradTest extends TestCaseMuet {
     assertEquals("testEn",g.get("test"));
   }
   @Test
-  // @Disabled("TODO #449 fix in github action") //it's working fined on my linux computer.
   public void testReplaceTranslation(){
     Main.setLanguage(0);
     Main.iniLangue();
@@ -32,20 +29,20 @@ public class tradTest extends TestCaseMuet {
     assertEquals("testEo",g.get("test"));
 
     String s = "une str normale sans spécial char";
-    assertEquals(s,trad.replaceTranslation(s));
+    assertEquals(s,FTranslation.replaceTranslation(s));
     s = "1€ pour Monsieux {X}";
-    assertEquals(s,trad.replaceTranslation(s));
+    assertEquals(s,FTranslation.replaceTranslation(s));
     s = "€{clé}";
-    assertTrue(!s.equals(trad.replaceTranslation(s)));
+    assertTrue(!s.equals(FTranslation.replaceTranslation(s)));
     s = "une €{serviette} a la plage";
-    assertTrue(!s.equals(trad.replaceTranslation(s)));
+    assertTrue(!s.equals(FTranslation.replaceTranslation(s)));
     s = "€{test}";
-    assertEquals("testEo",trad.replaceTranslation(s));
+    assertEquals("testEo",FTranslation.replaceTranslation(s));
     Main.getOp().setLanguage(2);
     Main.iniLangue();
-    assertEquals("testEn",trad.replaceTranslation(s));
+    assertEquals("testEn",FTranslation.replaceTranslation(s));
     s = "zavs[6+=§]€{bonvenon}~~^^ماò返€{test}€{fourmi}";
-    assertEquals("zavs[6+=§]"+g.get("bonvenon")+"~~^^ماò返"+g.get("test")+g.get("fourmi"),trad.replaceTranslation(s));
+    assertEquals("zavs[6+=§]"+g.get("bonvenon")+"~~^^ماò返"+g.get("test")+g.get("fourmi"),FTranslation.replaceTranslation(s));
   }
 
 }

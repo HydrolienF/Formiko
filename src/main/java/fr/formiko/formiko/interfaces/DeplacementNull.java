@@ -8,12 +8,12 @@ import fr.formiko.usual.erreur;
 import java.io.Serializable;
 
 /**
- * {@summary A null implementation.}<br>
- * It print an error for all the methode of implemented class.<br>
- * It allow to avoid error of null implementation.<br>
- * @author Hydrolien
- * @lastEditedVersion 1.24
- */
+*{@summary A null implementation.}<br>
+*It print an error for all the methode of implemented class.<br>
+*It allow to avoid error of null implementation.<br>
+*@author Hydrolien
+*@lastEditedVersion 1.24
+*/
 public class DeplacementNull implements Serializable, Deplacement {
   /**
   *If lauch print an error.

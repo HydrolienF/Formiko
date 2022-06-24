@@ -3,7 +3,6 @@ package fr.formiko.usual.images;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.usual.Point;
-// import fr.formiko.formiko.Pheromone;
 import fr.formiko.tests.TestCaseMuet;
 
 import java.awt.Color;

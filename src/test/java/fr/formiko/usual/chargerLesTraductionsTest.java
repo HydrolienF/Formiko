@@ -256,21 +256,21 @@ public class chargerLesTraductionsTest extends TestCaseMuet {
   public void testaddObjetMap(){
     chargerLesTraductions.iniMap();//remet a 0.
     assertEquals(0,chargerLesTraductions.getMap().size());
-    chargerLesTraductions.addObjetMap("ezgubo.zegh");//ne fait rien si ce n'est pas une ligne de trad.
+    chargerLesTraductions.addObjetMap("ezgubo.zegh");//ne fait rien si ce n'est pas une ligne de Translation.translateWebSiteFiles
     assertEquals(0,chargerLesTraductions.getMap().size());
-    chargerLesTraductions.addObjetMap("uneCle:une valeur X");//ne fait rien si ce n'est pas une ligne de trad.
+    chargerLesTraductions.addObjetMap("uneCle:une valeur X");//ne fait rien si ce n'est pas une ligne de Translation.translateWebSiteFiles
     assertEquals(1,chargerLesTraductions.getMap().size());
     assertEquals("une valeur X",chargerLesTraductions.getMap().get("uneCle"));
     //la meme chose :
-    chargerLesTraductions.addObjetMap("uneCle:une valeur X");//ne fait rien si ce n'est pas une ligne de trad.
+    chargerLesTraductions.addObjetMap("uneCle:une valeur X");//ne fait rien si ce n'est pas une ligne de Translation.translateWebSiteFiles
     assertEquals(1,chargerLesTraductions.getMap().size());
     assertEquals("une valeur X",chargerLesTraductions.getMap().get("uneCle"));
     //une valeur différente.
-    chargerLesTraductions.addObjetMap("uneCle:une valeur Y");//ne fait rien si ce n'est pas une ligne de trad.
+    chargerLesTraductions.addObjetMap("uneCle:une valeur Y");//ne fait rien si ce n'est pas une ligne de Translation.translateWebSiteFiles
     assertEquals(1,chargerLesTraductions.getMap().size());
     assertEquals("une valeur Y",chargerLesTraductions.getMap().get("uneCle"));
     //une autre clé
-    chargerLesTraductions.addObjetMap("a:une valeur Z");//ne fait rien si ce n'est pas une ligne de trad.
+    chargerLesTraductions.addObjetMap("a:une valeur Z");//ne fait rien si ce n'est pas une ligne de Translation.translateWebSiteFiles
     assertEquals(2,chargerLesTraductions.getMap().size());
     assertEquals("une valeur Z",chargerLesTraductions.getMap().get("a"));
     assertEquals("une valeur Y",chargerLesTraductions.getMap().get("uneCle"));
@@ -279,13 +279,13 @@ public class chargerLesTraductionsTest extends TestCaseMuet {
   public void testaddObjetMap2(){
     chargerLesTraductions.iniMap();//remet a 0.
     assertEquals(0,chargerLesTraductions.getMap().size());
-    chargerLesTraductions.addObjetMap("uneCle:Une valeur X");//ne fait rien si ce n'est pas une ligne de trad.
+    chargerLesTraductions.addObjetMap("uneCle:Une valeur X");//ne fait rien si ce n'est pas une ligne de Translation.translateWebSiteFiles
     assertEquals(1,chargerLesTraductions.getMap().size());
     assertEquals("une valeur X",chargerLesTraductions.getMap().get("uneCle"));
   }
 
   //addTradAuto
-  //testé dans ThTrad.
+  //testé dans ThTranslation.translateWebSiteFiles
 
   //getPourcentageTraduit
   @Test

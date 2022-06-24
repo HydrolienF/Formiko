@@ -4,12 +4,12 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.tests.TestCaseMuet;
 import fr.formiko.usual.Folder;
+import fr.formiko.usual.ProgressionNull;
 import fr.formiko.usual.fichier;
-import fr.formiko.usual.images.Img;
 import fr.formiko.usual.images.Images;
+import fr.formiko.usual.images.Img;
 import fr.formiko.usual.maths.allea;
 
 import java.awt.Color;
@@ -24,28 +24,29 @@ public class ImagesTest extends TestCaseMuet {
   @BeforeAll
   public static void iniMain(){
     // new imageTest();
-    Main.ini();
+    // Main.ini();
+    Folder.setFolder(new Folder(new ProgressionNull()));
   }
   private void ini(){
-    Folder folder = new Folder(Main.getView());
+    Folder folder = new Folder(new ProgressionNull());
     folder.ini();
-    Main.setFolder(folder);
+    Folder.setFolder(folder);
   }
   @Test
   public void testReadImage(){
-    File f = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"null.png");
+    File f = new File(Folder.getFolder().getFolderStable()+Folder.getFolder().getFolderImages()+"null.png");
     Image iNull = Images.readImage(f);
     assertTrue(iNull!=null);
     assertTrue(f.isFile());//il n'as pas été supprimé lors de la lecture
 
     //répertoire d'image.
-    Folder folder = new Folder(Main.getView());
+    Folder folder = new Folder(new ProgressionNull());
     folder.ini(false);
-    Main.setFolder(folder);
+    Folder.setFolder(folder);
     int x = allea.getAllea(1000)+100;
     Img img = new Img(1,1);
     img.sauvegarder("testImage"+x+".png");
-    f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"testImage"+x+".png");
+    f = new File(Folder.getFolder().getFolderTemporary()+Folder.getFolder().getFolderImages()+"testImage"+x+".png");
     Image i = Images.readImage(f);
     assertTrue(i!=null);
     assertTrue(f.isFile());//il n'as pas été supprimé lors de la lecture
@@ -71,7 +72,7 @@ public class ImagesTest extends TestCaseMuet {
 
     x = allea.getAllea(1000)+100;
     img.sauvegarder("testImage"+x+".jpg");//nom d'image incorecte.
-    f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"testImage"+x+".jpg");
+    f = new File(Folder.getFolder().getFolderTemporary()+Folder.getFolder().getFolderImages()+"testImage"+x+".jpg");
 
     Image i3 = Images.readImage(f);
     assertTrue(i3!=null);
@@ -89,7 +90,7 @@ public class ImagesTest extends TestCaseMuet {
     assertEquals(nul.getWidth(null),i0.getWidth(null));
     Image i1 = Images.getImage("b0.png");
     Image i2 = Images.getImage("b0");
-    Image i3 = Images.getImage("b0",Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages());//si on cherche dans le bon répertoire.
+    Image i3 = Images.getImage("b0",Folder.getFolder().getFolderStable()+Folder.getFolder().getFolderImages());//si on cherche dans le bon répertoire.
     Image i4 = Images.getImage("b0","./"); //si on cherche dans un mauvais répertoire.
     assertEquals(i1.getWidth(null),i2.getWidth(null));
     assertEquals(i1.getWidth(null),i3.getWidth(null));
@@ -99,10 +100,10 @@ public class ImagesTest extends TestCaseMuet {
   //getImages
   @Test
   public void testGetImages(){
-    Folder folder = new Folder(Main.getView());
+    Folder folder = new Folder(new ProgressionNull());
     folder.setFolderMain("imassertTrue(fichier.deleteDirectory(new File(folder.getFolderMain().substring(0,folder.getFolderMain().length()-5))));lsSPEC"+getId());
     folder.ini(false);
-    Main.setFolder(folder);
+    Folder.setFolder(folder);
     Img img = new Img(1,1);
     img.sauvegarder(folder.getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+".png");
     img.sauvegarder(folder.getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+".png");
@@ -128,26 +129,26 @@ public class ImagesTest extends TestCaseMuet {
   // public void testGetImagess(){
   //   Main.iniOp();
   //   Main.getOp().setOrientedObjectOnMap(true);
-  //   Folder folder = new Folder(Main.getView());
+  //   Folder folder = new Folder(new ProgressionNull());
   //   folder.setFolderMain("testDirIT"+getId());
   //   folder.ini(false);
-  //   Main.setFolder(folder);
+  //   Folder.setFolder(folder);
   //   Img img = new Img(3,1);
-  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+""+".png");
-  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+""+".png");
-  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+""+".png");
-  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"h"+".png");
-  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"h"+".png");
-  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"h"+".png");
-  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"d"+".png");
-  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"d"+".png");
-  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"d"+".png");
-  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"b"+".png");
-  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"b"+".png");
-  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"b"+".png");
-  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"g"+".png");
-  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"g"+".png");
-  //   img.sauvegarder(Main.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"g"+".png");
+  //   img.sauvegarder(Folder.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+""+".png");
+  //   img.sauvegarder(Folder.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+""+".png");
+  //   img.sauvegarder(Folder.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+""+".png");
+  //   img.sauvegarder(Folder.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"h"+".png");
+  //   img.sauvegarder(Folder.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"h"+".png");
+  //   img.sauvegarder(Folder.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"h"+".png");
+  //   img.sauvegarder(Folder.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"d"+".png");
+  //   img.sauvegarder(Folder.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"d"+".png");
+  //   img.sauvegarder(Folder.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"d"+".png");
+  //   img.sauvegarder(Folder.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"b"+".png");
+  //   img.sauvegarder(Folder.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"b"+".png");
+  //   img.sauvegarder(Folder.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"b"+".png");
+  //   img.sauvegarder(Folder.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+0+"g"+".png");
+  //   img.sauvegarder(Folder.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+1+"g"+".png");
+  //   img.sauvegarder(Folder.getFolder().getFolderResourcesPacks()+folder.getFolderImages(),"testImage"+2+"g"+".png");
   //   // image.setREPTEXTUREPACK("testDirIT2/");
   //   Image [][] t = Images.getImagess("testImage");
   //   int k=0;
@@ -221,10 +222,10 @@ public class ImagesTest extends TestCaseMuet {
   @Test
   public void testGetNbrImagesREP3(){
     //on vérifie que d'éventuelles images complémentaire présente dans REPTEXTUREPACK seront bien chargée.
-    Folder folder = new Folder(Main.getView());
+    Folder folder = new Folder(new ProgressionNull());
     folder.setFolderMain("testDirIT"+getId());
     folder.ini(false);
-    Main.setFolder(folder);
+    Folder.setFolder(folder);
     File f = new File(Images.getREPTEXTUREPACK());
     fichier.deleteDirectory(f);
     assertTrue(f.mkdirs());
@@ -252,35 +253,35 @@ public class ImagesTest extends TestCaseMuet {
   @Test
   public void testClearTemporaire(){
     File f = null;
-    Folder folder = new Folder(Main.getView());
+    Folder folder = new Folder(new ProgressionNull());
     folder.setFolderMain("imageTestFodler"+getId());
     folder.ini(false);
-    Main.setFolder(folder);
-    File d = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages());
+    Folder.setFolder(folder);
+    File d = new File(Folder.getFolder().getFolderTemporary()+Folder.getFolder().getFolderImages());
     assertTrue(d.exists());
     assertTrue(d.isDirectory());
     Images.clearTemporaire();//on vire déja toutes les images du fichier temporaire.
     int x = 0;//d.listFiles().length;
     try {
-      f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"egfeFzg.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(Folder.getFolder().getFolderTemporary()+Folder.getFolder().getFolderImages()+"egfeFzg.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     Images.clearTemporaire();
     assertEquals(x,d.listFiles().length);
     assertTrue(!f.delete());
     try {
-      f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"egfeFzg.p"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(Folder.getFolder().getFolderTemporary()+Folder.getFolder().getFolderImages()+"egfeFzg.p"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     Images.clearTemporaire();
     assertEquals(x+1,d.listFiles().length);
     assertTrue(f.delete());
     try {
-      f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"a"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(Folder.getFolder().getFolderTemporary()+Folder.getFolder().getFolderImages()+"a"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     Images.clearTemporaire();
     assertEquals(x+1,d.listFiles().length);
     assertTrue(f.delete());
     try {
-      f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+".jpg"); assertTrue(f.createNewFile());assertTrue(f.exists());
+      f = new File(Folder.getFolder().getFolderTemporary()+Folder.getFolder().getFolderImages()+".jpg"); assertTrue(f.createNewFile());assertTrue(f.exists());
     }catch (Exception e) {assertTrue(false);}
     Images.clearTemporaire();
     assertEquals(x,d.listFiles().length);
@@ -291,25 +292,25 @@ public class ImagesTest extends TestCaseMuet {
   // public void testClearPartielTemporaire(){
   //   Images.clearPartielTemporaire();
   //   File f = null;
-  //   File d = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages());
+  //   File d = new File(Folder.getFolder().getFolderTemporary()+Folder.getFolder().getFolderImages());
   //   int x = d.listFiles().length;
   //   // ...F...
   //   try {
-  //     f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"egfeFzig.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
+  //     f = new File(Folder.getFolder().getFolderTemporary()+Folder.getFolder().getFolderImages()+"egfeFzig.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
   //   }catch (Exception e) {assertTrue(false);}
   //   Images.clearPartielTemporaire();
   //   assertEquals(x+1,d.listFiles().length);
   //   assertTrue(f.delete());
   //   //f...
   //   try {
-  //     f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"fegfezig.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
+  //     f = new File(Folder.getFolder().getFolderTemporary()+Folder.getFolder().getFolderImages()+"fegfezig.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
   //   }catch (Exception e) {assertTrue(false);}
   //   Images.clearPartielTemporaire();
   //   assertEquals(x+1,d.listFiles().length);
   //   assertTrue(f.delete());
   //   //F...
   //   try {
-  //     f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"Fvi.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
+  //     f = new File(Folder.getFolder().getFolderTemporary()+Folder.getFolder().getFolderImages()+"Fvi.png"); assertTrue(f.createNewFile());assertTrue(f.exists());
   //   }catch (Exception e) {assertTrue(false);}
   //   Images.clearPartielTemporaire();
     //TODO #248 will be remove soon
@@ -317,28 +318,28 @@ public class ImagesTest extends TestCaseMuet {
     // assertTrue(!f.delete());
     // //F...
     // try {
-    //   f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"F.jpg"); assertTrue(f.createNewFile());assertTrue(f.exists());
+    //   f = new File(Folder.getFolder().getFolderTemporary()+Folder.getFolder().getFolderImages()+"F.jpg"); assertTrue(f.createNewFile());assertTrue(f.exists());
     // }catch (Exception e) {assertTrue(false);}
     // Images.clearPartielTemporaire();
     // // assertEquals(x,d.listFiles().length);
     // assertTrue(!f.delete());
     // //... . ...
     // try {
-    //   f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"vehti.hze"); assertTrue(f.createNewFile());assertTrue(f.exists());
+    //   f = new File(Folder.getFolder().getFolderTemporary()+Folder.getFolder().getFolderImages()+"vehti.hze"); assertTrue(f.createNewFile());assertTrue(f.exists());
     // }catch (Exception e) {assertTrue(false);}
     // Images.clearPartielTemporaire();
     // // assertEquals(x+1,d.listFiles().length);
     // assertTrue(f.delete());
     // //F... . ...
     // try {
-    //   f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"Fbn.hze"); assertTrue(f.createNewFile());assertTrue(f.exists());
+    //   f = new File(Folder.getFolder().getFolderTemporary()+Folder.getFolder().getFolderImages()+"Fbn.hze"); assertTrue(f.createNewFile());assertTrue(f.exists());
     // }catch (Exception e) {assertTrue(false);}
     // Images.clearPartielTemporaire();
     // // assertEquals(x+1,d.listFiles().length);
     // assertTrue(f.delete());
     // //F . ...
     // try {
-    //   f = new File(Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages()+"F.hze"); assertTrue(f.createNewFile());assertTrue(f.exists());
+    //   f = new File(Folder.getFolder().getFolderTemporary()+Folder.getFolder().getFolderImages()+"F.hze"); assertTrue(f.createNewFile());assertTrue(f.exists());
     // }catch (Exception e) {assertTrue(false);}
     // Images.clearPartielTemporaire();
     // // assertEquals(x+1,d.listFiles().length);
@@ -488,8 +489,8 @@ public class ImagesTest extends TestCaseMuet {
 
   @AfterAll
   public static void clean(){
-    Folder folder = new Folder(Main.getView());
-    Main.setFolder(folder);
+    Folder folder = new Folder(new ProgressionNull());
+    Folder.setFolder(folder);
     fichier.deleteDirectory("null");
   }
 }
