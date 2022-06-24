@@ -316,7 +316,7 @@ public class Main {
     getFolder().ini();
     new Save();
     setMessageChargement("chargementDesOptions");startCh();
-    chargerLesTraductions.setRep(null); //TOFIX some test fail without it
+    // chargerLesTraductions.setRep(null); //TOFIX some test fail without it
     chargerLesTraductions.iniTLangue();
     if(op==null){iniOp();}
     if(!debug.getMessage()){//si elle n'ont pas été activé par "-d"

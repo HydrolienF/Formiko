@@ -22,19 +22,17 @@ public class chargerLesTraductions {
   // get set -------------------------------------------------------------------
   public static String [] getTLangue(){return tLangue;}
   public static void setTLangue(String t []){tLangue=t;}
+  /**
+  *{@summary Return the translation folder (if it have been set) or the default one.}<br>
+  *@lastEditedVersion 2.25
+  */
   public static String getRep(){
     if(rep==null){
       return Folder.getFolder().getFolderStable()+Folder.getFolder().getFolderLanguages();
     }
     return rep;
   }
-  public static void setRep(String s){
-    if(s==null){
-      // rep=null;
-      rep=Folder.getFolder().getFolderStable()+Folder.getFolder().getFolderLanguages();
-    }
-    else{rep = str.sToDirectoryName(s);}
-  }
+  public static void setRep(String s){rep = str.sToDirectoryName(s);}
   public static HashMap<String, String> getMap(){return map;}
   public static void iniMap(){map = new HashMap<>();}
   // FUNCTIONS -----------------------------------------------------------------
@@ -99,7 +97,7 @@ public class chargerLesTraductions {
   */
   public static boolean iniTLangue(){
     try {
-      String t []=ReadFile.readFileArray(rep+"langue.csv");
+      String t []=ReadFile.readFileArray(getRep()+"langue.csv");
       if(t==null){throw new NullPointerException();}//on passe dans le catch.
       if(t.length==0){throw new Exception();}//TODO find a better Exception
       tLangue=new String[t.length];int k=0;
@@ -120,7 +118,7 @@ public class chargerLesTraductions {
   */
   public static boolean créerLesFichiers(){
     for (String s :tLangue ) {
-      File f = new File(rep+str.sToFileName(s)+".txt");
+      File f = new File(getRep()+str.sToFileName(s)+".txt");
       try {
         f.createNewFile();
       }catch (Exception e) {
@@ -154,14 +152,14 @@ public class chargerLesTraductions {
   *@lastEditedVersion 1.7
   */
   public static String [] getTableauDesTrad(int langue){
-    //String tdefault [] = ReadFile.readFileArray(rep+"fr.txt");
+    //String tdefault [] = ReadFile.readFileArray(getRep()+"fr.txt");
     String t [] = new String[0];
     try{
       debug.débogage("chargement de la langue "+getLanguage(langue));
-      t=ReadFile.readFileArray(rep+getLanguage(langue)+".txt");
+      t=ReadFile.readFileArray(getRep()+getLanguage(langue)+".txt");
     }catch (Exception e) {
       erreur.erreur("Echec du chargement de la langue spécifiée","en choisi par défaut");
-      t=ReadFile.readFileArray(rep+"en.txt");
+      t=ReadFile.readFileArray(getRep()+"en.txt");
     }
     return t;
   }
@@ -186,7 +184,7 @@ public class chargerLesTraductions {
     String t [] = new String[0];
     try{
       debug.débogage("chargement des commandes");
-      t=ReadFile.readFileArray(rep+"cmd"+".txt");
+      t=ReadFile.readFileArray(getRep()+"cmd"+".txt");
     }catch (Exception e) {
       erreur.erreur("Echec du chargement des commandes");
     }
@@ -288,7 +286,7 @@ public class chargerLesTraductions {
     int x = 0;
     String [] t= new String [0];
     try {
-      t=ReadFile.readFileArray(rep+getLanguage(langue)+".txt");
+      t=ReadFile.readFileArray(getRep()+getLanguage(langue)+".txt");
     }catch (Exception e) {}
       for (String s : t ) {
         if(estLigneDeTrad(s)){
@@ -309,7 +307,7 @@ public class chargerLesTraductions {
     int x = 0;
     String [] t= new String [0];
     try {
-      t=ReadFile.readFileArray(rep+getLanguage(langue)+".txt");
+      t=ReadFile.readFileArray(getRep()+getLanguage(langue)+".txt");
     }catch (Exception e) {}
       for (String s : t ) {
         if(s.length()>6 && s.substring(s.length()-6).equals("[auto]")){

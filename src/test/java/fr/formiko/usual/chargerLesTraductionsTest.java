@@ -2,6 +2,7 @@ package fr.formiko.usual;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterAll;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usual.chargerLesTraductions;
@@ -16,6 +17,10 @@ public class chargerLesTraductionsTest extends TestCaseMuet {
   @BeforeAll
   public static void iniMain(){
     Main.ini();
+  }
+  @AfterAll
+  public static void out(){
+    chargerLesTraductions.setRep(null);
   }
 
   // get set -------------------------------------------------------------------
@@ -43,7 +48,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet {
     chargerLesTraductions.setTLangue(t2);
     assertEquals("en",chargerLesTraductions.getLanguage(0));
     assertEquals("en",chargerLesTraductions.getLanguage(1));
-    chargerLesTraductions.setTLangue(null);
+    // chargerLesTraductions.setTLangue(null);
     assertEquals("en",chargerLesTraductions.getLanguage(0));
     assertEquals("en",chargerLesTraductions.getLanguage(1));
     //assertTrue(true);
@@ -85,11 +90,13 @@ public class chargerLesTraductionsTest extends TestCaseMuet {
     chargerLesTraductions.setRep(rep);
     assertTrue(chargerLesTraductions.iniTLangue());
     assertEquals(107,chargerLesTraductions.getTLangue().length);
+    chargerLesTraductions.setRep(null);
   }
 
   @Test
   public void testCreerLesFichiers(){
     //fonctionnement normale.
+    chargerLesTraductions.setRep(null);
     assertTrue(chargerLesTraductions.iniTLangue());
     assertTrue(chargerLesTraductions.créerLesFichiers());
     //test dans un autre environement

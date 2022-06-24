@@ -48,6 +48,7 @@ public class TempsTest extends TestCaseMuet{
     assertEquals("11j 13h",Temps.msToTime(1000000000));
 
     Main.setLanguage(2);
+    System.out.println(chargerLesTraductions.getRep());
     assertEquals("1.001s",Temps.msToTime(1001));
     assertEquals("1.1s",Temps.msToTime(1100));
 

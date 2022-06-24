@@ -73,7 +73,6 @@ public class Save implements Serializable {
         }
       }
     }else{
-      System.out.println("New save "+f.getPath());//@a
       try{
         f.createNewFile();
       }catch (IOException e) {

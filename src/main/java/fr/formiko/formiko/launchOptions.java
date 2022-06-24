@@ -539,11 +539,11 @@ public class launchOptions {
     Main.initialisation();
     File f = new File("test.json");
     ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
-    System.out.println(Main.getGe().getFirst());
+    erreur.println(Main.getGe().getFirst());
     try {
       mapper.writeValue(f, Main.getGe().getFirst());
       Espece e = mapper.readValue(f, Espece.class);
-      System.out.println(e);
+      erreur.println(e);
     }catch (IOException e) {
       erreur.erreur("Fail to save as .json "+e);
     }
