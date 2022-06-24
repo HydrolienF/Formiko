@@ -43,7 +43,7 @@ public class ecrireUnFichier {
     String pseudo = "X";
     String nomDuFichier = read.getString("nomDuFichier"," ");
     if (nomDuFichier.equals("") || nomDuFichier.equals(" ")){//use default name
-      nomDuFichier = pseudo + " "+ Temps.getDatePourSauvegarde();
+      nomDuFichier = pseudo + " "+ Time.getDatePourSauvegarde();
     }else{
       char charInterdit [] = {'/','\\',':','*','?','"','<','>','|'};
       if(opperationSurString.contientChar(nomDuFichier,charInterdit)){

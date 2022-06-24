@@ -58,7 +58,7 @@ public class Main {
   private static Pixel pi;
   private static HashMap<String, Integer> key; //keyboard key.
   private static int avancementChargement;
-  private static Temps tem;
+  private static Time tem;
   //private static ThGraphisme tg;//actualise la fenetre tt avec 20 seconde de pause entre chaque actualisation.
   private static boolean retournerAuMenu;
   private static boolean tuto=false;
@@ -195,7 +195,7 @@ public class Main {
   public static Pixel getPiFond(){ return pi;}
   public static int getAvancementChargement(){ return avancementChargement;}
   public static void setAvancementChargement(int x){avancementChargement=x;}
-  public static Temps getTemps(){ return tem;}
+  public static Time getTime(){ return tem;}
   public static boolean getRetournerAuMenu(){return retournerAuMenu;}
   public static void setRetournerAuMenu(boolean b){retournerAuMenu=b;}
   public static Os getOs(){return Os.getOs();}
@@ -335,7 +335,7 @@ public class Main {
     setMessageChargement("chargementDesLangues");
     iniLangue();
     startCh();
-    tem = new Temps(getFolder().getFolderTemporary()+"Temps.txt", getFirstGame());
+    tem = new Time(getFolder().getFolderTemporary()+"Time.txt", getFirstGame());
     erreur.info("OS: "+getOs());
     erreur.info("language: "+chargerLesTraductions.getLanguageAsString(getOp().getLanguage()));
     erreur.info(tem.toString());
@@ -440,8 +440,8 @@ public class Main {
       debug.performances("temps pour "+ s + " : "+lonTotal+" ms");
       long tempsDeFinDeJeu=System.currentTimeMillis();
       long tempsJeuEcoulé = tempsDeFinDeJeu-tempsDeDébutDeJeu;
-      tem.addTempsEnJeux(tempsJeuEcoulé);tem.actualiserDate2();tem.sauvegarder();
-      erreur.println(g.getM("tempsJeuEcoulé")+" : "+Temps.msToTime(tempsJeuEcoulé,2,false));
+      tem.addTimeEnJeux(tempsJeuEcoulé);tem.actualiserDate2();tem.sauvegarder();
+      erreur.println(g.getM("tempsJeuEcoulé")+" : "+Time.msToTime(tempsJeuEcoulé,2,false));
       erreur.println(g.getM("messageQuitter"));
       System.exit(0);
     }catch (Exception e) {

@@ -211,7 +211,7 @@ public class FPanelPrincipal extends FPanel {
           needToUpdateTimeFromLastMove=true;
         }
         labelMessage.setVisible(visible);
-        // Temps.pause(50);
+        // Time.pause(50);
         try {
           sleep(50);
         }catch (InterruptedException e) {

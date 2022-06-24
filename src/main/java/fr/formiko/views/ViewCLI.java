@@ -8,7 +8,7 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
-import fr.formiko.usual.Temps;
+import fr.formiko.usual.Time;
 import fr.formiko.usual.color;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
@@ -282,7 +282,7 @@ public class ViewCLI implements View {
     tab[3]=g.get("pauseActionGame");
     tToPrint = tab;
     String s = g.get("chargementFini");
-    if (debug.getPerformance()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
+    if (debug.getPerformance()==true){s=s +" "+ "("+Time.msToS(Main.getLonTotal())+")";}
     Main.setMessageChargement(s);
     Main.getPartie().launchGame(); //MAIN GAME PART
     //after a game :
@@ -659,7 +659,7 @@ public class ViewCLI implements View {
   */
   private String getSaveName(){
     String saveName = g.getM("sauvegarde")+" "+sauvegarderUnePartie.getSave().getIdS();
-    saveName+="  "+Temps.getDatePourSauvegarde();
+    saveName+="  "+Time.getDatePourSauvegarde();
     saveName = str.sToFileName(saveName);//le pseudo pourrai contenir des char interdits sur des fichiers.
     String t [] = new String[2];
     erreur.println(sep);

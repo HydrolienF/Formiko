@@ -52,7 +52,7 @@ public class sauvegarderUnePartieTest extends TestCaseMuet{
     // int k=0;
     // while (!f.delete()) {
     //   System.gc();
-    //   Temps.pause(500);
+    //   Time.pause(500);
     //   if(k==10){assertTrue(false);}
     //   k++;
     // }

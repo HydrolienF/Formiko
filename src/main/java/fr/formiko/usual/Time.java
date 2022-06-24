@@ -14,7 +14,7 @@ import java.util.Date;
 *@author Hydrolien
 *@lastEditedVersion 2.25
 */
-public class Temps {
+public class Time {
   /***
   *{@summary Date of 1a lauch.}<br>
   *@lastEditedVersion 1.4
@@ -48,12 +48,12 @@ public class Temps {
   *@param timeFilePath path to the time file
   *@lastEditedVersion 2.25
   */
-  public Temps(String timeFilePath, boolean toInitialize){
+  public Time(String timeFilePath, boolean toInitialize){
     TIME_FILE=timeFilePath;
     if(toInitialize){
-      initialiserFichierTemps();
+      initialiserFichierTime();
     }
-    chargerTemps();
+    chargerTime();
   }
   // GET SET -------------------------------------------------------------------
   public long getDate1(){ return date1;}
@@ -61,9 +61,9 @@ public class Temps {
   public long getDate2(){ return date2;}
   public void setDate2(long x){date2=x;}
   public void actualiserDate2(){date2=System.currentTimeMillis();}
-  public long getTempsEnJeux(){ return tempsEnJeux;}
-  public void setTempsEnJeux(long x){tempsEnJeux=x;}
-  public void addTempsEnJeux(long x){ setTempsEnJeux(getTempsEnJeux()+x);}
+  public long getTimeEnJeux(){ return tempsEnJeux;}
+  public void setTimeEnJeux(long x){tempsEnJeux=x;}
+  public void addTimeEnJeux(long x){ setTimeEnJeux(getTimeEnJeux()+x);}
   public static String getTimeFile(){return TIME_FILE;}
   public static void setTimeFile(String tf){TIME_FILE=tf;}
   public static String getDateFormat(){return DATE_FORMAT;}
@@ -87,35 +87,35 @@ public class Temps {
     /*In french it print:
     Date de 1ère connection : 02/09/2020 19:41
     Date de dernière connection : 02/09/2020 20:19
-    Temps en jeux total : 3 min 46 s
+    Time en jeux total : 3 min 46 s
     */
     return r;
   }
   /**
-  *{@summary Load all time informations save in Temps.txt.}
+  *{@summary Load all time informations save in Time.txt.}
   *@lastEditedVersion 1.25
   */
-  public void chargerTemps(){
-    //lecture du fichier Temps.txt
+  public void chargerTime(){
+    //lecture du fichier Time.txt
     String t [] = ReadFile.readFileArray(getTimeFile());
     if(t.length<3){
-      initialiserFichierTemps();
+      initialiserFichierTime();
       t = ReadFile.readFileArray(getTimeFile());
-    } //normalement a ce stade la initialiserFichierTemps a déja réparer le fichier temps mais au cas ou on vérifi que tout est bon.
+    } //normalement a ce stade la initialiserFichierTime a déja réparer le fichier temps mais au cas ou on vérifi que tout est bon.
     if(t.length>=3){
       date1 = str.sToL(t[0]);
       date2 = str.sToL(t[1]);
       tempsEnJeux = str.sToL(t[2]);
     }else{
-      erreur.erreur("Le fichier Temps.txt est corrompu.","les variables de temps ont été remises à 0.");
-      initialiserFichierTemps();
+      erreur.erreur("Le fichier Time.txt est corrompu.","les variables de temps ont été remises à 0.");
+      initialiserFichierTime();
       date1 = System.currentTimeMillis();
       date2 = System.currentTimeMillis();
       tempsEnJeux = 0;
     }
   }
   /**
-  *{@summary Save time information in Temps.txt.}
+  *{@summary Save time information in Time.txt.}
   *@lastEditedVersion 1.25
   */
   public void sauvegarder(){
@@ -207,7 +207,7 @@ public class Temps {
   *{@summary Initialize time file.}
   *@lastEditedVersion 1.23
   */
-  public static void initialiserFichierTemps(){
+  public static void initialiserFichierTime(){
     GString gs = new GString();
     gs.add(""+System.currentTimeMillis());
     gs.add(""+System.currentTimeMillis());

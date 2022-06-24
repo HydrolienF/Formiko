@@ -56,7 +56,7 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
     }
   }
   public byte getType(){ return type;}
-  public byte getTempsAvantDecomposition(){ return tempsAvantDecomposition;}
+  public byte getTimeAvantDecomposition(){ return tempsAvantDecomposition;}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String adjOuverte; if(ouverte){ adjOuverte = "est ouverte"; }else{ adjOuverte = "est fermée";}

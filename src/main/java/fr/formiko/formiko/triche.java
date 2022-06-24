@@ -2,7 +2,7 @@ package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.usual.Point;
-import fr.formiko.usual.Temps;
+import fr.formiko.usual.Time;
 import fr.formiko.usual.chargerLesTraductions;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.decoderUnFichier;
@@ -224,7 +224,7 @@ public class triche {
             if(b){//si la condition d'attente est bonne.
               Main.getScript().setCmdSuivante(true);
             }
-            Temps.pause(50);
+            Time.pause(50);
           }
           break;
         case 32:
@@ -252,7 +252,7 @@ public class triche {
           }
           break;
         case 35:
-          erreur.println(Main.getTemps());
+          erreur.println(Main.getTime());
           break;
         case 36:
           try {

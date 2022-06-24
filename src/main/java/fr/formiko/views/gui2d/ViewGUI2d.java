@@ -17,7 +17,7 @@ import fr.formiko.formiko.launchOptions;
 import fr.formiko.formiko.triche;
 import fr.formiko.usual.Chrono;
 import fr.formiko.usual.Info;
-import fr.formiko.usual.Temps;
+import fr.formiko.usual.Time;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
@@ -280,9 +280,9 @@ public class ViewGUI2d implements View {
     Main.endCh("chargementImagesDelaCarte");
 
     String s = g.get("chargementFini");
-    // if (debug.getPerformance()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
+    // if (debug.getPerformance()==true){s=s +" "+ "("+Time.msToS(Main.getLonTotal())+")";}
     chLoading.stop();
-    s=s +" "+ "("+Temps.msToS(chLoading.getDuree())+")";
+    s=s +" "+ "("+Time.msToS(chLoading.getDuree())+")";
     Main.setMessageChargement(s);
     if(!Main.getOp().getWhaitBeforeLaunchGame() || Main.getFirstGame() || !Main.getOpenMenuFirst()){
       closeFPanelChargement();
@@ -390,7 +390,7 @@ public class ViewGUI2d implements View {
     // erreur.println("getCCase");
     moveMode=true;
     while(ccaseClicked==null){
-      Temps.sleep();
+      Time.sleep();
       // erreur.println("cpu use");
     }
     // while(ccaseClicked==null){
@@ -539,7 +539,7 @@ public class ViewGUI2d implements View {
 
     if(doNotNeedToEndTurnAuto()) { // || any ant have action to do.
       while(!Main.getPlayingJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu()) {
-        Temps.pause(50);
+        Time.pause(50);
         //here were waiting for the final clic on the red button.
         if(Main.getPartie().getAntIdToPlay()!=-1){
           // erreur.info("action for ant "+Main.getPartie().getAntIdToPlay());
@@ -570,7 +570,7 @@ public class ViewGUI2d implements View {
       // try {
       //   wait();
       // }catch (Exception e) {}
-      Temps.sleep();
+      Time.sleep();
       // Thread.onSpinWait(); //don't stop the thread, probably because it's the main tread
       // erreur.println("CPU USE");
     }

@@ -4,7 +4,7 @@ import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.usual.ReadFile;
-import fr.formiko.usual.Temps;
+import fr.formiko.usual.Time;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
@@ -370,7 +370,7 @@ public class FPanelMenu extends FPanel {
           iniPanel();
           break;
         }else{
-          Temps.pause(50);
+          Time.pause(50);
         }
       }
       // erreur.info("started with "+flyingCreature+" "+p);
@@ -378,7 +378,7 @@ public class FPanelMenu extends FPanel {
       x = -flyingCreature.getWidth();
       while(running){
         updateLocation();
-        Temps.pause(10);
+        Time.pause(10);
       }
     }
     /**

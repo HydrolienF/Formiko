@@ -271,8 +271,8 @@ public class Options implements Serializable {
   public void setAnimationEnable(boolean b){gui_global_animationEnable=b;}
   public boolean getFontTitlePersonalised(){return gui_global_fontTitlePersonalised;}
   public void setFontTitlePersonalised(boolean b){gui_global_fontTitlePersonalised=b;}
-  public String getDateFormat(){return Temps.getDateFormat();}
-  public void setDateFormat(String s){Temps.setDateFormat(s);}
+  public String getDateFormat(){return Time.getDateFormat();}
+  public void setDateFormat(String s){Time.setDateFormat(s);}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize Options.}<br>

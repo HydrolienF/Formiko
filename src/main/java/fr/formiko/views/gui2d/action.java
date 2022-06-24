@@ -4,7 +4,7 @@ import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
-import fr.formiko.usual.Temps;
+import fr.formiko.usual.Time;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
@@ -169,7 +169,7 @@ public class action {
     String saveName = g.getM("sauvegarde")+" "+sauvegarderUnePartie.getSave().getIdS();//donne un identifiant unique au fichier.
     try {
       //saveName+="  "+Main.getGj().getFirst().getPseudo();
-      saveName+="  "+Temps.getDatePourSauvegarde();
+      saveName+="  "+Time.getDatePourSauvegarde();
     }catch (Exception e) {
       erreur.alerte("Un nom de sauvegarde n'a pas pu être choisi.");
     }

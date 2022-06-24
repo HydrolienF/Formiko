@@ -384,7 +384,7 @@ class DownloadThread extends Thread {
       long curentTime = System.currentTimeMillis();
       long timeElapsed = curentTime-timeStart;
       long timeLeft = (long)((double)((timeElapsed/progression)-timeElapsed));
-      String sTimeLeft = Temps.msToTime(timeLeft)+" left";
+      String sTimeLeft = Time.msToTime(timeLeft)+" left";
       String message = "Downloading "+downloadName+" - "+percent+"% - ";
       if(fileOutSize!=lastFileOutSize){//update watcher of working download
         timeFromLastBitDownload=curentTime;
@@ -403,7 +403,7 @@ class DownloadThread extends Thread {
       progressionInstance.setDownloadingMessage(message);
 
       lastFileOutSize=fileOutSize;
-      Temps.pause(50);
+      Time.pause(50);
     }
     // erreur.info("download done");
   }

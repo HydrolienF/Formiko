@@ -240,7 +240,7 @@ public class launchOptions {
       int k=0;
       while (k<10) {
         Main.getView().setDownloadingValue(k*7);
-        Temps.pause(1000);
+        Time.pause(1000);
         k++;
       }
       // System.exit(0);

@@ -80,7 +80,7 @@ public class Chrono {
   public static String timeToHMS(long tempsS){
     // IN : (long) temps en secondes
     // OUT : (String) temps au format texte : "1 h 26 min 3 s"
-    return Temps.msToTime(tempsS);
+    return Time.msToTime(tempsS);
   }
   /**
    *{@summary Initializes Chrono ch.}

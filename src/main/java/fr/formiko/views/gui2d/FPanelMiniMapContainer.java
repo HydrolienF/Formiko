@@ -1,7 +1,7 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usual.Temps;
+import fr.formiko.usual.Time;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
@@ -199,7 +199,7 @@ public class FPanelMiniMapContainer extends FPanel {
       */
       private void changeColor(){
         for (int i=0; i<255; i+=5) {
-          Temps.pause(5);
+          Time.pause(5);
           if(bGreen){
             color=Color.GREEN;
             bGreen=false;

@@ -8,7 +8,7 @@ import fr.formiko.formiko.MapPath;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.interfaces.DeplacementFourmi;
 import fr.formiko.usual.Point;
-import fr.formiko.usual.Temps;
+import fr.formiko.usual.Time;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.structures.listes.Liste;
 
@@ -236,7 +236,7 @@ class ThMoveManager extends Thread {
       for (ThMove move : list) {
         move.oneStep();
       }
-      Temps.pause(10);
+      Time.pause(10);
       // if(list.isEmpty()){
       //   try {
       //     wait();

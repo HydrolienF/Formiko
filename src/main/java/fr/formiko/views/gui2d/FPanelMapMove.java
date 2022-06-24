@@ -1,7 +1,7 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usual.Temps;
+import fr.formiko.usual.Time;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
 import fr.formiko.usual.structures.listes.Liste;
@@ -274,7 +274,7 @@ public class FPanelMapMove extends FPanel {
         }
         needToWait=(stepInX==0 && stepInY==0);
         moveAllSubPanel(stepInX, stepInY);
-        Temps.pause(10);
+        Time.pause(10);
       }
     }
   }

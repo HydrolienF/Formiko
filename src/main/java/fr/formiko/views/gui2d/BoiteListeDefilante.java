@@ -1,7 +1,7 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.*;
-import fr.formiko.usual.Temps;
+import fr.formiko.usual.Time;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
@@ -42,7 +42,7 @@ public class BoiteListeDefilante {
         }
         x=str.sToI(s);
       }catch (Exception e) {erreur.erreur("L'Objet de JOptionPane n'est pas reconnu comme int : "+s);}
-      Temps.pause(10);
+      Time.pause(10);
     }
     return x;
   }
