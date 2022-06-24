@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usual.structures.listes.GString;
 import fr.formiko.tests.TestCaseMuet;
 
@@ -20,7 +19,8 @@ public class FolderTest extends TestCaseMuet {
   public static void iniMain(){
     new TestCaseMuet();
     Os.setOs(new Os());
-    Main.ini();
+    Folder.setFolder(new Folder(new ProgressionNull()));
+    Folder.getFolder().ini();
   }
   public Folder ini(){
     Folder folder = new Folder(new ProgressionNull());

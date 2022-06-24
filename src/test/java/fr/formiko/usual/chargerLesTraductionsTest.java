@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterAll;
 
-import fr.formiko.formiko.Main;
 import fr.formiko.usual.chargerLesTraductions;
 import fr.formiko.usual.g;
 import fr.formiko.usual.structures.listes.GString;
@@ -16,7 +15,10 @@ import java.util.Map;
 public class chargerLesTraductionsTest extends TestCaseMuet {
   @BeforeAll
   public static void iniMain(){
-    Main.ini();
+    // Main.ini();
+    Os.setOs(new Os());
+    Folder.setFolder(new Folder(new ProgressionNull()));
+    Folder.getFolder().ini();
   }
   @AfterAll
   public static void out(){
