@@ -1,6 +1,6 @@
 package fr.formiko.views.gui2d;
 
-import fr.formiko.usuel.debug;
+import fr.formiko.usual.debug;
 
 import java.awt.Graphics;
 

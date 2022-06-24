@@ -1,11 +1,11 @@
 package fr.formiko.formiko;
 
-import fr.formiko.usuel.*;
-import fr.formiko.usuel.images.*;
-import fr.formiko.usuel.maths.math;
-import fr.formiko.usuel.media.audio.MusicPlayer;
-import fr.formiko.usuel.structures.listes.*;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.*;
+import fr.formiko.usual.images.*;
+import fr.formiko.usual.maths.math;
+import fr.formiko.usual.media.audio.MusicPlayer;
+import fr.formiko.usual.structures.listes.*;
+import fr.formiko.usual.types.str;
 import fr.formiko.views.View;
 import fr.formiko.views.ViewCLI;
 import fr.formiko.views.ViewNull;
@@ -42,12 +42,12 @@ public class Main {
   private static Options op;
   /** Use only before iniOp() to avoid nullPointerException. */
   private static Options tempOp;
-  /** Os depending of user OS */
-  private static Os os=new Os();
   /** Data use by GUI */
   private static Data data=new Data();
   /** View use everywere to update user interface */
   private static View view=new ViewNull();
+
+  // private static Os os;
 
   private static Chrono ch;
   private static long lon;
@@ -58,14 +58,12 @@ public class Main {
   private static Pixel pi;
   private static HashMap<String, Integer> key; //keyboard key.
   private static int avancementChargement;
-  private static Temps tem;
+  private static Time tem;
   //private static ThGraphisme tg;//actualise la fenetre tt avec 20 seconde de pause entre chaque actualisation.
   private static boolean retournerAuMenu;
-  private static Folder folder;
   private static boolean tuto=false;
   private static ThScript ths;
   //private static ThMusique thm;
-  private static boolean premierePartie;
 
   private static boolean modeCLI=false;
 
@@ -132,12 +130,12 @@ public class Main {
         }catch (Exception e) {
           erreur.alerte("Window can not be dispose.");
         }
-        setPremierePartie(false);
+        setFirstGame(false);
         Partie.setScript(null);
         setRetournerAuMenu(false);
         openMenuFirst=true;
         // op=null;//force la réinitialisation de tout.
-        image.clearPartielTemporaire();
+        Images.clearPartielTemporaire();
       }
     }
     quit();//en théorie on arrive pas là.
@@ -149,7 +147,7 @@ public class Main {
   public static void iniLaunch(){
     if(op==null){initialisation();}
     if(Partie.getScript()==null || Partie.getScript().equals("")){
-      if(premierePartie){Partie.setScript("tuto");}
+      if(getFirstGame()){Partie.setScript("tuto");}
       else{Partie.setScript("");}
     }
     iniCpt();
@@ -162,13 +160,13 @@ public class Main {
   public static boolean launch(){
     iniLaunch();
     if(mp==null){
-      mp = new MusicPlayer();
-      if(premierePartie){
-        getFolder().downloadMusicData();
+      mp = new MusicPlayer(getFolder(), getOp().getBMusic(), getOp().getVolMusic());
+      if(getFirstGame()){
+        getFolder().downloadMusicData(mp);
         mp.addNextMusic("Ride of the Valkyries - Wagner.mp3", true);
       }
     }
-    if(!premierePartie){
+    if(!getFirstGame()){
       mp.addNextMusic("Beyond The Warriors - Guifrog.mp3", true);
       mp.play();
     }
@@ -185,7 +183,7 @@ public class Main {
   public static Espece getEspece(){return getEspeceById(0);}
   public static Espece getEspeceById(int id){ return getGe().getEspeceById(id);}
   public static GEspece getGEspece(){ return getGe();}
-  public static Joueur getJoueurById(int id){ return Main.getGj().getJoueurById(id);}
+  public static Joueur getJoueurById(int id){ return getGj().getJoueurById(id);}
   public static Fourmiliere getFourmiliereById(int id){ return getJoueurById(id).getFere();}
   public static FFrame getF(){ try {return ((ViewGUI2d)view).getF();} catch (Exception e) {return null;}}
   public static Options getOp(){if(op!=null){return op;}else{if(tempOp==null){tempOp = Options.newDefaultOptions();} return tempOp;}}
@@ -197,16 +195,16 @@ public class Main {
   public static Pixel getPiFond(){ return pi;}
   public static int getAvancementChargement(){ return avancementChargement;}
   public static void setAvancementChargement(int x){avancementChargement=x;}
-  public static Temps getTemps(){ return tem;}
+  public static Time getTime(){ return tem;}
   public static boolean getRetournerAuMenu(){return retournerAuMenu;}
   public static void setRetournerAuMenu(boolean b){retournerAuMenu=b;}
-  public static Os getOs(){return os;}
-  public static void setOs(Os o){os=o;}
-  public static Folder getFolder(){return folder;}
-  public static void setFolder(Folder f){folder=f;}
+  public static Os getOs(){return Os.getOs();}
+  public static void setOs(Os o){Os.setOs(o);}
+  public static Folder getFolder(){return Folder.getFolder();}
+  public static void setFolder(Folder f){Folder.setFolder(f);}
   public static void setTuto(boolean b){tuto=b;}
-  public static boolean getPremierePartie(){return premierePartie;}
-  public static void setPremierePartie(boolean b){premierePartie=b;}
+  public static boolean getFirstGame(){return Folder.getFirstGame();}
+  public static void setFirstGame(boolean b){Folder.setFirstGame(b);}
   public static Data getData(){return data;}
   public static void setData(Data d){data=d;}
   public static View getView(){return view;}
@@ -301,7 +299,7 @@ public class Main {
    */
   public static void initialisation(){
     tempsDeDébutDeJeu=System.currentTimeMillis();
-    setPremierePartie(false);
+    setFirstGame(false);
     Fourmi.setUneSeuleAction(-1);
     if(!erreur.getMuet()){ //if not in test.
       if (modeCLI) {
@@ -314,9 +312,11 @@ public class Main {
         }
       }
     }
-    folder = new Folder();
+    setFolder(new Folder(Main.getView()));
     getFolder().ini();
+    new Save();
     setMessageChargement("chargementDesOptions");startCh();
+    // chargerLesTraductions.setRep(null); //TOFIX some test fail without it
     chargerLesTraductions.iniTLangue();
     if(op==null){iniOp();}
     if(!debug.getMessage()){//si elle n'ont pas été activé par "-d"
@@ -330,12 +330,12 @@ public class Main {
     }
     endCh("chargementDesOptions");
     setMessageChargement("chargementDesTouches");startCh();
-    key = chargerLesTouches.chargerLesTouches("1.49.9");
+    key = chargerLesTouches.chargerLesTouches("1.49.9", getFolder().getFolderMain());
     endCh("chargementDesTouches");
     setMessageChargement("chargementDesLangues");
     iniLangue();
     startCh();
-    tem = new Temps();
+    tem = new Time(getFolder().getFolderTemporary()+"Time.txt", getFirstGame());
     erreur.info("OS: "+getOs());
     erreur.info("language: "+chargerLesTraductions.getLanguageAsString(getOp().getLanguage()));
     erreur.info(tem.toString());
@@ -394,7 +394,7 @@ public class Main {
     getView().loadingMessage(message, percentageDone);
   }
   //chrono shortcut
-  public static void startCh(){Chrono.debutCh();}
+  public static void startCh(){Chrono.startCh();}
   /**
   *{@summary End the Chrono &#38; return the time.}
   *@lastEditedVersion 2.24
@@ -404,7 +404,7 @@ public class Main {
     lonTotal+=time;
     return time;
   }
-  public static void startCh(Chrono chTemp){Chrono.debutCh(chTemp);}
+  public static void startCh(Chrono chTemp){Chrono.startCh(chTemp);}
   /**
   *{@summary End the Chrono &#38; return the time.}
   *@lastEditedVersion 2.24
@@ -432,16 +432,16 @@ public class Main {
       //   endCh("enregistementDesScores");
       // }
       startCh();
-      if(getKeepFilesRotated()){image.clearPartielTemporaire();}
-      else{image.clearTemporaire();}
+      if(getKeepFilesRotated()){Images.clearPartielTemporaire();}
+      else{Images.clearTemporaire();}
       saveOp(false);
       endCh("vidageDesFichiersImages");
       String s = "toutes les opérations longues ";
       debug.performances("temps pour "+ s + " : "+lonTotal+" ms");
       long tempsDeFinDeJeu=System.currentTimeMillis();
       long tempsJeuEcoulé = tempsDeFinDeJeu-tempsDeDébutDeJeu;
-      tem.addTempsEnJeux(tempsJeuEcoulé);tem.actualiserDate2();tem.sauvegarder();
-      erreur.println(g.getM("tempsJeuEcoulé")+" : "+Temps.msToTime(tempsJeuEcoulé,2,false));
+      tem.addTimeEnJeux(tempsJeuEcoulé);tem.actualiserDate2();tem.sauvegarder();
+      erreur.println(g.getM("tempsJeuEcoulé")+" : "+Time.msToTime(tempsJeuEcoulé,2,false));
       erreur.println(g.getM("messageQuitter"));
       System.exit(0);
     }catch (Exception e) {
@@ -490,7 +490,7 @@ public class Main {
     getGj().jouer();
     getGi().tourInsecte();
 
-    if(Main.getPartie().getAppartionInsecte()){
+    if(getPartie().getAppartionInsecte()){
       int nbrDInsecteRestant = math.max( getGc().length()/5 -  getGi().getGiVivant().length(),0);
       int x2 = math.min( getGc().length()/20, nbrDInsecteRestant);
       String s = g.get("SpawnOf")+" "+x2+" "+g.get("insecte")+g.get("s");

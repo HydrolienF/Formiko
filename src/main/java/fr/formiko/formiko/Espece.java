@@ -3,16 +3,16 @@ package fr.formiko.formiko;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.ReadFile;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.decoderUnFichier;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.maths.allea;
-import fr.formiko.usuel.maths.math;
-import fr.formiko.usuel.structures.listes.GString;
-import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.ReadFile;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.decoderUnFichier;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.maths.allea;
+import fr.formiko.usual.maths.math;
+import fr.formiko.usual.structures.listes.GString;
+import fr.formiko.usual.tableau;
+import fr.formiko.usual.types.str;
 
 import java.io.Serializable;
 

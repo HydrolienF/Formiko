@@ -1,6 +1,6 @@
 package fr.formiko.views.gui2d;
 
-import fr.formiko.usuel.maths.math;
+import fr.formiko.usual.maths.math;
 
 import java.awt.Component;
 import java.awt.Window;

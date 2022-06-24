@@ -1,9 +1,9 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.images.image;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.images.Images;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -46,8 +46,8 @@ public class FPanelPrincipal extends FPanel {
   *@lastEditedVersion 1.x
   */
   public void build(){
-    img = image.getImage("backgroundPP");
-    img = image.resize(img, this.getWidth(), this.getHeight());
+    img = Images.getImage("backgroundPP");
+    img = Images.resize(img, this.getWidth(), this.getHeight());
     addVersionLabel();
   }
   // GET SET -------------------------------------------------------------------
@@ -211,7 +211,7 @@ public class FPanelPrincipal extends FPanel {
           needToUpdateTimeFromLastMove=true;
         }
         labelMessage.setVisible(visible);
-        // Temps.pause(50);
+        // Time.pause(50);
         try {
           sleep(50);
         }catch (InterruptedException e) {

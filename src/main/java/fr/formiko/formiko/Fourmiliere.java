@@ -1,15 +1,15 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.Point;
-import fr.formiko.usuel.Temps;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.exceptions.NotNullLocationException;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.maths.allea;
-import fr.formiko.usuel.structures.listes.GGInt;
-import fr.formiko.usuel.structures.listes.GInt;
+import fr.formiko.usual.Point;
+import fr.formiko.usual.Time;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.exceptions.NotNullLocationException;
+import fr.formiko.usual.g;
+import fr.formiko.usual.maths.allea;
+import fr.formiko.usual.structures.listes.GGInt;
+import fr.formiko.usual.structures.listes.GInt;
 
 import java.io.Serializable;
 
@@ -112,10 +112,10 @@ public class Fourmiliere implements Serializable{
   }
   public int getScore(){
     try {
-      return ggi.getLast().computeScore(this);
+      return computeScore(ggi.getLast());
     }catch (NullPointerException e) {
-      ggi.add(new GInt(this));
-      return ggi.getLast().computeScore(this);
+      ggi.add(toGInt());
+      return computeScore(ggi.getLast());
     }
   }
   public int getNbrFourmisMorte(){return nbrFourmisMorte;}
@@ -180,7 +180,7 @@ public class Fourmiliere implements Serializable{
       c.endTurn();
     }
     setWaitingForEndTurn(false);
-    ggi.add(new GInt(this)); //stats of this turn
+    ggi.add(toGInt()); //stats of this turn
   }
   /**
   *{@summary Before that ants play they all have a pre-turn update (gc.preTurn()).}<br>
@@ -200,5 +200,52 @@ public class Fourmiliere implements Serializable{
   */
   public String enregistrerLesScores(){
     return ggi.toString();
+  }
+  /**
+  *{@summary Create a score GInt from an anthill.}
+  *@lastEditedVersion 2.25
+  */
+  public GInt toGInt(){
+    GInt gi = new GInt();
+    GCreature gc = getGc();
+    if(gc.length()==0){return gi;}
+    if(gc.getReine()!=null){gi.add(1);}else{gi.add(0);}
+    gi.add(gc.getGcStade(0).length()-gi.getFirst());
+    for(int i=-1; i>-4;i--){
+      gi.add(gc.getGcStade(i).length());
+    }
+    gi.add(getNbrFourmisMorte());
+    return gi;
+  }
+  /**
+  *{@summary Return score of an anthill from GGInt.}
+  *We assume that all GInt have been created with an anthill as parameter
+  *@return the computed score
+  *@lastEditedVersion 2.25
+  */
+  public int computeScore(GInt gi){
+    // return ggi.getLast().computeScore(this);
+    if(gi.isEmpty()){
+      erreur.alerte("le GInt est null, impossible de calculer le score du joueur.");return -1;
+    }else if(gi.length()!=6){
+      erreur.alerte("le GInt ne contient pas le bon nombre de CInt, impossible de calculer le score du joueur.");return -1;
+    }else{
+      int total=0;
+      int multiscore [] = {50, 20, 9, 6, 3, -1};
+      int lenms = multiscore.length;
+      int k=0;
+      for (int val : gi) {
+        if(k>=lenms){
+          erreur.alerte("To much value for score");
+          break;
+        }
+        total+=val*multiscore[k];
+        k++;
+      }
+      if(this.getJoueur()!=null && !this.getJoueur().getIa() && this.getGc()!=null && this.getGc().getFirst()!=null){
+        total=(int)(total*((Fourmi) (this.getGc().getFirst())).getMultiplicateurDeDiff());
+      }
+      return total;
+    }
   }
 }

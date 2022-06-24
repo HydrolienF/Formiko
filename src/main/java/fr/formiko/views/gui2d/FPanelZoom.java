@@ -1,7 +1,7 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.debug;
+import fr.formiko.usual.debug;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

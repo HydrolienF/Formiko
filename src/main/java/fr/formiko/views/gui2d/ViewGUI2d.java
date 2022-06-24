@@ -3,25 +3,25 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Creature;
+import fr.formiko.formiko.DiscordIntegration;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GCreature;
 import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
+import fr.formiko.formiko.Th;
+import fr.formiko.formiko.ThTriche;
 import fr.formiko.formiko.interfaces.TourFourmiNonIa;
 import fr.formiko.formiko.launchOptions;
 import fr.formiko.formiko.triche;
-import fr.formiko.usuel.Chrono;
-import fr.formiko.usuel.DiscordIntegration;
-import fr.formiko.usuel.Info;
-import fr.formiko.usuel.Temps;
-import fr.formiko.usuel.Th;
-import fr.formiko.usuel.ThTriche;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.Chrono;
+import fr.formiko.usual.Info;
+import fr.formiko.usual.Time;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.types.str;
 import fr.formiko.views.View;
 
 import java.awt.Font;
@@ -170,7 +170,7 @@ public class ViewGUI2d implements View {
     DiscordIntegration.setNeedToUpdateActivity(true);
     if(f==null || getPm()==null){ini();}
     Main.stopScript();
-    if(Main.getPremierePartie()){
+    if(Main.getFirstGame()){
       getPm().askLanguage();
     }else if(Main.getOpenMenuFirst()){
       getPm().buildFPanelMenu(3,0);
@@ -280,11 +280,11 @@ public class ViewGUI2d implements View {
     Main.endCh("chargementImagesDelaCarte");
 
     String s = g.get("chargementFini");
-    // if (debug.getPerformance()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
+    // if (debug.getPerformance()==true){s=s +" "+ "("+Time.msToS(Main.getLonTotal())+")";}
     chLoading.stop();
-    s=s +" "+ "("+Temps.msToS(chLoading.getDuree())+")";
+    s=s +" "+ "("+Time.msToS(chLoading.getDuree())+")";
     Main.setMessageChargement(s);
-    if(!Main.getOp().getWhaitBeforeLaunchGame() || Main.getPremierePartie() || !Main.getOpenMenuFirst()){
+    if(!Main.getOp().getWhaitBeforeLaunchGame() || Main.getFirstGame() || !Main.getOpenMenuFirst()){
       closeFPanelChargement();
       paint();
     }else{
@@ -390,7 +390,7 @@ public class ViewGUI2d implements View {
     // erreur.println("getCCase");
     moveMode=true;
     while(ccaseClicked==null){
-      Temps.sleep();
+      Time.sleep();
       // erreur.println("cpu use");
     }
     // while(ccaseClicked==null){
@@ -539,7 +539,7 @@ public class ViewGUI2d implements View {
 
     if(doNotNeedToEndTurnAuto()) { // || any ant have action to do.
       while(!Main.getPlayingJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu()) {
-        Temps.pause(50);
+        Time.pause(50);
         //here were waiting for the final clic on the red button.
         if(Main.getPartie().getAntIdToPlay()!=-1){
           // erreur.info("action for ant "+Main.getPartie().getAntIdToPlay());
@@ -565,12 +565,12 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 1.46
   */
   public void waitForGameLaunch(){
-    // if(!Main.getPremierePartie()){
+    // if(!Main.getFirstGame()){
     while(!launchFromPm){
       // try {
       //   wait();
       // }catch (Exception e) {}
-      Temps.sleep();
+      Time.sleep();
       // Thread.onSpinWait(); //don't stop the thread, probably because it's the main tread
       // erreur.println("CPU USE");
     }

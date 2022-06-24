@@ -1,4 +1,4 @@
-package fr.formiko.usuel.structures.listes;
+package fr.formiko.usual.structures.listes;
 
 import org.junit.jupiter.api.Test;
 

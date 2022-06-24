@@ -1,13 +1,13 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.Temps;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.maths.math;
-import fr.formiko.usuel.structures.listes.Liste;
+import fr.formiko.usual.Time;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.images.Images;
+import fr.formiko.usual.maths.math;
+import fr.formiko.usual.structures.listes.Liste;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -199,7 +199,7 @@ public class FPanelMiniMapContainer extends FPanel {
       */
       private void changeColor(){
         for (int i=0; i<255; i+=5) {
-          Temps.pause(5);
+          Time.pause(5);
           if(bGreen){
             color=Color.GREEN;
             bGreen=false;
@@ -414,7 +414,7 @@ public class FPanelMiniMapContainer extends FPanel {
       Liste<BufferedImage> list = new Liste<BufferedImage>();
       for (BufferedImage biTemp : listIn) {
         if(biTemp!=null && biTemp.getWidth()>0){
-          list.add(image.resize(biTemp,size,size));
+          list.add(Images.resize(biTemp,size,size));
         }
       }
       getView().getPc().drawListIcons(g,list,size/2,size/2,0);

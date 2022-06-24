@@ -11,16 +11,16 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
 import fr.formiko.tests.TestCaseMuet;
-import fr.formiko.usuel.Os;
-import fr.formiko.usuel.Ascii;
-import fr.formiko.usuel.color;
+import fr.formiko.usual.Os;
+import fr.formiko.usual.Ascii;
+import fr.formiko.usual.color;
 
 public class CLIMapTest extends TestCaseMuet{
   @Test
   public void testObjetSurCarteAIdToStringW(){
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     // CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
@@ -33,9 +33,9 @@ public class CLIMapTest extends TestCaseMuet{
   }
   @Test
   public void testObjetSurCarteAIdToStringM(){
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)2);
+    Os.getOs().setId((byte)2);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     // CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
@@ -43,15 +43,15 @@ public class CLIMapTest extends TestCaseMuet{
     assertEquals("G2",CLIMap.objetSurCarteAIdToString(new Graine(),false));
     assertEquals("I3",CLIMap.objetSurCarteAIdToString(new Insecte(),false));
     assertEquals("G4",CLIMap.objetSurCarteAIdToString(new Graine(),false));
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     assertEquals("5",CLIMap.objetSurCarteAIdToString(new Fourmi(),false));
     assertEquals("C6",CLIMap.objetSurCarteAIdToString(new ObjetSurCarteAId(),false));
   }
   @Test
   public void testObjetSurCarteAIdToStringL(){
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)0);
+    Os.getOs().setId((byte)0);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getPartie().setElément(1,0,0);
@@ -70,9 +70,9 @@ public class CLIMapTest extends TestCaseMuet{
   }
   @Test
   public void testCaseToStringSombreNuageuse(){
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getMap().setCasesSombres(false);
@@ -87,9 +87,9 @@ public class CLIMapTest extends TestCaseMuet{
   }
   @Test
   public void testCaseToStringSombreNuageuse2(){
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getMap().setCasesSombres(true);
@@ -105,9 +105,9 @@ public class CLIMapTest extends TestCaseMuet{
   }
   @Test
   public void testCaseToStringSombreNuageuse3(){
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getMap().setCasesSombres(true);
@@ -123,9 +123,9 @@ public class CLIMapTest extends TestCaseMuet{
   }
   @Test
   public void testCaseToStringSombreNuageuse4(){
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getMap().setCasesSombres(true);
@@ -161,9 +161,9 @@ public class CLIMapTest extends TestCaseMuet{
     assertEquals(color.PURPLE_BACKGROUND+"□□□□"+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
   }
   public void testCaseToStringNuageuse(){
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getMap().setCasesSombres(false);
@@ -199,9 +199,9 @@ public class CLIMapTest extends TestCaseMuet{
     assertEquals("    ",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
   }
   public void testCaseToStringSombre(){
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getMap().setCasesSombres(true);
@@ -238,9 +238,9 @@ public class CLIMapTest extends TestCaseMuet{
   }
   @Test
   public void testMapToString(){
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     Main.initialisation();
-    Main.getOs().setId((byte)1);
+    Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
     Main.getMap().setCasesSombres(true);
@@ -283,7 +283,7 @@ public class CLIMapTest extends TestCaseMuet{
   }
   @BeforeAll
   public static void clean(){
-    Main.setOs(new Os());
+    Os.setOs(new Os());
     color.iniColor();
   }
 }

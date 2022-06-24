@@ -1,8 +1,8 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.fichier;
-import fr.formiko.usuel.g;
+import fr.formiko.usual.fichier;
+import fr.formiko.usual.g;
 
 import java.awt.Color;
 import java.awt.Image;

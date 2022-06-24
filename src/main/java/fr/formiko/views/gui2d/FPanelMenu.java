@@ -3,15 +3,15 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
-import fr.formiko.usuel.ReadFile;
-import fr.formiko.usuel.Temps;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.maths.allea;
-import fr.formiko.usuel.maths.math;
-import fr.formiko.usuel.structures.listes.GString;
+import fr.formiko.usual.ReadFile;
+import fr.formiko.usual.Time;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.images.Images;
+import fr.formiko.usual.maths.allea;
+import fr.formiko.usual.maths.math;
+import fr.formiko.usual.structures.listes.GString;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -370,7 +370,7 @@ public class FPanelMenu extends FPanel {
           iniPanel();
           break;
         }else{
-          Temps.pause(50);
+          Time.pause(50);
         }
       }
       // erreur.info("started with "+flyingCreature+" "+p);
@@ -378,7 +378,7 @@ public class FPanelMenu extends FPanel {
       x = -flyingCreature.getWidth();
       while(running){
         updateLocation();
-        Temps.pause(10);
+        Time.pause(10);
       }
     }
     /**
@@ -478,7 +478,7 @@ public class FPanelMenu extends FPanel {
     *@lastEditedVersion 2.20
     */
     private void iniPanel(){
-      flyingCreature = image.resize(getData().getImage("I0 flying side view"), Main.getTailleElementGraphique(50));
+      flyingCreature = Images.resize(getData().getImage("I0 flying side view"), Main.getTailleElementGraphique(50));
       MAX_Y=container.getWidth()-flyingCreature.getWidth()/2;
       MIN_Y=-flyingCreature.getWidth()/2;
       p=new FPanel(){
@@ -489,7 +489,7 @@ public class FPanelMenu extends FPanel {
         @Override
         public void paintComponent(Graphics	g){
           super.paintComponent(g);
-          g.drawImage(image.rotateImage(flyingCreature,angle),0,0, this);
+          g.drawImage(Images.rotateImage(flyingCreature,angle),0,0, this);
           if(Main.getOp().getPaintHitBox()){
             Graphics2D g2d = (Graphics2D)container.getGraphics();
             g2d.setColor(Color.RED);

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.GCase;
-import fr.formiko.usuel.exceptions.NotNullLocationException;
+import fr.formiko.usual.exceptions.NotNullLocationException;
 import fr.formiko.formiko.Main;
 import fr.formiko.tests.TestCaseMuet;
 

@@ -10,17 +10,17 @@ import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.tests.TestCaseMuet;
-import fr.formiko.usuel.Folder;
-import fr.formiko.usuel.Os;
-import fr.formiko.usuel.g;
+import fr.formiko.usual.Folder;
+import fr.formiko.usual.Os;
+import fr.formiko.usual.g;
 import fr.formiko.views.ViewNull;
 
 public class CaseTest extends TestCaseMuet {
   private Partie p;
   // FUNCTIONS -----------------------------------------------------------------
   private Fourmi ini(){
-    Main.setOs(new Os());
-    Main.setFolder(new Folder());
+    Os.setOs(new Os());
+    Main.setFolder(new Folder(Main.getView()));
     Main.getFolder().ini();
     Main.iniOp();
     Main.initialisation();
@@ -54,15 +54,14 @@ public class CaseTest extends TestCaseMuet {
       j.setCaseNuageuse(0,0,true);
       // assertTrue("".equals(Main.getGc().getCCase(0,0).getContent().toString()));
       assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-      assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
+      assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("creatures")+" : "));
       //show only stable information (no insecte & no ant.)
       j.setCaseNuageuse(0,0,false);
       j.setCaseSombre(0,0,true);
       assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-      assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
+      assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("creatures")+" : "));
 
     }catch (StackOverflowError e) {
-      System.out.println(e);
       e.printStackTrace();
     }
   }
@@ -101,12 +100,13 @@ public class CaseTest extends TestCaseMuet {
     j.setCaseNuageuse(0,0,true);
     j.setCaseSombre(0,0,true);
     assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-    assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
+    assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("creatures")+" : "));
     //show only stable information (no insecte & no ant.)
     j.setCaseNuageuse(0,0,false);
     j.setCaseSombre(0,0,true);
     assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-    assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
+    assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("creatures")+" : "));
+    assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("graines")+" : "));
   }
   @Test
   public void testSetFoodInsecte(){

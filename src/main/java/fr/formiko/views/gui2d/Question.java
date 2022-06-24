@@ -1,7 +1,7 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.g;
+import fr.formiko.usual.g;
 
 import javax.swing.JOptionPane;
 

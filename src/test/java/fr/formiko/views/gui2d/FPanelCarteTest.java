@@ -3,7 +3,7 @@ package fr.formiko.views.gui2d;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.*;
-import fr.formiko.usuel.structures.listes.Liste;
+import fr.formiko.usual.structures.listes.Liste;
 import fr.formiko.tests.TestCaseMuet;
 import fr.formiko.views.gui2d.FPanelCarte;
 

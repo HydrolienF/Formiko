@@ -1,9 +1,9 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.Temps;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.Time;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.types.str;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -48,7 +48,7 @@ public class FPanelTBoolean extends FPanelTX{
     //FPanel.getView().getPj().repaint();
     while(id2==-1){
       id2 = getView().getPp().getPj().getPb().getChoixId();
-      Temps.pause(10);
+      Time.pause(10);
     } // on a reçu 0 ou 1.
     boolean b = str.iToB(id2);
     getView().getPp().getPj().getPb().setChoixId(-1);

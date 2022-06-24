@@ -1,13 +1,13 @@
 package fr.formiko.formiko;
 
-import fr.formiko.usuel.Point;
-import fr.formiko.usuel.decoderUnFichier;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.images.Img;
-import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.maths.allea;
-import fr.formiko.usuel.structures.listes.Liste;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.Point;
+import fr.formiko.usual.decoderUnFichier;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.images.Img;
+import fr.formiko.usual.images.Images;
+import fr.formiko.usual.maths.allea;
+import fr.formiko.usual.structures.listes.Liste;
+import fr.formiko.usual.types.str;
 
 import java.io.Serializable;
 

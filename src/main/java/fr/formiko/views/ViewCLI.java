@@ -8,15 +8,15 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.triche;
-import fr.formiko.usuel.Temps;
-import fr.formiko.usuel.color;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.structures.listes.Liste;
-import fr.formiko.usuel.sauvegarderUnePartie;
-import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.Time;
+import fr.formiko.usual.color;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.structures.listes.Liste;
+import fr.formiko.formiko.sauvegarderUnePartie;
+import fr.formiko.usual.tableau;
+import fr.formiko.usual.types.str;
 import fr.formiko.views.cli.*;
 
 import java.util.LinkedList;
@@ -101,7 +101,7 @@ public class ViewCLI implements View {
     if(scannerAnswer==null){ini();}
     Main.stopScript();
     menuName="menuP";
-    // if(Main.getPremierePartie()){Main.setPartie(Partie.getPartieTuto());return true;}
+    // if(Main.getFirstGame()){Main.setPartie(Partie.getPartieTuto());return true;}
     paint();
     int action = getActionMenu(4);
     switch (action) {
@@ -282,7 +282,7 @@ public class ViewCLI implements View {
     tab[3]=g.get("pauseActionGame");
     tToPrint = tab;
     String s = g.get("chargementFini");
-    if (debug.getPerformance()==true){s=s +" "+ "("+Temps.msToS(Main.getLonTotal())+")";}
+    if (debug.getPerformance()==true){s=s +" "+ "("+Time.msToS(Main.getLonTotal())+")";}
     Main.setMessageChargement(s);
     Main.getPartie().launchGame(); //MAIN GAME PART
     //after a game :
@@ -659,7 +659,7 @@ public class ViewCLI implements View {
   */
   private String getSaveName(){
     String saveName = g.getM("sauvegarde")+" "+sauvegarderUnePartie.getSave().getIdS();
-    saveName+="  "+Temps.getDatePourSauvegarde();
+    saveName+="  "+Time.getDatePourSauvegarde();
     saveName = str.sToFileName(saveName);//le pseudo pourrai contenir des char interdits sur des fichiers.
     String t [] = new String[2];
     erreur.println(sep);

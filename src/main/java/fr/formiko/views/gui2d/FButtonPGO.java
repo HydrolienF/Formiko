@@ -1,6 +1,6 @@
 package fr.formiko.views.gui2d;
 
-import fr.formiko.usuel.g;
+import fr.formiko.usual.g;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

@@ -3,7 +3,7 @@ package fr.formiko.z;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.tests.TestCaseMuet;
-import fr.formiko.usuel.fichier;
+import fr.formiko.usual.fichier;
 
 public class ZLastTest extends TestCaseMuet {
   @Test

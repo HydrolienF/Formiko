@@ -9,8 +9,8 @@ import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
 
 import java.io.Serializable;
 

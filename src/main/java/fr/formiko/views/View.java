@@ -5,7 +5,8 @@ import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.ObjetSurCarteAId;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.types.str;
+import fr.formiko.usual.Progression;
 
 /**
  *{@summary Main view interface.}<br>
@@ -14,7 +15,7 @@ import fr.formiko.usuel.types.str;
  *@author Hydrolien
  *@lastEditedVersion 1.33
  */
-public interface View {
+public interface View extends Progression {
   boolean getActionGameOn();
   /***
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
@@ -167,33 +168,6 @@ public interface View {
   *@lastEditedVersion 2.5
   */
   default void waitForEndTurn(){}
-  /***
-  *{@summary Initialize the game launcher.}
-  *@lastEditedVersion 2.7
-  */
-  default void iniLauncher(){}
-  /***
-  *{@summary Close the game launcher.}
-  *@lastEditedVersion 2.7
-  */
-  default void closeLauncher(){}
-  /***
-  *{@summary Update downloading message.}
-  *@param message the message
-  *@lastEditedVersion 2.7
-  */
-  default void setDownloadingMessage(String message){}
-  /***
-  *{@summary Update downloading %age.}
-  *@param state the state as a %age
-  *@lastEditedVersion 2.7
-  */
-  default void setDownloadingValue(int state){}
-  /***
-  *{@summary Hide or show buttonRetry of FFrameLauncher.}
-  *@lastEditedVersion 2.7
-  */
-  default void setButtonRetryVisible(boolean visible){}
   /***
   *{@summary True if in moveMode.}
   *@lastEditedVersion 2.11

@@ -5,20 +5,19 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsoner;
 
-import fr.formiko.usuel.*;
-import fr.formiko.usuel.Folder;
-import fr.formiko.usuel.createBadges;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.fichier;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.images.Img;
-import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.media.audio.*;
-import fr.formiko.usuel.structures.listes.GString;
-import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.trad;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.*;
+import fr.formiko.usual.Folder;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.fichier;
+import fr.formiko.usual.g;
+import fr.formiko.usual.images.Img;
+import fr.formiko.usual.images.Images;
+import fr.formiko.usual.media.audio.*;
+import fr.formiko.usual.structures.listes.GString;
+import fr.formiko.usual.tableau;
+import fr.formiko.usual.Translation;
+import fr.formiko.usual.types.str;
 import fr.formiko.views.ViewNull;
 
 import java.awt.Font;
@@ -86,7 +85,7 @@ public class launchOptions {
       case "launchTuto":
       //TODO TOFIX
       Main.setTuto(true);
-      Main.setPremierePartie(true);
+      Main.setFirstGame(true);
       Main.dontOpenMenuFirst();
       break;
       case "ld":
@@ -155,13 +154,13 @@ public class launchOptions {
       music();
     }else if(args[0].equals("op")){
       //Main.initialisation();
-      Main.setOs(new Os());
-      Main.setFolder(new Folder());
+      Os.setOs(new Os());
+      Main.setFolder(new Folder(Main.getView()));
       Main.iniOp();
       Main.getOp().saveOptions();
     }else if(args[0].equals("supprimer")){
       Main.initialisation();
-      //diff.nbrDeLigneDiff("usuel/GString.java","../Formiko108/usuel/GString.java");
+      //diff.nbrDeLigneDiff("usual/GString.java","../Formiko108/usual/GString.java");
       if(args.length == 4){
         String s = args[1];
         //c'est pas nésséssaire sur le terminal linux mais au cas ou
@@ -182,7 +181,7 @@ public class launchOptions {
       chargerLesTraductions.créerLesFichiers();
       g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
       HashMap<String, String> mapEo = chargerLesTraductions.chargerLesTraductions(0);//chargement des langues.
-      trad.copieTradBase("eo",mapEo);
+      Translation.copieTradBase("eo",mapEo);
       //chargerLesTraductions.addTradAuto();
     }else if (args[0].equals("rbt") || args[0].equals("rognerBordTransparent")){
       Main.initialisation();
@@ -201,15 +200,15 @@ public class launchOptions {
       if(args.length>1){
         //image.setREPTEXTUREPACK("docs/cc/images");
         debug.débogage("chargement de l'image");
-        Img img = new Img(image.getImage(args[1],"docs/cc/images/"));
+        Img img = new Img(Images.getImage(args[1],"docs/cc/images/"));
         debug.débogage("Image chargée");
         img.compterChaquePixelToHtml();
       }else{
         erreur.alerte("arguments de cptPixels incorecte");
       }
     }else if(args[0].equals("cleanFolder")){
-      Main.setOs(new Os());
-      Folder folder = new Folder();
+      Os.setOs(new Os());
+      Folder folder = new Folder(Main.getView());
       if(args.length>1){
         folder.setFolderMain(args[1]);
       }
@@ -223,7 +222,7 @@ public class launchOptions {
       fichier.unzip(args[1],args[2]);
       System.exit(0);
     }else if(args[0].equals("download")){
-      fichier.download(args[1],args[2]);
+      Folder.download(args[1],args[2],Main.getView());
       System.exit(0);
     }else if(args[0].equals("createBadges")){
       createBadges.createBadges();
@@ -241,7 +240,7 @@ public class launchOptions {
       int k=0;
       while (k<10) {
         Main.getView().setDownloadingValue(k*7);
-        Temps.pause(1000);
+        Time.pause(1000);
         k++;
       }
       // System.exit(0);
@@ -321,13 +320,13 @@ public class launchOptions {
     name = args[1];int k=2;
     while(name!=null){
       debug.débogage("=============================Chargement de l'image "+name);
-      //Image i = image.getImage(nom,image.getREP());
-      Img img = new Img(image.getImage(name,image.getREP()));
+      //Image i = Images.getImage(nom,Images.getREP());
+      Img img = new Img(Images.getImage(name,Images.getREP()));
       debug.débogage("=============================Ronage de l'image "+name);
       img.rognerBordTransparent();
       img.actualiserImage();
       debug.débogage("=============================Sauvegarde de l'image "+name);
-      img.sauvegarder(image.getREP(),name+".png");
+      img.sauvegarder(Images.getREP(),name+".png");
       try {
         name=args[k++];
       }catch (Exception e) {
@@ -357,7 +356,7 @@ public class launchOptions {
     Main.endCh("créerLesFichiers");Main.startCh();
     g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
     Main.endCh("chargerLesTraductions");Main.startCh();
-    trad.copieTrads();
+    Translation.copieTrads();
     Main.endCh("copieTrads");Main.startCh();
     chargerLesTraductions.affPourcentageTraduit();
     Main.endCh("affPourcentageTraduit");//Main.startCh();
@@ -368,12 +367,12 @@ public class launchOptions {
   }
   public static void tradCharCmd(int id, String fontName, boolean b){
     // Main.startCh();
-    erreur.println(trad.partOfPrintableChar(id, fontName, b));
+    erreur.println(Translation.partOfPrintableChar(id, fontName, b));
     // chargerLesTraductions.créerLesFichiers();
     // Main.endCh("créerLesFichiers");Main.startCh();
     // g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
     // Main.endCh("chargerLesTraductions");Main.startCh();
-    // trad.copieTrads();
+    // Translation.copieTrads();
     // Main.endCh("copieTrads");Main.startCh();
     // chargerLesTraductions.affPourcentageTraduit();
     // Main.endCh("affPourcentageTraduit");
@@ -382,7 +381,7 @@ public class launchOptions {
     int cpt=0;
     int len = chargerLesTraductions.getTLangue().length;
     for (int i=0; i<len; i++) {
-      if(trad.canDisplayLanguage(i, fontName)){cpt++;}
+      if(Translation.canDisplayLanguage(i, fontName)){cpt++;}
     }
     String col = null;
     if(cpt==0){
@@ -413,22 +412,23 @@ public class launchOptions {
   */
   private static void translateWebSite(String pathToWebSiteFile, String pathToWebSiteTranslation){
     Main.setView(new ViewNull());
-    Main.setOs(new Os());
-    Main.setFolder(new Folder());
+    Os.setOs(new Os());
+    Main.setFolder(new Folder(Main.getView()));
     Main.iniOp();
     chargerLesTraductions.setRep(pathToWebSiteTranslation);
     // Chrono ch = new Chrono();
     // Main.startCh(ch);
     Main.getOp().setLanguage(0);
     Main.iniLangue();
-    trad.translateWebSiteFiles(pathToWebSiteFile);
+    Translation.translateWebSiteFiles(pathToWebSiteFile, 0);
     Main.getOp().setLanguage(1);
     Main.iniLangue();
-    trad.translateWebSiteFiles(pathToWebSiteFile);
+    Translation.translateWebSiteFiles(pathToWebSiteFile, 1);
     Main.getOp().setLanguage(2);
     Main.iniLangue();
-    trad.translateWebSiteFiles(pathToWebSiteFile);
+    Translation.translateWebSiteFiles(pathToWebSiteFile, 2);
     // Main.endCh("translateWebSite",ch);
+    // chargerLesTraductions.setRep(null);
   }
   /**
   *{@summary Set value of data to last version in version.json.}<br>
@@ -440,8 +440,8 @@ public class launchOptions {
     try {
       // Main.initialisation();
       Main.setView(new ViewNull());
-      Main.setOs(new Os());
-      Folder f = new Folder();
+      Os.setOs(new Os());
+      Folder f = new Folder(Main.getView());
       f.setFolderMain();
       Main.setFolder(f);
       Main.iniOp();
@@ -530,7 +530,7 @@ public class launchOptions {
   *@lastEditedVersion 2.22
   */
   public static void printVersion(){
-    Folder folder = new Folder();
+    Folder folder = new Folder(Main.getView());
     folder.ini(false); //don't download anything
     erreur.info("Formiko "+folder.getCurentVersion()+"   data version: "+folder.getCurentDataVersion()+"   music version: "+folder.getCurentMusicVersion());
   }
@@ -539,11 +539,11 @@ public class launchOptions {
     Main.initialisation();
     File f = new File("test.json");
     ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
-    System.out.println(Main.getGe().getFirst());
+    erreur.println(Main.getGe().getFirst());
     try {
       mapper.writeValue(f, Main.getGe().getFirst());
       Espece e = mapper.readValue(f, Espece.class);
-      System.out.println(e);
+      erreur.println(e);
     }catch (IOException e) {
       erreur.erreur("Fail to save as .json "+e);
     }

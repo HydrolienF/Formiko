@@ -1,12 +1,12 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.Temps;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.structures.listes.Liste;
+import fr.formiko.usual.Time;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.structures.listes.Liste;
 import fr.formiko.views.gui2d.FPanel;
-import fr.formiko.usuel.maths.math;
+import fr.formiko.usual.maths.math;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -274,7 +274,7 @@ public class FPanelMapMove extends FPanel {
         }
         needToWait=(stepInX==0 && stepInY==0);
         moveAllSubPanel(stepInX, stepInY);
-        Temps.pause(10);
+        Time.pause(10);
       }
     }
   }

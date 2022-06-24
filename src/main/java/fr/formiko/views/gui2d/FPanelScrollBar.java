@@ -1,7 +1,7 @@
 package fr.formiko.views.gui2d;
 
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.maths.math;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.maths.math;
 
 import java.awt.BorderLayout;
 import java.awt.event.AdjustmentEvent;

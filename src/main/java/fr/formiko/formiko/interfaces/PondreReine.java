@@ -6,12 +6,12 @@ import fr.formiko.formiko.Fourmiliere;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
 import fr.formiko.views.gui2d.FPanelTInt;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.maths.allea;
-import fr.formiko.usuel.read;
-import fr.formiko.usuel.tableau;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.maths.allea;
+import fr.formiko.usual.read;
+import fr.formiko.usual.tableau;
 
 import java.io.Serializable;
 

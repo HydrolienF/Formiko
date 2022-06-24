@@ -15,17 +15,18 @@ import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.MapPath;
 import fr.formiko.formiko.ObjetSurCarteAId;
-import fr.formiko.usuel.Info;
-import fr.formiko.usuel.Point;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.images.Img;
-import fr.formiko.usuel.images.Pixel;
-import fr.formiko.usuel.images.image;
-import fr.formiko.usuel.maths.allea;
-import fr.formiko.usuel.maths.math;
-import fr.formiko.usuel.structures.listes.Liste;
+import java.awt.RenderingHints;
+import fr.formiko.usual.Info;
+import fr.formiko.usual.Point;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.images.Img;
+import fr.formiko.usual.images.Pixel;
+import fr.formiko.usual.images.Images;
+import fr.formiko.usual.maths.allea;
+import fr.formiko.usual.maths.math;
+import fr.formiko.usual.structures.listes.Liste;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -218,6 +219,10 @@ public class FPanelCarte extends FPanel {
       getView().setBladeChanged(false);
       bladeImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
       Graphics gBlade = bladeImage.getGraphics();
+      // TODO if (op.getGraphicsLevel()>medium){
+        Graphics2D g2d = (Graphics2D)gBlade;
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); //good for all drawLine, drawCircle etc.
+      // }
       for (int i=0; i<xCase; i++) {
         for (int j=0; j<yCase; j++) {
           Point point = getPointFromCase(i,j,false);
@@ -477,7 +482,7 @@ public class FPanelCarte extends FPanel {
             int dir = getDir((ObjetSurCarteAId)gr);
             try {
               BufferedImage bi = Main.getData().getGraineImage(gr);
-              drawImageCentered(g,image.rotateImage(bi,dir),xT,yT);
+              drawImageCentered(g, Images.rotateImage(bi,dir),xT,yT);
             }catch (Exception e) {}
             if(gr.getOuverte()){listIconsRelation.add(getIconImage(5));}
             else if(fi==null || gr.getHardness()<=fi.getHardnessMax()){listIconsRelation.add(getIconImage(4));}
@@ -502,7 +507,7 @@ public class FPanelCarte extends FPanel {
             Fourmi f = ((Fourmi)cr);
             try {
               BufferedImage bi = Main.getData().getCreatureImage(f);
-              drawImageCentered(g,image.rotateAndCenterImage(bi, dir),xT+x2,yT+y2);
+              drawImageCentered(g,Images.rotateAndCenterImage(bi, dir),xT+x2,yT+y2);
               // Point tp [] = Main.getData().getAntImageLocation();
               // BufferedImage tBi [] = Main.getData().getAntImage(f);
               // int k2=0;
@@ -520,7 +525,7 @@ public class FPanelCarte extends FPanel {
             try {
               BufferedImage bi = Main.getData().getCreatureImage(cr);
               // BufferedImage bi = Main.getData().getTII()[0][math.min(i.getType(),Main.getData().getTII()[0].length)];
-              drawImageCentered(g,image.rotateAndCenterImage(bi,dir),xT+x2,yT+y2);
+              drawImageCentered(g,Images.rotateAndCenterImage(bi,dir),xT+x2,yT+y2);
             }catch (Exception e) {
               erreur.erreur("can't draw insect "+i.getId()+" with type "+i.getType());
             }
@@ -953,7 +958,7 @@ public class FPanelCarte extends FPanel {
     tBiState[2] = Main.getData().getIconImage("age");
     int size = (int)(getTailleIcon()*0.8);
     for (int i=0; i<tBiState.length; i++) {
-      tBiState[i] = image.resize(tBiState[i],size,size);
+      tBiState[i] = Images.resize(tBiState[i],size,size);
     }
   }
 }

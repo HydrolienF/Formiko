@@ -1,15 +1,15 @@
 package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.Point;
-import fr.formiko.usuel.Temps;
-import fr.formiko.usuel.chargerLesTraductions;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.decoderUnFichier;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.structures.listes.GString;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.Point;
+import fr.formiko.usual.Time;
+import fr.formiko.usual.chargerLesTraductions;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.decoderUnFichier;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.structures.listes.GString;
+import fr.formiko.usual.types.str;
 import fr.formiko.views.gui2d.FPanel;
 import fr.formiko.views.gui2d.action;
 
@@ -224,7 +224,7 @@ public class triche {
             if(b){//si la condition d'attente est bonne.
               Main.getScript().setCmdSuivante(true);
             }
-            Temps.pause(50);
+            Time.pause(50);
           }
           break;
         case 32:
@@ -252,7 +252,7 @@ public class triche {
           }
           break;
         case 35:
-          erreur.println(Main.getTemps());
+          erreur.println(Main.getTime());
           break;
         case 36:
           try {

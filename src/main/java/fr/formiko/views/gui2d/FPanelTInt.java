@@ -1,8 +1,8 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.Temps;
-import fr.formiko.usuel.debug;
+import fr.formiko.usual.Time;
+import fr.formiko.usual.debug;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -60,7 +60,7 @@ public class FPanelTInt extends FPanelTX{
     debug.débogage("lancement d'une boucle de choix.");
     while(id2==-1){
       id2 = getView().getPp().getPj().getPb().getChoixId();
-      Temps.pause(10);
+      Time.pause(10);
     }
     getView().getPp().getPj().getPb().setChoixId(-1);
     getView().getPp().getPj().setDescTI("");

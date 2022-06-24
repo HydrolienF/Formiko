@@ -2,8 +2,8 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.g;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.g;
 
 import java.awt.Graphics;
 

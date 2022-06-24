@@ -2,17 +2,17 @@ package fr.formiko.formiko;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.interfaces.*;
-import fr.formiko.usuel.Temps;
-import fr.formiko.usuel.debug;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.maths.allea;
-import fr.formiko.usuel.maths.math;
-import fr.formiko.usuel.menu;
-import fr.formiko.usuel.read;
-import fr.formiko.usuel.structures.listes.GString;
-import fr.formiko.usuel.tableau;
-import fr.formiko.usuel.types.str;
+import fr.formiko.usual.Time;
+import fr.formiko.usual.debug;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.maths.allea;
+import fr.formiko.usual.maths.math;
+import fr.formiko.usual.menu;
+import fr.formiko.usual.read;
+import fr.formiko.usual.structures.listes.GString;
+import fr.formiko.usual.tableau;
+import fr.formiko.usual.types.str;
 
 import java.io.Serializable;
 

@@ -2,9 +2,9 @@ package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Main;
-import fr.formiko.usuel.erreur;
-import fr.formiko.usuel.g;
-import fr.formiko.usuel.structures.listes.Liste;
+import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
+import fr.formiko.usual.structures.listes.Liste;
 
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
