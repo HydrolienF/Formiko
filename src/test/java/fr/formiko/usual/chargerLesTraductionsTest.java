@@ -123,7 +123,8 @@ public class chargerLesTraductionsTest extends TestCaseMuet {
     assertTrue(!tableau.contient(tf3,"en.txt"));
     assertTrue(fichier.deleteDirectory(f));
 
-    Main.iniTranslationFolder();
+    // Main.iniTranslationFolder();
+    chargerLesTraductions.setRep(null);
   }
 
   //estLigneDeTrad
@@ -181,7 +182,8 @@ public class chargerLesTraductionsTest extends TestCaseMuet {
     assertEquals(4,chargerLesTraductions.getTableauDesTrad(2).length);
 
     assertTrue(fichier.deleteDirectory(f));
-    Main.iniTranslationFolder();
+    // Main.iniTranslationFolder();
+    chargerLesTraductions.setRep(null);
   }
 
   //getTableauDesCmd
@@ -201,13 +203,15 @@ public class chargerLesTraductionsTest extends TestCaseMuet {
     String t2 [] = chargerLesTraductions.getTableauDesCmd();
     assertEquals(0,t2.length);
     assertTrue(fichier.deleteDirectory(f));
-    Main.iniTranslationFolder();
+    // Main.iniTranslationFolder();
+    chargerLesTraductions.setRep(null);
   }
 
   //chargerLesTraductions
   @Test
   public void testChargerLesTraductions(){
-    Main.iniTranslationFolder();
+    // Main.iniTranslationFolder();
+    chargerLesTraductions.setRep(null);
     assertTrue(chargerLesTraductions.iniTLangue());
     Map<String, String> fr = chargerLesTraductions.chargerLesTraductions(1);
     assertEquals("testFr",fr.get("test"));
@@ -229,7 +233,8 @@ public class chargerLesTraductionsTest extends TestCaseMuet {
   //chargerLesTraductionsSansCommande
   @Test
   public void testChargerLesTraductionsSansCommande(){
-    Main.iniTranslationFolder();
+    // Main.iniTranslationFolder();
+    chargerLesTraductions.setRep(null);
     assertTrue(chargerLesTraductions.iniTLangue());
     Map<String, String> zu = chargerLesTraductions.chargerLesTraductions(chargerLesTraductions.getLanguage("zu"));
     assertEquals("testZu",zu.get("test"));
@@ -303,7 +308,8 @@ public class chargerLesTraductionsTest extends TestCaseMuet {
     assertEquals(-1,chargerLesTraductions.getPourcentageTraduit(0));
 
     assertTrue(fichier.deleteDirectory(f));
-    Main.iniTranslationFolder();
+    // Main.iniTranslationFolder();
+    chargerLesTraductions.setRep(null);
   }
   @Test
   public void testGetPourcentageTraduit2(){
@@ -337,7 +343,8 @@ public class chargerLesTraductionsTest extends TestCaseMuet {
     assertEquals(100,chargerLesTraductions.getPourcentageTraduit(0));
 
     assertTrue(fichier.deleteDirectory(f));
-    Main.iniTranslationFolder();
+    // Main.iniTranslationFolder();
+    chargerLesTraductions.setRep(null);
   }
 
   //getPourcentageTraduitAutomatiquement
@@ -375,7 +382,8 @@ public class chargerLesTraductionsTest extends TestCaseMuet {
     assertEquals(100,chargerLesTraductions.getPourcentageTraduitAutomatiquement(0));
 
     assertTrue(fichier.deleteDirectory(f));
-    Main.iniTranslationFolder();
+    // Main.iniTranslationFolder();
+    chargerLesTraductions.setRep(null);
   }
   @Test
   public void testCompletMapWithFullTranslatedLanguage(){
@@ -405,6 +413,7 @@ public class chargerLesTraductionsTest extends TestCaseMuet {
     assertEquals("tradInENglish",g.get("ex2"));
 
     assertTrue(fichier.deleteDirectory(f));
-    Main.iniTranslationFolder();
+    // Main.iniTranslationFolder();
+    chargerLesTraductions.setRep(null);
   }
 }

@@ -428,6 +428,7 @@ public class launchOptions {
     Main.iniLangue();
     trad.translateWebSiteFiles(pathToWebSiteFile, 2);
     // Main.endCh("translateWebSite",ch);
+    // chargerLesTraductions.setRep(null);
   }
   /**
   *{@summary Set value of data to last version in version.json.}<br>

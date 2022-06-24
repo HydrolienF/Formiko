@@ -40,6 +40,7 @@ public class SaveTest extends TestCaseMuet {
     File dir = new File("testDir"+x);
     dir.mkdir();
     new Save("testDir"+x+"/.save");
+    //TOFIX It will use default dir if we use getSave();
     Save save = Save.getSave();
     int idS = save.getIdS();
     assertEquals(1,idS);

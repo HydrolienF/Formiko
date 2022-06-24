@@ -24,6 +24,7 @@ import java.nio.file.Paths;
 *@lastEditedVersion 2.25
 */
 public class Folder {
+  private static Folder folder;
   private static String DEFAULT_NULL_VERSION="0.0.0";
   private String folderMain="data/";
   private String folderStable="stable/";
@@ -65,6 +66,9 @@ public class Folder {
     }
   }
   // GET SET -------------------------------------------------------------------
+  public static Folder getFolder(){return folder;}
+  public static void setFolder(Folder f){folder=f;}
+
 	public String getFolderMain() {return folderMain+"data/";}
 	public void setFolderMain(String folderMain) {this.folderMain = str.sToDirectoryName(folderMain);}
   public void setFolderMain() {setFolderMain("");}

@@ -539,7 +539,7 @@ public class Options implements Serializable {
   *@lastEditedVersion 2.16
   */
   public void updateFont(){
-    Main.iniFontFolder();
+    // Main.iniFontFolder();
     if(gui_global_fontText.equals("Default")){
       font1=new Font("Default", Font.BOLD, gui_global_fontSizeText);
     }else{

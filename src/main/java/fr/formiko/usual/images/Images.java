@@ -1,9 +1,6 @@
 package fr.formiko.usual.images;
 
-import fr.formiko.formiko.Creature;
-import fr.formiko.formiko.Fourmi;
-import fr.formiko.formiko.Main;
-import fr.formiko.formiko.Pheromone;
+import fr.formiko.usual.Folder;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.fichier;
@@ -37,14 +34,16 @@ public class Images {
   *Or You can replace some images by puting an image with the same name than an actual image in getREP() or REP_TEMPORARY.
   *@lastEditedVersion 1.33
   */
-  public static String getREPTEXTUREPACK(){return Main.getFolder().getFolderResourcesPacks()+Main.getFolder().getFolderImages();}
-  public static void setREPTEXTUREPACK(String s){Main.getFolder().setFolderResourcesPacks(s);}
+  public static String getREPTEXTUREPACK(){return getFolder().getFolderResourcesPacks()+getFolder().getFolderImages();}
+  public static void setREPTEXTUREPACK(String s){getFolder().setFolderResourcesPacks(s);}
   /***
-   *{@summary The Images directory.}<br>
-   *@lastEditedVersion 1.33
-   */
-  public static String getREP(){ return Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages();}
-  public static String getREPTEMPORARY(){ return Main.getFolder().getFolderTemporary()+Main.getFolder().getFolderImages(); }
+  *{@summary The Images directory.}<br>
+  *@lastEditedVersion 1.33
+  */
+  public static String getREP(){ return getFolder().getFolderStable()+getFolder().getFolderImages();}
+  public static String getREPTEMPORARY(){ return getFolder().getFolderTemporary()+getFolder().getFolderImages(); }
+
+  public static Folder getFolder(){return Folder.getFolder();}
   // FUNCTIONS -----------------------------------------------------------------
   /**
    *{@summary Try to read an Image file}<br>
@@ -503,21 +502,6 @@ public class Images {
       op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
     }
     return op.filter(before, null);
-  }
-  /**
-  *{@summary Change the image color depending of ant Pheromone.}<br>
-  *@param imgColor the image to change.
-  *@param ph the Pheromone to get color from.
-  *@lastEditedVersion 2.6
-  */
-  public static BufferedImage changeColor(Img imgColor, Pheromone ph){
-    int w = imgColor.getWidth();
-    int h = imgColor.getHeight();
-    imgColor.setRouge(fullOf(w,h,ph.getR()));
-    imgColor.setVert(fullOf(w,h,ph.getG()));
-    imgColor.setBleu(fullOf(w,h,ph.getB()));
-    imgColor.actualiserImage();
-    return imgColor.getImage();
   }
   /**
   *{@summary Full the color of an array.}<br>

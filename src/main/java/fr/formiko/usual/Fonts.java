@@ -15,10 +15,8 @@ import java.io.IOException;
 *@lastEditedVersion 2.25
 */
 public class Fonts {
-  private static String folderFont;
   // GET SET -------------------------------------------------------------------
-  private static String getFolderFont(){return folderFont;}
-  public static void setFolderFont(String s){folderFont=s;}
+  private static String getFolderFont(){return Folder.getFolder().getFolderStable()+Folder.getFolder().getFolderBin()+"font/";}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Create a font located in game data.}<br>

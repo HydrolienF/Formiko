@@ -61,7 +61,6 @@ public class Main {
   private static Temps tem;
   //private static ThGraphisme tg;//actualise la fenetre tt avec 20 seconde de pause entre chaque actualisation.
   private static boolean retournerAuMenu;
-  private static Folder folder;
   private static boolean tuto=false;
   private static ThScript ths;
   //private static ThMusique thm;
@@ -201,8 +200,8 @@ public class Main {
   public static void setRetournerAuMenu(boolean b){retournerAuMenu=b;}
   public static Os getOs(){return Os.getOs();}
   public static void setOs(Os o){Os.setOs(o);}
-  public static Folder getFolder(){return folder;}
-  public static void setFolder(Folder f){folder=f;}
+  public static Folder getFolder(){return Folder.getFolder();}
+  public static void setFolder(Folder f){Folder.setFolder(f);}
   public static void setTuto(boolean b){tuto=b;}
   public static boolean getFirstGame(){return Folder.getFirstGame();}
   public static void setFirstGame(boolean b){Folder.setFirstGame(b);}
@@ -313,11 +312,11 @@ public class Main {
         }
       }
     }
-    folder = new Folder(Main.getView());
+    setFolder(new Folder(Main.getView()));
     getFolder().ini();
+    new Save();
     setMessageChargement("chargementDesOptions");startCh();
-    iniTranslationFolder();
-    Save.setSaveName(getFolder().getFolderTemporary()+getFolder().getFolderBin()+".save");
+    chargerLesTraductions.setRep(null); //TOFIX some test fail without it
     chargerLesTraductions.iniTLangue();
     if(op==null){iniOp();}
     if(!debug.getMessage()){//si elle n'ont pas été activé par "-d"
@@ -349,13 +348,6 @@ public class Main {
     endCh("chargementDesEspeceDInsecte");
     iniCpt();
   }public static void ini(){initialisation();}
-  // ini folders
-  public static void iniTranslationFolder(){
-    chargerLesTraductions.setRep(getFolder().getFolderStable()+getFolder().getFolderLanguages());
-  }
-  public static void iniFontFolder(){
-    Fonts.setFolderFont(getFolder().getFolderStable()+getFolder().getFolderBin()+"font/");
-  }
   /**
    *{@summary Initializes counter cpt of IEspece, Joueur, Fourmiliere ,ObjetAId.}
    *@lastEditedVersion 1.7

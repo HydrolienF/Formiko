@@ -1,16 +1,16 @@
 package fr.formiko.formiko.images;
 
-import fr.formiko.usual.structures.ImageTree;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Insecte;
-
+import fr.formiko.formiko.images.FImages;
 import fr.formiko.usual.erreur;
-import fr.formiko.usual.images.Img;
 import fr.formiko.usual.images.Images;
+import fr.formiko.usual.images.Img;
 import fr.formiko.usual.maths.math;
-import fr.formiko.usual.structures.listes.Liste;
+import fr.formiko.usual.structures.ImageTree;
 import fr.formiko.usual.structures.TreeNode;
+import fr.formiko.usual.structures.listes.Liste;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -89,7 +89,7 @@ public class FImageTree extends ImageTree {
           if(antColorLevel>1){
             img.supprimerLaTransparencePartielle(1);
           }
-          color = Images.changeColor(img, c.getPheromone());
+          color = FImages.changeColor(img, c.getPheromone());
           g.drawImage(color, 0, 0, null);
         }
         if(c.getHaveWings()){

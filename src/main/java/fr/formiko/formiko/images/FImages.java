@@ -5,10 +5,11 @@ import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Pheromone;
 import fr.formiko.usual.debug;
-import fr.formiko.usual.images.Images;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.fichier;
 import fr.formiko.usual.g;
+import fr.formiko.usual.images.Images;
+import fr.formiko.usual.images.Img;
 import fr.formiko.usual.maths.math;
 import fr.formiko.usual.types.str;
 
@@ -82,5 +83,20 @@ public class FImages extends Images {
     double tailleR = Main.getOp().getRealisticSize()/100.0;
     double db = ((a*taille*tailleR)/100) + (taille)*(1-tailleR);//en pixel on fait *4.
     return (int)db;
+  }
+  /**
+  *{@summary Change the image color depending of ant Pheromone.}<br>
+  *@param imgColor the image to change.
+  *@param ph the Pheromone to get color from.
+  *@lastEditedVersion 2.6
+  */
+  public static BufferedImage changeColor(Img imgColor, Pheromone ph){
+    int w = imgColor.getWidth();
+    int h = imgColor.getHeight();
+    imgColor.setRouge(fullOf(w,h,ph.getR()));
+    imgColor.setVert(fullOf(w,h,ph.getG()));
+    imgColor.setBleu(fullOf(w,h,ph.getB()));
+    imgColor.actualiserImage();
+    return imgColor.getImage();
   }
 }

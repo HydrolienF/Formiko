@@ -22,8 +22,19 @@ public class chargerLesTraductions {
   // get set -------------------------------------------------------------------
   public static String [] getTLangue(){return tLangue;}
   public static void setTLangue(String t []){tLangue=t;}
-  public static String getRep(){return rep;}
-  public static void setRep(String s){rep = str.sToDirectoryName(s);}
+  public static String getRep(){
+    if(rep==null){
+      return Folder.getFolder().getFolderStable()+Folder.getFolder().getFolderLanguages();
+    }
+    return rep;
+  }
+  public static void setRep(String s){
+    if(s==null){
+      // rep=null;
+      rep=Folder.getFolder().getFolderStable()+Folder.getFolder().getFolderLanguages();
+    }
+    else{rep = str.sToDirectoryName(s);}
+  }
   public static HashMap<String, String> getMap(){return map;}
   public static void iniMap(){map = new HashMap<>();}
   // FUNCTIONS -----------------------------------------------------------------

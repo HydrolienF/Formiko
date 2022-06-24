@@ -16,18 +16,20 @@ import java.io.Serializable;
 public class Save implements Serializable {
   private static final long serialVersionUID = 43l;
   private int idS;
-  private static File f;
+  public static File f;
 
   // CONSTRUCTORS --------------------------------------------------------------
   /** Empty constructor. */
-  public Save(){}
+  public Save(){
+    this(Folder.getFolder().getFolderTemporary()+Folder.getFolder().getFolderBin()+".save");
+  }
   /**
   *{@summary Constructor with a specific file name.}
   *@param fileName the file name
   *@lastEditedVersion 2.6
   */
   public Save(String fileName){
-    f=new File(fileName);
+    setSaveName(fileName);
   }
 
   // GET SET -------------------------------------------------------------------
@@ -71,7 +73,13 @@ public class Save implements Serializable {
         }
       }
     }else{
-      r = new Save();
+      System.out.println("New save "+f.getPath());//@a
+      try{
+        f.createNewFile();
+      }catch (IOException e) {
+        erreur.erreur("File can't be create");
+      }
+      r = new Save(f.getPath());
       r.idS=1;
     }
     return r;
@@ -87,7 +95,7 @@ public class Save implements Serializable {
           erreur.erreur("File can't be create");
         }
       }
-    }catch (Exception e) {
+    }catch (IOException e) {
       erreur.erreur("File can't be create");
     }
     ObjectOutputStream oos=null;
