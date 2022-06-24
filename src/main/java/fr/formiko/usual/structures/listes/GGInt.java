@@ -1,7 +1,5 @@
 package fr.formiko.usual.structures.listes;
 
-import fr.formiko.formiko.Fourmiliere;
-import fr.formiko.formiko.GCreature;
 import fr.formiko.usual.g;
 
 import java.io.Serializable;
