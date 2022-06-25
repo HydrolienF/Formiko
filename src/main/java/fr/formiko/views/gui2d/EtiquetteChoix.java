@@ -26,7 +26,7 @@ public class EtiquetteChoix extends FPanel{
     choixXDesc.setTexte(g.getM(clé)+" : ");
     choixXDesc.setFondTransparent();
 
-    choixX = gs.getComboBox(x);
+    choixX = FComboBox.getFComboBox(gs,x);
     choixX.setFont(Main.getFont1(0.9));
     add(choixX);add(choixXDesc);
     int wi2 = Main.getTailleElementGraphiqueX(960);

@@ -32,31 +32,6 @@ public class GString extends Liste<String> implements Serializable {
   // FUNCTIONS -----------------------------------------------------------------
   //equals is in Liste
   /**
-  *{@summary Return a FComboBox with all the String in it.}<br>
-  *@param x the default select item.
-  *@lastEditedVersion 1.41
-  */
-  public FComboBox<String> getComboBox(int x){
-    FComboBox<String> cb = new FComboBox<String>();
-    for (String s : this ) {
-      cb.addItem(s);
-    }
-    if(x!=0){
-      try {
-        cb.setSelectedItem(getItem(x));
-      }catch (Exception e) {
-        erreur.erreur("Impossible de mettre l'élément n°"+x+" par défaut.");
-      }
-    }
-    return cb;
-  }
-  /***
-  *{@summary Return a FComboBox with all the String in it.}<br>
-  *1a item is selected.
-  *@lastEditedVersion 1.41
-  */
-  public FComboBox<String> getComboBox(){ return getComboBox(0);}
-  /**
   *{@summary Return the translation key for s.}<br>
   *If it fail it return null.<br>
   *@param s the string give by the key.
