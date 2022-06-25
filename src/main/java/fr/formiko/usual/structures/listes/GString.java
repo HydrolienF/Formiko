@@ -4,7 +4,6 @@ import fr.formiko.usual.g;
 import fr.formiko.usual.maths.math;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.types.str;
-import fr.formiko.views.gui2d.FComboBox;
 
 import java.io.Serializable;
 
