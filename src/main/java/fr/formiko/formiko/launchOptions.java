@@ -6,7 +6,7 @@ import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsoner;
 
 import fr.formiko.usual.*;
-import fr.formiko.usual.Folder;
+import fr.formiko.fusual.FFolder;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.fichier;
@@ -155,7 +155,7 @@ public class launchOptions {
     }else if(args[0].equals("op")){
       //Main.initialisation();
       Os.setOs(new Os());
-      Main.setFolder(new Folder(Main.getView()));
+      Main.setFolder(new FFolder(Main.getView()));
       Main.iniOp();
       Main.getOp().saveOptions();
     }else if(args[0].equals("supprimer")){
@@ -208,7 +208,7 @@ public class launchOptions {
       }
     }else if(args[0].equals("cleanFolder")){
       Os.setOs(new Os());
-      Folder folder = new Folder(Main.getView());
+      FFolder folder = new FFolder(Main.getView());
       if(args.length>1){
         folder.setFolderMain(args[1]);
       }
@@ -222,7 +222,7 @@ public class launchOptions {
       fichier.unzip(args[1],args[2]);
       System.exit(0);
     }else if(args[0].equals("download")){
-      Folder.download(args[1],args[2],Main.getView());
+      FFolder.download(args[1],args[2],Main.getView());
       System.exit(0);
     }else if(args[0].equals("createBadges")){
       createBadges.createBadges();
@@ -413,7 +413,7 @@ public class launchOptions {
   private static void translateWebSite(String pathToWebSiteFile, String pathToWebSiteTranslation){
     Main.setView(new ViewNull());
     Os.setOs(new Os());
-    Main.setFolder(new Folder(Main.getView()));
+    Main.setFolder(new FFolder(Main.getView()));
     Main.iniOp();
     chargerLesTraductions.setRep(pathToWebSiteTranslation);
     // Chrono ch = new Chrono();
@@ -441,12 +441,12 @@ public class launchOptions {
       // Main.initialisation();
       Main.setView(new ViewNull());
       Os.setOs(new Os());
-      Folder f = new Folder(Main.getView());
+      FFolder f = new FFolder(Main.getView());
       f.setFolderMain();
       Main.setFolder(f);
       Main.iniOp();
-      // Folder f = Main.getFolder();
-      Reader reader = Files.newBufferedReader(Folder.getVersionJsonPath());
+      // FFolder f = Main.getFolder();
+      Reader reader = Files.newBufferedReader(FFolder.getVersionJsonPath());
       JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
       String formikoVersion="";
       GString gs = ReadFile.readFileGs("version.md");
@@ -475,7 +475,7 @@ public class launchOptions {
       jsr.put("formiko",formikoVersion);
       // File file = new File(f.getFolderMain()+"version.json");
       // file.delete();
-      BufferedWriter writer = Files.newBufferedWriter(Folder.getVersionJsonPath());
+      BufferedWriter writer = Files.newBufferedWriter(FFolder.getVersionJsonPath());
       Jsoner.serialize(jsr, writer);
       // erreur.println(jsr);
       // writer.write(jsr.toString());
@@ -530,7 +530,7 @@ public class launchOptions {
   *@lastEditedVersion 2.22
   */
   public static void printVersion(){
-    Folder folder = new Folder(Main.getView());
+    FFolder folder = new FFolder(Main.getView());
     folder.ini(false); //don't download anything
     erreur.info("Formiko "+folder.getCurentVersion()+"   data version: "+folder.getCurentDataVersion()+"   music version: "+folder.getCurentMusicVersion());
   }

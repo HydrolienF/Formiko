@@ -10,7 +10,7 @@ import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.tests.TestCaseMuet;
-import fr.formiko.usual.Folder;
+import fr.formiko.fusual.FFolder;
 import fr.formiko.usual.Os;
 import fr.formiko.usual.g;
 import fr.formiko.views.ViewNull;
@@ -20,7 +20,7 @@ public class CaseTest extends TestCaseMuet {
   // FUNCTIONS -----------------------------------------------------------------
   private Fourmi ini(){
     Os.setOs(new Os());
-    Main.setFolder(new Folder(Main.getView()));
+    Main.setFolder(new FFolder(Main.getView()));
     Main.getFolder().ini();
     Main.iniOp();
     Main.initialisation();

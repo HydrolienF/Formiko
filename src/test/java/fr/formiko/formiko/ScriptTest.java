@@ -3,7 +3,7 @@ package fr.formiko.formiko;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.tests.TestCaseMuet;
-import fr.formiko.usual.Folder;
+import fr.formiko.fusual.FFolder;
 import fr.formiko.usual.fichier;
 import fr.formiko.usual.structures.listes.GString;
 import fr.formiko.usual.ecrireUnFichier;
@@ -16,7 +16,7 @@ public class ScriptTest extends TestCaseMuet{
   // FUNCTIONS -----------------------------------------------------------------
   @Test
   public void testScript(){
-    Folder folder = new Folder(Main.getView());
+    FFolder folder = new FFolder(Main.getView());
     Main.setFolder(folder);
     int x=getId();
     File f = new File("testScriptTemporaryFolder"+x+"/");
@@ -33,7 +33,7 @@ public class ScriptTest extends TestCaseMuet{
   }
   @Test
   public void testScript2(){
-    Folder folder = new Folder(Main.getView());
+    FFolder folder = new FFolder(Main.getView());
     Main.setFolder(folder);
     int x=getId();
     File f = new File("testScriptTemporaryFolder"+x+"/");
@@ -50,7 +50,7 @@ public class ScriptTest extends TestCaseMuet{
   }
   @Test
   public void testScript3(){
-    Folder folder = new Folder(Main.getView());
+    FFolder folder = new FFolder(Main.getView());
     Main.setFolder(folder);
     int x=getId();
     File f = new File("testScriptTemporaryFolder"+x+"/");
@@ -67,7 +67,7 @@ public class ScriptTest extends TestCaseMuet{
   }
   @Test
   public void testScript4(){
-    Folder folder = new Folder(Main.getView());
+    FFolder folder = new FFolder(Main.getView());
     Main.setFolder(folder);
     int x=getId();
     File f = new File("testScriptTemporaryFolder"+x+"/");
@@ -84,7 +84,7 @@ public class ScriptTest extends TestCaseMuet{
   }
   @Test
   public void testScript5(){
-    Folder folder = new Folder(Main.getView());
+    FFolder folder = new FFolder(Main.getView());
     Main.setFolder(folder);
     int x=getId();
     File f = new File("testScriptTemporaryFolder"+x+"/");
@@ -101,7 +101,7 @@ public class ScriptTest extends TestCaseMuet{
   }
   @Test
   public void testScript6(){
-    Folder folder = new Folder(Main.getView());
+    FFolder folder = new FFolder(Main.getView());
     Main.setFolder(folder);
     int x=getId();
     File f = new File("testScriptTemporaryFolder"+x+"/");
@@ -119,7 +119,7 @@ public class ScriptTest extends TestCaseMuet{
   }
   @Test
   public void testScript7(){
-    Folder folder = new Folder(Main.getView());
+    FFolder folder = new FFolder(Main.getView());
     Main.setFolder(folder);
     int x=getId();
     File f = new File("testScriptTemporaryFolder"+x+"/");
@@ -136,7 +136,7 @@ public class ScriptTest extends TestCaseMuet{
   }
   @Test
   public void testScript8(){
-    Folder folder = new Folder(Main.getView());
+    FFolder folder = new FFolder(Main.getView());
     Main.setFolder(folder);
     int x=getId();
     File f = new File("testScriptTemporaryFolder"+x+"/");
@@ -153,7 +153,7 @@ public class ScriptTest extends TestCaseMuet{
   }
   @AfterAll
   public static void clean(){
-    Folder folder = new Folder(Main.getView());
+    FFolder folder = new FFolder(Main.getView());
     Main.setFolder(folder);
     fichier.deleteDirectory("null");
   }

@@ -21,10 +21,12 @@ import java.nio.file.Paths;
 *You can acces to file by using getters.
 *Ex : getFolderStable()+getFolderImages() will return the path to stable images.
 *@author Hydrolien
-*@lastEditedVersion 2.25
+*@lastEditedVersion 2.26
 */
 public class Folder {
-  private static Folder folder;
+  // TODO #579 Move formiko data from Folder to FFolder
+  protected static String ROOT_PATH;
+  protected static Folder folder;
   private static String DEFAULT_NULL_VERSION="0.0.0";
   private String folderMain="data/";
   private String folderStable="stable/";
