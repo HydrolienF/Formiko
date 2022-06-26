@@ -70,6 +70,12 @@
       <artifactId>jackson-databind</artifactId>
       <version>2.13.3</version>
     </dependency>
+    <!-- Usual -->
+    <dependency>
+	    <groupId>com.github.HydrolienF</groupId>
+	    <artifactId>usual</artifactId>
+	    <version>0.1.31</version>
+	   </dependency>
   </dependencies>
 
   <build>
