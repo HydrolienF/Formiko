@@ -66,7 +66,6 @@ public class FTextArea extends JTextArea {
   }
   /**
   *{@summary Update size of this depending of text.}<br>
-  *@param width the width used to count how much line we need.
   *@lastEditedVersion 2.6
   */
   public void updateSize(){

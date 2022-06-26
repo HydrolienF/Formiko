@@ -68,7 +68,7 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
     //a gauche :
     //nom de la carte parmi ceux proposer.
     GString nomDesCartes = mapList();//on charge les clé dans gsClé en meme temps.
-    choixCarte = nomDesCartes.getComboBox();
+    choixCarte = FComboBox.getFComboBox(nomDesCartes);
     choixCarte.setFont(Main.getFont1(0.9));
     choixCarte.setSelectedItem(g.get("miniWorld")); // 2 = miniWorld pour l'instant
     add(choixCarte);

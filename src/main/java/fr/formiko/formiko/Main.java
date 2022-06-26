@@ -1,6 +1,7 @@
 package fr.formiko.formiko;
 
 import fr.formiko.usual.*;
+import fr.formiko.fusual.*;
 import fr.formiko.usual.images.*;
 import fr.formiko.usual.maths.math;
 import fr.formiko.usual.media.audio.MusicPlayer;
@@ -200,11 +201,11 @@ public class Main {
   public static void setRetournerAuMenu(boolean b){retournerAuMenu=b;}
   public static Os getOs(){return Os.getOs();}
   public static void setOs(Os o){Os.setOs(o);}
-  public static Folder getFolder(){return Folder.getFolder();}
-  public static void setFolder(Folder f){Folder.setFolder(f);}
+  public static FFolder getFolder(){return FFolder.getFolder();}
+  public static void setFolder(FFolder f){FFolder.setFolder(f);}
   public static void setTuto(boolean b){tuto=b;}
-  public static boolean getFirstGame(){return Folder.getFirstGame();}
-  public static void setFirstGame(boolean b){Folder.setFirstGame(b);}
+  public static boolean getFirstGame(){return FFolder.getFirstGame();}
+  public static void setFirstGame(boolean b){FFolder.setFirstGame(b);}
   public static Data getData(){return data;}
   public static void setData(Data d){data=d;}
   public static View getView(){return view;}
@@ -312,7 +313,7 @@ public class Main {
         }
       }
     }
-    setFolder(new Folder(Main.getView()));
+    setFolder(new FFolder(Main.getView()));
     getFolder().ini();
     new Save();
     setMessageChargement("chargementDesOptions");startCh();

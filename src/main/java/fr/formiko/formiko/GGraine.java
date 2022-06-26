@@ -33,7 +33,7 @@ public class GGraine extends Liste<Graine> implements Serializable {
     return getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
   }
   /**
-  *{@summary Return the seed that have the most givenFood &38; with hardness &lb; hardnessMax.}
+  *{@summary Return the seed that have the most givenFood &#38; with hardness {@literal >} hardnessMax.}
   *lastEditedVersion 2.23
   */
   public Graine getGrainePlusDeGivenFood(int hardnessMax){
@@ -41,7 +41,7 @@ public class GGraine extends Liste<Graine> implements Serializable {
         .getMost((Graine g1, Graine g2) -> g2.getGivenFood() - g1.getGivenFood());
   }
   /**
-  *{@summary Return the seed that have the most givenFood &38; with hardness &lb; ant max hardness.}
+  *{@summary Return the seed that have the most givenFood &#38; with hardness {@literal >} ant max hardness.}
   *lastEditedVersion 2.23
   */
   public Graine getGrainePlusDeGivenFood(Fourmi f){

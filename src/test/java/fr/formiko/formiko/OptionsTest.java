@@ -3,7 +3,7 @@ package fr.formiko.formiko;
 import org.junit.jupiter.api.Test;
 
 import fr.formiko.tests.TestCaseMuet;
-import fr.formiko.usual.Folder;
+import fr.formiko.fusual.FFolder;
 import fr.formiko.formiko.Main;
 
 import java.awt.Font;
@@ -11,7 +11,7 @@ import java.awt.Font;
 public class OptionsTest extends TestCaseMuet {
   @Test
   public void testGetFontTitle(){
-    Main.setFolder(new Folder(Main.getView()));
+    Main.setFolder(new FFolder(Main.getView()));
     Main.getFolder().ini();
     Options op = Options.newDefaultOptions();
     op.setFontText("Default");

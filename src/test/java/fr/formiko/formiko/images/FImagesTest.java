@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import fr.formiko.formiko.Main;
 import fr.formiko.tests.TestCaseMuet;
-import fr.formiko.usual.Folder;
+import fr.formiko.fusual.FFolder;
 import fr.formiko.usual.fichier;
 import fr.formiko.usual.images.Img;
 import fr.formiko.usual.images.Images;
@@ -22,7 +22,7 @@ public class FImagesTest extends TestCaseMuet {
   //taille
   @Test
   public void testTaille(){
-    Main.setFolder(new Folder(Main.getView()));
+    Main.setFolder(new FFolder(Main.getView()));
     Main.getFolder().ini();
     Main.iniOp();//on initialise les Options.
     //FImages.taille(taille de l'espece, taille voulu avec le niveau de grossicement)
