@@ -2,15 +2,6 @@ fr.formiko.formiko
 fr.formiko.formiko.images
 fr.formiko.formiko.interfaces
 fr.formiko.fusual
-fr.formiko.usual
-fr.formiko.usual.astar
-fr.formiko.usual.exceptions
-fr.formiko.usual.images
-fr.formiko.usual.maths
-fr.formiko.usual.media.audio
-fr.formiko.usual.structures
-fr.formiko.usual.structures.listes
-fr.formiko.usual.types
 fr.formiko.views
 fr.formiko.views.cli
 fr.formiko.views.gui2d
