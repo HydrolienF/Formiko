@@ -82,7 +82,6 @@ public class FButton extends JButton implements MouseListener {
     super(name);id=cpt; cpt++;
     // setBorderPainted(false);
     setOpaque(false);
-    debug.débogage("Création du bouton "+str);
     this.nom = name; this.p = p; this.action = action;
     this.addMouseListener(this);
     // if (p!=null) {
