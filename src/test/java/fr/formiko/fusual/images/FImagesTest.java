@@ -47,4 +47,11 @@ public class FImagesTest extends TestCaseMuet {
     assertEquals(i1.getWidth(null),i3.getWidth(null));
     assertEquals(null,i4);
   }
+  @Test
+  public void testReadExistingImage(){
+    File f = new File(Folder.getFolder().getFolderStable()+Folder.getFolder().getFolderImages()+"null.png");
+    Image iNull = Images.readImage(f);
+    assertTrue(iNull!=null);
+    assertTrue(f.isFile());//il n'as pas été supprimé lors de la lecture
+  }
 }
