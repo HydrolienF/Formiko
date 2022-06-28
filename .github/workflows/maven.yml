@@ -174,15 +174,15 @@ jobs:
     - name: build
       run: |
         ./toMsi.ps1
-        mv ./out/Formiko-${{ steps.version.outputs.version }}.msi ./out/Formiko${{ steps.version.outputs.version }}.msi
+        mv ./out/Formiko-$(cat version.md).msi ./out/Formiko$(cat version.md).msi
     - name: upload .msi artifact
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ github.token }}
       with:
         upload_url: ${{needs.releaseJob.outputs.output1}}
-        asset_path: ./out/Formiko${{ steps.version.outputs.version }}.msi
-        asset_name: Formiko${{ steps.version.outputs.version }}.msi
+        asset_path: ./out/Formiko$(cat version.md).msi
+        asset_name: Formiko$(cat version.md).msi
         asset_content_type: application/msi
 
   DebArtifact:
@@ -212,15 +212,15 @@ jobs:
       run: |
         ./toDeb.sh
         ls out/
-        mv out/formiko_${{ steps.version.outputs.version }}-1_amd64.deb out/Formiko${{ steps.version.outputs.version }}.deb
+        mv out/formiko_$(cat version.md)-1_amd64.deb out/Formiko$(cat version.md).deb
     - name: upload .deb artifact
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ github.token }}
       with:
         upload_url: ${{needs.releaseJob.outputs.output1}}
-        asset_path: ./out/Formiko${{ steps.version.outputs.version }}.deb
-        asset_name: Formiko${{ steps.version.outputs.version }}.deb
+        asset_path: ./out/Formiko$(cat version.md).deb
+        asset_name: Formiko$(cat version.md).deb
         asset_content_type: application/deb
 
   DmgArtifact:
@@ -250,15 +250,15 @@ jobs:
       run: |
         ./toDmg.sh
         ls out/
-        mv out/formiko-${{ steps.version.outputs.version }}.dmg out/Formiko${{ steps.version.outputs.version }}.dmg
+        mv out/formiko-$(cat version.md).dmg out/Formiko$(cat version.md).dmg
     - name: upload .deb artifact
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ github.token }}
       with:
         upload_url: ${{needs.releaseJob.outputs.output1}}
-        asset_path: ./out/Formiko${{ steps.version.outputs.version }}.dmg
-        asset_name: Formiko${{ steps.version.outputs.version }}.dmg
+        asset_path: ./out/Formiko$(cat version.md).dmg
+        asset_name: Formiko$(cat version.md).dmg
         asset_content_type: application/dmg
 
 
