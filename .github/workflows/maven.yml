@@ -145,7 +145,7 @@ jobs:
       with:
         java-version: 16
     - name: Version-Tool
-      uses: HydrolienF/Version-Tool@0.5.7
+      uses: HydrolienF/Version-Tool@0.6.4
       id: version
     - name: update version.md
       run: echo ${{ steps.version.outputs.version }} > version.md
@@ -187,7 +187,7 @@ jobs:
       with:
         java-version: 16
     - name: Version-Tool
-      uses: HydrolienF/Version-Tool@0.5.7
+      uses: HydrolienF/Version-Tool@0.6.4
       id: version
     - name: update version.md
       run: echo ${{ steps.version.outputs.version }} > version.md
@@ -230,7 +230,7 @@ jobs:
       with:
         java-version: 16
     - name: Version-Tool
-      uses: HydrolienF/Version-Tool@0.5.7
+      uses: HydrolienF/Version-Tool@0.6.4
       id: version
     - name: update version.md
       run: echo ${{ steps.version.outputs.version }} > version.md
