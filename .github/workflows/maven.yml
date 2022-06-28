@@ -96,7 +96,15 @@ jobs:
         asset_name: Formiko${{ steps.version.outputs.version }}.zip
         asset_content_type: application/zip
 
-    - name: commit version.json & version.md
+    - name: commit version.md
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add version.md
+        git commit -m "Auto data version update"
+        git push
+
+    - name: commit version.json
       if: ${{ steps.dataVersionChange.outputs.dataVersionChangeVal == '1' || steps.musicVersionChange.outputs.musicVersionChangeVal == '1'}}
       run: |
         # echo "echo \"0\"" > needToReleaseData.sh
@@ -105,7 +113,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add version.json
-          git add version.md
           # git add needToRelease*.sh
           git commit -m "Auto data version update"
           # git pull
