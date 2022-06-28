@@ -96,7 +96,7 @@ jobs:
         asset_name: Formiko${{ steps.version.outputs.version }}.zip
         asset_content_type: application/zip
 
-    - name: commit version.json
+    - name: commit version.json & version.md
       if: ${{ steps.dataVersionChange.outputs.dataVersionChangeVal == '1' || steps.musicVersionChange.outputs.musicVersionChangeVal == '1'}}
       run: |
         # echo "echo \"0\"" > needToReleaseData.sh
@@ -105,6 +105,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add version.json
+          git add version.md
           # git add needToRelease*.sh
           git commit -m "Auto data version update"
           # git pull
@@ -144,11 +145,6 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 16
-    - name: Version-Tool
-      uses: HydrolienF/Version-Tool@0.6.4
-      id: version
-    - name: update version.md
-      run: echo ${{ steps.version.outputs.version }} > version.md
 
     - name: jlink
       run: |
@@ -186,11 +182,6 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 16
-    - name: Version-Tool
-      uses: HydrolienF/Version-Tool@0.6.4
-      id: version
-    - name: update version.md
-      run: echo ${{ steps.version.outputs.version }} > version.md
 
     - name: jlink
       run: |
@@ -229,11 +220,6 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 16
-    - name: Version-Tool
-      uses: HydrolienF/Version-Tool@0.6.4
-      id: version
-    - name: update version.md
-      run: echo ${{ steps.version.outputs.version }} > version.md
 
     - name: jlink
       run: |
