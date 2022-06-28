@@ -1,31 +1,26 @@
 name: Javadoc
 
-# Controls when the action will run.
 on:
   pull_request:
-    branches: [ master ]
+    branches: [master]
     types: [closed]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   updateJavadoc:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    - name: Set up JDK 16
+    - name: Set up JDK
       uses: actions/setup-java@v1
       with:
-        java-version: 16
+        java-version: 19
     - name: Javadoc update
-      # Runs test
-      run: ./javadoc.sh
+      run: mvn javadoc:javadoc
     - name: Commit
       run: |
         if [[ `git status --untracked-files=no --porcelain docs/` != "\n" ]]; then
