@@ -96,33 +96,22 @@ jobs:
         asset_name: Formiko${{ steps.version.outputs.version }}.zip
         asset_content_type: application/zip
 
-    - name: commit version.md
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git config pull.rebase true
-        git add version.md
-        git commit -m "Auto data version update"
-        git fetch
-        git pull
-        git push
-
-    - name: commit version.json
-      if: ${{ steps.dataVersionChange.outputs.dataVersionChangeVal == '1' || steps.musicVersionChange.outputs.musicVersionChangeVal == '1'}}
-      run: |
-        # echo "echo \"0\"" > needToReleaseData.sh
-        # echo "echo \"0\"" > needToReleaseMusic.sh
-        if [[ `git status --untracked-files=no --porcelain docs/` != "\n" ]]; then
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git config pull.rebase true
-          git add version.json
-          # git add needToRelease*.sh
-          git commit -m "Auto data version update"
-          git fetch
-          git pull
-          git push
-        fi
+    # - name: commit version.json
+    #   if: ${{ steps.dataVersionChange.outputs.dataVersionChangeVal == '1' || steps.musicVersionChange.outputs.musicVersionChangeVal == '1'}}
+    #   run: |
+    #     # echo "echo \"0\"" > needToReleaseData.sh
+    #     # echo "echo \"0\"" > needToReleaseMusic.sh
+    #     if [[ `git status --untracked-files=no --porcelain docs/` != "\n" ]]; then
+    #       git config --local user.email "action@github.com"
+    #       git config --local user.name "GitHub Action"
+    #       git config pull.rebase true
+    #       git add version.json
+    #       # git add needToRelease*.sh
+    #       git commit -m "Auto data version update"
+    #       git fetch
+    #       git pull
+    #       git push
+    #     fi
     - name: upload data artifact
       #if: ${{ github.ref == 'refs/heads/main' }}
       if: ${{ steps.dataVersionChange.outputs.dataVersionChangeVal == '1' }}
@@ -145,6 +134,20 @@ jobs:
         asset_path: ./out/music.zip
         asset_name: music.zip
         asset_content_type: application/zip
+
+    - name: commit version
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git config pull.rebase true
+        git add version.md
+        git add version.json
+        git commit -m "Auto data version update"
+        git clean -f
+        git restore .
+        git fetch
+        git pull
+        git push
 
   WindowsArtifact:
     if: github.event.pull_request.merged == true
