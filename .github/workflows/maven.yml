@@ -174,8 +174,9 @@ jobs:
 
     - name: version
       id: version
+      shell: pwsh
       run: |
-        version=$(cat version.md)
+        $version = cat version.md
         echo "-------------"
         echo $version
         echo "-------------"
