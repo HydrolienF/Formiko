@@ -227,9 +227,6 @@ public class launchOptions {
     }else if(args[0].equals("createBadges")){
       createBadges.createBadges();
       System.exit(0);
-    }else if(args[0].equals("translateWebSite") || args[0].equals("tws")){
-      translateWebSite(args[1],args[2]);
-      System.exit(0);
     }else if(args[0].equals("updateDataVersion")){
       updateDataVersion(args);
       System.exit(0);
@@ -403,32 +400,6 @@ public class launchOptions {
     sp.play();
     AudioPlayer sp2 = new AudioPlayer("C:/Users/lili5/Music/son/pock.mp3",true,2000);
     sp2.play();
-  }
-  /**
-  *{@summary Translate the web site files.}<br>
-  *@param pathToWebSiteFile path to acces to web site files.
-  *@param pathToWebSiteTranslation path to acces to translation files.
-  *@lastEditedVersion 1.49
-  */
-  private static void translateWebSite(String pathToWebSiteFile, String pathToWebSiteTranslation){
-    Main.setView(new ViewNull());
-    Os.setOs(new Os());
-    Main.setFolder(new FFolder(Main.getView()));
-    Main.iniOp();
-    chargerLesTraductions.setRep(pathToWebSiteTranslation);
-    // Chrono ch = new Chrono();
-    // Main.startCh(ch);
-    Main.getOp().setLanguage(0);
-    Main.iniLangue();
-    Translation.translateWebSiteFiles(pathToWebSiteFile, 0);
-    Main.getOp().setLanguage(1);
-    Main.iniLangue();
-    Translation.translateWebSiteFiles(pathToWebSiteFile, 1);
-    Main.getOp().setLanguage(2);
-    Main.iniLangue();
-    Translation.translateWebSiteFiles(pathToWebSiteFile, 2);
-    // Main.endCh("translateWebSite",ch);
-    // chargerLesTraductions.setRep(null);
   }
   /**
   *{@summary Set value of data to last version in version.json.}<br>
