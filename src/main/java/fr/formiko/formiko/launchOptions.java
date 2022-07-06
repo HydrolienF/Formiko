@@ -417,7 +417,7 @@ public class launchOptions {
       Main.setFolder(f);
       Main.iniOp();
       // FFolder f = Main.getFolder();
-      Reader reader = Files.newBufferedReader(FFolder.getVersionJsonPath());
+      Reader reader = Files.newBufferedReader(Main.getFolder().getVersionJsonPath());
       JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
       String formikoVersion="";
       GString gs = ReadFile.readFileGs("version.md");
@@ -446,7 +446,7 @@ public class launchOptions {
       jsr.put("formiko",formikoVersion);
       // File file = new File(f.getFolderMain()+"version.json");
       // file.delete();
-      BufferedWriter writer = Files.newBufferedWriter(FFolder.getVersionJsonPath());
+      BufferedWriter writer = Files.newBufferedWriter(Main.getFolder().getVersionJsonPath());
       Jsoner.serialize(jsr, writer);
       // erreur.println(jsr);
       // writer.write(jsr.toString());
