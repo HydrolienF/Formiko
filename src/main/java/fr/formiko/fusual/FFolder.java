@@ -19,4 +19,10 @@ public class FFolder extends Folder {
 
   public static FFolder getFolder(){return (FFolder)folder;}
   public static void setFolder(FFolder f){folder=f;}
+
+  public boolean userWantNewVersion(){
+    // TODO #192 if (!haveLastVersion())
+    // TODO #192 ask if user want the new version. If it want exit(2);
+    return true;
+  }
 }
