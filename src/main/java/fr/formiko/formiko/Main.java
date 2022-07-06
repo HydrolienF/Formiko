@@ -171,6 +171,9 @@ public class Main {
       mp.addNextMusic("Beyond The Warriors - Guifrog.mp3", true);
       mp.play();
     }
+    if(getFolder().userWantNewVersion()){
+      quit(2);
+    }
     view.menuMain();
     if (!modeCLI) {
       ((ViewGUI2d)(view)).waitForGameLaunch();
@@ -422,9 +425,13 @@ public class Main {
    * Save time played.<br>
    * Stop java with code 0.<br>
    * If something went wrong stop java with code 1.<br>
-   * @lastEditedVersion 1.1
+   * @param exitCode the exit code used.
+   * @lastEditedVersion 2.27
    */
-  public static void quit(){
+  public static void quit(int exitCode){
+    if(exitCode!=0){
+      erreur.info("exit with code "+exitCode);
+    }
     wantToQuit=true;
     try {
       // if(pa!=null){
@@ -444,12 +451,17 @@ public class Main {
       tem.addTimeEnJeux(tempsJeuEcoulé);tem.actualiserDate2();tem.sauvegarder();
       erreur.println(g.getM("tempsJeuEcoulé")+" : "+Time.msToTime(tempsJeuEcoulé,2,false));
       erreur.println(g.getM("messageQuitter"));
-      System.exit(0);
+      System.exit(exitCode);
     }catch (Exception e) {
       erreur.alerte("Game fail to close normally.");
-      System.exit(1); //une erreur a la fermeture.
+      if(exitCode==0){
+        System.exit(1); //une erreur a la fermeture.
+      }else{
+        System.exit(exitCode);
+      }
     }
   }
+  public static void quit(){quit(0);}
   public static void quitter(){quit();}
   /**
   *{@summary Launch normal exit on shutDown.}
