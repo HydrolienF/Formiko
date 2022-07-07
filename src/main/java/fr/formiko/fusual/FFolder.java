@@ -22,10 +22,10 @@ public class FFolder extends Folder {
   public static void setFolder(FFolder f){Folder.setFolder(f);}
 
   public boolean userWantNewVersion(){
-    // if (!haveLastVersion()){
+    if (!haveLastVersion()){
       // TODO #192 add a checkbox ignoreThisVersion & react to it.
       return Main.getView().popUpQuestionYN(g.get("newVersionAvailable.question"));
-    // }
-    // return false;
+    }
+    return false;
   }
 }
