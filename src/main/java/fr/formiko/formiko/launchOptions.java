@@ -116,7 +116,7 @@ public class launchOptions {
       if(args.length>1){
         tradCmd(args[1]);
       }else{
-        tradCmd();
+        tradCmd("./data/stable/languages");
       }
     }else if(args[0].equals("tradChar")){
       if(args.length<3){return;}
@@ -175,13 +175,14 @@ public class launchOptions {
       }
     }else if(args[0].equals("test")){
       erreur.println("test");
-    }else if(args[0].equals("trad2")){
-      Main.initialisation();
-      chargerLesTraductions.iniTLangue();
-      chargerLesTraductions.créerLesFichiers();
-      g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
-      HashMap<String, String> mapEo = chargerLesTraductions.chargerLesTraductions(0);//chargement des langues.
-      Translation.copieTradBase("eo",mapEo);
+    // }else if(args[0].equals("trad2")){
+      // Main.initialisation();
+      // chargerLesTraductions.iniTLangue();
+      // chargerLesTraductions.créerLesFichiers();
+      // g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
+      // HashMap<String, String> mapEo = chargerLesTraductions.chargerLesTraductions(0);//chargement des langues.
+      // String t [] = ReadFile.readFileArray(chargerLesTraductions.getRep()+"fr.txt");
+      // Translation.copieTradBase("eo",mapEo,t);
       //chargerLesTraductions.addTradAuto();
     }else if (args[0].equals("rbt") || args[0].equals("rognerBordTransparent")){
       Main.initialisation();
@@ -331,22 +332,23 @@ public class launchOptions {
       }
     }
   }
-  /**
-  *{@summary Update 1 translation &#38; print it's &#37;age of translation.}<br>
-  *@lastEditedVersion 1.42
-  */
-  private static void tradCmd(String language){
-    // Main.startCh();
-    chargerLesTraductions.iniTLangue();
-    chargerLesTraductions.créerLesFichiers();
-    g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
-    erreur.print(chargerLesTraductions.getPourcentageTraduit(chargerLesTraductions.getLanguage(language)));
-  }
+  // /**
+  // *{@summary Update 1 translation &#38; print it's &#37;age of translation.}<br>
+  // *@lastEditedVersion 1.42
+  // */
+  // private static void tradCmd(String language){
+  //   // Main.startCh();
+  //   chargerLesTraductions.iniTLangue();
+  //   chargerLesTraductions.créerLesFichiers();
+  //   g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
+  //   erreur.print(chargerLesTraductions.getPourcentageTraduit(chargerLesTraductions.getLanguage(language)));
+  // }
   /**
   *{@summary Update translation.}<br>
-  *@lastEditedVersion 1.21
+  *@lastEditedVersion 2.27
   */
-  public static void tradCmd(){
+  public static void tradCmd(String rep){
+    chargerLesTraductions.setRep(rep);
     Main.startCh();
     chargerLesTraductions.iniTLangue();
     chargerLesTraductions.créerLesFichiers();
