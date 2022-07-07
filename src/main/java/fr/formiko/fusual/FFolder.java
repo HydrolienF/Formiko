@@ -13,14 +13,13 @@ import fr.formiko.usual.g;
 *@lastEditedVersion 2.26
 */
 public class FFolder extends Folder {
-  // private static FFolder folder;
   public FFolder(Progression progression){
     super(progression);
     // ROOT_PATH
   }
 
-  public static FFolder getFolder(){return (FFolder)folder;}
-  public static void setFolder(FFolder f){folder=f;}
+  public static FFolder getFolder(){return (FFolder)Folder.getFolder();}
+  public static void setFolder(FFolder f){Folder.setFolder(f);}
 
   public boolean userWantNewVersion(){
     // if (!haveLastVersion()){

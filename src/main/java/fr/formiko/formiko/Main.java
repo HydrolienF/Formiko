@@ -171,9 +171,6 @@ public class Main {
       mp.addNextMusic("Beyond The Warriors - Guifrog.mp3", true);
       mp.play();
     }
-    if(getFolder().userWantNewVersion()){
-      quit(2);
-    }
     view.menuMain();
     if (!modeCLI) {
       ((ViewGUI2d)(view)).waitForGameLaunch();

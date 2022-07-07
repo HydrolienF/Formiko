@@ -170,6 +170,9 @@ public class ViewGUI2d implements View {
     DiscordIntegration.setNeedToUpdateActivity(true);
     if(f==null || getPm()==null){ini();}
     Main.stopScript();
+    if(Main.getFolder().userWantNewVersion()){
+      Main.quit(2);
+    }
     if(Main.getFirstGame()){
       getPm().askLanguage();
     }else if(Main.getOpenMenuFirst()){
