@@ -464,10 +464,10 @@ conseil.3:no longer want to micromanage your ants? Use the 2 automatic modes tha
 conseil.4:want to vary the style of play a bit? choose a species you haven't played with yet.
 conseil.5:some species of ant are polymorphic. That is to say that they have workers of variable size in order to be able to carry out quite different tasks.
 conseil.6:do not lay too many eggs at once. Otherwise you will no longer be able to take care of it until it becomes imagos.
-conseil.7:ants go through 4 stages of development: egg, lava, nymph and imago (adult ant).[auto]
+conseil.7:ants go through 4 stages of development: egg, larva, nymph and imago (adult ant).[auto]
 conseil.8:the choices you have to make are indicated at the top left of your screen.
 conseil.9:ants do not have an eyelid to moisten their eyes. They must constantly maintain a healthy lifestyle in order to communicate with their antenna and see with their eyes.
-conseil.10:the eggs, lava and nymph are not able to clean them on their own. They need help from an imago or they could be infected with a bad bacteria. make sure your brood stays above 50% cleanliness.
+conseil.10:the eggs, larva and nymph are not able to clean them on their own. They need help from an imago or they could be infected with a bad bacteria. make sure your brood stays above 50% cleanliness.
 conseil.11:the Queen can only lay eggs when it is in the anthill.
 conseil.12:the granivorous ants feed exclusively on seeds. To store their food they keeps the seeds in dry rooms of the anthill.
 conseil.13:the granivorous ants are not able to Trophalax. To feed the brood they must necessarily have seeds open in stock in the anthill.
