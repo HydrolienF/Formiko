@@ -28,6 +28,8 @@ suivant:следующий[auto]
 avant:перед[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:человек-игрок[auto]
 joueur:игрок[auto]
 case:кейс[auto]
 légende:легенда[auto]
+currentPlayer:
 
 allié:союзник[auto]
 neutre:нейтральный[auto]
 ennemi:враг[auto]
 proie:добыча[auto]
 
-//caractéristiques :
+//characteristics :
 taille:резать[auto]
 coordonées:контактная информация[auto]
 coordonnées:контактная информация[auto]
@@ -57,11 +60,14 @@ mode:режим[auto]
 phéromone:феромон[auto]
 transporté:транспортируется[auto]
 espèce:виды[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:муравей[auto]
 insecte:насекомые[auto]
 créature:существо[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:час[auto]
 t.min:мин[auto]
@@ -234,6 +240,8 @@ empty:пустой[auto]
 fixMap:отремонтированная карта[auto]
 mini:мини[auto]
 thirds:третий[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:введите значение переменной[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:спасти[auto]
 bouton.nom.-11:параметры[auto]
 bouton.nom.-12disable:зарядное устройство[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:вернуться к игре[auto]
 languageChoice:
 
 save.message:введите имя для резервной копии.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:уменьшить карту[auto]
 bouton.desc.1:переместить карту вверх[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:обойдите муравья[auto]
 bouton.desc.30:удалите муравья[auto]
 bouton.desc.31:откройте меню параметров игры[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:укажите идентификатор муравья, который получит корм.[auto]
 pti.desc.2:укажите количество предложенной еды.[auto]
 pti.desc.3:укажите тип откладываемого яйца: 0 = матка, 1 = самец, 2 = мелкое, 3 = среднее, 4 = большое, 5 + = другое.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:добро пожаловать в чит-интерфейс Formiko. Здесь вы можете вводить чит-команды.[auto]
 triche.aide.2:команды в форме "имя: (аргументы) описание"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:позволяет проверить наличие чит-кодов[auto]
 cmd.desc.2:отображает информацию о существе (если возможно, также отображает переменные, подготовленные для насекомого или муравья)[auto]
@@ -420,7 +458,7 @@ descNull:описание этой команды не определено.[aut
 
 
 //conseil:
-conseil.1:нашли ошибку? Сообщите об этом разработчику игры на hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:хотите участвовать в разработке игры? Приглашаются кодер, графический дизайнер и переводчик (hydrolien.lili502@gmail.com).[auto]
 conseil.3:пруд микроменеджмента ваших муравьев? Используйте 2 автоматических режима в вашем распоряжении.[auto]
 conseil.4:хотите немного разнообразить стиль игры? выберите вид, с которым вы еще не играли.[auto]

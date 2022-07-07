@@ -28,6 +28,8 @@ suivant:ca urmare a[auto]
 avant:inainte de[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:jucătorul uman[auto]
 joueur:jucător[auto]
 case:caz[auto]
 légende:legendă[auto]
+currentPlayer:
 
 allié:aliat[auto]
 neutre:neutru[auto]
 ennemi:dusman[auto]
 proie:pradă[auto]
 
-//caractéristiques :
+//characteristics :
 taille:a tăia[auto]
 coordonées:informatii de contact[auto]
 coordonnées:informatii de contact[auto]
@@ -57,11 +60,14 @@ mode:modul[auto]
 phéromone:feromon[auto]
 transporté:transportat[auto]
 espèce:specii[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:furnică[auto]
 insecte:insecte[auto]
 créature:făptură[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:gol[auto]
 fixMap:card reparat[auto]
 mini:mini[auto]
 thirds:al treilea[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:vă rugăm să introduceți o valoare pentru variabilă[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:salva[auto]
 bouton.nom.-11:opțiuni[auto]
 bouton.nom.-12disable:încărcător[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:înapoi pentru a juca[auto]
 languageChoice:
 
 save.message:introduceți numele pe care să-l dați copiei de rezervă.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:reduceți harta[auto]
 bouton.desc.1:mutați harta în sus[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:treci în jurul furnicii[auto]
 bouton.desc.30:scoateți furnica[auto]
 bouton.desc.31:deschideți meniul de opțiuni din joc[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:indicați id-ul furnicii care va primi mâncarea.[auto]
 pti.desc.2:indicați cantitatea de mâncare oferită.[auto]
 pti.desc.3:indicați tipul de ou care trebuie depus: 0 = Regină, 1 = Mascul, 2 = Minor, 3 = Mediu, 4 = Major, 5 + = Altele.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:bun venit la interfața de înșelătorie Formiko. Aici puteți introduce comenzi de cheat.[auto]
 triche.aide.2:comenzi sub forma "nume: (argumente) descriere"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:vă permite să verificați dacă sunt disponibile coduri de cheat[auto]
 cmd.desc.2:afișează informații despre o creatură (dacă este posibil, afișează și variabilele pregătite pentru insectă sau furnică)[auto]
@@ -420,7 +458,7 @@ descNull:descrierea acestei comenzi nu este definită.[auto]
 
 
 //conseil:
-conseil.1:ai găsit o eroare? Raportați-l dezvoltatorului de jocuri la adresa hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:doriți să participați la dezvoltarea jocului? Coder, grafician și traducător sunt bineveniți (hydrolien.lili502@gmail.com).[auto]
 conseil.3:rezerva de furnici de micromanagement? Folosește cele 2 moduri automate la dispoziția ta.[auto]
 conseil.4:doriți să modificați puțin stilul de joc? alege o specie cu care nu te-ai jucat încă.[auto]

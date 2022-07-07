@@ -28,6 +28,8 @@ suivant:yn dilyn[auto]
 avant:o'r blaen[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:y chwaraewr dynol[auto]
 joueur:chwaraewr[auto]
 case:achos[auto]
 légende:chwedl[auto]
+currentPlayer:
 
 allié:cynghreiriad[auto]
 neutre:niwtral[auto]
 ennemi:gelyn[auto]
 proie:ysglyfaeth[auto]
 
-//caractéristiques :
+//characteristics :
 taille:torri[auto]
 coordonées:gwybodaeth Cyswllt[auto]
 coordonnées:gwybodaeth Cyswllt[auto]
@@ -57,11 +60,14 @@ mode:modd[auto]
 phéromone:fferomon[auto]
 transporté:cludo[auto]
 espèce:rhywogaethau[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:morgrugyn[auto]
 insecte:pryfed[auto]
 créature:creadur[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:gwag[auto]
 fixMap:cerdyn wedi'i atgyweirio[auto]
 mini:mini[auto]
 thirds:trydydd[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:nodwch werth ar gyfer y newidyn[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:arbed[auto]
 bouton.nom.-11:opsiynau[auto]
 bouton.nom.-12disable:gwefrydd[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:yn ôl i chwarae[auto]
 languageChoice:
 
 save.message:nodwch yr enw i'w roi i'ch copi wrth gefn.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:crebachwch y map[auto]
 bouton.desc.1:symudwch y map i fyny[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:pasiwch o amgylch y morgrugyn[auto]
 bouton.desc.30:tynnwch y morgrugyn[auto]
 bouton.desc.31:agorwch y ddewislen opsiynau yn y gêm[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:nodwch id y morgrugyn a fydd yn derbyn y bwyd.[auto]
 pti.desc.2:nodwch faint o fwyd sy'n cael ei gynnig.[auto]
 pti.desc.3:nodwch y math o wy i'w ddodwy: 0 = Brenhines, 1 = Gwryw, 2 = Mân, 3 = Canolig, 4 = Mawr, 5 + = Arall.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:croeso i ryngwyneb twyllo Formiko. Dyma lle gallwch chi deipio gorchmynion twyllo.[auto]
 triche.aide.2:gorchmynion ar ffurf "enw: (dadleuon) disgrifiad"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:yn caniatáu ichi wirio bod codau twyllo ar gael[auto]
 cmd.desc.2:yn arddangos gwybodaeth am greadur (os yn bosibl mae hefyd yn arddangos y newidynnau a baratowyd ar gyfer y pryf neu'r morgrugyn)[auto]
@@ -420,7 +458,7 @@ descNull:nid yw'r disgrifiad o'r gorchymyn hwn wedi'i ddiffinio.[auto]
 
 
 //conseil:
-conseil.1:wedi dod o hyd i nam? Riportiwch ef i ddatblygwr y gêm yn hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:am gymryd rhan yn natblygiad y gêm? Mae croeso i godiwr, dylunydd graffig a chyfieithydd (hydrolien.lili502@gmail.com).[auto]
 conseil.3:pwll o ficroreoli'ch morgrug? Defnyddiwch y 2 fodd awtomatig sydd ar gael ichi.[auto]
 conseil.4:am amrywio arddull chwarae ychydig? dewiswch rywogaeth nad ydych wedi chwarae â hi eto.[auto]

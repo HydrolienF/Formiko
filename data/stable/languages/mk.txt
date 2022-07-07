@@ -28,6 +28,8 @@ suivant:следниве[auto]
 avant:порано[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:човечкиот играч[auto]
 joueur:играч[auto]
 case:случај[auto]
 légende:легенда[auto]
+currentPlayer:
 
 allié:сојузник[auto]
 neutre:неутрален[auto]
 ennemi:непријател[auto]
 proie:плен[auto]
 
-//caractéristiques :
+//characteristics :
 taille:сече[auto]
 coordonées:контакт информации[auto]
 coordonnées:контакт информации[auto]
@@ -57,11 +60,14 @@ mode:мод[auto]
 phéromone:феромон[auto]
 transporté:транспортирани[auto]
 espèce:видови[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:мравка[auto]
 insecte:инсекти[auto]
 créature:суштество[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:ј[auto]
 t.h:ч[auto]
 t.min:мин[auto]
@@ -234,6 +240,8 @@ empty:празни[auto]
 fixMap:поправена картичка[auto]
 mini:мини[auto]
 thirds:трето[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:внесете вредност за променливата[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:заштеди[auto]
 bouton.nom.-11:опции[auto]
 bouton.nom.-12disable:полнач[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:назад за игра[auto]
 languageChoice:
 
 save.message:внесете го името што ќе го дадете на вашата резервна копија.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:намалете ја картата[auto]
 bouton.desc.1:преместете ја картата нагоре[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:поминете околу мравката[auto]
 bouton.desc.30:отстранете ја мравката[auto]
 bouton.desc.31:отворете го менито за опции во игра[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:наведете го ID на мравката што ќе ја прими храната.[auto]
 pti.desc.2:наведете ја количината на понудена храна.[auto]
 pti.desc.3:наведете го типот на јајце што треба да се постави: 0 = кралица, 1 = машко, 2 = малолетна, 3 = средна, 4 = главна, 5 + = друго.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:добредојдовте на интерфејсот за измами Формико. Ова е местото каде што можете да напишете команди за измами.[auto]
 triche.aide.2:команди во форма "име: (аргументи) опис"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:ви овозможува да проверите дали се достапни измамнички кодови[auto]
 cmd.desc.2:прикажува информации за суштество (ако е можно, ги прикажува и променливите подготвени за инсектот или мравката)[auto]
@@ -420,7 +458,7 @@ descNull:описот на оваа команда не е дефиниран.[a
 
 
 //conseil:
-conseil.1:најдовте грешка? Пријавете го на развивачот на игри на hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:дали сакате да учествувате во развојот на играта? Кодер, графички дизајнер и преведувач се добредојдени (hydrolien.lili502@gmail.com).[auto]
 conseil.3:езерце за микро-управување со вашите мравки? Користете ги 2-те автоматски режими што ви се на располагање.[auto]
 conseil.4:дали сакате малку да го промените стилот на игра? изберете вид со кој сè уште не сте играле.[auto]

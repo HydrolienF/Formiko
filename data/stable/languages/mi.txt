@@ -28,6 +28,8 @@ suivant:e whai ake nei[auto]
 avant:tuhinga o mua[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:te kaitakaro tangata[auto]
 joueur:kaitakaro[auto]
 case:kēhi[auto]
 légende:korero[auto]
+currentPlayer:
 
 allié:hoa piri[auto]
 neutre:kūpapa[auto]
 ennemi:hoariri[auto]
 proie:taonga parakete[auto]
 
-//caractéristiques :
+//characteristics :
 taille:tapahi[auto]
 coordonées:korero whakapā[auto]
 coordonnées:korero whakapā[auto]
@@ -57,11 +60,14 @@ mode:aratau[auto]
 phéromone:pheromone[auto]
 transporté:kawenga[auto]
 espèce:momo[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:popokorua[auto]
 insecte:ngarara[auto]
 créature:mea hanga[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:putua[auto]
 fixMap:kaari whakatika[auto]
 mini:paku[auto]
 thirds:tuatoru[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:whakauruhia mai he uara mo te taurangi[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:penapena[auto]
 bouton.nom.-11:kōwhiringa[auto]
 bouton.nom.-12disable:rihi[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:hoki ki te purei[auto]
 languageChoice:
 
 save.message:whakauruhia te ingoa hei hoatu ki to taapiri.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:whakawhakahu mahere[auto]
 bouton.desc.1:nekehia te mahere ki runga[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:haere puta noa i te popokorua[auto]
 bouton.desc.30:tangohia te popokorua[auto]
 bouton.desc.31:whakatuwherahia te rarangi whiringa-a-whiringa[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:tuhia te id o te popokorua ka whiwhi i nga kai.[auto]
 pti.desc.2:whakaatuhia te nui o nga kai kua tohaina.[auto]
 pti.desc.3:whakaatuhia te momo homa ki te whakatakoto: 0 = Kuini, 1 = Tane, 2 = Iti, 3 = Waenga, 4 = Meiha, 5 + = Tetahi.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:nau mai ki te atanga tinihanga Formiko. Ma konei ka taea e koe te paato i nga whakahau tinihanga.[auto]
 triche.aide.2:tono i roto i te puka "ingoa: (tohenga) whakaahuatanga"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:taea ai e koe te tirotiro kei te waatea nga waehere tinihanga[auto]
 cmd.desc.2:whakaatu ana i nga korero mo tetahi mea hanga (mena ka taea ka whakaatu hoki i nga taurangi kua whakaritea mo te pepeke, te popokorua ranei)[auto]
@@ -420,7 +458,7 @@ descNull:kaore i te tautuhia te whakaahuatanga o tenei whakahau.[auto]
 
 
 //conseil:
-conseil.1:i kitea he pepeha? Tukua atu ki te kaiwhakawhanake takaro i hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:kei te hiahia koe ki te uru atu ki te whanaketanga o te keemu? Ka powhirihia a Coder, kaihoahoa whakairoiro me te kaiwhakamaori (hydrolien.lili502@gmail.com).[auto]
 conseil.3:pond of micromanaging o popokorua? Whakamahia nga momo 2 aunoa ka taea e koe.[auto]
 conseil.4:kei te hiahia koe kia whakarereke i te ahua o te taakaro? kowhiria tetahi momo kaore ano koe kia takaro.[auto]

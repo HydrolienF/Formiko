@@ -28,6 +28,8 @@ suivant:дараах[auto]
 avant:өмнө нь[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:хүний тоглогч[auto]
 joueur:тоглогч[auto]
 case:хэрэг[auto]
 légende:домог[auto]
+currentPlayer:
 
 allié:холбоотон[auto]
 neutre:төвийг сахисан[auto]
 ennemi:дайсан[auto]
 proie:олз[auto]
 
-//caractéristiques :
+//characteristics :
 taille:тайрах[auto]
 coordonées:холбогдох мэдээлэл[auto]
 coordonnées:холбогдох мэдээлэл[auto]
@@ -57,11 +60,14 @@ mode:горим[auto]
 phéromone:феромон[auto]
 transporté:тээвэрлэсэн[auto]
 espèce:төрөл зүйл[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:шоргоолж[auto]
 insecte:шавьж[auto]
 créature:амьтан[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:ж[auto]
 t.min:мин[auto]
@@ -234,6 +240,8 @@ empty:хоосон[auto]
 fixMap:засварласан карт[auto]
 mini:мини[auto]
 thirds:гурав дахь[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:хувьсагчийн утгыг оруулна уу[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:хадгалах[auto]
 bouton.nom.-11:сонголтууд[auto]
 bouton.nom.-12disable:цэнэглэгч[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:буцааж тоглох[auto]
 languageChoice:
 
 save.message:нөөцдөө өгөх нэрээ оруулна уу.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:газрын зургийг агшаа[auto]
 bouton.desc.1:газрын зургийг дээш зөө[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:шоргоолжийг тойрон өнгөрөх[auto]
 bouton.desc.30:шоргоолжийг зайлуул[auto]
 bouton.desc.31:тоглоом доторх сонголтуудын цэсийг нээнэ үү[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:хоол хүнс хүлээн авах шоргоолжны id-г заана уу.[auto]
 pti.desc.2:санал болгож буй хоолны хэмжээг зааж өгөөрэй.[auto]
 pti.desc.3:өндөгний төрлийг зааж өгөөрэй: 0 = Хатан, 1 = Эрэгтэй, 2 = Бага, 3 = Дунд, 4 = Гол, 5 + = Бусад.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:formiko cheat интерфейст тавтай морилно уу. Энд та cheat командыг бичиж болно.[auto]
 triche.aide.2:"нэр: (аргумент) тодорхойлолт" хэлбэрийн тушаалууд[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:хууран мэхлэх код байгаа эсэхийг шалгах боломжийг танд олгоно[auto]
 cmd.desc.2:амьтны тухай мэдээллийг харуулах (боломжтой бол шавьж эсвэл шоргоолжонд зориулж бэлтгэсэн хувьсагчдыг харуулах)[auto]
@@ -420,7 +458,7 @@ descNull:энэ командын тайлбар тодорхойлогдоогү
 
 
 //conseil:
-conseil.1:алдаа олсон уу? Тоглоомыг хөгжүүлэгчдэд hydrolien.lili502@gmail.com хаягаар мэдээлнэ үү.[auto]
+conseil.1:
 conseil.2:тоглоомыг хөгжүүлэхэд оролцохыг хүсч байна уу? Кодер, график дизайнер, орчуулагчийг урьж байна (hydrolien.lili502@gmail.com).[auto]
 conseil.3:шоргоолжоо бичил удирдах цөөрөм үү? Өөрийн мэдэлд байгаа 2 автомат горимыг ашиглаарай.[auto]
 conseil.4:тоглолтын хэв маягийг жаахан өөрчилмөөр байна уу? тоглож амжаагүй зүйлээ сонгоорой.[auto]

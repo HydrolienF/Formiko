@@ -28,6 +28,8 @@ suivant:folgenden[auto]
 avant:vor[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:der menschliche Spieler[auto]
 joueur:spieler[auto]
 case:fall[auto]
 légende:legende[auto]
+currentPlayer:
 
 allié:verbündete[auto]
 neutre:neutral[auto]
 ennemi:feind[auto]
 proie:beute[auto]
 
-//caractéristiques :
+//characteristics :
 taille:schnitt[auto]
 coordonées:kontakt Informationen[auto]
 coordonnées:kontakt Informationen[auto]
@@ -57,11 +60,14 @@ mode:modus[auto]
 phéromone:pheromon[auto]
 transporté:transportiert[auto]
 espèce:spezies[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:ameise[auto]
 insecte:insekten[auto]
 créature:kreatur[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:mindest[auto]
@@ -234,6 +240,8 @@ empty:leer[auto]
 fixMap:reparierte Karte[auto]
 mini:mini[auto]
 thirds:dritte[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:bitte geben Sie einen Wert für die Variable ein[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:speichern[auto]
 bouton.nom.-11:optionen[auto]
 bouton.nom.-12disable:ladegerät[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:zurück zum spielen[auto]
 languageChoice:
 
 save.message:geben Sie den Namen ein, den Sie Ihrem Backup geben möchten.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:verkleinern Sie die Karte[auto]
 bouton.desc.1:bewegen Sie die Karte nach oben[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:gib die Ameise herum[auto]
 bouton.desc.30:entfernen Sie die Ameise[auto]
 bouton.desc.31:öffne das Optionsmenü im Spiel[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:geben Sie die ID der Ameise an, die das Futter erhalten soll.[auto]
 pti.desc.2:geben Sie die Menge der angebotenen Lebensmittel an.[auto]
 pti.desc.3:geben Sie die Art des zu legenden Eies an: 0 = Königin, 1 = Männchen, 2 = Klein, 3 = Mittel, 4 = Haupt, 5 + = Andere.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:willkommen auf der Formiko Cheat-Oberfläche. Hier können Sie Cheat-Befehle eingeben.[auto]
 triche.aide.2:befehle in der Form "Name: (Argumente) Beschreibung"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:hier kannst du überprüfen, ob Cheat-Codes verfügbar sind[auto]
 cmd.desc.2:zeigt Informationen zu einer Kreatur an (wenn möglich auch die für das Insekt oder die Ameise vorbereiteten Variablen)[auto]
@@ -420,7 +458,7 @@ descNull:die Beschreibung dieses Befehls ist nicht definiert.[auto]
 
 
 //conseil:
-conseil.1:einen Fehler gefunden? Melde es dem Spieleentwickler unter hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:möchten Sie an der Entwicklung des Spiels teilnehmen? Programmierer, Grafikdesigner und Übersetzer sind willkommen (hydrolien.lili502@gmail.com).[auto]
 conseil.3:teich der Mikromanagement Ihrer Ameisen? Verwenden Sie die 2 automatischen Modi, die Ihnen zur Verfügung stehen.[auto]
 conseil.4:möchten Sie den Spielstil etwas variieren? Wähle eine Art, mit der du noch nicht gespielt hast.[auto]

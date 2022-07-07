@@ -28,6 +28,8 @@ suivant:następujący[auto]
 avant:przed[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:gracz-człowiek[auto]
 joueur:gracz[auto]
 case:walizka[auto]
 légende:legenda[auto]
+currentPlayer:
 
 allié:sprzymierzyć[auto]
 neutre:neutralny[auto]
 ennemi:wróg[auto]
 proie:zdobycz[auto]
 
-//caractéristiques :
+//characteristics :
 taille:skaleczenie[auto]
 coordonées:informacje kontaktowe[auto]
 coordonnées:informacje kontaktowe[auto]
@@ -57,11 +60,14 @@ mode:tryb[auto]
 phéromone:feromon[auto]
 transporté:przewieziony[auto]
 espèce:gatunki[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:mrówka[auto]
 insecte:owady[auto]
 créature:kreatura[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:jot[auto]
 t.h:godz[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:pusty[auto]
 fixMap:naprawiona karta[auto]
 mini:mini[auto]
 thirds:trzeci[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:proszę podać wartość zmiennej[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:zapisać[auto]
 bouton.nom.-11:opcje[auto]
 bouton.nom.-12disable:ładowarka[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:z powrotem do gry[auto]
 languageChoice:
 
 save.message:wprowadź nazwę, którą chcesz nadać kopii zapasowej.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:zmniejsz mapę[auto]
 bouton.desc.1:przesuń mapę w górę[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:omiń mrówkę[auto]
 bouton.desc.30:usuń mrówkę[auto]
 bouton.desc.31:otwórz menu opcji w grze[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:wskaż identyfikator mrówki, która otrzyma pożywienie.[auto]
 pti.desc.2:wskaż ilość oferowanego jedzenia.[auto]
 pti.desc.3:wskaż rodzaj składanego jaja: 0 = królowa, 1 = samiec, 2 = drugorzędne, 3 = średnie, 4 = główne, 5 + = inne.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:witamy w interfejsie cheatów Formiko. Tutaj możesz wpisywać polecenia do oszukiwania.[auto]
 triche.aide.2:polecenia w postaci „nazwa: (argumenty) opis”[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:pozwala sprawdzić, czy dostępne są kody[auto]
 cmd.desc.2:wyświetla informacje o stworzeniu (jeśli to możliwe, wyświetla również zmienne przygotowane dla owada lub mrówki)[auto]
@@ -420,7 +458,7 @@ descNull:opis tego polecenia nie jest zdefiniowany.[auto]
 
 
 //conseil:
-conseil.1:znalazłeś błąd? Zgłoś to twórcy gry pod adresem hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:chcesz uczestniczyć w tworzeniu gry? Zapraszamy programistę, grafika i tłumacza (hydrolien.lili502@gmail.com).[auto]
 conseil.3:staw mikrozarządzania mrówkami? Skorzystaj z 2 dostępnych trybów automatycznych.[auto]
 conseil.4:chcesz nieco zmienić styl gry? wybierz gatunek, z którym jeszcze nie grałeś.[auto]

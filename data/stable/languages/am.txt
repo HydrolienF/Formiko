@@ -28,6 +28,8 @@ suivant:በመከተል ላይ[auto]
 avant:ከዚህ በፊት[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:የሰው ተጫዋች[auto]
 joueur:ተጫዋች[auto]
 case:ጉዳይ[auto]
 légende:አፈ ታሪክ[auto]
+currentPlayer:
 
 allié:አጋር[auto]
 neutre:ገለልተኛ[auto]
 ennemi:ጠላት[auto]
 proie:ምርኮኛ[auto]
 
-//caractéristiques :
+//characteristics :
 taille:መቁረጥ[auto]
 coordonées:የመገኛ አድራሻ[auto]
 coordonnées:የመገኛ አድራሻ[auto]
@@ -57,11 +60,14 @@ mode:ሞድ[auto]
 phéromone:ፔሮሞን[auto]
 transporté:ተጓጓዘ[auto]
 espèce:ዝርያዎች[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:ጉንዳን[auto]
 insecte:ነፍሳት[auto]
 créature:ፍጡር[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:ሸ[auto]
 t.min:ደቂቃ[auto]
@@ -234,6 +240,8 @@ empty:ባዶ[auto]
 fixMap:የተስተካከለ ካርድ[auto]
 mini:ሚኒ[auto]
 thirds:ሶስተኛ[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:እባክዎን ለተለዋጭ እሴት ያስገቡ[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:አስቀምጥ[auto]
 bouton.nom.-11:አማራጮች[auto]
 bouton.nom.-12disable:የኃይል መሙያ[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:ለመጫወት ተመለስ[auto]
 languageChoice:
 
 save.message:ለመጠባበቂያዎ ለመስጠት ስሙን ያስገቡ።[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:ካርታውን ይቀንሱ[auto]
 bouton.desc.1:ካርታውን ወደ ላይ ውሰድ[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:በጉንዳኑ ዙሪያ ይለፉ[auto]
 bouton.desc.30:ጉንዳን ያስወግዱ[auto]
 bouton.desc.31:የውስጠ-ጨዋታ አማራጮች ምናሌውን ይክፈቱ[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:ምግቡን የሚቀበል የጉንዳን መታወቂያ ያመልክቱ ፡፡[auto]
 pti.desc.2:የቀረበው የምግብ መጠን ያመልክቱ።[auto]
 pti.desc.3:የሚዘረጋውን የእንቁላል አይነት ያመልክቱ-0 = ንግሥት ፣ 1 = ወንድ ፣ 2 = አናሳ ፣ 3 = መካከለኛ ፣ 4 = ሜጀር ፣ 5 + = ሌላ ፡፡[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:ወደ Formiko ማታለያ በይነገጽ እንኳን በደህና መጡ። ይህ የማጭበርበር ትዕዛዞችን መተየብ የሚችሉበት ቦታ ነው።[auto]
 triche.aide.2:ትዕዛዞችን በቅጹ ላይ "ስም: (ክርክሮች) መግለጫ"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:የማጭበርበሪያ ኮዶች መኖራቸውን ለመፈተሽ ያስችልዎታል[auto]
 cmd.desc.2:ስለ ፍጡር መረጃ ያሳያል (ከተቻለ ለነፍሳቱ ወይም ለጉንዳኑ የተዘጋጁትን ተለዋዋጮችም ያሳያል)[auto]
@@ -420,7 +458,7 @@ descNull:የዚህ ትዕዛዝ መግለጫ አልተገለጸም ፡፡[auto]
 
 
 //conseil:
-conseil.1:ሳንካ ተገኝቷል? ለጨዋታው ገንቢ በ hydrolien.lili502@gmail.com ያሳውቁ ፡፡[auto]
+conseil.1:
 conseil.2:በጨዋታው ልማት ውስጥ መሳተፍ ይፈልጋሉ? ኮደር ፣ ግራፊክ ዲዛይነር እና ተርጓሚ እንኳን ደህና መጡ (hydrolien.lili502@gmail.com)[auto]
 conseil.3:ጉንዳኖችዎን በማይክሮግራም ማበጠር ኩሬ? በአጠገብዎ ያሉትን 2 አውቶማቲክ ሁነቶችን ይጠቀሙ ፡፡[auto]
 conseil.4:የጨዋታ ዘይቤን ትንሽ መለዋወጥ ይፈልጋሉ? እስካሁን ያልተጫወቱትን ዝርያ ይምረጡ ፡፡[auto]

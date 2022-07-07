@@ -28,6 +28,8 @@ suivant:ווייַטערדיק[auto]
 avant:איידער[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:דער מענטש שפּילער[auto]
 joueur:שפּילער[auto]
 case:פאַל[auto]
 légende:לעגענדע[auto]
+currentPlayer:
 
 allié:אַליירט[auto]
 neutre:נייטראַל[auto]
 ennemi:פייַנט[auto]
 proie:רויב[auto]
 
-//caractéristiques :
+//characteristics :
 taille:שנייַדן[auto]
 coordonées:קאָנטאַקט אינפֿאָרמאַציע[auto]
 coordonnées:קאָנטאַקט אינפֿאָרמאַציע[auto]
@@ -57,11 +60,14 @@ mode:מאָדע[auto]
 phéromone:פעראַמאָון[auto]
 transporté:טראַנספּאָרטאַד[auto]
 espèce:מינים[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:מוראַשקע[auto]
 insecte:ינסעקץ[auto]
 créature:באַשעפעניש[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:מין[auto]
@@ -234,6 +240,8 @@ empty:ליידיק[auto]
 fixMap:ריפּערד קאָרט[auto]
 mini:מיני[auto]
 thirds:דריט[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:ביטע אַרייַן אַ ווערט פֿאַר די בייַטעוודיק[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:ראַטעווען[auto]
 bouton.nom.-11:אָפּציעס[auto]
 bouton.nom.-12disable:טשאַרדזשער[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:צוריק צו שפּילן[auto]
 languageChoice:
 
 save.message:אַרייַן די נאָמען צו געבן דיין באַקאַפּ.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:ייַנשרומפּן די מאַפּע[auto]
 bouton.desc.1:מאַך די מאַפּע אַרויף[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:פאָרן אַרום די מוראַשקע[auto]
 bouton.desc.30:אַראָפּנעמען די מוראַשקע[auto]
 bouton.desc.31:עפֿן די מעניו אין-שפּיל אָפּציעס[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:אָנווייַזן די יד פון די מוראַשקע וואָס וועט באַקומען די עסנוואַרג.[auto]
 pti.desc.2:אָנווייַזן די סומע פון געפֿינט עסנוואַרג.[auto]
 pti.desc.3:אָנווייַזן דעם טיפּ פון יי צו זיין געלייגט: 0 = מלכּה, 1 = זכר, 2 = מינערווערטיק, 3 = מיטל, 4 = הויפּט, 5 + = אנדערע.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:באַגריסונג צו די פאָרמיקאָ אָפּנאַרן צובינד. דאָ איר קענען דרוקן אָפּנאַרן קאַמאַנדז.[auto]
 triche.aide.2:קאַמאַנדז אין די פאָרעם "נאָמען: (טענות) באַשרייַבונג"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:אַלאַוז איר צו קאָנטראָלירן אַז אָפּנאַרן קאָודז זענען בנימצא[auto]
 cmd.desc.2:דיספּלייז אינפֿאָרמאַציע וועגן אַ באַשעפעניש (אויב מעגלעך, עס אויך דיספּלייז די וועריאַבאַלז צוגעגרייט פֿאַר די ינסעקט אָדער מוראַשקע)[auto]
@@ -420,7 +458,7 @@ descNull:די באַשרייַבונג פון דעם באַפֿעל איז ני�
 
 
 //conseil:
-conseil.1:געפונען אַ זשוק? באריכט עס צו די שפּיל דעוועלאָפּער ביי hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:ווילן צו אָנטייל נעמען אין דער אַנטוויקלונג פון דער שפּיל? קאָדער, גראַפיק דיזיינער און יבערזעצער זענען באַגריסונג (hydrolien.lili502@gmail.com).[auto]
 conseil.3:סטאַוו פון מיקראָמאַנינג דיין אַנץ? ניצן די 2 אָטאַמאַטיק מאָדעס צו דיין באַזייַטיקונג.[auto]
 conseil.4:ווילן צו פאַרשיידן די סטיל פון שפּילן אַ ביסל? קלייַבן אַ מינים מיט וואָס איר האָט נישט געשפילט מיט נאָך.[auto]

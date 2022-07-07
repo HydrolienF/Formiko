@@ -28,6 +28,8 @@ suivant:sekant[auto]
 avant:prieš tai[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:žmogaus žaidėjas[auto]
 joueur:grotuvas[auto]
 case:atveju[auto]
 légende:legenda[auto]
+currentPlayer:
 
 allié:sąjungininkas[auto]
 neutre:neutralus[auto]
 ennemi:priešas[auto]
 proie:grobis[auto]
 
-//caractéristiques :
+//characteristics :
 taille:supjaustyti[auto]
 coordonées:kontaktinė informacija[auto]
 coordonnées:kontaktinė informacija[auto]
@@ -57,11 +60,14 @@ mode:režimas[auto]
 phéromone:feromonas[auto]
 transporté:gabenamas[auto]
 espèce:rūšių[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:skruzdė[auto]
 insecte:vabzdžiai[auto]
 créature:padaras[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:tuščia[auto]
 fixMap:suremontuota kortelė[auto]
 mini:mini[auto]
 thirds:trečias[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:įveskite kintamojo vertę[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:sutaupyti[auto]
 bouton.nom.-11:galimybės[auto]
 bouton.nom.-12disable:kroviklis[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:atgal žaisti[auto]
 languageChoice:
 
 save.message:įveskite vardą, kurį suteiksite savo atsarginei kopijai.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:sumažinkite žemėlapį[auto]
 bouton.desc.1:perkelkite žemėlapį aukštyn[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:aplenk skruzdę[auto]
 bouton.desc.30:nuimkite skruzdėlę[auto]
 bouton.desc.31:atidarykite žaidimo parinkčių meniu[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:nurodykite skruzdėlės, kuri gaus maistą, ID.[auto]
 pti.desc.2:nurodykite siūlomo maisto kiekį.[auto]
 pti.desc.3:nurodykite dedamo kiaušinio tipą: 0 = karalienė, 1 = vyras, 2 = nepilnametis, 3 = vidutinis, 4 = pagrindinis, 5 + = kitas.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:sveiki atvykę į „Formiko“ apgaulės sąsają. Čia galite įvesti apgaulės komandas.[auto]
 triche.aide.2:komandos forma „pavadinimas: (argumentai) aprašymas“[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:leidžia patikrinti, ar yra kodų kodai[auto]
 cmd.desc.2:rodoma informacija apie padarą (jei įmanoma, rodomi ir vabzdžiui ar skruzdėlei paruošti kintamieji)[auto]
@@ -420,7 +458,7 @@ descNull:šios komandos aprašymas nėra apibrėžtas.[auto]
 
 
 //conseil:
-conseil.1:radote klaidą? Praneškite apie tai žaidimo kūrėjui adresu hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:norite dalyvauti kuriant žaidimą? Laukiame koderio, grafikos dizainerio ir vertėjo (hydrolien.lili502@gmail.com).[auto]
 conseil.3:jūsų skruzdžių mikrovaldymo tvenkinys? Naudokite 2 savo žinioje esančius automatinius režimus.[auto]
 conseil.4:norite šiek tiek pakeisti žaidimo stilių? pasirinkite rūšį, su kuria dar nesu žaidęs.[auto]

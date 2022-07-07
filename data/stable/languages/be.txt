@@ -28,6 +28,8 @@ suivant:наступныя[auto]
 avant:раней[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:чалавечы гулец[auto]
 joueur:плэер[auto]
 case:справа[auto]
 légende:легенда[auto]
+currentPlayer:
 
 allié:саюзнік[auto]
 neutre:нейтральны[auto]
 ennemi:вораг[auto]
 proie:здабыча[auto]
 
-//caractéristiques :
+//characteristics :
 taille:выразаць[auto]
 coordonées:кантактная інфармацыя[auto]
 coordonnées:кантактная інфармацыя[auto]
@@ -57,11 +60,14 @@ mode:рэжым[auto]
 phéromone:феромон[auto]
 transporté:перавезены[auto]
 espèce:віды[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:мурашка[auto]
 insecte:казуркі[auto]
 créature:істота[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:ч[auto]
 t.min:мін[auto]
@@ -234,6 +240,8 @@ empty:пусты[auto]
 fixMap:адрамантаваная карта[auto]
 mini:міні[auto]
 thirds:трэці[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:калі ласка, увядзіце значэнне для зменнай[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:захаваць[auto]
 bouton.nom.-11:варыянты[auto]
 bouton.nom.-12disable:зарадная прылада[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:назад гуляць[auto]
 languageChoice:
 
 save.message:увядзіце імя для рэзервовай копіі.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:паменшыць карту[auto]
 bouton.desc.1:перамясціце карту ўверх[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:прайдзіце вакол мурашкі[auto]
 bouton.desc.30:выдаліць мурашку[auto]
 bouton.desc.31:адкрыйце меню параметраў гульні[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:укажыце ідэнтыфікатар мураша, які атрымае ежу.[auto]
 pti.desc.2:пакажыце колькасць прапанаванай ежы.[auto]
 pti.desc.3:пазначце тып яйка, якое трэба адкласці: 0 = каралева, 1 = самец, 2 = нязначнае, 3 = сярэдняе, 4 = маёр, 5 + = іншае.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:сардэчна запрашаем у чыць інтэрфейс Formiko. Тут вы можаце ўводзіць чыт-каманды.[auto]
 triche.aide.2:каманды ў форме "імя: (аргументы) апісанне"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:дазваляе праверыць наяўнасць чыт-кодаў[auto]
 cmd.desc.2:адлюстроўвае інфармацыю пра істоту (па магчымасці таксама адлюстроўвае зменныя, падрыхтаваныя для казуркі ці мурашкі)[auto]
@@ -420,7 +458,7 @@ descNull:апісанне гэтай каманды не вызначана.[aut
 
 
 //conseil:
-conseil.1:знайшлі памылку? Паведаміце пра гэта распрацоўшчыку гульні па адрасе hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:хочаце паўдзельнічаць у распрацоўцы гульні? Вітаюцца кодэр, графічны дызайнер і перакладчык (hydrolien.lili502@gmail.com).[auto]
 conseil.3:сажалка мікракіравання вашымі мурашкамі? Выкарыстоўвайце 2 аўтаматычныя рэжымы, якія ёсць у вашым распараджэнні.[auto]
 conseil.4:хочаце трохі змяніць стыль гульні? выбірайце від, з якім вы яшчэ не гулялі.[auto]

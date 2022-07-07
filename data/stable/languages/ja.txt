@@ -28,6 +28,8 @@ suivant:以下[auto]
 avant:前[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:人間のプレーヤー[auto]
 joueur:プレーヤー[auto]
 case:場合[auto]
 légende:伝説[auto]
+currentPlayer:
 
 allié:同盟国[auto]
 neutre:中性[auto]
 ennemi:敵[auto]
 proie:獲物[auto]
 
-//caractéristiques :
+//characteristics :
 taille:切る[auto]
 coordonées:連絡先[auto]
 coordonnées:連絡先[auto]
@@ -57,11 +60,14 @@ mode:モード[auto]
 phéromone:フェロモン[auto]
 transporté:輸送された[auto]
 espèce:種[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:蟻[auto]
 insecte:虫[auto]
 créature:生き物[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:分[auto]
@@ -234,6 +240,8 @@ empty:空の[auto]
 fixMap:修理されたカード[auto]
 mini:ミニ[auto]
 thirds:第三[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:変数の値を入力してください[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:保存する[auto]
 bouton.nom.-11:オプション[auto]
 bouton.nom.-12disable:充電器[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:再生に戻る[auto]
 languageChoice:
 
 save.message:バックアップに付ける名前を入力します。[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:シュリンクマップ[auto]
 bouton.desc.1:地図を上に移動[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:アリの周りを通過[auto]
 bouton.desc.30:アリを取り除く[auto]
 bouton.desc.31:ゲーム内オプションメニューを開く[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:餌を受け取るアリのIDを示します。[auto]
 pti.desc.2:提供される食品の量を示します。[auto]
 pti.desc.3:産卵する卵の種類を示します：0 =女王、1 =男性、2 =マイナー、3 =中、4 =メジャー、5 + =その他。[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:formikoチートインターフェースへようこそ。ここにチートコマンドを入力できます。[auto]
 triche.aide.2:「名前:(引数）説明」の形式のコマンド[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:チートコードが利用可能であることを確認できます[auto]
 cmd.desc.2:生き物に関する情報を表示します（可能であれば、昆虫またはアリのために準備された変数も表示します）[auto]
@@ -420,7 +458,7 @@ descNull:このコマンドの説明は定義されていません。[auto]
 
 
 //conseil:
-conseil.1:バグを見つけましたか？それをゲーム開発者にHydrolien.lili502@gmail.comに報告してください。[auto]
+conseil.1:
 conseil.2:ゲームの開発に参加してみませんか？コーダー、グラフィックデザイナー、翻訳者を歓迎します（hydrolien.lili502@gmail.com）。[auto]
 conseil.3:あなたのアリをマイクロマネージメントする池？ 2つの自動モードを自由に使用できます。[auto]
 conseil.4:プレイのスタイルを少し変えたいですか？まだ遊んだことがない種を選んでください。[auto]

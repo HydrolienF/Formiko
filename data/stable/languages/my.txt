@@ -28,6 +28,8 @@ suivant:အောက်ပါ[auto]
 avant:မတိုင်မီ[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:လူ့ကစားသမား[auto]
 joueur:ကစားသမား[auto]
 case:အမှု[auto]
 légende:ဒဏ္ာရီ[auto]
+currentPlayer:
 
 allié:မဟာမိတ်[auto]
 neutre:ကြားနေ[auto]
 ennemi:ရန်သူ[auto]
 proie:လုယူရာဥစ္စာ[auto]
 
-//caractéristiques :
+//characteristics :
 taille:ဖြတ်[auto]
 coordonées:ဆက်သွယ်ရန်အချက်အလက်[auto]
 coordonnées:ဆက်သွယ်ရန်အချက်အလက်[auto]
@@ -57,11 +60,14 @@ mode:mode ကို[auto]
 phéromone:pheromone[auto]
 transporté:ပို့ဆောင်ပေးခဲ့သည်[auto]
 espèce:မျိုးစိတ်[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:ပုရွက်ဆိတ်[auto]
 insecte:အင်းဆက်ပိုးမွှားများ[auto]
 créature:သတ္တဝါ[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:ည[auto]
 t.h:ဇ[auto]
 t.min:၅ မိနစ်[auto]
@@ -234,6 +240,8 @@ empty:ဗလာ[auto]
 fixMap:ပြန်လည်ပြင်ဆင်ထားသောကဒ်[auto]
 mini:အသေးစား[auto]
 thirds:တတိယ[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:ကျေးဇူးပြုပြီး variable အတွက်တန်ဖိုးထည့်ပါ[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:သိမ်းဆည်းပါ[auto]
 bouton.nom.-11:ရွေးချယ်စရာများ[auto]
 bouton.nom.-12disable:အားသွင်းကြိုး[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:ပြန်ကစားရန်[auto]
 languageChoice:
 
 save.message:သင်၏အရန်ကူးရန်အတွက်အမည်ထည့်ပါ။[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:မြေပုံကိုချုံ့ပါ[auto]
 bouton.desc.1:မြေပုံကိုရွှေ့ပါ[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:ပုရွက်ဆိတ်တစ်ဝိုက်ဖြတ�
 bouton.desc.30:ပုရွက်ဆိတ်ကိုဖယ်ရှားလိုက်ပါ[auto]
 bouton.desc.31:in-game options menu ကိုဖွင့်ပါ[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:အစားအစာကိုလက်ခံရရှိမည့်ပုရွက်ဆိတ်၏အိုင်ဒီကိုဖော်ပြပါ။[auto]
 pti.desc.2:ကမ်းလှမ်းသည့်အစားအစာပမာဏကိုဖော်ပြပါ။[auto]
 pti.desc.3:ကြက်ဥအမျိုးအစားကိုညွှန်ပြပါ။ 0 = ဘုရင်မ၊ ၁ = ယောက်ျား၊ ၂ = အရွယ်မရောက်သေးသူ၊ ၃ = အလယ်အလတ်၊ ၄ = ဗိုလ်မှူး၊ ၅ + = အခြား။[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:အဆိုပါ Formiko cheat interface ကိုမှကြိုဆိုပါတယ်။ ဒီမှာ cheat commands တွေကိုရိုက်လို့ရတယ်။[auto]
 triche.aide.2:"name: (အငြင်းပွားမှုများ) ဖော်ပြချက်" ပုံစံအတွက် commands[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:သငျသညျ cheat codes တွေကိုရရှိနိုင်ဖြစ်ကြောင်းစစ်ဆေးခွင့်ပြုပါတယ်[auto]
 cmd.desc.2:သတ္တဝါတစ်ကောင်အကြောင်းသတင်းအချက်အလက်ကိုပြသသည် (ဖြစ်နိုင်လျှင်အင်းဆက်ပိုးမွှားသို့မဟုတ်ပုရွက်ဆိတ်အတွက်အဆင်သင့်ဖြစ်သည့် variable များကိုလည်းပြသည်)[auto]
@@ -420,7 +458,7 @@ descNull:ဒီ command ၏ဖော်ပြချက်ကိုသတ်မ�
 
 
 //conseil:
-conseil.1:အမှားတစ်ခုကိုတွေ့ပြီလား ဒီဂိမ်းကို hydrolien.lili502@gmail.com မှာတင်ပို့ပါ။[auto]
+conseil.1:
 conseil.2:ဂိမ်းဖွံ့ဖြိုးတိုးတက်မှုတွင်ပါ ၀ င်လိုပါသလား။ Coder၊ ဂရပ်ဖစ်ဒီဇိုင်းပညာရှင်နှင့်ဘာသာပြန်ဆိုသူကိုကြိုဆိုပါသည်။ (hydrolien.lili502@gmail.com)[auto]
 conseil.3:သင်၏ပုရွက်ဆိတ်များကိုစီမံခန့်ခွဲခြင်း၏ရေကန်? သင်၏စွန့်ပစ်မှုတွင်အလိုအလျောက်စနစ် ၂ ခုကိုအသုံးပြုပါ။[auto]
 conseil.4:ကစားနည်းပုံစံကိုအနည်းငယ်ပြောင်းလဲလိုပါသလား။ သင်မကစားသေးသောမျိုးစိတ်တစ်ခုကိုရွေးချယ်ပါ။[auto]

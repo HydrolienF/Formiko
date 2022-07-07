@@ -28,6 +28,8 @@ suivant:próximo[auto]
 avant:antes de[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:el jugador humano[auto]
 joueur:jugador
 case:caso[auto]
 légende:leyenda[auto]
+currentPlayer:
 
 allié:aliado[auto]
 neutre:neutral
 ennemi:enemigo[auto]
 proie:presa[auto]
 
-//caractéristiques :
+//characteristics :
 taille:tamaño[auto]
 coordonées:información del contacto[auto]
 coordonnées:información del contacto[auto]
@@ -57,11 +60,14 @@ mode:modo[auto]
 phéromone:feromona[auto]
 transporté:transportado[auto]
 espèce:especies
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:hormiga[auto]
 insecte:insectos
 créature:criatura[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:vacío[auto]
 fixMap:tarjeta reparada[auto]
 mini:mini[auto]
 thirds:tercero[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:por favor ingrese un valor para la variable[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:salvar[auto]
 bouton.nom.-11:opciones[auto]
 bouton.nom.-12disable:cargador[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:volver a jugar[auto]
 languageChoice:
 
 save.message:ingrese el nombre para darle a su respaldo.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:reducir el mapa[auto]
 bouton.desc.1:mover el mapa hacia arriba[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:pase la hormiga[auto]
 bouton.desc.30:quita la hormiga[auto]
 bouton.desc.31:abre el menú de opciones del juego.[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:indique la identificación de la hormiga que recibirá la comida.[auto]
 pti.desc.2:indique la cantidad de comida ofrecida.[auto]
 pti.desc.3:indique el tipo de huevo a poner: 0 = Reina, 1 = Macho, 2 = Menor, 3 = Mediano, 4 = Mayor, 5 + = Otro.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:bienvenido a la interfaz de trucos de Formiko. Aquí es donde puede escribir comandos de trampa.[auto]
 triche.aide.2:comandos en la forma "nombre: (argumentos) descripción"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:le permite verificar que los códigos de trucos estén disponibles[auto]
 cmd.desc.2:muestra información sobre una criatura (si es posible, también muestra las variables preparadas para el insecto o la hormiga)[auto]
@@ -420,7 +458,7 @@ descNull:la descripción de este comando no está definida.[auto]
 
 
 //conseil:
-conseil.1:¿Encontraste un error? Infórmale al desarrollador del juego en hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:¿Quieres participar en el desarrollo del juego? Codificador, diseñador gráfico y traductor son bienvenidos (hydrolien.lili502@gmail.com).[auto]
 conseil.3:¿Estanque de microgestión de sus hormigas? Utilice los 2 modos automáticos a su disposición.[auto]
 conseil.4:¿Quieres variar un poco el estilo de juego? elige una especie con la que aún no hayas jugado.[auto]

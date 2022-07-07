@@ -28,6 +28,8 @@ suivant:sumusunod[auto]
 avant:dati pa[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:ang manlalaro[auto]
 joueur:manlalaro[auto]
 case:kaso[auto]
 légende:alamat[auto]
+currentPlayer:
 
 allié:kakampi[auto]
 neutre:walang kinikilingan[auto]
 ennemi:kalaban[auto]
 proie:biktima[auto]
 
-//caractéristiques :
+//characteristics :
 taille:putol[auto]
 coordonées:impormasyon sa pakikipag-ugnay[auto]
 coordonnées:impormasyon sa pakikipag-ugnay[auto]
@@ -57,11 +60,14 @@ mode:mode[auto]
 phéromone:pheromone[auto]
 transporté:dinala[auto]
 espèce:species[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:langgam[auto]
 insecte:mga insekto[auto]
 créature:nilalang[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:walang laman[auto]
 fixMap:nag-ayos ng kard[auto]
 mini:mini[auto]
 thirds:pangatlo[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:mangyaring maglagay ng halaga para sa variable[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:magtipid[auto]
 bouton.nom.-11:mga pagpipilian[auto]
 bouton.nom.-12disable:charger[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:bumalik sa paglalaro[auto]
 languageChoice:
 
 save.message:ipasok ang pangalan upang ibigay sa iyong backup.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:paliitin ang mapa[auto]
 bouton.desc.1:ilipat ang mapa pataas[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:dumaan sa paligid ng langgam[auto]
 bouton.desc.30:tanggalin ang langgam[auto]
 bouton.desc.31:buksan ang menu ng mga pagpipilian sa laro[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:ipahiwatig ang id ng langgam na tatanggap ng pagkain.[auto]
 pti.desc.2:ipahiwatig ang dami ng inalok na pagkain.[auto]
 pti.desc.3:ipahiwatig ang uri ng itlog na itabi: 0 = Queen, 1 = Lalaki, 2 = Minor, 3 = Medium, 4 = Major, 5 + = Iba pa.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:maligayang pagdating sa Formiko cheat interface. Dito mo mai-type ang mga utos na pandaraya.[auto]
 triche.aide.2:utos sa form na "pangalan: (argumento) paglalarawan"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:pinapayagan kang suriin na magagamit ang mga cheat code[auto]
 cmd.desc.2:nagpapakita ng impormasyon tungkol sa isang nilalang (kung maaari ay nagpapakita rin ito ng mga variable na handa na para sa insekto o langgam)[auto]
@@ -420,7 +458,7 @@ descNull:ang paglalarawan ng utos na ito ay hindi tinukoy.[auto]
 
 
 //conseil:
-conseil.1:nakahanap ng isang bug? Iulat ito sa developer ng laro sa hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:nais bang lumahok sa pagbuo ng laro? Ang Coder, graphic designer at tagasalin ay maligayang pagdating (hydrolien.lili502@gmail.com).[auto]
 conseil.3:pool ng micromanaging iyong mga ants? Gamitin ang 2 awtomatikong mga mode na magagamit mo.[auto]
 conseil.4:nais bang iba-iba ng kaunti ang istilo ng paglalaro? pumili ng isang species na hindi mo pa nakakalaro.[auto]

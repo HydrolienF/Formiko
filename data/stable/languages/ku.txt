@@ -28,6 +28,8 @@ suivant:pêketînî[auto]
 avant:berî[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:lîstikvanê mirovî[auto]
 joueur:lîstikvan[auto]
 case:doz[auto]
 légende:çîrok[auto]
+currentPlayer:
 
 allié:hevkar[auto]
 neutre:bêdeng[auto]
 ennemi:dijmin[auto]
 proie:xenîmet[auto]
 
-//caractéristiques :
+//characteristics :
 taille:birrîn[auto]
 coordonées:agahdariya têkiliyê[auto]
 coordonnées:agahdariya têkiliyê[auto]
@@ -57,11 +60,14 @@ mode:awa[auto]
 phéromone:feromon[auto]
 transporté:veguhastin[auto]
 espèce:celeb[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:gêrîk[auto]
 insecte:kêzikan[auto]
 créature:ava[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:vala[auto]
 fixMap:karta tamîr kirin[auto]
 mini:mini[auto]
 thirds:sêyem[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:ji kerema xwe ji bo guherbarê nirxek binivîse[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:rizgarkirin[auto]
 bouton.nom.-11:vebijarkên[auto]
 bouton.nom.-12disable:şarjker[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:vegerin ser lîstinê[auto]
 languageChoice:
 
 save.message:navê bikevin da ku bidin paşila xwe.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:nexşeyê biçûk bikin[auto]
 bouton.desc.1:nexşeyê hilînin jor[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:li dora mirinê derbas bibin[auto]
 bouton.desc.30:milingê derxînin[auto]
 bouton.desc.31:pêşeka vebijarkên lîstikê vekin[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:id-a antê ku dê xwarinê bistîne nîşan bikin.[auto]
 pti.desc.2:hejmara xwarina pêşkêşkirî diyar bikin.[auto]
 pti.desc.3:cûreyek hêka ku tê danîn nîşan bikin: 0 = Queenahbanû, 1 = Nêr, 2 = Biçûk, 3 = Navîn, 4 = Mezin, 5 + = Yê din.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:bi xêr hatî ser xefika Formiko. Li vir e ku hûn dikarin fermanên xapandinê binivîsin.[auto]
 triche.aide.2:bi forma "nav: (nîqaş) salixdan" ferman dike[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:dihêle hûn kontrol bikin ku kodên hîleyan hene[auto]
 cmd.desc.2:agahdariya li ser afirîdeyek nîşan dide (heke gengaz be ew guherbarên ji bo kêzik an jî mêşê hatine amadekirin jî nîşan dide)[auto]
@@ -420,7 +458,7 @@ descNull:danasîna vê fermanê nayê diyarkirin.[auto]
 
 
 //conseil:
-conseil.1:çewtiyek dît? Wê li ser hydrolien.lili502@gmail.com ji pêşvebirinê lîstikê re ragihînin.[auto]
+conseil.1:
 conseil.2:dixwazin beşdarî pêşveçûna lîstikê bibin? Kodker, grafîker û wergêr bi xêr hatî (hydrolien.lili502@gmail.com).[auto]
 conseil.3:pondê mîkrobatên xwe mîkromankirin? Di destê xwe de 2 modên otomatîkî bikar bînin.[auto]
 conseil.4:dixwazin şêwaza lîstikê hinekî biguherînin? celebek ku hûn hê pê re ne lîstine hilbijêrin.[auto]

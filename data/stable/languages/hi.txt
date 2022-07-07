@@ -28,6 +28,8 @@ suivant:निम्नलिखित[auto]
 avant:इससे पहले[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:मानव खिलाड़ी[auto]
 joueur:खिलाड़ी[auto]
 case:मामला[auto]
 légende:किंवदंती[auto]
+currentPlayer:
 
 allié:मित्र[auto]
 neutre:तटस्थ[auto]
 ennemi:दुश्मन[auto]
 proie:शिकार[auto]
 
-//caractéristiques :
+//characteristics :
 taille:कट गया[auto]
 coordonées:संपर्क जानकारी[auto]
 coordonnées:संपर्क जानकारी[auto]
@@ -57,11 +60,14 @@ mode:मोड[auto]
 phéromone:फेरोमोन[auto]
 transporté:पहुँचाया[auto]
 espèce:जाति[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:चींटी[auto]
 insecte:कीड़े[auto]
 créature:जंतु[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:जे[auto]
 t.h:ज[auto]
 t.min:मिनट[auto]
@@ -234,6 +240,8 @@ empty:खाली[auto]
 fixMap:कार्ड की मरम्मत की[auto]
 mini:छोटा[auto]
 thirds:तीसरा[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:कृपया चर के लिए एक मान दर्ज करें[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:सहेजें[auto]
 bouton.nom.-11:विकल्प[auto]
 bouton.nom.-12disable:अभियोक्ता[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:वापस खेलने के लिए[auto]
 languageChoice:
 
 save.message:अपने बैकअप को देने के लिए नाम दर्ज करें।[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:नक्शा सिकोड़ें[auto]
 bouton.desc.1:नक्शे को ऊपर ले जाएं[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:चींटी के चारों ओर से गुजर
 bouton.desc.30:चींटी को हटा दें[auto]
 bouton.desc.31:इन-गेम विकल्प मेनू खोलें[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:उस चींटी की आईडी इंगित करें जो भोजन प्राप्त करेगी।[auto]
 pti.desc.2:दिए गए भोजन की मात्रा को इंगित करें।[auto]
 pti.desc.3:बिछाने के लिए अंडे के प्रकार को इंगित करें: 0 = रानी, 1 = पुरुष, 2 = मामूली, 3 = मध्यम, 4 = मेजर, 5 + = अन्य।[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:formiko धोखा इंटरफ़ेस में आपका स्वागत है। यह वह जगह है जहां आप धोखा कमांड टाइप कर सकते हैं।[auto]
 triche.aide.2:"नाम: (तर्क) विवरण" के रूप में आदेश[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:आपको यह जांचने की अनुमति देता है कि धोखा कोड उपलब्ध हैं[auto]
 cmd.desc.2:प्राणी के बारे में जानकारी प्रदर्शित करता है (यदि संभव हो तो यह कीट या चींटी के लिए तैयार चर भी प्रदर्शित करता है)[auto]
@@ -420,7 +458,7 @@ descNull:इस आदेश का वर्णन परिभाषित न
 
 
 //conseil:
-conseil.1:एक बग मिला? इसे hydrolien.lili502@gmail.com पर गेम डेवलपर को रिपोर्ट करें।[auto]
+conseil.1:
 conseil.2:खेल के विकास में भाग लेना चाहते हैं? कोडर, ग्राफिक डिजाइनर और अनुवादक का स्वागत है (hydrolien.lili502@gmail.com)।[auto]
 conseil.3:अपने चींटियों को माइक्रोक्रोमैगिंग करने का तालाब? अपने निपटान में 2 स्वचालित मोड का उपयोग करें।[auto]
 conseil.4:खेलने की शैली को थोड़ा अलग करना चाहते हैं? ऐसी प्रजाति चुनें जिसे आपने अभी तक नहीं खेला है।[auto]

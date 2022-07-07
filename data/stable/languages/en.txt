@@ -46,7 +46,7 @@ neutre:neutral
 ennemi:enemy
 proie:prey
 
-//caractéristiques :
+//characteristics :
 taille:size
 coordonées:coordinates
 coordonnées:contact information[auto]
@@ -67,7 +67,7 @@ foodEatable:eatable food
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:ant
 insecte:insect
 créature:creature
@@ -209,7 +209,7 @@ theCaseDoNotExist:the square do not exist
 optionsCanBeEditedIn:options can be edited in
 enterCoordinateAs:enter coordinates as
 
-//temps
+//time
 t.j:d
 t.h:h
 t.min:min
@@ -327,14 +327,14 @@ colorState.3:critical
 messageSaveFail:game fail to be save
 messageSaveWork:game saved
 
-//objet graphique:
+//graphic item:
 
 homeWebSiteLink:web site
 discordLink:official Discord
 reportBugLink:report a bug
 supportGameLink:support Formiko
 
-//bouton du PanneauEchap
+//bouton of PanneauEchap
 bouton.nom.-10:save
 bouton.nom.-11:options
 bouton.nom.-12disable:charger[auto]
@@ -412,7 +412,7 @@ setPlayingAnt:select playing ant
 triche.aide.1:welcome to the Formiko cheat interface. This is where you can type cheat commands.
 triche.aide.2:commands in the form "name: (arguments) description"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:allows you to check that cheat codes are available[auto]
 cmd.desc.2:displays information about a creature (if possible it also displays the variables prepared for the insect or the ant)[auto]
@@ -458,7 +458,7 @@ descNull:the description of this command is not defined.
 
 
 //conseil:
-conseil.1:did you find a bug? Report it to the game developer at hydrolien.lili502@gmail.com.
+conseil.1:did you find a bug? Report it to the game developer with the link on main menu
 conseil.2:want to participate in the development of the game? Coder, graphic designer and translator are welcome (hydrolien.lili502@gmail.com).
 conseil.3:no longer want to micromanage your ants? Use the 2 automatic modes that are able.
 conseil.4:want to vary the style of play a bit? choose a species you haven't played with yet.

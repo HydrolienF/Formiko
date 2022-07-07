@@ -28,6 +28,8 @@ suivant:εΠΟΜΕΝΟ[auto]
 avant:πριν[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:ο ανθρώπινος παίκτης[auto]
 joueur:παίχτης[auto]
 case:υπόθεση[auto]
 légende:θρύλος[auto]
+currentPlayer:
 
 allié:σύμμαχος[auto]
 neutre:ουδέτερος[auto]
 ennemi:εχθρός[auto]
 proie:λεία[auto]
 
-//caractéristiques :
+//characteristics :
 taille:τομή[auto]
 coordonées:στοιχεία επικοινωνίας[auto]
 coordonnées:στοιχεία επικοινωνίας[auto]
@@ -57,11 +60,14 @@ mode:τρόπος[auto]
 phéromone:φερομόνη[auto]
 transporté:μεταφέρθηκε[auto]
 espèce:είδος[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:μυρμήγκι[auto]
 insecte:έντομα[auto]
 créature:πλάσμα[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:ι[auto]
 t.h:η[auto]
 t.min:ελάχ[auto]
@@ -234,6 +240,8 @@ empty:αδειάζω[auto]
 fixMap:επισκευασμένη κάρτα[auto]
 mini:μίνι[auto]
 thirds:τρίτος[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:εισαγάγετε μια τιμή για τη μεταβλητή[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:σώσει[auto]
 bouton.nom.-11:επιλογές[auto]
 bouton.nom.-12disable:φορτιστής[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:πίσω στο παιχνίδι[auto]
 languageChoice:
 
 save.message:εισαγάγετε το όνομα για να δώσετε στο αντίγραφο ασφαλείας σας.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:συρρίκνωση του χάρτη[auto]
 bouton.desc.1:μετακινήστε τον χάρτη προς τα πάνω[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:περάστε γύρω από το μυρμήγκι[auto]
 bouton.desc.30:αφαιρέστε το μυρμήγκι[auto]
 bouton.desc.31:ανοίξτε το μενού επιλογών εντός παιχνιδιού[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:υποδείξτε το αναγνωριστικό του μυρμηγκιού που θα λάβει το φαγητό.[auto]
 pti.desc.2:αναφέρατε την ποσότητα φαγητού που προσφέρεται.[auto]
 pti.desc.3:αναφέρετε τον τύπο του αυγού που θα τοποθετήσετε: 0 = Βασίλισσα, 1 = Αρσενικό, 2 = Μικρό, 3 = Μεσαίο, 4 = Σημαντικό, 5 + = Άλλο.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:καλώς ήρθατε στη διεπαφή εξαπάτησης Formiko. Εδώ μπορείτε να πληκτρολογήσετε εντολές εξαπάτησης.[auto]
 triche.aide.2:εντολές με τη μορφή "όνομα: (ορίσματα) περιγραφή"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:σας επιτρέπει να ελέγξετε εάν υπάρχουν κωδικοί εξαπατήσεως[auto]
 cmd.desc.2:εμφανίζει πληροφορίες για ένα πλάσμα (αν είναι δυνατόν, εμφανίζει επίσης τις μεταβλητές που προετοιμάστηκαν για το έντομο ή το μυρμήγκι)[auto]
@@ -420,7 +458,7 @@ descNull:η περιγραφή αυτής της εντολής δεν έχει 
 
 
 //conseil:
-conseil.1:βρήκατε ένα σφάλμα; Αναφέρετέ το στον προγραμματιστή παιχνιδιών στη διεύθυνση hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:θέλετε να συμμετάσχετε στην ανάπτυξη του παιχνιδιού; Ο κωδικοποιητής, ο γραφίστας και ο μεταφραστής είναι ευπρόσδεκτοι (hydrolien.lili502@gmail.com).[auto]
 conseil.3:λίμνη μικροδιαχείρισης των μυρμηγκιών σας; Χρησιμοποιήστε τις 2 αυτόματες λειτουργίες που έχετε στη διάθεσή σας.[auto]
 conseil.4:θέλετε να αλλάξετε λίγο το στυλ παιχνιδιού; επιλέξτε ένα είδος με το οποίο δεν έχετε παίξει ακόμα.[auto]

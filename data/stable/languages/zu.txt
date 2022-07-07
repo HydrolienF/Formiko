@@ -28,6 +28,8 @@ suivant:okulandelayo[auto]
 avant:ngaphambi[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:umdlali womuntu[auto]
 joueur:isidlali[auto]
 case:icala[auto]
 légende:inganekwane[auto]
+currentPlayer:
 
 allié:umlingani[auto]
 neutre:hlangothi[auto]
 ennemi:isitha[auto]
 proie:inyamazane[auto]
 
-//caractéristiques :
+//characteristics :
 taille:ukusika[auto]
 coordonées:ulwazi lokuxhumana[auto]
 coordonnées:ulwazi lokuxhumana[auto]
@@ -57,11 +60,14 @@ mode:imodi[auto]
 phéromone:pheromone[auto]
 transporté:kuthuthwa[auto]
 espèce:izinhlobo[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:intuthwane[auto]
 insecte:izinambuzane[auto]
 créature:isidalwa[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:ubuncane[auto]
@@ -234,6 +240,8 @@ empty:akunalutho[auto]
 fixMap:ikhadi elilungisiwe[auto]
 mini:mini[auto]
 thirds:okwesithathu[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:sicela ufake inani lokuguquguqukayo[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:londoloza[auto]
 bouton.nom.-11:ongakhetha kukho[auto]
 bouton.nom.-12disable:ishaja[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:emuva ukudlala[auto]
 languageChoice:
 
 save.message:faka igama ozolinika isipele sakho.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:nciphisa imephu[auto]
 bouton.desc.1:hambisa imephu phezulu[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:dlula uzungeze intuthwane[auto]
 bouton.desc.30:susa intuthwane[auto]
 bouton.desc.31:vula imenyu yezinketho zomdlalo[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:khombisa ubunikazi bezintuthwane ezizokwamukela ukudla.[auto]
 pti.desc.2:khombisa inani lokudla okunikezwayo.[auto]
 pti.desc.3:khombisa uhlobo lweqanda elizobekwa: 0 = Indlovukazi, 1 = Owesilisa, 2 = Okuncane, 3 = Okulingene, 4 = Okukhulu, 5 + = Okunye.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:wamukelekile kusixhumi esibonakalayo seFormiko. Yilapho ungathayipha khona imiyalo yokukopela.[auto]
 triche.aide.2:imiyalo efomini "name: (arguments) description"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:ikuvumela ukuthi uhlole ukuthi amakhodi wokukhohlisa ayatholakala[auto]
 cmd.desc.2:ikhombisa imininingwane ngesidalwa (uma kungenzeka ibuye ibonise okuguqukayo okulungiselelwe isinambuzane noma intuthwane)[auto]
@@ -420,7 +458,7 @@ descNull:incazelo yalo myalo ayichazwa.[auto]
 
 
 //conseil:
-conseil.1:uthole isiphazamisi? Bika kunjiniyela wegeyimu ku-hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:ufuna ukubamba iqhaza ekuthuthukiseni umdlalo? I-Coder, umklami wezithombe nomhumushi bamukelekile (hydrolien.lili502@gmail.com).[auto]
 conseil.3:pond of micromanaging izintuthwane zakho? Sebenzisa izindlela ezi-2 ezizenzakalelayo onawo.[auto]
 conseil.4:ufuna ukushintsha isitayela sokudlala kancane? khetha uhlobo ongakaze udlale ngalo okwamanje.[auto]

@@ -28,6 +28,8 @@ suivant:пайравӣ[auto]
 avant:пеш[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:плеери инсон[auto]
 joueur:плеер[auto]
 case:парванда[auto]
 légende:афсона[auto]
+currentPlayer:
 
 allié:иттифоқчӣ[auto]
 neutre:бетараф[auto]
 ennemi:душман[auto]
 proie:тӯъма[auto]
 
-//caractéristiques :
+//characteristics :
 taille:буридан[auto]
 coordonées:маълумот барои иртибот[auto]
 coordonnées:маълумот барои иртибот[auto]
@@ -57,11 +60,14 @@ mode:режим[auto]
 phéromone:феромон[auto]
 transporté:интиқол дода мешавад[auto]
 espèce:намудҳо[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:мурча[auto]
 insecte:ҳашарот[auto]
 créature:махлуқ[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:ч[auto]
 t.min:дақ[auto]
@@ -234,6 +240,8 @@ empty:холӣ[auto]
 fixMap:корти таъмиршуда[auto]
 mini:мини[auto]
 thirds:сеюм[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:лутфан арзиши тағирёбандаро ворид кунед[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:захира кунед[auto]
 bouton.nom.-11:имконоти[auto]
 bouton.nom.-12disable:пуркунандаи барқ[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:бозгашт ба бозӣ[auto]
 languageChoice:
 
 save.message:номеро ворид кунед, ки ба нусхаи эҳтиётии худ дода мешавад.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:харитаро кӯтоҳ кунед[auto]
 bouton.desc.1:харитаро боло бардоред[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:дар атрофи мӯрча гузаред[auto]
 bouton.desc.30:мӯрчаро дур кунед[auto]
 bouton.desc.31:менюи имконоти дохили бозиро кушоед[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:иди мурчаеро, ки хӯрок мегирад, нишон диҳед.[auto]
 pti.desc.2:миқдори хӯрокҳои пешниҳодшударо нишон диҳед.[auto]
 pti.desc.3:намуди тухми гузошташударо нишон диҳед: 0 = Малика, 1 = Мард, 2 = Хурд, 3 = Миёна, 4 = Майор, 5 + = Дигар.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:хуш омадед ба интерфейси фиреби Formiko. Дар ин ҷо шумо метавонед фармонҳои фиребро нависед.[auto]
 triche.aide.2:фармонҳо дар шакли "ном: (далелҳо) тавсиф"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:ба шумо имкон медиҳад, ки дастрас будани кодҳои фиребро тафтиш кунед[auto]
 cmd.desc.2:маълумотро дар бораи махлуқе намоиш медиҳад (агар имконпазир бошад, он тағирёбандаҳои барои ҳашарот ё мӯрча омодашударо низ намоиш медиҳад)[auto]
@@ -420,7 +458,7 @@ descNull:тавсифи ин фармон муайян карда нашудаа
 
 
 //conseil:
-conseil.1:хато ёфтед? Дар ин бора ба таҳиягари бозӣ дар суроғаи hydrolien.lili502@gmail.com хабар диҳед.[auto]
+conseil.1:
 conseil.2:мехоҳед дар таҳияи бозӣ иштирок кунед? Кодер, дизайнери графикӣ ва тарҷумон хуш омадед (hydrolien.lili502@gmail.com).[auto]
 conseil.3:ҳавзи идоракунии мӯрчагони худ? 2 режими автоматиро, ки дар ихтиёри шумост, истифода баред.[auto]
 conseil.4:мехоҳед услуби бозиро каме фарқ кунед? намудеро интихоб кунед, ки то ҳол бо он бозӣ накардаед.[auto]

@@ -28,6 +28,8 @@ suivant:folgenden[auto]
 avant:virun[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:de mënschleche Spiller[auto]
 joueur:spiller[auto]
 case:fall[auto]
 légende:legend[auto]
+currentPlayer:
 
 allié:alliéierten[auto]
 neutre:neutral[auto]
 ennemi:feind[auto]
 proie:préiwen[auto]
 
-//caractéristiques :
+//characteristics :
 taille:geschnidden[auto]
 coordonées:kontakt-Informatioun[auto]
 coordonnées:kontakt-Informatioun[auto]
@@ -57,11 +60,14 @@ mode:modus[auto]
 phéromone:pheromon[auto]
 transporté:transportéiert[auto]
 espèce:spezies[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:ant[auto]
 insecte:insekten[auto]
 créature:kreatur[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:eidel[auto]
 fixMap:gefléckt Kaart[auto]
 mini:mini[auto]
 thirds:drëtten[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:gitt w.e.g. e Wäert fir d'Variabel an[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:späicheren[auto]
 bouton.nom.-11:optiounen[auto]
 bouton.nom.-12disable:chargeur[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:zréck ze spillen[auto]
 languageChoice:
 
 save.message:gitt den Numm an fir Äre Backup ze ginn.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:schrëft d'Kaart[auto]
 bouton.desc.1:beweegt d'Kaart erop[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:passéiert ëm d'Ame[auto]
 bouton.desc.30:maacht den Ant[auto]
 bouton.desc.31:öffnen den Optiounsmenü am Spill[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:uginn d'Id vun der Ant déi d'Iessen kritt.[auto]
 pti.desc.2:uginn de Montant vun ugebueden Iessen.[auto]
 pti.desc.3:uginn der Zort Ee ze leeën: 0 = Queen, 1 = Männlech, 2 = Mannerjäreger, 3 = Medium, 4 = Major, 5 + = Aner.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:wëllkomm op der Formiko Cheat Interface. Dëst ass wou Dir Cheat Kommandë kënnt aginn.[auto]
 triche.aide.2:kommandoen an der Form "Numm: (Argumenter) Beschreiwung"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:erlaabt Iech ze kontrolléieren datt Cheat Codes verfügbar sinn[auto]
 cmd.desc.2:weist Informatiounen zu engem Kreatur un (wa méiglech weist et och d'Variabelen, déi fir d'Insekt oder d'Ame virbereet sinn)[auto]
@@ -420,7 +458,7 @@ descNull:d'Beschreiwung vun dësem Kommando ass net definéiert.[auto]
 
 
 //conseil:
-conseil.1:e Feeler fonnt? Bericht et beim Spillentwéckler op hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:wëllt Dir un der Entwécklung vum Spill deelhuelen? Coder, Grafiker an Iwwersetzer si wëllkomm (hydrolien.lili502@gmail.com).[auto]
 conseil.3:weier fir Är Seechomessen ze micromanéieren? Benotzt déi 2 automatesch Modi zur Verfügung.[auto]
 conseil.4:wëllt Dir de Spillstil e bësse variéieren? wielt eng Aart mat där Dir nach net gespillt hutt.[auto]

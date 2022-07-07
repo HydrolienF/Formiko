@@ -28,6 +28,8 @@ suivant:التالية[auto]
 avant:قبل[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:اللاعب البشري[auto]
 joueur:لاعب[auto]
 case:قضية[auto]
 légende:عنوان تفسيري[auto]
+currentPlayer:
 
 allié:حليف[auto]
 neutre:محايد[auto]
 ennemi:العدو[auto]
 proie:فريسة[auto]
 
-//caractéristiques :
+//characteristics :
 taille:يقطع[auto]
 coordonées:معلومات شخصية[auto]
 coordonnées:معلومات شخصية[auto]
@@ -57,11 +60,14 @@ mode:الوضع[auto]
 phéromone:فرمون[auto]
 transporté:نقل[auto]
 espèce:محيط[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:نملة[auto]
 insecte:الحشرات[auto]
 créature:مخلوق[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:ي[auto]
 t.h:ح[auto]
 t.min:دقيقة[auto]
@@ -234,6 +240,8 @@ empty:فارغة[auto]
 fixMap:بطاقة تم إصلاحها[auto]
 mini:مصغرة[auto]
 thirds:الثالث[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:الرجاء إدخال قيمة للمتغير[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:حفظ[auto]
 bouton.nom.-11:خيارات[auto]
 bouton.nom.-12disable:شاحن[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:العودة للعب[auto]
 languageChoice:
 
 save.message:أدخل الاسم الذي تريده لنسختك الاحتياطية.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:تقليص الخريطة[auto]
 bouton.desc.1:حرك الخريطة لأعلى[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:مرر حول النملة[auto]
 bouton.desc.30:أزل النملة[auto]
 bouton.desc.31:افتح قائمة الخيارات داخل اللعبة[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:حدد هوية النملة التي ستتلقى الطعام.[auto]
 pti.desc.2:حدد كمية الطعام المقدمة.[auto]
 pti.desc.3:حدد نوع البيض المراد وضعه: 0 = ملكة ، 1 = ذكر ، 2 = ثانوية ، 3 = متوسطة ، 4 = رئيسي ، 5 + = أخرى.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:مرحبًا بك في واجهة Formiko للغش. هذا هو المكان الذي يمكنك فيه كتابة أوامر الغش.[auto]
 triche.aide.2:أوامر في النموذج "الاسم: (الوسائط) الوصف"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:يسمح لك بالتحقق من توفر رموز الغش[auto]
 cmd.desc.2:يعرض معلومات حول كائن ما (إذا أمكن ، فإنه يعرض أيضًا المتغيرات المعدة للحشرة أو النملة)[auto]
@@ -420,7 +458,7 @@ descNull:لم يتم تعريف وصف هذا الأمر.[auto]
 
 
 //conseil:
-conseil.1:وجدت الخلل؟ أبلغ مطور اللعبة على hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:تريد المشاركة في تطوير اللعبة؟ مرحبًا بك المبرمج ومصمم الجرافيك والمترجم (hydrolien.lili502@gmail.com).[auto]
 conseil.3:بركة من إدارة النمل الخاص بك؟ استخدم الوضعين الأوتوماتيكيين تحت تصرفك.[auto]
 conseil.4:هل تريد تغيير أسلوب اللعب قليلاً؟ اختر نوعًا لم تلعب معه بعد.[auto]

@@ -28,6 +28,8 @@ suivant:zifuatazo[auto]
 avant:kabla[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:mchezaji wa kibinadamu[auto]
 joueur:mchezaji[auto]
 case:kesi[auto]
 légende:hadithi[auto]
+currentPlayer:
 
 allié:mshirika[auto]
 neutre:upande wowote[auto]
 ennemi:adui[auto]
 proie:mawindo[auto]
 
-//caractéristiques :
+//characteristics :
 taille:kata[auto]
 coordonées:mawasiliano ya habari[auto]
 coordonnées:mawasiliano ya habari[auto]
@@ -57,11 +60,14 @@ mode:mode[auto]
 phéromone:pheromone[auto]
 transporté:kusafirishwa[auto]
 espèce:spishi[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:mchwa[auto]
 insecte:wadudu[auto]
 créature:kiumbe[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:dakika[auto]
@@ -234,6 +240,8 @@ empty:tupu[auto]
 fixMap:kadi iliyotengenezwa[auto]
 mini:mini[auto]
 thirds:cha tatu[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:tafadhali ingiza thamani ya ubadilishaji[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:kuokoa[auto]
 bouton.nom.-11:chaguzi[auto]
 bouton.nom.-12disable:chaja[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:kurudi kucheza[auto]
 languageChoice:
 
 save.message:ingiza jina upe chelezo yako.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:punguza ramani[auto]
 bouton.desc.1:sogeza ramani juu[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:pitia karibu na chungu[auto]
 bouton.desc.30:ondoa mchwa[auto]
 bouton.desc.31:fungua menyu ya chaguzi za mchezo[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:onyesha kitambulisho cha chungu ambaye atapokea chakula.[auto]
 pti.desc.2:onyesha kiwango cha chakula kinachotolewa.[auto]
 pti.desc.3:onyesha aina ya yai inayotakiwa kuwekwa: 0 = Malkia, 1 = Mwanaume, 2 = Kidogo, 3 = Kati, 4 = Kubwa, 5 + = Nyingine.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:karibu kwenye muundo wa kudanganya wa Formiko. Hapa ndipo unaweza kuchapa amri za kudanganya.[auto]
 triche.aide.2:amri katika fomu "jina: (hoja) maelezo"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:hukuruhusu kukagua kuwa nambari za kudanganya zinapatikana[auto]
 cmd.desc.2:huonyesha habari juu ya kiumbe (ikiwezekana pia inaonyesha vigeuzi tayari kwa mdudu au chungu)[auto]
@@ -420,7 +458,7 @@ descNull:maelezo ya amri hii hayajafafanuliwa.[auto]
 
 
 //conseil:
-conseil.1:umepata mdudu? Ripoti kwa msanidi wa mchezo katika hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:unataka kushiriki katika maendeleo ya mchezo? Coder, mbuni wa picha na mtafsiri wanakaribishwa (hydrolien.lili502@gmail.com).[auto]
 conseil.3:bwawa la kudhibiti mchwa wako? Tumia njia 2 za moja kwa moja ulizonazo.[auto]
 conseil.4:unataka kutofautisha mtindo wa uchezaji kidogo? chagua spishi ambayo haujacheza nayo bado.[auto]

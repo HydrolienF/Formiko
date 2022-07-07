@@ -28,6 +28,8 @@ suivant:jarraituz[auto]
 avant:aurretik[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:giza jokalaria[auto]
 joueur:jokalari[auto]
 case:kasua[auto]
 légende:kondaira[auto]
+currentPlayer:
 
 allié:aliatu[auto]
 neutre:neutroa[auto]
 ennemi:etsaia[auto]
 proie:harrapakin[auto]
 
-//caractéristiques :
+//characteristics :
 taille:ebaki[auto]
 coordonées:harremanetarako informazioa[auto]
 coordonnées:harremanetarako informazioa[auto]
@@ -57,11 +60,14 @@ mode:modu[auto]
 phéromone:feromona[auto]
 transporté:garraiatuta[auto]
 espèce:espezieak[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:inurria[auto]
 insecte:intsektuak[auto]
 créature:izaki[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:hutsik[auto]
 fixMap:konpondutako txartela[auto]
 mini:mini[auto]
 thirds:hirugarrena[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:sartu aldagaiaren balio bat[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:gorde[auto]
 bouton.nom.-11:aukerak[auto]
 bouton.nom.-12disable:kargagailua[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:atzera jolastera[auto]
 languageChoice:
 
 save.message:idatzi izena zure segurtasun kopiari emateko.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:txikitu mapa[auto]
 bouton.desc.1:mugitu mapa gora[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:inurriaren inguruan pasatu[auto]
 bouton.desc.30:kendu inurria[auto]
 bouton.desc.31:ireki jokoaren aukeren menua[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:adierazi janaria jasoko duen inurriaren id.[auto]
 pti.desc.2:adierazi zenbat janari eskaini.[auto]
 pti.desc.3:adierazi zer arrautza mota bota: 0 = Erregina, 1 = Arra, 2 = Txikia, 3 = Ertaina, 4 = Nagusia, 5 + = Bestelakoak.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:ongi etorri Formiko tranpa interfazera. Hemen tranpa komandoak idatz ditzakezu.[auto]
 triche.aide.2:"izena: (argudioak) deskribapena" formako aginduak[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:cheat kodeak eskuragarri daudela egiaztatzeko aukera ematen du[auto]
 cmd.desc.2:izaki bati buruzko informazioa erakusten du (ahal bada intsektuarentzat edo inurriarentzat prestatutako aldagaiak ere bistaratzen ditu)[auto]
@@ -420,7 +458,7 @@ descNull:komando honen deskribapena ez dago zehaztuta.[auto]
 
 
 //conseil:
-conseil.1:akats bat aurkitu duzu? Jakinarazi jokoaren garatzaileari hydrolien.lili502@gmail.com helbidera.[auto]
+conseil.1:
 conseil.2:jokoaren garapenean parte hartu nahi duzu? Kodetzailea, diseinatzaile grafikoa eta itzultzailea ongi etorriak dira (hydrolien.lili502@gmail.com).[auto]
 conseil.3:zure inurriak mikrokudeatzeko urmaela? Erabili eskura dituzun 2 modu automatikoak.[auto]
 conseil.4:jokatzeko estiloa pixka bat aldatu nahi duzu? aukeratu oraindik jolastu ez duzun espezie bat.[auto]

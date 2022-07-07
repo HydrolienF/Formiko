@@ -28,6 +28,8 @@ suivant:in aansluiting op[auto]
 avant:voordat[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:de menselijke speler[auto]
 joueur:speler[auto]
 case:geval[auto]
 légende:legende[auto]
+currentPlayer:
 
 allié:bondgenoot[auto]
 neutre:neutrale[auto]
 ennemi:vijand[auto]
 proie:prooi[auto]
 
-//caractéristiques :
+//characteristics :
 taille:besnoeiing[auto]
 coordonées:contactgegevens[auto]
 coordonnées:contactgegevens[auto]
@@ -57,11 +60,14 @@ mode:modus[auto]
 phéromone:feromoon[auto]
 transporté:vervoerd[auto]
 espèce:soort[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:mier[auto]
 insecte:insecten[auto]
 créature:schepsel[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:leeg[auto]
 fixMap:gerepareerde kaart[auto]
 mini:mini[auto]
 thirds:derde[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:voer een waarde in voor de variabele[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:besparen[auto]
 bouton.nom.-11:opties[auto]
 bouton.nom.-12disable:oplader[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:terug om te spelen[auto]
 languageChoice:
 
 save.message:voer de naam in die u aan uw back-up wilt geven.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:kaart verkleinen[auto]
 bouton.desc.1:verplaats de kaart omhoog[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:ga om de mier heen[auto]
 bouton.desc.30:verwijder de mier[auto]
 bouton.desc.31:open het in-game optiemenu[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:geef het ID aan van de mier die het voedsel zal ontvangen.[auto]
 pti.desc.2:geef de hoeveelheid aangeboden voedsel aan.[auto]
 pti.desc.3:geef het type ei aan dat moet worden gelegd: 0 = Koningin, 1 = Mannetje, 2 = Klein, 3 = Middelgroot, 4 = Groot, 5 + = Overig.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:welkom bij de Formiko cheat-interface. Dit is waar je cheat-commando's kunt typen.[auto]
 triche.aide.2:commando's in de vorm "naam: (argumenten) beschrijving"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:stelt u in staat om te controleren of cheatcodes beschikbaar zijn[auto]
 cmd.desc.2:geeft informatie over een wezen weer (indien mogelijk toont het ook de variabelen die voor het insect of de mier zijn voorbereid)[auto]
@@ -420,7 +458,7 @@ descNull:de beschrijving van deze opdracht is niet gedefinieerd.[auto]
 
 
 //conseil:
-conseil.1:bug gevonden? Meld het aan de game-ontwikkelaar via hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:wil je meewerken aan de ontwikkeling van het spel? Coder, grafisch ontwerper en vertaler zijn welkom (hydrolien.lili502@gmail.com).[auto]
 conseil.3:pool van micromanaging van je mieren? Maak gebruik van de 2 automatische modi die tot uw beschikking staan.[auto]
 conseil.4:wil je de speelstijl een beetje variëren? kies een soort waarmee je nog niet hebt gespeeld.[auto]

@@ -28,6 +28,8 @@ suivant:mai biyowa[auto]
 avant:kafin[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:dan wasan mutum[auto]
 joueur:dan wasa[auto]
 case:harka[auto]
 légende:labari[auto]
+currentPlayer:
 
 allié:aboki[auto]
 neutre:tsaka tsaki[auto]
 ennemi:makiyi[auto]
 proie:ganima[auto]
 
-//caractéristiques :
+//characteristics :
 taille:yanke[auto]
 coordonées:bayanin hulda[auto]
 coordonnées:bayanin hulda[auto]
@@ -57,11 +60,14 @@ mode:hanya[auto]
 phéromone:pheromone[auto]
 transporté:safarar[auto]
 espèce:nau'in[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:tururuwa[auto]
 insecte:kwari[auto]
 créature:halitta[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:fanko[auto]
 fixMap:gyara kati[auto]
 mini:ƙarami[auto]
 thirds:na uku[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:da fatan za a shigar da ƙima don canjin[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:ajiye[auto]
 bouton.nom.-11:zaɓuɓɓuka[auto]
 bouton.nom.-12disable:caja[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:koma wasa[auto]
 languageChoice:
 
 save.message:shigar da sunan don ba wa madadinku.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:rage taswirar[auto]
 bouton.desc.1:matsar da taswira sama[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:wuce kusa da tururuwa[auto]
 bouton.desc.30:cire tururuwa[auto]
 bouton.desc.31:bude menu a cikin wasan[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:nuna id na tururuwa da zata karɓi abincin.[auto]
 pti.desc.2:nuna yawan abincin da aka bayar.[auto]
 pti.desc.3:nuna nau'in ƙwan da za a saka: 0 = Sarauniya, 1 = Namiji, 2 = Minananan, 3 = Matsakaici, 4 = Babba, 5 + = Sauran.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:barka da zuwa ga formiko cheat interface. Anan ne zaka iya rubuta umarnin yaudara.[auto]
 triche.aide.2:yayi umarni a sigar "suna: (muhawara) kwatancen"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:ba ka damar duba cewa lambobin yaudara suna nan[auto]
 cmd.desc.2:yana nuna bayanai game da wata halitta (idan zai yiwu kuma tana nuna masu canjin da aka shirya don kwari ko tururuwa)[auto]
@@ -420,7 +458,7 @@ descNull:ba a bayyana bayanin wannan umarnin ba.[auto]
 
 
 //conseil:
-conseil.1:samu kwaro? Yi rahoto ga mai haɓaka wasan a hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:kuna son shiga cikin ci gaban wasan? Coder, mai tsara zane da kuma fassara suna maraba (hydrolien.lili502@gmail.com).[auto]
 conseil.3:pond na micromanaging maganin tururuwa? Yi amfani da halaye na atomatik 2 da kake da su.[auto]
 conseil.4:kuna son bambanta salon wasan kaɗan? zaɓi nau'in da ba ku yi wasa da shi ba tukuna.[auto]

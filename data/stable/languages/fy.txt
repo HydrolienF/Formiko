@@ -28,6 +28,8 @@ suivant:folgjend[auto]
 avant:foar[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:de minsklike spiler[auto]
 joueur:spiler[auto]
 case:rjochtsaak[auto]
 légende:leginde[auto]
+currentPlayer:
 
 allié:bûnsgenoat[auto]
 neutre:neutraal[auto]
 ennemi:fijân[auto]
 proie:proai[auto]
 
-//caractéristiques :
+//characteristics :
 taille:snije[auto]
 coordonées:kontakt ynformaasje[auto]
 coordonnées:kontakt ynformaasje[auto]
@@ -57,11 +60,14 @@ mode:wize[auto]
 phéromone:feromone[auto]
 transporté:ferfierd[auto]
 espèce:soarten[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:ant[auto]
 insecte:ynsekten[auto]
 créature:skepsel[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:leech[auto]
 fixMap:repareare kaart[auto]
 mini:mini[auto]
 thirds:tredde[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:fier in wearde yn foar de fariabele[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:rêde[auto]
 bouton.nom.-11:opsjes[auto]
 bouton.nom.-12disable:skûtel[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:werom te spyljen[auto]
 languageChoice:
 
 save.message:fier de namme yn om jo reservekopy te jaan.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:krimp de kaart[auto]
 bouton.desc.1:ferpleats de kaart omheech[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:trochjaan de mier[auto]
 bouton.desc.30:ferwiderje de mier[auto]
 bouton.desc.31:iepenje it menu foar opsjes yn it spultsje[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:jou de id oan fan 'e mier dy't it iten sil ûntfange.[auto]
 pti.desc.2:jou de hoemannichte iten oan.[auto]
 pti.desc.3:jou it type aai oan te lizzen: 0 = Keninginne, 1 = Man, 2 = Minor, 3 = Medium, 4 = Majoar, 5 + = Oar.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:wolkom by de Formiko cheat-ynterface. Dit is wêr't jo cheat-kommando's kinne typen.[auto]
 triche.aide.2:kommando's yn 'e foarm "namme: (arguminten) beskriuwing"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:kinne jo kontrolearje dat cheat-koades beskikber binne[auto]
 cmd.desc.2:toant ynformaasje oer in skepsel (as mooglik toant it ek de fariabelen dy't taret binne foar it ynsekt as de mier)[auto]
@@ -420,7 +458,7 @@ descNull:de beskriuwing fan dit kommando is net definieare.[auto]
 
 
 //conseil:
-conseil.1:in bug fûn? Rapportearje it by de spielûntwikkelder op hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:wolle jo meidwaan oan 'e ûntwikkeling fan it spultsje? Coder, grafysk ûntwerper en oersetter binne wolkom (hydrolien.lili502@gmail.com).[auto]
 conseil.3:fiver fan micromanaging fan jo mieren? Brûk de 2 automatyske modi ta jo beskikking.[auto]
 conseil.4:wolle jo de styl fan spielje in bytsje fariearje? kies in soarte wêrmei jo noch net spile hawwe.[auto]

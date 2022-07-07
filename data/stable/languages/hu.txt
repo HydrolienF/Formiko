@@ -28,6 +28,8 @@ suivant:következő[auto]
 avant:előtt[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:az emberi játékos[auto]
 joueur:játékos[auto]
 case:ügy[auto]
 légende:legenda[auto]
+currentPlayer:
 
 allié:szövetséges[auto]
 neutre:semleges[auto]
 ennemi:ellenség[auto]
 proie:áldozat[auto]
 
-//caractéristiques :
+//characteristics :
 taille:vágott[auto]
 coordonées:elérhetőség[auto]
 coordonnées:elérhetőség[auto]
@@ -57,11 +60,14 @@ mode:mód[auto]
 phéromone:feromon[auto]
 transporté:szállított[auto]
 espèce:faj[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:hangya[auto]
 insecte:rovarok[auto]
 créature:teremtmény[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:üres[auto]
 fixMap:javított kártya[auto]
 mini:mini[auto]
 thirds:harmadik[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:kérjük, adja meg a változó értékét[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:megment[auto]
 bouton.nom.-11:lehetőségek[auto]
 bouton.nom.-12disable:töltő[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:vissza játszani[auto]
 languageChoice:
 
 save.message:írja be a biztonsági másolatnak adandó nevet.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:csökkentse a térképet[auto]
 bouton.desc.1:mozgassa a térképet felfelé[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:átkerül a hangya körül[auto]
 bouton.desc.30:távolítsa el a hangyát[auto]
 bouton.desc.31:nyissa meg a játékon belüli opciók menüt[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:jelölje meg az élelmet fogadó hangya azonosítóját.[auto]
 pti.desc.2:adja meg a felkínált étel mennyiségét.[auto]
 pti.desc.3:adja meg a rakandó tojás típusát: 0 = királynő, 1 = férfi, 2 = kiskorú, 3 = közepes, 4 = fő, 5 + = egyéb.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:üdvözöljük a Formiko cheat felületen. Itt írhat be csalási parancsokat.[auto]
 triche.aide.2:parancsok a "név: (érvek) leírás" formában[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:lehetővé teszi, hogy ellenőrizze a cheat kódok rendelkezésre állását[auto]
 cmd.desc.2:lényekkel kapcsolatos információkat jelenít meg (ha lehetséges, megjeleníti a rovar vagy a hangya előkészített változatait is)[auto]
@@ -420,7 +458,7 @@ descNull:a parancs leírása nincs meghatározva.[auto]
 
 
 //conseil:
-conseil.1:talált egy hibát? Jelentse a játék fejlesztőjének a hydrolien.lili502@gmail.com e-mail címen.[auto]
+conseil.1:
 conseil.2:szeretne részt venni a játék fejlesztésében? Várunk kódolót, grafikai tervezőt és fordítót (hydrolien.lili502@gmail.com).[auto]
 conseil.3:a hangyák mikroszintű kezelése? Használja a rendelkezésére álló 2 automatikus módot.[auto]
 conseil.4:szeretne kicsit változtatni a játékstíluson? válasszon olyan fajt, amellyel még nem játszott.[auto]

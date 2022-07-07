@@ -28,6 +28,8 @@ suivant:تۆۋەندىكى[auto]
 avant:ئىلگىرى[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:the human player[auto]
 joueur:قويغۇچ[auto]
 case:دېلو[auto]
 légende:رىۋايەت[auto]
+currentPlayer:
 
 allié:ئىتتىپاقداش[auto]
 neutre:نېيترال[auto]
 ennemi:دۈشمەن[auto]
 proie:ئولجى[auto]
 
-//caractéristiques :
+//characteristics :
 taille:cut[auto]
 coordonées:ئالاقىلىشىش ئۇچۇرلىرى[auto]
 coordonnées:ئالاقىلىشىش ئۇچۇرلىرى[auto]
@@ -57,11 +60,14 @@ mode:mode[auto]
 phéromone:فېرمون[auto]
 transporté:توشۇلدى[auto]
 espèce:تۈرلىرى[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:چۈمۈلە[auto]
 insecte:ھاشاراتلار[auto]
 créature:مەخلۇق[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:قۇرۇق[auto]
 fixMap:رېمونت قىلىنغان كارتا[auto]
 mini:mini[auto]
 thirds:ئۈچىنچىسى[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:ئۆزگەرگۈچى مىقدارغا قىممەت كىرگۈزۈڭ[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:تېجەڭ[auto]
 bouton.nom.-11:تاللانما[auto]
 bouton.nom.-12disable:توك قاچىلىغۇچ[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:to play to play[auto]
 languageChoice:
 
 save.message:زاپاسلاش ئۈچۈن بېرىدىغان ئىسىمنى كىرگۈزۈڭ.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:خەرىتىنى كىچىكلىتىڭ[auto]
 bouton.desc.1:خەرىتىنى يۇقىرىغا يۆتكەڭ[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:چۈمۈلە ئەتراپىدىن ئۆتۈڭ[auto]
 bouton.desc.30:چۈمۈلىنى ئېلىۋېتىڭ[auto]
 bouton.desc.31:ئويۇن ئىچىدىكى تاللاش تىزىملىكىنى ئېچىڭ[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:چۈمۈلىنىڭ يېمەكلىكنى قوبۇل قىلىدىغان كىملىكىنى كۆرسىتىڭ.[auto]
 pti.desc.2:تەمىنلەنگەن يېمەكلىكنىڭ مىقدارىنى كۆرسىتىڭ.[auto]
 pti.desc.3:قويۇلىدىغان تۇخۇمنىڭ تۈرىنى كۆرسىتىڭ: 0 = ئايال پادىشاھ ، 1 = ئەر ، 2 = قۇرامىغا يەتمىگەن ، 3 = ئوتتۇراھال ، 4 = مايور ، 5 + = باشقا.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:فورمىكو ئالدامچىلىق كۆرۈنمە يۈزىنى قارشى ئالىمىز. بۇ يەردە ئالدامچىلىق بۇيرۇقلىرىنى يازسىڭىز بولىدۇ.[auto]
 triche.aide.2:"name: (argument) چۈشەندۈرۈش" شەكلىدىكى بۇيرۇقلار.[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:ئالدامچىلىق كودىنىڭ بار-يوقلۇقىنى تەكشۈرەلەيسىز[auto]
 cmd.desc.2:مەخلۇققا مۇناسىۋەتلىك ئۇچۇرلارنى كۆرسىتىدۇ (مۇمكىن بولسا ئۇ ھاشارات ياكى چۈمۈلە ئۈچۈن تەييارلانغان ئۆزگەرگۈچى مىقدارنىمۇ كۆرسىتىدۇ)[auto]
@@ -420,7 +458,7 @@ descNull:بۇ بۇيرۇقنىڭ چۈشەندۈرۈشى ئېنىق ئەمەس.[a
 
 
 //conseil:
-conseil.1:خاتالىق بايقالدى؟ بۇنى hydrolien.lili502@gmail.com دىكى ئويۇن ئاچقۇچىغا دوكلات قىلىڭ.[auto]
+conseil.1:
 conseil.2:ئويۇننىڭ تەرەققىياتىغا قاتنىشىشنى خالامسىز؟ كودلىغۇچ ، گرافىك لايىھىلىگۈچى ۋە تەرجىماننى قارشى ئالىمىز (hydrolien.lili502@gmail.com).[auto]
 conseil.3:چۈمۈلىڭىزنى مىكرو باشقۇرۇش كۆلچىكى؟ قولىڭىزدىكى 2 ئاپتوماتىك ھالەتنى ئىشلىتىڭ.[auto]
 conseil.4:ئويناش ئۇسلۇبىنى ئازراق ئۆزگەرتمەكچىمۇ؟ سىز تېخى ئويناپ باقمىغان بىر تۈرنى تاللاڭ.[auto]

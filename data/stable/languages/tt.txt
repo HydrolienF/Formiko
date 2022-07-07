@@ -28,6 +28,8 @@ suivant:түбәндәге[auto]
 avant:элек[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:кеше уенчысы[auto]
 joueur:плеер[auto]
 case:очрак[auto]
 légende:легенда[auto]
+currentPlayer:
 
 allié:союздаш[auto]
 neutre:битараф[auto]
 ennemi:дошман[auto]
 proie:олы[auto]
 
-//caractéristiques :
+//characteristics :
 taille:кисү[auto]
 coordonées:элемтә өчен мәгълүмат[auto]
 coordonnées:элемтә өчен мәгълүмат[auto]
@@ -57,11 +60,14 @@ mode:режимы[auto]
 phéromone:феромон[auto]
 transporté:ташылган[auto]
 espèce:төрләре[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:кырмыска[auto]
 insecte:бөҗәкләр[auto]
 créature:җан иясе[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:з[auto]
 t.min:мин[auto]
@@ -234,6 +240,8 @@ empty:буш[auto]
 fixMap:ремонтланган карточка[auto]
 mini:мини[auto]
 thirds:өченче[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:зинһар, үзгәрүченең кыйммәтен кертегез[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:саклагыз[auto]
 bouton.nom.-11:вариантлары[auto]
 bouton.nom.-12disable:зарядлагыч[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:уйнарга[auto]
 languageChoice:
 
 save.message:резервыгызга бирү өчен исем кертегез.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:картаны кыскарту[auto]
 bouton.desc.1:картаны өскә күчерегез[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:кырмыска тирәсендә узыгыз[auto]
 bouton.desc.30:кырмысканы алыгыз[auto]
 bouton.desc.31:уендагы вариантлар менюсын ачыгыз[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:ризык алачак кырмыскаларның идентификаторын күрсәтегез.[auto]
 pti.desc.2:тәкъдим ителгән ризык күләмен күрсәтегез.[auto]
 pti.desc.3:йомырка төрен күрсәтегез: 0 = Королева, 1 = Ир-ат, 2 = Кечкенә, 3 = Урта, 4 = Майор, 5 + = Башка.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:формико чит интерфейсына рәхим итегез. Монда сез чит ил командаларын яза аласыз.[auto]
 triche.aide.2:"исем: (аргументлар) тасвирлау" формасында боерыклар.[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:алдау кодларының барлыгын тикшерергә мөмкинлек бирә[auto]
 cmd.desc.2:җан иясе турында мәгълүмат күрсәтә (мөмкин булса, бөҗәк яки кырмыскага әзер үзгәрүчәннәрне дә күрсәтә)[auto]
@@ -420,7 +458,7 @@ descNull:бу боерыкның тасвирламасы билгеләнмәг
 
 
 //conseil:
-conseil.1:хата таптыгызмы? Аны hydrolien.lili502@gmail.com адресы буенча уйлап табучыга хәбәр итегез.[auto]
+conseil.1:
 conseil.2:уен үсешендә катнашырга телисезме? Кодер, график дизайнер һәм тәрҗемәче рәхим итегез (hydrolien.lili502@gmail.com).[auto]
 conseil.3:кырмыскаларны микромантажлау буасы? Сезнең кулда 2 автоматик режим кулланыгыз.[auto]
 conseil.4:уен стилен бераз үзгәртергә телисезме? сез әле уйнамаган төрне сайлагыз.[auto]
