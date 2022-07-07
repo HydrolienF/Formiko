@@ -50,6 +50,7 @@ public class Message implements Serializable{
         Main.getJoueurById(idDuJoueurConcerné).addMessage(this);
       }
     }catch (Exception e) {}
+    Main.setPlayingAnt(Main.getPlayingAnt());//update message print.
   }
   // message d'un joueur :
   public Message(String texte, int idDuJoueurConcerné, String expediteur){
