@@ -11,6 +11,8 @@ import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javax.swing.Icon;
@@ -18,14 +20,19 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import java.awt.KeyboardFocusManager;
+import java.awt.KeyEventDispatcher;
 
 /**
 *{@summary Personalised JDialog.}<br>
 *Used to get a save name, get a creature id, get a food quantity.
 *@author Hydrolien
-*@lastEditedVersion 2.17
+*@lastEditedVersion 2.27
 */
 public class FOptionPane extends JDialog {
+  public static FOptionPane curent;
+  private boolean haveListener;
+
   private FTextField textField;
   private FComboBox<String> comboBox;
   private FSlider slider;
@@ -64,10 +71,10 @@ public class FOptionPane extends JDialog {
     pack();
     setLocationRelativeTo(null);
     setVisible(true);
-    if(bNotOk!=null){
-      bNotOk.requestFocusInWindow();
-    }
-    bOk.requestFocusInWindow();
+    // if(bNotOk!=null){
+    //   bNotOk.requestFocusInWindow();
+    // }
+    requestFocusInWindow();
   }
 
   public int getReturnValue() {return returnValue;}
@@ -80,7 +87,7 @@ public class FOptionPane extends JDialog {
   public void addOKButton(){
     bOk = new FButton(" ✔ ", null, -2);
     bOk.setForeground(new Color(0,153,0));
-    bOk.setWithBackground(false);
+    // bOk.setWithBackground(false);
     bOk.addActionListener(new ActionListener(){
       /**
       *{@summary Close the FOptionPane.}<br>
@@ -101,18 +108,58 @@ public class FOptionPane extends JDialog {
   public void addNotOKButton(){
     bNotOk = new FButton(" ❌ ", null, -2);
     bNotOk.setForeground(Color.RED);
-    bNotOk.setWithBackground(false);
+    // bNotOk.setWithBackground(false);
     bNotOk.addActionListener(new ActionListener(){
       /**
-      *{@summary Close the FOptionPane.}<br>
-      *@lastEditedVersion 2.17
+      *{@summary Launch action of a not OK Button.}<br>
+      *@lastEditedVersion 2.27
       */
       public void actionPerformed(ActionEvent e) {
-        returnValue=0;
-        disposeFOptionPane();
+        onNotOkButtonPress();
       }
     });
+    if(!haveListener){
+      addKeyListener(new KeyAdapter() {
+        /**
+        *{@summary Launch action of a not OK Button.}<br>
+        *@lastEditedVersion 2.27
+        */
+        public void keyPressed(KeyEvent e) {
+          System.out.println("key "+e);//@a
+          if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            onNotOkButtonPress();
+          }
+        }
+      });
+      haveListener=true;
+    }
+    // Some unworking test so that escape press X.
+  //   KeyboardFocusManager.getCurrentKeyboardFocusManager()
+  //       .addKeyEventDispatcher(new KeyEventDispatcher() {
+  //     public boolean dispatchKeyEvent(KeyEvent e) {
+  //         boolean keyHandled = false;
+  //         if (e.getID() == KeyEvent.KEY_PRESSED) {
+  //             if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+  //                 // ok();
+  //                 // keyHandled = true;
+  //             } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+  //                 onNotOkButtonPress();
+  //                 keyHandled = true;
+  //             }
+  //         }
+  //         return keyHandled;
+  //     }
+  // });
     add(bNotOk);
+  }
+  /**
+  *{@summary Action of a not OK Button.}<br>
+  *@lastEditedVersion 2.27
+  */
+  public void onNotOkButtonPress(){
+    System.out.println("not ok press");
+    returnValue=0;
+    disposeFOptionPane();
   }
   /**
   *{@summary Close the FOptionPane.}<br>
@@ -282,8 +329,10 @@ public class FOptionPane extends JDialog {
     op.addText(message);
     op.addOKButton();
     op.addNotOKButton();
+    curent=op;
     op.build();
     // String s=op.getContent();
+    curent=null;
     return op.getReturnValue();
     // return JOptionPane.showConfirmDialog(parentComponent, message, title, optionType, messageType, icon);
   }

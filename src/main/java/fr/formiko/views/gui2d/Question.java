@@ -11,20 +11,21 @@ import javax.swing.JOptionPane;
 *@lastEditedVersion 2.13
 */
 public class Question {
-  private int choix;
+  private boolean answer;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary constructor to get a boolean answer.}
   *@param popUpName name of the popUp
   *@param popUpMessage message of the popUp
-  *@lastEditedVersion 2.13
+  *@lastEditedVersion 2.27
   */
   public Question(String popUpName, String popUpMessage){
-    String[] options = {g.get("oui"),g.get("non")};
-    choix = JOptionPane.showOptionDialog(Main.getF(), g.get(popUpName), g.get(popUpMessage)+" ?",JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,null, options, options[0]);
+    answer=FOptionPane.questionYN(popUpMessage);
+    // String[] options = {g.get("oui"),g.get("non")};
+    // choix = JOptionPane.showOptionDialog(Main.getF(), g.get(popUpName), g.get(popUpMessage)+" ?",JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,null, options, options[0]);
   }
   // GET SET -------------------------------------------------------------------
-  public boolean getChoix(){return choix==JOptionPane.OK_OPTION;}
+  public boolean getChoix(){return answer;}
   // FUNCTIONS -----------------------------------------------------------------
 
 }
