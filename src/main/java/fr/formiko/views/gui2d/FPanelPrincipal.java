@@ -30,16 +30,29 @@ public class FPanelPrincipal extends FPanel {
   private ThreadMessagesDesc th;
   private FLabel labelMessage;
 
+  private Color topColor;
+  private FPanel coloredPanel;
+
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
-  *@lastEditedVersion 1.x
+  *@lastEditedVersion 2.27
   */
   public FPanelPrincipal(){
     super();
-    setOpaque(true);
+    // setOpaque(true);
     updateTimeFromLastRefresh();
     iniLabelMessage();
+    coloredPanel=new FPanel(){
+      @Override
+      public void paintComponent(Graphics g) {
+        if(topColor!=null){
+          g.setColor(topColor);
+          g.fillRect(0,0,getWidth(),getHeight());
+        }
+      }
+    };
+    add(coloredPanel);
   }
   /**
   *{@summary Add background image &#38; version label.}<br>
@@ -53,6 +66,15 @@ public class FPanelPrincipal extends FPanel {
   // GET SET -------------------------------------------------------------------
   public FPanelJeu getPj(){ return pj;}
   public FPanelMenu getPm(){ return pm;}
+  public Color getTopColor() {return topColor;}
+  /**
+  *{@summary Update top color &#38; it's pannel size.}<br>
+  *@lastEditedVersion 2.27
+  */
+	public void setTopColor(Color topColor) {
+    this.topColor=topColor;
+    coloredPanel.setSize(getWidth(),getHeight());
+  }
   public void updateTimeFromLastRefresh(){timeFromLastRefresh=System.currentTimeMillis();}
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){

@@ -96,8 +96,9 @@ public class FFrame extends JFrame {
     try {
       boolean needToClose=true;
       if (!Main.getForceQuit()){
-        Question q = new Question("validerQuitter","quitterJeu");
-        needToClose = q.getChoix();
+        // Question q = new Question("validerQuitter","quitterJeu");
+        // needToClose = q.getChoix();
+        needToClose = Main.getView().popUpQuestionYN("quitterJeu", true);
       }
       if(needToClose){
         Main.getF().setVisible(false);
@@ -105,7 +106,7 @@ public class FFrame extends JFrame {
         Main.quitter();
       }//else do nothing
     }catch (Exception e2) {
-      erreur.alerte("Normal close of the FFrame fail");
+      erreur.alerte("Normal close of the FFrame fail "+e2);
       Main.quitter();
     }
   }

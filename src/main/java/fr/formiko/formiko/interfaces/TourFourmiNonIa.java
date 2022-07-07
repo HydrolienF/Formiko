@@ -214,8 +214,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         yield "ne rien faire";
       case 10 :
         try {
-          Question q = new Question("supprimerFourmi.1","supprimerFourmi.2");
-          if(q.getChoix()){
+          if(Main.getView().popUpQuestionYN("supprimerFourmi.2", true)){
             f.mourir(4);
             yield "supprimer la fourmi";
           }

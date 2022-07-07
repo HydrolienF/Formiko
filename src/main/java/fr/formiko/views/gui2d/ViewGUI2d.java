@@ -465,7 +465,7 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 1.46
   */
   public void popUpMessage(String message){
-    if (getPch()!=null) {return;}
+    // if (getPch()!=null) {return;}
     //Main.getPartie().getPlayingAnt() is null but window didn't clear all data.
     boolean paVisible=false;
     if(getPb()!=null && !getPb().getVisiblePa()){
@@ -487,7 +487,7 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 2.27
   */
   public String popUpQuestion(String message){
-    if (getPch()!=null) {return "";}
+    // if (getPch()!=null) {return "";}
     boolean paVisible=false;
     if(getPb()!=null && !getPb().getVisiblePa()){
       paVisible=true;
@@ -505,11 +505,13 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Print a question in a new window.}<br>
   *@param message the message to print.
+  *@param important some gui action will be done if true
   *@return the answer as a boolean.
   *@lastEditedVersion 2.27
   */
-  public boolean popUpQuestionYN(String message){
-    if (getPch()!=null) {return false;}
+  public boolean popUpQuestionYN(String message, boolean important){
+    System.out.println("popUpQuestionYN "+message+" "+important);//@a
+    // if (getPch()!=null) {return false;}
     boolean paVisible=false;
     if(getPb()!=null && !getPb().getVisiblePa()){
       paVisible=true;
@@ -518,10 +520,11 @@ public class ViewGUI2d implements View {
     setMessageDesc("");
     // getPb().removePi();
     paint();
-    boolean b = FOptionPane.questionYN(message);
+    boolean b = FOptionPane.questionYN(message, important);
     if(paVisible){
       getPb().setVisiblePa(true);
     }
+    System.out.println(b);
     return b;
   }
 

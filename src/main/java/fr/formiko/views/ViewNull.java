@@ -165,7 +165,7 @@ public class ViewNull implements View {
   *{@summary A null view action that do nothing.}<br>
   *@lastEditedVersion 2.27
   */
-  public boolean popUpQuestionYN(String message){return false;}
+  public boolean popUpQuestionYN(String message, boolean important){return false;}
   /***
   *{@summary A null view action that do nothing.}<br>
   *@lastEditedVersion 1.46

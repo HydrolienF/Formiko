@@ -483,13 +483,16 @@ public class ViewCLI implements View {
   /**
   *{@summary Print a question in a new window.}<br>
   *@param message the message to print.
+  *@param important some gui action will be done if true
   *@return the answer.
   *@lastEditedVersion 2.27
   */
-  public boolean popUpQuestionYN(String message){
+  public boolean popUpQuestionYN(String message, boolean important){
     String yes=g.get("oui");
     String no=g.get("no");
-    String s = popUpQuestion(message+" ("+yes+"/"+no+")");
+    String s = "";
+    if(important){s+="! ";}
+    s+=popUpQuestion(message+" ("+yes+"/"+no+")");
     if(s.equals(yes) || s.charAt(0)==yes.charAt(0)){
       return true;
     }else if(s.equals(no) || s.charAt(0)==no.charAt(0)){
