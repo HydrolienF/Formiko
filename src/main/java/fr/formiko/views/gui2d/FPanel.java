@@ -3,6 +3,7 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.*;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
 import fr.formiko.usual.images.Images;
 import fr.formiko.usual.maths.math;
 import fr.formiko.usual.maths.math;
@@ -82,6 +83,7 @@ public class FPanel extends JPanel {
   public void doAction(int ac){
     action.doAction(ac);
   }
+
 
   class BListener implements ActionListener{
     private int compteur=0;

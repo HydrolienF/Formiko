@@ -1,5 +1,6 @@
 package fr.formiko.views.gui2d;
 
+import fr.formiko.usual.g;
 import fr.formiko.usual.types.str;
 import fr.formiko.views.gui2d.FComboBox;
 
@@ -9,12 +10,12 @@ import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeEvent;
 
 /**
 *{@summary Personalised JDialog.}<br>
@@ -39,6 +40,9 @@ public class FOptionPane extends JDialog {
     setVisible(false);
     setLayout(new FlowLayout());
     setBackground(new Color(0,0,0,0));
+  }
+  public FOptionPane(){
+    this(FPanel.getView().getF());
   }
   /**
   *{@summary After have use all setter, create the last button &#38; set visible.}<br>
@@ -168,4 +172,53 @@ public class FOptionPane extends JDialog {
     else if(slider!=null){return ""+slider.getValue();}
     else{return null;}
   }
+
+
+
+  // static
+  /**
+  *{@summary print an alerte box.}
+  *@lastEditedVersion 1.49
+  */
+  public static void alerte(String s, String s2){
+    JOptionPane jop1 = new JOptionPane();
+    jop1.showMessageDialog(FPanel.getView().getF(), s, s2, JOptionPane.INFORMATION_MESSAGE);
+  }
+  public static void alerte(String s){ alerte(s,g.getM("information"));}
+  /**
+  *{@summary Print a question box.}
+  *@param popUpName name of the popUp
+  *@param popUpMessage message of the popUp
+  *@return user answer
+  *@lastEditedVersion 1.50
+  */
+  public static String question(String popUpName, String popUpMessage){
+    String r = JOptionPane.showInputDialog(FPanel.getView().getF(), g.getM(popUpName), popUpMessage, JOptionPane.QUESTION_MESSAGE);
+    return r;
+  }
+  /***
+  *{@summary Print a question box.}
+  *@param popUpName name of the popUp
+  *@return user answer
+  *@lastEditedVersion 1.50
+  */
+  public static String question(String popUpName){ return question(popUpName,"?");}
+  /**
+  *{@summary Print a question box.}
+  *@param popUpName name of the popUp
+  *@param popUpMessage message of the popUp
+  *@return answer.
+  *@lastEditedVersion 2.27
+  */
+  public static boolean questionYN(String popUpName, String popUpMessage){
+    int r = JOptionPane.showConfirmDialog(FPanel.getView().getF(), g.getM(popUpName), popUpMessage, JOptionPane.YES_NO_OPTION ,JOptionPane.QUESTION_MESSAGE);
+    return r==0;
+  }
+  /***
+  *{@summary Print a question box.}
+  *@param popUpName name of the popUp
+  *@return answer.
+  *@lastEditedVersion 2.27
+  */
+  public static boolean questionYN(String popUpName){ return questionYN(popUpName,"?");}
 }

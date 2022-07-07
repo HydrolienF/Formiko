@@ -149,6 +149,13 @@ public interface View extends Progression {
   */
   String popUpQuestion(String message);
   /***
+  *{@summary Print a yes/no question in a new window.}<br>
+  *@param message the message to print.
+  *@return the answer.
+  *@lastEditedVersion 2.27
+  */
+  boolean popUpQuestionYN(String message);
+  /***
   *{@summary set playing ant.}<br>
   *This action can only be run if action game is on.<br>
   *@lastEditedVersion 1.46

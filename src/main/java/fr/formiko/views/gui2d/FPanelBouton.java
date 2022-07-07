@@ -162,6 +162,7 @@ public class FPanelBouton extends FPanel {
     pas.setVisible(b);
     //pai.setVisible(b);
   }
+  public boolean getVisiblePa(){return pa.isVisible();}
   public void hidePa(){
     removePa();
   }

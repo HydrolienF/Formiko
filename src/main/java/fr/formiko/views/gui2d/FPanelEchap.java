@@ -137,7 +137,7 @@ public class FPanelEchap extends FPanel{
   */
   public String getSaveName(String defaultName){
     setVisible(false);
-    FOptionPane opane = new FOptionPane(Main.getF()); //, g.get("sauvegarder")
+    FOptionPane opane = new FOptionPane(); //, g.get("sauvegarder")
     opane.addField(defaultName);
     opane.build();
     String s=opane.getContent();

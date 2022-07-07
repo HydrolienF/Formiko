@@ -345,6 +345,9 @@ bouton.nom.-14:reiri a la partio
 languageChoice:elekti lingvon
 
 save.message:enigu la nomon por doni al via rezervo.[auto]
+newVersionAvailable.question:novan version disponeblas. Ĉu vi ŝatus elŝuti ĝin ?
+ignoreThisVersion:ignoru ĉi tiun version
+dontAskAgain:ne demandu denove
 
 bouton.desc.0:malvastifi la mapo
 bouton.desc.1:movi la mapo alte

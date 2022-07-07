@@ -478,6 +478,25 @@ public class ViewCLI implements View {
     return s;
   }
   /**
+  *{@summary Print a question in a new window.}<br>
+  *@param message the message to print.
+  *@return the answer.
+  *@lastEditedVersion 2.27
+  */
+  public boolean popUpQuestionYN(String message){
+    String yes=g.get("oui");
+    String no=g.get("no");
+    String s = popUpQuestion(message+" ("+yes+"/"+no+")");
+    if(s.equals(yes) || s.charAt(0)==yes.charAt(0)){
+      return true;
+    }else if(s.equals(no) || s.charAt(0)==no.charAt(0)){
+      return false;
+    }else{
+      erreur.erreur("Answer \""+message+"\" is not ok for a yes/no question");
+      return false;
+    }
+  }
+  /**
   *{@summary set playing ant.}<br>
   *This action can only be run if action game is on.<br>
   *@lastEditedVersion 1.46

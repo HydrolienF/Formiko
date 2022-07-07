@@ -345,6 +345,9 @@ bouton.nom.-14:retour au jeu
 languageChoice:choisissez une langue
 
 save.message:entrez le nom a donner a votre sauvegarde.
+newVersionAvailable.question:une nouvelle version est disponible. Souhaitez vous la télécharger ?
+ignoreThisVersion:ignorer cette version
+dontAskAgain:ne plus demander
 
 bouton.desc.0:Rétrécir la carte
 bouton.desc.1:Déplacer la carte vers le haut

@@ -345,6 +345,9 @@ bouton.nom.-14:back to game
 languageChoice:choose a language
 
 save.message:enter the name to give to your backup.[auto]
+newVersionAvailable.question:a new version is available. Would you like to download it?
+ignoreThisVersion:ignore this version
+dontAskAgain:don't ask again
 
 bouton.desc.0:shrink the map
 bouton.desc.1:move the map up
