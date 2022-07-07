@@ -28,6 +28,8 @@ suivant:quyidagi[auto]
 avant:oldin[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:inson o'yinchisi[auto]
 joueur:o'yinchi[auto]
 case:ish[auto]
 légende:afsona[auto]
+currentPlayer:
 
 allié:ittifoqchi[auto]
 neutre:neytral[auto]
 ennemi:dushman[auto]
 proie:o'lja[auto]
 
-//caractéristiques :
+//characteristics :
 taille:kesilgan[auto]
 coordonées:bog'lanish uchun ma'lumot[auto]
 coordonnées:bog'lanish uchun ma'lumot[auto]
@@ -57,11 +60,14 @@ mode:rejimi[auto]
 phéromone:feromon[auto]
 transporté:tashildi[auto]
 espèce:turlari[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:chumoli[auto]
 insecte:hasharotlar[auto]
 créature:maxluq[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:bo'sh[auto]
 fixMap:ta'mirlangan karta[auto]
 mini:mini[auto]
 thirds:uchinchi[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:iltimos, o'zgaruvchiga qiymat kiriting[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:saqlash[auto]
 bouton.nom.-11:imkoniyatlari[auto]
 bouton.nom.-12disable:zaryadlovchi[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:o'ynash uchun qaytib[auto]
 languageChoice:
 
 save.message:zaxirangizga berish uchun nomni kiriting.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:xaritani kichraytiring[auto]
 bouton.desc.1:xaritani yuqoriga ko'taring[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:chumolining atrofidan o'ting[auto]
 bouton.desc.30:chumolini olib tashlang[auto]
 bouton.desc.31:o'yin ichidagi variantlar menyusini oching[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:ovqatni qabul qiladigan chumolining idini ko'rsating.[auto]
 pti.desc.2:taklif qilingan ovqat miqdorini ko'rsating.[auto]
 pti.desc.3:tuxum qo'yiladigan tuxum turini ko'rsating: 0 = Malika, 1 = Erkak, 2 = Kichik, 3 = O'rta, 4 = Major, 5 + = Boshqalar.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:formiko cheat interfeysiga xush kelibsiz. Bu erda siz cheat buyruqlarini yozishingiz mumkin.[auto]
 triche.aide.2:"ism: (argumentlar) tavsif" shaklidagi buyruqlar[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:cheat kodlari mavjudligini tekshirishga imkon beradi[auto]
 cmd.desc.2:mavjudot haqidagi ma'lumotni namoyish etadi (iloji bo'lsa, u hasharot yoki chumoli uchun tayyorlangan o'zgaruvchilarni ham aks ettiradi)[auto]
@@ -420,7 +458,7 @@ descNull:ushbu buyruqning tavsifi aniqlanmagan.[auto]
 
 
 //conseil:
-conseil.1:xato topdingizmi? O'yinni ishlab chiquvchiga hydrolien.lili502@gmail.com elektron manzilida xabar bering.[auto]
+conseil.1:
 conseil.2:o'yinni rivojlantirishda ishtirok etmoqchimisiz? Koder, grafik dizayner va tarjimonga xush kelibsiz (hydrolien.lili502@gmail.com).[auto]
 conseil.3:chumolilaringizni mikromanage hovuzi? Sizning ixtiyoringizda bo'lgan 2 ta avtomatik rejimdan foydalaning.[auto]
 conseil.4:o'yin uslubini biroz o'zgartirmoqchimisiz? hali o'ynamagan turingizni tanlang.[auto]

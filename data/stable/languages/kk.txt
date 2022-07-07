@@ -28,6 +28,8 @@ suivant:келесі[auto]
 avant:бұрын[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:адам ойыншысы[auto]
 joueur:ойыншы[auto]
 case:іс[auto]
 légende:аңыз[auto]
+currentPlayer:
 
 allié:одақтас[auto]
 neutre:бейтарап[auto]
 ennemi:жау[auto]
 proie:олжа[auto]
 
-//caractéristiques :
+//characteristics :
 taille:кесу[auto]
 coordonées:байланыс ақпараты[auto]
 coordonnées:байланыс ақпараты[auto]
@@ -57,11 +60,14 @@ mode:режимі[auto]
 phéromone:феромон[auto]
 transporté:тасымалданды[auto]
 espèce:түрлері[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:құмырсқа[auto]
 insecte:жәндіктер[auto]
 créature:жаратылыс[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:сағ[auto]
 t.min:мин[auto]
@@ -234,6 +240,8 @@ empty:бос[auto]
 fixMap:жөнделген карта[auto]
 mini:мини[auto]
 thirds:үшінші[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:айнымалының мәнін енгізіңіз[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:сақтау[auto]
 bouton.nom.-11:опциялар[auto]
 bouton.nom.-12disable:зарядтағыш[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:ойнауға қайта оралу[auto]
 languageChoice:
 
 save.message:сақтық көшірмесін беру үшін атауды енгізіңіз.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:картаны кішірейту[auto]
 bouton.desc.1:картаны жоғары жылжытыңыз[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:құмырсқаны айналып өтіңіз[auto]
 bouton.desc.30:құмырсқаны алып тастаңыз[auto]
 bouton.desc.31:ойындағы опциялар мәзірін ашыңыз[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:тамақты алатын құмырсқаның идентификаторын көрсетіңіз.[auto]
 pti.desc.2:ұсынылатын тағамның мөлшерін көрсетіңіз.[auto]
 pti.desc.3:жұмыртқа салатын түрін көрсетіңіз: 0 = Патшайым, 1 = Еркек, 2 = Кіші, 3 = Орташа, 4 = Үлкен, 5 + = Басқа.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:formiko cheat интерфейсіне қош келдіңіз. Бұл жерде сіз cheat командаларын тере аласыз.[auto]
 triche.aide.2:«ат: (дәлелдер) сипаттама» түріндегі командалар[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:алдау кодтарының бар-жоғын тексеруге мүмкіндік береді[auto]
 cmd.desc.2:жаратылыс туралы ақпаратты көрсетеді (мүмкін болса, ол жәндікке немесе құмырсқаға арналған айнымалыларды да көрсетеді)[auto]
@@ -420,7 +458,7 @@ descNull:бұл команданың сипаттамасы анықталмағ
 
 
 //conseil:
-conseil.1:қате таптыңыз ба? Бұл туралы ойын әзірлеушіге hydrolien.lili502@gmail.com мекен-жайы бойынша хабарлаңыз.[auto]
+conseil.1:
 conseil.2:ойынды дамытуға қатысқыңыз келе ме? Кодер, графикалық дизайнер және аудармашы шақырылады (hydrolien.lili502@gmail.com).[auto]
 conseil.3:құмырсқаларыңызды микроменеджмент бассейні? Өзіңіздің қолыңыздағы 2 автоматты режимді қолданыңыз.[auto]
 conseil.4:ойын мәнерін сәл өзгерткіңіз келе ме? сіз әлі ойнамаған түрді таңдаңыз.[auto]

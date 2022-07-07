@@ -28,6 +28,8 @@ suivant:ຕໍ່ໄປນີ້[auto]
 avant:ກ່ອນ[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:ຜູ້ນມະນຸດ[auto]
 joueur:ຜູ້​ຫຼິ້ນ[auto]
 case:ກໍລະນີ[auto]
 légende:ຄວາມຫມາຍ[auto]
+currentPlayer:
 
 allié:ພັນທະມິດ[auto]
 neutre:ເປັນກາງ[auto]
 ennemi:ສັດຕູ[auto]
 proie:ຜູ້ຖືກລ້າ[auto]
 
-//caractéristiques :
+//characteristics :
 taille:ຕັດ[auto]
 coordonées:ຂໍ້​ມູນ​ຕິດ​ຕໍ່[auto]
 coordonnées:ຂໍ້​ມູນ​ຕິດ​ຕໍ່[auto]
@@ -57,11 +60,14 @@ mode:ຮູບແບບ[auto]
 phéromone:pheromone[auto]
 transporté:ຂົນສົ່ງ[auto]
 espèce:ຊະນິດ[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:ມົດ[auto]
 insecte:ແມງໄມ້[auto]
 créature:ສັດ[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:ຮ[auto]
 t.min:ນ[auto]
@@ -234,6 +240,8 @@ empty:ຫວ່າງເປົ່າ[auto]
 fixMap:ສ້ອມແປງບັດ[auto]
 mini:mini[auto]
 thirds:ທີສາມ[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:ກະລຸນາໃສ່ຄ່າ ສຳ ລັບຕົວແປ[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:ປະຢັດ[auto]
 bouton.nom.-11:ທາງເລືອກ[auto]
 bouton.nom.-12disable:ເຄື່ອງຊາດ[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:ກັບຄືນໄປບ່ອນຫຼິ້ນ[auto]
 languageChoice:
 
 save.message:ໃສ່ຊື່ເພື່ອໃຫ້ ສຳ ຮອງຂໍ້ມູນຂອງທ່ານ.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:ຫຍໍ້ແຜນທີ່[auto]
 bouton.desc.1:ຍ້າຍແຜນທີ່ຂຶ້ນໄປ[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:ຂ້າມມົດ[auto]
 bouton.desc.30:ກຳ ຈັດມົດ[auto]
 bouton.desc.31:ເປີດເມນູຕົວເລືອກໃນເກມ[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:ຊີ້ບອກ id ຂອງມົດທີ່ຈະໄດ້ຮັບອາຫານ.[auto]
 pti.desc.2:ຊີ້ແຈງ ຈຳ ນວນອາຫານທີ່ສະ ໜອງ ໃຫ້.[auto]
 pti.desc.3:ຊີ້ບອກປະເພດໄຂ່ທີ່ວາງ: 0 = ພະລາຊິນີ, 1 = ຊາຍ, 2 = ນ້ອຍ, 3 = ຂະ ໜາດ ກາງ, 4 = ໃຫຍ່, 5 + = ອື່ນໆ.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:ຍິນດີຕ້ອນຮັບສູ່ Interiko cheat interface. ນີ້ແມ່ນບ່ອນທີ່ທ່ານສາມາດພິມ ຄຳ ສັ່ງໂກງ.[auto]
 triche.aide.2:ຄຳ ສັ່ງໃນຮູບແບບ "ຊື່: (ການໂຕ້ຖຽງ) ຄຳ ອະທິບາຍ"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:ອະນຸຍາດໃຫ້ທ່ານກວດເບິ່ງວ່າລະຫັດ cheat ແມ່ນມີຢູ່[auto]
 cmd.desc.2:ສະແດງຂໍ້ມູນກ່ຽວກັບສິ່ງມີຊີວິດ (ຖ້າເປັນໄປໄດ້ມັນຍັງສະແດງຕົວແປທີ່ກຽມໄວ້ ສຳ ລັບແມງໄມ້ຫຼືມົດ)[auto]
@@ -420,7 +458,7 @@ descNull:ລາຍລະອຽດຂອງ ຄຳ ສັ່ງນີ້ບໍ່
 
 
 //conseil:
-conseil.1:ພົບຂໍ້ບົກພ່ອງບໍ? ລາຍງານມັນໃຫ້ນັກພັດທະນາເກມທີ່ hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:ຕ້ອງການເຂົ້າຮ່ວມໃນການພັດທະນາເກມ? Coder, ນັກອອກແບບກຣາບຟິກແລະນັກແປແມ່ນຍິນດີຕ້ອນຮັບ (hydrolien.lili502@gmail.com).[auto]
 conseil.3:ໜອງ ຂອງ micromanaging ມົດຂອງທ່ານບໍ? ໃຊ້ 2 ໂຫມດອັດຕະໂນມັດໃນການ ກຳ ຈັດຂອງທ່ານ.[auto]
 conseil.4:ຕ້ອງການປ່ຽນຮູບແບບການຫຼີ້ນເລັກໆນ້ອຍໆບໍ? ເລືອກຊະນິດທີ່ທ່ານຍັງບໍ່ໄດ້ຫຼີ້ນກັບ.[auto]

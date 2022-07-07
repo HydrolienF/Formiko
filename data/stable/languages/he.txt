@@ -28,6 +28,8 @@ suivant:הבא[auto]
 avant:לפני[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:השחקן האנושי[auto]
 joueur:שחקן[auto]
 case:מקרה[auto]
 légende:אגדה[auto]
+currentPlayer:
 
 allié:ברית[auto]
 neutre:ניטראלי[auto]
 ennemi:אוֹיֵב[auto]
 proie:טֶרֶף[auto]
 
-//caractéristiques :
+//characteristics :
 taille:גזירה[auto]
 coordonées:פרטי התקשרות[auto]
 coordonnées:פרטי התקשרות[auto]
@@ -57,11 +60,14 @@ mode:מצב[auto]
 phéromone:פרומון[auto]
 transporté:מועבר[auto]
 espèce:מִין[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:נְמָלָה[auto]
 insecte:חרקים[auto]
 créature:יְצוּר[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:ח[auto]
 t.min:דקה[auto]
@@ -234,6 +240,8 @@ empty:ריק[auto]
 fixMap:כרטיס מתוקן[auto]
 mini:מיני[auto]
 thirds:שְׁלִישִׁי[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:אנא הזן ערך למשתנה[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:להציל[auto]
 bouton.nom.-11:אפשרויות[auto]
 bouton.nom.-12disable:מַטעֵן[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:חזרה לשחק[auto]
 languageChoice:
 
 save.message:הזן את השם שייתן לגיבוי שלך.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:כווץ את המפה[auto]
 bouton.desc.1:הזז את המפה למעלה[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:העבירו את הנמלה[auto]
 bouton.desc.30:הסר את הנמלה[auto]
 bouton.desc.31:פתח את תפריט אפשרויות המשחק[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:ציין את זהות הנמלה שתקבל את האוכל.[auto]
 pti.desc.2:ציין את כמות האוכל המוצעת.[auto]
 pti.desc.3:ציין את סוג הביצה שתוטל: 0 = מלכה, 1 = זכר, 2 = קטין, 3 = בינוני, 4 = מייג'ור, 5 + = אחר.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:ברוכים הבאים לממשק הצ'אט של פורמיקו. כאן תוכלו להקליד פקודות צ'יט.[auto]
 triche.aide.2:פקודות בצורה "שם: (ארגומנטים) תיאור"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:מאפשר לך לבדוק שקיימים קודי רמאות[auto]
 cmd.desc.2:מציג מידע על יצור (אם אפשר הוא מציג גם את המשתנים שהוכנו לחרק או לנמלה)[auto]
@@ -420,7 +458,7 @@ descNull:התיאור של פקודה זו אינו מוגדר.[auto]
 
 
 //conseil:
-conseil.1:מצאת באג? דווח על כך למפתח המשחק בכתובת hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:רוצים להשתתף בפיתוח המשחק? קודן, מעצב גרפי ומתרגם יתקבל בברכה (hydrolien.lili502@gmail.com).[auto]
 conseil.3:בריכה של ניהול מיקרו של הנמלים שלך? השתמש בשני המצבים האוטומטיים העומדים לרשותך.[auto]
 conseil.4:רוצים לשנות מעט את סגנון המשחק? בחר מין שעדיין לא שיחקת איתו.[auto]

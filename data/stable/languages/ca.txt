@@ -28,6 +28,8 @@ suivant:seguint
 avant:abans
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:el jugador humà
 joueur:jugador
 case:caixa
 légende:llegenda
+currentPlayer:
 
 allié:aliat
 neutre:neutre
 ennemi:enemic
 proie:presa
 
-//caractéristiques :
+//characteristics :
 taille:tallar
 coordonées:informació de contacte
 coordonnées:informació de contacte
@@ -57,11 +60,14 @@ mode:mode
 phéromone:feromona
 transporté:transportat
 espèce:espècies
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:formiga
 insecte:insectes
 créature:criatura
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:mín[auto]
@@ -234,6 +240,8 @@ empty:buit[auto]
 fixMap:targeta reparada[auto]
 mini:mini[auto]
 thirds:tercer[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:introduïu un valor per a la variable[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:guardar[auto]
 bouton.nom.-11:opcions[auto]
 bouton.nom.-12disable:carregador[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:tornar a jugar[auto]
 languageChoice:
 
 save.message:introduïu el nom per donar a la vostra còpia de seguretat.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:redueix el mapa[auto]
 bouton.desc.1:mou el mapa cap amunt[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:passeu la volta a la formiga[auto]
 bouton.desc.30:traieu la formiga[auto]
 bouton.desc.31:obriu el menú d'opcions del joc[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:indiqueu la identificació de la formiga que rebrà el menjar.[auto]
 pti.desc.2:indiqueu la quantitat de menjar que s’ofereix.[auto]
 pti.desc.3:indiqueu el tipus d’ou a posar: 0 = Reina, 1 = Masculí, 2 = Menor, 3 = Mitjà, 4 = Major, 5 + = Altres.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:benvingut a la interfície de trucs de Formiko. Aquí és on podeu escriure ordres de trampes.[auto]
 triche.aide.2:ordres en forma "nom: (arguments) descripció"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:us permet comprovar que hi ha codis de trucs disponibles[auto]
 cmd.desc.2:mostra informació relativa a una criatura (si és possible també mostra les variables preparades per a l'insecte o la formiga)[auto]
@@ -420,7 +458,7 @@ descNull:la descripció d'aquesta ordre no està definida.[auto]
 
 
 //conseil:
-conseil.1:heu trobat un error? Notifiqueu-ho al desenvolupador del joc a hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:voleu participar en el desenvolupament del joc? El programador, el dissenyador gràfic i el traductor són benvinguts (hydrolien.lili502@gmail.com).[auto]
 conseil.3:estany de microgestionar les vostres formigues? Utilitzeu els 2 modes automàtics a la vostra disposició.[auto]
 conseil.4:voleu variar una mica l’estil de joc? tria una espècie amb la que encara no has jugat.[auto]

@@ -1,32 +1,44 @@
 package fr.formiko.views.gui2d;
 
+import fr.formiko.usual.g;
 import fr.formiko.usual.types.str;
 import fr.formiko.views.gui2d.FComboBox;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dialog;
 import java.awt.FlowLayout;
 import java.awt.Frame;
+import fr.formiko.usual.Time;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import javax.swing.Icon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeEvent;
+import java.awt.KeyboardFocusManager;
+import java.awt.KeyEventDispatcher;
 
 /**
 *{@summary Personalised JDialog.}<br>
 *Used to get a save name, get a creature id, get a food quantity.
 *@author Hydrolien
-*@lastEditedVersion 2.17
+*@lastEditedVersion 2.27
 */
 public class FOptionPane extends JDialog {
   private FTextField textField;
   private FComboBox<String> comboBox;
   private FSlider slider;
   private FIntField intField;
+  private int returnValue;
+  private FButton bOk;
+  private FButton bNotOk;
+  private boolean greyOthers;
   /**
   *{@summary Main constructor.}<br>
   *@param owner Frame that own this
@@ -39,28 +51,120 @@ public class FOptionPane extends JDialog {
     setVisible(false);
     setLayout(new FlowLayout());
     setBackground(new Color(0,0,0,0));
+    returnValue=-1;
+    greyOthers=false;
   }
   /**
-  *{@summary After have use all setter, create the last button &#38; set visible.}<br>
-  *@lastEditedVersion 2.17
+  *{@summary Constructor that use main frame as owner.}<br>
+  *@lastEditedVersion 2.27
+  */
+  public FOptionPane(){
+    this(FPanel.getView().getF());
+  }
+  /**
+  *{@summary After have use all setter set visible.}<br>
+  *@lastEditedVersion 2.27
   */
   public void build(){
-    FButton b = new FButton(" ✔ ", null, -1);
-    b.addActionListener(new ActionListener(){
+    if(bOk==null){addOKButton();}
+    getRootPane().setDefaultButton(bOk); //if enter is press it will launch this button.
+    pack();
+    setLocationRelativeTo(null);
+    if(greyOthers){
+      FPanel.getView().getPp().setTopColor(new Color(0,0,0,80));
+    }
+    setVisible(true);
+    requestFocusInWindow();
+    if(greyOthers){
+      FPanel.getView().getPp().setTopColor(null);
+    }
+  }
+
+  public int getReturnValue() {return returnValue;}
+	public void setReturnValue(int returnValue) {this.returnValue=returnValue;}
+  public boolean isGreyOthers() {return greyOthers;}
+	public void setGreyOthers(boolean greyOthers) {this.greyOthers=greyOthers;}
+  /**
+  *{@summary Add an OK Button.}<br>
+  *It will set return value to 1
+  *@lastEditedVersion 2.27
+  */
+  public void addOKButton(){
+    bOk = new FButton(" ✔ ", null, -2);
+    bOk.setForeground(new Color(0,153,0));
+    // bOk.setWithBackground(false);
+    bOk.addActionListener(new ActionListener(){
       /**
       *{@summary Close the FOptionPane.}<br>
       *@lastEditedVersion 2.17
       */
       public void actionPerformed(ActionEvent e) {
+        returnValue=1;
         disposeFOptionPane();
       }
     });
-    add(b);
-    getRootPane().setDefaultButton(b); //if enter is press it will launch this button.
-    pack();
-    setLocationRelativeTo(null);
-    setVisible(true);
-    b.requestFocusInWindow();
+    add(bOk);
+  }
+  /**
+  *{@summary Add a not OK Button.}<br>
+  *It will set return value to 0
+  *@lastEditedVersion 2.27
+  */
+  public void addNotOKButton(){
+    bNotOk = new FButton(" ❌ ", null, -2);
+    bNotOk.setForeground(Color.RED);
+    // bNotOk.setWithBackground(false);
+    bNotOk.addActionListener(new ActionListener(){
+      /**
+      *{@summary Launch action of a not OK Button.}<br>
+      *@lastEditedVersion 2.27
+      */
+      public void actionPerformed(ActionEvent e) {
+        onNotOkButtonPress();
+      }
+    });
+    // Some unworking test so that escape press X.
+    // if(!haveListener){
+    //   addKeyListener(new KeyAdapter() {
+    //     /**
+    //     *{@summary Launch action of a not OK Button.}<br>
+    //     *@lastEditedVersion 2.27
+    //     */
+    //     public void keyPressed(KeyEvent e) {
+    //       System.out.println("key "+e);//@a
+    //       if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+    //         onNotOkButtonPress();
+    //       }
+    //     }
+    //   });
+    //   haveListener=true;
+    // }
+  //   KeyboardFocusManager.getCurrentKeyboardFocusManager()
+  //       .addKeyEventDispatcher(new KeyEventDispatcher() {
+  //     public boolean dispatchKeyEvent(KeyEvent e) {
+  //         boolean keyHandled = false;
+  //         if (e.getID() == KeyEvent.KEY_PRESSED) {
+  //             if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+  //                 // ok();
+  //                 // keyHandled = true;
+  //             } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+  //                 onNotOkButtonPress();
+  //                 keyHandled = true;
+  //             }
+  //         }
+  //         return keyHandled;
+  //     }
+  // });
+    add(bNotOk);
+  }
+  /**
+  *{@summary Action of a not OK Button.}<br>
+  *@lastEditedVersion 2.27
+  */
+  public void onNotOkButtonPress(){
+    System.out.println("not ok press");
+    returnValue=0;
+    disposeFOptionPane();
   }
   /**
   *{@summary Close the FOptionPane.}<br>
@@ -167,5 +271,73 @@ public class FOptionPane extends JDialog {
     else if(comboBox!=null){return (String)comboBox.getSelectedItem();}
     else if(slider!=null){return ""+slider.getValue();}
     else{return null;}
+  }
+
+
+
+  // static
+  /**
+  *{@summary print an alerte box.}
+  *@lastEditedVersion 1.49
+  */
+  public static void alerte(String s, String s2){
+    JOptionPane jop1 = new JOptionPane();
+    jop1.showMessageDialog(FPanel.getView().getF(), s, s2, JOptionPane.INFORMATION_MESSAGE);
+  }
+  public static void alerte(String s){ alerte(s,g.getM("information"));}
+  /**
+  *{@summary Print a question box.}
+  *@param popUpName name of the popUp
+  *@param popUpMessage message of the popUp
+  *@return user answer
+  *@lastEditedVersion 1.50
+  */
+  public static String question(String popUpName, String popUpMessage){
+    String r = JOptionPane.showInputDialog(FPanel.getView().getF(), g.getM(popUpName), popUpMessage, JOptionPane.QUESTION_MESSAGE);
+    return r;
+  }
+  /***
+  *{@summary Print a question box.}
+  *@param popUpName name of the popUp
+  *@return user answer
+  *@lastEditedVersion 1.50
+  */
+  public static String question(String popUpName){ return question(popUpName,"?");}
+  /**
+  *{@summary Print a yes/no question box.}
+  *@param popUpMessage message of the popUp
+  *@param important some gui action will be done if true
+  *@return answer.
+  *@lastEditedVersion 2.27
+  */
+  public static boolean questionYN(String popUpMessage, boolean important){
+    int r = showConfirmDialog(FPanel.getView().getF(), g.getM(popUpMessage), important);
+    return r==1;
+  }
+  /***
+  *{@summary Print a yes/no question box.}
+  *@param popUpMessage message of the popUp
+  *@return answer.
+  *@lastEditedVersion 2.27
+  */
+  public static boolean questionYN(String popUpMessage){ return questionYN(popUpMessage, false);}
+
+  /**
+  *{@summary Print a yes/no question box.}
+  *@param parentComponent the owner of this
+  *@param message message of the popUp
+  *@return answer.
+  *@lastEditedVersion 2.27
+  */
+  public static int showConfirmDialog(Frame parentComponent, String message, boolean important){
+    FOptionPane op = new FOptionPane(null);
+    op.addText(message);
+    op.addOKButton();
+    op.addNotOKButton();
+    op.setGreyOthers(important);
+    op.build();
+    // String s=op.getContent();
+    return op.getReturnValue();
+    // return JOptionPane.showConfirmDialog(parentComponent, message, title, optionType, messageType, icon);
   }
 }

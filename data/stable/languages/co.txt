@@ -28,6 +28,8 @@ suivant:seguenti[auto]
 avant:prima[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:u ghjucatore umanu[auto]
 joueur:lettore[auto]
 case:casu[auto]
 légende:legenda[auto]
+currentPlayer:
 
 allié:alliatu[auto]
 neutre:neutru[auto]
 ennemi:nemicu[auto]
 proie:preda[auto]
 
-//caractéristiques :
+//characteristics :
 taille:tagliatu[auto]
 coordonées:infurmazione di cuntattu[auto]
 coordonnées:infurmazione di cuntattu[auto]
@@ -57,11 +60,14 @@ mode:modu[auto]
 phéromone:feromone[auto]
 transporté:traspurtatu[auto]
 espèce:spezia[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:ant[auto]
 insecte:insetti[auto]
 créature:criatura[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:viotu[auto]
 fixMap:carta riparata[auto]
 mini:mini[auto]
 thirds:terzu[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:per piacè inserite un valore per a variabile[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:salvà[auto]
 bouton.nom.-11:ozzione[auto]
 bouton.nom.-12disable:caricatore[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:torna à ghjucà[auto]
 languageChoice:
 
 save.message:entre u nome da dà à a vostra copia di salvezza.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:cullà a carta[auto]
 bouton.desc.1:spustà a carta in altu[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:passa intornu à a furmica[auto]
 bouton.desc.30:cacciate a furmica[auto]
 bouton.desc.31:apri u menu di opzioni in u ghjocu[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:indicate l'identità di a furmica chì riceverà l'alimentu.[auto]
 pti.desc.2:indicate a quantità di manghjà offerta.[auto]
 pti.desc.3:indicate u tippu d'ovu da mette: 0 = Regina, 1 = Maschile, 2 = Minore, 3 = Mediu, 4 = Maghju, 5 + = Altru.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:benvenutu à l'interfaccia di furmatu Formiko. Questu hè induve pudete scrive cumandamenti di truffe.[auto]
 triche.aide.2:cumandamenti in forma "nome: (argumenti) descrizzione"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:vi permette di verificà chì i codici di ingannà sò dispunibili[auto]
 cmd.desc.2:mostra infurmazioni nantu à una criatura (se hè pussibule mostra ancu e variabili preparate per l'insettu o a furmica)[auto]
@@ -420,7 +458,7 @@ descNull:a descrizzione di questu cumandamentu ùn hè micca definita.[auto]
 
 
 //conseil:
-conseil.1:truvatu un bug? Ripurtatelu à u sviluppatore di u ghjocu à hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:vulete participà à u sviluppu di u ghjocu? Coder, disegnatore graficu è traduttore sò benvenuti (hydrolien.lili502@gmail.com).[auto]
 conseil.3:stagnu di microgestione di e vostre furmiche? Aduprate i 2 modi automatichi à a vostra dispusizione.[auto]
 conseil.4:vulete cambià un pocu u stilu di ghjocu? sceglite una spezia cù a quale ùn avete ancu ghjucatu.[auto]

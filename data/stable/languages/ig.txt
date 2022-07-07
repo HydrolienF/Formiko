@@ -28,6 +28,8 @@ suivant:na-eso[auto]
 avant:tupu[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:mmadụ ọkpụkpọ[auto]
 joueur:ọkpụkpọ[auto]
 case:ikpe[auto]
 légende:akụkọ mgbe ochie[auto]
+currentPlayer:
 
 allié:mmekorita[auto]
 neutre:na-anọpụ iche[auto]
 ennemi:onye iro[auto]
 proie:anụ oriri[auto]
 
-//caractéristiques :
+//characteristics :
 taille:ebipụ[auto]
 coordonées:ozi mkpọtụrụ[auto]
 coordonnées:ozi mkpọtụrụ[auto]
@@ -57,11 +60,14 @@ mode:mode[auto]
 phéromone:pheromone[auto]
 transporté:ebugharị[auto]
 espèce:umu[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:ndanda[auto]
 insecte:ụmụ ahụhụ[auto]
 créature:ihe e kere eke[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j j[auto]
 t.h:h[auto]
 t.min:nkeji[auto]
@@ -234,6 +240,8 @@ empty:efu[auto]
 fixMap:rụziri kaadị[auto]
 mini:obere[auto]
 thirds:nke atọ[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:biko tinye uru maka agbanwe[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:chekwaa[auto]
 bouton.nom.-11:nhọrọ[auto]
 bouton.nom.-12disable:chaja[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:laghachi na-egwu[auto]
 languageChoice:
 
 save.message:tinye aha iji nye nkwado ndabere gị.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:gbanyụọ maapụ ahụ[auto]
 bouton.desc.1:bugharịa maapụ ahụ n’elu[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:gafere gburugburu ndanda[auto]
 bouton.desc.30:wepu ndanda[auto]
 bouton.desc.31:mepee menu nhọrọ egwuregwu[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:gosipụta id nke ndanda nke ga-anata nri.[auto]
 pti.desc.2:gosi ego ole enyere.[auto]
 pti.desc.3:egosi udiri akwa ichoro: 0 = Eze nwanyi, 1 = Nwoke, 2 = Obere, 3 = Agbata, 4 = Isi, 5 + = Nke ozo.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:nabata na Formiko cheat interface. Nke a bụ ebe ị nwere ike pịnye cheat iwu.[auto]
 triche.aide.2:iwu n'ụdị "aha: (arụmụka) nkọwa"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:na-enye gị ohere ịlele na koodu aghụghọ dị[auto]
 cmd.desc.2:egosiputa ihe omuma banyere ihe okike (ma oburu na o puru iru ihe ndi egosiputara maka ahụhụ ma obu ant)[auto]
@@ -420,7 +458,7 @@ descNull:akọwaghị nkọwa iwu a.[auto]
 
 
 //conseil:
-conseil.1:huru ahụhụ? Kọọrọ ya onye nrụpụta egwuregwu na hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:chọrọ isonye na mmepe nke egwuregwu ahụ? A na-anabata coder, onye na-ese ihe nkiri na onye ntụgharị okwu (hydrolien.lili502@gmail.com).[auto]
 conseil.3:ọdọ mmiri na ị na -ejupụta ndanda gị? Jiri 2 akpaka ụdịdị i nwere.[auto]
 conseil.4:chọrọ ịdị iche iche nke ejije a bit? họrọ ụdị nke ịjibebeghị.[auto]

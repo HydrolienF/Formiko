@@ -28,6 +28,8 @@ suivant:لاندې[auto]
 avant:مخکې[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:انساني لوبغاړی[auto]
 joueur:غږوونکی[auto]
 case:قضیه[auto]
 légende:علامات[auto]
+currentPlayer:
 
 allié:ملګری[auto]
 neutre:بې طرفه[auto]
 ennemi:دښمن[auto]
 proie:ښکار[auto]
 
-//caractéristiques :
+//characteristics :
 taille:کټ[auto]
 coordonées:د اړیکې معلومات[auto]
 coordonnées:د اړیکې معلومات[auto]
@@ -57,11 +60,14 @@ mode:حالت[auto]
 phéromone:فیرومون[auto]
 transporté:لېږدول[auto]
 espèce:ډولونه[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:میږی[auto]
 insecte:حشرات[auto]
 créature:ژوی[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:ج[auto]
 t.h:h[auto]
 t.min:منټ[auto]
@@ -234,6 +240,8 @@ empty:خالي[auto]
 fixMap:ترمیم شوی کارت[auto]
 mini:مینی[auto]
 thirds:دریم[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:مهرباني وکړئ د متغیر لپاره ارزښت ورکړئ[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:خوندي کړئ[auto]
 bouton.nom.-11:غوراوي[auto]
 bouton.nom.-12disable:چارجر[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:بېرته لوبې ته[auto]
 languageChoice:
 
 save.message:خپل شاتړ ته د نوم ورکولو لپاره نوم دننه کړه.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:نقشه لنډوی[auto]
 bouton.desc.1:نقشه پورته خوځوی[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:د میږی په شاوخوا کی تیریږی[auto]
 bouton.desc.30:میږی لرې کړئ[auto]
 bouton.desc.31:د لوبو انتخابونو مینو کې پرانيزئ[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:د میږې شناخت په ګوته کړئ چې خواړه به ترلاسه کړي.[auto]
 pti.desc.2:د وړاندیز شوي خواړو مقدار په ګوته کړئ.[auto]
 pti.desc.3:د هګۍ ډول د ایښودو څرنګوالی په ګوته کړئ: 0 = ملکه ، 1 = نر ، 2 = کوچنی ، 3 = منځني ، 4 = لوی ، 5 + = نور.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:د فارمیکو چیټ انٹرفیس ته ښه راغلاست. دا هغه ځای دی چیرې چې تاسو کولی شئ د چیټ کمانډونه ټایپ کړئ.[auto]
 triche.aide.2:په فورمه کې حکمونه "نوم: (دلیلونه) توضیحات"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:تاسو ته اجازه درکوي چې چک کوډونه شتون ولري[auto]
 cmd.desc.2:د یوه مخلوق په اړه معلومات ښیې (که امکان ولري دا به د حشرې یا میږی لپاره چمتو شوي بدلونونه هم وښیې)[auto]
@@ -420,7 +458,7 @@ descNull:د دې قوماندې وضاحت ندی ټاکل شوی.[auto]
 
 
 //conseil:
-conseil.1:یوه ستونزه وموندله؟ دا د لوبې پراختیا کونکي ته په hydrolien.lili502@gmail.com کې راپور کړئ.[auto]
+conseil.1:
 conseil.2:ایا غواړئ د لوبې پرمختګ کې برخه واخلئ؟ کوډر ، ګرافیک ډیزاینر او ژباړونکی ښه راغلاست (hydrolien.lili502@gmail.com).[auto]
 conseil.3:ستاسو د میږیانو د مایکرو مدیریت حوض؟ ستاسو په اختیار کې 2 اتوماتیک حالتونه وکاروئ.[auto]
 conseil.4:غواړئ د لوبې ډول یو څه توپیر کړئ؟ یو ډول غوره کړئ چې تاسو تراوسه نه دی لوبولی.[auto]

@@ -28,6 +28,8 @@ suivant:në vijim[auto]
 avant:para[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:lojtari njerëzor[auto]
 joueur:lojtar[auto]
 case:rast[auto]
 légende:legjenda[auto]
+currentPlayer:
 
 allié:aleat[auto]
 neutre:asnjanës[auto]
 ennemi:armik[auto]
 proie:pre[auto]
 
-//caractéristiques :
+//characteristics :
 taille:prerje[auto]
 coordonées:informacionin e kontaktit[auto]
 coordonnées:informacionin e kontaktit[auto]
@@ -57,11 +60,14 @@ mode:mënyrën[auto]
 phéromone:feromoni[auto]
 transporté:transportohet[auto]
 espèce:speciet[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:milingona[auto]
 insecte:insektet[auto]
 créature:krijesë[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:bosh[auto]
 fixMap:kartë e riparuar[auto]
 mini:mini[auto]
 thirds:e treta[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:ju lutem vendosni një vlerë për ndryshoren[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:ruaj[auto]
 bouton.nom.-11:opsione[auto]
 bouton.nom.-12disable:karikues[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:përsëri për të luajtur[auto]
 languageChoice:
 
 save.message:shkruani emrin për t'i dhënë rezervimit tuaj.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:tkurr hartën[auto]
 bouton.desc.1:zhvendos hartën lart[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:kaloni rreth milingonës[auto]
 bouton.desc.30:hiq milingonën[auto]
 bouton.desc.31:hapni menunë e opsioneve në lojë[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:shënoni id-në e milingonës që do të marrë ushqimin.[auto]
 pti.desc.2:tregoni sasinë e ushqimit të ofruar.[auto]
 pti.desc.3:tregoni llojin e vezës që do të lëshohet: 0 = Mbretëreshë, 1 = Mashkull, 2 = Minor, 3 = Mesatar, 4 = Major, 5 + = Tjetër.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:mirëpritur në ndërfaqen e Formiko mashtrojnë. Kjo është ajo ku ju mund të shtypni komandat e mashtrimit.[auto]
 triche.aide.2:komandat në formën "emri: (argumentet) përshkrimi"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:ju lejon të kontrolloni nëse kodet e mashtrimit janë në dispozicion[auto]
 cmd.desc.2:tregon informacionin për një krijesë (nëse është e mundur tregon edhe variablat e përgatitur për insektin ose milingonën)[auto]
@@ -420,7 +458,7 @@ descNull:përshkrimi i kësaj komande nuk është i përcaktuar.[auto]
 
 
 //conseil:
-conseil.1:gjetët një të metë? Raportoni atë tek zhvilluesi i lojës në hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:dëshironi të merrni pjesë në zhvillimin e lojës? Koderi, krijuesi i grafikëve dhe përkthyesi janë të mirëpritur (hydrolien.lili502@gmail.com).[auto]
 conseil.3:grupi i mikromenaxhimit të milingonave tuaja? Përdorni 2 mënyrat automatike që keni në dispozicion.[auto]
 conseil.4:dëshironi të ndryshoni pak stilin e lojës? zgjidhni një specie me të cilën nuk keni luajtur ende.[auto]

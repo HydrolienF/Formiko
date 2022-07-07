@@ -28,6 +28,8 @@ suivant:kutsatira[auto]
 avant:kale[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:wosewera munthu[auto]
 joueur:wosewera[auto]
 case:mlandu[auto]
 légende:nthano[auto]
+currentPlayer:
 
 allié:wogwirizana[auto]
 neutre:ndale[auto]
 ennemi:mdani[auto]
 proie:nyama[auto]
 
-//caractéristiques :
+//characteristics :
 taille:kudula[auto]
 coordonées:zambiri zamalumikizidwe[auto]
 coordonnées:zambiri zamalumikizidwe[auto]
@@ -57,11 +60,14 @@ mode:mawonekedwe[auto]
 phéromone:pheromone[auto]
 transporté:zonyamulidwa[auto]
 espèce:zamoyo[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:nyerere[auto]
 insecte:tizilombo[auto]
 créature:cholengedwa[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:chopanda kanthu[auto]
 fixMap:khadi lokonzedwa[auto]
 mini:mini[auto]
 thirds:chachitatu[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:chonde lowetsani mtengo wosinthira[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:sungani[auto]
 bouton.nom.-11:zosankha[auto]
 bouton.nom.-12disable:naupereka[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:kubwerera kusewera[auto]
 languageChoice:
 
 save.message:kulowa dzina kupereka kubwerera wanu.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:chepetsani mapu[auto]
 bouton.desc.1:sungani mapu mmwamba[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:pitani mozungulira nyerere[auto]
 bouton.desc.30:chotsani nyerere[auto]
 bouton.desc.31:tsegulani zosankha zamasewera[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:sonyezani id ya nyerere yomwe ilandire chakudyacho.[auto]
 pti.desc.2:sonyezani kuchuluka kwa chakudya chomwe mungapereke.[auto]
 pti.desc.3:sonyezani mtundu wa dzira lomwe lidzaikidwe: 0 = Mfumukazi, 1 = Mwamuna, 2 = Wamng'ono, 3 = Wapakatikati, 4 = Wamkulu, 5 + = Wina.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:takulandirani ku mawonekedwe achinyengo a Formiko. Apa ndipomwe mungathe kulemba malamulo achinyengo.[auto]
 triche.aide.2:amalamula mu mawonekedwe "dzina: (zifukwa) kufotokozera"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:limakupatsani onani ngati manambala achinyengo alipo[auto]
 cmd.desc.2:amawonetsa chidziwitso chokhudza cholengedwa (ngati zingatheke chikuwonetsanso zomwe zakonzedwa kuti zizisamalira tizilombo kapena nyerere)[auto]
@@ -420,7 +458,7 @@ descNull:kufotokozera kwa lamuloli sikofotokozedwa.[auto]
 
 
 //conseil:
-conseil.1:mudapeza kachilombo? Nenani kwa wopanga masewerawa ku hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:mukufuna kutenga nawo mbali pakukula kwa masewerawa? Coder, graphic designer ndi womasulira ndiolandilidwa (hydrolien.lili502@gmail.com).[auto]
 conseil.3:pond of micromanaging nyerere zanu? Gwiritsani ntchito mitundu iwiri yokha yomwe muli nayo.[auto]
 conseil.4:mukufuna kusiyanitsa mawonekedwe amasewera pang'ono? sankhani mitundu yomwe simunasewere nayo.[auto]

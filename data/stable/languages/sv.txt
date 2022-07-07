@@ -28,6 +28,8 @@ suivant:följande[auto]
 avant:innan[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:den mänskliga spelaren[auto]
 joueur:spelare[auto]
 case:fall[auto]
 légende:legend[auto]
+currentPlayer:
 
 allié:alliera[auto]
 neutre:neutral[auto]
 ennemi:fiende[auto]
 proie:byte[auto]
 
-//caractéristiques :
+//characteristics :
 taille:skära[auto]
 coordonées:kontaktinformation[auto]
 coordonnées:kontaktinformation[auto]
@@ -57,11 +60,14 @@ mode:läge[auto]
 phéromone:feromon[auto]
 transporté:transporteras[auto]
 espèce:arter[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:myra[auto]
 insecte:insekter[auto]
 créature:varelse[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:tömma[auto]
 fixMap:reparerat kort[auto]
 mini:mini[auto]
 thirds:tredje[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:ange ett värde för variabeln[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:spara[auto]
 bouton.nom.-11:alternativ[auto]
 bouton.nom.-12disable:laddare[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:tillbaka för att spela[auto]
 languageChoice:
 
 save.message:ange namnet som ska ges till din säkerhetskopia.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:krymp karta[auto]
 bouton.desc.1:flytta kartan uppåt[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:passera runt myran[auto]
 bouton.desc.30:ta bort myran[auto]
 bouton.desc.31:öppna alternativmenyn i spelet[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:ange identiteten på myran som kommer att ta emot maten.[auto]
 pti.desc.2:ange mängden mat som erbjuds.[auto]
 pti.desc.3:ange vilken typ av ägg som ska läggas: 0 = drottning, 1 = hane, 2 = mindre, 3 = medium, 4 = major, 5 + = annat.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:välkommen till Formiko-fuskgränssnittet. Det är här du kan skriva cheat-kommandon.[auto]
 triche.aide.2:kommandon i formuläret "namn: (argument) beskrivning"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:låter dig kontrollera att fuskoder är tillgängliga[auto]
 cmd.desc.2:visar information om en varelse (om möjligt visar den också variablerna förberedda för insekten eller myran)[auto]
@@ -420,7 +458,7 @@ descNull:beskrivningen av detta kommando är inte definierad.[auto]
 
 
 //conseil:
-conseil.1:hittade ett fel? Rapportera det till spelutvecklaren på hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:vill du delta i utvecklingen av spelet? Kodare, grafisk formgivare och översättare är välkomna (hydrolien.lili502@gmail.com).[auto]
 conseil.3:damm för att hantera dina myror? Använd de två automatiska lägena till ditt förfogande.[auto]
 conseil.4:vill du variera spelstilen lite? välj en art du inte har lekt med ännu.[auto]

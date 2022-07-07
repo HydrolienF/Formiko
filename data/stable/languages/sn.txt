@@ -28,6 +28,8 @@ suivant:zvinotevera[auto]
 avant:pamberi[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:mutambi wemunhu[auto]
 joueur:mutambi[auto]
 case:nyaya[auto]
 légende:ngano[auto]
+currentPlayer:
 
 allié:mubatsiri[auto]
 neutre:kwazvakarerekera[auto]
 ennemi:muvengi[auto]
 proie:kubvuta[auto]
 
-//caractéristiques :
+//characteristics :
 taille:cut[auto]
 coordonées:ruzivo rwekuonana[auto]
 coordonnées:ruzivo rwekuonana[auto]
@@ -57,11 +60,14 @@ mode:maitiro[auto]
 phéromone:pheromone[auto]
 transporté:kutakurwa[auto]
 espèce:mhando[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:svosve[auto]
 insecte:zvipembenene[auto]
 créature:chisikwa[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:isina chinhu[auto]
 fixMap:kadhi rakagadziriswa[auto]
 mini:mini[auto]
 thirds:chetatu[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:ndokumbirawo upe kukosha kweshanduko[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:ponesa[auto]
 bouton.nom.-11:sarudzo[auto]
 bouton.nom.-12disable:ndiro[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:dzokera kunotamba[auto]
 languageChoice:
 
 save.message:isa zita rekupa kune yako backup.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:shinyira mepu[auto]
 bouton.desc.1:fambisa mepu kumusoro[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:pfuura uchitenderera svosve[auto]
 bouton.desc.30:bvisa svosve[auto]
 bouton.desc.31:vhura iyo yemutambo-mutambo menyu[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:ratidza id yejuru iyo ichagamuchira chikafu.[auto]
 pti.desc.2:ratidza huwandu hwechikafu chinopihwa.[auto]
 pti.desc.3:ratidza rudzi rwezai kukandira: 0 = Mambokadzi, 1 = Murume, 2 = Mudiki, 3 = Pakati, 4 = Huru, 5 + = Zvimwe.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:tinogamuchirwa kuFormiko cheat interface. Apa ndipo paunogona kutaipa kubiridzira mirairo.[auto]
 triche.aide.2:rairo muchimiro "zita: (nharo) tsananguro"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:inokutendera kuti utarise kuti kubiridzira makodhi aripo[auto]
 cmd.desc.2:inoratidza ruzivo nezvechisikwa (kana zvichibvira inoratidzawo misiyano yakagadzirirwa chipembenene kana svosve)[auto]
@@ -420,7 +458,7 @@ descNull:tsananguro yemurairo uyu haina kutsanangurwa.[auto]
 
 
 //conseil:
-conseil.1:wakawana chirwere? Zvitaure kumusimudziri wemutambo pa hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:unoda kutora chikamu mukusimudzira kwemutambo? Coder, graphic dhizaina uye muturikiri anogamuchirwa (hydrolien.lili502@gmail.com).[auto]
 conseil.3:padzi rekutsvaira masvosve ako? Shandisa iyo 2 otomatiki modes dzauinazvo.[auto]
 conseil.4:unoda kusiyanisa maitiro ekutamba zvishoma? sarudza mhando yausati watamba nayo parizvino.[auto]

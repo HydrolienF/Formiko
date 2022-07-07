@@ -1,7 +1,9 @@
 package fr.formiko.fusual;
 
+import fr.formiko.formiko.Main;
 import fr.formiko.usual.Folder;
 import fr.formiko.usual.Progression;
+import fr.formiko.usual.g;
 
 /**
 *{@summary Class that have all link to all folder of formiko.}<br>
@@ -11,18 +13,19 @@ import fr.formiko.usual.Progression;
 *@lastEditedVersion 2.26
 */
 public class FFolder extends Folder {
-  // private static FFolder folder;
   public FFolder(Progression progression){
     super(progression);
     // ROOT_PATH
   }
 
-  public static FFolder getFolder(){return (FFolder)folder;}
-  public static void setFolder(FFolder f){folder=f;}
+  public static FFolder getFolder(){return (FFolder)Folder.getFolder();}
+  public static void setFolder(FFolder f){Folder.setFolder(f);}
 
   public boolean userWantNewVersion(){
-    // TODO #192 if (!haveLastVersion())
-    // TODO #192 ask if user want the new version. If it want exit(2);
-    return true;
+    if (!haveLastVersion()){
+      // TODO #192 add a checkbox ignoreThisVersion & react to it.
+      return Main.getView().popUpQuestionYN(g.get("newVersionAvailable.question"), true);
+    }
+    return false;
   }
 }

@@ -1,5 +1,5 @@
 //the 1a line is used only for test.
-test:testFr
+test:testOc
 
 s:s
 n:ø
@@ -28,6 +28,8 @@ suivant:suivant
 avant:avant
 save:sauvegarde
 validate:valider
+disabled:
+enabled:
 
 set:choisir
 where:où
@@ -36,7 +38,8 @@ laIA:l'IA
 laJoueurHumain:le joueur humain
 joueur:joueur
 case:case
-légende:Légende
+légende:légende
+currentPlayer:
 
 allié:allié
 neutre:neutre
@@ -57,6 +60,9 @@ mode:mode
 phéromone:phéromone
 transporté:transporté
 espèce:espèce
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
@@ -95,7 +101,7 @@ menuN.3:tuto
 menuN.4:retour
 
 quitterJeu:quitter le jeu
-quitterOuContinuer:Souhaitez vous continuer la partie ?
+quitterOuContinuer:souhaitez vous continuer la partie ?
 messageQuitter:à bientôt sur Formiko !
 validerQuitter:êtes vous sûr de vouloir quitter ?
 quitterToMp:revenir au menu principal
@@ -116,23 +122,23 @@ dimentionCarteY:dimension de la carte en Y
 erreurCarteVide:impossible de lancer une partie sans aucun joueur et sans aucune ia.
 maxFourmiIa:nombre de fourmi maximum pour les ia
 nomDuFichier:nom du fichier
-getFileName:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
-dernierTourPassé:Le dernier tour est désormais passé.
+getFileName:entrez le nom de la sauvegarde que vous souhaitez charger : (Ou retour pour revenir en arrière)
+dernierTourPassé:le dernier tour est désormais passé.
 victoireInconue:victoire inconnue
 élimination:élimination
 victoirePar:a gagné par
 pseudo:pseudo
-entrezPseudo:Veuillez entrer votre pseudo
+entrezPseudo:veuillez entrer votre pseudo
 
 foodInsecte:nourriture pour les insectes
-celluleA:Cellule a
+celluleA:cellule a
 lien:lien
-ChasseNull:Impossible de chasser avec la créature
-CollecteNull:Impossible de collecter avec la créature
-CJoueur.1:La CJoueur contient le joueur
+ChasseNull:impossible de chasser avec la créature
+CollecteNull:impossible de collecter avec la créature
+CJoueur.1:la CJoueur contient le joueur
 CJoueur.2:et 1 lien vers le joueur
 
-listeCreature:Liste de Créature
+listeCreature:liste de Créature
 
 nétoyage:nettoyage
 actionMax:action maximum
@@ -194,7 +200,7 @@ casesSombres:cases sombres
 chargementFini:chargement fini
 lancerLeJeu:lancer le jeu
 
-lookedCase:Case regardée
+lookedCase:case regardée
 saveName:nom de la sauvegarde
 saveDone:sauvegarde effectuée
 defaultName:nom par défaut
@@ -223,7 +229,7 @@ tempsEnJeux:temps en jeux total
 os.0:Linux[]
 os.1:Windows[]
 os.2:Mac[]
-os.-1:OS non reconnu
+os.-1:oS non reconnu
 
 //carte :
 desert:désert
@@ -234,6 +240,8 @@ empty:vide
 fixMap:carte réparée
 mini:mini
 thirds:tiers
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:veuillez entrer une valeur pour la variable
@@ -242,29 +250,29 @@ read.3:il semblerait que vous soyez bloqué. Tapez STOP pour interrompre ce prog
 read.4:la chaîne de caractère
 read.5:n'est pas un nombre
 read.6:il semblerait que la valeur donnée ne convienne pas. Celle ci devrait être comprise dans l’intervalle
-read.7:Oui ou Non ?
+read.7:oui ou Non ?
 read.8:écrivez votre réponse sous la forme "o" (pour oui) ou "n" (pour non)
 read.9:l'entrée de l'utilisateur n'as pas été reconnue.
 
-tableau.1:La position
+tableau.1:la position
 tableau.2:n'existe pas dans le tableau
-tableau.3:On ajoute x en position finale
+tableau.3:on ajoute x en position finale
 tableau.4:n'est pas présent dans le tableau
-tableau.5:Le tableau est vide !
+tableau.5:le tableau est vide !
 
-allea.1:Le tableau t n'as pas autant de case que le tableau tc
-allea.2:On ne prend pas en compte tc
-allea.3:Impossible de faire fluctuer une variable d'autant
-allea.4:Pas de fluctuation pour cette variable
+allea.1:le tableau t n'as pas autant de case que le tableau tc
+allea.2:on ne prend pas en compte tc
+allea.3:impossible de faire fluctuer une variable d'autant
+allea.4:pas de fluctuation pour cette variable
 
-decoderUnFichier.1:La chaîne de caractère
+decoderUnFichier.1:la chaîne de caractère
 decoderUnFichier.2:n'est pas un nombre entier
 decoderUnFichier.3:n'est pas un booléen
-decoderUnFichier.4:Le caractère
+decoderUnFichier.4:le caractère
 
-ent.1:La conversion String To int a échoué
+ent.1:la conversion String To int a échoué
 
-GString.1:Le GString est vide
+GString.1:le GString est vide
 
 lireUnFichier.1:lignes on été trouvée dans le fichier
 
@@ -273,28 +281,28 @@ Message.1:console
 erreur:erreur
 alerte:alerte
 erreur.1:un lieu non précisé
-erreur.2:Trouver ci dessous la raison et la liste des fonctions qui était en cours lors de l'arrêt forcé
+erreur.2:trouver ci dessous la raison et la liste des fonctions qui était en cours lors de l'arrêt forcé
 erreur.3:fatale
-erreur.4:Une erreur
+erreur.4:une erreur
 erreur.5:c'est produite dans
-erreur.6:Correction apportée
-erreur.7:Quelque chose d'anormale est arrivé dans
-erreur.8:Il n'y a peut-être pas de raison de s'inquiéter
-erreur.9:La fonctionnalité n'as pas encore été implémenté
+erreur.6:correction apportée
+erreur.7:quelque chose d'anormale est arrivé dans
+erreur.8:il n'y a peut-être pas de raison de s'inquiéter
+erreur.9:la fonctionnalité n'as pas encore été implémenté
 erreur.10:nom inconnu
-erreur.11:Le chargement de l'image
+erreur.11:le chargement de l'image
 erreur.12:n'as pas fonctionné. Assurer vous que le fichier data/imageFormiko/ contient bien l'image en question.
-erreur.13:La liste
+erreur.13:la liste
 erreur.14:est vide
 erreur.15:liste inconnue
-erreur.16:La tentative de pause a échouée (durée de pause
-erreur.17:La convertion de type a échouée pour le type
+erreur.16:la tentative de pause a échouée (durée de pause
+erreur.17:la convertion de type a échouée pour le type
 alerteGUI2Dfail:1 action graphique n'as pas fonctionnée
 
-str.1:Impossible d'effectuer une des conversions
+str.1:impossible d'effectuer une des conversions
 str.2:correctement
 
-ElementListeIntrouvableExeption.1:La/Le
+ElementListeIntrouvableExeption.1:la/Le
 ElementListeIntrouvableExeption.2:n'as pu être retiré
 
 ListeVideExeption.1:impossible de
@@ -306,7 +314,25 @@ evoluerFourmi.1:passe au stade suivant
 pondreReine.1:est née
 spawnOf:apparition de
 
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
+
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
 //graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:sauvegarder
@@ -319,51 +345,63 @@ bouton.nom.-14:retour au jeu
 languageChoice:choisissez une langue
 
 save.message:entrez le nom a donner a votre sauvegarde.
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
-bouton.desc.0:Rétrécir la carte
-bouton.desc.1:Déplacer la carte vers le haut
-bouton.desc.2:Agrandir la carte
-bouton.desc.3:Déplacer la carte vers la gauche
-bouton.desc.4:Centrer la carte
-bouton.desc.5:Déplacer la carte vers la droite
-bouton.desc.6:Centrer la carte sur la fourmi qui joue actuellement
-bouton.desc.7:Déplacer la carte vers le bas
-bouton.desc.8:Zoomer de façon a ce que toutes les cases sois visible
+bouton.desc.0:rétrécir la carte
+bouton.desc.1:déplacer la carte vers le haut
+bouton.desc.2:agrandir la carte
+bouton.desc.3:déplacer la carte vers la gauche
+bouton.desc.4:centrer la carte
+bouton.desc.5:déplacer la carte vers la droite
+bouton.desc.6:centrer la carte sur la fourmi qui joue actuellement
+bouton.desc.7:déplacer la carte vers le bas
+bouton.desc.8:zoomer de façon a ce que toutes les cases sois visible
 
-bouton.nom.20:Se déplacer
-bouton.nom.21:Chasser l'insecte sur la case
-bouton.nom.22:Pondre
-bouton.nom.23:Trophallaxer
-bouton.nom.24:Se nettoyer ou nettoyer une fourmi alliée.
-bouton.nom.25:Manger une graine
-bouton.nom.26:Casser une graine
-bouton.nom.27:Chasser (mode auto)
-bouton.nom.28:S'occuper des autres Fourmis de la Fourmilière (mode auto)
-bouton.nom.29:Passer le tour
-bouton.nom.30:Supprimer
-bouton.nom.31:Menu
+bouton.nom.20:se déplacer
+bouton.nom.21:chasser l'insecte sur la case
+bouton.nom.22:pondre
+bouton.nom.23:trophallaxer
+bouton.nom.24:se nettoyer ou nettoyer une fourmi alliée.
+bouton.nom.25:manger une graine
+bouton.nom.26:casser une graine
+bouton.nom.27:chasser (mode auto)
+bouton.nom.28:s'occuper des autres Fourmis de la Fourmilière (mode auto)
+bouton.nom.29:passer le tour
+bouton.nom.30:supprimer
+bouton.nom.31:menu
 
-bouton.desc.20:Déplacer la fourmi sélectionnée
-bouton.desc.21:Chasser l'insecte présent sur la même case que la fourmi
-bouton.desc.22:Pondre un œuf
-bouton.desc.23:Trophallaxer (transmettre de la nourriture a une autre fourmi par voie orale)
-bouton.desc.24:Nettoyer une fourmi alliée (ou la fourmi sélectionné) sur la case actuelle.
-bouton.desc.25:Manger une graine ouverte stockée dans la fourmilière.
-bouton.desc.26:Casser une graine fermée.
-bouton.desc.27:Déclencher le mode automatique "Chasse"
-bouton.desc.28:Déclencher le mode automatique "Nourrice"
-bouton.desc.29:Passer le tour de la fourmi
-bouton.desc.30:Supprimer la fourmi
-bouton.desc.31:Ouvrir le menu d'options en jeu
+bouton.desc.20:déplacer la fourmi sélectionnée
+bouton.desc.21:chasser l'insecte présent sur la même case que la fourmi
+bouton.desc.22:pondre un œuf
+bouton.desc.23:trophallaxer (transmettre de la nourriture a une autre fourmi par voie orale)
+bouton.desc.24:nettoyer une fourmi alliée (ou la fourmi sélectionné) sur la case actuelle.
+bouton.desc.25:manger une graine ouverte stockée dans la fourmilière.
+bouton.desc.26:casser une graine fermée.
+bouton.desc.27:déclencher le mode automatique "Chasse"
+bouton.desc.28:déclencher le mode automatique "Nourrice"
+bouton.desc.29:passer le tour de la fourmi
+bouton.desc.30:supprimer la fourmi
+bouton.desc.31:ouvrir le menu d'options en jeu
 
-pti.desc.1:Indiquez l'id de la fourmi qui recevra la nourriture.
-pti.desc.2:Indiquez la quantité de nourriture offerte.
-pti.desc.3:Indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
-pti.desc.4:Indiquez la direction à suivre.
-pti.desc.5:Indiquez l'id de la fourmi a nettoyer. La fourmi la plus sale est la fourmi en position 1.
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
+pti.desc.1:indiquez l'id de la fourmi qui recevra la nourriture.
+pti.desc.2:indiquez la quantité de nourriture offerte.
+pti.desc.3:indiquez le type de l’œuf a pondre : 0=Reine, 1=Mâle, 2=Minor, 3=Medium, 4=Major, 5+=Autre.
+pti.desc.4:indiquez la direction à suivre.
+pti.desc.5:indiquez l'id de la fourmi a nettoyer. La fourmi la plus sale est la fourmi en position 1.
 
 //cli
-doAntAction:Choisir une action de Fourmi
+doAntAction:choisir une action de Fourmi
 selectAnt:sélectionner une fourmi
 endTurn:finir le tour
 endGame:finir la partie
@@ -411,37 +449,37 @@ cmd.args.22:id insecte, nourritureMangeable
 cmd.args.23:id joueur, pseudo
 cmd.args.24:id joueur, boolean estIa
 cmd.args.25:int x, int y
-cmd.args.27:Fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
+cmd.args.27:fourmi ou Insecte ou Graine, Si insecte : x, y, type Si fourmi : id Fourmiliere Si Graine : x, y.
 cmd.args.28:id créature
-cmd.args.29:String clé
+cmd.args.29:string clé
 
 
 descNull:la description de cette commande n'est pas définie.
 
 
 //conseil:
-conseil.1:Vous avez trouvez un bogue ? Signalez le au développeur du jeu a hydrolien.lili502@gmail.com.
-conseil.2:Envie de participer au développement du jeu ? Codeur, graphiste et traducteur sont les bienvenus (hydrolien.lili502@gmail.com).
-conseil.3:Mare de microgérer vos fourmis ? Utilisez les 2 modes automatique a votre disposition.
-conseil.4:Envie de varier un peu le style de jeu ? choisissez une espèce avec laquelle vous n'avez pas encore jouer.
-conseil.5:Certaines espèce de fourmi sont polymorphe. C'est a dire qu'elle ont des ouvrières de taille variable afin de pouvoir réalisé des taches assez différente.
-conseil.6:Ne pondez pas trop d’œuf a la fois. Sinon vous ne serez plus capable d'en prendre soin jusqu'à ce qu'ils deviennent des imagos.
-conseil.7:Les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
-conseil.8:Les choix que vous avez à faire sont indiqué en haut a gauche de votre écran.
-conseil.9:Les fourmi ne possèdent pas de paupière pour humidifier leur yeux. Elles doivent constamment conserver une bonne hygiène de vie afin de pouvoir communiquer avec leur antennes et voir avec leur yeux.
-conseil.10:Les œux, lave et nymphe ne sont pas capable de ce nettoyer tout seuls. Il leur faut nécessairement l'aide d'un imago sinon il risquerait d'être infecter par une mauvaise bactérie. veillez a ce que votre couvain reste au dessus de 50% de propreté.
-conseil.11:La Reine ne peut pondre que lorsqu'elle est dans la fourmilière.
-conseil.12:Les fourmis granivore ce nourrissent exclusivement de graine. Pour stocker leur nourriture elles conservent les graines dans des pièces sèche de la fourmilière.
-conseil.13:Les fourmis granivore ne sont pas capable de trophallaxer. Pour nourrir le couvain elles doivent nécessairement avoir des graines ouverte en stock dans la fourmilière.
-conseil.14:Les vitesses sont exprimées par des insectes. Plus l'insecte est rapide plus le déroulement de la partie sera rapide. La vitesse Fourmi correspond a la vitesse standard.
-conseil.15:Le jeu vous semble trop compliqué ? Choisissez la difficulté facile ou très facile.
-conseil.16:Le jeu vous semble trop facile ? Essayez donc de remporter une partie en ultra difficile.
-conseil.17:Si vous préférez explorer la carte par vous même cochez l'option cases nuageuse.
-conseil.18:Avez vous déjà essayé de lancer une partie personnalisée avec seulement des ia ?
-conseil.19:Vous pouvez charger une partie sauvegarder depuis le menu principal.
-conseil.20:Si il n'y a qu'une seule fourmi a nétoyer ou a nourrir sur la case où est votre fourmi, celle ci sera automatiquement selectioné pour être nétoyé ou nourrie.
-conseil.21:La langue du jeu est automatiquement celle de votre ordinateur, mais vous pouvez la modifier dans les Options.
-conseil.22:Certaines espèces de fourmis sont polycalique. C'est a dire qu'une reine issus d'une fourmilière A, pondra de nouvelle fourmi dans sa fourmilière B & les fourmis A et B continurons a s'entraider comme si elle ne formait qu'une grande fourmilière. Sur une grande carte il est utile de pondre des oeuf de reine et de male qui pourront fonder de nouvelle fourmilière allié a l'autre bout de la carte.
+conseil.1:
+conseil.2:envie de participer au développement du jeu ? Codeur, graphiste et traducteur sont les bienvenus (hydrolien.lili502@gmail.com).
+conseil.3:mare de microgérer vos fourmis ? Utilisez les 2 modes automatique a votre disposition.
+conseil.4:envie de varier un peu le style de jeu ? choisissez une espèce avec laquelle vous n'avez pas encore jouer.
+conseil.5:certaines espèce de fourmi sont polymorphe. C'est a dire qu'elle ont des ouvrières de taille variable afin de pouvoir réalisé des taches assez différente.
+conseil.6:ne pondez pas trop d’œuf a la fois. Sinon vous ne serez plus capable d'en prendre soin jusqu'à ce qu'ils deviennent des imagos.
+conseil.7:les fourmis passe par 4 stades de développement : œuf, lave, nymphe et imago (fourmi adulte).
+conseil.8:les choix que vous avez à faire sont indiqué en haut a gauche de votre écran.
+conseil.9:les fourmi ne possèdent pas de paupière pour humidifier leur yeux. Elles doivent constamment conserver une bonne hygiène de vie afin de pouvoir communiquer avec leur antennes et voir avec leur yeux.
+conseil.10:les œux, lave et nymphe ne sont pas capable de ce nettoyer tout seuls. Il leur faut nécessairement l'aide d'un imago sinon il risquerait d'être infecter par une mauvaise bactérie. veillez a ce que votre couvain reste au dessus de 50% de propreté.
+conseil.11:la Reine ne peut pondre que lorsqu'elle est dans la fourmilière.
+conseil.12:les fourmis granivore ce nourrissent exclusivement de graine. Pour stocker leur nourriture elles conservent les graines dans des pièces sèche de la fourmilière.
+conseil.13:les fourmis granivore ne sont pas capable de trophallaxer. Pour nourrir le couvain elles doivent nécessairement avoir des graines ouverte en stock dans la fourmilière.
+conseil.14:les vitesses sont exprimées par des insectes. Plus l'insecte est rapide plus le déroulement de la partie sera rapide. La vitesse Fourmi correspond a la vitesse standard.
+conseil.15:le jeu vous semble trop compliqué ? Choisissez la difficulté facile ou très facile.
+conseil.16:le jeu vous semble trop facile ? Essayez donc de remporter une partie en ultra difficile.
+conseil.17:si vous préférez explorer la carte par vous même cochez l'option cases nuageuse.
+conseil.18:avez vous déjà essayé de lancer une partie personnalisée avec seulement des ia ?
+conseil.19:vous pouvez charger une partie sauvegarder depuis le menu principal.
+conseil.20:si il n'y a qu'une seule fourmi a nétoyer ou a nourrir sur la case où est votre fourmi, celle ci sera automatiquement selectioné pour être nétoyé ou nourrie.
+conseil.21:la langue du jeu est automatiquement celle de votre ordinateur, mais vous pouvez la modifier dans les Options.
+conseil.22:certaines espèces de fourmis sont polycalique. C'est a dire qu'une reine issus d'une fourmilière A, pondra de nouvelle fourmi dans sa fourmilière B & les fourmis A et B continurons a s'entraider comme si elle ne formait qu'une grande fourmilière. Sur une grande carte il est utile de pondre des oeuf de reine et de male qui pourront fonder de nouvelle fourmilière allié a l'autre bout de la carte.
 
 //message ---------------:
 //mort :
@@ -454,9 +492,9 @@ mort10:est mort(e) face au mandibule de
 mort11:a été aspergé d'acide par
 
 //tuto :
-tuto.0:Bienvenue sur Formiko jeune fourmi !
-tuto.1:Apprenons ensemble les bases de ce jeu pour que tu puisse t'y amuser.
-tuto.2:Notre reine est affamée, déplaçons la d'une case vers la droite pour qu'elle puisse chasser cette proie.
+tuto.0:bienvenue sur Formiko jeune fourmi !
+tuto.1:apprenons ensemble les bases de ce jeu pour que tu puisse t'y amuser.
+tuto.2:notre reine est affamée, déplaçons la d'une case vers la droite pour qu'elle puisse chasser cette proie.
 tuto.3:pour déplacer une fourmi vous devez effectuer un clic droit sur la case sur laquelle vous souhaitez aller.
 tuto.4:bien ! Maintenant mangeons la !
 tuto.5:pour tuer un insecte cliquez sur le bouton "Chasser l'insecte sur la case" situé en bas de votre écran.
@@ -470,26 +508,26 @@ tuto.12:pondez un œuf avec le bouton "Pondre" situé en bas de votre écran.
 tuto.13:l’œuf est pondu. Maintenant il faut en prendre soin, sinon il n'arrivera jamais a l'age adulte.
 tuto.14:attendons un peu qu'il grandisse.
 tuto.15:attendez un tour en cliquant sur le bouton "Passer le tour" situé en bas de votre écran.
-tuto.16:Notre œuf a grandi ! C'est désormais une larve !
-tuto.17:Les larves ont besoin d'être nettoyer fréquemment pour ne pas mourir de maladie.
-tuto.18:Nettoyez la larve en cliquant sur le bouton "Nettoyer" situé en bas de votre écran.
-tuto.19:Notre larve est propre. Attendons qu'elle évolue au stade supérieur en passant le tour avec le bouton associé en bas de votre écran.
-tuto.20:La larve a évoluée, c'est désormais une nymphe. Les nymphe ont, comme les larves, besoins d'être nettoyé et nourrie.
-tuto.21:Pour nourrir le couvains (les œuf, larves et nymphes), les fourmis régurgite de la nourriture contenu dans leur "estomac sociale". On appelle cela une trophallaxie.
+tuto.16:notre œuf a grandi ! C'est désormais une larve !
+tuto.17:les larves ont besoin d'être nettoyer fréquemment pour ne pas mourir de maladie.
+tuto.18:nettoyez la larve en cliquant sur le bouton "Nettoyer" situé en bas de votre écran.
+tuto.19:notre larve est propre. Attendons qu'elle évolue au stade supérieur en passant le tour avec le bouton associé en bas de votre écran.
+tuto.20:la larve a évoluée, c'est désormais une nymphe. Les nymphe ont, comme les larves, besoins d'être nettoyé et nourrie.
+tuto.21:pour nourrir le couvains (les œuf, larves et nymphes), les fourmis régurgite de la nourriture contenu dans leur "estomac sociale". On appelle cela une trophallaxie.
 tuto.22:nourrissez la larve avec le bouton "Trophallaxie" situé en bas de votre écran.
-tuto.23:La nymphe est rassasié ! Attendons encore un peu qu'elle grandisse. (cliquer sur le bouton "Passer le tour" situé en bas de votre écran.)
-tuto.24:La fourmi a enfin atteint le stade adulte (imago) ! Elle peut désormais effectué des actions comme la reine.
-tuto.25:D'autre insecte vont apparaître avec le temps. Envoyons la reine en tuer 1 en cliquant sur le bouton "chasse automatique".
-tuto.26:La chasse automatique vous permet de laisser vos fourmi chasser de façon autonome.
-tuto.27:Il existe également un mode nourrice automatique. Laisser la reine a la fourmilière avec ce mode d'activé et conseillé lorsqu'il y a des oeuf, des larves ou des nymphes a la fourmilière.
-tuto.28:Notre espèce n'est pas granivore (ne mange pas de graine). Toutes fois certaines fourmilière voisines pourrait collecter les graines pour les manger.
-tuto.29:L'ouvrière que nous avons pondu peut effectué les mêmes actions que la reine, a l’exception de pondre.
-tuto.30:Les ouvrières sont même plus efficaces sur certaines tâches (cela leur coûtent moins d'actions pour les effectuer). Notre ouvrière chasse plus facilement que la reine.
-tuto.31:Donnons une tache a accomplir a notre ouvrière pour que le tour ce termine. (cliquer sur un des boutons en bas de votre écran, plusieurs fois si nécessaire.)
-tuto.31.1:Voilà vous avez gagné ! Mais en fait comment dois-je vous appeller ?
-tuto.32:C'était le dernier tour de ce tuto, si vous avez un doute vous pouvez refaire ce tuto.
-tuto.33:Sinon les descriptions des boutons s'affiche lorsque vous les survolez, idem pour les case de la carte. Les informations concernant la fourmi sélectionné sont a droite de votre écran.
-tuto.34:Si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
-tuto.35:Pour remporter une partie au temps vous devez avoir un score plus élevé que celui des ia et des autre joueurs.
-tuto.36:Votre score dépend de votre nombre de fourmi, (les fourmis adultes donne un meilleur score), ainsi que de la difficulté de la partie et de la vitesse de jeu.
+tuto.23:la nymphe est rassasié ! Attendons encore un peu qu'elle grandisse. (cliquer sur le bouton "Passer le tour" situé en bas de votre écran.)
+tuto.24:la fourmi a enfin atteint le stade adulte (imago) ! Elle peut désormais effectué des actions comme la reine.
+tuto.25:d'autre insecte vont apparaître avec le temps. Envoyons la reine en tuer 1 en cliquant sur le bouton "chasse automatique".
+tuto.26:la chasse automatique vous permet de laisser vos fourmi chasser de façon autonome.
+tuto.27:il existe également un mode nourrice automatique. Laisser la reine a la fourmilière avec ce mode d'activé et conseillé lorsqu'il y a des oeuf, des larves ou des nymphes a la fourmilière.
+tuto.28:notre espèce n'est pas granivore (ne mange pas de graine). Toutes fois certaines fourmilière voisines pourrait collecter les graines pour les manger.
+tuto.29:l'ouvrière que nous avons pondu peut effectué les mêmes actions que la reine, a l’exception de pondre.
+tuto.30:les ouvrières sont même plus efficaces sur certaines tâches (cela leur coûtent moins d'actions pour les effectuer). Notre ouvrière chasse plus facilement que la reine.
+tuto.31:donnons une tache a accomplir a notre ouvrière pour que le tour ce termine. (cliquer sur un des boutons en bas de votre écran, plusieurs fois si nécessaire.)
+tuto.31.1:voilà vous avez gagné ! Mais en fait comment dois-je vous appeller ?
+tuto.32:c'était le dernier tour de ce tuto, si vous avez un doute vous pouvez refaire ce tuto.
+tuto.33:sinon les descriptions des boutons s'affiche lorsque vous les survolez, idem pour les case de la carte. Les informations concernant la fourmi sélectionné sont a droite de votre écran.
+tuto.34:si malgré cela vous ne trouver pas ce qu'il faut vous pouvez demander conseil sur le serveur discord officiel du jeu : http://discord.gg/vqvfGzf
+tuto.35:pour remporter une partie au temps vous devez avoir un score plus élevé que celui des ia et des autre joueurs.
+tuto.36:votre score dépend de votre nombre de fourmi, (les fourmis adultes donne un meilleur score), ainsi que de la difficulté de la partie et de la vitesse de jeu.
 tuto.37:ce sera tout pour ce tuto, je vous renvoie au menu principal ou vous pourrez commencer votre prochaine partie !

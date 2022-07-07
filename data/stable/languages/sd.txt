@@ -28,6 +28,8 @@ suivant:هيٺين[auto]
 avant:اڳ[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:انساني پليئر[auto]
 joueur:پليئر[auto]
 case:ڪيس[auto]
 légende:ڏند ڪٿا[auto]
+currentPlayer:
 
 allié:ساٿي[auto]
 neutre:اڻ ڌريو[auto]
 ennemi:دشمن[auto]
 proie:شڪار[auto]
 
-//caractéristiques :
+//characteristics :
 taille:ڪٽيو[auto]
 coordonées:رابطي جي informationاڻ[auto]
 coordonnées:رابطي جي informationاڻ[auto]
@@ -57,11 +60,14 @@ mode:موڊ[auto]
 phéromone:پيرومون[auto]
 transporté:منتقل ڪيو ويو[auto]
 espèce:ذاتون[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:انٽي[auto]
 insecte:جيت[auto]
 créature:مخلوق[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:جي[auto]
 t.h:ايڇ[auto]
 t.min:منٽ[auto]
@@ -234,6 +240,8 @@ empty:خالي آهي[auto]
 fixMap:مرمت ٿيل ڪارڊ[auto]
 mini:ميني[auto]
 thirds:ٽيون[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:مھرباني ڪري ويليو لاءِ قيمت داخل ڪريو[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:محفوظ ڪيو[auto]
 bouton.nom.-11:اختيارن[auto]
 bouton.nom.-12disable:چارجر[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:کيڏڻ واپس[auto]
 languageChoice:
 
 save.message:نالو داخل ڪريو پنهنجو بيڪ اپ ڏي.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:نقشو گھٽائڻ[auto]
 bouton.desc.1:نقشي ڏانهن وڌيو[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:انٽ جي ڀرسان گذريو[auto]
 bouton.desc.30:اينٽي هٽايو[auto]
 bouton.desc.31:راند ۾ اختيارن جو مينيو کوليو[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:انٽ جي سڃاڻپ ظاهر ڪريو جيڪا خوراڪ وصول ڪندي.[auto]
 pti.desc.2:پيش ڪيل کاڌي جي مقدار ظاهر ڪريو.[auto]
 pti.desc.3:بيهڻ لاءِ بيض جو قسم ظاهر ڪريو: 0 = راڻي ، 1 = مرد ، 2 = نن ،ڙو ، 3 = وچولي ، 4 = ميجر ، 5 + = ٻيو.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:فارموڪو چيٽ انٽرفيس ۾ ڀليڪار اهو ڪهڙو آهي جتي توهان ٺٽو حڪم ڪري سگھو ٿا.[auto]
 triche.aide.2:فارم ۾ آرڊر ”نالو: (دليل) وضاحت“[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:توهان کي چيڪ ڪرڻ جي اجازت ڏئي ٿو ته چيٽ ڪوڊ موجود آهن[auto]
 cmd.desc.2:هڪ جاندار جي باري ۾ ifاڻ ڏيکاري ٿو (جيڪڏهن ممڪن هجي ته اهو حشر يا اينٽي لاءِ تيار ٿيندڙ متغيرات ظاهر ڪري ٿو)[auto]
@@ -420,7 +458,7 @@ descNull:ھن حڪم جي وضاحت بيان ٿيل ناھي.[auto]
 
 
 //conseil:
-conseil.1:بگ مليو؟ ان کي رپورٽ ڪريو راندين جي ڊولپر کي hydrolien.lili502@gmail.com تي.[auto]
+conseil.1:
 conseil.2:ڇا راند جي ترقي ۾ حصو وٺڻ چاهيندا هئا؟ ڪوڊر ، گرافڪ ڊيزائنر ۽ مترجم ڀليڪار (hydrolien.lili502@gmail.com).[auto]
 conseil.3:توهان جي اينٽين کي micromanaging جو تلاءُ؟ توھان جي مرضي مطابق 2 پاڻمرادو طريقا استعمال ڪريو.[auto]
 conseil.4:راند ڪرڻ جي انداز کي ٿورو بدلائڻ چاهيو؟ هڪ ذات چونڊيو جيڪو توهان اڃا تائين راند نه ڪيو آهي.[auto]

@@ -28,6 +28,8 @@ suivant:wara[auto]
 avant:qabel[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:il-plejer uman[auto]
 joueur:plejer[auto]
 case:każ[auto]
 légende:leġġenda[auto]
+currentPlayer:
 
 allié:alleat[auto]
 neutre:newtrali[auto]
 ennemi:ghadu[auto]
 proie:priża[auto]
 
-//caractéristiques :
+//characteristics :
 taille:maqtugħa[auto]
 coordonées:dettalji ta 'kuntatt[auto]
 coordonnées:dettalji ta 'kuntatt[auto]
@@ -57,11 +60,14 @@ mode:modalità[auto]
 phéromone:feromonu[auto]
 transporté:trasportati[auto]
 espèce:speċi[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:ant[auto]
 insecte:insetti[auto]
 créature:kreatura[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:vojta[auto]
 fixMap:karta msewwija[auto]
 mini:mini[auto]
 thirds:it-tielet[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:jekk jogħġbok daħħal valur għall-varjabbli[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:ħlief[auto]
 bouton.nom.-11:għażliet[auto]
 bouton.nom.-12disable:ċarġer[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:lura biex tilgħab[auto]
 languageChoice:
 
 save.message:daħħal l-isem li tagħti lill-backup tiegħek.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:iċċekken il-mappa[auto]
 bouton.desc.1:mexxi l-mappa 'l fuq[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:għaddi madwar in-nemla[auto]
 bouton.desc.30:neħħi n-nemla[auto]
 bouton.desc.31:iftaħ il-menu tal-għażliet fil-logħba[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:indika l-id tal-nemla li se tirċievi l-ikel.[auto]
 pti.desc.2:indika l-ammont ta 'ikel offrut.[auto]
 pti.desc.3:indika t-tip ta 'bajda li għandha titqiegħed: 0 = Queen, 1 = Male, 2 = Minor, 3 = Medium, 4 = Major, 5 + = Other.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:merħba lill-formiko cheat interface. Dan huwa fejn tista 'tittajpja iqarrqu kmandi.[auto]
 triche.aide.2:kmandi fil-forma "isem: (argumenti) deskrizzjoni"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:jippermettilek tiċċekkja li l-kodiċijiet iqarrqu huma disponibbli[auto]
 cmd.desc.2:juri informazzjoni dwar kreatura (jekk possibbli juri wkoll il-varjabbli ppreparati għall-insett jew in-nemla)[auto]
@@ -420,7 +458,7 @@ descNull:id-deskrizzjoni ta 'dan il-kmand mhix definita.[auto]
 
 
 //conseil:
-conseil.1:sib bug? Irrapporta lill-iżviluppatur tal-logħob fuq hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:trid tipparteċipa fl-iżvilupp tal-logħba? Coder, graphic designer u traduttur huma milqugħa (hydrolien.lili502@gmail.com).[auto]
 conseil.3:għadira ta 'mikromanagement tan-nemel tiegħek? Uża ż-żewġ modi awtomatiċi għad-dispożizzjoni tiegħek.[auto]
 conseil.4:trid tvarja xi ftit l-istil tal-logħob? agħżel speċi li għadek ma lgħabtx magħha.[auto]

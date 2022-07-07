@@ -28,6 +28,8 @@ suivant:a ’leantainn[auto]
 avant:roimhe seo[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:cluicheadair an duine[auto]
 joueur:cluicheadair[auto]
 case:chùis[auto]
 légende:uirsgeul[auto]
+currentPlayer:
 
 allié:ally[auto]
 neutre:neodrach[auto]
 ennemi:nàmhaid[auto]
 proie:creach[auto]
 
-//caractéristiques :
+//characteristics :
 taille:gearradh[auto]
 coordonées:fiosrachadh conaltraidh[auto]
 coordonnées:fiosrachadh conaltraidh[auto]
@@ -57,11 +60,14 @@ mode:modh[auto]
 phéromone:pheromone[auto]
 transporté:air a ghiùlan[auto]
 espèce:gnèithean[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:ant[auto]
 insecte:biastagan[auto]
 créature:creutair[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:falamh[auto]
 fixMap:cairt air a chàradh[auto]
 mini:mion[auto]
 thirds:an treas[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:feuch an cuir thu a-steach luach airson an caochladair[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:sàbhail[auto]
 bouton.nom.-11:roghainnean[auto]
 bouton.nom.-12disable:charger[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:air ais a chluich[auto]
 languageChoice:
 
 save.message:cuir a-steach an t-ainm airson a thoirt don chùl-taic agad.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:lùghdaich am mapa[auto]
 bouton.desc.1:gluais am mapa suas[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:gabh timcheall air an t-seang[auto]
 bouton.desc.30:thoir air falbh an seang[auto]
 bouton.desc.31:fosgail clàr nan roghainnean in-gheama[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:comharraich id an t-seangan a gheibh am biadh.[auto]
 pti.desc.2:comharraich na tha de bhiadh air a thabhann.[auto]
 pti.desc.3:comharraich an seòrsa ugh a tha ri breith: 0 = Banrigh, 1 = Fireann, 2 = Mion, 3 = Meadhanach, 4 = Mòr, 5 + = Eile.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:fàilte gu eadar-aghaidh meallta Formiko. Seo far an urrainn dhut òrdughan meallta a thaipeadh.[auto]
 triche.aide.2:òrdughan ann an cruth "ainm: (argamaidean) tuairisgeul"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:a ’leigeil leat dèanamh cinnteach gu bheil còdan meallta rim faighinn[auto]
 cmd.desc.2:a ’taisbeanadh fiosrachadh co-cheangailte ri creutair (ma tha sin comasach tha e cuideachd a’ sealltainn na caochladairean a chaidh ullachadh airson a ’bhiast no an seangan)[auto]
@@ -420,7 +458,7 @@ descNull:chan eil tuairisgeul an àithne seo air a mhìneachadh.[auto]
 
 
 //conseil:
-conseil.1:lorg bug? Dèan aithris air leasaiche a ’gheama aig hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:a bheil thu airson pàirt a ghabhail ann an leasachadh a ’gheama? Tha fàilte air còdaiche, dealbhaiche grafaigeach agus eadar-theangaiche (hydrolien.lili502@gmail.com).[auto]
 conseil.3:pond de mhicromanaging do sheangain? Cleachd na 2 mhodhan fèin-ghluasadach a tha rim faighinn.[auto]
 conseil.4:a bheil thu airson an stoidhle cluich atharrachadh beagan? tagh gnè nach do chluich thu leis fhathast.[auto]

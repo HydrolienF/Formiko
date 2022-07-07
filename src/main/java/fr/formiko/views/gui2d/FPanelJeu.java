@@ -240,32 +240,4 @@ public class FPanelJeu extends FPanel {
     Main.repaint();
   }
 
-  /**
-  *{@summary print an alerte box.}
-  *@lastEditedVersion 1.49
-  */
-  public void alerte(String s, String s2){
-    JOptionPane jop1 = new JOptionPane();
-    jop1.showMessageDialog(Main.getF(), s, s2, JOptionPane.INFORMATION_MESSAGE);
-  }
-  public void alerte(String s){ alerte(s,g.getM("information"));}
-  /**
-  *{@summary Print a question box.}
-  *@param popUpName name of the popUp
-  *@param popUpMessage message of the popUp
-  *@return answer.
-  *@lastEditedVersion 1.50
-  */
-  public String question(String popUpName, String popUpMessage){
-    String r = JOptionPane.showInputDialog (Main.getF(), g.getM(popUpName), popUpMessage, JOptionPane.QUESTION_MESSAGE);
-    return r;
-  }
-  /***
-  *{@summary Print a question box.}
-  *@param popUpName name of the popUp
-  *@return answer.
-  *@lastEditedVersion 1.50
-  */
-  public String question(String popUpName){ return question(popUpName,"?");}
-
 }

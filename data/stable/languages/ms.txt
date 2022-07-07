@@ -28,6 +28,8 @@ suivant:mengikuti[auto]
 avant:sebelum ini[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:pemain manusia[auto]
 joueur:pemain[auto]
 case:kes[auto]
 légende:lagenda[auto]
+currentPlayer:
 
 allié:sekutu[auto]
 neutre:berkecuali[auto]
 ennemi:musuh[auto]
 proie:mangsa[auto]
 
-//caractéristiques :
+//characteristics :
 taille:memotong[auto]
 coordonées:maklumat perhubungan[auto]
 coordonnées:maklumat perhubungan[auto]
@@ -57,11 +60,14 @@ mode:mod[auto]
 phéromone:feromon[auto]
 transporté:diangkut[auto]
 espèce:spesies[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:semut[auto]
 insecte:serangga[auto]
 créature:makhluk[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:kosong[auto]
 fixMap:kad yang dibaiki[auto]
 mini:mini[auto]
 thirds:ketiga[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:sila masukkan nilai bagi pemboleh ubah[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:berjimat[auto]
 bouton.nom.-11:pilihan[auto]
 bouton.nom.-12disable:pengecas[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:kembali bermain[auto]
 languageChoice:
 
 save.message:masukkan nama yang akan diberikan pada sandaran anda.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:kecilkan peta[auto]
 bouton.desc.1:gerakkan peta ke atas[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:lintas semut[auto]
 bouton.desc.30:keluarkan semut[auto]
 bouton.desc.31:buka menu pilihan dalam permainan[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:nyatakan id semut yang akan menerima makanan.[auto]
 pti.desc.2:nyatakan jumlah makanan yang ditawarkan.[auto]
 pti.desc.3:nyatakan jenis telur yang hendak diletakkan: 0 = Ratu, 1 = Lelaki, 2 = Kecil, 3 = Sederhana, 4 = Major, 5 + = Lain-lain[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:selamat datang ke antara muka cheat Formiko. Di sinilah anda boleh menaip perintah cheat.[auto]
 triche.aide.2:perintah dalam bentuk "name: (argumen) keterangan"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:membolehkan anda memeriksa bahawa kod cheat ada[auto]
 cmd.desc.2:memaparkan maklumat mengenai makhluk (jika mungkin ia juga memaparkan pemboleh ubah yang disiapkan untuk serangga atau semut)[auto]
@@ -420,7 +458,7 @@ descNull:penerangan arahan ini tidak ditentukan.[auto]
 
 
 //conseil:
-conseil.1:menjumpai pepijat? Laporkan kepada pemaju permainan di hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:ingin mengambil bahagian dalam pengembangan permainan? Coder, pereka grafik dan penterjemah dialu-alukan (hydrolien.lili502@gmail.com).[auto]
 conseil.3:kolam menguruskan semut anda? Gunakan 2 mod automatik yang boleh anda gunakan.[auto]
 conseil.4:ingin sedikit mengubah gaya permainan? pilih spesies yang belum pernah anda mainkan.[auto]

@@ -28,6 +28,8 @@ suivant:järgnev[auto]
 avant:enne[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:inimmängija[auto]
 joueur:mängija[auto]
 case:juhtum[auto]
 légende:legend[auto]
+currentPlayer:
 
 allié:liitlane[auto]
 neutre:neutraalne[auto]
 ennemi:vaenlane[auto]
 proie:saak[auto]
 
-//caractéristiques :
+//characteristics :
 taille:lõika[auto]
 coordonées:kontaktinfo[auto]
 coordonnées:kontaktinfo[auto]
@@ -57,11 +60,14 @@ mode:režiimis[auto]
 phéromone:feromoon[auto]
 transporté:veetud[auto]
 espèce:liigid[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:ant[auto]
 insecte:putukad[auto]
 créature:olend[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:tühi[auto]
 fixMap:parandatud kaart[auto]
 mini:mini[auto]
 thirds:kolmas[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:sisestage muutuja väärtus[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:salvesta[auto]
 bouton.nom.-11:valikud[auto]
 bouton.nom.-12disable:laadija[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:tagasi mängima[auto]
 languageChoice:
 
 save.message:sisestage varukoopiale nimi.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:kahanda kaarti[auto]
 bouton.desc.1:liiguta kaarti üles[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:mööduge sipelga ümber[auto]
 bouton.desc.30:eemaldage sipelgas[auto]
 bouton.desc.31:avage mängusiseste valikute menüü[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:märkige sipelga ID, kes toitu vastu võtab.[auto]
 pti.desc.2:märkige pakutava toidu kogus.[auto]
 pti.desc.3:märkige munetava muna tüüp: 0 = kuninganna, 1 = isane, 2 = alaealine, 3 = keskmine, 4 = suur, 5 + = muu.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:tere tulemast Formiko pettuste liidesesse. Siia saate sisestada petukäske.[auto]
 triche.aide.2:käsud kujul "nimi: (argumendid) kirjeldus"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:võimaldab teil kontrollida, kas petukoodid on saadaval[auto]
 cmd.desc.2:kuvab teavet olendi kohta (võimaluse korral kuvatakse ka putuka või sipelga jaoks ettevalmistatud muutujad)[auto]
@@ -420,7 +458,7 @@ descNull:selle käsu kirjeldus pole määratletud.[auto]
 
 
 //conseil:
-conseil.1:kas leidsite vea? Teatage sellest mängu arendajale aadressil hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:kas soovite mängu arendamises osaleda? Oodatud on kodeerija, graafiline disainer ja tõlk (hydrolien.lili502@gmail.com).[auto]
 conseil.3:tiik sipelgate mikromajandamisest? Kasutage kahte teie käsutuses olevat automaatset režiimi.[auto]
 conseil.4:kas soovite mängustiili veidi varieerida? vali liik, kellega sa pole veel mänginud.[auto]

@@ -28,6 +28,8 @@ suivant:seguente[auto]
 avant:prima[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:il giocatore umano[auto]
 joueur:giocatore[auto]
 case:astuccio[auto]
 légende:leggenda[auto]
+currentPlayer:
 
 allié:alleato[auto]
 neutre:neutro[auto]
 ennemi:nemico[auto]
 proie:preda[auto]
 
-//caractéristiques :
+//characteristics :
 taille:formato[auto]
 coordonées:informazioni sui contatti[auto]
 coordonnées:informazioni sui contatti[auto]
@@ -57,11 +60,14 @@ mode:modalità[auto]
 phéromone:feromone[auto]
 transporté:trasportato[auto]
 espèce:specie[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:formica[auto]
 insecte:insetti[auto]
 créature:creatura[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:vuoto[auto]
 fixMap:carta riparata[auto]
 mini:mini[auto]
 thirds:terzo[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:inserisci un valore per la variabile[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:salva[auto]
 bouton.nom.-11:opzioni[auto]
 bouton.nom.-12disable:caricabatterie[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:torna a giocare[auto]
 languageChoice:
 
 save.message:inserisci il nome da dare al tuo backup.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:riduci la mappa[auto]
 bouton.desc.1:sposta la mappa in alto[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:passa intorno alla formica[auto]
 bouton.desc.30:rimuovi la formica[auto]
 bouton.desc.31:apri il menu delle opzioni di gioco[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:indica l'id della formica che riceverà il cibo.[auto]
 pti.desc.2:indicare la quantità di cibo offerto.[auto]
 pti.desc.3:indicare il tipo di uovo da deporre: 0 = Regina, 1 = Maschio, 2 = Minore, 3 = Medio, 4 = Maggiore, 5 + = Altro.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:benvenuto nell'interfaccia cheat di Formiko. Qui è dove puoi digitare i comandi cheat.[auto]
 triche.aide.2:comandi nella forma "nome: (argomenti) descrizione"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:ti permette di controllare che i cheat code siano disponibili[auto]
 cmd.desc.2:mostra le informazioni su una creatura (se possibile mostra anche le variabili preparate per l'insetto o la formica)[auto]
@@ -420,7 +458,7 @@ descNull:la descrizione di questo comando non è definita.[auto]
 
 
 //conseil:
-conseil.1:trovato un bug? Segnalalo allo sviluppatore del gioco all'indirizzo hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:vuoi partecipare allo sviluppo del gioco? Coder, graphic designer e traduttore sono i benvenuti (hydrolien.lili502@gmail.com).[auto]
 conseil.3:stagno di microgestione delle formiche? Utilizza le 2 modalità automatiche a tua disposizione.[auto]
 conseil.4:vuoi variare un po 'lo stile di gioco? scegli una specie con cui non hai ancora giocato.[auto]

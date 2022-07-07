@@ -46,7 +46,7 @@ neutre:neŭtralo
 ennemi:malamiko
 proie:predo
 
-//caractéristiques :
+//characteristics :
 taille:talio
 coordonées:koordinatoj
 coordonnées:kontakt-informoj[auto]
@@ -67,7 +67,7 @@ foodEatable:nutraĵoj manaĝebla
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:formiko
 insecte:insekto
 créature:kreito
@@ -183,9 +183,9 @@ i7:ĉenilo
 i8:onisko
 i9:formiko[auto]
 
-choixCarte:Mapo
-choixDif:Malfacilaĵo
-choixVitesseDeJeu:Ludrapideco
+choixCarte:mapo
+choixDif:malfacilaĵo
+choixVitesseDeJeu:ludrapideco
 
 aPourCoordonnées:havas por koordinatoj
 contient:enhavi
@@ -209,7 +209,7 @@ theCaseDoNotExist:la fako ne ekzisti
 optionsCanBeEditedIn:opcioj povas estu redaktita en
 enterCoordinateAs:enigu koordinatojn kiel
 
-//temps
+//time
 t.j:t
 t.h:h
 t.min:min
@@ -327,14 +327,14 @@ colorState.3:kritikaj
 messageSaveFail:partio malsavis
 messageSaveWork:partio savis
 
-//objet graphique:
+//graphic item:
 
 homeWebSiteLink:retejo
 discordLink:oficiala Discord
 reportBugLink:signali 1 cimo
 supportGameLink:subteni Formiko
 
-//bouton du PanneauEchap
+//bouton of PanneauEchap
 bouton.nom.-10:savi
 bouton.nom.-11:opcio
 bouton.nom.-12disable:ŝargi
@@ -345,6 +345,9 @@ bouton.nom.-14:reiri a la partio
 languageChoice:elekti lingvon
 
 save.message:enigu la nomon por doni al via rezervo.[auto]
+newVersionAvailable.question:novan version disponeblas. Ĉu vi ŝatus elŝuti ĝin ?
+ignoreThisVersion:ignoru ĉi tiun version
+dontAskAgain:ne demandu denove
 
 bouton.desc.0:malvastifi la mapo
 bouton.desc.1:movi la mapo alte
@@ -409,7 +412,7 @@ setPlayingAnt:elektu ludantan formikon
 triche.aide.1:bonvenon al la trompanta interfaco de Formiko. Ĉi tie vi povas tajpi trompajn komandojn.[auto]
 triche.aide.2:komandoj en la formo "nomo: (argumentoj) priskribo"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:permesas kontroli, ke trompaj kodoj disponeblas[auto]
 cmd.desc.2:montras informojn pri estaĵo (se eble ĝi ankaŭ montras la variablojn preparitajn por la insekto aŭ la formiko)[auto]
@@ -455,7 +458,7 @@ descNull:la priskribo de ĉi tiu komando ne estas difinita.[auto]
 
 
 //conseil:
-conseil.1:vi renkontis 1 cimo ? signalu ĉi tui a la inicitoro de la ludo, hydrolien.lili502@gmail.com.
+conseil.1:vi renkontis 1 cimo ? signalu ĉi tui a la inicitoro de la ludo kun la ĉefmenua ligo.
 conseil.2:envio de kunhelpi a la kresko de la ludo ? Programisto, fasonisto, tradukisto estas la bonvenoj (hydrolien.lili502@gmail.com).
 conseil.3:ne envio de mikroadministri viajn formikojn ? Uzi la 2 havebla aŭtomato.
 conseil.4:envio de variigi la luda stilo ? elekti 1 specio ke vi ne ankoraŭ ludi.

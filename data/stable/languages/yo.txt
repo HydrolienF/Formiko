@@ -28,6 +28,8 @@ suivant:atẹle[auto]
 avant:ṣaaju[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:eniyan player[auto]
 joueur:ẹrọ orin[auto]
 case:ọran[auto]
 légende:àlàyé[auto]
+currentPlayer:
 
 allié:alabaṣiṣẹpọ[auto]
 neutre:didoju[auto]
 ennemi:ọtá[auto]
 proie:ohun ọdẹ[auto]
 
-//caractéristiques :
+//characteristics :
 taille:ge[auto]
 coordonées:ibi iwifunni[auto]
 coordonnées:ibi iwifunni[auto]
@@ -57,11 +60,14 @@ mode:ipo[auto]
 phéromone:panoromone[auto]
 transporté:gbe[auto]
 espèce:eya[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:èèrà[auto]
 insecte:kokoro[auto]
 créature:eda[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:ṣofo[auto]
 fixMap:ti tunṣe kaadi[auto]
 mini:kekere[auto]
 thirds:ẹkẹta[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:jọwọ tẹ iye kan fun oniyipada naa[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:fipamọ[auto]
 bouton.nom.-11:awọn aṣayan[auto]
 bouton.nom.-12disable:ṣaja[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:pada lati mu ṣiṣẹ[auto]
 languageChoice:
 
 save.message:tẹ orukọ sii lati fi fun afẹyinti rẹ.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:isunki maapu[auto]
 bouton.desc.1:gbe maapu soke[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:ṣe ni ayika kokoro[auto]
 bouton.desc.30:yọ kokoro naa[auto]
 bouton.desc.31:ṣii akojọ aṣayan awọn ere inu ere[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:ṣe afihan id ti kokoro ti yoo gba ounjẹ naa.[auto]
 pti.desc.2:ṣe afihan iye ti ounjẹ ti a nṣe.[auto]
 pti.desc.3:ṣe afihan iru ẹyin lati dubulẹ: 0 = Ayaba, 1 = Akọ, 2 = Kekere, 3 = Alabọde, 4 = Pataki, 5 + = Omiiran.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:ku si ọna wiwo cheat Formiko. Eyi ni ibiti o le tẹ awọn ofin iyanjẹ.[auto]
 triche.aide.2:awọn aṣẹ ni fọọmu "orukọ: (awọn ariyanjiyan) apejuwe"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:gba ọ laaye lati ṣayẹwo pe awọn koodu iyanjẹ wa[auto]
 cmd.desc.2:ṣafihan alaye nipa ẹda kan (ti o ba ṣeeṣe o tun ṣe afihan awọn oniyipada ti a pese silẹ fun kokoro tabi kokoro)[auto]
@@ -420,7 +458,7 @@ descNull:a ko ṣe alaye apejuwe ti aṣẹ yii.[auto]
 
 
 //conseil:
-conseil.1:ri kokoro kan? Ṣe ijabọ rẹ si olupilẹṣẹ ere ni hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:fẹ lati kopa ninu idagbasoke ti ere naa? Koder, onise apẹẹrẹ ati onitumọ kaabo (hydrolien.lili502@gmail.com).[auto]
 conseil.3:omi ikudu ti micromanaging awọn kokoro rẹ? Lo awọn ipo aifọwọyi 2 ni didanu rẹ.[auto]
 conseil.4:ṣe o fẹ ṣe iyatọ ara ti ere diẹ? yan eya ti o ko tii ba ṣiṣẹ pẹlu sibẹsibẹ.[auto]

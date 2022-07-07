@@ -28,6 +28,8 @@ suivant:soo socda[auto]
 avant:ka hor[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:ciyaaryahanka aadanaha[auto]
 joueur:ciyaaryahan[auto]
 case:kiiska[auto]
 légende:halyeey[auto]
+currentPlayer:
 
 allié:isbahaysi[auto]
 neutre:dhexdhexaad ah[auto]
 ennemi:cadow[auto]
 proie:ugaadhsasho[auto]
 
-//caractéristiques :
+//characteristics :
 taille:jarid[auto]
 coordonées:macluumaadka xiriirka[auto]
 coordonnées:macluumaadka xiriirka[auto]
@@ -57,11 +60,14 @@ mode:hab[auto]
 phéromone:promoone[auto]
 transporté:daabulay[auto]
 espèce:noocyada[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:quraanjo[auto]
 insecte:cayayaanka[auto]
 créature:abuur[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:faaruq[auto]
 fixMap:kaarka dayactiray[auto]
 mini:yar[auto]
 thirds:saddexaad[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:fadlan gali qiime loogu talagalay doorsoomaha[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:badbaadi[auto]
 bouton.nom.-11:fursadaha[auto]
 bouton.nom.-12disable:xeedho[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:dib u ciyaar[auto]
 languageChoice:
 
 save.message:qor magaca si aad u siiso keydkaaga.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:khariidada yaree[auto]
 bouton.desc.1:khariidada kor u qaad[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:ku dhex wareeji qudhaanjada[auto]
 bouton.desc.30:ka qaad qudhaanjada[auto]
 bouton.desc.31:fur liiska xulashada ciyaarta[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:muuji id ee qudhaanjada heli doonta cuntada.[auto]
 pti.desc.2:sheeg qadarka cuntada la bixiyay.[auto]
 pti.desc.3:muuji nooca ukunta la dhigayo: 0 = Boqoradda, 1 = Lab, 2 = Yar, 3 = Dhexdhexaad, 4 = Weyn, 5 + = Kale.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:ku soo dhawow interface khiyaameeya Formiko. Tani waa meesha aad ku qori karto amarrada khiyaamada.[auto]
 triche.aide.2:amarrada qaabka "magaca: (doodaha) sharaxaadda"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:waxay kuu ogolaaneysaa inaad hubiso in koodhadhka khiyaamada la heli karo[auto]
 cmd.desc.2:wuxuu soo bandhigayaa macluumaad ku saabsan noole (haddii ay suurogal tahay waxay kaloo soo bandhigaysaa doorsoomayaasha loo diyaariyey cayayaanka ama qudhaanjada)[auto]
@@ -420,7 +458,7 @@ descNull:sharaxaadda amarkan lama qeexin.[auto]
 
 
 //conseil:
-conseil.1:ma la helay cayayaan? U soo sheeg soo-saaraha ciyaarta hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:marabtaa inaad kaqaybqaadato horumarka ciyaarta? Coder, naqshadeeye garaaf iyo turjubaan waa la soo dhaweynayaa (hydrolien.lili502@gmail.com).[auto]
 conseil.3:balli yar oo micromanaging quraanjadaada? Adeegso 2 qaab ee otomaatigga ah ee aad gacanta ku hayso.[auto]
 conseil.4:marabtaa inaad waxyar ka bedesho qaabka ciyaarta? dooro nooc aanad wali ku ciyaarin.[auto]

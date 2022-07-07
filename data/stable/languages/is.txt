@@ -28,6 +28,8 @@ suivant:eftirfarandi[auto]
 avant:áður[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:mannlegi leikmaðurinn[auto]
 joueur:leikmaður[auto]
 case:málið[auto]
 légende:þjóðsaga[auto]
+currentPlayer:
 
 allié:bandamann[auto]
 neutre:hlutlaus[auto]
 ennemi:óvinur[auto]
 proie:bráð[auto]
 
-//caractéristiques :
+//characteristics :
 taille:skera[auto]
 coordonées:upplýsingar um tengiliði[auto]
 coordonnées:upplýsingar um tengiliði[auto]
@@ -57,11 +60,14 @@ mode:háttur[auto]
 phéromone:ferómón[auto]
 transporté:flutt[auto]
 espèce:tegundir[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:maur[auto]
 insecte:skordýr[auto]
 créature:veru[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:mín[auto]
@@ -234,6 +240,8 @@ empty:tómt[auto]
 fixMap:lagfært kort[auto]
 mini:lítill[auto]
 thirds:þriðja[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:vinsamlegast sláðu inn gildi fyrir breytuna[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:spara[auto]
 bouton.nom.-11:valkosti[auto]
 bouton.nom.-12disable:hleðslutæki[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:aftur til leiks[auto]
 languageChoice:
 
 save.message:sláðu inn nafnið til að gefa öryggisafritinu þínu.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:minnkaðu kortið[auto]
 bouton.desc.1:færðu kortið upp[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:láttu fara um maurinn[auto]
 bouton.desc.30:fjarlægðu maurinn[auto]
 bouton.desc.31:opnaðu valmyndina í leiknum[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:tilgreindu auðkenni maursins sem fær matinn.[auto]
 pti.desc.2:tilgreindu magn matar sem boðið er upp á.[auto]
 pti.desc.3:tilgreindu tegund eggsins sem á að verpa: 0 = Queen, 1 = Male, 2 = Minor, 3 = Medium, 4 = Major, 5 + = Annað.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:velkomin í Formiko svindlviðmótið. Þetta er þar sem þú getur slegið svindlskipanir.[auto]
 triche.aide.2:skipanir í forminu „nafn: (rök) lýsing“[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:gerir þér kleift að athuga hvort svindlkóðar séu til[auto]
 cmd.desc.2:sýnir upplýsingar um veru (ef mögulegt er birtir hún einnig breyturnar sem tilbúnar eru fyrir skordýrið eða maurinn)[auto]
@@ -420,7 +458,7 @@ descNull:lýsingin á þessari skipun er ekki skilgreind.[auto]
 
 
 //conseil:
-conseil.1:fann galla? Tilkynntu það til leikjahönnuðar á hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:viltu taka þátt í þróun leiksins? Kóðari, grafískur hönnuður og þýðandi eru velkomnir (hydrolien.lili502@gmail.com).[auto]
 conseil.3:tjörn að stýra maurum þínum? Notaðu 2 sjálfvirku stillingarnar sem þú hefur yfir að ráða.[auto]
 conseil.4:viltu breyta leikstílnum aðeins? veldu tegund sem þú hefur ekki spilað með ennþá.[auto]

@@ -28,6 +28,8 @@ suivant:درج ذیل[auto]
 avant:پہلے[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:انسانی کھلاڑی[auto]
 joueur:پلیئر[auto]
 case:معاملہ[auto]
 légende:علامات[auto]
+currentPlayer:
 
 allié:اتحادی[auto]
 neutre:غیر جانبدار[auto]
 ennemi:دشمن[auto]
 proie:شکار[auto]
 
-//caractéristiques :
+//characteristics :
 taille:کٹ[auto]
 coordonées:رابطے کی معلومات[auto]
 coordonnées:رابطے کی معلومات[auto]
@@ -57,11 +60,14 @@ mode:وضع[auto]
 phéromone:فیرومون[auto]
 transporté:منتقل[auto]
 espèce:پرجاتیوں[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:چیونٹی[auto]
 insecte:کیڑوں[auto]
 créature:مخلوق[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:منٹ[auto]
@@ -234,6 +240,8 @@ empty:خالی[auto]
 fixMap:مرمت شدہ کارڈ[auto]
 mini:منی[auto]
 thirds:تیسرے[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:براہ کرم متغیر کی کوئی قیمت درج کریں[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:محفوظ کریں[auto]
 bouton.nom.-11:اختیارات[auto]
 bouton.nom.-12disable:چارجر[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:کھیلنے کے لئے واپس[auto]
 languageChoice:
 
 save.message:اپنا بیک اپ دینے کے لئے نام درج کریں۔[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:نقشہ سکیڑیں[auto]
 bouton.desc.1:نقشہ کو اوپر منتقل کریں[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:چیونٹی کے آس پاس سے گزریں[auto]
 bouton.desc.30:چیونٹی نکال دیں[auto]
 bouton.desc.31:کھیل میں اختیارات کا مینو کھولیں[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:چیونٹی کی شناخت کریں جس سے کھانا ملے گا۔[auto]
 pti.desc.2:پیش کردہ کھانے کی مقدار کی نشاندہی کریں۔[auto]
 pti.desc.3:انڈے کی جس قسم کی تیاری کی جائے اس کی نشاندہی کریں: 0 = ملکہ ، 1 = مرد ، 2 = معمولی ، 3 = میڈیم ، 4 = میجر ، 5 + = دیگر۔[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:فارمیکو چیٹ انٹرفیس میں خوش آمدید۔ یہ وہ جگہ ہے جہاں آپ دھوکہ دہی کے احکامات ٹائپ کرسکتے ہیں۔[auto]
 triche.aide.2:"نام: (دلائل) تفصیل" کے فارم میں احکامات[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:آپ کو یہ چیک کرنے کی اجازت دیتا ہے کہ دھوکہ دہی کے کوڈ دستیاب ہیں[auto]
 cmd.desc.2:کسی مخلوق کے بارے میں معلومات دکھاتا ہے (اگر ممکن ہو تو یہ کیڑے یا چیونٹی کے ل prepared تیار کردہ متغیرات بھی دکھاتا ہے)[auto]
@@ -420,7 +458,7 @@ descNull:اس حکم کی وضاحت کی وضاحت نہیں کی گئی ہے۔
 
 
 //conseil:
-conseil.1:ایک بگ ملا؟ گیم ڈویلپر کو hydrolien.lili502@gmail.com پر اس کی اطلاع دیں۔[auto]
+conseil.1:
 conseil.2:کھیل کی ترقی میں حصہ لینا چاہتے ہو؟ کوڈر ، گرافک ڈیزائنر اور مترجم خیرمقدم ہیں (hydrolien.lili502@gmail.com)[auto]
 conseil.3:اپنے چیونٹیوں کو مائکرو مینجمنٹ کرنے کا پول؟ اپنے اختیار میں 2 خودکار طریقے استعمال کریں۔[auto]
 conseil.4:کھیل کے انداز میں تھوڑا سا مختلف ہونا چاہتے ہیں؟ ایسی نوع کا انتخاب کریں جس کے ساتھ آپ ابھی تک نہیں کھیلے ہیں۔[auto]

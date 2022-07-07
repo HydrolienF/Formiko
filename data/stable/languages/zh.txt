@@ -28,6 +28,8 @@ suivant:以下[auto]
 avant:之前[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:人类玩家[auto]
 joueur:播放器[auto]
 case:案件[auto]
 légende:传说[auto]
+currentPlayer:
 
 allié:盟国[auto]
 neutre:中性[auto]
 ennemi:敌人[auto]
 proie:猎物[auto]
 
-//caractéristiques :
+//characteristics :
 taille:切[auto]
 coordonées:联系信息[auto]
 coordonnées:联系信息[auto]
@@ -57,11 +60,14 @@ mode:模式[auto]
 phéromone:信息素[auto]
 transporté:运输[auto]
 espèce:种类[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:蚂蚁[auto]
 insecte:昆虫[auto]
 créature:生物[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:ĵ[auto]
 t.h:h[auto]
 t.min:分[auto]
@@ -234,6 +240,8 @@ empty:空的[auto]
 fixMap:修复卡[auto]
 mini:微型[auto]
 thirds:第三[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:请输入变量的值[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:救[auto]
 bouton.nom.-11:选项[auto]
 bouton.nom.-12disable:充电器[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:回到玩[auto]
 languageChoice:
 
 save.message:输入要备份的名称。[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:缩小地图[auto]
 bouton.desc.1:向上移动地图[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:绕过蚂蚁[auto]
 bouton.desc.30:去除蚂蚁[auto]
 bouton.desc.31:打开游戏中的选项菜单[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:指明将接收食物的蚂蚁的ID。[auto]
 pti.desc.2:指明提供的食物数量。[auto]
 pti.desc.3:指出要产卵的类型：0 =大号，1 =雄性，2 =较小，3 =中，4 =大，5 + =其他。[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:欢迎来到Formiko作弊界面。您可以在此处输入作弊命令。[auto]
 triche.aide.2:格式为“名称：（参数）描述”的命令[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:允许您检查作弊代码是否可用[auto]
 cmd.desc.2:显示与生物有关的信息（如果可能，还显示为昆虫或蚂蚁准备的变量）[auto]
@@ -420,7 +458,7 @@ descNull:没有定义此命令的描述。[auto]
 
 
 //conseil:
-conseil.1:发现了错误？通过Hydrolien.lili502@gmail.com向游戏开发者报告。[auto]
+conseil.1:
 conseil.2:想参与游戏的开发吗？欢迎编码人员，图形设计师和翻译人员（hydrolien.lili502@gmail.com）。[auto]
 conseil.3:对蚂蚁进行微管理的池塘？使用两种自动模式供您使用。[auto]
 conseil.4:是否想改变游戏风格？选择一个尚未玩过的物种。[auto]

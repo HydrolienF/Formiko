@@ -28,6 +28,8 @@ suivant:swivan[auto]
 avant:anvan[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:jwè imen an[auto]
 joueur:jwè[auto]
 case:ka[auto]
 légende:lejand[auto]
+currentPlayer:
 
 allié:alye[auto]
 neutre:net[auto]
 ennemi:lènmi[auto]
 proie:prwa[auto]
 
-//caractéristiques :
+//characteristics :
 taille:koupe[auto]
 coordonées:enfòmasyon kontak[auto]
 coordonnées:enfòmasyon kontak[auto]
@@ -57,11 +60,14 @@ mode:mòd[auto]
 phéromone:feromon[auto]
 transporté:transpòte[auto]
 espèce:espès yo[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:foumi[auto]
 insecte:ensèk[auto]
 créature:bèt[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:vid[auto]
 fixMap:repare kat[auto]
 mini:mini[auto]
 thirds:twazyèm[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:tanpri antre yon valè pou varyab la[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:sove[auto]
 bouton.nom.-11:opsyon[auto]
 bouton.nom.-12disable:plato[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:tounen jwe[auto]
 languageChoice:
 
 save.message:antre nan non an pou bay backup ou.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:réduire kat la[auto]
 bouton.desc.1:deplase kat la[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:pase alantou foumi an[auto]
 bouton.desc.30:retire foumi an[auto]
 bouton.desc.31:louvri meni an opsyon nan-jwèt[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:endike id foumi ki pral resevwa manje a.[auto]
 pti.desc.2:endike kantite manje yo ofri.[auto]
 pti.desc.3:endike ki kalite ze yo dwe mete: 0 = Rèn, 1 = Gason, 2 = Minè, 3 = Mwayen, 4 = Gwo, 5 + = Lòt.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:byenveni nan koòdone nan tronpe Formiko. Sa a se kote ou ka tape kòmandman tronpe.[auto]
 triche.aide.2:kòmandman nan fòm "non: (agiman) deskripsyon"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:pèmèt ou tcheke ke kòd tronpe ki disponib[auto]
 cmd.desc.2:montre enfòmasyon sou yon bèt (si sa posib li montre tou varyab yo prepare pou ensèk la oswa foumi an)[auto]
@@ -420,7 +458,7 @@ descNull:deskripsyon kòmandman sa a pa defini.[auto]
 
 
 //conseil:
-conseil.1:ou jwenn yon ensèk? Rapòte li bay pwomotè jwèt la nan hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:vle patisipe nan devlopman nan jwèt la? Kodè, designer grafik ak tradiktè yo akeyi (hydrolien.lili502@gmail.com).[auto]
 conseil.3:pond nan mikro jere foumi ou a? Sèvi ak 2 mòd otomatik yo a jete ou.[auto]
 conseil.4:vle varye style la nan jwe yon ti jan? chwazi yon espès ou poko jwe avèk li.[auto]

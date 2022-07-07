@@ -163,6 +163,11 @@ public class ViewNull implements View {
   public String popUpQuestion(String message){return "";}
   /***
   *{@summary A null view action that do nothing.}<br>
+  *@lastEditedVersion 2.27
+  */
+  public boolean popUpQuestionYN(String message, boolean important){return false;}
+  /***
+  *{@summary A null view action that do nothing.}<br>
   *@lastEditedVersion 1.46
   */
   public void setPlayingAnt(Fourmi f){}

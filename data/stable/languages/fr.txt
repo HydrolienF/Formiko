@@ -345,6 +345,9 @@ bouton.nom.-14:retour au jeu
 languageChoice:choisissez une langue
 
 save.message:entrez le nom a donner a votre sauvegarde.
+newVersionAvailable.question:une nouvelle version est disponible. Souhaitez vous la télécharger ?
+ignoreThisVersion:ignorer cette version
+dontAskAgain:ne plus demander
 
 bouton.desc.0:Rétrécir la carte
 bouton.desc.1:Déplacer la carte vers le haut
@@ -455,7 +458,7 @@ descNull:la description de cette commande n'est pas définie.
 
 
 //conseil:
-conseil.1:Vous avez trouvez un bogue ? Signalez le au développeur du jeu a hydrolien.lili502@gmail.com.
+conseil.1:Vous avez trouvez un bogue ? Signalez le au développeur du jeu via le lien sur l'écran d'accueil.
 conseil.2:Envie de participer au développement du jeu ? Codeur, graphiste et traducteur sont les bienvenus (hydrolien.lili502@gmail.com).
 conseil.3:Mare de microgérer vos fourmis ? Utilisez les 2 modes automatique a votre disposition.
 conseil.4:Envie de varier un peu le style de jeu ? choisissez une espèce avec laquelle vous n'avez pas encore jouer.

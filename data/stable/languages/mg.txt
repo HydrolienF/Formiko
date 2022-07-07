@@ -28,6 +28,8 @@ suivant:manaraka[auto]
 avant:alohan'ny[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:ny mpilalao olombelona[auto]
 joueur:mpilalao[auto]
 case:tranga[auto]
 légende:maribolana[auto]
+currentPlayer:
 
 allié:mpiara[auto]
 neutre:tsy miandany[auto]
 ennemi:fahavalo[auto]
 proie:remby[auto]
 
-//caractéristiques :
+//characteristics :
 taille:hetezo[auto]
 coordonées:antsipiriany ifandraisana[auto]
 coordonnées:antsipiriany ifandraisana[auto]
@@ -57,11 +60,14 @@ mode:fomba[auto]
 phéromone:pheromone[auto]
 transporté:nentina[auto]
 espèce:karazana[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:vitsika[auto]
 insecte:bibikely[auto]
 créature:zavaboary[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:hanaisotra[auto]
 fixMap:karatra namboarina[auto]
 mini:mini[auto]
 thirds:fahatelo[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:azafady mampidira sanda ho an'ny miovaova[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:afa-tsy[auto]
 bouton.nom.-11:safidy[auto]
 bouton.nom.-12disable:dovia[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:miverina milalao[auto]
 languageChoice:
 
 save.message:ampidiro ny anarana omena ny nomaniny ho solon'izay.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:atsofohy ny sari-tany[auto]
 bouton.desc.1:afindrao ny sarintany[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:mandehana manodidina ny vitsika[auto]
 bouton.desc.30:esory ny vitsika[auto]
 bouton.desc.31:sokafy ny menio safidy amin'ny lalao[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:lazao ny id an'ny vitsika izay handray ny sakafo.[auto]
 pti.desc.2:lazao ny habetsaky ny sakafo natolotra.[auto]
 pti.desc.3:lazao ny karazana atody apetraka: 0 = Mpanjakavavy, 1 = Lehilahy, 2 = Minor, 3 = Medium, 4 = Major, 5 + = Hafa.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:tongasoa eto amin'ny interface interface cheat Formiko. Eto no ahafahanao manoratra kaody hosoka.[auto]
 triche.aide.2:baiko amin'ny endrika "anarana: (tohan-kevitra) famaritana"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:mamela anao hanamarina raha misy kaody hosoka[auto]
 cmd.desc.2:mampiseho fampahalalana momba ny zavaboary (raha azo atao dia mampiseho ireo miovaova vonona ho an'ny bibikely na ny vitsika)[auto]
@@ -420,7 +458,7 @@ descNull:ny famaritana an'io baiko io dia tsy voafaritra.[auto]
 
 
 //conseil:
-conseil.1:nahita bug? Tatero amin'ny mpamorona lalao ao amin'ny hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:te handray anjara amin'ny fampandrosoana ny lalao? Tongasoa i Coder, mpamorona sary ary mpandika teny (hydrolien.lili502@gmail.com).[auto]
 conseil.3:pond of micromanaging ny antsonao? Ampiasao ny maody 2 mandeha ho azy araka ny anananao.[auto]
 conseil.4:te hiovaova kely ny fomba filalaovana? mifidiana karazana mbola tsy nilalao.[auto]

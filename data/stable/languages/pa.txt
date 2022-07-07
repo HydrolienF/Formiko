@@ -28,6 +28,8 @@ suivant:ਹੇਠ ਦਿੱਤੇ[auto]
 avant:ਅੱਗੇ[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:ਮਨੁੱਖੀ ਖਿਡਾਰੀ[auto]
 joueur:ਖਿਡਾਰੀ[auto]
 case:ਕੇਸ[auto]
 légende:ਦੰਤਕਥਾ[auto]
+currentPlayer:
 
 allié:ਸਹਿਯੋਗੀ[auto]
 neutre:ਨਿਰਪੱਖ[auto]
 ennemi:ਦੁਸ਼ਮਣ[auto]
 proie:ਸ਼ਿਕਾਰ[auto]
 
-//caractéristiques :
+//characteristics :
 taille:ਕੱਟੋ[auto]
 coordonées:ਸੰਪਰਕ ਜਾਣਕਾਰੀ[auto]
 coordonnées:ਸੰਪਰਕ ਜਾਣਕਾਰੀ[auto]
@@ -57,11 +60,14 @@ mode:ਮੋਡ[auto]
 phéromone:ਫੇਰੋਮੋਨ[auto]
 transporté:ਲਿਜਾਇਆ ਗਿਆ[auto]
 espèce:ਸਪੀਸੀਜ਼[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:ਕੀੜੀ[auto]
 insecte:ਕੀੜੇ[auto]
 créature:ਜੀਵ[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:ਜੇ[auto]
 t.h:h[auto]
 t.min:ਮਿੰਟ[auto]
@@ -234,6 +240,8 @@ empty:ਖਾਲੀ[auto]
 fixMap:ਰਿਪੇਅਰਡ ਕਾਰਡ[auto]
 mini:ਮਿੰਨੀ[auto]
 thirds:ਤੀਜਾ[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:ਕਿਰਪਾ ਕਰਕੇ ਵੇਰੀਏਬਲ ਲਈ ਇੱਕ ਮੁੱਲ ਦਾਖਲ ਕਰੋ[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:ਸੇਵ[auto]
 bouton.nom.-11:ਚੋਣਾਂ[auto]
 bouton.nom.-12disable:ਚਾਰਜਰ[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:ਵਾਪਸ ਖੇਡਣ ਲਈ[auto]
 languageChoice:
 
 save.message:ਆਪਣੇ ਬੈਕਅਪ ਨੂੰ ਦੇਣ ਲਈ ਨਾਮ ਦਰਜ ਕਰੋ.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:ਸੁੰਦਰ ਨਕਸ਼ਾ[auto]
 bouton.desc.1:ਨਕਸ਼ੇ ਨੂੰ ਉੱਪਰ ਭੇਜੋ[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:ਕੀੜੀ ਦੇ ਦੁਆਲੇ ਲੰਘੋ[auto]
 bouton.desc.30:ਕੀੜੀ ਨੂੰ ਕੱੋ[auto]
 bouton.desc.31:ਇਨ-ਗੇਮ ਵਿਕਲਪ ਮੀਨੂੰ ਖੋਲ੍ਹੋ[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:ਕੀੜੀ ਦੀ ਪਛਾਣ ਕਰੋ ਜੋ ਭੋਜਨ ਪ੍ਰਾਪਤ ਕਰੇਗੀ.[auto]
 pti.desc.2:ਪੇਸ਼ ਕੀਤੇ ਭੋਜਨ ਦੀ ਮਾਤਰਾ ਨੂੰ ਦਰਸਾਓ.[auto]
 pti.desc.3:ਦਰਸਾਏ ਜਾਣ ਵਾਲੇ ਅੰਡੇ ਦੀ ਕਿਸਮ ਨੂੰ ਦਰਸਾਓ: 0 = ਮਹਾਰਾਣੀ, 1 = ਮਰਦ, 2 = ਨਾਬਾਲਗ, 3 = ਦਰਮਿਆਨੀ, 4 = ਮੇਜਰ, 5 + = ਹੋਰ.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:ਫਾਰਮਿਕੋ ਚੀਟ ਇੰਟਰਫੇਸ ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ. ਇਹ ਉਹ ਥਾਂ ਹੈ ਜਿੱਥੇ ਤੁਸੀਂ ਚੀਟਿੰਗ ਕਮਾਂਡਾਂ ਟਾਈਪ ਕਰ ਸਕਦੇ ਹੋ.[auto]
 triche.aide.2:"ਨਾਮ: (ਆਰਗੂਮੈਂਟਸ) ਵੇਰਵਾ" ਦੇ ਰੂਪ ਵਿਚ ਕਮਾਂਡਾਂ[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:ਤੁਹਾਨੂੰ ਇਹ ਜਾਂਚ ਕਰਨ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ ਕਿ ਚੀਟ ਕੋਡ ਉਪਲਬਧ ਹਨ[auto]
 cmd.desc.2:ਕਿਸੇ ਜੀਵ ਬਾਰੇ ਜਾਣਕਾਰੀ ਪ੍ਰਦਰਸ਼ਤ ਕਰਦਾ ਹੈ (ਜੇ ਸੰਭਵ ਹੋਵੇ ਤਾਂ ਇਹ ਕੀੜੇ ਜਾਂ ਕੀੜੀ ਲਈ ਤਿਆਰ ਵੇਰੀਏਬਲ ਵੀ ਪ੍ਰਦਰਸ਼ਤ ਕਰਦਾ ਹੈ)[auto]
@@ -420,7 +458,7 @@ descNull:ਇਸ ਕਮਾਂਡ ਦਾ ਵੇਰਵਾ ਪਰਿਭਾਸ਼ਤ 
 
 
 //conseil:
-conseil.1:ਇੱਕ ਬੱਗ ਮਿਲਿਆ? ਇਸ ਦੀ ਰਿਪੋਰਟ hydrolien.lili502@gmail.com 'ਤੇ ਗੇਮ ਡਿਵੈਲਪਰ ਨੂੰ ਕਰੋ.[auto]
+conseil.1:
 conseil.2:ਖੇਡ ਦੇ ਵਿਕਾਸ ਵਿਚ ਹਿੱਸਾ ਲੈਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਕੋਡਰ, ਗ੍ਰਾਫਿਕ ਡਿਜ਼ਾਈਨਰ ਅਤੇ ਅਨੁਵਾਦਕ ਸਵਾਗਤ ਕਰਦੇ ਹਨ (hydrolien.lili502@gmail.com).[auto]
 conseil.3:ਤੁਹਾਡੇ ਕੀੜੀਆਂ ਨੂੰ ਮਾਈਕ੍ਰੋ ਮੈਨੇਜਮੈਂਟ ਦਾ ਤਲਾਅ? ਆਪਣੇ ਨਿਪਟਾਰੇ ਤੇ 2 ਆਟੋਮੈਟਿਕ .ੰਗਾਂ ਦੀ ਵਰਤੋਂ ਕਰੋ.[auto]
 conseil.4:ਖੇਡਣ ਦੇ styleੰਗ ਨੂੰ ਥੋੜਾ ਵੱਖਰਾ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਕ ਅਜਿਹੀ ਸਪੀਸੀਸ ਦੀ ਚੋਣ ਕਰੋ ਜਿਸ ਨਾਲ ਤੁਸੀਂ ਅਜੇ ਨਹੀਂ ਖੇਡੀ.[auto]

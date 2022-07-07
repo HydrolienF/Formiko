@@ -28,6 +28,8 @@ suivant:følgende[auto]
 avant:før[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:den menneskelige spilleren[auto]
 joueur:spiller[auto]
 case:sak[auto]
 légende:legende[auto]
+currentPlayer:
 
 allié:alliert[auto]
 neutre:nøytral[auto]
 ennemi:fiende[auto]
 proie:bytte[auto]
 
-//caractéristiques :
+//characteristics :
 taille:kutte opp[auto]
 coordonées:kontaktinformasjon[auto]
 coordonnées:kontaktinformasjon[auto]
@@ -57,11 +60,14 @@ mode:modus[auto]
 phéromone:feromon[auto]
 transporté:transportert[auto]
 espèce:arter[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:maur[auto]
 insecte:insekter[auto]
 créature:skapning[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:tømme[auto]
 fixMap:reparert kort[auto]
 mini:mini[auto]
 thirds:tredje[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:vennligst skriv inn en verdi for variabelen[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:lagre[auto]
 bouton.nom.-11:alternativer[auto]
 bouton.nom.-12disable:lader[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:tilbake for å spille[auto]
 languageChoice:
 
 save.message:skriv inn navnet du vil gi til sikkerhetskopien din.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:krymp kartet[auto]
 bouton.desc.1:flytt kartet opp[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:pass rundt mauren[auto]
 bouton.desc.30:fjern mauren[auto]
 bouton.desc.31:åpne alternativmenyen i spillet[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:angi identiteten til mauren som skal motta maten.[auto]
 pti.desc.2:angi mengden mat som tilbys.[auto]
 pti.desc.3:angi hvilken type egg som skal legges: 0 = Dronning, 1 = Hann, 2 = Mindre, 3 = Middels, 4 = Major, 5 + = Annet.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:velkommen til Formiko cheat-grensesnittet. Dette er hvor du kan skrive juksekommandoer.[auto]
 triche.aide.2:kommandoer i skjemaet "navn: (argumenter) beskrivelse"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:lar deg sjekke at juksekoder er tilgjengelige[auto]
 cmd.desc.2:viser informasjon om en skapning (hvis mulig viser den også variablene forberedt for insektet eller mauren)[auto]
@@ -420,7 +458,7 @@ descNull:beskrivelsen av denne kommandoen er ikke definert.[auto]
 
 
 //conseil:
-conseil.1:fant du en feil? Rapporter det til spillutvikleren på hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:vil du delta i utviklingen av spillet? Kode, grafisk designer og oversetter er velkommen (hydrolien.lili502@gmail.com).[auto]
 conseil.3:basseng med mikrostyring av maurene dine? Bruk de to automatiske modusene til din disposisjon.[auto]
 conseil.4:vil du variere spillestilen litt? velg en art som du ennå ikke har lekt med.[auto]

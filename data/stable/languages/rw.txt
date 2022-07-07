@@ -28,6 +28,8 @@ suivant:ibikurikira[auto]
 avant:mbere[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:umukinnyi wumuntu[auto]
 joueur:umukinnyi[auto]
 case:urubanza[auto]
 légende:umugani[auto]
+currentPlayer:
 
 allié:umufasha[auto]
 neutre:kutabogama[auto]
 ennemi:umwanzi[auto]
 proie:umuhigo[auto]
 
-//caractéristiques :
+//characteristics :
 taille:gukata[auto]
 coordonées:amakuru yamakuru[auto]
 coordonnées:amakuru yamakuru[auto]
@@ -57,11 +60,14 @@ mode:uburyo[auto]
 phéromone:feromone[auto]
 transporté:gutwara[auto]
 espèce:ubwoko[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:ibimonyo[auto]
 insecte:udukoko[auto]
 créature:ikiremwa[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:ubusa[auto]
 fixMap:ikarita yasanwe[auto]
 mini:mini[auto]
 thirds:gatatu[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:nyamuneka andika agaciro kubihinduka[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:kuzigama[auto]
 bouton.nom.-11:amahitamo[auto]
 bouton.nom.-12disable:charger[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:gusubira gukina[auto]
 languageChoice:
 
 save.message:andika izina kugirango utange kuri backup yawe.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:gabanya ikarita[auto]
 bouton.desc.1:himura ikarita hejuru[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:genda uzenguruka ikimonyo[auto]
 bouton.desc.30:kuraho ikimonyo[auto]
 bouton.desc.31:fungura in-umukino wamahitamo menu[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:erekana id yikimonyo kizakira ibiryo.[auto]
 pti.desc.2:erekana ingano y'ibiryo bitangwa.[auto]
 pti.desc.3:erekana ubwoko bw'amagi kugirango utere: 0 = Umwamikazi, 1 = Umugabo, 2 = Ntoya, 3 = Hagati, 4 = Majoro, 5 + = Ibindi.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:ikaze kuri interineti ya foromo. Aha niho ushobora kwandika amategeko yibeshya.[auto]
 triche.aide.2:amategeko muburyo "izina: (impaka) ibisobanuro"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:ikwemerera kugenzura ko kode yibeshya irahari[auto]
 cmd.desc.2:yerekana amakuru yerekeye ikiremwa (niba bishoboka nayo irerekana impinduka zateguwe nudukoko cyangwa ikimonyo)[auto]
@@ -420,7 +458,7 @@ descNull:ibisobanuro by'iri tegeko ntabwo bisobanuwe.[auto]
 
 
 //conseil:
-conseil.1:habonetse ikosa? Bimenyeshe uwateguye umukino kuri hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:urashaka kugira uruhare mugutezimbere umukino? Coder, igishushanyo mbonera nu musemuzi murakaza neza (hydrolien.lili502@gmail.com).[auto]
 conseil.3:icyuzi cya micromanaging ibimonyo byawe? Koresha uburyo 2 bwikora muburyo bwawe.[auto]
 conseil.4:urashaka guhindura uburyo bwo gukina gato? hitamo ubwoko utarakinnye.[auto]

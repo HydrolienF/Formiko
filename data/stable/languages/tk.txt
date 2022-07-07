@@ -28,6 +28,8 @@ suivant:aşakda[auto]
 avant:öň[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:adam oýunçysy[auto]
 joueur:pleýer[auto]
 case:ýagdaý[auto]
 légende:rowaýat[auto]
+currentPlayer:
 
 allié:soýuzdaş[auto]
 neutre:bitarap[auto]
 ennemi:duşman[auto]
 proie:ýyrtyjy[auto]
 
-//caractéristiques :
+//characteristics :
 taille:kes[auto]
 coordonées:şahsy maglumatlar[auto]
 coordonnées:şahsy maglumatlar[auto]
@@ -57,11 +60,14 @@ mode:tertibi[auto]
 phéromone:feromon[auto]
 transporté:daşaldy[auto]
 espèce:görnüşleri[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:garynja[auto]
 insecte:mör-möjekler[auto]
 créature:jandar[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:sag[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:boş[auto]
 fixMap:abatlanan kartoçka[auto]
 mini:mini[auto]
 thirds:üçünji[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:üýtgeýjiniň bahasyny giriziň[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:tygşytlaň[auto]
 bouton.nom.-11:wariantlary[auto]
 bouton.nom.-12disable:güýçlendiriji[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:oýnamak üçin[auto]
 languageChoice:
 
 save.message:ätiýaçlyk nusgasyna bermek üçin adyny giriziň.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:kartany gysgaltmak[auto]
 bouton.desc.1:kartany ýokaryk galdyryň[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:garynjanyň töwereginden geç[auto]
 bouton.desc.30:garynjany aýyryň[auto]
 bouton.desc.31:oýun içindäki opsiýalar menýusyny açyň[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:iýmit aljak garynjanyň idini görkeziň.[auto]
 pti.desc.2:teklip edilýän iýmitiň mukdaryny görkeziň.[auto]
 pti.desc.3:edilmeli ýumurtganyň görnüşini görkeziň: 0 = Şa aýal, 1 = Erkek, 2 = kiçi, 3 = orta, 4 = maýor, 5 + = başgalar.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:formiko aldaw interfeýsine hoş geldiňiz. Bu ýerde aldaw buýruklaryny ýazyp bilersiňiz.[auto]
 triche.aide.2:"ady: (argumentler) düşündiriş" görnüşindäki buýruklar[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:aldamak kodlarynyň bardygyny barlamaga mümkinçilik berýär[auto]
 cmd.desc.2:jandar hakda maglumatlary görkezýär (mümkin bolsa mör-möjek ýa-da garynja üçin taýýarlanan üýtgeýänleri hem görkezýär)[auto]
@@ -420,7 +458,7 @@ descNull:bu buýrugyň beýany kesgitlenmedi.[auto]
 
 
 //conseil:
-conseil.1:bir näsazlyk tapdyňyzmy? Oýun döredijisine hydrolien.lili502@gmail.com salgysynda habar beriň.[auto]
+conseil.1:
 conseil.2:oýunyň ösüşine gatnaşmak isleýärsiňizmi? Kodlaýjy, grafiki dizaýner we terjimeçi hoş geldiňiz (hydrolien.lili502@gmail.com).[auto]
 conseil.3:garynjalaryňyzy mikro-dolandyrmak howzy? Siziň ygtyýaryňyzda 2 awtomatiki reesimi ulanyň.[auto]
 conseil.4:oýun stilini biraz üýtgetmek isleýärsiňizmi? entek oýnamadyk görnüşiňizi saýlaň.[auto]

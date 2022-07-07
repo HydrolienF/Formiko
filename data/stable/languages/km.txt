@@ -28,6 +28,8 @@ suivant:បន្ទាប់[auto]
 avant:មុន[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:អ្នកលេងមនុស្ស[auto]
 joueur:អ្នកលេង[auto]
 case:ករណី[auto]
 légende:រឿងព្រេង[auto]
+currentPlayer:
 
 allié:សម្ព័ន្ធមិត្ត[auto]
 neutre:អព្យាក្រឹត[auto]
 ennemi:សត្រូវ[auto]
 proie:សត្វព្រៃ[auto]
 
-//caractéristiques :
+//characteristics :
 taille:កាត់[auto]
 coordonées:ព័ត៌មានទំនាក់ទំនង[auto]
 coordonnées:ព័ត៌មានទំនាក់ទំនង[auto]
@@ -57,11 +60,14 @@ mode:របៀប[auto]
 phéromone:pheromone[auto]
 transporté:ដឹក[auto]
 espèce:ប្រភេទសត្វ[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:ស្រមោច[auto]
 insecte:សត្វល្អិត[auto]
 créature:សត្វ[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:ច[auto]
 t.h:ជ[auto]
 t.min:នាទី[auto]
@@ -234,6 +240,8 @@ empty:ទទេ[auto]
 fixMap:កាតជួសជុល[auto]
 mini:ខ្នាតតូច[auto]
 thirds:ទីបី[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:សូមបញ្ចូលតម្លៃសម្រាប់អថេរ[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:រក្សាទុក[auto]
 bouton.nom.-11:ជំរើស[auto]
 bouton.nom.-12disable:ឆ្នាំងសាក[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:ត្រលប់ទៅលេង[auto]
 languageChoice:
 
 save.message:បញ្ចូលឈ្មោះដើម្បីផ្តល់ការបម្រុងទុករបស់អ្នក។[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:បង្រួមផែនទី[auto]
 bouton.desc.1:ផ្លាស់ទីផែនទីឡើងលើ[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:ហុចជុំវិញស្រមោច[auto]
 bouton.desc.30:យកស្រមោចចេញ[auto]
 bouton.desc.31:បើកម៉ឺនុយជម្រើសក្នុងហ្គេម[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:ចង្អុលបង្ហាញលេខសម្គាល់របស់ស្រមោចដែលនឹងទទួលបានអាហារ។[auto]
 pti.desc.2:ចង្អុលបង្ហាញបរិមាណអាហារដែលផ្តល់ជូន។[auto]
 pti.desc.3:ចង្អុលបង្ហាញប្រភេទស៊ុតដែលត្រូវដាក់: 0 = ព្រះមហាក្សត្រិយានី, 1 = ប្រុស, 2 = អនីតិជន, 3 = មធ្យម, 4 = ធំ, 5 + = ផ្សេងទៀត។[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:សូមស្វាគមន៍មកកាន់ចំណុចប្រទាក់បន្លំ Formiko ។ នេះគឺជាកន្លែងដែលអ្នកអាចវាយពាក្យបញ្ជាបោក។[auto]
 triche.aide.2:ពាក្យបញ្ជានៅក្នុងសំណុំបែបបទ "ឈ្មោះ: (អាគុយម៉ង់) ការពិពណ៌នា"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:អនុញ្ញាតឱ្យអ្នកពិនិត្យមើលថាកូដបន្លំអាចប្រើបាន[auto]
 cmd.desc.2:បង្ហាញព័ត៌មានទាក់ទងនឹងសត្វមួយ (បើអាចធ្វើបានវាក៏បង្ហាញអថេរដែលរៀបចំសម្រាប់សត្វល្អិតឬស្រមោច)[auto]
@@ -420,7 +458,7 @@ descNull:ការពិពណ៌នាពាក្យបញ្ជានេះ�
 
 
 //conseil:
-conseil.1:រកឃើញកំហុស? រាយការណ៍វាទៅអ្នកអភិវឌ្ឍន៍ហ្គេមតាមអ៊ីម៉ែល hydrolien.lili502@gmail.com ។[auto]
+conseil.1:
 conseil.2:ចង់ចូលរួមអភិវឌ្ឍហ្គេមទេ? អ្នកឌីហ្សាញអ្នករចនាក្រាហ្វិចនិងអ្នកបកប្រែសូមស្វាគមន៍ (hydrolien.lili502@gmail.com) ។[auto]
 conseil.3:ស្រះទឹកនៃស្រមោចរបស់អ្នក? ប្រើរបៀបស្វ័យប្រវត្តិ ២ តាមការចោលរបស់អ្នក។[auto]
 conseil.4:ចង់ផ្លាស់ប្តូរស្ទីលលេងបន្តិចទេ? ជ្រើសរើសប្រភេទសត្វដែលអ្នកមិនទាន់លេងជាមួយ។[auto]

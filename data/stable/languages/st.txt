@@ -28,6 +28,8 @@ suivant:ho latela[auto]
 avant:pele ho[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:sebapali sa motho[auto]
 joueur:sebapali[auto]
 case:nyeoe[auto]
 légende:taba[auto]
+currentPlayer:
 
 allié:motsoalle[auto]
 neutre:nke lehlakore[auto]
 ennemi:sera[auto]
 proie:phofu[auto]
 
-//caractéristiques :
+//characteristics :
 taille:seha[auto]
 coordonées:mokhoa oa puisano[auto]
 coordonnées:mokhoa oa puisano[auto]
@@ -57,11 +60,14 @@ mode:mokgoa[auto]
 phéromone:pheromone[auto]
 transporté:tsamaisoa[auto]
 espèce:mefuta[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:bohloa[auto]
 insecte:likokoanyana[auto]
 créature:sebupuwa[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:mets[auto]
@@ -234,6 +240,8 @@ empty:lefeela[auto]
 fixMap:karete e lokisitsoeng[auto]
 mini:mini[auto]
 thirds:ea boraro[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:ka kopo kenya boleng ba se fapaneng[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:boloka[auto]
 bouton.nom.-11:likhetho[auto]
 bouton.nom.-12disable:tjhaja[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:khutlela ho bapala[auto]
 languageChoice:
 
 save.message:kenya lebitso ho fa bekapo hao.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:fokotsa 'mapa[auto]
 bouton.desc.1:tsamaisetsa 'mapa hodimo[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:feta haufi le bohloa[auto]
 bouton.desc.30:tlosa bohloa[auto]
 bouton.desc.31:bula lenane la likhetho tsa papali[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:bontša id ea bohloa bo tla amohela lijo.[auto]
 pti.desc.2:bontša palo ea lijo tse fanoang.[auto]
 pti.desc.3:bontsha mofuta wa lehe le lokelang ho behelwa: 0 = Mofumahali, 1 = Monna, 2 = Nyane, 3 = Mahareng, 4 = E kholo, 5 + = E 'ngoe.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:rea u amohela ho sebopeho sa cheko sa Formiko. Mona ke moo o ka thaepa litaelo tsa ho qhekella.[auto]
 triche.aide.2:litaelo ka sebopeho "name: (arguments) tlhaloso"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:e u lumella ho netefatsa hore lits'ebetso tsa ho qhekella li teng[auto]
 cmd.desc.2:e bontsha lesedi ka sebopuwa (haeba ho kgoneha e boetse e bonts'a mefuta e loketseng kokoanyana kapa bohloa)[auto]
@@ -420,7 +458,7 @@ descNull:ha ho hlalosoe taelo ea taelo ena.[auto]
 
 
 //conseil:
-conseil.1:u fumane phoso? Tlaleha ho moqapi oa papali ho hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:u batla ho nka karolo ntlafatsong ea papali? Coder, graphic designer le mofetoleli ba amohelehile (hydrolien.lili502@gmail.com).[auto]
 conseil.3:letamo la ho laola bohloa ba hau? Sebelisa mekhoa e 2 ea boiketsetso eo u nang le eona.[auto]
 conseil.4:u batla ho fapana setaele sa papali hanyane? khetha mofuta oo u so kang u bapala le ona.[auto]

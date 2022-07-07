@@ -28,6 +28,8 @@ suivant:nuturkeun[auto]
 avant:sateuacanna[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:pamuter manusa[auto]
 joueur:pamuter[auto]
 case:kasus[auto]
 légende:katerangan[auto]
+currentPlayer:
 
 allié:sekutu[auto]
 neutre:nétral[auto]
 ennemi:musuh[auto]
 proie:mangsa[auto]
 
-//caractéristiques :
+//characteristics :
 taille:diteukteuk[auto]
 coordonées:inpormasi kontak[auto]
 coordonnées:inpormasi kontak[auto]
@@ -57,11 +60,14 @@ mode:modeu[auto]
 phéromone:feromon[auto]
 transporté:diangkut[auto]
 espèce:jenis[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:sireum[auto]
 insecte:serangga[auto]
 créature:mahluk[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:mnt[auto]
@@ -234,6 +240,8 @@ empty:kosong[auto]
 fixMap:kartu dibenerkeun[auto]
 mini:mini[auto]
 thirds:katilu[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:mangga lebetkeun nilai pikeun variabel na[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:ngahémat[auto]
 bouton.nom.-11:pilihan[auto]
 bouton.nom.-12disable:carjer[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:deui maén[auto]
 languageChoice:
 
 save.message:lebetkeun nami kanggo masihan cadangan anjeun.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:nyusut peta[auto]
 bouton.desc.1:mindahkeun peta ka luhur[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:ngaliwat sireum[auto]
 bouton.desc.30:cabut sireum[auto]
 bouton.desc.31:buka menu pilihan di buruan[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:nunjukkeun id sireum anu bakal nampi tuangeun.[auto]
 pti.desc.2:nunjukkeun jumlah dahareun anu ditawarkeun.[auto]
 pti.desc.3:nunjukkeun jinis endog anu badé diletak: 0 = Ratu, 1 = Jalu, 2 = Minor, 3 = Sedeng, 4 = Mayor, 5 + = Anu sanés.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:wilujeng sumping di panganteur curang Formiko. Ieu dimana anjeun tiasa ngetik paréntah curang.[auto]
 triche.aide.2:paréntah dina bentuk "ngaran: (argumen) katerangan"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:ngamungkinkeun anjeun pikeun mariksa yén kode curang sayogi[auto]
 cmd.desc.2:nembongkeun inpormasi ngeunaan mahluk (upami tiasa ogé nembongkeun variabel anu disiapkeun pikeun serangga atanapi sireum)[auto]
@@ -420,7 +458,7 @@ descNull:pedaran paréntah ieu henteu dihartikeun.[auto]
 
 
 //conseil:
-conseil.1:kapendak bug? Laporkeun ka developer game di hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:hoyong ilubiung dina pamekaran kaulinan? Coder, desainer grapik sareng panarjamah wilujeng sumping (hydrolien.lili502@gmail.com).[auto]
 conseil.3:balong micromanaging sireum anjeun? Anggo 2 modeu otomatis ku anjeun.[auto]
 conseil.4:hoyong ngarobih gaya maén sakedik? milih spésiés anu anjeun henteu acan kantos ulin.[auto]

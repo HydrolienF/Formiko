@@ -28,6 +28,8 @@ suivant:haec[auto]
 avant:ante[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:ad humana ludio[auto]
 joueur:ludio[auto]
 case:apud[auto]
 légende:legend[auto]
+currentPlayer:
 
 allié:socius[auto]
 neutre:neutrum[auto]
 ennemi:inimicus[auto]
 proie:praedam[auto]
 
-//caractéristiques :
+//characteristics :
 taille:secare[auto]
 coordonées:contactus notitia[auto]
 coordonnées:contactus notitia[auto]
@@ -57,11 +60,14 @@ mode:modus[auto]
 phéromone:insecta[auto]
 transporté:deferatur[auto]
 espèce:species[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:formica[auto]
 insecte:exterminati sunt[auto]
 créature:creatura[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:effundensque[auto]
 fixMap:card: instauravitque[auto]
 mini:mini[auto]
 thirds:tertium[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:ad valorem variabilis intra placet[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:salvare[auto]
 bouton.nom.-11:options[auto]
 bouton.nom.-12disable:patina[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:in fabula[auto]
 languageChoice:
 
 save.message:nomine tuo ingrediuntur ad tergum.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:subtraxerim utilium a map[auto]
 bouton.desc.1:movere autem ad map[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:transiet circum formica[auto]
 bouton.desc.30:removere formica[auto]
 bouton.desc.31:aperi in-ludum elencho[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:iD indicare victus formica suscipit.[auto]
 pti.desc.2:oblationibus tantum indicare.[auto]
 pti.desc.3:et posuit rationem cum ovum, ut indicant: Regina = 0, = Male I, II = Minor: Pro Medium = III, IV = minor V + = Aliae.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:grata Formiko decipiat in interface. Hic est qua vos can typus fraus subest imperium.[auto]
 triche.aide.2:imperat forma "nomen (rationes) Description"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:quod sino vos reprehendo circumuentor codes es available[auto]
 cmd.desc.2:de notitia ostendit creatura (si fieri potest etiam propono variables paratus sit animal vel formica)[auto]
@@ -420,7 +458,7 @@ descNull:quale praeceptum non definitur.[auto]
 
 
 //conseil:
-conseil.1:found ugbay? Referre illum ad hydrolien.lili502@gmail.com ludum elit.[auto]
+conseil.1:
 conseil.2:vis ad participant in progressionem in ludum? Coder, et graphic excogitatoris interpres sunt grata (hydrolien.lili502@gmail.com).[auto]
 conseil.3:micromanaging vestri piscinam de alta formicae petunt? II utuntur modis ipso arbitrio tuo.[auto]
 conseil.4:vis variat picturam modus ludere a frenum? sed cum vos have non psallebat speciebus eligere.[auto]

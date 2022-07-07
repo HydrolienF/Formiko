@@ -28,6 +28,8 @@ suivant:naslednje[auto]
 avant:prej[auto]
 save:
 validate:
+disabled:
+enabled:
 
 set:
 where:
@@ -37,13 +39,14 @@ laJoueurHumain:človeški igralec[auto]
 joueur:predvajalnik[auto]
 case:ovitek[auto]
 légende:legenda[auto]
+currentPlayer:
 
 allié:zaveznik[auto]
 neutre:nevtralno[auto]
 ennemi:sovražnik[auto]
 proie:plen[auto]
 
-//caractéristiques :
+//characteristics :
 taille:rez[auto]
 coordonées:kontaktni podatki[auto]
 coordonnées:kontaktni podatki[auto]
@@ -57,11 +60,14 @@ mode:način[auto]
 phéromone:feromon[auto]
 transporté:prepeljali[auto]
 espèce:vrste[auto]
+health:
+pheromoneTolerence:
+foodEatable:
 
 
 //formiko -----------------------------------------------------------------------
 
-//voc de base :
+//base word :
 fourmi:mravlja[auto]
 insecte:žuželke[auto]
 créature:bitje[auto]
@@ -203,7 +209,7 @@ theCaseDoNotExist:
 optionsCanBeEditedIn:
 enterCoordinateAs:
 
-//temps
+//time
 t.j:j[auto]
 t.h:h[auto]
 t.min:min[auto]
@@ -234,6 +240,8 @@ empty:prazno[auto]
 fixMap:popravljena kartica[auto]
 mini:mini[auto]
 thirds:tretjič[auto]
+sandBox:
+underTheTree:
 
 //package usuel ------------------------------------------------------------------
 read.1:prosimo, vnesite vrednost za spremenljivko[auto]
@@ -306,9 +314,27 @@ evoluerFourmi.1:
 pondreReine.1:
 spawnOf:
 
-//objet graphique:
+iconName.age:
+iconName.food:
+iconName.health:
+iconName.action:
 
-//bouton du PanneauEchap
+colorState.0:
+colorState.1:
+colorState.2:
+colorState.3:
+
+messageSaveFail:
+messageSaveWork:
+
+//graphic item:
+
+homeWebSiteLink:
+discordLink:
+reportBugLink:
+supportGameLink:
+
+//bouton of PanneauEchap
 bouton.nom.-10:shrani[auto]
 bouton.nom.-11:opcije[auto]
 bouton.nom.-12disable:polnilnik[auto]
@@ -319,6 +345,9 @@ bouton.nom.-14:nazaj k igri[auto]
 languageChoice:
 
 save.message:vnesite ime za varnostno kopijo.[auto]
+newVersionAvailable.question:
+ignoreThisVersion:
+dontAskAgain:
 
 bouton.desc.0:skrči zemljevid[auto]
 bouton.desc.1:premakni zemljevid navzgor[auto]
@@ -356,6 +385,15 @@ bouton.desc.29:mimo mravlje[auto]
 bouton.desc.30:odstrani mravlja[auto]
 bouton.desc.31:odprite meni z možnostmi v igri[auto]
 
+bouton.desc.350:
+bouton.desc.351:
+bouton.desc.352:
+bouton.desc.353:
+bouton.desc.354:
+bouton.desc.355:
+bouton.desc.356:
+bouton.desc.357:
+
 pti.desc.1:navedite id mravlje, ki bo prejela hrano.[auto]
 pti.desc.2:navedite količino ponujene hrane.[auto]
 pti.desc.3:navedite vrsto jajca, ki naj se odloži: 0 = kraljica, 1 = moški, 2 = manjše, 3 = srednje, 4 = glavno, 5 + = drugo.[auto]
@@ -374,7 +412,7 @@ setPlayingAnt:
 triche.aide.1:dobrodošli v vmesniku za goljufanje Formiko. Tu lahko vtipkate ukaze za goljufanje.[auto]
 triche.aide.2:ukazi v obliki "ime: (argumenti) opis"[auto]
 
-//commande :
+//command :
 
 cmd.desc.1:vam omogoča, da preverite, ali so na voljo goljufije[auto]
 cmd.desc.2:prikaže informacije o bitju (če je mogoče, prikaže tudi spremenljivke, pripravljene za žuželko ali mravljo)[auto]
@@ -420,7 +458,7 @@ descNull:opis tega ukaza ni definiran.[auto]
 
 
 //conseil:
-conseil.1:ste našli napako? Prijavite ga razvijalcu igre na hydrolien.lili502@gmail.com.[auto]
+conseil.1:
 conseil.2:želite sodelovati pri razvoju igre? Programerji, grafični oblikovalci in prevajalci so dobrodošli (hydrolien.lili502@gmail.com).[auto]
 conseil.3:ribnik za mikro upravljanje mravlje? Na voljo sta vam dva samodejna načina.[auto]
 conseil.4:želite nekoliko spremeniti slog igre? izberite vrsto, s katero se še niste igrali.[auto]

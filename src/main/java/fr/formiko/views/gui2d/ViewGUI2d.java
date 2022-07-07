@@ -131,7 +131,7 @@ public class ViewGUI2d implements View {
       getF().quit();
     }catch (Exception e) {
       erreur.erreur("Fail to close windows","close full game");
-      System.exit(2);
+      System.exit(1);
     }
     return true;
   }
@@ -162,7 +162,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Load main menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@lastEditedVersion 1.44
+  *@lastEditedVersion 2.27
   */
   public boolean menuMain(){
     // if(actionGameOn){action.retournerAuMenu();}
@@ -170,6 +170,9 @@ public class ViewGUI2d implements View {
     DiscordIntegration.setNeedToUpdateActivity(true);
     if(f==null || getPm()==null){ini();}
     Main.stopScript();
+    if(Main.getFolder().userWantNewVersion()){
+      Main.quit(2);
+    }
     if(Main.getFirstGame()){
       getPm().askLanguage();
     }else if(Main.getOpenMenuFirst()){
@@ -462,29 +465,67 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 1.46
   */
   public void popUpMessage(String message){
-    if (getPch()!=null) {return;}
+    // if (getPch()!=null) {return;}
     //Main.getPartie().getPlayingAnt() is null but window didn't clear all data.
-    getPb().setVisiblePa(false);
+    boolean paVisible=false;
+    if(getPb()!=null && !getPb().getVisiblePa()){
+      paVisible=true;
+      getPb().setVisiblePa(false);
+    }
     setMessageDesc("");
     // getPb().removePi();
     paint();
-    getPj().alerte(message);
+    FOptionPane.alerte(message);
+    if(paVisible){
+      getPb().setVisiblePa(true);
+    }
   }
   /**
   *{@summary Print a question in a new window.}<br>
   *@param message the message to print.
   *@return the answer.
-  *@lastEditedVersion 1.50
+  *@lastEditedVersion 2.27
   */
   public String popUpQuestion(String message){
-    if (getPch()!=null) {return "";}
-    getPb().setVisiblePa(false);
+    // if (getPch()!=null) {return "";}
+    boolean paVisible=false;
+    if(getPb()!=null && !getPb().getVisiblePa()){
+      paVisible=true;
+      getPb().setVisiblePa(false);
+    }
     setMessageDesc("");
     // getPb().removePi();
     paint();
-    String s = getPj().question(message);
-    getPb().setVisiblePa(true);
+    String s = FOptionPane.question(message);
+    if(paVisible){
+      getPb().setVisiblePa(true);
+    }
     return s;
+  }
+  /**
+  *{@summary Print a question in a new window.}<br>
+  *@param message the message to print.
+  *@param important some gui action will be done if true
+  *@return the answer as a boolean.
+  *@lastEditedVersion 2.27
+  */
+  public boolean popUpQuestionYN(String message, boolean important){
+    System.out.println("popUpQuestionYN "+message+" "+important);//@a
+    // if (getPch()!=null) {return false;}
+    boolean paVisible=false;
+    if(getPb()!=null && !getPb().getVisiblePa()){
+      paVisible=true;
+      getPb().setVisiblePa(false);
+    }
+    setMessageDesc("");
+    // getPb().removePi();
+    paint();
+    boolean b = FOptionPane.questionYN(message, important);
+    if(paVisible){
+      getPb().setVisiblePa(true);
+    }
+    System.out.println(b);
+    return b;
   }
 
   /**
