@@ -5,6 +5,7 @@ import fr.formiko.usual.types.str;
 import fr.formiko.views.gui2d.FComboBox;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dialog;
 import java.awt.FlowLayout;
 import java.awt.Frame;
@@ -12,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import javax.swing.Icon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
@@ -28,6 +30,9 @@ public class FOptionPane extends JDialog {
   private FComboBox<String> comboBox;
   private FSlider slider;
   private FIntField intField;
+  private int returnValue;
+  private FButton bOk;
+  private FButton bNotOk;
   /**
   *{@summary Main constructor.}<br>
   *@param owner Frame that own this
@@ -40,31 +45,74 @@ public class FOptionPane extends JDialog {
     setVisible(false);
     setLayout(new FlowLayout());
     setBackground(new Color(0,0,0,0));
+    returnValue=-1;
   }
+  /**
+  *{@summary Constructor that use main frame as owner.}<br>
+  *@lastEditedVersion 2.27
+  */
   public FOptionPane(){
     this(FPanel.getView().getF());
   }
   /**
-  *{@summary After have use all setter, create the last button &#38; set visible.}<br>
-  *@lastEditedVersion 2.17
+  *{@summary After have use all setter set visible.}<br>
+  *@lastEditedVersion 2.27
   */
   public void build(){
-    FButton b = new FButton(" ✔ ", null, -1);
-    b.addActionListener(new ActionListener(){
+    if(bOk==null){addOKButton();}
+    getRootPane().setDefaultButton(bOk); //if enter is press it will launch this button.
+    pack();
+    setLocationRelativeTo(null);
+    setVisible(true);
+    if(bNotOk!=null){
+      bNotOk.requestFocusInWindow();
+    }
+    bOk.requestFocusInWindow();
+  }
+
+  public int getReturnValue() {return returnValue;}
+	public void setReturnValue(int returnValue) {this.returnValue=returnValue;}
+  /**
+  *{@summary Add an OK Button.}<br>
+  *It will set return value to 1
+  *@lastEditedVersion 2.27
+  */
+  public void addOKButton(){
+    bOk = new FButton(" ✔ ", null, -2);
+    bOk.setForeground(new Color(0,153,0));
+    bOk.setWithBackground(false);
+    bOk.addActionListener(new ActionListener(){
       /**
       *{@summary Close the FOptionPane.}<br>
       *@lastEditedVersion 2.17
       */
       public void actionPerformed(ActionEvent e) {
+        returnValue=1;
         disposeFOptionPane();
       }
     });
-    add(b);
-    getRootPane().setDefaultButton(b); //if enter is press it will launch this button.
-    pack();
-    setLocationRelativeTo(null);
-    setVisible(true);
-    b.requestFocusInWindow();
+    add(bOk);
+  }
+  /**
+  *{@summary Add a not OK Button.}<br>
+  *It will set return value to 0
+  *@lastEditedVersion 2.27
+  */
+  public void addNotOKButton(){
+    bNotOk = new FButton(" ❌ ", null, -2);
+    bNotOk.setForeground(Color.RED);
+    bNotOk.setWithBackground(false);
+    bNotOk.addActionListener(new ActionListener(){
+      /**
+      *{@summary Close the FOptionPane.}<br>
+      *@lastEditedVersion 2.17
+      */
+      public void actionPerformed(ActionEvent e) {
+        returnValue=0;
+        disposeFOptionPane();
+      }
+    });
+    add(bNotOk);
   }
   /**
   *{@summary Close the FOptionPane.}<br>
@@ -204,21 +252,39 @@ public class FOptionPane extends JDialog {
   */
   public static String question(String popUpName){ return question(popUpName,"?");}
   /**
-  *{@summary Print a question box.}
+  *{@summary Print a yes/no question box.}
   *@param popUpName name of the popUp
   *@param popUpMessage message of the popUp
   *@return answer.
   *@lastEditedVersion 2.27
   */
   public static boolean questionYN(String popUpName, String popUpMessage){
-    int r = JOptionPane.showConfirmDialog(FPanel.getView().getF(), g.getM(popUpName), popUpMessage, JOptionPane.YES_NO_OPTION ,JOptionPane.QUESTION_MESSAGE);
-    return r==0;
+    int r = showConfirmDialog(FPanel.getView().getF(), g.getM(popUpName));
+    return r==1;
   }
   /***
-  *{@summary Print a question box.}
+  *{@summary Print a yes/no question box.}
   *@param popUpName name of the popUp
   *@return answer.
   *@lastEditedVersion 2.27
   */
   public static boolean questionYN(String popUpName){ return questionYN(popUpName,"?");}
+
+  /**
+  *{@summary Print a yes/no question box.}
+  *@param parentComponent the owner of this
+  *@param message message of the popUp
+  *@return answer.
+  *@lastEditedVersion 2.27
+  */
+  public static int showConfirmDialog(Frame parentComponent, String message){
+    FOptionPane op = new FOptionPane(null);
+    op.addText(message);
+    op.addOKButton();
+    op.addNotOKButton();
+    op.build();
+    // String s=op.getContent();
+    return op.getReturnValue();
+    // return JOptionPane.showConfirmDialog(parentComponent, message, title, optionType, messageType, icon);
+  }
 }

@@ -94,7 +94,7 @@ public class ViewCLI implements View {
   /**
   *{@summary Load main menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@lastEditedVersion 1.33
+  *@lastEditedVersion 2.27
   */
   public boolean menuMain(){
     actionGameOn=false;

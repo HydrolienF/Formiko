@@ -131,7 +131,7 @@ public class ViewGUI2d implements View {
       getF().quit();
     }catch (Exception e) {
       erreur.erreur("Fail to close windows","close full game");
-      System.exit(2);
+      System.exit(1);
     }
     return true;
   }
@@ -162,7 +162,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Load main menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@lastEditedVersion 1.44
+  *@lastEditedVersion 2.27
   */
   public boolean menuMain(){
     // if(actionGameOn){action.retournerAuMenu();}
