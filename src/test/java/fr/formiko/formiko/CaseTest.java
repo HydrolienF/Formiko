@@ -21,7 +21,12 @@ public class CaseTest extends TestCaseMuet {
   private Fourmi ini(){
     Os.setOs(new Os());
     Main.setFolder(new FFolder(Main.getView()));
-    Main.getFolder().ini();
+    try {
+      FFolder.getFolder().ini();
+    }catch (Exception e) {
+      e.printStackTrace();
+      assertTrue(false);
+    }
     Main.iniOp();
     Main.initialisation();
     Main.setLanguage(0);
