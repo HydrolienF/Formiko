@@ -22,15 +22,31 @@ public class FTextField extends JTextField {
 
   // CONSTRUCTORS --------------------------------------------------------------
   /**
-  *{@summary Main constructor with a string &#38; default font.}
-  *@lastEditedVersion 1.x
+  *{@summary 1 main constructor with a string &#38; default font.}
+  *@lastEditedVersion 2.28
   */
   public FTextField(String s){
     super(s);
+    ini();
+  }
+  public FTextField(){ this("");}
+  /**
+  *{@summary 1 main constructor with a number of char to gess width &#38; default font.}
+  *@param columns the number of columns to use to calculate the preferred width; if columns is set to zero, the preferred width will be whatever naturally results from the component implementation
+  *@lastEditedVersion 2.28
+  */
+  public FTextField(int columns){
+    super(columns);
+    ini();
+  }
+  /**
+  *{@summary Initialize at the end of the constructor.}
+  *@lastEditedVersion 2.28
+  */
+  public void ini(){
     setBorder(null);
     // setFontText(); //no need because it have been set as default font for all graphics components
   }
-  public FTextField(){ this("");}
   // GET SET -------------------------------------------------------------------
   //setText et getText
   public void setBounds(int a, int b, int c){setBounds(a,b,c,FLabel.getDimY());}

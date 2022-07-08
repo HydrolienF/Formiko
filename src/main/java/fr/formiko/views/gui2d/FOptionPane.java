@@ -18,7 +18,6 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javax.swing.Icon;
 import javax.swing.JDialog;
-import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.KeyboardFocusManager;
@@ -123,38 +122,6 @@ public class FOptionPane extends JDialog {
         onNotOkButtonPress();
       }
     });
-    // Some unworking test so that escape press X.
-    // if(!haveListener){
-    //   addKeyListener(new KeyAdapter() {
-    //     /**
-    //     *{@summary Launch action of a not OK Button.}<br>
-    //     *@lastEditedVersion 2.27
-    //     */
-    //     public void keyPressed(KeyEvent e) {
-    //       System.out.println("key "+e);//@a
-    //       if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-    //         onNotOkButtonPress();
-    //       }
-    //     }
-    //   });
-    //   haveListener=true;
-    // }
-  //   KeyboardFocusManager.getCurrentKeyboardFocusManager()
-  //       .addKeyEventDispatcher(new KeyEventDispatcher() {
-  //     public boolean dispatchKeyEvent(KeyEvent e) {
-  //         boolean keyHandled = false;
-  //         if (e.getID() == KeyEvent.KEY_PRESSED) {
-  //             if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-  //                 // ok();
-  //                 // keyHandled = true;
-  //             } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-  //                 onNotOkButtonPress();
-  //                 keyHandled = true;
-  //             }
-  //         }
-  //         return keyHandled;
-  //     }
-  // });
     add(bNotOk);
   }
   /**
@@ -277,31 +244,23 @@ public class FOptionPane extends JDialog {
   // static
   /**
   *{@summary print an alerte box.}
-  *@lastEditedVersion 1.49
+  *@param popUpMessage message of the popUp
+  *@lastEditedVersion 2.28
   */
-  public static void alerte(String s, String s2){
-    JOptionPane jop1 = new JOptionPane();
-    jop1.showMessageDialog(FPanel.getView().getF(), s, s2, JOptionPane.INFORMATION_MESSAGE);
+  public static void alerte(String popUpMessage){
+    showMessageDialog(FPanel.getView().getF(), null, popUpMessage);
   }
-  public static void alerte(String s){ alerte(s,g.getM("information"));}
   /**
   *{@summary Print a question box.}
-  *@param popUpName name of the popUp
   *@param popUpMessage message of the popUp
   *@return user answer
-  *@lastEditedVersion 1.50
+  *@lastEditedVersion 2.28
   */
-  public static String question(String popUpName, String popUpMessage){
-    String r = JOptionPane.showInputDialog(FPanel.getView().getF(), g.getM(popUpName), popUpMessage, JOptionPane.QUESTION_MESSAGE);
-    return r;
+  public static String question(String popUpMessage){
+    FTextField tf = new FTextField(20);
+    showMessageDialog(FPanel.getView().getF(), tf, popUpMessage);
+    return tf.getText();
   }
-  /***
-  *{@summary Print a question box.}
-  *@param popUpName name of the popUp
-  *@return user answer
-  *@lastEditedVersion 1.50
-  */
-  public static String question(String popUpName){ return question(popUpName,"?");}
   /**
   *{@summary Print a yes/no question box.}
   *@param popUpMessage message of the popUp
@@ -338,10 +297,20 @@ public class FOptionPane extends JDialog {
     // String s=op.getContent();
     return op.getReturnValue();
   }
+  /**
+  *{@summary Print a message.}
+  *@param parentComponent the owner of this
+  *@param content content of this
+  *@param message message of the popUp
+  *@return answer.
+  *@lastEditedVersion 2.27
+  */
   public static void showMessageDialog(Frame parentComponent, Component content, String message){
     FOptionPane op = new FOptionPane(null);
-    op.add(content);
     op.addText(message);
+    if(content!=null){
+      op.add(content);
+    }
     op.addOKButton();
     // op.addNotOKButton();
     op.build();
