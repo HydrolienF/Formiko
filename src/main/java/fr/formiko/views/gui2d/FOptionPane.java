@@ -27,7 +27,7 @@ import java.awt.KeyEventDispatcher;
 *{@summary Personalised JDialog.}<br>
 *Used to get a save name, get a creature id, get a food quantity.
 *@author Hydrolien
-*@lastEditedVersion 2.27
+*@lastEditedVersion 2.28
 */
 public class FOptionPane extends JDialog {
   private FTextField textField;
@@ -45,6 +45,7 @@ public class FOptionPane extends JDialog {
   */
   public FOptionPane(Frame owner){
     super(owner, (String)null);
+    // request focus & refuse to let user clic other component
     setModalityType(Dialog.ModalityType.APPLICATION_MODAL); //https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Dialog.ModalityType.html
     setUndecorated(true); //Remove the frame
     setVisible(false);
@@ -288,7 +289,7 @@ public class FOptionPane extends JDialog {
   *@lastEditedVersion 2.27
   */
   public static int showConfirmDialog(Frame parentComponent, String message, boolean important){
-    FOptionPane op = new FOptionPane(null);
+    FOptionPane op = new FOptionPane();
     op.addText(message);
     op.addOKButton();
     op.addNotOKButton();
@@ -306,7 +307,7 @@ public class FOptionPane extends JDialog {
   *@lastEditedVersion 2.27
   */
   public static void showMessageDialog(Frame parentComponent, Component content, String message){
-    FOptionPane op = new FOptionPane(null);
+    FOptionPane op = new FOptionPane();
     op.addText(message);
     if(content!=null){
       op.add(content);
