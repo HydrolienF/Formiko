@@ -2,7 +2,6 @@ package fr.formiko.formiko.interfaces;
 
 import fr.formiko.formiko.*;
 import fr.formiko.formiko.interfaces.TourFourmi;
-import fr.formiko.views.gui2d.Question;
 import fr.formiko.usual.Time;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
