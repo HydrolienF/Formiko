@@ -45,7 +45,7 @@ public class FPanelCarteTest extends TestCaseMuet{
     assertEquals((700/12)+1,pc.nbrPrintableCase(false));
   }
   @Test
-  @Disabled("Fail when releasing new data")
+  // @Disabled("Fail when releasing new data")
   public void testGcSortedByImageSize(){
     ini();
     Main.getOp().setRealisticSize(0);
