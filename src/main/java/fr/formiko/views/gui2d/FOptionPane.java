@@ -162,7 +162,6 @@ public class FOptionPane extends JDialog {
   *@lastEditedVersion 2.27
   */
   public void onNotOkButtonPress(){
-    System.out.println("not ok press");
     returnValue=0;
     disposeFOptionPane();
   }
@@ -338,6 +337,15 @@ public class FOptionPane extends JDialog {
     op.build();
     // String s=op.getContent();
     return op.getReturnValue();
-    // return JOptionPane.showConfirmDialog(parentComponent, message, title, optionType, messageType, icon);
+  }
+  public static void showMessageDialog(Frame parentComponent, Component content, String message){
+    FOptionPane op = new FOptionPane(null);
+    op.add(content);
+    op.addText(message);
+    op.addOKButton();
+    // op.addNotOKButton();
+    op.build();
+    // String s=op.getContent();
+    // return op.getReturnValue();
   }
 }

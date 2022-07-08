@@ -1,7 +1,6 @@
 package fr.formiko.formiko.interfaces;
 
 import fr.formiko.formiko.*;
-import fr.formiko.views.gui2d.BoiteListeDefilante;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
@@ -14,7 +13,7 @@ import java.io.Serializable;
  * {@summary Ant implementation.}<br>
  * Allow an ant to clean itself or an other Creature<br>
  * @author Hydrolien
- * @lastEditedVersion 1.1
+ * @lastEditedVersion 2.28
  */
 public class NetoyerFourmi implements Serializable, Netoyer {
   private Fourmi cible;
@@ -78,7 +77,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
   /**
    *{@summary Let a player choose the ant that he want to clean.}<br>
    *@return true if the player chose an ant to clean.
-   *@lastEditedVersion 1.3
+   *@lastEditedVersion 2.28
    */
   private boolean netoyerChoix(){  // permet de définir cible.
     GCreature gc = net.getCCase().getContent().getGc();
@@ -107,9 +106,9 @@ public class NetoyerFourmi implements Serializable, Netoyer {
         int x=str.sToI(sTemp);
         cible = net.getCCase().getContent().getGc().getFourmiById(x);
       }else{
-        BoiteListeDefilante bld = new BoiteListeDefilante();
-        int x = bld.getChoixId(s,g.get("pti.desc.5"));
-        cible = net.getCCase().getContent().getGc().getFourmiById(x);
+        String id2s = Main.getView().makeUserChooseOnArray(s,g.get("Pti.desc.5"));
+        int id = str.sToI(id2s.split(" ")[0]);
+        cible = net.getCCase().getContent().getGc().getFourmiById(id);
       }
     }
     return true;

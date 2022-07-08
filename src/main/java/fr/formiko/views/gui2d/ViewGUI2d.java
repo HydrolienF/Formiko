@@ -58,6 +58,7 @@ public class ViewGUI2d implements View {
   private boolean bladeChanged;
   private Th thTemp1;
   private Th thTemp2;
+  private boolean haveAskToDownloadNewVersion;
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
@@ -99,10 +100,11 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@lastEditedVersion 1.42
+  *@lastEditedVersion 2.28
   */
   public boolean ini(){
     actionGameOn=false;
+    haveAskToDownloadNewVersion=false;
     Main.startCh();
     if(f!=null) {f.dispose();}
     f = new FFrameMain();
@@ -170,8 +172,11 @@ public class ViewGUI2d implements View {
     DiscordIntegration.setNeedToUpdateActivity(true);
     if(f==null || getPm()==null){ini();}
     Main.stopScript();
-    if(Main.getFolder().userWantNewVersion()){
-      Main.quit(2);
+    if(!haveAskToDownloadNewVersion){
+      haveAskToDownloadNewVersion=true;
+      if(Main.getFolder().userWantNewVersion()){
+        Main.quit(2);
+      }
     }
     if(Main.getFirstGame()){
       getPm().askLanguage();
@@ -510,7 +515,6 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 2.27
   */
   public boolean popUpQuestionYN(String message, boolean important){
-    System.out.println("popUpQuestionYN "+message+" "+important);//@a
     // if (getPch()!=null) {return false;}
     boolean paVisible=false;
     if(getPb()!=null && !getPb().getVisiblePa()){
@@ -524,7 +528,6 @@ public class ViewGUI2d implements View {
     if(paVisible){
       getPb().setVisiblePa(true);
     }
-    System.out.println(b);
     return b;
   }
 
