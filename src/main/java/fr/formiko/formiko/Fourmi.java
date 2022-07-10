@@ -8,7 +8,6 @@ import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
 import fr.formiko.usual.maths.allea;
 import fr.formiko.usual.maths.math;
-import fr.formiko.usual.menu;
 import fr.formiko.usual.read;
 import fr.formiko.usual.structures.listes.GString;
 import fr.formiko.usual.tableau;
