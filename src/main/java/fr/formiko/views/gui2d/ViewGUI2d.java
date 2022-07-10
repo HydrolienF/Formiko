@@ -15,6 +15,7 @@ import fr.formiko.formiko.ThTriche;
 import fr.formiko.formiko.interfaces.TourFourmiNonIa;
 import fr.formiko.formiko.launchOptions;
 import fr.formiko.formiko.triche;
+import fr.formiko.usual.CheckFunction;
 import fr.formiko.usual.Chrono;
 import fr.formiko.usual.Info;
 import fr.formiko.usual.Time;
@@ -511,10 +512,11 @@ public class ViewGUI2d implements View {
   *{@summary Print a question in a new window.}<br>
   *@param message the message to print.
   *@param important some gui action will be done if true
+  *@param cf CheckFunction to use to get text, default checked &#38; launch function
   *@return the answer as a boolean.
   *@lastEditedVersion 2.27
   */
-  public boolean popUpQuestionYN(String message, boolean important){
+  public boolean popUpQuestionYN(String message, boolean important, CheckFunction cf){
     // if (getPch()!=null) {return false;}
     boolean paVisible=false;
     if(getPb()!=null && !getPb().getVisiblePa()){
@@ -524,7 +526,7 @@ public class ViewGUI2d implements View {
     setMessageDesc("");
     // getPb().removePi();
     paint();
-    boolean b = FOptionPane.questionYN(message, important);
+    boolean b = FOptionPane.questionYN(message, important, cf);
     if(paVisible){
       getPb().setVisiblePa(true);
     }

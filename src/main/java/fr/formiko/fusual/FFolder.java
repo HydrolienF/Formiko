@@ -1,6 +1,7 @@
 package fr.formiko.fusual;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.usual.CheckFunction;
 import fr.formiko.usual.Folder;
 import fr.formiko.usual.Progression;
 import fr.formiko.usual.g;
@@ -22,9 +23,16 @@ public class FFolder extends Folder {
   public static void setFolder(FFolder f){Folder.setFolder(f);}
 
   public boolean userWantNewVersion(){
-    if (!haveLastVersion()){
-      // TODO #192 add a checkbox ignoreThisVersion & react to it.
-      return Main.getView().popUpQuestionYN(g.get("newVersionAvailable.question"), true);
+    if (!haveLastVersion() && !Main.getOp().getLastCheckedVersion().equals(getLastStableVersion())){
+      CheckFunction cf = new CheckFunction(){
+        @Override
+        protected void exec(){
+          Main.getOp().setLastCheckedVersion(getLastStableVersion());
+          Main.getOp().saveOptions();
+        }
+      };
+      cf.setText(g.get("IgnoreThisVersion"));
+      return Main.getView().popUpQuestionYN(g.get("newVersionAvailable.question"), true, cf);
     }
     return false;
   }

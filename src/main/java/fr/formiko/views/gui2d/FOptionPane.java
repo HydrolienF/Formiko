@@ -1,6 +1,7 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.usual.g;
+import fr.formiko.usual.CheckFunction;
 import fr.formiko.usual.types.str;
 import fr.formiko.views.gui2d.FComboBox;
 
@@ -25,7 +26,7 @@ import java.awt.KeyEventDispatcher;
 
 /**
 *{@summary Personalised JDialog.}<br>
-*Used to get a save name, get a creature id, get a food quantity.
+*Used to get a save name, get a creature id, get a food quantity etc.
 *@author Hydrolien
 *@lastEditedVersion 2.28
 */
@@ -266,36 +267,58 @@ public class FOptionPane extends JDialog {
   *{@summary Print a yes/no question box.}
   *@param popUpMessage message of the popUp
   *@param important some gui action will be done if true
+  *@param cf a checkBox item that launch a function if checked
+  *@return answer.
+  *@lastEditedVersion 2.28
+  */
+  public static boolean questionYN(String popUpMessage, boolean important, CheckFunction cf){
+    int r = showConfirmDialog(FPanel.getView().getF(), g.getM(popUpMessage), important, cf);
+    return r==1;
+  }
+  /**
+  *{@summary Print a yes/no question box.}
+  *@param popUpMessage message of the popUp
+  *@param important some gui action will be done if true
   *@return answer.
   *@lastEditedVersion 2.27
   */
   public static boolean questionYN(String popUpMessage, boolean important){
-    int r = showConfirmDialog(FPanel.getView().getF(), g.getM(popUpMessage), important);
-    return r==1;
+    return questionYN(popUpMessage, important, null);
   }
-  /***
+  /**
   *{@summary Print a yes/no question box.}
   *@param popUpMessage message of the popUp
   *@return answer.
   *@lastEditedVersion 2.27
   */
-  public static boolean questionYN(String popUpMessage){ return questionYN(popUpMessage, false);}
+  public static boolean questionYN(String popUpMessage){
+    return questionYN(popUpMessage, false);
+  }
 
   /**
   *{@summary Print a yes/no question box.}
   *@param parentComponent the owner of this
   *@param message message of the popUp
+  *@param cf a checkBox item that launch a function if checked
   *@return answer.
   *@lastEditedVersion 2.27
   */
-  public static int showConfirmDialog(Frame parentComponent, String message, boolean important){
+  public static int showConfirmDialog(Frame parentComponent, String message, boolean important, CheckFunction cf){
     FOptionPane op = new FOptionPane();
     op.addText(message);
     op.addOKButton();
     op.addNotOKButton();
+    FPanelCheckFunction pcf=null;
+    if(cf!=null){
+      pcf = new FPanelCheckFunction(cf);
+      op.add(pcf);
+    }
     op.setGreyOthers(important);
     op.build();
     // String s=op.getContent();
+    if(pcf!=null){
+      pcf.run();
+    }
     return op.getReturnValue();
   }
   /**
@@ -313,7 +336,6 @@ public class FOptionPane extends JDialog {
       op.add(content);
     }
     op.addOKButton();
-    // op.addNotOKButton();
     op.build();
     // String s=op.getContent();
     // return op.getReturnValue();

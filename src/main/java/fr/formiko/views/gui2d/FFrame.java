@@ -1,6 +1,7 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.usual.CheckFunction;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
@@ -90,13 +91,21 @@ public class FFrame extends JFrame {
   /**
   *{@summary Function to end game properly.}
   *If the Options is enable, we ask a validation to end game.
-  *@lastEditedVersion 2.7
+  *@lastEditedVersion 2.27
   */
   public void quit(){
     try {
       boolean needToClose=true;
       if (!Main.getForceQuit()){
-        needToClose = Main.getView().popUpQuestionYN("quitterJeu", true);
+        CheckFunction cf = new CheckFunction(){
+          @Override
+          protected void exec(){
+            Main.getOp().setForceQuit(true);
+            Main.getOp().saveOptions();
+          }
+        };
+        cf.setText(g.get("dontAskAgain"));
+        needToClose = Main.getView().popUpQuestionYN("quitterJeu", true, cf);
       }
       if(needToClose){
         Main.getF().setVisible(false);

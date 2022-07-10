@@ -7,14 +7,15 @@ import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.ObjetSurCarteAId;
 import fr.formiko.formiko.Partie;
+import fr.formiko.formiko.sauvegarderUnePartie;
 import fr.formiko.formiko.triche;
+import fr.formiko.usual.CheckFunction;
 import fr.formiko.usual.Time;
 import fr.formiko.usual.color;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
 import fr.formiko.usual.structures.listes.Liste;
-import fr.formiko.formiko.sauvegarderUnePartie;
 import fr.formiko.usual.tableau;
 import fr.formiko.usual.types.str;
 import fr.formiko.views.cli.*;
@@ -484,10 +485,12 @@ public class ViewCLI implements View {
   *{@summary Print a question in a new window.}<br>
   *@param message the message to print.
   *@param important some gui action will be done if true
+  *@param cf CheckFunction to use to get text, default checked &#38; launch function
   *@return the answer.
   *@lastEditedVersion 2.27
   */
-  public boolean popUpQuestionYN(String message, boolean important){
+  public boolean popUpQuestionYN(String message, boolean important, CheckFunction cf){
+    //TODO allow to enable cf if not null
     String yes=g.get("oui");
     String no=g.get("no");
     String s = "";

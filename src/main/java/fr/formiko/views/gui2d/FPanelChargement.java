@@ -1,12 +1,13 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Main;
+import fr.formiko.usual.CheckFunction;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
 import fr.formiko.usual.images.Images;
-import fr.formiko.usual.structures.listes.GString;
 import fr.formiko.usual.maths.allea;
+import fr.formiko.usual.structures.listes.GString;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -22,6 +23,7 @@ public class FPanelChargement extends FPanel {
   // private int tempsTotalDeChargement;
   private FLabel message;
   private FTextArea conseil;
+  private FPanelCheckFunction pcf;
   private boolean lancer;
   private FButton bt;
   // CONSTRUCTORS --------------------------------------------------------------
@@ -33,6 +35,7 @@ public class FPanelChargement extends FPanel {
     setLayout(null);
     addMessage();
     addAdvice();
+    // addPcf();
     lancer=false;
     bt=null;
   }
@@ -90,6 +93,25 @@ public class FPanelChargement extends FPanel {
     add(conseil);
     conseil.setLocation(Main.getF().getWidth()/5,(Main.getF().getHeight()/5*4)-(2*Main.getFontSizeText())-conseil.getHeight());
     repaint();
+  }
+  /**
+  *{@summary Add an FPanelCheckFunction to be able not to wait for this panel.}<br>
+  *@lastEditedVersion 2.28
+  */
+  private void addPcf(){
+    // TODO fix location & size
+    CheckFunction cf = new CheckFunction(){
+      @Override
+      protected void exec(){
+        Main.getOp().setWhaitBeforeLaunchGame(true);
+        Main.getOp().saveOptions();
+      }
+    };
+    cf.setText(g.get("dontAskAgain"));
+    FPanelCheckFunction pcf = new FPanelCheckFunction(cf);
+    pcf.setLocation(Main.getF().getWidth()/5,(Main.getF().getHeight()/5*4)+(2*Main.getFontSizeText())-conseil.getHeight());
+    pcf.setSize((Main.getF().getWidth()*3)/5, FLabel.getDimY());
+    add(pcf);
   }
   /**
   *{@summary Set visible &#38; load image if it haven't been done yet.}<br>

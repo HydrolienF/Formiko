@@ -4,6 +4,7 @@ import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.ObjetSurCarteAId;
+import fr.formiko.usual.CheckFunction;
 
 /**
  *{@summary Null view. A simple view who do nothing when a view action is launch.}<br>
@@ -165,7 +166,7 @@ public class ViewNull implements View {
   *{@summary A null view action that do nothing.}<br>
   *@lastEditedVersion 2.27
   */
-  public boolean popUpQuestionYN(String message, boolean important){return false;}
+  public boolean popUpQuestionYN(String message, boolean important, CheckFunction cf){return false;}
   /***
   *{@summary A null view action that do nothing.}<br>
   *@lastEditedVersion 1.46

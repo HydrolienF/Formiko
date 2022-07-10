@@ -5,8 +5,9 @@ import fr.formiko.formiko.Case;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.ObjetSurCarteAId;
-import fr.formiko.usual.types.str;
+import fr.formiko.usual.CheckFunction;
 import fr.formiko.usual.Progression;
+import fr.formiko.usual.types.str;
 
 /**
  *{@summary Main view interface.}<br>
@@ -152,10 +153,12 @@ public interface View extends Progression {
   *{@summary Print a yes/no question in a new window.}<br>
   *@param message the message to print.
   *@param important some gui action will be done if true
+  *@param cf CheckFunction to use to get text, default checked &#38; launch function
   *@return the answer.
   *@lastEditedVersion 2.27
   */
-  boolean popUpQuestionYN(String message, boolean important);
+  boolean popUpQuestionYN(String message, boolean important, CheckFunction cf);
+  default boolean popUpQuestionYN(String message, boolean important){return popUpQuestionYN(message, important, null);}
   default boolean popUpQuestionYN(String message){return popUpQuestionYN(message, false);}
   /***
   *{@summary set playing ant.}<br>
