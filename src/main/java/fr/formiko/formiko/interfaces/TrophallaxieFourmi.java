@@ -4,7 +4,6 @@ import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GCreature;
 import fr.formiko.formiko.Main;
-import fr.formiko.views.gui2d.BoiteListeDefilante;
 import fr.formiko.views.gui2d.FPanelTInt;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
@@ -14,7 +13,6 @@ import fr.formiko.usual.tableau;
 
 import java.io.Serializable;
 
-import fr.formiko.views.gui2d.FOptionPane;
 import fr.formiko.usual.types.str;
 
 /**

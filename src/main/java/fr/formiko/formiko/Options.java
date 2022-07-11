@@ -33,6 +33,7 @@ public class Options implements Serializable {
   private String game_pseudo;
   private boolean game_whaitBeforeLaunchGame;
   private boolean game_discordRP;
+  private String game_lastCheckedVersion;
 
   //partie options
   private boolean partie_autoCleaning;
@@ -200,8 +201,10 @@ public class Options implements Serializable {
   public void setKeepFilesRotated(boolean b){gui_hide_keepFilesRotated=b;}
   public boolean getWhaitBeforeLaunchGame(){ return game_whaitBeforeLaunchGame;}
   public void setWhaitBeforeLaunchGame(boolean b){game_whaitBeforeLaunchGame=b;}
-  public boolean getDiscordRP(){ return game_discordRP;}
+  public boolean getDiscordRP(){return game_discordRP;}
   public void setDiscordRP(boolean b){game_discordRP=b;}
+  public String getLastCheckedVersion(){return game_lastCheckedVersion;}
+  public void setLastCheckedVersion(String s){game_lastCheckedVersion=s;}
 
   public boolean getMessage(){return debug_message;}
   public void setMessage(boolean b){debug_message=b;}
@@ -397,6 +400,7 @@ public class Options implements Serializable {
     defaultProperties.setProperty("game_pseudo","");
     defaultProperties.setProperty("game_whaitBeforeLaunchGame","true");
     defaultProperties.setProperty("game_discordRP","false");
+    defaultProperties.setProperty("game_lastCheckedVersion","0.0.0");
     defaultProperties.setProperty("gui_global_animationEnable","true");
     defaultProperties.setProperty("gui_global_dateFormat","yyyy/MM/dd HH:mm:ss");
     defaultProperties.setProperty("gui_global_borderButtonSize","4");
@@ -488,6 +492,7 @@ public class Options implements Serializable {
     game_pseudo=properties.getProperty("game_pseudo");
     game_whaitBeforeLaunchGame=str.sToB(properties.getProperty("game_whaitBeforeLaunchGame"));
     game_discordRP=str.sToB(properties.getProperty("game_discordRP"));
+    game_lastCheckedVersion=properties.getProperty("game_lastCheckedVersion");
     gui_global_animationEnable=str.sToB(properties.getProperty("gui_global_animationEnable"));
     setDateFormat(properties.getProperty("gui_global_dateFormat"));
     gui_global_borderButtonSize=str.sToBy(properties.getProperty("gui_global_borderButtonSize"));
@@ -580,6 +585,7 @@ public class Options implements Serializable {
     properties.setProperty("game_pseudo",""+game_pseudo);
     properties.setProperty("game_whaitBeforeLaunchGame",""+game_whaitBeforeLaunchGame);
     properties.setProperty("game_discordRP",""+game_discordRP);
+    properties.setProperty("game_lastCheckedVersion",game_lastCheckedVersion);
     properties.setProperty("gui_global_animationEnable",""+gui_global_animationEnable);
     properties.setProperty("gui_global_dateFormat",getDateFormat());
     properties.setProperty("gui_global_borderButtonSize",""+gui_global_borderButtonSize);

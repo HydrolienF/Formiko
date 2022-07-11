@@ -15,6 +15,7 @@ import fr.formiko.formiko.ThTriche;
 import fr.formiko.formiko.interfaces.TourFourmiNonIa;
 import fr.formiko.formiko.launchOptions;
 import fr.formiko.formiko.triche;
+import fr.formiko.usual.CheckFunction;
 import fr.formiko.usual.Chrono;
 import fr.formiko.usual.Info;
 import fr.formiko.usual.Time;
@@ -58,6 +59,7 @@ public class ViewGUI2d implements View {
   private boolean bladeChanged;
   private Th thTemp1;
   private Th thTemp2;
+  private boolean haveAskToDownloadNewVersion;
   // GET SET -------------------------------------------------------------------
   public boolean getActionGameOn(){return actionGameOn;}
   //Graphics components.
@@ -99,10 +101,11 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Initialize all the thing that need to be Initialize before using view.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@lastEditedVersion 1.42
+  *@lastEditedVersion 2.28
   */
   public boolean ini(){
     actionGameOn=false;
+    haveAskToDownloadNewVersion=false;
     Main.startCh();
     if(f!=null) {f.dispose();}
     f = new FFrameMain();
@@ -170,8 +173,11 @@ public class ViewGUI2d implements View {
     DiscordIntegration.setNeedToUpdateActivity(true);
     if(f==null || getPm()==null){ini();}
     Main.stopScript();
-    if(Main.getFolder().userWantNewVersion()){
-      Main.quit(2);
+    if(!haveAskToDownloadNewVersion){
+      haveAskToDownloadNewVersion=true;
+      if(Main.getFolder().userWantNewVersion()){
+        Main.quit(2);
+      }
     }
     if(Main.getFirstGame()){
       getPm().askLanguage();
@@ -506,11 +512,11 @@ public class ViewGUI2d implements View {
   *{@summary Print a question in a new window.}<br>
   *@param message the message to print.
   *@param important some gui action will be done if true
+  *@param cf CheckFunction to use to get text, default checked &#38; launch function
   *@return the answer as a boolean.
   *@lastEditedVersion 2.27
   */
-  public boolean popUpQuestionYN(String message, boolean important){
-    System.out.println("popUpQuestionYN "+message+" "+important);//@a
+  public boolean popUpQuestionYN(String message, boolean important, CheckFunction cf){
     // if (getPch()!=null) {return false;}
     boolean paVisible=false;
     if(getPb()!=null && !getPb().getVisiblePa()){
@@ -520,11 +526,10 @@ public class ViewGUI2d implements View {
     setMessageDesc("");
     // getPb().removePi();
     paint();
-    boolean b = FOptionPane.questionYN(message, important);
+    boolean b = FOptionPane.questionYN(message, important, cf);
     if(paVisible){
       getPb().setVisiblePa(true);
     }
-    System.out.println(b);
     return b;
   }
 

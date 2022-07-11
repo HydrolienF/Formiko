@@ -15,7 +15,6 @@ import javax.swing.JOptionPane;
 
 public class BoiteListeDefilante {
   private FComboBox<String> jcb;
-  //private JOptionPane jop;
   // CONSTRUCTORS --------------------------------------------------------------
   public BoiteListeDefilante(){}
   public void ini(){}
@@ -30,7 +29,7 @@ public class BoiteListeDefilante {
     jcb = new FComboBox<String>(ts);
     int x=-1;
     while (x==-1){
-      JOptionPane.showMessageDialog(Main.getF(), jcb, message, JOptionPane.PLAIN_MESSAGE);//,new ImageIcon("montre.gif"));
+      FOptionPane.showMessageDialog(Main.getF(), jcb, message);
       Object o = jcb.getSelectedItem();
       if(o==null){erreur.erreur("L'élément sélectioné est null"); return x;}
       String s = o.toString();
@@ -41,7 +40,7 @@ public class BoiteListeDefilante {
           s = tsSplit[0];
         }
         x=str.sToI(s);
-      }catch (Exception e) {erreur.erreur("L'Objet de JOptionPane n'est pas reconnu comme int : "+s);}
+      }catch (Exception e) {erreur.erreur("L'Objet de FOptionPane n'est pas reconnu comme int : "+s);}
       Time.pause(10);
     }
     return x;

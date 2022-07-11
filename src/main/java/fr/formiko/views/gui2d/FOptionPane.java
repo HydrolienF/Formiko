@@ -1,6 +1,7 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.usual.g;
+import fr.formiko.usual.CheckFunction;
 import fr.formiko.usual.types.str;
 import fr.formiko.views.gui2d.FComboBox;
 
@@ -18,7 +19,6 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javax.swing.Icon;
 import javax.swing.JDialog;
-import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.KeyboardFocusManager;
@@ -26,9 +26,9 @@ import java.awt.KeyEventDispatcher;
 
 /**
 *{@summary Personalised JDialog.}<br>
-*Used to get a save name, get a creature id, get a food quantity.
+*Used to get a save name, get a creature id, get a food quantity etc.
 *@author Hydrolien
-*@lastEditedVersion 2.27
+*@lastEditedVersion 2.28
 */
 public class FOptionPane extends JDialog {
   private FTextField textField;
@@ -46,6 +46,7 @@ public class FOptionPane extends JDialog {
   */
   public FOptionPane(Frame owner){
     super(owner, (String)null);
+    // request focus & refuse to let user clic other component
     setModalityType(Dialog.ModalityType.APPLICATION_MODAL); //https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Dialog.ModalityType.html
     setUndecorated(true); //Remove the frame
     setVisible(false);
@@ -123,38 +124,6 @@ public class FOptionPane extends JDialog {
         onNotOkButtonPress();
       }
     });
-    // Some unworking test so that escape press X.
-    // if(!haveListener){
-    //   addKeyListener(new KeyAdapter() {
-    //     /**
-    //     *{@summary Launch action of a not OK Button.}<br>
-    //     *@lastEditedVersion 2.27
-    //     */
-    //     public void keyPressed(KeyEvent e) {
-    //       System.out.println("key "+e);//@a
-    //       if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-    //         onNotOkButtonPress();
-    //       }
-    //     }
-    //   });
-    //   haveListener=true;
-    // }
-  //   KeyboardFocusManager.getCurrentKeyboardFocusManager()
-  //       .addKeyEventDispatcher(new KeyEventDispatcher() {
-  //     public boolean dispatchKeyEvent(KeyEvent e) {
-  //         boolean keyHandled = false;
-  //         if (e.getID() == KeyEvent.KEY_PRESSED) {
-  //             if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-  //                 // ok();
-  //                 // keyHandled = true;
-  //             } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-  //                 onNotOkButtonPress();
-  //                 keyHandled = true;
-  //             }
-  //         }
-  //         return keyHandled;
-  //     }
-  // });
     add(bNotOk);
   }
   /**
@@ -162,7 +131,6 @@ public class FOptionPane extends JDialog {
   *@lastEditedVersion 2.27
   */
   public void onNotOkButtonPress(){
-    System.out.println("not ok press");
     returnValue=0;
     disposeFOptionPane();
   }
@@ -278,31 +246,35 @@ public class FOptionPane extends JDialog {
   // static
   /**
   *{@summary print an alerte box.}
-  *@lastEditedVersion 1.49
+  *@param popUpMessage message of the popUp
+  *@lastEditedVersion 2.28
   */
-  public static void alerte(String s, String s2){
-    JOptionPane jop1 = new JOptionPane();
-    jop1.showMessageDialog(FPanel.getView().getF(), s, s2, JOptionPane.INFORMATION_MESSAGE);
+  public static void alerte(String popUpMessage){
+    showMessageDialog(FPanel.getView().getF(), null, popUpMessage);
   }
-  public static void alerte(String s){ alerte(s,g.getM("information"));}
   /**
   *{@summary Print a question box.}
-  *@param popUpName name of the popUp
   *@param popUpMessage message of the popUp
   *@return user answer
-  *@lastEditedVersion 1.50
+  *@lastEditedVersion 2.28
   */
-  public static String question(String popUpName, String popUpMessage){
-    String r = JOptionPane.showInputDialog(FPanel.getView().getF(), g.getM(popUpName), popUpMessage, JOptionPane.QUESTION_MESSAGE);
-    return r;
+  public static String question(String popUpMessage){
+    FTextField tf = new FTextField(20);
+    showMessageDialog(FPanel.getView().getF(), tf, popUpMessage);
+    return tf.getText();
   }
-  /***
-  *{@summary Print a question box.}
-  *@param popUpName name of the popUp
-  *@return user answer
-  *@lastEditedVersion 1.50
+  /**
+  *{@summary Print a yes/no question box.}
+  *@param popUpMessage message of the popUp
+  *@param important some gui action will be done if true
+  *@param cf a checkBox item that launch a function if checked
+  *@return answer.
+  *@lastEditedVersion 2.28
   */
-  public static String question(String popUpName){ return question(popUpName,"?");}
+  public static boolean questionYN(String popUpMessage, boolean important, CheckFunction cf){
+    int r = showConfirmDialog(FPanel.getView().getF(), g.getM(popUpMessage), important, cf);
+    return r==1;
+  }
   /**
   *{@summary Print a yes/no question box.}
   *@param popUpMessage message of the popUp
@@ -311,33 +283,61 @@ public class FOptionPane extends JDialog {
   *@lastEditedVersion 2.27
   */
   public static boolean questionYN(String popUpMessage, boolean important){
-    int r = showConfirmDialog(FPanel.getView().getF(), g.getM(popUpMessage), important);
-    return r==1;
+    return questionYN(popUpMessage, important, null);
   }
-  /***
+  /**
   *{@summary Print a yes/no question box.}
   *@param popUpMessage message of the popUp
   *@return answer.
   *@lastEditedVersion 2.27
   */
-  public static boolean questionYN(String popUpMessage){ return questionYN(popUpMessage, false);}
+  public static boolean questionYN(String popUpMessage){
+    return questionYN(popUpMessage, false);
+  }
 
   /**
   *{@summary Print a yes/no question box.}
   *@param parentComponent the owner of this
   *@param message message of the popUp
+  *@param cf a checkBox item that launch a function if checked
   *@return answer.
   *@lastEditedVersion 2.27
   */
-  public static int showConfirmDialog(Frame parentComponent, String message, boolean important){
-    FOptionPane op = new FOptionPane(null);
+  public static int showConfirmDialog(Frame parentComponent, String message, boolean important, CheckFunction cf){
+    FOptionPane op = new FOptionPane();
     op.addText(message);
     op.addOKButton();
     op.addNotOKButton();
+    FPanelCheckFunction pcf=null;
+    if(cf!=null){
+      pcf = new FPanelCheckFunction(cf);
+      op.add(pcf);
+    }
     op.setGreyOthers(important);
     op.build();
     // String s=op.getContent();
+    if(pcf!=null){
+      pcf.run();
+    }
     return op.getReturnValue();
-    // return JOptionPane.showConfirmDialog(parentComponent, message, title, optionType, messageType, icon);
+  }
+  /**
+  *{@summary Print a message.}
+  *@param parentComponent the owner of this
+  *@param content content of this
+  *@param message message of the popUp
+  *@return answer.
+  *@lastEditedVersion 2.27
+  */
+  public static void showMessageDialog(Frame parentComponent, Component content, String message){
+    FOptionPane op = new FOptionPane();
+    op.addText(message);
+    if(content!=null){
+      op.add(content);
+    }
+    op.addOKButton();
+    op.build();
+    // String s=op.getContent();
+    // return op.getReturnValue();
   }
 }
