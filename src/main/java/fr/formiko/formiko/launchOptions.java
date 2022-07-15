@@ -508,7 +508,7 @@ public class launchOptions {
   public static void printVersion(){
     FFolder folder = new FFolder(Main.getView());
     folder.ini(false); //don't download anything
-    erreur.info("Formiko "+folder.getCurentVersion()+"   data version: "+folder.getCurentDataVersion()+"   music version: "+folder.getCurentMusicVersion());
+    erreur.info("Formiko "+folder.getVersion()+"   data version: "+folder.getCurentDataVersion()+"   music version: "+folder.getCurentMusicVersion());
   }
   // TODO #574
   private static void testJson(){
