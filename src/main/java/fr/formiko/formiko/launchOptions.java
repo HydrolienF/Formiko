@@ -223,8 +223,11 @@ public class launchOptions {
       fichier.unzip(args[1],args[2]);
       System.exit(0);
     }else if(args[0].equals("download")){
-      FFolder.download(args[1],args[2],Main.getView());
-      System.exit(0);
+      if(FFolder.download(args[1],args[2],Main.getView())){
+        System.exit(0);
+      }else{
+        System.exit(1);
+      }
     }else if(args[0].equals("createBadges")){
       createBadges.createBadges();
       System.exit(0);
