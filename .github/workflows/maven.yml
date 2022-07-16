@@ -241,9 +241,6 @@ jobs:
         mvn -ntp versions:set -DnewVersion="$(cat version.md)"
         mvn -ntp exec:java -Dargs='download https://github.com/HydrolienF/Formiko/releases/download/${{ steps.version.outputs.version }}/Formiko${{ steps.version.outputs.version }}.zip Formiko.zip'
         mvn -ntp exec:java -Dargs='unzip Formiko.zip formikotemp/'
-        ls
-        echo "ls formikotemp/"
-        ls formikotemp/
         mv formikotemp/*/ in/
         # end of commun par with all OS
         # TOFIX shortcut don't seem's to work neether in menu, nor in terminal.
