@@ -123,3 +123,12 @@ ps -u [username]
 stop / start postgresql (psql) on Windows : (to run in admin mode)
 pg_ctl stop -D "C:\Program Files\PostgreSQL\14\data"
 pg_ctl start -D "C:\Program Files\PostgreSQL\14\data"
+
+set-executionpolicy remotesigned to alow powershell script
+
+# Deb file
+install, remove
+sudo apt-get install file.deb
+sudo apt remove formiko
+print info
+dpkg-deb -I file.deb
