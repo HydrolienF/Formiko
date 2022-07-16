@@ -1,14 +1,8 @@
 #File used to make 4 new realise (witout java or with java in Windows, Linux & mac)
-#echo "javadoc"
-#./javadoc.sh
-mvn -ntp compile
-./run.sh cleanFolder .
+mvn -ntp compile exec:java -Dargs="cleanFolder ."
 echo "to .jar"
 ./jar.sh Formiko
-#jarsigner -keystore monStore -signedjar FormikoTemp.jar Formiko.jar signature
-#nom = name + version
 echo "choose name"
-# ./updateVersion.sh > version.md
 nom=Formiko$(cat version.md)
 nomL=$nom"Linux"
 nomM=$nom"Mac"
@@ -18,12 +12,8 @@ if [[ -e out/ ]]; then
   rm out/ -fr
 fi
 mkdir out/
-# rm -fr out/$nom
-# rm -fr out/$nomW
-# rm -fr out/$nomL
-# rm -fr out/$nomM
-# If data need to be upload.
 
+# If data need to be upload.
 if [[ $(./needToReleaseData.sh) == "1" ]] || [[ $(./needToReleaseMusic.sh) == "1" ]]; then
   echo "update data version & prepare data"
   ./prepareData.sh
@@ -36,6 +26,7 @@ cp README.md out/$nom/.
 cp LICENSE.md out/$nom/.
 cp version.md out/$nom/.
 cp version.json out/$nom/.
+cp JREVersion.md out/$nom/.
 
 mkdir out/$nomW
 mkdir out/$nomL
@@ -47,10 +38,6 @@ mkdir out/$nomW/java/
 mkdir out/$nomL/java/
 mkdir out/$nomM/java/
 
-echo "";
-echo "download jlink/";
-./run.sh download "https://github.com/HydrolienF/JRE/releases/download/1.0.3/jlink.zip" jlink.zip
-./run.sh unzip jlink.zip jlink/
 echo "cp jlink & launcher"
 #unzip -qq jlink.zip
 cp -r jlink/jWindows/* out/$nomW/java/

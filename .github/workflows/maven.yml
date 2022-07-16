@@ -10,6 +10,8 @@ env:
   JAVA_DISTRIBUTION: 'temurin'
   JRE_VERSION: '18.0.1'
   GITHUB_TOKEN: ${{ github.token }}
+  ARTIFACT_NAME: 'Formiko'
+  MAIN_CLASS: 'fr.formiko.formiko.Main'
 
 jobs:
   releaseJob:
@@ -47,8 +49,18 @@ jobs:
         rm -fr ~/.formiko/data/
         cp -r data/ ~/.formiko/data/
 
+    - name: jlink
+      run: |
+        mvn -ntp compile
+        echo "download jlink/"
+        mvn -ntp exec:java -Dargs='download https://github.com/HydrolienF/JRE/releases/download/${{ env.JRE_VERSION }}/jlink.zip jlink.zip'
+        mvn -ntp exec:java -Dargs='unzip jlink.zip jlink/'
+        ls jlink/
+
     - name: exe.sh
-      run: ./exe.sh
+      run: |
+        echo "${{ env.JRE_VERSION }}" > JREVersion.md
+        ./exe.sh
 
     - name: release
       uses: actions/create-release@v1
@@ -172,8 +184,18 @@ jobs:
         echo "::set-output name=version::$version"
 
     - name: build
+      shell: pwsh
       run: |
-        ./toMsi.ps1
+        # Start of commun par with all OS
+        mvn -ntp versions:set -DnewVersion="$(cat version.md)"
+        mvn -ntp exec:java -Dargs='download https://github.com/HydrolienF/Formiko/releases/download/${{ steps.version.outputs.version }}/Formiko${{ steps.version.outputs.version }}.zip Formiko.zip'
+        mvn -ntp exec:java -Dargs='unzip Formiko.zip formiko/'
+        mv formiko/*/ in/
+        # end of commun par with all OS
+        jpackage --java-options "$(cat .mvn/jvm.config)" --input in -d out --name Formiko --main-jar Formiko.jar --main-class ${{ env.MAIN_CLASS }} --app-version ${{ steps.version.outputs.version }} --description "Formiko, a game about ant." --icon tools/icon.ico --runtime-image jlink/jWindows --win-shortcut --win-menu --win-menu-group "Formiko" --license-file LICENSE.md --vendor Hydrolien -t msi --win-upgrade-uuid "1468751e-078f-4fab-80e4-fa15e9b364b3"
+        rm -r in
+        cscript tools/addLaunchToMsi.js ${{ steps.version.outputs.version }}
+        ls out/
         mv ./out/Formiko-${{ steps.version.outputs.version }}.msi ./out/Formiko${{ steps.version.outputs.version }}.msi
     - name: upload .msi artifact
       uses: actions/upload-release-asset@v1
@@ -215,9 +237,17 @@ jobs:
         echo "::set-output name=version::$version"
     - name: build
       run: |
-        ./toDeb.sh
+        # Start of commun par with all OS
+        mvn -ntp versions:set -DnewVersion="$(cat version.md)"
+        mvn -ntp exec:java -Dargs='download https://github.com/HydrolienF/Formiko/releases/download/${{ steps.version.outputs.version }}/Formiko${{ steps.version.outputs.version }}.zip Formiko.zip'
+        mvn -ntp exec:java -Dargs='unzip Formiko.zip formiko/'
+        mv formiko/*/ in/
+        # end of commun par with all OS
+        # TOFIX shortcut don't seem's to work neether in menu, nor in terminal.
+        # TOFIX icon is not used on tab screen or in menu screen
+        jpackage --java-options "$(cat .mvn/jvm.config)" --input in -d out --name Formiko --main-jar Formiko.jar --main-class ${{ env.MAIN_CLASS }} --app-version $(cat version.md) --description "Formiko, a game about ant." --icon tools/icon.png --runtime-image jlink/jLinux --license-file LICENSE.md --vendor Hydrolien -t deb --linux-package-name formiko --linux-shortcut --linux-deb-maintainer hydrolien.f@gmail.com --linux-menu-group "Game;StrategyGame" --linux-app-category games --resource-dir tools/debRessources/
         ls out/
-        mv out/formiko_${{ steps.version.outputs.version }}-1_amd64.deb out/Formiko${{ steps.version.outputs.version }}.deb
+        mv out/formiko_${{ steps.version.outputs.version }}_amd64.deb out/Formiko${{ steps.version.outputs.version }}.deb
     - name: upload .deb artifact
       uses: actions/upload-release-asset@v1
       with:
@@ -258,7 +288,15 @@ jobs:
         echo "::set-output name=version::$version"
     - name: build
       run: |
-        ./toDmg.sh
+        # Start of commun par with all OS
+        mvn -ntp versions:set -DnewVersion="$(cat version.md)"
+        mvn -ntp exec:java -Dargs='download https://github.com/HydrolienF/Formiko/releases/download/${{ steps.version.outputs.version }}/Formiko${{ steps.version.outputs.version }}.zip Formiko.zip'
+        mvn -ntp exec:java -Dargs='unzip Formiko.zip formiko/'
+        mv formiko/*/ in/
+        # end of commun par with all OS
+        # TOFIX shortcut don't seem's to work neether in menu, nor in terminal.
+        # TOFIX icon is not used on tab screen or in menu screen
+        jpackage --java-options "$(cat .mvn/jvm.config)" --input in -d out --name Formiko --main-jar Formiko.jar --main-class ${{ env.MAIN_CLASS }} --app-version $(cat version.md) --description "Formiko, a game about ant." --icon tools/icon.icns --runtime-image jlink/jMac --license-file LICENSE.md --vendor Hydrolien -t dmg --mac-package-name formiko --mac-package-identifier "1468751e-078f-4fab-80e4-fa15e9b364b3"
         ls out/
         mv out/formiko-${{ steps.version.outputs.version }}.dmg out/Formiko${{ steps.version.outputs.version }}.dmg
     - name: upload .deb artifact
