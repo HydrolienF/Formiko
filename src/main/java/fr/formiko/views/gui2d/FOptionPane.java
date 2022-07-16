@@ -149,7 +149,7 @@ public class FOptionPane extends JDialog {
   */
   public void addText(String content){
     if(content==null || content.equals("")){return;}
-    FLabel fl = new FLabel(content);
+    FLabel fl = new FLabel(g.getM(content));
     add(fl);
   }
   /**
@@ -158,7 +158,7 @@ public class FOptionPane extends JDialog {
   *@lastEditedVersion 2.19
   */
   public void addField(String content){
-    textField = new FTextField(content);
+    textField = new FTextField(g.getM(content));
     textField.addSizeUpdater();
     add(textField);
   }
@@ -272,7 +272,7 @@ public class FOptionPane extends JDialog {
   *@lastEditedVersion 2.28
   */
   public static boolean questionYN(String popUpMessage, boolean important, CheckFunction cf){
-    int r = showConfirmDialog(FPanel.getView().getF(), g.getM(popUpMessage), important, cf);
+    int r = showConfirmDialog(FPanel.getView().getF(), popUpMessage, important, cf);
     return r==1;
   }
   /**

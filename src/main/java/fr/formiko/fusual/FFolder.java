@@ -32,7 +32,7 @@ public class FFolder extends Folder {
         }
       };
       cf.setText(g.get("IgnoreThisVersion"));
-      return Main.getView().popUpQuestionYN(g.get("newVersionAvailable.question"), true, cf);
+      return Main.getView().popUpQuestionYN("newVersionAvailable.question", true, cf);
     }
     return false;
   }
