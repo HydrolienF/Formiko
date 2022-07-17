@@ -51,10 +51,7 @@ jobs:
 
     - name: jlink
       run: |
-        mvn -ntp compile
-        echo "download jlink/"
-        mvn -ntp exec:java -Dargs='download https://github.com/HydrolienF/JRE/releases/download/${{ env.JRE_VERSION }}/jlink.zip jlink.zip'
-        mvn -ntp exec:java -Dargs='unzip jlink.zip jlink/'
+        mvn -ntp compile exec:java -Dargs='downloadAndUnzip https://github.com/HydrolienF/JRE/releases/download/${{ env.JRE_VERSION }}/jlink.zip jlink/'
         ls jlink/
 
     - name: exe.sh
@@ -162,12 +159,10 @@ jobs:
         java-version: ${{ env.JAVA_VERSION }}
 
     - name: jlink
+      shell: pwsh
       run: |
-        mvn -ntp compile
-        echo "download jlink/"
-        mvn -ntp exec:java -Dargs='download https://github.com/HydrolienF/JRE/releases/download/${{ env.JRE_VERSION }}/jlink.zip jlink.zip'
-        mvn -ntp exec:java -Dargs='unzip jlink.zip jlink/'
-        dir jlink/
+        mvn -ntp compile exec:java -Dargs='downloadAndUnzip https://github.com/HydrolienF/JRE/releases/download/${{ env.JRE_VERSION }}/jlink.zip jlink/'
+        ls jlink/
     - name: Pull
       run: |
         git config pull.rebase false
@@ -188,9 +183,7 @@ jobs:
       run: |
         # Start of commun par with all OS
         mvn -ntp versions:set -DnewVersion="$(cat version.md)"
-        mvn -ntp exec:java -Dargs='download https://github.com/HydrolienF/Formiko/releases/download/${{ steps.version.outputs.version }}/Formiko${{ steps.version.outputs.version }}.zip Formiko.zip'
-        mvn -ntp exec:java -Dargs='unzip Formiko.zip formikotemp/'
-        mv formikotemp/*/ in/
+        mvn -ntp exec:java -Dargs='downloadAndUnzip https://github.com/HydrolienF/Formiko/releases/download/${{ steps.version.outputs.version }}/Formiko${{ steps.version.outputs.version }}.zip in/ Formiko${{ steps.version.outputs.version }}/'
         # end of commun par with all OS
         jpackage --java-options "$(cat .mvn/jvm.config)" --input in -d out --name Formiko --main-jar Formiko.jar --main-class ${{ env.MAIN_CLASS }} --app-version ${{ steps.version.outputs.version }} --description "Formiko, a game about ant." --icon tools/icon.ico --runtime-image jlink/jWindows --win-shortcut --win-menu --win-menu-group "Formiko" --license-file LICENSE.md --vendor Hydrolien -t msi --win-upgrade-uuid "1468751e-078f-4fab-80e4-fa15e9b364b3"
         rm -r in
@@ -218,10 +211,7 @@ jobs:
 
     - name: jlink
       run: |
-        mvn -ntp compile
-        echo "download jlink/"
-        mvn -ntp exec:java -Dargs='download https://github.com/HydrolienF/JRE/releases/download/${{ env.JRE_VERSION }}/jlink.zip jlink.zip'
-        mvn -ntp exec:java -Dargs='unzip jlink.zip jlink/'
+        mvn -ntp compile exec:java -Dargs='downloadAndUnzip https://github.com/HydrolienF/JRE/releases/download/${{ env.JRE_VERSION }}/jlink.zip jlink/'
         ls jlink/
     - name: Pull
       run: |
@@ -239,12 +229,7 @@ jobs:
       run: |
         # Start of commun par with all OS
         mvn -ntp versions:set -DnewVersion="$(cat version.md)"
-        mvn -ntp exec:java -Dargs='download https://github.com/HydrolienF/Formiko/releases/download/${{ steps.version.outputs.version }}/Formiko${{ steps.version.outputs.version }}.zip Formiko.zip'
-        mvn -ntp exec:java -Dargs='unzip Formiko.zip formikotemp/'
-        ls
-        echo "ls formikotemp/"
-        ls formikotemp/
-        mv formikotemp/*/ in/
+        mvn -ntp exec:java -Dargs='downloadAndUnzip https://github.com/HydrolienF/Formiko/releases/download/${{ steps.version.outputs.version }}/Formiko${{ steps.version.outputs.version }}.zip in/ Formiko${{ steps.version.outputs.version }}/'
         # end of commun par with all OS
         # TOFIX shortcut don't seem's to work neether in menu, nor in terminal.
         # TOFIX icon is not used on tab screen or in menu screen
@@ -272,10 +257,7 @@ jobs:
 
     - name: jlink
       run: |
-        mvn -ntp compile
-        echo "download jlink/"
-        mvn -ntp exec:java -Dargs='download https://github.com/HydrolienF/JRE/releases/download/${{ env.JRE_VERSION }}/jlink.zip jlink.zip'
-        mvn -ntp exec:java -Dargs='unzip jlink.zip jlink/'
+        mvn -ntp compile exec:java -Dargs='downloadAndUnzip https://github.com/HydrolienF/JRE/releases/download/${{ env.JRE_VERSION }}/jlink.zip jlink/'
         ls jlink/
     - name: Pull
       run: |
@@ -293,9 +275,7 @@ jobs:
       run: |
         # Start of commun par with all OS
         mvn -ntp versions:set -DnewVersion="$(cat version.md)"
-        mvn -ntp exec:java -Dargs='download https://github.com/HydrolienF/Formiko/releases/download/${{ steps.version.outputs.version }}/Formiko${{ steps.version.outputs.version }}.zip Formiko.zip'
-        mvn -ntp exec:java -Dargs='unzip Formiko.zip formikotemp/'
-        mv formikotemp/*/ in/
+        mvn -ntp exec:java -Dargs='downloadAndUnzip https://github.com/HydrolienF/Formiko/releases/download/${{ steps.version.outputs.version }}/Formiko${{ steps.version.outputs.version }}.zip in/ Formiko${{ steps.version.outputs.version }}/'
         # end of commun par with all OS
         # TOFIX shortcut don't seem's to work neether in menu, nor in terminal.
         # TOFIX icon is not used on tab screen or in menu screen
