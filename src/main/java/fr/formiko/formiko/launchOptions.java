@@ -111,155 +111,196 @@ public class launchOptions {
   *@lastEditedVersion 1.44
   */
   public static void launchOptionsMajor(String args[]){
-    if(args[0].equals("trad")){
-      Main.initialisation();
-      if(args.length>1){
-        tradCmd(args[1]);
-      }else{
-        tradCmd("./data/stable/languages");
-      }
-    }else if(args[0].equals("tradChar")){
-      if(args.length<3){return;}
-      Main.initialisation();
-      chargerLesTraductions.iniTLangue();
-      boolean b=true;
-      if(args.length>3){b=str.sToB(args[3]);}
-      if(args[1].equals("all")){
-        int len = chargerLesTraductions.getTLangue().length;
-        for (int i=0; i<len; i++) {
-          tradCharCmd(i, args[2], b);
+    switch (args[0]){
+      case "trad":{
+        Main.initialisation();
+        if(args.length>1){
+          tradCmd(args[1]);
+        }else{
+          tradCmd("./data/stable/languages");
         }
-      }else{
-        int id = str.sToI(args[1]); //TODO remove ERROR print if it fail.
-        if(id==-1){id=chargerLesTraductions.getLanguage(args[1]);}
-        tradCharCmd(id, args[2], b);
+        break;
       }
-    }else if(args[0].equals("testFont")){
-      if(args.length<2){
-        args=new String[2];
-        args[1]="all";
-      }
-      Main.initialisation();
-      chargerLesTraductions.iniTLangue();
-      if(args[1].equals("all")){
-        // String fonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
-        Font fonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts();
-        for (int i = 0; i < fonts.length; i++) {
-          canDisplayLanguages(fonts[i].getName());
+      case "tradChar":{
+        if(args.length<3){return;}
+        Main.initialisation();
+        chargerLesTraductions.iniTLangue();
+        boolean b=true;
+        if(args.length>3){b=str.sToB(args[3]);}
+        if(args[1].equals("all")){
+          int len = chargerLesTraductions.getTLangue().length;
+          for (int i=0; i<len; i++) {
+            tradCharCmd(i, args[2], b);
           }
-      }else{
-        canDisplayLanguages(args[1]);
-      }
-    }else if(args[0].equals("son")){
-      music();
-    }else if(args[0].equals("op")){
-      //Main.initialisation();
-      Os.setOs(new Os());
-      Main.setFolder(new FFolder(Main.getView()));
-      Main.iniOp();
-      Main.getOp().saveOptions();
-    }else if(args[0].equals("supprimer")){
-      Main.initialisation();
-      //diff.nbrDeLigneDiff("usual/GString.java","../Formiko108/usual/GString.java");
-      if(args.length == 4){
-        String s = args[1];
-        //c'est pas nésséssaire sur le terminal linux mais au cas ou
-        if(s.charAt(0)=='"' && s.charAt(s.length()-1)=='"'){
-          s = s.substring(1,s.length()-1);
+        }else{
+          int id = str.sToI(args[1]); //TODO remove ERROR print if it fail.
+          if(id==-1){id=chargerLesTraductions.getLanguage(args[1]);}
+          tradCharCmd(id, args[2], b);
         }
-        String f = args[2];
-        byte x = str.sToBy(args[3]);
-        modificationDeFichier.retirerLesLignesR(s,f,x);//3== ca doit etre une ligne complète.
-      }else{
-        erreur.alerte("arguments de supprimer incorecte");
+        break;
       }
-    }else if(args[0].equals("test")){
-      erreur.println("test");
-    // }else if(args[0].equals("trad2")){
-      // Main.initialisation();
-      // chargerLesTraductions.iniTLangue();
-      // chargerLesTraductions.créerLesFichiers();
-      // g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
-      // HashMap<String, String> mapEo = chargerLesTraductions.chargerLesTraductions(0);//chargement des langues.
-      // String t [] = ReadFile.readFileArray(chargerLesTraductions.getRep()+"fr.txt");
-      // Translation.copieTradBase("eo",mapEo,t);
-      //chargerLesTraductions.addTradAuto();
-    }else if (args[0].equals("rbt") || args[0].equals("rognerBordTransparent")){
-      Main.initialisation();
-      try {
-        rbtCmd(args);
-      }catch (Exception e) {
-        erreur.erreur("echec de rognage de l'image");
+      case "testFont":{
+        if(args.length<2){
+          args=new String[2];
+          args[1]="all";
+        }
+        Main.initialisation();
+        chargerLesTraductions.iniTLangue();
+        if(args[1].equals("all")){
+          // String fonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+          Font fonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts();
+          for (int i = 0; i < fonts.length; i++) {
+            canDisplayLanguages(fonts[i].getName());
+            }
+        }else{
+          canDisplayLanguages(args[1]);
+        }
+        break;
       }
-    }else if(args[0].equals("stats")){
-      stats(args);
-    }else if(args[0].equals("statsG")){
-      stats.setOnlyLastLine(true);
-      stats.setSpliter(';');
-      stats2(args);
-    }else if(args[0].equals("cptPixels")){
-      if(args.length>1){
-        //image.setREPTEXTUREPACK("docs/cc/images");
-        debug.débogage("chargement de l'image");
-        Img img = new Img(Images.getImage(args[1],"docs/cc/images/"));
-        debug.débogage("Image chargée");
-        img.compterChaquePixelToHtml();
-      }else{
-        erreur.alerte("arguments de cptPixels incorecte");
+      case "son":{
+        music();
+        break;
       }
-    }else if(args[0].equals("cleanFolder")){
-      Os.setOs(new Os());
-      FFolder folder = new FFolder(Main.getView());
-      if(args.length>1){
-        folder.setFolderMain(args[1]);
+      case "op":{
+        Os.setOs(new Os());
+        Main.setFolder(new FFolder(Main.getView()));
+        Main.iniOp();
+        Main.getOp().saveOptions();
+        break;
       }
-      Main.setFolder(folder);
-      erreur.info("Clean main folder : "+folder.getFolderMain());
-      folder.cleanFolder();
-    }else if(args[0].equals("zip")){
-      fichier.zip(args[1],args[2]);
-      System.exit(0);
-    }else if(args[0].equals("unzip")){
-      fichier.unzip(args[1],args[2]);
-      System.exit(0);
-    }else if(args[0].equals("download")){
-      if(FFolder.download(args[1],args[2],Main.getView())){
+      case "supprimer":{
+        Main.initialisation();
+        //diff.nbrDeLigneDiff("usual/GString.java","../Formiko108/usual/GString.java");
+        if(args.length == 4){
+          String s = args[1];
+          //c'est pas nésséssaire sur le terminal linux mais au cas ou
+          if(s.charAt(0)=='"' && s.charAt(s.length()-1)=='"'){
+            s = s.substring(1,s.length()-1);
+          }
+          String f = args[2];
+          byte x = str.sToBy(args[3]);
+          modificationDeFichier.retirerLesLignesR(s,f,x);//3== ca doit etre une ligne complète.
+        }else{
+          erreur.alerte("arguments de supprimer incorecte");
+        }
+        break;
+      }
+      case "test":{
+        erreur.println("test");
+        break;
+      }
+      case "rbt":
+      case "rognerBordTransparent":{
+        Main.initialisation();
+        try {
+          rbtCmd(args);
+        }catch (Exception e) {
+          erreur.erreur("echec de rognage de l'image");
+        }
+        break;
+      }
+      case "stats":{
+        stats(args);
+        break;
+      }
+      case "statsG":{
+        stats.setOnlyLastLine(true);
+        stats.setSpliter(';');
+        stats2(args);
+        break;
+      }
+      case "cptPixels":{
+        if(args.length>1){
+          debug.débogage("chargement de l'image");
+          Img img = new Img(Images.getImage(args[1],"docs/cc/images/"));
+          debug.débogage("Image chargée");
+          img.compterChaquePixelToHtml();
+        }else{
+          erreur.alerte("arguments de cptPixels incorecte");
+        }
+        break;
+      }
+      case "cleanFolder":{
+        Os.setOs(new Os());
+        FFolder folder = new FFolder(Main.getView());
+        if(args.length>1){
+          folder.setFolderMain(args[1]);
+        }
+        Main.setFolder(folder);
+        erreur.info("Clean main folder : "+folder.getFolderMain());
+        folder.cleanFolder();
+        break;
+      }
+      case "zip":{
+        fichier.zip(args[1],args[2]);
         System.exit(0);
-      }else{
-        System.exit(1);
+        break;
       }
-    }else if(args[0].equals("createBadges")){
-      createBadges.createBadges();
-      System.exit(0);
-    }else if(args[0].equals("updateDataVersion")){
-      updateDataVersion(args);
-      System.exit(0);
-    }else if(args[0].equals("launcher")){
-      Main.initialisation();
-      Main.getView().iniLauncher();
-      Main.getView().setDownloadingMessage("Dowloading files");
-      int k=0;
-      while (k<10) {
-        Main.getView().setDownloadingValue(k*7);
-        Time.pause(1000);
-        k++;
+      case "unzip":{
+        fichier.unzip(args[1],args[2]);
+        System.exit(0);
+        break;
       }
-      // System.exit(0);
-    // }else if(args[0].equals("testTryCatchNullPointerException")){
-    //   testTryCatchNullPointerException.doTest();
-    //   System.exit(0);
-    }else if(args[0].equals("mem")){
-      printMemUse();
-    }else if(args[0].equals("ss")){
-      printScreenSize();
-    }else if(args[0].equals("version")){
-      printVersion();
-    }else if(args[0].equals("testjson")){
-      testJson();
-    }else{
-      erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
+      case "download":{
+        if(FFolder.download(args[1],args[2],Main.getView())){
+          System.exit(0);
+        }else{
+          System.exit(1);
+        }
+        break;
+      }
+      case "downloadAndUnzip":{
+        String folderInURL=".";
+        if(args.length>3){folderInURL=args[3];}
+        if(fichier.downloadAndUnzip(args[1],args[2],folderInURL)){
+          System.exit(0);
+        }else{
+          System.exit(1);
+        }
+        break;
+      }
+      case "createBadges":{
+        createBadges.createBadges();
+        System.exit(0);
+        break;
+      }
+      case "updateDataVersion":{
+        updateDataVersion(args);
+        System.exit(0);
+        break;
+      }
+      case "launcher":{
+        Main.initialisation();
+        Main.getView().iniLauncher();
+        Main.getView().setDownloadingMessage("Dowloading files");
+        int k=0;
+        while (k<10) {
+          Main.getView().setDownloadingValue(k*7);
+          Time.pause(1000);
+          k++;
+        }
+        break;
+      }
+      case "mem":{
+        printMemUse();
+        break;
+      }
+      case "ss":{
+        printScreenSize();
+        break;
+      }
+      case "version":{
+        printVersion();
+        break;
+      }
+      case "testjson":{
+        testJson();
+        break;
+      }
+      default:{
+        erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
+      }
     }
-    // Main.quitter();
   }
   /**
   *{@summary update stats in stats.txt.}<br>
