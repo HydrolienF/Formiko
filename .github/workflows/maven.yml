@@ -8,7 +8,7 @@ on:
 env:
   JAVA_VERSION: '18'
   JAVA_DISTRIBUTION: 'temurin'
-  JRE_VERSION: '18.0.1'
+  JRE_VERSION: '18.0.5'
   GITHUB_TOKEN: ${{ github.token }}
   ARTIFACT_NAME: 'Formiko'
   JPACKAGE: 'jpackage --java-options "$(cat .mvn/jvm.config)" --input in -d out --name Formiko --main-jar Formiko.jar --main-class fr.formiko.formiko.Main --app-version $(cat version.md) --description "Formiko, a game about ant." --license-file LICENSE.md  --vendor Hydrolien --runtime-image jlink/'
