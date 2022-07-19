@@ -376,17 +376,6 @@ public class launchOptions {
       }
     }
   }
-  // /**
-  // *{@summary Update 1 translation &#38; print it's &#37;age of translation.}<br>
-  // *@lastEditedVersion 1.42
-  // */
-  // private static void tradCmd(String language){
-  //   // Main.startCh();
-  //   chargerLesTraductions.iniTLangue();
-  //   chargerLesTraductions.créerLesFichiers();
-  //   g.setMap(chargerLesTraductions.chargerLesTraductions(1));//chargement des langues.
-  //   erreur.print(chargerLesTraductions.getPourcentageTraduit(chargerLesTraductions.getLanguage(language)));
-  // }
   /**
   *{@summary Update translation.}<br>
   *@lastEditedVersion 2.27
@@ -408,6 +397,10 @@ public class launchOptions {
     chargerLesTraductions.affPourcentageTraduit();
     Main.endCh("affPourcentageTraduit");*/
   }
+  /**
+  *{@summary Print part of printable chars.}<br>
+  *@lastEditedVersion 2.28
+  */
   public static void tradCharCmd(int id, String fontName, boolean b){
     // Main.startCh();
     erreur.println(Translation.partOfPrintableChar(id, fontName, b));
@@ -420,6 +413,11 @@ public class launchOptions {
     // chargerLesTraductions.affPourcentageTraduit();
     // Main.endCh("affPourcentageTraduit");
   }
+  /**
+  *{@summary Print if languages can be display by font.}<br>
+  *@param fontName name of the tested font
+  *@lastEditedVersion 2.28
+  */
   public static void canDisplayLanguages(String fontName){
     int cpt=0;
     int len = chargerLesTraductions.getTLangue().length;
@@ -501,20 +499,6 @@ public class launchOptions {
       erreur.alerte("can't update data version "+e);
     }
   }
-  // /**
-  // *{@summary return the curent version.}<br>
-  // *Curent version is in version.md.
-  // *@lastEditedVersion 1.51
-  // */
-  // public static String getCurentVersion(){
-  //   GString gsIn = ReadFile.readFileGs("version.md");
-  //   if(gsIn.length()==0){
-  //     gsIn = ReadFile.readFileGs("app/version.md");
-  //   }
-  //   String version = "x.x.x";
-  //   if(gsIn.length()>0){version = gsIn.getItem(0);}
-  //   return version;
-  // }
   /**
   *{@summary Print data about memory use.}<br>
   *@lastEditedVersion 2.21
@@ -551,6 +535,11 @@ public class launchOptions {
     folder.ini(false); //don't download anything
     erreur.info("Formiko version: "+folder.getVersion()+"   data version: "+folder.getCurentDataVersion()+"   music version: "+folder.getCurentMusicVersion());
   }
+  /**
+  *{@summary Do some test about json file.}<br>
+  *One day, it should replace .csv with game data
+  *@lastEditedVersion 2.28
+  */
   // TODO #574
   private static void testJson(){
     Main.initialisation();
