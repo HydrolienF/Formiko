@@ -95,6 +95,7 @@ public class FButton extends JButton implements MouseListener {
     setText(nom);
     withBackground=true;
     setBorder(new FBorder());
+    updateSelected();
   }
   // GET SET -------------------------------------------------------------------
   public String getName(){ return nom;}
@@ -146,6 +147,48 @@ public class FButton extends JButton implements MouseListener {
     }
   }
   public void setIsYellow(boolean b){isYellow=b;}
+  /**
+  *{@summary Overrided setter to update if button should be selected.}<br>
+  *If size, location or visibility have been change, button many need to be set as selected or not.
+  *@lastEditedVersion 2.28
+  */
+  @Override
+  public void setSize(int width, int heigth){
+    super.setSize(width, heigth);
+    updateSelected();
+  }
+  /**
+  *{@summary Overrided setter to update if button should be selected.}<br>
+  *If size, location or visibility have been change, button many need to be set as selected or not.
+  *@lastEditedVersion 2.28
+  */
+  @Override
+  public void setLocation(int x, int y){
+    super.setLocation(x, y);
+    updateSelected();
+  }
+  /**
+  *{@summary Overrided setter to update if button should be selected.}<br>
+  *If size, location or visibility have been change, button many need to be set as selected or not.
+  *@lastEditedVersion 2.28
+  */
+  @Override
+  public void setBounds(int x, int y, int width, int heigth){
+    super.setBounds(x, y, width, heigth);
+    updateSelected();
+  }
+  /**
+  *{@summary Overrided setter to update if button should be selected.}<br>
+  *If size, location or visibility have been change, button many need to be set as selected or not.
+  *@lastEditedVersion 2.28
+  */
+  @Override
+  public void setVisible(boolean visible){
+    super.setVisible(visible);
+    if(visible){
+      updateSelected();
+    }
+  }
   // Fonctions propre ----------------------------------------------------------
   /**
   *{@summary To draw component.}<br>
