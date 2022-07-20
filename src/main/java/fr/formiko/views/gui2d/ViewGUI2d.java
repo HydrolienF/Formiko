@@ -21,6 +21,7 @@ import fr.formiko.usual.Info;
 import fr.formiko.usual.Time;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
+import fr.formiko.usual.fichier;
 import fr.formiko.usual.g;
 import fr.formiko.usual.types.str;
 import fr.formiko.views.View;
@@ -165,7 +166,7 @@ public class ViewGUI2d implements View {
   /**
   *{@summary Load main menu.}<br>
   *@return Return true if it work well. (Nothing goes wrong.)
-  *@lastEditedVersion 2.27
+  *@lastEditedVersion 2.28
   */
   public boolean menuMain(){
     // if(actionGameOn){action.retournerAuMenu();}
@@ -176,7 +177,11 @@ public class ViewGUI2d implements View {
     if(!haveAskToDownloadNewVersion){
       haveAskToDownloadNewVersion=true;
       if(Main.getFolder().userWantNewVersion()){
-        Main.quit(2);
+        if(Main.isLaunchFromLauncher()){
+          Main.quit(2);
+        }else{
+          fichier.openWebLink("https://formiko.fr/download");
+        }
       }
     }
     if(Main.getFirstGame()){

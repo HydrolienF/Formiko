@@ -102,6 +102,9 @@ public class launchOptions {
       printVersion();
       System.exit(0);
       break;
+      case "lfl", "launchFromLauncher":
+      Main.setLaunchFromLauncher(true);
+      break;
       default:
       erreur.alerte("Unknow cli options : "+stringOptions);
     }
