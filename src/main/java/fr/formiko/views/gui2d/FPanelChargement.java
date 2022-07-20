@@ -101,6 +101,10 @@ public class FPanelChargement extends FPanel {
   private void addPcf(){
     // TODO fix location & size
     CheckFunction cf = new CheckFunction(){
+      /**
+      *{@summary Update Options value if user have enable checkbox.}<br>
+      *@lastEditedVersion 2.26
+      */
       @Override
       protected void exec(){
         Main.getOp().setWhaitBeforeLaunchGame(true);

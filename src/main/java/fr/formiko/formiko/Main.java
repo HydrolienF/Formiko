@@ -74,6 +74,7 @@ public class Main {
   private static boolean needToInitialize; //TODO OP use to avoid using op==null
   private static boolean openMenuFirst;
   private static boolean wantToQuit;
+  private static boolean launchFromLauncher;
 
   /**
    * {@summary Lauch the game.}<br>
@@ -293,6 +294,17 @@ public class Main {
 
   public static boolean getOpenMenuFirst(){return openMenuFirst;}
   public static void dontOpenMenuFirst(){openMenuFirst=false;}
+  public static boolean isLaunchFromLauncher() {return launchFromLauncher;}
+  /**
+  *{@summary Update the boolean &#38; every value that depend of it.}
+  *@lastEditedVersion 2.28
+  */
+	public static void setLaunchFromLauncher(boolean launchFromLauncher) {
+    Main.launchFromLauncher=launchFromLauncher;
+    if(launchFromLauncher){
+      erreur.setLogFileMode(true);
+    }
+  }
   // Fonctions propre -------------------------------------------------
   /**
    * Initializes Options, key, language, time data, musique, os value. And check the integrity of the file tree.

@@ -1,7 +1,8 @@
 package fr.formiko.views.gui2d;
 
-import fr.formiko.usual.g;
 import fr.formiko.usual.CheckFunction;
+import fr.formiko.usual.Time;
+import fr.formiko.usual.g;
 import fr.formiko.usual.types.str;
 import fr.formiko.views.gui2d.FComboBox;
 
@@ -10,7 +11,8 @@ import java.awt.Component;
 import java.awt.Dialog;
 import java.awt.FlowLayout;
 import java.awt.Frame;
-import fr.formiko.usual.Time;
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -21,8 +23,6 @@ import javax.swing.Icon;
 import javax.swing.JDialog;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.KeyboardFocusManager;
-import java.awt.KeyEventDispatcher;
 
 /**
 *{@summary Personalised JDialog.}<br>
@@ -39,6 +39,8 @@ public class FOptionPane extends JDialog {
   private FButton bOk;
   private FButton bNotOk;
   private boolean greyOthers;
+
+  // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
   *@param owner Frame that own this
@@ -51,7 +53,8 @@ public class FOptionPane extends JDialog {
     setUndecorated(true); //Remove the frame
     setVisible(false);
     setLayout(new FlowLayout());
-    setBackground(new Color(0,0,0,0));
+    // alpha to 1 because javadoc say "Note that painting a pixel with the alpha value of 0 may or may not disable the mouse event handling on this pixel."
+    setBackground(new Color(0,0,0,1));
     returnValue=-1;
     greyOthers=false;
   }
@@ -81,10 +84,13 @@ public class FOptionPane extends JDialog {
     }
   }
 
+  // GET SET -------------------------------------------------------------------
   public int getReturnValue() {return returnValue;}
 	public void setReturnValue(int returnValue) {this.returnValue=returnValue;}
   public boolean isGreyOthers() {return greyOthers;}
 	public void setGreyOthers(boolean greyOthers) {this.greyOthers=greyOthers;}
+
+  // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Add an OK Button.}<br>
   *It will set return value to 1

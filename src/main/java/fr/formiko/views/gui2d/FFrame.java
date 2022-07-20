@@ -98,6 +98,10 @@ public class FFrame extends JFrame {
       boolean needToClose=true;
       if (!Main.getForceQuit()){
         CheckFunction cf = new CheckFunction(){
+          /**
+          *{@summary Update Options value if user have enable checkbox.}<br>
+          *@lastEditedVersion 2.26
+          */
           @Override
           protected void exec(){
             Main.getOp().setForceQuit(true);
