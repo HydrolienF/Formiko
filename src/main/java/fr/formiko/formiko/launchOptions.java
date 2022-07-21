@@ -8,6 +8,7 @@ import com.github.cliftonlabs.json_simple.Jsoner;
 import fr.formiko.usual.*;
 import fr.formiko.fusual.FFolder;
 import fr.formiko.usual.debug;
+import fr.formiko.usual.Usual;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.fichier;
 import fr.formiko.usual.g;
@@ -301,7 +302,8 @@ public class launchOptions {
         break;
       }
       default:{
-        erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
+        Usual.main(args);
+        // erreur.erreur("Votre options a "+(args.length)+" agruments n'as pas été reconnue : "+tableau.tableauToString(args));
       }
     }
   }
