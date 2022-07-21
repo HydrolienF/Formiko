@@ -464,7 +464,7 @@ public class Main {
     }catch (Exception e) {
       erreur.alerte("Game fail to close normally.");
       if(exitCode==0){
-        System.exit(1); //une erreur a la fermeture.
+        System.exit(0); //une erreur a la fermeture.
       }else{
         System.exit(exitCode);
       }
