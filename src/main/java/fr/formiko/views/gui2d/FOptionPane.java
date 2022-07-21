@@ -332,7 +332,6 @@ public class FOptionPane extends JDialog {
   *@param parentComponent the owner of this
   *@param content content of this
   *@param message message of the popUp
-  *@return answer.
   *@lastEditedVersion 2.27
   */
   public static void showMessageDialog(Frame parentComponent, Component content, String message){
