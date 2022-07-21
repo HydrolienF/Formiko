@@ -74,7 +74,7 @@
     <dependency>
 	    <groupId>com.github.HydrolienF</groupId>
 	    <artifactId>usual</artifactId>
-	    <version>0.2.77</version>
+	    <version>0.2.87</version>
 	   </dependency>
   </dependencies>
 
@@ -199,16 +199,13 @@
           <windowtitle>Javadoc of Formiko</windowtitle>
           <stylesheetfile>docs/javadoc/styles.css</stylesheetfile>
           <header>
-            &#60;ul id="buttons-bar"&#62;
-              &#60;li class="mainButon" id="button-home-page"&#62;&#60;a href="https://formiko.fr/"&#62;Home&#60;/a&#62;&#60;/li&#62;
-              &#60;li class="mainButon" id="button-download-page"&#62;&#60;a href="https://formiko.fr/download"&#62;Download&#60;/a&#62;&#60;/li&#62;
-              &#60;li class="mainButon" id="button-github-page"&#62;&#60;a href="https://github.com/HydrolienF/Formiko/"&#62;Github&#60;/a&#62;&#60;/li&#62;
-              &#60;li class="mainButon" id="button-javadoc-page"&#62;&#60;a href="https://formiko.fr/Formiko/javadoc/"&#62;Javadoc&#60;/a&#62;&#60;/li&#62;
-            &#60;/ul&#62;
+            €{HEADER}
           </header>
           <additionalparam>-Xdoclint:none</additionalparam>
           <additionalOptions>-Xdoclint:none</additionalOptions>
           <additionalJOption>-Xdoclint:none</additionalJOption>
+          <additionalOptions>-html5</additionalOptions>
+          <additionalJOptions>--allow-script-in-comments</additionalJOptions>
         </configuration>
       </plugin>
     </plugins>
