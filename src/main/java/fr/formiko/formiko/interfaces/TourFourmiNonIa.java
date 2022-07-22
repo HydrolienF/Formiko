@@ -90,7 +90,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     Main.setPlayingAnt(f);
     byte choix=-2;
     try {
-      choix = (byte)(getChoixBouton());
+      choix = (byte)(getChoixBouton(true));
     }catch (NullPointerException e) {
       erreur.erreur("can not do ant action because of NullPointerException");
     }
@@ -106,18 +106,27 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
   /**
   *{@summary Return user choice to do an ant action.}
   *There is no order to do actions because player choose it.
+  *@param evenIfNoAction Don't return -1 just because ant have no action to do
   *@lastEditedVersion 2.28
   */
-  public byte getChoixBouton(){
+  public byte getChoixBouton(boolean evenIfNoAction){
     byte choix = -1;
     //la fourmi doit finir son tour si elle n'as plus d'action, sauf si le joueur a spécifiquement cliqué dessus.
-    while (choix==-1 && !f.getFere().getJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu() && (f.getAction()>0 || f.getFere().getWaitingForEndTurn())) {
+    while (choix==-1 && !f.getFere().getJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu() && (f.getAction()>0 || f.getFere().getWaitingForEndTurn() || evenIfNoAction)) {
       choix = (byte) Main.getView().getAntChoice(getTActionFourmi());
       if(f.getFere().getJoueur().getIsTurnEnded()){
         f.setActionTo0();
       }
     }
     return choix;
+  }
+  /**
+  *{@summary Return user choice to do an ant action.}
+  *There is no order to do actions because player choose it.
+  *@lastEditedVersion 2.28
+  */
+  public byte getChoixBouton(){
+    return getChoixBouton(false);
   }
 
   private int [] getTActionFourmi(){
