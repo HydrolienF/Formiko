@@ -129,6 +129,10 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     return getChoixBouton(false);
   }
 
+  /**
+  *{@summary Return the ids of the aviable actions.}
+  *@lastEditedVersion 2.28
+  */
   private int [] getTActionFourmi(){
     if(f.getUneSeuleAction()!=-1){
       if(f.getUneSeuleAction()==20){return new int[0];}
@@ -153,8 +157,13 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       return t;
     }
   }
-  private String faire(int choix){
-    String m = switch(choix){
+  /**
+  *{@summary Do a turn action.}
+  *@param actionId the id of the action to do
+  *@lastEditedVersion 2.28
+  */
+  private String faire(int actionId){
+    String m = switch(actionId){
       case -1 :
         yield "nothing";
       case 0 :
@@ -214,7 +223,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       case 14 :
         yield "endGame";
       default :
-        yield "le choix "+choix+" n'est pas possible";
+        yield "le choix "+actionId+" n'est pas possible";
       };
     return m;
   }
