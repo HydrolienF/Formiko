@@ -278,15 +278,15 @@ public class ViewGUI2d implements View {
     getPp().removePm();//on retire le menu
     getPs().updateSize();//update Ps just in case it was to big from an other script.
     Main.endCh("chargementFPanelChargementEtSuppressionMenu");
+    if(Partie.getScript().equals("tuto")){
+      Main.iniCpt();
+      Partie.setPartieTutoInMain();
+    }
     getPj().iniPch();//on met le panneau de chargement au 1a plan.
     DiscordIntegration.setNeedToUpdateActivity(true);
     Main.startCh();
     getPb().addPz();
     Main.endCh("ajoutFPanelZoom");Main.startCh();
-    if(Partie.getScript().equals("tuto")){
-      Main.iniCpt();
-      Partie.setPartieTutoInMain();
-    }
     Main.getPartie().initialisationElément();
     // Main.getData().chargerImages(); //It will be call by the next line "action.doActionPj(8);"
     action.doActionPj(8); //unzoom
