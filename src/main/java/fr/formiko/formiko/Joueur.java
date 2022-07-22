@@ -82,7 +82,18 @@ public class Joueur implements Serializable{
   public int getScore(){return fere.getScore();}
   public static void ini(){i=1;}
   public boolean getIsTurnEnded(){return isTurnEnded;}
-  public void setIsTurnEnded(boolean b){isTurnEnded=b;}
+  /**
+  *{@summary Setter that notify playing ant in case, it was waiting for an action to be choose.}
+  *@lastEditedVersion 2.28
+  */
+  public void setIsTurnEnded(boolean b){
+    isTurnEnded=b;
+    if(Main.getPlayingAnt()!=null){
+      synchronized (Main.getPlayingAnt()) {
+        Main.getPlayingAnt().notifyAll();
+      }
+    }
+  }
   public static Joueur getPlayingJoueur(){
     if(playingJoueur==null && Main.getPartie().getPlayingAnt()!=null){
       return Main.getPartie().getPlayingAnt().getFere().getJoueur();

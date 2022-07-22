@@ -172,7 +172,8 @@ public class FPanelSup extends FPanel {
       CCase cc = getCCase(e);
       if(cc!=null){
         f.ceDeplacerPlusieurCase(cc);
-        f.setBActionHaveChange(true);
+        // f.setBActionHaveChange(true);
+        getView().getPb().setActionF(-1);
       }
     }
   }

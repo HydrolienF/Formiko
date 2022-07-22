@@ -80,7 +80,18 @@ public class FPanelBouton extends FPanel {
     }
   }
   public int getActionF(){ return actionF;}
-  public void setActionF(int x){ actionF=x;}
+  /**
+  *{@summary Setter that notify playing ant in case, it was waiting for an action to be choose.}
+  *@lastEditedVersion 2.28
+  */
+  public void setActionF(int x){
+    actionF=x;
+    if(Main.getPlayingAnt()!=null){
+      synchronized (Main.getPlayingAnt()) {
+        Main.getPlayingAnt().notifyAll();
+      }
+    }
+  }
   public FPanelTInt getPti(){ return pti;}
   public void setPti(FPanelTInt p){pti=p; }
   public int getChoixId(){ return choixId;}
