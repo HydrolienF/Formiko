@@ -778,9 +778,9 @@ public class ViewGUI2d implements View {
   public void setNextPlayingAnt(Fourmi f){
     if(getPe().isOn()){return;}
     if(f!=null && f.getFere().getJoueur().equals(Main.getPlayingJoueur()) && !f.equals(Main.getPlayingAnt()) && f.getMaxAction()>0) {
+      Main.getPartie().setAntIdToPlay(f.getId());
       getPb().setActionF(-2);
       getPb().hidePa();
-      Main.getPartie().setAntIdToPlay(f.getId());
       setMessageDesc("", true);
     }
   }
