@@ -26,7 +26,6 @@ public class FCheckBox extends JCheckBox {
     setBackground(new Color(0,0,0,0));
     setBorderPainted(false);
     setOpaque(false); //solve the UI glitching issues
-    setContentAreaFilled(false);
     // toggleButton.setPreferredSize(new Dimension(128, 128));
     FontMetrics boxFontMetrics = getFontMetrics(getFont());
     int boxSize=(int)(boxFontMetrics.getHeight()*0.6);
