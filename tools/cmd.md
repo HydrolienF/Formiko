@@ -132,3 +132,10 @@ sudo apt-get install file.deb
 sudo apt remove formiko
 print info
 dpkg-deb -I file.deb
+
+
+# clean maven cache & download back
+mvn dependency:purge-local-repository -DactTransitively=false
+
+# clean maven cache
+mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false
