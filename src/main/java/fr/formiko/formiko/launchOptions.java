@@ -112,7 +112,7 @@ public class launchOptions {
   }
   /**
   *{@summary Launch a major options without launching game.}
-  *@lastEditedVersion 1.44
+  *@lastEditedVersion 2.28
   */
   public static void launchOptionsMajor(String args[]){
     switch (args[0]){
@@ -213,17 +213,17 @@ public class launchOptions {
         stats2(args);
         break;
       }
-      case "cptPixels":{
-        if(args.length>1){
-          debug.débogage("chargement de l'image");
-          Img img = new Img(Images.getImage(args[1],"docs/cc/images/"));
-          debug.débogage("Image chargée");
-          img.compterChaquePixelToHtml();
-        }else{
-          erreur.alerte("arguments de cptPixels incorecte");
-        }
-        break;
-      }
+      // case "cptPixels":{
+      //   if(args.length>1){
+      //     debug.débogage("chargement de l'image");
+      //     Img img = new Img(Images.getImage(args[1],"docs/cc/images/"));
+      //     debug.débogage("Image chargée");
+      //     img.compterChaquePixelToHtml();
+      //   }else{
+      //     erreur.alerte("arguments de cptPixels incorecte");
+      //   }
+      //   break;
+      // }
       case "cleanFolder":{
         Os.setOs(new Os());
         FFolder folder = new FFolder(Main.getView());
@@ -441,14 +441,23 @@ public class launchOptions {
   }
   /**
   *{@summary Do sounds or music test.}<br>
-  *@lastEditedVersion 1.46
+  *@lastEditedVersion 2.28
   */
   private static void music(){
     Main.initialisation(); //for color & language
-    AudioPlayer sp = new AudioPlayer("1.mp3",true,2000);
+    AudioPlayer sp = new AudioPlayer("C:/Users/lili5/AppData/Roaming/.formiko/data/stable/musics/Beyond The Warriors - Guifrog.mp3");
+    // AudioPlayer sp = new AudioPlayer("C:/Users/lili5/Music/son/BIRDCrow_Corneilles 2 (ID 0956)_LS.mp3");
+    sp.setVolume(50);
     sp.play();
-    AudioPlayer sp2 = new AudioPlayer("C:/Users/lili5/Music/son/pock.mp3",true,2000);
-    sp2.play();
+    Time.pause(1000);
+    System.out.println("pause");
+    sp.pause();
+    Time.pause(2000);
+    System.out.println("resume");
+    sp.resume();
+    // AudioPlayer sp2 = new AudioPlayer("C:/Users/lili5/Music/son/pock.mp3",true,2000);
+    // sp2.play();
+    Time.pause(10000);
   }
   /**
   *{@summary Set value of data to last version in version.json.}<br>

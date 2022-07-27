@@ -33,17 +33,8 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     String m = "";
     int choix = -1;
     while(f.getAction()>0 && !f.getFere().getJoueur().getIsTurnEnded() && choix!=-2 && f.getMode()==-1) {
-      // try {
-      //   synchronized (this) {
-      //     wait();
-      //   }
-      // }catch (InterruptedException | IllegalMonitorStateException e) {
-      //   erreur.alerte("wait fail for "+e);
-      // }
-      Time.sleep();
-      choix = (byte)(getChoixBouton()-1);
+      choix = (byte)(getChoixBouton());
       if(choix==-2){
-        // f.setActionTo0();
         return;
       }
       m = faire(choix);
@@ -99,7 +90,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     Main.setPlayingAnt(f);
     byte choix=-2;
     try {
-      choix = (byte)(getChoixBouton()-1);
+      choix = (byte)(getChoixBouton(true));
     }catch (NullPointerException e) {
       erreur.erreur("can not do ant action because of NullPointerException");
     }
@@ -112,40 +103,36 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     Main.setPlayingAnt(null);
   }
 
-
-
-  // old part to choose the action to do with the ant.---------------------------
-  public byte getChoixBouton(){
+  /**
+  *{@summary Return user choice to do an ant action.}
+  *There is no order to do actions because player choose it.
+  *@param evenIfNoAction Don't return -1 just because ant have no action to do
+  *@lastEditedVersion 2.28
+  */
+  public byte getChoixBouton(boolean evenIfNoAction){
     byte choix = -1;
-    int t [] = null;
-    f.setBActionHaveChange(true);
     //la fourmi doit finir son tour si elle n'as plus d'action, sauf si le joueur a spécifiquement cliqué dessus.
-    while (choix==-1 && !f.getFere().getJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu() && (f.getAction()>0 || f.getFere().getWaitingForEndTurn())) {
-      // erreur.println("wait");
-      // try {
-      //   synchronized (this) {
-      //     wait();
-      //   }
-      // }catch (InterruptedException | IllegalMonitorStateException e) {
-      //   erreur.alerte("wait fail for "+e);
-      // }
-      //   erreur.println("stop wainting choix buton "+choix);
-      Time.sleep();
-      //if tour fini par clic sur Entrer
-      if (f.getBActionHaveChange()){
-        t = getTActionFourmi();
-        f.setBActionHaveChange(false);
-      }else{
-        t = null;
-      }
-      choix = (byte) Main.getView().getAntChoice(t);
+    while (choix==-1 && !f.getFere().getJoueur().getIsTurnEnded() && !Main.getRetournerAuMenu() && (f.getAction()>0 || f.getFere().getWaitingForEndTurn() || evenIfNoAction)) {
+      choix = (byte) Main.getView().getAntChoice(getTActionFourmi());
       if(f.getFere().getJoueur().getIsTurnEnded()){
         f.setActionTo0();
       }
-    }choix++;
+    }
     return choix;
   }
+  /**
+  *{@summary Return user choice to do an ant action.}
+  *There is no order to do actions because player choose it.
+  *@lastEditedVersion 2.28
+  */
+  public byte getChoixBouton(){
+    return getChoixBouton(false);
+  }
 
+  /**
+  *{@summary Return the ids of the aviable actions.}
+  *@lastEditedVersion 2.28
+  */
   private int [] getTActionFourmi(){
     if(f.getUneSeuleAction()!=-1){
       if(f.getUneSeuleAction()==20){return new int[0];}
@@ -158,7 +145,6 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
         t[i]=i;
       }
       GCreature gcCase = f.getCCase().getContent().getGc();
-      // t=tableau.retirerX(t,0); //TODO #229
       if(f.getAction()<=0 || f.getIndividu().getMovingCost() == -1){ t=tableau.retirerX(t,0);}
       if(f.getAction()<=0 || f.getIndividu().getCoutChasse() == -1 || gcCase.getGi().length()==0 || !f.chasse.canHuntMore(f)){ t=tableau.retirerX(t,1);}
       if(f.getAction()<=0 || !f.canLay()){ t=tableau.retirerX(t,2);}
@@ -171,8 +157,15 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       return t;
     }
   }
-  private String faire(int choix){
-    String m = switch(choix){
+  /**
+  *{@summary Do a turn action.}
+  *@param actionId the id of the action to do
+  *@lastEditedVersion 2.28
+  */
+  private String faire(int actionId){
+    String m = switch(actionId){
+      case -1 :
+        yield "nothing";
       case 0 :
         Main.getView().setMoveMode(true);
         yield "ceDeplacer";
@@ -230,7 +223,7 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       case 14 :
         yield "endGame";
       default :
-        yield "le choix "+choix+" n'est pas possible";
+        yield "le choix "+actionId+" n'est pas possible";
       };
     return m;
   }

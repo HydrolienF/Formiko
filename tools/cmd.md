@@ -49,7 +49,7 @@ ctrl alt o (Atom) trie les imports d'un fichier. (grace a java-import-wiz)
 
 ctrl alt a (Atom) avec un nom d'objet Java met dans le ctrl-c la ligne d'importe qu'il faut si elle existe dans le projet ou dans Java (avant Java 9) (Grace a java-importer)
 
-mvn compile exec:java -Dargs="tws ../HydrolienF.github.io/docs/ -p ../HydrolienF.github.io/docs/data/language"
+mvn compile exec:java -Dargs="tws ../HydrolienF.github.io/ -p ../HydrolienF.github.io/docs/data/language"
 Lance la traduction des pages du site sur mon pc.
 
 git rev-list --count 2.6
@@ -132,3 +132,10 @@ sudo apt-get install file.deb
 sudo apt remove formiko
 print info
 dpkg-deb -I file.deb
+
+
+# clean maven cache & download back
+mvn dependency:purge-local-repository -DactTransitively=false
+
+# clean maven cache
+mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false

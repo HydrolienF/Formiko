@@ -34,10 +34,6 @@ on peu utiliser des balistes html dans les commentaires. La plus utile étant <b
 */
 
 public class Main {
-  /***
-  *{@summary The compatible version for the options file, keys and backups.}
-  *@lastEditedVersion 1.1
-  */
   //null save var
   /** Use only after iniOp(). */
   private static Options op;
@@ -479,7 +475,9 @@ public class Main {
   */
   public static void handleQuit(){
     Runtime.getRuntime().addShutdownHook(new Thread() {
-      /** This handler will be called on Control-C pressed */
+      /**
+      This handler will be called on Control-C pressed
+      */
       @Override
       public void run() {
         if(!wantToQuit){

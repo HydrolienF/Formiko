@@ -51,6 +51,11 @@ public class FPanelMiniMapContainer extends FPanel {
     pgo.setLocation(0,(int)(BUTTON_RADIUS*0.4));
     needToBeBuild=true;
   }
+  /**
+  *{@summary Build sub component that need to be build.}<br>
+  *If build have been done, it won't build again.
+  *@lastEditedVersion 2.5
+  */
   public void build(){
     if(needToBeBuild){
       needToBeBuild=false;

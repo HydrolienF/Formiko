@@ -278,15 +278,15 @@ public class ViewGUI2d implements View {
     getPp().removePm();//on retire le menu
     getPs().updateSize();//update Ps just in case it was to big from an other script.
     Main.endCh("chargementFPanelChargementEtSuppressionMenu");
+    if(Partie.getScript().equals("tuto")){
+      Main.iniCpt();
+      Partie.setPartieTutoInMain();
+    }
     getPj().iniPch();//on met le panneau de chargement au 1a plan.
     DiscordIntegration.setNeedToUpdateActivity(true);
     Main.startCh();
     getPb().addPz();
     Main.endCh("ajoutFPanelZoom");Main.startCh();
-    if(Partie.getScript().equals("tuto")){
-      Main.iniCpt();
-      Partie.setPartieTutoInMain();
-    }
     Main.getPartie().initialisationElément();
     // Main.getData().chargerImages(); //It will be call by the next line "action.doActionPj(8);"
     action.doActionPj(8); //unzoom
@@ -380,9 +380,12 @@ public class ViewGUI2d implements View {
   }
   /**
   *{@summary Return the chosen value for ant action.}<br>
+  *It update button panel.
+  *Then it wait for the ant to be notify when button panel get an input.<br>
   *This action can only be run if action game is on.<br>
+  *@param t Array of aviable action id
   *@return Return ant choice.
-  *@lastEditedVersion 1.42
+  *@lastEditedVersion 2.28
   */
   public int getAntChoice(int t[]){
     if (!actionGameOn) {return -1;}
@@ -390,7 +393,19 @@ public class ViewGUI2d implements View {
       // getPb().removePa();
       getPb().addPa(t);
     }
-    int r = getPb().getActionF();
+    int r=getPb().getActionF();
+    if(r==-1){
+      try {
+        if(Main.getPlayingAnt()!=null){
+          synchronized (Main.getPlayingAnt()) {
+            Main.getPlayingAnt().wait();
+          }
+        }
+      }catch (InterruptedException | IllegalMonitorStateException e) {
+        erreur.alerte("wait fail for "+e);
+      }
+      r = getPb().getActionF();
+    }
     getPb().setActionF(-1);
     return r;
   }
@@ -763,9 +778,9 @@ public class ViewGUI2d implements View {
   public void setNextPlayingAnt(Fourmi f){
     if(getPe().isOn()){return;}
     if(f!=null && f.getFere().getJoueur().equals(Main.getPlayingJoueur()) && !f.equals(Main.getPlayingAnt()) && f.getMaxAction()>0) {
+      Main.getPartie().setAntIdToPlay(f.getId());
       getPb().setActionF(-2);
       getPb().hidePa();
-      Main.getPartie().setAntIdToPlay(f.getId());
       setMessageDesc("", true);
     }
   }
