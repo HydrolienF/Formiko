@@ -393,6 +393,8 @@ bouton.desc.354:journal d'informations
 bouton.desc.355:dessiner seulement les graines/insectes commestible (Ou alliés / énemies)
 bouton.desc.356:dessiner la couleur des fourmis
 bouton.desc.357:dessiner les brins d'herbe 1 par 1
+bouton.desc.398:afficher la musique
+bouton.desc.399:afficher le menu échap
 
 pti.desc.1:Indiquez l'id de la fourmi qui recevra la nourriture
 pti.desc.2:Indiquez la quantité de nourriture offerte

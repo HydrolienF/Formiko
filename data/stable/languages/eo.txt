@@ -393,6 +393,8 @@ bouton.desc.354:komunikada ĵurnalo
 bouton.desc.355:desegni nur manĝeblajn semojn/insektojn (Aŭ aliancanon/malamikon)[auto]
 bouton.desc.356:desegni formikojn koloron
 bouton.desc.357:desegni herbero 1 post 1
+bouton.desc.398:montri music
+bouton.desc.399:montri eskapa menuo
 
 pti.desc.1:indiki la kodo de la formiko ke ricevos la manĝaĵon
 pti.desc.2:indiki la kvanto de dona manĝaĵo

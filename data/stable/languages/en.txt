@@ -393,6 +393,8 @@ bouton.desc.354:informations log
 bouton.desc.355:draw only comestible seeds/insects (Or ally / enemy)
 bouton.desc.356:draw ants color
 bouton.desc.357:draw grass blades 1 by 1
+bouton.desc.398:show music
+bouton.desc.399:show escape menu
 
 pti.desc.1:indicate the id of the ant that will receive the food
 pti.desc.2:indicate the amount of food offered
