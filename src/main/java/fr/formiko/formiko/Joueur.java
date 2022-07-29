@@ -83,7 +83,7 @@ public class Joueur implements Serializable{
   public static void ini(){i=1;}
   public boolean getIsTurnEnded(){return isTurnEnded;}
   /**
-  *{@summary Setter that notify playing ant in case, it was waiting for an action to be choose.}
+  *{@summary Setter that notify playing ant in case it was waiting for an action to be choose.}
   *@lastEditedVersion 2.28
   */
   public void setIsTurnEnded(boolean b){
