@@ -156,7 +156,18 @@ public class Fourmi extends Creature implements Serializable{
   public static byte getUneSeuleAction(){return uneSeuleAction;}
   public static void setUneSeuleAction(int x){uneSeuleAction=(byte)x;setBActionHaveChange(true);}public static void setUneSeuleAction(){setUneSeuleAction(-1);}
   public static boolean getBActionHaveChange(){return bActionHaveChange;}
-  public static void setBActionHaveChange(boolean b){bActionHaveChange=b;}
+  /**
+  *{@summary Setter that notify playing ant in case it was waiting for an action to be choose.}
+  *@lastEditedVersion 2.28
+  */
+  public static void setBActionHaveChange(boolean b){
+    bActionHaveChange=b;
+    if(Main.getPlayingAnt()!=null){
+      synchronized (Main.getPlayingAnt()) {
+        Main.getPlayingAnt().notifyAll();
+      }
+    }
+  }
   // public static void setBupdateSize(boolean b){bupdateSize=b;}
   @Override
   public String getName(){return g.get("fourmi");}
