@@ -8,13 +8,21 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.BasicStroke;
 
+/**
+*{@summary The top rigth ingame panel.}<br>
+*@lastEditedVersion 2.28
+*@author Hydrolien
+*/
 public class FPanelIngameMenu extends FPanel {
   private Liste<FButtonPGO> buttonList;
   private int radius;
-  // TODO add an escape button with 3 barres that can show or hide FPanelEchap
-  // TODO add a music button that can show or hide FPanelMusic
+  /**
+  *{@summary Main constructor.}<br>
+  *@lastEditedVersion 2.28
+  */
   public FPanelIngameMenu(){
     super();
     setOpaque(false);
@@ -30,7 +38,10 @@ public class FPanelIngameMenu extends FPanel {
       add(fb);
     }
   }
-
+  /**
+  *{@summary Add all button to the FPanel.}<br>
+  *@lastEditedVersion 2.28
+  */
   private void addButtons(){
     buttonList.add(new FButtonPGO(398, getMusicImage(), () -> {
       return getView().getPmu().isVisible();
@@ -41,7 +52,7 @@ public class FPanelIngameMenu extends FPanel {
   }
   /**
   *{@summary Return a text image.}<br>
-  *@lastEditedVersion 2.10
+  *@lastEditedVersion 2.28
   */
   private BufferedImage getEscapeImage(){
     BufferedImage bi = new BufferedImage(getHeight(), getHeight(), BufferedImage.TYPE_INT_ARGB);
@@ -58,11 +69,42 @@ public class FPanelIngameMenu extends FPanel {
     }
     return bi;
   }
+  /**
+  *{@summary Return a music image.}<br>
+  *@lastEditedVersion 2.28
+  */
   private BufferedImage getMusicImage(){
     BufferedImage bi = new BufferedImage(getHeight(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+    Graphics g = bi.getGraphics();
+    g.setColor(Color.MAGENTA);
+    if(g instanceof Graphics2D){
+      Graphics2D g2d = (Graphics2D)g;
+      g2d.setStroke(new BasicStroke(2));
+      g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); //good for all drawLine, drawCircle etc.
+    }
+    drawLine(g, 0.3, 0.25, 0.8, 0.25);
+    drawLine(g, 0.3, 0.35, 0.8, 0.35);
+    drawLine(g, 0.3, 0.25, 0.25, 0.65);
+    drawLine(g, 0.8, 0.25, 0.75, 0.65);
+    int radius = (int)(0.20*getHeight());
+    g.fillOval((int)(0.6*getHeight()), (int)(0.62*getHeight()), radius, radius);
+    g.fillOval((int)(0.1*getHeight()), (int)(0.62*getHeight()), radius, radius);
     return bi;
   }
-
+  /**
+  *{@summary Draw a line.}<br>
+  *All double param should be in [0;1].
+  *They will be multiply by the max size of the image.
+  *@lastEditedVersion 2.28
+  */
+  private void drawLine(Graphics g, double x1, double y1, double x2, double y2){
+    g.drawLine((int)(x1*getHeight()), (int)(y1*getHeight()), (int)(x2*getHeight()), (int)(y2*getHeight()));
+  }
+  /**
+  *{@summary Update the color of the button escape.}<br>
+  *This is call when escape have been press.
+  *@lastEditedVersion 2.28
+  */
   public void updateColorButtonEscape(){
     for (FButtonPGO fb : buttonList) {
       if(fb.getActionB()==399){
