@@ -98,10 +98,10 @@ public class FButton extends JButton implements MouseListener {
     updateSelected();
   }
   // GET SET -------------------------------------------------------------------
-  public String getName(){ return nom;}
+  public String getName(){return nom;}
   public void setNom(String s){nom=s;}
-  public int getActionB(){ return action;}
-  public void setActionB(int x){action =x; }
+  public int getActionB(){return action;}
+  public void setActionB(int x){action=x;}
   public void setBordure(boolean b){bordure=b;}
   // public FPanel getP(){return p;}
   // public void setCFond(Color c){cFond=c;}

@@ -241,6 +241,12 @@ public class action {
       Main.getOp().setDrawDrawBlades(!Main.getOp().getDrawBlades());
       FPanel.getView().setBladeChanged(true);
       break;
+      case 398:
+      FPanel.getView().getPmu().setVisible(!FPanel.getView().getPmu().isVisible());
+      break;
+      case 399:
+      FPanel.getView().getPe().setVisible(!FPanel.getView().getPe().isVisible());
+      break;
       default:
       break;
     }

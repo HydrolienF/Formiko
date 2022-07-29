@@ -122,6 +122,9 @@ public class FPanelEchap extends FPanel{
     if(!b){
       action.updateMouseLocation();
     }
+    if(getView().getPigm()!=null){
+      getView().getPigm().updateColorButtonEscape();
+    }
   }
   /**
   *{@summary Return true if only FPanelEchap button sould be enable.}

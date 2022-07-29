@@ -23,6 +23,8 @@ import javax.swing.JScrollPane;
 
 public class FPanelBouton extends FPanel {
   private FPanelZoom pz;
+  private FPanelIngameMenu pigm;
+  private FPanelMusic pmu;
   private FPanelAction pa;
   private FPanelActionSup pas;
   private FPanelActionInf pai;
@@ -99,6 +101,8 @@ public class FPanelBouton extends FPanel {
   public FLabel getDescTI(){ return descTI;}
   public void setDescTI(String s){descTI.setTexte(s);}
   public FPanelZoom getPz(){ return pz;}
+  public FPanelIngameMenu getPigm(){ return pigm;}
+  public FPanelMusic getPmu(){ return pmu;}
   public FPanelAction getPa(){ return pa;}
   public FPanelChamp getPChamp(){ return pchamp;}
   public FPanelInfo getPi(){ return pi;}
@@ -122,6 +126,23 @@ public class FPanelBouton extends FPanel {
   }
   public void removePz(){
     remove(pz);
+  }
+  public void addPigm(){
+    pigm=new FPanelIngameMenu();
+    pigm.setLocation(getWidth()-pigm.getWidth(), pz.getHeight());
+    add(pigm);
+    pmu.setLocation(getWidth()-pmu.getWidth(), pz.getHeight()+pigm.getHeight());
+  }
+  public void removePigm(){
+    remove(pigm);
+  }
+  public void addPmu(){
+    pmu=new FPanelMusic();
+    pmu.setVisible(false);
+    add(pmu);
+  }
+  public void removePmu(){
+    remove(pmu);
   }
   public void addPti(int t[],int x){
     addPti(t,g.get("pti.desc."+x));
