@@ -49,7 +49,7 @@ public class FPanelRoundButtonsContainer extends FPanel {
   protected void updateSize(){
     setSize((int)((radius*(1.0+margin))*buttonList.length()), radius);
   }
-  /**
+  /***
   *{@summary Function to override to add all buttons.}<br>
   *@lastEditedVersion 2.28
   */

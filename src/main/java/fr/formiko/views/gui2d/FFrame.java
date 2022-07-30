@@ -76,6 +76,10 @@ public class FFrame extends JFrame {
   */
   private void iniCloseButton(){
     addWindowListener(new WindowAdapter() {
+      /**
+      *{@summary Close view.}
+      *@lastEditedVersion 2.7
+      */
       @Override
       public void windowClosing(WindowEvent e) {
         Main.getView().close();

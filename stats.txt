@@ -83,7 +83,7 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 100% (2/2)   1  1  0  0  1  20   fusual\FTime.java
 100% (1/1)   1  0  0  0  1  13   fusual\FTranslation.java
 100% (12/12) 1  9  0  2  3  283  views\cli\CLIMap.java
-100% (10/10) 2  6  0  2  3  254  views\gui2d\action.java
+100% (10/10) 2  6  0  2  3  269  views\gui2d\action.java
 33%  (1/3)   1  2  0  0  4  47   views\gui2d\BoutonLong.java
 100% (28/28) 1  22 0  5  36 757  views\gui2d\Data.java
 100% (2/2)   1  1  0  0  1  21   views\gui2d\DescMouseMotionListener.java
@@ -95,7 +95,7 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 100% (9/9)   1  7  1  0  0  123  views\gui2d\FButtonPGO.java
 100% (5/5)   2  3  0  0  2  75   views\gui2d\FCheckBox.java
 100% (7/7)   1  6  0  0  1  101  views\gui2d\FComboBox.java
-87%  (7/8)   1  4  2  1  3  145  views\gui2d\FFrame.java
+100% (8/8)   1  4  2  1  3  149  views\gui2d\FFrame.java
 100% (5/5)   2  3  0  0  3  90   views\gui2d\FFrameLauncher.java
 100% (2/2)   1  1  0  0  1  30   views\gui2d\FFrameMain.java
 100% (7/7)   1  4  0  2  0  87   views\gui2d\FIntField.java
@@ -121,7 +121,7 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 100% (21/21) 5  12 0  4  5  287  views\gui2d\FPanelInfoCreature.java
 100% (15/15) 3  10 0  2  1  243  views\gui2d\FPanelInfoGCreature.java
 100% (7/7)   1  6  0  0  3  119  views\gui2d\FPanelInfoText.java
-100% (7/7)   1  2  0  4  0  116  views\gui2d\FPanelIngameMenu.java
+100% (6/6)   1  2  1  2  0  94   views\gui2d\FPanelIngameMenu.java
 0%   (0/24)  1  23 0  0  14 242  views\gui2d\FPanelJeu.java
 100% (2/2)   1  1  0  0  1  38   views\gui2d\FPanelLanceurPartie.java
 100% (3/3)   1  2  0  0  0  43   views\gui2d\FPanelLinks.java
@@ -129,10 +129,11 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 100% (29/29) 2  13 0  14 11 505  views\gui2d\FPanelMenu.java
 66%  (2/3)   1  2  0  0  0  40   views\gui2d\FPanelMiniMap.java
 100% (28/28) 4  11 0  13 2  440  views\gui2d\FPanelMiniMapContainer.java
-100% (1/1)   1  0  0  0  0  13   views\gui2d\FPanelMusic.java
+100% (11/11) 2  6  3  0  1  187  views\gui2d\FPanelMusic.java
 40%  (4/10)  1  7  0  2  4  246  views\gui2d\FPanelNouvellePartie.java
 100% (16/16) 3  13 0  0  11 281  views\gui2d\FPanelPanelMove.java
 64%  (11/17) 2  14 0  1  6  245  views\gui2d\FPanelPrincipal.java
+100% (4/4)   1  1  2  0  1  67   views\gui2d\FPanelRoundButtonsContainer.java
 100% (10/10) 3  7  0  0  1  151  views\gui2d\FPanelScrollBar.java
 50%  (7/14)  1  12 0  1  2  180  views\gui2d\FPanelSup.java
 100% (8/8)   1  7  0  0  1  91   views\gui2d\FPanelSupDialog.java
@@ -154,4 +155,4 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 100% (1/1)   1  0  0  0  1  228  views\View.java
 100% (35/35) 1  25 0  9  2  761  views\ViewCLI.java
 100% (16/16) 1  15 0  0  8  180  views\ViewNull.java
-77,6% (1058/1362)  183 998 11 170 964  23290 global
+77,9% (1072/1375)  185 1005 17 168 966  23528 global

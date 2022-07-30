@@ -12,7 +12,7 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
 /**
-*{@summary A music panel with all the possible music action}
+*{@summary A music panel with all the possible music action.}
 *:<br>
 *Play/Pause, next, last<br>
 *It also show current music name &#38; author.<br>
@@ -25,7 +25,7 @@ public class FPanelMusic extends FPanel {
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
-  *It launch a Thread that listen music change & update it in GUI when needed.<br>
+  *It launch a Thread that listen music changes & update it in GUI when needed.<br>
   *@lastEditedVersion 2.28
   */
   public FPanelMusic(){
@@ -38,6 +38,10 @@ public class FPanelMusic extends FPanel {
     Main.getMp().addListenerChangeMusic(musicDesc);
     // Thread that update music every time it change
     new Thread(){
+      /**
+      *{@summary Listen music changes & update it in GUI when needed.}<br>
+      *@lastEditedVersion 2.28
+      */
       @Override
       public void run(){
         while(true){
@@ -81,6 +85,13 @@ public class FPanelMusic extends FPanel {
   }
 
   // SUB-CLASS -----------------------------------------------------------------
+  /**
+  *{@summary A music buton panel with all the possible music action.}
+  *:<br>
+  *Play/Pause, next, last<br>
+  *@lastEditedVersion 2.28
+  *@author Hydrolien
+  */
   private class FPanelMusicButton extends FPanelRoundButtonsContainer {
     // CONSTRUCTORS --------------------------------------------------------------
     /**
