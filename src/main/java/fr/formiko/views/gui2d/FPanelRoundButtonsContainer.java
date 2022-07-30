@@ -26,6 +26,7 @@ public class FPanelRoundButtonsContainer extends FPanel {
   *@lastEditedVersion 2.28
   */
   public FPanelRoundButtonsContainer(int radius, double margin){
+    super();
     this.radius=radius;
     this.margin=margin;
     setOpaque(false);
@@ -45,7 +46,7 @@ public class FPanelRoundButtonsContainer extends FPanel {
   *{@summary Update panel size depending of buttons, radius &#38; margin.}<br>
   *@lastEditedVersion 2.28
   */
-  private void updateSize(){
+  protected void updateSize(){
     setSize((int)((radius*(1.0+margin))*buttonList.length()), radius);
   }
   /**

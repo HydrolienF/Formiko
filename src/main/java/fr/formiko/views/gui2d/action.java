@@ -137,7 +137,7 @@ public class action {
         }
       }
     }catch (Exception e) {
-      erreur.erreur("L'action "+ac+" n'as pas fonctionnée");
+      erreur.erreur("Action "+ac+" fail by "+e,10);
     }
   }
   /**
