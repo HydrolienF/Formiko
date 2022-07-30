@@ -652,7 +652,7 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 2.7
   */
   public void iniLauncher(){
-    if(fl==null){
+    if(getFl()==null){
       fl = new FFrameLauncher();
     }
   }
@@ -661,9 +661,11 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 2.7
   */
   public void closeLauncher(){
-    fl.setVisible(false);
-    fl.dispose();
-    fl=null;
+    if(getFl()!=null){
+      getFl().setVisible(false);
+      getFl().dispose();
+      fl=null;
+    }
   }
   /**
   *{@summary Update downloading message.}
@@ -671,7 +673,8 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 2.7
   */
   public void setDownloadingMessage(String message){
-    fl.setDownloadingMessage(message);
+    if(getFl()==null){return;}
+    getFl().setDownloadingMessage(message);
   }
   /**
   *{@summary Update downloading %age.}
@@ -679,14 +682,16 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 2.7
   */
   public void setDownloadingValue(int state){
-    fl.setDownloadingValue(state);
+    if(getFl()==null){return;}
+    getFl().setDownloadingValue(state);
   }
   /**
   *{@summary Hide or show buttonRetry of FFrameLauncher.}
   *@lastEditedVersion 2.7
   */
   public void setButtonRetryVisible(boolean visible){
-    fl.setButtonRetryVisible(visible);
+    if(getFl()==null){return;}
+    getFl().setButtonRetryVisible(visible);
   }
 
   //not in View interface
