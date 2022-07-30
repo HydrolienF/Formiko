@@ -23,6 +23,8 @@ import javax.swing.JScrollPane;
 
 public class FPanelBouton extends FPanel {
   private FPanelZoom pz;
+  private FPanelIngameMenu pigm;
+  private FPanelMusic pmu;
   private FPanelAction pa;
   private FPanelActionSup pas;
   private FPanelActionInf pai;
@@ -99,6 +101,8 @@ public class FPanelBouton extends FPanel {
   public FLabel getDescTI(){ return descTI;}
   public void setDescTI(String s){descTI.setTexte(s);}
   public FPanelZoom getPz(){ return pz;}
+  public FPanelIngameMenu getPigm(){ return pigm;}
+  public FPanelMusic getPmu(){ return pmu;}
   public FPanelAction getPa(){ return pa;}
   public FPanelChamp getPChamp(){ return pchamp;}
   public FPanelInfo getPi(){ return pi;}
@@ -111,6 +115,11 @@ public class FPanelBouton extends FPanel {
       remove(lToRemove.pop());
     }
   }
+  /**
+  *{@summary Add the FPanelZoom.}
+  *It also update size &#38; location if needed.
+  *@lastEditedVersion 2.28
+  */
   public void addPz(){
     remove(pz);
     pz = new FPanelZoom();
@@ -120,8 +129,47 @@ public class FPanelBouton extends FPanel {
     pz.setOpaque(false);
     add(pz);
   }
+  /**
+  *{@summary Remove the FPanelZoom.}
+  *@lastEditedVersion 2.28
+  */
   public void removePz(){
     remove(pz);
+  }
+  /**
+  *{@summary Add the FPanelIngameMenu.}
+  *It also update size &#38; location if needed.
+  *@lastEditedVersion 2.28
+  */
+  public void addPigm(){
+    pigm=new FPanelIngameMenu();
+    pigm.setLocation(getWidth()-pigm.getWidth(), pz.getHeight());
+    add(pigm);
+    pmu.setLocation(getWidth()-pmu.getWidth(), pz.getHeight()+pigm.getHeight());
+  }
+  /**
+  *{@summary Remove the FPanelIngameMenu.}
+  *@lastEditedVersion 2.28
+  */
+  public void removePigm(){
+    remove(pigm);
+  }
+  /**
+  *{@summary Add the FPanelMusic.}
+  *It also update size &#38; location if needed.
+  *@lastEditedVersion 2.28
+  */
+  public void addPmu(){
+    pmu=new FPanelMusic();
+    pmu.setVisible(false);
+    add(pmu);
+  }
+  /**
+  *{@summary Remove the FPanelMusic.}
+  *@lastEditedVersion 2.28
+  */
+  public void removePmu(){
+    remove(pmu);
   }
   public void addPti(int t[],int x){
     addPti(t,g.get("pti.desc."+x));

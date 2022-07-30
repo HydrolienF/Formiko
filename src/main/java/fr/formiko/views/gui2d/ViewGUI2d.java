@@ -79,8 +79,10 @@ public class ViewGUI2d implements View {
   public FPanelCarte getPc(){ try{return getPj().getPc();}catch (NullPointerException e){return null;}}
   public FPanelInfo getPi(){ try{return getPb().getPi();}catch (NullPointerException e){return null;}}
   public FPanelInfoText getPij(){ try{return getPb().getPij();}catch (NullPointerException e){return null;}}
-  public FPanelZoom getPz(){ return getPb().getPz();}
-  public FPanelAction getPa(){ return getPb().getPa();}
+  public FPanelZoom getPz(){if(getPb()==null){return null;} return getPb().getPz();}
+  public FPanelIngameMenu getPigm(){if(getPb()==null){return null;} return getPb().getPigm();}
+  public FPanelMusic getPmu(){if(getPb()==null){return null;} return getPb().getPmu();}
+  public FPanelAction getPa(){if(getPb()==null){return null;} return getPb().getPa();}
   public FPanelChargement getPch(){ try {return getPj().getPch();}catch (NullPointerException e) {return null;}}
   public FPanelSup getPs(){ if(getPj()!=null){return getPj().getPs();}else{return null;}}
   public FPanelSupDialog getPsd(){ if(getPj()!=null){return getPj().getPsd();}else{return null;}}
@@ -286,6 +288,8 @@ public class ViewGUI2d implements View {
     DiscordIntegration.setNeedToUpdateActivity(true);
     Main.startCh();
     getPb().addPz();
+    getPb().addPmu();
+    getPb().addPigm();
     Main.endCh("ajoutFPanelZoom");Main.startCh();
     Main.getPartie().initialisationElément();
     // Main.getData().chargerImages(); //It will be call by the next line "action.doActionPj(8);"
