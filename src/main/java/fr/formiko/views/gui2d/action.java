@@ -241,6 +241,21 @@ public class action {
       Main.getOp().setDrawDrawBlades(!Main.getOp().getDrawBlades());
       FPanel.getView().setBladeChanged(true);
       break;
+      case 395:
+      Main.getMp().last();
+      FPanel.getView().getPmu().updateColorButtonPause();
+      break;
+      case 396:
+      if(Main.getMp().isRunning()){
+        Main.getMp().pause();
+      }else{
+        Main.getMp().resume();
+      }
+      break;
+      case 397:
+      Main.getMp().next();
+      FPanel.getView().getPmu().updateColorButtonPause();
+      break;
       case 398:
       FPanel.getView().getPmu().setVisible(!FPanel.getView().getPmu().isVisible());
       break;

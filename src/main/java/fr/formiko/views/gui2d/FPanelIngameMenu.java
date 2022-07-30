@@ -16,33 +16,20 @@ import java.awt.BasicStroke;
 *@lastEditedVersion 2.28
 *@author Hydrolien
 */
-public class FPanelIngameMenu extends FPanel {
-  private Liste<FButtonPGO> buttonList;
-  private int radius;
+public class FPanelIngameMenu extends FPanelRoundButtonsContainer {
   /**
   *{@summary Main constructor.}<br>
   *@lastEditedVersion 2.28
   */
   public FPanelIngameMenu(){
-    super();
-    setOpaque(false);
-    buttonList = new Liste<FButtonPGO>();
-    radius=(int)(Main.getOp().getFontSizeTitle()/1.5);
-    setSize((int)((radius*1.5)*2), radius);
-    addButtons();
-    int k=0;
-    for (FButtonPGO fb : buttonList) {
-      fb.setSize(radius, radius);
-      fb.setLocation((k++)*(getWidth()-(getHeight()/2))/(buttonList.length())+(getHeight()/2),0);
-      fb.setBorderPainted(false);
-      add(fb);
-    }
+    super((int)(Main.getOp().getFontSizeTitle()/1.5), 0.5);
   }
   /**
   *{@summary Add all button to the FPanel.}<br>
   *@lastEditedVersion 2.28
   */
-  private void addButtons(){
+  @Override
+  protected void addButtons(){
     buttonList.add(new FButtonPGO(398, getMusicImage(), () -> {
       return getView().getPmu().isVisible();
     }));
@@ -90,15 +77,6 @@ public class FPanelIngameMenu extends FPanel {
     g.fillOval((int)(0.6*getHeight()), (int)(0.62*getHeight()), radius, radius);
     g.fillOval((int)(0.1*getHeight()), (int)(0.62*getHeight()), radius, radius);
     return bi;
-  }
-  /**
-  *{@summary Draw a line.}<br>
-  *All double param should be in [0;1].
-  *They will be multiply by the max size of the image.
-  *@lastEditedVersion 2.28
-  */
-  private void drawLine(Graphics g, double x1, double y1, double x2, double y2){
-    g.drawLine((int)(x1*getHeight()), (int)(y1*getHeight()), (int)(x2*getHeight()), (int)(y2*getHeight()));
   }
   /**
   *{@summary Update the color of the button escape.}<br>
