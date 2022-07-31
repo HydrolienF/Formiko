@@ -180,9 +180,10 @@ public class Joueur implements Serializable{
   }
   public void prendreEnCompteLaDifficulté(){
     try {
-      int x = (Main.getDifficulté()+6)*10;
+      int x = (Main.getDifficulté()+3)*10;
       if(!ia){ x= 60-x;}
-      this.fere.getGc().getReine().setFood(math.max(x,10));//10 minimum. (60 max en théorie.)
+      x+=20;
+      this.fere.getGc().getReine().setFood(math.max(x,20));//20 minimum. (60 max en théorie.)
     }catch (Exception e) {erreur.alerte("Impossible de prendre en compte la difficulté");}
   }
   public String scoreToString(){
