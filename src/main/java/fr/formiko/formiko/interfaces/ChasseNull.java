@@ -19,6 +19,7 @@ public class ChasseNull implements Serializable, Chasse {
   /**
   *If lauch print an error.
   */
+  @Override
   public boolean chasse(Creature c){
     erreur.erreur(g.get("ChasseNull")+" " + c.getId());
     return false;
@@ -26,6 +27,7 @@ public class ChasseNull implements Serializable, Chasse {
   /**
   *If lauch print an error.
   */
+  @Override
   public boolean chasser(Creature c, int directionSiPasDeProie){
     return chasse(c);
   }
@@ -35,5 +37,13 @@ public class ChasseNull implements Serializable, Chasse {
   @Override
   public boolean canHuntMore(Creature c){
     return chasse(c);
+  }
+  /**
+  *{@summary Return true if there is prey on same square.}<br>
+  *@lastEditedVersion 2.29
+  */
+  @Override
+  public boolean havePreyOnSameSquare(Creature c){
+    return false;
   }
 }

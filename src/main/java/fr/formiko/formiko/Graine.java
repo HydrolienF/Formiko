@@ -37,11 +37,20 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   public byte getHardness(){ return hardness;}
   public void setHardness(byte x){ hardness = x;}
   public void setHardness(int x){ if(x<-128 || x>127){ erreur.erreur("byte inoptencible depuis "+x);return;}setHardness((byte)x);}
-  public boolean getOuverte(){ return ouverte;}
-  public void setOuverte(boolean b){ouverte = b;}
+  public boolean getOuverte(){ return isOpen();}
+  public boolean isOpen(){ return ouverte;}
+  public void setOpen(boolean b){ouverte=b;}
+  public void setOuverte(boolean b){setOpen(b);}
   public void casser(){setOuverte(true);}
   /**
-  *{@summary Move the Graine from a case to an other.}<br>
+  *{@summary Return true if it can be open by given Creature.}<br>o
+  *@lastEditedVersion 2.29
+  */
+  public boolean canBeOpenBy(Creature c){
+    return (!isOpen() && c instanceof Fourmi && ((Fourmi)c).getHardnessMax()>getHardness());
+  }
+  /**
+  *{@summary Move the Graine from a case to an other.}<br>o
   *It is used by Deplacement interfaces.<br>
   *It wil try to remove from old CCase and add to new CCase.<br>
   *@lastEditedVersion 1.40

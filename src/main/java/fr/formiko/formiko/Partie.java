@@ -63,8 +63,9 @@ public class Partie implements Serializable {
     this.difficulté = str.iToBy(difficulté);
     this.vitesseDeJeu=vitesseDeJeu;
     tableauDesEspecesAutorisée = new int [1];//[2];
-    tableauDesEspecesAutorisée[0]=0;
-    //tableauDesEspecesAutorisée[1]=3;
+    // tableauDesEspecesAutorisée[0]=0;
+    // tableauDesEspecesAutorisée[1]=3;
+    tableauDesEspecesAutorisée[0]=3;
     //a ce stade, il manque encore gi et gj. On les initialise null partie précaution.
     gj = new GJoueur();
     gi = new GInsecte();

@@ -64,7 +64,7 @@ public class Fourmiliere implements Serializable{
   public Fourmiliere(int taille, Joueur j, Carte mapo){
     this(j, mapo);
     int x = allea.getAlléaDansTableau(Main.getTableauDesEspecesAutorisée());
-    if(!j.getIa()){x=0;}//les joueurs ne joue que des Lasius Niger
+    // if(!j.getIa()){x=0;}//les joueurs ne joue que des Lasius Niger
     gc = new GCreature(taille, this,Main.getGEspece().getEspeceById(x),getCCase());
   }
   public Fourmiliere(int taille, Joueur j){ this(taille,j,Main.getCarte());}

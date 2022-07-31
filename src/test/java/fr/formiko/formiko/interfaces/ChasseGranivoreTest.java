@@ -19,8 +19,7 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     p.getGj().add(j);
     Fourmi f = new Fourmi(j.getFere(),Main.getEspeceById(0), (byte) 0, (byte) 0);
     j.getFere().getGc().add(f);
-    f.chasse = new ChasseGranivore();
-    ((ChasseGranivore)(f.chasse)).setC(f);
+    f.chasse = new ChasseGranivore(f);
     f.setCCase(0,0);
     f.getFere().setCCase(Main.getCCase(0,1));
     return f;
@@ -56,7 +55,7 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     Graine g1 = new Graine(Main.getGc().getCCase(0,0),100,(byte)10);
     Graine g2 = new Graine(null,10,(byte)20);
     f.setTransported(g2);
-    assertTrue(!f.chasse());
+    assertTrue(f.chasse()); //can drop seed
 
     f = ini();
     f.setAction(f.getMaxAction());
@@ -301,5 +300,102 @@ public class ChasseGranivoreTest extends TestCaseMuet{
     assertTrue(f.getAction()<f.getMaxAction());
     assertEquals(Main.getGc().getCCase(1,2),f.getCCase());
     assertEquals(null,f.getTransported());
+  }
+
+  // Special actions for ChasseGranivore ---------------------------------------
+  @Test
+  public void testCanEatSeed1(){
+    Fourmi f = ini();
+    assertFalse(((ChasseGranivore)(f.chasse)).canEatSeed());
+  }
+  @Test
+  public void testCanEatSeed2(){
+    Fourmi f = ini();
+    new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    assertFalse(((ChasseGranivore)(f.chasse)).canEatSeed());
+  }
+  @Test
+  public void testCanEatSeed3(){
+    Fourmi f = ini();
+    f.setHardnessMax((byte)20);
+    f.setTransported(new Insecte());
+    assertFalse(((ChasseGranivore)(f.chasse)).canEatSeed());
+  }
+  @Test
+  public void testCanEatSeed4(){
+    Fourmi f = ini();
+    f.setHardnessMax((byte)20);
+    f.setTransported(new Graine(Main.getGc().getCCase(0,0),105,(byte)10));
+    assertTrue(((ChasseGranivore)(f.chasse)).canEatSeed());
+  }
+  @Test
+  public void testCanEatSeed5(){
+    Fourmi f = ini();
+    f.setHardnessMax((byte)0);
+    f.setTransported(new Graine(Main.getGc().getCCase(0,0),105,(byte)10));
+    assertFalse(((ChasseGranivore)(f.chasse)).canEatSeed());
+  }
+  @Test
+  public void testCanEatSeed6(){
+    Fourmi f = ini();
+    f.setHardnessMax((byte)20);
+    Graine g = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    g.setOpen(true);
+    f.setTransported(g);
+    assertTrue(((ChasseGranivore)(f.chasse)).canEatSeed());
+  }
+  @Test
+  public void testCanEatSeed7(){
+    Fourmi f = ini();
+    f.setHardnessMax((byte)0);
+    Graine g = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    g.setOpen(true);
+    f.setTransported(g);
+    assertTrue(((ChasseGranivore)(f.chasse)).canEatSeed());
+  }
+
+
+  @Test
+  public void testCanBreakSeed1(){
+    Fourmi f = ini();
+    assertFalse(((ChasseGranivore)(f.chasse)).canBreakSeed());
+  }
+  @Test
+  public void testCanBreakSeed2(){
+    Fourmi f = ini();
+    new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    assertFalse(((ChasseGranivore)(f.chasse)).canBreakSeed());
+  }
+  @Test
+  public void testCanBreakSeed3(){
+    Fourmi f = ini();
+    f.setHardnessMax((byte)20);
+    f.setTransported(new Graine(Main.getGc().getCCase(0,0),105,(byte)10));
+    assertTrue(((ChasseGranivore)(f.chasse)).canBreakSeed());
+  }
+  @Test
+  public void testCanBreakSeed4(){
+    Fourmi f = ini();
+    f.setHardnessMax((byte)0);
+    f.setTransported(new Graine(Main.getGc().getCCase(0,0),105,(byte)10));
+    assertFalse(((ChasseGranivore)(f.chasse)).canBreakSeed());
+  }
+  @Test
+  public void testCanBreakSeed6(){
+    Fourmi f = ini();
+    f.setHardnessMax((byte)20);
+    Graine g = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    g.setOpen(true);
+    f.setTransported(g);
+    assertFalse(((ChasseGranivore)(f.chasse)).canBreakSeed());
+  }
+  @Test
+  public void testCanBreakSeed7(){
+    Fourmi f = ini();
+    f.setHardnessMax((byte)0);
+    Graine g = new Graine(Main.getGc().getCCase(0,0),105,(byte)10);
+    g.setOpen(true);
+    f.setTransported(g);
+    assertFalse(((ChasseGranivore)(f.chasse)).canBreakSeed());
   }
 }

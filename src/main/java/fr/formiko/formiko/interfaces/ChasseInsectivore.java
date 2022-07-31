@@ -65,10 +65,9 @@ public class ChasseInsectivore implements Serializable, Chasse {
     setC(c);
     if(!canHuntMore()){return false;}
     //chasse
-    Case pointActuel = c.getCCase().getContent();
-    GInsecte gi = pointActuel.getGi();
     debug.débogage("Chasse : action = "+c.getAction() + "maxAction = "+c.getMaxAction());
-    if (gi.getHead() != null) { // sous forme de str I+id
+    if (havePreyOnSameSquare(c)) { // sous forme de str I+id
+      GInsecte gi = c.getCCase().getContent().getGi();
       Insecte insecteTue;
       if (Main.getDifficulté() >= 0 || ((c instanceof Fourmi) && ((Fourmi)c).getFere().getJoueur().getIa()==false)){ // en normal les ia chasse les insectes les plus intéressants sur la case ou elle sont.
         insecteTue = gi.getInsectePlusDeGivenFood();
@@ -127,4 +126,13 @@ public class ChasseInsectivore implements Serializable, Chasse {
     return true;
   }
   public boolean canHuntMore(){return canHuntMore(c);}
+
+  /**
+  *{@summary Return true if there is prey on same square.}<br>
+  *@lastEditedVersion 2.29
+  */
+  @Override
+  public boolean havePreyOnSameSquare(Creature c){
+    return !c.getCCase().getContent().getGi().isEmpty();
+  }
 }

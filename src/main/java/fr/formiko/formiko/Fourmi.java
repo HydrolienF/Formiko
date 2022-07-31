@@ -53,7 +53,7 @@ public class Fourmi extends Creature implements Serializable{
     typeF = ty; this.e = e; this.fere = fere; stade = (byte)-3; health = (byte) 100;
     iniPheromone();
     // a modifier a partir des individus quand hardnesse sera un paramètre. OU alors on dit que hardnessMax est fixe en fonction des individus. Genre les gros casse tout, les moyen jusqu'a 60 et les petit jusqu'a 20.
-    hardnessMax=0;
+    hardnessMax=127;
     setGivenFood(e.getGivenFood(getStade()));
     fere.getCc().getContent().getGc().add(this);
     evoluer = new EvoluerFourmi();
