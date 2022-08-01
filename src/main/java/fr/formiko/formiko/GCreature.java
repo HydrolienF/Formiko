@@ -133,7 +133,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
     }
   }
   private Fourmi getFourmiParFereE(Fourmiliere fere) throws EmptyListException {
-    if (getHead()==null){ throw new EmptyListException("GCreature","trouver la créature par fere");}
+    if(getHead()==null){throw new EmptyListException("GCreature","trouver la créature par fere");}
     if(fere==null){throw new NullPointerException();}
     Liste<Fourmi> lc = new Liste<Fourmi>();
     Comparator<Fourmi> idComparator = (Fourmi p1, Fourmi p2) -> (int)(p2.getId() - p1.getId());
@@ -159,7 +159,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   public Fourmi getFourmiParFere(Fourmiliere fere){
     try {
       return getFourmiParFereE(fere);
-    }catch (Exception e) {
+    }catch (EmptyListException | NullPointerException e) {
       return null;
     }
   }

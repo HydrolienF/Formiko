@@ -56,12 +56,8 @@ public class GIndividu extends Liste<Individu> implements Serializable {
   *@lastEditedVersion 2.2
   */
   public static void loadIndividus(){
-    String td [] = new String [0];
-    try {
-      td = ReadFile.readFileArray(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"Individu.csv");
-    }catch (Exception e) {
-      erreur.erreur("Le fichier des Individu n'as pas pu être localisé. il devrais y avoir un dossier data et celui ci devrait contenir un fichier Individu.txt",true);
-    } int lentd = td.length;
+    String td [] = ReadFile.readFileArray(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"Individu.csv");
+    int lentd = td.length;
     if (lentd < 3){ erreur.erreur("Le fichier des Individu devrais contenir au moins 4 lignes dont 1 Individu",true);}
     String tDefault [] = decoderUnFichier.getTableauString(td[2],',');
     for (int i=3;i<lentd; i++) {

@@ -42,9 +42,7 @@ public class Joueur implements Serializable{
     if (ia){
       pseudo = get1Pseudo();
     }else{
-      try {
-        pseudo = Main.getOp().getPseudo();
-      }catch (Exception e) {}
+      pseudo = Main.getOp().getPseudo();
     }
   }
   // GET SET ----------------------------------------------------------------------

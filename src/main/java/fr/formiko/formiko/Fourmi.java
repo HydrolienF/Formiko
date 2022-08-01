@@ -272,15 +272,21 @@ public class Fourmi extends Creature implements Serializable{
   }
   /**
   *{@summary True if the ant is at its anthill.}<br>
-  *@lastEditedVersion 1.39
+  *@lastEditedVersion 2.29
   */
   public boolean estALaFere(){
-    try {
-      if (this.getCCase().equals(this.getFourmiliere().getCCase())){ return true;}
-    }catch (Exception e) {
-      erreur.alerte("Impossible de savoir si la fourmi est a la fourmilière");
+    if(getCCase()==null){
+      erreur.alerte("Ant should have a Square to find it's anthill");
+      return false;
+    }else if(getFere()==null){
+      erreur.alerte("Ant should have an anthill to find it's anthill");
+      return false;
+    }else if(getFere().getCCase()==null){
+      erreur.alerte("Anthill should have a Square so that an't can reach it");
+      return false;
+    }else{
+      return getCCase().equals(getFourmiliere().getCCase());
     }
-    return false;
   }
 
   //public byte getModeReine(){return 0;}
@@ -331,28 +337,6 @@ public class Fourmi extends Creature implements Serializable{
     gs.add(g.get("espèce")+" : "+e.getName());
     return gs;
   }
-
-  /*public boolean mangerGraine(){
-    //if(fere.getGGraine().getHead()==null){return false;}
-    Graine g = fere.getGGraine().getGraineOuverte();
-    if(this.getFood() < this.getMaxFood()/2 && g!=null){
-      food = food + g.getGivenFood();
-      fere.getGGraine().retirerGraine(g); return true;
-    }return false;
-  }*/
-  /*public boolean casserGraine(){
-    debug.débogage("tentative de cassage de graine");
-    try {
-      debug.débogage("Etape 1");
-      erreur.println(fere.getGg().getGrainePlusDeGivenFood(this));
-      if (fere.getGg().getGrainePlusDeGivenFood(this).getHardness() < this.getHardnessMax()){
-        debug.débogage("Etape 2");
-        fere.getGg().getGrainePlusDeGivenFood(this).casser();return true;
-      }return false;
-    }catch (Exception e) {
-      return false;
-    }
-  }*/
   /**
   *{@summary un-clean this.}
   *It also let this died if it is under the seuilDeRisqueDInfection 	&#38; that this have bad luck.

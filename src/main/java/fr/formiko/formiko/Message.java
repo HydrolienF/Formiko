@@ -49,7 +49,9 @@ public class Message implements Serializable{
       }else if(idDuJoueurConcerné>0){
         Main.getJoueurById(idDuJoueurConcerné).addMessage(this);
       }
-    }catch (Exception e) {}
+    }catch (Exception e) {
+      erreur.alerte("message fail to be send");
+    }
     Main.setPlayingAnt(Main.getPlayingAnt());//update message print.
   }
   // message d'un joueur :
