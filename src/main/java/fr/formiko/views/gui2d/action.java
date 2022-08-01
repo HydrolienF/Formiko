@@ -3,15 +3,16 @@ package fr.formiko.views.gui2d;
 import fr.formiko.formiko.CCase;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
+import fr.formiko.formiko.sauvegarderUnePartie;
 import fr.formiko.formiko.triche;
 import fr.formiko.usual.Time;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
-import fr.formiko.formiko.sauvegarderUnePartie;
 import fr.formiko.usual.types.str;
 
 import java.awt.MouseInfo;
+import javax.swing.SwingUtilities;
 
 /**
 *{@summary All the gui action are launch here.}
@@ -200,7 +201,9 @@ public class action {
   */
   public static void updateMouseLocation(){
     if(FPanel.getView().getPs()==null){return;}
-    CCase cc = FPanel.getView().getPs().getCCase((int)MouseInfo.getPointerInfo().getLocation().getX(), (int)MouseInfo.getPointerInfo().getLocation().getY());
+    Point mouse = MouseInfo.getPointerInfo().getLocation();
+    SwingUtilities.convertPointFromScreen(mouse, getView().getPp());
+    CCase cc = FPanel.getView().getPs().getCCase((int)mouse.getX(), (int)mouse.getY());
     if(cc!=null){
       FPanel.getView().getPs().mouseMovedUpdate(cc, true);
     }
