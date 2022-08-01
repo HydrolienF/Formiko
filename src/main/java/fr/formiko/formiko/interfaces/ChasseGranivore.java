@@ -59,7 +59,7 @@ public class ChasseGranivore implements Serializable, Chasse {
   }
   /**
    * {@summary actions during hunt.}<br>
-   * An Ant kill an Insect in the same Case<br>
+   * Ant search a Seed in the same Case<br>
    * It can choose the first 1 or the better 1 depending on the difficulty.<br>
    * @param c The hunting Creature.
    * return true if c can hunt more.
@@ -67,7 +67,6 @@ public class ChasseGranivore implements Serializable, Chasse {
    */
    public boolean chasse(Creature c){
      if(c.getTransported()!=null){
-       System.out.println("message dropTransported");
        if(c instanceof Fourmi){
          new Message(g.get("DropTransportedDone"), ((Fourmi)c).getJoueur().getId(), 2);
        }
@@ -156,14 +155,16 @@ public class ChasseGranivore implements Serializable, Chasse {
         breakSeed();
       }
       if(!gr.isOpen()){
-        System.out.println("message cantOpenSeed");
         if(c instanceof Fourmi){
           new Message(g.get("CantOpenSeed"), ((Fourmi)c).getJoueur().getId(), 2);
         }
       }else{
-        c.addFood(gr.getGivenFood());
-        c.setTransported(null);
-        System.out.println("message eat seed");
+        int givenFoodCap = Math.min(gr.getGivenFood(), c.getMaxFood()-c.getFood());
+        gr.setGivenFood(gr.getGivenFood()-givenFoodCap);
+        c.addFood(givenFoodCap);
+        if(gr.getGivenFood()<1){
+          c.setTransported(null);
+        }
         if(c instanceof Fourmi){
           new Message(g.get("OpenSeedDone"), ((Fourmi)c).getJoueur().getId(), 2);
         }
@@ -183,7 +184,6 @@ public class ChasseGranivore implements Serializable, Chasse {
     if(canBreakSeed()){
       Graine gr = (Graine)c.getTransported();
       gr.setOpen(true);
-      System.out.println("message breakSeed");
       if(c instanceof Fourmi){
         new Message(g.get("BreakSeedDone"), ((Fourmi)c).getJoueur().getId(), 2);
       }

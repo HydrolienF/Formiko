@@ -13,12 +13,26 @@ import fr.formiko.usual.types.str;
 
 public class PartieTest extends TestCaseMuet{
   private Partie p;
+  private boolean granivore;
+  private boolean insectivore;
   // FUNCTIONS -----------------------------------------------------------------
   private void ini(int nbTurn, String mapName){
     Main.initialisation();
     Carte mapo = new Carte(mapName);
     p = new Partie(0,nbTurn,mapo,1);
     Main.setPartie(p);
+    if(granivore){
+      if(insectivore){
+        int t [] = {0,3};
+        p.setAviableSpecies(t);
+      }else{
+        int t [] = {3};
+        p.setAviableSpecies(t);
+      }
+    }else if(insectivore){
+      int t [] = {0};
+      p.setAviableSpecies(t);
+    }
     p.initialisationElément(0,1,1);
   }
   public void test1LaunchGame(int nbTurn, String mapName, int nbTry, int nbTryThatWorkMin){
@@ -51,13 +65,20 @@ public class PartieTest extends TestCaseMuet{
     assertTrue(cpt>=nbTryThatWorkMin);
   }
   @Test
-  @Disabled("Tooo long for standard test")
+  // @Disabled("Tooo long for standard test")
   public void testLaunchGame(){
     //test1LaunchGame(100,"miniWorld",10,9);
     //test1LaunchGame(80,"miniWorld",10,9);
-    test1LaunchGame(50,"miniWorld",10,8); //at leaste 1 new ant.
-    //TODO #199
-    test2LaunchGame(100,"miniWorld",10,8); //at least 5 new ant.
+    double multTurn=1;
+    for (int i=0; i<3; i++) {
+      granivore=(i>0);
+      insectivore=(i%2==0);
+      if(granivore){
+        multTurn=2;
+      }
+      test1LaunchGame((int)(50*multTurn),"miniWorld",10,8); //at leaste 1 new ant for 80% of the fere
+      test2LaunchGame((int)(100*multTurn),"miniWorld",10,5); //at least 5 new ant for 50% of the fere
+    }
     //test1LaunchGame(50,"jardin",10,8);
   }
 

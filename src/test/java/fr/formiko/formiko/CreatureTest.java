@@ -6,10 +6,11 @@ import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.GCase;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Main;
-import fr.formiko.usual.exceptions.NotNullLocationException;
+import fr.formiko.formiko.interfaces.ChasseGranivoreTest;
 import fr.formiko.tests.TestCaseMuet;
+import fr.formiko.usual.exceptions.NotNullLocationException;
 
-public class CreatureTest extends TestCaseMuet{
+public class CreatureTest extends TestCaseMuet {
 
   // FUNCTIONS -----------------------------------------------------------------
   private void ini(){
@@ -35,6 +36,9 @@ public class CreatureTest extends TestCaseMuet{
     j.getFere().getGc().add(f);
     assertEquals(1,j.getFere().getGc().length());
     return f;
+  }
+  private Fourmi iniGranivoreAnt(){
+    return ChasseGranivoreTest.ini();
   }
   @Test
   public void testSetCCase(){
@@ -152,5 +156,37 @@ public class CreatureTest extends TestCaseMuet{
     i.setPheromone(new Pheromone(2,0,1));
     assertEquals(1,f.friendlyLevel(i));
     assertEquals(-1,i.friendlyLevel(f));
+  }
+
+  @Test
+  public void testEat(){
+    Fourmi f = iniGranivoreAnt();
+    int gfood=55;
+    Graine g=new Graine(Main.getGc().getCCase(0,0),55,(byte)10);
+    int food = f.getFood();
+    f.eat(80);
+    assertEquals(food+gfood, f.getFood());
+    assertTrue(f.getTransported()==null);
+  }
+  @Test
+  public void testEat2(){
+    Fourmi f = iniGranivoreAnt();
+    int gfood=55;
+    Graine g=new Graine(Main.getGc().getCCase(0,0),55,(byte)10);
+    int food = f.getFood();
+    f.eat(10);
+    assertEquals(food, f.getFood());
+    assertTrue(f.getTransported()==null);
+  }
+  @Test
+  public void testEat3(){
+    Fourmi f = iniGranivoreAnt();
+    f.setFood(f.getMaxFood()-3);
+    int gfood=55;
+    Graine g=new Graine(Main.getGc().getCCase(0,0),55,(byte)10);
+    int food = f.getFood();
+    f.eat(80);
+    assertEquals(food, f.getFood());
+    assertTrue(f.getTransported()==null);
   }
 }

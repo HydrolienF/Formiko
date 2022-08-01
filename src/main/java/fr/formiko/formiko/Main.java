@@ -281,7 +281,7 @@ public class Main {
   public static void setDifficulté(byte x){pa.setDifficulté(x);}
   public static void setDifficulté(int x){setDifficulté((byte)x);}
   public static LocalDateTime getDateDeCréation(){return pa.getDateDeCréation();}
-  public static int [] getTableauDesEspecesAutorisée(){ return pa.getTableauDesEspecesAutorisée();}
+  public static int [] getAvaibleSpecies(){ return pa.getAvaibleSpecies();}
   public static int getNbrDeJoueur(){ return pa.getNbrDeJoueurDansLaPartie();}
   public static Carte getMap(){ return pa.getCarte();}
   public static Carte getCarte(){ return getMap();}

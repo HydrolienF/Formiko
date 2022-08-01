@@ -33,7 +33,7 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   }
   // GET SET -------------------------------------------------------------------
   public int getGivenFood(){ return givenFood;}
-  public void setFoodFourie(int x){ givenFood = x;}
+  public void setGivenFood(int x){ givenFood = x;}
   public byte getHardness(){ return hardness;}
   public void setHardness(byte x){ hardness = x;}
   public void setHardness(int x){ if(x<-128 || x>127){ erreur.erreur("byte inoptencible depuis "+x);return;}setHardness((byte)x);}

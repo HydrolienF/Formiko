@@ -37,7 +37,7 @@ public class Partie implements Serializable {
   private byte difficulté = 0; // 0 moyen. -1 facile, -2 très facile, 1 difficle, 2 très difficle, 3 ultra difficle.
   private LocalDateTime dateDeCréation;
   private boolean partieFinie;
-  private int tableauDesEspecesAutorisée []; // les 0 et les 3 marche.
+  private int avaibleSpecies []; // les 0 et les 3 marche.
   private int nbrDeJoueurDansLaPartie;
   private boolean enCours;
   private int [] elément;
@@ -62,10 +62,10 @@ public class Partie implements Serializable {
     this.nbrDeTour=nbrDeTour;
     this.difficulté = str.iToBy(difficulté);
     this.vitesseDeJeu=vitesseDeJeu;
-    tableauDesEspecesAutorisée = new int [1];//[2];
-    // tableauDesEspecesAutorisée[0]=0;
-    // tableauDesEspecesAutorisée[1]=3;
-    tableauDesEspecesAutorisée[0]=3;
+    avaibleSpecies = new int [2];
+    avaibleSpecies[0]=0;
+    avaibleSpecies[1]=3;
+    // avaibleSpecies[0]=3;
     //a ce stade, il manque encore gi et gj. On les initialise null partie précaution.
     gj = new GJoueur();
     gi = new GInsecte();
@@ -103,7 +103,8 @@ public class Partie implements Serializable {
   public byte getDifficulté(){return difficulté;}
   public void setDifficulté(byte x){difficulté = x;}
   public LocalDateTime getDateDeCréation(){ return dateDeCréation;}
-  public int [] getTableauDesEspecesAutorisée(){return tableauDesEspecesAutorisée;}
+  public int [] getAvaibleSpecies(){return avaibleSpecies;}
+  public void setAviableSpecies(int t[]){avaibleSpecies=t;}
   public int getNbrDeJoueurDansLaPartie(){ return nbrDeJoueurDansLaPartie;}
   public Carte getCarte(){ return mapo;}
   public boolean getEnCours(){ return enCours;}
@@ -146,7 +147,7 @@ public class Partie implements Serializable {
     r+= g.get("niveauDeLimitationDesinsectes")+" : "+niveauDeLimitationDesinsectes;r+="\n";
     r+= g.get("nbrDeTour")+" : "+nbrDeTour;r+="\n";
     r+= g.get("tour")+" : "+tour;r+="\n";
-    r+= g.get("tableauDesEspecesAutorisée")+" : "+tableau.tableauToString(tableauDesEspecesAutorisée);r+="\n";
+    r+= g.get("avaibleSpecies")+" : "+tableau.tableauToString(avaibleSpecies);r+="\n";
     r+= g.get("mapo")+" : "+mapo;r+="\n";
     r+= gj.toString();r+="\n";
     r+= gi.toString();r+="\n";

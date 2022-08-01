@@ -419,13 +419,32 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   //function shared by all Creature. -------------------------------------------
   /**
   *{@summary Eat with the interface Chasse.}<br>
-  *It will stop eating only if action &#60;&#61; 0 or is not hungry or chasse have returned false (creature haven't eat the last time he try).<br>
-  *return true if the Creature have eat.
-  *@lastEditedVersion 1.30
+  *It will stop eating only if action &#60;&#61; 0
+  *or is not hungry
+  *or it transport something
+  *or chasse have returned false (creature haven't eat the last time he try).<br>
+  *If transported thing can be eat, it will be done.
+  *Else transported thing will be drop at anthill.
+  *@lastEditedVersion 2.29
   */
+  // TOTEST
   public void eat(int percentageOfHungryness){
     int direction=getDirAllea();
-    while(getAction()>0 && isHungry(percentageOfHungryness) && chasser(direction)){}
+    while(getAction()>0
+        && isHungry(percentageOfHungryness)
+        && getTransported()==null
+        && chasser(direction)){}
+    if(getTransported()!=null){
+      if(this instanceof Fourmi){
+        Fourmi f = (Fourmi)this;
+        if(chasse.canEatSeed()){chasse.eatSeed();}//eat seed
+        else if(f.estALaFere()){chasser(direction);}//drop seed here
+        else {ceDeplacer(f.getFere().getCCase());}//go fere to drop seed & maybe find a better one
+      }
+      if(getAction()>0 && isHungry(percentageOfHungryness)){
+        eat(percentageOfHungryness);
+      }
+    }
   }
 
   /**
