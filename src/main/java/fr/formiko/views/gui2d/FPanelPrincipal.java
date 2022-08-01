@@ -10,6 +10,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import javax.swing.SwingUtilities;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.RenderingHints;
@@ -224,6 +225,7 @@ public class FPanelPrincipal extends FPanel {
                 labelMessage.setText(message);
                 labelMessage.updateSize();
                 Point curentLocation = MouseInfo.getPointerInfo().getLocation();
+                SwingUtilities.convertPointFromScreen(curentLocation, getView().getPp());
                 labelMessage.setLocation((int)(curentLocation.getX()-labelMessage.getWidth()), (int)(curentLocation.getY()-labelMessage.getHeight()));
               }
               visible = true;
