@@ -62,9 +62,9 @@ public class Partie implements Serializable {
     this.nbrDeTour=nbrDeTour;
     this.difficulté = str.iToBy(difficulté);
     this.vitesseDeJeu=vitesseDeJeu;
-    avaibleSpecies = new int [2];
+    avaibleSpecies = new int [1];
     avaibleSpecies[0]=0;
-    avaibleSpecies[1]=3;
+    // avaibleSpecies[1]=3;
     // avaibleSpecies[0]=3;
     //a ce stade, il manque encore gi et gj. On les initialise null partie précaution.
     gj = new GJoueur();
