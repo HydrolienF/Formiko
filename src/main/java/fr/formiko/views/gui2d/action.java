@@ -13,6 +13,7 @@ import fr.formiko.usual.types.str;
 
 import java.awt.MouseInfo;
 import javax.swing.SwingUtilities;
+import java.awt.Point;
 
 /**
 *{@summary All the gui action are launch here.}
@@ -202,7 +203,7 @@ public class action {
   public static void updateMouseLocation(){
     if(FPanel.getView().getPs()==null){return;}
     Point mouse = MouseInfo.getPointerInfo().getLocation();
-    SwingUtilities.convertPointFromScreen(mouse, getView().getPp());
+    SwingUtilities.convertPointFromScreen(mouse, FPanel.getView().getPp());
     CCase cc = FPanel.getView().getPs().getCCase((int)mouse.getX(), (int)mouse.getY());
     if(cc!=null){
       FPanel.getView().getPs().mouseMovedUpdate(cc, true);
