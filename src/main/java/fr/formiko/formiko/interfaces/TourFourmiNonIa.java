@@ -55,6 +55,9 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     if (f.getMode() == 0){
       // m = "chasser / ce déplacer pour chasser (Ou Récolter des graines)";
       f.eat(100);
+      if(f.getAction()>0){
+        f.setMode(-1);
+      }
     }else if(f.getMode() == 3){
       // m = "Nourrir et Nétoyer";
       backHomeAndShareFood();
