@@ -421,17 +421,19 @@ public class launchOptions {
       if(!gs.isEmpty()){
         formikoVersion=gs.getFirst();
       }
+      // String currentVersion = f.getCurentVersion();
+      String currentVersion=formikoVersion;
       String musicVersion="";
       String dataVersion="";
       if(args.length>1 && args[1].equals("1")){
         erreur.info("Update dataVersion");
-        dataVersion = f.getCurentVersion();
+        dataVersion = currentVersion;
       }else{
         dataVersion = (String) parser.get("data");
       }
       if(args.length>2 && args[2].equals("1")){
         erreur.info("Update musicVersion");
-        musicVersion = f.getCurentVersion();
+        musicVersion = currentVersion;
       }else{
         musicVersion = (String) parser.get("music");
       }
@@ -450,6 +452,7 @@ public class launchOptions {
       writer.close();
     }catch (Exception e) {
       erreur.alerte("can't update data version "+e);
+      e.printStackTrace();
     }
   }
   /**
