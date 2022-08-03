@@ -62,4 +62,13 @@ public class ChasseHerbivore implements Serializable, Chasse {
     }
     return false;
   }
+
+  /**
+  *{@summary Return true if there is prey on same square.}<br>
+  *@lastEditedVersion 2.29
+  */
+  @Override
+  public boolean havePreyOnSameSquare(Creature c){
+    return c.getCCase().getContent().getFoodInsecte()!=0;
+  }
 }

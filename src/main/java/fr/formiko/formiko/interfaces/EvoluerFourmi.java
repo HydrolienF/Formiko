@@ -51,7 +51,7 @@ public class EvoluerFourmi implements Serializable, Evoluer{
         if(f.getEspece().getInsectivore()){
           f.chasse = new ChasseInsectivore();
         }else if(f.getEspece().getGranivore()){
-          f.chasse = new ChasseGranivore();
+          f.chasse = new ChasseGranivore(f);
         }
       }
       if (in.getCoutTrophallaxie() != -1) { f.trophallaxie = new TrophallaxieFourmi();}

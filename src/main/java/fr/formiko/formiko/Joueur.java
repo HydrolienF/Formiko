@@ -42,9 +42,7 @@ public class Joueur implements Serializable{
     if (ia){
       pseudo = get1Pseudo();
     }else{
-      try {
-        pseudo = Main.getOp().getPseudo();
-      }catch (Exception e) {}
+      pseudo = Main.getOp().getPseudo();
     }
   }
   // GET SET ----------------------------------------------------------------------
@@ -182,7 +180,8 @@ public class Joueur implements Serializable{
     try {
       int x = (Main.getDifficulté()+3)*10;
       if(!ia){ x= 60-x;}
-      this.fere.getGc().getReine().setFood(math.max(x,10));//10 minimum. (60 max en théorie.)
+      x+=20;
+      this.fere.getGc().getReine().setFood(math.max(x,20));//20 minimum. (60 max en théorie.)
     }catch (Exception e) {erreur.alerte("Impossible de prendre en compte la difficulté");}
   }
   public String scoreToString(){

@@ -6,9 +6,12 @@ import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
 import fr.formiko.usual.images.Pixel;
 import fr.formiko.usual.images.Images;
+import java.awt.IllegalComponentStateException;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import javax.swing.SwingUtilities;
+import java.awt.Point;
 import java.awt.FontMetrics;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
@@ -280,13 +283,22 @@ public class FButton extends JButton implements MouseListener {
     Main.doAction(action);
   }
   /**
-  *{@summary set the button selected or not depending of mouse x,y.}<br>
+  *{@summary Set the button selected or not depending of mouse x,y.}<br>
+  *To compare it to mouse x, y we use x,y of the button relative to screen.
   *@lastEditedVersion 2.2
   */
   public void updateSelected(){
-    int mouseX = (int)MouseInfo.getPointerInfo().getLocation().getX();
-    int mouseY = (int)MouseInfo.getPointerInfo().getLocation().getY();
-    setSelected(mouseX>=getX() && mouseX<=(getX()+getWidth()) && mouseY>=getY() && mouseY<=(getY()+getHeight()));
+    if(!isVisible()){return;}
+    try {
+      int mouseX = (int)MouseInfo.getPointerInfo().getLocation().getX();
+      int mouseY = (int)MouseInfo.getPointerInfo().getLocation().getY();
+      int buttonX = (int)getLocationOnScreen().getX();
+      int buttonY = (int)getLocationOnScreen().getY();
+      // setSelected(mouseX>=getX() && mouseX<=(getX()+getWidth()) && mouseY>=getY() && mouseY<=(getY()+getHeight()));
+      // Point p = SwingUtilities.convertPoint(this, new Point(0, 0), FPanel.getView().getPp());
+      // setSelected(mouseX>=p.getX() && mouseX<=(p.getX()+getWidth()) && mouseY>=p.getY() && mouseY<=(p.getY()+getHeight()));
+      setSelected(mouseX>=buttonX && mouseX<=(buttonX+getWidth()) && mouseY>=buttonY && mouseY<=(buttonY+getHeight()));
+    }catch (IllegalComponentStateException e) {}
   }
   /**
   *{@summary set the button selected or not.}<br>

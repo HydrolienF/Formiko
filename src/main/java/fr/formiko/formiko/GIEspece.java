@@ -83,12 +83,7 @@ public class GIEspece extends Liste<IEspece> implements Serializable {
   *@lastEditedVersion 2.23
   */
   private void loadIEspeces(){
-    String td [] = new String [0];
-    try {
-      td = ReadFile.readFileArray(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"IEspece.csv");
-    }catch (Exception e) {
-      erreur.erreur("Species file fail to be found");
-    }
+    String td [] = ReadFile.readFileArray(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"IEspece.csv");
     int lentd = td.length;
     String tdefault [] = {"5","5","5"};
     for (int i=1;i<lentd; i++) {
@@ -101,15 +96,13 @@ public class GIEspece extends Liste<IEspece> implements Serializable {
   *@param s line to use to get sepcies data.
   *@param tdefault default sepcies data.
   *@return the created IEspece
-  *@lastEditedVersion 2.23
+  *@lastEditedVersion 2.29
   */
   private IEspece createIEspece(String s, String [] tdefault){
     String t [] = decoderUnFichier.getTableauString(s,',');
     tableau.boucherLesCasesVide(t,tdefault);
-    int tInt[];
-    try {
-      tInt = str.sToI(t);
-    }catch (Exception e) {
+    int tInt[]=str.sToI(t);
+    if(tInt==null || tInt.length<3 || tInt[0]==-1){
       tInt = new int[3];
       tInt[0]=0;tInt[1]=0;tInt[2]=0;
     }

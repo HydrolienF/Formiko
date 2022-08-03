@@ -11,20 +11,23 @@ import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Message;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
+import fr.formiko.usual.g;
 
 import java.io.Serializable;
 
 /**
- * {@summary Ant implementation.}<br>
- * Allow an ant to do hunt<br>
- * Ant are able to see other ObjetSurCarteAId as Creature at 1 Case of distance.
- * @author Hydrolien
- * @lastEditedVersion 1.40
- */
+*{@summary Ant implementation.}<br>
+*Allow an ant to do hunt<br>
+*Ant are able to see other ObjetSurCarteAId as Creature at 1 Case of distance.
+*@author Hydrolien
+*@lastEditedVersion 2.29
+*/
 public class ChasseGranivore implements Serializable, Chasse {
-  private Creature c;
+  private final Creature c;
 
-  public void setC(Creature cTemp){c=cTemp;}
+  public ChasseGranivore(Creature c){
+    this.c=c;
+  }
 
   // FUNCTIONS -----------------------------------------------------------------
   /**
@@ -35,7 +38,6 @@ public class ChasseGranivore implements Serializable, Chasse {
    *@lastEditedVersion 1.40
    */
   public boolean chasser(Creature c, int direction){
-    setC(c);
     if(!canHuntMore()){return eatIfNeed();}
     GGraine proieVisible = getProie();
     if (c.getCCase().getContent().getGg().getHead() != null){ // Si il y a une graine sur la même case
@@ -57,17 +59,24 @@ public class ChasseGranivore implements Serializable, Chasse {
   }
   /**
    * {@summary actions during hunt.}<br>
-   * An Ant kill an Insect in the same Case<br>
+   * Ant search a Seed in the same Case<br>
    * It can choose the first 1 or the better 1 depending on the difficulty.<br>
    * @param c The hunting Creature.
    * return true if c can hunt more.
    * @lastEditedVersion 1.40
    */
    public boolean chasse(Creature c){
-     setC(c);
+     if(c.getTransported()!=null){
+       if(c instanceof Fourmi){
+         new Message(g.get("DropTransportedDone"), ((Fourmi)c).getJoueur().getId(), 2);
+       }
+       c.dropTransported();
+       setActionMoins(c);
+       return true;
+     }
      if(!canHuntMore()){return false;}
-     GGraine gg = c.getCCase().getContent().getGg();
-     if (!gg.isEmpty()){
+     if (havePreyOnSameSquare(c)){
+       GGraine gg = c.getCCase().getContent().getGg();
        Graine graineCollecté;
        if (Main.getDifficulté() >= 0 || !c.getIa()){
          graineCollecté = gg.getBetterSeed();
@@ -78,7 +87,7 @@ public class ChasseGranivore implements Serializable, Chasse {
        c.setTransported(graineCollecté);
        setActionMoins(c);
      }else{
-       erreur.alerte("La fonction collecte ne devrais pas être appeler sur une case vide.");
+       erreur.alerte("Function to collect seed should not be call on empty Square");
      }
      return canHuntMore();
    }
@@ -119,5 +128,89 @@ public class ChasseGranivore implements Serializable, Chasse {
     //   return true;
     // }
     return false;
+  }
+
+  /**
+  *{@summary Return true if there is prey on same square.}<br>
+  *@lastEditedVersion 2.29
+  */
+  //TOTEST
+  @Override
+  public boolean havePreyOnSameSquare(Creature c){
+    return !c.getCCase().getContent().getGg().isEmpty();
+  }
+
+  // Special actions for ChasseGranivore ---------------------------------------
+  /**
+  *{@summary Eat the transported seed.}<br>
+  *@lastEditedVersion 2.29
+  */
+  //TOTEST
+  @Override
+  public void eatSeed(){
+    erreur.info("eatSeed");
+    if(canEatSeed()){
+      Graine gr = (Graine)c.getTransported();
+      if(!gr.isOpen()){
+        breakSeed();
+      }
+      if(!gr.isOpen()){
+        if(c instanceof Fourmi){
+          new Message(g.get("CantOpenSeed"), ((Fourmi)c).getJoueur().getId(), 2);
+        }
+      }else{
+        int givenFoodCap = Math.min(gr.getGivenFood(), c.getMaxFood()-c.getFood());
+        gr.setGivenFood(gr.getGivenFood()-givenFoodCap);
+        c.addFood(givenFoodCap);
+        if(gr.getGivenFood()<1){
+          c.setTransported(null);
+        }
+        if(c instanceof Fourmi){
+          new Message(g.get("OpenSeedDone"), ((Fourmi)c).getJoueur().getId(), 2);
+        }
+      }
+    }else{
+      erreur.alerte("An action have been launch even if it should not be aviable");
+    }
+  }
+  /**
+  *{@summary Break the transported seed.}<br>
+  *@lastEditedVersion 2.29
+  */
+  //TOTEST
+  @Override
+  public void breakSeed(){
+    erreur.info("breakSeed");
+    if(canBreakSeed()){
+      Graine gr = (Graine)c.getTransported();
+      gr.setOpen(true);
+      if(c instanceof Fourmi){
+        new Message(g.get("BreakSeedDone"), ((Fourmi)c).getJoueur().getId(), 2);
+      }
+    }else{
+      erreur.alerte("An action have been launch even if it should not be aviable");
+    }
+  }
+  /**
+  *{@summary Return true if Creature can eat the transported seed.}<br>
+  *@lastEditedVersion 2.29
+  */
+  @Override
+  public boolean canEatSeed(){
+    return (c.getAction()>0
+        && c.getTransported()!=null
+        && c.getTransported() instanceof Graine
+        && (((Graine)c.getTransported()).isOpen() || ((Graine)c.getTransported()).canBeOpenBy(c)));
+  }
+  /**
+  *{@summary Return true if Creature can break the transported seed.}<br>
+  *@lastEditedVersion 2.29
+  */
+  @Override
+  public boolean canBreakSeed(){
+    return (c.getAction()>0
+        && c.getTransported()!=null
+        && c.getTransported() instanceof Graine
+        && ((Graine)c.getTransported()).canBeOpenBy(c));
   }
 }

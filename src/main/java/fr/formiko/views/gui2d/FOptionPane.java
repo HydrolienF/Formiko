@@ -73,7 +73,11 @@ public class FOptionPane extends JDialog {
     if(bOk==null){addOKButton();}
     getRootPane().setDefaultButton(bOk); //if enter is press it will launch this button.
     pack();
-    setLocationRelativeTo(null);
+    if(FPanel.getView()!=null){
+      setLocationRelativeTo(FPanel.getView().getF());
+    }else{
+      setLocationRelativeTo(null);
+    }
     if(greyOthers){
       FPanel.getView().getPp().setTopColor(new Color(0,0,0,80));
     }

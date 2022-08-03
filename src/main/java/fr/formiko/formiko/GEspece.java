@@ -45,12 +45,8 @@ public class GEspece extends Liste<Espece> implements Serializable {
   *@lastEditedVersion 2.23
   */
   private void loadEspeces(){
-    String td [] = new String [0];
-    try {
-      td = ReadFile.readFileArray(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"Espece.csv");
-    }catch (Exception e) {
-      erreur.erreur("Species file fail to be found",true);
-    } int lentd = td.length;
+    String td [] = ReadFile.readFileArray(Main.getFolder().getFolderStable()+Main.getFolder().getFolderBin()+"Espece.csv");
+    int lentd = td.length;
     if (lentd < 3){ erreur.erreur("Species file should have at least 4 line",true);}
     String tdefault [] = decoderUnFichier.getTableauString(td[2],',');
     for (int i=3;i<lentd; i++) {

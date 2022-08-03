@@ -106,6 +106,7 @@ public class TourFourmi implements Serializable, Tour{
   *@lastEditedVersion 1.29
   */
   public void feedOther(int foodToQueep){
+    if(f.getTransported()!=null && f.estALaFere()){f.chasser(5);}
     while(f.getAction()>0 && !(f.isHungry(foodToQueep)) && !(f.trophallaxie instanceof TrophallaxieNull)){
       Creature toFeed = aNourrir();
       if(toFeed==null){return;}

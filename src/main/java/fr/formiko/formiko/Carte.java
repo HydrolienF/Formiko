@@ -86,14 +86,13 @@ public class Carte implements Serializable {
   /**
   *{@summary Load GCase from a file.}<br>
   *@param mapName name of the map to load.
-  *@lastEditedVersion 2.1
+  *@lastEditedVersion 2.29
   */
   public void setMap(String mapName){
-    try {
-      this.mapName=mapName;
-      gc = chargerCarte.chargerCarte(mapName);
-    }catch (Exception e) {
-      erreur.erreur("impossible de trouvé cette carte");
+    this.mapName=mapName;
+    gc = chargerCarte.chargerCarte(mapName);
+    if(gc==null){
+      erreur.erreur("Unable to find map");
     }
   }
 }
