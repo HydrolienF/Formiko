@@ -25,7 +25,7 @@ public class FPanelCheckFunction extends FPanel {
     cb = new FCheckBox();
     cb.setText(cf.getText());
     cb.setSelected(cf.isChecked());
-    cb.setBackground(Main.getData().getButtonColorWithoutAlpha());
+    // cb.setBackground(Main.getData().getButtonColorWithoutAlpha());
     add(cb);
   }
   /**

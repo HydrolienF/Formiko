@@ -75,7 +75,9 @@ public class keys {
         }else{
           // FPanel.getView().getPm().getReturnButton().doClick();
           // FPanel.getView().getPm().getReturnButton().processMouseEvent​(new MouseEvent());
-          action.doAction(FPanel.getView().getPm().getReturnButton().getActionB());
+          if(FPanel.getView().getPm()!=null && FPanel.getView().getPm().getReturnButton()!=null){
+            action.doAction(FPanel.getView().getPm().getReturnButton().getActionB());
+          }
         }
       }
     };

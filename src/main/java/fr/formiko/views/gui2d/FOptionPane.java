@@ -1,5 +1,6 @@
 package fr.formiko.views.gui2d;
 
+import fr.formiko.formiko.Main;
 import fr.formiko.usual.CheckFunction;
 import fr.formiko.usual.Time;
 import fr.formiko.usual.g;
@@ -81,6 +82,7 @@ public class FOptionPane extends JDialog {
     if(greyOthers){
       FPanel.getView().getPp().setTopColor(new Color(0,0,0,80));
     }
+    setBackground(new Color(255,255,255,150));
     setVisible(true);
     requestFocusInWindow();
     if(greyOthers){
