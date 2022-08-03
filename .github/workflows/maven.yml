@@ -48,6 +48,7 @@ jobs:
         mkdir ~/.formiko/
         rm -fr ~/.formiko/data/
         cp -r data/ ~/.formiko/data/
+        mvn -ntp compile exec:java -Dargs="resizeAllUnder ~/.formiko/data/stable/images/Creature 800"
 
     - name: jlink
       run: |
