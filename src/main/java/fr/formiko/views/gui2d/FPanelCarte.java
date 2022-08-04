@@ -442,14 +442,12 @@ public class FPanelCarte extends FPanel {
   */
   public void peintImagePourCase(Case c, int x, int y,Graphics2D g){
     if(!isCaseVisible(c)){return;}
-    Joueur jo = Main.getPlayingJoueur();
+    // Joueur jo = Main.getPlayingJoueur();
     Fourmi fi = Main.getPlayingAnt();
     Liste<BufferedImage> listIconsRelation = new Liste<BufferedImage>();
     Liste<BufferedImage> listIconsState = new Liste<BufferedImage>();
-    if(fi==null){
-      try {
-        fi = (Fourmi)Main.getPlayingJoueur().getFere().getGc().getFirst();
-      }catch (NullPointerException e) {}
+    if(fi==null && Main.getPlayingJoueur()!=null && !Main.getPlayingJoueur().getFere().getGc().isEmpty()){
+      fi = (Fourmi)Main.getPlayingJoueur().getFere().getGc().getFirst();
     }
     Point point = getPointFromCase(x,y,false);
     int xT = point.getX(); int yT = point.getY();

@@ -111,12 +111,8 @@ public class Fourmiliere implements Serializable{
     else{return new Pheromone(0,0,0);}
   }
   public int getScore(){
-    try {
-      return computeScore(ggi.getLast());
-    }catch (NullPointerException e) {
-      ggi.add(toGInt());
-      return computeScore(ggi.getLast());
-    }
+    if(ggi.getLast()==null){ggi.add(toGInt());}
+    return computeScore(ggi.getLast());
   }
   public int getNbrFourmisMorte(){return nbrFourmisMorte;}
   public void setNbrFourmisMorte(int x){nbrFourmisMorte=x;}

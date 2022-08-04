@@ -66,35 +66,35 @@ public class ViewGUI2d implements View {
   //Graphics components.
   public FFrameMain getF(){return f;}
   public FFrameLauncher getFl(){return fl;}
-  public FPanelPrincipal getPp(){ try{return getF().getPp();}catch (NullPointerException e) {return null;}}
+  public FPanelPrincipal getPp(){ if(getF()==null){return null;} return getF().getPp();}
 
-  public FPanelJeu getPj(){ if(getPp()!=null){return getPp().getPj();}else{return null;}}
-  public FPanelMenu getPm(){ if(getPp()!=null){return getPp().getPm();}else{return null;}}
-  public FPanelNouvellePartie getPnp(){ try{return getPm().getPnp();}catch (NullPointerException e){return null;}}
-  public FPanelGEtiquetteJoueur getPGej(){ try{return getPnp().getPGej();}catch (NullPointerException e){return null;}}
-  public JColorChooser getJcc(){ try{return getPnp().getJcc();}catch (NullPointerException e){return null;}}
-  public FPanelChoixPartie getPcp(){ try{return getPm().getPcp();}catch (NullPointerException e){return null;}}
-  public FPanelBouton getPb(){ try{return getPj().getPb();}catch (NullPointerException e){return null;}}
-  public FPanel getPText(){ try{return getPj().getPText();}catch (NullPointerException e){return null;}}
-  public FPanelCarte getPc(){ try{return getPj().getPc();}catch (NullPointerException e){return null;}}
-  public FPanelInfo getPi(){ try{return getPb().getPi();}catch (NullPointerException e){return null;}}
-  public FPanelInfoText getPij(){ try{return getPb().getPij();}catch (NullPointerException e){return null;}}
+  public FPanelJeu getPj(){if(getPp()!=null){return getPp().getPj();}else{return null;}}
+  public FPanelMenu getPm(){if(getPp()!=null){return getPp().getPm();}else{return null;}}
+  public FPanelNouvellePartie getPnp(){if(getPm()==null){return null;} return getPm().getPnp();}
+  public FPanelGEtiquetteJoueur getPGej(){if(getPnp()==null){return null;} return getPnp().getPGej();}
+  public JColorChooser getJcc(){if(getPnp()==null){return null;} return getPnp().getJcc();}
+  public FPanelChoixPartie getPcp(){if(getPm()==null){return null;} return getPm().getPcp();}
+  public FPanelBouton getPb(){if(getPj()==null){return null;} return getPj().getPb();}
+  public FPanel getPText(){if(getPj()==null){return null;} return getPj().getPText();}
+  public FPanelCarte getPc(){if(getPj()==null){return null;} return getPj().getPc();}
+  public FPanelInfo getPi(){if(getPb()==null){return null;} return getPb().getPi();}
+  public FPanelInfoText getPij(){if(getPb()==null){return null;} return getPb().getPij();}
   public FPanelZoom getPz(){if(getPb()==null){return null;} return getPb().getPz();}
   public FPanelIngameMenu getPigm(){if(getPb()==null){return null;} return getPb().getPigm();}
   public FPanelMusic getPmu(){if(getPb()==null){return null;} return getPb().getPmu();}
   public FPanelAction getPa(){if(getPb()==null){return null;} return getPb().getPa();}
-  public FPanelChargement getPch(){ try {return getPj().getPch();}catch (NullPointerException e) {return null;}}
-  public FPanelSup getPs(){ if(getPj()!=null){return getPj().getPs();}else{return null;}}
-  public FPanelSupDialog getPsd(){ if(getPj()!=null){return getPj().getPsd();}else{return null;}}
-  public FPanelEchap getPe(){ if(getPj()!=null){return getPj().getPe();}else{return null;}}
-  public FPanelDialogue getPd(){ try {return getPj().getPd();}catch (NullPointerException e) {return null;}}
-  public FPanelDialogueInf getPdi(){ return getPj().getPdi();}
-  public FPanelMiniMapContainer getPmmc(){try {return getPb().getPmmc();}catch(NullPointerException e){return null;}}
+  public FPanelChargement getPch(){if(getPj()==null){return null;} return getPj().getPch();}
+  public FPanelSup getPs(){if(getPj()!=null){return getPj().getPs();}else{return null;}}
+  public FPanelSupDialog getPsd(){if(getPj()!=null){return getPj().getPsd();}else{return null;}}
+  public FPanelEchap getPe(){if(getPj()!=null){return getPj().getPe();}else{return null;}}
+  public FPanelDialogue getPd(){if(getPj()==null){return null;} return getPj().getPd();}
+  public FPanelDialogueInf getPdi(){return getPj().getPdi();}
+  public FPanelMiniMapContainer getPmmc(){if(getPb()==null){return null;} return getPb().getPmmc();}
   public FPanelPanelMove getPmmo(){if(getPj()!=null){return getPj().getPmmo();}else{return null;}}
   public int getCurentFPS(){return curentFPS;}
   public void setCurentFPS(int x){curentFPS=x;}
-  public int getWidth(){try {return getPp().getWidth();}catch (NullPointerException e) {return 0;}}
-  public int getHeight(){try {return getPp().getHeight();}catch (NullPointerException e) {return 0;}}
+  public int getWidth(){if(getPp()==null){return 0;} return getPp().getWidth();}
+  public int getHeight(){if(getPp()==null){return 0;} return getPp().getHeight();}
   // public Case getCaseClicked(){return caseClicked;}
   // public void setCaseClicked(Case c){caseClicked=c;}
   public void setLaunchFromPm(boolean b){launchFromPm=b;}
@@ -478,16 +478,12 @@ public class ViewGUI2d implements View {
   *{@summary Print a loading message.}<br>
   *@param message the message to print.
   *@param percentageDone the percentage of loading curently done.
-  *@lastEditedVersion 1.46
+  *@lastEditedVersion 2.30
   */
   public void loadingMessage(String message, int percentageDone){
     if (getPch()==null) {return;}
-    try {
-      getPch().setTexte(message);
-      //TODO update barre de chargement with percentageDone
-    }catch (NullPointerException e) {
-      erreur.alerte("Fail to print loadingMessage");
-    }
+    //TODO update barre de chargement with percentageDone
+    getPch().setTexte(message);
   }
   /**
   *{@summary Print a message in a new window.}<br>

@@ -68,9 +68,7 @@ public class FPanelAction extends FPanel {
       //TODO use FBorder
       // tB[i].getFBorder().setColor(Main.getData().getButonBorderColor());
     }
-    try {
-      paintAutoButton();
-    }catch (NullPointerException e) {}
+    paintAutoButton();
   }
   // GET SET -------------------------------------------------------------------
   public int getbuttonSize(){ return tailleBouton;}
@@ -100,12 +98,12 @@ public class FPanelAction extends FPanel {
   *@lastEditedVersion 2.5
   */
   public void paintAutoButton(){
-    if(Main.getPlayingAnt().getMode()==0){
+    if(Main.getPlayingAnt()!=null && Main.getPlayingAnt().getMode()==0){
       tAutoB[0].setIsYellow(true);
     }else{
       tAutoB[0].setIsYellow(false);
     }
-    if(Main.getPlayingAnt().getMode()==3){
+    if(Main.getPlayingAnt()!=null && Main.getPlayingAnt().getMode()==3){
       tAutoB[1].setIsYellow(true);
     }else{
       tAutoB[1].setIsYellow(false);

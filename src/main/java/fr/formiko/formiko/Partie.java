@@ -288,10 +288,10 @@ public class Partie implements Serializable {
     GJoueur gjSorted = getGj().getGjSorted();
     Joueur winner = null;
     String pseudo = "";
-    try {
-       winner = gjSorted.getFirst();
-       pseudo = winner.getPseudo();
-    }catch (NullPointerException e) {}
+    if(gjSorted!=null){
+      winner = gjSorted.getFirst();
+      pseudo = winner.getPseudo();
+    }
     if (x==2){
       victoire = g.get("élimination");
     } else if (x==1){
@@ -405,9 +405,9 @@ public class Partie implements Serializable {
   public boolean setPlayingAnt(Fourmi f){
     if (!Main.getView().getActionGameOn()) {return false;}
     playingAnt=f;
-    try { //udpate playingJoueur if ant is not null.
+    if(f!=null){//udpate playingJoueur if ant is not null.
       Joueur.setPlayingJoueur(f.getFere().getJoueur());
-    }catch (NullPointerException e) {}
+    }
     return true;
   }
   /**

@@ -60,9 +60,9 @@ public class FPanelSup extends FPanel {
           GCreature gc = c.getGc();
           if(gc.length()>0){
             Fourmi f = null;
-            try {
+            if(Main.getPlayingJoueur()!=null){
               f = gc.getFourmiParFere(Main.getPlayingJoueur().getFere());
-            }catch (NullPointerException e2) {
+            }else{
               erreur.alerte("No curent player");
             }
             if(f!=null){

@@ -119,10 +119,7 @@ public class FPanelMiniMapContainer extends FPanel {
       setLocation(0,0);
       lineSize = Main.getTailleElementGraphique(3);
       setBorderPainted(false);
-      boolean b = false;
-      try {
-        b=Main.getPlayingJoueur().getFere().getGc().haveDoneAllActionAviable();
-      }catch (NullPointerException e) {}
+      boolean b = (Main.getPlayingJoueur()!=null && Main.getPlayingJoueur().getFere().getGc().haveDoneAllActionAviable());
       setAllActionDone(b);
     }
 

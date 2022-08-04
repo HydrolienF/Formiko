@@ -179,12 +179,11 @@ public class Fourmi extends Creature implements Serializable{
   /**
   *{@summary Return true if is own by an AI.}<br>
   *If it have an anthill that have a player it will return getIa() value of the player.<br>
-  *@lastEditedVersion 1.40
+  *@lastEditedVersion 2.30
   */
   @Override
   public boolean isAI(){
-    try {return getFere().getJoueur().getIa();}
-    catch (NullPointerException e) {return false;}
+    return (getFere()!=null && getFere().getJoueur()!=null && getFere().getJoueur().getIa());
   }
   /**
   *{@summary Update action &#38; update view.}<br>

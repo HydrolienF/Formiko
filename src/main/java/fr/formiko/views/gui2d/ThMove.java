@@ -76,9 +76,9 @@ public class ThMove {
     curentThList.add(this);
     curent = new Point(-1,-1);
     rotate = new Point(0,0);
-    try {
+    if(FPanel.getView().getPc()!=null){
       FPanel.getView().getPc().addMovingObject(o.getId(), curent, rotate);
-    }catch (NullPointerException e) {} //getPc return null if we move creature by script before graphics are ini.
+    }
     iniRun();
   }
   /**
