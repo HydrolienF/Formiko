@@ -126,6 +126,7 @@ getFileName:enigu la nomon de la konservota aro, kiun vi volas ŝargi: (Aŭ reen
 dernierTourPassé:la lasta vico estas fini.
 victoireInconue:venko nekonato.
 élimination:elimino
+abandon:kapitulaci de aliajn ludantojn
 victoirePar:havas gajni per
 pseudo:kaŝnomo
 entrezPseudo:skribu via kaŝnomo

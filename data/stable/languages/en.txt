@@ -126,6 +126,7 @@ getFileName:enter the name of the save set you want to load: (Or back to go back
 dernierTourPassé:the last turn is now over.
 victoireInconue:unknown victory
 élimination:elimination
+playerSurrender:surrender of other players
 victoirePar:win by
 pseudo:username
 entrezPseudo:please enter your username

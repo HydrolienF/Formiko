@@ -126,6 +126,7 @@ getFileName:Entrez le nom de la sauvegarde que vous souhaitez charger : (Ou reto
 dernierTourPassé:Le dernier tour est désormais passé.
 victoireInconue:victoire inconnue
 élimination:élimination
+playerSurrender:capitulation des autres joueurs
 victoirePar:a gagné par
 pseudo:pseudo
 entrezPseudo:Veuillez entrer votre pseudo
