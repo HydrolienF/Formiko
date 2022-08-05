@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:გადარჩენა[auto]
-bouton.nom.-11:პარამეტრები[auto]
-bouton.nom.-12disable:დამტენი[auto]
-bouton.nom.-12:მთავარ მენიუში დაბრუნება[auto]
-bouton.nom.-13:quitter Ant[auto]
-bouton.nom.-14:უკან თამაში[auto]
+bouton.nom.-12:პარამეტრები[auto]
+bouton.nom.-13disable:დამტენი[auto]
+bouton.nom.-13:მთავარ მენიუში დაბრუნება[auto]
+bouton.nom.-14:quitter Ant[auto]
+bouton.nom.-15:უკან თამაში[auto]
 
 languageChoice:
 

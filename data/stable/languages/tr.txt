@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:kayıt etmek[auto]
-bouton.nom.-11:seçenekler[auto]
-bouton.nom.-12disable:şarj cihazı[auto]
-bouton.nom.-12:ana menüye dön[auto]
-bouton.nom.-13:pes eden Karınca[auto]
-bouton.nom.-14:oyuna geri dön[auto]
+bouton.nom.-12:seçenekler[auto]
+bouton.nom.-13disable:şarj cihazı[auto]
+bouton.nom.-13:ana menüye dön[auto]
+bouton.nom.-14:pes eden Karınca[auto]
+bouton.nom.-15:oyuna geri dön[auto]
 
 languageChoice:
 

@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:ਸੇਵ[auto]
-bouton.nom.-11:ਚੋਣਾਂ[auto]
-bouton.nom.-12disable:ਚਾਰਜਰ[auto]
-bouton.nom.-12:ਵਾਪਸ ਮੁੱਖ ਮੇਨੂ 'ਤੇ ਵਾਪਸ[auto]
-bouton.nom.-13:ਕੁਈਟਰ ਕੀੜੀ[auto]
-bouton.nom.-14:ਵਾਪਸ ਖੇਡਣ ਲਈ[auto]
+bouton.nom.-12:ਚੋਣਾਂ[auto]
+bouton.nom.-13disable:ਚਾਰਜਰ[auto]
+bouton.nom.-13:ਵਾਪਸ ਮੁੱਖ ਮੇਨੂ 'ਤੇ ਵਾਪਸ[auto]
+bouton.nom.-14:ਕੁਈਟਰ ਕੀੜੀ[auto]
+bouton.nom.-15:ਵਾਪਸ ਖੇਡਣ ਲਈ[auto]
 
 languageChoice:
 

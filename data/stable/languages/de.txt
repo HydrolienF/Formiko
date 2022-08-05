@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:speichern[auto]
-bouton.nom.-11:optionen[auto]
-bouton.nom.-12disable:ladegerät[auto]
-bouton.nom.-12:zurück zum Hauptmenü[auto]
-bouton.nom.-13:quitter Ant[auto]
-bouton.nom.-14:zurück zum spielen[auto]
+bouton.nom.-12:optionen[auto]
+bouton.nom.-13disable:ladegerät[auto]
+bouton.nom.-13:zurück zum Hauptmenü[auto]
+bouton.nom.-14:quitter Ant[auto]
+bouton.nom.-15:zurück zum spielen[auto]
 
 languageChoice:
 

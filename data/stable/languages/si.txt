@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:සුරකින්න[auto]
-bouton.nom.-11:විකල්ප[auto]
-bouton.nom.-12disable:චාජරය[auto]
-bouton.nom.-12:ප්‍රධාන මෙනුවට ආපසු යන්න[auto]
-bouton.nom.-13:quitter කුහුඹුවා[auto]
-bouton.nom.-14:නැවත ක්‍රීඩා කිරීමට[auto]
+bouton.nom.-12:විකල්ප[auto]
+bouton.nom.-13disable:චාජරය[auto]
+bouton.nom.-13:ප්‍රධාන මෙනුවට ආපසු යන්න[auto]
+bouton.nom.-14:quitter කුහුඹුවා[auto]
+bouton.nom.-15:නැවත ක්‍රීඩා කිරීමට[auto]
 
 languageChoice:
 

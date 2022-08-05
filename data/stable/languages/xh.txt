@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:gcina[auto]
-bouton.nom.-11:ukhetho[auto]
-bouton.nom.-12disable:itshaja[auto]
-bouton.nom.-12:buyela kwimenyu ephambili[auto]
-bouton.nom.-13:yeka Imbovane[auto]
-bouton.nom.-14:buyela ukudlala[auto]
+bouton.nom.-12:ukhetho[auto]
+bouton.nom.-13disable:itshaja[auto]
+bouton.nom.-13:buyela kwimenyu ephambili[auto]
+bouton.nom.-14:yeka Imbovane[auto]
+bouton.nom.-15:buyela ukudlala[auto]
 
 languageChoice:
 

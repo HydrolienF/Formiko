@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:kuzigama[auto]
-bouton.nom.-11:amahitamo[auto]
-bouton.nom.-12disable:charger[auto]
-bouton.nom.-12:garuka Kuri Ibikubiyemo[auto]
-bouton.nom.-13:kureka Ikimonyo[auto]
-bouton.nom.-14:gusubira gukina[auto]
+bouton.nom.-12:amahitamo[auto]
+bouton.nom.-13disable:charger[auto]
+bouton.nom.-13:garuka Kuri Ibikubiyemo[auto]
+bouton.nom.-14:kureka Ikimonyo[auto]
+bouton.nom.-15:gusubira gukina[auto]
 
 languageChoice:
 

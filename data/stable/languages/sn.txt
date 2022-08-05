@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:ponesa[auto]
-bouton.nom.-11:sarudzo[auto]
-bouton.nom.-12disable:ndiro[auto]
-bouton.nom.-12:dzokera kumenu huru[auto]
-bouton.nom.-13:kurega Svosve[auto]
-bouton.nom.-14:dzokera kunotamba[auto]
+bouton.nom.-12:sarudzo[auto]
+bouton.nom.-13disable:ndiro[auto]
+bouton.nom.-13:dzokera kumenu huru[auto]
+bouton.nom.-14:kurega Svosve[auto]
+bouton.nom.-15:dzokera kunotamba[auto]
 
 languageChoice:
 

@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:salva[auto]
-bouton.nom.-11:opțiuni[auto]
-bouton.nom.-12disable:încărcător[auto]
-bouton.nom.-12:înapoi la meniul principal[auto]
-bouton.nom.-13:quitter Ant[auto]
-bouton.nom.-14:înapoi pentru a juca[auto]
+bouton.nom.-12:opțiuni[auto]
+bouton.nom.-13disable:încărcător[auto]
+bouton.nom.-13:înapoi la meniul principal[auto]
+bouton.nom.-14:quitter Ant[auto]
+bouton.nom.-15:înapoi pentru a juca[auto]
 
 languageChoice:
 

@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:gorde[auto]
-bouton.nom.-11:aukerak[auto]
-bouton.nom.-12disable:kargagailua[auto]
-bouton.nom.-12:menu nagusira itzuli[auto]
-bouton.nom.-13:quitter Ant[auto]
-bouton.nom.-14:atzera jolastera[auto]
+bouton.nom.-12:aukerak[auto]
+bouton.nom.-13disable:kargagailua[auto]
+bouton.nom.-13:menu nagusira itzuli[auto]
+bouton.nom.-14:quitter Ant[auto]
+bouton.nom.-15:atzera jolastera[auto]
 
 languageChoice:
 

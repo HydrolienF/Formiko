@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:chekwaa[auto]
-bouton.nom.-11:nhọrọ[auto]
-bouton.nom.-12disable:chaja[auto]
-bouton.nom.-12:laghachi isi menu[auto]
-bouton.nom.-13:itterhapụ Ant[auto]
-bouton.nom.-14:laghachi na-egwu[auto]
+bouton.nom.-12:nhọrọ[auto]
+bouton.nom.-13disable:chaja[auto]
+bouton.nom.-13:laghachi isi menu[auto]
+bouton.nom.-14:itterhapụ Ant[auto]
+bouton.nom.-15:laghachi na-egwu[auto]
 
 languageChoice:
 

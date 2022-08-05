@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:сачувати[auto]
-bouton.nom.-11:опције[auto]
-bouton.nom.-12disable:пуњач[auto]
-bouton.nom.-12:повратак на главни мени[auto]
-bouton.nom.-13:куиттер Ант[auto]
-bouton.nom.-14:назад за игру[auto]
+bouton.nom.-12:опције[auto]
+bouton.nom.-13disable:пуњач[auto]
+bouton.nom.-13:повратак на главни мени[auto]
+bouton.nom.-14:куиттер Ант[auto]
+bouton.nom.-15:назад за игру[auto]
 
 languageChoice:
 

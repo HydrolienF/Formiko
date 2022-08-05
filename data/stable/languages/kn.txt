@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:ಉಳಿಸಿ[auto]
-bouton.nom.-11:ಆಯ್ಕೆಗಳು[auto]
-bouton.nom.-12disable:ಚಾರ್ಜರ್[auto]
-bouton.nom.-12:ಮುಖ್ಯ ಮೆನುಗೆ ಹಿಂತಿರುಗಿ[auto]
-bouton.nom.-13:quitter ಇರುವೆ[auto]
-bouton.nom.-14:ಮತ್ತೆ ಆಡಲು[auto]
+bouton.nom.-12:ಆಯ್ಕೆಗಳು[auto]
+bouton.nom.-13disable:ಚಾರ್ಜರ್[auto]
+bouton.nom.-13:ಮುಖ್ಯ ಮೆನುಗೆ ಹಿಂತಿರುಗಿ[auto]
+bouton.nom.-14:quitter ಇರುವೆ[auto]
+bouton.nom.-15:ಮತ್ತೆ ಆಡಲು[auto]
 
 languageChoice:
 

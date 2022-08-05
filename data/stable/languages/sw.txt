@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:kuokoa[auto]
-bouton.nom.-11:chaguzi[auto]
-bouton.nom.-12disable:chaja[auto]
-bouton.nom.-12:kurudi kwenye menyu kuu[auto]
-bouton.nom.-13:achana na Mchwa[auto]
-bouton.nom.-14:kurudi kucheza[auto]
+bouton.nom.-12:chaguzi[auto]
+bouton.nom.-13disable:chaja[auto]
+bouton.nom.-13:kurudi kwenye menyu kuu[auto]
+bouton.nom.-14:achana na Mchwa[auto]
+bouton.nom.-15:kurudi kucheza[auto]
 
 languageChoice:
 

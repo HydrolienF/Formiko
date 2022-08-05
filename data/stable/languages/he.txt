@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:להציל[auto]
-bouton.nom.-11:אפשרויות[auto]
-bouton.nom.-12disable:מַטעֵן[auto]
-bouton.nom.-12:בחזרה לתפריט הראשי[auto]
-bouton.nom.-13:נמלה[auto]
-bouton.nom.-14:חזרה לשחק[auto]
+bouton.nom.-12:אפשרויות[auto]
+bouton.nom.-13disable:מַטעֵן[auto]
+bouton.nom.-13:בחזרה לתפריט הראשי[auto]
+bouton.nom.-14:נמלה[auto]
+bouton.nom.-15:חזרה לשחק[auto]
 
 languageChoice:
 

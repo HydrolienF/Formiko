@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:хадгалах[auto]
-bouton.nom.-11:сонголтууд[auto]
-bouton.nom.-12disable:цэнэглэгч[auto]
-bouton.nom.-12:үндсэн цэс рүү буцах[auto]
-bouton.nom.-13:шоргоолж[auto]
-bouton.nom.-14:буцааж тоглох[auto]
+bouton.nom.-12:сонголтууд[auto]
+bouton.nom.-13disable:цэнэглэгч[auto]
+bouton.nom.-13:үндсэн цэс рүү буцах[auto]
+bouton.nom.-14:шоргоолж[auto]
+bouton.nom.-15:буцааж тоглох[auto]
 
 languageChoice:
 

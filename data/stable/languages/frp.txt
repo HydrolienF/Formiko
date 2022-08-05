@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:sârvagouârdar
-bouton.nom.-11:opcions
-bouton.nom.-12disable:chargiér
-bouton.nom.-12:retorn u menu prencipâl
-bouton.nom.-13:quitar Formiko
-bouton.nom.-14:retorn u juè
+bouton.nom.-12:opcions
+bouton.nom.-13disable:chargiér
+bouton.nom.-13:retorn u menu prencipâl
+bouton.nom.-14:quitar Formiko
+bouton.nom.-15:retorn u juè
 
 languageChoice:chouèsisséds na lengoua
 

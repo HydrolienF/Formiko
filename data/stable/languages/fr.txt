@@ -336,11 +336,12 @@ supportGameLink:soutenir Formiko
 
 //bouton of PanneauEchap
 bouton.nom.-10:sauvegarder
-bouton.nom.-11:options
-bouton.nom.-12disable:charger
-bouton.nom.-12:retour au menu principal
-bouton.nom.-13:quitter Formiko
-bouton.nom.-14:retour au jeu
+bouton.nom.-11:abandonner
+bouton.nom.-12:options
+bouton.nom.-13disable:charger
+bouton.nom.-13:retour au menu principal
+bouton.nom.-14:quitter Formiko
+bouton.nom.-15:retour au jeu
 
 languageChoice:choisissez une langue
 

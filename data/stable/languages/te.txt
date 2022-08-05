@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:సేవ్ చేయండి[auto]
-bouton.nom.-11:ఎంపికలు[auto]
-bouton.nom.-12disable:ఛార్జర్[auto]
-bouton.nom.-12:ప్రధాన మెనూకు తిరిగి వెళ్ళు[auto]
-bouton.nom.-13:quitter చీమ[auto]
-bouton.nom.-14:తిరిగి ఆడటానికి[auto]
+bouton.nom.-12:ఎంపికలు[auto]
+bouton.nom.-13disable:ఛార్జర్[auto]
+bouton.nom.-13:ప్రధాన మెనూకు తిరిగి వెళ్ళు[auto]
+bouton.nom.-14:quitter చీమ[auto]
+bouton.nom.-15:తిరిగి ఆడటానికి[auto]
 
 languageChoice:
 

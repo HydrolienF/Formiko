@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:محفوظ کریں[auto]
-bouton.nom.-11:اختیارات[auto]
-bouton.nom.-12disable:چارجر[auto]
-bouton.nom.-12:واپس مین مینو پر[auto]
-bouton.nom.-13:quitter چیونٹی[auto]
-bouton.nom.-14:کھیلنے کے لئے واپس[auto]
+bouton.nom.-12:اختیارات[auto]
+bouton.nom.-13disable:چارجر[auto]
+bouton.nom.-13:واپس مین مینو پر[auto]
+bouton.nom.-14:quitter چیونٹی[auto]
+bouton.nom.-15:کھیلنے کے لئے واپس[auto]
 
 languageChoice:
 

@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:fipamọ[auto]
-bouton.nom.-11:awọn aṣayan[auto]
-bouton.nom.-12disable:ṣaja[auto]
-bouton.nom.-12:pada si akojọ aṣayan akọkọ[auto]
-bouton.nom.-13:quitter Kokoro[auto]
-bouton.nom.-14:pada lati mu ṣiṣẹ[auto]
+bouton.nom.-12:awọn aṣayan[auto]
+bouton.nom.-13disable:ṣaja[auto]
+bouton.nom.-13:pada si akojọ aṣayan akọkọ[auto]
+bouton.nom.-14:quitter Kokoro[auto]
+bouton.nom.-15:pada lati mu ṣiṣẹ[auto]
 
 languageChoice:
 

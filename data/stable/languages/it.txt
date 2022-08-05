@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:salva[auto]
-bouton.nom.-11:opzioni[auto]
-bouton.nom.-12disable:caricabatterie[auto]
-bouton.nom.-12:indietro al menù principale[auto]
-bouton.nom.-13:quitter Ant[auto]
-bouton.nom.-14:torna a giocare[auto]
+bouton.nom.-12:opzioni[auto]
+bouton.nom.-13disable:caricabatterie[auto]
+bouton.nom.-13:indietro al menù principale[auto]
+bouton.nom.-14:quitter Ant[auto]
+bouton.nom.-15:torna a giocare[auto]
 
 languageChoice:
 

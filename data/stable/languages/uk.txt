@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:зберегти[auto]
-bouton.nom.-11:варіанти[auto]
-bouton.nom.-12disable:зарядний пристрій[auto]
-bouton.nom.-12:повернутися до головного меню[auto]
-bouton.nom.-13:кинув Мураха[auto]
-bouton.nom.-14:назад до гри[auto]
+bouton.nom.-12:варіанти[auto]
+bouton.nom.-13disable:зарядний пристрій[auto]
+bouton.nom.-13:повернутися до головного меню[auto]
+bouton.nom.-14:кинув Мураха[auto]
+bouton.nom.-15:назад до гри[auto]
 
 languageChoice:
 

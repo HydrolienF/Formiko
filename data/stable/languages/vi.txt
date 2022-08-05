@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:tiết kiệm[auto]
-bouton.nom.-11:tùy chọn[auto]
-bouton.nom.-12disable:bộ sạc[auto]
-bouton.nom.-12:trở lại menu chính[auto]
-bouton.nom.-13:kiến quitter[auto]
-bouton.nom.-14:trở lại chơi[auto]
+bouton.nom.-12:tùy chọn[auto]
+bouton.nom.-13disable:bộ sạc[auto]
+bouton.nom.-13:trở lại menu chính[auto]
+bouton.nom.-14:kiến quitter[auto]
+bouton.nom.-15:trở lại chơi[auto]
 
 languageChoice:
 

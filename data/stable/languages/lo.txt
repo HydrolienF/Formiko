@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:ປະຢັດ[auto]
-bouton.nom.-11:ທາງເລືອກ[auto]
-bouton.nom.-12disable:ເຄື່ອງຊາດ[auto]
-bouton.nom.-12:ກັບໄປທີ່ເມນູຫລັກ[auto]
-bouton.nom.-13:quitter Ant[auto]
-bouton.nom.-14:ກັບຄືນໄປບ່ອນຫຼິ້ນ[auto]
+bouton.nom.-12:ທາງເລືອກ[auto]
+bouton.nom.-13disable:ເຄື່ອງຊາດ[auto]
+bouton.nom.-13:ກັບໄປທີ່ເມນູຫລັກ[auto]
+bouton.nom.-14:quitter Ant[auto]
+bouton.nom.-15:ກັບຄືນໄປບ່ອນຫຼິ້ນ[auto]
 
 languageChoice:
 

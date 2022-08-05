@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:saqlash[auto]
-bouton.nom.-11:imkoniyatlari[auto]
-bouton.nom.-12disable:zaryadlovchi[auto]
-bouton.nom.-12:asosiy menyuga qaytish[auto]
-bouton.nom.-13:chumoli chumoli[auto]
-bouton.nom.-14:o'ynash uchun qaytib[auto]
+bouton.nom.-12:imkoniyatlari[auto]
+bouton.nom.-13disable:zaryadlovchi[auto]
+bouton.nom.-13:asosiy menyuga qaytish[auto]
+bouton.nom.-14:chumoli chumoli[auto]
+bouton.nom.-15:o'ynash uchun qaytib[auto]
 
 languageChoice:
 

@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:சேமி[auto]
-bouton.nom.-11:விருப்பங்கள்[auto]
-bouton.nom.-12disable:சார்ஜர்[auto]
-bouton.nom.-12:பிரதான மெனுவுக்குத் திரும்பு[auto]
-bouton.nom.-13:quitter எறும்பு[auto]
-bouton.nom.-14:மீண்டும் விளையாட[auto]
+bouton.nom.-12:விருப்பங்கள்[auto]
+bouton.nom.-13disable:சார்ஜர்[auto]
+bouton.nom.-13:பிரதான மெனுவுக்குத் திரும்பு[auto]
+bouton.nom.-14:quitter எறும்பு[auto]
+bouton.nom.-15:மீண்டும் விளையாட[auto]
 
 languageChoice:
 

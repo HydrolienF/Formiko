@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:ngahémat[auto]
-bouton.nom.-11:pilihan[auto]
-bouton.nom.-12disable:carjer[auto]
-bouton.nom.-12:deui kana ménu utami[auto]
-bouton.nom.-13:quitter Sireum[auto]
-bouton.nom.-14:deui maén[auto]
+bouton.nom.-12:pilihan[auto]
+bouton.nom.-13disable:carjer[auto]
+bouton.nom.-13:deui kana ménu utami[auto]
+bouton.nom.-14:quitter Sireum[auto]
+bouton.nom.-15:deui maén[auto]
 
 languageChoice:
 

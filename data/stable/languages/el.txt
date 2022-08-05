@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:σώσει[auto]
-bouton.nom.-11:επιλογές[auto]
-bouton.nom.-12disable:φορτιστής[auto]
-bouton.nom.-12:επιστροφή στο κύριο μενού[auto]
-bouton.nom.-13:εγκατάλειψη Ant[auto]
-bouton.nom.-14:πίσω στο παιχνίδι[auto]
+bouton.nom.-12:επιλογές[auto]
+bouton.nom.-13disable:φορτιστής[auto]
+bouton.nom.-13:επιστροφή στο κύριο μενού[auto]
+bouton.nom.-14:εγκατάλειψη Ant[auto]
+bouton.nom.-15:πίσω στο παιχνίδι[auto]
 
 languageChoice:
 

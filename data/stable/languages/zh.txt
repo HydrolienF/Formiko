@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:救[auto]
-bouton.nom.-11:选项[auto]
-bouton.nom.-12disable:充电器[auto]
-bouton.nom.-12:返回主菜单[auto]
-bouton.nom.-13:退出蚂蚁[auto]
-bouton.nom.-14:回到玩[auto]
+bouton.nom.-12:选项[auto]
+bouton.nom.-13disable:充电器[auto]
+bouton.nom.-13:返回主菜单[auto]
+bouton.nom.-14:退出蚂蚁[auto]
+bouton.nom.-15:回到玩[auto]
 
 languageChoice:
 

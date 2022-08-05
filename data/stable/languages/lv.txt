@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:saglabāt[auto]
-bouton.nom.-11:iespējas[auto]
-bouton.nom.-12disable:lādētājs[auto]
-bouton.nom.-12:atpakaļ uz galveno izvēlni[auto]
-bouton.nom.-13:atmest Ant[auto]
-bouton.nom.-14:atkal spēlēt[auto]
+bouton.nom.-12:iespējas[auto]
+bouton.nom.-13disable:lādētājs[auto]
+bouton.nom.-13:atpakaļ uz galveno izvēlni[auto]
+bouton.nom.-14:atmest Ant[auto]
+bouton.nom.-15:atkal spēlēt[auto]
 
 languageChoice:
 

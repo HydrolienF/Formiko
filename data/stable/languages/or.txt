@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:ସଞ୍ଚୟ କରନ୍ତୁ |[auto]
-bouton.nom.-11:ବିକଳ୍ପଗୁଡ଼ିକ[auto]
-bouton.nom.-12disable:ଚାର୍ଜର[auto]
-bouton.nom.-12:ମୁଖ୍ୟ ମେନୁକୁ ଫେରନ୍ତୁ |[auto]
-bouton.nom.-13:ant[auto]
-bouton.nom.-14:ଖେଳିବାକୁ ଫେରନ୍ତୁ |[auto]
+bouton.nom.-12:ବିକଳ୍ପଗୁଡ଼ିକ[auto]
+bouton.nom.-13disable:ଚାର୍ଜର[auto]
+bouton.nom.-13:ମୁଖ୍ୟ ମେନୁକୁ ଫେରନ୍ତୁ |[auto]
+bouton.nom.-14:ant[auto]
+bouton.nom.-15:ଖେଳିବାକୁ ଫେରନ୍ତୁ |[auto]
 
 languageChoice:
 

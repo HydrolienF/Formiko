@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:запази[auto]
-bouton.nom.-11:настроики[auto]
-bouton.nom.-12disable:зарядно устройство[auto]
-bouton.nom.-12:обратно към главното меню[auto]
-bouton.nom.-13:остави Ant[auto]
-bouton.nom.-14:обратно към игра[auto]
+bouton.nom.-12:настроики[auto]
+bouton.nom.-13disable:зарядно устройство[auto]
+bouton.nom.-13:обратно към главното меню[auto]
+bouton.nom.-14:остави Ant[auto]
+bouton.nom.-15:обратно към игра[auto]
 
 languageChoice:
 

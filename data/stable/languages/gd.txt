@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:sàbhail[auto]
-bouton.nom.-11:roghainnean[auto]
-bouton.nom.-12disable:charger[auto]
-bouton.nom.-12:air ais chun phrìomh chlàr[auto]
-bouton.nom.-13:quitter Ant[auto]
-bouton.nom.-14:air ais a chluich[auto]
+bouton.nom.-12:roghainnean[auto]
+bouton.nom.-13disable:charger[auto]
+bouton.nom.-13:air ais chun phrìomh chlàr[auto]
+bouton.nom.-14:quitter Ant[auto]
+bouton.nom.-15:air ais a chluich[auto]
 
 languageChoice:
 

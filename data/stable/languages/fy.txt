@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:rêde[auto]
-bouton.nom.-11:opsjes[auto]
-bouton.nom.-12disable:skûtel[auto]
-bouton.nom.-12:werom nei haadmenu[auto]
-bouton.nom.-13:quitter Ant[auto]
-bouton.nom.-14:werom te spyljen[auto]
+bouton.nom.-12:opsjes[auto]
+bouton.nom.-13disable:skûtel[auto]
+bouton.nom.-13:werom nei haadmenu[auto]
+bouton.nom.-14:quitter Ant[auto]
+bouton.nom.-15:werom te spyljen[auto]
 
 languageChoice:
 

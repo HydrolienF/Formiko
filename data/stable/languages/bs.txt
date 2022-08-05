@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:spasi[auto]
-bouton.nom.-11:opcije[auto]
-bouton.nom.-12disable:punjač[auto]
-bouton.nom.-12:povratak na glavni meni[auto]
-bouton.nom.-13:quitter Ant[auto]
-bouton.nom.-14:nazad za igru[auto]
+bouton.nom.-12:opcije[auto]
+bouton.nom.-13disable:punjač[auto]
+bouton.nom.-13:povratak na glavni meni[auto]
+bouton.nom.-14:quitter Ant[auto]
+bouton.nom.-15:nazad za igru[auto]
 
 languageChoice:
 

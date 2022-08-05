@@ -336,11 +336,12 @@ supportGameLink:subteni Formiko
 
 //bouton of PanneauEchap
 bouton.nom.-10:savi
-bouton.nom.-11:opcio
-bouton.nom.-12disable:ŝargi
-bouton.nom.-12:reiri al ĉefa menuo
-bouton.nom.-13:deiri Formiko
-bouton.nom.-14:reiri a la partio
+bouton.nom.-12:forlasi
+bouton.nom.-12:opcio
+bouton.nom.-13disable:ŝargi
+bouton.nom.-13:reiri al ĉefa menuo
+bouton.nom.-14:deiri Formiko
+bouton.nom.-15:reiri a la partio
 
 languageChoice:elekti lingvon
 

@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:salvare[auto]
-bouton.nom.-11:options[auto]
-bouton.nom.-12disable:patina[auto]
-bouton.nom.-12:in pelagus menu[auto]
-bouton.nom.-13:v. quitter[auto]
-bouton.nom.-14:in fabula[auto]
+bouton.nom.-12:options[auto]
+bouton.nom.-13disable:patina[auto]
+bouton.nom.-13:in pelagus menu[auto]
+bouton.nom.-14:v. quitter[auto]
+bouton.nom.-15:in fabula[auto]
 
 languageChoice:
 

@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:afa-tsy[auto]
-bouton.nom.-11:safidy[auto]
-bouton.nom.-12disable:dovia[auto]
-bouton.nom.-12:miverina amin'ny menio lehibe[auto]
-bouton.nom.-13:quitter Ant[auto]
-bouton.nom.-14:miverina milalao[auto]
+bouton.nom.-12:safidy[auto]
+bouton.nom.-13disable:dovia[auto]
+bouton.nom.-13:miverina amin'ny menio lehibe[auto]
+bouton.nom.-14:quitter Ant[auto]
+bouton.nom.-15:miverina milalao[auto]
 
 languageChoice:
 

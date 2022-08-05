@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:саклагыз[auto]
-bouton.nom.-11:вариантлары[auto]
-bouton.nom.-12disable:зарядлагыч[auto]
-bouton.nom.-12:төп менюга кире кайту[auto]
-bouton.nom.-13:кырмыска[auto]
-bouton.nom.-14:уйнарга[auto]
+bouton.nom.-12:вариантлары[auto]
+bouton.nom.-13disable:зарядлагыч[auto]
+bouton.nom.-13:төп менюга кире кайту[auto]
+bouton.nom.-14:кырмыска[auto]
+bouton.nom.-15:уйнарга[auto]
 
 languageChoice:
 

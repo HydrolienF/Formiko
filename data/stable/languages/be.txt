@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:захаваць[auto]
-bouton.nom.-11:варыянты[auto]
-bouton.nom.-12disable:зарадная прылада[auto]
-bouton.nom.-12:вярнуцца ў галоўнае меню[auto]
-bouton.nom.-13:кінуў Мурашка[auto]
-bouton.nom.-14:назад гуляць[auto]
+bouton.nom.-12:варыянты[auto]
+bouton.nom.-13disable:зарадная прылада[auto]
+bouton.nom.-13:вярнуцца ў галоўнае меню[auto]
+bouton.nom.-14:кінуў Мурашка[auto]
+bouton.nom.-15:назад гуляць[auto]
 
 languageChoice:
 

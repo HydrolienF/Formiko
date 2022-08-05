@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:صرفه جویی[auto]
-bouton.nom.-11:گزینه ها[auto]
-bouton.nom.-12disable:شارژر[auto]
-bouton.nom.-12:بازگشت به فهرست اصلی[auto]
-bouton.nom.-13:مورچه خوار[auto]
-bouton.nom.-14:برگشت به بازی[auto]
+bouton.nom.-12:گزینه ها[auto]
+bouton.nom.-13disable:شارژر[auto]
+bouton.nom.-13:بازگشت به فهرست اصلی[auto]
+bouton.nom.-14:مورچه خوار[auto]
+bouton.nom.-15:برگشت به بازی[auto]
 
 languageChoice:
 

@@ -336,11 +336,11 @@ supportGameLink:
 
 //bouton of PanneauEchap
 bouton.nom.-10:заштеди[auto]
-bouton.nom.-11:опции[auto]
-bouton.nom.-12disable:полнач[auto]
-bouton.nom.-12:назад во главното мени[auto]
-bouton.nom.-13:трескав мравка[auto]
-bouton.nom.-14:назад за игра[auto]
+bouton.nom.-12:опции[auto]
+bouton.nom.-13disable:полнач[auto]
+bouton.nom.-13:назад во главното мени[auto]
+bouton.nom.-14:трескав мравка[auto]
+bouton.nom.-15:назад за игра[auto]
 
 languageChoice:
 
