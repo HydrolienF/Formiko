@@ -553,7 +553,7 @@ public class FPanelCarte extends FPanel {
       }
     }catch (Exception e) {
       erreur.erreur("Fail to draw Case: "+x+" "+y+" because of "+e);
-      e.printStackTrace();
+      // e.printStackTrace();
     }
   }
   /**
@@ -969,6 +969,6 @@ public class FPanelCarte extends FPanel {
   }
 
   public boolean needToPaintAll(){
-    return Main.getPartie()!=null && Main.getPartie().getPartieFinie();
+    return Main.getPartie()!=null && Main.getPartie().getPartieFinie() && getView().getPfp()!=null;
   }
 }

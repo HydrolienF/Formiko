@@ -91,6 +91,7 @@ public class ViewGUI2d implements View {
   public FPanelDialogueInf getPdi(){return getPj().getPdi();}
   public FPanelMiniMapContainer getPmmc(){if(getPb()==null){return null;} return getPb().getPmmc();}
   public FPanelPanelMove getPmmo(){if(getPj()!=null){return getPj().getPmmo();}else{return null;}}
+  public FPanelFinPartie getPfp(){if(getPj()!=null){return getPj().getPfp();}else{return null;}}
   public int getCurentFPS(){return curentFPS;}
   public void setCurentFPS(int x){curentFPS=x;}
   public int getWidth(){if(getPp()==null){return 0;} return getPp().getWidth();}

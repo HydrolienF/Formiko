@@ -45,6 +45,7 @@ public class FPanelEchap extends FPanel{
       if(i==2){s=" ("+g.get("bientôt")+")";} //TODO #40 s'assurer que ce n'est plus utile puis le remove.
       tb[i]=new FButton(g.getM("bouton.nom."+(-10-i))+s,getView().getPj(),-10-i);
       if(i==2){tb[i].setEnabled(false);} //TODO #40 s'assurer que ce n'est plus utile puis le remove.
+      if(i==1 && Main.getPartie().getPartieFinie()){tb[i].setEnabled(false);}
       //tb[i].setBounds(0,FLabel.getDimY()*i*2,Main.getDimX()/4,FLabel.getDimY());
       // tb[i].setCFond(new Color(55, 255, 0));
       tb[i].setCFondUseAlpha(false); //TODO #40

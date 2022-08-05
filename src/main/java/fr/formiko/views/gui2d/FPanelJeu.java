@@ -57,6 +57,7 @@ public class FPanelJeu extends FPanel {
   public FPanelDialogue getPd(){return pd;}
   public FPanelDialogueInf getPdi(){return pdi;}
   public FPanelPanelMove getPmmo(){return pmmo;}
+  public FPanelFinPartie getPfp(){return pfp;}
   //get set transmis
   public void addPA(){ pb.addPA();}
   public void addPti(int x [], int y){pb.addPti(x,y);}
