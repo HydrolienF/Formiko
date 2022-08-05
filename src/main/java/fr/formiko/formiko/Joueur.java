@@ -24,13 +24,17 @@ public class Joueur implements Serializable{
   private boolean caseSombre [][];
   private boolean isTurnEnded;
   private static Joueur playingJoueur;
+  private boolean haveAbandon;
 
   // CONSTRUCTORS ----------------------------------------------------------------
-  //Principal
+  /**
+  *{@summary Main constructor.}<br>
+  */
   public Joueur (Fourmiliere fere, String pseudo, boolean ia){
     id = i; i++; gm = new GMessage();
     this.fere = fere; this.pseudo = pseudo; this.ia = ia;
     isTurnEnded=false;
+    haveAbandon=false;
   }
   //Auxiliaire
   public Joueur (int nbrDeFourmi, boolean ia, String pseudo, Carte mapo){
@@ -52,6 +56,9 @@ public class Joueur implements Serializable{
   public void setPseudo(String s){pseudo = s;}
   public Fourmiliere getFourmiliere(){return fere;}
   public Fourmiliere getFere(){ return getFourmiliere();}
+  /**
+  *{@summary Update Anthill &#38; Player of the Anthill.}<br>
+  */
   public void setFourmiliere(Fourmiliere nouvelleFourmiliere) {
     fere = nouvelleFourmiliere;
     nouvelleFourmiliere.setJoueur(this);
@@ -100,6 +107,11 @@ public class Joueur implements Serializable{
   }
   public static void setPlayingJoueur(Joueur j){playingJoueur=j;}
   public Espece getEspece(){return getFere().getEspece();}
+  public boolean haveLost(){
+    if(getFere()==null || getFere().getGc()==null){return false;}//something haven't been initialise
+    return (haveAbandon || getFere().getGc().isEmpty());
+  }
+  public void abandon(){haveAbandon=true;}
 // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String s = (ia) ? g.get("laIA") : g.get("laJoueurHumain");
@@ -128,13 +140,19 @@ public class Joueur implements Serializable{
     }else{
       Message m = new Message(pseudo+" "+g.get("débutTourIa"),id,6);
     }
-    if(Main.getGj().getJoueurHumain().length()>1 && !ia){
+    if(Main.getGj().filter(j -> !j.haveLost() && !j.isAI()).length()>1 && !ia){
       Main.setPlayingAnt(null);
       setPlayingJoueur(null);
       if(Main.getRetournerAuMenu()){return;}
       // if(Main.getView().getActionGameOn()){
+      if(!haveAbandon){
         Main.getView().popUpMessage(pseudo+" "+g.get("débutTourJoueur")+".");
+      }
       // }
+    }
+    if(haveAbandon){
+      System.out.println("end turn because have lost");
+      setIsTurnEnded(true);
     }
     fere.jouer();
     setPlayingJoueur(null);

@@ -31,20 +31,20 @@ public class FPanelEchap extends FPanel{
   /**
   *{@summary standard build methode.}
   *Disable all other panel #38; print this one with the 5 button.
-  *@lastEditedVersion 1.49
+  *@lastEditedVersion 2.30
   */
   public void build(){
     if(estContruit()){return;}
     //setBackground(new Color(50,50,50,100));
     getView().getPs().setSize(0,0);
     setSize(Main.getDimX(),Main.getDimY());
-    int lentb = 5;
+    int lentb = 6;
     tb = new FButton[lentb];
     for (int i=0;i<lentb ;i++ ) {
       String s ="";
-      if(i==1){s=" ("+g.get("bientôt")+")";} //TODO #40 s'assurer que ce n'est plus utile puis le remove.
+      if(i==2){s=" ("+g.get("bientôt")+")";} //TODO #40 s'assurer que ce n'est plus utile puis le remove.
       tb[i]=new FButton(g.getM("bouton.nom."+(-10-i))+s,getView().getPj(),-10-i);
-      if(i==1){tb[i].setEnabled(false);} //TODO s'assurer que ce n'est plus utile puis le remove.
+      if(i==2){tb[i].setEnabled(false);} //TODO #40 s'assurer que ce n'est plus utile puis le remove.
       //tb[i].setBounds(0,FLabel.getDimY()*i*2,Main.getDimX()/4,FLabel.getDimY());
       // tb[i].setCFond(new Color(55, 255, 0));
       tb[i].setCFondUseAlpha(false); //TODO #40

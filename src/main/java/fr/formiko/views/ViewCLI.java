@@ -167,7 +167,7 @@ public class ViewCLI implements View {
     tToPrint=sauvegarderUnePartie.listSave();
     if(tToPrint.length==0){return menuMain();}
     //add a line "backToMainMenu" to tToPrint.
-    tToPrint = tableau.addX(tToPrint,g.get("bouton.nom.-13"));
+    tToPrint = tableau.addX(tToPrint,g.get("bouton.nom.-14"));
     paint();
     int choice = getActionMenu(tToPrint.length);
     if(choice==tToPrint.length){

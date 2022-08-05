@@ -154,12 +154,20 @@ public class action {
       sauvegarderUnePartie.sauvegarder(Main.getPartie(),s+".save");
       // FPanel.getView().getPe().setVisible(false); //done in getSaveName()
     }else if(ac==-11){
-
+      System.out.println("abandonner");//@a
+      if(Main.getPlayingJoueur()==null){erreur.erreur("Can't abandon because current player is null.");}
+      else{
+        Main.getPlayingJoueur().abandon();
+        Main.getPlayingJoueur().setIsTurnEnded(true);
+      }
+      FPanel.getView().getPe().setVisible(false);
     }else if(ac==-12){
-      retournerAuMenu();
+      System.out.println("options");
     }else if(ac==-13){
-      Main.getF().quit();
+      retournerAuMenu();
     }else if(ac==-14){
+      Main.getF().quit();
+    }else if(ac==-15){
       FPanel.getView().getPe().setVisible(false);
     }
   }

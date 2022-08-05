@@ -271,9 +271,9 @@ public class Partie implements Serializable {
     if(getGj().plusQu1Joueur()){
       finDePartie(2);
     }
-    //si aucun joueur humain n'as de fourmi :
-    if(Main.getGj().filter(j -> j.getFere().getGc().length()!=0 && !j.isAI()).length()==0){
-      finDePartie(0); //0=défaite
+    //if any humain player still have ant & don't have abandon.
+    if(Main.getGj().filter(j -> !j.haveLost() && !j.isAI()).length()==0){
+      finDePartie(3); //0=défaite
     }
     //afichage
   }
@@ -283,20 +283,28 @@ public class Partie implements Serializable {
     if (partieFinie) {return;}//on n'affiche pas plusieur fois les info de fin de partie.
     setPartieFinie(true);
     boolean canResumeGame=true;
-    erreur.println(getTour()+"/"+getNbrDeTour());
+    erreur.info("turns "getTour()+"/"+getNbrDeTour());
     String victoire = g.get("victoireInconue");
     GJoueur gjSorted = getGj().getGjSorted();
     Joueur winner = null;
     String pseudo = "";
     if(gjSorted!=null){
-      winner = gjSorted.getFirst();
+      for (Joueur j : gjSorted) {
+        if(!j.haveLost()){
+          winner=j;
+          break;
+        }
+      }
       pseudo = winner.getPseudo();
     }
     if (x==2){
       victoire = g.get("élimination");
     } else if (x==1){
       // en théorie ici winner = joueur qui a le meilleur score.
-      victoire =  g.get("temps");
+      victoire = g.get("temps");
+      canResumeGame = false;
+    } else if (x==3){
+      victoire = g.get("playerSurrender");
       canResumeGame = false;
     }
     String mess = "";
