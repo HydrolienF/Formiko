@@ -50,6 +50,7 @@ public class Partie implements Serializable {
   private Fourmi playingAnt;
   private int antIdToPlay;
   private boolean launchingFromSave;
+  private Joueur winner;
 
   // CONSTRUCTORS --------------------------------------------------------------
   // nombre de joueur, nombre d'ia, abondance des insectes, niveau de difficulté des ia, les especes autorisé, le nombre de tour.
@@ -129,6 +130,7 @@ public class Partie implements Serializable {
   public void setAntIdToPlay(int x){antIdToPlay=x;}
   public boolean getLaunchingFromSave(){return launchingFromSave;}
   public void setLaunchingFromSave(boolean launchingFromSave){this.launchingFromSave=launchingFromSave;}
+  public Joueur getWinner(){return winner;}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     String r="";
@@ -283,10 +285,10 @@ public class Partie implements Serializable {
     if (partieFinie) {return;}//on n'affiche pas plusieur fois les info de fin de partie.
     setPartieFinie(true);
     boolean canResumeGame=true;
-    erreur.info("turns "getTour()+"/"+getNbrDeTour());
+    erreur.info("turns "+getTour()+"/"+getNbrDeTour());
     String victoire = g.get("victoireInconue");
     GJoueur gjSorted = getGj().getGjSorted();
-    Joueur winner = null;
+    winner = null;
     String pseudo = "";
     if(gjSorted!=null){
       for (Joueur j : gjSorted) {
@@ -295,7 +297,9 @@ public class Partie implements Serializable {
           break;
         }
       }
-      pseudo = winner.getPseudo();
+      if(winner!=null){
+        pseudo = winner.getPseudo();
+      }
     }
     if (x==2){
       victoire = g.get("élimination");
@@ -308,12 +312,12 @@ public class Partie implements Serializable {
       canResumeGame = false;
     }
     String mess = "";
-    if(x!=0){
+    if(x!=0 && !pseudo.equals("")){
       //g.getM("le")+" "+g.get("joueur")+" "
       mess=pseudo+" "+g.get("victoirePar")+" " + victoire+" !";
       new Message(mess);
     }else{
-      mess=g.getM("toutLesJoueurHumainsEliminés");
+      mess=g.getM("toutLesJoueurHumainsEliminés")+".";
       canResumeGame = false;
       new Message(mess);
     }

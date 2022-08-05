@@ -91,7 +91,7 @@ public class GJoueur extends Liste<Joueur> implements Serializable {
   *@lastEditedVersion 2.23
   */
   public int getNbrDeJoueurVivant(){
-    return filter(j -> j.getFere().getGc().length()!=0).length();
+    return filter(j -> !j.haveLost()).length();
   }
   /**
   *{@summary Return true if there is less that 2 player alive.}

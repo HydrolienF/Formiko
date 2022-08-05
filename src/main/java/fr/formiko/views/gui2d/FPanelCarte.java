@@ -261,6 +261,7 @@ public class FPanelCarte extends FPanel {
   *@lastEditedVersion 2.17
   */
   public boolean peintCaseNuageuse(int x, int y, Graphics g, int xT, int yT){
+    if(needToPaintAll()){return false;}
     Joueur jo = Main.getPlayingJoueur();
     if(Main.getPartie().getCarte().getCasesNuageuses()==true){ //si il y a des cases nuageuses
       try {
@@ -449,6 +450,9 @@ public class FPanelCarte extends FPanel {
     if(fi==null && Main.getPlayingJoueur()!=null && !Main.getPlayingJoueur().getFere().getGc().isEmpty()){
       fi = (Fourmi)Main.getPlayingJoueur().getFere().getGc().getFirst();
     }
+    if(Main.getPlayingJoueur()==null && Main.getPartie().getPartieFinie() && Main.getPartie().getWinner()!=null){
+      fi=(Fourmi)Main.getPartie().getWinner().getFere().getGc().getFirst();
+    }
     Point point = getPointFromCase(x,y,false);
     int xT = point.getX(); int yT = point.getY();
     int xT2 = (x)*getTailleDUneCase(); int yT2 = (y)*getTailleDUneCase();
@@ -474,7 +478,7 @@ public class FPanelCarte extends FPanel {
       }else{
         int k=0;
         //seeds
-        if(Main.getOp().getDrawSeeds() && (!Main.getOp().getDrawOnlyEatable() || Main.getPlayingJoueur().getEspece().getGranivore())){
+        if(Main.getOp().getDrawSeeds() && (!Main.getOp().getDrawOnlyEatable() || Main.getPlayingJoueur()==null || Main.getPlayingJoueur().getEspece().getGranivore())){
           for (Graine gr : gg) {
             calculerXYTemp(xT,yT,k,c);k++;
             int dir = getDir((ObjetSurCarteAId)gr);
@@ -529,13 +533,15 @@ public class FPanelCarte extends FPanel {
             }
           }
           //icons
-          listIconsRelation.add(getIconImage(cr, fi));
-          if(cr.getEstAllié(fi) && Main.getOp().getDrawStatesIconsLevel()<4){
-            listIconsState.add(getStatesIconsImages(cr));
+          if(fi!=null){
+            listIconsRelation.add(getIconImage(cr, fi));
+            if(cr.getEstAllié(fi) && Main.getOp().getDrawStatesIconsLevel()<4){
+              listIconsState.add(getStatesIconsImages(cr));
+            }
+            // drawIcon(g,getIconImage(cr, fi),xT,yT,tC2,kIcon++,cptIcon);
+            // if (!getIa() && playingJoueur().equals(c.getJoueur()))
+            // listIconsState.add()...
           }
-          // drawIcon(g,getIconImage(cr, fi),xT,yT,tC2,kIcon++,cptIcon);
-          // if (!getIa() && playingJoueur().equals(c.getJoueur()))
-          // listIconsState.add()...
         }
         //draw icons
         if (Main.getDrawRelationsIcons()){
@@ -546,7 +552,8 @@ public class FPanelCarte extends FPanel {
         }
       }
     }catch (Exception e) {
-      erreur.erreur("Fail to draw Case: "+x+" "+y);
+      erreur.erreur("Fail to draw Case: "+x+" "+y+" because of "+e);
+      e.printStackTrace();
     }
   }
   /**
@@ -556,7 +563,7 @@ public class FPanelCarte extends FPanel {
   public static boolean needToDraw(Creature cr){
     if(cr==null){return false;}
     Fourmi playingAntOrPlayingPlayerAnt = Main.getPlayingAnt();
-    if(playingAntOrPlayingPlayerAnt==null){
+    if(playingAntOrPlayingPlayerAnt==null && Main.getPlayingJoueur()!=null){
       playingAntOrPlayingPlayerAnt=(Fourmi)Main.getPlayingJoueur().getFere().getGc().getFirst();
     }
     if(playingAntOrPlayingPlayerAnt==null){return true;}
@@ -658,6 +665,7 @@ public class FPanelCarte extends FPanel {
   *@lastEditedVersion 1.46
   */
   private boolean isSombre(int x, int y){
+    if(needToPaintAll()){return false;}
     Joueur jo = Main.getPlayingJoueur();
     return jo==null || jo.getIa() || (Main.getPartie().getCarte().getCasesSombres() && jo.getCaseSombre(x,y));
   }
@@ -958,5 +966,9 @@ public class FPanelCarte extends FPanel {
     for (int i=0; i<tBiState.length; i++) {
       tBiState[i] = Images.resize(tBiState[i],size,size);
     }
+  }
+
+  public boolean needToPaintAll(){
+    return Main.getPartie()!=null && Main.getPartie().getPartieFinie();
   }
 }
