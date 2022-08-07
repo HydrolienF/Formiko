@@ -39,7 +39,7 @@ public class Data {
   //image
   private BufferedImage imgNull;
   private BufferedImage fere;
-  private BufferedImage cNuageuse,cSombre;
+  private BufferedImage cSombre;
   private BufferedImage b[];
   private BufferedImage tICarte[];
   private BufferedImage tIF[];
@@ -55,7 +55,7 @@ public class Data {
   //ini (this var sould not be modify in an other place than here.)
   private BufferedImage imgNullIni;
   private BufferedImage fereIni;
-  private BufferedImage cNuageuseIni,cSombreIni;
+  private BufferedImage cSombreIni;
   private BufferedImage bIni[];
   private BufferedImage tICarteIni[];
   private BufferedImage tIFIni[];
@@ -112,7 +112,6 @@ public class Data {
   public void setTailleDUneCase(int x){tailleDUneCase=x;}
   public BufferedImage getImgNull(){return imgNull;}
   public BufferedImage getFere(){return fere;}
-  public BufferedImage getCNuageuse(){return cNuageuse;}
   public BufferedImage getCSombre(){return cSombre;}
   public BufferedImage [] getB(){return b;}
   public BufferedImage [] getTICarte(){return tICarte;}
@@ -354,7 +353,6 @@ public class Data {
       imageTree = FImageTree.getScaledInstanceFromTree(imageTreeIni, tailleFourmi);
       tG=getScaledInstance(tGIni, tailleFourmi);
       fere = FImages.resize(fereIni,getTailleDUneCase()/2);
-      cNuageuse = FImages.resize(cNuageuseIni,getTailleDUneCase());
       cSombre = FImages.resize(cSombreIni,getTailleDUneCase());
       int lenb = bIni.length;
       b=getScaledInstance(bIni,getTailleIcon());
@@ -369,31 +367,24 @@ public class Data {
       if(!imageIni){
         erreur.info("load images from files");
         Main.startCh();
+
+        // way 1
         imgNullIni = FImages.getImage("null");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         chargerTI();
-        // tIIIni = chargerTX("I");
         tFIni = chargerTX("F",3,(byte)0,-3);
-        // iniAntColorIni();
-        // antLegIni = FImages.getImages("FLeg",FImages.getNbrImages("FLeg"),(byte)0);
         imageTreeIni = new FImageTree();
         imageTreeIni.folderToTree(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");
         iconMap = FImages.getImagesAsMap(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"icon/");
         iconMap = FImages.getScaledInstanceFromMap(iconMap, Main.getTailleElementGraphiqueY(30));
-        // antFAFIni = FImages.getImages("FAF",FImages.getNbrImages("FAF"),(byte)0);
-        // antFASIni = FImages.getImages("FAS",FImages.getNbrImages("FAS"),(byte)0);
         tGIni = FImages.getImages("seed",FImages.getNbrImages("seed"),(byte)0);
         fereIni = FImages.getImage("antnest");//.getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
-        cNuageuseIni = FImages.getImage("cNuageuse");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         cSombreIni = FImages.getImage("cSombre");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
         bIni = FImages.getImages("b"); int lenb = bIni.length;
-        /*for (int i=0;i<lenb ;i++ ) {
-          bIni[i]=bIni[i].getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
-        }*/
-        // try {
-          iniOtherImages();
-        // }catch (Exception e) {
-        //
-        // }
+        iniOtherImages();
+
+        // way 2
+
+
         Main.endCh("chargerImagesIni");
       }
       imageIni=true;
@@ -404,6 +395,9 @@ public class Data {
       }
       imageIniForNewGame=true;
     }
+
+    // class LoadImage extends
+    
     /**
     *{@summary Initialize all images that don't need to be resize.}
     *Image from otherImages can be acces by there name.
