@@ -967,7 +967,10 @@ public class FPanelCarte extends FPanel {
       tBiState[i] = Images.resize(tBiState[i],size,size);
     }
   }
-
+  /**
+  *{@summary Return true if we need to paint all the map regardless of playing ant.}<br>
+  *@lastEditedVersion 2.30
+  */
   public boolean needToPaintAll(){
     return Main.getPartie()!=null && Main.getPartie().getPartieFinie() && getView().getPfp()!=null;
   }
