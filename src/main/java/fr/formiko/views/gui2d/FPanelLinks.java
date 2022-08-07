@@ -31,7 +31,7 @@ public class FPanelLinks extends FPanel {
   *@lastEditedVersion 2.21
   */
   public void addButton(String buttonCodeName, String url){
-    Main.getData().iniOtherImages();
+    // Main.getData().iniOtherImages();
     FButtonLink bl = new FButtonLink(g.get(buttonCodeName), this, url, fr.formiko.usual.images.Images.resize(Main.getData().getImage(buttonCodeName), buttonSize, buttonSize));
     bl.setBounds(getWidth(), 0, buttonSize, buttonSize);
     add(bl);

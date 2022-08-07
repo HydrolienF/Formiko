@@ -6,6 +6,8 @@ import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Pheromone;
+import fr.formiko.formiko.images.FImageTree;
+import fr.formiko.formiko.images.FImages;
 import fr.formiko.usual.Folder;
 import fr.formiko.usual.Point;
 import fr.formiko.usual.debug;
@@ -13,17 +15,23 @@ import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
 import fr.formiko.usual.images.Img;
 import fr.formiko.usual.images.Pixel;
-import fr.formiko.formiko.images.FImages;
 import fr.formiko.usual.maths.allea;
 import fr.formiko.usual.maths.math;
-import fr.formiko.formiko.images.FImageTree;
 import fr.formiko.usual.types.str;
-import java.io.File;
 
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.TimeUnit;
 
 /**
 *{@summary Contain all data (images) that will be used by the graphic interface.}
@@ -95,6 +103,9 @@ public class Data {
   private Color buttonDisableColorWithoutAlpha = new Color(56, 56, 56);
   private Color buttonFocusColorWithoutAlpha = new Color(248, 152, 29);
   private Color butonBorderColor = new Color(19, 161, 14);
+
+  private int cptTaskDone;
+  private int numberOfTask;
 
   // CONSTRUCTORS --------------------------------------------------------------
   /**
@@ -336,56 +347,90 @@ public class Data {
     *{@summary Load image in map resolution.}<br>
     *If the original image have'nt been load, it will call chargerImagesIni.<br>
     *The images defined here have the rigth dimention for being used on the map.<br>
-    *@lastEditedVersion 2.6
+    *This function use multithreading to be faster.<br>
+    *@lastEditedVersion 2.30
     */
     public synchronized void chargerImages(){
       chargerImagesIni();
       Main.startCh();
       int tailleFourmi = (getTailleDUneCase()*4)/5;
       erreur.info("Update Image to size "+getTailleDUneCase(),8);
-      imgNull = FImages.resize(imgNullIni,getTailleDUneCase());
-      tICarte=getScaledInstance(tICarteIni, getTailleDUneCase());
+
+      // new way
+      List<Task> taskList = new ArrayList<Task>();
+
+      taskList.add(new Task(() -> imgNull = FImages.resize(imgNullIni,getTailleDUneCase())));
+      taskList.add(new Task(() -> tICarte=getScaledInstance(tICarteIni, getTailleDUneCase())));
+      taskList.add(new Task(() -> imageTree = FImageTree.getScaledInstanceFromTree(imageTreeIni, tailleFourmi)));
+      taskList.add(new Task(() -> tG=getScaledInstance(tGIni, tailleFourmi)));
+      taskList.add(new Task(() -> fere = FImages.resize(fereIni,getTailleDUneCase()/2)));
+      taskList.add(new Task(() -> cSombre = FImages.resize(cSombreIni,getTailleDUneCase())));
+      taskList.add(new Task(() -> b=getScaledInstance(bIni,getTailleIcon())));
+
+      launchTaskList(taskList);
+
+      // imgNull = FImages.resize(imgNullIni,getTailleDUneCase());
+      // tICarte=getScaledInstance(tICarteIni, getTailleDUneCase());
+      // imageTree = FImageTree.getScaledInstanceFromTree(imageTreeIni, tailleFourmi);
+      // tG=getScaledInstance(tGIni, tailleFourmi);
+      // fere = FImages.resize(fereIni,getTailleDUneCase()/2);
+      // cSombre = FImages.resize(cSombreIni,getTailleDUneCase());
+      // b=getScaledInstance(bIni,getTailleIcon());
+
       // tIF=getScaledInstance(tIFIni, tailleFourmi);
       // tII=getScaledInstance(tIIIni, tailleFourmi,2);//les insectes
       // tF=getScaledInstance(tFIni, tailleFourmi,1);//les Fourmis au différent stade.
       // antColor=getScaledInstance(antColorIni, tailleFourmi,0);//les Fourmis au différent stade.
       // antLeg=getScaledInstance(antLegIni, tailleFourmi/2,0);//les Fourmis au différent stade.
-      imageTree = FImageTree.getScaledInstanceFromTree(imageTreeIni, tailleFourmi);
-      tG=getScaledInstance(tGIni, tailleFourmi);
-      fere = FImages.resize(fereIni,getTailleDUneCase()/2);
-      cSombre = FImages.resize(cSombreIni,getTailleDUneCase());
-      int lenb = bIni.length;
-      b=getScaledInstance(bIni,getTailleIcon());
+
       Main.endCh("chargerImages");
     }
     /**
     *{@summary Load image in full resolution.}<br>
-    *Image need to be load in full resolution 1 time only. If it have alredy be done the function will do nothing.
-    *@lastEditedVersion 1.33
+    *Image need to be load in full resolution 1 time only. If it have alredy be done the function will do nothing.<br>
+    *This function use multithreading to be faster.<br>
+    *@lastEditedVersion 2.30
     */
     public synchronized void chargerImagesIni(){
       if(!imageIni){
         erreur.info("load images from files");
         Main.startCh();
 
-        // way 1
-        imgNullIni = FImages.getImage("null");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
-        chargerTI();
-        tFIni = chargerTX("F",3,(byte)0,-3);
-        imageTreeIni = new FImageTree();
-        imageTreeIni.folderToTree(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");
-        iconMap = FImages.getImagesAsMap(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"icon/");
-        iconMap = FImages.getScaledInstanceFromMap(iconMap, Main.getTailleElementGraphiqueY(30));
-        tGIni = FImages.getImages("seed",FImages.getNbrImages("seed"),(byte)0);
-        fereIni = FImages.getImage("antnest");//.getScaledInstance(tailleDUneCaseBase/2, tailleDUneCaseBase/2,scale);
-        cSombreIni = FImages.getImage("cSombre");//.getScaledInstance(tailleDUneCaseBase, tailleDUneCaseBase,scale);
-        bIni = FImages.getImages("b"); int lenb = bIni.length;
-        iniOtherImages();
+        // new way
+        List<Task> taskList = new ArrayList<Task>();
 
-        // way 2
+        taskList.add(new Task(() -> imgNullIni = FImages.getImage("null")));
+        taskList.add(new Task(() -> {chargerTI();}));
+        taskList.add(new Task(() -> tFIni = chargerTX("F",3,(byte)0,-3)));
+        taskList.add(new Task(() -> {imageTreeIni = new FImageTree();
+            imageTreeIni.folderToTree(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");}));
+        taskList.add(new Task(() -> {iconMap = FImages.getImagesAsMap(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"icon/");
+            iconMap = FImages.getScaledInstanceFromMap(iconMap, Main.getTailleElementGraphiqueY(30));}));
+        taskList.add(new Task(() -> tGIni = FImages.getImages("seed",FImages.getNbrImages("seed"),(byte)0)));
+        taskList.add(new Task(() -> fereIni = FImages.getImage("antnest")));
+        taskList.add(new Task(() -> cSombreIni = FImages.getImage("cSombre")));
+        taskList.add(new Task(() -> bIni = FImages.getImages("b")));
+        taskList.add(new Task(() -> {iniOtherImages();}));
+        // taskList.add(new Task(() -> ));
 
+        launchTaskList(taskList);
+
+        // not multithread way
+        // imgNullIni = FImages.getImage("null");
+        // chargerTI();
+        // tFIni = chargerTX("F",3,(byte)0,-3);
+        // imageTreeIni = new FImageTree();
+        // imageTreeIni.folderToTree(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");
+        // iconMap = FImages.getImagesAsMap(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"icon/");
+        // iconMap = FImages.getScaledInstanceFromMap(iconMap, Main.getTailleElementGraphiqueY(30));
+        // tGIni = FImages.getImages("seed",FImages.getNbrImages("seed"),(byte)0);
+        // fereIni = FImages.getImage("antnest");
+        // cSombreIni = FImages.getImage("cSombre");
+        // bIni = FImages.getImages("b");
+        // iniOtherImages();
 
         Main.endCh("chargerImagesIni");
+
       }
       imageIni=true;
       if(!imageIniForNewGame){
@@ -395,15 +440,79 @@ public class Data {
       }
       imageIniForNewGame=true;
     }
+    /**
+    *{@summary Launch a task list.}<br>
+    *This function use multithreading to be faster.<br>
+    *@param taskList task list to launch
+    *@lastEditedVersion 2.30
+    */
+    public void launchTaskList(List<Task> taskList){
+      ExecutorService executor = Executors.newCachedThreadPool();
+      List<Future<Object>> futureList = new ArrayList<Future<Object>>();
+      cptTaskDone=0;
+      numberOfTask = taskList.size();
+      try {
+        futureList = executor.invokeAll(taskList, 10, TimeUnit.SECONDS);
+      }catch (InterruptedException | NullPointerException | RejectedExecutionException e) {
+        erreur.erreur("Fail to load images from file in multithread because of "+e);
+      }
+      executor.shutdown();
+      int cptTaskWorked=0;
+      for(Future<Object> fut : futureList){
+        if(fut.isDone()){
+          cptTaskWorked++;
+        }
+      }
 
-    // class LoadImage extends
-    
+      if(cptTaskWorked!=numberOfTask){
+        erreur.erreur((numberOfTask-cptTaskWorked)+" load image tasks fail to be done");
+      }
+    }
+
+    /**
+    *{@summary Update the number of task done to +1.}<br>
+    *@lastEditedVersion 2.30
+    */
+    public void oneMoreTaskDone(){
+      // TODO synchronized on something else than this (as a Progression for exemple).
+      cptTaskDone++;
+      // erreur.println("done : "+cptTaskDone+"/"+numberOfTask);
+    }
+
+    /**
+    *{@summary Callable task.}<br>
+    *It is used to be run with multithreading.<br>
+    *@lastEditedVersion 2.30
+    *@author Hydrolien
+    */
+    class Task implements Callable<Object> {
+      private final Runnable r;
+      /**
+      *{@summary Main constructor with the task to run as a Runnable.}<br>
+      *@param r task to run
+      *@lastEditedVersion 2.30
+      */
+      public Task(Runnable r){
+        this.r=r;
+      }
+      /**
+      *{@summary Run the task &#38; update counter of task done.}<br>
+      *@lastEditedVersion 2.30
+      */
+      @Override
+      public Object call() throws Exception {
+        r.run();
+        oneMoreTaskDone();
+        return null;
+      }
+    }
+
     /**
     *{@summary Initialize all images that don't need to be resize.}
     *Image from otherImages can be acces by there name.
     *@lastEditedVersion 2.21
     */
-    public synchronized void iniOtherImages(){
+    public void iniOtherImages(){
       if(otherImages!=null){return;}
       otherImages =  new HashMap<String, BufferedImage>();
       File dir = new File(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"other/");
