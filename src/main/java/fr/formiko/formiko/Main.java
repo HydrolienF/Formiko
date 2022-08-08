@@ -159,7 +159,7 @@ public class Main {
     iniLaunch();
     if(mp==null){
       mp = new MusicPlayer(getFolder(), getOp().getBMusic(), getOp().getVolMusic());
-      if(getFirstGame()){
+      if(getFirstGame() || getFolder().needToDownloadMusic()){
         getFolder().downloadMusicData(mp);
         mp.addNextMusic("Ride of the Valkyries - Wagner.mp3", true);
       }
