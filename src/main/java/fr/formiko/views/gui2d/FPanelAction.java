@@ -95,9 +95,10 @@ public class FPanelAction extends FPanel {
   }
   /**
   *{@summary Change default color for auto mode buttons.}
-  *@lastEditedVersion 2.5
+  *@lastEditedVersion 2.30
   */
   public void paintAutoButton(){
+    if(tAutoB==null || tAutoB.length<2 || tAutoB[0]==null || tAutoB[1]==null){return;}
     if(Main.getPlayingAnt()!=null && Main.getPlayingAnt().getMode()==0){
       tAutoB[0].setIsYellow(true);
     }else{
