@@ -27,7 +27,7 @@ public class FFrameLauncher extends FFrame {
   */
   public FFrameLauncher(){
     super("Formiko Launcher", (int)(getScreenWidth()/2.5), (int)(getScreenHeight()/2.5), false);
-    if(!IS_UIMANAGER_INI){iniUImanager();}
+    iniUImanager();
     pl = new FPanelLauncher(getWidth(), getHeight()-40,-10, 110);
     setContentPane(pl);
     endIni();
@@ -43,6 +43,7 @@ public class FFrameLauncher extends FFrame {
   *@lastEditedVersion 2.7
   */
   public static void iniUImanager(){
+    if(IS_UIMANAGER_INI){return;}
     // UIManager.put("ProgressBar.background", Main.getData().getButtonColor(3));
     UIManager.put("ProgressBar.foreground", Main.getData().getButtonColor(0));
     // UIManager.put("ProgressBar.selectionBackground", Color.RED);

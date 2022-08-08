@@ -64,7 +64,7 @@ public class Main {
 
   private static boolean modeCLI=false;
 
-  private static int cptMessageChargement=0;
+  private static int cptMessageChargement;
   private static MusicPlayer mp;
 
   private static boolean needToInitialize; //TODO OP use to avoid using op==null
@@ -153,7 +153,7 @@ public class Main {
   }
   /**
    * {@summary Launch in the void main if there is not other args than -something (ex : -d).}<br>
-   * @lastEditedVersion 1.44
+   * @lastEditedVersion 2.30
    */
   public static boolean launch(){
     iniLaunch();
@@ -301,6 +301,7 @@ public class Main {
       erreur.setLogFileMode(true);
     }
   }
+  public static void iniCptMessageChargement(){cptMessageChargement=0;}
   // Fonctions propre -------------------------------------------------
   /**
    * Initializes Options, key, language, time data, musique, os value. And check the integrity of the file tree.
@@ -391,17 +392,28 @@ public class Main {
     endCh("chargementDesLangues");
   }
   /**
-   * {@summary Print on the window a message about game loading.}<br>
-   * If you tried to use it before the creating of a new FPanelChargement, message will not appear on the window.
-   * @lastEditedVersion 1.46
-   */
-  public static void setMessageChargement(String key){
-    int percentageDone = (100*cptMessageChargement) / 7;
+  *{@summary Print on the window a message about game loading.}<br>
+  *If you tried to use it before the creating of a new FPanelChargement, message will not appear on the window.
+  *@param key the key of the message to print (or the message itself)
+  *@param last if true, loading bar need to be set to max value
+  *@lastEditedVersion 2.30
+  */
+  public static void setMessageChargement(String key, boolean last){
+    int percentageDone = (100*cptMessageChargement) / 10;
     cptMessageChargement++;
     String message = g.getM(key);
+    if(last){percentageDone=100;}
     if(percentageDone<100){message+="...";}
+    if(percentageDone>100){percentageDone=100;}
     getView().loadingMessage(message, percentageDone);
   }
+  /***
+  *{@summary Print on the window a message about game loading.}<br>
+  *If you tried to use it before the creating of a new FPanelChargement, message will not appear on the window.
+  *@param key the key of the message to print (or the message itself)
+  *@lastEditedVersion 2.30
+  */
+  public static void setMessageChargement(String key){setMessageChargement(key, false);}
   //chrono shortcut
   public static void startCh(){Chrono.startCh();}
   /**

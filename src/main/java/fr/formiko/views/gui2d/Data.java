@@ -399,18 +399,18 @@ public class Data {
         // new way
         List<Task> taskList = new ArrayList<Task>();
 
-        taskList.add(new Task(() -> imgNullIni = FImages.getImage("null")));
-        taskList.add(new Task(() -> {chargerTI();}));
-        taskList.add(new Task(() -> tFIni = chargerTX("F",3,(byte)0,-3)));
         taskList.add(new Task(() -> {imageTreeIni = new FImageTree();
             imageTreeIni.folderToTree(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"Creature/");}));
         taskList.add(new Task(() -> {iconMap = FImages.getImagesAsMap(Main.getFolder().getFolderStable()+Main.getFolder().getFolderImages()+"icon/");
             iconMap = FImages.getScaledInstanceFromMap(iconMap, Main.getTailleElementGraphiqueY(30));}));
+        taskList.add(new Task(() -> {chargerTI();}));
+        taskList.add(new Task(() -> tFIni = chargerTX("F",3,(byte)0,-3)));
         taskList.add(new Task(() -> tGIni = FImages.getImages("seed",FImages.getNbrImages("seed"),(byte)0)));
-        taskList.add(new Task(() -> fereIni = FImages.getImage("antnest")));
-        taskList.add(new Task(() -> cSombreIni = FImages.getImage("cSombre")));
         taskList.add(new Task(() -> bIni = FImages.getImages("b")));
         taskList.add(new Task(() -> {iniOtherImages();}));
+        taskList.add(new Task(() -> fereIni = FImages.getImage("antnest")));
+        taskList.add(new Task(() -> cSombreIni = FImages.getImage("cSombre")));
+        taskList.add(new Task(() -> imgNullIni = FImages.getImage("null")));
         // taskList.add(new Task(() -> ));
 
         launchTaskList(taskList);
@@ -477,6 +477,7 @@ public class Data {
       // TODO synchronized on something else than this (as a Progression for exemple).
       cptTaskDone++;
       // erreur.println("done : "+cptTaskDone+"/"+numberOfTask);
+      Main.setMessageChargement(g.getM("chargementDesGraphismes")+" "+cptTaskDone+"/"+numberOfTask);
     }
 
     /**

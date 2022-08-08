@@ -287,7 +287,7 @@ public class ViewCLI implements View {
     tToPrint = tab;
     String s = g.get("chargementFini");
     if (debug.getPerformance()==true){s=s +" "+ "("+Time.msToS(Main.getLonTotal())+")";}
-    Main.setMessageChargement(s);
+    Main.setMessageChargement(s, true);
     Main.getPartie().launchGame(); //MAIN GAME PART
     //after a game :
     Main.setPartie(null);

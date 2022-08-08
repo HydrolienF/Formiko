@@ -9,6 +9,7 @@ import fr.formiko.usual.images.Images;
 import fr.formiko.usual.maths.allea;
 import fr.formiko.usual.structures.listes.GString;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -26,6 +27,7 @@ public class FPanelChargement extends FPanel {
   private FPanelCheckFunction pcf;
   private boolean lancer;
   private FButton bt;
+  private FProgressBar progressBar;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor that add message &#38; advice.}<br>
@@ -40,7 +42,14 @@ public class FPanelChargement extends FPanel {
     bt=null;
   }
   // GET SET -------------------------------------------------------------------
-  public void setTexte(String s){ message.setTexte(s);}
+  public void setTexte(String s){message.setTexte(s);}
+  /**
+  *{@summary Update the percentage done of the ProgressBar for loading game status.}<br>
+  *@lastEditedVersion 2.30
+  */
+  public void setPercentageDone(int percentageDone){
+    progressBar.setValue(percentageDone);
+  }
   public boolean getLancer(){return lancer;}
   public void setLancer(boolean b){lancer=b;}
   public boolean canBeClose(){return bt!=null;}
@@ -79,7 +88,13 @@ public class FPanelChargement extends FPanel {
     int xx = Main.getF().getWidth()/5;
     int yy = Main.getF().getHeight()/5;
     message.setBounds(xx,yy*4-Main.getFontSizeText(),xx*3);
+    message.setBackground(new Color(0,0,0,0));
+    message.setOpaque(false);
     add(message);
+    progressBar = new FProgressBar();
+    progressBar.setMaximum(100);
+    progressBar.setBounds(xx,yy*4-Main.getFontSizeText(),xx*3, FLabel.getDimY());
+    add(progressBar);
   }
   /**
   *{@summary Add an advice.}<br>
@@ -124,6 +139,7 @@ public class FPanelChargement extends FPanel {
   @Override
   public void setVisible(boolean visible){
     if(visible){
+      Main.iniCptMessageChargement();
       Main.getData().loadImageChargement();
     }
     super.setVisible(visible);

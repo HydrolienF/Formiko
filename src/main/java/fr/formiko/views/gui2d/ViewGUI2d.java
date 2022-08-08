@@ -117,6 +117,7 @@ public class ViewGUI2d implements View {
     iniThTriche();
     iniDiscordIntergation();
     Main.getData().setImageIniForNewGame(false);//force reload of ant images.
+    FFrameLauncher.iniUImanager();
     Main.endCh("iniView");Main.startCh();
     ini.initializeEmptyFPanel();
     Main.endCh("chargementFPanelVide");
@@ -302,7 +303,7 @@ public class ViewGUI2d implements View {
     // if (debug.getPerformance()==true){s=s +" "+ "("+Time.msToS(Main.getLonTotal())+")";}
     chLoading.stop();
     s=s +" "+ "("+Time.msToS(chLoading.getDuree())+")";
-    Main.setMessageChargement(s);
+    Main.setMessageChargement(s, true);
     if(!Main.getOp().getWhaitBeforeLaunchGame() || Main.getFirstGame() || !Main.getOpenMenuFirst()){
       closeFPanelChargement();
       paint();
@@ -483,8 +484,8 @@ public class ViewGUI2d implements View {
   */
   public void loadingMessage(String message, int percentageDone){
     if (getPch()==null) {return;}
-    //TODO update barre de chargement with percentageDone
     getPch().setTexte(message);
+    getPch().setPercentageDone(percentageDone);
   }
   /**
   *{@summary Print a message in a new window.}<br>
