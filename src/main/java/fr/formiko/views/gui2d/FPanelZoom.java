@@ -87,6 +87,6 @@ public class FPanelZoom extends FPanel {
     setSize(tailleBouton*4,tailleBouton);
   }
   public void doAction(byte ac){
-    FPanel.getView().getPj().doAction(ac);
+    action.doAction(ac);
   }public void doAction(int ac){ doAction((byte)ac);}
 }

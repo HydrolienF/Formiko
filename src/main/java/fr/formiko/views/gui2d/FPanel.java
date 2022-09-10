@@ -24,12 +24,21 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+/**
+*{@summary Formiko JPanel implementation.}<br>
+*@author Hydrolien
+*@lastEditedVersion 2.30
+*/
 public class FPanel extends JPanel {
-  private static final long serialVersionUID = -3227223889149566494L;
   private static int cptId=0;
   protected final int id;
 
   // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor.}<br>
+  *It have an id, a null layout &#38; is translucent
+  *@lastEditedVersion 2.30
+  */
   public FPanel(){
     super();
     id=cptId++;
@@ -37,13 +46,6 @@ public class FPanel extends JPanel {
     setOpaque(false);
   }
   // GET SET -------------------------------------------------------------------
-  //public int getTailleDUneSquare(){return tailleDUneSquare;}
-  //public void setTailleDUneSquare(int x){tailleDUneSquare = x;}
-  //public int getEspaceRéservéBas(){return espaceRéservéBas;}
-  //public void setEspaceRéservéBas(int x){espaceRéservéBas = x;}
-  //public void setXSquare(int x){xSquare = x;}
-  //public void setYSquare(int y){ySquare = y;}
-  public BListener getBListener(){return new BListener();}
   public Data getData(){return Main.getData();}
   public static ViewGUI2d getView(){return (ViewGUI2d)(Main.getView());}
   // FUNCTIONS -----------------------------------------------------------------
@@ -61,9 +63,14 @@ public class FPanel extends JPanel {
       g.drawRect(0,0,getWidth(),getHeight());
     }
   }
+  /**
+  *{@summary toString with id.}<br>
+  *@lastEditedVersion 2.30
+  */
   @Override
   public String toString(){
-    String r = id+" "+super.toString()+" components: \n";
+    String r = id+" "+super.toString();
+    // r+=" components: \n";
     // for (Component c : getComponents()) {
     //   r+=c.toString();
     // }
@@ -78,19 +85,6 @@ public class FPanel extends JPanel {
   public void remove(Component c){
     if(c!=null){
       super.remove(c);
-    }
-  }
-  public void doAction(int ac){
-    action.doAction(ac);
-  }
-
-
-  class BListener implements ActionListener{
-    private int compteur=0;
-    //Redéfinition de la méthode actionPerformed()
-    public void actionPerformed(ActionEvent arg0) {
-      //Lorsque l'on clique sur le bouton, on met à jour le JLabel
-      compteur++;
     }
   }
 }
