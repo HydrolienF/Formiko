@@ -11,23 +11,22 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseListener;
 
-public class BoutonLong extends FButton implements MouseListener {
-  private static final long serialVersionUID = 221957878284545578L;
-  private static int xBL; private static int yBL;
-  //private static Color col = new Color(200,200,200,0);
+/**
+*{@summary Long button class used by menu.}
+*@lastEditedVersion 2.30
+*@author Hydrolien
+*/
+public class FButtonLong extends FButton implements MouseListener {
   // CONSTRUCTORS --------------------------------------------------------------
-  public BoutonLong(String nameTemp, FPanel p, int action){
+  /**
+  *{@summary Main constructor.}
+  *@lastEditedVersion 2.30
+  */
+  public FButtonLong(String nameTemp, FPanel p, int action){
     super(nameTemp,p,action);
-    setPreferredSize(new Dimension(xBL,yBL));
     setFont(Main.getOp().getFontTitle(nameTemp));
-    //this.setBackground(Color.BLUE); //couleur non visible.
-    //this.setForeground(Color.RED); //couleur du texte et des contours
   }
   // GET SET -------------------------------------------------------------------
-  public static int getXBL(){ return xBL;}
-  public static void setXBL(int x){xBL=x;}
-  public static int getYBL(){ return yBL;}
-  public static void setYBL(int y){yBL=y;}
   /**
   *{@summary set nom &#38; update font if it can't print all the char.}
   *@lastEditedVersion 2.11
@@ -38,10 +37,4 @@ public class BoutonLong extends FButton implements MouseListener {
     setFont(Main.getOp().getFontTitle(s));
   }
   // FUNCTIONS -----------------------------------------------------------------
-  // private static String stripAccentIfNeed(String nameTemp){
-  //   if(Main.getOp().getFontTitlePersonalised()){
-  //     return str.stripAccents(nameTemp);
-  //   }
-  //   return nameTemp;
-  // }
 }

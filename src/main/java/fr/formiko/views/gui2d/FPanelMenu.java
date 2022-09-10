@@ -36,7 +36,7 @@ import javax.swing.SwingUtilities;
 *@lastEditedVersion 1.44
 */
 public class FPanelMenu extends FPanel {
-  private BoutonLong b[]=null;
+  private FButtonLong b[]=null;
   private byte menu;
   // private boolean lancer = false;
   private FPanelNouvellePartie pnp;
@@ -284,26 +284,24 @@ public class FPanelMenu extends FPanel {
   /**
   *{@summary Create the main buttons of the panel.}<br>
   *@param nbrOfButtons the number of buttons.
-  *@lastEditedVersion 1.44
+  *@lastEditedVersion 2.30
   */
   private void createButton(int nbrOfButtons){
     int xT = Main.getDimX(); int yT = Main.getDimY();
     // this.setLayout(null);
     char c = 'P'; if(menu==1){c='N';}if(menu==2){c='M';}
-    Double part = 4 + 1.5*nbrOfButtons;
+    double spaceForAButton = 1.5;
+    double part = 4 + spaceForAButton*nbrOfButtons;
     //3 part avant les boutons, 2 part après les boutons, 1 pour chaque bouton et 1/2 entre chaque bouton.
     int tailleBoutonX = xT/2;
     int tailleBoutonY = (int)(yT/part);
-    BoutonLong.setXBL(tailleBoutonX);
-    BoutonLong.setYBL(tailleBoutonY);
     int posX = xT/4;
     int posY = tailleBoutonY*3;
-    b = new BoutonLong[nbrOfButtons];
-    b[0] = new BoutonLong(g.get("menu"+c+"."+1),this,1);
-    Dimension dim = b[0].getPreferredSize();
+    b = new FButtonLong[nbrOfButtons];
+    b[0] = new FButtonLong(g.get("menu"+c+"."+1),this,1);
     for (int i=0;i<nbrOfButtons ;i++ ) {
-      b[i] = new BoutonLong(g.get("menu"+c+"."+i+1),this,i+1);
-      b[i].setBounds(posX,posY+(int)(i*tailleBoutonY*1.5),(int)dim.getWidth(),(int)dim.getHeight());
+      b[i] = new FButtonLong(g.get("menu"+c+"."+i+1),this,i+1);
+      b[i].setBounds(posX,posY+(int)(i*tailleBoutonY*spaceForAButton),tailleBoutonX,tailleBoutonY);
     }
   }
   /**

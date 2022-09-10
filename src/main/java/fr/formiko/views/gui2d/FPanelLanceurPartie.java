@@ -11,28 +11,26 @@ import java.awt.Graphics;
 *{@summary A partie launcher Panel.}<br>
 *It have a big "launch game" button.
 *@author Hydrolien
-*@lastEditedVersion 1.x
+*@lastEditedVersion 2.30
 */
 public abstract class FPanelLanceurPartie extends FPanel{
-  private BoutonLong launchButton;
+  private FButtonLong launchButton;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor.}<br>
   *It only build a launch button &#38; place it.
   *@param ac action of the launch button
-  *@lastEditedVersion 1.x
+  *@lastEditedVersion 2.30
   */
   public FPanelLanceurPartie(int ac){
     this.setLayout(null);
-    launchButton = new BoutonLong(g.getM("lancerPartie"),getView().getPm(),ac);
+    launchButton = new FButtonLong(g.getM("lancerPartie"),getView().getPm(),ac);
     add(launchButton);
-    int wi = Main.getDimX();
-    int he = Main.getDimY();
-    int wi2 = wi/2;
-    launchButton.setBounds(wi2/2,Main.getDimY()-launchButton.getYBL(),wi2,launchButton.getYBL());
+    int helb = Main.getDimY()/10;
+    launchButton.setBounds(Main.getDimX()/4,Main.getDimY()-helb,Main.getDimX()/2,helb);
   }
   // GET SET -------------------------------------------------------------------
-  public BoutonLong getLaunchButton(){return launchButton;}
+  public FButtonLong getLaunchButton(){return launchButton;}
   // FUNCTIONS -----------------------------------------------------------------
   public abstract Partie getPartie();
 }
