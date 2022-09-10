@@ -70,7 +70,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
     *{@summary Standard Builder for this.}<br>
     *@lastEditedVersion 2.18
     */
-    public FPanelInfoBuilder addCreaturesOnSameCase(Creature c){
+    public FPanelInfoBuilder addCreaturesOnSameSquare(Creature c){
       this.c=c;
       return this;
     }
@@ -92,7 +92,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
     //private
     /**
     *{@summary Add all info from the Creatre.}<br>
-    *Info are mostly the other Creature on the same Case.
+    *Info are mostly the other Creature on the same Square.
     *@lastEditedVersion 2.18
     */
     private void addGCreatureInfo(){
@@ -102,7 +102,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
         return;
       }
       Fourmi f = (Fourmi)c;
-      GCreature gc = c.getCase().getSortedGc(f);
+      GCreature gc = c.getSquare().getSortedGc(f);
       for (Creature ct : gc) {
         if(FPanelCarte.needToDraw(c)){
           BufferedImage bi = Main.getData().getCreatureImage(ct);
@@ -114,7 +114,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
         }
       }
       if(Main.getOp().getDrawSeeds() && (!Main.getOp().getDrawOnlyEatable() || Main.getPlayingJoueur().getEspece().getGranivore())){
-        for (Graine s : c.getCase().getGg()) {
+        for (Graine s : c.getSquare().getGg()) {
           BufferedImage bi = Main.getData().getGraineImage(s);
           bi = Images.resize(bi, yByElement-boderFPanelObjetAId*2);
           Images.editAllPixels(bi, fctAlpha);

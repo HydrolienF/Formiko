@@ -20,7 +20,7 @@ public class Fourmiliere implements Serializable{
   /** Unique id of the Fourmiliere. */
   private final int id;
   /** Place on the map */
-  private CCase ccase;
+  private CSquare ccase;
   /** Player that own this */
   private Joueur joueur;
   /** Liste of the Creature own by the Fourmiliere */
@@ -34,7 +34,7 @@ public class Fourmiliere implements Serializable{
   private boolean waitingForEndTurn;
 
   // CONSTRUCTEUR
-  public Fourmiliere(CCase ccase, Joueur j){
+  public Fourmiliere(CSquare ccase, Joueur j){
     id = idCpt; idCpt++;
     nbrFourmisMorte=0;
     //modeDéfaut=3;
@@ -42,11 +42,11 @@ public class Fourmiliere implements Serializable{
     if (ccase==null){
       erreur.erreur("Impossible de créer une fourmilière sur une case null",true);
     }
-    debug.débogage("Placement de la Fourmiliere dans la Case.");
+    debug.débogage("Placement de la Fourmiliere dans la Square.");
     if (ccase!=null && ccase.getContent().getFere() != null){
       int k=0;
       do {
-        ccase = Main.getGc().getCCaseAlléa();
+        ccase = Main.getGc().getCSquareAlléa();
         k++;
         if(k==100){erreur.alerte("Impossible de créer une fourmilière sur une case qui en contient déjà une ! Déjà 100 tentative de placement","Choix d'une autre case alléatoire.");}
       } while (ccase.getContent().getFere() != null);
@@ -58,42 +58,42 @@ public class Fourmiliere implements Serializable{
     gg = new GGraine();
   }
   public Fourmiliere(Joueur j, Carte mapo){
-    this(mapo.getGc().getCCaseAlléa(),j);
+    this(mapo.getGc().getCSquareAlléa(),j);
   }
 
   public Fourmiliere(int taille, Joueur j, Carte mapo){
     this(j, mapo);
     int x = allea.getAlléaDansTableau(Main.getAvaibleSpecies());
     if(!j.getIa()){x=0;}// TOREMOVE #74 les joueurs ne joue que des Lasius Niger
-    gc = new GCreature(taille, this,Main.getGEspece().getEspeceById(x),getCCase());
+    gc = new GCreature(taille, this,Main.getGEspece().getEspeceById(x),getCSquare());
   }
   public Fourmiliere(int taille, Joueur j){ this(taille,j,Main.getCarte());}
-  public Fourmiliere() {this(((CCase)(null)),null);} //Only for test
+  public Fourmiliere() {this(((CSquare)(null)),null);} //Only for test
   // GET SET ----------------------------------------------------------------------
   public int getId(){return id;}
-  public Point getP(){return getCCase().getContent().getP();}
+  public Point getP(){return getCSquare().getContent().getP();}
   public Point getPoint(){return getP();}
-  public CCase getCc(){return ccase;}
-  public CCase getCCase(){return getCc();}
+  public CSquare getCc(){return ccase;}
+  public CSquare getCSquare(){return getCc();}
   /**
   *{@summary Move the anthill from a case to an other.}<br>
   *It will not add a Fourmiliere to a case that already have 1 but throw an Exception.
-  *It will try to remove from old CCase and add to new CCase.<br>
+  *It will try to remove from old CSquare and add to new CSquare.<br>
   *@lastEditedVersion 1.41
   */
-  public void setCc(CCase newCCase){
-    if(newCCase!=null && newCCase.getContent()!=null){
-      if(equals(newCCase.getContent().getFere())){return;}
-      if(newCCase.getContent().getFere()!=null){throw new NotNullLocationException();}
+  public void setCc(CSquare newCSquare){
+    if(newCSquare!=null && newCSquare.getContent()!=null){
+      if(equals(newCSquare.getContent().getFere())){return;}
+      if(newCSquare.getContent().getFere()!=null){throw new NotNullLocationException();}
     }
-    if (getCCase()!=null) {
-      getCCase().getContent().setFere(null);
+    if (getCSquare()!=null) {
+      getCSquare().getContent().setFere(null);
     }
-    ccase = newCCase;
-    if (newCCase!=null){
-      newCCase.getContent().setFere(this);
+    ccase = newCSquare;
+    if (newCSquare!=null){
+      newCSquare.getContent().setFere(this);
     }
-  }public void setCCase(CCase ccase){setCc(ccase);}
+  }public void setCSquare(CSquare ccase){setCc(ccase);}
   public static int getI(){return idCpt;}
   public int getNbrDeFourmi(){return length();}
   public int getLen(){return length();}

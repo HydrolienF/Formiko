@@ -9,11 +9,11 @@ import fr.formiko.tests.TestCaseMuet;
 public class PondreReineTest extends TestCaseMuet{
   private Fourmi ini(){
     Main.initialisation();
-    Partie p = new Partie(0,100,new Carte(new GCase(1,2),0,0,1,false,false),1);
+    Partie p = new Partie(0,100,new Carte(new GSquare(1,2),0,0,1,false,false),1);
     Main.setPartie(p);
     p.setAppartionInsecte(false);
     p.setAppartionGraine(false);
-    Joueur j = new Joueur(new Fourmiliere(p.getGc().getCCase(0,0),null),"joueurTest",true);
+    Joueur j = new Joueur(new Fourmiliere(p.getGc().getCSquare(0,0),null),"joueurTest",true);
     j.getFere().setJoueur(j);
     p.getGj().add(j);
     Fourmi f = new Fourmi(j.getFere(),Main.getEspeceById(0), (byte) 0, (byte) 0);
@@ -56,8 +56,8 @@ public class PondreReineTest extends TestCaseMuet{
   @Test
   public void testCanLay4(){
     Fourmi f = ini();
-    f.getFere().setCCase(Main.getCCase(0,0));
-    f.setCCase(Main.getCCase(0,1));
+    f.getFere().setCSquare(Main.getCSquare(0,0));
+    f.setCSquare(Main.getCSquare(0,1));
     f.setFood(f.getMaxFood());
     f.setAction(f.getMaxAction());
     assertTrue(!f.canLay());

@@ -69,12 +69,12 @@ public class Joueur implements Serializable{
   public void setIa(boolean b){ia = b; }
   public void addMessage(Message m){ gm.addHead(m);}
   public GMessage getGm(){ return gm;}
-  public boolean getCaseSombre(int x, int y){ try {return caseSombre[x][y];}catch (Exception e) {return false;}}
-  public void setCaseSombre(int x, int y, boolean b){ caseSombre[x][y]=b;}
-  public boolean isCaseSombre(CCase cc){return getCaseSombre(cc.getContent().getPoint().getX(),cc.getContent().getPoint().getY());}
-  public boolean getCaseNuageuse(int x, int y){ try {return caseNuageuse[x][y];}catch (Exception e) {return false;}}
-  public void setCaseNuageuse(int x, int y, boolean b){ caseNuageuse[x][y]=b;}
-  public boolean isCaseNuageuse(CCase cc){return getCaseNuageuse(cc.getContent().getPoint().getX(),cc.getContent().getPoint().getY());}
+  public boolean getSquareSombre(int x, int y){ try {return caseSombre[x][y];}catch (Exception e) {return false;}}
+  public void setSquareSombre(int x, int y, boolean b){ caseSombre[x][y]=b;}
+  public boolean isSquareSombre(CSquare cc){return getSquareSombre(cc.getContent().getPoint().getX(),cc.getContent().getPoint().getY());}
+  public boolean getSquareNuageuse(int x, int y){ try {return caseNuageuse[x][y];}catch (Exception e) {return false;}}
+  public void setSquareNuageuse(int x, int y, boolean b){ caseNuageuse[x][y]=b;}
+  public boolean isSquareNuageuse(CSquare cc){return getSquareNuageuse(cc.getContent().getPoint().getX(),cc.getContent().getPoint().getY());}
   /**
   *{@summary Set Pheromone for all the Ants of the player.}
   *@lastEditedVersion 2.1
@@ -160,7 +160,7 @@ public class Joueur implements Serializable{
   public void afficheScore(){
     erreur.println(pseudo +" : "+getScore());
   }
-  public void initialisationCaseNS(){
+  public void initialisationSquareNS(){
     int x = Main.getGc().getWidth();
     int y = Main.getGc().getHeight();
     caseNuageuse = new boolean[x][y];
@@ -176,7 +176,7 @@ public class Joueur implements Serializable{
       }
     }
   }
-  public void updateCaseSN(){
+  public void updateSquareSN(){
     int x = Main.getGc().getWidth();
     int y = Main.getGc().getHeight();
     for (int i=0;i<x ;i++ ) {
@@ -184,7 +184,7 @@ public class Joueur implements Serializable{
         caseSombre[i][j]=true;
       }
     }
-    fere.getGc().updateCaseSN();
+    fere.getGc().updateSquareSN();
     //affichecaseSN();
   }
   public void affichecaseSN(){

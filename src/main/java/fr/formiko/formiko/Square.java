@@ -16,7 +16,7 @@ import java.io.Serializable;
 *@lastEditedVersion 1.39
 *@author Hydrolien
 */
-public class Case implements Serializable{
+public class Square implements Serializable{
   private Point p;
   /** 1=grass, 2=moss, 3=sand */
   private byte type;
@@ -33,7 +33,7 @@ public class Case implements Serializable{
   *{@summary Main constructor with all needed args.}<br>
   *@lastEditedVersion 2.30
   */
-  public Case(Point p, Fourmiliere fere, GCreature gc, byte foodInsecte, byte foodInsecteMax, byte nt){
+  public Square(Point p, Fourmiliere fere, GCreature gc, byte foodInsecte, byte foodInsecteMax, byte nt){
     this.p =p;
     this.fere = fere;
     this.gc = gc;
@@ -48,7 +48,7 @@ public class Case implements Serializable{
   *{@summary Secondary constructor.}<br>
   *@lastEditedVersion 2.30
   */
-  public Case(Point p, Fourmiliere fere, GCreature gc){
+  public Square(Point p, Fourmiliere fere, GCreature gc){
     this(p,fere,gc,(byte) allea.getAllea(3),(byte)(allea.getAllea(100)+2),(byte) allea.getAllea(3));
     // si la food de départ n'est pas réduite :
     // new Info().setContent("ini food insecte to a random value from 0 to "+foodInsecteMax).print();
@@ -58,12 +58,12 @@ public class Case implements Serializable{
   *{@summary Secondary constructor.}<br>
   *@lastEditedVersion 2.30
   */
-  public Case(Point p){this(p,null,new GCreature());}
+  public Square(Point p){this(p,null,new GCreature());}
   /***
   *{@summary Secondary constructor.}<br>
   *@lastEditedVersion 2.30
   */
-  public Case(int x, int y){this(new Point(x,y));}
+  public Square(int x, int y){this(new Point(x,y));}
   // GET SET -------------------------------------------------------------------
   public Point getP(){return p;}
   public Point getPoint(){ return getP();}
@@ -99,13 +99,13 @@ public class Case implements Serializable{
   public void addFoodInsecte(byte x){
     if(x<1){
       if(x<0){
-        new Info().setType(1).setClassDepth(1).setContent("Trying to add "+x+" foodInsecte on Case "+p).print();
+        new Info().setType(1).setClassDepth(1).setContent("Trying to add "+x+" foodInsecte on Square "+p).print();
       }
       return;
     }
     int x2 = foodInsecte+x;
     if(x2>getFoodInsecteMax()){
-      erreur.alerte("Trying to add more foodInsecte than max on Case "+p);
+      erreur.alerte("Trying to add more foodInsecte than max on Square "+p);
       x2=getFoodInsecteMax();
     }
     addBlades(x2 - foodInsecte);
@@ -121,13 +121,13 @@ public class Case implements Serializable{
   public void removeFoodInsecte(byte x){
     if(x<1){
       if(x<0){
-        erreur.alerte("Trying to remove "+x+" foodInsecte on Case "+p);
+        erreur.alerte("Trying to remove "+x+" foodInsecte on Square "+p);
       }
       return;
     }
     int x2 = foodInsecte-x;
     if(x2<0){
-      erreur.alerte("Trying to remove more foodInsecte than aviable on Case "+p);
+      erreur.alerte("Trying to remove more foodInsecte than aviable on Square "+p);
       x2=0;
     }
     removeBlades(foodInsecte-x2);
@@ -181,7 +181,7 @@ public class Case implements Serializable{
     }
   }
   public void setType(int x){setType((byte)x);}
-  public boolean canReachCase(){return getType()>-1;}
+  public boolean canReachSquare(){return getType()>-1;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Return a string that describe this.}<br>
@@ -190,9 +190,9 @@ public class Case implements Serializable{
   public String toString(){
     boolean caseSombre = false;
     if(Main.getPartie()!=null && Main.getPartie().getPlayingJoueur()!=null){
-      if(Main.getPartie().getCasesNuageuses() && Main.getPartie().getPlayingJoueur().getCaseNuageuse(p.getX(),p.getY())){
+      if(Main.getPartie().getSquaresNuageuses() && Main.getPartie().getPlayingJoueur().getSquareNuageuse(p.getX(),p.getY())){
         return "";
-      }else if(Main.getPartie().getCasesSombres() && Main.getPartie().getPlayingJoueur().getCaseSombre(p.getX(),p.getY())){
+      }else if(Main.getPartie().getSquaresSombres() && Main.getPartie().getPlayingJoueur().getSquareSombre(p.getX(),p.getY())){
         caseSombre=true;
       }
     }
@@ -221,9 +221,9 @@ public class Case implements Serializable{
   public String toStringShort(){
     boolean caseSombre = false;
     if(Main.getPartie()!=null && Main.getPartie().getPlayingJoueur()!=null){
-      if(Main.getPartie().getCasesNuageuses() && Main.getPartie().getPlayingJoueur().getCaseNuageuse(p.getX(),p.getY())){
+      if(Main.getPartie().getSquaresNuageuses() && Main.getPartie().getPlayingJoueur().getSquareNuageuse(p.getX(),p.getY())){
         return "";
-      }else if(Main.getPartie().getCasesSombres() && Main.getPartie().getPlayingJoueur().getCaseSombre(p.getX(),p.getY())){
+      }else if(Main.getPartie().getSquaresSombres() && Main.getPartie().getPlayingJoueur().getSquareSombre(p.getX(),p.getY())){
         caseSombre=true;
       }
     }
@@ -255,7 +255,7 @@ public class Case implements Serializable{
   *{@return The number of element on this.}
   *@lastEditedVersion 1.x
   */
-  public int getNbrDElementSurCase(){
+  public int getNbrDElementSurSquare(){
     int xr = 0;
     if (fere != null){ xr=1;}
     return xr + gc.length() + gg.length();
@@ -265,7 +265,7 @@ public class Case implements Serializable{
   *@lastEditedVersion 1.x
   */
   public int length(){
-    return getNbrDElementSurCase();
+    return getNbrDElementSurSquare();
   }
   /**
   *{@return The GCreature sorted by friendly level with an ant.}
@@ -298,8 +298,8 @@ public class Case implements Serializable{
   */
   @Override
   public boolean equals(Object o){
-    if(o==null || !(o instanceof Case)){return false;}
-    Case c = (Case)o;
+    if(o==null || !(o instanceof Square)){return false;}
+    Square c = (Square)o;
     if(c.length() != this.length()){ return false;}
     if(!this.getPoint().equals(c.getPoint())){ return false;}
     return true;
@@ -308,8 +308,8 @@ public class Case implements Serializable{
   *{@summary Return true if is an empty Square.}
   *@lastEditedVersion 2.30
   */
-  public boolean estCaseVide(){
-    if (getNbrDElementSurCase() == 0){ return true;}
+  public boolean estSquareVide(){
+    if (getNbrDElementSurSquare() == 0){ return true;}
     return false;
   }
   /**
@@ -336,8 +336,8 @@ public class Case implements Serializable{
   *{@summary Create a new seed on p depending of a random number.}
   *@lastEditedVersion 2.30
   */
-  public void actualisationGraine(CCase p){
-    //TODO ici un %age dépendant du type de la Case et de la saison serait bienvenue. (multiplié par l'abondance des graines.)
+  public void actualisationGraine(CSquare p){
+    //TODO ici un %age dépendant du type de la Square et de la saison serait bienvenue. (multiplié par l'abondance des graines.)
     int x  = allea.getAllea(50);
     if(x==0 && this.getFere()==null){ new Graine(p);} // si on a de la chance et que il n'y a pas de fere sur la case.
     gg.tour();

@@ -61,17 +61,17 @@ public abstract class Blade extends Point implements Serializable {
   /**
   *{@summary Main function that draw this on g.}<br>
   *@param g Graphics where to draw
-  *@param xOffset Case offset in x
-  *@param yOffset Case offset in y
+  *@param xOffset Square offset in x
+  *@param yOffset Square offset in y
   *@lastEditedVersion 2.16
   */
   public void draw(Graphics g, int xOffset, int yOffset){
     if(!Main.getOp().getDrawBlades()){return;}
     Graphics2D g2 = (Graphics2D) g;
-    g2.setStroke(new BasicStroke(math.max(getThikness()*Main.getData().getTailleDUneCase()/100,1), BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
-    int xT = xOffset+x*Main.getData().getTailleDUneCase()/100;
-    int yT = yOffset+y*Main.getData().getTailleDUneCase()/100;
-    int bLen = length()*Main.getData().getTailleDUneCase()/100;
+    g2.setStroke(new BasicStroke(math.max(getThikness()*Main.getData().getTailleDUneSquare()/100,1), BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+    int xT = xOffset+x*Main.getData().getTailleDUneSquare()/100;
+    int yT = yOffset+y*Main.getData().getTailleDUneSquare()/100;
+    int bLen = length()*Main.getData().getTailleDUneSquare()/100;
     g.setColor(getColor());
     g.drawLine(xT, yT, xT+(int)(bLen*Math.cos(angle)), yT+(int)(bLen*Math.sin(angle)));
   }

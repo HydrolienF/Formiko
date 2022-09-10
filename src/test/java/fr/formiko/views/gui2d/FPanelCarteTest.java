@@ -12,37 +12,37 @@ public class FPanelCarteTest extends TestCaseMuet{
   private Joueur j;
   private void ini(){
     Main.initialisation();
-    Partie p = new Partie(0,100,new Carte(new GCase(1,2),0,0,1,false,false),1);
+    Partie p = new Partie(0,100,new Carte(new GSquare(1,2),0,0,1,false,false),1);
     Main.setPartie(p);
     // p.setAppartionInsecte(false);
     // p.setAppartionGraine(false);
-    j = new Joueur(new Fourmiliere(p.getGc().getCCase(0,0),null),"joueurTest",false);
+    j = new Joueur(new Fourmiliere(p.getGc().getCSquare(0,0),null),"joueurTest",false);
     j.getFere().setJoueur(j);
-    // assertTrue(p.getGc().getCCase(0,0).getContent().getFere().equals(j.getFere()));
-    // assertTrue(p.getGc().getCCase(0,1).getContent().getFere()==null);
+    // assertTrue(p.getGc().getCSquare(0,0).getContent().getFere().equals(j.getFere()));
+    // assertTrue(p.getGc().getCSquare(0,1).getContent().getFere()==null);
     // p.getGj().add(j);
     // return f;
   }
 
   @Test
-  public void testNbrPrintableCase(){
+  public void testNbrPrintableSquare(){
     FPanelCarte pc = new FPanelCarte();
     pc.setBounds(0,0,1000,200);
     Main.setData(new Data());
-    Main.getData().setTailleDUneCase(100);
-    assertEquals(11,pc.nbrPrintableCase(true));
-    assertEquals(3,pc.nbrPrintableCase(false));
+    Main.getData().setTailleDUneSquare(100);
+    assertEquals(11,pc.nbrPrintableSquare(true));
+    assertEquals(3,pc.nbrPrintableSquare(false));
     pc.setBounds(0,0,999,196);
-    assertEquals(10,pc.nbrPrintableCase(true));
-    assertEquals(2,pc.nbrPrintableCase(false));
+    assertEquals(10,pc.nbrPrintableSquare(true));
+    assertEquals(2,pc.nbrPrintableSquare(false));
     pc.setBounds(0,0,999,1096);
-    assertEquals(10,pc.nbrPrintableCase(true));
-    assertEquals(11,pc.nbrPrintableCase(false));
+    assertEquals(10,pc.nbrPrintableSquare(true));
+    assertEquals(11,pc.nbrPrintableSquare(false));
 
-    Main.getData().setTailleDUneCase(12);
+    Main.getData().setTailleDUneSquare(12);
     pc.setBounds(0,0,999,700);
-    assertEquals((999/12)+1,pc.nbrPrintableCase(true));
-    assertEquals((700/12)+1,pc.nbrPrintableCase(false));
+    assertEquals((999/12)+1,pc.nbrPrintableSquare(true));
+    assertEquals((700/12)+1,pc.nbrPrintableSquare(false));
   }
   @Test
   // @Disabled("Fail when releasing new data")
@@ -85,28 +85,28 @@ public class FPanelCarteTest extends TestCaseMuet{
     }
   }
   @Test
-  public void testIsCaseVisible(){
-    Case c = new Case(0,0);
-    assertTrue(FPanelCarte.isCaseVisible(c, 0, 0, 1, 1, 1));
-    c = new Case(2,2);
-    assertFalse(FPanelCarte.isCaseVisible(c, 0, 0, 1, 1, 1));
-    c = new Case(1,1);
-    assertTrue(FPanelCarte.isCaseVisible(c, 0, 0, 1, 1, 1));
-    c = new Case(1,1);
-    assertFalse(FPanelCarte.isCaseVisible(c, -1, -1, 0, 0, 1));
+  public void testIsSquareVisible(){
+    Square c = new Square(0,0);
+    assertTrue(FPanelCarte.isSquareVisible(c, 0, 0, 1, 1, 1));
+    c = new Square(2,2);
+    assertFalse(FPanelCarte.isSquareVisible(c, 0, 0, 1, 1, 1));
+    c = new Square(1,1);
+    assertTrue(FPanelCarte.isSquareVisible(c, 0, 0, 1, 1, 1));
+    c = new Square(1,1);
+    assertFalse(FPanelCarte.isSquareVisible(c, -1, -1, 0, 0, 1));
   }
   @Test
-  public void testIsCaseVisible2(){
-    Case c = new Case(0,0);
-    assertTrue(FPanelCarte.isCaseVisible(c, 1, 1, 3, 3, 1));
-    assertFalse(FPanelCarte.isCaseVisible(c, 2, 2, 3, 3, 1));
+  public void testIsSquareVisible2(){
+    Square c = new Square(0,0);
+    assertTrue(FPanelCarte.isSquareVisible(c, 1, 1, 3, 3, 1));
+    assertFalse(FPanelCarte.isSquareVisible(c, 2, 2, 3, 3, 1));
   }
   @Test
-  public void testIsCaseVisible3(){
-    Case c = new Case(0,0);
-    assertTrue(FPanelCarte.isCaseVisible(c, 0, -10, 400, 300, 10));
-    assertTrue(FPanelCarte.isCaseVisible(c, 10, 10, 400, 300, 10));
-    assertFalse(FPanelCarte.isCaseVisible(c, 11, 10, 400, 300, 10));
-    assertFalse(FPanelCarte.isCaseVisible(c, 10, 11, 400, 300, 10));
+  public void testIsSquareVisible3(){
+    Square c = new Square(0,0);
+    assertTrue(FPanelCarte.isSquareVisible(c, 0, -10, 400, 300, 10));
+    assertTrue(FPanelCarte.isSquareVisible(c, 10, 10, 400, 300, 10));
+    assertFalse(FPanelCarte.isSquareVisible(c, 11, 10, 400, 300, 10));
+    assertFalse(FPanelCarte.isSquareVisible(c, 10, 11, 400, 300, 10));
   }
 }

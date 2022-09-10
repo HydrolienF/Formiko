@@ -17,19 +17,19 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   private byte tempsAvantDecomposition;
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public Graine(CCase ccase, int givenFood, byte hardness){
+  public Graine(CSquare ccase, int givenFood, byte hardness){
     super(ccase); ouverte = false;
     this.givenFood = givenFood; this.hardness = hardness;
     type = (byte) allea.getAlléa(4);//0,1 ou 2.
     tempsAvantDecomposition = (byte)(20 + allea.getAlléa(100));// de 19 a 119
     if(ccase!=null){ccase.getGg().add(this);}
   }
-  public Graine(CCase ccase){
+  public Graine(CSquare ccase){
     this(ccase,allea.getAlléa(400)+10,(byte) 0);
     setHardness(getGivenFood()/10 + allea.getAlléa(80)); // de 1 a 41 + de 0 a 80.
   }
   public Graine(){
-    this(Main.getGc().getCCaseAlléa());
+    this(Main.getGc().getCSquareAlléa());
   }
   // GET SET -------------------------------------------------------------------
   public int getGivenFood(){ return givenFood;}
@@ -52,16 +52,16 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   /**
   *{@summary Move the Graine from a case to an other.}<br>o
   *It is used by Deplacement interfaces.<br>
-  *It wil try to remove from old CCase and add to new CCase.<br>
+  *It wil try to remove from old CSquare and add to new CSquare.<br>
   *@lastEditedVersion 1.40
   */
-  public void setCCase(CCase newCCase){
+  public void setCSquare(CSquare newCSquare){
     if(this.ccase!=null){
       this.ccase.getContent().getGg().remove(this);
     }
-    this.ccase = newCCase;
-    if(newCCase!=null){
-      newCCase.getContent().getGg().add(this);
+    this.ccase = newCSquare;
+    if(newCSquare!=null){
+      newCSquare.getContent().getGg().add(this);
     }
   }
   public byte getType(){ return type;}
@@ -87,11 +87,11 @@ public class Graine extends ObjetSurCarteAId implements Serializable{
   }
   public void mourrir(){
     debug.débogage("Lancement de la mort de la graine.");
-    Main.getGc().getCCase(ccase.getContent().getX(),ccase.getContent().getY()).getGg().remove(this);//on retire la graine de sa liste.
-    this.setCCase(null);
+    Main.getGc().getCSquare(ccase.getContent().getX(),ccase.getContent().getY()).getGg().remove(this);//on retire la graine de sa liste.
+    this.setCSquare(null);
   }
   public void tour(){
-    if(getCCase().getContent().getFere()==null){//si la graine n'est pas dans une fourmiliere :
+    if(getCSquare().getContent().getFere()==null){//si la graine n'est pas dans une fourmiliere :
       tempsAvantDecomposition--;
       if(tempsAvantDecomposition<0){mourrir();}//la graine pourrie.
     }

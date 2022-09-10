@@ -28,7 +28,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
   public boolean netoyerIa(Creature c){
     if(!(c instanceof Fourmi)){ erreur.erreur("Impossible de netoyer en tant que Fourmi avec la créature "+c.getId()); return false;}
     net = (Fourmi)c;
-    cible = (Fourmi) net.getCCase().getContent().getGc().filterAlliés(net).getBroodSale();
+    cible = (Fourmi) net.getCSquare().getContent().getGc().filterAlliés(net).getBroodSale();
     if (cible == null){ return false;}
     netoyerPrivate();
     return true;
@@ -80,7 +80,7 @@ public class NetoyerFourmi implements Serializable, Netoyer {
    *@lastEditedVersion 2.28
    */
   private boolean netoyerChoix(){  // permet de définir cible.
-    GCreature gc = net.getCCase().getContent().getGc();
+    GCreature gc = net.getCSquare().getContent().getGc();
     int lengc = gc.length();
     //TODO filterr les fourmi déja propre.
     if(lengc<2){ cible = net;
@@ -104,17 +104,17 @@ public class NetoyerFourmi implements Serializable, Netoyer {
           sTemp = tsSplit[0];
         }
         int x=str.sToI(sTemp);
-        cible = net.getCCase().getContent().getGc().getFourmiById(x);
+        cible = net.getCSquare().getContent().getGc().getFourmiById(x);
       }else{
         String id2s = Main.getView().makeUserChooseOnArray(s,g.get("Pti.desc.5"));
         int id = str.sToI(id2s.split(" ")[0]);
-        cible = net.getCCase().getContent().getGc().getFourmiById(id);
+        cible = net.getCSquare().getContent().getGc().getFourmiById(id);
       }
     }
     return true;
   }
   /*public boolean netoyerTtLeMonde(){
-    Fourmi fSale = null;//(Fourmi) this.getAlliéSurLaCase().getBroodSaleMêmeTrèsPeu();
+    Fourmi fSale = null;//(Fourmi) this.getAlliéSurLaSquare().getBroodSaleMêmeTrèsPeu();
     if (fSale == null){ return false;}
     netoyer(fSale);
     return true;
@@ -129,11 +129,11 @@ public class NetoyerFourmi implements Serializable, Netoyer {
   }
   /**
    *{@summary get non-100% clean ant sort by cleaning level.}<br>
-   *@return the non-100% clean ant sort by cleaning level on the same Case.
+   *@return the non-100% clean ant sort by cleaning level on the same Square.
    *@lastEditedVersion 1.3
    */
-  private int [] getFourmiParOrdreDeSaletéSurLaCase(){
-    GCreature gcTemp = net.getCCase().getContent().getGc().filterAlliés(net);
+  private int [] getFourmiParOrdreDeSaletéSurLaSquare(){
+    GCreature gcTemp = net.getCSquare().getContent().getGc().filterAlliés(net);
     gcTemp.classerPourNetoyage(net); // on récupère l'ordre définie dans CCreature pour le netoyage.
     // int lentr = gcTemp.length();
     return gcTemp.gcToTInt();
@@ -144,8 +144,8 @@ public class NetoyerFourmi implements Serializable, Netoyer {
    *@lastEditedVersion 1.3
    */
   private int [] getFourmiPasPropre(){
-    GCreature gc = net.getAlliéSurLaCase();
-    int t[] = getFourmiParOrdreDeSaletéSurLaCase();int lent = t.length;
+    GCreature gc = net.getAlliéSurLaSquare();
+    int t[] = getFourmiParOrdreDeSaletéSurLaSquare();int lent = t.length;
     int lentr = 0;
     //on compte le nombre de case.
     for (int i=0;i<lent ;i++ ) {

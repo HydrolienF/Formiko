@@ -80,7 +80,7 @@ public class Partie implements Serializable {
   *@lastEditedVersion 1.2
   */
   public Partie(){
-    this(0,0,new Carte(new GCase(1,1)),1.0);//initialisation "null"
+    this(0,0,new Carte(new GSquare(1,1)),1.0);//initialisation "null"
     gj = new GJoueur();
     gi = new GInsecte();
   }
@@ -93,7 +93,7 @@ public class Partie implements Serializable {
   public boolean isMultiplayer(){if(getGj()!=null){return getGj().getJoueurHumain().length()>1;}return false;}
   public boolean isSolo(){if(getGj()!=null){return getGj().getJoueurHumain().length()==1;}return false;}
   public void setGj(GJoueur g){gj=g;}
-  public GCase getGc(){return mapo.getGc();}
+  public GSquare getGc(){return mapo.getGc();}
   public static GEspece getGe(){return ge;}
   public int getTour(){ return tour;}
   public void setTour(int x){ tour=x;}
@@ -124,8 +124,8 @@ public class Partie implements Serializable {
   public void setAppartionGraine(boolean b){appartionGraine=b;}
   public Fourmi getPlayingAnt(){return playingAnt;}
   public Joueur getPlayingJoueur(){return Main.getPlayingJoueur();}
-  public boolean getCasesSombres(){if(getCarte()==null){ return false;} else {return getCarte().getCasesSombres();}}
-  public boolean getCasesNuageuses(){if(getCarte()==null){ return false;} else {return getCarte().getCasesNuageuses();}}
+  public boolean getSquaresSombres(){if(getCarte()==null){ return false;} else {return getCarte().getSquaresSombres();}}
+  public boolean getSquaresNuageuses(){if(getCarte()==null){ return false;} else {return getCarte().getSquaresNuageuses();}}
   public int getAntIdToPlay(){return antIdToPlay;}
   public void setAntIdToPlay(int x){antIdToPlay=x;}
   public boolean getLaunchingFromSave(){return launchingFromSave;}
@@ -215,9 +215,9 @@ public class Partie implements Serializable {
     for (int i=0; i<nbrDeJoueur; i++){
       Joueur j = new Joueur(nbrDeFourmi,false,mapo);
       gj.add(j);
-      if (mapo.getCasesNuageuses() || mapo.getCasesSombres()){
-        j.initialisationCaseNS();
-        j.updateCaseSN();
+      if (mapo.getSquaresNuageuses() || mapo.getSquaresSombres()){
+        j.initialisationSquareNS();
+        j.updateSquareSN();
       }
     }
   }
@@ -351,7 +351,7 @@ public class Partie implements Serializable {
     Main.startCh();
     String nomCarte = "miniWorld";
     Carte mapo = new Carte(nomCarte);
-    mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
+    mapo.setSquaresSombres(false);mapo.setSquaresNuageuses(false);
     Partie partie = new Partie(1,100,mapo,1.0);
     partie.setElément(1,5,1);
     partie.setVitesseDeJeu(0.2);
@@ -381,7 +381,7 @@ public class Partie implements Serializable {
     Main.startCh();
     String nomCarte = "tuto";
     Carte mapo = new Carte(nomCarte);
-    mapo.setCasesSombres(false);mapo.setCasesNuageuses(false);
+    mapo.setSquaresSombres(false);mapo.setSquaresNuageuses(false);
     Partie partie = new Partie(1,100,mapo,1.0);
     partie.setElément(1,0,1);
     partie.setVitesseDeJeu(0.4);
@@ -397,10 +397,10 @@ public class Partie implements Serializable {
    */
   private void iniParametreCarteTuto(){
     Fourmiliere fere = getGj().getFirst().getFere();
-    CCase ccIni = getGc().getCCase(0,1);
+    CSquare ccIni = getGc().getCSquare(0,1);
     fere.setCc(ccIni);
-    fere.getGc().getFirst().setCCase(ccIni);
-    Insecte i = new Insecte(Main.getPartie().getGc().getCCase(1,1),0,100,0);
+    fere.getGc().getFirst().setCSquare(ccIni);
+    Insecte i = new Insecte(Main.getPartie().getGc().getCSquare(1,1),0,100,0);
     i.setGivenFood(200);
     i.setIsDead(false);
     i.setType(8);

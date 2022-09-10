@@ -179,11 +179,11 @@ public class FPanelJeu extends FPanel {
     if(x<taille){ return x;}
     return x/2-(taille);
   }*/
-  public int nbrDeCaseAffichableX(){
-    return (getWidth()/pc.getTailleDUneCase())+1;
+  public int nbrDeSquareAffichableX(){
+    return (getWidth()/pc.getTailleDUneSquare())+1;
   }
-  public int nbrDeCaseAffichableY(){
-    return (getHeight()/pc.getTailleDUneCase())+1;
+  public int nbrDeSquareAffichableY(){
+    return (getHeight()/pc.getTailleDUneSquare())+1;
   }
   public void dézoomer(byte x){
     int y1 = Main.getDimX()/Main.getGc().getWidth();
@@ -194,16 +194,16 @@ public class FPanelJeu extends FPanel {
     if(x==1){ y=math.max(y1,y2);}
     else if(x==2){ y=math.min(y1,y2);}
     y = math.between(Main.getTailleElementGraphique(100), Main.getTailleElementGraphique(500), y);
-    if(getPc().getTailleDUneCase()!=y){
-      getPc().setTailleDUneCase(y, false);
-      actionAFaireSiTailleD1CaseChange();
+    if(getPc().getTailleDUneSquare()!=y){
+      getPc().setTailleDUneSquare(y, false);
+      actionAFaireSiTailleD1SquareChange();
     }else{
       if (Main.getPartie().getEnCours()){
         Main.getData().iniBackgroundMapImage();
       }
     }
   }
-  public void actionAFaireSiTailleD1CaseChange(){
+  public void actionAFaireSiTailleD1SquareChange(){
     if (Main.getPartie().getEnCours()){
       FPanel.getView().getPc().updateSize();
       Main.getData().chargerImages();
@@ -213,27 +213,27 @@ public class FPanelJeu extends FPanel {
   }
   public void actionZoom(byte ac){
     if (ac==2) { // zoom
-      pc.setTailleDUneCase(math.min((pc.getTailleDUneCase()*4)/3,500));
-      actionAFaireSiTailleD1CaseChange();
+      pc.setTailleDUneSquare(math.min((pc.getTailleDUneSquare()*4)/3,500));
+      actionAFaireSiTailleD1SquareChange();
     }else if(ac==0){ // dézoom
-      pc.setTailleDUneCase(math.max((pc.getTailleDUneCase()*3)/4,10));
-      actionAFaireSiTailleD1CaseChange();
+      pc.setTailleDUneSquare(math.max((pc.getTailleDUneSquare()*3)/4,10));
+      actionAFaireSiTailleD1SquareChange();
     }else if(ac==1){
       // pc.setPosY(math.max(pc.getPosY()-1,0));
     }else if(ac==7){
-      // GCase gc = Main.getGc();
+      // GSquare gc = Main.getGc();
       // pc.setPosY(math.min(pc.getPosY()+1,gc.getHeight()-1));
     }else if(ac==5){
-      // GCase gc = Main.getGc();
+      // GSquare gc = Main.getGc();
       // pc.setPosX(math.min(pc.getPosX()+1,gc.getWidth()-1));
     }else if(ac==3){
       // pc.setPosX(math.max(pc.getPosX()-1,0));
     }else if(ac==4){ //center over anthill
       if(Main.getPlayingJoueur()==null || Main.getPlayingJoueur().getFere()==null){return;}
-      getView().centerOverCase(Main.getPlayingJoueur().getFere().getCCase().getContent());
+      getView().centerOverSquare(Main.getPlayingJoueur().getFere().getCSquare().getContent());
     }else if(ac==6){ //center over playing ant
       if(Main.getPlayingAnt()==null){return;}
-      getView().centerOverCase(Main.getPlayingAnt().getCCase().getContent());
+      getView().centerOverSquare(Main.getPlayingAnt().getCSquare().getContent());
     }else if(ac==8){
       dézoomer((byte)2);
     }

@@ -1,11 +1,11 @@
 package fr.formiko.views.cli;
 
-import fr.formiko.formiko.CCase;
-import fr.formiko.formiko.Case;
+import fr.formiko.formiko.CSquare;
+import fr.formiko.formiko.Square;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Fourmiliere;
-import fr.formiko.formiko.GCase;
+import fr.formiko.formiko.GSquare;
 import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Joueur;
@@ -24,23 +24,23 @@ import fr.formiko.usual.structures.listes.GString;
 *@author Hydrolien
 */
 public class CLIMap{
-  private GCase gc;
+  private GSquare gc;
   private static GString legend; private static int xi;
   private static int unseeableChar;
-  private int sizeCase = 4;
-  private CCase lookedCCase;
+  private int sizeSquare = 4;
+  private CSquare lookedCSquare;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main contructor.}<br>
-  *@param gc The GCase to print.<br>
+  *@param gc The GSquare to print.<br>
   *@lastEditedVersion 1.38
   */
-  public CLIMap(GCase gc){
+  public CLIMap(GSquare gc){
     this.gc=gc;
   }
   // GET SET -------------------------------------------------------------------
-  public CCase getLookedCCase(){return lookedCCase;}
-  public void setLookedCCase(CCase cc){lookedCCase=cc;}
+  public CSquare getLookedCSquare(){return lookedCSquare;}
+  public void setLookedCSquare(CSquare cc){lookedCSquare=cc;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Main function of CLIMap.}<br>
@@ -56,8 +56,8 @@ public class CLIMap{
       xi = 0; legend = new GString();
       sr+=mapToMapString();
       sr+=legendToString();
-      if(getLookedCCase()!=null){
-        sr+="\n"+g.getM("lookedCCase")+" : "+getLookedCCase().toString();
+      if(getLookedCSquare()!=null){
+        sr+="\n"+g.getM("lookedCSquare")+" : "+getLookedCSquare().toString();
       }
     }
     return sr;
@@ -124,7 +124,7 @@ public class CLIMap{
   */
   //public only for test
   public String mapToMapString(){
-    CCase cc = gc.getHead();
+    CSquare cc = gc.getHead();
     String sr = "";
     Joueur j = Main.getPlayingJoueur();
     int xi2=0;
@@ -135,7 +135,7 @@ public class CLIMap{
     int len = gc.getWidth();
     for (int i=0;i<len ;i++ ) {
       String sTemp = i+" ";
-      while (sTemp.length()<sizeCase) {
+      while (sTemp.length()<sizeSquare) {
         sTemp+=" ";
       }
       sr+=sTemp;
@@ -154,12 +154,12 @@ public class CLIMap{
   }
   /**
   *{@summary Return the map as a String.}<br>
-  *All map infos are stored in a GCase, this.gc.
+  *All map infos are stored in a GSquare, this.gc.
   *@lastEditedVersion 1.38
   */
   //public only for test
   public String mapToString(){
-    CCase cc = gc.getHead();
+    CSquare cc = gc.getHead();
     String sr = "";
     Joueur j = Main.getPlayingJoueur();
     while(cc!=null){
@@ -170,11 +170,11 @@ public class CLIMap{
   }
   /**
   *{@summary Return a line of a map as a String.}<br>
-  *@param cc The 1a CCase of the line.
+  *@param cc The 1a CSquare of the line.
   *@lastEditedVersion 1.39
   */
   //public only for test
-  public String mapLineToString(CCase cc, Joueur j){
+  public String mapLineToString(CSquare cc, Joueur j){
     String sr = "";
     while(cc!=null){
       if(j==null){sr+=caseToString(cc.getContent(),false,false);}
@@ -186,41 +186,41 @@ public class CLIMap{
   /**
   *{@summary Return a case as a String.}<br>
   *This string have a fix length.<br>
-  *@param cc CCase that contain Case to print.
+  *@param cc CSquare that contain Square to print.
   *@param j Player that will be used to know if cases need to be nuageuse or sombre.
   *@lastEditedVersion 1.38
   */
   //public only for test
-  public String caseToString(CCase cc, Joueur j){
-    return caseToString(cc.getContent(),j.isCaseNuageuse(cc),j.isCaseSombre(cc));
+  public String caseToString(CSquare cc, Joueur j){
+    return caseToString(cc.getContent(),j.isSquareNuageuse(cc),j.isSquareSombre(cc));
   }
   /**
-  *{@summary Return a Case as a String.}<br>
+  *{@summary Return a Square as a String.}<br>
   *This string have a fix length.<br>
-  *@param contenu Case to print.
-  *@param caseNuageuse Boolean to know if player have explored the Case.
-  *@param caseSombre Boolean to know if player is curently seeing the Case.
+  *@param contenu Square to print.
+  *@param caseNuageuse Boolean to know if player have explored the Square.
+  *@param caseSombre Boolean to know if player is curently seeing the Square.
   *@lastEditedVersion 1.38
   */
   //public only for test
-  public String caseToString(Case contenu, boolean caseNuageuse, boolean caseSombre){
-    int nbrDElementSurCase = contenu.getNbrDElementSurCase();
+  public String caseToString(Square contenu, boolean caseNuageuse, boolean caseSombre){
+    int nbrDElementSurSquare = contenu.getNbrDElementSurSquare();
     String sr = "";
     unseeableChar=0;
     //if case need to be hide :
-    if(Main.getPartie().getCarte().getCasesNuageuses()==true && caseNuageuse){
-      while (sr.length()<sizeCase+unseeableChar){sr = sr + "■";}
+    if(Main.getPartie().getCarte().getSquaresNuageuses()==true && caseNuageuse){
+      while (sr.length()<sizeSquare+unseeableChar){sr = sr + "■";}
       return sr;
-    }else if(Main.getPartie().getCarte().getCasesSombres()==true && caseSombre){
+    }else if(Main.getPartie().getCarte().getSquaresSombres()==true && caseSombre){
       if(contenu.getFere() != null){
         sr = "F"+contenu.getFere().getId();
       }
       sr+=caseColor(contenu);
-      while (sr.length()<sizeCase+unseeableChar){sr = sr + "□";}
+      while (sr.length()<sizeSquare+unseeableChar){sr = sr + "□";}
     }else{
-      if (nbrDElementSurCase == 0){
+      if (nbrDElementSurSquare == 0){
         // if(!Os.getOs().isLinux()){sr = "-";}
-      }else if(nbrDElementSurCase == 1){
+      }else if(nbrDElementSurSquare == 1){
         if(contenu.getFere() != null){
           sr = "F"+contenu.getFere().getId();
         }else if (contenu.getGc().getHead() != null){
@@ -247,20 +247,20 @@ public class CLIMap{
         unseeableChar=0;
       }
     }
-    if(sr.length()<sizeCase+unseeableChar){
+    if(sr.length()<sizeSquare+unseeableChar){
       sr+=caseColor(contenu);
     }
-    while (sr.length()<sizeCase+unseeableChar){sr = sr + " ";}
+    while (sr.length()<sizeSquare+unseeableChar){sr = sr + " ";}
     sr+=color.NEUTRAL;unseeableChar+=color.NEUTRAL.length();
     return sr;
   }
   /**
-  *{@summary Return the backgroud color of a Case.}<br>
-  *@param c Case to print.
+  *{@summary Return the backgroud color of a Square.}<br>
+  *@param c Square to print.
   *@lastEditedVersion 1.38
   */
   //public only for test
-  public String caseColor(Case c){
+  public String caseColor(Square c){
     String sr="";
     switch (c.getType()) {
       case 0 :

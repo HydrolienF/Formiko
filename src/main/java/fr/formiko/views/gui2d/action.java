@@ -1,6 +1,6 @@
 package fr.formiko.views.gui2d;
 
-import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.CSquare;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
 import fr.formiko.formiko.sauvegarderUnePartie;
@@ -212,7 +212,7 @@ public class action {
     if(FPanel.getView().getPs()==null){return;}
     Point mouse = MouseInfo.getPointerInfo().getLocation();
     SwingUtilities.convertPointFromScreen(mouse, FPanel.getView().getPp());
-    CCase cc = FPanel.getView().getPs().getCCase((int)mouse.getX(), (int)mouse.getY());
+    CSquare cc = FPanel.getView().getPs().getCSquare((int)mouse.getX(), (int)mouse.getY());
     if(cc!=null){
       FPanel.getView().getPs().mouseMovedUpdate(cc, true);
     }

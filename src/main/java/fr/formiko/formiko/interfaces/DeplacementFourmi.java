@@ -30,39 +30,39 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     if (bIa) {
       unMouvementAlléa();
     } else { // if it's a player
-      CCase cc = Main.getView().getCCase();
+      CSquare cc = Main.getView().getCSquare();
       if(cc==null){return;}
       plusieurMouvement(c,cc);
     }
   }
   /**
-   *{@summary make a move to a defined Case.}<br>
-   *c will move 1 Case closer to p but maybe p is more than 1 Case longer to c.getCCase()<br>
+   *{@summary make a move to a defined Square.}<br>
+   *c will move 1 Square closer to p but maybe p is more than 1 Square longer to c.getCSquare()<br>
    *c will move by the unMouvement(c,direction) methode.
    *@param c the moving Creature.
-   *@param p the Case were c want to go.
+   *@param p the Square were c want to go.
    *@lastEditedVersion 1.3
    */
-  public void unMouvement(Creature c, Case p){
-    // debug.débogage("Le déplacement de la Creature "+c.getId()+" vien de DeplacementDUneFourmi avec CCase");
+  public void unMouvement(Creature c, Square p){
+    // debug.débogage("Le déplacement de la Creature "+c.getId()+" vien de DeplacementDUneFourmi avec CSquare");
     this.c = c;
-    int direction = c.getCCase().getDirection(p);
+    int direction = c.getCSquare().getDirection(p);
     unMouvementVolontaire(direction);
   }
   /**
-   *{@summary make a move to a defined Case.}<br>
-   *c will move 1 Case closer to p but maybe p is more than 1 Case longer to c.getCCase()<br>
+   *{@summary make a move to a defined Square.}<br>
+   *c will move 1 Square closer to p but maybe p is more than 1 Square longer to c.getCSquare()<br>
    *c will move by the unMouvement(c,direction) methode.
    *@param c the moving Creature.
-   *@param cc the CCase were c want to go.
+   *@param cc the CSquare were c want to go.
    *@lastEditedVersion 1.3
    */
-  public void unMouvement(Creature c, CCase cc){
+  public void unMouvement(Creature c, CSquare cc){
     unMouvement(c, cc.getContent());
   }
   /**
    *{@summary make a moove in a defined direction.}<br>
-   *c will move 1 Case closer to p but maybe p is more than 1 Case longer to c.getCCase()
+   *c will move 1 Square closer to p but maybe p is more than 1 Square longer to c.getCSquare()
    *@param c the moving Creature.
    *@param direction the direction to move. (It's a number place as on the keyboard 1= North West, 2 = North, etc)
    *@lastEditedVersion 1.3
@@ -73,19 +73,19 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     unMouvementVolontaire(direction);
   }
   /**
-   *{@summary make as much moove as we can/need to a defined Case.}<br>
+   *{@summary make as much moove as we can/need to a defined Square.}<br>
    *c will stop moving when it will have reach cc or when it actions will be &#60; 0
    *c will move by the unMouvement(c,cc) methode.
    *@param c the moving Creature.
-   *@param cc the CCase were c want to go.
+   *@param cc the CSquare were c want to go.
    *@lastEditedVersion 1.3
    */
-  public void plusieurMouvement(Creature c, CCase cc){
+  public void plusieurMouvement(Creature c, CSquare cc){
     // erreur.info("plusieurMouvement for "+c.getId());
-    CCase ccAct = c.getCCase();
+    CSquare ccAct = c.getCSquare();
     while(!ccAct.equals(cc) && c.getAction()>0){//tant qu'on est pas arrivé a la case et qu'on a encore des actions.
       unMouvement(c,cc);
-      ccAct=c.getCCase();
+      ccAct=c.getCSquare();
     }
   }
 
@@ -123,7 +123,7 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     }
     setActionMoinsDéplacement();
     if(!(c instanceof Fourmi)){ return;}
-    if (!((Fourmi)(c)).getJoueur().getIa() && (Main.getCarte().getCasesNuageuses() || Main.getCarte().getCasesSombres())){((Fourmi)(c)).getJoueur().updateCaseSN();}
+    if (!((Fourmi)(c)).getJoueur().getIa() && (Main.getCarte().getSquaresNuageuses() || Main.getCarte().getSquaresSombres())){((Fourmi)(c)).getJoueur().updateSquareSN();}
   }
   /**
    *{@summary remove some action to the moving Creature}<br>
@@ -134,24 +134,24 @@ public class DeplacementFourmi implements Serializable, Deplacement{
     c.setActionMoins(c.getMovingCost());
   }
   /**
-   *{@summary Move to a next Case.}<br>
+   *{@summary Move to a next Square.}<br>
    *@lastEditedVersion 1.3
    */
   private boolean unPas(int d){
     c.setDirection(d);
-    CCase cc = MapPath.getNextCCase(c.getCCase(),d);
+    CSquare cc = MapPath.getNextCSquare(c.getCSquare(),d);
     if(cc!=null){return unPas(cc);}
     return false; // le nombre n'était pas correcte
   }
   /**
-   *{@summary Move to a next Case.}<br>
+   *{@summary Move to a next Square.}<br>
    *All moving thing use this methode to move.
    *@lastEditedVersion 1.3
    */
-  private boolean unPas(CCase p){
+  private boolean unPas(CSquare p){
     if (p==null){ return false;}
-    Main.getView().move(c,c.getCCase(),p);
-    c.setCCase(p);
+    Main.getView().move(c,c.getCSquare(),p);
+    c.setCSquare(p);
     // erreur.info("unPas for "+c.getId());
     return true;
   }

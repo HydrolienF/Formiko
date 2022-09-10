@@ -1,6 +1,6 @@
 package fr.formiko.views;
 
-import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.CSquare;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.ObjetSurCarteAId;
@@ -115,7 +115,7 @@ public class ViewNull implements View {
   *@return Return true if nothing have been print or paint.
   *@lastEditedVersion 1.33
   */
-  public boolean setLookedCCase(CCase cc){
+  public boolean setLookedCSquare(CSquare cc){
     return true;
   }
   /**
@@ -123,7 +123,7 @@ public class ViewNull implements View {
   *@return Return true if nothing have been print or paint.
   *@lastEditedVersion 1.46
   */
-  public CCase getLookedCCase(){
+  public CSquare getLookedCSquare(){
     return null;
   }
   /**
@@ -139,7 +139,7 @@ public class ViewNull implements View {
   *@return Return null;
   *@lastEditedVersion 1.39
   */
-  public CCase getCCase(){
+  public CSquare getCSquare(){
     return null;
   }
   /***
@@ -176,5 +176,5 @@ public class ViewNull implements View {
   *{@summary A null view action that do nothing.}<br>
   *@lastEditedVersion 2.1
   */
-  public void move(ObjetSurCarteAId o, CCase from, CCase to){}
+  public void move(ObjetSurCarteAId o, CSquare from, CSquare to){}
 }

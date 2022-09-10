@@ -18,13 +18,13 @@ public class FPanelTBoolean extends FPanelTX{
     this.descTI = desc;
     debug.débogage("Création d'un FPanelTBoolean");
     this.setLayout(new GridBagLayout());
-    int nbrDeCase = 2;
-    if (nbrDeCase > 0){getView().getPb().setDescTI(descTI);}
+    int nbrDeSquare = 2;
+    if (nbrDeSquare > 0){getView().getPb().setDescTI(descTI);}
     else{((FPanelBouton) pb).setDescTI("");}
     x = 2;
     y = 1;
     this.setSize(x*tailleBouton,y*tailleBouton);
-    FButton tB [] = new FButton [nbrDeCase];
+    FButton tB [] = new FButton [nbrDeSquare];
     Dimension dim = new Dimension(tailleBouton,tailleBouton);
     //tB[0]=new FButton(g.get("OUI"), getView().getPp().getPj(),40);
     //tB[1]=new FButton(g.get("NON"), getView().getPp().getPj(),41);
@@ -34,7 +34,7 @@ public class FPanelTBoolean extends FPanelTX{
     GridBagConstraints gbc = new GridBagConstraints();
     int k=0;
     gbc.gridx = 0;
-    for (int j=0;k < nbrDeCase;j++ ) {
+    for (int j=0;k < nbrDeSquare;j++ ) {
       gbc.gridy = j;
       this.add(tB[k],gbc);k++;
     }

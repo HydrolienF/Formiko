@@ -3,12 +3,12 @@ package fr.formiko.formiko.interfaces;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
-import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.CSquare;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
-import fr.formiko.formiko.GCase;
+import fr.formiko.formiko.GSquare;
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.interfaces.TourCreatureSansAction;
 import fr.formiko.tests.TestCaseMuet;
@@ -17,11 +17,11 @@ public class TourCreatureSansActionTest extends TestCaseMuet{
   // FUNCTIONS -----------------------------------------------------------------
   private Creature ini(){
     Main.initialisation();
-    Partie p = new Partie(0,100,new Carte(new GCase(1,2),0,0,1,false,false),1);
+    Partie p = new Partie(0,100,new Carte(new GSquare(1,2),0,0,1,false,false),1);
     Main.setPartie(p);
     p.setAppartionInsecte(false);
     p.setAppartionGraine(false);
-    Creature c = new Insecte(new CCase(p.getGc().getCCase(0,0).getContent()));
+    Creature c = new Insecte(new CSquare(p.getGc().getCSquare(0,0).getContent()));
     // c.tour = new TourCreatureSansAction(); It should do the same, insect or not.
     return c;
   }

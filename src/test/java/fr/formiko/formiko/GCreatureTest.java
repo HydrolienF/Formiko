@@ -10,15 +10,15 @@ public class GCreatureTest extends TestCaseMuet {
   // FUNCTIONS -----------------------------------------------------------------
   private void ini(){
     Main.initialisation();
-    Partie p = new Partie(0,100,new Carte(new GCase(2,2),0,0,1,false,false),1);
+    Partie p = new Partie(0,100,new Carte(new GSquare(2,2),0,0,1,false,false),1);
     Main.setPartie(p);
     p.setAppartionInsecte(false);
     p.setAppartionGraine(false);
-    j = new Joueur(new Fourmiliere(p.getGc().getCCase(0,0),null),"joueurTest",false);
+    j = new Joueur(new Fourmiliere(p.getGc().getCSquare(0,0),null),"joueurTest",false);
     j.getFere().setJoueur(j);
-    j2 = new Joueur(new Fourmiliere(p.getGc().getCCase(0,1),null),"joueurTest2",false);
+    j2 = new Joueur(new Fourmiliere(p.getGc().getCSquare(0,1),null),"joueurTest2",false);
     j2.getFere().setJoueur(j2);
-    j3 = new Joueur(new Fourmiliere(p.getGc().getCCase(1,1),null),"joueurTest3",false);
+    j3 = new Joueur(new Fourmiliere(p.getGc().getCSquare(1,1),null),"joueurTest3",false);
     j3.getFere().setJoueur(j3);
     p.getGj().add(j);
     p.getGj().add(j2);
@@ -71,8 +71,8 @@ public class GCreatureTest extends TestCaseMuet {
     Fourmi f = (Fourmi)j.getFere().getGc().getFirst();
     gc.add(f);
     assertEquals(f, gc.getFourmiParFere(j.getFere()));
-    Insecte i1 = new Insecte(Main.getGc().getCCase(1,0),0,100,1);
-    Insecte i2 = new Insecte(Main.getGc().getCCase(1,0),0,101,1);
+    Insecte i1 = new Insecte(Main.getGc().getCSquare(1,0),0,100,1);
+    Insecte i2 = new Insecte(Main.getGc().getCSquare(1,0),0,101,1);
     gc.add(i1);
     assertEquals(f, gc.getFourmiParFere(j.getFere()));
     gc.add(i2);
@@ -87,8 +87,8 @@ public class GCreatureTest extends TestCaseMuet {
   public void getFourmiParFereTest3(){
     ini();
     GCreature gc = new GCreature();
-    Insecte i1 = new Insecte(Main.getGc().getCCase(1,0),0,100,1);
-    Insecte i2 = new Insecte(Main.getGc().getCCase(1,0),0,101,1);
+    Insecte i1 = new Insecte(Main.getGc().getCSquare(1,0),0,100,1);
+    Insecte i2 = new Insecte(Main.getGc().getCSquare(1,0),0,101,1);
     gc.add(i1);
     gc.add(f2);
     gc.add(f1);

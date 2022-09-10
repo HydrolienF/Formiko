@@ -41,35 +41,35 @@ public class GIEspece extends Liste<IEspece> implements Serializable {
   }
   /**
   *{@summary Return a random insect species id.}<br>
-  *@param typeOfCase id of the Case
+  *@param typeOfSquare id of the Square
   *@lastEditedVersion 2.23
   */
-  public byte getRandomTypeInsectOnTheCase(int typeOfCase){
-    int a = allea.getAlléa(getTotal(typeOfCase));
-    byte r = (byte) getIEspeceParAllea(a,typeOfCase);
+  public byte getRandomTypeInsectOnTheSquare(int typeOfSquare){
+    int a = allea.getAlléa(getTotal(typeOfSquare));
+    byte r = (byte) getIEspeceParAllea(a,typeOfSquare);
     return r;
   }
   /**
-  *{@summary get total score for a typeOfCase.}<br>
-  *@param typeOfCase id of the Case
+  *{@summary get total score for a typeOfSquare.}<br>
+  *@param typeOfSquare id of the Square
   *@lastEditedVersion 2.23
   */
-  private int getTotal(int typeOfCase){
+  private int getTotal(int typeOfSquare){
     int total=0;
     for (IEspece e : this) {
-      total+=e.getCt(typeOfCase);
+      total+=e.getCt(typeOfSquare);
     }
     return total;
   }
   /**
   *{@summary Return a random insect species id from a random number.}<br>
   *@param a random that have been chossen
-  *@param typeOfCase id of the Case
+  *@param typeOfSquare id of the Square
   *@lastEditedVersion 2.23
   */
-  private int getIEspeceParAllea(int a, int typeOfCase){
+  private int getIEspeceParAllea(int a, int typeOfSquare){
     for (IEspece e : this) {
-      a-=e.getCt(typeOfCase);
+      a-=e.getCt(typeOfSquare);
       if(a<0){
         return e.getId();
       }

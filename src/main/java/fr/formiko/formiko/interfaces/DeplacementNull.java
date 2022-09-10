@@ -1,7 +1,7 @@
 package fr.formiko.formiko.interfaces;
 
-import fr.formiko.formiko.CCase;
-import fr.formiko.formiko.Case;
+import fr.formiko.formiko.CSquare;
+import fr.formiko.formiko.Square;
 import fr.formiko.formiko.Creature;
 import fr.formiko.usual.erreur;
 
@@ -24,7 +24,7 @@ public class DeplacementNull implements Serializable, Deplacement {
   /**
   *If lauch print an error.
   */
-  public void unMouvement(Creature c, CCase p){
+  public void unMouvement(Creature c, CSquare p){
     erreur.erreur("Impossible de déplacer avec la créature " + c.getId());
   }
   /**
@@ -36,14 +36,14 @@ public class DeplacementNull implements Serializable, Deplacement {
   /**
   *If lauch print an error.
   */
-  public void plusieurMouvement(Creature c, CCase cc){
+  public void plusieurMouvement(Creature c, CSquare cc){
     erreur.erreur("Impossible de déplacer avec la créature " + c.getId());
   }
   /**
   *If lauch print an error.
   * @lastEditedVersion 1.24
   */
-  public void unMouvement(Creature c, Case p){
+  public void unMouvement(Creature c, Square p){
     erreur.erreur("Impossible de déplacer avec la créature " + c.getId());
   }
 

@@ -139,20 +139,20 @@ public class triche {
         case 24:
           getJoueurById(args[1]).setIa(str.sToB(args[2]));
           try {
-            if (!str.sToB(args[2]) && (Main.getCarte().getCasesNuageuses() || Main.getCarte().getCasesSombres())){getJoueurById(args[1]).updateCaseSN();}
+            if (!str.sToB(args[2]) && (Main.getCarte().getSquaresNuageuses() || Main.getCarte().getSquaresSombres())){getJoueurById(args[1]).updateSquareSN();}
           }catch (Exception e) {
             erreur.erreur("Le code triche de changement de jouer n'as pas pu actualiser les cases sombre et nuageuse.");
           }
           break;
         case 25:
-          erreur.println(Main.getGc().getCCase(str.sToI(args[1]),str.sToI(args[2])).getContent());
+          erreur.println(Main.getGc().getCSquare(str.sToI(args[1]),str.sToI(args[2])).getContent());
           break;
         case 26:
           erreur.println(Main.getGj());
           break;
         case 27:
           if(args[1].equalsIgnoreCase(g.get("cmd.type.2"))){
-            Insecte in=new Insecte(Main.getGc().getCCase(str.sToI(args[2]),str.sToI(args[3])));
+            Insecte in=new Insecte(Main.getGc().getCSquare(str.sToI(args[2]),str.sToI(args[3])));
             in.setType(str.sToI(args[4]));
             Main.getGi().add(in);
           }else if(args[1].equalsIgnoreCase(g.get("cmd.type.3"))){
@@ -162,8 +162,8 @@ public class triche {
             fm.evoluer();
             fere.getGc().add(fm);
           }else if(args[1].equalsIgnoreCase(g.get("cmd.type.4"))){
-            Graine g=new Graine(Main.getGc().getCCase(str.sToI(args[2]),str.sToI(args[3])));
-            Main.getGc().getCCase(str.sToI(args[2]),str.sToI(args[3])).getGg().add(g);
+            Graine g=new Graine(Main.getGc().getCSquare(str.sToI(args[2]),str.sToI(args[3])));
+            Main.getGc().getCSquare(str.sToI(args[2]),str.sToI(args[3])).getGg().add(g);
           }
           break;
         case 28:
@@ -196,7 +196,7 @@ public class triche {
             if(args[1].equalsIgnoreCase(g.get("cmd.type.1"))){// Creature
               Creature c = getCreatureById(args[2]);
               if(args[3].equalsIgnoreCase(g.get("cmd.31.1"))){//getPoint
-                b = testSupInfEga(args,c.getCCase().getContent().getPoint());
+                b = testSupInfEga(args,c.getCSquare().getContent().getPoint());
               }else if(args[3].equalsIgnoreCase(g.get("cmd.31.2"))){//isDead
                 b = c.getIsDead();
               }else if(args[3].equalsIgnoreCase(g.get("cmd.31.5"))){//getHealth

@@ -1,7 +1,7 @@
 package fr.formiko.views.gui2d;
 
-import fr.formiko.formiko.CCase;
-import fr.formiko.formiko.Case;
+import fr.formiko.formiko.CSquare;
+import fr.formiko.formiko.Square;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.DiscordIntegration;
 import fr.formiko.formiko.Fourmi;
@@ -41,7 +41,7 @@ import javax.swing.UIManager;
 *@lastEditedVersion 1.44
 */
 public class ViewGUI2d implements View {
-  // private CCase lookedCCase=null;
+  // private CSquare lookedCSquare=null;
   private boolean actionGameOn;
   private ThTriche trich; //écoute de commande triche dans le terminal.
   /***
@@ -54,7 +54,7 @@ public class ViewGUI2d implements View {
   private Timer timer;
   // private boolean canRefresh=true;
   private int curentFPS=0;
-  private CCase ccaseClicked;
+  private CSquare ccaseClicked;
   private boolean moveMode=false;
   private volatile boolean launchFromPm;
   private boolean bladeChanged;
@@ -96,8 +96,8 @@ public class ViewGUI2d implements View {
   public void setCurentFPS(int x){curentFPS=x;}
   public int getWidth(){if(getPp()==null){return 0;} return getPp().getWidth();}
   public int getHeight(){if(getPp()==null){return 0;} return getPp().getHeight();}
-  // public Case getCaseClicked(){return caseClicked;}
-  // public void setCaseClicked(Case c){caseClicked=c;}
+  // public Square getSquareClicked(){return caseClicked;}
+  // public void setSquareClicked(Square c){caseClicked=c;}
   public void setLaunchFromPm(boolean b){launchFromPm=b;}
   public boolean getBladeChanged(){return bladeChanged;}
   public void setBladeChanged(boolean b){bladeChanged=b;}
@@ -349,13 +349,13 @@ public class ViewGUI2d implements View {
     return true;
   }
   /**
-  *{@summary Change the value of the loked Case.}<br>
-  *We need to repaint the information about this Case.<br>
+  *{@summary Change the value of the loked Square.}<br>
+  *We need to repaint the information about this Square.<br>
   *This action can only be run if action game is on.<br>
   *@return Return true if it work well. (Nothing goes wrong.)
   *@lastEditedVersion 1.46
   */
-  public boolean setLookedCCase(CCase cc){
+  public boolean setLookedCSquare(CSquare cc){
     if (!actionGameOn) {return false;}
     if(cc==null){
       setMessageDesc("");
@@ -371,18 +371,18 @@ public class ViewGUI2d implements View {
         }
       }
     }
-    getPc().setLookedCCase(cc);
+    getPc().setLookedCSquare(cc);
     return true;
   }
   /**
-  *{@summary Return the value of the looked CCase.}<br>
+  *{@summary Return the value of the looked CSquare.}<br>
   *This action can only be run if action game is on.<br>
-  *@return lookedCCase.
+  *@return lookedCSquare.
   *@lastEditedVersion 1.46
   */
-  public CCase getLookedCCase(){
+  public CSquare getLookedCSquare(){
     if (!actionGameOn) {return null;}
-    return getPc().getLookedCCase();
+    return getPc().getLookedCSquare();
   }
   /**
   *{@summary Return the chosen value for ant action.}<br>
@@ -416,13 +416,13 @@ public class ViewGUI2d implements View {
     return r;
   }
   /**
-  *{@summary Return the chosen CCase.}<br>
+  *{@summary Return the chosen CSquare.}<br>
   *It is used to move ant.
   *@lastEditedVersion 2.11
   */
-  public CCase getCCase(){
+  public CSquare getCSquare(){
     if (!actionGameOn) {return null;}
-    // erreur.println("getCCase");
+    // erreur.println("getCSquare");
     moveMode=true;
     while(ccaseClicked==null){
       Time.sleep();
@@ -433,11 +433,11 @@ public class ViewGUI2d implements View {
     //   erreur.println("cpu use");
     // }
     moveMode=false;
-    CCase tempCCase = ccaseClicked;
+    CSquare tempCSquare = ccaseClicked;
     ccaseClicked=null;
-    return tempCCase;
+    return tempCSquare;
   }
-  public void setCCase(CCase cc){ccaseClicked=cc;}
+  public void setCSquare(CSquare cc){ccaseClicked=cc;}
   /**
   *{@summary Print a message.}<br>
   *If message.equals("") we may need to delete last message, but we don't need to print a new message.<br>
@@ -586,11 +586,11 @@ public class ViewGUI2d implements View {
   *{@summary Move ObjetSurCarteAId.}<br>
   *This action can only be run if action game is on.<br>
   *@param o object to move.
-  *@param from CCase that o leave.
-  *@param to CCase were o is going.
+  *@param from CSquare that o leave.
+  *@param to CSquare were o is going.
   *@lastEditedVersion 2.1
   */
-  public void move(ObjetSurCarteAId o, CCase from, CCase to){
+  public void move(ObjetSurCarteAId o, CSquare from, CSquare to){
     if(!Main.getOp().getInstantaneousMovement()){
       ThMove.updateTo(to, o.getId());
       ThMove th = new ThMove(o, from, to);
@@ -727,12 +727,12 @@ public class ViewGUI2d implements View {
   public boolean getMoveMode(){return moveMode;}
   public void setMoveMode(boolean b){moveMode=b;}
   /**
-  *{@summary Center map panel over a Case.}
+  *{@summary Center map panel over a Square.}
   *@param c case to center over
   *@lastEditedVersion 2.14
   */
-  public void centerOverCase(Case c){
-    getPmmo().centerOver((int)((c.getX()+0.5)*getPc().getTailleDUneCase()), (int)((c.getY()+0.5)*getPc().getTailleDUneCase()));
+  public void centerOverSquare(Square c){
+    getPmmo().centerOver((int)((c.getX()+0.5)*getPc().getTailleDUneSquare()), (int)((c.getY()+0.5)*getPc().getTailleDUneSquare()));
   }
 
   /**

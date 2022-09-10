@@ -19,19 +19,19 @@ public class FPanelTInt extends FPanelTX{
     this.setLayout(new GridBagLayout());
     this.ti=ti;
     if(ti!=null){
-      int nbrDeCase = ti.length;
-      if (nbrDeCase > 0){getView().getPb().setDescTI(descTI);}
+      int nbrDeSquare = ti.length;
+      if (nbrDeSquare > 0){getView().getPb().setDescTI(descTI);}
       else{((FPanelBouton) pb).setDescTI("");}
-      x = ((int) (Math.sqrt(nbrDeCase)))+1;
+      x = ((int) (Math.sqrt(nbrDeSquare)))+1;
       y = x;
-      //if (nbrDeCase==9 || nbrDeCase==4 || nbrDeCase==16 || nbrDeCase==25){x--;} // petite correction de la ligne 2 au dessus qui ne prend pas ses cas en compte.
-      if (x*x > nbrDeCase+x){ // si la dernière ligne n'est pas néssésaire
+      //if (nbrDeSquare==9 || nbrDeSquare==4 || nbrDeSquare==16 || nbrDeSquare==25){x--;} // petite correction de la ligne 2 au dessus qui ne prend pas ses cas en compte.
+      if (x*x > nbrDeSquare+x){ // si la dernière ligne n'est pas néssésaire
         y=x-1;
       }
       this.setSize(x*tailleBouton,y*tailleBouton);
-      FButton tB [] = new FButton [nbrDeCase];
+      FButton tB [] = new FButton [nbrDeSquare];
       Dimension dim = new Dimension(tailleBouton,tailleBouton);
-      for (int i=0;i<nbrDeCase ;i++ ) {
+      for (int i=0;i<nbrDeSquare ;i++ ) {
         tB[i]=new FButton(ti[i]+"", getView().getPp().getPj(),40+i);
         tB[i].setFont(Main.getFont2());
       }
@@ -40,7 +40,7 @@ public class FPanelTInt extends FPanelTX{
       int k=0;
       for (int i=0;i<x ;i++ ) {
         gbc.gridy = i;
-        for (int j=0;j<y && k < nbrDeCase;j++ ) {
+        for (int j=0;j<y && k < nbrDeSquare;j++ ) {
           gbc.gridx = j;
           this.add(tB[k],gbc);k++;
         }

@@ -1,6 +1,6 @@
 package fr.formiko.views.gui2d;
 
-import fr.formiko.formiko.Case;
+import fr.formiko.formiko.Square;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Graine;
@@ -39,8 +39,8 @@ import java.util.concurrent.TimeUnit;
 *@lastEditedVersion 1.18
 */
 public class Data {
-  private int tailleDUneCase; // entre 10 et 500.
-  //private final int tailleDUneCaseBase = 500;
+  private int tailleDUneSquare; // entre 10 et 500.
+  //private final int tailleDUneSquareBase = 500;
   //private int scale = Image.SCALE_SMOOTH;
   private boolean imageIni;
   private boolean imageIniForNewGame;
@@ -114,13 +114,13 @@ public class Data {
   */
   public void Data(){
     initialisationFX=false;
-    setTailleDUneCase(1);
+    setTailleDUneSquare(1);
   }
   // GET SET -------------------------------------------------------------------
   //ini
-  public int getTailleDUneCase(){return tailleDUneCase;}
-  public int getTailleIcon(){return (int)(getTailleDUneCase()/3);}
-  public void setTailleDUneCase(int x){tailleDUneCase=x;}
+  public int getTailleDUneSquare(){return tailleDUneSquare;}
+  public int getTailleIcon(){return (int)(getTailleDUneSquare()/3);}
+  public void setTailleDUneSquare(int x){tailleDUneSquare=x;}
   public BufferedImage getImgNull(){return imgNull;}
   public BufferedImage getFere(){return fere;}
   public BufferedImage getCSombre(){return cSombre;}
@@ -353,28 +353,28 @@ public class Data {
     public synchronized void chargerImages(){
       chargerImagesIni();
       Main.startCh();
-      int tailleFourmi = (getTailleDUneCase()*4)/5;
-      erreur.info("Update Image to size "+getTailleDUneCase(),8);
+      int tailleFourmi = (getTailleDUneSquare()*4)/5;
+      erreur.info("Update Image to size "+getTailleDUneSquare(),8);
 
       // new way
       List<Task> taskList = new ArrayList<Task>();
 
-      taskList.add(new Task(() -> imgNull = FImages.resize(imgNullIni,getTailleDUneCase())));
-      taskList.add(new Task(() -> tICarte=getScaledInstance(tICarteIni, getTailleDUneCase())));
+      taskList.add(new Task(() -> imgNull = FImages.resize(imgNullIni,getTailleDUneSquare())));
+      taskList.add(new Task(() -> tICarte=getScaledInstance(tICarteIni, getTailleDUneSquare())));
       taskList.add(new Task(() -> imageTree = FImageTree.getScaledInstanceFromTree(imageTreeIni, tailleFourmi)));
       taskList.add(new Task(() -> tG=getScaledInstance(tGIni, tailleFourmi)));
-      taskList.add(new Task(() -> fere = FImages.resize(fereIni,getTailleDUneCase()/2)));
-      taskList.add(new Task(() -> cSombre = FImages.resize(cSombreIni,getTailleDUneCase())));
+      taskList.add(new Task(() -> fere = FImages.resize(fereIni,getTailleDUneSquare()/2)));
+      taskList.add(new Task(() -> cSombre = FImages.resize(cSombreIni,getTailleDUneSquare())));
       taskList.add(new Task(() -> b=getScaledInstance(bIni,getTailleIcon())));
 
       launchTaskList(taskList);
 
-      // imgNull = FImages.resize(imgNullIni,getTailleDUneCase());
-      // tICarte=getScaledInstance(tICarteIni, getTailleDUneCase());
+      // imgNull = FImages.resize(imgNullIni,getTailleDUneSquare());
+      // tICarte=getScaledInstance(tICarteIni, getTailleDUneSquare());
       // imageTree = FImageTree.getScaledInstanceFromTree(imageTreeIni, tailleFourmi);
       // tG=getScaledInstance(tGIni, tailleFourmi);
-      // fere = FImages.resize(fereIni,getTailleDUneCase()/2);
-      // cSombre = FImages.resize(cSombreIni,getTailleDUneCase());
+      // fere = FImages.resize(fereIni,getTailleDUneSquare()/2);
+      // cSombre = FImages.resize(cSombreIni,getTailleDUneSquare());
       // b=getScaledInstance(bIni,getTailleIcon());
 
       // tIF=getScaledInstance(tIFIni, tailleFourmi);
@@ -551,7 +551,7 @@ public class Data {
     //   }
     // }
     /**
-    *Load Case image
+    *Load Square image
     *@lastEditedVersion 1.18
     */
     public void chargerTI(){
@@ -587,16 +587,16 @@ public class Data {
       Img img = new Img(FPanel.getView().getPc().getWidth(),FPanel.getView().getPc().getHeight());
       //if(img.)
       Img img2 = null;
-      int xCase = FPanel.getView().getPc().getXCase();
-      int yCase = FPanel.getView().getPc().getYCase();
+      int xSquare = FPanel.getView().getPc().getXSquare();
+      int ySquare = FPanel.getView().getPc().getYSquare();
       try {
-        // if(getTailleDUneCase()<1){erreur.erreur("Case size is <1");}
-        for (int i=0;i<xCase ;i++ ) {
-          for (int j=0;j<yCase ;j++ ) {
-            int xT = i*getTailleDUneCase(); int yT = j*getTailleDUneCase();
-            Case c=null;
+        // if(getTailleDUneSquare()<1){erreur.erreur("Square size is <1");}
+        for (int i=0;i<xSquare ;i++ ) {
+          for (int j=0;j<ySquare ;j++ ) {
+            int xT = i*getTailleDUneSquare(); int yT = j*getTailleDUneSquare();
+            Square c=null;
             try {
-              c = Main.getGc().getCCase(i,j).getContent();
+              c = Main.getGc().getCSquare(i,j).getContent();
             }catch (Exception e) {erreur.erreur("case is null");}
             try {
               img2 = new Img(tICarte[c.getType()-1]);
@@ -625,7 +625,7 @@ public class Data {
         map=null;
       }
       Main.endCh("iniBackgroundMapImage");
-      if(Main.getPartie()!=null && Main.getPartie().getCarte()!=null && Main.getPartie().getCarte().getCasesNuageuses()==true){
+      if(Main.getPartie()!=null && Main.getPartie().getCarte()!=null && Main.getPartie().getCarte().getSquaresNuageuses()==true){
         iniCloudMapImage();
       }
     }

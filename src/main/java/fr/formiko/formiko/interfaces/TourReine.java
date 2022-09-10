@@ -74,7 +74,7 @@ public class TourReine extends TourFourmi implements Serializable, Tour{
     while(f.getAction()>0 && !f.isHungry(30)){ //Maybe we sould set the isHungry limite to a higer value if the anthill is big enough.
       if(!haveSomeHelp() && f.getFere().getGc().getBrood().length()>=1){return;}
       //Maybe we should check that brood do not represent a to higth %age.
-      //int pourcentageDeBrood = (100*getAlliéSurLaCase().getBrood().length()) / this.getFere().length();
+      //int pourcentageDeBrood = (100*getAlliéSurLaSquare().getBrood().length()) / this.getFere().length();
       f.pondre();
     }
   }

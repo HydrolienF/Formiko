@@ -149,7 +149,7 @@ public class Main {
       else{Partie.setScript("");}
     }
     iniCpt();
-    pa = new Partie(0,0,new Carte(new GCase(1,1)),1.0); //new empty game
+    pa = new Partie(0,0,new Carte(new GSquare(1,1)),1.0); //new empty game
   }
   /**
    * {@summary Launch in the void main if there is not other args than -something (ex : -d).}<br>
@@ -265,14 +265,14 @@ public class Main {
   public static boolean getLoadingDuringMenus(){ return getOp().getLoadingDuringMenus();}
   public static boolean getKeepFilesRotated(){ return getOp().getKeepFilesRotated();}
   public static int getSizeOfMapLines(){return getOp().getSizeOfMapLines();}
-  public static int getPositionCase(){return getOp().getPositionCase();}
+  public static int getPositionSquare(){return getOp().getPositionSquare();}
   public static byte getRealisticSize(){return getOp().getRealisticSize();}
   //partie
   public static GInsecte getGi(){return pa.getGi();}
   public static GJoueur getListeJoueur(){return pa.getGj();}
   public static GJoueur getGj(){return pa.getGj();}
-  public static GCase getGc(){if(getPartie()==null){return null;}return getPartie().getGc();}
-  public static CCase getCCase(int x, int y){if(getGc()==null){return null;}return getGc().getCCase(x,y);}
+  public static GSquare getGc(){if(getPartie()==null){return null;}return getPartie().getGc();}
+  public static CSquare getCSquare(int x, int y){if(getGc()==null){return null;}return getGc().getCSquare(x,y);}
   public static void setNbrDeTour(int x){pa.setNbrDeTour(x);}
   public static void setTour(int x){pa.setTour(x);}
   public static int getNbrDeTour(){return pa.getNbrDeTour();}
@@ -500,7 +500,7 @@ public class Main {
   }
   /**
    * {@summary Play a turn.}<br>
-   * 1a updating Case resources.<br>
+   * 1a updating Square resources.<br>
    * 2a Make humain player and AI play.<br>
    * 3a Make Insecte play.<br>
    * 4a Add new Insectes.<br>
@@ -511,7 +511,7 @@ public class Main {
       return;
     }
     if(!getPartie().getLaunchingFromSave()){
-      getGc().tourCases(); //actualisation des ressources sur les cases.
+      getGc().tourSquares(); //actualisation des ressources sur les cases.
       getGi().preTurn(); //actualisation des actions des insectes
       for (Joueur j : getGj()) {
         j.getFere().preTurn();

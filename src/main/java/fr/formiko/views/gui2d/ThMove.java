@@ -1,7 +1,7 @@
 package fr.formiko.views.gui2d;
 
-import fr.formiko.formiko.CCase;
-import fr.formiko.formiko.Case;
+import fr.formiko.formiko.CSquare;
+import fr.formiko.formiko.Square;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.MapPath;
@@ -45,17 +45,17 @@ public class ThMove {
   /**
   *{@summary Create Thread for the ObjetSurCarteAId animation.}
   *@param o the Object to animate.
-  *@param from CCase from where it move.
-  *@param to CCase where it move.
+  *@param from CSquare from where it move.
+  *@param to CSquare where it move.
   *@lastEditedVersion 2.4
   */
-  public ThMove(ObjetSurCarteAId o, CCase from, CCase to){
+  public ThMove(ObjetSurCarteAId o, CSquare from, CSquare to){
     id=cptId++;
     this.o=o;
-    Case c = from.getContent();
-    this.from = FPanel.getView().getPc().getPointFromCase(c.getX(), c.getY(), false);
+    Square c = from.getContent();
+    this.from = FPanel.getView().getPc().getPointFromSquare(c.getX(), c.getY(), false);
     c = to.getContent();
-    this.to = FPanel.getView().getPc().getPointFromCase(c.getX(), c.getY(), false);
+    this.to = FPanel.getView().getPc().getPointFromSquare(c.getX(), c.getY(), false);
     curent2 = new Point(0,0);
     addToQueue(this);
     time = System.currentTimeMillis();
@@ -130,20 +130,20 @@ public class ThMove {
   /**
   *{@summary Update all ThMove that need to be change if ant move a 2a time.}
   *It will update all ThMove that haven't been done &#38; that are about ObjetSurCarteAId with given id.
-  *@param to new CCase were to go.
+  *@param to new CSquare were to go.
   *@param id id of the concerned ObjetSurCarteAId.
   *@lastEditedVersion 2.1
   */
-  public static void updateTo(CCase to, int id){
-    Case c = to.getContent();
+  public static void updateTo(CSquare to, int id){
+    Square c = to.getContent();
     for (ThMove th : curentThList ) {
       if(th.getIdMovingObject()==id){
-        th.updateTo(FPanel.getView().getPc().getPointFromCase(c.getX(), c.getY(), false));
+        th.updateTo(FPanel.getView().getPc().getPointFromSquare(c.getX(), c.getY(), false));
       }
     }
     for (ThMove th: queue) {
       if(th.getIdMovingObject()==id){
-        th.updateTo(FPanel.getView().getPc().getPointFromCase(c.getX(), c.getY(), false));
+        th.updateTo(FPanel.getView().getPc().getPointFromSquare(c.getX(), c.getY(), false));
       }
     }
   }
@@ -153,7 +153,7 @@ public class ThMove {
   */
   // @Override
   public void iniRun(){
-    o.setDirection(CCase.getDirection(from, to));
+    o.setDirection(CSquare.getDirection(from, to));
     int walkCycle = 2;
     k=120; //should be a mutiple of 2*walkCycle.
     if(Main.getOp().getQuickMovement()){k=20;}
@@ -162,16 +162,16 @@ public class ThMove {
     vectX = this.to.getX()-this.from.getX();
     vectY = this.to.getY()-this.from.getY();
     if(vectX==0 && vectY==0){return;}
-    //patch to move 1 Case max.
-    if(vectX>Main.getData().getTailleDUneCase()){
-      vectX=Main.getData().getTailleDUneCase();
-    }else if(vectX<-Main.getData().getTailleDUneCase()){
-      vectX=-Main.getData().getTailleDUneCase();
+    //patch to move 1 Square max.
+    if(vectX>Main.getData().getTailleDUneSquare()){
+      vectX=Main.getData().getTailleDUneSquare();
+    }else if(vectX<-Main.getData().getTailleDUneSquare()){
+      vectX=-Main.getData().getTailleDUneSquare();
     }
-    if(vectY>Main.getData().getTailleDUneCase()){
-      vectY=Main.getData().getTailleDUneCase();
-    }else if(vectY<-Main.getData().getTailleDUneCase()){
-      vectY=-Main.getData().getTailleDUneCase();
+    if(vectY>Main.getData().getTailleDUneSquare()){
+      vectY=Main.getData().getTailleDUneSquare();
+    }else if(vectY<-Main.getData().getTailleDUneSquare()){
+      vectY=-Main.getData().getTailleDUneSquare();
     }
     rotateAngle = 0;
     vectRotate=-40;

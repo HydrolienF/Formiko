@@ -123,11 +123,11 @@ public class TourFourmi implements Serializable, Tour{
   *@lastEditedVersion 1.29
   */
   public Creature aNourrir(){
-    GCreature gc = f.getCCase().getContent().getGc().filterAlliés(f).filterFaimMax();
+    GCreature gc = f.getCSquare().getContent().getGc().filterAlliés(f).filterFaimMax();
     // erreur.setMuet(false);
     // erreur.info("aNourrir",5);
     // erreur.setMuet(true);
-    // System.out.println("initgc:"+f.getCCase().getContent().getGc().length());
+    // System.out.println("initgc:"+f.getCSquare().getContent().getGc().length());
     // System.out.println("gc:"+gc.length());//@a
     try { // the Creature f may not be in it.
       gc.remove(f);
@@ -163,7 +163,7 @@ public class TourFourmi implements Serializable, Tour{
   *@lastEditedVersion 1.29
   */
   public Creature aNetoyer(){
-    GCreature gc = f.getCCase().getContent().getGc().filterAlliés(f).filterHealthMax();
+    GCreature gc = f.getCSquare().getContent().getGc().filterAlliés(f).filterHealthMax();
     try { // the Creature f may not be in it.
       gc.remove(f);
     }catch (ListItemNotFoundException e) {
@@ -194,7 +194,7 @@ public class TourFourmi implements Serializable, Tour{
   */
   public void backHome(){
     while (f.getAction()>0 && !f.estALaFere()) {
-      int directionDeLaFourmilière = f.getCCase().getDirection(f.getFourmiliere().getCCase());
+      int directionDeLaFourmilière = f.getCSquare().getDirection(f.getFourmiliere().getCSquare());
       f.ceDeplacer(directionDeLaFourmilière);
     }
   }

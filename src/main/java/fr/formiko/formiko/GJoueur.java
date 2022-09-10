@@ -139,9 +139,9 @@ public class GJoueur extends Liste<Joueur> implements Serializable {
   *{@summary Initialize dark &#38; cloudy squares for every players.}
   *@lastEditedVersion 2.23
   */
-  public void initialisationCaseNS(){
+  public void initialisationSquareNS(){
     for (Joueur j : this) {
-      j.initialisationCaseNS();
+      j.initialisationSquareNS();
     }
   }
   /**

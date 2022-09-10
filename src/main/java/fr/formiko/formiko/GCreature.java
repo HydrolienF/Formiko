@@ -34,7 +34,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
   *{@summary Constructor that create an empty GCreature and then fill it as a Fourmiliere.}
   *@lastEditedVersion 2.23
   */
-  public GCreature(int nbrDeCreature, Fourmiliere fere, Espece e, CCase cc){
+  public GCreature(int nbrDeCreature, Fourmiliere fere, Espece e, CSquare cc){
     this();
     debug.débogage("Création d'un groupe de Fourmi avec au moins 1 fourmis.");
     Fourmi reine = new Fourmi(fere,e, (byte) 0,(byte) 0);
@@ -303,7 +303,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
               loopSafety=0;
               if(fActuel.getAction()>0){
                 if(!fActuel.isAI() && Main.getOp().getFollowAntAtStartTurn()){
-                  Main.getView().centerOverCase(fActuel.getCCase().getContent());
+                  Main.getView().centerOverSquare(fActuel.getCSquare().getContent());
                 }
                 fActuel.tour();
               }else{
@@ -321,7 +321,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
           }else{ //if player have press Enter or end an other Ant turn.
             if(fActuel.getAction()>0){
               if(!fActuel.isAI() && Main.getOp().getFollowAntAtStartTurn()){
-                Main.getView().centerOverCase(fActuel.getCCase().getContent());
+                Main.getView().centerOverSquare(fActuel.getCSquare().getContent());
               }
               fActuel.tour();
             }
@@ -369,18 +369,18 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
     }catch (EmptyListException e) {}
   }
   /**
-  *{@summary Update Black and cloud Case.}
+  *{@summary Update Black and cloud Square.}
   *@lastEditedVersion 2.1
   */
-  public void updateCaseSN(){
+  public void updateSquareSN(){
     for (Creature c : this ) {
       if(c instanceof Fourmi){
         Fourmi f = (Fourmi)(c);
         Joueur j = f.getJoueur();
-        for (Case ca : f.getCCase().getGca(1)) {
+        for (Square ca : f.getCSquare().getGca(1)) {
           int x = ca.getX(); int y = ca.getY();
-          j.setCaseSombre(x,y,false);
-          j.setCaseNuageuse(x,y,false);
+          j.setSquareSombre(x,y,false);
+          j.setSquareNuageuse(x,y,false);
         }
       }
     }

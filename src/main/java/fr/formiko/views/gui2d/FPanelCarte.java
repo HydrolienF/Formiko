@@ -1,13 +1,13 @@
 package fr.formiko.views.gui2d;
 
 import fr.formiko.formiko.Blade;
-import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.CSquare;
 import fr.formiko.formiko.GGraine;
-import fr.formiko.formiko.Case;
+import fr.formiko.formiko.Square;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Fourmiliere;
-import fr.formiko.formiko.GCase;
+import fr.formiko.formiko.GSquare;
 import fr.formiko.formiko.GCreature;
 import fr.formiko.formiko.Graine;
 import fr.formiko.formiko.Insecte;
@@ -54,11 +54,11 @@ import javax.swing.JPanel;
 *@lastEditedVersion 1.42
 */
 public class FPanelCarte extends FPanel {
-  private int xCase; // nombre de case en X
-  private int yCase; // nombre de case en Y
+  private int xSquare; // nombre de case en X
+  private int ySquare; // nombre de case en Y
   private int xTemp,yTemp;
   private int idCurentFere=-1;
-  private CCase lookedCCase;
+  private CSquare lookedCSquare;
   private Map<Integer,Point> hashMapMovingObjectSurCarteAid;
   private Map<Integer,Point> hashMapMovingObjectSurCarteAidRotation;
   // private SubPanel subPanel;
@@ -75,43 +75,43 @@ public class FPanelCarte extends FPanel {
   *@lastEditedVersion 1.x
   */
   public void build(){
-    // Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(100));
-    // Main.getData().setTailleDUneCase(Main.getTailleElementGraphique(1));
-    GCase gc = new GCase(1,1);
-    xCase = gc.getWidth();
-    yCase = gc.getHeight();
+    // Main.getData().setTailleDUneSquare(Main.getTailleElementGraphique(100));
+    // Main.getData().setTailleDUneSquare(Main.getTailleElementGraphique(1));
+    GSquare gc = new GSquare(1,1);
+    xSquare = gc.getWidth();
+    ySquare = gc.getHeight();
     hashMapMovingObjectSurCarteAid = new HashMap<Integer,Point>();
     hashMapMovingObjectSurCarteAidRotation = new HashMap<Integer,Point>();
   }
   // GET SET -------------------------------------------------------------------
-  public int getTailleDUneCase(){return Main.getData().getTailleDUneCase();}
+  public int getTailleDUneSquare(){return Main.getData().getTailleDUneSquare();}
   public int getTailleIcon(){return Main.getData().getTailleIcon();}
   /**
-  *{@summary Update Case size.}<br>
-  *@param x new value for Case size
+  *{@summary Update Square size.}<br>
+  *@param x new value for Square size
   *@param updateMap if true update the map to
   *@lastEditedVersion 2.22
   */
-  public void setTailleDUneCase(int x, boolean updateMap){
-    if(x!=getTailleDUneCase()){Main.getData().setTailleDUneCase(x);
+  public void setTailleDUneSquare(int x, boolean updateMap){
+    if(x!=getTailleDUneSquare()){Main.getData().setTailleDUneSquare(x);
       if(updateMap){
         actualiserCarte();
       }
     }
   }
   /***
-  *{@summary Update Case size &#38; map.}<br>
-  *@param x new value for Case size
+  *{@summary Update Square size &#38; map.}<br>
+  *@param x new value for Square size
   *@lastEditedVersion 2.22
   */
-  public void setTailleDUneCase(int x){setTailleDUneCase(x, true);}
-  public int getXCase(){ return xCase;}
-  public void setXCase(int x){xCase = x;}
-  public int getYCase(){ return yCase;}
-  public void setYCase(int y){yCase = y;}
+  public void setTailleDUneSquare(int x){setTailleDUneSquare(x, true);}
+  public int getXSquare(){ return xSquare;}
+  public void setXSquare(int x){xSquare = x;}
+  public int getYSquare(){ return ySquare;}
+  public void setYSquare(int y){ySquare = y;}
   public void setIdCurentFere(int x){idCurentFere=x;}
-  public CCase getLookedCCase(){return lookedCCase;}
-  public void setLookedCCase(CCase cc){lookedCCase=cc;}
+  public CSquare getLookedCSquare(){return lookedCSquare;}
+  public void setLookedCSquare(CSquare cc){lookedCSquare=cc;}
   public void setLigne(Graphics2D g){
     BasicStroke ligne = new BasicStroke(Main.getSizeOfMapLines());
     g.setStroke(ligne);
@@ -138,7 +138,7 @@ public class FPanelCarte extends FPanel {
   // Fonctions propre ----------------------------------------------------------
   /**
   *{@summary Main paint function for Map.}<br>
-  *It print 1 by 1: map with only Case, grids, all map element Case by Case, the mark for all game as playingAnt mark.
+  *It print 1 by 1: map with only Square, grids, all map element Square by Square, the mark for all game as playingAnt mark.
   *@lastEditedVersion 1.42
   */
   public void paintComponent(Graphics g2){
@@ -153,10 +153,10 @@ public class FPanelCarte extends FPanel {
     Graphics2D g = (Graphics2D)g2;
     setLigne(g);
     try {
-      GCase gc = Main.getGc();
+      GSquare gc = Main.getGc();
       updateSize();
       long time = System.currentTimeMillis();
-      debug.débogage("Dimention du FPanelCarte en case : x="+xCase+" y="+yCase);
+      debug.débogage("Dimention du FPanelCarte en case : x="+xSquare+" y="+ySquare);
       debug.débogage("taille réèle du panneau de la carte : x="+this.getWidth()+", y="+this.getHeight());
       try {
         if(Main.getData().getMap()==null){Main.getData().iniBackgroundMapImage();}
@@ -175,13 +175,13 @@ public class FPanelCarte extends FPanel {
         // erreur.info("Time for draw blade: "+(System.currentTimeMillis()-time),0);
       }
       time = System.currentTimeMillis();
-      for (int i=0; i<xCase; i++) {
-        for (int j=0; j<yCase; j++) {
-          peintImagePourCase(gc,i,j,g);
+      for (int i=0; i<xSquare; i++) {
+        for (int j=0; j<ySquare; j++) {
+          peintImagePourSquare(gc,i,j,g);
         }
       }
       if(debug.getPerformance()){
-        // erreur.info("Time for refrech all Map Case: "+(System.currentTimeMillis()-time),0);
+        // erreur.info("Time for refrech all Map Square: "+(System.currentTimeMillis()-time),0);
       }
       if (Main.getDrawRelationsIcons() || Main.getOp().getDrawStatesIconsLevel()<4){
         if(iconImage!=null){
@@ -203,18 +203,18 @@ public class FPanelCarte extends FPanel {
   */
   public void dessinerGrille(Graphics g){
     if(Main.getDrawGrid()){
-      int tailleCase = getTailleDUneCase();
-      for (int i=0;i<xCase+1 ;i++ ) {
-        int xT = tailleCase*i;
-        g.drawLine(xT,0,xT,tailleCase*(yCase));
+      int tailleSquare = getTailleDUneSquare();
+      for (int i=0;i<xSquare+1 ;i++ ) {
+        int xT = tailleSquare*i;
+        g.drawLine(xT,0,xT,tailleSquare*(ySquare));
       }
-      for (int i=0;i<yCase+1 ;i++ ) {
-        int xT = tailleCase*i;
-        g.drawLine(0,xT,tailleCase*xCase,xT);
+      for (int i=0;i<ySquare+1 ;i++ ) {
+        int xT = tailleSquare*i;
+        g.drawLine(0,xT,tailleSquare*xSquare,xT);
       }
     }
   }
-  public void drawBlades(Graphics g, GCase gc){
+  public void drawBlades(Graphics g, GSquare gc){
     if(getView().getBladeChanged()){
       getView().setBladeChanged(false);
       bladeImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
@@ -223,17 +223,17 @@ public class FPanelCarte extends FPanel {
         Graphics2D g2d = (Graphics2D)gBlade;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); //good for all drawLine, drawCircle etc.
       // }
-      for (int i=0; i<xCase; i++) {
-        for (int j=0; j<yCase; j++) {
-          Point point = getPointFromCase(i,j,false);
+      for (int i=0; i<xSquare; i++) {
+        for (int j=0; j<ySquare; j++) {
+          Point point = getPointFromSquare(i,j,false);
           int xT = point.getX(); int yT = point.getY();
           if(Main.getOp().getDrawBlades()){
-            for (Blade b : gc.getCCase(i,j).getContent().getGb()) {
+            for (Blade b : gc.getCSquare(i,j).getContent().getGb()) {
               b.draw(gBlade, xT, yT);
             }
           }else{
-            gBlade.setColor(new Color(0,180,0, math.min(255,gc.getCCase(i,j).getContent().getFoodInsecte()*2)));
-            gBlade.fillRect(xT+1, yT+1, getTailleDUneCase()-2, getTailleDUneCase()-2);
+            gBlade.setColor(new Color(0,180,0, math.min(255,gc.getCSquare(i,j).getContent().getFoodInsecte()*2)));
+            gBlade.fillRect(xT+1, yT+1, getTailleDUneSquare()-2, getTailleDUneSquare()-2);
           }
         }
       }
@@ -241,37 +241,37 @@ public class FPanelCarte extends FPanel {
     //TOFIX it don't draw all time greeen part.
     drawImage(g, bladeImage, 0, 0);
   }
-  /*public void repaintParciel(Case c){
-    peintImagePourCase(c,(Graphics2D) this.getGraphics());
+  /*public void repaintParciel(Square c){
+    peintImagePourSquare(c,(Graphics2D) this.getGraphics());
   }*/
-  public void peintImagePourCase(Case c,Graphics2D g){
+  public void peintImagePourSquare(Square c,Graphics2D g){
     int x = c.getX(); int y = c.getY();
-    peintImagePourCase(c,x,y,g);
+    peintImagePourSquare(c,x,y,g);
   }
-  public void peintImagePourCase(GCase gc, int x, int y,Graphics2D g){
+  public void peintImagePourSquare(GSquare gc, int x, int y,Graphics2D g){
     try {
-      Case c = gc.getCCase(x,y).getContent();
-      peintImagePourCase(c,x,y,g);
+      Square c = gc.getCSquare(x,y).getContent();
+      peintImagePourSquare(c,x,y,g);
     }catch (Exception e) {
       erreur.erreur("fail to draw "+x+" "+y);
     }
   }
   /**
-  *{@summary Draw cloud Case.}<br>
+  *{@summary Draw cloud Square.}<br>
   *@lastEditedVersion 2.17
   */
-  public boolean peintCaseNuageuse(int x, int y, Graphics g, int xT, int yT){
+  public boolean peintSquareNuageuse(int x, int y, Graphics g, int xT, int yT){
     if(needToPaintAll()){return false;}
     Joueur jo = Main.getPlayingJoueur();
-    if(Main.getPartie().getCarte().getCasesNuageuses()==true){ //si il y a des cases nuageuses
+    if(Main.getPartie().getCarte().getSquaresNuageuses()==true){ //si il y a des cases nuageuses
       try {
         if(Main.getPartie().getGj().getNbrDeJoueurHumain()==1){//si il ya moins de 2 joueurs, on peu afficher les cases que le joueur voie.
           jo = Main.getPartie().getGj().getJoueurHumain().getFirst();
         }
-        if (jo==null || (x>=0 && y>=0 && jo.getCaseNuageuse(x,y))){//0 playing player or caseNuageuse for the playing player.
+        if (jo==null || (x>=0 && y>=0 && jo.getSquareNuageuse(x,y))){//0 playing player or caseNuageuse for the playing player.
           // drawImage(g,Main.getData().getCloudMap(),xT,yT);
-          g.drawImage(Main.getData().getCloudMap(), xT, yT, xT+getTailleDUneCase(), yT+getTailleDUneCase(), xT, yT, xT+getTailleDUneCase(), yT+getTailleDUneCase(), null);
-          return true;//nothing more to draw on this Case
+          g.drawImage(Main.getData().getCloudMap(), xT, yT, xT+getTailleDUneSquare(), yT+getTailleDUneSquare(), xT, yT, xT+getTailleDUneSquare(), yT+getTailleDUneSquare(), null);
+          return true;//nothing more to draw on this Square
         }
       }catch (Exception e) {
         erreur.erreur("Une case possiblement nuageuse n'as pas pue être affiché");
@@ -286,7 +286,7 @@ public class FPanelCarte extends FPanel {
   private void drawPlayingAnt(Graphics g){
     Fourmi playingAnt = Main.getPlayingAnt();
     if(playingAnt!=null && !playingAnt.getIa()){
-      CCase cc = playingAnt.getCCase();
+      CSquare cc = playingAnt.getCSquare();
       drawCircle(g, cc, Main.getData().getButtonColor(0));
     }
   }
@@ -295,17 +295,17 @@ public class FPanelCarte extends FPanel {
   *@lastEditedVersion 2.11
   */
   private void drawMovingPath(Graphics g){
-    CCase to = getLookedCCase();
-    CCase from = Main.getPlayingAnt().getCCase();
+    CSquare to = getLookedCSquare();
+    CSquare from = Main.getPlayingAnt().getCSquare();
     if(from.equals(to)){return;}
     MapPath mp = new MapPath(from, to);
-    mp.updateMovingCaseByTurn(Main.getPlayingAnt());
-    Liste<Integer> li = mp.getMovingCaseByTurn();
+    mp.updateMovingSquareByTurn(Main.getPlayingAnt());
+    Liste<Integer> li = mp.getMovingSquareByTurn();
     int k=li.pop();
     int turnCount=0;
-    CCase last=null;
+    CSquare last=null;
     boolean drawOnLast = false;
-    for (CCase cc : mp.getList()) {
+    for (CSquare cc : mp.getList()) {
       if(k<1){
         if(!li.isEmpty()){
           turnCount++;
@@ -333,27 +333,27 @@ public class FPanelCarte extends FPanel {
     }
   }
   /**
-  *{@summary Draw a white circle on giving Case.}<br>
+  *{@summary Draw a white circle on giving Square.}<br>
   *@param g graphics where to draw
-  *@param cc CCase where to draw
+  *@param cc CSquare where to draw
   *@lastEditedVersion 2.11
   */
-  private void drawWhiteCircle(Graphics g, CCase cc, int toPrint){
+  private void drawWhiteCircle(Graphics g, CSquare cc, int toPrint){
     drawCircle(g, cc, Color.WHITE);
-    int tc=getTailleDUneCase();
+    int tc=getTailleDUneSquare();
     g.setFont(g.getFont().deriveFont((float)(tc*0.8)));
     g.drawString(""+toPrint, (int)((cc.getX()+0.25)*tc),(int)((cc.getY()+0.75)*tc));
     // g.drawString(""+toPrint, cc.getX()*tc,cc.getY()*tc);
   }
   /**
-  *{@summary Draw a colored circle on a giving Case.}<br>
+  *{@summary Draw a colored circle on a giving Square.}<br>
   *@param g graphics where to draw
-  *@param cc CCase where to draw
+  *@param cc CSquare where to draw
   *@param col Color to use
   *@lastEditedVersion 2.11
   */
-  private void drawCircle(Graphics g, CCase cc, Color col){
-    int tc=getTailleDUneCase();
+  private void drawCircle(Graphics g, CSquare cc, Color col){
+    int tc=getTailleDUneSquare();
     int x=cc.getX()*tc;
     int y=cc.getY()*tc;
     col = new Color(col.getRed(), col.getGreen(), col.getBlue(), TRANSPARENCY);
@@ -366,25 +366,25 @@ public class FPanelCarte extends FPanel {
     }
   }
   /**
-  *{@summary Draw a white line on giving Case.}<br>
+  *{@summary Draw a white line on giving Square.}<br>
   *@param g graphics where to draw
-  *@param from CCase where to start draw
-  *@param to CCase where to end draw
+  *@param from CSquare where to start draw
+  *@param to CSquare where to end draw
   *@lastEditedVersion 2.11
   */
-  private void drawWhiteLine(Graphics g, CCase from, CCase to, boolean drawOnFrom, boolean drawOnTo){
+  private void drawWhiteLine(Graphics g, CSquare from, CSquare to, boolean drawOnFrom, boolean drawOnTo){
     drawLine(g, from, to, Color.WHITE, drawOnFrom, drawOnTo);
   }
   /**
-  *{@summary Draw a colored line on a giving Case.}<br>
+  *{@summary Draw a colored line on a giving Square.}<br>
   *@param g graphics where to draw
-  *@param from CCase where to start draw
-  *@param to CCase where to end draw
+  *@param from CSquare where to start draw
+  *@param to CSquare where to end draw
   *@param col Color to use
   *@lastEditedVersion 2.11
   */
-  private void drawLine(Graphics g, CCase from, CCase to, Color col, boolean drawOnFrom, boolean drawOnTo){
-    int tc=getTailleDUneCase();
+  private void drawLine(Graphics g, CSquare from, CSquare to, Color col, boolean drawOnFrom, boolean drawOnTo){
+    int tc=getTailleDUneSquare();
     int lineStroke = math.min(Main.getTailleElementGraphique(10),tc/4);
     int x1=(int)(((double)from.getX()+0.5)*tc);
     int y1=(int)(((double)from.getY()+0.5)*tc);
@@ -412,37 +412,37 @@ public class FPanelCarte extends FPanel {
     }
   }
   /**
-  *{@summary Draw a colored line on a giving Case.}<br>
+  *{@summary Draw a colored line on a giving Square.}<br>
   *@param g graphics where to draw
-  *@param from CCase where to start draw
-  *@param to CCase where to end draw
+  *@param from CSquare where to start draw
+  *@param to CSquare where to end draw
   *@param col Color to use
   *@lastEditedVersion 2.11
   */
-  private void drawLine(Graphics g, CCase from, CCase to, Color col){
+  private void drawLine(Graphics g, CSquare from, CSquare to, Color col){
     drawLine(g,from,to,col,true,true);
   }
   /**
-  *{@summary Return the coordinates on screen for Case with x &#38; y.}<br>
-  *@param x the x of the Case.
-  *@param y the y of the Case.
+  *{@summary Return the coordinates on screen for Square with x &#38; y.}<br>
+  *@param x the x of the Square.
+  *@param y the y of the Square.
   *@param centered True return the coordinates of the center of the case. False return left top coordinates.
   *@lastEditedVersion 2.1
   */
-  public Point getPointFromCase(int x, int y, boolean centered){
-    Point p = new Point(x*getTailleDUneCase(),y*getTailleDUneCase());
+  public Point getPointFromSquare(int x, int y, boolean centered){
+    Point p = new Point(x*getTailleDUneSquare(),y*getTailleDUneSquare());
     if(centered){
-      p.setX(p.getX()+getTailleDUneCase()/2);
-      p.setY(p.getY()+getTailleDUneCase()/2);
+      p.setX(p.getX()+getTailleDUneSquare()/2);
+      p.setY(p.getY()+getTailleDUneSquare()/2);
     }
     return p;
   }
   /**
-  *{@summary Draw a Case.}<br>
+  *{@summary Draw a Square.}<br>
   *@lastEditedVersion 2.23
   */
-  public void peintImagePourCase(Case c, int x, int y,Graphics2D g){
-    if(!isCaseVisible(c)){return;}
+  public void peintImagePourSquare(Square c, int x, int y,Graphics2D g){
+    if(!isSquareVisible(c)){return;}
     // Joueur jo = Main.getPlayingJoueur();
     Fourmi fi = Main.getPlayingAnt();
     Liste<BufferedImage> listIconsRelation = new Liste<BufferedImage>();
@@ -453,10 +453,10 @@ public class FPanelCarte extends FPanel {
     if(Main.getPlayingJoueur()==null && Main.getPartie().getPartieFinie() && Main.getPartie().getWinner()!=null){
       fi=(Fourmi)Main.getPartie().getWinner().getFere().getGc().getFirst();
     }
-    Point point = getPointFromCase(x,y,false);
+    Point point = getPointFromSquare(x,y,false);
     int xT = point.getX(); int yT = point.getY();
-    int xT2 = (x)*getTailleDUneCase(); int yT2 = (y)*getTailleDUneCase();
-    if(peintCaseNuageuse(x,y,g,xT,yT)){return;}//si la case est nuageuse, on n'affichera rien d'autre dessus.
+    int xT2 = (x)*getTailleDUneSquare(); int yT2 = (y)*getTailleDUneSquare();
+    if(peintSquareNuageuse(x,y,g,xT,yT)){return;}//si la case est nuageuse, on n'affichera rien d'autre dessus.
     byte ty = c.getType();
     GGraine gg = c.getGg();
     Graphics gIcon=null;
@@ -464,13 +464,13 @@ public class FPanelCarte extends FPanel {
       gIcon = iconImage.getGraphics();
     }
     try {
-      int tC10 = getTailleDUneCase()/10;int tC4 = getTailleDUneCase()/4;int tC2 = getTailleDUneCase()/2;
+      int tC10 = getTailleDUneSquare()/10;int tC4 = getTailleDUneSquare()/4;int tC2 = getTailleDUneSquare()/2;
       // anthill
       if (c.getFere()!=null){
         drawImage(g,Main.getData().getFere(),xT+tC4,yT+tC4);
         if (needToDrawAnthillColor(c, x, y)) {
           int tailleDuCercle = Main.getTailleElementGraphique(20);
-          drawRondOuRect(xT,yT,getTailleDUneCase(),g,c.getFere(),tailleDuCercle);
+          drawRondOuRect(xT,yT,getTailleDUneSquare(),g,c.getFere(),tailleDuCercle);
         }
       }
       if(isSombre(x,y)){
@@ -545,14 +545,14 @@ public class FPanelCarte extends FPanel {
         }
         //draw icons
         if (Main.getDrawRelationsIcons()){
-          drawListIcons(gIcon, listIconsRelation, xT, yT, getTailleDUneCase()-getTailleIcon());
+          drawListIcons(gIcon, listIconsRelation, xT, yT, getTailleDUneSquare()-getTailleIcon());
         }
         if (Main.getOp().getDrawStatesIconsLevel()<4) {
           drawListIcons(gIcon, listIconsState, xT, yT, 0);
         }
       }
     }catch (Exception e) {
-      erreur.erreur("Fail to draw Case: "+x+" "+y+" because of "+e);
+      erreur.erreur("Fail to draw Square: "+x+" "+y+" because of "+e);
       // e.printStackTrace();
     }
   }
@@ -615,9 +615,9 @@ public class FPanelCarte extends FPanel {
   *{@summary draw an image centered.}<br>
   *@param g Graphics element were to draw.
   *@param image the image to draw.
-  *@param xT the x of the Case were to draw.
-  *@param yT the y of the Case were to draw.
-  *@param caseSize size of the Case
+  *@param xT the x of the Square were to draw.
+  *@param yT the y of the Square were to draw.
+  *@param caseSize size of the Square
   *@lastEditedVersion 2.1
   */
   private void drawImageCentered(Graphics g, BufferedImage image, int xT, int yT, int caseSize){
@@ -633,15 +633,15 @@ public class FPanelCarte extends FPanel {
     drawImage(g,image,xI,yI);
   }
   /**
-  *{@summary draw an image centered for a Case.}<br>
+  *{@summary draw an image centered for a Square.}<br>
   *@param g Graphics element were to draw.
   *@param image the image to draw.
-  *@param xT the x of the Case were to draw.
-  *@param yT the y of the Case were to draw.
+  *@param xT the x of the Square were to draw.
+  *@param yT the y of the Square were to draw.
   *@lastEditedVersion 2.1
   */
   private void drawImageCentered(Graphics g, BufferedImage image, int xT, int yT){
-    drawImageCentered(g,image,xT,yT,getTailleDUneCase());
+    drawImageCentered(g,image,xT,yT,getTailleDUneSquare());
   }
   /**
   *{@summary draw an image.}<br>
@@ -667,36 +667,36 @@ public class FPanelCarte extends FPanel {
   private boolean isSombre(int x, int y){
     if(needToPaintAll()){return false;}
     Joueur jo = Main.getPlayingJoueur();
-    return jo==null || jo.getIa() || (Main.getPartie().getCarte().getCasesSombres() && jo.getCaseSombre(x,y));
+    return jo==null || jo.getIa() || (Main.getPartie().getCarte().getSquaresSombres() && jo.getSquareSombre(x,y));
   }
   /**
   *{@summary return true if we need to draw the color of the anthill.}<br>
   *@lastEditedVersion 1.46
   */
-  private boolean needToDrawAnthillColor(Case c, int x, int y){
+  private boolean needToDrawAnthillColor(Square c, int x, int y){
     if (Main.getOp().getDrawAllAnthillColor()) { return true;}
     if(c.getFere().getId()==idCurentFere){return true;} // && !isSombre(x,y)
-    return (getLookedCCase()!=null && getLookedCCase().getContent() !=null && getLookedCCase().getContent().equals(c));
+    return (getLookedCSquare()!=null && getLookedCSquare().getContent() !=null && getLookedCSquare().getContent().equals(c));
   }
   /**
-  *{@summary fonction that place ObjetSurCarteAId on the same Case.}<br>
+  *{@summary fonction that place ObjetSurCarteAId on the same Square.}<br>
   *It modify FPanelCarte value xTemp and yTemp.
   *@lastEditedVersion 1.x
   */
-  public void calculerXYTemp(int xT, int yT, int k, Case c){
+  public void calculerXYTemp(int xT, int yT, int k, Square c){
     int deplacementEnX=0;
     int deplacementEnY=0;
     //deplacement centré.
-    int espaceLibre = getTailleDUneCase()/5;
-    if(Main.getPositionCase()==0 || (Main.getPositionCase()==2 && (k>3 || c.getGc().length()+c.getGg().length()==1))){//si on est en mode 2 et que la fourmi est seule ou qu'il y en a plus de 4.
+    int espaceLibre = getTailleDUneSquare()/5;
+    if(Main.getPositionSquare()==0 || (Main.getPositionSquare()==2 && (k>3 || c.getGc().length()+c.getGg().length()==1))){//si on est en mode 2 et que la fourmi est seule ou qu'il y en a plus de 4.
       deplacementEnX=espaceLibre/2;
       deplacementEnY=espaceLibre/2;
       //deplacement alléatoire
-    }else if(Main.getPositionCase()==1){
+    }else if(Main.getPositionSquare()==1){
       deplacementEnX=allea.getAlléa(espaceLibre);
       deplacementEnY=allea.getAlléa(espaceLibre);
       //deplacement dans un angle.
-    }else if(Main.getPositionCase()==2){
+    }else if(Main.getPositionSquare()==2){
       //on ne modifie que si c'est pas 0.
       if(k==1){
         deplacementEnX=espaceLibre;
@@ -714,12 +714,12 @@ public class FPanelCarte extends FPanel {
   *{@summary Draw an anthill mark.}<br>
   *@lastEditedVersion 1.x
   */
-  public void drawRondOuRect(int x, int y, int tailleDUneCase, Graphics2D g, Fourmiliere fere, int tailleDuCercle){
-    if(tailleDuCercle<tailleDUneCase/2){
-      drawRond(x,y,tailleDUneCase,g,fere,tailleDuCercle);
+  public void drawRondOuRect(int x, int y, int tailleDUneSquare, Graphics2D g, Fourmiliere fere, int tailleDuCercle){
+    if(tailleDuCercle<tailleDUneSquare/2){
+      drawRond(x,y,tailleDUneSquare,g,fere,tailleDuCercle);
     }else{
       g.setColor(fere.getPh().getColor());
-      g.fillRect(x,y,tailleDUneCase,tailleDUneCase);
+      g.fillRect(x,y,tailleDUneSquare,tailleDUneSquare);
       setLigne(g);//retour au paramètres par défaut.
     }
   }
@@ -897,11 +897,11 @@ public class FPanelCarte extends FPanel {
   }
 
   public void updateSize(){
-    GCase gc = Main.getGc();
-    xCase = gc.getWidth();
-    yCase = gc.getHeight();
-    int xTemp = getTailleDUneCase()*xCase;
-    int yTemp = getTailleDUneCase()*yCase;
+    GSquare gc = Main.getGc();
+    xSquare = gc.getWidth();
+    ySquare = gc.getHeight();
+    int xTemp = getTailleDUneSquare()*xSquare;
+    int yTemp = getTailleDUneSquare()*ySquare;
     super.setSize(xTemp,yTemp);
     if(Main.getPlayingJoueur()!=null && !Main.getPlayingJoueur().isIa()){
       getView().getPs().setSize(xTemp, yTemp);
@@ -910,22 +910,22 @@ public class FPanelCarte extends FPanel {
   }
 
   /**
-  *{@summary Tool to save performances by drawing only visible Case.}<br>
-  *@param c Case to check
+  *{@summary Tool to save performances by drawing only visible Square.}<br>
+  *@param c Square to check
   *return true if case is visible
   *@lastEditedVersion 2.13
   */
-  public boolean isCaseVisible(Case c){
+  public boolean isSquareVisible(Square c){
     FPanel p = getView().getPmmo();
-    return isCaseVisible(c, -getX(), -getY(), p.getWidth()-getX(), p.getHeight()-getY(), getTailleDUneCase());
+    return isSquareVisible(c, -getX(), -getY(), p.getWidth()-getX(), p.getHeight()-getY(), getTailleDUneSquare());
   }
   /**
-  *{@summary Tool to save performances by drawing only visible Case.}<br>
-  *@param c Case to check
+  *{@summary Tool to save performances by drawing only visible Square.}<br>
+  *@param c Square to check
   *return true if case is visible
   *@lastEditedVersion 2.13
   */
-  public static boolean isCaseVisible(Case c, int minX, int minY, int maxX, int maxY, int caseSize){
+  public static boolean isSquareVisible(Square c, int minX, int minY, int maxX, int maxY, int caseSize){
     int x = c.getX()*caseSize;
     minX-=caseSize;
     if(x<minX || x>maxX){return false;}
@@ -936,25 +936,25 @@ public class FPanelCarte extends FPanel {
   }
   /**
   *{@summary Tool to calculate the number of printable case on this Panel.}<br>
-  *It depend of the size of the panel and of the size of the Case.<br>
+  *It depend of the size of the panel and of the size of the Square.<br>
   *@param inX true if we check x (width)
-  *@return number of printable Case
+  *@return number of printable Square
   */
-  public int nbrPrintableCase(boolean inX){
+  public int nbrPrintableSquare(boolean inX){
     if(inX){
       int xTemp = 0;
       try {
         xTemp = math.min(getWidth(),getView().getWidth());
       }catch (Exception e) {}
       if(xTemp==0){xTemp=getWidth();}
-      return (int)(xTemp/getTailleDUneCase())+1;
+      return (int)(xTemp/getTailleDUneSquare())+1;
     }else{
       int yTemp = 0;
       try {
         yTemp = math.min(getHeight(),getView().getHeight());
       }catch (Exception e) {}
       if(yTemp==0){yTemp=getHeight();}
-      return (int)(yTemp/getTailleDUneCase())+1;
+      return (int)(yTemp/getTailleDUneSquare())+1;
     }
   }
   public void iniTBiState(){

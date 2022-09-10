@@ -16,31 +16,31 @@ import java.io.Serializable;
 *@author Hydrolien
 *@lastEditedVersion 2.24
 */
-public class GCase implements Serializable {
-  private CCase actuelle;
-  private CCase ccases[][];
+public class GSquare implements Serializable {
+  private CSquare actuelle;
+  private CSquare ccases[][];
   private int width;
   private int height;
   // CONSTRUCTORS --------------------------------------------------------------
-  public GCase(int width, int height){
+  public GSquare(int width, int height){
     if(width < 0 || height < 0){ erreur.erreur("Impossible de créer une carte si petite","la carte la plus petite possible a été créée."); width = 1; height = 1;}
     this.width=width;
     this.height=height;
 
-    ccases = new CCase[width][height];
+    ccases = new CSquare[width][height];
     for (int x=0; x<width; x++) {
       for (int y=0; y<height; y++) {
-        ccases[x][y]=new CCase(x,y,this);
+        ccases[x][y]=new CSquare(x,y,this);
       }
     }
   }
-  public GCase(int taille){
+  public GSquare(int taille){
     this(taille, taille);
   }
-  public GCase(){} //only for test
+  public GSquare(){} //only for test
   // GET SET -------------------------------------------------------------------
-  public CCase getHead(){ return getCCase(0,0);}
-  public Case getFirst(){ return getHead().getContent();}
+  public CSquare getHead(){ return getCSquare(0,0);}
+  public Square getFirst(){ return getHead().getContent();}
   public String getDim(){ return getWidth()+";"+getHeight();}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
@@ -53,19 +53,19 @@ public class GCase implements Serializable {
     }
     return s;
   }
-  public CCase getCCase(int x, int y){
+  public CSquare getCSquare(int x, int y){
     if(x<0 || y<0 || x>=getWidth() || y>=getHeight()){return null;}
     return ccases[x][y];
   }
-  public CCase getCCase(Point p){
-    return getCCase(p.getX(),p.getY());
+  public CSquare getCSquare(Point p){
+    return getCSquare(p.getX(),p.getY());
   }
   public int getWidth(){return width;}
   public int getHeight(){return height;}
   public int length(){ return getWidth()*getHeight();}
-  public CCase getCCaseAlléa(){
-    if (getHead()== null){ erreur.erreurGXVide("GCase"); return null;}
-    return getCCase(allea.getAlléa(this.getWidth()), allea.getAlléa(this.getHeight()));
+  public CSquare getCSquareAlléa(){
+    if (getHead()== null){ erreur.erreurGXVide("GSquare"); return null;}
+    return getCSquare(allea.getAlléa(this.getWidth()), allea.getAlléa(this.getHeight()));
   }
   /**
   *{@summary Set types for all squares from String[] as a csv file.}<br>
@@ -75,7 +75,7 @@ public class GCase implements Serializable {
     for (int y=0; y<getHeight(); y++) {
       String t2 [] = decoderUnFichier.getTableauString(t[y],',');
       for (int x=0; x<getWidth(); x++) {
-        getCCase(x,y).getContent().setType(str.sToI(t2[x]));
+        getCSquare(x,y).getContent().setType(str.sToI(t2[x]));
       }
     }
   }
@@ -83,11 +83,11 @@ public class GCase implements Serializable {
   *{@summary Play a turn for all squares.}<br>
   *@lastEditedVersion 2.24
   */
-  public void tourCases(){
+  public void tourSquares(){
     if(!Main.getPartie().getAppartionGraine()){return;}
     for (int x=0; x<getWidth(); x++) {
       for (int y=0; y<getHeight(); y++) {
-        getCCase(x,y).getContent().actualisationGraine(getCCase(x,y));
+        getCSquare(x,y).getContent().actualisationGraine(getCSquare(x,y));
       }
     }
   }
@@ -112,14 +112,14 @@ public class GCase implements Serializable {
     else{return y;}
   }
   /**
-  *{@summary Give all Case in a rectangle as a list.}<br>
+  *{@summary Give all Square in a rectangle as a list.}<br>
   *@param x1 x of the 1a Square
   *@param y1 y of the 1a Square
   *@param x2 x of the 2a Square
   *@param y2 y of the 2a Square
   *@lastEditedVersion 2.24
   */
-  public Liste<Case> getCasesBetween(int x1, int y1, int x2, int y2){
+  public Liste<Square> getSquaresBetween(int x1, int y1, int x2, int y2){
     if(x1>x2){
       int x=x2;
       x2=x1;
@@ -134,31 +134,31 @@ public class GCase implements Serializable {
     y1=asY(y1);
     x2=asX(x2);
     y2=asY(y2);
-    Liste<Case> gc = new Liste<Case>();
+    Liste<Square> gc = new Liste<Square>();
     for (int x=x1; x<=x2; x++) {
       for (int y=y1; y<=y2; y++) {
-        gc.add(getCCase(x,y).getContent());
+        gc.add(getCSquare(x,y).getContent());
       }
     }
     return gc;
   }
   /**
-  *{@summary Give all Case in a rectangle as a list.}<br>
+  *{@summary Give all Square in a rectangle as a list.}<br>
   *@param from 1a corner of the rectangle
   *@param to 2a corner of the rectangle
   *@lastEditedVersion 2.24
   */
-  public Liste<Case> getCasesBetween(CCase from, CCase to){
-    return getCasesBetween(from.getX(), from.getY(), to.getX(), to.getY());
+  public Liste<Square> getSquaresBetween(CSquare from, CSquare to){
+    return getSquaresBetween(from.getX(), from.getY(), to.getX(), to.getY());
   }
   /**
-  *{@summary Give all Case in a rectangle as a list.}<br>
+  *{@summary Give all Square in a rectangle as a list.}<br>
   *@param center of the rectangle
   *@param radius distance with the wall of the rectangle
   *@lastEditedVersion 2.24
   */
-  public Liste<Case> getCasesBetween(CCase center, int radius){
-    if(radius<0){return new Liste<Case>();}
-    return getCasesBetween(center.getX()-radius, center.getY()-radius, center.getX()+radius, center.getY()+radius);
+  public Liste<Square> getSquaresBetween(CSquare center, int radius){
+    if(radius<0){return new Liste<Square>();}
+    return getSquaresBetween(center.getX()-radius, center.getY()-radius, center.getX()+radius, center.getY()+radius);
   }
 }

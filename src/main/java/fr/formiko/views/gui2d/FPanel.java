@@ -37,12 +37,12 @@ public class FPanel extends JPanel {
     setOpaque(false);
   }
   // GET SET -------------------------------------------------------------------
-  //public int getTailleDUneCase(){return tailleDUneCase;}
-  //public void setTailleDUneCase(int x){tailleDUneCase = x;}
+  //public int getTailleDUneSquare(){return tailleDUneSquare;}
+  //public void setTailleDUneSquare(int x){tailleDUneSquare = x;}
   //public int getEspaceRéservéBas(){return espaceRéservéBas;}
   //public void setEspaceRéservéBas(int x){espaceRéservéBas = x;}
-  //public void setXCase(int x){xCase = x;}
-  //public void setYCase(int y){yCase = y;}
+  //public void setXSquare(int x){xSquare = x;}
+  //public void setYSquare(int y){ySquare = y;}
   public BListener getBListener(){return new BListener();}
   public Data getData(){return Main.getData();}
   public static ViewGUI2d getView(){return (ViewGUI2d)(Main.getView());}

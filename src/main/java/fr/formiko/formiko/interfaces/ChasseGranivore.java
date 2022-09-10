@@ -1,7 +1,7 @@
 package fr.formiko.formiko.interfaces;
 
-import fr.formiko.formiko.CCase;
-import fr.formiko.formiko.Case;
+import fr.formiko.formiko.CSquare;
+import fr.formiko.formiko.Square;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GGraine;
@@ -18,7 +18,7 @@ import java.io.Serializable;
 /**
 *{@summary Ant implementation.}<br>
 *Allow an ant to do hunt<br>
-*Ant are able to see other ObjetSurCarteAId as Creature at 1 Case of distance.
+*Ant are able to see other ObjetSurCarteAId as Creature at 1 Square of distance.
 *@author Hydrolien
 *@lastEditedVersion 2.29
 */
@@ -35,7 +35,7 @@ public class ChasseGranivore implements Serializable, Chasse {
   // FUNCTIONS -----------------------------------------------------------------
   /**
    *{@summary collect seeds.}<br>
-   *Ant search a seed. If it see a seed on the same Case it take it. If it see a seed on an other Case it goes to the Case.<br>
+   *Ant search a seed. If it see a seed on the same Square it take it. If it see a seed on an other Square it goes to the Square.<br>
    *It can choose the first 1 or the better 1 depending on the difficulty.<br>
    *@param c The collecting ant.
    *@lastEditedVersion 1.40
@@ -43,15 +43,15 @@ public class ChasseGranivore implements Serializable, Chasse {
   public boolean chasser(Creature c, int direction){
     if(!canHuntMore()){return eatIfNeed();}
     GGraine proieVisible = getProie();
-    if (c.getCCase().getContent().getGg().getHead() != null){ // Si il y a une graine sur la même case
-      debug.débogage("la graine "+c.getCCase().getContent().getGg().getFirst().getId()+" a été détecté sur la meme case que la Fourmi.");
-      debug.débogage("la fourmi est en "+c.getCCase().getContent().description());
+    if (c.getCSquare().getContent().getGg().getHead() != null){ // Si il y a une graine sur la même case
+      debug.débogage("la graine "+c.getCSquare().getContent().getGg().getFirst().getId()+" a été détecté sur la meme case que la Fourmi.");
+      debug.débogage("la fourmi est en "+c.getCSquare().getContent().description());
       return chasse(c);
     }else if (proieVisible.getHead() != null){ // Si il y a une graine a coté
-      CCase pointDeLaProie = proieVisible.getFirst().getCCase();
+      CSquare pointDeLaProie = proieVisible.getFirst().getCSquare();
       Graine betterSeed = proieVisible.getBetterSeed();
       if ((Main.getDifficulté() >= 1 || !c.getIa()) && betterSeed!= null){
-        pointDeLaProie = betterSeed.getCCase();
+        pointDeLaProie = betterSeed.getCSquare();
       }
       debug.débogage("La fourmi " + c.getId()+ " a vue une proie en " + pointDeLaProie.getPoint());
       c.ceDeplacer(pointDeLaProie);
@@ -62,7 +62,7 @@ public class ChasseGranivore implements Serializable, Chasse {
   }
   /**
    * {@summary actions during hunt.}<br>
-   * Ant search a Seed in the same Case<br>
+   * Ant search a Seed in the same Square<br>
    * It can choose the first 1 or the better 1 depending on the difficulty.<br>
    * @param c The hunting Creature.
    * return true if c can hunt more.
@@ -79,14 +79,14 @@ public class ChasseGranivore implements Serializable, Chasse {
      }
      if(!canHuntMore()){return false;}
      if (havePreyOnSameSquare(c)){
-       GGraine gg = c.getCCase().getContent().getGg();
+       GGraine gg = c.getCSquare().getContent().getGg();
        Graine graineCollecté;
        if (Main.getDifficulté() >= 0 || !c.getIa()){
          graineCollecté = gg.getBetterSeed();
        }else{
          graineCollecté = gg.getFirst();
        }
-       // debug.débogage("Suppression de la graine "+graineCollecté.getId() + " en "+graineCollecté.getCCase().getContent().description());
+       // debug.débogage("Suppression de la graine "+graineCollecté.getId() + " en "+graineCollecté.getCSquare().getContent().description());
        c.setTransported(graineCollecté);
        setActionMoins(c);
      }else{
@@ -101,7 +101,7 @@ public class ChasseGranivore implements Serializable, Chasse {
    * @lastEditedVersion 1.40
    */
   private GGraine getProie(){
-    return c.getCCase().getGg(1); // 1 est le rayon du cercle de case pris en compte.
+    return c.getCSquare().getGg(1); // 1 est le rayon du cercle de case pris en compte.
   }
   public boolean canHuntMore(){return canHuntMore(c);}
   /**
@@ -144,7 +144,7 @@ public class ChasseGranivore implements Serializable, Chasse {
   //TOTEST
   @Override
   public boolean havePreyOnSameSquare(Creature c){
-    return !c.getCCase().getContent().getGg().isEmpty();
+    return !c.getCSquare().getContent().getGg().isEmpty();
   }
 
   // Special actions for ChasseGranivore ---------------------------------------

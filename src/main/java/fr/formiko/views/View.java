@@ -1,7 +1,7 @@
 package fr.formiko.views;
 
-import fr.formiko.formiko.CCase;
-import fr.formiko.formiko.Case;
+import fr.formiko.formiko.CSquare;
+import fr.formiko.formiko.Square;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GJoueur;
 import fr.formiko.formiko.ObjetSurCarteAId;
@@ -94,20 +94,20 @@ public interface View extends Progression {
   */
   boolean endActionGame(boolean withButton, int nextLevel, String message, GJoueur gj, boolean canResumeGame);
   /***
-  *{@summary Change the value of the looked CCase.}<br>
-  *We need to repaint the information about this Case.<br>
+  *{@summary Change the value of the looked CSquare.}<br>
+  *We need to repaint the information about this Square.<br>
   *This action can only be run if action game is on.<br>
   *@return Return true if it work well. (Nothing goes wrong.)
   *@lastEditedVersion 1.33
   */
-  boolean setLookedCCase(CCase cc);
+  boolean setLookedCSquare(CSquare cc);
   /***
-  *{@summary Return the value of the looked CCase.}<br>
+  *{@summary Return the value of the looked CSquare.}<br>
   *This action can only be run if action game is on.<br>
-  *@return lookedCCase
+  *@return lookedCSquare
   *@lastEditedVersion 1.46
   */
-  CCase getLookedCCase();
+  CSquare getLookedCSquare();
   /***
   *{@summary Return the chosen value for ant action.}<br>
   *This action can only be run if action game is on.<br>
@@ -116,11 +116,11 @@ public interface View extends Progression {
   */
   int getAntChoice(int t[]);
   /***
-  *{@summary Return the chosen CCase.}<br>
+  *{@summary Return the chosen CSquare.}<br>
   *It is used to move ant.
   *@lastEditedVersion 1.39
   */
-  CCase getCCase();
+  CSquare getCSquare();
   /***
   *{@summary Print a message.}<br>
   *If message.equals("") we may need to delete last message, but we don't need to print a new message.<br>
@@ -170,11 +170,11 @@ public interface View extends Progression {
   *{@summary move ObjetSurCarteAId.}<br>
   *This action can only be run if action game is on.<br>
   *@param o object to move.
-  *@param from CCase that o leave.
-  *@param to CCase were o is going.
+  *@param from CSquare that o leave.
+  *@param to CSquare were o is going.
   *@lastEditedVersion 2.1
   */
-  void move(ObjetSurCarteAId o, CCase from, CCase to);
+  void move(ObjetSurCarteAId o, CSquare from, CSquare to);
   /***
   *{@summary Wait for end turn if we need.}
   *@lastEditedVersion 2.5
@@ -191,11 +191,11 @@ public interface View extends Progression {
   */
   default void setMoveMode(boolean b){}
   /***
-  *{@summary Center map over a Case.}
+  *{@summary Center map over a Square.}
   *@param c case to center over
   *@lastEditedVersion 2.14
   */
-  default void centerOverCase(Case c){}
+  default void centerOverSquare(Square c){}
   /***
   *{@summary True if grass blades are enable.}
   *@lastEditedVersion 2.16

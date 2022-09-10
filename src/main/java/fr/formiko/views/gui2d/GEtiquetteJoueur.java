@@ -78,9 +78,9 @@ public class GEtiquetteJoueur extends Liste<EtiquetteJoueur> {
         j.setPheromone(ej.getCouleur());
         gj.add(j);
         if(!ej.getIa()){ // si c'est un joueur Humain.
-          if (mapo.getCasesNuageuses() || mapo.getCasesSombres()){
-            j.initialisationCaseNS();
-            j.updateCaseSN();
+          if (mapo.getSquaresNuageuses() || mapo.getSquaresSombres()){
+            j.initialisationSquareNS();
+            j.updateSquareSN();
           }
         }
       }

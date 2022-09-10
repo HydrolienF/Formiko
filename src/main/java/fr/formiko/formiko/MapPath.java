@@ -8,23 +8,23 @@ import fr.formiko.usual.structures.listes.Liste;
 *@author Hydrolien
 */
 public class MapPath {
-  private Liste<CCase> path;
-  private Liste<Integer> movingCaseByTurn;
+  private Liste<CSquare> path;
+  private Liste<Integer> movingSquareByTurn;
   // CONSTRUCTORS --------------------------------------------------------------
   /**
   *{@summary Main constructor that build the path.}<br>
-  *@param from starting CCase
-  *@param to ending CCase
+  *@param from starting CSquare
+  *@param to ending CSquare
   *@lastEditedVersion 2.11
   */
-  public MapPath(CCase from, CCase to){
-    path = new Liste<CCase>();
-    movingCaseByTurn = new Liste<Integer>();
+  public MapPath(CSquare from, CSquare to){
+    path = new Liste<CSquare>();
+    movingSquareByTurn = new Liste<Integer>();
     addPath(from,to);
   }
   // GET SET -------------------------------------------------------------------
-  public Liste<CCase> getList(){return path;}
-  public Liste<Integer> getMovingCaseByTurn(){return movingCaseByTurn;}
+  public Liste<CSquare> getList(){return path;}
+  public Liste<Integer> getMovingSquareByTurn(){return movingSquareByTurn;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Strandard toString function.}<br>
@@ -32,40 +32,40 @@ public class MapPath {
   */
   public String toString(){
     String s="";
-    for (CCase cc : path) {
+    for (CSquare cc : path) {
       if(!s.equals("")){s+=" ";}
       s+=cc.getContent().getPoint().toString();
     }
-    if(!movingCaseByTurn.isEmpty()){
+    if(!movingSquareByTurn.isEmpty()){
       s+=" ";
-      for (Integer i : movingCaseByTurn) {
+      for (Integer i : movingSquareByTurn) {
         s+=" "+i;
       }
     }
     return s;
   }
   /**
-  *{@summary Add path CCase by CCase.}<br>
-  *@param from starting CCase
-  *@param to ending CCase
+  *{@summary Add path CSquare by CSquare.}<br>
+  *@param from starting CSquare
+  *@param to ending CSquare
   *@lastEditedVersion 2.11
   */
-  public void addPath(CCase from, CCase to){
+  public void addPath(CSquare from, CSquare to){
     if(from==null || to==null){return;}
-    CCase temp = from;
+    CSquare temp = from;
     addToPath(temp);
     while(!temp.equals(to)){
-      temp = getNextCCase(temp,to);
+      temp = getNextCSquare(temp,to);
       addToPath(temp);
     }
   }
   /**
-  *{@summary Add a single CCase to the path.}<br>
-  *If CCase is already the last one, it don't add it.
-  *@param cc CCase to add
+  *{@summary Add a single CSquare to the path.}<br>
+  *If CSquare is already the last one, it don't add it.
+  *@param cc CSquare to add
   *@lastEditedVersion 2.11
   */
-  public void addToPath(CCase cc){
+  public void addToPath(CSquare cc){
     if(path.isEmpty() || !path.getLast().equals(cc)){ //to avoid to add an element that is already the last one in path.
       path.addTail(cc);
     }
@@ -76,45 +76,45 @@ public class MapPath {
   *@param c Creature that may use this path
   *@lastEditedVersion 2.11
   */
-  public void updateMovingCaseByTurn(Creature c){
-    movingCaseByTurn = new Liste<Integer>();
+  public void updateMovingSquareByTurn(Creature c){
+    movingSquareByTurn = new Liste<Integer>();
     int action = c.getAction();
     int addAction = c.getMaxAction();
     int costAction = c.getMovingCost();
     int k=0;
-    for (CCase cc : path) {
+    for (CSquare cc : path) {
       action-=costAction;
       k++;
       if(action<1){
-        movingCaseByTurn.add(k);
+        movingSquareByTurn.add(k);
         action+=addAction;
         k=0;
       }
     }
     if(k!=0){
-      movingCaseByTurn.add(k);
+      movingSquareByTurn.add(k);
     }
   }
 
 
   //static ---
   /**
-  *{@summary get the next CCase to go to reach last Case "to".}<br>
-  *@param from starting CCase
-  *@param to target CCase
+  *{@summary get the next CSquare to go to reach last Square "to".}<br>
+  *@param from starting CSquare
+  *@param to target CSquare
   *@lastEditedVersion 2.11
   */
-  public static CCase getNextCCase(CCase from, CCase to){
+  public static CSquare getNextCSquare(CSquare from, CSquare to){
     int d = from.getDirection(to);
-    return getNextCCase(from, d);
+    return getNextCSquare(from, d);
   }
   /**
-  *{@summary get the next CCase to go to reach last Case "to".}<br>
-  *@param from starting CCase
+  *{@summary get the next CSquare to go to reach last Square "to".}<br>
+  *@param from starting CSquare
   *@param d direction where to go
   *@lastEditedVersion 2.11
   */
-  public static CCase getNextCCase(CCase from, int d){
+  public static CSquare getNextCSquare(CSquare from, int d){
     // switch (d) {
     //   case 5:
     //   return from;
@@ -127,16 +127,16 @@ public class MapPath {
     if(d==8){ return from.getDown();}
     if(d==4){ return from.getLeft();}
     // more complicated
-    if (d==1){ CCase cc = from.getUp();
+    if (d==1){ CSquare cc = from.getUp();
       if(cc != null){ return cc.getLeft();} return null;
     }
-    if (d==3){ CCase cc = from.getUp();
+    if (d==3){ CSquare cc = from.getUp();
       if(cc != null){ return cc.getRigth();} return null;
     }
-    if (d==7){ CCase cc = from.getDown();
+    if (d==7){ CSquare cc = from.getDown();
       if(cc != null){ return cc.getLeft();} return null;
     }
-    if (d==9){ CCase cc = from.getDown();
+    if (d==9){ CSquare cc = from.getDown();
       if(cc != null){ return cc.getRigth();} return null;
     }
     return null;

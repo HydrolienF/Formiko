@@ -4,7 +4,7 @@ import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Insecte;
 import fr.formiko.formiko.Main;
-import fr.formiko.formiko.Case;
+import fr.formiko.formiko.Square;
 import fr.formiko.usual.debug;
 import fr.formiko.usual.erreur;
 import fr.formiko.usual.g;
@@ -32,10 +32,10 @@ public class ChasseHerbivore implements Serializable, Chasse {
     this.c=c;
     int foodEatable = 1;
     if(c instanceof Insecte){foodEatable=((Insecte)(c)).getfoodEatable();}
-    if(c.getCCase().getContent().getFoodInsecte() >= foodEatable){
+    if(c.getCSquare().getContent().getFoodInsecte() >= foodEatable){
       return manger();
     }else{
-      c.ceDeplacer(c.getCCase().getGca(1).getMost((Case c1, Case c2) -> c2.interestForHerbivore()-c1.interestForHerbivore()));
+      c.ceDeplacer(c.getCSquare().getGca(1).getMost((Square c1, Square c2) -> c2.interestForHerbivore()-c1.interestForHerbivore()));
       return true;
     }
   }
@@ -46,12 +46,12 @@ public class ChasseHerbivore implements Serializable, Chasse {
   *@lastEditedVersion 1.28
   */
   public boolean manger(){
-    byte foodSurCase = c.getCCase().getContent().getFoodInsecte();
+    byte foodSurSquare = c.getCSquare().getContent().getFoodInsecte();
     int foodEatable = 1;
     if(c instanceof Insecte){foodEatable=((Insecte)(c)).getfoodEatable();}
-    if (foodSurCase > 0){
-      byte foodMangé = (byte) math.min(foodSurCase,foodEatable);
-      c.getCCase().getContent().removeFoodInsecte(foodMangé);
+    if (foodSurSquare > 0){
+      byte foodMangé = (byte) math.min(foodSurSquare,foodEatable);
+      c.getCSquare().getContent().removeFoodInsecte(foodMangé);
       c.setFood(c.getFood() + foodMangé);
       if(c instanceof Fourmi){
         c.setActionMoins(((Fourmi) (c)).getEspece().getGIndividu().getIndividuByType(((Fourmi) c).getTypeF()).getCoutChasse()/2);
@@ -69,6 +69,6 @@ public class ChasseHerbivore implements Serializable, Chasse {
   */
   @Override
   public boolean havePreyOnSameSquare(Creature c){
-    return c.getCCase().getContent().getFoodInsecte()!=0;
+    return c.getCSquare().getContent().getFoodInsecte()!=0;
   }
 }

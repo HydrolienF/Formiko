@@ -9,27 +9,27 @@ import fr.formiko.usual.maths.allea;
 import java.io.Serializable;
 
 public class ObjetSurCarteAId extends ObjetAId implements Serializable{
-  protected CCase ccase;
+  protected CSquare ccase;
   protected byte direction;
 
   // CONSTRUCTORS ----------------------------------------------------------------
   //Principal
-  public ObjetSurCarteAId(CCase ccase){
+  public ObjetSurCarteAId(CSquare ccase){
     super();
     this.ccase = ccase;
     direction = getDirAllea();
   }
   //Auxiliaire
   public ObjetSurCarteAId(){
-    this((CCase) null);
+    this((CSquare) null);
   }
   // GET SET ----------------------------------------------------------------------
-  public CCase getCCase(){return this.ccase;}
-  public Case getCase(){return getCCase().getContent();}
-  //setCase est Override par Creature & Graine.
-  public void setCCase(CCase cc){ this.ccase = cc;}
-  public void setCCase(int x, int y){setCCase(Main.getGc().getCCase(x,y));}
-  public void setCc(CCase cc){setCCase(cc);}
+  public CSquare getCSquare(){return this.ccase;}
+  public Square getSquare(){return getCSquare().getContent();}
+  //setSquare est Override par Creature & Graine.
+  public void setCSquare(CSquare cc){ this.ccase = cc;}
+  public void setCSquare(int x, int y){setCSquare(Main.getGc().getCSquare(x,y));}
+  public void setCc(CSquare cc){setCSquare(cc);}
   public byte getDirection(){ return direction;}
   public void setDirection(int x){direction = (byte)x;}
   // FUNCTIONS -----------------------------------------------------------------

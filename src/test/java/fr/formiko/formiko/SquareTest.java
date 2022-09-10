@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import fr.formiko.formiko.Carte;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.Fourmiliere;
-import fr.formiko.formiko.GCase;
+import fr.formiko.formiko.GSquare;
 import fr.formiko.formiko.Joueur;
 import fr.formiko.formiko.Main;
 import fr.formiko.formiko.Partie;
@@ -15,7 +15,7 @@ import fr.formiko.usual.Os;
 import fr.formiko.usual.g;
 import fr.formiko.views.ViewNull;
 
-public class CaseTest extends TestCaseMuet {
+public class SquareTest extends TestCaseMuet {
   private Partie p;
   // FUNCTIONS -----------------------------------------------------------------
   private Fourmi ini(){
@@ -30,17 +30,17 @@ public class CaseTest extends TestCaseMuet {
     Main.iniOp();
     Main.initialisation();
     Main.setLanguage(0);
-    p = new Partie(0,100,new Carte(new GCase(1,2),0,0,1,false,false),1);
+    p = new Partie(0,100,new Carte(new GSquare(1,2),0,0,1,false,false),1);
     Main.setPartie(p);
     p.setAppartionInsecte(false);
     p.setAppartionGraine(false);
-    Joueur j = new Joueur(new Fourmiliere(p.getGc().getCCase(0,0),null),"joueurTest",false);
+    Joueur j = new Joueur(new Fourmiliere(p.getGc().getCSquare(0,0),null),"joueurTest",false);
     j.getFere().setJoueur(j);
     p.getGj().add(j);
     Fourmi f = new Fourmi(j.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     j.getFere().getGc().add(f);
-    p.getCarte().setCasesSombres(true);
-    p.getCarte().setCasesNuageuses(true);
+    p.getCarte().setSquaresSombres(true);
+    p.getCarte().setSquaresNuageuses(true);
     return f;
   }
   @Test
@@ -49,22 +49,22 @@ public class CaseTest extends TestCaseMuet {
       Fourmi f = ini();
       p.setPlayingAnt(f);
       Joueur j = Main.getGj().getFirst();
-      j.initialisationCaseNS();
-      j.updateCaseSN();
+      j.initialisationSquareNS();
+      j.updateSquareSN();
       assertEquals(0,Main.getOp().getLanguage());
       //show everything
-      assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-      assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
+      assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmilière")));
+      assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmi")));
       //do not show anything
-      j.setCaseNuageuse(0,0,true);
-      // assertTrue("".equals(Main.getGc().getCCase(0,0).getContent().toString()));
-      assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-      assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("creatures")+" : "));
+      j.setSquareNuageuse(0,0,true);
+      // assertTrue("".equals(Main.getGc().getCSquare(0,0).getContent().toString()));
+      assertTrue(!Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmilière")));
+      assertTrue(!Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("creatures")+" : "));
       //show only stable information (no insecte & no ant.)
-      j.setCaseNuageuse(0,0,false);
-      j.setCaseSombre(0,0,true);
-      assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-      assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("creatures")+" : "));
+      j.setSquareNuageuse(0,0,false);
+      j.setSquareSombre(0,0,true);
+      assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmilière")));
+      assertTrue(!Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("creatures")+" : "));
 
     }catch (StackOverflowError e) {
       e.printStackTrace();
@@ -75,48 +75,48 @@ public class CaseTest extends TestCaseMuet {
   // public void testToString2(){
   //   Fourmi f = ini();
   //   Joueur j = Main.getGj().getFirst();
-  //   j.initialisationCaseNS();
-  //   j.updateCaseSN();
+  //   j.initialisationSquareNS();
+  //   j.updateSquareSN();
   //   //show everything
-  //   assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-  //   assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
-  //   j.setCaseNuageuse(0,0,true);
-  //   assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-  //   assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
-  //   j.setCaseNuageuse(0,0,false);
-  //   j.setCaseSombre(0,0,true);
-  //   assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-  //   assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
+  //   assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmilière")));
+  //   assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmi")));
+  //   j.setSquareNuageuse(0,0,true);
+  //   assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmilière")));
+  //   assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmi")));
+  //   j.setSquareNuageuse(0,0,false);
+  //   j.setSquareSombre(0,0,true);
+  //   assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmilière")));
+  //   assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmi")));
   // }
   @Test
   public void testToString3(){
     Fourmi f = ini();
     Joueur j = Main.getGj().getFirst();
-    p.getCarte().setCasesNuageuses(false);
+    p.getCarte().setSquaresNuageuses(false);
     p.setPlayingAnt(f);
-    j.initialisationCaseNS();
-    j.updateCaseSN();
+    j.initialisationSquareNS();
+    j.updateSquareSN();
     //show everything
-    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
-    j.setCaseNuageuse(0,0,true);
-    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmi")));
-    j.setCaseNuageuse(0,0,true);
-    j.setCaseSombre(0,0,true);
-    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-    assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("creatures")+" : "));
+    assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmilière")));
+    assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmi")));
+    j.setSquareNuageuse(0,0,true);
+    assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmilière")));
+    assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmi")));
+    j.setSquareNuageuse(0,0,true);
+    j.setSquareSombre(0,0,true);
+    assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmilière")));
+    assertTrue(!Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("creatures")+" : "));
     //show only stable information (no insecte & no ant.)
-    j.setCaseNuageuse(0,0,false);
-    j.setCaseSombre(0,0,true);
-    assertTrue(Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("fourmilière")));
-    assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("creatures")+" : "));
-    assertTrue(!Main.getGc().getCCase(0,0).getContent().toString().contains(g.get("graines")+" : "));
+    j.setSquareNuageuse(0,0,false);
+    j.setSquareSombre(0,0,true);
+    assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmilière")));
+    assertTrue(!Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("creatures")+" : "));
+    assertTrue(!Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("graines")+" : "));
   }
   @Test
   public void testSetFoodInsecte(){
     Fourmi f = ini();
-    Case c = f.getCase();
+    Square c = f.getSquare();
     int x = c.getFoodInsecte();
     c.setFoodInsecteMax((byte)50);
     c.setFoodInsecte(0);
@@ -137,7 +137,7 @@ public class CaseTest extends TestCaseMuet {
   @Test
   public void testAddFoodInsecte(){
     Fourmi f = ini();
-    Case c = f.getCase();
+    Square c = f.getSquare();
     int x = c.getFoodInsecte();
     c.setFoodInsecteMax((byte)50);
     c.setFoodInsecte(0);
@@ -153,7 +153,7 @@ public class CaseTest extends TestCaseMuet {
   @Test
   public void testRemoveFoodInsecte(){
     Fourmi f = ini();
-    Case c = f.getCase();
+    Square c = f.getSquare();
     int x = c.getFoodInsecte();
     c.setFoodInsecteMax((byte)50);
     c.setFoodInsecte(50);
@@ -170,7 +170,7 @@ public class CaseTest extends TestCaseMuet {
   @Test
   public void testFoodInsecteWithView(){
     Fourmi f = ini();
-    Case c = f.getCase();
+    Square c = f.getSquare();
     int x = c.getFoodInsecte();
     c.setFoodInsecteMax((byte)50);
     Main.setView(new ViewNull(){
@@ -198,9 +198,9 @@ public class CaseTest extends TestCaseMuet {
     Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     f3.setPheromone(0,0,100);
-    f2.setCCase(f.getCCase());
-    f3.setCCase(f.getCCase());
-    GCreature gc = f.getCCase().getContent().getSortedGc(f);
+    f2.setCSquare(f.getCSquare());
+    f3.setCSquare(f.getCSquare());
+    GCreature gc = f.getCSquare().getContent().getSortedGc(f);
     Creature tc [] = new Creature[gc.length()];
     tc[0]=f;
     tc[1]=f2;
@@ -214,9 +214,9 @@ public class CaseTest extends TestCaseMuet {
     Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     f2.setPheromone(0,0,100);
-    f2.setCCase(f.getCCase());
-    f3.setCCase(f.getCCase());
-    GCreature gc = f.getCCase().getContent().getSortedGc(f);
+    f2.setCSquare(f.getCSquare());
+    f3.setCSquare(f.getCSquare());
+    GCreature gc = f.getCSquare().getContent().getSortedGc(f);
     Creature tc [] = new Creature[gc.length()];
     tc[0]=f;
     tc[1]=f3;
@@ -230,9 +230,9 @@ public class CaseTest extends TestCaseMuet {
     Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     f2.setPheromone(0,0,100);
-    f3.setCCase(f.getCCase());
-    f2.setCCase(f.getCCase());
-    GCreature gc = f.getCCase().getContent().getSortedGc(f);
+    f3.setCSquare(f.getCSquare());
+    f2.setCSquare(f.getCSquare());
+    GCreature gc = f.getCSquare().getContent().getSortedGc(f);
     Creature tc [] = new Creature[gc.length()];
     tc[0]=f;
     tc[1]=f3;
@@ -246,9 +246,9 @@ public class CaseTest extends TestCaseMuet {
     Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     Fourmi f2 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     // f3.setPheromone(0,0,100);
-    f3.setCCase(f.getCCase());
-    f2.setCCase(f.getCCase());
-    GCreature gc = f.getCCase().getContent().getSortedGc(f);
+    f3.setCSquare(f.getCSquare());
+    f2.setCSquare(f.getCSquare());
+    GCreature gc = f.getCSquare().getContent().getSortedGc(f);
     Creature tc [] = new Creature[gc.length()];
     tc[0]=f;
     tc[1]=f3;
@@ -263,10 +263,10 @@ public class CaseTest extends TestCaseMuet {
     Fourmi f3 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     Fourmi f4 = new Fourmi(f.getFere(),Main.getEspeceById(0), (byte) 3, (byte) 0);
     f3.setPheromone(0,0,100);
-    f2.setCCase(f.getCCase());
-    f3.setCCase(f.getCCase());
-    f4.setCCase(f.getCCase());
-    GCreature gc = f.getCCase().getContent().getSortedGc(f);
+    f2.setCSquare(f.getCSquare());
+    f3.setCSquare(f.getCSquare());
+    f4.setCSquare(f.getCSquare());
+    GCreature gc = f.getCSquare().getContent().getSortedGc(f);
     Creature tc [] = new Creature[gc.length()];
     tc[0]=f;
     tc[1]=f2;
@@ -285,11 +285,11 @@ public class CaseTest extends TestCaseMuet {
     i.setType(2);
     i.setPheromone(100,100,67);
     f3.setPheromone(0,0,100);
-    f2.setCCase(f.getCCase());
-    f3.setCCase(f.getCCase());
-    f4.setCCase(f.getCCase());
-    i.setCCase(f.getCCase());
-    GCreature gc = f.getCCase().getContent().getSortedGc(f);
+    f2.setCSquare(f.getCSquare());
+    f3.setCSquare(f.getCSquare());
+    f4.setCSquare(f.getCSquare());
+    i.setCSquare(f.getCSquare());
+    GCreature gc = f.getCSquare().getContent().getSortedGc(f);
     Creature tc [] = new Creature[gc.length()];
     tc[0]=f;
     tc[1]=f2;
@@ -309,11 +309,11 @@ public class CaseTest extends TestCaseMuet {
     i.setType(2);
     i.setPheromone(100,100,67);
     f3.setPheromone(0,0,100);
-    f4.setCCase(f.getCCase());
-    f2.setCCase(f.getCCase());
-    i.setCCase(f.getCCase());
-    f3.setCCase(f.getCCase());
-    GCreature gc = f.getCCase().getContent().getSortedGc(f);
+    f4.setCSquare(f.getCSquare());
+    f2.setCSquare(f.getCSquare());
+    i.setCSquare(f.getCSquare());
+    f3.setCSquare(f.getCSquare());
+    GCreature gc = f.getCSquare().getContent().getSortedGc(f);
     Creature tc [] = new Creature[gc.length()];
     tc[0]=f;
     tc[1]=f4;

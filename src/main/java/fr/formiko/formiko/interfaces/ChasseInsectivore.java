@@ -1,7 +1,7 @@
 package fr.formiko.formiko.interfaces;
 
-import fr.formiko.formiko.CCase;
-import fr.formiko.formiko.Case;
+import fr.formiko.formiko.CSquare;
+import fr.formiko.formiko.Square;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GInsecte;
@@ -18,7 +18,7 @@ import java.io.Serializable;
 /**
  * {@summary Ant implementation.}<br>
  * Allow an ant to do hunt<br>
- * Ant are able to see other ObjetSurCarteAId as Creature at 1 Case of distance.
+ * Ant are able to see other ObjetSurCarteAId as Creature at 1 Square of distance.
  * @author Hydrolien
  * @lastEditedVersion 1.1
  */
@@ -39,12 +39,12 @@ public class ChasseInsectivore implements Serializable, Chasse {
     setC(c);
     if(!canHuntMore()){return false;}
     GInsecte proieVisible = getProie();
-    if (c.getCCase().getContent().getGi().getHead() != null){ // Si il y a un insecte sur la même case
+    if (c.getCSquare().getContent().getGi().getHead() != null){ // Si il y a un insecte sur la même case
       chasse(c);
     }else if (proieVisible.getHead() != null){ // Si il y a un insecte a coté
-      CCase pointDeLaProie = proieVisible.getFirst().getCCase();
+      CSquare pointDeLaProie = proieVisible.getFirst().getCSquare();
       if (Main.getDifficulté() >= 1 || (c instanceof Fourmi && c.getIa()==false)){ // en normal les ia chasse les insectes les plus intéressants sur la case ou elle sont.
-        pointDeLaProie = proieVisible.getInsectePlusDeGivenFood().getCCase();
+        pointDeLaProie = proieVisible.getInsectePlusDeGivenFood().getCSquare();
       }
       debug.débogage(g.getM("laFourmi")+" " + c.getId()+ " "+g.get("ChasseInsectivore.1")+" " + pointDeLaProie.getPoint());
       c.ceDeplacer(pointDeLaProie);
@@ -55,7 +55,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
   }
   /**
    * {@summary actions during hunt.}<br>
-   * An Ant kill an Insect in the same Case<br>
+   * An Ant kill an Insect in the same Square<br>
    * It can choose the first 1 or the better 1 depending on the difficulty.<br>
    * @param c The hunting Creature.
    * return true if c can hunt more.
@@ -67,7 +67,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
     //chasse
     debug.débogage("Chasse : action = "+c.getAction() + "maxAction = "+c.getMaxAction());
     if (havePreyOnSameSquare(c)) { // sous forme de str I+id
-      GInsecte gi = c.getCCase().getContent().getGi();
+      GInsecte gi = c.getCSquare().getContent().getGi();
       Insecte insecteTue;
       if (Main.getDifficulté() >= 0 || ((c instanceof Fourmi) && ((Fourmi)c).getFere().getJoueur().getIa()==false)){ // en normal les ia chasse les insectes les plus intéressants sur la case ou elle sont.
         insecteTue = gi.getInsectePlusDeGivenFood();
@@ -88,7 +88,7 @@ public class ChasseInsectivore implements Serializable, Chasse {
    */
   public GInsecte getProie(){
     //TODO on dervrais plutot faire un GCreature pour pouvoir inclure des Fourmis et potentiellement remove des insectes.
-    return c.getCCase().getGi(1); // 1 est le rayon du cercle de case pris en compte.
+    return c.getCSquare().getGi(1); // 1 est le rayon du cercle de case pris en compte.
   }
   /**
    * {@summary kill during hunt.}<br>
@@ -133,6 +133,6 @@ public class ChasseInsectivore implements Serializable, Chasse {
   */
   @Override
   public boolean havePreyOnSameSquare(Creature c){
-    return !c.getCCase().getContent().getGi().isEmpty();
+    return !c.getCSquare().getContent().getGi().isEmpty();
   }
 }

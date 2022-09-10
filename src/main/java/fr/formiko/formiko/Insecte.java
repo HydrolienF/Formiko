@@ -28,7 +28,7 @@ public class Insecte extends Creature implements Serializable{
   *All args are Insecte var.
   *@lastEditedVersion 1.13
   */
-  public Insecte (CCase p, int age, int maxAge, int maxAction){
+  public Insecte (CSquare p, int age, int maxAge, int maxAction){
     // Soit l'insecte est terrestre et vien de naitre, soit il est volant et il est mort.
     super(p,age,maxAge, maxAction);
     if (action == 0){
@@ -42,7 +42,7 @@ public class Insecte extends Creature implements Serializable{
     this.déplacement = new DeplacementFourmi();
     this.chasse = new ChasseHerbivore();
     p.getContent().getGc().add(this);
-    setType(getRandomTypeInsectOnTheCase());
+    setType(getRandomTypeInsectOnTheSquare());
     stade = (byte)0; // doit apparaitre en -3 pour etre un oeuf.
     mourir = new MourirInsecte();
     setGivenFood(e.getGivenFood(getStade()));
@@ -54,17 +54,17 @@ public class Insecte extends Creature implements Serializable{
   *Here we only know the location of the insecte, random value will be add for maxAge and maxAction.
   *@lastEditedVersion 1.13
   */
-  public Insecte (CCase p){
+  public Insecte (CSquare p){
     this(p, 0,10 + allea.getAlléa(101), allea.getAlléa(21));//action entre 0 et 20.
   }
   /**
   *{@summary constructor for Insecte.}<br>
-  *Here know nothing, the location of the insecte will be shoose randomly on the actual GCase of Main. Random value will be add for maxAge and maxAction.
+  *Here know nothing, the location of the insecte will be shoose randomly on the actual GSquare of Main. Random value will be add for maxAge and maxAction.
   *@lastEditedVersion 1.13
   */
   public Insecte (){
     // TODO en théorie soit il nait et il a la case de ca mere, soit il vient d'autre par et dans ce cas il apparait sur une case en bordure de carte.
-    this(Main.getGc().getCCaseAlléa());
+    this(Main.getGc().getCSquareAlléa());
   }
   // private Insecte (boolean b){
   //   super().newEmptyCreature();
@@ -94,7 +94,7 @@ public class Insecte extends Creature implements Serializable{
     if(e==null){erreur.erreur("Une espece d'insecte n'as pas pu etre chargé : "+(100+getType()));}
   }
   public void setType(int x){setType((byte)x);}
-  public byte getRandomTypeInsectOnTheCase(){return gie.getRandomTypeInsectOnTheCase(getCCase().getContent().getType());}
+  public byte getRandomTypeInsectOnTheSquare(){return gie.getRandomTypeInsectOnTheSquare(getCSquare().getContent().getType());}
   /**
   *{@summary set type &#38; Espece.}
   *@lastEditedVersion 2.6

@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 /**
 *{@summary Save the pop probability of an Insecte.}<br>
-*The pop probability depend of the Case were the Insecte will pop.
+*The pop probability depend of the Square were the Insecte will pop.
 *@author Hydrolien
 *@lastEditedVersion 1.1
 */

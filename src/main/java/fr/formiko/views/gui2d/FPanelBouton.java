@@ -67,7 +67,7 @@ public class FPanelBouton extends FPanel {
     descTI.setBounds(0,0,800);
     // on ajoute les éléments non visible. Les éléments visible sont add 1 a 1 quand le besoin ce fait sentir.
     add(descTI);
-    // Add desc to FPanelCarte make it not-mouse listener because it's under FPanelSup. That's was we need to print desc of Case even id there are under desc.
+    // Add desc to FPanelCarte make it not-mouse listener because it's under FPanelSup. That's was we need to print desc of Square even id there are under desc.
     getView().getPText().add(desc);
     add(pz);
     add(pmmc);
@@ -265,7 +265,7 @@ public class FPanelBouton extends FPanel {
       .setYByElement(Main.getTailleElementGraphiqueY(32))
       .build();
       pi.setLocation(getWidth()-pi.getWidth(),pz.getbuttonSize()*3);
-      piGc = FPanelInfoGCreature.builder().addCreaturesOnSameCase(playingAnt)
+      piGc = FPanelInfoGCreature.builder().addCreaturesOnSameSquare(playingAnt)
       .setX(Main.getTailleElementGraphiqueX(320))
       .setYByElement(Main.getTailleElementGraphiqueY(32))
       // .setYByElement(Main.getTailleElementGraphiqueY(40))

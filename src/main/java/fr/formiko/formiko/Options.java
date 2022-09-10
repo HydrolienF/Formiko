@@ -83,7 +83,7 @@ public class Options implements Serializable {
   private boolean gui_hide_keepFilesRotated;
   private int gui_partie_sizeOfMapLines;
   private boolean gui_partie_followAntAtStartTurn;
-  private byte gui_hide_positionCase;
+  private byte gui_hide_positionSquare;
   private byte gui_partie_realisticSize;
   private boolean gui_hide_modeFPS;
   private int gui_global_fps;
@@ -226,8 +226,8 @@ public class Options implements Serializable {
   public void setSizeOfMapLines(int x){gui_partie_sizeOfMapLines=x;}
   public boolean getFollowAntAtStartTurn(){return gui_partie_followAntAtStartTurn;}
   public void setFollowAntAtStartTurn(boolean b){gui_partie_followAntAtStartTurn=b;}
-  public byte getPositionCase(){return gui_hide_positionCase;}
-  public void setPositionCase(byte x){gui_hide_positionCase=x;}
+  public byte getPositionSquare(){return gui_hide_positionSquare;}
+  public void setPositionSquare(byte x){gui_hide_positionSquare=x;}
   public boolean getBMusic(){return sounds_music;}
   /**
   *{@summary Update this value &#38; MusicPlayer one.}
@@ -423,7 +423,7 @@ public class Options implements Serializable {
     defaultProperties.setProperty("gui_hide_keepFilesRotated","true");
     defaultProperties.setProperty("gui_hide_loadingDuringMenus","true");
     defaultProperties.setProperty("gui_hide_modeFPS","true");
-    defaultProperties.setProperty("gui_hide_positionCase","0");
+    defaultProperties.setProperty("gui_hide_positionSquare","0");
     defaultProperties.setProperty("gui_partie_drawAllyCreatures","true");
     defaultProperties.setProperty("gui_partie_drawEnemyCreatures","true");
     defaultProperties.setProperty("gui_partie_drawNeutralCreatures","true");
@@ -511,7 +511,7 @@ public class Options implements Serializable {
     gui_hide_keepFilesRotated=str.sToB(properties.getProperty("gui_hide_keepFilesRotated"));
     gui_hide_loadingDuringMenus=str.sToB(properties.getProperty("gui_hide_loadingDuringMenus"));
     gui_hide_modeFPS=str.sToB(properties.getProperty("gui_hide_modeFPS"));
-    gui_hide_positionCase=str.sToBy(properties.getProperty("gui_hide_positionCase"));
+    gui_hide_positionSquare=str.sToBy(properties.getProperty("gui_hide_positionSquare"));
     gui_partie_drawAllyCreatures=str.sToB(properties.getProperty("gui_partie_drawAllyCreatures"));
     gui_partie_drawEnemyCreatures=str.sToB(properties.getProperty("gui_partie_drawEnemyCreatures"));
     gui_partie_drawNeutralCreatures=str.sToB(properties.getProperty("gui_partie_drawNeutralCreatures"));
@@ -604,7 +604,7 @@ public class Options implements Serializable {
     properties.setProperty("gui_hide_keepFilesRotated",""+gui_hide_keepFilesRotated);
     properties.setProperty("gui_hide_loadingDuringMenus",""+gui_hide_loadingDuringMenus);
     properties.setProperty("gui_hide_modeFPS",""+gui_hide_modeFPS);
-    properties.setProperty("gui_hide_positionCase",""+gui_hide_positionCase);
+    properties.setProperty("gui_hide_positionSquare",""+gui_hide_positionSquare);
     properties.setProperty("gui_partie_drawAllyCreatures",""+gui_partie_drawAllyCreatures);
     properties.setProperty("gui_partie_drawEnemyCreatures",""+gui_partie_drawEnemyCreatures);
     properties.setProperty("gui_partie_drawNeutralCreatures",""+gui_partie_drawNeutralCreatures);

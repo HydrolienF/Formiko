@@ -7,38 +7,38 @@ import fr.formiko.usual.structures.listes.Liste;
 
 import java.io.Serializable;
 
-public class CCase implements Serializable{
-  private Case contenu;
-  private GCase gc;
+public class CSquare implements Serializable{
+  private Square contenu;
+  private GSquare gc;
 
   // CONSTRUCTORS --------------------------------------------------------------
-  public CCase(Case contenu, GCase gc){
+  public CSquare(Square contenu, GSquare gc){
     if(contenu==null){erreur.erreur("content is empty !");}
     if(gc==null){erreur.erreur("gc is empty !");}
     this.contenu=contenu;
     this.gc=gc;
   }
-  public CCase(int x, int y, GCase gc){
-    this(new Case(x,y), gc);
+  public CSquare(int x, int y, GSquare gc){
+    this(new Square(x,y), gc);
   }
-  public CCase(Case contenu){
+  public CSquare(Square contenu){
     this(contenu,null);
   }
-  public CCase(int x, int y){
+  public CSquare(int x, int y){
     this(x, y, null);
   }
   // GET SET -------------------------------------------------------------------
-  public CCase getUp(){return getGc().getCCase(getX(),getY()-1);}
-  public CCase getDown(){return getGc().getCCase(getX(),getY()+1);}
-  public CCase getRigth(){return getGc().getCCase(getX()+1,getY());}
-  public CCase getLeft(){return getGc().getCCase(getX()-1,getY());}
-  public Case getContent(){return contenu;}
-  public void setContenu(Case c){contenu = c;}
+  public CSquare getUp(){return getGc().getCSquare(getX(),getY()-1);}
+  public CSquare getDown(){return getGc().getCSquare(getX(),getY()+1);}
+  public CSquare getRigth(){return getGc().getCSquare(getX()+1,getY());}
+  public CSquare getLeft(){return getGc().getCSquare(getX()-1,getY());}
+  public Square getContent(){return contenu;}
+  public void setContenu(Square c){contenu = c;}
   public GGraine getGg(){return contenu.getGg();}
   public int getX(){return getContent().getX();}
   public int getY(){return getContent().getY();}
-  public GCase getGc() {return gc;}
-	// public void setGc(GCase gc) {this.gc=gc;}
+  public GSquare getGc() {return gc;}
+	// public void setGc(GSquare gc) {this.gc=gc;}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){
     return getContent().toString();
@@ -52,36 +52,36 @@ public class CCase implements Serializable{
   */
   @Override
   public boolean equals(Object o){ // on ne peu pas tt vérifié facilement alors on ce contente de vérifié les co X Y du point et le nbr de connection.
-    if(o==null || !(o instanceof CCase)){return false;}
-    CCase cc = (CCase)o;
-    if (cc.nbrDeCaseVoisine() != this.nbrDeCaseVoisine()){ return false;}
+    if(o==null || !(o instanceof CSquare)){return false;}
+    CSquare cc = (CSquare)o;
+    if (cc.nbrDeSquareVoisine() != this.nbrDeSquareVoisine()){ return false;}
     return cc.getContent().equals(this.getContent());
   }
   public GGraine getGg(int radius){
     GGraine gir = new GGraine();
-    for (Case c : getGc().getCasesBetween(this, radius)) {
+    for (Square c : getGc().getSquaresBetween(this, radius)) {
       gir.add(c.getGg());
     }
     return gir;
   }
-  public Liste<Case> getGca(int radius){
-    return getGc().getCasesBetween(this, radius);
+  public Liste<Square> getGca(int radius){
+    return getGc().getSquaresBetween(this, radius);
   }
   /**
-  *{@summary return a direction by using this &#38; an other CCase to reach.}
+  *{@summary return a direction by using this &#38; an other CSquare to reach.}
   *@lastEditedVersion 2.11
   */
-  public int getDirection(CCase to){
+  public int getDirection(CSquare to){
     if (to==null){ return 5;}
     int x = this.getContent().getX() - to.getContent().getX();
     int y = this.getContent().getY() - to.getContent().getY();
     return getDirectionFromXY(x,y);
   }
   /**
-  *{@summary return a direction by using this &#38; a Case to reach.}
+  *{@summary return a direction by using this &#38; a Square to reach.}
   *@lastEditedVersion 2.11
   */
-  public int getDirection(Case to){
+  public int getDirection(Square to){
     if (to==null){ return 5;}
     int x = this.getContent().getX() - to.getX();
     int y = this.getContent().getY() - to.getY();
@@ -136,13 +136,13 @@ public class CCase implements Serializable{
   public GInsecte getGi(){return getGi(0);}
   public GInsecte getGi(int radius){
     GInsecte gir = new GInsecte();
-    for (Case c : getGc().getCasesBetween(this, radius)) {
+    for (Square c : getGc().getSquaresBetween(this, radius)) {
       gir.add(c.getGi());
     }
     return gir;
   }
 
-  public byte nbrDeCaseVoisine(){
+  public byte nbrDeSquareVoisine(){
     if(getGc()==null){return 0;}
     byte xr = 0;
     if (getUp()!= null){xr++;}

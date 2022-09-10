@@ -20,7 +20,7 @@ import java.awt.event.MouseMotionListener;
 *@lastEditedVersion 1.42
 */
 public class FPanelSup extends FPanel {
-  private CCase cc2=null;
+  private CSquare cc2=null;
 
   // CONSTRUCTORS --------------------------------------------------------------
   public FPanelSup(){}
@@ -34,7 +34,7 @@ public class FPanelSup extends FPanel {
   *<li>with BUTTON1 it swap playingAnt.
   *<li>with BUTTON3 it move playingAnt.
   *</ul>
-  *<li>If moved on an other Case, it update desc to newCase.toString().
+  *<li>If moved on an other Square, it update desc to newSquare.toString().
   *</ul>
   *@lastEditedVersion 1.42
   */
@@ -49,13 +49,13 @@ public class FPanelSup extends FPanel {
         if(getView().getPe().isOn()){return;}
         if(e.getButton()== MouseEvent.BUTTON1){
           if(getView().getMoveMode()){
-            // getView().setCCase(getCCase(e));
+            // getView().setCSquare(getCSquare(e));
             movePlayingAnt(e);
             getView().setMoveMode(false);
             // f.ceDeplacer(f.getFere().getJoueur().getIa());
             return;
           }
-          Case c = getCase(e);
+          Square c = getSquare(e);
           if(c==null){return;}
           GCreature gc = c.getGc();
           if(gc.length()>0){
@@ -82,7 +82,7 @@ public class FPanelSup extends FPanel {
       @Override
       public void mouseMoved(MouseEvent e) {
         if(getView().getPe().isOn()){return;}
-        CCase cc = getCCase(e);
+        CSquare cc = getCSquare(e);
         mouseMovedUpdate(cc);
       }
     });
@@ -132,46 +132,46 @@ public class FPanelSup extends FPanel {
     // g.setColor(new Color(0,0,100,200));
     // g.fillRect(0,0,getWidth(),getHeight());
   }
-  public CCase getCCase(MouseEvent e){
-    return getCCase(e.getX(), e.getY());
+  public CSquare getCSquare(MouseEvent e){
+    return getCSquare(e.getX(), e.getY());
   }
-  public CCase getCCase(int x, int y){
-    int tc = getView().getPc().getTailleDUneCase();
+  public CSquare getCSquare(int x, int y){
+    int tc = getView().getPc().getTailleDUneSquare();
     int cx = x/tc;
     int cy = y/tc;
     try {
-      return Main.getGc().getCCase(cx,cy);
+      return Main.getGc().getCSquare(cx,cy);
     }catch (Exception e2) {
       erreur.erreur("aucune case n'est sélectionné avec les coordonées : "+cx+" "+cy);
       return null;
     }
   }
-  public Case getCase(MouseEvent e){
+  public Square getSquare(MouseEvent e){
     try {
-      return getCCase(e).getContent();
+      return getCSquare(e).getContent();
     }catch (Exception e2) {
       return null;
     }
   }
-  public void mouseMovedUpdate(CCase cc, boolean force){
+  public void mouseMovedUpdate(CSquare cc, boolean force){
     if(getView().getPe().isOn()){return;}
     if(cc==null){getView().setMessageDesc("");cc2=null;return;}
     if(force || cc2==null || !cc2.getContent().equals(cc.getContent())){//si la case a changé.
-      cc2=new CCase(cc.getContent(), cc.getGc());
-      getView().setLookedCCase(cc);
+      cc2=new CSquare(cc.getContent(), cc.getGc());
+      getView().setLookedCSquare(cc);
     }
   }
-  public void mouseMovedUpdate(CCase cc){mouseMovedUpdate(cc, false);}
+  public void mouseMovedUpdate(CSquare cc){mouseMovedUpdate(cc, false);}
   /**
-  *{@summary Move the playing ant to selected Case.}<br>
+  *{@summary Move the playing ant to selected Square.}<br>
   *@lastEditedVersion 2.11
   */
   private void movePlayingAnt(MouseEvent e){
     Fourmi f = Main.getPlayingAnt();
     if(f!=null){//si une fourmi est séléctionné.
-      CCase cc = getCCase(e);
+      CSquare cc = getCSquare(e);
       if(cc!=null){
-        f.ceDeplacerPlusieurCase(cc);
+        f.ceDeplacerPlusieurSquare(cc);
         // f.setBActionHaveChange(true);
         getView().getPb().setActionF(-1);
       }

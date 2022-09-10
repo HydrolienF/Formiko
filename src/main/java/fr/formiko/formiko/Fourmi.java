@@ -134,8 +134,8 @@ public class Fourmi extends Creature implements Serializable{
   public Joueur getJoueur(){ if(getFere()==null){ return null;}return getFere().getJoueur();}
   public byte getHardnessMax(){ return hardnessMax;}
   public void setHardnessMax(byte x){ hardnessMax=x; }
-  public int getX(){return getCCase().getContent().getX();}
-  public int getY(){return getCCase().getContent().getY();}
+  public int getX(){return getCSquare().getContent().getX();}
+  public int getY(){return getCSquare().getContent().getY();}
   public void setFoodMoinsConsomFood(){ setFood(getFood()-getFoodConso());}
   public Individu getIndividu(){ return e.getIndividuByType(typeF);}
   public boolean getTropDeFood(){if(getFood()*1.1>getMaxFood()){ return true;} return false;}
@@ -278,17 +278,17 @@ public class Fourmi extends Creature implements Serializable{
   *@lastEditedVersion 2.29
   */
   public boolean estALaFere(){
-    if(getCCase()==null){
+    if(getCSquare()==null){
       erreur.alerte("Ant should have a Square to find it's anthill");
       return false;
     }else if(getFere()==null){
       erreur.alerte("Ant should have an anthill to find it's anthill");
       return false;
-    }else if(getFere().getCCase()==null){
+    }else if(getFere().getCSquare()==null){
       erreur.alerte("Anthill should have a Square so that an't can reach it");
       return false;
     }else{
-      return getCCase().equals(getFourmiliere().getCCase());
+      return getCSquare().equals(getFourmiliere().getCSquare());
     }
   }
 

@@ -1,6 +1,6 @@
 package fr.formiko.views;
 
-import fr.formiko.formiko.CCase;
+import fr.formiko.formiko.CSquare;
 import fr.formiko.formiko.Creature;
 import fr.formiko.formiko.Fourmi;
 import fr.formiko.formiko.GJoueur;
@@ -229,10 +229,10 @@ public class ViewCLI implements View {
         pa.setNbrDeTour(str.sToI(input,pa.getNbrDeTour()));
         break;
         case 5:
-        pa.getCarte().setCasesSombres(str.sToB(input));
+        pa.getCarte().setSquaresSombres(str.sToB(input));
         break;
         case 6:
-        pa.getCarte().setCasesNuageuses(str.sToB(input));
+        pa.getCarte().setSquaresNuageuses(str.sToB(input));
         break;
         //next setter do not exist yet & need to call back initialisationElément() to be concidered.
         case 7:
@@ -368,37 +368,37 @@ public class ViewCLI implements View {
   }
 
   /**
-  *{@summary Change the value of the loked Case.}<br>
-  *We need to repaint the information about this Case.<br>
+  *{@summary Change the value of the loked Square.}<br>
+  *We need to repaint the information about this Square.<br>
   *This action can only be run if action game is on.<br>
   *@return Return true if it work well. (Nothing goes wrong.)
   *@lastEditedVersion 1.39
   */
-  public boolean setLookedCCase(CCase cc){
+  public boolean setLookedCSquare(CSquare cc){
     if (!actionGameOn || cLIMap==null) {return false;}
-    cLIMap.setLookedCCase(cc);
+    cLIMap.setLookedCSquare(cc);
     return true;
   }
   /**
-  *{@summary Return the value of the looked CCase.}<br>
+  *{@summary Return the value of the looked CSquare.}<br>
   *This action can only be run if action game is on and cLIMap have been created.<br>
-  *@return lookedCCase.
+  *@return lookedCSquare.
   *@lastEditedVersion 1.46
   */
-  public CCase getLookedCCase(){
+  public CSquare getLookedCSquare(){
     if (!actionGameOn || cLIMap==null) {return null;}
-    return cLIMap.getLookedCCase();
+    return cLIMap.getLookedCSquare();
   }
   /**
-  *{@summary get a CCase from the payer.}<br>
+  *{@summary get a CSquare from the payer.}<br>
   *It read Strings like this: "b13", "2c"<br>
   *This action can only be run if action game is on.<br>
-  *@return Selected CCase or null if it fail.
+  *@return Selected CSquare or null if it fail.
   *@lastEditedVersion 1.39
   */
-  public CCase getCCase(){
+  public CSquare getCSquare(){
     String s = popUpQuestion(g.getM("were")+" ? ("+g.get("enterCoordinateAs")+" G12)");
-    return getCCaseFromString(s);
+    return getCSquareFromString(s);
   }
   /**
   *{@summary Return the chosen value for ant action.}<br>
@@ -427,14 +427,14 @@ public class ViewCLI implements View {
     ts[13]=g.getM("endTurn");
     ts[14]=g.getM("endGame");
     ts[15]=g.getM("pauseActionGame");
-    ts[16]=g.getM("set")+" "+g.get("la")+" "+g.get("lookedCase");
+    ts[16]=g.getM("set")+" "+g.get("la")+" "+g.get("lookedSquare");
     tToPrint = ts;
     int choice = -1;
     do {
       paint();
       choice = getActionMenu(tToPrint.length)-1;
       if(choice==15){pauseActionGame();tToPrint=ts;}
-      if(choice==16){setLookedCCase(getCCase());tToPrint=ts;}
+      if(choice==16){setLookedCSquare(getCSquare());tToPrint=ts;}
     } while ((choice <12 || choice>14) && !tableau.estDansT(t,choice));
     if(choice==12){Main.setPlayingAnt(getAntFromFere());}
     Fourmi.setBActionHaveChange(true);
@@ -519,11 +519,11 @@ public class ViewCLI implements View {
   *This action can only be run if action game is on.<br>
   *This action do noting on view cli.
   *@param o object to move.
-  *@param from CCase that o leave.
-  *@param to CCase were o is going.
+  *@param from CSquare that o leave.
+  *@param to CSquare were o is going.
   *@lastEditedVersion 2.1
   */
-  public void move(ObjetSurCarteAId o, CCase from, CCase to){}
+  public void move(ObjetSurCarteAId o, CSquare from, CSquare to){}
   /**
   *{@summary Update downloading message.}
   *@lastEditedVersion 2.7
@@ -700,14 +700,14 @@ public class ViewCLI implements View {
     return saveName;
   }
   /**
-  *{@summary transforme a String to a CCase and return it.}<br>
+  *{@summary transforme a String to a CSquare and return it.}<br>
   *This action can only be run if action game is on.<br>
   *@param s String like this: "b13", "2c"<br>
-  *@return Selected CCase or null if it fail.
+  *@return Selected CSquare or null if it fail.
   *@lastEditedVersion 1.39
   */
   //public only for test
-  public CCase getCCaseFromString(String s){
+  public CSquare getCSquareFromString(String s){
     s = s.toLowerCase();
     String numbers="";
     String letters="";
@@ -734,9 +734,9 @@ public class ViewCLI implements View {
       y = letters.charAt(0)-97;
     }
     int x = str.sToI(numbers);
-    CCase cc = Main.getGc().getCCase(x,y);
+    CSquare cc = Main.getGc().getCSquare(x,y);
     if(cc==null){
-      erreur.alerte(g.get("theCaseDoNotExist"));
+      erreur.alerte(g.get("theSquareDoNotExist"));
     }
     return cc;
   }

@@ -10,14 +10,14 @@ public class ChasseInsectivoreTest extends TestCaseMuet{
   // FUNCTIONS -----------------------------------------------------------------
   private Fourmi ini(){
     Main.initialisation();
-    Partie p = new Partie(0,100,new Carte(new GCase(1,2),0,0,1,false,false),1);
+    Partie p = new Partie(0,100,new Carte(new GSquare(1,2),0,0,1,false,false),1);
     Main.setPartie(p);
     p.setAppartionInsecte(false);
     p.setAppartionGraine(false);
-    Joueur j = new Joueur(new Fourmiliere(p.getGc().getCCase(0,0),null),"joueurTest",false);
+    Joueur j = new Joueur(new Fourmiliere(p.getGc().getCSquare(0,0),null),"joueurTest",false);
     j.getFere().setJoueur(j);
-    assertTrue(p.getGc().getCCase(0,0).getContent().getFere().equals(j.getFere()));
-    assertTrue(p.getGc().getCCase(0,1).getContent().getFere()==null);
+    assertTrue(p.getGc().getCSquare(0,0).getContent().getFere().equals(j.getFere()));
+    assertTrue(p.getGc().getCSquare(0,1).getContent().getFere()==null);
     p.getGj().add(j);
     Fourmi f = new Fourmi(j.getFere(),Main.getEspeceById(0), (byte) 0, (byte) 0);
     j.getFere().getGc().add(f);

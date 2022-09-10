@@ -147,8 +147,8 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
     String nomTraduitDeLaCarte = choixCarte.getSelectedItem()+"";
     String nomDeLaCarte = gsClé.getKey(nomTraduitDeLaCarte);
     Carte mapo = new Carte(nomDeLaCarte);
-    mapo.setCasesNuageuses(casesNuageuses.isSelected());
-    mapo.setCasesSombres(casesSombres.isSelected());
+    mapo.setSquaresNuageuses(casesNuageuses.isSelected());
+    mapo.setSquaresSombres(casesSombres.isSelected());
     int dif = calculeDif();
     Double vitesseDeJeu = calculeVitesseDeJeu();
     // On transmet la difficulté, le nombre de tour, la carte et la vitesse de jeu.

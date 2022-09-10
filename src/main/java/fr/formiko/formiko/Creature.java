@@ -58,7 +58,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *All args are Creature var.
   *@lastEditedVersion 1.13
   */
-  public Creature (CCase ccase, int age, int maxAge, byte maxAction, Pheromone ph, int food, int maxFood){
+  public Creature (CSquare ccase, int age, int maxAge, byte maxAction, Pheromone ph, int food, int maxFood){
     super(ccase);
     this.age = age; this.maxAge= maxAge; this.isDead = false;
     this.action = maxAction; this.maxAction = maxAction;
@@ -74,20 +74,20 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   *Here we only know some var, but the main constructor will take care of them.
   *@lastEditedVersion 1.13
   */
-  public Creature (CCase ccase,int age, int maxAge, byte maxAction){ // Les fourmis utilise ce contructeur.
+  public Creature (CSquare ccase,int age, int maxAge, byte maxAction){ // Les fourmis utilise ce contructeur.
     this(ccase,age,maxAge, maxAction, new Pheromone(), 10, 100);
-  } public Creature(CCase ccase, int age, int maxAge, int maxAction){ this(ccase,age,maxAge,(byte) maxAction);}
+  } public Creature(CSquare ccase, int age, int maxAge, int maxAction){ this(ccase,age,maxAge,(byte) maxAction);}
   /**
   *{@summary constructor for Creature.}<br>
   *Here we only know some var, but the main constructor will take care of them.
   *@lastEditedVersion 1.13
   */
-  public Creature (CCase ccase,int age, int maxAge){
+  public Creature (CSquare ccase,int age, int maxAge){
     this(ccase,age,maxAge,(byte) 50); // 50 action par défaut.
   }
-  public Creature (CCase ccase,int maxAge){this(ccase,0,maxAge);}
-  public Creature (CCase ccase){this(ccase,100);}
-  public Creature (){this((CCase) null);}
+  public Creature (CSquare ccase,int maxAge){this(ccase,0,maxAge);}
+  public Creature (CSquare ccase){this(ccase,100);}
+  public Creature (){this((CSquare) null);}
   // GET SET ----------------------------------------------------------------------
   //Food
   public int getFood(){return food;}
@@ -117,21 +117,21 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   /**
   *{@summary Move the Creature from a case to an other.}<br>
   *It is used by Deplacement interfaces.<br>
-  *It wil try to remove from old CCase and add to new CCase.<br>
+  *It wil try to remove from old CSquare and add to new CSquare.<br>
   *@lastEditedVersion 1.40
   */
   @Override
-  public void setCCase(CCase newCCase){
+  public void setCSquare(CSquare newCSquare){
     if(this.ccase!=null){
       this.ccase.getContent().getGc().remove(this);
     }
-    this.ccase = newCCase;
-    if(newCCase!=null){
-      newCCase.getContent().getGc().add(this);
+    this.ccase = newCSquare;
+    if(newCSquare!=null){
+      newCSquare.getContent().getGc().add(this);
     }
   }
-  //public void setCCase(int x, int y){setCCase(Main.getGc().getCCase(x,y));}
-  //public void setCc(CCase cc){setCCase(cc);}
+  //public void setCSquare(int x, int y){setCSquare(Main.getGc().getCSquare(x,y));}
+  //public void setCc(CSquare cc){setCSquare(cc);}
   public Pheromone getPheromone(){ return ph;}
   public Pheromone getPh(){ return getPheromone();}
   public void setPheromone(Pheromone ph){this.ph = ph; }
@@ -177,22 +177,22 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
   public ObjetSurCarteAId getTransported(){ return transported;}
   /**
   *{@summary Set as transported item o.}<br>
-  *If item is no null it will be remove from the CCase.<br>
+  *If item is no null it will be remove from the CSquare.<br>
   *If item is not null &#38; it already have an item it will throw an exception.<br>
   *@lastEditedVersion 1.40
   */
   public void setTransported(ObjetSurCarteAId o){
     if(o!=null && getTransported()!=null){throw new NotNullLocationException();}
     transported = o;
-    if(o!=null){o.setCCase(null);}
+    if(o!=null){o.setCSquare(null);}
   }
   /**
   *{@summary Drop the transported item.}<br>
-  *Transported item is now on the CCase of the Creature &#38; not anymore transported by Creature.
+  *Transported item is now on the CSquare of the Creature &#38; not anymore transported by Creature.
   *@lastEditedVersion 2.29
   */
   public void dropTransported(){
-    getTransported().setCCase(getCCase());
+    getTransported().setCSquare(getCSquare());
     setTransported(null);
   }
 
@@ -200,10 +200,10 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
 
   //raccourci des actions d'interface
   public void ceDeplacer(boolean bIa){déplacement.unMouvement(this,bIa);}
-  public void ceDeplacer(CCase ccase){déplacement.unMouvement(this,ccase);}
-  public void ceDeplacer(Case ca){déplacement.unMouvement(this,ca);}
+  public void ceDeplacer(CSquare ccase){déplacement.unMouvement(this,ccase);}
+  public void ceDeplacer(Square ca){déplacement.unMouvement(this,ca);}
   public void ceDeplacer(int direction){déplacement.unMouvement(this,direction);}
-  public void ceDeplacerPlusieurCase(CCase cc){déplacement.plusieurMouvement(this,cc);}
+  public void ceDeplacerPlusieurSquare(CSquare cc){déplacement.plusieurMouvement(this,cc);}
   public void pondre(){pondre.unePonte(this);}
   public boolean canLay(){return pondre.canLay(this);}
   public boolean chasse(){return chasse.chasse(this);}
@@ -373,20 +373,20 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
     return 0;
   }
   /**
-   *{@summary find all allied Creature on the same Case.}<br>
+   *{@summary find all allied Creature on the same Square.}<br>
    *@lastEditedVersion 1.7
    */
-  public GCreature getAlliéSurLaCase(){
+  public GCreature getAlliéSurLaSquare(){
     //if(!e.getPolycalique()){return new GCreature(this);} //pris en compte par la diff phéromonale tolléré
-    return getCCase().getContent().getGc().filterAlliés(this);
+    return getCSquare().getContent().getGc().filterAlliés(this);
   }
   /**
-   *{@summary find all allied Creature on the same Case and remove this form the GCreature.}<br>
+   *{@summary find all allied Creature on the same Square and remove this form the GCreature.}<br>
    *@lastEditedVersion 1.7
    */
-  public GCreature getAlliéSurLaCaseSansThis(){
+  public GCreature getAlliéSurLaSquareSansThis(){
     //if(!e.getPolycalique()){return new GCreature();}//pris en compte par la diff phéromonale tolléré
-    GCreature gc = getAlliéSurLaCase();
+    GCreature gc = getAlliéSurLaSquare();
     try {
       gc.remove(this);
     }catch (Exception e) {}
@@ -439,7 +439,7 @@ public abstract class Creature extends ObjetSurCarteAId implements Serializable{
         Fourmi f = (Fourmi)this;
         if(chasse.canEatSeed()){chasse.eatSeed();}//eat seed
         else if(f.estALaFere()){chasser(direction);}//drop seed here
-        else {ceDeplacer(f.getFere().getCCase());}//go fere to drop seed & maybe find a better one
+        else {ceDeplacer(f.getFere().getCSquare());}//go fere to drop seed & maybe find a better one
       }
       if(getAction()>0 && isHungry(percentageOfHungryness)){
         eat(percentageOfHungryness);

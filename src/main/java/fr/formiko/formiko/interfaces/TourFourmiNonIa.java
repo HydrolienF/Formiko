@@ -151,11 +151,11 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
       for (int i=0;i<11 ;i++ ) {
         t[i]=i;
       }
-      GCreature gcCase = f.getCCase().getContent().getGc();
+      GCreature gcSquare = f.getCSquare().getContent().getGc();
       if(f.getAction()<=0 || f.getIndividu().getMovingCost() == -1){ t=tableau.retirerX(t,0);}
       if(f.getIndividu().getCoutChasse() == -1 || ((!f.chasse.havePreyOnSameSquare(f) || !f.chasse.canHuntMore(f)) && f.getTransported()==null)){ t=tableau.retirerX(t,1);}
       if(f.getAction()<=0 || !f.canLay()){ t=tableau.retirerX(t,2);}
-      if(f.getAction()<=0 || f.getIndividu().getCoutTrophallaxie() == -1 || gcCase.filterAlliés(f).filterFaimMax().length() < 2 || f.getFood()<1){ t=tableau.retirerX(t,3);}
+      if(f.getAction()<=0 || f.getIndividu().getCoutTrophallaxie() == -1 || gcSquare.filterAlliés(f).filterFaimMax().length() < 2 || f.getFood()<1){ t=tableau.retirerX(t,3);}
       if(f.getAction()<=0 || f.getIndividu().getCoutNétoyer() == -1 ||(f.netoyer.getNombreDeCreatureANetoyer(f))==0){ t=tableau.retirerX(t,4);}
       if(!f.chasse.canEatSeed()){t=tableau.retirerX(t,5);}
       if(!f.chasse.canBreakSeed()){t=tableau.retirerX(t,6);}

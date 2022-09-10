@@ -69,14 +69,14 @@ public class CLIMapTest extends TestCaseMuet{
     assertEquals(color.BLACK+"C6"+color.NEUTRAL,CLIMap.objetSurCarteAIdToString(new ObjetSurCarteAId()));
   }
   @Test
-  public void testCaseToStringSombreNuageuse(){
+  public void testSquareToStringSombreNuageuse(){
     Os.setOs(new Os());
     Main.initialisation();
     Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
-    Main.getMap().setCasesSombres(false);
-    Main.getMap().setCasesNuageuses(false);
+    Main.getMap().setSquaresSombres(false);
+    Main.getMap().setSquaresNuageuses(false);
     Main.getPartie().setElément(0,0,0);
     CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
     //without any player on the map
@@ -86,14 +86,14 @@ public class CLIMapTest extends TestCaseMuet{
     assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getFirst(),true,true));
   }
   @Test
-  public void testCaseToStringSombreNuageuse2(){
+  public void testSquareToStringSombreNuageuse2(){
     Os.setOs(new Os());
     Main.initialisation();
     Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
-    Main.getMap().setCasesSombres(true);
-    Main.getMap().setCasesNuageuses(true);
+    Main.getMap().setSquaresSombres(true);
+    Main.getMap().setSquaresNuageuses(true);
     Main.getPartie().setElément(0,0,0);
     CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
     //without any player on the map but we input value for the 2 boolean
@@ -104,14 +104,14 @@ public class CLIMapTest extends TestCaseMuet{
     assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getFirst(),true,true));
   }
   @Test
-  public void testCaseToStringSombreNuageuse3(){
+  public void testSquareToStringSombreNuageuse3(){
     Os.setOs(new Os());
     Main.initialisation();
     Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
-    Main.getMap().setCasesSombres(true);
-    Main.getMap().setCasesNuageuses(false);
+    Main.getMap().setSquaresSombres(true);
+    Main.getMap().setSquaresNuageuses(false);
     Main.getPartie().setElément(0,0,0);
     CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
     //without any player on the map but we input value for the 2 boolean
@@ -122,119 +122,119 @@ public class CLIMapTest extends TestCaseMuet{
     assertEquals(color.PURPLE_BACKGROUND+"□□□□"+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getFirst(),true,true));
   }
   @Test
-  public void testCaseToStringSombreNuageuse4(){
+  public void testSquareToStringSombreNuageuse4(){
     Os.setOs(new Os());
     Main.initialisation();
     Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
-    Main.getMap().setCasesSombres(true);
-    Main.getMap().setCasesNuageuses(true);
+    Main.getMap().setSquaresSombres(true);
+    Main.getMap().setSquaresNuageuses(true);
     Main.getPartie().setElément(0,0,0);
     CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
     //with a player
     Joueur j = new Joueur(1,true,Main.getCarte());
     Fourmi playingAnt = (Fourmi) j.getFere().getGc().getFirst();
     Main.getPartie().setPlayingAnt(playingAnt);
-    playingAnt.setCCase(Main.getGc().getCCase(2,0));
-    playingAnt.getFere().setCc(Main.getGc().getCCase(2,0));
-    j.initialisationCaseNS();
-    j.updateCaseSN();
-    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
-    playingAnt.setCCase(Main.getGc().getCCase(0,0));
-    j.updateCaseSN();
-    assertEquals(color.GREEN_FLASH+"1"+color.NEUTRAL+color.PURPLE_BACKGROUND+"   "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
-    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(0,1),j));
-    assertEquals(color.GREEN_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(1,1),j));
-    assertEquals(color.GREEN_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(1,0),j));
-    assertEquals("F1"+color.GREEN_BACKGROUND+"□□"+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(2,0),j));
-    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCCase(0,2),j));
-    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCCase(0,3),j));
-    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCCase(1,2),j));
+    playingAnt.setCSquare(Main.getGc().getCSquare(2,0));
+    playingAnt.getFere().setCc(Main.getGc().getCSquare(2,0));
+    j.initialisationSquareNS();
+    j.updateSquareSN();
+    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCSquare(0,0),j));
+    playingAnt.setCSquare(Main.getGc().getCSquare(0,0));
+    j.updateSquareSN();
+    assertEquals(color.GREEN_FLASH+"1"+color.NEUTRAL+color.PURPLE_BACKGROUND+"   "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(0,0),j));
+    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(0,1),j));
+    assertEquals(color.GREEN_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(1,1),j));
+    assertEquals(color.GREEN_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(1,0),j));
+    assertEquals("F1"+color.GREEN_BACKGROUND+"□□"+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(2,0),j));
+    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCSquare(0,2),j));
+    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCSquare(0,3),j));
+    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCSquare(1,2),j));
 
-    playingAnt.setCCase(Main.getGc().getCCase(1,1));
-    j.updateCaseSN();
-    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
-    assertEquals("F1"+color.GREEN_BACKGROUND+"  "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(2,0),j));
-    playingAnt.setCCase(Main.getGc().getCCase(2,2));
-    j.updateCaseSN();
-    assertEquals(color.PURPLE_BACKGROUND+"□□□□"+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
+    playingAnt.setCSquare(Main.getGc().getCSquare(1,1));
+    j.updateSquareSN();
+    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(0,0),j));
+    assertEquals("F1"+color.GREEN_BACKGROUND+"  "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(2,0),j));
+    playingAnt.setCSquare(Main.getGc().getCSquare(2,2));
+    j.updateSquareSN();
+    assertEquals(color.PURPLE_BACKGROUND+"□□□□"+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(0,0),j));
   }
-  public void testCaseToStringNuageuse(){
+  public void testSquareToStringNuageuse(){
     Os.setOs(new Os());
     Main.initialisation();
     Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
-    Main.getMap().setCasesSombres(false);
-    Main.getMap().setCasesNuageuses(true);
+    Main.getMap().setSquaresSombres(false);
+    Main.getMap().setSquaresNuageuses(true);
     Main.getPartie().setElément(0,0,0);
     CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
     //with a player
     Joueur j = new Joueur(1,true,Main.getCarte());
     Fourmi playingAnt = (Fourmi) j.getFere().getGc().getFirst();
     Main.getPartie().setPlayingAnt(playingAnt);
-    playingAnt.setCCase(Main.getGc().getCCase(2,0));
-    playingAnt.getFere().setCc(Main.getGc().getCCase(2,0));
-    j.initialisationCaseNS();
-    j.updateCaseSN();
-    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
-    playingAnt.setCCase(Main.getGc().getCCase(0,0));
-    j.updateCaseSN();
-    assertEquals("1   ",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
-    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(0,1),j));
-    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(1,1),j));
-    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(1,0),j));
-    assertEquals("F1  ",cLIMap.caseToString(Main.getGc().getCCase(2,0),j));
-    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCCase(0,2),j));
-    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCCase(0,3),j));
-    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCCase(1,2),j));
+    playingAnt.setCSquare(Main.getGc().getCSquare(2,0));
+    playingAnt.getFere().setCc(Main.getGc().getCSquare(2,0));
+    j.initialisationSquareNS();
+    j.updateSquareSN();
+    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCSquare(0,0),j));
+    playingAnt.setCSquare(Main.getGc().getCSquare(0,0));
+    j.updateSquareSN();
+    assertEquals("1   ",cLIMap.caseToString(Main.getGc().getCSquare(0,0),j));
+    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(0,1),j));
+    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(1,1),j));
+    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(1,0),j));
+    assertEquals("F1  ",cLIMap.caseToString(Main.getGc().getCSquare(2,0),j));
+    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCSquare(0,2),j));
+    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCSquare(0,3),j));
+    assertEquals("■■■■",cLIMap.caseToString(Main.getGc().getCSquare(1,2),j));
 
-    playingAnt.setCCase(Main.getGc().getCCase(1,1));
-    j.updateCaseSN();
-    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
-    assertEquals("F1  ",cLIMap.caseToString(Main.getGc().getCCase(2,0),j));
-    playingAnt.setCCase(Main.getGc().getCCase(2,2));
-    j.updateCaseSN();
-    assertEquals("    ",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
+    playingAnt.setCSquare(Main.getGc().getCSquare(1,1));
+    j.updateSquareSN();
+    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(0,0),j));
+    assertEquals("F1  ",cLIMap.caseToString(Main.getGc().getCSquare(2,0),j));
+    playingAnt.setCSquare(Main.getGc().getCSquare(2,2));
+    j.updateSquareSN();
+    assertEquals("    ",cLIMap.caseToString(Main.getGc().getCSquare(0,0),j));
   }
-  public void testCaseToStringSombre(){
+  public void testSquareToStringSombre(){
     Os.setOs(new Os());
     Main.initialisation();
     Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
-    Main.getMap().setCasesSombres(true);
-    Main.getMap().setCasesNuageuses(false);
+    Main.getMap().setSquaresSombres(true);
+    Main.getMap().setSquaresNuageuses(false);
     Main.getPartie().setElément(0,0,0);
     CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
     //with a player
     Joueur j = new Joueur(1,true,Main.getCarte());
     Fourmi playingAnt = (Fourmi) j.getFere().getGc().getFirst();
     Main.getPartie().setPlayingAnt(playingAnt);
-    playingAnt.setCCase(Main.getGc().getCCase(2,0));
-    playingAnt.getFere().setCc(Main.getGc().getCCase(2,0));
-    j.initialisationCaseNS();
-    j.updateCaseSN();
-    assertEquals(color.PURPLE_BACKGROUND+"□□□□"+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
-    playingAnt.setCCase(Main.getGc().getCCase(0,0));
-    j.updateCaseSN();
-    assertEquals("1   ",cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
-    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(0,1),j));
-    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(1,1),j));
-    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(1,0),j));
-    assertEquals("F1□□",cLIMap.caseToString(Main.getGc().getCCase(2,0),j));
-    assertEquals(color.PURPLE_BACKGROUND+"□□□□"+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(0,2),j));
-    assertEquals(color.PURPLE_BACKGROUND+"□□□□"+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(0,3),j));
-    assertEquals(color.PURPLE_BACKGROUND+"□□□□"+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(1,2),j));
+    playingAnt.setCSquare(Main.getGc().getCSquare(2,0));
+    playingAnt.getFere().setCc(Main.getGc().getCSquare(2,0));
+    j.initialisationSquareNS();
+    j.updateSquareSN();
+    assertEquals(color.PURPLE_BACKGROUND+"□□□□"+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(0,0),j));
+    playingAnt.setCSquare(Main.getGc().getCSquare(0,0));
+    j.updateSquareSN();
+    assertEquals("1   ",cLIMap.caseToString(Main.getGc().getCSquare(0,0),j));
+    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(0,1),j));
+    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(1,1),j));
+    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(1,0),j));
+    assertEquals("F1□□",cLIMap.caseToString(Main.getGc().getCSquare(2,0),j));
+    assertEquals(color.PURPLE_BACKGROUND+"□□□□"+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(0,2),j));
+    assertEquals(color.PURPLE_BACKGROUND+"□□□□"+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(0,3),j));
+    assertEquals(color.PURPLE_BACKGROUND+"□□□□"+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(1,2),j));
 
-    playingAnt.setCCase(Main.getGc().getCCase(1,1));
-    j.updateCaseSN();
-    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
-    assertEquals("F1  ",cLIMap.caseToString(Main.getGc().getCCase(2,0),j));
-    playingAnt.setCCase(Main.getGc().getCCase(2,2));
-    j.updateCaseSN();
-    assertEquals(color.PURPLE_BACKGROUND+"□□□□"+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCCase(0,0),j));
+    playingAnt.setCSquare(Main.getGc().getCSquare(1,1));
+    j.updateSquareSN();
+    assertEquals(color.PURPLE_BACKGROUND+"    "+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(0,0),j));
+    assertEquals("F1  ",cLIMap.caseToString(Main.getGc().getCSquare(2,0),j));
+    playingAnt.setCSquare(Main.getGc().getCSquare(2,2));
+    j.updateSquareSN();
+    assertEquals(color.PURPLE_BACKGROUND+"□□□□"+color.NEUTRAL,cLIMap.caseToString(Main.getGc().getCSquare(0,0),j));
   }
   @Test
   public void testMapToString(){
@@ -243,8 +243,8 @@ public class CLIMapTest extends TestCaseMuet{
     Os.getOs().setId((byte)1);
     color.iniColor();
     Main.setPartie(Partie.getDefautlPartie());
-    Main.getMap().setCasesSombres(true);
-    Main.getMap().setCasesNuageuses(true);
+    Main.getMap().setSquaresSombres(true);
+    Main.getMap().setSquaresNuageuses(true);
     Main.getPartie().setElément(0,0,0);
     CLIMap cLIMap = new CLIMap(Main.getPartie().getGc());
     //with a player
@@ -252,21 +252,21 @@ public class CLIMapTest extends TestCaseMuet{
     Fourmi playingAnt = (Fourmi) j.getFere().getGc().getFirst();
     //Main.getView().setActionGameOn(true);
     Main.getPartie().setPlayingAnt(playingAnt);
-    playingAnt.setCCase(Main.getGc().getCCase(2,0));
-    playingAnt.getFere().setCc(Main.getGc().getCCase(2,0));
-    j.initialisationCaseNS();
-    j.updateCaseSN();
-    playingAnt.setCCase(Main.getGc().getCCase(0,0));
-    j.updateCaseSN();
-    assertEquals(color.GREEN_FLASH+"1"+color.NEUTRAL+color.PURPLE_BACKGROUND+"   "+color.NEUTRAL+color.GREEN_BACKGROUND+"    "+color.NEUTRAL+"F1"+color.GREEN_BACKGROUND+"□□"+color.NEUTRAL+color.GREEN_BACKGROUND+"□□□□"+color.NEUTRAL+repeat(12,"■■■■"),cLIMap.mapLineToString(Main.getGc().getCCase(0,0),j));
+    playingAnt.setCSquare(Main.getGc().getCSquare(2,0));
+    playingAnt.getFere().setCc(Main.getGc().getCSquare(2,0));
+    j.initialisationSquareNS();
+    j.updateSquareSN();
+    playingAnt.setCSquare(Main.getGc().getCSquare(0,0));
+    j.updateSquareSN();
+    assertEquals(color.GREEN_FLASH+"1"+color.NEUTRAL+color.PURPLE_BACKGROUND+"   "+color.NEUTRAL+color.GREEN_BACKGROUND+"    "+color.NEUTRAL+"F1"+color.GREEN_BACKGROUND+"□□"+color.NEUTRAL+color.GREEN_BACKGROUND+"□□□□"+color.NEUTRAL+repeat(12,"■■■■"),cLIMap.mapLineToString(Main.getGc().getCSquare(0,0),j));
     assertTrue(Main.getPartie().setPlayingAnt(playingAnt));
     // Joueur.setPlayingJoueur(null);
     Joueur.setPlayingJoueur(playingAnt.getFere().getJoueur());
     assertTrue(Main.getPlayingJoueur()!=null);
     Graine g = new Graine();
     Insecte in = new Insecte();
-    in.setCCase(1,0);
-    g.setCCase(1,1);
+    in.setCSquare(1,0);
+    g.setCSquare(1,1);
     String sMap = color.GREEN_FLASH+"1"+color.NEUTRAL+color.PURPLE_BACKGROUND+"   "+color.NEUTRAL+color.RED+"I3"+color.NEUTRAL+color.GREEN_BACKGROUND+"  "+color.NEUTRAL+"F1"+color.GREEN_BACKGROUND+"□□"+color.NEUTRAL+color.GREEN_BACKGROUND+"□□□□"+color.NEUTRAL+"■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n";
     sMap+=color.PURPLE_BACKGROUND+"    "+color.NEUTRAL+color.BROWN+"G2"+color.NEUTRAL+color.GREEN_BACKGROUND+"  "+color.NEUTRAL+color.GREEN_BACKGROUND+"□□□□"+color.NEUTRAL+color.GREEN_BACKGROUND+"□□□□"+color.NEUTRAL+"■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n";
     for (int i=0; i<7; i++) {
