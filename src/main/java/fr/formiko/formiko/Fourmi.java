@@ -61,7 +61,7 @@ public class Fourmi extends Creature implements Serializable{
     if(e.getPolycalique()){pheromoneTolerence=5;}//si c'est une espèce capable de s'endendre avec les fourmilières de la même famille.
     iniTour();
   }
-  /**
+  /***
   *{@summary Secondary constructor.}<br>
   *@param fere The anthill of this.
   *@param e The specie of this.
@@ -104,6 +104,10 @@ public class Fourmi extends Creature implements Serializable{
   // GET SET ----------------------------------------------------------------------
   public byte getTypeF(){return typeF;}
   public void setTypeF(byte s){typeF = s;}public void setTypeF(int x){setTypeF((byte)x);}
+  /**
+  *{@summary Return a scientific symbole that represent sex of the Ant.}<br>
+  *@lastEditedVersion 2.30
+  */
   public String getSex(){
     return switch (typeF) {
       case 0:
@@ -205,7 +209,7 @@ public class Fourmi extends Creature implements Serializable{
   @Override
   public int getStateHealth(){
     if(wantClean()){
-      if(getHealth() < getSeuilDeRisqueDInfection()){
+      if(getHealth() < getInfectionRiskThreshold()){
         return 3;
       }else{
         return 1;
@@ -217,11 +221,7 @@ public class Fourmi extends Creature implements Serializable{
   public int getMovingCost(){return getIndividu().getMovingCost();}
   // FUNCTIONS -----------------------------------------------------------------
   public String toString(){return super.toString() +" "+ tableau.tableauToString(descriptionTableau());}
-  public void afficheToi (){erreur.println(description());}
   public boolean estReine(){return getTypeF()==0;}
-  public String description(){
-    return toString();
-  }
   /**
   *{@summary return the max age for an Individu depending of Espece 	&#38; stade.}
   *@param especeTempId Temporary Espece id.
@@ -259,7 +259,11 @@ public class Fourmi extends Creature implements Serializable{
     double x = diff*vit;
     return x;
   }
-  public int getSeuilDeRisqueDInfection(){ // dépend du boolean ia et de la difficulté de la partie.
+  /**
+  *{@summary Return the limit where the ant migth died by infection.}<br>
+  *@lastEditedVersion 2.30
+  */
+  public int getInfectionRiskThreshold(){ // dépend du boolean ia et de la difficulté de la partie.
     int x;
     if(fere.getJoueur().getIa()){
       x=50-(Main.getDifficulté()*10);
@@ -289,6 +293,10 @@ public class Fourmi extends Creature implements Serializable{
   }
 
   //public byte getModeReine(){return 0;}
+  /**
+  *{@summary Return a description as an Array.}<br>
+  *@lastEditedVersion 2.29
+  */
   public String [] descriptionTableau(){
     String tr [] = new String [4];
     String idTrans = "Rien"; if(transported != null){ idTrans = ""+transported.getId();}
@@ -321,6 +329,10 @@ public class Fourmi extends Creature implements Serializable{
     }
     return s;
   }
+  /**
+  *{@summary Return a description as a List of String.}<br>
+  *@lastEditedVersion 2.29
+  */
   public GString descriptionGString(){
     GString gs = new GString();
     gs.add(g.get("type")+" : "+getIndividu().getStringType());
@@ -342,7 +354,7 @@ public class Fourmi extends Creature implements Serializable{
   *@lastEditedVersion 1.29
   */
   public void salir(){
-    double chanceDeMort = allea.getRand()*getSeuilDeRisqueDInfection(); // on tire le nombre min pour survivre a ce tour.
+    double chanceDeMort = allea.getRand()*getInfectionRiskThreshold(); // on tire le nombre min pour survivre a ce tour.
     if (getHealth()<chanceDeMort){mourir(1);}
     setHealth(getHealth() - getHealthLost());
   }
@@ -362,7 +374,7 @@ public class Fourmi extends Creature implements Serializable{
   */
   public boolean wantClean(){
     if(getHealth()>99){return false;}
-    return getHealth() - (getHealthLost()*2) <= getSeuilDeRisqueDInfection();
+    return getHealth() - (getHealthLost()*2) <= getInfectionRiskThreshold();
   }
   /**
   *{@summary initialize tour value for an ant.}<br>

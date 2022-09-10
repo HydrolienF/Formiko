@@ -24,7 +24,10 @@ import java.io.Serializable;
 */
 public class ChasseGranivore implements Serializable, Chasse {
   private final Creature c;
-
+  /**
+  *{@summary Main constructor.}<br>
+  *@lastEditedVersion 2.29
+  */
   public ChasseGranivore(Creature c){
     this.c=c;
   }
@@ -111,6 +114,10 @@ public class ChasseGranivore implements Serializable, Chasse {
     //return c.getTransported()==null && super.canHuntMore(c);
     return c.getTransported()==null && c.getFood()<c.getMaxFood() && c.getAction()>0;
   }
+  /**
+  *{@summary Return true if Creature needed to eat &#38; have eat.}<br>
+  *@lastEditedVersion 2.29
+  */
   private boolean eatIfNeed(){
     // if(c.isHungry(90)){
     //   if(){//peux ouvrir la graine qu'elle porte et la manger

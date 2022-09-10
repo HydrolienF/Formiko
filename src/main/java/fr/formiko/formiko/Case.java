@@ -29,6 +29,10 @@ public class Case implements Serializable{
   private byte foodInsecteParTour;
 
   // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor with all needed args.}<br>
+  *@lastEditedVersion 2.30
+  */
   public Case(Point p, Fourmiliere fere, GCreature gc, byte foodInsecte, byte foodInsecteMax, byte nt){
     this.p =p;
     this.fere = fere;
@@ -40,13 +44,25 @@ public class Case implements Serializable{
     gg = new GGraine();
     setType(1);
   }
+  /**
+  *{@summary Secondary constructor.}<br>
+  *@lastEditedVersion 2.30
+  */
   public Case(Point p, Fourmiliere fere, GCreature gc){
     this(p,fere,gc,(byte) allea.getAllea(3),(byte)(allea.getAllea(100)+2),(byte) allea.getAllea(3));
     // si la food de départ n'est pas réduite :
     // new Info().setContent("ini food insecte to a random value from 0 to "+foodInsecteMax).print();
     setFoodInsecte((byte) allea.getAllea(foodInsecteMax));
   }
+  /***
+  *{@summary Secondary constructor.}<br>
+  *@lastEditedVersion 2.30
+  */
   public Case(Point p){this(p,null,new GCreature());}
+  /***
+  *{@summary Secondary constructor.}<br>
+  *@lastEditedVersion 2.30
+  */
   public Case(int x, int y){this(new Point(x,y));}
   // GET SET -------------------------------------------------------------------
   public Point getP(){return p;}
@@ -266,6 +282,11 @@ public class Case implements Serializable{
       return gcout;
     }
   }
+  /**
+  *{@return The GCreature sorted by friendly level with an ant.}
+  *Used ant for sorting is playing ant.
+  *@lastEditedVersion 2.30
+  */
   public GCreature getSortedGc(){
     return getSortedGc(Main.getPlayingAnt());
   }
@@ -283,10 +304,18 @@ public class Case implements Serializable{
     if(!this.getPoint().equals(c.getPoint())){ return false;}
     return true;
   }
+  /**
+  *{@summary Return true if is an empty Square.}
+  *@lastEditedVersion 2.30
+  */
   public boolean estCaseVide(){
     if (getNbrDElementSurCase() == 0){ return true;}
     return false;
   }
+  /**
+  *{@summary Return a short description.}
+  *@lastEditedVersion 2.30
+  */
   public String description(){
     return p.toString();
   }
@@ -303,6 +332,10 @@ public class Case implements Serializable{
     if(toAdd>127){toAdd=127;}
     addFoodInsecte((byte)toAdd);
   }
+  /**
+  *{@summary Create a new seed on p depending of a random number.}
+  *@lastEditedVersion 2.30
+  */
   public void actualisationGraine(CCase p){
     //TODO ici un %age dépendant du type de la Case et de la saison serait bienvenue. (multiplié par l'abondance des graines.)
     int x  = allea.getAllea(50);

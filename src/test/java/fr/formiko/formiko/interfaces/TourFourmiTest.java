@@ -79,12 +79,12 @@ public class TourFourmiTest extends TestCaseMuet{
     ((TourFourmi)(f.tour)).cleanItself();
     assertEquals(60,f.getHealth());
     assertEquals(4,f.getAction());
-    assertTrue(f.getSeuilDeRisqueDInfection()<60);
+    assertTrue(f.getInfectionRiskThreshold()<60);
 
     //with a different difficulty level
     //higth level player
     Main.getPartie().setDifficulté((byte)3);
-    assertEquals(70,f.getSeuilDeRisqueDInfection());
+    assertEquals(70,f.getInfectionRiskThreshold());
     f.setHealth(0);
     f.setAction(15);//coutNetoyer =3.
     ((TourFourmi)(f.tour)).cleanItself();
@@ -100,7 +100,7 @@ public class TourFourmiTest extends TestCaseMuet{
     //low level player
     f.getFere().getJoueur().setIa(false);
     Main.getPartie().setDifficulté((byte)-4);
-    assertEquals(10,f.getSeuilDeRisqueDInfection());
+    assertEquals(10,f.getInfectionRiskThreshold());
     f.setHealth(0);
     f.setAction(9);//coutNetoyer =3.
     ((TourFourmi)(f.tour)).cleanItself();

@@ -81,7 +81,10 @@ public class DiscordIntegration {
       if(needToUpdateActivity){updateActivity();}
     }
 	}
-
+  /**
+  *{@summary Define params of activity depending of game state.}
+  *@lastEditedVersion 2.10
+  */
   private static void updateActivity(){
     needToUpdateActivity=false;
     if(activity!=null){

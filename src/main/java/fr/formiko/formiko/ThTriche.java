@@ -4,12 +4,21 @@ import fr.formiko.formiko.triche;
 
 import java.util.Scanner;
 
-public class ThTriche extends Thread{
+/**
+*{@summary Listen all command line entry &#38; launch a cheat code of each one.}
+*@lastEditedVersion 2.30
+*@author Hydrolien
+*/
+public class ThTriche extends Thread {
   // CONSTRUCTORS --------------------------------------------------------------
   public ThTriche(){}
   // GET SET -------------------------------------------------------------------
 
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Listen all command line entry &#38; launch a cheat code of each one.}
+  *@lastEditedVersion 2.30
+  */
   @Override
   public void run(){
     Scanner sc = new Scanner(System.in);

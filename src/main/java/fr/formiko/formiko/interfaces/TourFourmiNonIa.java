@@ -67,6 +67,10 @@ public class TourFourmiNonIa extends TourFourmi implements Serializable, Tour {
     // }
     Main.setPlayingAnt(null);
   }
+  /**
+  *{@summary Do end turn actions.}
+  *@lastEditedVersion 2.5
+  */
   @Override
   public void endTurn(Creature c){
     if(c==null){throw new NullPointerException();}

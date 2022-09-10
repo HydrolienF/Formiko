@@ -131,7 +131,7 @@ public class TourReineTest extends TestCaseMuet{
     i.setGivenFood(300);
     f.setAction(5);
     f.setHealth(30);
-    assertTrue(f.getHealth()<f.getSeuilDeRisqueDInfection());
+    assertTrue(f.getHealth()<f.getInfectionRiskThreshold());
     int food = f.getMaxFood()/20+1;
     f.setFood(food);
     f.tour();
@@ -139,7 +139,7 @@ public class TourReineTest extends TestCaseMuet{
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,1),f.getCCase());
     assertEquals(food - 3, f.getFood());
-    assertTrue(f.getHealth()>f.getSeuilDeRisqueDInfection());
+    assertTrue(f.getHealth()>f.getInfectionRiskThreshold());
     assertTrue(i.getIsDead());
     assertEquals(2,Main.getGc().getCCase(0,1).getContent().getGc().length());
   }
@@ -151,7 +151,7 @@ public class TourReineTest extends TestCaseMuet{
     i.setGivenFood(300);
     f.setAction(15);
     f.setHealth(30);
-    assertTrue(f.getHealth()<f.getSeuilDeRisqueDInfection());
+    assertTrue(f.getHealth()<f.getInfectionRiskThreshold());
     int food = f.getMaxFood()/20+1;
     f.setFood(food);
     f.tour();
@@ -159,7 +159,7 @@ public class TourReineTest extends TestCaseMuet{
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,1),f.getCCase());
     assertEquals(food - 3, f.getFood());
-    assertTrue(f.getHealth()>f.getSeuilDeRisqueDInfection());
+    assertTrue(f.getHealth()>f.getInfectionRiskThreshold());
     assertTrue(i.getIsDead());
     assertEquals(2,Main.getGc().getCCase(0,1).getContent().getGc().length());
   }
@@ -171,7 +171,7 @@ public class TourReineTest extends TestCaseMuet{
     i.setGivenFood(300);
     f.setAction(15);
     f.setHealth(30);
-    assertTrue(f.getHealth()<f.getSeuilDeRisqueDInfection());
+    assertTrue(f.getHealth()<f.getInfectionRiskThreshold());
     int food = f.getMaxFood()/20+1;
     f.setFood(food);
     f.tour();
@@ -179,7 +179,7 @@ public class TourReineTest extends TestCaseMuet{
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,1),f.getCCase());
     assertEquals(food - 3 + 300, f.getFood());
-    assertTrue(f.getHealth()>f.getSeuilDeRisqueDInfection());
+    assertTrue(f.getHealth()>f.getInfectionRiskThreshold());
     assertTrue(i.getIsDead());
     assertEquals(1,Main.getGc().getCCase(0,1).getContent().getGc().length());
   }
@@ -191,7 +191,7 @@ public class TourReineTest extends TestCaseMuet{
     i.setGivenFood(300);
     f.setAction(30);
     f.setHealth(30);
-    assertTrue(f.getHealth()<f.getSeuilDeRisqueDInfection());
+    assertTrue(f.getHealth()<f.getInfectionRiskThreshold());
     int food = f.getMaxFood()/20+1;
     f.setFood(food);
     f.tour();
@@ -199,7 +199,7 @@ public class TourReineTest extends TestCaseMuet{
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,1),f.getCCase());
     assertEquals(food - 3 + 300, f.getFood());
-    assertTrue(f.getHealth()>f.getSeuilDeRisqueDInfection());
+    assertTrue(f.getHealth()>f.getInfectionRiskThreshold());
     assertTrue(i.getIsDead());
     assertEquals(1,Main.getGc().getCCase(0,1).getContent().getGc().length());
     assertEquals(0,Main.getGc().getCCase(0,0).getContent().getGc().length());
@@ -212,14 +212,14 @@ public class TourReineTest extends TestCaseMuet{
     i.setGivenFood(300);
     f.setAction(50);
     f.setHealth(30);
-    assertTrue(f.getHealth()<f.getSeuilDeRisqueDInfection());
+    assertTrue(f.getHealth()<f.getInfectionRiskThreshold());
     int food = f.getMaxFood()/20+1;
     f.setFood(food);
     f.tour();
     f.endTurn();
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
-    assertTrue(f.getHealth()>f.getSeuilDeRisqueDInfection());
+    assertTrue(f.getHealth()>f.getInfectionRiskThreshold());
     assertTrue(i.getIsDead());
     assertEquals(0,Main.getGc().getCCase(0,1).getContent().getGc().length());
     assertEquals(2,Main.getGc().getCCase(0,0).getContent().getGc().length());
@@ -237,7 +237,7 @@ public class TourReineTest extends TestCaseMuet{
     i.setGivenFood(300);
     f.setAction(50);
     f.setHealth(30);
-    assertTrue(f.getHealth()<f.getSeuilDeRisqueDInfection());
+    assertTrue(f.getHealth()<f.getInfectionRiskThreshold());
     int food = 100; //need to hunt if eat(40) but not if eat(5).
     f.setFood(food);
     f.tour();
@@ -256,7 +256,7 @@ public class TourReineTest extends TestCaseMuet{
     i.setGivenFood(300);
     f.setAction(20);
     f.setHealth(30);
-    assertTrue(f.getHealth()<f.getSeuilDeRisqueDInfection());
+    assertTrue(f.getHealth()<f.getInfectionRiskThreshold());
     int food = 100; //need to hunt if eat(40) but not if eat(5).
     f.setFood(food);
     f.tour();
@@ -264,7 +264,7 @@ public class TourReineTest extends TestCaseMuet{
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
     assertEquals(food - 3, f.getFood());
-    assertTrue(f.getHealth()>f.getSeuilDeRisqueDInfection());
+    assertTrue(f.getHealth()>f.getInfectionRiskThreshold());
     assertTrue(!i.getIsDead());
     assertEquals(1,Main.getGc().getCCase(0,1).getContent().getGc().length());
     assertEquals(2,Main.getGc().getCCase(0,0).getContent().getGc().length());
@@ -281,7 +281,7 @@ public class TourReineTest extends TestCaseMuet{
     i.setGivenFood(300);
     f.setAction(50);
     f.setHealth(30);
-    assertTrue(f.getHealth()<f.getSeuilDeRisqueDInfection());
+    assertTrue(f.getHealth()<f.getInfectionRiskThreshold());
     int food = 200; //need to hunt if eat(40) but not if eat(5).
     f.setFood(food);
     f.tour();
@@ -289,7 +289,7 @@ public class TourReineTest extends TestCaseMuet{
     assertTrue(f.getAction()<=0);
     assertEquals(Main.getGc().getCCase(0,0),f.getCCase());
     assertEquals(food - 3 - (12*5), f.getFood());
-    assertTrue(f.getHealth()>f.getSeuilDeRisqueDInfection());
+    assertTrue(f.getHealth()>f.getInfectionRiskThreshold());
     assertTrue(!i.getIsDead());
     assertEquals(1,Main.getGc().getCCase(0,1).getContent().getGc().length());
     assertEquals(7,Main.getGc().getCCase(0,0).getContent().getGc().length());

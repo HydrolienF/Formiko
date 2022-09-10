@@ -24,7 +24,7 @@ public class MapPath {
   }
   // GET SET -------------------------------------------------------------------
   public Liste<CCase> getList(){return path;}
-  public  Liste<Integer> getMovingCaseByTurn(){return movingCaseByTurn;}
+  public Liste<Integer> getMovingCaseByTurn(){return movingCaseByTurn;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Strandard toString function.}<br>
@@ -70,6 +70,12 @@ public class MapPath {
       path.addTail(cc);
     }
   }
+  /**
+  *{@summary Update the value of max moving Square by turn.}<br>
+  *It is used to place the number of turn to reach a Square on path.
+  *@param c Creature that may use this path
+  *@lastEditedVersion 2.11
+  */
   public void updateMovingCaseByTurn(Creature c){
     movingCaseByTurn = new Liste<Integer>();
     int action = c.getAction();

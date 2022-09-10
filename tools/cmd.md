@@ -139,3 +139,10 @@ mvn dependency:purge-local-repository -DactTransitively=false
 
 # clean maven cache
 mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false
+
+
+The official GitHub CLI (https://cli.github.com/) now includes functionality that allows you to clone labels easily from one repo to another.
+Example syntax:
+gh label clone HydrolienF/Formiko --repo HydrolienF/EarthCube
+
+See https://cli.github.com/manual/gh_label_clone for more information.

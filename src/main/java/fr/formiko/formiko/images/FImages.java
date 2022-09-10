@@ -25,6 +25,11 @@ import java.util.HashMap;
 import java.util.function.Function;
 import javax.imageio.ImageIO;
 
+/**
+*{@summary Images function especialy for Formiko.}<br>
+*@lastEditedVersion 2.16
+*@author Hydrolien
+*/
 public class FImages extends Images {
   //taille d'une image de Creature.
   /***
