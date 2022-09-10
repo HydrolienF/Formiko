@@ -44,12 +44,7 @@ public class FOptions extends fr.formiko.usual.Options {
     String propertiesList="";
     for (Object okey : getProperties().keySet()) {
       String key=okey.toString();
-      if(!key.endsWith(".max")
-          && !key.endsWith(".min")
-          && !key.endsWith(".maxlen")
-          && !key.endsWith(".minlen")
-          && !key.endsWith(".cat")
-      ){
+      if(!isParameter(key)){
         String cat = getString(key+".cat");
         String mainCat=cat.split("_")[0];
         if(!cat.equals("")){
@@ -83,6 +78,14 @@ public class FOptions extends fr.formiko.usual.Options {
       default:
       yield color.RED;
     };
+  }
+
+  private boolean isParameter(String key){
+    return (key.endsWith(".max")
+        || key.endsWith(".min")
+        || key.endsWith(".maxlen")
+        || key.endsWith(".minlen")
+        || key.endsWith(".cat"));
   }
 
   private void setDefaultProperties(){
