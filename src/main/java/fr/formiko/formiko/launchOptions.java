@@ -172,6 +172,11 @@ public class launchOptions {
         Main.getOp().saveOptions();
         break;
       }
+      case "fop":{
+        Main.initialisation();
+        erreur.println(new FOptions());
+        break;
+      }
       case "supprimer":{
         Main.initialisation();
         //diff.nbrDeLigneDiff("usual/GString.java","../Formiko108/usual/GString.java");
