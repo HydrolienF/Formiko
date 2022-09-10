@@ -97,19 +97,19 @@ public class FOptions extends fr.formiko.usual.Options {
     }catch (Exception e) {
       erreur.alerte("no screen size found");
     }
-    Double racio = (wi+0.0)/1920;// si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.
-    int t[]=new int[2];
-    if(wi>=1920*2){ //plus de 2*
-      t[0]=2;t[1]=2;//t[2]=1;
-    }else if(wi>=1920*1.3){ //entre 1,3 et 2
-      t[0]=1;t[1]=1;//t[2]=0;
-    }else if(wi>=1920*0.8){ // entre 0.8 et 1.3
-      t[0]=0;t[1]=1;//t[2]=-1;
-    }else if(wi>=1920*0.5){ // entre 0.5 et 0.7
-      t[0]=0;t[1]=0;//t[2]=-2;
-    }else{ // moins de 0.5
-      t[0]=-1;t[1]=-1;//t[2]=-2;
-    }
+    Double racio = wi/1920.0;// si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.
+    // int t[]=new int[2];
+    // if(wi>=1920*2){ //plus de 2*
+    //   t[0]=2;t[1]=2;//t[2]=1;
+    // }else if(wi>=1920*1.3){ //entre 1,3 et 2
+    //   t[0]=1;t[1]=1;//t[2]=0;
+    // }else if(wi>=1920*0.8){ // entre 0.8 et 1.3
+    //   t[0]=0;t[1]=1;//t[2]=-1;
+    // }else if(wi>=1920*0.5){ // entre 0.5 et 0.7
+    //   t[0]=0;t[1]=0;//t[2]=-2;
+    // }else{ // moins de 0.5
+    //   t[0]=-1;t[1]=-1;//t[2]=-2;
+    // }
     //setDefaultProperties
     set("alerte", true, "debug");
     set("error", true, "debug");
@@ -128,7 +128,7 @@ public class FOptions extends fr.formiko.usual.Options {
     set("animationEnable", true, "gui_global");
     set("dateFormat", "yyyy/MM/dd HH:mm:ss", "gui_global");
     set("borderButtonSize", 4, "gui_global", 0, null);
-    set("buttonSizeAction", t[1], "gui_global", -2, 2);
+    set("buttonSizeAction", (int)(160*racio), "gui_global", 0, null);
     set("fontSizeText", (int)(22*racio), "gui_global", 5, null);
     set("fontSizeTitle", (int)(60*racio), "gui_global", 5, null);
     set("fontText", "Default", "gui_global");
@@ -142,8 +142,8 @@ public class FOptions extends fr.formiko.usual.Options {
       fs=false;
     }
     set("fullscreen", fs, "gui_global");
-    set("buttonSizeTX", t[0], "gui_hide", -2, 2);
-    set("buttonSizeZoom", t[0], "gui_hide", -2, 2);
+    set("buttonSizeTX", (int)(80*racio), "gui_hide", 0, null);
+    set("buttonSizeZoom", (int)(80*racio), "gui_hide", 0, null);
     set("keepFilesRotated", true, "gui_hide");
     set("loadingDuringMenus", true, "gui_hide");
     set("modeFPS", true, "gui_hide");

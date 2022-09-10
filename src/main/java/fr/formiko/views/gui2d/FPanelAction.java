@@ -25,7 +25,7 @@ public class FPanelAction extends FPanel {
   private static final int nbrDeBoutonMax=10;
   private int tBoutonActif[];
   private static int bordure=10;
-  private static int tailBouton=160;
+  // private static int tailBouton=160;
   private FButton tB [];
   private FButton tAutoB [] = new FButton[2];
   //TODO #498 the only thing that we need to do everytime is to setVisible button that have changed & to setLocation().
@@ -33,10 +33,10 @@ public class FPanelAction extends FPanel {
   // CONSTRUCTORS --------------------------------------------------------------
   public FPanelAction(int t[]){
     super();
-    tailleBouton=Main.getTailleElementGraphique(tailBouton);
+    tailleBouton=Main.getFop().getInt("buttonSizeAction");
     tBoutonActif=t;
     nbrDeBouton=math.min(t.length,nbrDeBoutonMax-1);
-    int espaceRéservéAuBouton = Main.getTailleElementGraphique(bordure*2+tailBouton);
+    int espaceRéservéAuBouton = Main.getTailleElementGraphique(bordure*2+tailleBouton);
     setSize((nbrDeBouton*espaceRéservéAuBouton+Main.getTailleElementGraphique(2*bordure)),espaceRéservéAuBouton);
     //setBackground(new Color(0,0,0,0));// du transparent en arrière plan.
   }

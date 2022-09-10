@@ -13,7 +13,7 @@ public class FPanelTInt extends FPanelTX{
   private int choix;
   // CONSTRUCTORS --------------------------------------------------------------
   public FPanelTInt(int ti [],String desc){super();
-    tailleBouton = Main.getbuttonSizeTX();
+    tailleBouton = Main.getFop().getInt("buttonSizeTX");
     this.descTI = desc;
     debug.débogage("Création d'un FPanelTInt");
     this.setLayout(new GridBagLayout());

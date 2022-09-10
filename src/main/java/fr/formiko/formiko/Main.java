@@ -39,6 +39,8 @@ public class Main {
   private static Options op;
   /** Use only before iniOp() to avoid nullPointerException. */
   private static Options tempOp;
+  private static FOptions fop;
+  private static FOptions tempFop;
   /** Data use by GUI */
   private static Data data=new Data();
   /** View use everywere to update user interface */
@@ -158,7 +160,7 @@ public class Main {
   public static boolean launch(){
     iniLaunch();
     if(mp==null){
-      mp = new MusicPlayer(getFolder(), getOp().getBMusic(), getOp().getVolMusic());
+      mp = new MusicPlayer(getFolder(), getFop().getBoolean("music"), getFop().getInt("musicVolume"));
       if(getFirstGame() || getFolder().needToDownloadMusic()){
         getFolder().downloadMusicData(mp);
         mp.addNextMusic("Ride of the Valkyries - Wagner.mp3", true);
@@ -185,6 +187,7 @@ public class Main {
   public static Fourmiliere getFourmiliereById(int id){ return getJoueurById(id).getFere();}
   public static FFrame getF(){ try {return ((ViewGUI2d)view).getF();} catch (Exception e) {return null;}}
   public static Options getOp(){if(op!=null){return op;}else{if(tempOp==null){tempOp = Options.newDefaultOptions();} return tempOp;}}
+  public static FOptions getFop(){if(fop!=null){return fop;}else{if(tempFop==null){tempFop = new FOptions();} return tempFop;}}
   public static void saveOp(boolean threaded){if(op!=null){op.saveOptions(threaded);}}
   public static Chrono getCh(){ return ch;}
   public static int getKey(String clé){ return key.get(clé); }
@@ -245,9 +248,9 @@ public class Main {
   //options
   public static byte getLanguage(){ return getOp().getLanguage();}
   public static void setLanguage(int x){ getOp().setLanguage(x);iniLangue();}
-  public static int getbuttonSizeZoom(){return getOp().getbuttonSizeZoom();}
-  public static int getbuttonSizeAction(){return getOp().getbuttonSizeAction();}
-  public static int getbuttonSizeTX(){return getOp().getbuttonSizeTX();}
+  // public static int getbuttonSizeZoom(){return getOp().getbuttonSizeZoom();}
+  // public static int getbuttonSizeAction(){return getOp().getbuttonSizeAction();}
+  // public static int getbuttonSizeTX(){return getOp().getbuttonSizeTX();}
   public static int getMaxMessageDisplay(){ return getOp().getMaxMessageDisplay();}
   public static boolean getDrawGrid(){ return getOp().getDrawGrid();}
   public static boolean getOrientedObjectOnMap(){ return getOp().getOrientedObjectOnMap();}
@@ -373,9 +376,11 @@ public class Main {
    * @lastEditedVersion 1.1
    */
   public static void iniOp(){
+    fop = new FOptions();
     op = new Options();
     getOp().iniOptions();
     tempOp=null;
+    tempFop=null;
   }
   /**
    *{@summary Load language.}<br>

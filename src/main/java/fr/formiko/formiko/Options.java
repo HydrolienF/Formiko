@@ -123,12 +123,12 @@ public class Options implements Serializable {
     }
   }
   public void setLanguage(int x){setLanguage(str.iToBy(x));}
-  public int getbuttonSizeZoom(){ return tailleBouton(gui_hide_buttonSizeZoom);}
-  public void setbuttonSizeZoom(byte x){ gui_hide_buttonSizeZoom=x;}
-  public int getbuttonSizeAction(){ return tailleBouton(gui_global_buttonSizeAction);}
-  public void setbuttonSizeAction(byte x){ gui_global_buttonSizeAction=x;}
-  public int getbuttonSizeTX(){ return tailleBouton(gui_hide_buttonSizeTX);}
-  public void setbuttonSizeTX(byte x){ gui_hide_buttonSizeTX=x;}
+  // public int getbuttonSizeZoom(){ return tailleBouton(gui_hide_buttonSizeZoom);}
+  // public void setbuttonSizeZoom(byte x){ gui_hide_buttonSizeZoom=x;}
+  // public int getbuttonSizeAction(){ return tailleBouton(gui_global_buttonSizeAction);}
+  // public void setbuttonSizeAction(byte x){ gui_global_buttonSizeAction=x;}
+  // public int getbuttonSizeTX(){ return tailleBouton(gui_hide_buttonSizeTX);}
+  // public void setbuttonSizeTX(byte x){ gui_hide_buttonSizeTX=x;}
   public boolean getQuickMovement(){ return gui_partie_quickMovement;}
   public void setQuickMovement(boolean b){ gui_partie_quickMovement = b;}
 
@@ -450,20 +450,20 @@ public class Options implements Serializable {
     defaultProperties.setProperty("sounds_soundVolume","50");
     return defaultProperties;
   }
-  /**
-  *{@summary tranform a byte into a button size.}<br>
-  *@lastEditedVersion 1.20
-  */
-  private int tailleBouton(byte x){
-    if(x>2 && x%20==0){return x;}
-    if(x==0){ return 80;}
-    if(x==-1){ return 40;}
-    if(x==1){ return 160;}
-    if(x==-2){ return 20;}
-    if(x==2){ return 320;}
-    erreur.erreur("La taille des boutons spécifiée n'est pas correcte.","La taille moyenne a été choisie par défaut");
-    return 80;
-  }
+  // /**
+  // *{@summary tranform a byte into a button size.}<br>
+  // *@lastEditedVersion 1.20
+  // */
+  // private int tailleBouton(byte x){
+  //   if(x>2 && x%20==0){return x;}
+  //   if(x==0){ return 80;}
+  //   if(x==-1){ return 40;}
+  //   if(x==1){ return 160;}
+  //   if(x==-2){ return 20;}
+  //   if(x==2){ return 320;}
+  //   erreur.erreur("La taille des boutons spécifiée n'est pas correcte.","La taille moyenne a été choisie par défaut");
+  //   return 80;
+  // }
   /**
   *{@summary tranform properties into Options var.}<br>
   *@lastEditedVersion 2.7

@@ -14,7 +14,7 @@ public class FPanelTBoolean extends FPanelTX{
   // CONSTRUCTORS --------------------------------------------------------------
   public FPanelTBoolean(String desc){super();
     if(desc==null){ return;}
-    tailleBouton = Main.getbuttonSizeTX();
+    tailleBouton = Main.getFop().getInt("buttonSizeTX");
     this.descTI = desc;
     debug.débogage("Création d'un FPanelTBoolean");
     this.setLayout(new GridBagLayout());

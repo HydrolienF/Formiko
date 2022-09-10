@@ -15,17 +15,15 @@ public class FPanelZoom extends FPanel {
   // private FButton bd2;
   // CONSTRUCTORS --------------------------------------------------------------
   public FPanelZoom(){
-    int tailleBouton=Main.getbuttonSizeZoom();
-    setSize(tailleBouton*4,tailleBouton);
+    setSize(getbuttonSize()*4,getbuttonSize());
   }
   public void build(){
-    int tailleBouton=Main.getbuttonSizeZoom();
     this.setLayout(new GridBagLayout());
-    Image tIB []; tailleBouton=Main.getbuttonSizeZoom();
+    Image tIB [];
     //if(Main.getPiFond()==null){tIB = chargerTIB();}
     //else{tIB = chargerTIB2(Main.getPiFond());}
     tIB = Main.getData().chargerTIBZoom();
-    Dimension dim = new Dimension(tailleBouton, tailleBouton);
+    Dimension dim = new Dimension(getbuttonSize(), getbuttonSize());
     bMoins = new FButton("-",(FPanel)this,0,tIB[0]);
     bPlus = new FButton("+",(FPanel)this,2,tIB[2]);
     bc = new FButton("centrer sur la fourmilière",(FPanel)this,4,tIB[4]);
@@ -65,8 +63,7 @@ public class FPanelZoom extends FPanel {
     setEnabled(true);
   }
   // GET SET -------------------------------------------------------------------
-  public int getbuttonSize(){ return Main.getbuttonSizeZoom();}
-  //public void setbuttonSize(int x){ tailleBouton=x;}
+  public int getbuttonSize(){ return Main.getFop().getInt("buttonSizeZoom");}
   /**
   *{@summary Enable or disable this &#38; all sub component.}
   *@lastEditedVersion 2.23
@@ -83,8 +80,7 @@ public class FPanelZoom extends FPanel {
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     if(Main.getPartie()==null || !Main.getPartie().getEnCours()){return;}
-    int tailleBouton=Main.getbuttonSizeZoom();
-    setSize(tailleBouton*4,tailleBouton);
+    setSize(getbuttonSize()*4,getbuttonSize());
   }
   public void doAction(byte ac){
     action.doAction(ac);
