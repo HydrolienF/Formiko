@@ -32,7 +32,7 @@ public class FOptions extends fr.formiko.usual.Options {
   }
   /**
   *{@summary Initialize properties of the Options.}<br>
-  *@lastEditedVersion 1.34
+  *@lastEditedVersion 2.30
   */
   private void iniProperties(){
     setDefaultProperties();
@@ -40,6 +40,10 @@ public class FOptions extends fr.formiko.usual.Options {
   }
   // GET SET -------------------------------------------------------------------
   // FUNCTIONS -----------------------------------------------------------------
+  /**
+  *{@summary Return colored &#38; sorted properties.}<br>
+  *@lastEditedVersion 2.30
+  */
   public String toString(){
     String propertiesList="";
     for (Object okey : getProperties().keySet()) {
@@ -64,7 +68,10 @@ public class FOptions extends fr.formiko.usual.Options {
     }
     return propertiesList;
   }
-
+  /**
+  *{@summary Return the color of a category.}<br>
+  *@lastEditedVersion 2.30
+  */
   private String getCatColor(String mainCat){
     return switch(mainCat){
       case "gui":
@@ -79,7 +86,10 @@ public class FOptions extends fr.formiko.usual.Options {
       yield color.RED;
     };
   }
-
+  /**
+  *{@summary Return true if key is a parameter of an other key.}<br>
+  *@lastEditedVersion 2.30
+  */
   private boolean isParameter(String key){
     return (key.endsWith(".max")
         || key.endsWith(".min")
@@ -87,7 +97,10 @@ public class FOptions extends fr.formiko.usual.Options {
         || key.endsWith(".minlen")
         || key.endsWith(".cat"));
   }
-
+  /**
+  *{@summary Initialize properties with default values.}<br>
+  *@lastEditedVersion 2.30
+  */
   private void setDefaultProperties(){
     int wi=0; int he=0;
     try {
@@ -98,18 +111,6 @@ public class FOptions extends fr.formiko.usual.Options {
       erreur.alerte("no screen size found");
     }
     Double racio = wi/1920.0;// si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.
-    // int t[]=new int[2];
-    // if(wi>=1920*2){ //plus de 2*
-    //   t[0]=2;t[1]=2;//t[2]=1;
-    // }else if(wi>=1920*1.3){ //entre 1,3 et 2
-    //   t[0]=1;t[1]=1;//t[2]=0;
-    // }else if(wi>=1920*0.8){ // entre 0.8 et 1.3
-    //   t[0]=0;t[1]=1;//t[2]=-1;
-    // }else if(wi>=1920*0.5){ // entre 0.5 et 0.7
-    //   t[0]=0;t[1]=0;//t[2]=-2;
-    // }else{ // moins de 0.5
-    //   t[0]=-1;t[1]=-1;//t[2]=-2;
-    // }
     //setDefaultProperties
     set("alerte", true, "debug");
     set("error", true, "debug");
@@ -148,7 +149,6 @@ public class FOptions extends fr.formiko.usual.Options {
     set("loadingDuringMenus", true, "gui_hide");
     set("modeFPS", true, "gui_hide");
     set("positionSquare", 0, "gui_hide", 0, null);
-    //TODO
     set("drawAllyCreatures", true, "gui_partie");
     set("drawEnemyCreatures", true, "gui_partie");
     set("drawNeutralCreatures", true, "gui_partie");
@@ -210,6 +210,47 @@ public class FOptions extends fr.formiko.usual.Options {
       getProperties().store(os,"**Options file**\nEvery value can be edit here but variable have specific type. For example instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that should be in [0,100]. Most value should be out of interval save. But you may need to reset Options to default value by deleting this file if something goes wrong.");
     }catch (IOException e) {
       erreur.erreur("Impossible de sauvegarder les options","Options par défaut choisie");
+    }
+  }
+
+  /**
+  *{@summary Specific action that need to be done before calling Option.set.}<br>
+  *@lastEditedVersion 2.30
+  */
+  @Override
+  public void set(String key, Object value){
+    switch(key){
+      case "musicVolume":{
+        if(Main.getMp()!=null){
+          Main.getMp().setVolMusic(Integer.parseInt(value.toString()));
+        }
+        break;
+      }
+      case "music":{
+        if(Main.getMp()!=null){
+          Main.getMp().setBMusic(Boolean.parseBoolean(value.toString()));
+        }
+        break;
+      }
+      case "dateFormat":{
+        Time.setDateFormat(value.toString());
+        break;
+      }
+
+    }
+    super.set(key, value);
+  }
+  /**
+  *{@summary Patch that call set() for every property after load from file.}<br>
+  *Currently we need that to update some thing that will only be if we use set()
+  *@lastEditedVersion 2.30
+  */
+  @Override
+  public void loadFromFile(String fileName){
+    super.loadFromFile(fileName);
+    for (Object okey : getProperties().keySet()) {
+      String key=okey.toString();
+      set(key, getString(key));
     }
   }
 }
