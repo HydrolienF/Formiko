@@ -48,7 +48,7 @@ public class FTextArea extends JTextArea {
     updateSize();
   }
   // GET SET -------------------------------------------------------------------
-  public static int getDimY(){ return (int)(Main.getOp().getFontSizeText()*1.4);}
+  public static int getDimY(){ return (int)(Main.getFop().getInt("fontSizeText")*1.4);}
 
   // FUNCTIONS -----------------------------------------------------------------
   /**
@@ -57,7 +57,7 @@ public class FTextArea extends JTextArea {
   */
   public void paintComponent(Graphics gTemp){
     super.paintComponent(gTemp);
-    if(Main.getOp().getPaintHitBox()){
+    if(Main.getFop().getBoolean("paintHitBox")){
       Graphics2D g = (Graphics2D)gTemp;
       g.setColor(Color.RED);
       g.setStroke(new BasicStroke(math.max(getWidth()/100,getHeight()/100,1)));

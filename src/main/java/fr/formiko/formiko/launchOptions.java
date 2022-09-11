@@ -77,7 +77,7 @@ public class launchOptions {
       case "rg":
       case "reload--graphics":
       Main.initialisation();
-      Main.getOp().setKeepFilesRotated(false);
+      Main.getFop().set("keepFilesRotated", false);
       break;
       case "cli":
       Main.setModeCLI(true);

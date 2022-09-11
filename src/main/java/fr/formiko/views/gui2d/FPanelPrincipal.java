@@ -91,7 +91,7 @@ public class FPanelPrincipal extends FPanel {
       getView().setCurentFPS(getView().getCurentFPS()+1);
       long time = System.currentTimeMillis();
       long timeElapsed = time-timeFromLastRefresh;
-      int supposedTime = 1000/Main.getOp().getFps();
+      int supposedTime = 1000/Main.getFop().getInt("fps");
       if(timeElapsed>supposedTime*4 &&  getView().getF()!=null && getView().getF().isFocused()){
       // if(timeElapsed>supposedTime*2 &&  getView().getF()!=null && getView().getF().isFocused()){
         erreur.alerte("Time between 2 frame: "+timeElapsed+" (supposed to be "+supposedTime+")");

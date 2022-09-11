@@ -56,7 +56,7 @@ public class FPanel extends JPanel {
   @Override
   public void paintComponent(Graphics gTemp){
     super.paintComponent(gTemp);
-    if(Main.getOp().getPaintHitBox()){
+    if(Main.getFop().getBoolean("paintHitBox")){
       Graphics2D g = (Graphics2D)gTemp;
       g.setColor(Color.RED);
       g.setStroke(new BasicStroke(math.max(getWidth()/100,getHeight()/100,1)));

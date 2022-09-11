@@ -48,7 +48,7 @@ public class FPanelCarteTest extends TestCaseMuet{
   // @Disabled("Fail when releasing new data")
   public void testGcSortedByImageSize(){
     ini();
-    Main.getOp().setRealisticSize(0);
+    Main.getFop().set("realisticSize", 0);
     GCreature gc = new GCreature();
     Insecte i0 = new Insecte();
     i0.setType(0);
@@ -75,7 +75,7 @@ public class FPanelCarteTest extends TestCaseMuet{
       assertEquals(t[k], c.getId());
       k++;
     }
-    Main.getOp().setRealisticSize(1);
+    Main.getFop().set("realisticSize", 1);
     lc = FPanelCarte.gcSortedByImageSize(gc);
     k=0;
     int t2 [] = {2,1,4,5,3}; //scarabé, cocinelle, fourmi imago, fourmi oeuf, puceron.

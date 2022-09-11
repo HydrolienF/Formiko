@@ -39,7 +39,7 @@ public class FPanelFinPartie extends FPanel {
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
     // try {
-      // message.setBounds(0,0,this.getWidth(),Main.getFontSizeTitle()*2);
+      // message.setBounds(0,0,this.getWidth(),Main.getFop().getInt("fontSizeTitle")*2);
       // pi.setBounds(0,message.getHeight(),pi.getWidth(),pi.getHeight());
       //mp.setBounds()
     // }catch (Exception e) {
@@ -48,7 +48,7 @@ public class FPanelFinPartie extends FPanel {
     super.paintComponent(g);
   }
   public void addMessage(String s){
-    message = new FLabel(this.getWidth(),(int)(Main.getFontSizeTitle()*1.5));
+    message = new FLabel(this.getWidth(),(int)(Main.getFop().getInt("fontSizeTitle")*1.5));
     message.setText(s);
     add(message);
   }

@@ -26,7 +26,7 @@ public class GEtiquetteJoueur extends Liste<EtiquetteJoueur> {
   */
   public GEtiquetteJoueur(int x){
     if(x<1 || x>1000){throw new IllegalArgumentException();}
-    String pseudo = Main.getOp().getPseudo();
+    String pseudo = Main.getFop().getString("pseudo");
     if(pseudo.equals("") || pseudo.equals("-1")){pseudo = g.getM("joueur")+" 1";}
     this.add(new EtiquetteJoueur(pseudo,false));
     for (int i=0;i<x ;i++) {

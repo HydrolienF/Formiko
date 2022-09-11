@@ -231,13 +231,13 @@ public class action {
       Main.getFop().setNext("drawRelationsIcons");
       break;
       case 352:
-      Main.getOp().setDrawStatesIconsLevel((byte)((Main.getOp().getDrawStatesIconsLevel()+1)%5));
+      Main.getFop().setNext("drawStatesIconsLevel");
       break;
       case 353:
-      Main.getOp().setDrawAllAnthillColor(!Main.getOp().getDrawAllAnthillColor());
+      Main.getFop().setNext("drawAllAnthillColor");
       break;
       case 354:
-      Main.getOp().setDrawPlayerMessagePanel(!Main.getOp().getDrawPlayerMessagePanel());
+      Main.getFop().setNext("drawPlayerMessagePanel");
       if (FPanel.getView().getPb()!=null) {
         FPanel.getView().getPb().addPIJ();
       }
@@ -247,7 +247,7 @@ public class action {
       Main.getView().setPlayingAnt(Main.getPartie().getPlayingAnt());//update list of seed/creature on the case of playingAnt.
       break;
       case 356:
-      Main.getOp().setAntColorLevel((byte)((Main.getOp().getAntColorLevel()+1)%3));
+      Main.getFop().setNext("antColorLevel");
       Main.getView().setPlayingAnt(Main.getPartie().getPlayingAnt());//update list of seed/creature on the case of playingAnt.
       break;
       case 357:

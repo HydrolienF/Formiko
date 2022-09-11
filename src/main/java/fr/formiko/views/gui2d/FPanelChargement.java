@@ -76,7 +76,7 @@ public class FPanelChargement extends FPanel {
     add(bt);
     int xx = Main.getF().getWidth()/5;
     int yy = Main.getF().getHeight()/5;
-    bt.setBounds((int)(xx*1.5),yy*4+Main.getFontSizeText(),xx*2,Main.getFontSizeTitle());
+    bt.setBounds((int)(xx*1.5),yy*4+Main.getFop().getInt("fontSizeText"),xx*2,Main.getFop().getInt("fontSizeTitle"));
   }
   /**
   *{@summary Add a loaging message.}<br>
@@ -87,13 +87,13 @@ public class FPanelChargement extends FPanel {
     message.setTexte("");
     int xx = Main.getF().getWidth()/5;
     int yy = Main.getF().getHeight()/5;
-    message.setBounds(xx,yy*4-Main.getFontSizeText(),xx*3);
+    message.setBounds(xx,yy*4-Main.getFop().getInt("fontSizeText"),xx*3);
     message.setBackground(new Color(0,0,0,0));
     message.setOpaque(false);
     add(message);
     progressBar = new FProgressBar();
     progressBar.setMaximum(100);
-    progressBar.setBounds(xx,yy*4-Main.getFontSizeText(),xx*3, FLabel.getDimY());
+    progressBar.setBounds(xx,yy*4-Main.getFop().getInt("fontSizeText"),xx*3, FLabel.getDimY());
     add(progressBar);
   }
   /**
@@ -106,7 +106,7 @@ public class FPanelChargement extends FPanel {
     conseil = new FTextArea(s,(Main.getF().getWidth()*3)/5);
     // conseil.setMinimumSize(new Dimension((Main.getF().getWidth()*3)/5, FLabel.getDimY()));
     add(conseil);
-    conseil.setLocation(Main.getF().getWidth()/5,(Main.getF().getHeight()/5*4)-(2*Main.getFontSizeText())-conseil.getHeight());
+    conseil.setLocation(Main.getF().getWidth()/5,(Main.getF().getHeight()/5*4)-(2*Main.getFop().getInt("fontSizeText"))-conseil.getHeight());
     repaint();
   }
   /**
@@ -122,13 +122,13 @@ public class FPanelChargement extends FPanel {
       */
       @Override
       protected void exec(){
-        Main.getOp().setWhaitBeforeLaunchGame(true);
+        Main.getFop().set("whaitBeforeLaunchGame",true);
         Main.getOp().saveOptions();
       }
     };
     cf.setText(g.get("dontAskAgain"));
     FPanelCheckFunction pcf = new FPanelCheckFunction(cf);
-    pcf.setLocation(Main.getF().getWidth()/5,(Main.getF().getHeight()/5*4)+(2*Main.getFontSizeText())-conseil.getHeight());
+    pcf.setLocation(Main.getF().getWidth()/5,(Main.getF().getHeight()/5*4)+(2*Main.getFop().getInt("fontSizeText"))-conseil.getHeight());
     pcf.setSize((Main.getF().getWidth()*3)/5, FLabel.getDimY());
     add(pcf);
   }

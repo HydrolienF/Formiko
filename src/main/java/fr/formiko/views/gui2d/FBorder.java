@@ -20,7 +20,7 @@ public class FBorder extends AbstractBorder {
   private int thickness;
   // CONSTRUCTORS --------------------------------------------------------------
   public FBorder(){
-    thickness = Main.getBorderButtonSize();
+    thickness = Main.getFop().getByte("borderButtonSize");
   }
   // GET SET -------------------------------------------------------------------
   public Color getColor() {return color;}

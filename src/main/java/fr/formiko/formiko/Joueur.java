@@ -46,7 +46,7 @@ public class Joueur implements Serializable{
     if (ia){
       pseudo = get1Pseudo();
     }else{
-      pseudo = Main.getOp().getPseudo();
+      pseudo = Main.getFop().getString("pseudo");
     }
   }
   // GET SET ----------------------------------------------------------------------

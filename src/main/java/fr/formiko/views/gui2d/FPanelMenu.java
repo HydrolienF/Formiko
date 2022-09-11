@@ -211,7 +211,7 @@ public class FPanelMenu extends FPanel {
     }
     int defaultValue = Main.getOp().getLanguage();
     ecLanguage = new EtiquetteChoix(defaultValue,g.getM("languageChoice"),gs2);
-    ecLanguage.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,(int)(Main.getFontSizeTitle()*1.2));
+    ecLanguage.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,(int)(Main.getFop().getInt("fontSizeTitle")*1.2));
     add(ecLanguage);
     validatelanguage = new FButton(g.getM("validate"),this,7);
     validatelanguage.setBounds((getWidth()-Main.getTailleElementGraphiqueX(250))/2,Main.getDimY()-Main.getTailleElementGraphiqueY(10)-Main.getTailleElementGraphiqueY(50),Main.getTailleElementGraphiqueX(250),Main.getTailleElementGraphiqueY(50));
@@ -488,7 +488,7 @@ public class FPanelMenu extends FPanel {
         public void paintComponent(Graphics	g){
           super.paintComponent(g);
           g.drawImage(Images.rotateImage(flyingCreature,angle),0,0, this);
-          if(Main.getOp().getPaintHitBox()){
+          if(Main.getFop().getBoolean("paintHitBox")){
             Graphics2D g2d = (Graphics2D)container.getGraphics();
             g2d.setColor(Color.RED);
             g2d.drawOval((int)(getXCentered()-(getWatchingCircle()/2)),(int)(getYCentered()-(getWatchingCircle()/2)),(int)getWatchingCircle(),(int)getWatchingCircle());

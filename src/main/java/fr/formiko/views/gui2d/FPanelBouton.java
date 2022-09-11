@@ -295,14 +295,14 @@ public class FPanelBouton extends FPanel {
     try {
       removePij();
     }catch (Exception e) {}
-    if(!Main.getOp().getDrawPlayerMessagePanel()){return;}
+    if(!Main.getFop().getBoolean("drawPlayerMessagePanel")){return;}
     if(getView().getPd()!=null && getView().getPd().isVisible()){return;}
     if(fontPij==null){
-      fontPij = new Font(Main.getOp().getFontText(),Font.PLAIN,(int)(Main.getOp().getFontSizeText()/1.5));
+      fontPij = new Font(Main.getOp().getFontText(),Font.PLAIN,(int)(Main.getFop().getInt("fontSizeText")/1.5));
     }
     Joueur playingPlayer = Main.getPlayingJoueur();
     if (playingPlayer==null){ return;}
-    GString gs = playingPlayer.getGm().gmToGs(Main.getMaxMessageDisplay());
+    GString gs = playingPlayer.getGm().gmToGs(Main.getFop().getInt("maxMessageDisplay"));
     pij = new FPanelInfoText(gs,Main.getTailleElementGraphiqueX(500),true,fontPij);
     //center with aviable space for map.
     pij.setLocation((getWidth()-getView().getPz().getWidth()-pij.getWidth())/2,Main.getTailleElementGraphiqueY(100));

@@ -132,7 +132,7 @@ public class FPanelMiniMapContainer extends FPanel {
     */
     public void setAllActionDone(boolean b){
       if(b){
-        if(Main.getOp().getAnimationEnable() && getView().getActionGameOn()){
+        if(Main.getFop().getBoolean("animationEnable") && getView().getActionGameOn()){
           if(!color.equals(Color.GREEN)){return;} //if color is not Green (is red or transforming to red) don't do anything.
           try {
             if(thCol==null || thCol.getState()==Thread.State.TERMINATED){
@@ -148,7 +148,7 @@ public class FPanelMiniMapContainer extends FPanel {
         }
       }else{
         //if is still turning red.
-        if(Main.getOp().getAnimationEnable() && getView().getActionGameOn() && thCol!=null && thCol.getState()!=Thread.State.TERMINATED){
+        if(Main.getFop().getBoolean("animationEnable") && getView().getActionGameOn() && thCol!=null && thCol.getState()!=Thread.State.TERMINATED){
           thCol.setGreen();
         }else{
           color = Color.GREEN;
@@ -248,19 +248,19 @@ public class FPanelMiniMapContainer extends FPanel {
         return Main.getFop().getBoolean("drawRelationsIcons");
       });
       addGraphicOption(352, getStateImage(), () -> {
-        return Main.getOp().getDrawStatesIconsLevel();
+        return Main.getFop().getByte("drawStatesIconsLevel");
       });
       addGraphicOption(353, getColoredRoundImage(false), () -> {
-        return Main.getOp().getDrawAllAnthillColor();
+        return Main.getFop().getBoolean("drawAllAnthillColor");
       });
       addGraphicOption(354, getLineImage(), () -> {
-        return Main.getOp().getDrawPlayerMessagePanel();
+        return Main.getFop().getBoolean("drawPlayerMessagePanel");
       });
       addGraphicOption(355, getSeedNeutralImage(), () -> {
         return Main.getFop().getBoolean("drawOnlyEatable");
       });
       addGraphicOption(356, getColoredRoundImage(true), () -> {
-        return Main.getOp().getAntColorLevel();
+        return Main.getFop().getByte("antColorLevel");
       });
       addGraphicOption(357, getBladesImage(), () -> {
         return Main.getFop().getBoolean("drawBlades");

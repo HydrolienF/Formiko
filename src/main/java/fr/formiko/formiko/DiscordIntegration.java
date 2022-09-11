@@ -34,7 +34,7 @@ public class DiscordIntegration {
   *@lastEditedVersion 2.10
   */
   public static void discordRPC() {
-    if(!Main.getOp().getDiscordRP()){return;}
+    if(!Main.getFop().getBoolean("discordRP")){return;}
     File discordLibrary = null;
     try {
       discordLibrary = downloadDiscordLibrary();

@@ -31,7 +31,7 @@ public class FFolder extends Folder {
   *@lastEditedVersion 2.26
   */
   public boolean userWantNewVersion(){
-    if (!haveLastVersion() && !Main.getOp().getLastCheckedVersion().equals(getLastStableVersion())){
+    if (!haveLastVersion() && !Main.getFop().getString("lastCheckedVersion").equals(getLastStableVersion())){
       CheckFunction cf = new CheckFunction(){
         /**
         *{@summary Update Options value if user have enable checkbox.}<br>
@@ -39,7 +39,7 @@ public class FFolder extends Folder {
         */
         @Override
         protected void exec(){
-          Main.getOp().setLastCheckedVersion(getLastStableVersion());
+          Main.getFop().set("lastCheckedVersion", getLastStableVersion());
           Main.getOp().saveOptions();
         }
       };

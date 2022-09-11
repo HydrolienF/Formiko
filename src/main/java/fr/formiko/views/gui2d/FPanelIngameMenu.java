@@ -22,7 +22,7 @@ public class FPanelIngameMenu extends FPanelRoundButtonsContainer {
   *@lastEditedVersion 2.28
   */
   public FPanelIngameMenu(){
-    super((int)(Main.getOp().getFontSizeTitle()/1.5), 0.5);
+    super((int)(Main.getFop().getInt("fontSizeTitle")/1.5), 0.5);
   }
   /**
   *{@summary Add all button to the FPanel.}<br>

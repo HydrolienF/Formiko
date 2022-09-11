@@ -202,7 +202,7 @@ public class Data {
       erreur.erreur("imageTree is null");
       return null;
     }
-    return imageTree.getCreatureImage(c, Main.getOp().getAntColorLevel());
+    return imageTree.getCreatureImage(c, Main.getFop().getByte("antColorLevel"));
   }
   /**
   *{@summary Return the Image that fit to a Seed.}
@@ -295,7 +295,7 @@ public class Data {
       // }
       //TODO #246 use a diferent image depending of stade.
       try {tBi[k++] = tIF[idEspece];} catch (Exception e) {tBi[k++] = tIF[0];}
-      // if(Main.getOp().getAntColorLevel()>0){
+      // if(Main.getFop().getByte("antColorLevel")>0){
       //   try {imgColor=new Img(antColor[idEspece]);} catch (Exception e) {imgColor=new Img(antColor[0]);}
       // }
     }else{
@@ -541,7 +541,7 @@ public class Data {
     // private void iniAntColorIni(){
     //   antColorIni = FImages.getImages("FCol",FImages.getNbrImages("FCol"),(byte)0);
     //   int len = antColorIni.length;
-    //   if(Main.getOp().getAntColorLevel()>1){
+    //   if(Main.getFop().getByte("antColorLevel")>1){
     //     for (int i=0; i<len; i++) {
     //       Img img = new Img(antColorIni[i]);
     //       img.supprimerLaTransparencePartielle(1);
@@ -791,7 +791,7 @@ public class Data {
   */
   public Image [] chargerTIBZoom(){
     tIBZoom = new Image[9];
-    if(!initialisationFX && !Main.getKeepFilesRotated()){tournerLesFleches();}
+    if(!initialisationFX && !Main.getFop().getBoolean("keepFilesRotated")){tournerLesFleches();}
     int tailleBouton=Main.getFop().getInt("buttonSizeZoom");
     tIBZoom[0] = FImages.getImage("moins").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);
     tIBZoom[1] = FImages.getImage("fleche").getScaledInstance(tailleBouton,tailleBouton ,Image.SCALE_SMOOTH);

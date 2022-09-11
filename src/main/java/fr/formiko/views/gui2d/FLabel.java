@@ -96,7 +96,7 @@ public class FLabel extends JLabel {
   // public void setFont(Font fon){super.setFont(fon);}
   public void setFontText(){ setFontText(Main.getFont1());}
   public void setBounds(int a, int b, int c){this.setBounds(a,b,c,getDimY());}
-  public static int getDimY(){ return (int)(Main.getOp().getFontSizeText()*1.2);}
+  public static int getDimY(){ return (int)(Main.getFop().getInt("fontSizeText")*1.2);}
   public void setCentered(){setHorizontalAlignment(SwingConstants.CENTER);}
   public void setSize(int w){setSize(w,getDimY());}
   // FUNCTIONS -----------------------------------------------------------------
@@ -106,7 +106,7 @@ public class FLabel extends JLabel {
   */
   public void paintComponent(Graphics gTemp){
     super.paintComponent(gTemp);
-    if(Main.getOp().getPaintHitBox()){
+    if(Main.getFop().getBoolean("paintHitBox")){
       Graphics2D g = (Graphics2D)gTemp;
       g.setColor(Color.RED);
       g.setStroke(new BasicStroke(math.max(getWidth()/100,getHeight()/100,1)));

@@ -149,7 +149,7 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 1.47
   */
   public boolean paint(){
-    if(!Main.getOp().getModeFPS()){
+    if(!Main.getFop().getBoolean("modeFPS")){
       if(f==null){erreur.alerte("La fenetre est null & ne peu pas être redessinée."); return false;}
       getF().repaint(10);
     }
@@ -304,7 +304,7 @@ public class ViewGUI2d implements View {
     chLoading.stop();
     s=s +" "+ "("+Time.msToS(chLoading.getDuree())+")";
     Main.setMessageChargement(s, true);
-    if(!Main.getOp().getWhaitBeforeLaunchGame() || Main.getFirstGame() || !Main.getOpenMenuFirst()){
+    if(!Main.getFop().getBoolean("whaitBeforeLaunchGame") || Main.getFirstGame() || !Main.getOpenMenuFirst()){
       closeFPanelChargement();
       paint();
     }else{
@@ -856,7 +856,7 @@ public class ViewGUI2d implements View {
   private void launchFrameRefresh(){
     timer = new Timer();
     // int k=0;
-    int secToRefresh = 1000/Main.getOp().getFps();
+    int secToRefresh = 1000/Main.getFop().getInt("fps");
     timer.schedule(new TimerTaskViewGUI2d(this){
       @Override
       /**
@@ -881,8 +881,8 @@ public class ViewGUI2d implements View {
         public void run(){
           Window activeWindow = javax.swing.FocusManager.getCurrentManager().getActiveWindow();
           // erreur.println(getF().equals(activeWindow));
-          // erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()/10));
-          // erreur.info("max fps : "+Main.getOp().getFps()+" curent fps : "+(view.getCurentFPS()));
+          // erreur.info("max fps : "+Main.getFop().getInt("fps")+" curent fps : "+(view.getCurentFPS()/10));
+          // erreur.info("max fps : "+Main.getFop().getInt("fps")+" curent fps : "+(view.getCurentFPS()));
           // launchOptions.printMemUse();
           view.setCurentFPS(0);
         }
@@ -932,7 +932,7 @@ public class ViewGUI2d implements View {
     }catch (Exception e) {
       erreur.alerte("Fail to launch auto end turn.");
     }
-    return ((getPmmc().getFbetEnabled() && !Main.getOp().getEndTurnAuto()) || everyoneInAutoMode) && !Main.getPlayingJoueur().getIa();
+    return ((getPmmc().getFbetEnabled() && !Main.getFop().getBoolean("endTurnAuto")) || everyoneInAutoMode) && !Main.getPlayingJoueur().getIa();
   }
 }
 

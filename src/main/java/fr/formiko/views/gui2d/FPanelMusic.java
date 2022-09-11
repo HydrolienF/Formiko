@@ -99,7 +99,7 @@ public class FPanelMusic extends FPanel {
     *@lastEditedVersion 2.28
     */
     public FPanelMusicButton(){
-      super((int)(Main.getOp().getFontSizeTitle()/1.8), 0.3);
+      super((int)(Main.getFop().getInt("fontSizeTitle")/1.8), 0.3);
     }
 
     // FUNCTIONS -----------------------------------------------------------------

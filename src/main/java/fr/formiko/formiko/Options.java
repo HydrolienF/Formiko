@@ -123,46 +123,8 @@ public class Options implements Serializable {
     }
   }
   public void setLanguage(int x){setLanguage(str.iToBy(x));}
-  // public int getbuttonSizeZoom(){ return tailleBouton(gui_hide_buttonSizeZoom);}
-  // public void setbuttonSizeZoom(byte x){ gui_hide_buttonSizeZoom=x;}
-  // public int getbuttonSizeAction(){ return tailleBouton(gui_global_buttonSizeAction);}
-  // public void setbuttonSizeAction(byte x){ gui_global_buttonSizeAction=x;}
-  // public int getbuttonSizeTX(){ return tailleBouton(gui_hide_buttonSizeTX);}
-  // public void setbuttonSizeTX(byte x){ gui_hide_buttonSizeTX=x;}
-  // public boolean getQuickMovement(){ return gui_partie_quickMovement;}
-  // public void setQuickMovement(boolean b){ gui_partie_quickMovement = b;}
-
-  // public boolean getDrawSeeds(){ return gui_partie_drawSeeds;}
-  // public void setDrawSeeds(boolean b){ gui_partie_drawSeeds = b;}
-  // public boolean getDrawOnlyEatable(){ return gui_partie_drawOnlyEatable;}
-  // public void setDrawOnlyEatable(boolean b){ gui_partie_drawOnlyEatable = b;}
-  // public boolean getDrawBlades(){ return gui_partie_drawBlades;}
-  // public void setDrawDrawBlades(boolean b){ gui_partie_drawBlades = b;}
-  // public boolean getDrawEnemyCreatures(){ return gui_partie_drawEnemyCreatures;}
-  // public void setDrawEnemyCreatures(boolean b){ gui_partie_drawEnemyCreatures = b;}
-  // public boolean getDrawNeutralCreatures(){ return gui_partie_drawNeutralCreatures;}
-  // public void setDrawNeutralCreatures(boolean b){ gui_partie_drawNeutralCreatures = b;}
-  // public boolean getDrawAllyCreatures(){ return gui_partie_drawAllyCreatures;}
-  // public void setDrawAllyCreatures(boolean b){ gui_partie_drawAllyCreatures = b;}
-
-  // public boolean getInstantaneousMovement(){return gui_partie_instantaneousMovement;}
-  // public void setInstantaneousMovement(boolean b){gui_partie_instantaneousMovement=b;}
-  // public boolean getOrientedObjectOnMap(){ return gui_partie_orientedObjectOnMap;}
-  // public void setOrientedObjectOnMap(boolean b){gui_partie_orientedObjectOnMap=b;}
-  public byte getMaxMessageDisplay(){ return gui_partie_maxMessageDisplay;}
-  public void setMaxMessageDisplay(int x){ gui_partie_maxMessageDisplay=str.iToBy(x);}
-  // public boolean getDrawGrid(){ return gui_pgo_drawGrid;}
-  // public void setDrawGrid(boolean b){gui_pgo_drawGrid=b;}
-  // public boolean getForceQuit(){ return game_forceQuit;}
-  // public void setForceQuit(boolean b){ game_forceQuit=b;}
-  public byte getBorderButtonSize(){ return gui_global_borderButtonSize;}
-  public void setBorderButtonSize(int x){gui_global_borderButtonSize=str.iToBy(x);}
-  // public boolean getDrawRelationsIcons(){ return gui_pgo_drawRelationsIcons;}
-  // public void setDrawRelationsIcons(boolean b){gui_pgo_drawRelationsIcons=b;}
-  public byte getDrawStatesIconsLevel(){ return gui_pgo_drawStatesIconsLevel;}
-  public void setDrawStatesIconsLevel(byte b){gui_pgo_drawStatesIconsLevel=b;}
   public Font getFont1(){ return font1;}
-  public Font getFont1(Double d){Font fTemp = new Font(getFontText(),Font.PLAIN,(int)(getFontSizeText()*d)); return fTemp;}
+  public Font getFont1(Double d){Font fTemp = new Font(getFontText(),Font.PLAIN,(int)(Main.getFop().getInt("fontSizeText")*d)); return fTemp;}
   public void setFont1(Font f){font1=f;}
   public Font getFont2(){return font2;}
   /**
@@ -174,108 +136,22 @@ public class Options implements Serializable {
     if(getFont2()==null){return getFont1();}
     if(s==null){return getFont2();}
     for (char c : s.toCharArray()) {
-      if(!getFont2().canDisplay(c)){return getFont1().deriveFont((float)getFontSizeTitle());}
+      if(!getFont2().canDisplay(c)){return getFont1().deriveFont((float)Main.getFop().getInt("fontSizeTitle"));}
     }
     return getFont2();
   }
   public void setFont2(Font f){font2=f;}
-  public int getFontSizeText(){return gui_global_fontSizeText;}
-  public void setFontSizeText(int x){gui_global_fontSizeText=x;}
-  public int getFontSizeTitle(){return gui_global_fontSizeTitle;}
-  public void setFontSizeTitle(int x){gui_global_fontSizeTitle=x;}
   public String getFontText(){ return gui_global_fontText;}
   public void setFontText(String s){gui_global_fontText=s;}
   public String getFontTitle(){ return gui_global_fontTitle;}
   public void setFontTitle(String s){gui_global_fontTitle=s;}
-  public String getPseudo(){ return game_pseudo;}
-  public void setPseudo(String s){game_pseudo=s;}
-  // public boolean getFullscreen(){ return gui_global_fullscreen;}
-  // public void setFullscreen(boolean b){ gui_global_fullscreen=b;}
-  public int getFrameWidth(){return gui_global_frameWidth;}
-  public void setFrameWidth(int x){gui_global_frameWidth=x;}
-  public int getFrameHeight(){return gui_global_frameHeight;}
-  public void setFrameHeight(int x){gui_global_frameHeight=x;}
-  public boolean getLoadingDuringMenus(){ return gui_hide_loadingDuringMenus;}
-  public void setLoadingDuringMenus(boolean b){gui_hide_loadingDuringMenus=b;}
-  public boolean getKeepFilesRotated(){ return gui_hide_keepFilesRotated;}
-  public void setKeepFilesRotated(boolean b){gui_hide_keepFilesRotated=b;}
-  public boolean getWhaitBeforeLaunchGame(){ return game_whaitBeforeLaunchGame;}
-  public void setWhaitBeforeLaunchGame(boolean b){game_whaitBeforeLaunchGame=b;}
-  public boolean getDiscordRP(){return game_discordRP;}
-  public void setDiscordRP(boolean b){game_discordRP=b;}
-  public String getLastCheckedVersion(){return game_lastCheckedVersion;}
-  public void setLastCheckedVersion(String s){game_lastCheckedVersion=s;}
 
-  public boolean getMessage(){return debug_message;}
-  public void setMessage(boolean b){debug_message=b;}
   public boolean getError(){return Info.PRINT_ERROR;}
   public void setError(boolean b){Info.PRINT_ERROR=b;}
   public boolean getWarning(){return Info.PRINT_WARNING;}
   public void setWarning(boolean b){Info.PRINT_WARNING=b;}
   public boolean getInfo(){return Info.PRINT_INFO;}
   public void setInfo(boolean b){Info.PRINT_INFO=b;}
-
-  public boolean getPerformance(){return debug_performance;}
-  public void setPerformance(boolean b){debug_performance=b;}
-  public boolean getAffG(){return debug_gui;}
-  public void setAffG(boolean b){debug_gui=b;}
-
-  public boolean getPaintHitBox(){return debug_paintHitBox;}
-  public void setPaintHitBox(boolean b){debug_paintHitBox=b;}
-  public int getSizeOfMapLines(){ return gui_partie_sizeOfMapLines;}
-  public void setSizeOfMapLines(int x){gui_partie_sizeOfMapLines=x;}
-  public boolean getFollowAntAtStartTurn(){return gui_partie_followAntAtStartTurn;}
-  public void setFollowAntAtStartTurn(boolean b){gui_partie_followAntAtStartTurn=b;}
-  public byte getPositionSquare(){return gui_hide_positionSquare;}
-  public void setPositionSquare(byte x){gui_hide_positionSquare=x;}
-  public boolean getBMusic(){return sounds_music;}
-  /**
-  *{@summary Update this value &#38; MusicPlayer one.}
-  *@lastEditedVersion 2.25
-  */
-  public void setBMusic(boolean b){
-    sounds_music=b;
-    if(Main.getMp()!=null){
-      Main.getMp().setBMusic(b);
-    }
-  }
-  public boolean getBSon(){return sounds_sound;}
-  public void setBSon(boolean b){sounds_sound=b;}
-  public byte getVolMusic(){return sounds_musicVolume;}
-  /**
-  *{@summary Update this value &#38; MusicPlayer one.}
-  *@lastEditedVersion 2.25
-  */
-  public void setVolMusic(byte x){
-    sounds_musicVolume=x;
-    if(Main.getMp()!=null){
-      Main.getMp().setVolMusic((int)x);
-    }
-  }
-  public byte getVolSon(){return sounds_soundVolume;}
-  public void setVolSon(byte x){sounds_soundVolume=x;}
-  public byte getRealisticSize(){return gui_partie_realisticSize;}
-  public void setRealisticSize(byte x){gui_partie_realisticSize=x;}public void setRealisticSize(int x){gui_partie_realisticSize=str.iToBy(x);}
-  public boolean getAutoCleaning(){return partie_autoCleaning;}
-  public void setAutoCleaning(boolean b){partie_autoCleaning=b;}
-  public boolean getModeFPS(){return gui_hide_modeFPS;}
-  public void setModeFPS(boolean b){gui_hide_modeFPS=b;}
-  public int getFps(){return gui_global_fps;}
-  public void setFps(int b){gui_global_fps=b;}
-  public byte getAntColorLevel(){return gui_pgo_antColorLevel;}
-  public void setAntColorLevel(byte x){gui_pgo_antColorLevel=x;}
-  public boolean getDrawAllAnthillColor(){return gui_pgo_drawAllAnthillColor;}
-  public void setDrawAllAnthillColor(boolean x){gui_pgo_drawAllAnthillColor=x;}
-  public boolean getDrawPlayerMessagePanel(){return gui_pgo_drawPlayerMessagePanel;}
-  public void setDrawPlayerMessagePanel(boolean x){gui_pgo_drawPlayerMessagePanel=x;}
-  public boolean getEndTurnAuto(){return game_endTurnAuto;}
-  public void setEndTurnAuto(boolean b){game_endTurnAuto=b;}
-  public boolean getAnimationEnable(){return gui_global_animationEnable;}
-  public void setAnimationEnable(boolean b){gui_global_animationEnable=b;}
-  public boolean getFontTitlePersonalised(){return gui_global_fontTitlePersonalised;}
-  public void setFontTitlePersonalised(boolean b){gui_global_fontTitlePersonalised=b;}
-  public String getDateFormat(){return Time.getDateFormat();}
-  public void setDateFormat(String s){Time.setDateFormat(s);}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize Options.}<br>
@@ -450,20 +326,6 @@ public class Options implements Serializable {
     defaultProperties.setProperty("sounds_soundVolume","50");
     return defaultProperties;
   }
-  // /**
-  // *{@summary tranform a byte into a button size.}<br>
-  // *@lastEditedVersion 1.20
-  // */
-  // private int tailleBouton(byte x){
-  //   if(x>2 && x%20==0){return x;}
-  //   if(x==0){ return 80;}
-  //   if(x==-1){ return 40;}
-  //   if(x==1){ return 160;}
-  //   if(x==-2){ return 20;}
-  //   if(x==2){ return 320;}
-  //   erreur.erreur("La taille des boutons spécifiée n'est pas correcte.","La taille moyenne a été choisie par défaut");
-  //   return 80;
-  // }
   /**
   *{@summary tranform properties into Options var.}<br>
   *@lastEditedVersion 2.7
@@ -494,7 +356,7 @@ public class Options implements Serializable {
     game_discordRP=str.sToB(properties.getProperty("game_discordRP"));
     game_lastCheckedVersion=properties.getProperty("game_lastCheckedVersion");
     gui_global_animationEnable=str.sToB(properties.getProperty("gui_global_animationEnable"));
-    setDateFormat(properties.getProperty("gui_global_dateFormat"));
+    // setDateFormat(properties.getProperty("gui_global_dateFormat"));
     gui_global_borderButtonSize=str.sToBy(properties.getProperty("gui_global_borderButtonSize"));
     gui_global_buttonSizeAction=str.sToBy(properties.getProperty("gui_global_buttonSizeAction"));
     gui_global_fontSizeText=str.sToI(properties.getProperty("gui_global_fontSizeText"));
@@ -587,7 +449,7 @@ public class Options implements Serializable {
     properties.setProperty("game_discordRP",""+game_discordRP);
     properties.setProperty("game_lastCheckedVersion",game_lastCheckedVersion);
     properties.setProperty("gui_global_animationEnable",""+gui_global_animationEnable);
-    properties.setProperty("gui_global_dateFormat",getDateFormat());
+    // properties.setProperty("gui_global_dateFormat",getDateFormat());
     properties.setProperty("gui_global_borderButtonSize",""+gui_global_borderButtonSize);
     properties.setProperty("gui_global_buttonSizeAction",""+gui_global_buttonSizeAction);
     properties.setProperty("gui_global_fontSizeText",""+gui_global_fontSizeText);

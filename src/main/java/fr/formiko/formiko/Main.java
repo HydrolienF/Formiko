@@ -248,28 +248,11 @@ public class Main {
   //options
   public static byte getLanguage(){ return getOp().getLanguage();}
   public static void setLanguage(int x){ getOp().setLanguage(x);iniLangue();}
-  // public static int getbuttonSizeZoom(){return getOp().getbuttonSizeZoom();}
-  // public static int getbuttonSizeAction(){return getOp().getbuttonSizeAction();}
-  // public static int getbuttonSizeTX(){return getOp().getbuttonSizeTX();}
-  public static int getMaxMessageDisplay(){ return getOp().getMaxMessageDisplay();}
-  public static boolean getDrawGrid(){ return getFop().getBoolean("drawGrid");}
-  // public static boolean getOrientedObjectOnMap(){ return getOp().getOrientedObjectOnMap();}
-  // public static boolean getForceQuit(){ return getOp().getForceQuit();}
-  public static byte getBorderButtonSize(){ return getOp().getBorderButtonSize();}
-  // public static boolean getDrawRelationsIcons(){return getFop().getBoolean("drawRelationsIcons");}
   public static Font getFont1(){ return getOp().getFont1();}
   public static Font getFont1(double d){ return getOp().getFont1(d);}
   public static void setFont1(Font f){ getOp().setFont1(f);}
   public static Font getFont2(){ return getOp().getFont2();}
   public static void setFont2(Font f){ getOp().setFont2(f);}
-  public static int getFontSizeText(){ return getOp().getFontSizeText();}
-  public static int getFontSizeTitle(){ return getOp().getFontSizeTitle();}
-  // public static boolean getFullscreen(){ return getOp().getFullscreen();}
-  public static boolean getLoadingDuringMenus(){ return getOp().getLoadingDuringMenus();}
-  public static boolean getKeepFilesRotated(){ return getOp().getKeepFilesRotated();}
-  public static int getSizeOfMapLines(){return getOp().getSizeOfMapLines();}
-  public static int getPositionSquare(){return getOp().getPositionSquare();}
-  public static byte getRealisticSize(){return getOp().getRealisticSize();}
   //partie
   public static GInsecte getGi(){return pa.getGi();}
   public static GJoueur getListeJoueur(){return pa.getGj();}
@@ -333,13 +316,13 @@ public class Main {
     chargerLesTraductions.iniTLangue();
     if(op==null){iniOp();}
     if(!debug.getMessage()){//si elle n'ont pas été activé par "-d"
-      debug.setMessage(getOp().getMessage());
+      debug.setMessage(getFop().getBoolean("message"));
     }
     if(!debug.getPerformance()){//si elle n'ont pas été activé par "-p"
-      debug.setPerformance(getOp().getPerformance());
+      debug.setPerformance(getFop().getBoolean("performance"));
     }
     if(!debug.getAffG()){//si elle n'ont pas été activé par "-g"
-      debug.setAffG(getOp().getAffG());
+      debug.setAffG(getFop().getBoolean("affG"));
     }
     endCh("chargementDesOptions");
     setMessageChargement("chargementDesTouches");startCh();
@@ -462,7 +445,7 @@ public class Main {
       //   endCh("enregistementDesScores");
       // }
       startCh();
-      if(getKeepFilesRotated()){Images.clearPartielTemporaire();}
+      if(getFop().getBoolean("keepFilesRotated")){Images.clearPartielTemporaire();}
       else{Images.clearTemporaire();}
       saveOp(false);
       endCh("vidageDesFichiersImages");

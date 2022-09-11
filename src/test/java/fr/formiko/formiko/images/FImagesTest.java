@@ -26,17 +26,17 @@ public class FImagesTest extends TestCaseMuet {
     Main.getFolder().ini();
     Main.iniOp();//on initialise les Options.
     //FImages.taille(taille de l'espece, taille voulu avec le niveau de grossicement)
-    Main.getOp().setRealisticSize(100);//un paramètre utilisé par FImages.taille
+    Main.getFop().set("realisticSize", 100);//un paramètre utilisé par FImages.taille
     assertEquals(100,FImages.taille(100,100));//normale.
 
     //si la taille n'est pas réaliste on prend a 100% la taille de la case.
-    Main.getOp().setRealisticSize(0);//un paramètre utilisé par FImages.taille
+    Main.getFop().set("realisticSize", 0);//un paramètre utilisé par FImages.taille
     assertEquals(100,FImages.taille(20,100));
     assertEquals(140,FImages.taille(20,140));
     assertEquals(10,FImages.taille(20,10));
 
     //si la taille est réaliste a 100% on ne dépend plus que de taille de l'espece * tailleVOulue/100
-    Main.getOp().setRealisticSize(100);
+    Main.getFop().set("realisticSize", 100);
     assertEquals(20,FImages.taille(20,100));
     assertEquals(30,FImages.taille(20,150));
     assertEquals(10,FImages.taille(20,50));
@@ -50,17 +50,17 @@ public class FImagesTest extends TestCaseMuet {
   @Test
   public void testTaillePartiellementRealiste(){
     Main.iniOp();//on initialise les Options.
-    Main.getOp().setRealisticSize(50);
+    Main.getFop().set("realisticSize", 50);
     //si la taille est partielement réaliste.
     assertEquals(75,FImages.taille(50,100));//100% réaliste ca donne 100 0% réaliste ca donne 50, on veut que ce soit au milieux.
     assertEquals(60,FImages.taille(50,80));
     assertEquals(150,FImages.taille(50,200));
     assertEquals(72,FImages.taille(20,120));
 
-    Main.getOp().setRealisticSize(10);
+    Main.getFop().set("realisticSize", 10);
     assertEquals(95,FImages.taille(50,100));
     assertEquals(47,FImages.taille(50,50));
-    Main.getOp().setRealisticSize(63);
+    Main.getFop().set("realisticSize", 63);
     assertEquals(82,FImages.taille(50,120));
     assertEquals(59,FImages.taille(20,120));
   }

@@ -40,8 +40,8 @@ public class FPanelChoixPartie extends FPanelLanceurPartie {
 
   // FUNCTIONS -----------------------------------------------------------------
   public void paintComponent(Graphics g){
-    ePartie.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,(int)(Main.getFontSizeTitle()*1.2));
-    // ePartie.setTaille(getWidth()*3/5,(int)(Main.getFontSizeTitle()*1.2));
+    ePartie.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,(int)(Main.getFop().getInt("fontSizeTitle")*1.2));
+    // ePartie.setTaille(getWidth()*3/5,(int)(Main.getFop().getInt("fontSizeTitle")*1.2));
     //ePartie.setFontText(Main.getFont2());
     super.paintComponent(g);
   }

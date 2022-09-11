@@ -302,7 +302,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
               Main.getPartie().setAntIdToPlay(-1);
               loopSafety=0;
               if(fActuel.getAction()>0){
-                if(!fActuel.isAI() && Main.getOp().getFollowAntAtStartTurn()){
+                if(!fActuel.isAI() && Main.getFop().getBoolean("followAntAtStartTurn")){
                   Main.getView().centerOverSquare(fActuel.getCSquare().getContent());
                 }
                 fActuel.tour();
@@ -320,7 +320,7 @@ public class GCreature extends Liste<Creature> implements Serializable, Cloneabl
             //if player have clic on an other ant, go to next loop turn.
           }else{ //if player have press Enter or end an other Ant turn.
             if(fActuel.getAction()>0){
-              if(!fActuel.isAI() && Main.getOp().getFollowAntAtStartTurn()){
+              if(!fActuel.isAI() && Main.getFop().getBoolean("followAntAtStartTurn")){
                 Main.getView().centerOverSquare(fActuel.getCSquare().getContent());
               }
               fActuel.tour();

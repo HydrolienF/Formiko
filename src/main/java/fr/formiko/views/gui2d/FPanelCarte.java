@@ -113,7 +113,7 @@ public class FPanelCarte extends FPanel {
   public CSquare getLookedCSquare(){return lookedCSquare;}
   public void setLookedCSquare(CSquare cc){lookedCSquare=cc;}
   public void setLigne(Graphics2D g){
-    BasicStroke ligne = new BasicStroke(Main.getSizeOfMapLines());
+    BasicStroke ligne = new BasicStroke(Main.getFop().getInt("sizeOfMapLines"));
     g.setStroke(ligne);
     g.setColor(Color.BLACK);
   }
@@ -183,7 +183,7 @@ public class FPanelCarte extends FPanel {
       if(debug.getPerformance()){
         // erreur.info("Time for refrech all Map Square: "+(System.currentTimeMillis()-time),0);
       }
-      if (Main.getFop().getBoolean("drawRelationsIcons") || Main.getOp().getDrawStatesIconsLevel()<4){
+      if (Main.getFop().getBoolean("drawRelationsIcons") || Main.getFop().getByte("drawStatesIconsLevel")<4){
         if(iconImage!=null){
           drawImage(g, iconImage, 0, 0);
         }
@@ -202,7 +202,7 @@ public class FPanelCarte extends FPanel {
   *@lastEditedVersion 1.x
   */
   public void dessinerGrille(Graphics g){
-    if(Main.getDrawGrid()){
+    if(Main.getFop().getBoolean("drawGrid")){
       int tailleSquare = getTailleDUneSquare();
       for (int i=0;i<xSquare+1 ;i++ ) {
         int xT = tailleSquare*i;
@@ -535,7 +535,7 @@ public class FPanelCarte extends FPanel {
           //icons
           if(fi!=null){
             listIconsRelation.add(getIconImage(cr, fi));
-            if(cr.getEstAllié(fi) && Main.getOp().getDrawStatesIconsLevel()<4){
+            if(cr.getEstAllié(fi) && Main.getFop().getByte("drawStatesIconsLevel")<4){
               listIconsState.add(getStatesIconsImages(cr));
             }
             // drawIcon(g,getIconImage(cr, fi),xT,yT,tC2,kIcon++,cptIcon);
@@ -547,7 +547,7 @@ public class FPanelCarte extends FPanel {
         if (Main.getFop().getBoolean("drawRelationsIcons")){
           drawListIcons(gIcon, listIconsRelation, xT, yT, getTailleDUneSquare()-getTailleIcon());
         }
-        if (Main.getOp().getDrawStatesIconsLevel()<4) {
+        if (Main.getFop().getByte("drawStatesIconsLevel")<4) {
           drawListIcons(gIcon, listIconsState, xT, yT, 0);
         }
       }
@@ -584,7 +584,7 @@ public class FPanelCarte extends FPanel {
   //public only for test
   public static Liste<Creature> gcSortedByImageSize(GCreature gc){
     Liste<Creature> listToPrint = gc;
-    if(Main.getOp().getRealisticSize()==0){return listToPrint;}
+    if(Main.getFop().getByte("realisticSize")==0){return listToPrint;}
     listToPrint.sort(imageSizeComparator);
     return listToPrint;
   }
@@ -654,7 +654,7 @@ public class FPanelCarte extends FPanel {
   public void drawImage(Graphics gTemp, BufferedImage im, int x, int y){
     Graphics2D g = (Graphics2D)gTemp;
     g.drawImage(im,x,y,this);
-    if(Main.getOp().getPaintHitBox()){
+    if(Main.getFop().getBoolean("paintHitBox")){
       g.setColor(Color.RED);
       g.setStroke(new BasicStroke(math.max(im.getWidth()/100,im.getHeight()/100,1)));
       g.drawRect(x,y,im.getWidth(),im.getHeight());
@@ -674,7 +674,7 @@ public class FPanelCarte extends FPanel {
   *@lastEditedVersion 1.46
   */
   private boolean needToDrawAnthillColor(Square c, int x, int y){
-    if (Main.getOp().getDrawAllAnthillColor()) { return true;}
+    if (Main.getFop().getBoolean("drawAllAnthillColor")) { return true;}
     if(c.getFere().getId()==idCurentFere){return true;} // && !isSombre(x,y)
     return (getLookedCSquare()!=null && getLookedCSquare().getContent() !=null && getLookedCSquare().getContent().equals(c));
   }
@@ -688,15 +688,15 @@ public class FPanelCarte extends FPanel {
     int deplacementEnY=0;
     //deplacement centré.
     int espaceLibre = getTailleDUneSquare()/5;
-    if(Main.getPositionSquare()==0 || (Main.getPositionSquare()==2 && (k>3 || c.getGc().length()+c.getGg().length()==1))){//si on est en mode 2 et que la fourmi est seule ou qu'il y en a plus de 4.
+    if(Main.getFop().getByte("positionSquare")==0 || (Main.getFop().getByte("positionSquare")==2 && (k>3 || c.getGc().length()+c.getGg().length()==1))){//si on est en mode 2 et que la fourmi est seule ou qu'il y en a plus de 4.
       deplacementEnX=espaceLibre/2;
       deplacementEnY=espaceLibre/2;
       //deplacement alléatoire
-    }else if(Main.getPositionSquare()==1){
+    }else if(Main.getFop().getByte("positionSquare")==1){
       deplacementEnX=allea.getAlléa(espaceLibre);
       deplacementEnY=allea.getAlléa(espaceLibre);
       //deplacement dans un angle.
-    }else if(Main.getPositionSquare()==2){
+    }else if(Main.getFop().getByte("positionSquare")==2){
       //on ne modifie que si c'est pas 0.
       if(k==1){
         deplacementEnX=espaceLibre;
@@ -844,7 +844,7 @@ public class FPanelCarte extends FPanel {
   *@lastEditedVersion 2.10
   */
   public Liste<BufferedImage> getStatesIconsImages(Creature cr){
-    int minPrintState = Main.getOp().getDrawStatesIconsLevel(); // between 0 & 4 (3= only red state, 0=all).
+    int minPrintState = Main.getFop().getByte("drawStatesIconsLevel"); // between 0 & 4 (3= only red state, 0=all).
     Liste<BufferedImage> list = new Liste<BufferedImage>();
     int state = cr.getStateFood();
     if(tBiState==null){iniTBiState();}
