@@ -242,10 +242,10 @@ public class FPanelMiniMapContainer extends FPanel {
     private void build(){
       if(getWidth()==1 || isIni()){return;}
       addGraphicOption(350, getGridImage(4), () -> {
-        return Main.getOp().getDrawGrid();
+        return Main.getFop().getBoolean("drawGrid");
       });
       addGraphicOption(351, getRelationImage(), () -> {
-        return Main.getOp().getDrawRelationsIcons();
+        return Main.getFop().getBoolean("drawRelationsIcons");
       });
       addGraphicOption(352, getStateImage(), () -> {
         return Main.getOp().getDrawStatesIconsLevel();
@@ -257,13 +257,13 @@ public class FPanelMiniMapContainer extends FPanel {
         return Main.getOp().getDrawPlayerMessagePanel();
       });
       addGraphicOption(355, getSeedNeutralImage(), () -> {
-        return Main.getOp().getDrawOnlyEatable();
+        return Main.getFop().getBoolean("drawOnlyEatable");
       });
       addGraphicOption(356, getColoredRoundImage(true), () -> {
         return Main.getOp().getAntColorLevel();
       });
       addGraphicOption(357, getBladesImage(), () -> {
-        return Main.getOp().getDrawBlades();
+        return Main.getFop().getBoolean("drawBlades");
       });
       placeButtons();
     }

@@ -113,7 +113,7 @@ public class FPanelInfoGCreature extends FPanelInfo {
           lp.add(new FPanelObjetAId(ct, bi));
         }
       }
-      if(Main.getOp().getDrawSeeds() && (!Main.getOp().getDrawOnlyEatable() || Main.getPlayingJoueur().getEspece().getGranivore())){
+      if(Main.getFop().getBoolean("drawSeeds") && (!Main.getFop().getBoolean("drawOnlyEatable") || Main.getPlayingJoueur().getEspece().getGranivore())){
         for (Graine s : c.getSquare().getGg()) {
           BufferedImage bi = Main.getData().getGraineImage(s);
           bi = Images.resize(bi, yByElement-boderFPanelObjetAId*2);

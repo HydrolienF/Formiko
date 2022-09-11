@@ -156,7 +156,7 @@ public class ThMove {
     o.setDirection(CSquare.getDirection(from, to));
     int walkCycle = 2;
     k=120; //should be a mutiple of 2*walkCycle.
-    if(Main.getOp().getQuickMovement()){k=20;}
+    if(Main.getFop().getBoolean("QuickMovement")){k=20;}
     kIni=k;
     numberOfTic = k/(2*walkCycle);
     vectX = this.to.getX()-this.from.getX();
@@ -230,7 +230,7 @@ class ThMoveManager extends Thread {
   */
   @Override
   public void run(){
-    if(Main.getOp().getInstantaneousMovement()){return;}
+    if(Main.getFop().getBoolean("instantaneousMovement")){return;}
     while(true){
       ThMove.updateQueue();
       for (ThMove move : list) {

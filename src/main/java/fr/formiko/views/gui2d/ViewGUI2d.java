@@ -591,7 +591,7 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 2.1
   */
   public void move(ObjetSurCarteAId o, CSquare from, CSquare to){
-    if(!Main.getOp().getInstantaneousMovement()){
+    if(!Main.getFop().getBoolean("instantaneousMovement")){
       ThMove.updateTo(to, o.getId());
       ThMove th = new ThMove(o, from, to);
       // th.start();

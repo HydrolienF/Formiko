@@ -224,10 +224,11 @@ public class action {
   public static void doGraphicsAction(int ac){
     switch(ac){
       case 350:
-      Main.getOp().setDrawGrid(!Main.getOp().getDrawGrid());
+      // Main.getFop().setNext("drawGrid");
+      Main.getFop().set("drawGrid", !Main.getFop().getBoolean("drawGrid"));
       break;
       case 351:
-      Main.getOp().setDrawRelationsIcons(!Main.getOp().getDrawRelationsIcons());
+      Main.getFop().set("drawRelationsIcons",!Main.getFop().getBoolean("drawRelationsIcons"));
       break;
       case 352:
       Main.getOp().setDrawStatesIconsLevel((byte)((Main.getOp().getDrawStatesIconsLevel()+1)%5));
@@ -242,7 +243,7 @@ public class action {
       }
       break;
       case 355:
-      Main.getOp().setDrawOnlyEatable(!Main.getOp().getDrawOnlyEatable());
+      Main.getFop().set("drawOnlyEatable", !Main.getFop().getBoolean("drawOnlyEatable"));
       Main.getView().setPlayingAnt(Main.getPartie().getPlayingAnt());//update list of seed/creature on the case of playingAnt.
       break;
       case 356:
@@ -250,7 +251,7 @@ public class action {
       Main.getView().setPlayingAnt(Main.getPartie().getPlayingAnt());//update list of seed/creature on the case of playingAnt.
       break;
       case 357:
-      Main.getOp().setDrawDrawBlades(!Main.getOp().getDrawBlades());
+      Main.getFop().set("drawDrawBlades", !Main.getFop().getBoolean("drawBlades"));
       FPanel.getView().setBladeChanged(true);
       break;
       case 395:

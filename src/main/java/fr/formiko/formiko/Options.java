@@ -129,36 +129,36 @@ public class Options implements Serializable {
   // public void setbuttonSizeAction(byte x){ gui_global_buttonSizeAction=x;}
   // public int getbuttonSizeTX(){ return tailleBouton(gui_hide_buttonSizeTX);}
   // public void setbuttonSizeTX(byte x){ gui_hide_buttonSizeTX=x;}
-  public boolean getQuickMovement(){ return gui_partie_quickMovement;}
-  public void setQuickMovement(boolean b){ gui_partie_quickMovement = b;}
+  // public boolean getQuickMovement(){ return gui_partie_quickMovement;}
+  // public void setQuickMovement(boolean b){ gui_partie_quickMovement = b;}
 
-  public boolean getDrawSeeds(){ return gui_partie_drawSeeds;}
-  public void setDrawSeeds(boolean b){ gui_partie_drawSeeds = b;}
-  public boolean getDrawOnlyEatable(){ return gui_partie_drawOnlyEatable;}
-  public void setDrawOnlyEatable(boolean b){ gui_partie_drawOnlyEatable = b;}
-  public boolean getDrawBlades(){ return gui_partie_drawBlades;}
-  public void setDrawDrawBlades(boolean b){ gui_partie_drawBlades = b;}
-  public boolean getDrawEnemyCreatures(){ return gui_partie_drawEnemyCreatures;}
-  public void setDrawEnemyCreatures(boolean b){ gui_partie_drawEnemyCreatures = b;}
-  public boolean getDrawNeutralCreatures(){ return gui_partie_drawNeutralCreatures;}
-  public void setDrawNeutralCreatures(boolean b){ gui_partie_drawNeutralCreatures = b;}
-  public boolean getDrawAllyCreatures(){ return gui_partie_drawAllyCreatures;}
-  public void setDrawAllyCreatures(boolean b){ gui_partie_drawAllyCreatures = b;}
+  // public boolean getDrawSeeds(){ return gui_partie_drawSeeds;}
+  // public void setDrawSeeds(boolean b){ gui_partie_drawSeeds = b;}
+  // public boolean getDrawOnlyEatable(){ return gui_partie_drawOnlyEatable;}
+  // public void setDrawOnlyEatable(boolean b){ gui_partie_drawOnlyEatable = b;}
+  // public boolean getDrawBlades(){ return gui_partie_drawBlades;}
+  // public void setDrawDrawBlades(boolean b){ gui_partie_drawBlades = b;}
+  // public boolean getDrawEnemyCreatures(){ return gui_partie_drawEnemyCreatures;}
+  // public void setDrawEnemyCreatures(boolean b){ gui_partie_drawEnemyCreatures = b;}
+  // public boolean getDrawNeutralCreatures(){ return gui_partie_drawNeutralCreatures;}
+  // public void setDrawNeutralCreatures(boolean b){ gui_partie_drawNeutralCreatures = b;}
+  // public boolean getDrawAllyCreatures(){ return gui_partie_drawAllyCreatures;}
+  // public void setDrawAllyCreatures(boolean b){ gui_partie_drawAllyCreatures = b;}
 
-  public boolean getInstantaneousMovement(){return gui_partie_instantaneousMovement;}
-  public void setInstantaneousMovement(boolean b){gui_partie_instantaneousMovement=b;}
-  public boolean getOrientedObjectOnMap(){ return gui_partie_orientedObjectOnMap;}
-  public void setOrientedObjectOnMap(boolean b){gui_partie_orientedObjectOnMap=b;}
+  // public boolean getInstantaneousMovement(){return gui_partie_instantaneousMovement;}
+  // public void setInstantaneousMovement(boolean b){gui_partie_instantaneousMovement=b;}
+  // public boolean getOrientedObjectOnMap(){ return gui_partie_orientedObjectOnMap;}
+  // public void setOrientedObjectOnMap(boolean b){gui_partie_orientedObjectOnMap=b;}
   public byte getMaxMessageDisplay(){ return gui_partie_maxMessageDisplay;}
   public void setMaxMessageDisplay(int x){ gui_partie_maxMessageDisplay=str.iToBy(x);}
-  public boolean getDrawGrid(){ return gui_pgo_drawGrid;}
-  public void setDrawGrid(boolean b){gui_pgo_drawGrid=b;}
-  public boolean getForceQuit(){ return game_forceQuit;}
-  public void setForceQuit(boolean b){ game_forceQuit=b;}
+  // public boolean getDrawGrid(){ return gui_pgo_drawGrid;}
+  // public void setDrawGrid(boolean b){gui_pgo_drawGrid=b;}
+  // public boolean getForceQuit(){ return game_forceQuit;}
+  // public void setForceQuit(boolean b){ game_forceQuit=b;}
   public byte getBorderButtonSize(){ return gui_global_borderButtonSize;}
   public void setBorderButtonSize(int x){gui_global_borderButtonSize=str.iToBy(x);}
-  public boolean getDrawRelationsIcons(){ return gui_pgo_drawRelationsIcons;}
-  public void setDrawRelationsIcons(boolean b){gui_pgo_drawRelationsIcons=b;}
+  // public boolean getDrawRelationsIcons(){ return gui_pgo_drawRelationsIcons;}
+  // public void setDrawRelationsIcons(boolean b){gui_pgo_drawRelationsIcons=b;}
   public byte getDrawStatesIconsLevel(){ return gui_pgo_drawStatesIconsLevel;}
   public void setDrawStatesIconsLevel(byte b){gui_pgo_drawStatesIconsLevel=b;}
   public Font getFont1(){ return font1;}
@@ -189,8 +189,8 @@ public class Options implements Serializable {
   public void setFontTitle(String s){gui_global_fontTitle=s;}
   public String getPseudo(){ return game_pseudo;}
   public void setPseudo(String s){game_pseudo=s;}
-  public boolean getFullscreen(){ return gui_global_fullscreen;}
-  public void setFullscreen(boolean b){ gui_global_fullscreen=b;}
+  // public boolean getFullscreen(){ return gui_global_fullscreen;}
+  // public void setFullscreen(boolean b){ gui_global_fullscreen=b;}
   public int getFrameWidth(){return gui_global_frameWidth;}
   public void setFrameWidth(int x){gui_global_frameWidth=x;}
   public int getFrameHeight(){return gui_global_frameHeight;}
@@ -279,7 +279,7 @@ public class Options implements Serializable {
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize Options.}<br>
-  *It load properties from Option.md, transform it to all the Option value &#38; delete properties.
+  *It load properties from Options.md, transform it to all the Option value &#38; delete properties.
   *@lastEditedVersion 1.34
   */
   public void iniOptions(){

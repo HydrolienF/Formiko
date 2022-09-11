@@ -188,7 +188,7 @@ public class Main {
   public static FFrame getF(){ try {return ((ViewGUI2d)view).getF();} catch (Exception e) {return null;}}
   public static Options getOp(){if(op!=null){return op;}else{if(tempOp==null){tempOp = Options.newDefaultOptions();} return tempOp;}}
   public static FOptions getFop(){if(fop!=null){return fop;}else{if(tempFop==null){tempFop = new FOptions();} return tempFop;}}
-  public static void saveOp(boolean threaded){if(op!=null){op.saveOptions(threaded);}}
+  public static void saveOp(boolean threaded){if(fop!=null){fop.saveOptions(threaded);}}
   public static Chrono getCh(){ return ch;}
   public static int getKey(String clé){ return key.get(clé); }
   public static Partie getPartie(){ return pa;}
@@ -252,11 +252,11 @@ public class Main {
   // public static int getbuttonSizeAction(){return getOp().getbuttonSizeAction();}
   // public static int getbuttonSizeTX(){return getOp().getbuttonSizeTX();}
   public static int getMaxMessageDisplay(){ return getOp().getMaxMessageDisplay();}
-  public static boolean getDrawGrid(){ return getOp().getDrawGrid();}
-  public static boolean getOrientedObjectOnMap(){ return getOp().getOrientedObjectOnMap();}
-  public static boolean getForceQuit(){ return getOp().getForceQuit();}
+  public static boolean getDrawGrid(){ return getFop().getBoolean("drawGrid");}
+  // public static boolean getOrientedObjectOnMap(){ return getOp().getOrientedObjectOnMap();}
+  // public static boolean getForceQuit(){ return getOp().getForceQuit();}
   public static byte getBorderButtonSize(){ return getOp().getBorderButtonSize();}
-  public static boolean getDrawRelationsIcons(){return getOp().getDrawRelationsIcons();}
+  // public static boolean getDrawRelationsIcons(){return getFop().getBoolean("drawRelationsIcons");}
   public static Font getFont1(){ return getOp().getFont1();}
   public static Font getFont1(double d){ return getOp().getFont1(d);}
   public static void setFont1(Font f){ getOp().setFont1(f);}
@@ -264,7 +264,7 @@ public class Main {
   public static void setFont2(Font f){ getOp().setFont2(f);}
   public static int getFontSizeText(){ return getOp().getFontSizeText();}
   public static int getFontSizeTitle(){ return getOp().getFontSizeTitle();}
-  public static boolean getFullscreen(){ return getOp().getFullscreen();}
+  // public static boolean getFullscreen(){ return getOp().getFullscreen();}
   public static boolean getLoadingDuringMenus(){ return getOp().getLoadingDuringMenus();}
   public static boolean getKeepFilesRotated(){ return getOp().getKeepFilesRotated();}
   public static int getSizeOfMapLines(){return getOp().getSizeOfMapLines();}

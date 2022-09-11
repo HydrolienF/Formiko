@@ -100,7 +100,7 @@ public class FFrame extends JFrame {
   public void quit(){
     try {
       boolean needToClose=true;
-      if (!Main.getForceQuit()){
+      if (!Main.getFop().getBoolean("forceQuit")){
         CheckFunction cf = new CheckFunction(){
           /**
           *{@summary Update Options value if user have enable checkbox.}<br>
@@ -108,7 +108,7 @@ public class FFrame extends JFrame {
           */
           @Override
           protected void exec(){
-            Main.getOp().setForceQuit(true);
+            Main.getFop().set("forceQuit",true);
             Main.getOp().saveOptions();
           }
         };
@@ -130,7 +130,7 @@ public class FFrame extends JFrame {
   *@lastEditedVersion 2.7
   */
   public void endIni(){
-    setResizable(Main.getOp().getFullscreen());
+    setResizable(Main.getFop().getBoolean("fullscreen"));
     setVisible(true);
     toFront();
   }

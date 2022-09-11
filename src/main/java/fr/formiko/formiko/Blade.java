@@ -66,7 +66,7 @@ public abstract class Blade extends Point implements Serializable {
   *@lastEditedVersion 2.16
   */
   public void draw(Graphics g, int xOffset, int yOffset){
-    if(!Main.getOp().getDrawBlades()){return;}
+    if(!Main.getFop().getBoolean("drawBlades")){return;}
     Graphics2D g2 = (Graphics2D) g;
     g2.setStroke(new BasicStroke(math.max(getThikness()*Main.getData().getTailleDUneSquare()/100,1), BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
     int xT = xOffset+x*Main.getData().getTailleDUneSquare()/100;

@@ -183,7 +183,7 @@ public class FPanelCarte extends FPanel {
       if(debug.getPerformance()){
         // erreur.info("Time for refrech all Map Square: "+(System.currentTimeMillis()-time),0);
       }
-      if (Main.getDrawRelationsIcons() || Main.getOp().getDrawStatesIconsLevel()<4){
+      if (Main.getFop().getBoolean("drawRelationsIcons") || Main.getOp().getDrawStatesIconsLevel()<4){
         if(iconImage!=null){
           drawImage(g, iconImage, 0, 0);
         }
@@ -227,7 +227,7 @@ public class FPanelCarte extends FPanel {
         for (int j=0; j<ySquare; j++) {
           Point point = getPointFromSquare(i,j,false);
           int xT = point.getX(); int yT = point.getY();
-          if(Main.getOp().getDrawBlades()){
+          if(Main.getFop().getBoolean("drawBlades")){
             for (Blade b : gc.getCSquare(i,j).getContent().getGb()) {
               b.draw(gBlade, xT, yT);
             }
@@ -478,7 +478,7 @@ public class FPanelCarte extends FPanel {
       }else{
         int k=0;
         //seeds
-        if(Main.getOp().getDrawSeeds() && (!Main.getOp().getDrawOnlyEatable() || Main.getPlayingJoueur()==null || Main.getPlayingJoueur().getEspece().getGranivore())){
+        if(Main.getFop().getBoolean("drawSeeds") && (!Main.getFop().getBoolean("drawOnlyEatable") || Main.getPlayingJoueur()==null || Main.getPlayingJoueur().getEspece().getGranivore())){
           for (Graine gr : gg) {
             calculerXYTemp(xT,yT,k,c);k++;
             int dir = getDir((ObjetSurCarteAId)gr);
@@ -544,7 +544,7 @@ public class FPanelCarte extends FPanel {
           }
         }
         //draw icons
-        if (Main.getDrawRelationsIcons()){
+        if (Main.getFop().getBoolean("drawRelationsIcons")){
           drawListIcons(gIcon, listIconsRelation, xT, yT, getTailleDUneSquare()-getTailleIcon());
         }
         if (Main.getOp().getDrawStatesIconsLevel()<4) {
@@ -567,13 +567,13 @@ public class FPanelCarte extends FPanel {
       playingAntOrPlayingPlayerAnt=(Fourmi)Main.getPlayingJoueur().getFere().getGc().getFirst();
     }
     if(playingAntOrPlayingPlayerAnt==null){return true;}
-    boolean friendlyInsectPrinted = Main.getOp().getDrawAllyCreatures();
-    boolean neutralInsectPrinted = Main.getOp().getDrawNeutralCreatures();
-    boolean enemyInsectPrinted = Main.getOp().getDrawEnemyCreatures();
-    if(friendlyInsectPrinted && neutralInsectPrinted && enemyInsectPrinted && !Main.getOp().getDrawOnlyEatable()){return true;}
+    boolean friendlyInsectPrinted = Main.getFop().getBoolean("drawAllyCreatures");
+    boolean neutralInsectPrinted = Main.getFop().getBoolean("drawNeutralCreatures");
+    boolean enemyInsectPrinted = Main.getFop().getBoolean("drawEnemyCreatures");
+    if(friendlyInsectPrinted && neutralInsectPrinted && enemyInsectPrinted && !Main.getFop().getBoolean("drawOnlyEatable")){return true;}
     else if(cr.getEstEnnemi(playingAntOrPlayingPlayerAnt) && enemyInsectPrinted){return true;}
     else if(cr.getEstAllié(playingAntOrPlayingPlayerAnt) && friendlyInsectPrinted){return true;}
-    else if(cr.getIsNeutral(playingAntOrPlayingPlayerAnt) && neutralInsectPrinted && (!Main.getOp().getDrawOnlyEatable() || Main.getPlayingJoueur().getEspece().getInsectivore())){return true;}
+    else if(cr.getIsNeutral(playingAntOrPlayingPlayerAnt) && neutralInsectPrinted && (!Main.getFop().getBoolean("drawOnlyEatable") || Main.getPlayingJoueur().getEspece().getInsectivore())){return true;}
     else{return false;}
   }
   /**
@@ -883,7 +883,7 @@ public class FPanelCarte extends FPanel {
   }
 
   public int getDir(ObjetSurCarteAId obj){
-    if (!Main.getOrientedObjectOnMap()){return 0;}// si la direction de l'objet n'est pas prise en compte on cherche dans le tableau 0.
+    if (!Main.getFop().getBoolean("orientedObjectOnMap")){return 0;}// si la direction de l'objet n'est pas prise en compte on cherche dans le tableau 0.
     int x = obj.getDirection();
     if(x==2){return 0;}
     if(x==3){return 1;}
