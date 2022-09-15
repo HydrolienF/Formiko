@@ -209,7 +209,7 @@ public class FPanelMenu extends FPanel {
     for (String s : gs) {
       gs2.add(s.split(",")[1]);
     }
-    int defaultValue = Main.getOp().getLanguage();
+    int defaultValue = Main.getLanguageId();
     ecLanguage = new EtiquetteChoix(defaultValue,g.getM("languageChoice"),gs2);
     ecLanguage.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,(int)(Main.getFop().getInt("fontSizeTitle")*1.2));
     add(ecLanguage);
@@ -224,9 +224,9 @@ public class FPanelMenu extends FPanel {
   */
   public void validatelanguageChoice(){
     int index = ecLanguage.getSelectedIndex();
-    boolean changed = !(Main.getLanguage()==(byte)(index));
+    boolean changed = !(Main.getFop().getInt("language")==(byte)(index));
     if(changed){
-      Main.getOp().setLanguage(index);
+      Main.setLanguage(index);
       Main.iniLangue();
     }
     remove(ecLanguage);

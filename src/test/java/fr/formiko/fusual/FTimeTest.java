@@ -14,7 +14,7 @@ public class FTimeTest extends TestCaseMuet{
   public void testMsToTime(){
     Os.setOs(new Os());
     Main.initialisation();
-    Main.setLanguage(1);
+    Main.getFop().set("language", 1);
     //0
     assertEquals("0ms",Time.msToTime(0));
     //1
@@ -24,7 +24,7 @@ public class FTimeTest extends TestCaseMuet{
     //plein
     assertEquals("11j 13h",Time.msToTime(1000000000));
 
-    Main.setLanguage(2);
+    Main.getFop().set("language", 2);
     System.out.println(chargerLesTraductions.getRep());
     assertEquals("1.001s",Time.msToTime(1001));
     assertEquals("1.1s",Time.msToTime(1100));
@@ -35,7 +35,7 @@ public class FTimeTest extends TestCaseMuet{
 
     assertEquals("11d",Time.msToTime(1000000000,1,true));
 
-    Main.setLanguage(1);
+    Main.getFop().set("language", 1);
     //test avec différent nombre d'unité / dayOn true or false
     assertEquals("277h",Time.msToTime(1000000000,1,false));
     assertEquals("",Time.msToTime(1000000000,0,false));

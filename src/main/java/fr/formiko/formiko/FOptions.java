@@ -112,7 +112,7 @@ public class FOptions extends fr.formiko.usual.Options {
     }
     Double racio = wi/1920.0;// si on a 1920 on change rien. Si c'est moins de pixel on réduit la police et vis versa pour plus.
     //setDefaultProperties
-    set("alerte", true, "debug");
+    set("warning", true, "debug");
     set("error", true, "debug");
     set("gui", false, "debug");
     set("info", true, "debug");
@@ -235,6 +235,23 @@ public class FOptions extends fr.formiko.usual.Options {
       case "dateFormat":{
         Time.setDateFormat(value.toString());
         break;
+      }
+      case "error":{
+        Info.PRINT_ERROR=Boolean.parseBoolean(value.toString());
+        break;
+      }
+      case "warning":{
+        Info.PRINT_WARNING=Boolean.parseBoolean(value.toString());
+        break;
+      }case "info":{
+        Info.PRINT_INFO=Boolean.parseBoolean(value.toString());
+        break;
+      }
+      case "language":{
+        String languageCode=value.toString();
+        if(!languageCode.equals(Locale.getDefault().getLanguage())) {
+          Locale.setDefault(new Locale(languageCode));
+        }
       }
 
     }

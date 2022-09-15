@@ -29,7 +29,7 @@ public class SquareTest extends TestCaseMuet {
     }
     Main.iniOp();
     Main.initialisation();
-    Main.setLanguage(0);
+    Main.getFop().set("language", 0);
     p = new Partie(0,100,new Carte(new GSquare(1,2),0,0,1,false,false),1);
     Main.setPartie(p);
     p.setAppartionInsecte(false);

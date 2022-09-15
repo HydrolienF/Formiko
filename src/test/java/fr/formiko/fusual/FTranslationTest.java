@@ -16,16 +16,16 @@ public class FTranslationTest extends TestCaseMuet {
   }
   @Test
   public void testReplaceTranslation2(){
-    Main.setLanguage(2);
+    Main.getFop().set("language", 2);
     Main.iniLangue();
-    assertTrue(Main.getLanguage()==2);
+    assertTrue(Main.getFop().getInt("language")==2);
     assertEquals("testEn",g.get("test"));
   }
   @Test
   public void testReplaceTranslation(){
-    Main.setLanguage(0);
+    Main.getFop().set("language", 0);
     Main.iniLangue();
-    assertTrue(Main.getLanguage()==0);
+    assertTrue(Main.getFop().getInt("language")==0);
     assertEquals("testEo",g.get("test"));
 
     String s = "une str normale sans spécial char";

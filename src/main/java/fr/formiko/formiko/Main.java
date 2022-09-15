@@ -246,8 +246,9 @@ public class Main {
   public static double getRacioEspaceLibre(){return 900.0/1080.0;}
   public static int getDimXCarte(){return (int)(1920.0*getRacioEspaceLibre());}
   //options
-  public static byte getLanguage(){ return getOp().getLanguage();}
-  public static void setLanguage(int x){ getOp().setLanguage(x);iniLangue();}
+  public static int getLanguageId(){ return chargerLesTraductions.getLanguage(getFop().getString("language"));}
+  public static String getLanguageString(){ return getFop().getString("language");}
+  public static void setLanguage(int x){ getFop().set("language", chargerLesTraductions.getLanguage((byte)x));iniLangue();}
   public static Font getFont1(){ return getOp().getFont1();}
   public static Font getFont1(double d){ return getOp().getFont1(d);}
   public static void setFont1(Font f){ getOp().setFont1(f);}
@@ -333,7 +334,7 @@ public class Main {
     startCh();
     tem = new Time(getFolder().getFolderTemporary()+"Time.txt", getFirstGame());
     erreur.info("OS: "+getOs());
-    erreur.info("language: "+chargerLesTraductions.getLanguageAsString(getOp().getLanguage()));
+    erreur.info("language: "+getLanguageString());
     erreur.info(tem.toString());
     endCh("chargementDesDonnéesTemporelles");
     setMessageChargement("chargementDesEspeceDeFourmi");startCh();
@@ -372,9 +373,9 @@ public class Main {
    */
   public static void iniLangue(){
     startCh();
-    HashMap<String,String> hm = chargerLesTraductions.chargerLesTraductions(getLanguage());
+    HashMap<String,String> hm = chargerLesTraductions.chargerLesTraductions(getLanguageId());
     g.setMap(hm);
-    if(getLanguage()>2){ //language 0,1 & 2 are full translated.
+    if(getLanguageId()>2){ //language 0,1 & 2 are full translated.
       chargerLesTraductions.completMapWithFullTranslatedLanguage();
     }
     endCh("chargementDesLangues");

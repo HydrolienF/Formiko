@@ -110,21 +110,21 @@ public class Options implements Serializable {
     return op;
   }
   // GET SET -------------------------------------------------------------------
-  public byte getLanguage(){return game_language;}
-  /**
-  *{@summary Set language of Options &#38; Locale.}
-  *@lastEditedVersion 2.19
-  */
-  public void setLanguage(byte x){
-    game_language=x;
-    String languageCode = chargerLesTraductions.getLanguage(x, Main.getFirstGame());
-    if(x>-1 && !languageCode.equals(Locale.getDefault().getLanguage())) {
-      Locale.setDefault(new Locale(languageCode));
-    }
-  }
-  public void setLanguage(int x){setLanguage(str.iToBy(x));}
+  // public byte getLanguage(){return game_language;}
+  // /**
+  // *{@summary Set language of Options &#38; Locale.}
+  // *@lastEditedVersion 2.19
+  // */
+  // public void setLanguage(byte x){
+  //   game_language=x;
+  //   String languageCode = chargerLesTraductions.getLanguage(x, Main.getFirstGame());
+  //   if(x>-1 && !languageCode.equals(Locale.getDefault().getLanguage())) {
+  //     Locale.setDefault(new Locale(languageCode));
+  //   }
+  // }
+  // public void setLanguage(int x){setLanguage(str.iToBy(x));}
   public Font getFont1(){ return font1;}
-  public Font getFont1(Double d){Font fTemp = new Font(getFontText(),Font.PLAIN,(int)(Main.getFop().getInt("fontSizeText")*d)); return fTemp;}
+  public Font getFont1(Double d){Font fTemp = new Font(Main.getFop().getString("fontText"),Font.PLAIN,(int)(Main.getFop().getInt("fontSizeText")*d)); return fTemp;}
   public void setFont1(Font f){font1=f;}
   public Font getFont2(){return font2;}
   /**
@@ -141,17 +141,6 @@ public class Options implements Serializable {
     return getFont2();
   }
   public void setFont2(Font f){font2=f;}
-  public String getFontText(){ return gui_global_fontText;}
-  public void setFontText(String s){gui_global_fontText=s;}
-  public String getFontTitle(){ return gui_global_fontTitle;}
-  public void setFontTitle(String s){gui_global_fontTitle=s;}
-
-  public boolean getError(){return Info.PRINT_ERROR;}
-  public void setError(boolean b){Info.PRINT_ERROR=b;}
-  public boolean getWarning(){return Info.PRINT_WARNING;}
-  public void setWarning(boolean b){Info.PRINT_WARNING=b;}
-  public boolean getInfo(){return Info.PRINT_INFO;}
-  public void setInfo(boolean b){Info.PRINT_INFO=b;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Initialize Options.}<br>
@@ -331,21 +320,21 @@ public class Options implements Serializable {
   *@lastEditedVersion 2.7
   */
   private void propertiesToOptions(){
-    try {
-      setLanguage((byte)str.sToLThrows(properties.getProperty("game_language")));
-    }catch (Exception e) {
-      if(Main.getFolder()==null){return;}
-      try {
-        setLanguage(str.iToBy(chargerLesTraductions.getLanguage(properties.getProperty("game_language"))));
-      }catch (Exception e2) {
-        erreur.alerte("game_language can't be load from properties");
-        setLanguage(2);
-      }
-    }
-    setWarning(str.sToB(properties.getProperty("debug_alerte")));
-    setError(str.sToB(properties.getProperty("debug_error")));
+    // try {
+    //   setLanguage((byte)str.sToLThrows(properties.getProperty("game_language")));
+    // }catch (Exception e) {
+    //   if(Main.getFolder()==null){return;}
+    //   try {
+    //     setLanguage(str.iToBy(chargerLesTraductions.getLanguage(properties.getProperty("game_language"))));
+    //   }catch (Exception e2) {
+    //     erreur.alerte("game_language can't be load from properties");
+    //     setLanguage(2);
+    //   }
+    // }
+    // setWarning(str.sToB(properties.getProperty("debug_alerte")));
+    // setError(str.sToB(properties.getProperty("debug_error")));
+    // setInfo(str.sToB(properties.getProperty("debug_info")));
     debug_gui=str.sToB(properties.getProperty("debug_gui"));
-    setInfo(str.sToB(properties.getProperty("debug_info")));
     debug_message=str.sToB(properties.getProperty("debug_message"));
     debug_paintHitBox=str.sToB(properties.getProperty("debug_paintHitBox"));
     debug_performance=str.sToB(properties.getProperty("debug_performance"));
@@ -434,9 +423,9 @@ public class Options implements Serializable {
   */
   private void optionToProperties(){
     properties = new SortedProperties(getDefaultProperties());
-    properties.setProperty("debug_alerte",""+getWarning());
-    properties.setProperty("debug_error",""+getError());
-    properties.setProperty("debug_info",""+getInfo());
+    // properties.setProperty("debug_alerte",""+getWarning());
+    // properties.setProperty("debug_error",""+getError());
+    // properties.setProperty("debug_info",""+getInfo());
     properties.setProperty("debug_gui",""+debug_gui);
     properties.setProperty("debug_message",""+debug_message);
     properties.setProperty("debug_paintHitBox",""+debug_paintHitBox);

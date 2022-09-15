@@ -298,7 +298,7 @@ public class FPanelBouton extends FPanel {
     if(!Main.getFop().getBoolean("drawPlayerMessagePanel")){return;}
     if(getView().getPd()!=null && getView().getPd().isVisible()){return;}
     if(fontPij==null){
-      fontPij = new Font(Main.getOp().getFontText(),Font.PLAIN,(int)(Main.getFop().getInt("fontSizeText")/1.5));
+      fontPij = new Font(Main.getFop().getString("fontText"),Font.PLAIN,(int)(Main.getFop().getInt("fontSizeText")/1.5));
     }
     Joueur playingPlayer = Main.getPlayingJoueur();
     if (playingPlayer==null){ return;}
