@@ -29,7 +29,7 @@ public class SquareTest extends TestCaseMuet {
     }
     Main.iniOp();
     Main.initialisation();
-    Main.getFop().set("language", 0);
+    Main.setLanguage(0);
     p = new Partie(0,100,new Carte(new GSquare(1,2),0,0,1,false,false),1);
     Main.setPartie(p);
     p.setAppartionInsecte(false);
@@ -51,7 +51,7 @@ public class SquareTest extends TestCaseMuet {
       Joueur j = Main.getGj().getFirst();
       j.initialisationSquareNS();
       j.updateSquareSN();
-      assertEquals(0,Main.getOp().getLanguage());
+      assertEquals(0,Main.getLanguageId());
       //show everything
       assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmilière")));
       assertTrue(Main.getGc().getCSquare(0,0).getContent().toString().contains(g.get("fourmi")));

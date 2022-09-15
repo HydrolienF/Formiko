@@ -479,7 +479,7 @@ public class triche {
       j.setPseudo(pseudo);
       if(permanent && Main.getPartie().isSolo()){
         Main.getFop().set("pseudo",pseudo);
-        Main.getOp().saveOptions();
+        Main.saveOp();
       }
     }
   }

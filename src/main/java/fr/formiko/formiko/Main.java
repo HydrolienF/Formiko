@@ -36,10 +36,8 @@ on peu utiliser des balistes html dans les commentaires. La plus utile étant <b
 public class Main {
   //null save var
   /** Use only after iniOp(). */
-  private static Options op;
-  /** Use only before iniOp() to avoid nullPointerException. */
-  private static Options tempOp;
   private static FOptions fop;
+  /** Use only before iniOp() to avoid nullPointerException. */
   private static FOptions tempFop;
   /** Data use by GUI */
   private static Data data=new Data();
@@ -69,7 +67,7 @@ public class Main {
   private static int cptMessageChargement;
   private static MusicPlayer mp;
 
-  private static boolean needToInitialize; //TODO OP use to avoid using op==null
+  private static boolean needToInitialize;
   private static boolean openMenuFirst;
   private static boolean wantToQuit;
   private static boolean launchFromLauncher;
@@ -79,7 +77,7 @@ public class Main {
    * It can have some args to do special thing.<br>
    * -d - set on the debug mode.<br>
    * trad make sur that every language file is 100% translated. It can auto translate some texte if the python file and translation api are on the same folder.<br>
-   * op save the Options.txt file<br>
+   * op save the FOptions.txt file<br>
    * Others args are not fuly usable for now.<br>
    * @param args[] It can contain -d, trad, son, op, test, supprimer
    * @lastEditedVersion 1.39
@@ -134,7 +132,7 @@ public class Main {
         Partie.setScript(null);
         setRetournerAuMenu(false);
         openMenuFirst=true;
-        // op=null;//force la réinitialisation de tout.
+        // fop=null;//force la réinitialisation de tout.
         Images.clearPartielTemporaire();
       }
     }
@@ -145,7 +143,7 @@ public class Main {
    * @lastEditedVersion 1.44
    */
   public static void iniLaunch(){
-    if(op==null){initialisation();}
+    if(fop==null){initialisation();}
     if(Partie.getScript()==null || Partie.getScript().equals("")){
       if(getFirstGame()){Partie.setScript("tuto");}
       else{Partie.setScript("");}
@@ -186,9 +184,9 @@ public class Main {
   public static Joueur getJoueurById(int id){ return getGj().getJoueurById(id);}
   public static Fourmiliere getFourmiliereById(int id){ return getJoueurById(id).getFere();}
   public static FFrame getF(){ try {return ((ViewGUI2d)view).getF();} catch (Exception e) {return null;}}
-  public static Options getOp(){if(op!=null){return op;}else{if(tempOp==null){tempOp = Options.newDefaultOptions();} return tempOp;}}
   public static FOptions getFop(){if(fop!=null){return fop;}else{if(tempFop==null){tempFop = new FOptions();} return tempFop;}}
   public static void saveOp(boolean threaded){if(fop!=null){fop.saveOptions(threaded);}}
+  public static void saveOp(){if(fop!=null){fop.saveOptions();}}
   public static Chrono getCh(){ return ch;}
   public static int getKey(String clé){ return key.get(clé); }
   public static Partie getPartie(){ return pa;}
@@ -249,11 +247,13 @@ public class Main {
   public static int getLanguageId(){ return chargerLesTraductions.getLanguage(getFop().getString("language"));}
   public static String getLanguageString(){ return getFop().getString("language");}
   public static void setLanguage(int x){ getFop().set("language", chargerLesTraductions.getLanguage((byte)x));iniLangue();}
-  public static Font getFont1(){ return getOp().getFont1();}
-  public static Font getFont1(double d){ return getOp().getFont1(d);}
-  public static void setFont1(Font f){ getOp().setFont1(f);}
-  public static Font getFont2(){ return getOp().getFont2();}
-  public static void setFont2(Font f){ getOp().setFont2(f);}
+
+  public static Font getFontText(){ return getFop().getFontText();}
+  public static Font getFontText(double d){ return getFop().getFontText(d);}
+  public static void setFontText(Font f){ getFop().setFontText(f);}
+  public static Font getFontTitle(){ return getFop().getFontTitle();}
+  public static void setFontTitle(Font f){ getFop().setFontTitle(f);}
+
   //partie
   public static GInsecte getGi(){return pa.getGi();}
   public static GJoueur getListeJoueur(){return pa.getGj();}
@@ -315,7 +315,7 @@ public class Main {
     setMessageChargement("chargementDesOptions");startCh();
     // chargerLesTraductions.setRep(null); //TOFIX some test fail without it
     chargerLesTraductions.iniTLangue();
-    if(op==null){iniOp();}
+    if(fop==null){iniOp();}
     if(!debug.getMessage()){//si elle n'ont pas été activé par "-d"
       debug.setMessage(getFop().getBoolean("message"));
     }
@@ -361,9 +361,6 @@ public class Main {
    */
   public static void iniOp(){
     fop = new FOptions();
-    op = new Options();
-    getOp().iniOptions();
-    tempOp=null;
     tempFop=null;
   }
   /**

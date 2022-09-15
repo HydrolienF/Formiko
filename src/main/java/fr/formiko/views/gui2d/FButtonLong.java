@@ -24,7 +24,7 @@ public class FButtonLong extends FButton implements MouseListener {
   */
   public FButtonLong(String nameTemp, FPanel p, int action){
     super(nameTemp,p,action);
-    setFont(Main.getOp().getFontTitle(nameTemp));
+    setFont(Main.getFop().getFontTitle(nameTemp));
   }
   // GET SET -------------------------------------------------------------------
   /**
@@ -34,7 +34,7 @@ public class FButtonLong extends FButton implements MouseListener {
   @Override
   public void setNom(String s){
     super.setNom(s);
-    setFont(Main.getOp().getFontTitle(s));
+    setFont(Main.getFop().getFontTitle(s));
   }
   // FUNCTIONS -----------------------------------------------------------------
 }

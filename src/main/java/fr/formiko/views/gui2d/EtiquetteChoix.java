@@ -27,7 +27,7 @@ public class EtiquetteChoix extends FPanel{
     choixXDesc.setFondTransparent();
 
     choixX = FComboBox.getFComboBox(gs,x);
-    choixX.setFont(Main.getFont1(0.9));
+    choixX.setFont(Main.getFontText(0.9));
     add(choixX);add(choixXDesc);
     int wi2 = Main.getTailleElementGraphiqueX(960);
     int taille = FLabel.getDimY();

@@ -26,6 +26,9 @@ import java.util.Properties;
 */
 public class FOptions extends fr.formiko.usual.Options {
   private String FILE_NAME="FOptions.md";
+
+  private Font fontText;
+  private Font fontTitle;
   // CONSTRUCTORS --------------------------------------------------------------
   public FOptions(){
     iniProperties();
@@ -39,6 +42,24 @@ public class FOptions extends fr.formiko.usual.Options {
     loadFromFile(Main.getFolder().getFolderMain()+FILE_NAME);
   }
   // GET SET -------------------------------------------------------------------
+  public Font getFontText(){ return fontText;}
+  public Font getFontText(Double d){Font fTemp = new Font(Main.getFop().getString("fontText"),Font.PLAIN,(int)(Main.getFop().getInt("fontSizeText")*d)); return fTemp;}
+  public void setFontText(Font f){fontText=f;}
+  public Font getFontTitle(){return fontTitle;}
+  /**
+  *{@summary Return a font that can display given String.}
+  *@param stringToDisplay String to test displayability.
+  *@lastEditedVersion 2.11
+  */
+  public Font getFontTitle(String stringToDisplay){
+    if(getFontTitle()==null){return getFontText();}
+    if(stringToDisplay==null){return getFontTitle();}
+    for (char c : stringToDisplay.toCharArray()) {
+      if(!getFontTitle().canDisplay(c)){return getFontText().deriveFont((float)Main.getFop().getInt("fontSizeTitle"));}
+    }
+    return getFontTitle();
+  }
+  public void setFontTitle(Font f){fontTitle=f;}
   // FUNCTIONS -----------------------------------------------------------------
   /**
   *{@summary Return colored &#38; sorted properties.}<br>
@@ -248,7 +269,14 @@ public class FOptions extends fr.formiko.usual.Options {
         break;
       }
       case "language":{
-        String languageCode=value.toString();
+        String languageCode;
+        try {
+          int x=Integer.parseInt(value.toString());
+          languageCode = chargerLesTraductions.getLanguage(x);
+        }catch (NumberFormatException e) {
+          languageCode=value.toString();
+        }
+        value=languageCode;
         if(!languageCode.equals(Locale.getDefault().getLanguage())) {
           Locale.setDefault(new Locale(languageCode));
         }

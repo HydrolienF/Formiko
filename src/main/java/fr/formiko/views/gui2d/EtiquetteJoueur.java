@@ -46,7 +46,7 @@ public class EtiquetteJoueur extends FPanel{
     if(ia){combo.setSelectedIndex(1);}
     ItemState is = new ItemState();
     combo.addItemListener(is);
-    combo.setFont(Main.getFont1(0.9));
+    combo.setFont(Main.getFontText(0.9));
     is.setEj(this);
     add(combo);
     borderSize=3;

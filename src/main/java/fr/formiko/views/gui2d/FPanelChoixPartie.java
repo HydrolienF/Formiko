@@ -42,7 +42,7 @@ public class FPanelChoixPartie extends FPanelLanceurPartie {
   public void paintComponent(Graphics g){
     ePartie.setBounds(getWidth()/5,getHeight()/5,getWidth()*3/5,(int)(Main.getFop().getInt("fontSizeTitle")*1.2));
     // ePartie.setTaille(getWidth()*3/5,(int)(Main.getFop().getInt("fontSizeTitle")*1.2));
-    //ePartie.setFontText(Main.getFont2());
+    //ePartie.setFontText(Main.getFontTitle());
     super.paintComponent(g);
   }
   public Partie getPartie(){

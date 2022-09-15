@@ -94,7 +94,7 @@ public class FLabel extends JLabel {
   public void setFontText(Font fon){ setFont(fon);}
   // @Override
   // public void setFont(Font fon){super.setFont(fon);}
-  public void setFontText(){ setFontText(Main.getFont1());}
+  public void setFontText(){ setFontText(Main.getFontText());}
   public void setBounds(int a, int b, int c){this.setBounds(a,b,c,getDimY());}
   public static int getDimY(){ return (int)(Main.getFop().getInt("fontSizeText")*1.2);}
   public void setCentered(){setHorizontalAlignment(SwingConstants.CENTER);}

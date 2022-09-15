@@ -169,7 +169,7 @@ public class launchOptions {
         Os.setOs(new Os());
         Main.setFolder(new FFolder(Main.getView()));
         Main.iniOp();
-        Main.getOp().saveOptions();
+        Main.saveOp();
         break;
       }
       case "fop":{

@@ -51,7 +51,7 @@ public class FTextField extends JTextField {
   //setText et getText
   public void setBounds(int a, int b, int c){setBounds(a,b,c,FLabel.getDimY());}
   public void setFontText(Font fon){ this.setFont(fon);}
-  public void setFontText(){ setFontText(Main.getFont1());}
+  public void setFontText(){ setFontText(Main.getFontText());}
   public void setFondTransparent(){setBackground(new Color(0,0,0,0));}
   // FUNCTIONS -----------------------------------------------------------------
   /**

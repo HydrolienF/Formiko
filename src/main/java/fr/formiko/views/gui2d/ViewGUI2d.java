@@ -907,9 +907,9 @@ public class ViewGUI2d implements View {
   *@lastEditedVersion 2.2
   */
   private void iniFont(){
-    // UIManager.getLookAndFeelDefaults().put("defaultFont", Main.getFont1());
+    // UIManager.getLookAndFeelDefaults().put("defaultFont", Main.getFontText());
     // public static void setUIFont (javax.swing.plaf.FontUIResource f){
-    Font f = Main.getOp().getFont1();
+    Font f = Main.getFontText();
     java.util.Enumeration<Object> keys = UIManager.getDefaults().keys();
     while (keys.hasMoreElements()) {
       Object key = keys.nextElement();

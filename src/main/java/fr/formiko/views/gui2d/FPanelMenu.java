@@ -233,7 +233,7 @@ public class FPanelMenu extends FPanel {
     remove(validatelanguage);
     ecLanguage=null; validatelanguage=null;
     if(changed){
-      Main.getOp().saveOptions();
+      Main.saveOp();
     }
     // TODO play launching video
     getView().setLaunchFromPm(true);

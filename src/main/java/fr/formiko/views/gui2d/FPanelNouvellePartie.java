@@ -68,7 +68,7 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
     //nom de la carte parmi ceux proposer.
     GString nomDesCartes = mapList();//on charge les clé dans gsClé en meme temps.
     choixCarte = FComboBox.getFComboBox(nomDesCartes);
-    choixCarte.setFont(Main.getFont1(0.9));
+    choixCarte.setFont(Main.getFontText(0.9));
     choixCarte.setSelectedItem(g.get("miniWorld")); // 2 = miniWorld pour l'instant
     add(choixCarte);
     //nomCarte = nomDesCartes.getFirst();
@@ -94,12 +94,12 @@ public class FPanelNouvellePartie extends FPanelLanceurPartie {
     add(pgejContainer);
     jtf = new JFormattedTextField(NumberFormat.getIntegerInstance());
     jtf.setText("100");
-    jtf.setFont(Main.getFont1(0.9));
+    jtf.setFont(Main.getFontText(0.9));
     add(jtf);
     casesNuageuses = new FCheckBox();
     casesSombres = new FCheckBox();
-    // casesNuageuses.setFont(Main.getFont1());
-    // casesSombres.setFont(Main.getFont1());
+    // casesNuageuses.setFont(Main.getFontText());
+    // casesSombres.setFont(Main.getFontText());
     casesNuageuses.setText(g.getM("casesNuageuses"));
     casesSombres.setText(g.getM("casesSombres"));
     casesNuageuses.setSelected(true);

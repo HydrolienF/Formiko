@@ -109,7 +109,7 @@ public class FFrame extends JFrame {
           @Override
           protected void exec(){
             Main.getFop().set("forceQuit",true);
-            Main.getOp().saveOptions();
+            Main.saveOp();
           }
         };
         cf.setText(g.get("dontAskAgain"));

@@ -16,16 +16,16 @@ public class FTranslationTest extends TestCaseMuet {
   }
   @Test
   public void testReplaceTranslation2(){
-    Main.getFop().set("language", 2);
+    Main.setLanguage(2);
     Main.iniLangue();
-    assertTrue(Main.getFop().getInt("language")==2);
+    assertTrue(Main.getLanguageId()==2);
     assertEquals("testEn",g.get("test"));
   }
   @Test
   public void testReplaceTranslation(){
-    Main.getFop().set("language", 0);
+    Main.setLanguage(0);
     Main.iniLangue();
-    assertTrue(Main.getFop().getInt("language")==0);
+    assertTrue(Main.getLanguageId()==0);
     assertEquals("testEo",g.get("test"));
 
     String s = "une str normale sans spécial char";
@@ -38,7 +38,7 @@ public class FTranslationTest extends TestCaseMuet {
     assertTrue(!s.equals(FTranslation.replaceTranslation(s)));
     s = "€{test}";
     assertEquals("testEo",FTranslation.replaceTranslation(s));
-    Main.getOp().setLanguage(2);
+    Main.getFop().set("language", 2);
     Main.iniLangue();
     assertEquals("testEn",FTranslation.replaceTranslation(s));
     s = "zavs[6+=§]€{bonvenon}~~^^ماò返€{test}€{fourmi}";

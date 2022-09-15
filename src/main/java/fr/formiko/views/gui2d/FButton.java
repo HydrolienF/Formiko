@@ -90,7 +90,7 @@ public class FButton extends JButton implements MouseListener {
     // if (p!=null) {
     //   this.addActionListener(p.getBListener()); // permet a p d'écouter le bouton.
     // }
-    // this.setFont(Main.getFont1());
+    // this.setFont(Main.getFontText());
     setForeground(Color.BLACK);
     setContentAreaFilled(false);
     setFocusPainted(false); //paint swap to next button when do tab disable.
@@ -203,7 +203,7 @@ public class FButton extends JButton implements MouseListener {
   public void paintComponent(Graphics g){
     Graphics2D g2d = (Graphics2D)g;
     if(withBackground){
-      //FontMetrics fm = new FontMetrics(Main.getFont1());//new FontRenderContext(null, false, false);
+      //FontMetrics fm = new FontMetrics(Main.getFontText());//new FontRenderContext(null, false, false);
       //Rectangle2D rect = fm.getStringBounds(nom,g);
       //new FontRenderContext(null, false, false)
       //le fond

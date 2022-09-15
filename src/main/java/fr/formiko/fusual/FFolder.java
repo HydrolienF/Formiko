@@ -40,7 +40,7 @@ public class FFolder extends Folder {
         @Override
         protected void exec(){
           Main.getFop().set("lastCheckedVersion", getLastStableVersion());
-          Main.getOp().saveOptions();
+          Main.saveOp();
         }
       };
       cf.setText(g.get("IgnoreThisVersion"));

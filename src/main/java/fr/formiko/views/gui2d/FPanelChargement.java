@@ -72,7 +72,7 @@ public class FPanelChargement extends FPanel {
   public void addBt(){
     setLancer(false);
     bt = new FButton(g.getM("lancerLeJeu"), FPanel.getView().getPj(), 111);
-    // bt.setFont(Main.getFont2());
+    // bt.setFont(Main.getFontTitle());
     add(bt);
     int xx = Main.getF().getWidth()/5;
     int yy = Main.getF().getHeight()/5;
@@ -123,7 +123,7 @@ public class FPanelChargement extends FPanel {
       @Override
       protected void exec(){
         Main.getFop().set("whaitBeforeLaunchGame",true);
-        Main.getOp().saveOptions();
+        Main.saveOp();
       }
     };
     cf.setText(g.get("dontAskAgain"));

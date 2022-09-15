@@ -33,7 +33,7 @@ public class FPanelTInt extends FPanelTX{
       Dimension dim = new Dimension(tailleBouton,tailleBouton);
       for (int i=0;i<nbrDeSquare ;i++ ) {
         tB[i]=new FButton(ti[i]+"", getView().getPp().getPj(),40+i);
-        tB[i].setFont(Main.getFont2());
+        tB[i].setFont(Main.getFontTitle());
       }
       for (FButton b :tB){b.setPreferredSize(dim);}
       GridBagConstraints gbc = new GridBagConstraints();
