@@ -10,6 +10,7 @@ comment %    cl-pu-po-pr-sh-ln   name of the file
 31%  (5/16)  1  14 0  1  12 154  formiko\CSquare.java
 100% (4/4)   1  2  0  1  1  171  formiko\DiscordIntegration.java
 16%  (1/6)   1  5  0  0  18 165  formiko\Espece.java
+100% (13/13) 1  6  0  6  8  305  formiko\FOptions.java
 100% (23/23) 1  22 0  0  34 409  formiko\Fourmi.java
 56%  (9/16)  1  15 0  0  27 249  formiko\Fourmiliere.java
 100% (4/4)   1  3  0  0  0  45   formiko\GBlade.java
@@ -62,13 +63,12 @@ comment %    cl-pu-po-pr-sh-ln   name of the file
 null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 100% (5/5)   1  4  0  0  0  45   formiko\interfaces\TrophallaxieNull.java
 20%  (4/20)  1  19 0  0  25 211  formiko\Joueur.java
-100% (13/13) 1  9  0  3  0  513  formiko\launchOptions.java
-100% (16/16) 1  15 0  0  113 534  formiko\Main.java
+100% (13/13) 1  9  0  3  0  518  formiko\launchOptions.java
+100% (16/16) 1  15 0  0  98 520  formiko\Main.java
 100% (8/8)   1  7  0  0  2  144  formiko\MapPath.java
 7%   (1/13)  1  12 0  0  1  162  formiko\Message.java
 100% (5/5)   1  4  0  0  6  64   formiko\ObjetAId.java
 0%   (0/4)   1  3  0  0  7  42   formiko\ObjetSurCarteAId.java
-100% (17/17) 1  8  0  8  120 633  formiko\Options.java
 50%  (10/20) 1  16 0  3  51 439  formiko\Partie.java
 0%   (0/1)   1  0  0  0  0  25   formiko\Personalite.java
 23%  (5/21)  1  19 0  1  11 152  formiko\Pheromone.java
@@ -83,7 +83,7 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 100% (2/2)   1  1  0  0  1  20   fusual\FTime.java
 100% (1/1)   1  0  0  0  1  13   fusual\FTranslation.java
 100% (12/12) 1  9  0  2  3  283  views\cli\CLIMap.java
-100% (10/10) 2  6  0  2  3  281  views\gui2d\action.java
+100% (10/10) 2  6  0  2  3  282  views\gui2d\action.java
 100% (33/33) 2  26 0  5  35 861  views\gui2d\Data.java
 100% (2/2)   1  1  0  0  1  21   views\gui2d\DescMouseMotionListener.java
 0%   (0/6)   1  5  0  0  6  73   views\gui2d\EtiquetteChoix.java
@@ -140,7 +140,7 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 0%   (0/3)   1  2  0  0  0  59   views\gui2d\FPanelTBoolean.java
 0%   (0/3)   1  2  0  0  2  70   views\gui2d\FPanelTInt.java
 0%   (0/2)   1  1  0  0  3  23   views\gui2d\FPanelTX.java
-16%  (1/6)   1  5  0  0  2  92   views\gui2d\FPanelZoom.java
+16%  (1/6)   1  5  0  0  2  88   views\gui2d\FPanelZoom.java
 100% (3/3)   1  2  0  0  0  49   views\gui2d\FProgressBar.java
 100% (2/2)   1  1  0  0  0  25   views\gui2d\FSlider.java
 100% (5/5)   1  3  0  1  1  114  views\gui2d\FTextArea.java
@@ -155,4 +155,4 @@ null%0  0  0  0  0  0    formiko\interfaces\TrophallaxieGranivore.java
 100% (1/1)   1  0  0  0  1  228  views\View.java
 100% (35/35) 1  25 0  9  2  761  views\ViewCLI.java
 100% (16/16) 1  15 0  0  8  180  views\ViewNull.java
-80,1% (1113/1388)  185 1020 17 166 973  23895 global
+80,1% (1109/1384)  185 1018 17 164 846  23555 global

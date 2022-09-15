@@ -30,6 +30,10 @@ public class FOptions extends fr.formiko.usual.Options {
   private Font fontText;
   private Font fontTitle;
   // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Main constructor that initialize all what class need.}<br>
+  *@lastEditedVersion 2.30
+  */
   public FOptions(){
     iniProperties();
   }
