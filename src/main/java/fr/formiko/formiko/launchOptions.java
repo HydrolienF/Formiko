@@ -174,7 +174,10 @@ public class launchOptions {
       }
       case "fop":{
         Main.initialisation();
-        erreur.println(new FOptions());
+        FOptions fop = new FOptions();
+        erreur.println(fop);
+        erreur.println("sub cat game:");
+        erreur.println(fop.getListKeyFromCat("game"));
         break;
       }
       case "supprimer":{

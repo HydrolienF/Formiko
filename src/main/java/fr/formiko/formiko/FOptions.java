@@ -17,6 +17,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Locale;
 import java.util.Properties;
+import java.util.List;
+import java.util.LinkedList;
 
 /**
 *{@summary Options class.}<br>
@@ -76,7 +78,7 @@ public class FOptions extends fr.formiko.usual.Options {
       if(!isParameter(key)){
         String cat = getString(key+".cat");
         String mainCat=cat.split("_")[0];
-        if(!cat.equals("") && !Boolean.parseBoolean(getString(key+".hide"))){
+        if(!cat.equals("") && !isHide(key)){
           propertiesList+=getCatColor(mainCat);
         }
         propertiesList+=key+"="+getString(key);
@@ -310,5 +312,31 @@ public class FOptions extends fr.formiko.usual.Options {
       String key=okey.toString();
       set(key, getString(key));
     }
+  }
+
+  /**
+  *{@summary Return the list of all visible &#38; non parameter key for this cat.}<br>
+  *@param cat name of the category
+  *@lastEditedVersion 2.30
+  */
+  public List<String> getListKeyFromCat(String cat){
+    LinkedList<String> list = new LinkedList<String>();
+    if(cat==null){return list;}
+    for (Object okey : getProperties().keySet()) {
+      String key=okey.toString();
+      //not a parameter, not hide & in cat :
+      if(!isParameter(key) && !isHide(key) && cat.equals(getString(key+".cat"))){
+        list.add(key);
+      }
+    }
+    return list;
+  }
+  /**
+  *{@summary Return true if this key is hide.}<br>
+  *@param key name of the option
+  *@lastEditedVersion 2.30
+  */
+  public boolean isHide(String key){
+    return Boolean.parseBoolean(getString(key+".hide"));
   }
 }
