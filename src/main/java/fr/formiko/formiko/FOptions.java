@@ -112,17 +112,6 @@ public class FOptions extends fr.formiko.usual.Options {
     };
   }
   /**
-  *{@summary Return true if key is a parameter of an other key.}<br>
-  *@lastEditedVersion 2.30
-  */
-  private boolean isParameter(String key){
-    return (key.endsWith(".max")
-        || key.endsWith(".min")
-        || key.endsWith(".maxlen")
-        || key.endsWith(".minlen")
-        || key.endsWith(".cat"));
-  }
-  /**
   *{@summary Initialize properties with default values.}<br>
   *@lastEditedVersion 2.30
   */
@@ -149,8 +138,8 @@ public class FOptions extends fr.formiko.usual.Options {
     set("language", Locale.getDefault().getLanguage(), "game");
     set("pseudo", "", "game");
     set("whaitBeforeLaunchGame", true, "game");
-    set("discordRP", false, "game");
-    set("lastCheckedVersion", "0.0.0", "game", 5, null);
+    set("discordRP", false, "game", true);
+    set("lastCheckedVersion", "0.0.0", "game", true);
     set("animationEnable", true, "gui_global");
     set("dateFormat", "yyyy/MM/dd HH:mm:ss", "gui_global");
     set("borderButtonSize", 4, "gui_global", 0, null);
@@ -168,12 +157,12 @@ public class FOptions extends fr.formiko.usual.Options {
       fs=false;
     }
     set("fullscreen", fs, "gui_global");
-    set("buttonSizeTX", (int)(80*racio), "gui_hide", 0, null);
-    set("buttonSizeZoom", (int)(80*racio), "gui_hide", 0, null);
-    set("keepFilesRotated", true, "gui_hide");
-    set("loadingDuringMenus", true, "gui_hide");
-    set("modeFPS", true, "gui_hide");
-    set("positionSquare", 0, "gui_hide", 0, null);
+    set("buttonSizeTX", (int)(80*racio), "gui_hide", 0, null, true);
+    set("buttonSizeZoom", (int)(80*racio), "gui_hide", 0, null, true);
+    set("keepFilesRotated", true, "gui_hide", true);
+    set("loadingDuringMenus", true, "gui_hide", true);
+    set("modeFPS", true, "gui_hide", true);
+    set("positionSquare", 0, "gui_hide", 0, null, true);
     set("drawAllyCreatures", true, "gui_partie");
     set("drawEnemyCreatures", true, "gui_partie");
     set("drawNeutralCreatures", true, "gui_partie");
@@ -187,12 +176,12 @@ public class FOptions extends fr.formiko.usual.Options {
     set("realisticSize", 30, "gui_partie", 0, 100);
     set("sizeOfMapLines", 2, "gui_partie", 0, 10);
     set("followAntAtStartTurn", true, "gui_partie");
-    set("antColorLevel", 1, "gui_pgo", 0, 2);
-    set("drawAllAnthillColor", false, "gui_pgo");
-    set("drawGrid", true, "gui_pgo");
-    set("drawPlayerMessagePanel", true, "gui_pgo");
-    set("drawRelationsIcons", true, "gui_pgo");
-    set("drawStatesIconsLevel", 1, "gui_pgo", 0, 4);
+    set("antColorLevel", 1, "gui_pgo", 0, 2, true);
+    set("drawAllAnthillColor", false, "gui_pgo", true);
+    set("drawGrid", true, "gui_pgo", true);
+    set("drawPlayerMessagePanel", true, "gui_pgo", true);
+    set("drawRelationsIcons", true, "gui_pgo", true);
+    set("drawStatesIconsLevel", 1, "gui_pgo", 0, 4, true);
     set("autoCleaning", true, "partie");
     set("music", true, "sounds");
     set("musicVolume", 50, "sounds", 0, 100);
@@ -227,6 +216,7 @@ public class FOptions extends fr.formiko.usual.Options {
 
   /**
   *{@summary Save properties of the Options.}<br>
+  *It save only editable properties.
   *@lastEditedVersion 2.30
   */
   private void saveProperties(){
