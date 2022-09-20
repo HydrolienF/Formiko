@@ -76,7 +76,7 @@ public class FOptions extends fr.formiko.usual.Options {
       if(!isParameter(key)){
         String cat = getString(key+".cat");
         String mainCat=cat.split("_")[0];
-        if(!cat.equals("")){
+        if(!cat.equals("") && !Boolean.parseBoolean(getString(key+".hide"))){
           propertiesList+=getCatColor(mainCat);
         }
         propertiesList+=key+"="+getString(key);
@@ -223,13 +223,7 @@ public class FOptions extends fr.formiko.usual.Options {
     try {
       Main.startCh();
       OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+FILE_NAME));
-      Properties toSave = new Properties();
-      for (Object okey : getProperties().keySet()) {
-        String key=okey.toString();
-        if(!isParameter(key)){
-          toSave.put(key, getString(key));
-        }
-      }
+      Properties toSave = getEditableProperties();
       Main.endCh("filterProperties");
       Main.startCh();
       toSave.store(os,"**Options file**\nEvery value can be edit here but variable have specific type. For example instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that should be in [0,100]. Most value should be out of interval save. But you may need to reset Options to default value by deleting this file if something goes wrong.");
@@ -237,6 +231,20 @@ public class FOptions extends fr.formiko.usual.Options {
     }catch (IOException e) {
       erreur.erreur("Unable to save options","Default option will be choose");
     }
+  }
+  /**
+  *{@summary Return the property that can be edited.}<br>
+  *@lastEditedVersion 2.30
+  */
+  private Properties getEditableProperties(){
+    Properties editableProperties = new Properties();
+    for (Object okey : getProperties().keySet()) {
+      String key=okey.toString();
+      if(!isParameter(key)){
+        editableProperties.put(key, getString(key));
+      }
+    }
+    return editableProperties;
   }
 
   /**
