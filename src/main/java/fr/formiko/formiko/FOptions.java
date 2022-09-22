@@ -19,6 +19,11 @@ import java.util.Locale;
 import java.util.Properties;
 import java.util.List;
 import java.util.LinkedList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.TreeSet;
 
 /**
 *{@summary Options class.}<br>
@@ -27,7 +32,7 @@ import java.util.LinkedList;
 *@lastEditedVersion 2.30
 */
 public class FOptions extends fr.formiko.usual.Options {
-  private String FILE_NAME="FOptions.md";
+  private String FILE_NAME="Options.md";
 
   private Font fontText;
   private Font fontTitle;
@@ -48,10 +53,25 @@ public class FOptions extends fr.formiko.usual.Options {
     loadFromFile(Main.getFolder().getFolderMain()+FILE_NAME);
   }
   // GET SET -------------------------------------------------------------------
-  public Font getFontText(){ return fontText;}
-  public Font getFontText(Double d){Font fTemp = new Font(Main.getFop().getString("fontText"),Font.PLAIN,(int)(Main.getFop().getInt("fontSizeText")*d)); return fTemp;}
+  /**
+  *{@summary Return the font for text.}
+  *It will be set if it haven't been set yet.
+  *@lastEditedVersion 2.30
+  */
+  public Font getFontText(){
+    if(fontText==null){fontText=new Font(getString("fontText"),Font.PLAIN,getInt("fontSizeText"));}
+    return fontText;
+  }
+  public Font getFontText(Double d){Font fTemp = new Font(getString("fontText"),Font.PLAIN,(int)(getInt("fontSizeText")*d)); return fTemp;}
   public void setFontText(Font f){fontText=f;}
-  public Font getFontTitle(){return fontTitle;}
+  /**
+  *{@summary Return the font for title.}
+  *It will be set if it haven't been set yet.
+  *@lastEditedVersion 2.30
+  */
+  public Font getFontTitle(){
+    if(fontTitle==null){fontTitle=new Font(getString("fontTitle"),Font.PLAIN,getInt("fontSizeTitle"));}
+    return fontTitle;}
   /**
   *{@summary Return a font that can display given String.}
   *@param stringToDisplay String to test displayability.
@@ -61,7 +81,7 @@ public class FOptions extends fr.formiko.usual.Options {
     if(getFontTitle()==null){return getFontText();}
     if(stringToDisplay==null){return getFontTitle();}
     for (char c : stringToDisplay.toCharArray()) {
-      if(!getFontTitle().canDisplay(c)){return getFontText().deriveFont((float)Main.getFop().getInt("fontSizeTitle"));}
+      if(!getFontTitle().canDisplay(c)){return getFontText().deriveFont((float)getInt("fontSizeTitle"));}
     }
     return getFontTitle();
   }
@@ -315,7 +335,7 @@ public class FOptions extends fr.formiko.usual.Options {
   }
 
   /**
-  *{@summary Return the list of all visible &#38; non parameter key for this cat.}<br>
+  *{@summary Return the sorted list of all visible &#38; non parameter key for this cat.}<br>
   *@param cat name of the category
   *@lastEditedVersion 2.30
   */
@@ -330,6 +350,21 @@ public class FOptions extends fr.formiko.usual.Options {
       }
     }
     return list;
+  }
+  /**
+  *{@summary Return the sorted list of all cat.}<br>
+  *@lastEditedVersion 2.30
+  */
+  @SuppressWarnings("unchecked") //I know that it is a Set<String>
+  public List<String> getListOfCat(){
+    TreeSet<String> set = new TreeSet<String>();
+    for (Object okey : getProperties().keySet()) {
+      String key=okey.toString();
+      if(key.endsWith(".cat")){
+        set.add(getString(key));
+      }
+    }
+    return new ArrayList(set);
   }
   /**
   *{@summary Return true if this key is hide.}<br>
