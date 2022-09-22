@@ -19,7 +19,7 @@ public class Tab <T>{
     }
     //pour créer un tableau dont on ne connait le type qu'a l'exectution :
     //T[] tr = (T[]) Array.newInstance(t,lentr);
-    //@SuppressWarings("uncheked")
+    //@SuppressWarnings("uncheked")
     T[] tr = (T[]) a[lentr];
     //T tr [] = new T [lentr];
     for (int j=0;j<i; j++){ //copie des x 1a éléments.
