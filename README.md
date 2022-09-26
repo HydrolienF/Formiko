@@ -11,10 +11,12 @@
 [license-shield]: https://img.shields.io/badge/license-custom-49C2E3
 [test-workflow]: https://github.com/HydrolienF/Formiko/blob/master/.github/workflows/test.yml/badge.svg
 [coverage-shield]: https://raw.githubusercontent.com/HydrolienF/Formiko/master/.github/badges/jacoco.svg
+[codeQuality]: https://api.codiga.io/project/34653/score/svg
 [ ![lastStableVersion][] ][download]
 [ ![download][] ][download]
 [ ![coverage-shield][] ][main]
 [ ![doc-shield][] ][doc]
+[ ![codeQuality][] ][download]
 [ ![license-shield][] ][license]
 [ ![discord-shield][] ][discord-invite]
 ![en](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/HydrolienF/Formiko/master/.github/badges/json/enBadges.json)
