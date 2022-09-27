@@ -72,7 +72,8 @@ public class action {
     }else if(ac==2){
       FPanel.getView().menuLoadAGame();
     }else if(ac==3){
-      FPanel.getView().menuOptions();
+      System.out.println("option TODO");
+      // FPanel.getView().menuOptions();
     }else if(ac==4){
       debug.débogage("lancementNouvellePartie");
       FPanel.getView().setLaunchFromPm(true);
@@ -162,7 +163,8 @@ public class action {
       }
       FPanel.getView().getPe().setVisible(false);
     }else if(ac==-12){
-      System.out.println("options");
+      // FPanel.getView().getPe().setVisible(false);
+      FPanel.getView().menuOptions();
     }else if(ac==-13){
       retournerAuMenu();
     }else if(ac==-14){

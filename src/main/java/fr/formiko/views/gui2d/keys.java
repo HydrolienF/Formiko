@@ -68,6 +68,8 @@ public class keys {
         if(FPanel.getView().getActionGameOn()){
           if(FPanel.getView().getPe().getVisible()){
             FPanel.getView().getPe().setVisible(false);
+          // }else if(FPanel.getView().getPop().isVisible()){
+          //     FPanel.getView().getPop().setVisible(false);
           }else{
             FPanel.getView().setMessageDesc("");
             FPanel.getView().getPe().setVisible(true);

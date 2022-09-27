@@ -36,6 +36,7 @@ public class FPanelJeu extends FPanel {
   private FPanelChargement pch;
   private FPanelFinPartie pfp;
   private FPanelEchap pe;
+  private FPanelOptions pop;
   private FPanelSup ps;
   private FPanelSupDialog psd;
   private FPanelDialogue pd;
@@ -54,6 +55,7 @@ public class FPanelJeu extends FPanel {
   public FPanelSup getPs(){return ps;}
   public FPanelSupDialog getPsd(){return psd;}
   public FPanelEchap getPe(){return pe;}
+  public FPanelOptions getPop(){return pop;}
   public FPanelDialogue getPd(){return pd;}
   public FPanelDialogueInf getPdi(){return pdi;}
   public FPanelPanelMove getPmmo(){return pmmo;}
@@ -92,6 +94,11 @@ public class FPanelJeu extends FPanel {
     pe.setBounds(0,0,getWidth(),getHeight());
     add(pe);
   }
+  // public void addPop(){
+  //   pop=new FPanelOptions();
+  //   pop.setBounds(0,0,getWidth(),getHeight());
+  //   add(pop);
+  // }
   public void addPs(){
     ps=new FPanelSup();
     ps.setSize(getWidth(),getHeight());
