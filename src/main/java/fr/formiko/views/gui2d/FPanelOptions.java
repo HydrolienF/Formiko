@@ -6,14 +6,28 @@ import fr.formiko.usual.g;
 import java.util.List;
 import java.util.ArrayList;
 
+//TODO comments
+/**
+*{@summary Graphics view where user can choose Options.}
+*@author Hydrolien
+*@lastEditedVersion 2.30
+*/
 public class FPanelOptions extends FPanel {
   private List<FPanelOptionsTab> tabList;
   private int currentTabId;
   // CONSTRUCTORS --------------------------------------------------------------
+  /**
+  *{@summary Default empty constructor hide.}
+  *@lastEditedVersion 2.30
+  */
   public FPanelOptions(){
     super();
     setVisible(false);
   }
+  /**
+  *{@summary Build this by adding tab.}
+  *@lastEditedVersion 2.30
+  */
   public void ini(){
     List<String> catList = Main.getFop().getListOfCat();
     tabList = new ArrayList<FPanelOptionsTab>(catList.size());
@@ -21,7 +35,7 @@ public class FPanelOptions extends FPanel {
       FPanelOptionsTab pot = new FPanelOptionsTab(cat);
       tabList.add(pot);
       add(pot);
-      pot.centerInParent();
+      // pot.centerInParent();
     }
   }
   // GET SET -------------------------------------------------------------------
@@ -38,7 +52,9 @@ public class FPanelOptions extends FPanel {
     }
   }
   // FUNCTIONS -----------------------------------------------------------------
-
+  public String toString(){
+    return super.toString() + "\nSelected:"+currentTabId+ "\n{" + tabList + "}";
+  }
   // SUB-CLASS -----------------------------------------------------------------
   class FPanelOptionsTab extends FPanel {
     private List<FPanelOptionItem> opiList;
@@ -52,6 +68,9 @@ public class FPanelOptions extends FPanel {
       }
       setSize(getItemWidth(), (getItemHeight()+getBetweenItemHeight())*listKey.size());
     }
+    // public String toString(){
+    //   return super.toString()+"{"+opiList.toString()+"}";
+    // }
     public void addItem(String key, int k){
       FPanelOptionItem opi;
       opi=new FPanelOptionItemString(key, Main.getFop().getString(key));
@@ -70,9 +89,12 @@ public class FPanelOptions extends FPanel {
     }
   }
   public class FPanelOptionItemString extends FPanelOptionItem {
+    private FTextField textField;
     public FPanelOptionItemString(String key, String value){
       super(key);
-      // TODO add FTextField
+      textField = new FTextField(value);
+      textField.setBounds(getWidth()/2,0,getWidth()/2, getHeight());
+      add(textField);
     }
   }
 }

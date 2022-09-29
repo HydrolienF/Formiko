@@ -71,8 +71,10 @@ public class keys {
           // }else if(FPanel.getView().getPop().isVisible()){
           //     FPanel.getView().getPop().setVisible(false);
           }else{
-            FPanel.getView().setMessageDesc("");
-            FPanel.getView().getPe().setVisible(true);
+            if(FPanel.getView().getPe()!=null){
+              FPanel.getView().setMessageDesc("");
+              FPanel.getView().getPe().setVisible(true);
+            }
           }
         }else{
           // FPanel.getView().getPm().getReturnButton().doClick();

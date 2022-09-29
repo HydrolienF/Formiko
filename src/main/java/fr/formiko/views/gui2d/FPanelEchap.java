@@ -37,7 +37,11 @@ public class FPanelEchap extends FPanel{
   public void build(){
     if(estContruit()){return;}
     pop=new FPanelOptions();
-    pop.setBounds(0,0,getWidth(),getHeight());
+    int xPercentOfSCreen=70;
+    int yPercentOfSCreen=70;
+    int w = (getWidth()*xPercentOfSCreen)/100;
+    int h = (getHeight()*yPercentOfSCreen)/100;
+    pop.setBounds((getWidth()-w)/2,(getHeight()-h)/2,w,h);
     add(pop);
     //setBackground(new Color(50,50,50,100));
     getView().getPs().setSize(0,0);
@@ -67,9 +71,12 @@ public class FPanelEchap extends FPanel{
   */
   @Override
   public void paintComponent(Graphics g){
-    // TODO draw blue area also when pop is draw. (with the good size).
     Graphics2D g2d = (Graphics2D)g;
+    for (FButton b : tb) {
+      b.setVisible(!pop.isVisible());
+    }
     if(pop.isVisible()){
+      drawBackgroundAndBorder(g2d, pop.getX(), pop.getY(), pop.getWidth(), pop.getHeight());
       super.paintComponent(g);
     }else{
       try {
@@ -84,13 +91,31 @@ public class FPanelEchap extends FPanel{
         g2d.setColor(new Color(20,20,255));
         g2d.setStroke(new BasicStroke(Main.getTailleElementGraphique(3)));
         g2d.drawRect(-bordure+xCentré,-bordure+yCentré,2*bordure+(Main.getDimX()/4),2*bordure+tailleY);
+        //TODO use drawBackgroundAndBorder()
         for (int i=0;i<lentb ;i++ ) {
           tb[i].setBounds(xCentré,yCentré+(int)(FButton.getDimY()*i*1.5),Main.getDimX()/4,FButton.getDimY());
         }
       }catch (Exception e) {
-        erreur.alerte("something when wrong when drawing component");
+        erreur.alerte("something when wrong when drawing FPanelEchap");
       }
     }
+  }
+  /**
+  *{@summary Draw green background and blue border.}<br>
+  *@param g2d graphic to use
+  *@param xsc x of the sub component to decorate
+  *@param ysc y of the sub component to decorate
+  *@param widthsc width of the sub component to decorate
+  *@param heightsc height of the sub component to decorate
+  *@lastEditedVersion 2.30
+  */
+  private void drawBackgroundAndBorder(Graphics2D g2d, int xsc, int ysc, int wsc, int hsc){
+    g2d.setColor(new Color(0,250,255));
+    int extraSpace = Main.getTailleElementGraphique(10);
+    g2d.fillRect(xsc-extraSpace, ysc-extraSpace, wsc+extraSpace*2, hsc+extraSpace*2);
+    g2d.setColor(new Color(20,20,255));
+    g2d.setStroke(new BasicStroke(Main.getTailleElementGraphique(3)));
+    g2d.drawRect(xsc-extraSpace, ysc-extraSpace, wsc+extraSpace*2, hsc+extraSpace*2);
   }
   /**
   *{@summary Set FPanelEchap visible.}<br>
@@ -157,7 +182,10 @@ public class FPanelEchap extends FPanel{
     String s=opane.getContent();
     return str.sToFileName(s);
   }
-
+  /**
+  *{@summary Show the FPanelOptions.}
+  *@lastEditedVersion 2.30
+  */
   public void showPop(){
     pop.ini();
     pop.setCurrentTabId(0);
