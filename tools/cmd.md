@@ -139,3 +139,14 @@ mvn dependency:purge-local-repository -DactTransitively=false
 
 # clean maven cache
 mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false
+
+# Signing key for github
+On Windows agent for singing may requier to be launch :
+gpg-connect-agent reloadagent /bye
+Key can be RSA (sign only), need to be add on github GPG Key & set on git config :
+Generate key:
+gpg --full-generate-key
+List existing key:
+gpg --list-secret-keys --keyid-format=long
+Set on git global config.
+git config --global user.signingkey [key short name]
