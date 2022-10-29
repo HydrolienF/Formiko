@@ -42,7 +42,7 @@ public class FIntField extends JFormattedTextField {
       */
       @Override
       public Object stringToValue(String text) throws ParseException {
-        if(text.equals("")){return null;}
+        if("".equals(text)){return null;}
         else{return super.stringToValue(text);}
       }
     };

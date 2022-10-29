@@ -17,6 +17,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Locale;
 import java.util.Properties;
+import java.util.List;
+import java.util.LinkedList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.TreeSet;
 
 /**
 *{@summary Options class.}<br>
@@ -25,7 +32,7 @@ import java.util.Properties;
 *@lastEditedVersion 2.30
 */
 public class FOptions extends fr.formiko.usual.Options {
-  private String FILE_NAME="FOptions.md";
+  private String FILE_NAME="Options.md";
 
   private Font fontText;
   private Font fontTitle;
@@ -46,10 +53,25 @@ public class FOptions extends fr.formiko.usual.Options {
     loadFromFile(Main.getFolder().getFolderMain()+FILE_NAME);
   }
   // GET SET -------------------------------------------------------------------
-  public Font getFontText(){ return fontText;}
-  public Font getFontText(Double d){Font fTemp = new Font(Main.getFop().getString("fontText"),Font.PLAIN,(int)(Main.getFop().getInt("fontSizeText")*d)); return fTemp;}
+  /**
+  *{@summary Return the font for text.}
+  *It will be set if it haven't been set yet.
+  *@lastEditedVersion 2.30
+  */
+  public Font getFontText(){
+    if(fontText==null){fontText=new Font(getString("fontText"),Font.PLAIN,getInt("fontSizeText"));}
+    return fontText;
+  }
+  public Font getFontText(Double d){Font fTemp = new Font(getString("fontText"),Font.PLAIN,(int)(getInt("fontSizeText")*d)); return fTemp;}
   public void setFontText(Font f){fontText=f;}
-  public Font getFontTitle(){return fontTitle;}
+  /**
+  *{@summary Return the font for title.}
+  *It will be set if it haven't been set yet.
+  *@lastEditedVersion 2.30
+  */
+  public Font getFontTitle(){
+    if(fontTitle==null){fontTitle=new Font(getString("fontTitle"),Font.PLAIN,getInt("fontSizeTitle"));}
+    return fontTitle;}
   /**
   *{@summary Return a font that can display given String.}
   *@param stringToDisplay String to test displayability.
@@ -59,7 +81,7 @@ public class FOptions extends fr.formiko.usual.Options {
     if(getFontTitle()==null){return getFontText();}
     if(stringToDisplay==null){return getFontTitle();}
     for (char c : stringToDisplay.toCharArray()) {
-      if(!getFontTitle().canDisplay(c)){return getFontText().deriveFont((float)Main.getFop().getInt("fontSizeTitle"));}
+      if(!getFontTitle().canDisplay(c)){return getFontText().deriveFont((float)getInt("fontSizeTitle"));}
     }
     return getFontTitle();
   }
@@ -76,7 +98,7 @@ public class FOptions extends fr.formiko.usual.Options {
       if(!isParameter(key)){
         String cat = getString(key+".cat");
         String mainCat=cat.split("_")[0];
-        if(!cat.equals("")){
+        if(!cat.equals("") && !isHide(key)){
           propertiesList+=getCatColor(mainCat);
         }
         propertiesList+=key+"="+getString(key);
@@ -112,17 +134,6 @@ public class FOptions extends fr.formiko.usual.Options {
     };
   }
   /**
-  *{@summary Return true if key is a parameter of an other key.}<br>
-  *@lastEditedVersion 2.30
-  */
-  private boolean isParameter(String key){
-    return (key.endsWith(".max")
-        || key.endsWith(".min")
-        || key.endsWith(".maxlen")
-        || key.endsWith(".minlen")
-        || key.endsWith(".cat"));
-  }
-  /**
   *{@summary Initialize properties with default values.}<br>
   *@lastEditedVersion 2.30
   */
@@ -149,8 +160,8 @@ public class FOptions extends fr.formiko.usual.Options {
     set("language", Locale.getDefault().getLanguage(), "game");
     set("pseudo", "", "game");
     set("whaitBeforeLaunchGame", true, "game");
-    set("discordRP", false, "game");
-    set("lastCheckedVersion", "0.0.0", "game", 5, null);
+    set("discordRP", false, "game", true);
+    set("lastCheckedVersion", "0.0.0", "game", true);
     set("animationEnable", true, "gui_global");
     set("dateFormat", "yyyy/MM/dd HH:mm:ss", "gui_global");
     set("borderButtonSize", 4, "gui_global", 0, null);
@@ -168,12 +179,12 @@ public class FOptions extends fr.formiko.usual.Options {
       fs=false;
     }
     set("fullscreen", fs, "gui_global");
-    set("buttonSizeTX", (int)(80*racio), "gui_hide", 0, null);
-    set("buttonSizeZoom", (int)(80*racio), "gui_hide", 0, null);
-    set("keepFilesRotated", true, "gui_hide");
-    set("loadingDuringMenus", true, "gui_hide");
-    set("modeFPS", true, "gui_hide");
-    set("positionSquare", 0, "gui_hide", 0, null);
+    set("buttonSizeTX", (int)(80*racio), "gui_hide", 0, null, true);
+    set("buttonSizeZoom", (int)(80*racio), "gui_hide", 0, null, true);
+    set("keepFilesRotated", true, "gui_hide", true);
+    set("loadingDuringMenus", true, "gui_hide", true);
+    set("modeFPS", true, "gui_hide", true);
+    set("positionSquare", 0, "gui_hide", 0, null, true);
     set("drawAllyCreatures", true, "gui_partie");
     set("drawEnemyCreatures", true, "gui_partie");
     set("drawNeutralCreatures", true, "gui_partie");
@@ -187,12 +198,12 @@ public class FOptions extends fr.formiko.usual.Options {
     set("realisticSize", 30, "gui_partie", 0, 100);
     set("sizeOfMapLines", 2, "gui_partie", 0, 10);
     set("followAntAtStartTurn", true, "gui_partie");
-    set("antColorLevel", 1, "gui_pgo", 0, 2);
-    set("drawAllAnthillColor", false, "gui_pgo");
-    set("drawGrid", true, "gui_pgo");
-    set("drawPlayerMessagePanel", true, "gui_pgo");
-    set("drawRelationsIcons", true, "gui_pgo");
-    set("drawStatesIconsLevel", 1, "gui_pgo", 0, 4);
+    set("antColorLevel", 1, "gui_pgo", 0, 2, true);
+    set("drawAllAnthillColor", false, "gui_pgo", true);
+    set("drawGrid", true, "gui_pgo", true);
+    set("drawPlayerMessagePanel", true, "gui_pgo", true);
+    set("drawRelationsIcons", true, "gui_pgo", true);
+    set("drawStatesIconsLevel", 1, "gui_pgo", 0, 4, true);
     set("autoCleaning", true, "partie");
     set("music", true, "sounds");
     set("musicVolume", 50, "sounds", 0, 100);
@@ -227,15 +238,35 @@ public class FOptions extends fr.formiko.usual.Options {
 
   /**
   *{@summary Save properties of the Options.}<br>
-  *@lastEditedVersion 1.34
+  *It save only editable properties.
+  *@lastEditedVersion 2.30
   */
   private void saveProperties(){
     try {
+      Main.startCh();
       OutputStream os = Files.newOutputStream(Path.of(Main.getFolder().getFolderMain()+FILE_NAME));
-      getProperties().store(os,"**Options file**\nEvery value can be edit here but variable have specific type. For example instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that should be in [0,100]. Most value should be out of interval save. But you may need to reset Options to default value by deleting this file if something goes wrong.");
+      Properties toSave = getEditableProperties();
+      Main.endCh("filterProperties");
+      Main.startCh();
+      toSave.store(os,"**Options file**\nEvery value can be edit here but variable have specific type. For example instantaneousMovement can only be set to true or false. Some value also need to be in a specific interval as musicVolume that should be in [0,100]. Most value should be out of interval save. But you may need to reset Options to default value by deleting this file if something goes wrong.");
+      Main.endCh("saveProperties");
     }catch (IOException e) {
-      erreur.erreur("Impossible de sauvegarder les options","Options par défaut choisie");
+      erreur.erreur("Unable to save options","Default option will be choose");
     }
+  }
+  /**
+  *{@summary Return the property that can be edited.}<br>
+  *@lastEditedVersion 2.30
+  */
+  private Properties getEditableProperties(){
+    Properties editableProperties = new Properties();
+    for (Object okey : getProperties().keySet()) {
+      String key=okey.toString();
+      if(!isParameter(key)){
+        editableProperties.put(key, getString(key));
+      }
+    }
+    return editableProperties;
   }
 
   /**
@@ -301,5 +332,46 @@ public class FOptions extends fr.formiko.usual.Options {
       String key=okey.toString();
       set(key, getString(key));
     }
+  }
+
+  /**
+  *{@summary Return the sorted list of all visible &#38; non parameter key for this cat.}<br>
+  *@param cat name of the category
+  *@lastEditedVersion 2.30
+  */
+  public List<String> getListKeyFromCat(String cat){
+    LinkedList<String> list = new LinkedList<String>();
+    if(cat==null){return list;}
+    for (Object okey : getProperties().keySet()) {
+      String key=okey.toString();
+      //not a parameter, not hide & in cat :
+      if(!isParameter(key) && !isHide(key) && cat.equals(getString(key+".cat"))){
+        list.add(key);
+      }
+    }
+    return list;
+  }
+  /**
+  *{@summary Return the sorted list of all cat.}<br>
+  *@lastEditedVersion 2.30
+  */
+  @SuppressWarnings("unchecked") //I know that it is a Set<String>
+  public List<String> getListOfCat(){
+    TreeSet<String> set = new TreeSet<String>();
+    for (Object okey : getProperties().keySet()) {
+      String key=okey.toString();
+      if(key.endsWith(".cat")){
+        set.add(getString(key));
+      }
+    }
+    return new ArrayList(set);
+  }
+  /**
+  *{@summary Return true if this key is hide.}<br>
+  *@param key name of the option
+  *@lastEditedVersion 2.30
+  */
+  public boolean isHide(String key){
+    return Boolean.parseBoolean(getString(key+".hide"));
   }
 }

@@ -87,6 +87,7 @@ public class ViewGUI2d implements View {
   public FPanelSup getPs(){if(getPj()!=null){return getPj().getPs();}else{return null;}}
   public FPanelSupDialog getPsd(){if(getPj()!=null){return getPj().getPsd();}else{return null;}}
   public FPanelEchap getPe(){if(getPj()!=null){return getPj().getPe();}else{return null;}}
+  // public FPanelOptions getPop(){if(getPj()!=null){return getPj().getPop();}else{return null;}}
   public FPanelDialogue getPd(){if(getPj()==null){return null;} return getPj().getPd();}
   public FPanelDialogueInf getPdi(){return getPj().getPdi();}
   public FPanelMiniMapContainer getPmmc(){if(getPb()==null){return null;} return getPb().getPmmc();}
@@ -252,10 +253,11 @@ public class ViewGUI2d implements View {
   */
   public boolean menuOptions(){
     // if(actionGameOn){action.retournerAuMenu();}
-    actionGameOn=false;
-    DiscordIntegration.setNeedToUpdateActivity(true);
-    if(f==null || getPm()==null){ini();}
-    erreur.erreurPasEncoreImplemente();
+    // actionGameOn=false;
+    // DiscordIntegration.setNeedToUpdateActivity(true);
+    // if(f==null || getPm()==null){ini();}
+    // erreur.erreurPasEncoreImplemente();
+    getPe().showPop();
     return true;
   }
   /**

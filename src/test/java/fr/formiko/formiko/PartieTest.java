@@ -96,7 +96,7 @@ public class PartieTest extends TestCaseMuet{
     Main.initialisation();
     Carte mapo = new Carte("miniWorld");
     p = new Partie(0,100,mapo,1);
-    assertTrue(!p.equals(null));
+    assertTrue(p!=null);
     assertTrue(!p.equals(new Object()));
     assertTrue(!p.equals(new Point(0,0)));
     assertTrue(!p.equals(new Partie()));

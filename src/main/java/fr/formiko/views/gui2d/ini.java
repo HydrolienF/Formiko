@@ -34,7 +34,7 @@ public class ini {
   }
   /**
   *{@summary Initialize empty FPanel of the Action game &#39; sub panel.}<br>
-  *@lastEditedVersion 2.12
+  *@lastEditedVersion 2.30
   */
   public static void initializeFPanelJeuAndSubpanel(){
     if(FPanel.getView().getPj()!=null){
@@ -44,6 +44,7 @@ public class ini {
     FPanel.getView().getPj().setBounds(0,0,Main.getDimX(),Main.getDimY());
     //pp have it's 2 subpanel
     FPanel.getView().getPj().addPe();//add empty panel at 1a plan.
+    // FPanel.getView().getPj().addPop();
     FPanel.getView().getPj().addPch();
     FPanel.getView().getPj().addPsd();
     FPanel.getView().getPj().addPfp();//add empty panel.

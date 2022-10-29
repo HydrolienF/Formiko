@@ -40,6 +40,6 @@ public class TrophallaxieNull implements Serializable, Trophallaxie {
   */
   public int [] getCreatureQuiOnFaim(int t [], Creature c){
     trophallaxie(c,(Creature) null, -1);
-    return null;
+    return new int[0];
   }
 }

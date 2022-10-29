@@ -87,4 +87,15 @@ public class FPanel extends JPanel {
       super.remove(c);
     }
   }
+  /**
+  *{@summary Center this on parent component.}<br>
+  *@lastEditedVersion 2.30
+  */
+  public void centerInParent(){
+    if(getParent()==null){
+      erreur.alerte("can't center component with null parent.");
+    }else{
+      setLocation((getParent().getWidth()-getWidth())/2,(getParent().getHeight()-getHeight())/2);
+    }
+  }
 }

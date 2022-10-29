@@ -229,10 +229,10 @@ public class Fourmi extends Creature implements Serializable{
   */
   public int getMaxAgeIndividu(int especeTempId, int stadeTemp){ // b vas de -3 oeuf a 0 imago
     Individu in2;
-    if(especeTempId!=100){
-      in2 = e.getIndividuByType(especeTempId);
-    }else{
+    if(especeTempId==100){
       in2 = getIndividu();
+    }else{
+      in2 = e.getIndividuByType(especeTempId);
     }
     if(in2==null){erreur.erreur("L'individu de stade "+especeTempId+" n'as pas été trouvé.");in2 = getIndividu();}
     return (int)((double)(in2.getMaxAge(stadeTemp+3)*getMultiplicateurDeDiff()));
@@ -256,8 +256,7 @@ public class Fourmi extends Creature implements Serializable{
     //on évite les dépassements.
     if(diff>3){diff=3;}
     else if(diff<0.2){diff=0.2;}
-    double x = diff*vit;
-    return x;
+    return diff*vit;
   }
   /**
   *{@summary Return the limit where the ant migth died by infection.}<br>

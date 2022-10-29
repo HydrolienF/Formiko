@@ -89,11 +89,11 @@ public class TrophallaxieFourmiTest extends TestCaseMuet{
     //sans ressemblance phéromonale
     t = i2.getAlliéSurLaSquareSansThis().toTId();
     r = i2.trophallaxie.getCreatureQuiOnFaim(t,f);
-    assertTrue(r==null);
+    assertTrue(r.length==0);
     //avec ressemblance phéromonale.
     i2.setPheromone(new Pheromone(0,0,0));
     t = i2.getAlliéSurLaSquareSansThis().toTId();
     r = i2.trophallaxie.getCreatureQuiOnFaim(t,f);
-    assertTrue(r==null);
+    assertTrue(r.length==0);
   }
 }
