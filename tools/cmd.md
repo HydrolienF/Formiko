@@ -147,3 +147,10 @@ Example syntax:
 gh label clone HydrolienF/Formiko --repo HydrolienF/EarthCube
 
 See https://cli.github.com/manual/gh_label_clone for more information.
+
+
+Changer le propriétaire d'un fichier pour éviter d'avoir a sudo a chaque fois.
+sudo chown hydrolien folder/
+
+Faire un pond ssh sur une machine distante.
+sshfs hydrolien@lulu:folder/subfolder/ folder/
