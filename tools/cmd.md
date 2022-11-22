@@ -153,4 +153,7 @@ Changer le propriétaire d'un fichier pour éviter d'avoir a sudo a chaque fois.
 sudo chown hydrolien folder/
 
 Faire un pond ssh sur une machine distante.
-sshfs hydrolien@lulu:folder/subfolder/ folder/
+sshfs hydrolien@lulu:folder/subfolder/ folderLocal/
+
+Retirer le pond
+fusermount -u folderLocal/
