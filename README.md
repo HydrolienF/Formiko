@@ -29,14 +29,13 @@
 
 `Formiko is a game where you play as a ant queen who develops its anthill.`
 
-*Update:* https://formiko.fr/download.html
+[*Update*](https://formiko.fr/download.html)
 
-*Support & community channel:* https://discord.gg/vqvfGzf
+[*Support & community channel*](https://discord.gg/vqvfGzf)
 
-*How to play:* https://formiko.fr
+[*How to play*](https://formiko.fr)
 
-*How to contribute:*
-https://github.com/HydrolienF/Formiko/blob/master/CONTRIBUTING.md
+[*How to contribute*](https://github.com/HydrolienF/Formiko/blob/master/CONTRIBUTING.md)
 
 *how can I help in the development of the game*
 `We need graphic designers, translators, developers & above all beta testers. Contact us via the discord link to find out more.
