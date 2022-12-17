@@ -150,3 +150,10 @@ List existing key:
 gpg --list-secret-keys --keyid-format=long
 Set on git global config.
 git config --global user.signingkey [key short name]
+
+# Run invokeai to generate images.
+
+Launch anaconda prompt with powershell
+cd to the project in Downloads
+conda activate invokeai
+python scripts/invoke.py
