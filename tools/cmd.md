@@ -155,5 +155,8 @@ sudo chown hydrolien folder/
 Faire un pond ssh sur une machine distante.
 sshfs hydrolien@lulu:folder/subfolder/ folderLocal/
 
-Retirer le pond
+Retirer le pont
 fusermount -u folderLocal/
+
+afficher les modules de Java.
+java --list-modules
