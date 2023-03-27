@@ -25,7 +25,7 @@
 
 
 
-**Formiko**
+#Formiko
 
 `Formiko is a game where you play as a ant queen who develops its anthill.`
 
